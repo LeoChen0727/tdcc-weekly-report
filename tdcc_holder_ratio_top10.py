@@ -27,7 +27,7 @@ EXPECTED_COLUMNS = {
     "證券名稱": "name",
 }
 
-CODE_PATTERN = re.compile(r"^[0-9A-Z]{4,6}$")
+CODE_PATTERN = re.compile(r"^[0-9]{4}$")
 
 
 def normalize_text(text: str) -> str:
