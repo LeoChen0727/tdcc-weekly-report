@@ -9,6 +9,8 @@ import pandas as pd
 import requests
 
 TDCC_CSV_URL = "https://opendata.tdcc.com.tw/getOD.ashx?id=1-5"
+TWSE_CODE_URL = "https://isin.twse.com.tw/isin/C_public.jsp?strMode=2"
+TPEX_CODE_URL = "https://isin.twse.com.tw/isin/C_public.jsp?strMode=4"
 
 THRESHOLDS = {
     400: [12, 13, 14, 15],
@@ -33,6 +35,30 @@ CODE_PATTERN = re.compile(r"^[0-9]{4}$")
 def normalize_text(text: str) -> str:
     return text.replace("\ufeff", "").strip()
 
+
+def fetch_listed_stock_codes(url: str) -> set[str]:
+    response = requests.get(url, timeout=60)
+    response.raise_for_status()
+    tables = pd.read_html(response.text)
+
+    codes: set[str] = set()
+
+    for table in tables:
+        for col in table.columns:
+            col_name = str(col)
+            if "有價證券代號" in col_name or "股票代號" in col_name:
+                series = table[col].astype(str).map(normalize_text)
+                series = series[series.str.match(r"^[0-9]{4}$", na=False)]
+                codes.update(series.tolist())
+
+    return codes
+
+
+def get_tw_stock_code_whitelist() -> set[str]:
+    twse_codes = fetch_listed_stock_codes(TWSE_CODE_URL)
+    tpex_codes = fetch_listed_stock_codes(TPEX_CODE_URL)
+    return twse_codes | tpex_codes
+    
 
 def download_tdcc_csv(url: str, timeout: int = 60) -> bytes:
     headers = {
@@ -82,6 +108,8 @@ def tidy_tdcc(df: pd.DataFrame) -> pd.DataFrame:
         df[col] = df[col].astype(str).map(normalize_text)
 
     df = df[df["code"].str.match(CODE_PATTERN, na=False)].copy()
+    stock_code_whitelist = get_tw_stock_code_whitelist()
+    df = df[df["code"].isin(stock_code_whitelist)].copy()
 
     df["class_id"] = clean_numeric(df["class_id"]).astype("Int64")
     df["holders"] = clean_numeric(df["holders"]).fillna(0).astype(int)
