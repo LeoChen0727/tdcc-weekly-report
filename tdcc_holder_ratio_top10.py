@@ -39,7 +39,7 @@ def normalize_text(text: str) -> str:
 def fetch_listed_stock_codes(url: str) -> set[str]:
     response = requests.get(url, timeout=60)
     response.raise_for_status()
-    tables = pd.read_html(response.text)
+    tables = pd.read_html(io.StringIO(response.text))
 
     codes: set[str] = set()
 
