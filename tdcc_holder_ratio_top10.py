@@ -94,6 +94,7 @@ def tidy_tdcc(df: pd.DataFrame) -> pd.DataFrame:
         df["name"] = df["name"].astype(str).map(normalize_text)
 
     df = df[df["class_id"].between(1, 15, inclusive="both")].copy()
+    df = df[df["name"].astype(str).str.strip() != ""].copy()
     df["date"] = df["date"].astype(str).str.slice(0, 8)
 
     return df
