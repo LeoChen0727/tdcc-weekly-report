@@ -30,35 +30,49 @@ EXPECTED_COLUMNS = {
 }
 
 CODE_PATTERN = re.compile(r"^[0-9]{4}$")
+CODE_NAME_PATTERN = re.compile(r"^\s*([0-9]{4})\s+(.+?)\s*$")
 
 
 def normalize_text(text: str) -> str:
     return text.replace("\ufeff", "").strip()
 
 
-def fetch_listed_stock_codes(url: str) -> set[str]:
-    response = requests.get(url, timeout=60)
+def fetch_html(url: str, timeout: int = 60) -> str:
+    response = requests.get(
+        url,
+        timeout=timeout,
+        headers={"User-Agent": "Mozilla/5.0"},
+    )
     response.raise_for_status()
-    tables = pd.read_html(io.StringIO(response.text))
+    return response.text
 
-    codes: set[str] = set()
+
+def fetch_stock_code_name_map(url: str) -> dict[str, str]:
+    html = fetch_html(url)
+    tables = pd.read_html(io.StringIO(html))
+    code_name_map: dict[str, str] = {}
 
     for table in tables:
         for col in table.columns:
-            col_name = str(col)
-            if "有價證券代號" in col_name or "股票代號" in col_name:
-                series = table[col].astype(str).map(normalize_text)
-                series = series[series.str.match(r"^[0-9]{4}$", na=False)]
-                codes.update(series.tolist())
+            series = table[col].astype(str).map(normalize_text)
+            for value in series:
+                match = CODE_NAME_PATTERN.match(value)
+                if not match:
+                    continue
+                code = match.group(1)
+                name = match.group(2).strip()
+                if code not in code_name_map:
+                    code_name_map[code] = name
 
-    return codes
+    return code_name_map
 
 
-def get_tw_stock_code_whitelist() -> set[str]:
-    twse_codes = fetch_listed_stock_codes(TWSE_CODE_URL)
-    tpex_codes = fetch_listed_stock_codes(TPEX_CODE_URL)
-    return twse_codes | tpex_codes
-    
+def get_tw_stock_code_name_map() -> dict[str, str]:
+    code_name_map = {}
+    code_name_map.update(fetch_stock_code_name_map(TWSE_CODE_URL))
+    code_name_map.update(fetch_stock_code_name_map(TPEX_CODE_URL))
+    return code_name_map
+
 
 def download_tdcc_csv(url: str, timeout: int = 60) -> bytes:
     headers = {
@@ -101,15 +115,14 @@ def clean_numeric(series: pd.Series) -> pd.Series:
     )
 
 
-def tidy_tdcc(df: pd.DataFrame) -> pd.DataFrame:
+def tidy_tdcc(df: pd.DataFrame, stock_name_map: dict[str, str]) -> pd.DataFrame:
     df = normalize_columns(df).copy()
 
     for col in ("date", "code", "class_id", "holders", "shares", "ratio_pct"):
         df[col] = df[col].astype(str).map(normalize_text)
 
     df = df[df["code"].str.match(CODE_PATTERN, na=False)].copy()
-    stock_code_whitelist = get_tw_stock_code_whitelist()
-    df = df[df["code"].isin(stock_code_whitelist)].copy()
+    df = df[df["code"].isin(stock_name_map.keys())].copy()
 
     df["class_id"] = clean_numeric(df["class_id"]).astype("Int64")
     df["holders"] = clean_numeric(df["holders"]).fillna(0).astype(int)
@@ -120,6 +133,9 @@ def tidy_tdcc(df: pd.DataFrame) -> pd.DataFrame:
         df["name"] = ""
     else:
         df["name"] = df["name"].astype(str).map(normalize_text)
+
+    # TDCC 若沒有名稱，就用官方上市/上櫃名稱補上
+    df["name"] = df["code"].map(stock_name_map).fillna(df["name"])
 
     df = df[df["class_id"].between(1, 15, inclusive="both")].copy()
     df["date"] = df["date"].astype(str).str.slice(0, 8)
@@ -166,14 +182,11 @@ def format_pct(value: float) -> str:
     return f"{value:.2f}%"
 
 
-def format_pct_pt(value: float) -> str:
-    sign = "+" if value >= 0 else ""
-    return f"{sign}{value:.2f} pct pts"
-
-
 def main() -> int:
+    stock_name_map = get_tw_stock_code_name_map()
+
     csv_bytes = download_tdcc_csv(TDCC_CSV_URL)
-    latest_df = tidy_tdcc(load_csv_bytes(csv_bytes))
+    latest_df = tidy_tdcc(load_csv_bytes(csv_bytes), stock_name_map)
     latest_date = infer_snapshot_date(latest_df)
 
     output_dir = Path("output")
