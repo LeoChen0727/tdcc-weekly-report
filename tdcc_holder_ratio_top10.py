@@ -134,9 +134,7 @@ def tidy_tdcc(df: pd.DataFrame, stock_name_map: dict[str, str]) -> pd.DataFrame:
     else:
         df["name"] = df["name"].astype(str).map(normalize_text)
 
-    # TDCC 若沒有名稱，就用官方上市/上櫃名稱補上
     df["name"] = df["code"].map(stock_name_map).fillna(df["name"])
-
     df = df[df["class_id"].between(1, 15, inclusive="both")].copy()
     df["date"] = df["date"].astype(str).str.slice(0, 8)
 
