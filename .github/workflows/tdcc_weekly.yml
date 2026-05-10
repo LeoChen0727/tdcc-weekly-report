@@ -3,7 +3,7 @@ name: TDCC Weekly Report
 on:
   workflow_dispatch:
   schedule:
-    - cron: "5 1 * * 6"
+    - cron: "0 4 * * 6"
 
 permissions:
   contents: write
