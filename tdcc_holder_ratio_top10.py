@@ -16,6 +16,7 @@ HISTORY_DIR = OUTPUT_DIR / "history"
 README_PATH = Path("README.md")
 
 THRESHOLDS = [400, 600, 800, 1000]
+TOP_N = 20
 
 COLUMN_ALIASES = {
     "資料日期": "date",
@@ -557,7 +558,7 @@ def build_weekly_change_tables(
             table = table.sort_values(
                 ["current_pct", "code"],
                 ascending=[False, True],
-            ).head(10)
+            ).head(TOP_N)
 
             result[threshold] = table.reset_index(drop=True)
 
@@ -598,7 +599,7 @@ def build_weekly_change_tables(
         table = table.sort_values(
             ["change_pct", "current_pct", "code"],
             ascending=[False, False, True],
-        ).head(10)
+        ).head(TOP_N)
 
         result[threshold] = table.reset_index(drop=True)
 
@@ -689,15 +690,15 @@ def build_markdown_report(
         lines.append("- 比較基準日：尚無上一週資料")
         lines.append("- 篩選規則：排除 ETF / 指數商品，只保留一般上市櫃普通股")
         lines.append("")
-        lines.append("目前只能顯示最新持股比例前十名。下一次成功執行後，會自動產生週增 Top 10。")
+        lines.append("目前只能顯示最新持股比例前二十名。下一次成功執行後，會自動產生週增 Top 20。")
 
     lines.append("")
 
     for threshold in THRESHOLDS:
         if has_previous:
-            lines.append(f"## >{threshold} 張持股比例週增前十名")
+            lines.append(f"## >{threshold} 張持股比例週增前二十名")
         else:
-            lines.append(f"## >{threshold} 張最新持股比例前十名")
+            lines.append(f"## >{threshold} 張最新持股比例前二十名")
 
         lines.append("")
         lines.append(make_markdown_table(weekly_tables[threshold], has_previous=has_previous))
