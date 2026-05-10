@@ -17,6 +17,7 @@ README_PATH = Path("README.md")
 
 THRESHOLDS = [400, 600, 800, 1000]
 TOP_N = 20
+CONSECUTIVE_WEEKS = 2
 
 COLUMN_ALIASES = {
     "資料日期": "date",
@@ -48,7 +49,6 @@ COLUMN_ALIASES = {
     "張數門檻": "threshold_lots",
 }
 
-CODE_PATTERN = re.compile(r"^[0-9]{4}$")
 CODE_NAME_PATTERN = re.compile(r"^\s*([0-9]{4})\s+(.+?)\s*$")
 
 
@@ -64,11 +64,10 @@ def is_common_stock_code(code) -> bool:
     if not re.match(r"^[0-9]{4}$", code):
         return False
 
-    # 排除 00xx ETF / 指數型商品 / 受益憑證等
+    # 排除 ETF / 指數型商品 / 受益憑證等 00xx 商品
     if code.startswith("00"):
         return False
 
-    # 台股一般上市櫃個股通常為 1000~9999
     try:
         return int(code) >= 1000
     except ValueError:
@@ -533,6 +532,17 @@ def find_previous_snapshot(current_date: str) -> Optional[Path]:
     return previous_paths[-1]
 
 
+def get_recent_snapshot_paths(required_count: int) -> list[Path]:
+    snapshot_paths = []
+
+    for path in sorted(HISTORY_DIR.glob("tdcc_holder_ratio_*.csv")):
+        match = re.search(r"tdcc_holder_ratio_([0-9]{8})\.csv$", path.name)
+        if match:
+            snapshot_paths.append(path)
+
+    return snapshot_paths[-required_count:]
+
+
 def load_snapshot(path: Path) -> pd.DataFrame:
     df = pd.read_csv(path, dtype={"code": str})
     df["code"] = df["code"].map(normalize_text).str.zfill(4)
@@ -570,7 +580,6 @@ def build_weekly_change_tables(
     current = current_snapshot[current_cols].copy()
     previous = previous_snapshot[previous_cols].copy()
 
-    # 只比較本週與上週都存在的股票，避免上週缺資料被當成 0% 造成假週增。
     merged = current.merge(
         previous,
         on="code",
@@ -604,6 +613,99 @@ def build_weekly_change_tables(
         result[threshold] = table.reset_index(drop=True)
 
     return result
+
+
+def build_consecutive_increase_table() -> tuple[pd.DataFrame, str]:
+    required_count = CONSECUTIVE_WEEKS + 1
+    recent_paths = get_recent_snapshot_paths(required_count)
+
+    if len(recent_paths) < required_count:
+        message = (
+            f"歷史資料不足，至少需要 {required_count} 週 snapshot，"
+            f"目前只有 {len(recent_paths)} 週。"
+        )
+        return pd.DataFrame(), message
+
+    snapshots = []
+    dates = []
+
+    for path in recent_paths:
+        snapshot = load_snapshot(path)
+        date = get_snapshot_date(snapshot)
+        dates.append(date)
+        snapshots.append(snapshot)
+
+    base = snapshots[-1][["code", "name"]].copy()
+
+    for i, snapshot in enumerate(snapshots):
+        cols = ["code"] + [f"over_{threshold}_pct" for threshold in THRESHOLDS]
+        temp = snapshot[cols].copy()
+
+        rename_map = {
+            f"over_{threshold}_pct": f"over_{threshold}_pct_w{i}"
+            for threshold in THRESHOLDS
+        }
+        temp = temp.rename(columns=rename_map)
+
+        base = base.merge(temp, on="code", how="inner")
+
+    for threshold in THRESHOLDS:
+        for i in range(1, len(snapshots)):
+            prev_col = f"over_{threshold}_pct_w{i - 1}"
+            curr_col = f"over_{threshold}_pct_w{i}"
+            delta_col = f"delta_{threshold}_w{i}"
+
+            base[prev_col] = pd.to_numeric(base[prev_col], errors="coerce")
+            base[curr_col] = pd.to_numeric(base[curr_col], errors="coerce")
+            base[delta_col] = base[curr_col] - base[prev_col]
+
+    delta_cols = [
+        f"delta_{threshold}_w{i}"
+        for threshold in THRESHOLDS
+        for i in range(1, len(snapshots))
+    ]
+
+    table = base.dropna(subset=delta_cols).copy()
+
+    for col in delta_cols:
+        table = table[table[col] > 0].copy()
+
+    for threshold in THRESHOLDS:
+        threshold_delta_cols = [
+            f"delta_{threshold}_w{i}"
+            for i in range(1, len(snapshots))
+        ]
+
+        table[f"over_{threshold}_total_change"] = table[threshold_delta_cols].sum(axis=1)
+
+        table[f"over_{threshold}_weekly_changes"] = table[threshold_delta_cols].apply(
+            lambda row: " / ".join(format_change_pct(value) for value in row),
+            axis=1,
+        )
+
+    score_cols = [f"over_{threshold}_total_change" for threshold in THRESHOLDS]
+    table["score"] = table[score_cols].sum(axis=1)
+
+    output_cols = ["code", "name"]
+
+    for threshold in THRESHOLDS:
+        output_cols.append(f"over_{threshold}_weekly_changes")
+
+    for threshold in THRESHOLDS:
+        output_cols.append(f"over_{threshold}_total_change")
+
+    output_cols.append("score")
+
+    table = table[output_cols].copy()
+
+    table = table.sort_values(
+        ["score", "code"],
+        ascending=[False, True],
+    ).head(TOP_N)
+
+    message = f"比較區間：{' → '.join(dates)}"
+
+    return table.reset_index(drop=True), message
 
 
 def format_pct(value) -> str:
@@ -656,10 +758,44 @@ def make_markdown_table(table: pd.DataFrame, has_previous: bool) -> str:
     return "\n".join(lines)
 
 
+def make_consecutive_increase_markdown_table(table: pd.DataFrame) -> str:
+    if table.empty:
+        return "目前沒有符合條件的股票。"
+
+    lines = []
+    lines.append(
+        "| 排名 | 代號 | 名稱 | 400張近兩週變化 | 600張近兩週變化 | 800張近兩週變化 | 1000張近兩週變化 | 400累增 | 600累增 | 800累增 | 1000累增 | 綜合分數 |"
+    )
+    lines.append(
+        "|---:|---:|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|"
+    )
+
+    for idx, row in table.iterrows():
+        lines.append(
+            "| "
+            f"{idx + 1} | "
+            f"{row['code']} | "
+            f"{row['name']} | "
+            f"{row['over_400_weekly_changes']} | "
+            f"{row['over_600_weekly_changes']} | "
+            f"{row['over_800_weekly_changes']} | "
+            f"{row['over_1000_weekly_changes']} | "
+            f"{format_change_pct(row['over_400_total_change'])} | "
+            f"{format_change_pct(row['over_600_total_change'])} | "
+            f"{format_change_pct(row['over_800_total_change'])} | "
+            f"{format_change_pct(row['over_1000_total_change'])} | "
+            f"{format_change_pct(row['score'])} |"
+        )
+
+    return "\n".join(lines)
+
+
 def build_markdown_report(
     current_snapshot: pd.DataFrame,
     previous_snapshot_path: Optional[Path],
     weekly_tables: dict[int, pd.DataFrame],
+    consecutive_table: pd.DataFrame,
+    consecutive_message: str,
 ) -> str:
     latest_date = get_snapshot_date(current_snapshot)
     has_previous = previous_snapshot_path is not None
@@ -704,6 +840,14 @@ def build_markdown_report(
         lines.append(make_markdown_table(weekly_tables[threshold], has_previous=has_previous))
         lines.append("")
 
+    lines.append("## 最近兩週 400 / 600 / 800 / 1000 張連續週增股票")
+    lines.append("")
+    lines.append(f"- 條件：最近 3 份 snapshot 產生 2 次週變化，四個級距每一次週變化都必須 > 0")
+    lines.append(f"- {consecutive_message}")
+    lines.append("")
+    lines.append(make_consecutive_increase_markdown_table(consecutive_table))
+    lines.append("")
+
     lines.append("## 檔案說明")
     lines.append("")
     lines.append("- `README.md`：GitHub 首頁顯示用報表")
@@ -721,6 +865,8 @@ def write_reports(
     current_snapshot: pd.DataFrame,
     previous_snapshot_path: Optional[Path],
     weekly_tables: dict[int, pd.DataFrame],
+    consecutive_table: pd.DataFrame,
+    consecutive_message: str,
 ) -> None:
     latest_date = get_snapshot_date(current_snapshot)
 
@@ -728,6 +874,8 @@ def write_reports(
         current_snapshot=current_snapshot,
         previous_snapshot_path=previous_snapshot_path,
         weekly_tables=weekly_tables,
+        consecutive_table=consecutive_table,
+        consecutive_message=consecutive_message,
     )
 
     README_PATH.write_text(report_text, encoding="utf-8")
@@ -784,11 +932,17 @@ def main() -> int:
         previous_snapshot=previous_snapshot,
     )
 
+    print("Building consecutive increase table...")
+    consecutive_table, consecutive_message = build_consecutive_increase_table()
+    print(consecutive_message)
+
     print("Writing reports...")
     write_reports(
         current_snapshot=current_snapshot,
         previous_snapshot_path=previous_snapshot_path,
         weekly_tables=weekly_tables,
+        consecutive_table=consecutive_table,
+        consecutive_message=consecutive_message,
     )
 
     print("Done.")
