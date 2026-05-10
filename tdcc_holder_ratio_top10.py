@@ -57,6 +57,23 @@ def normalize_text(text) -> str:
     return str(text).replace("\ufeff", "").strip()
 
 
+def is_common_stock_code(code) -> bool:
+    code = normalize_text(code)
+
+    if not re.match(r"^[0-9]{4}$", code):
+        return False
+
+    # 排除 00xx ETF / 指數型商品 / 受益憑證等
+    if code.startswith("00"):
+        return False
+
+    # 台股一般上市櫃個股通常為 1000~9999
+    try:
+        return int(code) >= 1000
+    except ValueError:
+        return False
+
+
 def normalize_columns(df: pd.DataFrame) -> pd.DataFrame:
     df = df.copy()
     new_columns = {}
@@ -124,7 +141,7 @@ def fetch_stock_code_name_map(url: str) -> dict[str, str]:
                 code = match.group(1)
                 name = match.group(2).strip()
 
-                if not CODE_PATTERN.match(code):
+                if not is_common_stock_code(code):
                     continue
 
                 if not name:
@@ -134,8 +151,10 @@ def fetch_stock_code_name_map(url: str) -> dict[str, str]:
 
                 invalid_keywords = [
                     "指數",
+                    "ETF",
                     "ETN",
                     "受益證券",
+                    "受益憑證",
                     "認購",
                     "認售",
                     "牛證",
@@ -198,7 +217,7 @@ def clean_tdcc_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     df["date"] = df["date"].map(normalize_text)
 
     df["code"] = clean_code_series(df["code"])
-    df = df[df["code"].str.match(r"^[0-9]{4}$", na=False)].copy()
+    df = df[df["code"].map(is_common_stock_code)].copy()
 
     df["level"] = df["level"].map(normalize_text)
     df["ratio_pct"] = clean_ratio_series(df["ratio_pct"])
@@ -276,13 +295,13 @@ def build_holder_ratio_snapshot(
     df = tdcc_df.copy()
 
     df["code"] = clean_code_series(df["code"])
-    df = df[df["code"].str.match(r"^[0-9]{4}$", na=False)].copy()
+    df = df[df["code"].map(is_common_stock_code)].copy()
 
     valid_codes = set(stock_name_map.keys())
     df = df[df["code"].isin(valid_codes)].copy()
 
     if df.empty:
-        raise ValueError("過濾上市櫃股票後沒有資料，請檢查股票名稱對照表是否抓取失敗。")
+        raise ValueError("過濾上市櫃普通股後沒有資料，請檢查股票名稱對照表是否抓取失敗。")
 
     df["lower_lots"] = df["level"].map(parse_level_lower_bound)
     df = df.dropna(subset=["lower_lots"])
@@ -317,7 +336,7 @@ def build_holder_ratio_snapshot(
     snapshot = pd.DataFrame(rows)
 
     if snapshot.empty:
-        raise ValueError("沒有產生任何上市櫃股票持股比例資料。")
+        raise ValueError("沒有產生任何上市櫃普通股持股比例資料。")
 
     snapshot = snapshot.sort_values("code").reset_index(drop=True)
 
@@ -345,7 +364,7 @@ def build_snapshot_from_legacy_summary(
         )
 
     df["code"] = clean_code_series(df["code"])
-    df = df[df["code"].str.match(r"^[0-9]{4}$", na=False)].copy()
+    df = df[df["code"].map(is_common_stock_code)].copy()
     df = df[df["code"].isin(stock_name_map.keys())].copy()
 
     df["threshold_lots"] = pd.to_numeric(
@@ -362,9 +381,10 @@ def build_snapshot_from_legacy_summary(
     for code, group in df.groupby("code"):
         name = stock_name_map.get(code, "")
 
-        if not name:
-            if "name" in group.columns:
-                name = normalize_text(group["name"].dropna().iloc[0]) if not group["name"].dropna().empty else ""
+        if not name and "name" in group.columns:
+            non_empty_names = group["name"].dropna()
+            if not non_empty_names.empty:
+                name = normalize_text(non_empty_names.iloc[0])
 
         if not name:
             continue
@@ -379,7 +399,7 @@ def build_snapshot_from_legacy_summary(
             matched = group[group["threshold_lots"] == threshold]
 
             if matched.empty:
-                row[f"over_{threshold}_pct"] = 0.0
+                row[f"over_{threshold}_pct"] = pd.NA
             else:
                 row[f"over_{threshold}_pct"] = round(float(matched["ratio_pct"].iloc[0]), 4)
 
@@ -479,11 +499,7 @@ def bootstrap_history_from_legacy_raw_files(stock_name_map: dict[str, str]) -> N
 
         history_path = HISTORY_DIR / f"tdcc_holder_ratio_{date}.csv"
 
-        if history_path.exists():
-            print(f"History already exists, skip: {history_path}")
-            continue
-
-        print(f"Converting legacy file to history snapshot: {raw_path}")
+        print(f"Rebuilding history snapshot from legacy file: {raw_path}")
 
         try:
             snapshot = read_legacy_file_as_snapshot(raw_path, stock_name_map)
@@ -519,6 +535,7 @@ def find_previous_snapshot(current_date: str) -> Optional[Path]:
 def load_snapshot(path: Path) -> pd.DataFrame:
     df = pd.read_csv(path, dtype={"code": str})
     df["code"] = df["code"].map(normalize_text).str.zfill(4)
+    df = df[df["code"].map(is_common_stock_code)].copy()
     return df
 
 
@@ -552,10 +569,11 @@ def build_weekly_change_tables(
     current = current_snapshot[current_cols].copy()
     previous = previous_snapshot[previous_cols].copy()
 
+    # 只比較本週與上週都存在的股票，避免上週缺資料被當成 0% 造成假週增。
     merged = current.merge(
         previous,
         on="code",
-        how="left",
+        how="inner",
         suffixes=("_current", "_previous"),
     )
 
@@ -571,8 +589,10 @@ def build_weekly_change_tables(
             }
         )
 
-        table["current_pct"] = pd.to_numeric(table["current_pct"], errors="coerce").fillna(0)
-        table["previous_pct"] = pd.to_numeric(table["previous_pct"], errors="coerce").fillna(0)
+        table["current_pct"] = pd.to_numeric(table["current_pct"], errors="coerce")
+        table["previous_pct"] = pd.to_numeric(table["previous_pct"], errors="coerce")
+
+        table = table.dropna(subset=["current_pct", "previous_pct"])
         table["change_pct"] = table["current_pct"] - table["previous_pct"]
 
         table = table.sort_values(
@@ -661,11 +681,13 @@ def build_markdown_report(
 
         lines.append(f"- 比較基準日：`{previous_date}`")
         lines.append("- 排名邏輯：本週持股比例 - 上週持股比例")
+        lines.append("- 篩選規則：排除 ETF / 指數商品，只保留一般上市櫃普通股")
         lines.append("")
         lines.append("這份報表追蹤大戶持股比例週增幅，數字越高代表該級距以上持股比例增加越明顯。")
 
     else:
         lines.append("- 比較基準日：尚無上一週資料")
+        lines.append("- 篩選規則：排除 ETF / 指數商品，只保留一般上市櫃普通股")
         lines.append("")
         lines.append("目前只能顯示最新持股比例前十名。下一次成功執行後，會自動產生週增 Top 10。")
 
