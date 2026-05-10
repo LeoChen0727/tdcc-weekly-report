@@ -33,8 +33,10 @@ CODE_PATTERN = re.compile(r"^[0-9]{4}$")
 CODE_NAME_PATTERN = re.compile(r"^\s*([0-9]{4})\s+(.+?)\s*$")
 
 
-def normalize_text(text: str) -> str:
-    return text.replace("\ufeff", "").strip()
+def normalize_text(text) -> str:
+    if pd.isna(text):
+        return ""
+    return str(text).replace("\ufeff", "").strip()
 
 
 def fetch_html(url: str, timeout: int = 60) -> str:
