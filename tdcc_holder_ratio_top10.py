@@ -359,11 +359,89 @@ def make_markdown_table(table: pd.DataFrame, has_previous: bool) -> str:
     return "\n".join(lines)
 
 
+def build_markdown_report(
+    current_snapshot: pd.DataFrame,
+    previous_snapshot_path: Optional[Path],
+    weekly_tables: dict[int, pd.DataFrame],
+) -> str:
+    latest_date = get_snapshot_date(current_snapshot)
+    has_previous = previous_snapshot_path is not None
+
+    lines = []
+    lines.append("# TDCC 週增持股比例報表")
+    lines.append("")
+    lines.append(f"- 最新資料日：`{latest_date}`")
+
+    if has_previous:
+        previous_date_match = re.search(
+            r"tdcc_holder_ratio_([0-9]{8})\.csv$",
+            previous_snapshot_path.name,
+        )
+        previous_date = (
+            previous_date_match.group(1)
+            if previous_date_match
+            else previous_snapshot_path.name
+        )
+
+        lines.append(f"- 比較基準日：`{previous_date}`")
+        lines.append("- 排名邏輯：本週持股比例 - 上週持股比例")
+        lines.append("")
+        lines.append(
+            "這份報表追蹤大戶持股比例週增幅，數字越高代表該級距以上持股比例增加越明顯。"
+        )
+    else:
+        lines.append("- 比較基準日：尚無上一週資料")
+        lines.append("")
+        lines.append(
+            "這是第一次建立基準快照，因此目前只能顯示最新持股比例前十名。下一次成功執行後，會自動產生週增 Top 10。"
+        )
+
+    lines.append("")
+
+    for threshold in THRESHOLDS:
+        if has_previous:
+            lines.append(f"## >{threshold} 張持股比例週增前十名")
+        else:
+            lines.append(f"## >{threshold} 張最新持股比例前十名")
+
+        lines.append("")
+        lines.append(make_markdown_table(weekly_tables[threshold], has_previous=has_previous))
+        lines.append("")
+
+    lines.append("## 檔案說明")
+    lines.append("")
+    lines.append("- `README.md`：GitHub 首頁顯示用報表")
+    lines.append("- `output/tdcc_holder_ratio_latest.csv`：最新一次完整快照")
+    lines.append("- `output/history/`：每週歷史快照")
+    lines.append("- `output/tdcc_weekly_report_latest.md`：最新 Markdown 報表")
+    lines.append("- `output/tdcc_weekly_report_日期.md`：每週 Markdown 歷史報表")
+    lines.append("")
+
+    return "\n".join(lines)
+
+
 def write_readme(
     current_snapshot: pd.DataFrame,
     previous_snapshot_path: Optional[Path],
     weekly_tables: dict[int, pd.DataFrame],
 ) -> None:
+    latest_date = get_snapshot_date(current_snapshot)
+
+    report_text = build_markdown_report(
+        current_snapshot=current_snapshot,
+        previous_snapshot_path=previous_snapshot_path,
+        weekly_tables=weekly_tables,
+    )
+
+    # 更新 GitHub 首頁 README
+    README_PATH.write_text(report_text, encoding="utf-8")
+
+    # 同步輸出 Markdown 報表到 output
+    latest_report_path = OUTPUT_DIR / "tdcc_weekly_report_latest.md"
+    dated_report_path = OUTPUT_DIR / f"tdcc_weekly_report_{latest_date}.md"
+
+    latest_report_path.write_text(report_text, encoding="utf-8")
+    dated_report_path.write_text(report_text, encoding="utf-8")
     latest_date = get_snapshot_date(current_snapshot)
     has_previous = previous_snapshot_path is not None
 
