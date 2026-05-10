@@ -59,6 +59,11 @@ def normalize_columns(df: pd.DataFrame) -> pd.DataFrame:
     return df.rename(columns=new_columns)
 
 
+def ensure_dirs() -> None:
+    OUTPUT_DIR.mkdir(exist_ok=True)
+    HISTORY_DIR.mkdir(parents=True, exist_ok=True)
+
+
 def fetch_html(url: str, timeout: int = 60) -> str:
     response = requests.get(
         url,
@@ -129,21 +134,7 @@ def get_tw_stock_code_name_map() -> dict[str, str]:
     return code_name_map
 
 
-def fetch_tdcc_data() -> pd.DataFrame:
-    response = requests.get(
-        TDCC_URL,
-        timeout=60,
-        headers={"User-Agent": "Mozilla/5.0"},
-    )
-    response.raise_for_status()
-    response.encoding = response.apparent_encoding
-
-    text = response.text.strip()
-
-    if not text:
-        raise ValueError("TDCC 回傳資料為空。")
-
-    df = pd.read_csv(io.StringIO(text))
+def clean_tdcc_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     df = normalize_columns(df)
 
     required_columns = {"date", "code", "level", "ratio_pct"}
@@ -158,8 +149,7 @@ def fetch_tdcc_data() -> pd.DataFrame:
 
     df["date"] = df["date"].map(normalize_text)
 
-    # 只接受剛好四碼數字代號。
-    # 不用 extract 前四碼，避免 2887A、2887B 這類特別股被誤合併成 2887。
+    # 只接受剛好四碼數字，避免 2887A 被誤合併成 2887
     df["code"] = df["code"].map(normalize_text)
     df = df[df["code"].str.match(r"^[0-9]{4}$", na=False)].copy()
 
@@ -181,11 +171,40 @@ def fetch_tdcc_data() -> pd.DataFrame:
     return df
 
 
+def fetch_tdcc_data() -> pd.DataFrame:
+    response = requests.get(
+        TDCC_URL,
+        timeout=60,
+        headers={"User-Agent": "Mozilla/5.0"},
+    )
+    response.raise_for_status()
+    response.encoding = response.apparent_encoding
+
+    text = response.text.strip()
+
+    if not text:
+        raise ValueError("TDCC 回傳資料為空。")
+
+    raw_df = pd.read_csv(io.StringIO(text))
+    return clean_tdcc_dataframe(raw_df)
+
+
+def read_legacy_raw_csv(path: Path) -> pd.DataFrame:
+    last_error = None
+
+    for encoding in ["utf-8-sig", "utf-8", "cp950", "big5"]:
+        try:
+            raw_df = pd.read_csv(path, encoding=encoding)
+            return clean_tdcc_dataframe(raw_df)
+        except Exception as exc:
+            last_error = exc
+
+    raise ValueError(f"無法讀取舊 raw csv：{path}，錯誤：{last_error}")
+
+
 def parse_level_lower_bound(level: str) -> Optional[int]:
     """
-    將 TDCC 持股分級轉成最低張數。
-
-    TDCC 常見分級：
+    TDCC 持股分級：
     1  = 1-999 股
     2  = 1,000-5,000 股
     3  = 5,001-10,000 股
@@ -201,10 +220,13 @@ def parse_level_lower_bound(level: str) -> Optional[int]:
     13 = 600,001-800,000 股
     14 = 800,001-1,000,000 股
     15 = 1,000,001 股以上
-    16 = 合計，必須排除
+    16 = 合計，排除
     """
 
     level_text = normalize_text(level)
+
+    if level_text == "16":
+        return None
 
     level_code_map = {
         "1": 0,
@@ -223,9 +245,6 @@ def parse_level_lower_bound(level: str) -> Optional[int]:
         "14": 800,
         "15": 1000,
     }
-
-    if level_text == "16":
-        return None
 
     if level_text in level_code_map:
         return level_code_map[level_text]
@@ -249,7 +268,6 @@ def build_holder_ratio_snapshot(
 ) -> pd.DataFrame:
     df = tdcc_df.copy()
 
-    # 再保險一次，只接受剛好四碼數字。
     df["code"] = df["code"].map(normalize_text)
     df = df[df["code"].str.match(r"^[0-9]{4}$", na=False)].copy()
 
@@ -294,13 +312,6 @@ def build_holder_ratio_snapshot(
     if snapshot.empty:
         raise ValueError("沒有產生任何上市櫃股票持股比例資料。")
 
-    for threshold in THRESHOLDS:
-        col = f"over_{threshold}_pct"
-        abnormal = snapshot[snapshot[col] > 100]
-        if not abnormal.empty:
-            print(f"Warning: {col} has values over 100%. Sample:")
-            print(abnormal[["code", "name", col]].head(20).to_string(index=False))
-
     snapshot = snapshot.sort_values("code").reset_index(drop=True)
 
     print(f"Snapshot stock count: {len(snapshot)}")
@@ -308,11 +319,6 @@ def build_holder_ratio_snapshot(
     print(snapshot.head(10).to_string(index=False))
 
     return snapshot
-
-
-def ensure_dirs() -> None:
-    OUTPUT_DIR.mkdir(exist_ok=True)
-    HISTORY_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def get_snapshot_date(snapshot: pd.DataFrame) -> str:
@@ -324,9 +330,14 @@ def get_snapshot_date(snapshot: pd.DataFrame) -> str:
     return max(dates)
 
 
-def save_current_snapshot(snapshot: pd.DataFrame) -> Path:
-    ensure_dirs()
+def save_raw_tdcc(tdcc_df: pd.DataFrame) -> Path:
+    latest_date = tdcc_df["date"].max()
+    raw_path = OUTPUT_DIR / f"tdcc_latest_ratio_raw_{latest_date}.csv"
+    tdcc_df.to_csv(raw_path, index=False, encoding="utf-8-sig")
+    return raw_path
 
+
+def save_current_snapshot(snapshot: pd.DataFrame) -> Path:
     latest_date = get_snapshot_date(snapshot)
 
     history_path = HISTORY_DIR / f"tdcc_holder_ratio_{latest_date}.csv"
@@ -338,9 +349,52 @@ def save_current_snapshot(snapshot: pd.DataFrame) -> Path:
     return history_path
 
 
-def find_previous_snapshot(current_date: str) -> Optional[Path]:
-    ensure_dirs()
+def bootstrap_history_from_legacy_raw_files(stock_name_map: dict[str, str]) -> None:
+    """
+    把舊版 output/tdcc_latest_ratio_raw_YYYYMMDD.csv
+    轉成新版 output/history/tdcc_holder_ratio_YYYYMMDD.csv。
 
+    這樣不用等下週，現在就能用 20260430 對 20260508 做週增比較。
+    """
+
+    legacy_paths = sorted(OUTPUT_DIR.glob("tdcc_latest_ratio_raw_*.csv"))
+
+    if not legacy_paths:
+        print("No legacy raw files found.")
+        return
+
+    print(f"Legacy raw files found: {len(legacy_paths)}")
+
+    for raw_path in legacy_paths:
+        match = re.search(r"tdcc_latest_ratio_raw_([0-9]{8})\.csv$", raw_path.name)
+        if not match:
+            continue
+
+        date = match.group(1)
+        history_path = HISTORY_DIR / f"tdcc_holder_ratio_{date}.csv"
+
+        if history_path.exists():
+            print(f"History already exists, skip: {history_path}")
+            continue
+
+        print(f"Converting legacy raw file to history snapshot: {raw_path}")
+
+        try:
+            legacy_tdcc_df = read_legacy_raw_csv(raw_path)
+            snapshot = build_holder_ratio_snapshot(legacy_tdcc_df, stock_name_map)
+            snapshot_date = get_snapshot_date(snapshot)
+
+            if snapshot_date != date:
+                print(f"Warning: filename date {date} != data date {snapshot_date}")
+
+            snapshot.to_csv(history_path, index=False, encoding="utf-8-sig")
+            print(f"Saved history snapshot: {history_path}")
+
+        except Exception as exc:
+            print(f"Failed to convert legacy raw file {raw_path}: {exc}")
+
+
+def find_previous_snapshot(current_date: str) -> Optional[Path]:
     snapshot_paths = sorted(HISTORY_DIR.glob("tdcc_holder_ratio_*.csv"))
 
     previous_paths = []
@@ -534,6 +588,7 @@ def build_markdown_report(
     lines.append("- `output/history/`：每週歷史快照")
     lines.append("- `output/tdcc_weekly_report_latest.md`：最新 Markdown 報表")
     lines.append("- `output/tdcc_weekly_report_日期.md`：每週 Markdown 歷史報表")
+    lines.append("- `output/tdcc_latest_ratio_raw_日期.csv`：TDCC 原始清理資料")
     lines.append("")
 
     return "\n".join(lines)
@@ -571,14 +626,25 @@ def main() -> int:
     if not stock_name_map:
         raise ValueError("股票名稱對照表抓取失敗，stock_name_map 為空。")
 
-    print("Fetching TDCC data...")
+    print("Bootstrapping history from legacy raw files...")
+    bootstrap_history_from_legacy_raw_files(stock_name_map)
+
+    print("Fetching latest TDCC data...")
     tdcc_df = fetch_tdcc_data()
     print(f"Loaded TDCC rows: {len(tdcc_df)}")
+
+    print("Saving latest raw TDCC data...")
+    raw_path = save_raw_tdcc(tdcc_df)
+    print(f"Latest raw saved: {raw_path}")
 
     print("Building current snapshot...")
     current_snapshot = build_holder_ratio_snapshot(tdcc_df, stock_name_map)
     current_date = get_snapshot_date(current_snapshot)
     print(f"Current TDCC date: {current_date}")
+
+    print("Saving current snapshot...")
+    current_snapshot_path = save_current_snapshot(current_snapshot)
+    print(f"Current snapshot saved: {current_snapshot_path}")
 
     previous_snapshot_path = find_previous_snapshot(current_date)
 
@@ -588,10 +654,6 @@ def main() -> int:
         previous_snapshot = load_snapshot(previous_snapshot_path)
     else:
         print("No previous snapshot found. This run will create baseline report.")
-
-    print("Saving current snapshot...")
-    current_snapshot_path = save_current_snapshot(current_snapshot)
-    print(f"Current snapshot saved: {current_snapshot_path}")
 
     print("Building weekly change tables...")
     weekly_tables = build_weekly_change_tables(
