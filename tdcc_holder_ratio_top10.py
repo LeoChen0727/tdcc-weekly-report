@@ -23,19 +23,28 @@ COLUMN_ALIASES = {
     "證券代號": "code",
     "股票代號": "code",
     "代號": "code",
+    "code": "code",
     "證券名稱": "name",
     "股票名稱": "name",
     "名稱": "name",
+    "name": "name",
     "持股分級": "level",
     "持股級距": "level",
     "持股/單位數分級": "level",
     "持股/單位數分級代碼": "level",
+    "level": "level",
     "人數": "holders",
+    "holders": "holders",
     "股數": "shares",
     "持有股數": "shares",
+    "shares": "shares",
     "占集保庫存數比例%": "ratio_pct",
     "占集保庫存數比例": "ratio_pct",
     "比例": "ratio_pct",
+    "ratio_pct": "ratio_pct",
+    "threshold_lots": "threshold_lots",
+    "門檻張數": "threshold_lots",
+    "張數門檻": "threshold_lots",
 }
 
 CODE_PATTERN = re.compile(r"^[0-9]{4}$")
@@ -54,7 +63,26 @@ def normalize_columns(df: pd.DataFrame) -> pd.DataFrame:
 
     for col in df.columns:
         clean_col = normalize_text(col)
-        new_columns[col] = COLUMN_ALIASES.get(clean_col, clean_col)
+        lower_col = clean_col.lower()
+
+        if clean_col in COLUMN_ALIASES:
+            new_columns[col] = COLUMN_ALIASES[clean_col]
+        elif lower_col in COLUMN_ALIASES:
+            new_columns[col] = COLUMN_ALIASES[lower_col]
+        elif "code" in lower_col or "代號" in clean_col:
+            new_columns[col] = "code"
+        elif "name" in lower_col or "名稱" in clean_col:
+            new_columns[col] = "name"
+        elif "threshold" in lower_col or "門檻" in clean_col:
+            new_columns[col] = "threshold_lots"
+        elif "ratio" in lower_col or "比例" in clean_col:
+            new_columns[col] = "ratio_pct"
+        elif "date" in lower_col or "日期" in clean_col:
+            new_columns[col] = "date"
+        elif "level" in lower_col or "分級" in clean_col or "級距" in clean_col:
+            new_columns[col] = "level"
+        else:
+            new_columns[col] = clean_col
 
     return df.rename(columns=new_columns)
 
@@ -134,6 +162,26 @@ def get_tw_stock_code_name_map() -> dict[str, str]:
     return code_name_map
 
 
+def extract_date_from_filename(path: Path) -> Optional[str]:
+    match = re.search(r"([0-9]{8})", path.name)
+    if match:
+        return match.group(1)
+    return None
+
+
+def clean_code_series(series: pd.Series) -> pd.Series:
+    return series.map(normalize_text)
+
+
+def clean_ratio_series(series: pd.Series) -> pd.Series:
+    cleaned = (
+        series.map(normalize_text)
+        .str.replace("%", "", regex=False)
+        .str.replace(",", "", regex=False)
+    )
+    return pd.to_numeric(cleaned, errors="coerce")
+
+
 def clean_tdcc_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     df = normalize_columns(df)
 
@@ -142,26 +190,18 @@ def clean_tdcc_dataframe(df: pd.DataFrame) -> pd.DataFrame:
 
     if missing:
         raise ValueError(
-            "TDCC 欄位格式不符合預期，"
+            "TDCC 原始格式欄位不符合預期，"
             f"缺少欄位：{sorted(missing)}；"
             f"目前欄位：{list(df.columns)}"
         )
 
     df["date"] = df["date"].map(normalize_text)
 
-    # 只接受剛好四碼數字，避免 2887A 被誤合併成 2887
-    df["code"] = df["code"].map(normalize_text)
+    df["code"] = clean_code_series(df["code"])
     df = df[df["code"].str.match(r"^[0-9]{4}$", na=False)].copy()
 
     df["level"] = df["level"].map(normalize_text)
-
-    df["ratio_pct"] = (
-        df["ratio_pct"]
-        .map(normalize_text)
-        .str.replace("%", "", regex=False)
-        .str.replace(",", "", regex=False)
-    )
-    df["ratio_pct"] = pd.to_numeric(df["ratio_pct"], errors="coerce")
+    df["ratio_pct"] = clean_ratio_series(df["ratio_pct"])
 
     df = df.dropna(subset=["date", "code", "level", "ratio_pct"])
 
@@ -189,40 +229,7 @@ def fetch_tdcc_data() -> pd.DataFrame:
     return clean_tdcc_dataframe(raw_df)
 
 
-def read_legacy_raw_csv(path: Path) -> pd.DataFrame:
-    last_error = None
-
-    for encoding in ["utf-8-sig", "utf-8", "cp950", "big5"]:
-        try:
-            raw_df = pd.read_csv(path, encoding=encoding)
-            return clean_tdcc_dataframe(raw_df)
-        except Exception as exc:
-            last_error = exc
-
-    raise ValueError(f"無法讀取舊 raw csv：{path}，錯誤：{last_error}")
-
-
 def parse_level_lower_bound(level: str) -> Optional[int]:
-    """
-    TDCC 持股分級：
-    1  = 1-999 股
-    2  = 1,000-5,000 股
-    3  = 5,001-10,000 股
-    4  = 10,001-15,000 股
-    5  = 15,001-20,000 股
-    6  = 20,001-30,000 股
-    7  = 30,001-40,000 股
-    8  = 40,001-50,000 股
-    9  = 50,001-100,000 股
-    10 = 100,001-200,000 股
-    11 = 200,001-400,000 股
-    12 = 400,001-600,000 股
-    13 = 600,001-800,000 股
-    14 = 800,001-1,000,000 股
-    15 = 1,000,001 股以上
-    16 = 合計，排除
-    """
-
     level_text = normalize_text(level)
 
     if level_text == "16":
@@ -268,7 +275,7 @@ def build_holder_ratio_snapshot(
 ) -> pd.DataFrame:
     df = tdcc_df.copy()
 
-    df["code"] = df["code"].map(normalize_text)
+    df["code"] = clean_code_series(df["code"])
     df = df[df["code"].str.match(r"^[0-9]{4}$", na=False)].copy()
 
     valid_codes = set(stock_name_map.keys())
@@ -321,6 +328,111 @@ def build_holder_ratio_snapshot(
     return snapshot
 
 
+def build_snapshot_from_legacy_summary(
+    df: pd.DataFrame,
+    date: str,
+    stock_name_map: dict[str, str],
+) -> pd.DataFrame:
+    df = normalize_columns(df)
+
+    required = {"code", "threshold_lots", "ratio_pct"}
+    missing = required - set(df.columns)
+
+    if missing:
+        raise ValueError(
+            "舊版 summary 格式也不符合預期，"
+            f"缺少欄位：{sorted(missing)}；目前欄位：{list(df.columns)}"
+        )
+
+    df["code"] = clean_code_series(df["code"])
+    df = df[df["code"].str.match(r"^[0-9]{4}$", na=False)].copy()
+    df = df[df["code"].isin(stock_name_map.keys())].copy()
+
+    df["threshold_lots"] = pd.to_numeric(
+        df["threshold_lots"].map(normalize_text).str.replace(",", "", regex=False),
+        errors="coerce",
+    )
+    df["ratio_pct"] = clean_ratio_series(df["ratio_pct"])
+
+    df = df.dropna(subset=["code", "threshold_lots", "ratio_pct"])
+    df["threshold_lots"] = df["threshold_lots"].astype(int)
+
+    rows = []
+
+    for code, group in df.groupby("code"):
+        name = stock_name_map.get(code, "")
+
+        if not name:
+            if "name" in group.columns:
+                name = normalize_text(group["name"].dropna().iloc[0]) if not group["name"].dropna().empty else ""
+
+        if not name:
+            continue
+
+        row = {
+            "date": date,
+            "code": code,
+            "name": name,
+        }
+
+        for threshold in THRESHOLDS:
+            matched = group[group["threshold_lots"] == threshold]
+
+            if matched.empty:
+                row[f"over_{threshold}_pct"] = 0.0
+            else:
+                row[f"over_{threshold}_pct"] = round(float(matched["ratio_pct"].iloc[0]), 4)
+
+        rows.append(row)
+
+    snapshot = pd.DataFrame(rows)
+
+    if snapshot.empty:
+        raise ValueError("舊版 summary 轉 snapshot 後沒有資料。")
+
+    snapshot = snapshot.sort_values("code").reset_index(drop=True)
+
+    print(f"Legacy summary converted. Date={date}, stock count={len(snapshot)}")
+    print(snapshot.head(10).to_string(index=False))
+
+    return snapshot
+
+
+def read_legacy_file_as_snapshot(
+    path: Path,
+    stock_name_map: dict[str, str],
+) -> pd.DataFrame:
+    date = extract_date_from_filename(path)
+
+    if not date:
+        raise ValueError(f"檔名找不到日期：{path}")
+
+    last_error = None
+
+    for encoding in ["utf-8-sig", "utf-8", "cp950", "big5"]:
+        try:
+            raw_df = pd.read_csv(path, encoding=encoding)
+            normalized = normalize_columns(raw_df)
+
+            if {"date", "code", "level", "ratio_pct"}.issubset(set(normalized.columns)):
+                cleaned_tdcc = clean_tdcc_dataframe(raw_df)
+                return build_holder_ratio_snapshot(cleaned_tdcc, stock_name_map)
+
+            if {"code", "threshold_lots", "ratio_pct"}.issubset(set(normalized.columns)):
+                return build_snapshot_from_legacy_summary(
+                    df=raw_df,
+                    date=date,
+                    stock_name_map=stock_name_map,
+                )
+
+            raise ValueError(f"不支援的舊檔欄位格式：{list(normalized.columns)}")
+
+        except Exception as exc:
+            last_error = exc
+
+    raise ValueError(f"無法讀取舊檔：{path}，最後錯誤：{last_error}")
+
+
 def get_snapshot_date(snapshot: pd.DataFrame) -> str:
     dates = snapshot["date"].dropna().astype(str).unique()
 
@@ -350,13 +462,6 @@ def save_current_snapshot(snapshot: pd.DataFrame) -> Path:
 
 
 def bootstrap_history_from_legacy_raw_files(stock_name_map: dict[str, str]) -> None:
-    """
-    把舊版 output/tdcc_latest_ratio_raw_YYYYMMDD.csv
-    轉成新版 output/history/tdcc_holder_ratio_YYYYMMDD.csv。
-
-    這樣不用等下週，現在就能用 20260430 對 20260508 做週增比較。
-    """
-
     legacy_paths = sorted(OUTPUT_DIR.glob("tdcc_latest_ratio_raw_*.csv"))
 
     if not legacy_paths:
@@ -366,32 +471,27 @@ def bootstrap_history_from_legacy_raw_files(stock_name_map: dict[str, str]) -> N
     print(f"Legacy raw files found: {len(legacy_paths)}")
 
     for raw_path in legacy_paths:
-        match = re.search(r"tdcc_latest_ratio_raw_([0-9]{8})\.csv$", raw_path.name)
-        if not match:
+        date = extract_date_from_filename(raw_path)
+
+        if not date:
+            print(f"Skip legacy file without date: {raw_path}")
             continue
 
-        date = match.group(1)
         history_path = HISTORY_DIR / f"tdcc_holder_ratio_{date}.csv"
 
         if history_path.exists():
             print(f"History already exists, skip: {history_path}")
             continue
 
-        print(f"Converting legacy raw file to history snapshot: {raw_path}")
+        print(f"Converting legacy file to history snapshot: {raw_path}")
 
         try:
-            legacy_tdcc_df = read_legacy_raw_csv(raw_path)
-            snapshot = build_holder_ratio_snapshot(legacy_tdcc_df, stock_name_map)
-            snapshot_date = get_snapshot_date(snapshot)
-
-            if snapshot_date != date:
-                print(f"Warning: filename date {date} != data date {snapshot_date}")
-
+            snapshot = read_legacy_file_as_snapshot(raw_path, stock_name_map)
             snapshot.to_csv(history_path, index=False, encoding="utf-8-sig")
             print(f"Saved history snapshot: {history_path}")
 
         except Exception as exc:
-            print(f"Failed to convert legacy raw file {raw_path}: {exc}")
+            print(f"Failed to convert legacy file {raw_path}: {exc}")
 
 
 def find_previous_snapshot(current_date: str) -> Optional[Path]:
@@ -567,7 +667,7 @@ def build_markdown_report(
     else:
         lines.append("- 比較基準日：尚無上一週資料")
         lines.append("")
-        lines.append("這是第一次建立基準快照，因此目前只能顯示最新持股比例前十名。下一次成功執行後，會自動產生週增 Top 10。")
+        lines.append("目前只能顯示最新持股比例前十名。下一次成功執行後，會自動產生週增 Top 10。")
 
     lines.append("")
 
@@ -588,7 +688,7 @@ def build_markdown_report(
     lines.append("- `output/history/`：每週歷史快照")
     lines.append("- `output/tdcc_weekly_report_latest.md`：最新 Markdown 報表")
     lines.append("- `output/tdcc_weekly_report_日期.md`：每週 Markdown 歷史報表")
-    lines.append("- `output/tdcc_latest_ratio_raw_日期.csv`：TDCC 原始清理資料")
+    lines.append("- `output/tdcc_latest_ratio_raw_日期.csv`：TDCC 原始或舊版整理資料")
     lines.append("")
 
     return "\n".join(lines)
@@ -626,16 +726,16 @@ def main() -> int:
     if not stock_name_map:
         raise ValueError("股票名稱對照表抓取失敗，stock_name_map 為空。")
 
-    print("Bootstrapping history from legacy raw files...")
+    print("Bootstrapping history from legacy files...")
     bootstrap_history_from_legacy_raw_files(stock_name_map)
 
     print("Fetching latest TDCC data...")
     tdcc_df = fetch_tdcc_data()
     print(f"Loaded TDCC rows: {len(tdcc_df)}")
 
-    print("Saving latest raw TDCC data...")
+    print("Saving latest TDCC data...")
     raw_path = save_raw_tdcc(tdcc_df)
-    print(f"Latest raw saved: {raw_path}")
+    print(f"Latest data saved: {raw_path}")
 
     print("Building current snapshot...")
     current_snapshot = build_holder_ratio_snapshot(tdcc_df, stock_name_map)
