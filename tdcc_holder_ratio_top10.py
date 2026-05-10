@@ -28,9 +28,9 @@ COLUMN_ALIASES = {
     "名稱": "name",
     "持股分級": "level",
     "持股級距": "level",
-    "人數": "holders",
     "持股/單位數分級": "level",
     "持股/單位數分級代碼": "level",
+    "人數": "holders",
     "股數": "shares",
     "持有股數": "shares",
     "占集保庫存數比例%": "ratio_pct",
@@ -97,10 +97,8 @@ def fetch_stock_code_name_map(url: str) -> dict[str, str]:
                 if not name:
                     continue
 
-                # isin.twse 名稱後面可能會接市場別、產業別等資訊，先切掉多餘空白
                 name = name.split()[0].strip()
 
-                # 排除明顯不是一般股票的項目
                 invalid_keywords = [
                     "指數",
                     "ETN",
@@ -159,7 +157,12 @@ def fetch_tdcc_data() -> pd.DataFrame:
         )
 
     df["date"] = df["date"].map(normalize_text)
-    df["code"] = df["code"].map(normalize_text).str.extract(r"([0-9]{4})", expand=False)
+
+    # 只接受剛好四碼數字代號。
+    # 不用 extract 前四碼，避免 2887A、2887B 這類特別股被誤合併成 2887。
+    df["code"] = df["code"].map(normalize_text)
+    df = df[df["code"].str.match(r"^[0-9]{4}$", na=False)].copy()
+
     df["level"] = df["level"].map(normalize_text)
 
     df["ratio_pct"] = (
@@ -171,7 +174,6 @@ def fetch_tdcc_data() -> pd.DataFrame:
     df["ratio_pct"] = pd.to_numeric(df["ratio_pct"], errors="coerce")
 
     df = df.dropna(subset=["date", "code", "level", "ratio_pct"])
-    df = df[df["code"].str.match(r"^[0-9]{4}$", na=False)]
 
     if df.empty:
         raise ValueError("TDCC 清理後沒有有效資料。")
@@ -228,7 +230,6 @@ def parse_level_lower_bound(level: str) -> Optional[int]:
     if level_text in level_code_map:
         return level_code_map[level_text]
 
-    # 如果未來 TDCC 改成文字級距，就用文字解析
     numbers = re.findall(r"[0-9,]+", level_text)
 
     if not numbers:
@@ -236,7 +237,6 @@ def parse_level_lower_bound(level: str) -> Optional[int]:
 
     first_number = int(numbers[0].replace(",", ""))
 
-    # 若是股數，換算成張數；若已經是張數，直接回傳
     if first_number >= 1000:
         return first_number // 1000
 
@@ -249,12 +249,10 @@ def build_holder_ratio_snapshot(
 ) -> pd.DataFrame:
     df = tdcc_df.copy()
 
-    df["code"] = df["code"].map(normalize_text).str.extract(r"([0-9]{4})", expand=False)
-    df = df.dropna(subset=["code"])
-    df = df[df["code"].str.match(r"^[0-9]{4}$", na=False)]
+    # 再保險一次，只接受剛好四碼數字。
+    df["code"] = df["code"].map(normalize_text)
+    df = df[df["code"].str.match(r"^[0-9]{4}$", na=False)].copy()
 
-    # 只保留上市櫃股票名稱清單中存在的代號。
-    # 這可以排除 0002、0005、0007 這種非一般股票代號。
     valid_codes = set(stock_name_map.keys())
     df = df[df["code"].isin(valid_codes)].copy()
 
@@ -295,6 +293,13 @@ def build_holder_ratio_snapshot(
 
     if snapshot.empty:
         raise ValueError("沒有產生任何上市櫃股票持股比例資料。")
+
+    for threshold in THRESHOLDS:
+        col = f"over_{threshold}_pct"
+        abnormal = snapshot[snapshot[col] > 100]
+        if not abnormal.empty:
+            print(f"Warning: {col} has values over 100%. Sample:")
+            print(abnormal[["code", "name", col]].head(20).to_string(index=False))
 
     snapshot = snapshot.sort_values("code").reset_index(drop=True)
 
