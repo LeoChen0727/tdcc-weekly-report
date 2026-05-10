@@ -72,3 +72,4 @@
 - `output/history/`：每週歷史快照
 - `output/tdcc_weekly_report_latest.md`：最新 Markdown 報表
 - `output/tdcc_weekly_report_日期.md`：每週 Markdown 歷史報表
+- `output/tdcc_latest_ratio_raw_日期.csv`：TDCC 原始清理資料
