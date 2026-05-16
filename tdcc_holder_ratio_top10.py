@@ -7,7 +7,11 @@ import pandas as pd
 import requests
 
 
-TDCC_URL = "https://smart.tdcc.com.tw/opendata/getOD.ashx?id=1-5"
+TDCC_URLS = [
+    "https://opendata.tdcc.com.tw/getOD.ashx?id=1-5",
+    "https://smart.tdcc.com.tw/opendata/getOD.ashx?id=1-5",
+]
+
 TWSE_CODE_URL = "https://isin.twse.com.tw/isin/C_public.jsp?strMode=2"
 TPEx_CODE_URL = "https://isin.twse.com.tw/isin/C_public.jsp?strMode=4"
 
@@ -64,7 +68,6 @@ def is_common_stock_code(code) -> bool:
     if not re.match(r"^[0-9]{4}$", code):
         return False
 
-    # 排除 ETF / 指數型商品 / 受益憑證等 00xx 商品
     if code.startswith("00"):
         return False
 
@@ -230,11 +233,17 @@ def clean_tdcc_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def fetch_tdcc_data() -> pd.DataFrame:
+def fetch_tdcc_data_from_url(url: str) -> tuple[pd.DataFrame, str, str]:
+    print(f"Fetching TDCC data from: {url}")
+
     response = requests.get(
-        TDCC_URL,
+        url,
         timeout=60,
-        headers={"User-Agent": "Mozilla/5.0"},
+        headers={
+            "User-Agent": "Mozilla/5.0",
+            "Cache-Control": "no-cache",
+            "Pragma": "no-cache",
+        },
     )
     response.raise_for_status()
     response.encoding = response.apparent_encoding
@@ -242,10 +251,56 @@ def fetch_tdcc_data() -> pd.DataFrame:
     text = response.text.strip()
 
     if not text:
-        raise ValueError("TDCC 回傳資料為空。")
+        raise ValueError(f"TDCC 回傳資料為空：{url}")
 
     raw_df = pd.read_csv(io.StringIO(text))
-    return clean_tdcc_dataframe(raw_df)
+    df = clean_tdcc_dataframe(raw_df)
+    latest_date = df["date"].max()
+
+    print(f"TDCC source date from {url}: {latest_date}")
+
+    return df, latest_date, url
+
+
+def fetch_tdcc_data() -> tuple[pd.DataFrame, str]:
+    candidates = []
+    errors = []
+
+    for url in TDCC_URLS:
+        try:
+            df, latest_date, source_url = fetch_tdcc_data_from_url(url)
+            candidates.append(
+                {
+                    "df": df,
+                    "date": latest_date,
+                    "url": source_url,
+                    "rows": len(df),
+                }
+            )
+        except Exception as exc:
+            errors.append(f"{url}: {exc}")
+            print(f"Failed to fetch TDCC source: {url}")
+            print(exc)
+
+    if not candidates:
+        raise ValueError("所有 TDCC 資料來源都抓取失敗：" + " | ".join(errors))
+
+    candidates = sorted(
+        candidates,
+        key=lambda item: (str(item["date"]), int(item["rows"])),
+        reverse=True,
+    )
+
+    best = candidates[0]
+
+    print("TDCC source candidates:")
+    for item in candidates:
+        print(f"- date={item['date']}, rows={item['rows']}, url={item['url']}")
+
+    print(f"Selected TDCC source: {best['url']}")
+    print(f"Selected TDCC date: {best['date']}")
+
+    return best["df"], best["url"]
 
 
 def parse_level_lower_bound(level: str) -> Optional[int]:
@@ -796,6 +851,7 @@ def build_markdown_report(
     weekly_tables: dict[int, pd.DataFrame],
     consecutive_table: pd.DataFrame,
     consecutive_message: str,
+    tdcc_source_url: str,
 ) -> str:
     latest_date = get_snapshot_date(current_snapshot)
     has_previous = previous_snapshot_path is not None
@@ -804,6 +860,7 @@ def build_markdown_report(
     lines.append("# TDCC 週增持股比例報表")
     lines.append("")
     lines.append(f"- 最新資料日：`{latest_date}`")
+    lines.append(f"- TDCC 資料來源：`{tdcc_source_url}`")
 
     if has_previous:
         previous_date_match = re.search(
@@ -842,7 +899,7 @@ def build_markdown_report(
 
     lines.append("## 最近兩週 400 / 600 / 800 / 1000 張連續週增股票")
     lines.append("")
-    lines.append(f"- 條件：最近 3 份 snapshot 產生 2 次週變化，四個級距每一次週變化都必須 > 0")
+    lines.append("- 條件：最近 3 份 snapshot 產生 2 次週變化，四個級距每一次週變化都必須 > 0")
     lines.append(f"- {consecutive_message}")
     lines.append("")
     lines.append(make_consecutive_increase_markdown_table(consecutive_table))
@@ -867,6 +924,7 @@ def write_reports(
     weekly_tables: dict[int, pd.DataFrame],
     consecutive_table: pd.DataFrame,
     consecutive_message: str,
+    tdcc_source_url: str,
 ) -> None:
     latest_date = get_snapshot_date(current_snapshot)
 
@@ -876,6 +934,7 @@ def write_reports(
         weekly_tables=weekly_tables,
         consecutive_table=consecutive_table,
         consecutive_message=consecutive_message,
+        tdcc_source_url=tdcc_source_url,
     )
 
     README_PATH.write_text(report_text, encoding="utf-8")
@@ -900,9 +959,10 @@ def main() -> int:
     print("Bootstrapping history from legacy files...")
     bootstrap_history_from_legacy_raw_files(stock_name_map)
 
-    print("Fetching latest TDCC data...")
-    tdcc_df = fetch_tdcc_data()
+    print("Fetching latest TDCC data from multiple sources...")
+    tdcc_df, tdcc_source_url = fetch_tdcc_data()
     print(f"Loaded TDCC rows: {len(tdcc_df)}")
+    print(f"Selected TDCC source URL: {tdcc_source_url}")
 
     print("Saving latest TDCC data...")
     raw_path = save_raw_tdcc(tdcc_df)
@@ -943,6 +1003,7 @@ def main() -> int:
         weekly_tables=weekly_tables,
         consecutive_table=consecutive_table,
         consecutive_message=consecutive_message,
+        tdcc_source_url=tdcc_source_url,
     )
 
     print("Done.")
