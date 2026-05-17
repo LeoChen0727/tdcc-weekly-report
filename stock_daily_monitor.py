@@ -18,6 +18,9 @@ BREAKOUT_CSV_PATH = LATEST_DIR / "breakout_latest.csv"
 REVENUE_PULLBACK_CSV_PATH = LATEST_DIR / "revenue_pullback_latest.csv"
 PULLBACK_REBOUND_CSV_PATH = LATEST_DIR / "pullback_rebound_latest.csv"
 
+TDCC_LATEST_PATH = LATEST_DIR / "tdcc_holder_ratio_latest.csv"
+TDCC_HISTORY_DIR = OUTPUT_DIR / "history" / "tdcc"
+
 MIN_VOLUME_LOTS = 1000
 
 
@@ -563,6 +566,213 @@ def find_pullback_rebound_candidates(revenue_pullback_df):
     return result.reset_index(drop=True)
 
 
+
+def load_tdcc_latest():
+    """
+    讀取最新 TDCC 週資料，並與前一期比較。
+
+    目前 TDCC 欄位：
+    - date
+    - code
+    - name
+    - over_400_pct
+    - over_600_pct
+    - over_800_pct
+    - over_1000_pct
+
+    目前沒有 100 張以上資料，所以先用：
+    over_400_pct = 中大戶以上 proxy
+    over_1000_pct = 超大戶 proxy
+    """
+    tdcc_cols = [
+        "ticker",
+        "tdcc_date",
+        "tdcc_over_400_pct",
+        "tdcc_over_400_change",
+        "tdcc_over_1000_pct",
+        "tdcc_over_1000_change",
+        "tdcc_judge",
+    ]
+
+    if not TDCC_LATEST_PATH.exists():
+        return pd.DataFrame(columns=tdcc_cols)
+
+    try:
+        latest_df = pd.read_csv(TDCC_LATEST_PATH, dtype={"code": str})
+    except Exception as e:
+        print(f"TDCC latest read failed: {e}")
+        return pd.DataFrame(columns=tdcc_cols)
+
+    if latest_df.empty:
+        return pd.DataFrame(columns=tdcc_cols)
+
+    if "code" not in latest_df.columns:
+        if "ticker" in latest_df.columns:
+            latest_df["code"] = latest_df["ticker"]
+        else:
+            return pd.DataFrame(columns=tdcc_cols)
+
+    latest_df = latest_df.copy()
+    latest_df["ticker"] = latest_df["code"].astype(str).str.zfill(4)
+    latest_df["date"] = latest_df["date"].astype(str)
+
+    for col in ["over_400_pct", "over_1000_pct"]:
+        if col in latest_df.columns:
+            latest_df[col] = pd.to_numeric(latest_df[col], errors="coerce")
+
+    latest_date = latest_df["date"].max()
+    previous_df = pd.DataFrame()
+
+    try:
+        history_files = sorted(TDCC_HISTORY_DIR.glob("tdcc_holder_ratio_*.csv"))
+        history_frames = []
+
+        for file in history_files:
+            temp = pd.read_csv(file, dtype={"code": str})
+
+            if "code" not in temp.columns and "ticker" in temp.columns:
+                temp["code"] = temp["ticker"]
+
+            if "date" in temp.columns and "code" in temp.columns:
+                history_frames.append(temp)
+
+        if history_frames:
+            history_all = pd.concat(history_frames, ignore_index=True)
+            history_all["date"] = history_all["date"].astype(str)
+            history_all["ticker"] = history_all["code"].astype(str).str.zfill(4)
+
+            previous_dates = sorted([
+                d for d in history_all["date"].dropna().unique()
+                if str(d) < str(latest_date)
+            ])
+
+            if previous_dates:
+                previous_date = previous_dates[-1]
+                previous_df = history_all[history_all["date"] == previous_date].copy()
+
+                for col in ["over_400_pct", "over_1000_pct"]:
+                    if col in previous_df.columns:
+                        previous_df[col] = pd.to_numeric(previous_df[col], errors="coerce")
+
+    except Exception as e:
+        print(f"TDCC history read failed: {e}")
+        previous_df = pd.DataFrame()
+
+    base_cols = ["ticker", "date", "over_400_pct", "over_1000_pct"]
+    latest_use = latest_df[[c for c in base_cols if c in latest_df.columns]].copy()
+
+    latest_use = latest_use.rename(columns={
+        "date": "tdcc_date",
+        "over_400_pct": "tdcc_over_400_pct",
+        "over_1000_pct": "tdcc_over_1000_pct",
+    })
+
+    if not previous_df.empty:
+        prev_use = previous_df[[c for c in base_cols if c in previous_df.columns]].copy()
+
+        prev_use = prev_use.rename(columns={
+            "over_400_pct": "prev_over_400_pct",
+            "over_1000_pct": "prev_over_1000_pct",
+        })
+
+        latest_use = latest_use.merge(
+            prev_use[["ticker", "prev_over_400_pct", "prev_over_1000_pct"]],
+            on="ticker",
+            how="left"
+        )
+
+        latest_use["tdcc_over_400_change"] = (
+            latest_use["tdcc_over_400_pct"] - latest_use["prev_over_400_pct"]
+        )
+        latest_use["tdcc_over_1000_change"] = (
+            latest_use["tdcc_over_1000_pct"] - latest_use["prev_over_1000_pct"]
+        )
+    else:
+        latest_use["tdcc_over_400_change"] = pd.NA
+        latest_use["tdcc_over_1000_change"] = pd.NA
+
+    def judge_tdcc(row):
+        c400 = row.get("tdcc_over_400_change", pd.NA)
+        c1000 = row.get("tdcc_over_1000_change", pd.NA)
+
+        if pd.isna(c400) or pd.isna(c1000):
+            return "僅最新TDCC"
+
+        if c400 > 0 and c1000 > 0:
+            return "中大戶/超大戶同步增加"
+
+        if c400 > 0 and c1000 <= 0:
+            return "中大戶增加"
+
+        if c400 <= 0 and c1000 > 0:
+            return "超大戶增加"
+
+        if c400 < 0 and c1000 < 0:
+            return "大戶籌碼減少"
+
+        return "變化不明顯"
+
+    latest_use["tdcc_judge"] = latest_use.apply(judge_tdcc, axis=1)
+
+    for col in [
+        "tdcc_over_400_pct",
+        "tdcc_over_400_change",
+        "tdcc_over_1000_pct",
+        "tdcc_over_1000_change",
+    ]:
+        latest_use[col] = pd.to_numeric(latest_use[col], errors="coerce").round(2)
+
+    return latest_use[tdcc_cols].copy()
+
+
+def enrich_with_tdcc(df, tdcc_df):
+    """
+    把 TDCC 最新週資料併入候選股清單。
+    """
+    tdcc_cols = [
+        "tdcc_date",
+        "tdcc_over_400_pct",
+        "tdcc_over_400_change",
+        "tdcc_over_1000_pct",
+        "tdcc_over_1000_change",
+        "tdcc_judge",
+    ]
+
+    if df.empty:
+        return df
+
+    result = df.copy()
+
+    if tdcc_df.empty:
+        for col in tdcc_cols:
+            if col not in result.columns:
+                result[col] = ""
+        result["tdcc_judge"] = "無TDCC資料"
+        return result
+
+    result["ticker"] = result["ticker"].astype(str).str.zfill(4)
+
+    tdcc_df = tdcc_df.copy()
+    tdcc_df["ticker"] = tdcc_df["ticker"].astype(str).str.zfill(4)
+
+    result = result.drop(columns=[c for c in tdcc_cols if c in result.columns], errors="ignore")
+
+    result = result.merge(
+        tdcc_df,
+        on="ticker",
+        how="left"
+    )
+
+    for col in tdcc_cols:
+        if col not in result.columns:
+            result[col] = ""
+
+    result["tdcc_judge"] = result["tdcc_judge"].fillna("無TDCC資料")
+
+    return result
+
+
+
 def generate_markdown_table(df, columns, rename_map, max_rows=30):
     if df.empty:
         return "沒有符合條件的股票。"
@@ -595,7 +805,10 @@ def generate_report(price_data, breakout_df, revenue_pullback_df, pullback_rebou
     breakout_columns = [
         "ticker", "name", "industry", "date", "close", "volume_lots", "ma20", "ma60",
         "gap_ma20_pct", "gap_ma60_pct", "volume_ratio", "consolidation_range_pct",
-        "breakout_pct", "return_5d_pct", "score", "judge"
+        "breakout_pct", "return_5d_pct",
+        "tdcc_date", "tdcc_over_400_pct", "tdcc_over_400_change",
+        "tdcc_over_1000_pct", "tdcc_over_1000_change", "tdcc_judge",
+        "score", "judge"
     ]
 
     breakout_rename = {
@@ -613,6 +826,12 @@ def generate_report(price_data, breakout_df, revenue_pullback_df, pullback_rebou
         "consolidation_range_pct": "40日區間%",
         "breakout_pct": "突破40日高點%",
         "return_5d_pct": "近5日漲幅%",
+        "tdcc_date": "TDCC日",
+        "tdcc_over_400_pct": "400張以上%",
+        "tdcc_over_400_change": "400張變化",
+        "tdcc_over_1000_pct": "1000張以上%",
+        "tdcc_over_1000_change": "1000張變化",
+        "tdcc_judge": "TDCC判斷",
         "score": "分數",
         "judge": "判斷",
     }
@@ -624,6 +843,8 @@ def generate_report(price_data, breakout_df, revenue_pullback_df, pullback_rebou
         "gap_ma20_pct", "gap_ma60_pct",
         "return_10d_pct", "return_20d_pct",
         "close_vs_prev_pct", "intraday_pct",
+        "tdcc_date", "tdcc_over_400_pct", "tdcc_over_400_change",
+        "tdcc_over_1000_pct", "tdcc_over_1000_change", "tdcc_judge",
         "score", "judge"
     ]
 
@@ -646,6 +867,12 @@ def generate_report(price_data, breakout_df, revenue_pullback_df, pullback_rebou
         "return_20d_pct": "近20日漲幅%",
         "close_vs_prev_pct": "對前收%",
         "intraday_pct": "日內漲跌%",
+        "tdcc_date": "TDCC日",
+        "tdcc_over_400_pct": "400張以上%",
+        "tdcc_over_400_change": "400張變化",
+        "tdcc_over_1000_pct": "1000張以上%",
+        "tdcc_over_1000_change": "1000張變化",
+        "tdcc_judge": "TDCC判斷",
         "score": "分數",
         "judge": "判斷",
     }
@@ -654,6 +881,8 @@ def generate_report(price_data, breakout_df, revenue_pullback_df, pullback_rebou
         "ticker", "name", "industry", "date", "revenue_yoy_pct", "cumulative_yoy_pct",
         "close", "volume_lots", "volume_ratio", "gap_ma20_pct", "gap_ma60_pct",
         "return_10d_pct", "return_20d_pct", "close_vs_prev_pct", "intraday_pct",
+        "tdcc_date", "tdcc_over_400_pct", "tdcc_over_400_change",
+        "tdcc_over_1000_pct", "tdcc_over_1000_change", "tdcc_judge",
         "score", "rebound_judge"
     ]
 
@@ -673,6 +902,12 @@ def generate_report(price_data, breakout_df, revenue_pullback_df, pullback_rebou
         "return_20d_pct": "近20日漲幅%",
         "close_vs_prev_pct": "對前收%",
         "intraday_pct": "日內漲跌%",
+        "tdcc_date": "TDCC日",
+        "tdcc_over_400_pct": "400張以上%",
+        "tdcc_over_400_change": "400張變化",
+        "tdcc_over_1000_pct": "1000張以上%",
+        "tdcc_over_1000_change": "1000張變化",
+        "tdcc_judge": "TDCC判斷",
         "score": "原始分數",
         "rebound_judge": "轉強判斷",
     }
@@ -691,6 +926,8 @@ def generate_report(price_data, breakout_df, revenue_pullback_df, pullback_rebou
     lines.append("> 盤整帶量突破：嚴格向上突破，必須突破近 40 日高點、量比 >= 1.5、站上 20MA / 60MA、收盤高於前收，且不是放量黑 K。")
     lines.append("")
     lines.append("> 營收回檔股中的短線轉強：從營收回檔觀察池中，找出今日收盤轉強、量能回升、接近或站回 20MA 的股票。")
+    lines.append("")
+    lines.append("> TDCC：引用 output/latest/tdcc_holder_ratio_latest.csv 的最新週資料；400張以上作為中大戶 proxy，1000張以上作為超大戶 proxy。")
     lines.append("")
     lines.append("> 主流題材版目前保留：半導體、電子零組件、電腦及週邊、通信網路、光電、其他電子、資訊服務、電子通路、電機機械、綠能環保、生技醫療、數位雲端。")
     lines.append("")
@@ -787,9 +1024,13 @@ def main():
     industry_map = build_industry_map(revenue_df)
     stock_map = build_stock_history_map(price_data)
 
+    tdcc_df = load_tdcc_latest()
     breakout_df = find_breakout_candidates(stock_map, industry_map)
+    breakout_df = enrich_with_tdcc(breakout_df, tdcc_df)
     revenue_pullback_df = find_revenue_pullback_candidates(stock_map, revenue_df)
+    revenue_pullback_df = enrich_with_tdcc(revenue_pullback_df, tdcc_df)
     pullback_rebound_df = find_pullback_rebound_candidates(revenue_pullback_df)
+    pullback_rebound_df = enrich_with_tdcc(pullback_rebound_df, tdcc_df)
 
     if not breakout_df.empty:
         breakout_df.to_csv(BREAKOUT_CSV_PATH, index=False, encoding="utf-8-sig")
@@ -809,6 +1050,7 @@ def main():
     print(f"Strict breakout candidates: {len(breakout_df)}")
     print(f"Revenue pullback candidates: {len(revenue_pullback_df)}")
     print(f"Pullback rebound candidates: {len(pullback_rebound_df)}")
+    print(f"TDCC rows loaded: {len(tdcc_df)}")
 
 
 if __name__ == "__main__":
