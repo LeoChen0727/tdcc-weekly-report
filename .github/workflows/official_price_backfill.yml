@@ -1,0 +1,35 @@
+name: Official Price Backfill
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  backfill-official-price:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install pandas requests
+
+      - name: Backfill official daily price
+        run: python backfill_official_daily_price.py
+
+      - name: Commit backfilled price data
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add data/ output/
+          git commit -m "Backfill official daily price data" || echo "No changes to commit"
+          git push
