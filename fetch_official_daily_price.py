@@ -11,6 +11,8 @@ OUTPUT_DIR = Path("output")
 
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 OUTPUT_DIR.mkdir(exist_ok=True)
+LATEST_DIR = OUTPUT_DIR / "latest"
+LATEST_DIR.mkdir(parents=True, exist_ok=True)
 
 
 MIN_TWSE_ROWS = 700
@@ -294,7 +296,7 @@ def main():
 - 這通常代表今天不是交易日、官方資料尚未更新，或資料不完整。
 - 程式不會把不完整資料寫入 data/daily_price/，避免污染均線與回測。
 """
-        Path("output/official_price_fetch_latest.md").write_text(report, encoding="utf-8")
+        (LATEST_DIR / "official_price_fetch_latest.md").write_text(report, encoding="utf-8")
         print(f"Invalid official price data: {reason}")
         return
 
@@ -316,7 +318,7 @@ def main():
 {output_path}
 """
 
-    Path("output/official_price_fetch_latest.md").write_text(report, encoding="utf-8")
+    (LATEST_DIR / "official_price_fetch_latest.md").write_text(report, encoding="utf-8")
 
     print(f"Saved official daily price: {output_path}")
     print(f"TWSE rows: {len(twse_df)}")
