@@ -1,0 +1,91 @@
+name: Inspect TDCC Columns
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  inspect-tdcc-columns:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install pandas tabulate
+
+      - name: Inspect TDCC latest CSV
+        run: |
+          python - <<'PY'
+          import pandas as pd
+          from pathlib import Path
+
+          latest_path = Path("output/latest/tdcc_holder_ratio_latest.csv")
+          output_dir = Path("output/debug")
+          output_dir.mkdir(parents=True, exist_ok=True)
+
+          if not latest_path.exists():
+              report = """# TDCC 欄位檢查報告
+
+          找不到檔案：
+
+          ```text
+          output/latest/tdcc_holder_ratio_latest.csv
+          ```
+
+          請先跑 TDCC Weekly Report。
+          """
+              (output_dir / "tdcc_columns_latest.md").write_text(report, encoding="utf-8")
+              raise SystemExit("TDCC latest CSV not found")
+
+          df = pd.read_csv(latest_path)
+
+          columns_df = pd.DataFrame({
+              "欄位順序": range(1, len(df.columns) + 1),
+              "欄位名稱": list(df.columns),
+              "資料型態": [str(df[c].dtype) for c in df.columns],
+              "非空筆數": [df[c].notna().sum() for c in df.columns],
+              "範例值": [str(df[c].dropna().iloc[0]) if df[c].notna().any() else "" for c in df.columns],
+          })
+
+          sample_df = df.head(10).copy()
+
+          report = f"""# TDCC 欄位檢查報告
+
+          來源檔案：
+
+          ```text
+          output/latest/tdcc_holder_ratio_latest.csv
+          ```
+
+          總筆數：{len(df)}
+          欄位數：{len(df.columns)}
+
+          ## 欄位列表
+
+          {columns_df.to_markdown(index=False)}
+
+          ## 前 10 筆資料
+
+          {sample_df.to_markdown(index=False)}
+          """
+
+          (output_dir / "tdcc_columns_latest.md").write_text(report, encoding="utf-8")
+          print("TDCC column inspection report generated.")
+          PY
+
+      - name: Commit TDCC column inspection report
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add output/debug/tdcc_columns_latest.md
+          git commit -m "Inspect TDCC columns" || echo "No changes to commit"
+          git push
