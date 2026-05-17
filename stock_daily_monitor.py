@@ -15,6 +15,8 @@ REPORT_PATH = OUTPUT_DIR / "stock_monitor_latest.md"
 BREAKOUT_CSV_PATH = OUTPUT_DIR / "breakout_latest.csv"
 REVENUE_PULLBACK_CSV_PATH = OUTPUT_DIR / "revenue_pullback_latest.csv"
 
+MIN_VOLUME_LOTS = 1000
+
 
 def load_official_price_history():
     """
@@ -159,6 +161,10 @@ def calculate_breakout_score(df):
     ma60 = latest["ma60"]
     volume = latest["volume"]
     vol20 = latest["vol20"]
+    volume_lots = volume / 1000
+
+    if volume_lots < MIN_VOLUME_LOTS:
+        return None
 
     if pd.isna(ma20) or pd.isna(ma60) or pd.isna(vol20):
         return None
@@ -217,6 +223,7 @@ def calculate_breakout_score(df):
     return {
         "date": latest["date"],
         "close": round(close, 2),
+        "volume_lots": round(volume_lots, 0),
         "ma20": round(ma20, 2),
         "ma60": round(ma60, 2),
         "gap_ma20_pct": round(gap_ma20, 2),
@@ -256,6 +263,11 @@ def calculate_revenue_pullback_score(df, revenue_row):
     close = latest["close"]
     ma20 = latest["ma20"]
     ma60 = latest["ma60"]
+    volume = latest["volume"]
+    volume_lots = volume / 1000
+
+    if volume_lots < MIN_VOLUME_LOTS:
+        return None
 
     if pd.isna(ma20) or pd.isna(ma60):
         return None
@@ -317,6 +329,7 @@ def calculate_revenue_pullback_score(df, revenue_row):
         "revenue_yoy_pct": round(revenue_yoy, 2),
         "cumulative_yoy_pct": round(cumulative_yoy, 2),
         "close": round(close, 2),
+        "volume_lots": round(volume_lots, 0),
         "ma20": round(ma20, 2),
         "ma60": round(ma60, 2),
         "gap_ma20_pct": round(gap_ma20, 2),
@@ -367,7 +380,7 @@ def find_breakout_candidates(stock_map):
         return result
 
     result["judge"] = result.apply(judge_breakout, axis=1)
-    result = result.sort_values(["score", "volume_ratio"], ascending=False)
+    result = result.sort_values(["score", "volume_lots", "volume_ratio"], ascending=False)
 
     return result.reset_index(drop=True)
 
@@ -416,7 +429,7 @@ def find_revenue_pullback_candidates(stock_map, revenue_df):
         return result
 
     result["judge"] = result.apply(judge_revenue_pullback, axis=1)
-    result = result.sort_values(["score", "revenue_yoy_pct"], ascending=False)
+    result = result.sort_values(["score", "volume_lots", "revenue_yoy_pct"], ascending=False)
 
     return result.reset_index(drop=True)
 
@@ -453,6 +466,7 @@ def generate_report(price_data, breakout_df, revenue_pullback_df):
     lines.append(f"最新官方價格資料日：{latest_price_date}")
     lines.append(f"已累積交易日數：{trading_days}")
     lines.append(f"股票檔數：{total_stocks}")
+    lines.append(f"成交量門檻：最新交易日成交量 >= {MIN_VOLUME_LOTS} 張")
     lines.append("")
     lines.append("> 價格與成交量資料來源：GitHub 內累積的官方 TWSE / TPEx 每日收盤資料。")
     lines.append("")
@@ -464,7 +478,7 @@ def generate_report(price_data, breakout_df, revenue_pullback_df):
     lines.append(generate_markdown_table(
         breakout_df,
         columns=[
-            "ticker", "name", "date", "close", "ma20", "ma60",
+            "ticker", "name", "date", "close", "volume_lots", "ma20", "ma60",
             "gap_ma20_pct", "gap_ma60_pct",
             "volume_ratio", "consolidation_range_pct",
             "breakout_pct", "return_5d_pct", "score", "judge"
@@ -474,6 +488,7 @@ def generate_report(price_data, breakout_df, revenue_pullback_df):
             "name": "名稱",
             "date": "資料日",
             "close": "收盤價",
+            "volume_lots": "成交量張",
             "ma20": "20MA",
             "ma60": "60MA",
             "gap_ma20_pct": "距月線%",
@@ -498,7 +513,7 @@ def generate_report(price_data, breakout_df, revenue_pullback_df):
         columns=[
             "ticker", "name", "industry", "date", "revenue_period",
             "revenue_yoy_pct", "cumulative_yoy_pct",
-            "close", "ma20", "ma60",
+            "close", "volume_lots", "ma20", "ma60",
             "gap_ma20_pct", "gap_ma60_pct",
             "return_10d_pct", "return_20d_pct",
             "score", "judge"
@@ -512,6 +527,7 @@ def generate_report(price_data, breakout_df, revenue_pullback_df):
             "revenue_yoy_pct": "月營收YoY%",
             "cumulative_yoy_pct": "累計YoY%",
             "close": "收盤價",
+            "volume_lots": "成交量張",
             "ma20": "20MA",
             "ma60": "60MA",
             "gap_ma20_pct": "距月線%",
@@ -548,6 +564,7 @@ def generate_report(price_data, breakout_df, revenue_pullback_df):
                 columns=[
                     "ticker", "name", "industry", "date",
                     "revenue_yoy_pct", "cumulative_yoy_pct",
+                    "close", "volume_lots",
                     "gap_ma20_pct", "gap_ma60_pct",
                     "return_10d_pct", "score", "judge"
                 ],
@@ -558,6 +575,8 @@ def generate_report(price_data, breakout_df, revenue_pullback_df):
                     "date": "資料日",
                     "revenue_yoy_pct": "月營收YoY%",
                     "cumulative_yoy_pct": "累計YoY%",
+                    "close": "收盤價",
+                    "volume_lots": "成交量張",
                     "gap_ma20_pct": "距月線%",
                     "gap_ma60_pct": "距季線%",
                     "return_10d_pct": "近10日漲幅%",
@@ -600,6 +619,7 @@ def main():
     print("Official-data stock monitor report generated.")
     print(f"Trading days loaded: {price_data['date'].nunique()}")
     print(f"Stocks loaded: {price_data['ticker'].nunique()}")
+    print(f"Volume threshold: {MIN_VOLUME_LOTS} lots")
     print(f"Breakout candidates: {len(breakout_df)}")
     print(f"Revenue pullback candidates: {len(revenue_pullback_df)}")
 
