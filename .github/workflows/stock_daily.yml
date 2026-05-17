@@ -14,23 +14,26 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install pandas requests lxml html5lib tabulate
+        run: pip install pandas requests tabulate
+
+      - name: Fetch latest official daily price
+        run: python fetch_official_daily_price.py
 
       - name: Run daily stock monitor
         run: python stock_daily_monitor.py
 
-      - name: Commit report
+      - name: Commit daily price and report
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add output/
+          git add data/ output/
           git commit -m "Update daily stock monitor report" || echo "No changes to commit"
           git push
