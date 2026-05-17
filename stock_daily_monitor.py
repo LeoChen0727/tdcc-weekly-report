@@ -10,11 +10,13 @@ DATA_DIR = Path("data/daily_price")
 OUTPUT_DIR = Path("output")
 
 OUTPUT_DIR.mkdir(exist_ok=True)
+LATEST_DIR = OUTPUT_DIR / "latest"
+LATEST_DIR.mkdir(parents=True, exist_ok=True)
 
-REPORT_PATH = OUTPUT_DIR / "stock_monitor_latest.md"
-BREAKOUT_CSV_PATH = OUTPUT_DIR / "breakout_latest.csv"
-REVENUE_PULLBACK_CSV_PATH = OUTPUT_DIR / "revenue_pullback_latest.csv"
-PULLBACK_REBOUND_CSV_PATH = OUTPUT_DIR / "pullback_rebound_latest.csv"
+REPORT_PATH = LATEST_DIR / "stock_monitor_latest.md"
+BREAKOUT_CSV_PATH = LATEST_DIR / "breakout_latest.csv"
+REVENUE_PULLBACK_CSV_PATH = LATEST_DIR / "revenue_pullback_latest.csv"
+PULLBACK_REBOUND_CSV_PATH = LATEST_DIR / "pullback_rebound_latest.csv"
 
 MIN_VOLUME_LOTS = 1000
 
