@@ -1,0 +1,439 @@
+name: Signal Performance Tracker
+
+on:
+  schedule:
+    - cron: "10 11 * * 1-5"  # Taiwan time 19:10, Monday to Friday
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  track-signal-performance:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install pandas tabulate
+
+      - name: Track signal performance
+        run: |
+          python - <<'PY'
+          import pandas as pd
+          from pathlib import Path
+          from datetime import datetime
+
+          DATA_DIR = Path("data/daily_price")
+          OUTPUT_DIR = Path("output")
+          LATEST_DIR = OUTPUT_DIR / "latest"
+          SIGNAL_DIR = OUTPUT_DIR / "history" / "signals"
+
+          SIGNAL_DIR.mkdir(parents=True, exist_ok=True)
+          LATEST_DIR.mkdir(parents=True, exist_ok=True)
+
+          SIGNAL_LOG_PATH = SIGNAL_DIR / "signal_log.csv"
+          LATEST_REPORT_PATH = LATEST_DIR / "signal_performance_latest.md"
+
+          HORIZONS = [1, 3, 5, 10, 20]
+
+          MAINSTREAM_INDUSTRY_KEYWORDS = [
+              "半導體",
+              "電子零組件",
+              "電腦及週邊",
+              "通信網路",
+              "光電",
+              "其他電子",
+              "資訊服務",
+              "電子通路",
+              "電機機械",
+              "綠能環保",
+              "生技醫療",
+              "數位雲端",
+          ]
+
+          SIGNAL_SOURCES = [
+              {
+                  "path": LATEST_DIR / "breakout_latest.csv",
+                  "strategy": "嚴格向上盤整帶量突破",
+              },
+              {
+                  "path": LATEST_DIR / "revenue_pullback_latest.csv",
+                  "strategy": "營收成長但股價回檔",
+              },
+              {
+                  "path": LATEST_DIR / "pullback_rebound_latest.csv",
+                  "strategy": "營收回檔後短線轉強",
+              },
+          ]
+
+
+          def is_mainstream(industry):
+              if pd.isna(industry):
+                  return False
+              text = str(industry)
+              return any(keyword in text for keyword in MAINSTREAM_INDUSTRY_KEYWORDS)
+
+
+          def load_price_history():
+              files = sorted(DATA_DIR.glob("*.csv"))
+              frames = []
+
+              for file in files:
+                  try:
+                      df = pd.read_csv(file, dtype={"ticker": str})
+                      frames.append(df)
+                  except Exception as e:
+                      print(f"Skip price file {file}: {e}")
+
+              if not frames:
+                  return pd.DataFrame()
+
+              data = pd.concat(frames, ignore_index=True)
+              data["ticker"] = data["ticker"].astype(str).str.zfill(4)
+              data["date"] = data["date"].astype(str)
+
+              for col in ["open", "high", "low", "close", "volume", "turnover"]:
+                  if col in data.columns:
+                      data[col] = pd.to_numeric(data[col], errors="coerce")
+
+              data = data.dropna(subset=["ticker", "date", "close"])
+              data = data.sort_values(["ticker", "date"]).reset_index(drop=True)
+
+              return data
+
+
+          def load_latest_signals():
+              rows = []
+
+              for source in SIGNAL_SOURCES:
+                  path = source["path"]
+                  strategy = source["strategy"]
+
+                  if not path.exists():
+                      print(f"Missing signal file: {path}")
+                      continue
+
+                  try:
+                      df = pd.read_csv(path, dtype={"ticker": str})
+                  except Exception as e:
+                      print(f"Failed reading {path}: {e}")
+                      continue
+
+                  if df.empty:
+                      continue
+
+                  df = df.copy()
+                  df["ticker"] = df["ticker"].astype(str).str.zfill(4)
+
+                  if "date" not in df.columns:
+                      continue
+
+                  for idx, row in df.iterrows():
+                      rows.append({
+                          "signal_date": str(row.get("date", "")),
+                          "ticker": str(row.get("ticker", "")).zfill(4),
+                          "name": row.get("name", ""),
+                          "market": row.get("market", ""),
+                          "industry": row.get("industry", ""),
+                          "is_mainstream": is_mainstream(row.get("industry", "")),
+                          "strategy": strategy,
+                          "entry_price": row.get("close", None),
+                          "score": row.get("score", None),
+                          "judge": row.get("judge", row.get("rebound_judge", "")),
+                          "tdcc_date": row.get("tdcc_date", ""),
+                          "tdcc_over_400_pct": row.get("tdcc_over_400_pct", None),
+                          "tdcc_over_400_change": row.get("tdcc_over_400_change", None),
+                          "tdcc_over_1000_pct": row.get("tdcc_over_1000_pct", None),
+                          "tdcc_over_1000_change": row.get("tdcc_over_1000_change", None),
+                          "tdcc_judge": row.get("tdcc_judge", ""),
+                          "source_file": path.name,
+                      })
+
+              if not rows:
+                  return pd.DataFrame()
+
+              signals = pd.DataFrame(rows)
+              signals = signals.dropna(subset=["signal_date", "ticker", "strategy"])
+
+              for col in [
+                  "entry_price",
+                  "score",
+                  "tdcc_over_400_pct",
+                  "tdcc_over_400_change",
+                  "tdcc_over_1000_pct",
+                  "tdcc_over_1000_change",
+              ]:
+                  if col in signals.columns:
+                      signals[col] = pd.to_numeric(signals[col], errors="coerce")
+
+              return signals
+
+
+          def update_signal_log(new_signals):
+              if new_signals.empty:
+                  if SIGNAL_LOG_PATH.exists():
+                      return pd.read_csv(SIGNAL_LOG_PATH, dtype={"ticker": str})
+                  return pd.DataFrame()
+
+              if SIGNAL_LOG_PATH.exists():
+                  old = pd.read_csv(SIGNAL_LOG_PATH, dtype={"ticker": str})
+              else:
+                  old = pd.DataFrame()
+
+              combined = pd.concat([old, new_signals], ignore_index=True)
+
+              combined["ticker"] = combined["ticker"].astype(str).str.zfill(4)
+              combined["signal_date"] = combined["signal_date"].astype(str)
+
+              combined = combined.drop_duplicates(
+                  subset=["signal_date", "ticker", "strategy"],
+                  keep="last"
+              )
+
+              combined = combined.sort_values(["signal_date", "strategy", "ticker"])
+              combined.to_csv(SIGNAL_LOG_PATH, index=False, encoding="utf-8-sig")
+
+              return combined
+
+
+          def compute_performance(signal_log, price_data):
+              if signal_log.empty or price_data.empty:
+                  return pd.DataFrame()
+
+              price_map = {
+                  ticker: group.sort_values("date").reset_index(drop=True)
+                  for ticker, group in price_data.groupby("ticker")
+              }
+
+              result_rows = []
+
+              for _, signal in signal_log.iterrows():
+                  ticker = str(signal["ticker"]).zfill(4)
+                  signal_date = str(signal["signal_date"])
+
+                  if ticker not in price_map:
+                      continue
+
+                  prices = price_map[ticker]
+                  dates = list(prices["date"])
+
+                  if signal_date not in dates:
+                      continue
+
+                  entry_idx = dates.index(signal_date)
+                  entry_row = prices.iloc[entry_idx]
+                  entry_close = entry_row["close"]
+
+                  row = signal.to_dict()
+                  row["entry_close_verified"] = entry_close
+
+                  for h in HORIZONS:
+                      target_idx = entry_idx + h
+
+                      if target_idx < len(prices):
+                          target_close = prices.iloc[target_idx]["close"]
+                          row[f"return_{h}d_pct"] = round((target_close / entry_close - 1) * 100, 2)
+                          row[f"close_{h}d"] = round(target_close, 2)
+                          row[f"date_{h}d"] = prices.iloc[target_idx]["date"]
+                      else:
+                          row[f"return_{h}d_pct"] = pd.NA
+                          row[f"close_{h}d"] = pd.NA
+                          row[f"date_{h}d"] = ""
+
+                  lookahead_end = min(entry_idx + 20, len(prices) - 1)
+                  future_window = prices.iloc[entry_idx + 1:lookahead_end + 1].copy()
+
+                  if not future_window.empty:
+                      max_high = future_window["high"].max() if "high" in future_window.columns else future_window["close"].max()
+                      min_low = future_window["low"].min() if "low" in future_window.columns else future_window["close"].min()
+
+                      row["max_gain_20d_pct"] = round((max_high / entry_close - 1) * 100, 2)
+                      row["max_drawdown_20d_pct"] = round((min_low / entry_close - 1) * 100, 2)
+                  else:
+                      row["max_gain_20d_pct"] = pd.NA
+                      row["max_drawdown_20d_pct"] = pd.NA
+
+                  result_rows.append(row)
+
+              if not result_rows:
+                  return pd.DataFrame()
+
+              perf = pd.DataFrame(result_rows)
+
+              for col in [
+                  "return_1d_pct",
+                  "return_3d_pct",
+                  "return_5d_pct",
+                  "return_10d_pct",
+                  "return_20d_pct",
+                  "max_gain_20d_pct",
+                  "max_drawdown_20d_pct",
+              ]:
+                  if col in perf.columns:
+                      perf[col] = pd.to_numeric(perf[col], errors="coerce")
+
+              return perf
+
+
+          def summarize_group(perf, group_col, min_samples=1):
+              rows = []
+
+              if perf.empty or group_col not in perf.columns:
+                  return pd.DataFrame()
+
+              for key, group in perf.groupby(group_col, dropna=False):
+                  row = {
+                      "分類": key if pd.notna(key) and str(key) != "" else "未分類",
+                      "樣本數": len(group),
+                  }
+
+                  for h in [1, 3, 5, 10, 20]:
+                      col = f"return_{h}d_pct"
+                      valid = group.dropna(subset=[col]) if col in group.columns else pd.DataFrame()
+
+                      if len(valid) >= min_samples:
+                          row[f"{h}日平均%"] = round(valid[col].mean(), 2)
+                          row[f"{h}日勝率%"] = round((valid[col] > 0).mean() * 100, 1)
+                      else:
+                          row[f"{h}日平均%"] = ""
+                          row[f"{h}日勝率%"] = ""
+
+                  if "max_gain_20d_pct" in group.columns:
+                      row["20日最大漲幅均值%"] = round(group["max_gain_20d_pct"].dropna().mean(), 2) if group["max_gain_20d_pct"].notna().any() else ""
+
+                  if "max_drawdown_20d_pct" in group.columns:
+                      row["20日最大跌幅均值%"] = round(group["max_drawdown_20d_pct"].dropna().mean(), 2) if group["max_drawdown_20d_pct"].notna().any() else ""
+
+                  rows.append(row)
+
+              summary = pd.DataFrame(rows)
+              return summary.sort_values("樣本數", ascending=False)
+
+
+          def make_recent_signal_table(perf):
+              if perf.empty:
+                  return pd.DataFrame()
+
+              cols = [
+                  "signal_date",
+                  "ticker",
+                  "name",
+                  "strategy",
+                  "entry_price",
+                  "score",
+                  "tdcc_judge",
+                  "return_1d_pct",
+                  "return_3d_pct",
+                  "return_5d_pct",
+                  "return_10d_pct",
+                  "max_gain_20d_pct",
+                  "max_drawdown_20d_pct",
+              ]
+
+              cols = [c for c in cols if c in perf.columns]
+              recent = perf.sort_values("signal_date", ascending=False).head(50)
+
+              return recent[cols]
+
+
+          def main():
+              price_data = load_price_history()
+              latest_signals = load_latest_signals()
+              signal_log = update_signal_log(latest_signals)
+              perf = compute_performance(signal_log, price_data)
+
+              today = datetime.now().strftime("%Y%m%d")
+
+              if not perf.empty:
+                  perf_path = SIGNAL_DIR / "signal_performance_detail.csv"
+                  perf.to_csv(perf_path, index=False, encoding="utf-8-sig")
+
+              strategy_summary = summarize_group(perf, "strategy")
+              tdcc_summary = summarize_group(perf, "tdcc_judge")
+              mainstream_summary = summarize_group(perf, "is_mainstream")
+              recent_table = make_recent_signal_table(perf)
+
+              latest_price_date = price_data["date"].max() if not price_data.empty else "無"
+
+              report = []
+              report.append("# 訊號追蹤 / 命中率報告")
+              report.append("")
+              report.append(f"產生時間：{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+              report.append(f"最新價格資料日：{latest_price_date}")
+              report.append(f"累積訊號數：{len(signal_log) if not signal_log.empty else 0}")
+              report.append(f"可計算績效訊號數：{len(perf) if not perf.empty else 0}")
+              report.append("")
+              report.append("> 這份報告用當天入選訊號追蹤後續 1 / 3 / 5 / 10 / 20 個交易日表現。")
+              report.append("")
+              report.append("> 目前只追蹤，不回頭修改訊號，避免事後作弊。")
+              report.append("")
+              report.append("---")
+              report.append("")
+
+              report.append("## 1. 依策略統計")
+              report.append("")
+              report.append(strategy_summary.to_markdown(index=False) if not strategy_summary.empty else "資料不足。")
+              report.append("")
+
+              report.append("---")
+              report.append("")
+              report.append("## 2. 依 TDCC 判斷統計")
+              report.append("")
+              report.append(tdcc_summary.to_markdown(index=False) if not tdcc_summary.empty else "資料不足。")
+              report.append("")
+
+              report.append("---")
+              report.append("")
+              report.append("## 3. 主流 / 非主流統計")
+              report.append("")
+              report.append(mainstream_summary.to_markdown(index=False) if not mainstream_summary.empty else "資料不足。")
+              report.append("")
+
+              report.append("---")
+              report.append("")
+              report.append("## 4. 最近 50 筆訊號追蹤")
+              report.append("")
+              report.append(recent_table.to_markdown(index=False) if not recent_table.empty else "資料不足。")
+              report.append("")
+
+              report.append("---")
+              report.append("")
+              report.append("## 使用提醒")
+              report.append("")
+              report.append("初期樣本數很少，前幾天不要過度解讀勝率。至少累積 20～50 筆以上，才比較有參考價值。")
+              report.append("")
+              report.append("真正要觀察的是：哪一種策略 + 哪一種 TDCC 狀態，後續表現比較穩。")
+              report.append("")
+
+              report_text = "\n".join(report)
+
+              LATEST_REPORT_PATH.write_text(report_text, encoding="utf-8")
+
+              dated_report_path = SIGNAL_DIR / f"signal_performance_{today}.md"
+              dated_report_path.write_text(report_text, encoding="utf-8")
+
+              print("Signal performance tracking completed.")
+              print(f"Latest signals: {len(latest_signals) if not latest_signals.empty else 0}")
+              print(f"Signal log: {len(signal_log) if not signal_log.empty else 0}")
+              print(f"Performance rows: {len(perf) if not perf.empty else 0}")
+
+
+          if __name__ == "__main__":
+              main()
+          PY
+
+      - name: Commit signal performance report
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add output/latest/signal_performance_latest.md output/history/signals/
+          git commit -m "Update signal performance report" || echo "No changes to commit"
+          git push
