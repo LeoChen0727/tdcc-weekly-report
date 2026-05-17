@@ -39,7 +39,6 @@ def is_mainstream_industry(industry):
         return False
 
     text = str(industry).strip()
-
     return any(keyword in text for keyword in MAINSTREAM_INDUSTRY_KEYWORDS)
 
 
@@ -189,14 +188,28 @@ def add_technical_metrics(df):
 
 
 def calculate_breakout_score(df):
+    """
+    嚴格向上盤整帶量突破。
+
+    必須同時符合：
+    1. 收盤價突破過去 40 日高點
+    2. 成交量 >= 20 日均量 1.5 倍
+    3. 收盤價站上 20MA / 60MA
+    4. 最新收盤價 > 前一日收盤價
+    5. 最新收盤價 >= 今日開盤價，避免放量長黑
+    6. 近 5 日漲幅 > 0
+    """
     df = add_technical_metrics(df)
 
     if len(df) < 61:
         return None
 
     latest = df.iloc[-1]
+    prev = df.iloc[-2]
 
+    open_price = latest["open"]
     close = latest["close"]
+    prev_close = prev["close"]
     ma20 = latest["ma20"]
     ma60 = latest["ma60"]
     volume = latest["volume"]
@@ -206,7 +219,7 @@ def calculate_breakout_score(df):
     if volume_lots < MIN_VOLUME_LOTS:
         return None
 
-    if pd.isna(ma20) or pd.isna(ma60) or pd.isna(vol20):
+    if pd.isna(open_price) or pd.isna(ma20) or pd.isna(ma60) or pd.isna(vol20):
         return None
 
     recent_40 = df.iloc[-41:-1]
@@ -224,32 +237,60 @@ def calculate_breakout_score(df):
     gap_ma20 = (close / ma20 - 1) * 100 if ma20 and ma20 > 0 else 0
     gap_ma60 = (close / ma60 - 1) * 100 if ma60 and ma60 > 0 else 0
 
+    # 嚴格向上突破硬條件
+    if breakout_pct <= 0:
+        return None
+
+    if volume_ratio < 1.5:
+        return None
+
+    if close <= ma20 or close <= ma60:
+        return None
+
+    if close <= prev_close:
+        return None
+
+    if close < open_price:
+        return None
+
+    if return_5d <= 0:
+        return None
+
     score = 0
 
+    # 盤整區間越窄越好
     if consolidation_range_pct <= 18:
         score += 25
     elif consolidation_range_pct <= 25:
         score += 15
 
-    if breakout_pct >= 0:
+    # 必須已突破，所以直接依突破幅度給分
+    if breakout_pct >= 5:
+        score += 35
+    elif breakout_pct >= 2:
+        score += 32
+    else:
         score += 30
-    elif breakout_pct >= -2:
-        score += 20
-    elif breakout_pct >= -5:
-        score += 10
 
+    # 成交量放大
     if volume_ratio >= 2:
         score += 25
     elif volume_ratio >= 1.5:
         score += 18
-    elif volume_ratio >= 1.2:
-        score += 10
 
+    # 均線位置
     if close > ma20:
         score += 10
     if close > ma60:
         score += 10
 
+    # 最新 K 線強弱
+    if close > open_price:
+        score += 5
+    if close > prev_close:
+        score += 5
+
+    # 避免短線噴太遠
     if return_5d > 20:
         score -= 20
     elif return_5d > 12:
@@ -274,16 +315,20 @@ def calculate_breakout_score(df):
 
 
 def judge_breakout(row):
-    if row["score"] >= 80:
+    if row["score"] >= 85:
         return "強突破候選"
-    if row["score"] >= 65:
+    if row["score"] >= 70:
         return "可觀察"
-    if row["score"] >= 50:
+    if row["score"] >= 55:
         return "初步觀察"
     return "不列入"
 
 
 def calculate_revenue_pullback_score(df, revenue_row):
+    """
+    營收成長但股價回檔。
+    這裡維持原本寬版條件，不做嚴格化。
+    """
     df = add_technical_metrics(df)
 
     if len(df) < 61:
@@ -314,6 +359,7 @@ def calculate_revenue_pullback_score(df, revenue_row):
 
     score = 0
 
+    # 營收成長
     if revenue_yoy >= 50:
         score += 30
     elif revenue_yoy >= 20:
@@ -328,6 +374,7 @@ def calculate_revenue_pullback_score(df, revenue_row):
     elif cumulative_yoy >= 5:
         score += 8
 
+    # 回檔幅度
     if return_10d <= -8:
         score += 20
     elif return_10d <= -5:
@@ -335,6 +382,7 @@ def calculate_revenue_pullback_score(df, revenue_row):
     elif return_20d <= -8:
         score += 12
 
+    # 接近均線
     if abs(gap_ma20) <= 5:
         score += 15
     elif abs(gap_ma60) <= 7:
@@ -342,6 +390,7 @@ def calculate_revenue_pullback_score(df, revenue_row):
     elif abs(gap_ma20) <= 8:
         score += 8
 
+    # 風險扣分
     if gap_ma60 < -10:
         score -= 20
 
@@ -386,7 +435,7 @@ def find_breakout_candidates(stock_map, industry_map):
             if metrics is None:
                 continue
 
-            if metrics["score"] >= 50:
+            if metrics["score"] >= 55:
                 latest = df.iloc[-1]
                 industry_info = industry_map.get(ticker, {})
 
@@ -555,12 +604,14 @@ def generate_report(price_data, breakout_df, revenue_pullback_df):
     lines.append("")
     lines.append("> 價格與成交量資料來源：GitHub 內累積的官方 TWSE / TPEx 每日收盤資料。")
     lines.append("")
+    lines.append("> 盤整帶量突破已改為嚴格向上突破：必須突破近 40 日高點、量比 >= 1.5、站上 20MA / 60MA、收盤高於前收，且不是放量黑 K。")
+    lines.append("")
     lines.append("> 主流題材版目前保留：半導體、電子零組件、電腦及週邊、通信網路、光電、其他電子、資訊服務、電子通路、電機機械、綠能環保、生技醫療、數位雲端。")
     lines.append("")
     lines.append("---")
     lines.append("")
 
-    lines.append("## 1. 全市場：盤整帶量突破候選股")
+    lines.append("## 1. 全市場：嚴格向上盤整帶量突破候選股")
     lines.append("")
     lines.append(generate_markdown_table(breakout_df, breakout_columns, breakout_rename))
 
@@ -568,7 +619,7 @@ def generate_report(price_data, breakout_df, revenue_pullback_df):
     lines.append("---")
     lines.append("")
 
-    lines.append("## 2. 主流題材：盤整帶量突破候選股")
+    lines.append("## 2. 主流題材：嚴格向上盤整帶量突破候選股")
     lines.append("")
     lines.append(generate_markdown_table(breakout_mainstream_df, breakout_columns, breakout_rename))
 
@@ -576,7 +627,7 @@ def generate_report(price_data, breakout_df, revenue_pullback_df):
     lines.append("---")
     lines.append("")
 
-    lines.append("## 3. 非主流 / 防禦傳產：盤整帶量突破候選股")
+    lines.append("## 3. 非主流 / 防禦傳產：嚴格向上盤整帶量突破候選股")
     lines.append("")
     lines.append(generate_markdown_table(breakout_non_mainstream_df, breakout_columns, breakout_rename))
 
@@ -686,7 +737,7 @@ def main():
     print(f"Trading days loaded: {price_data['date'].nunique()}")
     print(f"Stocks loaded: {price_data['ticker'].nunique()}")
     print(f"Volume threshold: {MIN_VOLUME_LOTS} lots")
-    print(f"Breakout candidates: {len(breakout_df)}")
+    print(f"Strict breakout candidates: {len(breakout_df)}")
     print(f"Revenue pullback candidates: {len(revenue_pullback_df)}")
 
 
