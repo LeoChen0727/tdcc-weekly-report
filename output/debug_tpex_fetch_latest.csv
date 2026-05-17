@@ -1,0 +1,8 @@
+﻿name,status,final_url,json_type,keys,rows,sample
+legacy_daily_close_quotes,200,https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&d=115%2F05%2F15&s=0%2Casc%2C0,dict,"['date', 'tables', 'flagField', 'stat']",0,
+legacy_daily_close_quotes_no_sort,200,https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&d=115%2F05%2F15,dict,"['date', 'tables', 'flagField', 'stat']",0,
+otc_quotes_no1430_se_EW,200,https://www.tpex.org.tw/web/stock/aftertrading/otc_quotes_no1430/stk_wn1430_result.php?l=zh-tw&d=115%2F05%2F15&se=EW,dict,"['tables', 'date', 'flagField', 'stat']",0,
+otc_quotes_no1430_se_AL,200,https://www.tpex.org.tw/web/stock/aftertrading/otc_quotes_no1430/stk_wn1430_result.php?l=zh-tw&d=115%2F05%2F15&se=AL,dict,"['tables', 'date', 'flagField', 'stat']",0,
+otc_quotes_no1430_se_all,200,https://www.tpex.org.tw/web/stock/aftertrading/otc_quotes_no1430/stk_wn1430_result.php?l=zh-tw&d=115%2F05%2F15&se=,dict,"['tables', 'date', 'flagField', 'stat']",0,
+otc_quotes_no1430_sect_EW_no_date,200,https://www.tpex.org.tw/web/stock/aftertrading/otc_quotes_no1430/stk_wn1430_result.php?l=zh-tw&sect=EW,dict,"['tables', 'date', 'flagField', 'stat']",0,
+openapi_latest,200,https://www.tpex.org.tw/openapi/v1/tpex_mainboard_daily_close_quotes,list,,10295,"{'Date': '1150515', 'SecuritiesCompanyCode': '006201', 'CompanyName': '元大富櫃50', 'Close': '46.93', 'Change': '-2.10 ', 'Open': '49.42', 'High': '49.42', 'Low': '46.91', 'Average': '47.81', 'TradingShares': '1031444', 'TransactionAmount': '49309488', 'TransactionNumber': '931', 'LatestBidPrice': '46.9"
