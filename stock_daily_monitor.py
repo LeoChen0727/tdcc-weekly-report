@@ -14,6 +14,7 @@ OUTPUT_DIR.mkdir(exist_ok=True)
 REPORT_PATH = OUTPUT_DIR / "stock_monitor_latest.md"
 BREAKOUT_CSV_PATH = OUTPUT_DIR / "breakout_latest.csv"
 REVENUE_PULLBACK_CSV_PATH = OUTPUT_DIR / "revenue_pullback_latest.csv"
+PULLBACK_REBOUND_CSV_PATH = OUTPUT_DIR / "pullback_rebound_latest.csv"
 
 MIN_VOLUME_LOTS = 1000
 
@@ -237,7 +238,6 @@ def calculate_breakout_score(df):
     gap_ma20 = (close / ma20 - 1) * 100 if ma20 and ma20 > 0 else 0
     gap_ma60 = (close / ma60 - 1) * 100 if ma60 and ma60 > 0 else 0
 
-    # 嚴格向上突破硬條件
     if breakout_pct <= 0:
         return None
 
@@ -258,13 +258,11 @@ def calculate_breakout_score(df):
 
     score = 0
 
-    # 盤整區間越窄越好
     if consolidation_range_pct <= 18:
         score += 25
     elif consolidation_range_pct <= 25:
         score += 15
 
-    # 必須已突破，所以直接依突破幅度給分
     if breakout_pct >= 5:
         score += 35
     elif breakout_pct >= 2:
@@ -272,25 +270,21 @@ def calculate_breakout_score(df):
     else:
         score += 30
 
-    # 成交量放大
     if volume_ratio >= 2:
         score += 25
     elif volume_ratio >= 1.5:
         score += 18
 
-    # 均線位置
     if close > ma20:
         score += 10
     if close > ma60:
         score += 10
 
-    # 最新 K 線強弱
     if close > open_price:
         score += 5
     if close > prev_close:
         score += 5
 
-    # 避免短線噴太遠
     if return_5d > 20:
         score -= 20
     elif return_5d > 12:
@@ -327,7 +321,7 @@ def judge_breakout(row):
 def calculate_revenue_pullback_score(df, revenue_row):
     """
     營收成長但股價回檔。
-    這裡維持原本寬版條件，不做嚴格化。
+    維持寬版條件，避免太早漏掉潛在標的。
     """
     df = add_technical_metrics(df)
 
@@ -335,17 +329,22 @@ def calculate_revenue_pullback_score(df, revenue_row):
         return None
 
     latest = df.iloc[-1]
+    prev = df.iloc[-2]
 
+    open_price = latest["open"]
     close = latest["close"]
+    prev_close = prev["close"]
     ma20 = latest["ma20"]
     ma60 = latest["ma60"]
     volume = latest["volume"]
+    vol20 = latest["vol20"]
     volume_lots = volume / 1000
+    volume_ratio = volume / vol20 if vol20 and vol20 > 0 else 0
 
     if volume_lots < MIN_VOLUME_LOTS:
         return None
 
-    if pd.isna(ma20) or pd.isna(ma60):
+    if pd.isna(open_price) or pd.isna(ma20) or pd.isna(ma60) or pd.isna(vol20):
         return None
 
     gap_ma20 = (close / ma20 - 1) * 100 if ma20 and ma20 > 0 else 0
@@ -354,12 +353,14 @@ def calculate_revenue_pullback_score(df, revenue_row):
     return_10d = (close / df.iloc[-11]["close"] - 1) * 100 if len(df) >= 11 else 0
     return_20d = (close / df.iloc[-21]["close"] - 1) * 100 if len(df) >= 21 else 0
 
+    close_vs_prev_pct = (close / prev_close - 1) * 100 if prev_close and prev_close > 0 else 0
+    intraday_pct = (close / open_price - 1) * 100 if open_price and open_price > 0 else 0
+
     revenue_yoy = revenue_row["revenue_yoy_pct"]
     cumulative_yoy = revenue_row["cumulative_yoy_pct"]
 
     score = 0
 
-    # 營收成長
     if revenue_yoy >= 50:
         score += 30
     elif revenue_yoy >= 20:
@@ -374,7 +375,6 @@ def calculate_revenue_pullback_score(df, revenue_row):
     elif cumulative_yoy >= 5:
         score += 8
 
-    # 回檔幅度
     if return_10d <= -8:
         score += 20
     elif return_10d <= -5:
@@ -382,7 +382,6 @@ def calculate_revenue_pullback_score(df, revenue_row):
     elif return_20d <= -8:
         score += 12
 
-    # 接近均線
     if abs(gap_ma20) <= 5:
         score += 15
     elif abs(gap_ma60) <= 7:
@@ -390,7 +389,6 @@ def calculate_revenue_pullback_score(df, revenue_row):
     elif abs(gap_ma20) <= 8:
         score += 8
 
-    # 風險扣分
     if gap_ma60 < -10:
         score -= 20
 
@@ -405,12 +403,15 @@ def calculate_revenue_pullback_score(df, revenue_row):
         "cumulative_yoy_pct": round(cumulative_yoy, 2),
         "close": round(close, 2),
         "volume_lots": round(volume_lots, 0),
+        "volume_ratio": round(volume_ratio, 2),
         "ma20": round(ma20, 2),
         "ma60": round(ma60, 2),
         "gap_ma20_pct": round(gap_ma20, 2),
         "gap_ma60_pct": round(gap_ma60, 2),
         "return_10d_pct": round(return_10d, 2),
         "return_20d_pct": round(return_20d, 2),
+        "close_vs_prev_pct": round(close_vs_prev_pct, 2),
+        "intraday_pct": round(intraday_pct, 2),
         "score": round(score, 1),
     }
 
@@ -423,6 +424,14 @@ def judge_revenue_pullback(row):
     if row["score"] >= 50:
         return "初步觀察"
     return "不列入"
+
+
+def judge_rebound(row):
+    if row["volume_ratio"] >= 1.8 and row["close_vs_prev_pct"] >= 3:
+        return "強轉強"
+    if row["volume_ratio"] >= 1.2 and row["close_vs_prev_pct"] > 0:
+        return "初步轉強"
+    return "觀察"
 
 
 def find_breakout_candidates(stock_map, industry_map):
@@ -511,6 +520,47 @@ def find_revenue_pullback_candidates(stock_map, revenue_df):
     return result.reset_index(drop=True)
 
 
+def find_pullback_rebound_candidates(revenue_pullback_df):
+    """
+    從營收回檔觀察池中，找短線開始轉強的股票。
+
+    條件：
+    1. 已經在營收回檔候選股中
+    2. 今日收盤 > 昨日收盤
+    3. 今日收盤 >= 今日開盤
+    4. 量比 >= 1.2
+    5. 接近或站回 20MA
+    """
+    if revenue_pullback_df.empty:
+        return pd.DataFrame()
+
+    df = revenue_pullback_df.copy()
+
+    condition = (
+        (df["close_vs_prev_pct"] > 0) &
+        (df["intraday_pct"] >= 0) &
+        (df["volume_ratio"] >= 1.2) &
+        (
+            (df["gap_ma20_pct"] >= 0) |
+            (df["gap_ma20_pct"].abs() <= 5)
+        )
+    )
+
+    result = df[condition].copy()
+
+    if result.empty:
+        return result
+
+    result["rebound_judge"] = result.apply(judge_rebound, axis=1)
+
+    result = result.sort_values(
+        ["volume_ratio", "close_vs_prev_pct", "score"],
+        ascending=False
+    )
+
+    return result.reset_index(drop=True)
+
+
 def generate_markdown_table(df, columns, rename_map, max_rows=30):
     if df.empty:
         return "沒有符合條件的股票。"
@@ -524,7 +574,7 @@ def generate_markdown_table(df, columns, rename_map, max_rows=30):
     return table_df.to_markdown(index=False)
 
 
-def generate_report(price_data, breakout_df, revenue_pullback_df):
+def generate_report(price_data, breakout_df, revenue_pullback_df, pullback_rebound_df):
     now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     if price_data.empty:
@@ -538,6 +588,7 @@ def generate_report(price_data, breakout_df, revenue_pullback_df):
 
     breakout_mainstream_df, breakout_non_mainstream_df = split_mainstream(breakout_df)
     pullback_mainstream_df, pullback_non_mainstream_df = split_mainstream(revenue_pullback_df)
+    rebound_mainstream_df, rebound_non_mainstream_df = split_mainstream(pullback_rebound_df)
 
     breakout_columns = [
         "ticker", "name", "industry", "date", "close", "volume_lots", "ma20", "ma60",
@@ -567,9 +618,10 @@ def generate_report(price_data, breakout_df, revenue_pullback_df):
     pullback_columns = [
         "ticker", "name", "industry", "date", "revenue_period",
         "revenue_yoy_pct", "cumulative_yoy_pct",
-        "close", "volume_lots", "ma20", "ma60",
+        "close", "volume_lots", "volume_ratio", "ma20", "ma60",
         "gap_ma20_pct", "gap_ma60_pct",
         "return_10d_pct", "return_20d_pct",
+        "close_vs_prev_pct", "intraday_pct",
         "score", "judge"
     ]
 
@@ -583,14 +635,44 @@ def generate_report(price_data, breakout_df, revenue_pullback_df):
         "cumulative_yoy_pct": "累計YoY%",
         "close": "收盤價",
         "volume_lots": "成交量張",
+        "volume_ratio": "量比",
         "ma20": "20MA",
         "ma60": "60MA",
         "gap_ma20_pct": "距月線%",
         "gap_ma60_pct": "距季線%",
         "return_10d_pct": "近10日漲幅%",
         "return_20d_pct": "近20日漲幅%",
+        "close_vs_prev_pct": "對前收%",
+        "intraday_pct": "日內漲跌%",
         "score": "分數",
         "judge": "判斷",
+    }
+
+    rebound_columns = [
+        "ticker", "name", "industry", "date", "revenue_yoy_pct", "cumulative_yoy_pct",
+        "close", "volume_lots", "volume_ratio", "gap_ma20_pct", "gap_ma60_pct",
+        "return_10d_pct", "return_20d_pct", "close_vs_prev_pct", "intraday_pct",
+        "score", "rebound_judge"
+    ]
+
+    rebound_rename = {
+        "ticker": "代號",
+        "name": "名稱",
+        "industry": "產業",
+        "date": "資料日",
+        "revenue_yoy_pct": "月營收YoY%",
+        "cumulative_yoy_pct": "累計YoY%",
+        "close": "收盤價",
+        "volume_lots": "成交量張",
+        "volume_ratio": "量比",
+        "gap_ma20_pct": "距月線%",
+        "gap_ma60_pct": "距季線%",
+        "return_10d_pct": "近10日漲幅%",
+        "return_20d_pct": "近20日漲幅%",
+        "close_vs_prev_pct": "對前收%",
+        "intraday_pct": "日內漲跌%",
+        "score": "原始分數",
+        "rebound_judge": "轉強判斷",
     }
 
     lines = []
@@ -604,7 +686,9 @@ def generate_report(price_data, breakout_df, revenue_pullback_df):
     lines.append("")
     lines.append("> 價格與成交量資料來源：GitHub 內累積的官方 TWSE / TPEx 每日收盤資料。")
     lines.append("")
-    lines.append("> 盤整帶量突破已改為嚴格向上突破：必須突破近 40 日高點、量比 >= 1.5、站上 20MA / 60MA、收盤高於前收，且不是放量黑 K。")
+    lines.append("> 盤整帶量突破：嚴格向上突破，必須突破近 40 日高點、量比 >= 1.5、站上 20MA / 60MA、收盤高於前收，且不是放量黑 K。")
+    lines.append("")
+    lines.append("> 營收回檔股中的短線轉強：從營收回檔觀察池中，找出今日收盤轉強、量能回升、接近或站回 20MA 的股票。")
     lines.append("")
     lines.append("> 主流題材版目前保留：半導體、電子零組件、電腦及週邊、通信網路、光電、其他電子、資訊服務、電子通路、電機機械、綠能環保、生技醫療、數位雲端。")
     lines.append("")
@@ -659,47 +743,25 @@ def generate_report(price_data, breakout_df, revenue_pullback_df):
     lines.append("---")
     lines.append("")
 
-    lines.append("## 7. 兩策略交集股")
+    lines.append("## 7. 全市場：營收回檔股中的短線轉強候選股")
+    lines.append("")
+    lines.append(generate_markdown_table(pullback_rebound_df, rebound_columns, rebound_rename))
+
+    lines.append("")
+    lines.append("---")
     lines.append("")
 
-    if breakout_df.empty or revenue_pullback_df.empty:
-        lines.append("沒有交集。")
-    else:
-        breakout_codes = set(breakout_df["ticker"])
-        pullback_codes = set(revenue_pullback_df["ticker"])
-        overlap_codes = breakout_codes & pullback_codes
+    lines.append("## 8. 主流題材：營收回檔股中的短線轉強候選股")
+    lines.append("")
+    lines.append(generate_markdown_table(rebound_mainstream_df, rebound_columns, rebound_rename))
 
-        if not overlap_codes:
-            lines.append("沒有交集。")
-        else:
-            overlap = revenue_pullback_df[revenue_pullback_df["ticker"].isin(overlap_codes)].copy()
-            overlap = overlap.sort_values("score", ascending=False)
+    lines.append("")
+    lines.append("---")
+    lines.append("")
 
-            lines.append(generate_markdown_table(
-                overlap,
-                columns=[
-                    "ticker", "name", "industry", "date",
-                    "revenue_yoy_pct", "cumulative_yoy_pct",
-                    "close", "volume_lots",
-                    "gap_ma20_pct", "gap_ma60_pct",
-                    "return_10d_pct", "score", "judge"
-                ],
-                rename_map={
-                    "ticker": "代號",
-                    "name": "名稱",
-                    "industry": "產業",
-                    "date": "資料日",
-                    "revenue_yoy_pct": "月營收YoY%",
-                    "cumulative_yoy_pct": "累計YoY%",
-                    "close": "收盤價",
-                    "volume_lots": "成交量張",
-                    "gap_ma20_pct": "距月線%",
-                    "gap_ma60_pct": "距季線%",
-                    "return_10d_pct": "近10日漲幅%",
-                    "score": "分數",
-                    "judge": "判斷",
-                }
-            ))
+    lines.append("## 9. 非主流 / 防禦傳產：營收回檔股中的短線轉強候選股")
+    lines.append("")
+    lines.append(generate_markdown_table(rebound_non_mainstream_df, rebound_columns, rebound_rename))
 
     lines.append("")
 
@@ -713,7 +775,8 @@ def main():
         generate_report(
             price_data=price_data,
             breakout_df=pd.DataFrame(),
-            revenue_pullback_df=pd.DataFrame()
+            revenue_pullback_df=pd.DataFrame(),
+            pullback_rebound_df=pd.DataFrame()
         )
         print("No official price data. Empty report generated.")
         return
@@ -724,6 +787,7 @@ def main():
 
     breakout_df = find_breakout_candidates(stock_map, industry_map)
     revenue_pullback_df = find_revenue_pullback_candidates(stock_map, revenue_df)
+    pullback_rebound_df = find_pullback_rebound_candidates(revenue_pullback_df)
 
     if not breakout_df.empty:
         breakout_df.to_csv(BREAKOUT_CSV_PATH, index=False, encoding="utf-8-sig")
@@ -731,7 +795,10 @@ def main():
     if not revenue_pullback_df.empty:
         revenue_pullback_df.to_csv(REVENUE_PULLBACK_CSV_PATH, index=False, encoding="utf-8-sig")
 
-    generate_report(price_data, breakout_df, revenue_pullback_df)
+    if not pullback_rebound_df.empty:
+        pullback_rebound_df.to_csv(PULLBACK_REBOUND_CSV_PATH, index=False, encoding="utf-8-sig")
+
+    generate_report(price_data, breakout_df, revenue_pullback_df, pullback_rebound_df)
 
     print("Official-data stock monitor report generated.")
     print(f"Trading days loaded: {price_data['date'].nunique()}")
@@ -739,6 +806,7 @@ def main():
     print(f"Volume threshold: {MIN_VOLUME_LOTS} lots")
     print(f"Strict breakout candidates: {len(breakout_df)}")
     print(f"Revenue pullback candidates: {len(revenue_pullback_df)}")
+    print(f"Pullback rebound candidates: {len(pullback_rebound_df)}")
 
 
 if __name__ == "__main__":
