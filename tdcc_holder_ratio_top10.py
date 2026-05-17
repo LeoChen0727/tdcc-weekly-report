@@ -16,7 +16,9 @@ TWSE_CODE_URL = "https://isin.twse.com.tw/isin/C_public.jsp?strMode=2"
 TPEx_CODE_URL = "https://isin.twse.com.tw/isin/C_public.jsp?strMode=4"
 
 OUTPUT_DIR = Path("output")
+LATEST_DIR = OUTPUT_DIR / "latest"
 HISTORY_DIR = OUTPUT_DIR / "history"
+TDCC_HISTORY_DIR = HISTORY_DIR / "tdcc"
 README_PATH = Path("README.md")
 
 THRESHOLDS = [400, 600, 800, 1000]
@@ -109,7 +111,9 @@ def normalize_columns(df: pd.DataFrame) -> pd.DataFrame:
 
 def ensure_dirs() -> None:
     OUTPUT_DIR.mkdir(exist_ok=True)
+    LATEST_DIR.mkdir(parents=True, exist_ok=True)
     HISTORY_DIR.mkdir(parents=True, exist_ok=True)
+    TDCC_HISTORY_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def fetch_html(url: str, timeout: int = 60) -> str:
@@ -519,7 +523,7 @@ def get_snapshot_date(snapshot: pd.DataFrame) -> str:
 
 def save_raw_tdcc(tdcc_df: pd.DataFrame) -> Path:
     latest_date = tdcc_df["date"].max()
-    raw_path = OUTPUT_DIR / f"tdcc_latest_ratio_raw_{latest_date}.csv"
+    raw_path = TDCC_HISTORY_DIR / f"tdcc_latest_ratio_raw_{latest_date}.csv"
     tdcc_df.to_csv(raw_path, index=False, encoding="utf-8-sig")
     return raw_path
 
@@ -527,8 +531,8 @@ def save_raw_tdcc(tdcc_df: pd.DataFrame) -> Path:
 def save_current_snapshot(snapshot: pd.DataFrame) -> Path:
     latest_date = get_snapshot_date(snapshot)
 
-    history_path = HISTORY_DIR / f"tdcc_holder_ratio_{latest_date}.csv"
-    latest_path = OUTPUT_DIR / "tdcc_holder_ratio_latest.csv"
+    history_path = TDCC_HISTORY_DIR / f"tdcc_holder_ratio_{latest_date}.csv"
+    latest_path = LATEST_DIR / "tdcc_holder_ratio_latest.csv"
 
     snapshot.to_csv(history_path, index=False, encoding="utf-8-sig")
     snapshot.to_csv(latest_path, index=False, encoding="utf-8-sig")
@@ -537,7 +541,7 @@ def save_current_snapshot(snapshot: pd.DataFrame) -> Path:
 
 
 def bootstrap_history_from_legacy_raw_files(stock_name_map: dict[str, str]) -> None:
-    legacy_paths = sorted(OUTPUT_DIR.glob("tdcc_latest_ratio_raw_*.csv"))
+    legacy_paths = sorted(OUTPUT_DIR.glob("tdcc_latest_ratio_raw_*.csv")) + sorted(TDCC_HISTORY_DIR.glob("tdcc_latest_ratio_raw_*.csv"))
 
     if not legacy_paths:
         print("No legacy raw files found.")
@@ -552,7 +556,7 @@ def bootstrap_history_from_legacy_raw_files(stock_name_map: dict[str, str]) -> N
             print(f"Skip legacy file without date: {raw_path}")
             continue
 
-        history_path = HISTORY_DIR / f"tdcc_holder_ratio_{date}.csv"
+        history_path = TDCC_HISTORY_DIR / f"tdcc_holder_ratio_{date}.csv"
 
         print(f"Rebuilding history snapshot from legacy file: {raw_path}")
 
@@ -566,7 +570,7 @@ def bootstrap_history_from_legacy_raw_files(stock_name_map: dict[str, str]) -> N
 
 
 def find_previous_snapshot(current_date: str) -> Optional[Path]:
-    snapshot_paths = sorted(HISTORY_DIR.glob("tdcc_holder_ratio_*.csv"))
+    snapshot_paths = sorted(TDCC_HISTORY_DIR.glob("tdcc_holder_ratio_*.csv"))
 
     previous_paths = []
 
@@ -590,7 +594,7 @@ def find_previous_snapshot(current_date: str) -> Optional[Path]:
 def get_recent_snapshot_paths(required_count: int) -> list[Path]:
     snapshot_paths = []
 
-    for path in sorted(HISTORY_DIR.glob("tdcc_holder_ratio_*.csv")):
+    for path in sorted(TDCC_HISTORY_DIR.glob("tdcc_holder_ratio_*.csv")):
         match = re.search(r"tdcc_holder_ratio_([0-9]{8})\.csv$", path.name)
         if match:
             snapshot_paths.append(path)
@@ -908,11 +912,11 @@ def build_markdown_report(
     lines.append("## 檔案說明")
     lines.append("")
     lines.append("- `README.md`：GitHub 首頁顯示用報表")
-    lines.append("- `output/tdcc_holder_ratio_latest.csv`：最新一次完整快照")
-    lines.append("- `output/history/`：每週歷史快照")
-    lines.append("- `output/tdcc_weekly_report_latest.md`：最新 Markdown 報表")
-    lines.append("- `output/tdcc_weekly_report_日期.md`：每週 Markdown 歷史報表")
-    lines.append("- `output/tdcc_latest_ratio_raw_日期.csv`：TDCC 原始或舊版整理資料")
+    lines.append("- `output/latest/tdcc_holder_ratio_latest.csv`：最新一次完整快照")
+    lines.append("- `output/history/tdcc/`：每週歷史快照")
+    lines.append("- `output/latest/tdcc_weekly_report_latest.md`：最新 Markdown 報表")
+    lines.append("- `output/history/tdcc/tdcc_weekly_report_日期.md`：每週 Markdown 歷史報表")
+    lines.append("- `output/history/tdcc/tdcc_latest_ratio_raw_日期.csv`：TDCC 原始或舊版整理資料")
     lines.append("")
 
     return "\n".join(lines)
@@ -939,8 +943,8 @@ def write_reports(
 
     README_PATH.write_text(report_text, encoding="utf-8")
 
-    latest_report_path = OUTPUT_DIR / "tdcc_weekly_report_latest.md"
-    dated_report_path = OUTPUT_DIR / f"tdcc_weekly_report_{latest_date}.md"
+    latest_report_path = LATEST_DIR / "tdcc_weekly_report_latest.md"
+    dated_report_path = TDCC_HISTORY_DIR / f"tdcc_weekly_report_{latest_date}.md"
 
     latest_report_path.write_text(report_text, encoding="utf-8")
     dated_report_path.write_text(report_text, encoding="utf-8")
