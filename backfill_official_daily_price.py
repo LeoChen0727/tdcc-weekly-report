@@ -15,7 +15,11 @@ OUTPUT_DIR.mkdir(exist_ok=True)
 
 
 LOOKBACK_DAYS = 180
-MIN_EXPECTED_TOTAL_ROWS = 1500
+
+# 合理筆數門檻：用來避免假日、錯誤資料、ETF/債券資料污染
+MIN_TWSE_ROWS = 700
+MIN_TPEX_ROWS = 500
+MIN_TOTAL_ROWS = 1500
 
 
 def normalize_number(value):
@@ -24,7 +28,7 @@ def normalize_number(value):
 
     text = str(value).replace(",", "").replace("--", "").strip()
 
-    if text in ["", "X", "除權息"]:
+    if text in ["", "X", "除權息", "----"]:
         return None
 
     try:
@@ -33,7 +37,32 @@ def normalize_number(value):
         return None
 
 
+def is_common_stock_ticker(value):
+    """
+    只保留一般股票代號。
+    排除：
+    - 00xx ETF / 債券 / 指數商品
+    - 非 4 碼代號
+    """
+    text = str(value).strip()
+
+    if not text.isdigit():
+        return False
+
+    if len(text) != 4:
+        return False
+
+    if text.startswith("00"):
+        return False
+
+    return True
+
+
 def fetch_twse_daily_price(date_str):
+    """
+    抓 TWSE 上市每日收盤行情。
+    date_str format: YYYYMMDD
+    """
     url = "https://www.twse.com.tw/exchangeReport/MI_INDEX"
     params = {
         "response": "csv",
@@ -72,14 +101,23 @@ def fetch_twse_daily_price(date_str):
 
     df.columns = [str(c).replace('"', "").strip() for c in df.columns]
 
-    required_cols = ["證券代號", "證券名稱", "開盤價", "最高價", "最低價", "收盤價", "成交股數", "成交金額"]
+    required_cols = [
+        "證券代號",
+        "證券名稱",
+        "開盤價",
+        "最高價",
+        "最低價",
+        "收盤價",
+        "成交股數",
+        "成交金額",
+    ]
 
     for col in required_cols:
         if col not in df.columns:
             print(f"TWSE {date_str}: missing column {col}")
             return pd.DataFrame()
 
-    df = df[df["證券代號"].astype(str).str.match(r"^\d{4}$")].copy()
+    df = df[df["證券代號"].apply(is_common_stock_ticker)].copy()
 
     if df.empty:
         return pd.DataFrame()
@@ -97,78 +135,21 @@ def fetch_twse_daily_price(date_str):
         "turnover": df["成交金額"].apply(normalize_number),
     })
 
-    result = result.dropna(subset=["close", "volume"])
-
-    return result
-
-
-def fetch_tpex_daily_price_from_openapi(date_str):
-    """
-    從 TPEx OpenAPI 抓上櫃每日收盤行情。
-    OpenAPI 通常提供最新交易日資料，不一定支援指定歷史日期。
-    所以這個函數只在 date_str 等於最新資料日時有效。
-    """
-    url = "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_daily_close_quotes"
-
-    headers = {"User-Agent": "Mozilla/5.0"}
-
-    try:
-        r = requests.get(url, headers=headers, timeout=30)
-        r.encoding = "utf-8"
-        data = r.json()
-    except Exception as e:
-        print(f"TPEx OpenAPI {date_str}: request/json failed {e}")
-        return pd.DataFrame()
-
-    if not isinstance(data, list) or not data:
-        print(f"TPEx OpenAPI {date_str}: no data")
-        return pd.DataFrame()
-
-    df = pd.DataFrame(data)
-
-    rename_candidates = {
-        "Date": "api_date",
-        "SecuritiesCompanyCode": "ticker",
-        "CompanyName": "name",
-        "Close": "close",
-        "Open": "open",
-        "High": "high",
-        "Low": "low",
-        "TradingShares": "volume",
-        "TransactionAmount": "turnover",
-    }
-
-    df = df.rename(columns={k: v for k, v in rename_candidates.items() if k in df.columns})
-
-    required_cols = ["ticker", "name", "open", "high", "low", "close", "volume"]
-
-    for col in required_cols:
-        if col not in df.columns:
-            print(f"TPEx OpenAPI {date_str}: missing column {col}; columns={list(df.columns)}")
-            return pd.DataFrame()
-
-    result = pd.DataFrame({
-        "date": date_str,
-        "ticker": df["ticker"].astype(str).str.extract(r"(\d{4})")[0],
-        "name": df["name"].astype(str),
-        "market": "otc",
-        "open": df["open"].apply(normalize_number),
-        "high": df["high"].apply(normalize_number),
-        "low": df["low"].apply(normalize_number),
-        "close": df["close"].apply(normalize_number),
-        "volume": df["volume"].apply(normalize_number),
-        "turnover": df["turnover"].apply(normalize_number) if "turnover" in df.columns else None,
-    })
-
     result = result.dropna(subset=["ticker", "close", "volume"])
-    result = result[result["ticker"].astype(str).str.match(r"^\d{4}$")].copy()
+    result = result[result["ticker"].apply(is_common_stock_ticker)].copy()
 
-    return result
+    return result.reset_index(drop=True)
 
 
-def fetch_tpex_daily_price_legacy(date_str):
+def fetch_tpex_daily_price(date_str):
     """
-    從 TPEx 舊版查詢端點抓指定日期上櫃每日收盤行情。
+    抓 TPEx 上櫃每日收盤行情。
+    date_str format: YYYYMMDD
+
+    嚴格版：
+    - 只用指定日期查詢
+    - 不使用 OpenAPI 最新資料 fallback
+    - 不把假日資料硬存成指定日期
     """
     roc_date = f"{int(date_str[:4]) - 1911}/{date_str[4:6]}/{date_str[6:8]}"
 
@@ -186,14 +167,14 @@ def fetch_tpex_daily_price_legacy(date_str):
         r.encoding = "utf-8"
         data = r.json()
     except Exception as e:
-        print(f"TPEx legacy {date_str}: request/json failed {e}")
+        print(f"TPEx {date_str}: request/json failed {e}")
         return pd.DataFrame()
 
     aa_data = data.get("aaData", [])
     fields = data.get("fields", [])
 
     if not aa_data or not fields:
-        print(f"TPEx legacy {date_str}: no data")
+        print(f"TPEx {date_str}: no data")
         return pd.DataFrame()
 
     df = pd.DataFrame(aa_data, columns=fields)
@@ -201,11 +182,19 @@ def fetch_tpex_daily_price_legacy(date_str):
     code_col = "代號" if "代號" in df.columns else "證券代號"
     name_col = "名稱" if "名稱" in df.columns else "證券名稱"
 
-    required_cols = [code_col, name_col, "開盤", "最高", "最低", "收盤", "成交股數"]
+    required_cols = [
+        code_col,
+        name_col,
+        "開盤",
+        "最高",
+        "最低",
+        "收盤",
+        "成交股數",
+    ]
 
     for col in required_cols:
         if col not in df.columns:
-            print(f"TPEx legacy {date_str}: missing column {col}; columns={list(df.columns)}")
+            print(f"TPEx {date_str}: missing column {col}; columns={list(df.columns)}")
             return pd.DataFrame()
 
     turnover_col = "成交金額(元)" if "成交金額(元)" in df.columns else None
@@ -224,20 +213,9 @@ def fetch_tpex_daily_price_legacy(date_str):
     })
 
     result = result.dropna(subset=["ticker", "close", "volume"])
-    result = result[result["ticker"].astype(str).str.match(r"^\d{4}$")].copy()
+    result = result[result["ticker"].apply(is_common_stock_ticker)].copy()
 
-    return result
-
-
-def fetch_tpex_daily_price(date_str):
-    legacy_df = fetch_tpex_daily_price_legacy(date_str)
-
-    if not legacy_df.empty:
-        return legacy_df
-
-    openapi_df = fetch_tpex_daily_price_from_openapi(date_str)
-
-    return openapi_df
+    return result.reset_index(drop=True)
 
 
 def fetch_combined_daily_price(date_str):
@@ -255,41 +233,44 @@ def fetch_combined_daily_price(date_str):
     return twse_df, tpex_df, combined
 
 
-def existing_file_is_complete(output_path):
-    if not output_path.exists():
-        return False
+def is_valid_trading_day_data(twse_df, tpex_df, combined):
+    """
+    不靠星期幾判斷。
+    只用資料完整性判斷是否是真交易日資料。
+    """
+    if combined.empty:
+        return False, "combined empty"
 
-    try:
-        old_df = pd.read_csv(output_path, dtype={"ticker": str})
-    except Exception:
-        return False
+    if len(twse_df) < MIN_TWSE_ROWS:
+        return False, f"TWSE rows too low: {len(twse_df)}"
 
-    if old_df.empty:
-        return False
+    if len(tpex_df) < MIN_TPEX_ROWS:
+        return False, f"TPEx rows too low: {len(tpex_df)}"
 
-    markets = set(old_df.get("market", []))
-    total_rows = len(old_df)
+    if len(combined) < MIN_TOTAL_ROWS:
+        return False, f"total rows too low: {len(combined)}"
+
+    markets = set(combined["market"].dropna().unique())
 
     if "listed" not in markets:
-        return False
+        return False, "missing listed market"
 
     if "otc" not in markets:
-        return False
+        return False, "missing otc market"
 
-    if total_rows < MIN_EXPECTED_TOTAL_ROWS:
-        return False
+    if combined["ticker"].astype(str).str.startswith("00").any():
+        return False, "contains 00xx products"
 
-    return True
+    return True, "valid"
 
 
 def main():
     today = datetime.now()
 
     success_dates = []
-    skipped_complete_dates = []
-    replaced_incomplete_dates = []
-    no_data_dates = []
+    invalid_dates = []
     failed_dates = []
+    skipped_existing_dates = []
     row_stats = []
 
     for i in range(LOOKBACK_DAYS):
@@ -298,34 +279,34 @@ def main():
 
         output_path = DATA_DIR / f"{date_str}.csv"
 
-        if existing_file_is_complete(output_path):
-            skipped_complete_dates.append(date_str)
-            print(f"Skip complete existing: {date_str}")
-            continue
-
         if output_path.exists():
-            replaced_incomplete_dates.append(date_str)
-            print(f"Replace incomplete existing: {date_str}")
+            skipped_existing_dates.append(date_str)
+            print(f"Skip existing: {date_str}")
+            continue
 
         print(f"Fetching: {date_str}")
 
         try:
             twse_df, tpex_df, combined = fetch_combined_daily_price(date_str)
 
-            if combined.empty:
-                no_data_dates.append(date_str)
-                print(f"No data: {date_str}")
-                continue
-
-            combined.to_csv(output_path, index=False, encoding="utf-8-sig")
-            success_dates.append(date_str)
+            valid, reason = is_valid_trading_day_data(twse_df, tpex_df, combined)
 
             row_stats.append({
                 "date": date_str,
                 "twse_rows": len(twse_df),
                 "tpex_rows": len(tpex_df),
                 "total_rows": len(combined),
+                "valid": valid,
+                "reason": reason,
             })
+
+            if not valid:
+                invalid_dates.append(f"{date_str} ({reason})")
+                print(f"Invalid data: {date_str} - {reason}")
+                continue
+
+            combined.to_csv(output_path, index=False, encoding="utf-8-sig")
+            success_dates.append(date_str)
 
             print(
                 f"Saved {date_str}: "
@@ -333,7 +314,7 @@ def main():
             )
 
         except Exception as e:
-            failed_dates.append(date_str)
+            failed_dates.append(f"{date_str} ({e})")
             print(f"Failed {date_str}: {e}")
 
         time.sleep(1.0)
@@ -341,52 +322,48 @@ def main():
     stats_df = pd.DataFrame(row_stats)
 
     if not stats_df.empty:
-        stats_df.to_csv(OUTPUT_DIR / "official_price_backfill_row_stats.csv", index=False, encoding="utf-8-sig")
+        stats_df.to_csv(
+            OUTPUT_DIR / "official_price_backfill_row_stats.csv",
+            index=False,
+            encoding="utf-8-sig"
+        )
 
     report = f"""# 官方歷史價格補抓報告
 
 回補天數：{LOOKBACK_DAYS}
 
-成功新增 / 覆蓋交易日數：{len(success_dates)}
-完整已存在略過：{len(skipped_complete_dates)}
-不完整檔案被覆蓋：{len(replaced_incomplete_dates)}
-無資料日期：{len(no_data_dates)}
-失敗日期：{len(failed_dates)}
+成功新增交易日數：{len(success_dates)}
+已存在略過日期數：{len(skipped_existing_dates)}
+無效 / 非交易日 / 資料不完整日期數：{len(invalid_dates)}
+失敗日期數：{len(failed_dates)}
 
-## 成功新增 / 覆蓋日期
+## 成功新增日期
 
-{", ".join(success_dates[:80]) if success_dates else "無"}
+{", ".join(success_dates[:100]) if success_dates else "無"}
 
-## 不完整檔案被覆蓋日期
+## 已存在略過日期
 
-{", ".join(replaced_incomplete_dates[:80]) if replaced_incomplete_dates else "無"}
+{", ".join(skipped_existing_dates[:100]) if skipped_existing_dates else "無"}
 
-## 完整已存在略過日期
+## 無效 / 非交易日 / 資料不完整日期
 
-{", ".join(skipped_complete_dates[:80]) if skipped_complete_dates else "無"}
-
-## 無資料日期
-
-通常是週末、國定假日，或官方尚未提供資料。
-
-{", ".join(no_data_dates[:100]) if no_data_dates else "無"}
+{chr(10).join(invalid_dates[:120]) if invalid_dates else "無"}
 
 ## 失敗日期
 
-{", ".join(failed_dates[:80]) if failed_dates else "無"}
+{chr(10).join(failed_dates[:120]) if failed_dates else "無"}
 
 ## 每日筆數統計
 
-{stats_df.head(30).to_markdown(index=False) if not stats_df.empty else "無"}
+{stats_df.head(80).to_markdown(index=False) if not stats_df.empty else "無"}
 """
 
     Path("output/official_price_backfill_latest.md").write_text(report, encoding="utf-8")
 
     print("Backfill finished.")
-    print(f"Success/replaced: {len(success_dates)}")
-    print(f"Complete existing: {len(skipped_complete_dates)}")
-    print(f"Incomplete replaced: {len(replaced_incomplete_dates)}")
-    print(f"No data: {len(no_data_dates)}")
+    print(f"Success: {len(success_dates)}")
+    print(f"Existing skipped: {len(skipped_existing_dates)}")
+    print(f"Invalid: {len(invalid_dates)}")
     print(f"Failed: {len(failed_dates)}")
 
 
