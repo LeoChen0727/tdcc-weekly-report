@@ -139,8 +139,8 @@
 ## 檔案說明
 
 - `README.md`：GitHub 首頁顯示用報表
-- `output/tdcc_holder_ratio_latest.csv`：最新一次完整快照
-- `output/history/`：每週歷史快照
-- `output/tdcc_weekly_report_latest.md`：最新 Markdown 報表
-- `output/tdcc_weekly_report_日期.md`：每週 Markdown 歷史報表
-- `output/tdcc_latest_ratio_raw_日期.csv`：TDCC 原始或舊版整理資料
+- `output/latest/tdcc_holder_ratio_latest.csv`：最新一次完整快照
+- `output/history/tdcc/`：每週歷史快照
+- `output/latest/tdcc_weekly_report_latest.md`：最新 Markdown 報表
+- `output/history/tdcc/tdcc_weekly_report_日期.md`：每週 Markdown 歷史報表
+- `output/history/tdcc/tdcc_latest_ratio_raw_日期.csv`：TDCC 原始或舊版整理資料
