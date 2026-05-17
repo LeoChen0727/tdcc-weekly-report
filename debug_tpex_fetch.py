@@ -7,7 +7,8 @@ OUTPUT_DIR = Path("output")
 OUTPUT_DIR.mkdir(exist_ok=True)
 
 TEST_DATE = "20260515"
-ROC_DATE = "115/05/15"
+ROC_DATE_SLASH = "115/05/15"
+ROC_DATE_NOSLASH = "1150515"
 
 
 def try_request(name, url, params=None):
@@ -26,58 +27,54 @@ def try_request(name, url, params=None):
 
         print("Status:", r.status_code)
         print("Final URL:", r.url)
-        print("Text head:", r.text[:300].replace("\n", " "))
+        print("Text head:", r.text[:500].replace("\n", " "))
+
+        rows = 0
+        sample = ""
+        json_type = "not_json"
+        keys = ""
 
         try:
             data = r.json()
-            print("JSON type:", type(data))
 
             if isinstance(data, dict):
-                print("JSON keys:", list(data.keys()))
-                fields = data.get("fields") or data.get("tables") or []
-                aa_data = data.get("aaData") or data.get("data") or []
+                json_type = "dict"
+                keys = str(list(data.keys()))
 
-                print("fields:", fields[:20] if isinstance(fields, list) else fields)
-                print("aaData/data rows:", len(aa_data) if isinstance(aa_data, list) else "not list")
+                aa_data = (
+                    data.get("aaData")
+                    or data.get("data")
+                    or data.get("tables")
+                    or []
+                )
 
-                if isinstance(aa_data, list) and aa_data:
-                    print("first row:", aa_data[0])
+                if isinstance(aa_data, list):
+                    rows = len(aa_data)
+                    sample = str(aa_data[0])[:500] if aa_data else ""
 
-                return {
-                    "name": name,
-                    "status": r.status_code,
-                    "final_url": r.url,
-                    "json_type": "dict",
-                    "keys": str(list(data.keys())),
-                    "rows": len(aa_data) if isinstance(aa_data, list) else 0,
-                    "sample": str(aa_data[0])[:300] if isinstance(aa_data, list) and aa_data else "",
-                }
+            elif isinstance(data, list):
+                json_type = "list"
+                rows = len(data)
+                sample = str(data[0])[:500] if data else ""
 
-            if isinstance(data, list):
-                print("list rows:", len(data))
-                print("first row:", data[0] if data else None)
-
-                return {
-                    "name": name,
-                    "status": r.status_code,
-                    "final_url": r.url,
-                    "json_type": "list",
-                    "keys": "",
-                    "rows": len(data),
-                    "sample": str(data[0])[:300] if data else "",
-                }
-
-        except Exception as e:
-            print("JSON parse failed:", e)
+        except Exception:
+            # 不是 JSON，就嘗試當 CSV/HTML 看有沒有 1815
+            text = r.text
+            if "1815" in text or "富喬" in text:
+                sample = "TEXT_CONTAINS_1815_OR_FUQIAO"
+            else:
+                sample = text[:500].replace("\n", " ")
 
         return {
             "name": name,
             "status": r.status_code,
             "final_url": r.url,
-            "json_type": "not_json",
-            "keys": "",
-            "rows": 0,
-            "sample": r.text[:300].replace("\n", " "),
+            "json_type": json_type,
+            "keys": keys,
+            "rows": rows,
+            "contains_1815": ("1815" in r.text),
+            "contains_fu_qiao": ("富喬" in r.text),
+            "sample": sample,
         }
 
     except Exception as e:
@@ -90,6 +87,8 @@ def try_request(name, url, params=None):
             "json_type": "",
             "keys": "",
             "rows": 0,
+            "contains_1815": False,
+            "contains_fu_qiao": False,
             "sample": str(e),
         }
 
@@ -97,61 +96,63 @@ def try_request(name, url, params=None):
 def main():
     tests = [
         {
-            "name": "legacy_daily_close_quotes",
-            "url": "https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php",
+            "name": "UPPER_DAILY_CLOSE_o_data_with_slash_date",
+            "url": "https://www.tpex.org.tw/web/stock/aftertrading/DAILY_CLOSE_quotes/stk_quote_result.php",
             "params": {
                 "l": "zh-tw",
-                "d": ROC_DATE,
-                "s": "0,asc,0",
+                "d": ROC_DATE_SLASH,
+                "o": "data",
             },
         },
         {
-            "name": "legacy_daily_close_quotes_no_sort",
-            "url": "https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php",
+            "name": "UPPER_DAILY_CLOSE_o_json_with_slash_date",
+            "url": "https://www.tpex.org.tw/web/stock/aftertrading/DAILY_CLOSE_quotes/stk_quote_result.php",
             "params": {
                 "l": "zh-tw",
-                "d": ROC_DATE,
+                "d": ROC_DATE_SLASH,
+                "o": "json",
             },
         },
         {
-            "name": "otc_quotes_no1430_se_EW",
-            "url": "https://www.tpex.org.tw/web/stock/aftertrading/otc_quotes_no1430/stk_wn1430_result.php",
+            "name": "UPPER_DAILY_CLOSE_o_htm_with_slash_date",
+            "url": "https://www.tpex.org.tw/web/stock/aftertrading/DAILY_CLOSE_quotes/stk_quote_result.php",
             "params": {
                 "l": "zh-tw",
-                "d": ROC_DATE,
-                "se": "EW",
+                "d": ROC_DATE_SLASH,
+                "o": "htm",
             },
         },
         {
-            "name": "otc_quotes_no1430_se_AL",
-            "url": "https://www.tpex.org.tw/web/stock/aftertrading/otc_quotes_no1430/stk_wn1430_result.php",
+            "name": "UPPER_DAILY_CLOSE_no_o_with_slash_date",
+            "url": "https://www.tpex.org.tw/web/stock/aftertrading/DAILY_CLOSE_quotes/stk_quote_result.php",
             "params": {
                 "l": "zh-tw",
-                "d": ROC_DATE,
-                "se": "AL",
+                "d": ROC_DATE_SLASH,
             },
         },
         {
-            "name": "otc_quotes_no1430_se_all",
-            "url": "https://www.tpex.org.tw/web/stock/aftertrading/otc_quotes_no1430/stk_wn1430_result.php",
+            "name": "UPPER_DAILY_CLOSE_o_data_no_date",
+            "url": "https://www.tpex.org.tw/web/stock/aftertrading/DAILY_CLOSE_quotes/stk_quote_result.php",
             "params": {
                 "l": "zh-tw",
-                "d": ROC_DATE,
-                "se": "",
+                "o": "data",
             },
         },
         {
-            "name": "otc_quotes_no1430_sect_EW_no_date",
-            "url": "https://www.tpex.org.tw/web/stock/aftertrading/otc_quotes_no1430/stk_wn1430_result.php",
+            "name": "UPPER_DAILY_CLOSE_o_data_noslash_date",
+            "url": "https://www.tpex.org.tw/web/stock/aftertrading/DAILY_CLOSE_quotes/stk_quote_result.php",
             "params": {
                 "l": "zh-tw",
-                "sect": "EW",
+                "d": ROC_DATE_NOSLASH,
+                "o": "data",
             },
         },
         {
-            "name": "openapi_latest",
-            "url": "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_daily_close_quotes",
-            "params": None,
+            "name": "new_zh_tw_pricing_page",
+            "url": "https://www.tpex.org.tw/zh-tw/mainboard/trading/info/pricing.html",
+            "params": {
+                "date": ROC_DATE_SLASH,
+            },
         },
     ]
 
@@ -170,7 +171,7 @@ def main():
     df.to_csv("output/debug_tpex_fetch_latest.csv", index=False, encoding="utf-8-sig")
 
     report_lines = ["# TPEx 抓取測試報告", ""]
-    report_lines.append(f"測試日期：{TEST_DATE} / 民國 {ROC_DATE}")
+    report_lines.append(f"測試日期：{TEST_DATE} / 民國 {ROC_DATE_SLASH}")
     report_lines.append("")
     report_lines.append(df.to_markdown(index=False))
     report_lines.append("")
