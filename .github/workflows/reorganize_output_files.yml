@@ -44,6 +44,7 @@ jobs:
           find output -maxdepth 1 -type f -name "tdcc_latest_ratio_raw_*.csv" -exec mv {} output/history/tdcc/ \;
           find output -maxdepth 1 -type f -name "tdcc_latest_ratio_report_*.md" -exec mv {} output/history/tdcc/ \;
           find output -maxdepth 1 -type f -name "tdcc_weekly_report_*.md" -exec mv {} output/history/tdcc/ \;
+          find output/history -maxdepth 1 -type f -name "tdcc_holder_ratio_*.csv" -exec mv {} output/history/tdcc/ \;
 
           cat > output/latest/reorganize_output_files_latest.md <<'EOF'
           # Output 檔案整理報告
