@@ -21,6 +21,9 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Install dependencies
+        run: pip install pandas requests lxml html5lib tabulate
+
       - name: Run daily stock monitor
         run: python stock_daily_monitor.py
 
