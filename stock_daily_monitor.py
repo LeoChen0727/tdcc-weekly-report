@@ -18,11 +18,42 @@ REVENUE_PULLBACK_CSV_PATH = OUTPUT_DIR / "revenue_pullback_latest.csv"
 MIN_VOLUME_LOTS = 1000
 
 
+MAINSTREAM_INDUSTRY_KEYWORDS = [
+    "半導體",
+    "電子零組件",
+    "電腦及週邊",
+    "通信網路",
+    "光電",
+    "其他電子",
+    "資訊服務",
+    "電子通路",
+    "電機機械",
+    "綠能環保",
+    "生技醫療",
+    "數位雲端",
+]
+
+
+def is_mainstream_industry(industry):
+    if pd.isna(industry):
+        return False
+
+    text = str(industry).strip()
+
+    return any(keyword in text for keyword in MAINSTREAM_INDUSTRY_KEYWORDS)
+
+
+def split_mainstream(df):
+    if df.empty or "industry" not in df.columns:
+        return pd.DataFrame(), pd.DataFrame()
+
+    mainstream_df = df[df["industry"].apply(is_mainstream_industry)].copy()
+    non_mainstream_df = df[~df["industry"].apply(is_mainstream_industry)].copy()
+
+    return mainstream_df, non_mainstream_df
+
+
 def load_official_price_history():
-    """
-    讀取 data/daily_price/ 底下所有官方日線 CSV。
-    每個檔案是一個交易日全市場資料。
-    """
     files = sorted(DATA_DIR.glob("*.csv"))
 
     if not files:
@@ -59,10 +90,6 @@ def load_official_price_history():
 
 
 def fetch_monthly_revenue():
-    """
-    抓上市 + 上櫃最新月營收資料。
-    官方來源：公開資訊觀測站 OpenData。
-    """
     urls = [
         ("listed", "https://mopsfin.twse.com.tw/opendata/t187ap05_L.csv"),
         ("otc", "https://mopsfin.twse.com.tw/opendata/t187ap05_O.csv"),
@@ -118,11 +145,28 @@ def fetch_monthly_revenue():
     return df.reset_index(drop=True)
 
 
+def build_industry_map(revenue_df):
+    if revenue_df.empty:
+        return {}
+
+    temp = revenue_df.dropna(subset=["ticker"]).copy()
+    temp["ticker"] = temp["ticker"].astype(str).str.zfill(4)
+
+    industry_map = {}
+
+    for _, row in temp.iterrows():
+        ticker = row["ticker"]
+        industry_map[ticker] = {
+            "industry": row.get("industry", ""),
+            "revenue_period": row.get("revenue_period", ""),
+            "revenue_yoy_pct": row.get("revenue_yoy_pct", None),
+            "cumulative_yoy_pct": row.get("cumulative_yoy_pct", None),
+        }
+
+    return industry_map
+
+
 def build_stock_history_map(price_data):
-    """
-    把全市場日線轉成：
-    ticker -> 該股票歷史日線 DataFrame
-    """
     stock_map = {}
 
     for ticker, group in price_data.groupby("ticker"):
@@ -145,10 +189,6 @@ def add_technical_metrics(df):
 
 
 def calculate_breakout_score(df):
-    """
-    盤整帶量突破分數。
-    使用官方歷史價格資料。
-    """
     df = add_technical_metrics(df)
 
     if len(df) < 61:
@@ -186,13 +226,11 @@ def calculate_breakout_score(df):
 
     score = 0
 
-    # 盤整區間越窄越好
     if consolidation_range_pct <= 18:
         score += 25
     elif consolidation_range_pct <= 25:
         score += 15
 
-    # 接近或突破 40 日高點
     if breakout_pct >= 0:
         score += 30
     elif breakout_pct >= -2:
@@ -200,7 +238,6 @@ def calculate_breakout_score(df):
     elif breakout_pct >= -5:
         score += 10
 
-    # 成交量放大
     if volume_ratio >= 2:
         score += 25
     elif volume_ratio >= 1.5:
@@ -208,13 +245,11 @@ def calculate_breakout_score(df):
     elif volume_ratio >= 1.2:
         score += 10
 
-    # 均線位置
     if close > ma20:
         score += 10
     if close > ma60:
         score += 10
 
-    # 避免短線噴太遠
     if return_5d > 20:
         score -= 20
     elif return_5d > 12:
@@ -249,10 +284,6 @@ def judge_breakout(row):
 
 
 def calculate_revenue_pullback_score(df, revenue_row):
-    """
-    營收成長但股價回檔分數。
-    使用官方歷史價格資料。
-    """
     df = add_technical_metrics(df)
 
     if len(df) < 61:
@@ -283,7 +314,6 @@ def calculate_revenue_pullback_score(df, revenue_row):
 
     score = 0
 
-    # 營收成長
     if revenue_yoy >= 50:
         score += 30
     elif revenue_yoy >= 20:
@@ -298,7 +328,6 @@ def calculate_revenue_pullback_score(df, revenue_row):
     elif cumulative_yoy >= 5:
         score += 8
 
-    # 回檔幅度
     if return_10d <= -8:
         score += 20
     elif return_10d <= -5:
@@ -306,7 +335,6 @@ def calculate_revenue_pullback_score(df, revenue_row):
     elif return_20d <= -8:
         score += 12
 
-    # 接近均線
     if abs(gap_ma20) <= 5:
         score += 15
     elif abs(gap_ma60) <= 7:
@@ -314,11 +342,9 @@ def calculate_revenue_pullback_score(df, revenue_row):
     elif abs(gap_ma20) <= 8:
         score += 8
 
-    # 跌破季線太深要扣分
     if gap_ma60 < -10:
         score -= 20
 
-    # 離月線太遠，不算回檔低接
     if gap_ma20 > 12:
         score -= 15
 
@@ -350,7 +376,7 @@ def judge_revenue_pullback(row):
     return "不列入"
 
 
-def find_breakout_candidates(stock_map):
+def find_breakout_candidates(stock_map, industry_map):
     rows = []
 
     for ticker, df in stock_map.items():
@@ -362,11 +388,13 @@ def find_breakout_candidates(stock_map):
 
             if metrics["score"] >= 50:
                 latest = df.iloc[-1]
+                industry_info = industry_map.get(ticker, {})
 
                 rows.append({
                     "ticker": ticker,
                     "name": latest.get("name", ""),
                     "market": latest.get("market", ""),
+                    "industry": industry_info.get("industry", ""),
                     **metrics,
                 })
 
@@ -459,6 +487,63 @@ def generate_report(price_data, breakout_df, revenue_pullback_df):
         total_stocks = price_data["ticker"].nunique()
         trading_days = price_data["date"].nunique()
 
+    breakout_mainstream_df, breakout_non_mainstream_df = split_mainstream(breakout_df)
+    pullback_mainstream_df, pullback_non_mainstream_df = split_mainstream(revenue_pullback_df)
+
+    breakout_columns = [
+        "ticker", "name", "industry", "date", "close", "volume_lots", "ma20", "ma60",
+        "gap_ma20_pct", "gap_ma60_pct", "volume_ratio", "consolidation_range_pct",
+        "breakout_pct", "return_5d_pct", "score", "judge"
+    ]
+
+    breakout_rename = {
+        "ticker": "代號",
+        "name": "名稱",
+        "industry": "產業",
+        "date": "資料日",
+        "close": "收盤價",
+        "volume_lots": "成交量張",
+        "ma20": "20MA",
+        "ma60": "60MA",
+        "gap_ma20_pct": "距月線%",
+        "gap_ma60_pct": "距季線%",
+        "volume_ratio": "量比",
+        "consolidation_range_pct": "40日區間%",
+        "breakout_pct": "突破40日高點%",
+        "return_5d_pct": "近5日漲幅%",
+        "score": "分數",
+        "judge": "判斷",
+    }
+
+    pullback_columns = [
+        "ticker", "name", "industry", "date", "revenue_period",
+        "revenue_yoy_pct", "cumulative_yoy_pct",
+        "close", "volume_lots", "ma20", "ma60",
+        "gap_ma20_pct", "gap_ma60_pct",
+        "return_10d_pct", "return_20d_pct",
+        "score", "judge"
+    ]
+
+    pullback_rename = {
+        "ticker": "代號",
+        "name": "名稱",
+        "industry": "產業",
+        "date": "價格資料日",
+        "revenue_period": "營收年月",
+        "revenue_yoy_pct": "月營收YoY%",
+        "cumulative_yoy_pct": "累計YoY%",
+        "close": "收盤價",
+        "volume_lots": "成交量張",
+        "ma20": "20MA",
+        "ma60": "60MA",
+        "gap_ma20_pct": "距月線%",
+        "gap_ma60_pct": "距季線%",
+        "return_10d_pct": "近10日漲幅%",
+        "return_20d_pct": "近20日漲幅%",
+        "score": "分數",
+        "judge": "判斷",
+    }
+
     lines = []
     lines.append("# 台股每日監測報告")
     lines.append("")
@@ -470,80 +555,60 @@ def generate_report(price_data, breakout_df, revenue_pullback_df):
     lines.append("")
     lines.append("> 價格與成交量資料來源：GitHub 內累積的官方 TWSE / TPEx 每日收盤資料。")
     lines.append("")
+    lines.append("> 主流題材版目前保留：半導體、電子零組件、電腦及週邊、通信網路、光電、其他電子、資訊服務、電子通路、電機機械、綠能環保、生技醫療、數位雲端。")
+    lines.append("")
     lines.append("---")
     lines.append("")
 
-    lines.append("## 1. 盤整帶量突破候選股")
+    lines.append("## 1. 全市場：盤整帶量突破候選股")
     lines.append("")
-    lines.append(generate_markdown_table(
-        breakout_df,
-        columns=[
-            "ticker", "name", "date", "close", "volume_lots", "ma20", "ma60",
-            "gap_ma20_pct", "gap_ma60_pct",
-            "volume_ratio", "consolidation_range_pct",
-            "breakout_pct", "return_5d_pct", "score", "judge"
-        ],
-        rename_map={
-            "ticker": "代號",
-            "name": "名稱",
-            "date": "資料日",
-            "close": "收盤價",
-            "volume_lots": "成交量張",
-            "ma20": "20MA",
-            "ma60": "60MA",
-            "gap_ma20_pct": "距月線%",
-            "gap_ma60_pct": "距季線%",
-            "volume_ratio": "量比",
-            "consolidation_range_pct": "40日區間%",
-            "breakout_pct": "突破40日高點%",
-            "return_5d_pct": "近5日漲幅%",
-            "score": "分數",
-            "judge": "判斷",
-        }
-    ))
+    lines.append(generate_markdown_table(breakout_df, breakout_columns, breakout_rename))
 
     lines.append("")
     lines.append("---")
     lines.append("")
 
-    lines.append("## 2. 營收成長但股價回檔候選股")
+    lines.append("## 2. 主流題材：盤整帶量突破候選股")
     lines.append("")
-    lines.append(generate_markdown_table(
-        revenue_pullback_df,
-        columns=[
-            "ticker", "name", "industry", "date", "revenue_period",
-            "revenue_yoy_pct", "cumulative_yoy_pct",
-            "close", "volume_lots", "ma20", "ma60",
-            "gap_ma20_pct", "gap_ma60_pct",
-            "return_10d_pct", "return_20d_pct",
-            "score", "judge"
-        ],
-        rename_map={
-            "ticker": "代號",
-            "name": "名稱",
-            "industry": "產業",
-            "date": "價格資料日",
-            "revenue_period": "營收年月",
-            "revenue_yoy_pct": "月營收YoY%",
-            "cumulative_yoy_pct": "累計YoY%",
-            "close": "收盤價",
-            "volume_lots": "成交量張",
-            "ma20": "20MA",
-            "ma60": "60MA",
-            "gap_ma20_pct": "距月線%",
-            "gap_ma60_pct": "距季線%",
-            "return_10d_pct": "近10日漲幅%",
-            "return_20d_pct": "近20日漲幅%",
-            "score": "分數",
-            "judge": "判斷",
-        }
-    ))
+    lines.append(generate_markdown_table(breakout_mainstream_df, breakout_columns, breakout_rename))
 
     lines.append("")
     lines.append("---")
     lines.append("")
 
-    lines.append("## 3. 兩策略交集股")
+    lines.append("## 3. 非主流 / 防禦傳產：盤整帶量突破候選股")
+    lines.append("")
+    lines.append(generate_markdown_table(breakout_non_mainstream_df, breakout_columns, breakout_rename))
+
+    lines.append("")
+    lines.append("---")
+    lines.append("")
+
+    lines.append("## 4. 全市場：營收成長但股價回檔候選股")
+    lines.append("")
+    lines.append(generate_markdown_table(revenue_pullback_df, pullback_columns, pullback_rename))
+
+    lines.append("")
+    lines.append("---")
+    lines.append("")
+
+    lines.append("## 5. 主流題材：營收成長但股價回檔候選股")
+    lines.append("")
+    lines.append(generate_markdown_table(pullback_mainstream_df, pullback_columns, pullback_rename))
+
+    lines.append("")
+    lines.append("---")
+    lines.append("")
+
+    lines.append("## 6. 非主流 / 防禦傳產：營收成長但股價回檔候選股")
+    lines.append("")
+    lines.append(generate_markdown_table(pullback_non_mainstream_df, pullback_columns, pullback_rename))
+
+    lines.append("")
+    lines.append("---")
+    lines.append("")
+
+    lines.append("## 7. 兩策略交集股")
     lines.append("")
 
     if breakout_df.empty or revenue_pullback_df.empty:
@@ -603,9 +668,10 @@ def main():
         return
 
     revenue_df = fetch_monthly_revenue()
+    industry_map = build_industry_map(revenue_df)
     stock_map = build_stock_history_map(price_data)
 
-    breakout_df = find_breakout_candidates(stock_map)
+    breakout_df = find_breakout_candidates(stock_map, industry_map)
     revenue_pullback_df = find_revenue_pullback_candidates(stock_map, revenue_df)
 
     if not breakout_df.empty:
