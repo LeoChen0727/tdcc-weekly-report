@@ -1,13 +1,14 @@
 import io
-import time
-import requests
 import pandas as pd
+import requests
 
 from datetime import datetime
 from pathlib import Path
 
 
+DATA_DIR = Path("data/daily_price")
 OUTPUT_DIR = Path("output")
+
 OUTPUT_DIR.mkdir(exist_ok=True)
 
 REPORT_PATH = OUTPUT_DIR / "stock_monitor_latest.md"
@@ -15,170 +16,50 @@ BREAKOUT_CSV_PATH = OUTPUT_DIR / "breakout_latest.csv"
 REVENUE_PULLBACK_CSV_PATH = OUTPUT_DIR / "revenue_pullback_latest.csv"
 
 
-def fetch_twse_listed_symbols():
+def load_official_price_history():
     """
-    抓上市股票基本資料。
+    讀取 data/daily_price/ 底下所有官方日線 CSV。
+    每個檔案是一個交易日全市場資料。
     """
-    url = "https://isin.twse.com.tw/isin/C_public.jsp?strMode=2"
-    headers = {"User-Agent": "Mozilla/5.0"}
+    files = sorted(DATA_DIR.glob("*.csv"))
 
-    r = requests.get(url, headers=headers, timeout=20)
-    r.encoding = "big5"
+    if not files:
+        print("No official daily price files found.")
+        return pd.DataFrame()
 
-    tables = pd.read_html(io.StringIO(r.text))
-    df = tables[0]
+    frames = []
 
-    df.columns = df.iloc[0]
-    df = df.iloc[1:].copy()
+    for file in files:
+        try:
+            df = pd.read_csv(file, dtype={"ticker": str})
+            frames.append(df)
+        except Exception as e:
+            print(f"Skip file {file}: {e}")
 
-    df = df[df["有價證券代號及名稱"].astype(str).str.match(r"^\d{4}")]
-    df[["ticker", "name"]] = df["有價證券代號及名稱"].str.extract(r"^(\d{4})\s+(.+)$")
-    df["market"] = "listed"
+    if not frames:
+        return pd.DataFrame()
 
-    return df[["ticker", "name", "market"]].dropna().reset_index(drop=True)
+    data = pd.concat(frames, ignore_index=True)
 
+    data["ticker"] = data["ticker"].astype(str).str.zfill(4)
+    data["date"] = data["date"].astype(str)
 
-def fetch_yahoo_price(ticker, market="listed"):
-    """
-    Yahoo Finance:
-    上市股票：xxxx.TW
-    上櫃股票：xxxx.TWO
+    numeric_cols = ["open", "high", "low", "close", "volume", "turnover"]
 
-    目前 v1 先掃上市股票，所以 market 預設 listed。
-    """
-    suffix = "TW" if market == "listed" else "TWO"
-    symbol = f"{ticker}.{suffix}"
+    for col in numeric_cols:
+        if col in data.columns:
+            data[col] = pd.to_numeric(data[col], errors="coerce")
 
-    url = f"https://query1.finance.yahoo.com/v8/finance/chart/{symbol}?range=6mo&interval=1d"
-    headers = {"User-Agent": "Mozilla/5.0"}
+    data = data.dropna(subset=["ticker", "date", "close", "volume"])
+    data = data.sort_values(["ticker", "date"]).reset_index(drop=True)
 
-    r = requests.get(url, headers=headers, timeout=15)
-    data = r.json()
-
-    result = data.get("chart", {}).get("result")
-    if not result:
-        return None
-
-    result = result[0]
-    timestamps = result.get("timestamp", [])
-    quote = result.get("indicators", {}).get("quote", [{}])[0]
-
-    if not timestamps or not quote:
-        return None
-
-    df = pd.DataFrame({
-        "date": pd.to_datetime(timestamps, unit="s").tz_localize("UTC").tz_convert("Asia/Taipei").date,
-        "open": quote.get("open"),
-        "high": quote.get("high"),
-        "low": quote.get("low"),
-        "close": quote.get("close"),
-        "volume": quote.get("volume"),
-    })
-
-    df = df.dropna(subset=["close", "volume"]).copy()
-
-    if len(df) < 60:
-        return None
-
-    return df
-
-
-def add_technical_metrics(df):
-    df = df.copy()
-    df["ma20"] = df["close"].rolling(20).mean()
-    df["ma60"] = df["close"].rolling(60).mean()
-    df["vol20"] = df["volume"].rolling(20).mean()
-    return df
-
-
-def calculate_breakout_score(df):
-    """
-    盤整帶量突破 v1 分數。
-    """
-    df = add_technical_metrics(df)
-    latest = df.iloc[-1]
-
-    close = latest["close"]
-    ma20 = latest["ma20"]
-    ma60 = latest["ma60"]
-    volume = latest["volume"]
-    vol20 = latest["vol20"]
-
-    recent_40 = df.iloc[-41:-1]
-    high_40 = recent_40["high"].max()
-    low_40 = recent_40["low"].min()
-
-    consolidation_range_pct = (high_40 - low_40) / low_40 * 100
-    breakout_pct = (close - high_40) / high_40 * 100
-    volume_ratio = volume / vol20 if vol20 and vol20 > 0 else 0
-
-    return_5d = (close / df.iloc[-6]["close"] - 1) * 100 if len(df) >= 6 else 0
-    gap_ma20 = (close / ma20 - 1) * 100 if ma20 and ma20 > 0 else 0
-    gap_ma60 = (close / ma60 - 1) * 100 if ma60 and ma60 > 0 else 0
-
-    score = 0
-
-    if consolidation_range_pct <= 18:
-        score += 25
-    elif consolidation_range_pct <= 25:
-        score += 15
-
-    if breakout_pct >= 0:
-        score += 30
-    elif breakout_pct >= -2:
-        score += 20
-    elif breakout_pct >= -5:
-        score += 10
-
-    if volume_ratio >= 2:
-        score += 25
-    elif volume_ratio >= 1.5:
-        score += 18
-    elif volume_ratio >= 1.2:
-        score += 10
-
-    if close > ma20:
-        score += 10
-    if close > ma60:
-        score += 10
-
-    if return_5d > 20:
-        score -= 20
-    elif return_5d > 12:
-        score -= 10
-
-    return {
-        "close": round(close, 2),
-        "ma20": round(ma20, 2),
-        "ma60": round(ma60, 2),
-        "gap_ma20_pct": round(gap_ma20, 2),
-        "gap_ma60_pct": round(gap_ma60, 2),
-        "high_40": round(high_40, 2),
-        "low_40": round(low_40, 2),
-        "consolidation_range_pct": round(consolidation_range_pct, 2),
-        "breakout_pct": round(breakout_pct, 2),
-        "volume_ratio": round(volume_ratio, 2),
-        "return_5d_pct": round(return_5d, 2),
-        "score": round(score, 1),
-    }
-
-
-def judge_breakout(row):
-    if row["score"] >= 80:
-        return "強突破候選"
-    if row["score"] >= 65:
-        return "可觀察"
-    if row["score"] >= 50:
-        return "初步觀察"
-    return "不列入"
+    return data
 
 
 def fetch_monthly_revenue():
     """
     抓上市 + 上櫃最新月營收資料。
-
-    L = listed 上市
-    O = OTC 上櫃
+    官方來源：公開資訊觀測站 OpenData。
     """
     urls = [
         ("listed", "https://mopsfin.twse.com.tw/opendata/t187ap05_L.csv"),
@@ -194,8 +75,8 @@ def fetch_monthly_revenue():
 
             df = pd.read_csv(io.StringIO(r.text))
             df["market"] = market
-
             frames.append(df)
+
         except Exception as e:
             print(f"Revenue fetch failed: {market} {e}")
 
@@ -235,16 +116,149 @@ def fetch_monthly_revenue():
     return df.reset_index(drop=True)
 
 
-def calculate_revenue_pullback_score(price_df, revenue_row):
+def build_stock_history_map(price_data):
     """
-    營收成長但股價回檔 v1。
+    把全市場日線轉成：
+    ticker -> 該股票歷史日線 DataFrame
     """
-    df = add_technical_metrics(price_df)
+    stock_map = {}
+
+    for ticker, group in price_data.groupby("ticker"):
+        group = group.sort_values("date").copy()
+
+        if len(group) < 60:
+            continue
+
+        stock_map[ticker] = group.reset_index(drop=True)
+
+    return stock_map
+
+
+def add_technical_metrics(df):
+    df = df.copy()
+    df["ma20"] = df["close"].rolling(20).mean()
+    df["ma60"] = df["close"].rolling(60).mean()
+    df["vol20"] = df["volume"].rolling(20).mean()
+    return df
+
+
+def calculate_breakout_score(df):
+    """
+    盤整帶量突破分數。
+    使用官方歷史價格資料。
+    """
+    df = add_technical_metrics(df)
+
+    if len(df) < 61:
+        return None
+
     latest = df.iloc[-1]
 
     close = latest["close"]
     ma20 = latest["ma20"]
     ma60 = latest["ma60"]
+    volume = latest["volume"]
+    vol20 = latest["vol20"]
+
+    if pd.isna(ma20) or pd.isna(ma60) or pd.isna(vol20):
+        return None
+
+    recent_40 = df.iloc[-41:-1]
+    high_40 = recent_40["high"].max()
+    low_40 = recent_40["low"].min()
+
+    if low_40 <= 0 or high_40 <= 0:
+        return None
+
+    consolidation_range_pct = (high_40 - low_40) / low_40 * 100
+    breakout_pct = (close - high_40) / high_40 * 100
+    volume_ratio = volume / vol20 if vol20 and vol20 > 0 else 0
+
+    return_5d = (close / df.iloc[-6]["close"] - 1) * 100 if len(df) >= 6 else 0
+    gap_ma20 = (close / ma20 - 1) * 100 if ma20 and ma20 > 0 else 0
+    gap_ma60 = (close / ma60 - 1) * 100 if ma60 and ma60 > 0 else 0
+
+    score = 0
+
+    # 盤整區間越窄越好
+    if consolidation_range_pct <= 18:
+        score += 25
+    elif consolidation_range_pct <= 25:
+        score += 15
+
+    # 接近或突破 40 日高點
+    if breakout_pct >= 0:
+        score += 30
+    elif breakout_pct >= -2:
+        score += 20
+    elif breakout_pct >= -5:
+        score += 10
+
+    # 成交量放大
+    if volume_ratio >= 2:
+        score += 25
+    elif volume_ratio >= 1.5:
+        score += 18
+    elif volume_ratio >= 1.2:
+        score += 10
+
+    # 均線位置
+    if close > ma20:
+        score += 10
+    if close > ma60:
+        score += 10
+
+    # 避免短線噴太遠
+    if return_5d > 20:
+        score -= 20
+    elif return_5d > 12:
+        score -= 10
+
+    return {
+        "date": latest["date"],
+        "close": round(close, 2),
+        "ma20": round(ma20, 2),
+        "ma60": round(ma60, 2),
+        "gap_ma20_pct": round(gap_ma20, 2),
+        "gap_ma60_pct": round(gap_ma60, 2),
+        "high_40": round(high_40, 2),
+        "low_40": round(low_40, 2),
+        "consolidation_range_pct": round(consolidation_range_pct, 2),
+        "breakout_pct": round(breakout_pct, 2),
+        "volume_ratio": round(volume_ratio, 2),
+        "return_5d_pct": round(return_5d, 2),
+        "score": round(score, 1),
+    }
+
+
+def judge_breakout(row):
+    if row["score"] >= 80:
+        return "強突破候選"
+    if row["score"] >= 65:
+        return "可觀察"
+    if row["score"] >= 50:
+        return "初步觀察"
+    return "不列入"
+
+
+def calculate_revenue_pullback_score(df, revenue_row):
+    """
+    營收成長但股價回檔分數。
+    使用官方歷史價格資料。
+    """
+    df = add_technical_metrics(df)
+
+    if len(df) < 61:
+        return None
+
+    latest = df.iloc[-1]
+
+    close = latest["close"]
+    ma20 = latest["ma20"]
+    ma60 = latest["ma60"]
+
+    if pd.isna(ma20) or pd.isna(ma60):
+        return None
 
     gap_ma20 = (close / ma20 - 1) * 100 if ma20 and ma20 > 0 else 0
     gap_ma60 = (close / ma60 - 1) * 100 if ma60 and ma60 > 0 else 0
@@ -288,15 +302,16 @@ def calculate_revenue_pullback_score(price_df, revenue_row):
     elif abs(gap_ma20) <= 8:
         score += 8
 
-    # 沒有跌破季線太深
+    # 跌破季線太深要扣分
     if gap_ma60 < -10:
         score -= 20
 
-    # 短線還在月線上方太遠，不算回檔低接
+    # 離月線太遠，不算回檔低接
     if gap_ma20 > 12:
         score -= 15
 
     return {
+        "date": latest["date"],
         "revenue_period": revenue_row.get("revenue_period", ""),
         "industry": revenue_row.get("industry", ""),
         "revenue_yoy_pct": round(revenue_yoy, 2),
@@ -322,33 +337,28 @@ def judge_revenue_pullback(row):
     return "不列入"
 
 
-def find_breakout_candidates(symbols):
+def find_breakout_candidates(stock_map):
     rows = []
 
-    for _, item in symbols.iterrows():
-        ticker = item["ticker"]
-        name = item["name"]
-        market = item.get("market", "listed")
-
+    for ticker, df in stock_map.items():
         try:
-            price_df = fetch_yahoo_price(ticker, market=market)
-            if price_df is None:
+            metrics = calculate_breakout_score(df)
+
+            if metrics is None:
                 continue
 
-            metrics = calculate_breakout_score(price_df)
-
             if metrics["score"] >= 50:
+                latest = df.iloc[-1]
+
                 rows.append({
                     "ticker": ticker,
-                    "name": name,
-                    "market": market,
+                    "name": latest.get("name", ""),
+                    "market": latest.get("market", ""),
                     **metrics,
                 })
 
-            time.sleep(0.15)
-
         except Exception as e:
-            print(f"Breakout skip {ticker} {name}: {e}")
+            print(f"Breakout skip {ticker}: {e}")
             continue
 
     result = pd.DataFrame(rows)
@@ -362,10 +372,7 @@ def find_breakout_candidates(symbols):
     return result.reset_index(drop=True)
 
 
-def find_revenue_pullback_candidates(revenue_df, limit=300):
-    """
-    v1 先從營收符合條件者裡面掃前 limit 檔，避免第一次執行過久。
-    """
+def find_revenue_pullback_candidates(stock_map, revenue_df):
     if revenue_df.empty:
         return pd.DataFrame()
 
@@ -374,35 +381,33 @@ def find_revenue_pullback_candidates(revenue_df, limit=300):
         (revenue_df["cumulative_yoy_pct"] >= 10)
     ].copy()
 
-    base = base.head(limit)
-
     rows = []
 
     for _, item in base.iterrows():
-        ticker = item["ticker"]
-        name = item["name"]
-        market = item.get("market", "listed")
+        ticker = str(item["ticker"]).zfill(4)
+
+        if ticker not in stock_map:
+            continue
 
         try:
-            price_df = fetch_yahoo_price(ticker, market=market)
-            if price_df is None:
-                continue
-
+            price_df = stock_map[ticker]
             metrics = calculate_revenue_pullback_score(price_df, item)
 
-            # 先用寬鬆門檻，之後再調嚴
+            if metrics is None:
+                continue
+
             if metrics["score"] >= 50:
+                latest = price_df.iloc[-1]
+
                 rows.append({
                     "ticker": ticker,
-                    "name": name,
-                    "market": market,
+                    "name": item.get("name", latest.get("name", "")),
+                    "market": item.get("market", latest.get("market", "")),
                     **metrics,
                 })
 
-            time.sleep(0.15)
-
         except Exception as e:
-            print(f"Revenue pullback skip {ticker} {name}: {e}")
+            print(f"Revenue pullback skip {ticker}: {e}")
             continue
 
     result = pd.DataFrame(rows)
@@ -429,13 +434,27 @@ def generate_markdown_table(df, columns, rename_map, max_rows=30):
     return table_df.to_markdown(index=False)
 
 
-def generate_report(breakout_df, revenue_pullback_df):
+def generate_report(price_data, breakout_df, revenue_pullback_df):
     now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    if price_data.empty:
+        latest_price_date = "無"
+        total_stocks = 0
+        trading_days = 0
+    else:
+        latest_price_date = price_data["date"].max()
+        total_stocks = price_data["ticker"].nunique()
+        trading_days = price_data["date"].nunique()
 
     lines = []
     lines.append("# 台股每日監測報告")
     lines.append("")
     lines.append(f"產生時間：{now}")
+    lines.append(f"最新官方價格資料日：{latest_price_date}")
+    lines.append(f"已累積交易日數：{trading_days}")
+    lines.append(f"股票檔數：{total_stocks}")
+    lines.append("")
+    lines.append("> 價格與成交量資料來源：GitHub 內累積的官方 TWSE / TPEx 每日收盤資料。")
     lines.append("")
     lines.append("---")
     lines.append("")
@@ -445,7 +464,7 @@ def generate_report(breakout_df, revenue_pullback_df):
     lines.append(generate_markdown_table(
         breakout_df,
         columns=[
-            "ticker", "name", "close", "ma20", "ma60",
+            "ticker", "name", "date", "close", "ma20", "ma60",
             "gap_ma20_pct", "gap_ma60_pct",
             "volume_ratio", "consolidation_range_pct",
             "breakout_pct", "return_5d_pct", "score", "judge"
@@ -453,6 +472,7 @@ def generate_report(breakout_df, revenue_pullback_df):
         rename_map={
             "ticker": "代號",
             "name": "名稱",
+            "date": "資料日",
             "close": "收盤價",
             "ma20": "20MA",
             "ma60": "60MA",
@@ -476,7 +496,7 @@ def generate_report(breakout_df, revenue_pullback_df):
     lines.append(generate_markdown_table(
         revenue_pullback_df,
         columns=[
-            "ticker", "name", "industry", "revenue_period",
+            "ticker", "name", "industry", "date", "revenue_period",
             "revenue_yoy_pct", "cumulative_yoy_pct",
             "close", "ma20", "ma60",
             "gap_ma20_pct", "gap_ma60_pct",
@@ -487,6 +507,7 @@ def generate_report(breakout_df, revenue_pullback_df):
             "ticker": "代號",
             "name": "名稱",
             "industry": "產業",
+            "date": "價格資料日",
             "revenue_period": "營收年月",
             "revenue_yoy_pct": "月營收YoY%",
             "cumulative_yoy_pct": "累計YoY%",
@@ -525,7 +546,7 @@ def generate_report(breakout_df, revenue_pullback_df):
             lines.append(generate_markdown_table(
                 overlap,
                 columns=[
-                    "ticker", "name", "industry",
+                    "ticker", "name", "industry", "date",
                     "revenue_yoy_pct", "cumulative_yoy_pct",
                     "gap_ma20_pct", "gap_ma60_pct",
                     "return_10d_pct", "score", "judge"
@@ -534,6 +555,7 @@ def generate_report(breakout_df, revenue_pullback_df):
                     "ticker": "代號",
                     "name": "名稱",
                     "industry": "產業",
+                    "date": "資料日",
                     "revenue_yoy_pct": "月營收YoY%",
                     "cumulative_yoy_pct": "累計YoY%",
                     "gap_ma20_pct": "距月線%",
@@ -550,13 +572,22 @@ def generate_report(breakout_df, revenue_pullback_df):
 
 
 def main():
-    # v1 先掃上市前 300 檔做突破監測，避免 GitHub Actions 跑太久
-    symbols = fetch_twse_listed_symbols().head(300)
+    price_data = load_official_price_history()
+
+    if price_data.empty:
+        generate_report(
+            price_data=price_data,
+            breakout_df=pd.DataFrame(),
+            revenue_pullback_df=pd.DataFrame()
+        )
+        print("No official price data. Empty report generated.")
+        return
 
     revenue_df = fetch_monthly_revenue()
+    stock_map = build_stock_history_map(price_data)
 
-    breakout_df = find_breakout_candidates(symbols)
-    revenue_pullback_df = find_revenue_pullback_candidates(revenue_df, limit=300)
+    breakout_df = find_breakout_candidates(stock_map)
+    revenue_pullback_df = find_revenue_pullback_candidates(stock_map, revenue_df)
 
     if not breakout_df.empty:
         breakout_df.to_csv(BREAKOUT_CSV_PATH, index=False, encoding="utf-8-sig")
@@ -564,9 +595,11 @@ def main():
     if not revenue_pullback_df.empty:
         revenue_pullback_df.to_csv(REVENUE_PULLBACK_CSV_PATH, index=False, encoding="utf-8-sig")
 
-    generate_report(breakout_df, revenue_pullback_df)
+    generate_report(price_data, breakout_df, revenue_pullback_df)
 
-    print("Daily stock monitor report generated.")
+    print("Official-data stock monitor report generated.")
+    print(f"Trading days loaded: {price_data['date'].nunique()}")
+    print(f"Stocks loaded: {price_data['ticker'].nunique()}")
     print(f"Breakout candidates: {len(breakout_df)}")
     print(f"Revenue pullback candidates: {len(revenue_pullback_df)}")
 
