@@ -34,6 +34,12 @@ def normalize_number(value):
 
 
 def is_common_stock_ticker(value):
+    """
+    只保留一般股票代號。
+    排除：
+    - 00xx ETF / 債券 / 指數商品
+    - 非 4 碼代號
+    """
     text = str(value).strip()
 
     if not text.isdigit():
@@ -49,6 +55,10 @@ def is_common_stock_ticker(value):
 
 
 def fetch_twse_daily_price(date_str):
+    """
+    抓 TWSE 上市每日收盤行情。
+    date_str format: YYYYMMDD
+    """
     url = "https://www.twse.com.tw/exchangeReport/MI_INDEX"
     params = {
         "response": "csv",
@@ -127,14 +137,53 @@ def fetch_twse_daily_price(date_str):
     return result.reset_index(drop=True)
 
 
+def extract_tpex_table_from_json(data):
+    """
+    TPEx DAILY_CLOSE_quotes 回傳格式是 dict。
+    真正股票資料在 data["tables"] 裡。
+    """
+    tables = data.get("tables", [])
+
+    if not isinstance(tables, list) or not tables:
+        return pd.DataFrame()
+
+    for table in tables:
+        fields = table.get("fields") or table.get("field") or []
+        rows = table.get("data") or table.get("aaData") or []
+
+        if not fields or not rows:
+            continue
+
+        df = pd.DataFrame(rows, columns=fields)
+        columns = set(df.columns)
+
+        possible_code_cols = ["代號", "證券代號"]
+        possible_name_cols = ["名稱", "證券名稱"]
+
+        code_col = next((c for c in possible_code_cols if c in columns), None)
+        name_col = next((c for c in possible_name_cols if c in columns), None)
+
+        required = [code_col, name_col, "開盤", "最高", "最低", "收盤", "成交股數"]
+
+        if code_col and name_col and all(c in columns for c in required if c):
+            return df
+
+    return pd.DataFrame()
+
+
 def fetch_tpex_daily_price(date_str):
+    """
+    抓 TPEx 上櫃每日收盤行情。
+    使用 DAILY_CLOSE_quotes + o=json + 指定日期。
+    不使用 OpenAPI latest，避免假日資料污染。
+    """
     roc_date = f"{int(date_str[:4]) - 1911}/{date_str[4:6]}/{date_str[6:8]}"
 
-    url = "https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php"
+    url = "https://www.tpex.org.tw/web/stock/aftertrading/DAILY_CLOSE_quotes/stk_quote_result.php"
     params = {
         "l": "zh-tw",
         "d": roc_date,
-        "s": "0,asc,0",
+        "o": "json",
     }
 
     headers = {"User-Agent": "Mozilla/5.0"}
@@ -147,34 +196,23 @@ def fetch_tpex_daily_price(date_str):
         print(f"TPEx {date_str}: request/json failed {e}")
         return pd.DataFrame()
 
-    aa_data = data.get("aaData", [])
-    fields = data.get("fields", [])
-
-    if not aa_data or not fields:
-        print(f"TPEx {date_str}: no data")
+    if not isinstance(data, dict):
+        print(f"TPEx {date_str}: json is not dict")
         return pd.DataFrame()
 
-    df = pd.DataFrame(aa_data, columns=fields)
+    df = extract_tpex_table_from_json(data)
+
+    if df.empty:
+        print(f"TPEx {date_str}: no usable table")
+        return pd.DataFrame()
 
     code_col = "代號" if "代號" in df.columns else "證券代號"
     name_col = "名稱" if "名稱" in df.columns else "證券名稱"
 
-    required_cols = [
-        code_col,
-        name_col,
-        "開盤",
-        "最高",
-        "最低",
-        "收盤",
-        "成交股數",
-    ]
-
-    for col in required_cols:
-        if col not in df.columns:
-            print(f"TPEx {date_str}: missing column {col}; columns={list(df.columns)}")
-            return pd.DataFrame()
-
     turnover_col = "成交金額(元)" if "成交金額(元)" in df.columns else None
+
+    if turnover_col is None:
+        turnover_col = "成交金額" if "成交金額" in df.columns else None
 
     result = pd.DataFrame({
         "date": date_str,
@@ -196,6 +234,10 @@ def fetch_tpex_daily_price(date_str):
 
 
 def is_valid_trading_day_data(twse_df, tpex_df, combined):
+    """
+    不靠星期幾判斷。
+    只用資料完整性判斷是否是真交易日資料。
+    """
     if combined.empty:
         return False, "combined empty"
 
