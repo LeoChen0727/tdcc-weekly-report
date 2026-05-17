@@ -1,181 +1,181 @@
 ﻿date,twse_rows,tpex_rows,total_rows,valid,reason
-20260517,0,0,0,False,combined empty
-20260516,0,0,0,False,combined empty
-20260515,1075,0,1075,False,TPEx rows too low: 0
-20260514,1076,0,1076,False,TPEx rows too low: 0
-20260513,1074,0,1074,False,TPEx rows too low: 0
-20260512,1076,0,1076,False,TPEx rows too low: 0
-20260511,1077,0,1077,False,TPEx rows too low: 0
-20260510,0,0,0,False,combined empty
-20260509,0,0,0,False,combined empty
-20260508,1075,0,1075,False,TPEx rows too low: 0
-20260507,1076,0,1076,False,TPEx rows too low: 0
-20260506,1075,0,1075,False,TPEx rows too low: 0
-20260505,1074,0,1074,False,TPEx rows too low: 0
-20260504,1074,0,1074,False,TPEx rows too low: 0
-20260503,0,0,0,False,combined empty
-20260502,0,0,0,False,combined empty
-20260501,0,0,0,False,combined empty
-20260430,1074,0,1074,False,TPEx rows too low: 0
-20260429,1074,0,1074,False,TPEx rows too low: 0
-20260428,1072,0,1072,False,TPEx rows too low: 0
-20260427,1069,0,1069,False,TPEx rows too low: 0
-20260426,0,0,0,False,combined empty
-20260425,0,0,0,False,combined empty
-20260424,1073,0,1073,False,TPEx rows too low: 0
-20260423,1074,0,1074,False,TPEx rows too low: 0
-20260422,1073,0,1073,False,TPEx rows too low: 0
-20260421,1074,0,1074,False,TPEx rows too low: 0
-20260420,1074,0,1074,False,TPEx rows too low: 0
-20260419,0,0,0,False,combined empty
-20260418,0,0,0,False,combined empty
-20260417,1074,0,1074,False,TPEx rows too low: 0
-20260416,1074,0,1074,False,TPEx rows too low: 0
-20260415,1073,0,1073,False,TPEx rows too low: 0
-20260414,1073,0,1073,False,TPEx rows too low: 0
-20260413,1069,0,1069,False,TPEx rows too low: 0
-20260412,0,0,0,False,combined empty
-20260411,0,0,0,False,combined empty
-20260410,1072,0,1072,False,TPEx rows too low: 0
-20260409,1073,0,1073,False,TPEx rows too low: 0
-20260408,0,0,0,False,combined empty
-20260407,1073,0,1073,False,TPEx rows too low: 0
-20260406,0,0,0,False,combined empty
-20260405,0,0,0,False,combined empty
-20260404,0,0,0,False,combined empty
-20260403,0,0,0,False,combined empty
-20260402,1073,0,1073,False,TPEx rows too low: 0
-20260401,1073,0,1073,False,TPEx rows too low: 0
-20260331,1071,0,1071,False,TPEx rows too low: 0
-20260330,1071,0,1071,False,TPEx rows too low: 0
-20260329,0,0,0,False,combined empty
-20260328,0,0,0,False,combined empty
-20260327,1068,0,1068,False,TPEx rows too low: 0
-20260326,1070,0,1070,False,TPEx rows too low: 0
-20260325,1071,0,1071,False,TPEx rows too low: 0
-20260324,1067,0,1067,False,TPEx rows too low: 0
-20260323,1070,0,1070,False,TPEx rows too low: 0
-20260322,0,0,0,False,combined empty
-20260321,0,0,0,False,combined empty
-20260320,1069,0,1069,False,TPEx rows too low: 0
-20260319,1070,0,1070,False,TPEx rows too low: 0
-20260318,1072,0,1072,False,TPEx rows too low: 0
+20260517,0,5573,1115,False,TWSE rows too low: 0
+20260516,0,5573,1115,False,TWSE rows too low: 0
+20260515,1075,5573,2190,True,valid
+20260514,1076,5573,2191,True,valid
+20260513,1074,5573,2189,True,valid
+20260512,1076,5573,2191,True,valid
+20260511,1077,5573,2192,True,valid
+20260510,0,5573,1115,False,TWSE rows too low: 0
+20260509,0,5573,1115,False,TWSE rows too low: 0
+20260508,1075,5573,2190,True,valid
+20260507,1076,5573,2191,True,valid
+20260506,1075,5573,2190,True,valid
+20260505,1074,5573,2189,True,valid
+20260504,1074,5573,2189,True,valid
+20260503,0,5573,1115,False,TWSE rows too low: 0
+20260502,0,5573,1115,False,TWSE rows too low: 0
+20260501,0,5573,1115,False,TWSE rows too low: 0
+20260430,1074,5573,2189,True,valid
+20260429,1074,5573,2189,True,valid
+20260428,1072,5573,2187,True,valid
+20260427,1069,5573,2184,True,valid
+20260426,0,5573,1115,False,TWSE rows too low: 0
+20260425,0,5573,1115,False,TWSE rows too low: 0
+20260424,1073,5573,2188,True,valid
+20260423,1074,5573,2189,True,valid
+20260422,1073,5573,2188,True,valid
+20260421,1074,5573,2189,True,valid
+20260420,1074,5573,2189,True,valid
+20260419,0,5573,1115,False,TWSE rows too low: 0
+20260418,0,5573,1115,False,TWSE rows too low: 0
+20260417,1074,5573,2189,True,valid
+20260416,1074,5573,2189,True,valid
+20260415,1073,5573,2188,True,valid
+20260414,1073,5573,2188,True,valid
+20260413,1069,5573,2184,True,valid
+20260412,0,5573,1115,False,TWSE rows too low: 0
+20260411,0,5573,1115,False,TWSE rows too low: 0
+20260410,0,5573,1115,False,TWSE rows too low: 0
+20260409,1073,5573,2188,True,valid
+20260408,1073,5573,2188,True,valid
+20260407,1073,5573,2188,True,valid
+20260406,0,5573,1115,False,TWSE rows too low: 0
+20260405,0,5573,1115,False,TWSE rows too low: 0
+20260404,0,5573,1115,False,TWSE rows too low: 0
+20260403,0,5573,1115,False,TWSE rows too low: 0
+20260402,1073,5573,2188,True,valid
+20260401,1073,5573,2188,True,valid
+20260331,1071,5573,2186,True,valid
+20260330,1071,5573,2186,True,valid
+20260329,0,5573,1115,False,TWSE rows too low: 0
+20260328,0,5573,1115,False,TWSE rows too low: 0
+20260327,1068,5573,2183,True,valid
+20260326,1070,5573,2185,True,valid
+20260325,1071,5573,2186,True,valid
+20260324,1067,5573,2182,True,valid
+20260323,1070,5573,2185,True,valid
+20260322,0,5573,1115,False,TWSE rows too low: 0
+20260321,0,5573,1115,False,TWSE rows too low: 0
+20260320,1069,5573,2184,True,valid
+20260319,1070,5573,2185,True,valid
+20260318,1072,5573,2187,True,valid
 20260317,1072,0,1072,False,TPEx rows too low: 0
-20260316,1070,0,1070,False,TPEx rows too low: 0
-20260315,0,0,0,False,combined empty
-20260314,0,0,0,False,combined empty
-20260313,1071,0,1071,False,TPEx rows too low: 0
-20260312,1072,0,1072,False,TPEx rows too low: 0
-20260311,1071,0,1071,False,TPEx rows too low: 0
-20260310,1072,0,1072,False,TPEx rows too low: 0
-20260309,1072,0,1072,False,TPEx rows too low: 0
-20260308,0,0,0,False,combined empty
-20260307,0,0,0,False,combined empty
-20260306,1072,0,1072,False,TPEx rows too low: 0
-20260305,1071,0,1071,False,TPEx rows too low: 0
-20260304,1072,0,1072,False,TPEx rows too low: 0
-20260303,1072,0,1072,False,TPEx rows too low: 0
-20260302,1071,0,1071,False,TPEx rows too low: 0
-20260301,0,0,0,False,combined empty
-20260228,0,0,0,False,combined empty
-20260227,0,0,0,False,combined empty
-20260226,1071,0,1071,False,TPEx rows too low: 0
-20260225,1072,0,1072,False,TPEx rows too low: 0
-20260224,1071,0,1071,False,TPEx rows too low: 0
-20260223,1072,0,1072,False,TPEx rows too low: 0
+20260316,1070,5573,2185,True,valid
+20260315,0,5573,1115,False,TWSE rows too low: 0
+20260314,0,5573,1115,False,TWSE rows too low: 0
+20260313,1071,5573,2186,True,valid
+20260312,1072,5573,2187,True,valid
+20260311,1071,5573,2186,True,valid
+20260310,1072,5573,2187,True,valid
+20260309,1072,5573,2187,True,valid
+20260308,0,5573,1115,False,TWSE rows too low: 0
+20260307,0,5573,1115,False,TWSE rows too low: 0
+20260306,1072,5573,2187,True,valid
+20260305,1071,5573,2186,True,valid
+20260304,0,5573,1115,False,TWSE rows too low: 0
+20260303,1072,5573,2187,True,valid
+20260302,1071,5573,2186,True,valid
+20260301,0,5573,1115,False,TWSE rows too low: 0
+20260228,0,5573,1115,False,TWSE rows too low: 0
+20260227,0,5573,1115,False,TWSE rows too low: 0
+20260226,1071,5573,2186,True,valid
+20260225,1072,5573,2187,True,valid
+20260224,1071,5573,2186,True,valid
+20260223,1072,5573,2187,True,valid
 20260222,0,0,0,False,combined empty
-20260221,0,0,0,False,combined empty
-20260220,0,0,0,False,combined empty
-20260219,0,0,0,False,combined empty
-20260218,0,0,0,False,combined empty
-20260217,0,0,0,False,combined empty
-20260216,0,0,0,False,combined empty
-20260215,0,0,0,False,combined empty
-20260214,0,0,0,False,combined empty
-20260213,0,0,0,False,combined empty
-20260212,0,0,0,False,combined empty
-20260211,1072,0,1072,False,TPEx rows too low: 0
-20260210,1071,0,1071,False,TPEx rows too low: 0
-20260209,1067,0,1067,False,TPEx rows too low: 0
-20260208,0,0,0,False,combined empty
-20260207,0,0,0,False,combined empty
-20260206,1071,0,1071,False,TPEx rows too low: 0
-20260205,1069,0,1069,False,TPEx rows too low: 0
-20260204,1066,0,1066,False,TPEx rows too low: 0
-20260203,1069,0,1069,False,TPEx rows too low: 0
-20260202,1069,0,1069,False,TPEx rows too low: 0
-20260201,0,0,0,False,combined empty
-20260131,0,0,0,False,combined empty
-20260130,1066,0,1066,False,TPEx rows too low: 0
-20260129,1066,0,1066,False,TPEx rows too low: 0
-20260128,1068,0,1068,False,TPEx rows too low: 0
-20260127,905,0,905,False,TPEx rows too low: 0
-20260126,1067,0,1067,False,TPEx rows too low: 0
-20260125,0,0,0,False,combined empty
-20260124,0,0,0,False,combined empty
-20260123,1066,0,1066,False,TPEx rows too low: 0
-20260122,1068,0,1068,False,TPEx rows too low: 0
-20260121,1069,0,1069,False,TPEx rows too low: 0
-20260120,1066,0,1066,False,TPEx rows too low: 0
-20260119,1068,0,1068,False,TPEx rows too low: 0
-20260118,0,0,0,False,combined empty
-20260117,0,0,0,False,combined empty
-20260116,1066,0,1066,False,TPEx rows too low: 0
-20260115,1066,0,1066,False,TPEx rows too low: 0
-20260114,1064,0,1064,False,TPEx rows too low: 0
-20260113,1064,0,1064,False,TPEx rows too low: 0
-20260112,1064,0,1064,False,TPEx rows too low: 0
-20260111,0,0,0,False,combined empty
-20260110,0,0,0,False,combined empty
-20260109,1062,0,1062,False,TPEx rows too low: 0
-20260108,1064,0,1064,False,TPEx rows too low: 0
-20260107,1062,0,1062,False,TPEx rows too low: 0
-20260106,1063,0,1063,False,TPEx rows too low: 0
-20260105,1066,0,1066,False,TPEx rows too low: 0
-20260104,0,0,0,False,combined empty
-20260103,0,0,0,False,combined empty
-20260102,1066,0,1066,False,TPEx rows too low: 0
-20260101,0,0,0,False,combined empty
-20251231,1064,0,1064,False,TPEx rows too low: 0
-20251230,1062,0,1062,False,TPEx rows too low: 0
-20251229,1063,0,1063,False,TPEx rows too low: 0
-20251228,0,0,0,False,combined empty
-20251227,0,0,0,False,combined empty
-20251226,1062,0,1062,False,TPEx rows too low: 0
-20251225,0,0,0,False,combined empty
-20251224,1060,0,1060,False,TPEx rows too low: 0
-20251223,1060,0,1060,False,TPEx rows too low: 0
-20251222,1060,0,1060,False,TPEx rows too low: 0
-20251221,0,0,0,False,combined empty
-20251220,0,0,0,False,combined empty
-20251219,1058,0,1058,False,TPEx rows too low: 0
-20251218,1058,0,1058,False,TPEx rows too low: 0
-20251217,1059,0,1059,False,TPEx rows too low: 0
-20251216,1064,0,1064,False,TPEx rows too low: 0
-20251215,1061,0,1061,False,TPEx rows too low: 0
-20251214,0,0,0,False,combined empty
-20251213,0,0,0,False,combined empty
-20251212,1059,0,1059,False,TPEx rows too low: 0
+20260221,0,5573,1115,False,TWSE rows too low: 0
+20260220,0,5573,1115,False,TWSE rows too low: 0
+20260219,0,5573,1115,False,TWSE rows too low: 0
+20260218,0,5573,1115,False,TWSE rows too low: 0
+20260217,0,5573,1115,False,TWSE rows too low: 0
+20260216,0,5573,1115,False,TWSE rows too low: 0
+20260215,0,5573,1115,False,TWSE rows too low: 0
+20260214,0,5573,1115,False,TWSE rows too low: 0
+20260213,0,5573,1115,False,TWSE rows too low: 0
+20260212,0,5573,1115,False,TWSE rows too low: 0
+20260211,1072,5573,2187,True,valid
+20260210,1071,5573,2186,True,valid
+20260209,0,5573,1115,False,TWSE rows too low: 0
+20260208,0,5573,1115,False,TWSE rows too low: 0
+20260207,0,5573,1115,False,TWSE rows too low: 0
+20260206,1071,5573,2186,True,valid
+20260205,1069,5573,2184,True,valid
+20260204,1066,5573,2181,True,valid
+20260203,1069,5573,2184,True,valid
+20260202,1069,5573,2184,True,valid
+20260201,0,5573,1115,False,TWSE rows too low: 0
+20260131,0,5573,1115,False,TWSE rows too low: 0
+20260130,1066,5573,2181,True,valid
+20260129,1066,5573,2181,True,valid
+20260128,1068,5573,2183,True,valid
+20260127,1068,0,1068,False,TPEx rows too low: 0
+20260126,1067,5573,2182,True,valid
+20260125,0,5573,1115,False,TWSE rows too low: 0
+20260124,0,5573,1115,False,TWSE rows too low: 0
+20260123,1066,5573,2181,True,valid
+20260122,1068,5573,2183,True,valid
+20260121,1069,5573,2183,True,valid
+20260120,1066,5573,2180,True,valid
+20260119,1068,5573,2182,True,valid
+20260118,0,5573,1115,False,TWSE rows too low: 0
+20260117,0,5573,1115,False,TWSE rows too low: 0
+20260116,1066,5573,2180,True,valid
+20260115,1066,5573,2180,True,valid
+20260114,1064,5573,2178,True,valid
+20260113,1064,5573,2178,True,valid
+20260112,1064,5573,2178,True,valid
+20260111,0,5573,1115,False,TWSE rows too low: 0
+20260110,0,5573,1115,False,TWSE rows too low: 0
+20260109,1062,5573,2176,True,valid
+20260108,1064,5573,2178,True,valid
+20260107,1062,5573,2176,True,valid
+20260106,1063,5573,2177,True,valid
+20260105,1066,5573,2180,True,valid
+20260104,0,5573,1115,False,TWSE rows too low: 0
+20260103,0,5573,1115,False,TWSE rows too low: 0
+20260102,1066,5573,2180,True,valid
+20260101,0,5573,1115,False,TWSE rows too low: 0
+20251231,1064,5573,2178,True,valid
+20251230,1062,5573,2176,True,valid
+20251229,1063,5573,2177,True,valid
+20251228,0,5573,1115,False,TWSE rows too low: 0
+20251227,0,5573,1115,False,TWSE rows too low: 0
+20251226,1062,5573,2176,True,valid
+20251225,0,5573,1115,False,TWSE rows too low: 0
+20251224,1075,5573,2190,True,valid
+20251223,1060,5573,2174,True,valid
+20251222,1060,5573,2174,True,valid
+20251221,0,5573,1115,False,TWSE rows too low: 0
+20251220,0,5573,1115,False,TWSE rows too low: 0
+20251219,1058,5573,2172,True,valid
+20251218,1058,5573,2172,True,valid
+20251217,1059,5573,2173,True,valid
+20251216,1064,5573,2178,True,valid
+20251215,0,5573,1115,False,TWSE rows too low: 0
+20251214,0,5573,1115,False,TWSE rows too low: 0
+20251213,0,5573,1115,False,TWSE rows too low: 0
+20251212,1059,5573,2173,True,valid
 20251211,1060,0,1060,False,TPEx rows too low: 0
-20251210,1057,0,1057,False,TPEx rows too low: 0
-20251209,1058,0,1058,False,TPEx rows too low: 0
-20251208,1062,0,1062,False,TPEx rows too low: 0
-20251207,0,0,0,False,combined empty
-20251206,0,0,0,False,combined empty
-20251205,1059,0,1059,False,TPEx rows too low: 0
-20251204,1060,0,1060,False,TPEx rows too low: 0
-20251203,1061,0,1061,False,TPEx rows too low: 0
-20251202,1061,0,1061,False,TPEx rows too low: 0
-20251201,1058,0,1058,False,TPEx rows too low: 0
-20251130,0,0,0,False,combined empty
-20251129,0,0,0,False,combined empty
-20251128,1059,0,1059,False,TPEx rows too low: 0
-20251127,1056,0,1056,False,TPEx rows too low: 0
-20251126,1061,0,1061,False,TPEx rows too low: 0
-20251125,1059,0,1059,False,TPEx rows too low: 0
-20251124,1059,0,1059,False,TPEx rows too low: 0
-20251123,0,0,0,False,combined empty
-20251122,0,0,0,False,combined empty
-20251121,1056,0,1056,False,TPEx rows too low: 0
-20251120,1054,0,1054,False,TPEx rows too low: 0
-20251119,1059,0,1059,False,TPEx rows too low: 0
+20251210,1057,5573,2171,True,valid
+20251209,1058,5573,2172,True,valid
+20251208,1062,5573,2176,True,valid
+20251207,0,5573,1115,False,TWSE rows too low: 0
+20251206,0,5573,1115,False,TWSE rows too low: 0
+20251205,1059,5573,2173,True,valid
+20251204,1060,5573,2174,True,valid
+20251203,1061,5573,2175,True,valid
+20251202,1061,5573,2175,True,valid
+20251201,1058,5573,2172,True,valid
+20251130,0,5573,1115,False,TWSE rows too low: 0
+20251129,0,5573,1115,False,TWSE rows too low: 0
+20251128,1059,5573,2173,True,valid
+20251127,1056,5573,2170,True,valid
+20251126,1061,5573,2175,True,valid
+20251125,1059,5573,2173,True,valid
+20251124,1059,5573,2173,True,valid
+20251123,0,5573,1115,False,TWSE rows too low: 0
+20251122,0,5573,1115,False,TWSE rows too low: 0
+20251121,1056,5573,2170,True,valid
+20251120,1054,5573,2168,True,valid
+20251119,1059,5573,2173,True,valid
