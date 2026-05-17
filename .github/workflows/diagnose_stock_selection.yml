@@ -1,0 +1,325 @@
+name: Diagnose Stock Selection
+
+on:
+  workflow_dispatch:
+    inputs:
+      ticker:
+        description: "Stock ticker, e.g. 3450"
+        required: true
+        default: "3450"
+
+permissions:
+  contents: write
+
+jobs:
+  diagnose-stock-selection:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install pandas requests tabulate
+
+      - name: Diagnose stock selection
+        env:
+          TICKER: ${{ github.event.inputs.ticker }}
+        run: |
+          python - <<'PY'
+          import os
+          import pandas as pd
+          from pathlib import Path
+
+          import stock_daily_monitor as sm
+
+          ticker = str(os.environ.get("TICKER", "")).strip().zfill(4)
+
+          OUTPUT_DIR = Path("output")
+          DEBUG_DIR = OUTPUT_DIR / "debug"
+          DEBUG_DIR.mkdir(parents=True, exist_ok=True)
+
+          def yes_no(value):
+              return "✅ 通過" if value else "❌ 未通過"
+
+          def safe_round(value, digits=2):
+              try:
+                  if pd.isna(value):
+                      return ""
+                  return round(float(value), digits)
+              except Exception:
+                  return ""
+
+          price_data = sm.load_official_price_history()
+          revenue_df = sm.fetch_monthly_revenue()
+
+          if price_data.empty:
+              report = f"""# 單股入選診斷報告
+
+          股票代號：{ticker}
+
+          結果：無法診斷
+
+          原因：找不到官方價格資料。
+          """
+              (DEBUG_DIR / "stock_diagnosis_latest.md").write_text(report, encoding="utf-8")
+              (DEBUG_DIR / f"stock_diagnosis_{ticker}.md").write_text(report, encoding="utf-8")
+              raise SystemExit("No price data")
+
+          stock_map = sm.build_stock_history_map(price_data)
+
+          if ticker not in stock_map:
+              report = f"""# 單股入選診斷報告
+
+          股票代號：{ticker}
+
+          結果：無法診斷
+
+          原因：這檔股票在價格資料中不足 60 個交易日，或沒有被載入。
+          """
+              (DEBUG_DIR / "stock_diagnosis_latest.md").write_text(report, encoding="utf-8")
+              (DEBUG_DIR / f"stock_diagnosis_{ticker}.md").write_text(report, encoding="utf-8")
+              raise SystemExit("Ticker not found in stock_map")
+
+          df = stock_map[ticker].copy()
+          df = sm.add_technical_metrics(df)
+
+          latest = df.iloc[-1]
+          prev = df.iloc[-2]
+
+          name = latest.get("name", "")
+          latest_date = str(latest.get("date", ""))
+
+          open_price = latest["open"]
+          close = latest["close"]
+          prev_close = prev["close"]
+          volume = latest["volume"]
+          ma20 = latest["ma20"]
+          ma60 = latest["ma60"]
+          vol20 = latest["vol20"]
+
+          volume_lots = volume / 1000 if pd.notna(volume) else 0
+          volume_ratio = volume / vol20 if pd.notna(vol20) and vol20 > 0 else 0
+
+          recent_40 = df.iloc[-41:-1]
+          high_40 = recent_40["high"].max()
+          low_40 = recent_40["low"].min()
+
+          breakout_pct = (close - high_40) / high_40 * 100 if high_40 and high_40 > 0 else None
+          consolidation_range_pct = (high_40 - low_40) / low_40 * 100 if low_40 and low_40 > 0 else None
+
+          gap_ma20_pct = (close / ma20 - 1) * 100 if ma20 and ma20 > 0 else None
+          gap_ma60_pct = (close / ma60 - 1) * 100 if ma60 and ma60 > 0 else None
+
+          return_5d_pct = (close / df.iloc[-6]["close"] - 1) * 100 if len(df) >= 6 else None
+          return_10d_pct = (close / df.iloc[-11]["close"] - 1) * 100 if len(df) >= 11 else None
+          return_20d_pct = (close / df.iloc[-21]["close"] - 1) * 100 if len(df) >= 21 else None
+
+          close_vs_prev_pct = (close / prev_close - 1) * 100 if prev_close and prev_close > 0 else None
+          intraday_pct = (close / open_price - 1) * 100 if open_price and open_price > 0 else None
+
+          # 讀營收資料
+          revenue_row = None
+          revenue_match = pd.DataFrame()
+
+          if not revenue_df.empty and "ticker" in revenue_df.columns:
+              temp = revenue_df.copy()
+              temp["ticker"] = temp["ticker"].astype(str).str.zfill(4)
+              revenue_match = temp[temp["ticker"] == ticker]
+
+              if not revenue_match.empty:
+                  revenue_row = revenue_match.iloc[0]
+
+          if revenue_row is not None:
+              revenue_yoy = revenue_row.get("revenue_yoy_pct", None)
+              cumulative_yoy = revenue_row.get("cumulative_yoy_pct", None)
+              revenue_period = revenue_row.get("revenue_period", "")
+              industry = revenue_row.get("industry", "")
+          else:
+              revenue_yoy = None
+              cumulative_yoy = None
+              revenue_period = ""
+              industry = ""
+
+          # 1. 嚴格向上突破診斷
+          breakout_checks = []
+
+          breakout_checks.append(("價格資料至少 61 筆", len(df) >= 61))
+          breakout_checks.append(("成交量 >= 1000 張", volume_lots >= sm.MIN_VOLUME_LOTS))
+          breakout_checks.append(("收盤價突破近 40 日高點", breakout_pct is not None and breakout_pct > 0))
+          breakout_checks.append(("量比 >= 1.5", volume_ratio >= 1.5))
+          breakout_checks.append(("收盤價 > 20MA", pd.notna(ma20) and close > ma20))
+          breakout_checks.append(("收盤價 > 60MA", pd.notna(ma60) and close > ma60))
+          breakout_checks.append(("收盤價 > 前一日收盤", close > prev_close))
+          breakout_checks.append(("收盤價 >= 開盤價，避免放量黑K", close >= open_price))
+          breakout_checks.append(("近 5 日漲幅 > 0", return_5d_pct is not None and return_5d_pct > 0))
+
+          try:
+              breakout_metrics = sm.calculate_breakout_score(df)
+          except Exception:
+              breakout_metrics = None
+
+          breakout_score = breakout_metrics.get("score") if breakout_metrics else None
+          breakout_selected = breakout_metrics is not None and breakout_score >= 55
+
+          # 2. 營收回檔診斷
+          pullback_checks = []
+
+          pullback_checks.append(("有最新月營收資料", revenue_row is not None))
+          pullback_checks.append(("月營收 YoY >= 20%", revenue_yoy is not None and revenue_yoy >= 20))
+          pullback_checks.append(("累計營收 YoY >= 10%", cumulative_yoy is not None and cumulative_yoy >= 10))
+          pullback_checks.append(("成交量 >= 1000 張", volume_lots >= sm.MIN_VOLUME_LOTS))
+          pullback_checks.append(("價格資料至少 61 筆", len(df) >= 61))
+
+          pullback_metrics = None
+          pullback_score = None
+          pullback_selected = False
+
+          if revenue_row is not None:
+              try:
+                  pullback_metrics = sm.calculate_revenue_pullback_score(df, revenue_row)
+              except Exception:
+                  pullback_metrics = None
+
+          if pullback_metrics is not None:
+              pullback_score = pullback_metrics.get("score")
+              pullback_selected = pullback_score >= 50
+              pullback_checks.append(("營收回檔分數 >= 50", pullback_selected))
+          else:
+              pullback_checks.append(("營收回檔分數 >= 50", False))
+
+          # 3. 短線轉強診斷
+          rebound_checks = []
+          rebound_checks.append(("先進入營收回檔候選股", pullback_selected))
+          rebound_checks.append(("今日收盤 > 昨日收盤", close_vs_prev_pct is not None and close_vs_prev_pct > 0))
+          rebound_checks.append(("今日收盤 >= 今日開盤", intraday_pct is not None and intraday_pct >= 0))
+          rebound_checks.append(("量比 >= 1.2", volume_ratio >= 1.2))
+          rebound_checks.append(("接近或站回 20MA", gap_ma20_pct is not None and (gap_ma20_pct >= 0 or abs(gap_ma20_pct) <= 5)))
+
+          rebound_selected = all(v for _, v in rebound_checks)
+
+          # 整理落選原因
+          def failed_reasons(checks):
+              failed = [name for name, passed in checks if not passed]
+              if not failed:
+                  return "全部條件通過。"
+              return "\n".join([f"- {x}" for x in failed])
+
+          breakout_table = pd.DataFrame([
+              {"條件": name, "結果": yes_no(passed)}
+              for name, passed in breakout_checks
+          ])
+
+          pullback_table = pd.DataFrame([
+              {"條件": name, "結果": yes_no(passed)}
+              for name, passed in pullback_checks
+          ])
+
+          rebound_table = pd.DataFrame([
+              {"條件": name, "結果": yes_no(passed)}
+              for name, passed in rebound_checks
+          ])
+
+          metrics_df = pd.DataFrame([
+              {"項目": "資料日", "數值": latest_date},
+              {"項目": "收盤價", "數值": safe_round(close)},
+              {"項目": "開盤價", "數值": safe_round(open_price)},
+              {"項目": "前收", "數值": safe_round(prev_close)},
+              {"項目": "成交量張", "數值": safe_round(volume_lots, 0)},
+              {"項目": "量比", "數值": safe_round(volume_ratio)},
+              {"項目": "20MA", "數值": safe_round(ma20)},
+              {"項目": "60MA", "數值": safe_round(ma60)},
+              {"項目": "距月線%", "數值": safe_round(gap_ma20_pct)},
+              {"項目": "距季線%", "數值": safe_round(gap_ma60_pct)},
+              {"項目": "近40日高點", "數值": safe_round(high_40)},
+              {"項目": "突破40日高點%", "數值": safe_round(breakout_pct)},
+              {"項目": "40日區間%", "數值": safe_round(consolidation_range_pct)},
+              {"項目": "近5日漲幅%", "數值": safe_round(return_5d_pct)},
+              {"項目": "近10日漲幅%", "數值": safe_round(return_10d_pct)},
+              {"項目": "近20日漲幅%", "數值": safe_round(return_20d_pct)},
+              {"項目": "對前收%", "數值": safe_round(close_vs_prev_pct)},
+              {"項目": "日內漲跌%", "數值": safe_round(intraday_pct)},
+              {"項目": "營收年月", "數值": revenue_period},
+              {"項目": "產業", "數值": industry},
+              {"項目": "月營收YoY%", "數值": safe_round(revenue_yoy)},
+              {"項目": "累計YoY%", "數值": safe_round(cumulative_yoy)},
+              {"項目": "突破分數", "數值": breakout_score if breakout_score is not None else "未計分"},
+              {"項目": "營收回檔分數", "數值": pullback_score if pullback_score is not None else "未計分"},
+          ])
+
+          report = f"""# 單股入選診斷報告
+
+          股票：{ticker} {name}
+
+          ## 總結
+
+          | 策略 | 是否入選 |
+          |---|---|
+          | 嚴格向上盤整帶量突破 | {yes_no(breakout_selected)} |
+          | 營收成長但股價回檔 | {yes_no(pullback_selected)} |
+          | 營收回檔股中的短線轉強 | {yes_no(rebound_selected)} |
+
+          ---
+
+          ## 關鍵數據
+
+          {metrics_df.to_markdown(index=False)}
+
+          ---
+
+          ## 1. 嚴格向上盤整帶量突破診斷
+
+          {breakout_table.to_markdown(index=False)}
+
+          ### 沒入選原因
+
+          {failed_reasons(breakout_checks)}
+
+          ---
+
+          ## 2. 營收成長但股價回檔診斷
+
+          {pullback_table.to_markdown(index=False)}
+
+          ### 沒入選原因
+
+          {failed_reasons(pullback_checks)}
+
+          ---
+
+          ## 3. 營收回檔股中的短線轉強診斷
+
+          {rebound_table.to_markdown(index=False)}
+
+          ### 沒入選原因
+
+          {failed_reasons(rebound_checks)}
+
+          ---
+
+          ## 解讀提醒
+
+          這份診斷只回答：為什麼沒有被目前程式規則選出來。
+
+          它不代表股票不好，也不代表不能交易。  
+          它只代表這檔股票當天沒有符合目前系統定義的三種訊號。
+          """
+
+          (DEBUG_DIR / "stock_diagnosis_latest.md").write_text(report, encoding="utf-8")
+          (DEBUG_DIR / f"stock_diagnosis_{ticker}.md").write_text(report, encoding="utf-8")
+
+          print(f"Diagnosis generated for {ticker}")
+          PY
+
+      - name: Commit stock diagnosis report
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add output/debug/
+          git commit -m "Update stock diagnosis report" || echo "No changes to commit"
+          git push
