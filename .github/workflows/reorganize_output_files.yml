@@ -1,0 +1,77 @@
+name: Reorganize Output Files
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  reorganize-output-files:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Reorganize output files
+        run: |
+          mkdir -p output/latest
+          mkdir -p output/backfill
+          mkdir -p output/debug
+          mkdir -p output/history/tdcc
+
+          # 最新每日監測檔案
+          [ -f output/stock_monitor_latest.md ] && mv output/stock_monitor_latest.md output/latest/
+          [ -f output/breakout_latest.csv ] && mv output/breakout_latest.csv output/latest/
+          [ -f output/revenue_pullback_latest.csv ] && mv output/revenue_pullback_latest.csv output/latest/
+          [ -f output/pullback_rebound_latest.csv ] && mv output/pullback_rebound_latest.csv output/latest/
+          [ -f output/official_price_fetch_latest.md ] && mv output/official_price_fetch_latest.md output/latest/
+
+          # 補抓報告
+          [ -f output/official_price_backfill_latest.md ] && mv output/official_price_backfill_latest.md output/backfill/
+          [ -f output/official_price_backfill_row_stats.csv ] && mv output/official_price_backfill_row_stats.csv output/backfill/
+
+          # Debug 檔案
+          [ -f output/debug_tpex_fetch_latest.md ] && mv output/debug_tpex_fetch_latest.md output/debug/
+          [ -f output/debug_tpex_fetch_latest.csv ] && mv output/debug_tpex_fetch_latest.csv output/debug/
+
+          # TDCC 最新檔案
+          [ -f output/tdcc_holder_ratio_latest.csv ] && mv output/tdcc_holder_ratio_latest.csv output/latest/
+          [ -f output/tdcc_weekly_report_latest.md ] && mv output/tdcc_weekly_report_latest.md output/latest/
+
+          # TDCC 歷史檔案
+          find output -maxdepth 1 -type f -name "tdcc_latest_ratio_raw_*.csv" -exec mv {} output/history/tdcc/ \;
+          find output -maxdepth 1 -type f -name "tdcc_latest_ratio_report_*.md" -exec mv {} output/history/tdcc/ \;
+          find output -maxdepth 1 -type f -name "tdcc_weekly_report_*.md" -exec mv {} output/history/tdcc/ \;
+
+          cat > output/latest/reorganize_output_files_latest.md <<'EOF'
+          # Output 檔案整理報告
+
+          整理完成。
+
+          主要看這裡：
+
+          output/latest/stock_monitor_latest.md
+          output/latest/tdcc_weekly_report_latest.md
+
+          補抓資料：
+
+          output/backfill/
+
+          Debug 資料：
+
+          output/debug/
+
+          歷史資料：
+
+          output/history/
+          EOF
+
+      - name: Commit reorganized output files
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add output/
+          git commit -m "Reorganize output files" || echo "No changes to commit"
+          git push
