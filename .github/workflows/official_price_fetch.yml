@@ -1,0 +1,34 @@
+name: Official Daily Price Fetch
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch-official-price:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install pandas requests
+
+      - name: Fetch official daily price
+        run: python fetch_official_daily_price.py
+
+      - name: Commit official price data
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add data/ output/
+          git commit -m "Update official daily price data" || echo "No changes to commit"
+          git push
