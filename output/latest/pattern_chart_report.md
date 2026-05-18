@@ -1,11 +1,15 @@
 # Pattern Chart Report
 
-產生時間：2026-05-18 12:47:18
+產生時間：2026-05-18 12:56:05
 圖表數量：30
 
 > 這份報告把 Pattern Scan 前 30 檔畫成 K 線圖，讓你用人眼篩掉不符合型態的股票。
 
 > 圖中標示 A=第一低點、B=頸線、C=第二低點、Now=最新收盤。
+
+## 總覽圖
+
+![Pattern Contact Sheet](pattern_charts_contact_sheet.png)
 
 ---
 
