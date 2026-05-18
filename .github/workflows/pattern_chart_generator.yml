@@ -1,8 +1,6 @@
 name: Pattern Chart Generator
 
 on:
-  schedule:
-    - cron: "12 11 * * 1-5"  # Taiwan time 19:12, Monday to Friday
   workflow_dispatch:
 
 permissions:
