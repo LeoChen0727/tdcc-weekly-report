@@ -1,8 +1,6 @@
 name: Pattern Scan
 
 on:
-  schedule:
-    - cron: "5 11 * * 1-5"  # Taiwan time 19:05, Monday to Friday
   workflow_dispatch:
 
 permissions:
