@@ -1,0 +1,32 @@
+name: Schedule Probe
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Write schedule probe timestamp
+        run: |
+          mkdir -p output/debug
+          date -u +"%Y-%m-%d %H:%M:%S UTC" > output/debug/schedule_probe_latest.txt
+          echo "Schedule probe executed at:"
+          cat output/debug/schedule_probe_latest.txt
+
+      - name: Commit schedule probe result
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add output/debug/schedule_probe_latest.txt
+          git commit -m "Update schedule probe timestamp" || echo "No changes to commit"
+          git push
