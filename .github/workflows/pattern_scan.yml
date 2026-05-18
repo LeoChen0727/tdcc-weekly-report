@@ -22,11 +22,13 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install pandas tabulate
+        run: pip install pandas requests tabulate
 
-      - name: Scan W-bottom attack pattern
+      - name: Scan W-bottom pre-breakout pattern
         run: |
           python - <<'PY'
+          import io
+          import requests
           import pandas as pd
           from pathlib import Path
           from datetime import datetime
@@ -41,10 +43,9 @@ jobs:
 
           PATTERN_CSV_PATH = LATEST_DIR / "w_bottom_attack_latest.csv"
           PATTERN_REPORT_PATH = LATEST_DIR / "pattern_scan_latest.md"
-
           TDCC_LATEST_PATH = LATEST_DIR / "tdcc_holder_ratio_latest.csv"
 
-          LOOKBACK_DAYS = 80
+          LOOKBACK_DAYS = 90
           MIN_VOLUME_LOTS = 1000
 
           MAINSTREAM_INDUSTRY_KEYWORDS = [
@@ -96,6 +97,46 @@ jobs:
               data = data.sort_values(["ticker", "date"]).reset_index(drop=True)
 
               return data
+
+
+          def fetch_monthly_revenue_industry():
+              urls = [
+                  ("listed", "https://mopsfin.twse.com.tw/opendata/t187ap05_L.csv"),
+                  ("otc", "https://mopsfin.twse.com.tw/opendata/t187ap05_O.csv"),
+              ]
+
+              frames = []
+
+              for market, url in urls:
+                  try:
+                      r = requests.get(url, timeout=30, headers={"User-Agent": "Mozilla/5.0"})
+                      r.encoding = "utf-8-sig"
+                      df = pd.read_csv(io.StringIO(r.text))
+                      df["market"] = market
+                      frames.append(df)
+                  except Exception as e:
+                      print(f"Revenue industry fetch failed: {market} {e}")
+
+              if not frames:
+                  return pd.DataFrame(columns=["ticker", "industry"])
+
+              df = pd.concat(frames, ignore_index=True)
+
+              rename_map = {
+                  "公司代號": "ticker",
+                  "公司名稱": "name",
+                  "產業別": "industry",
+                  "資料年月": "revenue_period",
+              }
+
+              keep_cols = [c for c in rename_map.keys() if c in df.columns]
+              df = df[keep_cols].rename(columns=rename_map)
+
+              df["ticker"] = df["ticker"].astype(str).str.extract(r"(\d{4})")[0]
+              df = df.dropna(subset=["ticker"])
+              df["ticker"] = df["ticker"].astype(str).str.zfill(4)
+
+              return df.drop_duplicates(subset=["ticker"], keep="last").reset_index(drop=True)
 
 
           def load_tdcc_latest():
@@ -240,6 +281,28 @@ jobs:
               return points
 
 
+          def classify_stage(distance_to_neckline_pct, current_from_c_pct):
+              """
+              這版重點放在還沒正式發動。
+              """
+              if current_from_c_pct > 40:
+                  return "已漲太遠"
+
+              if -15 <= distance_to_neckline_pct < -5:
+                  return "預備發動型"
+
+              if -5 <= distance_to_neckline_pct < 0:
+                  return "接近突破型"
+
+              if 0 <= distance_to_neckline_pct <= 8:
+                  return "已突破但未過熱"
+
+              if distance_to_neckline_pct > 8:
+                  return "已突破過遠"
+
+              return "右側未成熟"
+
+
           def scan_w_bottom_attack(group):
               group = group.sort_values("date").reset_index(drop=True).copy()
 
@@ -266,10 +329,10 @@ jobs:
 
               for a_pos in minima:
                   for c_pos in minima:
-                      if c_pos <= a_pos + 10:
+                      if c_pos <= a_pos + 8:
                           continue
 
-                      if c_pos >= len(recent) - 5:
+                      if c_pos >= len(recent) - 4:
                           continue
 
                       a_row = recent.iloc[a_pos]
@@ -281,10 +344,10 @@ jobs:
                       if a_low <= 0 or c_low <= 0:
                           continue
 
-                      # 第二低點接近第一低點，或略高於第一低點
                       second_low_gap_pct = (c_low / a_low - 1) * 100
 
-                      if second_low_gap_pct < -8 or second_low_gap_pct > 12:
+                      # 第二低點不可明顯破壞第一低點，也不能高太多到不像 W 底
+                      if second_low_gap_pct < -10 or second_low_gap_pct > 18:
                           continue
 
                       mid = recent.iloc[a_pos:c_pos + 1]
@@ -292,15 +355,16 @@ jobs:
                       b_pos = mid["high"].idxmax()
                       b_row = recent.iloc[b_pos]
 
-                      rebound_from_a_pct = (b_high / a_low - 1) * 100
-
-                      if rebound_from_a_pct < 10:
+                      # 頸線要在兩低點之間
+                      if b_pos <= a_pos or b_pos >= c_pos:
                           continue
 
-                      # 第一段攻擊 A → B
-                      attack1 = recent.iloc[a_pos:b_pos + 1].copy()
+                      rebound_from_a_pct = (b_high / a_low - 1) * 100
 
-                      # 第二段攻擊 C → 最新
+                      if rebound_from_a_pct < 8:
+                          continue
+
+                      attack1 = recent.iloc[a_pos:b_pos + 1].copy()
                       attack2 = recent.iloc[c_pos:].copy()
 
                       if len(attack1) < 3 or len(attack2) < 3:
@@ -314,83 +378,104 @@ jobs:
 
                       volume_ratio_2_vs_1 = attack2_avg_volume / attack1_avg_volume if attack1_avg_volume > 0 else 0
 
-                      attack1_red_count = (attack1["close"] > attack1["open"]).sum()
-                      attack2_red_count = (attack2["close"] > attack2["open"]).sum()
+                      attack1_red_count = int((attack1["close"] > attack1["open"]).sum())
+                      attack2_red_count = int((attack2["close"] > attack2["open"]).sum())
 
-                      attack1_red_body = (attack1.loc[attack1["close"] > attack1["open"], "close"] - attack1.loc[attack1["close"] > attack1["open"], "open"]).sum()
-                      attack2_red_body = (attack2.loc[attack2["close"] > attack2["open"], "close"] - attack2.loc[attack2["close"] > attack2["open"], "open"]).sum()
+                      attack1_red_body = (
+                          attack1.loc[attack1["close"] > attack1["open"], "close"] -
+                          attack1.loc[attack1["close"] > attack1["open"], "open"]
+                      ).sum()
+
+                      attack2_red_body = (
+                          attack2.loc[attack2["close"] > attack2["open"], "close"] -
+                          attack2.loc[attack2["close"] > attack2["open"], "open"]
+                      ).sum()
 
                       red_body_ratio_2_vs_1 = attack2_red_body / attack1_red_body if attack1_red_body > 0 else 0
 
                       neckline = b_high
                       latest_close = latest["close"]
                       distance_to_neckline_pct = (latest_close / neckline - 1) * 100
-
                       current_from_c_pct = (latest_close / c_low - 1) * 100
 
-                      if current_from_c_pct < 5:
+                      if current_from_c_pct < 3:
                           continue
 
-                      # 避免已經離第二底太遠才抓到
-                      if current_from_c_pct > 55:
+                      stage = classify_stage(distance_to_neckline_pct, current_from_c_pct)
+
+                      if stage in ["已漲太遠", "已突破過遠", "右側未成熟"]:
+                          continue
+
+                      # 這版重點是二攻變強，所以要求至少有一個「明顯更強」成立
+                      volume_stronger = volume_ratio_2_vs_1 >= 1.15
+                      red_count_stronger = attack2_red_count >= attack1_red_count
+                      red_body_stronger = red_body_ratio_2_vs_1 >= 1.1
+                      gain_stronger = attack2_gain_pct >= attack1_gain_pct * 0.65
+
+                      if not volume_stronger:
+                          continue
+
+                      if not (red_count_stronger or red_body_stronger or gain_stronger):
                           continue
 
                       score = 0
 
-                      # W底結構
-                      if -3 <= second_low_gap_pct <= 8:
+                      # W底完整度
+                      if -3 <= second_low_gap_pct <= 10:
                           score += 20
-                      elif -8 <= second_low_gap_pct <= 12:
+                      elif -10 <= second_low_gap_pct <= 18:
                           score += 12
 
-                      # 中間反彈夠明顯
+                      # 中間反彈形成頸線
                       if rebound_from_a_pct >= 25:
                           score += 18
                       elif rebound_from_a_pct >= 15:
                           score += 12
-                      elif rebound_from_a_pct >= 10:
+                      elif rebound_from_a_pct >= 8:
                           score += 8
 
-                      # 第二段量更強
+                      # 二攻量能
                       if volume_ratio_2_vs_1 >= 1.8:
-                          score += 22
-                      elif volume_ratio_2_vs_1 >= 1.3:
-                          score += 16
-                      elif volume_ratio_2_vs_1 >= 1.1:
+                          score += 24
+                      elif volume_ratio_2_vs_1 >= 1.35:
+                          score += 18
+                      elif volume_ratio_2_vs_1 >= 1.15:
+                          score += 10
+
+                      # 二攻紅K
+                      if attack2_red_count > attack1_red_count:
+                          score += 12
+                      elif attack2_red_count == attack1_red_count:
                           score += 8
 
-                      # 第二段紅K更多或紅K實體更強
-                      if attack2_red_count >= attack1_red_count:
-                          score += 10
-
-                      if red_body_ratio_2_vs_1 >= 1.5:
+                      if red_body_ratio_2_vs_1 >= 1.8:
                           score += 18
-                      elif red_body_ratio_2_vs_1 >= 1.1:
-                          score += 10
+                      elif red_body_ratio_2_vs_1 >= 1.2:
+                          score += 12
+                      elif red_body_ratio_2_vs_1 >= 1.0:
+                          score += 6
 
-                      # 右側攻擊強度
+                      # 二攻漲幅
                       if attack2_gain_pct >= attack1_gain_pct:
-                          score += 12
-                      elif attack2_gain_pct >= attack1_gain_pct * 0.7:
-                          score += 6
+                          score += 14
+                      elif attack2_gain_pct >= attack1_gain_pct * 0.65:
+                          score += 8
 
-                      # 接近或突破頸線
-                      if distance_to_neckline_pct >= 0:
+                      # 階段加權：預備發動 / 接近突破優先
+                      if stage == "預備發動型":
                           score += 18
-                          pattern_stage = "已突破頸線"
-                      elif distance_to_neckline_pct >= -5:
+                      elif stage == "接近突破型":
+                          score += 16
+                      elif stage == "已突破但未過熱":
+                          score += 8
+
+                      # 還沒噴太遠加分
+                      if current_from_c_pct <= 25:
                           score += 12
-                          pattern_stage = "接近頸線"
-                      elif distance_to_neckline_pct >= -10:
+                      elif current_from_c_pct <= 35:
                           score += 6
-                          pattern_stage = "右側攻擊中"
-                      else:
-                          pattern_stage = "右側未成熟"
 
-                      if pattern_stage == "右側未成熟":
-                          continue
-
-                      if score < 60:
+                      if score < 55:
                           continue
 
                       candidate = {
@@ -400,8 +485,8 @@ jobs:
                           "market": latest.get("market", ""),
                           "close": round(latest_close, 2),
                           "volume_lots": round(latest["volume_lots"], 0),
-                          "pattern": "W底右側攻擊增強",
-                          "pattern_stage": pattern_stage,
+                          "pattern": "W底右側攻擊增強・預備發動",
+                          "pattern_stage": stage,
                           "pattern_score": round(score, 1),
                           "a_date": a_row["date"],
                           "a_low": round(a_low, 2),
@@ -418,8 +503,8 @@ jobs:
                           "attack1_avg_volume_lots": round(attack1_avg_volume / 1000, 0),
                           "attack2_avg_volume_lots": round(attack2_avg_volume / 1000, 0),
                           "volume_ratio_2_vs_1": round(volume_ratio_2_vs_1, 2),
-                          "attack1_red_count": int(attack1_red_count),
-                          "attack2_red_count": int(attack2_red_count),
+                          "attack1_red_count": attack1_red_count,
+                          "attack2_red_count": attack2_red_count,
                           "red_body_ratio_2_vs_1": round(red_body_ratio_2_vs_1, 2),
                       }
 
@@ -429,32 +514,25 @@ jobs:
               return best
 
 
+          def make_table(df, columns, rename_map, max_rows=30):
+              if df.empty:
+                  return "沒有符合條件的股票。"
+              temp = df.head(max_rows).copy()
+              cols = [c for c in columns if c in temp.columns]
+              temp = temp[cols].rename(columns=rename_map)
+              return temp.to_markdown(index=False)
+
+
           def generate_report(pattern_df, latest_price_date):
               today = datetime.now().strftime("%Y%m%d")
               now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
-              if pattern_df.empty:
-                  report = f"""# Pattern Scanner 型態掃描報告
-
-          產生時間：{now}
-          最新價格資料日：{latest_price_date}
-
-          ## W底右側攻擊增強型
-
-          沒有符合條件的股票。
-          """
-                  PATTERN_REPORT_PATH.write_text(report, encoding="utf-8")
-                  (PATTERN_HISTORY_DIR / f"pattern_scan_{today}.md").write_text(report, encoding="utf-8")
-                  return
-
-              mainstream_df = pattern_df[pattern_df["is_mainstream"] == True].copy()
-              non_mainstream_df = pattern_df[pattern_df["is_mainstream"] == False].copy()
 
               show_cols = [
                   "ticker", "name", "industry", "pattern_stage", "pattern_score",
                   "date", "close", "volume_lots",
                   "a_date", "a_low", "b_date", "neckline", "c_date", "c_low",
-                  "distance_to_neckline_pct", "volume_ratio_2_vs_1",
+                  "distance_to_neckline_pct", "current_from_c_pct",
+                  "volume_ratio_2_vs_1",
                   "attack1_red_count", "attack2_red_count",
                   "red_body_ratio_2_vs_1",
                   "tdcc_judge",
@@ -476,6 +554,7 @@ jobs:
                   "c_date": "第二低點日",
                   "c_low": "第二低點",
                   "distance_to_neckline_pct": "距頸線%",
+                  "current_from_c_pct": "距第二底%",
                   "volume_ratio_2_vs_1": "二攻量/一攻量",
                   "attack1_red_count": "一攻紅K數",
                   "attack2_red_count": "二攻紅K數",
@@ -483,42 +562,68 @@ jobs:
                   "tdcc_judge": "TDCC判斷",
               }
 
-              def table(df, max_rows=30):
-                  if df.empty:
-                      return "沒有符合條件的股票。"
-                  temp = df.head(max_rows).copy()
-                  cols = [c for c in show_cols if c in temp.columns]
-                  temp = temp[cols].rename(columns=rename_map)
-                  return temp.to_markdown(index=False)
+              if pattern_df.empty:
+                  report = f"""# Pattern Scanner 型態掃描報告
+
+          產生時間：{now}
+          最新價格資料日：{latest_price_date}
+
+          ## W底右側攻擊增強・預備發動型
+
+          沒有符合條件的股票。
+          """
+                  PATTERN_REPORT_PATH.write_text(report, encoding="utf-8")
+                  (PATTERN_HISTORY_DIR / f"pattern_scan_{today}.md").write_text(report, encoding="utf-8")
+                  return
+
+              pre_df = pattern_df[pattern_df["pattern_stage"] == "預備發動型"].copy()
+              near_df = pattern_df[pattern_df["pattern_stage"] == "接近突破型"].copy()
+              breakout_not_hot_df = pattern_df[pattern_df["pattern_stage"] == "已突破但未過熱"].copy()
+              mainstream_df = pattern_df[pattern_df["is_mainstream"] == True].copy()
+              non_mainstream_df = pattern_df[pattern_df["is_mainstream"] == False].copy()
 
               report = []
               report.append("# Pattern Scanner 型態掃描報告")
               report.append("")
               report.append(f"產生時間：{now}")
               report.append(f"最新價格資料日：{latest_price_date}")
-              report.append(f"型態：W底右側攻擊增強")
+              report.append("型態：W底右側攻擊增強・預備發動型")
               report.append("")
-              report.append("> 這個型態尋找：第一低點 → 反彈頸線 → 第二低點 → 第二次攻擊。")
+              report.append("> 這份報告找的是：第一低點 → 反彈頸線 → 第二低點 → 第二次攻擊。")
               report.append("")
-              report.append("> 重點是第二次攻擊成交量更大、紅K數或紅K實體更強，且接近或突破頸線。")
+              report.append("> 重點不是已經噴出去，而是第二次攻擊量能、紅K數或紅K實體比第一次攻擊更強，且尚未離第二底太遠。")
               report.append("")
-              report.append("---")
-              report.append("")
-              report.append("## 1. 全市場候選")
-              report.append("")
-              report.append(table(pattern_df))
+              report.append("> 預備發動型：距頸線 -15% 到 -5%；接近突破型：距頸線 -5% 到 0%；已突破但未過熱：突破頸線 0% 到 8%。")
               report.append("")
               report.append("---")
               report.append("")
-              report.append("## 2. 主流題材候選")
+              report.append("## 1. 預備發動型")
               report.append("")
-              report.append(table(mainstream_df))
+              report.append(make_table(pre_df, show_cols, rename_map))
               report.append("")
               report.append("---")
               report.append("")
-              report.append("## 3. 非主流 / 其他候選")
+              report.append("## 2. 接近突破型")
               report.append("")
-              report.append(table(non_mainstream_df))
+              report.append(make_table(near_df, show_cols, rename_map))
+              report.append("")
+              report.append("---")
+              report.append("")
+              report.append("## 3. 已突破但未過熱型")
+              report.append("")
+              report.append(make_table(breakout_not_hot_df, show_cols, rename_map))
+              report.append("")
+              report.append("---")
+              report.append("")
+              report.append("## 4. 主流題材候選")
+              report.append("")
+              report.append(make_table(mainstream_df, show_cols, rename_map))
+              report.append("")
+              report.append("---")
+              report.append("")
+              report.append("## 5. 非主流 / 其他候選")
+              report.append("")
+              report.append(make_table(non_mainstream_df, show_cols, rename_map))
               report.append("")
 
               report_text = "\n".join(report)
@@ -536,35 +641,49 @@ jobs:
                   return
 
               latest_price_date = price_data["date"].max()
-
               tdcc_df = load_tdcc_latest()
+              industry_df = fetch_monthly_revenue_industry()
 
               rows = []
 
               for ticker, group in price_data.groupby("ticker"):
                   try:
                       candidate = scan_w_bottom_attack(group)
-
                       if candidate:
                           rows.append(candidate)
-
                   except Exception as e:
                       print(f"Skip {ticker}: {e}")
 
               pattern_df = pd.DataFrame(rows)
 
               if not pattern_df.empty:
-                  # 產業暫時用空欄，之後可併營收產業資料
-                  if "industry" not in pattern_df.columns:
+                  pattern_df["ticker"] = pattern_df["ticker"].astype(str).str.zfill(4)
+
+                  if not industry_df.empty:
+                      pattern_df = pattern_df.merge(
+                          industry_df[["ticker", "industry"]],
+                          on="ticker",
+                          how="left"
+                      )
+                  else:
                       pattern_df["industry"] = ""
 
+                  pattern_df["industry"] = pattern_df["industry"].fillna("")
                   pattern_df["is_mainstream"] = pattern_df["industry"].apply(is_mainstream_industry)
 
                   pattern_df = enrich_with_tdcc(pattern_df, tdcc_df)
 
+                  stage_order = {
+                      "預備發動型": 1,
+                      "接近突破型": 2,
+                      "已突破但未過熱": 3,
+                  }
+
+                  pattern_df["stage_order"] = pattern_df["pattern_stage"].map(stage_order).fillna(99)
+
                   pattern_df = pattern_df.sort_values(
-                      ["pattern_score", "volume_ratio_2_vs_1"],
-                      ascending=False
+                      ["stage_order", "pattern_score", "volume_ratio_2_vs_1"],
+                      ascending=[True, False, False]
                   ).reset_index(drop=True)
 
                   pattern_df.to_csv(PATTERN_CSV_PATH, index=False, encoding="utf-8-sig")
