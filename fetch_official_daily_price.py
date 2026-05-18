@@ -1,273 +1,213 @@
-import io
-import requests
-import pandas as pd
-
-from datetime import datetime
 from pathlib import Path
+from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
+
+import pandas as pd
+import requests
 
 
-DATA_DIR = Path("data/daily_price")
-OUTPUT_DIR = Path("output")
+BASE_DIR = Path(__file__).resolve().parent
+DATA_DIR = BASE_DIR / "data" / "daily_price"
+LATEST_DIR = BASE_DIR / "output" / "latest"
 
 DATA_DIR.mkdir(parents=True, exist_ok=True)
-OUTPUT_DIR.mkdir(exist_ok=True)
-LATEST_DIR = OUTPUT_DIR / "latest"
 LATEST_DIR.mkdir(parents=True, exist_ok=True)
 
 
-MIN_TWSE_ROWS = 700
-MIN_TPEX_ROWS = 500
-MIN_TOTAL_ROWS = 1500
+def clean_price_df(df):
+    if df.empty:
+        return df
 
+    df = df.copy()
 
-def normalize_number(value):
-    if pd.isna(value):
-        return None
+    df["ticker"] = df["ticker"].astype(str).str.strip()
+    df["name"] = df["name"].astype(str).str.strip()
 
-    text = str(value).replace(",", "").replace("--", "").strip()
+    for col in ["volume", "open", "high", "low", "close"]:
+        df[col] = (
+            df[col]
+            .astype(str)
+            .str.replace(",", "", regex=False)
+            .str.replace("--", "", regex=False)
+            .str.replace("X", "", regex=False)
+            .str.strip()
+        )
+        df[col] = pd.to_numeric(df[col], errors="coerce")
 
-    if text in ["", "X", "除權息", "----"]:
-        return None
+    df = df.dropna(subset=["ticker", "close"])
+    df = df[df["ticker"].str.match(r"^\d{4}$", na=False)]
+    df = df[df["close"] > 0]
 
-    try:
-        return float(text)
-    except ValueError:
-        return None
+    df = df[
+        [
+            "date",
+            "ticker",
+            "name",
+            "market",
+            "open",
+            "high",
+            "low",
+            "close",
+            "volume",
+        ]
+    ]
 
-
-def is_common_stock_ticker(value):
-    """
-    只保留一般股票代號。
-    排除：
-    - 00xx ETF / 債券 / 指數商品
-    - 非 4 碼代號
-    """
-    text = str(value).strip()
-
-    if not text.isdigit():
-        return False
-
-    if len(text) != 4:
-        return False
-
-    if text.startswith("00"):
-        return False
-
-    return True
+    return df.reset_index(drop=True)
 
 
 def fetch_twse_daily_price(date_str):
-    """
-    抓 TWSE 上市每日收盤行情。
-    date_str format: YYYYMMDD
-    """
     url = "https://www.twse.com.tw/exchangeReport/MI_INDEX"
     params = {
-        "response": "csv",
+        "response": "json",
         "date": date_str,
         "type": "ALLBUT0999",
     }
 
-    headers = {"User-Agent": "Mozilla/5.0"}
-
     try:
-        r = requests.get(url, params=params, headers=headers, timeout=30)
-        r.encoding = "big5"
-    except Exception as e:
-        print(f"TWSE {date_str}: request failed {e}")
+        response = requests.get(url, params=params, timeout=30)
+        response.raise_for_status()
+        data = response.json()
+    except Exception as exc:
+        print(f"TWSE fetch failed for {date_str}: {exc}")
         return pd.DataFrame()
 
-    lines = r.text.splitlines()
-
-    header_index = None
-    for i, line in enumerate(lines):
-        if "證券代號" in line and "證券名稱" in line:
-            header_index = i
-            break
-
-    if header_index is None:
-        print(f"TWSE {date_str}: no table found")
-        return pd.DataFrame()
-
-    csv_text = "\n".join(lines[header_index:])
-
-    try:
-        df = pd.read_csv(io.StringIO(csv_text))
-    except Exception as e:
-        print(f"TWSE {date_str}: csv parse failed {e}")
-        return pd.DataFrame()
-
-    df.columns = [str(c).replace('"', "").strip() for c in df.columns]
-
-    required_cols = [
-        "證券代號",
-        "證券名稱",
-        "開盤價",
-        "最高價",
-        "最低價",
-        "收盤價",
-        "成交股數",
-        "成交金額",
-    ]
-
-    for col in required_cols:
-        if col not in df.columns:
-            print(f"TWSE {date_str}: missing column {col}")
-            return pd.DataFrame()
-
-    df = df[df["證券代號"].apply(is_common_stock_ticker)].copy()
-
-    if df.empty:
-        return pd.DataFrame()
-
-    result = pd.DataFrame({
-        "date": date_str,
-        "ticker": df["證券代號"].astype(str),
-        "name": df["證券名稱"].astype(str),
-        "market": "listed",
-        "open": df["開盤價"].apply(normalize_number),
-        "high": df["最高價"].apply(normalize_number),
-        "low": df["最低價"].apply(normalize_number),
-        "close": df["收盤價"].apply(normalize_number),
-        "volume": df["成交股數"].apply(normalize_number),
-        "turnover": df["成交金額"].apply(normalize_number),
-    })
-
-    result = result.dropna(subset=["ticker", "close", "volume"])
-    result = result[result["ticker"].apply(is_common_stock_ticker)].copy()
-
-    return result.reset_index(drop=True)
-
-
-def extract_tpex_table_from_json(data):
-    """
-    TPEx DAILY_CLOSE_quotes 回傳格式是 dict。
-    真正股票資料在 data["tables"] 裡。
-    """
     tables = data.get("tables", [])
-
-    if not isinstance(tables, list) or not tables:
-        return pd.DataFrame()
+    target_table = None
 
     for table in tables:
-        fields = table.get("fields") or table.get("field") or []
-        rows = table.get("data") or table.get("aaData") or []
+        fields = table.get("fields", [])
+        if "證券代號" in fields and "證券名稱" in fields and "收盤價" in fields:
+            target_table = table
+            break
 
-        if not fields or not rows:
-            continue
+    if target_table is None:
+        print(f"TWSE no valid table for {date_str}")
+        return pd.DataFrame()
 
-        df = pd.DataFrame(rows, columns=fields)
-        columns = set(df.columns)
+    fields = target_table.get("fields", [])
+    rows = target_table.get("data", [])
 
-        possible_code_cols = ["代號", "證券代號"]
-        possible_name_cols = ["名稱", "證券名稱"]
+    df = pd.DataFrame(rows, columns=fields)
 
-        code_col = next((c for c in possible_code_cols if c in columns), None)
-        name_col = next((c for c in possible_name_cols if c in columns), None)
+    col_map = {
+        "證券代號": "ticker",
+        "證券名稱": "name",
+        "成交股數": "volume",
+        "開盤價": "open",
+        "最高價": "high",
+        "最低價": "low",
+        "收盤價": "close",
+    }
 
-        required = [code_col, name_col, "開盤", "最高", "最低", "收盤", "成交股數"]
+    missing_cols = [col for col in col_map if col not in df.columns]
+    if missing_cols:
+        print(f"TWSE missing columns for {date_str}: {missing_cols}")
+        return pd.DataFrame()
 
-        if code_col and name_col and all(c in columns for c in required if c):
-            return df
+    df = df[list(col_map.keys())].rename(columns=col_map)
+    df["market"] = "TWSE"
+    df["date"] = date_str
 
-    return pd.DataFrame()
+    return clean_price_df(df)
 
 
 def fetch_tpex_daily_price(date_str):
-    """
-    抓 TPEx 上櫃每日收盤行情。
-    使用 DAILY_CLOSE_quotes + o=json + 指定日期。
-    不使用 OpenAPI latest，避免假日資料污染。
-    """
-    roc_date = f"{int(date_str[:4]) - 1911}/{date_str[4:6]}/{date_str[6:8]}"
+    roc_year = int(date_str[:4]) - 1911
+    roc_date = f"{roc_year}/{date_str[4:6]}/{date_str[6:8]}"
 
-    url = "https://www.tpex.org.tw/web/stock/aftertrading/DAILY_CLOSE_quotes/stk_quote_result.php"
+    url = "https://www.tpex.org.tw/www/zh-tw/afterTrading/otc"
     params = {
-        "l": "zh-tw",
-        "d": roc_date,
-        "o": "json",
+        "date": roc_date,
+        "type": "AL",
+        "response": "json",
     }
 
-    headers = {"User-Agent": "Mozilla/5.0"}
-
     try:
-        r = requests.get(url, params=params, headers=headers, timeout=30)
-        r.encoding = "utf-8"
-        data = r.json()
-    except Exception as e:
-        print(f"TPEx {date_str}: request/json failed {e}")
+        response = requests.get(url, params=params, timeout=30)
+        response.raise_for_status()
+        data = response.json()
+    except Exception as exc:
+        print(f"TPEx fetch failed for {date_str}: {exc}")
         return pd.DataFrame()
 
-    if not isinstance(data, dict):
-        print(f"TPEx {date_str}: json is not dict")
+    tables = data.get("tables", [])
+    rows = []
+    fields = []
+
+    if tables:
+        table = tables[0]
+        fields = table.get("fields", [])
+        rows = table.get("data", [])
+    else:
+        fields = data.get("fields", [])
+        rows = data.get("data", [])
+
+    if not fields or not rows:
+        print(f"TPEx no valid data for {date_str}")
         return pd.DataFrame()
 
-    df = extract_tpex_table_from_json(data)
+    df = pd.DataFrame(rows, columns=fields)
 
-    if df.empty:
-        print(f"TPEx {date_str}: no usable table")
+    col_candidates = {
+        "ticker": ["代號", "證券代號"],
+        "name": ["名稱", "證券名稱"],
+        "volume": ["成交股數", "成交股數(股)", "成交仟股"],
+        "open": ["開盤", "開盤價"],
+        "high": ["最高", "最高價"],
+        "low": ["最低", "最低價"],
+        "close": ["收盤", "收盤價"],
+    }
+
+    selected = {}
+
+    for std_col, possible_cols in col_candidates.items():
+        for col in possible_cols:
+            if col in df.columns:
+                selected[std_col] = col
+                break
+
+    if len(selected) < len(col_candidates):
+        print(f"TPEx missing columns for {date_str}: {selected}")
         return pd.DataFrame()
 
-    code_col = "代號" if "代號" in df.columns else "證券代號"
-    name_col = "名稱" if "名稱" in df.columns else "證券名稱"
+    df = df[
+        [
+            selected["ticker"],
+            selected["name"],
+            selected["volume"],
+            selected["open"],
+            selected["high"],
+            selected["low"],
+            selected["close"],
+        ]
+    ].copy()
 
-    turnover_col = "成交金額(元)" if "成交金額(元)" in df.columns else None
+    df.columns = ["ticker", "name", "volume", "open", "high", "low", "close"]
+    df["market"] = "TPEX"
+    df["date"] = date_str
 
-    if turnover_col is None:
-        turnover_col = "成交金額" if "成交金額" in df.columns else None
-
-    result = pd.DataFrame({
-        "date": date_str,
-        "ticker": df[code_col].astype(str).str.extract(r"(\d{4})")[0],
-        "name": df[name_col].astype(str),
-        "market": "otc",
-        "open": df["開盤"].apply(normalize_number),
-        "high": df["最高"].apply(normalize_number),
-        "low": df["最低"].apply(normalize_number),
-        "close": df["收盤"].apply(normalize_number),
-        "volume": df["成交股數"].apply(normalize_number),
-        "turnover": df[turnover_col].apply(normalize_number) if turnover_col else None,
-    })
-
-    result = result.dropna(subset=["ticker", "close", "volume"])
-    result = result[result["ticker"].apply(is_common_stock_ticker)].copy()
-
-    return result.reset_index(drop=True)
+    return clean_price_df(df)
 
 
 def is_valid_trading_day_data(twse_df, tpex_df, combined):
-    """
-    不靠星期幾判斷。
-    只用資料完整性判斷是否是真交易日資料。
-    """
-    if combined.empty:
-        return False, "combined empty"
+    twse_rows = len(twse_df)
+    tpex_rows = len(tpex_df)
+    total_rows = len(combined)
 
-    if len(twse_df) < MIN_TWSE_ROWS:
-        return False, f"TWSE rows too low: {len(twse_df)}"
+    if total_rows < 1000:
+        return False, f"Total rows too low: {total_rows}"
 
-    if len(tpex_df) < MIN_TPEX_ROWS:
-        return False, f"TPEx rows too low: {len(tpex_df)}"
+    if twse_rows < 700:
+        return False, f"TWSE rows too low: {twse_rows}"
 
-    if len(combined) < MIN_TOTAL_ROWS:
-        return False, f"total rows too low: {len(combined)}"
-
-    markets = set(combined["market"].dropna().unique())
-
-    if "listed" not in markets:
-        return False, "missing listed market"
-
-    if "otc" not in markets:
-        return False, "missing otc market"
-
-    if combined["ticker"].astype(str).str.startswith("00").any():
-        return False, "contains 00xx products"
+    if tpex_rows < 500:
+        return False, f"TPEx rows too low: {tpex_rows}"
 
     return True, "valid"
 
 
-def main():
-    date_str = datetime.now().strftime("%Y%m%d")
+def try_fetch_one_date(date_str):
+    print(f"Trying official price date: {date_str}")
 
     twse_df = fetch_twse_daily_price(date_str)
     tpex_df = fetch_tpex_daily_price(date_str)
@@ -279,51 +219,96 @@ def main():
 
     valid, reason = is_valid_trading_day_data(twse_df, tpex_df, combined)
 
-    if not valid:
+    return {
+        "date": date_str,
+        "twse_df": twse_df,
+        "tpex_df": tpex_df,
+        "combined": combined,
+        "valid": valid,
+        "reason": reason,
+        "twse_rows": len(twse_df),
+        "tpex_rows": len(tpex_df),
+        "total_rows": len(combined),
+    }
+
+
+def main():
+    taiwan_now = datetime.now(ZoneInfo("Asia/Taipei"))
+    target_date = taiwan_now.strftime("%Y%m%d")
+
+    selected = None
+    log_lines = []
+
+    for offset in range(0, 8):
+        date_str = (taiwan_now - timedelta(days=offset)).strftime("%Y%m%d")
+        result = try_fetch_one_date(date_str)
+
+        log_lines.append(
+            f"{result['date']}：{result['reason']}，"
+            f"上市 {result['twse_rows']}，"
+            f"上櫃 {result['tpex_rows']}，"
+            f"合計 {result['total_rows']}"
+        )
+
+        if result["valid"]:
+            selected = result
+            break
+
+    log_text = "\n".join(log_lines)
+
+    if selected is None:
         report = f"""# 官方每日價格抓取報告
 
-日期：{date_str}
-
+執行時間：{taiwan_now.strftime("%Y-%m-%d %H:%M:%S")} Asia/Taipei
+台灣目標日期：{target_date}
 結果：未存檔
+官方價格資料日：無
+輸出檔案：無
 
-原因：{reason}
+檢查紀錄：
+{log_text}
 
-上市筆數：{len(twse_df)}
-上櫃筆數：{len(tpex_df)}
-總筆數：{len(combined)}
-
-說明：
-- 這通常代表今天不是交易日、官方資料尚未更新，或資料不完整。
-- 程式不會把不完整資料寫入 data/daily_price/，避免污染均線與回測。
+說明：最近 8 天內沒有找到完整官方收盤資料，程式不會寫入 data/daily_price/，避免污染均線與回測。
 """
-        (LATEST_DIR / "official_price_fetch_latest.md").write_text(report, encoding="utf-8")
-        print(f"Invalid official price data: {reason}")
+
+        report_path = LATEST_DIR / "official_price_fetch_latest.md"
+        report_path.write_text(report, encoding="utf-8")
+
+        print("No valid official daily price data found.")
+        print(f"Report saved: {report_path}")
         return
+
+    date_str = selected["date"]
+    combined = selected["combined"]
 
     output_path = DATA_DIR / f"{date_str}.csv"
     combined.to_csv(output_path, index=False, encoding="utf-8-sig")
 
     report = f"""# 官方每日價格抓取報告
 
-日期：{date_str}
-
+執行時間：{taiwan_now.strftime("%Y-%m-%d %H:%M:%S")} Asia/Taipei
+台灣目標日期：{target_date}
 結果：成功
+官方價格資料日：{date_str}
+上市筆數：{selected["twse_rows"]}
+上櫃筆數：{selected["tpex_rows"]}
+總筆數：{selected["total_rows"]}
+輸出檔案：{output_path}
 
-上市筆數：{len(twse_df)}
-上櫃筆數：{len(tpex_df)}
-總筆數：{len(combined)}
-
-輸出檔案：
-
-{output_path}
+檢查紀錄：
+{log_text}
 """
 
-    (LATEST_DIR / "official_price_fetch_latest.md").write_text(report, encoding="utf-8")
+    report_path = LATEST_DIR / "official_price_fetch_latest.md"
+    report_path.write_text(report, encoding="utf-8")
 
+    print(f"Taiwan target date: {target_date}")
+    print(f"Saved official daily price date: {date_str}")
     print(f"Saved official daily price: {output_path}")
-    print(f"TWSE rows: {len(twse_df)}")
-    print(f"TPEx rows: {len(tpex_df)}")
-    print(f"Total rows: {len(combined)}")
+    print(f"Report saved: {report_path}")
+    print(f"TWSE rows: {selected['twse_rows']}")
+    print(f"TPEx rows: {selected['tpex_rows']}")
+    print(f"Total rows: {selected['total_rows']}")
 
 
 if __name__ == "__main__":
