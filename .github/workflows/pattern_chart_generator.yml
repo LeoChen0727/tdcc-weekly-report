@@ -22,18 +22,20 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install pandas matplotlib tabulate
+        run: pip install pandas matplotlib pillow tabulate
 
       - name: Generate pattern charts
         run: |
           python - <<'PY'
           import shutil
+          import math
           import pandas as pd
           import matplotlib.pyplot as plt
           import matplotlib.patches as patches
 
           from pathlib import Path
           from datetime import datetime
+          from PIL import Image, ImageDraw, ImageFont
 
 
           DATA_DIR = Path("data/daily_price")
@@ -43,6 +45,7 @@ jobs:
 
           PATTERN_CSV_PATH = LATEST_DIR / "w_bottom_attack_latest.csv"
           REPORT_PATH = LATEST_DIR / "pattern_chart_report.md"
+          CONTACT_SHEET_PATH = LATEST_DIR / "pattern_charts_contact_sheet.png"
 
           MAX_CHARTS = 30
           LOOKBACK_DAYS = 120
@@ -127,10 +130,9 @@ jobs:
                   c = row["close"]
 
                   up = c >= o
-                  edge = "red" if up else "green"
-                  face = "red" if up else "green"
+                  color = "red" if up else "green"
 
-                  ax.plot([i, i], [l, h], color=edge, linewidth=1)
+                  ax.plot([i, i], [l, h], color=color, linewidth=1)
 
                   body_low = min(o, c)
                   body_height = abs(c - o)
@@ -143,8 +145,8 @@ jobs:
                       width,
                       body_height,
                       linewidth=1,
-                      edgecolor=edge,
-                      facecolor=face,
+                      edgecolor=color,
+                      facecolor=color,
                       alpha=0.85
                   )
                   ax.add_patch(rect)
@@ -153,7 +155,7 @@ jobs:
           def draw_volume(ax, df):
               colors = ["red" if c >= o else "green" for o, c in zip(df["open"], df["close"])]
               ax.bar(range(len(df)), df["volume"] / 1000, color=colors, alpha=0.55)
-              ax.set_ylabel("Volume(lots)")
+              ax.set_ylabel("Volume")
               ax.grid(True, axis="y", alpha=0.25)
 
 
@@ -183,7 +185,6 @@ jobs:
               ax_price.plot(range(len(df)), df["ma20"], linewidth=1.4, label="20MA")
               ax_price.plot(range(len(df)), df["ma60"], linewidth=1.4, label="60MA")
 
-              # 標示 A / B / C / 最新
               markers = [
                   ("A", candidate.get("a_date", ""), candidate.get("a_low", None)),
                   ("B", candidate.get("b_date", ""), candidate.get("neckline", None)),
@@ -201,13 +202,11 @@ jobs:
               ax_price.scatter(latest_idx, latest_close, s=70)
               ax_price.text(latest_idx, latest_close, " Now", fontsize=10)
 
-              # 頸線
               neckline = candidate.get("neckline", None)
               if pd.notna(neckline):
                   ax_price.axhline(float(neckline), linewidth=1.1, linestyle="--")
                   ax_price.text(0, float(neckline), " Neckline", fontsize=10)
 
-              # 固定比例：只用最近120日真實高低區間，加一點 padding，不用自動壓扁
               y_low = df["low"].min()
               y_high = df["high"].max()
               y_pad = (y_high - y_low) * 0.08 if y_high > y_low else y_high * 0.05
@@ -242,6 +241,84 @@ jobs:
               plt.close(fig)
 
               return path
+
+
+          def create_contact_sheet(chart_rows):
+              if not chart_rows:
+                  return None
+
+              image_items = []
+
+              for row in chart_rows:
+                  file_name = row.get("chart_file", "")
+                  if not file_name:
+                      continue
+
+                  path = CHART_DIR / file_name
+
+                  if path.exists():
+                      image_items.append((path, row))
+
+              if not image_items:
+                  return None
+
+              cols = 3
+              thumb_width = 560
+              thumb_height = 310
+              title_height = 48
+
+              cell_width = thumb_width
+              cell_height = thumb_height + title_height
+
+              rows = math.ceil(len(image_items) / cols)
+
+              sheet_width = cols * cell_width
+              sheet_height = rows * cell_height
+
+              sheet = Image.new("RGB", (sheet_width, sheet_height), "white")
+              draw = ImageDraw.Draw(sheet)
+
+              try:
+                  font = ImageFont.truetype("DejaVuSans.ttf", 18)
+              except Exception:
+                  font = ImageFont.load_default()
+
+              for idx, (img_path, row) in enumerate(image_items):
+                  col = idx % cols
+                  row_idx = idx // cols
+
+                  x = col * cell_width
+                  y = row_idx * cell_height
+
+                  try:
+                      img = Image.open(img_path).convert("RGB")
+                  except Exception:
+                      continue
+
+                  img.thumbnail((thumb_width, thumb_height))
+
+                  paste_x = x + (thumb_width - img.width) // 2
+                  paste_y = y + title_height + (thumb_height - img.height) // 2
+
+                  sheet.paste(img, (paste_x, paste_y))
+
+                  title = (
+                      f"{row.get('代號', '')} {row.get('名稱', '')} | "
+                      f"{row.get('型態階段', '')} | "
+                      f"分數 {row.get('型態分數', '')}"
+                  )
+
+                  draw.text((x + 8, y + 8), title[:52], fill="black", font=font)
+
+                  draw.rectangle(
+                      [x, y, x + cell_width - 1, y + cell_height - 1],
+                      outline=(210, 210, 210),
+                      width=1
+                  )
+
+              sheet.save(CONTACT_SHEET_PATH, quality=90)
+
+              return CONTACT_SHEET_PATH
 
 
           def main():
@@ -293,7 +370,10 @@ jobs:
                       "二攻量/一攻量": candidate.get("volume_ratio_2_vs_1", ""),
                       "TDCC判斷": candidate.get("tdcc_judge", ""),
                       "圖表": f"[查看圖]({relative_path})",
+                      "chart_file": chart_path.name,
                   })
+
+              create_contact_sheet(chart_rows)
 
               chart_df = pd.DataFrame(chart_rows)
 
@@ -307,25 +387,31 @@ jobs:
               report.append("")
               report.append("> 圖中標示 A=第一低點、B=頸線、C=第二低點、Now=最新收盤。")
               report.append("")
+              report.append("## 總覽圖")
+              report.append("")
+              report.append("![Pattern Contact Sheet](pattern_charts_contact_sheet.png)")
+              report.append("")
               report.append("---")
               report.append("")
               report.append("## 圖表索引")
               report.append("")
-              report.append(chart_df.to_markdown(index=False) if not chart_df.empty else "沒有成功產生圖表。")
+              report.append(chart_df.drop(columns=["chart_file"], errors="ignore").to_markdown(index=False) if not chart_df.empty else "沒有成功產生圖表。")
               report.append("")
               report.append("---")
               report.append("")
 
               for row in chart_rows:
+                  chart_link = row["圖表"].split("(")[1].rstrip(")")
                   report.append(f"## {row['代號']} {row['名稱']}")
                   report.append("")
-                  report.append(f"![{row['代號']} {row['名稱']}]({row['圖表'].split('(')[1].rstrip(')')})")
+                  report.append(f"![{row['代號']} {row['名稱']}]({chart_link})")
                   report.append("")
 
               REPORT_PATH.write_text("\n".join(report), encoding="utf-8")
 
               print("Pattern charts generated.")
               print(f"Charts: {len(chart_rows)}")
+              print(f"Contact sheet exists: {CONTACT_SHEET_PATH.exists()}")
 
 
           if __name__ == "__main__":
@@ -336,6 +422,6 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add output/latest/pattern_chart_report.md output/latest/pattern_charts/
+          git add output/latest/pattern_chart_report.md output/latest/pattern_charts/ output/latest/pattern_charts_contact_sheet.png
           git commit -m "Update pattern chart report" || echo "No changes to commit"
           git push
