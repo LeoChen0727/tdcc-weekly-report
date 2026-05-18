@@ -1,0 +1,341 @@
+name: Pattern Chart Generator
+
+on:
+  schedule:
+    - cron: "12 11 * * 1-5"  # Taiwan time 19:12, Monday to Friday
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-pattern-charts:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install pandas matplotlib tabulate
+
+      - name: Generate pattern charts
+        run: |
+          python - <<'PY'
+          import shutil
+          import pandas as pd
+          import matplotlib.pyplot as plt
+          import matplotlib.patches as patches
+
+          from pathlib import Path
+          from datetime import datetime
+
+
+          DATA_DIR = Path("data/daily_price")
+          OUTPUT_DIR = Path("output")
+          LATEST_DIR = OUTPUT_DIR / "latest"
+          CHART_DIR = LATEST_DIR / "pattern_charts"
+
+          PATTERN_CSV_PATH = LATEST_DIR / "w_bottom_attack_latest.csv"
+          REPORT_PATH = LATEST_DIR / "pattern_chart_report.md"
+
+          MAX_CHARTS = 30
+          LOOKBACK_DAYS = 120
+
+
+          def reset_chart_dir():
+              if CHART_DIR.exists():
+                  shutil.rmtree(CHART_DIR)
+              CHART_DIR.mkdir(parents=True, exist_ok=True)
+
+
+          def load_price_history():
+              files = sorted(DATA_DIR.glob("*.csv"))
+              frames = []
+
+              for file in files:
+                  try:
+                      df = pd.read_csv(file, dtype={"ticker": str})
+                      frames.append(df)
+                  except Exception as e:
+                      print(f"Skip price file {file}: {e}")
+
+              if not frames:
+                  return pd.DataFrame()
+
+              data = pd.concat(frames, ignore_index=True)
+              data["ticker"] = data["ticker"].astype(str).str.zfill(4)
+              data["date"] = data["date"].astype(str)
+
+              for col in ["open", "high", "low", "close", "volume", "turnover"]:
+                  if col in data.columns:
+                      data[col] = pd.to_numeric(data[col], errors="coerce")
+
+              data = data.dropna(subset=["ticker", "date", "open", "high", "low", "close", "volume"])
+              data = data.sort_values(["ticker", "date"]).reset_index(drop=True)
+
+              return data
+
+
+          def load_pattern_candidates():
+              if not PATTERN_CSV_PATH.exists():
+                  return pd.DataFrame()
+
+              try:
+                  df = pd.read_csv(PATTERN_CSV_PATH, dtype={"ticker": str})
+              except Exception as e:
+                  print(f"Failed to read pattern csv: {e}")
+                  return pd.DataFrame()
+
+              if df.empty:
+                  return df
+
+              df["ticker"] = df["ticker"].astype(str).str.zfill(4)
+
+              if "stage_order" in df.columns:
+                  df = df.sort_values(
+                      ["stage_order", "pattern_score", "volume_ratio_2_vs_1"],
+                      ascending=[True, False, False]
+                  )
+              else:
+                  df = df.sort_values(
+                      ["pattern_score", "volume_ratio_2_vs_1"],
+                      ascending=False
+                  )
+
+              return df.reset_index(drop=True)
+
+
+          def find_index_by_date(df, date_value):
+              date_str = str(date_value)
+              matches = df.index[df["date"].astype(str) == date_str].tolist()
+              return matches[0] if matches else None
+
+
+          def draw_candles(ax, df):
+              width = 0.62
+
+              for i, row in df.iterrows():
+                  o = row["open"]
+                  h = row["high"]
+                  l = row["low"]
+                  c = row["close"]
+
+                  up = c >= o
+                  edge = "red" if up else "green"
+                  face = "red" if up else "green"
+
+                  ax.plot([i, i], [l, h], color=edge, linewidth=1)
+
+                  body_low = min(o, c)
+                  body_height = abs(c - o)
+
+                  if body_height == 0:
+                      body_height = max(h - l, 0.01) * 0.02
+
+                  rect = patches.Rectangle(
+                      (i - width / 2, body_low),
+                      width,
+                      body_height,
+                      linewidth=1,
+                      edgecolor=edge,
+                      facecolor=face,
+                      alpha=0.85
+                  )
+                  ax.add_patch(rect)
+
+
+          def draw_volume(ax, df):
+              colors = ["red" if c >= o else "green" for o, c in zip(df["open"], df["close"])]
+              ax.bar(range(len(df)), df["volume"] / 1000, color=colors, alpha=0.55)
+              ax.set_ylabel("Volume(lots)")
+              ax.grid(True, axis="y", alpha=0.25)
+
+
+          def draw_chart(price_df, candidate):
+              ticker = str(candidate["ticker"]).zfill(4)
+              name = str(candidate.get("name", ""))
+              stage = str(candidate.get("pattern_stage", ""))
+              score = candidate.get("pattern_score", "")
+              tdcc = str(candidate.get("tdcc_judge", ""))
+
+              df = price_df[price_df["ticker"] == ticker].copy()
+              df = df.sort_values("date").tail(LOOKBACK_DAYS).reset_index(drop=True)
+
+              if df.empty or len(df) < 30:
+                  return None
+
+              df["ma20"] = df["close"].rolling(20).mean()
+              df["ma60"] = df["close"].rolling(60).mean()
+
+              fig = plt.figure(figsize=(14, 7))
+              gs = fig.add_gridspec(4, 1)
+              ax_price = fig.add_subplot(gs[:3, 0])
+              ax_vol = fig.add_subplot(gs[3, 0], sharex=ax_price)
+
+              draw_candles(ax_price, df)
+
+              ax_price.plot(range(len(df)), df["ma20"], linewidth=1.4, label="20MA")
+              ax_price.plot(range(len(df)), df["ma60"], linewidth=1.4, label="60MA")
+
+              # 標示 A / B / C / 最新
+              markers = [
+                  ("A", candidate.get("a_date", ""), candidate.get("a_low", None)),
+                  ("B", candidate.get("b_date", ""), candidate.get("neckline", None)),
+                  ("C", candidate.get("c_date", ""), candidate.get("c_low", None)),
+              ]
+
+              for label, dt, price in markers:
+                  idx = find_index_by_date(df, dt)
+                  if idx is not None and pd.notna(price):
+                      ax_price.scatter(idx, float(price), s=90)
+                      ax_price.text(idx, float(price), f" {label}", fontsize=12, weight="bold")
+
+              latest_idx = len(df) - 1
+              latest_close = df.iloc[-1]["close"]
+              ax_price.scatter(latest_idx, latest_close, s=70)
+              ax_price.text(latest_idx, latest_close, " Now", fontsize=10)
+
+              # 頸線
+              neckline = candidate.get("neckline", None)
+              if pd.notna(neckline):
+                  ax_price.axhline(float(neckline), linewidth=1.1, linestyle="--")
+                  ax_price.text(0, float(neckline), " Neckline", fontsize=10)
+
+              # 固定比例：只用最近120日真實高低區間，加一點 padding，不用自動壓扁
+              y_low = df["low"].min()
+              y_high = df["high"].max()
+              y_pad = (y_high - y_low) * 0.08 if y_high > y_low else y_high * 0.05
+              ax_price.set_ylim(y_low - y_pad, y_high + y_pad)
+
+              title = (
+                  f"{ticker} {name} | {stage} | score={score} | TDCC={tdcc}\n"
+                  f"A={candidate.get('a_date','')}  B={candidate.get('b_date','')}  C={candidate.get('c_date','')}  "
+                  f"dist_neckline={candidate.get('distance_to_neckline_pct','')}%"
+              )
+
+              ax_price.set_title(title)
+              ax_price.legend(loc="upper left")
+              ax_price.grid(True, alpha=0.25)
+
+              draw_volume(ax_vol, df)
+
+              tick_step = max(len(df) // 8, 1)
+              tick_positions = list(range(0, len(df), tick_step))
+              tick_labels = [df.iloc[i]["date"][4:] for i in tick_positions]
+
+              ax_vol.set_xticks(tick_positions)
+              ax_vol.set_xticklabels(tick_labels, rotation=45)
+
+              plt.tight_layout()
+
+              safe_name = name.replace("/", "_").replace("\\", "_").replace(" ", "")
+              filename = f"{ticker}_{safe_name}.png"
+              path = CHART_DIR / filename
+
+              fig.savefig(path, dpi=130)
+              plt.close(fig)
+
+              return path
+
+
+          def main():
+              reset_chart_dir()
+
+              price_data = load_price_history()
+              pattern_df = load_pattern_candidates()
+
+              now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+              if price_data.empty or pattern_df.empty:
+                  report = f"""# Pattern Chart Report
+
+          產生時間：{now}
+
+          沒有可畫圖的 Pattern 候選股。
+
+          請先確認：
+
+          ```text
+          output/latest/w_bottom_attack_latest.csv
+          data/daily_price/
+          ```
+          """
+                  REPORT_PATH.write_text(report, encoding="utf-8")
+                  print("No chart data.")
+                  return
+
+              selected = pattern_df.head(MAX_CHARTS).copy()
+
+              chart_rows = []
+
+              for _, candidate in selected.iterrows():
+                  chart_path = draw_chart(price_data, candidate)
+
+                  if chart_path is None:
+                      continue
+
+                  relative_path = f"pattern_charts/{chart_path.name}"
+
+                  chart_rows.append({
+                      "代號": candidate.get("ticker", ""),
+                      "名稱": candidate.get("name", ""),
+                      "產業": candidate.get("industry", ""),
+                      "型態階段": candidate.get("pattern_stage", ""),
+                      "型態分數": candidate.get("pattern_score", ""),
+                      "距頸線%": candidate.get("distance_to_neckline_pct", ""),
+                      "距第二底%": candidate.get("current_from_c_pct", ""),
+                      "二攻量/一攻量": candidate.get("volume_ratio_2_vs_1", ""),
+                      "TDCC判斷": candidate.get("tdcc_judge", ""),
+                      "圖表": f"[查看圖]({relative_path})",
+                  })
+
+              chart_df = pd.DataFrame(chart_rows)
+
+              report = []
+              report.append("# Pattern Chart Report")
+              report.append("")
+              report.append(f"產生時間：{now}")
+              report.append(f"圖表數量：{len(chart_rows)}")
+              report.append("")
+              report.append("> 這份報告把 Pattern Scan 前 30 檔畫成 K 線圖，讓你用人眼篩掉不符合型態的股票。")
+              report.append("")
+              report.append("> 圖中標示 A=第一低點、B=頸線、C=第二低點、Now=最新收盤。")
+              report.append("")
+              report.append("---")
+              report.append("")
+              report.append("## 圖表索引")
+              report.append("")
+              report.append(chart_df.to_markdown(index=False) if not chart_df.empty else "沒有成功產生圖表。")
+              report.append("")
+              report.append("---")
+              report.append("")
+
+              for row in chart_rows:
+                  report.append(f"## {row['代號']} {row['名稱']}")
+                  report.append("")
+                  report.append(f"![{row['代號']} {row['名稱']}]({row['圖表'].split('(')[1].rstrip(')')})")
+                  report.append("")
+
+              REPORT_PATH.write_text("\n".join(report), encoding="utf-8")
+
+              print("Pattern charts generated.")
+              print(f"Charts: {len(chart_rows)}")
+
+
+          if __name__ == "__main__":
+              main()
+          PY
+
+      - name: Commit pattern chart report
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add output/latest/pattern_chart_report.md output/latest/pattern_charts/
+          git commit -m "Update pattern chart report" || echo "No changes to commit"
+          git push
