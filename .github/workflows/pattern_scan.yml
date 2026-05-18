@@ -1,0 +1,592 @@
+name: Pattern Scan
+
+on:
+  schedule:
+    - cron: "5 11 * * 1-5"  # Taiwan time 19:05, Monday to Friday
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  pattern-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install pandas tabulate
+
+      - name: Scan W-bottom attack pattern
+        run: |
+          python - <<'PY'
+          import pandas as pd
+          from pathlib import Path
+          from datetime import datetime
+
+          DATA_DIR = Path("data/daily_price")
+          OUTPUT_DIR = Path("output")
+          LATEST_DIR = OUTPUT_DIR / "latest"
+          PATTERN_HISTORY_DIR = OUTPUT_DIR / "history" / "patterns"
+
+          LATEST_DIR.mkdir(parents=True, exist_ok=True)
+          PATTERN_HISTORY_DIR.mkdir(parents=True, exist_ok=True)
+
+          PATTERN_CSV_PATH = LATEST_DIR / "w_bottom_attack_latest.csv"
+          PATTERN_REPORT_PATH = LATEST_DIR / "pattern_scan_latest.md"
+
+          TDCC_LATEST_PATH = LATEST_DIR / "tdcc_holder_ratio_latest.csv"
+
+          LOOKBACK_DAYS = 80
+          MIN_VOLUME_LOTS = 1000
+
+          MAINSTREAM_INDUSTRY_KEYWORDS = [
+              "半導體",
+              "電子零組件",
+              "電腦及週邊",
+              "通信網路",
+              "光電",
+              "其他電子",
+              "資訊服務",
+              "電子通路",
+              "電機機械",
+              "綠能環保",
+              "生技醫療",
+              "數位雲端",
+          ]
+
+
+          def is_mainstream_industry(industry):
+              if pd.isna(industry):
+                  return False
+              text = str(industry)
+              return any(keyword in text for keyword in MAINSTREAM_INDUSTRY_KEYWORDS)
+
+
+          def load_price_history():
+              files = sorted(DATA_DIR.glob("*.csv"))
+              frames = []
+
+              for file in files:
+                  try:
+                      df = pd.read_csv(file, dtype={"ticker": str})
+                      frames.append(df)
+                  except Exception as e:
+                      print(f"Skip {file}: {e}")
+
+              if not frames:
+                  return pd.DataFrame()
+
+              data = pd.concat(frames, ignore_index=True)
+              data["ticker"] = data["ticker"].astype(str).str.zfill(4)
+              data["date"] = data["date"].astype(str)
+
+              for col in ["open", "high", "low", "close", "volume", "turnover"]:
+                  if col in data.columns:
+                      data[col] = pd.to_numeric(data[col], errors="coerce")
+
+              data = data.dropna(subset=["ticker", "date", "open", "high", "low", "close", "volume"])
+              data = data.sort_values(["ticker", "date"]).reset_index(drop=True)
+
+              return data
+
+
+          def load_tdcc_latest():
+              cols = [
+                  "ticker",
+                  "tdcc_date",
+                  "tdcc_over_400_pct",
+                  "tdcc_over_400_change",
+                  "tdcc_over_1000_pct",
+                  "tdcc_over_1000_change",
+                  "tdcc_judge",
+              ]
+
+              if not TDCC_LATEST_PATH.exists():
+                  return pd.DataFrame(columns=cols)
+
+              try:
+                  latest_df = pd.read_csv(TDCC_LATEST_PATH, dtype={"code": str})
+              except Exception:
+                  return pd.DataFrame(columns=cols)
+
+              if latest_df.empty or "code" not in latest_df.columns:
+                  return pd.DataFrame(columns=cols)
+
+              latest_df = latest_df.copy()
+              latest_df["ticker"] = latest_df["code"].astype(str).str.zfill(4)
+              latest_df["date"] = latest_df["date"].astype(str)
+
+              for col in ["over_400_pct", "over_1000_pct"]:
+                  if col in latest_df.columns:
+                      latest_df[col] = pd.to_numeric(latest_df[col], errors="coerce")
+
+              latest_date = latest_df["date"].max()
+
+              history_dir = OUTPUT_DIR / "history" / "tdcc"
+              previous_df = pd.DataFrame()
+
+              try:
+                  history_files = sorted(history_dir.glob("tdcc_holder_ratio_*.csv"))
+                  frames = []
+
+                  for file in history_files:
+                      temp = pd.read_csv(file, dtype={"code": str})
+                      if "code" in temp.columns and "date" in temp.columns:
+                          temp["ticker"] = temp["code"].astype(str).str.zfill(4)
+                          temp["date"] = temp["date"].astype(str)
+                          frames.append(temp)
+
+                  if frames:
+                      history_all = pd.concat(frames, ignore_index=True)
+                      previous_dates = sorted([
+                          d for d in history_all["date"].dropna().unique()
+                          if str(d) < str(latest_date)
+                      ])
+
+                      if previous_dates:
+                          previous_date = previous_dates[-1]
+                          previous_df = history_all[history_all["date"] == previous_date].copy()
+
+                          for col in ["over_400_pct", "over_1000_pct"]:
+                              if col in previous_df.columns:
+                                  previous_df[col] = pd.to_numeric(previous_df[col], errors="coerce")
+
+              except Exception:
+                  previous_df = pd.DataFrame()
+
+              latest_use = latest_df[["ticker", "date", "over_400_pct", "over_1000_pct"]].copy()
+              latest_use = latest_use.rename(columns={
+                  "date": "tdcc_date",
+                  "over_400_pct": "tdcc_over_400_pct",
+                  "over_1000_pct": "tdcc_over_1000_pct",
+              })
+
+              if not previous_df.empty:
+                  prev_use = previous_df[["ticker", "over_400_pct", "over_1000_pct"]].copy()
+                  prev_use = prev_use.rename(columns={
+                      "over_400_pct": "prev_over_400_pct",
+                      "over_1000_pct": "prev_over_1000_pct",
+                  })
+
+                  latest_use = latest_use.merge(prev_use, on="ticker", how="left")
+                  latest_use["tdcc_over_400_change"] = latest_use["tdcc_over_400_pct"] - latest_use["prev_over_400_pct"]
+                  latest_use["tdcc_over_1000_change"] = latest_use["tdcc_over_1000_pct"] - latest_use["prev_over_1000_pct"]
+              else:
+                  latest_use["tdcc_over_400_change"] = pd.NA
+                  latest_use["tdcc_over_1000_change"] = pd.NA
+
+              def judge_tdcc(row):
+                  c400 = row.get("tdcc_over_400_change", pd.NA)
+                  c1000 = row.get("tdcc_over_1000_change", pd.NA)
+
+                  if pd.isna(c400) or pd.isna(c1000):
+                      return "僅最新TDCC"
+                  if c400 > 0 and c1000 > 0:
+                      return "中大戶/超大戶同步增加"
+                  if c400 > 0 and c1000 <= 0:
+                      return "中大戶增加"
+                  if c400 <= 0 and c1000 > 0:
+                      return "超大戶增加"
+                  if c400 < 0 and c1000 < 0:
+                      return "大戶籌碼減少"
+                  return "變化不明顯"
+
+              latest_use["tdcc_judge"] = latest_use.apply(judge_tdcc, axis=1)
+
+              for col in [
+                  "tdcc_over_400_pct",
+                  "tdcc_over_400_change",
+                  "tdcc_over_1000_pct",
+                  "tdcc_over_1000_change",
+              ]:
+                  latest_use[col] = pd.to_numeric(latest_use[col], errors="coerce").round(2)
+
+              return latest_use[cols].copy()
+
+
+          def enrich_with_tdcc(df, tdcc_df):
+              if df.empty or tdcc_df.empty:
+                  return df
+
+              result = df.copy()
+              result["ticker"] = result["ticker"].astype(str).str.zfill(4)
+              tdcc_df = tdcc_df.copy()
+              tdcc_df["ticker"] = tdcc_df["ticker"].astype(str).str.zfill(4)
+
+              result = result.merge(tdcc_df, on="ticker", how="left")
+              result["tdcc_judge"] = result["tdcc_judge"].fillna("無TDCC資料")
+
+              return result
+
+
+          def find_local_minima(df, window=3):
+              lows = df["low"].values
+              points = []
+
+              for i in range(window, len(df) - window):
+                  left = lows[i-window:i]
+                  right = lows[i+1:i+1+window]
+                  if lows[i] <= min(left) and lows[i] <= min(right):
+                      points.append(i)
+
+              return points
+
+
+          def scan_w_bottom_attack(group):
+              group = group.sort_values("date").reset_index(drop=True).copy()
+
+              if len(group) < 60:
+                  return None
+
+              recent = group.tail(LOOKBACK_DAYS).reset_index(drop=True).copy()
+
+              if len(recent) < 50:
+                  return None
+
+              recent["volume_lots"] = recent["volume"] / 1000
+              latest = recent.iloc[-1]
+
+              if latest["volume_lots"] < MIN_VOLUME_LOTS:
+                  return None
+
+              minima = find_local_minima(recent, window=3)
+
+              if len(minima) < 2:
+                  return None
+
+              best = None
+
+              for a_pos in minima:
+                  for c_pos in minima:
+                      if c_pos <= a_pos + 10:
+                          continue
+
+                      if c_pos >= len(recent) - 5:
+                          continue
+
+                      a_row = recent.iloc[a_pos]
+                      c_row = recent.iloc[c_pos]
+
+                      a_low = a_row["low"]
+                      c_low = c_row["low"]
+
+                      if a_low <= 0 or c_low <= 0:
+                          continue
+
+                      # 第二低點接近第一低點，或略高於第一低點
+                      second_low_gap_pct = (c_low / a_low - 1) * 100
+
+                      if second_low_gap_pct < -8 or second_low_gap_pct > 12:
+                          continue
+
+                      mid = recent.iloc[a_pos:c_pos + 1]
+                      b_high = mid["high"].max()
+                      b_pos = mid["high"].idxmax()
+                      b_row = recent.iloc[b_pos]
+
+                      rebound_from_a_pct = (b_high / a_low - 1) * 100
+
+                      if rebound_from_a_pct < 10:
+                          continue
+
+                      # 第一段攻擊 A → B
+                      attack1 = recent.iloc[a_pos:b_pos + 1].copy()
+
+                      # 第二段攻擊 C → 最新
+                      attack2 = recent.iloc[c_pos:].copy()
+
+                      if len(attack1) < 3 or len(attack2) < 3:
+                          continue
+
+                      attack1_gain_pct = (attack1.iloc[-1]["close"] / attack1.iloc[0]["close"] - 1) * 100
+                      attack2_gain_pct = (attack2.iloc[-1]["close"] / attack2.iloc[0]["close"] - 1) * 100
+
+                      attack1_avg_volume = attack1["volume"].mean()
+                      attack2_avg_volume = attack2["volume"].mean()
+
+                      volume_ratio_2_vs_1 = attack2_avg_volume / attack1_avg_volume if attack1_avg_volume > 0 else 0
+
+                      attack1_red_count = (attack1["close"] > attack1["open"]).sum()
+                      attack2_red_count = (attack2["close"] > attack2["open"]).sum()
+
+                      attack1_red_body = (attack1.loc[attack1["close"] > attack1["open"], "close"] - attack1.loc[attack1["close"] > attack1["open"], "open"]).sum()
+                      attack2_red_body = (attack2.loc[attack2["close"] > attack2["open"], "close"] - attack2.loc[attack2["close"] > attack2["open"], "open"]).sum()
+
+                      red_body_ratio_2_vs_1 = attack2_red_body / attack1_red_body if attack1_red_body > 0 else 0
+
+                      neckline = b_high
+                      latest_close = latest["close"]
+                      distance_to_neckline_pct = (latest_close / neckline - 1) * 100
+
+                      current_from_c_pct = (latest_close / c_low - 1) * 100
+
+                      if current_from_c_pct < 5:
+                          continue
+
+                      # 避免已經離第二底太遠才抓到
+                      if current_from_c_pct > 55:
+                          continue
+
+                      score = 0
+
+                      # W底結構
+                      if -3 <= second_low_gap_pct <= 8:
+                          score += 20
+                      elif -8 <= second_low_gap_pct <= 12:
+                          score += 12
+
+                      # 中間反彈夠明顯
+                      if rebound_from_a_pct >= 25:
+                          score += 18
+                      elif rebound_from_a_pct >= 15:
+                          score += 12
+                      elif rebound_from_a_pct >= 10:
+                          score += 8
+
+                      # 第二段量更強
+                      if volume_ratio_2_vs_1 >= 1.8:
+                          score += 22
+                      elif volume_ratio_2_vs_1 >= 1.3:
+                          score += 16
+                      elif volume_ratio_2_vs_1 >= 1.1:
+                          score += 8
+
+                      # 第二段紅K更多或紅K實體更強
+                      if attack2_red_count >= attack1_red_count:
+                          score += 10
+
+                      if red_body_ratio_2_vs_1 >= 1.5:
+                          score += 18
+                      elif red_body_ratio_2_vs_1 >= 1.1:
+                          score += 10
+
+                      # 右側攻擊強度
+                      if attack2_gain_pct >= attack1_gain_pct:
+                          score += 12
+                      elif attack2_gain_pct >= attack1_gain_pct * 0.7:
+                          score += 6
+
+                      # 接近或突破頸線
+                      if distance_to_neckline_pct >= 0:
+                          score += 18
+                          pattern_stage = "已突破頸線"
+                      elif distance_to_neckline_pct >= -5:
+                          score += 12
+                          pattern_stage = "接近頸線"
+                      elif distance_to_neckline_pct >= -10:
+                          score += 6
+                          pattern_stage = "右側攻擊中"
+                      else:
+                          pattern_stage = "右側未成熟"
+
+                      if pattern_stage == "右側未成熟":
+                          continue
+
+                      if score < 60:
+                          continue
+
+                      candidate = {
+                          "date": latest["date"],
+                          "ticker": latest["ticker"],
+                          "name": latest.get("name", ""),
+                          "market": latest.get("market", ""),
+                          "close": round(latest_close, 2),
+                          "volume_lots": round(latest["volume_lots"], 0),
+                          "pattern": "W底右側攻擊增強",
+                          "pattern_stage": pattern_stage,
+                          "pattern_score": round(score, 1),
+                          "a_date": a_row["date"],
+                          "a_low": round(a_low, 2),
+                          "b_date": b_row["date"],
+                          "neckline": round(neckline, 2),
+                          "c_date": c_row["date"],
+                          "c_low": round(c_low, 2),
+                          "second_low_gap_pct": round(second_low_gap_pct, 2),
+                          "rebound_from_a_pct": round(rebound_from_a_pct, 2),
+                          "current_from_c_pct": round(current_from_c_pct, 2),
+                          "distance_to_neckline_pct": round(distance_to_neckline_pct, 2),
+                          "attack1_gain_pct": round(attack1_gain_pct, 2),
+                          "attack2_gain_pct": round(attack2_gain_pct, 2),
+                          "attack1_avg_volume_lots": round(attack1_avg_volume / 1000, 0),
+                          "attack2_avg_volume_lots": round(attack2_avg_volume / 1000, 0),
+                          "volume_ratio_2_vs_1": round(volume_ratio_2_vs_1, 2),
+                          "attack1_red_count": int(attack1_red_count),
+                          "attack2_red_count": int(attack2_red_count),
+                          "red_body_ratio_2_vs_1": round(red_body_ratio_2_vs_1, 2),
+                      }
+
+                      if best is None or candidate["pattern_score"] > best["pattern_score"]:
+                          best = candidate
+
+              return best
+
+
+          def generate_report(pattern_df, latest_price_date):
+              today = datetime.now().strftime("%Y%m%d")
+              now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+              if pattern_df.empty:
+                  report = f"""# Pattern Scanner 型態掃描報告
+
+          產生時間：{now}
+          最新價格資料日：{latest_price_date}
+
+          ## W底右側攻擊增強型
+
+          沒有符合條件的股票。
+          """
+                  PATTERN_REPORT_PATH.write_text(report, encoding="utf-8")
+                  (PATTERN_HISTORY_DIR / f"pattern_scan_{today}.md").write_text(report, encoding="utf-8")
+                  return
+
+              mainstream_df = pattern_df[pattern_df["is_mainstream"] == True].copy()
+              non_mainstream_df = pattern_df[pattern_df["is_mainstream"] == False].copy()
+
+              show_cols = [
+                  "ticker", "name", "industry", "pattern_stage", "pattern_score",
+                  "date", "close", "volume_lots",
+                  "a_date", "a_low", "b_date", "neckline", "c_date", "c_low",
+                  "distance_to_neckline_pct", "volume_ratio_2_vs_1",
+                  "attack1_red_count", "attack2_red_count",
+                  "red_body_ratio_2_vs_1",
+                  "tdcc_judge",
+              ]
+
+              rename_map = {
+                  "ticker": "代號",
+                  "name": "名稱",
+                  "industry": "產業",
+                  "pattern_stage": "型態階段",
+                  "pattern_score": "型態分數",
+                  "date": "資料日",
+                  "close": "收盤價",
+                  "volume_lots": "成交量張",
+                  "a_date": "第一低點日",
+                  "a_low": "第一低點",
+                  "b_date": "頸線日",
+                  "neckline": "頸線",
+                  "c_date": "第二低點日",
+                  "c_low": "第二低點",
+                  "distance_to_neckline_pct": "距頸線%",
+                  "volume_ratio_2_vs_1": "二攻量/一攻量",
+                  "attack1_red_count": "一攻紅K數",
+                  "attack2_red_count": "二攻紅K數",
+                  "red_body_ratio_2_vs_1": "二攻紅K實體/一攻",
+                  "tdcc_judge": "TDCC判斷",
+              }
+
+              def table(df, max_rows=30):
+                  if df.empty:
+                      return "沒有符合條件的股票。"
+                  temp = df.head(max_rows).copy()
+                  cols = [c for c in show_cols if c in temp.columns]
+                  temp = temp[cols].rename(columns=rename_map)
+                  return temp.to_markdown(index=False)
+
+              report = []
+              report.append("# Pattern Scanner 型態掃描報告")
+              report.append("")
+              report.append(f"產生時間：{now}")
+              report.append(f"最新價格資料日：{latest_price_date}")
+              report.append(f"型態：W底右側攻擊增強")
+              report.append("")
+              report.append("> 這個型態尋找：第一低點 → 反彈頸線 → 第二低點 → 第二次攻擊。")
+              report.append("")
+              report.append("> 重點是第二次攻擊成交量更大、紅K數或紅K實體更強，且接近或突破頸線。")
+              report.append("")
+              report.append("---")
+              report.append("")
+              report.append("## 1. 全市場候選")
+              report.append("")
+              report.append(table(pattern_df))
+              report.append("")
+              report.append("---")
+              report.append("")
+              report.append("## 2. 主流題材候選")
+              report.append("")
+              report.append(table(mainstream_df))
+              report.append("")
+              report.append("---")
+              report.append("")
+              report.append("## 3. 非主流 / 其他候選")
+              report.append("")
+              report.append(table(non_mainstream_df))
+              report.append("")
+
+              report_text = "\n".join(report)
+
+              PATTERN_REPORT_PATH.write_text(report_text, encoding="utf-8")
+              (PATTERN_HISTORY_DIR / f"pattern_scan_{today}.md").write_text(report_text, encoding="utf-8")
+
+
+          def main():
+              price_data = load_price_history()
+
+              if price_data.empty:
+                  generate_report(pd.DataFrame(), "無")
+                  print("No price data.")
+                  return
+
+              latest_price_date = price_data["date"].max()
+
+              tdcc_df = load_tdcc_latest()
+
+              rows = []
+
+              for ticker, group in price_data.groupby("ticker"):
+                  try:
+                      candidate = scan_w_bottom_attack(group)
+
+                      if candidate:
+                          rows.append(candidate)
+
+                  except Exception as e:
+                      print(f"Skip {ticker}: {e}")
+
+              pattern_df = pd.DataFrame(rows)
+
+              if not pattern_df.empty:
+                  # 產業暫時用空欄，之後可併營收產業資料
+                  if "industry" not in pattern_df.columns:
+                      pattern_df["industry"] = ""
+
+                  pattern_df["is_mainstream"] = pattern_df["industry"].apply(is_mainstream_industry)
+
+                  pattern_df = enrich_with_tdcc(pattern_df, tdcc_df)
+
+                  pattern_df = pattern_df.sort_values(
+                      ["pattern_score", "volume_ratio_2_vs_1"],
+                      ascending=False
+                  ).reset_index(drop=True)
+
+                  pattern_df.to_csv(PATTERN_CSV_PATH, index=False, encoding="utf-8-sig")
+
+                  dated_csv_path = PATTERN_HISTORY_DIR / f"w_bottom_attack_{latest_price_date}.csv"
+                  pattern_df.to_csv(dated_csv_path, index=False, encoding="utf-8-sig")
+
+              generate_report(pattern_df, latest_price_date)
+
+              print("Pattern scan completed.")
+              print(f"Latest price date: {latest_price_date}")
+              print(f"Candidates: {len(pattern_df) if not pattern_df.empty else 0}")
+
+
+          if __name__ == "__main__":
+              main()
+          PY
+
+      - name: Commit pattern scan report
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add output/latest/pattern_scan_latest.md output/latest/w_bottom_attack_latest.csv output/history/patterns/
+          git commit -m "Update pattern scan report" || echo "No changes to commit"
+          git push
