@@ -1,6 +1,7 @@
 from pathlib import Path
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
+from io import StringIO
 
 import pandas as pd
 import requests
@@ -14,6 +15,19 @@ DATA_DIR.mkdir(parents=True, exist_ok=True)
 LATEST_DIR.mkdir(parents=True, exist_ok=True)
 
 
+def clean_number(value):
+    if pd.isna(value):
+        return None
+    text = str(value).strip()
+    text = text.replace(",", "")
+    text = text.replace("--", "")
+    text = text.replace("X", "")
+    text = text.replace("+", "")
+    if text == "":
+        return None
+    return pd.to_numeric(text, errors="coerce")
+
+
 def clean_price_df(df):
     if df.empty:
         return df
@@ -24,15 +38,7 @@ def clean_price_df(df):
     df["name"] = df["name"].astype(str).str.strip()
 
     for col in ["volume", "open", "high", "low", "close"]:
-        df[col] = (
-            df[col]
-            .astype(str)
-            .str.replace(",", "", regex=False)
-            .str.replace("--", "", regex=False)
-            .str.replace("X", "", regex=False)
-            .str.strip()
-        )
-        df[col] = pd.to_numeric(df[col], errors="coerce")
+        df[col] = df[col].apply(clean_number)
 
     df = df.dropna(subset=["ticker", "close"])
     df = df[df["ticker"].str.match(r"^\d{4}$", na=False)]
@@ -115,47 +121,74 @@ def fetch_tpex_daily_price(date_str):
     roc_year = int(date_str[:4]) - 1911
     roc_date = f"{roc_year}/{date_str[4:6]}/{date_str[6:8]}"
 
-    url = "https://www.tpex.org.tw/www/zh-tw/afterTrading/otc"
-    params = {
-        "date": roc_date,
-        "type": "AL",
-        "response": "json",
-    }
+    urls = [
+        "https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php",
+        "https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw",
+    ]
+
+    param_sets = [
+        {"l": "zh-tw", "d": roc_date, "o": "csv"},
+        {"l": "zh-tw", "d": roc_date, "se": "EW", "o": "csv"},
+        {"l": "zh-tw", "d": roc_date, "s": "0,asc,0", "o": "csv"},
+    ]
+
+    for url in urls:
+        for params in param_sets:
+            try:
+                response = requests.get(url, params=params, timeout=30)
+                response.raise_for_status()
+                text = response.text
+            except Exception as exc:
+                print(f"TPEx fetch failed for {date_str}: {exc}")
+                continue
+
+            parsed = parse_tpex_csv_text(text, date_str)
+            if not parsed.empty:
+                print(f"TPEx parsed rows for {date_str}: {len(parsed)}")
+                return parsed
+
+    print(f"TPEx no valid data for {date_str}")
+    return pd.DataFrame()
+
+
+def parse_tpex_csv_text(text, date_str):
+    if not text:
+        return pd.DataFrame()
+
+    lines = []
+    for raw_line in text.splitlines():
+        line = raw_line.strip()
+        if not line:
+            continue
+        if "代號" in line and "名稱" in line and "收盤" in line:
+            lines.append(line)
+            continue
+        if line[:4].isdigit() or line.startswith('"0') or line.startswith("0"):
+            lines.append(line)
+
+    if len(lines) < 2:
+        return pd.DataFrame()
+
+    csv_text = "\n".join(lines)
 
     try:
-        response = requests.get(url, params=params, timeout=30)
-        response.raise_for_status()
-        data = response.json()
-    except Exception as exc:
-        print(f"TPEx fetch failed for {date_str}: {exc}")
-        return pd.DataFrame()
+        df = pd.read_csv(StringIO(csv_text))
+    except Exception:
+        try:
+            df = pd.read_csv(StringIO(csv_text), header=None)
+        except Exception:
+            return pd.DataFrame()
 
-    tables = data.get("tables", [])
-    rows = []
-    fields = []
-
-    if tables:
-        table = tables[0]
-        fields = table.get("fields", [])
-        rows = table.get("data", [])
-    else:
-        fields = data.get("fields", [])
-        rows = data.get("data", [])
-
-    if not fields or not rows:
-        print(f"TPEx no valid data for {date_str}")
-        return pd.DataFrame()
-
-    df = pd.DataFrame(rows, columns=fields)
+    df.columns = [str(col).strip().replace('"', "") for col in df.columns]
 
     col_candidates = {
         "ticker": ["代號", "證券代號"],
         "name": ["名稱", "證券名稱"],
-        "volume": ["成交股數", "成交股數(股)", "成交仟股"],
+        "close": ["收盤", "收盤價"],
         "open": ["開盤", "開盤價"],
         "high": ["最高", "最高價"],
         "low": ["最低", "最低價"],
-        "close": ["收盤", "收盤價"],
+        "volume": ["成交股數", "成交股數(股)", "成交仟股"],
     }
 
     selected = {}
@@ -167,10 +200,9 @@ def fetch_tpex_daily_price(date_str):
                 break
 
     if len(selected) < len(col_candidates):
-        print(f"TPEx missing columns for {date_str}: {selected}")
         return pd.DataFrame()
 
-    df = df[
+    out = df[
         [
             selected["ticker"],
             selected["name"],
@@ -182,11 +214,11 @@ def fetch_tpex_daily_price(date_str):
         ]
     ].copy()
 
-    df.columns = ["ticker", "name", "volume", "open", "high", "low", "close"]
-    df["market"] = "TPEX"
-    df["date"] = date_str
+    out.columns = ["ticker", "name", "volume", "open", "high", "low", "close"]
+    out["market"] = "TPEX"
+    out["date"] = date_str
 
-    return clean_price_df(df)
+    return clean_price_df(out)
 
 
 def is_valid_trading_day_data(twse_df, tpex_df, combined):
