@@ -1,19 +1,13 @@
 # 官方每日價格抓取報告
 
-執行時間：2026-05-18 22:29:30 Asia/Taipei
+執行時間：2026-05-18 22:48:04 Asia/Taipei
 台灣目標日期：20260518
-結果：未存檔
-官方價格資料日：無
-輸出檔案：無
+結果：成功
+官方價格資料日：20260518
+上市筆數：1085
+上櫃筆數：872
+總筆數：1957
+輸出檔案：/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/20260518.csv
 
 檢查紀錄：
-20260518：TPEx rows too low: 0，上市 1085，上櫃 0，合計 1085
-20260517：Total rows too low: 0，上市 0，上櫃 0，合計 0
-20260516：Total rows too low: 0，上市 0，上櫃 0，合計 0
-20260515：TPEx rows too low: 0，上市 1085，上櫃 0，合計 1085
-20260514：TPEx rows too low: 0，上市 1084，上櫃 0，合計 1084
-20260513：TPEx rows too low: 0，上市 1082，上櫃 0，合計 1082
-20260512：TPEx rows too low: 0，上市 1084，上櫃 0，合計 1084
-20260511：TPEx rows too low: 0，上市 1085，上櫃 0，合計 1085
-
-說明：最近 8 天內沒有找到完整官方收盤資料，程式不會寫入 data/daily_price/，避免污染均線與回測。
+20260518：valid，上市 1085，上櫃 872，合計 1957
