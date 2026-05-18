@@ -1,0 +1,64 @@
+name: Daily Full Pipeline
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  daily-full-pipeline:
+    runs-on: ubuntu-latest
+
+    env:
+      GH_TOKEN: ${{ github.token }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install pandas requests tabulate
+
+      - name: Fetch latest official daily price
+        run: python fetch_official_daily_price.py
+
+      - name: Run daily stock monitor
+        run: python stock_daily_monitor.py
+
+      - name: Commit daily stock monitor output
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add data/ output/
+          git status --short
+          git commit -m "Update daily stock monitor report" || echo "No changes to commit"
+          git push
+
+      - name: Trigger Pattern Scan
+        run: |
+          gh workflow run pattern_scan.yml --ref main
+          sleep 10
+
+      - name: Wait for Pattern Scan
+        run: |
+          RUN_ID=$(gh run list --workflow pattern_scan.yml --branch main --limit 1 --json databaseId --jq '.[0].databaseId')
+          echo "Pattern Scan run id: $RUN_ID"
+          gh run watch "$RUN_ID" --exit-status
+
+      - name: Trigger Pattern Chart Generator
+        run: |
+          gh workflow run pattern_chart_generator.yml --ref main
+          sleep 10
+
+      - name: Wait for Pattern Chart Generator
+        run: |
+          RUN_ID=$(gh run list --workflow pattern_chart_generator.yml --branch main --limit 1 --json databaseId --jq '.[0].databaseId')
+          echo "Pattern Chart Generator run id: $RUN_ID"
+          gh run watch "$RUN_ID" --exit-status
