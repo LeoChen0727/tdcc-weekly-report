@@ -1,0 +1,298 @@
+name: Repair Daily Price Range
+
+on:
+  workflow_dispatch:
+    inputs:
+      start_date:
+        description: "Start date in YYYYMMDD, example: 20260301"
+        required: true
+        type: string
+      end_date:
+        description: "End date in YYYYMMDD, example: 20260519"
+        required: true
+        type: string
+      check_code:
+        description: "Optional stock code to check after repair, example: 5291"
+        required: false
+        default: "5291"
+        type: string
+      max_days:
+        description: "Safety limit for max calendar days to process"
+        required: false
+        default: "120"
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  repair-daily-price-range:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas requests lxml html5lib tabulate
+
+      - name: Repair daily price range
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from datetime import datetime, timedelta
+          import os
+          import time
+          import pandas as pd
+
+          from fetch_official_daily_price import (
+              fetch_twse_daily_price,
+              fetch_tpex_daily_price,
+              is_valid_trading_day_data,
+          )
+
+          start_date = os.environ["START_DATE"].strip()
+          end_date = os.environ["END_DATE"].strip()
+          check_code = os.environ.get("CHECK_CODE", "").strip().zfill(4)
+          max_days = int(os.environ.get("MAX_DAYS", "120"))
+
+          output_dir = Path("data/daily_price")
+          output_dir.mkdir(parents=True, exist_ok=True)
+
+          latest_dir = Path("output/latest")
+          latest_dir.mkdir(parents=True, exist_ok=True)
+
+          start_dt = datetime.strptime(start_date, "%Y%m%d")
+          end_dt = datetime.strptime(end_date, "%Y%m%d")
+
+          if end_dt < start_dt:
+              raise ValueError("end_date must be >= start_date")
+
+          calendar_days = (end_dt - start_dt).days + 1
+          if calendar_days > max_days:
+              raise ValueError(f"Date range too large: {calendar_days} days > max_days {max_days}")
+
+          rows = []
+          check_rows = []
+
+          current = start_dt
+
+          while current <= end_dt:
+              date_str = current.strftime("%Y%m%d")
+              weekday = current.weekday()
+
+              if weekday >= 5:
+                  rows.append({
+                      "date": date_str,
+                      "status": "skipped_weekend",
+                      "twse_rows": 0,
+                      "tpex_rows": 0,
+                      "total_rows": 0,
+                      "reason": "weekend",
+                      "saved_file": "",
+                  })
+                  current += timedelta(days=1)
+                  continue
+
+              print(f"Repairing {date_str}...")
+
+              try:
+                  twse_df = fetch_twse_daily_price(date_str)
+                  tpex_df = fetch_tpex_daily_price(date_str)
+
+                  combined = pd.concat([twse_df, tpex_df], ignore_index=True)
+
+                  if not combined.empty:
+                      combined = combined.drop_duplicates(subset=["date", "ticker"], keep="last")
+
+                  valid, reason = is_valid_trading_day_data(twse_df, tpex_df, combined)
+
+                  twse_rows = len(twse_df)
+                  tpex_rows = len(tpex_df)
+                  total_rows = len(combined)
+
+                  if valid:
+                      output_path = output_dir / f"{date_str}.csv"
+                      combined.to_csv(output_path, index=False, encoding="utf-8-sig")
+
+                      rows.append({
+                          "date": date_str,
+                          "status": "repaired",
+                          "twse_rows": twse_rows,
+                          "tpex_rows": tpex_rows,
+                          "total_rows": total_rows,
+                          "reason": reason,
+                          "saved_file": str(output_path),
+                      })
+
+                      if check_code:
+                          matched = combined[combined["ticker"].astype(str).str.zfill(4) == check_code].copy()
+
+                          if matched.empty:
+                              check_rows.append({
+                                  "date": date_str,
+                                  "ticker": check_code,
+                                  "found": False,
+                                  "name": "",
+                                  "market": "",
+                                  "open": "",
+                                  "high": "",
+                                  "low": "",
+                                  "close": "",
+                                  "volume": "",
+                                  "trading_value": "",
+                              })
+                          else:
+                              row = matched.iloc[0]
+                              check_rows.append({
+                                  "date": row.get("date", date_str),
+                                  "ticker": row.get("ticker", check_code),
+                                  "found": True,
+                                  "name": row.get("name", ""),
+                                  "market": row.get("market", ""),
+                                  "open": row.get("open", ""),
+                                  "high": row.get("high", ""),
+                                  "low": row.get("low", ""),
+                                  "close": row.get("close", ""),
+                                  "volume": row.get("volume", ""),
+                                  "trading_value": row.get("trading_value", ""),
+                              })
+
+                      print(f"Saved {output_path}: TWSE {twse_rows}, TPEx {tpex_rows}, total {total_rows}")
+
+                  else:
+                      rows.append({
+                          "date": date_str,
+                          "status": "skipped_invalid_or_no_trading",
+                          "twse_rows": twse_rows,
+                          "tpex_rows": tpex_rows,
+                          "total_rows": total_rows,
+                          "reason": reason,
+                          "saved_file": "",
+                      })
+
+                      print(f"Skipped {date_str}: {reason}")
+
+                  time.sleep(1.2)
+
+              except Exception as exc:
+                  rows.append({
+                      "date": date_str,
+                      "status": "failed",
+                      "twse_rows": 0,
+                      "tpex_rows": 0,
+                      "total_rows": 0,
+                      "reason": str(exc),
+                      "saved_file": "",
+                  })
+
+                  print(f"Failed {date_str}: {exc}")
+
+              current += timedelta(days=1)
+
+          result_df = pd.DataFrame(rows)
+          result_path = latest_dir / "repair_daily_price_range_latest.csv"
+          result_df.to_csv(result_path, index=False, encoding="utf-8-sig")
+
+          check_df = pd.DataFrame(check_rows)
+          check_path = latest_dir / "repair_daily_price_range_check_code_latest.csv"
+          check_df.to_csv(check_path, index=False, encoding="utf-8-sig")
+
+          repaired_count = int((result_df["status"] == "repaired").sum()) if not result_df.empty else 0
+          failed_count = int((result_df["status"] == "failed").sum()) if not result_df.empty else 0
+          skipped_count = int(result_df["status"].astype(str).str.startswith("skipped").sum()) if not result_df.empty else 0
+
+          lines = []
+          lines.append("# Repair Daily Price Range Report")
+          lines.append("")
+          lines.append(f"- start_date: `{start_date}`")
+          lines.append(f"- end_date: `{end_date}`")
+          lines.append(f"- check_code: `{check_code}`")
+          lines.append(f"- repaired_count: `{repaired_count}`")
+          lines.append(f"- skipped_count: `{skipped_count}`")
+          lines.append(f"- failed_count: `{failed_count}`")
+          lines.append("")
+          lines.append("## Repair Results")
+          lines.append("")
+          lines.append("| date | status | twse_rows | tpex_rows | total_rows | reason |")
+          lines.append("|---|---|---:|---:|---:|---|")
+
+          for _, row in result_df.iterrows():
+              lines.append(
+                  "| "
+                  + str(row.get("date", ""))
+                  + " | "
+                  + str(row.get("status", ""))
+                  + " | "
+                  + str(row.get("twse_rows", ""))
+                  + " | "
+                  + str(row.get("tpex_rows", ""))
+                  + " | "
+                  + str(row.get("total_rows", ""))
+                  + " | "
+                  + str(row.get("reason", ""))
+                  + " |"
+              )
+
+          if not check_df.empty:
+              lines.append("")
+              lines.append(f"## Check Code {check_code}")
+              lines.append("")
+              lines.append("| date | found | ticker | name | market | open | high | low | close | volume | trading_value |")
+              lines.append("|---|---|---|---|---|---:|---:|---:|---:|---:|---:|")
+
+              for _, row in check_df.iterrows():
+                  lines.append(
+                      "| "
+                      + str(row.get("date", ""))
+                      + " | "
+                      + str(row.get("found", ""))
+                      + " | "
+                      + str(row.get("ticker", ""))
+                      + " | "
+                      + str(row.get("name", ""))
+                      + " | "
+                      + str(row.get("market", ""))
+                      + " | "
+                      + str(row.get("open", ""))
+                      + " | "
+                      + str(row.get("high", ""))
+                      + " | "
+                      + str(row.get("low", ""))
+                      + " | "
+                      + str(row.get("close", ""))
+                      + " | "
+                      + str(row.get("volume", ""))
+                      + " | "
+                      + str(row.get("trading_value", ""))
+                      + " |"
+                  )
+
+          report_path = latest_dir / "repair_daily_price_range_latest.md"
+          report_path.write_text("\n".join(lines), encoding="utf-8")
+
+          print(f"Saved report: {report_path}")
+          print(f"Saved CSV: {result_path}")
+          print(f"Saved check CSV: {check_path}")
+          PY
+        env:
+          START_DATE: ${{ inputs.start_date }}
+          END_DATE: ${{ inputs.end_date }}
+          CHECK_CODE: ${{ inputs.check_code }}
+          MAX_DAYS: ${{ inputs.max_days }}
+
+      - name: Commit repaired daily price range
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add data/daily_price/ output/latest/repair_daily_price_range_latest.md output/latest/repair_daily_price_range_latest.csv output/latest/repair_daily_price_range_check_code_latest.csv || true
+          git status --short
+          git commit -m "Repair daily price range" || echo "No changes to commit"
+          git push
