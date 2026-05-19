@@ -79,6 +79,47 @@ jobs:
           if calendar_days > max_days:
               raise ValueError(f"Date range too large: {calendar_days} days > max_days {max_days}")
 
+          def fetch_one_day_with_retry(date_str, max_retries=5, sleep_seconds=5):
+              last_reason = ""
+
+              for attempt in range(1, max_retries + 1):
+                  print(f"Fetch attempt {attempt}/{max_retries}: {date_str}")
+
+                  try:
+                      twse_df = fetch_twse_daily_price(date_str)
+                  except Exception as exc:
+                      print(f"TWSE fetch failed: {exc}")
+                      twse_df = pd.DataFrame()
+
+                  try:
+                      tpex_df = fetch_tpex_daily_price(date_str)
+                  except Exception as exc:
+                      print(f"TPEx fetch failed: {exc}")
+                      tpex_df = pd.DataFrame()
+
+                  combined = pd.concat([twse_df, tpex_df], ignore_index=True)
+
+                  if not combined.empty:
+                      combined = combined.drop_duplicates(subset=["date", "ticker"], keep="last")
+
+                  valid, reason = is_valid_trading_day_data(twse_df, tpex_df, combined)
+
+                  twse_rows = len(twse_df)
+                  tpex_rows = len(tpex_df)
+                  total_rows = len(combined)
+
+                  print(f"{date_str} attempt {attempt}: TWSE {twse_rows}, TPEx {tpex_rows}, total {total_rows}, valid={valid}, reason={reason}")
+
+                  if valid:
+                      return True, reason, twse_df, tpex_df, combined
+
+                  last_reason = reason
+
+                  if attempt < max_retries:
+                      time.sleep(sleep_seconds)
+
+              return False, last_reason, twse_df, tpex_df, combined
+
           rows = []
           check_rows = []
 
@@ -104,15 +145,11 @@ jobs:
               print(f"Repairing {date_str}...")
 
               try:
-                  twse_df = fetch_twse_daily_price(date_str)
-                  tpex_df = fetch_tpex_daily_price(date_str)
-
-                  combined = pd.concat([twse_df, tpex_df], ignore_index=True)
-
-                  if not combined.empty:
-                      combined = combined.drop_duplicates(subset=["date", "ticker"], keep="last")
-
-                  valid, reason = is_valid_trading_day_data(twse_df, tpex_df, combined)
+                  valid, reason, twse_df, tpex_df, combined = fetch_one_day_with_retry(
+                      date_str=date_str,
+                      max_retries=5,
+                      sleep_seconds=5,
+                  )
 
                   twse_rows = len(twse_df)
                   tpex_rows = len(tpex_df)
@@ -180,7 +217,7 @@ jobs:
 
                       print(f"Skipped {date_str}: {reason}")
 
-                  time.sleep(1.2)
+                  time.sleep(1.5)
 
               except Exception as exc:
                   rows.append({
