@@ -1,0 +1,161 @@
+name: Repair One Daily Price
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_date:
+        description: "Target date in YYYYMMDD, example: 20260414"
+        required: true
+        type: string
+      check_code:
+        description: "Stock code to check after repair, example: 5291"
+        required: false
+        default: "5291"
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  repair-one-daily-price:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas requests lxml html5lib tabulate
+
+      - name: Repair selected daily price file
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import os
+          import pandas as pd
+
+          from fetch_official_daily_price import (
+              fetch_twse_daily_price,
+              fetch_tpex_daily_price,
+              is_valid_trading_day_data,
+          )
+
+          target_date = os.environ["TARGET_DATE"].strip()
+          check_code = os.environ.get("CHECK_CODE", "").strip()
+
+          output_dir = Path("data/daily_price")
+          output_dir.mkdir(parents=True, exist_ok=True)
+
+          debug_dir = Path("output/debug")
+          debug_dir.mkdir(parents=True, exist_ok=True)
+
+          latest_dir = Path("output/latest")
+          latest_dir.mkdir(parents=True, exist_ok=True)
+
+          print(f"Repair target date: {target_date}")
+          print(f"Check code: {check_code}")
+
+          twse_df = fetch_twse_daily_price(target_date)
+          tpex_df = fetch_tpex_daily_price(target_date)
+
+          combined = pd.concat([twse_df, tpex_df], ignore_index=True)
+
+          if not combined.empty:
+              combined = combined.drop_duplicates(subset=["date", "ticker"], keep="last")
+
+          valid, reason = is_valid_trading_day_data(twse_df, tpex_df, combined)
+
+          print(f"TWSE rows: {len(twse_df)}")
+          print(f"TPEx rows: {len(tpex_df)}")
+          print(f"Total rows: {len(combined)}")
+          print(f"Valid: {valid}")
+          print(f"Reason: {reason}")
+
+          report_lines = []
+          report_lines.append("# Repair One Daily Price Report")
+          report_lines.append("")
+          report_lines.append(f"- target_date: `{target_date}`")
+          report_lines.append(f"- check_code: `{check_code}`")
+          report_lines.append(f"- TWSE rows: `{len(twse_df)}`")
+          report_lines.append(f"- TPEx rows: `{len(tpex_df)}`")
+          report_lines.append(f"- Total rows: `{len(combined)}`")
+          report_lines.append(f"- Valid: `{valid}`")
+          report_lines.append(f"- Reason: `{reason}`")
+          report_lines.append("")
+
+          if not valid:
+              report_lines.append("## Result")
+              report_lines.append("")
+              report_lines.append("官方資料抓取結果未通過檢查，未覆蓋原始 CSV。")
+              Path("output/latest/repair_one_daily_price_latest.md").write_text("\n".join(report_lines), encoding="utf-8")
+              raise SystemExit(1)
+
+          output_path = output_dir / f"{target_date}.csv"
+          combined.to_csv(output_path, index=False, encoding="utf-8-sig")
+
+          report_lines.append("## Saved")
+          report_lines.append("")
+          report_lines.append(f"- saved_file: `{output_path}`")
+          report_lines.append("")
+
+          if check_code:
+              matched = combined[combined["ticker"].astype(str).str.zfill(4) == check_code.zfill(4)].copy()
+
+              report_lines.append(f"## Check Code {check_code}")
+              report_lines.append("")
+
+              if matched.empty:
+                  report_lines.append("找不到這檔股票。")
+              else:
+                  report_lines.append("| date | ticker | name | market | open | high | low | close | volume | trading_value |")
+                  report_lines.append("|---|---|---|---|---:|---:|---:|---:|---:|---:|")
+
+                  for _, row in matched.iterrows():
+                      report_lines.append(
+                          "| "
+                          + str(row.get("date", ""))
+                          + " | "
+                          + str(row.get("ticker", ""))
+                          + " | "
+                          + str(row.get("name", ""))
+                          + " | "
+                          + str(row.get("market", ""))
+                          + " | "
+                          + str(row.get("open", ""))
+                          + " | "
+                          + str(row.get("high", ""))
+                          + " | "
+                          + str(row.get("low", ""))
+                          + " | "
+                          + str(row.get("close", ""))
+                          + " | "
+                          + str(row.get("volume", ""))
+                          + " | "
+                          + str(row.get("trading_value", ""))
+                          + " |"
+                      )
+
+          Path("output/latest/repair_one_daily_price_latest.md").write_text("\n".join(report_lines), encoding="utf-8")
+
+          print(f"Saved: {output_path}")
+          print("Debug report: output/latest/repair_one_daily_price_latest.md")
+          PY
+        env:
+          TARGET_DATE: ${{ inputs.target_date }}
+          CHECK_CODE: ${{ inputs.check_code }}
+
+      - name: Commit repaired daily price
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add data/daily_price/ output/latest/repair_one_daily_price_latest.md || true
+          git status --short
+          git commit -m "Repair one daily price file" || echo "No changes to commit"
+          git push
