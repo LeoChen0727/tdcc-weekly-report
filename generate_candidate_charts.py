@@ -476,8 +476,14 @@ def create_chart(
     df = price_df[price_df["stock_id"] == stock_id].copy()
     df = df.sort_values("date").tail(LOOKBACK_DAYS).reset_index(drop=True)
 
-    if df.empty or len(df) < 20:
-        raise ValueError(f"{stock_id} {stock_name} available price days too few: {len(df)}")
+    available_days = len(df)
+    warning_flags = []
+
+    if available_days < 120:
+        warning_flags.append("available_days_too_few")
+
+    if df.empty or available_days < 20:
+        raise ValueError(f"{stock_id} {stock_name} available price days too few: {available_days}")
 
     if not stock_name:
         names = df["name"].dropna().astype(str)
@@ -490,6 +496,50 @@ def create_chart(
     latest = df.iloc[-1]
     chart_date = str(latest["date"])
 
+    # 資料品質檢查 1：連續多日 OHLC 幾乎完全相同，可能是舊資料殘留或停牌/錯價
+    ohlc_cols = ["open", "high", "low", "close"]
+    flat_ohlc_count = 0
+
+    for i in range(1, len(df)):
+        prev_row = df.iloc[i - 1]
+        curr_row = df.iloc[i]
+
+        same_ohlc = True
+
+        for col in ohlc_cols:
+            prev_value = safe_float(prev_row[col])
+            curr_value = safe_float(curr_row[col])
+
+            if pd.isna(prev_value) or pd.isna(curr_value):
+                same_ohlc = False
+                break
+
+            if abs(prev_value - curr_value) > 0.001:
+                same_ohlc = False
+                break
+
+        if same_ohlc:
+            flat_ohlc_count += 1
+
+    if flat_ohlc_count >= 5:
+        warning_flags.append("suspected_flat_price")
+
+    # 資料品質檢查 2：相鄰兩日價格跳動異常
+    df["prev_close"] = df["close"].shift(1)
+    df["gap_pct"] = (df["close"] / df["prev_close"] - 1) * 100
+    max_abs_gap = df["gap_pct"].abs().max()
+
+    if not pd.isna(max_abs_gap) and max_abs_gap >= 25:
+        warning_flags.append("large_price_gap_warning")
+
+    # 資料品質檢查 3：最近圖內資料日期跨度是否太短
+    unique_dates = df["date"].dropna().astype(str).nunique()
+
+    if unique_dates < available_days * 0.95:
+        warning_flags.append("duplicate_or_missing_date_warning")
+
+    price_data_warning = "ok" if not warning_flags else ";".join(sorted(set(warning_flags)))
+
     previous_40d_high = ref.get("previous_40d_high", pd.NA)
     previous_60d_high = ref.get("previous_60d_high", pd.NA)
     previous_40d_low = ref.get("previous_40d_low", pd.NA)
@@ -500,6 +550,9 @@ def create_chart(
 
     breakout_type = str(candidate.get("breakout_type", category))
     note = make_note(category, breakout_type, ref)
+
+    if price_data_warning != "ok":
+        note = f"{note} | price_data_warning: {price_data_warning}"
 
     fig = plt.figure(figsize=(14, 8))
     grid = fig.add_gridspec(5, 1, hspace=0.08)
@@ -526,6 +579,7 @@ def create_chart(
 
     latest_x = len(df) - 1
     latest_close = float(latest["close"])
+
     ax_price.scatter([latest_x], [latest_close], s=50, zorder=5)
     ax_price.annotate(
         f"Close {fmt_price(latest_close)}",
@@ -545,7 +599,8 @@ def create_chart(
 
     title = (
         f"{stock_id} {stock_name} | {category} | {chart_date}\n"
-        f"{label} | Dist60: {fmt_pct(distance_60)} | Dist40: {fmt_pct(distance_40)}"
+        f"{label} | Days: {available_days} | Data: {price_data_warning} | "
+        f"Dist60: {fmt_pct(distance_60)} | Dist40: {fmt_pct(distance_40)}"
     )
 
     ax_price.set_title(title, fontsize=12)
@@ -559,6 +614,7 @@ def create_chart(
     ax_volume.grid(True, alpha=0.2)
 
     tick_count = min(10, len(df))
+
     if tick_count > 0:
         tick_positions = [int(i * (len(df) - 1) / max(tick_count - 1, 1)) for i in range(tick_count)]
         tick_labels = [str(df.iloc[i]["date"])[4:] for i in tick_positions]
@@ -576,7 +632,9 @@ def create_chart(
         "stock_id": stock_id,
         "stock_name": stock_name,
         "category": category,
-        "chart_path": str(chart_path).replace("\\", "/"),
+        "available_days": available_days,
+        "price_data_warning": price_data_warning,
+        "chart_path": chart_path.as_posix(),
         "chart_url": f"{REPO_RAW_BASE}/{chart_path.as_posix()}",
         "close": round(float(latest["close"]), 2),
         "previous_40d_high": round(float(previous_40d_high), 2) if not pd.isna(previous_40d_high) else pd.NA,
