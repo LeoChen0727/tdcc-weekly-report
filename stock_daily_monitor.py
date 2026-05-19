@@ -15,6 +15,7 @@ LATEST_DIR.mkdir(parents=True, exist_ok=True)
 
 REPORT_PATH = LATEST_DIR / "stock_monitor_latest.md"
 BREAKOUT_CSV_PATH = LATEST_DIR / "breakout_latest.csv"
+RANGE_REBOUND_CSV_PATH = LATEST_DIR / "range_rebound_watch_latest.csv"
 REVENUE_PULLBACK_CSV_PATH = LATEST_DIR / "revenue_pullback_latest.csv"
 PULLBACK_REBOUND_CSV_PATH = LATEST_DIR / "pullback_rebound_latest.csv"
 
