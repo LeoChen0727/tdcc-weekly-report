@@ -1091,23 +1091,33 @@ def main():
     revenue_df = fetch_monthly_revenue()
     industry_map = build_industry_map(revenue_df)
     stock_map = build_stock_history_map(price_data)
-
     tdcc_df = load_tdcc_latest()
-    breakout_df = find_breakout_candidates(stock_map, industry_map)
-    breakout_df = enrich_with_tdcc(breakout_df, tdcc_df)
+
+    breakout_all_df = find_breakout_candidates(stock_map, industry_map)
+    breakout_all_df = enrich_with_tdcc(breakout_all_df, tdcc_df)
+
+    if not breakout_all_df.empty and "breakout_type" in breakout_all_df.columns:
+        range_rebound_df = breakout_all_df[
+            breakout_all_df["breakout_type"].isin(["range_rebound", "near_resistance"])
+        ].copy()
+
+        breakout_df = breakout_all_df[
+            breakout_all_df["breakout_type"] == "true_breakout"
+        ].copy()
+    else:
+        range_rebound_df = pd.DataFrame()
+        breakout_df = breakout_all_df.copy()
+
     revenue_pullback_df = find_revenue_pullback_candidates(stock_map, revenue_df)
     revenue_pullback_df = enrich_with_tdcc(revenue_pullback_df, tdcc_df)
+
     pullback_rebound_df = find_pullback_rebound_candidates(revenue_pullback_df)
     pullback_rebound_df = enrich_with_tdcc(pullback_rebound_df, tdcc_df)
 
-    if not breakout_df.empty:
-        breakout_df.to_csv(BREAKOUT_CSV_PATH, index=False, encoding="utf-8-sig")
-
-    if not revenue_pullback_df.empty:
-        revenue_pullback_df.to_csv(REVENUE_PULLBACK_CSV_PATH, index=False, encoding="utf-8-sig")
-
-    if not pullback_rebound_df.empty:
-        pullback_rebound_df.to_csv(PULLBACK_REBOUND_CSV_PATH, index=False, encoding="utf-8-sig")
+    breakout_df.to_csv(BREAKOUT_CSV_PATH, index=False, encoding="utf-8-sig")
+    range_rebound_df.to_csv(RANGE_REBOUND_CSV_PATH, index=False, encoding="utf-8-sig")
+    revenue_pullback_df.to_csv(REVENUE_PULLBACK_CSV_PATH, index=False, encoding="utf-8-sig")
+    pullback_rebound_df.to_csv(PULLBACK_REBOUND_CSV_PATH, index=False, encoding="utf-8-sig")
 
     generate_report(price_data, breakout_df, revenue_pullback_df, pullback_rebound_df)
 
@@ -1115,7 +1125,8 @@ def main():
     print(f"Trading days loaded: {price_data['date'].nunique()}")
     print(f"Stocks loaded: {price_data['ticker'].nunique()}")
     print(f"Volume threshold: {MIN_VOLUME_LOTS} lots")
-    print(f"Strict breakout candidates: {len(breakout_df)}")
+    print(f"Strict true breakout candidates: {len(breakout_df)}")
+    print(f"Range rebound / near resistance watch candidates: {len(range_rebound_df)}")
     print(f"Revenue pullback candidates: {len(revenue_pullback_df)}")
     print(f"Pullback rebound candidates: {len(pullback_rebound_df)}")
     print(f"TDCC rows loaded: {len(tdcc_df)}")
