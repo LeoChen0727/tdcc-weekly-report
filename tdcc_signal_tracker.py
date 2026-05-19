@@ -83,6 +83,14 @@ def normalize_text(value) -> str:
     return str(value).replace("\ufeff", "").strip()
 
 
+def normalize_date(value) -> str:
+    text = normalize_text(value)
+    if text.endswith(".0"):
+        text = text[:-2]
+    text = re.sub(r"[^0-9]", "", text)
+    return text
+
+
 def normalize_code(value) -> str:
     text = normalize_text(value)
     if text.endswith(".0"):
@@ -150,7 +158,7 @@ def get_latest_snapshot_path() -> Path:
 
 
 def load_snapshot(path: Path) -> pd.DataFrame:
-    df = pd.read_csv(path, dtype={"code": str})
+    df = pd.read_csv(path, dtype={"date": str, "code": str})
 
     required = {"date", "code", "name"}
     missing = required - set(df.columns)
@@ -163,7 +171,7 @@ def load_snapshot(path: Path) -> pd.DataFrame:
             raise ValueError(f"{path} 缺少欄位：{col}")
 
     df = df.copy()
-    df["date"] = df["date"].map(normalize_text)
+    df["date"] = df["date"].map(normalize_date)
     df["code"] = df["code"].map(normalize_code)
     df["name"] = df["name"].map(normalize_text)
     df = df[df["code"].map(is_common_stock_code)].copy()
@@ -176,10 +184,13 @@ def load_snapshot(path: Path) -> pd.DataFrame:
 
 
 def get_snapshot_date(snapshot: pd.DataFrame) -> str:
-    dates = snapshot["date"].dropna().astype(str).unique()
+    dates = snapshot["date"].dropna().astype(str).map(normalize_date)
+    dates = [date for date in dates.unique() if date]
+
     if len(dates) == 0:
         raise ValueError("snapshot 沒有 date。")
-    return max(dates)
+
+    return sorted(dates)[-1]
 
 
 def find_history_snapshot_paths() -> list[Path]:
@@ -457,6 +468,9 @@ def build_current_signals() -> pd.DataFrame:
     if signals.empty:
         return signals
 
+    signals["signal_date"] = signals["signal_date"].map(normalize_date)
+    signals["source_tdcc_date"] = signals["source_tdcc_date"].map(normalize_date)
+    signals["source_compare_date"] = signals["source_compare_date"].map(normalize_date)
     signals["code"] = signals["code"].map(normalize_code)
 
     for col in ["rank", "current_pct", "previous_pct", "weekly_change_pct", "consecutive_score"]:
@@ -470,10 +484,25 @@ def load_existing_signal_log() -> pd.DataFrame:
     if not SIGNAL_LOG_PATH.exists():
         return pd.DataFrame()
 
-    df = pd.read_csv(SIGNAL_LOG_PATH, dtype={"code": str})
+    df = pd.read_csv(
+        SIGNAL_LOG_PATH,
+        dtype={
+            "signal_date": str,
+            "code": str,
+            "source_tdcc_date": str,
+            "source_compare_date": str,
+        },
+    )
 
     if "code" in df.columns:
         df["code"] = df["code"].map(normalize_code)
+
+    for col in ["signal_date", "source_tdcc_date", "source_compare_date"]:
+        if col in df.columns:
+            df[col] = df[col].map(normalize_date)
+
+    if "created_at" in df.columns:
+        df["created_at"] = df["created_at"].map(normalize_text)
 
     return df
 
@@ -491,6 +520,13 @@ def save_signal_log(new_signals: pd.DataFrame) -> pd.DataFrame:
         return combined
 
     combined["code"] = combined["code"].map(normalize_code)
+
+    for col in ["signal_date", "source_tdcc_date", "source_compare_date"]:
+        if col in combined.columns:
+            combined[col] = combined[col].map(normalize_date)
+
+    if "created_at" in combined.columns:
+        combined["created_at"] = combined["created_at"].map(normalize_text)
 
     combined = combined.drop_duplicates(
         subset=SIGNAL_KEY_COLUMNS,
@@ -517,7 +553,7 @@ def load_daily_price_data() -> pd.DataFrame:
 
     for path in files:
         try:
-            df = pd.read_csv(path, dtype={"ticker": str, "code": str})
+            df = pd.read_csv(path, dtype={"date": str, "ticker": str, "code": str})
         except Exception as exc:
             print(f"Skip daily price file {path}: {exc}")
             continue
@@ -544,7 +580,7 @@ def load_daily_price_data() -> pd.DataFrame:
             df["name"] = ""
 
         df["code"] = df["code"].map(normalize_code)
-        df["date"] = df["date"].map(normalize_text)
+        df["date"] = df["date"].map(normalize_date)
 
         for col in ["open", "high", "low", "close"]:
             df[col] = df[col].map(to_number)
@@ -565,12 +601,14 @@ def load_daily_price_data() -> pd.DataFrame:
 
 
 def latest_trading_date_on_or_before(dates: list[str], target_date: str) -> str | None:
+    target_date = normalize_date(target_date)
+    dates = [normalize_date(date) for date in dates if normalize_date(date)]
     candidates = [date for date in dates if date <= target_date]
 
     if not candidates:
         return None
 
-    return candidates[-1]
+    return sorted(candidates)[-1]
 
 
 def ensure_performance_columns(df: pd.DataFrame) -> pd.DataFrame:
@@ -587,6 +625,10 @@ def calculate_signal_performance(signal_log: pd.DataFrame, price: pd.DataFrame) 
     if signal_log.empty:
         return ensure_performance_columns(pd.DataFrame())
 
+    signal_log = signal_log.copy()
+    signal_log["signal_date"] = signal_log["signal_date"].map(normalize_date)
+    signal_log["code"] = signal_log["code"].map(normalize_code)
+
     if price.empty:
         perf = signal_log.copy()
         perf["status"] = "no_price_data"
@@ -598,13 +640,14 @@ def calculate_signal_performance(signal_log: pd.DataFrame, price: pd.DataFrame) 
         signal_dict = signal.to_dict()
 
         code = normalize_code(signal_dict["code"])
-        signal_date = normalize_text(signal_dict["signal_date"])
+        signal_date = normalize_date(signal_dict["signal_date"])
 
         price_by_code = price[price["code"] == code].copy()
         price_by_code = price_by_code.sort_values("date").reset_index(drop=True)
 
         row = dict(signal_dict)
         row["code"] = code
+        row["signal_date"] = signal_date
 
         if price_by_code.empty:
             row["signal_trade_date"] = ""
@@ -623,6 +666,7 @@ def calculate_signal_performance(signal_log: pd.DataFrame, price: pd.DataFrame) 
             rows.append(row)
             continue
 
+        price_by_code["date"] = price_by_code["date"].map(normalize_date)
         date_list = price_by_code["date"].tolist()
         base_trade_date = latest_trading_date_on_or_before(date_list, signal_date)
 
@@ -764,7 +808,15 @@ def make_latest_batch_summary(signals: pd.DataFrame) -> str:
     if signals.empty:
         return "目前沒有 TDCC signal。"
 
-    latest_date = signals["signal_date"].max()
+    signals = signals.copy()
+    signals["signal_date"] = signals["signal_date"].map(normalize_date)
+
+    valid_dates = [date for date in signals["signal_date"].dropna().astype(str).unique() if date]
+
+    if not valid_dates:
+        return "目前沒有可用 TDCC signal 日期。"
+
+    latest_date = sorted(valid_dates)[-1]
     latest = signals[signals["signal_date"] == latest_date].copy()
 
     table = latest[
@@ -1149,7 +1201,13 @@ def make_statistics_summary(perf: pd.DataFrame) -> str:
 
 
 def build_markdown_report(signals: pd.DataFrame, perf: pd.DataFrame) -> str:
-    latest_signal_date = signals["signal_date"].max() if not signals.empty else "無"
+    if signals.empty:
+        latest_signal_date = "無"
+    else:
+        signals = signals.copy()
+        signals["signal_date"] = signals["signal_date"].map(normalize_date)
+        valid_dates = [date for date in signals["signal_date"].dropna().astype(str).unique() if date]
+        latest_signal_date = sorted(valid_dates)[-1] if valid_dates else "無"
 
     lines = []
     lines.append("# TDCC 訊號績效追蹤報告")
