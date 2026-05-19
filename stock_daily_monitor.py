@@ -195,18 +195,18 @@ def add_technical_metrics(df):
 
 def calculate_breakout_score(df):
     """
-    嚴格向上盤整帶量突破。
+    嚴格向上盤整帶量突破 / 區間內轉強判斷。
 
-    2026-05 修正版：
-    1. 嚴格突破必須用「前 40 個交易日最高價 high」判斷。
-    2. 今日 high 不可算進 previous_40d_high，避免自己突破自己。
-    3. close_today 必須 > previous_40d_high，才算 true_breakout。
-    4. 尚未突破前高、但站回 20MA/23EMA 且放量、距離前高 10% 內者，
-       分類為 range_rebound / near_resistance，不列入嚴格突破股。
+    修正重點：
+    1. 嚴格突破必須突破「前 60 個交易日最高價 high」。
+    2. 今日 high 不納入 previous_60d_high，避免自己突破自己。
+    3. 可用資料少於 90 日，不允許列入嚴格突破股。
+    4. 尚未突破前高但站回 20MA/23EMA、放量、距前高不遠者，
+       只分類為 range_rebound / near_resistance，不應放入嚴格突破股。
     """
     df = add_technical_metrics(df)
 
-    if len(df) < 61:
+    if len(df) < 90:
         return None
 
     latest = df.iloc[-1]
@@ -234,20 +234,25 @@ def calculate_breakout_score(df):
     if pd.isna(ma20) or pd.isna(ma60) or pd.isna(vol20):
         return None
 
-    previous_40 = df.iloc[-41:-1].copy()
+    previous_60 = df.iloc[-61:-1].copy()
 
-    if previous_40.empty or len(previous_40) < 40:
+    if previous_60.empty or len(previous_60) < 60:
         return None
 
-    previous_40d_high = previous_40["high"].max()
-    previous_40d_low = previous_40["low"].min()
+    previous_60d_high = previous_60["high"].max()
+    previous_60d_low = previous_60["low"].min()
 
-    if previous_40d_low <= 0 or previous_40d_high <= 0:
+    previous_40 = df.iloc[-41:-1].copy()
+    previous_40d_high = previous_40["high"].max() if len(previous_40) >= 40 else previous_60d_high
+    previous_40d_low = previous_40["low"].min() if len(previous_40) >= 40 else previous_60d_low
+
+    if previous_60d_low <= 0 or previous_60d_high <= 0:
         return None
 
     consolidation_range_pct = (previous_40d_high - previous_40d_low) / previous_40d_low * 100
-    breakout_pct = (close - previous_40d_high) / previous_40d_high * 100
+    breakout_pct = (close - previous_60d_high) / previous_60d_high * 100
     distance_to_previous_40d_high_pct = (close / previous_40d_high - 1) * 100
+    distance_to_previous_60d_high_pct = (close / previous_60d_high - 1) * 100
 
     volume_ratio = volume / vol20 if vol20 and vol20 > 0 else 0
     return_5d = (close / df.iloc[-6]["close"] - 1) * 100 if len(df) >= 6 else 0
@@ -262,22 +267,22 @@ def calculate_breakout_score(df):
     close_above_ema23 = close > ema23
     close_above_ma60 = close > ma60
 
-    true_breakout = close > previous_40d_high
+    true_breakout = close > previous_60d_high
 
     range_rebound = (
         not true_breakout
         and volume_ratio >= 1.5
         and (close_above_ma20 or close_above_ema23)
-        and close < previous_40d_high
-        and distance_to_previous_40d_high_pct >= -10
+        and close < previous_60d_high
+        and distance_to_previous_60d_high_pct >= -10
         and close > prev_close
         and close >= open_price
     )
 
     near_resistance = (
         not true_breakout
-        and close < previous_40d_high
-        and distance_to_previous_40d_high_pct >= -5
+        and close < previous_60d_high
+        and distance_to_previous_60d_high_pct >= -5
         and volume_ratio >= 1.2
         and (close_above_ma20 or close_above_ema23)
     )
@@ -339,9 +344,9 @@ def calculate_breakout_score(df):
         elif return_5d > 12:
             score -= 10
     else:
-        if distance_to_previous_40d_high_pct >= -3:
+        if distance_to_previous_60d_high_pct >= -3:
             score += 8
-        elif distance_to_previous_40d_high_pct >= -10:
+        elif distance_to_previous_60d_high_pct >= -10:
             score += 5
 
     if not true_breakout:
@@ -357,10 +362,15 @@ def calculate_breakout_score(df):
         "gap_ma20_pct": round(gap_ma20, 2),
         "gap_ma60_pct": round(gap_ma60, 2),
         "gap_ema23_pct": round(gap_ema23, 2),
+
         "high_40": round(previous_40d_high, 2),
         "low_40": round(previous_40d_low, 2),
+
         "previous_40d_high": round(previous_40d_high, 2),
+        "previous_60d_high": round(previous_60d_high, 2),
         "distance_to_previous_40d_high_pct": round(distance_to_previous_40d_high_pct, 2),
+        "distance_to_previous_60d_high_pct": round(distance_to_previous_60d_high_pct, 2),
+
         "consolidation_range_pct": round(consolidation_range_pct, 2),
         "breakout_pct": round(breakout_pct, 2),
         "volume_ratio": round(volume_ratio, 2),
