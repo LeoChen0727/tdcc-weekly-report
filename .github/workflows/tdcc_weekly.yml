@@ -30,6 +30,56 @@ jobs:
       - name: Run TDCC signal tracker
         run: python tdcc_signal_tracker.py
 
+      - name: Write TDCC weekly run status
+        run: |
+          mkdir -p output/latest
+
+          RUN_TIME="$(TZ=Asia/Taipei date '+%Y-%m-%d %H:%M:%S Asia/Taipei')"
+          COMMIT_SHA="${GITHUB_SHA}"
+          RUN_URL="https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
+          TDCC_REPORT="output/latest/tdcc_weekly_report_latest.md"
+          TDCC_HOLDER="output/latest/tdcc_holder_ratio_latest.csv"
+          TDCC_SIGNAL_REPORT="output/latest/tdcc_signal_performance_latest.md"
+          TDCC_SIGNAL_LOG="output/history/tdcc_signals/tdcc_signal_log.csv"
+          TDCC_SIGNAL_PERF="output/history/tdcc_signals/tdcc_signal_performance.csv"
+
+          {
+            echo "# TDCC Weekly Run Status"
+            echo ""
+            echo "- 執行時間：\`${RUN_TIME}\`"
+            echo "- GitHub run：${RUN_URL}"
+            echo "- commit：\`${COMMIT_SHA}\`"
+            echo ""
+            echo "## 檔案狀態"
+            echo ""
+            echo "| 檔案 | 是否存在 | 行數 | 最後修改時間 |"
+            echo "|---|---:|---:|---|"
+
+            for file in "$TDCC_REPORT" "$TDCC_HOLDER" "$TDCC_SIGNAL_REPORT" "$TDCC_SIGNAL_LOG" "$TDCC_SIGNAL_PERF"; do
+              if [ -f "$file" ]; then
+                lines=$(wc -l < "$file" | tr -d ' ')
+                mtime=$(TZ=Asia/Taipei date -r "$file" '+%Y-%m-%d %H:%M:%S Asia/Taipei')
+                echo "| \`$file\` | ✅ | $lines | $mtime |"
+              else
+                echo "| \`$file\` | ❌ | - | - |"
+              fi
+            done
+
+            echo ""
+            echo "## Git 變更摘要"
+            echo ""
+            echo "\`\`\`text"
+            git status --short
+            echo "\`\`\`"
+            echo ""
+            echo "## 說明"
+            echo ""
+            echo "- 這個檔案用來確認 TDCC Weekly Report workflow 是否有實際執行。"
+            echo "- 如果 TDCC 官方資料日期沒有變，週報主檔內容可能不會更新，但本 status 檔仍會更新。"
+            echo "- 若 signal tracker 成功，應看到 tdcc_signal_log.csv、tdcc_signal_performance.csv、tdcc_signal_performance_latest.md。"
+          } > output/latest/tdcc_weekly_run_status.md
+
       - name: Commit TDCC outputs
         run: |
           git config user.name "github-actions"
