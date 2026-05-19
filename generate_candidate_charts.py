@@ -577,7 +577,7 @@ def create_chart(
         "stock_name": stock_name,
         "category": category,
         "chart_path": str(chart_path).replace("\\", "/"),
-        "chart_url": f"{REPO_RAW_BASE}/{str(chart_path).as_posix()}",
+        "chart_url": f"{REPO_RAW_BASE}/{chart_path.as_posix()}",
         "close": round(float(latest["close"]), 2),
         "previous_40d_high": round(float(previous_40d_high), 2) if not pd.isna(previous_40d_high) else pd.NA,
         "previous_60d_high": round(float(previous_60d_high), 2) if not pd.isna(previous_60d_high) else pd.NA,
@@ -738,7 +738,7 @@ def main() -> int:
                 {
                     "category": category,
                     "contact_sheet_path": str(contact_path).replace("\\", "/"),
-                    "contact_sheet_url": f"{REPO_RAW_BASE}/{str(contact_path).as_posix()}",
+                    "contact_sheet_url": f"{REPO_RAW_BASE}/{contact_path.as_posix()}",
                     "chart_count": len(paths),
                     "created_at": now_taipei(),
                 }
