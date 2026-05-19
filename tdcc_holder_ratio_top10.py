@@ -116,15 +116,43 @@ def ensure_dirs() -> None:
     TDCC_HISTORY_DIR.mkdir(parents=True, exist_ok=True)
 
 
-def fetch_html(url: str, timeout: int = 60) -> str:
-    response = requests.get(
-        url,
-        timeout=timeout,
-        headers={"User-Agent": "Mozilla/5.0"},
-    )
-    response.raise_for_status()
-    response.encoding = response.apparent_encoding
-    return response.text
+def fetch_html(url: str, timeout: int = 60, max_retries: int = 5) -> str:
+    last_error = None
+
+    for attempt in range(1, max_retries + 1):
+        try:
+            print(f"Fetching HTML attempt {attempt}/{max_retries}: {url}")
+
+            response = requests.get(
+                url,
+                timeout=timeout,
+                headers={
+                    "User-Agent": "Mozilla/5.0",
+                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en;q=0.8",
+                    "Connection": "close",
+                    "Cache-Control": "no-cache",
+                    "Pragma": "no-cache",
+                },
+                stream=False,
+            )
+
+            response.raise_for_status()
+            response.encoding = response.apparent_encoding
+
+            text = response.text
+
+            if not text or len(text.strip()) < 1000:
+                raise ValueError(f"HTML response too short: {len(text) if text else 0}")
+
+            return text
+
+        except Exception as exc:
+            last_error = exc
+            print(f"Fetch HTML failed on attempt {attempt}/{max_retries}: {url}")
+            print(exc)
+
+    raise RuntimeError(f"Failed to fetch HTML after {max_retries} attempts: {url}. Last error: {last_error}")
 
 
 def fetch_stock_code_name_map(url: str) -> dict[str, str]:
