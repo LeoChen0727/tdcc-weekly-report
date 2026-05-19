@@ -1,0 +1,4 @@
+﻿date,status,twse_rows,tpex_rows,total_rows,reason,saved_file
+20260413,skipped_invalid_or_no_trading,0,868,868,Total rows too low: 868,
+20260414,skipped_invalid_or_no_trading,0,873,873,Total rows too low: 873,
+20260415,skipped_invalid_or_no_trading,0,868,868,Total rows too low: 868,
