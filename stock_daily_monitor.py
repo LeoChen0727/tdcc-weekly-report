@@ -197,13 +197,12 @@ def calculate_breakout_score(df):
     """
     嚴格向上盤整帶量突破。
 
-    必須同時符合：
-    1. 收盤價突破過去 40 日高點
-    2. 成交量 >= 20 日均量 1.5 倍
-    3. 收盤價站上 20MA / 60MA
-    4. 最新收盤價 > 前一日收盤價
-    5. 最新收盤價 >= 今日開盤價，避免放量長黑
-    6. 近 5 日漲幅 > 0
+    2026-05 修正版：
+    1. 嚴格突破必須用「前 40 個交易日最高價 high」判斷。
+    2. 今日 high 不可算進 previous_40d_high，避免自己突破自己。
+    3. close_today 必須 > previous_40d_high，才算 true_breakout。
+    4. 尚未突破前高、但站回 20MA/23EMA 且放量、距離前高 10% 內者，
+       分類為 range_rebound / near_resistance，不列入嚴格突破股。
     """
     df = add_technical_metrics(df)
 
@@ -214,51 +213,85 @@ def calculate_breakout_score(df):
     prev = df.iloc[-2]
 
     open_price = latest["open"]
+    high_today = latest["high"]
+    low_today = latest["low"]
     close = latest["close"]
     prev_close = prev["close"]
+
     ma20 = latest["ma20"]
     ma60 = latest["ma60"]
     volume = latest["volume"]
     vol20 = latest["vol20"]
+
     volume_lots = volume / 1000
 
     if volume_lots < MIN_VOLUME_LOTS:
         return None
 
-    if pd.isna(open_price) or pd.isna(ma20) or pd.isna(ma60) or pd.isna(vol20):
+    if pd.isna(open_price) or pd.isna(high_today) or pd.isna(low_today):
         return None
 
-    recent_40 = df.iloc[-41:-1]
-    high_40 = recent_40["high"].max()
-    low_40 = recent_40["low"].min()
-
-    if low_40 <= 0 or high_40 <= 0:
+    if pd.isna(ma20) or pd.isna(ma60) or pd.isna(vol20):
         return None
 
-    consolidation_range_pct = (high_40 - low_40) / low_40 * 100
-    breakout_pct = (close - high_40) / high_40 * 100
+    previous_40 = df.iloc[-41:-1].copy()
+
+    if previous_40.empty or len(previous_40) < 40:
+        return None
+
+    previous_40d_high = previous_40["high"].max()
+    previous_40d_low = previous_40["low"].min()
+
+    if previous_40d_low <= 0 or previous_40d_high <= 0:
+        return None
+
+    consolidation_range_pct = (previous_40d_high - previous_40d_low) / previous_40d_low * 100
+    breakout_pct = (close - previous_40d_high) / previous_40d_high * 100
+    distance_to_previous_40d_high_pct = (close / previous_40d_high - 1) * 100
+
     volume_ratio = volume / vol20 if vol20 and vol20 > 0 else 0
-
     return_5d = (close / df.iloc[-6]["close"] - 1) * 100 if len(df) >= 6 else 0
+
     gap_ma20 = (close / ma20 - 1) * 100 if ma20 and ma20 > 0 else 0
     gap_ma60 = (close / ma60 - 1) * 100 if ma60 and ma60 > 0 else 0
 
-    if breakout_pct <= 0:
-        return None
+    ema23 = df["close"].ewm(span=23, adjust=False).mean().iloc[-1]
+    gap_ema23 = (close / ema23 - 1) * 100 if ema23 and ema23 > 0 else 0
 
-    if volume_ratio < 1.5:
-        return None
+    close_above_ma20 = close > ma20
+    close_above_ema23 = close > ema23
+    close_above_ma60 = close > ma60
 
-    if close <= ma20 or close <= ma60:
-        return None
+    true_breakout = close > previous_40d_high
 
-    if close <= prev_close:
-        return None
+    range_rebound = (
+        not true_breakout
+        and volume_ratio >= 1.5
+        and (close_above_ma20 or close_above_ema23)
+        and close < previous_40d_high
+        and distance_to_previous_40d_high_pct >= -10
+        and close > prev_close
+        and close >= open_price
+    )
 
-    if close < open_price:
-        return None
+    near_resistance = (
+        not true_breakout
+        and close < previous_40d_high
+        and distance_to_previous_40d_high_pct >= -5
+        and volume_ratio >= 1.2
+        and (close_above_ma20 or close_above_ema23)
+    )
 
-    if return_5d <= 0:
+    if true_breakout:
+        breakout_type = "true_breakout"
+    elif range_rebound:
+        breakout_type = "range_rebound"
+    elif near_resistance:
+        breakout_type = "near_resistance"
+    else:
+        breakout_type = "false_or_unconfirmed_breakout"
+
+    if breakout_type == "false_or_unconfirmed_breakout":
         return None
 
     score = 0
@@ -268,32 +301,51 @@ def calculate_breakout_score(df):
     elif consolidation_range_pct <= 25:
         score += 15
 
-    if breakout_pct >= 5:
-        score += 35
-    elif breakout_pct >= 2:
-        score += 32
+    if true_breakout:
+        if breakout_pct >= 5:
+            score += 35
+        elif breakout_pct >= 2:
+            score += 32
+        else:
+            score += 30
     else:
-        score += 30
+        score += 12
 
     if volume_ratio >= 2:
         score += 25
     elif volume_ratio >= 1.5:
         score += 18
+    elif volume_ratio >= 1.2:
+        score += 8
 
-    if close > ma20:
+    if close_above_ma20:
         score += 10
-    if close > ma60:
+
+    if close_above_ema23:
+        score += 8
+
+    if close_above_ma60:
         score += 10
 
     if close > open_price:
         score += 5
+
     if close > prev_close:
         score += 5
 
-    if return_5d > 20:
-        score -= 20
-    elif return_5d > 12:
-        score -= 10
+    if true_breakout:
+        if return_5d > 20:
+            score -= 20
+        elif return_5d > 12:
+            score -= 10
+    else:
+        if distance_to_previous_40d_high_pct >= -3:
+            score += 8
+        elif distance_to_previous_40d_high_pct >= -10:
+            score += 5
+
+    if not true_breakout:
+        score = min(score, 69)
 
     return {
         "date": latest["date"],
@@ -301,14 +353,19 @@ def calculate_breakout_score(df):
         "volume_lots": round(volume_lots, 0),
         "ma20": round(ma20, 2),
         "ma60": round(ma60, 2),
+        "ema23": round(ema23, 2),
         "gap_ma20_pct": round(gap_ma20, 2),
         "gap_ma60_pct": round(gap_ma60, 2),
-        "high_40": round(high_40, 2),
-        "low_40": round(low_40, 2),
+        "gap_ema23_pct": round(gap_ema23, 2),
+        "high_40": round(previous_40d_high, 2),
+        "low_40": round(previous_40d_low, 2),
+        "previous_40d_high": round(previous_40d_high, 2),
+        "distance_to_previous_40d_high_pct": round(distance_to_previous_40d_high_pct, 2),
         "consolidation_range_pct": round(consolidation_range_pct, 2),
         "breakout_pct": round(breakout_pct, 2),
         "volume_ratio": round(volume_ratio, 2),
         "return_5d_pct": round(return_5d, 2),
+        "breakout_type": breakout_type,
         "score": round(score, 1),
     }
 
