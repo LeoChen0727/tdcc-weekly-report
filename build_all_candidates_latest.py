@@ -53,8 +53,15 @@ OUTPUT_COLUMNS = [
     "stock_name",
     "industry",
     "細分族群",
+
+    "theme_group",
+    "theme_score",
+    "theme_note",
+    "revaluation_priority",
+
     "score",
     "rank",
+
     "latest_revenue_yoy",
     "cumulative_revenue_yoy",
     "revenue_acceleration_note",
@@ -63,6 +70,16 @@ OUTPUT_COLUMNS = [
     "return_after_revenue_1d",
     "return_after_revenue_3d",
     "return_5d",
+    "return_10d",
+    "return_20d",
+    "return_60d",
+    "return_120d",
+
+    "off_60d_low_pct",
+    "off_120d_low_pct",
+    "already_priced_in",
+    "priced_in_reason",
+
     "close",
     "volume",
     "volume_ratio",
@@ -72,20 +89,32 @@ OUTPUT_COLUMNS = [
     "distance_to_ma20_pct",
     "distance_to_ma60_pct",
     "distance_to_ema23_pct",
+
     "previous_high",
     "previous_40d_high",
     "previous_60d_high",
     "distance_to_previous_high_pct",
     "distance_to_previous_40d_high_pct",
     "distance_to_previous_60d_high_pct",
+
     "available_days",
     "price_data_warning",
+
     "tdcc_date",
     "holder_400_pct",
     "holder_400_change",
     "holder_1000_pct",
     "holder_1000_change",
     "tdcc_judgement",
+
+    "tdcc_weeks_used",
+    "tdcc_400_change_sum",
+    "tdcc_1000_change_sum",
+    "tdcc_400_up_weeks",
+    "tdcc_1000_up_weeks",
+    "tdcc_accumulation_signal",
+    "tdcc_accumulation_note",
+
     "chart_path",
     "chart_url",
     "note",
@@ -140,7 +169,14 @@ def read_csv_safe(path: Path) -> pd.DataFrame:
         return pd.DataFrame()
 
     try:
-        return pd.read_csv(path, dtype={"ticker": str, "code": str, "stock_id": str})
+        return pd.read_csv(
+            path,
+            dtype={
+                "ticker": str,
+                "code": str,
+                "stock_id": str,
+            },
+        )
     except Exception as exc:
         print(f"Failed to read {path}: {exc}")
         return pd.DataFrame()
@@ -173,6 +209,11 @@ def standardize_candidates(df: pd.DataFrame, category: str, default_breakout_typ
     result["industry"] = pick_column(df, ["industry", "產業別"], "")
     result["細分族群"] = pick_column(df, ["細分族群", "sub_industry", "theme"], "")
 
+    result["theme_group"] = pick_column(df, ["theme_group"], "")
+    result["theme_score"] = pick_column(df, ["theme_score"], pd.NA)
+    result["theme_note"] = pick_column(df, ["theme_note"], "")
+    result["revaluation_priority"] = pick_column(df, ["revaluation_priority"], "")
+
     result["score"] = pick_column(df, ["score", "分數"], pd.NA)
     result["rank"] = pick_column(df, ["rank", "排行"], pd.NA)
 
@@ -184,6 +225,15 @@ def standardize_candidates(df: pd.DataFrame, category: str, default_breakout_typ
     result["return_after_revenue_1d"] = pick_column(df, ["return_after_revenue_1d"], pd.NA)
     result["return_after_revenue_3d"] = pick_column(df, ["return_after_revenue_3d"], pd.NA)
     result["return_5d"] = pick_column(df, ["return_5d", "return_5d_pct"], pd.NA)
+    result["return_10d"] = pick_column(df, ["return_10d"], pd.NA)
+    result["return_20d"] = pick_column(df, ["return_20d"], pd.NA)
+    result["return_60d"] = pick_column(df, ["return_60d"], pd.NA)
+    result["return_120d"] = pick_column(df, ["return_120d"], pd.NA)
+
+    result["off_60d_low_pct"] = pick_column(df, ["off_60d_low_pct"], pd.NA)
+    result["off_120d_low_pct"] = pick_column(df, ["off_120d_low_pct"], pd.NA)
+    result["already_priced_in"] = pick_column(df, ["already_priced_in"], "")
+    result["priced_in_reason"] = pick_column(df, ["priced_in_reason"], "")
 
     result["close"] = pick_column(df, ["close", "收盤價"], pd.NA)
     result["volume"] = pick_column(df, ["volume", "volume_lots", "成交量"], pd.NA)
@@ -197,17 +247,21 @@ def standardize_candidates(df: pd.DataFrame, category: str, default_breakout_typ
     result["distance_to_ma60_pct"] = pick_column(df, ["distance_to_ma60_pct", "gap_ma60_pct"], pd.NA)
     result["distance_to_ema23_pct"] = pick_column(df, ["distance_to_ema23_pct", "gap_ema23_pct"], pd.NA)
 
-    result["previous_high"] = pick_column(df, ["previous_high", "high_40", "previous_60d_high"], pd.NA)
+    result["previous_high"] = pick_column(df, ["previous_high", "high_40", "previous_60d_high", "high_60"], pd.NA)
     result["previous_40d_high"] = pick_column(df, ["previous_40d_high", "high_40"], pd.NA)
-    result["previous_60d_high"] = pick_column(df, ["previous_60d_high"], pd.NA)
+    result["previous_60d_high"] = pick_column(df, ["previous_60d_high", "high_60"], pd.NA)
 
     result["distance_to_previous_high_pct"] = pick_column(
         df,
-        ["distance_to_previous_high_pct", "distance_to_previous_60d_high_pct", "breakout_pct"],
+        ["distance_to_previous_high_pct", "distance_to_previous_60d_high_pct", "breakout_pct", "distance_to_high_60_pct"],
         pd.NA,
     )
     result["distance_to_previous_40d_high_pct"] = pick_column(df, ["distance_to_previous_40d_high_pct"], pd.NA)
-    result["distance_to_previous_60d_high_pct"] = pick_column(df, ["distance_to_previous_60d_high_pct"], pd.NA)
+    result["distance_to_previous_60d_high_pct"] = pick_column(
+        df,
+        ["distance_to_previous_60d_high_pct", "distance_to_high_60_pct"],
+        pd.NA,
+    )
 
     result["available_days"] = pick_column(df, ["available_days"], pd.NA)
     result["price_data_warning"] = pick_column(df, ["price_data_warning"], "")
@@ -219,6 +273,14 @@ def standardize_candidates(df: pd.DataFrame, category: str, default_breakout_typ
     result["holder_1000_change"] = pick_column(df, ["holder_1000_change", "1000張變化", "over_1000_change"], pd.NA)
     result["tdcc_judgement"] = pick_column(df, ["tdcc_judgement", "TDCC判斷"], "")
 
+    result["tdcc_weeks_used"] = pick_column(df, ["tdcc_weeks_used"], pd.NA)
+    result["tdcc_400_change_sum"] = pick_column(df, ["tdcc_400_change_sum"], pd.NA)
+    result["tdcc_1000_change_sum"] = pick_column(df, ["tdcc_1000_change_sum"], pd.NA)
+    result["tdcc_400_up_weeks"] = pick_column(df, ["tdcc_400_up_weeks"], pd.NA)
+    result["tdcc_1000_up_weeks"] = pick_column(df, ["tdcc_1000_up_weeks"], pd.NA)
+    result["tdcc_accumulation_signal"] = pick_column(df, ["tdcc_accumulation_signal"], "")
+    result["tdcc_accumulation_note"] = pick_column(df, ["tdcc_accumulation_note"], "")
+
     result["chart_path"] = pick_column(df, ["chart_path"], "")
     result["chart_url"] = pick_column(df, ["chart_url"], "")
 
@@ -227,6 +289,7 @@ def standardize_candidates(df: pd.DataFrame, category: str, default_breakout_typ
     result = result[result["stock_id"].astype(str).str.match(r"^[0-9]{4}$", na=False)].copy()
 
     for col in [
+        "theme_score",
         "score",
         "rank",
         "latest_revenue_yoy",
@@ -234,6 +297,12 @@ def standardize_candidates(df: pd.DataFrame, category: str, default_breakout_typ
         "return_after_revenue_1d",
         "return_after_revenue_3d",
         "return_5d",
+        "return_10d",
+        "return_20d",
+        "return_60d",
+        "return_120d",
+        "off_60d_low_pct",
+        "off_120d_low_pct",
         "close",
         "volume",
         "volume_ratio",
@@ -254,6 +323,11 @@ def standardize_candidates(df: pd.DataFrame, category: str, default_breakout_typ
         "holder_400_change",
         "holder_1000_pct",
         "holder_1000_change",
+        "tdcc_weeks_used",
+        "tdcc_400_change_sum",
+        "tdcc_1000_change_sum",
+        "tdcc_400_up_weeks",
+        "tdcc_1000_up_weeks",
     ]:
         result[col] = result[col].map(to_number)
 
@@ -369,39 +443,11 @@ def load_pattern_from_chart_manifest(chart_manifest: pd.DataFrame) -> pd.DataFra
     pattern["industry"] = ""
     pattern["細分族群"] = ""
 
-    pattern["latest_revenue_yoy"] = pd.NA
-    pattern["cumulative_revenue_yoy"] = pd.NA
-    pattern["revenue_acceleration_note"] = ""
-    pattern["revenue_warning"] = ""
-    pattern["revenue_release_date"] = ""
-    pattern["return_after_revenue_1d"] = pd.NA
-    pattern["return_after_revenue_3d"] = pd.NA
-    pattern["return_5d"] = pd.NA
-
-    pattern["volume"] = pd.NA
-    pattern["volume_ratio"] = pd.NA
-    pattern["ma20"] = pd.NA
-    pattern["ma60"] = pd.NA
-    pattern["ema23"] = pd.NA
-    pattern["distance_to_ma20_pct"] = pd.NA
-    pattern["distance_to_ma60_pct"] = pd.NA
-    pattern["distance_to_ema23_pct"] = pd.NA
-
-    pattern["previous_high"] = pattern.get("previous_60d_high", pd.NA)
-    pattern["distance_to_previous_high_pct"] = pattern.get("distance_to_previous_60d_high_pct", pd.NA)
-
-    pattern["tdcc_date"] = ""
-    pattern["holder_400_pct"] = pd.NA
-    pattern["holder_400_change"] = pd.NA
-    pattern["holder_1000_pct"] = pd.NA
-    pattern["holder_1000_change"] = pd.NA
-    pattern["tdcc_judgement"] = ""
-
-    pattern["_source_order"] = range(len(pattern))
-
     for col in OUTPUT_COLUMNS:
         if col not in pattern.columns:
             pattern[col] = ""
+
+    pattern["_source_order"] = range(len(pattern))
 
     return pattern[OUTPUT_COLUMNS + ["_source_order"]].copy()
 
@@ -465,11 +511,9 @@ def build_all_candidates_latest() -> pd.DataFrame:
         frames.append(pattern_df)
 
     if not frames:
-        empty = pd.DataFrame(columns=OUTPUT_COLUMNS)
-        return empty
+        return pd.DataFrame(columns=OUTPUT_COLUMNS)
 
     all_candidates = pd.concat(frames, ignore_index=True)
-
     all_candidates = merge_chart_manifest(all_candidates, chart_manifest)
 
     for col in OUTPUT_COLUMNS:
@@ -534,18 +578,25 @@ def write_markdown_report(df: pd.DataFrame) -> None:
             "stock_id",
             "stock_name",
             "industry",
+            "theme_group",
+            "revaluation_priority",
             "score",
             "rank",
             "latest_revenue_yoy",
             "cumulative_revenue_yoy",
             "return_5d",
+            "return_20d",
+            "return_60d",
+            "already_priced_in",
+            "tdcc_accumulation_signal",
+            "tdcc_400_change_sum",
+            "tdcc_1000_change_sum",
             "close",
             "volume_ratio",
             "previous_60d_high",
             "distance_to_previous_60d_high_pct",
             "available_days",
             "price_data_warning",
-            "tdcc_judgement",
             "chart_path",
             "note",
         ]
@@ -638,6 +689,7 @@ def update_stock_monitor_note(df: pd.DataFrame) -> None:
     lines.append("- `range_rebound` 代表區間內轉強 / 挑戰前高觀察，不可混入嚴格突破股。")
     lines.append("- `revenue_breakout_low_response` 代表營收明顯轉強但股價尚未完全反映的早期觀察股。")
     lines.append("- `revenue_pullback` 代表營收成長但股價回檔，與營收爆發低反應股分開。")
+    lines.append("- `tdcc_accumulation_signal` 用來判斷近幾週大戶是否持續累積或轉弱。")
     lines.append("- `price_data_warning != ok` 的圖表或資料需標註資料品質警示。")
     lines.append("")
 
