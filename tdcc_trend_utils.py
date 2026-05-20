@@ -7,6 +7,7 @@ import pandas as pd
 
 TDCC_HISTORY_DIR = Path("output/history/tdcc")
 TDCC_LATEST_PATH = Path("output/latest/tdcc_holder_ratio_latest.csv")
+TDCC_DEBUG_OUTPUT = Path("output/latest/tdcc_trend_debug_latest.csv")
 
 
 def normalize_code(value) -> str:
@@ -44,6 +45,7 @@ def pick_column(df: pd.DataFrame, candidates: list[str]) -> str | None:
     for col in candidates:
         if col in df.columns:
             return col
+
     return None
 
 
@@ -56,8 +58,26 @@ def standardize_tdcc_df(df: pd.DataFrame, source_date: str = "") -> pd.DataFrame
     if df.empty:
         return pd.DataFrame()
 
-    code_col = pick_column(df, ["stock_id", "ticker", "code", "股票代號", "證券代號"])
-    name_col = pick_column(df, ["stock_name", "name", "股票名稱", "證券名稱"])
+    code_col = pick_column(
+        df,
+        [
+            "stock_id",
+            "ticker",
+            "code",
+            "股票代號",
+            "證券代號",
+        ],
+    )
+
+    name_col = pick_column(
+        df,
+        [
+            "stock_name",
+            "name",
+            "股票名稱",
+            "證券名稱",
+        ],
+    )
 
     holder_400_pct_col = pick_column(
         df,
@@ -67,17 +87,7 @@ def standardize_tdcc_df(df: pd.DataFrame, source_date: str = "") -> pd.DataFrame
             "over_400_pct",
             "400張以上%",
             "400張以上持股比例",
-        ],
-    )
-
-    holder_400_change_col = pick_column(
-        df,
-        [
-            "holder_400_change",
-            "tdcc_over_400_change",
-            "over_400_change",
-            "400張變化",
-            "400張以上變化",
+            "holder_ge_400_pct",
         ],
     )
 
@@ -89,6 +99,18 @@ def standardize_tdcc_df(df: pd.DataFrame, source_date: str = "") -> pd.DataFrame
             "over_1000_pct",
             "1000張以上%",
             "1000張以上持股比例",
+            "holder_ge_1000_pct",
+        ],
+    )
+
+    holder_400_change_col = pick_column(
+        df,
+        [
+            "holder_400_change",
+            "tdcc_over_400_change",
+            "over_400_change",
+            "400張變化",
+            "400張以上變化",
         ],
     )
 
@@ -112,9 +134,10 @@ def standardize_tdcc_df(df: pd.DataFrame, source_date: str = "") -> pd.DataFrame
     out["tdcc_date"] = source_date
 
     out["holder_400_pct"] = df[holder_400_pct_col].map(to_number) if holder_400_pct_col else pd.NA
-    out["holder_400_change"] = df[holder_400_change_col].map(to_number) if holder_400_change_col else pd.NA
     out["holder_1000_pct"] = df[holder_1000_pct_col].map(to_number) if holder_1000_pct_col else pd.NA
-    out["holder_1000_change"] = df[holder_1000_change_col].map(to_number) if holder_1000_change_col else pd.NA
+
+    out["holder_400_change_raw"] = df[holder_400_change_col].map(to_number) if holder_400_change_col else pd.NA
+    out["holder_1000_change_raw"] = df[holder_1000_change_col].map(to_number) if holder_1000_change_col else pd.NA
 
     out = out[out["stock_id"].str.match(r"^[0-9]{4}$", na=False)].copy()
 
@@ -126,12 +149,64 @@ def load_latest_tdcc() -> pd.DataFrame:
         return pd.DataFrame()
 
     try:
-        df = pd.read_csv(TDCC_LATEST_PATH, dtype={"stock_id": str, "ticker": str, "code": str})
+        df = pd.read_csv(
+            TDCC_LATEST_PATH,
+            dtype={
+                "stock_id": str,
+                "ticker": str,
+                "code": str,
+            },
+        )
     except Exception as exc:
         print(f"Read latest TDCC failed: {exc}")
         return pd.DataFrame()
 
     return standardize_tdcc_df(df, source_date="latest")
+
+
+def classify_accumulation(
+    tdcc_weeks_used: int,
+    tdcc_400_change_sum: float,
+    tdcc_1000_change_sum: float,
+    tdcc_400_up_weeks: int,
+    tdcc_1000_up_weeks: int,
+) -> tuple[str, str]:
+    if tdcc_weeks_used <= 1:
+        return "single_week_only", "TDCC歷史週數不足，僅能參考單週"
+
+    if (
+        tdcc_400_change_sum > 0
+        and tdcc_1000_change_sum > 0
+        and tdcc_400_up_weeks >= 2
+        and tdcc_1000_up_weeks >= 2
+    ):
+        return "strong_accumulation", "近幾週400張與1000張同步累積"
+
+    if (
+        tdcc_400_change_sum > 0
+        and tdcc_1000_change_sum > 0
+    ):
+        return "mild_accumulation", "近幾週400張與1000張合計增加"
+
+    if (
+        tdcc_400_change_sum > 0
+        or tdcc_1000_change_sum > 0
+    ):
+        return "mild_accumulation", "近幾週其中一項大戶級距增加"
+
+    if (
+        tdcc_400_change_sum < 0
+        and tdcc_1000_change_sum < 0
+    ):
+        return "distribution_warning", "近幾週400張與1000張同步減少"
+
+    if (
+        tdcc_400_change_sum < 0
+        or tdcc_1000_change_sum < 0
+    ):
+        return "distribution_warning", "近幾週其中一項大戶級距減少"
+
+    return "neutral", "近幾週TDCC無明顯累積"
 
 
 def load_tdcc_history_trend(max_weeks: int = 4) -> pd.DataFrame:
@@ -150,7 +225,14 @@ def load_tdcc_history_trend(max_weeks: int = 4) -> pd.DataFrame:
         source_date = parse_date_from_filename(path)
 
         try:
-            df = pd.read_csv(path, dtype={"stock_id": str, "ticker": str, "code": str})
+            df = pd.read_csv(
+                path,
+                dtype={
+                    "stock_id": str,
+                    "ticker": str,
+                    "code": str,
+                },
+            )
         except Exception as exc:
             print(f"Read TDCC history failed: {path}: {exc}")
             continue
@@ -166,63 +248,76 @@ def load_tdcc_history_trend(max_weeks: int = 4) -> pd.DataFrame:
         return pd.DataFrame()
 
     history = pd.concat(frames, ignore_index=True)
+    history = history.drop_duplicates(subset=["tdcc_date", "stock_id"], keep="last")
+    history = history.sort_values(["stock_id", "tdcc_date"]).reset_index(drop=True)
 
     grouped_rows = []
 
     for stock_id, part in history.groupby("stock_id"):
         part = part.sort_values("tdcc_date").copy()
 
-        holder_400_change = pd.to_numeric(part["holder_400_change"], errors="coerce")
-        holder_1000_change = pd.to_numeric(part["holder_1000_change"], errors="coerce")
-
-        tdcc_400_change_sum = holder_400_change.sum(skipna=True)
-        tdcc_1000_change_sum = holder_1000_change.sum(skipna=True)
-
-        tdcc_400_up_weeks = int((holder_400_change > 0).sum())
-        tdcc_1000_up_weeks = int((holder_1000_change > 0).sum())
+        stock_name = ""
+        if "stock_name" in part.columns and not part["stock_name"].dropna().empty:
+            stock_name = str(part["stock_name"].dropna().iloc[-1])
 
         tdcc_weeks_used = int(part["tdcc_date"].nunique())
+        tdcc_history_dates = ",".join(part["tdcc_date"].astype(str).dropna().unique())
 
-        signal = "neutral"
-        note_parts = []
+        holder_400_pct = pd.to_numeric(part["holder_400_pct"], errors="coerce")
+        holder_1000_pct = pd.to_numeric(part["holder_1000_pct"], errors="coerce")
 
-        if tdcc_weeks_used <= 1:
-            signal = "single_week_only"
-            note_parts.append("TDCC歷史週數不足，僅能參考單週")
+        holder_400_change_raw = pd.to_numeric(part["holder_400_change_raw"], errors="coerce")
+        holder_1000_change_raw = pd.to_numeric(part["holder_1000_change_raw"], errors="coerce")
+
+        # 優先用每週持股比例自行計算週變化。
+        # 這比直接讀 change 欄位可靠，因為歷史檔可能沒有 change 欄位，或 change 欄位不是週對週。
+        if holder_400_pct.notna().sum() >= 2:
+            holder_400_change_series = holder_400_pct.diff()
+            tdcc_400_change_sum = holder_400_pct.iloc[-1] - holder_400_pct.iloc[0]
+            tdcc_400_up_weeks = int((holder_400_change_series > 0).sum())
+            holder_400_calc_method = "pct_diff"
         else:
-            if (
-                tdcc_400_change_sum > 0
-                and tdcc_1000_change_sum > 0
-                and tdcc_400_up_weeks >= 2
-                and tdcc_1000_up_weeks >= 2
-            ):
-                signal = "strong_accumulation"
-                note_parts.append("近幾週400張與1000張同步累積")
-            elif tdcc_400_change_sum > 0 or tdcc_1000_change_sum > 0:
-                signal = "mild_accumulation"
-                note_parts.append("近幾週大戶級距溫和增加")
-            elif tdcc_400_change_sum < 0 and tdcc_1000_change_sum < 0:
-                signal = "distribution_warning"
-                note_parts.append("近幾週400張與1000張同步減少")
-            elif tdcc_400_change_sum < 0 or tdcc_1000_change_sum < 0:
-                signal = "distribution_warning"
-                note_parts.append("近幾週其中一項大戶級距減少")
-            else:
-                signal = "neutral"
-                note_parts.append("近幾週TDCC無明顯累積")
+            holder_400_change_series = holder_400_change_raw
+            tdcc_400_change_sum = holder_400_change_raw.sum(skipna=True)
+            tdcc_400_up_weeks = int((holder_400_change_raw > 0).sum())
+            holder_400_calc_method = "raw_change"
+
+        if holder_1000_pct.notna().sum() >= 2:
+            holder_1000_change_series = holder_1000_pct.diff()
+            tdcc_1000_change_sum = holder_1000_pct.iloc[-1] - holder_1000_pct.iloc[0]
+            tdcc_1000_up_weeks = int((holder_1000_change_series > 0).sum())
+            holder_1000_calc_method = "pct_diff"
+        else:
+            holder_1000_change_series = holder_1000_change_raw
+            tdcc_1000_change_sum = holder_1000_change_raw.sum(skipna=True)
+            tdcc_1000_up_weeks = int((holder_1000_change_raw > 0).sum())
+            holder_1000_calc_method = "raw_change"
+
+        tdcc_400_change_sum = 0 if pd.isna(tdcc_400_change_sum) else float(tdcc_400_change_sum)
+        tdcc_1000_change_sum = 0 if pd.isna(tdcc_1000_change_sum) else float(tdcc_1000_change_sum)
+
+        signal, note = classify_accumulation(
+            tdcc_weeks_used=tdcc_weeks_used,
+            tdcc_400_change_sum=tdcc_400_change_sum,
+            tdcc_1000_change_sum=tdcc_1000_change_sum,
+            tdcc_400_up_weeks=tdcc_400_up_weeks,
+            tdcc_1000_up_weeks=tdcc_1000_up_weeks,
+        )
 
         grouped_rows.append(
             {
                 "stock_id": stock_id,
-                "stock_name": part["stock_name"].dropna().iloc[-1] if not part["stock_name"].dropna().empty else "",
+                "stock_name": stock_name,
                 "tdcc_weeks_used": tdcc_weeks_used,
-                "tdcc_history_dates": ",".join(part["tdcc_date"].astype(str).dropna().unique()),
-                "tdcc_400_change_sum": round(float(tdcc_400_change_sum), 4),
-                "tdcc_1000_change_sum": round(float(tdcc_1000_change_sum), 4),
+                "tdcc_history_dates": tdcc_history_dates,
+                "tdcc_400_change_sum": round(tdcc_400_change_sum, 4),
+                "tdcc_1000_change_sum": round(tdcc_1000_change_sum, 4),
                 "tdcc_400_up_weeks": tdcc_400_up_weeks,
                 "tdcc_1000_up_weeks": tdcc_1000_up_weeks,
                 "tdcc_accumulation_signal": signal,
-                "tdcc_accumulation_note": "；".join(note_parts),
+                "tdcc_accumulation_note": note,
+                "holder_400_calc_method": holder_400_calc_method,
+                "holder_1000_calc_method": holder_1000_calc_method,
             }
         )
 
@@ -254,6 +349,8 @@ def latest_tdcc_to_map(latest_tdcc_df: pd.DataFrame) -> dict:
 
 
 def main() -> int:
+    TDCC_DEBUG_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+
     latest_df = load_latest_tdcc()
     trend_df = load_tdcc_history_trend(max_weeks=4)
 
@@ -262,8 +359,8 @@ def main() -> int:
 
     if not trend_df.empty:
         print(trend_df["tdcc_accumulation_signal"].value_counts(dropna=False))
-        trend_df.to_csv("output/latest/tdcc_trend_debug_latest.csv", index=False, encoding="utf-8-sig")
-        print("Saved: output/latest/tdcc_trend_debug_latest.csv")
+        trend_df.to_csv(TDCC_DEBUG_OUTPUT, index=False, encoding="utf-8-sig")
+        print(f"Saved: {TDCC_DEBUG_OUTPUT}")
 
     return 0
 
