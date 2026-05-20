@@ -8,6 +8,8 @@ import math
 
 import pandas as pd
 
+from tdcc_trend_utils import load_tdcc_history_trend, tdcc_trend_to_map
+
 
 DATA_PRICE_DIR = Path("data/daily_price")
 LATEST_DIR = Path("output/latest")
@@ -29,26 +31,38 @@ def now_taipei() -> str:
 def normalize_code(value) -> str:
     if pd.isna(value):
         return ""
+
     text = str(value).strip()
+
     if text.endswith(".0"):
         text = text[:-2]
+
     text = re.sub(r"[^0-9]", "", text)
+
     return text.zfill(4) if text else ""
 
 
 def normalize_text(value) -> str:
     if pd.isna(value):
         return ""
+
     return str(value).strip()
 
 
 def to_number(value):
     if pd.isna(value):
         return pd.NA
+
     text = str(value).strip()
-    text = text.replace(",", "").replace("%", "").replace("+", "").replace("--", "").replace(" ", "")
+    text = text.replace(",", "")
+    text = text.replace("%", "")
+    text = text.replace("+", "")
+    text = text.replace("--", "")
+    text = text.replace(" ", "")
+
     if text == "":
         return pd.NA
+
     return pd.to_numeric(text, errors="coerce")
 
 
@@ -56,6 +70,7 @@ def safe_float(value, default=math.nan) -> float:
     try:
         if pd.isna(value):
             return default
+
         return float(value)
     except Exception:
         return default
@@ -65,6 +80,7 @@ def pick_first_existing_column(df: pd.DataFrame, candidates: list[str]) -> str |
     for col in candidates:
         if col in df.columns:
             return col
+
     return None
 
 
@@ -399,6 +415,20 @@ def get_tdcc_value(row: pd.Series, candidates: list[str], default=pd.NA):
     for col in candidates:
         if col in row.index:
             return row[col]
+
+    return default
+
+
+def get_tdcc_trend_value(tdcc_trend_row, key: str, default=pd.NA):
+    if tdcc_trend_row is None:
+        return default
+
+    try:
+        if key in tdcc_trend_row.index:
+            return tdcc_trend_row[key]
+    except Exception:
+        return default
+
     return default
 
 
@@ -575,7 +605,12 @@ def calc_stock_price_metrics(price_df: pd.DataFrame, stock_id: str) -> dict | No
     }
 
 
-def calc_revenue_score(row: pd.Series, price_metrics: dict, tdcc_row: pd.Series | None) -> tuple[int, list[str], list[str]]:
+def calc_revenue_score(
+    row: pd.Series,
+    price_metrics: dict,
+    tdcc_row: pd.Series | None,
+    tdcc_trend_row: pd.Series | None = None,
+) -> tuple[int, list[str], list[str]]:
     score = 0
     notes = []
     warnings = []
@@ -680,29 +715,51 @@ def calc_revenue_score(row: pd.Series, price_metrics: dict, tdcc_row: pd.Series 
         score -= 2
         warnings.append("疑似高位爆量長上影")
 
-    if tdcc_row is not None:
-        tdcc_400_change = to_number(
-            get_tdcc_value(tdcc_row, ["holder_400_change", "400張變化", "tdcc_over_400_change", "over_400_change"], pd.NA)
-        )
-        tdcc_1000_change = to_number(
-            get_tdcc_value(tdcc_row, ["holder_1000_change", "1000張變化", "tdcc_over_1000_change", "over_1000_change"], pd.NA)
-        )
+    tdcc_signal = get_tdcc_trend_value(tdcc_trend_row, "tdcc_accumulation_signal", "")
 
-        c400 = safe_float(tdcc_400_change)
-        c1000 = safe_float(tdcc_1000_change)
+    if tdcc_signal == "strong_accumulation":
+        score += 3
+        notes.append("TDCC近幾週400張與1000張同步累積")
+    elif tdcc_signal == "mild_accumulation":
+        score += 2
+        notes.append("TDCC近幾週大戶溫和增加")
+    elif tdcc_signal == "neutral":
+        notes.append("TDCC近幾週無明顯累積")
+    elif tdcc_signal == "distribution_warning":
+        score -= 3
+        warnings.append("TDCC近幾週大戶籌碼轉弱")
+    else:
+        if tdcc_row is not None:
+            tdcc_400_change = to_number(
+                get_tdcc_value(
+                    tdcc_row,
+                    ["holder_400_change", "400張變化", "tdcc_over_400_change", "over_400_change"],
+                    pd.NA,
+                )
+            )
+            tdcc_1000_change = to_number(
+                get_tdcc_value(
+                    tdcc_row,
+                    ["holder_1000_change", "1000張變化", "tdcc_over_1000_change", "over_1000_change"],
+                    pd.NA,
+                )
+            )
 
-        if c400 > 0 and c1000 > 0:
-            score += 2
-            notes.append("TDCC 400張與1000張同步增加")
-        elif c400 > 0 or c1000 > 0:
-            score += 1
-            notes.append("TDCC 大戶級距部分增加")
-        elif c400 < 0 and c1000 < 0:
-            score -= 2
-            warnings.append("TDCC 400張與1000張同步減少")
-        elif c400 < 0 or c1000 < 0:
-            score -= 1
-            warnings.append("TDCC 大戶級距部分減少")
+            c400 = safe_float(tdcc_400_change)
+            c1000 = safe_float(tdcc_1000_change)
+
+            if c400 > 0 and c1000 > 0:
+                score += 2
+                notes.append("TDCC最新一週400張與1000張同步增加")
+            elif c400 > 0 or c1000 > 0:
+                score += 1
+                notes.append("TDCC最新一週大戶級距部分增加")
+            elif c400 < 0 and c1000 < 0:
+                score -= 2
+                warnings.append("TDCC最新一週400張與1000張同步減少")
+            elif c400 < 0 or c1000 < 0:
+                score -= 1
+                warnings.append("TDCC最新一週大戶級距部分減少")
 
     return score, notes, warnings
 
@@ -723,6 +780,10 @@ def write_debug_report(debug: dict, sample_rows: list[dict]) -> None:
         "standardized_revenue_rows",
         "price_rows",
         "tdcc_rows",
+        "tdcc_trend_rows",
+        "tdcc_strong_accumulation_count",
+        "tdcc_mild_accumulation_count",
+        "tdcc_distribution_warning_count",
         "revenue_condition_pass",
         "price_metrics_pass",
         "low_response_pass",
@@ -788,6 +849,11 @@ def write_debug_report(debug: dict, sample_rows: list[dict]) -> None:
             "off_120d_low_pct",
             "already_priced_in",
             "priced_in_reason",
+            "tdcc_accumulation_signal",
+            "tdcc_400_change_sum",
+            "tdcc_1000_change_sum",
+            "tdcc_400_up_weeks",
+            "tdcc_1000_up_weeks",
             "distance_to_ma20_pct",
             "distance_to_ema23_pct",
             "distance_to_high_60_pct",
@@ -822,6 +888,10 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
         "standardized_revenue_rows": 0,
         "price_rows": 0,
         "tdcc_rows": 0,
+        "tdcc_trend_rows": 0,
+        "tdcc_strong_accumulation_count": 0,
+        "tdcc_mild_accumulation_count": 0,
+        "tdcc_distribution_warning_count": 0,
         "revenue_condition_pass": 0,
         "price_metrics_pass": 0,
         "low_response_pass": 0,
@@ -841,10 +911,18 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
     price_df = load_daily_price_history()
     revenue_raw = load_revenue_data()
     tdcc_df = load_tdcc_latest()
+    tdcc_trend_df = load_tdcc_history_trend(max_weeks=4)
 
     debug["raw_revenue_rows"] = len(revenue_raw)
     debug["price_rows"] = len(price_df)
     debug["tdcc_rows"] = len(tdcc_df)
+    debug["tdcc_trend_rows"] = len(tdcc_trend_df)
+
+    if not tdcc_trend_df.empty and "tdcc_accumulation_signal" in tdcc_trend_df.columns:
+        signal_counts = tdcc_trend_df["tdcc_accumulation_signal"].value_counts(dropna=False).to_dict()
+        debug["tdcc_strong_accumulation_count"] = int(signal_counts.get("strong_accumulation", 0))
+        debug["tdcc_mild_accumulation_count"] = int(signal_counts.get("mild_accumulation", 0))
+        debug["tdcc_distribution_warning_count"] = int(signal_counts.get("distribution_warning", 0))
 
     revenue_df = standardize_revenue_data(revenue_raw, debug)
     debug["standardized_revenue_rows"] = len(revenue_df)
@@ -862,6 +940,8 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
             for _, row in tdcc_df.iterrows()
             if normalize_code(row.get("stock_id", ""))
         }
+
+    tdcc_trend_map = tdcc_trend_to_map(tdcc_trend_df)
 
     candidates = []
 
@@ -919,6 +999,9 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
         distance_to_high_60_pct = safe_float(price_metrics.get("distance_to_high_60_pct"))
         volume_lots = safe_float(price_metrics.get("volume_lots"), 0)
 
+        tdcc_row = tdcc_map.get(stock_id)
+        tdcc_trend_row = tdcc_trend_map.get(stock_id)
+
         low_response_condition = (
             volume_lots >= MIN_VOLUME_LOTS
             and not math.isnan(return_5d)
@@ -950,6 +1033,11 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
                     "off_120d_low_pct": price_metrics.get("off_120d_low_pct"),
                     "already_priced_in": price_metrics.get("already_priced_in"),
                     "priced_in_reason": price_metrics.get("priced_in_reason"),
+                    "tdcc_accumulation_signal": get_tdcc_trend_value(tdcc_trend_row, "tdcc_accumulation_signal", ""),
+                    "tdcc_400_change_sum": get_tdcc_trend_value(tdcc_trend_row, "tdcc_400_change_sum", pd.NA),
+                    "tdcc_1000_change_sum": get_tdcc_trend_value(tdcc_trend_row, "tdcc_1000_change_sum", pd.NA),
+                    "tdcc_400_up_weeks": get_tdcc_trend_value(tdcc_trend_row, "tdcc_400_up_weeks", pd.NA),
+                    "tdcc_1000_up_weeks": get_tdcc_trend_value(tdcc_trend_row, "tdcc_1000_up_weeks", pd.NA),
                     "distance_to_ma20_pct": distance_to_ma20_pct,
                     "distance_to_ema23_pct": distance_to_ema23_pct,
                     "distance_to_high_60_pct": distance_to_high_60_pct,
@@ -979,6 +1067,11 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
                     "off_120d_low_pct": price_metrics.get("off_120d_low_pct"),
                     "already_priced_in": price_metrics.get("already_priced_in"),
                     "priced_in_reason": price_metrics.get("priced_in_reason"),
+                    "tdcc_accumulation_signal": get_tdcc_trend_value(tdcc_trend_row, "tdcc_accumulation_signal", ""),
+                    "tdcc_400_change_sum": get_tdcc_trend_value(tdcc_trend_row, "tdcc_400_change_sum", pd.NA),
+                    "tdcc_1000_change_sum": get_tdcc_trend_value(tdcc_trend_row, "tdcc_1000_change_sum", pd.NA),
+                    "tdcc_400_up_weeks": get_tdcc_trend_value(tdcc_trend_row, "tdcc_400_up_weeks", pd.NA),
+                    "tdcc_1000_up_weeks": get_tdcc_trend_value(tdcc_trend_row, "tdcc_1000_up_weeks", pd.NA),
                     "distance_to_ma20_pct": distance_to_ma20_pct,
                     "distance_to_ema23_pct": distance_to_ema23_pct,
                     "distance_to_high_60_pct": distance_to_high_60_pct,
@@ -1001,14 +1094,32 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
 
         debug["overheat_pass"] += 1
 
-        tdcc_row = tdcc_map.get(stock_id)
-
-        score, notes, warnings = calc_revenue_score(rev_row, price_metrics, tdcc_row)
+        score, notes, warnings = calc_revenue_score(
+            rev_row,
+            price_metrics,
+            tdcc_row,
+            tdcc_trend_row,
+        )
 
         score += theme_score
         notes.append(theme_note)
 
         revaluation_priority = calc_revaluation_priority(score, theme_group, warnings)
+
+        tdcc_accumulation_signal = get_tdcc_trend_value(
+            tdcc_trend_row,
+            "tdcc_accumulation_signal",
+            "",
+        )
+
+        if revaluation_priority == "A_優先追蹤" and tdcc_accumulation_signal not in [
+            "strong_accumulation",
+            "mild_accumulation",
+        ]:
+            revaluation_priority = "B_可觀察_TDCC未確認"
+
+        if tdcc_accumulation_signal == "distribution_warning":
+            revaluation_priority = "D_降級_TDCC轉弱"
 
         if score < 8:
             add_reason("fail_score_lt_8")
@@ -1029,6 +1140,11 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
                     "off_120d_low_pct": price_metrics.get("off_120d_low_pct"),
                     "already_priced_in": price_metrics.get("already_priced_in"),
                     "priced_in_reason": price_metrics.get("priced_in_reason"),
+                    "tdcc_accumulation_signal": get_tdcc_trend_value(tdcc_trend_row, "tdcc_accumulation_signal", ""),
+                    "tdcc_400_change_sum": get_tdcc_trend_value(tdcc_trend_row, "tdcc_400_change_sum", pd.NA),
+                    "tdcc_1000_change_sum": get_tdcc_trend_value(tdcc_trend_row, "tdcc_1000_change_sum", pd.NA),
+                    "tdcc_400_up_weeks": get_tdcc_trend_value(tdcc_trend_row, "tdcc_400_up_weeks", pd.NA),
+                    "tdcc_1000_up_weeks": get_tdcc_trend_value(tdcc_trend_row, "tdcc_1000_up_weeks", pd.NA),
                     "distance_to_ma20_pct": distance_to_ma20_pct,
                     "distance_to_ema23_pct": distance_to_ema23_pct,
                     "distance_to_high_60_pct": distance_to_high_60_pct,
@@ -1127,6 +1243,13 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
             "holder_1000_pct": holder_1000_pct,
             "holder_1000_change": holder_1000_change,
             "tdcc_judgement": tdcc_judgement,
+            "tdcc_weeks_used": get_tdcc_trend_value(tdcc_trend_row, "tdcc_weeks_used", pd.NA),
+            "tdcc_400_change_sum": get_tdcc_trend_value(tdcc_trend_row, "tdcc_400_change_sum", pd.NA),
+            "tdcc_1000_change_sum": get_tdcc_trend_value(tdcc_trend_row, "tdcc_1000_change_sum", pd.NA),
+            "tdcc_400_up_weeks": get_tdcc_trend_value(tdcc_trend_row, "tdcc_400_up_weeks", pd.NA),
+            "tdcc_1000_up_weeks": get_tdcc_trend_value(tdcc_trend_row, "tdcc_1000_up_weeks", pd.NA),
+            "tdcc_accumulation_signal": get_tdcc_trend_value(tdcc_trend_row, "tdcc_accumulation_signal", ""),
+            "tdcc_accumulation_note": get_tdcc_trend_value(tdcc_trend_row, "tdcc_accumulation_note", ""),
             "price_data_warning": price_metrics.get("price_data_warning", "ok"),
             "chart_path": "",
             "chart_url": "",
@@ -1151,6 +1274,11 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
                 "off_120d_low_pct": price_metrics.get("off_120d_low_pct"),
                 "already_priced_in": price_metrics.get("already_priced_in"),
                 "priced_in_reason": price_metrics.get("priced_in_reason"),
+                "tdcc_accumulation_signal": get_tdcc_trend_value(tdcc_trend_row, "tdcc_accumulation_signal", ""),
+                "tdcc_400_change_sum": get_tdcc_trend_value(tdcc_trend_row, "tdcc_400_change_sum", pd.NA),
+                "tdcc_1000_change_sum": get_tdcc_trend_value(tdcc_trend_row, "tdcc_1000_change_sum", pd.NA),
+                "tdcc_400_up_weeks": get_tdcc_trend_value(tdcc_trend_row, "tdcc_400_up_weeks", pd.NA),
+                "tdcc_1000_up_weeks": get_tdcc_trend_value(tdcc_trend_row, "tdcc_1000_up_weeks", pd.NA),
                 "distance_to_ma20_pct": distance_to_ma20_pct,
                 "distance_to_ema23_pct": distance_to_ema23_pct,
                 "distance_to_high_60_pct": distance_to_high_60_pct,
@@ -1199,6 +1327,7 @@ def write_markdown(df: pd.DataFrame) -> None:
         lines.append("- 成交量需達 1000 張以上，避免太冷門。")
         lines.append("- 金融、食品、營建、觀光、生技、紡織等防禦 / 傳產類股直接排除。")
         lines.append("- 主流成長題材需 score >= 10；景氣循環 / 一般產業需 score >= 11。")
+        lines.append("- TDCC近幾週累積列入評分；若籌碼轉弱，候選股會降級。")
         lines.append("")
         lines.append("## 完整名單")
         lines.append("")
@@ -1225,6 +1354,11 @@ def write_markdown(df: pd.DataFrame) -> None:
             "distance_to_ma20_pct",
             "distance_to_ema23_pct",
             "distance_to_high_60_pct",
+            "tdcc_accumulation_signal",
+            "tdcc_400_change_sum",
+            "tdcc_1000_change_sum",
+            "tdcc_400_up_weeks",
+            "tdcc_1000_up_weeks",
             "close",
             "volume_lots",
             "volume_ratio",
@@ -1238,11 +1372,15 @@ def write_markdown(df: pd.DataFrame) -> None:
 
         for _, row in df.iterrows():
             values = []
+
             for col in cols:
                 value = row.get(col, "")
+
                 if pd.isna(value):
                     value = ""
+
                 values.append(str(value))
+
             lines.append("| " + " | ".join(values) + " |")
 
     OUTPUT_MD.write_text("\n".join(lines), encoding="utf-8")
@@ -1308,6 +1446,13 @@ def empty_output_df() -> pd.DataFrame:
             "holder_1000_pct",
             "holder_1000_change",
             "tdcc_judgement",
+            "tdcc_weeks_used",
+            "tdcc_400_change_sum",
+            "tdcc_1000_change_sum",
+            "tdcc_400_up_weeks",
+            "tdcc_1000_up_weeks",
+            "tdcc_accumulation_signal",
+            "tdcc_accumulation_note",
             "price_data_warning",
             "chart_path",
             "chart_url",
