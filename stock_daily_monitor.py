@@ -268,7 +268,7 @@ def calculate_breakout_score(df):
     close_above_ema23 = close > ema23
     close_above_ma60 = close > ma60
 
-        true_breakout = (
+    true_breakout = (
         close > previous_60d_high
         and volume_ratio >= 1.5
     )
