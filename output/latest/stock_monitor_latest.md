@@ -216,3 +216,24 @@
 ## 9. 非主流 / 防禦傳產：營收回檔股中的短線轉強候選股
 
 沒有符合條件的股票。
+
+## 完整候選股清單
+
+本報告上方仍為精華版觀察清單；完整合格名單已另外輸出，方便回測、比對與分享。
+
+- 總筆數：`147`
+- CSV：`output/latest/all_candidates_latest.csv`
+- Excel：`output/latest/all_candidates_latest.xlsx`
+- Markdown：`output/latest/all_candidates_latest.md`
+
+| category | count |
+|---|---:|
+| true_breakout | 36 |
+| range_rebound | 52 |
+| revenue_pullback | 56 |
+| pullback_rebound | 3 |
+
+說明：
+- `true_breakout` 只代表真正嚴格突破股。
+- `range_rebound` 代表區間內轉強 / 挑戰前高觀察，不可混入嚴格突破股。
+- `price_data_warning != ok` 的圖表或資料需標註資料品質警示。
