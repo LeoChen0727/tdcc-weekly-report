@@ -26,7 +26,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pandas requests tabulate matplotlib pillow
+          pip install pandas requests tabulate matplotlib pillow openpyxl
 
       - name: Fetch latest official daily price
         run: python fetch_official_daily_price.py
@@ -72,11 +72,14 @@ jobs:
       - name: Generate candidate charts and manifest
         run: python generate_candidate_charts.py
 
-      - name: Commit candidate charts and manifest
+      - name: Build all candidates latest files
+        run: python build_all_candidates_latest.py
+
+      - name: Commit candidate charts, manifest, and all candidates
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add output/latest/chart_manifest.csv output/latest/contact_sheet_manifest.csv output/latest/charts/ output/latest/contact_sheets/
+          git add output/latest/chart_manifest.csv output/latest/contact_sheet_manifest.csv output/latest/charts/ output/latest/contact_sheets/ output/latest/all_candidates_latest.csv output/latest/all_candidates_latest.xlsx output/latest/all_candidates_latest.md output/latest/stock_monitor_latest.md
           git status --short
-          git commit -m "Update candidate charts and chart manifest" || echo "No changes to commit"
+          git commit -m "Update candidate charts and all candidates list" || echo "No changes to commit"
           git push
