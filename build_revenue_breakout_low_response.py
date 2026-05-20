@@ -29,26 +29,34 @@ def now_taipei() -> str:
 def normalize_code(value) -> str:
     if pd.isna(value):
         return ""
+
     text = str(value).strip()
+
     if text.endswith(".0"):
         text = text[:-2]
+
     text = re.sub(r"[^0-9]", "", text)
+
     return text.zfill(4) if text else ""
 
 
 def normalize_text(value) -> str:
     if pd.isna(value):
         return ""
+
     return str(value).strip()
 
 
 def to_number(value):
     if pd.isna(value):
         return pd.NA
+
     text = str(value).strip()
     text = text.replace(",", "").replace("%", "").replace("+", "").replace("--", "").replace(" ", "")
+
     if text == "":
         return pd.NA
+
     return pd.to_numeric(text, errors="coerce")
 
 
@@ -56,6 +64,7 @@ def safe_float(value, default=math.nan) -> float:
     try:
         if pd.isna(value):
             return default
+
         return float(value)
     except Exception:
         return default
@@ -65,6 +74,7 @@ def pick_first_existing_column(df: pd.DataFrame, candidates: list[str]) -> str |
     for col in candidates:
         if col in df.columns:
             return col
+
     return None
 
 
@@ -123,20 +133,20 @@ def classify_theme(industry: str, stock_name: str = "") -> tuple[str, int, str]:
 def calc_revaluation_priority(score: int, theme_group: str, warnings: list[str]) -> str:
     has_major_warning = len(warnings) > 0
 
-    if theme_group == "mainstream_growth" and score >= 11 and not has_major_warning:
+    if theme_group == "mainstream_growth" and score >= 12 and not has_major_warning:
         return "A_優先追蹤"
 
-    if theme_group == "mainstream_growth" and score >= 9:
+    if theme_group == "mainstream_growth" and score >= 10:
         return "B_可觀察"
 
-    if theme_group == "cyclical_turnaround" and score >= 10 and not has_major_warning:
+    if theme_group == "cyclical_turnaround" and score >= 11 and not has_major_warning:
+        return "B_可觀察"
+
+    if theme_group == "neutral" and score >= 11 and not has_major_warning:
         return "B_可觀察"
 
     if theme_group == "defensive_or_traditional":
-        return "C_低優先_非成長重估"
-
-    if score >= 10 and not has_major_warning:
-        return "B_可觀察"
+        return "D_排除_非成長重估"
 
     return "D_僅留完整清單"
 
@@ -148,7 +158,12 @@ def load_daily_price_history() -> pd.DataFrame:
         try:
             df = pd.read_csv(
                 path,
-                dtype={"ticker": str, "code": str, "stock_id": str, "date": str},
+                dtype={
+                    "ticker": str,
+                    "code": str,
+                    "stock_id": str,
+                    "date": str,
+                },
             )
         except Exception as exc:
             print(f"Skip price file {path}: {exc}")
@@ -168,6 +183,7 @@ def load_daily_price_history() -> pd.DataFrame:
 
         if "date" not in df.columns:
             match = re.search(r"([0-9]{8})", path.name)
+
             if match:
                 df["date"] = match.group(1)
 
@@ -178,6 +194,7 @@ def load_daily_price_history() -> pd.DataFrame:
             df["trading_value"] = pd.NA
 
         required = {"date", "stock_id", "open", "high", "low", "close", "volume"}
+
         if not required.issubset(set(df.columns)):
             continue
 
@@ -214,6 +231,7 @@ def load_daily_price_history() -> pd.DataFrame:
     price = pd.concat(frames, ignore_index=True)
     price = price.drop_duplicates(subset=["date", "stock_id"], keep="last")
     price = price.sort_values(["stock_id", "date"]).reset_index(drop=True)
+
     return price
 
 
@@ -244,14 +262,61 @@ def standardize_revenue_data(revenue_df: pd.DataFrame, debug: dict) -> pd.DataFr
     df = revenue_df.copy()
     debug["raw_revenue_columns"] = list(df.columns)
 
-    code_col = pick_first_existing_column(df, ["stock_id", "ticker", "code", "公司代號", "股票代號"])
-    name_col = pick_first_existing_column(df, ["stock_name", "name", "company_name", "公司名稱", "股票名稱"])
-    industry_col = pick_first_existing_column(df, ["industry", "產業別", "細分族群"])
-    date_col = pick_first_existing_column(df, ["date", "revenue_date", "revenue_period", "年月", "資料年月", "營收年月"])
+    code_col = pick_first_existing_column(
+        df,
+        [
+            "stock_id",
+            "ticker",
+            "code",
+            "公司代號",
+            "股票代號",
+        ],
+    )
+
+    name_col = pick_first_existing_column(
+        df,
+        [
+            "stock_name",
+            "name",
+            "company_name",
+            "公司名稱",
+            "股票名稱",
+        ],
+    )
+
+    industry_col = pick_first_existing_column(
+        df,
+        [
+            "industry",
+            "產業別",
+            "細分族群",
+        ],
+    )
+
+    date_col = pick_first_existing_column(
+        df,
+        [
+            "date",
+            "revenue_date",
+            "revenue_period",
+            "年月",
+            "資料年月",
+            "營收年月",
+        ],
+    )
+
     latest_revenue_col = pick_first_existing_column(
         df,
-        ["latest_revenue", "monthly_revenue", "revenue", "當月營收", "營業收入-當月營收", "營收"],
+        [
+            "latest_revenue",
+            "monthly_revenue",
+            "revenue",
+            "當月營收",
+            "營業收入-當月營收",
+            "營收",
+        ],
     )
+
     latest_yoy_col = pick_first_existing_column(
         df,
         [
@@ -266,6 +331,7 @@ def standardize_revenue_data(revenue_df: pd.DataFrame, debug: dict) -> pd.DataFr
             "去年同月增減%",
         ],
     )
+
     cumulative_yoy_col = pick_first_existing_column(
         df,
         [
@@ -298,6 +364,7 @@ def standardize_revenue_data(revenue_df: pd.DataFrame, debug: dict) -> pd.DataFr
     out["stock_name"] = df[name_col].map(normalize_text) if name_col else ""
     out["industry"] = df[industry_col].map(normalize_text) if industry_col else ""
     out["revenue_release_date"] = df[date_col].astype(str) if date_col else ""
+
     out["latest_revenue"] = df[latest_revenue_col].map(to_number) if latest_revenue_col else pd.NA
     out["latest_revenue_yoy"] = df[latest_yoy_col].map(to_number)
     out["cumulative_revenue_yoy"] = df[cumulative_yoy_col].map(to_number) if cumulative_yoy_col else pd.NA
@@ -306,6 +373,7 @@ def standardize_revenue_data(revenue_df: pd.DataFrame, debug: dict) -> pd.DataFr
     out = out.dropna(subset=["latest_revenue_yoy"])
 
     debug["revenue_schema_status"] = "ok"
+
     return out
 
 
@@ -334,6 +402,7 @@ def load_tdcc_latest() -> pd.DataFrame:
         return pd.DataFrame()
 
     df["stock_id"] = df["stock_id"].map(normalize_code)
+
     return df
 
 
@@ -341,6 +410,7 @@ def get_tdcc_value(row: pd.Series, candidates: list[str], default=pd.NA):
     for col in candidates:
         if col in row.index:
             return row[col]
+
     return default
 
 
@@ -431,6 +501,7 @@ def calc_stock_price_metrics(price_df: pd.DataFrame, stock_id: str) -> dict | No
         high_volume_upper_shadow = False
 
     price_data_warning = "ok"
+
     if len(stock_price) < 120:
         price_data_warning = "available_days_too_few"
 
@@ -569,8 +640,12 @@ def calc_revenue_score(row: pd.Series, price_metrics: dict, tdcc_row: pd.Series 
         warnings.append("疑似高位爆量長上影")
 
     if tdcc_row is not None:
-        tdcc_400_change = to_number(get_tdcc_value(tdcc_row, ["holder_400_change", "400張變化", "tdcc_over_400_change", "over_400_change"], pd.NA))
-        tdcc_1000_change = to_number(get_tdcc_value(tdcc_row, ["holder_1000_change", "1000張變化", "tdcc_over_1000_change", "over_1000_change"], pd.NA))
+        tdcc_400_change = to_number(
+            get_tdcc_value(tdcc_row, ["holder_400_change", "400張變化", "tdcc_over_400_change", "over_400_change"], pd.NA)
+        )
+        tdcc_1000_change = to_number(
+            get_tdcc_value(tdcc_row, ["holder_1000_change", "1000張變化", "tdcc_over_1000_change", "over_1000_change"], pd.NA)
+        )
 
         c400 = safe_float(tdcc_400_change)
         c1000 = safe_float(tdcc_1000_change)
@@ -634,6 +709,7 @@ def write_debug_report(debug: dict, sample_rows: list[dict]) -> None:
     lines.append("")
     lines.append("### raw_revenue_columns")
     lines.append("")
+
     for col in debug.get("raw_revenue_columns", []):
         lines.append(f"- `{col}`")
 
@@ -675,11 +751,15 @@ def write_debug_report(debug: dict, sample_rows: list[dict]) -> None:
 
         for row in sample_rows[:100]:
             values = []
+
             for col in cols:
                 value = row.get(col, "")
+
                 if pd.isna(value):
                     value = ""
+
                 values.append(str(value))
+
             lines.append("| " + " | ".join(values) + " |")
 
     DEBUG_MD.write_text("\n".join(lines), encoding="utf-8")
@@ -725,6 +805,7 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
         return pd.DataFrame(), debug, sample_rows
 
     tdcc_map = {}
+
     if not tdcc_df.empty:
         tdcc_map = {
             normalize_code(row["stock_id"]): row
@@ -791,7 +872,10 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
             and return_5d <= 8
             and distance_to_ma20_pct <= 10
             and distance_to_ema23_pct <= 10
-            and (distance_to_ma20_pct >= -8 or distance_to_ema23_pct >= -8)
+            and (
+                distance_to_ma20_pct >= -8
+                or distance_to_ema23_pct >= -8
+            )
             and distance_to_high_60_pct <= 3
         )
 
@@ -862,8 +946,8 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
 
         debug["score_pass"] += 1
 
-        if theme_group == "defensive_or_traditional" and score < 11:
-            add_reason("fail_defensive_low_revaluation_priority")
+        if theme_group == "defensive_or_traditional":
+            add_reason("fail_defensive_or_traditional_excluded")
             sample_rows.append(
                 {
                     "stock_id": stock_id,
@@ -878,7 +962,49 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
                     "distance_to_ema23_pct": distance_to_ema23_pct,
                     "distance_to_high_60_pct": distance_to_high_60_pct,
                     "score": score,
-                    "reason": "fail_defensive_low_revaluation_priority",
+                    "reason": "fail_defensive_or_traditional_excluded",
+                }
+            )
+            continue
+
+        if theme_group == "mainstream_growth" and score < 10:
+            add_reason("fail_mainstream_score_lt_10")
+            sample_rows.append(
+                {
+                    "stock_id": stock_id,
+                    "stock_name": stock_name,
+                    "industry": industry,
+                    "theme_group": theme_group,
+                    "revaluation_priority": revaluation_priority,
+                    "latest_revenue_yoy": latest_yoy,
+                    "cumulative_revenue_yoy": cumulative_yoy,
+                    "return_5d": return_5d,
+                    "distance_to_ma20_pct": distance_to_ma20_pct,
+                    "distance_to_ema23_pct": distance_to_ema23_pct,
+                    "distance_to_high_60_pct": distance_to_high_60_pct,
+                    "score": score,
+                    "reason": "fail_mainstream_score_lt_10",
+                }
+            )
+            continue
+
+        if theme_group in ["cyclical_turnaround", "neutral"] and score < 11:
+            add_reason("fail_non_mainstream_score_lt_11")
+            sample_rows.append(
+                {
+                    "stock_id": stock_id,
+                    "stock_name": stock_name,
+                    "industry": industry,
+                    "theme_group": theme_group,
+                    "revaluation_priority": revaluation_priority,
+                    "latest_revenue_yoy": latest_yoy,
+                    "cumulative_revenue_yoy": cumulative_yoy,
+                    "return_5d": return_5d,
+                    "distance_to_ma20_pct": distance_to_ma20_pct,
+                    "distance_to_ema23_pct": distance_to_ema23_pct,
+                    "distance_to_high_60_pct": distance_to_high_60_pct,
+                    "score": score,
+                    "reason": "fail_non_mainstream_score_lt_11",
                 }
             )
             continue
@@ -1010,8 +1136,8 @@ def write_markdown(df: pd.DataFrame) -> None:
         lines.append("- 近 5 日漲幅 <= 8%，且距 20MA / 23EMA 不超過 10%。")
         lines.append("- 距前 60 日高點不可超過 +3%，避免已經明顯突破後才列入。")
         lines.append("- 成交量需達 1000 張以上，避免太冷門。")
-        lines.append("- 主流成長題材加分；金融、食品、營建、防禦型傳產降級。")
-        lines.append("- 分數需 >= 8；防禦 / 傳產 / 金融 / 食品若分數未達 11 會被排除。")
+        lines.append("- 金融、食品、營建、觀光、生技、紡織等防禦 / 傳產類股直接排除。")
+        lines.append("- 主流成長題材需 score >= 10；景氣循環 / 一般產業需 score >= 11。")
         lines.append("")
         lines.append("## 完整名單")
         lines.append("")
@@ -1044,11 +1170,15 @@ def write_markdown(df: pd.DataFrame) -> None:
 
         for _, row in df.iterrows():
             values = []
+
             for col in cols:
                 value = row.get(col, "")
+
                 if pd.isna(value):
                     value = ""
+
                 values.append(str(value))
+
             lines.append("| " + " | ".join(values) + " |")
 
     OUTPUT_MD.write_text("\n".join(lines), encoding="utf-8")
