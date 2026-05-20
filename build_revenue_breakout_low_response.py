@@ -210,6 +210,7 @@ def standardize_revenue_data(revenue_df: pd.DataFrame, debug: dict) -> pd.DataFr
         [
             "date",
             "revenue_date",
+            "revenue_period",
             "年月",
             "資料年月",
             "營收年月",
@@ -234,6 +235,7 @@ def standardize_revenue_data(revenue_df: pd.DataFrame, debug: dict) -> pd.DataFr
             "latest_revenue_yoy",
             "monthly_revenue_yoy",
             "revenue_yoy",
+            "revenue_yoy_pct",
             "yoy",
             "YoY",
             "當月營收年增率",
@@ -248,6 +250,7 @@ def standardize_revenue_data(revenue_df: pd.DataFrame, debug: dict) -> pd.DataFr
             "cumulative_revenue_yoy",
             "accumulated_revenue_yoy",
             "cumulative_yoy",
+            "cumulative_yoy_pct",
             "累計營收年增率",
             "累計營收增減%",
             "前期比較增減%",
