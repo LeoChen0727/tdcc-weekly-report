@@ -352,7 +352,9 @@ def build_all_candidates_latest() -> pd.DataFrame:
         default_breakout_type="range_rebound",
     )
     if not range_df.empty:
-        range_df = range_df[range_df["breakout_type"].isin(["range_rebound", "near_resistance"])].copy()
+        range_df = range_df[
+            range_df["breakout_type"].isin(["range_rebound", "near_resistance", "abnormal_volume_up"])
+        ].copy()
         frames.append(range_df)
 
     revenue_df = standardize_candidates(
