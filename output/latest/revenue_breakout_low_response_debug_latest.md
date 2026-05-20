@@ -1,6 +1,6 @@
 # 營收爆發低反應股 Debug Report
 
-- 產生時間：`2026-05-21 01:59:01 Asia/Taipei`
+- 產生時間：`2026-05-21 02:15:07 Asia/Taipei`
 
 ## 診斷統計
 
@@ -15,8 +15,8 @@
 | low_response_pass | 87 |
 | overheat_pass | 87 |
 | score_pass | 87 |
-| theme_priority_pass | 87 |
-| final_rows | 87 |
+| theme_priority_pass | 66 |
+| final_rows | 66 |
 
 ## 營收欄位狀態
 
@@ -51,6 +51,7 @@
 |---|---:|
 | fail_revenue_condition | 1695 |
 | fail_low_response_condition | 170 |
+| fail_defensive_or_traditional_excluded | 21 |
 | missing_or_insufficient_price_metrics | 6 |
 
 ## 樣本資料
@@ -110,22 +111,22 @@
 | 2545 | 皇翔 | 建材營造 |  |  | 102.09031492521602 | 53.11675313058128 | -2.86 | -1.56 | -0.87 | -4.48 |  | fail_low_response_condition |
 | 2548 | 華固 | 建材營造 | neutral | B_可觀察 | 28465.962511157395 | 34773.574080324 | -0.8 | -2.24 | -1.51 | -6.79 | 18 | selected |
 | 2611 | 志信 | 航運業 |  |  | 119.47429042961028 | 112.7116208532482 | -2.26 | -3.32 | -3.95 | -19.06 |  | fail_low_response_condition |
-| 2812 | 台中銀 | 金融保險業 | defensive_or_traditional | C_低優先_非成長重估 | 69.85182472877182 | 22.82000198057941 | -2.83 | -3.68 | -3.76 | -10.85 | 12 | selected |
+| 2812 | 台中銀 | 金融保險業 | defensive_or_traditional | D_排除_非成長重估 | 69.85182472877182 | 22.82000198057941 | -2.83 | -3.68 | -3.76 | -10.85 | 12 | fail_defensive_or_traditional_excluded |
 | 2816 | 旺旺保 | 金融保險業 |  |  | 78.73621403925392 | 29.40789362443229 | -0.63 | 2.34 | 1.7 | -3.1 |  | fail_low_response_condition |
-| 2838 | 聯邦銀 | 金融保險業 | defensive_or_traditional | C_低優先_非成長重估 | 62.81295828670586 | 25.276502670699795 | -1.72 | -1.21 | -1.57 | -6.96 | 13 | selected |
+| 2838 | 聯邦銀 | 金融保險業 | defensive_or_traditional | D_排除_非成長重估 | 62.81295828670586 | 25.276502670699795 | -1.72 | -1.21 | -1.57 | -6.96 | 13 | fail_defensive_or_traditional_excluded |
 | 2850 | 新產 | 金融保險業 |  |  | 64.58201026377658 | 21.61586465449111 | 4.14 | 5.97 | 6.1 | 0.0 |  | fail_low_response_condition |
-| 2851 | 中再保 | 金融保險業 | defensive_or_traditional | C_低優先_非成長重估 | 605.1368833163822 | 139.31094434143236 | 1.75 | 9.63 | 8.33 | -1.27 | 15 | selected |
-| 2855 | 統一證 | 金融保險業 | defensive_or_traditional | C_低優先_非成長重估 | 1002.1406834015808 | 365.76888748391855 | -5.88 | 2.27 | 3.11 | -10.91 | 16 | selected |
-| 2867 | 三商壽 | 金融保險業 | defensive_or_traditional | C_低優先_非成長重估 | 577.2178878840012 | 207.57114018496048 | -0.39 | -0.68 | -0.64 | -7.78 | 18 | selected |
-| 2880 | 華南金 | 金融保險業 | defensive_or_traditional | C_低優先_非成長重估 | 59.58077358578821 | 30.53659326449297 | -2.14 | -3.23 | -3.14 | -15.88 | 12 | selected |
-| 2881 | 富邦金 | 金融保險業 | defensive_or_traditional | C_低優先_非成長重估 | 219.7852340760573 | 402.5871994932322 | 1.16 | 3.44 | 3.09 | -2.84 | 17 | selected |
-| 2882 | 國泰金 | 金融保險業 | defensive_or_traditional | C_低優先_非成長重估 | 153.9148431130897 | 577.0666572623264 | 0.78 | 1.11 | 1.65 | -4.53 | 17 | selected |
-| 2883 | 凱基金 | 金融保險業 | defensive_or_traditional | C_低優先_非成長重估 | 144.30631310157813 | 319.6219559348892 | -1.59 | 0.01 | 0.32 | -6.49 | 16 | selected |
-| 2885 | 元大金 | 金融保險業 | defensive_or_traditional | C_低優先_非成長重估 | 324.89668645555184 | 112.85581098417563 | -1.25 | 2.38 | 3.32 | -4.01 | 17 | selected |
-| 2886 | 兆豐金 | 金融保險業 | defensive_or_traditional | C_低優先_非成長重估 | 63.039383612515074 | 23.644981888260943 | 1.9 | 1.57 | 1.57 | -2.66 | 14 | selected |
-| 2889 | 國票金 | 金融保險業 | defensive_or_traditional | C_低優先_非成長重估 | 3640.857029032418 | 137.64787213793812 | 0.34 | 0.38 | -0.65 | -17.42 | 18 | selected |
-| 2890 | 永豐金 | 金融保險業 | defensive_or_traditional | C_低優先_非成長重估 | 87.36017222905045 | 50.078518078805 | -2.45 | -3.54 | -3.52 | -11.44 | 15 | selected |
-| 2891 | 中信金 | 金融保險業 | defensive_or_traditional | C_低優先_非成長重估 | 1120.5725622466316 | 81.69612153552563 | 5.28 | 6.49 | 6.03 | -0.34 | 18 | selected |
+| 2851 | 中再保 | 金融保險業 | defensive_or_traditional | D_排除_非成長重估 | 605.1368833163822 | 139.31094434143236 | 1.75 | 9.63 | 8.33 | -1.27 | 15 | fail_defensive_or_traditional_excluded |
+| 2855 | 統一證 | 金融保險業 | defensive_or_traditional | D_排除_非成長重估 | 1002.1406834015808 | 365.76888748391855 | -5.88 | 2.27 | 3.11 | -10.91 | 16 | fail_defensive_or_traditional_excluded |
+| 2867 | 三商壽 | 金融保險業 | defensive_or_traditional | D_排除_非成長重估 | 577.2178878840012 | 207.57114018496048 | -0.39 | -0.68 | -0.64 | -7.78 | 18 | fail_defensive_or_traditional_excluded |
+| 2880 | 華南金 | 金融保險業 | defensive_or_traditional | D_排除_非成長重估 | 59.58077358578821 | 30.53659326449297 | -2.14 | -3.23 | -3.14 | -15.88 | 12 | fail_defensive_or_traditional_excluded |
+| 2881 | 富邦金 | 金融保險業 | defensive_or_traditional | D_排除_非成長重估 | 219.7852340760573 | 402.5871994932322 | 1.16 | 3.44 | 3.09 | -2.84 | 17 | fail_defensive_or_traditional_excluded |
+| 2882 | 國泰金 | 金融保險業 | defensive_or_traditional | D_排除_非成長重估 | 153.9148431130897 | 577.0666572623264 | 0.78 | 1.11 | 1.65 | -4.53 | 17 | fail_defensive_or_traditional_excluded |
+| 2883 | 凱基金 | 金融保險業 | defensive_or_traditional | D_排除_非成長重估 | 144.30631310157813 | 319.6219559348892 | -1.59 | 0.01 | 0.32 | -6.49 | 16 | fail_defensive_or_traditional_excluded |
+| 2885 | 元大金 | 金融保險業 | defensive_or_traditional | D_排除_非成長重估 | 324.89668645555184 | 112.85581098417563 | -1.25 | 2.38 | 3.32 | -4.01 | 17 | fail_defensive_or_traditional_excluded |
+| 2886 | 兆豐金 | 金融保險業 | defensive_or_traditional | D_排除_非成長重估 | 63.039383612515074 | 23.644981888260943 | 1.9 | 1.57 | 1.57 | -2.66 | 14 | fail_defensive_or_traditional_excluded |
+| 2889 | 國票金 | 金融保險業 | defensive_or_traditional | D_排除_非成長重估 | 3640.857029032418 | 137.64787213793812 | 0.34 | 0.38 | -0.65 | -17.42 | 18 | fail_defensive_or_traditional_excluded |
+| 2890 | 永豐金 | 金融保險業 | defensive_or_traditional | D_排除_非成長重估 | 87.36017222905045 | 50.078518078805 | -2.45 | -3.54 | -3.52 | -11.44 | 15 | fail_defensive_or_traditional_excluded |
+| 2891 | 中信金 | 金融保險業 | defensive_or_traditional | D_排除_非成長重估 | 1120.5725622466316 | 81.69612153552563 | 5.28 | 6.49 | 6.03 | -0.34 | 18 | fail_defensive_or_traditional_excluded |
 | 2905 | 三商 | 貿易百貨 |  |  | 352.9548403037368 | 50.7749326018759 | 0.0 | -1.49 | -2.2 | -19.58 |  | fail_low_response_condition |
 | 2923 | 鼎固-KY | 建材營造 |  |  | 160.8459070607583 | 155.54497022876842 | -15.26 | -13.02 | -10.77 | -31.39 |  | fail_low_response_condition |
 | 3006 | 晶豪科 | 半導體業 |  |  | 349.21497789414195 | 202.476438292242 | 2.77 | 11.64 | 9.24 | -14.75 |  | fail_low_response_condition |
