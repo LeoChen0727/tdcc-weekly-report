@@ -268,7 +268,10 @@ def calculate_breakout_score(df):
     close_above_ema23 = close > ema23
     close_above_ma60 = close > ma60
 
-    true_breakout = close > previous_60d_high
+        true_breakout = (
+        close > previous_60d_high
+        and volume_ratio >= 1.5
+    )
 
     range_rebound = (
         not true_breakout
@@ -284,7 +287,7 @@ def calculate_breakout_score(df):
         not true_breakout
         and close < previous_60d_high
         and distance_to_previous_60d_high_pct >= -5
-        and volume_ratio >= 1.2
+        and volume_ratio >= 1.5
         and (close_above_ma20 or close_above_ema23)
     )
 
