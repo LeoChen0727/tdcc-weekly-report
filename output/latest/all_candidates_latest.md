@@ -1,6 +1,6 @@
 # 完整候選股清單
 
-- 產生時間：`2026-05-20 21:45:39 Asia/Taipei`
+- 產生時間：`2026-05-20 23:53:06 Asia/Taipei`
 - CSV：`output/latest/all_candidates_latest.csv`
 - Excel：`output/latest/all_candidates_latest.xlsx`
 - Markdown：`output/latest/all_candidates_latest.md`
@@ -10,9 +10,9 @@
 | category | count |
 |---|---:|
 | pullback_rebound | 8 |
-| range_rebound | 38 |
+| range_rebound | 41 |
 | revenue_pullback | 172 |
-| true_breakout | 33 |
+| true_breakout | 37 |
 
 ## 各分類完整名單
 
@@ -20,39 +20,43 @@
 
 | date | category | breakout_type | stock_id | stock_name | industry | score | rank | close | volume_ratio | previous_60d_high | distance_to_previous_60d_high_pct | available_days | price_data_warning | tdcc_judgement | chart_path | note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260520 | true_breakout | true_breakout | 6189 | 豐藝 | 電子通路業 | 120 |  | 51.1 | 3.39 | 50.0 | 2.2 | 130 |  |  |  |  |
+| 20260520 | true_breakout | true_breakout | 6189 | 豐藝 | 電子通路業 | 125 |  | 51.1 | 3.39 | 50.0 | 2.2 | 130 |  |  |  |  |
 | 20260520 | true_breakout | true_breakout | 2891 | 中信金 | 金融保險業 | 118 |  | 57.8 | 2.08 | 57.0 | 1.4 | 130 |  |  |  |  |
+| 20260520 | true_breakout | true_breakout | 5488 | 松普 | 電子零組件業 | 118 |  | 11.7 | 6.39 | 11.0 | 6.36 | 130 |  |  |  |  |
 | 20260520 | true_breakout | true_breakout | 8415 | 大國鋼 | 鋼鐵工業 | 118 |  | 36.45 | 2.01 | 36.0 | 1.25 | 130 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 5488 | 松普 | 電子零組件業 | 113 |  | 11.7 | 6.39 | 11.0 | 6.36 | 130 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 1533 | 車王電 | 汽車工業 | 100 |  | 38.0 | 4.83 | 36.25 | 4.83 | 130 |  |  |  |  |
+| 20260520 | true_breakout | true_breakout | 1533 | 車王電 | 汽車工業 | 113 |  | 38.0 | 4.83 | 36.25 | 4.83 | 130 |  |  |  |  |
+| 20260520 | true_breakout | true_breakout | 3694 | 海華 | 通信網路業 | 106 |  | 71.2 | 5.33 | 65.3 | 9.04 | 130 |  |  |  |  |
+| 20260520 | true_breakout | true_breakout | 2401 | 凌陽 | 半導體業 | 98 |  | 26.9 | 3.5 | 26.6 | 1.13 | 130 |  |  |  |  |
+| 20260520 | true_breakout | true_breakout | 3537 | 堡達 | 電子零組件業 | 98 |  | 57.8 | 4.55 | 56.5 | 2.3 | 130 |  |  |  |  |
+| 20260520 | true_breakout | true_breakout | 6719 | 力智 | 半導體業 | 98 |  | 232.0 | 3.05 | 226.5 | 2.43 | 130 |  |  |  |  |
+| 20260520 | true_breakout | true_breakout | 3479 | 安勤 | 電腦及週邊設備業 | 98 |  | 110.5 | 4.5 | 105.5 | 4.74 | 130 |  |  |  |  |
 | 20260520 | true_breakout | true_breakout | 2455 | 全新 | 通信網路業 | 95 |  | 400.5 | 2.69 | 390.5 | 2.56 | 130 |  |  |  |  |
 | 20260520 | true_breakout | true_breakout | 5285 | 界霖 | 半導體業 | 95 |  | 80.4 | 2.95 | 77.2 | 4.15 | 130 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 2401 | 凌陽 | 半導體業 | 93 |  | 26.9 | 3.5 | 26.6 | 1.13 | 130 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 3694 | 海華 | 通信網路業 | 93 |  | 71.2 | 5.33 | 65.3 | 9.04 | 130 |  |  |  |  |
 | 20260520 | true_breakout | true_breakout | 2428 | 興勤 | 電子零組件業 | 93 |  | 223.0 | 2.0 | 220.5 | 1.13 | 130 |  |  |  |  |
 | 20260520 | true_breakout | true_breakout | 8050 | 廣積 | 電腦及週邊設備業 | 93 |  | 51.3 | 2.25 | 50.3 | 1.99 | 130 |  |  |  |  |
+| 20260520 | true_breakout | true_breakout | 4916 | 事欣科 | 電腦及週邊設備業 | 91 |  | 89.9 | 4.35 | 81.8 | 9.9 | 130 |  |  |  |  |
+| 20260520 | true_breakout | true_breakout | 2911 | 麗嬰房 | 貿易百貨 | 91 |  | 7.19 | 4.41 | 6.54 | 9.94 | 129 |  |  |  |  |
+| 20260520 | true_breakout | true_breakout | 3236 | 千如 | 電子零組件業 | 90 |  | 43.9 | 3.13 | 42.7 | 2.81 | 130 |  |  |  |  |
+| 20260520 | true_breakout | true_breakout | 5425 | 台半 | 半導體業 | 88 |  | 86.9 | 3.34 | 85.6 | 1.52 | 130 |  |  |  |  |
+| 20260520 | true_breakout | true_breakout | 8261 | 富鼎 | 半導體業 | 86 |  | 149.0 | 1.85 | 145.0 | 2.76 | 130 |  |  |  |  |
+| 20260520 | true_breakout | true_breakout | 3441 | 聯一光 | 光電業 | 86 |  | 48.15 | 4.55 | 47.65 | 1.05 | 130 |  |  |  |  |
+| 20260520 | true_breakout | true_breakout | 8040 | 九暘 | 半導體業 | 86 |  | 98.7 | 1.68 | 96.2 | 2.6 | 130 |  |  |  |  |
+| 20260520 | true_breakout | true_breakout | 3675 | 德微 | 半導體業 | 86 |  | 311.5 | 2.4 | 283.5 | 9.88 | 130 |  |  |  |  |
+| 20260520 | true_breakout | true_breakout | 5321 | 美而快 | 數位雲端 | 86 |  | 32.2 | 2.69 | 29.3 | 9.9 | 130 |  |  |  |  |
 | 20260520 | true_breakout | true_breakout | 3033 | 威健 | 電子通路業 | 85 |  | 51.4 | 2.22 | 49.75 | 3.32 | 130 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 3236 | 千如 | 電子零組件業 | 85 |  | 43.9 | 3.13 | 42.7 | 2.81 | 130 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 3537 | 堡達 | 電子零組件業 | 85 |  | 57.8 | 4.55 | 56.5 | 2.3 | 130 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 6719 | 力智 | 半導體業 | 85 |  | 232.0 | 3.05 | 226.5 | 2.43 | 130 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 3479 | 安勤 | 電腦及週邊設備業 | 85 |  | 110.5 | 4.5 | 105.5 | 4.74 | 130 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 5425 | 台半 | 半導體業 | 83 |  | 86.9 | 3.34 | 85.6 | 1.52 | 130 |  |  |  |  |
+| 20260520 | true_breakout | true_breakout | 2375 | 凱美 | 電子零組件業 | 84 |  | 111.5 | 1.52 | 110.5 | 0.9 | 130 |  |  |  |  |
+| 20260520 | true_breakout | true_breakout | 6742 | 澤米 | 光電業 | 83 |  | 56.1 | 7.37 | 52.2 | 7.47 | 130 |  |  |  |  |
 | 20260520 | true_breakout | true_breakout | 3094 | 聯傑 | 半導體業 | 83 |  | 36.3 | 2.18 | 35.9 | 1.11 | 130 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 4916 | 事欣科 | 電腦及週邊設備業 | 78 |  | 89.9 | 4.35 | 81.8 | 9.9 | 130 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 6742 | 澤米 | 光電業 | 78 |  | 56.1 | 7.37 | 52.2 | 7.47 | 130 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 8261 | 富鼎 | 半導體業 | 78 |  | 149.0 | 1.85 | 145.0 | 2.76 | 130 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 8040 | 九暘 | 半導體業 | 78 |  | 98.7 | 1.68 | 96.2 | 2.6 | 130 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 3675 | 德微 | 半導體業 | 78 |  | 311.5 | 2.4 | 283.5 | 9.88 | 130 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 2911 | 麗嬰房 | 貿易百貨 | 78 |  | 7.19 | 4.41 | 6.54 | 9.94 | 129 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 5321 | 美而快 | 數位雲端 | 78 |  | 32.2 | 2.69 | 29.3 | 9.9 | 130 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 2375 | 凱美 | 電子零組件業 | 76 |  | 111.5 | 1.52 | 110.5 | 0.9 | 130 |  |  |  |  |
+| 20260520 | true_breakout | true_breakout | 3090 | 日電貿 | 電子零組件業 | 79 |  | 178.5 | 1.9 | 162.5 | 9.85 | 130 |  |  |  |  |
+| 20260520 | true_breakout | true_breakout | 6209 | 今國光 | 光電業 | 79 |  | 78.9 | 1.55 | 74.8 | 5.48 | 130 |  |  |  |  |
+| 20260520 | true_breakout | true_breakout | 3504 | 揚明光 | 光電業 | 78 |  | 82.3 | 4.11 | 82.0 | 0.37 | 130 |  |  |  |  |
+| 20260520 | true_breakout | true_breakout | 6834 | 天二科技 | 電子零組件業 | 76 |  | 60.6 | 1.86 | 57.9 | 4.66 | 130 |  |  |  |  |
 | 20260520 | true_breakout | true_breakout | 3577 | 泓格 | 電腦及週邊設備業 | 75 |  | 134.0 | 2.69 | 130.0 | 3.08 | 130 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 3504 | 揚明光 | 光電業 | 73 |  | 82.3 | 4.11 | 82.0 | 0.37 | 130 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 3441 | 聯一光 | 光電業 | 73 |  | 48.15 | 4.55 | 47.65 | 1.05 | 130 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 3090 | 日電貿 | 電子零組件業 | 71 |  | 178.5 | 1.9 | 162.5 | 9.85 | 130 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 6209 | 今國光 | 光電業 | 71 |  | 78.9 | 1.55 | 74.8 | 5.48 | 130 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 6834 | 天二科技 | 電子零組件業 | 68 |  | 60.6 | 1.86 | 57.9 | 4.66 | 130 |  |  |  |  |
+| 20260520 | true_breakout | true_breakout | 6175 | 立敦 | 電子零組件業 | 71 |  | 81.5 | 1.2 | 76.3 | 6.82 | 130 |  |  |  |  |
+| 20260520 | true_breakout | true_breakout | 2478 | 大毅 | 電子零組件業 | 69 |  | 105.5 | 1.36 | 98.4 | 7.22 | 130 |  |  |  |  |
 | 20260520 | true_breakout | true_breakout | 2327 | 國巨* | 電子零組件業 | 66 |  | 520.0 | 1.51 | 516.0 | 0.78 | 130 |  |  |  |  |
+| 20260520 | true_breakout | true_breakout | 2492 | 華新科 | 電子零組件業 | 61 |  | 242.0 | 0.51 | 222.5 | 8.76 | 130 |  |  |  |  |
+| 20260520 | true_breakout | true_breakout | 3048 | 益登 | 電子通路業 | 58 |  | 61.7 | 1.07 | 60.2 | 2.49 | 130 |  |  |  |  |
 
 ### range_rebound
 
@@ -60,7 +64,7 @@
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260520 | range_rebound | near_resistance | 3624 | 光頡 | 電子零組件業 | 69 |  | 90.0 | 5.12 | 92.1 | -2.28 | 130 |  |  |  |  |
 | 20260520 | range_rebound | near_resistance | 3673 | TPK-KY | 光電業 | 69 |  | 71.7 | 2.6 | 75.4 | -4.91 | 130 |  |  |  |  |
-| 20260520 | range_rebound | range_rebound | 2603 | 長榮 | 航運業 | 69 |  | 212.5 | 3.59 | 222.5 | -4.49 | 130 |  |  |  |  |
+| 20260520 | range_rebound | abnormal_volume_up | 2603 | 長榮 | 航運業 | 69 |  | 212.5 | 3.59 | 222.5 | -4.49 | 130 |  |  |  |  |
 | 20260520 | range_rebound | range_rebound | 2027 | 大成鋼 | 鋼鐵工業 | 69 |  | 41.15 | 1.57 | 41.2 | -0.12 | 130 |  |  |  |  |
 | 20260520 | range_rebound | range_rebound | 8043 | 蜜望實 | 電子零組件業 | 69 |  | 114.5 | 3.19 | 124.0 | -7.66 | 130 |  |  |  |  |
 | 20260520 | range_rebound | near_resistance | 2498 | 宏達電 | 通信網路業 | 69 |  | 45.45 | 1.91 | 46.95 | -3.19 | 130 |  |  |  |  |
@@ -71,6 +75,8 @@
 | 20260520 | range_rebound | range_rebound | 2472 | 立隆電 | 電子零組件業 | 69 |  | 255.0 | 1.67 | 256.0 | -0.39 | 130 |  |  |  |  |
 | 20260520 | range_rebound | range_rebound | 3357 | 臺慶科 | 電子零組件業 | 69 |  | 231.0 | 2.3 | 249.5 | -7.41 | 130 |  |  |  |  |
 | 20260520 | range_rebound | range_rebound | 6415 | 矽力*-KY | 半導體業 | 69 |  | 507.0 | 1.57 | 544.0 | -6.8 | 130 |  |  |  |  |
+| 20260520 | range_rebound | abnormal_volume_up | 1710 | 東聯 | 化學工業 | 69 |  | 12.95 | 3.46 | 16.85 | -23.15 | 130 |  |  |  |  |
+| 20260520 | range_rebound | abnormal_volume_up | 6133 | 金橋 | 電子零組件業 | 69 |  | 24.35 | 6.95 | 30.05 | -18.97 | 130 |  |  |  |  |
 | 20260520 | range_rebound | range_rebound | 3294 | 英濟 | 電子零組件業 | 69 |  | 40.5 | 4.73 | 42.4 | -4.48 | 130 |  |  |  |  |
 | 20260520 | range_rebound | range_rebound | 6155 | 鈞寶 | 電子零組件業 | 69 |  | 55.9 | 1.94 | 56.4 | -0.89 | 130 |  |  |  |  |
 | 20260520 | range_rebound | range_rebound | 6284 | 佳邦 | 電子零組件業 | 69 |  | 88.0 | 3.89 | 91.9 | -4.24 | 130 |  |  |  |  |
@@ -80,20 +86,21 @@
 | 20260520 | range_rebound | range_rebound | 6485 | 點序 | 半導體業 | 69 |  | 112.0 | 2.88 | 118.5 | -5.49 | 130 |  |  |  |  |
 | 20260520 | range_rebound | range_rebound | 6174 | 安碁 | 電子零組件業 | 69 |  | 43.45 | 2.04 | 43.95 | -1.14 | 130 |  |  |  |  |
 | 20260520 | range_rebound | range_rebound | 6432 | 今展科 | 電子零組件業 | 69 |  | 52.7 | 2.14 | 54.5 | -3.3 | 130 |  |  |  |  |
-| 20260520 | range_rebound | range_rebound | 8044 | 網家 | 數位雲端 | 69 |  | 29.0 | 4.76 | 29.3 | -1.02 | 130 |  |  |  |  |
+| 20260520 | range_rebound | abnormal_volume_up | 8044 | 網家 | 數位雲端 | 69 |  | 29.0 | 4.76 | 29.3 | -1.02 | 130 |  |  |  |  |
 | 20260520 | range_rebound | near_resistance | 6642 | 富致 | 電子零組件業 | 69 |  | 83.7 | 6.3 | 84.3 | -0.71 | 130 |  |  |  |  |
 | 20260520 | range_rebound | range_rebound | 6237 | 驊訊 | 半導體業 | 69 |  | 48.55 | 2.69 | 52.0 | -6.63 | 130 |  |  |  |  |
 | 20260520 | range_rebound | near_resistance | 8255 | 朋程 | 電機機械 | 69 |  | 156.0 | 2.79 | 157.0 | -0.64 | 130 |  |  |  |  |
 | 20260520 | range_rebound | range_rebound | 8121 | 越峰 | 電子零組件業 | 69 |  | 35.2 | 1.77 | 37.0 | -4.86 | 130 |  |  |  |  |
-| 20260520 | range_rebound | range_rebound | 8473 | 山林水 | 綠能環保 | 69 |  | 39.75 | 4.78 | 41.4 | -3.99 | 130 |  |  |  |  |
+| 20260520 | range_rebound | abnormal_volume_up | 8473 | 山林水 | 綠能環保 | 69 |  | 39.75 | 4.78 | 41.4 | -3.99 | 130 |  |  |  |  |
 | 20260520 | range_rebound | range_rebound | 8081 | 致新 | 半導體業 | 69 |  | 272.0 | 2.05 | 277.0 | -1.81 | 130 |  |  |  |  |
 | 20260520 | range_rebound | range_rebound | 6558 | 興能高 | 其他電子業 | 69 |  | 32.2 | 2.77 | 34.75 | -7.34 | 130 |  |  |  |  |
-| 20260520 | range_rebound | range_rebound | 5299 | 杰力 | 半導體業 | 69 |  | 104.5 | 4.58 | 106.0 | -1.42 | 130 |  |  |  |  |
+| 20260520 | range_rebound | abnormal_volume_up | 5299 | 杰力 | 半導體業 | 69 |  | 104.5 | 4.58 | 106.0 | -1.42 | 130 |  |  |  |  |
 | 20260520 | range_rebound | range_rebound | 6138 | 茂達 | 半導體業 | 69 |  | 308.5 | 1.58 | 316.0 | -2.37 | 130 |  |  |  |  |
-| 20260520 | range_rebound | range_rebound | 6538 | 倉和 | 電子零組件業 | 69 |  | 106.5 | 3.75 | 107.0 | -0.47 | 130 |  |  |  |  |
+| 20260520 | range_rebound | abnormal_volume_up | 6538 | 倉和 | 電子零組件業 | 69 |  | 106.5 | 3.75 | 107.0 | -0.47 | 130 |  |  |  |  |
 | 20260520 | range_rebound | range_rebound | 7712 | 博盛半導體 | 半導體業 | 69 |  | 167.5 | 1.76 | 173.0 | -3.18 | 130 |  |  |  |  |
 | 20260520 | range_rebound | near_resistance | 5236 | 凌陽創新 | 半導體業 | 69 |  | 172.0 | 2.0 | 179.0 | -3.91 | 130 |  |  |  |  |
 | 20260520 | range_rebound | range_rebound | 6411 | 晶焱 | 半導體業 | 69 |  | 86.0 | 1.96 | 90.5 | -4.97 | 130 |  |  |  |  |
+| 20260520 | range_rebound | abnormal_volume_up | 2314 | 台揚 | 通信網路業 | 69 |  | 14.6 | 3.28 | 22.2 | -34.23 | 130 |  |  |  |  |
 | 20260520 | range_rebound | range_rebound | 3546 | 宇峻 | 文化創意業 | 69 |  | 81.3 | 2.67 | 82.5 | -1.45 | 130 |  |  |  |  |
 | 20260520 | range_rebound | near_resistance | 2420 | 新巨 | 電子零組件業 | 69 |  | 58.9 | 2.0 | 59.9 | -1.67 | 130 |  |  |  |  |
 
