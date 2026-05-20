@@ -196,14 +196,37 @@ def add_technical_metrics(df):
 
 def calculate_breakout_score(df):
     """
-    嚴格向上盤整帶量突破 / 區間內轉強判斷。
+    嚴格向上盤整帶量突破 / 區間內轉強 / 異常大量上漲觀察。
 
-    修正重點：
-    1. 嚴格突破必須突破「前 60 個交易日最高價 high」。
-    2. 今日 high 不納入 previous_60d_high，避免自己突破自己。
-    3. 可用資料少於 90 日，不允許列入嚴格突破股。
-    4. 尚未突破前高但站回 20MA/23EMA、放量、距前高不遠者，
-       只分類為 range_rebound / near_resistance，不應放入嚴格突破股。
+    分類邏輯：
+
+    1. true_breakout
+       - 收盤價突破前 60 個交易日最高價
+       - 且 volume_ratio >= 1.5
+       - 或符合漲停 / 接近漲停突破，可豁免量比條件
+
+    2. abnormal_volume_up
+       - 尚未突破前 60 日高點
+       - 但量比 >= 3.0
+       - 且單日漲幅 >= 5%
+       - 且站上 20MA 或 23EMA
+       - 放入觀察股，不放入嚴格突破股
+
+    3. range_rebound
+       - 尚未突破前 60 日高點
+       - 站上 20MA 或 23EMA
+       - volume_ratio >= 1.5
+       - 距離前 60 日高點 10% 內
+       - 放入區間內轉強觀察
+
+    4. near_resistance
+       - 尚未突破前 60 日高點
+       - 距離前 60 日高點 5% 內
+       - volume_ratio >= 1.5
+       - 放入挑戰前高觀察
+
+    5. false_or_unconfirmed_breakout
+       - 不輸出，直接 return None
     """
     df = add_technical_metrics(df)
 
@@ -232,7 +255,13 @@ def calculate_breakout_score(df):
     if pd.isna(open_price) or pd.isna(high_today) or pd.isna(low_today):
         return None
 
+    if pd.isna(close) or pd.isna(prev_close):
+        return None
+
     if pd.isna(ma20) or pd.isna(ma60) or pd.isna(vol20):
+        return None
+
+    if prev_close <= 0 or vol20 <= 0:
         return None
 
     previous_60 = df.iloc[-61:-1].copy()
@@ -252,11 +281,15 @@ def calculate_breakout_score(df):
 
     consolidation_range_pct = (previous_40d_high - previous_40d_low) / previous_40d_low * 100
     breakout_pct = (close - previous_60d_high) / previous_60d_high * 100
+
     distance_to_previous_40d_high_pct = (close / previous_40d_high - 1) * 100
     distance_to_previous_60d_high_pct = (close / previous_60d_high - 1) * 100
 
     volume_ratio = volume / vol20 if vol20 and vol20 > 0 else 0
-    return_5d = (close / df.iloc[-6]["close"] - 1) * 100 if len(df) >= 6 else 0
+    return_5d = (close / df.iloc[-6]["close"] - 1) * 100 if len(df) >= 6 and df.iloc[-6]["close"] > 0 else 0
+
+    daily_return_pct = (close / prev_close - 1) * 100 if prev_close and prev_close > 0 else 0
+    close_near_high = close >= high_today * 0.995 if high_today and high_today > 0 else False
 
     gap_ma20 = (close / ma20 - 1) * 100 if ma20 and ma20 > 0 else 0
     gap_ma60 = (close / ma60 - 1) * 100 if ma60 and ma60 > 0 else 0
@@ -268,21 +301,50 @@ def calculate_breakout_score(df):
     close_above_ema23 = close > ema23
     close_above_ma60 = close > ma60
 
-    true_breakout = (
+    # 漲停 / 接近漲停突破：
+    # 漲停鎖住時可能量比不足，但這不是弱，而是買不到量。
+    limit_up_breakout = (
         close > previous_60d_high
-        and volume_ratio >= 1.5
+        and daily_return_pct >= 9.5
+        and close_near_high
     )
 
+    # 嚴格突破：
+    # 一般突破必須帶量；漲停 / 接近漲停突破可豁免量比。
+    true_breakout = (
+        close > previous_60d_high
+        and (
+            volume_ratio >= 1.5
+            or limit_up_breakout
+        )
+    )
+
+    # 尚未突破前高，但異常大量上漲。
+    # 這種不是嚴格突破，但值得觀察。
+    abnormal_volume_up = (
+        not true_breakout
+        and close < previous_60d_high
+        and volume_ratio >= 3.0
+        and daily_return_pct >= 5
+        and (close_above_ma20 or close_above_ema23)
+        and close > prev_close
+        and close >= open_price
+    )
+
+    # 區間內轉強：
+    # 尚未突破前 60 日高點，但站回均線、放量、距前高不遠。
     range_rebound = (
         not true_breakout
+        and close < previous_60d_high
         and volume_ratio >= 1.5
         and (close_above_ma20 or close_above_ema23)
-        and close < previous_60d_high
         and distance_to_previous_60d_high_pct >= -10
         and close > prev_close
         and close >= open_price
     )
 
+    # 挑戰前高觀察：
+    # 尚未突破，但距離前高很近，且有量。
     near_resistance = (
         not true_breakout
         and close < previous_60d_high
@@ -293,6 +355,8 @@ def calculate_breakout_score(df):
 
     if true_breakout:
         breakout_type = "true_breakout"
+    elif abnormal_volume_up:
+        breakout_type = "abnormal_volume_up"
     elif range_rebound:
         breakout_type = "range_rebound"
     elif near_resistance:
@@ -300,6 +364,8 @@ def calculate_breakout_score(df):
     else:
         breakout_type = "false_or_unconfirmed_breakout"
 
+    # 這裡的 return None 只排除完全不符合 A～E 分類的股票。
+    # true_breakout / abnormal_volume_up / range_rebound / near_resistance 都會保留輸出。
     if breakout_type == "false_or_unconfirmed_breakout":
         return None
 
@@ -310,17 +376,21 @@ def calculate_breakout_score(df):
     elif consolidation_range_pct <= 25:
         score += 15
 
-    if true_breakout:
+    if breakout_type == "true_breakout":
         if breakout_pct >= 5:
             score += 35
         elif breakout_pct >= 2:
             score += 32
         else:
             score += 30
+    elif breakout_type == "abnormal_volume_up":
+        score += 22
     else:
         score += 12
 
-    if volume_ratio >= 2:
+    if volume_ratio >= 3:
+        score += 30
+    elif volume_ratio >= 2:
         score += 25
     elif volume_ratio >= 1.5:
         score += 18
@@ -342,7 +412,10 @@ def calculate_breakout_score(df):
     if close > prev_close:
         score += 5
 
-    if true_breakout:
+    if limit_up_breakout:
+        score += 8
+
+    if breakout_type == "true_breakout":
         if return_5d > 20:
             score -= 20
         elif return_5d > 12:
@@ -353,7 +426,8 @@ def calculate_breakout_score(df):
         elif distance_to_previous_60d_high_pct >= -10:
             score += 5
 
-    if not true_breakout:
+    # 非嚴格突破股不應該分數高過真正突破股。
+    if breakout_type != "true_breakout":
         score = min(score, 69)
 
     return {
@@ -379,6 +453,11 @@ def calculate_breakout_score(df):
         "breakout_pct": round(breakout_pct, 2),
         "volume_ratio": round(volume_ratio, 2),
         "return_5d_pct": round(return_5d, 2),
+        "daily_return_pct": round(daily_return_pct, 2),
+
+        "limit_up_breakout": bool(limit_up_breakout),
+        "abnormal_volume_up": bool(abnormal_volume_up),
+
         "breakout_type": breakout_type,
         "score": round(score, 1),
     }
