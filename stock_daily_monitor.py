@@ -1180,7 +1180,7 @@ def main():
 
     if not breakout_all_df.empty and "breakout_type" in breakout_all_df.columns:
         range_rebound_df = breakout_all_df[
-            breakout_all_df["breakout_type"].isin(["range_rebound", "near_resistance"])
+            breakout_all_df["breakout_type"].isin(["range_rebound", "near_resistance", "abnormal_volume_up"])
         ].copy()
 
         breakout_df = breakout_all_df[
