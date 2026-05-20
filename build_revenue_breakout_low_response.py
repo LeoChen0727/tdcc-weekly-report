@@ -29,41 +29,26 @@ def now_taipei() -> str:
 def normalize_code(value) -> str:
     if pd.isna(value):
         return ""
-
     text = str(value).strip()
-
     if text.endswith(".0"):
         text = text[:-2]
-
     text = re.sub(r"[^0-9]", "", text)
-
-    if not text:
-        return ""
-
-    return text.zfill(4)
+    return text.zfill(4) if text else ""
 
 
 def normalize_text(value) -> str:
     if pd.isna(value):
         return ""
-
     return str(value).strip()
 
 
 def to_number(value):
     if pd.isna(value):
         return pd.NA
-
     text = str(value).strip()
-    text = text.replace(",", "")
-    text = text.replace("%", "")
-    text = text.replace("+", "")
-    text = text.replace("--", "")
-    text = text.replace(" ", "")
-
+    text = text.replace(",", "").replace("%", "").replace("+", "").replace("--", "").replace(" ", "")
     if text == "":
         return pd.NA
-
     return pd.to_numeric(text, errors="coerce")
 
 
@@ -71,7 +56,6 @@ def safe_float(value, default=math.nan) -> float:
     try:
         if pd.isna(value):
             return default
-
         return float(value)
     except Exception:
         return default
@@ -81,8 +65,80 @@ def pick_first_existing_column(df: pd.DataFrame, candidates: list[str]) -> str |
     for col in candidates:
         if col in df.columns:
             return col
-
     return None
+
+
+def classify_theme(industry: str, stock_name: str = "") -> tuple[str, int, str]:
+    text = f"{industry or ''} {stock_name or ''}"
+
+    mainstream_keywords = [
+        "半導體",
+        "電子零組件",
+        "電腦及週邊",
+        "通信網路",
+        "光電",
+        "資訊服務",
+        "其他電子",
+        "電子通路",
+    ]
+
+    cyclical_keywords = [
+        "鋼鐵",
+        "塑膠",
+        "化學",
+        "航運",
+        "電機機械",
+        "玻璃陶瓷",
+        "造紙",
+        "橡膠",
+    ]
+
+    defensive_keywords = [
+        "金融",
+        "金融保險",
+        "食品",
+        "水泥",
+        "油電燃氣",
+        "百貨",
+        "觀光",
+        "營建",
+        "生技醫療",
+        "紡織",
+        "農業科技",
+        "文化創意",
+    ]
+
+    if any(k in text for k in mainstream_keywords):
+        return "mainstream_growth", 3, "主流成長題材"
+
+    if any(k in text for k in cyclical_keywords):
+        return "cyclical_turnaround", 1, "景氣循環 / 報價轉機"
+
+    if any(k in text for k in defensive_keywords):
+        return "defensive_or_traditional", -2, "防禦 / 傳產 / 金融 / 食品"
+
+    return "neutral", 0, "一般產業"
+
+
+def calc_revaluation_priority(score: int, theme_group: str, warnings: list[str]) -> str:
+    has_major_warning = len(warnings) > 0
+
+    if theme_group == "mainstream_growth" and score >= 11 and not has_major_warning:
+        return "A_優先追蹤"
+
+    if theme_group == "mainstream_growth" and score >= 9:
+        return "B_可觀察"
+
+    if theme_group == "cyclical_turnaround" and score >= 10 and not has_major_warning:
+        return "B_可觀察"
+
+    if theme_group == "defensive_or_traditional":
+        return "C_低優先_非成長重估"
+
+    if score >= 10 and not has_major_warning:
+        return "B_可觀察"
+
+    return "D_僅留完整清單"
 
 
 def load_daily_price_history() -> pd.DataFrame:
@@ -92,12 +148,7 @@ def load_daily_price_history() -> pd.DataFrame:
         try:
             df = pd.read_csv(
                 path,
-                dtype={
-                    "ticker": str,
-                    "code": str,
-                    "stock_id": str,
-                    "date": str,
-                },
+                dtype={"ticker": str, "code": str, "stock_id": str, "date": str},
             )
         except Exception as exc:
             print(f"Skip price file {path}: {exc}")
@@ -117,7 +168,6 @@ def load_daily_price_history() -> pd.DataFrame:
 
         if "date" not in df.columns:
             match = re.search(r"([0-9]{8})", path.name)
-
             if match:
                 df["date"] = match.group(1)
 
@@ -128,7 +178,6 @@ def load_daily_price_history() -> pd.DataFrame:
             df["trading_value"] = pd.NA
 
         required = {"date", "stock_id", "open", "high", "low", "close", "volume"}
-
         if not required.issubset(set(df.columns)):
             continue
 
@@ -165,7 +214,6 @@ def load_daily_price_history() -> pd.DataFrame:
     price = pd.concat(frames, ignore_index=True)
     price = price.drop_duplicates(subset=["date", "stock_id"], keep="last")
     price = price.sort_values(["stock_id", "date"]).reset_index(drop=True)
-
     return price
 
 
@@ -196,61 +244,14 @@ def standardize_revenue_data(revenue_df: pd.DataFrame, debug: dict) -> pd.DataFr
     df = revenue_df.copy()
     debug["raw_revenue_columns"] = list(df.columns)
 
-    code_col = pick_first_existing_column(
-        df,
-        [
-            "stock_id",
-            "ticker",
-            "code",
-            "公司代號",
-            "股票代號",
-        ],
-    )
-
-    name_col = pick_first_existing_column(
-        df,
-        [
-            "stock_name",
-            "name",
-            "company_name",
-            "公司名稱",
-            "股票名稱",
-        ],
-    )
-
-    industry_col = pick_first_existing_column(
-        df,
-        [
-            "industry",
-            "產業別",
-            "細分族群",
-        ],
-    )
-
-    date_col = pick_first_existing_column(
-        df,
-        [
-            "date",
-            "revenue_date",
-            "revenue_period",
-            "年月",
-            "資料年月",
-            "營收年月",
-        ],
-    )
-
+    code_col = pick_first_existing_column(df, ["stock_id", "ticker", "code", "公司代號", "股票代號"])
+    name_col = pick_first_existing_column(df, ["stock_name", "name", "company_name", "公司名稱", "股票名稱"])
+    industry_col = pick_first_existing_column(df, ["industry", "產業別", "細分族群"])
+    date_col = pick_first_existing_column(df, ["date", "revenue_date", "revenue_period", "年月", "資料年月", "營收年月"])
     latest_revenue_col = pick_first_existing_column(
         df,
-        [
-            "latest_revenue",
-            "monthly_revenue",
-            "revenue",
-            "當月營收",
-            "營業收入-當月營收",
-            "營收",
-        ],
+        ["latest_revenue", "monthly_revenue", "revenue", "當月營收", "營業收入-當月營收", "營收"],
     )
-
     latest_yoy_col = pick_first_existing_column(
         df,
         [
@@ -265,7 +266,6 @@ def standardize_revenue_data(revenue_df: pd.DataFrame, debug: dict) -> pd.DataFr
             "去年同月增減%",
         ],
     )
-
     cumulative_yoy_col = pick_first_existing_column(
         df,
         [
@@ -298,7 +298,6 @@ def standardize_revenue_data(revenue_df: pd.DataFrame, debug: dict) -> pd.DataFr
     out["stock_name"] = df[name_col].map(normalize_text) if name_col else ""
     out["industry"] = df[industry_col].map(normalize_text) if industry_col else ""
     out["revenue_release_date"] = df[date_col].astype(str) if date_col else ""
-
     out["latest_revenue"] = df[latest_revenue_col].map(to_number) if latest_revenue_col else pd.NA
     out["latest_revenue_yoy"] = df[latest_yoy_col].map(to_number)
     out["cumulative_revenue_yoy"] = df[cumulative_yoy_col].map(to_number) if cumulative_yoy_col else pd.NA
@@ -307,7 +306,6 @@ def standardize_revenue_data(revenue_df: pd.DataFrame, debug: dict) -> pd.DataFr
     out = out.dropna(subset=["latest_revenue_yoy"])
 
     debug["revenue_schema_status"] = "ok"
-
     return out
 
 
@@ -336,7 +334,6 @@ def load_tdcc_latest() -> pd.DataFrame:
         return pd.DataFrame()
 
     df["stock_id"] = df["stock_id"].map(normalize_code)
-
     return df
 
 
@@ -344,7 +341,6 @@ def get_tdcc_value(row: pd.Series, candidates: list[str], default=pd.NA):
     for col in candidates:
         if col in row.index:
             return row[col]
-
     return default
 
 
@@ -435,7 +431,6 @@ def calc_stock_price_metrics(price_df: pd.DataFrame, stock_id: str) -> dict | No
         high_volume_upper_shadow = False
 
     price_data_warning = "ok"
-
     if len(stock_price) < 120:
         price_data_warning = "available_days_too_few"
 
@@ -574,12 +569,8 @@ def calc_revenue_score(row: pd.Series, price_metrics: dict, tdcc_row: pd.Series 
         warnings.append("疑似高位爆量長上影")
 
     if tdcc_row is not None:
-        tdcc_400_change = to_number(
-            get_tdcc_value(tdcc_row, ["holder_400_change", "400張變化", "tdcc_over_400_change", "over_400_change"], pd.NA)
-        )
-        tdcc_1000_change = to_number(
-            get_tdcc_value(tdcc_row, ["holder_1000_change", "1000張變化", "tdcc_over_1000_change", "over_1000_change"], pd.NA)
-        )
+        tdcc_400_change = to_number(get_tdcc_value(tdcc_row, ["holder_400_change", "400張變化", "tdcc_over_400_change", "over_400_change"], pd.NA))
+        tdcc_1000_change = to_number(get_tdcc_value(tdcc_row, ["holder_1000_change", "1000張變化", "tdcc_over_1000_change", "over_1000_change"], pd.NA))
 
         c400 = safe_float(tdcc_400_change)
         c1000 = safe_float(tdcc_1000_change)
@@ -621,6 +612,7 @@ def write_debug_report(debug: dict, sample_rows: list[dict]) -> None:
         "low_response_pass",
         "overheat_pass",
         "score_pass",
+        "theme_priority_pass",
         "final_rows",
     ]:
         lines.append(f"| {key} | {debug.get(key, 0)} |")
@@ -642,7 +634,6 @@ def write_debug_report(debug: dict, sample_rows: list[dict]) -> None:
     lines.append("")
     lines.append("### raw_revenue_columns")
     lines.append("")
-
     for col in debug.get("raw_revenue_columns", []):
         lines.append(f"- `{col}`")
 
@@ -666,6 +657,9 @@ def write_debug_report(debug: dict, sample_rows: list[dict]) -> None:
         cols = [
             "stock_id",
             "stock_name",
+            "industry",
+            "theme_group",
+            "revaluation_priority",
             "latest_revenue_yoy",
             "cumulative_revenue_yoy",
             "return_5d",
@@ -679,17 +673,13 @@ def write_debug_report(debug: dict, sample_rows: list[dict]) -> None:
         lines.append("| " + " | ".join(cols) + " |")
         lines.append("| " + " | ".join(["---"] * len(cols)) + " |")
 
-        for row in sample_rows[:80]:
+        for row in sample_rows[:100]:
             values = []
-
             for col in cols:
                 value = row.get(col, "")
-
                 if pd.isna(value):
                     value = ""
-
                 values.append(str(value))
-
             lines.append("| " + " | ".join(values) + " |")
 
     DEBUG_MD.write_text("\n".join(lines), encoding="utf-8")
@@ -708,6 +698,7 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
         "low_response_pass": 0,
         "overheat_pass": 0,
         "score_pass": 0,
+        "theme_priority_pass": 0,
         "final_rows": 0,
         "reason_counts": {},
     }
@@ -734,7 +725,6 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
         return pd.DataFrame(), debug, sample_rows
 
     tdcc_map = {}
-
     if not tdcc_df.empty:
         tdcc_map = {
             normalize_code(row["stock_id"]): row
@@ -747,6 +737,7 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
     for _, rev_row in revenue_df.iterrows():
         stock_id = normalize_code(rev_row.get("stock_id", ""))
         stock_name = rev_row.get("stock_name", "")
+        industry = rev_row.get("industry", "")
 
         if not stock_id:
             add_reason("missing_stock_id")
@@ -778,6 +769,7 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
                 {
                     "stock_id": stock_id,
                     "stock_name": stock_name,
+                    "industry": industry,
                     "latest_revenue_yoy": latest_yoy,
                     "cumulative_revenue_yoy": cumulative_yoy,
                     "reason": "missing_or_insufficient_price_metrics",
@@ -799,10 +791,7 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
             and return_5d <= 8
             and distance_to_ma20_pct <= 10
             and distance_to_ema23_pct <= 10
-            and (
-                distance_to_ma20_pct >= -8
-                or distance_to_ema23_pct >= -8
-            )
+            and (distance_to_ma20_pct >= -8 or distance_to_ema23_pct >= -8)
             and distance_to_high_60_pct <= 3
         )
 
@@ -812,6 +801,7 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
                 {
                     "stock_id": stock_id,
                     "stock_name": stock_name,
+                    "industry": industry,
                     "latest_revenue_yoy": latest_yoy,
                     "cumulative_revenue_yoy": cumulative_yoy,
                     "return_5d": return_5d,
@@ -841,7 +831,13 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
 
         tdcc_row = tdcc_map.get(stock_id)
 
+        theme_group, theme_score, theme_note = classify_theme(industry, stock_name)
         score, notes, warnings = calc_revenue_score(rev_row, price_metrics, tdcc_row)
+
+        score += theme_score
+        notes.append(theme_note)
+
+        revaluation_priority = calc_revaluation_priority(score, theme_group, warnings)
 
         if score < 8:
             add_reason("fail_score_lt_8")
@@ -849,6 +845,9 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
                 {
                     "stock_id": stock_id,
                     "stock_name": stock_name,
+                    "industry": industry,
+                    "theme_group": theme_group,
+                    "revaluation_priority": revaluation_priority,
                     "latest_revenue_yoy": latest_yoy,
                     "cumulative_revenue_yoy": cumulative_yoy,
                     "return_5d": return_5d,
@@ -862,6 +861,29 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
             continue
 
         debug["score_pass"] += 1
+
+        if theme_group == "defensive_or_traditional" and score < 11:
+            add_reason("fail_defensive_low_revaluation_priority")
+            sample_rows.append(
+                {
+                    "stock_id": stock_id,
+                    "stock_name": stock_name,
+                    "industry": industry,
+                    "theme_group": theme_group,
+                    "revaluation_priority": revaluation_priority,
+                    "latest_revenue_yoy": latest_yoy,
+                    "cumulative_revenue_yoy": cumulative_yoy,
+                    "return_5d": return_5d,
+                    "distance_to_ma20_pct": distance_to_ma20_pct,
+                    "distance_to_ema23_pct": distance_to_ema23_pct,
+                    "distance_to_high_60_pct": distance_to_high_60_pct,
+                    "score": score,
+                    "reason": "fail_defensive_low_revaluation_priority",
+                }
+            )
+            continue
+
+        debug["theme_priority_pass"] += 1
 
         tdcc_date = ""
         holder_400_change = pd.NA
@@ -885,7 +907,11 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
             "breakout_type": CATEGORY,
             "stock_id": stock_id,
             "stock_name": stock_name,
-            "industry": rev_row.get("industry", ""),
+            "industry": industry,
+            "theme_group": theme_group,
+            "theme_score": theme_score,
+            "theme_note": theme_note,
+            "revaluation_priority": revaluation_priority,
             "score": score,
             "rank": pd.NA,
             "latest_revenue_yoy": round(latest_yoy, 2),
@@ -933,6 +959,9 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
             {
                 "stock_id": stock_id,
                 "stock_name": stock_name,
+                "industry": industry,
+                "theme_group": theme_group,
+                "revaluation_priority": revaluation_priority,
                 "latest_revenue_yoy": latest_yoy,
                 "cumulative_revenue_yoy": cumulative_yoy,
                 "return_5d": return_5d,
@@ -951,7 +980,10 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
         write_debug_report(debug, sample_rows)
         return result, debug, sample_rows
 
-    result = result.sort_values(["score", "latest_revenue_yoy"], ascending=[False, False]).reset_index(drop=True)
+    result = result.sort_values(
+        ["revaluation_priority", "score", "latest_revenue_yoy"],
+        ascending=[True, False, False],
+    ).reset_index(drop=True)
     result["rank"] = range(1, len(result) + 1)
 
     debug["final_rows"] = len(result)
@@ -978,7 +1010,8 @@ def write_markdown(df: pd.DataFrame) -> None:
         lines.append("- 近 5 日漲幅 <= 8%，且距 20MA / 23EMA 不超過 10%。")
         lines.append("- 距前 60 日高點不可超過 +3%，避免已經明顯突破後才列入。")
         lines.append("- 成交量需達 1000 張以上，避免太冷門。")
-        lines.append("- 分數需 >= 8。")
+        lines.append("- 主流成長題材加分；金融、食品、營建、防禦型傳產降級。")
+        lines.append("- 分數需 >= 8；防禦 / 傳產 / 金融 / 食品若分數未達 11 會被排除。")
         lines.append("")
         lines.append("## 完整名單")
         lines.append("")
@@ -988,6 +1021,9 @@ def write_markdown(df: pd.DataFrame) -> None:
             "stock_id",
             "stock_name",
             "industry",
+            "theme_group",
+            "theme_score",
+            "revaluation_priority",
             "score",
             "latest_revenue_yoy",
             "cumulative_revenue_yoy",
@@ -1008,15 +1044,11 @@ def write_markdown(df: pd.DataFrame) -> None:
 
         for _, row in df.iterrows():
             values = []
-
             for col in cols:
                 value = row.get(col, "")
-
                 if pd.isna(value):
                     value = ""
-
                 values.append(str(value))
-
             lines.append("| " + " | ".join(values) + " |")
 
     OUTPUT_MD.write_text("\n".join(lines), encoding="utf-8")
@@ -1032,6 +1064,10 @@ def empty_output_df() -> pd.DataFrame:
             "stock_id",
             "stock_name",
             "industry",
+            "theme_group",
+            "theme_score",
+            "theme_note",
+            "revaluation_priority",
             "score",
             "rank",
             "latest_revenue_yoy",
