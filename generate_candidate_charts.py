@@ -39,6 +39,11 @@ CATEGORY_CONFIG = [
         "note": "區間內轉強 / 挑戰前高觀察",
     },
     {
+        "category": "revenue_breakout_low_response",
+        "csv_path": LATEST_DIR / "revenue_breakout_low_response_latest.csv",
+        "note": "營收爆發低反應股",
+    },
+    {
         "category": "revenue_pullback",
         "csv_path": LATEST_DIR / "revenue_pullback_latest.csv",
         "note": "營收成長但股價回檔",
@@ -242,6 +247,8 @@ def standardize_candidate_columns(df: pd.DataFrame, category: str) -> pd.DataFra
             df["breakout_type"] = "true_breakout"
         elif category == "range_rebound":
             df["breakout_type"] = "range_rebound"
+        elif category == "revenue_breakout_low_response":
+            df["breakout_type"] = "revenue_breakout_low_response"
         elif category == "revenue_pullback":
             df["breakout_type"] = "revenue_pullback"
         elif category == "pullback_rebound":
@@ -419,7 +426,10 @@ def make_note(category: str, breakout_type: str, ref: dict) -> str:
 
     if category == "range_rebound":
         return f"尚未突破前高 / 挑戰前高觀察；收盤 {fmt_price(close)}，前60日高點 {fmt_price(previous_60d_high)}，距離 {fmt_pct(distance_60)}"
-
+    
+    if category == "revenue_breakout_low_response":
+        return f"營收爆發低反應；前60日高點 {fmt_price(previous_60d_high)}，距離 {fmt_pct(distance_60)}"
+    
     if category == "revenue_pullback":
         return f"營收成長但股價回檔；前60日高點 {fmt_price(previous_60d_high)}，距離 {fmt_pct(distance_60)}"
 
