@@ -140,64 +140,205 @@ def clean_price_df(df):
     return df.reset_index(drop=True)
 
 
-def fetch_twse_daily_price(date_str):
-    url = "https://www.twse.com.tw/exchangeReport/MI_INDEX"
-    params = {
-        "response": "json",
-        "date": date_str,
-        "type": "ALLBUT0999",
-    }
-
-    response = request_with_retries(url, params=params, timeout=60, retries=3)
-
-    if response is None:
+def parse_twse_table(df, date_str, source_name):
+    if df.empty:
         return pd.DataFrame()
 
+    df = df.copy()
+
+    if isinstance(df.columns, pd.MultiIndex):
+        df.columns = [
+            "".join([str(x) for x in col if str(x) != "nan"]).strip()
+            for col in df.columns
+        ]
+    else:
+        df.columns = [str(col).strip() for col in df.columns]
+
+    col_map_candidates = {
+        "ticker": ["證券代號", "有價證券代號"],
+        "name": ["證券名稱", "有價證券名稱"],
+        "volume": ["成交股數"],
+        "open": ["開盤價"],
+        "high": ["最高價"],
+        "low": ["最低價"],
+        "close": ["收盤價"],
+    }
+
+    selected = {}
+
+    for std_col, possible_cols in col_map_candidates.items():
+        for possible_col in possible_cols:
+            for actual_col in df.columns:
+                if possible_col == actual_col or possible_col in actual_col:
+                    selected[std_col] = actual_col
+                    break
+            if std_col in selected:
+                break
+
+    required = ["ticker", "name", "volume", "open", "high", "low", "close"]
+
+    if any(col not in selected for col in required):
+        print(
+            f"TWSE missing columns for {date_str} source={source_name}: "
+            f"columns={list(df.columns)} selected={selected}"
+        )
+        return pd.DataFrame()
+
+    out = df[
+        [
+            selected["ticker"],
+            selected["name"],
+            selected["volume"],
+            selected["open"],
+            selected["high"],
+            selected["low"],
+            selected["close"],
+        ]
+    ].copy()
+
+    out.columns = ["ticker", "name", "volume", "open", "high", "low", "close"]
+    out["market"] = "TWSE"
+    out["date"] = date_str
+
+    parsed = clean_price_df(out)
+
+    if not parsed.empty:
+        print(f"TWSE parsed rows for {date_str} source={source_name}: {len(parsed)}")
+
+    return parsed
+
+
+def parse_twse_json_response(response, date_str, source_name):
     try:
         data = response.json()
     except Exception as exc:
-        print(f"TWSE json parse failed for {date_str}: {exc}")
+        print(f"TWSE json parse failed for {date_str} source={source_name}: {exc}")
         return pd.DataFrame()
 
     tables = data.get("tables", [])
-    target_table = None
+
+    if not isinstance(tables, list) or not tables:
+        print(f"TWSE json no tables for {date_str} source={source_name}")
+        return pd.DataFrame()
 
     for table in tables:
         fields = table.get("fields", [])
+        rows = table.get("data", [])
+
+        if not fields or not rows:
+            continue
+
         if "證券代號" in fields and "證券名稱" in fields and "收盤價" in fields:
-            target_table = table
-            break
+            df = pd.DataFrame(rows, columns=fields)
+            parsed = parse_twse_table(df, date_str, source_name)
 
-    if target_table is None:
-        print(f"TWSE no valid table for {date_str}")
+            if not parsed.empty:
+                return parsed
+
+    print(f"TWSE json no valid price table for {date_str} source={source_name}")
+    return pd.DataFrame()
+
+
+def parse_twse_html_response(response, date_str, source_name):
+    try:
+        text = response.content.decode("utf-8-sig", errors="replace")
+    except Exception:
+        text = response.text
+
+    debug_path = DEBUG_DIR / f"twse_response_{date_str}_{source_name}.html"
+    debug_path.write_text(text[:10000], encoding="utf-8")
+
+    try:
+        tables = pd.read_html(StringIO(text))
+    except Exception as exc:
+        print(f"TWSE html read failed for {date_str} source={source_name}: {exc}")
         return pd.DataFrame()
 
-    fields = target_table.get("fields", [])
-    rows = target_table.get("data", [])
+    for idx, table in enumerate(tables):
+        parsed = parse_twse_table(table, date_str, f"{source_name}_table_{idx}")
 
-    df = pd.DataFrame(rows, columns=fields)
+        if not parsed.empty:
+            return parsed
 
-    col_map = {
-        "證券代號": "ticker",
-        "證券名稱": "name",
-        "成交股數": "volume",
-        "開盤價": "open",
-        "最高價": "high",
-        "最低價": "low",
-        "收盤價": "close",
-    }
+    print(f"TWSE html no valid price table for {date_str} source={source_name}")
+    return pd.DataFrame()
 
-    missing_cols = [col for col in col_map if col not in df.columns]
 
-    if missing_cols:
-        print(f"TWSE missing columns for {date_str}: {missing_cols}")
-        return pd.DataFrame()
+def fetch_twse_daily_price(date_str):
+    sources = [
+        {
+            "name": "rwd_json",
+            "url": "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX",
+            "params": {
+                "response": "json",
+                "date": date_str,
+                "type": "ALLBUT0999",
+            },
+            "kind": "json",
+            "timeout": 90,
+            "retries": 5,
+        },
+        {
+            "name": "legacy_json",
+            "url": "https://www.twse.com.tw/exchangeReport/MI_INDEX",
+            "params": {
+                "response": "json",
+                "date": date_str,
+                "type": "ALLBUT0999",
+            },
+            "kind": "json",
+            "timeout": 90,
+            "retries": 5,
+        },
+        {
+            "name": "rwd_html",
+            "url": "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX",
+            "params": {
+                "response": "html",
+                "date": date_str,
+                "type": "ALLBUT0999",
+            },
+            "kind": "html",
+            "timeout": 90,
+            "retries": 3,
+        },
+        {
+            "name": "legacy_html",
+            "url": "https://www.twse.com.tw/exchangeReport/MI_INDEX",
+            "params": {
+                "response": "html",
+                "date": date_str,
+                "type": "ALLBUT0999",
+            },
+            "kind": "html",
+            "timeout": 90,
+            "retries": 3,
+        },
+    ]
 
-    df = df[list(col_map.keys())].rename(columns=col_map)
-    df["market"] = "TWSE"
-    df["date"] = date_str
+    for source in sources:
+        print(f"Trying TWSE source {source['name']} for {date_str}")
 
-    return clean_price_df(df)
+        response = request_with_retries(
+            source["url"],
+            params=source["params"],
+            timeout=source["timeout"],
+            retries=source["retries"],
+        )
+
+        if response is None:
+            continue
+
+        if source["kind"] == "json":
+            parsed = parse_twse_json_response(response, date_str, source["name"])
+        else:
+            parsed = parse_twse_html_response(response, date_str, source["name"])
+
+        if not parsed.empty:
+            return parsed
+
+    print(f"TWSE no valid data for {date_str}")
+    return pd.DataFrame()
 
 
 def parse_tpex_table(df, date_str):
