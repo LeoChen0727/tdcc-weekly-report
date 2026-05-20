@@ -14,6 +14,7 @@ LATEST_DIR = Path("output/latest")
 
 OUTPUT_CSV = LATEST_DIR / "revenue_breakout_low_response_latest.csv"
 OUTPUT_MD = LATEST_DIR / "revenue_breakout_low_response_latest.md"
+DEBUG_MD = LATEST_DIR / "revenue_breakout_low_response_debug_latest.md"
 
 CATEGORY = "revenue_breakout_low_response"
 CATEGORY_CN = "營收爆發低反應股"
@@ -165,11 +166,13 @@ def load_revenue_data() -> pd.DataFrame:
     return revenue_df.copy()
 
 
-def standardize_revenue_data(revenue_df: pd.DataFrame) -> pd.DataFrame:
+def standardize_revenue_data(revenue_df: pd.DataFrame, debug: dict) -> pd.DataFrame:
     if revenue_df.empty:
+        debug["revenue_schema_status"] = "raw_revenue_empty"
         return pd.DataFrame()
 
     df = revenue_df.copy()
+    debug["raw_revenue_columns"] = list(df.columns)
 
     code_col = pick_first_existing_column(
         df,
@@ -251,9 +254,18 @@ def standardize_revenue_data(revenue_df: pd.DataFrame) -> pd.DataFrame:
         ],
     )
 
+    debug["selected_revenue_columns"] = {
+        "code_col": code_col,
+        "name_col": name_col,
+        "industry_col": industry_col,
+        "date_col": date_col,
+        "latest_revenue_col": latest_revenue_col,
+        "latest_yoy_col": latest_yoy_col,
+        "cumulative_yoy_col": cumulative_yoy_col,
+    }
+
     if code_col is None or latest_yoy_col is None:
-        print("Revenue schema not enough for revenue_breakout_low_response.")
-        print(f"Revenue columns: {list(df.columns)}")
+        debug["revenue_schema_status"] = "missing_code_or_latest_yoy"
         return pd.DataFrame()
 
     out = pd.DataFrame()
@@ -268,6 +280,8 @@ def standardize_revenue_data(revenue_df: pd.DataFrame) -> pd.DataFrame:
 
     out = out[out["stock_id"].str.match(r"^[0-9]{4}$", na=False)].copy()
     out = out.dropna(subset=["latest_revenue_yoy"])
+
+    debug["revenue_schema_status"] = "ok"
 
     return out
 
@@ -382,11 +396,8 @@ def calc_stock_price_metrics(price_df: pd.DataFrame, stock_id: str) -> dict | No
     close_above_ma = close > ma20 or close > ema23
     near_high_not_overheated = distance_to_high_60_pct >= -10 and distance_to_high_60_pct <= 5
 
-    high_volume_upper_shadow = False
-
     high_today = safe_float(latest["high"])
     low_today = safe_float(latest["low"])
-    open_today = safe_float(latest["open"])
 
     if high_today > low_today and high_today > 0:
         upper_shadow_pct = (high_today - close) / high_today * 100
@@ -394,6 +405,7 @@ def calc_stock_price_metrics(price_df: pd.DataFrame, stock_id: str) -> dict | No
         high_volume_upper_shadow = upper_shadow_pct >= 3 and intraday_range_pct >= 5 and volume_ratio >= 1.5
     else:
         upper_shadow_pct = pd.NA
+        high_volume_upper_shadow = False
 
     price_data_warning = "ok"
 
@@ -467,8 +479,6 @@ def calc_revenue_score(row: pd.Series, price_metrics: dict, tdcc_row: pd.Series 
     distance_to_ma20_pct = safe_float(price_metrics.get("distance_to_ma20_pct"))
     distance_to_ema23_pct = safe_float(price_metrics.get("distance_to_ema23_pct"))
 
-    near_ma_distance = min(abs(distance_to_ma20_pct), abs(distance_to_ema23_pct))
-
     if not math.isnan(return_3d) and return_3d < 10:
         score += 2
         notes.append("近3日漲幅低於10%，股價低反應")
@@ -505,9 +515,6 @@ def calc_revenue_score(row: pd.Series, price_metrics: dict, tdcc_row: pd.Series 
         score -= 2
         warnings.append("疑似高位爆量長上影")
 
-    tdcc_400_change = pd.NA
-    tdcc_1000_change = pd.NA
-
     if tdcc_row is not None:
         tdcc_400_change = to_number(
             get_tdcc_value(tdcc_row, ["holder_400_change", "400張變化", "tdcc_over_400_change", "over_400_change"], pd.NA)
@@ -535,17 +542,126 @@ def calc_revenue_score(row: pd.Series, price_metrics: dict, tdcc_row: pd.Series 
     return score, notes, warnings
 
 
-def build_revenue_breakout_low_response_candidates() -> pd.DataFrame:
+def write_debug_report(debug: dict, sample_rows: list[dict]) -> None:
+    lines = []
+    lines.append("# 營收爆發低反應股 Debug Report")
+    lines.append("")
+    lines.append(f"- 產生時間：`{now_taipei()} Asia/Taipei`")
+    lines.append("")
+    lines.append("## 診斷統計")
+    lines.append("")
+    lines.append("| item | value |")
+    lines.append("|---|---:|")
+
+    for key in [
+        "raw_revenue_rows",
+        "standardized_revenue_rows",
+        "price_rows",
+        "tdcc_rows",
+        "revenue_condition_pass",
+        "price_metrics_pass",
+        "low_response_pass",
+        "overheat_pass",
+        "score_pass",
+        "final_rows",
+    ]:
+        lines.append(f"| {key} | {debug.get(key, 0)} |")
+
+    lines.append("")
+    lines.append("## 營收欄位狀態")
+    lines.append("")
+    lines.append(f"- revenue_schema_status：`{debug.get('revenue_schema_status', '')}`")
+    lines.append("")
+    lines.append("### selected_revenue_columns")
+    lines.append("")
+    selected = debug.get("selected_revenue_columns", {})
+    lines.append("| field | selected column |")
+    lines.append("|---|---|")
+    for key, value in selected.items():
+        lines.append(f"| {key} | `{value}` |")
+
+    lines.append("")
+    lines.append("### raw_revenue_columns")
+    lines.append("")
+    for col in debug.get("raw_revenue_columns", []):
+        lines.append(f"- `{col}`")
+
+    lines.append("")
+    lines.append("## 主要刷掉原因")
+    lines.append("")
+    reason_counts = debug.get("reason_counts", {})
+    lines.append("| reason | count |")
+    lines.append("|---|---:|")
+    for reason, count in sorted(reason_counts.items(), key=lambda x: x[1], reverse=True):
+        lines.append(f"| {reason} | {count} |")
+
+    lines.append("")
+    lines.append("## 樣本資料")
+    lines.append("")
+    if not sample_rows:
+        lines.append("沒有樣本資料。")
+    else:
+        cols = [
+            "stock_id",
+            "stock_name",
+            "latest_revenue_yoy",
+            "cumulative_revenue_yoy",
+            "return_5d",
+            "distance_to_ma20_pct",
+            "score",
+            "reason",
+        ]
+        lines.append("| " + " | ".join(cols) + " |")
+        lines.append("| " + " | ".join(["---"] * len(cols)) + " |")
+        for row in sample_rows[:50]:
+            values = []
+            for col in cols:
+                value = row.get(col, "")
+                if pd.isna(value):
+                    value = ""
+                values.append(str(value))
+            lines.append("| " + " | ".join(values) + " |")
+
+    DEBUG_MD.write_text("\n".join(lines), encoding="utf-8")
+
+
+def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict, list[dict]]:
     LATEST_DIR.mkdir(parents=True, exist_ok=True)
+
+    debug = {
+        "raw_revenue_rows": 0,
+        "standardized_revenue_rows": 0,
+        "price_rows": 0,
+        "tdcc_rows": 0,
+        "revenue_condition_pass": 0,
+        "price_metrics_pass": 0,
+        "low_response_pass": 0,
+        "overheat_pass": 0,
+        "score_pass": 0,
+        "final_rows": 0,
+        "reason_counts": {},
+    }
+
+    sample_rows = []
+
+    def add_reason(reason: str):
+        debug["reason_counts"][reason] = debug["reason_counts"].get(reason, 0) + 1
 
     price_df = load_daily_price_history()
     revenue_raw = load_revenue_data()
-    revenue_df = standardize_revenue_data(revenue_raw)
     tdcc_df = load_tdcc_latest()
 
+    debug["raw_revenue_rows"] = len(revenue_raw)
+    debug["price_rows"] = len(price_df)
+    debug["tdcc_rows"] = len(tdcc_df)
+
+    revenue_df = standardize_revenue_data(revenue_raw, debug)
+    debug["standardized_revenue_rows"] = len(revenue_df)
+
     if price_df.empty or revenue_df.empty:
-        print("Price or revenue data empty. Output empty revenue_breakout_low_response files.")
-        return pd.DataFrame()
+        add_reason("price_or_revenue_empty")
+        write_debug_report(debug, sample_rows)
+        return pd.DataFrame(), debug, sample_rows
 
     tdcc_map = {}
 
@@ -560,8 +676,10 @@ def build_revenue_breakout_low_response_candidates() -> pd.DataFrame:
 
     for _, rev_row in revenue_df.iterrows():
         stock_id = normalize_code(rev_row.get("stock_id", ""))
+        stock_name = rev_row.get("stock_name", "")
 
         if not stock_id:
+            add_reason("missing_stock_id")
             continue
 
         latest_yoy = safe_float(rev_row.get("latest_revenue_yoy"))
@@ -577,19 +695,32 @@ def build_revenue_breakout_low_response_candidates() -> pd.DataFrame:
         )
 
         if not revenue_condition:
+            add_reason("fail_revenue_condition")
             continue
+
+        debug["revenue_condition_pass"] += 1
 
         price_metrics = calc_stock_price_metrics(price_df, stock_id)
 
         if price_metrics is None:
+            add_reason("missing_or_insufficient_price_metrics")
+            sample_rows.append(
+                {
+                    "stock_id": stock_id,
+                    "stock_name": stock_name,
+                    "latest_revenue_yoy": latest_yoy,
+                    "cumulative_revenue_yoy": cumulative_yoy,
+                    "reason": "missing_or_insufficient_price_metrics",
+                }
+            )
             continue
+
+        debug["price_metrics_pass"] += 1
 
         return_5d = safe_float(price_metrics.get("return_5d"))
         distance_to_ma20_pct = safe_float(price_metrics.get("distance_to_ma20_pct"))
         distance_to_ema23_pct = safe_float(price_metrics.get("distance_to_ema23_pct"))
-        distance_to_ma60_pct = safe_float(price_metrics.get("distance_to_ma60_pct"))
 
-        # 股價尚未完全反應：避免已經噴太遠的股票混入這類。
         low_response_condition = (
             (
                 not math.isnan(return_5d)
@@ -602,21 +733,53 @@ def build_revenue_breakout_low_response_candidates() -> pd.DataFrame:
         )
 
         if not low_response_condition:
+            add_reason("fail_low_response_condition")
+            sample_rows.append(
+                {
+                    "stock_id": stock_id,
+                    "stock_name": stock_name,
+                    "latest_revenue_yoy": latest_yoy,
+                    "cumulative_revenue_yoy": cumulative_yoy,
+                    "return_5d": return_5d,
+                    "distance_to_ma20_pct": distance_to_ma20_pct,
+                    "reason": "fail_low_response_condition",
+                }
+            )
             continue
 
-        # 排除明顯過熱。
+        debug["low_response_pass"] += 1
+
         if return_5d > 25:
+            add_reason("fail_overheat_return_5d")
             continue
 
         if distance_to_ma20_pct > 25 and distance_to_ema23_pct > 25:
+            add_reason("fail_overheat_ma_distance")
             continue
+
+        debug["overheat_pass"] += 1
 
         tdcc_row = tdcc_map.get(stock_id)
 
         score, notes, warnings = calc_revenue_score(rev_row, price_metrics, tdcc_row)
 
         if score < 4:
+            add_reason("fail_score_lt_4")
+            sample_rows.append(
+                {
+                    "stock_id": stock_id,
+                    "stock_name": stock_name,
+                    "latest_revenue_yoy": latest_yoy,
+                    "cumulative_revenue_yoy": cumulative_yoy,
+                    "return_5d": return_5d,
+                    "distance_to_ma20_pct": distance_to_ma20_pct,
+                    "score": score,
+                    "reason": "fail_score_lt_4",
+                }
+            )
             continue
+
+        debug["score_pass"] += 1
 
         tdcc_date = ""
         holder_400_change = pd.NA
@@ -639,7 +802,7 @@ def build_revenue_breakout_low_response_candidates() -> pd.DataFrame:
             "category_cn": CATEGORY_CN,
             "breakout_type": CATEGORY,
             "stock_id": stock_id,
-            "stock_name": rev_row.get("stock_name", ""),
+            "stock_name": stock_name,
             "industry": rev_row.get("industry", ""),
             "score": score,
             "rank": pd.NA,
@@ -682,16 +845,33 @@ def build_revenue_breakout_low_response_candidates() -> pd.DataFrame:
         }
 
         candidates.append(row)
+        sample_rows.append(
+            {
+                "stock_id": stock_id,
+                "stock_name": stock_name,
+                "latest_revenue_yoy": latest_yoy,
+                "cumulative_revenue_yoy": cumulative_yoy,
+                "return_5d": return_5d,
+                "distance_to_ma20_pct": distance_to_ma20_pct,
+                "score": score,
+                "reason": "selected",
+            }
+        )
 
     result = pd.DataFrame(candidates)
 
     if result.empty:
-        return result
+        debug["final_rows"] = 0
+        write_debug_report(debug, sample_rows)
+        return result, debug, sample_rows
 
     result = result.sort_values(["score", "latest_revenue_yoy"], ascending=[False, False]).reset_index(drop=True)
     result["rank"] = range(1, len(result) + 1)
 
-    return result
+    debug["final_rows"] = len(result)
+    write_debug_report(debug, sample_rows)
+
+    return result, debug, sample_rows
 
 
 def write_markdown(df: pd.DataFrame) -> None:
@@ -700,6 +880,7 @@ def write_markdown(df: pd.DataFrame) -> None:
     lines.append("")
     lines.append(f"- 產生時間：`{now_taipei()} Asia/Taipei`")
     lines.append(f"- 輸出 CSV：`{OUTPUT_CSV}`")
+    lines.append(f"- Debug：`{DEBUG_MD}`")
     lines.append("")
 
     if df.empty:
@@ -745,66 +926,72 @@ def write_markdown(df: pd.DataFrame) -> None:
     OUTPUT_MD.write_text("\n".join(lines), encoding="utf-8")
 
 
+def empty_output_df() -> pd.DataFrame:
+    return pd.DataFrame(
+        columns=[
+            "date",
+            "category",
+            "category_cn",
+            "breakout_type",
+            "stock_id",
+            "stock_name",
+            "industry",
+            "score",
+            "rank",
+            "latest_revenue_yoy",
+            "cumulative_revenue_yoy",
+            "revenue_acceleration_note",
+            "revenue_warning",
+            "revenue_release_date",
+            "return_after_revenue_1d",
+            "return_after_revenue_3d",
+            "return_5d",
+            "distance_to_ma20_pct",
+            "distance_to_ma60_pct",
+            "distance_to_ema23_pct",
+            "close",
+            "volume",
+            "volume_ratio",
+            "ma20",
+            "ma60",
+            "ema23",
+            "high_20",
+            "low_20",
+            "high_60",
+            "low_60",
+            "platform_high",
+            "platform_low",
+            "platform_width_pct",
+            "in_platform",
+            "near_ma",
+            "tdcc_date",
+            "holder_400_pct",
+            "holder_400_change",
+            "holder_1000_pct",
+            "holder_1000_change",
+            "tdcc_judgement",
+            "price_data_warning",
+            "chart_path",
+            "chart_url",
+            "note",
+        ]
+    )
+
+
 def main() -> int:
-    df = build_revenue_breakout_low_response_candidates()
+    df, debug, sample_rows = build_revenue_breakout_low_response_candidates()
 
     if df.empty:
-        df = pd.DataFrame(
-            columns=[
-                "date",
-                "category",
-                "category_cn",
-                "breakout_type",
-                "stock_id",
-                "stock_name",
-                "industry",
-                "score",
-                "rank",
-                "latest_revenue_yoy",
-                "cumulative_revenue_yoy",
-                "revenue_acceleration_note",
-                "revenue_warning",
-                "revenue_release_date",
-                "return_after_revenue_1d",
-                "return_after_revenue_3d",
-                "return_5d",
-                "distance_to_ma20_pct",
-                "distance_to_ma60_pct",
-                "distance_to_ema23_pct",
-                "close",
-                "volume",
-                "volume_ratio",
-                "ma20",
-                "ma60",
-                "ema23",
-                "high_20",
-                "low_20",
-                "high_60",
-                "low_60",
-                "platform_high",
-                "platform_low",
-                "platform_width_pct",
-                "in_platform",
-                "near_ma",
-                "tdcc_date",
-                "holder_400_pct",
-                "holder_400_change",
-                "holder_1000_pct",
-                "holder_1000_change",
-                "tdcc_judgement",
-                "price_data_warning",
-                "chart_path",
-                "chart_url",
-                "note",
-            ]
-        )
+        df = empty_output_df()
 
     df.to_csv(OUTPUT_CSV, index=False, encoding="utf-8-sig")
     write_markdown(df)
 
     print(f"Saved: {OUTPUT_CSV}")
     print(f"Saved: {OUTPUT_MD}")
+    print(f"Saved: {DEBUG_MD}")
     print(f"Rows: {len(df)}")
+    print(f"Debug: {debug}")
 
     return 0
 
