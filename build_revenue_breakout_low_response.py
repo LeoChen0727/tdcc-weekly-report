@@ -29,34 +29,26 @@ def now_taipei() -> str:
 def normalize_code(value) -> str:
     if pd.isna(value):
         return ""
-
     text = str(value).strip()
-
     if text.endswith(".0"):
         text = text[:-2]
-
     text = re.sub(r"[^0-9]", "", text)
-
     return text.zfill(4) if text else ""
 
 
 def normalize_text(value) -> str:
     if pd.isna(value):
         return ""
-
     return str(value).strip()
 
 
 def to_number(value):
     if pd.isna(value):
         return pd.NA
-
     text = str(value).strip()
     text = text.replace(",", "").replace("%", "").replace("+", "").replace("--", "").replace(" ", "")
-
     if text == "":
         return pd.NA
-
     return pd.to_numeric(text, errors="coerce")
 
 
@@ -64,7 +56,6 @@ def safe_float(value, default=math.nan) -> float:
     try:
         if pd.isna(value):
             return default
-
         return float(value)
     except Exception:
         return default
@@ -74,7 +65,6 @@ def pick_first_existing_column(df: pd.DataFrame, candidates: list[str]) -> str |
     for col in candidates:
         if col in df.columns:
             return col
-
     return None
 
 
@@ -183,7 +173,6 @@ def load_daily_price_history() -> pd.DataFrame:
 
         if "date" not in df.columns:
             match = re.search(r"([0-9]{8})", path.name)
-
             if match:
                 df["date"] = match.group(1)
 
@@ -410,7 +399,6 @@ def get_tdcc_value(row: pd.Series, candidates: list[str], default=pd.NA):
     for col in candidates:
         if col in row.index:
             return row[col]
-
     return default
 
 
@@ -427,6 +415,18 @@ def add_indicators(df: pd.DataFrame) -> pd.DataFrame:
     df["volume_ratio"] = df["volume"] / df["volume_ma20"]
 
     return df
+
+
+def calc_return(stock_price: pd.DataFrame, close: float, days: int):
+    if len(stock_price) < days + 1:
+        return pd.NA
+
+    base = safe_float(stock_price.iloc[-days - 1]["close"])
+
+    if base <= 0:
+        return pd.NA
+
+    return (close / base - 1) * 100
 
 
 def calc_stock_price_metrics(price_df: pd.DataFrame, stock_id: str) -> dict | None:
@@ -457,28 +457,55 @@ def calc_stock_price_metrics(price_df: pd.DataFrame, stock_id: str) -> dict | No
     high_60 = stock_price.tail(60)["high"].max()
     low_60 = stock_price.tail(60)["low"].min()
 
-    return_5d = (
-        (close / safe_float(stock_price.iloc[-6]["close"]) - 1) * 100
-        if len(stock_price) >= 6 and safe_float(stock_price.iloc[-6]["close"]) > 0
-        else pd.NA
-    )
-
-    return_3d = (
-        (close / safe_float(stock_price.iloc[-4]["close"]) - 1) * 100
-        if len(stock_price) >= 4 and safe_float(stock_price.iloc[-4]["close"]) > 0
-        else pd.NA
-    )
+    if len(stock_price) >= 120:
+        high_120 = stock_price.tail(120)["high"].max()
+        low_120 = stock_price.tail(120)["low"].min()
+    else:
+        high_120 = pd.NA
+        low_120 = pd.NA
 
     return_1d = (
         (close / safe_float(prev["close"]) - 1) * 100
         if safe_float(prev["close"]) > 0
         else pd.NA
     )
+    return_3d = calc_return(stock_price, close, 3)
+    return_5d = calc_return(stock_price, close, 5)
+    return_10d = calc_return(stock_price, close, 10)
+    return_20d = calc_return(stock_price, close, 20)
+    return_60d = calc_return(stock_price, close, 60)
+    return_120d = calc_return(stock_price, close, 120)
 
     distance_to_ma20_pct = (close / ma20 - 1) * 100 if ma20 > 0 else pd.NA
     distance_to_ma60_pct = (close / ma60 - 1) * 100 if ma60 > 0 else pd.NA
     distance_to_ema23_pct = (close / ema23 - 1) * 100 if ema23 > 0 else pd.NA
     distance_to_high_60_pct = (close / high_60 - 1) * 100 if high_60 > 0 else pd.NA
+
+    off_60d_low_pct = (close / low_60 - 1) * 100 if low_60 > 0 else pd.NA
+    off_120d_low_pct = (close / low_120 - 1) * 100 if not pd.isna(low_120) and low_120 > 0 else pd.NA
+
+    already_priced_in = False
+    priced_in_reasons = []
+
+    if not pd.isna(return_20d) and return_20d > 25:
+        already_priced_in = True
+        priced_in_reasons.append("近20日漲幅>25%")
+
+    if not pd.isna(return_60d) and return_60d > 40:
+        already_priced_in = True
+        priced_in_reasons.append("近60日漲幅>40%")
+
+    if not pd.isna(off_60d_low_pct) and off_60d_low_pct > 50:
+        already_priced_in = True
+        priced_in_reasons.append("距60日低點反彈>50%")
+
+    if not pd.isna(return_120d) and return_120d > 70:
+        already_priced_in = True
+        priced_in_reasons.append("近120日漲幅>70%")
+
+    if not pd.isna(off_120d_low_pct) and off_120d_low_pct > 80:
+        already_priced_in = True
+        priced_in_reasons.append("距120日低點反彈>80%")
 
     recent_60 = stock_price.tail(60)
     platform_high = recent_60["high"].max()
@@ -503,7 +530,7 @@ def calc_stock_price_metrics(price_df: pd.DataFrame, stock_id: str) -> dict | No
     price_data_warning = "ok"
 
     if len(stock_price) < 120:
-        price_data_warning = "available_days_too_few"
+        price_data_warning = "available_days_less_than_120"
 
     return {
         "date": latest["date"],
@@ -522,10 +549,20 @@ def calc_stock_price_metrics(price_df: pd.DataFrame, stock_id: str) -> dict | No
         "low_20": round(low_20, 2),
         "high_60": round(high_60, 2),
         "low_60": round(low_60, 2),
+        "high_120": round(high_120, 2) if not pd.isna(high_120) else pd.NA,
+        "low_120": round(low_120, 2) if not pd.isna(low_120) else pd.NA,
         "return_after_revenue_1d": round(return_1d, 2) if not pd.isna(return_1d) else pd.NA,
         "return_after_revenue_3d": round(return_3d, 2) if not pd.isna(return_3d) else pd.NA,
         "return_5d": round(return_5d, 2) if not pd.isna(return_5d) else pd.NA,
+        "return_10d": round(return_10d, 2) if not pd.isna(return_10d) else pd.NA,
+        "return_20d": round(return_20d, 2) if not pd.isna(return_20d) else pd.NA,
+        "return_60d": round(return_60d, 2) if not pd.isna(return_60d) else pd.NA,
+        "return_120d": round(return_120d, 2) if not pd.isna(return_120d) else pd.NA,
         "distance_to_high_60_pct": round(distance_to_high_60_pct, 2),
+        "off_60d_low_pct": round(off_60d_low_pct, 2) if not pd.isna(off_60d_low_pct) else pd.NA,
+        "off_120d_low_pct": round(off_120d_low_pct, 2) if not pd.isna(off_120d_low_pct) else pd.NA,
+        "already_priced_in": bool(already_priced_in),
+        "priced_in_reason": "；".join(priced_in_reasons),
         "platform_high": round(platform_high, 2),
         "platform_low": round(platform_low, 2),
         "platform_width_pct": round(platform_width_pct, 2),
@@ -635,6 +672,10 @@ def calc_revenue_score(row: pd.Series, price_metrics: dict, tdcc_row: pd.Series 
         score -= 3
         warnings.append("已大幅突破前60日高點，不屬低反應")
 
+    if price_metrics.get("already_priced_in"):
+        score -= 4
+        warnings.append(f"中期漲幅已反應：{price_metrics.get('priced_in_reason', '')}")
+
     if price_metrics.get("high_volume_upper_shadow"):
         score -= 2
         warnings.append("疑似高位爆量長上影")
@@ -685,6 +726,7 @@ def write_debug_report(debug: dict, sample_rows: list[dict]) -> None:
         "revenue_condition_pass",
         "price_metrics_pass",
         "low_response_pass",
+        "already_priced_in_excluded",
         "overheat_pass",
         "score_pass",
         "theme_priority_pass",
@@ -739,6 +781,13 @@ def write_debug_report(debug: dict, sample_rows: list[dict]) -> None:
             "latest_revenue_yoy",
             "cumulative_revenue_yoy",
             "return_5d",
+            "return_20d",
+            "return_60d",
+            "return_120d",
+            "off_60d_low_pct",
+            "off_120d_low_pct",
+            "already_priced_in",
+            "priced_in_reason",
             "distance_to_ma20_pct",
             "distance_to_ema23_pct",
             "distance_to_high_60_pct",
@@ -749,7 +798,7 @@ def write_debug_report(debug: dict, sample_rows: list[dict]) -> None:
         lines.append("| " + " | ".join(cols) + " |")
         lines.append("| " + " | ".join(["---"] * len(cols)) + " |")
 
-        for row in sample_rows[:100]:
+        for row in sample_rows[:120]:
             values = []
 
             for col in cols:
@@ -776,6 +825,7 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
         "revenue_condition_pass": 0,
         "price_metrics_pass": 0,
         "low_response_pass": 0,
+        "already_priced_in_excluded": 0,
         "overheat_pass": 0,
         "score_pass": 0,
         "theme_priority_pass": 0,
@@ -820,6 +870,8 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
         stock_name = rev_row.get("stock_name", "")
         industry = rev_row.get("industry", "")
 
+        theme_group, theme_score, theme_note = classify_theme(industry, stock_name)
+
         if not stock_id:
             add_reason("missing_stock_id")
             continue
@@ -851,6 +903,7 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
                     "stock_id": stock_id,
                     "stock_name": stock_name,
                     "industry": industry,
+                    "theme_group": theme_group,
                     "latest_revenue_yoy": latest_yoy,
                     "cumulative_revenue_yoy": cumulative_yoy,
                     "reason": "missing_or_insufficient_price_metrics",
@@ -886,9 +939,17 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
                     "stock_id": stock_id,
                     "stock_name": stock_name,
                     "industry": industry,
+                    "theme_group": theme_group,
                     "latest_revenue_yoy": latest_yoy,
                     "cumulative_revenue_yoy": cumulative_yoy,
                     "return_5d": return_5d,
+                    "return_20d": price_metrics.get("return_20d"),
+                    "return_60d": price_metrics.get("return_60d"),
+                    "return_120d": price_metrics.get("return_120d"),
+                    "off_60d_low_pct": price_metrics.get("off_60d_low_pct"),
+                    "off_120d_low_pct": price_metrics.get("off_120d_low_pct"),
+                    "already_priced_in": price_metrics.get("already_priced_in"),
+                    "priced_in_reason": price_metrics.get("priced_in_reason"),
                     "distance_to_ma20_pct": distance_to_ma20_pct,
                     "distance_to_ema23_pct": distance_to_ema23_pct,
                     "distance_to_high_60_pct": distance_to_high_60_pct,
@@ -898,6 +959,33 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
             continue
 
         debug["low_response_pass"] += 1
+
+        if price_metrics.get("already_priced_in"):
+            add_reason("fail_already_priced_in")
+            debug["already_priced_in_excluded"] += 1
+            sample_rows.append(
+                {
+                    "stock_id": stock_id,
+                    "stock_name": stock_name,
+                    "industry": industry,
+                    "theme_group": theme_group,
+                    "latest_revenue_yoy": latest_yoy,
+                    "cumulative_revenue_yoy": cumulative_yoy,
+                    "return_5d": return_5d,
+                    "return_20d": price_metrics.get("return_20d"),
+                    "return_60d": price_metrics.get("return_60d"),
+                    "return_120d": price_metrics.get("return_120d"),
+                    "off_60d_low_pct": price_metrics.get("off_60d_low_pct"),
+                    "off_120d_low_pct": price_metrics.get("off_120d_low_pct"),
+                    "already_priced_in": price_metrics.get("already_priced_in"),
+                    "priced_in_reason": price_metrics.get("priced_in_reason"),
+                    "distance_to_ma20_pct": distance_to_ma20_pct,
+                    "distance_to_ema23_pct": distance_to_ema23_pct,
+                    "distance_to_high_60_pct": distance_to_high_60_pct,
+                    "reason": "fail_already_priced_in",
+                }
+            )
+            continue
 
         if return_5d > 12:
             add_reason("fail_overheat_return_5d")
@@ -915,7 +1003,6 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
 
         tdcc_row = tdcc_map.get(stock_id)
 
-        theme_group, theme_score, theme_note = classify_theme(industry, stock_name)
         score, notes, warnings = calc_revenue_score(rev_row, price_metrics, tdcc_row)
 
         score += theme_score
@@ -935,6 +1022,13 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
                     "latest_revenue_yoy": latest_yoy,
                     "cumulative_revenue_yoy": cumulative_yoy,
                     "return_5d": return_5d,
+                    "return_20d": price_metrics.get("return_20d"),
+                    "return_60d": price_metrics.get("return_60d"),
+                    "return_120d": price_metrics.get("return_120d"),
+                    "off_60d_low_pct": price_metrics.get("off_60d_low_pct"),
+                    "off_120d_low_pct": price_metrics.get("off_120d_low_pct"),
+                    "already_priced_in": price_metrics.get("already_priced_in"),
+                    "priced_in_reason": price_metrics.get("priced_in_reason"),
                     "distance_to_ma20_pct": distance_to_ma20_pct,
                     "distance_to_ema23_pct": distance_to_ema23_pct,
                     "distance_to_high_60_pct": distance_to_high_60_pct,
@@ -948,65 +1042,14 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
 
         if theme_group == "defensive_or_traditional":
             add_reason("fail_defensive_or_traditional_excluded")
-            sample_rows.append(
-                {
-                    "stock_id": stock_id,
-                    "stock_name": stock_name,
-                    "industry": industry,
-                    "theme_group": theme_group,
-                    "revaluation_priority": revaluation_priority,
-                    "latest_revenue_yoy": latest_yoy,
-                    "cumulative_revenue_yoy": cumulative_yoy,
-                    "return_5d": return_5d,
-                    "distance_to_ma20_pct": distance_to_ma20_pct,
-                    "distance_to_ema23_pct": distance_to_ema23_pct,
-                    "distance_to_high_60_pct": distance_to_high_60_pct,
-                    "score": score,
-                    "reason": "fail_defensive_or_traditional_excluded",
-                }
-            )
             continue
 
         if theme_group == "mainstream_growth" and score < 10:
             add_reason("fail_mainstream_score_lt_10")
-            sample_rows.append(
-                {
-                    "stock_id": stock_id,
-                    "stock_name": stock_name,
-                    "industry": industry,
-                    "theme_group": theme_group,
-                    "revaluation_priority": revaluation_priority,
-                    "latest_revenue_yoy": latest_yoy,
-                    "cumulative_revenue_yoy": cumulative_yoy,
-                    "return_5d": return_5d,
-                    "distance_to_ma20_pct": distance_to_ma20_pct,
-                    "distance_to_ema23_pct": distance_to_ema23_pct,
-                    "distance_to_high_60_pct": distance_to_high_60_pct,
-                    "score": score,
-                    "reason": "fail_mainstream_score_lt_10",
-                }
-            )
             continue
 
         if theme_group in ["cyclical_turnaround", "neutral"] and score < 11:
             add_reason("fail_non_mainstream_score_lt_11")
-            sample_rows.append(
-                {
-                    "stock_id": stock_id,
-                    "stock_name": stock_name,
-                    "industry": industry,
-                    "theme_group": theme_group,
-                    "revaluation_priority": revaluation_priority,
-                    "latest_revenue_yoy": latest_yoy,
-                    "cumulative_revenue_yoy": cumulative_yoy,
-                    "return_5d": return_5d,
-                    "distance_to_ma20_pct": distance_to_ma20_pct,
-                    "distance_to_ema23_pct": distance_to_ema23_pct,
-                    "distance_to_high_60_pct": distance_to_high_60_pct,
-                    "score": score,
-                    "reason": "fail_non_mainstream_score_lt_11",
-                }
-            )
             continue
 
         debug["theme_priority_pass"] += 1
@@ -1048,6 +1091,14 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
             "return_after_revenue_1d": price_metrics.get("return_after_revenue_1d"),
             "return_after_revenue_3d": price_metrics.get("return_after_revenue_3d"),
             "return_5d": price_metrics.get("return_5d"),
+            "return_10d": price_metrics.get("return_10d"),
+            "return_20d": price_metrics.get("return_20d"),
+            "return_60d": price_metrics.get("return_60d"),
+            "return_120d": price_metrics.get("return_120d"),
+            "off_60d_low_pct": price_metrics.get("off_60d_low_pct"),
+            "off_120d_low_pct": price_metrics.get("off_120d_low_pct"),
+            "already_priced_in": price_metrics.get("already_priced_in"),
+            "priced_in_reason": price_metrics.get("priced_in_reason"),
             "distance_to_ma20_pct": price_metrics.get("distance_to_ma20_pct"),
             "distance_to_ma60_pct": price_metrics.get("distance_to_ma60_pct"),
             "distance_to_ema23_pct": price_metrics.get("distance_to_ema23_pct"),
@@ -1063,6 +1114,8 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
             "low_20": price_metrics.get("low_20"),
             "high_60": price_metrics.get("high_60"),
             "low_60": price_metrics.get("low_60"),
+            "high_120": price_metrics.get("high_120"),
+            "low_120": price_metrics.get("low_120"),
             "platform_high": price_metrics.get("platform_high"),
             "platform_low": price_metrics.get("platform_low"),
             "platform_width_pct": price_metrics.get("platform_width_pct"),
@@ -1091,6 +1144,13 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
                 "latest_revenue_yoy": latest_yoy,
                 "cumulative_revenue_yoy": cumulative_yoy,
                 "return_5d": return_5d,
+                "return_20d": price_metrics.get("return_20d"),
+                "return_60d": price_metrics.get("return_60d"),
+                "return_120d": price_metrics.get("return_120d"),
+                "off_60d_low_pct": price_metrics.get("off_60d_low_pct"),
+                "off_120d_low_pct": price_metrics.get("off_120d_low_pct"),
+                "already_priced_in": price_metrics.get("already_priced_in"),
+                "priced_in_reason": price_metrics.get("priced_in_reason"),
                 "distance_to_ma20_pct": distance_to_ma20_pct,
                 "distance_to_ema23_pct": distance_to_ema23_pct,
                 "distance_to_high_60_pct": distance_to_high_60_pct,
@@ -1135,6 +1195,7 @@ def write_markdown(df: pd.DataFrame) -> None:
         lines.append("- 單月營收 YoY >= 80%，或單月 YoY >= 50% 且累計 YoY >= 20%。")
         lines.append("- 近 5 日漲幅 <= 8%，且距 20MA / 23EMA 不超過 10%。")
         lines.append("- 距前 60 日高點不可超過 +3%，避免已經明顯突破後才列入。")
+        lines.append("- 排除中期已反應個股：近20日漲幅>25%、近60日漲幅>40%、距60日低點反彈>50%、近120日漲幅>70%、距120日低點反彈>80%。")
         lines.append("- 成交量需達 1000 張以上，避免太冷門。")
         lines.append("- 金融、食品、營建、觀光、生技、紡織等防禦 / 傳產類股直接排除。")
         lines.append("- 主流成長題材需 score >= 10；景氣循環 / 一般產業需 score >= 11。")
@@ -1154,6 +1215,13 @@ def write_markdown(df: pd.DataFrame) -> None:
             "latest_revenue_yoy",
             "cumulative_revenue_yoy",
             "return_5d",
+            "return_20d",
+            "return_60d",
+            "return_120d",
+            "off_60d_low_pct",
+            "off_120d_low_pct",
+            "already_priced_in",
+            "priced_in_reason",
             "distance_to_ma20_pct",
             "distance_to_ema23_pct",
             "distance_to_high_60_pct",
@@ -1170,15 +1238,11 @@ def write_markdown(df: pd.DataFrame) -> None:
 
         for _, row in df.iterrows():
             values = []
-
             for col in cols:
                 value = row.get(col, "")
-
                 if pd.isna(value):
                     value = ""
-
                 values.append(str(value))
-
             lines.append("| " + " | ".join(values) + " |")
 
     OUTPUT_MD.write_text("\n".join(lines), encoding="utf-8")
@@ -1208,6 +1272,14 @@ def empty_output_df() -> pd.DataFrame:
             "return_after_revenue_1d",
             "return_after_revenue_3d",
             "return_5d",
+            "return_10d",
+            "return_20d",
+            "return_60d",
+            "return_120d",
+            "off_60d_low_pct",
+            "off_120d_low_pct",
+            "already_priced_in",
+            "priced_in_reason",
             "distance_to_ma20_pct",
             "distance_to_ma60_pct",
             "distance_to_ema23_pct",
@@ -1223,6 +1295,8 @@ def empty_output_df() -> pd.DataFrame:
             "low_20",
             "high_60",
             "low_60",
+            "high_120",
+            "low_120",
             "platform_high",
             "platform_low",
             "platform_width_pct",
