@@ -1,331 +1,708 @@
 # 完整候選股清單
 
-- 產生時間：`2026-05-21 01:10:12 Asia/Taipei`
+- 產生時間：`2026-05-21 01:34:50 Asia/Taipei`
 - CSV：`output/latest/all_candidates_latest.csv`
 - Excel：`output/latest/all_candidates_latest.xlsx`
 - Markdown：`output/latest/all_candidates_latest.md`
 
 ## 統計摘要
 
-| category | count |
-|---|---:|
-| pattern | 30 |
-| pullback_rebound | 8 |
-| range_rebound | 41 |
-| revenue_pullback | 172 |
-| true_breakout | 37 |
+| category | category_cn | count |
+|---|---|---:|
+| true_breakout | 嚴格突破 | 37 |
+| range_rebound | 區間內轉強 / 挑戰前高觀察 | 41 |
+| revenue_breakout_low_response | 營收爆發低反應股 | 371 |
+| revenue_pullback | 營收成長股價回檔 | 172 |
+| pullback_rebound | 回檔後短線轉強 | 8 |
+| pattern | 型態觀察 | 30 |
 
 ## 各分類完整名單
 
-### true_breakout
+### 嚴格突破 `true_breakout`
 
-| date | category | breakout_type | stock_id | stock_name | industry | score | rank | close | volume_ratio | previous_60d_high | distance_to_previous_60d_high_pct | available_days | price_data_warning | tdcc_judgement | chart_path | note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260520 | true_breakout | true_breakout | 6189 | 豐藝 | 電子通路業 | 125 |  | 51.1 | 3.39 | 50.0 | 2.2 | 130.0 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 2891 | 中信金 | 金融保險業 | 118 |  | 57.8 | 2.08 | 57.0 | 1.4 | 130.0 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 5488 | 松普 | 電子零組件業 | 118 |  | 11.7 | 6.39 | 11.0 | 6.36 | 130.0 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 8415 | 大國鋼 | 鋼鐵工業 | 118 |  | 36.45 | 2.01 | 36.0 | 1.25 | 130.0 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 1533 | 車王電 | 汽車工業 | 113 |  | 38.0 | 4.83 | 36.25 | 4.83 | 130.0 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 3694 | 海華 | 通信網路業 | 106 |  | 71.2 | 5.33 | 65.3 | 9.04 | 130.0 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 2401 | 凌陽 | 半導體業 | 98 |  | 26.9 | 3.5 | 26.6 | 1.13 | 130.0 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 3537 | 堡達 | 電子零組件業 | 98 |  | 57.8 | 4.55 | 56.5 | 2.3 | 130.0 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 6719 | 力智 | 半導體業 | 98 |  | 232.0 | 3.05 | 226.5 | 2.43 | 130.0 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 3479 | 安勤 | 電腦及週邊設備業 | 98 |  | 110.5 | 4.5 | 105.5 | 4.74 | 130.0 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 2455 | 全新 | 通信網路業 | 95 |  | 400.5 | 2.69 | 390.5 | 2.56 | 130.0 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 5285 | 界霖 | 半導體業 | 95 |  | 80.4 | 2.95 | 77.2 | 4.15 | 130.0 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 2428 | 興勤 | 電子零組件業 | 93 |  | 223.0 | 2.0 | 220.5 | 1.13 | 130.0 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 8050 | 廣積 | 電腦及週邊設備業 | 93 |  | 51.3 | 2.25 | 50.3 | 1.99 | 130.0 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 4916 | 事欣科 | 電腦及週邊設備業 | 91 |  | 89.9 | 4.35 | 81.8 | 9.9 | 130.0 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 2911 | 麗嬰房 | 貿易百貨 | 91 |  | 7.19 | 4.41 | 6.54 | 9.94 | 129.0 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 3236 | 千如 | 電子零組件業 | 90 |  | 43.9 | 3.13 | 42.7 | 2.81 | 130.0 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 5425 | 台半 | 半導體業 | 88 |  | 86.9 | 3.34 | 85.6 | 1.52 | 130.0 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 8261 | 富鼎 | 半導體業 | 86 |  | 149.0 | 1.85 | 145.0 | 2.76 | 130.0 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 3441 | 聯一光 | 光電業 | 86 |  | 48.15 | 4.55 | 47.65 | 1.05 | 130.0 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 8040 | 九暘 | 半導體業 | 86 |  | 98.7 | 1.68 | 96.2 | 2.6 | 130.0 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 3675 | 德微 | 半導體業 | 86 |  | 311.5 | 2.4 | 283.5 | 9.88 | 130.0 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 5321 | 美而快 | 數位雲端 | 86 |  | 32.2 | 2.69 | 29.3 | 9.9 | 130.0 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 3033 | 威健 | 電子通路業 | 85 |  | 51.4 | 2.22 | 49.75 | 3.32 | 130.0 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 2375 | 凱美 | 電子零組件業 | 84 |  | 111.5 | 1.52 | 110.5 | 0.9 | 130.0 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 6742 | 澤米 | 光電業 | 83 |  | 56.1 | 7.37 | 52.2 | 7.47 | 130.0 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 3094 | 聯傑 | 半導體業 | 83 |  | 36.3 | 2.18 | 35.9 | 1.11 | 130.0 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 3090 | 日電貿 | 電子零組件業 | 79 |  | 178.5 | 1.9 | 162.5 | 9.85 | 130.0 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 6209 | 今國光 | 光電業 | 79 |  | 78.9 | 1.55 | 74.8 | 5.48 | 130.0 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 3504 | 揚明光 | 光電業 | 78 |  | 82.3 | 4.11 | 82.0 | 0.37 | 130.0 |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 6834 | 天二科技 | 電子零組件業 | 76 |  | 60.6 | 1.86 | 57.9 | 4.66 |  |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 3577 | 泓格 | 電腦及週邊設備業 | 75 |  | 134.0 | 2.69 | 130.0 | 3.08 |  |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 6175 | 立敦 | 電子零組件業 | 71 |  | 81.5 | 1.2 | 76.3 | 6.82 |  |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 2478 | 大毅 | 電子零組件業 | 69 |  | 105.5 | 1.36 | 98.4 | 7.22 |  |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 2327 | 國巨* | 電子零組件業 | 66 |  | 520.0 | 1.51 | 516.0 | 0.78 |  |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 2492 | 華新科 | 電子零組件業 | 61 |  | 242.0 | 0.51 | 222.5 | 8.76 |  |  |  |  |  |
-| 20260520 | true_breakout | true_breakout | 3048 | 益登 | 電子通路業 | 58 |  | 61.7 | 1.07 | 60.2 | 2.49 |  |  |  |  |  |
+| date | category | category_cn | breakout_type | stock_id | stock_name | industry | score | rank | latest_revenue_yoy | cumulative_revenue_yoy | return_5d | close | volume_ratio | previous_60d_high | distance_to_previous_60d_high_pct | available_days | price_data_warning | tdcc_judgement | chart_path | note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260520 | true_breakout | 嚴格突破 | true_breakout | 6189 | 豐藝 | 電子通路業 | 125 |  |  |  | 8.84 | 51.1 | 3.39 | 50.0 | 2.2 | 130.0 |  |  |  |  |
+| 20260520 | true_breakout | 嚴格突破 | true_breakout | 2891 | 中信金 | 金融保險業 | 118 |  |  |  | 5.28 | 57.8 | 2.08 | 57.0 | 1.4 | 130.0 |  |  |  |  |
+| 20260520 | true_breakout | 嚴格突破 | true_breakout | 5488 | 松普 | 電子零組件業 | 118 |  |  |  | 12.5 | 11.7 | 6.39 | 11.0 | 6.36 | 130.0 |  |  |  |  |
+| 20260520 | true_breakout | 嚴格突破 | true_breakout | 8415 | 大國鋼 | 鋼鐵工業 | 118 |  |  |  | 6.27 | 36.45 | 2.01 | 36.0 | 1.25 | 130.0 |  |  |  |  |
+| 20260520 | true_breakout | 嚴格突破 | true_breakout | 1533 | 車王電 | 汽車工業 | 113 |  |  |  | 12.93 | 38.0 | 4.83 | 36.25 | 4.83 | 130.0 |  |  |  |  |
+| 20260520 | true_breakout | 嚴格突破 | true_breakout | 3694 | 海華 | 通信網路業 | 106 |  |  |  | 28.06 | 71.2 | 5.33 | 65.3 | 9.04 | 130.0 |  |  |  |  |
+| 20260520 | true_breakout | 嚴格突破 | true_breakout | 2401 | 凌陽 | 半導體業 | 98 |  |  |  | 7.82 | 26.9 | 3.5 | 26.6 | 1.13 | 130.0 |  |  |  |  |
+| 20260520 | true_breakout | 嚴格突破 | true_breakout | 3537 | 堡達 | 電子零組件業 | 98 |  |  |  | 18.69 | 57.8 | 4.55 | 56.5 | 2.3 | 130.0 |  |  |  |  |
+| 20260520 | true_breakout | 嚴格突破 | true_breakout | 6719 | 力智 | 半導體業 | 98 |  |  |  | 14.57 | 232.0 | 3.05 | 226.5 | 2.43 | 130.0 |  |  |  |  |
+| 20260520 | true_breakout | 嚴格突破 | true_breakout | 3479 | 安勤 | 電腦及週邊設備業 | 98 |  |  |  | 14.75 | 110.5 | 4.5 | 105.5 | 4.74 | 130.0 |  |  |  |  |
+| 20260520 | true_breakout | 嚴格突破 | true_breakout | 2455 | 全新 | 通信網路業 | 95 |  |  |  | 7.09 | 400.5 | 2.69 | 390.5 | 2.56 | 130.0 |  |  |  |  |
+| 20260520 | true_breakout | 嚴格突破 | true_breakout | 5285 | 界霖 | 半導體業 | 95 |  |  |  | 10.44 | 80.4 | 2.95 | 77.2 | 4.15 | 130.0 |  |  |  |  |
+| 20260520 | true_breakout | 嚴格突破 | true_breakout | 2428 | 興勤 | 電子零組件業 | 93 |  |  |  | 9.85 | 223.0 | 2.0 | 220.5 | 1.13 | 130.0 |  |  |  |  |
+| 20260520 | true_breakout | 嚴格突破 | true_breakout | 8050 | 廣積 | 電腦及週邊設備業 | 93 |  |  |  | 6.99 | 51.3 | 2.25 | 50.3 | 1.99 | 130.0 |  |  |  |  |
+| 20260520 | true_breakout | 嚴格突破 | true_breakout | 4916 | 事欣科 | 電腦及週邊設備業 | 91 |  |  |  | 37.88 | 89.9 | 4.35 | 81.8 | 9.9 | 130.0 |  |  |  |  |
+| 20260520 | true_breakout | 嚴格突破 | true_breakout | 2911 | 麗嬰房 | 貿易百貨 | 91 |  |  |  | 44.09 | 7.19 | 4.41 | 6.54 | 9.94 | 129.0 |  |  |  |  |
+| 20260520 | true_breakout | 嚴格突破 | true_breakout | 3236 | 千如 | 電子零組件業 | 90 |  |  |  | 13.0 | 43.9 | 3.13 | 42.7 | 2.81 | 130.0 |  |  |  |  |
+| 20260520 | true_breakout | 嚴格突破 | true_breakout | 5425 | 台半 | 半導體業 | 88 |  |  |  | 14.04 | 86.9 | 3.34 | 85.6 | 1.52 | 130.0 |  |  |  |  |
+| 20260520 | true_breakout | 嚴格突破 | true_breakout | 8261 | 富鼎 | 半導體業 | 86 |  |  |  | 12.88 | 149.0 | 1.85 | 145.0 | 2.76 | 130.0 |  |  |  |  |
+| 20260520 | true_breakout | 嚴格突破 | true_breakout | 3441 | 聯一光 | 光電業 | 86 |  |  |  | 23.46 | 48.15 | 4.55 | 47.65 | 1.05 | 130.0 |  |  |  |  |
+| 20260520 | true_breakout | 嚴格突破 | true_breakout | 8040 | 九暘 | 半導體業 | 86 |  |  |  | 19.78 | 98.7 | 1.68 | 96.2 | 2.6 | 130.0 |  |  |  |  |
+| 20260520 | true_breakout | 嚴格突破 | true_breakout | 3675 | 德微 | 半導體業 | 86 |  |  |  | 22.4 | 311.5 | 2.4 | 283.5 | 9.88 | 130.0 |  |  |  |  |
+| 20260520 | true_breakout | 嚴格突破 | true_breakout | 5321 | 美而快 | 數位雲端 | 86 |  |  |  | 40.0 | 32.2 | 2.69 | 29.3 | 9.9 | 130.0 |  |  |  |  |
+| 20260520 | true_breakout | 嚴格突破 | true_breakout | 3033 | 威健 | 電子通路業 | 85 |  |  |  | 19.67 | 51.4 | 2.22 | 49.75 | 3.32 | 130.0 |  |  |  |  |
+| 20260520 | true_breakout | 嚴格突破 | true_breakout | 2375 | 凱美 | 電子零組件業 | 84 |  |  |  | 16.15 | 111.5 | 1.52 | 110.5 | 0.9 | 130.0 |  |  |  |  |
+| 20260520 | true_breakout | 嚴格突破 | true_breakout | 6742 | 澤米 | 光電業 | 83 |  |  |  | 45.34 | 56.1 | 7.37 | 52.2 | 7.47 | 130.0 |  |  |  |  |
+| 20260520 | true_breakout | 嚴格突破 | true_breakout | 3094 | 聯傑 | 半導體業 | 83 |  |  |  | 18.63 | 36.3 | 2.18 | 35.9 | 1.11 | 130.0 |  |  |  |  |
+| 20260520 | true_breakout | 嚴格突破 | true_breakout | 3090 | 日電貿 | 電子零組件業 | 79 |  |  |  | 45.71 | 178.5 | 1.9 | 162.5 | 9.85 | 130.0 |  |  |  |  |
+| 20260520 | true_breakout | 嚴格突破 | true_breakout | 6209 | 今國光 | 光電業 | 79 |  |  |  | 27.05 | 78.9 | 1.55 | 74.8 | 5.48 | 130.0 |  |  |  |  |
+| 20260520 | true_breakout | 嚴格突破 | true_breakout | 3504 | 揚明光 | 光電業 | 78 |  |  |  | 24.32 | 82.3 | 4.11 | 82.0 | 0.37 | 130.0 |  |  |  |  |
+| 20260520 | true_breakout | 嚴格突破 | true_breakout | 6834 | 天二科技 | 電子零組件業 | 76 |  |  |  | 38.04 | 60.6 | 1.86 | 57.9 | 4.66 |  |  |  |  |  |
+| 20260520 | true_breakout | 嚴格突破 | true_breakout | 3577 | 泓格 | 電腦及週邊設備業 | 75 |  |  |  | 34.54 | 134.0 | 2.69 | 130.0 | 3.08 |  |  |  |  |  |
+| 20260520 | true_breakout | 嚴格突破 | true_breakout | 6175 | 立敦 | 電子零組件業 | 71 |  |  |  | 18.8 | 81.5 | 1.2 | 76.3 | 6.82 |  |  |  |  |  |
+| 20260520 | true_breakout | 嚴格突破 | true_breakout | 2478 | 大毅 | 電子零組件業 | 69 |  |  |  | 30.41 | 105.5 | 1.36 | 98.4 | 7.22 |  |  |  |  |  |
+| 20260520 | true_breakout | 嚴格突破 | true_breakout | 2327 | 國巨* | 電子零組件業 | 66 |  |  |  | 23.81 | 520.0 | 1.51 | 516.0 | 0.78 |  |  |  |  |  |
+| 20260520 | true_breakout | 嚴格突破 | true_breakout | 2492 | 華新科 | 電子零組件業 | 61 |  |  |  | 21.0 | 242.0 | 0.51 | 222.5 | 8.76 |  |  |  |  |  |
+| 20260520 | true_breakout | 嚴格突破 | true_breakout | 3048 | 益登 | 電子通路業 | 58 |  |  |  | 32.83 | 61.7 | 1.07 | 60.2 | 2.49 |  |  |  |  |  |
 
-### range_rebound
+### 區間內轉強 / 挑戰前高觀察 `range_rebound`
 
-| date | category | breakout_type | stock_id | stock_name | industry | score | rank | close | volume_ratio | previous_60d_high | distance_to_previous_60d_high_pct | available_days | price_data_warning | tdcc_judgement | chart_path | note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260520 | range_rebound | near_resistance | 3624 | 光頡 | 電子零組件業 | 69 |  | 90.0 | 5.12 | 92.1 | -2.28 | 130.0 |  |  |  |  |
-| 20260520 | range_rebound | near_resistance | 3673 | TPK-KY | 光電業 | 69 |  | 71.7 | 2.6 | 75.4 | -4.91 | 130.0 |  |  |  |  |
-| 20260520 | range_rebound | abnormal_volume_up | 2603 | 長榮 | 航運業 | 69 |  | 212.5 | 3.59 | 222.5 | -4.49 | 130.0 |  |  |  |  |
-| 20260520 | range_rebound | range_rebound | 2027 | 大成鋼 | 鋼鐵工業 | 69 |  | 41.15 | 1.57 | 41.2 | -0.12 | 130.0 |  |  |  |  |
-| 20260520 | range_rebound | range_rebound | 8043 | 蜜望實 | 電子零組件業 | 69 |  | 114.5 | 3.19 | 124.0 | -7.66 | 130.0 |  |  |  |  |
-| 20260520 | range_rebound | near_resistance | 2498 | 宏達電 | 通信網路業 | 69 |  | 45.45 | 1.91 | 46.95 | -3.19 | 130.0 |  |  |  |  |
-| 20260520 | range_rebound | range_rebound | 6127 | 九豪 | 電子零組件業 | 69 |  | 52.1 | 2.26 | 54.0 | -3.52 | 130.0 |  |  |  |  |
-| 20260520 | range_rebound | range_rebound | 3036 | 文曄 | 電子通路業 | 69 |  | 279.0 | 1.71 | 291.5 | -4.29 | 130.0 |  |  |  |  |
-| 20260520 | range_rebound | near_resistance | 2412 | 中華電 | 通信網路業 | 69 |  | 139.0 | 1.69 | 144.0 | -3.47 | 130.0 |  |  |  |  |
-| 20260520 | range_rebound | range_rebound | 5309 | 系統電 | 電子零組件業 | 69 |  | 67.7 | 2.11 | 71.9 | -5.84 | 130.0 |  |  |  |  |
-| 20260520 | range_rebound | range_rebound | 2472 | 立隆電 | 電子零組件業 | 69 |  | 255.0 | 1.67 | 256.0 | -0.39 | 130.0 |  |  |  |  |
-| 20260520 | range_rebound | range_rebound | 3357 | 臺慶科 | 電子零組件業 | 69 |  | 231.0 | 2.3 | 249.5 | -7.41 | 130.0 |  |  |  |  |
-| 20260520 | range_rebound | range_rebound | 6415 | 矽力*-KY | 半導體業 | 69 |  | 507.0 | 1.57 | 544.0 | -6.8 | 130.0 |  |  |  |  |
-| 20260520 | range_rebound | abnormal_volume_up | 1710 | 東聯 | 化學工業 | 69 |  | 12.95 | 3.46 | 16.85 | -23.15 | 130.0 |  |  |  |  |
-| 20260520 | range_rebound | abnormal_volume_up | 6133 | 金橋 | 電子零組件業 | 69 |  | 24.35 | 6.95 | 30.05 | -18.97 | 130.0 |  |  |  |  |
-| 20260520 | range_rebound | range_rebound | 3294 | 英濟 | 電子零組件業 | 69 |  | 40.5 | 4.73 | 42.4 | -4.48 | 130.0 |  |  |  |  |
-| 20260520 | range_rebound | range_rebound | 6155 | 鈞寶 | 電子零組件業 | 69 |  | 55.9 | 1.94 | 56.4 | -0.89 | 130.0 |  |  |  |  |
-| 20260520 | range_rebound | range_rebound | 6284 | 佳邦 | 電子零組件業 | 69 |  | 88.0 | 3.89 | 91.9 | -4.24 | 130.0 |  |  |  |  |
-| 20260520 | range_rebound | range_rebound | 9933 | 中鼎 | 其他 | 69 |  | 38.75 | 1.7 | 40.3 | -3.85 | 130.0 |  |  |  |  |
-| 20260520 | range_rebound | range_rebound | 8163 | 達方 | 電腦及週邊設備業 | 69 |  | 33.0 | 2.17 | 35.0 | -5.71 | 130.0 |  |  |  |  |
-| 20260520 | range_rebound | range_rebound | 5471 | 松翰 | 半導體業 | 69 |  | 52.3 | 1.9 | 53.8 | -2.79 | 130.0 |  |  |  |  |
-| 20260520 | range_rebound | range_rebound | 6485 | 點序 | 半導體業 | 69 |  | 112.0 | 2.88 | 118.5 | -5.49 | 130.0 |  |  |  |  |
-| 20260520 | range_rebound | range_rebound | 6174 | 安碁 | 電子零組件業 | 69 |  | 43.45 | 2.04 | 43.95 | -1.14 | 130.0 |  |  |  |  |
-| 20260520 | range_rebound | range_rebound | 6432 | 今展科 | 電子零組件業 | 69 |  | 52.7 | 2.14 | 54.5 | -3.3 | 130.0 |  |  |  |  |
-| 20260520 | range_rebound | abnormal_volume_up | 8044 | 網家 | 數位雲端 | 69 |  | 29.0 | 4.76 | 29.3 | -1.02 | 130.0 |  |  |  |  |
-| 20260520 | range_rebound | near_resistance | 6642 | 富致 | 電子零組件業 | 69 |  | 83.7 | 6.3 | 84.3 | -0.71 | 130.0 |  |  |  |  |
-| 20260520 | range_rebound | range_rebound | 6237 | 驊訊 | 半導體業 | 69 |  | 48.55 | 2.69 | 52.0 | -6.63 | 130.0 |  |  |  |  |
-| 20260520 | range_rebound | near_resistance | 8255 | 朋程 | 電機機械 | 69 |  | 156.0 | 2.79 | 157.0 | -0.64 | 130.0 |  |  |  |  |
-| 20260520 | range_rebound | range_rebound | 8121 | 越峰 | 電子零組件業 | 69 |  | 35.2 | 1.77 | 37.0 | -4.86 | 130.0 |  |  |  |  |
-| 20260520 | range_rebound | abnormal_volume_up | 8473 | 山林水 | 綠能環保 | 69 |  | 39.75 | 4.78 | 41.4 | -3.99 | 130.0 |  |  |  |  |
-| 20260520 | range_rebound | range_rebound | 8081 | 致新 | 半導體業 | 69 |  | 272.0 | 2.05 | 277.0 | -1.81 |  |  |  |  |  |
-| 20260520 | range_rebound | range_rebound | 6558 | 興能高 | 其他電子業 | 69 |  | 32.2 | 2.77 | 34.75 | -7.34 |  |  |  |  |  |
-| 20260520 | range_rebound | abnormal_volume_up | 5299 | 杰力 | 半導體業 | 69 |  | 104.5 | 4.58 | 106.0 | -1.42 |  |  |  |  |  |
-| 20260520 | range_rebound | range_rebound | 6138 | 茂達 | 半導體業 | 69 |  | 308.5 | 1.58 | 316.0 | -2.37 |  |  |  |  |  |
-| 20260520 | range_rebound | abnormal_volume_up | 6538 | 倉和 | 電子零組件業 | 69 |  | 106.5 | 3.75 | 107.0 | -0.47 |  |  |  |  |  |
-| 20260520 | range_rebound | range_rebound | 7712 | 博盛半導體 | 半導體業 | 69 |  | 167.5 | 1.76 | 173.0 | -3.18 |  |  |  |  |  |
-| 20260520 | range_rebound | near_resistance | 5236 | 凌陽創新 | 半導體業 | 69 |  | 172.0 | 2.0 | 179.0 | -3.91 |  |  |  |  |  |
-| 20260520 | range_rebound | range_rebound | 6411 | 晶焱 | 半導體業 | 69 |  | 86.0 | 1.96 | 90.5 | -4.97 |  |  |  |  |  |
-| 20260520 | range_rebound | abnormal_volume_up | 2314 | 台揚 | 通信網路業 | 69 |  | 14.6 | 3.28 | 22.2 | -34.23 |  |  |  |  |  |
-| 20260520 | range_rebound | range_rebound | 3546 | 宇峻 | 文化創意業 | 69 |  | 81.3 | 2.67 | 82.5 | -1.45 |  |  |  |  |  |
-| 20260520 | range_rebound | near_resistance | 2420 | 新巨 | 電子零組件業 | 69 |  | 58.9 | 2.0 | 59.9 | -1.67 |  |  |  |  |  |
+| date | category | category_cn | breakout_type | stock_id | stock_name | industry | score | rank | latest_revenue_yoy | cumulative_revenue_yoy | return_5d | close | volume_ratio | previous_60d_high | distance_to_previous_60d_high_pct | available_days | price_data_warning | tdcc_judgement | chart_path | note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | near_resistance | 3624 | 光頡 | 電子零組件業 | 69 |  |  |  | 35.14 | 90.0 | 5.12 | 92.1 | -2.28 | 130.0 |  |  |  |  |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | near_resistance | 3673 | TPK-KY | 光電業 | 69 |  |  |  | 7.66 | 71.7 | 2.6 | 75.4 | -4.91 | 130.0 |  |  |  |  |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | abnormal_volume_up | 2603 | 長榮 | 航運業 | 69 |  |  |  | 1.19 | 212.5 | 3.59 | 222.5 | -4.49 | 130.0 |  |  |  |  |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | range_rebound | 2027 | 大成鋼 | 鋼鐵工業 | 69 |  |  |  | 8.01 | 41.15 | 1.57 | 41.2 | -0.12 | 130.0 |  |  |  |  |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | range_rebound | 8043 | 蜜望實 | 電子零組件業 | 69 |  |  |  | 15.77 | 114.5 | 3.19 | 124.0 | -7.66 | 130.0 |  |  |  |  |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | near_resistance | 2498 | 宏達電 | 通信網路業 | 69 |  |  |  | 13.34 | 45.45 | 1.91 | 46.95 | -3.19 | 130.0 |  |  |  |  |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | range_rebound | 6127 | 九豪 | 電子零組件業 | 69 |  |  |  | 9.68 | 52.1 | 2.26 | 54.0 | -3.52 | 130.0 |  |  |  |  |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | range_rebound | 3036 | 文曄 | 電子通路業 | 69 |  |  |  | -1.76 | 279.0 | 1.71 | 291.5 | -4.29 | 130.0 |  |  |  |  |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | near_resistance | 2412 | 中華電 | 通信網路業 | 69 |  |  |  | 1.09 | 139.0 | 1.69 | 144.0 | -3.47 | 130.0 |  |  |  |  |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | range_rebound | 5309 | 系統電 | 電子零組件業 | 69 |  |  |  | 5.95 | 67.7 | 2.11 | 71.9 | -5.84 | 130.0 |  |  |  |  |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | range_rebound | 2472 | 立隆電 | 電子零組件業 | 69 |  |  |  | 9.21 | 255.0 | 1.67 | 256.0 | -0.39 | 130.0 |  |  |  |  |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | range_rebound | 3357 | 臺慶科 | 電子零組件業 | 69 |  |  |  | 8.45 | 231.0 | 2.3 | 249.5 | -7.41 | 130.0 |  |  |  |  |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | range_rebound | 6415 | 矽力*-KY | 半導體業 | 69 |  |  |  | 8.45 | 507.0 | 1.57 | 544.0 | -6.8 | 130.0 |  |  |  |  |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | abnormal_volume_up | 1710 | 東聯 | 化學工業 | 69 |  |  |  | 7.92 | 12.95 | 3.46 | 16.85 | -23.15 | 130.0 |  |  |  |  |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | abnormal_volume_up | 6133 | 金橋 | 電子零組件業 | 69 |  |  |  | 12.47 | 24.35 | 6.95 | 30.05 | -18.97 | 130.0 |  |  |  |  |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | range_rebound | 3294 | 英濟 | 電子零組件業 | 69 |  |  |  | 34.11 | 40.5 | 4.73 | 42.4 | -4.48 | 130.0 |  |  |  |  |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | range_rebound | 6155 | 鈞寶 | 電子零組件業 | 69 |  |  |  | 7.5 | 55.9 | 1.94 | 56.4 | -0.89 | 130.0 |  |  |  |  |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | range_rebound | 6284 | 佳邦 | 電子零組件業 | 69 |  |  |  | 4.64 | 88.0 | 3.89 | 91.9 | -4.24 | 130.0 |  |  |  |  |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | range_rebound | 9933 | 中鼎 | 其他 | 69 |  |  |  | 5.3 | 38.75 | 1.7 | 40.3 | -3.85 | 130.0 |  |  |  |  |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | range_rebound | 8163 | 達方 | 電腦及週邊設備業 | 69 |  |  |  | 12.24 | 33.0 | 2.17 | 35.0 | -5.71 | 130.0 |  |  |  |  |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | range_rebound | 5471 | 松翰 | 半導體業 | 69 |  |  |  | 3.98 | 52.3 | 1.9 | 53.8 | -2.79 | 130.0 |  |  |  |  |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | range_rebound | 6485 | 點序 | 半導體業 | 69 |  |  |  | 37.93 | 112.0 | 2.88 | 118.5 | -5.49 | 130.0 |  |  |  |  |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | range_rebound | 6174 | 安碁 | 電子零組件業 | 69 |  |  |  | 8.63 | 43.45 | 2.04 | 43.95 | -1.14 | 130.0 |  |  |  |  |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | range_rebound | 6432 | 今展科 | 電子零組件業 | 69 |  |  |  | 10.25 | 52.7 | 2.14 | 54.5 | -3.3 | 130.0 |  |  |  |  |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | abnormal_volume_up | 8044 | 網家 | 數位雲端 | 69 |  |  |  | 25.81 | 29.0 | 4.76 | 29.3 | -1.02 | 130.0 |  |  |  |  |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | near_resistance | 6642 | 富致 | 電子零組件業 | 69 |  |  |  | 30.78 | 83.7 | 6.3 | 84.3 | -0.71 | 130.0 |  |  |  |  |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | range_rebound | 6237 | 驊訊 | 半導體業 | 69 |  |  |  | 11.74 | 48.55 | 2.69 | 52.0 | -6.63 | 130.0 |  |  |  |  |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | near_resistance | 8255 | 朋程 | 電機機械 | 69 |  |  |  | 7.59 | 156.0 | 2.79 | 157.0 | -0.64 | 130.0 |  |  |  |  |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | range_rebound | 8121 | 越峰 | 電子零組件業 | 69 |  |  |  | 4.14 | 35.2 | 1.77 | 37.0 | -4.86 | 130.0 |  |  |  |  |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | abnormal_volume_up | 8473 | 山林水 | 綠能環保 | 69 |  |  |  | 18.13 | 39.75 | 4.78 | 41.4 | -3.99 | 130.0 |  |  |  |  |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | range_rebound | 8081 | 致新 | 半導體業 | 69 |  |  |  | 6.04 | 272.0 | 2.05 | 277.0 | -1.81 |  |  |  |  |  |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | range_rebound | 6558 | 興能高 | 其他電子業 | 69 |  |  |  | 9.71 | 32.2 | 2.77 | 34.75 | -7.34 |  |  |  |  |  |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | abnormal_volume_up | 5299 | 杰力 | 半導體業 | 69 |  |  |  | 5.24 | 104.5 | 4.58 | 106.0 | -1.42 |  |  |  |  |  |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | range_rebound | 6138 | 茂達 | 半導體業 | 69 |  |  |  | 7.3 | 308.5 | 1.58 | 316.0 | -2.37 |  |  |  |  |  |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | abnormal_volume_up | 6538 | 倉和 | 電子零組件業 | 69 |  |  |  | 39.4 | 106.5 | 3.75 | 107.0 | -0.47 |  |  |  |  |  |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | range_rebound | 7712 | 博盛半導體 | 半導體業 | 69 |  |  |  | 9.48 | 167.5 | 1.76 | 173.0 | -3.18 |  |  |  |  |  |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | near_resistance | 5236 | 凌陽創新 | 半導體業 | 69 |  |  |  | 5.85 | 172.0 | 2.0 | 179.0 | -3.91 |  |  |  |  |  |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | range_rebound | 6411 | 晶焱 | 半導體業 | 69 |  |  |  | 4.88 | 86.0 | 1.96 | 90.5 | -4.97 |  |  |  |  |  |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | abnormal_volume_up | 2314 | 台揚 | 通信網路業 | 69 |  |  |  | 11.88 | 14.6 | 3.28 | 22.2 | -34.23 |  |  |  |  |  |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | range_rebound | 3546 | 宇峻 | 文化創意業 | 69 |  |  |  | 19.73 | 81.3 | 2.67 | 82.5 | -1.45 |  |  |  |  |  |
+| 20260520 | range_rebound | 區間內轉強 / 挑戰前高觀察 | near_resistance | 2420 | 新巨 | 電子零組件業 | 69 |  |  |  | 4.62 | 58.9 | 2.0 | 59.9 | -1.67 |  |  |  |  |  |
 
-### revenue_pullback
+### 營收爆發低反應 `revenue_breakout_low_response`
 
-| date | category | breakout_type | stock_id | stock_name | industry | score | rank | close | volume_ratio | previous_60d_high | distance_to_previous_60d_high_pct | available_days | price_data_warning | tdcc_judgement | chart_path | note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260520 | revenue_pullback | revenue_pullback | 2337 | 旺宏 | 半導體業 | 90 |  | 141.0 | 0.57 | 178.5 | -21.01 | 130.0 |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2382 | 廣達 | 電腦及週邊設備業 | 90 |  | 290.0 | 1.5 | 352.5 | -17.73 | 130.0 |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 3231 | 緯創 | 電腦及週邊設備業 | 90 |  | 132.5 | 0.47 | 149.0 | -11.07 | 130.0 |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 3260 | 威剛 | 半導體業 | 90 |  | 405.5 | 0.45 | 525.0 | -22.76 | 130.0 |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 5498 | 凱崴 | 電子零組件業 | 90 |  | 61.3 | 0.56 | 87.2 | -29.7 | 130.0 |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 8996 | 高力 | 電機機械 | 90 |  | 994.0 | 1.29 | 1310.0 | -24.12 | 130.0 |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 5475 | 德宏 | 電子零組件業 | 90 |  | 278.0 | 1.05 | 404.5 | -31.27 | 130.0 |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 6274 | 台燿 | 電子零組件業 | 90 |  | 1205.0 | 0.34 | 1480.0 | -18.58 | 130.0 |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 6805 | 富世達 | 電子零組件業 | 90 |  | 1720.0 | 0.45 | 2275.0 | -24.4 | 130.0 |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 5351 | 鈺創 | 半導體業 | 84 |  | 74.4 | 0.62 | 94.0 | -20.85 | 130.0 |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 6265 | 方土昶 | 電子通路業 | 84 |  | 41.6 | 0.46 | 50.7 | -17.95 | 130.0 |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2345 | 智邦 | 通信網路業 | 84 |  | 2355.0 | 0.8 | 2695.0 | -12.62 | 130.0 |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 3443 | 創意 | 半導體業 | 84 |  | 4605.0 | 1.4 | 5950.0 | -22.61 | 130.0 |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 6125 | 廣運 | 光電業 | 84 |  | 54.7 | 0.95 | 66.8 | -18.11 | 130.0 |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 6026 | 福邦證 | 金融業 | 84 |  | 15.05 | 0.47 | 17.0 | -11.47 | 130.0 |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 4967 | 十銓 | 半導體業 | 83 |  | 261.0 | 0.2 | 323.0 | -19.2 | 130.0 |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 8271 | 宇瞻 | 半導體業 | 83 |  | 215.0 | 0.65 | 271.0 | -20.66 | 130.0 |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 4743 | 合一 | 生技醫療業 | 83 |  | 49.0 | 1.04 | 61.2 | -19.93 | 130.0 |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 3030 | 德律 | 其他電子業 | 83 |  | 347.0 | 0.44 | 435.5 | -20.32 | 130.0 |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2383 | 台光電 | 電子零組件業 | 83 |  | 4395.0 | 0.62 | 5215.0 | -15.72 | 130.0 |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2360 | 致茂 | 其他電子業 | 83 |  | 2065.0 | 0.47 | 2530.0 | -18.38 | 130.0 |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2449 | 京元電子 | 半導體業 | 82 |  | 277.5 | 0.84 | 364.5 | -23.87 | 130.0 |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2880 | 華南金 | 金融保險業 | 82 |  | 32.05 | 1.45 | 38.1 | -15.88 | 130.0 |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 3706 | 神達 | 電腦及週邊設備業 | 82 |  | 80.3 | 0.56 | 89.2 | -9.98 | 130.0 |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2495 | 普安 | 電腦及週邊設備業 | 82 |  | 37.5 | 1.02 | 46.0 | -18.48 | 130.0 |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2369 | 菱生 | 半導體業 | 82 |  | 28.85 | 0.43 | 38.75 | -25.55 | 130.0 |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 3017 | 奇鋐 | 電腦及週邊設備業 | 82 |  | 2340.0 | 0.59 | 3010.0 | -22.26 | 130.0 |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 8131 | 福懋科 | 半導體業 | 82 |  | 60.9 | 0.37 | 75.0 | -18.8 | 130.0 |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 3689 | 湧德 | 電子零組件業 | 82 |  | 118.5 | 0.39 | 146.0 | -18.84 | 130.0 |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2305 | 全友 | 電腦及週邊設備業 | 82 |  | 16.6 | 0.42 | 20.2 | -17.82 | 130.0 |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2406 | 國碩 | 光電業 | 77 |  | 30.05 | 0.7 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 8086 | 宏捷科 | 半導體業 | 76 |  | 144.5 | 0.37 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 3680 | 家登 | 半導體業 | 76 |  | 506.0 | 0.59 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 8021 | 尖點 | 其他電子業 | 75 |  | 361.0 | 2.59 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 1815 | 富喬 | 電子零組件業 | 75 |  | 99.5 | 0.38 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 4989 | 榮科 | 電子零組件業 | 75 |  | 92.8 | 1.52 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 8046 | 南電 | 電子零組件業 | 75 |  | 829.0 | 0.7 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 3264 | 欣銓 | 半導體業 | 75 |  | 206.5 | 0.79 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 3715 | 定穎投控 | 電子零組件業 | 75 |  | 161.0 | 0.47 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2368 | 金像電 | 電子零組件業 | 75 |  | 1235.0 | 0.92 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 5439 | 高技 | 電子零組件業 | 75 |  | 364.5 | 0.68 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 8070 | 長華* | 電子通路業 | 75 |  | 42.8 | 1.05 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 3081 | 聯亞 | 通信網路業 | 75 |  | 2580.0 | 0.63 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 3013 | 晟銘電 | 電腦及週邊設備業 | 75 |  | 98.5 | 0.42 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2486 | 一詮 | 光電業 | 75 |  | 258.0 | 0.23 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2417 | 圓剛 | 電腦及週邊設備業 | 75 |  | 47.45 | 0.31 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 4949 | 有成精密 | 光電業 | 75 |  | 87.3 | 0.45 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 3265 | 台星科 | 半導體業 | 75 |  | 170.5 | 0.42 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 6108 | 競國 | 電子零組件業 | 75 |  | 19.0 | 0.33 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 8074 | 鉅橡 | 電子零組件業 | 75 |  | 72.8 | 0.19 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 3550 | 聯穎 | 電子零組件業 | 75 |  | 19.95 | 0.27 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 4903 | 聯光通 | 通信網路業 | 74 |  | 44.35 | 0.65 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2408 | 南亞科 | 半導體業 | 70 |  | 275.0 | 0.87 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2883 | 凱基金 | 金融保險業 | 70 |  | 21.6 | 0.9 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 8112 | 至上 | 電子通路業 | 70 |  | 84.0 | 1.65 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2890 | 永豐金 | 金融保險業 | 70 |  | 29.8 | 1.05 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2881 | 富邦金 | 金融保險業 | 70 |  | 95.8 | 0.89 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2882 | 國泰金 | 金融保險業 | 70 |  | 77.9 | 0.81 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2885 | 元大金 | 金融保險業 | 70 |  | 55.1 | 0.73 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2376 | 技嘉 | 電腦及週邊設備業 | 70 |  | 302.0 | 0.93 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2363 | 矽統 | 半導體業 | 70 |  | 60.1 | 0.66 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 8299 | 群聯 | 半導體業 | 70 |  | 2265.0 | 1.23 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 9945 | 潤泰新 | 其他 | 70 |  | 23.4 | 1.23 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 3167 | 大量 | 電機機械 | 70 |  | 780.0 | 3.31 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 6139 | 亞翔 | 其他電子業 | 70 |  | 720.0 | 1.63 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 5388 | 中磊 | 通信網路業 | 70 |  | 81.8 | 1.07 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2347 | 聯強 | 電子通路業 | 70 |  | 83.7 | 1.37 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2404 | 漢唐 | 其他電子業 | 70 |  | 1025.0 | 1.24 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2374 | 佳能 | 光電業 | 70 |  | 78.8 | 0.4 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2451 | 創見 | 半導體業 | 70 |  | 309.5 | 0.46 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 6005 | 群益證 | 金融保險業 | 70 |  | 30.6 | 0.28 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 5864 | 致和證 | 金融業 | 70 |  | 31.35 | 0.68 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 6016 | 康和證 | 金融業 | 70 |  | 21.8 | 0.36 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2867 | 三商壽 | 金融保險業 | 70 |  | 7.7 | 0.46 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 4739 | 康普 | 化學工業 | 70 |  | 91.5 | 0.56 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2855 | 統一證 | 金融保險業 | 70 |  | 39.2 | 0.34 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2467 | 志聖 | 電子零組件業 | 70 |  | 554.0 | 1.04 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 1714 | 和桐 | 化學工業 | 70 |  | 9.52 | 0.57 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 3491 | 昇達科 | 通信網路業 | 70 |  | 1755.0 | 1.16 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 7750 | 新代 | 電機機械 | 70 |  | 2495.0 | 2.74 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2889 | 國票金 | 金融保險業 | 70 |  | 14.7 | 0.63 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 6015 | 宏遠證 | 金融業 | 70 |  | 14.5 | 0.49 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 6426 | 統新 | 通信網路業 | 70 |  | 239.0 | 0.44 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2548 | 華固 | 建材營造 | 70 |  | 123.5 | 0.84 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 5284 | jpp-KY | 其他 | 70 |  | 363.0 | 0.53 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 6179 | 亞通 | 其他 | 70 |  | 24.6 | 0.66 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 3044 | 健鼎 | 電子零組件業 | 69 |  | 462.5 | 0.43 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 6548 | 長科* | 半導體業 | 69 |  | 48.6 | 0.29 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2637 | 慧洋-KY | 航運業 | 69 |  | 71.8 | 0.71 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 1773 | 勝一 | 化學工業 | 69 |  | 163.5 | 0.53 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 8150 | 南茂 | 半導體業 | 68 |  | 74.4 | 0.37 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 5443 | 均豪 | 半導體業 | 68 |  | 116.5 | 0.41 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 3105 | 穩懋 | 半導體業 | 67 |  | 446.5 | 0.93 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 1785 | 光洋科 | 其他電子業 | 67 |  | 138.0 | 0.57 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2308 | 台達電 | 電子零組件業 | 67 |  | 1915.0 | 0.87 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 3324 | 雙鴻 | 其他電子業 | 67 |  | 939.0 | 0.59 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 1316 | 上曜 | 建材營造 | 64 |  | 10.6 | 1.02 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2344 | 華邦電 | 半導體業 | 63 |  | 115.5 | 0.72 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2891 | 中信金 | 金融保險業 | 63 |  | 57.8 | 2.08 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2886 | 兆豐金 | 金融保險業 | 63 |  | 40.3 | 1.42 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 5880 | 合庫金 | 金融保險業 | 63 |  | 22.7 | 0.87 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2353 | 宏碁 | 電腦及週邊設備業 | 63 |  | 27.45 | 0.54 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2812 | 台中銀 | 金融保險業 | 63 |  | 18.9 | 0.51 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2542 | 興富發 | 建材營造 | 63 |  | 43.7 | 0.59 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 6531 | 愛普* | 半導體業 | 63 |  | 973.0 | 1.08 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 5314 | 世紀* | 其他 | 63 |  | 67.6 | 1.31 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 5291 | 邑昇 | 電子零組件業 | 63 |  | 71.7 | 1.93 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 6215 | 和椿 | 其他電子業 | 63 |  | 122.0 | 0.59 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 4760 | 勤凱科技 | 其他電子業 | 63 |  | 282.0 | 1.51 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2101 | 南港 | 橡膠工業 | 63 |  | 30.75 | 1.02 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2838 | 聯邦銀 | 金融保險業 | 63 |  | 20.05 | 1.26 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 6419 | 京晨科 | 光電業 | 63 |  | 143.5 | 2.63 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 3691 | 碩禾 | 光電業 | 63 |  | 139.0 | 0.73 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 3354 | 律勝 | 電子零組件業 | 63 |  | 31.75 | 0.5 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2485 | 兆赫 | 通信網路業 | 62 |  | 70.6 | 1.07 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2356 | 英業達 | 電腦及週邊設備業 | 62 |  | 51.4 | 0.89 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 6239 | 力成 | 半導體業 | 62 |  | 234.5 | 0.8 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 4540 | 全球傳動 | 電機機械 | 62 |  | 67.7 | 0.9 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2515 | 中工 | 建材營造 | 62 |  | 12.6 | 1.48 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2436 | 偉詮電 | 半導體業 | 62 |  | 71.8 | 0.29 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 8054 | 安國 | 半導體業 | 62 |  | 106.5 | 1.28 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 4576 | 大銀微系統 | 電機機械 | 62 |  | 236.5 | 0.63 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2357 | 華碩 | 電腦及週邊設備業 | 62 |  | 640.0 | 0.69 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2897 | 王道銀行 | 金融保險業 | 62 |  | 10.05 | 0.98 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 6126 | 信音 | 電子零組件業 | 62 |  | 34.05 | 2.23 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 6425 | 易發 | 電機機械 | 62 |  | 87.8 | 0.61 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2543 | 皇昌 | 建材營造 | 62 |  | 42.45 | 0.69 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 6669 | 緯穎 | 電腦及週邊設備業 | 62 |  | 4910.0 | 0.62 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 1503 | 士電 | 電機機械 | 62 |  | 181.0 | 0.63 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 4510 | 高鋒 | 電機機械 | 62 |  | 46.45 | 0.37 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 7780 | 大研生醫* | 食品工業 | 62 |  | 18.5 | 0.58 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 6830 | 汎銓 | 其他電子業 | 60 |  | 684.0 | 0.81 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 6672 | 騰輝電子-KY | 電子零組件業 | 60 |  | 176.5 | 0.19 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 6753 | 龍德造船 | 航運業 | 60 |  | 124.5 | 0.93 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2388 | 威盛 | 半導體業 | 56 |  | 81.7 | 1.23 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2892 | 第一金 | 金融保險業 | 55 |  | 27.75 | 4.22 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 6770 | 力積電 | 半導體業 | 55 |  | 57.8 | 0.47 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2317 | 鴻海 | 其他電子業 | 55 |  | 240.0 | 0.61 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 3189 | 景碩 | 半導體業 | 55 |  | 504.0 | 1.11 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 3006 | 晶豪科 | 半導體業 | 55 |  | 222.5 | 1.09 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2884 | 玉山金 | 金融保險業 | 55 |  | 31.7 | 0.85 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 3037 | 欣興 | 電子零組件業 | 55 |  | 823.0 | 0.8 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 6282 | 康舒 | 電子零組件業 | 55 |  | 50.8 | 0.47 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 6257 | 矽格 | 半導體業 | 55 |  | 207.0 | 0.81 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 3374 | 精材 | 半導體業 | 55 |  | 231.0 | 0.53 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 3707 | 漢磊 | 半導體業 | 55 |  | 72.8 | 0.36 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2845 | 遠東銀 | 金融保險業 | 55 |  | 11.95 | 0.83 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 4931 | 新盛力 | 電腦及週邊設備業 | 55 |  | 189.5 | 0.34 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 6190 | 萬泰科 | 通信網路業 | 55 |  | 77.6 | 0.38 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2606 | 裕民 | 航運業 | 55 |  | 64.5 | 0.86 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 4973 | 廣穎電通 | 半導體業 | 55 |  | 109.0 | 0.45 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 5289 | 宜鼎 | 電腦及週邊設備業 | 55 |  | 1675.0 | 0.7 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2646 | 星宇航空 | 航運業 | 55 |  | 20.2 | 0.66 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 8374 | 羅昇 | 電機機械 | 55 |  | 96.9 | 1.22 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 6727 | 亞泰金屬 | 電子零組件業 | 55 |  | 496.5 | 0.98 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2476 | 鉅祥 | 電子零組件業 | 55 |  | 114.0 | 0.45 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2208 | 台船 | 航運業 | 55 |  | 18.25 | 0.54 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2851 | 中再保 | 金融保險業 | 55 |  | 34.9 | 0.87 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 7777 | 能率亞洲 | 其他 | 55 |  | 32.75 | 0.71 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 3390 | 旭軟 | 電子零組件業 | 55 |  | 27.0 | 0.63 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 1708 | 東鹼 | 化學工業 | 55 |  | 39.55 | 0.39 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 3135 | 凌航 | 半導體業 | 55 |  | 190.5 | 0.2 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 3406 | 玉晶光 | 光電業 | 55 |  | 550.0 | 0.72 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 5236 | 凌陽創新 | 半導體業 | 55 |  | 172.0 | 2.0 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 6196 | 帆宣 | 其他電子業 | 55 |  | 404.0 | 0.48 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 1514 | 亞力 | 電機機械 | 55 |  | 113.0 | 0.28 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 6414 | 樺漢 | 電腦及週邊設備業 | 55 |  | 331.5 | 0.66 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 4714 | 永捷 | 化學工業 | 55 |  | 13.05 | 0.97 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 4123 | 晟德 | 生技醫療業 | 55 |  | 38.2 | 0.46 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 1597 | 直得 | 電機機械 | 55 |  | 171.0 | 0.29 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 4306 | 炎洲 | 塑膠工業 | 55 |  | 13.8 | 0.92 |  |  |  |  |  |  |  |
-| 20260520 | revenue_pullback | revenue_pullback | 2108 | 南帝 | 橡膠工業 | 55 |  | 27.55 | 0.45 |  |  |  |  |  |  |  |
+| date | category | category_cn | breakout_type | stock_id | stock_name | industry | score | rank | latest_revenue_yoy | cumulative_revenue_yoy | return_5d | close | volume_ratio | previous_60d_high | distance_to_previous_60d_high_pct | available_days | price_data_warning | tdcc_judgement | chart_path | note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2891 | 中信金 | 金融保險業 | 14 | 1 | 1120.57 | 81.7 | 5.28 | 57.8 | 2.08 | 57.0 | 1.4 | 130.0 | ok |  | output/latest/charts/revenue_breakout_low_response/2891_中信金_revenue_breakout_low_response_20260520.png | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 4907 | 富宇 | 建材營造 | 14 | 2 | 402.71 | 265.58 | -1.79 | 38.4 | 0.38 | 42.5 | -9.65 | 130.0 | ok |  | output/latest/charts/revenue_breakout_low_response/4907_富宇_revenue_breakout_low_response_20260520.png | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6005 | 群益證 | 金融保險業 | 14 | 3 | 301.6 | 128.82 | -4.37 | 30.6 | 0.28 | 32.9 | -6.99 | 130.0 | ok |  | output/latest/charts/revenue_breakout_low_response/6005_群益證_revenue_breakout_low_response_20260520.png | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6654 | 天正國際 | 其他電子業 | 14 | 4 | 157.91 | 68.71 | -0.41 | 97.0 | 0.63 | 103.0 | -5.83 | 129.0 | ok |  | output/latest/charts/revenue_breakout_low_response/6654_天正國際_revenue_breakout_low_response_20260520.png | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2889 | 國票金 | 金融保險業 | 13 | 5 | 3640.86 | 137.65 | 0.34 | 14.7 | 0.63 | 17.8 | -17.42 | 130.0 | ok |  | output/latest/charts/revenue_breakout_low_response/2889_國票金_revenue_breakout_low_response_20260520.png | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 5522 | 遠雄 | 建材營造 | 13 | 6 | 743.31 | 795.93 | 0.57 | 70.8 | 0.64 | 74.6 | -5.09 | 130.0 | ok |  | output/latest/charts/revenue_breakout_low_response/5522_遠雄_revenue_breakout_low_response_20260520.png | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2867 | 三商壽 | 金融保險業 | 13 | 7 | 577.22 | 207.57 | -0.39 | 7.7 | 0.46 | 8.35 | -7.78 | 129.0 | ok |  | output/latest/charts/revenue_breakout_low_response/2867_三商壽_revenue_breakout_low_response_20260520.png | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 4142 | 國光生 | 生技醫療業 | 13 | 8 | 474.37 | 38.12 | -2.53 | 17.35 | 0.78 | 19.2 | -9.64 | 130.0 | ok |  | output/latest/charts/revenue_breakout_low_response/4142_國光生_revenue_breakout_low_response_20260520.png | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2881 | 富邦金 | 金融保險業 | 13 | 9 | 219.79 | 402.59 | 1.16 | 95.8 | 0.89 | 98.6 | -2.84 | 130.0 | ok |  | output/latest/charts/revenue_breakout_low_response/2881_富邦金_revenue_breakout_low_response_20260520.png | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2882 | 國泰金 | 金融保險業 | 13 | 10 | 153.91 | 577.07 | 0.78 | 77.9 | 0.81 | 81.6 | -4.53 | 130.0 | ok |  | output/latest/charts/revenue_breakout_low_response/2882_國泰金_revenue_breakout_low_response_20260520.png | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2883 | 凱基金 | 金融保險業 | 13 | 11 | 144.31 | 319.62 | -1.59 | 21.6 | 0.9 | 23.1 | -6.49 | 130.0 | ok |  | output/latest/charts/revenue_breakout_low_response/2883_凱基金_revenue_breakout_low_response_20260520.png | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2545 | 皇翔 | 建材營造 | 13 | 12 | 102.09 | 53.12 | -2.86 | 37.35 | 0.63 | 39.1 | -4.48 | 130.0 | ok |  | output/latest/charts/revenue_breakout_low_response/2545_皇翔_revenue_breakout_low_response_20260520.png | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6171 | 大城地產 | 建材營造 | 12 | 13 | 211784.85 | 565.15 | -0.21 | 24.1 | 0.85 | 28.55 | -15.59 | 128.0 | ok |  | output/latest/charts/revenue_breakout_low_response/6171_大城地產_revenue_breakout_low_response_20260520.png | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2548 | 華固 | 建材營造 | 12 | 14 | 28465.96 | 34773.57 | -0.8 | 123.5 | 0.84 | 132.5 | -6.79 | 130.0 | ok |  | output/latest/charts/revenue_breakout_low_response/2548_華固_revenue_breakout_low_response_20260520.png | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 9946 | 三發地產 | 建材營造 | 12 | 15 | 7453.42 | 7468.92 | 0.3 | 16.8 | 0.62 | 18.8 | -10.64 | 130.0 | ok |  | output/latest/charts/revenue_breakout_low_response/9946_三發地產_revenue_breakout_low_response_20260520.png | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 1808 | 潤隆 | 建材營造 | 12 | 16 | 6493.74 | 11655.63 | 1.04 | 29.2 | 0.6 | 32.45 | -10.02 | 123.0 | ok |  | output/latest/charts/revenue_breakout_low_response/1808_潤隆_revenue_breakout_low_response_20260520.png | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2537 | 聯上發 | 建材營造 | 12 | 17 | 5302.61 | 306.89 | -3.3 | 9.67 | 0.76 | 10.95 | -11.69 | 130.0 | ok |  | output/latest/charts/revenue_breakout_low_response/2537_聯上發_revenue_breakout_low_response_20260520.png | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2542 | 興富發 | 建材營造 | 12 | 18 | 4077.66 | 1725.22 | 2.34 | 43.7 | 0.59 | 44.8 | -2.46 | 130.0 | ok |  | output/latest/charts/revenue_breakout_low_response/2542_興富發_revenue_breakout_low_response_20260520.png | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 5525 | 順天 | 建材營造 | 12 | 19 | 1375.8 | 1302.55 | -2.61 | 22.4 | 0.84 | 26.8 | -16.42 | 130.0 | ok |  | output/latest/charts/revenue_breakout_low_response/5525_順天_revenue_breakout_low_response_20260520.png | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 5905 | 南仁湖 | 觀光餐旅 | 12 | 20 | 686.38 | 307.26 | -8.34 | 8.02 | 0.49 | 9.22 | -13.02 | 130.0 | ok |  | output/latest/charts/revenue_breakout_low_response/5905_南仁湖_revenue_breakout_low_response_20260520.png | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2851 | 中再保 | 金融保險業 | 12 | 21 | 605.14 | 139.31 | 1.75 | 34.9 | 0.87 | 35.25 | -0.99 | 130.0 | ok |  | output/latest/charts/revenue_breakout_low_response/2851_中再保_revenue_breakout_low_response_20260520.png | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260519 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 5345 | 馥鴻 | 其他 | 12 | 22 | 562.44 | 355.77 | -4.33 | 21.0 | 0.07 | 24.0 | -12.5 | 118.0 | available_days_too_few |  | output/latest/charts/revenue_breakout_low_response/5345_馥鴻_revenue_breakout_low_response_20260519.png | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6264 | 富裔 | 建材營造 | 12 | 23 | 539.45 | 16.1 | 1.63 | 6.23 | 1.08 | 7.11 | -12.38 | 130.0 | ok |  | output/latest/charts/revenue_breakout_low_response/6264_富裔_revenue_breakout_low_response_20260520.png | 單月營收YoY>=100%；累計營收YoY 10%~30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 5514 | 三豐 | 建材營造 | 12 | 24 | 359.87 | 34979.7 | 0.33 | 15.25 | 0.14 | 16.8 | -9.23 | 106.0 | available_days_too_few |  | output/latest/charts/revenue_breakout_low_response/5514_三豐_revenue_breakout_low_response_20260520.png | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2885 | 元大金 | 金融保險業 | 12 | 25 | 324.9 | 112.86 | -1.25 | 55.1 | 0.73 | 57.4 | -4.01 | 130.0 | ok |  | output/latest/charts/revenue_breakout_low_response/2885_元大金_revenue_breakout_low_response_20260520.png | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 4726 | 永昕 | 生技醫療業 | 12 | 26 | 301.01 | 104.64 | -1.22 | 28.25 | 0.58 | 34.5 | -18.12 | 130.0 | ok |  | output/latest/charts/revenue_breakout_low_response/4726_永昕_revenue_breakout_low_response_20260520.png | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 4168 | 醣聯 | 生技醫療業 | 12 | 27 | 185.71 | -1.97 | 10.57 | 25.1 | 0.85 | 27.35 | -8.23 | 130.0 | ok |  | output/latest/charts/revenue_breakout_low_response/4168_醣聯_revenue_breakout_low_response_20260520.png | 單月營收YoY>=100%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2506 | 太設 | 建材營造 | 12 | 28 | 182.93 | 24.5 | 0.47 | 8.64 | 0.98 | 9.15 | -5.57 | 130.0 | ok |  | output/latest/charts/revenue_breakout_low_response/2506_太設_revenue_breakout_low_response_20260520.png | 單月營收YoY>=100%；累計營收YoY 10%~30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 5410 | 國眾 | 資訊服務業 | 12 | 29 | 122.27 | 37.89 | 2.85 | 37.85 | 0.76 | 38.4 | -1.43 | 130.0 | ok |  | output/latest/charts/revenue_breakout_low_response/5410_國眾_revenue_breakout_low_response_20260520.png | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3046 | 建碁 | 電腦及週邊設備業 | 12 | 30 | 93.6 | 16.58 | -0.39 | 51.3 | 0.97 | 52.7 | -2.66 | 130.0 | ok |  | output/latest/charts/revenue_breakout_low_response/3046_建碁_revenue_breakout_low_response_20260520.png | 單月營收YoY 50%~100%；累計營收YoY 10%~30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2816 | 旺旺保 | 金融保險業 | 12 | 31 | 78.74 | 29.41 | -0.63 | 31.3 | 0.42 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY 10%~30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 7765 | 中華資安 | 數位雲端 | 12 | 32 | 75.03 | 28.44 | -0.61 | 243.5 | 0.27 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY 10%~30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2520 | 冠德 | 建材營造 | 12 | 33 | 66.98 | 18.86 | 0.33 | 30.75 | 0.63 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY 10%~30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 5388 | 中磊 | 通信網路業 | 12 | 34 | 65.53 | 51.67 | 3.02 | 81.8 | 1.07 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2850 | 新產 | 金融保險業 | 12 | 35 | 64.58 | 21.62 | 4.14 | 138.5 | 0.77 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY 10%~30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2886 | 兆豐金 | 金融保險業 | 12 | 36 | 63.04 | 23.64 | 1.9 | 40.3 | 1.42 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY 10%~30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 8087 | 麗升能源 | 綠能環保 | 11 | 37 | 2881.23 | 328.02 | 3.94 | 34.3 | 0.43 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 5864 | 致和證 | 金融業 | 11 | 38 | 2037.17 | 779.95 | -1.72 | 31.35 | 0.68 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 7777 | 能率亞洲 | 其他 | 11 | 39 | 1298.03 | 202.09 | 5.48 | 32.75 | 0.71 |  |  |  | available_days_too_few |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2855 | 統一證 | 金融保險業 | 11 | 40 | 1002.14 | 365.77 | -5.88 | 39.2 | 0.34 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2408 | 南亞科 | 半導體業 | 11 | 41 | 717.33 | 623.58 | -14.33 | 275.0 | 0.87 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2451 | 創見 | 半導體業 | 11 | 42 | 594.43 | 419.72 | -5.35 | 309.5 | 0.46 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3006 | 晶豪科 | 半導體業 | 11 | 43 | 349.21 | 202.48 | 2.77 | 222.5 | 1.09 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 8171 | 天宇 | 綠能環保 | 11 | 44 | 269.89 | 55.37 | -2.71 | 23.3 | 0.53 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6177 | 達麗 | 建材營造 | 11 | 45 | 264.83 | 633.48 | -4.08 | 44.65 | 0.74 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 8299 | 群聯 | 半導體業 | 11 | 46 | 236.63 | 208.32 | -13.55 | 2265.0 | 1.23 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6872 | 浩宇生醫 | 生技醫療業 | 11 | 47 | 226.32 | 1191.61 | 0.28 | 18.15 | 0.47 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 8227 | 巨有科技 | 半導體業 | 11 | 48 | 207.02 | 125.35 | -4.7 | 192.5 | 0.22 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2344 | 華邦電 | 半導體業 | 11 | 49 | 182.22 | 114.45 | -5.33 | 115.5 | 0.72 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2465 | 麗臺 | 電腦及週邊設備業 | 11 | 50 | 175.8 | 114.63 | -9.03 | 75.6 | 0.26 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2442 | 新美齊 | 建材營造 | 11 | 51 | 168.44 | 550.31 | 0.82 | 18.45 | 0.38 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3443 | 創意 | 半導體業 | 11 | 52 | 156.85 | 81.04 | -13.6 | 4605.0 | 1.4 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3512 | 皇龍 | 建材營造 | 11 | 53 | 147.8 | -67.86 | -0.25 | 20.3 | 0.42 |  |  |  | ok |  |  | 單月營收YoY>=100%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6629 | 泰金-KY | 居家生活 | 11 | 54 | 140.47 | 88.11 | -2.39 | 122.5 | 0.93 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3171 | 炎洲流通 | 居家生活 | 11 | 55 | 126.35 | 90.66 | -2.48 | 66.8 | 0.44 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3231 | 緯創 | 電腦及週邊設備業 | 11 | 56 | 111.99 | 135.27 | -5.69 | 132.5 | 0.47 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 4973 | 廣穎電通 | 半導體業 | 11 | 57 | 106.1 | 82.09 | -8.02 | 109.0 | 0.45 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2404 | 漢唐 | 其他電子業 | 11 | 58 | 102.23 | 82.88 | 0.0 | 1025.0 | 1.24 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 4743 | 合一 | 生技醫療業 | 11 | 59 | 101.83 | 62.11 | -3.35 | 49.0 | 1.04 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；仍在平台整理區 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2890 | 永豐金 | 金融保險業 | 11 | 60 | 87.36 | 50.08 | -2.45 | 29.8 | 1.05 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6215 | 和椿 | 其他電子業 | 11 | 61 | 86.85 | 66.23 | 1.24 | 122.0 | 0.59 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2347 | 聯強 | 電子通路業 | 11 | 62 | 83.28 | 49.73 | 0.72 | 83.7 | 1.37 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6870 | 騰雲 | 數位雲端 | 11 | 63 | 81.46 | 46.17 | 10.57 | 204.0 | 2.04 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 1714 | 和桐 | 化學工業 | 11 | 64 | 71.71 | 47.62 | -3.74 | 9.52 | 0.57 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 1530 | 亞崴 | 電機機械 | 11 | 65 | 68.97 | -3.02 | 3.4 | 27.35 | 0.92 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2353 | 宏碁 | 電腦及週邊設備業 | 11 | 66 | 68.39 | 29.65 | -3.0 | 27.45 | 0.54 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY 10%~30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3288 | 點晶 | 電子零組件業 | 11 | 67 | 68.12 | 18.97 | -1.64 | 15.0 | 0.86 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY 10%~30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 5880 | 合庫金 | 金融保險業 | 11 | 68 | 65.45 | 21.78 | -0.66 | 22.7 | 0.87 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY 10%~30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2838 | 聯邦銀 | 金融保險業 | 11 | 69 | 62.81 | 25.28 | -1.72 | 20.05 | 1.26 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY 10%~30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 5263 | 智崴 | 文化創意業 | 11 | 70 | 61.94 | 36.68 | 10.5 | 110.5 | 0.88 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2880 | 華南金 | 金融保險業 | 11 | 71 | 59.58 | 30.54 | -2.14 | 32.05 | 1.45 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 5547 | 久舜 | 建材營造 | 11 | 72 | 53.64 | 6.96 | 0.7 | 21.5 | 0.61 |  |  |  | available_days_too_few |  |  | 單月營收YoY 50%~100%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2364 | 倫飛 | 電腦及週邊設備業 | 11 | 73 | 51.41 | 3.81 | -7.17 | 66.0 | 0.31 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 4771 | 望隼 | 生技醫療業 | 11 | 74 | 47.26 | 32.4 | 5.72 | 194.0 | 1.48 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6598 | ABC-KY | 生技醫療業 | 11 | 75 | 41.84 | 70.62 | 0.21 | 24.2 | 1.36 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 4440 | 宜新實業 | 紡織纖維 | 11 | 76 | 34.33 | 30.95 | -5.21 | 18.2 | 0.4 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3629 | 地心引力 | 文化創意業 | 10 | 77 | 261400.0 | 75119.05 | -0.6 | 16.5 | 0.6 |  |  |  | available_days_too_few |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6219 | 富旺 | 建材營造 | 10 | 78 | 21424.41 | 18959.53 | 1.22 | 12.4 | 0.56 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6021 | 美好證 | 金融業 | 10 | 79 | 5212.46 | 1481.84 | -4.01 | 31.1 | 0.18 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6015 | 宏遠證 | 金融業 | 10 | 80 | 4229.16 | 732.2 | -5.84 | 14.5 | 0.49 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6020 | 大展證 | 金融業 | 10 | 81 | 2338.32 | 2577.88 | -4.09 | 21.1 | 0.08 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3054 | 立萬利 | 食品工業 | 10 | 82 | 2134.03 | 903.03 | -1.77 | 66.6 | 0.29 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6596 | 寬宏藝術 | 文化創意業 | 10 | 83 | 1704.82 | 82.94 | -2.01 | 97.7 | 0.29 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6016 | 康和證 | 金融業 | 10 | 84 | 1127.29 | 4803.22 | -6.64 | 21.8 | 0.36 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6541 | 泰福-KY | 生技醫療業 | 10 | 85 | 914.89 | 275.97 | -7.1 | 37.95 | 0.62 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3188 | 鑫龍騰 | 建材營造 | 10 | 86 | 914.83 | 892.33 | 1.46 | 24.35 | 0.3 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6265 | 方土昶 | 電子通路業 | 10 | 87 | 885.82 | 548.89 | -2.69 | 41.6 | 0.46 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3135 | 凌航 | 半導體業 | 10 | 88 | 607.83 | 296.85 | -9.72 | 190.5 | 0.2 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 5289 | 宜鼎 | 電腦及週邊設備業 | 10 | 89 | 583.11 | 452.21 | -5.1 | 1675.0 | 0.7 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 8926 | 台汽電 | 油電燃氣業 | 10 | 90 | 532.81 | 574.7 | 5.64 | 59.9 | 1.33 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6199 | 天品 | 其他 | 10 | 91 | 516.94 | 963.53 | -4.06 | 99.3 | 0.97 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6026 | 福邦證 | 金融業 | 10 | 92 | 461.7 | 380.76 | -5.05 | 15.05 | 0.47 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 5351 | 鈺創 | 半導體業 | 10 | 93 | 417.06 | 359.74 | -14.48 | 74.4 | 0.62 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 5386 | 青雲 | 電腦及週邊設備業 | 10 | 94 | 405.26 | 537.62 | 3.49 | 429.5 | 0.09 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 8271 | 宇瞻 | 半導體業 | 10 | 95 | 360.82 | 276.89 | -13.31 | 215.0 | 0.65 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2905 | 三商 | 貿易百貨 | 10 | 96 | 352.95 | 50.77 | 0.0 | 13.35 | 0.78 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6901 | 鑽石投資 | 其他 | 10 | 97 | 331.08 | 129.06 | -8.81 | 13.45 | 0.43 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 4530 | 宏易 | 觀光餐旅 | 10 | 98 | 230.49 | 78.04 | -4.0 | 25.2 | 0.04 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3691 | 碩禾 | 光電業 | 10 | 99 | 163.41 | 175.68 | -9.74 | 139.0 | 0.73 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6111 | 光聚晶電 | 文化創意業 | 10 | 100 | 149.45 | 134.09 | -3.12 | 46.5 | 0.48 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2432 | 倚天酷碁-創 | 電腦及週邊設備業 | 10 | 101 | 130.08 | 45.61 | -2.83 | 25.75 | 0.26 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2360 | 致茂 | 其他電子業 | 10 | 102 | 128.89 | 86.03 | -14.14 | 2065.0 | 0.47 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3313 | 斐成 | 其他 | 10 | 103 | 125.59 | 626.34 | 4.85 | 11.9 | 1.02 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6152 | 百一 | 通信網路業 | 10 | 104 | 116.93 | 18.06 | -3.55 | 14.95 | 0.29 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY 10%~30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2025 | 千興 | 鋼鐵工業 | 10 | 105 | 112.02 | 101.64 | -9.69 | 11.65 | 0.42 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 7769 | 鴻勁 | 半導體業 | 10 | 106 | 111.83 | 89.03 | -6.18 | 6980.0 | 0.34 |  |  |  | available_days_too_few |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 8034 | 榮群 | 通信網路業 | 10 | 107 | 106.45 | 59.34 | -2.66 | 23.8 | 0.23 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6274 | 台燿 | 電子零組件業 | 10 | 108 | 97.97 | 68.62 | -16.9 | 1205.0 | 0.34 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 4931 | 新盛力 | 電腦及週邊設備業 | 10 | 109 | 97.38 | 35.1 | -3.81 | 189.5 | 0.34 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 7750 | 新代 | 電機機械 | 10 | 110 | 94.87 | 63.77 | -9.76 | 2495.0 | 2.74 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2425 | 承啟 | 電腦及週邊設備業 | 10 | 111 | 87.78 | 75.59 | -2.83 | 32.65 | 0.42 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2363 | 矽統 | 半導體業 | 10 | 112 | 87.15 | 113.29 | 0.33 | 60.1 | 0.66 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2388 | 威盛 | 半導體業 | 10 | 113 | 84.79 | 22.36 | 9.22 | 81.7 | 1.23 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY 10%~30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3491 | 昇達科 | 通信網路業 | 10 | 114 | 83.99 | 69.08 | 2.03 | 1755.0 | 1.16 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2059 | 川湖 | 電子零組件業 | 10 | 115 | 79.14 | 48.91 | -14.29 | 4500.0 | 0.4 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 5215 | 科嘉-KY | 電腦及週邊設備業 | 10 | 116 | 72.73 | 40.2 | -3.67 | 44.6 | 0.51 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 1597 | 直得 | 電機機械 | 10 | 117 | 70.97 | 42.21 | -9.52 | 171.0 | 0.29 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2812 | 台中銀 | 金融保險業 | 10 | 118 | 69.85 | 22.82 | -2.83 | 18.9 | 0.51 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY 10%~30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 8488 | 吉源-KY | 其他 | 10 | 119 | 67.99 | 58.45 | -1.11 | 9.8 | 1.28 |  |  |  | available_days_too_few |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 4991 | 環宇-KY | 半導體業 | 10 | 120 | 67.92 | 55.01 | 0.0 | 700.0 | 0.26 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3088 | 艾訊 | 電腦及週邊設備業 | 10 | 121 | 65.88 | 38.1 | 1.12 | 135.0 | 1.13 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2241 | 艾姆勒 | 汽車工業 | 10 | 122 | 65.61 | 34.04 | 0.75 | 33.55 | 0.36 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 8374 | 羅昇 | 電機機械 | 10 | 123 | 62.73 | 37.07 | 7.31 | 96.9 | 1.22 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2374 | 佳能 | 光電業 | 10 | 124 | 62.53 | 73.2 | -1.38 | 78.8 | 0.4 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2248 | 華勝-KY | 汽車工業 | 10 | 125 | 58.99 | 37.28 | 1.66 | 55.2 | 0.22 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3416 | 融程電 | 電腦及週邊設備業 | 10 | 126 | 56.33 | 27.27 | -0.3 | 166.5 | 0.77 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY 10%~30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 1256 | 鮮活果汁-KY | 食品工業 | 10 | 127 | 56.21 | 55.43 | -4.19 | 183.0 | 0.95 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6581 | 鋼聯 | 綠能環保 | 10 | 128 | 53.89 | 9.91 | -0.93 | 107.0 | 0.98 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6952 | 大武山 | 其他 | 10 | 129 | 53.76 | 41.2 | -0.67 | 36.85 | 0.68 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6957 | 裕慶-KY | 其他 | 10 | 130 | 53.31 | 34.47 | 0.63 | 160.0 | 0.49 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2820 | 華票 | 金融保險業 | 10 | 131 | 46.36 | 74.18 | -0.3 | 16.85 | 0.47 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2397 | 友通 | 電腦及週邊設備業 | 10 | 132 | 38.33 | 23.66 | 2.38 | 60.2 | 1.34 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2027 | 大成鋼 | 鋼鐵工業 | 10 | 133 | 37.67 | 24.26 | 8.01 | 41.15 | 1.57 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6951 | 青新-創 | 綠能環保 | 10 | 134 | 33.23 | 24.46 | 1.63 | 81.0 | 0.53 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 5220 | 萬達光電 | 光電業 | 10 | 135 | 32.64 | 28.4 | 1.63 | 21.85 | 0.26 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2732 | 六角 | 觀光餐旅 | 10 | 136 | 32.15 | 40.57 | -1.82 | 64.7 | 0.57 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6741 | 91APP*-KY | 數位雲端 | 10 | 137 | 31.91 | 31.51 | -7.07 | 61.8 | 0.34 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3706 | 神達 | 電腦及週邊設備業 | 10 | 138 | 31.87 | 33.89 | -2.19 | 80.3 | 0.56 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 9906 | 欣巴巴 | 建材營造 | 9 | 139 | 995635.71 | 1075.79 | 1.53 | 33.15 | 1.59 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 7740 | 熙特爾-創 | 綠能環保 | 9 | 140 | 2905.18 | 1476.0 | -5.33 | 160.0 | 0.42 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3466 | 德晉 | 通信網路業 | 9 | 141 | 2243.13 | 1259.52 | -8.1 | 34.6 | 1.0 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6885 | 全福生技 | 生技醫療業 | 9 | 142 | 2152.94 | 2578.36 | 2.3 | 22.2 | 0.54 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 8937 | 合騏* | 其他 | 9 | 143 | 1247.13 | 825.59 | -1.55 | 31.8 | 0.23 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 1799 | 易威 | 生技醫療業 | 9 | 144 | 240.44 | 83.18 | -8.01 | 34.45 | 0.59 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 4768 | 晶呈科技 | 化學工業 | 9 | 145 | 191.53 | 166.38 | -13.82 | 405.5 | 0.71 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3260 | 威剛 | 半導體業 | 9 | 146 | 169.51 | 165.39 | -6.57 | 405.5 | 0.45 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2337 | 旺宏 | 半導體業 | 9 | 147 | 153.71 | 93.46 | -16.07 | 141.0 | 0.57 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6640 | 均華 | 半導體業 | 9 | 148 | 142.34 | 104.96 | -12.28 | 1250.0 | 0.55 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2208 | 台船 | 航運業 | 9 | 149 | 132.19 | 40.98 | -8.52 | 18.25 | 0.54 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6907 | 雅特力-KY | 半導體業 | 9 | 150 | 121.66 | 86.77 | -10.25 | 109.5 | 0.25 |  |  |  | available_days_too_few |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2382 | 廣達 | 電腦及週邊設備業 | 9 | 151 | 120.71 | 79.64 | -14.83 | 290.0 | 1.5 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2611 | 志信 | 航運業 | 9 | 152 | 119.47 | 112.71 | -2.26 | 12.95 | 0.48 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6237 | 驊訊 | 半導體業 | 9 | 153 | 116.12 | 55.45 | 11.74 | 48.55 | 2.69 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；站上20MA/23EMA；接近前高但未大幅過熱；疑似高位爆量長上影 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 1316 | 上曜 | 建材營造 | 9 | 154 | 115.49 | 135.29 | -4.93 | 10.6 | 1.02 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3081 | 聯亞 | 通信網路業 | 9 | 155 | 115.38 | 103.7 | -8.99 | 2580.0 | 0.63 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3489 | 森寶 | 建材營造 | 9 | 156 | 113.51 | 120.45 | -1.13 | 21.95 | 0.44 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 4934 | 太極 | 光電業 | 9 | 157 | 108.39 | 125.75 | -7.87 | 16.4 | 0.51 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3028 | 增你強 | 電子通路業 | 9 | 158 | 106.27 | 98.75 | 15.14 | 84.4 | 1.36 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 4154 | 樂威科-KY | 其他 | 9 | 159 | 99.27 | 1.24 | 4.36 | 14.35 | 0.52 |  |  |  | available_days_too_few |  |  | 單月營收YoY 50%~100%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6218 | 豪勉 | 通信網路業 | 9 | 160 | 98.95 | 24.2 | -14.52 | 38.55 | 0.24 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY 10%~30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 8045 | 達運光電 | 通信網路業 | 9 | 161 | 95.94 | 60.09 | -3.25 | 71.4 | 0.31 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 8499 | 鼎炫-KY | 其他電子業 | 9 | 162 | 95.5 | 80.38 | -10.45 | 278.5 | 0.57 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2383 | 台光電 | 電子零組件業 | 9 | 163 | 93.62 | 62.74 | -10.85 | 4395.0 | 0.62 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6531 | 愛普* | 半導體業 | 9 | 164 | 92.88 | 109.08 | -6.44 | 973.0 | 1.08 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6657 | 華安 | 生技醫療業 | 9 | 165 | 89.91 | 34.23 | -2.86 | 39.0 | 0.49 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 4711 | 永純 | 化學工業 | 9 | 166 | 89.33 | 23.47 | -0.3 | 16.4 | 0.12 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY 10%~30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6894 | 衛司特 | 綠能環保 | 9 | 167 | 88.37 | 66.94 | -3.0 | 339.5 | 0.77 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3528 | 安馳 | 電子通路業 | 9 | 168 | 83.24 | 97.77 | 1.47 | 82.9 | 0.59 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 7810 | 捷創科技 | 半導體業 | 9 | 169 | 82.69 | 52.17 | -1.52 | 226.5 | 0.88 |  |  |  | available_days_too_few |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 5274 | 信驊 | 半導體業 | 9 | 170 | 81.59 | 59.81 | -12.68 | 15560.0 | 0.76 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2305 | 全友 | 電腦及週邊設備業 | 9 | 171 | 81.07 | 58.26 | -1.19 | 16.6 | 0.42 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6465 | 威潤 | 通信網路業 | 9 | 172 | 81.02 | 82.18 | 9.95 | 48.6 | 0.86 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3266 | 昇陽 | 建材營造 | 9 | 173 | 78.53 | 96.24 | -7.25 | 12.15 | 3.23 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；仍在平台整理區 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6426 | 統新 | 通信網路業 | 9 | 174 | 76.49 | 61.91 | -13.41 | 239.0 | 0.44 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3025 | 星通 | 通信網路業 | 9 | 175 | 76.45 | 47.6 | -4.21 | 59.2 | 0.63 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 1762 | 中化生 | 生技醫療業 | 9 | 176 | 75.98 | 84.08 | 2.11 | 38.75 | 1.2 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2376 | 技嘉 | 電腦及週邊設備業 | 9 | 177 | 73.66 | 64.15 | -3.67 | 302.0 | 0.93 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6179 | 亞通 | 其他 | 9 | 178 | 69.36 | 54.77 | 3.36 | 24.6 | 0.66 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6446 | 藥華藥 | 生技醫療業 | 9 | 179 | 68.35 | 60.27 | 0.9 | 789.0 | 1.02 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6593 | 台灣銘板 | 資訊服務業 | 9 | 180 | 68.06 | -6.23 | -0.57 | 35.05 | 0.26 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3030 | 德律 | 其他電子業 | 9 | 181 | 62.51 | 35.38 | -16.18 | 347.0 | 0.44 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3305 | 昇貿 | 其他電子業 | 9 | 182 | 60.17 | 60.04 | 3.45 | 135.0 | 1.22 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 1418 | 東華 | 紡織纖維 | 9 | 183 | 59.2 | -62.3 | -2.72 | 17.9 | 0.23 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 9945 | 潤泰新 | 其他 | 9 | 184 | 58.78 | 34.31 | 0.43 | 23.4 | 1.23 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3229 | 晟鈦 | 電子零組件業 | 9 | 185 | 56.27 | 48.8 | -15.62 | 37.8 | 0.78 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2070 | 精湛 | 電機機械 | 9 | 186 | 55.42 | 19.98 | -5.26 | 63.0 | 0.23 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY 10%~30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 5284 | jpp-KY | 其他 | 9 | 187 | 54.65 | 47.78 | -7.87 | 363.0 | 0.53 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2345 | 智邦 | 通信網路業 | 9 | 188 | 53.87 | 61.04 | -3.29 | 2355.0 | 0.8 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6223 | 旺矽 | 半導體業 | 9 | 189 | 52.6 | 42.51 | -0.7 | 5680.0 | 0.71 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3354 | 律勝 | 電子零組件業 | 9 | 190 | 52.03 | 20.25 | -8.63 | 31.75 | 0.5 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY 10%~30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6727 | 亞泰金屬 | 電子零組件業 | 9 | 191 | 51.15 | 133.05 | -7.2 | 496.5 | 0.98 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3490 | 單井 | 光電業 | 9 | 192 | 51.02 | 16.79 | 14.02 | 37.0 | 1.02 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY 10%~30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2884 | 玉山金 | 金融保險業 | 9 | 193 | 47.82 | 24.75 | -0.63 | 31.7 | 0.85 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2108 | 南帝 | 橡膠工業 | 9 | 194 | 47.3 | 23.57 | -0.54 | 27.55 | 0.45 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2357 | 華碩 | 電腦及週邊設備業 | 9 | 195 | 45.71 | 42.36 | -3.47 | 640.0 | 0.69 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 8032 | 光菱 | 電子通路業 | 9 | 196 | 44.33 | 42.39 | 0.12 | 41.2 | 0.42 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2892 | 第一金 | 金融保險業 | 9 | 197 | 41.98 | 22.6 | -5.93 | 27.75 | 4.22 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 7713 | 威力德生醫 | 生技醫療業 | 9 | 198 | 38.8 | 20.11 | -0.74 | 67.5 | 1.38 |  |  |  | available_days_too_few |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6498 | 久禾光 | 光電業 | 9 | 199 | 37.28 | 35.44 | 2.44 | 105.0 | 0.68 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2356 | 英業達 | 電腦及週邊設備業 | 9 | 200 | 36.53 | 30.1 | -2.65 | 51.4 | 0.89 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2751 | 王座 | 觀光餐旅 | 9 | 201 | 33.54 | 37.48 | -3.9 | 51.7 | 0.57 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 4953 | 緯軟 | 資訊服務業 | 9 | 202 | 32.95 | 29.78 | -0.43 | 117.0 | 0.69 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6425 | 易發 | 電機機械 | 9 | 203 | 31.74 | 37.7 | 0.0 | 87.8 | 0.61 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3219 | 倚強科 | 其他電子業 | 9 | 204 | 30.26 | 44.39 | -5.41 | 82.1 | 0.84 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3555 | 博士旺 | 半導體業 | 8 | 205 | 2832.48 | 3831.74 | -10.96 | 195.0 | 0.56 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2539 | 櫻花建 | 建材營造 | 8 | 206 | 559.1 | -21.93 | -2.42 | 38.35 | 0.54 |  |  |  | ok |  |  | 單月營收YoY>=100%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 1591 | 駿吉-KY | 電機機械 | 8 | 207 | 510.67 | 743.75 | -29.26 | 38.2 | 0.2 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6419 | 京晨科 | 光電業 | 8 | 208 | 328.69 | 98.87 | -13.29 | 143.5 | 2.63 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；疑似高位爆量長上影 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6903 | 巨漢 | 其他電子業 | 8 | 209 | 297.05 | 340.51 | -13.33 | 370.5 | 0.42 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 8059 | 凱碩 | 通信網路業 | 8 | 210 | 228.65 | 576.12 | -10.49 | 18.35 | 0.32 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 4772 | 台特化 | 化學工業 | 8 | 211 | 210.12 | 266.45 | -6.16 | 289.5 | 0.3 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6588 | 東典光電 | 通信網路業 | 8 | 212 | 155.82 | 166.63 | -10.87 | 123.0 | 0.29 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2101 | 南港 | 橡膠工業 | 8 | 213 | 150.65 | 158.9 | -5.24 | 30.75 | 1.02 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2406 | 國碩 | 光電業 | 8 | 214 | 143.29 | 161.28 | -9.08 | 30.05 | 0.7 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 5314 | 世紀* | 其他 | 8 | 215 | 138.62 | 161.5 | -5.45 | 67.6 | 1.31 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 5475 | 德宏 | 電子零組件業 | 8 | 216 | 120.59 | 101.18 | -10.61 | 278.0 | 1.05 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3672 | 康聯訊 | 通信網路業 | 8 | 217 | 120.07 | -21.66 | -1.77 | 11.1 | 0.11 |  |  |  | ok |  |  | 單月營收YoY>=100%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3167 | 大量 | 電機機械 | 8 | 218 | 114.23 | 125.41 | 3.59 | 780.0 | 3.31 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA；疑似高位爆量長上影 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6949 | 沛爾生醫-創 | 生技醫療業 | 8 | 219 | 107.91 | -29.13 | 1.33 | 687.0 | 0.25 |  |  |  | ok |  |  | 單月營收YoY>=100%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6739 | 竹陞科技 | 其他電子業 | 8 | 220 | 100.21 | 94.42 | -3.5 | 1240.0 | 0.51 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3085 | 新零售 | 數位雲端 | 8 | 221 | 96.81 | 18.29 | -6.25 | 12.0 | 0.53 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY 10%~30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 4739 | 康普 | 化學工業 | 8 | 222 | 96.24 | 115.46 | -9.41 | 91.5 | 0.56 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6560 | 欣普羅 | 光電業 | 8 | 223 | 95.97 | 81.27 | -2.35 | 37.4 | 0.5 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 5488 | 松普 | 電子零組件業 | 8 | 224 | 93.3 | 38.0 | 12.5 | 11.7 | 6.39 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近5日漲幅低於15%；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3147 | 大綜 | 資訊服務業 | 8 | 225 | 90.07 | 9.46 | 2.0 | 178.5 | 0.67 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2314 | 台揚 | 通信網路業 | 8 | 226 | 89.93 | 64.87 | 11.88 | 14.6 | 3.28 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2467 | 志聖 | 電子零組件業 | 8 | 227 | 86.98 | 76.55 | -11.5 | 554.0 | 1.04 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6693 | 廣閎科 | 半導體業 | 8 | 228 | 85.7 | 69.8 | -9.27 | 137.0 | 0.39 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 4558 | 寶緯 | 電機機械 | 8 | 229 | 84.83 | 4.51 | 1.03 | 19.65 | 0.65 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 4967 | 十銓 | 半導體業 | 8 | 230 | 78.61 | 70.72 | -8.58 | 261.0 | 0.2 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2230 | 泰茂 | 電機機械 | 8 | 231 | 77.87 | 65.52 | -3.53 | 28.7 | 0.24 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 5276 | 達輝-KY | 其他 | 8 | 232 | 76.16 | 17.71 | -9.25 | 18.65 | 0.28 |  |  |  | available_days_too_few |  |  | 單月營收YoY 50%~100%；累計營收YoY 10%~30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 1449 | 佳和 | 紡織纖維 | 8 | 233 | 75.49 | 35.36 | -8.58 | 12.25 | 0.31 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6735 | 美達科技 | 其他電子業 | 8 | 234 | 74.13 | 52.44 | -22.66 | 107.5 | 0.61 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6139 | 亞翔 | 其他電子業 | 8 | 235 | 70.59 | 68.33 | 4.96 | 720.0 | 1.63 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA；接近前高但未大幅過熱；疑似高位爆量長上影 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 5291 | 邑昇 | 電子零組件業 | 8 | 236 | 69.46 | 36.66 | 5.13 | 71.7 | 1.93 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA；疑似高位爆量長上影 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3290 | 東浦 | 電子零組件業 | 8 | 237 | 69.35 | 79.93 | -2.0 | 46.55 | 0.3 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 7631 | 聚賢研發-創 | 其他電子業 | 8 | 238 | 68.76 | 90.74 | -3.17 | 122.0 | 0.06 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3205 | 佰研 | 生技醫療業 | 8 | 239 | 67.9 | 51.57 | 0.75 | 53.9 | 0.22 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6691 | 洋基工程 | 其他電子業 | 8 | 240 | 66.7 | 73.74 | -3.01 | 613.0 | 0.65 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 7734 | 印能科技 | 半導體業 | 8 | 241 | 58.9 | 74.13 | -23.54 | 3345.0 | 0.93 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2368 | 金像電 | 電子零組件業 | 8 | 242 | 58.41 | 60.84 | -8.52 | 1235.0 | 0.92 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 8489 | 三貝德 | 其他 | 8 | 243 | 57.79 | 56.62 | 0.81 | 25.0 | 2.61 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6229 | 研通 | 半導體業 | 8 | 244 | 57.36 | 48.53 | -7.87 | 26.35 | 0.31 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6125 | 廣運 | 光電業 | 8 | 245 | 56.78 | 37.58 | -7.29 | 54.7 | 0.95 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 8112 | 至上 | 電子通路業 | 8 | 246 | 55.96 | 111.09 | 2.19 | 84.0 | 1.65 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3680 | 家登 | 半導體業 | 8 | 247 | 52.74 | 20.17 | -13.95 | 506.0 | 0.59 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY 10%~30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2515 | 中工 | 建材營造 | 8 | 248 | 52.63 | 39.29 | -5.62 | 12.6 | 1.48 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6823 | 濾能 | 半導體業 | 8 | 249 | 51.37 | 20.16 | -6.71 | 79.2 | 0.19 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY 10%~30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3594 | 磐儀 | 電腦及週邊設備業 | 8 | 250 | 50.37 | 36.34 | -9.94 | 48.45 | 0.26 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 8054 | 安國 | 半導體業 | 8 | 251 | 47.7 | 259.75 | 5.45 | 106.5 | 1.28 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3581 | 博磊 | 半導體業 | 8 | 252 | 47.69 | 20.3 | -8.89 | 205.0 | 0.35 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 4807 | 日成-KY | 貿易百貨 | 8 | 253 | 47.28 | 22.5 | -9.38 | 22.7 | 0.6 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 8076 | 伍豐 | 電腦及週邊設備業 | 8 | 254 | 45.76 | 50.66 | -3.47 | 23.65 | 0.5 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6291 | 沛亨 | 半導體業 | 8 | 255 | 42.11 | 47.45 | -5.41 | 463.0 | 0.48 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 4576 | 大銀微系統 | 電機機械 | 8 | 256 | 40.28 | 43.95 | -4.83 | 236.5 | 0.63 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 7749 | 意騰-KY | 半導體業 | 8 | 257 | 39.5 | 61.6 | -2.56 | 475.5 | 0.38 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 8046 | 南電 | 電子零組件業 | 8 | 258 | 39.47 | 34.15 | -5.8 | 829.0 | 0.7 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3702 | 大聯大 | 電子通路業 | 8 | 259 | 38.74 | 30.3 | 7.69 | 119.0 | 1.21 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2606 | 裕民 | 航運業 | 8 | 260 | 38.67 | 20.02 | 0.31 | 64.5 | 0.86 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2485 | 兆赫 | 通信網路業 | 8 | 261 | 38.27 | 105.41 | 5.06 | 70.6 | 1.07 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3095 | 及成 | 通信網路業 | 8 | 262 | 36.01 | 24.79 | 6.7 | 47.75 | 2.06 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260518 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 5348 | 正能量智能 | 運動休閒 | 8 | 263 | 35.69 | 27.54 | 3.33 | 15.5 | 0.61 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2395 | 研華 | 電腦及週邊設備業 | 8 | 264 | 34.61 | 21.96 | 0.11 | 465.0 | 0.66 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6804 | 明係 | 運動休閒 | 8 | 265 | 34.25 | 25.38 | 2.33 | 15.35 | 0.24 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3052 | 夆典 | 建材營造 | 8 | 266 | 34.24 | 20.07 | -1.88 | 10.45 | 0.48 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6494 | 九齊 | 半導體業 | 8 | 267 | 33.37 | 35.12 | -1.28 | 54.0 | 0.61 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 4540 | 全球傳動 | 電機機械 | 8 | 268 | 33.35 | 57.4 | 3.36 | 67.7 | 0.9 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6239 | 力成 | 半導體業 | 8 | 269 | 32.49 | 36.2 | 1.08 | 234.5 | 0.8 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 8390 | 金益鼎 | 綠能環保 | 8 | 270 | 31.88 | 44.39 | -0.88 | 113.0 | 0.64 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2436 | 偉詮電 | 半導體業 | 8 | 271 | 30.48 | 31.39 | -1.37 | 71.8 | 0.29 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2646 | 星宇航空 | 航運業 | 8 | 272 | 30.12 | 24.67 | -0.25 | 20.2 | 0.66 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；仍在平台整理區 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 5529 | 鉅陞 | 建材營造 | 7 | 273 | 3460.34 | 2385.28 | 17.2 | 25.55 | 5.48 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6934 | 心誠鎂 | 生技醫療業 | 7 | 274 | 546.63 | -8.72 | -1.32 | 75.0 | 0.55 |  |  |  | available_days_too_few |  |  | 單月營收YoY>=100%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3523 | 迎輝 | 光電業 | 7 | 275 | 197.78 | -28.18 | -19.44 | 9.99 | 0.35 |  |  |  | ok |  |  | 單月營收YoY>=100%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2424 | 隴華 | 通信網路業 | 7 | 276 | 150.78 | -26.41 | -29.55 | 18.0 | 0.24 |  |  |  | ok |  |  | 單月營收YoY>=100%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6228 | 全譜 | 電腦及週邊設備業 | 7 | 277 | 101.31 | -15.31 | 4.6 | 21.6 | 0.46 |  |  |  | ok |  |  | 單月營收YoY>=100%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 4714 | 永捷 | 化學工業 | 7 | 278 | 96.03 | 95.92 | -7.77 | 13.05 | 0.97 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 8996 | 高力 | 電機機械 | 7 | 279 | 86.03 | 186.88 | -3.02 | 994.0 | 1.29 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 7744 | 崴寶 | 電子零組件業 | 7 | 280 | 80.51 | 69.42 | -18.06 | 490.0 | 1.29 |  |  |  | available_days_too_few |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3036 | 文曄 | 電子通路業 | 7 | 281 | 78.7 | 92.96 | -1.76 | 279.0 | 1.71 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；站上20MA/23EMA；接近前高但未大幅過熱；疑似高位爆量長上影 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3685 | 元創精密 | 電機機械 | 7 | 282 | 74.3 | 55.41 | -5.77 | 26.95 | 0.53 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2316 | 楠梓電 | 電子零組件業 | 7 | 283 | 74.29 | 29.67 | -3.51 | 137.5 | 2.31 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY 10%~30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；站上20MA/23EMA；接近前高但未大幅過熱；疑似高位爆量長上影 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 1533 | 車王電 | 汽車工業 | 7 | 284 | 72.77 | 65.36 | 12.93 | 38.0 | 4.83 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近5日漲幅低於15%；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3017 | 奇鋐 | 電腦及週邊設備業 | 7 | 285 | 71.62 | 99.34 | -9.48 | 2340.0 | 0.59 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 7751 | 竑騰 | 半導體業 | 7 | 286 | 67.2 | 71.46 | -12.79 | 1500.0 | 0.76 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 4760 | 勤凱科技 | 其他電子業 | 7 | 287 | 63.1 | 54.91 | -8.59 | 282.0 | 1.51 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA；疑似高位爆量長上影 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 4577 | 達航科技 | 其他電子業 | 7 | 288 | 62.58 | 56.35 | -17.48 | 118.0 | 0.58 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3713 | 新晶投控 | 綠能環保 | 7 | 289 | 62.3 | 13.64 | -6.14 | 13.0 | 0.38 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY 10%~30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2543 | 皇昌 | 建材營造 | 7 | 290 | 62.15 | 31.77 | 1.07 | 42.45 | 0.69 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；單月YoY明顯高於累計YoY，近期加速；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6805 | 富世達 | 電子零組件業 | 7 | 291 | 59.05 | 78.47 | -6.01 | 1720.0 | 0.45 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2022 | 聚亨 | 鋼鐵工業 | 7 | 292 | 58.73 | 58.3 | -9.18 | 7.52 | 0.56 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2460 | 建通 | 電子零組件業 | 7 | 293 | 57.62 | 60.96 | -12.06 | 31.0 | 0.22 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6997 | 博弘 | 數位雲端 | 7 | 294 | 56.58 | 19.33 | -9.05 | 67.3 | 0.2 |  |  |  | available_days_too_few |  |  | 單月營收YoY 50%~100%；累計營收YoY 10%~30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 4148 | 全宇生技-KY | 生技醫療業 | 7 | 295 | 55.04 | 14.38 | -8.36 | 34.0 | 0.18 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY 10%~30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 5498 | 凱崴 | 電子零組件業 | 7 | 296 | 54.64 | 50.29 | -15.8 | 61.3 | 0.56 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3297 | 杭特 | 光電業 | 7 | 297 | 53.7 | 21.12 | -4.72 | 30.3 | 0.65 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY 10%~30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 1522 | 堤維西 | 汽車工業 | 7 | 298 | 53.32 | 40.26 | -6.43 | 29.1 | 0.5 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 1815 | 富喬 | 電子零組件業 | 7 | 299 | 53.16 | 40.48 | -5.69 | 99.5 | 0.38 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 7786 | 東方風能 | 綠能環保 | 7 | 300 | 52.31 | 53.14 | -17.03 | 114.5 | 0.74 |  |  |  | available_days_too_few |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 8927 | 北基 | 油電燃氣業 | 7 | 301 | 50.68 | 35.22 | -0.76 | 19.55 | 0.49 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6515 | 穎崴 | 半導體業 | 7 | 302 | 50.51 | 34.36 | -8.05 | 9080.0 | 0.71 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 7721 | 微程式 | 數位雲端 | 7 | 303 | 49.59 | 27.61 | -8.81 | 71.4 | 0.32 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 8086 | 宏捷科 | 半導體業 | 7 | 304 | 49.39 | 55.86 | -7.96 | 144.5 | 0.37 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6134 | 萬旭 | 電子零組件業 | 7 | 305 | 45.85 | 49.2 | -5.93 | 30.15 | 0.61 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 4510 | 高鋒 | 電機機械 | 7 | 306 | 45.75 | 43.61 | -0.32 | 46.45 | 0.37 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 1342 | 八貫 | 其他 | 7 | 307 | 44.52 | 24.1 | -2.44 | 92.0 | 0.38 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 4903 | 聯光通 | 通信網路業 | 7 | 308 | 44.15 | 70.23 | -6.53 | 44.35 | 0.65 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 4949 | 有成精密 | 光電業 | 7 | 309 | 43.92 | 38.67 | -1.91 | 87.3 | 0.45 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6716 | 應廣 | 半導體業 | 7 | 310 | 41.03 | 58.44 | 2.83 | 98.1 | 1.05 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 7780 | 大研生醫* | 食品工業 | 7 | 311 | 40.46 | 39.06 | 0.82 | 18.5 | 0.58 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3526 | 凡甲 | 電子零組件業 | 7 | 312 | 40.32 | 24.4 | -8.61 | 355.5 | 0.3 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 1419 | 新紡 | 紡織纖維 | 7 | 313 | 39.74 | 37.26 | -2.82 | 62.0 | 1.12 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6861 | 睿生光電 | 生技醫療業 | 7 | 314 | 39.71 | 45.39 | -3.1 | 407.0 | 0.31 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3432 | 台端 | 電子零組件業 | 7 | 315 | 39.4 | 220.44 | -5.05 | 18.8 | 0.2 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3530 | 晶相光 | 半導體業 | 7 | 316 | 39.08 | 50.79 | -4.09 | 65.6 | 0.35 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 4503 | 金雨 | 電機機械 | 7 | 317 | 38.44 | 36.23 | -6.99 | 41.9 | 0.44 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 8121 | 越峰 | 電子零組件業 | 7 | 318 | 38.36 | 23.22 | 4.14 | 35.2 | 1.77 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 4441 | 振大環球 | 紡織纖維 | 7 | 319 | 37.34 | 28.59 | -7.18 | 200.5 | 1.66 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 8016 | 矽創 | 半導體業 | 7 | 320 | 37.26 | 26.73 | 6.53 | 285.5 | 1.22 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2495 | 普安 | 電腦及週邊設備業 | 7 | 321 | 36.72 | 35.51 | 5.63 | 37.5 | 1.02 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 8438 | 昶昕 | 綠能環保 | 7 | 322 | 36.37 | 35.17 | -13.88 | 88.7 | 0.71 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 5607 | 遠雄港 | 航運業 | 7 | 323 | 35.13 | 35.53 | -2.44 | 48.05 | 0.57 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6282 | 康舒 | 電子零組件業 | 7 | 324 | 34.61 | 23.65 | -1.74 | 50.8 | 0.47 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3016 | 嘉晶 | 半導體業 | 7 | 325 | 32.85 | 21.96 | -13.22 | 105.0 | 0.15 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3372 | 典範 | 半導體業 | 7 | 326 | 32.57 | 34.97 | 1.06 | 19.05 | 0.96 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3546 | 宇峻 | 文化創意業 | 7 | 327 | 32.29 | 46.1 | 19.73 | 81.3 | 2.67 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6944 | 兆聯實業 | 綠能環保 | 7 | 328 | 32.08 | 48.6 | -3.28 | 886.0 | 0.48 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 4905 | 台聯電 | 通信網路業 | 7 | 329 | 31.57 | 36.29 | -3.52 | 76.7 | 0.21 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 8064 | 東捷 | 光電業 | 7 | 330 | 31.54 | 30.3 | 4.22 | 123.5 | 0.65 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3071 | 協禧 | 電腦及週邊設備業 | 7 | 331 | 31.35 | 30.9 | -3.0 | 29.1 | 0.28 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 8028 | 昇陽半導體 | 半導體業 | 7 | 332 | 31.15 | 23.06 | 8.61 | 258.5 | 0.38 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2427 | 三商電 | 資訊服務業 | 7 | 333 | 31.07 | 61.09 | -4.24 | 20.35 | 0.39 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3707 | 漢磊 | 半導體業 | 7 | 334 | 31.01 | 22.96 | 0.0 | 72.8 | 0.36 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2369 | 菱生 | 半導體業 | 7 | 335 | 30.2 | 37.12 | -5.25 | 28.85 | 0.43 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2923 | 鼎固-KY | 建材營造 | 6 | 336 | 160.85 | 155.54 | -15.26 | 20.55 | 2.07 |  |  |  | ok |  |  | 單月營收YoY>=100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；疑似高位爆量長上影 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3580 | 友威科 | 其他電子業 | 6 | 337 | 71.25 | -6.15 | -3.01 | 99.9 | 2.92 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA；疑似高位爆量長上影 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6909 | 創控 | 半導體業 | 6 | 338 | 54.78 | -10.3 | -7.31 | 50.7 | 0.31 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6933 | AMAX-KY | 電腦及週邊設備業 | 6 | 339 | 50.74 | 3.69 | -15.26 | 155.5 | 0.36 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；單月YoY明顯高於累計YoY，近期加速；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 1785 | 光洋科 | 其他電子業 | 6 | 340 | 49.08 | 68.0 | -10.39 | 138.0 | 0.57 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3105 | 穩懋 | 半導體業 | 6 | 341 | 48.89 | 33.41 | -9.89 | 446.5 | 0.93 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6126 | 信音 | 電子零組件業 | 6 | 342 | 48.32 | 47.78 | 4.93 | 34.05 | 2.23 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近；站上20MA/23EMA；疑似高位爆量長上影 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6776 | 展碁國際 | 電子通路業 | 6 | 343 | 45.95 | 26.2 | 0.17 | 57.3 | 0.67 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 4943 | 康控-KY | 電子零組件業 | 6 | 344 | 45.87 | 43.82 | -3.23 | 9.0 | 0.64 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6874 | 倍力 | 資訊服務業 | 6 | 345 | 45.69 | 77.49 | -2.45 | 79.7 | 0.31 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 4541 | 晟田 | 其他 | 6 | 346 | 44.69 | 34.71 | -1.6 | 43.15 | 0.49 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3689 | 湧德 | 電子零組件業 | 6 | 347 | 44.31 | 33.37 | -2.87 | 118.5 | 0.39 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2308 | 台達電 | 電子零組件業 | 6 | 348 | 43.92 | 36.53 | -11.55 | 1915.0 | 0.87 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6461 | 益得 | 生技醫療業 | 6 | 349 | 43.68 | 101.1 | -3.57 | 16.2 | 0.57 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3073 | 天方能源 | 綠能環保 | 6 | 350 | 42.13 | 310.98 | -5.58 | 20.3 | 0.47 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6994 | 富威電力 | 綠能環保 | 6 | 351 | 41.16 | 87.64 | -19.13 | 52.0 | 0.43 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3324 | 雙鴻 | 其他電子業 | 6 | 352 | 40.9 | 77.13 | -11.83 | 939.0 | 0.59 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 8131 | 福懋科 | 半導體業 | 6 | 353 | 40.54 | 34.09 | -6.45 | 60.9 | 0.37 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 1514 | 亞力 | 電機機械 | 6 | 354 | 40.12 | 29.03 | -6.22 | 113.0 | 0.28 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 8383 | 千附 | 半導體業 | 6 | 355 | 38.31 | 27.14 | -1.96 | 54.9 | 0.32 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3265 | 台星科 | 半導體業 | 6 | 356 | 37.89 | 24.91 | -5.28 | 170.5 | 0.42 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6680 | 鑫創電子 | 電腦及週邊設備業 | 6 | 357 | 36.42 | 25.42 | -1.11 | 53.5 | 1.05 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 8358 | 金居 | 電子零組件業 | 6 | 358 | 35.81 | 43.56 | 0.88 | 460.0 | 0.53 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近5日漲幅低於15%；站上20MA/23EMA；接近前高但未大幅過熱 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6584 | 南俊國際 | 電子零組件業 | 6 | 359 | 35.13 | 62.34 | -7.51 | 628.0 | 0.44 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 2449 | 京元電子 | 半導體業 | 6 | 360 | 34.56 | 38.01 | -9.02 | 277.5 | 0.84 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6770 | 力積電 | 半導體業 | 6 | 361 | 32.46 | 24.74 | -4.46 | 57.8 | 0.47 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 8150 | 南茂 | 半導體業 | 6 | 362 | 32.23 | 27.09 | -12.98 | 74.4 | 0.37 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 9958 | 世紀鋼 | 鋼鐵工業 | 6 | 363 | 32.12 | 20.57 | -3.35 | 101.0 | 1.25 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；股價仍在20MA/23EMA附近 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 8021 | 尖點 | 其他電子業 | 5 | 364 | 63.18 | 54.21 | -19.06 | 361.0 | 2.59 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY>=30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15%；疑似高位爆量長上影 |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3013 | 晟銘電 | 電腦及週邊設備業 | 5 | 365 | 40.66 | 27.01 | -7.94 | 98.5 | 0.42 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6672 | 騰輝電子-KY | 電子零組件業 | 5 | 366 | 36.93 | 26.19 | -10.86 | 176.5 | 0.19 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3057 | 喬鼎 | 電腦及週邊設備業 | 5 | 367 | 33.62 | 26.28 | -8.75 | 18.25 | 0.14 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6568 | 宏觀 | 半導體業 | 5 | 368 | 31.74 | 28.95 | -4.54 | 210.5 | 0.63 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 3715 | 定穎投控 | 電子零組件業 | 5 | 369 | 31.22 | 25.86 | -8.78 | 161.0 | 0.47 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 6510 | 精測 | 半導體業 | 5 | 370 | 30.22 | 21.0 | -10.33 | 3385.0 | 0.64 |  |  |  | ok |  |  | 單月營收YoY 30%~50%；累計營收YoY 10%~30%；近3日漲幅低於10%，股價低反應；近5日漲幅低於15% |
+| 20260520 | revenue_breakout_low_response | 營收爆發低反應股 | revenue_breakout_low_response | 7709 | 榮田 | 電機機械 | 4 | 371 | 62.9 | 26.64 | 12.8 | 89.0 | 4.12 |  |  |  | ok |  |  | 單月營收YoY 50%~100%；累計營收YoY 10%~30%；單月YoY明顯高於累計YoY，近期加速；近5日漲幅低於15%；站上20MA/23EMA；疑似高位爆量長上影 |
 
-### pullback_rebound
+### 營收成長股價回檔 `revenue_pullback`
 
-| date | category | breakout_type | stock_id | stock_name | industry | score | rank | close | volume_ratio | previous_60d_high | distance_to_previous_60d_high_pct | available_days | price_data_warning | tdcc_judgement | chart_path | note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260520 | pullback_rebound | pullback_rebound | 3443 | 創意 | 半導體業 | 84 |  | 4605.0 | 1.4 | 5950.0 | -22.61 | 130.0 |  |  |  |  |
-| 20260520 | pullback_rebound | pullback_rebound | 7750 | 新代 | 電機機械 | 70 |  | 2495.0 | 2.74 | 3070.0 | -18.73 | 130.0 |  |  |  |  |
-| 20260520 | pullback_rebound | pullback_rebound | 2347 | 聯強 | 電子通路業 | 70 |  | 83.7 | 1.37 | 87.5 | -4.34 | 130.0 |  |  |  |  |
-| 20260520 | pullback_rebound | pullback_rebound | 2891 | 中信金 | 金融保險業 | 63 |  | 57.8 | 2.08 | 57.0 | 1.4 | 130.0 |  |  |  |  |
-| 20260520 | pullback_rebound | pullback_rebound | 6126 | 信音 | 電子零組件業 | 62 |  | 34.05 | 2.23 | 40.5 | -15.93 | 130.0 |  |  |  |  |
-| 20260520 | pullback_rebound | pullback_rebound | 2515 | 中工 | 建材營造 | 62 |  | 12.6 | 1.48 | 18.65 | -32.44 | 130.0 |  |  |  |  |
-| 20260520 | pullback_rebound | pullback_rebound | 8054 | 安國 | 半導體業 | 62 |  | 106.5 | 1.28 | 132.0 | -19.32 | 130.0 |  |  |  |  |
-| 20260520 | pullback_rebound | pullback_rebound | 2388 | 威盛 | 半導體業 | 56 |  | 81.7 | 1.23 | 85.4 | -4.33 | 130.0 |  |  |  |  |
+| date | category | category_cn | breakout_type | stock_id | stock_name | industry | score | rank | latest_revenue_yoy | cumulative_revenue_yoy | return_5d | close | volume_ratio | previous_60d_high | distance_to_previous_60d_high_pct | available_days | price_data_warning | tdcc_judgement | chart_path | note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2337 | 旺宏 | 半導體業 | 90 |  | 153.71 | 93.46 |  | 141.0 | 0.57 | 178.5 | -21.01 | 130.0 |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2382 | 廣達 | 電腦及週邊設備業 | 90 |  | 120.71 | 79.64 |  | 290.0 | 1.5 | 352.5 | -17.73 | 130.0 |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 3231 | 緯創 | 電腦及週邊設備業 | 90 |  | 111.99 | 135.27 |  | 132.5 | 0.47 | 149.0 | -11.07 | 130.0 |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 3260 | 威剛 | 半導體業 | 90 |  | 169.51 | 165.39 |  | 405.5 | 0.45 | 525.0 | -22.76 | 130.0 |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 5498 | 凱崴 | 電子零組件業 | 90 |  | 54.64 | 50.29 |  | 61.3 | 0.56 | 87.2 | -29.7 | 130.0 |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 8996 | 高力 | 電機機械 | 90 |  | 86.03 | 186.88 |  | 994.0 | 1.29 | 1310.0 | -24.12 | 130.0 |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 5475 | 德宏 | 電子零組件業 | 90 |  | 120.59 | 101.18 |  | 278.0 | 1.05 | 404.5 | -31.27 | 130.0 |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 6274 | 台燿 | 電子零組件業 | 90 |  | 97.97 | 68.62 |  | 1205.0 | 0.34 | 1480.0 | -18.58 | 130.0 |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 6805 | 富世達 | 電子零組件業 | 90 |  | 59.05 | 78.47 |  | 1720.0 | 0.45 | 2275.0 | -24.4 | 130.0 |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 5351 | 鈺創 | 半導體業 | 84 |  | 417.06 | 359.74 |  | 74.4 | 0.62 | 94.0 | -20.85 | 130.0 |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 6265 | 方土昶 | 電子通路業 | 84 |  | 885.82 | 548.89 |  | 41.6 | 0.46 | 50.7 | -17.95 | 130.0 |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2345 | 智邦 | 通信網路業 | 84 |  | 53.87 | 61.04 |  | 2355.0 | 0.8 | 2695.0 | -12.62 | 130.0 |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 3443 | 創意 | 半導體業 | 84 |  | 156.85 | 81.04 |  | 4605.0 | 1.4 | 5950.0 | -22.61 | 130.0 |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 6125 | 廣運 | 光電業 | 84 |  | 56.78 | 37.58 |  | 54.7 | 0.95 | 66.8 | -18.11 | 130.0 |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 6026 | 福邦證 | 金融業 | 84 |  | 461.7 | 380.76 |  | 15.05 | 0.47 | 17.0 | -11.47 | 130.0 |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 4967 | 十銓 | 半導體業 | 83 |  | 78.61 | 70.72 |  | 261.0 | 0.2 | 323.0 | -19.2 | 130.0 |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 8271 | 宇瞻 | 半導體業 | 83 |  | 360.82 | 276.89 |  | 215.0 | 0.65 | 271.0 | -20.66 | 130.0 |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 4743 | 合一 | 生技醫療業 | 83 |  | 101.83 | 62.11 |  | 49.0 | 1.04 | 61.2 | -19.93 | 130.0 |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 3030 | 德律 | 其他電子業 | 83 |  | 62.51 | 35.38 |  | 347.0 | 0.44 | 435.5 | -20.32 | 130.0 |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2383 | 台光電 | 電子零組件業 | 83 |  | 93.62 | 62.74 |  | 4395.0 | 0.62 | 5215.0 | -15.72 | 130.0 |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2360 | 致茂 | 其他電子業 | 83 |  | 128.89 | 86.03 |  | 2065.0 | 0.47 | 2530.0 | -18.38 | 130.0 |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2449 | 京元電子 | 半導體業 | 82 |  | 34.56 | 38.01 |  | 277.5 | 0.84 | 364.5 | -23.87 | 130.0 |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2880 | 華南金 | 金融保險業 | 82 |  | 59.58 | 30.54 |  | 32.05 | 1.45 | 38.1 | -15.88 | 130.0 |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 3706 | 神達 | 電腦及週邊設備業 | 82 |  | 31.87 | 33.89 |  | 80.3 | 0.56 | 89.2 | -9.98 | 130.0 |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2495 | 普安 | 電腦及週邊設備業 | 82 |  | 36.72 | 35.51 |  | 37.5 | 1.02 | 46.0 | -18.48 | 130.0 |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2369 | 菱生 | 半導體業 | 82 |  | 30.2 | 37.12 |  | 28.85 | 0.43 | 38.75 | -25.55 | 130.0 |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 3017 | 奇鋐 | 電腦及週邊設備業 | 82 |  | 71.62 | 99.34 |  | 2340.0 | 0.59 | 3010.0 | -22.26 | 130.0 |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 8131 | 福懋科 | 半導體業 | 82 |  | 40.54 | 34.09 |  | 60.9 | 0.37 | 75.0 | -18.8 | 130.0 |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 3689 | 湧德 | 電子零組件業 | 82 |  | 44.31 | 33.37 |  | 118.5 | 0.39 | 146.0 | -18.84 | 130.0 |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2305 | 全友 | 電腦及週邊設備業 | 82 |  | 81.07 | 58.26 |  | 16.6 | 0.42 | 20.2 | -17.82 | 130.0 |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2406 | 國碩 | 光電業 | 77 |  | 143.29 | 161.28 |  | 30.05 | 0.7 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 8086 | 宏捷科 | 半導體業 | 76 |  | 49.39 | 55.86 |  | 144.5 | 0.37 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 3680 | 家登 | 半導體業 | 76 |  | 52.74 | 20.17 |  | 506.0 | 0.59 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 8021 | 尖點 | 其他電子業 | 75 |  | 63.18 | 54.21 |  | 361.0 | 2.59 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 1815 | 富喬 | 電子零組件業 | 75 |  | 53.16 | 40.48 |  | 99.5 | 0.38 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 4989 | 榮科 | 電子零組件業 | 75 |  | 28.89 | 69.29 |  | 92.8 | 1.52 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 8046 | 南電 | 電子零組件業 | 75 |  | 39.47 | 34.15 |  | 829.0 | 0.7 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 3264 | 欣銓 | 半導體業 | 75 |  | 27.79 | 24.99 |  | 206.5 | 0.79 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 3715 | 定穎投控 | 電子零組件業 | 75 |  | 31.22 | 25.86 |  | 161.0 | 0.47 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2368 | 金像電 | 電子零組件業 | 75 |  | 58.41 | 60.84 |  | 1235.0 | 0.92 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 5439 | 高技 | 電子零組件業 | 75 |  | 26.16 | 60.19 |  | 364.5 | 0.68 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 8070 | 長華* | 電子通路業 | 75 |  | 28.15 | 22.43 |  | 42.8 | 1.05 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 3081 | 聯亞 | 通信網路業 | 75 |  | 115.38 | 103.7 |  | 2580.0 | 0.63 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 3013 | 晟銘電 | 電腦及週邊設備業 | 75 |  | 40.66 | 27.01 |  | 98.5 | 0.42 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2486 | 一詮 | 光電業 | 75 |  | 21.16 | 20.27 |  | 258.0 | 0.23 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2417 | 圓剛 | 電腦及週邊設備業 | 75 |  | 23.45 | 18.51 |  | 47.45 | 0.31 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 4949 | 有成精密 | 光電業 | 75 |  | 43.92 | 38.67 |  | 87.3 | 0.45 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 3265 | 台星科 | 半導體業 | 75 |  | 37.89 | 24.91 |  | 170.5 | 0.42 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 6108 | 競國 | 電子零組件業 | 75 |  | 41.87 | 14.9 |  | 19.0 | 0.33 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 8074 | 鉅橡 | 電子零組件業 | 75 |  | 26.34 | 22.57 |  | 72.8 | 0.19 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 3550 | 聯穎 | 電子零組件業 | 75 |  | 25.21 | 22.7 |  | 19.95 | 0.27 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 4903 | 聯光通 | 通信網路業 | 74 |  | 44.15 | 70.23 |  | 44.35 | 0.65 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2408 | 南亞科 | 半導體業 | 70 |  | 717.33 | 623.58 |  | 275.0 | 0.87 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2883 | 凱基金 | 金融保險業 | 70 |  | 144.31 | 319.62 |  | 21.6 | 0.9 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 8112 | 至上 | 電子通路業 | 70 |  | 55.96 | 111.09 |  | 84.0 | 1.65 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2890 | 永豐金 | 金融保險業 | 70 |  | 87.36 | 50.08 |  | 29.8 | 1.05 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2881 | 富邦金 | 金融保險業 | 70 |  | 219.79 | 402.59 |  | 95.8 | 0.89 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2882 | 國泰金 | 金融保險業 | 70 |  | 153.91 | 577.07 |  | 77.9 | 0.81 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2885 | 元大金 | 金融保險業 | 70 |  | 324.9 | 112.86 |  | 55.1 | 0.73 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2376 | 技嘉 | 電腦及週邊設備業 | 70 |  | 73.66 | 64.15 |  | 302.0 | 0.93 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2363 | 矽統 | 半導體業 | 70 |  | 87.15 | 113.29 |  | 60.1 | 0.66 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 8299 | 群聯 | 半導體業 | 70 |  | 236.63 | 208.32 |  | 2265.0 | 1.23 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 9945 | 潤泰新 | 其他 | 70 |  | 58.78 | 34.31 |  | 23.4 | 1.23 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 3167 | 大量 | 電機機械 | 70 |  | 114.23 | 125.41 |  | 780.0 | 3.31 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 6139 | 亞翔 | 其他電子業 | 70 |  | 70.59 | 68.33 |  | 720.0 | 1.63 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 5388 | 中磊 | 通信網路業 | 70 |  | 65.53 | 51.67 |  | 81.8 | 1.07 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2347 | 聯強 | 電子通路業 | 70 |  | 83.28 | 49.73 |  | 83.7 | 1.37 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2404 | 漢唐 | 其他電子業 | 70 |  | 102.23 | 82.88 |  | 1025.0 | 1.24 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2374 | 佳能 | 光電業 | 70 |  | 62.53 | 73.2 |  | 78.8 | 0.4 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2451 | 創見 | 半導體業 | 70 |  | 594.43 | 419.72 |  | 309.5 | 0.46 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 6005 | 群益證 | 金融保險業 | 70 |  | 301.6 | 128.82 |  | 30.6 | 0.28 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 5864 | 致和證 | 金融業 | 70 |  | 2037.17 | 779.95 |  | 31.35 | 0.68 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 6016 | 康和證 | 金融業 | 70 |  | 1127.29 | 4803.22 |  | 21.8 | 0.36 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2867 | 三商壽 | 金融保險業 | 70 |  | 577.22 | 207.57 |  | 7.7 | 0.46 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 4739 | 康普 | 化學工業 | 70 |  | 96.24 | 115.46 |  | 91.5 | 0.56 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2855 | 統一證 | 金融保險業 | 70 |  | 1002.14 | 365.77 |  | 39.2 | 0.34 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2467 | 志聖 | 電子零組件業 | 70 |  | 86.98 | 76.55 |  | 554.0 | 1.04 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 1714 | 和桐 | 化學工業 | 70 |  | 71.71 | 47.62 |  | 9.52 | 0.57 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 3491 | 昇達科 | 通信網路業 | 70 |  | 83.99 | 69.08 |  | 1755.0 | 1.16 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 7750 | 新代 | 電機機械 | 70 |  | 94.87 | 63.77 |  | 2495.0 | 2.74 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2889 | 國票金 | 金融保險業 | 70 |  | 3640.86 | 137.65 |  | 14.7 | 0.63 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 6015 | 宏遠證 | 金融業 | 70 |  | 4229.16 | 732.2 |  | 14.5 | 0.49 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 6426 | 統新 | 通信網路業 | 70 |  | 76.49 | 61.91 |  | 239.0 | 0.44 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2548 | 華固 | 建材營造 | 70 |  | 28465.96 | 34773.57 |  | 123.5 | 0.84 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 5284 | jpp-KY | 其他 | 70 |  | 54.65 | 47.78 |  | 363.0 | 0.53 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 6179 | 亞通 | 其他 | 70 |  | 69.36 | 54.77 |  | 24.6 | 0.66 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 3044 | 健鼎 | 電子零組件業 | 69 |  | 28.9 | 24.16 |  | 462.5 | 0.43 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 6548 | 長科* | 半導體業 | 69 |  | 24.51 | 17.8 |  | 48.6 | 0.29 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2637 | 慧洋-KY | 航運業 | 69 |  | 21.23 | 22.91 |  | 71.8 | 0.71 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 1773 | 勝一 | 化學工業 | 69 |  | 31.81 | 15.8 |  | 163.5 | 0.53 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 8150 | 南茂 | 半導體業 | 68 |  | 32.23 | 27.09 |  | 74.4 | 0.37 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 5443 | 均豪 | 半導體業 | 68 |  | 24.44 | 23.87 |  | 116.5 | 0.41 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 3105 | 穩懋 | 半導體業 | 67 |  | 48.89 | 33.41 |  | 446.5 | 0.93 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 1785 | 光洋科 | 其他電子業 | 67 |  | 49.08 | 68.0 |  | 138.0 | 0.57 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2308 | 台達電 | 電子零組件業 | 67 |  | 43.92 | 36.53 |  | 1915.0 | 0.87 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 3324 | 雙鴻 | 其他電子業 | 67 |  | 40.9 | 77.13 |  | 939.0 | 0.59 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 1316 | 上曜 | 建材營造 | 64 |  | 115.49 | 135.29 |  | 10.6 | 1.02 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2344 | 華邦電 | 半導體業 | 63 |  | 182.22 | 114.45 |  | 115.5 | 0.72 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2891 | 中信金 | 金融保險業 | 63 |  | 1120.57 | 81.7 |  | 57.8 | 2.08 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2886 | 兆豐金 | 金融保險業 | 63 |  | 63.04 | 23.64 |  | 40.3 | 1.42 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 5880 | 合庫金 | 金融保險業 | 63 |  | 65.45 | 21.78 |  | 22.7 | 0.87 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2353 | 宏碁 | 電腦及週邊設備業 | 63 |  | 68.39 | 29.65 |  | 27.45 | 0.54 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2812 | 台中銀 | 金融保險業 | 63 |  | 69.85 | 22.82 |  | 18.9 | 0.51 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2542 | 興富發 | 建材營造 | 63 |  | 4077.66 | 1725.22 |  | 43.7 | 0.59 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 6531 | 愛普* | 半導體業 | 63 |  | 92.88 | 109.08 |  | 973.0 | 1.08 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 5314 | 世紀* | 其他 | 63 |  | 138.62 | 161.5 |  | 67.6 | 1.31 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 5291 | 邑昇 | 電子零組件業 | 63 |  | 69.46 | 36.66 |  | 71.7 | 1.93 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 6215 | 和椿 | 其他電子業 | 63 |  | 86.85 | 66.23 |  | 122.0 | 0.59 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 4760 | 勤凱科技 | 其他電子業 | 63 |  | 63.1 | 54.91 |  | 282.0 | 1.51 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2101 | 南港 | 橡膠工業 | 63 |  | 150.65 | 158.9 |  | 30.75 | 1.02 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2838 | 聯邦銀 | 金融保險業 | 63 |  | 62.81 | 25.28 |  | 20.05 | 1.26 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 6419 | 京晨科 | 光電業 | 63 |  | 328.69 | 98.87 |  | 143.5 | 2.63 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 3691 | 碩禾 | 光電業 | 63 |  | 163.41 | 175.68 |  | 139.0 | 0.73 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 3354 | 律勝 | 電子零組件業 | 63 |  | 52.03 | 20.25 |  | 31.75 | 0.5 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2485 | 兆赫 | 通信網路業 | 62 |  | 38.27 | 105.41 |  | 70.6 | 1.07 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2356 | 英業達 | 電腦及週邊設備業 | 62 |  | 36.53 | 30.1 |  | 51.4 | 0.89 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 6239 | 力成 | 半導體業 | 62 |  | 32.49 | 36.2 |  | 234.5 | 0.8 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 4540 | 全球傳動 | 電機機械 | 62 |  | 33.35 | 57.4 |  | 67.7 | 0.9 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2515 | 中工 | 建材營造 | 62 |  | 52.63 | 39.29 |  | 12.6 | 1.48 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2436 | 偉詮電 | 半導體業 | 62 |  | 30.48 | 31.39 |  | 71.8 | 0.29 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 8054 | 安國 | 半導體業 | 62 |  | 47.7 | 259.75 |  | 106.5 | 1.28 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 4576 | 大銀微系統 | 電機機械 | 62 |  | 40.28 | 43.95 |  | 236.5 | 0.63 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2357 | 華碩 | 電腦及週邊設備業 | 62 |  | 45.71 | 42.36 |  | 640.0 | 0.69 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2897 | 王道銀行 | 金融保險業 | 62 |  | 29.44 | 33.46 |  | 10.05 | 0.98 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 6126 | 信音 | 電子零組件業 | 62 |  | 48.32 | 47.78 |  | 34.05 | 2.23 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 6425 | 易發 | 電機機械 | 62 |  | 31.74 | 37.7 |  | 87.8 | 0.61 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2543 | 皇昌 | 建材營造 | 62 |  | 62.15 | 31.77 |  | 42.45 | 0.69 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 6669 | 緯穎 | 電腦及週邊設備業 | 62 |  | 29.67 | 53.22 |  | 4910.0 | 0.62 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 1503 | 士電 | 電機機械 | 62 |  | 32.53 | 16.32 |  | 181.0 | 0.63 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 4510 | 高鋒 | 電機機械 | 62 |  | 45.75 | 43.61 |  | 46.45 | 0.37 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 7780 | 大研生醫* | 食品工業 | 62 |  | 40.46 | 39.06 |  | 18.5 | 0.58 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 6830 | 汎銓 | 其他電子業 | 60 |  | 20.24 | 23.36 |  | 684.0 | 0.81 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 6672 | 騰輝電子-KY | 電子零組件業 | 60 |  | 36.93 | 26.19 |  | 176.5 | 0.19 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 6753 | 龍德造船 | 航運業 | 60 |  | 49.52 | 15.97 |  | 124.5 | 0.93 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2388 | 威盛 | 半導體業 | 56 |  | 84.79 | 22.36 |  | 81.7 | 1.23 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2892 | 第一金 | 金融保險業 | 55 |  | 41.98 | 22.6 |  | 27.75 | 4.22 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 6770 | 力積電 | 半導體業 | 55 |  | 32.46 | 24.74 |  | 57.8 | 0.47 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2317 | 鴻海 | 其他電子業 | 55 |  | 29.74 | 29.7 |  | 240.0 | 0.61 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 3189 | 景碩 | 半導體業 | 55 |  | 26.75 | 28.27 |  | 504.0 | 1.11 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 3006 | 晶豪科 | 半導體業 | 55 |  | 349.21 | 202.48 |  | 222.5 | 1.09 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2884 | 玉山金 | 金融保險業 | 55 |  | 47.82 | 24.75 |  | 31.7 | 0.85 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 3037 | 欣興 | 電子零組件業 | 55 |  | 27.64 | 25.3 |  | 823.0 | 0.8 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 6282 | 康舒 | 電子零組件業 | 55 |  | 34.61 | 23.65 |  | 50.8 | 0.47 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 6257 | 矽格 | 半導體業 | 55 |  | 24.54 | 15.88 |  | 207.0 | 0.81 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 3374 | 精材 | 半導體業 | 55 |  | 25.64 | 24.32 |  | 231.0 | 0.53 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 3707 | 漢磊 | 半導體業 | 55 |  | 31.01 | 22.96 |  | 72.8 | 0.36 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2845 | 遠東銀 | 金融保險業 | 55 |  | 31.99 | 15.34 |  | 11.95 | 0.83 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 4931 | 新盛力 | 電腦及週邊設備業 | 55 |  | 97.38 | 35.1 |  | 189.5 | 0.34 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 6190 | 萬泰科 | 通信網路業 | 55 |  | 39.66 | 17.31 |  | 77.6 | 0.38 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2606 | 裕民 | 航運業 | 55 |  | 38.67 | 20.02 |  | 64.5 | 0.86 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 4973 | 廣穎電通 | 半導體業 | 55 |  | 106.1 | 82.09 |  | 109.0 | 0.45 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 5289 | 宜鼎 | 電腦及週邊設備業 | 55 |  | 583.11 | 452.21 |  | 1675.0 | 0.7 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2646 | 星宇航空 | 航運業 | 55 |  | 30.12 | 24.67 |  | 20.2 | 0.66 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 8374 | 羅昇 | 電機機械 | 55 |  | 62.73 | 37.07 |  | 96.9 | 1.22 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 6727 | 亞泰金屬 | 電子零組件業 | 55 |  | 51.15 | 133.05 |  | 496.5 | 0.98 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2476 | 鉅祥 | 電子零組件業 | 55 |  | 24.68 | 29.68 |  | 114.0 | 0.45 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2208 | 台船 | 航運業 | 55 |  | 132.19 | 40.98 |  | 18.25 | 0.54 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2851 | 中再保 | 金融保險業 | 55 |  | 605.14 | 139.31 |  | 34.9 | 0.87 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 7777 | 能率亞洲 | 其他 | 55 |  | 1298.03 | 202.09 |  | 32.75 | 0.71 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 3390 | 旭軟 | 電子零組件業 | 55 |  | 48.58 | 17.92 |  | 27.0 | 0.63 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 1708 | 東鹼 | 化學工業 | 55 |  | 42.0 | 12.0 |  | 39.55 | 0.39 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 3135 | 凌航 | 半導體業 | 55 |  | 607.83 | 296.85 |  | 190.5 | 0.2 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 3406 | 玉晶光 | 光電業 | 55 |  | 24.81 | 17.82 |  | 550.0 | 0.72 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 5236 | 凌陽創新 | 半導體業 | 55 |  | 28.06 | 18.83 |  | 172.0 | 2.0 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 6196 | 帆宣 | 其他電子業 | 55 |  | 46.34 | 17.69 |  | 404.0 | 0.48 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 1514 | 亞力 | 電機機械 | 55 |  | 40.12 | 29.03 |  | 113.0 | 0.28 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 6414 | 樺漢 | 電腦及週邊設備業 | 55 |  | 22.14 | 12.21 |  | 331.5 | 0.66 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 4714 | 永捷 | 化學工業 | 55 |  | 96.03 | 95.92 |  | 13.05 | 0.97 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 4123 | 晟德 | 生技醫療業 | 55 |  | 28.35 | 24.63 |  | 38.2 | 0.46 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 1597 | 直得 | 電機機械 | 55 |  | 70.97 | 42.21 |  | 171.0 | 0.29 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 4306 | 炎洲 | 塑膠工業 | 55 |  | 24.04 | 12.8 |  | 13.8 | 0.92 |  |  |  |  |  |  |  |
+| 20260520 | revenue_pullback | 營收成長股價回檔 | revenue_pullback | 2108 | 南帝 | 橡膠工業 | 55 |  | 47.3 | 23.57 |  | 27.55 | 0.45 |  |  |  |  |  |  |  |
 
-### pattern
+### 回檔後短線轉強 `pullback_rebound`
 
-| date | category | breakout_type | stock_id | stock_name | industry | score | rank | close | volume_ratio | previous_60d_high | distance_to_previous_60d_high_pct | available_days | price_data_warning | tdcc_judgement | chart_path | note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260520 | pattern | pattern | 4566 | 時碩工業 |  |  |  | 60.5 |  | 76.9 | -21.33 | 130 | ok |  | output/latest/charts/pattern/4566_時碩工業_pattern_20260520.png | 型態觀察；前60日高點 76.90，距離 -21.33% |
-| 20260520 | pattern | pattern | 1304 | 台聚 |  |  |  | 12.15 |  | 19.55 | -37.85 | 130 | ok |  | output/latest/charts/pattern/1304_台聚_pattern_20260520.png | 型態觀察；前60日高點 19.55，距離 -37.85% |
-| 20260520 | pattern | pattern | 2337 | 旺宏 |  |  |  | 141.0 |  | 178.5 | -21.01 | 130 | ok |  | output/latest/charts/pattern/2337_旺宏_pattern_20260520.png | 型態觀察；前60日高點 178.50，距離 -21.01% |
-| 20260520 | pattern | pattern | 1305 | 華夏 |  |  |  | 12.45 |  | 20.1 | -38.06 | 130 | ok |  | output/latest/charts/pattern/1305_華夏_pattern_20260520.png | 型態觀察；前60日高點 20.10，距離 -38.06% |
-| 20260520 | pattern | pattern | 6781 | AES-KY |  |  |  | 1090.0 |  | 1370.0 | -20.44 | 130 | ok |  | output/latest/charts/pattern/6781_AES-KY_pattern_20260520.png | 型態觀察；前60日高點 1370.00，距離 -20.44% |
-| 20260520 | pattern | pattern | 4927 | 泰鼎-KY |  |  |  | 47.7 |  | 61.4 | -22.31 | 130 | ok |  | output/latest/charts/pattern/4927_泰鼎-KY_pattern_20260520.png | 型態觀察；前60日高點 61.40，距離 -22.31% |
-| 20260520 | pattern | pattern | 1904 | 正隆 |  |  |  | 18.4 |  | 21.15 | -13.0 | 130 | ok |  | output/latest/charts/pattern/1904_正隆_pattern_20260520.png | 型態觀察；前60日高點 21.15，距離 -13.00% |
-| 20260520 | pattern | pattern | 1447 | 力鵬 |  |  |  | 5.89 |  | 5.87 | 0.34 | 130 | ok |  | output/latest/charts/pattern/1447_力鵬_pattern_20260520.png | 型態觀察；前60日高點 5.87，距離 0.34% |
-| 20260520 | pattern | pattern | 1815 | 富喬 |  |  |  | 99.5 |  | 129.5 | -23.17 | 130 | ok |  | output/latest/charts/pattern/1815_富喬_pattern_20260520.png | 型態觀察；前60日高點 129.50，距離 -23.17% |
-| 20260520 | pattern | pattern | 6282 | 康舒 |  |  |  | 50.8 |  | 56.5 | -10.09 | 130 | ok |  | output/latest/charts/pattern/6282_康舒_pattern_20260520.png | 型態觀察；前60日高點 56.50，距離 -10.09% |
-| 20260520 | pattern | pattern | 8131 | 福懋科 |  |  |  | 60.9 |  | 75.0 | -18.8 | 130 | ok |  | output/latest/charts/pattern/8131_福懋科_pattern_20260520.png | 型態觀察；前60日高點 75.00，距離 -18.80% |
-| 20260520 | pattern | pattern | 1905 | 華紙 |  |  |  | 11.8 |  | 18.55 | -36.39 | 130 | ok |  | output/latest/charts/pattern/1905_華紙_pattern_20260520.png | 型態觀察；前60日高點 18.55，距離 -36.39% |
-| 20260520 | pattern | pattern | 6962 | 奕力-KY |  |  |  | 38.1 |  | 40.95 | -6.96 | 130 | ok |  | output/latest/charts/pattern/6962_奕力-KY_pattern_20260520.png | 型態觀察；前60日高點 40.95，距離 -6.96% |
-| 20260520 | pattern | pattern | 2354 | 鴻準 |  |  |  | 57.5 |  | 65.3 | -11.94 | 130 | ok |  | output/latest/charts/pattern/2354_鴻準_pattern_20260520.png | 型態觀察；前60日高點 65.30，距離 -11.94% |
-| 20260520 | pattern | pattern | 2392 | 正崴 |  |  |  | 35.6 |  | 41.15 | -13.49 | 128 | ok |  | output/latest/charts/pattern/2392_正崴_pattern_20260520.png | 型態觀察；前60日高點 41.15，距離 -13.49% |
-| 20260520 | pattern | pattern | 3689 | 湧德 |  |  |  | 118.5 |  | 146.0 | -18.84 | 130 | ok |  | output/latest/charts/pattern/3689_湧德_pattern_20260520.png | 型態觀察；前60日高點 146.00，距離 -18.84% |
-| 20260520 | pattern | pattern | 1313 | 聯成 |  |  |  | 10.5 |  | 14.85 | -29.29 | 130 | ok |  | output/latest/charts/pattern/1313_聯成_pattern_20260520.png | 型態觀察；前60日高點 14.85，距離 -29.29% |
-| 20260520 | pattern | pattern | 2419 | 仲琦 |  |  |  | 29.9 |  | 39.85 | -24.97 | 130 | ok |  | output/latest/charts/pattern/2419_仲琦_pattern_20260520.png | 型態觀察；前60日高點 39.85，距離 -24.97% |
-| 20260520 | pattern | pattern | 8111 | 立碁 |  |  |  | 61.0 |  | 84.1 | -27.47 | 130 | ok |  | output/latest/charts/pattern/8111_立碁_pattern_20260520.png | 型態觀察；前60日高點 84.10，距離 -27.47% |
-| 20260520 | pattern | pattern | 2413 | 環科 |  |  |  | 49.3 |  | 61.0 | -19.18 | 130 | ok |  | output/latest/charts/pattern/2413_環科_pattern_20260520.png | 型態觀察；前60日高點 61.00，距離 -19.18% |
-| 20260520 | pattern | pattern | 6412 | 群電 |  |  |  | 94.5 |  | 98.1 | -3.67 | 130 | ok |  | output/latest/charts/pattern/6412_群電_pattern_20260520.png | 型態觀察；前60日高點 98.10，距離 -3.67% |
-| 20260520 | pattern | pattern | 2605 | 新興 |  |  |  | 30.1 |  | 46.25 | -34.92 | 130 | ok |  | output/latest/charts/pattern/2605_新興_pattern_20260520.png | 型態觀察；前60日高點 46.25，距離 -34.92% |
-| 20260520 | pattern | pattern | 6451 | 訊芯-KY |  |  |  | 485.5 |  | 583.0 | -16.72 | 130 | ok |  | output/latest/charts/pattern/6451_訊芯-KY_pattern_20260520.png | 型態觀察；前60日高點 583.00，距離 -16.72% |
-| 20260520 | pattern | pattern | 6548 | 長科* |  |  |  | 48.6 |  | 63.0 | -22.86 | 130 | ok |  | output/latest/charts/pattern/6548_長科__pattern_20260520.png | 型態觀察；前60日高點 63.00，距離 -22.86% |
-| 20260520 | pattern | pattern | 5498 | 凱崴 |  |  |  | 61.3 |  | 87.2 | -29.7 | 130 | ok |  | output/latest/charts/pattern/5498_凱崴_pattern_20260520.png | 型態觀察；前60日高點 87.20，距離 -29.70% |
-| 20260520 | pattern | pattern | 2501 | 國建 |  |  |  | 22.3 |  | 26.55 | -16.01 | 130 | ok |  | output/latest/charts/pattern/2501_國建_pattern_20260520.png | 型態觀察；前60日高點 26.55，距離 -16.01% |
-| 20260520 | pattern | pattern | 9105 | 泰金寶-DR |  |  |  | 5.59 |  | 6.33 | -11.69 | 130 | ok |  | output/latest/charts/pattern/9105_泰金寶-DR_pattern_20260520.png | 型態觀察；前60日高點 6.33，距離 -11.69% |
-| 20260520 | pattern | pattern | 2449 | 京元電子 |  |  |  | 277.5 |  | 364.5 | -23.87 | 130 | ok |  | output/latest/charts/pattern/2449_京元電子_pattern_20260520.png | 型態觀察；前60日高點 364.50，距離 -23.87% |
-| 20260520 | pattern | pattern | 3380 | 明泰 |  |  |  | 32.25 |  | 43.95 | -26.62 | 130 | ok |  | output/latest/charts/pattern/3380_明泰_pattern_20260520.png | 型態觀察；前60日高點 43.95，距離 -26.62% |
-| 20260520 | pattern | pattern | 6505 | 台塑化 |  |  |  | 51.2 |  | 68.2 | -24.93 | 130 | ok |  | output/latest/charts/pattern/6505_台塑化_pattern_20260520.png | 型態觀察；前60日高點 68.20，距離 -24.93% |
+| date | category | category_cn | breakout_type | stock_id | stock_name | industry | score | rank | latest_revenue_yoy | cumulative_revenue_yoy | return_5d | close | volume_ratio | previous_60d_high | distance_to_previous_60d_high_pct | available_days | price_data_warning | tdcc_judgement | chart_path | note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260520 | pullback_rebound | 回檔後短線轉強 | pullback_rebound | 3443 | 創意 | 半導體業 | 84 |  | 156.85 | 81.04 |  | 4605.0 | 1.4 | 5950.0 | -22.61 | 130.0 |  |  |  |  |
+| 20260520 | pullback_rebound | 回檔後短線轉強 | pullback_rebound | 7750 | 新代 | 電機機械 | 70 |  | 94.87 | 63.77 |  | 2495.0 | 2.74 | 3070.0 | -18.73 | 130.0 |  |  |  |  |
+| 20260520 | pullback_rebound | 回檔後短線轉強 | pullback_rebound | 2347 | 聯強 | 電子通路業 | 70 |  | 83.28 | 49.73 |  | 83.7 | 1.37 | 87.5 | -4.34 | 130.0 |  |  |  |  |
+| 20260520 | pullback_rebound | 回檔後短線轉強 | pullback_rebound | 2891 | 中信金 | 金融保險業 | 63 |  | 1120.57 | 81.7 |  | 57.8 | 2.08 | 57.0 | 1.4 | 130.0 |  |  |  |  |
+| 20260520 | pullback_rebound | 回檔後短線轉強 | pullback_rebound | 6126 | 信音 | 電子零組件業 | 62 |  | 48.32 | 47.78 |  | 34.05 | 2.23 | 40.5 | -15.93 | 130.0 |  |  |  |  |
+| 20260520 | pullback_rebound | 回檔後短線轉強 | pullback_rebound | 2515 | 中工 | 建材營造 | 62 |  | 52.63 | 39.29 |  | 12.6 | 1.48 | 18.65 | -32.44 | 130.0 |  |  |  |  |
+| 20260520 | pullback_rebound | 回檔後短線轉強 | pullback_rebound | 8054 | 安國 | 半導體業 | 62 |  | 47.7 | 259.75 |  | 106.5 | 1.28 | 132.0 | -19.32 | 130.0 |  |  |  |  |
+| 20260520 | pullback_rebound | 回檔後短線轉強 | pullback_rebound | 2388 | 威盛 | 半導體業 | 56 |  | 84.79 | 22.36 |  | 81.7 | 1.23 | 85.4 | -4.33 | 130.0 |  |  |  |  |
+
+### 型態觀察 `pattern`
+
+| date | category | category_cn | breakout_type | stock_id | stock_name | industry | score | rank | latest_revenue_yoy | cumulative_revenue_yoy | return_5d | close | volume_ratio | previous_60d_high | distance_to_previous_60d_high_pct | available_days | price_data_warning | tdcc_judgement | chart_path | note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260520 | pattern | 型態觀察 | pattern | 4566 | 時碩工業 |  |  |  |  |  |  | 60.5 |  | 76.9 | -21.33 | 130 | ok |  | output/latest/charts/pattern/4566_時碩工業_pattern_20260520.png | 型態觀察；前60日高點 76.90，距離 -21.33% |
+| 20260520 | pattern | 型態觀察 | pattern | 1304 | 台聚 |  |  |  |  |  |  | 12.15 |  | 19.55 | -37.85 | 130 | ok |  | output/latest/charts/pattern/1304_台聚_pattern_20260520.png | 型態觀察；前60日高點 19.55，距離 -37.85% |
+| 20260520 | pattern | 型態觀察 | pattern | 2337 | 旺宏 |  |  |  |  |  |  | 141.0 |  | 178.5 | -21.01 | 130 | ok |  | output/latest/charts/pattern/2337_旺宏_pattern_20260520.png | 型態觀察；前60日高點 178.50，距離 -21.01% |
+| 20260520 | pattern | 型態觀察 | pattern | 1305 | 華夏 |  |  |  |  |  |  | 12.45 |  | 20.1 | -38.06 | 130 | ok |  | output/latest/charts/pattern/1305_華夏_pattern_20260520.png | 型態觀察；前60日高點 20.10，距離 -38.06% |
+| 20260520 | pattern | 型態觀察 | pattern | 6781 | AES-KY |  |  |  |  |  |  | 1090.0 |  | 1370.0 | -20.44 | 130 | ok |  | output/latest/charts/pattern/6781_AES-KY_pattern_20260520.png | 型態觀察；前60日高點 1370.00，距離 -20.44% |
+| 20260520 | pattern | 型態觀察 | pattern | 4927 | 泰鼎-KY |  |  |  |  |  |  | 47.7 |  | 61.4 | -22.31 | 130 | ok |  | output/latest/charts/pattern/4927_泰鼎-KY_pattern_20260520.png | 型態觀察；前60日高點 61.40，距離 -22.31% |
+| 20260520 | pattern | 型態觀察 | pattern | 1904 | 正隆 |  |  |  |  |  |  | 18.4 |  | 21.15 | -13.0 | 130 | ok |  | output/latest/charts/pattern/1904_正隆_pattern_20260520.png | 型態觀察；前60日高點 21.15，距離 -13.00% |
+| 20260520 | pattern | 型態觀察 | pattern | 1447 | 力鵬 |  |  |  |  |  |  | 5.89 |  | 5.87 | 0.34 | 130 | ok |  | output/latest/charts/pattern/1447_力鵬_pattern_20260520.png | 型態觀察；前60日高點 5.87，距離 0.34% |
+| 20260520 | pattern | 型態觀察 | pattern | 1815 | 富喬 |  |  |  |  |  |  | 99.5 |  | 129.5 | -23.17 | 130 | ok |  | output/latest/charts/pattern/1815_富喬_pattern_20260520.png | 型態觀察；前60日高點 129.50，距離 -23.17% |
+| 20260520 | pattern | 型態觀察 | pattern | 6282 | 康舒 |  |  |  |  |  |  | 50.8 |  | 56.5 | -10.09 | 130 | ok |  | output/latest/charts/pattern/6282_康舒_pattern_20260520.png | 型態觀察；前60日高點 56.50，距離 -10.09% |
+| 20260520 | pattern | 型態觀察 | pattern | 8131 | 福懋科 |  |  |  |  |  |  | 60.9 |  | 75.0 | -18.8 | 130 | ok |  | output/latest/charts/pattern/8131_福懋科_pattern_20260520.png | 型態觀察；前60日高點 75.00，距離 -18.80% |
+| 20260520 | pattern | 型態觀察 | pattern | 1905 | 華紙 |  |  |  |  |  |  | 11.8 |  | 18.55 | -36.39 | 130 | ok |  | output/latest/charts/pattern/1905_華紙_pattern_20260520.png | 型態觀察；前60日高點 18.55，距離 -36.39% |
+| 20260520 | pattern | 型態觀察 | pattern | 6962 | 奕力-KY |  |  |  |  |  |  | 38.1 |  | 40.95 | -6.96 | 130 | ok |  | output/latest/charts/pattern/6962_奕力-KY_pattern_20260520.png | 型態觀察；前60日高點 40.95，距離 -6.96% |
+| 20260520 | pattern | 型態觀察 | pattern | 2354 | 鴻準 |  |  |  |  |  |  | 57.5 |  | 65.3 | -11.94 | 130 | ok |  | output/latest/charts/pattern/2354_鴻準_pattern_20260520.png | 型態觀察；前60日高點 65.30，距離 -11.94% |
+| 20260520 | pattern | 型態觀察 | pattern | 2392 | 正崴 |  |  |  |  |  |  | 35.6 |  | 41.15 | -13.49 | 128 | ok |  | output/latest/charts/pattern/2392_正崴_pattern_20260520.png | 型態觀察；前60日高點 41.15，距離 -13.49% |
+| 20260520 | pattern | 型態觀察 | pattern | 3689 | 湧德 |  |  |  |  |  |  | 118.5 |  | 146.0 | -18.84 | 130 | ok |  | output/latest/charts/pattern/3689_湧德_pattern_20260520.png | 型態觀察；前60日高點 146.00，距離 -18.84% |
+| 20260520 | pattern | 型態觀察 | pattern | 1313 | 聯成 |  |  |  |  |  |  | 10.5 |  | 14.85 | -29.29 | 130 | ok |  | output/latest/charts/pattern/1313_聯成_pattern_20260520.png | 型態觀察；前60日高點 14.85，距離 -29.29% |
+| 20260520 | pattern | 型態觀察 | pattern | 2419 | 仲琦 |  |  |  |  |  |  | 29.9 |  | 39.85 | -24.97 | 130 | ok |  | output/latest/charts/pattern/2419_仲琦_pattern_20260520.png | 型態觀察；前60日高點 39.85，距離 -24.97% |
+| 20260520 | pattern | 型態觀察 | pattern | 8111 | 立碁 |  |  |  |  |  |  | 61.0 |  | 84.1 | -27.47 | 130 | ok |  | output/latest/charts/pattern/8111_立碁_pattern_20260520.png | 型態觀察；前60日高點 84.10，距離 -27.47% |
+| 20260520 | pattern | 型態觀察 | pattern | 2413 | 環科 |  |  |  |  |  |  | 49.3 |  | 61.0 | -19.18 | 130 | ok |  | output/latest/charts/pattern/2413_環科_pattern_20260520.png | 型態觀察；前60日高點 61.00，距離 -19.18% |
+| 20260520 | pattern | 型態觀察 | pattern | 6412 | 群電 |  |  |  |  |  |  | 94.5 |  | 98.1 | -3.67 | 130 | ok |  | output/latest/charts/pattern/6412_群電_pattern_20260520.png | 型態觀察；前60日高點 98.10，距離 -3.67% |
+| 20260520 | pattern | 型態觀察 | pattern | 2605 | 新興 |  |  |  |  |  |  | 30.1 |  | 46.25 | -34.92 | 130 | ok |  | output/latest/charts/pattern/2605_新興_pattern_20260520.png | 型態觀察；前60日高點 46.25，距離 -34.92% |
+| 20260520 | pattern | 型態觀察 | pattern | 6451 | 訊芯-KY |  |  |  |  |  |  | 485.5 |  | 583.0 | -16.72 | 130 | ok |  | output/latest/charts/pattern/6451_訊芯-KY_pattern_20260520.png | 型態觀察；前60日高點 583.00，距離 -16.72% |
+| 20260520 | pattern | 型態觀察 | pattern | 6548 | 長科* |  |  |  |  |  |  | 48.6 |  | 63.0 | -22.86 | 130 | ok |  | output/latest/charts/pattern/6548_長科__pattern_20260520.png | 型態觀察；前60日高點 63.00，距離 -22.86% |
+| 20260520 | pattern | 型態觀察 | pattern | 5498 | 凱崴 |  |  |  |  |  |  | 61.3 |  | 87.2 | -29.7 | 130 | ok |  | output/latest/charts/pattern/5498_凱崴_pattern_20260520.png | 型態觀察；前60日高點 87.20，距離 -29.70% |
+| 20260520 | pattern | 型態觀察 | pattern | 2501 | 國建 |  |  |  |  |  |  | 22.3 |  | 26.55 | -16.01 | 130 | ok |  | output/latest/charts/pattern/2501_國建_pattern_20260520.png | 型態觀察；前60日高點 26.55，距離 -16.01% |
+| 20260520 | pattern | 型態觀察 | pattern | 9105 | 泰金寶-DR |  |  |  |  |  |  | 5.59 |  | 6.33 | -11.69 | 130 | ok |  | output/latest/charts/pattern/9105_泰金寶-DR_pattern_20260520.png | 型態觀察；前60日高點 6.33，距離 -11.69% |
+| 20260520 | pattern | 型態觀察 | pattern | 2449 | 京元電子 |  |  |  |  |  |  | 277.5 |  | 364.5 | -23.87 | 130 | ok |  | output/latest/charts/pattern/2449_京元電子_pattern_20260520.png | 型態觀察；前60日高點 364.50，距離 -23.87% |
+| 20260520 | pattern | 型態觀察 | pattern | 3380 | 明泰 |  |  |  |  |  |  | 32.25 |  | 43.95 | -26.62 | 130 | ok |  | output/latest/charts/pattern/3380_明泰_pattern_20260520.png | 型態觀察；前60日高點 43.95，距離 -26.62% |
+| 20260520 | pattern | 型態觀察 | pattern | 6505 | 台塑化 |  |  |  |  |  |  | 51.2 |  | 68.2 | -24.93 | 130 | ok |  | output/latest/charts/pattern/6505_台塑化_pattern_20260520.png | 型態觀察；前60日高點 68.20，距離 -24.93% |
