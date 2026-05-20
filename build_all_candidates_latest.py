@@ -12,39 +12,66 @@ LATEST_DIR = Path("output/latest")
 
 BREAKOUT_CSV = LATEST_DIR / "breakout_latest.csv"
 RANGE_REBOUND_CSV = LATEST_DIR / "range_rebound_watch_latest.csv"
+REVENUE_BREAKOUT_LOW_RESPONSE_CSV = LATEST_DIR / "revenue_breakout_low_response_latest.csv"
 REVENUE_PULLBACK_CSV = LATEST_DIR / "revenue_pullback_latest.csv"
 PULLBACK_REBOUND_CSV = LATEST_DIR / "pullback_rebound_latest.csv"
 CHART_MANIFEST_CSV = LATEST_DIR / "chart_manifest.csv"
+
 STOCK_MONITOR_MD = LATEST_DIR / "stock_monitor_latest.md"
 
 OUTPUT_CSV = LATEST_DIR / "all_candidates_latest.csv"
 OUTPUT_XLSX = LATEST_DIR / "all_candidates_latest.xlsx"
 OUTPUT_MD = LATEST_DIR / "all_candidates_latest.md"
 
+
 CATEGORY_ORDER = {
     "true_breakout": 1,
     "range_rebound": 2,
-    "revenue_pullback": 3,
-    "pullback_rebound": 4,
-    "pattern": 5,
+    "revenue_breakout_low_response": 3,
+    "revenue_pullback": 4,
+    "pullback_rebound": 5,
+    "pattern": 6,
 }
+
+
+CATEGORY_CN_MAP = {
+    "true_breakout": "嚴格突破",
+    "range_rebound": "區間內轉強 / 挑戰前高觀察",
+    "revenue_breakout_low_response": "營收爆發低反應",
+    "revenue_pullback": "營收成長股價回檔",
+    "pullback_rebound": "回檔後短線轉強",
+    "pattern": "型態觀察",
+}
+
 
 OUTPUT_COLUMNS = [
     "date",
     "category",
+    "category_cn",
     "breakout_type",
     "stock_id",
     "stock_name",
     "industry",
+    "細分族群",
     "score",
     "rank",
+    "latest_revenue_yoy",
+    "cumulative_revenue_yoy",
+    "revenue_acceleration_note",
+    "revenue_warning",
+    "revenue_release_date",
+    "return_after_revenue_1d",
+    "return_after_revenue_3d",
+    "return_5d",
     "close",
     "volume",
     "volume_ratio",
     "ma20",
     "ma60",
+    "ema23",
     "distance_to_ma20_pct",
     "distance_to_ma60_pct",
+    "distance_to_ema23_pct",
     "previous_high",
     "previous_40d_high",
     "previous_60d_high",
@@ -72,30 +99,38 @@ def now_taipei() -> str:
 def normalize_code(value) -> str:
     if pd.isna(value):
         return ""
+
     text = str(value).strip()
+
     if text.endswith(".0"):
         text = text[:-2]
+
     text = re.sub(r"[^0-9]", "", text)
+
     return text.zfill(4) if text else ""
 
 
 def normalize_text(value) -> str:
     if pd.isna(value):
         return ""
+
     return str(value).strip()
 
 
 def to_number(value):
     if pd.isna(value):
         return pd.NA
+
     text = str(value).strip()
     text = text.replace(",", "")
     text = text.replace("%", "")
     text = text.replace("--", "")
     text = text.replace("+", "")
     text = text.replace(" ", "")
+
     if text == "":
         return pd.NA
+
     return pd.to_numeric(text, errors="coerce")
 
 
@@ -115,6 +150,7 @@ def pick_column(df: pd.DataFrame, candidates: list[str], default=""):
     for col in candidates:
         if col in df.columns:
             return df[col]
+
     return default
 
 
@@ -126,27 +162,40 @@ def standardize_candidates(df: pd.DataFrame, category: str, default_breakout_typ
     result["_source_order"] = range(len(df))
 
     result["date"] = pick_column(df, ["date", "資料日期"], "")
+
     result["category"] = category
+    result["category_cn"] = pick_column(df, ["category_cn"], CATEGORY_CN_MAP.get(category, category))
     result["breakout_type"] = pick_column(df, ["breakout_type"], default_breakout_type)
 
     result["stock_id"] = pick_column(df, ["stock_id", "ticker", "code", "股票代號"], "").map(normalize_code)
     result["stock_name"] = pick_column(df, ["stock_name", "name", "company_name", "股票名稱"], "").map(normalize_text)
 
     result["industry"] = pick_column(df, ["industry", "產業別"], "")
+    result["細分族群"] = pick_column(df, ["細分族群", "sub_industry", "theme"], "")
 
     result["score"] = pick_column(df, ["score", "分數"], pd.NA)
     result["rank"] = pick_column(df, ["rank", "排行"], pd.NA)
 
+    result["latest_revenue_yoy"] = pick_column(df, ["latest_revenue_yoy", "revenue_yoy_pct"], pd.NA)
+    result["cumulative_revenue_yoy"] = pick_column(df, ["cumulative_revenue_yoy", "cumulative_yoy_pct"], pd.NA)
+    result["revenue_acceleration_note"] = pick_column(df, ["revenue_acceleration_note"], "")
+    result["revenue_warning"] = pick_column(df, ["revenue_warning"], "")
+    result["revenue_release_date"] = pick_column(df, ["revenue_release_date", "revenue_period"], "")
+    result["return_after_revenue_1d"] = pick_column(df, ["return_after_revenue_1d"], pd.NA)
+    result["return_after_revenue_3d"] = pick_column(df, ["return_after_revenue_3d"], pd.NA)
+    result["return_5d"] = pick_column(df, ["return_5d", "return_5d_pct"], pd.NA)
+
     result["close"] = pick_column(df, ["close", "收盤價"], pd.NA)
     result["volume"] = pick_column(df, ["volume", "volume_lots", "成交量"], pd.NA)
-
     result["volume_ratio"] = pick_column(df, ["volume_ratio", "volume_ratio_20", "量比"], pd.NA)
 
     result["ma20"] = pick_column(df, ["ma20", "20MA"], pd.NA)
     result["ma60"] = pick_column(df, ["ma60", "60MA"], pd.NA)
+    result["ema23"] = pick_column(df, ["ema23"], pd.NA)
 
     result["distance_to_ma20_pct"] = pick_column(df, ["distance_to_ma20_pct", "gap_ma20_pct"], pd.NA)
     result["distance_to_ma60_pct"] = pick_column(df, ["distance_to_ma60_pct", "gap_ma60_pct"], pd.NA)
+    result["distance_to_ema23_pct"] = pick_column(df, ["distance_to_ema23_pct", "gap_ema23_pct"], pd.NA)
 
     result["previous_high"] = pick_column(df, ["previous_high", "high_40", "previous_60d_high"], pd.NA)
     result["previous_40d_high"] = pick_column(df, ["previous_40d_high", "high_40"], pd.NA)
@@ -172,6 +221,7 @@ def standardize_candidates(df: pd.DataFrame, category: str, default_breakout_typ
 
     result["chart_path"] = pick_column(df, ["chart_path"], "")
     result["chart_url"] = pick_column(df, ["chart_url"], "")
+
     result["note"] = pick_column(df, ["note", "備註"], "")
 
     result = result[result["stock_id"].astype(str).str.match(r"^[0-9]{4}$", na=False)].copy()
@@ -179,13 +229,20 @@ def standardize_candidates(df: pd.DataFrame, category: str, default_breakout_typ
     for col in [
         "score",
         "rank",
+        "latest_revenue_yoy",
+        "cumulative_revenue_yoy",
+        "return_after_revenue_1d",
+        "return_after_revenue_3d",
+        "return_5d",
         "close",
         "volume",
         "volume_ratio",
         "ma20",
         "ma60",
+        "ema23",
         "distance_to_ma20_pct",
         "distance_to_ma60_pct",
+        "distance_to_ema23_pct",
         "previous_high",
         "previous_40d_high",
         "previous_60d_high",
@@ -306,23 +363,40 @@ def load_pattern_from_chart_manifest(chart_manifest: pd.DataFrame) -> pd.DataFra
     if pattern.empty:
         return pd.DataFrame()
 
+    pattern["category_cn"] = CATEGORY_CN_MAP["pattern"]
     pattern["score"] = pd.NA
     pattern["rank"] = pd.NA
     pattern["industry"] = ""
+    pattern["細分族群"] = ""
+
+    pattern["latest_revenue_yoy"] = pd.NA
+    pattern["cumulative_revenue_yoy"] = pd.NA
+    pattern["revenue_acceleration_note"] = ""
+    pattern["revenue_warning"] = ""
+    pattern["revenue_release_date"] = ""
+    pattern["return_after_revenue_1d"] = pd.NA
+    pattern["return_after_revenue_3d"] = pd.NA
+    pattern["return_5d"] = pd.NA
+
     pattern["volume"] = pd.NA
     pattern["volume_ratio"] = pd.NA
     pattern["ma20"] = pd.NA
     pattern["ma60"] = pd.NA
+    pattern["ema23"] = pd.NA
     pattern["distance_to_ma20_pct"] = pd.NA
     pattern["distance_to_ma60_pct"] = pd.NA
+    pattern["distance_to_ema23_pct"] = pd.NA
+
     pattern["previous_high"] = pattern.get("previous_60d_high", pd.NA)
     pattern["distance_to_previous_high_pct"] = pattern.get("distance_to_previous_60d_high_pct", pd.NA)
+
     pattern["tdcc_date"] = ""
     pattern["holder_400_pct"] = pd.NA
     pattern["holder_400_change"] = pd.NA
     pattern["holder_1000_pct"] = pd.NA
     pattern["holder_1000_change"] = pd.NA
     pattern["tdcc_judgement"] = ""
+
     pattern["_source_order"] = range(len(pattern))
 
     for col in OUTPUT_COLUMNS:
@@ -334,7 +408,6 @@ def load_pattern_from_chart_manifest(chart_manifest: pd.DataFrame) -> pd.DataFra
 
 def build_all_candidates_latest() -> pd.DataFrame:
     chart_manifest = load_chart_manifest()
-
     frames = []
 
     breakout_df = standardize_candidates(
@@ -342,6 +415,7 @@ def build_all_candidates_latest() -> pd.DataFrame:
         category="true_breakout",
         default_breakout_type="true_breakout",
     )
+
     if not breakout_df.empty:
         breakout_df = breakout_df[breakout_df["breakout_type"].fillna("") == "true_breakout"].copy()
         frames.append(breakout_df)
@@ -351,17 +425,28 @@ def build_all_candidates_latest() -> pd.DataFrame:
         category="range_rebound",
         default_breakout_type="range_rebound",
     )
+
     if not range_df.empty:
         range_df = range_df[
             range_df["breakout_type"].isin(["range_rebound", "near_resistance", "abnormal_volume_up"])
         ].copy()
         frames.append(range_df)
 
+    revenue_low_response_df = standardize_candidates(
+        read_csv_safe(REVENUE_BREAKOUT_LOW_RESPONSE_CSV),
+        category="revenue_breakout_low_response",
+        default_breakout_type="revenue_breakout_low_response",
+    )
+
+    if not revenue_low_response_df.empty:
+        frames.append(revenue_low_response_df)
+
     revenue_df = standardize_candidates(
         read_csv_safe(REVENUE_PULLBACK_CSV),
         category="revenue_pullback",
         default_breakout_type="revenue_pullback",
     )
+
     if not revenue_df.empty:
         frames.append(revenue_df)
 
@@ -370,10 +455,12 @@ def build_all_candidates_latest() -> pd.DataFrame:
         category="pullback_rebound",
         default_breakout_type="pullback_rebound",
     )
+
     if not rebound_df.empty:
         frames.append(rebound_df)
 
     pattern_df = load_pattern_from_chart_manifest(chart_manifest)
+
     if not pattern_df.empty:
         frames.append(pattern_df)
 
@@ -389,10 +476,15 @@ def build_all_candidates_latest() -> pd.DataFrame:
         if col not in all_candidates.columns:
             all_candidates[col] = pd.NA
 
-    all_candidates["_category_order"] = all_candidates["category"].map(CATEGORY_ORDER).fillna(99)
+    all_candidates["category_cn"] = all_candidates["category_cn"].fillna("")
+    all_candidates.loc[all_candidates["category_cn"] == "", "category_cn"] = all_candidates["category"].map(CATEGORY_CN_MAP)
 
+    all_candidates["_category_order"] = all_candidates["category"].map(CATEGORY_ORDER).fillna(99)
     all_candidates["score_sort"] = pd.to_numeric(all_candidates["score"], errors="coerce")
     all_candidates["rank_sort"] = pd.to_numeric(all_candidates["rank"], errors="coerce")
+
+    if "_source_order" not in all_candidates.columns:
+        all_candidates["_source_order"] = range(len(all_candidates))
 
     all_candidates = all_candidates.sort_values(
         ["_category_order", "score_sort", "rank_sort", "_source_order"],
@@ -407,6 +499,7 @@ def build_all_candidates_latest() -> pd.DataFrame:
 
 def write_markdown_report(df: pd.DataFrame) -> None:
     lines = []
+
     lines.append("# 完整候選股清單")
     lines.append("")
     lines.append(f"- 產生時間：`{now_taipei()} Asia/Taipei`")
@@ -414,18 +507,20 @@ def write_markdown_report(df: pd.DataFrame) -> None:
     lines.append(f"- Excel：`{OUTPUT_XLSX}`")
     lines.append(f"- Markdown：`{OUTPUT_MD}`")
     lines.append("")
+
     lines.append("## 統計摘要")
     lines.append("")
 
     if df.empty:
         lines.append("目前沒有完整候選股資料。")
     else:
-        summary = df.groupby("category").size().reset_index(name="count")
-        lines.append("| category | count |")
-        lines.append("|---|---:|")
+        summary = df.groupby(["category", "category_cn"]).size().reset_index(name="count")
 
-        for _, row in summary.iterrows():
-            lines.append(f"| {row['category']} | {row['count']} |")
+        lines.append("| category | category_cn | count |")
+        lines.append("|---|---|---:|")
+
+        for _, row in summary.sort_values("category", key=lambda s: s.map(CATEGORY_ORDER).fillna(99)).iterrows():
+            lines.append(f"| {row['category']} | {row['category_cn']} | {row['count']} |")
 
         lines.append("")
         lines.append("## 各分類完整名單")
@@ -434,12 +529,16 @@ def write_markdown_report(df: pd.DataFrame) -> None:
         display_cols = [
             "date",
             "category",
+            "category_cn",
             "breakout_type",
             "stock_id",
             "stock_name",
             "industry",
             "score",
             "rank",
+            "latest_revenue_yoy",
+            "cumulative_revenue_yoy",
+            "return_5d",
             "close",
             "volume_ratio",
             "previous_60d_high",
@@ -453,19 +552,24 @@ def write_markdown_report(df: pd.DataFrame) -> None:
 
         for category in sorted(df["category"].dropna().unique(), key=lambda x: CATEGORY_ORDER.get(x, 99)):
             part = df[df["category"] == category].copy()
+            category_cn = CATEGORY_CN_MAP.get(category, category)
 
-            lines.append(f"### {category}")
+            lines.append(f"### {category_cn} `{category}`")
             lines.append("")
             lines.append("| " + " | ".join(display_cols) + " |")
             lines.append("| " + " | ".join(["---"] * len(display_cols)) + " |")
 
             for _, row in part.iterrows():
                 values = []
+
                 for col in display_cols:
                     value = row.get(col, "")
+
                     if pd.isna(value):
                         value = ""
+
                     values.append(str(value))
+
                 lines.append("| " + " | ".join(values) + " |")
 
             lines.append("")
@@ -479,7 +583,7 @@ def write_excel(df: pd.DataFrame) -> None:
             df.to_excel(writer, sheet_name="all_candidates", index=False)
 
             if not df.empty:
-                summary = df.groupby("category").size().reset_index(name="count")
+                summary = df.groupby(["category", "category_cn"]).size().reset_index(name="count")
                 summary.to_excel(writer, sheet_name="summary", index=False)
 
                 for category in sorted(df["category"].dropna().unique(), key=lambda x: CATEGORY_ORDER.get(x, 99)):
@@ -521,17 +625,19 @@ def update_stock_monitor_note(df: pd.DataFrame) -> None:
     lines.append("")
 
     if category_counts:
-        lines.append("| category | count |")
-        lines.append("|---|---:|")
+        lines.append("| category | category_cn | count |")
+        lines.append("|---|---|---:|")
 
         for category in sorted(category_counts.keys(), key=lambda x: CATEGORY_ORDER.get(x, 99)):
-            lines.append(f"| {category} | {category_counts[category]} |")
+            category_cn = CATEGORY_CN_MAP.get(category, category)
+            lines.append(f"| {category} | {category_cn} | {category_counts[category]} |")
 
-        lines.append("")
-
+    lines.append("")
     lines.append("說明：")
     lines.append("- `true_breakout` 只代表真正嚴格突破股。")
     lines.append("- `range_rebound` 代表區間內轉強 / 挑戰前高觀察，不可混入嚴格突破股。")
+    lines.append("- `revenue_breakout_low_response` 代表營收明顯轉強但股價尚未完全反映的早期觀察股。")
+    lines.append("- `revenue_pullback` 代表營收成長但股價回檔，與營收爆發低反應股分開。")
     lines.append("- `price_data_warning != ok` 的圖表或資料需標註資料品質警示。")
     lines.append("")
 
