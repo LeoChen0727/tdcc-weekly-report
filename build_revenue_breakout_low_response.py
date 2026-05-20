@@ -29,30 +29,41 @@ def now_taipei() -> str:
 def normalize_code(value) -> str:
     if pd.isna(value):
         return ""
+
     text = str(value).strip()
+
     if text.endswith(".0"):
         text = text[:-2]
+
     text = re.sub(r"[^0-9]", "", text)
-    return text.zfill(4) if text else ""
+
+    if not text:
+        return ""
+
+    return text.zfill(4)
 
 
 def normalize_text(value) -> str:
     if pd.isna(value):
         return ""
+
     return str(value).strip()
 
 
 def to_number(value):
     if pd.isna(value):
         return pd.NA
+
     text = str(value).strip()
     text = text.replace(",", "")
     text = text.replace("%", "")
     text = text.replace("+", "")
     text = text.replace("--", "")
     text = text.replace(" ", "")
+
     if text == "":
         return pd.NA
+
     return pd.to_numeric(text, errors="coerce")
 
 
@@ -60,6 +71,7 @@ def safe_float(value, default=math.nan) -> float:
     try:
         if pd.isna(value):
             return default
+
         return float(value)
     except Exception:
         return default
@@ -69,6 +81,7 @@ def pick_first_existing_column(df: pd.DataFrame, candidates: list[str]) -> str |
     for col in candidates:
         if col in df.columns:
             return col
+
     return None
 
 
@@ -77,7 +90,15 @@ def load_daily_price_history() -> pd.DataFrame:
 
     for path in sorted(DATA_PRICE_DIR.glob("*.csv")):
         try:
-            df = pd.read_csv(path, dtype={"ticker": str, "code": str, "stock_id": str, "date": str})
+            df = pd.read_csv(
+                path,
+                dtype={
+                    "ticker": str,
+                    "code": str,
+                    "stock_id": str,
+                    "date": str,
+                },
+            )
         except Exception as exc:
             print(f"Skip price file {path}: {exc}")
             continue
@@ -96,6 +117,7 @@ def load_daily_price_history() -> pd.DataFrame:
 
         if "date" not in df.columns:
             match = re.search(r"([0-9]{8})", path.name)
+
             if match:
                 df["date"] = match.group(1)
 
@@ -322,6 +344,7 @@ def get_tdcc_value(row: pd.Series, candidates: list[str], default=pd.NA):
     for col in candidates:
         if col in row.index:
             return row[col]
+
     return default
 
 
@@ -407,7 +430,6 @@ def calc_stock_price_metrics(price_df: pd.DataFrame, stock_id: str) -> dict | No
         intraday_range_pct = (high_today - low_today) / low_today * 100 if low_today > 0 else 0
         high_volume_upper_shadow = upper_shadow_pct >= 3 and intraday_range_pct >= 5 and volume_ratio >= 1.5
     else:
-        upper_shadow_pct = pd.NA
         high_volume_upper_shadow = False
 
     price_data_warning = "ok"
@@ -580,12 +602,14 @@ def write_debug_report(debug: dict, sample_rows: list[dict]) -> None:
     selected = debug.get("selected_revenue_columns", {})
     lines.append("| field | selected column |")
     lines.append("|---|---|")
+
     for key, value in selected.items():
         lines.append(f"| {key} | `{value}` |")
 
     lines.append("")
     lines.append("### raw_revenue_columns")
     lines.append("")
+
     for col in debug.get("raw_revenue_columns", []):
         lines.append(f"- `{col}`")
 
@@ -595,12 +619,14 @@ def write_debug_report(debug: dict, sample_rows: list[dict]) -> None:
     reason_counts = debug.get("reason_counts", {})
     lines.append("| reason | count |")
     lines.append("|---|---:|")
+
     for reason, count in sorted(reason_counts.items(), key=lambda x: x[1], reverse=True):
         lines.append(f"| {reason} | {count} |")
 
     lines.append("")
     lines.append("## 樣本資料")
     lines.append("")
+
     if not sample_rows:
         lines.append("沒有樣本資料。")
     else:
@@ -614,15 +640,21 @@ def write_debug_report(debug: dict, sample_rows: list[dict]) -> None:
             "score",
             "reason",
         ]
+
         lines.append("| " + " | ".join(cols) + " |")
         lines.append("| " + " | ".join(["---"] * len(cols)) + " |")
+
         for row in sample_rows[:50]:
             values = []
+
             for col in cols:
                 value = row.get(col, "")
+
                 if pd.isna(value):
                     value = ""
+
                 values.append(str(value))
+
             lines.append("| " + " | ".join(values) + " |")
 
     DEBUG_MD.write_text("\n".join(lines), encoding="utf-8")
@@ -897,6 +929,7 @@ def write_markdown(df: pd.DataFrame) -> None:
         lines.append("")
         lines.append("## 完整名單")
         lines.append("")
+
         cols = [
             "rank",
             "stock_id",
@@ -919,11 +952,15 @@ def write_markdown(df: pd.DataFrame) -> None:
 
         for _, row in df.iterrows():
             values = []
+
             for col in cols:
                 value = row.get(col, "")
+
                 if pd.isna(value):
                     value = ""
+
                 values.append(str(value))
+
             lines.append("| " + " | ".join(values) + " |")
 
     OUTPUT_MD.write_text("\n".join(lines), encoding="utf-8")
