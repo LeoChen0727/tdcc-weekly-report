@@ -379,7 +379,9 @@ def calc_stock_price_metrics(price_df: pd.DataFrame, stock_id: str) -> dict | No
     ma20 = safe_float(latest["ma20"])
     ma60 = safe_float(latest["ma60"])
     ema23 = safe_float(latest["ema23"])
+    volume = safe_float(latest["volume"], 0)
     volume_ratio = safe_float(latest["volume_ratio"], 0)
+    volume_lots = volume / 1000
 
     if math.isnan(close) or math.isnan(ma20) or math.isnan(ma60) or math.isnan(ema23):
         return None
@@ -418,9 +420,9 @@ def calc_stock_price_metrics(price_df: pd.DataFrame, stock_id: str) -> dict | No
     platform_width_pct = (platform_high / platform_low - 1) * 100 if platform_low > 0 else pd.NA
 
     in_platform = platform_width_pct <= 25 and close <= platform_high * 1.03 and close >= platform_low * 0.97
-    near_ma = -5 <= distance_to_ma20_pct <= 15 or -5 <= distance_to_ema23_pct <= 15
+    near_ma = -8 <= distance_to_ma20_pct <= 10 or -8 <= distance_to_ema23_pct <= 10
     close_above_ma = close > ma20 or close > ema23
-    near_high_not_overheated = distance_to_high_60_pct >= -10 and distance_to_high_60_pct <= 5
+    near_high_not_overheated = distance_to_high_60_pct >= -10 and distance_to_high_60_pct <= 3
 
     high_today = safe_float(latest["high"])
     low_today = safe_float(latest["low"])
@@ -441,7 +443,8 @@ def calc_stock_price_metrics(price_df: pd.DataFrame, stock_id: str) -> dict | No
         "date": latest["date"],
         "available_days": len(stock_price),
         "close": round(close, 2),
-        "volume": safe_float(latest["volume"], 0),
+        "volume": volume,
+        "volume_lots": round(volume_lots, 0),
         "volume_ratio": round(volume_ratio, 2),
         "ma20": round(ma20, 2),
         "ma60": round(ma60, 2),
@@ -477,52 +480,70 @@ def calc_revenue_score(row: pd.Series, price_metrics: dict, tdcc_row: pd.Series 
     latest_yoy = safe_float(row.get("latest_revenue_yoy"))
     cumulative_yoy = safe_float(row.get("cumulative_revenue_yoy"))
 
-    if latest_yoy >= 100:
+    if latest_yoy >= 150:
+        score += 4
+        notes.append("單月營收YoY>=150%")
+    elif latest_yoy >= 100:
         score += 3
         notes.append("單月營收YoY>=100%")
-    elif latest_yoy >= 50:
+    elif latest_yoy >= 80:
         score += 2
-        notes.append("單月營收YoY 50%~100%")
-    elif latest_yoy >= 30:
+        notes.append("單月營收YoY 80%~100%")
+    elif latest_yoy >= 50:
         score += 1
-        notes.append("單月營收YoY 30%~50%")
+        notes.append("單月營收YoY 50%~80%")
 
-    if cumulative_yoy >= 30:
+    if cumulative_yoy >= 50:
+        score += 3
+        notes.append("累計營收YoY>=50%")
+    elif cumulative_yoy >= 30:
         score += 2
         notes.append("累計營收YoY>=30%")
-    elif cumulative_yoy >= 10:
+    elif cumulative_yoy >= 20:
         score += 1
-        notes.append("累計營收YoY 10%~30%")
+        notes.append("累計營收YoY 20%~30%")
 
     if not math.isnan(latest_yoy) and not math.isnan(cumulative_yoy):
-        if latest_yoy >= cumulative_yoy + 20:
+        if latest_yoy >= cumulative_yoy + 30:
+            score += 2
+            notes.append("單月YoY大幅高於累計YoY，近期明顯加速")
+        elif latest_yoy >= cumulative_yoy + 20:
             score += 1
-            notes.append("單月YoY明顯高於累計YoY，近期加速")
+            notes.append("單月YoY高於累計YoY，近期加速")
 
     return_3d = safe_float(price_metrics.get("return_after_revenue_3d"))
     return_5d = safe_float(price_metrics.get("return_5d"))
     distance_to_ma20_pct = safe_float(price_metrics.get("distance_to_ma20_pct"))
     distance_to_ema23_pct = safe_float(price_metrics.get("distance_to_ema23_pct"))
+    distance_to_high_60_pct = safe_float(price_metrics.get("distance_to_high_60_pct"))
 
-    if not math.isnan(return_3d) and return_3d < 10:
+    if not math.isnan(return_3d) and return_3d <= 5:
         score += 2
-        notes.append("近3日漲幅低於10%，股價低反應")
-
-    if not math.isnan(return_5d) and return_5d < 15:
+        notes.append("近3日漲幅低於5%，股價低反應")
+    elif not math.isnan(return_3d) and return_3d <= 10:
         score += 1
-        notes.append("近5日漲幅低於15%")
+        notes.append("近3日漲幅低於10%")
 
-    if -5 <= distance_to_ma20_pct <= 10 or -5 <= distance_to_ema23_pct <= 10:
+    if not math.isnan(return_5d) and return_5d <= 8:
+        score += 2
+        notes.append("近5日漲幅低於8%")
+    elif not math.isnan(return_5d) and return_5d <= 12:
+        score += 1
+        notes.append("近5日漲幅低於12%")
+
+    if -5 <= distance_to_ma20_pct <= 8 or -5 <= distance_to_ema23_pct <= 8:
+        score += 2
+        notes.append("股價貼近20MA/23EMA")
+    elif -8 <= distance_to_ma20_pct <= 10 or -8 <= distance_to_ema23_pct <= 10:
         score += 1
         notes.append("股價仍在20MA/23EMA附近")
 
-    if distance_to_ma20_pct > 20 or distance_to_ema23_pct > 20:
-        score -= 2
-        warnings.append("距20MA/23EMA過遠")
-
-    if not math.isnan(return_5d) and return_5d > 25:
-        score -= 3
-        warnings.append("近5日漲幅超過25%，可能已過熱")
+    if not math.isnan(distance_to_high_60_pct) and distance_to_high_60_pct <= 0:
+        score += 2
+        notes.append("尚未突破前60日高點")
+    elif not math.isnan(distance_to_high_60_pct) and distance_to_high_60_pct <= 3:
+        score += 1
+        notes.append("僅小幅越過前60日高點，尚未明顯過熱")
 
     if price_metrics.get("in_platform"):
         score += 2
@@ -535,6 +556,18 @@ def calc_revenue_score(row: pd.Series, price_metrics: dict, tdcc_row: pd.Series 
     if price_metrics.get("near_high_not_overheated"):
         score += 1
         notes.append("接近前高但未大幅過熱")
+
+    if distance_to_ma20_pct > 12 and distance_to_ema23_pct > 12:
+        score -= 3
+        warnings.append("距20MA/23EMA過遠")
+
+    if not math.isnan(return_5d) and return_5d > 12:
+        score -= 3
+        warnings.append("近5日漲幅超過12%，低反應不足")
+
+    if not math.isnan(distance_to_high_60_pct) and distance_to_high_60_pct > 3:
+        score -= 3
+        warnings.append("已大幅突破前60日高點，不屬低反應")
 
     if price_metrics.get("high_volume_upper_shadow"):
         score -= 2
@@ -637,6 +670,8 @@ def write_debug_report(debug: dict, sample_rows: list[dict]) -> None:
             "cumulative_revenue_yoy",
             "return_5d",
             "distance_to_ma20_pct",
+            "distance_to_ema23_pct",
+            "distance_to_high_60_pct",
             "score",
             "reason",
         ]
@@ -644,7 +679,7 @@ def write_debug_report(debug: dict, sample_rows: list[dict]) -> None:
         lines.append("| " + " | ".join(cols) + " |")
         lines.append("| " + " | ".join(["---"] * len(cols)) + " |")
 
-        for row in sample_rows[:50]:
+        for row in sample_rows[:80]:
             values = []
 
             for col in cols:
@@ -721,9 +756,9 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
         cumulative_yoy = safe_float(rev_row.get("cumulative_revenue_yoy"))
 
         revenue_condition = (
-            latest_yoy >= 50
+            latest_yoy >= 80
             or (
-                latest_yoy >= 30
+                latest_yoy >= 50
                 and not math.isnan(cumulative_yoy)
                 and cumulative_yoy >= 20
             )
@@ -755,16 +790,20 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
         return_5d = safe_float(price_metrics.get("return_5d"))
         distance_to_ma20_pct = safe_float(price_metrics.get("distance_to_ma20_pct"))
         distance_to_ema23_pct = safe_float(price_metrics.get("distance_to_ema23_pct"))
+        distance_to_high_60_pct = safe_float(price_metrics.get("distance_to_high_60_pct"))
+        volume_lots = safe_float(price_metrics.get("volume_lots"), 0)
 
         low_response_condition = (
-            (
-                not math.isnan(return_5d)
-                and return_5d < 20
-            )
+            volume_lots >= MIN_VOLUME_LOTS
+            and not math.isnan(return_5d)
+            and return_5d <= 8
+            and distance_to_ma20_pct <= 10
+            and distance_to_ema23_pct <= 10
             and (
-                distance_to_ma20_pct < 20
-                or distance_to_ema23_pct < 20
+                distance_to_ma20_pct >= -8
+                or distance_to_ema23_pct >= -8
             )
+            and distance_to_high_60_pct <= 3
         )
 
         if not low_response_condition:
@@ -777,6 +816,8 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
                     "cumulative_revenue_yoy": cumulative_yoy,
                     "return_5d": return_5d,
                     "distance_to_ma20_pct": distance_to_ma20_pct,
+                    "distance_to_ema23_pct": distance_to_ema23_pct,
+                    "distance_to_high_60_pct": distance_to_high_60_pct,
                     "reason": "fail_low_response_condition",
                 }
             )
@@ -784,12 +825,16 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
 
         debug["low_response_pass"] += 1
 
-        if return_5d > 25:
+        if return_5d > 12:
             add_reason("fail_overheat_return_5d")
             continue
 
-        if distance_to_ma20_pct > 25 and distance_to_ema23_pct > 25:
+        if distance_to_ma20_pct > 12 and distance_to_ema23_pct > 12:
             add_reason("fail_overheat_ma_distance")
+            continue
+
+        if distance_to_high_60_pct > 3:
+            add_reason("fail_already_breakout_too_far")
             continue
 
         debug["overheat_pass"] += 1
@@ -798,8 +843,8 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
 
         score, notes, warnings = calc_revenue_score(rev_row, price_metrics, tdcc_row)
 
-        if score < 4:
-            add_reason("fail_score_lt_4")
+        if score < 8:
+            add_reason("fail_score_lt_8")
             sample_rows.append(
                 {
                     "stock_id": stock_id,
@@ -808,8 +853,10 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
                     "cumulative_revenue_yoy": cumulative_yoy,
                     "return_5d": return_5d,
                     "distance_to_ma20_pct": distance_to_ma20_pct,
+                    "distance_to_ema23_pct": distance_to_ema23_pct,
+                    "distance_to_high_60_pct": distance_to_high_60_pct,
                     "score": score,
-                    "reason": "fail_score_lt_4",
+                    "reason": "fail_score_lt_8",
                 }
             )
             continue
@@ -852,8 +899,10 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
             "distance_to_ma20_pct": price_metrics.get("distance_to_ma20_pct"),
             "distance_to_ma60_pct": price_metrics.get("distance_to_ma60_pct"),
             "distance_to_ema23_pct": price_metrics.get("distance_to_ema23_pct"),
+            "distance_to_high_60_pct": price_metrics.get("distance_to_high_60_pct"),
             "close": price_metrics.get("close"),
             "volume": price_metrics.get("volume"),
+            "volume_lots": price_metrics.get("volume_lots"),
             "volume_ratio": price_metrics.get("volume_ratio"),
             "ma20": price_metrics.get("ma20"),
             "ma60": price_metrics.get("ma60"),
@@ -888,6 +937,8 @@ def build_revenue_breakout_low_response_candidates() -> tuple[pd.DataFrame, dict
                 "cumulative_revenue_yoy": cumulative_yoy,
                 "return_5d": return_5d,
                 "distance_to_ma20_pct": distance_to_ma20_pct,
+                "distance_to_ema23_pct": distance_to_ema23_pct,
+                "distance_to_high_60_pct": distance_to_high_60_pct,
                 "score": score,
                 "reason": "selected",
             }
@@ -923,9 +974,11 @@ def write_markdown(df: pd.DataFrame) -> None:
     else:
         lines.append("## 篩選邏輯")
         lines.append("")
-        lines.append("- 單月營收 YoY >= 50%，或單月 YoY >= 30% 且累計 YoY >= 20%。")
-        lines.append("- 股價尚未明顯過熱，近 5 日漲幅與均線乖離需在可接受範圍。")
-        lines.append("- TDCC 未明顯惡化者加分，大戶同步減少者降級。")
+        lines.append("- 單月營收 YoY >= 80%，或單月 YoY >= 50% 且累計 YoY >= 20%。")
+        lines.append("- 近 5 日漲幅 <= 8%，且距 20MA / 23EMA 不超過 10%。")
+        lines.append("- 距前 60 日高點不可超過 +3%，避免已經明顯突破後才列入。")
+        lines.append("- 成交量需達 1000 張以上，避免太冷門。")
+        lines.append("- 分數需 >= 8。")
         lines.append("")
         lines.append("## 完整名單")
         lines.append("")
@@ -940,7 +993,10 @@ def write_markdown(df: pd.DataFrame) -> None:
             "cumulative_revenue_yoy",
             "return_5d",
             "distance_to_ma20_pct",
+            "distance_to_ema23_pct",
+            "distance_to_high_60_pct",
             "close",
+            "volume_lots",
             "volume_ratio",
             "tdcc_judgement",
             "price_data_warning",
@@ -989,8 +1045,10 @@ def empty_output_df() -> pd.DataFrame:
             "distance_to_ma20_pct",
             "distance_to_ma60_pct",
             "distance_to_ema23_pct",
+            "distance_to_high_60_pct",
             "close",
             "volume",
+            "volume_lots",
             "volume_ratio",
             "ma20",
             "ma60",
