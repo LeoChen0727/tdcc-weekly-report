@@ -26,7 +26,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pandas requests tabulate matplotlib pillow openpyxl lxml html5lib
+          pip install pandas requests tabulate matplotlib pillow openpyxl lxml html5lib beautifulsoup4
 
       - name: Fetch latest official daily price
         run: python fetch_official_daily_price.py
@@ -37,11 +37,20 @@ jobs:
       - name: Build revenue breakout low response candidates
         run: python build_revenue_breakout_low_response.py
 
+      - name: Build data freshness status after stock monitor
+        run: python build_data_freshness_latest.py
+
       - name: Commit daily stock monitor output
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add data/ output/
+
+          git add data/ || true
+          git add output/ || true
+          git add build_data_freshness_latest.py || true
+          git add output/latest/data_freshness_latest.md || true
+          git add output/latest/data_freshness_latest.csv || true
+
           git status --short
           git commit -m "Update daily stock monitor report" || echo "No changes to commit"
           git push
@@ -78,11 +87,31 @@ jobs:
       - name: Build all candidates latest files
         run: python build_all_candidates_latest.py
 
-      - name: Commit candidate charts, manifest, and all candidates
+      - name: Build data freshness status
+        run: python build_data_freshness_latest.py
+
+      - name: Commit candidate charts, manifest, all candidates, and freshness status
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add output/latest/chart_manifest.csv output/latest/contact_sheet_manifest.csv output/latest/charts/ output/latest/contact_sheets/ output/latest/all_candidates_latest.csv output/latest/all_candidates_latest.xlsx output/latest/all_candidates_latest.md output/latest/stock_monitor_latest.md output/latest/revenue_breakout_low_response_latest.csv output/latest/revenue_breakout_low_response_latest.md
+
+          git add output/latest/chart_manifest.csv || true
+          git add output/latest/contact_sheet_manifest.csv || true
+          git add output/latest/charts/ || true
+          git add output/latest/contact_sheets/ || true
+
+          git add output/latest/all_candidates_latest.csv || true
+          git add output/latest/all_candidates_latest.xlsx || true
+          git add output/latest/all_candidates_latest.md || true
+
+          git add output/latest/stock_monitor_latest.md || true
+          git add output/latest/revenue_breakout_low_response_latest.csv || true
+          git add output/latest/revenue_breakout_low_response_latest.md || true
+
+          git add build_data_freshness_latest.py || true
+          git add output/latest/data_freshness_latest.md || true
+          git add output/latest/data_freshness_latest.csv || true
+
           git status --short
-          git commit -m "Update candidate charts and all candidates list" || echo "No changes to commit"
+          git commit -m "Update candidate charts all candidates and freshness status" || echo "No changes to commit"
           git push
