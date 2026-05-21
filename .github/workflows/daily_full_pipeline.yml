@@ -87,10 +87,19 @@ jobs:
       - name: Build all candidates latest files
         run: python build_all_candidates_latest.py
 
+      - name: Fetch official warrant daily data
+        run: python scripts/fetch_official_warrant_daily.py
+
+      - name: Build stock-level warrant flow
+        run: python build_warrant_flow_latest.py
+
+      - name: Merge warrant flow into candidates
+        run: python merge_warrant_flow_into_candidates.py
+
       - name: Build data freshness status
         run: python build_data_freshness_latest.py
 
-      - name: Commit candidate charts, manifest, all candidates, and freshness status
+      - name: Commit candidate charts, all candidates, warrant flow, and freshness status
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
@@ -108,10 +117,26 @@ jobs:
           git add output/latest/revenue_breakout_low_response_latest.csv || true
           git add output/latest/revenue_breakout_low_response_latest.md || true
 
+          git add output/latest/warrant_daily_raw_latest.csv || true
+          git add output/latest/warrant_daily_fetch_latest.md || true
+          git add output/latest/warrant_flow_latest.csv || true
+          git add output/latest/warrant_flow_latest.md || true
+          git add output/latest/warrant_flow_merge_latest.md || true
+
+          git add output/debug/warrant_fetch_debug_latest.md || true
+          git add output/debug/warrant_fetch_debug_latest.csv || true
+
+          git add output/history/warrant_daily/ || true
+          git add output/history/warrant_flow/ || true
+
           git add build_data_freshness_latest.py || true
+          git add scripts/fetch_official_warrant_daily.py || true
+          git add build_warrant_flow_latest.py || true
+          git add merge_warrant_flow_into_candidates.py || true
+
           git add output/latest/data_freshness_latest.md || true
           git add output/latest/data_freshness_latest.csv || true
 
           git status --short
-          git commit -m "Update candidate charts all candidates and freshness status" || echo "No changes to commit"
+          git commit -m "Update full daily pipeline with warrant flow" || echo "No changes to commit"
           git push
