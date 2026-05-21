@@ -1,0 +1,75 @@
+name: Warrant Flow
+
+on:
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Optional date YYYYMMDD. Leave blank to use latest daily price date."
+        required: false
+        default: ""
+  schedule:
+    # Taiwan 19:45 = UTC 11:45
+    - cron: "45 11 * * 1-5"
+
+permissions:
+  contents: write
+
+jobs:
+  warrant-flow:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas requests openpyxl
+
+      - name: Fetch official warrant daily data
+        run: |
+          if [ -n "${{ github.event.inputs.date }}" ]; then
+            python scripts/fetch_official_warrant_daily.py --date "${{ github.event.inputs.date }}"
+          else
+            python scripts/fetch_official_warrant_daily.py
+          fi
+
+      - name: Build stock-level warrant flow
+        run: python build_warrant_flow_latest.py
+
+      - name: Merge warrant flow into candidates
+        run: python merge_warrant_flow_into_candidates.py
+
+      - name: Commit warrant flow outputs
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          git add scripts/fetch_official_warrant_daily.py
+          git add build_warrant_flow_latest.py
+          git add merge_warrant_flow_into_candidates.py
+          git add .github/workflows/warrant_flow.yml
+
+          git add output/latest/warrant_daily_raw_latest.csv || true
+          git add output/latest/warrant_daily_fetch_latest.md || true
+          git add output/latest/warrant_flow_latest.csv || true
+          git add output/latest/warrant_flow_latest.md || true
+          git add output/latest/warrant_flow_merge_latest.md || true
+
+          git add output/history/warrant_daily/ || true
+          git add output/history/warrant_flow/ || true
+
+          git add output/latest/all_candidates_latest.csv || true
+          git add output/latest/all_candidates_latest.xlsx || true
+          git add output/latest/all_candidates_latest.md || true
+          git add output/latest/stock_monitor_latest.md || true
+
+          git status --short
+          git commit -m "Update official warrant flow data" || echo "No changes to commit"
+          git push
