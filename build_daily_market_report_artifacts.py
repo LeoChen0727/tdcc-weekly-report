@@ -149,6 +149,13 @@ def safe_float(value, default=math.nan) -> float:
         return default
 
 
+def format_num(value, digits: int = 2) -> str:
+    number = safe_float(value)
+    if math.isnan(number):
+        return ""
+    return f"{number:.{digits}f}".rstrip("0").rstrip(".")
+
+
 def normalize_date(value) -> str:
     text = safe_str(value)
     digits = re.sub(r"[^0-9]", "", text)
@@ -321,7 +328,7 @@ def choose_chart_path(row: pd.Series, chart_manifest: pd.DataFrame) -> str:
     return ""
 
 
-def clean_reason(text: str, limit: int = 80) -> str:
+def clean_text(text: str, limit: int = 80) -> str:
     text = safe_str(text)
     text = text.replace("\n", " ").replace("|", "/")
     text = re.sub(r"\s+", " ", text)
@@ -330,14 +337,297 @@ def clean_reason(text: str, limit: int = 80) -> str:
     return text
 
 
-def build_reason(row: pd.Series, limit: int = 90) -> str:
+def has_text(row: pd.Series, col: str) -> bool:
+    return bool(safe_str(row.get(col, "")))
+
+
+def tdcc_short(row: pd.Series) -> str:
+    for col in ["tdcc_accumulation_signal", "tdcc_judgement", "tdcc_accumulation_note"]:
+        value = safe_str(row.get(col, ""))
+        if value:
+            if value == "strong_accumulation":
+                return "大戶同步增加"
+            if value == "mild_accumulation":
+                return "大戶溫和增加"
+            if value == "distribution_warning":
+                return "大戶轉弱"
+            if value == "neutral":
+                return "中性"
+            return clean_text(value, 28)
+
+    change_400 = safe_float(row.get("tdcc_400_change_sum", ""))
+    change_1000 = safe_float(row.get("tdcc_1000_change_sum", ""))
+
+    if not math.isnan(change_400) or not math.isnan(change_1000):
+        c400 = 0 if math.isnan(change_400) else change_400
+        c1000 = 0 if math.isnan(change_1000) else change_1000
+
+        if c400 > 0 and c1000 > 0:
+            return "大戶同步增加"
+        if c400 < 0 and c1000 < 0:
+            return "大戶同步減少"
+        if c400 + c1000 > 0:
+            return "大戶小增"
+        if c400 + c1000 < 0:
+            return "大戶小減"
+
+    holder_400 = safe_float(row.get("holder_400_change", ""))
+    holder_1000 = safe_float(row.get("holder_1000_change", ""))
+
+    if not math.isnan(holder_400) or not math.isnan(holder_1000):
+        h400 = 0 if math.isnan(holder_400) else holder_400
+        h1000 = 0 if math.isnan(holder_1000) else holder_1000
+
+        if h400 > 0 and h1000 > 0:
+            return "大戶同步增加"
+        if h400 < 0 and h1000 < 0:
+            return "大戶同步減少"
+        if h400 + h1000 > 0:
+            return "大戶小增"
+        if h400 + h1000 < 0:
+            return "大戶小減"
+
+    note = safe_str(row.get("note", ""))
+    if "TDCC近幾週400張與1000張同步累積" in note:
+        return "大戶同步增加"
+    if "TDCC近幾週大戶溫和增加" in note:
+        return "大戶溫和增加"
+    if "TDCC近幾週大戶籌碼轉弱" in note or "TDCC轉弱" in note:
+        return "大戶轉弱"
+
+    return ""
+
+
+def warrant_short(row: pd.Series) -> str:
+    signal = safe_str(row.get("warrant_flow_signal", ""))
+    score = safe_str(row.get("warrant_flow_score", ""))
+
+    if signal == "no_signal":
+        return ""
+
+    if signal and score:
+        return f"{signal} / {score}"
+
+    return signal or score
+
+
+def theme_short(row: pd.Series) -> str:
+    return (
+        safe_str(row.get("細分族群", ""))
+        or safe_str(row.get("theme_note", ""))
+        or safe_str(row.get("industry", ""))
+        or ""
+    )
+
+
+def breakout_type_short(row: pd.Series) -> str:
+    value = safe_str(row.get("breakout_type", ""))
+    if value:
+        return clean_text(value, 22)
+
+    value = safe_str(row.get("category", ""))
+    return clean_text(value, 22)
+
+
+def volume_short(row: pd.Series) -> str:
+    volume_ratio = format_num(row.get("volume_ratio", ""), 2)
+    volume_ratio_20 = format_num(row.get("volume_ratio_20", ""), 2)
+
+    if volume_ratio:
+        return f"{volume_ratio}x"
+
+    if volume_ratio_20:
+        return f"{volume_ratio_20}x"
+
+    return ""
+
+
+def distance_high_short(row: pd.Series) -> str:
+    for col in [
+        "distance_to_previous_high_pct",
+        "distance_to_previous_60d_high_pct",
+        "distance_to_high_60_pct",
+    ]:
+        value = format_num(row.get(col, ""), 2)
+        if value:
+            return f"{value}%"
+    return ""
+
+
+def revenue_yoy_short(row: pd.Series) -> str:
+    latest = format_num(row.get("latest_revenue_yoy", ""), 1)
+    cumulative = format_num(row.get("cumulative_revenue_yoy", ""), 1)
+
+    if latest and cumulative:
+        return f"單月{latest}% / 累計{cumulative}%"
+
+    if latest:
+        return f"單月{latest}%"
+
+    if cumulative:
+        return f"累計{cumulative}%"
+
+    return ""
+
+
+def ma_distance_short(row: pd.Series) -> str:
+    d20 = format_num(row.get("distance_to_ma20_pct", ""), 1)
+    d23 = format_num(row.get("distance_to_ema23_pct", ""), 1)
+    d60 = format_num(row.get("distance_to_ma60_pct", ""), 1)
+
     parts = []
 
-    priority = safe_str(row.get("revaluation_priority", ""))
-    if priority:
-        parts.append(priority)
+    if d20:
+        parts.append(f"20MA {d20}%")
+    if d23:
+        parts.append(f"23EMA {d23}%")
+    if d60:
+        parts.append(f"60MA {d60}%")
+
+    return " / ".join(parts[:2])
+
+
+def pattern_signal_short(row: pd.Series) -> str:
+    for col in [
+        "pattern_signal",
+        "action_trigger",
+        "breakout_type",
+        "category_cn",
+    ]:
+        value = safe_str(row.get(col, ""))
+        if value:
+            return clean_text(value, 24)
+    return ""
+
+
+def pattern_state_short(row: pd.Series) -> str:
+    for col in [
+        "pattern_state",
+        "price_data_warning",
+        "risk_note",
+    ]:
+        value = safe_str(row.get(col, ""))
+        if value:
+            return clean_text(value, 24)
+    return ""
+
+
+def compact_note_tags(row: pd.Series) -> list[str]:
+    note = safe_str(row.get("note", ""))
+    tags = []
+
+    tag_rules = [
+        ("嚴格突破", ["嚴格突破", "true_breakout"]),
+        ("挑戰前高", ["挑戰前高", "near_resistance"]),
+        ("區間轉強", ["區間內轉強", "range_rebound"]),
+        ("營收強", ["單月營收YoY", "累計營收YoY"]),
+        ("近期加速", ["近期加速", "明顯加速"]),
+        ("低反應", ["股價低反應"]),
+        ("貼近均線", ["貼近20MA", "貼近20MA/23EMA", "仍在20MA/23EMA附近"]),
+        ("站上均線", ["站上20MA/23EMA"]),
+        ("未過前高", ["尚未突破前60日高點"]),
+        ("平台整理", ["仍在平台整理區"]),
+        ("接近前高", ["接近前高"]),
+        ("過熱警示", ["過熱", "already_priced_in", "已反應"]),
+        ("TDCC轉弱", ["TDCC近幾週大戶籌碼轉弱", "D_降級_TDCC轉弱"]),
+        ("TDCC增加", ["TDCC近幾週400張與1000張同步累積", "TDCC近幾週大戶溫和增加"]),
+    ]
+
+    for tag, keywords in tag_rules:
+        if any(keyword in note for keyword in keywords):
+            tags.append(tag)
+
+    seen = []
+    for tag in tags:
+        if tag not in seen:
+            seen.append(tag)
+
+    return seen[:4]
+
+
+def compact_reason(row: pd.Series, category: str, limit: int = 70) -> str:
+    tags = []
+
+    if category == "true_breakout":
+        tags.append("突破")
+        vol = volume_short(row)
+        if vol:
+            tags.append(f"量能{vol}")
+
+    elif category in ["range_rebound", "near_resistance", "abnormal_volume_up"]:
+        tags.append("區間轉強")
+        dist = distance_high_short(row)
+        if dist:
+            tags.append(f"距前高{dist}")
+
+    elif category == "revenue_breakout_low_response":
+        priority = safe_str(row.get("revaluation_priority", ""))
+        if priority:
+            tags.append(priority.replace("_", " "))
+        if revenue_yoy_short(row):
+            tags.append("營收強")
+        tags.extend(compact_note_tags(row))
+
+    elif category == "revenue_pullback":
+        if revenue_yoy_short(row):
+            tags.append("營收成長")
+        ma = ma_distance_short(row)
+        if ma:
+            tags.append("回均線")
+        tags.extend(compact_note_tags(row))
+
+    elif category == "pullback_rebound":
+        tags.append("回檔轉強")
+        signal = pattern_signal_short(row)
+        if signal:
+            tags.append(signal)
+
+    elif category == "pattern":
+        signal = pattern_signal_short(row)
+        state = pattern_state_short(row)
+        if signal:
+            tags.append(signal)
+        if state:
+            tags.append(state)
+
+    else:
+        category_cn = safe_str(row.get("category_cn", ""))
+        if category_cn:
+            tags.append(category_cn)
+
+    tdcc = tdcc_short(row)
+    if tdcc:
+        tags.append(tdcc)
+
+    warrant = warrant_short(row)
+    if warrant:
+        tags.append(warrant)
+
+    if not tags:
+        tags = compact_note_tags(row)
+
+    if not tags:
+        for col in ["breakout_type", "revenue_acceleration_note", "pattern_signal", "note"]:
+            value = safe_str(row.get(col, ""))
+            if value:
+                tags.append(clean_text(value, 30))
+                break
+
+    seen = []
+    for tag in tags:
+        tag = clean_text(tag, 28)
+        if tag and tag not in seen:
+            seen.append(tag)
+
+    reason = " / ".join(seen[:5])
+    return clean_text(reason, limit)
+
+
+def build_reason(row: pd.Series, limit: int = 150) -> str:
+    parts = []
 
     for col in [
+        "revaluation_priority",
         "tdcc_accumulation_note",
         "tdcc_judgement",
         "warrant_flow_signal",
@@ -361,142 +651,17 @@ def build_reason(row: pd.Series, limit: int = 90) -> str:
                 parts.append(value)
 
     reason = "；".join(parts)
-    reason = reason.replace("\n", " ").replace("|", "/")
-    reason = re.sub(r"\s+", " ", reason)
-
-    if len(reason) > limit:
-        reason = reason[:limit] + "..."
-
-    return reason
-
-
-def tdcc_short(row: pd.Series) -> str:
-    for col in ["tdcc_accumulation_signal", "tdcc_judgement", "tdcc_accumulation_note"]:
-        value = safe_str(row.get(col, ""))
-        if value:
-            return clean_reason(value, 28)
-    return ""
-
-
-def warrant_short(row: pd.Series) -> str:
-    signal = safe_str(row.get("warrant_flow_signal", ""))
-    score = safe_str(row.get("warrant_flow_score", ""))
-
-    if signal and score:
-        return f"{signal} / {score}"
-
-    return signal or score
-
-
-def theme_short(row: pd.Series) -> str:
-    return (
-        safe_str(row.get("細分族群", ""))
-        or safe_str(row.get("theme_note", ""))
-        or safe_str(row.get("industry", ""))
-        or ""
-    )
-
-
-def breakout_type_short(row: pd.Series) -> str:
-    value = safe_str(row.get("breakout_type", ""))
-    if value:
-        return clean_reason(value, 22)
-
-    value = safe_str(row.get("category", ""))
-    return clean_reason(value, 22)
-
-
-def volume_short(row: pd.Series) -> str:
-    volume_ratio = safe_str(row.get("volume_ratio", ""))
-    volume_ratio_20 = safe_str(row.get("volume_ratio_20", ""))
-
-    if volume_ratio:
-        return f"{volume_ratio}x"
-
-    if volume_ratio_20:
-        return f"{volume_ratio_20}x"
-
-    return ""
-
-
-def distance_high_short(row: pd.Series) -> str:
-    for col in [
-        "distance_to_previous_high_pct",
-        "distance_to_previous_60d_high_pct",
-        "distance_to_high_60_pct",
-    ]:
-        value = safe_str(row.get(col, ""))
-        if value:
-            return f"{value}%"
-    return ""
-
-
-def revenue_yoy_short(row: pd.Series) -> str:
-    latest = safe_str(row.get("latest_revenue_yoy", ""))
-    cumulative = safe_str(row.get("cumulative_revenue_yoy", ""))
-
-    if latest and cumulative:
-        return f"單月{latest}% / 累計{cumulative}%"
-
-    if latest:
-        return f"單月{latest}%"
-
-    if cumulative:
-        return f"累計{cumulative}%"
-
-    return ""
-
-
-def ma_distance_short(row: pd.Series) -> str:
-    d20 = safe_str(row.get("distance_to_ma20_pct", ""))
-    d60 = safe_str(row.get("distance_to_ma60_pct", ""))
-    d23 = safe_str(row.get("distance_to_ema23_pct", ""))
-
-    parts = []
-
-    if d20:
-        parts.append(f"20MA {d20}%")
-    if d23:
-        parts.append(f"23EMA {d23}%")
-    if d60:
-        parts.append(f"60MA {d60}%")
-
-    return " / ".join(parts[:2])
-
-
-def pattern_signal_short(row: pd.Series) -> str:
-    for col in [
-        "pattern_signal",
-        "action_trigger",
-        "breakout_type",
-        "category_cn",
-    ]:
-        value = safe_str(row.get(col, ""))
-        if value:
-            return clean_reason(value, 24)
-    return ""
-
-
-def pattern_state_short(row: pd.Series) -> str:
-    for col in [
-        "pattern_state",
-        "price_data_warning",
-        "risk_note",
-    ]:
-        value = safe_str(row.get(col, ""))
-        if value:
-            return clean_reason(value, 24)
-    return ""
+    return clean_text(reason, limit)
 
 
 def category_pdf_row(category: str, row: pd.Series) -> list[str]:
     stock = f"{safe_str(row.get('stock_id', ''))} {safe_str(row.get('stock_name', ''))}"
-    theme = clean_reason(theme_short(row), 22)
+    theme = clean_text(theme_short(row), 22)
     score = safe_str(row.get("score", ""))
     rank = safe_str(row.get("rank", ""))
     tdcc = tdcc_short(row)
-    warrant = clean_reason(warrant_short(row), 26)
-    reason = build_reason(row, 70)
+    warrant = clean_text(warrant_short(row), 26)
+    reason = compact_reason(row, category, 70)
 
     if category == "true_breakout":
         return [
@@ -543,7 +708,7 @@ def category_pdf_row(category: str, row: pd.Series) -> list[str]:
             theme,
             score,
             rank,
-            clean_reason(safe_str(row.get("revaluation_priority", "")), 18),
+            clean_text(safe_str(row.get("revaluation_priority", "")), 18),
             revenue_yoy_short(row),
             tdcc,
             warrant,
@@ -594,7 +759,7 @@ def category_pdf_row(category: str, row: pd.Series) -> list[str]:
         theme,
         score,
         rank,
-        clean_reason(safe_str(row.get("category_cn", "")), 24),
+        clean_text(safe_str(row.get("category_cn", "")), 24),
         tdcc,
         warrant,
         reason,
@@ -858,7 +1023,8 @@ def build_summary_markdown(
             lines.append(f"- 優先級：{safe_str(row.get('revaluation_priority', ''))}")
             lines.append(f"- TDCC：{tdcc_short(row)}")
             lines.append(f"- 權證：{warrant_short(row)}")
-            lines.append(f"- 簡短原因：{build_reason(row, 180)}")
+            lines.append(f"- 摘要：{compact_reason(row, safe_str(row.get('category', '')), 120)}")
+            lines.append(f"- 完整原因：{build_reason(row, 220)}")
 
             chart_path = choose_chart_path(row, chart_manifest)
             if chart_path:
@@ -995,6 +1161,7 @@ def build_summary_pdf(
 
         for _, row in show.iterrows():
             stock = f"{safe_str(row.get('stock_id', ''))} {safe_str(row.get('stock_name', ''))}"
+            category_value = safe_str(row.get("category", ""))
 
             story.append(p(stock, styles["card_title"]))
             story.append(p(f"族群：{theme_short(row)}", styles["card_body"]))
@@ -1002,7 +1169,7 @@ def build_summary_pdf(
             story.append(p(f"優先級：{safe_str(row.get('revaluation_priority', ''))}", styles["card_body"]))
             story.append(p(f"TDCC：{tdcc_short(row)}", styles["card_body"]))
             story.append(p(f"權證：{warrant_short(row)}", styles["card_body"]))
-            story.append(p(f"簡短原因：{build_reason(row, 150)}", styles["card_body"]))
+            story.append(p(f"摘要：{compact_reason(row, category_value, 120)}", styles["card_body"]))
 
             chart_path = choose_chart_path(row, chart_manifest)
 
