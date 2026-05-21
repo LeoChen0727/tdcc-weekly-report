@@ -1,26 +1,26 @@
 ﻿source_name,market,table_index,rows,columns,parsed_as
-TWSE_WARRANT_STOCK_JSON,TWSE,0,29763,權證代號 | 權證簡稱 | 收盤價 | 漲跌 | 標的代號 | 標的名稱 | 收盤價/指數 | 漲跌 | 權證類型 | 履約方式 | 上市日期 | 履約開始日 | 最後交易日 | 履約截止日 | 行使比例 | 履約價格(元)/點數 | 上限價格(元)/點數 | 下限價格(元)/點數,mapping
+TWSE_WARRANT_STOCK_JSON,TWSE,0,30018,權證代號 | 權證簡稱 | 收盤價 | 漲跌 | 標的代號 | 標的名稱 | 收盤價/指數 | 漲跌 | 權證類型 | 履約方式 | 上市日期 | 履約開始日 | 最後交易日 | 履約截止日 | 行使比例 | 履約價格(元)/點數 | 上限價格(元)/點數 | 下限價格(元)/點數,mapping
 TWSE_WARRANT_STOCK_JSON,TWSE,1,3,start | span | title,mapping
-TWSE_WARRANT_STOCK_CSV,TWSE,0,29764,權證收盤資訊 | Unnamed: 1 | Unnamed: 2 | Unnamed: 3 | 標的收盤資訊 | Unnamed: 5 | Unnamed: 6 | Unnamed: 7 | 權證基本資訊 | Unnamed: 9 | Unnamed: 10 | Unnamed: 11 | Unnamed: 12 | Unnamed: 13 | Unnamed: 14 | Unnamed: 15 | Unnamed: 16 | Unnamed: 17 | Unnamed: 18,mapping
-TWSE_WARRANT_STOCK_CSV,TWSE,1,29763,權證代號 | 權證簡稱 | 收盤價 | 漲跌 | 標的代號 | 標的名稱 | 收盤價/指數 | 漲跌.1 | 權證類型 | 履約方式 | 上市日期 | 履約開始日 | 最後交易日 | 履約截止日 | 行使比例 | 履約價格(元)/點數 | 上限價格(元)/點數 | 下限價格(元)/點數 | Unnamed: 18,mapping
-TWSE_MI_INDEX_ALL_JSON,TWSE,0,56,指數 | 收盤指數 | 漲跌(+/-) | 漲跌點數 | 漲跌百分比(%) | 特殊處理註記,quote
+TWSE_WARRANT_STOCK_CSV,TWSE,0,30019,權證收盤資訊 | Unnamed: 1 | Unnamed: 2 | Unnamed: 3 | 標的收盤資訊 | Unnamed: 5 | Unnamed: 6 | Unnamed: 7 | 權證基本資訊 | Unnamed: 9 | Unnamed: 10 | Unnamed: 11 | Unnamed: 12 | Unnamed: 13 | Unnamed: 14 | Unnamed: 15 | Unnamed: 16 | Unnamed: 17 | Unnamed: 18,mapping
+TWSE_WARRANT_STOCK_CSV,TWSE,1,30018,權證代號 | 權證簡稱 | 收盤價 | 漲跌 | 標的代號 | 標的名稱 | 收盤價/指數 | 漲跌.1 | 權證類型 | 履約方式 | 上市日期 | 履約開始日 | 最後交易日 | 履約截止日 | 行使比例 | 履約價格(元)/點數 | 上限價格(元)/點數 | 下限價格(元)/點數 | Unnamed: 18,mapping
+TWSE_MI_INDEX_ALL_JSON,TWSE,0,51,指數 | 收盤指數 | 漲跌(+/-) | 漲跌點數 | 漲跌百分比(%) | 特殊處理註記,quote
 TWSE_MI_INDEX_ALL_JSON,TWSE,1,48,指數 | 收盤指數 | 漲跌(+/-) | 漲跌點數 | 漲跌百分比(%) | 特殊處理註記,quote
 TWSE_MI_INDEX_ALL_JSON,TWSE,2,34,指數 | 收盤指數 | 漲跌(+/-) | 漲跌點數 | 漲跌百分比(%) | 特殊處理註記,quote
-TWSE_MI_INDEX_ALL_JSON,TWSE,3,47,報酬指數 | 收盤指數 | 漲跌(+/-) | 漲跌點數 | 漲跌百分比(%) | 特殊處理註記,quote
+TWSE_MI_INDEX_ALL_JSON,TWSE,3,42,報酬指數 | 收盤指數 | 漲跌(+/-) | 漲跌點數 | 漲跌百分比(%) | 特殊處理註記,quote
 TWSE_MI_INDEX_ALL_JSON,TWSE,4,49,報酬指數 | 收盤指數 | 漲跌(+/-) | 漲跌點數 | 漲跌百分比(%) | 特殊處理註記,quote
 TWSE_MI_INDEX_ALL_JSON,TWSE,5,33,報酬指數 | 收盤指數 | 漲跌(+/-) | 漲跌點數 | 漲跌百分比(%) | 特殊處理註記,quote
 TWSE_MI_INDEX_ALL_JSON,TWSE,6,17,成交統計 | 成交金額(元) | 成交股數(股) | 成交筆數,quote
 TWSE_MI_INDEX_ALL_JSON,TWSE,7,5,類型 | 整體市場 | 股票,quote
-TWSE_MI_INDEX_ALL_JSON,TWSE,8,31124,證券代號 | 證券名稱 | 成交股數 | 成交筆數 | 成交金額 | 開盤價 | 最高價 | 最低價 | 收盤價 | 漲跌(+/-) | 漲跌價差 | 最後揭示買價 | 最後揭示買量 | 最後揭示賣價 | 最後揭示賣量 | 本益比,quote
+TWSE_MI_INDEX_ALL_JSON,TWSE,8,31379,證券代號 | 證券名稱 | 成交股數 | 成交筆數 | 成交金額 | 開盤價 | 最高價 | 最低價 | 收盤價 | 漲跌(+/-) | 漲跌價差 | 最後揭示買價 | 最後揭示買量 | 最後揭示賣價 | 最後揭示賣量 | 本益比,quote
 TWSE_MI_INDEX_ALL_JSON,TWSE,9,2,start | span | title,quote
-TWSE_MI_INDEX_0999_JSON,TWSE,0,26990,暫停交易 | 證券代號 | 證券名稱 | 成交股數 | 成交筆數 | 成交金額 | 開盤價 | 最高價 | 最低價 | 收盤價 | 漲跌(+/-) | 漲跌價差 | 最後揭示買價 | 最後揭示買量 | 最後揭示賣價 | 最後揭示賣量 | 本益比 | 標的代號 | 標的名稱 | 標的收盤價/指數,quote
+TWSE_MI_INDEX_0999_JSON,TWSE,0,27229,暫停交易 | 證券代號 | 證券名稱 | 成交股數 | 成交筆數 | 成交金額 | 開盤價 | 最高價 | 最低價 | 收盤價 | 漲跌(+/-) | 漲跌價差 | 最後揭示買價 | 最後揭示買量 | 最後揭示賣價 | 最後揭示賣量 | 本益比 | 標的代號 | 標的名稱 | 標的收盤價/指數,quote
 TWSE_MI_INDEX_0999_JSON,TWSE,1,3,start | span | title,quote
-TWSE_MI_INDEX_0999_CSV,TWSE,0,26997,"(元,股) | Unnamed: 1 | Unnamed: 2 | Unnamed: 3 | Unnamed: 4 | Unnamed: 5 | Unnamed: 6 | Unnamed: 7 | Unnamed: 8 | Unnamed: 9 | Unnamed: 10 | Unnamed: 11 | (元,交易單位) | Unnamed: 13 | Unnamed: 14 | Unnamed: 15 | Unnamed: 16 | 標的資訊 | Unnamed: 18 | Unnamed: 19 | Unnamed: 20",quote
-TWSE_MI_INDEX_0999_CSV,TWSE,1,26996,暫停交易 | 證券代號 | 證券名稱 | 成交股數 | 成交筆數 | 成交金額 | 開盤價 | 最高價 | 最低價 | 收盤價 | 漲跌(+/-) | 漲跌價差 | 最後揭示買價 | 最後揭示買量 | 最後揭示賣價 | 最後揭示賣量 | 本益比 | 標的代號 | 標的名稱 | 標的收盤價/指數 | Unnamed: 20,quote
-TWSE_MI_INDEX_0999P_JSON,TWSE,0,2707,暫停交易 | 證券代號 | 證券名稱 | 成交股數 | 成交筆數 | 成交金額 | 開盤價 | 最高價 | 最低價 | 收盤價 | 漲跌(+/-) | 漲跌價差 | 最後揭示買價 | 最後揭示買量 | 最後揭示賣價 | 最後揭示賣量 | 本益比 | 標的代號 | 標的名稱 | 標的收盤價/指數,quote
+TWSE_MI_INDEX_0999_CSV,TWSE,0,27236,"(元,股) | Unnamed: 1 | Unnamed: 2 | Unnamed: 3 | Unnamed: 4 | Unnamed: 5 | Unnamed: 6 | Unnamed: 7 | Unnamed: 8 | Unnamed: 9 | Unnamed: 10 | Unnamed: 11 | (元,交易單位) | Unnamed: 13 | Unnamed: 14 | Unnamed: 15 | Unnamed: 16 | 標的資訊 | Unnamed: 18 | Unnamed: 19 | Unnamed: 20",quote
+TWSE_MI_INDEX_0999_CSV,TWSE,1,27235,暫停交易 | 證券代號 | 證券名稱 | 成交股數 | 成交筆數 | 成交金額 | 開盤價 | 最高價 | 最低價 | 收盤價 | 漲跌(+/-) | 漲跌價差 | 最後揭示買價 | 最後揭示買量 | 最後揭示賣價 | 最後揭示賣量 | 本益比 | 標的代號 | 標的名稱 | 標的收盤價/指數 | Unnamed: 20,quote
+TWSE_MI_INDEX_0999P_JSON,TWSE,0,2723,暫停交易 | 證券代號 | 證券名稱 | 成交股數 | 成交筆數 | 成交金額 | 開盤價 | 最高價 | 最低價 | 收盤價 | 漲跌(+/-) | 漲跌價差 | 最後揭示買價 | 最後揭示買量 | 最後揭示賣價 | 最後揭示賣量 | 本益比 | 標的代號 | 標的名稱 | 標的收盤價/指數,quote
 TWSE_MI_INDEX_0999P_JSON,TWSE,1,3,start | span | title,quote
-TWSE_MI_INDEX_0999P_CSV,TWSE,0,2714,"(元,股) | Unnamed: 1 | Unnamed: 2 | Unnamed: 3 | Unnamed: 4 | Unnamed: 5 | Unnamed: 6 | Unnamed: 7 | Unnamed: 8 | Unnamed: 9 | Unnamed: 10 | Unnamed: 11 | (元,交易單位) | Unnamed: 13 | Unnamed: 14 | Unnamed: 15 | Unnamed: 16 | 標的資訊 | Unnamed: 18 | Unnamed: 19 | Unnamed: 20",quote
-TWSE_MI_INDEX_0999P_CSV,TWSE,1,2713,暫停交易 | 證券代號 | 證券名稱 | 成交股數 | 成交筆數 | 成交金額 | 開盤價 | 最高價 | 最低價 | 收盤價 | 漲跌(+/-) | 漲跌價差 | 最後揭示買價 | 最後揭示買量 | 最後揭示賣價 | 最後揭示賣量 | 本益比 | 標的代號 | 標的名稱 | 標的收盤價/指數 | Unnamed: 20,quote
+TWSE_MI_INDEX_0999P_CSV,TWSE,0,2730,"(元,股) | Unnamed: 1 | Unnamed: 2 | Unnamed: 3 | Unnamed: 4 | Unnamed: 5 | Unnamed: 6 | Unnamed: 7 | Unnamed: 8 | Unnamed: 9 | Unnamed: 10 | Unnamed: 11 | (元,交易單位) | Unnamed: 13 | Unnamed: 14 | Unnamed: 15 | Unnamed: 16 | 標的資訊 | Unnamed: 18 | Unnamed: 19 | Unnamed: 20",quote
+TWSE_MI_INDEX_0999P_CSV,TWSE,1,2729,暫停交易 | 證券代號 | 證券名稱 | 成交股數 | 成交筆數 | 成交金額 | 開盤價 | 最高價 | 最低價 | 收盤價 | 漲跌(+/-) | 漲跌價差 | 最後揭示買價 | 最後揭示買量 | 最後揭示賣價 | 最後揭示賣量 | 本益比 | 標的代號 | 標的名稱 | 標的收盤價/指數 | Unnamed: 20,quote
 TWSE_MI_INDEX_0999C_JSON,TWSE,0,34,證券代號 | 證券名稱 | 成交股數 | 成交筆數 | 成交金額 | 開盤價 | 最高價 | 最低價 | 收盤價 | 漲跌(+/-) | 漲跌價差 | 最後揭示買價 | 最後揭示買量 | 最後揭示賣價 | 最後揭示賣量 | 本益比 | 牛熊證觸及限制價格 | 標的代號 | 標的名稱 | 標的收盤價/指數,quote
 TWSE_MI_INDEX_0999C_JSON,TWSE,1,3,start | span | title,quote
 TWSE_MI_INDEX_0999C_CSV,TWSE,0,41,"(元,股) | Unnamed: 1 | Unnamed: 2 | Unnamed: 3 | Unnamed: 4 | Unnamed: 5 | Unnamed: 6 | Unnamed: 7 | Unnamed: 8 | Unnamed: 9 | Unnamed: 10 | Unnamed: 11 | (元,交易單位) | Unnamed: 13 | Unnamed: 14 | Unnamed: 15 | Unnamed: 16 | 標的資訊 | Unnamed: 18 | Unnamed: 19 | Unnamed: 20",quote
