@@ -30,7 +30,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pandas requests openpyxl
+          pip install pandas requests openpyxl lxml html5lib beautifulsoup4
 
       - name: Fetch official warrant daily data
         run: |
@@ -61,6 +61,9 @@ jobs:
           git add output/latest/warrant_flow_latest.csv || true
           git add output/latest/warrant_flow_latest.md || true
           git add output/latest/warrant_flow_merge_latest.md || true
+
+          git add output/debug/warrant_fetch_debug_latest.md || true
+          git add output/debug/warrant_fetch_debug_latest.csv || true
 
           git add output/history/warrant_daily/ || true
           git add output/history/warrant_flow/ || true
