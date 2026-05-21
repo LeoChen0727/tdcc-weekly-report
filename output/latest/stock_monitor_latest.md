@@ -241,3 +241,42 @@
 |-----:|-----:|:-----|:-----|---------:|----------:|---------:|------:|-------:|-----:|-------:|-------:|----------:|----------:|-------:|--------:|---------:|----------:|---------:|-----------:|----------:|:------------|-------:|:-------|
 |    1 | 5314 | 世紀*  | 其他   | 20260521 |    138.62 |   161.5  | 69.8  |  10421 | 2.02 |  -2.99 |  -9.33 |     -3.19 |     -9.35 |   3.25 |    1.31 | 20260515 |     46.95 |    -1.11 |      43.41 |     -0.57 | 大戶籌碼減少      |     82 | 強轉強    |
 |    2 | 6179 | 亞通   | 其他   | 20260521 |     69.36 |    54.77 | 25.95 |   2768 | 1.69 |   7.3  |   3.23 |      7.9  |      5.92 |   5.49 |    4.22 | 20260515 |     38.81 |     0.06 |      29.55 |      0.26 | 中大戶/超大戶同步增加 |     70 | 初步轉強   |
+
+## 完整候選股清單
+
+本報告上方仍為精華版觀察清單；完整合格名單已另外輸出，方便回測、比對與分享。
+
+- 總筆數：`238`
+- CSV：`output/latest/all_candidates_latest.csv`
+- Excel：`output/latest/all_candidates_latest.xlsx`
+- Markdown：`output/latest/all_candidates_latest.md`
+
+| category | category_cn | count |
+|---|---|---:|
+| true_breakout | 嚴格突破 | 65 |
+| range_rebound | 區間內轉強 / 挑戰前高觀察 | 58 |
+| revenue_breakout_low_response | 營收爆發低反應 | 26 |
+| revenue_pullback | 營收成長股價回檔 | 55 |
+| pullback_rebound | 回檔後短線轉強 | 4 |
+| pattern | 型態觀察 | 30 |
+
+說明：
+- `true_breakout` 只代表真正嚴格突破股。
+- `range_rebound` 代表區間內轉強 / 挑戰前高觀察，不可混入嚴格突破股。
+- `revenue_breakout_low_response` 代表營收明顯轉強但股價尚未完全反映的早期觀察股。
+- `revenue_pullback` 代表營收成長但股價回檔，與營收爆發低反應股分開。
+- `tdcc_accumulation_signal` 用來判斷近幾週大戶是否持續累積或轉弱。
+- `price_data_warning != ok` 的圖表或資料需標註資料品質警示。
+
+## 權證金流輔助欄位
+
+- 更新時間：`2026-05-22 00:41:48 Asia/Taipei`
+- 狀態：`Merged warrant flow into all candidates. rows=238, matched_rows=80`
+- 權證金流檔案：`output/latest/warrant_flow_latest.csv`
+
+使用方式：
+- `true_breakout + call_strong_inflow`：突破動能加分，但仍需確認位階、TDCC、量能。
+- `range_rebound + call_inflow`：挑戰前高動能加分，但未突破前不可歸為嚴格突破。
+- `revenue_pullback + call_inflow`：回檔後資金試單，可提高觀察優先度。
+- `高位 true_breakout + warrant_overheat / call_profit_exit_risk`：追高或獲利結清風險提高。
+- `put_inflow`：偏空或避險警訊，不直接否定，但降低追價意願。

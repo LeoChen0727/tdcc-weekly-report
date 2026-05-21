@@ -1,8 +1,8 @@
 # 權證官方資料抓取 Debug
 
-- 產生時間：`2026-05-22 00:19:02 Asia/Taipei`
+- 產生時間：`2026-05-22 00:41:42 Asia/Taipei`
 
-- note：`mapping_rows=30018, quote_rows=30040, final_rows=30018`
+- note：`mapping_rows=30018, quote_rows=30039, final_rows=30018`
 
 - debug csv：`output/debug/warrant_fetch_debug_latest.csv`
 
