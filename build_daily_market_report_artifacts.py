@@ -82,6 +82,45 @@ SUMMARY_LIMIT_BY_CATEGORY = {
 
 FULL_PDF_ROWS_PER_PAGE = 18
 
+FULL_PDF_COLUMN_CONFIG = {
+    "true_breakout": {
+        "headers": ["股票", "族群", "分數", "排名", "突破型態", "量能", "TDCC", "權證", "簡短原因"],
+        "widths": [3.0, 3.1, 1.4, 1.4, 2.6, 2.0, 3.0, 4.0, 7.2],
+    },
+    "range_rebound": {
+        "headers": ["股票", "族群", "分數", "排名", "轉強型態", "距前高", "TDCC", "權證", "簡短原因"],
+        "widths": [3.0, 3.1, 1.4, 1.4, 2.6, 2.0, 3.0, 4.0, 7.2],
+    },
+    "near_resistance": {
+        "headers": ["股票", "族群", "分數", "排名", "轉強型態", "距前高", "TDCC", "權證", "簡短原因"],
+        "widths": [3.0, 3.1, 1.4, 1.4, 2.6, 2.0, 3.0, 4.0, 7.2],
+    },
+    "abnormal_volume_up": {
+        "headers": ["股票", "族群", "分數", "排名", "轉強型態", "量能", "TDCC", "權證", "簡短原因"],
+        "widths": [3.0, 3.1, 1.4, 1.4, 2.6, 2.0, 3.0, 4.0, 7.2],
+    },
+    "revenue_breakout_low_response": {
+        "headers": ["股票", "族群", "分數", "排名", "優先級", "營收YoY", "TDCC趨勢", "權證", "簡短原因"],
+        "widths": [3.0, 3.1, 1.4, 1.4, 2.8, 2.4, 3.2, 4.0, 6.8],
+    },
+    "revenue_pullback": {
+        "headers": ["股票", "族群", "分數", "排名", "營收YoY", "距均線", "TDCC", "權證", "簡短原因"],
+        "widths": [3.0, 3.1, 1.4, 1.4, 2.4, 2.2, 3.0, 4.0, 7.0],
+    },
+    "pullback_rebound": {
+        "headers": ["股票", "族群", "分數", "排名", "轉強訊號", "距均線", "TDCC", "權證", "簡短原因"],
+        "widths": [3.0, 3.1, 1.4, 1.4, 2.8, 2.2, 3.0, 4.0, 6.6],
+    },
+    "pattern": {
+        "headers": ["股票", "族群", "分數", "排名", "型態訊號", "型態狀態", "TDCC", "權證", "簡短原因"],
+        "widths": [3.0, 3.1, 1.4, 1.4, 2.8, 2.4, 3.0, 4.0, 6.4],
+    },
+    "default": {
+        "headers": ["股票", "族群", "分數", "排名", "分類", "TDCC", "權證", "簡短原因"],
+        "widths": [3.0, 3.2, 1.4, 1.4, 3.0, 3.0, 4.0, 8.0],
+    },
+}
+
 
 def now_taipei() -> str:
     return datetime.now(ZoneInfo("Asia/Taipei")).strftime("%Y-%m-%d %H:%M:%S")
@@ -356,6 +395,210 @@ def theme_short(row: pd.Series) -> str:
         or safe_str(row.get("industry", ""))
         or ""
     )
+
+
+def breakout_type_short(row: pd.Series) -> str:
+    value = safe_str(row.get("breakout_type", ""))
+    if value:
+        return clean_reason(value, 22)
+
+    value = safe_str(row.get("category", ""))
+    return clean_reason(value, 22)
+
+
+def volume_short(row: pd.Series) -> str:
+    volume_ratio = safe_str(row.get("volume_ratio", ""))
+    volume_ratio_20 = safe_str(row.get("volume_ratio_20", ""))
+
+    if volume_ratio:
+        return f"{volume_ratio}x"
+
+    if volume_ratio_20:
+        return f"{volume_ratio_20}x"
+
+    return ""
+
+
+def distance_high_short(row: pd.Series) -> str:
+    for col in [
+        "distance_to_previous_high_pct",
+        "distance_to_previous_60d_high_pct",
+        "distance_to_high_60_pct",
+    ]:
+        value = safe_str(row.get(col, ""))
+        if value:
+            return f"{value}%"
+    return ""
+
+
+def revenue_yoy_short(row: pd.Series) -> str:
+    latest = safe_str(row.get("latest_revenue_yoy", ""))
+    cumulative = safe_str(row.get("cumulative_revenue_yoy", ""))
+
+    if latest and cumulative:
+        return f"單月{latest}% / 累計{cumulative}%"
+
+    if latest:
+        return f"單月{latest}%"
+
+    if cumulative:
+        return f"累計{cumulative}%"
+
+    return ""
+
+
+def ma_distance_short(row: pd.Series) -> str:
+    d20 = safe_str(row.get("distance_to_ma20_pct", ""))
+    d60 = safe_str(row.get("distance_to_ma60_pct", ""))
+    d23 = safe_str(row.get("distance_to_ema23_pct", ""))
+
+    parts = []
+
+    if d20:
+        parts.append(f"20MA {d20}%")
+    if d23:
+        parts.append(f"23EMA {d23}%")
+    if d60:
+        parts.append(f"60MA {d60}%")
+
+    return " / ".join(parts[:2])
+
+
+def pattern_signal_short(row: pd.Series) -> str:
+    for col in [
+        "pattern_signal",
+        "action_trigger",
+        "breakout_type",
+        "category_cn",
+    ]:
+        value = safe_str(row.get(col, ""))
+        if value:
+            return clean_reason(value, 24)
+    return ""
+
+
+def pattern_state_short(row: pd.Series) -> str:
+    for col in [
+        "pattern_state",
+        "price_data_warning",
+        "risk_note",
+    ]:
+        value = safe_str(row.get(col, ""))
+        if value:
+            return clean_reason(value, 24)
+    return ""
+
+
+def category_pdf_row(category: str, row: pd.Series) -> list[str]:
+    stock = f"{safe_str(row.get('stock_id', ''))} {safe_str(row.get('stock_name', ''))}"
+    theme = clean_reason(theme_short(row), 22)
+    score = safe_str(row.get("score", ""))
+    rank = safe_str(row.get("rank", ""))
+    tdcc = tdcc_short(row)
+    warrant = clean_reason(warrant_short(row), 26)
+    reason = build_reason(row, 70)
+
+    if category == "true_breakout":
+        return [
+            stock,
+            theme,
+            score,
+            rank,
+            breakout_type_short(row),
+            volume_short(row),
+            tdcc,
+            warrant,
+            reason,
+        ]
+
+    if category in ["range_rebound", "near_resistance"]:
+        return [
+            stock,
+            theme,
+            score,
+            rank,
+            breakout_type_short(row),
+            distance_high_short(row),
+            tdcc,
+            warrant,
+            reason,
+        ]
+
+    if category == "abnormal_volume_up":
+        return [
+            stock,
+            theme,
+            score,
+            rank,
+            breakout_type_short(row),
+            volume_short(row),
+            tdcc,
+            warrant,
+            reason,
+        ]
+
+    if category == "revenue_breakout_low_response":
+        return [
+            stock,
+            theme,
+            score,
+            rank,
+            clean_reason(safe_str(row.get("revaluation_priority", "")), 18),
+            revenue_yoy_short(row),
+            tdcc,
+            warrant,
+            reason,
+        ]
+
+    if category == "revenue_pullback":
+        return [
+            stock,
+            theme,
+            score,
+            rank,
+            revenue_yoy_short(row),
+            ma_distance_short(row),
+            tdcc,
+            warrant,
+            reason,
+        ]
+
+    if category == "pullback_rebound":
+        return [
+            stock,
+            theme,
+            score,
+            rank,
+            pattern_signal_short(row),
+            ma_distance_short(row),
+            tdcc,
+            warrant,
+            reason,
+        ]
+
+    if category == "pattern":
+        return [
+            stock,
+            theme,
+            score,
+            rank,
+            pattern_signal_short(row),
+            pattern_state_short(row),
+            tdcc,
+            warrant,
+            reason,
+        ]
+
+    return [
+        stock,
+        theme,
+        score,
+        rank,
+        clean_reason(safe_str(row.get("category_cn", "")), 24),
+        tdcc,
+        warrant,
+        reason,
+    ]
 
 
 def sort_candidates(df: pd.DataFrame) -> pd.DataFrame:
@@ -805,7 +1048,14 @@ def build_full_pdf(
         return
 
     for category_index, (category, part) in enumerate(get_category_groups(candidates)):
-        cn = CATEGORY_CN.get(category, safe_str(part["category_cn"].iloc[0]) if "category_cn" in part.columns else category)
+        cn = CATEGORY_CN.get(
+            category,
+            safe_str(part["category_cn"].iloc[0]) if "category_cn" in part.columns else category,
+        )
+
+        config = FULL_PDF_COLUMN_CONFIG.get(category, FULL_PDF_COLUMN_CONFIG["default"])
+        headers = config["headers"]
+        col_widths = [w * cm for w in config["widths"]]
 
         chunks = [
             part.iloc[i:i + FULL_PDF_ROWS_PER_PAGE].copy()
@@ -821,44 +1071,15 @@ def build_full_pdf(
             if len(chunks) > 1:
                 story.append(p(f"第 {chunk_index + 1} / {len(chunks)} 頁", styles["small"]))
 
-            rows = [[
-                "股票",
-                "族群",
-                "分數",
-                "排名",
-                "優先級",
-                "TDCC",
-                "權證",
-                "簡短原因",
-            ]]
+            rows = [headers]
 
             for _, row in chunk.iterrows():
-                stock = f"{safe_str(row.get('stock_id', ''))} {safe_str(row.get('stock_name', ''))}"
-
-                rows.append([
-                    stock,
-                    clean_reason(theme_short(row), 22),
-                    safe_str(row.get("score", "")),
-                    safe_str(row.get("rank", "")),
-                    clean_reason(safe_str(row.get("revaluation_priority", "")), 18),
-                    tdcc_short(row),
-                    clean_reason(warrant_short(row), 26),
-                    build_reason(row, 70),
-                ])
+                rows.append(category_pdf_row(category, row))
 
             table = create_table(
                 rows,
                 styles,
-                col_widths=[
-                    3.0 * cm,
-                    3.1 * cm,
-                    1.4 * cm,
-                    1.4 * cm,
-                    2.5 * cm,
-                    3.0 * cm,
-                    4.0 * cm,
-                    8.0 * cm,
-                ],
+                col_widths=col_widths,
             )
 
             story.append(table)
