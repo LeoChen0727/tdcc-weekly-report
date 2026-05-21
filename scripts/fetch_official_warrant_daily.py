@@ -21,6 +21,7 @@ HISTORY_DIR = Path("output/history/warrant_daily")
 RAW_LATEST = OUTPUT_DIR / "warrant_daily_raw_latest.csv"
 FETCH_STATUS_MD = OUTPUT_DIR / "warrant_daily_fetch_latest.md"
 DEBUG_MD = DEBUG_DIR / "warrant_fetch_debug_latest.md"
+DEBUG_CSV = DEBUG_DIR / "warrant_fetch_debug_latest.csv"
 
 PRICE_DIR = Path("data/daily_price")
 
@@ -30,16 +31,22 @@ RAW_COLUMNS = [
     "market",
     "source_name",
     "source_url",
+
     "warrant_id",
     "warrant_name",
+
     "stock_id",
     "stock_name",
+
     "call_put_raw",
     "call_put",
+
     "volume",
     "turnover",
     "close",
+
     "issuer",
+
     "issued_quantity",
     "cancelled_quantity",
     "latest_warrant_count",
@@ -64,12 +71,48 @@ def normalize_code(value) -> str:
     if text.endswith(".0"):
         text = text[:-2]
 
-    # 有些欄位會是 "2330 台積電" 或 "2330"
     match = re.search(r"(\d{4})", text)
+
     if match:
         return match.group(1)
 
     return ""
+
+
+def normalize_warrant_id(value) -> str:
+    if pd.isna(value):
+        return ""
+
+    text = str(value).strip().upper()
+    text = text.replace(" ", "")
+    text = text.replace("\u3000", "")
+
+    # 權證代號常見：
+    # 認購：030001～089999，6 碼數字
+    # 認售：03001P / 03001U / 03001T
+    # 國外標的 / 牛熊證：F/Q/C/B/X/Y
+    match = re.search(r"([0-9]{5,6}[A-Z]?)", text)
+
+    if match:
+        return match.group(1)
+
+    return text
+
+
+def is_warrant_id(value: str) -> bool:
+    text = normalize_warrant_id(value)
+
+    if re.fullmatch(r"[0-9]{6}", text):
+        try:
+            number = int(text)
+            return 30001 <= number <= 89999 or 300001 <= number <= 899999
+        except Exception:
+            return False
+
+    if re.fullmatch(r"[0-9]{5}[PUTFQCBXY]", text):
+        return True
+
+    return False
 
 
 def to_number(value):
@@ -117,14 +160,6 @@ def get_latest_price_date() -> str:
     return latest_date or today_taipei_yyyymmdd()
 
 
-def yyyymmdd_to_roc_slash(date_str: str) -> str:
-    year = int(date_str[:4]) - 1911
-    month = int(date_str[4:6])
-    day = int(date_str[6:8])
-
-    return f"{year}/{month:02d}/{day:02d}"
-
-
 def clean_columns(df: pd.DataFrame) -> pd.DataFrame:
     df = df.copy()
     df.columns = [
@@ -140,13 +175,6 @@ def clean_columns(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def dataframe_from_json_payload(payload: Any) -> list[pd.DataFrame]:
-    """
-    TWSE / TPEx 官方 API 有時回傳：
-    1. {"fields": [...], "data": [[...], ...]}
-    2. {"tables": [{"fields": [...], "data": [[...]]}, ...]}
-    3. 巢狀 dict/list
-    這裡盡量把所有可轉成表格的資料抓出來。
-    """
     frames: list[pd.DataFrame] = []
 
     if isinstance(payload, dict):
@@ -165,7 +193,10 @@ def dataframe_from_json_payload(payload: Any) -> list[pd.DataFrame]:
             for table in tables:
                 frames.extend(dataframe_from_json_payload(table))
 
-        for value in payload.values():
+        for key, value in payload.items():
+            if key in ["tables", "data", "fields", "headers", "columns", "rows", "aaData"]:
+                continue
+
             if isinstance(value, (dict, list)):
                 frames.extend(dataframe_from_json_payload(value))
 
@@ -183,7 +214,7 @@ def dataframe_from_json_payload(payload: Any) -> list[pd.DataFrame]:
     return frames
 
 
-def read_csv_from_text(text: str) -> list[pd.DataFrame]:
+def read_tables_from_text(text: str) -> list[pd.DataFrame]:
     frames: list[pd.DataFrame] = []
 
     if not text or len(text.strip()) < 10:
@@ -191,21 +222,22 @@ def read_csv_from_text(text: str) -> list[pd.DataFrame]:
 
     cleaned = text.replace("\ufeff", "").strip()
 
-    # JSON fallback
     if cleaned.startswith("{") or cleaned.startswith("["):
         try:
             payload = json.loads(cleaned)
-            return dataframe_from_json_payload(payload)
+            json_frames = dataframe_from_json_payload(payload)
+
+            if json_frames:
+                return json_frames
         except Exception:
             pass
 
     lines = cleaned.splitlines()
 
-    # 找可能的 header，不要只依賴第一行
     header_candidates = []
 
-    for idx, line in enumerate(lines[:80]):
-        normalized = line.replace(" ", "")
+    for idx, line in enumerate(lines[:100]):
+        normalized = line.replace(" ", "").replace("\u3000", "")
 
         if "," in line and any(
             key in normalized
@@ -213,10 +245,11 @@ def read_csv_from_text(text: str) -> list[pd.DataFrame]:
                 "權證代號",
                 "證券代號",
                 "權證名稱",
+                "證券名稱",
                 "標的",
-                "成交",
-                "發行",
-                "流通",
+                "成交股數",
+                "成交金額",
+                "收盤價",
             ]
         ):
             header_candidates.append(idx)
@@ -227,41 +260,34 @@ def read_csv_from_text(text: str) -> list[pd.DataFrame]:
     for header_index in header_candidates:
         csv_text = "\n".join(lines[header_index:])
 
-        for encoding_name in ["utf-8", "big5", "cp950"]:
-            try:
-                df = pd.read_csv(io.StringIO(csv_text), dtype=str)
-                df = clean_columns(df)
+        try:
+            df = pd.read_csv(io.StringIO(csv_text), dtype=str)
+            df = clean_columns(df)
 
-                if not df.empty and len(df.columns) >= 3:
-                    frames.append(df)
-                    break
-            except Exception:
-                continue
+            if not df.empty and len(df.columns) >= 3:
+                frames.append(df)
+        except Exception:
+            continue
 
     return frames
 
 
-def fetch_source(url: str, source_name: str) -> tuple[list[pd.DataFrame], str]:
+def fetch_source(url: str, source_name: str, referer: str = "https://www.twse.com.tw/") -> tuple[list[pd.DataFrame], str]:
     headers = {
         "User-Agent": "Mozilla/5.0",
         "Accept": "application/json,text/csv,text/plain,text/html,*/*",
-        "Referer": "https://www.twse.com.tw/",
+        "Referer": referer,
     }
 
     try:
         response = requests.get(url, headers=headers, timeout=30)
-        raw_text = response.text or ""
+        response.encoding = response.apparent_encoding or response.encoding or "utf-8"
 
-        # requests 有時自動判錯編碼，先讓它猜，再保留原文處理
-        if response.encoding:
-            response.encoding = response.apparent_encoding or response.encoding
+        frames = read_tables_from_text(response.text)
 
-        frames = read_csv_from_text(response.text)
-
-        # pandas read_html 當備援；如果環境沒 lxml/html5lib，會自動跳過
-        if not frames and "<table" in raw_text.lower():
+        if not frames and "<table" in response.text.lower():
             try:
-                html_frames = pd.read_html(raw_text)
+                html_frames = pd.read_html(response.text)
                 frames.extend([clean_columns(x.astype(str)) for x in html_frames if not x.empty])
             except Exception:
                 pass
@@ -269,7 +295,7 @@ def fetch_source(url: str, source_name: str) -> tuple[list[pd.DataFrame], str]:
         if frames:
             return frames, f"ok source={source_name}, status={response.status_code}, tables={len(frames)}, url={url}"
 
-        return [], f"empty_or_unparsed source={source_name}, status={response.status_code}, chars={len(raw_text)}, url={url}"
+        return [], f"empty_or_unparsed source={source_name}, status={response.status_code}, chars={len(response.text)}, url={url}"
 
     except Exception as exc:
         return [], f"failed source={source_name}, error={exc}, url={url}"
@@ -331,36 +357,40 @@ def pick_column(df: pd.DataFrame, candidates: list[str]) -> str | None:
     return None
 
 
-def classify_call_put(value: str) -> str:
+def classify_call_put_from_type(value: str) -> str:
     text = str(value).lower()
 
-    if any(key in text for key in ["認售", "售", "put", " p", "-p", " p "]):
+    if any(key in text for key in ["認售", "售", "put"]):
         return "put"
 
-    if any(key in text for key in ["認購", "購", "call", " c", "-c", " c "]):
+    if any(key in text for key in ["認購", "購", "call"]):
         return "call"
 
     return "unknown"
 
 
-def infer_call_put_from_name(warrant_name: str) -> str:
-    text = str(warrant_name)
+def classify_call_put_from_warrant_id(warrant_id: str) -> str:
+    wid = normalize_warrant_id(warrant_id)
 
-    if "售" in text:
+    if re.fullmatch(r"[0-9]{6}", wid):
+        return "call"
+
+    if re.fullmatch(r"[0-9]{5}[PUTQ]", wid):
         return "put"
 
-    if "購" in text:
+    if re.fullmatch(r"[0-9]{5}[F]", wid):
         return "call"
+
+    if re.fullmatch(r"[0-9]{5}[CBX]", wid):
+        return "call"
+
+    if re.fullmatch(r"[0-9]{5}[BY]", wid):
+        return "put"
 
     return "unknown"
 
 
 def infer_issuer_from_name(warrant_name: str) -> str:
-    """
-    權證名稱常見格式：
-    台積電元大52購01
-    欄位沒有 issuer 時，先用常見券商名做粗略推估。
-    """
     text = str(warrant_name)
 
     issuers = [
@@ -384,10 +414,10 @@ def infer_issuer_from_name(warrant_name: str) -> str:
         "永全",
         "元展",
         "土銀",
-        "合作金庫",
+        "合庫",
         "日盛",
         "上海",
-        "香港上海匯豐",
+        "匯豐",
         "摩根",
         "美林",
         "瑞銀",
@@ -401,12 +431,17 @@ def infer_issuer_from_name(warrant_name: str) -> str:
     return ""
 
 
-def standardize_warrant_table(
+def standardize_warrant_mapping_table(
     df: pd.DataFrame,
     market: str,
     source_name: str,
     source_url: str,
 ) -> pd.DataFrame:
+    """
+    來源：TWSE warrantStock。
+    用途：建立 權證代號 -> 標的股票 / 權證類型 / 權證名稱 對照。
+    這個來源通常沒有成交股數與成交金額。
+    """
     if df.empty:
         return pd.DataFrame()
 
@@ -421,67 +456,36 @@ def standardize_warrant_table(
     ])
 
     warrant_name_col = pick_column(df, [
+        "權證簡稱",
         "權證名稱",
         "證券名稱",
         "權證證券名稱",
         "名稱",
     ])
 
-    underlying_id_col = pick_column(df, [
-        "標的證券代號",
+    stock_id_col = pick_column(df, [
         "標的代號",
+        "標的證券代號",
         "標的股票代號",
-        "標的證券",
-        "標的股票",
-        "標的",
         "連結標的代號",
         "標的金融商品代號",
     ])
 
-    underlying_name_col = pick_column(df, [
-        "標的證券名稱",
+    stock_name_col = pick_column(df, [
         "標的名稱",
+        "標的證券名稱",
         "標的股票名稱",
         "連結標的名稱",
         "標的金融商品名稱",
     ])
 
     call_put_col = pick_column(df, [
+        "權證類型",
         "認購售",
         "認購/售",
         "認購售別",
-        "權證種類",
         "種類",
         "購售",
-        "權證類型",
-    ])
-
-    volume_col = pick_column(df, [
-        "成交股數",
-        "成交張數",
-        "成交量",
-        "成交單位",
-        "成交數量",
-    ])
-
-    turnover_col = pick_column(df, [
-        "成交金額",
-        "成交值",
-        "成交金額元",
-    ])
-
-    close_col = pick_column(df, [
-        "收盤價",
-        "收盤",
-        "最後成交價",
-    ])
-
-    issuer_col = pick_column(df, [
-        "發行人",
-        "發行機構",
-        "委託證券商",
-        "券商",
-        "發行券商",
     ])
 
     issued_col = pick_column(df, [
@@ -514,8 +518,7 @@ def standardize_warrant_table(
         "權證流通在外數量",
     ])
 
-    # 如果沒有權證代號或權證名稱，這張表就不是權證明細表
-    if not warrant_id_col and not warrant_name_col:
+    if not warrant_id_col:
         return pd.DataFrame()
 
     out = pd.DataFrame()
@@ -523,143 +526,279 @@ def standardize_warrant_table(
     out["source_name"] = source_name
     out["source_url"] = source_url
 
-    out["warrant_id"] = df[warrant_id_col].astype(str).str.strip() if warrant_id_col else ""
+    out["warrant_id"] = df[warrant_id_col].map(normalize_warrant_id)
     out["warrant_name"] = df[warrant_name_col].astype(str).str.strip() if warrant_name_col else ""
 
-    if underlying_id_col:
-        out["stock_id"] = df[underlying_id_col].map(normalize_code)
-    else:
-        out["stock_id"] = ""
+    out["stock_id"] = df[stock_id_col].map(normalize_code) if stock_id_col else ""
+    out["stock_name"] = df[stock_name_col].astype(str).str.strip() if stock_name_col else ""
 
-    # 有些表格標的欄位只有名稱，或代號藏在權證名稱裡；抓不到就先留空，debug 會顯示
-    out["stock_name"] = df[underlying_name_col].astype(str).str.strip() if underlying_name_col else ""
+    out["call_put_raw"] = df[call_put_col].astype(str).str.strip() if call_put_col else out["warrant_name"]
+    out["call_put"] = out["call_put_raw"].apply(classify_call_put_from_type)
 
-    if call_put_col:
-        out["call_put_raw"] = df[call_put_col].astype(str).str.strip()
-        out["call_put"] = out["call_put_raw"].apply(classify_call_put)
-    else:
-        out["call_put_raw"] = out["warrant_name"]
-        out["call_put"] = out["warrant_name"].apply(infer_call_put_from_name)
+    unknown_mask = out["call_put"] == "unknown"
 
-    out["volume"] = df[volume_col].map(to_number) if volume_col else pd.NA
-    out["turnover"] = df[turnover_col].map(to_number) if turnover_col else pd.NA
-    out["close"] = df[close_col].map(to_number) if close_col else pd.NA
+    if unknown_mask.any():
+        out.loc[unknown_mask, "call_put"] = out.loc[unknown_mask, "warrant_id"].apply(classify_call_put_from_warrant_id)
 
-    if issuer_col:
-        out["issuer"] = df[issuer_col].astype(str).str.strip()
-    else:
-        out["issuer"] = out["warrant_name"].apply(infer_issuer_from_name)
+    out["issuer"] = out["warrant_name"].apply(infer_issuer_from_name)
 
     out["issued_quantity"] = df[issued_col].map(to_number) if issued_col else pd.NA
     out["cancelled_quantity"] = df[cancelled_col].map(to_number) if cancelled_col else pd.NA
     out["latest_warrant_count"] = df[latest_count_col].map(to_number) if latest_count_col else pd.NA
     out["float_quantity"] = df[float_col].map(to_number) if float_col else pd.NA
 
-    out = out[out["warrant_id"].astype(str).str.strip().str.len() > 0].copy()
-
-    # 權證代號通常是 5～6 碼，避免把說明列誤判成資料
-    out = out[out["warrant_id"].astype(str).str.contains(r"\d", na=False)].copy()
-
-    # 標的股票代號抓不到時先剔除，否則無法彙總到股票層級
+    out = out[out["warrant_id"].apply(is_warrant_id)].copy()
     out = out[out["stock_id"].astype(str).str.match(r"^[0-9]{4}$", na=False)].copy()
 
     return out
 
 
-def fetch_twse_warrants(date_str: str) -> tuple[list[pd.DataFrame], list[str], list[dict]]:
+def standardize_twse_mi_index_quotes(
+    df: pd.DataFrame,
+    source_name: str,
+    source_url: str,
+) -> pd.DataFrame:
+    """
+    來源：TWSE MI_INDEX。
+    用途：抓權證的成交股數 / 成交金額 / 收盤價。
+    """
+    if df.empty:
+        return pd.DataFrame()
+
+    df = clean_columns(df)
+
+    id_col = pick_column(df, [
+        "證券代號",
+        "有價證券代號",
+        "代號",
+    ])
+
+    name_col = pick_column(df, [
+        "證券名稱",
+        "有價證券名稱",
+        "名稱",
+    ])
+
+    volume_col = pick_column(df, [
+        "成交股數",
+        "成交量",
+        "成交單位",
+    ])
+
+    turnover_col = pick_column(df, [
+        "成交金額",
+        "成交值",
+    ])
+
+    close_col = pick_column(df, [
+        "收盤價",
+        "收盤",
+    ])
+
+    if not id_col:
+        return pd.DataFrame()
+
+    out = pd.DataFrame()
+    out["market"] = "TWSE"
+    out["source_name"] = source_name
+    out["source_url"] = source_url
+    out["warrant_id"] = df[id_col].map(normalize_warrant_id)
+    out["warrant_name"] = df[name_col].astype(str).str.strip() if name_col else ""
+    out["volume"] = df[volume_col].map(to_number) if volume_col else pd.NA
+    out["turnover"] = df[turnover_col].map(to_number) if turnover_col else pd.NA
+    out["close"] = df[close_col].map(to_number) if close_col else pd.NA
+
+    out = out[out["warrant_id"].apply(is_warrant_id)].copy()
+
+    return out
+
+
+def fetch_twse_warrant_mapping(date_str: str) -> tuple[pd.DataFrame, list[str], list[dict]]:
     urls = [
         (
-            "TWSE_JSON_RWD",
+            "TWSE_WARRANT_STOCK_JSON",
             f"https://www.twse.com.tw/rwd/zh/stock/warrantStock?date={date_str}&response=json",
         ),
         (
-            "TWSE_CSV_RWD",
+            "TWSE_WARRANT_STOCK_CSV",
             f"https://www.twse.com.tw/rwd/zh/stock/warrantStock?date={date_str}&response=csv",
-        ),
-        (
-            "TWSE_JSON_OLD",
-            f"https://www.twse.com.tw/exchangeReport/warrantStock?date={date_str}&response=json",
-        ),
-        (
-            "TWSE_CSV_OLD",
-            f"https://www.twse.com.tw/exchangeReport/warrantStock?date={date_str}&response=csv",
         ),
     ]
 
     logs = []
     debug_rows = []
-    standardized_frames = []
+    frames = []
 
     for source_name, url in urls:
-        frames, log = fetch_source(url, source_name)
+        tables, log = fetch_source(url, source_name)
         logs.append(log)
 
-        for idx, frame in enumerate(frames):
+        for idx, table in enumerate(tables):
             debug_rows.append(
                 {
                     "source_name": source_name,
                     "market": "TWSE",
                     "table_index": idx,
-                    "rows": len(frame),
-                    "columns": " | ".join(map(str, frame.columns.tolist())),
+                    "rows": len(table),
+                    "columns": " | ".join(map(str, table.columns.tolist())),
+                    "parsed_as": "mapping",
                 }
             )
 
-            standardized = standardize_warrant_table(frame, "TWSE", source_name, url)
+            parsed = standardize_warrant_mapping_table(table, "TWSE", source_name, url)
 
-            if not standardized.empty:
-                standardized_frames.append(standardized)
+            if not parsed.empty:
+                frames.append(parsed)
 
-    return standardized_frames, logs, debug_rows
+    if not frames:
+        return pd.DataFrame(), logs, debug_rows
+
+    out = pd.concat(frames, ignore_index=True)
+    out = out.drop_duplicates(subset=["warrant_id"], keep="first")
+
+    return out, logs, debug_rows
 
 
-def fetch_tpex_warrants(date_str: str) -> tuple[list[pd.DataFrame], list[str], list[dict]]:
-    roc = yyyymmdd_to_roc_slash(date_str)
-
-    urls = [
-        (
-            "TPEX_DAILYQ_JSON",
-            f"https://www.tpex.org.tw/www/zh-tw/warrant/dailyQ?date={roc}&response=json",
-        ),
-        (
-            "TPEX_DAILYQ_CSV",
-            f"https://www.tpex.org.tw/www/zh-tw/warrant/dailyQ?date={roc}&response=csv",
-        ),
-        (
-            "TPEX_LEGACY_HTML",
-            f"https://www.tpex.org.tw/web/stock/aftertrading/warrant_quotes/warrant_quotes_result.php?l=zh-tw&d={roc}",
-        ),
-        (
-            "TPEX_EXTEND",
-            f"https://www.tpex.org.tw/ch/extend/warrant/dailyQ/wntQuts.php?l=zh-tw&d={roc}&s=0,asc,0",
-        ),
+def fetch_twse_mi_index_quotes(date_str: str) -> tuple[pd.DataFrame, list[str], list[dict]]:
+    """
+    重點：
+    - ALLBUT0999 會排除權證，不適合權證金流。
+    - 這裡改抓 ALL；若官方分類變動，再由 debug 看實際表格。
+    - 另外試幾個可能分類，抓得到就合併去重。
+    """
+    query_types = [
+        "ALL",
+        "0999",
+        "0999P",
+        "0999C",
+        "0999B",
     ]
 
     logs = []
     debug_rows = []
-    standardized_frames = []
+    frames = []
 
-    for source_name, url in urls:
-        frames, log = fetch_source(url, source_name)
-        logs.append(log)
+    for qtype in query_types:
+        urls = [
+            (
+                f"TWSE_MI_INDEX_{qtype}_JSON",
+                f"https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date={date_str}&type={qtype}&response=json",
+            ),
+            (
+                f"TWSE_MI_INDEX_{qtype}_CSV",
+                f"https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date={date_str}&type={qtype}&response=csv",
+            ),
+        ]
 
-        for idx, frame in enumerate(frames):
-            debug_rows.append(
-                {
-                    "source_name": source_name,
-                    "market": "TPEX",
-                    "table_index": idx,
-                    "rows": len(frame),
-                    "columns": " | ".join(map(str, frame.columns.tolist())),
-                }
-            )
+        for source_name, url in urls:
+            tables, log = fetch_source(url, source_name)
+            logs.append(log)
 
-            standardized = standardize_warrant_table(frame, "TPEX", source_name, url)
+            for idx, table in enumerate(tables):
+                debug_rows.append(
+                    {
+                        "source_name": source_name,
+                        "market": "TWSE",
+                        "table_index": idx,
+                        "rows": len(table),
+                        "columns": " | ".join(map(str, table.columns.tolist())),
+                        "parsed_as": "quote",
+                    }
+                )
 
-            if not standardized.empty:
-                standardized_frames.append(standardized)
+                parsed = standardize_twse_mi_index_quotes(table, source_name, url)
 
-    return standardized_frames, logs, debug_rows
+                if not parsed.empty:
+                    frames.append(parsed)
+
+            time.sleep(0.3)
+
+    if not frames:
+        return pd.DataFrame(), logs, debug_rows
+
+    out = pd.concat(frames, ignore_index=True)
+    out = out.drop_duplicates(subset=["warrant_id"], keep="last")
+
+    return out, logs, debug_rows
+
+
+def merge_mapping_and_quotes(mapping: pd.DataFrame, quotes: pd.DataFrame, date_str: str) -> pd.DataFrame:
+    if mapping.empty and quotes.empty:
+        return pd.DataFrame(columns=RAW_COLUMNS)
+
+    if quotes.empty:
+        out = mapping.copy()
+        out["volume"] = pd.NA
+        out["turnover"] = pd.NA
+        out["close"] = pd.NA
+        out["source_name"] = out["source_name"].astype(str) + "+no_quote"
+        out["source_url"] = out["source_url"].astype(str)
+    elif mapping.empty:
+        out = quotes.copy()
+        out["stock_id"] = ""
+        out["stock_name"] = ""
+        out["call_put_raw"] = out["warrant_id"]
+        out["call_put"] = out["warrant_id"].apply(classify_call_put_from_warrant_id)
+        out["issuer"] = out["warrant_name"].apply(infer_issuer_from_name)
+        out["issued_quantity"] = pd.NA
+        out["cancelled_quantity"] = pd.NA
+        out["latest_warrant_count"] = pd.NA
+        out["float_quantity"] = pd.NA
+    else:
+        mapping_cols = [
+            "warrant_id",
+            "stock_id",
+            "stock_name",
+            "call_put_raw",
+            "call_put",
+            "issuer",
+            "issued_quantity",
+            "cancelled_quantity",
+            "latest_warrant_count",
+            "float_quantity",
+        ]
+
+        mapping_small = mapping[[col for col in mapping_cols if col in mapping.columns]].copy()
+
+        out = quotes.merge(mapping_small, on="warrant_id", how="left")
+
+        if "stock_id" not in out.columns:
+            out["stock_id"] = ""
+
+        if "stock_name" not in out.columns:
+            out["stock_name"] = ""
+
+        if "call_put" not in out.columns:
+            out["call_put"] = ""
+
+        missing_type = out["call_put"].isna() | (out["call_put"].astype(str) == "") | (out["call_put"].astype(str) == "unknown")
+        out.loc[missing_type, "call_put"] = out.loc[missing_type, "warrant_id"].apply(classify_call_put_from_warrant_id)
+
+        if "call_put_raw" not in out.columns:
+            out["call_put_raw"] = out["call_put"]
+
+        if "issuer" not in out.columns:
+            out["issuer"] = out["warrant_name"].apply(infer_issuer_from_name)
+
+        for col in ["issued_quantity", "cancelled_quantity", "latest_warrant_count", "float_quantity"]:
+            if col not in out.columns:
+                out[col] = pd.NA
+
+    out.insert(0, "date", date_str)
+
+    for col in RAW_COLUMNS:
+        if col not in out.columns:
+            out[col] = pd.NA
+
+    out = out[RAW_COLUMNS].copy()
+
+    # 沒標的股票代號就不能彙總到股票層級，先剔除。
+    out = out[out["stock_id"].astype(str).str.match(r"^[0-9]{4}$", na=False)].copy()
+
+    out = out.drop_duplicates(subset=["date", "market", "warrant_id"], keep="last")
+    out = out.sort_values(["stock_id", "call_put", "warrant_id"]).reset_index(drop=True)
+
+    return out
 
 
 def write_debug(debug_rows: list[dict], extra_note: str = "") -> None:
@@ -681,34 +820,45 @@ def write_debug(debug_rows: list[dict], extra_note: str = "") -> None:
         return
 
     debug_df = pd.DataFrame(debug_rows)
-    debug_csv = DEBUG_DIR / "warrant_fetch_debug_latest.csv"
-    debug_df.to_csv(debug_csv, index=False, encoding="utf-8-sig")
+    debug_df.to_csv(DEBUG_CSV, index=False, encoding="utf-8-sig")
 
-    lines.append(f"- debug csv：`{debug_csv}`")
+    lines.append(f"- debug csv：`{DEBUG_CSV}`")
     lines.append("")
-    lines.append("| source_name | market | table_index | rows | columns |")
-    lines.append("|---|---|---:|---:|---|")
+    lines.append("| source_name | market | table_index | rows | parsed_as | columns |")
+    lines.append("|---|---|---:|---:|---|---|")
 
     for row in debug_rows:
+        columns_text = str(row.get("columns", "")).replace("|", "/")
+
         lines.append(
             f"| {row.get('source_name', '')} "
             f"| {row.get('market', '')} "
             f"| {row.get('table_index', '')} "
             f"| {row.get('rows', '')} "
-            f"| {str(row.get('columns', '')).replace('|', '/')} |"
+            f"| {row.get('parsed_as', '')} "
+            f"| {columns_text} |"
         )
 
     DEBUG_MD.write_text("\n".join(lines), encoding="utf-8")
 
 
-def write_status(date_str: str, rows: int, logs: list[str], warning: str = "") -> None:
+def write_status(
+    date_str: str,
+    rows: int,
+    mapping_rows: int,
+    quote_rows: int,
+    logs: list[str],
+    warning: str = "",
+) -> None:
     lines = []
     lines.append("# 官方權證每日資料抓取狀態")
     lines.append("")
     lines.append(f"- 產生時間：`{now_taipei()} Asia/Taipei`")
     lines.append(f"- 資料日期：`{date_str}`")
     lines.append(f"- 輸出檔：`{RAW_LATEST}`")
-    lines.append(f"- 筆數：`{rows}`")
+    lines.append(f"- 權證對照表筆數：`{mapping_rows}`")
+    lines.append(f"- 權證成交行情筆數：`{quote_rows}`")
+    lines.append(f"- 最終可彙總筆數：`{rows}`")
     lines.append(f"- debug：`{DEBUG_MD}`")
     lines.append("")
 
@@ -740,55 +890,68 @@ def main() -> int:
 
     date_str = args.date.strip() or get_latest_price_date()
 
-    logs = []
-    debug_rows = []
-    frames = []
+    logs: list[str] = []
+    debug_rows: list[dict] = []
 
-    twse_frames, twse_logs, twse_debug = fetch_twse_warrants(date_str)
-    logs.extend(twse_logs)
-    debug_rows.extend(twse_debug)
-    frames.extend(twse_frames)
+    mapping, mapping_logs, mapping_debug = fetch_twse_warrant_mapping(date_str)
+    logs.extend(mapping_logs)
+    debug_rows.extend(mapping_debug)
 
     time.sleep(1)
 
-    tpex_frames, tpex_logs, tpex_debug = fetch_tpex_warrants(date_str)
-    logs.extend(tpex_logs)
-    debug_rows.extend(tpex_debug)
-    frames.extend(tpex_frames)
+    quotes, quote_logs, quote_debug = fetch_twse_mi_index_quotes(date_str)
+    logs.extend(quote_logs)
+    debug_rows.extend(quote_debug)
 
-    write_debug(debug_rows)
+    out = merge_mapping_and_quotes(mapping, quotes, date_str)
 
-    if frames:
-        out = pd.concat(frames, ignore_index=True)
-        out.insert(0, "date", date_str)
-
-        for col in RAW_COLUMNS:
-            if col not in out.columns:
-                out[col] = pd.NA
-
-        out = out[RAW_COLUMNS].copy()
-        out = out.drop_duplicates(subset=["date", "market", "warrant_id"], keep="last")
-        out = out.sort_values(["stock_id", "call_put", "warrant_id"]).reset_index(drop=True)
-
-        out.to_csv(RAW_LATEST, index=False, encoding="utf-8-sig")
-        out.to_csv(HISTORY_DIR / f"warrant_daily_{date_str}.csv", index=False, encoding="utf-8-sig")
-
-        write_status(date_str, len(out), logs)
-
-        print(f"Saved: {RAW_LATEST}, rows={len(out)}")
-        return 0
-
-    empty = pd.DataFrame(columns=RAW_COLUMNS)
-    empty.to_csv(RAW_LATEST, index=False, encoding="utf-8-sig")
-
-    write_status(
-        date_str,
-        0,
-        logs,
-        warning="官方權證資料抓取失敗、格式無法解析，或官方資料沒有提供標的股票代號；已輸出空檔避免 workflow 失敗。",
+    write_debug(
+        debug_rows,
+        extra_note=f"mapping_rows={len(mapping)}, quote_rows={len(quotes)}, final_rows={len(out)}",
     )
 
-    print("No standardized warrant data fetched. Empty raw file created.")
+    if out.empty:
+        empty = pd.DataFrame(columns=RAW_COLUMNS)
+        empty.to_csv(RAW_LATEST, index=False, encoding="utf-8-sig")
+
+        write_status(
+            date_str=date_str,
+            rows=0,
+            mapping_rows=len(mapping),
+            quote_rows=len(quotes),
+            logs=logs,
+            warning=(
+                "權證資料未能產出股票層級可彙總資料。"
+                "若 mapping_rows > 0 但 quote_rows = 0，代表 MI_INDEX 沒抓到權證成交行情；"
+                "若 quote_rows > 0 但 final_rows = 0，代表成交行情與權證對照表無法用權證代號合併。"
+            ),
+        )
+
+        print("No usable stock-level warrant raw data. Empty raw file created.")
+        return 0
+
+    out.to_csv(RAW_LATEST, index=False, encoding="utf-8-sig")
+    out.to_csv(HISTORY_DIR / f"warrant_daily_{date_str}.csv", index=False, encoding="utf-8-sig")
+
+    missing_turnover = int(out["turnover"].isna().sum())
+    zero_turnover = int((pd.to_numeric(out["turnover"], errors="coerce").fillna(0) == 0).sum())
+
+    warning = ""
+
+    if missing_turnover == len(out) or zero_turnover == len(out):
+        warning = "最終資料有權證對照，但成交金額全部為空或 0，請查看 MI_INDEX quote debug。"
+
+    write_status(
+        date_str=date_str,
+        rows=len(out),
+        mapping_rows=len(mapping),
+        quote_rows=len(quotes),
+        logs=logs,
+        warning=warning,
+    )
+
+    print(f"Saved: {RAW_LATEST}, rows={len(out)}")
+    print(f"mapping_rows={len(mapping)}, quote_rows={len(quotes)}")
     return 0
 
 
