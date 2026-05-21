@@ -79,7 +79,7 @@ def to_number(value):
     text = text.replace("+", "")
     text = text.replace(" ", "")
 
-    if text in ["", "-", "nan", "None"]:
+    if text in ["", "-", "nan", "None", "NaN"]:
         return pd.NA
 
     return pd.to_numeric(text, errors="coerce")
@@ -93,6 +93,13 @@ def safe_float(value, default=0.0) -> float:
         return float(value)
     except Exception:
         return default
+
+
+def is_missing_number(value) -> bool:
+    try:
+        return pd.isna(value) or math.isnan(float(value))
+    except Exception:
+        return True
 
 
 def pct_change(current: float, previous: float):
@@ -135,6 +142,9 @@ def read_raw_latest() -> pd.DataFrame:
 
     if "stock_name" not in df.columns:
         df["stock_name"] = ""
+
+    if "stock_id" not in df.columns:
+        df["stock_id"] = ""
 
     df["stock_id"] = df["stock_id"].astype(str).str.zfill(4)
 
@@ -335,10 +345,34 @@ def add_history_changes(today: pd.DataFrame) -> pd.DataFrame:
     return today
 
 
+def has_history_comparison(row: pd.Series) -> bool:
+    compare_cols = [
+        "call_turnover_change_1d",
+        "call_turnover_change_5d",
+        "put_turnover_change_1d",
+        "put_turnover_change_5d",
+        "call_volume_change_1d",
+        "call_volume_change_5d",
+        "put_volume_change_1d",
+        "put_volume_change_5d",
+    ]
+
+    for col in compare_cols:
+        value = row.get(col, pd.NA)
+
+        if not is_missing_number(value):
+            return True
+
+    return False
+
+
 def classify_signal(row: pd.Series) -> tuple[str, int, str, str]:
     call_turnover = safe_float(row.get("call_turnover"))
     put_turnover = safe_float(row.get("put_turnover"))
     total_turnover = safe_float(row.get("total_warrant_turnover"))
+
+    call_volume = safe_float(row.get("call_volume"))
+    put_volume = safe_float(row.get("put_volume"))
 
     call_change_1d = safe_float(row.get("call_turnover_change_1d"), math.nan)
     call_change_5d = safe_float(row.get("call_turnover_change_5d"), math.nan)
@@ -355,59 +389,91 @@ def classify_signal(row: pd.Series) -> tuple[str, int, str, str]:
     warning = []
     notes = []
 
-    call_inflow = (
-        call_turnover >= 1_000_000
-        and (
-            (not math.isnan(call_change_1d) and call_change_1d >= 50)
-            or (not math.isnan(call_change_5d) and call_change_5d >= 50)
+    if total_turnover <= 0:
+        return "no_signal", 0, "", "今日無可用權證成交金額"
+
+    history_ready = has_history_comparison(row)
+
+    # 第一階段：有歷史資料時，才用真正的流入 / 流出變化率
+    if history_ready:
+        call_inflow = (
+            call_turnover >= 1_000_000
+            and (
+                (not math.isnan(call_change_1d) and call_change_1d >= 50)
+                or (not math.isnan(call_change_5d) and call_change_5d >= 50)
+            )
         )
-    )
 
-    call_strong = (
-        call_turnover >= 3_000_000
-        and (
-            (not math.isnan(call_change_1d) and call_change_1d >= 100)
-            or (not math.isnan(call_change_5d) and call_change_5d >= 100)
+        call_strong = (
+            call_turnover >= 3_000_000
+            and (
+                (not math.isnan(call_change_1d) and call_change_1d >= 100)
+                or (not math.isnan(call_change_5d) and call_change_5d >= 100)
+            )
         )
-    )
 
-    put_inflow = (
-        put_turnover >= 1_000_000
-        and (
-            (not math.isnan(put_change_1d) and put_change_1d >= 50)
-            or (not math.isnan(put_change_5d) and put_change_5d >= 50)
+        put_inflow = (
+            put_turnover >= 1_000_000
+            and (
+                (not math.isnan(put_change_1d) and put_change_1d >= 50)
+                or (not math.isnan(put_change_5d) and put_change_5d >= 50)
+            )
         )
-    )
 
-    bullish_ratio = not math.isnan(ratio) and ratio >= 2 and call_inflow
-    mixed = call_inflow and put_inflow
+        bullish_ratio = not math.isnan(ratio) and ratio >= 2 and call_inflow
+        mixed = call_inflow and put_inflow
 
-    if mixed:
-        signal = "mixed_flow"
-        score = 0
-        notes.append("認購與認售成交金額同步放大，方向不明")
-    elif call_strong and bullish_ratio:
-        signal = "call_put_bullish"
-        score = 3
-        notes.append("認購成交金額明顯大於認售，且認購資金明顯升溫")
-    elif call_strong:
-        signal = "call_strong_inflow"
-        score = 2
-        notes.append("認購權證成交金額明顯升溫")
-    elif call_inflow:
-        signal = "call_inflow"
-        score = 1
-        notes.append("認購權證資金升溫")
-    elif put_inflow:
-        signal = "put_inflow"
-        score = -1
-        warning.append("認售權證資金升溫，偏空或避險訊號")
-        notes.append("認售成交金額增加")
+        if mixed:
+            signal = "mixed_flow"
+            score = 0
+            notes.append("認購與認售成交金額同步放大，方向不明")
+        elif call_strong and bullish_ratio:
+            signal = "call_put_bullish"
+            score = 3
+            notes.append("認購成交金額明顯大於認售，且認購資金明顯升溫")
+        elif call_strong:
+            signal = "call_strong_inflow"
+            score = 2
+            notes.append("認購權證成交金額明顯升溫")
+        elif call_inflow:
+            signal = "call_inflow"
+            score = 1
+            notes.append("認購權證資金升溫")
+        elif put_inflow:
+            signal = "put_inflow"
+            score = -1
+            warning.append("認售權證資金升溫，偏空或避險訊號")
+            notes.append("認售成交金額增加")
+        else:
+            signal = "no_signal"
+            score = 0
+            notes.append("權證金流未見明顯高於近期平均的變化")
+
+    # 第二階段：沒有歷史資料時，用絕對金額做首日觀察，不直接當真正流入
     else:
-        signal = "no_signal"
-        score = 0
-        notes.append("無明顯權證資金訊號")
+        if call_turnover >= 30_000_000 and (math.isnan(ratio) or ratio >= 3):
+            signal = "call_activity_observation"
+            score = 0
+            notes.append("首日缺少歷史比較，認購權證成交金額偏高，先列觀察")
+        elif call_turnover >= 10_000_000 and (math.isnan(ratio) or ratio >= 5):
+            signal = "call_activity_observation"
+            score = 0
+            notes.append("首日缺少歷史比較，認購權證成交金額有一定水準，先列觀察")
+        elif put_turnover >= 10_000_000 and (not math.isnan(ratio) and ratio <= 0.7):
+            signal = "put_activity_observation"
+            score = 0
+            warning.append("首日缺少歷史比較，但認售權證成交金額偏高，先列避險觀察")
+            notes.append("首日缺少歷史比較，認售權證成交金額偏高")
+        elif call_turnover > 0 or put_turnover > 0:
+            signal = "no_signal"
+            score = 0
+            notes.append("首日缺少歷史比較，權證成交金額未達觀察門檻")
+        else:
+            signal = "no_signal"
+            score = 0
+            notes.append("今日無可用權證成交金額")
 
+    # 第三階段：低流通量權證異常成交，作為附加提醒
     if low_float_call > 0:
         if signal == "no_signal":
             signal = "low_float_call_spike"
@@ -420,13 +486,15 @@ def classify_signal(row: pd.Series) -> tuple[str, int, str, str]:
         warning.append("低流通量認售權證異常成交")
         notes.append(f"低流通量認售權證異常成交 {low_float_put} 檔")
 
-    if call_turnover >= 20_000_000 and not math.isnan(call_change_1d) and call_change_1d >= 300:
-        warning.append("認購權證成交金額急增，需檢查是否為追高或獲利結清風險")
+    # 第四階段：過熱提醒，先只給 warning，不直接改 signal，避免第一版太激進
+    if call_turnover >= 100_000_000 and (not math.isnan(ratio) and ratio >= 10):
+        warning.append("認購權證成交金額很大且認購/認售比偏高，需檢查標的是否高位追價或獲利結清")
 
-    if total_turnover <= 0:
-        signal = "no_signal"
-        score = 0
-        notes = ["今日無可用權證成交金額"]
+    if call_volume >= 50_000_000 and call_turnover >= 50_000_000:
+        warning.append("認購權證成交量與成交金額同步偏大，短線資金關注度高")
+
+    if put_turnover >= 30_000_000:
+        warning.append("認售權證成交金額偏大，需注意避險或偏空資金")
 
     return signal, int(score), "；".join(warning), "；".join(notes)
 
@@ -464,7 +532,12 @@ def write_markdown(df: pd.DataFrame) -> None:
     lines.append(f"- 股票數：`{len(df)}`")
     lines.append("")
 
-    summary = df.groupby("warrant_flow_signal").size().reset_index(name="count").sort_values("count", ascending=False)
+    summary = (
+        df.groupby("warrant_flow_signal", dropna=False)
+        .size()
+        .reset_index(name="count")
+        .sort_values("count", ascending=False)
+    )
 
     lines.append("## 訊號統計")
     lines.append("")
@@ -479,18 +552,25 @@ def write_markdown(df: pd.DataFrame) -> None:
     lines.append("")
 
     show = df[df["warrant_flow_signal"] != "no_signal"].copy()
-    show = show.sort_values(["warrant_flow_score", "total_warrant_turnover"], ascending=False).head(80)
 
     if show.empty:
         lines.append("今日無明顯權證金流訊號。")
     else:
+        show = show.sort_values(
+            ["warrant_flow_score", "total_warrant_turnover"],
+            ascending=False,
+        ).head(100)
+
         cols = [
             "stock_id",
             "stock_name",
             "warrant_flow_signal",
             "warrant_flow_score",
+            "call_warrant_count",
+            "put_warrant_count",
             "call_turnover",
             "put_turnover",
+            "total_warrant_turnover",
             "call_put_turnover_ratio",
             "call_turnover_change_1d",
             "call_turnover_change_5d",
@@ -512,7 +592,7 @@ def write_markdown(df: pd.DataFrame) -> None:
                 if pd.isna(value):
                     value = ""
 
-                values.append(str(value))
+                values.append(str(value).replace("|", "/").replace("\n", " "))
 
             lines.append("| " + " | ".join(values) + " |")
 
@@ -541,7 +621,11 @@ def main() -> int:
             out[col] = pd.NA
 
     out = out[OUTPUT_COLUMNS].copy()
-    out = out.sort_values(["warrant_flow_score", "total_warrant_turnover"], ascending=False).reset_index(drop=True)
+
+    out = out.sort_values(
+        ["warrant_flow_score", "total_warrant_turnover"],
+        ascending=False,
+    ).reset_index(drop=True)
 
     date_str = str(out["date"].iloc[0]) if not out.empty else datetime.now(ZoneInfo("Asia/Taipei")).strftime("%Y%m%d")
 
