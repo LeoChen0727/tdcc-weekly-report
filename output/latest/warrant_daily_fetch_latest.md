@@ -1,6 +1,6 @@
 # 官方權證每日資料抓取狀態
 
-- 產生時間：`2026-05-21 17:27:48 Asia/Taipei`
+- 產生時間：`2026-05-21 17:39:50 Asia/Taipei`
 - 資料日期：`20260520`
 - 輸出檔：`output/latest/warrant_daily_raw_latest.csv`
 - 筆數：`59526`
