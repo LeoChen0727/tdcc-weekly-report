@@ -7,9 +7,6 @@ on:
         description: "Optional date YYYYMMDD. Leave blank to use latest daily price date."
         required: false
         default: ""
-  schedule:
-    # Taiwan 19:45 = UTC 11:45
-    - cron: "45 11 * * 1-5"
 
 permissions:
   contents: write
