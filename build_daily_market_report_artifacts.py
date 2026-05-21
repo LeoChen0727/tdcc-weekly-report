@@ -37,10 +37,17 @@ DATA_FRESHNESS_MD = LATEST_DIR / "data_freshness_latest.md"
 ALL_CANDIDATES_CSV = LATEST_DIR / "all_candidates_latest.csv"
 CHART_MANIFEST_CSV = LATEST_DIR / "chart_manifest.csv"
 
+# 中文檔名：給人看
 LATEST_SUMMARY_MD = LATEST_DIR / "每日全市場候選股監測報告_精華版.md"
 LATEST_SUMMARY_PDF = LATEST_DIR / "每日全市場候選股監測報告_精華版.pdf"
 LATEST_FULL_MD = LATEST_DIR / "完整候選股清單_完整版.md"
 LATEST_FULL_PDF = LATEST_DIR / "完整候選股清單_完整版表格.pdf"
+
+# 英文 alias：給 ChatGPT / raw 工具穩定讀取
+LATEST_SUMMARY_ALIAS_MD = LATEST_DIR / "daily_market_summary_latest.md"
+LATEST_SUMMARY_ALIAS_PDF = LATEST_DIR / "daily_market_summary_latest.pdf"
+LATEST_FULL_ALIAS_MD = LATEST_DIR / "daily_market_full_latest.md"
+LATEST_FULL_ALIAS_PDF = LATEST_DIR / "daily_market_full_latest.pdf"
 
 MANIFEST_JSON = LATEST_DIR / "report_manifest_latest.json"
 MANIFEST_MD = LATEST_DIR / "report_manifest_latest.md"
@@ -337,10 +344,6 @@ def clean_text(text: str, limit: int = 80) -> str:
     return text
 
 
-def has_text(row: pd.Series, col: str) -> bool:
-    return bool(safe_str(row.get(col, "")))
-
-
 def tdcc_short(row: pd.Series) -> str:
     for col in ["tdcc_accumulation_signal", "tdcc_judgement", "tdcc_accumulation_note"]:
         value = safe_str(row.get(col, ""))
@@ -354,38 +357,6 @@ def tdcc_short(row: pd.Series) -> str:
             if value == "neutral":
                 return "中性"
             return clean_text(value, 28)
-
-    change_400 = safe_float(row.get("tdcc_400_change_sum", ""))
-    change_1000 = safe_float(row.get("tdcc_1000_change_sum", ""))
-
-    if not math.isnan(change_400) or not math.isnan(change_1000):
-        c400 = 0 if math.isnan(change_400) else change_400
-        c1000 = 0 if math.isnan(change_1000) else change_1000
-
-        if c400 > 0 and c1000 > 0:
-            return "大戶同步增加"
-        if c400 < 0 and c1000 < 0:
-            return "大戶同步減少"
-        if c400 + c1000 > 0:
-            return "大戶小增"
-        if c400 + c1000 < 0:
-            return "大戶小減"
-
-    holder_400 = safe_float(row.get("holder_400_change", ""))
-    holder_1000 = safe_float(row.get("holder_1000_change", ""))
-
-    if not math.isnan(holder_400) or not math.isnan(holder_1000):
-        h400 = 0 if math.isnan(holder_400) else holder_400
-        h1000 = 0 if math.isnan(holder_1000) else holder_1000
-
-        if h400 > 0 and h1000 > 0:
-            return "大戶同步增加"
-        if h400 < 0 and h1000 < 0:
-            return "大戶同步減少"
-        if h400 + h1000 > 0:
-            return "大戶小增"
-        if h400 + h1000 < 0:
-            return "大戶小減"
 
     note = safe_str(row.get("note", ""))
     if "TDCC近幾週400張與1000張同步累積" in note:
@@ -605,13 +576,6 @@ def compact_reason(row: pd.Series, category: str, limit: int = 70) -> str:
 
     if not tags:
         tags = compact_note_tags(row)
-
-    if not tags:
-        for col in ["breakout_type", "revenue_acceleration_note", "pattern_signal", "note"]:
-            value = safe_str(row.get(col, ""))
-            if value:
-                tags.append(clean_text(value, 30))
-                break
 
     seen = []
     for tag in tags:
@@ -858,15 +822,6 @@ def create_pdf_styles(font_name: str) -> dict:
             spaceBefore=12,
             spaceAfter=8,
         ),
-        "h2": ParagraphStyle(
-            "h2",
-            parent=styles["Heading2"],
-            fontName=font_name,
-            fontSize=12,
-            leading=16,
-            spaceBefore=8,
-            spaceAfter=5,
-        ),
         "normal": ParagraphStyle(
             "normal",
             parent=styles["Normal"],
@@ -1016,6 +971,7 @@ def build_summary_markdown(
         lines.append("")
 
         for _, row in show.iterrows():
+            category_value = safe_str(row.get("category", ""))
             stock = f"{safe_str(row.get('stock_id', ''))} {safe_str(row.get('stock_name', ''))}"
             lines.append(f"### {stock}")
             lines.append(f"- 族群：{theme_short(row)}")
@@ -1023,7 +979,7 @@ def build_summary_markdown(
             lines.append(f"- 優先級：{safe_str(row.get('revaluation_priority', ''))}")
             lines.append(f"- TDCC：{tdcc_short(row)}")
             lines.append(f"- 權證：{warrant_short(row)}")
-            lines.append(f"- 摘要：{compact_reason(row, safe_str(row.get('category', '')), 120)}")
+            lines.append(f"- 摘要：{compact_reason(row, category_value, 120)}")
             lines.append(f"- 完整原因：{build_reason(row, 220)}")
 
             chart_path = choose_chart_path(row, chart_manifest)
@@ -1243,12 +1199,7 @@ def build_full_pdf(
             for _, row in chunk.iterrows():
                 rows.append(category_pdf_row(category, row))
 
-            table = create_table(
-                rows,
-                styles,
-                col_widths=col_widths,
-            )
-
+            table = create_table(rows, styles, col_widths=col_widths)
             story.append(table)
 
     doc.build(story)
@@ -1262,24 +1213,67 @@ def build_manifest(
     history_summary_pdf: Path,
     history_full_md: Path,
     history_full_pdf: Path,
+    history_summary_alias_md: Path,
+    history_summary_alias_pdf: Path,
+    history_full_alias_md: Path,
+    history_full_alias_pdf: Path,
 ) -> dict:
     return {
         "generated_at": now_taipei() + " Asia/Taipei",
         "main_price_date": main_date,
         "report_ready": bool(report_ready),
         "report_ready_note": safe_str(meta.get("report_ready_note", "")),
+
+        "recommended_read_order": [
+            str(LATEST_SUMMARY_ALIAS_MD),
+            str(LATEST_FULL_ALIAS_MD),
+            str(LATEST_SUMMARY_ALIAS_PDF),
+            str(LATEST_FULL_ALIAS_PDF),
+            str(history_summary_alias_md),
+            str(history_full_alias_md),
+            str(history_summary_alias_pdf),
+            str(history_full_alias_pdf),
+            str(LATEST_SUMMARY_MD),
+            str(LATEST_FULL_MD),
+            str(LATEST_SUMMARY_PDF),
+            str(LATEST_FULL_PDF),
+        ],
+
         "latest_summary_md": str(LATEST_SUMMARY_MD),
         "latest_summary_pdf": str(LATEST_SUMMARY_PDF),
         "latest_full_md": str(LATEST_FULL_MD),
         "latest_full_pdf": str(LATEST_FULL_PDF),
+
+        "latest_summary_alias_md": str(LATEST_SUMMARY_ALIAS_MD),
+        "latest_summary_alias_pdf": str(LATEST_SUMMARY_ALIAS_PDF),
+        "latest_full_alias_md": str(LATEST_FULL_ALIAS_MD),
+        "latest_full_alias_pdf": str(LATEST_FULL_ALIAS_PDF),
+
         "history_summary_md": str(history_summary_md),
         "history_summary_pdf": str(history_summary_pdf),
         "history_full_md": str(history_full_md),
         "history_full_pdf": str(history_full_pdf),
+
+        "history_summary_alias_md": str(history_summary_alias_md),
+        "history_summary_alias_pdf": str(history_summary_alias_pdf),
+        "history_full_alias_md": str(history_full_alias_md),
+        "history_full_alias_pdf": str(history_full_alias_pdf),
+
+        "summary_alias_md_raw_url": raw_url_for_path(LATEST_SUMMARY_ALIAS_MD),
+        "summary_alias_pdf_raw_url": raw_url_for_path(LATEST_SUMMARY_ALIAS_PDF),
+        "full_alias_md_raw_url": raw_url_for_path(LATEST_FULL_ALIAS_MD),
+        "full_alias_pdf_raw_url": raw_url_for_path(LATEST_FULL_ALIAS_PDF),
+
+        "history_summary_alias_md_raw_url": raw_url_for_path(history_summary_alias_md),
+        "history_summary_alias_pdf_raw_url": raw_url_for_path(history_summary_alias_pdf),
+        "history_full_alias_md_raw_url": raw_url_for_path(history_full_alias_md),
+        "history_full_alias_pdf_raw_url": raw_url_for_path(history_full_alias_pdf),
+
         "summary_md_raw_url": raw_url_for_path(history_summary_md),
         "summary_pdf_raw_url": raw_url_for_path(history_summary_pdf),
         "full_md_raw_url": raw_url_for_path(history_full_md),
         "full_pdf_raw_url": raw_url_for_path(history_full_pdf),
+
         "data_freshness_raw_url": raw_url_for_path(DATA_FRESHNESS_MD),
         "all_candidates_raw_url": raw_url_for_path(ALL_CANDIDATES_CSV),
     }
@@ -1301,23 +1295,27 @@ def write_manifest_files(manifest: dict) -> None:
     lines.append("")
     lines.append("## 建議讀取順序")
     lines.append("")
-    lines.append("1. 優先讀日期版精華 MD。")
-    lines.append("2. 若 MD 讀取失敗，再讀日期版精華 PDF。")
-    lines.append("3. 若日期版讀取失敗，再讀 latest 版。")
-    lines.append("4. 若全部失敗，才回報讀取工具失敗。")
+    lines.append("請優先讀英文 alias 檔名，避免 ChatGPT raw 讀取工具對中文檔名 Cache miss。")
     lines.append("")
-    lines.append("## 檔案")
+    lines.append("1. latest 英文精華 MD")
+    lines.append("2. latest 英文完整版 MD")
+    lines.append("3. latest 英文精華 PDF")
+    lines.append("4. latest 英文完整版 PDF")
+    lines.append("5. 日期版英文 MD / PDF")
+    lines.append("6. 中文檔名僅作人類閱讀備援")
     lines.append("")
-    lines.append(f"- 日期版精華 MD：`{manifest.get('history_summary_md', '')}`")
-    lines.append(f"- 日期版精華 PDF：`{manifest.get('history_summary_pdf', '')}`")
-    lines.append(f"- 日期版完整版 MD：`{manifest.get('history_full_md', '')}`")
-    lines.append(f"- 日期版完整版 PDF：`{manifest.get('history_full_pdf', '')}`")
-    lines.append(f"- latest 精華 MD：`{manifest.get('latest_summary_md', '')}`")
-    lines.append(f"- latest 精華 PDF：`{manifest.get('latest_summary_pdf', '')}`")
-    lines.append(f"- latest 完整版 MD：`{manifest.get('latest_full_md', '')}`")
-    lines.append(f"- latest 完整版 PDF：`{manifest.get('latest_full_pdf', '')}`")
+    lines.append("## 英文 alias raw URLs")
     lines.append("")
-    lines.append("## Raw URLs")
+    lines.append(f"- latest summary md: {manifest.get('summary_alias_md_raw_url', '')}")
+    lines.append(f"- latest full md: {manifest.get('full_alias_md_raw_url', '')}")
+    lines.append(f"- latest summary pdf: {manifest.get('summary_alias_pdf_raw_url', '')}")
+    lines.append(f"- latest full pdf: {manifest.get('full_alias_pdf_raw_url', '')}")
+    lines.append(f"- history summary md: {manifest.get('history_summary_alias_md_raw_url', '')}")
+    lines.append(f"- history full md: {manifest.get('history_full_alias_md_raw_url', '')}")
+    lines.append(f"- history summary pdf: {manifest.get('history_summary_alias_pdf_raw_url', '')}")
+    lines.append(f"- history full pdf: {manifest.get('history_full_alias_pdf_raw_url', '')}")
+    lines.append("")
+    lines.append("## 中文檔名 raw URLs")
     lines.append("")
     lines.append(f"- summary_md_raw_url: {manifest.get('summary_md_raw_url', '')}")
     lines.append(f"- summary_pdf_raw_url: {manifest.get('summary_pdf_raw_url', '')}")
@@ -1355,6 +1353,7 @@ def main() -> int:
         report_ready=report_ready,
     )
 
+    # 寫中文 latest
     LATEST_SUMMARY_MD.write_text(summary_md, encoding="utf-8")
     LATEST_FULL_MD.write_text(full_md, encoding="utf-8")
 
@@ -1375,6 +1374,13 @@ def main() -> int:
         report_ready=report_ready,
     )
 
+    # 寫英文 latest alias
+    shutil.copyfile(LATEST_SUMMARY_MD, LATEST_SUMMARY_ALIAS_MD)
+    shutil.copyfile(LATEST_FULL_MD, LATEST_FULL_ALIAS_MD)
+    shutil.copyfile(LATEST_SUMMARY_PDF, LATEST_SUMMARY_ALIAS_PDF)
+    shutil.copyfile(LATEST_FULL_PDF, LATEST_FULL_ALIAS_PDF)
+
+    # 中文日期版
     history_summary_md = HISTORY_REPORT_DIR / f"{main_date}_每日全市場候選股監測報告_精華版.md"
     history_summary_pdf = HISTORY_REPORT_DIR / f"{main_date}_每日全市場候選股監測報告_精華版.pdf"
     history_full_md = HISTORY_REPORT_DIR / f"{main_date}_完整候選股清單_完整版.md"
@@ -1385,6 +1391,17 @@ def main() -> int:
     shutil.copyfile(LATEST_FULL_MD, history_full_md)
     shutil.copyfile(LATEST_FULL_PDF, history_full_pdf)
 
+    # 英文日期版 alias
+    history_summary_alias_md = HISTORY_REPORT_DIR / f"{main_date}_daily_market_summary.md"
+    history_summary_alias_pdf = HISTORY_REPORT_DIR / f"{main_date}_daily_market_summary.pdf"
+    history_full_alias_md = HISTORY_REPORT_DIR / f"{main_date}_daily_market_full.md"
+    history_full_alias_pdf = HISTORY_REPORT_DIR / f"{main_date}_daily_market_full.pdf"
+
+    shutil.copyfile(LATEST_SUMMARY_ALIAS_MD, history_summary_alias_md)
+    shutil.copyfile(LATEST_SUMMARY_ALIAS_PDF, history_summary_alias_pdf)
+    shutil.copyfile(LATEST_FULL_ALIAS_MD, history_full_alias_md)
+    shutil.copyfile(LATEST_FULL_ALIAS_PDF, history_full_alias_pdf)
+
     manifest = build_manifest(
         main_date=main_date,
         report_ready=report_ready,
@@ -1393,6 +1410,10 @@ def main() -> int:
         history_summary_pdf=history_summary_pdf,
         history_full_md=history_full_md,
         history_full_pdf=history_full_pdf,
+        history_summary_alias_md=history_summary_alias_md,
+        history_summary_alias_pdf=history_summary_alias_pdf,
+        history_full_alias_md=history_full_alias_md,
+        history_full_alias_pdf=history_full_alias_pdf,
     )
 
     write_manifest_files(manifest)
@@ -1401,6 +1422,10 @@ def main() -> int:
     print(f"Saved: {LATEST_SUMMARY_PDF}")
     print(f"Saved: {LATEST_FULL_MD}")
     print(f"Saved: {LATEST_FULL_PDF}")
+    print(f"Saved alias: {LATEST_SUMMARY_ALIAS_MD}")
+    print(f"Saved alias: {LATEST_SUMMARY_ALIAS_PDF}")
+    print(f"Saved alias: {LATEST_FULL_ALIAS_MD}")
+    print(f"Saved alias: {LATEST_FULL_ALIAS_PDF}")
     print(f"Saved: {MANIFEST_JSON}")
     print(f"Saved: {MANIFEST_MD}")
 
