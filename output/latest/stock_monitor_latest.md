@@ -251,7 +251,7 @@
 
 ## 權證金流輔助欄位
 
-- 更新時間：`2026-05-21 18:12:16 Asia/Taipei`
+- 更新時間：`2026-05-21 18:34:11 Asia/Taipei`
 - 狀態：`Merged warrant flow into all candidates. rows=310, matched_rows=163`
 - 權證金流檔案：`output/latest/warrant_flow_latest.csv`
 
