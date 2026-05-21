@@ -1,29 +1,33 @@
 # 每日報告 Manifest
 
-- 產生時間：`2026-05-22 01:39:38 Asia/Taipei`
+- 產生時間：`2026-05-22 02:16:19 Asia/Taipei`
 - 主資料日期：`20260521`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：主監測報告與完整候選清單日期一致，可以產出正式每日報告
 
 ## 建議讀取順序
 
-1. 優先讀日期版精華 MD。
-2. 若 MD 讀取失敗，再讀日期版精華 PDF。
-3. 若日期版讀取失敗，再讀 latest 版。
-4. 若全部失敗，才回報讀取工具失敗。
+請優先讀英文 alias 檔名，避免 ChatGPT raw 讀取工具對中文檔名 Cache miss。
 
-## 檔案
+1. latest 英文精華 MD
+2. latest 英文完整版 MD
+3. latest 英文精華 PDF
+4. latest 英文完整版 PDF
+5. 日期版英文 MD / PDF
+6. 中文檔名僅作人類閱讀備援
 
-- 日期版精華 MD：`output/history/reports/20260521_每日全市場候選股監測報告_精華版.md`
-- 日期版精華 PDF：`output/history/reports/20260521_每日全市場候選股監測報告_精華版.pdf`
-- 日期版完整版 MD：`output/history/reports/20260521_完整候選股清單_完整版.md`
-- 日期版完整版 PDF：`output/history/reports/20260521_完整候選股清單_完整版表格.pdf`
-- latest 精華 MD：`output/latest/每日全市場候選股監測報告_精華版.md`
-- latest 精華 PDF：`output/latest/每日全市場候選股監測報告_精華版.pdf`
-- latest 完整版 MD：`output/latest/完整候選股清單_完整版.md`
-- latest 完整版 PDF：`output/latest/完整候選股清單_完整版表格.pdf`
+## 英文 alias raw URLs
 
-## Raw URLs
+- latest summary md: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_summary_latest.md
+- latest full md: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_full_latest.md
+- latest summary pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_summary_latest.pdf
+- latest full pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_full_latest.pdf
+- history summary md: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260521_daily_market_summary.md
+- history full md: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260521_daily_market_full.md
+- history summary pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260521_daily_market_summary.pdf
+- history full pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260521_daily_market_full.pdf
+
+## 中文檔名 raw URLs
 
 - summary_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260521_%E6%AF%8F%E6%97%A5%E5%85%A8%E5%B8%82%E5%A0%B4%E5%80%99%E9%81%B8%E8%82%A1%E7%9B%A3%E6%B8%AC%E5%A0%B1%E5%91%8A_%E7%B2%BE%E8%8F%AF%E7%89%88.md
 - summary_pdf_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260521_%E6%AF%8F%E6%97%A5%E5%85%A8%E5%B8%82%E5%A0%B4%E5%80%99%E9%81%B8%E8%82%A1%E7%9B%A3%E6%B8%AC%E5%A0%B1%E5%91%8A_%E7%B2%BE%E8%8F%AF%E7%89%88.pdf
