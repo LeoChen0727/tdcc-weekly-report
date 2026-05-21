@@ -1,6 +1,6 @@
 # 權證官方資料抓取 Debug
 
-- 產生時間：`2026-05-22 00:41:42 Asia/Taipei`
+- 產生時間：`2026-05-22 01:05:52 Asia/Taipei`
 
 - note：`mapping_rows=30018, quote_rows=30039, final_rows=30018`
 
