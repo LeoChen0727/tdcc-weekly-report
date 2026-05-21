@@ -682,7 +682,8 @@ def main():
         report_path = write_report(taiwan_now, target_date, None, log_lines)
         print("No valid official daily price data found.")
         print(f"Report saved: {report_path}")
-        raise SystemExit(1)
+        print("Continue pipeline without updating official daily price data.")
+    return 0
 
     date_str = selected["date"]
     combined = selected["combined"]
