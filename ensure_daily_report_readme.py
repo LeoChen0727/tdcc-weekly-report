@@ -13,37 +13,44 @@ import pandas as pd
 REPO_RAW_PREFIX = "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main"
 
 LATEST_DIR = Path("output/latest")
-
-MANIFEST_JSON = LATEST_DIR / "report_manifest_latest.json"
-MANIFEST_MD = LATEST_DIR / "report_manifest_latest.md"
-DATA_FRESHNESS_MD = LATEST_DIR / "data_freshness_latest.md"
-DATA_FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
+HISTORY_REPORT_DIR = Path("output/history/reports")
 
 README_TXT = LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt"
 
-DAILY_SUMMARY_MD = LATEST_DIR / "daily_market_summary_latest.md"
-DAILY_FULL_MD = LATEST_DIR / "daily_market_full_latest.md"
-DAILY_SUMMARY_PDF = LATEST_DIR / "daily_market_summary_latest.pdf"
-DAILY_FULL_PDF = LATEST_DIR / "daily_market_full_latest.pdf"
+DATA_FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
+DATA_FRESHNESS_MD = LATEST_DIR / "data_freshness_latest.md"
+REPORT_MANIFEST_JSON = LATEST_DIR / "report_manifest_latest.json"
+PACKET_MANIFEST_JSON = LATEST_DIR / "chatgpt_daily_report_packet_manifest.json"
 
-CHINESE_SUMMARY_MD = LATEST_DIR / "每日全市場候選股監測報告_精華版.md"
-CHINESE_SUMMARY_PDF = LATEST_DIR / "每日全市場候選股監測報告_精華版.pdf"
-CHINESE_FULL_MD = LATEST_DIR / "完整候選股清單_完整版.md"
-CHINESE_FULL_PDF = LATEST_DIR / "完整候選股清單_完整版表格.pdf"
+PACKET_LATEST = LATEST_DIR / "CHATGPT_DAILY_REPORT_PACKET.txt"
 
+SUMMARY_LATEST_MD = LATEST_DIR / "daily_market_summary_latest.md"
+FULL_LATEST_MD = LATEST_DIR / "daily_market_full_latest.md"
+SUMMARY_LATEST_PDF = LATEST_DIR / "daily_market_summary_latest.pdf"
+FULL_LATEST_PDF = LATEST_DIR / "daily_market_full_latest.pdf"
+
+REPORT_MANIFEST_MD = LATEST_DIR / "report_manifest_latest.md"
+REPORT_MANIFEST_JSON_PATH = LATEST_DIR / "report_manifest_latest.json"
 ALL_CANDIDATES_CSV = LATEST_DIR / "all_candidates_latest.csv"
 ALL_CANDIDATES_XLSX = LATEST_DIR / "all_candidates_latest.xlsx"
 CHART_MANIFEST_CSV = LATEST_DIR / "chart_manifest.csv"
 CONTACT_SHEET_MANIFEST_CSV = LATEST_DIR / "contact_sheet_manifest.csv"
-
 OFFICIAL_PRICE_FETCH_MD = LATEST_DIR / "official_price_fetch_latest.md"
 OFFICIAL_PRICE_FETCH_JSON = LATEST_DIR / "official_price_fetch_latest.json"
 WARRANT_FLOW_CSV = LATEST_DIR / "warrant_flow_latest.csv"
 STOCK_MONITOR_MD = LATEST_DIR / "stock_monitor_latest.md"
 
 
-def now_taipei() -> str:
-    return datetime.now(ZoneInfo("Asia/Taipei")).strftime("%Y-%m-%d %H:%M:%S Asia/Taipei")
+def now_taipei() -> datetime:
+    return datetime.now(ZoneInfo("Asia/Taipei"))
+
+
+def now_text() -> str:
+    return now_taipei().strftime("%Y-%m-%d %H:%M:%S Asia/Taipei")
+
+
+def cache_bust() -> str:
+    return now_taipei().strftime("%Y%m%d%H%M%S")
 
 
 def normalize_date(value: Any) -> str:
@@ -65,6 +72,17 @@ def normalize_date(value: Any) -> str:
     return ""
 
 
+def raw_url(path: Path, bust: bool = False) -> str:
+    url = f"{REPO_RAW_PREFIX}/{path.as_posix()}"
+    if bust:
+        url = f"{url}?v={cache_bust()}"
+    return url
+
+
+def file_status(path: Path) -> str:
+    return "exists" if path.exists() else "missing"
+
+
 def safe_read_text(path: Path) -> str:
     if not path.exists():
         return ""
@@ -78,15 +96,7 @@ def safe_read_text(path: Path) -> str:
     return ""
 
 
-def raw_url(path: Path) -> str:
-    return f"{REPO_RAW_PREFIX}/{path.as_posix()}"
-
-
-def file_status(path: Path) -> str:
-    return "exists" if path.exists() else "missing"
-
-
-def extract_from_json(path: Path) -> dict[str, Any]:
+def read_json(path: Path) -> dict[str, Any]:
     if not path.exists():
         return {}
 
@@ -95,7 +105,7 @@ def extract_from_json(path: Path) -> dict[str, Any]:
         if isinstance(data, dict):
             return data
     except Exception:
-        return {}
+        pass
 
     return {}
 
@@ -127,197 +137,168 @@ def extract_data_freshness() -> dict[str, str]:
 
     text = safe_read_text(DATA_FRESHNESS_MD)
 
-    patterns = {
-        "main_price_date": [
-            r"主資料日期[：:\s`]*([0-9/\-]{8,10})",
-            r"main_price_date[：:\s`]*([0-9/\-]{8,10})",
-        ],
-        "report_ready": [
-            r"是否可產出正式每日報告[：:\s`]*(True|False|true|false)",
-            r"report_ready[：:\s`]*(True|False|true|false)",
-        ],
-    }
+    m = re.search(r"主資料日期[：:\s`]*([0-9/\-]{8,10})", text)
+    if m:
+        result["main_price_date"] = normalize_date(m.group(1))
 
-    for key, pats in patterns.items():
-        for pat in pats:
-            m = re.search(pat, text)
-            if m:
-                if key == "report_ready":
-                    result[key] = m.group(1)
-                else:
-                    result[key] = normalize_date(m.group(1))
-                break
+    m = re.search(r"是否可產出正式每日報告[：:\s`]*(True|False|true|false)", text)
+    if m:
+        result["report_ready"] = m.group(1)
 
     return result
 
 
-def extract_manifest_info() -> dict[str, Any]:
-    data = extract_from_json(MANIFEST_JSON)
+def get_main_meta() -> dict[str, str]:
+    freshness = extract_data_freshness()
+    manifest = read_json(REPORT_MANIFEST_JSON)
 
-    result = {
-        "main_price_date": "",
-        "report_ready": "",
-        "summary_md": "",
-        "full_md": "",
-        "summary_pdf": "",
-        "full_pdf": "",
+    main_price_date = (
+        normalize_date(manifest.get("main_price_date", ""))
+        or normalize_date(manifest.get("price_date", ""))
+        or normalize_date(manifest.get("date", ""))
+        or freshness.get("main_price_date", "")
+    )
+
+    report_ready = (
+        str(manifest.get("report_ready", "")).strip()
+        or str(manifest.get("ready", "")).strip()
+        or freshness.get("report_ready", "")
+    )
+
+    return {
+        "main_price_date": main_price_date,
+        "report_ready": report_ready,
+        "all_candidates_date": freshness.get("all_candidates_date", ""),
+        "official_price_fetch_date": freshness.get("official_price_fetch_date", ""),
+        "stock_monitor_date": freshness.get("stock_monitor_date", ""),
+        "warrant_flow_date": freshness.get("warrant_flow_date", ""),
     }
 
-    if data:
-        for key in ["main_price_date", "price_date", "date", "data_date"]:
-            if key in data:
-                result["main_price_date"] = normalize_date(data.get(key, ""))
-                break
 
-        for key in ["report_ready", "ready", "can_generate_report"]:
-            if key in data:
-                result["report_ready"] = str(data.get(key, ""))
-                break
-
-        # 嘗試支援不同 manifest 欄位命名
-        for key in ["summary_md", "daily_market_summary_md", "summary_report_md"]:
-            if key in data:
-                result["summary_md"] = str(data.get(key, ""))
-                break
-
-        for key in ["full_md", "daily_market_full_md", "full_report_md"]:
-            if key in data:
-                result["full_md"] = str(data.get(key, ""))
-                break
-
-        for key in ["summary_pdf", "daily_market_summary_pdf", "summary_report_pdf"]:
-            if key in data:
-                result["summary_pdf"] = str(data.get(key, ""))
-                break
-
-        for key in ["full_pdf", "daily_market_full_pdf", "full_report_pdf"]:
-            if key in data:
-                result["full_pdf"] = str(data.get(key, ""))
-                break
-
-    # 不管 manifest 怎麼寫，固定 alias 一定補上
-    if not result["summary_md"]:
-        result["summary_md"] = DAILY_SUMMARY_MD.as_posix()
-
-    if not result["full_md"]:
-        result["full_md"] = DAILY_FULL_MD.as_posix()
-
-    if not result["summary_pdf"]:
-        result["summary_pdf"] = DAILY_SUMMARY_PDF.as_posix()
-
-    if not result["full_pdf"]:
-        result["full_pdf"] = DAILY_FULL_PDF.as_posix()
-
-    if not result["main_price_date"]:
-        freshness = extract_data_freshness()
-        result["main_price_date"] = freshness.get("main_price_date", "")
-
-    if not result["report_ready"]:
-        freshness = extract_data_freshness()
-        result["report_ready"] = freshness.get("report_ready", "")
-
-    return result
+def build_file_block(label: str, path: Path) -> list[str]:
+    return [
+        f"- {label}",
+        f"  path: {path.as_posix()}",
+        f"  status: {file_status(path)}",
+        f"  raw_url: {raw_url(path)}",
+        f"  raw_url_cache_bust: {raw_url(path, bust=True)}",
+    ]
 
 
 def build_readme() -> str:
-    manifest = extract_manifest_info()
-    freshness = extract_data_freshness()
+    meta = get_main_meta()
+    main_date = meta.get("main_price_date", "")
+    report_ready = meta.get("report_ready", "")
 
-    main_price_date = manifest.get("main_price_date") or freshness.get("main_price_date", "")
-    report_ready = manifest.get("report_ready") or freshness.get("report_ready", "")
+    dated_packet = HISTORY_REPORT_DIR / f"{main_date}_CHATGPT_DAILY_REPORT_PACKET.txt"
+    dated_summary_md = HISTORY_REPORT_DIR / f"{main_date}_daily_market_summary.md"
+    dated_full_md = HISTORY_REPORT_DIR / f"{main_date}_daily_market_full.md"
+    dated_summary_pdf = HISTORY_REPORT_DIR / f"{main_date}_daily_market_summary.pdf"
+    dated_full_pdf = HISTORY_REPORT_DIR / f"{main_date}_daily_market_full.pdf"
+
+    packet_manifest = read_json(PACKET_MANIFEST_JSON)
 
     lines: list[str] = []
 
     lines.append("DAILY MARKET REPORT READ ME FIRST")
     lines.append("")
-    lines.append(f"generated_at: {now_taipei()}")
-    lines.append(f"repo: LeoChen0727/tdcc-weekly-report")
-    lines.append(f"main_price_date: {main_price_date}")
+    lines.append(f"generated_at: {now_text()}")
+    lines.append("repo: LeoChen0727/tdcc-weekly-report")
+    lines.append(f"main_price_date: {main_date}")
     lines.append(f"report_ready: {report_ready}")
+    lines.append(f"all_candidates_date: {meta.get('all_candidates_date', '')}")
+    lines.append(f"official_price_fetch_date: {meta.get('official_price_fetch_date', '')}")
+    lines.append(f"stock_monitor_date: {meta.get('stock_monitor_date', '')}")
+    lines.append(f"warrant_flow_date: {meta.get('warrant_flow_date', '')}")
     lines.append("")
-    lines.append("IMPORTANT RULES FOR CHATGPT READER")
+    lines.append("IMPORTANT")
     lines.append("")
-    lines.append("1. This file is the first file to read before producing the daily Taiwan stock candidate report.")
-    lines.append("2. If this file says report_ready=True and main_price_date is the target report date, GitHub has produced the official report.")
-    lines.append("3. If the report files below cannot be read, say the reading tool failed. Do NOT say GitHub data is not updated.")
-    lines.append("4. Do NOT reuse older reports such as 20260521 to recreate a newer report such as 20260522.")
-    lines.append("5. Prefer English alias filenames first. Avoid relying on Chinese filenames when the reader tool has cache issues.")
-    lines.append("6. If MD files fail, try PDF files. If both fail, ask the user to upload the MD/PDF files.")
+    lines.append("This file is only the entry point.")
+    lines.append("The most stable source is the dated CHATGPT_DAILY_REPORT_PACKET because it directly embeds the report content.")
+    lines.append("Do not depend only on latest files because latest URLs are overwritten every trading day and may hit cache problems.")
     lines.append("")
-    lines.append("PRIMARY FILES TO READ IN ORDER")
+    lines.append("READING PRIORITY")
     lines.append("")
-
-    primary_files = [
-        ("report_manifest_latest.md", MANIFEST_MD),
-        ("report_manifest_latest.json", MANIFEST_JSON),
-        ("data_freshness_latest.md", DATA_FRESHNESS_MD),
-        ("daily_market_summary_latest.md", DAILY_SUMMARY_MD),
-        ("daily_market_full_latest.md", DAILY_FULL_MD),
-        ("daily_market_summary_latest.pdf", DAILY_SUMMARY_PDF),
-        ("daily_market_full_latest.pdf", DAILY_FULL_PDF),
-    ]
-
-    for label, path in primary_files:
-        lines.append(f"- {label}")
-        lines.append(f"  path: {path.as_posix()}")
-        lines.append(f"  status: {file_status(path)}")
-        lines.append(f"  raw_url: {raw_url(path)}")
-
+    lines.append("1. Dated CHATGPT packet")
+    lines.append("2. Latest CHATGPT packet")
+    lines.append("3. Dated summary/full MD")
+    lines.append("4. Dated summary/full PDF")
+    lines.append("5. Latest English alias MD/PDF")
+    lines.append("6. Manifest/freshness files only for status checking")
+    lines.append("7. Chinese filenames are human-display backup only")
+    lines.append("")
+    lines.append("RULES FOR CHATGPT READER")
+    lines.append("")
+    lines.append("1. If main_price_date matches the requested date and report_ready=True, GitHub has produced the official report.")
+    lines.append("2. If the packet or report files cannot be read, say the reading tool failed. Do NOT say GitHub data is not updated.")
+    lines.append("3. Do NOT use older reports to recreate a newer report.")
+    lines.append("4. Do NOT turn Cache miss into a market-data conclusion.")
+    lines.append("5. If all GitHub reading fails, ask the user to paste CHATGPT_DAILY_REPORT_PACKET.txt.")
+    lines.append("")
+    lines.append("PRIMARY DATED PACKET")
+    lines.append("")
+    lines.extend(build_file_block("dated_chatgpt_packet", dated_packet))
+    lines.append("")
+    lines.append("LATEST PACKET")
+    lines.append("")
+    lines.extend(build_file_block("latest_chatgpt_packet", PACKET_LATEST))
+    lines.append("")
+    lines.append("DATED REPORT FILES")
+    lines.append("")
+    for label, path in [
+        ("dated_summary_md", dated_summary_md),
+        ("dated_full_md", dated_full_md),
+        ("dated_summary_pdf", dated_summary_pdf),
+        ("dated_full_pdf", dated_full_pdf),
+    ]:
+        lines.extend(build_file_block(label, path))
+    lines.append("")
+    lines.append("LATEST ENGLISH ALIAS FILES")
+    lines.append("")
+    for label, path in [
+        ("latest_summary_md", SUMMARY_LATEST_MD),
+        ("latest_full_md", FULL_LATEST_MD),
+        ("latest_summary_pdf", SUMMARY_LATEST_PDF),
+        ("latest_full_pdf", FULL_LATEST_PDF),
+    ]:
+        lines.extend(build_file_block(label, path))
+    lines.append("")
+    lines.append("STATUS FILES")
+    lines.append("")
+    for label, path in [
+        ("report_manifest_latest_md", REPORT_MANIFEST_MD),
+        ("report_manifest_latest_json", REPORT_MANIFEST_JSON_PATH),
+        ("data_freshness_latest_md", DATA_FRESHNESS_MD),
+        ("data_freshness_latest_csv", DATA_FRESHNESS_CSV),
+        ("packet_manifest_json", PACKET_MANIFEST_JSON),
+    ]:
+        lines.extend(build_file_block(label, path))
     lines.append("")
     lines.append("SECONDARY DATA FILES")
     lines.append("")
-
-    secondary_files = [
-        ("all_candidates_latest.csv", ALL_CANDIDATES_CSV),
-        ("all_candidates_latest.xlsx", ALL_CANDIDATES_XLSX),
-        ("chart_manifest.csv", CHART_MANIFEST_CSV),
-        ("contact_sheet_manifest.csv", CONTACT_SHEET_MANIFEST_CSV),
-        ("official_price_fetch_latest.md", OFFICIAL_PRICE_FETCH_MD),
-        ("official_price_fetch_latest.json", OFFICIAL_PRICE_FETCH_JSON),
-        ("warrant_flow_latest.csv", WARRANT_FLOW_CSV),
-        ("stock_monitor_latest.md", STOCK_MONITOR_MD),
-    ]
-
-    for label, path in secondary_files:
-        lines.append(f"- {label}")
-        lines.append(f"  path: {path.as_posix()}")
-        lines.append(f"  status: {file_status(path)}")
-        lines.append(f"  raw_url: {raw_url(path)}")
-
+    for label, path in [
+        ("all_candidates_latest_csv", ALL_CANDIDATES_CSV),
+        ("all_candidates_latest_xlsx", ALL_CANDIDATES_XLSX),
+        ("chart_manifest_csv", CHART_MANIFEST_CSV),
+        ("contact_sheet_manifest_csv", CONTACT_SHEET_MANIFEST_CSV),
+        ("official_price_fetch_latest_md", OFFICIAL_PRICE_FETCH_MD),
+        ("official_price_fetch_latest_json", OFFICIAL_PRICE_FETCH_JSON),
+        ("warrant_flow_latest_csv", WARRANT_FLOW_CSV),
+        ("stock_monitor_latest_md", STOCK_MONITOR_MD),
+    ]:
+        lines.extend(build_file_block(label, path))
     lines.append("")
-    lines.append("CHINESE DISPLAY FILES")
+    lines.append("PACKET MANIFEST SNAPSHOT")
     lines.append("")
-
-    chinese_files = [
-        ("每日全市場候選股監測報告_精華版.md", CHINESE_SUMMARY_MD),
-        ("每日全市場候選股監測報告_精華版.pdf", CHINESE_SUMMARY_PDF),
-        ("完整候選股清單_完整版.md", CHINESE_FULL_MD),
-        ("完整候選股清單_完整版表格.pdf", CHINESE_FULL_PDF),
-    ]
-
-    for label, path in chinese_files:
-        lines.append(f"- {label}")
-        lines.append(f"  path: {path.as_posix()}")
-        lines.append(f"  status: {file_status(path)}")
-        lines.append(f"  raw_url: {raw_url(path)}")
-
+    if packet_manifest:
+        for key, value in packet_manifest.items():
+            lines.append(f"{key}: {value}")
+    else:
+        lines.append("packet_manifest: missing")
     lines.append("")
-    lines.append("DATE CHECK")
+    lines.append("EXPECTED RESPONSE IF TOOL FAILS")
     lines.append("")
-    lines.append(f"main_price_date: {main_price_date}")
-    lines.append(f"report_ready: {report_ready}")
-    lines.append(f"all_candidates_date: {freshness.get('all_candidates_date', '')}")
-    lines.append(f"official_price_fetch_date: {freshness.get('official_price_fetch_date', '')}")
-    lines.append(f"stock_monitor_date: {freshness.get('stock_monitor_date', '')}")
-    lines.append(f"warrant_flow_date: {freshness.get('warrant_flow_date', '')}")
-    lines.append("")
-    lines.append("EXPECTED BEHAVIOR")
-    lines.append("")
-    lines.append("If main_price_date matches the requested date and report_ready=True:")
-    lines.append("- Produce the report from daily_market_summary_latest.md and daily_market_full_latest.md when readable.")
-    lines.append("- If these files cannot be read due to Cache miss, report a tool-reading failure.")
-    lines.append("- Do not claim the GitHub report has not been produced.")
-    lines.append("- Do not use stale older files to recreate today's report.")
+    lines.append("讀取工具失敗，目前無法取得 GitHub 已產出的報告內容；請直接貼上 CHATGPT_DAILY_REPORT_PACKET.txt。")
     lines.append("")
 
     return "\n".join(lines)
@@ -325,10 +306,8 @@ def build_readme() -> str:
 
 def main() -> int:
     LATEST_DIR.mkdir(parents=True, exist_ok=True)
-
     content = build_readme()
     README_TXT.write_text(content, encoding="utf-8")
-
     print(f"Saved: {README_TXT}")
     return 0
 
