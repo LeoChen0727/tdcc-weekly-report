@@ -194,11 +194,15 @@ jobs:
         run: |
           python ensure_report_aliases.py
 
+      - name: Build ChatGPT daily report packet
+        run: |
+          python build_chatgpt_daily_report_packet.py
+
       - name: Build daily report readme entry file
         run: |
           python ensure_daily_report_readme.py
 
-      - name: Commit candidate charts, all candidates, warrant flow, report artifacts, freshness status, current holdings, and readme entry
+      - name: Commit candidate charts, reports, packets, freshness status, and current holdings
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
@@ -245,6 +249,8 @@ jobs:
           git add output/latest/report_manifest_latest.json || true
 
           git add output/latest/READ_ME_FIRST_DAILY_REPORT.txt || true
+          git add output/latest/CHATGPT_DAILY_REPORT_PACKET.txt || true
+          git add output/latest/chatgpt_daily_report_packet_manifest.json || true
 
           git add output/latest/每日全市場候選股監測報告_精華版.md || true
           git add output/latest/每日全市場候選股監測報告_精華版.pdf || true
@@ -262,6 +268,7 @@ jobs:
           git add build_daily_market_report_artifacts.py || true
           git add ensure_report_aliases.py || true
           git add ensure_daily_report_readme.py || true
+          git add build_chatgpt_daily_report_packet.py || true
           git add current_holdings_pattern.py || true
           git add config/current_holdings.json || true
           git add scripts/fetch_official_warrant_daily.py || true
@@ -272,7 +279,7 @@ jobs:
           git add stock_daily_monitor.py || true
 
           git status --short
-          git commit -m "Update full daily pipeline with report artifacts and readme entry" || echo "No changes to commit"
+          git commit -m "Update full daily pipeline with dated report packets" || echo "No changes to commit"
 
           for i in 1 2 3; do
             git pull --rebase origin main || true
