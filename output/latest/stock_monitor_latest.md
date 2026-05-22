@@ -105,3 +105,16 @@
 - `stock_monitor_latest.md` 的主資料日期應與最新官方價格資料日一致。
 - `range_rebound` / `near_resistance` / `abnormal_volume_up` 不混入嚴格突破。
 - TDCC 僅作背景確認，不作硬篩選。
+
+## 權證金流輔助欄位
+
+- 更新時間：`2026-05-23 00:40:24 Asia/Taipei`
+- 狀態：`warrant_flow_latest.csv empty. Added empty warrant columns only.`
+- 權證金流檔案：`output/latest/warrant_flow_latest.csv`
+
+使用方式：
+- `true_breakout + call_strong_inflow`：突破動能加分，但仍需確認位階、TDCC、量能。
+- `range_rebound + call_inflow`：挑戰前高動能加分，但未突破前不可歸為嚴格突破。
+- `revenue_pullback + call_inflow`：回檔後資金試單，可提高觀察優先度。
+- `高位 true_breakout + warrant_overheat / call_profit_exit_risk`：追高或獲利結清風險提高。
+- `put_inflow`：偏空或避險警訊，不直接否定，但降低追價意願。

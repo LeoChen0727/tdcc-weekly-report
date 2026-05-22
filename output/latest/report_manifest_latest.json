@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-23 00:28:40 Asia/Taipei",
+  "generated_at": "2026-05-23 00:40:27 Asia/Taipei",
   "main_price_date": "20260523",
   "report_ready": true,
   "report_ready_note": "完整候選清單與官方價格資料日期一致，可以產出正式每日報告",
@@ -47,5 +47,5 @@
   "full_pdf_raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260523_%E5%AE%8C%E6%95%B4%E5%80%99%E9%81%B8%E8%82%A1%E6%B8%85%E5%96%AE_%E5%AE%8C%E6%95%B4%E7%89%88%E8%A1%A8%E6%A0%BC.pdf",
   "data_freshness_raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/data_freshness_latest.md",
   "all_candidates_raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/all_candidates_latest.csv",
-  "alias_generated_at": "2026-05-23 00:28:40 Asia/Taipei"
+  "alias_generated_at": "2026-05-23 00:40:27 Asia/Taipei"
 }
