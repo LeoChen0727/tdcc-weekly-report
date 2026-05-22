@@ -216,6 +216,7 @@ jobs:
 
           cp output/latest/chatgpt_daily_report_packet_latest.txt docs/latest/chatgpt_daily_report_packet_latest.txt
           cp output/latest/CHATGPT_DAILY_REPORT_RULES.txt docs/latest/CHATGPT_DAILY_REPORT_RULES.txt
+          cp output/latest/pdf_kline_chart_status_latest.md docs/latest/pdf_kline_chart_status_latest.md || true
 
           {
             echo "main_price_date=pending"
@@ -270,6 +271,9 @@ jobs:
 
           git add output/latest/report_manifest_latest.md || true
           git add output/latest/report_manifest_latest.json || true
+          git add output/latest/pdf_kline_chart_status_latest.csv || true
+          git add output/latest/pdf_kline_chart_status_latest.json || true
+          git add output/latest/pdf_kline_chart_status_latest.md || true
 
           git add output/latest/每日全市場候選股監測報告_精華版.md || true
           git add output/latest/每日全市場候選股監測報告_精華版.pdf || true
@@ -292,6 +296,7 @@ jobs:
 
           git add docs/latest/chatgpt_daily_report_packet_latest.txt || true
           git add docs/latest/READ_ME_FIRST_DAILY_REPORT.txt || true
+          git add docs/latest/pdf_kline_chart_status_latest.md || true
 
           git add build_data_freshness_latest.py || true
           git add build_daily_market_report_artifacts.py || true
@@ -353,8 +358,12 @@ jobs:
           git add docs/latest/READ_ME_FIRST_DAILY_REPORT.txt || true
           git add docs/latest/chatgpt_daily_report_packet_latest.txt || true
           git add docs/latest/CHATGPT_DAILY_REPORT_RULES.txt || true
+          git add docs/latest/pdf_kline_chart_status_latest.md || true
 
           git add output/latest/CHATGPT_DAILY_REPORT_RULES.txt || true
+          git add output/latest/pdf_kline_chart_status_latest.csv || true
+          git add output/latest/pdf_kline_chart_status_latest.json || true
+          git add output/latest/pdf_kline_chart_status_latest.md || true
 
           git add publish_chatgpt_report_readme_and_check.py || true
 
