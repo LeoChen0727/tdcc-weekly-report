@@ -1,6 +1,6 @@
 # 目前持股 180 日型態分析
 
-- 產生時間：`2026-05-23 03:28:02 Asia/Taipei`
+- 產生時間：`2026-05-23 03:39:05 Asia/Taipei`
 - CSV：`output/latest/current_holdings_pattern_latest.csv`
 - 圖表資料夾：`output/latest/charts/current_holdings`
 
