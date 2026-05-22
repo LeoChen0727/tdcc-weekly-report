@@ -43,6 +43,9 @@ DATA_FRESHNESS_MD = LATEST_DIR / "data_freshness_latest.md"
 ALL_CANDIDATES_CSV = LATEST_DIR / "all_candidates_latest.csv"
 CHART_MANIFEST_CSV = LATEST_DIR / "chart_manifest.csv"
 PDF_KLINE_DIR = LATEST_DIR / "charts" / "pdf_kline"
+PDF_KLINE_STATUS_CSV = LATEST_DIR / "pdf_kline_chart_status_latest.csv"
+PDF_KLINE_STATUS_JSON = LATEST_DIR / "pdf_kline_chart_status_latest.json"
+PDF_KLINE_STATUS_MD = LATEST_DIR / "pdf_kline_chart_status_latest.md"
 PDF_KLINE_DAYS_DEFAULT = 180
 PDF_KLINE_MIN_DAYS = 60
 
@@ -637,9 +640,14 @@ def build_chart_item(row: pd.Series, chart_manifest: pd.DataFrame) -> dict:
             chart_path = draw_pdf_kline_chart(row, price_df, source)
             return {
                 "title": title,
+                "stock_id": stock_id,
+                "stock_name": stock_name,
+                "category": safe_str(row.get("category", "")),
                 "image_path": chart_path,
                 "note": f"來源：日價資料重畫；{source}；{len(price_df)} 日",
-                "source_type": "price_data",
+                "source_type": "local_price_redraw",
+                "source": source,
+                "chart_days": chart_days_from_row(row),
             }
         except Exception as exc:
             warning = f"{warning}; redraw_failed: {exc}".strip("; ")
@@ -650,9 +658,14 @@ def build_chart_item(row: pd.Series, chart_manifest: pd.DataFrame) -> dict:
     if fallback_path:
         return {
             "title": title,
+            "stock_id": stock_id,
+            "stock_name": stock_name,
+            "category": safe_str(row.get("category", "")),
             "image_path": fallback_path,
             "note": f"備援：日價資料不足或無法重畫，使用既有 chart_path；{warning}",
             "source_type": "chart_path_fallback",
+            "source": chart_ref,
+            "chart_days": chart_days_from_row(row),
         }
 
     chart_path = safe_str(row.get("chart_path", ""))
@@ -660,6 +673,9 @@ def build_chart_item(row: pd.Series, chart_manifest: pd.DataFrame) -> dict:
 
     return {
         "title": title,
+        "stock_id": stock_id,
+        "stock_name": stock_name,
+        "category": safe_str(row.get("category", "")),
         "image_path": None,
         "note": (
             "無法取得日價資料與圖檔，僅保留 chart_path / chart_url。"
@@ -668,7 +684,135 @@ def build_chart_item(row: pd.Series, chart_manifest: pd.DataFrame) -> dict:
             f" chart_url：{chart_url or chart_ref or '-'}"
         ),
         "source_type": "missing",
+        "source": "",
+        "chart_days": chart_days_from_row(row),
     }
+
+
+def path_to_text(value) -> str:
+    if isinstance(value, Path):
+        return value.as_posix()
+    return safe_str(value)
+
+
+def chart_status_label(source_type: str) -> str:
+    if source_type == "local_price_redraw":
+        return "redrawn_from_local_price_data"
+    if source_type == "chart_path_fallback":
+        return "fallback_to_existing_chart_path"
+    return "missing_price_data_and_chart_file"
+
+
+def build_chart_status_row(row: pd.Series, item: dict) -> dict:
+    source_type = safe_str(item.get("source_type", ""))
+    return {
+        "date": safe_str(row.get("date", "")),
+        "stock_id": normalize_price_stock_id(row.get("stock_id", "")),
+        "stock_name": safe_str(row.get("stock_name", "")),
+        "category": safe_str(row.get("category", "")),
+        "category_cn": safe_str(row.get("category_cn", "")),
+        "chart_status": chart_status_label(source_type),
+        "source_type": source_type,
+        "chart_days": safe_str(item.get("chart_days", chart_days_from_row(row))),
+        "image_path": path_to_text(item.get("image_path", "")),
+        "price_source": safe_str(item.get("source", "")),
+        "price_data_path": safe_str(row.get("price_data_path", "")),
+        "candidate_chart_path": safe_str(row.get("chart_path", "")),
+        "candidate_chart_url": safe_str(row.get("chart_url", "")),
+        "note": safe_str(item.get("note", "")),
+    }
+
+
+def write_pdf_kline_status(rows: list[dict]) -> dict:
+    columns = [
+        "date",
+        "stock_id",
+        "stock_name",
+        "category",
+        "category_cn",
+        "chart_status",
+        "source_type",
+        "chart_days",
+        "image_path",
+        "price_source",
+        "price_data_path",
+        "candidate_chart_path",
+        "candidate_chart_url",
+        "note",
+    ]
+
+    df = pd.DataFrame(rows)
+    if df.empty:
+        df = pd.DataFrame(columns=columns)
+    else:
+        for col in columns:
+            if col not in df.columns:
+                df[col] = ""
+        df = df[columns]
+
+    counts = df["source_type"].value_counts().to_dict() if "source_type" in df.columns else {}
+    local_count = int(counts.get("local_price_redraw", 0))
+    fallback_count = int(counts.get("chart_path_fallback", 0))
+    missing_count = int(counts.get("missing", 0))
+    total_count = int(len(df))
+
+    summary = {
+        "status": "generated" if total_count else "no_summary_candidates",
+        "policy": "local_price_redraw_first",
+        "pdf_kline_output_dir": PDF_KLINE_DIR.as_posix(),
+        "chart_status_csv": PDF_KLINE_STATUS_CSV.as_posix(),
+        "chart_status_json": PDF_KLINE_STATUS_JSON.as_posix(),
+        "chart_status_md": PDF_KLINE_STATUS_MD.as_posix(),
+        "total_charts": total_count,
+        "local_price_redraw_count": local_count,
+        "chart_path_fallback_count": fallback_count,
+        "missing_count": missing_count,
+        "chart_path_and_chart_url_are_fallback_only": True,
+        "do_not_downgrade_on_chart_url_failure": True,
+    }
+
+    PDF_KLINE_STATUS_CSV.parent.mkdir(parents=True, exist_ok=True)
+    df.to_csv(PDF_KLINE_STATUS_CSV, index=False, encoding="utf-8-sig")
+    PDF_KLINE_STATUS_JSON.write_text(
+        json.dumps({"summary": summary, "charts": df.to_dict("records")}, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+
+    lines = [
+        "# 精華版 PDF K 線圖產出狀態",
+        "",
+        f"- status: `{summary['status']}`",
+        f"- policy: `{summary['policy']}`",
+        f"- total_charts: `{total_count}`",
+        f"- local_price_redraw_count: `{local_count}`",
+        f"- chart_path_fallback_count: `{fallback_count}`",
+        f"- missing_count: `{missing_count}`",
+        f"- pdf_kline_output_dir: `{PDF_KLINE_DIR.as_posix()}`",
+        "- chart_path/chart_url 僅是備援欄位，不代表精華版 PDF 優先使用外部圖片。",
+        "- 若 chart_url 下載失敗，但 local_price_redraw_count 大於 0，不得把精華版 PDF 說成圖片下載失敗版。",
+        "",
+        "| stock_id | stock_name | category | chart_status | image_path | price_source |",
+        "|---|---|---|---|---|---|",
+    ]
+
+    for record in df.to_dict("records"):
+        lines.append(
+            "| "
+            + " | ".join(
+                [
+                    safe_str(record.get("stock_id", "")),
+                    safe_str(record.get("stock_name", "")),
+                    safe_str(record.get("category", "")),
+                    safe_str(record.get("chart_status", "")),
+                    f"`{safe_str(record.get('image_path', ''))}`",
+                    f"`{safe_str(record.get('price_source', ''))}`",
+                ]
+            )
+            + " |"
+        )
+
+    PDF_KLINE_STATUS_MD.write_text("\n".join(lines), encoding="utf-8")
+    return summary
 
 
 def clean_text(text: str, limit: int = 80) -> str:
@@ -1367,6 +1511,14 @@ def build_summary_markdown(
     lines.append(f"- 判斷說明：{safe_str(meta.get('report_ready_note', ''))}")
     lines.append(f"- 權證資料日期：`{safe_str(meta.get('warrant_flow_date', ''))}`")
     lines.append("")
+    lines.append("## 精華版 PDF K 線圖狀態")
+    lines.append("")
+    lines.append("- PDF K 線圖政策：`local_price_redraw_first`")
+    lines.append(f"- PDF K 線圖輸出目錄：`{PDF_KLINE_DIR.as_posix()}`")
+    lines.append(f"- PDF K 線圖狀態檔：`{PDF_KLINE_STATUS_MD.as_posix()}`")
+    lines.append("- 精華版 PDF 會先使用 repo 內日價資料重畫 120/180 日 K 線圖；`chart_path` / `chart_url` 只是資料不足時的備援。")
+    lines.append("- 不得因候選資料內的 `chart_url` 下載失敗，就把精華版 PDF 判定為圖片下載失敗版。")
+    lines.append("")
 
     if candidates.empty:
         lines.append("目前沒有候選股資料。")
@@ -1409,8 +1561,9 @@ def build_summary_markdown(
             lines.append(f"- 完整原因：{build_reason(row, 220)}")
 
             chart_path = choose_chart_path(row, chart_manifest)
+            lines.append("- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）")
             if chart_path:
-                lines.append(f"- 圖表：{chart_path if chart_path.startswith('http') else '`' + chart_path + '`'}")
+                lines.append(f"- 候選資料備援圖表：{chart_path if chart_path.startswith('http') else '`' + chart_path + '`'}")
 
             lines.append("")
 
@@ -1511,11 +1664,15 @@ def build_summary_pdf(
     story.append(p(f"是否可產出正式每日報告：{report_ready}", styles["normal"]))
     story.append(p(f"判斷說明：{safe_str(meta.get('report_ready_note', ''))}", styles["normal"]))
     story.append(p(f"權證資料日期：{safe_str(meta.get('warrant_flow_date', ''))}", styles["normal"]))
+    story.append(p("PDF K 線圖政策：local_price_redraw_first；chart_path/chart_url 僅作為資料不足時備援。", styles["normal"]))
     story.append(Spacer(1, 0.3 * cm))
+
+    chart_status_rows = []
 
     if candidates.empty:
         story.append(p("目前沒有候選股資料。", styles["normal"]))
         doc.build(story)
+        write_pdf_kline_status(chart_status_rows)
         return
 
     summary_rows = [["分類", "檔數"]]
@@ -1557,7 +1714,9 @@ def build_summary_pdf(
             story.append(p(f"權證：{warrant_short(row)}", styles["card_body"]))
             story.append(p(f"摘要：{compact_reason(row, category_value, 120)}", styles["card_body"]))
 
-            chart_items.append(build_chart_item(row, chart_manifest))
+            chart_item = build_chart_item(row, chart_manifest)
+            chart_items.append(chart_item)
+            chart_status_rows.append(build_chart_status_row(row, chart_item))
             story.append(Spacer(1, 0.2 * cm))
 
         if chart_items:
@@ -1566,6 +1725,7 @@ def build_summary_pdf(
             add_chart_grid(story, chart_items, styles)
 
     doc.build(story)
+    write_pdf_kline_status(chart_status_rows)
 
 
 def build_full_pdf(
@@ -1635,6 +1795,20 @@ def build_full_pdf(
     doc.build(story)
 
 
+def read_pdf_kline_status_summary() -> dict:
+    if not PDF_KLINE_STATUS_JSON.exists():
+        return {}
+
+    try:
+        data = json.loads(PDF_KLINE_STATUS_JSON.read_text(encoding="utf-8"))
+        if isinstance(data, dict) and isinstance(data.get("summary"), dict):
+            return data["summary"]
+    except Exception:
+        pass
+
+    return {}
+
+
 def build_manifest(
     main_date: str,
     report_ready: bool,
@@ -1648,11 +1822,23 @@ def build_manifest(
     history_full_alias_md: Path,
     history_full_alias_pdf: Path,
 ) -> dict:
+    kline_status = read_pdf_kline_status_summary()
+
     return {
         "generated_at": now_taipei() + " Asia/Taipei",
         "main_price_date": main_date,
         "report_ready": bool(report_ready),
         "report_ready_note": safe_str(meta.get("report_ready_note", "")),
+        "summary_pdf_kline_policy": kline_status.get("policy", "local_price_redraw_first"),
+        "summary_pdf_kline_status": kline_status.get("status", ""),
+        "summary_pdf_kline_total_charts": kline_status.get("total_charts", 0),
+        "summary_pdf_kline_local_price_redraw_count": kline_status.get("local_price_redraw_count", 0),
+        "summary_pdf_kline_chart_path_fallback_count": kline_status.get("chart_path_fallback_count", 0),
+        "summary_pdf_kline_missing_count": kline_status.get("missing_count", 0),
+        "summary_pdf_kline_output_dir": PDF_KLINE_DIR.as_posix(),
+        "summary_pdf_kline_status_csv": str(PDF_KLINE_STATUS_CSV),
+        "summary_pdf_kline_status_json": str(PDF_KLINE_STATUS_JSON),
+        "summary_pdf_kline_status_md": str(PDF_KLINE_STATUS_MD),
 
         "recommended_read_order": [
             str(LATEST_SUMMARY_ALIAS_MD),
@@ -1706,6 +1892,9 @@ def build_manifest(
 
         "data_freshness_raw_url": raw_url_for_path(DATA_FRESHNESS_MD),
         "all_candidates_raw_url": raw_url_for_path(ALL_CANDIDATES_CSV),
+        "summary_pdf_kline_status_csv_raw_url": raw_url_for_path(PDF_KLINE_STATUS_CSV),
+        "summary_pdf_kline_status_json_raw_url": raw_url_for_path(PDF_KLINE_STATUS_JSON),
+        "summary_pdf_kline_status_md_raw_url": raw_url_for_path(PDF_KLINE_STATUS_MD),
     }
 
 
@@ -1722,6 +1911,17 @@ def write_manifest_files(manifest: dict) -> None:
     lines.append(f"- 主資料日期：`{manifest.get('main_price_date', '')}`")
     lines.append(f"- 是否可產出正式每日報告：`{manifest.get('report_ready', '')}`")
     lines.append(f"- 判斷說明：{manifest.get('report_ready_note', '')}")
+    lines.append("")
+    lines.append("## 精華版 PDF K 線圖狀態")
+    lines.append("")
+    lines.append(f"- policy: `{manifest.get('summary_pdf_kline_policy', '')}`")
+    lines.append(f"- status: `{manifest.get('summary_pdf_kline_status', '')}`")
+    lines.append(f"- total_charts: `{manifest.get('summary_pdf_kline_total_charts', '')}`")
+    lines.append(f"- local_price_redraw_count: `{manifest.get('summary_pdf_kline_local_price_redraw_count', '')}`")
+    lines.append(f"- chart_path_fallback_count: `{manifest.get('summary_pdf_kline_chart_path_fallback_count', '')}`")
+    lines.append(f"- missing_count: `{manifest.get('summary_pdf_kline_missing_count', '')}`")
+    lines.append(f"- status_md_raw_url: {manifest.get('summary_pdf_kline_status_md_raw_url', '')}")
+    lines.append("- chart_path/chart_url 僅是備援欄位，不代表精華版 PDF 優先使用外部圖片。")
     lines.append("")
     lines.append("## 建議讀取順序")
     lines.append("")
