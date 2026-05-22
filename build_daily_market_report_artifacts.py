@@ -11,6 +11,11 @@ from urllib.parse import quote
 
 import pandas as pd
 
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+from matplotlib.patches import Rectangle
+
 from reportlab.lib import colors
 from reportlab.lib.enums import TA_LEFT, TA_CENTER
 from reportlab.lib.pagesizes import A4, landscape
@@ -31,11 +36,15 @@ from reportlab.pdfbase import pdfmetrics
 
 LATEST_DIR = Path("output/latest")
 HISTORY_REPORT_DIR = Path("output/history/reports")
+DATA_PRICE_DIR = Path("data/daily_price")
 
 DATA_FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
 DATA_FRESHNESS_MD = LATEST_DIR / "data_freshness_latest.md"
 ALL_CANDIDATES_CSV = LATEST_DIR / "all_candidates_latest.csv"
 CHART_MANIFEST_CSV = LATEST_DIR / "chart_manifest.csv"
+PDF_KLINE_DIR = LATEST_DIR / "charts" / "pdf_kline"
+PDF_KLINE_DAYS_DEFAULT = 180
+PDF_KLINE_MIN_DAYS = 60
 
 # 中文檔名：給人看
 LATEST_SUMMARY_MD = LATEST_DIR / "每日全市場候選股監測報告_精華版.md"
@@ -333,6 +342,333 @@ def choose_chart_path(row: pd.Series, chart_manifest: pd.DataFrame) -> str:
                 return value
 
     return ""
+
+
+PRICE_HISTORY_CACHE: dict[str, pd.DataFrame] = {}
+
+
+def normalize_price_stock_id(value) -> str:
+    text = safe_str(value)
+    text = re.sub(r"\.0$", "", text)
+    text = re.sub(r"[^0-9]", "", text)
+    if not text:
+        return ""
+    if len(text) <= 4:
+        return text.zfill(4)
+    return text
+
+
+def chart_days_from_row(row: pd.Series) -> int:
+    value = safe_str(row.get("chart_days", ""))
+    try:
+        days = int(float(value))
+    except Exception:
+        days = PDF_KLINE_DAYS_DEFAULT
+    if days < 120:
+        return 120
+    if days > 260:
+        return 260
+    return days
+
+
+def safe_chart_filename(text: str) -> str:
+    text = safe_str(text)
+    text = text.replace("/", "-").replace("\\", "-").replace(":", "-")
+    text = re.sub(r"[^\w\u4e00-\u9fff\-_]+", "_", text)
+    return text[:80] or "chart"
+
+
+def standardize_price_history(df: pd.DataFrame, source_path: Path) -> pd.DataFrame:
+    if df.empty:
+        return pd.DataFrame()
+
+    df = df.copy()
+
+    if "stock_id" not in df.columns:
+        for col in ["ticker", "code"]:
+            if col in df.columns:
+                df = df.rename(columns={col: "stock_id"})
+                break
+
+    if "stock_id" not in df.columns:
+        match = re.search(r"([0-9]{4,6})", source_path.stem)
+        df["stock_id"] = match.group(1) if match else ""
+
+    if "date" not in df.columns:
+        match = re.search(r"([0-9]{8})", source_path.name)
+        df["date"] = match.group(1) if match else ""
+
+    if "stock_name" not in df.columns:
+        if "name" in df.columns:
+            df = df.rename(columns={"name": "stock_name"})
+        else:
+            df["stock_name"] = ""
+
+    required = {"date", "stock_id", "open", "high", "low", "close", "volume"}
+    if not required.issubset(set(df.columns)):
+        return pd.DataFrame()
+
+    df["date"] = df["date"].map(normalize_date)
+    df["stock_id"] = df["stock_id"].map(normalize_price_stock_id)
+
+    for col in ["open", "high", "low", "close", "volume"]:
+        df[col] = (
+            df[col]
+            .astype(str)
+            .str.replace(",", "", regex=False)
+            .str.replace("--", "", regex=False)
+        )
+        df[col] = pd.to_numeric(df[col], errors="coerce")
+
+    df = df.dropna(subset=["date", "stock_id", "open", "high", "low", "close", "volume"])
+    df = df[(df["date"].astype(str).str.len() == 8) & (df["stock_id"].astype(str) != "")].copy()
+
+    if df.empty:
+        return pd.DataFrame()
+
+    return df[["date", "stock_id", "stock_name", "open", "high", "low", "close", "volume"]]
+
+
+def load_price_history_from_source(source: str | Path) -> pd.DataFrame:
+    source_text = safe_str(source)
+    if not source_text or source_text.startswith("http"):
+        return pd.DataFrame()
+
+    source_path = Path(source_text)
+    cache_key = source_path.as_posix()
+
+    if cache_key in PRICE_HISTORY_CACHE:
+        return PRICE_HISTORY_CACHE[cache_key]
+
+    if not source_path.exists():
+        PRICE_HISTORY_CACHE[cache_key] = pd.DataFrame()
+        return PRICE_HISTORY_CACHE[cache_key]
+
+    paths = sorted(source_path.glob("*.csv")) if source_path.is_dir() else [source_path]
+    frames = []
+
+    for path in paths:
+        if path.suffix.lower() != ".csv":
+            continue
+        try:
+            df = pd.read_csv(path, dtype=str)
+        except Exception as exc:
+            print(f"Skip price file {path}: {exc}")
+            continue
+
+        standardized = standardize_price_history(df, path)
+        if not standardized.empty:
+            frames.append(standardized)
+
+    if not frames:
+        PRICE_HISTORY_CACHE[cache_key] = pd.DataFrame()
+        return PRICE_HISTORY_CACHE[cache_key]
+
+    result = pd.concat(frames, ignore_index=True)
+    result = result.drop_duplicates(subset=["date", "stock_id"], keep="last")
+    result = result.sort_values(["stock_id", "date"]).reset_index(drop=True)
+
+    PRICE_HISTORY_CACHE[cache_key] = result
+    return result
+
+
+def price_source_candidates(row: pd.Series) -> list[str]:
+    stock_id = normalize_price_stock_id(row.get("stock_id", ""))
+    sources = []
+
+    explicit_path = safe_str(row.get("price_data_path", ""))
+    if explicit_path:
+        sources.append(explicit_path)
+
+    if stock_id:
+        sources.append((DATA_PRICE_DIR / f"{stock_id}.csv").as_posix())
+
+    sources.extend(
+        [
+            DATA_PRICE_DIR.as_posix(),
+            (LATEST_DIR / f"{stock_id}_price_history.csv").as_posix() if stock_id else "",
+            (LATEST_DIR / f"{stock_id}_daily_price.csv").as_posix() if stock_id else "",
+            (LATEST_DIR / "official_daily_price_latest.csv").as_posix(),
+        ]
+    )
+
+    result = []
+    seen = set()
+    for source in sources:
+        source = safe_str(source)
+        if source and source not in seen:
+            result.append(source)
+            seen.add(source)
+    return result
+
+
+def select_price_history_for_row(row: pd.Series) -> tuple[pd.DataFrame, str, str]:
+    stock_id = normalize_price_stock_id(row.get("stock_id", ""))
+    chart_days = chart_days_from_row(row)
+    warnings = []
+
+    if not stock_id:
+        return pd.DataFrame(), "", "missing stock_id"
+
+    for source in price_source_candidates(row):
+        history = load_price_history_from_source(source)
+        if history.empty:
+            warnings.append(f"{source}: missing_or_unreadable")
+            continue
+
+        part = history[history["stock_id"].astype(str) == stock_id].copy()
+        part = part.sort_values("date").drop_duplicates(subset=["date"], keep="last")
+
+        if part.empty:
+            warnings.append(f"{source}: no_rows_for_{stock_id}")
+            continue
+
+        if len(part) < PDF_KLINE_MIN_DAYS:
+            warnings.append(f"{source}: insufficient_days_{len(part)}")
+            continue
+
+        return part.tail(chart_days).reset_index(drop=True), source, ""
+
+    return pd.DataFrame(), "", "; ".join(warnings[:4])
+
+
+def draw_pdf_kline_chart(row: pd.Series, price_df: pd.DataFrame, source: str) -> Path:
+    stock_id = normalize_price_stock_id(row.get("stock_id", ""))
+    stock_name = safe_str(row.get("stock_name", ""))
+    category = safe_str(row.get("category", "unknown")) or "unknown"
+    chart_days = chart_days_from_row(row)
+
+    df = price_df.copy().tail(chart_days).reset_index(drop=True)
+    df["ma20"] = df["close"].rolling(20).mean()
+    df["ma60"] = df["close"].rolling(60).mean()
+    df["volume_ma20"] = df["volume"].rolling(20).mean()
+
+    PDF_KLINE_DIR.mkdir(parents=True, exist_ok=True)
+    chart_path = PDF_KLINE_DIR / f"{stock_id}_{safe_chart_filename(stock_name)}_{safe_chart_filename(category)}_{chart_days}d.png"
+
+    fig = plt.figure(figsize=(8.0, 5.2))
+    grid = fig.add_gridspec(5, 1, hspace=0.08)
+    ax_price = fig.add_subplot(grid[:4, 0])
+    ax_volume = fig.add_subplot(grid[4, 0], sharex=ax_price)
+
+    x_values = list(range(len(df)))
+    candle_width = 0.62
+
+    for idx, item in df.iterrows():
+        open_price = float(item["open"])
+        high_price = float(item["high"])
+        low_price = float(item["low"])
+        close_price = float(item["close"])
+        color = "#d62728" if close_price >= open_price else "#2ca02c"
+
+        ax_price.vlines(idx, low_price, high_price, color=color, linewidth=0.8)
+        body_low = min(open_price, close_price)
+        body_height = max(abs(close_price - open_price), 0.01)
+        ax_price.add_patch(
+            Rectangle(
+                (idx - candle_width / 2, body_low),
+                candle_width,
+                body_height,
+                facecolor=color,
+                edgecolor=color,
+                alpha=0.85,
+            )
+        )
+
+    ax_price.plot(x_values, df["close"], color="#1f77b4", linewidth=1.0, label="Close")
+    ax_price.plot(x_values, df["ma20"], color="#ff7f0e", linewidth=0.9, label="MA20")
+    ax_price.plot(x_values, df["ma60"], color="#9467bd", linewidth=0.9, label="MA60")
+
+    if len(df) >= 61:
+        prev_60_high = df.iloc[-61:-1]["high"].max()
+        ax_price.axhline(prev_60_high, color="#7f7f7f", linestyle="--", linewidth=0.9, label="Prev60 High")
+
+    ax_price.set_title(f"{stock_id} | {len(df)} days | {safe_str(source)}", fontsize=9)
+    ax_price.legend(loc="upper left", fontsize=7)
+    ax_price.grid(True, alpha=0.22)
+
+    volume_colors = ["#d62728" if close >= open_ else "#2ca02c" for open_, close in zip(df["open"], df["close"])]
+    ax_volume.bar(x_values, df["volume"], color=volume_colors, alpha=0.65)
+    ax_volume.plot(x_values, df["volume_ma20"], color="#1f77b4", linewidth=0.8, label="Vol MA20")
+    ax_volume.grid(True, alpha=0.18)
+
+    tick_count = min(6, len(df))
+    if tick_count > 0:
+        tick_positions = [int(i * (len(df) - 1) / max(tick_count - 1, 1)) for i in range(tick_count)]
+        tick_labels = [str(df.iloc[i]["date"])[4:] for i in tick_positions]
+        ax_volume.set_xticks(tick_positions)
+        ax_volume.set_xticklabels(tick_labels, rotation=35, ha="right", fontsize=7)
+
+    plt.setp(ax_price.get_xticklabels(), visible=False)
+    fig.savefig(chart_path, dpi=130, bbox_inches="tight")
+    plt.close(fig)
+
+    return chart_path
+
+
+def local_chart_path_from_reference(value: str) -> Path | None:
+    text = safe_str(value)
+    if not text:
+        return None
+
+    if "contact_sheet" in text.lower():
+        return None
+
+    if text.startswith(GITHUB_RAW_PREFIX):
+        text = text[len(GITHUB_RAW_PREFIX):]
+    elif text.startswith("http"):
+        return None
+
+    path = Path(text)
+    if path.exists() and path.is_file():
+        return path
+    return None
+
+
+def build_chart_item(row: pd.Series, chart_manifest: pd.DataFrame) -> dict:
+    stock_id = normalize_price_stock_id(row.get("stock_id", ""))
+    stock_name = safe_str(row.get("stock_name", ""))
+    title = f"{stock_id} {stock_name}".strip()
+
+    price_df, source, warning = select_price_history_for_row(row)
+
+    if not price_df.empty:
+        try:
+            chart_path = draw_pdf_kline_chart(row, price_df, source)
+            return {
+                "title": title,
+                "image_path": chart_path,
+                "note": f"來源：日價資料重畫；{source}；{len(price_df)} 日",
+                "source_type": "price_data",
+            }
+        except Exception as exc:
+            warning = f"{warning}; redraw_failed: {exc}".strip("; ")
+
+    chart_ref = choose_chart_path(row, chart_manifest)
+    fallback_path = local_chart_path_from_reference(chart_ref)
+
+    if fallback_path:
+        return {
+            "title": title,
+            "image_path": fallback_path,
+            "note": f"備援：日價資料不足或無法重畫，使用既有 chart_path；{warning}",
+            "source_type": "chart_path_fallback",
+        }
+
+    chart_path = safe_str(row.get("chart_path", ""))
+    chart_url = safe_str(row.get("chart_url", ""))
+
+    return {
+        "title": title,
+        "image_path": None,
+        "note": (
+            "無法取得日價資料與圖檔，僅保留 chart_path / chart_url。"
+            f" 日價資料狀態：{warning or 'unavailable'}"
+            f" chart_path：{chart_path or '-'}"
+            f" chart_url：{chart_url or chart_ref or '-'}"
+        ),
+        "source_type": "missing",
+    }
 
 
 def clean_text(text: str, limit: int = 80) -> str:
@@ -871,6 +1207,35 @@ def create_pdf_styles(font_name: str) -> dict:
             leading=13,
             spaceAfter=3,
         ),
+        "chart_title": ParagraphStyle(
+            "chart_title",
+            parent=styles["Heading3"],
+            fontName=font_name,
+            fontSize=14,
+            leading=17,
+            alignment=TA_CENTER,
+            textColor=colors.HexColor("#C00000"),
+            spaceAfter=4,
+        ),
+        "chart_note": ParagraphStyle(
+            "chart_note",
+            parent=styles["Normal"],
+            fontName=font_name,
+            fontSize=7.2,
+            leading=9,
+            alignment=TA_LEFT,
+            textColor=colors.HexColor("#555555"),
+            spaceBefore=3,
+        ),
+        "chart_placeholder": ParagraphStyle(
+            "chart_placeholder",
+            parent=styles["Normal"],
+            fontName=font_name,
+            fontSize=8.4,
+            leading=11,
+            alignment=TA_LEFT,
+            textColor=colors.HexColor("#8A4B00"),
+        ),
     }
 
 
@@ -923,6 +1288,67 @@ def add_chart_image(story: list, chart_path: str, styles: dict) -> None:
         story.append(Spacer(1, 0.25 * cm))
     except Exception as exc:
         story.append(p(f"圖表載入失敗：{chart_path} / {exc}", styles["small"]))
+
+
+def chart_cell_flowables(item: dict, styles: dict) -> list:
+    flowables = [p(safe_str(item.get("title", "")), styles["chart_title"])]
+    image_path = item.get("image_path")
+
+    if image_path and Path(image_path).exists():
+        try:
+            img = Image(str(image_path))
+            max_width = 8.4 * cm
+            max_height = 5.25 * cm
+            ratio = min(max_width / img.imageWidth, max_height / img.imageHeight)
+            img.drawWidth = img.imageWidth * ratio
+            img.drawHeight = img.imageHeight * ratio
+            flowables.append(img)
+        except Exception as exc:
+            flowables.append(p(f"圖表載入失敗：{image_path} / {exc}", styles["chart_placeholder"]))
+    elif safe_str(item.get("title", "")):
+        flowables.append(Spacer(1, 4.9 * cm))
+        flowables.append(p("無法取得日價資料與圖檔", styles["chart_placeholder"]))
+
+    note = safe_str(item.get("note", ""))
+    if note:
+        flowables.append(p(note, styles["chart_note"]))
+
+    return flowables
+
+
+def add_chart_grid(story: list, chart_items: list[dict], styles: dict) -> None:
+    if not chart_items:
+        return
+
+    for start in range(0, len(chart_items), 4):
+        chunk = chart_items[start:start + 4]
+
+        while len(chunk) < 4:
+            chunk.append({"title": "", "image_path": None, "note": ""})
+
+        rows = [
+            [chart_cell_flowables(chunk[0], styles), chart_cell_flowables(chunk[1], styles)],
+            [chart_cell_flowables(chunk[2], styles), chart_cell_flowables(chunk[3], styles)],
+        ]
+
+        table = Table(rows, colWidths=[9.0 * cm, 9.0 * cm])
+        table.setStyle(
+            TableStyle(
+                [
+                    ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                    ("GRID", (0, 0), (-1, -1), 0.25, colors.HexColor("#D8D8D8")),
+                    ("LEFTPADDING", (0, 0), (-1, -1), 5),
+                    ("RIGHTPADDING", (0, 0), (-1, -1), 5),
+                    ("TOPPADDING", (0, 0), (-1, -1), 5),
+                    ("BOTTOMPADDING", (0, 0), (-1, -1), 5),
+                ]
+            )
+        )
+
+        if start > 0:
+            story.append(PageBreak())
+
+        story.append(table)
 
 
 def build_summary_markdown(
@@ -1065,6 +1491,10 @@ def build_summary_pdf(
     font_name = register_pdf_fonts()
     styles = create_pdf_styles(font_name)
 
+    if PDF_KLINE_DIR.exists():
+        for old_chart in PDF_KLINE_DIR.glob("*.png"):
+            old_chart.unlink()
+
     doc = SimpleDocTemplate(
         str(path),
         pagesize=A4,
@@ -1113,7 +1543,7 @@ def build_summary_pdf(
         cn = CATEGORY_CN.get(category, safe_str(show["category_cn"].iloc[0]) if "category_cn" in show.columns else category)
         story.append(p(cn, styles["h1"]))
 
-        chart_count = 0
+        chart_items = []
 
         for _, row in show.iterrows():
             stock = f"{safe_str(row.get('stock_id', ''))} {safe_str(row.get('stock_name', ''))}"
@@ -1127,13 +1557,13 @@ def build_summary_pdf(
             story.append(p(f"權證：{warrant_short(row)}", styles["card_body"]))
             story.append(p(f"摘要：{compact_reason(row, category_value, 120)}", styles["card_body"]))
 
-            chart_path = choose_chart_path(row, chart_manifest)
-
-            if chart_count < 2 and chart_path and not chart_path.startswith("http") and Path(chart_path).exists():
-                add_chart_image(story, chart_path, styles)
-                chart_count += 1
-
+            chart_items.append(build_chart_item(row, chart_manifest))
             story.append(Spacer(1, 0.2 * cm))
+
+        if chart_items:
+            story.append(PageBreak())
+            story.append(p(f"{cn} K 線圖", styles["h1"]))
+            add_chart_grid(story, chart_items, styles)
 
     doc.build(story)
 
