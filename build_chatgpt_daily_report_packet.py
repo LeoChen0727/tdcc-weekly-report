@@ -19,7 +19,6 @@ HISTORY_REPORT_DIR = Path("output/history/reports")
 DATA_FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
 DATA_FRESHNESS_MD = LATEST_DIR / "data_freshness_latest.md"
 REPORT_MANIFEST_JSON = LATEST_DIR / "report_manifest_latest.json"
-REPORT_MANIFEST_MD = LATEST_DIR / "report_manifest_latest.md"
 
 SUMMARY_LATEST_MD = LATEST_DIR / "daily_market_summary_latest.md"
 FULL_LATEST_MD = LATEST_DIR / "daily_market_full_latest.md"
@@ -31,7 +30,8 @@ FULL_CN_MD = LATEST_DIR / "完整候選股清單_完整版.md"
 SUMMARY_CN_PDF = LATEST_DIR / "每日全市場候選股監測報告_精華版.pdf"
 FULL_CN_PDF = LATEST_DIR / "完整候選股清單_完整版表格.pdf"
 
-PACKET_LATEST = LATEST_DIR / "CHATGPT_DAILY_REPORT_PACKET.txt"
+PACKET_LATEST_OLD = LATEST_DIR / "CHATGPT_DAILY_REPORT_PACKET.txt"
+PACKET_LATEST = LATEST_DIR / "chatgpt_daily_report_packet_latest.txt"
 PACKET_MANIFEST = LATEST_DIR / "chatgpt_daily_report_packet_manifest.json"
 
 
@@ -41,10 +41,6 @@ def now_taipei() -> datetime:
 
 def now_text() -> str:
     return now_taipei().strftime("%Y-%m-%d %H:%M:%S Asia/Taipei")
-
-
-def cache_bust() -> str:
-    return now_taipei().strftime("%Y%m%d%H%M%S")
 
 
 def normalize_date(value: Any) -> str:
@@ -79,13 +75,6 @@ def safe_read_text(path: Path) -> str:
     return ""
 
 
-def raw_url(path: Path, with_cache_bust: bool = False) -> str:
-    url = f"{REPO_RAW_PREFIX}/{path.as_posix()}"
-    if with_cache_bust:
-        url = f"{url}?v={cache_bust()}"
-    return url
-
-
 def safe_copy(src: Path, dst: Path) -> bool:
     if not src.exists():
         return False
@@ -93,6 +82,10 @@ def safe_copy(src: Path, dst: Path) -> bool:
     dst.parent.mkdir(parents=True, exist_ok=True)
     shutil.copyfile(src, dst)
     return True
+
+
+def raw_url(path: Path, ref: str = "main") -> str:
+    return f"https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/{ref}/{path.as_posix()}"
 
 
 def read_json(path: Path) -> dict[str, Any]:
@@ -138,27 +131,13 @@ def extract_data_freshness() -> dict[str, Any]:
 
     text = safe_read_text(DATA_FRESHNESS_MD)
 
-    date_patterns = [
-        r"主資料日期[：:\s`]*([0-9/\-]{8,10})",
-        r"main_price_date[：:\s`]*([0-9/\-]{8,10})",
-    ]
+    m = re.search(r"主資料日期[：:\s`]*([0-9/\-]{8,10})", text)
+    if m:
+        result["main_price_date"] = normalize_date(m.group(1))
 
-    ready_patterns = [
-        r"是否可產出正式每日報告[：:\s`]*(True|False|true|false)",
-        r"report_ready[：:\s`]*(True|False|true|false)",
-    ]
-
-    for pat in date_patterns:
-        m = re.search(pat, text)
-        if m:
-            result["main_price_date"] = normalize_date(m.group(1))
-            break
-
-    for pat in ready_patterns:
-        m = re.search(pat, text)
-        if m:
-            result["report_ready"] = m.group(1)
-            break
+    m = re.search(r"是否可產出正式每日報告[：:\s`]*(True|False|true|false)", text)
+    if m:
+        result["report_ready"] = m.group(1)
 
     return result
 
@@ -179,6 +158,12 @@ def extract_main_meta() -> dict[str, Any]:
         or str(manifest.get("ready", "")).strip()
         or freshness.get("report_ready", "")
     )
+
+    if not main_date:
+        main_date = now_taipei().strftime("%Y%m%d")
+
+    if not report_ready:
+        report_ready = "False"
 
     return {
         "main_price_date": main_date,
@@ -226,8 +211,9 @@ def ensure_dated_artifacts(main_date: str) -> dict[str, Path]:
 def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path], meta: dict[str, Any]) -> str:
     summary_text = safe_read_text(SUMMARY_LATEST_MD)
     full_text = safe_read_text(FULL_LATEST_MD)
-
     freshness = meta.get("freshness", {})
+
+    history_packet_path = HISTORY_REPORT_DIR / f"{main_date}_CHATGPT_DAILY_REPORT_PACKET.txt"
 
     lines: list[str] = []
 
@@ -242,56 +228,36 @@ def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path],
     lines.append(f"stock_monitor_date: {freshness.get('stock_monitor_date', '')}")
     lines.append(f"warrant_flow_date: {freshness.get('warrant_flow_date', '')}")
     lines.append("")
-    lines.append("PURPOSE")
+    lines.append("PACKET_PATHS")
+    lines.append(f"latest_packet_path: {PACKET_LATEST.as_posix()}")
+    lines.append(f"history_packet_path: {history_packet_path.as_posix()}")
     lines.append("")
-    lines.append("This file directly embeds the daily market report content.")
+    lines.append("PURPOSE")
+    lines.append("This packet embeds the daily market report content directly.")
     lines.append("If ChatGPT cannot read GitHub raw/latest/MD/PDF files, paste this packet into the daily report conversation.")
     lines.append("Do not recreate this report from stale older files.")
-    lines.append("")
-    lines.append("PRIMARY DATED RAW URLS")
-    lines.append("")
-    for key in ["dated_summary_md", "dated_full_md", "dated_summary_pdf", "dated_full_pdf"]:
-        path = paths[key]
-        lines.append(f"- {key}: {raw_url(path)}")
-        lines.append(f"- {key}_cache_bust: {raw_url(path, with_cache_bust=True)}")
-    lines.append("")
-    lines.append("LATEST RAW URLS")
-    lines.append("")
-    for label, path in [
-        ("latest_summary_md", SUMMARY_LATEST_MD),
-        ("latest_full_md", FULL_LATEST_MD),
-        ("latest_summary_pdf", SUMMARY_LATEST_PDF),
-        ("latest_full_pdf", FULL_LATEST_PDF),
-        ("latest_readme", LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt"),
-        ("latest_packet", PACKET_LATEST),
-    ]:
-        lines.append(f"- {label}: {raw_url(path)}")
-        lines.append(f"- {label}_cache_bust: {raw_url(path, with_cache_bust=True)}")
-    lines.append("")
-    lines.append("READING RULES")
-    lines.append("")
-    lines.append("1. Prefer this packet first because it already contains the report content.")
-    lines.append("2. If reading GitHub raw fails, say tool reading failed. Do not say GitHub data is not updated.")
-    lines.append("3. Do not use older dates to recreate today's report.")
-    lines.append("4. If this packet is pasted by the user, use the embedded content below as source of truth.")
     lines.append("")
     lines.append("=" * 80)
     lines.append("EMBEDDED SUMMARY REPORT")
     lines.append("=" * 80)
     lines.append("")
+
     if summary_text.strip():
         lines.append(summary_text)
     else:
         lines.append("[daily_market_summary_latest.md missing or empty]")
+
     lines.append("")
     lines.append("=" * 80)
     lines.append("EMBEDDED FULL REPORT")
     lines.append("=" * 80)
     lines.append("")
+
     if full_text.strip():
         lines.append(full_text)
     else:
         lines.append("[daily_market_full_latest.md missing or empty]")
+
     lines.append("")
     lines.append("=" * 80)
     lines.append("END OF PACKET")
@@ -302,20 +268,21 @@ def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path],
 
 
 def write_packet_manifest(main_date: str, report_ready: str, paths: dict[str, Path]) -> None:
+    history_packet = HISTORY_REPORT_DIR / f"{main_date}_CHATGPT_DAILY_REPORT_PACKET.txt"
+
     manifest = {
         "generated_at": now_text(),
         "main_price_date": main_date,
         "report_ready": report_ready,
         "latest_packet_path": PACKET_LATEST.as_posix(),
-        "latest_packet_raw_url": raw_url(PACKET_LATEST),
-        "latest_packet_raw_url_cache_bust": raw_url(PACKET_LATEST, with_cache_bust=True),
-        "history_packet_path": (HISTORY_REPORT_DIR / f"{main_date}_CHATGPT_DAILY_REPORT_PACKET.txt").as_posix(),
-        "history_packet_raw_url": raw_url(HISTORY_REPORT_DIR / f"{main_date}_CHATGPT_DAILY_REPORT_PACKET.txt"),
-        "history_packet_raw_url_cache_bust": raw_url(HISTORY_REPORT_DIR / f"{main_date}_CHATGPT_DAILY_REPORT_PACKET.txt", with_cache_bust=True),
-        "dated_summary_md_raw_url": raw_url(paths["dated_summary_md"]),
-        "dated_full_md_raw_url": raw_url(paths["dated_full_md"]),
-        "dated_summary_pdf_raw_url": raw_url(paths["dated_summary_pdf"]),
-        "dated_full_pdf_raw_url": raw_url(paths["dated_full_pdf"]),
+        "latest_packet_raw_url_main": raw_url(PACKET_LATEST, ref="main"),
+        "legacy_latest_packet_path": PACKET_LATEST_OLD.as_posix(),
+        "history_packet_path": history_packet.as_posix(),
+        "history_packet_raw_url_main": raw_url(history_packet, ref="main"),
+        "dated_summary_md_path": paths["dated_summary_md"].as_posix(),
+        "dated_full_md_path": paths["dated_full_md"].as_posix(),
+        "dated_summary_pdf_path": paths["dated_summary_pdf"].as_posix(),
+        "dated_full_pdf_path": paths["dated_full_pdf"].as_posix(),
     }
 
     PACKET_MANIFEST.write_text(
@@ -329,14 +296,8 @@ def main() -> int:
     HISTORY_REPORT_DIR.mkdir(parents=True, exist_ok=True)
 
     meta = extract_main_meta()
-    main_date = meta.get("main_price_date", "")
-
-    if not main_date:
-        main_date = now_taipei().strftime("%Y%m%d")
-
-    report_ready = str(meta.get("report_ready", "")).strip()
-    if not report_ready:
-        report_ready = "False"
+    main_date = meta["main_price_date"]
+    report_ready = str(meta["report_ready"])
 
     paths = ensure_dated_artifacts(main_date)
 
@@ -347,14 +308,16 @@ def main() -> int:
         meta=meta,
     )
 
-    PACKET_LATEST.write_text(packet_text, encoding="utf-8")
-
     history_packet = HISTORY_REPORT_DIR / f"{main_date}_CHATGPT_DAILY_REPORT_PACKET.txt"
+
+    PACKET_LATEST.write_text(packet_text, encoding="utf-8")
+    PACKET_LATEST_OLD.write_text(packet_text, encoding="utf-8")
     history_packet.write_text(packet_text, encoding="utf-8")
 
     write_packet_manifest(main_date, report_ready, paths)
 
     print(f"Saved: {PACKET_LATEST}")
+    print(f"Saved: {PACKET_LATEST_OLD}")
     print(f"Saved: {history_packet}")
     print(f"Saved: {PACKET_MANIFEST}")
 
