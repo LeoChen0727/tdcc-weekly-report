@@ -1,0 +1,248 @@
+from __future__ import annotations
+
+from pathlib import Path
+from datetime import datetime
+from zoneinfo import ZoneInfo
+
+
+LATEST_DIR = Path("output/latest")
+DOCS_LATEST_DIR = Path("docs/latest")
+
+RULES_LATEST = LATEST_DIR / "CHATGPT_DAILY_REPORT_RULES.txt"
+RULES_DOCS = DOCS_LATEST_DIR / "CHATGPT_DAILY_REPORT_RULES.txt"
+
+
+def now_taipei() -> str:
+    return datetime.now(ZoneInfo("Asia/Taipei")).strftime("%Y-%m-%d %H:%M:%S Asia/Taipei")
+
+
+def build_rules_text() -> str:
+    return f"""CHATGPT DAILY MARKET REPORT RULES
+
+generated_at={now_taipei()}
+rules_version=2026-05-23-v1
+
+PURPOSE
+This file defines how ChatGPT should read, interpret, and format the daily Taiwan full-market candidate stock report.
+New ChatGPT conversations should read this file after reading READ_ME_FIRST_DAILY_REPORT.txt.
+
+SCOPE RULES
+- This report is for full-market candidate stocks only.
+- Do not analyze the user's personal holdings.
+- Do not mention personal cost basis, unrealized P/L, margin balance, financing risk, position sizing, or personal portfolio decisions.
+- If any current holding appears naturally in the full-market candidate list, analyze it only as a general market candidate.
+- Do not turn this report into a personal holdings report.
+
+READING RULES
+- First read READ_ME_FIRST_DAILY_REPORT.txt.
+- Parse key=value fields from READ_ME_FIRST_DAILY_REPORT.txt.
+- Use preferred_chatgpt_url to read the daily packet.
+- If preferred_chatgpt_url fails, follow read_order.
+- The packet must contain all of the following markers:
+  CHATGPT DAILY REPORT PACKET
+  EMBEDDED SUMMARY REPORT
+  EMBEDDED FULL REPORT
+- Use EMBEDDED SUMMARY REPORT and EMBEDDED FULL REPORT as the source of truth.
+- Do not use stale older-date reports to recreate a newer report.
+- Do not say GitHub data is not updated when the problem is Cache miss or reading tool failure.
+- If all entries fail, say exactly:
+  讀取工具失敗，目前無法取得 GitHub 已產出的報告內容。
+
+MULTI-ENTRY READ ORDER
+- First entry file:
+  https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT.txt
+- If Pages entry fails, use raw entry:
+  https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/READ_ME_FIRST_DAILY_REPORT.txt
+- Then follow preferred_chatgpt_url.
+- If preferred_chatgpt_url fails, follow read_order:
+  packet_pages_url
+  packet_commit_raw_url
+  packet_latest_raw_url
+  packet_github_api_url
+- If reading packet_github_api_url, parse JSON content field and base64 decode it.
+
+CHAT REPORT STRUCTURE
+Use the following structure for the chat report:
+
+一、資料狀態確認
+- State main_price_date.
+- State report_ready.
+- State which entry URL was successfully read.
+- State whether the packet contains the required markers.
+- Do not over-explain tool mechanics unless there is a failure.
+
+二、今日總覽
+- Summarize total market candidate situation.
+- Mention whether candidates are concentrated or scattered.
+- Mention whether signals are aggressive breakout, pullback, rebound, or defensive.
+
+三、族群性分析 / 今日族群輪動
+- Identify the strongest sector/theme clusters.
+- Separate mainstream growth themes from defensive or traditional industries.
+- Do not classify telecom or high-dividend defensive names as mainstream growth themes.
+- Mainstream growth themes include AI server, PCB/CCL, passive components, semiconductor equipment/materials, HBM/memory, CPO/optical communication, robotics, defense, and similar growth themes.
+- Discuss whether the day shows sector rotation, continuation, or scattered false breakouts.
+
+四、分類解讀
+Use this fixed category order:
+1. 嚴格突破
+2. 區間內轉強 / 挑戰前高觀察
+3. 營收爆發低反應股
+4. 營收成長股價回檔
+5. 回檔後短線轉強
+6. 型態觀察
+
+For each category:
+- Explain what the signal means.
+- Identify the strongest names and the reason.
+- Identify false-breakout or downgraded names if visible.
+- Keep category logic separate; do not mix scores across categories.
+
+五、今日優先追蹤清單
+- Provide a practical watchlist.
+- Use labels:
+  最優先追蹤
+  可等確認
+  僅觀察
+  暫避 / 降級
+- Do not imply automatic buying.
+- Explain confirmation triggers and risk triggers.
+
+六、風險提醒
+- Mention false breakout risk.
+- Mention overheating risk.
+- Mention TDCC/large-holder deterioration if present.
+- Mention warrant flow only as a supporting signal, not a standalone buy reason.
+- Mention data quality warnings if present.
+
+七、明日觀察重點
+- Give next-session confirmation points.
+- Mention which categories need follow-through.
+- Mention which sectors need volume confirmation.
+- Mention what would invalidate the signal.
+
+CATEGORY RULES
+1 嚴格突破
+- Use only true breakout logic.
+- Do not mix range_rebound, near_resistance, or abnormal_volume_up into strict breakout.
+- Prioritize price/volume breakout, volume ratio, sector theme, TDCC accumulation, and warrant support if present.
+- Downgrade high-level chase risk if extended.
+
+2 區間內轉強 / 挑戰前高觀察
+- These are not strict breakouts.
+- Treat as watch/confirmation candidates.
+- Focus on distance to prior high, volume expansion, and whether resistance is near.
+
+3 營收爆發低反應股
+- Separate from revenue_pullback.
+- Focus on revenue acceleration, low price response, not overheated, and TDCC accumulation.
+- Prioritize A_優先追蹤 with strong or mild accumulation.
+- Downgrade distribution_warning, already_priced_in=True, or overheated returns.
+
+4 營收成長股價回檔
+- Focus on strong revenue growth with price near key support.
+- Favor names near monthly/quarterly average or 23EMA, but use moving averages as secondary reference.
+- Avoid names with obvious TDCC deterioration unless the chart is clearly stabilizing.
+
+5 回檔後短線轉強
+- Focus on rebound from prior pullback pool.
+- Prioritize names with volume improvement and large-holder support.
+- Treat as short-term follow-through candidates, not automatic buys.
+
+6 型態觀察
+- Use pattern scanner output if available.
+- Explain chart-pattern logic in plain language.
+- Do not over-rank pattern names against other categories.
+
+TDCC RULES
+- TDCC is weekly background confirmation, not a hard filter.
+- Large-holder increase supports the signal.
+- Large-holder decrease does not always invalidate a signal, but raises false-breakout or continuation risk.
+- Distinguish 大戶同步增加, 大戶溫和增加, 大戶轉弱, distribution_warning.
+
+WARRANT FLOW RULES
+- Warrant flow is supporting evidence only.
+- call_inflow or call_strong_inflow supports short-term attention.
+- call_put_bullish may indicate bullish structure but still needs price confirmation.
+- Do not treat warrant flow as the main buy reason.
+
+PDF OUTPUT RULES
+ChatGPT should produce two PDFs when asked for the daily report artifacts:
+
+1. 精華版 PDF
+- Must include K-line charts.
+- Layout by category:
+  category table -> K-line charts -> next category table -> K-line charts.
+- K-line charts should be 2x2, four charts per page.
+- Above each chart, show large bold red title:
+  stock_id stock_name
+- Charts must correspond to stocks discussed in the curated summary.
+- Do not collect unrelated charts at the end.
+- If image count must be limited, explain chart selection logic.
+
+2. 完整版表格 PDF
+- No K-line charts required.
+- Focus on sector statistics, sector rotation, and overall direction.
+- Put sector matrix near the front.
+- Then include separate category tables.
+- Do not merge all categories into one mixed table.
+- Tables should be readable, not overcompressed.
+- Use concise notes rather than full paragraphs in table cells.
+
+COMPLETE-VERSION PDF CATEGORY TABLES
+Create separate sections:
+1. 嚴格突破
+2. 區間內轉強 / 挑戰前高觀察
+3. 營收爆發低反應股
+4. 營收成長股價回檔
+5. 回檔後短線轉強
+6. 型態觀察
+
+Each category table should group by sector/theme where possible.
+Useful columns:
+- 日期
+- 股票代號
+- 股票名稱
+- 細分族群
+- 分類
+- 分數 / 排名
+- TDCC 簡述
+- 權證簡述
+- 簡短原因
+- 優先級
+
+STYLE RULES
+- Be direct and practical.
+- Do not make vague statements like "值得留意" without explaining why.
+- Do not say a stock is buyable only because it has a high score.
+- Separate "watch", "wait for confirmation", and "avoid/downgrade".
+- State the next trigger clearly.
+- Keep category logic separate.
+- If data is missing, say what is missing and do not invent.
+
+FAILURE RULES
+- If all reading entries fail, say:
+  讀取工具失敗，目前無法取得 GitHub 已產出的報告內容。
+- Do not guess.
+- Do not use old report dates.
+- Do not claim GitHub data is not updated unless READ_ME_FIRST explicitly shows report_ready=False or date mismatch.
+"""
+
+
+def main() -> int:
+    LATEST_DIR.mkdir(parents=True, exist_ok=True)
+    DOCS_LATEST_DIR.mkdir(parents=True, exist_ok=True)
+
+    text = build_rules_text()
+
+    RULES_LATEST.write_text(text, encoding="utf-8")
+    RULES_DOCS.write_text(text, encoding="utf-8")
+
+    print(f"Saved: {RULES_LATEST}")
+    print(f"Saved: {RULES_DOCS}")
+
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
