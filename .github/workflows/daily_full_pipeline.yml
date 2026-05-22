@@ -49,18 +49,22 @@ jobs:
           git status --short
           git commit -m "Update official daily price fetch result" || echo "No changes to commit"
 
+          PUSHED=0
           for i in 1 2 3; do
             git pull --rebase origin main || true
             if git push; then
+              PUSHED=1
               echo "Push succeeded"
-              exit 0
+              break
             fi
             echo "Push failed, retry $i"
             sleep 5
           done
 
-          echo "Push failed after retries"
-          exit 1
+          if [ "$PUSHED" != "1" ]; then
+            echo "Push failed after retries"
+            exit 1
+          fi
 
       - name: Pull latest after official price commit
         run: |
@@ -110,18 +114,22 @@ jobs:
           git status --short
           git commit -m "Update daily stock monitor and current holdings report" || echo "No changes to commit"
 
+          PUSHED=0
           for i in 1 2 3; do
             git pull --rebase origin main || true
             if git push; then
+              PUSHED=1
               echo "Push succeeded"
-              exit 0
+              break
             fi
             echo "Push failed, retry $i"
             sleep 5
           done
 
-          echo "Push failed after retries"
-          exit 1
+          if [ "$PUSHED" != "1" ]; then
+            echo "Push failed after retries"
+            exit 1
+          fi
 
       - name: Trigger Pattern Scan
         run: |
@@ -198,6 +206,19 @@ jobs:
         run: |
           python build_chatgpt_daily_report_packet.py
 
+      - name: Prepare GitHub Pages packet files
+        run: |
+          mkdir -p docs/latest
+
+          cp output/latest/chatgpt_daily_report_packet_latest.txt docs/latest/chatgpt_daily_report_packet_latest.txt
+
+          # 暫時放一份最小 README，正式 README 會在 publish check 後覆蓋。
+          {
+            echo "main_price_date=pending"
+            echo "report_ready=pending"
+            echo "preferred_chatgpt_url=pending"
+          } > docs/latest/READ_ME_FIRST_DAILY_REPORT.txt
+
       - name: Commit report artifacts and packets first
         run: |
           git config user.name "github-actions"
@@ -259,6 +280,9 @@ jobs:
           git add output/latest/chatgpt_daily_report_packet_manifest.json || true
           git add output/history/reports/ || true
 
+          git add docs/latest/chatgpt_daily_report_packet_latest.txt || true
+          git add docs/latest/READ_ME_FIRST_DAILY_REPORT.txt || true
+
           git add build_data_freshness_latest.py || true
           git add build_daily_market_report_artifacts.py || true
           git add ensure_report_aliases.py || true
@@ -275,9 +299,11 @@ jobs:
           git status --short
           git commit -m "Update report artifacts and ChatGPT packet" || echo "No changes to commit"
 
+          PUSHED=0
           for i in 1 2 3; do
             git pull --rebase origin main || true
             if git push; then
+              PUSHED=1
               echo "Push succeeded"
               break
             fi
@@ -285,11 +311,20 @@ jobs:
             sleep 5
           done
 
+          if [ "$PUSHED" != "1" ]; then
+            echo "Push failed after retries"
+            exit 1
+          fi
+
           ARTIFACT_COMMIT_SHA=$(git rev-parse HEAD)
           echo "ARTIFACT_COMMIT_SHA=$ARTIFACT_COMMIT_SHA" >> "$GITHUB_ENV"
           echo "Artifact commit sha: $ARTIFACT_COMMIT_SHA"
 
-      - name: Publish readme and raw URL check
+      - name: Wait briefly for GitHub Pages and raw propagation
+        run: |
+          sleep 30
+
+      - name: Publish readme and multi-entry URL check
         run: |
           python publish_chatgpt_report_readme_and_check.py
 
@@ -303,20 +338,28 @@ jobs:
           git add output/latest/READ_ME_FIRST_DAILY_REPORT.txt || true
           git add output/latest/report_publish_check_latest.md || true
           git add output/latest/report_publish_check_latest.json || true
+
+          git add docs/latest/READ_ME_FIRST_DAILY_REPORT.txt || true
+          git add docs/latest/chatgpt_daily_report_packet_latest.txt || true
+
           git add publish_chatgpt_report_readme_and_check.py || true
 
           git status --short
-          git commit -m "Publish ChatGPT daily report readme and raw checks" || echo "No changes to commit"
+          git commit -m "Publish ChatGPT daily report readme and multi-entry checks" || echo "No changes to commit"
 
+          PUSHED=0
           for i in 1 2 3; do
             git pull --rebase origin main || true
             if git push; then
+              PUSHED=1
               echo "Push succeeded"
-              exit 0
+              break
             fi
             echo "Push failed, retry $i"
             sleep 5
           done
 
-          echo "Push failed after retries"
-          exit 1
+          if [ "$PUSHED" != "1" ]; then
+            echo "Push failed after retries"
+            exit 1
+          fi
