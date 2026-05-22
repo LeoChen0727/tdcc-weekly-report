@@ -1,6 +1,6 @@
 # 完整候選股清單
 
-- 產生時間：`2026-05-22 11:14:06 Asia/Taipei`
+- 產生時間：`2026-05-22 19:27:42 Asia/Taipei`
 - CSV：`output/latest/all_candidates_latest.csv`
 - Excel：`output/latest/all_candidates_latest.xlsx`
 
