@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Latest Daily Report</title>
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --panel: #ffffff;
+      --text: #1d2733;
+      --muted: #627084;
+      --line: #d9e0ea;
+      --accent: #1666c1;
+      --accent-soft: #e9f2ff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      line-height: 1.55;
+    }
+
+    main {
+      width: min(900px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 56px;
+    }
+
+    header {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    h1,
+    h2,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(28px, 4vw, 40px);
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      font-size: 20px;
+      letter-spacing: 0;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      margin-bottom: 16px;
+    }
+
+    .status {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .status div {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      min-width: 0;
+    }
+
+    .label {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .value {
+      display: block;
+      overflow-wrap: anywhere;
+      font-weight: 650;
+    }
+
+    .links {
+      display: grid;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .link-card {
+      display: grid;
+      gap: 4px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+    }
+
+    .link-card strong {
+      color: var(--text);
+    }
+
+    .link-card span {
+      color: var(--muted);
+      font-size: 13px;
+      overflow-wrap: anywhere;
+    }
+
+    .badge {
+      display: inline-flex;
+      width: fit-content;
+      min-height: 28px;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 650;
+    }
+
+    @media (max-width: 720px) {
+      .status {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <span class="badge">Latest</span>
+      <h1>每日報告讀取入口</h1>
+      <p class="muted">ChatGPT entry files published under GitHub Pages.</p>
+    </header>
+
+    <section class="panel">
+      <h2>資料狀態</h2>
+      <div class="status">
+        <div>
+          <span class="label">main_price_date</span>
+          <span class="value" id="mainPriceDate">讀取中</span>
+        </div>
+        <div>
+          <span class="label">report_ready</span>
+          <span class="value" id="reportReady">讀取中</span>
+        </div>
+        <div>
+          <span class="label">commit_sha</span>
+          <span class="value" id="commitSha">讀取中</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>入口檔案</h2>
+      <div class="links">
+        <a class="link-card" href="READ_ME_FIRST_DAILY_REPORT.txt">
+          <strong>READ_ME_FIRST_DAILY_REPORT.txt</strong>
+          <span>今日資料狀態與多入口讀取順序</span>
+        </a>
+        <a class="link-card" href="CHATGPT_DAILY_REPORT_RULES.txt">
+          <strong>CHATGPT_DAILY_REPORT_RULES.txt</strong>
+          <span>每日報告規則檔</span>
+        </a>
+        <a class="link-card" href="chatgpt_daily_report_packet_latest.txt">
+          <strong>chatgpt_daily_report_packet_latest.txt</strong>
+          <span>ChatGPT daily report packet</span>
+        </a>
+      </div>
+    </section>
+
+    <p class="muted"><a href="../">回首頁</a></p>
+  </main>
+
+  <script>
+    function parseKeyValue(text) {
+      return text.split(/\r?\n/).reduce((acc, line) => {
+        const match = line.match(/^([^=#][^=]*)=(.*)$/);
+        if (match) {
+          acc[match[1].trim()] = match[2].trim();
+        }
+        return acc;
+      }, {});
+    }
+
+    function setText(id, value) {
+      document.getElementById(id).textContent = value || "未提供";
+    }
+
+    async function loadStatus() {
+      try {
+        const response = await fetch("READ_ME_FIRST_DAILY_REPORT.txt", { cache: "no-store" });
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+        const data = parseKeyValue(await response.text());
+        setText("mainPriceDate", data.main_price_date);
+        setText("reportReady", data.report_ready);
+        setText("commitSha", data.commit_sha);
+      } catch (error) {
+        setText("mainPriceDate", "讀取失敗");
+        setText("reportReady", "讀取失敗");
+        setText("commitSha", error.message);
+      }
+    }
+
+    loadStatus();
+  </script>
+</body>
+</html>

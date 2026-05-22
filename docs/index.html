@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>tdcc-weekly-report</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8fb;
+      --panel: #ffffff;
+      --text: #1d2733;
+      --muted: #627084;
+      --line: #d9e0ea;
+      --accent: #1666c1;
+      --accent-soft: #e9f2ff;
+      --ok: #0f7b4f;
+      --warn: #a46300;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      line-height: 1.55;
+    }
+
+    main {
+      width: min(1080px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 56px;
+    }
+
+    header {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    h1,
+    h2 {
+      margin: 0;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.15;
+    }
+
+    h2 {
+      font-size: 20px;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+    }
+
+    .span-7 {
+      grid-column: span 7;
+    }
+
+    .span-5 {
+      grid-column: span 5;
+    }
+
+    .span-12 {
+      grid-column: span 12;
+    }
+
+    .status-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .status-item {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      min-width: 0;
+    }
+
+    .label {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .value {
+      display: block;
+      overflow-wrap: anywhere;
+      font-weight: 650;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 650;
+    }
+
+    .badge.ok {
+      background: #e7f6ee;
+      color: var(--ok);
+    }
+
+    .badge.warn {
+      background: #fff4dc;
+      color: var(--warn);
+    }
+
+    .links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .link-card {
+      display: grid;
+      gap: 4px;
+      min-height: 92px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+    }
+
+    .link-card strong {
+      color: var(--text);
+    }
+
+    .link-card span {
+      color: var(--muted);
+      font-size: 13px;
+      overflow-wrap: anywhere;
+    }
+
+    .checks {
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .check-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .check-row span:first-child {
+      overflow-wrap: anywhere;
+    }
+
+    footer {
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 800px) {
+      .span-7,
+      .span-5 {
+        grid-column: span 12;
+      }
+
+      .status-list,
+      .links {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <span class="badge">Taiwan Market Daily Monitor</span>
+      <h1>tdcc-weekly-report</h1>
+      <p class="muted">每日全市場候選股監測系統入口頁</p>
+    </header>
+
+    <section class="grid" aria-label="dashboard">
+      <div class="panel span-7">
+        <h2>今日資料狀態</h2>
+        <p class="muted">由 `latest/READ_ME_FIRST_DAILY_REPORT.txt` 自動讀取。</p>
+        <div class="status-list">
+          <div class="status-item">
+            <span class="label">main_price_date</span>
+            <span class="value" id="mainPriceDate">讀取中</span>
+          </div>
+          <div class="status-item">
+            <span class="label">report_ready</span>
+            <span class="value" id="reportReady">讀取中</span>
+          </div>
+          <div class="status-item">
+            <span class="label">commit_sha</span>
+            <span class="value" id="commitSha">讀取中</span>
+          </div>
+          <div class="status-item">
+            <span class="label">preferred_chatgpt_url</span>
+            <span class="value" id="preferredUrl">讀取中</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel span-5">
+        <h2>發布檢查</h2>
+        <p class="muted">由 raw `report_publish_check_latest.json` 讀取。</p>
+        <div class="checks" id="publishChecks">
+          <div class="check-row">
+            <span>publish check</span>
+            <span class="badge warn">讀取中</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel span-12">
+        <h2>主要連結</h2>
+        <div class="links">
+          <a class="link-card" href="latest/READ_ME_FIRST_DAILY_REPORT.txt">
+            <strong>READ_ME_FIRST</strong>
+            <span>latest/READ_ME_FIRST_DAILY_REPORT.txt</span>
+          </a>
+          <a class="link-card" href="latest/CHATGPT_DAILY_REPORT_RULES.txt">
+            <strong>CHATGPT_DAILY_REPORT_RULES</strong>
+            <span>latest/CHATGPT_DAILY_REPORT_RULES.txt</span>
+          </a>
+          <a class="link-card" href="latest/chatgpt_daily_report_packet_latest.txt">
+            <strong>ChatGPT Report Packet</strong>
+            <span>latest/chatgpt_daily_report_packet_latest.txt</span>
+          </a>
+          <a class="link-card" href="https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_summary_latest.pdf">
+            <strong>Summary PDF</strong>
+            <span>output/latest/daily_market_summary_latest.pdf</span>
+          </a>
+          <a class="link-card" href="https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_full_latest.pdf">
+            <strong>Full PDF</strong>
+            <span>output/latest/daily_market_full_latest.pdf</span>
+          </a>
+          <a class="link-card" href="https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/report_publish_check_latest.md">
+            <strong>Publish Check</strong>
+            <span>output/latest/report_publish_check_latest.md</span>
+          </a>
+          <a class="link-card" href="latest/">
+            <strong>Latest Dashboard</strong>
+            <span>/latest/</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      GitHub Pages source: docs/
+    </footer>
+  </main>
+
+  <script>
+    const readmeUrl = "latest/READ_ME_FIRST_DAILY_REPORT.txt";
+    const publishCheckUrl = "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/report_publish_check_latest.json";
+
+    function parseKeyValue(text) {
+      return text.split(/\r?\n/).reduce((acc, line) => {
+        const match = line.match(/^([^=#][^=]*)=(.*)$/);
+        if (match) {
+          acc[match[1].trim()] = match[2].trim();
+        }
+        return acc;
+      }, {});
+    }
+
+    function setText(id, value) {
+      document.getElementById(id).textContent = value || "未提供";
+    }
+
+    async function loadReadmeStatus() {
+      try {
+        const response = await fetch(readmeUrl, { cache: "no-store" });
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+        const data = parseKeyValue(await response.text());
+        setText("mainPriceDate", data.main_price_date);
+        setText("reportReady", data.report_ready);
+        setText("commitSha", data.commit_sha);
+        setText("preferredUrl", data.preferred_chatgpt_url);
+      } catch (error) {
+        setText("mainPriceDate", "讀取失敗");
+        setText("reportReady", "讀取失敗");
+        setText("commitSha", "讀取失敗");
+        setText("preferredUrl", error.message);
+      }
+    }
+
+    async function loadPublishChecks() {
+      const container = document.getElementById("publishChecks");
+      try {
+        const response = await fetch(publishCheckUrl, { cache: "no-store" });
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+        const data = await response.json();
+        const checks = Array.isArray(data.checks) ? data.checks : [];
+        container.innerHTML = "";
+        const generated = document.createElement("div");
+        generated.className = "check-row";
+        generated.innerHTML = `<span>generated_at</span><span>${data.generated_at || "未提供"}</span>`;
+        container.appendChild(generated);
+
+        checks.forEach((check) => {
+          const row = document.createElement("div");
+          row.className = "check-row";
+          const statusClass = check.ok ? "ok" : "warn";
+          const statusText = check.ok ? "OK" : "Check";
+          row.innerHTML = `<span>${check.label || "check"}</span><span class="badge ${statusClass}">${statusText}</span>`;
+          container.appendChild(row);
+        });
+      } catch (error) {
+        container.innerHTML = `<div class="check-row"><span>publish check</span><span class="badge warn">${error.message}</span></div>`;
+      }
+    }
+
+    loadReadmeStatus();
+    loadPublishChecks();
+  </script>
+</body>
+</html>
