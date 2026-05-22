@@ -206,20 +206,26 @@ jobs:
         run: |
           python build_chatgpt_daily_report_packet.py
 
-      - name: Prepare GitHub Pages packet files
+      - name: Build ChatGPT daily report rules
+        run: |
+          python build_chatgpt_daily_report_rules.py
+
+      - name: Prepare GitHub Pages packet and rules files
         run: |
           mkdir -p docs/latest
 
           cp output/latest/chatgpt_daily_report_packet_latest.txt docs/latest/chatgpt_daily_report_packet_latest.txt
+          cp output/latest/CHATGPT_DAILY_REPORT_RULES.txt docs/latest/CHATGPT_DAILY_REPORT_RULES.txt
 
-          # 暫時放一份最小 README，正式 README 會在 publish check 後覆蓋。
           {
             echo "main_price_date=pending"
             echo "report_ready=pending"
             echo "preferred_chatgpt_url=pending"
+            echo "rules_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/CHATGPT_DAILY_REPORT_RULES.txt"
+            echo "rules_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/CHATGPT_DAILY_REPORT_RULES.txt"
           } > docs/latest/READ_ME_FIRST_DAILY_REPORT.txt
 
-      - name: Commit report artifacts and packets first
+      - name: Commit report artifacts, packets, and rules first
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
@@ -278,6 +284,10 @@ jobs:
           git add output/latest/chatgpt_daily_report_packet_latest.txt || true
           git add output/latest/CHATGPT_DAILY_REPORT_PACKET.txt || true
           git add output/latest/chatgpt_daily_report_packet_manifest.json || true
+
+          git add output/latest/CHATGPT_DAILY_REPORT_RULES.txt || true
+          git add docs/latest/CHATGPT_DAILY_REPORT_RULES.txt || true
+
           git add output/history/reports/ || true
 
           git add docs/latest/chatgpt_daily_report_packet_latest.txt || true
@@ -287,6 +297,7 @@ jobs:
           git add build_daily_market_report_artifacts.py || true
           git add ensure_report_aliases.py || true
           git add build_chatgpt_daily_report_packet.py || true
+          git add build_chatgpt_daily_report_rules.py || true
           git add current_holdings_pattern.py || true
           git add config/current_holdings.json || true
           git add scripts/fetch_official_warrant_daily.py || true
@@ -297,7 +308,7 @@ jobs:
           git add stock_daily_monitor.py || true
 
           git status --short
-          git commit -m "Update report artifacts and ChatGPT packet" || echo "No changes to commit"
+          git commit -m "Update report artifacts, ChatGPT packet, and rules" || echo "No changes to commit"
 
           PUSHED=0
           for i in 1 2 3; do
@@ -341,11 +352,14 @@ jobs:
 
           git add docs/latest/READ_ME_FIRST_DAILY_REPORT.txt || true
           git add docs/latest/chatgpt_daily_report_packet_latest.txt || true
+          git add docs/latest/CHATGPT_DAILY_REPORT_RULES.txt || true
+
+          git add output/latest/CHATGPT_DAILY_REPORT_RULES.txt || true
 
           git add publish_chatgpt_report_readme_and_check.py || true
 
           git status --short
-          git commit -m "Publish ChatGPT daily report readme and multi-entry checks" || echo "No changes to commit"
+          git commit -m "Publish ChatGPT daily report readme, rules, and multi-entry checks" || echo "No changes to commit"
 
           PUSHED=0
           for i in 1 2 3; do
