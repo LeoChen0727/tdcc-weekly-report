@@ -3,6 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 from datetime import datetime
 from zoneinfo import ZoneInfo
+import base64
 import json
 import os
 import re
@@ -14,19 +15,25 @@ import pandas as pd
 
 OWNER_REPO = "LeoChen0727/tdcc-weekly-report"
 RAW_PREFIX = f"https://raw.githubusercontent.com/{OWNER_REPO}"
+PAGES_PREFIX = "https://LeoChen0727.github.io/tdcc-weekly-report"
 
 LATEST_DIR = Path("output/latest")
 HISTORY_REPORT_DIR = Path("output/history/reports")
+DOCS_LATEST_DIR = Path("docs/latest")
 
 DATA_FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
 DATA_FRESHNESS_MD = LATEST_DIR / "data_freshness_latest.md"
 PACKET_MANIFEST_JSON = LATEST_DIR / "chatgpt_daily_report_packet_manifest.json"
 
 README_TXT = LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt"
+DOCS_README_TXT = DOCS_LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt"
+
 PUBLISH_CHECK_MD = LATEST_DIR / "report_publish_check_latest.md"
 PUBLISH_CHECK_JSON = LATEST_DIR / "report_publish_check_latest.json"
 
 LATEST_PACKET = LATEST_DIR / "chatgpt_daily_report_packet_latest.txt"
+DOCS_LATEST_PACKET = DOCS_LATEST_DIR / "chatgpt_daily_report_packet_latest.txt"
+
 LATEST_SUMMARY_MD = LATEST_DIR / "daily_market_summary_latest.md"
 LATEST_FULL_MD = LATEST_DIR / "daily_market_full_latest.md"
 
@@ -58,7 +65,7 @@ def normalize_date(value: Any) -> str:
     return ""
 
 
-def run_command(args: list[str], timeout: int = 30) -> tuple[int, str, str]:
+def run_command(args: list[str], timeout: int = 40) -> tuple[int, str, str]:
     try:
         proc = subprocess.run(
             args,
@@ -77,6 +84,14 @@ def run_command(args: list[str], timeout: int = 30) -> tuple[int, str, str]:
 
 def raw_url(ref: str, path: Path) -> str:
     return f"{RAW_PREFIX}/{ref}/{path.as_posix()}"
+
+
+def pages_url(path_under_docs: str) -> str:
+    return f"{PAGES_PREFIX}/{path_under_docs.lstrip('/')}"
+
+
+def github_api_url(path: Path, ref: str = "main") -> str:
+    return f"https://api.github.com/repos/{OWNER_REPO}/contents/{path.as_posix()}?ref={ref}"
 
 
 def read_json(path: Path) -> dict[str, Any]:
@@ -120,6 +135,7 @@ def extract_data_freshness() -> dict[str, str]:
 
     if DATA_FRESHNESS_MD.exists():
         text = DATA_FRESHNESS_MD.read_text(encoding="utf-8", errors="ignore")
+
         m = re.search(r"主資料日期[：:\s`]*([0-9/\-]{8,10})", text)
         if m:
             result["main_price_date"] = normalize_date(m.group(1))
@@ -145,9 +161,13 @@ def get_artifact_commit_sha() -> str:
 
 
 def curl_head(url: str) -> dict[str, Any]:
-    code, out, err = run_command(["curl", "-I", "-L", "--max-time", "30", url], timeout=40)
+    code, out, err = run_command(
+        ["curl", "-I", "-L", "--max-time", "30", url],
+        timeout=45,
+    )
 
     status_code = ""
+
     for line in out.splitlines():
         if line.startswith("HTTP/"):
             parts = line.split()
@@ -164,18 +184,20 @@ def curl_head(url: str) -> dict[str, Any]:
     }
 
 
-def curl_body_head(url: str, lines: int = 50) -> dict[str, Any]:
-    code, out, err = run_command(["curl", "-L", "--max-time", "30", url], timeout=40)
+def curl_body(url: str) -> dict[str, Any]:
+    code, out, err = run_command(
+        ["curl", "-L", "--max-time", "30", url],
+        timeout=45,
+    )
 
-    head_lines = "\n".join(out.splitlines()[:lines])
     contains_packet = "CHATGPT DAILY REPORT PACKET" in out
     contains_summary = "EMBEDDED SUMMARY REPORT" in out
     contains_full = "EMBEDDED FULL REPORT" in out
 
     return {
-        "command": f"curl -L --max-time 30 {url} | head -{lines}",
+        "command": f"curl -L --max-time 30 {url}",
         "returncode": code,
-        "stdout_head": head_lines,
+        "stdout_head": "\n".join(out.splitlines()[:50]),
         "stderr": err,
         "contains_packet": contains_packet,
         "contains_summary": contains_summary,
@@ -184,16 +206,85 @@ def curl_body_head(url: str, lines: int = 50) -> dict[str, Any]:
     }
 
 
-def check_url(url: str) -> dict[str, Any]:
-    head = curl_head(url)
-    body = curl_body_head(url, lines=50)
+def curl_github_api_packet(url: str) -> dict[str, Any]:
+    code, out, err = run_command(
+        ["curl", "-L", "--max-time", "30", url],
+        timeout=45,
+    )
+
+    decoded_text = ""
+    api_parse_ok = False
+
+    if code == 0:
+        try:
+            data = json.loads(out)
+            content = data.get("content", "")
+            encoding = data.get("encoding", "")
+
+            if encoding == "base64" and content:
+                decoded_bytes = base64.b64decode(content)
+                decoded_text = decoded_bytes.decode("utf-8", errors="replace")
+                api_parse_ok = True
+        except Exception as exc:
+            err = (err + "\n" + f"api decode failed: {exc}").strip()
+
+    contains_packet = "CHATGPT DAILY REPORT PACKET" in decoded_text
+    contains_summary = "EMBEDDED SUMMARY REPORT" in decoded_text
+    contains_full = "EMBEDDED FULL REPORT" in decoded_text
 
     return {
+        "command": f"curl -L --max-time 30 {url}",
+        "returncode": code,
+        "stdout_head": "\n".join(out.splitlines()[:50]),
+        "decoded_head": "\n".join(decoded_text.splitlines()[:50]),
+        "stderr": err,
+        "api_parse_ok": api_parse_ok,
+        "contains_packet": contains_packet,
+        "contains_summary": contains_summary,
+        "contains_full": contains_full,
+        "ok": code == 0 and api_parse_ok and contains_packet and contains_summary and contains_full,
+    }
+
+
+def check_plain_packet_url(label: str, url: str) -> dict[str, Any]:
+    head = curl_head(url)
+    body = curl_body(url)
+
+    return {
+        "label": label,
         "url": url,
+        "type": "plain",
         "head": head,
-        "body_head": body,
+        "body": body,
         "ok": bool(head.get("ok")) and bool(body.get("ok")),
     }
+
+
+def check_api_packet_url(label: str, url: str) -> dict[str, Any]:
+    head = curl_head(url)
+    body = curl_github_api_packet(url)
+
+    return {
+        "label": label,
+        "url": url,
+        "type": "github_api",
+        "head": head,
+        "body": body,
+        "ok": bool(head.get("ok")) and bool(body.get("ok")),
+    }
+
+
+def choose_preferred(checks: list[dict[str, Any]]) -> str:
+    for item in checks:
+        if item.get("ok"):
+            return str(item.get("url", ""))
+
+    # 全部失敗時，仍優先給 commit raw，因為它是 immutable URL。
+    for item in checks:
+        if item.get("label") == "packet_commit_raw_url":
+            return str(item.get("url", ""))
+
+    return ""
 
 
 def build_readme(
@@ -201,32 +292,41 @@ def build_readme(
     main_price_date: str,
     report_ready: str,
     commit_sha: str,
+    packet_pages_url: str,
     packet_latest_raw_url: str,
     packet_commit_raw_url: str,
+    packet_github_api_url: str,
     summary_latest_raw_url: str,
     full_latest_raw_url: str,
     preferred_chatgpt_url: str,
-    latest_ok: bool,
-    commit_ok: bool,
+    checks: list[dict[str, Any]],
 ) -> str:
+    status_map = {item["label"]: item.get("ok") for item in checks}
+
     lines = [
         f"main_price_date={main_price_date}",
         f"report_ready={report_ready}",
         f"commit_sha={commit_sha}",
         f"preferred_chatgpt_url={preferred_chatgpt_url}",
-        f"packet_latest_raw_url={packet_latest_raw_url}",
+        f"packet_pages_url={packet_pages_url}",
         f"packet_commit_raw_url={packet_commit_raw_url}",
+        f"packet_latest_raw_url={packet_latest_raw_url}",
+        f"packet_github_api_url={packet_github_api_url}",
         f"summary_latest_raw_url={summary_latest_raw_url}",
         f"full_latest_raw_url={full_latest_raw_url}",
-        f"packet_latest_raw_ok={latest_ok}",
-        f"packet_commit_raw_ok={commit_ok}",
+        f"packet_pages_ok={status_map.get('packet_pages_url')}",
+        f"packet_commit_raw_ok={status_map.get('packet_commit_raw_url')}",
+        f"packet_latest_raw_ok={status_map.get('packet_latest_raw_url')}",
+        f"packet_github_api_ok={status_map.get('packet_github_api_url')}",
+        "read_order=packet_pages_url,packet_commit_raw_url,packet_latest_raw_url,packet_github_api_url",
         "",
         "RULES:",
         "1. Read preferred_chatgpt_url first.",
-        "2. If preferred_chatgpt_url fails, try packet_commit_raw_url, then packet_latest_raw_url.",
-        "3. If packet is readable, use EMBEDDED SUMMARY REPORT and EMBEDDED FULL REPORT as source of truth.",
-        "4. If GitHub raw reading fails, say tool reading failed. Do not say GitHub data is not updated.",
-        "5. Do not use older report dates to recreate a newer report.",
+        "2. If preferred_chatgpt_url fails, follow read_order.",
+        "3. If the URL is packet_github_api_url, decode the JSON content field from base64 before reading the packet.",
+        "4. If packet is readable, use EMBEDDED SUMMARY REPORT and EMBEDDED FULL REPORT as source of truth.",
+        "5. If all URLs fail, say tool reading failed. Do not say GitHub data is not updated.",
+        "6. Do not use older report dates to recreate a newer report.",
         "",
     ]
 
@@ -238,11 +338,8 @@ def build_publish_check_md(
     main_price_date: str,
     report_ready: str,
     commit_sha: str,
-    packet_latest_raw_url: str,
-    packet_commit_raw_url: str,
     preferred_chatgpt_url: str,
-    latest_check: dict[str, Any],
-    commit_check: dict[str, Any],
+    checks: list[dict[str, Any]],
 ) -> str:
     lines: list[str] = []
 
@@ -254,67 +351,70 @@ def build_publish_check_md(
     lines.append(f"- artifact_commit_sha: `{commit_sha}`")
     lines.append(f"- preferred_chatgpt_url: `{preferred_chatgpt_url}`")
     lines.append("")
-    lines.append("## URLs")
+    lines.append("## Read Order")
     lines.append("")
-    lines.append(f"- packet_latest_raw_url: `{packet_latest_raw_url}`")
-    lines.append(f"- packet_commit_raw_url: `{packet_commit_raw_url}`")
+    lines.append("1. packet_pages_url")
+    lines.append("2. packet_commit_raw_url")
+    lines.append("3. packet_latest_raw_url")
+    lines.append("4. packet_github_api_url")
     lines.append("")
-    lines.append("## Latest Raw Check")
-    lines.append("")
-    lines.append(f"- ok: `{latest_check.get('ok')}`")
-    lines.append(f"- URL: `{latest_check.get('url')}`")
-    lines.append("")
-    lines.append("### curl -I packet_latest_raw_url")
-    lines.append("")
-    lines.append("```text")
-    lines.append(latest_check["head"].get("command", ""))
-    lines.append(latest_check["head"].get("stdout", ""))
-    if latest_check["head"].get("stderr"):
-        lines.append("STDERR:")
-        lines.append(latest_check["head"].get("stderr", ""))
-    lines.append("```")
-    lines.append("")
-    lines.append("### curl -L packet_latest_raw_url | head -50")
-    lines.append("")
-    lines.append("```text")
-    lines.append(latest_check["body_head"].get("command", ""))
-    lines.append(latest_check["body_head"].get("stdout_head", ""))
-    if latest_check["body_head"].get("stderr"):
-        lines.append("STDERR:")
-        lines.append(latest_check["body_head"].get("stderr", ""))
-    lines.append("```")
-    lines.append("")
-    lines.append("## Commit Raw Check")
-    lines.append("")
-    lines.append(f"- ok: `{commit_check.get('ok')}`")
-    lines.append(f"- URL: `{commit_check.get('url')}`")
-    lines.append("")
-    lines.append("### curl -I packet_commit_raw_url")
-    lines.append("")
-    lines.append("```text")
-    lines.append(commit_check["head"].get("command", ""))
-    lines.append(commit_check["head"].get("stdout", ""))
-    if commit_check["head"].get("stderr"):
-        lines.append("STDERR:")
-        lines.append(commit_check["head"].get("stderr", ""))
-    lines.append("```")
-    lines.append("")
-    lines.append("### curl -L packet_commit_raw_url | head -50")
-    lines.append("")
-    lines.append("```text")
-    lines.append(commit_check["body_head"].get("command", ""))
-    lines.append(commit_check["body_head"].get("stdout_head", ""))
-    if commit_check["body_head"].get("stderr"):
-        lines.append("STDERR:")
-        lines.append(commit_check["body_head"].get("stderr", ""))
-    lines.append("```")
-    lines.append("")
+
+    for item in checks:
+        label = item.get("label", "")
+        url = item.get("url", "")
+        ok = item.get("ok", False)
+        body = item.get("body", {})
+        head = item.get("head", {})
+
+        lines.append(f"## {label}")
+        lines.append("")
+        lines.append(f"- ok: `{ok}`")
+        lines.append(f"- type: `{item.get('type')}`")
+        lines.append(f"- url: `{url}`")
+        lines.append("")
+        lines.append("### curl -I")
+        lines.append("")
+        lines.append("```text")
+        lines.append(head.get("command", ""))
+        lines.append(head.get("stdout", ""))
+        if head.get("stderr"):
+            lines.append("STDERR:")
+            lines.append(head.get("stderr", ""))
+        lines.append("```")
+        lines.append("")
+        lines.append("### curl -L | head -50")
+        lines.append("")
+        lines.append("```text")
+        lines.append(body.get("command", ""))
+        lines.append(body.get("stdout_head", ""))
+        if body.get("decoded_head"):
+            lines.append("")
+            lines.append("DECODED_HEAD:")
+            lines.append(body.get("decoded_head", ""))
+        if body.get("stderr"):
+            lines.append("STDERR:")
+            lines.append(body.get("stderr", ""))
+        lines.append("```")
+        lines.append("")
 
     return "\n".join(lines)
 
 
+def sync_docs_files() -> None:
+    DOCS_LATEST_DIR.mkdir(parents=True, exist_ok=True)
+
+    if LATEST_PACKET.exists():
+        DOCS_LATEST_PACKET.write_text(
+            LATEST_PACKET.read_text(encoding="utf-8", errors="replace"),
+            encoding="utf-8",
+        )
+
+
 def main() -> int:
     LATEST_DIR.mkdir(parents=True, exist_ok=True)
+    DOCS_LATEST_DIR.mkdir(parents=True, exist_ok=True)
+
+    sync_docs_files()
 
     freshness = extract_data_freshness()
     packet_manifest = read_json(PACKET_MANIFEST_JSON)
@@ -334,48 +434,45 @@ def main() -> int:
 
     history_packet = HISTORY_REPORT_DIR / f"{main_price_date}_CHATGPT_DAILY_REPORT_PACKET.txt"
 
+    packet_pages_url = pages_url("latest/chatgpt_daily_report_packet_latest.txt")
     packet_latest_raw_url = raw_url("main", LATEST_PACKET)
     packet_commit_raw_url = raw_url(commit_sha, history_packet)
+    packet_github_api_url = github_api_url(LATEST_PACKET, ref="main")
     summary_latest_raw_url = raw_url("main", LATEST_SUMMARY_MD)
     full_latest_raw_url = raw_url("main", LATEST_FULL_MD)
 
-    latest_check = check_url(packet_latest_raw_url)
-    commit_check = check_url(packet_commit_raw_url)
+    checks = [
+        check_plain_packet_url("packet_pages_url", packet_pages_url),
+        check_plain_packet_url("packet_commit_raw_url", packet_commit_raw_url),
+        check_plain_packet_url("packet_latest_raw_url", packet_latest_raw_url),
+        check_api_packet_url("packet_github_api_url", packet_github_api_url),
+    ]
 
-    latest_ok = bool(latest_check.get("ok"))
-    commit_ok = bool(commit_check.get("ok"))
-
-    if latest_ok:
-        preferred = packet_latest_raw_url
-    elif commit_ok:
-        preferred = packet_commit_raw_url
-    else:
-        preferred = packet_commit_raw_url
+    preferred = choose_preferred(checks)
 
     readme = build_readme(
         main_price_date=main_price_date,
         report_ready=report_ready,
         commit_sha=commit_sha,
+        packet_pages_url=packet_pages_url,
         packet_latest_raw_url=packet_latest_raw_url,
         packet_commit_raw_url=packet_commit_raw_url,
+        packet_github_api_url=packet_github_api_url,
         summary_latest_raw_url=summary_latest_raw_url,
         full_latest_raw_url=full_latest_raw_url,
         preferred_chatgpt_url=preferred,
-        latest_ok=latest_ok,
-        commit_ok=commit_ok,
+        checks=checks,
     )
 
     README_TXT.write_text(readme, encoding="utf-8")
+    DOCS_README_TXT.write_text(readme, encoding="utf-8")
 
     publish_check_md = build_publish_check_md(
         main_price_date=main_price_date,
         report_ready=report_ready,
         commit_sha=commit_sha,
-        packet_latest_raw_url=packet_latest_raw_url,
-        packet_commit_raw_url=packet_commit_raw_url,
         preferred_chatgpt_url=preferred,
-        latest_check=latest_check,
-        commit_check=commit_check,
+        checks=checks,
     )
 
     PUBLISH_CHECK_MD.write_text(publish_check_md, encoding="utf-8")
@@ -385,15 +482,20 @@ def main() -> int:
         "main_price_date": main_price_date,
         "report_ready": report_ready,
         "commit_sha": commit_sha,
+        "preferred_chatgpt_url": preferred,
+        "read_order": [
+            "packet_pages_url",
+            "packet_commit_raw_url",
+            "packet_latest_raw_url",
+            "packet_github_api_url",
+        ],
+        "packet_pages_url": packet_pages_url,
         "packet_latest_raw_url": packet_latest_raw_url,
         "packet_commit_raw_url": packet_commit_raw_url,
+        "packet_github_api_url": packet_github_api_url,
         "summary_latest_raw_url": summary_latest_raw_url,
         "full_latest_raw_url": full_latest_raw_url,
-        "preferred_chatgpt_url": preferred,
-        "packet_latest_raw_ok": latest_ok,
-        "packet_commit_raw_ok": commit_ok,
-        "latest_check": latest_check,
-        "commit_check": commit_check,
+        "checks": checks,
     }
 
     PUBLISH_CHECK_JSON.write_text(
@@ -402,11 +504,13 @@ def main() -> int:
     )
 
     print(f"Saved: {README_TXT}")
+    print(f"Saved: {DOCS_README_TXT}")
     print(f"Saved: {PUBLISH_CHECK_MD}")
     print(f"Saved: {PUBLISH_CHECK_JSON}")
     print(f"preferred_chatgpt_url={preferred}")
-    print(f"packet_latest_raw_ok={latest_ok}")
-    print(f"packet_commit_raw_ok={commit_ok}")
+
+    for item in checks:
+        print(f"{item.get('label')} ok={item.get('ok')} url={item.get('url')}")
 
     return 0
 
