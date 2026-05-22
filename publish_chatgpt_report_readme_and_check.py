@@ -34,6 +34,9 @@ PUBLISH_CHECK_JSON = LATEST_DIR / "report_publish_check_latest.json"
 LATEST_PACKET = LATEST_DIR / "chatgpt_daily_report_packet_latest.txt"
 DOCS_LATEST_PACKET = DOCS_LATEST_DIR / "chatgpt_daily_report_packet_latest.txt"
 
+RULES_LATEST = LATEST_DIR / "CHATGPT_DAILY_REPORT_RULES.txt"
+RULES_DOCS = DOCS_LATEST_DIR / "CHATGPT_DAILY_REPORT_RULES.txt"
+
 LATEST_SUMMARY_MD = LATEST_DIR / "daily_market_summary_latest.md"
 LATEST_FULL_MD = LATEST_DIR / "daily_market_full_latest.md"
 
@@ -279,7 +282,6 @@ def choose_preferred(checks: list[dict[str, Any]]) -> str:
         if item.get("ok"):
             return str(item.get("url", ""))
 
-    # 全部失敗時，仍優先給 commit raw，因為它是 immutable URL。
     for item in checks:
         if item.get("label") == "packet_commit_raw_url":
             return str(item.get("url", ""))
@@ -298,6 +300,8 @@ def build_readme(
     packet_github_api_url: str,
     summary_latest_raw_url: str,
     full_latest_raw_url: str,
+    rules_pages_url: str,
+    rules_raw_url: str,
     preferred_chatgpt_url: str,
     checks: list[dict[str, Any]],
 ) -> str:
@@ -314,6 +318,8 @@ def build_readme(
         f"packet_github_api_url={packet_github_api_url}",
         f"summary_latest_raw_url={summary_latest_raw_url}",
         f"full_latest_raw_url={full_latest_raw_url}",
+        f"rules_pages_url={rules_pages_url}",
+        f"rules_raw_url={rules_raw_url}",
         f"packet_pages_ok={status_map.get('packet_pages_url')}",
         f"packet_commit_raw_ok={status_map.get('packet_commit_raw_url')}",
         f"packet_latest_raw_ok={status_map.get('packet_latest_raw_url')}",
@@ -321,12 +327,14 @@ def build_readme(
         "read_order=packet_pages_url,packet_commit_raw_url,packet_latest_raw_url,packet_github_api_url",
         "",
         "RULES:",
-        "1. Read preferred_chatgpt_url first.",
-        "2. If preferred_chatgpt_url fails, follow read_order.",
-        "3. If the URL is packet_github_api_url, decode the JSON content field from base64 before reading the packet.",
-        "4. If packet is readable, use EMBEDDED SUMMARY REPORT and EMBEDDED FULL REPORT as source of truth.",
-        "5. If all URLs fail, say tool reading failed. Do not say GitHub data is not updated.",
-        "6. Do not use older report dates to recreate a newer report.",
+        "1. Read this entry file first.",
+        "2. Read rules_pages_url or rules_raw_url to load report format rules.",
+        "3. Read preferred_chatgpt_url for the packet.",
+        "4. If preferred_chatgpt_url fails, follow read_order.",
+        "5. If the URL is packet_github_api_url, decode the JSON content field from base64 before reading the packet.",
+        "6. If packet is readable, use EMBEDDED SUMMARY REPORT and EMBEDDED FULL REPORT as source of truth.",
+        "7. If all URLs fail, say tool reading failed. Do not say GitHub data is not updated.",
+        "8. Do not use older report dates to recreate a newer report.",
         "",
     ]
 
@@ -340,6 +348,8 @@ def build_publish_check_md(
     commit_sha: str,
     preferred_chatgpt_url: str,
     checks: list[dict[str, Any]],
+    rules_pages_url: str,
+    rules_raw_url: str,
 ) -> str:
     lines: list[str] = []
 
@@ -350,6 +360,8 @@ def build_publish_check_md(
     lines.append(f"- report_ready: `{report_ready}`")
     lines.append(f"- artifact_commit_sha: `{commit_sha}`")
     lines.append(f"- preferred_chatgpt_url: `{preferred_chatgpt_url}`")
+    lines.append(f"- rules_pages_url: `{rules_pages_url}`")
+    lines.append(f"- rules_raw_url: `{rules_raw_url}`")
     lines.append("")
     lines.append("## Read Order")
     lines.append("")
@@ -409,6 +421,12 @@ def sync_docs_files() -> None:
             encoding="utf-8",
         )
 
+    if RULES_LATEST.exists():
+        RULES_DOCS.write_text(
+            RULES_LATEST.read_text(encoding="utf-8", errors="replace"),
+            encoding="utf-8",
+        )
+
 
 def main() -> int:
     LATEST_DIR.mkdir(parents=True, exist_ok=True)
@@ -441,6 +459,9 @@ def main() -> int:
     summary_latest_raw_url = raw_url("main", LATEST_SUMMARY_MD)
     full_latest_raw_url = raw_url("main", LATEST_FULL_MD)
 
+    rules_pages_url = pages_url("latest/CHATGPT_DAILY_REPORT_RULES.txt")
+    rules_raw_url = raw_url("main", RULES_LATEST)
+
     checks = [
         check_plain_packet_url("packet_pages_url", packet_pages_url),
         check_plain_packet_url("packet_commit_raw_url", packet_commit_raw_url),
@@ -460,6 +481,8 @@ def main() -> int:
         packet_github_api_url=packet_github_api_url,
         summary_latest_raw_url=summary_latest_raw_url,
         full_latest_raw_url=full_latest_raw_url,
+        rules_pages_url=rules_pages_url,
+        rules_raw_url=rules_raw_url,
         preferred_chatgpt_url=preferred,
         checks=checks,
     )
@@ -473,6 +496,8 @@ def main() -> int:
         commit_sha=commit_sha,
         preferred_chatgpt_url=preferred,
         checks=checks,
+        rules_pages_url=rules_pages_url,
+        rules_raw_url=rules_raw_url,
     )
 
     PUBLISH_CHECK_MD.write_text(publish_check_md, encoding="utf-8")
@@ -495,6 +520,8 @@ def main() -> int:
         "packet_github_api_url": packet_github_api_url,
         "summary_latest_raw_url": summary_latest_raw_url,
         "full_latest_raw_url": full_latest_raw_url,
+        "rules_pages_url": rules_pages_url,
+        "rules_raw_url": rules_raw_url,
         "checks": checks,
     }
 
@@ -508,6 +535,8 @@ def main() -> int:
     print(f"Saved: {PUBLISH_CHECK_MD}")
     print(f"Saved: {PUBLISH_CHECK_JSON}")
     print(f"preferred_chatgpt_url={preferred}")
+    print(f"rules_pages_url={rules_pages_url}")
+    print(f"rules_raw_url={rules_raw_url}")
 
     for item in checks:
         print(f"{item.get('label')} ok={item.get('ok')} url={item.get('url')}")
