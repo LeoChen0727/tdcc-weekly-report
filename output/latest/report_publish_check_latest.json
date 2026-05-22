@@ -1,0 +1,57 @@
+{
+  "generated_at": "2026-05-23 00:07:53 Asia/Taipei",
+  "main_price_date": "20260523",
+  "report_ready": "True",
+  "commit_sha": "14c1dee8f88c0c2ad4518b16d09f2194cb83ba26",
+  "packet_latest_raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/chatgpt_daily_report_packet_latest.txt",
+  "packet_commit_raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/14c1dee8f88c0c2ad4518b16d09f2194cb83ba26/output/history/reports/20260523_CHATGPT_DAILY_REPORT_PACKET.txt",
+  "summary_latest_raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_summary_latest.md",
+  "full_latest_raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_full_latest.md",
+  "preferred_chatgpt_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/chatgpt_daily_report_packet_latest.txt",
+  "packet_latest_raw_ok": true,
+  "packet_commit_raw_ok": true,
+  "latest_check": {
+    "url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/chatgpt_daily_report_packet_latest.txt",
+    "head": {
+      "command": "curl -I -L --max-time 30 https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/chatgpt_daily_report_packet_latest.txt",
+      "returncode": 0,
+      "http_status": "200",
+      "stdout": "HTTP/2 200 \ncache-control: max-age=300\ncontent-security-policy: default-src 'none'; style-src 'unsafe-inline'; sandbox\ncontent-type: text/plain; charset=utf-8\netag: \"d99495a55a43e7f595f46aec135a6eadf6478d2ad893b9bfab18c373e3280ae6\"\nstrict-transport-security: max-age=31536000\nx-content-type-options: nosniff\nx-frame-options: deny\nx-xss-protection: 1; mode=block\nx-github-request-id: 615A:1E1BFE:A4903C:CAA0F4:6A107F52\naccept-ranges: bytes\ndate: Fri, 22 May 2026 16:07:53 GMT\nvia: 1.1 varnish\nx-served-by: cache-sjc1000120-SJC\nx-cache: MISS\nx-cache-hits: 0\nx-timer: S1779466073.906103,VS0,VE241\nvary: Authorization,Accept-Encoding\naccess-control-allow-origin: *\ncross-origin-resource-policy: cross-origin\nx-fastly-request-id: 3df3449fb303613353f610c717e6d7de28c0fccc\nexpires: Fri, 22 May 2026 16:12:53 GMT\nsource-age: 0\ncontent-length: 101449\n\n",
+      "stderr": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\n  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\n  0   99k    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\n",
+      "ok": true
+    },
+    "body_head": {
+      "command": "curl -L --max-time 30 https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/chatgpt_daily_report_packet_latest.txt | head -50",
+      "returncode": 0,
+      "stdout_head": "CHATGPT DAILY REPORT PACKET\n\ngenerated_at: 2026-05-23 00:07:46 Asia/Taipei\nrepo: LeoChen0727/tdcc-weekly-report\nmain_price_date: 20260523\nreport_ready: True\nall_candidates_date: 20260523\nofficial_price_fetch_date: 20260523\nstock_monitor_date: 20260523\nwarrant_flow_date: 20260523\n\nPACKET_PATHS\nlatest_packet_path: output/latest/chatgpt_daily_report_packet_latest.txt\nhistory_packet_path: output/history/reports/20260523_CHATGPT_DAILY_REPORT_PACKET.txt\n\nPURPOSE\nThis packet embeds the daily market report content directly.\nIf ChatGPT cannot read GitHub raw/latest/MD/PDF files, paste this packet into the daily report conversation.\nDo not recreate this report from stale older files.\n\n================================================================================\nEMBEDDED SUMMARY REPORT\n================================================================================\n\n# 每日全市場候選股監測報告 - 精華版\n\n- 主資料日期：`20260523`\n- 產生時間：`2026-05-23 00:07:44 Asia/Taipei`\n- 是否可產出正式每日報告：`True`\n- 判斷說明：完整候選清單與官方價格資料日期一致，可以產出正式每日報告\n- 權證資料日期：`20260523`\n\n## 今日分類摘要\n\n| 分類 | 檔數 |\n|---|---:|\n| 區間內轉強 / 挑戰前高觀察 | 60 |\n| 營收爆發低反應股 | 21 |\n| 營收成長股價回檔 | 124 |\n| 回檔後短線轉強 | 6 |\n| 型態觀察 | 248 |\n\n## 精華候選股\n\n## 區間內轉強 / 挑戰前高觀察\n\n### 1533 車王電\n- 族群：汽車工業\n- 分數 / 排名：69.0 / \n- 優先級：",
+      "stderr": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\n  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\n  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\n100   99k  100   99k    0     0  3413k      0 --:--:-- --:--:-- --:--:-- 3416k\n",
+      "contains_packet": true,
+      "contains_summary": true,
+      "contains_full": true,
+      "ok": true
+    },
+    "ok": true
+  },
+  "commit_check": {
+    "url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/14c1dee8f88c0c2ad4518b16d09f2194cb83ba26/output/history/reports/20260523_CHATGPT_DAILY_REPORT_PACKET.txt",
+    "head": {
+      "command": "curl -I -L --max-time 30 https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/14c1dee8f88c0c2ad4518b16d09f2194cb83ba26/output/history/reports/20260523_CHATGPT_DAILY_REPORT_PACKET.txt",
+      "returncode": 0,
+      "http_status": "200",
+      "stdout": "HTTP/2 200 \ncache-control: max-age=300\ncontent-security-policy: default-src 'none'; style-src 'unsafe-inline'; sandbox\ncontent-type: text/plain; charset=utf-8\netag: \"d99495a55a43e7f595f46aec135a6eadf6478d2ad893b9bfab18c373e3280ae6\"\nstrict-transport-security: max-age=31536000\nx-content-type-options: nosniff\nx-frame-options: deny\nx-xss-protection: 1; mode=block\nx-github-request-id: 56C6:3CA735:A533C1:CB40D0:6A107F58\naccept-ranges: bytes\ndate: Fri, 22 May 2026 16:07:53 GMT\nvia: 1.1 varnish\nx-served-by: cache-sjc1000130-SJC\nx-cache: MISS\nx-cache-hits: 0\nx-timer: S1779466073.215414,VS0,VE206\nvary: Authorization,Accept-Encoding\naccess-control-allow-origin: *\ncross-origin-resource-policy: cross-origin\nx-fastly-request-id: 2a1d1602a88ecdc3182301e7043e835e23b4e714\nexpires: Fri, 22 May 2026 16:12:53 GMT\nsource-age: 0\ncontent-length: 101449\n\n",
+      "stderr": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\n  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\n  0   99k    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\n",
+      "ok": true
+    },
+    "body_head": {
+      "command": "curl -L --max-time 30 https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/14c1dee8f88c0c2ad4518b16d09f2194cb83ba26/output/history/reports/20260523_CHATGPT_DAILY_REPORT_PACKET.txt | head -50",
+      "returncode": 0,
+      "stdout_head": "CHATGPT DAILY REPORT PACKET\n\ngenerated_at: 2026-05-23 00:07:46 Asia/Taipei\nrepo: LeoChen0727/tdcc-weekly-report\nmain_price_date: 20260523\nreport_ready: True\nall_candidates_date: 20260523\nofficial_price_fetch_date: 20260523\nstock_monitor_date: 20260523\nwarrant_flow_date: 20260523\n\nPACKET_PATHS\nlatest_packet_path: output/latest/chatgpt_daily_report_packet_latest.txt\nhistory_packet_path: output/history/reports/20260523_CHATGPT_DAILY_REPORT_PACKET.txt\n\nPURPOSE\nThis packet embeds the daily market report content directly.\nIf ChatGPT cannot read GitHub raw/latest/MD/PDF files, paste this packet into the daily report conversation.\nDo not recreate this report from stale older files.\n\n================================================================================\nEMBEDDED SUMMARY REPORT\n================================================================================\n\n# 每日全市場候選股監測報告 - 精華版\n\n- 主資料日期：`20260523`\n- 產生時間：`2026-05-23 00:07:44 Asia/Taipei`\n- 是否可產出正式每日報告：`True`\n- 判斷說明：完整候選清單與官方價格資料日期一致，可以產出正式每日報告\n- 權證資料日期：`20260523`\n\n## 今日分類摘要\n\n| 分類 | 檔數 |\n|---|---:|\n| 區間內轉強 / 挑戰前高觀察 | 60 |\n| 營收爆發低反應股 | 21 |\n| 營收成長股價回檔 | 124 |\n| 回檔後短線轉強 | 6 |\n| 型態觀察 | 248 |\n\n## 精華候選股\n\n## 區間內轉強 / 挑戰前高觀察\n\n### 1533 車王電\n- 族群：汽車工業\n- 分數 / 排名：69.0 / \n- 優先級：",
+      "stderr": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\n  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\n100   99k  100   99k    0     0   399k      0 --:--:-- --:--:-- --:--:--  401k\n",
+      "contains_packet": true,
+      "contains_summary": true,
+      "contains_full": true,
+      "ok": true
+    },
+    "ok": true
+  }
+}
