@@ -1,0 +1,3 @@
+main_price_date=pending
+report_ready=pending
+preferred_chatgpt_url=pending
