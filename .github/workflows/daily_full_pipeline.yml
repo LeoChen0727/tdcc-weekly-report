@@ -90,7 +90,13 @@ jobs:
           git pull --rebase origin main || true
 
           git add data/ || true
+
           git add output/latest/stock_monitor_latest.md || true
+          git add output/latest/breakout_latest.csv || true
+          git add output/latest/range_rebound_watch_latest.csv || true
+          git add output/latest/revenue_pullback_latest.csv || true
+          git add output/latest/pullback_rebound_latest.csv || true
+
           git add output/latest/revenue_breakout_low_response_latest.csv || true
           git add output/latest/revenue_breakout_low_response_latest.md || true
 
@@ -205,6 +211,11 @@ jobs:
           git add output/latest/all_candidates_latest.md || true
 
           git add output/latest/stock_monitor_latest.md || true
+          git add output/latest/breakout_latest.csv || true
+          git add output/latest/range_rebound_watch_latest.csv || true
+          git add output/latest/revenue_pullback_latest.csv || true
+          git add output/latest/pullback_rebound_latest.csv || true
+
           git add output/latest/revenue_breakout_low_response_latest.csv || true
           git add output/latest/revenue_breakout_low_response_latest.md || true
 
@@ -251,6 +262,7 @@ jobs:
           git add merge_warrant_flow_into_candidates.py || true
           git add build_all_candidates_latest.py || true
           git add fetch_official_daily_price.py || true
+          git add stock_daily_monitor.py || true
 
           git status --short
           git commit -m "Update full daily pipeline with report artifacts and current holdings" || echo "No changes to commit"
