@@ -1,10 +1,18 @@
 # 每日全市場候選股監測報告 - 精華版
 
 - 主資料日期：`20260523`
-- 產生時間：`2026-05-23 02:57:49 Asia/Taipei`
+- 產生時間：`2026-05-23 03:32:54 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：完整候選清單與官方價格資料日期一致，可以產出正式每日報告
 - 權證資料日期：`20260523`
+
+## 精華版 PDF K 線圖狀態
+
+- PDF K 線圖政策：`local_price_redraw_first`
+- PDF K 線圖輸出目錄：`output/latest/charts/pdf_kline`
+- PDF K 線圖狀態檔：`output/latest/pdf_kline_chart_status_latest.md`
+- 精華版 PDF 會先使用 repo 內日價資料重畫 120/180 日 K 線圖；`chart_path` / `chart_url` 只是資料不足時的備援。
+- 不得因候選資料內的 `chart_url` 下載失敗，就把精華版 PDF 判定為圖片下載失敗版。
 
 ## 今日分類摘要
 
@@ -28,6 +36,7 @@
 - 權證：
 - 摘要：區間轉強 / 距前高-1.24% / 大戶轉弱
 - 完整原因：近幾週400張與1000張同步減少；區間內轉強；量比2.68x；月營收YoY 72.8%；累計YoY 65.4%；TDCC近幾週大戶籌碼轉弱
+- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
 
 ### 2241 艾姆勒
 - 族群：汽車工業
@@ -37,6 +46,7 @@
 - 權證：
 - 摘要：區間轉強 / 距前高-5.51% / 大戶轉弱
 - 完整原因：近幾週400張與1000張同步減少；區間內轉強；量比2.05x；月營收YoY 65.6%；累計YoY 34.0%；TDCC近幾週大戶籌碼轉弱
+- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
 
 ### 2332 友訊
 - 族群：通信網路業
@@ -46,7 +56,8 @@
 - 權證：
 - 摘要：區間轉強 / 距前高-9.88% / 大戶溫和增加
 - 完整原因：近幾週其中一項大戶級距增加；no_signal；今日無可用權證成交金額；區間內轉強；量比1.56x；月營收YoY 18.5%；累計YoY 6.7%；TDCC近幾週大戶溫和增加
-- 圖表：`output/latest/charts/range_rebound/2332_友訊_range_rebound_20260523.png`
+- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
+- 候選資料備援圖表：`output/latest/charts/range_rebound/2332_友訊_range_rebound_20260523.png`
 
 ### 2353 宏碁
 - 族群：電腦及週邊設備業
@@ -56,7 +67,8 @@
 - 權證：
 - 摘要：區間轉強 / 距前高-5.18% / 大戶同步增加
 - 完整原因：近幾週400張與1000張同步累積；no_signal；今日無可用權證成交金額；區間內轉強；量比1.58x；月營收YoY 68.4%；累計YoY 29.7%；TDCC近幾週400張與1000張同步累積
-- 圖表：`output/latest/charts/range_rebound/2353_宏碁_range_rebound_20260523.png`
+- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
+- 候選資料備援圖表：`output/latest/charts/range_rebound/2353_宏碁_range_rebound_20260523.png`
 
 ### 2401 凌陽
 - 族群：半導體業
@@ -66,7 +78,8 @@
 - 權證：
 - 摘要：區間轉強 / 距前高-6.93% / 大戶溫和增加
 - 完整原因：近幾週400張與1000張合計增加；no_signal；今日無可用權證成交金額；區間內轉強；量比3.15x；月營收YoY 14.1%；累計YoY 13.2%；TDCC近幾週大戶溫和增加
-- 圖表：`output/latest/charts/range_rebound/2401_凌陽_range_rebound_20260523.png`
+- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
+- 候選資料備援圖表：`output/latest/charts/range_rebound/2401_凌陽_range_rebound_20260523.png`
 
 ## 營收爆發低反應股
 
@@ -78,7 +91,8 @@
 - 權證：
 - 摘要：A 優先追蹤 / 營收強 / 近期加速 / 低反應 / 貼近均線
 - 完整原因：A_優先追蹤；近幾週400張與1000張同步累積；no_signal；今日無可用權證成交金額；單月營收YoY 50%~80%；累計營收YoY 20%~30%；單月YoY大幅高於累計YoY，近期明顯加速；近3日漲幅低於5%，股價低反應；近5日漲幅低於8%；股價貼近20MA/23EMA；尚未突破前60日高點；仍在平台整理區；站上20MA/23EMA；接近前高但未大幅過熱；TDCC近幾週400張與1000張同步累積；主流成長題材；TDCC近幾...
-- 圖表：`output/latest/charts/revenue_breakout_low_response/2353_宏碁_revenue_breakout_low_response_20260523.png`
+- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
+- 候選資料備援圖表：`output/latest/charts/revenue_breakout_low_response/2353_宏碁_revenue_breakout_low_response_20260523.png`
 
 ### 2542 興富發
 - 族群：一般產業
@@ -88,7 +102,8 @@
 - 權證：
 - 摘要：B 可觀察 / 營收強 / 近期加速 / 低反應 / 貼近均線
 - 完整原因：B_可觀察；近幾週400張與1000張同步累積；no_signal；今日無可用權證成交金額；單月營收YoY>=150%；累計營收YoY>=50%；單月YoY大幅高於累計YoY，近期明顯加速；近3日漲幅低於5%，股價低反應；近5日漲幅低於8%；股價貼近20MA/23EMA；尚未突破前60日高點；站上20MA/23EMA；接近前高但未大幅過熱；TDCC近幾週400張與1000張同步累積；一般產業；TDCC近幾週400張與1000張同步累積
-- 圖表：`output/latest/charts/revenue_breakout_low_response/2542_興富發_revenue_breakout_low_response_20260523.png`
+- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
+- 候選資料備援圖表：`output/latest/charts/revenue_breakout_low_response/2542_興富發_revenue_breakout_low_response_20260523.png`
 
 ### 6215 和椿
 - 族群：主流成長題材
@@ -98,7 +113,8 @@
 - 權證：
 - 摘要：A 優先追蹤 / 營收強 / 近期加速 / 低反應 / 貼近均線
 - 完整原因：A_優先追蹤；近幾週400張與1000張合計增加；no_signal；今日無可用權證成交金額；單月營收YoY 80%~100%；累計營收YoY>=50%；單月YoY高於累計YoY，近期加速；近3日漲幅低於5%，股價低反應；近5日漲幅低於8%；股價貼近20MA/23EMA；尚未突破前60日高點；站上20MA/23EMA；接近前高但未大幅過熱；TDCC近幾週大戶溫和增加；主流成長題材；TDCC近幾週大戶溫和增加
-- 圖表：`output/latest/charts/revenue_breakout_low_response/6215_和椿_revenue_breakout_low_response_20260523.png`
+- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
+- 候選資料備援圖表：`output/latest/charts/revenue_breakout_low_response/6215_和椿_revenue_breakout_low_response_20260523.png`
 
 ### 2347 聯強
 - 族群：主流成長題材
@@ -108,7 +124,8 @@
 - 權證：
 - 摘要：A 優先追蹤 / 營收強 / 近期加速 / 低反應 / 貼近均線
 - 完整原因：A_優先追蹤；近幾週400張與1000張合計增加；no_signal；今日無可用權證成交金額；單月營收YoY 80%~100%；累計營收YoY>=30%；單月YoY大幅高於累計YoY，近期明顯加速；近3日漲幅低於5%，股價低反應；近5日漲幅低於8%；股價貼近20MA/23EMA；尚未突破前60日高點；站上20MA/23EMA；接近前高但未大幅過熱；TDCC近幾週大戶溫和增加；主流成長題材；TDCC近幾週大戶溫和增加
-- 圖表：`output/latest/charts/revenue_breakout_low_response/2347_聯強_revenue_breakout_low_response_20260523.png`
+- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
+- 候選資料備援圖表：`output/latest/charts/revenue_breakout_low_response/2347_聯強_revenue_breakout_low_response_20260523.png`
 
 ### 1808 潤隆
 - 族群：一般產業
@@ -118,7 +135,8 @@
 - 權證：
 - 摘要：B 可觀察 / 營收強 / 低反應 / 貼近均線 / 站上均線
 - 完整原因：B_可觀察；近幾週其中一項大戶級距增加；單月營收YoY>=150%；累計營收YoY>=50%；近3日漲幅低於5%，股價低反應；近5日漲幅低於8%；股價貼近20MA/23EMA；尚未突破前60日高點；仍在平台整理區；站上20MA/23EMA；接近前高但未大幅過熱；TDCC近幾週大戶溫和增加；一般產業；TDCC近幾週大戶溫和增加
-- 圖表：`output/latest/charts/revenue_breakout_low_response/1808_潤隆_revenue_breakout_low_response_20260523.png`
+- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
+- 候選資料備援圖表：`output/latest/charts/revenue_breakout_low_response/1808_潤隆_revenue_breakout_low_response_20260523.png`
 
 ## 營收成長股價回檔
 
@@ -130,7 +148,8 @@
 - 權證：
 - 摘要：TDCC增加 / 大戶溫和增加
 - 完整原因：近幾週400張與1000張合計增加；no_signal；今日無可用權證成交金額；量比1.63x；月營收YoY 71.0%；累計YoY 42.2%；TDCC近幾週大戶溫和增加
-- 圖表：`output/latest/charts/revenue_pullback/1597_直得_revenue_pullback_20260523.png`
+- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
+- 候選資料備援圖表：`output/latest/charts/revenue_pullback/1597_直得_revenue_pullback_20260523.png`
 
 ### 2337 旺宏
 - 族群：半導體業
@@ -140,7 +159,8 @@
 - 權證：
 - 摘要：TDCC轉弱 / 大戶轉弱
 - 完整原因：近幾週400張與1000張同步減少；no_signal；今日無可用權證成交金額；量比0.52x；月營收YoY 153.7%；累計YoY 93.5%；TDCC近幾週大戶籌碼轉弱
-- 圖表：`output/latest/charts/revenue_pullback/2337_旺宏_revenue_pullback_20260523.png`
+- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
+- 候選資料備援圖表：`output/latest/charts/revenue_pullback/2337_旺宏_revenue_pullback_20260523.png`
 
 ### 2382 廣達
 - 族群：電腦及週邊設備業
@@ -150,7 +170,8 @@
 - 權證：
 - 摘要：TDCC增加 / 大戶溫和增加
 - 完整原因：近幾週400張與1000張合計增加；量比1.47x；月營收YoY 120.7%；累計YoY 79.6%；TDCC近幾週大戶溫和增加
-- 圖表：`output/latest/charts/revenue_pullback/2382_廣達_revenue_pullback_20260523.png`
+- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
+- 候選資料備援圖表：`output/latest/charts/revenue_pullback/2382_廣達_revenue_pullback_20260523.png`
 
 ### 2406 國碩
 - 族群：光電業
@@ -160,7 +181,8 @@
 - 權證：
 - 摘要：TDCC增加 / 大戶溫和增加
 - 完整原因：近幾週400張與1000張合計增加；量比0.43x；月營收YoY 143.3%；累計YoY 161.3%；TDCC近幾週大戶溫和增加
-- 圖表：`output/latest/charts/revenue_pullback/2406_國碩_revenue_pullback_20260523.png`
+- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
+- 候選資料備援圖表：`output/latest/charts/revenue_pullback/2406_國碩_revenue_pullback_20260523.png`
 
 ### 2451 創見
 - 族群：半導體業
@@ -170,7 +192,8 @@
 - 權證：
 - 摘要：TDCC增加 / 大戶溫和增加
 - 完整原因：近幾週其中一項大戶級距增加；no_signal；今日無可用權證成交金額；量比0.55x；月營收YoY 594.4%；累計YoY 419.7%；TDCC近幾週大戶溫和增加
-- 圖表：`output/latest/charts/revenue_pullback/2451_創見_revenue_pullback_20260523.png`
+- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
+- 候選資料備援圖表：`output/latest/charts/revenue_pullback/2451_創見_revenue_pullback_20260523.png`
 
 ## 回檔後短線轉強
 
@@ -182,7 +205,8 @@
 - 權證：
 - 摘要：回檔轉強 / pullback_rebound / 大戶轉弱
 - 完整原因：近幾週400張與1000張同步減少；no_signal；今日無可用權證成交金額；量比2.58x；月營收YoY 52.6%；累計YoY 39.3%；TDCC近幾週大戶籌碼轉弱
-- 圖表：`output/latest/charts/pullback_rebound/2515_中工_pullback_rebound_20260523.png`
+- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
+- 候選資料備援圖表：`output/latest/charts/pullback_rebound/2515_中工_pullback_rebound_20260523.png`
 
 ### 6901 鑽石投資
 - 族群：其他
@@ -192,7 +216,8 @@
 - 權證：
 - 摘要：回檔轉強 / pullback_rebound / 大戶轉弱
 - 完整原因：近幾週400張與1000張同步減少；量比1.48x；月營收YoY 331.1%；累計YoY 129.1%；TDCC近幾週大戶籌碼轉弱
-- 圖表：`output/latest/charts/pullback_rebound/6901_鑽石投資_pullback_rebound_20260523.png`
+- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
+- 候選資料備援圖表：`output/latest/charts/pullback_rebound/6901_鑽石投資_pullback_rebound_20260523.png`
 
 ### 2314 台揚
 - 族群：通信網路業
@@ -202,7 +227,8 @@
 - 權證：
 - 摘要：回檔轉強 / pullback_rebound / 大戶轉弱
 - 完整原因：近幾週400張與1000張同步減少；量比2.51x；月營收YoY 89.9%；累計YoY 64.9%；TDCC近幾週大戶籌碼轉弱
-- 圖表：`output/latest/charts/pullback_rebound/2314_台揚_pullback_rebound_20260523.png`
+- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
+- 候選資料備援圖表：`output/latest/charts/pullback_rebound/2314_台揚_pullback_rebound_20260523.png`
 
 ### 2486 一詮
 - 族群：光電業
@@ -212,7 +238,8 @@
 - 權證：
 - 摘要：回檔轉強 / pullback_rebound / 大戶轉弱
 - 完整原因：近幾週400張與1000張同步減少；no_signal；今日無可用權證成交金額；量比1.31x；月營收YoY 21.2%；累計YoY 20.3%；TDCC近幾週大戶籌碼轉弱
-- 圖表：`output/latest/charts/pullback_rebound/2486_一詮_pullback_rebound_20260523.png`
+- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
+- 候選資料備援圖表：`output/latest/charts/pullback_rebound/2486_一詮_pullback_rebound_20260523.png`
 
 ### 2851 中再保
 - 族群：金融保險業
@@ -222,7 +249,8 @@
 - 權證：
 - 摘要：回檔轉強 / pullback_rebound / 大戶溫和增加
 - 完整原因：近幾週400張與1000張合計增加；量比1.25x；月營收YoY 605.1%；累計YoY 139.3%；TDCC近幾週大戶溫和增加
-- 圖表：`output/latest/charts/pullback_rebound/2851_中再保_pullback_rebound_20260523.png`
+- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
+- 候選資料備援圖表：`output/latest/charts/pullback_rebound/2851_中再保_pullback_rebound_20260523.png`
 
 ## 型態觀察
 
@@ -234,6 +262,7 @@
 - 權證：
 - 摘要：型態觀察
 - 完整原因：no_signal；今日無可用權證成交金額
+- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
 
 ### 1215 卜蜂
 - 族群：食品工業
@@ -243,6 +272,7 @@
 - 權證：
 - 摘要：型態觀察 / 大戶轉弱
 - 完整原因：近幾週400張與1000張同步減少；no_signal；今日無可用權證成交金額；TDCC近幾週大戶籌碼轉弱
+- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
 
 ### 1304 台聚
 - 族群：塑膠工業
@@ -252,7 +282,8 @@
 - 權證：
 - 摘要：型態觀察 / 大戶同步增加
 - 完整原因：近幾週400張與1000張同步累積；no_signal；今日無可用權證成交金額；TDCC近幾週400張與1000張同步累積
-- 圖表：`output/latest/charts/pattern/1304_台聚_pattern_20260521.png`
+- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
+- 候選資料備援圖表：`output/latest/charts/pattern/1304_台聚_pattern_20260521.png`
 
 ### 1305 華夏
 - 族群：塑膠工業
@@ -262,7 +293,8 @@
 - 權證：
 - 摘要：型態觀察 / 大戶同步增加
 - 完整原因：近幾週400張與1000張同步累積；no_signal；今日無可用權證成交金額；TDCC近幾週400張與1000張同步累積
-- 圖表：`output/latest/charts/pattern/1305_華夏_pattern_20260521.png`
+- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
+- 候選資料備援圖表：`output/latest/charts/pattern/1305_華夏_pattern_20260521.png`
 
 ### 1313 聯成
 - 族群：塑膠工業
@@ -272,4 +304,5 @@
 - 權證：
 - 摘要：型態觀察 / 大戶同步增加
 - 完整原因：近幾週400張與1000張同步累積；no_signal；今日無可用權證成交金額；TDCC近幾週400張與1000張同步累積
-- 圖表：`output/latest/charts/pattern/1313_聯成_pattern_20260521.png`
+- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
+- 候選資料備援圖表：`output/latest/charts/pattern/1313_聯成_pattern_20260521.png`
