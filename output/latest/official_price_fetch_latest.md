@@ -1,6 +1,6 @@
 # 官方每日價格資料抓取狀態
 
-- 產生時間：`2026-05-22 22:23:44 Asia/Taipei`
+- 產生時間：`2026-05-22 23:03:51 Asia/Taipei`
 - target_date：`20260522`
 - saved_price_date：`20260522`
 - is_target_date：`True`
@@ -34,8 +34,7 @@
 - GET https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/05/22&type=EW&response=json -> status=200, chars=11371
 - TPEX_NEW_AFTERTRADING_JSON: JSON parse failed
 - Trying TPEx batch source=TPEX_NEW_AFTERTRADING_CSV date=20260522
-- GET https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/05/22&type=EW&response=csv -> status=200, chars=11371
-- TPEX_NEW_AFTERTRADING_CSV: parsed TPEx CSV rows=0
+- GET https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/05/22&type=EW&response=csv -> status=520, chars=959
 - Trying TPEx batch source=TPEX_OLD_DAILY_JSON date=20260522
 - GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=json&d=115/05/22&s=0,asc,0 -> status=200, chars=1458501
 - TPEX_OLD_DAILY_JSON: parsed TPEx JSON rows=5684
