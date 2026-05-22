@@ -1,25 +1,6 @@
-from __future__ import annotations
+CHATGPT DAILY MARKET REPORT RULES
 
-from pathlib import Path
-from datetime import datetime
-from zoneinfo import ZoneInfo
-
-
-LATEST_DIR = Path("output/latest")
-DOCS_LATEST_DIR = Path("docs/latest")
-
-RULES_LATEST = LATEST_DIR / "CHATGPT_DAILY_REPORT_RULES.txt"
-RULES_DOCS = DOCS_LATEST_DIR / "CHATGPT_DAILY_REPORT_RULES.txt"
-
-
-def now_taipei() -> str:
-    return datetime.now(ZoneInfo("Asia/Taipei")).strftime("%Y-%m-%d %H:%M:%S Asia/Taipei")
-
-
-def build_rules_text() -> str:
-    return f"""CHATGPT DAILY MARKET REPORT RULES
-
-generated_at={now_taipei()}
+generated_at=2026-05-23 02:25:16 Asia/Taipei
 rules_version=2026-05-23-v2
 
 PURPOSE
@@ -249,23 +230,3 @@ FAILURE RULES
 - Do not guess.
 - Do not use old report dates.
 - Do not claim GitHub data is not updated unless READ_ME_FIRST explicitly shows report_ready=False or date mismatch.
-"""
-
-
-def main() -> int:
-    LATEST_DIR.mkdir(parents=True, exist_ok=True)
-    DOCS_LATEST_DIR.mkdir(parents=True, exist_ok=True)
-
-    text = build_rules_text()
-
-    RULES_LATEST.write_text(text, encoding="utf-8")
-    RULES_DOCS.write_text(text, encoding="utf-8")
-
-    print(f"Saved: {RULES_LATEST}")
-    print(f"Saved: {RULES_DOCS}")
-
-    return 0
-
-
-if __name__ == "__main__":
-    raise SystemExit(main())

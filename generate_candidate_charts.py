@@ -26,6 +26,7 @@ CHART_MANIFEST_PATH = LATEST_DIR / "chart_manifest.csv"
 CONTACT_SHEET_MANIFEST_PATH = LATEST_DIR / "contact_sheet_manifest.csv"
 
 LOOKBACK_DAYS = 180
+PRICE_DATA_PATH = DATA_PRICE_DIR.as_posix()
 CONTACT_SHEET_LIMIT = 20
 
 MAX_CHARTS_PER_CATEGORY = {
@@ -630,6 +631,8 @@ def create_chart(
         "price_data_warning": price_data_warning,
         "chart_path": chart_path.as_posix(),
         "chart_url": f"{REPO_RAW_BASE}/{chart_path.as_posix()}",
+        "price_data_path": PRICE_DATA_PATH,
+        "chart_days": LOOKBACK_DAYS,
         "close": round(float(latest["close"]), 2),
         "previous_40d_high": round(float(previous_40d_high), 2) if not pd.isna(previous_40d_high) else pd.NA,
         "previous_60d_high": round(float(previous_60d_high), 2) if not pd.isna(previous_60d_high) else pd.NA,
@@ -776,6 +779,8 @@ def main() -> int:
                     "price_data_warning": "chart_failed",
                     "chart_path": "",
                     "chart_url": "",
+                    "price_data_path": PRICE_DATA_PATH,
+                    "chart_days": LOOKBACK_DAYS,
                     "close": candidate.get("close", pd.NA),
                     "previous_40d_high": pd.NA,
                     "previous_60d_high": pd.NA,

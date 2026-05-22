@@ -10,6 +10,8 @@ import pandas as pd
 
 
 LATEST_DIR = Path("output/latest")
+DATA_PRICE_DIR = Path("data/daily_price")
+DEFAULT_CHART_DAYS = 180
 
 OUTPUT_CSV = LATEST_DIR / "all_candidates_latest.csv"
 OUTPUT_XLSX = LATEST_DIR / "all_candidates_latest.xlsx"
@@ -155,6 +157,8 @@ FINAL_COLUMNS = [
     "tdcc_accumulation_note",
     "chart_path",
     "chart_url",
+    "price_data_path",
+    "chart_days",
     "note",
 ]
 
@@ -649,6 +653,14 @@ def finalize_columns(df: pd.DataFrame) -> pd.DataFrame:
     for col in FINAL_COLUMNS:
         if col not in df.columns:
             df[col] = ""
+
+    default_price_data_path = DATA_PRICE_DIR.as_posix()
+
+    df["price_data_path"] = df["price_data_path"].map(safe_str)
+    df.loc[df["price_data_path"] == "", "price_data_path"] = default_price_data_path
+
+    df["chart_days"] = df["chart_days"].map(safe_str)
+    df.loc[df["chart_days"] == "", "chart_days"] = str(DEFAULT_CHART_DAYS)
 
     extra_cols = [col for col in df.columns if col not in FINAL_COLUMNS]
 
