@@ -1,9 +1,9 @@
 # 每日資料新鮮度狀態
 
-- 產生時間：`2026-05-22 19:27:42 Asia/Taipei`
-- 主資料日期：`20260521`
-- 是否可產出正式每日報告：`True`
-- 判斷說明：主監測報告與完整候選清單日期一致，可以產出正式每日報告
+- 產生時間：`2026-05-22 21:18:24 Asia/Taipei`
+- 主資料日期：`20260522`
+- 是否可產出正式每日報告：`False`
+- 判斷說明：主監測報告與完整候選清單日期不一致，暫不建議產出正式每日報告
 
 ## 各檔案日期
 
@@ -11,7 +11,7 @@
 |---|---:|---|
 | stock_monitor_latest.md | 20260521 | 主監測報告日期 |
 | all_candidates_latest.csv | 20260521 | 完整候選股清單日期 |
-| official_price_fetch_latest.md | 20260521 | 價格抓取狀態檔日期 |
+| official_price_fetch_latest.md | 20260522 | 價格抓取狀態檔日期 |
 | warrant_flow_latest.csv | 20260521 | 權證輔助資料日期 |
 
 ## 判斷規則
@@ -24,4 +24,4 @@
 ## 補充說明
 
 - official price fetch：official_price_fetch_latest.md 與主資料日期一致
-- warrant flow：權證資料與主價格資料日期一致
+- warrant flow：權證資料日期落後主價格資料；權證僅作輔助欄位，不影響主報告是否可產出
