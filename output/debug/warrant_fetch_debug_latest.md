@@ -1,6 +1,6 @@
 # 權證官方資料抓取 Debug
 
-- 產生時間：`2026-05-22 22:13:55 Asia/Taipei`
+- 產生時間：`2026-05-22 22:29:25 Asia/Taipei`
 
 - note：`mapping_rows=29764, quote_rows=29785, final_rows=29764`
 
@@ -10,8 +10,6 @@
 |---|---|---:|---:|---|---|
 | TWSE_WARRANT_STOCK_JSON | TWSE | 0 | 29764 | mapping | 權證代號 / 權證簡稱 / 收盤價 / 漲跌 / 標的代號 / 標的名稱 / 收盤價/指數 / 漲跌 / 權證類型 / 履約方式 / 上市日期 / 履約開始日 / 最後交易日 / 履約截止日 / 行使比例 / 履約價格(元)/點數 / 上限價格(元)/點數 / 下限價格(元)/點數 |
 | TWSE_WARRANT_STOCK_JSON | TWSE | 1 | 3 | mapping | start / span / title |
-| TWSE_WARRANT_STOCK_CSV | TWSE | 0 | 29765 | mapping | 權證收盤資訊 / Unnamed: 1 / Unnamed: 2 / Unnamed: 3 / 標的收盤資訊 / Unnamed: 5 / Unnamed: 6 / Unnamed: 7 / 權證基本資訊 / Unnamed: 9 / Unnamed: 10 / Unnamed: 11 / Unnamed: 12 / Unnamed: 13 / Unnamed: 14 / Unnamed: 15 / Unnamed: 16 / Unnamed: 17 / Unnamed: 18 |
-| TWSE_WARRANT_STOCK_CSV | TWSE | 1 | 29764 | mapping | 權證代號 / 權證簡稱 / 收盤價 / 漲跌 / 標的代號 / 標的名稱 / 收盤價/指數 / 漲跌.1 / 權證類型 / 履約方式 / 上市日期 / 履約開始日 / 最後交易日 / 履約截止日 / 行使比例 / 履約價格(元)/點數 / 上限價格(元)/點數 / 下限價格(元)/點數 / Unnamed: 18 |
 | TWSE_MI_INDEX_ALL_JSON | TWSE | 0 | 56 | quote | 指數 / 收盤指數 / 漲跌(+/-) / 漲跌點數 / 漲跌百分比(%) / 特殊處理註記 |
 | TWSE_MI_INDEX_ALL_JSON | TWSE | 1 | 48 | quote | 指數 / 收盤指數 / 漲跌(+/-) / 漲跌點數 / 漲跌百分比(%) / 特殊處理註記 |
 | TWSE_MI_INDEX_ALL_JSON | TWSE | 2 | 34 | quote | 指數 / 收盤指數 / 漲跌(+/-) / 漲跌點數 / 漲跌百分比(%) / 特殊處理註記 |
