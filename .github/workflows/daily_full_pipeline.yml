@@ -40,24 +40,48 @@ jobs:
         run: |
           python build_revenue_breakout_low_response.py
 
+      - name: Run current holdings pattern analysis
+        run: |
+          python current_holdings_pattern.py
+
       - name: Build data freshness status after stock monitor
         run: |
           python build_data_freshness_latest.py
 
-      - name: Commit daily stock monitor output
+      - name: Commit daily stock monitor and current holdings output
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
+          git pull --rebase origin main || true
+
           git add data/ || true
-          git add output/ || true
-          git add build_data_freshness_latest.py || true
+          git add output/latest/stock_monitor_latest.md || true
+          git add output/latest/revenue_breakout_low_response_latest.csv || true
+          git add output/latest/revenue_breakout_low_response_latest.md || true
+
+          git add output/latest/current_holdings_pattern_latest.csv || true
+          git add output/latest/current_holdings_pattern_latest.md || true
+          git add output/latest/charts/current_holdings/ || true
+
           git add output/latest/data_freshness_latest.md || true
           git add output/latest/data_freshness_latest.csv || true
 
           git status --short
-          git commit -m "Update daily stock monitor report" || echo "No changes to commit"
-          git push
+          git commit -m "Update daily stock monitor and current holdings report" || echo "No changes to commit"
+
+          for i in 1 2 3; do
+            git pull --rebase origin main || true
+            if git push; then
+              echo "Push succeeded"
+              exit 0
+            fi
+            echo "Push failed, retry $i"
+            sleep 5
+          done
+
+          echo "Push failed after retries"
+          exit 1
 
       - name: Trigger Pattern Scan
         run: |
@@ -117,10 +141,12 @@ jobs:
         run: |
           python ensure_report_aliases.py
 
-      - name: Commit candidate charts, all candidates, warrant flow, report artifacts, and freshness status
+      - name: Commit candidate charts, all candidates, warrant flow, report artifacts, freshness status, and current holdings
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
+
+          git pull --rebase origin main || true
 
           git add output/latest/chart_manifest.csv || true
           git add output/latest/contact_sheet_manifest.csv || true
@@ -134,6 +160,10 @@ jobs:
           git add output/latest/stock_monitor_latest.md || true
           git add output/latest/revenue_breakout_low_response_latest.csv || true
           git add output/latest/revenue_breakout_low_response_latest.md || true
+
+          git add output/latest/current_holdings_pattern_latest.csv || true
+          git add output/latest/current_holdings_pattern_latest.md || true
+          git add output/latest/charts/current_holdings/ || true
 
           git add output/latest/warrant_daily_raw_latest.csv || true
           git add output/latest/warrant_daily_fetch_latest.md || true
@@ -167,11 +197,25 @@ jobs:
           git add build_data_freshness_latest.py || true
           git add build_daily_market_report_artifacts.py || true
           git add ensure_report_aliases.py || true
+          git add current_holdings_pattern.py || true
+          git add config/current_holdings.json || true
           git add scripts/fetch_official_warrant_daily.py || true
           git add build_warrant_flow_latest.py || true
           git add merge_warrant_flow_into_candidates.py || true
           git add build_all_candidates_latest.py || true
 
           git status --short
-          git commit -m "Update full daily pipeline with report artifacts" || echo "No changes to commit"
-          git push
+          git commit -m "Update full daily pipeline with report artifacts and current holdings" || echo "No changes to commit"
+
+          for i in 1 2 3; do
+            git pull --rebase origin main || true
+            if git push; then
+              echo "Push succeeded"
+              exit 0
+            fi
+            echo "Push failed, retry $i"
+            sleep 5
+          done
+
+          echo "Push failed after retries"
+          exit 1
