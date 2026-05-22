@@ -1,6 +1,6 @@
 # 目前持股 180 日型態分析
 
-- 產生時間：`2026-05-22 11:09:19 Asia/Taipei`
+- 產生時間：`2026-05-22 19:22:43 Asia/Taipei`
 - CSV：`output/latest/current_holdings_pattern_latest.csv`
 - 圖表資料夾：`output/latest/charts/current_holdings`
 
@@ -12,7 +12,6 @@
 |---|---:|---:|---:|---:|---:|---|---|---|
 | 1815 富喬 | 101.5 | 112.1 | 20.0 | -212000.0 | -9.46 | inside_platform | 平台整理中 | [圖](output/latest/charts/current_holdings/1815_pattern.png) |
 | 2377 微星 | 113.0 | 110.0 | 1.0 | 3000.0 | 2.73 | inside_platform | 平台整理中 | [圖](output/latest/charts/current_holdings/2377_pattern.png) |
-| 4916 事欣科 | 98.8 | 65.9 | 2.0 | 65800.0 | 49.92 | prior_high_breakout_hold | 突破前高且短線站穩 | [圖](output/latest/charts/current_holdings/4916_pattern.png) |
 | 8039 台虹 | 139.0 | 131.81 | 13.0 | 93470.0 | 5.45 | inside_platform | 平台整理中 | [圖](output/latest/charts/current_holdings/8039_pattern.png) |
 
 ## 1815 富喬
@@ -86,44 +85,6 @@
 
 - 上緣突破站穩才轉強
 - 下緣跌破後 3 日站不回才轉弱
-- 仍在 20MA / 23EMA 附近或上方，觀察是否守穩
-
-### 風險註記
-
-- 目前可用交易日數 131 日，未達 180 日
-
-## 4916 事欣科
-
-- 資料日期：`20260521`
-- 可用交易日數：`131`
-- 目前收盤：`98.8`
-- 我的成本：`65.9`
-- 張數：`2.0`
-- 目前損益：`65800.0`
-- 目前損益率：`49.92%`
-- 圖表：`output/latest/charts/current_holdings/4916_pattern.png`
-
-### 型態結構
-
-- 近 180 日高低：`98.8` / `43.5`
-- 近 60 日高低：`98.8` / `53.2`
-- 近 20 日高低：`98.8` / `60.4`
-- 目前平台：`60.4`～`89.9`，平台天數 `20`，寬度 `48.84%`
-- 是否突破前高：`True`
-- 是否跌破平台：`False`
-- 是否假跌破：`False`
-- 是否爆量長上影：`False`
-- 是否爆量跌破：`False`
-
-### 型態判斷
-
-- pattern_state：`prior_high_breakout_hold`
-- pattern_signal：突破前高且短線站穩
-
-### 交易觸發條件
-
-- 若回測前高不破，可續抱
-- 若跌回前高下方且放量，視為突破失敗
 - 仍在 20MA / 23EMA 附近或上方，觀察是否守穩
 
 ### 風險註記
