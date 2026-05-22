@@ -1,706 +1,900 @@
+from __future__ import annotations
+
 from pathlib import Path
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
-from io import StringIO
-import time
+import csv
+import io
+import json
+import math
+import re
+import sys
+from typing import Any
 
 import pandas as pd
 import requests
 
 
-BASE_DIR = Path(__file__).resolve().parent
-DATA_DIR = BASE_DIR / "data" / "daily_price"
-LATEST_DIR = BASE_DIR / "output" / "latest"
-DEBUG_DIR = BASE_DIR / "output" / "debug"
+TAIPEI = ZoneInfo("Asia/Taipei")
 
-DATA_DIR.mkdir(parents=True, exist_ok=True)
-LATEST_DIR.mkdir(parents=True, exist_ok=True)
-DEBUG_DIR.mkdir(parents=True, exist_ok=True)
+DATA_DIR = Path("data/daily_price")
+OUTPUT_LATEST = Path("output/latest")
+OUTPUT_DEBUG = Path("output/debug")
 
-HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-    "(KHTML, like Gecko) Chrome/124.0 Safari/537.36",
-    "Accept": "application/json,text/csv,text/plain,*/*",
-    "Accept-Language": "zh-TW,zh;q=0.9,en;q=0.8",
-    "Connection": "close",
-}
+LATEST_PRICE_CSV = OUTPUT_LATEST / "official_daily_price_latest.csv"
+LATEST_FETCH_MD = OUTPUT_LATEST / "official_price_fetch_latest.md"
+LATEST_FETCH_JSON = OUTPUT_LATEST / "official_price_fetch_latest.json"
+DEBUG_MD = OUTPUT_DEBUG / "official_price_fetch_debug_latest.md"
 
+REQUEST_TIMEOUT = 25
 
-def request_with_retries(url, params=None, timeout=60, retries=3):
-    last_exc = None
+MIN_TWSE_ROWS = 700
+MIN_TPEX_ROWS = 500
+MIN_TOTAL_ROWS = 1400
 
-    for attempt in range(1, retries + 1):
-        try:
-            response = requests.get(
-                url,
-                params=params,
-                headers=HEADERS,
-                timeout=timeout,
-            )
-            response.raise_for_status()
-            return response
-        except Exception as exc:
-            last_exc = exc
-            print(f"Request failed attempt {attempt}/{retries}: {url} params={params} error={exc}")
-            time.sleep(2 * attempt)
-
-    print(f"Request finally failed: {url} params={params} error={last_exc}")
-    return None
+USER_AGENT = (
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) "
+    "Chrome/124.0 Safari/537.36"
+)
 
 
-def normalize_date(value):
-    if pd.isna(value):
-        return None
+FINAL_COLUMNS = [
+    "date",
+    "stock_id",
+    "stock_name",
+    "market",
+    "open",
+    "high",
+    "low",
+    "close",
+    "volume",
+    "trading_value",
+    "source",
+]
 
+
+def now_taipei() -> datetime:
+    return datetime.now(TAIPEI)
+
+
+def ymd(dt: datetime) -> str:
+    return dt.strftime("%Y%m%d")
+
+
+def roc_date_from_yyyymmdd(date_text: str) -> str:
+    year = int(date_text[:4]) - 1911
+    return f"{year}/{date_text[4:6]}/{date_text[6:8]}"
+
+
+def slash_date_from_yyyymmdd(date_text: str) -> str:
+    return f"{date_text[:4]}/{date_text[4:6]}/{date_text[6:8]}"
+
+
+def safe_str(value: Any) -> str:
+    if value is None:
+        return ""
+    try:
+        if pd.isna(value):
+            return ""
+    except Exception:
+        pass
     text = str(value).strip()
-    text = text.replace("年", "/").replace("月", "/").replace("日", "")
-    text = text.replace("-", "/").replace(".", "/")
-
-    if "/" in text:
-        parts = [p for p in text.split("/") if p != ""]
-        if len(parts) >= 3:
-            try:
-                year = int(parts[0])
-                month = int(parts[1])
-                day = int(parts[2])
-
-                if year < 1911:
-                    year += 1911
-
-                return f"{year:04d}{month:02d}{day:02d}"
-            except Exception:
-                return None
-
-    digits = "".join(ch for ch in text if ch.isdigit())
-
-    if len(digits) == 8:
-        year = int(digits[:4])
-        if year >= 1911:
-            return digits
-
-    if len(digits) == 7:
-        try:
-            year = int(digits[:3]) + 1911
-            month = int(digits[3:5])
-            day = int(digits[5:7])
-            return f"{year:04d}{month:02d}{day:02d}"
-        except Exception:
-            return None
-
-    return None
+    if text.lower() in {"nan", "none", "<na>", "null"}:
+        return ""
+    return text
 
 
-def clean_number(value):
-    if pd.isna(value):
-        return None
+def clean_number(value: Any) -> float:
+    text = safe_str(value)
 
-    text = str(value).strip()
+    if text in {"", "--", "-", "X", "x", "除權", "除息", "除權息"}:
+        return math.nan
+
     text = text.replace(",", "")
-    text = text.replace("--", "")
-    text = text.replace("X", "")
     text = text.replace("+", "")
-    text = text.replace(" ", "")
+    text = text.replace("％", "")
+    text = text.replace("%", "")
+    text = text.strip()
 
-    if text == "":
+    # 有些官方欄位會混入空白或不可見字元
+    text = re.sub(r"[^\d.\-]", "", text)
+
+    if text in {"", "-", ".", "-."}:
+        return math.nan
+
+    try:
+        return float(text)
+    except Exception:
+        return math.nan
+
+
+def clean_int(value: Any) -> int:
+    number = clean_number(value)
+    if math.isnan(number):
+        return 0
+    return int(round(number))
+
+
+def normalize_stock_id(value: Any) -> str:
+    text = safe_str(value)
+    text = re.sub(r"\.0$", "", text)
+    text = re.sub(r"[^0-9A-Za-z]", "", text)
+
+    if text.isdigit():
+        return text.zfill(4)
+
+    return text
+
+
+def is_valid_stock_id(stock_id: str) -> bool:
+    if not stock_id:
+        return False
+    if not re.fullmatch(r"\d{4,6}", stock_id):
+        return False
+    return True
+
+
+def request_text(url: str, log: list[str]) -> str:
+    headers = {
+        "User-Agent": USER_AGENT,
+        "Accept": "application/json,text/csv,text/plain,text/html,*/*",
+        "Referer": "https://www.twse.com.tw/",
+    }
+
+    try:
+        resp = requests.get(url, headers=headers, timeout=REQUEST_TIMEOUT)
+        log.append(f"GET {url} -> status={resp.status_code}, chars={len(resp.text)}")
+        if resp.status_code != 200:
+            return ""
+        return resp.text
+    except Exception as exc:
+        log.append(f"GET {url} failed: {type(exc).__name__}: {exc}")
+        return ""
+
+
+def parse_json_text(text: str) -> Any:
+    if not text:
         return None
 
-    return pd.to_numeric(text, errors="coerce")
+    text = text.lstrip("\ufeff").strip()
 
-
-def clean_price_df(df):
-    if df.empty:
-        return df
-
-    df = df.copy()
-
-    df["ticker"] = df["ticker"].astype(str).str.strip()
-    df["name"] = df["name"].astype(str).str.strip()
-
-    for col in ["volume", "open", "high", "low", "close"]:
-        df[col] = df[col].apply(clean_number)
-
-    df = df.dropna(subset=["ticker", "close"])
-    df = df[df["ticker"].str.match(r"^\d{4}$", na=False)]
-    df = df[df["close"] > 0]
-
-    df = df[
-        [
-            "date",
-            "ticker",
-            "name",
-            "market",
-            "open",
-            "high",
-            "low",
-            "close",
-            "volume",
-        ]
-    ]
-
-    return df.reset_index(drop=True)
-
-
-def parse_twse_table(df, date_str, source_name):
-    if df.empty:
-        return pd.DataFrame()
-
-    df = df.copy()
-
-    if isinstance(df.columns, pd.MultiIndex):
-        df.columns = [
-            "".join([str(x) for x in col if str(x) != "nan"]).strip()
-            for col in df.columns
-        ]
-    else:
-        df.columns = [str(col).strip() for col in df.columns]
-
-    col_map_candidates = {
-        "ticker": ["證券代號", "有價證券代號"],
-        "name": ["證券名稱", "有價證券名稱"],
-        "volume": ["成交股數"],
-        "open": ["開盤價"],
-        "high": ["最高價"],
-        "low": ["最低價"],
-        "close": ["收盤價"],
-    }
-
-    selected = {}
-
-    for std_col, possible_cols in col_map_candidates.items():
-        for possible_col in possible_cols:
-            for actual_col in df.columns:
-                if possible_col == actual_col or possible_col in actual_col:
-                    selected[std_col] = actual_col
-                    break
-            if std_col in selected:
-                break
-
-    required = ["ticker", "name", "volume", "open", "high", "low", "close"]
-
-    if any(col not in selected for col in required):
-        print(
-            f"TWSE missing columns for {date_str} source={source_name}: "
-            f"columns={list(df.columns)} selected={selected}"
-        )
-        return pd.DataFrame()
-
-    out = df[
-        [
-            selected["ticker"],
-            selected["name"],
-            selected["volume"],
-            selected["open"],
-            selected["high"],
-            selected["low"],
-            selected["close"],
-        ]
-    ].copy()
-
-    out.columns = ["ticker", "name", "volume", "open", "high", "low", "close"]
-    out["market"] = "TWSE"
-    out["date"] = date_str
-
-    parsed = clean_price_df(out)
-
-    if not parsed.empty:
-        print(f"TWSE parsed rows for {date_str} source={source_name}: {len(parsed)}")
-
-    return parsed
-
-
-def parse_twse_json_response(response, date_str, source_name):
     try:
-        data = response.json()
-    except Exception as exc:
-        print(f"TWSE json parse failed for {date_str} source={source_name}: {exc}")
-        return pd.DataFrame()
-
-    tables = data.get("tables", [])
-
-    if not isinstance(tables, list) or not tables:
-        print(f"TWSE json no tables for {date_str} source={source_name}")
-        return pd.DataFrame()
-
-    for table in tables:
-        fields = table.get("fields", [])
-        rows = table.get("data", [])
-
-        if not fields or not rows:
-            continue
-
-        if "證券代號" in fields and "證券名稱" in fields and "收盤價" in fields:
-            df = pd.DataFrame(rows, columns=fields)
-            parsed = parse_twse_table(df, date_str, source_name)
-
-            if not parsed.empty:
-                return parsed
-
-    print(f"TWSE json no valid price table for {date_str} source={source_name}")
-    return pd.DataFrame()
-
-
-def parse_twse_html_response(response, date_str, source_name):
-    try:
-        text = response.content.decode("utf-8-sig", errors="replace")
+        return json.loads(text)
     except Exception:
-        text = response.text
-
-    debug_path = DEBUG_DIR / f"twse_response_{date_str}_{source_name}.html"
-    debug_path.write_text(text[:10000], encoding="utf-8")
-
-    try:
-        tables = pd.read_html(StringIO(text))
-    except Exception as exc:
-        print(f"TWSE html read failed for {date_str} source={source_name}: {exc}")
-        return pd.DataFrame()
-
-    for idx, table in enumerate(tables):
-        parsed = parse_twse_table(table, date_str, f"{source_name}_table_{idx}")
-
-        if not parsed.empty:
-            return parsed
-
-    print(f"TWSE html no valid price table for {date_str} source={source_name}")
-    return pd.DataFrame()
-
-
-def fetch_twse_daily_price(date_str):
-    sources = [
-        {
-            "name": "rwd_json",
-            "url": "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX",
-            "params": {
-                "response": "json",
-                "date": date_str,
-                "type": "ALLBUT0999",
-            },
-            "kind": "json",
-            "timeout": 90,
-            "retries": 5,
-        },
-        {
-            "name": "legacy_json",
-            "url": "https://www.twse.com.tw/exchangeReport/MI_INDEX",
-            "params": {
-                "response": "json",
-                "date": date_str,
-                "type": "ALLBUT0999",
-            },
-            "kind": "json",
-            "timeout": 90,
-            "retries": 5,
-        },
-        {
-            "name": "rwd_html",
-            "url": "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX",
-            "params": {
-                "response": "html",
-                "date": date_str,
-                "type": "ALLBUT0999",
-            },
-            "kind": "html",
-            "timeout": 90,
-            "retries": 3,
-        },
-        {
-            "name": "legacy_html",
-            "url": "https://www.twse.com.tw/exchangeReport/MI_INDEX",
-            "params": {
-                "response": "html",
-                "date": date_str,
-                "type": "ALLBUT0999",
-            },
-            "kind": "html",
-            "timeout": 90,
-            "retries": 3,
-        },
-    ]
-
-    for source in sources:
-        print(f"Trying TWSE source {source['name']} for {date_str}")
-
-        response = request_with_retries(
-            source["url"],
-            params=source["params"],
-            timeout=source["timeout"],
-            retries=source["retries"],
-        )
-
-        if response is None:
-            continue
-
-        if source["kind"] == "json":
-            parsed = parse_twse_json_response(response, date_str, source["name"])
-        else:
-            parsed = parse_twse_html_response(response, date_str, source["name"])
-
-        if not parsed.empty:
-            return parsed
-
-    print(f"TWSE no valid data for {date_str}")
-    return pd.DataFrame()
-
-
-def parse_tpex_table(df, date_str):
-    if df.empty:
-        return pd.DataFrame()
-
-    df = df.copy()
-    df.columns = [str(col).strip().replace('"', "") for col in df.columns]
-
-    date_candidates = ["資料日期", "日期", "Date", "date"]
-    date_col = None
-
-    for col in date_candidates:
-        if col in df.columns:
-            date_col = col
-            break
-
-    if date_col is not None:
-        df["_normalized_date"] = df[date_col].apply(normalize_date)
-        df = df[df["_normalized_date"] == date_str].copy()
-    else:
-        df["_normalized_date"] = date_str
-
-    if df.empty:
-        return pd.DataFrame()
-
-    col_candidates = {
-        "ticker": ["代號", "證券代號", "股票代號", "Code", "SecuritiesCompanyCode"],
-        "name": ["名稱", "證券名稱", "股票名稱", "Name", "CompanyName"],
-        "close": ["收盤", "收盤價", "最後成交價", "Close", "ClosePrice"],
-        "open": ["開盤", "開盤價", "Open", "OpenPrice"],
-        "high": ["最高", "最高價", "High", "HighPrice"],
-        "low": ["最低", "最低價", "Low", "LowPrice"],
-        "volume": ["成交股數", "成交股數(股)", "成交仟股", "成交量", "Volume", "TradeVolume"],
-    }
-
-    selected = {}
-
-    for std_col, possible_cols in col_candidates.items():
-        for col in possible_cols:
-            if col in df.columns:
-                selected[std_col] = col
-                break
-
-    if len(selected) < len(col_candidates):
-        print(f"TPEx missing columns for {date_str}: columns={list(df.columns)} selected={selected}")
-        return pd.DataFrame()
-
-    out = df[
-        [
-            selected["ticker"],
-            selected["name"],
-            selected["volume"],
-            selected["open"],
-            selected["high"],
-            selected["low"],
-            selected["close"],
-        ]
-    ].copy()
-
-    out.columns = ["ticker", "name", "volume", "open", "high", "low", "close"]
-    out["market"] = "TPEX"
-    out["date"] = date_str
-
-    return clean_price_df(out)
-
-
-def parse_tpex_json_response(response, date_str, source_name):
-    try:
-        data = response.json()
-    except Exception as exc:
-        print(f"TPEx json parse failed for {date_str} source={source_name}: {exc}")
-        return pd.DataFrame()
-
-    rows = None
-    fields = None
-
-    if isinstance(data, list):
-        rows = data
-    elif isinstance(data, dict):
-        for key in ["data", "Data", "aaData", "tables"]:
-            if key in data:
-                rows = data.get(key)
-                break
-
-        fields = data.get("fields") or data.get("Fields") or data.get("columns") or data.get("Columns")
-
-        if isinstance(rows, list) and rows and isinstance(rows[0], dict) and "data" in rows[0]:
-            first_table = rows[0]
-            fields = first_table.get("fields") or first_table.get("columns") or fields
-            rows = first_table.get("data")
-
-    if rows is None:
-        print(f"TPEx json no rows for {date_str} source={source_name}")
-        return pd.DataFrame()
-
-    if isinstance(rows, list) and rows and isinstance(rows[0], dict):
-        df = pd.DataFrame(rows)
-    elif isinstance(rows, list) and fields:
-        df = pd.DataFrame(rows, columns=fields)
-    else:
-        print(f"TPEx json unsupported rows for {date_str} source={source_name}")
-        return pd.DataFrame()
-
-    parsed = parse_tpex_table(df, date_str)
-
-    if not parsed.empty:
-        print(f"TPEx parsed json rows for {date_str} source={source_name}: {len(parsed)}")
-
-    return parsed
-
-
-def parse_tpex_csv_response(response, date_str, source_name):
-    try:
-        text = response.content.decode("utf-8-sig", errors="replace")
-    except Exception:
-        text = response.text
-
-    debug_path = DEBUG_DIR / f"tpex_response_{date_str}_{source_name}.txt"
-    debug_path.write_text(text[:5000], encoding="utf-8")
-
-    lines = []
-
-    for raw_line in text.splitlines():
-        line = raw_line.strip()
-
-        if not line:
-            continue
-
-        if "代號" in line and "名稱" in line:
-            lines.append(line)
-            continue
-
-        clean_line = line.replace('"', "").replace(",", "")
-        if len(clean_line) >= 4 and clean_line[:4].isdigit():
-            lines.append(line)
-
-    if len(lines) < 2:
-        print(f"TPEx csv no usable lines for {date_str} source={source_name}")
-        return pd.DataFrame()
-
-    csv_text = "\n".join(lines)
-
-    try:
-        df = pd.read_csv(StringIO(csv_text))
-    except Exception as exc:
-        print(f"TPEx csv read failed for {date_str} source={source_name}: {exc}")
-        return pd.DataFrame()
-
-    parsed = parse_tpex_table(df, date_str)
-
-    if not parsed.empty:
-        print(f"TPEx parsed csv rows for {date_str} source={source_name}: {len(parsed)}")
-
-    return parsed
-
-
-def fetch_tpex_daily_price(date_str):
-    roc_year = int(date_str[:4]) - 1911
-    roc_date = f"{roc_year}/{date_str[4:6]}/{date_str[6:8]}"
-
-    sources = [
-        {
-            "name": "open_data_current_json",
-            "url": "https://www.tpex.org.tw/web/stock/aftertrading/otc_quotes_no1430/stk_wn1430_result.php",
-            "params": {"l": "zh-tw", "o": "data", "se": "EW"},
-            "kind": "json",
-            "timeout": 90,
-            "retries": 5,
-        },
-        {
-            "name": "open_data_current_csv",
-            "url": "https://www.tpex.org.tw/web/stock/aftertrading/otc_quotes_no1430/stk_wn1430_result.php",
-            "params": {"l": "zh-tw", "o": "csv", "se": "EW"},
-            "kind": "csv",
-            "timeout": 90,
-            "retries": 5,
-        },
-        {
-            "name": "old_daily_csv",
-            "url": "https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php",
-            "params": {"l": "zh-tw", "d": roc_date, "o": "csv", "se": "EW"},
-            "kind": "csv",
-            "timeout": 90,
-            "retries": 3,
-        },
-        {
-            "name": "old_daily_data",
-            "url": "https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php",
-            "params": {"l": "zh-tw", "d": roc_date, "o": "data", "se": "EW"},
-            "kind": "json",
-            "timeout": 90,
-            "retries": 3,
-        },
-        {
-            "name": "new_aftertrading_json",
-            "url": "https://www.tpex.org.tw/www/zh-tw/afterTrading/otc",
-            "params": {"date": roc_date, "type": "AL", "response": "json"},
-            "kind": "json",
-            "timeout": 60,
-            "retries": 3,
-        },
-    ]
-
-    for source in sources:
-        print(f"Trying TPEx source {source['name']} for {date_str}")
-
-        response = request_with_retries(
-            source["url"],
-            params=source["params"],
-            timeout=source["timeout"],
-            retries=source["retries"],
-        )
-
-        if response is None:
-            continue
-
-        if source["kind"] == "json":
-            parsed = parse_tpex_json_response(response, date_str, source["name"])
-        else:
-            parsed = parse_tpex_csv_response(response, date_str, source["name"])
-
-        if not parsed.empty:
-            return parsed
-
-    print(f"TPEx no valid data for {date_str}")
-    return pd.DataFrame()
-
-
-def is_valid_trading_day_data(twse_df, tpex_df, combined):
-    twse_rows = len(twse_df)
-    tpex_rows = len(tpex_df)
-    total_rows = len(combined)
-
-    if total_rows < 1000:
-        return False, f"Total rows too low: {total_rows}"
-
-    if twse_rows < 700:
-        return False, f"TWSE rows too low: {twse_rows}"
-
-    if tpex_rows < 500:
-        return False, f"TPEx rows too low: {tpex_rows}"
-
-    return True, "valid"
-
-
-def try_fetch_one_date(date_str):
-    print(f"Trying official price date: {date_str}")
-
-    twse_df = fetch_twse_daily_price(date_str)
-    tpex_df = fetch_tpex_daily_price(date_str)
-
-    combined = pd.concat([twse_df, tpex_df], ignore_index=True)
-
-    if not combined.empty:
-        combined = combined.drop_duplicates(subset=["date", "ticker"], keep="last")
-
-    valid, reason = is_valid_trading_day_data(twse_df, tpex_df, combined)
+        return None
+
+
+def normalize_row(
+    *,
+    date_text: str,
+    stock_id: Any,
+    stock_name: Any,
+    market: str,
+    open_price: Any,
+    high_price: Any,
+    low_price: Any,
+    close_price: Any,
+    volume: Any,
+    trading_value: Any,
+    source: str,
+) -> dict[str, Any] | None:
+    sid = normalize_stock_id(stock_id)
+    name = safe_str(stock_name)
+
+    if not is_valid_stock_id(sid):
+        return None
+
+    o = clean_number(open_price)
+    h = clean_number(high_price)
+    l = clean_number(low_price)
+    c = clean_number(close_price)
+
+    if math.isnan(c):
+        return None
+
+    # 開高低有時缺值，但收盤有值；先用收盤補，避免整列被丟掉
+    if math.isnan(o):
+        o = c
+    if math.isnan(h):
+        h = max(o, c)
+    if math.isnan(l):
+        l = min(o, c)
+
+    vol = clean_int(volume)
+    val = clean_int(trading_value)
+
+    if vol <= 0 and val <= 0:
+        # ETF、特殊商品或停牌會有 0，但股票日線監測不需要
+        return None
 
     return {
-        "date": date_str,
-        "twse_df": twse_df,
-        "tpex_df": tpex_df,
-        "combined": combined,
-        "valid": valid,
-        "reason": reason,
-        "twse_rows": len(twse_df),
-        "tpex_rows": len(tpex_df),
-        "total_rows": len(combined),
+        "date": date_text,
+        "stock_id": sid,
+        "stock_name": name,
+        "market": market,
+        "open": o,
+        "high": h,
+        "low": l,
+        "close": c,
+        "volume": vol,
+        "trading_value": val,
+        "source": source,
     }
 
 
-def write_report(taiwan_now, target_date, selected, log_lines):
-    log_text = "\n".join(log_lines)
+def dataframe_from_rows(rows: list[dict[str, Any]]) -> pd.DataFrame:
+    if not rows:
+        return pd.DataFrame(columns=FINAL_COLUMNS)
 
-    if selected is None:
-        report = f"""# 官方每日價格抓取報告
+    df = pd.DataFrame(rows)
 
-執行時間：{taiwan_now.strftime("%Y-%m-%d %H:%M:%S")} Asia/Taipei
-台灣目標日期：{target_date}
-結果：未存檔
-官方價格資料日：無
-輸出檔案：無
+    for col in FINAL_COLUMNS:
+        if col not in df.columns:
+            df[col] = ""
 
-檢查紀錄：
-{log_text}
+    df = df[FINAL_COLUMNS].copy()
+    df = df.drop_duplicates(["date", "stock_id"], keep="first")
 
-說明：最近 8 天內沒有找到完整官方收盤資料，程式不會寫入 data/daily_price/，避免污染均線與回測。
-"""
-
-        report_path = LATEST_DIR / "official_price_fetch_latest.md"
-        report_path.write_text(report, encoding="utf-8")
-        return report_path
-
-    date_str = selected["date"]
-    output_path = DATA_DIR / f"{date_str}.csv"
-
-    report = f"""# 官方每日價格抓取報告
-
-執行時間：{taiwan_now.strftime("%Y-%m-%d %H:%M:%S")} Asia/Taipei
-台灣目標日期：{target_date}
-結果：成功
-官方價格資料日：{date_str}
-上市筆數：{selected["twse_rows"]}
-上櫃筆數：{selected["tpex_rows"]}
-總筆數：{selected["total_rows"]}
-輸出檔案：{output_path}
-
-檢查紀錄：
-{log_text}
-"""
-
-    report_path = LATEST_DIR / "official_price_fetch_latest.md"
-    report_path.write_text(report, encoding="utf-8")
-    return report_path
+    return df
 
 
-def main():
-    taiwan_now = datetime.now(ZoneInfo("Asia/Taipei"))
-    target_date = taiwan_now.strftime("%Y%m%d")
+def parse_twse_mi_index_json(text: str, date_text: str, source: str, log: list[str]) -> pd.DataFrame:
+    obj = parse_json_text(text)
 
-    selected = None
-    log_lines = []
+    if not isinstance(obj, dict):
+        log.append(f"{source}: json parse failed")
+        return pd.DataFrame(columns=FINAL_COLUMNS)
 
-    for offset in range(0, 8):
-        date_str = (taiwan_now - timedelta(days=offset)).strftime("%Y%m%d")
-        result = try_fetch_one_date(date_str)
+    possible_pairs = []
 
-        log_lines.append(
-            f"{result['date']}：{result['reason']}，"
-            f"上市 {result['twse_rows']}，"
-            f"上櫃 {result['tpex_rows']}，"
-            f"合計 {result['total_rows']}"
+    for data_key, fields_key in [
+        ("data9", "fields9"),
+        ("data", "fields"),
+        ("tables", "fields"),
+    ]:
+        if data_key in obj:
+            possible_pairs.append((obj.get(data_key), obj.get(fields_key)))
+
+    if "tables" in obj and isinstance(obj["tables"], list):
+        for table in obj["tables"]:
+            if isinstance(table, dict):
+                possible_pairs.append((table.get("data"), table.get("fields")))
+
+    rows = []
+
+    for data, fields in possible_pairs:
+        if not isinstance(data, list):
+            continue
+
+        field_map = {}
+        if isinstance(fields, list):
+            for i, field in enumerate(fields):
+                field_map[safe_str(field)] = i
+
+        for item in data:
+            if not isinstance(item, list):
+                continue
+
+            parsed = parse_twse_list_row(item, date_text, source)
+            if parsed:
+                rows.append(parsed)
+
+    df = dataframe_from_rows(rows)
+    log.append(f"{source}: parsed TWSE rows={len(df)}")
+    return df
+
+
+def parse_twse_list_row(item: list[Any], date_text: str, source: str) -> dict[str, Any] | None:
+    # TWSE MI_INDEX 常見欄位：
+    # 0 證券代號
+    # 1 證券名稱
+    # 2 成交股數
+    # 3 成交筆數
+    # 4 成交金額
+    # 5 開盤價
+    # 6 最高價
+    # 7 最低價
+    # 8 收盤價
+
+    if len(item) < 9:
+        return None
+
+    return normalize_row(
+        date_text=date_text,
+        stock_id=item[0],
+        stock_name=item[1],
+        market="TWSE",
+        volume=item[2],
+        trading_value=item[4],
+        open_price=item[5],
+        high_price=item[6],
+        low_price=item[7],
+        close_price=item[8],
+        source=source,
+    )
+
+
+def parse_twse_csv(text: str, date_text: str, source: str, log: list[str]) -> pd.DataFrame:
+    if not text:
+        return pd.DataFrame(columns=FINAL_COLUMNS)
+
+    rows = []
+
+    # TWSE CSV 有時前面會有說明列，所以逐行找像股票資料的列
+    reader = csv.reader(io.StringIO(text.lstrip("\ufeff")))
+
+    for item in reader:
+        if len(item) < 9:
+            continue
+
+        # 股票代號通常在第 0 欄
+        if not re.fullmatch(r"\s*\d{4,6}\s*", safe_str(item[0])):
+            continue
+
+        parsed = parse_twse_list_row(item, date_text, source)
+        if parsed:
+            rows.append(parsed)
+
+    df = dataframe_from_rows(rows)
+    log.append(f"{source}: parsed TWSE CSV rows={len(df)}")
+    return df
+
+
+def parse_twse_openapi(text: str, date_text: str, source: str, log: list[str]) -> pd.DataFrame:
+    obj = parse_json_text(text)
+
+    if not isinstance(obj, list):
+        log.append(f"{source}: openapi json parse failed or not list")
+        return pd.DataFrame(columns=FINAL_COLUMNS)
+
+    rows = []
+
+    for item in obj:
+        if not isinstance(item, dict):
+            continue
+
+        stock_id = (
+            item.get("Code")
+            or item.get("證券代號")
+            or item.get("STOCK_ID")
+            or item.get("stock_id")
         )
 
-        if result["valid"]:
-            selected = result
+        stock_name = (
+            item.get("Name")
+            or item.get("證券名稱")
+            or item.get("STOCK_NAME")
+            or item.get("stock_name")
+        )
+
+        parsed = normalize_row(
+            date_text=date_text,
+            stock_id=stock_id,
+            stock_name=stock_name,
+            market="TWSE",
+            volume=item.get("TradeVolume") or item.get("成交股數") or item.get("Volume"),
+            trading_value=item.get("TradeValue") or item.get("成交金額") or item.get("TradingValue"),
+            open_price=item.get("OpeningPrice") or item.get("開盤價") or item.get("Open"),
+            high_price=item.get("HighestPrice") or item.get("最高價") or item.get("High"),
+            low_price=item.get("LowestPrice") or item.get("最低價") or item.get("Low"),
+            close_price=item.get("ClosingPrice") or item.get("收盤價") or item.get("Close"),
+            source=source,
+        )
+
+        if parsed:
+            rows.append(parsed)
+
+    df = dataframe_from_rows(rows)
+    log.append(f"{source}: parsed TWSE OpenAPI rows={len(df)}")
+    return df
+
+
+def fetch_twse(date_text: str, log: list[str]) -> pd.DataFrame:
+    urls = [
+        (
+            "TWSE_RWD_JSON_MI_INDEX",
+            f"https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date={date_text}&type=ALLBUT0999&response=json",
+            "json_mi",
+        ),
+        (
+            "TWSE_RWD_CSV_MI_INDEX",
+            f"https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date={date_text}&type=ALLBUT0999&response=csv",
+            "csv_mi",
+        ),
+        (
+            "TWSE_LEGACY_JSON_MI_INDEX",
+            f"https://www.twse.com.tw/exchangeReport/MI_INDEX?response=json&date={date_text}&type=ALLBUT0999",
+            "json_mi",
+        ),
+        (
+            "TWSE_OPENAPI_STOCK_DAY_ALL",
+            "https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL",
+            "openapi",
+        ),
+    ]
+
+    frames = []
+
+    for source, url, kind in urls:
+        log.append(f"Trying TWSE source={source} date={date_text}")
+        text = request_text(url, log)
+
+        if not text:
+            continue
+
+        if kind == "json_mi":
+            df = parse_twse_mi_index_json(text, date_text, source, log)
+        elif kind == "csv_mi":
+            df = parse_twse_csv(text, date_text, source, log)
+        elif kind == "openapi":
+            df = parse_twse_openapi(text, date_text, source, log)
+        else:
+            df = pd.DataFrame(columns=FINAL_COLUMNS)
+
+        if len(df) >= MIN_TWSE_ROWS:
+            log.append(f"TWSE selected source={source}, rows={len(df)}")
+            return df
+
+        if not df.empty:
+            frames.append(df)
+
+    if frames:
+        combined = pd.concat(frames, ignore_index=True)
+        combined = combined.drop_duplicates(["date", "stock_id"], keep="first")
+        log.append(f"TWSE combined partial rows={len(combined)}")
+        return combined
+
+    log.append("TWSE no rows")
+    return pd.DataFrame(columns=FINAL_COLUMNS)
+
+
+def parse_tpex_json_tables(text: str, date_text: str, source: str, log: list[str]) -> pd.DataFrame:
+    obj = parse_json_text(text)
+
+    if obj is None:
+        log.append(f"{source}: json parse failed")
+        return pd.DataFrame(columns=FINAL_COLUMNS)
+
+    rows = []
+
+    def walk(node: Any) -> None:
+        if isinstance(node, dict):
+            for key in ["aaData", "data", "tables", "items", "list"]:
+                if key in node:
+                    walk(node[key])
+
+            # dict row 形式
+            maybe = parse_tpex_dict_row(node, date_text, source)
+            if maybe:
+                rows.append(maybe)
+
+            for value in node.values():
+                if isinstance(value, (dict, list)):
+                    walk(value)
+
+        elif isinstance(node, list):
+            if node and all(not isinstance(x, (dict, list)) for x in node):
+                maybe = parse_tpex_list_row(node, date_text, source)
+                if maybe:
+                    rows.append(maybe)
+            else:
+                for value in node:
+                    walk(value)
+
+    walk(obj)
+
+    df = dataframe_from_rows(rows)
+    log.append(f"{source}: parsed TPEx json rows={len(df)}")
+    return df
+
+
+def parse_tpex_dict_row(item: dict[str, Any], date_text: str, source: str) -> dict[str, Any] | None:
+    stock_id = (
+        item.get("SecuritiesCompanyCode")
+        or item.get("SecuritiesCode")
+        or item.get("Code")
+        or item.get("代號")
+        or item.get("有價證券代號")
+        or item.get("stock_id")
+    )
+
+    stock_name = (
+        item.get("CompanyName")
+        or item.get("Name")
+        or item.get("名稱")
+        or item.get("有價證券名稱")
+        or item.get("stock_name")
+    )
+
+    close_price = (
+        item.get("Close")
+        or item.get("ClosePrice")
+        or item.get("收盤")
+        or item.get("收盤價")
+    )
+
+    open_price = (
+        item.get("Open")
+        or item.get("OpenPrice")
+        or item.get("開盤")
+        or item.get("開盤價")
+    )
+
+    high_price = (
+        item.get("High")
+        or item.get("HighPrice")
+        or item.get("最高")
+        or item.get("最高價")
+    )
+
+    low_price = (
+        item.get("Low")
+        or item.get("LowPrice")
+        or item.get("最低")
+        or item.get("最低價")
+    )
+
+    volume = (
+        item.get("TradingShares")
+        or item.get("成交股數")
+        or item.get("成交股數合計")
+        or item.get("Volume")
+        or item.get("成交量")
+    )
+
+    trading_value = (
+        item.get("TransactionAmount")
+        or item.get("成交金額")
+        or item.get("TradingValue")
+        or item.get("成交值")
+    )
+
+    return normalize_row(
+        date_text=date_text,
+        stock_id=stock_id,
+        stock_name=stock_name,
+        market="TPEx",
+        open_price=open_price,
+        high_price=high_price,
+        low_price=low_price,
+        close_price=close_price,
+        volume=volume,
+        trading_value=trading_value,
+        source=source,
+    )
+
+
+def parse_tpex_list_row(item: list[Any], date_text: str, source: str) -> dict[str, Any] | None:
+    if len(item) < 8:
+        return None
+
+    # TPEx 舊版常見：
+    # 0 代號
+    # 1 名稱
+    # 2 收盤
+    # 3 漲跌
+    # 4 開盤
+    # 5 最高
+    # 6 最低
+    # 7 成交股數
+    # 8 成交金額
+    #
+    # 有些新版欄位會多幾欄，仍以這組位置優先解析。
+
+    if not re.fullmatch(r"\s*\d{4,6}\s*", safe_str(item[0])):
+        return None
+
+    close_price = item[2] if len(item) > 2 else ""
+    open_price = item[4] if len(item) > 4 else close_price
+    high_price = item[5] if len(item) > 5 else close_price
+    low_price = item[6] if len(item) > 6 else close_price
+    volume = item[7] if len(item) > 7 else ""
+    trading_value = item[8] if len(item) > 8 else ""
+
+    return normalize_row(
+        date_text=date_text,
+        stock_id=item[0],
+        stock_name=item[1] if len(item) > 1 else "",
+        market="TPEx",
+        open_price=open_price,
+        high_price=high_price,
+        low_price=low_price,
+        close_price=close_price,
+        volume=volume,
+        trading_value=trading_value,
+        source=source,
+    )
+
+
+def parse_tpex_csv(text: str, date_text: str, source: str, log: list[str]) -> pd.DataFrame:
+    if not text:
+        return pd.DataFrame(columns=FINAL_COLUMNS)
+
+    rows = []
+
+    for encoding_try in [text]:
+        reader = csv.reader(io.StringIO(encoding_try.lstrip("\ufeff")))
+
+        for item in reader:
+            if len(item) < 8:
+                continue
+
+            if not re.fullmatch(r"\s*\d{4,6}\s*", safe_str(item[0])):
+                continue
+
+            parsed = parse_tpex_list_row(item, date_text, source)
+            if parsed:
+                rows.append(parsed)
+
+    df = dataframe_from_rows(rows)
+    log.append(f"{source}: parsed TPEx CSV rows={len(df)}")
+    return df
+
+
+def fetch_tpex(date_text: str, log: list[str]) -> pd.DataFrame:
+    roc_date = roc_date_from_yyyymmdd(date_text)
+    slash_date = slash_date_from_yyyymmdd(date_text)
+
+    urls = [
+        (
+            "TPEX_NEW_AFTERTRADING_JSON",
+            f"https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date={slash_date}&type=EW&response=json",
+            "json",
+        ),
+        (
+            "TPEX_NEW_AFTERTRADING_CSV",
+            f"https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date={slash_date}&type=EW&response=csv",
+            "csv",
+        ),
+        (
+            "TPEX_OLD_DAILY_JSON",
+            f"https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=json&d={roc_date}&s=0,asc,0",
+            "json",
+        ),
+        (
+            "TPEX_OLD_DAILY_CSV",
+            f"https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=csv&d={roc_date}&s=0,asc,0",
+            "csv",
+        ),
+    ]
+
+    frames = []
+
+    for source, url, kind in urls:
+        log.append(f"Trying TPEx source={source} date={date_text}")
+        text = request_text(url, log)
+
+        if not text:
+            continue
+
+        if kind == "json":
+            df = parse_tpex_json_tables(text, date_text, source, log)
+        elif kind == "csv":
+            df = parse_tpex_csv(text, date_text, source, log)
+        else:
+            df = pd.DataFrame(columns=FINAL_COLUMNS)
+
+        if len(df) >= MIN_TPEX_ROWS:
+            log.append(f"TPEx selected source={source}, rows={len(df)}")
+            return df
+
+        if not df.empty:
+            frames.append(df)
+
+    if frames:
+        combined = pd.concat(frames, ignore_index=True)
+        combined = combined.drop_duplicates(["date", "stock_id"], keep="first")
+        log.append(f"TPEx combined partial rows={len(combined)}")
+        return combined
+
+    log.append("TPEx no rows")
+    return pd.DataFrame(columns=FINAL_COLUMNS)
+
+
+def build_price_for_date(date_text: str, log: list[str]) -> tuple[pd.DataFrame, dict[str, Any]]:
+    twse = fetch_twse(date_text, log)
+    tpex = fetch_tpex(date_text, log)
+
+    twse_rows = len(twse)
+    tpex_rows = len(tpex)
+
+    frames = []
+    if not twse.empty:
+        frames.append(twse)
+    if not tpex.empty:
+        frames.append(tpex)
+
+    if frames:
+        combined = pd.concat(frames, ignore_index=True)
+        combined = combined.drop_duplicates(["date", "stock_id"], keep="first")
+        combined = combined.sort_values(["market", "stock_id"]).reset_index(drop=True)
+    else:
+        combined = pd.DataFrame(columns=FINAL_COLUMNS)
+
+    status = {
+        "date": date_text,
+        "twse_rows": twse_rows,
+        "tpex_rows": tpex_rows,
+        "total_rows": len(combined),
+        "twse_ok": twse_rows >= MIN_TWSE_ROWS,
+        "tpex_ok": tpex_rows >= MIN_TPEX_ROWS,
+        "full_market_ok": (
+            twse_rows >= MIN_TWSE_ROWS
+            and tpex_rows >= MIN_TPEX_ROWS
+            and len(combined) >= MIN_TOTAL_ROWS
+        ),
+    }
+
+    log.append(
+        f"date={date_text} twse_rows={twse_rows} "
+        f"tpex_rows={tpex_rows} total_rows={len(combined)} "
+        f"full_market_ok={status['full_market_ok']}"
+    )
+
+    return combined, status
+
+
+def detect_target_date() -> str:
+    now = now_taipei()
+
+    # 台股夜間跑報告時，目標日期就是今天。
+    # 週末手動跑時，會先試今天，再往前回查。
+    return ymd(now)
+
+
+def candidate_dates(target_date: str, lookback_days: int = 8) -> list[str]:
+    start = datetime.strptime(target_date, "%Y%m%d").replace(tzinfo=TAIPEI)
+    return [ymd(start - timedelta(days=i)) for i in range(lookback_days)]
+
+
+def save_price_data(df: pd.DataFrame, saved_date: str) -> dict[str, str]:
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    OUTPUT_LATEST.mkdir(parents=True, exist_ok=True)
+
+    paths = {
+        "dated_csv": str(DATA_DIR / f"{saved_date}.csv"),
+        "dated_alt_csv": str(DATA_DIR / f"daily_price_{saved_date}.csv"),
+        "latest_csv": str(LATEST_PRICE_CSV),
+    }
+
+    df.to_csv(paths["dated_csv"], index=False, encoding="utf-8-sig")
+    df.to_csv(paths["dated_alt_csv"], index=False, encoding="utf-8-sig")
+    df.to_csv(paths["latest_csv"], index=False, encoding="utf-8-sig")
+
+    return paths
+
+
+def write_fetch_report(result: dict[str, Any], log: list[str]) -> None:
+    OUTPUT_LATEST.mkdir(parents=True, exist_ok=True)
+    OUTPUT_DEBUG.mkdir(parents=True, exist_ok=True)
+
+    lines = []
+    lines.append("# 官方每日價格資料抓取狀態")
+    lines.append("")
+    lines.append(f"- 產生時間：`{now_taipei().strftime('%Y-%m-%d %H:%M:%S Asia/Taipei')}`")
+    lines.append(f"- target_date：`{result.get('target_date', '')}`")
+    lines.append(f"- saved_price_date：`{result.get('saved_price_date', '')}`")
+    lines.append(f"- is_target_date：`{result.get('is_target_date', False)}`")
+    lines.append(f"- result：`{result.get('result', '')}`")
+    lines.append(f"- reason：{result.get('reason', '')}")
+    lines.append(f"- twse_rows：`{result.get('twse_rows', 0)}`")
+    lines.append(f"- tpex_rows：`{result.get('tpex_rows', 0)}`")
+    lines.append(f"- total_rows：`{result.get('total_rows', 0)}`")
+    lines.append("")
+
+    if result.get("paths"):
+        lines.append("## 輸出檔案")
+        lines.append("")
+        for key, value in result["paths"].items():
+            lines.append(f"- {key}: `{value}`")
+        lines.append("")
+
+    lines.append("## 最近嘗試日期")
+    lines.append("")
+
+    for item in result.get("attempts", []):
+        lines.append(
+            f"- {item.get('date')}: "
+            f"twse={item.get('twse_rows')} / "
+            f"tpex={item.get('tpex_rows')} / "
+            f"total={item.get('total_rows')} / "
+            f"full_market_ok={item.get('full_market_ok')}"
+        )
+
+    lines.append("")
+    lines.append("## Fetch logs")
+    lines.append("")
+    for entry in log[-300:]:
+        lines.append(f"- {entry}")
+
+    LATEST_FETCH_MD.write_text("\n".join(lines), encoding="utf-8")
+
+    LATEST_FETCH_JSON.write_text(
+        json.dumps(result, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+
+    DEBUG_MD.write_text("\n".join(lines), encoding="utf-8")
+
+
+def main() -> int:
+    target_date = detect_target_date()
+    dates = candidate_dates(target_date, lookback_days=8)
+
+    log: list[str] = []
+    attempts: list[dict[str, Any]] = []
+
+    selected_df = pd.DataFrame(columns=FINAL_COLUMNS)
+    selected_status: dict[str, Any] | None = None
+
+    log.append(f"Start official daily price fetch target_date={target_date}")
+
+    for date_text in dates:
+        log.append(f"===== Try date {date_text} =====")
+        df, status = build_price_for_date(date_text, log)
+        attempts.append(status)
+
+        if status["full_market_ok"]:
+            selected_df = df
+            selected_status = status
             break
 
-    if selected is None:
-        report_path = write_report(taiwan_now, target_date, None, log_lines)
-        print("No valid official daily price data found.")
-        print(f"Report saved: {report_path}")
-        print("Continue pipeline without updating official daily price data.")
+    if selected_status is None or selected_df.empty:
+        result = {
+            "generated_at": now_taipei().strftime("%Y-%m-%d %H:%M:%S Asia/Taipei"),
+            "target_date": target_date,
+            "saved_price_date": "",
+            "is_target_date": False,
+            "result": "failed",
+            "reason": "最近回查日期都沒有取得完整 TWSE + TPEx 官方日線資料；未更新 data/daily_price。",
+            "twse_rows": 0,
+            "tpex_rows": 0,
+            "total_rows": 0,
+            "attempts": attempts,
+            "paths": {},
+        }
+
+        write_fetch_report(result, log)
+
+        print("No valid full-market official daily price data found.")
+        print(f"Report saved: {LATEST_FETCH_MD}")
+        print("Do not update data/daily_price.")
+        print("Continue workflow, but downstream freshness should mark report_ready=False if target date is missing.")
+        return 0
+
+    saved_date = selected_status["date"]
+    paths = save_price_data(selected_df, saved_date)
+
+    is_target = saved_date == target_date
+
+    result = {
+        "generated_at": now_taipei().strftime("%Y-%m-%d %H:%M:%S Asia/Taipei"),
+        "target_date": target_date,
+        "saved_price_date": saved_date,
+        "is_target_date": is_target,
+        "result": "success_target" if is_target else "success_fallback_previous_date",
+        "reason": (
+            "成功取得目標日完整官方日線資料。"
+            if is_target
+            else "未取得目標日完整資料，改用最近一個完整官方日線資料日。"
+        ),
+        "twse_rows": selected_status["twse_rows"],
+        "tpex_rows": selected_status["tpex_rows"],
+        "total_rows": selected_status["total_rows"],
+        "attempts": attempts,
+        "paths": paths,
+    }
+
+    write_fetch_report(result, log)
+
+    print(f"Saved official daily price data date={saved_date}")
+    print(f"Rows={len(selected_df)} TWSE={selected_status['twse_rows']} TPEx={selected_status['tpex_rows']}")
+    print(f"is_target_date={is_target}")
+    print(f"Report saved: {LATEST_FETCH_MD}")
+
     return 0
-
-    date_str = selected["date"]
-    combined = selected["combined"]
-
-    output_path = DATA_DIR / f"{date_str}.csv"
-    combined.to_csv(output_path, index=False, encoding="utf-8-sig")
-
-    report_path = write_report(taiwan_now, target_date, selected, log_lines)
-
-    print(f"Taiwan target date: {target_date}")
-    print(f"Saved official daily price date: {date_str}")
-    print(f"Saved official daily price: {output_path}")
-    print(f"Report saved: {report_path}")
-    print(f"TWSE rows: {selected['twse_rows']}")
-    print(f"TPEx rows: {selected['tpex_rows']}")
-    print(f"Total rows: {selected['total_rows']}")
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())
