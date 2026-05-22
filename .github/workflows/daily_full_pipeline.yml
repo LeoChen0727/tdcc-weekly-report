@@ -32,6 +32,40 @@ jobs:
         run: |
           python fetch_official_daily_price.py
 
+      - name: Commit official daily price fetch result immediately
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          git pull --rebase origin main || true
+
+          git add data/daily_price/ || true
+          git add output/latest/official_daily_price_latest.csv || true
+          git add output/latest/official_price_fetch_latest.md || true
+          git add output/latest/official_price_fetch_latest.json || true
+          git add output/debug/official_price_fetch_debug_latest.md || true
+          git add fetch_official_daily_price.py || true
+
+          git status --short
+          git commit -m "Update official daily price fetch result" || echo "No changes to commit"
+
+          for i in 1 2 3; do
+            git pull --rebase origin main || true
+            if git push; then
+              echo "Push succeeded"
+              exit 0
+            fi
+            echo "Push failed, retry $i"
+            sleep 5
+          done
+
+          echo "Push failed after retries"
+          exit 1
+
+      - name: Pull latest after official price commit
+        run: |
+          git pull --rebase origin main || true
+
       - name: Run daily stock monitor
         run: |
           python stock_daily_monitor.py
@@ -113,12 +147,10 @@ jobs:
           echo "Before pull status:"
           git status --short
 
-          # 先暫存本地未提交變更，避免 git pull --rebase 被擋
           git stash push -u -m "Temporary stash before pulling child workflow outputs" || true
 
           git pull --rebase origin main
 
-          # 把剛剛暫存的本地變更還原回來
           git stash pop || true
 
           echo "After pull status:"
@@ -218,6 +250,7 @@ jobs:
           git add build_warrant_flow_latest.py || true
           git add merge_warrant_flow_into_candidates.py || true
           git add build_all_candidates_latest.py || true
+          git add fetch_official_daily_price.py || true
 
           git status --short
           git commit -m "Update full daily pipeline with report artifacts and current holdings" || echo "No changes to commit"
