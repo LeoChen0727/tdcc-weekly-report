@@ -107,7 +107,22 @@ jobs:
 
       - name: Pull latest outputs after child workflows
         run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          echo "Before pull status:"
+          git status --short
+
+          # 先暫存本地未提交變更，避免 git pull --rebase 被擋
+          git stash push -u -m "Temporary stash before pulling child workflow outputs" || true
+
           git pull --rebase origin main
+
+          # 把剛剛暫存的本地變更還原回來
+          git stash pop || true
+
+          echo "After pull status:"
+          git status --short
 
       - name: Generate candidate charts and manifest
         run: |
