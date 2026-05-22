@@ -24,6 +24,9 @@ DOCS_LATEST_DIR = Path("docs/latest")
 DATA_FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
 DATA_FRESHNESS_MD = LATEST_DIR / "data_freshness_latest.md"
 PACKET_MANIFEST_JSON = LATEST_DIR / "chatgpt_daily_report_packet_manifest.json"
+PDF_KLINE_STATUS_MD = LATEST_DIR / "pdf_kline_chart_status_latest.md"
+PDF_KLINE_STATUS_JSON = LATEST_DIR / "pdf_kline_chart_status_latest.json"
+DOCS_PDF_KLINE_STATUS_MD = DOCS_LATEST_DIR / "pdf_kline_chart_status_latest.md"
 
 README_TXT = LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt"
 DOCS_README_TXT = DOCS_LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt"
@@ -300,6 +303,12 @@ def build_readme(
     packet_github_api_url: str,
     summary_latest_raw_url: str,
     full_latest_raw_url: str,
+    pdf_kline_status_pages_url: str,
+    pdf_kline_status_raw_url: str,
+    pdf_kline_policy: str,
+    pdf_kline_status: str,
+    pdf_kline_total_charts: Any,
+    pdf_kline_local_price_redraw_count: Any,
     rules_pages_url: str,
     rules_raw_url: str,
     preferred_chatgpt_url: str,
@@ -318,6 +327,14 @@ def build_readme(
         f"packet_github_api_url={packet_github_api_url}",
         f"summary_latest_raw_url={summary_latest_raw_url}",
         f"full_latest_raw_url={full_latest_raw_url}",
+        f"pdf_kline_status_pages_url={pdf_kline_status_pages_url}",
+        f"pdf_kline_status_raw_url={pdf_kline_status_raw_url}",
+        f"summary_pdf_kline_policy={pdf_kline_policy}",
+        f"summary_pdf_kline_status={pdf_kline_status}",
+        f"summary_pdf_kline_total_charts={pdf_kline_total_charts}",
+        f"summary_pdf_kline_local_price_redraw_count={pdf_kline_local_price_redraw_count}",
+        "summary_pdf_chart_path_and_chart_url_are_fallback_only=True",
+        "do_not_label_summary_pdf_as_chart_path_version_or_image_download_failed=True",
         f"rules_pages_url={rules_pages_url}",
         f"rules_raw_url={rules_raw_url}",
         f"packet_pages_ok={status_map.get('packet_pages_url')}",
@@ -333,8 +350,9 @@ def build_readme(
         "4. If preferred_chatgpt_url fails, follow read_order.",
         "5. If the URL is packet_github_api_url, decode the JSON content field from base64 before reading the packet.",
         "6. If packet is readable, use EMBEDDED SUMMARY REPORT and EMBEDDED FULL REPORT as source of truth.",
-        "7. If all URLs fail, say tool reading failed. Do not say GitHub data is not updated.",
-        "8. Do not use older report dates to recreate a newer report.",
+        "7. For the summary PDF K-line charts, use summary_pdf_kline_policy/status/counts above. Do not downgrade the PDF to chart_path/image-download-failed if local_price_redraw_count is greater than 0.",
+        "8. If all URLs fail, say tool reading failed. Do not say GitHub data is not updated.",
+        "9. Do not use older report dates to recreate a newer report.",
         "",
     ]
 
@@ -350,6 +368,12 @@ def build_publish_check_md(
     checks: list[dict[str, Any]],
     rules_pages_url: str,
     rules_raw_url: str,
+    pdf_kline_status_pages_url: str,
+    pdf_kline_status_raw_url: str,
+    pdf_kline_policy: str,
+    pdf_kline_status: str,
+    pdf_kline_total_charts: Any,
+    pdf_kline_local_price_redraw_count: Any,
 ) -> str:
     lines: list[str] = []
 
@@ -362,6 +386,12 @@ def build_publish_check_md(
     lines.append(f"- preferred_chatgpt_url: `{preferred_chatgpt_url}`")
     lines.append(f"- rules_pages_url: `{rules_pages_url}`")
     lines.append(f"- rules_raw_url: `{rules_raw_url}`")
+    lines.append(f"- pdf_kline_status_pages_url: `{pdf_kline_status_pages_url}`")
+    lines.append(f"- pdf_kline_status_raw_url: `{pdf_kline_status_raw_url}`")
+    lines.append(f"- summary_pdf_kline_policy: `{pdf_kline_policy}`")
+    lines.append(f"- summary_pdf_kline_status: `{pdf_kline_status}`")
+    lines.append(f"- summary_pdf_kline_total_charts: `{pdf_kline_total_charts}`")
+    lines.append(f"- summary_pdf_kline_local_price_redraw_count: `{pdf_kline_local_price_redraw_count}`")
     lines.append("")
     lines.append("## Read Order")
     lines.append("")
@@ -427,6 +457,12 @@ def sync_docs_files() -> None:
             encoding="utf-8",
         )
 
+    if PDF_KLINE_STATUS_MD.exists():
+        DOCS_PDF_KLINE_STATUS_MD.write_text(
+            PDF_KLINE_STATUS_MD.read_text(encoding="utf-8", errors="replace"),
+            encoding="utf-8",
+        )
+
 
 def main() -> int:
     LATEST_DIR.mkdir(parents=True, exist_ok=True)
@@ -458,6 +494,23 @@ def main() -> int:
     packet_github_api_url = github_api_url(LATEST_PACKET, ref="main")
     summary_latest_raw_url = raw_url("main", LATEST_SUMMARY_MD)
     full_latest_raw_url = raw_url("main", LATEST_FULL_MD)
+    pdf_kline_status_pages_url = pages_url("latest/pdf_kline_chart_status_latest.md")
+    pdf_kline_status_raw_url = raw_url("main", PDF_KLINE_STATUS_MD)
+    pdf_kline_status_json = read_json(PDF_KLINE_STATUS_JSON).get("summary", {})
+    pdf_kline_policy = (
+        pdf_kline_status_json.get("policy")
+        or packet_manifest.get("summary_pdf_kline_policy")
+        or "local_price_redraw_first"
+    )
+    pdf_kline_status = pdf_kline_status_json.get("status") or packet_manifest.get("summary_pdf_kline_status", "")
+    pdf_kline_total_charts = pdf_kline_status_json.get(
+        "total_charts",
+        packet_manifest.get("summary_pdf_kline_total_charts", 0),
+    )
+    pdf_kline_local_price_redraw_count = pdf_kline_status_json.get(
+        "local_price_redraw_count",
+        packet_manifest.get("summary_pdf_kline_local_price_redraw_count", 0),
+    )
 
     rules_pages_url = pages_url("latest/CHATGPT_DAILY_REPORT_RULES.txt")
     rules_raw_url = raw_url("main", RULES_LATEST)
@@ -481,6 +534,12 @@ def main() -> int:
         packet_github_api_url=packet_github_api_url,
         summary_latest_raw_url=summary_latest_raw_url,
         full_latest_raw_url=full_latest_raw_url,
+        pdf_kline_status_pages_url=pdf_kline_status_pages_url,
+        pdf_kline_status_raw_url=pdf_kline_status_raw_url,
+        pdf_kline_policy=pdf_kline_policy,
+        pdf_kline_status=pdf_kline_status,
+        pdf_kline_total_charts=pdf_kline_total_charts,
+        pdf_kline_local_price_redraw_count=pdf_kline_local_price_redraw_count,
         rules_pages_url=rules_pages_url,
         rules_raw_url=rules_raw_url,
         preferred_chatgpt_url=preferred,
@@ -498,6 +557,12 @@ def main() -> int:
         checks=checks,
         rules_pages_url=rules_pages_url,
         rules_raw_url=rules_raw_url,
+        pdf_kline_status_pages_url=pdf_kline_status_pages_url,
+        pdf_kline_status_raw_url=pdf_kline_status_raw_url,
+        pdf_kline_policy=pdf_kline_policy,
+        pdf_kline_status=pdf_kline_status,
+        pdf_kline_total_charts=pdf_kline_total_charts,
+        pdf_kline_local_price_redraw_count=pdf_kline_local_price_redraw_count,
     )
 
     PUBLISH_CHECK_MD.write_text(publish_check_md, encoding="utf-8")
@@ -520,6 +585,14 @@ def main() -> int:
         "packet_github_api_url": packet_github_api_url,
         "summary_latest_raw_url": summary_latest_raw_url,
         "full_latest_raw_url": full_latest_raw_url,
+        "pdf_kline_status_pages_url": pdf_kline_status_pages_url,
+        "pdf_kline_status_raw_url": pdf_kline_status_raw_url,
+        "summary_pdf_kline_policy": pdf_kline_policy,
+        "summary_pdf_kline_status": pdf_kline_status,
+        "summary_pdf_kline_total_charts": pdf_kline_total_charts,
+        "summary_pdf_kline_local_price_redraw_count": pdf_kline_local_price_redraw_count,
+        "summary_pdf_chart_path_and_chart_url_are_fallback_only": True,
+        "do_not_label_summary_pdf_as_chart_path_version_or_image_download_failed": True,
         "rules_pages_url": rules_pages_url,
         "rules_raw_url": rules_raw_url,
         "checks": checks,
