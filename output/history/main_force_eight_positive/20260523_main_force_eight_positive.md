@@ -1,6 +1,6 @@
 # 主力扣八大連續為正清單
 
-- generated_at: 2026-05-23 16:20:15 Asia/Taipei
+- generated_at: 2026-05-23 16:38:26 Asia/Taipei
 - status: missing_source_data
 - latest_source_date: N/A
 - rule: 主力買賣超 - 八大法人買賣超 - 八大行庫買賣超 > 0，且連續交易日 >= 3
