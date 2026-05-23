@@ -26,10 +26,17 @@ jobs:
       - name: Backfill official daily price
         run: python backfill_official_daily_price.py
 
+      - name: Build per-stock price history
+        run: python scripts/build_stock_price_history.py
+
       - name: Commit backfilled price data
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add data/ output/
+          git add docs/latest/stock_price_history_manifest.csv || true
+          git add docs/latest/stock_price_history_manifest.json || true
+          git add docs/latest/stock_price_history_manifest.md || true
+          git add scripts/build_stock_price_history.py || true
           git commit -m "Backfill official daily price data" || echo "No changes to commit"
           git push
