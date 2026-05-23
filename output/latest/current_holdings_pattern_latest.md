@@ -1,6 +1,6 @@
 # 目前持股 180 日型態分析
 
-- 產生時間：`2026-05-23 03:39:05 Asia/Taipei`
+- 產生時間：`2026-05-23 11:03:13 Asia/Taipei`
 - CSV：`output/latest/current_holdings_pattern_latest.csv`
 - 圖表資料夾：`output/latest/charts/current_holdings`
 
@@ -11,8 +11,8 @@
 | 股票 | 收盤 | 成本 | 張數 | 損益 | 損益率% | 型態狀態 | 型態訊號 | 圖 |
 |---|---:|---:|---:|---:|---:|---|---|---|
 | 1815 富喬 | 107.0 | 112.1 | 20.0 | -102000.0 | -4.55 | inside_platform | 平台整理中 | [圖](output/latest/charts/current_holdings/1815_pattern.png) |
-| 2377 微星 | 113.0 | 110.0 | 1.0 | 3000.0 | 2.73 | inside_platform | 平台整理中 | [圖](output/latest/charts/current_holdings/2377_pattern.png) |
-| 8039 台虹 | 139.0 | 131.81 | 13.0 | 93470.0 | 5.45 | inside_platform | 平台整理中 | [圖](output/latest/charts/current_holdings/8039_pattern.png) |
+| 2377 微星 | 124.0 | 110.0 | 1.0 | 14000.0 | 12.73 | inside_platform | 平台整理中 | [圖](output/latest/charts/current_holdings/2377_pattern.png) |
+| 8039 台虹 | 151.0 | 131.81 | 13.0 | 249470.0 | 14.56 | inside_platform | 平台整理中 | [圖](output/latest/charts/current_holdings/8039_pattern.png) |
 
 ## 1815 富喬
 
@@ -57,11 +57,11 @@
 
 - 資料日期：`20260523`
 - 可用交易日數：`133`
-- 目前收盤：`113.0`
+- 目前收盤：`124.0`
 - 我的成本：`110.0`
 - 張數：`1.0`
-- 目前損益：`3000.0`
-- 目前損益率：`2.73%`
+- 目前損益：`14000.0`
+- 目前損益率：`12.73%`
 - 圖表：`output/latest/charts/current_holdings/2377_pattern.png`
 
 ### 型態結構
@@ -95,11 +95,11 @@
 
 - 資料日期：`20260523`
 - 可用交易日數：`133`
-- 目前收盤：`139.0`
+- 目前收盤：`151.0`
 - 我的成本：`131.81`
 - 張數：`13.0`
-- 目前損益：`93470.0`
-- 目前損益率：`5.45%`
+- 目前損益：`249470.0`
+- 目前損益率：`14.56%`
 - 圖表：`output/latest/charts/current_holdings/8039_pattern.png`
 
 ### 型態結構
