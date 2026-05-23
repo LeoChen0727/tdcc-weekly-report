@@ -13,10 +13,13 @@ jobs:
 
     env:
       GH_TOKEN: ${{ github.token }}
+      TARGET_BRANCH: ${{ github.ref_name }}
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
+        with:
+          ref: ${{ github.ref_name }}
 
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -37,7 +40,7 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-          git pull --rebase origin main || true
+          git pull --rebase origin "$TARGET_BRANCH" || true
 
           git add data/daily_price/ || true
           git add output/latest/official_daily_price_latest.csv || true
@@ -51,7 +54,7 @@ jobs:
 
           PUSHED=0
           for i in 1 2 3; do
-            git pull --rebase origin main || true
+            git pull --rebase origin "$TARGET_BRANCH" || true
             if git push; then
               PUSHED=1
               echo "Push succeeded"
@@ -68,7 +71,7 @@ jobs:
 
       - name: Pull latest after official price commit
         run: |
-          git pull --rebase origin main || true
+          git pull --rebase origin "$TARGET_BRANCH" || true
 
       - name: Build per-stock price history
         run: |
@@ -95,7 +98,7 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-          git pull --rebase origin main || true
+          git pull --rebase origin "$TARGET_BRANCH" || true
 
           git add data/ || true
           git add output/latest/stock_price_history_manifest.csv || true
@@ -127,7 +130,7 @@ jobs:
 
           PUSHED=0
           for i in 1 2 3; do
-            git pull --rebase origin main || true
+            git pull --rebase origin "$TARGET_BRANCH" || true
             if git push; then
               PUSHED=1
               echo "Push succeeded"
@@ -144,23 +147,23 @@ jobs:
 
       - name: Trigger Pattern Scan
         run: |
-          gh workflow run pattern_scan.yml --ref main
+          gh workflow run pattern_scan.yml --ref "$TARGET_BRANCH"
           sleep 10
 
       - name: Wait for Pattern Scan
         run: |
-          RUN_ID=$(gh run list --workflow pattern_scan.yml --branch main --limit 1 --json databaseId --jq '.[0].databaseId')
+          RUN_ID=$(gh run list --workflow pattern_scan.yml --branch "$TARGET_BRANCH" --limit 1 --json databaseId --jq '.[0].databaseId')
           echo "Pattern Scan run id: $RUN_ID"
           gh run watch "$RUN_ID" --exit-status
 
       - name: Trigger Pattern Chart Generator
         run: |
-          gh workflow run pattern_chart_generator.yml --ref main
+          gh workflow run pattern_chart_generator.yml --ref "$TARGET_BRANCH"
           sleep 10
 
       - name: Wait for Pattern Chart Generator
         run: |
-          RUN_ID=$(gh run list --workflow pattern_chart_generator.yml --branch main --limit 1 --json databaseId --jq '.[0].databaseId')
+          RUN_ID=$(gh run list --workflow pattern_chart_generator.yml --branch "$TARGET_BRANCH" --limit 1 --json databaseId --jq '.[0].databaseId')
           echo "Pattern Chart Generator run id: $RUN_ID"
           gh run watch "$RUN_ID" --exit-status
 
@@ -174,7 +177,7 @@ jobs:
 
           git stash push -u -m "Temporary stash before pulling child workflow outputs" || true
 
-          git pull --rebase origin main
+          git pull --rebase origin "$TARGET_BRANCH"
 
           git stash pop || true
 
@@ -274,7 +277,7 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-          git pull --rebase origin main || true
+          git pull --rebase origin "$TARGET_BRANCH" || true
 
           git add output/latest/chart_manifest.csv || true
           git add output/latest/contact_sheet_manifest.csv || true
@@ -399,7 +402,7 @@ jobs:
 
           PUSHED=0
           for i in 1 2 3; do
-            git pull --rebase origin main || true
+            git pull --rebase origin "$TARGET_BRANCH" || true
             if git push; then
               PUSHED=1
               echo "Push succeeded"
@@ -431,7 +434,7 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-          git pull --rebase origin main || true
+          git pull --rebase origin "$TARGET_BRANCH" || true
 
           git add output/latest/READ_ME_FIRST_DAILY_REPORT.txt || true
           git add output/latest/report_publish_check_latest.md || true
@@ -484,7 +487,7 @@ jobs:
 
           PUSHED=0
           for i in 1 2 3; do
-            git pull --rebase origin main || true
+            git pull --rebase origin "$TARGET_BRANCH" || true
             if git push; then
               PUSHED=1
               echo "Push succeeded"
