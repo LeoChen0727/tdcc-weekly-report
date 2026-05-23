@@ -197,10 +197,6 @@ jobs:
         run: |
           python build_warrant_flow_latest.py
 
-      - name: Build main-force minus eight positive candidates
-        run: |
-          python scripts/build_main_force_eight_positive_latest.py
-
       - name: Merge warrant flow into candidates
         run: |
           python merge_warrant_flow_into_candidates.py
@@ -287,14 +283,6 @@ jobs:
           git add output/latest/warrant_flow_latest.md || true
           git add output/latest/warrant_flow_merge_latest.md || true
 
-          git add output/latest/main_force_eight_positive_latest.csv || true
-          git add output/latest/main_force_eight_positive_latest.md || true
-          git add output/latest/main_force_eight_positive_latest.json || true
-          git add docs/latest/main_force_eight_positive_latest.csv || true
-          git add docs/latest/main_force_eight_positive_latest.md || true
-          git add docs/latest/main_force_eight_positive_latest.json || true
-          git add output/history/main_force_eight_positive/ || true
-
           git add output/debug/warrant_fetch_debug_latest.md || true
           git add output/debug/warrant_fetch_debug_latest.csv || true
           git add output/history/warrant_daily/ || true
@@ -356,9 +344,6 @@ jobs:
           git add stock_daily_monitor.py || true
           git add scripts/generate_daily_market_pdf.py || true
           git add scripts/validate_daily_market_report.py || true
-          git add scripts/build_main_force_eight_positive_latest.py || true
-          git add data/chip_flow/main_force_daily/README.md || true
-          git add docs/MAIN_FORCE_EIGHT_POSITIVE_USAGE_RULES.md || true
 
           git status --short
           git commit -m "Update report artifacts, ChatGPT packet, and rules" || echo "No changes to commit"
@@ -421,21 +406,11 @@ jobs:
           git add output/latest/daily_market_pdf_report_manifest_latest.md || true
           git add output/latest/daily_market_report_validation_latest.json || true
           git add output/latest/daily_market_report_validation_latest.md || true
-          git add output/latest/main_force_eight_positive_latest.csv || true
-          git add output/latest/main_force_eight_positive_latest.md || true
-          git add output/latest/main_force_eight_positive_latest.json || true
-          git add docs/latest/main_force_eight_positive_latest.csv || true
-          git add docs/latest/main_force_eight_positive_latest.md || true
-          git add docs/latest/main_force_eight_positive_latest.json || true
           git add output/history/reports/ || true
-          git add output/history/main_force_eight_positive/ || true
 
           git add publish_chatgpt_report_readme_and_check.py || true
           git add scripts/generate_daily_market_pdf.py || true
           git add scripts/validate_daily_market_report.py || true
-          git add scripts/build_main_force_eight_positive_latest.py || true
-          git add data/chip_flow/main_force_daily/README.md || true
-          git add docs/MAIN_FORCE_EIGHT_POSITIVE_USAGE_RULES.md || true
 
           git status --short
           git commit -m "Publish ChatGPT daily report readme, rules, and multi-entry checks" || echo "No changes to commit"
