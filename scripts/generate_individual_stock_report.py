@@ -41,6 +41,7 @@ RAW_PREFIX = f"https://raw.githubusercontent.com/{OWNER_REPO}/main"
 PAGES_PREFIX = "https://LeoChen0727.github.io/tdcc-weekly-report"
 
 DATA_DAILY_PRICE_DIR = Path("data/daily_price")
+STOCK_PRICE_HISTORY_DIR = Path("data/stock_price_history")
 LATEST_DIR = Path("output/latest")
 DOCS_LATEST_DIR = Path("docs/latest")
 HISTORY_DIR = Path("output/history/individual_stock_reports")
@@ -189,6 +190,44 @@ def read_csv(path: Path, **kwargs: Any) -> pd.DataFrame:
     return pd.read_csv(path, dtype=str, **kwargs).fillna("")
 
 
+def normalize_price_columns(df: pd.DataFrame, source_file: str) -> pd.DataFrame:
+    if df.empty:
+        return pd.DataFrame()
+    columns = list(df.columns)
+    code_col = ""
+    for candidate in ["stock_id", "ticker", "code"]:
+        if candidate in columns:
+            code_col = candidate
+            break
+    if not code_col or "date" not in columns or "close" not in columns:
+        return pd.DataFrame()
+
+    result = df.copy()
+    if "stock_id" not in result.columns:
+        result["stock_id"] = result[code_col].map(normalize_stock_id)
+    else:
+        result["stock_id"] = result["stock_id"].map(normalize_stock_id)
+    if "stock_name" not in result.columns and "name" in result.columns:
+        result["stock_name"] = result["name"]
+    if "stock_name" not in result.columns:
+        result["stock_name"] = ""
+    if "market" not in result.columns:
+        result["market"] = ""
+    if "source" not in result.columns:
+        result["source"] = ""
+    if "source_file" not in result.columns:
+        result["source_file"] = source_file
+
+    result["date"] = result["date"].astype(str).str.replace(r"[^0-9]", "", regex=True)
+    for col in ["open", "high", "low", "close", "volume", "trading_value"]:
+        if col in result.columns:
+            result[col] = pd.to_numeric(result[col].astype(str).str.replace(",", ""), errors="coerce")
+        else:
+            result[col] = math.nan
+    result = result.dropna(subset=["date", "close"])
+    return result
+
+
 def load_freshness() -> dict[str, str]:
     df = read_csv(DATA_FRESHNESS_CSV)
     if df.empty:
@@ -207,25 +246,25 @@ def main_price_date(freshness: dict[str, str], price_history: pd.DataFrame) -> s
 
 
 def load_price_history(stock_id: str) -> pd.DataFrame:
+    stock_history_path = STOCK_PRICE_HISTORY_DIR / f"{normalize_stock_id(stock_id)}.csv"
+    if stock_history_path.exists():
+        history = read_csv(stock_history_path)
+        history = normalize_price_columns(history, stock_history_path.as_posix())
+        if not history.empty:
+            history = history[code_matches(history["stock_id"], stock_id)].copy()
+            return history.sort_values("date").reset_index(drop=True)
+
     frames: list[pd.DataFrame] = []
     for path in sorted(DATA_DAILY_PRICE_DIR.glob("*.csv")):
         try:
             df = pd.read_csv(path, dtype=str).fillna("")
         except Exception:
             continue
-        code_col = ""
-        for candidate in ["stock_id", "ticker", "code"]:
-            if candidate in df.columns:
-                code_col = candidate
-                break
-        if not code_col:
+        normalized = normalize_price_columns(df, path.as_posix())
+        if normalized.empty:
             continue
-        hit = df[code_matches(df[code_col], stock_id)].copy()
+        hit = normalized[code_matches(normalized["stock_id"], stock_id)].copy()
         if not hit.empty:
-            if "stock_id" not in hit.columns:
-                hit["stock_id"] = hit[code_col].map(normalize_stock_id)
-            if "stock_name" not in hit.columns and "name" in hit.columns:
-                hit["stock_name"] = hit["name"]
             hit["source_file"] = path.as_posix()
             frames.append(hit)
     if not frames:
