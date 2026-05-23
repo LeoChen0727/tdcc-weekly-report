@@ -1,6 +1,6 @@
 # 每日候選股訊號績效摘要
 
-- generated_at: `2026-05-23 21:14:29 Asia/Taipei`
+- generated_at: `2026-05-23 21:30:46 Asia/Taipei`
 - latest_signal_date: `20260523`
 - signal_count: `456`
 - period: all available signals
@@ -24,9 +24,9 @@
 | tdcc_status | signal_count | avg_return_d5 | avg_return_d10 | avg_relative_return_vs_benchmark_d10 | win_rate_d10 | avg_mfe_d10 | avg_mae_d10 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | distribution_warning | 203 |  |  |  |  |  |  |
-| mild_accumulation | 188 |  |  |  |  |  |  |
+| mild_accumulation | 184 |  |  |  |  |  |  |
 | neutral | 2 |  |  |  |  |  |  |
-| strong_accumulation | 62 |  |  |  |  |  |  |
+| strong_accumulation | 66 |  |  |  |  |  |  |
 | 無TDCC資料 | 1 |  |  |  |  |  |  |
 
 ## 權證分層效果

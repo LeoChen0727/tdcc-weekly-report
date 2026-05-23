@@ -1,6 +1,6 @@
 # TDCC Normalized Signal Structures
 
-- generated_at: `2026-05-23 21:16:02 Asia/Taipei`
+- generated_at: `2026-05-23 21:30:11 Asia/Taipei`
 - snapshot_rows: `1195`
 - normalized_rows: `1195`
 - theme_breadth_rows: `10`

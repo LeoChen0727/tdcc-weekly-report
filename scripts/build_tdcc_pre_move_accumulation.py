@@ -303,7 +303,9 @@ def main() -> int:
     for col in ["abm_rank", "abm_score", "setup_type", "priority_group", "abm_reason"]:
         new_col = f"{col}_new"
         if new_col in update.columns:
-            update[col] = update[new_col].combine_first(update.get(col))
+            base = update[col] if col in update.columns else pd.Series("", index=update.index)
+            new_values = update[new_col]
+            update[col] = new_values.where(new_values.astype(str).str.len() > 0, base)
             update = update.drop(columns=[new_col])
     write_csv(update, SNAPSHOT_CSV)
 

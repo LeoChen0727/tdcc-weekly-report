@@ -1,6 +1,6 @@
 CHATGPT DAILY REPORT PACKET
 
-generated_at: 2026-05-23 20:00:24 Asia/Taipei
+generated_at: 2026-05-23 21:30:49 Asia/Taipei
 repo: LeoChen0727/tdcc-weekly-report
 main_price_date: 20260523
 report_ready: True
@@ -45,6 +45,15 @@ FIXED PDF VALIDATION
 status: pass
 validation_json_path: output/latest/daily_market_report_validation_latest.json
 validation_md_path: output/latest/daily_market_report_validation_latest.md
+
+SIGNAL PERFORMANCE TRACKING
+signal_log_path: output/history/daily_signals/daily_candidate_signal_log.csv
+performance_csv_path: output/history/daily_signals/daily_candidate_signal_performance.csv
+summary_latest_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_signal_performance_summary_latest.md
+weekly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_weekly_latest.pdf
+monthly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_monthly_latest.pdf
+last_updated_at: 2026-05-23 21:30:49 Asia/Taipei
+status: generated
 
 PURPOSE
 This packet embeds the daily market report content directly.

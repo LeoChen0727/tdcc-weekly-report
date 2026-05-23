@@ -1,6 +1,6 @@
 # TDCC Signal Effectiveness Report
 
-- generated_at: `2026-05-23 21:16:15 Asia/Taipei`
+- generated_at: `2026-05-23 21:31:26 Asia/Taipei`
 - factor_rows: `26`
 
 ## Factor Stats
