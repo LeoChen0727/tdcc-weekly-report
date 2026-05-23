@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-05-23 15:00:42 Asia/Taipei",
+  "status": "generated",
+  "stock_id": "2330",
+  "stock_name": "台積電",
+  "main_price_date": "20260523",
+  "analysis_days": 180,
+  "available_price_days": 133,
+  "priority": "僅觀察 / 暫避降級",
+  "latest_md_path": "output/latest/individual_stock_reports/2330_latest.md",
+  "latest_pdf_path": "output/latest/individual_stock_reports/2330_latest.pdf",
+  "latest_chart_path": "output/latest/individual_stock_reports/2330_latest.png",
+  "pages_md_url": "https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_reports/2330_latest.md",
+  "pages_pdf_url": "https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_reports/2330_latest.pdf",
+  "pages_chart_url": "https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_reports/2330_latest.png",
+  "raw_md_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_reports/2330_latest.md",
+  "raw_pdf_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_reports/2330_latest.pdf",
+  "raw_chart_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_reports/2330_latest.png",
+  "history_md_path": "output/history/individual_stock_reports/20260523_2330.md",
+  "history_pdf_path": "output/history/individual_stock_reports/20260523_2330.pdf"
+}
