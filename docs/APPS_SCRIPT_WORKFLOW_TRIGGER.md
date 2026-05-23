@@ -26,10 +26,14 @@ Token 權限：
 
 ```text
 testGithubTokenAndWorkflowAccess
-triggerDailyFullPipeline
 triggerDailyStockMonitor
+triggerDailyFullPipeline
 triggerTdccWeeklyReport
 ```
+
+`triggerDailyStockMonitor` 會觸發 `daily_full_pipeline.yml`，用來保留既有 Apps Script 每日台股推薦標的排程。
+
+`triggerDailyFullPipeline` 是同一件事的別名，方便手動測試。
 
 ## 驗收方式
 

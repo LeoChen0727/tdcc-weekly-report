@@ -115,16 +115,14 @@ function testGithubTokenAndWorkflowAccess() {
   Logger.log("GitHub token and workflow access OK.");
 }
 
-function triggerDailyFullPipeline() {
+function triggerDailyStockMonitor() {
   dispatchWorkflow_("daily_full_pipeline.yml");
   Utilities.sleep(5000);
   logLatestWorkflowRuns_("daily_full_pipeline.yml");
 }
 
-function triggerDailyStockMonitor() {
-  dispatchWorkflow_("stock_daily.yml");
-  Utilities.sleep(5000);
-  logLatestWorkflowRuns_("stock_daily.yml");
+function triggerDailyFullPipeline() {
+  triggerDailyStockMonitor();
 }
 
 function triggerTdccWeeklyReport() {
