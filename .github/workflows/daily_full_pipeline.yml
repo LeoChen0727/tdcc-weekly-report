@@ -26,7 +26,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pandas requests tabulate matplotlib pillow openpyxl lxml html5lib beautifulsoup4 reportlab
+          pip install pandas requests tabulate matplotlib pillow openpyxl lxml html5lib beautifulsoup4 reportlab pypdf
 
       - name: Fetch latest official daily price
         run: |
@@ -202,6 +202,14 @@ jobs:
         run: |
           python ensure_report_aliases.py
 
+      - name: Generate fixed daily market PDF reports
+        run: |
+          python scripts/generate_daily_market_pdf.py
+
+      - name: Validate fixed daily market PDF reports
+        run: |
+          python scripts/validate_daily_market_report.py
+
       - name: Build ChatGPT daily report packet
         run: |
           python build_chatgpt_daily_report_packet.py
@@ -217,6 +225,9 @@ jobs:
           cp output/latest/chatgpt_daily_report_packet_latest.txt docs/latest/chatgpt_daily_report_packet_latest.txt
           cp output/latest/CHATGPT_DAILY_REPORT_RULES.txt docs/latest/CHATGPT_DAILY_REPORT_RULES.txt
           cp output/latest/pdf_kline_chart_status_latest.md docs/latest/pdf_kline_chart_status_latest.md || true
+          cp output/latest/daily_market_curated_report_latest.pdf docs/latest/daily_market_curated_report_latest.pdf || true
+          cp output/latest/daily_market_full_table_report_latest.pdf docs/latest/daily_market_full_table_report_latest.pdf || true
+          cp output/latest/daily_market_report_validation_latest.md docs/latest/daily_market_report_validation_latest.md || true
 
           {
             echo "main_price_date=pending"
@@ -274,6 +285,12 @@ jobs:
           git add output/latest/pdf_kline_chart_status_latest.csv || true
           git add output/latest/pdf_kline_chart_status_latest.json || true
           git add output/latest/pdf_kline_chart_status_latest.md || true
+          git add output/latest/daily_market_curated_report_latest.pdf || true
+          git add output/latest/daily_market_full_table_report_latest.pdf || true
+          git add output/latest/daily_market_pdf_report_manifest_latest.json || true
+          git add output/latest/daily_market_pdf_report_manifest_latest.md || true
+          git add output/latest/daily_market_report_validation_latest.json || true
+          git add output/latest/daily_market_report_validation_latest.md || true
 
           git add output/latest/每日全市場候選股監測報告_精華版.md || true
           git add output/latest/每日全市場候選股監測報告_精華版.pdf || true
@@ -297,6 +314,9 @@ jobs:
           git add docs/latest/chatgpt_daily_report_packet_latest.txt || true
           git add docs/latest/READ_ME_FIRST_DAILY_REPORT.txt || true
           git add docs/latest/pdf_kline_chart_status_latest.md || true
+          git add docs/latest/daily_market_curated_report_latest.pdf || true
+          git add docs/latest/daily_market_full_table_report_latest.pdf || true
+          git add docs/latest/daily_market_report_validation_latest.md || true
 
           git add build_data_freshness_latest.py || true
           git add build_daily_market_report_artifacts.py || true
@@ -311,6 +331,8 @@ jobs:
           git add build_all_candidates_latest.py || true
           git add fetch_official_daily_price.py || true
           git add stock_daily_monitor.py || true
+          git add scripts/generate_daily_market_pdf.py || true
+          git add scripts/validate_daily_market_report.py || true
 
           git status --short
           git commit -m "Update report artifacts, ChatGPT packet, and rules" || echo "No changes to commit"
@@ -359,13 +381,25 @@ jobs:
           git add docs/latest/chatgpt_daily_report_packet_latest.txt || true
           git add docs/latest/CHATGPT_DAILY_REPORT_RULES.txt || true
           git add docs/latest/pdf_kline_chart_status_latest.md || true
+          git add docs/latest/daily_market_curated_report_latest.pdf || true
+          git add docs/latest/daily_market_full_table_report_latest.pdf || true
+          git add docs/latest/daily_market_report_validation_latest.md || true
 
           git add output/latest/CHATGPT_DAILY_REPORT_RULES.txt || true
           git add output/latest/pdf_kline_chart_status_latest.csv || true
           git add output/latest/pdf_kline_chart_status_latest.json || true
           git add output/latest/pdf_kline_chart_status_latest.md || true
+          git add output/latest/daily_market_curated_report_latest.pdf || true
+          git add output/latest/daily_market_full_table_report_latest.pdf || true
+          git add output/latest/daily_market_pdf_report_manifest_latest.json || true
+          git add output/latest/daily_market_pdf_report_manifest_latest.md || true
+          git add output/latest/daily_market_report_validation_latest.json || true
+          git add output/latest/daily_market_report_validation_latest.md || true
+          git add output/history/reports/ || true
 
           git add publish_chatgpt_report_readme_and_check.py || true
+          git add scripts/generate_daily_market_pdf.py || true
+          git add scripts/validate_daily_market_report.py || true
 
           git status --short
           git commit -m "Publish ChatGPT daily report readme, rules, and multi-entry checks" || echo "No changes to commit"

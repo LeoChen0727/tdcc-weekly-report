@@ -27,6 +27,14 @@ PACKET_MANIFEST_JSON = LATEST_DIR / "chatgpt_daily_report_packet_manifest.json"
 PDF_KLINE_STATUS_MD = LATEST_DIR / "pdf_kline_chart_status_latest.md"
 PDF_KLINE_STATUS_JSON = LATEST_DIR / "pdf_kline_chart_status_latest.json"
 DOCS_PDF_KLINE_STATUS_MD = DOCS_LATEST_DIR / "pdf_kline_chart_status_latest.md"
+FIXED_PDF_MANIFEST_JSON = LATEST_DIR / "daily_market_pdf_report_manifest_latest.json"
+FIXED_PDF_VALIDATION_MD = LATEST_DIR / "daily_market_report_validation_latest.md"
+FIXED_PDF_VALIDATION_JSON = LATEST_DIR / "daily_market_report_validation_latest.json"
+CURATED_REPORT_PDF = LATEST_DIR / "daily_market_curated_report_latest.pdf"
+FULL_TABLE_REPORT_PDF = LATEST_DIR / "daily_market_full_table_report_latest.pdf"
+DOCS_CURATED_REPORT_PDF = DOCS_LATEST_DIR / "daily_market_curated_report_latest.pdf"
+DOCS_FULL_TABLE_REPORT_PDF = DOCS_LATEST_DIR / "daily_market_full_table_report_latest.pdf"
+DOCS_FIXED_PDF_VALIDATION_MD = DOCS_LATEST_DIR / "daily_market_report_validation_latest.md"
 
 README_TXT = LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt"
 DOCS_README_TXT = DOCS_LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt"
@@ -303,6 +311,12 @@ def build_readme(
     packet_github_api_url: str,
     summary_latest_raw_url: str,
     full_latest_raw_url: str,
+    daily_market_curated_pdf_pages_url: str,
+    daily_market_curated_pdf_raw_url: str,
+    daily_market_full_table_pdf_pages_url: str,
+    daily_market_full_table_pdf_raw_url: str,
+    fixed_pdf_validation_status: str,
+    fixed_pdf_validation_raw_url: str,
     pdf_kline_status_pages_url: str,
     pdf_kline_status_raw_url: str,
     pdf_kline_policy: str,
@@ -327,6 +341,12 @@ def build_readme(
         f"packet_github_api_url={packet_github_api_url}",
         f"summary_latest_raw_url={summary_latest_raw_url}",
         f"full_latest_raw_url={full_latest_raw_url}",
+        f"daily_market_curated_pdf_pages_url={daily_market_curated_pdf_pages_url}",
+        f"daily_market_curated_pdf_raw_url={daily_market_curated_pdf_raw_url}",
+        f"daily_market_full_table_pdf_pages_url={daily_market_full_table_pdf_pages_url}",
+        f"daily_market_full_table_pdf_raw_url={daily_market_full_table_pdf_raw_url}",
+        f"fixed_pdf_validation_status={fixed_pdf_validation_status}",
+        f"fixed_pdf_validation_raw_url={fixed_pdf_validation_raw_url}",
         f"pdf_kline_status_pages_url={pdf_kline_status_pages_url}",
         f"pdf_kline_status_raw_url={pdf_kline_status_raw_url}",
         f"summary_pdf_kline_policy={pdf_kline_policy}",
@@ -350,9 +370,10 @@ def build_readme(
         "4. If preferred_chatgpt_url fails, follow read_order.",
         "5. If the URL is packet_github_api_url, decode the JSON content field from base64 before reading the packet.",
         "6. If packet is readable, use EMBEDDED SUMMARY REPORT and EMBEDDED FULL REPORT as source of truth.",
-        "7. For the summary PDF K-line charts, use summary_pdf_kline_policy/status/counts above. Do not downgrade the PDF to chart_path/image-download-failed if local_price_redraw_count is greater than 0.",
-        "8. If all URLs fail, say tool reading failed. Do not say GitHub data is not updated.",
-        "9. Do not use older report dates to recreate a newer report.",
+        "7. For shareable PDFs, use daily_market_curated_pdf_pages_url and daily_market_full_table_pdf_pages_url first.",
+        "8. For the summary PDF K-line charts, use summary_pdf_kline_policy/status/counts above. Do not downgrade the PDF to chart_path/image-download-failed if local_price_redraw_count is greater than 0.",
+        "9. If all URLs fail, say tool reading failed. Do not say GitHub data is not updated.",
+        "10. Do not use older report dates to recreate a newer report.",
         "",
     ]
 
@@ -368,6 +389,12 @@ def build_publish_check_md(
     checks: list[dict[str, Any]],
     rules_pages_url: str,
     rules_raw_url: str,
+    daily_market_curated_pdf_pages_url: str,
+    daily_market_curated_pdf_raw_url: str,
+    daily_market_full_table_pdf_pages_url: str,
+    daily_market_full_table_pdf_raw_url: str,
+    fixed_pdf_validation_status: str,
+    fixed_pdf_validation_raw_url: str,
     pdf_kline_status_pages_url: str,
     pdf_kline_status_raw_url: str,
     pdf_kline_policy: str,
@@ -386,6 +413,12 @@ def build_publish_check_md(
     lines.append(f"- preferred_chatgpt_url: `{preferred_chatgpt_url}`")
     lines.append(f"- rules_pages_url: `{rules_pages_url}`")
     lines.append(f"- rules_raw_url: `{rules_raw_url}`")
+    lines.append(f"- daily_market_curated_pdf_pages_url: `{daily_market_curated_pdf_pages_url}`")
+    lines.append(f"- daily_market_curated_pdf_raw_url: `{daily_market_curated_pdf_raw_url}`")
+    lines.append(f"- daily_market_full_table_pdf_pages_url: `{daily_market_full_table_pdf_pages_url}`")
+    lines.append(f"- daily_market_full_table_pdf_raw_url: `{daily_market_full_table_pdf_raw_url}`")
+    lines.append(f"- fixed_pdf_validation_status: `{fixed_pdf_validation_status}`")
+    lines.append(f"- fixed_pdf_validation_raw_url: `{fixed_pdf_validation_raw_url}`")
     lines.append(f"- pdf_kline_status_pages_url: `{pdf_kline_status_pages_url}`")
     lines.append(f"- pdf_kline_status_raw_url: `{pdf_kline_status_raw_url}`")
     lines.append(f"- summary_pdf_kline_policy: `{pdf_kline_policy}`")
@@ -463,6 +496,18 @@ def sync_docs_files() -> None:
             encoding="utf-8",
         )
 
+    if CURATED_REPORT_PDF.exists():
+        DOCS_CURATED_REPORT_PDF.write_bytes(CURATED_REPORT_PDF.read_bytes())
+
+    if FULL_TABLE_REPORT_PDF.exists():
+        DOCS_FULL_TABLE_REPORT_PDF.write_bytes(FULL_TABLE_REPORT_PDF.read_bytes())
+
+    if FIXED_PDF_VALIDATION_MD.exists():
+        DOCS_FIXED_PDF_VALIDATION_MD.write_text(
+            FIXED_PDF_VALIDATION_MD.read_text(encoding="utf-8", errors="replace"),
+            encoding="utf-8",
+        )
+
 
 def main() -> int:
     LATEST_DIR.mkdir(parents=True, exist_ok=True)
@@ -472,6 +517,8 @@ def main() -> int:
 
     freshness = extract_data_freshness()
     packet_manifest = read_json(PACKET_MANIFEST_JSON)
+    fixed_pdf_manifest = read_json(FIXED_PDF_MANIFEST_JSON)
+    fixed_pdf_validation = read_json(FIXED_PDF_VALIDATION_JSON)
 
     main_price_date = freshness.get("main_price_date") or normalize_date(packet_manifest.get("main_price_date", ""))
     report_ready = freshness.get("report_ready") or str(packet_manifest.get("report_ready", "")).strip()
@@ -494,6 +541,14 @@ def main() -> int:
     packet_github_api_url = github_api_url(LATEST_PACKET, ref="main")
     summary_latest_raw_url = raw_url("main", LATEST_SUMMARY_MD)
     full_latest_raw_url = raw_url("main", LATEST_FULL_MD)
+    curated_pdf_info = fixed_pdf_manifest.get("curated_pdf", {})
+    full_table_pdf_info = fixed_pdf_manifest.get("full_table_pdf", {})
+    daily_market_curated_pdf_pages_url = curated_pdf_info.get("pages_url") or pages_url("latest/daily_market_curated_report_latest.pdf")
+    daily_market_curated_pdf_raw_url = curated_pdf_info.get("raw_url") or raw_url("main", CURATED_REPORT_PDF)
+    daily_market_full_table_pdf_pages_url = full_table_pdf_info.get("pages_url") or pages_url("latest/daily_market_full_table_report_latest.pdf")
+    daily_market_full_table_pdf_raw_url = full_table_pdf_info.get("raw_url") or raw_url("main", FULL_TABLE_REPORT_PDF)
+    fixed_pdf_validation_status = fixed_pdf_validation.get("status", "")
+    fixed_pdf_validation_raw_url = raw_url("main", FIXED_PDF_VALIDATION_MD)
     pdf_kline_status_pages_url = pages_url("latest/pdf_kline_chart_status_latest.md")
     pdf_kline_status_raw_url = raw_url("main", PDF_KLINE_STATUS_MD)
     pdf_kline_status_json = read_json(PDF_KLINE_STATUS_JSON).get("summary", {})
@@ -534,6 +589,12 @@ def main() -> int:
         packet_github_api_url=packet_github_api_url,
         summary_latest_raw_url=summary_latest_raw_url,
         full_latest_raw_url=full_latest_raw_url,
+        daily_market_curated_pdf_pages_url=daily_market_curated_pdf_pages_url,
+        daily_market_curated_pdf_raw_url=daily_market_curated_pdf_raw_url,
+        daily_market_full_table_pdf_pages_url=daily_market_full_table_pdf_pages_url,
+        daily_market_full_table_pdf_raw_url=daily_market_full_table_pdf_raw_url,
+        fixed_pdf_validation_status=fixed_pdf_validation_status,
+        fixed_pdf_validation_raw_url=fixed_pdf_validation_raw_url,
         pdf_kline_status_pages_url=pdf_kline_status_pages_url,
         pdf_kline_status_raw_url=pdf_kline_status_raw_url,
         pdf_kline_policy=pdf_kline_policy,
@@ -548,6 +609,11 @@ def main() -> int:
 
     README_TXT.write_text(readme, encoding="utf-8")
     DOCS_README_TXT.write_text(readme, encoding="utf-8")
+    HISTORY_REPORT_DIR.mkdir(parents=True, exist_ok=True)
+    (HISTORY_REPORT_DIR / f"{main_price_date}_READ_ME_FIRST_DAILY_REPORT.txt").write_text(
+        readme,
+        encoding="utf-8",
+    )
 
     publish_check_md = build_publish_check_md(
         main_price_date=main_price_date,
@@ -557,6 +623,12 @@ def main() -> int:
         checks=checks,
         rules_pages_url=rules_pages_url,
         rules_raw_url=rules_raw_url,
+        daily_market_curated_pdf_pages_url=daily_market_curated_pdf_pages_url,
+        daily_market_curated_pdf_raw_url=daily_market_curated_pdf_raw_url,
+        daily_market_full_table_pdf_pages_url=daily_market_full_table_pdf_pages_url,
+        daily_market_full_table_pdf_raw_url=daily_market_full_table_pdf_raw_url,
+        fixed_pdf_validation_status=fixed_pdf_validation_status,
+        fixed_pdf_validation_raw_url=fixed_pdf_validation_raw_url,
         pdf_kline_status_pages_url=pdf_kline_status_pages_url,
         pdf_kline_status_raw_url=pdf_kline_status_raw_url,
         pdf_kline_policy=pdf_kline_policy,
@@ -585,6 +657,12 @@ def main() -> int:
         "packet_github_api_url": packet_github_api_url,
         "summary_latest_raw_url": summary_latest_raw_url,
         "full_latest_raw_url": full_latest_raw_url,
+        "daily_market_curated_pdf_pages_url": daily_market_curated_pdf_pages_url,
+        "daily_market_curated_pdf_raw_url": daily_market_curated_pdf_raw_url,
+        "daily_market_full_table_pdf_pages_url": daily_market_full_table_pdf_pages_url,
+        "daily_market_full_table_pdf_raw_url": daily_market_full_table_pdf_raw_url,
+        "fixed_pdf_validation_status": fixed_pdf_validation_status,
+        "fixed_pdf_validation_raw_url": fixed_pdf_validation_raw_url,
         "pdf_kline_status_pages_url": pdf_kline_status_pages_url,
         "pdf_kline_status_raw_url": pdf_kline_status_raw_url,
         "summary_pdf_kline_policy": pdf_kline_policy,
