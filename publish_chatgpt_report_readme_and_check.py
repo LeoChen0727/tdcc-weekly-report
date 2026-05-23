@@ -50,6 +50,13 @@ RULES_DOCS = DOCS_LATEST_DIR / "CHATGPT_DAILY_REPORT_RULES.txt"
 
 LATEST_SUMMARY_MD = LATEST_DIR / "daily_market_summary_latest.md"
 LATEST_FULL_MD = LATEST_DIR / "daily_market_full_latest.md"
+DAILY_SIGNAL_SUMMARY_MD = LATEST_DIR / "daily_signal_performance_summary_latest.md"
+DAILY_SIGNAL_WEEKLY_MD = LATEST_DIR / "daily_signal_performance_weekly_latest.md"
+DAILY_SIGNAL_WEEKLY_PDF = LATEST_DIR / "daily_signal_performance_weekly_latest.pdf"
+DAILY_SIGNAL_MONTHLY_MD = LATEST_DIR / "daily_signal_performance_monthly_latest.md"
+DAILY_SIGNAL_MONTHLY_PDF = LATEST_DIR / "daily_signal_performance_monthly_latest.pdf"
+DOCS_DAILY_SIGNAL_WEEKLY_PDF = DOCS_LATEST_DIR / "daily_signal_performance_weekly_latest.pdf"
+DOCS_DAILY_SIGNAL_MONTHLY_PDF = DOCS_LATEST_DIR / "daily_signal_performance_monthly_latest.pdf"
 
 
 def now_taipei() -> datetime:
@@ -323,6 +330,13 @@ def build_readme(
     pdf_kline_status: str,
     pdf_kline_total_charts: Any,
     pdf_kline_local_price_redraw_count: Any,
+    daily_signal_performance_summary_raw_url: str,
+    daily_signal_performance_weekly_md_raw_url: str,
+    daily_signal_performance_weekly_pdf_pages_url: str,
+    daily_signal_performance_weekly_pdf_raw_url: str,
+    daily_signal_performance_monthly_md_raw_url: str,
+    daily_signal_performance_monthly_pdf_pages_url: str,
+    daily_signal_performance_monthly_pdf_raw_url: str,
     rules_pages_url: str,
     rules_raw_url: str,
     preferred_chatgpt_url: str,
@@ -355,6 +369,13 @@ def build_readme(
         f"summary_pdf_kline_local_price_redraw_count={pdf_kline_local_price_redraw_count}",
         "summary_pdf_chart_path_and_chart_url_are_fallback_only=True",
         "do_not_label_summary_pdf_as_chart_path_version_or_image_download_failed=True",
+        f"daily_signal_performance_summary_raw_url={daily_signal_performance_summary_raw_url}",
+        f"daily_signal_performance_weekly_md_raw_url={daily_signal_performance_weekly_md_raw_url}",
+        f"daily_signal_performance_weekly_pdf_pages_url={daily_signal_performance_weekly_pdf_pages_url}",
+        f"daily_signal_performance_weekly_pdf_raw_url={daily_signal_performance_weekly_pdf_raw_url}",
+        f"daily_signal_performance_monthly_md_raw_url={daily_signal_performance_monthly_md_raw_url}",
+        f"daily_signal_performance_monthly_pdf_pages_url={daily_signal_performance_monthly_pdf_pages_url}",
+        f"daily_signal_performance_monthly_pdf_raw_url={daily_signal_performance_monthly_pdf_raw_url}",
         f"rules_pages_url={rules_pages_url}",
         f"rules_raw_url={rules_raw_url}",
         f"packet_pages_ok={status_map.get('packet_pages_url')}",
@@ -508,6 +529,12 @@ def sync_docs_files() -> None:
             encoding="utf-8",
         )
 
+    if DAILY_SIGNAL_WEEKLY_PDF.exists():
+        DOCS_DAILY_SIGNAL_WEEKLY_PDF.write_bytes(DAILY_SIGNAL_WEEKLY_PDF.read_bytes())
+
+    if DAILY_SIGNAL_MONTHLY_PDF.exists():
+        DOCS_DAILY_SIGNAL_MONTHLY_PDF.write_bytes(DAILY_SIGNAL_MONTHLY_PDF.read_bytes())
+
 
 def main() -> int:
     LATEST_DIR.mkdir(parents=True, exist_ok=True)
@@ -566,6 +593,13 @@ def main() -> int:
         "local_price_redraw_count",
         packet_manifest.get("summary_pdf_kline_local_price_redraw_count", 0),
     )
+    daily_signal_performance_summary_raw_url = raw_url("main", DAILY_SIGNAL_SUMMARY_MD)
+    daily_signal_performance_weekly_md_raw_url = raw_url("main", DAILY_SIGNAL_WEEKLY_MD)
+    daily_signal_performance_weekly_pdf_pages_url = pages_url("latest/daily_signal_performance_weekly_latest.pdf")
+    daily_signal_performance_weekly_pdf_raw_url = raw_url("main", DAILY_SIGNAL_WEEKLY_PDF)
+    daily_signal_performance_monthly_md_raw_url = raw_url("main", DAILY_SIGNAL_MONTHLY_MD)
+    daily_signal_performance_monthly_pdf_pages_url = pages_url("latest/daily_signal_performance_monthly_latest.pdf")
+    daily_signal_performance_monthly_pdf_raw_url = raw_url("main", DAILY_SIGNAL_MONTHLY_PDF)
 
     rules_pages_url = pages_url("latest/CHATGPT_DAILY_REPORT_RULES.txt")
     rules_raw_url = raw_url("main", RULES_LATEST)
@@ -601,6 +635,13 @@ def main() -> int:
         pdf_kline_status=pdf_kline_status,
         pdf_kline_total_charts=pdf_kline_total_charts,
         pdf_kline_local_price_redraw_count=pdf_kline_local_price_redraw_count,
+        daily_signal_performance_summary_raw_url=daily_signal_performance_summary_raw_url,
+        daily_signal_performance_weekly_md_raw_url=daily_signal_performance_weekly_md_raw_url,
+        daily_signal_performance_weekly_pdf_pages_url=daily_signal_performance_weekly_pdf_pages_url,
+        daily_signal_performance_weekly_pdf_raw_url=daily_signal_performance_weekly_pdf_raw_url,
+        daily_signal_performance_monthly_md_raw_url=daily_signal_performance_monthly_md_raw_url,
+        daily_signal_performance_monthly_pdf_pages_url=daily_signal_performance_monthly_pdf_pages_url,
+        daily_signal_performance_monthly_pdf_raw_url=daily_signal_performance_monthly_pdf_raw_url,
         rules_pages_url=rules_pages_url,
         rules_raw_url=rules_raw_url,
         preferred_chatgpt_url=preferred,
@@ -671,6 +712,13 @@ def main() -> int:
         "summary_pdf_kline_local_price_redraw_count": pdf_kline_local_price_redraw_count,
         "summary_pdf_chart_path_and_chart_url_are_fallback_only": True,
         "do_not_label_summary_pdf_as_chart_path_version_or_image_download_failed": True,
+        "daily_signal_performance_summary_raw_url": daily_signal_performance_summary_raw_url,
+        "daily_signal_performance_weekly_md_raw_url": daily_signal_performance_weekly_md_raw_url,
+        "daily_signal_performance_weekly_pdf_pages_url": daily_signal_performance_weekly_pdf_pages_url,
+        "daily_signal_performance_weekly_pdf_raw_url": daily_signal_performance_weekly_pdf_raw_url,
+        "daily_signal_performance_monthly_md_raw_url": daily_signal_performance_monthly_md_raw_url,
+        "daily_signal_performance_monthly_pdf_pages_url": daily_signal_performance_monthly_pdf_pages_url,
+        "daily_signal_performance_monthly_pdf_raw_url": daily_signal_performance_monthly_pdf_raw_url,
         "rules_pages_url": rules_pages_url,
         "rules_raw_url": rules_raw_url,
         "checks": checks,

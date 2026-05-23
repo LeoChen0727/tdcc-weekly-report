@@ -201,9 +201,21 @@ jobs:
         run: |
           python merge_warrant_flow_into_candidates.py
 
+      - name: Apply revenue industry applicability rules
+        run: |
+          python scripts/apply_revenue_industry_applicability.py
+
       - name: Build data freshness status
         run: |
           python build_data_freshness_latest.py
+
+      - name: Update market benchmark history
+        run: |
+          python scripts/update_market_index_history.py
+
+      - name: Build warrant market report
+        run: |
+          python scripts/build_warrant_market_report.py
 
       - name: Build daily market report artifacts
         run: |
@@ -220,6 +232,13 @@ jobs:
       - name: Validate fixed daily market PDF reports
         run: |
           python scripts/validate_daily_market_report.py
+
+      - name: Update daily candidate signal tracking
+        run: |
+          python scripts/update_daily_candidate_signal_log.py
+          python scripts/update_daily_candidate_signal_performance.py
+          python scripts/generate_daily_signal_performance_report.py
+          python scripts/validate_daily_signal_performance.py
 
       - name: Build ChatGPT daily report packet
         run: |
@@ -239,6 +258,8 @@ jobs:
           cp output/latest/daily_market_curated_report_latest.pdf docs/latest/daily_market_curated_report_latest.pdf || true
           cp output/latest/daily_market_full_table_report_latest.pdf docs/latest/daily_market_full_table_report_latest.pdf || true
           cp output/latest/daily_market_report_validation_latest.md docs/latest/daily_market_report_validation_latest.md || true
+          cp output/latest/daily_signal_performance_weekly_latest.pdf docs/latest/daily_signal_performance_weekly_latest.pdf || true
+          cp output/latest/daily_signal_performance_monthly_latest.pdf docs/latest/daily_signal_performance_monthly_latest.pdf || true
 
           {
             echo "main_price_date=pending"
@@ -290,6 +311,7 @@ jobs:
 
           git add output/latest/data_freshness_latest.md || true
           git add output/latest/data_freshness_latest.csv || true
+          git add output/latest/revenue_industry_applicability_latest.md || true
 
           git add output/latest/report_manifest_latest.md || true
           git add output/latest/report_manifest_latest.json || true
@@ -302,6 +324,23 @@ jobs:
           git add output/latest/daily_market_pdf_report_manifest_latest.md || true
           git add output/latest/daily_market_report_validation_latest.json || true
           git add output/latest/daily_market_report_validation_latest.md || true
+          git add output/latest/daily_signal_performance_summary_latest.csv || true
+          git add output/latest/daily_signal_performance_summary_latest.md || true
+          git add output/latest/daily_signal_performance_weekly_latest.md || true
+          git add output/latest/daily_signal_performance_weekly_latest.pdf || true
+          git add output/latest/daily_signal_performance_monthly_latest.md || true
+          git add output/latest/daily_signal_performance_monthly_latest.pdf || true
+          git add output/latest/daily_signal_performance_validation_latest.md || true
+          git add output/history/daily_signals/ || true
+          git add data/market_index_history.csv || true
+          git add output/latest/market_benchmark_latest.csv || true
+          git add data/warrant_daily/ || true
+          git add data/warrant_flow_by_stock/ || true
+          git add output/latest/warrant_market_report_latest.md || true
+          git add output/latest/warrant_market_report_latest.pdf || true
+          git add output/latest/warrant_flow_by_stock_latest.csv || true
+          git add output/latest/warrant_sector_heat_latest.csv || true
+          git add output/latest/warrant_signal_performance_latest.md || true
 
           git add output/latest/每日全市場候選股監測報告_精華版.md || true
           git add output/latest/每日全市場候選股監測報告_精華版.pdf || true
@@ -328,6 +367,8 @@ jobs:
           git add docs/latest/daily_market_curated_report_latest.pdf || true
           git add docs/latest/daily_market_full_table_report_latest.pdf || true
           git add docs/latest/daily_market_report_validation_latest.md || true
+          git add docs/latest/daily_signal_performance_weekly_latest.pdf || true
+          git add docs/latest/daily_signal_performance_monthly_latest.pdf || true
 
           git add build_data_freshness_latest.py || true
           git add build_daily_market_report_artifacts.py || true
@@ -337,6 +378,14 @@ jobs:
           git add current_holdings_pattern.py || true
           git add config/current_holdings.json || true
           git add scripts/fetch_official_warrant_daily.py || true
+          git add scripts/tracking_utils.py || true
+          git add scripts/apply_revenue_industry_applicability.py || true
+          git add scripts/update_market_index_history.py || true
+          git add scripts/update_daily_candidate_signal_log.py || true
+          git add scripts/update_daily_candidate_signal_performance.py || true
+          git add scripts/generate_daily_signal_performance_report.py || true
+          git add scripts/validate_daily_signal_performance.py || true
+          git add scripts/build_warrant_market_report.py || true
           git add build_warrant_flow_latest.py || true
           git add merge_warrant_flow_into_candidates.py || true
           git add build_all_candidates_latest.py || true
@@ -395,6 +444,8 @@ jobs:
           git add docs/latest/daily_market_curated_report_latest.pdf || true
           git add docs/latest/daily_market_full_table_report_latest.pdf || true
           git add docs/latest/daily_market_report_validation_latest.md || true
+          git add docs/latest/daily_signal_performance_weekly_latest.pdf || true
+          git add docs/latest/daily_signal_performance_monthly_latest.pdf || true
 
           git add output/latest/CHATGPT_DAILY_REPORT_RULES.txt || true
           git add output/latest/pdf_kline_chart_status_latest.csv || true
@@ -406,11 +457,27 @@ jobs:
           git add output/latest/daily_market_pdf_report_manifest_latest.md || true
           git add output/latest/daily_market_report_validation_latest.json || true
           git add output/latest/daily_market_report_validation_latest.md || true
+          git add output/latest/daily_signal_performance_summary_latest.csv || true
+          git add output/latest/daily_signal_performance_summary_latest.md || true
+          git add output/latest/daily_signal_performance_weekly_latest.md || true
+          git add output/latest/daily_signal_performance_weekly_latest.pdf || true
+          git add output/latest/daily_signal_performance_monthly_latest.md || true
+          git add output/latest/daily_signal_performance_monthly_latest.pdf || true
+          git add output/latest/daily_signal_performance_validation_latest.md || true
+          git add output/history/daily_signals/ || true
+          git add data/market_index_history.csv || true
+          git add output/latest/market_benchmark_latest.csv || true
           git add output/history/reports/ || true
 
           git add publish_chatgpt_report_readme_and_check.py || true
           git add scripts/generate_daily_market_pdf.py || true
           git add scripts/validate_daily_market_report.py || true
+          git add scripts/tracking_utils.py || true
+          git add scripts/update_market_index_history.py || true
+          git add scripts/update_daily_candidate_signal_log.py || true
+          git add scripts/update_daily_candidate_signal_performance.py || true
+          git add scripts/generate_daily_signal_performance_report.py || true
+          git add scripts/validate_daily_signal_performance.py || true
 
           git status --short
           git commit -m "Publish ChatGPT daily report readme, rules, and multi-entry checks" || echo "No changes to commit"
