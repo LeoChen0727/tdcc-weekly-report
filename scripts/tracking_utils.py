@@ -311,6 +311,18 @@ def update_market_index_history(months: int = 18) -> pd.DataFrame:
     df = df.dropna(subset=["date", "index_code", "close"])
     df = df.drop_duplicates(["date", "index_code"], keep="last")
     df = df.sort_values(["index_code", "date"]).reset_index(drop=True)
+
+    for window in [5, 10, 20, 60]:
+        col = f"return_{window}d"
+        df[col] = pd.to_numeric(df[col], errors="coerce") if col in df.columns else math.nan
+    for col in ["ma20", "ma60"]:
+        df[col] = pd.to_numeric(df[col], errors="coerce") if col in df.columns else math.nan
+    for col in ["above_ma20", "above_ma60"]:
+        if col in df.columns:
+            df[col] = df[col].astype(str).str.lower().isin(["true", "1", "yes"])
+        else:
+            df[col] = False
+
     for _, part in df.groupby("index_code"):
         part = part.sort_values("date")
         for window in [5, 10, 20, 60]:
