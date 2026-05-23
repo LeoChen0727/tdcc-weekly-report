@@ -1,9 +1,9 @@
 main_price_date=20260523
 report_ready=True
-commit_sha=125e5a96b33ddab9f99158bc3d12600dfabbb7f8
+commit_sha=36964c2e61d02bde7190abe460c3b8ca027e4c9d
 preferred_chatgpt_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt
 packet_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt
-packet_commit_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/125e5a96b33ddab9f99158bc3d12600dfabbb7f8/output/history/reports/20260523_CHATGPT_DAILY_REPORT_PACKET.txt
+packet_commit_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/36964c2e61d02bde7190abe460c3b8ca027e4c9d/output/history/reports/20260523_CHATGPT_DAILY_REPORT_PACKET.txt
 packet_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/chatgpt_daily_report_packet_latest.txt
 packet_github_api_url=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/chatgpt_daily_report_packet_latest.txt?ref=main
 summary_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_summary_latest.md
@@ -32,7 +32,7 @@ daily_signal_performance_monthly_pdf_raw_url=https://raw.githubusercontent.com/L
 rules_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/CHATGPT_DAILY_REPORT_RULES.txt
 rules_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/CHATGPT_DAILY_REPORT_RULES.txt
 packet_pages_ok=True
-packet_commit_raw_ok=False
+packet_commit_raw_ok=True
 packet_latest_raw_ok=True
 packet_github_api_ok=True
 read_order=packet_pages_url,packet_commit_raw_url,packet_latest_raw_url,packet_github_api_url
