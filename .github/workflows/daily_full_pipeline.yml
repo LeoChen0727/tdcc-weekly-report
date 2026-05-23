@@ -188,6 +188,10 @@ jobs:
         run: |
           python generate_candidate_charts.py
 
+      - name: Build chip flow positive streak candidates
+        run: |
+          python scripts/build_chip_flow_positive_streak.py
+
       - name: Build all candidates latest files
         run: |
           python build_all_candidates_latest.py
@@ -283,6 +287,14 @@ jobs:
           git add output/latest/contact_sheet_manifest.csv || true
           git add output/latest/charts/ || true
           git add output/latest/contact_sheets/ || true
+          git add data/institutional_investor_flow/ || true
+          git add data/broker_branch_trading/ || true
+          git add output/latest/institutional_investor_flow_latest.csv || true
+          git add output/latest/chip_flow_positive_streak_latest.csv || true
+          git add output/latest/chip_flow_positive_streak_latest.md || true
+          git add output/latest/chip_flow_source_status_latest.json || true
+          git add output/latest/chip_flow_source_status_latest.md || true
+          git add output/history/chip_flow/ || true
 
           git add output/latest/all_candidates_latest.csv || true
           git add output/latest/all_candidates_latest.xlsx || true
@@ -389,6 +401,9 @@ jobs:
           git add scripts/generate_daily_signal_performance_report.py || true
           git add scripts/validate_daily_signal_performance.py || true
           git add scripts/build_warrant_market_report.py || true
+          git add scripts/build_chip_flow_positive_streak.py || true
+          git add config/eight_public_bank_brokers.csv || true
+          git add docs/chip_flow_positive_streak.md || true
           git add build_warrant_flow_latest.py || true
           git add merge_warrant_flow_into_candidates.py || true
           git add build_all_candidates_latest.py || true
@@ -470,9 +485,19 @@ jobs:
           git add output/history/daily_signals/ || true
           git add data/market_index_history.csv || true
           git add output/latest/market_benchmark_latest.csv || true
+          git add output/latest/chip_flow_positive_streak_latest.csv || true
+          git add output/latest/chip_flow_positive_streak_latest.md || true
+          git add output/latest/chip_flow_source_status_latest.json || true
+          git add output/latest/chip_flow_source_status_latest.md || true
+          git add output/latest/institutional_investor_flow_latest.csv || true
+          git add data/institutional_investor_flow/ || true
+          git add output/history/chip_flow/ || true
           git add output/history/reports/ || true
 
           git add publish_chatgpt_report_readme_and_check.py || true
+          git add scripts/build_chip_flow_positive_streak.py || true
+          git add config/eight_public_bank_brokers.csv || true
+          git add docs/chip_flow_positive_streak.md || true
           git add scripts/generate_daily_market_pdf.py || true
           git add scripts/validate_daily_market_report.py || true
           git add scripts/tracking_utils.py || true

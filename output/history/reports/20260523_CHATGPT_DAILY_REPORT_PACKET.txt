@@ -1,6 +1,6 @@
 CHATGPT DAILY REPORT PACKET
 
-generated_at: 2026-05-23 22:40:57 Asia/Taipei
+generated_at: 2026-05-23 23:03:09 Asia/Taipei
 repo: LeoChen0727/tdcc-weekly-report
 main_price_date: 20260523
 report_ready: True
@@ -31,14 +31,14 @@ CURATED PDF REPORT
 pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_market_curated_report_latest.pdf
 raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_curated_report_latest.pdf
 file_path: output/latest/daily_market_curated_report_latest.pdf
-generated_at: 2026-05-23 22:40:44 Asia/Taipei
+generated_at: 2026-05-23 23:02:55 Asia/Taipei
 status: generated
 
 FULL TABLE PDF REPORT
 pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_market_full_table_report_latest.pdf
 raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_full_table_report_latest.pdf
 file_path: output/latest/daily_market_full_table_report_latest.pdf
-generated_at: 2026-05-23 22:40:44 Asia/Taipei
+generated_at: 2026-05-23 23:02:55 Asia/Taipei
 status: generated
 
 FIXED PDF VALIDATION
@@ -52,8 +52,19 @@ performance_csv_path: output/history/daily_signals/daily_candidate_signal_perfor
 summary_latest_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_signal_performance_summary_latest.md
 weekly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_weekly_latest.pdf
 monthly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_monthly_latest.pdf
-last_updated_at: 2026-05-23 22:40:57 Asia/Taipei
+last_updated_at: 2026-05-23 23:03:09 Asia/Taipei
 status: generated
+
+CHIP FLOW POSITIVE STREAK
+definition: main_force_net_lots - institutional_net_lots - eight_banks_net_lots > 0 for 3 consecutive trading days
+status: disabled_missing_required_data
+reason: missing broker branch trading daily report files; missing official three-institution data for latest consecutive trading dates.
+latest_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/chip_flow_positive_streak_latest.csv
+latest_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/chip_flow_positive_streak_latest.md
+status_json_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/chip_flow_source_status_latest.json
+institutional_flow_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/institutional_investor_flow_latest.csv
+broker_branch_data_required: True
+do_not_infer_if_status_not_ready: True
 
 PURPOSE
 This packet embeds the daily market report content directly.

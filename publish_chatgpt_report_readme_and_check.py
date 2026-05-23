@@ -57,6 +57,10 @@ DAILY_SIGNAL_MONTHLY_MD = LATEST_DIR / "daily_signal_performance_monthly_latest.
 DAILY_SIGNAL_MONTHLY_PDF = LATEST_DIR / "daily_signal_performance_monthly_latest.pdf"
 DOCS_DAILY_SIGNAL_WEEKLY_PDF = DOCS_LATEST_DIR / "daily_signal_performance_weekly_latest.pdf"
 DOCS_DAILY_SIGNAL_MONTHLY_PDF = DOCS_LATEST_DIR / "daily_signal_performance_monthly_latest.pdf"
+CHIP_FLOW_STREAK_CSV = LATEST_DIR / "chip_flow_positive_streak_latest.csv"
+CHIP_FLOW_STREAK_MD = LATEST_DIR / "chip_flow_positive_streak_latest.md"
+CHIP_FLOW_STATUS_JSON = LATEST_DIR / "chip_flow_source_status_latest.json"
+INSTITUTIONAL_FLOW_CSV = LATEST_DIR / "institutional_investor_flow_latest.csv"
 
 
 def now_taipei() -> datetime:
@@ -337,6 +341,11 @@ def build_readme(
     daily_signal_performance_monthly_md_raw_url: str,
     daily_signal_performance_monthly_pdf_pages_url: str,
     daily_signal_performance_monthly_pdf_raw_url: str,
+    chip_flow_positive_streak_raw_url: str,
+    chip_flow_positive_streak_md_raw_url: str,
+    chip_flow_source_status_raw_url: str,
+    institutional_investor_flow_raw_url: str,
+    chip_flow_source_status: str,
     rules_pages_url: str,
     rules_raw_url: str,
     preferred_chatgpt_url: str,
@@ -376,6 +385,13 @@ def build_readme(
         f"daily_signal_performance_monthly_md_raw_url={daily_signal_performance_monthly_md_raw_url}",
         f"daily_signal_performance_monthly_pdf_pages_url={daily_signal_performance_monthly_pdf_pages_url}",
         f"daily_signal_performance_monthly_pdf_raw_url={daily_signal_performance_monthly_pdf_raw_url}",
+        f"chip_flow_positive_streak_raw_url={chip_flow_positive_streak_raw_url}",
+        f"chip_flow_positive_streak_md_raw_url={chip_flow_positive_streak_md_raw_url}",
+        f"chip_flow_source_status_raw_url={chip_flow_source_status_raw_url}",
+        f"institutional_investor_flow_raw_url={institutional_investor_flow_raw_url}",
+        f"chip_flow_source_status={chip_flow_source_status}",
+        "chip_flow_requires_broker_branch_data=True",
+        "chip_flow_do_not_infer_if_not_ready=True",
         f"rules_pages_url={rules_pages_url}",
         f"rules_raw_url={rules_raw_url}",
         f"packet_pages_ok={status_map.get('packet_pages_url')}",
@@ -600,6 +616,12 @@ def main() -> int:
     daily_signal_performance_monthly_md_raw_url = raw_url("main", DAILY_SIGNAL_MONTHLY_MD)
     daily_signal_performance_monthly_pdf_pages_url = pages_url("latest/daily_signal_performance_monthly_latest.pdf")
     daily_signal_performance_monthly_pdf_raw_url = raw_url("main", DAILY_SIGNAL_MONTHLY_PDF)
+    chip_flow_status_json = read_json(CHIP_FLOW_STATUS_JSON)
+    chip_flow_source_status = str(chip_flow_status_json.get("status", "missing"))
+    chip_flow_positive_streak_raw_url = raw_url("main", CHIP_FLOW_STREAK_CSV)
+    chip_flow_positive_streak_md_raw_url = raw_url("main", CHIP_FLOW_STREAK_MD)
+    chip_flow_source_status_raw_url = raw_url("main", CHIP_FLOW_STATUS_JSON)
+    institutional_investor_flow_raw_url = raw_url("main", INSTITUTIONAL_FLOW_CSV)
 
     rules_pages_url = pages_url("latest/CHATGPT_DAILY_REPORT_RULES.txt")
     rules_raw_url = raw_url("main", RULES_LATEST)
@@ -642,6 +664,11 @@ def main() -> int:
         daily_signal_performance_monthly_md_raw_url=daily_signal_performance_monthly_md_raw_url,
         daily_signal_performance_monthly_pdf_pages_url=daily_signal_performance_monthly_pdf_pages_url,
         daily_signal_performance_monthly_pdf_raw_url=daily_signal_performance_monthly_pdf_raw_url,
+        chip_flow_positive_streak_raw_url=chip_flow_positive_streak_raw_url,
+        chip_flow_positive_streak_md_raw_url=chip_flow_positive_streak_md_raw_url,
+        chip_flow_source_status_raw_url=chip_flow_source_status_raw_url,
+        institutional_investor_flow_raw_url=institutional_investor_flow_raw_url,
+        chip_flow_source_status=chip_flow_source_status,
         rules_pages_url=rules_pages_url,
         rules_raw_url=rules_raw_url,
         preferred_chatgpt_url=preferred,
@@ -719,6 +746,13 @@ def main() -> int:
         "daily_signal_performance_monthly_md_raw_url": daily_signal_performance_monthly_md_raw_url,
         "daily_signal_performance_monthly_pdf_pages_url": daily_signal_performance_monthly_pdf_pages_url,
         "daily_signal_performance_monthly_pdf_raw_url": daily_signal_performance_monthly_pdf_raw_url,
+        "chip_flow_positive_streak_raw_url": chip_flow_positive_streak_raw_url,
+        "chip_flow_positive_streak_md_raw_url": chip_flow_positive_streak_md_raw_url,
+        "chip_flow_source_status_raw_url": chip_flow_source_status_raw_url,
+        "institutional_investor_flow_raw_url": institutional_investor_flow_raw_url,
+        "chip_flow_source_status": chip_flow_source_status,
+        "chip_flow_requires_broker_branch_data": True,
+        "chip_flow_do_not_infer_if_not_ready": True,
         "rules_pages_url": rules_pages_url,
         "rules_raw_url": rules_raw_url,
         "checks": checks,

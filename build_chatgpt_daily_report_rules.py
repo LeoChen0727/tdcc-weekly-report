@@ -166,6 +166,20 @@ WARRANT FLOW RULES
 - call_put_bullish may indicate bullish structure but still needs price confirmation.
 - Do not treat warrant flow as the main buy reason.
 
+CHIP FLOW POSITIVE STREAK RULES
+- The group "主力-三大法人-八大行庫連續轉強" is an optional independent observation group.
+- It is valid only when chip_flow_source_status=ready.
+- Definition:
+  main_force_net_lots - institutional_net_lots - eight_banks_net_lots > 0
+  for at least 3 consecutive trading days ending on main_price_date.
+- main_force_net_lots is computed from broker-branch trading reports:
+  top 15 net-buy broker branches minus top 15 net-sell broker branches.
+- institutional_net_lots comes from official TWSE/TPEx three-institution data.
+- eight_banks_net_lots is computed from broker-branch trading reports using config/eight_public_bank_brokers.csv.
+- If chip_flow_source_status is not ready, do not mention this as an active category.
+- Do not infer main-force or eight-bank values from price, TDCC, warrant, or news data.
+- This category is not a buy signal by itself; it only says non-institution/non-eight-bank broker-branch flow has stayed positive.
+
 PDF OUTPUT RULES
 ChatGPT should produce two PDFs when asked for the daily report artifacts:
 

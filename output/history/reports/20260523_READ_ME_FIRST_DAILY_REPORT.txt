@@ -1,9 +1,9 @@
 main_price_date=20260523
 report_ready=True
-commit_sha=d5cd8ebdecf00f616abd3c9b668aa5e77d111807
+commit_sha=50ac662ef890961b69c5988f6994f23ae948c52b
 preferred_chatgpt_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt
 packet_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt
-packet_commit_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/d5cd8ebdecf00f616abd3c9b668aa5e77d111807/output/history/reports/20260523_CHATGPT_DAILY_REPORT_PACKET.txt
+packet_commit_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/50ac662ef890961b69c5988f6994f23ae948c52b/output/history/reports/20260523_CHATGPT_DAILY_REPORT_PACKET.txt
 packet_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/chatgpt_daily_report_packet_latest.txt
 packet_github_api_url=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/chatgpt_daily_report_packet_latest.txt?ref=main
 summary_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_summary_latest.md
@@ -29,6 +29,13 @@ daily_signal_performance_weekly_pdf_raw_url=https://raw.githubusercontent.com/Le
 daily_signal_performance_monthly_md_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_signal_performance_monthly_latest.md
 daily_signal_performance_monthly_pdf_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_monthly_latest.pdf
 daily_signal_performance_monthly_pdf_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_signal_performance_monthly_latest.pdf
+chip_flow_positive_streak_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/chip_flow_positive_streak_latest.csv
+chip_flow_positive_streak_md_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/chip_flow_positive_streak_latest.md
+chip_flow_source_status_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/chip_flow_source_status_latest.json
+institutional_investor_flow_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/institutional_investor_flow_latest.csv
+chip_flow_source_status=disabled_missing_required_data
+chip_flow_requires_broker_branch_data=True
+chip_flow_do_not_infer_if_not_ready=True
 rules_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/CHATGPT_DAILY_REPORT_RULES.txt
 rules_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/CHATGPT_DAILY_REPORT_RULES.txt
 packet_pages_ok=True

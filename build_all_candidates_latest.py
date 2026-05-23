@@ -56,6 +56,11 @@ SOURCE_FILES = [
         "default_category": "pattern",
         "default_category_cn": "型態觀察",
     },
+    {
+        "path": LATEST_DIR / "chip_flow_positive_streak_latest.csv",
+        "default_category": "chip_flow_positive_streak",
+        "default_category_cn": "主力-三大法人-八大行庫連續轉強",
+    },
 ]
 
 CATEGORY_CN = {
@@ -68,6 +73,7 @@ CATEGORY_CN = {
     "revenue_pullback": "營收成長股價回檔",
     "pullback_rebound": "回檔後短線轉強",
     "pattern": "型態觀察",
+    "chip_flow_positive_streak": "主力-三大法人-八大行庫連續轉強",
 }
 
 CATEGORY_ORDER = {
@@ -80,6 +86,7 @@ CATEGORY_ORDER = {
     "revenue_pullback": 40,
     "pullback_rebound": 50,
     "pattern": 60,
+    "chip_flow_positive_streak": 70,
 }
 
 FINAL_COLUMNS = [
@@ -155,6 +162,12 @@ FINAL_COLUMNS = [
     "tdcc_1000_up_weeks",
     "tdcc_accumulation_signal",
     "tdcc_accumulation_note",
+    "main_force_net_lots",
+    "institutional_net_lots",
+    "eight_banks_net_lots",
+    "chip_flow_adjusted_net_lots",
+    "positive_streak_days",
+    "latest_positive",
     "chart_path",
     "chart_url",
     "price_data_path",

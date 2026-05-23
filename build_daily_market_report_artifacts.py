@@ -75,6 +75,7 @@ CATEGORY_ORDER = [
     "revenue_pullback",
     "pullback_rebound",
     "pattern",
+    "chip_flow_positive_streak",
 ]
 
 CATEGORY_CN = {
@@ -86,6 +87,7 @@ CATEGORY_CN = {
     "revenue_pullback": "營收成長股價回檔",
     "pullback_rebound": "回檔後短線轉強",
     "pattern": "型態觀察",
+    "chip_flow_positive_streak": "主力-三大法人-八大行庫連續轉強",
 }
 
 SUMMARY_LIMIT_BY_CATEGORY = {
@@ -97,6 +99,7 @@ SUMMARY_LIMIT_BY_CATEGORY = {
     "revenue_pullback": 5,
     "pullback_rebound": 5,
     "pattern": 5,
+    "chip_flow_positive_streak": 5,
 }
 
 FULL_PDF_ROWS_PER_PAGE = 18
