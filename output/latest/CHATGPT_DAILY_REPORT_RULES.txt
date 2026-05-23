@@ -1,6 +1,6 @@
 CHATGPT DAILY MARKET REPORT RULES
 
-generated_at=2026-05-23 16:38:47 Asia/Taipei
+generated_at=2026-05-23 17:10:21 Asia/Taipei
 rules_version=2026-05-23-v2
 
 PURPOSE

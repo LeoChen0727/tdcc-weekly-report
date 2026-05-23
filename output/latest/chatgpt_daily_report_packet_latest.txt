@@ -1,6 +1,6 @@
 CHATGPT DAILY REPORT PACKET
 
-generated_at: 2026-05-23 16:38:47 Asia/Taipei
+generated_at: 2026-05-23 17:10:21 Asia/Taipei
 repo: LeoChen0727/tdcc-weekly-report
 main_price_date: 20260523
 report_ready: True
@@ -31,14 +31,14 @@ CURATED PDF REPORT
 pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_market_curated_report_latest.pdf
 raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_curated_report_latest.pdf
 file_path: output/latest/daily_market_curated_report_latest.pdf
-generated_at: 2026-05-23 16:38:45 Asia/Taipei
+generated_at: 2026-05-23 17:10:20 Asia/Taipei
 status: generated
 
 FULL TABLE PDF REPORT
 pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_market_full_table_report_latest.pdf
 raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_full_table_report_latest.pdf
 file_path: output/latest/daily_market_full_table_report_latest.pdf
-generated_at: 2026-05-23 16:38:45 Asia/Taipei
+generated_at: 2026-05-23 17:10:20 Asia/Taipei
 status: generated
 
 FIXED PDF VALIDATION
@@ -58,7 +58,7 @@ EMBEDDED SUMMARY REPORT
 # 每日全市場候選股監測報告 - 精華版
 
 - 主資料日期：`20260523`
-- 產生時間：`2026-05-23 16:38:28 Asia/Taipei`
+- 產生時間：`2026-05-23 17:10:03 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：完整候選清單與官方價格資料日期一致，可以產出正式每日報告
 - 權證資料日期：`20260523`
@@ -263,7 +263,7 @@ EMBEDDED SUMMARY REPORT
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
 
 ### 1215 卜蜂
-- 族群：
+- 族群：食品工業
 - 分數 / 排名： / 
 - 優先級：
 - TDCC：大戶轉弱
@@ -273,7 +273,7 @@ EMBEDDED SUMMARY REPORT
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
 
 ### 1304 台聚
-- 族群：
+- 族群：塑膠工業
 - 分數 / 排名： / 
 - 優先級：
 - TDCC：大戶同步增加
@@ -284,7 +284,7 @@ EMBEDDED SUMMARY REPORT
 - 候選資料備援圖表：`output/latest/charts/pattern/1304_台聚_pattern_20260521.png`
 
 ### 1305 華夏
-- 族群：
+- 族群：塑膠工業
 - 分數 / 排名： / 
 - 優先級：
 - TDCC：大戶同步增加
@@ -295,7 +295,7 @@ EMBEDDED SUMMARY REPORT
 - 候選資料備援圖表：`output/latest/charts/pattern/1305_華夏_pattern_20260521.png`
 
 ### 1313 聯成
-- 族群：
+- 族群：塑膠工業
 - 分數 / 排名： / 
 - 優先級：
 - TDCC：大戶同步增加
@@ -313,7 +313,7 @@ EMBEDDED FULL REPORT
 # 完整候選股清單 - 完整版
 
 - 主資料日期：`20260523`
-- 產生時間：`2026-05-23 16:38:28 Asia/Taipei`
+- 產生時間：`2026-05-23 17:10:03 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 權證資料日期：`20260523`
 
@@ -553,253 +553,253 @@ EMBEDDED FULL REPORT
 | date | stock_id | stock_name | 細分族群 | industry | category_cn | score | rank | revaluation_priority | tdcc_accumulation_signal | tdcc_judgement | warrant_flow_signal | warrant_flow_score | note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260521 | 0056 | 元大高股息 |  |  | 型態觀察 |  |  |  |  |  | no_signal | 0.0 |  |
-| 20260521 | 1215 | 卜蜂 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 1304 | 台聚 |  |  | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
-| 20260521 | 1305 | 華夏 |  |  | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
-| 20260521 | 1313 | 聯成 |  |  | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
-| 20260521 | 1402 | 遠東新 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 1409 | 新纖 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 1447 | 力鵬 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 1504 | 東元 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 1513 | 中興電 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 1514 | 亞力 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 1528 | 恩德 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 1536 | 和大 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 1605 | 華新 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 1609 | 大亞 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 1708 | 東鹼 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 1710 | 東聯 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 1714 | 和桐 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 1722 | 台肥 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 1802 | 台玻 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 1810 | 和成 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 1815 | 富喬 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 1904 | 正隆 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 1905 | 華紙 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 2009 | 第一銅 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 2027 | 大成鋼 |  |  | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
-| 20260521 | 2061 | 風青 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 2103 | 台橡 |  |  | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
-| 20260521 | 2105 | 正新 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 2108 | 南帝 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 2206 | 三陽工業 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 2241 | 艾姆勒 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 2301 | 光寶科 |  |  | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
-| 20260521 | 2312 | 金寶 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 2317 | 鴻海 |  |  | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
-| 20260521 | 2324 | 仁寶 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 2328 | 廣宇 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 2329 | 華泰 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 2337 | 旺宏 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 2338 | 光罩 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 2344 | 華邦電 |  |  | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
-| 20260521 | 2352 | 佳世達 |  |  | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
-| 20260521 | 2353 | 宏碁 |  |  | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
-| 20260521 | 2354 | 鴻準 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 2356 | 英業達 |  |  | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
-| 20260521 | 2357 | 華碩 |  |  | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
-| 20260521 | 2359 | 所羅門 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 2363 | 矽統 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 2365 | 昆盈 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 2369 | 菱生 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 2374 | 佳能 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 2377 | 微星 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 2379 | 瑞昱 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 2382 | 廣達 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 2385 | 群光 |  |  | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
-| 20260521 | 2390 | 云辰 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 2392 | 正崴 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 2402 | 毅嘉 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 2404 | 漢唐 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 2405 | 輔信 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 2408 | 南亞科 |  |  | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
-| 20260521 | 2413 | 環科 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 2419 | 仲琦 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 2436 | 偉詮電 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 2441 | 超豐 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 2449 | 京元電子 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 2451 | 創見 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 2455 | 全新 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 2467 | 志聖 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 2495 | 普安 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 2498 | 宏達電 |  |  | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
-| 20260521 | 2501 | 國建 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 2515 | 中工 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 2542 | 興富發 |  |  | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
-| 20260521 | 2548 | 華固 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 2606 | 裕民 |  |  | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
-| 20260521 | 2615 | 萬海 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 2645 | 長榮航太 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 2851 | 中再保 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 2881 | 富邦金 |  |  | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
-| 20260521 | 2882 | 國泰金 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 2883 | 凱基金 |  |  | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
-| 20260521 | 2887 | 台新新光金 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 2891 | 中信金 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 3010 | 華立 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 3011 | 今皓 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 3013 | 晟銘電 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 3019 | 亞光 |  |  | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
-| 20260521 | 3022 | 威強電 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 3023 | 信邦 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 3035 | 智原 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 3041 | 揚智 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 3042 | 晶技 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 3043 | 科風 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 3045 | 台灣大 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 3051 | 力特 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 3059 | 華晶科 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 3062 | 建漢 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 3066 | 李洲 |  |  | 型態觀察 |  |  |  | neutral |  |  |  | 近幾週TDCC無明顯累積 |
-| 20260521 | 3149 | 正達 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 3169 | 亞信 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 3211 | 順達 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 3217 | 優群 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 3227 | 原相 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 3231 | 緯創 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 3257 | 虹冠電 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 3289 | 宜特 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 3294 | 英濟 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 3312 | 弘憶股 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 3324 | 雙鴻 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 3338 | 泰碩 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 3362 | 先進光 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 3374 | 精材 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 3376 | 新日興 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 3379 | 彬台 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 3380 | 明泰 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 3390 | 旭軟 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 3406 | 玉晶光 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 3413 | 京鼎 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 3483 | 力致 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 3491 | 昇達科 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 3515 | 華擎 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 3533 | 嘉澤 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 3535 | 晶彩科 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 3545 | 敦泰 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 3550 | 聯穎 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 3551 | 世禾 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 3580 | 友威科 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 3592 | 瑞鼎 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 3596 | 智易 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 3663 | 鑫科 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 3680 | 家登 |  |  | 型態觀察 |  |  |  | strong_accumulation |  |  |  | TDCC近幾週400張與1000張同步累積 |
-| 20260521 | 3689 | 湧德 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 3694 | 海華 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 3701 | 大眾控 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 3704 | 合勤控 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 3706 | 神達 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 3714 | 富采 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 3717 | 聯嘉投控 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 4166 | 友霖 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 4306 | 炎洲 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 4510 | 高鋒 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 4526 | 東台 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 4555 | 氣立 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 4562 | 穎漢 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 4571 | 鈞興-KY |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 4729 | 熒茂 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 4739 | 康普 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 4743 | 合一 |  |  | 型態觀察 |  |  |  | strong_accumulation |  |  |  | TDCC近幾週400張與1000張同步累積 |
-| 20260521 | 4749 | 新應材 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 4903 | 聯光通 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 4906 | 正文 |  |  | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
-| 20260521 | 4927 | 泰鼎-KY |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 4931 | 新盛力 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 4938 | 和碩 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 4952 | 凌通 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 4961 | 天鈺 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 4967 | 十銓 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 4976 | 佳凌 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 5009 | 榮剛 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 5213 | 亞昕 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 5269 | 祥碩 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 5309 | 系統電 |  |  | 型態觀察 |  |  |  | strong_accumulation |  |  |  | TDCC近幾週400張與1000張同步累積 |
-| 20260521 | 5351 | 鈺創 |  |  | 型態觀察 |  |  |  | strong_accumulation |  |  |  | TDCC近幾週400張與1000張同步累積 |
-| 20260521 | 5371 | 中光電 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 5388 | 中磊 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 5392 | 能率 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 5443 | 均豪 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 5452 | 佶優 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 5471 | 松翰 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 5483 | 中美晶 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 5484 | 慧友 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 5498 | 凱崴 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 5515 | 建國 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 5871 | 中租-KY |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 6005 | 群益證 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 6015 | 宏遠證 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 6026 | 福邦證 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 6104 | 創惟 |  |  | 型態觀察 |  |  |  | strong_accumulation |  |  |  | TDCC近幾週400張與1000張同步累積 |
-| 20260521 | 6120 | 達運 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 6125 | 廣運 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 6126 | 信音 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 6127 | 九豪 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 6139 | 亞翔 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 6153 | 嘉聯益 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 6155 | 鈞寶 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 6163 | 華電網 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 6168 | 宏齊 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 6179 | 亞通 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 6189 | 豐藝 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 6191 | 精成科 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 6209 | 今國光 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 6214 | 精誠 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 6215 | 和椿 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 6218 | 豪勉 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 6223 | 旺矽 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 6239 | 力成 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 6265 | 方土昶 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 6269 | 台郡 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 6282 | 康舒 |  |  | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
-| 20260521 | 6284 | 佳邦 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 6411 | 晶焱 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 6412 | 群電 |  |  | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
-| 20260521 | 6414 | 樺漢 |  |  | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
-| 20260521 | 6425 | 易發 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 6443 | 元晶 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 6446 | 藥華藥 |  |  | 型態觀察 |  |  |  | strong_accumulation |  |  |  | TDCC近幾週400張與1000張同步累積 |
-| 20260521 | 6451 | 訊芯-KY |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 6456 | GIS-KY |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 6462 | 神盾 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 6485 | 點序 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 6499 | 益安 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 6505 | 台塑化 |  |  | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
-| 20260521 | 6547 | 高端疫苗 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 6548 | 長科* |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 6558 | 興能高 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 6719 | 力智 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 6770 | 力積電 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 6835 | 圓裕 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 6854 | 錼創科技-KY創 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 6862 | 三集瑞-KY |  |  | 型態觀察 |  |  |  | neutral |  | no_signal | 0.0 | 近幾週TDCC無明顯累積 |
-| 20260521 | 6901 | 鑽石投資 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 6962 | 奕力-KY |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 7777 | 能率亞洲 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 7788 | 松川精密 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 8039 | 台虹 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 8054 | 安國 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 8070 | 長華* |  |  | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
-| 20260521 | 8071 | 能率網通 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 8074 | 鉅橡 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 8081 | 致新 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 8086 | 宏捷科 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 8088 | 品安 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 8096 | 擎亞 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 8109 | 博大 |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 8112 | 至上 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 8131 | 福懋科 |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 8147 | 正淩 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 8215 | 明基材 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 8249 | 菱光 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 8374 | 羅昇 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 8473 | 山林水 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 8932 | 智通* |  |  | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
-| 20260521 | 9105 | 泰金寶-DR |  |  | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 1215 | 卜蜂 |  | 食品工業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 1304 | 台聚 |  | 塑膠工業 | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
+| 20260521 | 1305 | 華夏 |  | 塑膠工業 | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
+| 20260521 | 1313 | 聯成 |  | 塑膠工業 | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
+| 20260521 | 1402 | 遠東新 |  | 紡織纖維 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 1409 | 新纖 |  | 紡織纖維 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 1447 | 力鵬 |  | 紡織纖維 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 1504 | 東元 |  | 電機機械 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 1513 | 中興電 |  | 電機機械 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 1514 | 亞力 |  | 電機機械 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 1528 | 恩德 |  | 電機機械 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 1536 | 和大 |  | 汽車工業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 1605 | 華新 |  | 電器電纜 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 1609 | 大亞 |  | 電器電纜 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 1708 | 東鹼 |  | 化學工業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 1710 | 東聯 |  | 化學工業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 1714 | 和桐 |  | 化學工業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 1722 | 台肥 |  | 化學工業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 1802 | 台玻 |  | 玻璃陶瓷 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 1810 | 和成 |  | 玻璃陶瓷 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 1815 | 富喬 |  | 電子零組件業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 1904 | 正隆 |  | 造紙工業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 1905 | 華紙 |  | 造紙工業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 2009 | 第一銅 |  | 鋼鐵工業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 2027 | 大成鋼 |  | 鋼鐵工業 | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
+| 20260521 | 2061 | 風青 |  | 電器電纜 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 2103 | 台橡 |  | 橡膠工業 | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
+| 20260521 | 2105 | 正新 |  | 橡膠工業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 2108 | 南帝 |  | 橡膠工業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 2206 | 三陽工業 |  | 汽車工業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 2241 | 艾姆勒 |  | 汽車工業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 2301 | 光寶科 |  | 電腦及週邊設備業 | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
+| 20260521 | 2312 | 金寶 |  | 其他電子業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 2317 | 鴻海 |  | 其他電子業 | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
+| 20260521 | 2324 | 仁寶 |  | 電腦及週邊設備業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 2328 | 廣宇 |  | 電子零組件業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 2329 | 華泰 |  | 半導體業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 2337 | 旺宏 |  | 半導體業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 2338 | 光罩 |  | 半導體業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 2344 | 華邦電 |  | 半導體業 | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
+| 20260521 | 2352 | 佳世達 |  | 電腦及週邊設備業 | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
+| 20260521 | 2353 | 宏碁 |  | 電腦及週邊設備業 | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
+| 20260521 | 2354 | 鴻準 |  | 其他電子業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 2356 | 英業達 |  | 電腦及週邊設備業 | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
+| 20260521 | 2357 | 華碩 |  | 電腦及週邊設備業 | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
+| 20260521 | 2359 | 所羅門 |  | 其他電子業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 2363 | 矽統 |  | 半導體業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 2365 | 昆盈 |  | 電腦及週邊設備業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 2369 | 菱生 |  | 半導體業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 2374 | 佳能 |  | 光電業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 2377 | 微星 |  | 電腦及週邊設備業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 2379 | 瑞昱 |  | 半導體業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 2382 | 廣達 |  | 電腦及週邊設備業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 2385 | 群光 |  | 電子零組件業 | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
+| 20260521 | 2390 | 云辰 |  | 其他電子業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 2392 | 正崴 |  | 電子零組件業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 2402 | 毅嘉 |  | 電子零組件業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 2404 | 漢唐 |  | 其他電子業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 2405 | 輔信 |  | 電腦及週邊設備業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 2408 | 南亞科 |  | 半導體業 | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
+| 20260521 | 2413 | 環科 |  | 電子零組件業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 2419 | 仲琦 |  | 通信網路業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 2436 | 偉詮電 |  | 半導體業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 2441 | 超豐 |  | 半導體業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 2449 | 京元電子 |  | 半導體業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 2451 | 創見 |  | 半導體業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 2455 | 全新 |  | 通信網路業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 2467 | 志聖 |  | 電子零組件業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 2495 | 普安 |  | 電腦及週邊設備業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 2498 | 宏達電 |  | 通信網路業 | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
+| 20260521 | 2501 | 國建 |  | 建材營造 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 2515 | 中工 |  | 建材營造 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 2542 | 興富發 |  | 建材營造 | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
+| 20260521 | 2548 | 華固 |  | 建材營造 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 2606 | 裕民 |  | 航運業 | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
+| 20260521 | 2615 | 萬海 |  | 航運業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 2645 | 長榮航太 |  | 航運業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 2851 | 中再保 |  | 金融保險業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 2881 | 富邦金 |  | 金融保險業 | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
+| 20260521 | 2882 | 國泰金 |  | 金融保險業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 2883 | 凱基金 |  | 金融保險業 | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
+| 20260521 | 2887 | 台新新光金 |  | 金融保險業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 2891 | 中信金 |  | 金融保險業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 3010 | 華立 |  | 電子通路業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 3011 | 今皓 |  | 電子零組件業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 3013 | 晟銘電 |  | 電腦及週邊設備業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 3019 | 亞光 |  | 光電業 | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
+| 20260521 | 3022 | 威強電 |  | 電腦及週邊設備業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 3023 | 信邦 |  | 電子零組件業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 3035 | 智原 |  | 半導體業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 3041 | 揚智 |  | 半導體業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 3042 | 晶技 |  | 電子零組件業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 3043 | 科風 |  | 其他電子業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 3045 | 台灣大 |  | 通信網路業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 3051 | 力特 |  | 光電業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 3059 | 華晶科 |  | 光電業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 3062 | 建漢 |  | 通信網路業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 3066 | 李洲 |  | 光電業 | 型態觀察 |  |  |  | neutral |  |  |  | 近幾週TDCC無明顯累積 |
+| 20260521 | 3149 | 正達 |  | 光電業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 3169 | 亞信 |  | 半導體業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 3211 | 順達 |  | 電腦及週邊設備業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 3217 | 優群 |  | 電子零組件業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 3227 | 原相 |  | 半導體業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 3231 | 緯創 |  | 電腦及週邊設備業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 3257 | 虹冠電 |  | 半導體業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 3289 | 宜特 |  | 其他電子業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 3294 | 英濟 |  | 電子零組件業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 3312 | 弘憶股 |  | 電子通路業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 3324 | 雙鴻 |  | 其他電子業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 3338 | 泰碩 |  | 電子零組件業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 3362 | 先進光 |  | 光電業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 3374 | 精材 |  | 半導體業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 3376 | 新日興 |  | 電子零組件業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 3379 | 彬台 |  | 電機機械 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 3380 | 明泰 |  | 通信網路業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 3390 | 旭軟 |  | 電子零組件業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 3406 | 玉晶光 |  | 光電業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 3413 | 京鼎 |  | 半導體業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 3483 | 力致 |  | 電腦及週邊設備業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 3491 | 昇達科 |  | 通信網路業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 3515 | 華擎 |  | 電腦及週邊設備業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 3533 | 嘉澤 |  | 電子零組件業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 3535 | 晶彩科 |  | 光電業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 3545 | 敦泰 |  | 半導體業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 3550 | 聯穎 |  | 電子零組件業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 3551 | 世禾 |  | 綠能環保 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 3580 | 友威科 |  | 其他電子業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 3592 | 瑞鼎 |  | 半導體業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 3596 | 智易 |  | 通信網路業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 3663 | 鑫科 |  | 其他電子業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 3680 | 家登 |  | 半導體業 | 型態觀察 |  |  |  | strong_accumulation |  |  |  | TDCC近幾週400張與1000張同步累積 |
+| 20260521 | 3689 | 湧德 |  | 電子零組件業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 3694 | 海華 |  | 通信網路業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 3701 | 大眾控 |  | 電腦及週邊設備業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 3704 | 合勤控 |  | 通信網路業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 3706 | 神達 |  | 電腦及週邊設備業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 3714 | 富采 |  | 光電業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 3717 | 聯嘉投控 |  | 汽車工業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 4166 | 友霖 |  | 生技醫療業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 4306 | 炎洲 |  | 塑膠工業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 4510 | 高鋒 |  | 電機機械 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 4526 | 東台 |  | 電機機械 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 4555 | 氣立 |  | 電機機械 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 4562 | 穎漢 |  | 電機機械 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 4571 | 鈞興-KY |  | 電機機械 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 4729 | 熒茂 |  | 光電業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 4739 | 康普 |  | 化學工業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 4743 | 合一 |  | 生技醫療業 | 型態觀察 |  |  |  | strong_accumulation |  |  |  | TDCC近幾週400張與1000張同步累積 |
+| 20260521 | 4749 | 新應材 |  | 半導體業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 4903 | 聯光通 |  | 通信網路業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 4906 | 正文 |  | 通信網路業 | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
+| 20260521 | 4927 | 泰鼎-KY |  | 電子零組件業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 4931 | 新盛力 |  | 電腦及週邊設備業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 4938 | 和碩 |  | 電腦及週邊設備業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 4952 | 凌通 |  | 半導體業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 4961 | 天鈺 |  | 半導體業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 4967 | 十銓 |  | 半導體業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 4976 | 佳凌 |  | 光電業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 5009 | 榮剛 |  | 鋼鐵工業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 5213 | 亞昕 |  | 建材營造 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 5269 | 祥碩 |  | 半導體業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 5309 | 系統電 |  | 電子零組件業 | 型態觀察 |  |  |  | strong_accumulation |  |  |  | TDCC近幾週400張與1000張同步累積 |
+| 20260521 | 5351 | 鈺創 |  | 半導體業 | 型態觀察 |  |  |  | strong_accumulation |  |  |  | TDCC近幾週400張與1000張同步累積 |
+| 20260521 | 5371 | 中光電 |  | 光電業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 5388 | 中磊 |  | 通信網路業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 5392 | 能率 |  | 光電業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 5443 | 均豪 |  | 半導體業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 5452 | 佶優 |  | 其他電子業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 5471 | 松翰 |  | 半導體業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 5483 | 中美晶 |  | 半導體業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 5484 | 慧友 |  | 光電業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 5498 | 凱崴 |  | 電子零組件業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 5515 | 建國 |  | 建材營造 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 5871 | 中租-KY |  | 其他 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 6005 | 群益證 |  | 金融保險業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 6015 | 宏遠證 |  | 金融業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 6026 | 福邦證 |  | 金融業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 6104 | 創惟 |  | 半導體業 | 型態觀察 |  |  |  | strong_accumulation |  |  |  | TDCC近幾週400張與1000張同步累積 |
+| 20260521 | 6120 | 達運 |  | 光電業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 6125 | 廣運 |  | 光電業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 6126 | 信音 |  | 電子零組件業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 6127 | 九豪 |  | 電子零組件業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 6139 | 亞翔 |  | 其他電子業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 6153 | 嘉聯益 |  | 電子零組件業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 6155 | 鈞寶 |  | 電子零組件業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 6163 | 華電網 |  | 通信網路業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 6168 | 宏齊 |  | 光電業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 6179 | 亞通 |  | 其他 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 6189 | 豐藝 |  | 電子通路業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 6191 | 精成科 |  | 電子零組件業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 6209 | 今國光 |  | 光電業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 6214 | 精誠 |  | 資訊服務業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 6215 | 和椿 |  | 其他電子業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 6218 | 豪勉 |  | 通信網路業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 6223 | 旺矽 |  | 半導體業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 6239 | 力成 |  | 半導體業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 6265 | 方土昶 |  | 電子通路業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 6269 | 台郡 |  | 電子零組件業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 6282 | 康舒 |  | 電子零組件業 | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
+| 20260521 | 6284 | 佳邦 |  | 電子零組件業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 6411 | 晶焱 |  | 半導體業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 6412 | 群電 |  | 電子零組件業 | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
+| 20260521 | 6414 | 樺漢 |  | 電腦及週邊設備業 | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
+| 20260521 | 6425 | 易發 |  | 電機機械 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 6443 | 元晶 |  | 光電業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 6446 | 藥華藥 |  | 生技醫療業 | 型態觀察 |  |  |  | strong_accumulation |  |  |  | TDCC近幾週400張與1000張同步累積 |
+| 20260521 | 6451 | 訊芯-KY |  | 半導體業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 6456 | GIS-KY |  | 光電業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 6462 | 神盾 |  | 半導體業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 6485 | 點序 |  | 半導體業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 6499 | 益安 |  | 生技醫療業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 6505 | 台塑化 |  | 油電燃氣業 | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
+| 20260521 | 6547 | 高端疫苗 |  | 生技醫療業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 6548 | 長科* |  | 半導體業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 6558 | 興能高 |  | 其他電子業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 6719 | 力智 |  | 半導體業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 6770 | 力積電 |  | 半導體業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 6835 | 圓裕 |  | 電子零組件業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 6854 | 錼創科技-KY創 |  | 半導體業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 6862 | 三集瑞-KY |  | 電子零組件業 | 型態觀察 |  |  |  | neutral |  | no_signal | 0.0 | 近幾週TDCC無明顯累積 |
+| 20260521 | 6901 | 鑽石投資 |  | 其他 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 6962 | 奕力-KY |  | 半導體業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 7777 | 能率亞洲 |  | 其他 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 7788 | 松川精密 |  | 電子零組件業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 8039 | 台虹 |  | 電子零組件業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 8054 | 安國 |  | 半導體業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 8070 | 長華* |  | 電子通路業 | 型態觀察 |  |  |  | strong_accumulation |  | no_signal | 0.0 | TDCC近幾週400張與1000張同步累積 |
+| 20260521 | 8071 | 能率網通 |  | 電子零組件業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 8074 | 鉅橡 |  | 電子零組件業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 8081 | 致新 |  | 半導體業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 8086 | 宏捷科 |  | 半導體業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 8088 | 品安 |  | 半導體業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 8096 | 擎亞 |  | 電子通路業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 8109 | 博大 |  | 電子零組件業 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 8112 | 至上 |  | 電子通路業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 8131 | 福懋科 |  | 半導體業 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 8147 | 正淩 |  | 電子零組件業 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 8215 | 明基材 |  | 光電業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 8249 | 菱光 |  | 電子零組件業 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 8374 | 羅昇 |  | 電機機械 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 8473 | 山林水 |  | 綠能環保 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 8932 | 智通* |  | 其他 | 型態觀察 |  |  |  | mild_accumulation |  |  |  | TDCC近幾週大戶溫和增加 |
+| 20260521 | 9105 | 泰金寶-DR |  | 存託憑證 | 型態觀察 |  |  |  | distribution_warning |  | no_signal | 0.0 | TDCC近幾週大戶籌碼轉弱 |
 | 20260521 | 9136 | 巨騰-DR |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 9914 | 美利達 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
-| 20260521 | 9933 | 中鼎 |  |  | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
-| 20260521 | 9939 | 宏全 |  |  | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 9914 | 美利達 |  | 運動休閒 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
+| 20260521 | 9933 | 中鼎 |  | 其他 | 型態觀察 |  |  |  | distribution_warning |  |  |  | TDCC近幾週大戶籌碼轉弱 |
+| 20260521 | 9939 | 宏全 |  | 其他 | 型態觀察 |  |  |  | mild_accumulation |  | no_signal | 0.0 | TDCC近幾週大戶溫和增加 |
 
 
 ================================================================================
