@@ -1,7 +1,7 @@
 # 每日全市場候選股監測報告 - 精華版
 
 - 主資料日期：`20260523`
-- 產生時間：`2026-05-23 17:10:03 Asia/Taipei`
+- 產生時間：`2026-05-23 20:00:07 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：完整候選清單與官方價格資料日期一致，可以產出正式每日報告
 - 權證資料日期：`20260523`
@@ -19,7 +19,7 @@
 | 分類 | 檔數 |
 |---|---:|
 | 區間內轉強 / 挑戰前高觀察 | 67 |
-| 營收爆發低反應股 | 19 |
+| 營收爆發低反應股 | 18 |
 | 營收成長股價回檔 | 122 |
 | 型態觀察 | 248 |
 
@@ -81,6 +81,28 @@
 
 ## 營收爆發低反應股
 
+### 3231 緯創
+- 族群：主流成長題材
+- 分數 / 排名：23.0 / 1.0
+- 優先級：A_優先追蹤
+- TDCC：大戶同步增加
+- 權證：
+- 摘要：A 優先追蹤 / 營收強 / 貼近均線 / 站上均線 / 未過前高
+- 完整原因：A_優先追蹤；近幾週400張與1000張同步累積；no_signal；今日無可用權證成交金額；單月營收YoY>=100%；累計營收YoY>=50%；近3日漲幅低於10%；近5日漲幅低於8%；股價貼近20MA/23EMA；尚未突破前60日高點；仍在平台整理區；站上20MA/23EMA；接近前高但未大幅過熱；TDCC近幾週400張與1000張同步累積；主流成長題材；TDCC近幾週400張與1000張同步累積
+- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
+- 候選資料備援圖表：`output/latest/charts/revenue_breakout_low_response/3231_緯創_revenue_breakout_low_response_20260523.png`
+
+### 2347 聯強
+- 族群：主流成長題材
+- 分數 / 排名：22.0 / 2.0
+- 優先級：A_優先追蹤
+- TDCC：大戶同步增加
+- 權證：
+- 摘要：A 優先追蹤 / 營收強 / 近期加速 / 低反應 / 貼近均線
+- 完整原因：A_優先追蹤；近幾週400張與1000張同步累積；no_signal；今日無可用權證成交金額；單月營收YoY 80%~100%；累計營收YoY>=30%；單月YoY大幅高於累計YoY，近期明顯加速；近3日漲幅低於5%，股價低反應；近5日漲幅低於8%；股價貼近20MA/23EMA；尚未突破前60日高點；站上20MA/23EMA；接近前高但未大幅過熱；TDCC近幾週400張與1000張同步累積；主流成長題材；TDCC近幾週400張與1000...
+- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
+- 候選資料備援圖表：`output/latest/charts/revenue_breakout_low_response/2347_聯強_revenue_breakout_low_response_20260523.png`
+
 ### 2537 聯上發
 - 族群：一般產業
 - 分數 / 排名：22.0 / 7.0
@@ -103,20 +125,9 @@
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
 - 候選資料備援圖表：`output/latest/charts/revenue_breakout_low_response/2542_興富發_revenue_breakout_low_response_20260523.png`
 
-### 2347 聯強
-- 族群：主流成長題材
-- 分數 / 排名：21.0 / 1.0
-- 優先級：A_優先追蹤
-- TDCC：大戶溫和增加
-- 權證：
-- 摘要：A 優先追蹤 / 營收強 / 近期加速 / 低反應 / 貼近均線
-- 完整原因：A_優先追蹤；近幾週400張與1000張合計增加；no_signal；今日無可用權證成交金額；單月營收YoY 80%~100%；累計營收YoY>=30%；單月YoY大幅高於累計YoY，近期明顯加速；近3日漲幅低於5%，股價低反應；近5日漲幅低於8%；股價貼近20MA/23EMA；尚未突破前60日高點；站上20MA/23EMA；接近前高但未大幅過熱；TDCC近幾週大戶溫和增加；主流成長題材；TDCC近幾週大戶溫和增加
-- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
-- 候選資料備援圖表：`output/latest/charts/revenue_breakout_low_response/2347_聯強_revenue_breakout_low_response_20260523.png`
-
 ### 2353 宏碁
 - 族群：主流成長題材
-- 分數 / 排名：21.0 / 2.0
+- 分數 / 排名：21.0 / 3.0
 - 優先級：A_優先追蹤
 - TDCC：大戶同步增加
 - 權證：
@@ -124,17 +135,6 @@
 - 完整原因：A_優先追蹤；近幾週400張與1000張同步累積；no_signal；今日無可用權證成交金額；單月營收YoY 50%~80%；累計營收YoY 20%~30%；單月YoY大幅高於累計YoY，近期明顯加速；近3日漲幅低於10%；近5日漲幅低於8%；股價貼近20MA/23EMA；尚未突破前60日高點；仍在平台整理區；站上20MA/23EMA；接近前高但未大幅過熱；TDCC近幾週400張與1000張同步累積；主流成長題材；TDCC近幾週400張...
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
 - 候選資料備援圖表：`output/latest/charts/revenue_breakout_low_response/2353_宏碁_revenue_breakout_low_response_20260523.png`
-
-### 2382 廣達
-- 族群：主流成長題材
-- 分數 / 排名：20.0 / 3.0
-- 優先級：A_優先追蹤
-- TDCC：大戶溫和增加
-- 權證：
-- 摘要：A 優先追蹤 / 營收強 / 近期加速 / 貼近均線 / 未過前高
-- 完整原因：A_優先追蹤；近幾週400張與1000張合計增加；單月營收YoY>=100%；累計營收YoY>=50%；單月YoY大幅高於累計YoY，近期明顯加速；近3日漲幅低於10%；近5日漲幅低於8%；股價貼近20MA/23EMA；尚未突破前60日高點；TDCC近幾週大戶溫和增加；主流成長題材；TDCC近幾週大戶溫和增加
-- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
-- 候選資料備援圖表：`output/latest/charts/revenue_breakout_low_response/2382_廣達_revenue_breakout_low_response_20260523.png`
 
 ## 營收成長股價回檔
 

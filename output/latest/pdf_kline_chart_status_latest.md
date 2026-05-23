@@ -17,11 +17,11 @@
 | 2241 | 艾姆勒 | range_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2241_艾姆勒_range_rebound_180d.png` | `data/daily_price` |
 | 2305 | 全友 | range_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2305_全友_range_rebound_180d.png` | `data/daily_price` |
 | 2324 | 仁寶 | range_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2324_仁寶_range_rebound_180d.png` | `data/daily_price` |
+| 3231 | 緯創 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/3231_緯創_revenue_breakout_low_response_180d.png` | `data/daily_price` |
+| 2347 | 聯強 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2347_聯強_revenue_breakout_low_response_180d.png` | `data/daily_price` |
 | 2537 | 聯上發 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2537_聯上發_revenue_breakout_low_response_180d.png` | `data/daily_price` |
 | 2542 | 興富發 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2542_興富發_revenue_breakout_low_response_180d.png` | `data/daily_price` |
-| 2347 | 聯強 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2347_聯強_revenue_breakout_low_response_180d.png` | `data/daily_price` |
 | 2353 | 宏碁 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2353_宏碁_revenue_breakout_low_response_180d.png` | `data/daily_price` |
-| 2382 | 廣達 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2382_廣達_revenue_breakout_low_response_180d.png` | `data/daily_price` |
 | 2382 | 廣達 | revenue_pullback | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2382_廣達_revenue_pullback_180d.png` | `data/daily_price` |
 | 2406 | 國碩 | revenue_pullback | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2406_國碩_revenue_pullback_180d.png` | `data/daily_price` |
 | 8271 | 宇瞻 | revenue_pullback | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/8271_宇瞻_revenue_pullback_180d.png` | `data/daily_price` |
