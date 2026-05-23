@@ -23,6 +23,11 @@ PDF_KLINE_STATUS_JSON = LATEST_DIR / "pdf_kline_chart_status_latest.json"
 PDF_KLINE_STATUS_MD = LATEST_DIR / "pdf_kline_chart_status_latest.md"
 FIXED_PDF_MANIFEST_JSON = LATEST_DIR / "daily_market_pdf_report_manifest_latest.json"
 FIXED_PDF_VALIDATION_JSON = LATEST_DIR / "daily_market_report_validation_latest.json"
+DAILY_SIGNAL_LOG = Path("output/history/daily_signals/daily_candidate_signal_log.csv")
+DAILY_SIGNAL_PERFORMANCE = Path("output/history/daily_signals/daily_candidate_signal_performance.csv")
+DAILY_SIGNAL_SUMMARY_MD = LATEST_DIR / "daily_signal_performance_summary_latest.md"
+DAILY_SIGNAL_WEEKLY_PDF = LATEST_DIR / "daily_signal_performance_weekly_latest.pdf"
+DAILY_SIGNAL_MONTHLY_PDF = LATEST_DIR / "daily_signal_performance_monthly_latest.pdf"
 
 SUMMARY_LATEST_MD = LATEST_DIR / "daily_market_summary_latest.md"
 FULL_LATEST_MD = LATEST_DIR / "daily_market_full_latest.md"
@@ -287,6 +292,15 @@ def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path],
     lines.append(f"validation_json_path: {FIXED_PDF_VALIDATION_JSON.as_posix()}")
     lines.append(f"validation_md_path: output/latest/daily_market_report_validation_latest.md")
     lines.append("")
+    lines.append("SIGNAL PERFORMANCE TRACKING")
+    lines.append(f"signal_log_path: {DAILY_SIGNAL_LOG.as_posix()}")
+    lines.append(f"performance_csv_path: {DAILY_SIGNAL_PERFORMANCE.as_posix()}")
+    lines.append(f"summary_latest_raw_url: {raw_url(DAILY_SIGNAL_SUMMARY_MD)}")
+    lines.append(f"weekly_report_pdf_pages_url: {pages_url(Path('docs/latest/daily_signal_performance_weekly_latest.pdf'))}")
+    lines.append(f"monthly_report_pdf_pages_url: {pages_url(Path('docs/latest/daily_signal_performance_monthly_latest.pdf'))}")
+    lines.append(f"last_updated_at: {now_text()}")
+    lines.append(f"status: {'generated' if DAILY_SIGNAL_LOG.exists() and DAILY_SIGNAL_PERFORMANCE.exists() else 'missing'}")
+    lines.append("")
     lines.append("PURPOSE")
     lines.append("This packet embeds the daily market report content directly.")
     lines.append("If ChatGPT cannot read GitHub raw/latest/MD/PDF files, paste this packet into the daily report conversation.")
@@ -349,6 +363,12 @@ def write_packet_manifest(main_date: str, report_ready: str, paths: dict[str, Pa
         "daily_market_full_table_pdf_raw_url": full_table_pdf.get("raw_url") or raw_url(FULL_TABLE_REPORT_PDF),
         "daily_market_full_table_pdf_path": full_table_pdf.get("file_path") or FULL_TABLE_REPORT_PDF.as_posix(),
         "fixed_pdf_validation_status": fixed_pdf_validation.get("status", ""),
+        "daily_signal_log_path": DAILY_SIGNAL_LOG.as_posix(),
+        "daily_signal_performance_csv_path": DAILY_SIGNAL_PERFORMANCE.as_posix(),
+        "daily_signal_performance_summary_raw_url": raw_url(DAILY_SIGNAL_SUMMARY_MD),
+        "daily_signal_performance_weekly_pdf_pages_url": pages_url(Path("docs/latest/daily_signal_performance_weekly_latest.pdf")),
+        "daily_signal_performance_monthly_pdf_pages_url": pages_url(Path("docs/latest/daily_signal_performance_monthly_latest.pdf")),
+        "daily_signal_performance_status": "generated" if DAILY_SIGNAL_LOG.exists() and DAILY_SIGNAL_PERFORMANCE.exists() else "missing",
         "latest_packet_path": PACKET_LATEST.as_posix(),
         "latest_packet_raw_url_main": raw_url(PACKET_LATEST, ref="main"),
         "legacy_latest_packet_path": PACKET_LATEST_OLD.as_posix(),

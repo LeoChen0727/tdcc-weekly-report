@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
+        with:
+          ref: ${{ github.ref_name }}
 
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -25,10 +27,24 @@ jobs:
           pip install pandas requests lxml html5lib tabulate
 
       - name: Run TDCC weekly report
-        run: python tdcc_holder_ratio_top10.py
+        run: |
+          python tdcc_holder_ratio_top10.py
 
       - name: Run TDCC signal tracker
-        run: python tdcc_signal_tracker.py
+        run: |
+          python tdcc_signal_tracker.py
+
+      - name: Build TDCC normalized signal structures
+        run: |
+          python scripts/build_tdcc_signal_structures.py
+
+      - name: Build TDCC pre-move accumulation report
+        run: |
+          python scripts/build_tdcc_pre_move_accumulation.py
+
+      - name: Build TDCC signal effectiveness report
+        run: |
+          python scripts/build_tdcc_signal_effectiveness_report.py
 
       - name: Write TDCC weekly run status
         run: |
@@ -38,53 +54,53 @@ jobs:
           COMMIT_SHA="${GITHUB_SHA}"
           RUN_URL="https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
 
-          TDCC_REPORT="output/latest/tdcc_weekly_report_latest.md"
-          TDCC_HOLDER="output/latest/tdcc_holder_ratio_latest.csv"
-          TDCC_SIGNAL_REPORT="output/latest/tdcc_signal_performance_latest.md"
-          TDCC_SIGNAL_LOG="output/history/tdcc_signals/tdcc_signal_log.csv"
-          TDCC_SIGNAL_PERF="output/history/tdcc_signals/tdcc_signal_performance.csv"
-
           {
             echo "# TDCC Weekly Run Status"
             echo ""
-            echo "- 執行時間：\`${RUN_TIME}\`"
-            echo "- GitHub run：${RUN_URL}"
-            echo "- commit：\`${COMMIT_SHA}\`"
+            echo "- generated_at: \`${RUN_TIME}\`"
+            echo "- github_run: ${RUN_URL}"
+            echo "- commit: \`${COMMIT_SHA}\`"
             echo ""
-            echo "## 檔案狀態"
+            echo "## Outputs"
             echo ""
-            echo "| 檔案 | 是否存在 | 行數 | 最後修改時間 |"
-            echo "|---|---:|---:|---|"
-
-            for file in "$TDCC_REPORT" "$TDCC_HOLDER" "$TDCC_SIGNAL_REPORT" "$TDCC_SIGNAL_LOG" "$TDCC_SIGNAL_PERF"; do
+            echo "| file | exists | lines |"
+            echo "|---|---:|---:|"
+            for file in \
+              output/latest/tdcc_weekly_report_latest.md \
+              output/latest/tdcc_holder_ratio_latest.csv \
+              output/latest/tdcc_signal_performance_latest.md \
+              output/latest/tdcc_signal_structures_latest.md \
+              output/latest/tdcc_pre_move_accumulation_latest.md \
+              output/latest/tdcc_signal_effectiveness_latest.md \
+              output/history/tdcc_signals/tdcc_signal_log.csv \
+              output/history/tdcc_signals/tdcc_signal_performance.csv \
+              output/history/tdcc_signals/tdcc_signal_snapshot.csv \
+              output/history/tdcc_signals/tdcc_normalized_signal_log.csv \
+              output/history/tdcc_signals/theme_breadth_history.csv \
+              output/history/tdcc_signals/tdcc_pre_move_accumulation_history.csv \
+              output/history/tdcc_signals/tdcc_signal_factor_stats_monthly.csv
+            do
               if [ -f "$file" ]; then
                 lines=$(wc -l < "$file" | tr -d ' ')
-                mtime=$(TZ=Asia/Taipei date -r "$file" '+%Y-%m-%d %H:%M:%S Asia/Taipei')
-                echo "| \`$file\` | ✅ | $lines | $mtime |"
+                echo "| \`$file\` | yes | $lines |"
               else
-                echo "| \`$file\` | ❌ | - | - |"
+                echo "| \`$file\` | no | - |"
               fi
             done
-
             echo ""
-            echo "## Git 變更摘要"
+            echo "## Notes"
             echo ""
-            echo "\`\`\`text"
-            git status --short
-            echo "\`\`\`"
-            echo ""
-            echo "## 說明"
-            echo ""
-            echo "- 這個檔案用來確認 TDCC Weekly Report workflow 是否有實際執行。"
-            echo "- 如果 TDCC 官方資料日期沒有變，週報主檔內容可能不會更新，但本 status 檔仍會更新。"
-            echo "- 若 signal tracker 成功，應看到 tdcc_signal_log.csv、tdcc_signal_performance.csv、tdcc_signal_performance_latest.md。"
+            echo "- Normalized signal files dedupe by one stock per TDCC week."
+            echo "- ABM ranking is separated from TDCC strength ranking."
+            echo "- Pending D+N performance is not treated as positive or negative."
           } > output/latest/tdcc_weekly_run_status.md
 
       - name: Commit TDCC outputs
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add output/ data/ || true
+          git add output/ data/ config/stock_theme_map.csv docs/tdcc_signal_tracking.md docs/tdcc_pre_move_accumulation.md || true
+          git add scripts/tracking_utils.py scripts/build_tdcc_signal_structures.py scripts/build_tdcc_pre_move_accumulation.py scripts/build_tdcc_signal_effectiveness_report.py || true
           git status --short
-          git commit -m "Update TDCC weekly report and signal tracker" || echo "No changes to commit"
+          git commit -m "Update TDCC weekly report, ABM, and signal effectiveness" || echo "No changes to commit"
           git push

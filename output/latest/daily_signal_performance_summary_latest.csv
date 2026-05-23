@@ -1,0 +1,24 @@
+﻿dimension,signal_count,category,avg_return_d1,win_rate_d1,avg_relative_return_vs_benchmark_d1,benchmark_outperform_rate_d1,avg_mfe_d1,avg_mae_d1,avg_return_d2,win_rate_d2,avg_relative_return_vs_benchmark_d2,benchmark_outperform_rate_d2,avg_mfe_d2,avg_mae_d2,avg_return_d5,win_rate_d5,avg_relative_return_vs_benchmark_d5,benchmark_outperform_rate_d5,avg_mfe_d5,avg_mae_d5,avg_return_d10,win_rate_d10,avg_relative_return_vs_benchmark_d10,benchmark_outperform_rate_d10,avg_mfe_d10,avg_mae_d10,avg_return_d20,win_rate_d20,avg_relative_return_vs_benchmark_d20,benchmark_outperform_rate_d20,avg_mfe_d20,avg_mae_d20,hit_5pct_rate_d10,tdcc_status,warrant_status,sector,sub_theme,revenue_signal_type,market_regime
+category,248,pattern,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+category,67,range_rebound,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+category,19,revenue_breakout_low_response,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+category,122,revenue_pullback,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+tdcc_status,203,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,distribution_warning,,,,,
+tdcc_status,184,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,mild_accumulation,,,,,
+tdcc_status,2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,neutral,,,,,
+tdcc_status,66,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,strong_accumulation,,,,,
+tdcc_status,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,無TDCC資料,,,,,
+warrant_status,188,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+warrant_status,268,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,no_signal,,,,
+theme,437,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+theme,3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,cyclical_turnaround,cyclical_turnaround,,
+theme,8,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,mainstream_growth,mainstream_growth,,
+theme,8,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,neutral,neutral,,
+revenue_signal_type,309,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+revenue_signal_type,125,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,出貨型營收 / 其他,
+revenue_signal_type,22,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,營建認列型 / 交屋認列型,
+market_regime,456,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,strong_bull
+category_by_market_regime,248,pattern,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,strong_bull
+category_by_market_regime,67,range_rebound,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,strong_bull
+category_by_market_regime,19,revenue_breakout_low_response,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,strong_bull
+category_by_market_regime,122,revenue_pullback,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,strong_bull

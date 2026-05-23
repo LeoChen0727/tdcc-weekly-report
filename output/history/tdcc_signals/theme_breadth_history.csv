@@ -1,0 +1,11 @@
+﻿signal_date,primary_theme,total_signal_count,increase_400_count,increase_600_count,increase_800_count,increase_1000_count,all_threshold_count,consecutive_2w_count,consecutive_3w_count,top20_count,decrease_400_count,decrease_600_count,decrease_800_count,decrease_1000_count,breadth_score,sync_status,theme_priority,representative_codes,created_at,updated_at
+20260522,AI server supply chain,1,1,1,1,1,1,1,1,,,,,,9,single_name_concentration,C,4916,2026-05-23 21:30:10 Asia/Taipei,2026-05-23 21:30:10 Asia/Taipei
+20260522,PCB/CCL,2,2,2,1,1,1,1,1,,,,,,10,single_name_concentration,C,"2355,5464",2026-05-23 21:30:10 Asia/Taipei,2026-05-23 21:30:10 Asia/Taipei
+20260522,consumer electronics,1,1,1,1,1,1,1,1,,,,,,9,single_name_concentration,C,3481,2026-05-23 21:30:10 Asia/Taipei,2026-05-23 21:30:10 Asia/Taipei
+20260522,networking,2,1,2,2,2,1,1,1,,,,,,10,mixed_divergence,B,"4906,6285",2026-05-23 21:30:10 Asia/Taipei,2026-05-23 21:30:10 Asia/Taipei
+20260522,other,1174,921,838,782,691,474,194,84,,,,,,10,synchronized_accumulation,A,"1110,1203,1210,1215,1216,1217,1220,1233",2026-05-23 21:30:10 Asia/Taipei,2026-05-23 21:30:10 Asia/Taipei
+20260522,other electronics,1,0,0,0,1,0,0,0,,,,,,2,single_name_concentration,C,3305,2026-05-23 21:30:10 Asia/Taipei,2026-05-23 21:30:10 Asia/Taipei
+20260522,passive components,5,5,4,4,4,4,4,2,,,,,,10,synchronized_accumulation,A,"2375,2492,3357,3624,6173",2026-05-23 21:30:10 Asia/Taipei,2026-05-23 21:30:10 Asia/Taipei
+20260522,power discrete/diodes,3,3,2,2,2,2,1,0,,,,,,10,mixed_divergence,B,"5425,8261,2481",2026-05-23 21:30:10 Asia/Taipei,2026-05-23 21:30:10 Asia/Taipei
+20260522,semiconductor,3,2,3,3,2,2,2,2,,,,,,10,mixed_divergence,B,"3048,3707,4966",2026-05-23 21:30:10 Asia/Taipei,2026-05-23 21:30:10 Asia/Taipei
+20260522,semiconductor equipment/materials,3,1,2,2,3,1,1,0,,,,,,10,mixed_divergence,B,"3498,3131,8028",2026-05-23 21:30:10 Asia/Taipei,2026-05-23 21:30:10 Asia/Taipei
