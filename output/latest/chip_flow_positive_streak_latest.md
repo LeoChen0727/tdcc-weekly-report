@@ -1,6 +1,6 @@
 # 主力-三大法人-八大行庫連續轉強股
 
-- generated_at: `2026-05-23 23:02:32 Asia/Taipei`
+- generated_at: `2026-05-23 23:10:07 Asia/Taipei`
 - main_price_date: `20260523`
 - status: `disabled_missing_required_data`
 - broker_branch_data_required: `True`

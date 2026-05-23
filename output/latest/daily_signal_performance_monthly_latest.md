@@ -1,6 +1,6 @@
 # 每日候選股模型績效月報
 
-- generated_at: `2026-05-23 22:40:57 Asia/Taipei`
+- generated_at: `2026-05-23 23:12:26 Asia/Taipei`
 - latest_signal_date: `20260523`
 - signal_count: `456`
 - period: latest signal month
@@ -33,8 +33,9 @@
 
 | warrant_status | signal_count | avg_return_d5 | avg_return_d10 | avg_relative_return_vs_benchmark_d10 | win_rate_d10 |
 | --- | --- | --- | --- | --- | --- |
-|  | 188 |  |  |  |  |
-| no_signal | 268 |  |  |  |  |
+|  | 219 |  |  |  |  |
+| call_inflow | 9 |  |  |  |  |
+| no_signal | 228 |  |  |  |  |
 
 ## 族群表現
 

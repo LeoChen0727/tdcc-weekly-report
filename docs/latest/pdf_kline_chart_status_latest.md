@@ -27,8 +27,8 @@
 | 8271 | 宇瞻 | revenue_pullback | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/8271_宇瞻_revenue_pullback_180d.png` | `data/daily_price` |
 | 2337 | 旺宏 | revenue_pullback | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2337_旺宏_revenue_pullback_180d.png` | `data/daily_price` |
 | 2368 | 金像電 | revenue_pullback | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2368_金像電_revenue_pullback_180d.png` | `data/daily_price` |
-| 0056 | 元大高股息 | pattern | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/0056_元大高股息_pattern_180d.png` | `data/daily_price` |
-| 1215 | 卜蜂 | pattern | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/1215_卜蜂_pattern_180d.png` | `data/daily_price` |
 | 1304 | 台聚 | pattern | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/1304_台聚_pattern_180d.png` | `data/daily_price` |
-| 1305 | 華夏 | pattern | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/1305_華夏_pattern_180d.png` | `data/daily_price` |
-| 1313 | 聯成 | pattern | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/1313_聯成_pattern_180d.png` | `data/daily_price` |
+| 2419 | 仲琦 | pattern | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2419_仲琦_pattern_180d.png` | `data/daily_price` |
+| 3515 | 華擎 | pattern | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/3515_華擎_pattern_180d.png` | `data/daily_price` |
+| 3701 | 大眾控 | pattern | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/3701_大眾控_pattern_180d.png` | `data/daily_price` |
+| 8374 | 羅昇 | pattern | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/8374_羅昇_pattern_180d.png` | `data/daily_price` |
