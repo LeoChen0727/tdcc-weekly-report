@@ -1,9 +1,9 @@
 main_price_date=20260524
 report_ready=True
-commit_sha=29b5abbdbf71285ce6a9d403d645cdffc7bf21e8
+commit_sha=abc19af
 preferred_chatgpt_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt
 packet_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt
-packet_commit_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/29b5abbdbf71285ce6a9d403d645cdffc7bf21e8/output/history/reports/20260524_CHATGPT_DAILY_REPORT_PACKET.txt
+packet_commit_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/abc19af/output/history/reports/20260524_CHATGPT_DAILY_REPORT_PACKET.txt
 packet_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/chatgpt_daily_report_packet_latest.txt
 packet_github_api_url=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/chatgpt_daily_report_packet_latest.txt?ref=main
 summary_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_summary_latest.md
@@ -37,6 +37,11 @@ upcoming_catalyst_calendar_raw_url=https://raw.githubusercontent.com/LeoChen0727
 upcoming_macro_event_calendar_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/upcoming_macro_event_calendar_latest.csv
 calendar_data_source_status_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/calendar_data_source_status_latest.md
 event_calendar_validation_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/event_calendar_validation_latest.md
+catalyst_needs_review_csv_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/catalyst_needs_review_latest.csv
+catalyst_needs_review_md_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/catalyst_needs_review_latest.md
+data_source_priority=raw_structured_data_first,pdf_auxiliary_only,pdf_only_if_raw_unavailable
+pdf_only_disclosure_required=True
+pdf_only_disclosure_text=本次僅使用 PDF 報告資料，未讀取原始 CSV / packet / source tables，因此只能做摘要型分析。
 daily_signal_performance_summary_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_signal_performance_summary_latest.md
 daily_signal_performance_weekly_md_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_signal_performance_weekly_latest.md
 daily_signal_performance_weekly_pdf_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_weekly_latest.pdf
@@ -71,7 +76,11 @@ RULES:
 4. If preferred_chatgpt_url fails, follow read_order.
 5. If the URL is packet_github_api_url, decode the JSON content field from base64 before reading the packet.
 6. If packet is readable, use EMBEDDED SUMMARY REPORT and EMBEDDED FULL REPORT as source of truth.
-7. For shareable PDFs, use daily_market_curated_pdf_pages_url and daily_market_full_table_pdf_pages_url first.
-8. For the summary PDF K-line charts, use summary_pdf_kline_policy/status/counts above. Do not downgrade the PDF to chart_path/image-download-failed if local_price_redraw_count is greater than 0.
-9. If all URLs fail, say tool reading failed. Do not say GitHub data is not updated.
-10. Do not use older report dates to recreate a newer report.
+7. Use raw structured data first: CSV files, packet fields, signal logs, warrant tables, market tables, catalyst source logs, and raw URLs.
+8. PDFs are auxiliary/shareable outputs. Use PDFs only if raw data cannot be read, or if the user explicitly asks for the PDF artifact.
+9. If only PDF data is used, start the response with: 本次僅使用 PDF 報告資料，未讀取原始 CSV / packet / source tables，因此只能做摘要型分析。
+10. For shareable PDFs, cite daily_market_curated_pdf_pages_url and daily_market_full_table_pdf_pages_url.
+11. For pending catalyst/data-source items, read catalyst_needs_review_* and do not use rows with model_effect_allowed=False or pdf_effect_allowed=False as recommendation reasons.
+12. For the summary PDF K-line charts, use summary_pdf_kline_policy/status/counts above. Do not downgrade the PDF to chart_path/image-download-failed if local_price_redraw_count is greater than 0.
+13. If all URLs fail, say tool reading failed. Do not say GitHub data is not updated.
+14. Do not use older report dates to recreate a newer report.
