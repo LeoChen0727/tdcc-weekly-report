@@ -43,6 +43,8 @@ UPCOMING_CATALYST_CALENDAR = LATEST_DIR / "upcoming_catalyst_calendar_latest.csv
 UPCOMING_MACRO_EVENT_CALENDAR = LATEST_DIR / "upcoming_macro_event_calendar_latest.csv"
 CALENDAR_DATA_SOURCE_STATUS = LATEST_DIR / "calendar_data_source_status_latest.md"
 EVENT_CALENDAR_VALIDATION = LATEST_DIR / "event_calendar_validation_latest.md"
+CATALYST_NEEDS_REVIEW_CSV = LATEST_DIR / "catalyst_needs_review_latest.csv"
+CATALYST_NEEDS_REVIEW_MD = LATEST_DIR / "catalyst_needs_review_latest.md"
 WARRANT_MARKET_MD = LATEST_DIR / "warrant_market_report_latest.md"
 WARRANT_MARKET_PDF = LATEST_DIR / "warrant_market_report_latest.pdf"
 WARRANT_FLOW_BY_STOCK_CSV = LATEST_DIR / "warrant_flow_by_stock_latest.csv"
@@ -317,6 +319,14 @@ def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path],
     lines.append(f"validation_json_path: {FIXED_PDF_VALIDATION_JSON.as_posix()}")
     lines.append(f"validation_md_path: output/latest/daily_market_report_validation_latest.md")
     lines.append("")
+    lines.append("DATA SOURCE PRIORITY")
+    lines.append("priority_1: Use original structured data first: CSV files, packet fields, source logs, signal logs, warrant tables, market tables, and validated raw URLs.")
+    lines.append("priority_2: Use Markdown reports as readable summaries only after checking the structured data when available.")
+    lines.append("priority_3: Use PDF reports only when raw/packet/source-table data cannot be read, or when the user specifically asks for the shareable PDF artifact.")
+    lines.append("pdf_only_disclosure_required: True")
+    lines.append("pdf_only_disclosure_text: 本次僅使用 PDF 報告資料，未讀取原始 CSV / packet / source tables，因此只能做摘要型分析。")
+    lines.append("note: PDFs are auxiliary outputs. They are not the primary source when raw data is available.")
+    lines.append("")
     lines.append("FUNDAMENTAL / EVENT CATALYST LAYER")
     lines.append(f"catalyst_layer_md_raw_url: {raw_url(FUNDAMENTAL_CATALYST_MD)}")
     lines.append(f"catalyst_layer_path: {FUNDAMENTAL_CATALYST_MD.as_posix()}")
@@ -333,8 +343,10 @@ def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path],
     lines.append(f"catalyst_summary_csv_raw_url: {raw_url(CATALYST_SUMMARY_CSV)}")
     lines.append(f"catalyst_performance_raw_url: {raw_url(CATALYST_PERFORMANCE_CSV)}")
     lines.append(f"catalyst_layer_validation_raw_url: {raw_url(CATALYST_VALIDATION_MD)}")
+    lines.append(f"catalyst_needs_review_csv_raw_url: {raw_url(CATALYST_NEEDS_REVIEW_CSV)}")
+    lines.append(f"catalyst_needs_review_md_raw_url: {raw_url(CATALYST_NEEDS_REVIEW_MD)}")
     lines.append(f"status: {'generated' if CATALYST_SUMMARY_MD.exists() and CATALYST_PERFORMANCE_CSV.exists() else 'schema_ready_or_pending'}")
-    lines.append("note: Event tables are schema-first. Empty tables mean no confirmed catalyst source has been loaded; do not infer catalysts from rumors.")
+    lines.append("note: Event tables are schema-first. Empty tables mean no confirmed catalyst source has been loaded; do not infer catalysts from rumors. Rows in catalyst_needs_review have model_effect_allowed=False and pdf_effect_allowed=False.")
     lines.append("")
     lines.append("EVENT / MACRO CALENDAR LAYER")
     lines.append(f"company_event_calendar_raw_url: {raw_url(COMPANY_EVENT_CALENDAR)}")

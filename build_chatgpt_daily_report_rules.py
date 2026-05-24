@@ -36,6 +36,10 @@ SCOPE RULES
 READING RULES
 - First read READ_ME_FIRST_DAILY_REPORT.txt.
 - Parse key=value fields from READ_ME_FIRST_DAILY_REPORT.txt.
+- Source priority is original structured data first. Read packet fields, CSV/raw URLs, signal logs, warrant tables, market tables, catalyst source logs, and validation files before using PDFs.
+- PDFs are auxiliary/shareable outputs. Use PDFs only if the original structured data cannot be read, or if the user explicitly asks for the PDF artifact.
+- If only PDF content is available, the response must begin with:
+  本次僅使用 PDF 報告資料，未讀取原始 CSV / packet / source tables，因此只能做摘要型分析。
 - Use preferred_chatgpt_url to read the daily packet.
 - If preferred_chatgpt_url fails, follow read_order.
 - The packet must contain all of the following markers:
@@ -172,6 +176,8 @@ FUNDAMENTAL / EVENT CATALYST LAYER RULES
 - Read fundamental_catalyst_layer_raw_url and the catalyst fields in all_candidates when available.
 - Key fields include theme_strength_score, catalyst_strength_score, catalyst_tags, fundamental_catalyst_score, fundamental_catalyst_tags, event_catalyst_tags, event_calendar_tags, event_proximity_score, nearest_event_date, nearest_event_type, price_reaction_level, similar_to_shihsinko_flag, revenue_good_eps_unconfirmed_flag, low_reaction_after_catalyst, and already_reacted_to_catalyst.
 - Read theme_event_calendar_raw_url, company_theme_mapping_raw_url, company_event_calendar_raw_url, macro_event_calendar_raw_url, upcoming_catalyst_calendar_raw_url, upcoming_macro_event_calendar_raw_url, quarterly_catalyst_raw_url, event_catalyst_log_raw_url, catalyst_summary_raw_url, and catalyst_performance_raw_url when available.
+- Read catalyst_needs_review_csv_raw_url or catalyst_needs_review_md_raw_url when available.
+- Items in catalyst_needs_review are not confirmed catalyst evidence. Rows with model_effect_allowed=False cannot affect score, rank, upgrade, downgrade, or similar_to_shihsinko_flag. Rows with pdf_effect_allowed=False cannot be used as formal PDF recommendation reasons.
 - Company theme mapping is background only. A theme label alone is not a confirmed catalyst.
 - Calendar proximity is a reminder only. Do not upgrade a stock only because a revenue window, ex-dividend date, shareholder meeting, exhibition, or macro event is near.
 - Use macro calendar events in the market-risk section, not as stock-specific bullish catalysts unless a confirmed company/event source links the stock to that event.

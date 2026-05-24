@@ -18,6 +18,8 @@ UPCOMING_COMPANY_MD = LATEST_DIR / "upcoming_catalyst_calendar_latest.md"
 UPCOMING_MACRO_MD = LATEST_DIR / "upcoming_macro_event_calendar_latest.md"
 STATUS_JSON = LATEST_DIR / "calendar_data_source_status_latest.json"
 STATUS_MD = LATEST_DIR / "calendar_data_source_status_latest.md"
+NEEDS_REVIEW_CSV = LATEST_DIR / "catalyst_needs_review_latest.csv"
+NEEDS_REVIEW_MD = LATEST_DIR / "catalyst_needs_review_latest.md"
 README_TXT = LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt"
 PACKET_TXT = LATEST_DIR / "chatgpt_daily_report_packet_latest.txt"
 VALIDATION_JSON = LATEST_DIR / "event_calendar_validation_latest.json"
@@ -49,6 +51,22 @@ MACRO_REQUIRED = [
     "days_to_event",
     "proximity_bucket",
     "related_themes",
+]
+
+NEEDS_REVIEW_REQUIRED = [
+    "item_id",
+    "detected_at",
+    "source_area",
+    "requested_data",
+    "current_status",
+    "owner",
+    "required_evidence",
+    "model_effect_allowed",
+    "pdf_effect_allowed",
+    "next_action",
+    "source_url",
+    "last_checked_at",
+    "notes",
 ]
 
 
@@ -84,8 +102,18 @@ def main() -> int:
     macro = read_csv(MACRO_EVENT_CALENDAR, dtype=str)
     upcoming_company = read_csv(UPCOMING_COMPANY_CALENDAR, dtype=str)
     upcoming_macro = read_csv(UPCOMING_MACRO_CALENDAR, dtype=str)
+    needs_review = read_csv(NEEDS_REVIEW_CSV, dtype=str)
 
-    for path in [COMPANY_EVENT_CALENDAR, MACRO_EVENT_CALENDAR, UPCOMING_COMPANY_CALENDAR, UPCOMING_MACRO_CALENDAR, STATUS_JSON, STATUS_MD]:
+    for path in [
+        COMPANY_EVENT_CALENDAR,
+        MACRO_EVENT_CALENDAR,
+        UPCOMING_COMPANY_CALENDAR,
+        UPCOMING_MACRO_CALENDAR,
+        STATUS_JSON,
+        STATUS_MD,
+        NEEDS_REVIEW_CSV,
+        NEEDS_REVIEW_MD,
+    ]:
         if not path.exists():
             issues.append(f"missing_file:{path.as_posix()}")
 
@@ -97,6 +125,16 @@ def main() -> int:
         issues.append(f"upcoming_company_missing_column:{col}")
     for col in missing_columns(upcoming_macro, MACRO_REQUIRED):
         issues.append(f"upcoming_macro_missing_column:{col}")
+    for col in missing_columns(needs_review, NEEDS_REVIEW_REQUIRED):
+        issues.append(f"needs_review_missing_column:{col}")
+
+    if not needs_review.empty and {"model_effect_allowed", "pdf_effect_allowed"}.issubset(needs_review.columns):
+        bad_model = needs_review[needs_review["model_effect_allowed"].astype(str).str.lower().isin(["true", "1", "yes", "y"])]
+        bad_pdf = needs_review[needs_review["pdf_effect_allowed"].astype(str).str.lower().isin(["true", "1", "yes", "y"])]
+        if not bad_model.empty:
+            issues.append("needs_review_has_model_effect_allowed_true")
+        if not bad_pdf.empty:
+            issues.append("needs_review_has_pdf_effect_allowed_true")
 
     if not args.schema_only:
         if company.empty:
@@ -121,6 +159,15 @@ def main() -> int:
                 issues.append(f"readme_missing_field:{field}")
             if packet and field not in packet:
                 issues.append(f"packet_missing_field:{field}")
+        for field in [
+            "catalyst_needs_review_csv_raw_url",
+            "catalyst_needs_review_md_raw_url",
+        ]:
+            if packet and field not in packet:
+                issues.append(f"packet_missing_field:{field}")
+
+        if packet and "DATA SOURCE PRIORITY" not in packet:
+            issues.append("packet_missing_data_source_priority")
 
     status = {
         "generated_at": now_text(),
@@ -134,6 +181,8 @@ def main() -> int:
             "upcoming_macro_calendar": file_info(UPCOMING_MACRO_CALENDAR),
             "status_json": file_info(STATUS_JSON),
             "status_md": file_info(STATUS_MD),
+            "needs_review_csv": file_info(NEEDS_REVIEW_CSV),
+            "needs_review_md": file_info(NEEDS_REVIEW_MD),
         },
     }
     VALIDATION_JSON.write_text(json.dumps(status, ensure_ascii=False, indent=2), encoding="utf-8")

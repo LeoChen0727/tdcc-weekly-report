@@ -29,6 +29,8 @@ UPCOMING_MACRO_CALENDAR = LATEST_DIR / "upcoming_macro_event_calendar_latest.csv
 UPCOMING_MACRO_MD = LATEST_DIR / "upcoming_macro_event_calendar_latest.md"
 STATUS_JSON = LATEST_DIR / "calendar_data_source_status_latest.json"
 STATUS_MD = LATEST_DIR / "calendar_data_source_status_latest.md"
+NEEDS_REVIEW_CSV = LATEST_DIR / "catalyst_needs_review_latest.csv"
+NEEDS_REVIEW_MD = LATEST_DIR / "catalyst_needs_review_latest.md"
 
 ALL_CANDIDATES = LATEST_DIR / "all_candidates_latest.csv"
 COMPANY_THEME_MAPPING = THEME_EVENTS_DIR / "company_theme_mapping.csv"
@@ -93,6 +95,22 @@ THEME_EVENT_COLUMNS = [
     "importance",
     "source_url",
     "last_updated",
+]
+
+NEEDS_REVIEW_COLUMNS = [
+    "item_id",
+    "detected_at",
+    "source_area",
+    "requested_data",
+    "current_status",
+    "owner",
+    "required_evidence",
+    "model_effect_allowed",
+    "pdf_effect_allowed",
+    "next_action",
+    "source_url",
+    "last_checked_at",
+    "notes",
 ]
 
 MONTHS = {
@@ -609,6 +627,126 @@ def write_upcoming_reports(company: pd.DataFrame, macro: pd.DataFrame, status: d
     STATUS_MD.write_text("\n".join(status_lines) + "\n", encoding="utf-8")
 
 
+def needs_review_rows(status: dict[str, Any]) -> pd.DataFrame:
+    rows: list[dict[str, str]] = []
+    generated_at = safe_str(status.get("generated_at")) or now_text()
+    sources = status.get("sources", {})
+
+    def add(
+        *,
+        item_id: str,
+        source_area: str,
+        requested_data: str,
+        current_status: str,
+        owner: str,
+        required_evidence: str,
+        next_action: str,
+        source_url: str,
+        notes: str,
+    ) -> None:
+        rows.append(
+            {
+                "item_id": item_id,
+                "detected_at": generated_at,
+                "source_area": source_area,
+                "requested_data": requested_data,
+                "current_status": current_status,
+                "owner": owner,
+                "required_evidence": required_evidence,
+                "model_effect_allowed": "False",
+                "pdf_effect_allowed": "False",
+                "next_action": next_action,
+                "source_url": source_url,
+                "last_checked_at": generated_at,
+                "notes": notes,
+            }
+        )
+
+    shareholder = sources.get("mops_shareholder_meeting_calendar", {})
+    add(
+        item_id="mops_shareholder_meeting_calendar",
+        source_area="company_calendar",
+        requested_data="Stock-level shareholder meeting dates",
+        current_status=safe_str(shareholder.get("status")) or "pending_endpoint_verification",
+        owner="codex_data_source_work",
+        required_evidence="Stable MOPS machine-readable endpoint or a maintained official export with stock_id and meeting date.",
+        next_action="Find and test a stable MOPS endpoint before storing rows.",
+        source_url=safe_str(shareholder.get("url")) or MOPS_SHAREHOLDER_MEETING_URL,
+        notes=safe_str(shareholder.get("note")) or "Do not use shareholder meeting proximity as a stock catalyst until rows are confirmed.",
+    )
+
+    for key, label, url in [
+        ("bls_cpi_release_schedule", "BLS CPI release schedule", BLS_CPI_URL),
+        ("bls_employment_release_schedule", "BLS employment release schedule", BLS_EMPSIT_URL),
+    ]:
+        info = sources.get(key, {})
+        add(
+            item_id=key,
+            source_area="macro_calendar",
+            requested_data=label,
+            current_status=safe_str(info.get("status")) or "needs_parser",
+            owner="codex_data_source_work",
+            required_evidence="Reliable official parser or alternate official machine-readable release calendar.",
+            next_action="Build and validate parser before storing CPI/employment rows.",
+            source_url=safe_str(info.get("url")) or url,
+            notes=safe_str(info.get("note")) or "Keep out of market-risk report logic until parsed rows exist.",
+        )
+
+    add(
+        item_id="company_specific_event_sources",
+        source_area="event_catalyst",
+        requested_data="Company-specific technology validation, exhibitions, news, investor conference, material information, and order/customer-win events",
+        current_status="needs_explicit_source_rows",
+        owner="program_auto_confirm_after_source_integration",
+        required_evidence="Rows in data/event_catalysts/event_catalyst_log.csv with source, source_url, confidence, and event_type.",
+        next_action="Load explicit source rows from official announcements, MOPS, company releases, exhibition pages, or reliable news before scoring.",
+        source_url="data/event_catalysts/event_catalyst_log.csv",
+        notes="Theme labels or calendar proximity alone must not upgrade stocks or appear as formal PDF recommendation reasons.",
+    )
+
+    return pd.DataFrame(rows, columns=NEEDS_REVIEW_COLUMNS)
+
+
+def write_needs_review_report(df: pd.DataFrame) -> None:
+    write_csv(ensure_columns(df, NEEDS_REVIEW_COLUMNS), NEEDS_REVIEW_CSV)
+
+    lines = [
+        "# Catalyst Needs Review",
+        "",
+        f"- generated_at: `{now_text()}`",
+        f"- rows: `{len(df)}`",
+        "- policy: Rows in this table are not confirmed catalyst data.",
+        "- model_effect_allowed: `False` means the item cannot affect score, rank, upgrade, downgrade, or similar_to_shihsinko_flag.",
+        "- pdf_effect_allowed: `False` means the item cannot appear as a formal recommendation reason in the PDF.",
+        "",
+        "## Data-Source Priority",
+        "",
+        "1. Use original structured data first: CSV, packet fields, source logs, signal logs, warrant tables, market tables, and validated raw links.",
+        "2. Use Markdown/PDF reports only as auxiliary readable summaries.",
+        "3. If raw/source tables cannot be read and only PDF content is used, the report must start by saying: `本次僅使用 PDF 報告資料，未讀取原始 CSV / packet / source tables，因此只能做摘要型分析。`",
+        "",
+        "## Items Pending Source Confirmation",
+        "",
+    ]
+    lines.extend(
+        markdown_table(
+            df,
+            [
+                "item_id",
+                "source_area",
+                "requested_data",
+                "current_status",
+                "owner",
+                "model_effect_allowed",
+                "pdf_effect_allowed",
+                "next_action",
+            ],
+            50,
+        )
+    )
+    NEEDS_REVIEW_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
 def main() -> int:
     base = today_taipei()
     COMPANY_CALENDAR_DIR.mkdir(parents=True, exist_ok=True)
@@ -680,12 +818,15 @@ def main() -> int:
     }
     STATUS_JSON.write_text(json.dumps(status, ensure_ascii=False, indent=2), encoding="utf-8")
     write_upcoming_reports(upcoming_company, upcoming_macro, status)
+    needs_review = needs_review_rows(status)
+    write_needs_review_report(needs_review)
 
     print(f"Saved: {COMPANY_EVENT_CALENDAR} rows={len(company_all)}")
     print(f"Saved: {MACRO_EVENT_CALENDAR} rows={len(macro_all)}")
     print(f"Saved: {UPCOMING_COMPANY_CALENDAR} rows={len(upcoming_company)}")
     print(f"Saved: {UPCOMING_MACRO_CALENDAR} rows={len(upcoming_macro)}")
     print(f"Saved: {STATUS_JSON}")
+    print(f"Saved: {NEEDS_REVIEW_CSV} rows={len(needs_review)}")
     return 0
 
 

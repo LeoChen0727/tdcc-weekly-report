@@ -1,6 +1,6 @@
 CHATGPT DAILY REPORT PACKET
 
-generated_at: 2026-05-24 20:21:10 Asia/Taipei
+generated_at: 2026-05-24 21:25:31 Asia/Taipei
 repo: LeoChen0727/tdcc-weekly-report
 main_price_date: 20260524
 report_ready: True
@@ -46,6 +46,14 @@ status: pass
 validation_json_path: output/latest/daily_market_report_validation_latest.json
 validation_md_path: output/latest/daily_market_report_validation_latest.md
 
+DATA SOURCE PRIORITY
+priority_1: Use original structured data first: CSV files, packet fields, source logs, signal logs, warrant tables, market tables, and validated raw URLs.
+priority_2: Use Markdown reports as readable summaries only after checking the structured data when available.
+priority_3: Use PDF reports only when raw/packet/source-table data cannot be read, or when the user specifically asks for the shareable PDF artifact.
+pdf_only_disclosure_required: True
+pdf_only_disclosure_text: 本次僅使用 PDF 報告資料，未讀取原始 CSV / packet / source tables，因此只能做摘要型分析。
+note: PDFs are auxiliary outputs. They are not the primary source when raw data is available.
+
 FUNDAMENTAL / EVENT CATALYST LAYER
 catalyst_layer_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/fundamental_catalyst_layer_latest.md
 catalyst_layer_path: output/latest/fundamental_catalyst_layer_latest.md
@@ -62,8 +70,10 @@ catalyst_summary_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-wee
 catalyst_summary_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/catalyst_summary_latest.csv
 catalyst_performance_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/catalyst_performance/catalyst_performance.csv
 catalyst_layer_validation_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/catalyst_layer_validation_latest.md
+catalyst_needs_review_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/catalyst_needs_review_latest.csv
+catalyst_needs_review_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/catalyst_needs_review_latest.md
 status: generated
-note: Event tables are schema-first. Empty tables mean no confirmed catalyst source has been loaded; do not infer catalysts from rumors.
+note: Event tables are schema-first. Empty tables mean no confirmed catalyst source has been loaded; do not infer catalysts from rumors. Rows in catalyst_needs_review have model_effect_allowed=False and pdf_effect_allowed=False.
 
 EVENT / MACRO CALENDAR LAYER
 company_event_calendar_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/company_calendar/company_event_calendar.csv
@@ -82,7 +92,7 @@ performance_csv_path: output/history/daily_signals/daily_candidate_signal_perfor
 summary_latest_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_signal_performance_summary_latest.md
 weekly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_weekly_latest.pdf
 monthly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_monthly_latest.pdf
-last_updated_at: 2026-05-24 20:21:10 Asia/Taipei
+last_updated_at: 2026-05-24 21:25:31 Asia/Taipei
 status: generated
 
 WARRANT MARKET ANALYSIS

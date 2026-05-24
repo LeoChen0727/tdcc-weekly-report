@@ -2,9 +2,6 @@ name: Weekly Theme Review
 
 on:
   workflow_dispatch:
-  schedule:
-    # Sunday 10:00 Asia/Taipei.
-    - cron: "0 2 * * 0"
 
 permissions:
   contents: write
@@ -53,6 +50,8 @@ jobs:
           git add output/latest/upcoming_macro_event_calendar_latest.md || true
           git add output/latest/calendar_data_source_status_latest.md || true
           git add output/latest/calendar_data_source_status_latest.json || true
+          git add output/latest/catalyst_needs_review_latest.csv || true
+          git add output/latest/catalyst_needs_review_latest.md || true
           git add output/latest/event_calendar_validation_latest.md || true
           git add output/latest/event_calendar_validation_latest.json || true
           git add output/latest/catalyst_data_source_status_latest.md || true

@@ -72,6 +72,8 @@ UPCOMING_CATALYST_CALENDAR = LATEST_DIR / "upcoming_catalyst_calendar_latest.csv
 UPCOMING_MACRO_EVENT_CALENDAR = LATEST_DIR / "upcoming_macro_event_calendar_latest.csv"
 CALENDAR_DATA_SOURCE_STATUS_MD = LATEST_DIR / "calendar_data_source_status_latest.md"
 EVENT_CALENDAR_VALIDATION_MD = LATEST_DIR / "event_calendar_validation_latest.md"
+CATALYST_NEEDS_REVIEW_CSV = LATEST_DIR / "catalyst_needs_review_latest.csv"
+CATALYST_NEEDS_REVIEW_MD = LATEST_DIR / "catalyst_needs_review_latest.md"
 WARRANT_MARKET_MD = LATEST_DIR / "warrant_market_report_latest.md"
 WARRANT_MARKET_PDF = LATEST_DIR / "warrant_market_report_latest.pdf"
 WARRANT_FLOW_BY_STOCK_CSV = LATEST_DIR / "warrant_flow_by_stock_latest.csv"
@@ -370,6 +372,8 @@ def build_readme(
     upcoming_macro_event_calendar_raw_url: str,
     calendar_data_source_status_raw_url: str,
     event_calendar_validation_raw_url: str,
+    catalyst_needs_review_csv_raw_url: str,
+    catalyst_needs_review_md_raw_url: str,
     daily_signal_performance_summary_raw_url: str,
     daily_signal_performance_weekly_md_raw_url: str,
     daily_signal_performance_weekly_pdf_pages_url: str,
@@ -436,6 +440,11 @@ def build_readme(
         f"upcoming_macro_event_calendar_raw_url={upcoming_macro_event_calendar_raw_url}",
         f"calendar_data_source_status_raw_url={calendar_data_source_status_raw_url}",
         f"event_calendar_validation_raw_url={event_calendar_validation_raw_url}",
+        f"catalyst_needs_review_csv_raw_url={catalyst_needs_review_csv_raw_url}",
+        f"catalyst_needs_review_md_raw_url={catalyst_needs_review_md_raw_url}",
+        "data_source_priority=raw_structured_data_first,pdf_auxiliary_only,pdf_only_if_raw_unavailable",
+        "pdf_only_disclosure_required=True",
+        "pdf_only_disclosure_text=本次僅使用 PDF 報告資料，未讀取原始 CSV / packet / source tables，因此只能做摘要型分析。",
         f"daily_signal_performance_summary_raw_url={daily_signal_performance_summary_raw_url}",
         f"daily_signal_performance_weekly_md_raw_url={daily_signal_performance_weekly_md_raw_url}",
         f"daily_signal_performance_weekly_pdf_pages_url={daily_signal_performance_weekly_pdf_pages_url}",
@@ -470,10 +479,14 @@ def build_readme(
         "4. If preferred_chatgpt_url fails, follow read_order.",
         "5. If the URL is packet_github_api_url, decode the JSON content field from base64 before reading the packet.",
         "6. If packet is readable, use EMBEDDED SUMMARY REPORT and EMBEDDED FULL REPORT as source of truth.",
-        "7. For shareable PDFs, use daily_market_curated_pdf_pages_url and daily_market_full_table_pdf_pages_url first.",
-        "8. For the summary PDF K-line charts, use summary_pdf_kline_policy/status/counts above. Do not downgrade the PDF to chart_path/image-download-failed if local_price_redraw_count is greater than 0.",
-        "9. If all URLs fail, say tool reading failed. Do not say GitHub data is not updated.",
-        "10. Do not use older report dates to recreate a newer report.",
+        "7. Use raw structured data first: CSV files, packet fields, signal logs, warrant tables, market tables, catalyst source logs, and raw URLs.",
+        "8. PDFs are auxiliary/shareable outputs. Use PDFs only if raw data cannot be read, or if the user explicitly asks for the PDF artifact.",
+        "9. If only PDF data is used, start the response with: 本次僅使用 PDF 報告資料，未讀取原始 CSV / packet / source tables，因此只能做摘要型分析。",
+        "10. For shareable PDFs, cite daily_market_curated_pdf_pages_url and daily_market_full_table_pdf_pages_url.",
+        "11. For pending catalyst/data-source items, read catalyst_needs_review_* and do not use rows with model_effect_allowed=False or pdf_effect_allowed=False as recommendation reasons.",
+        "12. For the summary PDF K-line charts, use summary_pdf_kline_policy/status/counts above. Do not downgrade the PDF to chart_path/image-download-failed if local_price_redraw_count is greater than 0.",
+        "13. If all URLs fail, say tool reading failed. Do not say GitHub data is not updated.",
+        "14. Do not use older report dates to recreate a newer report.",
         "",
     ]
 
@@ -687,6 +700,8 @@ def main() -> int:
     upcoming_macro_event_calendar_raw_url = raw_url("main", UPCOMING_MACRO_EVENT_CALENDAR)
     calendar_data_source_status_raw_url = raw_url("main", CALENDAR_DATA_SOURCE_STATUS_MD)
     event_calendar_validation_raw_url = raw_url("main", EVENT_CALENDAR_VALIDATION_MD)
+    catalyst_needs_review_csv_raw_url = raw_url("main", CATALYST_NEEDS_REVIEW_CSV)
+    catalyst_needs_review_md_raw_url = raw_url("main", CATALYST_NEEDS_REVIEW_MD)
     daily_signal_performance_summary_raw_url = raw_url("main", DAILY_SIGNAL_SUMMARY_MD)
     daily_signal_performance_weekly_md_raw_url = raw_url("main", DAILY_SIGNAL_WEEKLY_MD)
     daily_signal_performance_weekly_pdf_pages_url = pages_url("latest/daily_signal_performance_weekly_latest.pdf")
@@ -756,6 +771,8 @@ def main() -> int:
         upcoming_macro_event_calendar_raw_url=upcoming_macro_event_calendar_raw_url,
         calendar_data_source_status_raw_url=calendar_data_source_status_raw_url,
         event_calendar_validation_raw_url=event_calendar_validation_raw_url,
+        catalyst_needs_review_csv_raw_url=catalyst_needs_review_csv_raw_url,
+        catalyst_needs_review_md_raw_url=catalyst_needs_review_md_raw_url,
         daily_signal_performance_summary_raw_url=daily_signal_performance_summary_raw_url,
         daily_signal_performance_weekly_md_raw_url=daily_signal_performance_weekly_md_raw_url,
         daily_signal_performance_weekly_pdf_pages_url=daily_signal_performance_weekly_pdf_pages_url,
@@ -860,6 +877,10 @@ def main() -> int:
         "upcoming_macro_event_calendar_raw_url": upcoming_macro_event_calendar_raw_url,
         "calendar_data_source_status_raw_url": calendar_data_source_status_raw_url,
         "event_calendar_validation_raw_url": event_calendar_validation_raw_url,
+        "catalyst_needs_review_csv_raw_url": catalyst_needs_review_csv_raw_url,
+        "catalyst_needs_review_md_raw_url": catalyst_needs_review_md_raw_url,
+        "data_source_priority": "raw_structured_data_first,pdf_auxiliary_only,pdf_only_if_raw_unavailable",
+        "pdf_only_disclosure_required": True,
         "daily_signal_performance_summary_raw_url": daily_signal_performance_summary_raw_url,
         "daily_signal_performance_weekly_md_raw_url": daily_signal_performance_weekly_md_raw_url,
         "daily_signal_performance_weekly_pdf_pages_url": daily_signal_performance_weekly_pdf_pages_url,

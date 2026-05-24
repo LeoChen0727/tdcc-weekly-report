@@ -28,6 +28,8 @@ PACKET = LATEST_DIR / "chatgpt_daily_report_packet_latest.txt"
 CATALYST_SUMMARY_MD = LATEST_DIR / "catalyst_summary_latest.md"
 CATALYST_SUMMARY_CSV = LATEST_DIR / "catalyst_summary_latest.csv"
 CATALYST_PERFORMANCE = Path("output/history/catalyst_performance/catalyst_performance.csv")
+CATALYST_NEEDS_REVIEW_CSV = LATEST_DIR / "catalyst_needs_review_latest.csv"
+CATALYST_NEEDS_REVIEW_MD = LATEST_DIR / "catalyst_needs_review_latest.md"
 VALIDATION_MD = LATEST_DIR / "catalyst_layer_validation_latest.md"
 VALIDATION_JSON = LATEST_DIR / "catalyst_layer_validation_latest.json"
 
@@ -66,6 +68,19 @@ PERFORMANCE_REQUIRED = {
     "tdcc_status_at_event",
     "price_reaction_level",
     "success_label",
+}
+
+NEEDS_REVIEW_REQUIRED = {
+    "item_id",
+    "source_area",
+    "requested_data",
+    "current_status",
+    "owner",
+    "required_evidence",
+    "model_effect_allowed",
+    "pdf_effect_allowed",
+    "next_action",
+    "source_url",
 }
 
 
@@ -137,7 +152,10 @@ def validate_packet(errors: list[str]) -> None:
         "EVENT / MACRO CALENDAR LAYER",
         "catalyst_summary_raw_url",
         "catalyst_performance_raw_url",
+        "catalyst_needs_review_csv_raw_url",
+        "catalyst_needs_review_md_raw_url",
         "upcoming_catalyst_calendar_raw_url",
+        "DATA SOURCE PRIORITY",
     ]
     for snippet in required_snippets:
         if snippet not in text:
@@ -160,6 +178,28 @@ def validate_outputs(errors: list[str]) -> tuple[int, int]:
     return len(perf), len(summary)
 
 
+def validate_needs_review(errors: list[str]) -> int:
+    if not CATALYST_NEEDS_REVIEW_CSV.exists():
+        errors.append(f"missing {CATALYST_NEEDS_REVIEW_CSV.as_posix()}")
+        return 0
+    if not CATALYST_NEEDS_REVIEW_MD.exists():
+        errors.append(f"missing {CATALYST_NEEDS_REVIEW_MD.as_posix()}")
+    df = read_csv(CATALYST_NEEDS_REVIEW_CSV)
+    missing = NEEDS_REVIEW_REQUIRED - set(df.columns)
+    if missing:
+        errors.append(f"catalyst_needs_review missing columns: {sorted(missing)}")
+        return len(df)
+    bad_model = df[truthy_series(df["model_effect_allowed"])]
+    bad_pdf = df[truthy_series(df["pdf_effect_allowed"])]
+    if not bad_model.empty:
+        errors.append("catalyst_needs_review contains rows allowed to affect model")
+    if not bad_pdf.empty:
+        errors.append("catalyst_needs_review contains rows allowed to affect PDF recommendations")
+    if "company_specific_event_sources" not in set(df["item_id"].astype(str)):
+        errors.append("catalyst_needs_review missing company_specific_event_sources row")
+    return len(df)
+
+
 def write_validation(result: dict[str, Any]) -> None:
     LATEST_DIR.mkdir(parents=True, exist_ok=True)
     VALIDATION_JSON.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -172,6 +212,7 @@ def write_validation(result: dict[str, Any]) -> None:
         f"- all_candidates_rows: `{result.get('all_candidates_rows', '')}`",
         f"- catalyst_performance_rows: `{result.get('catalyst_performance_rows', '')}`",
         f"- catalyst_summary_rows: `{result.get('catalyst_summary_rows', '')}`",
+        f"- catalyst_needs_review_rows: `{result.get('catalyst_needs_review_rows', '')}`",
         "",
         "## Data Tables",
         "",
@@ -203,9 +244,11 @@ def main() -> int:
     all_candidates_rows = ""
     performance_rows = ""
     summary_rows = ""
+    needs_review_rows = ""
     if not args.schema_only:
         all_candidates_rows = validate_all_candidates(errors)
         performance_rows, summary_rows = validate_outputs(errors)
+        needs_review_rows = validate_needs_review(errors)
         validate_packet(errors)
 
     result = {
@@ -216,6 +259,7 @@ def main() -> int:
         "all_candidates_rows": all_candidates_rows,
         "catalyst_performance_rows": performance_rows,
         "catalyst_summary_rows": summary_rows,
+        "catalyst_needs_review_rows": needs_review_rows,
         "errors": errors,
     }
     write_validation(result)
