@@ -1,59 +1,96 @@
 # TDCC Signal Tracking
 
-這份文件說明 TDCC 週報旁邊新增的結構化追蹤資料。
+This document describes the TDCC signal tracking layer used by the weekly TDCC report, ABM pre-move accumulation model, and TDCC effectiveness report.
 
-## Raw signal vs normalized signal
+## Raw Signal vs Normalized Signal
 
-- `output/history/tdcc_signals/tdcc_signal_log.csv`
-  - 保留既有 threshold raw signal。
-  - 同一檔股票如果同時進入 >400、>600、>800、>1000，可能會有多列。
+`output/history/tdcc_signals/tdcc_signal_log.csv`
 
-- `output/history/tdcc_signals/tdcc_normalized_signal_log.csv`
-  - 每檔股票每個 TDCC 週只保留一筆 normalized signal。
-  - key 是 `signal_id = {signal_date}_{code}_normalized`。
-  - 用於週報分級、族群廣度與月度有效性分析，避免同一股票被四個 threshold 重複統計。
+- Keeps threshold-level raw signals.
+- A stock can appear more than once when it triggers multiple thresholds such as over 400, 600, 800, or 1000 lots.
+- This file is kept for compatibility and raw audit trails.
 
-## Snapshot
+`output/history/tdcc_signals/tdcc_normalized_signal_log.csv`
 
-`output/history/tdcc_signals/tdcc_signal_snapshot.csv` 保存每週訊號當下狀態，包含：
+- Keeps one normalized signal per stock per signal date.
+- Key: `signal_id = {signal_date}_{code}_normalized`.
+- This is the preferred table for ranking, weekly summaries, ABM scoring, and monthly effectiveness statistics.
+- Multiple threshold triggers for the same stock on the same signal date must not be double counted.
 
-- threshold 是否改善：`has_400`、`has_600`、`has_800`、`has_1000`
-- 連續週數：`tdcc_400_streak_weeks` 到 `tdcc_1000_streak_weeks`
-- 高點比例：`tdcc_800_ratio_20w_high`、`tdcc_1000_ratio_20w_high`
-- 價格反應：`price_return_5d`、`price_return_20d`
-- 均線與壓縮：`distance_ma20_pct`、`price_range_20d_pct`
-- ABM 欄位：`abm_score`、`setup_type`
+## TDCC Snapshot
 
-缺價格或歷史資料時欄位留空，不讓 workflow 失敗。
+`output/history/tdcc_signals/tdcc_signal_snapshot.csv` freezes the state available at signal time.
 
-## Theme breadth
+Important groups of fields:
 
-`output/history/tdcc_signals/theme_breadth_history.csv` 每個 `signal_date + primary_theme` 一列。
+- Threshold flags: `has_400`, `has_600`, `has_800`, `has_1000`.
+- TDCC streaks: `tdcc_400_streak_weeks`, `tdcc_600_streak_weeks`, `tdcc_800_streak_weeks`, `tdcc_1000_streak_weeks`, `all_threshold_streak_weeks`.
+- TDCC changes before signal: `tdcc_1w_change_*`, `tdcc_2w_change_*`, `tdcc_3w_change_*`.
+- Price reaction before signal: `price_ret_1w`, `price_ret_2w`, `price_ret_3w`, `price_ret_4w`.
+- Relative reaction before signal: `relative_ret_1w`, `relative_ret_2w`, `relative_ret_3w`, `relative_ret_4w`.
+- Volume reaction: `volume_ratio_1w`, `volume_ratio_2w`.
+- Position context: `distance_from_20d_high`, `distance_from_60d_high`, `distance_from_ma20`, `distance_from_ma60`.
+- Market context: `benchmark_index`, `market_regime`.
+- Phase label: `tdcc_price_phase`.
 
-族群廣度不是只看最大單檔增幅，而是看：
+The snapshot must use only data available on or before `signal_date`. Future prices are used only by the performance table, never to rewrite the original phase.
 
-- 同族群有幾檔同步增加
-- >800 / >1000 是否同步改善
-- 是否有連續兩週 / 三週同步增加
-- 是否只是 single-name concentration
+## TDCC-price Phase
 
-`theme_priority` 使用 `A`、`B`、`C`、`Weakening`、`Neutral`。
+`tdcc_price_phase` describes the relationship between TDCC accumulation and price reaction at the signal date.
 
-## Performance maturity
+- `tdcc_leading_price`: TDCC has improved for at least two weeks, but price and relative return have not reacted much.
+- `tdcc_price_confirmed`: TDCC has improved and price/volume already confirmed.
+- `price_leading_tdcc`: price has already moved strongly before TDCC confirmation.
+- `tdcc_price_divergence`: TDCC improved but price and relative return are still weak.
+- `overheated_after_tdcc`: price is already stretched after TDCC strength.
+- `failed_after_tdcc`: TDCC improved but price later broke down in the available context.
+- `insufficient_price_context`: price, volume, or benchmark history is not enough for a reliable phase.
 
-`output/history/tdcc_signals/tdcc_signal_performance.csv` 保留既有 D+1 / D+2 / D+5 / D+10 / D+20 追蹤。
+This field is designed to answer the core question: did TDCC lead price, confirm price, or arrive after price had already reacted?
 
-最新批次如果還沒滿 D+N，狀態是 pending 或 partial。pending 只代表尚未成熟，不應被解讀為正面或負面。
+## Theme Breadth
 
-## Monthly effectiveness
+`output/history/tdcc_signals/theme_breadth_history.csv` stores one row per `signal_date + primary_theme`.
 
-`output/latest/tdcc_signal_effectiveness_latest.md` 和 `output/history/tdcc_signals/tdcc_signal_factor_stats_monthly.csv` 用來比較 factor group：
+It estimates whether TDCC strength is broad across a theme or concentrated in only one or two names.
 
-- 四級距同步
-- 連續兩週 / 三週同步
-- 過熱 vs 非過熱
-- 族群廣度 A/B/C
-- 價格確認 vs 未確認
-- ABM setup type
+Key fields:
 
-sample size 太小時標示 `insufficient_sample`，不硬下結論。
+- `total_signal_count`
+- `increase_400_count`, `increase_600_count`, `increase_800_count`, `increase_1000_count`
+- `all_threshold_count`
+- `consecutive_2w_count`
+- `consecutive_3w_count`
+- `breadth_score`
+- `sync_status`
+- `theme_priority`
+- `theme_breadth_level`
+
+## Performance Maturity
+
+`output/history/tdcc_signals/tdcc_signal_performance.csv` tracks D+1, D+2, D+5, D+10, and D+20 results.
+
+Rules:
+
+- D+N fields are filled only when enough future trading days exist.
+- `mature_dN=True` means that horizon is ready for statistics.
+- Pending rows are not positive or negative.
+- Performance includes both absolute return and relative return versus TWSE or TPEx benchmark where available.
+
+## Effectiveness Report
+
+`output/latest/tdcc_signal_effectiveness_latest.md` and `output/latest/tdcc_signal_effectiveness_latest.csv` summarize factor effectiveness.
+
+The report includes:
+
+- TDCC threshold factor groups.
+- ABM factor groups.
+- TDCC-price phase factor groups.
+- TDCC consecutive weeks x phase distribution.
+- Phase D+5, D+10, and D+20 performance when mature data exists.
+- Setup type x phase.
+- Theme breadth x phase.
+- Market regime x phase.
+
+`sample_size` is the number of signals in a group. `mature_sample_dN` is the number of rows actually used for D+N performance statistics.

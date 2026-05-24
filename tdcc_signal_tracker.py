@@ -4,8 +4,18 @@ from pathlib import Path
 from datetime import datetime
 from zoneinfo import ZoneInfo
 import re
+import sys
 
 import pandas as pd
+
+sys.path.insert(0, str(Path(__file__).resolve().parent / "scripts"))
+
+from tracking_utils import (  # noqa: E402
+    classify_market_regime,
+    load_market_index_history,
+    market_return_after,
+    market_row_on_or_before,
+)
 
 
 OUTPUT_DIR = Path("output")
@@ -62,6 +72,8 @@ PERFORMANCE_COLUMNS = [
     "max_drawdown_5d",
     "max_drawdown_10d",
     "max_drawdown_20d",
+    "benchmark_index",
+    "market_regime",
     "status",
 ]
 
@@ -563,6 +575,8 @@ def load_daily_price_data() -> pd.DataFrame:
 
         if "ticker" in df.columns and "code" not in df.columns:
             df = df.rename(columns={"ticker": "code"})
+        if "stock_id" in df.columns and "code" not in df.columns:
+            df = df.rename(columns={"stock_id": "code"})
 
         if "date" not in df.columns:
             date = extract_date_from_path(path)
@@ -578,6 +592,8 @@ def load_daily_price_data() -> pd.DataFrame:
 
         if "name" not in df.columns:
             df["name"] = ""
+        if "market" not in df.columns:
+            df["market"] = ""
 
         df["code"] = df["code"].map(normalize_code)
         df["date"] = df["date"].map(normalize_date)
@@ -588,7 +604,7 @@ def load_daily_price_data() -> pd.DataFrame:
         df = df.dropna(subset=["date", "code", "close"])
         df = df[df["code"].map(is_common_stock_code)].copy()
 
-        frames.append(df[["date", "code", "name", "open", "high", "low", "close"]])
+        frames.append(df[["date", "code", "name", "market", "open", "high", "low", "close"]])
 
     if not frames:
         return pd.DataFrame()
@@ -617,11 +633,35 @@ def ensure_performance_columns(df: pd.DataFrame) -> pd.DataFrame:
     for col in PERFORMANCE_COLUMNS:
         if col not in df.columns:
             df[col] = pd.NA
+    for horizon in HORIZONS:
+        for prefix in ["twse", "tpex"]:
+            for col in [f"{prefix}_close_d{horizon}", f"{prefix}_return_d{horizon}", f"relative_return_vs_{prefix}_d{horizon}"]:
+                if col not in df.columns:
+                    df[col] = pd.NA
+        for col in [f"relative_return_vs_benchmark_d{horizon}", f"mature_d{horizon}"]:
+            if col not in df.columns:
+                df[col] = False if col.startswith("mature_") else pd.NA
 
     return df
 
 
-def calculate_signal_performance(signal_log: pd.DataFrame, price: pd.DataFrame) -> pd.DataFrame:
+def infer_benchmark_index_from_market(value) -> str:
+    text = normalize_text(value).upper()
+    if "TPEX" in text or "OTC" in text:
+        return "TPEX"
+    return "TWSE"
+
+
+def add_empty_benchmark_fields(row: dict, horizon: int) -> None:
+    for prefix in ["twse", "tpex"]:
+        row[f"{prefix}_close_d{horizon}"] = pd.NA
+        row[f"{prefix}_return_d{horizon}"] = pd.NA
+        row[f"relative_return_vs_{prefix}_d{horizon}"] = pd.NA
+    row[f"relative_return_vs_benchmark_d{horizon}"] = pd.NA
+    row[f"mature_d{horizon}"] = False
+
+
+def calculate_signal_performance(signal_log: pd.DataFrame, price: pd.DataFrame, market_index: pd.DataFrame | None = None) -> pd.DataFrame:
     if signal_log.empty:
         return ensure_performance_columns(pd.DataFrame())
 
@@ -634,6 +674,7 @@ def calculate_signal_performance(signal_log: pd.DataFrame, price: pd.DataFrame) 
         perf["status"] = "no_price_data"
         return ensure_performance_columns(perf)
 
+    market_index = market_index if market_index is not None else pd.DataFrame()
     rows = []
 
     for _, signal in signal_log.iterrows():
@@ -661,7 +702,10 @@ def calculate_signal_performance(signal_log: pd.DataFrame, price: pd.DataFrame) 
                 row[f"max_return_{horizon}d"] = pd.NA
                 row[f"min_low_after_signal_{horizon}d"] = pd.NA
                 row[f"max_drawdown_{horizon}d"] = pd.NA
+                add_empty_benchmark_fields(row, horizon)
 
+            row["benchmark_index"] = ""
+            row["market_regime"] = "unknown"
             row["status"] = "missing_price_for_code"
             rows.append(row)
             continue
@@ -683,7 +727,10 @@ def calculate_signal_performance(signal_log: pd.DataFrame, price: pd.DataFrame) 
                 row[f"max_return_{horizon}d"] = pd.NA
                 row[f"min_low_after_signal_{horizon}d"] = pd.NA
                 row[f"max_drawdown_{horizon}d"] = pd.NA
+                add_empty_benchmark_fields(row, horizon)
 
+            row["benchmark_index"] = ""
+            row["market_regime"] = "unknown"
             row["status"] = "missing_signal_close"
             rows.append(row)
             continue
@@ -691,6 +738,9 @@ def calculate_signal_performance(signal_log: pd.DataFrame, price: pd.DataFrame) 
         base_index = price_by_code.index[price_by_code["date"] == base_trade_date].tolist()[0]
         base_row = price_by_code.loc[base_index]
         signal_close = float(base_row["close"])
+        benchmark_index = infer_benchmark_index_from_market(base_row.get("market", ""))
+        row["benchmark_index"] = benchmark_index
+        row["market_regime"] = classify_market_regime(market_row_on_or_before(market_index, benchmark_index, base_trade_date))
 
         row["signal_close"] = signal_close
 
@@ -713,6 +763,18 @@ def calculate_signal_performance(signal_log: pd.DataFrame, price: pd.DataFrame) 
             else:
                 row[f"d{horizon}_close"] = pd.NA
                 row[f"d{horizon}_return_pct"] = pd.NA
+            stock_return = row.get(f"d{horizon}_return_pct", pd.NA)
+            for index_code, prefix in [("TWSE", "twse"), ("TPEX", "tpex")]:
+                index_close, index_return = market_return_after(market_index, index_code, base_trade_date, horizon)
+                row[f"{prefix}_close_d{horizon}"] = index_close
+                row[f"{prefix}_return_d{horizon}"] = index_return
+                if pd.isna(stock_return) or pd.isna(index_return):
+                    row[f"relative_return_vs_{prefix}_d{horizon}"] = pd.NA
+                else:
+                    row[f"relative_return_vs_{prefix}_d{horizon}"] = float(stock_return) - float(index_return)
+            bench_prefix = "tpex" if benchmark_index == "TPEX" else "twse"
+            row[f"relative_return_vs_benchmark_d{horizon}"] = row.get(f"relative_return_vs_{bench_prefix}_d{horizon}", pd.NA)
+            row[f"mature_d{horizon}"] = not pd.isna(row.get(f"d{horizon}_return_pct", pd.NA))
 
             window = price_by_code.iloc[base_index + 1 : base_index + horizon + 1].copy()
 
@@ -1276,8 +1338,12 @@ def main() -> int:
     price = load_daily_price_data()
     print(f"Daily price rows: {len(price)}")
 
+    print("Loading market benchmark data...")
+    market_index = load_market_index_history(update_if_missing=True)
+    print(f"Market benchmark rows: {len(market_index)}")
+
     print("Calculating TDCC signal performance...")
-    perf = calculate_signal_performance(signal_log, price)
+    perf = calculate_signal_performance(signal_log, price, market_index)
     print(f"Performance rows: {len(perf)}")
 
     perf.to_csv(PERFORMANCE_CSV_PATH, index=False, encoding="utf-8-sig")

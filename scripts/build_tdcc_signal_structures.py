@@ -14,8 +14,11 @@ from tracking_utils import (  # noqa: E402
     LATEST_DIR,
     TDCC_SIGNALS_DIR,
     append_update_csv,
+    classify_market_regime,
+    load_market_index_history,
     load_price_history,
     markdown_table,
+    market_row_on_or_before,
     normalize_code,
     normalize_date,
     now_text,
@@ -112,7 +115,80 @@ def ratio_to_high(series: list[tuple[str, float]]) -> float:
     return values[-1] / high
 
 
-def price_metrics(code: str, signal_date: str) -> dict[str, Any]:
+def tdcc_change(series: list[tuple[str, float]], weeks: int) -> float:
+    if len(series) <= weeks:
+        return math.nan
+    cur = series[-1][1]
+    prev = series[-weeks - 1][1]
+    if math.isnan(cur) or math.isnan(prev):
+        return math.nan
+    return cur - prev
+
+
+def infer_benchmark_from_price_row(row: pd.Series) -> str:
+    market = safe_str(row.get("market", "")).upper()
+    if "TPEX" in market or "OTC" in market:
+        return "TPEX"
+    return "TWSE"
+
+
+def index_return_before(index_history: pd.DataFrame, index_code: str, signal_date: str, days: int) -> float:
+    if index_history.empty:
+        return math.nan
+    part = index_history[
+        (index_history["index_code"].astype(str) == index_code)
+        & (index_history["date"].astype(str) <= signal_date)
+    ].copy()
+    part = part.sort_values("date").reset_index(drop=True)
+    if len(part) <= days:
+        return math.nan
+    close = to_number(part.iloc[-1].get("close"))
+    base = to_number(part.iloc[-days - 1].get("close"))
+    if math.isnan(close) or math.isnan(base) or base == 0:
+        return math.nan
+    return (close / base - 1) * 100
+
+
+def volume_window_ratio(part: pd.DataFrame, days: int, baseline_days: int = 20) -> float:
+    if "volume" not in part.columns or len(part) < days + 1:
+        return math.nan
+    recent = pd.to_numeric(part["volume"].tail(days), errors="coerce").mean()
+    baseline = pd.to_numeric(part["volume"].tail(baseline_days), errors="coerce").mean()
+    if math.isnan(recent) or math.isnan(baseline) or baseline == 0:
+        return math.nan
+    return recent / baseline
+
+
+def classify_tdcc_price_phase(metrics: dict[str, Any]) -> str:
+    tdcc_weeks = int(to_number(metrics.get("tdcc_consecutive_up_weeks"), 0) or 0)
+    price_1w = to_number(metrics.get("price_ret_1w"))
+    price_2w = to_number(metrics.get("price_ret_2w"))
+    price_4w = to_number(metrics.get("price_ret_4w"))
+    relative_2w = to_number(metrics.get("relative_ret_2w"))
+    relative_4w = to_number(metrics.get("relative_ret_4w"))
+    volume_1w = to_number(metrics.get("volume_ratio_1w"))
+    volume_2w = to_number(metrics.get("volume_ratio_2w"))
+    dist_ma20 = to_number(metrics.get("distance_from_ma20"))
+    dist_ma60 = to_number(metrics.get("distance_from_ma60"))
+
+    if math.isnan(price_2w) or math.isnan(relative_2w) or math.isnan(volume_2w):
+        return "insufficient_price_context"
+    if (not math.isnan(price_1w) and price_1w > 25) or price_2w >= 30 or (not math.isnan(dist_ma20) and dist_ma20 >= 20):
+        return "overheated_after_tdcc"
+    if price_2w >= 20 or relative_2w >= 10 or (not math.isnan(dist_ma20) and dist_ma20 >= 15):
+        return "price_leading_tdcc"
+    if tdcc_weeks >= 2 and price_2w < 0 and relative_2w < 0:
+        return "tdcc_price_divergence"
+    if tdcc_weeks >= 2 and (not math.isnan(price_4w) and price_4w <= -10) and (not math.isnan(relative_4w) and relative_4w <= -8) and (not math.isnan(dist_ma60) and dist_ma60 < 0):
+        return "failed_after_tdcc"
+    if tdcc_weeks >= 2 and price_2w <= 8 and relative_2w <= 3 and volume_2w < 1.5:
+        return "tdcc_leading_price"
+    if tdcc_weeks >= 2 and price_2w > 8 and relative_2w > 3 and volume_2w >= 1.2:
+        return "tdcc_price_confirmed"
+    return "insufficient_price_context"
+
+
+def price_metrics(code: str, signal_date: str, index_history: pd.DataFrame | None = None) -> dict[str, Any]:
     price = load_price_history(code)
     out: dict[str, Any] = {}
     if price.empty:
@@ -122,10 +198,26 @@ def price_metrics(code: str, signal_date: str) -> dict[str, Any]:
         return out
     row = part.iloc[-1]
     close = to_number(row.get("close"))
+    index_history = index_history if index_history is not None else pd.DataFrame()
+    benchmark = infer_benchmark_from_price_row(row)
+    out["benchmark_index"] = benchmark
+    market_row = market_row_on_or_before(index_history, benchmark, signal_date)
+    out["market_regime"] = classify_market_regime(market_row)
     for days in [5, 10, 20, 60]:
         if len(part) > days:
             out[f"pre_{days}d_return" if days in [5, 10, 20] else "price_return_60d"] = (close / to_number(part.iloc[-days - 1].get("close")) - 1) * 100
             out[f"price_return_{days}d"] = (close / to_number(part.iloc[-days - 1].get("close")) - 1) * 100
+    for weeks, days in [(1, 5), (2, 10), (3, 15), (4, 20)]:
+        if len(part) > days:
+            stock_ret = (close / to_number(part.iloc[-days - 1].get("close")) - 1) * 100
+            out[f"price_ret_{weeks}w"] = stock_ret
+            bench_ret = index_return_before(index_history, benchmark, signal_date, days)
+            out[f"relative_ret_{weeks}w"] = "" if math.isnan(bench_ret) else stock_ret - bench_ret
+        else:
+            out[f"price_ret_{weeks}w"] = ""
+            out[f"relative_ret_{weeks}w"] = ""
+    out["volume_ratio_1w"] = volume_window_ratio(part, 5)
+    out["volume_ratio_2w"] = volume_window_ratio(part, 10)
     for ma in [5, 10, 20, 60]:
         col = f"ma{ma}"
         ma_value = to_number(row.get(col))
@@ -160,6 +252,10 @@ def price_metrics(code: str, signal_date: str) -> dict[str, Any]:
     out["breakout_20d"] = to_number(out.get("distance_20d_high_pct")) >= -1
     out["overheat_bucket"] = "overheated" if to_number(out.get("price_return_20d")) > 30 or to_number(out.get("distance_ma20_pct")) > 20 else "normal"
     out["price_confirm_bucket"] = "confirmed" if bool(out.get("above_ma20")) and to_number(out.get("distance_ma20_pct")) <= 12 else "weak"
+    out["distance_from_20d_high"] = out.get("distance_20d_high_pct", "")
+    out["distance_from_60d_high"] = out.get("distance_60d_high_pct", "")
+    out["distance_from_ma20"] = out.get("distance_ma20_pct", "")
+    out["distance_from_ma60"] = out.get("distance_ma60_pct", "")
     return out
 
 
@@ -169,20 +265,23 @@ def build_snapshot() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
         raise FileNotFoundError("Missing TDCC holder ratio snapshots")
     signal_date, latest = snapshots[-1]
     theme_map = load_theme_map()
+    index_history = load_market_index_history(update_if_missing=True)
     rows: list[dict[str, Any]] = []
 
     for _, row in latest.iterrows():
         code = normalize_code(row.get("code", ""))
         if not code:
             continue
-        deltas = {th: latest_delta(tdcc_series(snapshots, code, th)) for th in THRESHOLDS}
+        series_by_threshold = {th: tdcc_series(snapshots, code, th) for th in THRESHOLDS}
+        deltas = {th: latest_delta(series_by_threshold[th]) for th in THRESHOLDS}
         has = {th: (not math.isnan(deltas[th]) and deltas[th] > 0) for th in THRESHOLDS}
         if not any(has.values()):
             continue
         theme = theme_map.get(code, {})
-        streaks = {th: streak_weeks(tdcc_series(snapshots, code, th)) for th in THRESHOLDS}
+        streaks = {th: streak_weeks(series_by_threshold[th]) for th in THRESHOLDS}
         all_streak = min(streaks.values()) if streaks else 0
-        metrics = price_metrics(code, signal_date)
+        tdcc_consecutive_up = max(streaks.values()) if streaks else 0
+        metrics = price_metrics(code, signal_date, index_history)
         primary = safe_str(theme.get("primary_theme", "")) or "other"
         item: dict[str, Any] = {
             "signal_id": f"{signal_date}_{code}_normalized",
@@ -213,14 +312,30 @@ def build_snapshot() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
             "tdcc_800_streak_weeks": streaks[800],
             "tdcc_1000_streak_weeks": streaks[1000],
             "all_threshold_streak_weeks": all_streak,
+            "tdcc_1w_change_400": tdcc_change(series_by_threshold[400], 1),
+            "tdcc_1w_change_600": tdcc_change(series_by_threshold[600], 1),
+            "tdcc_1w_change_800": tdcc_change(series_by_threshold[800], 1),
+            "tdcc_1w_change_1000": tdcc_change(series_by_threshold[1000], 1),
+            "tdcc_2w_change_400": tdcc_change(series_by_threshold[400], 2),
+            "tdcc_2w_change_600": tdcc_change(series_by_threshold[600], 2),
+            "tdcc_2w_change_800": tdcc_change(series_by_threshold[800], 2),
+            "tdcc_2w_change_1000": tdcc_change(series_by_threshold[1000], 2),
+            "tdcc_3w_change_400": tdcc_change(series_by_threshold[400], 3),
+            "tdcc_3w_change_600": tdcc_change(series_by_threshold[600], 3),
+            "tdcc_3w_change_800": tdcc_change(series_by_threshold[800], 3),
+            "tdcc_3w_change_1000": tdcc_change(series_by_threshold[1000], 3),
+            "tdcc_consecutive_up_weeks": tdcc_consecutive_up,
+            "all_thresholds_up": all(has.values()),
+            "high_thresholds_up": has[800] and has[1000],
             "created_at": now_text(),
             "updated_at": now_text(),
         }
         for th in THRESHOLDS:
-            ratio = ratio_to_high(tdcc_series(snapshots, code, th))
+            ratio = ratio_to_high(series_by_threshold[th])
             item[f"tdcc_{th}_ratio_20w_high"] = ratio
             item[f"tdcc_{th}_near_20w_high"] = ratio >= 0.95 if not math.isnan(ratio) else ""
         item.update(metrics)
+        item["tdcc_price_phase"] = classify_tdcc_price_phase(item)
         item["is_price_not_reacted"] = to_number(item.get("price_return_20d")) <= 10
         item["is_quiet_accumulation"] = item["is_consecutive_2w"] and (item["has_800"] or item["has_1000"]) and item["is_price_not_reacted"]
         item["is_early_breakout"] = item.get("breakout_20d") and to_number(item.get("price_return_20d")) <= 15
@@ -237,11 +352,12 @@ def build_snapshot() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     breadth = build_theme_breadth(snapshot)
     score_map = breadth.set_index("primary_theme")["breadth_score"].to_dict() if not breadth.empty else {}
     sync_map = breadth.set_index("primary_theme")["sync_status"].to_dict() if not breadth.empty else {}
+    level_map = breadth.set_index("primary_theme")["theme_breadth_level"].to_dict() if not breadth.empty and "theme_breadth_level" in breadth.columns else {}
     snapshot["theme_breadth_score"] = snapshot["primary_theme"].map(score_map).fillna(0)
     snapshot["theme_sync_status"] = snapshot["primary_theme"].map(sync_map).fillna("neutral")
+    snapshot["theme_breadth_level"] = snapshot["primary_theme"].map(level_map).fillna("Neutral")
 
-    normalized = snapshot[
-        [
+    normalized_columns = [
             "signal_id",
             "signal_date",
             "code",
@@ -256,14 +372,51 @@ def build_snapshot() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
             "is_all_thresholds",
             "is_consecutive_2w",
             "is_consecutive_3w",
+            "tdcc_consecutive_up_weeks",
+            "all_thresholds_up",
+            "high_thresholds_up",
+            "tdcc_1w_change_400",
+            "tdcc_1w_change_600",
+            "tdcc_1w_change_800",
+            "tdcc_1w_change_1000",
+            "tdcc_2w_change_400",
+            "tdcc_2w_change_600",
+            "tdcc_2w_change_800",
+            "tdcc_2w_change_1000",
+            "tdcc_3w_change_400",
+            "tdcc_3w_change_600",
+            "tdcc_3w_change_800",
+            "tdcc_3w_change_1000",
             "pre_5d_return",
+            "price_ret_1w",
+            "price_ret_2w",
+            "price_ret_3w",
+            "price_ret_4w",
+            "relative_ret_1w",
+            "relative_ret_2w",
+            "relative_ret_3w",
+            "relative_ret_4w",
+            "volume_ratio_1w",
+            "volume_ratio_2w",
+            "distance_from_20d_high",
+            "distance_from_60d_high",
+            "distance_from_ma20",
+            "distance_from_ma60",
+            "tdcc_price_phase",
+            "benchmark_index",
+            "market_regime",
             "overheat_bucket",
             "price_confirm_bucket",
             "theme_breadth_score",
+            "theme_breadth_level",
+            "theme_sync_status",
             "created_at",
             "updated_at",
-        ]
-    ].copy()
+    ]
+    for col in normalized_columns:
+        if col not in snapshot.columns:
+            snapshot[col] = ""
+    normalized = snapshot[normalized_columns].copy()
     normalized["priority_group"] = normalized.apply(priority_group, axis=1)
     return snapshot, normalized, breadth
 
@@ -325,6 +478,7 @@ def build_theme_breadth(snapshot: pd.DataFrame) -> pd.DataFrame:
                 "breadth_score": score,
                 "sync_status": sync,
                 "theme_priority": priority,
+                "theme_breadth_level": priority if priority in {"A", "B", "C"} else "Neutral",
                 "representative_codes": reps,
                 "created_at": now_text(),
                 "updated_at": now_text(),
@@ -345,6 +499,17 @@ def main() -> int:
         write_csv(normalized, NORMALIZED_LOG)
         write_csv(breadth, THEME_BREADTH)
 
+    phase_dist = pd.DataFrame()
+    if not snapshot.empty and "tdcc_price_phase" in snapshot.columns:
+        latest_date = safe_str(snapshot["signal_date"].max())
+        latest_snapshot = snapshot[snapshot["signal_date"].astype(str) == latest_date].copy()
+        phase_dist = (
+            latest_snapshot.groupby(["tdcc_consecutive_up_weeks", "tdcc_price_phase"], dropna=False)
+            .size()
+            .reset_index(name="signal_count")
+            .sort_values(["tdcc_consecutive_up_weeks", "signal_count"], ascending=[False, False])
+        )
+
     lines = [
         "# TDCC Normalized Signal Structures",
         "",
@@ -355,7 +520,11 @@ def main() -> int:
         "",
         "## Latest Theme Breadth",
         "",
-        markdown_table(breadth.tail(50).sort_values("breadth_score", ascending=False), ["signal_date", "primary_theme", "total_signal_count", "all_threshold_count", "consecutive_2w_count", "breadth_score", "sync_status", "theme_priority", "representative_codes"], 50),
+        markdown_table(breadth.tail(50).sort_values("breadth_score", ascending=False), ["signal_date", "primary_theme", "total_signal_count", "all_threshold_count", "consecutive_2w_count", "breadth_score", "sync_status", "theme_priority", "theme_breadth_level", "representative_codes"], 50),
+        "",
+        "## TDCC Price Phase Distribution",
+        "",
+        markdown_table(phase_dist, ["tdcc_consecutive_up_weeks", "tdcc_price_phase", "signal_count"], 80),
         "",
     ]
     OUTPUT_MD.write_text("\n".join(lines), encoding="utf-8")
