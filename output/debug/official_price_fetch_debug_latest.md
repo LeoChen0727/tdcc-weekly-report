@@ -1,6 +1,6 @@
 # 官方每日價格資料抓取狀態
 
-- 產生時間：`2026-05-24 13:02:14 Asia/Taipei`
+- 產生時間：`2026-05-24 13:58:06 Asia/Taipei`
 - target_date：`20260524`
 - saved_price_date：`20260524`
 - is_target_date：`True`
@@ -45,9 +45,7 @@
 - GET https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/05/24&type=EW&response=csv -> status=200, chars=11371
 - TPEX_NEW_AFTERTRADING_CSV: parsed TPEx CSV rows=0
 - Trying TPEx batch source=TPEX_OLD_DAILY_JSON date=20260524
-- GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=json&d=115/05/24&s=0,asc,0 failed: ChunkedEncodingError: Response ended prematurely
-- Trying TPEx batch source=TPEX_OLD_DAILY_CSV date=20260524
-- GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=csv&d=115/05/24&s=0,asc,0 -> status=200, chars=1447660
-- TPEX_OLD_DAILY_CSV: parsed TPEx CSV rows=5684
-- TPEx batch selected source=TPEX_OLD_DAILY_CSV, rows=5684
+- GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=json&d=115/05/24&s=0,asc,0 -> status=200, chars=1458501
+- TPEX_OLD_DAILY_JSON: parsed TPEx JSON rows=5684
+- TPEx batch selected source=TPEX_OLD_DAILY_JSON, rows=5684
 - date=20260524 twse_rows=1235 tpex_rows=5684 total_rows=6919 full_market_ok=True
