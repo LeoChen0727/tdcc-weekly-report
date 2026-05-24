@@ -48,6 +48,7 @@ jobs:
           git pull --rebase origin main || true
 
           git add output/latest/individual_stock_reports/ || true
+          git add output/latest/charts/ || true
           git add output/history/individual_stock_reports/ || true
           git add docs/latest/individual_stock_reports/ || true
 

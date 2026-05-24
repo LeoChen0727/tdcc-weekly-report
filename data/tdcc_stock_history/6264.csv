@@ -1,0 +1,5 @@
+﻿as_of_date,stock_id,stock_name,theme,retail_ratio,retail_ratio_change_1w,total_shareholders,total_shareholders_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up,four_thresholds_sync_up,theme_breadth_level,over_400_ratio,over_400_change_1w,over_400_change_2w,over_400_change_3w,over_600_ratio,over_600_change_1w,over_600_change_2w,over_600_change_3w,over_800_ratio,over_800_change_1w,over_800_change_2w,over_800_change_3w,over_1000_ratio,over_1000_change_1w,over_1000_change_2w,over_1000_change_3w
+20260430,6264,富裔,,,,,,0,False,False,False,Neutral,71.54,,,,69.01,,,,68.57,,,,67.15,,,
+20260508,6264,富裔,,,,,,1,True,True,True,Neutral,71.59,0.04999999999999716,,,69.06,0.04999999999999716,,,68.62,0.05000000000001137,,,67.2,0.04999999999999716,,
+20260515,6264,富裔,,,,,,0,False,False,False,Neutral,71.58,-0.010000000000005116,0.03999999999999204,,69.06,0.0,0.04999999999999716,,68.62,0.0,0.05000000000001137,,67.2,0.0,0.04999999999999716,
+20260522,6264,富裔,,,,,,0,False,False,False,Neutral,71.57,-0.010000000000005116,-0.020000000000010232,0.029999999999986926,69.06,0.0,0.0,0.04999999999999716,68.62,0.0,0.0,0.05000000000001137,67.2,0.0,0.0,0.04999999999999716

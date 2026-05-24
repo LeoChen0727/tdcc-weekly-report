@@ -1,0 +1,5 @@
+﻿as_of_date,stock_id,stock_name,theme,retail_ratio,retail_ratio_change_1w,total_shareholders,total_shareholders_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up,four_thresholds_sync_up,theme_breadth_level,over_400_ratio,over_400_change_1w,over_400_change_2w,over_400_change_3w,over_600_ratio,over_600_change_1w,over_600_change_2w,over_600_change_3w,over_800_ratio,over_800_change_1w,over_800_change_2w,over_800_change_3w,over_1000_ratio,over_1000_change_1w,over_1000_change_2w,over_1000_change_3w
+20260430,7709,榮田,,,,,,0,False,False,False,Neutral,79.49,,,,79.49,,,,77.45,,,,77.45,,,
+20260508,7709,榮田,,,,,,0,False,False,False,Neutral,79.48,-0.009999999999990905,,,79.48,-0.009999999999990905,,,77.44,-0.010000000000005116,,,77.44,-0.010000000000005116,,
+20260515,7709,榮田,,,,,,0,False,False,False,Neutral,79.48,0.0,-0.009999999999990905,,79.48,0.0,-0.009999999999990905,,77.44,0.0,-0.010000000000005116,,77.44,0.0,-0.010000000000005116,
+20260522,7709,榮田,,,,,,0,False,False,False,Neutral,79.48,0.0,0.0,-0.009999999999990905,79.48,0.0,0.0,-0.009999999999990905,77.44,0.0,0.0,-0.010000000000005116,77.44,0.0,0.0,-0.010000000000005116

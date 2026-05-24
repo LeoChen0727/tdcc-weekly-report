@@ -1,0 +1,5 @@
+﻿as_of_date,stock_id,stock_name,theme,retail_ratio,retail_ratio_change_1w,total_shareholders,total_shareholders_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up,four_thresholds_sync_up,theme_breadth_level,over_400_ratio,over_400_change_1w,over_400_change_2w,over_400_change_3w,over_600_ratio,over_600_change_1w,over_600_change_2w,over_600_change_3w,over_800_ratio,over_800_change_1w,over_800_change_2w,over_800_change_3w,over_1000_ratio,over_1000_change_1w,over_1000_change_2w,over_1000_change_3w
+20260430,6756,威鋒電子,,,,,,0,False,False,False,Neutral,60.79,,,,57.45,,,,57.45,,,,57.45,,,
+20260508,6756,威鋒電子,,,,,,1,False,False,False,Neutral,61.46,0.6700000000000017,,,57.45,0.0,,,57.45,0.0,,,57.45,0.0,,
+20260515,6756,威鋒電子,,,,,,2,False,False,False,Neutral,61.68,0.21999999999999886,0.8900000000000006,,57.45,0.0,0.0,,57.45,0.0,0.0,,57.45,0.0,0.0,
+20260522,6756,威鋒電子,,,,,,3,False,False,False,Neutral,61.69,0.00999999999999801,0.22999999999999687,0.8999999999999986,57.45,0.0,0.0,0.0,57.45,0.0,0.0,0.0,57.45,0.0,0.0,0.0

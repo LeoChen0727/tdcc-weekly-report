@@ -1,0 +1,5 @@
+﻿as_of_date,stock_id,stock_name,theme,retail_ratio,retail_ratio_change_1w,total_shareholders,total_shareholders_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up,four_thresholds_sync_up,theme_breadth_level,over_400_ratio,over_400_change_1w,over_400_change_2w,over_400_change_3w,over_600_ratio,over_600_change_1w,over_600_change_2w,over_600_change_3w,over_800_ratio,over_800_change_1w,over_800_change_2w,over_800_change_3w,over_1000_ratio,over_1000_change_1w,over_1000_change_2w,over_1000_change_3w
+20260430,6840,東研信超,,,,,,0,False,False,False,Neutral,54.04,,,,48.72,,,,44.29,,,,38.83,,,
+20260508,6840,東研信超,,,,,,0,False,False,False,Neutral,54.04,0.0,,,48.72,0.0,,,44.29,0.0,,,38.83,0.0,,
+20260515,6840,東研信超,,,,,,1,False,False,False,Neutral,54.05,0.00999999999999801,0.00999999999999801,,48.73,0.00999999999999801,0.00999999999999801,,44.29,0.0,0.0,,38.83,0.0,0.0,
+20260522,6840,東研信超,,,,,,0,False,False,False,Neutral,54.05,0.0,0.00999999999999801,0.00999999999999801,48.73,0.0,0.00999999999999801,0.00999999999999801,44.29,0.0,0.0,0.0,38.83,0.0,0.0,0.0

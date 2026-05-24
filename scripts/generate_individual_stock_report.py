@@ -35,6 +35,11 @@ from reportlab.platypus import (
     TableStyle,
 )
 
+from tdcc_stock_history_utils import (
+    plot_tdcc_history_chart,
+    tdcc_history_analysis,
+)
+
 
 OWNER_REPO = "LeoChen0727/tdcc-weekly-report"
 RAW_PREFIX = f"https://raw.githubusercontent.com/{OWNER_REPO}/main"
@@ -45,6 +50,7 @@ STOCK_PRICE_HISTORY_DIR = Path("data/stock_price_history")
 LATEST_DIR = Path("output/latest")
 DOCS_LATEST_DIR = Path("docs/latest")
 HISTORY_DIR = Path("output/history/individual_stock_reports")
+LATEST_CHART_DIR = LATEST_DIR / "charts"
 
 INDIVIDUAL_LATEST_DIR = LATEST_DIR / "individual_stock_reports"
 DOCS_INDIVIDUAL_DIR = DOCS_LATEST_DIR / "individual_stock_reports"
@@ -849,6 +855,218 @@ def bullet_list(items: list[str]) -> str:
     return "\n".join(f"- {clean_text(item)}" for item in items if clean_text(item))
 
 
+def format_bool(value: Any) -> str:
+    text = safe_str(value).lower()
+    if text in {"true", "1", "yes"}:
+        return "True"
+    if text in {"false", "0", "no"}:
+        return "False"
+    return "-"
+
+
+def tdcc_panel_table_rows(panel: pd.DataFrame, limit: int = 12) -> list[list[str]]:
+    rows = [[
+        "as_of_date",
+        ">400",
+        ">600",
+        ">800",
+        ">1000",
+        "chg400",
+        "chg800",
+        "chg1000",
+        "up_wks",
+        "ret_1w",
+        "ret_2w",
+        "rel_2w",
+        "phase",
+    ]]
+    if panel.empty:
+        return rows
+    for _, row in panel.tail(limit).iterrows():
+        rows.append(
+            [
+                safe_str(row.get("as_of_date")),
+                fmt_num(row.get("over_400_ratio")),
+                fmt_num(row.get("over_600_ratio")),
+                fmt_num(row.get("over_800_ratio")),
+                fmt_num(row.get("over_1000_ratio")),
+                fmt_num(row.get("over_400_change_1w")),
+                fmt_num(row.get("over_800_change_1w")),
+                fmt_num(row.get("over_1000_change_1w")),
+                fmt_num(row.get("tdcc_consecutive_up_weeks"), 0),
+                fmt_pct(row.get("price_ret_1w")),
+                fmt_pct(row.get("price_ret_2w")),
+                fmt_pct(row.get("relative_ret_2w")),
+                safe_str(row.get("tdcc_price_phase")) or "-",
+            ]
+        )
+    return rows
+
+
+def latest_tdcc_weeks(latest: Any) -> float:
+    if latest is None:
+        return math.nan
+    return safe_float(latest.get("tdcc_consecutive_up_weeks"))
+
+
+def tdcc_history_markdown(analysis: dict[str, Any], tdcc_chart_path: Path | None) -> str:
+    panel: pd.DataFrame = analysis.get("panel", pd.DataFrame())
+    status: dict[str, Any] = analysis.get("status", {})
+    latest = analysis.get("latest")
+    backtest: pd.DataFrame = analysis.get("backtest", pd.DataFrame())
+    latest_phase = analysis.get("phase", "insufficient_tdcc_history")
+    weeks = latest_tdcc_weeks(latest)
+    lines = [
+        "## TDCC 歷史籌碼 × 股價反應分析",
+        "",
+        "### 資料狀態",
+        "",
+        f"- TDCC history 可用週數：`{status.get('tdcc_history_weeks', 0)}`",
+        f"- 最新 TDCC 日期：`{status.get('latest_tdcc_date', '-')}`",
+        f"- 連續 2 週 / 3 週資料：`{format_bool(not math.isnan(weeks) and weeks >= 2)} / {format_bool(not math.isnan(weeks) and weeks >= 3)}`",
+        f"- 價格資料對齊：`{format_bool(status.get('price_aligned'))}`",
+        f"- benchmark 可用：`{format_bool(status.get('benchmark_available'))}`",
+        f"- TDCC-price phase：`{latest_phase}`",
+    ]
+    if status.get("insufficient_tdcc_history"):
+        lines.append("- 狀態：`insufficient_tdcc_history`，TDCC 週資料不足，不能硬下結論。")
+    if tdcc_chart_path and tdcc_chart_path.exists():
+        lines.extend(["", f"![TDCC history]({tdcc_chart_path.as_posix()})"])
+    else:
+        lines.extend(["", "TDCC history 資料不足，未產生 TDCC 時序圖。"])
+
+    table_rows = tdcc_panel_table_rows(panel, 12)
+    lines.extend(["", "### 最近 8～12 週 TDCC 時序表", ""])
+    lines.append("| " + " | ".join(table_rows[0]) + " |")
+    lines.append("| " + " | ".join(["---"] * len(table_rows[0])) + " |")
+    if len(table_rows) > 1:
+        for row in table_rows[1:]:
+            lines.append("| " + " | ".join(row) + " |")
+    else:
+        lines.append("| - | - | - | - | - | - | - | - | - | - | - | - | insufficient_tdcc_history |")
+
+    lines.extend(["", "### TDCC 趨勢判讀", ""])
+    if latest is None:
+        lines.append("- TDCC history 不足，無法判斷連續增加、同步增加或股價反應。")
+    else:
+        lines.extend(
+            [
+                f"- 大戶是否連續增加：`{fmt_num(latest.get('tdcc_consecutive_up_weeks'), 0)}` 週。",
+                f"- >800 / >1000 高級距同步增加：`{format_bool(latest.get('high_thresholds_up'))}`。",
+                f"- 四級距同步增加：`{format_bool(latest.get('four_thresholds_sync_up'))}`。",
+                f"- 散戶比例是否下降：`{'NA' if not safe_str(latest.get('retail_ratio_change_1w')) else fmt_num(latest.get('retail_ratio_change_1w'))}`。",
+                f"- 股東人數是否下降或上升：`{'NA' if not safe_str(latest.get('total_shareholders_change_1w')) else fmt_num(latest.get('total_shareholders_change_1w'))}`。",
+                f"- 是否出現集中化：`{format_bool(not math.isnan(weeks) and weeks >= 2 and str(latest.get('high_thresholds_up')).lower() == 'true')}`。",
+                f"- 股價反應階段：`{analysis.get('price_reaction_stage', '-')}`。",
+            ]
+        )
+
+    lines.extend(["", "### 該股歷史類似型態回測", ""])
+    if backtest.empty:
+        lines.append("- `insufficient_sample`")
+    else:
+        row = backtest.iloc[0]
+        lines.extend(
+            [
+                f"- phase：`{safe_str(row.get('phase'))}`",
+                f"- sample_count：`{safe_str(row.get('sample_count'))}` / sample_status：`{safe_str(row.get('sample_status'))}`",
+                f"- avg_ret_d5 / d10 / d20：{fmt_pct(row.get('avg_ret_d5'))} / {fmt_pct(row.get('avg_ret_d10'))} / {fmt_pct(row.get('avg_ret_d20'))}",
+                f"- win_rate_d10：{fmt_pct(row.get('win_rate_d10'))}",
+                f"- avg_relative_ret_d10：{fmt_pct(row.get('avg_relative_ret_d10'))}",
+                f"- MFE_D10 / MAE_D10：{fmt_pct(row.get('avg_mfe_d10'))} / {fmt_pct(row.get('avg_mae_d10'))}",
+            ]
+        )
+
+    lines.extend(
+        [
+            "",
+            "### 結論",
+            "",
+            f"- TDCC 支持度：{analysis.get('tdcc_support', '資料不足')}",
+            f"- 股價反應階段：{analysis.get('price_reaction_stage', '資料不足')}",
+            f"- 是否符合潛伏吸籌：{analysis.get('is_quiet_accumulation', '樣本不足')}",
+            f"- 是否可視為加分因子：{analysis.get('is_positive_factor', '只能觀察')}",
+            f"- 主要風險：{' / '.join(analysis.get('main_risks', []))}",
+        ]
+    )
+    return "\n".join(lines)
+
+
+def append_tdcc_history_pdf_section(
+    story: list[Any],
+    style_map: dict[str, ParagraphStyle],
+    analysis: dict[str, Any],
+    tdcc_chart_path: Path | None,
+) -> None:
+    panel: pd.DataFrame = analysis.get("panel", pd.DataFrame())
+    status: dict[str, Any] = analysis.get("status", {})
+    latest = analysis.get("latest")
+    backtest: pd.DataFrame = analysis.get("backtest", pd.DataFrame())
+    weeks = latest_tdcc_weeks(latest)
+    story.append(paragraph("TDCC 歷史籌碼 × 股價反應分析", style_map["h1"]))
+    status_rows = [
+        ["項目", "內容"],
+        ["TDCC history 可用週數", status.get("tdcc_history_weeks", 0)],
+        ["最新 TDCC 日期", status.get("latest_tdcc_date", "-")],
+        ["連續 2/3 週資料", f"{format_bool(not math.isnan(weeks) and weeks >= 2)} / {format_bool(not math.isnan(weeks) and weeks >= 3)}"],
+        ["價格資料對齊", format_bool(status.get("price_aligned"))],
+        ["benchmark 可用", format_bool(status.get("benchmark_available"))],
+        ["TDCC-price phase", analysis.get("phase", "insufficient_tdcc_history")],
+    ]
+    story.append(pdf_table(status_rows, [4.3 * cm, 13.2 * cm], style_map))
+    story.append(Spacer(1, 0.15 * cm))
+    if tdcc_chart_path and tdcc_chart_path.exists():
+        story.append(PdfImage(str(tdcc_chart_path), width=17.2 * cm, height=8.8 * cm))
+        story.append(Spacer(1, 0.15 * cm))
+    else:
+        story.append(paragraph("TDCC history 資料不足，未產生 TDCC 時序圖。", style_map["normal"]))
+
+    rows = tdcc_panel_table_rows(panel, 10)
+    if len(rows) > 1:
+        story.append(paragraph("最近 8～12 週 TDCC 時序表", style_map["h2"]))
+        story.append(pdf_table(rows, [1.65 * cm, 1.1 * cm, 1.1 * cm, 1.1 * cm, 1.1 * cm, 1.1 * cm, 1.1 * cm, 1.1 * cm, 0.9 * cm, 1.2 * cm, 1.2 * cm, 1.2 * cm, 3.0 * cm], style_map))
+
+    story.append(paragraph("TDCC 趨勢判讀", style_map["h2"]))
+    if latest is None:
+        trend_text = "TDCC history 不足，無法判斷連續增加、同步增加或股價反應。"
+    else:
+        trend_text = (
+            f"連續增加 {fmt_num(latest.get('tdcc_consecutive_up_weeks'), 0)} 週；"
+            f"高級距同步增加={format_bool(latest.get('high_thresholds_up'))}；"
+            f"四級距同步增加={format_bool(latest.get('four_thresholds_sync_up'))}；"
+            f"股價反應階段={analysis.get('price_reaction_stage', '-')}。"
+        )
+    story.append(paragraph(trend_text, style_map["normal"]))
+
+    story.append(paragraph("該股歷史類似型態回測", style_map["h2"]))
+    if backtest.empty:
+        story.append(paragraph("insufficient_sample", style_map["normal"]))
+    else:
+        row = backtest.iloc[0]
+        backtest_rows = [
+            ["phase", "sample", "avg D5/D10/D20", "win D10", "rel D10", "MFE/MAE D10"],
+            [
+                row.get("phase", "-"),
+                f"{row.get('sample_count', 0)} / {row.get('sample_status', '-')}",
+                f"{fmt_pct(row.get('avg_ret_d5'))} / {fmt_pct(row.get('avg_ret_d10'))} / {fmt_pct(row.get('avg_ret_d20'))}",
+                fmt_pct(row.get("win_rate_d10")),
+                fmt_pct(row.get("avg_relative_ret_d10")),
+                f"{fmt_pct(row.get('avg_mfe_d10'))} / {fmt_pct(row.get('avg_mae_d10'))}",
+            ],
+        ]
+        story.append(pdf_table(backtest_rows, [3.0 * cm, 2.6 * cm, 4.0 * cm, 2.2 * cm, 2.4 * cm, 3.3 * cm], style_map))
+
+    conclusion_rows = [
+        ["結論項目", "判斷"],
+        ["TDCC 支持度", analysis.get("tdcc_support", "資料不足")],
+        ["股價反應階段", analysis.get("price_reaction_stage", "資料不足")],
+        ["是否符合潛伏吸籌", analysis.get("is_quiet_accumulation", "樣本不足")],
+        ["是否可視為加分因子", analysis.get("is_positive_factor", "只能觀察")],
+        ["主要風險", " / ".join(analysis.get("main_risks", []))],
+    ]
+    story.append(pdf_table(conclusion_rows, [4.0 * cm, 13.5 * cm], style_map))
+
+
 def build_markdown(
     stock_id: str,
     stock_name: str,
@@ -864,6 +1082,8 @@ def build_markdown(
     priority: str,
     risks: list[str],
     chart_path: Path,
+    tdcc_history: dict[str, Any],
+    tdcc_chart_path: Path | None,
     paths: ReportPaths,
 ) -> str:
     page_pdf_url = pages_url(paths.docs_pdf)
@@ -947,6 +1167,8 @@ def build_markdown(
             "",
             bullet_list(risks),
             "",
+            tdcc_history_markdown(tdcc_history, tdcc_chart_path),
+            "",
             "## 九、明日觀察條件",
             "",
             bullet_list(price_metrics.get("confirmation", [])),
@@ -971,6 +1193,8 @@ def build_pdf(
     priority: str,
     risks: list[str],
     chart_path: Path,
+    tdcc_history: dict[str, Any],
+    tdcc_chart_path: Path | None,
     path: Path,
 ) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -1060,6 +1284,8 @@ def build_pdf(
     for item in risks:
         story.append(paragraph(f"- {item}", style_map["normal"]))
 
+    append_tdcc_history_pdf_section(story, style_map, tdcc_history, tdcc_chart_path)
+
     story.append(paragraph("八、明日觀察條件", style_map["h1"]))
     for item in price_metrics.get("confirmation", []):
         story.append(paragraph(f"- {item}", style_map["normal"]))
@@ -1130,7 +1356,11 @@ def write_manifest(
     days: int,
     price_metrics: dict[str, Any],
     priority: str,
+    tdcc_history: dict[str, Any] | None = None,
+    tdcc_chart_path: Path | None = None,
 ) -> None:
+    tdcc_history = tdcc_history or {}
+    tdcc_status = tdcc_history.get("status", {})
     manifest = {
         "generated_at": now_text(),
         "status": "generated",
@@ -1149,6 +1379,11 @@ def write_manifest(
         "raw_md_url": raw_url(paths.latest_md),
         "raw_pdf_url": raw_url(paths.latest_pdf),
         "raw_chart_url": raw_url(paths.latest_png),
+        "tdcc_history_source": tdcc_status.get("source", ""),
+        "tdcc_history_weeks": tdcc_status.get("tdcc_history_weeks", 0),
+        "tdcc_price_phase": tdcc_history.get("phase", ""),
+        "tdcc_history_chart_path": tdcc_chart_path.as_posix() if tdcc_chart_path and tdcc_chart_path.exists() else "",
+        "tdcc_history_chart_raw_url": raw_url(tdcc_chart_path) if tdcc_chart_path and tdcc_chart_path.exists() else "",
         "history_md_path": paths.history_md.as_posix(),
         "history_pdf_path": paths.history_pdf.as_posix(),
     }
@@ -1180,12 +1415,22 @@ def generate(stock_id_input: str, days: int) -> ReportPaths:
     warrant = warrant_summary(warrant_row)
     priority = overall_priority(price_metrics, candidate_rows, tdcc, warrant)
     risks = build_risks(price_metrics, tdcc, warrant, candidate_rows)
+    tdcc_history = tdcc_history_analysis(stock_id)
     paths = make_paths(stock_id, main_date)
+    tdcc_chart_path = LATEST_CHART_DIR / f"{stock_id}_tdcc_history.png"
 
     for path in [paths.latest_md, paths.latest_pdf, paths.latest_png, paths.latest_json]:
         path.parent.mkdir(parents=True, exist_ok=True)
 
     plot_price_chart(price_history, stock_id, stock_name, days, paths.latest_png)
+    tdcc_chart_created = plot_tdcc_history_chart(
+        stock_id,
+        stock_name,
+        tdcc_history.get("panel", pd.DataFrame()),
+        tdcc_chart_path,
+    )
+    if not tdcc_chart_created and tdcc_chart_path.exists():
+        tdcc_chart_path.unlink()
     md = build_markdown(
         stock_id=stock_id,
         stock_name=stock_name,
@@ -1201,6 +1446,8 @@ def generate(stock_id_input: str, days: int) -> ReportPaths:
         priority=priority,
         risks=risks,
         chart_path=paths.latest_png,
+        tdcc_history=tdcc_history,
+        tdcc_chart_path=tdcc_chart_path if tdcc_chart_created else None,
         paths=paths,
     )
     paths.latest_md.write_text(md, encoding="utf-8")
@@ -1219,9 +1466,21 @@ def generate(stock_id_input: str, days: int) -> ReportPaths:
         priority=priority,
         risks=risks,
         chart_path=paths.latest_png,
+        tdcc_history=tdcc_history,
+        tdcc_chart_path=tdcc_chart_path if tdcc_chart_created else None,
         path=paths.latest_pdf,
     )
-    write_manifest(paths, stock_id, stock_name, main_date, days, price_metrics, priority)
+    write_manifest(
+        paths,
+        stock_id,
+        stock_name,
+        main_date,
+        days,
+        price_metrics,
+        priority,
+        tdcc_history=tdcc_history,
+        tdcc_chart_path=tdcc_chart_path if tdcc_chart_created else None,
+    )
     copy_outputs(paths)
 
     print(f"Saved: {paths.latest_md}")

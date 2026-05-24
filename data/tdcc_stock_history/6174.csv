@@ -1,0 +1,5 @@
+﻿as_of_date,stock_id,stock_name,theme,retail_ratio,retail_ratio_change_1w,total_shareholders,total_shareholders_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up,four_thresholds_sync_up,theme_breadth_level,over_400_ratio,over_400_change_1w,over_400_change_2w,over_400_change_3w,over_600_ratio,over_600_change_1w,over_600_change_2w,over_600_change_3w,over_800_ratio,over_800_change_1w,over_800_change_2w,over_800_change_3w,over_1000_ratio,over_1000_change_1w,over_1000_change_2w,over_1000_change_3w
+20260430,6174,安碁,,,,,,0,False,False,False,Neutral,66.55,,,,59.86,,,,58.63,,,,57.01,,,
+20260508,6174,安碁,,,,,,0,False,False,False,Neutral,64.55,-2.0,,,59.86,0.0,,,58.63,0.0,,,57.01,0.0,,
+20260515,6174,安碁,,,,,,0,False,False,False,Neutral,64.53,-0.01999999999999602,-2.019999999999996,,58.63,-1.2299999999999969,-1.2299999999999969,,58.63,0.0,0.0,,57.01,0.0,0.0,
+20260522,6174,安碁,,,,,,0,False,False,False,Neutral,62.53,-2.0,-2.019999999999996,-4.019999999999996,58.52,-0.10999999999999943,-1.3399999999999963,-1.3399999999999963,57.01,-1.6200000000000045,-1.6200000000000045,-1.6200000000000045,57.01,0.0,0.0,0.0

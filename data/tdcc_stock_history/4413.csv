@@ -1,0 +1,5 @@
+﻿as_of_date,stock_id,stock_name,theme,retail_ratio,retail_ratio_change_1w,total_shareholders,total_shareholders_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up,four_thresholds_sync_up,theme_breadth_level,over_400_ratio,over_400_change_1w,over_400_change_2w,over_400_change_3w,over_600_ratio,over_600_change_1w,over_600_change_2w,over_600_change_3w,over_800_ratio,over_800_change_1w,over_800_change_2w,over_800_change_3w,over_1000_ratio,over_1000_change_1w,over_1000_change_2w,over_1000_change_3w
+20260430,4413,飛寶企業,,,,,,0,False,False,False,Neutral,69.25,,,,61.01,,,,52.55,,,,52.55,,,
+20260508,4413,飛寶企業,,,,,,0,False,False,False,Neutral,69.25,0.0,,,61.01,0.0,,,52.55,0.0,,,52.55,0.0,,
+20260515,4413,飛寶企業,,,,,,0,False,False,False,Neutral,69.25,0.0,0.0,,61.01,0.0,0.0,,52.55,0.0,0.0,,52.55,0.0,0.0,
+20260522,4413,飛寶企業,,,,,,0,False,False,False,Neutral,69.25,0.0,0.0,0.0,61.01,0.0,0.0,0.0,52.55,0.0,0.0,0.0,52.55,0.0,0.0,0.0

@@ -35,6 +35,26 @@ Important groups of fields:
 
 The snapshot must use only data available on or before `signal_date`. Future prices are used only by the performance table, never to rewrite the original phase.
 
+## Per-stock TDCC History
+
+`data/tdcc_stock_history/{stock_id}.csv` stores weekly TDCC history for one stock.
+
+The weekly TDCC workflow rebuilds these files from `output/history/tdcc/tdcc_holder_ratio_*.csv` and the latest TDCC holder ratio file. Each file is deduped by `as_of_date + stock_id`, sorted by date, and keeps history instead of only the latest row.
+
+Important fields:
+
+- `over_400_ratio`, `over_600_ratio`, `over_800_ratio`, `over_1000_ratio`.
+- `over_400_change_1w`, `over_800_change_1w`, `over_1000_change_1w`.
+- `over_400_change_2w`, `over_800_change_2w`, `over_1000_change_2w`.
+- `over_400_change_3w`, `over_800_change_3w`, `over_1000_change_3w`.
+- `tdcc_consecutive_up_weeks`.
+- `all_thresholds_up`, `high_thresholds_up`, `four_thresholds_sync_up`.
+- `theme_breadth_level`.
+
+If the raw TDCC source does not provide retail ratio or total shareholder count, those columns stay blank instead of failing the workflow.
+
+The individual stock report first reads `data/tdcc_stock_history/{stock_id}.csv`. If it is missing, it falls back to normalized TDCC signal tables, marks the history source, and continues the stock report with `insufficient_tdcc_history` when needed.
+
 ## TDCC-price Phase
 
 `tdcc_price_phase` describes the relationship between TDCC accumulation and price reaction at the signal date.

@@ -1,0 +1,5 @@
+﻿as_of_date,stock_id,stock_name,theme,retail_ratio,retail_ratio_change_1w,total_shareholders,total_shareholders_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up,four_thresholds_sync_up,theme_breadth_level,over_400_ratio,over_400_change_1w,over_400_change_2w,over_400_change_3w,over_600_ratio,over_600_change_1w,over_600_change_2w,over_600_change_3w,over_800_ratio,over_800_change_1w,over_800_change_2w,over_800_change_3w,over_1000_ratio,over_1000_change_1w,over_1000_change_2w,over_1000_change_3w
+20260430,3551,世禾,,,,,,0,False,False,False,Neutral,49.84,,,,43.97,,,,37.15,,,,34.24,,,
+20260508,3551,世禾,,,,,,1,False,True,False,Neutral,50.88,1.0399999999999991,,,44.16,0.18999999999999773,,,38.47,1.3200000000000003,,,34.24,0.0,,
+20260515,3551,世禾,,,,,,0,False,False,False,Neutral,50.38,-0.5,0.5399999999999991,,43.85,-0.30999999999999517,-0.11999999999999744,,37.15,-1.3200000000000003,0.0,,34.24,0.0,0.0,
+20260522,3551,世禾,,,,,,0,False,False,False,Neutral,48.7,-1.6799999999999997,-2.1799999999999997,-1.1400000000000006,42.84,-1.009999999999998,-1.3199999999999932,-1.1299999999999955,37.15,0.0,-1.3200000000000003,0.0,34.24,0.0,0.0,0.0
