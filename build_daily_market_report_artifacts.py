@@ -75,8 +75,9 @@ CATEGORY_ORDER = [
     "revenue_pullback",
     "pullback_rebound",
     "pattern",
-    "chip_flow_positive_streak",
 ]
+
+EXCLUDED_FINAL_REPORT_CATEGORIES = {"chip_flow_positive_streak"}
 
 CATEGORY_CN = {
     "true_breakout": "嚴格突破",
@@ -87,7 +88,6 @@ CATEGORY_CN = {
     "revenue_pullback": "營收成長股價回檔",
     "pullback_rebound": "回檔後短線轉強",
     "pattern": "型態觀察",
-    "chip_flow_positive_streak": "主力-三大法人-八大行庫連續轉強",
 }
 
 SUMMARY_LIMIT_BY_CATEGORY = {
@@ -99,7 +99,6 @@ SUMMARY_LIMIT_BY_CATEGORY = {
     "revenue_pullback": 5,
     "pullback_rebound": 5,
     "pattern": 5,
-    "chip_flow_positive_streak": 5,
 }
 
 FULL_PDF_ROWS_PER_PAGE = 18
@@ -282,6 +281,8 @@ def load_candidates() -> pd.DataFrame:
 
     if "category_cn" not in df.columns:
         df["category_cn"] = df["category"].map(lambda x: CATEGORY_CN.get(safe_str(x), safe_str(x)))
+
+    df = df[~df["category"].astype(str).isin(EXCLUDED_FINAL_REPORT_CATEGORIES)].copy()
 
     if "note" not in df.columns:
         df["note"] = ""
@@ -1250,7 +1251,7 @@ def get_category_groups(df: pd.DataFrame) -> list[tuple[str, pd.DataFrame]]:
 
     remaining = [
         c for c in df["category"].dropna().astype(str).unique().tolist()
-        if c not in used
+        if c not in used and c not in EXCLUDED_FINAL_REPORT_CATEGORIES
     ]
 
     for category in remaining:

@@ -28,10 +28,6 @@ DAILY_SIGNAL_PERFORMANCE = Path("output/history/daily_signals/daily_candidate_si
 DAILY_SIGNAL_SUMMARY_MD = LATEST_DIR / "daily_signal_performance_summary_latest.md"
 DAILY_SIGNAL_WEEKLY_PDF = LATEST_DIR / "daily_signal_performance_weekly_latest.pdf"
 DAILY_SIGNAL_MONTHLY_PDF = LATEST_DIR / "daily_signal_performance_monthly_latest.pdf"
-CHIP_FLOW_STREAK_CSV = LATEST_DIR / "chip_flow_positive_streak_latest.csv"
-CHIP_FLOW_STREAK_MD = LATEST_DIR / "chip_flow_positive_streak_latest.md"
-CHIP_FLOW_STATUS_JSON = LATEST_DIR / "chip_flow_source_status_latest.json"
-INSTITUTIONAL_FLOW_CSV = LATEST_DIR / "institutional_investor_flow_latest.csv"
 WARRANT_MARKET_MD = LATEST_DIR / "warrant_market_report_latest.md"
 WARRANT_MARKET_PDF = LATEST_DIR / "warrant_market_report_latest.pdf"
 WARRANT_FLOW_BY_STOCK_CSV = LATEST_DIR / "warrant_flow_by_stock_latest.csv"
@@ -309,18 +305,6 @@ def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path],
     lines.append(f"monthly_report_pdf_pages_url: {pages_url(Path('docs/latest/daily_signal_performance_monthly_latest.pdf'))}")
     lines.append(f"last_updated_at: {now_text()}")
     lines.append(f"status: {'generated' if DAILY_SIGNAL_LOG.exists() and DAILY_SIGNAL_PERFORMANCE.exists() else 'missing'}")
-    lines.append("")
-    chip_flow_status = read_json(CHIP_FLOW_STATUS_JSON)
-    lines.append("CHIP FLOW POSITIVE STREAK")
-    lines.append(f"definition: main_force_net_lots - institutional_net_lots - eight_banks_net_lots > 0 for 3 consecutive trading days")
-    lines.append(f"status: {chip_flow_status.get('status', 'missing')}")
-    lines.append(f"reason: {chip_flow_status.get('reason', '')}")
-    lines.append(f"latest_csv_raw_url: {raw_url(CHIP_FLOW_STREAK_CSV)}")
-    lines.append(f"latest_md_raw_url: {raw_url(CHIP_FLOW_STREAK_MD)}")
-    lines.append(f"status_json_raw_url: {raw_url(CHIP_FLOW_STATUS_JSON)}")
-    lines.append(f"institutional_flow_raw_url: {raw_url(INSTITUTIONAL_FLOW_CSV)}")
-    lines.append("broker_branch_data_required: True")
-    lines.append("do_not_infer_if_status_not_ready: True")
     lines.append("")
     lines.append("WARRANT MARKET ANALYSIS")
     lines.append(f"market_report_md_raw_url: {raw_url(WARRANT_MARKET_MD)}")

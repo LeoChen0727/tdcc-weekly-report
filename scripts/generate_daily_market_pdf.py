@@ -54,8 +54,9 @@ CATEGORY_ORDER = [
     "revenue_pullback",
     "pullback_rebound",
     "pattern",
-    "chip_flow_positive_streak",
 ]
+
+EXCLUDED_FINAL_REPORT_CATEGORIES = {"chip_flow_positive_streak"}
 
 CATEGORY_LABEL = {
     "true_breakout": "嚴格突破",
@@ -66,7 +67,6 @@ CATEGORY_LABEL = {
     "revenue_pullback": "營收成長股價回檔",
     "pullback_rebound": "回檔後短線轉強",
     "pattern": "型態觀察",
-    "chip_flow_positive_streak": "主力-三大法人-八大行庫連續轉強",
 }
 
 CATEGORY_SHORT = {
@@ -76,7 +76,6 @@ CATEGORY_SHORT = {
     "revenue_pullback": "營收回檔",
     "pullback_rebound": "短線轉強",
     "pattern": "型態觀察",
-    "chip_flow_positive_streak": "籌碼連正",
 }
 
 MATRIX_COLUMNS = {
@@ -86,7 +85,6 @@ MATRIX_COLUMNS = {
     "revenue_pullback": "營收回檔",
     "pullback_rebound": "短線轉強",
     "pattern": "型態觀察",
-    "chip_flow_positive_streak": "籌碼連正",
 }
 
 BULLISH_WARRANT_SIGNALS = {
@@ -320,6 +318,8 @@ def load_candidates() -> pd.DataFrame:
     if not ALL_CANDIDATES_CSV.exists():
         raise FileNotFoundError(f"Missing {ALL_CANDIDATES_CSV}")
     df = pd.read_csv(ALL_CANDIDATES_CSV, dtype=str, keep_default_na=False)
+    if "category" in df.columns:
+        df = df[~df["category"].astype(str).isin(EXCLUDED_FINAL_REPORT_CATEGORIES)].copy()
     for col in ["score", "rank", "volume_ratio", "return_20d", "return_60d", "return_120d"]:
         if col in df.columns:
             df[col] = pd.to_numeric(df[col], errors="coerce")
@@ -565,7 +565,6 @@ def selected_by_category(df: pd.DataFrame, limit_default: int = 5) -> dict[str, 
         "revenue_pullback": 5,
         "pullback_rebound": 5,
         "pattern": 5,
-        "chip_flow_positive_streak": 5,
     }
     result: dict[str, pd.DataFrame] = {}
     for cat, part in category_groups(df):
