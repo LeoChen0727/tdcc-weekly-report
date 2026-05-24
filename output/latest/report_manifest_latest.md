@@ -1,6 +1,6 @@
 # 每日報告 Manifest
 
-- 產生時間：`2026-05-24 08:37:04 Asia/Taipei`
+- 產生時間：`2026-05-24 09:35:25 Asia/Taipei`
 - 主資料日期：`20260524`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：完整候選清單與官方價格資料日期一致，可以產出正式每日報告
@@ -9,8 +9,8 @@
 
 - policy: `local_price_redraw_first`
 - status: `generated`
-- total_charts: `20`
-- local_price_redraw_count: `20`
+- total_charts: `15`
+- local_price_redraw_count: `15`
 - chart_path_fallback_count: `0`
 - missing_count: `0`
 - status_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/pdf_kline_chart_status_latest.md
