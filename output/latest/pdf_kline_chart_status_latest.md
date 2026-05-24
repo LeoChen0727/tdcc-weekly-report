@@ -2,8 +2,8 @@
 
 - status: `generated`
 - policy: `local_price_redraw_first`
-- total_charts: `15`
-- local_price_redraw_count: `15`
+- total_charts: `20`
+- local_price_redraw_count: `20`
 - chart_path_fallback_count: `0`
 - missing_count: `0`
 - pdf_kline_output_dir: `output/latest/charts/pdf_kline`
@@ -22,6 +22,11 @@
 | 2537 | 聯上發 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2537_聯上發_revenue_breakout_low_response_180d.png` | `data/daily_price` |
 | 2542 | 興富發 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2542_興富發_revenue_breakout_low_response_180d.png` | `data/daily_price` |
 | 4934 | 太極 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/4934_太極_revenue_breakout_low_response_180d.png` | `data/daily_price` |
+| 2406 | 國碩 | revenue_pullback | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2406_國碩_revenue_pullback_180d.png` | `data/daily_price` |
+| 2451 | 創見 | revenue_pullback | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2451_創見_revenue_pullback_180d.png` | `data/daily_price` |
+| 6531 | 愛普* | revenue_pullback | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/6531_愛普__revenue_pullback_180d.png` | `data/daily_price` |
+| 8021 | 尖點 | revenue_pullback | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/8021_尖點_revenue_pullback_180d.png` | `data/daily_price` |
+| 8271 | 宇瞻 | revenue_pullback | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/8271_宇瞻_revenue_pullback_180d.png` | `data/daily_price` |
 | 0056 | 元大高股息 | pattern | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/0056_元大高股息_pattern_180d.png` | `data/daily_price` |
 | 1215 | 卜蜂 | pattern | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/1215_卜蜂_pattern_180d.png` | `data/daily_price` |
 | 1304 | 台聚 | pattern | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/1304_台聚_pattern_180d.png` | `data/daily_price` |

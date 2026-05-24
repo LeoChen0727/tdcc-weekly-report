@@ -1,6 +1,6 @@
 # 全市場權證資料分析與追蹤
 
-- generated_at: `2026-05-24 09:35:16 Asia/Taipei`
+- generated_at: `2026-05-24 11:12:58 Asia/Taipei`
 - data_date: `20260524`
 - raw_rows: `29584`
 - stock_level_rows: `458`
@@ -25,24 +25,24 @@
 | --- | --- | --- | --- | --- | --- | --- |
 | 2330 | 台積電 | 0.0 | 939 |  |  |  |
 | 0063 | 元大滬深300正2 | 0.0 | 650 |  |  |  |
-| 2317 | 鴻海 | 0.0 | 537 | pattern |  |  |
+| 2317 | 鴻海 | 0.0 | 537 | pattern,revenue_pullback |  |  |
 | 2454 | 聯發科 | 0.0 | 511 | range_rebound |  |  |
 | 3661 | 世芯-KY | 0.0 | 472 |  |  |  |
 | 0001 | 臺股指數 | 0.0 | 463 |  |  |  |
-| 6669 | 緯穎 | 0.0 | 424 |  |  |  |
-| 3017 | 奇鋐 | 0.0 | 414 |  |  |  |
+| 6669 | 緯穎 | 0.0 | 424 | revenue_pullback |  |  |
+| 3017 | 奇鋐 | 0.0 | 414 | revenue_pullback |  |  |
 | 2313 | 華通 | 0.0 | 320 |  |  |  |
 | 2327 | 國巨* | 0.0 | 309 |  |  |  |
-| 2308 | 台達電 | 0.0 | 299 |  |  |  |
-| 2345 | 智邦 | 0.0 | 291 |  |  |  |
+| 2308 | 台達電 | 0.0 | 299 | revenue_pullback |  |  |
+| 2345 | 智邦 | 0.0 | 291 | revenue_pullback |  |  |
 | 2303 | 聯電 | 0.0 | 268 |  |  |  |
-| 2368 | 金像電 | 0.0 | 256 |  |  |  |
+| 2368 | 金像電 | 0.0 | 256 | revenue_pullback |  |  |
 | 3665 | 貿聯-KY | 0.0 | 256 |  |  |  |
 | 1303 | 南亞 | 0.0 | 252 |  |  |  |
 | 4958 | 臻鼎-KY | 0.0 | 246 |  |  |  |
 | 0073 | 期元大道瓊白銀(原名：元大道瓊白銀) | 0.0 | 244 |  |  |  |
 | 3008 | 大立光 | 0.0 | 241 |  |  |  |
-| 3715 | 定穎投控 | 0.0 | 240 |  |  |  |
+| 3715 | 定穎投控 | 0.0 | 240 | revenue_pullback |  |  |
 
 ## 四、認售成交金額前20名標的
 
@@ -52,22 +52,22 @@
 | 2330 | 台積電 | 0.0 | 214 |  |  |  |
 | 0050 | 元大台灣50 | 0.0 | 197 |  |  |  |
 | 0063 | 元大滬深300正2 | 0.0 | 188 |  |  |  |
-| 2308 | 台達電 | 0.0 | 60 |  |  |  |
-| 6770 | 力積電 | 0.0 | 52 | pattern |  |  |
-| 2317 | 鴻海 | 0.0 | 48 | pattern |  |  |
+| 2308 | 台達電 | 0.0 | 60 | revenue_pullback |  |  |
+| 6770 | 力積電 | 0.0 | 52 | pattern,revenue_pullback |  |  |
+| 2317 | 鴻海 | 0.0 | 48 | pattern,revenue_pullback |  |  |
 | 2454 | 聯發科 | 0.0 | 48 | range_rebound |  |  |
 | 2313 | 華通 | 0.0 | 46 |  |  |  |
 | 0073 | 期元大道瓊白銀(原名：元大道瓊白銀) | 0.0 | 45 |  |  |  |
 | 2327 | 國巨* | 0.0 | 45 |  |  |  |
-| 6669 | 緯穎 | 0.0 | 42 |  |  |  |
-| 2345 | 智邦 | 0.0 | 41 |  |  |  |
-| 3017 | 奇鋐 | 0.0 | 40 |  |  |  |
+| 6669 | 緯穎 | 0.0 | 42 | revenue_pullback |  |  |
+| 2345 | 智邦 | 0.0 | 41 | revenue_pullback |  |  |
+| 3017 | 奇鋐 | 0.0 | 40 | revenue_pullback |  |  |
 | 3037 | 欣興 | 0.0 | 40 |  |  |  |
 | 0064 | 期元大S&P石油(原名：元大S&P石油) | 0.0 | 36 |  |  |  |
 | 0070 | 期元大S&P黃金正2(原名：元大S&P黃金正2) | 0.0 | 28 |  |  |  |
 | 2059 | 川湖 | 0.0 | 28 |  |  |  |
 | 1303 | 南亞 | 0.0 | 27 |  |  |  |
-| 2368 | 金像電 | 0.0 | 26 |  |  |  |
+| 2368 | 金像電 | 0.0 | 26 | revenue_pullback |  |  |
 
 ## 五、Call/Put 比異常標的
 
@@ -90,59 +90,59 @@
 | 1313 | 聯成 | pattern |  | 0.0 | 0.0 |  |
 | 1402 | 遠東新 | pattern |  | 0.0 | 0.0 |  |
 | 1409 | 新纖 | pattern |  | 0.0 | 0.0 |  |
+| 1503 | 士電 | revenue_pullback |  | 0.0 | 0.0 |  |
 | 1504 | 東元 | pattern |  | 0.0 | 0.0 |  |
 | 1513 | 中興電 | pattern |  | 0.0 | 0.0 |  |
-| 1514 | 亞力 | pattern |  | 0.0 | 0.0 |  |
+| 1514 | 亞力 | pattern,revenue_pullback |  | 0.0 | 0.0 |  |
 | 1536 | 和大 | pattern |  | 0.0 | 0.0 |  |
 | 1582 | 信錦 | range_rebound |  | 0.0 | 0.0 |  |
+| 1590 | 亞德客-KY | revenue_pullback |  | 0.0 | 0.0 |  |
+| 1597 | 直得 | revenue_pullback |  | 0.0 | 0.0 |  |
 | 1605 | 華新 | pattern |  | 0.0 | 0.0 |  |
 | 1609 | 大亞 | pattern |  | 0.0 | 0.0 |  |
-| 1708 | 東鹼 | pattern |  | 0.0 | 0.0 |  |
+| 1708 | 東鹼 | pattern,revenue_pullback |  | 0.0 | 0.0 |  |
 | 1710 | 東聯 | pattern |  | 0.0 | 0.0 |  |
-| 1714 | 和桐 | pattern,revenue_breakout_low_response |  | 0.0 | 0.0 |  |
+| 1714 | 和桐 | pattern,revenue_breakout_low_response,revenue_pullback |  | 0.0 | 0.0 |  |
 | 1773 | 勝一 | range_rebound |  | 0.0 | 0.0 |  |
 | 1802 | 台玻 | pattern |  | 0.0 | 0.0 |  |
 | 1905 | 華紙 | pattern |  | 0.0 | 0.0 |  |
 | 2009 | 第一銅 | pattern |  | 0.0 | 0.0 |  |
 | 2027 | 大成鋼 | pattern |  | 0.0 | 0.0 |  |
-| 2101 | 南港 | revenue_breakout_low_response |  | 0.0 | 0.0 |  |
+| 2101 | 南港 | revenue_breakout_low_response,revenue_pullback |  | 0.0 | 0.0 |  |
 | 2103 | 台橡 | pattern |  | 0.0 | 0.0 |  |
 | 2105 | 正新 | pattern |  | 0.0 | 0.0 |  |
 | 2233 | 宇隆 | range_rebound |  | 0.0 | 0.0 |  |
-| 2301 | 光寶科 | pattern |  | 0.0 | 0.0 |  |
+| 2301 | 光寶科 | pattern,revenue_pullback |  | 0.0 | 0.0 |  |
+| 2308 | 台達電 | revenue_pullback |  | 0.0 | 0.0 |  |
 | 2312 | 金寶 | pattern |  | 0.0 | 0.0 |  |
-| 2317 | 鴻海 | pattern |  | 0.0 | 0.0 |  |
+| 2317 | 鴻海 | pattern,revenue_pullback |  | 0.0 | 0.0 |  |
 | 2324 | 仁寶 | pattern,range_rebound |  | 0.0 | 0.0 |  |
 | 2328 | 廣宇 | pattern |  | 0.0 | 0.0 |  |
 | 2329 | 華泰 | pattern |  | 0.0 | 0.0 |  |
 | 2332 | 友訊 | range_rebound |  | 0.0 | 0.0 |  |
-| 2337 | 旺宏 | pattern |  | 0.0 | 0.0 |  |
+| 2337 | 旺宏 | pattern,revenue_pullback |  | 0.0 | 0.0 |  |
 | 2338 | 光罩 | pattern |  | 0.0 | 0.0 |  |
-| 2344 | 華邦電 | pattern |  | 0.0 | 0.0 |  |
-| 2347 | 聯強 | revenue_breakout_low_response |  | 0.0 | 0.0 |  |
+| 2344 | 華邦電 | pattern,revenue_pullback |  | 0.0 | 0.0 |  |
+| 2345 | 智邦 | revenue_pullback |  | 0.0 | 0.0 |  |
+| 2347 | 聯強 | revenue_breakout_low_response,revenue_pullback |  | 0.0 | 0.0 |  |
 | 2352 | 佳世達 | pattern,range_rebound |  | 0.0 | 0.0 |  |
-| 2353 | 宏碁 | pattern,range_rebound,revenue_breakout_low_response |  | 0.0 | 0.0 |  |
+| 2353 | 宏碁 | pattern,range_rebound,revenue_breakout_low_response,revenue_pullback |  | 0.0 | 0.0 |  |
 | 2354 | 鴻準 | pattern |  | 0.0 | 0.0 |  |
 | 2355 | 敬鵬 | range_rebound |  | 0.0 | 0.0 |  |
 | 2356 | 英業達 | pattern |  | 0.0 | 0.0 |  |
-| 2357 | 華碩 | pattern |  | 0.0 | 0.0 |  |
+| 2357 | 華碩 | pattern,revenue_pullback |  | 0.0 | 0.0 |  |
 | 2359 | 所羅門 | pattern |  | 0.0 | 0.0 |  |
+| 2360 | 致茂 | revenue_pullback |  | 0.0 | 0.0 |  |
 | 2362 | 藍天 | range_rebound |  | 0.0 | 0.0 |  |
-| 2363 | 矽統 | pattern,range_rebound |  | 0.0 | 0.0 |  |
+| 2363 | 矽統 | pattern,range_rebound,revenue_pullback |  | 0.0 | 0.0 |  |
 | 2365 | 昆盈 | pattern |  | 0.0 | 0.0 |  |
-| 2369 | 菱生 | pattern |  | 0.0 | 0.0 |  |
-| 2374 | 佳能 | pattern,revenue_breakout_low_response |  | 0.0 | 0.0 |  |
+| 2368 | 金像電 | revenue_pullback |  | 0.0 | 0.0 |  |
+| 2369 | 菱生 | pattern,revenue_pullback |  | 0.0 | 0.0 |  |
+| 2374 | 佳能 | pattern,revenue_breakout_low_response,revenue_pullback |  | 0.0 | 0.0 |  |
+| 2376 | 技嘉 | revenue_pullback |  | 0.0 | 0.0 |  |
 | 2377 | 微星 | pattern |  | 0.0 | 0.0 |  |
 | 2379 | 瑞昱 | pattern |  | 0.0 | 0.0 |  |
-| 2385 | 群光 | pattern |  | 0.0 | 0.0 |  |
-| 2388 | 威盛 | range_rebound |  | 0.0 | 0.0 |  |
-| 2392 | 正崴 | pattern |  | 0.0 | 0.0 |  |
-| 2401 | 凌陽 | range_rebound |  | 0.0 | 0.0 |  |
-| 2402 | 毅嘉 | pattern |  | 0.0 | 0.0 |  |
-| 2404 | 漢唐 | pattern |  | 0.0 | 0.0 |  |
-| 2408 | 南亞科 | pattern |  | 0.0 | 0.0 |  |
-| 2419 | 仲琦 | pattern |  | 0.0 | 0.0 |  |
-| 2421 | 建準 | range_rebound |  | 0.0 | 0.0 |  |
+| 2383 | 台光電 | revenue_pullback |  | 0.0 | 0.0 |  |
 
 ## 八、過熱與反指標風險
 
@@ -156,21 +156,21 @@
 | --- | --- | --- | --- | --- | --- |
 | 2330 | 台積電 | 0.0 | 939 |  |  |
 | 0063 | 元大滬深300正2 | 0.0 | 650 |  |  |
-| 2317 | 鴻海 | 0.0 | 537 | pattern |  |
+| 2317 | 鴻海 | 0.0 | 537 | pattern,revenue_pullback |  |
 | 2454 | 聯發科 | 0.0 | 511 | range_rebound |  |
 | 3661 | 世芯-KY | 0.0 | 472 |  |  |
 | 0001 | 臺股指數 | 0.0 | 463 |  |  |
-| 6669 | 緯穎 | 0.0 | 424 |  |  |
-| 3017 | 奇鋐 | 0.0 | 414 |  |  |
+| 6669 | 緯穎 | 0.0 | 424 | revenue_pullback |  |
+| 3017 | 奇鋐 | 0.0 | 414 | revenue_pullback |  |
 | 2313 | 華通 | 0.0 | 320 |  |  |
 | 2327 | 國巨* | 0.0 | 309 |  |  |
-| 2308 | 台達電 | 0.0 | 299 |  |  |
-| 2345 | 智邦 | 0.0 | 291 |  |  |
+| 2308 | 台達電 | 0.0 | 299 | revenue_pullback |  |
+| 2345 | 智邦 | 0.0 | 291 | revenue_pullback |  |
 | 2303 | 聯電 | 0.0 | 268 |  |  |
-| 2368 | 金像電 | 0.0 | 256 |  |  |
+| 2368 | 金像電 | 0.0 | 256 | revenue_pullback |  |
 | 3665 | 貿聯-KY | 0.0 | 256 |  |  |
 | 1303 | 南亞 | 0.0 | 252 |  |  |
 | 4958 | 臻鼎-KY | 0.0 | 246 |  |  |
 | 0073 | 期元大道瓊白銀(原名：元大道瓊白銀) | 0.0 | 244 |  |  |
 | 3008 | 大立光 | 0.0 | 241 |  |  |
-| 3715 | 定穎投控 | 0.0 | 240 |  |  |
+| 3715 | 定穎投控 | 0.0 | 240 | revenue_pullback |  |
