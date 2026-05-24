@@ -1,2 +1,2 @@
 ﻿generated_at,main_price_date,stock_monitor_price_date,all_candidates_date,official_price_fetch_date,warrant_flow_date,report_ready,report_ready_note,stock_monitor_note,official_fetch_note,warrant_note
-2026-05-24 15:40:13,20260524,20260524,20260524,20260524,20260524,True,完整候選清單與官方價格資料日期一致，可以產出正式每日報告,stock_monitor_latest.md 與主資料日期一致,official_price_fetch_latest.md 與主資料日期一致,權證資料與主價格資料日期一致
+2026-05-24 20:14:53,20260524,20260524,20260524,20260524,20260524,True,完整候選清單與官方價格資料日期一致，可以產出正式每日報告,stock_monitor_latest.md 與主資料日期一致,official_price_fetch_latest.md 與主資料日期一致,權證資料與主價格資料日期一致
