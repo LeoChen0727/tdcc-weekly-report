@@ -33,6 +33,11 @@ WARRANT_MARKET_PDF = LATEST_DIR / "warrant_market_report_latest.pdf"
 WARRANT_FLOW_BY_STOCK_CSV = LATEST_DIR / "warrant_flow_by_stock_latest.csv"
 WARRANT_SECTOR_HEAT_CSV = LATEST_DIR / "warrant_sector_heat_latest.csv"
 WARRANT_SIGNAL_PERFORMANCE_MD = LATEST_DIR / "warrant_signal_performance_latest.md"
+MARKET_REGIME_CSV = LATEST_DIR / "market_regime_latest.csv"
+MARKET_RISK_DASHBOARD_MD = LATEST_DIR / "market_risk_dashboard_latest.md"
+MARKET_RISK_DASHBOARD_PDF = LATEST_DIR / "market_risk_dashboard_latest.pdf"
+FUTURES_OPTIONS_INDICATORS_CSV = LATEST_DIR / "futures_options_indicators_latest.csv"
+FUTURES_OPTIONS_SOURCE_STATUS_MD = LATEST_DIR / "futures_options_source_status_latest.md"
 
 SUMMARY_LATEST_MD = LATEST_DIR / "daily_market_summary_latest.md"
 FULL_LATEST_MD = LATEST_DIR / "daily_market_full_latest.md"
@@ -315,6 +320,16 @@ def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path],
     lines.append(f"signal_performance_md_raw_url: {raw_url(WARRANT_SIGNAL_PERFORMANCE_MD)}")
     lines.append(f"status: {'generated' if WARRANT_MARKET_MD.exists() and WARRANT_FLOW_BY_STOCK_CSV.exists() else 'missing'}")
     lines.append("note: Warrant flow is an auxiliary signal only, not a standalone buy reason.")
+    lines.append("")
+    lines.append("MARKET REGIME / FUTURES OPTIONS DASHBOARD")
+    lines.append(f"market_regime_csv_raw_url: {raw_url(MARKET_REGIME_CSV)}")
+    lines.append(f"market_risk_dashboard_md_raw_url: {raw_url(MARKET_RISK_DASHBOARD_MD)}")
+    lines.append(f"market_risk_dashboard_pdf_pages_url: {pages_url(Path('docs/latest/market_risk_dashboard_latest.pdf'))}")
+    lines.append(f"market_risk_dashboard_pdf_raw_url: {raw_url(MARKET_RISK_DASHBOARD_PDF)}")
+    lines.append(f"futures_options_indicators_raw_url: {raw_url(FUTURES_OPTIONS_INDICATORS_CSV)}")
+    lines.append(f"futures_options_source_status_raw_url: {raw_url(FUTURES_OPTIONS_SOURCE_STATUS_MD)}")
+    lines.append(f"status: {'generated' if MARKET_REGIME_CSV.exists() and MARKET_RISK_DASHBOARD_MD.exists() else 'missing'}")
+    lines.append("note: Market regime is background for index futures / exposure review, not a standalone trading instruction.")
     lines.append("")
     lines.append("PURPOSE")
     lines.append("This packet embeds the daily market report content directly.")

@@ -62,6 +62,11 @@ WARRANT_MARKET_PDF = LATEST_DIR / "warrant_market_report_latest.pdf"
 WARRANT_FLOW_BY_STOCK_CSV = LATEST_DIR / "warrant_flow_by_stock_latest.csv"
 WARRANT_SECTOR_HEAT_CSV = LATEST_DIR / "warrant_sector_heat_latest.csv"
 WARRANT_SIGNAL_PERFORMANCE_MD = LATEST_DIR / "warrant_signal_performance_latest.md"
+MARKET_REGIME_CSV = LATEST_DIR / "market_regime_latest.csv"
+MARKET_RISK_DASHBOARD_MD = LATEST_DIR / "market_risk_dashboard_latest.md"
+MARKET_RISK_DASHBOARD_PDF = LATEST_DIR / "market_risk_dashboard_latest.pdf"
+FUTURES_OPTIONS_INDICATORS_CSV = LATEST_DIR / "futures_options_indicators_latest.csv"
+FUTURES_OPTIONS_SOURCE_STATUS_MD = LATEST_DIR / "futures_options_source_status_latest.md"
 
 
 def now_taipei() -> datetime:
@@ -348,6 +353,12 @@ def build_readme(
     warrant_flow_by_stock_raw_url: str,
     warrant_sector_heat_raw_url: str,
     warrant_signal_performance_raw_url: str,
+    market_regime_raw_url: str,
+    market_risk_dashboard_md_raw_url: str,
+    market_risk_dashboard_pdf_pages_url: str,
+    market_risk_dashboard_pdf_raw_url: str,
+    futures_options_indicators_raw_url: str,
+    futures_options_source_status_raw_url: str,
     rules_pages_url: str,
     rules_raw_url: str,
     preferred_chatgpt_url: str,
@@ -393,6 +404,12 @@ def build_readme(
         f"warrant_flow_by_stock_raw_url={warrant_flow_by_stock_raw_url}",
         f"warrant_sector_heat_raw_url={warrant_sector_heat_raw_url}",
         f"warrant_signal_performance_raw_url={warrant_signal_performance_raw_url}",
+        f"market_regime_raw_url={market_regime_raw_url}",
+        f"market_risk_dashboard_md_raw_url={market_risk_dashboard_md_raw_url}",
+        f"market_risk_dashboard_pdf_pages_url={market_risk_dashboard_pdf_pages_url}",
+        f"market_risk_dashboard_pdf_raw_url={market_risk_dashboard_pdf_raw_url}",
+        f"futures_options_indicators_raw_url={futures_options_indicators_raw_url}",
+        f"futures_options_source_status_raw_url={futures_options_source_status_raw_url}",
         f"rules_pages_url={rules_pages_url}",
         f"rules_raw_url={rules_raw_url}",
         f"packet_pages_ok={status_map.get('packet_pages_url')}",
@@ -623,6 +640,12 @@ def main() -> int:
     warrant_flow_by_stock_raw_url = raw_url("main", WARRANT_FLOW_BY_STOCK_CSV)
     warrant_sector_heat_raw_url = raw_url("main", WARRANT_SECTOR_HEAT_CSV)
     warrant_signal_performance_raw_url = raw_url("main", WARRANT_SIGNAL_PERFORMANCE_MD)
+    market_regime_raw_url = raw_url("main", MARKET_REGIME_CSV)
+    market_risk_dashboard_md_raw_url = raw_url("main", MARKET_RISK_DASHBOARD_MD)
+    market_risk_dashboard_pdf_pages_url = pages_url("latest/market_risk_dashboard_latest.pdf")
+    market_risk_dashboard_pdf_raw_url = raw_url("main", MARKET_RISK_DASHBOARD_PDF)
+    futures_options_indicators_raw_url = raw_url("main", FUTURES_OPTIONS_INDICATORS_CSV)
+    futures_options_source_status_raw_url = raw_url("main", FUTURES_OPTIONS_SOURCE_STATUS_MD)
 
     rules_pages_url = pages_url("latest/CHATGPT_DAILY_REPORT_RULES.txt")
     rules_raw_url = raw_url("main", RULES_LATEST)
@@ -671,6 +694,12 @@ def main() -> int:
         warrant_flow_by_stock_raw_url=warrant_flow_by_stock_raw_url,
         warrant_sector_heat_raw_url=warrant_sector_heat_raw_url,
         warrant_signal_performance_raw_url=warrant_signal_performance_raw_url,
+        market_regime_raw_url=market_regime_raw_url,
+        market_risk_dashboard_md_raw_url=market_risk_dashboard_md_raw_url,
+        market_risk_dashboard_pdf_pages_url=market_risk_dashboard_pdf_pages_url,
+        market_risk_dashboard_pdf_raw_url=market_risk_dashboard_pdf_raw_url,
+        futures_options_indicators_raw_url=futures_options_indicators_raw_url,
+        futures_options_source_status_raw_url=futures_options_source_status_raw_url,
         rules_pages_url=rules_pages_url,
         rules_raw_url=rules_raw_url,
         preferred_chatgpt_url=preferred,
@@ -754,6 +783,12 @@ def main() -> int:
         "warrant_flow_by_stock_raw_url": warrant_flow_by_stock_raw_url,
         "warrant_sector_heat_raw_url": warrant_sector_heat_raw_url,
         "warrant_signal_performance_raw_url": warrant_signal_performance_raw_url,
+        "market_regime_raw_url": market_regime_raw_url,
+        "market_risk_dashboard_md_raw_url": market_risk_dashboard_md_raw_url,
+        "market_risk_dashboard_pdf_pages_url": market_risk_dashboard_pdf_pages_url,
+        "market_risk_dashboard_pdf_raw_url": market_risk_dashboard_pdf_raw_url,
+        "futures_options_indicators_raw_url": futures_options_indicators_raw_url,
+        "futures_options_source_status_raw_url": futures_options_source_status_raw_url,
         "rules_pages_url": rules_pages_url,
         "rules_raw_url": rules_raw_url,
         "checks": checks,

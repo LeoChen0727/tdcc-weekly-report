@@ -166,6 +166,13 @@ WARRANT FLOW RULES
 - call_put_bullish may indicate bullish structure but still needs price confirmation.
 - Do not treat warrant flow as the main buy reason.
 
+MARKET REGIME / FUTURES OPTIONS RULES
+- Market regime data is background information for index futures and exposure review.
+- Use market_regime_raw_url, market_risk_dashboard_md_raw_url, and futures_options_indicators_raw_url when a user asks about market background, Taiwan index futures environment, or portfolio exposure water level.
+- TWSE / TPEx index state, TAIFEX three-institution futures/options positioning, TXO Put/Call ratio, and Taiwan VIX should be interpreted together.
+- Do not treat one futures/options indicator as a standalone buy or sell signal.
+- Keep the daily all-market candidate stock report separate from index futures positioning analysis; only cite market_regime as background unless the user asks for the market risk dashboard.
+
 PDF OUTPUT RULES
 ChatGPT should produce two PDFs when asked for the daily report artifacts:
 

@@ -216,6 +216,12 @@ jobs:
         run: |
           python scripts/update_market_index_history.py
 
+      - name: Build market regime dashboard
+        run: |
+          python scripts/fetch_futures_options_indicators.py
+          python scripts/build_market_regime_dashboard.py
+          python scripts/validate_market_regime_dashboard.py
+
       - name: Build warrant market report
         run: |
           python scripts/build_warrant_market_report.py
@@ -474,6 +480,20 @@ jobs:
           git add output/history/daily_signals/ || true
           git add data/market_index_history.csv || true
           git add output/latest/market_benchmark_latest.csv || true
+          git add data/futures_options/ || true
+          git add output/latest/futures_options_indicators_latest.csv || true
+          git add output/latest/futures_options_institutional_fo_latest.csv || true
+          git add output/latest/futures_options_contracts_latest.csv || true
+          git add output/latest/futures_options_call_put_latest.csv || true
+          git add output/latest/futures_options_put_call_ratio_latest.csv || true
+          git add output/latest/futures_options_source_status_latest.json || true
+          git add output/latest/futures_options_source_status_latest.md || true
+          git add output/latest/taiwan_vix_latest.csv || true
+          git add output/latest/market_regime_latest.csv || true
+          git add output/latest/market_risk_dashboard_latest.md || true
+          git add output/latest/market_risk_dashboard_latest.pdf || true
+          git add output/latest/market_risk_dashboard_manifest_latest.json || true
+          git add docs/latest/market_risk_dashboard_latest.pdf || true
           git add output/latest/institutional_investor_flow_latest.csv || true
           git add data/institutional_investor_flow/ || true
           git add output/latest/warrant_market_report_latest.md || true
@@ -489,6 +509,10 @@ jobs:
           git add scripts/generate_daily_market_pdf.py || true
           git add scripts/validate_daily_market_report.py || true
           git add scripts/tracking_utils.py || true
+          git add scripts/fetch_futures_options_indicators.py || true
+          git add scripts/build_market_regime_dashboard.py || true
+          git add scripts/validate_market_regime_dashboard.py || true
+          git add docs/market_regime_data_source_plan.md || true
           git add scripts/update_market_index_history.py || true
           git add scripts/update_daily_candidate_signal_log.py || true
           git add scripts/update_daily_candidate_signal_performance.py || true
