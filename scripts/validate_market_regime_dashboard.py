@@ -19,17 +19,21 @@ REQUIRED_FILES = [
     Path("output/latest/charts/market_regime/market_index_technical_6m.png"),
     Path("output/latest/charts/market_regime/risk_indicators_6m.png"),
     Path("output/latest/charts/market_regime/foreign_futures_net_oi_6m.png"),
+    Path("output/latest/charts/market_regime/retail_mtx_proxy_6m.png"),
 ]
 
 REQUIRED_CHART_FILES = [
     Path("output/latest/charts/market_regime/market_index_technical_6m.png"),
     Path("output/latest/charts/market_regime/risk_indicators_6m.png"),
     Path("output/latest/charts/market_regime/foreign_futures_net_oi_6m.png"),
+    Path("output/latest/charts/market_regime/retail_mtx_proxy_6m.png"),
 ]
 
 REQUIRED_INDICATOR_COLUMNS = [
     "date",
     "foreign_tx_futures_net_oi",
+    "retail_mtx_net_oi_proxy",
+    "retail_mtx_proxy_method",
     "put_call_oi_ratio_pct",
     "taiwan_vix",
     "source_status",
@@ -45,6 +49,8 @@ REQUIRED_REGIME_COLUMNS = [
     "taiwan_vix",
     "put_call_oi_ratio_pct",
     "foreign_tx_futures_net_oi",
+    "retail_mtx_net_oi_proxy",
+    "retail_mtx_state",
 ]
 
 
@@ -93,6 +99,7 @@ def main() -> int:
         "Futures / Options Positioning",
         "Six-Month Technical Charts",
         "Technical / Pattern Notes",
+        "Retail Mini-TAIEX Futures Proxy",
         "Usage Boundary",
     ]:
         if marker not in md:

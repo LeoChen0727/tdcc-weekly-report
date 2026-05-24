@@ -185,6 +185,31 @@ def value_for(df: pd.DataFrame, identity: str, col: str, product: str | None = N
     return float(sum(to_number(v) for v in part[col].tolist()))
 
 
+def sum_valid(values: list[float]) -> float:
+    nums = [value for value in values if not math.isnan(value)]
+    if not nums:
+        return math.nan
+    return float(sum(nums))
+
+
+def retail_mtx_proxy_from_institutional_net_oi(futures_contracts: pd.DataFrame) -> dict[str, float | str]:
+    product = "小型臺指期貨"
+    col = "多空未平倉口數淨額"
+    dealer = value_for(futures_contracts, "自營商", col, product=product)
+    trust = value_for(futures_contracts, "投信", col, product=product)
+    foreign = value_for(futures_contracts, "外資", col, product=product)
+    three_institution = sum_valid([dealer, trust, foreign])
+    retail_proxy = -three_institution if not math.isnan(three_institution) else math.nan
+    return {
+        "dealer_mtx_futures_net_oi": dealer,
+        "trust_mtx_futures_net_oi": trust,
+        "foreign_mtx_futures_net_oi": foreign,
+        "three_institution_mtx_net_oi": three_institution,
+        "retail_mtx_net_oi_proxy": retail_proxy,
+        "retail_mtx_proxy_method": "negative_sum_of_three_institution_mtx_net_oi",
+    }
+
+
 def latest_row(df: pd.DataFrame, date_col: str = "日期") -> pd.Series | None:
     if df.empty or date_col not in df.columns:
         return None
@@ -210,6 +235,7 @@ def build_indicator_row(
     pc_date = safe_str(pc.get("日期", "")) if pc is not None else ""
     vix_date = safe_str(vix_latest.get("date", "")) if vix_latest is not None else ""
     date = max([d for d in [fo_date, pc_date, vix_date] if d] or [latest_price_date()])
+    retail_mtx = retail_mtx_proxy_from_institutional_net_oi(futures_contracts)
 
     row = {
         "date": date,
@@ -226,6 +252,12 @@ def build_indicator_row(
         "foreign_tx_futures_net_oi": value_for(futures_contracts, "外資", "多空未平倉口數淨額", product="臺股期貨"),
         "dealer_tx_futures_net_oi": value_for(futures_contracts, "自營商", "多空未平倉口數淨額", product="臺股期貨"),
         "trust_tx_futures_net_oi": value_for(futures_contracts, "投信", "多空未平倉口數淨額", product="臺股期貨"),
+        "dealer_mtx_futures_net_oi": retail_mtx["dealer_mtx_futures_net_oi"],
+        "trust_mtx_futures_net_oi": retail_mtx["trust_mtx_futures_net_oi"],
+        "foreign_mtx_futures_net_oi": retail_mtx["foreign_mtx_futures_net_oi"],
+        "three_institution_mtx_net_oi": retail_mtx["three_institution_mtx_net_oi"],
+        "retail_mtx_net_oi_proxy": retail_mtx["retail_mtx_net_oi_proxy"],
+        "retail_mtx_proxy_method": retail_mtx["retail_mtx_proxy_method"],
         "foreign_txo_call_net_oi": value_for(options_call_put, "外資", "未平倉口數買賣淨額", product="臺指選擇權", call_put="CALL"),
         "foreign_txo_put_net_oi": value_for(options_call_put, "外資", "未平倉口數買賣淨額", product="臺指選擇權", call_put="PUT"),
         "put_volume": to_number(pc.get("賣權成交量", "")) if pc is not None else math.nan,

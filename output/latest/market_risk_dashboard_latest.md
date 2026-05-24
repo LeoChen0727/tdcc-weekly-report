@@ -1,6 +1,6 @@
 # Market Risk Dashboard
 
-- generated_at: `2026-05-24 13:09:22 Asia/Taipei`
+- generated_at: `2026-05-24 13:55:53 Asia/Taipei`
 - data_date: `20260522`
 - market_regime: `strong_bull`
 - risk_level: `elevated_risk`
@@ -33,6 +33,7 @@ This report uses official market index data already stored in the repo plus TAIF
 | Foreign TX futures net OI | -46,483 | foreign_heavy_net_short |
 | Dealer TX futures net OI | +929 |  |
 | Trust TX futures net OI | +42,047 |  |
+| Retail MTX net OI proxy | +4,129 | neutral |
 | Foreign TXO call net OI | +1,901 |  |
 | Foreign TXO put net OI | +3,893 |  |
 | TXO put/call OI ratio | 156.25% | put_hedge_elevated |
@@ -40,16 +41,25 @@ This report uses official market index data already stored in the repo plus TAIF
 
 ## Six-Month Technical Charts
 
-The PDF version of this dashboard must include six-month charts for index trend, fear/option indicators, and foreign futures positioning. If a source has insufficient history, the PDF still includes a placeholder chart and states the limitation.
+The PDF version of this dashboard must include six-month charts for index trend, fear/option indicators, foreign futures positioning, and retail mini-TAIEX futures proxy positioning. If a source has insufficient history, the PDF still includes a placeholder chart and states the limitation.
 
 - chart: `output/latest/charts/market_regime/market_index_technical_6m.png`
 - chart: `output/latest/charts/market_regime/risk_indicators_6m.png`
 - chart: `output/latest/charts/market_regime/foreign_futures_net_oi_6m.png`
+- chart: `output/latest/charts/market_regime/retail_mtx_proxy_6m.png`
 
 ## Technical / Pattern Notes
 
 - TWSE / TAIEX: strong_bull; close 42,267.97; 6M range 26,504.24-42,267.97; distance from 6M high +0.00%; above MA20=True, above MA60=True.
 - TPEx / OTC: strong_bull; close 423.25; 6M range 250.34-426.57; distance from 6M high -0.78%; above MA20=True, above MA60=True.
+
+## Retail Mini-TAIEX Futures Proxy
+
+- This is a contrarian sentiment proxy, calculated as the negative of the three-institution net open interest in mini-TAIEX futures.
+- latest_proxy_value: `+4,129`
+- state: `neutral`
+- Positive proxy values mean non-three-institution accounts are net long MTX; crowded net-long readings are treated as a caution signal, not a standalone short signal.
+- Negative proxy values mean non-three-institution accounts are net short MTX; extreme net-short readings may support contrarian risk-on interpretation, but still need index confirmation.
 
 ## Risk Notes
 

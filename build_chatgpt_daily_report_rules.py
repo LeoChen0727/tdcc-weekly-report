@@ -170,9 +170,10 @@ MARKET REGIME / FUTURES OPTIONS RULES
 - Market regime data is background information for index futures and exposure review.
 - Use market_regime_raw_url, market_risk_dashboard_md_raw_url, and futures_options_indicators_raw_url when a user asks about market background, Taiwan index futures environment, or portfolio exposure water level.
 - TWSE / TPEx index state, TAIFEX three-institution futures/options positioning, TXO Put/Call ratio, and Taiwan VIX should be interpreted together.
+- retail_mtx_net_oi_proxy is a non-three-institution mini-TAIEX futures proxy, calculated from TAIFEX three-institution MTX net open interest. Use it only as a contrarian sentiment gauge, not as an official retail account count.
 - Do not treat one futures/options indicator as a standalone buy or sell signal.
 - The fixed daily candidate PDFs include a short market background and warrant summary for context.
-- The market risk dashboard PDF must include six-month technical charts for TWSE/TPEx, Taiwan VIX, TXO Put/Call ratio, and foreign TX futures positioning; use those charts when discussing market structure or index futures background.
+- The market risk dashboard PDF must include six-month technical charts for TWSE/TPEx, Taiwan VIX, TXO Put/Call ratio, foreign TX futures positioning, and retail mini-TAIEX futures proxy positioning; use those charts when discussing market structure or index futures background.
 - Keep the daily all-market candidate stock report separate from index futures positioning analysis; cite market_regime as background, and use the standalone market risk dashboard for deeper index/futures/options discussion.
 
 PDF OUTPUT RULES

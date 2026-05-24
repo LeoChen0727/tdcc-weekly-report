@@ -49,6 +49,7 @@ CHART_DIR = LATEST_DIR / "charts/market_regime"
 MARKET_INDEX_CHART = CHART_DIR / "market_index_technical_6m.png"
 RISK_INDICATOR_CHART = CHART_DIR / "risk_indicators_6m.png"
 FOREIGN_FUTURES_CHART = CHART_DIR / "foreign_futures_net_oi_6m.png"
+RETAIL_MTX_PROXY_CHART = CHART_DIR / "retail_mtx_proxy_6m.png"
 
 
 def latest_index_rows() -> pd.DataFrame:
@@ -119,6 +120,20 @@ def classify_foreign_futures(net_oi: float) -> str:
     return "neutral"
 
 
+def classify_retail_mtx_proxy(net_oi: float) -> str:
+    if math.isnan(net_oi):
+        return "unknown"
+    if net_oi >= 20000:
+        return "retail_net_long_crowded"
+    if net_oi >= 10000:
+        return "retail_net_long_watch"
+    if net_oi <= -20000:
+        return "retail_net_short_extreme"
+    if net_oi <= -10000:
+        return "retail_net_short_watch"
+    return "neutral"
+
+
 def risk_score(index_rows: pd.DataFrame, indicators: pd.Series) -> tuple[int, str, list[str]]:
     score = 0
     reasons: list[str] = []
@@ -171,6 +186,18 @@ def risk_score(index_rows: pd.DataFrame, indicators: pd.Series) -> tuple[int, st
         elif foreign_net >= 20000:
             score -= 1
             reasons.append("Foreign TX futures net long")
+
+    retail_mtx = to_number(indicators.get("retail_mtx_net_oi_proxy", ""))
+    if not math.isnan(retail_mtx):
+        if retail_mtx >= 20000:
+            score += 2
+            reasons.append("Retail MTX proxy net long crowded")
+        elif retail_mtx >= 10000:
+            score += 1
+            reasons.append("Retail MTX proxy net long watch")
+        elif retail_mtx <= -20000:
+            score -= 1
+            reasons.append("Retail MTX proxy net short extreme")
 
     if score >= 6:
         return score, "very_high_risk", reasons
@@ -230,6 +257,9 @@ def build_regime_row(index_rows: pd.DataFrame, indicators: pd.Series) -> pd.Data
         "put_call_state": classify_pc_ratio(to_number(indicators.get("put_call_oi_ratio_pct", ""))),
         "foreign_tx_futures_net_oi": indicators.get("foreign_tx_futures_net_oi", ""),
         "foreign_futures_state": classify_foreign_futures(to_number(indicators.get("foreign_tx_futures_net_oi", ""))),
+        "retail_mtx_net_oi_proxy": indicators.get("retail_mtx_net_oi_proxy", ""),
+        "retail_mtx_state": classify_retail_mtx_proxy(to_number(indicators.get("retail_mtx_net_oi_proxy", ""))),
+        "retail_mtx_proxy_method": indicators.get("retail_mtx_proxy_method", ""),
         "source_status": indicators.get("source_status", "missing"),
     }
     return pd.DataFrame([row])
@@ -388,12 +418,60 @@ def make_foreign_futures_chart(path: Path) -> Path:
     return path
 
 
+def retail_mtx_proxy_history() -> pd.DataFrame:
+    futures = read_csv(FUTURES_CONTRACTS_HISTORY, dtype=str)
+    required = {"日期", "商品名稱", "身份別", "多空未平倉口數淨額"}
+    if futures.empty or not required.issubset(set(futures.columns)):
+        return pd.DataFrame()
+    work = futures[
+        futures["商品名稱"].astype(str).str.contains("小型臺指期貨", na=False)
+        & futures["身份別"].astype(str).str.contains("自營商|投信|外資", regex=True, na=False)
+    ].copy()
+    if work.empty:
+        return pd.DataFrame()
+    work["institution_net_oi"] = to_numeric_col(work, "多空未平倉口數淨額")
+    grouped = work.groupby("日期", as_index=False)["institution_net_oi"].sum().rename(columns={"日期": "date"})
+    grouped["retail_mtx_net_oi_proxy"] = grouped["institution_net_oi"] * -1
+    return last_six_months(grouped, "date")
+
+
+def make_retail_mtx_proxy_chart(path: Path) -> Path:
+    data = retail_mtx_proxy_history()
+    if data.empty:
+        return placeholder_chart(path, "Six-Month Retail MTX Proxy Positioning", "No mini-TAIEX futures institutional history available.")
+
+    latest_value = data["retail_mtx_net_oi_proxy"].iloc[-1]
+    path.parent.mkdir(parents=True, exist_ok=True)
+    if len(data) < 2:
+        msg = (
+            f"Only {len(data)} usable observation. Latest proxy value: {clean_signed(latest_value)}. "
+            "Workflow will extend this chart as daily data accumulates."
+        )
+        return placeholder_chart(path, "Six-Month Retail MTX Net OI Proxy", msg)
+
+    fig, ax = plt.subplots(figsize=(11, 4.8))
+    colors_bar = ["#d62728" if x > 0 else "#2ca02c" for x in data["retail_mtx_net_oi_proxy"]]
+    ax.bar(data["_dt"], data["retail_mtx_net_oi_proxy"], color=colors_bar, alpha=0.75, width=1.8)
+    ax.axhline(0, color="#333333", linewidth=0.8)
+    ax.axhline(20000, color="#d62728", linestyle="--", linewidth=0.9, label="retail net long crowded")
+    ax.axhline(-20000, color="#2ca02c", linestyle="--", linewidth=0.9, label="retail net short extreme")
+    ax.set_title("Six-Month Retail Mini-TAIEX Futures Net OI Proxy", fontsize=13, fontweight="bold")
+    ax.grid(True, axis="y", alpha=0.25)
+    ax.legend(loc="upper left", fontsize=8)
+    fig.autofmt_xdate()
+    fig.tight_layout()
+    fig.savefig(path, dpi=150, bbox_inches="tight")
+    plt.close(fig)
+    return path
+
+
 def build_chart_outputs(index_history: pd.DataFrame) -> list[Path]:
     CHART_DIR.mkdir(parents=True, exist_ok=True)
     return [
         make_market_index_chart(index_history, MARKET_INDEX_CHART),
         make_risk_indicator_chart(RISK_INDICATOR_CHART),
         make_foreign_futures_chart(FOREIGN_FUTURES_CHART),
+        make_retail_mtx_proxy_chart(RETAIL_MTX_PROXY_CHART),
     ]
 
 
@@ -464,6 +542,7 @@ def build_markdown(
         ["Foreign TX futures net OI", clean_signed(indicators.get("foreign_tx_futures_net_oi", "")), safe_str(regime.get("foreign_futures_state", ""))],
         ["Dealer TX futures net OI", clean_signed(indicators.get("dealer_tx_futures_net_oi", "")), ""],
         ["Trust TX futures net OI", clean_signed(indicators.get("trust_tx_futures_net_oi", "")), ""],
+        ["Retail MTX net OI proxy", clean_signed(indicators.get("retail_mtx_net_oi_proxy", "")), safe_str(regime.get("retail_mtx_state", ""))],
         ["Foreign TXO call net OI", clean_signed(indicators.get("foreign_txo_call_net_oi", "")), ""],
         ["Foreign TXO put net OI", clean_signed(indicators.get("foreign_txo_put_net_oi", "")), ""],
         ["TXO put/call OI ratio", clean_num(indicators.get("put_call_oi_ratio_pct", ""), 2) + "%", safe_str(regime.get("put_call_state", ""))],
@@ -503,7 +582,7 @@ def build_markdown(
             "",
             "## Six-Month Technical Charts",
             "",
-            "The PDF version of this dashboard must include six-month charts for index trend, fear/option indicators, and foreign futures positioning. If a source has insufficient history, the PDF still includes a placeholder chart and states the limitation.",
+            "The PDF version of this dashboard must include six-month charts for index trend, fear/option indicators, foreign futures positioning, and retail mini-TAIEX futures proxy positioning. If a source has insufficient history, the PDF still includes a placeholder chart and states the limitation.",
             "",
         ]
     )
@@ -517,6 +596,20 @@ def build_markdown(
         ]
     )
     lines.extend(technical_pattern_notes(index_history))
+    retail_proxy = to_number(indicators.get("retail_mtx_net_oi_proxy", ""))
+    retail_state = safe_str(regime.get("retail_mtx_state", "unknown"))
+    lines.extend(
+        [
+            "",
+            "## Retail Mini-TAIEX Futures Proxy",
+            "",
+            "- This is a contrarian sentiment proxy, calculated as the negative of the three-institution net open interest in mini-TAIEX futures.",
+            f"- latest_proxy_value: `{clean_signed(retail_proxy)}`",
+            f"- state: `{retail_state}`",
+            "- Positive proxy values mean non-three-institution accounts are net long MTX; crowded net-long readings are treated as a caution signal, not a standalone short signal.",
+            "- Negative proxy values mean non-three-institution accounts are net short MTX; extreme net-short readings may support contrarian risk-on interpretation, but still need index confirmation.",
+        ]
+    )
     lines.extend(
         [
             "",
@@ -582,7 +675,7 @@ def build_pdf(markdown_text: str, output_path: Path, chart_paths: list[Path]) ->
         if not chart_path.exists():
             continue
         story.append(Paragraph(f"Chart {idx}: {chart_path.name}", styles["HeadingTW"]))
-        if chart_path.name == FOREIGN_FUTURES_CHART.name:
+        if chart_path.name in {FOREIGN_FUTURES_CHART.name, RETAIL_MTX_PROXY_CHART.name}:
             story.append(Image(str(chart_path), width=17.5 * cm, height=7.6 * cm))
         else:
             story.append(Image(str(chart_path), width=17.5 * cm, height=11.3 * cm))
