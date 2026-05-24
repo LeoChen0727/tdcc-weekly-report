@@ -1,0 +1,23 @@
+name: Schedule Probe
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Temporary probe: verify GitHub schedule events fire on this repo.
+    - cron: "*/5 * * * *"
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Print schedule probe metadata
+        run: |
+          echo "event_name=${{ github.event_name }}"
+          echo "workflow=${{ github.workflow }}"
+          echo "ref=${{ github.ref }}"
+          echo "sha=${{ github.sha }}"
+          date -u
