@@ -1,6 +1,6 @@
 # 全市場權證資料分析與追蹤
 
-- generated_at: `2026-05-24 13:09:23 Asia/Taipei`
+- generated_at: `2026-05-24 14:05:16 Asia/Taipei`
 - data_date: `20260524`
 - raw_rows: `29584`
 - stock_level_rows: `458`

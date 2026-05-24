@@ -1,6 +1,6 @@
 # 產業營收適用性檢查
 
-- generated_at: `2026-05-24 13:08:15 Asia/Taipei`
+- generated_at: `2026-05-24 14:03:49 Asia/Taipei`
 - source: `output/latest/all_candidates_latest.csv`
 - construction_like_rows: `21`
 - revenue_category_construction_rows: `15`
