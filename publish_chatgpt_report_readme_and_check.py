@@ -58,6 +58,14 @@ DAILY_SIGNAL_MONTHLY_PDF = LATEST_DIR / "daily_signal_performance_monthly_latest
 DOCS_DAILY_SIGNAL_WEEKLY_PDF = DOCS_LATEST_DIR / "daily_signal_performance_weekly_latest.pdf"
 DOCS_DAILY_SIGNAL_MONTHLY_PDF = DOCS_LATEST_DIR / "daily_signal_performance_monthly_latest.pdf"
 FUNDAMENTAL_CATALYST_MD = LATEST_DIR / "fundamental_catalyst_layer_latest.md"
+CATALYST_SUMMARY_MD = LATEST_DIR / "catalyst_summary_latest.md"
+CATALYST_SUMMARY_CSV = LATEST_DIR / "catalyst_summary_latest.csv"
+CATALYST_VALIDATION_MD = LATEST_DIR / "catalyst_layer_validation_latest.md"
+CATALYST_PERFORMANCE_CSV = Path("output/history/catalyst_performance/catalyst_performance.csv")
+THEME_EVENT_CALENDAR = Path("data/theme_events/theme_event_calendar.csv")
+COMPANY_THEME_MAPPING = Path("data/theme_events/company_theme_mapping.csv")
+QUARTERLY_CATALYST = Path("data/fundamental_catalysts/quarterly_catalyst.csv")
+EVENT_CATALYST_LOG = Path("data/event_catalysts/event_catalyst_log.csv")
 WARRANT_MARKET_MD = LATEST_DIR / "warrant_market_report_latest.md"
 WARRANT_MARKET_PDF = LATEST_DIR / "warrant_market_report_latest.pdf"
 WARRANT_FLOW_BY_STOCK_CSV = LATEST_DIR / "warrant_flow_by_stock_latest.csv"
@@ -342,6 +350,14 @@ def build_readme(
     pdf_kline_total_charts: Any,
     pdf_kline_local_price_redraw_count: Any,
     fundamental_catalyst_layer_raw_url: str,
+    theme_event_calendar_raw_url: str,
+    company_theme_mapping_raw_url: str,
+    quarterly_catalyst_raw_url: str,
+    event_catalyst_log_raw_url: str,
+    catalyst_summary_raw_url: str,
+    catalyst_summary_csv_raw_url: str,
+    catalyst_performance_raw_url: str,
+    catalyst_layer_validation_raw_url: str,
     daily_signal_performance_summary_raw_url: str,
     daily_signal_performance_weekly_md_raw_url: str,
     daily_signal_performance_weekly_pdf_pages_url: str,
@@ -394,6 +410,14 @@ def build_readme(
         "summary_pdf_chart_path_and_chart_url_are_fallback_only=True",
         "do_not_label_summary_pdf_as_chart_path_version_or_image_download_failed=True",
         f"fundamental_catalyst_layer_raw_url={fundamental_catalyst_layer_raw_url}",
+        f"theme_event_calendar_raw_url={theme_event_calendar_raw_url}",
+        f"company_theme_mapping_raw_url={company_theme_mapping_raw_url}",
+        f"quarterly_catalyst_raw_url={quarterly_catalyst_raw_url}",
+        f"event_catalyst_log_raw_url={event_catalyst_log_raw_url}",
+        f"catalyst_summary_raw_url={catalyst_summary_raw_url}",
+        f"catalyst_summary_csv_raw_url={catalyst_summary_csv_raw_url}",
+        f"catalyst_performance_raw_url={catalyst_performance_raw_url}",
+        f"catalyst_layer_validation_raw_url={catalyst_layer_validation_raw_url}",
         f"daily_signal_performance_summary_raw_url={daily_signal_performance_summary_raw_url}",
         f"daily_signal_performance_weekly_md_raw_url={daily_signal_performance_weekly_md_raw_url}",
         f"daily_signal_performance_weekly_pdf_pages_url={daily_signal_performance_weekly_pdf_pages_url}",
@@ -631,6 +655,14 @@ def main() -> int:
         packet_manifest.get("summary_pdf_kline_local_price_redraw_count", 0),
     )
     fundamental_catalyst_layer_raw_url = raw_url("main", FUNDAMENTAL_CATALYST_MD)
+    theme_event_calendar_raw_url = raw_url("main", THEME_EVENT_CALENDAR)
+    company_theme_mapping_raw_url = raw_url("main", COMPANY_THEME_MAPPING)
+    quarterly_catalyst_raw_url = raw_url("main", QUARTERLY_CATALYST)
+    event_catalyst_log_raw_url = raw_url("main", EVENT_CATALYST_LOG)
+    catalyst_summary_raw_url = raw_url("main", CATALYST_SUMMARY_MD)
+    catalyst_summary_csv_raw_url = raw_url("main", CATALYST_SUMMARY_CSV)
+    catalyst_performance_raw_url = raw_url("main", CATALYST_PERFORMANCE_CSV)
+    catalyst_layer_validation_raw_url = raw_url("main", CATALYST_VALIDATION_MD)
     daily_signal_performance_summary_raw_url = raw_url("main", DAILY_SIGNAL_SUMMARY_MD)
     daily_signal_performance_weekly_md_raw_url = raw_url("main", DAILY_SIGNAL_WEEKLY_MD)
     daily_signal_performance_weekly_pdf_pages_url = pages_url("latest/daily_signal_performance_weekly_latest.pdf")
@@ -686,6 +718,14 @@ def main() -> int:
         pdf_kline_total_charts=pdf_kline_total_charts,
         pdf_kline_local_price_redraw_count=pdf_kline_local_price_redraw_count,
         fundamental_catalyst_layer_raw_url=fundamental_catalyst_layer_raw_url,
+        theme_event_calendar_raw_url=theme_event_calendar_raw_url,
+        company_theme_mapping_raw_url=company_theme_mapping_raw_url,
+        quarterly_catalyst_raw_url=quarterly_catalyst_raw_url,
+        event_catalyst_log_raw_url=event_catalyst_log_raw_url,
+        catalyst_summary_raw_url=catalyst_summary_raw_url,
+        catalyst_summary_csv_raw_url=catalyst_summary_csv_raw_url,
+        catalyst_performance_raw_url=catalyst_performance_raw_url,
+        catalyst_layer_validation_raw_url=catalyst_layer_validation_raw_url,
         daily_signal_performance_summary_raw_url=daily_signal_performance_summary_raw_url,
         daily_signal_performance_weekly_md_raw_url=daily_signal_performance_weekly_md_raw_url,
         daily_signal_performance_weekly_pdf_pages_url=daily_signal_performance_weekly_pdf_pages_url,
@@ -776,6 +816,14 @@ def main() -> int:
         "summary_pdf_chart_path_and_chart_url_are_fallback_only": True,
         "do_not_label_summary_pdf_as_chart_path_version_or_image_download_failed": True,
         "fundamental_catalyst_layer_raw_url": fundamental_catalyst_layer_raw_url,
+        "theme_event_calendar_raw_url": theme_event_calendar_raw_url,
+        "company_theme_mapping_raw_url": company_theme_mapping_raw_url,
+        "quarterly_catalyst_raw_url": quarterly_catalyst_raw_url,
+        "event_catalyst_log_raw_url": event_catalyst_log_raw_url,
+        "catalyst_summary_raw_url": catalyst_summary_raw_url,
+        "catalyst_summary_csv_raw_url": catalyst_summary_csv_raw_url,
+        "catalyst_performance_raw_url": catalyst_performance_raw_url,
+        "catalyst_layer_validation_raw_url": catalyst_layer_validation_raw_url,
         "daily_signal_performance_summary_raw_url": daily_signal_performance_summary_raw_url,
         "daily_signal_performance_weekly_md_raw_url": daily_signal_performance_weekly_md_raw_url,
         "daily_signal_performance_weekly_pdf_pages_url": daily_signal_performance_weekly_pdf_pages_url,

@@ -1,0 +1,29 @@
+﻿stock_id,stock_name,industry,theme_tags,theme_source,theme_confidence,theme_summary,last_updated
+2344,華邦電,semiconductor,memory_theme;DRAM and flash;DRAM;flash,config/stock_theme_map.csv,medium,memory / DRAM and flash / memory;DRAM;flash,2026-05-24 15:26:37 Asia/Taipei
+2355,敬鵬,PCB,PCB_CCL_theme;auto electronics,config/stock_theme_map.csv,medium,PCB/CCL / PCB / PCB;auto electronics,2026-05-24 15:26:37 Asia/Taipei
+2375,凱美,electronic components,passive_component_theme;capacitors;capacitor,config/stock_theme_map.csv,medium,passive components / capacitors / capacitor;passive components,2026-05-24 15:26:37 Asia/Taipei
+2481,強茂,semiconductor,power_discrete_theme;diodes;diode;power discrete,config/stock_theme_map.csv,medium,power discrete/diodes / diodes / diode;power discrete,2026-05-24 15:26:37 Asia/Taipei
+2492,華新科,electronic components,passive_component_theme;MLCC,config/stock_theme_map.csv,medium,passive components / MLCC / MLCC;passive components,2026-05-24 15:26:37 Asia/Taipei
+3006,晶豪科,semiconductor,memory_theme;DRAM IC;DRAM,config/stock_theme_map.csv,medium,memory / DRAM IC / memory;DRAM,2026-05-24 15:26:37 Asia/Taipei
+3033,威健,electronic distributors,semiconductor_theme;IC distribution,config/stock_theme_map.csv,medium,semiconductor / IC distribution / IC distribution;semiconductor,2026-05-24 15:26:37 Asia/Taipei
+3048,益登,electronic distributors,semiconductor_theme;IC distribution,config/stock_theme_map.csv,medium,semiconductor / IC distribution / IC distribution;semiconductor,2026-05-24 15:26:37 Asia/Taipei
+3131,弘塑,semiconductor equipment,semiconductor_equipment_theme;wet process,config/stock_theme_map.csv,medium,semiconductor equipment/materials / semiconductor equipment / wet process;semiconductor equipment,2026-05-24 15:26:37 Asia/Taipei
+3305,昇貿,electronic materials,other electronics;solder materials;solder;materials,config/stock_theme_map.csv,medium,other electronics / solder materials / solder;materials,2026-05-24 15:26:37 Asia/Taipei
+3357,臺慶科,electronic components,passive_component_theme;inductors;inductor,config/stock_theme_map.csv,medium,passive components / inductors / inductor;passive components,2026-05-24 15:26:37 Asia/Taipei
+3450,聯鈞,optical communication,optical_communication_theme;optical components;optical,config/stock_theme_map.csv,medium,optical communication/CPO / optical components / optical;CPO,2026-05-24 15:26:37 Asia/Taipei
+3481,群創,optoelectronics,consumer electronics;panel;display,config/stock_theme_map.csv,medium,consumer electronics / panel / panel;display,2026-05-24 15:26:37 Asia/Taipei
+3498,陽程,semiconductor equipment,semiconductor_equipment_theme;automation equipment;automation;equipment,config/stock_theme_map.csv,medium,semiconductor equipment/materials / automation equipment / automation;equipment,2026-05-24 15:26:37 Asia/Taipei
+3624,光頡,electronic components,passive_component_theme;resistors;resistor,config/stock_theme_map.csv,medium,passive components / resistors / resistor;passive components,2026-05-24 15:26:37 Asia/Taipei
+3707,漢磊,semiconductor,semiconductor_theme;foundry;compound semiconductor,config/stock_theme_map.csv,medium,semiconductor / foundry / compound semiconductor;foundry,2026-05-24 15:26:37 Asia/Taipei
+4906,正文,communications,networking_theme;network equipment;wireless,config/stock_theme_map.csv,medium,networking / network equipment / networking;wireless,2026-05-24 15:26:37 Asia/Taipei
+4916,事欣科,computer peripherals,AI_server_theme;IPC_theme;gaming;server,config/stock_theme_map.csv,medium,AI server supply chain / industrial computer / IPC;gaming;server,2026-05-24 15:26:37 Asia/Taipei
+4966,譜瑞-KY,semiconductor,semiconductor_theme;IC design;high-speed interface,config/stock_theme_map.csv,medium,semiconductor / IC design / high-speed interface;IC design,2026-05-24 15:26:37 Asia/Taipei
+5351,鈺創,semiconductor,memory_theme;DRAM IC;IC design,config/stock_theme_map.csv,medium,memory / DRAM IC / memory;IC design,2026-05-24 15:26:37 Asia/Taipei
+5425,台半,semiconductor,power_discrete_theme;diodes;diode;power discrete,config/stock_theme_map.csv,medium,power discrete/diodes / diodes / diode;power discrete,2026-05-24 15:26:37 Asia/Taipei
+5439,高技,PCB,PCB_CCL_theme,config/stock_theme_map.csv,medium,PCB/CCL / PCB / PCB,2026-05-24 15:26:37 Asia/Taipei
+5464,霖宏,PCB,PCB_CCL_theme,config/stock_theme_map.csv,medium,PCB/CCL / PCB / PCB,2026-05-24 15:26:37 Asia/Taipei
+6173,信昌電,electronic components,passive_component_theme;ceramic powder;ceramic;MLCC supply chain,config/stock_theme_map.csv,medium,passive components / ceramic powder / ceramic;MLCC supply chain,2026-05-24 15:26:37 Asia/Taipei
+6285,啟碁,communications,networking_theme;network equipment;communications,config/stock_theme_map.csv,medium,networking / network equipment / networking;communications,2026-05-24 15:26:37 Asia/Taipei
+8028,昇陽半導體,semiconductor,semiconductor_equipment_theme;wafer reclaim;semiconductor materials,config/stock_theme_map.csv,medium,semiconductor equipment/materials / wafer reclaim / wafer reclaim;semiconductor materials,2026-05-24 15:26:37 Asia/Taipei
+8042,金山電,electronic components,passive_component_theme;capacitors;capacitor,config/stock_theme_map.csv,medium,passive components / capacitors / capacitor;passive components,2026-05-24 15:26:37 Asia/Taipei
+8261,富鼎,semiconductor,power_discrete_theme;MOSFET;power discrete,config/stock_theme_map.csv,medium,power discrete/diodes / MOSFET / MOSFET;power discrete,2026-05-24 15:26:37 Asia/Taipei

@@ -1,0 +1,54 @@
+name: Weekly Theme Review
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Sunday 10:00 Asia/Taipei.
+    - cron: "0 2 * * 0"
+
+permissions:
+  contents: write
+
+jobs:
+  weekly-theme-review:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas requests openpyxl
+
+      - name: Refresh theme mapping and catalyst performance
+        run: |
+          python scripts/update_event_catalyst_data.py
+          python scripts/update_catalyst_performance.py
+          python scripts/validate_catalyst_layer.py --schema-only
+
+      - name: Commit weekly theme review outputs
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add data/theme_events/ || true
+          git add data/fundamental_catalysts/ || true
+          git add data/event_catalysts/ || true
+          git add output/history/catalyst_performance/ || true
+          git add output/latest/catalyst_data_source_status_latest.md || true
+          git add output/latest/catalyst_data_source_status_latest.json || true
+          git add output/latest/catalyst_summary_latest.csv || true
+          git add output/latest/catalyst_summary_latest.md || true
+          git add output/latest/catalyst_layer_validation_latest.md || true
+          git add output/latest/catalyst_layer_validation_latest.json || true
+          git commit -m "Update weekly catalyst theme review" || echo "No changes to commit"
+          git pull --rebase origin main || true
+          git push || true

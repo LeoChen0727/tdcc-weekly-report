@@ -208,9 +208,17 @@ jobs:
         run: |
           python scripts/apply_revenue_industry_applicability.py
 
+      - name: Update catalyst data tables
+        run: |
+          python scripts/update_event_catalyst_data.py
+
       - name: Apply fundamental and event catalyst layer
         run: |
           python scripts/apply_fundamental_catalyst_layer.py
+
+      - name: Update catalyst performance tracking
+        run: |
+          python scripts/update_catalyst_performance.py
 
       - name: Build data freshness status
         run: |
@@ -261,6 +269,10 @@ jobs:
         run: |
           python build_chatgpt_daily_report_rules.py
 
+      - name: Validate catalyst layer
+        run: |
+          python scripts/validate_catalyst_layer.py
+
       - name: Prepare GitHub Pages packet and rules files
         run: |
           mkdir -p docs/latest
@@ -274,6 +286,8 @@ jobs:
           cp output/latest/daily_signal_performance_weekly_latest.pdf docs/latest/daily_signal_performance_weekly_latest.pdf || true
           cp output/latest/daily_signal_performance_monthly_latest.pdf docs/latest/daily_signal_performance_monthly_latest.pdf || true
           cp output/latest/warrant_market_report_latest.pdf docs/latest/warrant_market_report_latest.pdf || true
+          cp output/latest/catalyst_summary_latest.md docs/latest/catalyst_summary_latest.md || true
+          cp output/latest/catalyst_layer_validation_latest.md docs/latest/catalyst_layer_validation_latest.md || true
 
           {
             echo "main_price_date=pending"
@@ -328,6 +342,16 @@ jobs:
           git add output/latest/data_freshness_latest.csv || true
           git add output/latest/revenue_industry_applicability_latest.md || true
           git add output/latest/fundamental_catalyst_layer_latest.md || true
+          git add data/theme_events/ || true
+          git add data/fundamental_catalysts/ || true
+          git add data/event_catalysts/ || true
+          git add output/history/catalyst_performance/ || true
+          git add output/latest/catalyst_data_source_status_latest.md || true
+          git add output/latest/catalyst_data_source_status_latest.json || true
+          git add output/latest/catalyst_summary_latest.csv || true
+          git add output/latest/catalyst_summary_latest.md || true
+          git add output/latest/catalyst_layer_validation_latest.md || true
+          git add output/latest/catalyst_layer_validation_latest.json || true
 
           git add output/latest/report_manifest_latest.md || true
           git add output/latest/report_manifest_latest.json || true
@@ -512,6 +536,16 @@ jobs:
           git add data/warrant_daily/ || true
           git add data/warrant_flow_by_stock/ || true
           git add output/latest/fundamental_catalyst_layer_latest.md || true
+          git add data/theme_events/ || true
+          git add data/fundamental_catalysts/ || true
+          git add data/event_catalysts/ || true
+          git add output/history/catalyst_performance/ || true
+          git add output/latest/catalyst_data_source_status_latest.md || true
+          git add output/latest/catalyst_data_source_status_latest.json || true
+          git add output/latest/catalyst_summary_latest.csv || true
+          git add output/latest/catalyst_summary_latest.md || true
+          git add output/latest/catalyst_layer_validation_latest.md || true
+          git add output/latest/catalyst_layer_validation_latest.json || true
           git add output/history/reports/ || true
 
           git add publish_chatgpt_report_readme_and_check.py || true
@@ -519,6 +553,9 @@ jobs:
           git add scripts/validate_daily_market_report.py || true
           git add scripts/tracking_utils.py || true
           git add scripts/apply_fundamental_catalyst_layer.py || true
+          git add scripts/update_event_catalyst_data.py || true
+          git add scripts/update_catalyst_performance.py || true
+          git add scripts/validate_catalyst_layer.py || true
           git add docs/fundamental_catalyst_layer.md || true
           git add scripts/fetch_futures_options_indicators.py || true
           git add scripts/build_market_regime_dashboard.py || true

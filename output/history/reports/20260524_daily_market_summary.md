@@ -1,7 +1,7 @@
 # 每日全市場候選股監測報告 - 精華版
 
 - 主資料日期：`20260524`
-- 產生時間：`2026-05-24 15:04:45 Asia/Taipei`
+- 產生時間：`2026-05-24 15:29:53 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：完整候選清單與官方價格資料日期一致，可以產出正式每日報告
 - 權證資料日期：`20260524`
@@ -29,18 +29,18 @@
 
 | 股票 | 原始分類 | 催化標籤 / 反應程度 | TDCC |
 |---|---|---|---|
-| 8070 長華* | 營收成長股價回檔 | score 28 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation ... | 大戶同步增加 |
-| 6830 汎銓 | 營收成長股價回檔 | score 28 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation ... | 大戶溫和增加 |
-| 2353 宏碁 | 營收成長股價回檔 | score 28 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation ... | 大戶同步增加 |
-| 1708 東鹼 | 營收成長股價回檔 | score 28 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation ... | 大戶溫和增加 |
-| 2368 金像電 | 營收成長股價回檔 | score 28 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation ... | 大戶溫和增加 |
-| 2347 聯強 | 營收成長股價回檔 | score 28 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation ... | 大戶溫和增加 |
-| 4142 國光生 | 營收成長股價回檔 | score 28 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation ... | 大戶溫和增加 |
-| 2101 南港 | 營收成長股價回檔 | score 28 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation ... | 大戶同步增加 |
-| 8438 昶昕 | 營收成長股價回檔 | score 28 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation ... | 大戶溫和增加 |
-| 1590 亞德客-KY | 營收成長股價回檔 | score 28 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation ... | 大戶同步增加 |
-| 2345 智邦 | 營收成長股價回檔 | score 28 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation ... | 大戶溫和增加 |
-| 2376 技嘉 | 營收成長股價回檔 | score 28 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation ... | 大戶同步增加 |
+| 9958 世紀鋼 | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;鋼鐵工業 / revenue_good_eps_unconfirmed;low_... | 大戶溫和增加 |
+| 2382 廣達 | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;電腦及週邊設備業 / revenue_good_eps_unconfirmed;... | 大戶溫和增加 |
+| 2353 宏碁 | 營收爆發低反應股 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;mainstream_growth / revenue_good_eps_unc... | 大戶同步增加 |
+| 2368 金像電 | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;電子零組件業 / revenue_good_eps_unconfirmed;lo... | 大戶溫和增加 |
+| 2347 聯強 | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;電子通路業 / revenue_good_eps_unconfirmed;low... | 大戶溫和增加 |
+| 4934 太極 | 營收爆發低反應股 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;mainstream_growth / revenue_good_eps_unc... | 大戶溫和增加 |
+| 2345 智邦 | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;通信網路業 / revenue_good_eps_unconfirmed;low... | 大戶溫和增加 |
+| 2406 國碩 | 營收爆發低反應股 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;mainstream_growth / revenue_good_eps_unc... | 大戶溫和增加 |
+| 1714 和桐 | 營收爆發低反應股 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;cyclical_turnaround / revenue_good_eps_u... | 大戶溫和增加 |
+| 2101 南港 | 營收爆發低反應股 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;cyclical_turnaround / revenue_good_eps_u... | 大戶同步增加 |
+| 2646 星宇航空 | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;航運業 / revenue_good_eps_unconfirmed;low_r... | 大戶溫和增加 |
+| 2637 慧洋-KY | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;航運業 / revenue_good_eps_unconfirmed;low_r... | 大戶溫和增加 |
 
 ## 精華候選股
 
@@ -52,7 +52,7 @@
 - 優先級：
 - TDCC：大戶轉弱
 - 權證：
-- 財報 / 事件催化：score 0 / 利多尚未完全反應
+- 財報 / 事件催化：score 0 / theme 1/5 / 化學工業 / reaction mild / 利多尚未完全反應
 - 摘要：區間轉強 / 距前高-1.86% / 大戶轉弱
 - 完整原因：近幾週其中一項大戶級距減少；no_signal；今日無可用權證成交金額；區間內轉強；量比1.73x；月營收YoY 31.8%；累計YoY 15.8%；TDCC近幾週大戶籌碼轉弱
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
@@ -63,7 +63,7 @@
 - 優先級：
 - TDCC：大戶轉弱
 - 權證：
-- 財報 / 事件催化：score 0 / 利多尚未完全反應
+- 財報 / 事件催化：score 0 / theme 1/5 / 汽車工業 / reaction mild / 利多尚未完全反應
 - 摘要：區間轉強 / 距前高-1.01% / 大戶轉弱
 - 完整原因：近幾週400張與1000張同步減少；區間內轉強；量比1.74x；月營收YoY 5.2%；累計YoY 14.9%；TDCC近幾週大戶籌碼轉弱
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
@@ -74,7 +74,7 @@
 - 優先級：
 - TDCC：大戶轉弱
 - 權證：
-- 財報 / 事件催化：score 0
+- 財報 / 事件催化：score 0 / theme 1/5 / 汽車工業 / reaction mild
 - 摘要：區間轉強 / 距前高-3.07% / 大戶轉弱
 - 完整原因：近幾週400張與1000張同步減少；挑戰前高；量比2.5x；月營收YoY 65.6%；累計YoY 34.0%；TDCC近幾週大戶籌碼轉弱
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
@@ -86,7 +86,7 @@
 - 優先級：
 - TDCC：大戶轉弱
 - 權證：
-- 財報 / 事件催化：score 0
+- 財報 / 事件催化：score 0 / theme 1/5 / 電腦及週邊設備業 / reaction mild
 - 摘要：區間轉強 / 距前高-6.93% / 大戶轉弱
 - 完整原因：近幾週400張與1000張同步減少；區間內轉強；量比2.02x；月營收YoY 81.1%；累計YoY 58.3%；TDCC近幾週大戶籌碼轉弱
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
@@ -98,7 +98,7 @@
 - 優先級：
 - TDCC：大戶轉弱
 - 權證：
-- 財報 / 事件催化：score 0 / 利多尚未完全反應
+- 財報 / 事件催化：score 0 / theme 1/5 / 電腦及週邊設備業 / reaction mild / 利多尚未完全反應
 - 摘要：區間轉強 / 距前高-6.11% / 大戶轉弱
 - 完整原因：近幾週400張與1000張同步減少；no_signal；今日無可用權證成交金額；區間內轉強；量比2.53x；月營收YoY 15.5%；累計YoY 4.5%；TDCC近幾週大戶籌碼轉弱
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
@@ -112,7 +112,7 @@
 - 優先級：A_優先追蹤
 - TDCC：大戶同步增加
 - 權證：
-- 財報 / 事件催化：score 28 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation / 營收轉強但 EPS / 毛利率尚未有...
+- 財報 / 事件催化：score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;mainstream_growth / revenue_good_eps_unconfirmed;low_reactio...
 - 摘要：A 優先追蹤 / 營收強 / 近期加速 / 低反應 / 貼近均線
 - 完整原因：A_優先追蹤；近幾週400張與1000張同步累積；no_signal；今日無可用權證成交金額；單月營收YoY 80%~100%；累計營收YoY>=30%；單月YoY大幅高於累計YoY，近期明顯加速；近3日漲幅低於5%，股價低反應；近5日漲幅低於8%；股價貼近20MA/23EMA；尚未突破前60日高點；站上20MA/23EMA；接近前高但未大幅過熱；TDCC近幾週400張與1000張同步累積；主流成長題材；TDCC近幾週400張與1000...
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
@@ -124,7 +124,7 @@
 - 優先級：A_優先追蹤
 - TDCC：大戶同步增加
 - 權證：
-- 財報 / 事件催化：score 28 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation / 營收轉強但 EPS / 毛利率尚未有...
+- 財報 / 事件催化：score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;mainstream_growth / revenue_good_eps_unconfirmed;low_reactio...
 - 摘要：A 優先追蹤 / 營收強 / 近期加速 / 低反應 / 貼近均線
 - 完整原因：A_優先追蹤；近幾週400張與1000張同步累積；no_signal；今日無可用權證成交金額；單月營收YoY 50%~80%；累計營收YoY 20%~30%；單月YoY大幅高於累計YoY，近期明顯加速；近3日漲幅低於5%，股價低反應；近5日漲幅低於8%；股價貼近20MA/23EMA；尚未突破前60日高點；仍在平台整理區；站上20MA/23EMA；接近前高但未大幅過熱；TDCC近幾週400張與1000張同步累積；主流成長題材；TDCC近幾...
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
@@ -136,7 +136,7 @@
 - 優先級：B_可觀察
 - TDCC：大戶同步增加
 - 權證：
-- 財報 / 事件催化：score 15 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation / 營收轉強但 EPS / 毛利率尚未有...
+- 財報 / 事件催化：score 15 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;neutral / revenue_good_eps_unconfirmed;low_reaction_after_ca...
 - 摘要：B 可觀察 / 營收強 / 近期加速 / 低反應 / 貼近均線
 - 完整原因：B_可觀察；近幾週400張與1000張同步累積；單月營收YoY>=150%；累計營收YoY>=50%；單月YoY大幅高於累計YoY，近期明顯加速；近3日漲幅低於5%，股價低反應；近5日漲幅低於8%；股價貼近20MA/23EMA；尚未突破前60日高點；仍在平台整理區；TDCC近幾週400張與1000張同步累積；一般產業；TDCC近幾週400張與1000張同步累積；營建/交屋認列型營收需基本面確認
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
@@ -148,7 +148,7 @@
 - 優先級：B_可觀察
 - TDCC：大戶同步增加
 - 權證：
-- 財報 / 事件催化：score 15 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation / 營收轉強但 EPS / 毛利率尚未有...
+- 財報 / 事件催化：score 15 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;neutral / revenue_good_eps_unconfirmed;low_reaction_after_ca...
 - 摘要：B 可觀察 / 營收強 / 近期加速 / 低反應 / 貼近均線
 - 完整原因：B_可觀察；近幾週400張與1000張同步累積；no_signal；今日無可用權證成交金額；單月營收YoY>=150%；累計營收YoY>=50%；單月YoY大幅高於累計YoY，近期明顯加速；近3日漲幅低於5%，股價低反應；近5日漲幅低於8%；股價貼近20MA/23EMA；尚未突破前60日高點；站上20MA/23EMA；接近前高但未大幅過熱；TDCC近幾週400張與1000張同步累積；一般產業；TDCC近幾週400張與1000張同步累積；...
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
@@ -160,7 +160,7 @@
 - 優先級：A_優先追蹤
 - TDCC：大戶溫和增加
 - 權證：
-- 財報 / 事件催化：score 28 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation / 營收轉強但 EPS / 毛利率尚未有...
+- 財報 / 事件催化：score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;mainstream_growth / revenue_good_eps_unconfirmed;low_reactio...
 - 摘要：A 優先追蹤 / 營收強 / 低反應 / 貼近均線 / 站上均線
 - 完整原因：A_優先追蹤；近幾週其中一項大戶級距增加；單月營收YoY>=100%；累計營收YoY>=50%；近3日漲幅低於5%，股價低反應；近5日漲幅低於8%；股價貼近20MA/23EMA；尚未突破前60日高點；站上20MA/23EMA；TDCC近幾週大戶溫和增加；主流成長題材；TDCC近幾週大戶溫和增加
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
@@ -174,7 +174,7 @@
 - 優先級：
 - TDCC：大戶溫和增加
 - 權證：
-- 財報 / 事件催化：score 28 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation / 營收轉強但 EPS / 毛利率尚未有...
+- 財報 / 事件催化：score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;光電業 / revenue_good_eps_unconfirmed;low_reaction_after_cataly...
 - 摘要：TDCC增加 / 大戶溫和增加
 - 完整原因：近幾週400張與1000張合計增加；量比0.46x；月營收YoY 143.3%；累計YoY 161.3%；TDCC近幾週大戶溫和增加
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
@@ -186,7 +186,7 @@
 - 優先級：
 - TDCC：大戶溫和增加
 - 權證：
-- 財報 / 事件催化：score 18 / revenue_good_eps_unconfirmed / 營收好但 EPS 尚未確認 / needs_eps_confirmation / 營收轉強但 EPS / 毛利率尚未有結構化資料確認
+- 財報 / 事件催化：score 18 / theme 1/5 / revenue_good_eps_unconfirmed;半導體業 / revenue_good_eps_unconfirmed / reaction mild / 營收好但 EPS 尚未確認 / needs_eps_confirma...
 - 摘要：TDCC增加 / 大戶溫和增加
 - 完整原因：近幾週其中一項大戶級距增加；no_signal；今日無可用權證成交金額；量比0.39x；月營收YoY 594.4%；累計YoY 419.7%；TDCC近幾週大戶溫和增加
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
@@ -198,7 +198,7 @@
 - 優先級：
 - TDCC：大戶轉弱
 - 權證：
-- 財報 / 事件催化：score 0 / revenue_good_eps_unconfirmed / 營收好但 EPS 尚未確認 / 利多已反應/過熱 / needs_eps_confirmation / 營收轉強但 EPS / 毛利率尚未有結構化資料確認
+- 財報 / 事件催化：score 0 / theme 1/5 / revenue_good_eps_unconfirmed;半導體業 / revenue_good_eps_unconfirmed / reaction priced_in / 營收好但 EPS 尚未確認 / 利多已反應/過熱 / nee...
 - 摘要：TDCC轉弱 / 大戶轉弱
 - 完整原因：近幾週400張與1000張同步減少；no_signal；今日無可用權證成交金額；量比1.27x；月營收YoY 92.9%；累計YoY 109.1%；TDCC近幾週大戶籌碼轉弱
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
@@ -210,7 +210,7 @@
 - 優先級：
 - TDCC：大戶溫和增加
 - 權證：
-- 財報 / 事件催化：score 28 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation / 營收轉強但 EPS / 毛利率尚未有...
+- 財報 / 事件催化：score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;其他電子業 / revenue_good_eps_unconfirmed;low_reaction_after_cata...
 - 摘要：TDCC增加 / 大戶溫和增加
 - 完整原因：近幾週400張與1000張合計增加；量比0.89x；月營收YoY 63.2%；累計YoY 54.2%；TDCC近幾週大戶溫和增加
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
@@ -222,7 +222,7 @@
 - 優先級：
 - TDCC：大戶轉弱
 - 權證：
-- 財報 / 事件催化：score 0 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation / 營收轉強但 EPS / 毛利率尚未有結...
+- 財報 / 事件催化：score 0 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;半導體業 / revenue_good_eps_unconfirmed;low_reaction_after_cataly...
 - 摘要：TDCC轉弱 / 大戶轉弱
 - 完整原因：近幾週400張與1000張同步減少；no_signal；今日無可用權證成交金額；量比0.95x；月營收YoY 360.8%；累計YoY 276.9%；TDCC近幾週大戶籌碼轉弱
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
@@ -236,7 +236,7 @@
 - 優先級：
 - TDCC：
 - 權證：
-- 財報 / 事件催化：score 0 / 利多尚未完全反應
+- 財報 / 事件催化：score 0 / theme 0/5 / 利多尚未完全反應
 - 摘要：型態觀察
 - 完整原因：no_signal；今日無可用權證成交金額
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
@@ -247,7 +247,7 @@
 - 優先級：
 - TDCC：大戶轉弱
 - 權證：
-- 財報 / 事件催化：score 0 / 利多尚未完全反應
+- 財報 / 事件催化：score 0 / theme 1/5 / 食品工業 / 利多尚未完全反應
 - 摘要：型態觀察 / 大戶轉弱
 - 完整原因：近幾週400張與1000張同步減少；no_signal；今日無可用權證成交金額；TDCC近幾週大戶籌碼轉弱
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
@@ -258,7 +258,7 @@
 - 優先級：
 - TDCC：大戶同步增加
 - 權證：
-- 財報 / 事件催化：score 0 / 利多尚未完全反應
+- 財報 / 事件催化：score 0 / theme 1/5 / 塑膠工業 / 利多尚未完全反應
 - 摘要：型態觀察 / 大戶同步增加
 - 完整原因：近幾週400張與1000張同步累積；no_signal；今日無可用權證成交金額；TDCC近幾週400張與1000張同步累積
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
@@ -270,7 +270,7 @@
 - 優先級：
 - TDCC：大戶同步增加
 - 權證：
-- 財報 / 事件催化：score 0 / 利多尚未完全反應
+- 財報 / 事件催化：score 0 / theme 1/5 / 塑膠工業 / 利多尚未完全反應
 - 摘要：型態觀察 / 大戶同步增加
 - 完整原因：近幾週400張與1000張同步累積；no_signal；今日無可用權證成交金額；TDCC近幾週400張與1000張同步累積
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
@@ -282,7 +282,7 @@
 - 優先級：
 - TDCC：大戶同步增加
 - 權證：
-- 財報 / 事件催化：score 0 / 利多尚未完全反應
+- 財報 / 事件催化：score 0 / theme 1/5 / 塑膠工業 / 利多尚未完全反應
 - 摘要：型態觀察 / 大戶同步增加
 - 完整原因：近幾週400張與1000張同步累積；no_signal；今日無可用權證成交金額；TDCC近幾週400張與1000張同步累積
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）

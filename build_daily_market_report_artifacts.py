@@ -1109,18 +1109,27 @@ def truthy_text(value: Any) -> bool:
 
 def catalyst_short(row: pd.Series, limit: int = 100) -> str:
     parts: list[str] = []
-    score = safe_str(row.get("fundamental_catalyst_score", ""))
+    score = safe_str(row.get("catalyst_strength_score", "")) or safe_str(row.get("fundamental_catalyst_score", ""))
+    theme_score = safe_str(row.get("theme_strength_score", ""))
+    catalyst_tags = safe_str(row.get("catalyst_tags", ""))
     tags = safe_str(row.get("fundamental_catalyst_tags", ""))
     event_tags = safe_str(row.get("event_catalyst_tags", ""))
+    reaction = safe_str(row.get("price_reaction_level", ""))
     quality = safe_str(row.get("catalyst_quality", ""))
     summary = safe_str(row.get("catalyst_summary", ""))
 
     if score:
         parts.append(f"score {score}")
+    if theme_score:
+        parts.append(f"theme {theme_score}/5")
+    if catalyst_tags:
+        parts.append(catalyst_tags)
     if tags:
         parts.append(tags)
     if event_tags:
         parts.append(event_tags)
+    if reaction:
+        parts.append(f"reaction {reaction}")
     if truthy_text(row.get("similar_to_shihsinko_flag", "")):
         parts.append("類事欣科型")
     elif truthy_text(row.get("revenue_good_eps_unconfirmed_flag", "")):
@@ -1140,7 +1149,7 @@ def catalyst_candidates(candidates: pd.DataFrame, limit: int = 12) -> pd.DataFra
     if candidates.empty or "fundamental_catalyst_score" not in candidates.columns:
         return pd.DataFrame()
     part = candidates.copy()
-    score = pd.to_numeric(part.get("fundamental_catalyst_score", ""), errors="coerce").fillna(0)
+    score = pd.to_numeric(part.get("catalyst_strength_score", part.get("fundamental_catalyst_score", "")), errors="coerce").fillna(0)
     mask = (
         score.gt(0)
         | part.get("similar_to_shihsinko_flag", pd.Series("", index=part.index)).astype(str).eq("True")
@@ -1686,9 +1695,13 @@ def build_full_markdown(
         "tdcc_judgement",
         "warrant_flow_signal",
         "warrant_flow_score",
+        "theme_strength_score",
+        "catalyst_strength_score",
+        "catalyst_tags",
         "fundamental_catalyst_score",
         "fundamental_catalyst_tags",
         "event_catalyst_tags",
+        "price_reaction_level",
         "similar_to_shihsinko_flag",
         "catalyst_quality",
         "catalyst_confidence",

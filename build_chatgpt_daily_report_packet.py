@@ -29,6 +29,14 @@ DAILY_SIGNAL_SUMMARY_MD = LATEST_DIR / "daily_signal_performance_summary_latest.
 DAILY_SIGNAL_WEEKLY_PDF = LATEST_DIR / "daily_signal_performance_weekly_latest.pdf"
 DAILY_SIGNAL_MONTHLY_PDF = LATEST_DIR / "daily_signal_performance_monthly_latest.pdf"
 FUNDAMENTAL_CATALYST_MD = LATEST_DIR / "fundamental_catalyst_layer_latest.md"
+CATALYST_SUMMARY_MD = LATEST_DIR / "catalyst_summary_latest.md"
+CATALYST_SUMMARY_CSV = LATEST_DIR / "catalyst_summary_latest.csv"
+CATALYST_VALIDATION_MD = LATEST_DIR / "catalyst_layer_validation_latest.md"
+CATALYST_PERFORMANCE_CSV = Path("output/history/catalyst_performance/catalyst_performance.csv")
+THEME_EVENT_CALENDAR = Path("data/theme_events/theme_event_calendar.csv")
+COMPANY_THEME_MAPPING = Path("data/theme_events/company_theme_mapping.csv")
+QUARTERLY_CATALYST = Path("data/fundamental_catalysts/quarterly_catalyst.csv")
+EVENT_CATALYST_LOG = Path("data/event_catalysts/event_catalyst_log.csv")
 WARRANT_MARKET_MD = LATEST_DIR / "warrant_market_report_latest.md"
 WARRANT_MARKET_PDF = LATEST_DIR / "warrant_market_report_latest.pdf"
 WARRANT_FLOW_BY_STOCK_CSV = LATEST_DIR / "warrant_flow_by_stock_latest.csv"
@@ -306,9 +314,21 @@ def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path],
     lines.append("FUNDAMENTAL / EVENT CATALYST LAYER")
     lines.append(f"catalyst_layer_md_raw_url: {raw_url(FUNDAMENTAL_CATALYST_MD)}")
     lines.append(f"catalyst_layer_path: {FUNDAMENTAL_CATALYST_MD.as_posix()}")
-    lines.append("fields: fundamental_catalyst_score,fundamental_catalyst_tags,event_catalyst_tags,similar_to_shihsinko_flag,revenue_good_eps_unconfirmed_flag,already_reacted_to_catalyst,low_reaction_after_catalyst")
+    lines.append("fields: theme_strength_score,catalyst_strength_score,catalyst_tags,fundamental_catalyst_score,fundamental_catalyst_tags,event_catalyst_tags,price_reaction_level,similar_to_shihsinko_flag,revenue_good_eps_unconfirmed_flag,already_reacted_to_catalyst,low_reaction_after_catalyst")
     lines.append(f"status: {'generated' if FUNDAMENTAL_CATALYST_MD.exists() else 'missing'}")
     lines.append("note: This is a cross-category tag layer, not a seventh category. Do not upgrade revenue-only candidates without EPS/event source confirmation.")
+    lines.append("")
+    lines.append("CATALYST DATA LAYER")
+    lines.append(f"theme_event_calendar_raw_url: {raw_url(THEME_EVENT_CALENDAR)}")
+    lines.append(f"company_theme_mapping_raw_url: {raw_url(COMPANY_THEME_MAPPING)}")
+    lines.append(f"quarterly_catalyst_raw_url: {raw_url(QUARTERLY_CATALYST)}")
+    lines.append(f"event_catalyst_log_raw_url: {raw_url(EVENT_CATALYST_LOG)}")
+    lines.append(f"catalyst_summary_raw_url: {raw_url(CATALYST_SUMMARY_MD)}")
+    lines.append(f"catalyst_summary_csv_raw_url: {raw_url(CATALYST_SUMMARY_CSV)}")
+    lines.append(f"catalyst_performance_raw_url: {raw_url(CATALYST_PERFORMANCE_CSV)}")
+    lines.append(f"catalyst_layer_validation_raw_url: {raw_url(CATALYST_VALIDATION_MD)}")
+    lines.append(f"status: {'generated' if CATALYST_SUMMARY_MD.exists() and CATALYST_PERFORMANCE_CSV.exists() else 'schema_ready_or_pending'}")
+    lines.append("note: Event tables are schema-first. Empty tables mean no confirmed catalyst source has been loaded; do not infer catalysts from rumors.")
     lines.append("")
     lines.append("SIGNAL PERFORMANCE TRACKING")
     lines.append(f"signal_log_path: {DAILY_SIGNAL_LOG.as_posix()}")
@@ -404,6 +424,15 @@ def write_packet_manifest(main_date: str, report_ready: str, paths: dict[str, Pa
         "fundamental_catalyst_layer_md_raw_url": raw_url(FUNDAMENTAL_CATALYST_MD),
         "fundamental_catalyst_layer_path": FUNDAMENTAL_CATALYST_MD.as_posix(),
         "fundamental_catalyst_layer_status": "generated" if FUNDAMENTAL_CATALYST_MD.exists() else "missing",
+        "theme_event_calendar_raw_url": raw_url(THEME_EVENT_CALENDAR),
+        "company_theme_mapping_raw_url": raw_url(COMPANY_THEME_MAPPING),
+        "quarterly_catalyst_raw_url": raw_url(QUARTERLY_CATALYST),
+        "event_catalyst_log_raw_url": raw_url(EVENT_CATALYST_LOG),
+        "catalyst_summary_raw_url": raw_url(CATALYST_SUMMARY_MD),
+        "catalyst_summary_csv_raw_url": raw_url(CATALYST_SUMMARY_CSV),
+        "catalyst_performance_raw_url": raw_url(CATALYST_PERFORMANCE_CSV),
+        "catalyst_layer_validation_raw_url": raw_url(CATALYST_VALIDATION_MD),
+        "catalyst_data_layer_status": "generated" if CATALYST_SUMMARY_MD.exists() and CATALYST_PERFORMANCE_CSV.exists() else "schema_ready_or_pending",
         "daily_signal_log_path": DAILY_SIGNAL_LOG.as_posix(),
         "daily_signal_performance_csv_path": DAILY_SIGNAL_PERFORMANCE.as_posix(),
         "daily_signal_performance_summary_raw_url": raw_url(DAILY_SIGNAL_SUMMARY_MD),

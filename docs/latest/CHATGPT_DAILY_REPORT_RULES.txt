@@ -1,6 +1,6 @@
 CHATGPT DAILY MARKET REPORT RULES
 
-generated_at=2026-05-24 15:05:33 Asia/Taipei
+generated_at=2026-05-24 15:31:05 Asia/Taipei
 rules_version=2026-05-24-catalyst-layer-v1
 
 PURPOSE
@@ -151,7 +151,9 @@ FUNDAMENTAL / EVENT CATALYST LAYER RULES
 - The catalyst layer is a cross-category tag layer, not a seventh major category.
 - Keep every stock in its original six-category bucket; use catalyst fields only for labels, upgrades, downgrades, and follow-up tracking.
 - Read fundamental_catalyst_layer_raw_url and the catalyst fields in all_candidates when available.
-- Key fields include fundamental_catalyst_score, fundamental_catalyst_tags, event_catalyst_tags, similar_to_shihsinko_flag, revenue_good_eps_unconfirmed_flag, low_reaction_after_catalyst, and already_reacted_to_catalyst.
+- Key fields include theme_strength_score, catalyst_strength_score, catalyst_tags, fundamental_catalyst_score, fundamental_catalyst_tags, event_catalyst_tags, price_reaction_level, similar_to_shihsinko_flag, revenue_good_eps_unconfirmed_flag, low_reaction_after_catalyst, and already_reacted_to_catalyst.
+- Read theme_event_calendar_raw_url, company_theme_mapping_raw_url, quarterly_catalyst_raw_url, event_catalyst_log_raw_url, catalyst_summary_raw_url, and catalyst_performance_raw_url when available.
+- Company theme mapping is background only. A theme label alone is not a confirmed catalyst.
 - Do not upgrade a stock only because it has a theme label.
 - Do not upgrade a stock only because EPS is strong if the price has already overreacted, has a gap-up failure, or TDCC is distribution_warning.
 - The core setup is: catalyst appears + price has not fully reacted + TDCC is not deteriorating.

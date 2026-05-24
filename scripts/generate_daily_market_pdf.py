@@ -684,9 +684,12 @@ def confirm_text(row: pd.Series) -> str:
 
 
 def catalyst_brief(row: pd.Series) -> str:
+    catalyst_tags = clean_text(row.get("catalyst_tags", ""), 70)
     tags = clean_text(row.get("fundamental_catalyst_tags", ""), 70)
     event_tags = clean_text(row.get("event_catalyst_tags", ""), 60)
-    score = clean_text(row.get("fundamental_catalyst_score", ""))
+    score = clean_text(row.get("catalyst_strength_score", "")) or clean_text(row.get("fundamental_catalyst_score", ""))
+    theme_score = clean_text(row.get("theme_strength_score", ""))
+    reaction_level = clean_text(row.get("price_reaction_level", ""))
     quality = clean_text(row.get("catalyst_quality", ""))
     low_reaction = is_truthy(row.get("low_reaction_after_catalyst", ""))
     already = is_truthy(row.get("already_reacted_to_catalyst", "")) or is_truthy(row.get("catalyst_overheated", ""))
@@ -697,10 +700,16 @@ def catalyst_brief(row: pd.Series) -> str:
     parts: list[str] = []
     if score:
         parts.append(f"score {score}")
+    if theme_score:
+        parts.append(f"theme {theme_score}/5")
+    if catalyst_tags:
+        parts.append(catalyst_tags)
     if tags:
         parts.append(tags)
     if event_tags:
         parts.append(event_tags)
+    if reaction_level:
+        parts.append(f"reaction {reaction_level}")
     if similar:
         parts.append("類事欣科型")
     elif revenue_unconfirmed:
@@ -721,7 +730,7 @@ def catalyst_rows(df: pd.DataFrame) -> list[list[Any]]:
         return [["Stock", "Original category", "Catalyst layer", "TDCC / action"], ["n/a", "n/a", "No catalyst layer columns available", "keep original category"]]
 
     part = df.copy()
-    part["_catalyst_score_sort"] = pd.to_numeric(part.get("fundamental_catalyst_score", ""), errors="coerce").fillna(0)
+    part["_catalyst_score_sort"] = pd.to_numeric(part.get("catalyst_strength_score", part.get("fundamental_catalyst_score", "")), errors="coerce").fillna(0)
     mask = (
         part["_catalyst_score_sort"].gt(0)
         | part.get("similar_to_shihsinko_flag", pd.Series("", index=part.index)).astype(str).eq("True")

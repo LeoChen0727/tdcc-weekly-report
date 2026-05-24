@@ -244,9 +244,13 @@ def check_catalyst_columns(errors: list[str]) -> None:
     if not ALL_CANDIDATES_CSV.exists():
         return
     required = {
+        "theme_strength_score",
+        "catalyst_strength_score",
+        "catalyst_tags",
         "fundamental_catalyst_score",
         "fundamental_catalyst_tags",
         "event_catalyst_tags",
+        "price_reaction_level",
         "similar_to_shihsinko_flag",
         "revenue_good_eps_unconfirmed_flag",
         "catalyst_summary",

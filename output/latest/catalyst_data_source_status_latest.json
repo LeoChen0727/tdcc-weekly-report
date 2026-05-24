@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-05-24 15:26:37 Asia/Taipei",
+  "external_fetch_status": "not_configured",
+  "note": "Schema and local/manual data tables are prepared. No unverified news, MOPS, or social rumor data is fabricated.",
+  "files": {
+    "theme_event_calendar": {
+      "path": "data/theme_events/theme_event_calendar.csv",
+      "exists": true,
+      "rows": 0
+    },
+    "company_theme_mapping": {
+      "path": "data/theme_events/company_theme_mapping.csv",
+      "exists": true,
+      "rows": 28
+    },
+    "quarterly_catalyst": {
+      "path": "data/fundamental_catalysts/quarterly_catalyst.csv",
+      "exists": true,
+      "rows": 0
+    },
+    "event_catalyst_log": {
+      "path": "data/event_catalysts/event_catalyst_log.csv",
+      "exists": true,
+      "rows": 0
+    }
+  }
+}
