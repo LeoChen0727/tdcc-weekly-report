@@ -1,7 +1,7 @@
 # 每日全市場候選股監測報告 - 精華版
 
 - 主資料日期：`20260524`
-- 產生時間：`2026-05-24 20:07:28 Asia/Taipei`
+- 產生時間：`2026-05-24 20:20:23 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：完整候選清單與官方價格資料日期一致，可以產出正式每日報告
 - 權證資料日期：`20260524`
@@ -30,17 +30,17 @@
 | 股票 | 原始分類 | 催化標籤 / 反應程度 | TDCC |
 |---|---|---|---|
 | 1708 東鹼 | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;dividend_calendar;calendar_ex_dividend;化... | 大戶溫和增加 |
-| 6672 騰輝電子-KY | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthl... | 大戶溫和增加 |
-| 2317 鴻海 | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthl... | 大戶同步增加 |
-| 2376 技嘉 | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthl... | 大戶同步增加 |
-| 4934 太極 | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthl... | 大戶溫和增加 |
-| 2368 金像電 | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthl... | 大戶溫和增加 |
-| 2347 聯強 | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthl... | 大戶溫和增加 |
-| 2345 智邦 | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthl... | 大戶溫和增加 |
+| 1590 亞德客-KY | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthl... | 大戶同步增加 |
 | 2606 裕民 | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthl... | 大戶同步增加 |
 | 2637 慧洋-KY | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthl... | 大戶溫和增加 |
-| 9958 世紀鋼 | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthl... | 大戶溫和增加 |
-| 1590 亞德客-KY | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthl... | 大戶同步增加 |
+| 2347 聯強 | 營收爆發低反應股 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthl... | 大戶同步增加 |
+| 2101 南港 | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthl... | 大戶同步增加 |
+| 4934 太極 | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthl... | 大戶溫和增加 |
+| 2382 廣達 | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthl... | 大戶溫和增加 |
+| 1714 和桐 | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthl... | 大戶溫和增加 |
+| 3019 亞光 | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthl... | 大戶同步增加 |
+| 8021 尖點 | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthl... | 大戶溫和增加 |
+| 3044 健鼎 | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthl... | 大戶溫和增加 |
 
 ## 精華候選股
 
