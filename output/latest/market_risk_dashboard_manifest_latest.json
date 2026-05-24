@@ -1,8 +1,14 @@
 {
-  "generated_at": "2026-05-24 11:38:57 Asia/Taipei",
+  "generated_at": "2026-05-24 12:59:53 Asia/Taipei",
   "market_regime_csv": "output/latest/market_regime_latest.csv",
   "report_md": "output/latest/market_risk_dashboard_latest.md",
   "report_pdf": "output/latest/market_risk_dashboard_latest.pdf",
   "docs_report_pdf": "docs/latest/market_risk_dashboard_latest.pdf",
+  "chart_lookback": "six_months",
+  "chart_paths": [
+    "output/latest/charts/market_regime/market_index_technical_6m.png",
+    "output/latest/charts/market_regime/risk_indicators_6m.png",
+    "output/latest/charts/market_regime/foreign_futures_net_oi_6m.png"
+  ],
   "source_status": "ready"
 }

@@ -172,6 +172,7 @@ MARKET REGIME / FUTURES OPTIONS RULES
 - TWSE / TPEx index state, TAIFEX three-institution futures/options positioning, TXO Put/Call ratio, and Taiwan VIX should be interpreted together.
 - Do not treat one futures/options indicator as a standalone buy or sell signal.
 - The fixed daily candidate PDFs include a short market background and warrant summary for context.
+- The market risk dashboard PDF must include six-month technical charts for TWSE/TPEx, Taiwan VIX, TXO Put/Call ratio, and foreign TX futures positioning; use those charts when discussing market structure or index futures background.
 - Keep the daily all-market candidate stock report separate from index futures positioning analysis; cite market_regime as background, and use the standalone market risk dashboard for deeper index/futures/options discussion.
 
 PDF OUTPUT RULES

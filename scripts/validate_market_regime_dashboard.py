@@ -16,6 +16,15 @@ REQUIRED_FILES = [
     Path("output/latest/market_risk_dashboard_latest.md"),
     Path("output/latest/market_risk_dashboard_latest.pdf"),
     Path("docs/latest/market_risk_dashboard_latest.pdf"),
+    Path("output/latest/charts/market_regime/market_index_technical_6m.png"),
+    Path("output/latest/charts/market_regime/risk_indicators_6m.png"),
+    Path("output/latest/charts/market_regime/foreign_futures_net_oi_6m.png"),
+]
+
+REQUIRED_CHART_FILES = [
+    Path("output/latest/charts/market_regime/market_index_technical_6m.png"),
+    Path("output/latest/charts/market_regime/risk_indicators_6m.png"),
+    Path("output/latest/charts/market_regime/foreign_futures_net_oi_6m.png"),
 ]
 
 REQUIRED_INDICATOR_COLUMNS = [
@@ -55,8 +64,10 @@ def main() -> int:
     for path in REQUIRED_FILES:
         if not path.exists():
             return fail(f"missing required file: {path}")
-        if path.suffix.lower() == ".pdf" and path.stat().st_size < 3000:
+        if path.suffix.lower() == ".pdf" and path.stat().st_size < 20000:
             return fail(f"PDF too small: {path} size={path.stat().st_size}")
+        if path in REQUIRED_CHART_FILES and path.stat().st_size < 5000:
+            return fail(f"chart image too small or blank: {path} size={path.stat().st_size}")
 
     indicators = read_csv(Path("output/latest/futures_options_indicators_latest.csv"))
     regime = read_csv(Path("output/latest/market_regime_latest.csv"))
@@ -76,7 +87,14 @@ def main() -> int:
         return fail("source status has no source details")
 
     md = Path("output/latest/market_risk_dashboard_latest.md").read_text(encoding="utf-8")
-    for marker in ["Market Risk Dashboard", "Market Index Regime", "Futures / Options Positioning", "Usage Boundary"]:
+    for marker in [
+        "Market Risk Dashboard",
+        "Market Index Regime",
+        "Futures / Options Positioning",
+        "Six-Month Technical Charts",
+        "Technical / Pattern Notes",
+        "Usage Boundary",
+    ]:
         if marker not in md:
             return fail(f"dashboard missing marker: {marker}")
 

@@ -492,6 +492,7 @@ jobs:
           git add output/latest/market_regime_latest.csv || true
           git add output/latest/market_risk_dashboard_latest.md || true
           git add output/latest/market_risk_dashboard_latest.pdf || true
+          git add output/latest/charts/market_regime/ || true
           git add output/latest/market_risk_dashboard_manifest_latest.json || true
           git add docs/latest/market_risk_dashboard_latest.pdf || true
           git add output/latest/institutional_investor_flow_latest.csv || true

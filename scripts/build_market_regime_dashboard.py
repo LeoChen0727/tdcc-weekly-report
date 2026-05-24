@@ -6,6 +6,10 @@ import json
 import math
 import shutil
 
+import matplotlib
+
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
 import pandas as pd
 
 from reportlab.lib import colors
@@ -15,7 +19,7 @@ from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import cm
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.cidfonts import UnicodeCIDFont
-from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
+from reportlab.platypus import Image, PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
 
 from tracking_utils import (
     DOCS_LATEST_DIR,
@@ -33,11 +37,18 @@ from tracking_utils import (
 
 INDICATORS_CSV = LATEST_DIR / "futures_options_indicators_latest.csv"
 SOURCE_STATUS_JSON = LATEST_DIR / "futures_options_source_status_latest.json"
+FUTURES_CONTRACTS_HISTORY = Path("data/futures_options/taifex_futures_contracts_history.csv")
+PUT_CALL_RATIO_HISTORY = Path("data/futures_options/put_call_ratio_history.csv")
+TAIWAN_VIX_HISTORY = Path("data/futures_options/taiwan_vix_history.csv")
 MARKET_REGIME_CSV = LATEST_DIR / "market_regime_latest.csv"
 REPORT_MD = LATEST_DIR / "market_risk_dashboard_latest.md"
 REPORT_PDF = LATEST_DIR / "market_risk_dashboard_latest.pdf"
 DOCS_REPORT_PDF = DOCS_LATEST_DIR / REPORT_PDF.name
 MANIFEST_JSON = LATEST_DIR / "market_risk_dashboard_manifest_latest.json"
+CHART_DIR = LATEST_DIR / "charts/market_regime"
+MARKET_INDEX_CHART = CHART_DIR / "market_index_technical_6m.png"
+RISK_INDICATOR_CHART = CHART_DIR / "risk_indicators_6m.png"
+FOREIGN_FUTURES_CHART = CHART_DIR / "foreign_futures_net_oi_6m.png"
 
 
 def latest_index_rows() -> pd.DataFrame:
@@ -224,6 +235,196 @@ def build_regime_row(index_rows: pd.DataFrame, indicators: pd.Series) -> pd.Data
     return pd.DataFrame([row])
 
 
+def parse_yyyymmdd(series: pd.Series) -> pd.Series:
+    return pd.to_datetime(series.astype(str).str.replace(r"[^0-9]", "", regex=True), format="%Y%m%d", errors="coerce")
+
+
+def last_six_months(df: pd.DataFrame, date_col: str = "date") -> pd.DataFrame:
+    if df.empty or date_col not in df.columns:
+        return pd.DataFrame()
+    out = df.copy()
+    out["_dt"] = parse_yyyymmdd(out[date_col])
+    out = out.dropna(subset=["_dt"]).sort_values("_dt")
+    if out.empty:
+        return pd.DataFrame()
+    cutoff = out["_dt"].max() - pd.DateOffset(months=6)
+    six_month = out[out["_dt"] >= cutoff].copy()
+    if six_month.empty:
+        six_month = out.tail(126).copy()
+    return six_month
+
+
+def to_numeric_col(df: pd.DataFrame, col: str) -> pd.Series:
+    if col not in df.columns:
+        return pd.Series([math.nan] * len(df), index=df.index)
+    return pd.to_numeric(df[col].astype(str).str.replace(",", "", regex=False), errors="coerce")
+
+
+def placeholder_chart(path: Path, title: str, message: str) -> Path:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fig, ax = plt.subplots(figsize=(10, 4.8))
+    ax.axis("off")
+    ax.text(0.5, 0.62, title, ha="center", va="center", fontsize=16, fontweight="bold", transform=ax.transAxes)
+    ax.text(0.5, 0.43, message, ha="center", va="center", fontsize=11, color="#555555", transform=ax.transAxes)
+    fig.savefig(path, dpi=150, bbox_inches="tight")
+    plt.close(fig)
+    return path
+
+
+def make_market_index_chart(index_history: pd.DataFrame, path: Path) -> Path:
+    data = last_six_months(index_history, "date")
+    if data.empty:
+        return placeholder_chart(path, "Six-Month Market Index Technical Chart", "No market index history available.")
+
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fig, axes = plt.subplots(2, 1, figsize=(11, 7.2), sharex=True)
+    for ax, code, label in [(axes[0], "TWSE", "TWSE / TAIEX"), (axes[1], "TPEX", "TPEx / OTC")]:
+        part = data[data["index_code"].astype(str) == code].copy()
+        if part.empty:
+            ax.text(0.5, 0.5, f"{label}: no data", ha="center", va="center", transform=ax.transAxes)
+            ax.set_axis_off()
+            continue
+        for col in ["close", "ma20", "ma60"]:
+            part[col] = to_numeric_col(part, col)
+        ax.plot(part["_dt"], part["close"], color="#1f77b4", linewidth=1.7, label="Close")
+        ax.plot(part["_dt"], part["ma20"], color="#ff7f0e", linewidth=1.1, label="MA20")
+        ax.plot(part["_dt"], part["ma60"], color="#2ca02c", linewidth=1.1, label="MA60")
+        high_60 = part["close"].tail(min(60, len(part))).max()
+        low_60 = part["close"].tail(min(60, len(part))).min()
+        if not math.isnan(high_60):
+            ax.axhline(high_60, color="#d62728", linestyle="--", linewidth=0.8, alpha=0.7, label="60D high")
+        if not math.isnan(low_60):
+            ax.axhline(low_60, color="#9467bd", linestyle=":", linewidth=0.8, alpha=0.7, label="60D low")
+        latest = part.iloc[-1]
+        regime = classify_market_regime(latest)
+        ax.set_title(f"{label} technical trend - {regime}", fontsize=11, fontweight="bold")
+        ax.grid(True, alpha=0.25)
+        ax.legend(loc="upper left", fontsize=8, ncol=4)
+    fig.suptitle("Six-Month Market Index Technical View", fontsize=14, fontweight="bold")
+    fig.autofmt_xdate()
+    fig.tight_layout(rect=[0, 0, 1, 0.96])
+    fig.savefig(path, dpi=150, bbox_inches="tight")
+    plt.close(fig)
+    return path
+
+
+def make_risk_indicator_chart(path: Path) -> Path:
+    pc = read_csv(PUT_CALL_RATIO_HISTORY, dtype=str)
+    vix = read_csv(TAIWAN_VIX_HISTORY, dtype=str)
+    pc = last_six_months(pc.rename(columns={"日期": "date"}), "date") if not pc.empty else pd.DataFrame()
+    vix = last_six_months(vix, "date") if not vix.empty else pd.DataFrame()
+    if pc.empty and vix.empty:
+        return placeholder_chart(path, "Six-Month Risk Indicator Chart", "No Put/Call or Taiwan VIX history available.")
+
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fig, axes = plt.subplots(2, 1, figsize=(11, 7.0), sharex=False)
+    if not vix.empty:
+        vix["taiwan_vix"] = to_numeric_col(vix, "taiwan_vix")
+        axes[0].plot(vix["_dt"], vix["taiwan_vix"], color="#d62728", linewidth=1.6, label="Taiwan VIX")
+        axes[0].axhline(28, color="#ff7f0e", linestyle="--", linewidth=0.9, label="watch 28")
+        axes[0].axhline(35, color="#d62728", linestyle=":", linewidth=0.9, label="panic 35")
+        axes[0].set_title(f"Taiwan VIX ({len(vix)} observations)", fontsize=11, fontweight="bold")
+        axes[0].legend(loc="upper left", fontsize=8)
+        axes[0].grid(True, alpha=0.25)
+    else:
+        axes[0].text(0.5, 0.5, "Taiwan VIX: no data", ha="center", va="center", transform=axes[0].transAxes)
+        axes[0].set_axis_off()
+
+    if not pc.empty:
+        col = "買賣權未平倉量比率%"
+        pc[col] = to_numeric_col(pc, col)
+        axes[1].plot(pc["_dt"], pc[col], color="#1f77b4", linewidth=1.6, label="TXO P/C OI ratio")
+        axes[1].axhline(145, color="#ff7f0e", linestyle="--", linewidth=0.9, label="hedge elevated 145")
+        axes[1].axhline(180, color="#d62728", linestyle=":", linewidth=0.9, label="heavy hedge 180")
+        axes[1].set_title(f"TXO Put/Call Open Interest Ratio ({len(pc)} observations)", fontsize=11, fontweight="bold")
+        axes[1].legend(loc="upper left", fontsize=8)
+        axes[1].grid(True, alpha=0.25)
+    else:
+        axes[1].text(0.5, 0.5, "Put/Call ratio: no data", ha="center", va="center", transform=axes[1].transAxes)
+        axes[1].set_axis_off()
+    fig.suptitle("Six-Month Options / Fear Indicators", fontsize=14, fontweight="bold")
+    fig.autofmt_xdate()
+    fig.tight_layout(rect=[0, 0, 1, 0.96])
+    fig.savefig(path, dpi=150, bbox_inches="tight")
+    plt.close(fig)
+    return path
+
+
+def make_foreign_futures_chart(path: Path) -> Path:
+    futures = read_csv(FUTURES_CONTRACTS_HISTORY, dtype=str)
+    if futures.empty:
+        return placeholder_chart(path, "Six-Month Foreign Futures Positioning", "No futures contract history available.")
+    required = {"日期", "商品名稱", "身份別", "多空未平倉口數淨額"}
+    if not required.issubset(set(futures.columns)):
+        return placeholder_chart(path, "Six-Month Foreign Futures Positioning", "Futures contract history columns are incomplete.")
+    futures = futures[
+        futures["商品名稱"].astype(str).str.contains("臺股期貨|台股期貨", regex=True, na=False)
+        & futures["身份別"].astype(str).str.contains("外資", na=False)
+    ].copy()
+    if futures.empty:
+        return placeholder_chart(path, "Six-Month Foreign Futures Positioning", "No foreign TX futures rows available.")
+    futures["net_oi"] = to_numeric_col(futures, "多空未平倉口數淨額")
+    futures = futures.groupby("日期", as_index=False)["net_oi"].sum().rename(columns={"日期": "date"})
+    futures = last_six_months(futures, "date")
+
+    path.parent.mkdir(parents=True, exist_ok=True)
+    if len(futures) < 2:
+        msg = f"Only {len(futures)} usable observation. Workflow will extend this chart as daily data accumulates."
+        return placeholder_chart(path, "Six-Month Foreign TX Futures Net OI", msg)
+
+    fig, ax = plt.subplots(figsize=(11, 4.8))
+    colors_bar = ["#d62728" if x < 0 else "#2ca02c" for x in futures["net_oi"]]
+    ax.bar(futures["_dt"], futures["net_oi"], color=colors_bar, alpha=0.75, width=1.8)
+    ax.axhline(0, color="#333333", linewidth=0.8)
+    ax.axhline(-40000, color="#d62728", linestyle="--", linewidth=0.9, label="heavy net short")
+    ax.axhline(20000, color="#2ca02c", linestyle="--", linewidth=0.9, label="net long watch")
+    ax.set_title("Six-Month Foreign TX Futures Net Open Interest", fontsize=13, fontweight="bold")
+    ax.grid(True, axis="y", alpha=0.25)
+    ax.legend(loc="upper left", fontsize=8)
+    fig.autofmt_xdate()
+    fig.tight_layout()
+    fig.savefig(path, dpi=150, bbox_inches="tight")
+    plt.close(fig)
+    return path
+
+
+def build_chart_outputs(index_history: pd.DataFrame) -> list[Path]:
+    CHART_DIR.mkdir(parents=True, exist_ok=True)
+    return [
+        make_market_index_chart(index_history, MARKET_INDEX_CHART),
+        make_risk_indicator_chart(RISK_INDICATOR_CHART),
+        make_foreign_futures_chart(FOREIGN_FUTURES_CHART),
+    ]
+
+
+def technical_pattern_notes(index_history: pd.DataFrame) -> list[str]:
+    notes: list[str] = []
+    data = last_six_months(index_history, "date")
+    if data.empty:
+        return ["- Market index history is unavailable; technical pattern notes cannot be generated."]
+    for code, label in [("TWSE", "TWSE / TAIEX"), ("TPEX", "TPEx / OTC")]:
+        part = data[data["index_code"].astype(str) == code].copy()
+        if part.empty:
+            notes.append(f"- {label}: no six-month data.")
+            continue
+        part["close"] = to_numeric_col(part, "close")
+        close = part["close"].iloc[-1]
+        six_month_high = part["close"].max()
+        six_month_low = part["close"].min()
+        distance_high = (close / six_month_high - 1) * 100 if six_month_high else math.nan
+        regime = classify_market_regime(part.iloc[-1])
+        ma20 = safe_str(part.iloc[-1].get("above_ma20", ""))
+        ma60 = safe_str(part.iloc[-1].get("above_ma60", ""))
+        notes.append(
+            "- "
+            + f"{label}: {regime}; close {clean_num(close, 2)}; "
+            + f"6M range {clean_num(six_month_low, 2)}-{clean_num(six_month_high, 2)}; "
+            + f"distance from 6M high {clean_signed(distance_high, 2)}%; "
+            + f"above MA20={ma20}, above MA60={ma60}."
+        )
+    return notes
+
+
 def markdown_table(rows: list[list[str]]) -> str:
     if not rows:
         return ""
@@ -234,7 +435,14 @@ def markdown_table(rows: list[list[str]]) -> str:
     return "\n".join(lines)
 
 
-def build_markdown(index_rows: pd.DataFrame, indicators: pd.Series, regime: pd.Series, status: dict[str, Any]) -> str:
+def build_markdown(
+    index_rows: pd.DataFrame,
+    indicators: pd.Series,
+    regime: pd.Series,
+    status: dict[str, Any],
+    index_history: pd.DataFrame,
+    chart_paths: list[Path],
+) -> str:
     twse = row_for_index(index_rows, "TWSE")
     tpex = row_for_index(index_rows, "TPEX")
     index_table = [["index", "close", "5d", "20d", "MA20", "MA60", "regime"]]
@@ -293,6 +501,25 @@ def build_markdown(index_rows: pd.DataFrame, indicators: pd.Series, regime: pd.S
             "",
             markdown_table(inst_table),
             "",
+            "## Six-Month Technical Charts",
+            "",
+            "The PDF version of this dashboard must include six-month charts for index trend, fear/option indicators, and foreign futures positioning. If a source has insufficient history, the PDF still includes a placeholder chart and states the limitation.",
+            "",
+        ]
+    )
+    for path in chart_paths:
+        lines.append(f"- chart: `{path.as_posix()}`")
+    lines.extend(
+        [
+            "",
+            "## Technical / Pattern Notes",
+            "",
+        ]
+    )
+    lines.extend(technical_pattern_notes(index_history))
+    lines.extend(
+        [
+            "",
             "## Risk Notes",
             "",
         ]
@@ -324,7 +551,7 @@ def register_font() -> str:
         return "Helvetica"
 
 
-def build_pdf(markdown_text: str, output_path: Path) -> None:
+def build_pdf(markdown_text: str, output_path: Path, chart_paths: list[Path]) -> None:
     output_path.parent.mkdir(parents=True, exist_ok=True)
     font_name = register_font()
     styles = getSampleStyleSheet()
@@ -348,11 +575,27 @@ def build_pdf(markdown_text: str, output_path: Path) -> None:
             if text.startswith("- "):
                 text = "• " + text[2:]
             story.append(Paragraph(text, styles["BodyTW"]))
+    story.append(PageBreak())
+    story.append(Paragraph("Six-Month Technical Charts", styles["TitleTW"]))
+    story.append(Spacer(1, 8))
+    for idx, chart_path in enumerate(chart_paths, start=1):
+        if not chart_path.exists():
+            continue
+        story.append(Paragraph(f"Chart {idx}: {chart_path.name}", styles["HeadingTW"]))
+        if chart_path.name == FOREIGN_FUTURES_CHART.name:
+            story.append(Image(str(chart_path), width=17.5 * cm, height=7.6 * cm))
+        else:
+            story.append(Image(str(chart_path), width=17.5 * cm, height=11.3 * cm))
+        story.append(Spacer(1, 8))
     doc.build(story)
 
 
 def main() -> int:
-    index_rows = latest_index_rows()
+    index_history = load_market_index_history(update_if_missing=True)
+    if index_history.empty:
+        index_rows = pd.DataFrame()
+    else:
+        index_rows = index_history.sort_values(["index_code", "date"]).groupby("index_code", as_index=False).tail(1)
     indicators_df = read_csv(INDICATORS_CSV, dtype=str)
     if indicators_df.empty:
         raise FileNotFoundError(f"Missing or empty {INDICATORS_CSV}. Run scripts/fetch_futures_options_indicators.py first.")
@@ -361,9 +604,10 @@ def main() -> int:
     regime_df = build_regime_row(index_rows, indicators)
     write_csv(regime_df, MARKET_REGIME_CSV)
 
-    md = build_markdown(index_rows, indicators, regime_df.iloc[0], source_status)
+    chart_paths = build_chart_outputs(index_history)
+    md = build_markdown(index_rows, indicators, regime_df.iloc[0], source_status, index_history, chart_paths)
     REPORT_MD.write_text(md, encoding="utf-8")
-    build_pdf(md, REPORT_PDF)
+    build_pdf(md, REPORT_PDF, chart_paths)
     DOCS_LATEST_DIR.mkdir(parents=True, exist_ok=True)
     shutil.copy2(REPORT_PDF, DOCS_REPORT_PDF)
 
@@ -373,6 +617,8 @@ def main() -> int:
         "report_md": REPORT_MD.as_posix(),
         "report_pdf": REPORT_PDF.as_posix(),
         "docs_report_pdf": DOCS_REPORT_PDF.as_posix(),
+        "chart_lookback": "six_months",
+        "chart_paths": [path.as_posix() for path in chart_paths],
         "source_status": safe_str(indicators.get("source_status", "missing")),
     }
     MANIFEST_JSON.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
