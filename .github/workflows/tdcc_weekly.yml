@@ -2,6 +2,9 @@ name: TDCC Weekly Report
 
 on:
   workflow_dispatch:
+  schedule:
+    # Saturday 15:30 Asia/Taipei.
+    - cron: "30 7 * * 6"
 
 permissions:
   contents: write

@@ -2,6 +2,9 @@ name: Daily Full Pipeline
 
 on:
   workflow_dispatch:
+  schedule:
+    # 19:30 Asia/Taipei, Monday-Saturday.
+    - cron: "30 11 * * 1-6"
 
 permissions:
   contents: write
