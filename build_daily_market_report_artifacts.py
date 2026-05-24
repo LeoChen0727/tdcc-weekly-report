@@ -3,6 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 from datetime import datetime
 from zoneinfo import ZoneInfo
+from typing import Any
 import json
 import math
 import re
@@ -1102,6 +1103,54 @@ def build_reason(row: pd.Series, limit: int = 150) -> str:
     return clean_text(reason, limit)
 
 
+def truthy_text(value: Any) -> bool:
+    return safe_str(value).lower() in {"true", "1", "yes", "y", "是"}
+
+
+def catalyst_short(row: pd.Series, limit: int = 100) -> str:
+    parts: list[str] = []
+    score = safe_str(row.get("fundamental_catalyst_score", ""))
+    tags = safe_str(row.get("fundamental_catalyst_tags", ""))
+    event_tags = safe_str(row.get("event_catalyst_tags", ""))
+    quality = safe_str(row.get("catalyst_quality", ""))
+    summary = safe_str(row.get("catalyst_summary", ""))
+
+    if score:
+        parts.append(f"score {score}")
+    if tags:
+        parts.append(tags)
+    if event_tags:
+        parts.append(event_tags)
+    if truthy_text(row.get("similar_to_shihsinko_flag", "")):
+        parts.append("類事欣科型")
+    elif truthy_text(row.get("revenue_good_eps_unconfirmed_flag", "")):
+        parts.append("營收好但 EPS 尚未確認")
+    if truthy_text(row.get("low_reaction_after_catalyst", "")):
+        parts.append("利多尚未完全反應")
+    if truthy_text(row.get("already_reacted_to_catalyst", "")) or truthy_text(row.get("catalyst_overheated", "")):
+        parts.append("利多已反應/過熱")
+    if quality:
+        parts.append(quality)
+    if summary:
+        parts.append(summary)
+    return clean_text(" / ".join(parts), limit) if parts else ""
+
+
+def catalyst_candidates(candidates: pd.DataFrame, limit: int = 12) -> pd.DataFrame:
+    if candidates.empty or "fundamental_catalyst_score" not in candidates.columns:
+        return pd.DataFrame()
+    part = candidates.copy()
+    score = pd.to_numeric(part.get("fundamental_catalyst_score", ""), errors="coerce").fillna(0)
+    mask = (
+        score.gt(0)
+        | part.get("similar_to_shihsinko_flag", pd.Series("", index=part.index)).astype(str).eq("True")
+        | part.get("revenue_good_eps_unconfirmed_flag", pd.Series("", index=part.index)).astype(str).eq("True")
+        | part.get("already_reacted_to_catalyst", pd.Series("", index=part.index)).astype(str).eq("True")
+    )
+    part["_catalyst_score_sort"] = score
+    return part[mask].sort_values("_catalyst_score_sort", ascending=False).head(limit)
+
+
 def category_pdf_row(category: str, row: pd.Series) -> list[str]:
     stock = f"{safe_str(row.get('stock_id', ''))} {safe_str(row.get('stock_name', ''))}"
     theme = clean_text(theme_short(row), 22)
@@ -1538,6 +1587,33 @@ def build_summary_markdown(
         lines.append(f"| {cn} | {len(part)} |")
 
     lines.append("")
+    lines.append("## 財報 / 事件催化觀察")
+    lines.append("")
+    lines.append("這是跨分類標籤層，不新增第七大分類；若沒有 EPS / 毛利率 / 重大事件資料來源，只標示待確認，不直接升級。")
+    lines.append("")
+    catalyst_part = catalyst_candidates(candidates)
+    if catalyst_part.empty:
+        lines.append("- 今日沒有具備來源確認的財報 / 事件催化候選。")
+        lines.append("- 若僅有營收轉強但 EPS 尚未確認，保留在原分類並標示「等 EPS 確認」。")
+    else:
+        lines.append("| 股票 | 原始分類 | 催化標籤 / 反應程度 | TDCC |")
+        lines.append("|---|---|---|---|")
+        for _, row in catalyst_part.iterrows():
+            stock = f"{safe_str(row.get('stock_id', ''))} {safe_str(row.get('stock_name', ''))}"
+            original_category = safe_str(row.get("category_cn", "")) or safe_str(row.get("category", ""))
+            lines.append(
+                "| "
+                + " | ".join(
+                    [
+                        stock.replace("|", "/"),
+                        original_category.replace("|", "/"),
+                        catalyst_short(row, 120).replace("|", "/"),
+                        tdcc_short(row).replace("|", "/"),
+                    ]
+                )
+                + " |"
+            )
+    lines.append("")
     lines.append("## 精華候選股")
     lines.append("")
 
@@ -1561,6 +1637,9 @@ def build_summary_markdown(
             lines.append(f"- 優先級：{safe_str(row.get('revaluation_priority', ''))}")
             lines.append(f"- TDCC：{tdcc_short(row)}")
             lines.append(f"- 權證：{warrant_short(row)}")
+            catalyst = catalyst_short(row, 140)
+            if catalyst:
+                lines.append(f"- 財報 / 事件催化：{catalyst}")
             lines.append(f"- 摘要：{compact_reason(row, category_value, 120)}")
             lines.append(f"- 完整原因：{build_reason(row, 220)}")
 
@@ -1607,6 +1686,14 @@ def build_full_markdown(
         "tdcc_judgement",
         "warrant_flow_signal",
         "warrant_flow_score",
+        "fundamental_catalyst_score",
+        "fundamental_catalyst_tags",
+        "event_catalyst_tags",
+        "similar_to_shihsinko_flag",
+        "catalyst_quality",
+        "catalyst_confidence",
+        "already_reacted_to_catalyst",
+        "low_reaction_after_catalyst",
         "note",
     ]
 

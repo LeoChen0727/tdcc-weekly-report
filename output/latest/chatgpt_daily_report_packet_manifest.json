@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-24 14:05:58 Asia/Taipei",
+  "generated_at": "2026-05-24 14:53:34 Asia/Taipei",
   "main_price_date": "20260524",
   "report_ready": "True",
   "summary_pdf_kline_policy": "local_price_redraw_first",
@@ -16,6 +16,9 @@
   "daily_market_full_table_pdf_raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_full_table_report_latest.pdf",
   "daily_market_full_table_pdf_path": "output/latest/daily_market_full_table_report_latest.pdf",
   "fixed_pdf_validation_status": "pass",
+  "fundamental_catalyst_layer_md_raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/fundamental_catalyst_layer_latest.md",
+  "fundamental_catalyst_layer_path": "output/latest/fundamental_catalyst_layer_latest.md",
+  "fundamental_catalyst_layer_status": "generated",
   "daily_signal_log_path": "output/history/daily_signals/daily_candidate_signal_log.csv",
   "daily_signal_performance_csv_path": "output/history/daily_signals/daily_candidate_signal_performance.csv",
   "daily_signal_performance_summary_raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_signal_performance_summary_latest.md",

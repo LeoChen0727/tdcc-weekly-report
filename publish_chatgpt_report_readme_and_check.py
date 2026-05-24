@@ -57,6 +57,7 @@ DAILY_SIGNAL_MONTHLY_MD = LATEST_DIR / "daily_signal_performance_monthly_latest.
 DAILY_SIGNAL_MONTHLY_PDF = LATEST_DIR / "daily_signal_performance_monthly_latest.pdf"
 DOCS_DAILY_SIGNAL_WEEKLY_PDF = DOCS_LATEST_DIR / "daily_signal_performance_weekly_latest.pdf"
 DOCS_DAILY_SIGNAL_MONTHLY_PDF = DOCS_LATEST_DIR / "daily_signal_performance_monthly_latest.pdf"
+FUNDAMENTAL_CATALYST_MD = LATEST_DIR / "fundamental_catalyst_layer_latest.md"
 WARRANT_MARKET_MD = LATEST_DIR / "warrant_market_report_latest.md"
 WARRANT_MARKET_PDF = LATEST_DIR / "warrant_market_report_latest.pdf"
 WARRANT_FLOW_BY_STOCK_CSV = LATEST_DIR / "warrant_flow_by_stock_latest.csv"
@@ -340,6 +341,7 @@ def build_readme(
     pdf_kline_status: str,
     pdf_kline_total_charts: Any,
     pdf_kline_local_price_redraw_count: Any,
+    fundamental_catalyst_layer_raw_url: str,
     daily_signal_performance_summary_raw_url: str,
     daily_signal_performance_weekly_md_raw_url: str,
     daily_signal_performance_weekly_pdf_pages_url: str,
@@ -391,6 +393,7 @@ def build_readme(
         f"summary_pdf_kline_local_price_redraw_count={pdf_kline_local_price_redraw_count}",
         "summary_pdf_chart_path_and_chart_url_are_fallback_only=True",
         "do_not_label_summary_pdf_as_chart_path_version_or_image_download_failed=True",
+        f"fundamental_catalyst_layer_raw_url={fundamental_catalyst_layer_raw_url}",
         f"daily_signal_performance_summary_raw_url={daily_signal_performance_summary_raw_url}",
         f"daily_signal_performance_weekly_md_raw_url={daily_signal_performance_weekly_md_raw_url}",
         f"daily_signal_performance_weekly_pdf_pages_url={daily_signal_performance_weekly_pdf_pages_url}",
@@ -627,6 +630,7 @@ def main() -> int:
         "local_price_redraw_count",
         packet_manifest.get("summary_pdf_kline_local_price_redraw_count", 0),
     )
+    fundamental_catalyst_layer_raw_url = raw_url("main", FUNDAMENTAL_CATALYST_MD)
     daily_signal_performance_summary_raw_url = raw_url("main", DAILY_SIGNAL_SUMMARY_MD)
     daily_signal_performance_weekly_md_raw_url = raw_url("main", DAILY_SIGNAL_WEEKLY_MD)
     daily_signal_performance_weekly_pdf_pages_url = pages_url("latest/daily_signal_performance_weekly_latest.pdf")
@@ -681,6 +685,7 @@ def main() -> int:
         pdf_kline_status=pdf_kline_status,
         pdf_kline_total_charts=pdf_kline_total_charts,
         pdf_kline_local_price_redraw_count=pdf_kline_local_price_redraw_count,
+        fundamental_catalyst_layer_raw_url=fundamental_catalyst_layer_raw_url,
         daily_signal_performance_summary_raw_url=daily_signal_performance_summary_raw_url,
         daily_signal_performance_weekly_md_raw_url=daily_signal_performance_weekly_md_raw_url,
         daily_signal_performance_weekly_pdf_pages_url=daily_signal_performance_weekly_pdf_pages_url,
@@ -770,6 +775,7 @@ def main() -> int:
         "summary_pdf_kline_local_price_redraw_count": pdf_kline_local_price_redraw_count,
         "summary_pdf_chart_path_and_chart_url_are_fallback_only": True,
         "do_not_label_summary_pdf_as_chart_path_version_or_image_download_failed": True,
+        "fundamental_catalyst_layer_raw_url": fundamental_catalyst_layer_raw_url,
         "daily_signal_performance_summary_raw_url": daily_signal_performance_summary_raw_url,
         "daily_signal_performance_weekly_md_raw_url": daily_signal_performance_weekly_md_raw_url,
         "daily_signal_performance_weekly_pdf_pages_url": daily_signal_performance_weekly_pdf_pages_url,

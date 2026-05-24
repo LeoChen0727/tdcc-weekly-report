@@ -35,6 +35,7 @@ MAX_REASONABLE_PAGES = 120
 CURATED_REQUIRED_SECTIONS = [
     "今日市場結論",
     "Market Background and Warrant Summary",
+    "財報 / 事件催化觀察",
     "今日優先追蹤",
     "分類解讀",
     "風險提醒",
@@ -239,6 +240,48 @@ def check_candidate_date(errors: list[str], main_date: str) -> None:
         errors.append(f"failed to inspect all_candidates date: {exc}")
 
 
+def check_catalyst_columns(errors: list[str]) -> None:
+    if not ALL_CANDIDATES_CSV.exists():
+        return
+    required = {
+        "fundamental_catalyst_score",
+        "fundamental_catalyst_tags",
+        "event_catalyst_tags",
+        "similar_to_shihsinko_flag",
+        "revenue_good_eps_unconfirmed_flag",
+        "catalyst_summary",
+        "already_reacted_to_catalyst",
+        "low_reaction_after_catalyst",
+        "catalyst_quality",
+        "catalyst_confidence",
+    }
+    try:
+        df = pd.read_csv(ALL_CANDIDATES_CSV, dtype=str, keep_default_na=False)
+    except Exception as exc:
+        errors.append(f"failed to inspect catalyst columns: {exc}")
+        return
+    missing = required - set(df.columns)
+    if missing:
+        errors.append(f"all_candidates missing catalyst columns: {sorted(missing)}")
+        return
+    similar = df[df["similar_to_shihsinko_flag"].astype(str).str.lower().isin(["true", "1", "yes"])]
+    if similar.empty:
+        return
+    if "already_reacted_to_catalyst" in similar.columns:
+        bad = similar[similar["already_reacted_to_catalyst"].astype(str).str.lower().isin(["true", "1", "yes"])]
+        if not bad.empty:
+            errors.append("similar_to_shihsinko_flag includes already_reacted_to_catalyst rows")
+    if "is_construction_recognition" in similar.columns:
+        bad = similar[similar["is_construction_recognition"].astype(str).str.lower().isin(["true", "1", "yes"])]
+        if not bad.empty:
+            errors.append("similar_to_shihsinko_flag includes construction recognition rows")
+    tdcc_cols = [col for col in ["tdcc_accumulation_signal", "tdcc_judgement"] if col in similar.columns]
+    for col in tdcc_cols:
+        bad = similar[similar[col].astype(str).str.contains("distribution_warning", case=False, na=False)]
+        if not bad.empty:
+            errors.append("similar_to_shihsinko_flag includes distribution_warning rows")
+
+
 def validate() -> tuple[dict[str, Any], list[str], list[str]]:
     errors: list[str] = []
     warnings: list[str] = []
@@ -264,6 +307,7 @@ def validate() -> tuple[dict[str, Any], list[str], list[str]]:
     check_report_date("curated", curated["text"], main_date, errors)
     check_report_date("full_table", full["text"], main_date, errors)
     check_candidate_date(errors, main_date)
+    check_catalyst_columns(errors)
 
     result = {
         "generated_at": now_text(),
@@ -295,6 +339,7 @@ def validate() -> tuple[dict[str, Any], list[str], list[str]]:
             "no_total_ranking": not any("total ranking" in err for err in errors),
             "score_rank_priority_present": not any("score/rank/priority" in err for err in errors),
             "report_date_matches": not any("main_price_date" in err or "all_candidates date" in err for err in errors),
+            "catalyst_layer_columns_present": not any("catalyst" in err or "similar_to_shihsinko" in err for err in errors),
         },
         "errors": errors,
         "warnings": warnings,

@@ -28,6 +28,7 @@ DAILY_SIGNAL_PERFORMANCE = Path("output/history/daily_signals/daily_candidate_si
 DAILY_SIGNAL_SUMMARY_MD = LATEST_DIR / "daily_signal_performance_summary_latest.md"
 DAILY_SIGNAL_WEEKLY_PDF = LATEST_DIR / "daily_signal_performance_weekly_latest.pdf"
 DAILY_SIGNAL_MONTHLY_PDF = LATEST_DIR / "daily_signal_performance_monthly_latest.pdf"
+FUNDAMENTAL_CATALYST_MD = LATEST_DIR / "fundamental_catalyst_layer_latest.md"
 WARRANT_MARKET_MD = LATEST_DIR / "warrant_market_report_latest.md"
 WARRANT_MARKET_PDF = LATEST_DIR / "warrant_market_report_latest.pdf"
 WARRANT_FLOW_BY_STOCK_CSV = LATEST_DIR / "warrant_flow_by_stock_latest.csv"
@@ -302,6 +303,13 @@ def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path],
     lines.append(f"validation_json_path: {FIXED_PDF_VALIDATION_JSON.as_posix()}")
     lines.append(f"validation_md_path: output/latest/daily_market_report_validation_latest.md")
     lines.append("")
+    lines.append("FUNDAMENTAL / EVENT CATALYST LAYER")
+    lines.append(f"catalyst_layer_md_raw_url: {raw_url(FUNDAMENTAL_CATALYST_MD)}")
+    lines.append(f"catalyst_layer_path: {FUNDAMENTAL_CATALYST_MD.as_posix()}")
+    lines.append("fields: fundamental_catalyst_score,fundamental_catalyst_tags,event_catalyst_tags,similar_to_shihsinko_flag,revenue_good_eps_unconfirmed_flag,already_reacted_to_catalyst,low_reaction_after_catalyst")
+    lines.append(f"status: {'generated' if FUNDAMENTAL_CATALYST_MD.exists() else 'missing'}")
+    lines.append("note: This is a cross-category tag layer, not a seventh category. Do not upgrade revenue-only candidates without EPS/event source confirmation.")
+    lines.append("")
     lines.append("SIGNAL PERFORMANCE TRACKING")
     lines.append(f"signal_log_path: {DAILY_SIGNAL_LOG.as_posix()}")
     lines.append(f"performance_csv_path: {DAILY_SIGNAL_PERFORMANCE.as_posix()}")
@@ -393,6 +401,9 @@ def write_packet_manifest(main_date: str, report_ready: str, paths: dict[str, Pa
         "daily_market_full_table_pdf_raw_url": full_table_pdf.get("raw_url") or raw_url(FULL_TABLE_REPORT_PDF),
         "daily_market_full_table_pdf_path": full_table_pdf.get("file_path") or FULL_TABLE_REPORT_PDF.as_posix(),
         "fixed_pdf_validation_status": fixed_pdf_validation.get("status", ""),
+        "fundamental_catalyst_layer_md_raw_url": raw_url(FUNDAMENTAL_CATALYST_MD),
+        "fundamental_catalyst_layer_path": FUNDAMENTAL_CATALYST_MD.as_posix(),
+        "fundamental_catalyst_layer_status": "generated" if FUNDAMENTAL_CATALYST_MD.exists() else "missing",
         "daily_signal_log_path": DAILY_SIGNAL_LOG.as_posix(),
         "daily_signal_performance_csv_path": DAILY_SIGNAL_PERFORMANCE.as_posix(),
         "daily_signal_performance_summary_raw_url": raw_url(DAILY_SIGNAL_SUMMARY_MD),

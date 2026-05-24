@@ -48,6 +48,22 @@ BASE_COLUMNS = [
     "is_construction_recognition",
     "recognition_type",
     "revenue_signal_type",
+    "fundamental_catalyst_score",
+    "fundamental_catalyst_tags",
+    "event_catalyst_tags",
+    "similar_to_shihsinko_flag",
+    "eps_surprise_flag",
+    "earnings_acceleration_flag",
+    "margin_improvement_flag",
+    "profit_turnaround_flag",
+    "revenue_good_eps_unconfirmed_flag",
+    "theme_catalyst_flag",
+    "theme_catalyst_tags",
+    "catalyst_date",
+    "low_reaction_after_catalyst",
+    "already_reacted_to_catalyst",
+    "catalyst_quality",
+    "catalyst_confidence",
 ]
 
 

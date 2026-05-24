@@ -20,7 +20,7 @@ def build_rules_text() -> str:
     return f"""CHATGPT DAILY MARKET REPORT RULES
 
 generated_at={now_taipei()}
-rules_version=2026-05-23-v2
+rules_version=2026-05-24-catalyst-layer-v1
 
 PURPOSE
 This file defines how ChatGPT should read, interpret, and format the daily Taiwan full-market candidate stock report.
@@ -165,6 +165,18 @@ WARRANT FLOW RULES
 - call_inflow or call_strong_inflow supports short-term attention.
 - call_put_bullish may indicate bullish structure but still needs price confirmation.
 - Do not treat warrant flow as the main buy reason.
+
+FUNDAMENTAL / EVENT CATALYST LAYER RULES
+- The catalyst layer is a cross-category tag layer, not a seventh major category.
+- Keep every stock in its original six-category bucket; use catalyst fields only for labels, upgrades, downgrades, and follow-up tracking.
+- Read fundamental_catalyst_layer_raw_url and the catalyst fields in all_candidates when available.
+- Key fields include fundamental_catalyst_score, fundamental_catalyst_tags, event_catalyst_tags, similar_to_shihsinko_flag, revenue_good_eps_unconfirmed_flag, low_reaction_after_catalyst, and already_reacted_to_catalyst.
+- Do not upgrade a stock only because it has a theme label.
+- Do not upgrade a stock only because EPS is strong if the price has already overreacted, has a gap-up failure, or TDCC is distribution_warning.
+- The core setup is: catalyst appears + price has not fully reacted + TDCC is not deteriorating.
+- revenue_good_eps_unconfirmed means revenue is strong but EPS / margin confirmation is missing; this should be treated as wait-for-confirmation, not most-priority.
+- similar_to_shihsinko_flag must not be assigned to overheated stocks, TDCC distribution_warning stocks, already_priced_in stocks, or construction recognition stocks driven only by monthly revenue.
+- Construction / handover-recognition revenue names must not be upgraded to similar-to-shihsinko unless EPS, margin, contract-liability, project-delivery, or other concrete fundamental evidence supports it.
 
 MARKET REGIME / FUTURES OPTIONS RULES
 - Market regime data is background information for index futures and exposure review.

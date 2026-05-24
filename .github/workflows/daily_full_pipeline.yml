@@ -208,6 +208,10 @@ jobs:
         run: |
           python scripts/apply_revenue_industry_applicability.py
 
+      - name: Apply fundamental and event catalyst layer
+        run: |
+          python scripts/apply_fundamental_catalyst_layer.py
+
       - name: Build data freshness status
         run: |
           python build_data_freshness_latest.py
@@ -323,6 +327,7 @@ jobs:
           git add output/latest/data_freshness_latest.md || true
           git add output/latest/data_freshness_latest.csv || true
           git add output/latest/revenue_industry_applicability_latest.md || true
+          git add output/latest/fundamental_catalyst_layer_latest.md || true
 
           git add output/latest/report_manifest_latest.md || true
           git add output/latest/report_manifest_latest.json || true
@@ -392,6 +397,8 @@ jobs:
           git add scripts/fetch_official_warrant_daily.py || true
           git add scripts/tracking_utils.py || true
           git add scripts/apply_revenue_industry_applicability.py || true
+          git add scripts/apply_fundamental_catalyst_layer.py || true
+          git add docs/fundamental_catalyst_layer.md || true
           git add scripts/update_market_index_history.py || true
           git add scripts/update_daily_candidate_signal_log.py || true
           git add scripts/update_daily_candidate_signal_performance.py || true
@@ -504,12 +511,15 @@ jobs:
           git add output/latest/warrant_signal_performance_latest.md || true
           git add data/warrant_daily/ || true
           git add data/warrant_flow_by_stock/ || true
+          git add output/latest/fundamental_catalyst_layer_latest.md || true
           git add output/history/reports/ || true
 
           git add publish_chatgpt_report_readme_and_check.py || true
           git add scripts/generate_daily_market_pdf.py || true
           git add scripts/validate_daily_market_report.py || true
           git add scripts/tracking_utils.py || true
+          git add scripts/apply_fundamental_catalyst_layer.py || true
+          git add docs/fundamental_catalyst_layer.md || true
           git add scripts/fetch_futures_options_indicators.py || true
           git add scripts/build_market_regime_dashboard.py || true
           git add scripts/validate_market_regime_dashboard.py || true

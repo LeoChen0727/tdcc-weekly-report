@@ -683,6 +683,96 @@ def confirm_text(row: pd.Series) -> str:
     return "隔日價量確認。"
 
 
+def catalyst_brief(row: pd.Series) -> str:
+    tags = clean_text(row.get("fundamental_catalyst_tags", ""), 70)
+    event_tags = clean_text(row.get("event_catalyst_tags", ""), 60)
+    score = clean_text(row.get("fundamental_catalyst_score", ""))
+    quality = clean_text(row.get("catalyst_quality", ""))
+    low_reaction = is_truthy(row.get("low_reaction_after_catalyst", ""))
+    already = is_truthy(row.get("already_reacted_to_catalyst", "")) or is_truthy(row.get("catalyst_overheated", ""))
+    similar = is_truthy(row.get("similar_to_shihsinko_flag", ""))
+    revenue_unconfirmed = is_truthy(row.get("revenue_good_eps_unconfirmed_flag", ""))
+    summary = clean_text(row.get("catalyst_summary", ""), 110)
+
+    parts: list[str] = []
+    if score:
+        parts.append(f"score {score}")
+    if tags:
+        parts.append(tags)
+    if event_tags:
+        parts.append(event_tags)
+    if similar:
+        parts.append("類事欣科型")
+    elif revenue_unconfirmed:
+        parts.append("營收好但 EPS 尚未確認")
+    if low_reaction:
+        parts.append("利多尚未完全反應")
+    if already:
+        parts.append("利多已反應/過熱降級")
+    if quality:
+        parts.append(quality)
+    if summary:
+        parts.append(summary)
+    return clean_text(" / ".join(parts), 180) if parts else "無明確財報/事件催化資料"
+
+
+def catalyst_rows(df: pd.DataFrame) -> list[list[Any]]:
+    if df.empty or "fundamental_catalyst_score" not in df.columns:
+        return [["Stock", "Original category", "Catalyst layer", "TDCC / action"], ["n/a", "n/a", "No catalyst layer columns available", "keep original category"]]
+
+    part = df.copy()
+    part["_catalyst_score_sort"] = pd.to_numeric(part.get("fundamental_catalyst_score", ""), errors="coerce").fillna(0)
+    mask = (
+        part["_catalyst_score_sort"].gt(0)
+        | part.get("similar_to_shihsinko_flag", pd.Series("", index=part.index)).astype(str).eq("True")
+        | part.get("revenue_good_eps_unconfirmed_flag", pd.Series("", index=part.index)).astype(str).eq("True")
+        | part.get("already_reacted_to_catalyst", pd.Series("", index=part.index)).astype(str).eq("True")
+    )
+    part = part[mask].sort_values("_catalyst_score_sort", ascending=False).head(12)
+
+    rows: list[list[Any]] = [["Stock", "Original category", "Catalyst layer", "TDCC / action"]]
+    if part.empty:
+        rows.append(["n/a", "n/a", "No confirmed EPS/event catalyst today", "Do not upgrade without source data"])
+        return rows
+
+    for _, row in part.iterrows():
+        action = "觀察"
+        if is_truthy(row.get("similar_to_shihsinko_flag", "")):
+            action = "可升級觀察"
+        elif is_truthy(row.get("revenue_good_eps_unconfirmed_flag", "")):
+            action = "等 EPS 確認"
+        if is_truthy(row.get("already_reacted_to_catalyst", "")) or tdcc_signal(row) == "distribution_warning":
+            action = "降級/僅觀察"
+        rows.append(
+            [
+                stock_text(row),
+                CATEGORY_LABEL.get(safe_str(row.get("category_key", "")), safe_str(row.get("category_cn", ""))),
+                catalyst_brief(row),
+                f"{tdcc_signal(row)} / {action}",
+            ]
+        )
+    return rows
+
+
+def append_catalyst_section(story: list[Any], style_map: dict[str, ParagraphStyle], df: pd.DataFrame) -> None:
+    story.append(para("財報 / 事件催化觀察", style_map["h1"]))
+    story.append(
+        para(
+            "此段是跨分類催化層，不新增第七大分類；EPS、毛利率、重大事件與題材來源不足時，只標示待確認，不把營收好直接升級為類事欣科型。",
+            style_map["normal"],
+        )
+    )
+    story.append(
+        make_table(
+            catalyst_rows(df),
+            style_map,
+            [3.1 * cm, 3.1 * cm, 7.2 * cm, 3.6 * cm],
+            header_bg="#7030A0",
+        )
+    )
+    story.append(Spacer(1, 0.35 * cm))
+
+
 def downgrade_reason(row: pd.Series) -> str:
     items: list[str] = []
     if tdcc_signal(row) == "distribution_warning":
@@ -792,6 +882,7 @@ def stock_card(row: pd.Series, style_map: dict[str, ParagraphStyle], warrant_flo
         [title, f"{row['priority_label']}｜{score_rank_text(row)}"],
         ["入選理由", reason_text(row)],
         ["TDCC / 權證", f"{tdcc_signal(row)} / {warrant_signal(row, warrant_flow_date)}"],
+        ["財報 / 事件催化", catalyst_brief(row)],
         ["主要風險", risk_text(row, warrant_flow_date)],
         ["明日確認條件", confirm_text(row)],
     ]
@@ -847,6 +938,7 @@ def build_curated_pdf(df: pd.DataFrame, freshness: dict[str, Any], main_date: st
     story.append(Spacer(1, 0.5 * cm))
     story.append(para("本報告由 Daily Full Pipeline 固定格式產生，精華版只放精選標的，完整清單請看完整版表格 PDF。", style_map["normal"]))
     append_context_sections(story, style_map, freshness, [4.2 * cm, 12.8 * cm])
+    append_catalyst_section(story, style_map, df)
     story.append(PageBreak())
 
     story.append(para("今日優先追蹤", style_map["h1"]))
@@ -957,7 +1049,7 @@ def sector_conclusion(grade: str, resonance: int, tdcc_support: int, warrant_sup
 
 
 def full_table_rows(part: pd.DataFrame, warrant_flow_date: str) -> list[list[Any]]:
-    rows = [["股票代號", "股票名稱", "分數 / 排名 / priority", "細分族群", "TDCC 判斷", "權證判斷", "精簡理由", "降級原因"]]
+    rows = [["股票代號", "股票名稱", "分數 / 排名 / priority", "細分族群", "TDCC 判斷", "權證判斷", "催化層", "精簡理由", "降級原因"]]
     for _, row in part.iterrows():
         rows.append(
             [
@@ -967,6 +1059,7 @@ def full_table_rows(part: pd.DataFrame, warrant_flow_date: str) -> list[list[Any
                 clean_text(row.get("group_name", ""), 24),
                 tdcc_signal(row),
                 warrant_signal(row, warrant_flow_date),
+                catalyst_brief(row),
                 reason_text(row),
                 downgrade_reason(row),
             ]
@@ -1024,7 +1117,7 @@ def build_full_table_pdf(df: pd.DataFrame, freshness: dict[str, Any], main_date:
                 make_table(
                     full_table_rows(chunk, warrant_flow_date),
                     style_map,
-                    [1.6 * cm, 1.8 * cm, 3.0 * cm, 2.4 * cm, 2.8 * cm, 2.8 * cm, 6.0 * cm, 3.8 * cm],
+                    [1.4 * cm, 1.6 * cm, 2.6 * cm, 2.0 * cm, 2.3 * cm, 2.3 * cm, 3.6 * cm, 5.2 * cm, 3.0 * cm],
                 )
             )
             story.append(Spacer(1, 0.25 * cm))

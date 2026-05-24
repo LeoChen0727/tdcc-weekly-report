@@ -59,6 +59,12 @@ def main() -> int:
         "recognition_type",
         "market_regime",
         "benchmark_index",
+        "fundamental_catalyst_score",
+        "fundamental_catalyst_tags",
+        "event_catalyst_tags",
+        "similar_to_shihsinko_flag",
+        "low_reaction_after_catalyst",
+        "already_reacted_to_catalyst",
     }
     perf_cols = {
         "signal_id",
@@ -68,6 +74,10 @@ def main() -> int:
         "mae_d10",
         "relative_return_vs_benchmark_d10",
         "available_days_after_signal",
+        "fundamental_catalyst_score",
+        "similar_to_shihsinko_flag",
+        "low_reaction_after_catalyst",
+        "already_reacted_to_catalyst",
     }
     missing_log = log_cols - set(log.columns)
     missing_perf = perf_cols - set(perf.columns)

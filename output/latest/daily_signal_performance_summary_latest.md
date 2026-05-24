@@ -1,6 +1,6 @@
 # 每日候選股訊號績效摘要
 
-- generated_at: `2026-05-24 14:05:57 Asia/Taipei`
+- generated_at: `2026-05-24 14:53:31 Asia/Taipei`
 - latest_signal_date: `20260524`
 - signal_count: `1023`
 - period: all available signals
@@ -53,6 +53,47 @@
 |  | 656 |  |  |  |  |
 | 出貨型營收 / 其他 | 324 |  |  |  |  |
 | 營建認列型 / 交屋認列型 | 43 |  |  |  |  |
+
+## 財報 / 事件催化層績效
+
+### 類事欣科型
+
+| similar_to_shihsinko_flag | signal_count | avg_return_d5 | avg_return_d10 | avg_return_d20 | avg_relative_return_vs_benchmark_d10 | benchmark_outperform_rate_d10 |
+| --- | --- | --- | --- | --- | --- | --- |
+|  | 565 |  |  |  |  |  |
+| False | 458 |  |  |  |  |  |
+
+### EPS / 毛利率 / 營收待確認
+
+| eps_surprise_flag | signal_count | avg_return_d10 | avg_relative_return_vs_benchmark_d10 | benchmark_outperform_rate_d10 |
+| --- | --- | --- | --- | --- |
+|  | 565 |  |  |  |
+| False | 458 |  |  |  |
+
+| margin_improvement_flag | signal_count | avg_return_d10 | avg_relative_return_vs_benchmark_d10 | benchmark_outperform_rate_d10 |
+| --- | --- | --- | --- | --- |
+|  | 565 |  |  |  |
+| False | 458 |  |  |  |
+
+| revenue_good_eps_unconfirmed_flag | signal_count | avg_return_d10 | avg_relative_return_vs_benchmark_d10 | benchmark_outperform_rate_d10 |
+| --- | --- | --- | --- | --- |
+|  | 565 |  |  |  |
+| False | 331 |  |  |  |
+| True | 127 |  |  |  |
+
+### 利多反應程度
+
+| low_reaction_after_catalyst | signal_count | avg_return_d10 | avg_relative_return_vs_benchmark_d10 | benchmark_outperform_rate_d10 |
+| --- | --- | --- | --- | --- |
+|  | 565 |  |  |  |
+| False | 76 |  |  |  |
+| True | 382 |  |  |  |
+
+| already_reacted_to_catalyst | signal_count | avg_return_d10 | avg_relative_return_vs_benchmark_d10 | benchmark_outperform_rate_d10 |
+| --- | --- | --- | --- | --- |
+|  | 565 |  |  |  |
+| False | 417 |  |  |  |
+| True | 41 |  |  |  |
 
 ## 不同市場背景下的分類表現
 
