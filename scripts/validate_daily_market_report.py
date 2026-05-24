@@ -34,6 +34,7 @@ MAX_REASONABLE_PAGES = 120
 
 CURATED_REQUIRED_SECTIONS = [
     "今日市場結論",
+    "Market Background and Warrant Summary",
     "今日優先追蹤",
     "分類解讀",
     "風險提醒",
@@ -41,6 +42,7 @@ CURATED_REQUIRED_SECTIONS = [
 ]
 
 FULL_REQUIRED_SECTIONS = [
+    "Market Background and Warrant Summary",
     "族群性分析 / 今日族群輪動",
     "族群矩陣",
     "各分類清單",

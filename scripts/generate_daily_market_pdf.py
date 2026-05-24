@@ -39,6 +39,8 @@ HISTORY_REPORT_DIR = Path("output/history/reports")
 
 ALL_CANDIDATES_CSV = LATEST_DIR / "all_candidates_latest.csv"
 DATA_FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
+MARKET_REGIME_CSV = LATEST_DIR / "market_regime_latest.csv"
+WARRANT_FLOW_BY_STOCK_CSV = LATEST_DIR / "warrant_flow_by_stock_latest.csv"
 
 CURATED_PDF = LATEST_DIR / "daily_market_curated_report_latest.pdf"
 FULL_TABLE_PDF = LATEST_DIR / "daily_market_full_table_report_latest.pdf"
@@ -328,6 +330,153 @@ def load_candidates() -> pd.DataFrame:
     df["priority_label"] = df.apply(priority_label, axis=1)
     df["sort_score"] = df.apply(sort_score, axis=1)
     return df
+
+
+def load_first_csv_row(path: Path) -> dict[str, Any]:
+    if not path.exists():
+        return {}
+    try:
+        df = pd.read_csv(path, dtype=str, keep_default_na=False)
+    except Exception:
+        return {}
+    if df.empty:
+        return {}
+    return df.iloc[0].fillna("").to_dict()
+
+
+def signed_pct_text(value: Any) -> str:
+    num = safe_float(value)
+    if math.isnan(num):
+        return "n/a"
+    return f"{num:+.2f}%"
+
+
+def compact_number(value: Any, digits: int = 0) -> str:
+    num = safe_float(value)
+    if math.isnan(num):
+        return "n/a"
+    return f"{num:,.{digits}f}"
+
+
+def bool_marker(value: Any) -> str:
+    text = safe_str(value).lower()
+    if text in {"true", "1", "yes", "y"}:
+        return "yes"
+    if text in {"false", "0", "no", "n"}:
+        return "no"
+    return safe_str(value) or "n/a"
+
+
+def market_context_rows() -> list[list[Any]]:
+    row = load_first_csv_row(MARKET_REGIME_CSV)
+    if not row:
+        return [["Item", "Status"], ["Market background", "market_regime_latest.csv is not available"]]
+
+    twse = (
+        f"close {compact_number(row.get('twse_close'), 2)}; "
+        f"5d {signed_pct_text(row.get('twse_return_5d'))}; "
+        f"20d {signed_pct_text(row.get('twse_return_20d'))}; "
+        f"MA20 {bool_marker(row.get('twse_above_ma20'))}; "
+        f"MA60 {bool_marker(row.get('twse_above_ma60'))}"
+    )
+    tpex = (
+        f"close {compact_number(row.get('tpex_close'), 2)}; "
+        f"5d {signed_pct_text(row.get('tpex_return_5d'))}; "
+        f"20d {signed_pct_text(row.get('tpex_return_20d'))}; "
+        f"MA20 {bool_marker(row.get('tpex_above_ma20'))}; "
+        f"MA60 {bool_marker(row.get('tpex_above_ma60'))}"
+    )
+    futures_options = (
+        f"Foreign TX futures net OI {compact_number(row.get('foreign_tx_futures_net_oi'))}; "
+        f"TXO P/C OI {compact_number(row.get('put_call_oi_ratio_pct'), 2)}%; "
+        f"Taiwan VIX {compact_number(row.get('taiwan_vix'), 2)}"
+    )
+
+    return [
+        ["Item", "Status"],
+        ["Market regime", f"{safe_str(row.get('market_regime')) or 'n/a'} / {safe_str(row.get('risk_level')) or 'n/a'} / risk_score {safe_str(row.get('risk_score')) or 'n/a'}"],
+        ["TWSE", twse],
+        ["TPEx", tpex],
+        ["Futures/options", futures_options],
+        ["Risk notes", clean_text(row.get("risk_reasons", ""), 140) or "n/a"],
+    ]
+
+
+def warrant_context_rows(freshness: dict[str, Any]) -> list[list[Any]]:
+    if not WARRANT_FLOW_BY_STOCK_CSV.exists():
+        return [["Item", "Status"], ["Warrant market", "warrant_flow_by_stock_latest.csv is not available"]]
+    try:
+        df = pd.read_csv(WARRANT_FLOW_BY_STOCK_CSV, dtype=str, keep_default_na=False)
+    except Exception:
+        return [["Item", "Status"], ["Warrant market", "failed to read warrant_flow_by_stock_latest.csv"]]
+    if df.empty:
+        return [["Item", "Status"], ["Warrant market", "no stock-level warrant rows"]]
+
+    numeric_cols = [
+        "call_turnover",
+        "put_turnover",
+        "call_warrant_count",
+        "put_warrant_count",
+        "total_warrant_volume",
+    ]
+    for col in numeric_cols:
+        if col in df.columns:
+            df[col] = pd.to_numeric(df[col], errors="coerce").fillna(0)
+
+    date = safe_str(df.iloc[0].get("date", "")) or safe_str(freshness.get("warrant_flow_date", ""))
+    call_turnover = float(df["call_turnover"].sum()) if "call_turnover" in df.columns else 0.0
+    put_turnover = float(df["put_turnover"].sum()) if "put_turnover" in df.columns else 0.0
+    call_count = int(df["call_warrant_count"].sum()) if "call_warrant_count" in df.columns else 0
+    put_count = int(df["put_warrant_count"].sum()) if "put_warrant_count" in df.columns else 0
+    candidate_overlap = 0
+    if "candidate_category" in df.columns:
+        candidate_overlap = int(df["candidate_category"].astype(str).str.strip().ne("").sum())
+    turnover_ready = call_turnover > 0 or put_turnover > 0
+
+    top_col = "call_turnover" if turnover_ready and "call_turnover" in df.columns else "call_warrant_count"
+    top_names = []
+    if top_col in df.columns:
+        top_names = (
+            df.sort_values(top_col, ascending=False)
+            .head(5)
+            .apply(lambda row: f"{safe_str(row.get('stock_id'))} {clean_text(row.get('stock_name'), 12)}", axis=1)
+            .tolist()
+        )
+
+    readiness_note = (
+        "turnover data ready"
+        if turnover_ready
+        else "turnover amount is zero or missing; use warrant counts and candidate overlap only"
+    )
+    return [
+        ["Item", "Status"],
+        ["Warrant date", date or "n/a"],
+        ["Market breadth", f"stock-level rows {len(df)}; candidate overlap {candidate_overlap}"],
+        ["Call/put scale", f"call warrants {call_count:,}; put warrants {put_count:,}; call turnover {call_turnover:,.0f}; put turnover {put_turnover:,.0f}"],
+        ["Top call-side names", ", ".join(top_names) if top_names else "n/a"],
+        ["Readiness", readiness_note],
+    ]
+
+
+def append_context_sections(
+    story: list[Any],
+    style_map: dict[str, ParagraphStyle],
+    freshness: dict[str, Any],
+    widths: list[float],
+) -> None:
+    story.append(para("Market Background and Warrant Summary", style_map["h1"]))
+    story.append(
+        para(
+            "This section is context only. Candidate categories, scores, and ranks remain category-specific; warrant and futures/options data are auxiliary signals.",
+            style_map["normal"],
+        )
+    )
+    story.append(para("Market regime / futures-options", style_map["h2"]))
+    story.append(make_table(market_context_rows(), style_map, widths, header_bg="#2F5597"))
+    story.append(Spacer(1, 0.25 * cm))
+    story.append(para("Warrant market summary", style_map["h2"]))
+    story.append(make_table(warrant_context_rows(freshness), style_map, widths, header_bg="#7F6000"))
+    story.append(Spacer(1, 0.35 * cm))
 
 
 def category_key(row: pd.Series) -> str:
@@ -697,6 +846,7 @@ def build_curated_pdf(df: pd.DataFrame, freshness: dict[str, Any], main_date: st
     story.append(para(f"今日市場結論：{conclusion}", style_map["h2"]))
     story.append(Spacer(1, 0.5 * cm))
     story.append(para("本報告由 Daily Full Pipeline 固定格式產生，精華版只放精選標的，完整清單請看完整版表格 PDF。", style_map["normal"]))
+    append_context_sections(story, style_map, freshness, [4.2 * cm, 12.8 * cm])
     story.append(PageBreak())
 
     story.append(para("今日優先追蹤", style_map["h1"]))
@@ -841,6 +991,7 @@ def build_full_table_pdf(df: pd.DataFrame, freshness: dict[str, Any], main_date:
     story.append(para(f"主資料日期：{main_date}｜report_ready={safe_str(freshness.get('report_ready', ''))}", style_map["subtitle"]))
     story.append(para("族群性分析 / 今日族群輪動", style_map["h1"]))
     story.append(para("族群排序依多分類共振、嚴格突破與區間轉強、營收低反應搭配 TDCC 支持度綜合判斷。", style_map["normal"]))
+    append_context_sections(story, style_map, freshness, [5.0 * cm, 21.5 * cm])
 
     matrix = sector_matrix(df, warrant_flow_date)
     story.append(para("族群矩陣", style_map["h2"]))
