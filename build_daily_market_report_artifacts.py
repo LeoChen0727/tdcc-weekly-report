@@ -1114,6 +1114,9 @@ def catalyst_short(row: pd.Series, limit: int = 100) -> str:
     catalyst_tags = safe_str(row.get("catalyst_tags", ""))
     tags = safe_str(row.get("fundamental_catalyst_tags", ""))
     event_tags = safe_str(row.get("event_catalyst_tags", ""))
+    calendar_tags = safe_str(row.get("event_calendar_tags", ""))
+    nearest_event = safe_str(row.get("nearest_event_date", ""))
+    nearest_event_type = safe_str(row.get("nearest_event_type", ""))
     reaction = safe_str(row.get("price_reaction_level", ""))
     quality = safe_str(row.get("catalyst_quality", ""))
     summary = safe_str(row.get("catalyst_summary", ""))
@@ -1128,6 +1131,10 @@ def catalyst_short(row: pd.Series, limit: int = 100) -> str:
         parts.append(tags)
     if event_tags:
         parts.append(event_tags)
+    if calendar_tags:
+        parts.append(calendar_tags)
+    if nearest_event:
+        parts.append(f"calendar {nearest_event_type or 'event'} {nearest_event}")
     if reaction:
         parts.append(f"reaction {reaction}")
     if truthy_text(row.get("similar_to_shihsinko_flag", "")):
@@ -1150,13 +1157,15 @@ def catalyst_candidates(candidates: pd.DataFrame, limit: int = 12) -> pd.DataFra
         return pd.DataFrame()
     part = candidates.copy()
     score = pd.to_numeric(part.get("catalyst_strength_score", part.get("fundamental_catalyst_score", "")), errors="coerce").fillna(0)
+    proximity_score = pd.to_numeric(part.get("event_proximity_score", ""), errors="coerce").fillna(0)
     mask = (
         score.gt(0)
+        | proximity_score.gt(0)
         | part.get("similar_to_shihsinko_flag", pd.Series("", index=part.index)).astype(str).eq("True")
         | part.get("revenue_good_eps_unconfirmed_flag", pd.Series("", index=part.index)).astype(str).eq("True")
         | part.get("already_reacted_to_catalyst", pd.Series("", index=part.index)).astype(str).eq("True")
     )
-    part["_catalyst_score_sort"] = score
+    part["_catalyst_score_sort"] = score + proximity_score
     return part[mask].sort_values("_catalyst_score_sort", ascending=False).head(limit)
 
 
@@ -1701,6 +1710,12 @@ def build_full_markdown(
         "fundamental_catalyst_score",
         "fundamental_catalyst_tags",
         "event_catalyst_tags",
+        "event_calendar_tags",
+        "event_proximity_score",
+        "nearest_event_date",
+        "nearest_event_type",
+        "nearest_event_name",
+        "days_to_nearest_event",
         "price_reaction_level",
         "similar_to_shihsinko_flag",
         "catalyst_quality",

@@ -50,6 +50,7 @@ MARKET_INDEX_CHART = CHART_DIR / "market_index_technical_6m.png"
 RISK_INDICATOR_CHART = CHART_DIR / "risk_indicators_6m.png"
 FOREIGN_FUTURES_CHART = CHART_DIR / "foreign_futures_net_oi_6m.png"
 RETAIL_MTX_PROXY_CHART = CHART_DIR / "retail_mtx_proxy_6m.png"
+UPCOMING_MACRO_CALENDAR = LATEST_DIR / "upcoming_macro_event_calendar_latest.csv"
 
 
 def latest_index_rows() -> pd.DataFrame:
@@ -513,6 +514,27 @@ def markdown_table(rows: list[list[str]]) -> str:
     return "\n".join(lines)
 
 
+def upcoming_macro_notes(limit: int = 8) -> list[str]:
+    df = read_csv(UPCOMING_MACRO_CALENDAR, dtype=str)
+    if df.empty:
+        return [
+            "- Macro event calendar is not available yet. Run scripts/update_event_calendar_data.py before building this dashboard.",
+        ]
+    if "days_to_event" in df.columns:
+        df["_days"] = pd.to_numeric(df["days_to_event"], errors="coerce")
+        df = df.sort_values(["_days", "event_date"], na_position="last")
+    rows: list[str] = []
+    for _, row in df.head(limit).iterrows():
+        rows.append(
+            "- "
+            + f"{safe_str(row.get('event_date'))} "
+            + f"{safe_str(row.get('event_type'))}: "
+            + f"{safe_str(row.get('event_name'))} "
+            + f"(days={safe_str(row.get('days_to_event'))}, importance={safe_str(row.get('importance'))})"
+        )
+    return rows or ["- No upcoming macro events in the current stored window."]
+
+
 def build_markdown(
     index_rows: pd.DataFrame,
     indicators: pd.Series,
@@ -579,6 +601,14 @@ def build_markdown(
             "## Futures / Options Positioning",
             "",
             markdown_table(inst_table),
+            "",
+            "## Upcoming Macro Event Calendar",
+            "",
+        ]
+    )
+    lines.extend(upcoming_macro_notes())
+    lines.extend(
+        [
             "",
             "## Six-Month Technical Charts",
             "",

@@ -31,8 +31,10 @@ jobs:
 
       - name: Refresh theme mapping and catalyst performance
         run: |
+          python scripts/update_event_calendar_data.py
           python scripts/update_event_catalyst_data.py
           python scripts/update_catalyst_performance.py
+          python scripts/validate_event_calendar_data.py --schema-only
           python scripts/validate_catalyst_layer.py --schema-only
 
       - name: Commit weekly theme review outputs
@@ -40,9 +42,19 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add data/theme_events/ || true
+          git add data/company_calendar/ || true
+          git add data/macro_events/ || true
           git add data/fundamental_catalysts/ || true
           git add data/event_catalysts/ || true
           git add output/history/catalyst_performance/ || true
+          git add output/latest/upcoming_catalyst_calendar_latest.csv || true
+          git add output/latest/upcoming_catalyst_calendar_latest.md || true
+          git add output/latest/upcoming_macro_event_calendar_latest.csv || true
+          git add output/latest/upcoming_macro_event_calendar_latest.md || true
+          git add output/latest/calendar_data_source_status_latest.md || true
+          git add output/latest/calendar_data_source_status_latest.json || true
+          git add output/latest/event_calendar_validation_latest.md || true
+          git add output/latest/event_calendar_validation_latest.json || true
           git add output/latest/catalyst_data_source_status_latest.md || true
           git add output/latest/catalyst_data_source_status_latest.json || true
           git add output/latest/catalyst_summary_latest.csv || true

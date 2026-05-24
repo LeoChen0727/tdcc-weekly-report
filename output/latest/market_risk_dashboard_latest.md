@@ -1,6 +1,6 @@
 # Market Risk Dashboard
 
-- generated_at: `2026-05-24 15:41:16 Asia/Taipei`
+- generated_at: `2026-05-24 20:07:59 Asia/Taipei`
 - data_date: `20260522`
 - market_regime: `strong_bull`
 - risk_level: `elevated_risk`
@@ -38,6 +38,17 @@ This report uses official market index data already stored in the repo plus TAIF
 | Foreign TXO put net OI | +3,893 |  |
 | TXO put/call OI ratio | 156.25% | put_hedge_elevated |
 | Taiwan VIX | 33.09 | risk_elevated |
+
+## Upcoming Macro Event Calendar
+
+- 20260528 US_GDP: GDP (Second Estimate) and Corporate Profits, 1st Quarter 2026 (days=4, importance=medium)
+- 20260528 US_PCE_personal_income: Personal Income and Outlays, April 2026 (days=4, importance=high)
+- 20260609 US_trade: U.S. International Trade in Goods and Services, Annual Update (days=16, importance=medium)
+- 20260609 US_trade: U.S. International Trade in Goods and Services, April 2026 (days=16, importance=medium)
+- 20260617 FOMC: FOMC decision (June 16-17, 2026) (days=24, importance=high)
+- 20260625 US_PCE_personal_income: GDP (Third Estimate), Industries, Corporate Profits, State GDP, and State Personal Income, 1st Quarter 2026 (days=32, importance=high)
+- 20260625 US_PCE_personal_income: Personal Income and Outlays, May 2026 (days=32, importance=high)
+- 20260707 US_trade: U.S. International Trade in Goods and Services, May 2026 (days=44, importance=medium)
 
 ## Six-Month Technical Charts
 

@@ -687,6 +687,9 @@ def catalyst_brief(row: pd.Series) -> str:
     catalyst_tags = clean_text(row.get("catalyst_tags", ""), 70)
     tags = clean_text(row.get("fundamental_catalyst_tags", ""), 70)
     event_tags = clean_text(row.get("event_catalyst_tags", ""), 60)
+    calendar_tags = clean_text(row.get("event_calendar_tags", ""), 60)
+    nearest_event = clean_text(row.get("nearest_event_date", ""), 16)
+    nearest_event_type = clean_text(row.get("nearest_event_type", ""), 40)
     score = clean_text(row.get("catalyst_strength_score", "")) or clean_text(row.get("fundamental_catalyst_score", ""))
     theme_score = clean_text(row.get("theme_strength_score", ""))
     reaction_level = clean_text(row.get("price_reaction_level", ""))
@@ -708,6 +711,10 @@ def catalyst_brief(row: pd.Series) -> str:
         parts.append(tags)
     if event_tags:
         parts.append(event_tags)
+    if calendar_tags:
+        parts.append(calendar_tags)
+    if nearest_event:
+        parts.append(f"calendar {nearest_event_type or 'event'} {nearest_event}")
     if reaction_level:
         parts.append(f"reaction {reaction_level}")
     if similar:
@@ -731,12 +738,15 @@ def catalyst_rows(df: pd.DataFrame) -> list[list[Any]]:
 
     part = df.copy()
     part["_catalyst_score_sort"] = pd.to_numeric(part.get("catalyst_strength_score", part.get("fundamental_catalyst_score", "")), errors="coerce").fillna(0)
+    proximity_score = pd.to_numeric(part.get("event_proximity_score", ""), errors="coerce").fillna(0)
     mask = (
         part["_catalyst_score_sort"].gt(0)
+        | proximity_score.gt(0)
         | part.get("similar_to_shihsinko_flag", pd.Series("", index=part.index)).astype(str).eq("True")
         | part.get("revenue_good_eps_unconfirmed_flag", pd.Series("", index=part.index)).astype(str).eq("True")
         | part.get("already_reacted_to_catalyst", pd.Series("", index=part.index)).astype(str).eq("True")
     )
+    part["_catalyst_score_sort"] = part["_catalyst_score_sort"] + proximity_score
     part = part[mask].sort_values("_catalyst_score_sort", ascending=False).head(12)
 
     rows: list[list[Any]] = [["Stock", "Original category", "Catalyst layer", "TDCC / action"]]

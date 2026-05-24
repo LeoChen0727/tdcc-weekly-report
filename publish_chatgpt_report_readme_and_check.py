@@ -66,6 +66,12 @@ THEME_EVENT_CALENDAR = Path("data/theme_events/theme_event_calendar.csv")
 COMPANY_THEME_MAPPING = Path("data/theme_events/company_theme_mapping.csv")
 QUARTERLY_CATALYST = Path("data/fundamental_catalysts/quarterly_catalyst.csv")
 EVENT_CATALYST_LOG = Path("data/event_catalysts/event_catalyst_log.csv")
+COMPANY_EVENT_CALENDAR = Path("data/company_calendar/company_event_calendar.csv")
+MACRO_EVENT_CALENDAR = Path("data/macro_events/macro_event_calendar.csv")
+UPCOMING_CATALYST_CALENDAR = LATEST_DIR / "upcoming_catalyst_calendar_latest.csv"
+UPCOMING_MACRO_EVENT_CALENDAR = LATEST_DIR / "upcoming_macro_event_calendar_latest.csv"
+CALENDAR_DATA_SOURCE_STATUS_MD = LATEST_DIR / "calendar_data_source_status_latest.md"
+EVENT_CALENDAR_VALIDATION_MD = LATEST_DIR / "event_calendar_validation_latest.md"
 WARRANT_MARKET_MD = LATEST_DIR / "warrant_market_report_latest.md"
 WARRANT_MARKET_PDF = LATEST_DIR / "warrant_market_report_latest.pdf"
 WARRANT_FLOW_BY_STOCK_CSV = LATEST_DIR / "warrant_flow_by_stock_latest.csv"
@@ -358,6 +364,12 @@ def build_readme(
     catalyst_summary_csv_raw_url: str,
     catalyst_performance_raw_url: str,
     catalyst_layer_validation_raw_url: str,
+    company_event_calendar_raw_url: str,
+    macro_event_calendar_raw_url: str,
+    upcoming_catalyst_calendar_raw_url: str,
+    upcoming_macro_event_calendar_raw_url: str,
+    calendar_data_source_status_raw_url: str,
+    event_calendar_validation_raw_url: str,
     daily_signal_performance_summary_raw_url: str,
     daily_signal_performance_weekly_md_raw_url: str,
     daily_signal_performance_weekly_pdf_pages_url: str,
@@ -418,6 +430,12 @@ def build_readme(
         f"catalyst_summary_csv_raw_url={catalyst_summary_csv_raw_url}",
         f"catalyst_performance_raw_url={catalyst_performance_raw_url}",
         f"catalyst_layer_validation_raw_url={catalyst_layer_validation_raw_url}",
+        f"company_event_calendar_raw_url={company_event_calendar_raw_url}",
+        f"macro_event_calendar_raw_url={macro_event_calendar_raw_url}",
+        f"upcoming_catalyst_calendar_raw_url={upcoming_catalyst_calendar_raw_url}",
+        f"upcoming_macro_event_calendar_raw_url={upcoming_macro_event_calendar_raw_url}",
+        f"calendar_data_source_status_raw_url={calendar_data_source_status_raw_url}",
+        f"event_calendar_validation_raw_url={event_calendar_validation_raw_url}",
         f"daily_signal_performance_summary_raw_url={daily_signal_performance_summary_raw_url}",
         f"daily_signal_performance_weekly_md_raw_url={daily_signal_performance_weekly_md_raw_url}",
         f"daily_signal_performance_weekly_pdf_pages_url={daily_signal_performance_weekly_pdf_pages_url}",
@@ -663,6 +681,12 @@ def main() -> int:
     catalyst_summary_csv_raw_url = raw_url("main", CATALYST_SUMMARY_CSV)
     catalyst_performance_raw_url = raw_url("main", CATALYST_PERFORMANCE_CSV)
     catalyst_layer_validation_raw_url = raw_url("main", CATALYST_VALIDATION_MD)
+    company_event_calendar_raw_url = raw_url("main", COMPANY_EVENT_CALENDAR)
+    macro_event_calendar_raw_url = raw_url("main", MACRO_EVENT_CALENDAR)
+    upcoming_catalyst_calendar_raw_url = raw_url("main", UPCOMING_CATALYST_CALENDAR)
+    upcoming_macro_event_calendar_raw_url = raw_url("main", UPCOMING_MACRO_EVENT_CALENDAR)
+    calendar_data_source_status_raw_url = raw_url("main", CALENDAR_DATA_SOURCE_STATUS_MD)
+    event_calendar_validation_raw_url = raw_url("main", EVENT_CALENDAR_VALIDATION_MD)
     daily_signal_performance_summary_raw_url = raw_url("main", DAILY_SIGNAL_SUMMARY_MD)
     daily_signal_performance_weekly_md_raw_url = raw_url("main", DAILY_SIGNAL_WEEKLY_MD)
     daily_signal_performance_weekly_pdf_pages_url = pages_url("latest/daily_signal_performance_weekly_latest.pdf")
@@ -726,6 +750,12 @@ def main() -> int:
         catalyst_summary_csv_raw_url=catalyst_summary_csv_raw_url,
         catalyst_performance_raw_url=catalyst_performance_raw_url,
         catalyst_layer_validation_raw_url=catalyst_layer_validation_raw_url,
+        company_event_calendar_raw_url=company_event_calendar_raw_url,
+        macro_event_calendar_raw_url=macro_event_calendar_raw_url,
+        upcoming_catalyst_calendar_raw_url=upcoming_catalyst_calendar_raw_url,
+        upcoming_macro_event_calendar_raw_url=upcoming_macro_event_calendar_raw_url,
+        calendar_data_source_status_raw_url=calendar_data_source_status_raw_url,
+        event_calendar_validation_raw_url=event_calendar_validation_raw_url,
         daily_signal_performance_summary_raw_url=daily_signal_performance_summary_raw_url,
         daily_signal_performance_weekly_md_raw_url=daily_signal_performance_weekly_md_raw_url,
         daily_signal_performance_weekly_pdf_pages_url=daily_signal_performance_weekly_pdf_pages_url,
@@ -824,6 +854,12 @@ def main() -> int:
         "catalyst_summary_csv_raw_url": catalyst_summary_csv_raw_url,
         "catalyst_performance_raw_url": catalyst_performance_raw_url,
         "catalyst_layer_validation_raw_url": catalyst_layer_validation_raw_url,
+        "company_event_calendar_raw_url": company_event_calendar_raw_url,
+        "macro_event_calendar_raw_url": macro_event_calendar_raw_url,
+        "upcoming_catalyst_calendar_raw_url": upcoming_catalyst_calendar_raw_url,
+        "upcoming_macro_event_calendar_raw_url": upcoming_macro_event_calendar_raw_url,
+        "calendar_data_source_status_raw_url": calendar_data_source_status_raw_url,
+        "event_calendar_validation_raw_url": event_calendar_validation_raw_url,
         "daily_signal_performance_summary_raw_url": daily_signal_performance_summary_raw_url,
         "daily_signal_performance_weekly_md_raw_url": daily_signal_performance_weekly_md_raw_url,
         "daily_signal_performance_weekly_pdf_pages_url": daily_signal_performance_weekly_pdf_pages_url,

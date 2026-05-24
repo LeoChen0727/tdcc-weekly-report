@@ -1,9 +1,9 @@
 main_price_date=20260524
 report_ready=True
-commit_sha=7189ff135a78ebafb97d92df5632a562add361dd
+commit_sha=b3595cd6115cab9d4c8fec6bdb04c4a880e693fc
 preferred_chatgpt_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt
 packet_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt
-packet_commit_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/7189ff135a78ebafb97d92df5632a562add361dd/output/history/reports/20260524_CHATGPT_DAILY_REPORT_PACKET.txt
+packet_commit_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/b3595cd6115cab9d4c8fec6bdb04c4a880e693fc/output/history/reports/20260524_CHATGPT_DAILY_REPORT_PACKET.txt
 packet_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/chatgpt_daily_report_packet_latest.txt
 packet_github_api_url=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/chatgpt_daily_report_packet_latest.txt?ref=main
 summary_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_summary_latest.md
@@ -31,6 +31,12 @@ catalyst_summary_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-week
 catalyst_summary_csv_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/catalyst_summary_latest.csv
 catalyst_performance_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/catalyst_performance/catalyst_performance.csv
 catalyst_layer_validation_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/catalyst_layer_validation_latest.md
+company_event_calendar_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/company_calendar/company_event_calendar.csv
+macro_event_calendar_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/macro_events/macro_event_calendar.csv
+upcoming_catalyst_calendar_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/upcoming_catalyst_calendar_latest.csv
+upcoming_macro_event_calendar_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/upcoming_macro_event_calendar_latest.csv
+calendar_data_source_status_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/calendar_data_source_status_latest.md
+event_calendar_validation_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/event_calendar_validation_latest.md
 daily_signal_performance_summary_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_signal_performance_summary_latest.md
 daily_signal_performance_weekly_md_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_signal_performance_weekly_latest.md
 daily_signal_performance_weekly_pdf_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_weekly_latest.pdf

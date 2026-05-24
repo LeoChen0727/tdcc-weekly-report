@@ -20,6 +20,8 @@ THEME_EVENT_CALENDAR = DATA_DIR / "theme_events" / "theme_event_calendar.csv"
 COMPANY_THEME_MAPPING = DATA_DIR / "theme_events" / "company_theme_mapping.csv"
 QUARTERLY_CATALYST = DATA_DIR / "fundamental_catalysts" / "quarterly_catalyst.csv"
 EVENT_CATALYST_LOG = DATA_DIR / "event_catalysts" / "event_catalyst_log.csv"
+COMPANY_EVENT_CALENDAR = DATA_DIR / "company_calendar" / "company_event_calendar.csv"
+UPCOMING_COMPANY_CALENDAR = LATEST_DIR / "upcoming_catalyst_calendar_latest.csv"
 
 FINANCIAL_SOURCE_FILES = [
     QUARTERLY_CATALYST,
@@ -38,6 +40,11 @@ EVENT_SOURCE_FILES = [
 
 THEME_SOURCE_FILES = [
     COMPANY_THEME_MAPPING,
+]
+
+CALENDAR_SOURCE_FILES = [
+    UPCOMING_COMPANY_CALENDAR,
+    COMPANY_EVENT_CALENDAR,
 ]
 
 PRICE_HISTORY_DIR = DATA_DIR / "stock_price_history"
@@ -80,6 +87,13 @@ CATALYST_COLUMNS = [
     "gap_up_failed_after_catalyst",
     "low_reaction_after_catalyst",
     "catalyst_overheated",
+    "event_calendar_tags",
+    "event_proximity_score",
+    "nearest_event_date",
+    "nearest_event_type",
+    "nearest_event_name",
+    "days_to_nearest_event",
+    "event_calendar_source",
 ]
 
 
@@ -549,6 +563,78 @@ def theme_mapping_flags(theme: pd.Series | None, row: pd.Series) -> dict[str, An
     }
 
 
+def load_calendar_source() -> tuple[pd.DataFrame, str]:
+    for path in CALENDAR_SOURCE_FILES:
+        df = read_csv(path)
+        if df.empty:
+            continue
+        code_col = next((c for c in ["stock_id", "code", "ticker"] if c in df.columns), "")
+        if not code_col:
+            continue
+        df = df.copy()
+        df["stock_id"] = df[code_col].map(normalize_code)
+        if "event_date" not in df.columns:
+            continue
+        df["_event_date_norm"] = df["event_date"].map(normalize_date)
+        df["_days_num"] = pd.to_numeric(df.get("days_to_event", ""), errors="coerce")
+        df["_future_rank"] = df["_days_num"].apply(lambda x: 0 if not math.isnan(x) and x >= 0 else 1)
+        df["_abs_days"] = df["_days_num"].abs()
+        df = df[(df["stock_id"] != "") & (df["_event_date_norm"] != "")]
+        if df.empty:
+            continue
+        df = df.sort_values(["stock_id", "_future_rank", "_abs_days", "_event_date_norm"])
+        return df.drop_duplicates("stock_id", keep="first"), path.as_posix()
+    return pd.DataFrame(), ""
+
+
+def calendar_flags(calendar: pd.Series | None) -> dict[str, str]:
+    if calendar is None:
+        return {
+            "event_calendar_tags": "",
+            "event_proximity_score": "0",
+            "nearest_event_date": "",
+            "nearest_event_type": "",
+            "nearest_event_name": "",
+            "days_to_nearest_event": "",
+            "event_calendar_source": "",
+            "summary": "",
+        }
+
+    event_type = first_value(calendar, ["event_type"])
+    event_name = first_value(calendar, ["event_name"])
+    event_date = normalize_date(first_value(calendar, ["event_date"]))
+    days = first_value(calendar, ["days_to_event"])
+    bucket = first_value(calendar, ["proximity_bucket"])
+    status = first_value(calendar, ["event_status"])
+    source = first_value(calendar, ["source", "source_url"])
+    raw_tags = split_tags(first_value(calendar, ["catalyst_tags"]))
+    tags = list(dict.fromkeys(raw_tags + ([f"calendar_{event_type}"] if event_type else [])))
+    proximity_score = 0
+    try:
+        day_num = abs(int(float(days)))
+        if day_num <= 3:
+            proximity_score = 3
+        elif day_num <= 7:
+            proximity_score = 2
+        elif day_num <= 14:
+            proximity_score = 1
+    except Exception:
+        proximity_score = 0
+    summary = ""
+    if event_type and event_date:
+        summary = f"calendar event: {event_type} on {event_date}; status={status or 'unknown'}; proximity={bucket or days}"
+    return {
+        "event_calendar_tags": ";".join(tags),
+        "event_proximity_score": str(proximity_score),
+        "nearest_event_date": event_date,
+        "nearest_event_type": event_type,
+        "nearest_event_name": event_name,
+        "days_to_nearest_event": days,
+        "event_calendar_source": source,
+        "summary": summary,
+    }
+
+
 def is_construction_recognition(row: pd.Series) -> bool:
     rec_type = first_value(row, ["recognition_type"])
     if rec_type in CONSTRUCTION_RECOGNITION_TYPES:
@@ -570,7 +656,13 @@ def is_financial_or_asset_revenue_type(row: pd.Series) -> bool:
     return any(keyword in text for keyword in ["金融", "保險", "證券", "金控", "投資控股", "資產型"])
 
 
-def derive_row(row: pd.Series, fin: pd.Series | None, event: pd.Series | None, theme: pd.Series | None) -> dict[str, str]:
+def derive_row(
+    row: pd.Series,
+    fin: pd.Series | None,
+    event: pd.Series | None,
+    theme: pd.Series | None,
+    calendar: pd.Series | None,
+) -> dict[str, str]:
     stock_id = normalize_code(first_value(row, ["stock_id", "code", "ticker"]))
     category = first_value(row, ["category"])
     tdcc = first_value(row, ["tdcc_accumulation_signal", "tdcc_judgement", "tdcc_status"])
@@ -581,6 +673,7 @@ def derive_row(row: pd.Series, fin: pd.Series | None, event: pd.Series | None, t
     fin_info = financial_flags(fin)
     event_info = event_flags(event, row)
     theme_info = theme_mapping_flags(theme, row)
+    calendar_info = calendar_flags(calendar)
 
     revenue_yoy = to_number(first_value(row, ["latest_revenue_yoy", "revenue_yoy_pct", "revenue_yoy"]))
     cum_revenue_yoy = to_number(first_value(row, ["cumulative_revenue_yoy", "cumulative_yoy_pct", "cum_revenue_yoy"]))
@@ -598,7 +691,7 @@ def derive_row(row: pd.Series, fin: pd.Series | None, event: pd.Series | None, t
     reaction = price_reaction(stock_id, catalyst_date, row)
 
     tags = list(fin_info["tags"])
-    event_tag_list = split_tags(event_info["event_tags"])
+    event_tag_list = split_tags(event_info["event_tags"]) + split_tags(calendar_info["event_calendar_tags"])
     theme_tag_list = split_tags(theme_info["theme_tags"])
     if revenue_unconfirmed:
         tags.append("revenue_good_eps_unconfirmed")
@@ -641,6 +734,8 @@ def derive_row(row: pd.Series, fin: pd.Series | None, event: pd.Series | None, t
         catalyst_summary_parts.append(event_info["summary"])
     elif theme_info["theme_summary"] and has_real_event:
         catalyst_summary_parts.append(theme_info["theme_summary"])
+    if calendar_info["summary"]:
+        catalyst_summary_parts.append(calendar_info["summary"])
     if revenue_unconfirmed:
         catalyst_summary_parts.append("營收轉強但 EPS / 毛利率尚未有結構化資料確認")
     if construction and revenue_unconfirmed:
@@ -708,10 +803,23 @@ def derive_row(row: pd.Series, fin: pd.Series | None, event: pd.Series | None, t
         "catalyst_quality": quality,
         "catalyst_confidence": confidence,
         **reaction,
+        "event_calendar_tags": calendar_info["event_calendar_tags"],
+        "event_proximity_score": calendar_info["event_proximity_score"],
+        "nearest_event_date": calendar_info["nearest_event_date"],
+        "nearest_event_type": calendar_info["nearest_event_type"],
+        "nearest_event_name": calendar_info["nearest_event_name"],
+        "days_to_nearest_event": calendar_info["days_to_nearest_event"],
+        "event_calendar_source": calendar_info["event_calendar_source"],
     }
 
 
-def build_markdown(df: pd.DataFrame, financial_source_path: str, event_source_path: str, theme_source_path: str) -> str:
+def build_markdown(
+    df: pd.DataFrame,
+    financial_source_path: str,
+    event_source_path: str,
+    theme_source_path: str,
+    calendar_source_path: str,
+) -> str:
     lines = [
         "# 財報 / 事件催化層",
         "",
@@ -720,6 +828,7 @@ def build_markdown(df: pd.DataFrame, financial_source_path: str, event_source_pa
         f"- financial_source: `{financial_source_path or 'missing'}`",
         f"- event_source: `{event_source_path or 'missing'}`",
         f"- theme_mapping_source: `{theme_source_path or 'missing'}`",
+        f"- event_calendar_source: `{calendar_source_path or 'missing'}`",
         "- note: 這是跨分類標籤層，不是第七大分類；候選股仍保留原本六大分類。",
         "- note: 若沒有 EPS / 毛利率 / 重大事件資料來源，系統只標示「營收好但 EPS 尚未確認」，不自動升級為類事欣科型。",
         "- note: 公司題材 mapping 只提供背景標籤；沒有公告、法說、訂單、財報或可信事件來源時，不會單獨升級為 confirmed catalyst。",
@@ -763,6 +872,10 @@ def build_markdown(df: pd.DataFrame, financial_source_path: str, event_source_pa
             "fundamental_catalyst_score",
             "fundamental_catalyst_tags",
             "event_catalyst_tags",
+            "event_calendar_tags",
+            "nearest_event_date",
+            "nearest_event_type",
+            "days_to_nearest_event",
             "price_reaction_level",
             "tdcc_accumulation_signal",
             "low_reaction_after_catalyst",
@@ -816,15 +929,25 @@ def main() -> int:
         THEME_SOURCE_FILES,
         ["last_updated", "updated_at", "date"],
     )
+    calendar, calendar_source_path = load_calendar_source()
 
     financial_map = {safe_str(row.get("stock_id")): row for _, row in financial.iterrows()} if not financial.empty else {}
     event_map = {safe_str(row.get("stock_id")): row for _, row in events.iterrows()} if not events.empty else {}
     theme_map = {safe_str(row.get("stock_id")): row for _, row in themes.iterrows()} if not themes.empty else {}
+    calendar_map = {safe_str(row.get("stock_id")): row for _, row in calendar.iterrows()} if not calendar.empty else {}
 
     derived_rows: list[dict[str, str]] = []
     for _, row in df.iterrows():
         code = normalize_code(first_value(row, ["stock_id", "code", "ticker"]))
-        derived_rows.append(derive_row(row, financial_map.get(code), event_map.get(code), theme_map.get(code)))
+        derived_rows.append(
+            derive_row(
+                row,
+                financial_map.get(code),
+                event_map.get(code),
+                theme_map.get(code),
+                calendar_map.get(code),
+            )
+        )
 
     derived = pd.DataFrame(derived_rows)
     for col in CATALYST_COLUMNS:
@@ -834,7 +957,10 @@ def main() -> int:
     out_df = df[extra_cols + CATALYST_COLUMNS]
     write_csv(out_df, ALL_CANDIDATES)
     write_xlsx(out_df, ALL_CANDIDATES_XLSX)
-    OUTPUT_MD.write_text(build_markdown(df, financial_source_path, event_source_path, theme_source_path), encoding="utf-8")
+    OUTPUT_MD.write_text(
+        build_markdown(df, financial_source_path, event_source_path, theme_source_path, calendar_source_path),
+        encoding="utf-8",
+    )
 
     print(f"Saved: {ALL_CANDIDATES}")
     print(f"Saved: {ALL_CANDIDATES_XLSX}")
@@ -842,6 +968,7 @@ def main() -> int:
     print(f"financial_source={financial_source_path or 'missing'}")
     print(f"event_source={event_source_path or 'missing'}")
     print(f"theme_source={theme_source_path or 'missing'}")
+    print(f"calendar_source={calendar_source_path or 'missing'}")
     print(f"similar_to_shihsinko_count={int(df['similar_to_shihsinko_flag'].astype(str).eq('True').sum())}")
     return 0
 

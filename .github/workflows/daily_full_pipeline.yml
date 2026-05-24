@@ -210,6 +210,7 @@ jobs:
 
       - name: Update catalyst data tables
         run: |
+          python scripts/update_event_calendar_data.py
           python scripts/update_event_catalyst_data.py
 
       - name: Apply fundamental and event catalyst layer
@@ -271,6 +272,7 @@ jobs:
 
       - name: Validate catalyst layer
         run: |
+          python scripts/validate_event_calendar_data.py
           python scripts/validate_catalyst_layer.py
 
       - name: Prepare GitHub Pages packet and rules files
@@ -288,6 +290,10 @@ jobs:
           cp output/latest/warrant_market_report_latest.pdf docs/latest/warrant_market_report_latest.pdf || true
           cp output/latest/catalyst_summary_latest.md docs/latest/catalyst_summary_latest.md || true
           cp output/latest/catalyst_layer_validation_latest.md docs/latest/catalyst_layer_validation_latest.md || true
+          cp output/latest/upcoming_catalyst_calendar_latest.md docs/latest/upcoming_catalyst_calendar_latest.md || true
+          cp output/latest/upcoming_macro_event_calendar_latest.md docs/latest/upcoming_macro_event_calendar_latest.md || true
+          cp output/latest/calendar_data_source_status_latest.md docs/latest/calendar_data_source_status_latest.md || true
+          cp output/latest/event_calendar_validation_latest.md docs/latest/event_calendar_validation_latest.md || true
 
           {
             echo "main_price_date=pending"
@@ -343,6 +349,8 @@ jobs:
           git add output/latest/revenue_industry_applicability_latest.md || true
           git add output/latest/fundamental_catalyst_layer_latest.md || true
           git add data/theme_events/ || true
+          git add data/company_calendar/ || true
+          git add data/macro_events/ || true
           git add data/fundamental_catalysts/ || true
           git add data/event_catalysts/ || true
           git add output/history/catalyst_performance/ || true
@@ -352,6 +360,14 @@ jobs:
           git add output/latest/catalyst_summary_latest.md || true
           git add output/latest/catalyst_layer_validation_latest.md || true
           git add output/latest/catalyst_layer_validation_latest.json || true
+          git add output/latest/upcoming_catalyst_calendar_latest.csv || true
+          git add output/latest/upcoming_catalyst_calendar_latest.md || true
+          git add output/latest/upcoming_macro_event_calendar_latest.csv || true
+          git add output/latest/upcoming_macro_event_calendar_latest.md || true
+          git add output/latest/calendar_data_source_status_latest.md || true
+          git add output/latest/calendar_data_source_status_latest.json || true
+          git add output/latest/event_calendar_validation_latest.md || true
+          git add output/latest/event_calendar_validation_latest.json || true
 
           git add output/latest/report_manifest_latest.md || true
           git add output/latest/report_manifest_latest.json || true
@@ -410,6 +426,10 @@ jobs:
           git add docs/latest/daily_signal_performance_weekly_latest.pdf || true
           git add docs/latest/daily_signal_performance_monthly_latest.pdf || true
           git add docs/latest/warrant_market_report_latest.pdf || true
+          git add docs/latest/upcoming_catalyst_calendar_latest.md || true
+          git add docs/latest/upcoming_macro_event_calendar_latest.md || true
+          git add docs/latest/calendar_data_source_status_latest.md || true
+          git add docs/latest/event_calendar_validation_latest.md || true
 
           git add build_data_freshness_latest.py || true
           git add build_daily_market_report_artifacts.py || true
@@ -422,7 +442,10 @@ jobs:
           git add scripts/tracking_utils.py || true
           git add scripts/apply_revenue_industry_applicability.py || true
           git add scripts/apply_fundamental_catalyst_layer.py || true
+          git add scripts/update_event_calendar_data.py || true
+          git add scripts/validate_event_calendar_data.py || true
           git add docs/fundamental_catalyst_layer.md || true
+          git add docs/event_calendar_data_layer.md || true
           git add scripts/update_market_index_history.py || true
           git add scripts/update_daily_candidate_signal_log.py || true
           git add scripts/update_daily_candidate_signal_performance.py || true
@@ -490,6 +513,10 @@ jobs:
           git add docs/latest/daily_signal_performance_weekly_latest.pdf || true
           git add docs/latest/daily_signal_performance_monthly_latest.pdf || true
           git add docs/latest/warrant_market_report_latest.pdf || true
+          git add docs/latest/upcoming_catalyst_calendar_latest.md || true
+          git add docs/latest/upcoming_macro_event_calendar_latest.md || true
+          git add docs/latest/calendar_data_source_status_latest.md || true
+          git add docs/latest/event_calendar_validation_latest.md || true
 
           git add output/latest/CHATGPT_DAILY_REPORT_RULES.txt || true
           git add output/latest/pdf_kline_chart_status_latest.csv || true
@@ -537,6 +564,8 @@ jobs:
           git add data/warrant_flow_by_stock/ || true
           git add output/latest/fundamental_catalyst_layer_latest.md || true
           git add data/theme_events/ || true
+          git add data/company_calendar/ || true
+          git add data/macro_events/ || true
           git add data/fundamental_catalysts/ || true
           git add data/event_catalysts/ || true
           git add output/history/catalyst_performance/ || true
@@ -546,6 +575,14 @@ jobs:
           git add output/latest/catalyst_summary_latest.md || true
           git add output/latest/catalyst_layer_validation_latest.md || true
           git add output/latest/catalyst_layer_validation_latest.json || true
+          git add output/latest/upcoming_catalyst_calendar_latest.csv || true
+          git add output/latest/upcoming_catalyst_calendar_latest.md || true
+          git add output/latest/upcoming_macro_event_calendar_latest.csv || true
+          git add output/latest/upcoming_macro_event_calendar_latest.md || true
+          git add output/latest/calendar_data_source_status_latest.md || true
+          git add output/latest/calendar_data_source_status_latest.json || true
+          git add output/latest/event_calendar_validation_latest.md || true
+          git add output/latest/event_calendar_validation_latest.json || true
           git add output/history/reports/ || true
 
           git add publish_chatgpt_report_readme_and_check.py || true
@@ -553,10 +590,13 @@ jobs:
           git add scripts/validate_daily_market_report.py || true
           git add scripts/tracking_utils.py || true
           git add scripts/apply_fundamental_catalyst_layer.py || true
+          git add scripts/update_event_calendar_data.py || true
+          git add scripts/validate_event_calendar_data.py || true
           git add scripts/update_event_catalyst_data.py || true
           git add scripts/update_catalyst_performance.py || true
           git add scripts/validate_catalyst_layer.py || true
           git add docs/fundamental_catalyst_layer.md || true
+          git add docs/event_calendar_data_layer.md || true
           git add scripts/fetch_futures_options_indicators.py || true
           git add scripts/build_market_regime_dashboard.py || true
           git add scripts/validate_market_regime_dashboard.py || true

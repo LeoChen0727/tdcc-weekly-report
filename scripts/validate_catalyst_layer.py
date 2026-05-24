@@ -42,6 +42,10 @@ ALL_CANDIDATES_REQUIRED = {
     "already_reacted_to_catalyst",
     "catalyst_overheated",
     "similar_to_shihsinko_flag",
+    "event_calendar_tags",
+    "event_proximity_score",
+    "nearest_event_date",
+    "nearest_event_type",
 }
 
 PERFORMANCE_REQUIRED = {
@@ -130,8 +134,10 @@ def validate_packet(errors: list[str]) -> None:
     required_snippets = [
         "FUNDAMENTAL / EVENT CATALYST LAYER",
         "CATALYST DATA LAYER",
+        "EVENT / MACRO CALENDAR LAYER",
         "catalyst_summary_raw_url",
         "catalyst_performance_raw_url",
+        "upcoming_catalyst_calendar_raw_url",
     ]
     for snippet in required_snippets:
         if snippet not in text:

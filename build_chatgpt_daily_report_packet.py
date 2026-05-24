@@ -37,6 +37,12 @@ THEME_EVENT_CALENDAR = Path("data/theme_events/theme_event_calendar.csv")
 COMPANY_THEME_MAPPING = Path("data/theme_events/company_theme_mapping.csv")
 QUARTERLY_CATALYST = Path("data/fundamental_catalysts/quarterly_catalyst.csv")
 EVENT_CATALYST_LOG = Path("data/event_catalysts/event_catalyst_log.csv")
+COMPANY_EVENT_CALENDAR = Path("data/company_calendar/company_event_calendar.csv")
+MACRO_EVENT_CALENDAR = Path("data/macro_events/macro_event_calendar.csv")
+UPCOMING_CATALYST_CALENDAR = LATEST_DIR / "upcoming_catalyst_calendar_latest.csv"
+UPCOMING_MACRO_EVENT_CALENDAR = LATEST_DIR / "upcoming_macro_event_calendar_latest.csv"
+CALENDAR_DATA_SOURCE_STATUS = LATEST_DIR / "calendar_data_source_status_latest.md"
+EVENT_CALENDAR_VALIDATION = LATEST_DIR / "event_calendar_validation_latest.md"
 WARRANT_MARKET_MD = LATEST_DIR / "warrant_market_report_latest.md"
 WARRANT_MARKET_PDF = LATEST_DIR / "warrant_market_report_latest.pdf"
 WARRANT_FLOW_BY_STOCK_CSV = LATEST_DIR / "warrant_flow_by_stock_latest.csv"
@@ -314,7 +320,7 @@ def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path],
     lines.append("FUNDAMENTAL / EVENT CATALYST LAYER")
     lines.append(f"catalyst_layer_md_raw_url: {raw_url(FUNDAMENTAL_CATALYST_MD)}")
     lines.append(f"catalyst_layer_path: {FUNDAMENTAL_CATALYST_MD.as_posix()}")
-    lines.append("fields: theme_strength_score,catalyst_strength_score,catalyst_tags,fundamental_catalyst_score,fundamental_catalyst_tags,event_catalyst_tags,price_reaction_level,similar_to_shihsinko_flag,revenue_good_eps_unconfirmed_flag,already_reacted_to_catalyst,low_reaction_after_catalyst")
+    lines.append("fields: theme_strength_score,catalyst_strength_score,catalyst_tags,fundamental_catalyst_score,fundamental_catalyst_tags,event_catalyst_tags,event_calendar_tags,event_proximity_score,nearest_event_date,nearest_event_type,price_reaction_level,similar_to_shihsinko_flag,revenue_good_eps_unconfirmed_flag,already_reacted_to_catalyst,low_reaction_after_catalyst")
     lines.append(f"status: {'generated' if FUNDAMENTAL_CATALYST_MD.exists() else 'missing'}")
     lines.append("note: This is a cross-category tag layer, not a seventh category. Do not upgrade revenue-only candidates without EPS/event source confirmation.")
     lines.append("")
@@ -329,6 +335,17 @@ def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path],
     lines.append(f"catalyst_layer_validation_raw_url: {raw_url(CATALYST_VALIDATION_MD)}")
     lines.append(f"status: {'generated' if CATALYST_SUMMARY_MD.exists() and CATALYST_PERFORMANCE_CSV.exists() else 'schema_ready_or_pending'}")
     lines.append("note: Event tables are schema-first. Empty tables mean no confirmed catalyst source has been loaded; do not infer catalysts from rumors.")
+    lines.append("")
+    lines.append("EVENT / MACRO CALENDAR LAYER")
+    lines.append(f"company_event_calendar_raw_url: {raw_url(COMPANY_EVENT_CALENDAR)}")
+    lines.append(f"macro_event_calendar_raw_url: {raw_url(MACRO_EVENT_CALENDAR)}")
+    lines.append(f"upcoming_catalyst_calendar_raw_url: {raw_url(UPCOMING_CATALYST_CALENDAR)}")
+    lines.append(f"upcoming_macro_event_calendar_raw_url: {raw_url(UPCOMING_MACRO_EVENT_CALENDAR)}")
+    lines.append(f"calendar_data_source_status_raw_url: {raw_url(CALENDAR_DATA_SOURCE_STATUS)}")
+    lines.append(f"event_calendar_validation_raw_url: {raw_url(EVENT_CALENDAR_VALIDATION)}")
+    lines.append("fields: event_calendar_tags,event_proximity_score,nearest_event_date,nearest_event_type,nearest_event_name,days_to_nearest_event")
+    lines.append(f"status: {'generated' if COMPANY_EVENT_CALENDAR.exists() and MACRO_EVENT_CALENDAR.exists() else 'missing'}")
+    lines.append("note: Calendar proximity is a reminder layer. It does not create a bullish catalyst unless confirmed event or financial data is also present.")
     lines.append("")
     lines.append("SIGNAL PERFORMANCE TRACKING")
     lines.append(f"signal_log_path: {DAILY_SIGNAL_LOG.as_posix()}")
@@ -433,6 +450,13 @@ def write_packet_manifest(main_date: str, report_ready: str, paths: dict[str, Pa
         "catalyst_performance_raw_url": raw_url(CATALYST_PERFORMANCE_CSV),
         "catalyst_layer_validation_raw_url": raw_url(CATALYST_VALIDATION_MD),
         "catalyst_data_layer_status": "generated" if CATALYST_SUMMARY_MD.exists() and CATALYST_PERFORMANCE_CSV.exists() else "schema_ready_or_pending",
+        "company_event_calendar_raw_url": raw_url(COMPANY_EVENT_CALENDAR),
+        "macro_event_calendar_raw_url": raw_url(MACRO_EVENT_CALENDAR),
+        "upcoming_catalyst_calendar_raw_url": raw_url(UPCOMING_CATALYST_CALENDAR),
+        "upcoming_macro_event_calendar_raw_url": raw_url(UPCOMING_MACRO_EVENT_CALENDAR),
+        "calendar_data_source_status_raw_url": raw_url(CALENDAR_DATA_SOURCE_STATUS),
+        "event_calendar_validation_raw_url": raw_url(EVENT_CALENDAR_VALIDATION),
+        "event_calendar_layer_status": "generated" if COMPANY_EVENT_CALENDAR.exists() and MACRO_EVENT_CALENDAR.exists() else "missing",
         "daily_signal_log_path": DAILY_SIGNAL_LOG.as_posix(),
         "daily_signal_performance_csv_path": DAILY_SIGNAL_PERFORMANCE.as_posix(),
         "daily_signal_performance_summary_raw_url": raw_url(DAILY_SIGNAL_SUMMARY_MD),
