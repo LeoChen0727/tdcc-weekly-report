@@ -614,6 +614,8 @@ def build_markdown(
             "",
             "The PDF version of this dashboard must include six-month charts for index trend, fear/option indicators, foreign futures positioning, and retail mini-TAIEX futures proxy positioning. If a source has insufficient history, the PDF still includes a placeholder chart and states the limitation.",
             "",
+            "Important limitation: the current repo stores TWSE/TPEx index close, MA20, MA60, and return history, but not a complete index OHLC/volume raw table. Therefore this dashboard labels the index chart as a close/MA technical chart, not a candlestick K-line chart. After index_ohlc_history.csv is added, the next version should draw standard index K-line charts.",
+            "",
         ]
     )
     for path in chart_paths:

@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 import argparse
 import io
@@ -158,6 +158,34 @@ def get_latest_price_date() -> str:
                 latest_date = candidate
 
     return latest_date or today_taipei_yyyymmdd()
+
+
+def recent_date_candidates(date_str: str, lookback_days: int = 10) -> list[str]:
+    try:
+        start = datetime.strptime(date_str, "%Y%m%d")
+    except ValueError:
+        return [date_str]
+
+    return [
+        (start - timedelta(days=offset)).strftime("%Y%m%d")
+        for offset in range(0, lookback_days + 1)
+    ]
+
+
+def has_usable_quote_rows(df: pd.DataFrame) -> bool:
+    if df.empty:
+        return False
+
+    for col in ["turnover", "volume", "close"]:
+        if col not in df.columns:
+            continue
+
+        values = pd.to_numeric(df[col], errors="coerce").fillna(0)
+
+        if (values > 0).any():
+            return True
+
+    return False
 
 
 def clean_columns(df: pd.DataFrame) -> pd.DataFrame:
@@ -613,6 +641,49 @@ def standardize_twse_mi_index_quotes(
     return out
 
 
+def standardize_twse_mi_index_quotes_v2(
+    df: pd.DataFrame,
+    source_name: str,
+    source_url: str,
+) -> pd.DataFrame:
+    if df.empty:
+        return pd.DataFrame()
+
+    df = clean_columns(df)
+
+    id_col = pick_column(df, ["證券代號", "warrant_id", "securities_code"])
+    name_col = pick_column(df, ["證券名稱", "warrant_name", "securities_name"])
+    volume_col = pick_column(df, ["成交股數", "volume"])
+    turnover_col = pick_column(df, ["成交金額", "turnover"])
+    close_col = pick_column(df, ["收盤價", "close"])
+
+    if not id_col and len(df.columns) >= 10:
+        # Official TWSE MI_INDEX warrant rows are:
+        # suspended, id, name, volume, trades, turnover, open, high, low, close, ...
+        id_col = df.columns[1]
+        name_col = name_col or df.columns[2]
+        volume_col = volume_col or df.columns[3]
+        turnover_col = turnover_col or df.columns[5]
+        close_col = close_col or df.columns[9]
+
+    if not id_col:
+        return pd.DataFrame()
+
+    out = pd.DataFrame(index=df.index)
+    out["market"] = "TWSE"
+    out["source_name"] = source_name
+    out["source_url"] = source_url
+    out["warrant_id"] = df[id_col].map(normalize_warrant_id)
+    out["warrant_name"] = df[name_col].astype(str).str.strip() if name_col else ""
+    out["volume"] = df[volume_col].map(to_number) if volume_col else pd.NA
+    out["turnover"] = df[turnover_col].map(to_number) if turnover_col else pd.NA
+    out["close"] = df[close_col].map(to_number) if close_col else pd.NA
+
+    out = out[out["warrant_id"].apply(is_warrant_id)].copy()
+
+    return out
+
+
 def fetch_twse_warrant_mapping(date_str: str) -> tuple[pd.DataFrame, list[str], list[dict]]:
     urls = [
         (
@@ -666,13 +737,7 @@ def fetch_twse_mi_index_quotes(date_str: str) -> tuple[pd.DataFrame, list[str], 
     - 這裡改抓 ALL；若官方分類變動，再由 debug 看實際表格。
     - 另外試幾個可能分類，抓得到就合併去重。
     """
-    query_types = [
-        "ALL",
-        "0999",
-        "0999P",
-        "0999C",
-        "0999B",
-    ]
+    query_types = ["0999", "0999P"]
 
     logs = []
     debug_rows = []
@@ -706,7 +771,7 @@ def fetch_twse_mi_index_quotes(date_str: str) -> tuple[pd.DataFrame, list[str], 
                     }
                 )
 
-                parsed = standardize_twse_mi_index_quotes(table, source_name, url)
+                parsed = standardize_twse_mi_index_quotes_v2(table, source_name, url)
 
                 if not parsed.empty:
                     frames.append(parsed)
@@ -720,6 +785,66 @@ def fetch_twse_mi_index_quotes(date_str: str) -> tuple[pd.DataFrame, list[str], 
     out = out.drop_duplicates(subset=["warrant_id"], keep="last")
 
     return out, logs, debug_rows
+
+
+def add_fetch_date_to_debug(debug_rows: list[dict], requested_date: str, fetch_date: str) -> list[dict]:
+    out = []
+
+    for row in debug_rows:
+        copied = dict(row)
+        copied["requested_date"] = requested_date
+        copied["fetch_date"] = fetch_date
+        out.append(copied)
+
+    return out
+
+
+def fetch_warrant_data_with_quote_fallback(
+    requested_date: str,
+    lookback_days: int = 10,
+) -> tuple[str, pd.DataFrame, pd.DataFrame, pd.DataFrame, list[str], list[dict], str]:
+    logs: list[str] = []
+    debug_rows: list[dict] = []
+
+    for candidate_date in recent_date_candidates(requested_date, lookback_days):
+        quotes, quote_logs, quote_debug = fetch_twse_mi_index_quotes(candidate_date)
+        logs.extend(quote_logs)
+        debug_rows.extend(add_fetch_date_to_debug(quote_debug, requested_date, candidate_date))
+
+        if has_usable_quote_rows(quotes):
+            mapping, mapping_logs, mapping_debug = fetch_twse_warrant_mapping(candidate_date)
+            logs.extend(mapping_logs)
+            debug_rows.extend(add_fetch_date_to_debug(mapping_debug, requested_date, candidate_date))
+
+            out = merge_mapping_and_quotes(mapping, quotes, candidate_date)
+            warning = ""
+
+            if candidate_date != requested_date:
+                warning = (
+                    f"requested_date={requested_date} had no usable warrant quote rows; "
+                    f"used latest available quote_date={candidate_date}."
+                )
+
+            return candidate_date, mapping, quotes, out, logs, debug_rows, warning
+
+        logs.append(
+            f"no_usable_quote_rows date={candidate_date}, "
+            f"quote_rows={len(quotes)}; trying previous calendar date"
+        )
+        time.sleep(0.5)
+
+    mapping, mapping_logs, mapping_debug = fetch_twse_warrant_mapping(requested_date)
+    logs.extend(mapping_logs)
+    debug_rows.extend(add_fetch_date_to_debug(mapping_debug, requested_date, requested_date))
+
+    quotes = pd.DataFrame()
+    out = merge_mapping_and_quotes(mapping, quotes, requested_date)
+    warning = (
+        f"No usable warrant quote rows found in the last {lookback_days} calendar days; "
+        "kept mapping/list rows only."
+    )
+
+    return requested_date, mapping, quotes, out, logs, debug_rows, warning
 
 
 def merge_mapping_and_quotes(mapping: pd.DataFrame, quotes: pd.DataFrame, date_str: str) -> pd.DataFrame:
@@ -849,6 +974,7 @@ def write_status(
     quote_rows: int,
     logs: list[str],
     warning: str = "",
+    requested_date: str = "",
 ) -> None:
     lines = []
     lines.append("# 官方權證每日資料抓取狀態")
@@ -888,22 +1014,17 @@ def main() -> int:
     DEBUG_DIR.mkdir(parents=True, exist_ok=True)
     HISTORY_DIR.mkdir(parents=True, exist_ok=True)
 
-    date_str = args.date.strip() or get_latest_price_date()
+    requested_date = args.date.strip() or get_latest_price_date()
 
-    logs: list[str] = []
-    debug_rows: list[dict] = []
-
-    mapping, mapping_logs, mapping_debug = fetch_twse_warrant_mapping(date_str)
-    logs.extend(mapping_logs)
-    debug_rows.extend(mapping_debug)
-
-    time.sleep(1)
-
-    quotes, quote_logs, quote_debug = fetch_twse_mi_index_quotes(date_str)
-    logs.extend(quote_logs)
-    debug_rows.extend(quote_debug)
-
-    out = merge_mapping_and_quotes(mapping, quotes, date_str)
+    (
+        date_str,
+        mapping,
+        quotes,
+        out,
+        logs,
+        debug_rows,
+        fallback_warning,
+    ) = fetch_warrant_data_with_quote_fallback(requested_date)
 
     write_debug(
         debug_rows,
@@ -936,7 +1057,7 @@ def main() -> int:
     missing_turnover = int(out["turnover"].isna().sum())
     zero_turnover = int((pd.to_numeric(out["turnover"], errors="coerce").fillna(0) == 0).sum())
 
-    warning = ""
+    warning = fallback_warning
 
     if missing_turnover == len(out) or zero_turnover == len(out):
         warning = "最終資料有權證對照，但成交金額全部為空或 0，請查看 MI_INDEX quote debug。"
