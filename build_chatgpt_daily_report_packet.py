@@ -32,6 +32,11 @@ CHIP_FLOW_STREAK_CSV = LATEST_DIR / "chip_flow_positive_streak_latest.csv"
 CHIP_FLOW_STREAK_MD = LATEST_DIR / "chip_flow_positive_streak_latest.md"
 CHIP_FLOW_STATUS_JSON = LATEST_DIR / "chip_flow_source_status_latest.json"
 INSTITUTIONAL_FLOW_CSV = LATEST_DIR / "institutional_investor_flow_latest.csv"
+WARRANT_MARKET_MD = LATEST_DIR / "warrant_market_report_latest.md"
+WARRANT_MARKET_PDF = LATEST_DIR / "warrant_market_report_latest.pdf"
+WARRANT_FLOW_BY_STOCK_CSV = LATEST_DIR / "warrant_flow_by_stock_latest.csv"
+WARRANT_SECTOR_HEAT_CSV = LATEST_DIR / "warrant_sector_heat_latest.csv"
+WARRANT_SIGNAL_PERFORMANCE_MD = LATEST_DIR / "warrant_signal_performance_latest.md"
 
 SUMMARY_LATEST_MD = LATEST_DIR / "daily_market_summary_latest.md"
 FULL_LATEST_MD = LATEST_DIR / "daily_market_full_latest.md"
@@ -316,6 +321,16 @@ def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path],
     lines.append(f"institutional_flow_raw_url: {raw_url(INSTITUTIONAL_FLOW_CSV)}")
     lines.append("broker_branch_data_required: True")
     lines.append("do_not_infer_if_status_not_ready: True")
+    lines.append("")
+    lines.append("WARRANT MARKET ANALYSIS")
+    lines.append(f"market_report_md_raw_url: {raw_url(WARRANT_MARKET_MD)}")
+    lines.append(f"market_report_pdf_pages_url: {pages_url(Path('docs/latest/warrant_market_report_latest.pdf'))}")
+    lines.append(f"market_report_pdf_raw_url: {raw_url(WARRANT_MARKET_PDF)}")
+    lines.append(f"flow_by_stock_csv_raw_url: {raw_url(WARRANT_FLOW_BY_STOCK_CSV)}")
+    lines.append(f"sector_heat_csv_raw_url: {raw_url(WARRANT_SECTOR_HEAT_CSV)}")
+    lines.append(f"signal_performance_md_raw_url: {raw_url(WARRANT_SIGNAL_PERFORMANCE_MD)}")
+    lines.append(f"status: {'generated' if WARRANT_MARKET_MD.exists() and WARRANT_FLOW_BY_STOCK_CSV.exists() else 'missing'}")
+    lines.append("note: Warrant flow is an auxiliary signal only, not a standalone buy reason.")
     lines.append("")
     lines.append("PURPOSE")
     lines.append("This packet embeds the daily market report content directly.")

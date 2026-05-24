@@ -40,6 +40,42 @@ SECTOR_HEAT_LATEST = LATEST_DIR / "warrant_sector_heat_latest.csv"
 PERFORMANCE_MD = LATEST_DIR / "warrant_signal_performance_latest.md"
 
 
+NUMERIC_COLUMNS = [
+    "call_turnover",
+    "put_turnover",
+    "total_warrant_turnover",
+    "call_volume",
+    "put_volume",
+    "total_warrant_volume",
+    "call_put_turnover_ratio",
+    "call_warrant_count",
+    "put_warrant_count",
+    "latest_warrant_count",
+    "issuer_count",
+    "top_issuer_call_turnover",
+    "top_issuer_put_turnover",
+    "issued_quantity_total",
+    "cancelled_quantity_total",
+    "call_turnover_change_1d",
+    "call_turnover_change_5d",
+    "put_turnover_change_1d",
+    "put_turnover_change_5d",
+    "call_volume_change_1d",
+    "call_volume_change_5d",
+    "put_volume_change_1d",
+    "put_volume_change_5d",
+    "low_float_call_spike_count",
+    "low_float_put_spike_count",
+    "warrant_flow_score",
+]
+
+
+def numeric_sum(df: pd.DataFrame, col: str) -> float:
+    if col not in df.columns:
+        return 0.0
+    return float(pd.to_numeric(df[col], errors="coerce").fillna(0).sum())
+
+
 def latest_date(df: pd.DataFrame) -> str:
     if df.empty or "date" not in df.columns:
         return ""
@@ -74,7 +110,7 @@ def prepare_flow(raw: pd.DataFrame, flow: pd.DataFrame) -> pd.DataFrame:
             )
         out = pd.DataFrame(rows)
     out["stock_id"] = out["stock_id"].map(normalize_code)
-    for col in ["call_turnover", "put_turnover", "total_warrant_turnover", "call_volume", "put_volume", "total_warrant_volume", "call_put_turnover_ratio"]:
+    for col in NUMERIC_COLUMNS:
         if col in out.columns:
             out[col] = pd.to_numeric(out[col], errors="coerce")
     if "total_warrant_turnover" not in out.columns:
@@ -245,10 +281,10 @@ def main() -> int:
         "",
         "## 二、全市場認購/認售成交金額總覽",
         "",
-        f"- call_turnover_total: `{flow.get('call_turnover', pd.Series(dtype=float)).sum() if 'call_turnover' in flow.columns else 0}`",
-        f"- put_turnover_total: `{flow.get('put_turnover', pd.Series(dtype=float)).sum() if 'put_turnover' in flow.columns else 0}`",
-        f"- call_warrant_count_total: `{flow.get('call_warrant_count', pd.Series(dtype=float)).sum() if 'call_warrant_count' in flow.columns else 0}`",
-        f"- put_warrant_count_total: `{flow.get('put_warrant_count', pd.Series(dtype=float)).sum() if 'put_warrant_count' in flow.columns else 0}`",
+        f"- call_turnover_total: `{numeric_sum(flow, 'call_turnover')}`",
+        f"- put_turnover_total: `{numeric_sum(flow, 'put_turnover')}`",
+        f"- call_warrant_count_total: `{numeric_sum(flow, 'call_warrant_count')}`",
+        f"- put_warrant_count_total: `{numeric_sum(flow, 'put_warrant_count')}`",
         "",
         "## 三、認購成交金額前20名標的",
         "",

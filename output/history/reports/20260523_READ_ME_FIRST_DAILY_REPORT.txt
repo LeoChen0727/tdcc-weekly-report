@@ -1,9 +1,9 @@
 main_price_date=20260523
 report_ready=True
-commit_sha=c4373a8377bde0b6e69009c9e76c38ee8934424a
+commit_sha=66a6d56940d3dc51d74dfdb499b8dcce827c9a06
 preferred_chatgpt_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt
 packet_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt
-packet_commit_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/c4373a8377bde0b6e69009c9e76c38ee8934424a/output/history/reports/20260523_CHATGPT_DAILY_REPORT_PACKET.txt
+packet_commit_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/66a6d56940d3dc51d74dfdb499b8dcce827c9a06/output/history/reports/20260523_CHATGPT_DAILY_REPORT_PACKET.txt
 packet_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/chatgpt_daily_report_packet_latest.txt
 packet_github_api_url=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/chatgpt_daily_report_packet_latest.txt?ref=main
 summary_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_summary_latest.md
@@ -36,6 +36,12 @@ institutional_investor_flow_raw_url=https://raw.githubusercontent.com/LeoChen072
 chip_flow_source_status=disabled_missing_required_data
 chip_flow_requires_broker_branch_data=True
 chip_flow_do_not_infer_if_not_ready=True
+warrant_market_report_md_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/warrant_market_report_latest.md
+warrant_market_report_pdf_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/warrant_market_report_latest.pdf
+warrant_market_report_pdf_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/warrant_market_report_latest.pdf
+warrant_flow_by_stock_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/warrant_flow_by_stock_latest.csv
+warrant_sector_heat_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/warrant_sector_heat_latest.csv
+warrant_signal_performance_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/warrant_signal_performance_latest.md
 rules_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/CHATGPT_DAILY_REPORT_RULES.txt
 rules_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/CHATGPT_DAILY_REPORT_RULES.txt
 packet_pages_ok=True

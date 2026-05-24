@@ -1,6 +1,6 @@
 CHATGPT DAILY REPORT PACKET
 
-generated_at: 2026-05-23 23:12:26 Asia/Taipei
+generated_at: 2026-05-24 08:26:23 Asia/Taipei
 repo: LeoChen0727/tdcc-weekly-report
 main_price_date: 20260523
 report_ready: True
@@ -52,7 +52,7 @@ performance_csv_path: output/history/daily_signals/daily_candidate_signal_perfor
 summary_latest_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_signal_performance_summary_latest.md
 weekly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_weekly_latest.pdf
 monthly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_monthly_latest.pdf
-last_updated_at: 2026-05-23 23:12:26 Asia/Taipei
+last_updated_at: 2026-05-24 08:26:23 Asia/Taipei
 status: generated
 
 CHIP FLOW POSITIVE STREAK
@@ -65,6 +65,16 @@ status_json_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-r
 institutional_flow_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/institutional_investor_flow_latest.csv
 broker_branch_data_required: True
 do_not_infer_if_status_not_ready: True
+
+WARRANT MARKET ANALYSIS
+market_report_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/warrant_market_report_latest.md
+market_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/warrant_market_report_latest.pdf
+market_report_pdf_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/warrant_market_report_latest.pdf
+flow_by_stock_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/warrant_flow_by_stock_latest.csv
+sector_heat_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/warrant_sector_heat_latest.csv
+signal_performance_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/warrant_signal_performance_latest.md
+status: generated
+note: Warrant flow is an auxiliary signal only, not a standalone buy reason.
 
 PURPOSE
 This packet embeds the daily market report content directly.

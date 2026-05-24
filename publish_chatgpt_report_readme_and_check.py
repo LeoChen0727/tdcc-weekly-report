@@ -61,6 +61,11 @@ CHIP_FLOW_STREAK_CSV = LATEST_DIR / "chip_flow_positive_streak_latest.csv"
 CHIP_FLOW_STREAK_MD = LATEST_DIR / "chip_flow_positive_streak_latest.md"
 CHIP_FLOW_STATUS_JSON = LATEST_DIR / "chip_flow_source_status_latest.json"
 INSTITUTIONAL_FLOW_CSV = LATEST_DIR / "institutional_investor_flow_latest.csv"
+WARRANT_MARKET_MD = LATEST_DIR / "warrant_market_report_latest.md"
+WARRANT_MARKET_PDF = LATEST_DIR / "warrant_market_report_latest.pdf"
+WARRANT_FLOW_BY_STOCK_CSV = LATEST_DIR / "warrant_flow_by_stock_latest.csv"
+WARRANT_SECTOR_HEAT_CSV = LATEST_DIR / "warrant_sector_heat_latest.csv"
+WARRANT_SIGNAL_PERFORMANCE_MD = LATEST_DIR / "warrant_signal_performance_latest.md"
 
 
 def now_taipei() -> datetime:
@@ -346,6 +351,12 @@ def build_readme(
     chip_flow_source_status_raw_url: str,
     institutional_investor_flow_raw_url: str,
     chip_flow_source_status: str,
+    warrant_market_report_md_raw_url: str,
+    warrant_market_report_pdf_pages_url: str,
+    warrant_market_report_pdf_raw_url: str,
+    warrant_flow_by_stock_raw_url: str,
+    warrant_sector_heat_raw_url: str,
+    warrant_signal_performance_raw_url: str,
     rules_pages_url: str,
     rules_raw_url: str,
     preferred_chatgpt_url: str,
@@ -392,6 +403,12 @@ def build_readme(
         f"chip_flow_source_status={chip_flow_source_status}",
         "chip_flow_requires_broker_branch_data=True",
         "chip_flow_do_not_infer_if_not_ready=True",
+        f"warrant_market_report_md_raw_url={warrant_market_report_md_raw_url}",
+        f"warrant_market_report_pdf_pages_url={warrant_market_report_pdf_pages_url}",
+        f"warrant_market_report_pdf_raw_url={warrant_market_report_pdf_raw_url}",
+        f"warrant_flow_by_stock_raw_url={warrant_flow_by_stock_raw_url}",
+        f"warrant_sector_heat_raw_url={warrant_sector_heat_raw_url}",
+        f"warrant_signal_performance_raw_url={warrant_signal_performance_raw_url}",
         f"rules_pages_url={rules_pages_url}",
         f"rules_raw_url={rules_raw_url}",
         f"packet_pages_ok={status_map.get('packet_pages_url')}",
@@ -622,6 +639,12 @@ def main() -> int:
     chip_flow_positive_streak_md_raw_url = raw_url("main", CHIP_FLOW_STREAK_MD)
     chip_flow_source_status_raw_url = raw_url("main", CHIP_FLOW_STATUS_JSON)
     institutional_investor_flow_raw_url = raw_url("main", INSTITUTIONAL_FLOW_CSV)
+    warrant_market_report_md_raw_url = raw_url("main", WARRANT_MARKET_MD)
+    warrant_market_report_pdf_pages_url = pages_url("latest/warrant_market_report_latest.pdf")
+    warrant_market_report_pdf_raw_url = raw_url("main", WARRANT_MARKET_PDF)
+    warrant_flow_by_stock_raw_url = raw_url("main", WARRANT_FLOW_BY_STOCK_CSV)
+    warrant_sector_heat_raw_url = raw_url("main", WARRANT_SECTOR_HEAT_CSV)
+    warrant_signal_performance_raw_url = raw_url("main", WARRANT_SIGNAL_PERFORMANCE_MD)
 
     rules_pages_url = pages_url("latest/CHATGPT_DAILY_REPORT_RULES.txt")
     rules_raw_url = raw_url("main", RULES_LATEST)
@@ -669,6 +692,12 @@ def main() -> int:
         chip_flow_source_status_raw_url=chip_flow_source_status_raw_url,
         institutional_investor_flow_raw_url=institutional_investor_flow_raw_url,
         chip_flow_source_status=chip_flow_source_status,
+        warrant_market_report_md_raw_url=warrant_market_report_md_raw_url,
+        warrant_market_report_pdf_pages_url=warrant_market_report_pdf_pages_url,
+        warrant_market_report_pdf_raw_url=warrant_market_report_pdf_raw_url,
+        warrant_flow_by_stock_raw_url=warrant_flow_by_stock_raw_url,
+        warrant_sector_heat_raw_url=warrant_sector_heat_raw_url,
+        warrant_signal_performance_raw_url=warrant_signal_performance_raw_url,
         rules_pages_url=rules_pages_url,
         rules_raw_url=rules_raw_url,
         preferred_chatgpt_url=preferred,
@@ -753,6 +782,12 @@ def main() -> int:
         "chip_flow_source_status": chip_flow_source_status,
         "chip_flow_requires_broker_branch_data": True,
         "chip_flow_do_not_infer_if_not_ready": True,
+        "warrant_market_report_md_raw_url": warrant_market_report_md_raw_url,
+        "warrant_market_report_pdf_pages_url": warrant_market_report_pdf_pages_url,
+        "warrant_market_report_pdf_raw_url": warrant_market_report_pdf_raw_url,
+        "warrant_flow_by_stock_raw_url": warrant_flow_by_stock_raw_url,
+        "warrant_sector_heat_raw_url": warrant_sector_heat_raw_url,
+        "warrant_signal_performance_raw_url": warrant_signal_performance_raw_url,
         "rules_pages_url": rules_pages_url,
         "rules_raw_url": rules_raw_url,
         "checks": checks,

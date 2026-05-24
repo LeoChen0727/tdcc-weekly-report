@@ -267,6 +267,7 @@ jobs:
           cp output/latest/daily_market_report_validation_latest.md docs/latest/daily_market_report_validation_latest.md || true
           cp output/latest/daily_signal_performance_weekly_latest.pdf docs/latest/daily_signal_performance_weekly_latest.pdf || true
           cp output/latest/daily_signal_performance_monthly_latest.pdf docs/latest/daily_signal_performance_monthly_latest.pdf || true
+          cp output/latest/warrant_market_report_latest.pdf docs/latest/warrant_market_report_latest.pdf || true
 
           {
             echo "main_price_date=pending"
@@ -384,6 +385,7 @@ jobs:
           git add docs/latest/daily_market_report_validation_latest.md || true
           git add docs/latest/daily_signal_performance_weekly_latest.pdf || true
           git add docs/latest/daily_signal_performance_monthly_latest.pdf || true
+          git add docs/latest/warrant_market_report_latest.pdf || true
 
           git add build_data_freshness_latest.py || true
           git add build_daily_market_report_artifacts.py || true
@@ -464,6 +466,7 @@ jobs:
           git add docs/latest/daily_market_report_validation_latest.md || true
           git add docs/latest/daily_signal_performance_weekly_latest.pdf || true
           git add docs/latest/daily_signal_performance_monthly_latest.pdf || true
+          git add docs/latest/warrant_market_report_latest.pdf || true
 
           git add output/latest/CHATGPT_DAILY_REPORT_RULES.txt || true
           git add output/latest/pdf_kline_chart_status_latest.csv || true
@@ -491,6 +494,13 @@ jobs:
           git add output/latest/chip_flow_source_status_latest.md || true
           git add output/latest/institutional_investor_flow_latest.csv || true
           git add data/institutional_investor_flow/ || true
+          git add output/latest/warrant_market_report_latest.md || true
+          git add output/latest/warrant_market_report_latest.pdf || true
+          git add output/latest/warrant_flow_by_stock_latest.csv || true
+          git add output/latest/warrant_sector_heat_latest.csv || true
+          git add output/latest/warrant_signal_performance_latest.md || true
+          git add data/warrant_daily/ || true
+          git add data/warrant_flow_by_stock/ || true
           git add output/history/chip_flow/ || true
           git add output/history/reports/ || true
 
