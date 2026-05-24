@@ -1,7 +1,7 @@
 # 每日全市場候選股監測報告 - 精華版
 
 - 主資料日期：`20260524`
-- 產生時間：`2026-05-24 14:52:22 Asia/Taipei`
+- 產生時間：`2026-05-24 15:04:45 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：完整候選清單與官方價格資料日期一致，可以產出正式每日報告
 - 權證資料日期：`20260524`
@@ -29,18 +29,18 @@
 
 | 股票 | 原始分類 | 催化標籤 / 反應程度 | TDCC |
 |---|---|---|---|
-| 9958 世紀鋼 | 營收成長股價回檔 | score 28 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation ... | 大戶溫和增加 |
-| 2382 廣達 | 營收成長股價回檔 | score 28 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation ... | 大戶溫和增加 |
-| 2353 宏碁 | 營收爆發低反應股 | score 28 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation ... | 大戶同步增加 |
+| 8070 長華* | 營收成長股價回檔 | score 28 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation ... | 大戶同步增加 |
+| 6830 汎銓 | 營收成長股價回檔 | score 28 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation ... | 大戶溫和增加 |
+| 2353 宏碁 | 營收成長股價回檔 | score 28 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation ... | 大戶同步增加 |
+| 1708 東鹼 | 營收成長股價回檔 | score 28 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation ... | 大戶溫和增加 |
 | 2368 金像電 | 營收成長股價回檔 | score 28 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation ... | 大戶溫和增加 |
 | 2347 聯強 | 營收成長股價回檔 | score 28 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation ... | 大戶溫和增加 |
-| 4934 太極 | 營收爆發低反應股 | score 28 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation ... | 大戶溫和增加 |
+| 4142 國光生 | 營收成長股價回檔 | score 28 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation ... | 大戶溫和增加 |
+| 2101 南港 | 營收成長股價回檔 | score 28 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation ... | 大戶同步增加 |
+| 8438 昶昕 | 營收成長股價回檔 | score 28 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation ... | 大戶溫和增加 |
+| 1590 亞德客-KY | 營收成長股價回檔 | score 28 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation ... | 大戶同步增加 |
 | 2345 智邦 | 營收成長股價回檔 | score 28 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation ... | 大戶溫和增加 |
-| 2406 國碩 | 營收爆發低反應股 | score 28 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation ... | 大戶溫和增加 |
-| 1714 和桐 | 營收爆發低反應股 | score 28 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation ... | 大戶溫和增加 |
-| 2101 南港 | 營收爆發低反應股 | score 28 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation ... | 大戶同步增加 |
-| 2646 星宇航空 | 營收成長股價回檔 | score 28 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation ... | 大戶溫和增加 |
-| 2637 慧洋-KY | 營收成長股價回檔 | score 28 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation ... | 大戶溫和增加 |
+| 2376 技嘉 | 營收成長股價回檔 | score 28 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst / 營收好但 EPS 尚未確認 / 利多尚未完全反應 / needs_eps_confirmation ... | 大戶同步增加 |
 
 ## 精華候選股
 
