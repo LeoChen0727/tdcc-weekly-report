@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-05-25 06:14:20 Asia/Taipei",
+  "generated_at": "2026-05-25 18:52:51 Asia/Taipei",
   "files": {
     "company_event_calendar": {
       "path": "data/company_calendar/company_event_calendar.csv",
-      "rows": 445
+      "rows": 461
     },
     "macro_event_calendar": {
       "path": "data/macro_events/macro_event_calendar.csv",
@@ -11,7 +11,7 @@
     },
     "upcoming_catalyst_calendar": {
       "path": "output/latest/upcoming_catalyst_calendar_latest.csv",
-      "rows": 444
+      "rows": 460
     },
     "upcoming_macro_event_calendar": {
       "path": "output/latest/upcoming_macro_event_calendar_latest.csv",
@@ -22,7 +22,7 @@
     "twse_ex_right_ex_dividend": {
       "url": "https://www.twse.com.tw/rwd/zh/exRight/TWT48U?response=json",
       "status": "ok",
-      "rows": 60,
+      "rows": 76,
       "error": "",
       "http_status": 200
     },
