@@ -1,9 +1,9 @@
 main_price_date=20260524
 report_ready=False
-commit_sha=954ccd3b4a0c98333e9792406f305e8ff27f27ed
+commit_sha=3e328923b82b26125adb57e1c04dacde1e38e7f1
 preferred_chatgpt_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt
 packet_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt
-packet_commit_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/954ccd3b4a0c98333e9792406f305e8ff27f27ed/output/history/reports/20260524_CHATGPT_DAILY_REPORT_PACKET.txt
+packet_commit_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/3e328923b82b26125adb57e1c04dacde1e38e7f1/output/history/reports/20260524_CHATGPT_DAILY_REPORT_PACKET.txt
 packet_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/chatgpt_daily_report_packet_latest.txt
 packet_github_api_url=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/chatgpt_daily_report_packet_latest.txt?ref=main
 summary_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_summary_latest.md
@@ -70,6 +70,16 @@ market_risk_dashboard_pdf_pages_url=https://LeoChen0727.github.io/tdcc-weekly-re
 market_risk_dashboard_pdf_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/market_risk_dashboard_latest.pdf
 futures_options_indicators_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/futures_options_indicators_latest.csv
 futures_options_source_status_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/futures_options_source_status_latest.md
+market_timing_chatgpt_packet_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/market_timing_chatgpt_packet_latest.md
+market_timing_backtest_md_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/market_timing_backtest_latest.md
+market_timing_backtest_csv_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/market_timing_backtest_latest.csv
+market_timing_composite_backtest_md_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/market_timing_composite_backtest_latest.md
+market_timing_composite_backtest_csv_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/market_timing_composite_backtest_latest.csv
+market_timing_regime_effectiveness_md_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/market_timing_regime_effectiveness_latest.md
+market_timing_regime_effectiveness_csv_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/market_timing_regime_effectiveness_latest.csv
+market_technical_feature_panel_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/market_timing/market_technical_feature_panel.csv
+market_technical_event_log_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/market_timing/market_technical_event_log.csv
+market_breadth_history_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/market_timing/market_breadth_history.csv
 tdcc_strength_ranking_top_md_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_strength_ranking_top_latest.md
 tdcc_strength_ranking_top_csv_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_strength_ranking_top_latest.csv
 tdcc_pre_move_abm_top_md_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_pre_move_abm_top_latest.md
@@ -92,7 +102,7 @@ rules_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/m
 packet_pages_ok=True
 packet_commit_raw_ok=True
 packet_latest_raw_ok=True
-packet_github_api_ok=False
+packet_github_api_ok=True
 read_order=packet_pages_url,packet_commit_raw_url,packet_latest_raw_url,packet_github_api_url
 
 RULES:

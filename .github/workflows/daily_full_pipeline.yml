@@ -241,6 +241,10 @@ jobs:
           python scripts/build_market_regime_dashboard.py
           python scripts/validate_market_regime_dashboard.py
 
+      - name: Build market timing technical backtest
+        run: |
+          python scripts/build_market_timing_technical_backtest.py
+
       - name: Build warrant market report
         run: |
           python scripts/build_warrant_market_report.py
@@ -421,6 +425,14 @@ jobs:
           git add output/latest/surge_model_validation_latest.md || true
           git add data/market_index_history.csv || true
           git add output/latest/market_benchmark_latest.csv || true
+          git add output/history/market_timing/ || true
+          git add output/latest/market_timing_backtest_latest.csv || true
+          git add output/latest/market_timing_backtest_latest.md || true
+          git add output/latest/market_timing_composite_backtest_latest.csv || true
+          git add output/latest/market_timing_composite_backtest_latest.md || true
+          git add output/latest/market_timing_regime_effectiveness_latest.csv || true
+          git add output/latest/market_timing_regime_effectiveness_latest.md || true
+          git add output/latest/market_timing_chatgpt_packet_latest.md || true
           git add data/warrant_daily/ || true
           git add data/warrant_flow_by_stock/ || true
           git add output/latest/warrant_market_report_latest.md || true
@@ -479,6 +491,7 @@ jobs:
           git add docs/fundamental_catalyst_layer.md || true
           git add docs/event_calendar_data_layer.md || true
           git add scripts/update_market_index_history.py || true
+          git add scripts/build_market_timing_technical_backtest.py || true
           git add scripts/update_daily_candidate_signal_log.py || true
           git add scripts/build_candidate_repeat_appearance.py || true
           git add scripts/validate_candidate_repeat_appearance.py || true
@@ -603,6 +616,14 @@ jobs:
           git add output/latest/surge_model_validation_latest.md || true
           git add data/market_index_history.csv || true
           git add output/latest/market_benchmark_latest.csv || true
+          git add output/history/market_timing/ || true
+          git add output/latest/market_timing_backtest_latest.csv || true
+          git add output/latest/market_timing_backtest_latest.md || true
+          git add output/latest/market_timing_composite_backtest_latest.csv || true
+          git add output/latest/market_timing_composite_backtest_latest.md || true
+          git add output/latest/market_timing_regime_effectiveness_latest.csv || true
+          git add output/latest/market_timing_regime_effectiveness_latest.md || true
+          git add output/latest/market_timing_chatgpt_packet_latest.md || true
           git add data/futures_options/ || true
           git add output/latest/futures_options_indicators_latest.csv || true
           git add output/latest/futures_options_institutional_fo_latest.csv || true
@@ -671,6 +692,7 @@ jobs:
           git add scripts/validate_market_regime_dashboard.py || true
           git add docs/market_regime_data_source_plan.md || true
           git add scripts/update_market_index_history.py || true
+          git add scripts/build_market_timing_technical_backtest.py || true
           git add scripts/update_daily_candidate_signal_log.py || true
           git add scripts/build_candidate_repeat_appearance.py || true
           git add scripts/validate_candidate_repeat_appearance.py || true

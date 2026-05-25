@@ -87,6 +87,16 @@ MARKET_RISK_DASHBOARD_MD = LATEST_DIR / "market_risk_dashboard_latest.md"
 MARKET_RISK_DASHBOARD_PDF = LATEST_DIR / "market_risk_dashboard_latest.pdf"
 FUTURES_OPTIONS_INDICATORS_CSV = LATEST_DIR / "futures_options_indicators_latest.csv"
 FUTURES_OPTIONS_SOURCE_STATUS_MD = LATEST_DIR / "futures_options_source_status_latest.md"
+MARKET_TIMING_PACKET_MD = LATEST_DIR / "market_timing_chatgpt_packet_latest.md"
+MARKET_TIMING_BACKTEST_MD = LATEST_DIR / "market_timing_backtest_latest.md"
+MARKET_TIMING_BACKTEST_CSV = LATEST_DIR / "market_timing_backtest_latest.csv"
+MARKET_TIMING_COMPOSITE_MD = LATEST_DIR / "market_timing_composite_backtest_latest.md"
+MARKET_TIMING_COMPOSITE_CSV = LATEST_DIR / "market_timing_composite_backtest_latest.csv"
+MARKET_TIMING_REGIME_MD = LATEST_DIR / "market_timing_regime_effectiveness_latest.md"
+MARKET_TIMING_REGIME_CSV = LATEST_DIR / "market_timing_regime_effectiveness_latest.csv"
+MARKET_TECHNICAL_FEATURE_PANEL = Path("output/history/market_timing/market_technical_feature_panel.csv")
+MARKET_TECHNICAL_EVENT_LOG = Path("output/history/market_timing/market_technical_event_log.csv")
+MARKET_BREADTH_HISTORY = Path("output/history/market_timing/market_breadth_history.csv")
 TDCC_STRENGTH_RANKING_TOP_MD = LATEST_DIR / "tdcc_strength_ranking_top_latest.md"
 TDCC_STRENGTH_RANKING_TOP_CSV = LATEST_DIR / "tdcc_strength_ranking_top_latest.csv"
 TDCC_PRE_MOVE_ABM_TOP_MD = LATEST_DIR / "tdcc_pre_move_abm_top_latest.md"
@@ -502,6 +512,16 @@ def build_readme(
         f"market_risk_dashboard_pdf_raw_url={market_risk_dashboard_pdf_raw_url}",
         f"futures_options_indicators_raw_url={futures_options_indicators_raw_url}",
         f"futures_options_source_status_raw_url={futures_options_source_status_raw_url}",
+        f"market_timing_chatgpt_packet_raw_url={raw_url('main', MARKET_TIMING_PACKET_MD)}",
+        f"market_timing_backtest_md_raw_url={raw_url('main', MARKET_TIMING_BACKTEST_MD)}",
+        f"market_timing_backtest_csv_raw_url={raw_url('main', MARKET_TIMING_BACKTEST_CSV)}",
+        f"market_timing_composite_backtest_md_raw_url={raw_url('main', MARKET_TIMING_COMPOSITE_MD)}",
+        f"market_timing_composite_backtest_csv_raw_url={raw_url('main', MARKET_TIMING_COMPOSITE_CSV)}",
+        f"market_timing_regime_effectiveness_md_raw_url={raw_url('main', MARKET_TIMING_REGIME_MD)}",
+        f"market_timing_regime_effectiveness_csv_raw_url={raw_url('main', MARKET_TIMING_REGIME_CSV)}",
+        f"market_technical_feature_panel_raw_url={raw_url('main', MARKET_TECHNICAL_FEATURE_PANEL)}",
+        f"market_technical_event_log_raw_url={raw_url('main', MARKET_TECHNICAL_EVENT_LOG)}",
+        f"market_breadth_history_raw_url={raw_url('main', MARKET_BREADTH_HISTORY)}",
         f"tdcc_strength_ranking_top_md_raw_url={raw_url('main', TDCC_STRENGTH_RANKING_TOP_MD)}",
         f"tdcc_strength_ranking_top_csv_raw_url={raw_url('main', TDCC_STRENGTH_RANKING_TOP_CSV)}",
         f"tdcc_pre_move_abm_top_md_raw_url={raw_url('main', TDCC_PRE_MOVE_ABM_TOP_MD)}",
@@ -970,6 +990,16 @@ def main() -> int:
         "market_risk_dashboard_pdf_raw_url": market_risk_dashboard_pdf_raw_url,
         "futures_options_indicators_raw_url": futures_options_indicators_raw_url,
         "futures_options_source_status_raw_url": futures_options_source_status_raw_url,
+        "market_timing_chatgpt_packet_raw_url": raw_url("main", MARKET_TIMING_PACKET_MD),
+        "market_timing_backtest_md_raw_url": raw_url("main", MARKET_TIMING_BACKTEST_MD),
+        "market_timing_backtest_csv_raw_url": raw_url("main", MARKET_TIMING_BACKTEST_CSV),
+        "market_timing_composite_backtest_md_raw_url": raw_url("main", MARKET_TIMING_COMPOSITE_MD),
+        "market_timing_composite_backtest_csv_raw_url": raw_url("main", MARKET_TIMING_COMPOSITE_CSV),
+        "market_timing_regime_effectiveness_md_raw_url": raw_url("main", MARKET_TIMING_REGIME_MD),
+        "market_timing_regime_effectiveness_csv_raw_url": raw_url("main", MARKET_TIMING_REGIME_CSV),
+        "market_technical_feature_panel_raw_url": raw_url("main", MARKET_TECHNICAL_FEATURE_PANEL),
+        "market_technical_event_log_raw_url": raw_url("main", MARKET_TECHNICAL_EVENT_LOG),
+        "market_breadth_history_raw_url": raw_url("main", MARKET_BREADTH_HISTORY),
         "tdcc_strength_ranking_top_md_raw_url": raw_url("main", TDCC_STRENGTH_RANKING_TOP_MD),
         "tdcc_strength_ranking_top_csv_raw_url": raw_url("main", TDCC_STRENGTH_RANKING_TOP_CSV),
         "tdcc_pre_move_abm_top_md_raw_url": raw_url("main", TDCC_PRE_MOVE_ABM_TOP_MD),
