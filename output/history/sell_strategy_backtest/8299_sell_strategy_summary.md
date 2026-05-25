@@ -1,6 +1,6 @@
 # Sell Strategy Backtest Summary - 8299 群聯
 
-- generated_at: 2026-05-25 19:06:19 Asia/Taipei
+- generated_at: 2026-05-25 23:59:53 Asia/Taipei
 - signal_sample_dates: 1
 - note: 賣出規則為策略假設，不是保證價格，也不是投資建議。
 
@@ -19,10 +19,10 @@
 | 跌破 EMA23 賣 | 0 | - | - | - | - | insufficient_sample |
 | 跌破 MA20 賣 | 0 | - | - | - | - | insufficient_sample |
 | 跌破頸線賣 | 0 | - | - | - | - | insufficient_sample |
-| 跌破突破K低點賣 | 0 | - | - | - | - | insufficient_sample |
+| 跌破突破K低點賣 | 1 | 2.1% | 100.0% | 4.5% | -4.5% | insufficient_sample |
 | 放量長黑賣 | 0 | - | - | - | - | insufficient_sample |
 | 固定 D+5 賣 | 0 | - | - | - | - | insufficient_sample |
 | 固定 D+10 賣 | 0 | - | - | - | - | insufficient_sample |
 | 固定 D+20 賣 | 0 | - | - | - | - | insufficient_sample |
 | ATR trailing stop 賣 | 0 | - | - | - | - | insufficient_sample |
-| 固定百分比 trailing stop 賣 | 0 | - | - | - | - | insufficient_sample |
+| 固定百分比 trailing stop 賣 | 1 | -3.8% | 0.0% | 4.5% | -4.5% | insufficient_sample |
