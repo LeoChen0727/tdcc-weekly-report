@@ -1,6 +1,6 @@
 # 目前持股 180 日型態分析
 
-- 產生時間：`2026-05-26 05:12:15 Asia/Taipei`
+- 產生時間：`2026-05-26 05:47:09 Asia/Taipei`
 - CSV：`output/latest/current_holdings_pattern_latest.csv`
 - 圖表資料夾：`output/latest/charts/current_holdings`
 
@@ -11,8 +11,8 @@
 | 股票 | 收盤 | 成本 | 張數 | 損益 | 損益率% | 型態狀態 | 型態訊號 | 圖 |
 |---|---:|---:|---:|---:|---:|---|---|---|
 | 1815 富喬 | 109.0 | 112.1 | 20.0 | -62000.0 | -2.77 | inside_platform | 平台整理中 | [圖](output/latest/charts/current_holdings/1815_pattern.png) |
-| 2377 微星 | 124.0 | 110.0 | 1.0 | 14000.0 | 12.73 | inside_platform | 平台整理中 | [圖](output/latest/charts/current_holdings/2377_pattern.png) |
-| 8039 台虹 | 151.0 | 131.81 | 13.0 | 249470.0 | 14.56 | inside_platform | 平台整理中 | [圖](output/latest/charts/current_holdings/8039_pattern.png) |
+| 2377 微星 | 127.0 | 110.0 | 1.0 | 17000.0 | 15.45 | failed_breakout_risk | 爆量長上影，疑似突破失敗或高檔換手 | [圖](output/latest/charts/current_holdings/2377_pattern.png) |
+| 8039 台虹 | 149.5 | 131.81 | 13.0 | 229970.0 | 13.42 | inside_platform | 平台整理中 | [圖](output/latest/charts/current_holdings/8039_pattern.png) |
 
 ## 1815 富喬
 
@@ -56,11 +56,11 @@
 
 - 資料日期：`20260526`
 - 可用交易日數：`136`
-- 目前收盤：`124.0`
+- 目前收盤：`127.0`
 - 我的成本：`110.0`
 - 張數：`1.0`
-- 目前損益：`14000.0`
-- 目前損益率：`12.73%`
+- 目前損益：`17000.0`
+- 目前損益率：`15.45%`
 - 圖表：`output/latest/charts/current_holdings/2377_pattern.png`
 
 ### 型態結構
@@ -72,33 +72,34 @@
 - 是否突破前高：`False`
 - 是否跌破平台：`False`
 - 是否假跌破：`False`
-- 是否爆量長上影：`False`
+- 是否爆量長上影：`True`
 - 是否爆量跌破：`False`
 
 ### 型態判斷
 
-- pattern_state：`inside_platform`
-- pattern_signal：平台整理中
+- pattern_state：`failed_breakout_risk`
+- pattern_signal：爆量長上影，疑似突破失敗或高檔換手
 
 ### 交易觸發條件
 
-- 上緣突破站穩才轉強
-- 下緣跌破後 3 日站不回才轉弱
+- 若隔日收復長上影高點，可解除部分疑慮
+- 若跌回平台內且放量跌破平台，轉弱
 - 仍在 20MA / 23EMA 附近或上方，觀察是否守穩
 
 ### 風險註記
 
+- 長上影後不追價加碼
 - 目前可用交易日數 136 日，未達 180 日
 
 ## 8039 台虹
 
 - 資料日期：`20260526`
 - 可用交易日數：`136`
-- 目前收盤：`151.0`
+- 目前收盤：`149.5`
 - 我的成本：`131.81`
 - 張數：`13.0`
-- 目前損益：`249470.0`
-- 目前損益率：`14.56%`
+- 目前損益：`229970.0`
+- 目前損益率：`13.42%`
 - 圖表：`output/latest/charts/current_holdings/8039_pattern.png`
 
 ### 型態結構

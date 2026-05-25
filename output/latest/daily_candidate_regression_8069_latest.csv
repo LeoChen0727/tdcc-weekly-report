@@ -1,0 +1,17 @@
+﻿stock_id,stock_name,case_date,raw_history_rows,breakout_type,score,close,volume_ratio,previous_20d_high,previous_60d_high,neckline_price,neckline_distance_pct,w_bottom_flag,w_bottom_right_side_flag,platform_base_flag,platform_right_side_flag,pullback_entry_zone_flag,pullback_right_side_flag,ma20_reclaim_setup_flag,early_attack_volume_flag,early_entry_watch_flag,right_side_follow_through_flag,rebound_from_5d_low_pct,neckline_challenge_flag,neckline_breakout_flag,platform_breakout_flag,volume_confirmed_breakout,breakout_close_near_high_flag,false_breakout_risk,pattern_stage
+8069,元太,20260505,119,,,,,,,,,,,,,,,,,,,,,,,,,,
+8069,元太,20260506,120,,,,,,,,,,,,,,,,,,,,,,,,,,
+8069,元太,20260507,121,pattern_watch,54.0,153.0,1.96,163.5,193.5,163.5,-6.42,False,False,True,False,False,True,True,False,True,False,13.33,False,False,False,True,False,False,early_entry_watch
+8069,元太,20260508,122,range_rebound,69.0,162.0,2.72,163.5,193.5,162.5,-0.31,False,False,True,False,False,False,False,True,False,True,20.0,True,False,False,True,True,False,neckline_challenge
+8069,元太,20260511,123,pattern_watch,54.0,178.0,0.61,165.0,193.5,165.0,7.88,True,False,True,False,False,False,False,False,False,False,29.45,False,False,False,False,True,False,base_building
+8069,元太,20260512,124,true_breakout,89.0,195.5,5.5,178.0,193.5,193.5,1.03,True,False,True,False,False,False,False,False,False,False,38.65,False,True,True,True,True,False,breakout_confirmed
+8069,元太,20260513,125,true_breakout,94.0,215.0,2.96,195.5,195.5,195.5,9.97,True,True,False,True,False,False,False,False,False,False,48.28,False,True,True,True,True,False,breakout_confirmed
+8069,元太,20260514,126,true_breakout,89.0,226.0,3.4,215.0,215.0,215.0,5.12,True,True,False,True,False,False,False,False,False,False,51.17,False,True,True,True,False,False,platform_breakout
+8069,元太,20260515,127,,,,,,,,,,,,,,,,,,,,,,,,,,
+8069,元太,20260518,128,,,,,,,,,,,,,,,,,,,,,,,,,,
+8069,元太,20260519,129,,,,,,,,,,,,,,,,,,,,,,,,,,
+8069,元太,20260520,130,,,,,,,,,,,,,,,,,,,,,,,,,,
+8069,元太,20260521,131,,,,,,,,,,,,,,,,,,,,,,,,,,
+8069,元太,20260522,132,,,,,,,,,,,,,,,,,,,,,,,,,,
+8069,元太,20260525,135,,,,,,,,,,,,,,,,,,,,,,,,,,
+8069,元太,20260526,136,,,,,,,,,,,,,,,,,,,,,,,,,,
