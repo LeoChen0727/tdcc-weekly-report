@@ -84,6 +84,13 @@ MARKET_RISK_DASHBOARD_MD = LATEST_DIR / "market_risk_dashboard_latest.md"
 MARKET_RISK_DASHBOARD_PDF = LATEST_DIR / "market_risk_dashboard_latest.pdf"
 FUTURES_OPTIONS_INDICATORS_CSV = LATEST_DIR / "futures_options_indicators_latest.csv"
 FUTURES_OPTIONS_SOURCE_STATUS_MD = LATEST_DIR / "futures_options_source_status_latest.md"
+TDCC_STRENGTH_RANKING_TOP_MD = LATEST_DIR / "tdcc_strength_ranking_top_latest.md"
+TDCC_STRENGTH_RANKING_TOP_CSV = LATEST_DIR / "tdcc_strength_ranking_top_latest.csv"
+TDCC_PRE_MOVE_ABM_TOP_MD = LATEST_DIR / "tdcc_pre_move_abm_top_latest.md"
+TDCC_PRE_MOVE_ABM_TOP_CSV = LATEST_DIR / "tdcc_pre_move_abm_top_latest.csv"
+TDCC_PHASE_DISTRIBUTION_MD = LATEST_DIR / "tdcc_phase_distribution_latest.md"
+TDCC_PHASE_DISTRIBUTION_CSV = LATEST_DIR / "tdcc_phase_distribution_latest.csv"
+TDCC_CHATGPT_TRACKING_PACKET_MD = LATEST_DIR / "tdcc_chatgpt_tracking_packet_latest.md"
 
 
 def now_taipei() -> datetime:
@@ -464,6 +471,13 @@ def build_readme(
         f"market_risk_dashboard_pdf_raw_url={market_risk_dashboard_pdf_raw_url}",
         f"futures_options_indicators_raw_url={futures_options_indicators_raw_url}",
         f"futures_options_source_status_raw_url={futures_options_source_status_raw_url}",
+        f"tdcc_strength_ranking_top_md_raw_url={raw_url('main', TDCC_STRENGTH_RANKING_TOP_MD)}",
+        f"tdcc_strength_ranking_top_csv_raw_url={raw_url('main', TDCC_STRENGTH_RANKING_TOP_CSV)}",
+        f"tdcc_pre_move_abm_top_md_raw_url={raw_url('main', TDCC_PRE_MOVE_ABM_TOP_MD)}",
+        f"tdcc_pre_move_abm_top_csv_raw_url={raw_url('main', TDCC_PRE_MOVE_ABM_TOP_CSV)}",
+        f"tdcc_phase_distribution_md_raw_url={raw_url('main', TDCC_PHASE_DISTRIBUTION_MD)}",
+        f"tdcc_phase_distribution_csv_raw_url={raw_url('main', TDCC_PHASE_DISTRIBUTION_CSV)}",
+        f"tdcc_chatgpt_tracking_packet_raw_url={raw_url('main', TDCC_CHATGPT_TRACKING_PACKET_MD)}",
         f"rules_pages_url={rules_pages_url}",
         f"rules_raw_url={rules_raw_url}",
         f"packet_pages_ok={status_map.get('packet_pages_url')}",
@@ -900,6 +914,13 @@ def main() -> int:
         "market_risk_dashboard_pdf_raw_url": market_risk_dashboard_pdf_raw_url,
         "futures_options_indicators_raw_url": futures_options_indicators_raw_url,
         "futures_options_source_status_raw_url": futures_options_source_status_raw_url,
+        "tdcc_strength_ranking_top_md_raw_url": raw_url("main", TDCC_STRENGTH_RANKING_TOP_MD),
+        "tdcc_strength_ranking_top_csv_raw_url": raw_url("main", TDCC_STRENGTH_RANKING_TOP_CSV),
+        "tdcc_pre_move_abm_top_md_raw_url": raw_url("main", TDCC_PRE_MOVE_ABM_TOP_MD),
+        "tdcc_pre_move_abm_top_csv_raw_url": raw_url("main", TDCC_PRE_MOVE_ABM_TOP_CSV),
+        "tdcc_phase_distribution_md_raw_url": raw_url("main", TDCC_PHASE_DISTRIBUTION_MD),
+        "tdcc_phase_distribution_csv_raw_url": raw_url("main", TDCC_PHASE_DISTRIBUTION_CSV),
+        "tdcc_chatgpt_tracking_packet_raw_url": raw_url("main", TDCC_CHATGPT_TRACKING_PACKET_MD),
         "rules_pages_url": rules_pages_url,
         "rules_raw_url": rules_raw_url,
         "checks": checks,
