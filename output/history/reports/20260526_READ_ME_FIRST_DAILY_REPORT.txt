@@ -1,6 +1,6 @@
 main_price_date=20260526
 report_ready=True
-commit_sha=fba5e147b6ce806d13054d3815d586a19dd7a8e4
+commit_sha=52a12502fcf53a8ccc311fa57163caf531464cdb
 readme_latest_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT.txt
 readme_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/READ_ME_FIRST_DAILY_REPORT.txt
 readme_index_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT_INDEX.txt
@@ -15,7 +15,7 @@ readme_history_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly
 readme_cache_bypass_order=readme_date_stamped_pages_url,readme_date_stamped_raw_url,readme_date_stamped_github_api_url,readme_index_github_api_url,readme_history_pages_url,readme_history_raw_url,readme_latest_pages_url,readme_latest_raw_url
 preferred_chatgpt_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt
 packet_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt
-packet_commit_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/fba5e147b6ce806d13054d3815d586a19dd7a8e4/output/history/reports/20260526_CHATGPT_DAILY_REPORT_PACKET.txt
+packet_commit_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/52a12502fcf53a8ccc311fa57163caf531464cdb/output/history/reports/20260526_CHATGPT_DAILY_REPORT_PACKET.txt
 packet_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/chatgpt_daily_report_packet_latest.txt
 packet_github_api_url=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/chatgpt_daily_report_packet_latest.txt?ref=main
 summary_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_summary_latest.md
@@ -100,7 +100,16 @@ individual_stock_chatgpt_packet_index_md_github_api_url=https://api.github.com/r
 individual_stock_chatgpt_packet_raw_url_template=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_chatgpt_packets/{stock_id}_packet_latest.md
 individual_stock_chatgpt_packet_pages_url_template=https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_chatgpt_packets/{stock_id}_packet_latest.md
 individual_stock_chatgpt_packet_github_api_url_template=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_chatgpt_packets/{stock_id}_packet_latest.md?ref=main
-individual_stock_primary_read_order=individual_stock_chatgpt_packet_pages_url_template,individual_stock_chatgpt_packet_raw_url_template,individual_stock_chatgpt_packet_github_api_url_template,individual_stock_price_github_api_url_template,individual_stock_tdcc_github_api_url_template
+individual_stock_price_window_180_html_raw_url_template=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_price_windows/{stock_id}_price_window_180_latest.html
+individual_stock_price_window_180_html_pages_url_template=https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_price_windows/{stock_id}_price_window_180_latest.html
+individual_stock_price_window_180_html_github_api_url_template=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_price_windows/{stock_id}_price_window_180_latest.html?ref=main
+individual_stock_price_window_180_txt_raw_url_template=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_price_windows/{stock_id}_price_window_180_latest.txt
+individual_stock_price_window_180_txt_pages_url_template=https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_price_windows/{stock_id}_price_window_180_latest.txt
+individual_stock_price_window_180_txt_github_api_url_template=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_price_windows/{stock_id}_price_window_180_latest.txt?ref=main
+individual_stock_tdcc_window_txt_raw_url_template=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_tdcc_windows/{stock_id}_tdcc_window_latest.txt
+individual_stock_tdcc_window_txt_pages_url_template=https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_tdcc_windows/{stock_id}_tdcc_window_latest.txt
+individual_stock_tdcc_window_txt_github_api_url_template=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_tdcc_windows/{stock_id}_tdcc_window_latest.txt?ref=main
+individual_stock_primary_read_order=individual_stock_chatgpt_packet_pages_url_template,individual_stock_chatgpt_packet_raw_url_template,individual_stock_chatgpt_packet_github_api_url_template,individual_stock_price_window_180_html_pages_url_template,individual_stock_price_window_180_html_raw_url_template,individual_stock_price_window_180_html_github_api_url_template,individual_stock_price_github_api_url_template,individual_stock_tdcc_github_api_url_template
 individual_stock_price_raw_url_template=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/{stock_id}.csv
 individual_stock_price_pages_url_template=https://LeoChen0727.github.io/tdcc-weekly-report/data/stock_price_history/{stock_id}.csv
 individual_stock_price_github_api_url_template=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/data/stock_price_history/{stock_id}.csv?ref=main
@@ -160,7 +169,7 @@ rules_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/m
 packet_pages_ok=True
 packet_commit_raw_ok=True
 packet_latest_raw_ok=True
-packet_github_api_ok=True
+packet_github_api_ok=False
 read_order=packet_pages_url,packet_commit_raw_url,packet_latest_raw_url,packet_github_api_url
 
 RULES:

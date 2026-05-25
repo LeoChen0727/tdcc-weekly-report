@@ -1,0 +1,11 @@
+# TDCC_WINDOW
+
+columns=as_of_date,over_400_ratio,over_400_change_1w,over_600_ratio,over_600_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up,four_thresholds_sync_up,retail_ratio,total_shareholders
+
+TDCC_WINDOW_ROW_001=20260430,53.03,,51.15,,49.8,,49.8,,0,False,False,False,,
+
+TDCC_WINDOW_ROW_002=20260508,53.81,0.7800000000000011,51.57,0.4200000000000017,50.66,0.8599999999999994,50.12,0.3200000000000003,1,True,True,True,,
+
+TDCC_WINDOW_ROW_003=20260515,52.73,-1.0800000000000054,51.1,-0.46999999999999886,50.17,-0.4899999999999949,49.89,-0.22999999999999687,0,False,False,False,,
+
+TDCC_WINDOW_ROW_004=20260522,52.87,0.14000000000000057,51.39,0.28999999999999915,50.48,0.30999999999999517,49.97,0.0799999999999983,1,True,True,True,,

@@ -307,7 +307,7 @@ def collect_stock_ids(frames: list[pd.DataFrame]) -> list[str]:
 
 def status_from_rows(price_rows: int, tdcc_rows: int) -> tuple[str, str, str]:
     if price_rows >= 120:
-        packet_status = "standard_120d_plus_packet"
+        packet_status = "standard_180d_window_packet"
     elif price_rows >= 60:
         packet_status = "standard_rawdata_packet"
     elif price_rows > 0:
@@ -682,6 +682,7 @@ def write_index_md(index: pd.DataFrame) -> None:
         "",
         f"- generated_at: {now_text()}",
         f"- total_packets: {len(index)}",
+        f"- standard_180d_window_packet: {status_counts.get('standard_180d_window_packet', 0)}",
         f"- standard_120d_plus_packet: {status_counts.get('standard_120d_plus_packet', 0)}",
         f"- standard_rawdata_packet: {status_counts.get('standard_rawdata_packet', 0)}",
         f"- partial_rawdata_packet: {status_counts.get('partial_rawdata_packet', 0)}",
@@ -694,7 +695,7 @@ def write_index_md(index: pd.DataFrame) -> None:
         "",
         "1. For any stock, read `output/latest/individual_stock_chatgpt_packets/{stock_id}_packet_latest.md` first.",
         "2. If raw/pages packet does not expand, read the GitHub API contents endpoint and base64-decode `content`.",
-        "3. Use the embedded 180-day compact OHLCV window for K-line, MA, volume, support/resistance, and pattern checks.",
+        "3. For K-line, MA, volume, support/resistance, and pattern checks, always read the stock's `price_window_180_html_*` URL from the packet. The 20-row preview is not enough.",
         "4. Use full raw CSV only when deeper backtest or additional columns are needed.",
         "",
         "## Preview",

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6747 亨泰光
 
 ## Metadata
-- generated_at: 2026-05-26 02:30:37 Asia/Taipei
+- generated_at: 2026-05-26 03:08:22 Asia/Taipei
 - stock_id: 6747
 - stock_name: 亨泰光
 - packet_status: partial_rawdata_packet
@@ -18,6 +18,21 @@
 - packet_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_chatgpt_packets/6747_packet_latest.md
 - packet_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_chatgpt_packets/6747_packet_latest.md
 - packet_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_chatgpt_packets/6747_packet_latest.md?ref=main
+- price_window_180_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_price_windows/6747_price_window_180_latest.csv
+- price_window_180_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_price_windows/6747_price_window_180_latest.csv
+- price_window_180_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_price_windows/6747_price_window_180_latest.csv?ref=main
+- price_window_180_txt_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_price_windows/6747_price_window_180_latest.txt
+- price_window_180_txt_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_price_windows/6747_price_window_180_latest.txt
+- price_window_180_txt_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_price_windows/6747_price_window_180_latest.txt?ref=main
+- price_window_180_html_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_price_windows/6747_price_window_180_latest.html
+- price_window_180_html_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_price_windows/6747_price_window_180_latest.html
+- price_window_180_html_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_price_windows/6747_price_window_180_latest.html?ref=main
+- tdcc_window_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_tdcc_windows/6747_tdcc_window_latest.csv
+- tdcc_window_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_tdcc_windows/6747_tdcc_window_latest.csv
+- tdcc_window_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_tdcc_windows/6747_tdcc_window_latest.csv?ref=main
+- tdcc_window_txt_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_tdcc_windows/6747_tdcc_window_latest.txt
+- tdcc_window_txt_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_tdcc_windows/6747_tdcc_window_latest.txt
+- tdcc_window_txt_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_tdcc_windows/6747_tdcc_window_latest.txt?ref=main
 - price_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/6747.csv
 - price_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/data/stock_price_history/6747.csv
 - price_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/data/stock_price_history/6747.csv?ref=main
@@ -31,6 +46,8 @@
 ## Data Quality Rules
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
+- For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
@@ -53,27 +70,27 @@
 - distance_to_ma20_pct: 0.21
 - distance_to_high_60_pct: 0
 
-## PRICE_WINDOW_180D_CSV
-This compact OHLCV window is for K-line, MA20/MA60/EMA23, volume, support/resistance, and recent pattern checks.
+## Recent Price Preview
+This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ma120,ema23,return_1d,return_5d,return_20d,volume_ratio,distance_to_ma20_pct,distance_to_high_60_pct
-20251103,198.5,198.5,198.5,198.5,46000,,,,,,,,,,,
-20251105,198.5,198.5,198.5,198.5,39000,,,,,,0,,,,,
-20251106,198.5,199,198.5,199,7000,,,,,,0.25,,,,,
-20251107,198.5,199,198.5,198.5,5000,,,,,,-0.25,,,,,
-20251110,198.5,198.5,198.5,198.5,89000,198.6,198.6,198.6,198.6,198.53,0,,,2.39,-0.05,-0.25
-20251111,198.5,198.5,198.5,198.5,3000,198.6,198.58,198.58,198.58,198.53,0,0,,0.1,-0.04,-0.25
-20251112,199,199,198.5,198.5,35000,198.6,198.57,198.57,198.57,198.53,0,0,,1.09,-0.04,-0.25
-20251113,198.5,198.5,198.5,198.5,7000,198.5,198.56,198.56,198.56,198.53,0,-0.25,,0.24,-0.03,-0.25
-20251114,198.5,198.5,198.5,198.5,20000,198.5,198.56,198.56,198.56,198.52,0,0,,0.72,-0.03,-0.25
-20251117,198.5,198.5,198.5,198.5,11000,198.5,198.55,198.55,198.55,198.52,0,0,,0.42,-0.03,-0.25
-20251118,198.5,198.5,198.5,198.5,58000,198.5,198.55,198.55,198.55,198.52,0,0,,1.99,-0.02,-0.25
-20251119,198.5,198.5,198.5,198.5,37000,198.5,198.54,198.54,198.54,198.52,0,0,,1.24,-0.02,-0.25
-20251120,198.5,198.5,198.5,198.5,4000,198.5,198.54,198.54,198.54,198.52,0,0,,0.14,-0.02,-0.25
-20251121,198.5,198.5,198.5,198.5,19000,198.5,198.54,198.54,198.54,198.52,0,0,,0.7,-0.02,-0.25
-20251124,199,199,198.5,198.5,16000,198.5,198.53,198.53,198.53,198.51,0,0,,0.61,-0.02,-0.25
-20251125,198.5,199,198.5,199,29000,198.6,198.56,198.56,198.56,198.56,0.25,0.25,,1.09,0.22,0
-20251126,198.5,199,198.5,199,29000,198.7,198.59,198.59,198.59,198.59,0,0.25,,1.09,0.21,0
+date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
+20251103,198.5,198.5,198.5,198.5,46000,,,,,
+20251105,198.5,198.5,198.5,198.5,39000,,,,,
+20251106,198.5,199,198.5,199,7000,,,,,
+20251107,198.5,199,198.5,198.5,5000,,,,,
+20251110,198.5,198.5,198.5,198.5,89000,198.6,198.6,198.6,198.53,2.39
+20251111,198.5,198.5,198.5,198.5,3000,198.6,198.58,198.58,198.53,0.1
+20251112,199,199,198.5,198.5,35000,198.6,198.57,198.57,198.53,1.09
+20251113,198.5,198.5,198.5,198.5,7000,198.5,198.56,198.56,198.53,0.24
+20251114,198.5,198.5,198.5,198.5,20000,198.5,198.56,198.56,198.52,0.72
+20251117,198.5,198.5,198.5,198.5,11000,198.5,198.55,198.55,198.52,0.42
+20251118,198.5,198.5,198.5,198.5,58000,198.5,198.55,198.55,198.52,1.99
+20251119,198.5,198.5,198.5,198.5,37000,198.5,198.54,198.54,198.52,1.24
+20251120,198.5,198.5,198.5,198.5,4000,198.5,198.54,198.54,198.52,0.14
+20251121,198.5,198.5,198.5,198.5,19000,198.5,198.54,198.54,198.52,0.7
+20251124,199,199,198.5,198.5,16000,198.5,198.53,198.53,198.51,0.61
+20251125,198.5,199,198.5,199,29000,198.6,198.56,198.56,198.56,1.09
+20251126,198.5,199,198.5,199,29000,198.7,198.59,198.59,198.59,1.09
 ```
 
 ## Latest TDCC Snapshot
@@ -89,7 +106,8 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ma120,ema23,return_1d,return_5d,re
 - all_thresholds_up: 
 - high_thresholds_up: 
 
-## TDCC_WINDOW_12W_CSV
+## TDCC Preview
+This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 status,no_rows
 no_rows,True

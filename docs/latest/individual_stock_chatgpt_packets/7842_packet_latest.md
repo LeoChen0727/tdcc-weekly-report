@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7842 天能綠電
 
 ## Metadata
-- generated_at: 2026-05-26 02:30:49 Asia/Taipei
+- generated_at: 2026-05-26 03:08:46 Asia/Taipei
 - stock_id: 7842
 - stock_name: 天能綠電
 - packet_status: partial_rawdata_packet
@@ -18,6 +18,21 @@
 - packet_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_chatgpt_packets/7842_packet_latest.md
 - packet_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_chatgpt_packets/7842_packet_latest.md
 - packet_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_chatgpt_packets/7842_packet_latest.md?ref=main
+- price_window_180_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_price_windows/7842_price_window_180_latest.csv
+- price_window_180_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_price_windows/7842_price_window_180_latest.csv
+- price_window_180_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_price_windows/7842_price_window_180_latest.csv?ref=main
+- price_window_180_txt_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_price_windows/7842_price_window_180_latest.txt
+- price_window_180_txt_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_price_windows/7842_price_window_180_latest.txt
+- price_window_180_txt_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_price_windows/7842_price_window_180_latest.txt?ref=main
+- price_window_180_html_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_price_windows/7842_price_window_180_latest.html
+- price_window_180_html_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_price_windows/7842_price_window_180_latest.html
+- price_window_180_html_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_price_windows/7842_price_window_180_latest.html?ref=main
+- tdcc_window_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_tdcc_windows/7842_tdcc_window_latest.csv
+- tdcc_window_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_tdcc_windows/7842_tdcc_window_latest.csv
+- tdcc_window_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_tdcc_windows/7842_tdcc_window_latest.csv?ref=main
+- tdcc_window_txt_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_tdcc_windows/7842_tdcc_window_latest.txt
+- tdcc_window_txt_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_tdcc_windows/7842_tdcc_window_latest.txt
+- tdcc_window_txt_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_tdcc_windows/7842_tdcc_window_latest.txt?ref=main
 - price_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/7842.csv
 - price_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/data/stock_price_history/7842.csv
 - price_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/data/stock_price_history/7842.csv?ref=main
@@ -31,6 +46,8 @@
 ## Data Quality Rules
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
+- For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
@@ -53,24 +70,24 @@
 - distance_to_ma20_pct: 2.78
 - distance_to_high_60_pct: -12.94
 
-## PRICE_WINDOW_180D_CSV
-This compact OHLCV window is for K-line, MA20/MA60/EMA23, volume, support/resistance, and recent pattern checks.
+## Recent Price Preview
+This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ma120,ema23,return_1d,return_5d,return_20d,volume_ratio,distance_to_ma20_pct,distance_to_high_60_pct
-20260511,119,127.5,108,125.5,599000,,,,,,,,,,,
-20260512,124,125,117.5,118.5,321000,,,,,,-5.58,,,,,
-20260513,116.5,116.5,115.5,116,90000,,,,,,-2.11,,,,,
-20260514,116,116,110,110.5,133000,,,,,,-4.74,,,,,
-20260515,110.5,112,110,110,132000,116.1,116.1,116.1,116.1,121.95,-0.45,,,0.52,-5.25,-13.73
-20260518,109,109,99,102,201000,111.4,113.75,113.75,113.75,120.29,-7.27,-18.73,,0.82,-10.33,-20
-20260519,100.5,105,100.5,102,30000,108.1,112.07,112.07,112.07,118.76,0,-13.92,,0.14,-8.99,-20
-20260520,102.5,102.5,100,100.5,85000,105,110.62,110.62,110.62,117.24,-1.47,-13.36,,0.43,-9.15,-21.18
-20260521,103.5,103.5,100.5,102,47000,103.3,109.67,109.67,109.67,115.97,1.49,-7.69,,0.26,-6.99,-20
-20260522,102.5,103,100.5,101,102,101.5,108.8,108.8,108.8,114.72,-0.98,-8.18,,0,-7.17,-20.78
-20260523,102.5,103,100.5,101,102,101.3,108.09,108.09,108.09,113.58,0,-0.98,,0,-6.56,-20.78
-20260524,102.5,103,100.5,101,102,101.1,107.5,107.5,107.5,112.53,0,-0.98,,0,-6.05,-20.78
-20260525,102,111,101,111,106,103.2,107.77,107.77,107.77,112.4,9.9,10.45,,0,3,-12.94
-20260526,102,111,101,111,106,105,108,108,108,112.29,0,8.82,,0,2.78,-12.94
+date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
+20260511,119,127.5,108,125.5,599000,,,,,
+20260512,124,125,117.5,118.5,321000,,,,,
+20260513,116.5,116.5,115.5,116,90000,,,,,
+20260514,116,116,110,110.5,133000,,,,,
+20260515,110.5,112,110,110,132000,116.1,116.1,116.1,121.95,0.52
+20260518,109,109,99,102,201000,111.4,113.75,113.75,120.29,0.82
+20260519,100.5,105,100.5,102,30000,108.1,112.07,112.07,118.76,0.14
+20260520,102.5,102.5,100,100.5,85000,105,110.62,110.62,117.24,0.43
+20260521,103.5,103.5,100.5,102,47000,103.3,109.67,109.67,115.97,0.26
+20260522,102.5,103,100.5,101,102,101.5,108.8,108.8,114.72,0
+20260523,102.5,103,100.5,101,102,101.3,108.09,108.09,113.58,0
+20260524,102.5,103,100.5,101,102,101.1,107.5,107.5,112.53,0
+20260525,102,111,101,111,106,103.2,107.77,107.77,112.4,0
+20260526,102,111,101,111,106,105,108,108,112.29,0
 ```
 
 ## Latest TDCC Snapshot
@@ -86,13 +103,14 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ma120,ema23,return_1d,return_5d,re
 - all_thresholds_up: False
 - high_thresholds_up: False
 
-## TDCC_WINDOW_12W_CSV
+## TDCC Preview
+This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
-as_of_date,over_400_ratio,over_400_change_1w,over_600_ratio,over_600_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up,four_thresholds_sync_up,retail_ratio,total_shareholders
-20260430,76.72,,76.72,,76.72,,76.72,,0,False,False,False,,
-20260508,80.88,4.16,80.88,4.16,80.88,4.16,80.88,4.16,1,True,True,True,,
-20260515,62,-18.88,62,-18.88,62,-18.88,62,-18.88,0,False,False,False,,
-20260522,62,0,62,0,62,0,62,0,0,False,False,False,,
+as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
+20260430,76.72,,76.72,,76.72,,0,False,False
+20260508,80.88,4.16,80.88,4.16,80.88,4.16,1,True,True
+20260515,62,-18.88,62,-18.88,62,-18.88,0,False,False
+20260522,62,0,62,0,62,0,0,False,False
 ```
 
 ## Candidate Context

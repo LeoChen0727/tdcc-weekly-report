@@ -1,0 +1,5 @@
+as_of_date,over_400_ratio,over_400_change_1w,over_600_ratio,over_600_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up,four_thresholds_sync_up,retail_ratio,total_shareholders
+20260430,35.49,,34.35,,31.97,,28.54,,0,False,False,False,,
+20260508,35.86,0.36999999999999744,34.95,0.6000000000000014,31.5,-0.46999999999999886,29.29,0.75,1,False,True,False,,
+20260515,37.93,2.0700000000000003,36.2,1.25,33.23,1.7299999999999969,30.37,1.0800000000000018,2,True,True,True,,
+20260522,37.44,-0.490000000000002,35.97,-0.23000000000000398,32.99,-0.23999999999999488,31.41,1.0399999999999991,3,False,True,False,,
