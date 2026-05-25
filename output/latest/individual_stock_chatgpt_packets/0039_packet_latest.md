@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0039 金融類
 
 ## Metadata
-- generated_at: 2026-05-26 03:04:29 Asia/Taipei
+- generated_at: 2026-05-26 03:52:42 Asia/Taipei
 - stock_id: 0039
 - stock_name: 金融類
 - packet_status: insufficient_price_data

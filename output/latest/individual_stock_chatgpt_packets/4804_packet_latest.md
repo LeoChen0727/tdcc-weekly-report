@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4804 大略-KY
 
 ## Metadata
-- generated_at: 2026-05-26 03:07:07 Asia/Taipei
+- generated_at: 2026-05-26 03:54:22 Asia/Taipei
 - stock_id: 4804
 - stock_name: 大略-KY
 - packet_status: standard_rawdata_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4584 君帆
 
 ## Metadata
-- generated_at: 2026-05-26 03:07:02 Asia/Taipei
+- generated_at: 2026-05-26 03:54:18 Asia/Taipei
 - stock_id: 4584
 - stock_name: 君帆
 - packet_status: standard_rawdata_packet

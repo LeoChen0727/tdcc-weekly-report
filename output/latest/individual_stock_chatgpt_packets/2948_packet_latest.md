@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2948 寶陞
 
 ## Metadata
-- generated_at: 2026-05-26 03:06:00 Asia/Taipei
+- generated_at: 2026-05-26 03:53:39 Asia/Taipei
 - stock_id: 2948
 - stock_name: 寶陞
 - packet_status: standard_rawdata_packet

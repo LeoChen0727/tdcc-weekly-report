@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1589 永冠-KY
 
 ## Metadata
-- generated_at: 2026-05-26 03:04:58 Asia/Taipei
+- generated_at: 2026-05-26 03:53:00 Asia/Taipei
 - stock_id: 1589
 - stock_name: 永冠-KY
 - packet_status: standard_rawdata_packet
