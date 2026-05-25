@@ -28,6 +28,7 @@ NORMALIZED_LOG_CSV = TDCC_SIGNALS_DIR / "tdcc_normalized_signal_log.csv"
 PERFORMANCE_CSV = TDCC_SIGNALS_DIR / "tdcc_signal_performance.csv"
 ABM_HISTORY_CSV = TDCC_SIGNALS_DIR / "tdcc_pre_move_accumulation_history.csv"
 ABM_LATEST_CSV = LATEST_DIR / "tdcc_pre_move_accumulation_latest.csv"
+EFFECTIVENESS_CSV = LATEST_DIR / "tdcc_signal_effectiveness_latest.csv"
 EFFECTIVENESS_MD = LATEST_DIR / "tdcc_signal_effectiveness_latest.md"
 
 STRENGTH_MD = LATEST_DIR / "tdcc_strength_ranking_top_latest.md"
@@ -63,11 +64,23 @@ REQUIRED_COLUMNS = [
     "relative_return_vs_benchmark",
 ]
 
+THEME_DETAIL_COLUMNS = [
+    "theme_mainstream_status",
+    "theme_heat_level",
+    "theme_momentum_score",
+    "theme_tdcc_breadth_score",
+    "theme_price_breadth_score",
+    "theme_warrant_heat_score",
+    "theme_relative_strength",
+]
+
 STRENGTH_COLUMNS = [
     "rank",
     "stock_id",
     "stock_name",
     "theme",
+    "theme_mainstream_status",
+    "theme_heat_level",
     "tdcc_strength_score",
     "tdcc_consecutive_up_weeks",
     "all_thresholds_up",
@@ -81,6 +94,11 @@ STRENGTH_COLUMNS = [
     "distance_ma20_pct",
     "volume_ratio_20d",
     "theme_breadth_score",
+    "theme_momentum_score",
+    "theme_tdcc_breadth_score",
+    "theme_price_breadth_score",
+    "theme_warrant_heat_score",
+    "theme_relative_strength",
     "risk_label",
     "risk_bucket",
     "interpretation",
@@ -91,6 +109,8 @@ ABM_COLUMNS = [
     "stock_id",
     "stock_name",
     "theme",
+    "theme_mainstream_status",
+    "theme_heat_level",
     "abm_score",
     "tdcc_strength_score",
     "tdcc_consecutive_up_weeks",
@@ -104,6 +124,11 @@ ABM_COLUMNS = [
     "distance_ma20_pct",
     "volume_ratio_20d",
     "theme_breadth_score",
+    "theme_momentum_score",
+    "theme_tdcc_breadth_score",
+    "theme_price_breadth_score",
+    "theme_warrant_heat_score",
+    "theme_relative_strength",
     "accumulation_label",
     "tracking_priority",
     "trigger_to_watch",
@@ -114,6 +139,7 @@ RISK_COLUMNS = [
     "stock_id",
     "stock_name",
     "theme",
+    "theme_mainstream_status",
     "tdcc_strength_score",
     "tdcc_price_phase",
     "price_return_20d",
@@ -144,13 +170,6 @@ def as_bool(value: Any) -> bool:
     return safe_str(value).lower() in {"true", "1", "yes", "y"}
 
 
-def fmt_num(value: Any, digits: int = 2) -> str:
-    num = to_number(value)
-    if math.isnan(num):
-        return ""
-    return f"{num:.{digits}f}"
-
-
 def numeric_series(df: pd.DataFrame, column: str, default: float = math.nan) -> pd.Series:
     if column not in df.columns:
         return pd.Series(default, index=df.index, dtype="float64")
@@ -163,6 +182,13 @@ def bool_series(df: pd.DataFrame, column: str) -> pd.Series:
     return df[column].map(as_bool)
 
 
+def fmt_num(value: Any, digits: int = 2) -> str:
+    num = to_number(value)
+    if math.isnan(num):
+        return ""
+    return f"{num:.{digits}f}"
+
+
 def latest_date(df: pd.DataFrame) -> str:
     if df.empty or "signal_date" not in df.columns:
         return ""
@@ -172,21 +198,22 @@ def latest_date(df: pd.DataFrame) -> str:
 
 def signal_id_frame(df: pd.DataFrame) -> pd.DataFrame:
     out = df.copy()
+    if out.empty:
+        return out
     if "code" not in out.columns and "stock_id" in out.columns:
         out["code"] = out["stock_id"]
     if "stock_id" not in out.columns and "code" in out.columns:
         out["stock_id"] = out["code"]
+    if "name" not in out.columns and "stock_name" in out.columns:
+        out["name"] = out["stock_name"]
+    if "stock_name" not in out.columns and "name" in out.columns:
+        out["stock_name"] = out["name"]
     if "signal_date" not in out.columns and "signal_trade_date" in out.columns:
         out["signal_date"] = out["signal_trade_date"]
     if "signal_date" not in out.columns:
         out["signal_date"] = ""
     if "signal_id" not in out.columns:
-        out["signal_id"] = (
-            out["signal_date"].astype(str)
-            + "_"
-            + out.get("code", "").astype(str)
-            + "_normalized"
-        )
+        out["signal_id"] = out["signal_date"].astype(str) + "_" + out.get("code", "").astype(str) + "_normalized"
     else:
         empty = out["signal_id"].astype(str).isin(["", "nan", "None", "<NA>"])
         out.loc[empty, "signal_id"] = (
@@ -204,21 +231,139 @@ def combine_prefer_left(left: pd.Series, right: pd.Series) -> pd.Series:
     return left.where(~empty, right)
 
 
+def add_strength_fields(df: pd.DataFrame) -> None:
+    all_up = bool_series(df, "all_thresholds_up")
+    high_up = bool_series(df, "high_thresholds_up")
+    weeks = numeric_series(df, "tdcc_consecutive_up_weeks", 0).fillna(0)
+    breadth = numeric_series(df, "theme_breadth_score", 0).fillna(0)
+    over_1000_up = bool_series(df, "has_1000")
+    over_800_up = bool_series(df, "has_800")
+    if "tdcc_1w_change_1000" in df.columns:
+        over_1000_up = over_1000_up | (numeric_series(df, "tdcc_1w_change_1000", 0) > 0)
+    if "tdcc_1w_change_800" in df.columns:
+        over_800_up = over_800_up | (numeric_series(df, "tdcc_1w_change_800", 0) > 0)
+    df["tdcc_strength_score"] = (
+        all_up.astype(int) * 30
+        + high_up.astype(int) * 20
+        + weeks * 10
+        + breadth * 10
+        + over_1000_up.astype(int) * 10
+        + over_800_up.astype(int) * 5
+    ).round(2)
+
+
+def derive_theme_fields(df: pd.DataFrame) -> None:
+    if df.empty:
+        for col in THEME_DETAIL_COLUMNS:
+            df[col] = ""
+        return
+    if "theme" not in df.columns:
+        df["theme"] = df.get("primary_theme", "")
+    df["theme"] = df["theme"].astype(str).replace({"nan": "", "None": ""}).str.strip()
+    df.loc[df["theme"].eq(""), "theme"] = "other"
+    if "theme_breadth_score" not in df.columns:
+        df["theme_breadth_score"] = ""
+
+    work = df.copy()
+    work["_theme"] = work["theme"].astype(str)
+    work["_leading"] = work["tdcc_price_phase"].astype(str).eq("tdcc_leading_price")
+    work["_confirmed"] = work["tdcc_price_phase"].astype(str).eq("tdcc_price_confirmed")
+    work["_late"] = work["tdcc_price_phase"].astype(str).eq("price_leading_tdcc")
+    work["_overheated"] = work["tdcc_price_phase"].astype(str).eq("overheated_after_tdcc") | work["setup_type"].astype(str).eq("overheated")
+    work["_divergent"] = work["tdcc_price_phase"].astype(str).isin(["tdcc_price_divergence", "failed_after_tdcc"])
+    work["_strength"] = numeric_series(work, "tdcc_strength_score", 0).fillna(0)
+    work["_abm"] = numeric_series(work, "abm_score", 0).fillna(0)
+    work["_breadth"] = numeric_series(work, "theme_breadth_score", 0).fillna(0)
+    work["_rel"] = numeric_series(work, "relative_return_vs_benchmark", 0).fillna(0)
+    stats = work.groupby("_theme", dropna=False).agg(
+        theme_signal_count=("stock_id", "count"),
+        leading_count=("_leading", "sum"),
+        confirmed_count=("_confirmed", "sum"),
+        late_count=("_late", "sum"),
+        overheated_count=("_overheated", "sum"),
+        divergent_count=("_divergent", "sum"),
+        avg_strength=("_strength", "mean"),
+        avg_abm=("_abm", "mean"),
+        max_breadth=("_breadth", "max"),
+        avg_relative=("_rel", "mean"),
+    )
+
+    def classify_theme(theme: str) -> str:
+        row = stats.loc[theme]
+        total = int(row["theme_signal_count"])
+        leading = int(row["leading_count"])
+        confirmed = int(row["confirmed_count"])
+        late = int(row["late_count"])
+        overheated = int(row["overheated_count"])
+        divergent = int(row["divergent_count"])
+        breadth = float(row["max_breadth"] or 0)
+        avg_abm = float(row["avg_abm"] or 0)
+        avg_rel = float(row["avg_relative"] or 0)
+        active = leading + confirmed
+        theme_l = theme.lower()
+        if total <= 1 or theme_l in {"", "other", "nan", "none"}:
+            return "single_name_signal"
+        if divergent >= max(2, total * 0.35) and avg_rel < 0:
+            return "weak_theme"
+        if overheated >= max(2, total * 0.35) or late >= max(2, total * 0.4):
+            return "mainstream_overheated"
+        if total >= 5 and active >= 3 and breadth >= 2:
+            return "mainstream_leader"
+        if total >= 3 and active >= 2:
+            return "mainstream_follow_through"
+        if total >= 2 and leading >= 1 and avg_abm >= 60:
+            return "emerging_theme"
+        if total >= 2:
+            return "non_mainstream_watch"
+        return "single_name_signal"
+
+    status_map = {theme: classify_theme(theme) for theme in stats.index}
+    heat_map: dict[str, str] = {}
+    momentum_map: dict[str, float] = {}
+    price_breadth_map: dict[str, float] = {}
+    rel_map: dict[str, float] = {}
+    for theme, row in stats.iterrows():
+        total = max(int(row["theme_signal_count"]), 1)
+        active = int(row["leading_count"]) + int(row["confirmed_count"])
+        overheated = int(row["overheated_count"])
+        if overheated / total >= 0.35:
+            heat = "overheated"
+        elif active >= 3:
+            heat = "high"
+        elif active >= 1:
+            heat = "medium"
+        else:
+            heat = "low"
+        heat_map[theme] = heat
+        momentum_map[theme] = round(active * 10 + int(row["late_count"]) * 3 + float(row["avg_relative"] or 0), 2)
+        price_breadth_map[theme] = float(active + int(row["late_count"]))
+        rel_map[theme] = round(float(row["avg_relative"] or 0), 2)
+
+    df["theme_mainstream_status"] = df["theme"].map(status_map).fillna("single_name_signal")
+    df["theme_heat_level"] = df["theme"].map(heat_map).fillna("low")
+    df["theme_momentum_score"] = df["theme"].map(momentum_map).fillna(0)
+    df["theme_tdcc_breadth_score"] = numeric_series(df, "theme_breadth_score", 0).fillna(0)
+    df["theme_price_breadth_score"] = df["theme"].map(price_breadth_map).fillna(0)
+    if "theme_warrant_heat_score" not in df.columns:
+        df["theme_warrant_heat_score"] = numeric_series(df, "warrant_sector_heat_score", 0).fillna(0)
+    df["theme_relative_strength"] = df["theme"].map(rel_map).fillna(0)
+
+
 def prepare_latest_frame() -> tuple[pd.DataFrame, dict[str, Any]]:
     snapshot = signal_id_frame(read_csv(SNAPSHOT_CSV, dtype=str))
     abm = signal_id_frame(read_csv(ABM_LATEST_CSV, dtype=str))
-    sources = {
+    meta: dict[str, Any] = {
         "snapshot_rows": len(snapshot),
         "abm_latest_rows": len(abm),
         "ranking_quality": "complete",
         "missing_columns": [],
         "latest_signal_date": "",
         "benchmark_available": "unknown",
+        "theme_data_available": "unknown",
     }
-
     if snapshot.empty and abm.empty:
-        sources["ranking_quality"] = "no_data"
-        return pd.DataFrame(), sources
+        meta["ranking_quality"] = "no_data"
+        return pd.DataFrame(), meta
 
     if snapshot.empty:
         base = abm.copy()
@@ -261,15 +406,8 @@ def prepare_latest_frame() -> tuple[pd.DataFrame, dict[str, Any]]:
         base["stock_name"] = base.get("name", "")
     if "theme" not in base.columns:
         base["theme"] = base.get("primary_theme", "")
-    if "tdcc_price_phase" not in base.columns:
-        base["tdcc_price_phase"] = ""
-    if "setup_type" not in base.columns:
-        base["setup_type"] = ""
     if "relative_return_vs_benchmark" not in base.columns:
-        if "relative_ret_2w" in base.columns:
-            base["relative_return_vs_benchmark"] = base["relative_ret_2w"]
-        else:
-            base["relative_return_vs_benchmark"] = ""
+        base["relative_return_vs_benchmark"] = base["relative_ret_2w"] if "relative_ret_2w" in base.columns else ""
     if "all_thresholds_up" not in base.columns:
         base["all_thresholds_up"] = base.get("is_all_thresholds", "")
     if "high_thresholds_up" not in base.columns:
@@ -279,43 +417,20 @@ def prepare_latest_frame() -> tuple[pd.DataFrame, dict[str, Any]]:
     for col in REQUIRED_COLUMNS:
         if col not in base.columns:
             base[col] = ""
-            sources["missing_columns"].append(col)
-
-    sources["latest_signal_date"] = latest_date(base)
-    if "relative_return_vs_benchmark" in base.columns:
-        available = numeric_series(base, "relative_return_vs_benchmark").notna().sum()
-        sources["benchmark_available"] = "yes" if available > 0 else "no"
-    if sources["missing_columns"]:
-        sources["ranking_quality"] = "partial"
+            meta["missing_columns"].append(col)
 
     base = base.drop_duplicates("signal_id", keep="last").reset_index(drop=True)
     add_strength_fields(base)
-    return base, sources
-
-
-def add_strength_fields(df: pd.DataFrame) -> None:
-    all_up = bool_series(df, "all_thresholds_up")
-    high_up = bool_series(df, "high_thresholds_up")
-    weeks = numeric_series(df, "tdcc_consecutive_up_weeks", 0).fillna(0)
-    breadth = numeric_series(df, "theme_breadth_score", 0).fillna(0)
-    over_1000_up = bool_series(df, "has_1000")
-    over_800_up = bool_series(df, "has_800")
-    if "tdcc_1w_change_1000" in df.columns:
-        over_1000_up = over_1000_up | (numeric_series(df, "tdcc_1w_change_1000", 0) > 0)
-    if "tdcc_1w_change_800" in df.columns:
-        over_800_up = over_800_up | (numeric_series(df, "tdcc_1w_change_800", 0) > 0)
-    df["tdcc_strength_score"] = (
-        all_up.astype(int) * 30
-        + high_up.astype(int) * 20
-        + weeks * 10
-        + breadth * 10
-        + over_1000_up.astype(int) * 10
-        + over_800_up.astype(int) * 5
-    ).round(2)
+    derive_theme_fields(base)
+    meta["latest_signal_date"] = latest_date(base)
+    meta["benchmark_available"] = "yes" if numeric_series(base, "relative_return_vs_benchmark").notna().any() else "no"
+    meta["theme_data_available"] = "yes" if base["theme"].astype(str).str.strip().ne("").any() else "no"
+    if meta["missing_columns"]:
+        meta["ranking_quality"] = "partial"
+    return base, meta
 
 
 def risk_label(phase: Any) -> str:
-    phase_text = safe_str(phase)
     return {
         "tdcc_leading_price": "potential_accumulation",
         "tdcc_price_confirmed": "confirmed_move",
@@ -326,11 +441,10 @@ def risk_label(phase: Any) -> str:
         "insufficient_price_context": "insufficient_data",
         "insufficient_tdcc_history": "insufficient_data",
         "neutral_or_unclear": "neutral",
-    }.get(phase_text, "neutral")
+    }.get(safe_str(phase), "neutral")
 
 
 def risk_bucket(phase: Any) -> str:
-    phase_text = safe_str(phase)
     return {
         "tdcc_leading_price": "strong_but_pre_move",
         "tdcc_price_confirmed": "strong_confirmed",
@@ -340,22 +454,21 @@ def risk_bucket(phase: Any) -> str:
         "failed_after_tdcc": "strong_but_divergent",
         "insufficient_price_context": "insufficient_data",
         "insufficient_tdcc_history": "insufficient_data",
-    }.get(phase_text, "insufficient_data" if "insufficient" in phase_text else "neutral")
+    }.get(safe_str(phase), "insufficient_data" if "insufficient" in safe_str(phase) else "neutral")
 
 
 def phase_interpretation(phase: Any) -> str:
-    phase_text = safe_str(phase)
     return {
-        "tdcc_leading_price": "籌碼強，但股價尚未明顯反應。",
-        "tdcc_price_confirmed": "籌碼強且股價已開始確認。",
+        "tdcc_leading_price": "籌碼持續改善，但股價尚未明顯反應。",
+        "tdcc_price_confirmed": "籌碼改善且股價已開始確認。",
         "price_leading_tdcc": "股價已先漲，TDCC 訊號可能偏晚。",
-        "overheated_after_tdcc": "籌碼強但股價已過熱，防追高。",
-        "tdcc_price_divergence": "TDCC 增加但股價轉弱，需防失效。",
-        "failed_after_tdcc": "訊號後價格走弱，列為失效觀察。",
+        "overheated_after_tdcc": "籌碼強但股價已過熱，需防追高。",
+        "tdcc_price_divergence": "TDCC 增加但股價轉弱，需防訊號失效。",
+        "failed_after_tdcc": "訊號後價格轉弱，列為失效觀察。",
         "insufficient_price_context": "價格或 benchmark 資料不足，不列入強弱判斷。",
         "insufficient_tdcc_history": "TDCC 歷史不足，不列入強弱判斷。",
-        "neutral_or_unclear": "訊號中性或尚不明確。",
-    }.get(phase_text, "資料不足或訊號不明確。")
+        "neutral_or_unclear": "訊號不明確，僅保留觀察。",
+    }.get(safe_str(phase), "資料不足或訊號不明確。")
 
 
 def accumulation_label(row: pd.Series) -> str:
@@ -387,8 +500,9 @@ def tracking_priority(row: pd.Series) -> str:
     dist20 = to_number(row.get("distance_ma20_pct"))
     vol20 = to_number(row.get("volume_ratio_20d"))
     rel = to_number(row.get("relative_return_vs_benchmark"))
-
-    if phase in {"insufficient_price_context", "insufficient_tdcc_history"} or math.isnan(rel):
+    theme_status = safe_str(row.get("theme_mainstream_status"))
+    strong_theme = {"emerging_theme", "mainstream_follow_through", "mainstream_leader"}
+    if phase in {"insufficient_price_context", "insufficient_tdcc_history"} or math.isnan(rel) or not theme_status:
         return "D_insufficient_data"
     if (
         phase == "tdcc_leading_price"
@@ -403,10 +517,16 @@ def tracking_priority(row: pd.Series) -> str:
         and not math.isnan(vol20)
         and vol20 <= 1.5
         and rel >= 0
+        and theme_status in strong_theme
     ):
         return "A_prime_watch"
     if phase == "tdcc_leading_price" and label in {"prime_pre_move", "watch_pre_move"} and abm >= 80:
-        if (not math.isnan(price20) and price20 < -10) or rel < -5 or (not math.isnan(price20) and price20 > 20):
+        if (
+            theme_status in {"single_name_signal", "weak_theme"}
+            or (not math.isnan(price20) and price20 < -10)
+            or rel < -5
+            or (not math.isnan(price20) and price20 > 20)
+        ):
             return "C_weak_or_discounted"
         return "B_confirm_needed"
     if phase == "tdcc_leading_price":
@@ -421,7 +541,7 @@ def trigger_to_watch(row: pd.Series) -> str:
     dist20 = to_number(row.get("distance_ma20_pct"))
     vol20 = to_number(row.get("volume_ratio_20d"))
     phase = safe_str(row.get("tdcc_price_phase"))
-
+    theme_status = safe_str(row.get("theme_mainstream_status"))
     triggers: list[str] = []
     if priority == "A_prime_watch":
         triggers.extend(["量縮守住 MA20", "相對 benchmark 維持轉強", "避免爆量長上影"])
@@ -433,15 +553,17 @@ def trigger_to_watch(row: pd.Series) -> str:
         elif dist20 <= 6:
             triggers.append("量縮守住 MA20")
         else:
-            triggers.append("等待乖離收斂至 MA20 附近")
+            triggers.append("等待乖離收斂到 MA20 附近")
         if not math.isnan(vol20) and vol20 > 1.5:
-            triggers.append("量能降溫後再確認")
+            triggers.append("避免爆量長上影")
         else:
-            triggers.append("溫和放量站上 5 日 / 10 日均線")
+            triggers.append("放量站上 5 日 / 10 日均線")
         if not math.isnan(price20) and price20 < -3:
-            triggers.append("股價止跌並族群同步轉強")
+            triggers.append("價格止跌並重新轉強")
+        if theme_status in {"single_name_signal", "non_mainstream_watch"}:
+            triggers.append("等待第二檔 / 第三檔同族群股票同步轉強")
         if phase in {"tdcc_price_divergence", "failed_after_tdcc"}:
-            triggers.append("先排除 TDCC 與股價背離")
+            triggers.append("確認 TDCC 背離是否解除")
     return "；".join(dict.fromkeys(triggers[:4]))
 
 
@@ -456,19 +578,27 @@ def format_numeric_columns(df: pd.DataFrame, columns: list[str]) -> pd.DataFrame
         "distance_ma20_pct",
         "volume_ratio_20d",
         "theme_breadth_score",
+        "theme_momentum_score",
+        "theme_tdcc_breadth_score",
+        "theme_price_breadth_score",
+        "theme_warrant_heat_score",
+        "theme_relative_strength",
     ]
     for col in numeric_cols:
         if col in out.columns:
             out[col] = out[col].map(lambda v: fmt_num(v, 2))
+    for col in columns:
+        if col not in out.columns:
+            out[col] = ""
     return out[columns]
 
 
 def write_strength_top(df: pd.DataFrame, meta: dict[str, Any]) -> pd.DataFrame:
     if df.empty:
-        write_csv(pd.DataFrame(columns=STRENGTH_COLUMNS), STRENGTH_CSV)
+        out = pd.DataFrame(columns=STRENGTH_COLUMNS)
+        write_csv(out, STRENGTH_CSV)
         STRENGTH_MD.write_text("# TDCC Strength Ranking Top\n\n目前沒有可用資料。\n", encoding="utf-8")
-        return pd.DataFrame(columns=STRENGTH_COLUMNS)
-
+        return out
     top = df.copy()
     top["risk_label"] = top["tdcc_price_phase"].map(risk_label)
     top["risk_bucket"] = top["tdcc_price_phase"].map(risk_bucket)
@@ -476,9 +606,6 @@ def write_strength_top(df: pd.DataFrame, meta: dict[str, Any]) -> pd.DataFrame:
     top = top.sort_values(["tdcc_strength_score", "tdcc_consecutive_up_weeks", "stock_id"], ascending=[False, False, True])
     top = top.head(TOP_N).copy()
     top["rank"] = range(1, len(top) + 1)
-    for col in STRENGTH_COLUMNS:
-        if col not in top.columns:
-            top[col] = ""
     out = format_numeric_columns(top, STRENGTH_COLUMNS)
     write_csv(out, STRENGTH_CSV)
     lines = [
@@ -489,7 +616,7 @@ def write_strength_top(df: pd.DataFrame, meta: dict[str, Any]) -> pd.DataFrame:
         f"- ranking_quality: {meta.get('ranking_quality', '')}",
         f"- missing_columns: {','.join(meta.get('missing_columns', [])) or 'none'}",
         "",
-        "說明：這是籌碼強弱榜，不等於潛伏吸籌榜。若 phase 是 price_leading_tdcc 或 overheated_after_tdcc，不可解讀成潛伏吸籌。",
+        "注意：這是籌碼強弱榜，不等於潛伏吸籌榜。price_leading_tdcc / overheated_after_tdcc 不可解讀成潛伏吸籌。",
         "",
         markdown_table(out, STRENGTH_COLUMNS),
         "",
@@ -500,16 +627,15 @@ def write_strength_top(df: pd.DataFrame, meta: dict[str, Any]) -> pd.DataFrame:
 
 def write_abm_top(df: pd.DataFrame, meta: dict[str, Any]) -> tuple[pd.DataFrame, bool]:
     if df.empty:
-        write_csv(pd.DataFrame(columns=ABM_COLUMNS), ABM_TOP_CSV)
+        out = pd.DataFrame(columns=ABM_COLUMNS)
+        write_csv(out, ABM_TOP_CSV)
         ABM_TOP_MD.write_text("# TDCC Pre-Move Accumulation / ABM Top\n\n目前沒有可用資料。\n", encoding="utf-8")
-        return pd.DataFrame(columns=ABM_COLUMNS), False
-
+        return out, False
     work = df.copy()
     work["accumulation_label"] = work.apply(accumulation_label, axis=1)
     work["tracking_priority"] = work.apply(tracking_priority, axis=1)
     work["trigger_to_watch"] = work.apply(trigger_to_watch, axis=1)
     work["interpretation"] = work["tdcc_price_phase"].map(phase_interpretation)
-
     strict = (
         work["tdcc_price_phase"].astype(str).eq("tdcc_leading_price")
         & (numeric_series(work, "abm_score", 0) >= 60)
@@ -533,13 +659,7 @@ def write_abm_top(df: pd.DataFrame, meta: dict[str, Any]) -> tuple[pd.DataFrame,
             & (numeric_series(work, "price_return_20d", 999) <= 30)
             & (numeric_series(work, "distance_ma20_pct", 999) <= 20)
         ].copy()
-
-    priority_order = {
-        "A_prime_watch": 0,
-        "B_confirm_needed": 1,
-        "C_weak_or_discounted": 2,
-        "D_insufficient_data": 3,
-    }
+    priority_order = {"A_prime_watch": 0, "B_confirm_needed": 1, "C_weak_or_discounted": 2, "D_insufficient_data": 3}
     label_order = {
         "prime_pre_move": 0,
         "watch_pre_move": 1,
@@ -549,16 +669,23 @@ def write_abm_top(df: pd.DataFrame, meta: dict[str, Any]) -> tuple[pd.DataFrame,
         "insufficient_data": 5,
         "not_pre_move_overheated": 6,
     }
+    theme_order = {
+        "emerging_theme": 0,
+        "mainstream_follow_through": 1,
+        "mainstream_leader": 2,
+        "non_mainstream_watch": 3,
+        "single_name_signal": 4,
+        "weak_theme": 5,
+        "mainstream_overheated": 6,
+    }
     filtered["_priority_order"] = filtered["tracking_priority"].map(priority_order).fillna(9)
     filtered["_label_order"] = filtered["accumulation_label"].map(label_order).fillna(9)
+    filtered["_theme_order"] = filtered["theme_mainstream_status"].map(theme_order).fillna(9)
     filtered = filtered.sort_values(
-        ["_priority_order", "_label_order", "abm_score", "tdcc_strength_score", "stock_id"],
-        ascending=[True, True, False, False, True],
+        ["_priority_order", "_label_order", "_theme_order", "abm_score", "tdcc_strength_score", "stock_id"],
+        ascending=[True, True, True, False, False, True],
     ).head(TOP_N)
     filtered["abm_rank"] = range(1, len(filtered) + 1)
-    for col in ABM_COLUMNS:
-        if col not in filtered.columns:
-            filtered[col] = ""
     out = format_numeric_columns(filtered, ABM_COLUMNS)
     write_csv(out, ABM_TOP_CSV)
     lines = [
@@ -570,7 +697,7 @@ def write_abm_top(df: pd.DataFrame, meta: dict[str, Any]) -> tuple[pd.DataFrame,
         f"- ranking_quality: {meta.get('ranking_quality', '')}",
         f"- missing_columns: {','.join(meta.get('missing_columns', [])) or 'none'}",
         "",
-        "說明：這份名單才是用來找大戶持續增加但股價尚未明顯反應的潛伏吸籌候選。price_leading_tdcc / overheated_after_tdcc 不可寫成潛伏吸籌。",
+        "注意：這份名單才是潛伏吸籌追蹤清單。ABM 高不等於買進，仍需看 trigger_to_watch。price_leading_tdcc / overheated_after_tdcc 不列為 prime_pre_move。",
         "",
         markdown_table(out, ABM_COLUMNS),
         "",
@@ -584,8 +711,7 @@ def normalize_performance(perf: pd.DataFrame) -> pd.DataFrame:
     if perf.empty:
         return perf
     value_cols = [col for col in perf.columns if col != "signal_id"]
-    agg = {col: "last" for col in value_cols}
-    return perf.groupby("signal_id", as_index=False).agg(agg)
+    return perf.groupby("signal_id", as_index=False).agg({col: "last" for col in value_cols})
 
 
 def merge_snapshot_performance(snapshot: pd.DataFrame) -> pd.DataFrame:
@@ -630,17 +756,15 @@ def phase_mature_counts(phase_table: pd.DataFrame) -> dict[str, int]:
     out: dict[str, int] = {}
     for horizon in [5, 10, 20]:
         col = f"mature_sample_d{horizon}"
-        if col in performance.columns:
-            out[f"phase_mature_d{horizon}_count"] = int(pd.to_numeric(performance[col], errors="coerce").fillna(0).sum())
-        else:
-            out[f"phase_mature_d{horizon}_count"] = 0
+        out[f"phase_mature_d{horizon}_count"] = (
+            int(pd.to_numeric(performance[col], errors="coerce").fillna(0).sum()) if col in performance.columns else 0
+        )
     return out
 
 
 def write_phase_distribution(latest_df: pd.DataFrame) -> pd.DataFrame:
     rows: list[dict[str, Any]] = []
     total = len(latest_df)
-
     if not latest_df.empty:
         phase_counts = latest_df["tdcc_price_phase"].fillna("").replace("", "unknown").value_counts().reset_index()
         phase_counts.columns = ["tdcc_price_phase", "sample_count"]
@@ -654,12 +778,7 @@ def write_phase_distribution(latest_df: pd.DataFrame) -> pd.DataFrame:
                     "pct_of_total": f"{(count / total * 100) if total else 0:.2f}",
                 }
             )
-
-        weeks_phase = (
-            latest_df.groupby(["tdcc_consecutive_up_weeks", "tdcc_price_phase"], dropna=False)
-            .size()
-            .reset_index(name="signal_count")
-        )
+        weeks_phase = latest_df.groupby(["tdcc_consecutive_up_weeks", "tdcc_price_phase"], dropna=False).size().reset_index(name="signal_count")
         for _, row in weeks_phase.iterrows():
             rows.append(
                 {
@@ -669,7 +788,6 @@ def write_phase_distribution(latest_df: pd.DataFrame) -> pd.DataFrame:
                     "signal_count": int(row["signal_count"]),
                 }
             )
-
         conditions = {
             "all_thresholds_up": bool_series(latest_df, "all_thresholds_up"),
             "high_thresholds_up": bool_series(latest_df, "high_thresholds_up"),
@@ -680,32 +798,20 @@ def write_phase_distribution(latest_df: pd.DataFrame) -> pd.DataFrame:
             "quiet_accumulation": latest_df["setup_type"].astype(str).eq("quiet_accumulation"),
             "early_breakout": latest_df["setup_type"].astype(str).eq("early_breakout"),
             "strong_momentum": latest_df["setup_type"].astype(str).eq("strong_momentum"),
-            "overheated": latest_df["setup_type"].astype(str).eq("overheated")
-            | latest_df["tdcc_price_phase"].astype(str).eq("overheated_after_tdcc"),
+            "overheated": latest_df["setup_type"].astype(str).eq("overheated") | latest_df["tdcc_price_phase"].astype(str).eq("overheated_after_tdcc"),
         }
         for name, mask in conditions.items():
-            part = latest_df[mask]
-            counts = part["tdcc_price_phase"].fillna("").replace("", "unknown").value_counts()
+            counts = latest_df[mask]["tdcc_price_phase"].fillna("").replace("", "unknown").value_counts()
             if counts.empty:
                 rows.append({"section": "condition_x_phase", "condition_name": name, "tdcc_price_phase": "none", "signal_count": 0})
             for phase, count in counts.items():
-                rows.append(
-                    {
-                        "section": "condition_x_phase",
-                        "condition_name": name,
-                        "tdcc_price_phase": phase,
-                        "signal_count": int(count),
-                    }
-                )
+                rows.append({"section": "condition_x_phase", "condition_name": name, "tdcc_price_phase": phase, "signal_count": int(count)})
 
     all_snapshot = signal_id_frame(read_csv(SNAPSHOT_CSV, dtype=str))
     perf_base = merge_snapshot_performance(all_snapshot)
     if not perf_base.empty and "tdcc_price_phase" in perf_base.columns:
         for phase, group in perf_base.groupby("tdcc_price_phase", dropna=False):
-            row: dict[str, Any] = {
-                "section": "phase_performance",
-                "tdcc_price_phase": safe_str(phase) or "unknown",
-            }
+            row: dict[str, Any] = {"section": "phase_performance", "tdcc_price_phase": safe_str(phase) or "unknown"}
             for horizon in [5, 10, 20]:
                 mature = group[maturity_mask(group, horizon)].copy()
                 row[f"mature_sample_d{horizon}"] = len(mature)
@@ -717,16 +823,15 @@ def write_phase_distribution(latest_df: pd.DataFrame) -> pd.DataFrame:
 
     out = pd.DataFrame(rows)
     write_csv(out, PHASE_CSV)
-
-    phase_dist = out[out["section"] == "phase_distribution"]
-    weeks_phase = out[out["section"] == "consecutive_weeks_x_phase"]
-    condition_phase = out[out["section"] == "condition_x_phase"]
-    performance = out[out["section"] == "phase_performance"]
+    phase_dist = out[out["section"] == "phase_distribution"] if not out.empty else pd.DataFrame()
+    weeks_phase = out[out["section"] == "consecutive_weeks_x_phase"] if not out.empty else pd.DataFrame()
+    condition_phase = out[out["section"] == "condition_x_phase"] if not out.empty else pd.DataFrame()
+    performance = out[out["section"] == "phase_performance"] if not out.empty else pd.DataFrame()
     counts = phase_mature_counts(out)
-    pending_notes: list[str] = []
+    pending_notes = []
     for horizon in [5, 10, 20]:
         if counts[f"phase_mature_d{horizon}_count"] == 0:
-            pending_notes.append(f"phase-level D+{horizon} 尚未成熟，不可做 phase 勝率結論。")
+            pending_notes.append(f"- phase-level D+{horizon} 尚未成熟，不可做 phase 勝率結論。")
     lines = [
         "# TDCC Phase Distribution",
         "",
@@ -748,7 +853,7 @@ def write_phase_distribution(latest_df: pd.DataFrame) -> pd.DataFrame:
         "",
         markdown_table(condition_phase, ["condition_name", "tdcc_price_phase", "signal_count"]),
         "",
-        "## Phase 後續績效",
+        "## Phase 後續成熟績效",
         "",
         "\n".join(pending_notes),
         "",
@@ -781,36 +886,31 @@ def file_ok(path: Path) -> str:
 
 
 def build_risk_lists(df: pd.DataFrame) -> dict[str, pd.DataFrame]:
-    if df.empty:
-        return {
-            "price_leading_tdcc": pd.DataFrame(columns=RISK_COLUMNS),
-            "overheated_after_tdcc": pd.DataFrame(columns=RISK_COLUMNS),
-            "tdcc_price_divergence": pd.DataFrame(columns=RISK_COLUMNS),
-        }
+    result: dict[str, pd.DataFrame] = {}
     work = df.copy()
-    work["risk_bucket"] = work["tdcc_price_phase"].map(risk_bucket)
-    work["interpretation"] = work["tdcc_price_phase"].map(phase_interpretation)
-    out: dict[str, pd.DataFrame] = {}
+    if not work.empty:
+        work["risk_bucket"] = work["tdcc_price_phase"].map(risk_bucket)
+        work["interpretation"] = work["tdcc_price_phase"].map(phase_interpretation)
     for phase in ["price_leading_tdcc", "overheated_after_tdcc", "tdcc_price_divergence"]:
-        part = work[work["tdcc_price_phase"].astype(str).eq(phase)].copy()
-        part = part.sort_values(["tdcc_strength_score", "price_return_20d", "stock_id"], ascending=[False, False, True]).head(RISK_N)
-        for col in RISK_COLUMNS:
-            if col not in part.columns:
-                part[col] = ""
-        out[phase] = format_numeric_columns(part, RISK_COLUMNS)
-    return out
+        if work.empty:
+            part = pd.DataFrame(columns=RISK_COLUMNS)
+        else:
+            part = work[work["tdcc_price_phase"].astype(str).eq(phase)].copy()
+            part = part.sort_values(["tdcc_strength_score", "price_return_20d", "stock_id"], ascending=[False, False, True]).head(RISK_N)
+        result[phase] = format_numeric_columns(part, RISK_COLUMNS)
+    return result
 
 
 def phase_join_quality(overall_counts: dict[str, int], phase_counts: dict[str, int]) -> str:
-    notes = []
+    notes: list[str] = []
     for horizon in [5, 10, 20]:
         overall = overall_counts[f"overall_mature_d{horizon}_count"]
         phase = phase_counts[f"phase_mature_d{horizon}_count"]
         if overall > 0 and phase == 0:
-            notes.append(f"D+{horizon}: overall成熟但phase join為0，可能是phase欄位新加、舊樣本未補phase，或performance join key不完整")
+            notes.append(f"D+{horizon}: overall mature exists but phase-level mature is zero; phase field may be newly added or join key is incomplete")
         elif overall != phase:
             notes.append(f"D+{horizon}: overall={overall}, phase={phase}")
-    return "ok" if not notes else "；".join(notes)
+    return "ok" if not notes else "; ".join(notes)
 
 
 def sample_status(overall_counts: dict[str, int], phase_counts: dict[str, int]) -> str:
@@ -823,13 +923,16 @@ def sample_status(overall_counts: dict[str, int], phase_counts: dict[str, int]) 
     return "phase_samples_available"
 
 
-def write_packet(
-    meta: dict[str, Any],
-    strength_top: pd.DataFrame,
-    abm_top: pd.DataFrame,
-    phase_table: pd.DataFrame,
-    latest_df: pd.DataFrame,
-) -> None:
+def theme_section_table(df: pd.DataFrame, status_values: set[str], columns: list[str], limit: int = 20) -> pd.DataFrame:
+    if df.empty or "theme_mainstream_status" not in df.columns:
+        return pd.DataFrame(columns=columns)
+    part = df[df["theme_mainstream_status"].astype(str).isin(status_values)].copy()
+    if part.empty:
+        return pd.DataFrame(columns=columns)
+    return part.head(limit)[columns]
+
+
+def write_packet(meta: dict[str, Any], strength_top: pd.DataFrame, abm_top: pd.DataFrame, phase_table: pd.DataFrame, latest_df: pd.DataFrame) -> None:
     perf = read_csv(PERFORMANCE_CSV, dtype=str)
     overall_counts = {
         "overall_mature_d5_count": count_mature(perf, 5),
@@ -840,9 +943,9 @@ def write_packet(
     pending_count = count_pending(perf)
     join_quality = phase_join_quality(overall_counts, phase_counts)
     status = sample_status(overall_counts, phase_counts)
-
     insufficient_count = 0
     if not phase_table.empty and "tdcc_price_phase" in phase_table.columns:
+        sample_col = phase_table.get("sample_count", pd.Series(dtype=float))
         insufficient_count = int(
             phase_table[
                 (phase_table.get("section", "") == "phase_distribution")
@@ -857,7 +960,6 @@ def write_packet(
     weeks_phase = phase_table[phase_table.get("section", "") == "consecutive_weeks_x_phase"] if not phase_table.empty else pd.DataFrame()
     performance = phase_table[phase_table.get("section", "") == "phase_performance"] if not phase_table.empty else pd.DataFrame()
     risk_lists = build_risk_lists(latest_df)
-
     mature_notes: list[str] = []
     for horizon in [5, 10, 20]:
         phase_count = phase_counts[f"phase_mature_d{horizon}_count"]
@@ -866,8 +968,14 @@ def write_packet(
             mature_notes.append(f"- phase-level D+{horizon} 尚未成熟，不可做 phase 勝率結論。")
         if overall_count > 0 and phase_count == 0:
             mature_notes.append(
-                f"- overall_mature_d{horizon}_count={overall_count} 但 phase_mature_d{horizon}_count=0；原因通常是 phase 欄位是新加的、舊樣本未補 phase，或 performance join key 不完整。"
+                f"- overall_mature_d{horizon}_count={overall_count} 但 phase_mature_d{horizon}_count=0；原因通常是 phase 欄位為新加、舊樣本未補 phase，或 performance join key 不完整。"
             )
+
+    theme_cols = ["stock_id", "stock_name", "theme", "theme_mainstream_status", "tdcc_price_phase", "abm_score", "tracking_priority", "risk_bucket", "interpretation"]
+    strength_theme_cols = ["stock_id", "stock_name", "theme", "theme_mainstream_status", "tdcc_strength_score", "tdcc_price_phase", "risk_bucket", "interpretation"]
+    abm_theme_cols = ["stock_id", "stock_name", "theme", "theme_mainstream_status", "abm_score", "tracking_priority", "tdcc_price_phase", "trigger_to_watch"]
+    strength_for_theme = strength_top.copy()
+    abm_for_theme = abm_top.copy()
 
     lines = [
         "# TDCC CHATGPT TRACKING PACKET",
@@ -888,6 +996,7 @@ def write_packet(
         f"- ranking_quality: {meta.get('ranking_quality', '')}",
         f"- phase_mature_join_quality: {join_quality}",
         f"- benchmark_available: {meta.get('benchmark_available', 'unknown')}",
+        f"- theme_data_available: {meta.get('theme_data_available', 'unknown')}",
         f"- sample_status: {status}",
         f"- relaxed_filter: {meta.get('relaxed_filter', '')}",
         f"- missing_columns: {','.join(meta.get('missing_columns', [])) or 'none'}",
@@ -898,6 +1007,7 @@ def write_packet(
         f"- tdcc_signal_performance.csv: {file_ok(PERFORMANCE_CSV)}",
         f"- tdcc_pre_move_accumulation_history.csv: {file_ok(ABM_HISTORY_CSV)}",
         f"- tdcc_pre_move_accumulation_latest.csv: {file_ok(ABM_LATEST_CSV)}",
+        f"- tdcc_signal_effectiveness_latest.csv: {file_ok(EFFECTIVENESS_CSV)}",
         f"- tdcc_signal_effectiveness_latest.md: {file_ok(EFFECTIVENESS_MD)}",
         "",
         "## Data Quality Notes",
@@ -905,6 +1015,7 @@ def write_packet(
         f"- ranking_quality: {meta.get('ranking_quality', '')}",
         f"- phase_mature_join_quality: {join_quality}",
         f"- benchmark_available: {meta.get('benchmark_available', 'unknown')}",
+        f"- theme_data_available: {meta.get('theme_data_available', 'unknown')}",
         f"- sample_status: {status}",
         f"- relaxed_filter: {meta.get('relaxed_filter', '')}",
         "- packet_generated_from: snapshot + ABM latest + normalized performance + phase distribution",
@@ -916,6 +1027,40 @@ def write_packet(
         "## Pre-Move Accumulation / ABM Top 30",
         "",
         markdown_table(abm_top.head(PACKET_N), ABM_COLUMNS),
+        "",
+        "## TDCC Strength Ranking by Theme Mainstream Status",
+        "",
+        markdown_table(strength_for_theme.head(PACKET_N), strength_theme_cols),
+        "",
+        "## Pre-Move / ABM Ranking by Theme Mainstream Status",
+        "",
+        markdown_table(abm_for_theme.head(PACKET_N), abm_theme_cols),
+        "",
+        "## 主流潛伏吸籌名單",
+        "",
+        markdown_table(theme_section_table(abm_for_theme, {"emerging_theme", "mainstream_follow_through", "mainstream_leader"}, abm_theme_cols), abm_theme_cols),
+        "",
+        "## 非主流但值得觀察名單",
+        "",
+        markdown_table(theme_section_table(abm_for_theme, {"non_mainstream_watch"}, abm_theme_cols), abm_theme_cols),
+        "",
+        "## 孤單訊號 / 非主流降權名單",
+        "",
+        markdown_table(theme_section_table(abm_for_theme, {"single_name_signal", "weak_theme"}, abm_theme_cols), abm_theme_cols),
+        "",
+        "## 主流過熱風險名單",
+        "",
+        markdown_table(theme_section_table(strength_for_theme, {"mainstream_overheated"}, strength_theme_cols), strength_theme_cols),
+        "",
+        "## TDCC 背離 + 弱族群名單",
+        "",
+        markdown_table(
+            latest_df[
+                latest_df["tdcc_price_phase"].astype(str).isin(["tdcc_price_divergence", "failed_after_tdcc"])
+                & latest_df["theme_mainstream_status"].astype(str).isin(["weak_theme", "single_name_signal"])
+            ].assign(risk_bucket=lambda d: d["tdcc_price_phase"].map(risk_bucket), interpretation=lambda d: d["tdcc_price_phase"].map(phase_interpretation)).pipe(format_numeric_columns, strength_theme_cols),
+            strength_theme_cols,
+        ),
         "",
         "## Top Risk List - price_leading_tdcc Top 20",
         "",
@@ -941,9 +1086,18 @@ def write_packet(
         "",
         "只使用 mature_dN=True 的資料。pending 不可視為正面或負面。",
         "",
-        "\n".join(mature_notes) if mature_notes else "- phase-level mature sample 已可用。",
+        "\n".join(mature_notes) if mature_notes else "- phase-level mature sample 已可使用。",
         "",
         markdown_table(performance, PHASE_PERFORMANCE_COLUMNS),
+        "",
+        "## Model Tuning Recommendation",
+        "",
+        "- tuning_status: not_ready",
+        "- reason: insufficient mature D+10 / D+20 samples",
+        "- allowed_changes: reporting_priority_only",
+        "- forbidden_changes: core_weight_change",
+        "- threshold_for_review: each major phase mature_d10 >= 30, or overall mature_d20 >= 100 with at least 3-4 weeks of data",
+        "- note: 目前可以調整追蹤優先級與報告分層，但不可調整核心 TDCC / ABM 權重。",
         "",
         "## Interpretation Rules",
         "- pending 不可視為正面或負面。",
@@ -953,6 +1107,7 @@ def write_packet(
         "- price_leading_tdcc / overheated_after_tdcc 不可寫成潛伏吸籌。",
         "- tdcc_price_divergence 要列為失效觀察。",
         "- 必須同時看絕對報酬與相對 TWSE / TPEx benchmark。",
+        "- 在 tuning_status=not_ready 前，不可調整核心模型權重。",
         "",
     ]
     PACKET_MD.write_text("\n".join(lines), encoding="utf-8")
@@ -969,17 +1124,13 @@ def upsert_readme_fields() -> None:
         "tdcc_chatgpt_tracking_packet_raw_url": raw_url(PACKET_MD),
     }
     for path in README_PATHS:
-        existing_lines = []
-        if path.exists():
-            existing_lines = path.read_text(encoding="utf-8", errors="replace").splitlines()
+        existing_lines = path.read_text(encoding="utf-8", errors="replace").splitlines() if path.exists() else []
         seen = set(fields)
-        new_lines = []
+        new_lines: list[str] = []
         inserted = False
         for line in existing_lines:
             key = line.split("=", 1)[0] if "=" in line else ""
             if key in fields:
-                if key not in seen:
-                    continue
                 new_lines.append(f"{key}={fields[key]}")
                 seen.discard(key)
             elif line == "RULES:" and not inserted:
@@ -992,8 +1143,7 @@ def upsert_readme_fields() -> None:
             else:
                 new_lines.append(line)
         if not existing_lines:
-            for key, value in fields.items():
-                new_lines.append(f"{key}={value}")
+            new_lines = [f"{key}={value}" for key, value in fields.items()]
         elif seen:
             for key, value in fields.items():
                 if key in seen:

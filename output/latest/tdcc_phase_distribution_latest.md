@@ -1,6 +1,6 @@
 # TDCC Phase Distribution
 
-- generated_at: 2026-05-25 12:50:56 Asia/Taipei
+- generated_at: 2026-05-25 14:08:26 Asia/Taipei
 - latest_signal_count: 1195
 - phase_mature_d5_count: 3592
 - phase_mature_d10_count: 2457
@@ -126,7 +126,7 @@
 | overheated | insufficient_price_context | 12.0 |
 | overheated | tdcc_price_divergence | 1.0 |
 
-## Phase 後續績效
+## Phase 後續成熟績效
 
 
 
