@@ -1,6 +1,6 @@
 # Raw Data Fetch Status
 
-- generated_at: 2026-05-26 00:33:29 Asia/Taipei
+- generated_at: 2026-05-26 01:30:42 Asia/Taipei
 - sources_checked: raw, pages, api
 - checked_rows: 141
 - success_rows: 105
@@ -53,21 +53,21 @@
 
 | logical_source | stock_id | source_type | status_category | http_status | rows | columns | line_count | local_line_count | sample_status | chatgpt_friendly |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| all_candidates |  | api | success | 200 | 519 | 205 | 520 | 520 | ok | True |
-| all_candidates |  | pages | missing_file | 404 | 0 | 0 | 0 | 520 | ok | False |
-| all_candidates |  | raw | success | 200 | 519 | 205 | 520 | 520 | ok | True |
-| candidate_repeat_appearance |  | api | success | 200 | 400 | 13 | 401 | 401 | ok | True |
-| candidate_repeat_appearance |  | pages | missing_file | 404 | 0 | 0 | 0 | 401 | ok | False |
-| candidate_repeat_appearance |  | raw | success | 200 | 400 | 13 | 401 | 401 | ok | True |
-| daily_market_full |  | api | success | 200 | 567 | 1 | 567 | 567 | ok | True |
-| daily_market_full |  | pages | missing_file | 404 | 0 | 0 | 0 | 567 | ok | False |
-| daily_market_full |  | raw | success | 200 | 567 | 1 | 567 | 567 | ok | True |
-| daily_market_summary |  | api | success | 200 | 447 | 1 | 447 | 447 | ok | True |
-| daily_market_summary |  | pages | missing_file | 404 | 0 | 0 | 0 | 447 | ok | False |
-| daily_market_summary |  | raw | success | 200 | 447 | 1 | 447 | 447 | ok | True |
-| daily_report_packet |  | api | success | 200 | 1175 | 1 | 1175 | 1175 | ok | True |
-| daily_report_packet |  | pages | success | 200 | 1175 | 1 | 1175 | 1175 | ok | True |
-| daily_report_packet |  | raw | success | 200 | 1175 | 1 | 1175 | 1175 | ok | True |
+| all_candidates |  | api | success | 200 | 611 | 224 | 612 | 612 | ok | True |
+| all_candidates |  | pages | missing_file | 404 | 0 | 0 | 0 | 612 | ok | False |
+| all_candidates |  | raw | success | 200 | 611 | 224 | 612 | 612 | ok | True |
+| candidate_repeat_appearance |  | api | success | 200 | 426 | 13 | 427 | 427 | ok | True |
+| candidate_repeat_appearance |  | pages | missing_file | 404 | 0 | 0 | 0 | 427 | ok | False |
+| candidate_repeat_appearance |  | raw | success | 200 | 426 | 13 | 427 | 427 | ok | True |
+| daily_market_full |  | api | success | 200 | 652 | 1 | 652 | 652 | ok | True |
+| daily_market_full |  | pages | missing_file | 404 | 0 | 0 | 0 | 652 | ok | False |
+| daily_market_full |  | raw | success | 200 | 652 | 1 | 652 | 652 | ok | True |
+| daily_market_summary |  | api | success | 200 | 377 | 1 | 377 | 377 | ok | True |
+| daily_market_summary |  | pages | missing_file | 404 | 0 | 0 | 0 | 377 | ok | False |
+| daily_market_summary |  | raw | success | 200 | 377 | 1 | 377 | 377 | ok | True |
+| daily_report_packet |  | api | success | 200 | 1190 | 1 | 1190 | 1190 | ok | True |
+| daily_report_packet |  | pages | success | 200 | 1190 | 1 | 1190 | 1190 | ok | True |
+| daily_report_packet |  | raw | success | 200 | 1190 | 1 | 1190 | 1190 | ok | True |
 | daily_signal_performance_summary |  | api | success | 200 | 120 | 1 | 120 | 120 | ok | True |
 | daily_signal_performance_summary |  | pages | missing_file | 404 | 0 | 0 | 0 | 120 | ok | False |
 | daily_signal_performance_summary |  | raw | success | 200 | 120 | 1 | 120 | 120 | ok | True |
@@ -92,12 +92,12 @@
 | individual_stock_report_md | 8299 | api | success | 200 | 152 | 1 | 152 | 152 | ok | True |
 | individual_stock_report_md | 8299 | pages | success | 200 | 152 | 1 | 152 | 152 | ok | True |
 | individual_stock_report_md | 8299 | raw | success | 200 | 152 | 1 | 152 | 152 | ok | True |
-| individual_stock_reports_index |  | api | success | 200 | 4 | 15 | 5 | 6 | ok | True |
-| individual_stock_reports_index |  | pages | success | 200 | 4 | 15 | 5 | 6 | ok | True |
-| individual_stock_reports_index |  | raw | success | 200 | 4 | 15 | 5 | 6 | ok | True |
-| readme_first |  | api | success | 200 | 169 | 1 | 169 | 169 | ok | True |
-| readme_first |  | pages | success | 200 | 169 | 1 | 169 | 169 | ok | True |
-| readme_first |  | raw | success | 200 | 169 | 1 | 169 | 169 | ok | True |
+| individual_stock_reports_index |  | api | success | 200 | 5 | 15 | 6 | 6 | ok | True |
+| individual_stock_reports_index |  | pages | success | 200 | 5 | 15 | 6 | 6 | ok | True |
+| individual_stock_reports_index |  | raw | success | 200 | 5 | 15 | 6 | 6 | ok | True |
+| readme_first |  | api | success | 200 | 172 | 1 | 172 | 172 | ok | True |
+| readme_first |  | pages | success | 200 | 5 | 1 | 5 | 172 | ok | True |
+| readme_first |  | raw | success | 200 | 172 | 1 | 172 | 172 | ok | True |
 | sell_strategy_backtest | 1815 | api | missing_file | 404 | 0 | 0 | 0 | 0 | empty_table | False |
 | sell_strategy_backtest | 1815 | pages | missing_file | 404 | 0 | 0 | 0 | 0 | empty_table | False |
 | sell_strategy_backtest | 1815 | raw | missing_file | 404 | 0 | 0 | 0 | 0 | empty_table | False |
@@ -128,24 +128,24 @@
 | sell_strategy_summary | 8299 | api | success | 200 | 28 | 1 | 28 | 28 | ok | True |
 | sell_strategy_summary | 8299 | pages | missing_file | 404 | 0 | 0 | 0 | 28 | ok | False |
 | sell_strategy_summary | 8299 | raw | success | 200 | 28 | 1 | 28 | 28 | ok | True |
-| stock_monitor |  | api | success | 200 | 161 | 1 | 161 | 161 | ok | True |
-| stock_monitor |  | pages | missing_file | 404 | 0 | 0 | 0 | 161 | ok | False |
-| stock_monitor |  | raw | success | 200 | 161 | 1 | 161 | 161 | ok | True |
-| stock_price_history | 1815 | api | success | 200 | 135 | 39 | 136 | 136 | ok | True |
-| stock_price_history | 1815 | pages | success | 200 | 135 | 39 | 136 | 136 | ok | True |
-| stock_price_history | 1815 | raw | success | 200 | 135 | 39 | 136 | 136 | ok | True |
-| stock_price_history | 2330 | api | success | 200 | 135 | 39 | 136 | 136 | ok | True |
-| stock_price_history | 2330 | pages | success | 200 | 135 | 39 | 136 | 136 | ok | True |
-| stock_price_history | 2330 | raw | success | 200 | 135 | 39 | 136 | 136 | ok | True |
-| stock_price_history | 2353 | api | success | 200 | 135 | 39 | 136 | 136 | ok | True |
-| stock_price_history | 2353 | pages | success | 200 | 135 | 39 | 136 | 136 | ok | True |
-| stock_price_history | 2353 | raw | success | 200 | 135 | 39 | 136 | 136 | ok | True |
-| stock_price_history | 2484 | api | success | 200 | 135 | 39 | 136 | 136 | ok | True |
-| stock_price_history | 2484 | pages | success | 200 | 135 | 39 | 136 | 136 | ok | True |
-| stock_price_history | 2484 | raw | success | 200 | 135 | 39 | 136 | 136 | ok | True |
-| stock_price_history | 8299 | api | success | 200 | 135 | 39 | 136 | 136 | ok | True |
-| stock_price_history | 8299 | pages | success | 200 | 135 | 39 | 136 | 136 | ok | True |
-| stock_price_history | 8299 | raw | success | 200 | 135 | 39 | 136 | 136 | ok | True |
+| stock_monitor |  | api | success | 200 | 119 | 1 | 119 | 119 | ok | True |
+| stock_monitor |  | pages | missing_file | 404 | 0 | 0 | 0 | 119 | ok | False |
+| stock_monitor |  | raw | success | 200 | 119 | 1 | 119 | 119 | ok | True |
+| stock_price_history | 1815 | api | success | 200 | 136 | 39 | 137 | 137 | ok | True |
+| stock_price_history | 1815 | pages | success | 200 | 135 | 39 | 136 | 137 | ok | True |
+| stock_price_history | 1815 | raw | success | 200 | 136 | 39 | 137 | 137 | ok | True |
+| stock_price_history | 2330 | api | success | 200 | 136 | 39 | 137 | 137 | ok | True |
+| stock_price_history | 2330 | pages | success | 200 | 135 | 39 | 136 | 137 | ok | True |
+| stock_price_history | 2330 | raw | success | 200 | 136 | 39 | 137 | 137 | ok | True |
+| stock_price_history | 2353 | api | success | 200 | 136 | 39 | 137 | 137 | ok | True |
+| stock_price_history | 2353 | pages | success | 200 | 135 | 39 | 136 | 137 | ok | True |
+| stock_price_history | 2353 | raw | success | 200 | 136 | 39 | 137 | 137 | ok | True |
+| stock_price_history | 2484 | api | success | 200 | 136 | 39 | 137 | 137 | ok | True |
+| stock_price_history | 2484 | pages | success | 200 | 135 | 39 | 136 | 137 | ok | True |
+| stock_price_history | 2484 | raw | success | 200 | 136 | 39 | 137 | 137 | ok | True |
+| stock_price_history | 8299 | api | success | 200 | 136 | 39 | 137 | 137 | ok | True |
+| stock_price_history | 8299 | pages | success | 200 | 135 | 39 | 136 | 137 | ok | True |
+| stock_price_history | 8299 | raw | success | 200 | 136 | 39 | 137 | 137 | ok | True |
 | surge_model_backtest |  | api | success | 200 | 15 | 17 | 16 | 16 | ok | True |
 | surge_model_backtest |  | pages | missing_file | 404 | 0 | 0 | 0 | 16 | ok | False |
 | surge_model_backtest |  | raw | success | 200 | 15 | 17 | 16 | 16 | ok | True |

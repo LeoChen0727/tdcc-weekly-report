@@ -1,6 +1,6 @@
 # Market Risk Dashboard
 
-- generated_at: `2026-05-25 23:51:22 Asia/Taipei`
+- generated_at: `2026-05-26 01:23:17 Asia/Taipei`
 - data_date: `20260525`
 - market_regime: `strong_bull`
 - risk_level: `high_risk`
@@ -41,14 +41,14 @@ This report uses official market index data already stored in the repo plus TAIF
 
 ## Upcoming Macro Event Calendar
 
-- 20260528 US_GDP: GDP (Second Estimate) and Corporate Profits, 1st Quarter 2026 (days=3, importance=medium)
-- 20260528 US_PCE_personal_income: Personal Income and Outlays, April 2026 (days=3, importance=high)
-- 20260609 US_trade: U.S. International Trade in Goods and Services, Annual Update (days=15, importance=medium)
-- 20260609 US_trade: U.S. International Trade in Goods and Services, April 2026 (days=15, importance=medium)
-- 20260617 FOMC: FOMC decision (June 16-17, 2026) (days=23, importance=high)
-- 20260625 US_PCE_personal_income: GDP (Third Estimate), Industries, Corporate Profits, State GDP, and State Personal Income, 1st Quarter 2026 (days=31, importance=high)
-- 20260625 US_PCE_personal_income: Personal Income and Outlays, May 2026 (days=31, importance=high)
-- 20260707 US_trade: U.S. International Trade in Goods and Services, May 2026 (days=43, importance=medium)
+- 20260528 US_GDP: GDP (Second Estimate) and Corporate Profits, 1st Quarter 2026 (days=2, importance=medium)
+- 20260528 US_PCE_personal_income: Personal Income and Outlays, April 2026 (days=2, importance=high)
+- 20260609 US_trade: U.S. International Trade in Goods and Services, Annual Update (days=14, importance=medium)
+- 20260609 US_trade: U.S. International Trade in Goods and Services, April 2026 (days=14, importance=medium)
+- 20260617 FOMC: FOMC decision (June 16-17, 2026) (days=22, importance=high)
+- 20260625 US_PCE_personal_income: GDP (Third Estimate), Industries, Corporate Profits, State GDP, and State Personal Income, 1st Quarter 2026 (days=30, importance=high)
+- 20260625 US_PCE_personal_income: Personal Income and Outlays, May 2026 (days=30, importance=high)
+- 20260707 US_trade: U.S. International Trade in Goods and Services, May 2026 (days=42, importance=medium)
 
 ## Six-Month Technical Charts
 
