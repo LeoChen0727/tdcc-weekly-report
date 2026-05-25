@@ -32,6 +32,8 @@ CANDIDATE_REPEAT_MD = LATEST_DIR / "candidate_repeat_appearance_latest.md"
 DAILY_CANDIDATE_DECISION_CSV = LATEST_DIR / "daily_candidate_decision_latest.csv"
 DAILY_CANDIDATE_DECISION_MD = LATEST_DIR / "daily_candidate_decision_latest.md"
 DAILY_CANDIDATE_DECISION_PACKET_MD = LATEST_DIR / "daily_candidate_decision_chatgpt_packet_latest.md"
+INDICATOR_USAGE_GUIDE_MD = LATEST_DIR / "chatgpt_indicator_usage_guide_latest.md"
+INDICATOR_USAGE_GUIDE_TXT = LATEST_DIR / "CHATGPT_INDICATOR_USAGE_GUIDE.txt"
 DAILY_SIGNAL_WEEKLY_PDF = LATEST_DIR / "daily_signal_performance_weekly_latest.pdf"
 DAILY_SIGNAL_MONTHLY_PDF = LATEST_DIR / "daily_signal_performance_monthly_latest.pdf"
 FUNDAMENTAL_CATALYST_MD = LATEST_DIR / "fundamental_catalyst_layer_latest.md"
@@ -341,6 +343,12 @@ def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path],
     lines.append("pdf_only_disclosure_text: 本次僅使用 PDF 報告資料，未讀取原始 CSV / packet / source tables，因此只能做摘要型分析。")
     lines.append("note: PDFs are auxiliary outputs. They are not the primary source when raw data is available.")
     lines.append("")
+    lines.append("CHATGPT INDICATOR USAGE GUIDE")
+    lines.append(f"indicator_usage_guide_md_raw_url: {raw_url(INDICATOR_USAGE_GUIDE_MD)}")
+    lines.append(f"indicator_usage_guide_txt_raw_url: {raw_url(INDICATOR_USAGE_GUIDE_TXT)}")
+    lines.append(f"status: {'generated' if INDICATOR_USAGE_GUIDE_MD.exists() and INDICATOR_USAGE_GUIDE_TXT.exists() else 'missing'}")
+    lines.append("note: This guide is the cross-indicator routing map. ChatGPT should read it before using memory-based interpretations.")
+    lines.append("")
     lines.append("FUNDAMENTAL / EVENT CATALYST LAYER")
     lines.append(f"catalyst_layer_md_raw_url: {raw_url(FUNDAMENTAL_CATALYST_MD)}")
     lines.append(f"catalyst_layer_path: {FUNDAMENTAL_CATALYST_MD.as_posix()}")
@@ -547,6 +555,9 @@ def write_packet_manifest(main_date: str, report_ready: str, paths: dict[str, Pa
         "daily_candidate_decision_md_raw_url": raw_url(DAILY_CANDIDATE_DECISION_MD),
         "daily_candidate_decision_chatgpt_packet_raw_url": raw_url(DAILY_CANDIDATE_DECISION_PACKET_MD),
         "daily_candidate_decision_status": "generated" if DAILY_CANDIDATE_DECISION_CSV.exists() and DAILY_CANDIDATE_DECISION_PACKET_MD.exists() else "missing",
+        "chatgpt_indicator_usage_guide_md_raw_url": raw_url(INDICATOR_USAGE_GUIDE_MD),
+        "chatgpt_indicator_usage_guide_txt_raw_url": raw_url(INDICATOR_USAGE_GUIDE_TXT),
+        "chatgpt_indicator_usage_guide_status": "generated" if INDICATOR_USAGE_GUIDE_MD.exists() and INDICATOR_USAGE_GUIDE_TXT.exists() else "missing",
         "surge_model_chatgpt_packet_raw_url": raw_url(SURGE_MODEL_PACKET_MD),
         "surge_precondition_candidates_md_raw_url": raw_url(SURGE_PRECONDITION_CANDIDATES_MD),
         "surge_precondition_candidates_csv_raw_url": raw_url(SURGE_PRECONDITION_CANDIDATES_CSV),

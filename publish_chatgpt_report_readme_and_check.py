@@ -66,6 +66,8 @@ CANDIDATE_REPEAT_APPEARANCE_MD = LATEST_DIR / "candidate_repeat_appearance_lates
 DAILY_CANDIDATE_DECISION_CSV = LATEST_DIR / "daily_candidate_decision_latest.csv"
 DAILY_CANDIDATE_DECISION_MD = LATEST_DIR / "daily_candidate_decision_latest.md"
 DAILY_CANDIDATE_DECISION_PACKET_MD = LATEST_DIR / "daily_candidate_decision_chatgpt_packet_latest.md"
+INDICATOR_USAGE_GUIDE_MD = LATEST_DIR / "chatgpt_indicator_usage_guide_latest.md"
+INDICATOR_USAGE_GUIDE_TXT = LATEST_DIR / "CHATGPT_INDICATOR_USAGE_GUIDE.txt"
 DOCS_DAILY_SIGNAL_WEEKLY_PDF = DOCS_LATEST_DIR / "daily_signal_performance_weekly_latest.pdf"
 DOCS_DAILY_SIGNAL_MONTHLY_PDF = DOCS_LATEST_DIR / "daily_signal_performance_monthly_latest.pdf"
 FUNDAMENTAL_CATALYST_MD = LATEST_DIR / "fundamental_catalyst_layer_latest.md"
@@ -543,6 +545,10 @@ def build_readme(
         f"daily_candidate_decision_raw_url={raw_url('main', DAILY_CANDIDATE_DECISION_CSV)}",
         f"daily_candidate_decision_md_raw_url={raw_url('main', DAILY_CANDIDATE_DECISION_MD)}",
         f"daily_candidate_decision_chatgpt_packet_raw_url={raw_url('main', DAILY_CANDIDATE_DECISION_PACKET_MD)}",
+        f"chatgpt_indicator_usage_guide_md_raw_url={raw_url('main', INDICATOR_USAGE_GUIDE_MD)}",
+        f"chatgpt_indicator_usage_guide_txt_raw_url={raw_url('main', INDICATOR_USAGE_GUIDE_TXT)}",
+        f"chatgpt_indicator_usage_guide_pages_url={pages_url('latest/chatgpt_indicator_usage_guide_latest.md')}",
+        f"chatgpt_indicator_usage_guide_txt_pages_url={pages_url('latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt')}",
         f"raw_data_fetch_status_raw_url={raw_url('main', RAW_DATA_FETCH_STATUS_CSV)}",
         f"raw_data_fetch_status_md_raw_url={raw_url('main', RAW_DATA_FETCH_STATUS_MD)}",
         f"raw_data_fetch_status_pages_url={pages_url('latest/raw_data_fetch_status_latest.csv')}",
@@ -1197,6 +1203,13 @@ def main() -> int:
         "daily_candidate_signal_log_raw_url": daily_candidate_signal_log_raw_url,
         "candidate_repeat_appearance_raw_url": candidate_repeat_appearance_raw_url,
         "candidate_repeat_appearance_md_raw_url": candidate_repeat_appearance_md_raw_url,
+        "daily_candidate_decision_raw_url": raw_url("main", DAILY_CANDIDATE_DECISION_CSV),
+        "daily_candidate_decision_md_raw_url": raw_url("main", DAILY_CANDIDATE_DECISION_MD),
+        "daily_candidate_decision_chatgpt_packet_raw_url": raw_url("main", DAILY_CANDIDATE_DECISION_PACKET_MD),
+        "chatgpt_indicator_usage_guide_md_raw_url": raw_url("main", INDICATOR_USAGE_GUIDE_MD),
+        "chatgpt_indicator_usage_guide_txt_raw_url": raw_url("main", INDICATOR_USAGE_GUIDE_TXT),
+        "chatgpt_indicator_usage_guide_pages_url": pages_url("latest/chatgpt_indicator_usage_guide_latest.md"),
+        "chatgpt_indicator_usage_guide_txt_pages_url": pages_url("latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt"),
         "raw_data_fetch_status_raw_url": raw_url("main", RAW_DATA_FETCH_STATUS_CSV),
         "raw_data_fetch_status_md_raw_url": raw_url("main", RAW_DATA_FETCH_STATUS_MD),
         "raw_data_fetch_status_pages_url": pages_url("latest/raw_data_fetch_status_latest.csv"),
