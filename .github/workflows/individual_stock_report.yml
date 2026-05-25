@@ -32,7 +32,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pandas matplotlib pillow reportlab
+          pip install pandas requests matplotlib pillow reportlab
 
       - name: Generate individual stock report
         run: |
