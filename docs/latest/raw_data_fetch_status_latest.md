@@ -1,9 +1,9 @@
 # Raw Data Fetch Status
 
-- generated_at: 2026-05-26 00:22:09 Asia/Taipei
+- generated_at: 2026-05-26 00:33:29 Asia/Taipei
 - sources_checked: raw, pages, api
-- checked_rows: 126
-- success_rows: 87
+- checked_rows: 141
+- success_rows: 105
 - suspicious_single_line_rows: 0
 - content_not_expanded_rows: 0
 - cache_miss_rows: 0
@@ -28,7 +28,7 @@
 | daily_report_packet | success |
 | daily_signal_performance_summary | success |
 | individual_stock_available_raw_data_index | success |
-| individual_stock_available_raw_data_index_slim | missing_file |
+| individual_stock_available_raw_data_index_slim | success |
 | individual_stock_report_md | success |
 | individual_stock_reports_index | success |
 | readme_first | success |
@@ -72,11 +72,11 @@
 | daily_signal_performance_summary |  | pages | missing_file | 404 | 0 | 0 | 0 | 120 | ok | False |
 | daily_signal_performance_summary |  | raw | success | 200 | 120 | 1 | 120 | 120 | ok | True |
 | individual_stock_available_raw_data_index |  | api | api_decode_failed | 200 | 0 | 0 | 0 | 2150 | ok | False |
-| individual_stock_available_raw_data_index |  | pages | missing_file | 404 | 0 | 0 | 0 | 2150 | ok | False |
+| individual_stock_available_raw_data_index |  | pages | success | 200 | 2149 | 32 | 2150 | 2150 | ok | True |
 | individual_stock_available_raw_data_index |  | raw | success | 200 | 2149 | 32 | 2150 | 2150 | ok | True |
-| individual_stock_available_raw_data_index_slim |  | api | missing_file | 404 | 0 | 0 | 0 | 2150 | ok | False |
-| individual_stock_available_raw_data_index_slim |  | pages | missing_file | 404 | 0 | 0 | 0 | 2150 | ok | False |
-| individual_stock_available_raw_data_index_slim |  | raw | missing_file | 404 | 0 | 0 | 0 | 2150 | ok | False |
+| individual_stock_available_raw_data_index_slim |  | api | success | 200 | 2149 | 17 | 2150 | 2150 | ok | True |
+| individual_stock_available_raw_data_index_slim |  | pages | success | 200 | 2149 | 17 | 2150 | 2150 | ok | True |
+| individual_stock_available_raw_data_index_slim |  | raw | success | 200 | 2149 | 17 | 2150 | 2150 | ok | True |
 | individual_stock_report_md | 1815 | api | success | 200 | 77 | 1 | 77 | 77 | ok | True |
 | individual_stock_report_md | 1815 | pages | success | 200 | 77 | 1 | 77 | 77 | ok | True |
 | individual_stock_report_md | 1815 | raw | success | 200 | 77 | 1 | 77 | 77 | ok | True |
@@ -86,15 +86,18 @@
 | individual_stock_report_md | 2353 | api | success | 200 | 156 | 1 | 156 | 156 | ok | True |
 | individual_stock_report_md | 2353 | pages | success | 200 | 156 | 1 | 156 | 156 | ok | True |
 | individual_stock_report_md | 2353 | raw | success | 200 | 156 | 1 | 156 | 156 | ok | True |
+| individual_stock_report_md | 2484 | api | success | 200 | 156 | 1 | 156 | 156 | ok | True |
+| individual_stock_report_md | 2484 | pages | success | 200 | 156 | 1 | 156 | 156 | ok | True |
+| individual_stock_report_md | 2484 | raw | success | 200 | 156 | 1 | 156 | 156 | ok | True |
 | individual_stock_report_md | 8299 | api | success | 200 | 152 | 1 | 152 | 152 | ok | True |
 | individual_stock_report_md | 8299 | pages | success | 200 | 152 | 1 | 152 | 152 | ok | True |
 | individual_stock_report_md | 8299 | raw | success | 200 | 152 | 1 | 152 | 152 | ok | True |
-| individual_stock_reports_index |  | api | success | 200 | 4 | 15 | 5 | 5 | ok | True |
-| individual_stock_reports_index |  | pages | missing_file | 404 | 0 | 0 | 0 | 5 | ok | False |
-| individual_stock_reports_index |  | raw | success | 200 | 4 | 15 | 5 | 5 | ok | True |
-| readme_first |  | api | success | 200 | 138 | 1 | 138 | 169 | ok | True |
-| readme_first |  | pages | success | 200 | 138 | 1 | 138 | 169 | ok | True |
-| readme_first |  | raw | success | 200 | 138 | 1 | 138 | 169 | ok | True |
+| individual_stock_reports_index |  | api | success | 200 | 4 | 15 | 5 | 6 | ok | True |
+| individual_stock_reports_index |  | pages | success | 200 | 4 | 15 | 5 | 6 | ok | True |
+| individual_stock_reports_index |  | raw | success | 200 | 4 | 15 | 5 | 6 | ok | True |
+| readme_first |  | api | success | 200 | 169 | 1 | 169 | 169 | ok | True |
+| readme_first |  | pages | success | 200 | 169 | 1 | 169 | 169 | ok | True |
+| readme_first |  | raw | success | 200 | 169 | 1 | 169 | 169 | ok | True |
 | sell_strategy_backtest | 1815 | api | missing_file | 404 | 0 | 0 | 0 | 0 | empty_table | False |
 | sell_strategy_backtest | 1815 | pages | missing_file | 404 | 0 | 0 | 0 | 0 | empty_table | False |
 | sell_strategy_backtest | 1815 | raw | missing_file | 404 | 0 | 0 | 0 | 0 | empty_table | False |
@@ -104,6 +107,9 @@
 | sell_strategy_backtest | 2353 | api | success | 200 | 40 | 16 | 41 | 41 | ok | True |
 | sell_strategy_backtest | 2353 | pages | missing_file | 404 | 0 | 0 | 0 | 41 | ok | False |
 | sell_strategy_backtest | 2353 | raw | success | 200 | 40 | 16 | 41 | 41 | ok | True |
+| sell_strategy_backtest | 2484 | api | success | 200 | 60 | 16 | 61 | 61 | ok | True |
+| sell_strategy_backtest | 2484 | pages | missing_file | 404 | 0 | 0 | 0 | 61 | ok | False |
+| sell_strategy_backtest | 2484 | raw | success | 200 | 60 | 16 | 61 | 61 | ok | True |
 | sell_strategy_backtest | 8299 | api | success | 200 | 20 | 16 | 21 | 21 | ok | True |
 | sell_strategy_backtest | 8299 | pages | missing_file | 404 | 0 | 0 | 0 | 21 | ok | False |
 | sell_strategy_backtest | 8299 | raw | success | 200 | 20 | 16 | 21 | 21 | ok | True |
@@ -116,6 +122,9 @@
 | sell_strategy_summary | 2353 | api | success | 200 | 28 | 1 | 28 | 28 | ok | True |
 | sell_strategy_summary | 2353 | pages | missing_file | 404 | 0 | 0 | 0 | 28 | ok | False |
 | sell_strategy_summary | 2353 | raw | success | 200 | 28 | 1 | 28 | 28 | ok | True |
+| sell_strategy_summary | 2484 | api | success | 200 | 28 | 1 | 28 | 28 | ok | True |
+| sell_strategy_summary | 2484 | pages | missing_file | 404 | 0 | 0 | 0 | 28 | ok | False |
+| sell_strategy_summary | 2484 | raw | success | 200 | 28 | 1 | 28 | 28 | ok | True |
 | sell_strategy_summary | 8299 | api | success | 200 | 28 | 1 | 28 | 28 | ok | True |
 | sell_strategy_summary | 8299 | pages | missing_file | 404 | 0 | 0 | 0 | 28 | ok | False |
 | sell_strategy_summary | 8299 | raw | success | 200 | 28 | 1 | 28 | 28 | ok | True |
@@ -131,6 +140,9 @@
 | stock_price_history | 2353 | api | success | 200 | 135 | 39 | 136 | 136 | ok | True |
 | stock_price_history | 2353 | pages | success | 200 | 135 | 39 | 136 | 136 | ok | True |
 | stock_price_history | 2353 | raw | success | 200 | 135 | 39 | 136 | 136 | ok | True |
+| stock_price_history | 2484 | api | success | 200 | 135 | 39 | 136 | 136 | ok | True |
+| stock_price_history | 2484 | pages | success | 200 | 135 | 39 | 136 | 136 | ok | True |
+| stock_price_history | 2484 | raw | success | 200 | 135 | 39 | 136 | 136 | ok | True |
 | stock_price_history | 8299 | api | success | 200 | 135 | 39 | 136 | 136 | ok | True |
 | stock_price_history | 8299 | pages | success | 200 | 135 | 39 | 136 | 136 | ok | True |
 | stock_price_history | 8299 | raw | success | 200 | 135 | 39 | 136 | 136 | ok | True |
@@ -161,6 +173,9 @@
 | tdcc_stock_history | 2353 | api | success | 200 | 4 | 29 | 5 | 5 | insufficient_tdcc_history | True |
 | tdcc_stock_history | 2353 | pages | success | 200 | 4 | 29 | 5 | 5 | insufficient_tdcc_history | True |
 | tdcc_stock_history | 2353 | raw | success | 200 | 4 | 29 | 5 | 5 | insufficient_tdcc_history | True |
+| tdcc_stock_history | 2484 | api | success | 200 | 4 | 29 | 5 | 5 | insufficient_tdcc_history | True |
+| tdcc_stock_history | 2484 | pages | success | 200 | 4 | 29 | 5 | 5 | insufficient_tdcc_history | True |
+| tdcc_stock_history | 2484 | raw | success | 200 | 4 | 29 | 5 | 5 | insufficient_tdcc_history | True |
 | tdcc_stock_history | 8299 | api | success | 200 | 4 | 29 | 5 | 5 | insufficient_tdcc_history | True |
 | tdcc_stock_history | 8299 | pages | success | 200 | 4 | 29 | 5 | 5 | insufficient_tdcc_history | True |
 | tdcc_stock_history | 8299 | raw | success | 200 | 4 | 29 | 5 | 5 | insufficient_tdcc_history | True |
