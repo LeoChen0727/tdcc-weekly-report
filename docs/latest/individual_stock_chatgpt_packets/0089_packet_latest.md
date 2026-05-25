@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0089 富邦未來車
 
 ## Metadata
-- generated_at: 2026-05-26 03:52:44 Asia/Taipei
+- generated_at: 2026-05-26 04:25:17 Asia/Taipei
 - stock_id: 0089
 - stock_name: 富邦未來車
 - packet_status: insufficient_price_data

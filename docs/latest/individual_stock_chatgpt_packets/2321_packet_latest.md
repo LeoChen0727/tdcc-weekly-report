@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2321 東訊
 
 ## Metadata
-- generated_at: 2026-05-26 03:53:15 Asia/Taipei
+- generated_at: 2026-05-26 04:25:47 Asia/Taipei
 - stock_id: 2321
 - stock_name: 東訊
 - packet_status: standard_rawdata_packet

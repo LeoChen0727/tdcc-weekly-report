@@ -1,6 +1,6 @@
 # Raw Data Fetch Status
 
-- generated_at: 2026-05-26 03:56:20 Asia/Taipei
+- generated_at: 2026-05-26 04:28:54 Asia/Taipei
 - sources_checked: raw, pages, api
 - checked_rows: 216
 - success_rows: 175
@@ -83,9 +83,9 @@
 | daily_market_summary |  | api | success | 200 | 376 | 1 | 376 | 376 | ok | True |
 | daily_market_summary |  | pages | missing_file | 404 | 0 | 0 | 0 | 376 | ok | False |
 | daily_market_summary |  | raw | success | 200 | 376 | 1 | 376 | 376 | ok | True |
-| daily_report_packet |  | api | success | 200 | 1291 | 1 | 1291 | 1291 | ok | True |
-| daily_report_packet |  | pages | success | 200 | 1291 | 1 | 1291 | 1291 | ok | True |
-| daily_report_packet |  | raw | success | 200 | 1291 | 1 | 1291 | 1291 | ok | True |
+| daily_report_packet |  | api | success | 200 | 1297 | 1 | 1297 | 1297 | ok | True |
+| daily_report_packet |  | pages | success | 200 | 1297 | 1 | 1297 | 1297 | ok | True |
+| daily_report_packet |  | raw | success | 200 | 1297 | 1 | 1297 | 1297 | ok | True |
 | daily_signal_performance_summary |  | api | success | 200 | 121 | 1 | 121 | 121 | ok | True |
 | daily_signal_performance_summary |  | pages | missing_file | 404 | 0 | 0 | 0 | 121 | ok | False |
 | daily_signal_performance_summary |  | raw | success | 200 | 121 | 1 | 121 | 121 | ok | True |

@@ -1,6 +1,6 @@
 main_price_date=20260526
 report_ready=True
-commit_sha=c2599f05632383a0319407b4b3848d028f4532ee
+commit_sha=98233861ec5044fae283bf9d978be0d05f65aa3d
 readme_latest_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT.txt
 readme_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/READ_ME_FIRST_DAILY_REPORT.txt
 readme_index_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT_INDEX.txt
@@ -15,7 +15,7 @@ readme_history_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly
 readme_cache_bypass_order=readme_date_stamped_pages_url,readme_date_stamped_raw_url,readme_date_stamped_github_api_url,readme_index_github_api_url,readme_history_pages_url,readme_history_raw_url,readme_latest_pages_url,readme_latest_raw_url
 preferred_chatgpt_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt
 packet_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt
-packet_commit_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/c2599f05632383a0319407b4b3848d028f4532ee/output/history/reports/20260526_CHATGPT_DAILY_REPORT_PACKET.txt
+packet_commit_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/98233861ec5044fae283bf9d978be0d05f65aa3d/output/history/reports/20260526_CHATGPT_DAILY_REPORT_PACKET.txt
 packet_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/chatgpt_daily_report_packet_latest.txt
 packet_github_api_url=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/chatgpt_daily_report_packet_latest.txt?ref=main
 summary_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_summary_latest.md
@@ -67,6 +67,10 @@ candidate_repeat_appearance_md_raw_url=https://raw.githubusercontent.com/LeoChen
 daily_candidate_decision_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_candidate_decision_latest.csv
 daily_candidate_decision_md_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_candidate_decision_latest.md
 daily_candidate_decision_chatgpt_packet_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_candidate_decision_chatgpt_packet_latest.md
+chatgpt_indicator_usage_guide_md_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/chatgpt_indicator_usage_guide_latest.md
+chatgpt_indicator_usage_guide_txt_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt
+chatgpt_indicator_usage_guide_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_indicator_usage_guide_latest.md
+chatgpt_indicator_usage_guide_txt_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt
 raw_data_fetch_status_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/raw_data_fetch_status_latest.csv
 raw_data_fetch_status_md_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/raw_data_fetch_status_latest.md
 raw_data_fetch_status_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/raw_data_fetch_status_latest.csv
