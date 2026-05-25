@@ -1,6 +1,6 @@
 CHATGPT DAILY REPORT PACKET
 
-generated_at: 2026-05-26 04:24:31 Asia/Taipei
+generated_at: 2026-05-26 05:26:43 Asia/Taipei
 repo: LeoChen0727/tdcc-weekly-report
 main_price_date: 20260526
 report_ready: True
@@ -31,14 +31,14 @@ CURATED PDF REPORT
 pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_market_curated_report_latest.pdf
 raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_curated_report_latest.pdf
 file_path: output/latest/daily_market_curated_report_latest.pdf
-generated_at: 2026-05-26 04:19:22 Asia/Taipei
+generated_at: 2026-05-26 05:21:27 Asia/Taipei
 status: generated
 
 FULL TABLE PDF REPORT
 pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_market_full_table_report_latest.pdf
 raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_full_table_report_latest.pdf
 file_path: output/latest/daily_market_full_table_report_latest.pdf
-generated_at: 2026-05-26 04:19:22 Asia/Taipei
+generated_at: 2026-05-26 05:21:27 Asia/Taipei
 status: generated
 
 FIXED PDF VALIDATION
@@ -98,7 +98,7 @@ performance_csv_path: output/history/daily_signals/daily_candidate_signal_perfor
 summary_latest_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_signal_performance_summary_latest.md
 weekly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_weekly_latest.pdf
 monthly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_monthly_latest.pdf
-last_updated_at: 2026-05-26 04:24:31 Asia/Taipei
+last_updated_at: 2026-05-26 05:26:43 Asia/Taipei
 status: generated
 
 CANDIDATE REPEAT APPEARANCE
@@ -121,6 +121,16 @@ decision_chatgpt_packet_raw_url: https://raw.githubusercontent.com/LeoChen0727/t
 status: generated
 fields: pattern_mapped_category,decision_priority,decision_score,downgrade_flags,risk_tags,why_selected,why_downgraded,next_confirmation,must_not_overstate
 note: This is the program-side ranking/downgrade layer. ChatGPT should use it before memory-based interpretation.
+
+VOLUME BREAKOUT WATCH
+volume_breakout_watch_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/volume_breakout_watch_latest.md
+volume_breakout_watch_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/volume_breakout_watch_latest.csv
+volume_breakout_backtest_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/volume_breakout_backtest_latest.md
+volume_breakout_backtest_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/volume_breakout_backtest_latest.csv
+volume_breakout_chatgpt_packet_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/volume_breakout_chatgpt_packet_latest.md
+status: generated
+fields: volume_breakout_type,volume_breakout_priority,selection_status,not_selected_reason,risk_flags,next_volume_breakout_confirmation
+note: Strict breakout is not the same as all volume-confirmed attacks. Use this packet when asked about 帶量突破 / 放量突破 / 放量攻擊.
 
 WARRANT MARKET ANALYSIS
 market_report_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/warrant_market_report_latest.md
@@ -166,7 +176,7 @@ EMBEDDED SUMMARY REPORT
 # 每日全市場候選股監測報告 - 精華版
 
 - 主資料日期：`20260526`
-- 產生時間：`2026-05-26 04:18:59 Asia/Taipei`
+- 產生時間：`2026-05-26 05:21:05 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：完整候選清單與官方價格資料日期一致，可以產出正式每日報告
 - 權證資料日期：`20260525`
@@ -548,9 +558,75 @@ EMBEDDED FULL REPORT
 # 完整候選股清單 - 完整版
 
 - 主資料日期：`20260526`
-- 產生時間：`2026-05-26 04:18:59 Asia/Taipei`
+- 產生時間：`2026-05-26 05:21:05 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 權證資料日期：`20260525`
+
+## 帶量突破 / 放量攻擊觀察
+
+- 這個區塊由程式端從日價 raw data 偵測，會列出嚴格 60 日突破、平台突破、頸線突破、右側放量攻擊與異常放量上漲。
+- 它是完整報告的可見度與回測層，不等於單獨買進理由；仍需搭配 TDCC、連續上榜、過熱與假突破風險。
+
+- watch_rows: `56`
+
+| volume_breakout_rank | stock_id | stock_name | volume_breakout_type | volume_breakout_priority | selection_status | category | pattern_stage | decision_priority | tdcc_status | repeat_appear_label | volume_ratio | return_5d | return_20d | risk_flags | next_volume_breakout_confirmation |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 3041 | 揚智 | neckline_volume_breakout | A_valid_breakout_watch | selected_but_routed_to_other_category | range_rebound | neckline_challenge | B_confirm_needed | mild_accumulation | repeated_but_no_breakout | 2.1546 | 9.2555 | 15.5319 |  | next day holds breakout area; volume does not collapse; TDCC not distribution_warning |
+| 2 | 2332 | 友訊 | neckline_volume_breakout | A_valid_breakout_watch | selected_but_routed_to_other_category | range_rebound | neckline_challenge | B_confirm_needed | strong_accumulation | repeated_but_no_breakout | 2.2415 | 5.8219 | 11.1511 |  | next day holds breakout area; volume does not collapse; TDCC not distribution_warning |
+| 3 | 3528 | 安馳 | neckline_volume_breakout | A_valid_breakout_watch | selected_but_routed_to_other_category | range_rebound | neckline_challenge | B_confirm_needed | mild_accumulation | repeated_but_no_breakout | 1.6843 | 9.9648 | 17.25 |  | next day holds breakout area; volume does not collapse; TDCC not distribution_warning |
+| 4 | 4306 | 炎洲 | neckline_volume_breakout | A_valid_breakout_watch | selected_but_routed_to_other_category | range_rebound | neckline_challenge | B_confirm_needed | mild_accumulation | repeated_but_no_breakout | 1.7199 | 1.8116 | 5.6391 |  | next day holds breakout area; volume does not collapse; TDCC not distribution_warning |
+| 5 | 2603 | 長榮 | neckline_volume_breakout | A_valid_breakout_watch | selected_but_routed_to_other_category | range_rebound | neckline_challenge | B_confirm_needed | mild_accumulation | repeated_but_no_breakout | 1.5638 | 3.3019 | 8.6849 |  | next day holds breakout area; volume does not collapse; TDCC not distribution_warning |
+| 6 | 9928 | 中視 | neckline_volume_breakout | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 2.3094 | 1.6997 | 2.5714 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 7 | 2488 | 漢平 | neckline_volume_breakout | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 2.2161 | 3.8168 | 5.8366 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 8 | 6792 | 詠業 | neckline_volume_breakout | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 2.1245 | 6.2016 | 16.8942 | not_in_candidate_model/false_breakout_risk | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 9 | 1506 | 正道 | right_side_volume_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 2.5439 | 8.4158 | 0.9217 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 10 | 3311 | 閎暉 | neckline_volume_breakout | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 1.9315 | 3.5168 | 9.0177 | not_in_candidate_model/false_breakout_risk | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 11 | 2373 | 震旦行 | neckline_volume_breakout | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 1.8571 | 0.0 | -1.3889 | not_in_candidate_model/false_breakout_risk | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 12 | 3686 | 達能 | volume_expansion_watch | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 1.8445 | 8.9552 | 4.8851 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 13 | 1617 | 榮星 | volume_expansion_watch | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 1.6078 | 2.4055 | -2.2951 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 14 | 4108 | 懷特 | volume_expansion_watch | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 2.3814 | 7.5 | 4.4534 | not_in_candidate_model/false_breakout_risk | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 15 | 4545 | 銘鈺 | volume_expansion_watch | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 2.0955 | 4.5669 | 7.0968 | not_in_candidate_model/false_breakout_risk | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 16 | 7740 | 熙特爾-創 | volume_expansion_watch | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 1.8357 | 3.6932 | 0.8287 | not_in_candidate_model/false_breakout_risk | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 17 | 3563 | 牧德 | volume_expansion_watch | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 1.5637 | -3.9657 | 2.1665 | not_in_candidate_model/false_breakout_risk | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 18 | 7730 | 暉盛-創 | volume_expansion_watch | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 2.57 | 3.3708 | 39.3939 | not_in_candidate_model/false_breakout_risk/overheated_breakout | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 19 | 2453 | 凌群 | neckline_volume_breakout | D_risk_downgrade | selected_but_routed_to_other_category | range_rebound | neckline_challenge | D_risk_downgrade | mild_accumulation | stale_signal | 1.9263 | 2.693 | 6.7164 | stale_signal/decision_layer_downgrade | risk first: avoid chasing until heat/TDCC/repeat risk improves |
+| 20 | 6214 | 精誠 | neckline_volume_breakout | D_risk_downgrade | selected_but_routed_to_other_category | range_rebound | neckline_challenge | B_confirm_needed | distribution_warning | repeated_but_no_breakout | 1.9055 | 1.9608 | 6.9959 | tdcc_distribution_warning | risk first: avoid chasing until heat/TDCC/repeat risk improves |
+| 21 | 3706 | 神達 | neckline_volume_breakout | D_risk_downgrade | selected_but_routed_to_other_category | range_rebound | neckline_challenge | D_risk_downgrade | distribution_warning | stale_signal | 1.7656 | 5.1497 | 8.1281 | tdcc_distribution_warning/stale_signal/decision_layer_downgrade | risk first: avoid chasing until heat/TDCC/repeat risk improves |
+| 22 | 6215 | 和椿 | neckline_volume_breakout | D_risk_downgrade | selected_but_routed_to_other_category | range_rebound | neckline_challenge | C_watch_only | distribution_warning | repeated_but_no_breakout | 1.6237 | 6.746 | 25.7009 | tdcc_distribution_warning | risk first: avoid chasing until heat/TDCC/repeat risk improves |
+| 23 | 4952 | 凌通 | neckline_volume_breakout | D_risk_downgrade | selected_but_routed_to_other_category | range_rebound | neckline_challenge | B_confirm_needed | distribution_warning | repeated_but_no_breakout | 1.616 | 2.6667 | 15.7895 | tdcc_distribution_warning | risk first: avoid chasing until heat/TDCC/repeat risk improves |
+| 24 | 2236 | 百達-KY | neckline_volume_breakout | D_risk_downgrade | selected_but_routed_to_other_category | range_rebound | neckline_challenge | D_risk_downgrade | strong_accumulation | stale_signal | 1.5974 | 6.1594 | 10.9848 | stale_signal/decision_layer_downgrade | risk first: avoid chasing until heat/TDCC/repeat risk improves |
+| 25 | 2352 | 佳世達 | neckline_volume_breakout | D_risk_downgrade | selected_but_routed_to_other_category | range_rebound | neckline_challenge | B_confirm_needed | mild_accumulation | repeated_but_no_breakout | 2.5103 | 5.6985 | 18.0698 | false_breakout_risk | risk first: avoid chasing until heat/TDCC/repeat risk improves |
+| 26 | 6799 | 來頡 | neckline_volume_breakout | D_risk_downgrade | selected_but_routed_to_other_category | range_rebound | neckline_challenge | D_risk_downgrade | distribution_warning | stale_signal | 1.6883 | 4.1451 | 12.2905 | tdcc_distribution_warning/stale_signal/false_breakout_risk/decision_layer_downgrade | risk first: avoid chasing until heat/TDCC/repeat risk improves |
+| 27 | 6835 | 圓裕 | neckline_volume_breakout | D_risk_downgrade | selected_but_routed_to_other_category | pattern | 預備發動型 | D_risk_downgrade | distribution_warning | repeated_but_no_breakout | 1.6727 | 0.2551 | -1.2563 | tdcc_distribution_warning/false_breakout_risk/decision_layer_downgrade | risk first: avoid chasing until heat/TDCC/repeat risk improves |
+| 28 | 1773 | 勝一 | neckline_volume_breakout | D_risk_downgrade | selected_but_routed_to_other_category | range_rebound | neckline_challenge | D_risk_downgrade | strong_accumulation | stale_signal | 1.6642 | 4.2373 | 7.2674 | stale_signal/false_breakout_risk/decision_layer_downgrade | risk first: avoid chasing until heat/TDCC/repeat risk improves |
+| 29 | 3704 | 合勤控 | neckline_volume_breakout | D_risk_downgrade | selected_but_routed_to_other_category | range_rebound | neckline_challenge | D_risk_downgrade | mild_accumulation | continued_overheated | 2.1514 | 6.2802 | 30.1775 | continued_overheated/overheated_breakout/decision_layer_downgrade | risk first: avoid chasing until heat/TDCC/repeat risk improves |
+| 30 | 6243 | 迅杰 | volume_expansion_watch | D_risk_downgrade | selected_but_routed_to_other_category | range_rebound | neckline_challenge | B_confirm_needed | distribution_warning | repeated_but_no_breakout | 2.1316 | 5.6769 | 9.009 | tdcc_distribution_warning | risk first: avoid chasing until heat/TDCC/repeat risk improves |
+| 31 | 5244 | 弘凱 | volume_expansion_watch | D_risk_downgrade | selected_but_routed_to_other_category | range_rebound | neckline_challenge | B_confirm_needed | distribution_warning | first_seen | 2.038 | 7.7124 | -5.9361 | tdcc_distribution_warning | risk first: avoid chasing until heat/TDCC/repeat risk improves |
+| 32 | 6456 | GIS-KY | volume_expansion_watch | D_risk_downgrade | selected_but_routed_to_other_category | range_rebound | neckline_challenge | D_risk_downgrade | distribution_warning | stale_signal | 1.9684 | 8.8698 | -3.6709 | tdcc_distribution_warning/stale_signal/decision_layer_downgrade | risk first: avoid chasing until heat/TDCC/repeat risk improves |
+| 33 | 2421 | 建準 | neckline_volume_breakout | D_risk_downgrade | selected_but_routed_to_other_category | range_rebound | neckline_challenge | D_risk_downgrade | mild_accumulation | stale_signal | 1.915 | 4.2763 | 8.1911 | stale_signal/false_breakout_risk/decision_layer_downgrade | risk first: avoid chasing until heat/TDCC/repeat risk improves |
+| 34 | 2258 | 鴻華先進-創 | volume_expansion_watch | D_risk_downgrade | selected_but_routed_to_other_category | range_rebound | neckline_challenge | D_risk_downgrade | strong_accumulation | first_seen | 1.908 | 8.5714 | 6.6667 | decision_layer_downgrade | risk first: avoid chasing until heat/TDCC/repeat risk improves |
+| 35 | 3714 | 富采 | volume_expansion_watch | D_risk_downgrade | selected_but_routed_to_other_category | range_rebound | platform_right_side | D_risk_downgrade | mild_accumulation | stale_signal | 1.6971 | 10.0 | 10.4478 | stale_signal/decision_layer_downgrade | risk first: avoid chasing until heat/TDCC/repeat risk improves |
+| 36 | 2439 | 美律 | volume_expansion_watch | D_risk_downgrade | selected_but_routed_to_other_category | range_rebound | neckline_challenge | D_risk_downgrade | mild_accumulation | first_seen | 1.6176 | 2.9138 | -0.1131 | decision_layer_downgrade | risk first: avoid chasing until heat/TDCC/repeat risk improves |
+| 37 | 8105 | 凌巨 | volume_expansion_watch | D_risk_downgrade | selected_but_routed_to_other_category | range_rebound | platform_right_side | C_watch_only | distribution_warning | repeated_but_no_breakout | 1.6032 | 5.7751 | 28.8889 | tdcc_distribution_warning | risk first: avoid chasing until heat/TDCC/repeat risk improves |
+| 38 | 4763 | 材料*-KY | volume_expansion_watch | D_risk_downgrade | selected_but_routed_to_other_category | range_rebound | neckline_challenge | D_risk_downgrade | mild_accumulation | first_seen | 1.6013 | 3.3097 | 1.8648 | decision_layer_downgrade | risk first: avoid chasing until heat/TDCC/repeat risk improves |
+| 39 | 2515 | 中工 | volume_expansion_watch | D_risk_downgrade | selected_but_routed_to_other_category | revenue_breakout_low_response |  | D_risk_downgrade | distribution_warning | stale_signal | 2.1212 | -3.6101 | 0.3759 | tdcc_distribution_warning/stale_signal/false_breakout_risk/decision_layer_downgrade | risk first: avoid chasing until heat/TDCC/repeat risk improves |
+| 40 | 3031 | 佰鴻 | volume_expansion_watch | D_risk_downgrade | selected_but_routed_to_other_category | range_rebound | neckline_challenge | B_confirm_needed | mild_accumulation | repeated_but_no_breakout | 2.1177 | 0.4464 | 2.8963 | false_breakout_risk | risk first: avoid chasing until heat/TDCC/repeat risk improves |
+| 41 | 6862 | 三集瑞-KY | volume_expansion_watch | D_risk_downgrade | selected_but_routed_to_other_category | pattern | platform_right_side | C_watch_only | mild_accumulation | repeated_but_no_breakout | 2.0931 | 3.5616 | 9.8837 | false_breakout_risk | risk first: avoid chasing until heat/TDCC/repeat risk improves |
+| 42 | 6861 | 睿生光電 | abnormal_volume_up | D_risk_downgrade | selected_but_routed_to_other_category | range_rebound | platform_right_side | D_risk_downgrade | distribution_warning | continued_overheated | 3.1958 | 5.0292 | 49.9165 | tdcc_distribution_warning/continued_overheated/false_breakout_risk/overheated_breakout/decision_layer_downgrade | risk first: avoid chasing until heat/TDCC/repeat risk improves |
+| 43 | 2401 | 凌陽 | neckline_volume_breakout | D_risk_downgrade | selected_but_routed_to_other_category | range_rebound | neckline_challenge | D_risk_downgrade | mild_accumulation | repeated_but_no_breakout | 2.6477 | 4.0609 | 31.6916 | false_breakout_risk/overheated_breakout/decision_layer_downgrade | risk first: avoid chasing until heat/TDCC/repeat risk improves |
+| 44 | 2609 | 陽明 | volume_expansion_watch | D_risk_downgrade | selected_but_routed_to_other_category | range_rebound | neckline_challenge | D_risk_downgrade | mild_accumulation | first_seen | 1.8971 | 3.7182 | 7.3961 | false_breakout_risk/decision_layer_downgrade | risk first: avoid chasing until heat/TDCC/repeat risk improves |
+| 45 | 2615 | 萬海 | volume_expansion_watch | D_risk_downgrade | selected_but_routed_to_other_category | range_rebound | neckline_challenge | B_confirm_needed | mild_accumulation | repeated_but_no_breakout | 1.7408 | 3.8177 | 11.3606 | false_breakout_risk | risk first: avoid chasing until heat/TDCC/repeat risk improves |
+| 46 | 2461 | 光群雷 | volume_expansion_watch | D_risk_downgrade | selected_but_routed_to_other_category | range_rebound | neckline_challenge | A_priority_watch | mild_accumulation | first_seen | 1.6684 | 3.0769 | -1.1799 | false_breakout_risk | risk first: avoid chasing until heat/TDCC/repeat risk improves |
+| 47 | 2390 | 云辰 | volume_expansion_watch | D_risk_downgrade | selected_but_routed_to_other_category | pattern | 預備發動型 | D_risk_downgrade | distribution_warning | stale_signal | 1.6044 | 3.4146 | 6.7472 | tdcc_distribution_warning/stale_signal/false_breakout_risk/decision_layer_downgrade | risk first: avoid chasing until heat/TDCC/repeat risk improves |
+| 48 | 6164 | 華興 | volume_expansion_watch | D_risk_downgrade | selected_but_routed_to_other_category | range_rebound | neckline_challenge | D_risk_downgrade | distribution_warning | stale_signal | 1.5947 | 3.7037 | 3.2787 | tdcc_distribution_warning/stale_signal/false_breakout_risk/decision_layer_downgrade | risk first: avoid chasing until heat/TDCC/repeat risk improves |
+| 49 | 4976 | 佳凌 | volume_expansion_watch | D_risk_downgrade | selected_but_routed_to_other_category | range_rebound | neckline_challenge | B_confirm_needed | distribution_warning | repeated_but_no_breakout | 1.5908 | -0.1517 | 11.9048 | tdcc_distribution_warning/false_breakout_risk | risk first: avoid chasing until heat/TDCC/repeat risk improves |
+| 50 | 1582 | 信錦 | volume_expansion_watch | D_risk_downgrade | selected_but_routed_to_other_category | pattern | platform_right_side | C_watch_only | strong_accumulation | repeated_but_no_breakout | 1.5311 | -2.1277 | 26.7916 | false_breakout_risk | risk first: avoid chasing until heat/TDCC/repeat risk improves |
+| 51 | 2929 | 淘帝-KY | volume_expansion_watch | D_risk_downgrade | selected_but_routed_to_other_category | pattern | early_entry_watch | B_confirm_needed | mild_accumulation | first_seen | 2.3954 | 0.8803 | 1.9573 | false_breakout_risk | risk first: avoid chasing until heat/TDCC/repeat risk improves |
+| 52 | 3092 | 鴻碩 | volume_expansion_watch | D_risk_downgrade | selected_but_routed_to_other_category | range_rebound | neckline_challenge | D_risk_downgrade | strong_accumulation | first_seen | 1.6758 | 5.8621 | -5.8282 | false_breakout_risk/decision_layer_downgrade | risk first: avoid chasing until heat/TDCC/repeat risk improves |
+| 53 | 6224 | 聚鼎 | volume_expansion_watch | D_risk_downgrade | selected_but_routed_to_other_category | pattern | platform_right_side | C_watch_only | mild_accumulation | first_seen | 1.5713 | 3.2374 | 28.8922 | false_breakout_risk | risk first: avoid chasing until heat/TDCC/repeat risk improves |
+| 54 | 2543 | 皇昌 | volume_expansion_watch | D_risk_downgrade | selected_but_routed_to_other_category | pattern | platform_right_side | D_risk_downgrade | mild_accumulation | continued_2_3d | 1.5258 | -2.0452 | 0.2203 | false_breakout_risk/decision_layer_downgrade | risk first: avoid chasing until heat/TDCC/repeat risk improves |
+| 55 | 6742 | 澤米 | neckline_volume_breakout | D_risk_downgrade | selected_but_routed_to_other_category | range_rebound | neckline_challenge | D_risk_downgrade | distribution_warning | repeated_but_no_breakout | 2.4934 | -0.3241 | 55.4994 | tdcc_distribution_warning/false_breakout_risk/overheated_breakout/decision_layer_downgrade | risk first: avoid chasing until heat/TDCC/repeat risk improves |
+| 56 | 8163 | 達方 | volume_expansion_watch | D_risk_downgrade | selected_but_routed_to_other_category | range_rebound | neckline_challenge | D_risk_downgrade | distribution_warning | repeated_but_no_breakout | 1.702 | 0.2813 | 33.271 | tdcc_distribution_warning/false_breakout_risk/overheated_breakout/decision_layer_downgrade | risk first: avoid chasing until heat/TDCC/repeat risk improves |
 
 ## 區間內轉強 / 挑戰前高觀察
 

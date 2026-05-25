@@ -1,6 +1,6 @@
 # Surge Precondition Candidates Latest
 
-generated_at: 2026-05-26 04:24:28 Asia/Taipei
+generated_at: 2026-05-26 05:26:39 Asia/Taipei
 trade_date: 20260526
 
 這不是買進建議，是暴漲前條件研究與候選追蹤。

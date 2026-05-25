@@ -1,7 +1,7 @@
 # MARKET TIMING CHATGPT PACKET
 
 ## Metadata
-- generated_at: 2026-05-26 04:18:56 Asia/Taipei
+- generated_at: 2026-05-26 05:21:03 Asia/Taipei
 - main_price_date: 20260525
 - index_list: TPEX, TWSE
 - data_range: 20241202 ~ 20260525
