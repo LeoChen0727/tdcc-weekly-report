@@ -322,6 +322,97 @@ def distance_pct(value: float, base: float) -> float:
     return (value / base - 1) * 100
 
 
+def ema23_slope_label(value: float) -> str:
+    if math.isnan(value):
+        return "資料不足"
+    if value >= 1.0:
+        return "明顯向上"
+    if value >= 0.2:
+        return "溫和向上"
+    if value <= -1.0:
+        return "明顯向下"
+    if value <= -0.2:
+        return "溫和向下"
+    return "走平"
+
+
+def ema23_position_label(close: float, ema23: float) -> str:
+    if math.isnan(close) or math.isnan(ema23):
+        return "資料不足"
+    if close >= ema23:
+        return "站上 23EMA"
+    return "跌破 23EMA"
+
+
+def ema23_support_stats(enriched: pd.DataFrame) -> dict[str, Any]:
+    stats: dict[str, Any] = {
+        "ema23_support_hold_count_20d": 0,
+        "ema23_break_count_20d": 0,
+        "ema23_quick_reclaim_count_20d": 0,
+        "ema23_recent_quick_reclaim": False,
+        "ema23_support_status": "資料不足",
+    }
+    if enriched.empty or not {"close", "low", "ema23"}.issubset(enriched.columns):
+        return stats
+
+    data = enriched.reset_index(drop=True).copy()
+    window = data.tail(20)
+    if window.empty or window["ema23"].isna().all():
+        return stats
+
+    support_touch = (
+        window["low"].notna()
+        & window["ema23"].notna()
+        & (window["low"] <= window["ema23"] * 1.01)
+        & (window["close"] >= window["ema23"])
+    )
+    break_mask = (
+        window["close"].notna()
+        & window["ema23"].notna()
+        & (window["close"] < window["ema23"])
+    )
+    support_count = int(support_touch.sum())
+    break_count = int(break_mask.sum())
+
+    quick_reclaim_count = 0
+    recent_quick_reclaim = False
+    start_idx = max(0, len(data) - 20)
+    break_indices = [
+        idx
+        for idx in range(start_idx, len(data))
+        if not math.isnan(safe_float(data.loc[idx, "close"]))
+        and not math.isnan(safe_float(data.loc[idx, "ema23"]))
+        and safe_float(data.loc[idx, "close"]) < safe_float(data.loc[idx, "ema23"])
+    ]
+    for idx in break_indices:
+        future = data.iloc[idx + 1 : idx + 4]
+        reclaimed = bool((future["close"] >= future["ema23"]).fillna(False).any()) if not future.empty else False
+        if reclaimed:
+            quick_reclaim_count += 1
+            if idx == break_indices[-1]:
+                recent_quick_reclaim = True
+
+    if support_count > 0 and break_count == 0:
+        status = f"近20日曾回測 23EMA 並守住 {support_count} 次"
+    elif quick_reclaim_count > 0:
+        status = f"近20日跌破 23EMA 後 3 日內收回 {quick_reclaim_count} 次"
+    elif break_count > 0:
+        status = f"近20日跌破 23EMA {break_count} 次，需觀察能否快速收回"
+    else:
+        status = "近20日未明顯回測 23EMA"
+
+    stats.update(
+        {
+            "ema23_support_hold_count_20d": support_count,
+            "ema23_break_count_20d": break_count,
+            "ema23_quick_reclaim_count_20d": quick_reclaim_count,
+            "ema23_recent_quick_reclaim": recent_quick_reclaim,
+            "ema23_support_status": status,
+        }
+    )
+    return stats
+
+
 def summarize_price(df: pd.DataFrame) -> dict[str, Any]:
     if df.empty:
         return {"status": "no_price_data"}
@@ -338,10 +429,13 @@ def summarize_price(df: pd.DataFrame) -> dict[str, Any]:
     ma20 = safe_float(latest.get("ma20"))
     ma60 = safe_float(latest.get("ma60"))
     ema23 = safe_float(latest.get("ema23"))
+    ema23_prev_5 = safe_float(enriched["ema23"].iloc[-6]) if len(enriched) >= 6 else math.nan
+    ema23_slope_5d = distance_pct(ema23, ema23_prev_5)
     volume = safe_float(latest.get("volume"))
     vol_ma20 = safe_float(latest.get("vol_ma20"))
     volume_ratio = volume / vol_ma20 if vol_ma20 and not math.isnan(vol_ma20) else math.nan
     return_1d = distance_pct(close, prev_close)
+    ema23_stats = ema23_support_stats(enriched)
 
     metrics = {
         "status": "ok",
@@ -359,6 +453,9 @@ def summarize_price(df: pd.DataFrame) -> dict[str, Any]:
         "ma60": ma60,
         "ma120": safe_float(latest.get("ma120")),
         "ema23": ema23,
+        "ema23_position": ema23_position_label(close, ema23),
+        "ema23_slope_5d": ema23_slope_5d,
+        "ema23_slope_label": ema23_slope_label(ema23_slope_5d),
         "high_20": high_20,
         "high_60": high_60,
         "high_120": high_120,
@@ -377,6 +474,7 @@ def summarize_price(df: pd.DataFrame) -> dict[str, Any]:
         "distance_high_120": distance_pct(close, high_120),
         "distance_low_60": distance_pct(close, low_60),
     }
+    metrics.update(ema23_stats)
     metrics["price_state"] = price_state(metrics)
     metrics["confirmation"] = confirmation_conditions(metrics)
     metrics["price_risks"] = price_risks(metrics)
@@ -385,55 +483,54 @@ def summarize_price(df: pd.DataFrame) -> dict[str, Any]:
 
 def price_state(metrics: dict[str, Any]) -> str:
     close = safe_float(metrics.get("close"))
+    ema23 = safe_float(metrics.get("ema23"))
+    ema23_slope = safe_float(metrics.get("ema23_slope_5d"))
     ma20 = safe_float(metrics.get("ma20"))
     ma60 = safe_float(metrics.get("ma60"))
     dist_high_60 = safe_float(metrics.get("distance_high_60"))
     vol_ratio = safe_float(metrics.get("volume_ratio"))
-    dist_ma20 = safe_float(metrics.get("distance_ma20"))
 
-    if not math.isnan(close) and not math.isnan(ma20) and not math.isnan(ma60):
-        if close > ma20 > ma60 and not math.isnan(vol_ratio) and vol_ratio >= 1.2:
-            return "價格站上 20MA/60MA 且量能高於近期均量，短中期結構偏強。"
-        if close > ma20 > ma60:
-            return "價格站上 20MA/60MA，結構偏強但仍需觀察量能是否延續。"
-        if close < ma20 and close < ma60:
-            return "價格位於 20MA/60MA 下方，尚未轉為明確強勢。"
-        if close > ma20 and close < ma60:
-            return "價格站回 20MA 但仍低於 60MA，屬於反彈觀察。"
+    if not math.isnan(close) and not math.isnan(ema23):
+        if close >= ema23 and not math.isnan(ema23_slope) and ema23_slope > 0 and not math.isnan(vol_ratio) and vol_ratio >= 1.2:
+            return "價格站上 23EMA，23EMA 斜率向上且量能高於近期均量，短線結構偏強。"
+        if close >= ema23 and not math.isnan(ema23_slope) and ema23_slope >= -0.2:
+            return "價格站上 23EMA，主觀察線仍有支撐，需觀察量能是否延續。"
+        if close < ema23:
+            return "價格跌破 23EMA，主結論先降為觀察，重點看 1～3 日內能否快速收回。"
     if not math.isnan(dist_high_60) and dist_high_60 >= -3:
         return "價格接近 60 日前高，重點是能否帶量突破或站穩。"
-    if not math.isnan(dist_ma20) and abs(dist_ma20) <= 3:
-        return "價格貼近 20MA，適合觀察支撐與量能變化。"
-    return "價格結構需要搭配均線、前高與量能進一步確認。"
+    if not math.isnan(ma20) and not math.isnan(ma60) and close > ma20 > ma60:
+        return "價格輔助均線結構偏強，但主結論仍以 23EMA 是否守住為準。"
+    return "價格結構需要搭配 23EMA、前高與量能進一步確認。"
 
 
 def confirmation_conditions(metrics: dict[str, Any]) -> list[str]:
     close = safe_float(metrics.get("close"))
     high_20 = safe_float(metrics.get("high_20"))
     high_60 = safe_float(metrics.get("high_60"))
-    ma20 = safe_float(metrics.get("ma20"))
     ema23 = safe_float(metrics.get("ema23"))
+    ema23_slope = safe_float(metrics.get("ema23_slope_5d"))
     conditions: list[str] = []
+    if not math.isnan(ema23):
+        conditions.append(f"股價能否站穩 23EMA {ema23:.2f}，跌破後是否能在 1～3 日內收回。")
+    if not math.isnan(ema23_slope):
+        conditions.append(f"23EMA 斜率是否維持向上，目前為 {ema23_slope:.2f}%。")
     if not math.isnan(high_20):
         conditions.append(f"能否站上或逼近 20 日高點 {high_20:.2f}。")
     if not math.isnan(high_60):
         conditions.append(f"能否挑戰 60 日高點 {high_60:.2f}，且不是只有盤中觸碰。")
-    if not math.isnan(ma20):
-        conditions.append(f"回檔時 20MA {ma20:.2f} 是否能提供支撐。")
-    if not math.isnan(ema23):
-        conditions.append(f"23EMA {ema23:.2f} 附近是否能守住。")
     conditions.append("成交量是否維持在 20 日均量附近或放大，而不是價漲量縮。")
     return conditions[:5]
 
 
 def price_risks(metrics: dict[str, Any]) -> list[str]:
     risks: list[str] = []
-    dist_ma20 = safe_float(metrics.get("distance_ma20"))
+    dist_ema23 = safe_float(metrics.get("distance_ema23"))
     dist_high_60 = safe_float(metrics.get("distance_high_60"))
     volume_ratio = safe_float(metrics.get("volume_ratio"))
     return_20d = safe_float(metrics.get("return_20d"))
-    if not math.isnan(dist_ma20) and dist_ma20 >= 12:
-        risks.append("股價短線明顯高於 20MA，追價容易遇到震盪。")
+    if not math.isnan(dist_ema23) and dist_ema23 >= 12:
+        risks.append("股價短線明顯高於 23EMA，追價容易遇到震盪。")
     if not math.isnan(dist_high_60) and -3 <= dist_high_60 <= 0:
         risks.append("接近 60 日前高，若量能不足可能遇到壓力。")
     if not math.isnan(volume_ratio) and volume_ratio < 0.75:
@@ -441,7 +538,7 @@ def price_risks(metrics: dict[str, Any]) -> list[str]:
     if not math.isnan(return_20d) and return_20d >= 25:
         risks.append("20 日漲幅偏高，需要注意短線過熱。")
     if not risks:
-        risks.append("主要風險在於量能延續性與關鍵均線支撐是否失守。")
+        risks.append("主要風險在於量能延續性與 23EMA 主觀察線是否失守。")
     return risks
 
 
@@ -702,7 +799,7 @@ SELL_STRATEGIES = [
     ("shareholders_surge", "股東人數暴增賣"),
     ("margin_surge", "融資快速增加賣"),
     ("break_ema23", "跌破 EMA23 賣"),
-    ("break_ma20", "跌破 MA20 賣"),
+    ("break_ma20", "跌破 MA20 輔助觀察賣"),
     ("break_neckline", "跌破頸線賣"),
     ("break_breakout_low", "跌破突破K低點賣"),
     ("high_volume_black", "放量長黑賣"),
@@ -761,13 +858,14 @@ def build_sell_framework(
     ma20 = safe_float(price_metrics.get("ma20"))
     ma60 = safe_float(price_metrics.get("ma60"))
     ema23 = safe_float(price_metrics.get("ema23"))
+    ema23_slope = safe_float(price_metrics.get("ema23_slope_5d"))
     latest_low = safe_float(price_metrics.get("low"))
     atr14 = atr_14_from_history(price_history)
     atr_stop = close - atr14 * 2 if not math.isnan(close) and not math.isnan(atr14) else math.nan
     levels = sorted_levels_above(close, [("20日高", high_20), ("60日高", high_60), ("120日高", high_120)])
     first_take = levels[0] if levels else ("移動停利", math.nan)
     second_take = levels[1] if len(levels) >= 2 else (levels[0] if levels else ("等待重新形成壓力區", math.nan))
-    dist_ma20 = safe_float(price_metrics.get("distance_ma20"))
+    dist_ema23 = safe_float(price_metrics.get("distance_ema23"))
     ret20 = safe_float(price_metrics.get("return_20d"))
     tdcc_signal = tdcc_info.get("signal", "")
     warrant_signal = warrant_info.get("signal", "")
@@ -778,22 +876,21 @@ def build_sell_framework(
     elif tdcc_signal == "distribution_warning":
         exit_style = "僅觀察 / 等籌碼修復"
         max_risk = "TDCC 轉弱"
-    elif not math.isnan(dist_ma20) and dist_ma20 >= 12:
+    elif not math.isnan(dist_ema23) and dist_ema23 >= 12:
         exit_style = "分批停利 / 移動停利"
-        max_risk = "乖離過大"
+        max_risk = "距 23EMA 乖離過大"
     else:
         exit_style = "分批停利 / 移動停利"
         max_risk = "TDCC 轉弱 / 題材退燒 / 營收不如預期"
 
     technical_exit_parts = []
     if not math.isnan(ema23):
-        technical_exit_parts.append(f"跌破 EMA23 {ema23:.2f}")
-    if not math.isnan(ma20):
-        technical_exit_parts.append(f"跌破 MA20 {ma20:.2f}")
+        technical_exit_parts.append(f"跌破 23EMA {ema23:.2f} 且 1～3 日內未收回")
     if not math.isnan(latest_low):
-        technical_exit_parts.append(f"跌破近期低點 {latest_low:.2f}")
+        technical_exit_parts.append(f"跌破近期低點 / 突破K低點 {latest_low:.2f}")
+    technical_exit_parts.append("放量長黑且收不回 23EMA")
     if not math.isnan(atr_stop):
-        technical_exit_parts.append(f"ATR 風控參考 {atr_stop:.2f}")
+        technical_exit_parts.append(f"ATR / trailing stop 風控參考 {atr_stop:.2f}")
     if not technical_exit_parts:
         technical_exit_parts.append("價格資料不足，僅能用條件觀察")
 
@@ -813,7 +910,7 @@ def build_sell_framework(
         "strategy_assumption": "以下為策略假設，不是保證價格，也不是投資建議。",
         "first_take_profit_zone": f"{first_take[0]} {price_level_text(first_take[1])}",
         "second_take_profit_zone": f"{second_take[0]} {price_level_text(second_take[1])}",
-        "strong_hold_conditions": "站穩 MA20 / EMA23、TDCC 未轉弱、量價續強，且未出現爆量長上影。",
+        "strong_hold_conditions": f"站穩 23EMA、23EMA 斜率維持{ema23_slope_label(ema23_slope)}或改善，TDCC 未轉弱、量價續強，且未出現爆量長上影。",
         "technical_exit": "；".join(technical_exit_parts),
         "tdcc_exit": tdcc_exit,
         "institutional_exit": "外資、投信或主力由買超轉賣超時降級；主力 / 分點資料若 unavailable 不硬判斷。",
@@ -830,9 +927,10 @@ def build_sell_framework(
             {"name": "20日高", "value": price_level_text(high_20)},
             {"name": "60日高", "value": price_level_text(high_60)},
             {"name": "120日高", "value": price_level_text(high_120)},
-            {"name": "MA20", "value": price_level_text(ma20)},
-            {"name": "EMA23", "value": price_level_text(ema23)},
-            {"name": "MA60", "value": price_level_text(ma60)},
+            {"name": "23EMA 主觀察線", "value": price_level_text(ema23)},
+            {"name": "23EMA 5日斜率", "value": fmt_pct(ema23_slope)},
+            {"name": "MA20 輔助", "value": price_level_text(ma20)},
+            {"name": "MA60 輔助", "value": price_level_text(ma60)},
             {"name": "ATR 2倍風控", "value": price_level_text(atr_stop)},
         ],
     }
@@ -1153,6 +1251,88 @@ def append_sell_framework_pdf_section(story: list[Any], style_map: dict[str, Par
     story.append(pdf_table(rows, [4.0 * cm, 13.5 * cm], style_map))
 
 
+def technical_time_signal_rows(price_metrics: dict[str, Any]) -> list[list[str]]:
+    close = safe_float(price_metrics.get("close"))
+    ema23 = safe_float(price_metrics.get("ema23"))
+    distance_ema23 = safe_float(price_metrics.get("distance_ema23"))
+    slope = safe_float(price_metrics.get("ema23_slope_5d"))
+    position = safe_str(price_metrics.get("ema23_position")) or ema23_position_label(close, ema23)
+    support_status = safe_str(price_metrics.get("ema23_support_status")) or "資料不足"
+    quick_reclaim_count = safe_float(price_metrics.get("ema23_quick_reclaim_count_20d"))
+    break_count = safe_float(price_metrics.get("ema23_break_count_20d"))
+    volume_ratio = safe_float(price_metrics.get("volume_ratio"))
+    ret20 = safe_float(price_metrics.get("return_20d"))
+
+    if not math.isnan(distance_ema23) and distance_ema23 >= 12:
+        time_signal = "距 23EMA 偏遠，避免把追價視為低風險訊號"
+    elif position == "站上 23EMA" and not math.isnan(slope) and slope >= 0.2:
+        time_signal = "23EMA 站上且斜率向上，屬於偏多觀察訊號"
+    elif position == "跌破 23EMA":
+        time_signal = "跌破 23EMA，觀察 1～3 日內是否快速收回"
+    else:
+        time_signal = "待回測假設，目前只作為觀察，不作為模型加權依據"
+
+    volume_state = "資料不足"
+    if not math.isnan(volume_ratio):
+        if volume_ratio >= 1.5:
+            volume_state = "量能放大，需確認是否為健康攻擊而非爆量長上影"
+        elif volume_ratio >= 0.8:
+            volume_state = "量能正常，適合搭配 23EMA 支撐觀察"
+        else:
+            volume_state = "量能偏低，突破或站回 23EMA 的可信度需打折"
+
+    overheat_state = "未明顯過熱"
+    if not math.isnan(ret20) and ret20 >= 25:
+        overheat_state = "20日漲幅偏高，23EMA 乖離與回測守線更重要"
+    elif not math.isnan(distance_ema23) and distance_ema23 >= 12:
+        overheat_state = "距 23EMA 偏遠，追價風險升高"
+
+    return [
+        ["面向", "結論"],
+        ["主觀察線", f"{position}；23EMA={fmt_num(ema23)}；距 23EMA={fmt_pct(distance_ema23)}"],
+        ["23EMA 斜率", f"{ema23_slope_label(slope)}；5日斜率={fmt_pct(slope)}"],
+        ["回測 23EMA", support_status],
+        ["跌破後快速收回", f"近20日跌破 {fmt_num(break_count, 0)} 次，3日內收回 {fmt_num(quick_reclaim_count, 0)} 次"],
+        ["量能", volume_state],
+        ["過熱 / 乖離", overheat_state],
+        ["時間訊號", time_signal],
+    ]
+
+
+def technical_time_signal_markdown(price_metrics: dict[str, Any]) -> str:
+    rows = technical_time_signal_rows(price_metrics)
+    lines = [
+        "## 技術指標 / 時間訊號",
+        "",
+        "本章主線使用 23EMA；MA20 / MA60 / MA120 仍在後端計算，但只作輔助與回測欄位。",
+        "",
+        "| 面向 | 結論 |",
+        "|---|---|",
+    ]
+    for row in rows[1:]:
+        lines.append(f"| {row[0]} | {row[1]} |")
+    lines.extend(
+        [
+            "",
+            "- 時間訊號若樣本不足，只能視為待回測假設，不直接加入核心權重。",
+            "- 技術判斷需搭配 TDCC、量價、題材、權證與 benchmark，不可單獨作為買賣依據。",
+        ]
+    )
+    return "\n".join(lines)
+
+
+def append_technical_time_signal_pdf_section(
+    story: list[Any],
+    style_map: dict[str, ParagraphStyle],
+    price_metrics: dict[str, Any],
+) -> None:
+    story.append(paragraph("技術指標 / 時間訊號", style_map["h1"]))
+    story.append(paragraph("主線使用 23EMA；MA20 / MA60 / MA120 保留為後端輔助與回測欄位，不作為本頁主結論。", style_map["small"]))
+    rows = technical_time_signal_rows(price_metrics)
+    story.append(pdf_table(rows, [4.0 * cm, 13.5 * cm], style_map))
+    story.append(paragraph("時間訊號若樣本不足，只能視為待回測假設，不直接加入核心權重。", style_map["small"]))
+
+
 def plot_price_chart(df: pd.DataFrame, stock_id: str, stock_name: str, days: int, path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     if df.empty:
@@ -1170,15 +1350,13 @@ def plot_price_chart(df: pd.DataFrame, stock_id: str, stock_name: str, days: int
     )
     ax_price.plot(data["x"], data["close"], color="#1f77b4", linewidth=1.6, label="Close")
     for col, color, label in [
-        ("ma20", "#ff7f0e", "MA20"),
-        ("ma60", "#2ca02c", "MA60"),
-        ("ema23", "#9467bd", "EMA23"),
+        ("ema23", "#d62728", "23EMA primary"),
     ]:
         if col in data.columns and data[col].notna().any():
-            ax_price.plot(data["x"], data[col], color=color, linewidth=1.0, label=label)
+            ax_price.plot(data["x"], data[col], color=color, linewidth=1.4, label=label)
     high_60 = safe_float(data.tail(min(60, len(data)))["high"].max())
     if not math.isnan(high_60):
-        ax_price.axhline(high_60, color="#d62728", linewidth=0.9, linestyle="--", alpha=0.7, label="60D High")
+        ax_price.axhline(high_60, color="#6c757d", linewidth=0.9, linestyle="--", alpha=0.65, label="60D High")
     ax_price.set_title(f"{stock_id} - {min(days, len(data))}D Price", fontsize=12, weight="bold")
     ax_price.grid(True, alpha=0.25)
     ax_price.legend(loc="upper left", fontsize=8)
@@ -1589,9 +1767,14 @@ def build_markdown(
         f"| 收盤價 | {fmt_num(price_metrics.get('close'))} |",
         f"| 1日 / 5日 / 20日 | {fmt_pct(price_metrics.get('return_1d'))} / {fmt_pct(price_metrics.get('return_5d'))} / {fmt_pct(price_metrics.get('return_20d'))} |",
         f"| 60日 / 120日 | {fmt_pct(price_metrics.get('return_60d'))} / {fmt_pct(price_metrics.get('return_120d'))} |",
-        f"| 20MA / 60MA / 23EMA | {fmt_num(price_metrics.get('ma20'))} / {fmt_num(price_metrics.get('ma60'))} / {fmt_num(price_metrics.get('ema23'))} |",
+        f"| 23EMA 主觀察線 | {fmt_num(price_metrics.get('ema23'))} |",
+        f"| 股價與 23EMA | {price_metrics.get('ema23_position', '-')} / 距離 {fmt_pct(price_metrics.get('distance_ema23'))} |",
+        f"| 23EMA 5日斜率 | {fmt_pct(price_metrics.get('ema23_slope_5d'))}（{price_metrics.get('ema23_slope_label', '-')}） |",
+        f"| 23EMA 回測狀態 | {price_metrics.get('ema23_support_status', '-')} |",
         f"| 距 60 日高點 | {fmt_pct(price_metrics.get('distance_high_60'))} |",
         f"| 量比 | {fmt_num(price_metrics.get('volume_ratio'), 2)}x |",
+        "",
+        technical_time_signal_markdown(price_metrics),
         "",
         "## 四、候選分類訊號",
         "",
@@ -1706,10 +1889,13 @@ def build_pdf(
         ["指標", "數值", "指標", "數值"],
         ["收盤價", fmt_num(price_metrics.get("close")), "量比", f"{fmt_num(price_metrics.get('volume_ratio'), 2)}x"],
         ["1日 / 5日", f"{fmt_pct(price_metrics.get('return_1d'))} / {fmt_pct(price_metrics.get('return_5d'))}", "20日 / 60日", f"{fmt_pct(price_metrics.get('return_20d'))} / {fmt_pct(price_metrics.get('return_60d'))}"],
-        ["20MA / 60MA", f"{fmt_num(price_metrics.get('ma20'))} / {fmt_num(price_metrics.get('ma60'))}", "23EMA", fmt_num(price_metrics.get("ema23"))],
-        ["距20MA / 距60MA", f"{fmt_pct(price_metrics.get('distance_ma20'))} / {fmt_pct(price_metrics.get('distance_ma60'))}", "距60日高點", fmt_pct(price_metrics.get("distance_high_60"))],
+        ["23EMA 主觀察線", fmt_num(price_metrics.get("ema23")), "股價與23EMA", f"{price_metrics.get('ema23_position', '-')} / {fmt_pct(price_metrics.get('distance_ema23'))}"],
+        ["23EMA 5日斜率", f"{fmt_pct(price_metrics.get('ema23_slope_5d'))} / {price_metrics.get('ema23_slope_label', '-')}", "距60日高點", fmt_pct(price_metrics.get("distance_high_60"))],
+        ["23EMA 回測狀態", price_metrics.get("ema23_support_status", "-"), "輔助均線", "MA20 / MA60 後端保留"],
     ]
     story.append(pdf_table(price_rows, [3.2 * cm, 5.6 * cm, 3.2 * cm, 5.5 * cm], style_map))
+
+    append_technical_time_signal_pdf_section(story, style_map, price_metrics)
 
     story.append(paragraph("三、候選分類訊號", style_map["h1"]))
     if candidate_items:
