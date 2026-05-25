@@ -81,6 +81,10 @@ jobs:
         run: |
           python stock_daily_monitor.py
 
+      - name: Validate daily candidate regression cases
+        run: |
+          python scripts/validate_daily_candidate_regression_cases.py
+
       - name: Build revenue breakout low response candidates
         run: |
           python build_revenue_breakout_low_response.py
@@ -111,6 +115,10 @@ jobs:
           git add output/latest/stock_monitor_latest.md || true
           git add output/latest/breakout_latest.csv || true
           git add output/latest/range_rebound_watch_latest.csv || true
+          git add output/latest/daily_pattern_watch_latest.csv || true
+          git add output/latest/daily_candidate_regression_2484_latest.csv || true
+          git add output/latest/daily_candidate_regression_2484_latest.md || true
+          git add output/latest/daily_candidate_regression_2484_latest.json || true
           git add output/latest/revenue_pullback_latest.csv || true
           git add output/latest/pullback_rebound_latest.csv || true
 
@@ -339,6 +347,10 @@ jobs:
           git add output/latest/stock_monitor_latest.md || true
           git add output/latest/breakout_latest.csv || true
           git add output/latest/range_rebound_watch_latest.csv || true
+          git add output/latest/daily_pattern_watch_latest.csv || true
+          git add output/latest/daily_candidate_regression_2484_latest.csv || true
+          git add output/latest/daily_candidate_regression_2484_latest.md || true
+          git add output/latest/daily_candidate_regression_2484_latest.json || true
           git add output/latest/revenue_pullback_latest.csv || true
           git add output/latest/pullback_rebound_latest.csv || true
 

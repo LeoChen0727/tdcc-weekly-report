@@ -27,6 +27,7 @@ HISTORY_DIR = OUTPUT_DIR / "history"
 REPORT_PATH = LATEST_DIR / "stock_monitor_latest.md"
 BREAKOUT_CSV_PATH = LATEST_DIR / "breakout_latest.csv"
 RANGE_REBOUND_CSV_PATH = LATEST_DIR / "range_rebound_watch_latest.csv"
+PATTERN_WATCH_CSV_PATH = LATEST_DIR / "daily_pattern_watch_latest.csv"
 REVENUE_PULLBACK_CSV_PATH = LATEST_DIR / "revenue_pullback_latest.csv"
 PULLBACK_REBOUND_CSV_PATH = LATEST_DIR / "pullback_rebound_latest.csv"
 
@@ -166,6 +167,10 @@ def pct_change(new: float, old: float) -> float:
     if new is None or pd.isna(new):
         return 0.0
     return (new / old - 1) * 100
+
+
+def bool_text(value: bool) -> str:
+    return "True" if bool(value) else "False"
 
 
 def is_mainstream_industry(industry: Any) -> bool:
@@ -641,6 +646,8 @@ def build_stock_history_map(price_data: pd.DataFrame) -> dict[str, pd.DataFrame]
 
 def add_technical_metrics(df: pd.DataFrame) -> pd.DataFrame:
     df = df.copy()
+    df["ma5"] = df["close"].rolling(5).mean()
+    df["ma10"] = df["close"].rolling(10).mean()
     df["ma20"] = df["close"].rolling(20).mean()
     df["ma60"] = df["close"].rolling(60).mean()
     df["ema23"] = df["close"].ewm(span=23, adjust=False).mean()
@@ -742,6 +749,171 @@ def build_common_price_metrics(df: pd.DataFrame) -> dict[str, Any] | None:
 # Breakout / range rebound
 # ============================================================
 
+def calculate_structure_pattern_metrics(df: pd.DataFrame, metrics: dict[str, Any]) -> dict[str, Any]:
+    """Detect right-side base, neckline, and volume-confirmed breakout structure."""
+    tech = add_technical_metrics(df)
+    if len(tech) < 61:
+        return {}
+
+    latest = tech.iloc[-1]
+    close = metrics["close"]
+    high = metrics["high"]
+    low = metrics["low"]
+    volume_ratio = metrics["volume_ratio"]
+    daily_return = metrics["daily_return_pct"]
+
+    previous_10 = tech.iloc[-11:-1].copy()
+    previous_20 = tech.iloc[-21:-1].copy()
+    previous_40 = tech.iloc[-41:-1].copy()
+    previous_60 = tech.iloc[-61:-1].copy()
+
+    previous_10d_high = previous_10["high"].max()
+    previous_10d_low = previous_10["low"].min()
+    previous_20d_high = metrics["previous_20d_high"]
+    previous_20d_low = metrics["previous_20d_low"]
+    previous_40d_high = metrics["previous_40d_high"]
+    previous_40d_low = metrics["previous_40d_low"]
+    previous_60d_high = metrics["previous_60d_high"]
+
+    def width_pct(high_value: float, low_value: float) -> float:
+        if low_value is None or pd.isna(low_value) or low_value <= 0:
+            return 0.0
+        return pct_change(high_value, low_value)
+
+    recent_platform_width = width_pct(previous_20d_high, previous_20d_low)
+    short_platform_width = width_pct(previous_10d_high, previous_10d_low)
+
+    ma5 = latest.get("ma5", pd.NA)
+    ma10 = latest.get("ma10", pd.NA)
+    ma20 = latest.get("ma20", pd.NA)
+    ma5_prev3 = tech.iloc[-4].get("ma5", pd.NA) if len(tech) >= 4 else pd.NA
+    ma10_prev3 = tech.iloc[-4].get("ma10", pd.NA) if len(tech) >= 4 else pd.NA
+    ma5_turning_up = not pd.isna(ma5) and not pd.isna(ma5_prev3) and ma5 > ma5_prev3
+    ma10_turning_up = not pd.isna(ma10) and not pd.isna(ma10_prev3) and ma10 >= ma10_prev3
+    close_above_ma20 = not pd.isna(ma20) and close > ma20
+
+    low_5 = tech.iloc[-6:-1]["low"].min()
+    low_20_before = tech.iloc[-26:-6]["low"].min() if len(tech) >= 26 else previous_20d_low
+    higher_lows = low_5 > low_20_before * 1.03 if low_20_before and low_20_before > 0 else False
+
+    neckline_candidates = [
+        ("previous_60d_high", previous_60d_high),
+        ("previous_40d_high", previous_40d_high),
+        ("previous_20d_high", previous_20d_high),
+        ("previous_10d_high", previous_10d_high),
+    ]
+    usable = [(name, level) for name, level in neckline_candidates if level and not pd.isna(level) and level > 0]
+    nearest_name = ""
+    neckline_price = pd.NA
+    if usable:
+        nearest_name, neckline_price = min(usable, key=lambda item: abs(pct_change(close, item[1])))
+
+    neckline_distance_pct = pct_change(close, neckline_price) if not pd.isna(neckline_price) else pd.NA
+
+    close_position = (close - low) / (high - low) if high > low else 1.0
+    breakout_close_near_high = close >= high * 0.995 or close_position >= 0.8
+    volume_confirmed_breakout = volume_ratio >= 1.5
+
+    platform_base_flag = (
+        (recent_platform_width <= 35 or short_platform_width <= 25)
+        and close_above_ma20
+        and metrics["return_20d_pct"] <= 40
+    )
+    platform_right_side_flag = (
+        close_above_ma20
+        and ma5_turning_up
+        and ma10_turning_up
+        and higher_lows
+        and volume_ratio >= 0.9
+        and pct_change(close, previous_20d_high) >= -15
+    )
+
+    # W-bottom is intentionally conservative and only marks a right-side recovery context.
+    first_half = previous_60.iloc[:30]
+    second_half = previous_60.iloc[30:]
+    if not first_half.empty and not second_half.empty:
+        first_low = first_half["low"].min()
+        second_low = second_half["low"].min()
+        w_bottom_flag = second_low >= first_low * 0.95 and close_above_ma20 and close > second_low * 1.12
+    else:
+        w_bottom_flag = False
+    w_bottom_right_side_flag = bool(w_bottom_flag and platform_right_side_flag)
+
+    short_platform_breakout = close > previous_10d_high * 1.005 if previous_10d_high > 0 else False
+    twenty_day_breakout = close > previous_20d_high * 1.005 if previous_20d_high > 0 else False
+    sixty_day_breakout = close > previous_60d_high * 1.005 if previous_60d_high > 0 else False
+
+    platform_breakout_flag = bool(
+        close_above_ma20
+        and volume_ratio >= 1.2
+        and (short_platform_breakout or (twenty_day_breakout and recent_platform_width <= 45))
+    )
+    neckline_breakout_flag = bool(
+        close_above_ma20
+        and volume_ratio >= 1.2
+        and (twenty_day_breakout or sixty_day_breakout)
+    )
+    neckline_challenge_flag = bool(
+        close_above_ma20
+        and volume_ratio >= 1.0
+        and not neckline_breakout_flag
+        and not pd.isna(neckline_distance_pct)
+        and -5 <= neckline_distance_pct <= 1.5
+    )
+
+    upper_shadow_pct = pct_change(high, close) if close > 0 else 0.0
+    false_breakout_risk = bool(
+        (neckline_breakout_flag or platform_breakout_flag)
+        and (not breakout_close_near_high or upper_shadow_pct >= 3)
+        and daily_return < 3
+    )
+
+    if false_breakout_risk and close < metrics["ma20"]:
+        pattern_stage = "failed_breakout"
+    elif sixty_day_breakout and volume_confirmed_breakout and breakout_close_near_high:
+        pattern_stage = "breakout_confirmed"
+    elif neckline_breakout_flag and volume_confirmed_breakout and breakout_close_near_high:
+        pattern_stage = "neckline_breakout"
+    elif platform_breakout_flag and volume_confirmed_breakout:
+        pattern_stage = "platform_breakout"
+    elif neckline_challenge_flag:
+        pattern_stage = "neckline_challenge"
+    elif platform_right_side_flag:
+        pattern_stage = "platform_right_side"
+    elif w_bottom_right_side_flag:
+        pattern_stage = "w_bottom_right_side"
+    elif platform_base_flag:
+        pattern_stage = "base_building"
+    else:
+        pattern_stage = ""
+
+    return {
+        "w_bottom_flag": bool_text(w_bottom_flag),
+        "w_bottom_right_side_flag": bool_text(w_bottom_right_side_flag),
+        "platform_base_flag": bool_text(platform_base_flag),
+        "platform_right_side_flag": bool_text(platform_right_side_flag),
+        "neckline_price": neckline_price,
+        "neckline_source": nearest_name,
+        "neckline_distance_pct": neckline_distance_pct,
+        "neckline_challenge_flag": bool_text(neckline_challenge_flag),
+        "neckline_breakout_flag": bool_text(neckline_breakout_flag),
+        "platform_breakout_flag": bool_text(platform_breakout_flag),
+        "volume_confirmed_breakout": bool_text(volume_confirmed_breakout),
+        "breakout_close_near_high_flag": bool_text(breakout_close_near_high),
+        "false_breakout_risk": bool_text(false_breakout_risk),
+        "pattern_stage": pattern_stage,
+        "platform_high": previous_20d_high,
+        "platform_low": previous_20d_low,
+        "platform_width_pct": recent_platform_width,
+        "short_platform_high": previous_10d_high,
+        "short_platform_low": previous_10d_low,
+        "short_platform_width_pct": short_platform_width,
+        "higher_lows_flag": bool_text(higher_lows),
+        "ma5_turning_up_flag": bool_text(ma5_turning_up),
+        "ma10_turning_up_flag": bool_text(ma10_turning_up),
+    }
+
+
 def calculate_breakout_score(df: pd.DataFrame) -> dict[str, Any] | None:
     if len(df) < MIN_HISTORY_DAYS_BREAKOUT:
         return None
@@ -750,6 +922,8 @@ def calculate_breakout_score(df: pd.DataFrame) -> dict[str, Any] | None:
 
     if metrics is None:
         return None
+
+    pattern_metrics = calculate_structure_pattern_metrics(df, metrics)
 
     close = metrics["close"]
     open_price = metrics["open"]
@@ -775,6 +949,17 @@ def calculate_breakout_score(df: pd.DataFrame) -> dict[str, Any] | None:
     close_above_ma60 = close > metrics["ma60"]
     close_above_ema23 = close > metrics["ema23"]
     close_near_high = close >= high_today * 0.995 if high_today > 0 else False
+    pattern_stage = normalize_text(pattern_metrics.get("pattern_stage", ""))
+    platform_prebreakout_signal = pattern_stage in {
+        "platform_breakout",
+        "neckline_breakout",
+        "neckline_challenge",
+    }
+    pattern_watch_signal = pattern_stage in {
+        "base_building",
+        "platform_right_side",
+        "w_bottom_right_side",
+    }
 
     limit_up_breakout = (
         close > previous_60d_high
@@ -799,9 +984,9 @@ def calculate_breakout_score(df: pd.DataFrame) -> dict[str, Any] | None:
     range_rebound = (
         not true_breakout
         and close < previous_60d_high
-        and volume_ratio >= 1.5
+        and (volume_ratio >= 1.5 or platform_prebreakout_signal)
         and (close_above_ma20 or close_above_ema23)
-        and distance_to_previous_60d_high_pct >= -10
+        and (distance_to_previous_60d_high_pct >= -10 or platform_prebreakout_signal)
         and close >= open_price
     )
 
@@ -821,6 +1006,8 @@ def calculate_breakout_score(df: pd.DataFrame) -> dict[str, Any] | None:
         breakout_type = "range_rebound"
     elif near_resistance:
         breakout_type = "near_resistance"
+    elif pattern_watch_signal:
+        breakout_type = "pattern_watch"
     else:
         return None
 
@@ -840,6 +1027,8 @@ def calculate_breakout_score(df: pd.DataFrame) -> dict[str, Any] | None:
             score += 30
     elif breakout_type == "abnormal_volume_up":
         score += 22
+    elif breakout_type == "pattern_watch":
+        score += 8
     else:
         score += 12
 
@@ -863,11 +1052,22 @@ def calculate_breakout_score(df: pd.DataFrame) -> dict[str, Any] | None:
     if limit_up_breakout:
         score += 8
 
+    if pattern_stage == "breakout_confirmed":
+        score += 8
+    elif pattern_stage in {"neckline_breakout", "platform_breakout"}:
+        score += 6
+    elif pattern_stage == "neckline_challenge":
+        score += 5
+    elif pattern_stage in {"platform_right_side", "w_bottom_right_side"}:
+        score += 3
+
     if breakout_type == "true_breakout":
         if return_5d > 20:
             score -= 20
         elif return_5d > 12:
             score -= 10
+    elif breakout_type == "pattern_watch":
+        score = min(score, 54)
     else:
         if distance_to_previous_60d_high_pct >= -3:
             score += 8
@@ -877,6 +1077,7 @@ def calculate_breakout_score(df: pd.DataFrame) -> dict[str, Any] | None:
 
     result = {
         **metrics,
+        **pattern_metrics,
         "breakout_type": breakout_type,
         "consolidation_range_pct": consolidation_range_pct,
         "breakout_pct": breakout_pct,
@@ -927,7 +1128,10 @@ def find_breakout_candidates(
             if metrics is None:
                 continue
 
-            if metrics["score"] < 55:
+            if metrics["score"] < 55 and metrics.get("breakout_type") != "pattern_watch":
+                continue
+
+            if metrics.get("breakout_type") == "pattern_watch" and metrics["score"] < 45:
                 continue
 
             latest = df.iloc[-1]
@@ -1257,6 +1461,29 @@ def choose_output_columns(df: pd.DataFrame) -> pd.DataFrame:
         "breakout_pct",
         "limit_up_breakout",
         "abnormal_volume_up",
+        "w_bottom_flag",
+        "w_bottom_right_side_flag",
+        "platform_base_flag",
+        "platform_right_side_flag",
+        "neckline_price",
+        "neckline_source",
+        "neckline_distance_pct",
+        "neckline_challenge_flag",
+        "neckline_breakout_flag",
+        "platform_breakout_flag",
+        "volume_confirmed_breakout",
+        "breakout_close_near_high_flag",
+        "false_breakout_risk",
+        "pattern_stage",
+        "platform_high",
+        "platform_low",
+        "platform_width_pct",
+        "short_platform_high",
+        "short_platform_low",
+        "short_platform_width_pct",
+        "higher_lows_flag",
+        "ma5_turning_up_flag",
+        "ma10_turning_up_flag",
         "available_days",
         "price_data_warning",
         "tdcc_date",
@@ -1404,7 +1631,7 @@ def main() -> int:
             "# 每日全市場股價監測報告\n\n無官方價格資料，無法產出監測報告。\n",
             encoding="utf-8",
         )
-        for path in [BREAKOUT_CSV_PATH, RANGE_REBOUND_CSV_PATH, REVENUE_PULLBACK_CSV_PATH, PULLBACK_REBOUND_CSV_PATH]:
+        for path in [BREAKOUT_CSV_PATH, RANGE_REBOUND_CSV_PATH, PATTERN_WATCH_CSV_PATH, REVENUE_PULLBACK_CSV_PATH, PULLBACK_REBOUND_CSV_PATH]:
             pd.DataFrame().to_csv(path, index=False, encoding="utf-8-sig")
         return 0
 
@@ -1425,11 +1652,13 @@ def main() -> int:
     if breakout_all.empty:
         breakout_df = pd.DataFrame()
         range_df = pd.DataFrame()
+        pattern_df = pd.DataFrame()
     else:
         breakout_df = breakout_all[breakout_all["breakout_type"] == "true_breakout"].copy()
         range_df = breakout_all[
             breakout_all["breakout_type"].isin(["range_rebound", "near_resistance", "abnormal_volume_up"])
         ].copy()
+        pattern_df = breakout_all[breakout_all["breakout_type"] == "pattern_watch"].copy()
 
     revenue_df = find_revenue_pullback_candidates(stock_map, revenue_raw)
     rebound_df = find_pullback_rebound_candidates(revenue_df)
@@ -1448,6 +1677,13 @@ def main() -> int:
         breakout_type="range_rebound",
     )
 
+    pattern_df = add_standard_columns(
+        merge_tdcc(pattern_df, tdcc_df),
+        category="pattern",
+        category_cn="型態觀察",
+        breakout_type="pattern_watch",
+    )
+
     revenue_df = add_standard_columns(
         merge_tdcc(revenue_df, tdcc_df),
         category="revenue_pullback",
@@ -1464,11 +1700,13 @@ def main() -> int:
 
     breakout_out = choose_output_columns(breakout_df)
     range_out = choose_output_columns(range_df)
+    pattern_out = choose_output_columns(pattern_df)
     revenue_out = choose_output_columns(revenue_df)
     rebound_out = choose_output_columns(rebound_df)
 
     breakout_out.to_csv(BREAKOUT_CSV_PATH, index=False, encoding="utf-8-sig")
     range_out.to_csv(RANGE_REBOUND_CSV_PATH, index=False, encoding="utf-8-sig")
+    pattern_out.to_csv(PATTERN_WATCH_CSV_PATH, index=False, encoding="utf-8-sig")
     revenue_out.to_csv(REVENUE_PULLBACK_CSV_PATH, index=False, encoding="utf-8-sig")
     rebound_out.to_csv(PULLBACK_REBOUND_CSV_PATH, index=False, encoding="utf-8-sig")
 
@@ -1483,6 +1721,7 @@ def main() -> int:
     print(f"Saved: {REPORT_PATH}")
     print(f"Saved: {BREAKOUT_CSV_PATH}, rows={len(breakout_out)}")
     print(f"Saved: {RANGE_REBOUND_CSV_PATH}, rows={len(range_out)}")
+    print(f"Saved: {PATTERN_WATCH_CSV_PATH}, rows={len(pattern_out)}")
     print(f"Saved: {REVENUE_PULLBACK_CSV_PATH}, rows={len(revenue_out)}")
     print(f"Saved: {PULLBACK_REBOUND_CSV_PATH}, rows={len(rebound_out)}")
 
