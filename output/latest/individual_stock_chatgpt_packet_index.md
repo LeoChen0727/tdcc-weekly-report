@@ -1,6 +1,6 @@
 # Individual Stock ChatGPT Packet Index
 
-- generated_at: 2026-05-26 06:41:04 Asia/Taipei
+- generated_at: 2026-05-26 06:58:33 Asia/Taipei
 - total_packets: 2149
 - standard_180d_window_packet: 1879
 - standard_120d_plus_packet: 0
@@ -15,8 +15,9 @@
 
 1. For any stock, read `output/latest/individual_stock_chatgpt_packets/{stock_id}_packet_latest.md` first.
 2. If raw/pages packet does not expand, read the GitHub API contents endpoint and base64-decode `content`.
-3. For K-line, MA, volume, support/resistance, and pattern checks, always read the stock's `price_window_180_html_*` URL from the packet. The 20-row preview is not enough.
-4. Use full raw CSV only when deeper backtest or additional columns are needed.
+3. For K-line, 23EMA, volume, support/resistance, and pattern checks, always read the stock's `price_window_180_html_*` URL from the packet. The 20-row preview is not enough.
+4. Use 23EMA as the primary moving-average observation line in the main chart/conclusion. Treat MA20 / MA60 / MA120 as auxiliary/backtest fields unless explicitly requested.
+5. Use full raw CSV only when deeper backtest or additional columns are needed.
 
 ## Preview
 

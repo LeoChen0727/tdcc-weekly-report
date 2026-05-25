@@ -1,6 +1,6 @@
 # Individual Stock Raw Data Read Protocol
 
-- generated_at: 2026-05-26 06:41:28 Asia/Taipei
+- generated_at: 2026-05-26 06:59:06 Asia/Taipei
 - scope: every Taiwan stock id with repo raw data
 - individual_report_md_is_optional: True
 - individual_stock_chatgpt_packet_is_primary_read_entry: True
@@ -26,7 +26,8 @@ For any `stock_id`, use the same fixed packet-first, raw-data-backed flow. Do no
 
 1. Normalize stock id to four digits when applicable.
 2. Read the individual ChatGPT packet first. It gives stable URLs, latest snapshot, recent TDCC rows, candidate context, repeat appearance, and warrant context.
-3. For any K-line, MA, volume, support/resistance, or pattern conclusion, always read `price_window_180_html` first. The 20-row packet preview is not enough for technical analysis.
+3. For any K-line, 23EMA, volume, support/resistance, or pattern conclusion, always read `price_window_180_html` first. The 20-row packet preview is not enough for technical analysis.
+   Main chart/conclusion rule: use 23EMA as the primary moving-average observation line. MA20 / MA60 / MA120 are backend auxiliary/backtest fields unless the user explicitly asks for them.
 4. If packet/raw/pages returns Cache miss, Internal Error, stale content, or `Total lines: 1`, read the matching GitHub API URL and base64-decode `content`.
 5. Use full price / TDCC raw CSV only for programmatic backtests or extra columns. Do not require ChatGPT to expand full raw CSV before ordinary single-stock analysis.
 6. If raw price history returns Cache miss, Internal Error, stale content, or `Total lines: 1` while the file is expected to be multi-line, use the `price_window_180_html` or GitHub API fallback before downgrading the report.
