@@ -1,6 +1,6 @@
 # 官方每日價格資料抓取狀態
 
-- 產生時間：`2026-05-26 01:14:05 Asia/Taipei`
+- 產生時間：`2026-05-26 01:54:07 Asia/Taipei`
 - target_date：`20260526`
 - saved_price_date：`20260526`
 - is_target_date：`True`
@@ -25,7 +25,7 @@
 
 - Start official daily price fetch target_date=20260526
 - ===== Fetch price for date 20260526 =====
-- Loaded universe rows=7180
+- Loaded universe rows=7178
 - Trying TWSE batch source=TWSE_RWD_JSON_MI_INDEX date=20260526
 - GET https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260526&type=ALLBUT0999&response=json -> status=200, chars=25
 - TWSE_RWD_JSON_MI_INDEX: parsed TWSE rows=0
