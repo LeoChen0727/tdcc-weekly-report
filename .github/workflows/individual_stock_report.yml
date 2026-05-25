@@ -91,6 +91,7 @@ jobs:
           git add output/latest/individual_stock_available_raw_data_index.md || true
           git add output/latest/individual_stock_available_raw_data_index_slim.csv || true
           git add output/latest/individual_stock_available_raw_data_index_slim.md || true
+          git add output/latest/individual_stock_read_protocol_latest.md || true
           git add output/latest/individual_stock_reports_index.csv || true
           git add output/latest/individual_stock_reports_index.md || true
           git add output/latest/raw_data_fetch_status_latest.csv || true
@@ -99,6 +100,7 @@ jobs:
           git add docs/latest/individual_stock_available_raw_data_index.md || true
           git add docs/latest/individual_stock_available_raw_data_index_slim.csv || true
           git add docs/latest/individual_stock_available_raw_data_index_slim.md || true
+          git add docs/latest/individual_stock_read_protocol_latest.md || true
           git add docs/latest/individual_stock_reports_index.csv || true
           git add docs/latest/individual_stock_reports_index.md || true
           git add docs/latest/raw_data_fetch_status_latest.csv || true

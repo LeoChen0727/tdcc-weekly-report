@@ -127,6 +127,7 @@ INDIVIDUAL_STOCK_AVAILABLE_RAW_DATA_INDEX_CSV = LATEST_DIR / "individual_stock_a
 INDIVIDUAL_STOCK_AVAILABLE_RAW_DATA_INDEX_MD = LATEST_DIR / "individual_stock_available_raw_data_index.md"
 INDIVIDUAL_STOCK_AVAILABLE_RAW_DATA_INDEX_SLIM_CSV = LATEST_DIR / "individual_stock_available_raw_data_index_slim.csv"
 INDIVIDUAL_STOCK_AVAILABLE_RAW_DATA_INDEX_SLIM_MD = LATEST_DIR / "individual_stock_available_raw_data_index_slim.md"
+INDIVIDUAL_STOCK_READ_PROTOCOL_MD = LATEST_DIR / "individual_stock_read_protocol_latest.md"
 INDIVIDUAL_STOCK_REPORTS_INDEX_CSV = LATEST_DIR / "individual_stock_reports_index.csv"
 INDIVIDUAL_STOCK_REPORTS_INDEX_MD = LATEST_DIR / "individual_stock_reports_index.md"
 
@@ -552,6 +553,9 @@ def build_readme(
         f"individual_stock_available_raw_data_index_slim_md_pages_url={pages_url('latest/individual_stock_available_raw_data_index_slim.md')}",
         f"individual_stock_available_raw_data_index_slim_github_api_url={github_api_url(INDIVIDUAL_STOCK_AVAILABLE_RAW_DATA_INDEX_SLIM_CSV, ref='main')}",
         f"individual_stock_available_raw_data_index_slim_md_github_api_url={github_api_url(INDIVIDUAL_STOCK_AVAILABLE_RAW_DATA_INDEX_SLIM_MD, ref='main')}",
+        f"individual_stock_read_protocol_raw_url={raw_url('main', INDIVIDUAL_STOCK_READ_PROTOCOL_MD)}",
+        f"individual_stock_read_protocol_pages_url={pages_url('latest/individual_stock_read_protocol_latest.md')}",
+        f"individual_stock_read_protocol_github_api_url={github_api_url(INDIVIDUAL_STOCK_READ_PROTOCOL_MD, ref='main')}",
         f"individual_stock_reports_index_raw_url={raw_url('main', INDIVIDUAL_STOCK_REPORTS_INDEX_CSV)}",
         f"individual_stock_reports_index_md_raw_url={raw_url('main', INDIVIDUAL_STOCK_REPORTS_INDEX_MD)}",
         f"individual_stock_reports_index_pages_url={pages_url('latest/individual_stock_reports_index.csv')}",
@@ -1184,6 +1188,9 @@ def main() -> int:
         "individual_stock_available_raw_data_index_slim_md_pages_url": pages_url("latest/individual_stock_available_raw_data_index_slim.md"),
         "individual_stock_available_raw_data_index_slim_github_api_url": github_api_url(INDIVIDUAL_STOCK_AVAILABLE_RAW_DATA_INDEX_SLIM_CSV, ref="main"),
         "individual_stock_available_raw_data_index_slim_md_github_api_url": github_api_url(INDIVIDUAL_STOCK_AVAILABLE_RAW_DATA_INDEX_SLIM_MD, ref="main"),
+        "individual_stock_read_protocol_raw_url": raw_url("main", INDIVIDUAL_STOCK_READ_PROTOCOL_MD),
+        "individual_stock_read_protocol_pages_url": pages_url("latest/individual_stock_read_protocol_latest.md"),
+        "individual_stock_read_protocol_github_api_url": github_api_url(INDIVIDUAL_STOCK_READ_PROTOCOL_MD, ref="main"),
         "individual_stock_reports_index_raw_url": raw_url("main", INDIVIDUAL_STOCK_REPORTS_INDEX_CSV),
         "individual_stock_reports_index_md_raw_url": raw_url("main", INDIVIDUAL_STOCK_REPORTS_INDEX_MD),
         "individual_stock_reports_index_pages_url": pages_url("latest/individual_stock_reports_index.csv"),
