@@ -28,11 +28,13 @@ from tracking_utils import (  # noqa: E402
     recognition_type,
     safe_str,
     to_number,
+    write_csv,
 )
 
 
 ALL_CANDIDATES = LATEST_DIR / "all_candidates_latest.csv"
 SIGNAL_LOG = DAILY_SIGNALS_DIR / "daily_candidate_signal_log.csv"
+SIGNAL_LOG_ALIAS = Path("output/history/daily_candidates/daily_candidate_signal_log.csv")
 
 
 OUTPUT_COLUMNS = [
@@ -59,6 +61,7 @@ OUTPUT_COLUMNS = [
     "revenue_yoy",
     "cum_revenue_yoy",
     "recent_revenue_accel",
+    "close",
     "close_at_signal",
     "volume",
     "volume_ratio",
@@ -107,6 +110,7 @@ OUTPUT_COLUMNS = [
     "already_reacted_to_catalyst",
     "catalyst_quality",
     "catalyst_confidence",
+    "source_file",
     "signal_source_file",
     "pipeline_commit_sha",
     "twse_close_at_signal",
@@ -223,6 +227,7 @@ def row_to_signal(row: pd.Series, main_date: str, index_df: pd.DataFrame, sha: s
         "revenue_yoy": first_value(row, ["latest_revenue_yoy", "revenue_yoy_pct", "revenue_yoy"]),
         "cum_revenue_yoy": first_value(row, ["cumulative_revenue_yoy", "cumulative_yoy_pct", "cum_revenue_yoy"]),
         "recent_revenue_accel": first_value(row, ["revenue_acceleration_note"]),
+        "close": close,
         "close_at_signal": close,
         "volume": first_value(row, ["volume"]),
         "volume_ratio": first_value(row, ["volume_ratio"]),
@@ -271,6 +276,7 @@ def row_to_signal(row: pd.Series, main_date: str, index_df: pd.DataFrame, sha: s
         "already_reacted_to_catalyst": bool_from_text(first_value(row, ["already_reacted_to_catalyst"])),
         "catalyst_quality": first_value(row, ["catalyst_quality"]),
         "catalyst_confidence": first_value(row, ["catalyst_confidence"]),
+        "source_file": ALL_CANDIDATES.as_posix(),
         "signal_source_file": ALL_CANDIDATES.as_posix(),
         "pipeline_commit_sha": sha,
         "created_at": now_text(),
@@ -301,7 +307,9 @@ def main() -> int:
             out[col] = ""
     out = out[OUTPUT_COLUMNS]
     combined = append_update_csv(out, SIGNAL_LOG, ["signal_id"], ["signal_date", "category", "stock_id"])
+    write_csv(combined, SIGNAL_LOG_ALIAS)
     print(f"Saved: {SIGNAL_LOG}, rows={len(combined)}, appended_or_updated={len(out)}")
+    print(f"Saved: {SIGNAL_LOG_ALIAS}, rows={len(combined)}")
     return 0
 
 

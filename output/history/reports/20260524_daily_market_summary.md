@@ -1,7 +1,7 @@
 # 每日全市場候選股監測報告 - 精華版
 
 - 主資料日期：`20260524`
-- 產生時間：`2026-05-24 20:20:23 Asia/Taipei`
+- 產生時間：`2026-05-25 13:17:09 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：完整候選清單與官方價格資料日期一致，可以產出正式每日報告
 - 權證資料日期：`20260524`
@@ -30,17 +30,17 @@
 | 股票 | 原始分類 | 催化標籤 / 反應程度 | TDCC |
 |---|---|---|---|
 | 1708 東鹼 | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;dividend_calendar;calendar_ex_dividend;化... | 大戶溫和增加 |
-| 1590 亞德客-KY | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthl... | 大戶同步增加 |
+| 6672 騰輝電子-KY | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthl... | 大戶溫和增加 |
+| 2317 鴻海 | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthl... | 大戶同步增加 |
+| 2376 技嘉 | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthl... | 大戶同步增加 |
+| 4934 太極 | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthl... | 大戶溫和增加 |
+| 2368 金像電 | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthl... | 大戶溫和增加 |
+| 2347 聯強 | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthl... | 大戶溫和增加 |
+| 2345 智邦 | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthl... | 大戶溫和增加 |
 | 2606 裕民 | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthl... | 大戶同步增加 |
 | 2637 慧洋-KY | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthl... | 大戶溫和增加 |
-| 2347 聯強 | 營收爆發低反應股 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthl... | 大戶同步增加 |
-| 2101 南港 | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthl... | 大戶同步增加 |
-| 4934 太極 | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthl... | 大戶溫和增加 |
-| 2382 廣達 | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthl... | 大戶溫和增加 |
-| 1714 和桐 | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthl... | 大戶溫和增加 |
-| 3019 亞光 | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthl... | 大戶同步增加 |
-| 8021 尖點 | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthl... | 大戶溫和增加 |
-| 3044 健鼎 | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthl... | 大戶溫和增加 |
+| 9958 世紀鋼 | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthl... | 大戶溫和增加 |
+| 1590 亞德客-KY | 營收成長股價回檔 | score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthl... | 大戶同步增加 |
 
 ## 精華候選股
 
@@ -50,6 +50,7 @@
 - 族群：化學工業
 - 分數 / 排名：69.0 / 
 - 優先級：
+- 連續上榜：連續 2 日；近5日 2；近10日 2；多分類 range_rebound
 - TDCC：大戶轉弱
 - 權證：
 - 財報 / 事件催化：score 0 / theme 1/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window;化學工業 / monthly_revenue_calendar;calendar_monthly_rev...
@@ -61,6 +62,7 @@
 - 族群：汽車工業
 - 分數 / 排名：69.0 / 
 - 優先級：
+- 連續上榜：連續 2 日；近5日 2；近10日 2；多分類 range_rebound
 - TDCC：大戶轉弱
 - 權證：
 - 財報 / 事件催化：score 0 / theme 1/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window;汽車工業 / monthly_revenue_calendar;calendar_monthly_rev...
@@ -72,6 +74,7 @@
 - 族群：汽車工業
 - 分數 / 排名：69.0 / 
 - 優先級：
+- 連續上榜：連續 2 日；近5日 2；近10日 2；多分類 pattern|range_rebound
 - TDCC：大戶轉弱
 - 權證：
 - 財報 / 事件催化：score 0 / theme 1/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window;汽車工業 / monthly_revenue_calendar;calendar_monthly_rev...
@@ -84,6 +87,7 @@
 - 族群：電腦及週邊設備業
 - 分數 / 排名：69.0 / 
 - 優先級：
+- 連續上榜：連續 2 日；近5日 2；近10日 2；多分類 range_rebound|revenue_pullback
 - TDCC：大戶轉弱
 - 權證：
 - 財報 / 事件催化：score 0 / theme 1/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window;電腦及週邊設備業 / monthly_revenue_calendar;calendar_monthly...
@@ -96,6 +100,7 @@
 - 族群：電腦及週邊設備業
 - 分數 / 排名：69.0 / 
 - 優先級：
+- 連續上榜：連續 2 日；近5日 2；近10日 2；多分類 pattern|range_rebound
 - TDCC：大戶轉弱
 - 權證：
 - 財報 / 事件催化：score 0 / theme 1/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window;電腦及週邊設備業 / monthly_revenue_calendar;calendar_monthly...
@@ -110,6 +115,7 @@
 - 族群：主流成長題材
 - 分數 / 排名：22.0 / 1.0
 - 優先級：A_優先追蹤
+- 連續上榜：連續 2 日；近5日 2；近10日 2；多分類 revenue_breakout_low_response|revenue_pullback
 - TDCC：大戶同步增加
 - 權證：
 - 財報 / 事件催化：score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthly_revenue_expected_w...
@@ -122,6 +128,7 @@
 - 族群：主流成長題材
 - 分數 / 排名：22.0 / 2.0
 - 優先級：A_優先追蹤
+- 連續上榜：連續 2 日；近5日 2；近10日 2；多分類 pattern|range_rebound|revenue_breakout_low_response|revenue_pullback
 - TDCC：大戶同步增加
 - 權證：
 - 財報 / 事件催化：score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthly_revenue_expected_w...
@@ -134,6 +141,7 @@
 - 族群：一般產業
 - 分數 / 排名：22.0 / 6.0
 - 優先級：B_可觀察
+- 連續上榜：連續 2 日；近5日 2；近10日 2；多分類 revenue_breakout_low_response|revenue_pullback
 - TDCC：大戶同步增加
 - 權證：
 - 財報 / 事件催化：score 15 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthly_revenue_expected_w...
@@ -146,6 +154,7 @@
 - 族群：一般產業
 - 分數 / 排名：22.0 / 7.0
 - 優先級：B_可觀察
+- 連續上榜：連續 2 日；近5日 2；近10日 2；多分類 pattern|revenue_breakout_low_response|revenue_pullback
 - TDCC：大戶同步增加
 - 權證：
 - 財報 / 事件催化：score 15 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthly_revenue_expected_w...
@@ -158,6 +167,7 @@
 - 族群：主流成長題材
 - 分數 / 排名：20.0 / 3.0
 - 優先級：A_優先追蹤
+- 連續上榜：連續 2 日；近5日 2；近10日 2；多分類 revenue_breakout_low_response|revenue_pullback
 - TDCC：大戶溫和增加
 - 權證：
 - 財報 / 事件催化：score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthly_revenue_expected_w...
@@ -172,6 +182,7 @@
 - 族群：光電業
 - 分數 / 排名：90.0 / 
 - 優先級：
+- 連續上榜：連續 2 日；近5日 2；近10日 2；多分類 revenue_breakout_low_response|revenue_pullback
 - TDCC：大戶溫和增加
 - 權證：
 - 財報 / 事件催化：score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthly_revenue_expected_w...
@@ -184,6 +195,7 @@
 - 族群：半導體業
 - 分數 / 排名：90.0 / 
 - 優先級：
+- 連續上榜：連續 2 日；近5日 2；近10日 2；多分類 pattern|revenue_pullback
 - TDCC：大戶溫和增加
 - 權證：
 - 財報 / 事件催化：score 18 / theme 1/5 / revenue_good_eps_unconfirmed;monthly_revenue_calendar;calendar_monthly_revenue_expected_window;半導體業 / revenue_good_ep...
@@ -196,6 +208,7 @@
 - 族群：半導體業
 - 分數 / 排名：90.0 / 
 - 優先級：
+- 連續上榜：連續 2 日；近5日 2；近10日 2；多分類 revenue_pullback
 - TDCC：大戶轉弱
 - 權證：
 - 財報 / 事件催化：score 0 / theme 1/5 / revenue_good_eps_unconfirmed;monthly_revenue_calendar;calendar_monthly_revenue_expected_window;半導體業 / revenue_good_eps...
@@ -208,6 +221,7 @@
 - 族群：其他電子業
 - 分數 / 排名：90.0 / 
 - 優先級：
+- 連續上榜：連續 2 日；近5日 2；近10日 2；多分類 revenue_pullback
 - TDCC：大戶溫和增加
 - 權證：
 - 財報 / 事件催化：score 28 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthly_revenue_expected_w...
@@ -220,6 +234,7 @@
 - 族群：半導體業
 - 分數 / 排名：90.0 / 
 - 優先級：
+- 連續上榜：連續 2 日；近5日 2；近10日 2；多分類 revenue_pullback
 - TDCC：大戶轉弱
 - 權證：
 - 財報 / 事件催化：score 0 / theme 1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthly_revenue_expected_wi...
@@ -234,6 +249,7 @@
 - 族群：
 - 分數 / 排名： / 
 - 優先級：
+- 連續上榜：連續 2 日；近5日 2；近10日 2；多分類 pattern
 - TDCC：
 - 權證：
 - 財報 / 事件催化：score 0 / theme 0/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window / monthly_revenue_calendar;calendar_monthly_revenue_...
@@ -245,6 +261,7 @@
 - 族群：食品工業
 - 分數 / 排名： / 
 - 優先級：
+- 連續上榜：連續 2 日；近5日 2；近10日 2；多分類 pattern
 - TDCC：大戶轉弱
 - 權證：
 - 財報 / 事件催化：score 0 / theme 1/5 / dividend_calendar;calendar_ex_dividend;食品工業 / dividend_calendar;calendar_ex_dividend / calendar ex_dividend 20260527 /...
@@ -256,6 +273,7 @@
 - 族群：塑膠工業
 - 分數 / 排名： / 
 - 優先級：
+- 連續上榜：連續 2 日；近5日 2；近10日 2；多分類 pattern
 - TDCC：大戶同步增加
 - 權證：
 - 財報 / 事件催化：score 0 / theme 1/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window;塑膠工業 / monthly_revenue_calendar;calendar_monthly_rev...
@@ -268,6 +286,7 @@
 - 族群：塑膠工業
 - 分數 / 排名： / 
 - 優先級：
+- 連續上榜：連續 2 日；近5日 2；近10日 2；多分類 pattern
 - TDCC：大戶同步增加
 - 權證：
 - 財報 / 事件催化：score 0 / theme 1/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window;塑膠工業 / monthly_revenue_calendar;calendar_monthly_rev...
@@ -280,6 +299,7 @@
 - 族群：塑膠工業
 - 分數 / 排名： / 
 - 優先級：
+- 連續上榜：連續 2 日；近5日 2；近10日 2；多分類 pattern
 - TDCC：大戶同步增加
 - 權證：
 - 財報 / 事件催化：score 0 / theme 1/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window;塑膠工業 / monthly_revenue_calendar;calendar_monthly_rev...

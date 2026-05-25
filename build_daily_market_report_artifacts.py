@@ -829,6 +829,41 @@ def clean_text(text: str, limit: int = 80) -> str:
     return text
 
 
+REPEAT_LABEL_TEXT = {
+    "first_seen": "首次上榜",
+    "continued_2_3d": "連續 2-3 日",
+    "continued_many_days": "連續多日",
+    "repeated_but_no_breakout": "反覆上榜未突破",
+    "continued_overheated": "連續上榜但過熱",
+    "stale_signal": "訊號鈍化",
+}
+
+
+def repeat_display(row: pd.Series) -> str:
+    label = safe_str(row.get("repeat_appear_label", ""))
+    days = safe_float(row.get("consecutive_appear_days_any_category", ""), default=math.nan)
+    day_text = str(int(days)) if not math.isnan(days) and days > 0 else ""
+    if label in {"continued_2_3d", "continued_many_days"} and day_text:
+        return f"連續 {day_text} 日"
+    if label:
+        return REPEAT_LABEL_TEXT.get(label, label)
+    return "資料不足"
+
+
+def repeat_markdown_text(row: pd.Series) -> str:
+    parts = [repeat_display(row)]
+    count5 = safe_str(row.get("appear_count_5d", ""))
+    count10 = safe_str(row.get("appear_count_10d", ""))
+    multi = safe_str(row.get("multi_category_flags", ""))
+    if count5:
+        parts.append(f"近5日 {count5}")
+    if count10:
+        parts.append(f"近10日 {count10}")
+    if multi:
+        parts.append(f"多分類 {multi}")
+    return "；".join(parts)
+
+
 def tdcc_short(row: pd.Series) -> str:
     for col in ["tdcc_accumulation_signal", "tdcc_judgement", "tdcc_accumulation_note"]:
         value = safe_str(row.get(col, ""))
@@ -1653,6 +1688,7 @@ def build_summary_markdown(
             lines.append(f"- 族群：{theme_short(row)}")
             lines.append(f"- 分數 / 排名：{safe_str(row.get('score', ''))} / {safe_str(row.get('rank', ''))}")
             lines.append(f"- 優先級：{safe_str(row.get('revaluation_priority', ''))}")
+            lines.append(f"- 連續上榜：{repeat_markdown_text(row)}")
             lines.append(f"- TDCC：{tdcc_short(row)}")
             lines.append(f"- 權證：{warrant_short(row)}")
             catalyst = catalyst_short(row, 140)
@@ -1700,6 +1736,14 @@ def build_full_markdown(
         "score",
         "rank",
         "revaluation_priority",
+        "consecutive_appear_days_any_category",
+        "consecutive_appear_days_same_category",
+        "appear_count_5d",
+        "appear_count_10d",
+        "appear_count_20d",
+        "first_seen_date",
+        "multi_category_flags",
+        "repeat_appear_label",
         "tdcc_accumulation_signal",
         "tdcc_judgement",
         "warrant_flow_signal",
@@ -1829,6 +1873,7 @@ def build_summary_pdf(
             story.append(p(f"族群：{theme_short(row)}", styles["card_body"]))
             story.append(p(f"分數 / 排名：{safe_str(row.get('score', ''))} / {safe_str(row.get('rank', ''))}", styles["card_body"]))
             story.append(p(f"優先級：{safe_str(row.get('revaluation_priority', ''))}", styles["card_body"]))
+            story.append(p(f"連續上榜：{repeat_markdown_text(row)}", styles["card_body"]))
             story.append(p(f"TDCC：{tdcc_short(row)}", styles["card_body"]))
             story.append(p(f"權證：{warrant_short(row)}", styles["card_body"]))
             story.append(p(f"摘要：{compact_reason(row, category_value, 120)}", styles["card_body"]))

@@ -24,8 +24,11 @@ PDF_KLINE_STATUS_MD = LATEST_DIR / "pdf_kline_chart_status_latest.md"
 FIXED_PDF_MANIFEST_JSON = LATEST_DIR / "daily_market_pdf_report_manifest_latest.json"
 FIXED_PDF_VALIDATION_JSON = LATEST_DIR / "daily_market_report_validation_latest.json"
 DAILY_SIGNAL_LOG = Path("output/history/daily_signals/daily_candidate_signal_log.csv")
+DAILY_CANDIDATE_SIGNAL_LOG = Path("output/history/daily_candidates/daily_candidate_signal_log.csv")
 DAILY_SIGNAL_PERFORMANCE = Path("output/history/daily_signals/daily_candidate_signal_performance.csv")
 DAILY_SIGNAL_SUMMARY_MD = LATEST_DIR / "daily_signal_performance_summary_latest.md"
+CANDIDATE_REPEAT_CSV = LATEST_DIR / "candidate_repeat_appearance_latest.csv"
+CANDIDATE_REPEAT_MD = LATEST_DIR / "candidate_repeat_appearance_latest.md"
 DAILY_SIGNAL_WEEKLY_PDF = LATEST_DIR / "daily_signal_performance_weekly_latest.pdf"
 DAILY_SIGNAL_MONTHLY_PDF = LATEST_DIR / "daily_signal_performance_monthly_latest.pdf"
 FUNDAMENTAL_CATALYST_MD = LATEST_DIR / "fundamental_catalyst_layer_latest.md"
@@ -368,6 +371,33 @@ def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path],
     lines.append(f"last_updated_at: {now_text()}")
     lines.append(f"status: {'generated' if DAILY_SIGNAL_LOG.exists() and DAILY_SIGNAL_PERFORMANCE.exists() else 'missing'}")
     lines.append("")
+    history_available_days = 0
+    latest_repeat_signal_date = ""
+    try:
+        if DAILY_CANDIDATE_SIGNAL_LOG.exists():
+            repeat_log_df = pd.read_csv(DAILY_CANDIDATE_SIGNAL_LOG, dtype=str, keep_default_na=False)
+        elif DAILY_SIGNAL_LOG.exists():
+            repeat_log_df = pd.read_csv(DAILY_SIGNAL_LOG, dtype=str, keep_default_na=False)
+        else:
+            repeat_log_df = pd.DataFrame()
+        if not repeat_log_df.empty and "signal_date" in repeat_log_df.columns:
+            dates = sorted({normalize_date(x) for x in repeat_log_df["signal_date"].tolist() if normalize_date(x)})
+            history_available_days = len(dates)
+            latest_repeat_signal_date = dates[-1] if dates else ""
+    except Exception:
+        history_available_days = 0
+    lines.append("CANDIDATE REPEAT APPEARANCE")
+    lines.append(f"signal_log_path: {DAILY_CANDIDATE_SIGNAL_LOG.as_posix()}")
+    lines.append(f"legacy_signal_log_path: {DAILY_SIGNAL_LOG.as_posix()}")
+    lines.append(f"repeat_appearance_path: {CANDIDATE_REPEAT_CSV.as_posix()}")
+    lines.append(f"repeat_appearance_raw_url: {raw_url(CANDIDATE_REPEAT_CSV)}")
+    lines.append(f"repeat_appearance_md_raw_url: {raw_url(CANDIDATE_REPEAT_MD)}")
+    lines.append(f"history_available_days: {history_available_days}")
+    lines.append(f"status: {'generated' if CANDIDATE_REPEAT_CSV.exists() and CANDIDATE_REPEAT_MD.exists() else 'missing'}")
+    lines.append(f"latest_signal_date: {latest_repeat_signal_date or main_date}")
+    lines.append("fields: consecutive_appear_days_any_category,consecutive_appear_days_same_category,appear_count_5d,appear_count_10d,appear_count_20d,first_seen_date,last_seen_date,multi_category_flags,repeat_appear_label,repeat_appear_note")
+    lines.append("note: Repeat appearance is calculated from raw daily candidate signal logs. ChatGPT must not infer consecutive days manually.")
+    lines.append("")
     lines.append("WARRANT MARKET ANALYSIS")
     lines.append(f"market_report_md_raw_url: {raw_url(WARRANT_MARKET_MD)}")
     lines.append(f"market_report_pdf_pages_url: {pages_url(Path('docs/latest/warrant_market_report_latest.pdf'))}")
@@ -475,6 +505,12 @@ def write_packet_manifest(main_date: str, report_ready: str, paths: dict[str, Pa
         "daily_signal_performance_weekly_pdf_pages_url": pages_url(Path("docs/latest/daily_signal_performance_weekly_latest.pdf")),
         "daily_signal_performance_monthly_pdf_pages_url": pages_url(Path("docs/latest/daily_signal_performance_monthly_latest.pdf")),
         "daily_signal_performance_status": "generated" if DAILY_SIGNAL_LOG.exists() and DAILY_SIGNAL_PERFORMANCE.exists() else "missing",
+        "daily_candidate_signal_log_path": DAILY_CANDIDATE_SIGNAL_LOG.as_posix(),
+        "daily_candidate_signal_log_raw_url": raw_url(DAILY_CANDIDATE_SIGNAL_LOG),
+        "candidate_repeat_appearance_path": CANDIDATE_REPEAT_CSV.as_posix(),
+        "candidate_repeat_appearance_raw_url": raw_url(CANDIDATE_REPEAT_CSV),
+        "candidate_repeat_appearance_md_raw_url": raw_url(CANDIDATE_REPEAT_MD),
+        "candidate_repeat_appearance_status": "generated" if CANDIDATE_REPEAT_CSV.exists() and CANDIDATE_REPEAT_MD.exists() else "missing",
         "latest_packet_path": PACKET_LATEST.as_posix(),
         "latest_packet_raw_url_main": raw_url(PACKET_LATEST, ref="main"),
         "legacy_latest_packet_path": PACKET_LATEST_OLD.as_posix(),

@@ -600,6 +600,43 @@ def score_rank_text(row: pd.Series) -> str:
     return " / ".join(parts) if parts else "無分數"
 
 
+REPEAT_LABEL_TEXT = {
+    "first_seen": "首次上榜",
+    "continued_2_3d": "連續 2-3 日",
+    "continued_many_days": "連續多日",
+    "repeated_but_no_breakout": "反覆上榜未突破",
+    "continued_overheated": "連續上榜但過熱",
+    "stale_signal": "訊號鈍化",
+}
+
+
+def repeat_display(row: pd.Series) -> str:
+    label = safe_str(row.get("repeat_appear_label", ""))
+    any_days = safe_int(row.get("consecutive_appear_days_any_category", ""))
+    if label == "continued_2_3d" and any_days:
+        return f"連續 {any_days} 日"
+    if label == "continued_many_days" and any_days:
+        return f"連續 {any_days} 日"
+    if label:
+        return REPEAT_LABEL_TEXT.get(label, label)
+    return "資料不足"
+
+
+def repeat_full_text(row: pd.Series) -> str:
+    display = repeat_display(row)
+    count5 = safe_str(row.get("appear_count_5d", ""))
+    count10 = safe_str(row.get("appear_count_10d", ""))
+    note = clean_text(row.get("repeat_appear_note", ""), 50)
+    parts = [display]
+    if count5:
+        parts.append(f"5日{count5}")
+    if count10:
+        parts.append(f"10日{count10}")
+    if note:
+        parts.append(note)
+    return " / ".join(parts)
+
+
 def stock_text(row: pd.Series) -> str:
     return f"{safe_str(row.get('stock_id', ''))} {clean_text(row.get('stock_name', ''))}".strip()
 
@@ -901,6 +938,7 @@ def stock_card(row: pd.Series, style_map: dict[str, ParagraphStyle], warrant_flo
         [title, f"{row['priority_label']}｜{score_rank_text(row)}"],
         ["入選理由", reason_text(row)],
         ["TDCC / 權證", f"{tdcc_signal(row)} / {warrant_signal(row, warrant_flow_date)}"],
+        ["連續上榜", repeat_full_text(row)],
         ["財報 / 事件催化", catalyst_brief(row)],
         ["主要風險", risk_text(row, warrant_flow_date)],
         ["明日確認條件", confirm_text(row)],
@@ -964,13 +1002,14 @@ def build_curated_pdf(df: pd.DataFrame, freshness: dict[str, Any], main_date: st
     if watch.empty:
         story.append(para("今日沒有達到優先追蹤條件的標的。", style_map["normal"]))
     else:
-        rows = [["分類", "股票", "優先級", "分數 / 排名 / priority", "為什麼先看", "風險與確認"]]
+        rows = [["分類", "股票", "優先級", "連續上榜", "分數 / 排名 / priority", "為什麼先看", "風險與確認"]]
         for _, row in watch.iterrows():
             rows.append(
                 [
                     CATEGORY_SHORT.get(safe_str(row.get("category_key")), ""),
                     stock_text(row),
                     row["priority_label"],
+                    repeat_display(row),
                     score_rank_text(row),
                     reason_text(row),
                     f"{risk_text(row, warrant_flow_date)}；{confirm_text(row)}",
@@ -980,7 +1019,7 @@ def build_curated_pdf(df: pd.DataFrame, freshness: dict[str, Any], main_date: st
             make_table(
                 rows,
                 style_map,
-                [2.3 * cm, 2.5 * cm, 2.3 * cm, 3.0 * cm, 4.2 * cm, 4.7 * cm],
+                [2.0 * cm, 2.4 * cm, 2.1 * cm, 2.1 * cm, 2.7 * cm, 3.7 * cm, 4.2 * cm],
             )
         )
 
@@ -1068,13 +1107,17 @@ def sector_conclusion(grade: str, resonance: int, tdcc_support: int, warrant_sup
 
 
 def full_table_rows(part: pd.DataFrame, warrant_flow_date: str) -> list[list[Any]]:
-    rows = [["股票代號", "股票名稱", "分數 / 排名 / priority", "細分族群", "TDCC 判斷", "權證判斷", "催化層", "精簡理由", "降級原因"]]
+    rows = [["股票代號", "股票名稱", "分數 / 排名 / priority", "連續上榜", "近5日上榜", "近10日上榜", "多分類共振", "細分族群", "TDCC 判斷", "權證判斷", "催化層", "精簡理由", "降級原因"]]
     for _, row in part.iterrows():
         rows.append(
             [
                 safe_str(row.get("stock_id", "")),
                 clean_text(row.get("stock_name", ""), 18),
                 score_rank_text(row),
+                repeat_display(row),
+                safe_str(row.get("appear_count_5d", "")),
+                safe_str(row.get("appear_count_10d", "")),
+                clean_text(row.get("multi_category_flags", ""), 24),
                 clean_text(row.get("group_name", ""), 24),
                 tdcc_signal(row),
                 warrant_signal(row, warrant_flow_date),
@@ -1136,7 +1179,21 @@ def build_full_table_pdf(df: pd.DataFrame, freshness: dict[str, Any], main_date:
                 make_table(
                     full_table_rows(chunk, warrant_flow_date),
                     style_map,
-                    [1.4 * cm, 1.6 * cm, 2.6 * cm, 2.0 * cm, 2.3 * cm, 2.3 * cm, 3.6 * cm, 5.2 * cm, 3.0 * cm],
+                    [
+                        1.1 * cm,
+                        1.4 * cm,
+                        2.1 * cm,
+                        1.5 * cm,
+                        1.1 * cm,
+                        1.1 * cm,
+                        2.1 * cm,
+                        1.8 * cm,
+                        1.8 * cm,
+                        1.8 * cm,
+                        2.8 * cm,
+                        4.0 * cm,
+                        2.3 * cm,
+                    ],
                 )
             )
             story.append(Spacer(1, 0.25 * cm))

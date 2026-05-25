@@ -217,6 +217,12 @@ jobs:
         run: |
           python scripts/apply_fundamental_catalyst_layer.py
 
+      - name: Update candidate repeat appearance tracking
+        run: |
+          python scripts/update_daily_candidate_signal_log.py
+          python scripts/build_candidate_repeat_appearance.py
+          python scripts/validate_candidate_repeat_appearance.py
+
       - name: Update catalyst performance tracking
         run: |
           python scripts/update_catalyst_performance.py
@@ -257,10 +263,10 @@ jobs:
 
       - name: Update daily candidate signal tracking
         run: |
-          python scripts/update_daily_candidate_signal_log.py
           python scripts/update_daily_candidate_signal_performance.py
           python scripts/generate_daily_signal_performance_report.py
           python scripts/validate_daily_signal_performance.py
+          python scripts/validate_candidate_repeat_appearance.py
 
       - name: Build ChatGPT daily report packet
         run: |
@@ -390,7 +396,12 @@ jobs:
           git add output/latest/daily_signal_performance_monthly_latest.md || true
           git add output/latest/daily_signal_performance_monthly_latest.pdf || true
           git add output/latest/daily_signal_performance_validation_latest.md || true
+          git add output/latest/candidate_repeat_appearance_latest.csv || true
+          git add output/latest/candidate_repeat_appearance_latest.md || true
+          git add output/latest/candidate_repeat_appearance_validation_latest.json || true
+          git add output/latest/candidate_repeat_appearance_validation_latest.md || true
           git add output/history/daily_signals/ || true
+          git add output/history/daily_candidates/ || true
           git add data/market_index_history.csv || true
           git add output/latest/market_benchmark_latest.csv || true
           git add data/warrant_daily/ || true
@@ -452,6 +463,8 @@ jobs:
           git add docs/event_calendar_data_layer.md || true
           git add scripts/update_market_index_history.py || true
           git add scripts/update_daily_candidate_signal_log.py || true
+          git add scripts/build_candidate_repeat_appearance.py || true
+          git add scripts/validate_candidate_repeat_appearance.py || true
           git add scripts/update_daily_candidate_signal_performance.py || true
           git add scripts/generate_daily_signal_performance_report.py || true
           git add scripts/validate_daily_signal_performance.py || true
@@ -540,7 +553,12 @@ jobs:
           git add output/latest/daily_signal_performance_monthly_latest.md || true
           git add output/latest/daily_signal_performance_monthly_latest.pdf || true
           git add output/latest/daily_signal_performance_validation_latest.md || true
+          git add output/latest/candidate_repeat_appearance_latest.csv || true
+          git add output/latest/candidate_repeat_appearance_latest.md || true
+          git add output/latest/candidate_repeat_appearance_validation_latest.json || true
+          git add output/latest/candidate_repeat_appearance_validation_latest.md || true
           git add output/history/daily_signals/ || true
+          git add output/history/daily_candidates/ || true
           git add data/market_index_history.csv || true
           git add output/latest/market_benchmark_latest.csv || true
           git add data/futures_options/ || true
@@ -610,6 +628,8 @@ jobs:
           git add docs/market_regime_data_source_plan.md || true
           git add scripts/update_market_index_history.py || true
           git add scripts/update_daily_candidate_signal_log.py || true
+          git add scripts/build_candidate_repeat_appearance.py || true
+          git add scripts/validate_candidate_repeat_appearance.py || true
           git add scripts/update_daily_candidate_signal_performance.py || true
           git add scripts/generate_daily_signal_performance_report.py || true
           git add scripts/validate_daily_signal_performance.py || true

@@ -55,6 +55,9 @@ DAILY_SIGNAL_WEEKLY_MD = LATEST_DIR / "daily_signal_performance_weekly_latest.md
 DAILY_SIGNAL_WEEKLY_PDF = LATEST_DIR / "daily_signal_performance_weekly_latest.pdf"
 DAILY_SIGNAL_MONTHLY_MD = LATEST_DIR / "daily_signal_performance_monthly_latest.md"
 DAILY_SIGNAL_MONTHLY_PDF = LATEST_DIR / "daily_signal_performance_monthly_latest.pdf"
+DAILY_CANDIDATE_SIGNAL_LOG = Path("output/history/daily_candidates/daily_candidate_signal_log.csv")
+CANDIDATE_REPEAT_APPEARANCE_CSV = LATEST_DIR / "candidate_repeat_appearance_latest.csv"
+CANDIDATE_REPEAT_APPEARANCE_MD = LATEST_DIR / "candidate_repeat_appearance_latest.md"
 DOCS_DAILY_SIGNAL_WEEKLY_PDF = DOCS_LATEST_DIR / "daily_signal_performance_weekly_latest.pdf"
 DOCS_DAILY_SIGNAL_MONTHLY_PDF = DOCS_LATEST_DIR / "daily_signal_performance_monthly_latest.pdf"
 FUNDAMENTAL_CATALYST_MD = LATEST_DIR / "fundamental_catalyst_layer_latest.md"
@@ -388,6 +391,9 @@ def build_readme(
     daily_signal_performance_monthly_md_raw_url: str,
     daily_signal_performance_monthly_pdf_pages_url: str,
     daily_signal_performance_monthly_pdf_raw_url: str,
+    daily_candidate_signal_log_raw_url: str,
+    candidate_repeat_appearance_raw_url: str,
+    candidate_repeat_appearance_md_raw_url: str,
     warrant_market_report_md_raw_url: str,
     warrant_market_report_pdf_pages_url: str,
     warrant_market_report_pdf_raw_url: str,
@@ -459,6 +465,9 @@ def build_readme(
         f"daily_signal_performance_monthly_md_raw_url={daily_signal_performance_monthly_md_raw_url}",
         f"daily_signal_performance_monthly_pdf_pages_url={daily_signal_performance_monthly_pdf_pages_url}",
         f"daily_signal_performance_monthly_pdf_raw_url={daily_signal_performance_monthly_pdf_raw_url}",
+        f"daily_candidate_signal_log_raw_url={daily_candidate_signal_log_raw_url}",
+        f"candidate_repeat_appearance_raw_url={candidate_repeat_appearance_raw_url}",
+        f"candidate_repeat_appearance_md_raw_url={candidate_repeat_appearance_md_raw_url}",
         f"warrant_market_report_md_raw_url={warrant_market_report_md_raw_url}",
         f"warrant_market_report_pdf_pages_url={warrant_market_report_pdf_pages_url}",
         f"warrant_market_report_pdf_raw_url={warrant_market_report_pdf_raw_url}",
@@ -723,6 +732,9 @@ def main() -> int:
     daily_signal_performance_monthly_md_raw_url = raw_url("main", DAILY_SIGNAL_MONTHLY_MD)
     daily_signal_performance_monthly_pdf_pages_url = pages_url("latest/daily_signal_performance_monthly_latest.pdf")
     daily_signal_performance_monthly_pdf_raw_url = raw_url("main", DAILY_SIGNAL_MONTHLY_PDF)
+    daily_candidate_signal_log_raw_url = raw_url("main", DAILY_CANDIDATE_SIGNAL_LOG)
+    candidate_repeat_appearance_raw_url = raw_url("main", CANDIDATE_REPEAT_APPEARANCE_CSV)
+    candidate_repeat_appearance_md_raw_url = raw_url("main", CANDIDATE_REPEAT_APPEARANCE_MD)
     warrant_market_report_md_raw_url = raw_url("main", WARRANT_MARKET_MD)
     warrant_market_report_pdf_pages_url = pages_url("latest/warrant_market_report_latest.pdf")
     warrant_market_report_pdf_raw_url = raw_url("main", WARRANT_MARKET_PDF)
@@ -794,6 +806,9 @@ def main() -> int:
         daily_signal_performance_monthly_md_raw_url=daily_signal_performance_monthly_md_raw_url,
         daily_signal_performance_monthly_pdf_pages_url=daily_signal_performance_monthly_pdf_pages_url,
         daily_signal_performance_monthly_pdf_raw_url=daily_signal_performance_monthly_pdf_raw_url,
+        daily_candidate_signal_log_raw_url=daily_candidate_signal_log_raw_url,
+        candidate_repeat_appearance_raw_url=candidate_repeat_appearance_raw_url,
+        candidate_repeat_appearance_md_raw_url=candidate_repeat_appearance_md_raw_url,
         warrant_market_report_md_raw_url=warrant_market_report_md_raw_url,
         warrant_market_report_pdf_pages_url=warrant_market_report_pdf_pages_url,
         warrant_market_report_pdf_raw_url=warrant_market_report_pdf_raw_url,
@@ -902,6 +917,9 @@ def main() -> int:
         "daily_signal_performance_monthly_md_raw_url": daily_signal_performance_monthly_md_raw_url,
         "daily_signal_performance_monthly_pdf_pages_url": daily_signal_performance_monthly_pdf_pages_url,
         "daily_signal_performance_monthly_pdf_raw_url": daily_signal_performance_monthly_pdf_raw_url,
+        "daily_candidate_signal_log_raw_url": daily_candidate_signal_log_raw_url,
+        "candidate_repeat_appearance_raw_url": candidate_repeat_appearance_raw_url,
+        "candidate_repeat_appearance_md_raw_url": candidate_repeat_appearance_md_raw_url,
         "warrant_market_report_md_raw_url": warrant_market_report_md_raw_url,
         "warrant_market_report_pdf_pages_url": warrant_market_report_pdf_pages_url,
         "warrant_market_report_pdf_raw_url": warrant_market_report_pdf_raw_url,

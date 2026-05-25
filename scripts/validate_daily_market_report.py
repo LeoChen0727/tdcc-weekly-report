@@ -18,6 +18,8 @@ HISTORY_REPORT_DIR = Path("output/history/reports")
 
 DATA_FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
 ALL_CANDIDATES_CSV = LATEST_DIR / "all_candidates_latest.csv"
+REPEAT_APPEARANCE_CSV = LATEST_DIR / "candidate_repeat_appearance_latest.csv"
+REPEAT_APPEARANCE_MD = LATEST_DIR / "candidate_repeat_appearance_latest.md"
 PDF_MANIFEST_JSON = LATEST_DIR / "daily_market_pdf_report_manifest_latest.json"
 
 CURATED_PDF = LATEST_DIR / "daily_market_curated_report_latest.pdf"
@@ -286,6 +288,45 @@ def check_catalyst_columns(errors: list[str]) -> None:
             errors.append("similar_to_shihsinko_flag includes distribution_warning rows")
 
 
+def check_repeat_appearance_columns(errors: list[str]) -> None:
+    required = {
+        "consecutive_appear_days_any_category",
+        "consecutive_appear_days_same_category",
+        "appear_count_5d",
+        "appear_count_10d",
+        "appear_count_20d",
+        "first_seen_date",
+        "last_seen_date",
+        "multi_category_flags",
+        "repeat_appear_label",
+        "repeat_appear_note",
+    }
+    if not REPEAT_APPEARANCE_CSV.exists():
+        errors.append(f"missing {REPEAT_APPEARANCE_CSV}")
+    if not REPEAT_APPEARANCE_MD.exists():
+        errors.append(f"missing {REPEAT_APPEARANCE_MD}")
+    if not ALL_CANDIDATES_CSV.exists():
+        return
+    try:
+        df = pd.read_csv(ALL_CANDIDATES_CSV, dtype=str, keep_default_na=False)
+    except Exception as exc:
+        errors.append(f"failed to inspect repeat appearance columns: {exc}")
+        return
+    missing = required - set(df.columns)
+    if missing:
+        errors.append(f"all_candidates missing repeat appearance columns: {sorted(missing)}")
+
+
+def check_repeat_appearance_in_pdf(label: str, text: str, errors: list[str]) -> None:
+    compact = normalize_for_search(text)
+    required = ["連續上榜"]
+    if label == "full_table":
+        required.extend(["近5日上榜", "近10日上榜", "多分類共振"])
+    for phrase in required:
+        if normalize_for_search(phrase) not in compact:
+            errors.append(f"{label}: missing repeat appearance wording: {phrase}")
+
+
 def validate() -> tuple[dict[str, Any], list[str], list[str]]:
     errors: list[str] = []
     warnings: list[str] = []
@@ -312,6 +353,9 @@ def validate() -> tuple[dict[str, Any], list[str], list[str]]:
     check_report_date("full_table", full["text"], main_date, errors)
     check_candidate_date(errors, main_date)
     check_catalyst_columns(errors)
+    check_repeat_appearance_columns(errors)
+    check_repeat_appearance_in_pdf("curated", curated["text"], errors)
+    check_repeat_appearance_in_pdf("full_table", full["text"], errors)
 
     result = {
         "generated_at": now_text(),
@@ -344,6 +388,7 @@ def validate() -> tuple[dict[str, Any], list[str], list[str]]:
             "score_rank_priority_present": not any("score/rank/priority" in err for err in errors),
             "report_date_matches": not any("main_price_date" in err or "all_candidates date" in err for err in errors),
             "catalyst_layer_columns_present": not any("catalyst" in err or "similar_to_shihsinko" in err for err in errors),
+            "repeat_appearance_columns_present": not any("repeat appearance" in err or "連續上榜" in err or "近5日上榜" in err for err in errors),
         },
         "errors": errors,
         "warnings": warnings,
