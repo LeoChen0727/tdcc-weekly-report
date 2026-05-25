@@ -1,6 +1,6 @@
 # Surge Model Score Latest
 
-generated_at: 2026-05-26 02:09:34 Asia/Taipei
+generated_at: 2026-05-26 03:51:55 Asia/Taipei
 trade_date: 20260526
 
 初版為 rule-based score，等待 mature samples 足夠後才可調整權重。
