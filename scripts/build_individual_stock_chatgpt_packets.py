@@ -137,41 +137,21 @@ def write_html_table(df: pd.DataFrame, path: Path, title: str) -> None:
         f"<title>{html_escape(title)}</title>",
         "<style>",
         "body{font-family:Arial,'Noto Sans TC',sans-serif;margin:24px;line-height:1.45;color:#111}",
-        "table{border-collapse:collapse;width:100%;font-size:13px}",
-        "th,td{border:1px solid #ddd;padding:4px 6px;text-align:right;white-space:nowrap}",
-        "th:first-child,td:first-child{text-align:left}",
-        "th{background:#f1f5f9;position:sticky;top:0}",
         ".note{color:#555;font-size:13px;margin:8px 0 16px}",
-        ".row-lines{margin-top:28px}",
         ".data-row{font-family:Consolas,monospace;font-size:12px;white-space:normal;border-bottom:1px solid #eee;padding:4px 0}",
         "</style>",
         "</head>",
         "<body>",
         f"<h1>{html_escape(title)}</h1>",
         f'<p class="note">Rows: {len(df)}. This 180-day HTML mirror is for ChatGPT/browser extraction. Full raw CSV remains available for programmatic backtests.</p>',
-        "<table>",
     ]
     if df.empty:
-        lines.extend(["<tr><th>status</th></tr>", "<tr><td>no_rows</td></tr>"])
-        lines.append("</table>")
+        lines.append('<p class="data-row">status=no_rows</p>')
     else:
-        lines.append("<thead><tr>" + "".join(f"<th>{html_escape(col)}</th>" for col in df.columns) + "</tr></thead>")
-        lines.append("<tbody>")
-        for _, row in df.iterrows():
-            lines.append("<tr>" + "".join(f"<td>{html_escape(row[col])}</td>" for col in df.columns) + "</tr>")
-        lines.append("</tbody>")
-        lines.extend(
-            [
-                "</table>",
-                '<section class="row-lines">',
-                "<h2>One Row Per Paragraph</h2>",
-                '<p class="note">Use these PRICE_ROW lines if the table is not extracted cleanly. They contain the same 180-day window rows.</p>',
-            ]
-        )
+        lines.append(f'<p class="data-row">columns={"|".join(html_escape(col) for col in df.columns)}</p>')
         columns = list(df.columns)
         for i, (_, row) in enumerate(df.iterrows(), start=1):
             lines.append(f'<p class="data-row">PRICE_ROW_{i:03d}={html_escape(row_kv_text(row, columns))}</p>')
-        lines.append("</section>")
     lines.extend(["</body>", "</html>"])
     path.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8", newline="\n")
 
