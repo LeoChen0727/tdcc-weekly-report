@@ -1,6 +1,6 @@
 # Raw Data Fetch Status
 
-- generated_at: 2026-05-26 06:04:37 Asia/Taipei
+- generated_at: 2026-05-26 06:41:34 Asia/Taipei
 - sources_checked: raw, pages, api
 - checked_rows: 216
 - success_rows: 175
@@ -77,15 +77,15 @@
 | daily_candidate_decision_packet |  | api | success | 200 | 204 | 1 | 204 | 204 | ok | True |
 | daily_candidate_decision_packet |  | pages | missing_file | 404 | 0 | 0 | 0 | 204 | ok | False |
 | daily_candidate_decision_packet |  | raw | success | 200 | 204 | 1 | 204 | 204 | ok | True |
-| daily_market_full |  | api | success | 200 | 755 | 1 | 755 | 755 | ok | True |
-| daily_market_full |  | pages | missing_file | 404 | 0 | 0 | 0 | 755 | ok | False |
-| daily_market_full |  | raw | success | 200 | 755 | 1 | 755 | 755 | ok | True |
+| daily_market_full |  | api | success | 200 | 764 | 1 | 764 | 764 | ok | True |
+| daily_market_full |  | pages | missing_file | 404 | 0 | 0 | 0 | 764 | ok | False |
+| daily_market_full |  | raw | success | 200 | 764 | 1 | 764 | 764 | ok | True |
 | daily_market_summary |  | api | success | 200 | 307 | 1 | 307 | 307 | ok | True |
 | daily_market_summary |  | pages | missing_file | 404 | 0 | 0 | 0 | 307 | ok | False |
 | daily_market_summary |  | raw | success | 200 | 307 | 1 | 307 | 307 | ok | True |
-| daily_report_packet |  | api | success | 200 | 1248 | 1 | 1248 | 1248 | ok | True |
-| daily_report_packet |  | pages | success | 200 | 1248 | 1 | 1248 | 1248 | ok | True |
-| daily_report_packet |  | raw | success | 200 | 1248 | 1 | 1248 | 1248 | ok | True |
+| daily_report_packet |  | api | success | 200 | 1257 | 1 | 1257 | 1257 | ok | True |
+| daily_report_packet |  | pages | success | 200 | 1257 | 1 | 1257 | 1257 | ok | True |
+| daily_report_packet |  | raw | success | 200 | 1257 | 1 | 1257 | 1257 | ok | True |
 | daily_signal_performance_summary |  | api | success | 200 | 121 | 1 | 121 | 121 | ok | True |
 | daily_signal_performance_summary |  | pages | missing_file | 404 | 0 | 0 | 0 | 121 | ok | False |
 | daily_signal_performance_summary |  | raw | success | 200 | 121 | 1 | 121 | 121 | ok | True |
@@ -101,9 +101,9 @@
 | individual_stock_chatgpt_packet | 2330 | api | success | 200 | 142 | 1 | 142 | 142 | ok | True |
 | individual_stock_chatgpt_packet | 2330 | pages | success | 200 | 142 | 1 | 142 | 142 | ok | True |
 | individual_stock_chatgpt_packet | 2330 | raw | success | 200 | 142 | 1 | 142 | 142 | ok | True |
-| individual_stock_chatgpt_packet | 2353 | api | success | 200 | 145 | 1 | 145 | 142 | ok | True |
-| individual_stock_chatgpt_packet | 2353 | pages | success | 200 | 145 | 1 | 145 | 142 | ok | True |
-| individual_stock_chatgpt_packet | 2353 | raw | success | 200 | 145 | 1 | 145 | 142 | ok | True |
+| individual_stock_chatgpt_packet | 2353 | api | success | 200 | 142 | 1 | 142 | 142 | ok | True |
+| individual_stock_chatgpt_packet | 2353 | pages | success | 200 | 142 | 1 | 142 | 142 | ok | True |
+| individual_stock_chatgpt_packet | 2353 | raw | success | 200 | 142 | 1 | 142 | 142 | ok | True |
 | individual_stock_chatgpt_packet | 2484 | api | success | 200 | 142 | 1 | 142 | 142 | ok | True |
 | individual_stock_chatgpt_packet | 2484 | pages | success | 200 | 142 | 1 | 142 | 142 | ok | True |
 | individual_stock_chatgpt_packet | 2484 | raw | success | 200 | 142 | 1 | 142 | 142 | ok | True |

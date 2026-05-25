@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2937 集雅社
 
 ## Metadata
-- generated_at: 2026-05-26 06:02:20 Asia/Taipei
+- generated_at: 2026-05-26 06:39:48 Asia/Taipei
 - stock_id: 2937
 - stock_name: 集雅社
 - packet_status: standard_rawdata_packet

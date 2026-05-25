@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6855 數泓科
 
 ## Metadata
-- generated_at: 2026-05-26 06:03:36 Asia/Taipei
+- generated_at: 2026-05-26 06:40:45 Asia/Taipei
 - stock_id: 6855
 - stock_name: 數泓科
 - packet_status: standard_rawdata_packet
