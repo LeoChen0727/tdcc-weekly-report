@@ -36,6 +36,7 @@ NORMALIZED_LOG = TDCC_SIGNALS_DIR / "tdcc_normalized_signal_log.csv"
 THEME_BREADTH = TDCC_SIGNALS_DIR / "theme_breadth_history.csv"
 OUTPUT_MD = LATEST_DIR / "tdcc_signal_structures_latest.md"
 THRESHOLDS = [400, 600, 800, 1000]
+PRICE_HISTORY_CACHE: dict[str, pd.DataFrame] = {}
 
 
 def load_theme_map() -> dict[str, dict[str, str]]:
@@ -189,7 +190,10 @@ def classify_tdcc_price_phase(metrics: dict[str, Any]) -> str:
 
 
 def price_metrics(code: str, signal_date: str, index_history: pd.DataFrame | None = None) -> dict[str, Any]:
-    price = load_price_history(code)
+    code = normalize_code(code)
+    if code not in PRICE_HISTORY_CACHE:
+        PRICE_HISTORY_CACHE[code] = load_price_history(code)
+    price = PRICE_HISTORY_CACHE[code]
     out: dict[str, Any] = {}
     if price.empty:
         return out
@@ -259,20 +263,21 @@ def price_metrics(code: str, signal_date: str, index_history: pd.DataFrame | Non
     return out
 
 
-def build_snapshot() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
-    snapshots = load_tdcc_snapshots()
-    if not snapshots:
-        raise FileNotFoundError("Missing TDCC holder ratio snapshots")
-    signal_date, latest = snapshots[-1]
-    theme_map = load_theme_map()
-    index_history = load_market_index_history(update_if_missing=True)
+def build_snapshot_rows_for_date(
+    snapshots: list[tuple[str, pd.DataFrame]],
+    snapshot_idx: int,
+    theme_map: dict[str, dict[str, str]],
+    index_history: pd.DataFrame,
+) -> list[dict[str, Any]]:
+    signal_date, current_snapshot = snapshots[snapshot_idx]
+    available_snapshots = snapshots[: snapshot_idx + 1]
     rows: list[dict[str, Any]] = []
 
-    for _, row in latest.iterrows():
+    for _, row in current_snapshot.iterrows():
         code = normalize_code(row.get("code", ""))
         if not code:
             continue
-        series_by_threshold = {th: tdcc_series(snapshots, code, th) for th in THRESHOLDS}
+        series_by_threshold = {th: tdcc_series(available_snapshots, code, th) for th in THRESHOLDS}
         deltas = {th: latest_delta(series_by_threshold[th]) for th in THRESHOLDS}
         has = {th: (not math.isnan(deltas[th]) and deltas[th] > 0) for th in THRESHOLDS}
         if not any(has.values()):
@@ -345,17 +350,40 @@ def build_snapshot() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
         item["abm_reason"] = ""
         rows.append(item)
 
+    return rows
+
+
+def build_snapshot() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    snapshots = load_tdcc_snapshots()
+    if not snapshots:
+        raise FileNotFoundError("Missing TDCC holder ratio snapshots")
+    theme_map = load_theme_map()
+    index_history = load_market_index_history(update_if_missing=True)
+    rows: list[dict[str, Any]] = []
+
+    for snapshot_idx in range(1, len(snapshots)):
+        rows.extend(build_snapshot_rows_for_date(snapshots, snapshot_idx, theme_map, index_history))
+
     snapshot = pd.DataFrame(rows)
     if snapshot.empty:
         return snapshot, pd.DataFrame(), pd.DataFrame()
 
     breadth = build_theme_breadth(snapshot)
-    score_map = breadth.set_index("primary_theme")["breadth_score"].to_dict() if not breadth.empty else {}
-    sync_map = breadth.set_index("primary_theme")["sync_status"].to_dict() if not breadth.empty else {}
-    level_map = breadth.set_index("primary_theme")["theme_breadth_level"].to_dict() if not breadth.empty and "theme_breadth_level" in breadth.columns else {}
-    snapshot["theme_breadth_score"] = snapshot["primary_theme"].map(score_map).fillna(0)
-    snapshot["theme_sync_status"] = snapshot["primary_theme"].map(sync_map).fillna("neutral")
-    snapshot["theme_breadth_level"] = snapshot["primary_theme"].map(level_map).fillna("Neutral")
+    if not breadth.empty:
+        merge_cols = ["signal_date", "primary_theme", "breadth_score", "sync_status", "theme_breadth_level"]
+        snapshot = snapshot.merge(
+            breadth[[col for col in merge_cols if col in breadth.columns]],
+            on=["signal_date", "primary_theme"],
+            how="left",
+            suffixes=("", "_breadth"),
+        )
+    if "theme_breadth_score" not in snapshot.columns and "breadth_score" in snapshot.columns:
+        snapshot["theme_breadth_score"] = snapshot["breadth_score"]
+    if "theme_sync_status" not in snapshot.columns and "sync_status" in snapshot.columns:
+        snapshot["theme_sync_status"] = snapshot["sync_status"]
+    snapshot["theme_breadth_score"] = pd.to_numeric(snapshot.get("theme_breadth_score", 0), errors="coerce").fillna(0)
+    snapshot["theme_sync_status"] = snapshot.get("theme_sync_status", "neutral").fillna("neutral")
+    snapshot["theme_breadth_level"] = snapshot.get("theme_breadth_level", "Neutral").fillna("Neutral")
 
     normalized_columns = [
             "signal_id",
@@ -437,8 +465,9 @@ def priority_group(row: pd.Series) -> str:
 
 def build_theme_breadth(snapshot: pd.DataFrame) -> pd.DataFrame:
     rows: list[dict[str, Any]] = []
-    signal_date = safe_str(snapshot["signal_date"].max())
-    for theme, group in snapshot.groupby("primary_theme"):
+    for (signal_date, theme), group in snapshot.groupby(["signal_date", "primary_theme"], dropna=False):
+        signal_date = safe_str(signal_date)
+        theme = safe_str(theme) or "other"
         total = len(group)
         all_count = int(group["is_all_thresholds"].astype(str).str.lower().eq("true").sum())
         c2 = int(group["is_consecutive_2w"].astype(str).str.lower().eq("true").sum())

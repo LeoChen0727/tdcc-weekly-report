@@ -1,10 +1,10 @@
 # TDCC Phase Distribution
 
-- generated_at: 2026-05-25 11:16:06 Asia/Taipei
+- generated_at: 2026-05-25 12:50:56 Asia/Taipei
 - latest_signal_count: 1195
-- phase_mature_d5_count: 0
-- phase_mature_d10_count: 0
-- phase_mature_d20_count: 0
+- phase_mature_d5_count: 3592
+- phase_mature_d10_count: 2457
+- phase_mature_d20_count: 1229
 
 ## Phase 分布
 
@@ -25,6 +25,12 @@
 | 1 | insufficient_price_context | 391.0 |
 | 1 | overheated_after_tdcc | 28.0 |
 | 1 | price_leading_tdcc | 38.0 |
+| 10 | tdcc_leading_price | 1.0 |
+| 12 | tdcc_price_divergence | 2.0 |
+| 13 | tdcc_leading_price | 1.0 |
+| 14 | tdcc_leading_price | 1.0 |
+| 15 | tdcc_leading_price | 1.0 |
+| 16 | tdcc_leading_price | 1.0 |
 | 2 | failed_after_tdcc | 2.0 |
 | 2 | insufficient_price_context | 37.0 |
 | 2 | overheated_after_tdcc | 18.0 |
@@ -32,13 +38,27 @@
 | 2 | tdcc_leading_price | 54.0 |
 | 2 | tdcc_price_confirmed | 7.0 |
 | 2 | tdcc_price_divergence | 101.0 |
-| 3 | failed_after_tdcc | 3.0 |
-| 3 | insufficient_price_context | 44.0 |
+| 25 | tdcc_leading_price | 3.0 |
+| 25 | tdcc_price_divergence | 1.0 |
+| 3 | failed_after_tdcc | 2.0 |
+| 3 | insufficient_price_context | 42.0 |
 | 3 | overheated_after_tdcc | 39.0 |
 | 3 | price_leading_tdcc | 48.0 |
-| 3 | tdcc_leading_price | 105.0 |
+| 3 | tdcc_leading_price | 81.0 |
 | 3 | tdcc_price_confirmed | 11.0 |
-| 3 | tdcc_price_divergence | 236.0 |
+| 3 | tdcc_price_divergence | 216.0 |
+| 4 | insufficient_price_context | 2.0 |
+| 4 | tdcc_leading_price | 6.0 |
+| 4 | tdcc_price_divergence | 4.0 |
+| 5 | tdcc_leading_price | 6.0 |
+| 5 | tdcc_price_divergence | 3.0 |
+| 6 | tdcc_leading_price | 3.0 |
+| 6 | tdcc_price_divergence | 4.0 |
+| 7 | failed_after_tdcc | 1.0 |
+| 7 | tdcc_leading_price | 1.0 |
+| 7 | tdcc_price_divergence | 3.0 |
+| 8 | tdcc_price_divergence | 2.0 |
+| 9 | tdcc_price_divergence | 1.0 |
 
 ## TDCC 條件 x Phase
 
@@ -108,16 +128,14 @@
 
 ## Phase 後續績效
 
-phase-level D+5 尚未成熟，不可做 phase 勝率結論。
-phase-level D+10 尚未成熟，不可做 phase 勝率結論。
-phase-level D+20 尚未成熟，不可做 phase 勝率結論。
+
 
 | tdcc_price_phase | mature_sample_d5 | avg_ret_d5 | avg_relative_ret_d5 | mature_sample_d10 | avg_ret_d10 | avg_relative_ret_d10 | mature_sample_d20 | avg_ret_d20 | avg_relative_ret_d20 | avg_mfe_d10 | avg_mae_d10 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| failed_after_tdcc | 0.0 |  |  | 0.0 |  |  | 0.0 |  |  |  |  |
-| insufficient_price_context | 0.0 |  |  | 0.0 |  |  | 0.0 |  |  |  |  |
-| overheated_after_tdcc | 0.0 |  |  | 0.0 |  |  | 0.0 |  |  |  |  |
-| price_leading_tdcc | 0.0 |  |  | 0.0 |  |  | 0.0 |  |  |  |  |
-| tdcc_leading_price | 0.0 |  |  | 0.0 |  |  | 0.0 |  |  |  |  |
-| tdcc_price_confirmed | 0.0 |  |  | 0.0 |  |  | 0.0 |  |  |  |  |
-| tdcc_price_divergence | 0.0 |  |  | 0.0 |  |  | 0.0 |  |  |  |  |
+| failed_after_tdcc | 12.0 | -0.55 | -4.77 | 8.0 | 2.48 | -7.86 | 8.0 | -2.46 | -18.51 | 6.32 | -5.13 |
+| insufficient_price_context | 1907.0 | 0.31 | -0.67 | 1482.0 | 1.57 | -1.28 | 467.0 | 0.71 | -8.60 | 6.93 | -5.23 |
+| overheated_after_tdcc | 133.0 | 4.42 | 3.40 | 73.0 | 9.38 | 7.10 | 5.0 | 1.16 | -8.88 | 17.53 | -9.59 |
+| price_leading_tdcc | 149.0 | 4.43 | 2.58 | 83.0 | 4.14 | 0.98 | 33.0 | -2.52 | -14.22 | 12.97 | -6.74 |
+| tdcc_leading_price | 569.0 | 0.87 | -1.54 | 380.0 | -0.22 | -4.47 | 358.0 | -0.34 | -9.03 | 3.90 | -3.54 |
+| tdcc_price_confirmed | 44.0 | 3.51 | 1.33 | 23.0 | -0.44 | -2.91 | 22.0 | -3.90 | -12.75 | 8.76 | -5.99 |
+| tdcc_price_divergence | 778.0 | 0.79 | -1.86 | 408.0 | -0.32 | -4.58 | 336.0 | 0.49 | -8.25 | 4.67 | -3.90 |

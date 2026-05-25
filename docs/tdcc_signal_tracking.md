@@ -41,6 +41,15 @@ The snapshot must use only data available on or before `signal_date`. Future pri
 
 The weekly TDCC workflow rebuilds these files from `output/history/tdcc/tdcc_holder_ratio_*.csv` and the latest TDCC holder ratio file. Each file is deduped by `as_of_date + stock_id`, sorted by date, and keeps history instead of only the latest row.
 
+Historical backfill is handled by `scripts/backfill_tdcc_history.py`. TDCC OpenData currently exposes the latest all-market file only, so historical backfill uses the official TDCC query page by weekly date and stock id. The script intentionally defaults to a bounded universe such as `chatgpt-top` to avoid tens of thousands of requests. It writes:
+
+- `output/history/tdcc/tdcc_holder_ratio_{date}.csv`
+- `data/tdcc_stock_history_raw/{stock_id}.csv`
+- `output/latest/tdcc_history_backfill_manifest_latest.csv`
+- `output/latest/tdcc_history_backfill_manifest_latest.md`
+
+After a backfill, run `python scripts/build_tdcc_stock_history.py` and then rebuild the TDCC signal structures, ABM, normalized performance, effectiveness report, and ChatGPT tracking packet.
+
 Important fields:
 
 - `over_400_ratio`, `over_600_ratio`, `over_800_ratio`, `over_1000_ratio`.

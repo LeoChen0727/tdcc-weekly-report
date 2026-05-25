@@ -1,0 +1,66 @@
+name: TDCC History Backfill
+
+on:
+  workflow_dispatch:
+    inputs:
+      weeks:
+        description: "Number of latest TDCC weekly dates to backfill"
+        required: false
+        default: "26"
+      max_stocks:
+        description: "Maximum stocks to backfill from the selected universe"
+        required: false
+        default: "80"
+      universe:
+        description: "Stock universe: chatgpt-top, candidates, signals, all-known, explicit"
+        required: false
+        default: "chatgpt-top"
+
+permissions:
+  contents: write
+
+jobs:
+  tdcc-history-backfill:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.ref_name }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas requests lxml html5lib tabulate
+
+      - name: Backfill TDCC history
+        run: |
+          python scripts/backfill_tdcc_history.py \
+            --universe "${{ github.event.inputs.universe }}" \
+            --weeks "${{ github.event.inputs.weeks }}" \
+            --max-stocks "${{ github.event.inputs.max_stocks }}" \
+            --sleep 0.15
+
+      - name: Rebuild TDCC derived outputs
+        run: |
+          python scripts/build_tdcc_stock_history.py
+          python scripts/build_tdcc_signal_structures.py
+          python scripts/build_tdcc_pre_move_accumulation.py
+          python scripts/update_tdcc_normalized_signal_performance.py
+          python scripts/build_tdcc_signal_effectiveness_report.py
+          python scripts/build_tdcc_chatgpt_tracking_outputs.py
+
+      - name: Commit TDCC history backfill outputs
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add output/ data/ scripts/backfill_tdcc_history.py scripts/update_tdcc_normalized_signal_performance.py scripts/build_tdcc_signal_structures.py .github/workflows/tdcc_history_backfill.yml .github/workflows/tdcc_weekly.yml || true
+          git status --short
+          git commit -m "Backfill TDCC history and rebuild tracking outputs" || echo "No changes to commit"
+          git push
