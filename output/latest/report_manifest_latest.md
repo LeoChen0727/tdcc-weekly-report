@@ -1,7 +1,7 @@
 # 每日報告 Manifest
 
-- 產生時間：`2026-05-25 13:17:34 Asia/Taipei`
-- 主資料日期：`20260524`
+- 產生時間：`2026-05-25 22:24:19 Asia/Taipei`
+- 主資料日期：`20260525`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：完整候選清單與官方價格資料日期一致，可以產出正式每日報告
 
@@ -9,8 +9,8 @@
 
 - policy: `local_price_redraw_first`
 - status: `generated`
-- total_charts: `20`
-- local_price_redraw_count: `20`
+- total_charts: `30`
+- local_price_redraw_count: `30`
 - chart_path_fallback_count: `0`
 - missing_count: `0`
 - status_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/pdf_kline_chart_status_latest.md
@@ -33,17 +33,17 @@
 - latest full md: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_full_latest.md
 - latest summary pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_summary_latest.pdf
 - latest full pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_full_latest.pdf
-- history summary md: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260524_daily_market_summary.md
-- history full md: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260524_daily_market_full.md
-- history summary pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260524_daily_market_summary.pdf
-- history full pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260524_daily_market_full.pdf
+- history summary md: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260525_daily_market_summary.md
+- history full md: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260525_daily_market_full.md
+- history summary pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260525_daily_market_summary.pdf
+- history full pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260525_daily_market_full.pdf
 
 ## 中文檔名 raw URLs
 
-- summary_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260524_%E6%AF%8F%E6%97%A5%E5%85%A8%E5%B8%82%E5%A0%B4%E5%80%99%E9%81%B8%E8%82%A1%E7%9B%A3%E6%B8%AC%E5%A0%B1%E5%91%8A_%E7%B2%BE%E8%8F%AF%E7%89%88.md
-- summary_pdf_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260524_%E6%AF%8F%E6%97%A5%E5%85%A8%E5%B8%82%E5%A0%B4%E5%80%99%E9%81%B8%E8%82%A1%E7%9B%A3%E6%B8%AC%E5%A0%B1%E5%91%8A_%E7%B2%BE%E8%8F%AF%E7%89%88.pdf
-- full_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260524_%E5%AE%8C%E6%95%B4%E5%80%99%E9%81%B8%E8%82%A1%E6%B8%85%E5%96%AE_%E5%AE%8C%E6%95%B4%E7%89%88.md
-- full_pdf_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260524_%E5%AE%8C%E6%95%B4%E5%80%99%E9%81%B8%E8%82%A1%E6%B8%85%E5%96%AE_%E5%AE%8C%E6%95%B4%E7%89%88%E8%A1%A8%E6%A0%BC.pdf
+- summary_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260525_%E6%AF%8F%E6%97%A5%E5%85%A8%E5%B8%82%E5%A0%B4%E5%80%99%E9%81%B8%E8%82%A1%E7%9B%A3%E6%B8%AC%E5%A0%B1%E5%91%8A_%E7%B2%BE%E8%8F%AF%E7%89%88.md
+- summary_pdf_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260525_%E6%AF%8F%E6%97%A5%E5%85%A8%E5%B8%82%E5%A0%B4%E5%80%99%E9%81%B8%E8%82%A1%E7%9B%A3%E6%B8%AC%E5%A0%B1%E5%91%8A_%E7%B2%BE%E8%8F%AF%E7%89%88.pdf
+- full_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260525_%E5%AE%8C%E6%95%B4%E5%80%99%E9%81%B8%E8%82%A1%E6%B8%85%E5%96%AE_%E5%AE%8C%E6%95%B4%E7%89%88.md
+- full_pdf_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260525_%E5%AE%8C%E6%95%B4%E5%80%99%E9%81%B8%E8%82%A1%E6%B8%85%E5%96%AE_%E5%AE%8C%E6%95%B4%E7%89%88%E8%A1%A8%E6%A0%BC.pdf
 
 
 ## English alias raw URLs
@@ -54,8 +54,8 @@
 - latest full md: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_full_latest.md
 - latest summary pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_summary_latest.pdf
 - latest full pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_full_latest.pdf
-- history summary md: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260524_daily_market_summary.md
-- history full md: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260524_daily_market_full.md
-- history summary pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260524_daily_market_summary.pdf
-- history full pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260524_daily_market_full.pdf
+- history summary md: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260525_daily_market_summary.md
+- history full md: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260525_daily_market_full.md
+- history summary pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260525_daily_market_summary.pdf
+- history full pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260525_daily_market_full.pdf
 

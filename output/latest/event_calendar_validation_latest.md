@@ -1,18 +1,18 @@
 # Event Calendar Validation
 
-- generated_at: `2026-05-25 18:52:52 Asia/Taipei`
+- generated_at: `2026-05-25 22:29:00 Asia/Taipei`
 - status: `pass`
-- schema_only: `True`
+- schema_only: `False`
 
 | file | exists | rows | size_bytes |
 |---|---:|---:|---:|
-| company_event_calendar | True | 461 | 206575 |
-| macro_event_calendar | True | 39 | 13216 |
-| upcoming_company_calendar | True | 460 | 206258 |
-| upcoming_macro_calendar | True | 12 | 4140 |
-| status_json | True | 0 | 2606 |
-| status_md | True | 0 | 2324 |
-| needs_review_csv | True | 4 | 2500 |
+| company_event_calendar | True | 522 | 235339 |
+| macro_event_calendar | True | 39 | 13213 |
+| upcoming_company_calendar | True | 521 | 235022 |
+| upcoming_macro_calendar | True | 12 | 4137 |
+| status_json | True | 0 | 2517 |
+| status_md | True | 0 | 2235 |
+| needs_review_csv | True | 4 | 2497 |
 | needs_review_md | True | 0 | 2009 |
 
 ## Issues

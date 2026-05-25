@@ -1,4 +1,4 @@
-﻿stock_id,stock_name,industry,theme_tags,theme_source,theme_confidence,theme_summary,last_updated
+stock_id,stock_name,industry,theme_tags,theme_source,theme_confidence,theme_summary,last_updated
 2344,華邦電,semiconductor,memory_theme;DRAM and flash;DRAM;flash,config/stock_theme_map.csv,medium,memory / DRAM and flash / memory;DRAM;flash,2026-05-24 15:26:37 Asia/Taipei
 2355,敬鵬,PCB,PCB_CCL_theme;auto electronics,config/stock_theme_map.csv,medium,PCB/CCL / PCB / PCB;auto electronics,2026-05-24 15:26:37 Asia/Taipei
 2375,凱美,electronic components,passive_component_theme;capacitors;capacitor,config/stock_theme_map.csv,medium,passive components / capacitors / capacitor;passive components,2026-05-24 15:26:37 Asia/Taipei

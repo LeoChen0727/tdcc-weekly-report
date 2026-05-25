@@ -1,12 +1,12 @@
 # Daily Market PDF Validation
 
-- generated_at: `2026-05-25 13:18:07 Asia/Taipei`
+- generated_at: `2026-05-25 22:24:24 Asia/Taipei`
 - status: `pass`
-- main_price_date: `20260524`
+- main_price_date: `20260525`
 
 ## PDF Files
-- curated: `output/latest/daily_market_curated_report_latest.pdf` / pages `10` / bytes `25197`
-- full_table: `output/latest/daily_market_full_table_report_latest.pdf` / pages `91` / bytes `266613`
+- curated: `output/latest/daily_market_curated_report_latest.pdf` / pages `14` / bytes `33030`
+- full_table: `output/latest/daily_market_full_table_report_latest.pdf` / pages `104` / bytes `307890`
 
 ## Checks
 - pdf_exists: `True`

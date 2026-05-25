@@ -1,4 +1,4 @@
-﻿date,index_code,index_name,close,source,return_5d,return_10d,return_20d,return_60d,ma20,ma60,above_ma20,above_ma60
+date,index_code,index_name,close,source,return_5d,return_10d,return_20d,return_60d,ma20,ma60,above_ma20,above_ma60
 20241202,TPEX,TPEx,257.84,https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=113/12&response=json,,,,,,,False,False
 20241203,TPEX,TPEx,259.11,https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=113/12&response=json,,,,,,,False,False
 20241204,TPEX,TPEx,262.6,https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=113/12&response=json,,,,,,,False,False
@@ -354,6 +354,7 @@
 20260520,TPEX,TPEx,396.42,https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/05&response=json,-5.735482950492221,-3.3805357186380336,1.4978108917735655,33.69081343585594,401.8225,351.1,False,True
 20260521,TPEX,TPEx,409.8,https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/05&response=json,-3.9313594486250714,-1.5873778247400439,3.7258276804697843,37.650733935709255,402.5585,352.96816666666666,True,True
 20260522,TPEX,TPEx,423.25,https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/05&response=json,2.935454059049558,3.372899570144594,10.996013846637997,39.30487443636244,404.65500000000003,354.9585,True,True
+20260525,TPEX,TPEx,434.99,https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/05&response=json,6.1909528110734025,3.075756498661164,14.00901609267704,39.67056254816337,407.3275,357.0176666666666,True,True
 20171201,TWSE,TAIEX,10600.37,https://www.twse.com.tw/rwd/zh/afterTrading/FMTQIK?date=20251201&response=json,,,,,,,False,False
 20171204,TWSE,TAIEX,10651.11,https://www.twse.com.tw/rwd/zh/afterTrading/FMTQIK?date=20251201&response=json,,,,,,,False,False
 20171205,TWSE,TAIEX,10566.85,https://www.twse.com.tw/rwd/zh/afterTrading/FMTQIK?date=20251201&response=json,,,,,,,False,False
@@ -730,3 +731,4 @@
 20260520,TWSE,TAIEX,40020.82,https://www.twse.com.tw/rwd/zh/afterTrading/FMTQIK?date=20260501&response=json,-3.271773677023293,-2.7176987203093916,6.423887604636702,21.007638564060006,40355.985,36245.75833333333,False,True
 20260521,TWSE,TAIEX,41368.21,https://www.twse.com.tw/rwd/zh/afterTrading/FMTQIK?date=20260501&response=json,-0.9186201775973513,-1.3487217226779924,9.212990915419761,23.098753158317443,40530.472,36375.13333333333,True,True
 20260522,TWSE,TAIEX,42267.97,https://www.twse.com.tw/rwd/zh/afterTrading/FMTQIK?date=20260501&response=json,2.6610327899590835,1.5960747948391418,12.074566177416157,25.152176603620724,40758.163,36516.711833333335,True,True
+20260525,TWSE,TAIEX,43644.4,https://www.twse.com.tw/rwd/zh/afterTrading/FMTQIK?date=20260501&response=json,6.731370724022567,4.437275275508101,12.103029867154348,25.7733967093573,40993.763,36665.7715,True,True
