@@ -1,4 +1,4 @@
-﻿stock_id,stock_name,strategy_key,strategy_name,sample_count,avg_return_pct,median_return_pct,win_rate_pct,avg_mfe_pct,avg_mae_pct,avg_holding_days,sample_status,last_updated
+stock_id,stock_name,strategy_key,strategy_name,sample_count,avg_return_pct,median_return_pct,win_rate_pct,avg_mfe_pct,avg_mae_pct,avg_holding_days,sample_status,last_updated
 2353,宏碁,prior_high,碰前高賣,1,1.3536379018612488,1.3536379018612488,100.0,1.3536379018612488,-3.5532994923857864,1.0,insufficient_sample,2026-05-25 14:24:56 Asia/Taipei
 2353,宏碁,high_20d,碰 20日高賣,1,1.3536379018612488,1.3536379018612488,100.0,1.3536379018612488,-3.5532994923857864,1.0,insufficient_sample,2026-05-25 14:24:56 Asia/Taipei
 2353,宏碁,high_60d,碰 60日高賣,1,1.3536379018612488,1.3536379018612488,100.0,1.3536379018612488,-3.5532994923857864,1.0,insufficient_sample,2026-05-25 14:24:56 Asia/Taipei
@@ -19,3 +19,23 @@
 2353,宏碁,fixed_d20,固定 D+20 賣,0,,,,,,,insufficient_sample,2026-05-25 14:24:56 Asia/Taipei
 2353,宏碁,atr_trailing_stop,ATR trailing stop 賣,0,,,,,,,insufficient_sample,2026-05-25 14:24:56 Asia/Taipei
 2353,宏碁,percent_trailing_stop,固定百分比 trailing stop 賣,0,,,,,,,insufficient_sample,2026-05-25 14:24:56 Asia/Taipei
+8299,群聯,prior_high,碰前高賣,0,,,,,,,insufficient_sample,2026-05-25 19:06:19 Asia/Taipei
+8299,群聯,high_20d,碰 20日高賣,0,,,,,,,insufficient_sample,2026-05-25 19:06:19 Asia/Taipei
+8299,群聯,high_60d,碰 60日高賣,0,,,,,,,insufficient_sample,2026-05-25 19:06:19 Asia/Taipei
+8299,群聯,high_120d,碰 120日高賣,0,,,,,,,insufficient_sample,2026-05-25 19:06:19 Asia/Taipei
+8299,群聯,resistance_scale_out,壓力區分批賣,0,,,,,,,insufficient_sample,2026-05-25 19:06:19 Asia/Taipei
+8299,群聯,broker_target_median,券商目標價中位數賣,0,,,,,,,insufficient_sample,2026-05-25 19:06:19 Asia/Taipei
+8299,群聯,broker_target_average,券商目標價平均數賣,0,,,,,,,insufficient_sample,2026-05-25 19:06:19 Asia/Taipei
+8299,群聯,tdcc_weakening,TDCC 大戶轉弱賣,0,,,,,,,insufficient_sample,2026-05-25 19:06:19 Asia/Taipei
+8299,群聯,shareholders_surge,股東人數暴增賣,0,,,,,,,insufficient_sample,2026-05-25 19:06:19 Asia/Taipei
+8299,群聯,margin_surge,融資快速增加賣,0,,,,,,,insufficient_sample,2026-05-25 19:06:19 Asia/Taipei
+8299,群聯,break_ema23,跌破 EMA23 賣,0,,,,,,,insufficient_sample,2026-05-25 19:06:19 Asia/Taipei
+8299,群聯,break_ma20,跌破 MA20 賣,0,,,,,,,insufficient_sample,2026-05-25 19:06:19 Asia/Taipei
+8299,群聯,break_neckline,跌破頸線賣,0,,,,,,,insufficient_sample,2026-05-25 19:06:19 Asia/Taipei
+8299,群聯,break_breakout_low,跌破突破K低點賣,0,,,,,,,insufficient_sample,2026-05-25 19:06:19 Asia/Taipei
+8299,群聯,high_volume_black,放量長黑賣,0,,,,,,,insufficient_sample,2026-05-25 19:06:19 Asia/Taipei
+8299,群聯,fixed_d5,固定 D+5 賣,0,,,,,,,insufficient_sample,2026-05-25 19:06:19 Asia/Taipei
+8299,群聯,fixed_d10,固定 D+10 賣,0,,,,,,,insufficient_sample,2026-05-25 19:06:19 Asia/Taipei
+8299,群聯,fixed_d20,固定 D+20 賣,0,,,,,,,insufficient_sample,2026-05-25 19:06:19 Asia/Taipei
+8299,群聯,atr_trailing_stop,ATR trailing stop 賣,0,,,,,,,insufficient_sample,2026-05-25 19:06:19 Asia/Taipei
+8299,群聯,percent_trailing_stop,固定百分比 trailing stop 賣,0,,,,,,,insufficient_sample,2026-05-25 19:06:19 Asia/Taipei

@@ -1,9 +1,9 @@
 main_price_date=20260524
 report_ready=True
-commit_sha=a36e0c90170c9246055aadc64845556df5c0d05e
+commit_sha=998e195925e337d91989af304cf4b121fe07cd40
 preferred_chatgpt_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt
 packet_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt
-packet_commit_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/a36e0c90170c9246055aadc64845556df5c0d05e/output/history/reports/20260524_CHATGPT_DAILY_REPORT_PACKET.txt
+packet_commit_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/998e195925e337d91989af304cf4b121fe07cd40/output/history/reports/20260524_CHATGPT_DAILY_REPORT_PACKET.txt
 packet_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/chatgpt_daily_report_packet_latest.txt
 packet_github_api_url=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/chatgpt_daily_report_packet_latest.txt?ref=main
 summary_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_summary_latest.md
@@ -52,6 +52,12 @@ daily_signal_performance_monthly_pdf_raw_url=https://raw.githubusercontent.com/L
 daily_candidate_signal_log_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/daily_candidates/daily_candidate_signal_log.csv
 candidate_repeat_appearance_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/candidate_repeat_appearance_latest.csv
 candidate_repeat_appearance_md_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/candidate_repeat_appearance_latest.md
+raw_data_fetch_status_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/raw_data_fetch_status_latest.csv
+raw_data_fetch_status_md_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/raw_data_fetch_status_latest.md
+individual_stock_available_raw_data_index_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_available_raw_data_index.csv
+individual_stock_available_raw_data_index_md_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_available_raw_data_index.md
+individual_stock_reports_index_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_reports_index.csv
+individual_stock_reports_index_md_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_reports_index.md
 warrant_market_report_md_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/warrant_market_report_latest.md
 warrant_market_report_pdf_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/warrant_market_report_latest.pdf
 warrant_market_report_pdf_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/warrant_market_report_latest.pdf

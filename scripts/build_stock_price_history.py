@@ -263,7 +263,7 @@ def build_history_files(limit_stock_ids: set[str] | None = None) -> pd.DataFrame
         stock_name = safe_str(history["stock_name"].dropna().replace("", pd.NA).dropna().iloc[-1]) if history["stock_name"].replace("", pd.NA).dropna().size else ""
         market = safe_str(history["market"].dropna().replace("", pd.NA).dropna().iloc[-1]) if history["market"].replace("", pd.NA).dropna().size else ""
         file_path = STOCK_HISTORY_DIR / f"{stock_id}.csv"
-        history.to_csv(file_path, index=False, encoding="utf-8-sig")
+        history.to_csv(file_path, index=False, encoding="utf-8", lineterminator="\n")
         latest = history.iloc[-1]
         manifest_rows.append(
             {
@@ -281,7 +281,7 @@ def build_history_files(limit_stock_ids: set[str] | None = None) -> pd.DataFrame
         )
 
     manifest = pd.DataFrame(manifest_rows).sort_values(["stock_id"]).reset_index(drop=True)
-    manifest.to_csv(MANIFEST_CSV, index=False, encoding="utf-8-sig")
+    manifest.to_csv(MANIFEST_CSV, index=False, encoding="utf-8", lineterminator="\n")
     MANIFEST_JSON.write_text(
         json.dumps(
             {

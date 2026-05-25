@@ -74,3 +74,42 @@ jobs:
             echo "Push failed after retries"
             exit 1
           fi
+
+      - name: Build and commit individual raw data index and health check
+        run: |
+          python scripts/build_individual_stock_raw_data_index.py
+          python scripts/check_raw_data_health.py --stock-id "${{ inputs.stock_id }}"
+
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          git pull --rebase origin main || true
+
+          git add output/latest/individual_stock_available_raw_data_index.csv || true
+          git add output/latest/individual_stock_available_raw_data_index.md || true
+          git add output/latest/individual_stock_reports_index.csv || true
+          git add output/latest/individual_stock_reports_index.md || true
+          git add output/latest/raw_data_fetch_status_latest.csv || true
+          git add output/latest/raw_data_fetch_status_latest.md || true
+          git add docs/data/stock_price_history/ || true
+          git add docs/data/tdcc_stock_history/ || true
+
+          git status --short
+          git commit -m "Update individual raw data health ${{ inputs.stock_id }}" || echo "No changes to commit"
+
+          PUSHED=0
+          for i in 1 2 3; do
+            git pull --rebase origin main || true
+            if git push; then
+              PUSHED=1
+              echo "Push succeeded"
+              break
+            fi
+            echo "Push failed, retry $i"
+            sleep 5
+          done
+
+          if [ "$PUSHED" != "1" ]; then
+            echo "Push failed after retries"
+            exit 1
+          fi

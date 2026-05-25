@@ -1025,7 +1025,7 @@ def write_sell_strategy_outputs(
             )
     detail = pd.DataFrame(rows)
     detail_path = SELL_BACKTEST_DIR / f"{stock_id}_sell_strategy_backtest.csv"
-    detail.to_csv(detail_path, index=False, encoding="utf-8-sig")
+    detail.to_csv(detail_path, index=False, encoding="utf-8", lineterminator="\n")
 
     summary_rows: list[dict[str, Any]] = []
     for key, name in SELL_STRATEGIES:
@@ -1074,7 +1074,7 @@ def write_sell_strategy_outputs(
     if not old.empty and "stock_id" in old.columns:
         old = old[~code_matches(old["stock_id"], stock_id)]
     combined = pd.concat([old, summary], ignore_index=True, sort=False) if not old.empty else summary
-    combined.to_csv(SELL_PERFORMANCE_CSV, index=False, encoding="utf-8-sig")
+    combined.to_csv(SELL_PERFORMANCE_CSV, index=False, encoding="utf-8", lineterminator="\n")
     latest_lines = [
         "# Sell Strategy Performance Latest",
         "",

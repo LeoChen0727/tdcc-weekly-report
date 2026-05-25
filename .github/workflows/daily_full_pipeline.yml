@@ -524,6 +524,11 @@ jobs:
         run: |
           sleep 30
 
+      - name: Build individual raw data indexes and raw health status
+        run: |
+          python scripts/build_individual_stock_raw_data_index.py
+          python scripts/check_raw_data_health.py --all
+
       - name: Publish readme and multi-entry URL check
         run: |
           python publish_chatgpt_report_readme_and_check.py
@@ -572,6 +577,12 @@ jobs:
           git add output/latest/daily_signal_performance_monthly_latest.md || true
           git add output/latest/daily_signal_performance_monthly_latest.pdf || true
           git add output/latest/daily_signal_performance_validation_latest.md || true
+          git add output/latest/raw_data_fetch_status_latest.csv || true
+          git add output/latest/raw_data_fetch_status_latest.md || true
+          git add output/latest/individual_stock_available_raw_data_index.csv || true
+          git add output/latest/individual_stock_available_raw_data_index.md || true
+          git add output/latest/individual_stock_reports_index.csv || true
+          git add output/latest/individual_stock_reports_index.md || true
           git add output/latest/candidate_repeat_appearance_latest.csv || true
           git add output/latest/candidate_repeat_appearance_latest.md || true
           git add output/latest/candidate_repeat_appearance_validation_latest.json || true
@@ -622,6 +633,8 @@ jobs:
           git add data/macro_events/ || true
           git add data/fundamental_catalysts/ || true
           git add data/event_catalysts/ || true
+          git add docs/data/stock_price_history/ || true
+          git add docs/data/tdcc_stock_history/ || true
           git add output/history/catalyst_performance/ || true
           git add output/latest/catalyst_data_source_status_latest.md || true
           git add output/latest/catalyst_data_source_status_latest.json || true
@@ -666,6 +679,8 @@ jobs:
           git add scripts/validate_daily_signal_performance.py || true
           git add scripts/build_surge_precondition_model.py || true
           git add scripts/validate_surge_precondition_model.py || true
+          git add scripts/build_individual_stock_raw_data_index.py || true
+          git add scripts/check_raw_data_health.py || true
 
           git status --short
           git commit -m "Publish ChatGPT daily report readme, rules, and multi-entry checks" || echo "No changes to commit"

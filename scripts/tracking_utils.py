@@ -131,7 +131,7 @@ def read_csv(path: str | Path, **kwargs: Any) -> pd.DataFrame:
 def write_csv(df: pd.DataFrame, path: str | Path) -> None:
     p = Path(path)
     p.parent.mkdir(parents=True, exist_ok=True)
-    df.to_csv(p, index=False, encoding="utf-8-sig")
+    df.to_csv(p, index=False, encoding="utf-8", lineterminator="\n")
 
 
 def append_update_csv(

@@ -104,6 +104,12 @@ SURGE_MODEL_BACKTEST_CSV = LATEST_DIR / "surge_model_backtest_latest.csv"
 SURGE_MODEL_FEATURE_IMPORTANCE_MD = LATEST_DIR / "surge_model_feature_importance_latest.md"
 SURGE_MODEL_FEATURE_IMPORTANCE_CSV = LATEST_DIR / "surge_model_feature_importance_latest.csv"
 SURGE_MODEL_VALIDATION_MD = LATEST_DIR / "surge_model_validation_latest.md"
+RAW_DATA_FETCH_STATUS_CSV = LATEST_DIR / "raw_data_fetch_status_latest.csv"
+RAW_DATA_FETCH_STATUS_MD = LATEST_DIR / "raw_data_fetch_status_latest.md"
+INDIVIDUAL_STOCK_AVAILABLE_RAW_DATA_INDEX_CSV = LATEST_DIR / "individual_stock_available_raw_data_index.csv"
+INDIVIDUAL_STOCK_AVAILABLE_RAW_DATA_INDEX_MD = LATEST_DIR / "individual_stock_available_raw_data_index.md"
+INDIVIDUAL_STOCK_REPORTS_INDEX_CSV = LATEST_DIR / "individual_stock_reports_index.csv"
+INDIVIDUAL_STOCK_REPORTS_INDEX_MD = LATEST_DIR / "individual_stock_reports_index.md"
 
 
 def now_taipei() -> datetime:
@@ -478,6 +484,12 @@ def build_readme(
         f"daily_candidate_signal_log_raw_url={daily_candidate_signal_log_raw_url}",
         f"candidate_repeat_appearance_raw_url={candidate_repeat_appearance_raw_url}",
         f"candidate_repeat_appearance_md_raw_url={candidate_repeat_appearance_md_raw_url}",
+        f"raw_data_fetch_status_raw_url={raw_url('main', RAW_DATA_FETCH_STATUS_CSV)}",
+        f"raw_data_fetch_status_md_raw_url={raw_url('main', RAW_DATA_FETCH_STATUS_MD)}",
+        f"individual_stock_available_raw_data_index_raw_url={raw_url('main', INDIVIDUAL_STOCK_AVAILABLE_RAW_DATA_INDEX_CSV)}",
+        f"individual_stock_available_raw_data_index_md_raw_url={raw_url('main', INDIVIDUAL_STOCK_AVAILABLE_RAW_DATA_INDEX_MD)}",
+        f"individual_stock_reports_index_raw_url={raw_url('main', INDIVIDUAL_STOCK_REPORTS_INDEX_CSV)}",
+        f"individual_stock_reports_index_md_raw_url={raw_url('main', INDIVIDUAL_STOCK_REPORTS_INDEX_MD)}",
         f"warrant_market_report_md_raw_url={warrant_market_report_md_raw_url}",
         f"warrant_market_report_pdf_pages_url={warrant_market_report_pdf_pages_url}",
         f"warrant_market_report_pdf_raw_url={warrant_market_report_pdf_raw_url}",
@@ -940,6 +952,12 @@ def main() -> int:
         "daily_candidate_signal_log_raw_url": daily_candidate_signal_log_raw_url,
         "candidate_repeat_appearance_raw_url": candidate_repeat_appearance_raw_url,
         "candidate_repeat_appearance_md_raw_url": candidate_repeat_appearance_md_raw_url,
+        "raw_data_fetch_status_raw_url": raw_url("main", RAW_DATA_FETCH_STATUS_CSV),
+        "raw_data_fetch_status_md_raw_url": raw_url("main", RAW_DATA_FETCH_STATUS_MD),
+        "individual_stock_available_raw_data_index_raw_url": raw_url("main", INDIVIDUAL_STOCK_AVAILABLE_RAW_DATA_INDEX_CSV),
+        "individual_stock_available_raw_data_index_md_raw_url": raw_url("main", INDIVIDUAL_STOCK_AVAILABLE_RAW_DATA_INDEX_MD),
+        "individual_stock_reports_index_raw_url": raw_url("main", INDIVIDUAL_STOCK_REPORTS_INDEX_CSV),
+        "individual_stock_reports_index_md_raw_url": raw_url("main", INDIVIDUAL_STOCK_REPORTS_INDEX_MD),
         "warrant_market_report_md_raw_url": warrant_market_report_md_raw_url,
         "warrant_market_report_pdf_pages_url": warrant_market_report_pdf_pages_url,
         "warrant_market_report_pdf_raw_url": warrant_market_report_pdf_raw_url,
