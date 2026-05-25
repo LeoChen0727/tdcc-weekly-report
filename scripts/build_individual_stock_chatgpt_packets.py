@@ -93,6 +93,21 @@ def write_text(path: Path, text: str) -> None:
     path.write_text(text.rstrip() + "\n", encoding="utf-8", newline="\n")
 
 
+def write_blankline_kv_window(df: pd.DataFrame, path: Path, prefix: str) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    display_prefix = f"PRICE_WINDOW_{len(df)}" if prefix.startswith("PRICE_WINDOW") else prefix
+    lines = [f"# {display_prefix}"]
+    if df.empty:
+        lines.extend(["", "status=no_rows"])
+    else:
+        header = ",".join(df.columns)
+        lines.extend(["", f"columns={header}"])
+        for i, (_, row) in enumerate(df.iterrows(), start=1):
+            values = [safe_str(row[col]).replace("\n", " ").replace("\r", " ").replace(",", " ") for col in df.columns]
+            lines.extend(["", f"{prefix}_ROW_{i:03d}=" + ",".join(values)])
+    path.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8", newline="\n")
+
+
 def raw_url(path: Path) -> str:
     return f"{RAW_PREFIX}/{path.as_posix()}"
 
@@ -305,10 +320,14 @@ def build_packet(
 
     packet_path = PACKET_DIR / f"{stock_id}_packet_latest.md"
     docs_packet_path = DOCS_PACKET_DIR / f"{stock_id}_packet_latest.md"
-    price_window_path = PRICE_WINDOW_DIR / f"{stock_id}_price_window_120_latest.csv"
+    price_window_path = PRICE_WINDOW_DIR / f"{stock_id}_price_window_{price_days}_latest.csv"
+    price_window_txt_path = PRICE_WINDOW_DIR / f"{stock_id}_price_window_{price_days}_latest.txt"
     docs_price_window_path = DOCS_PRICE_WINDOW_DIR / price_window_path.name
+    docs_price_window_txt_path = DOCS_PRICE_WINDOW_DIR / price_window_txt_path.name
     tdcc_window_path = TDCC_WINDOW_DIR / f"{stock_id}_tdcc_window_latest.csv"
+    tdcc_window_txt_path = TDCC_WINDOW_DIR / f"{stock_id}_tdcc_window_latest.txt"
     docs_tdcc_window_path = DOCS_TDCC_WINDOW_DIR / tdcc_window_path.name
+    docs_tdcc_window_txt_path = DOCS_TDCC_WINDOW_DIR / tdcc_window_txt_path.name
     price_path = DATA_PRICE_DIR / f"{stock_id}.csv"
     tdcc_path = DATA_TDCC_DIR / f"{stock_id}.csv"
     report_md = REPORT_DIR / f"{stock_id}_latest.md"
@@ -338,7 +357,7 @@ def build_packet(
             "distance_to_ma20_pct",
             "distance_to_high_60_pct",
         ],
-        limit=120,
+        limit=price_days,
     )
     tdcc_window_df = select_columns(
         tdcc_df,
@@ -363,8 +382,12 @@ def build_packet(
     )
     write_csv(price_window_df, price_window_path)
     write_csv(price_window_df, docs_price_window_path)
+    write_blankline_kv_window(price_window_df, price_window_txt_path, "PRICE_WINDOW_120")
+    write_blankline_kv_window(price_window_df, docs_price_window_txt_path, "PRICE_WINDOW_120")
     write_csv(tdcc_window_df, tdcc_window_path)
     write_csv(tdcc_window_df, docs_tdcc_window_path)
+    write_blankline_kv_window(tdcc_window_df, tdcc_window_txt_path, "TDCC_WINDOW")
+    write_blankline_kv_window(tdcc_window_df, docs_tdcc_window_txt_path, "TDCC_WINDOW")
 
     lines: list[str] = [
         f"# INDIVIDUAL STOCK CHATGPT PACKET - {stock_id} {stock_name}".rstrip(),
@@ -387,12 +410,18 @@ def build_packet(
         f"- packet_pages_url: {pages_url_for(docs_packet_path)}",
         f"- packet_raw_url: {raw_url(packet_path)}",
         f"- packet_github_api_url: {github_api_url(packet_path)}",
-        f"- price_window_120_pages_url: {pages_url_for(docs_price_window_path)}",
-        f"- price_window_120_raw_url: {raw_url(price_window_path)}",
-        f"- price_window_120_github_api_url: {github_api_url(price_window_path)}",
+        f"- price_window_{price_days}_pages_url: {pages_url_for(docs_price_window_path)}",
+        f"- price_window_{price_days}_raw_url: {raw_url(price_window_path)}",
+        f"- price_window_{price_days}_github_api_url: {github_api_url(price_window_path)}",
+        f"- price_window_{price_days}_txt_pages_url: {pages_url_for(docs_price_window_txt_path)}",
+        f"- price_window_{price_days}_txt_raw_url: {raw_url(price_window_txt_path)}",
+        f"- price_window_{price_days}_txt_github_api_url: {github_api_url(price_window_txt_path)}",
         f"- tdcc_window_pages_url: {pages_url_for(docs_tdcc_window_path)}",
         f"- tdcc_window_raw_url: {raw_url(tdcc_window_path)}",
         f"- tdcc_window_github_api_url: {github_api_url(tdcc_window_path)}",
+        f"- tdcc_window_txt_pages_url: {pages_url_for(docs_tdcc_window_txt_path)}",
+        f"- tdcc_window_txt_raw_url: {raw_url(tdcc_window_txt_path)}",
+        f"- tdcc_window_txt_github_api_url: {github_api_url(tdcc_window_txt_path)}",
         f"- price_raw_url: {raw_url(price_path)}",
         f"- price_pages_url: {pages_url_for(Path('docs/data/stock_price_history') / price_path.name)}",
         f"- price_github_api_url: {github_api_url(price_path)}",
@@ -406,7 +435,8 @@ def build_packet(
         "## Data Quality Rules",
         "- This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.",
         "- Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.",
-        "- For chart or K-line work, read `price_window_120_*` first. The full historical CSV remains available for Python backtests.",
+        f"- For chart or K-line work, read `price_window_{price_days}_txt_*` first. It is blank-line separated so ChatGPT can expand it more reliably than CSV.",
+        "- The full historical CSV remains available for Python backtests.",
         "- If price_rows < 60, do not produce a standard technical report.",
         "- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.",
         "- External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.",
@@ -430,7 +460,7 @@ def build_packet(
         f"- distance_to_high_60_pct: {numeric_text(pick_value(latest_price, ['distance_to_high_60_pct']))}",
         "",
         "## Recent Price Preview",
-        "This is a short preview only. For K-line/chart work read price_window_120_* above.",
+        f"This is a short preview only. For K-line/chart work read price_window_{price_days}_txt_* above.",
     ]
     lines.extend(csv_block(price_df, ["date", "open", "high", "low", "close", "volume", "ma5", "ma20", "ma60", "ema23", "volume_ratio"], limit=20))
     lines.extend(
@@ -450,7 +480,7 @@ def build_packet(
             f"- high_thresholds_up: {pick_value(latest_tdcc, ['high_thresholds_up'])}",
             "",
             f"## TDCC Preview",
-            "This is a short preview only. For all available weekly TDCC rows read tdcc_window_* above.",
+            "This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.",
         ]
     )
     lines.extend(csv_block(tdcc_df, ["as_of_date", "over_400_ratio", "over_400_change_1w", "over_800_ratio", "over_800_change_1w", "over_1000_ratio", "over_1000_change_1w", "tdcc_consecutive_up_weeks", "all_thresholds_up", "high_thresholds_up"], limit=tdcc_weeks))
@@ -550,12 +580,18 @@ def build_packet(
         "packet_raw_url": raw_url(packet_path),
         "packet_pages_url": pages_url_for(docs_packet_path),
         "packet_github_api_url": github_api_url(packet_path),
-        "price_window_120_raw_url": raw_url(price_window_path),
-        "price_window_120_pages_url": pages_url_for(docs_price_window_path),
-        "price_window_120_github_api_url": github_api_url(price_window_path),
+        f"price_window_{price_days}_raw_url": raw_url(price_window_path),
+        f"price_window_{price_days}_pages_url": pages_url_for(docs_price_window_path),
+        f"price_window_{price_days}_github_api_url": github_api_url(price_window_path),
+        f"price_window_{price_days}_txt_raw_url": raw_url(price_window_txt_path),
+        f"price_window_{price_days}_txt_pages_url": pages_url_for(docs_price_window_txt_path),
+        f"price_window_{price_days}_txt_github_api_url": github_api_url(price_window_txt_path),
         "tdcc_window_raw_url": raw_url(tdcc_window_path),
         "tdcc_window_pages_url": pages_url_for(docs_tdcc_window_path),
         "tdcc_window_github_api_url": github_api_url(tdcc_window_path),
+        "tdcc_window_txt_raw_url": raw_url(tdcc_window_txt_path),
+        "tdcc_window_txt_pages_url": pages_url_for(docs_tdcc_window_txt_path),
+        "tdcc_window_txt_github_api_url": github_api_url(tdcc_window_txt_path),
         "price_raw_url": raw_url(price_path),
         "tdcc_raw_url": raw_url(tdcc_path),
         "data_quality_status": packet_status if tdcc_status != "insufficient_tdcc_history" else f"{packet_status}+insufficient_tdcc_history",
@@ -632,7 +668,15 @@ def write_index_md(index: pd.DataFrame) -> None:
 def clear_packet_dirs() -> None:
     for directory in [PACKET_DIR, DOCS_PACKET_DIR, PRICE_WINDOW_DIR, DOCS_PRICE_WINDOW_DIR, TDCC_WINDOW_DIR, DOCS_TDCC_WINDOW_DIR]:
         directory.mkdir(parents=True, exist_ok=True)
-        for path in list(directory.glob("*_packet_latest.md")) + list(directory.glob("*_price_window_120_latest.csv")) + list(directory.glob("*_tdcc_window_latest.csv")):
+        for path in (
+            list(directory.glob("*_packet_latest.md"))
+            + list(directory.glob("*_price_window_120_latest.csv"))
+            + list(directory.glob("*_price_window_120_latest.txt"))
+            + list(directory.glob("*_price_window_180_latest.csv"))
+            + list(directory.glob("*_price_window_180_latest.txt"))
+            + list(directory.glob("*_tdcc_window_latest.csv"))
+            + list(directory.glob("*_tdcc_window_latest.txt"))
+        ):
             path.unlink()
 
 
