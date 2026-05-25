@@ -2,3 +2,4 @@
 20260522,00652,富邦印度,TWSE,32.21,32.3,32.05,32.29,310059,9964649.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260522.csv,,,,,,,,,,,,,,,,,,,,,,,,,,,
 20260523,00652,富邦印度,TWSE,32.21,32.3,32.05,32.29,310059,9964649.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260523.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260524,00652,富邦印度,TWSE,32.21,32.3,32.05,32.29,310059,9964649.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260524.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
+20260525,00652,富邦印度,TWSE,32.3,32.48,32.3,32.48,415765,13470752.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,0.5884,,,,,,,,,,,,,,,,,,,,,

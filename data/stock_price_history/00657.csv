@@ -2,3 +2,4 @@
 20260522,00657,國泰日經225,TWSE,73.85,74.3,73.8,74.3,93102,6894704.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260522.csv,,,,,,,,,,,,,,,,,,,,,,,,,,,
 20260523,00657,國泰日經225,TWSE,73.85,74.3,73.8,74.3,93102,6894704.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260523.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260524,00657,國泰日經225,TWSE,73.85,74.3,73.8,74.3,93102,6894704.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260524.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
+20260525,00657,國泰日經225,TWSE,76.1,76.6,76.1,76.55,49772,3802486.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,3.0283,,,,,,,,,,,,,,,,,,,,,

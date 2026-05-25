@@ -2,3 +2,4 @@
 20260522,00885,富邦越南,TWSE,19.26,19.28,18.89,18.96,3838544,73034947.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260522.csv,,,,,,,,,,,,,,,,,,,,,,,,,,,
 20260523,00885,富邦越南,TWSE,19.26,19.28,18.89,18.96,3838544,73034947.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260523.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260524,00885,富邦越南,TWSE,19.26,19.28,18.89,18.96,3838544,73034947.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260524.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
+20260525,00885,富邦越南,TWSE,18.93,19.12,18.9,18.99,3598420,68403810.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,0.1582,,,,,,,,,,,,,,,,,,,,,

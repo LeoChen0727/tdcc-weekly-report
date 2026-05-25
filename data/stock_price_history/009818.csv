@@ -2,3 +2,4 @@
 20260522,009818,華南永昌NASDAQxT,TWSE,19.12,19.15,19.1,19.13,602024,11511452.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260522.csv,,,,,,,,,,,,,,,,,,,,,,,,,,,
 20260523,009818,華南永昌NASDAQxT,TWSE,19.12,19.15,19.1,19.13,602024,11511452.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260523.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260524,009818,華南永昌NASDAQxT,TWSE,19.12,19.15,19.1,19.13,602024,11511452.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260524.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
+20260525,009818,華南永昌NASDAQxT,TWSE,19.26,19.38,19.26,19.32,605017,11679953.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,0.9932,,,,,,,,,,,,,,,,,,,,,

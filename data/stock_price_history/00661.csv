@@ -2,3 +2,4 @@
 20260522,00661,元大日經225,TWSE,81.15,81.85,80.95,81.85,78192,6363215.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260522.csv,,,,,,,,,,,,,,,,,,,,,,,,,,,
 20260523,00661,元大日經225,TWSE,81.15,81.85,80.95,81.85,78192,6363215.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260523.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260524,00661,元大日經225,TWSE,81.15,81.85,80.95,81.85,78192,6363215.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260524.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
+20260525,00661,元大日經225,TWSE,83.8,84.35,83.8,84.2,239666,20147696.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,2.8711,,,,,,,,,,,,,,,,,,,,,

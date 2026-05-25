@@ -2,3 +2,4 @@
 20260522,00851,台新全球AI,TWSE,65.5,65.8,65.5,65.55,19141,1256636.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260522.csv,,,,,,,,,,,,,,,,,,,,,,,,,,,
 20260523,00851,台新全球AI,TWSE,65.5,65.8,65.5,65.55,19141,1256636.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260523.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260524,00851,台新全球AI,TWSE,65.5,65.8,65.5,65.55,19141,1256636.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260524.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
+20260525,00851,台新全球AI,TWSE,66.65,67.45,66.05,67.4,51313,3445135.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,2.8223,,,,,,,,,,,,,,,,,,,,,

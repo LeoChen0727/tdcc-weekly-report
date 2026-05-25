@@ -2,3 +2,4 @@
 20260522,00783,富邦中証500,TWSE,29.7,29.85,29.57,29.85,155833,4620295.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260522.csv,,,,,,,,,,,,,,,,,,,,,,,,,,,
 20260523,00783,富邦中証500,TWSE,29.7,29.85,29.57,29.85,155833,4620295.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260523.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260524,00783,富邦中証500,TWSE,29.7,29.85,29.57,29.85,155833,4620295.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260524.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
+20260525,00783,富邦中証500,TWSE,30.11,30.2,29.86,30.2,244007,7351562.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,1.1725,,,,,,,,,,,,,,,,,,,,,

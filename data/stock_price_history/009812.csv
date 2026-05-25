@@ -2,3 +2,4 @@
 20260522,009812,野村日本東證,TWSE,12.09,12.12,12.07,12.11,810293,9801292.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260522.csv,,,,,,,,,,,,,,,,,,,,,,,,,,,
 20260523,009812,野村日本東證,TWSE,12.09,12.12,12.07,12.11,810293,9801292.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260523.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260524,009812,野村日本東證,TWSE,12.09,12.12,12.07,12.11,810293,9801292.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260524.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
+20260525,009812,野村日本東證,TWSE,12.25,12.26,12.17,12.19,870343,10627519.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,0.6606,,,,,,,,,,,,,,,,,,,,,

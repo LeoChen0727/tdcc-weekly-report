@@ -2,3 +2,4 @@
 20260522,006207,復華滬深,TWSE,33.31,33.31,32.81,32.99,162877,5368801.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260522.csv,,,,,,,,,,,,,,,,,,,,,,,,,,,
 20260523,006207,復華滬深,TWSE,33.31,33.31,32.81,32.99,162877,5368801.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260523.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260524,006207,復華滬深,TWSE,33.31,33.31,32.81,32.99,162877,5368801.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260524.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
+20260525,006207,復華滬深,TWSE,33.16,33.41,33.16,33.38,154426,5147625.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,1.1822,,,,,,,,,,,,,,,,,,,,,

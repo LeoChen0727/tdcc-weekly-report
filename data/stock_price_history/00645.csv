@@ -2,3 +2,4 @@
 20260522,00645,富邦日本,TWSE,54.8,54.95,54.7,54.85,179481,9837446.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260522.csv,,,,,,,,,,,,,,,,,,,,,,,,,,,
 20260523,00645,富邦日本,TWSE,54.8,54.95,54.7,54.85,179481,9837446.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260523.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260524,00645,富邦日本,TWSE,54.8,54.95,54.7,54.85,179481,9837446.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260524.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
+20260525,00645,富邦日本,TWSE,55.4,55.6,55.3,55.45,238431,13224631.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,1.0939,,,,,,,,,,,,,,,,,,,,,

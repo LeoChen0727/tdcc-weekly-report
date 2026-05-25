@@ -2,3 +2,4 @@
 20260522,4582,聚恆-創,TWSE,23.7,24.5,23.0,24.15,1980210,47894564.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260522.csv,,,,,,,,,,,,,,,,,,,,,,,,,,,
 20260523,4582,聚恆-創,TWSE,23.7,24.5,23.0,24.15,1980210,47894564.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260523.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260524,4582,聚恆-創,TWSE,23.7,24.5,23.0,24.15,1980210,47894564.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260524.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
+20260525,4582,聚恆-創,TWSE,24.25,24.6,23.4,23.45,703020,16872280.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,-2.8986,,,,,,,,,,,,,,,,,,,,,
