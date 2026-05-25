@@ -108,6 +108,74 @@ def write_blankline_kv_window(df: pd.DataFrame, path: Path, prefix: str) -> None
     path.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8", newline="\n")
 
 
+def row_kv_text(row: pd.Series, columns: list[str]) -> str:
+    parts = []
+    for col in columns:
+        value = safe_str(row[col]).replace("\n", " ").replace("\r", " ")
+        parts.append(f"{col}={value}")
+    return "|".join(parts)
+
+
+def html_escape(value: Any) -> str:
+    text = safe_str(value)
+    return (
+        text.replace("&", "&amp;")
+        .replace("<", "&lt;")
+        .replace(">", "&gt;")
+        .replace('"', "&quot;")
+    )
+
+
+def write_html_table(df: pd.DataFrame, path: Path, title: str) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    lines = [
+        "<!doctype html>",
+        '<html lang="zh-Hant">',
+        "<head>",
+        '<meta charset="utf-8">',
+        '<meta name="viewport" content="width=device-width, initial-scale=1">',
+        f"<title>{html_escape(title)}</title>",
+        "<style>",
+        "body{font-family:Arial,'Noto Sans TC',sans-serif;margin:24px;line-height:1.45;color:#111}",
+        "table{border-collapse:collapse;width:100%;font-size:13px}",
+        "th,td{border:1px solid #ddd;padding:4px 6px;text-align:right;white-space:nowrap}",
+        "th:first-child,td:first-child{text-align:left}",
+        "th{background:#f1f5f9;position:sticky;top:0}",
+        ".note{color:#555;font-size:13px;margin:8px 0 16px}",
+        ".row-lines{margin-top:28px}",
+        ".data-row{font-family:Consolas,monospace;font-size:12px;white-space:normal;border-bottom:1px solid #eee;padding:4px 0}",
+        "</style>",
+        "</head>",
+        "<body>",
+        f"<h1>{html_escape(title)}</h1>",
+        f'<p class="note">Rows: {len(df)}. This 180-day HTML mirror is for ChatGPT/browser extraction. Full raw CSV remains available for programmatic backtests.</p>',
+        "<table>",
+    ]
+    if df.empty:
+        lines.extend(["<tr><th>status</th></tr>", "<tr><td>no_rows</td></tr>"])
+        lines.append("</table>")
+    else:
+        lines.append("<thead><tr>" + "".join(f"<th>{html_escape(col)}</th>" for col in df.columns) + "</tr></thead>")
+        lines.append("<tbody>")
+        for _, row in df.iterrows():
+            lines.append("<tr>" + "".join(f"<td>{html_escape(row[col])}</td>" for col in df.columns) + "</tr>")
+        lines.append("</tbody>")
+        lines.extend(
+            [
+                "</table>",
+                '<section class="row-lines">',
+                "<h2>One Row Per Paragraph</h2>",
+                '<p class="note">Use these PRICE_ROW lines if the table is not extracted cleanly. They contain the same 180-day window rows.</p>',
+            ]
+        )
+        columns = list(df.columns)
+        for i, (_, row) in enumerate(df.iterrows(), start=1):
+            lines.append(f'<p class="data-row">PRICE_ROW_{i:03d}={html_escape(row_kv_text(row, columns))}</p>')
+        lines.append("</section>")
+    lines.extend(["</body>", "</html>"])
+    path.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8", newline="\n")
+
+
 def raw_url(path: Path) -> str:
     return f"{RAW_PREFIX}/{path.as_posix()}"
 
@@ -322,8 +390,10 @@ def build_packet(
     docs_packet_path = DOCS_PACKET_DIR / f"{stock_id}_packet_latest.md"
     price_window_path = PRICE_WINDOW_DIR / f"{stock_id}_price_window_{price_days}_latest.csv"
     price_window_txt_path = PRICE_WINDOW_DIR / f"{stock_id}_price_window_{price_days}_latest.txt"
+    price_window_html_path = PRICE_WINDOW_DIR / f"{stock_id}_price_window_{price_days}_latest.html"
     docs_price_window_path = DOCS_PRICE_WINDOW_DIR / price_window_path.name
     docs_price_window_txt_path = DOCS_PRICE_WINDOW_DIR / price_window_txt_path.name
+    docs_price_window_html_path = DOCS_PRICE_WINDOW_DIR / price_window_html_path.name
     tdcc_window_path = TDCC_WINDOW_DIR / f"{stock_id}_tdcc_window_latest.csv"
     tdcc_window_txt_path = TDCC_WINDOW_DIR / f"{stock_id}_tdcc_window_latest.txt"
     docs_tdcc_window_path = DOCS_TDCC_WINDOW_DIR / tdcc_window_path.name
@@ -382,8 +452,11 @@ def build_packet(
     )
     write_csv(price_window_df, price_window_path)
     write_csv(price_window_df, docs_price_window_path)
-    write_blankline_kv_window(price_window_df, price_window_txt_path, "PRICE_WINDOW_120")
-    write_blankline_kv_window(price_window_df, docs_price_window_txt_path, "PRICE_WINDOW_120")
+    price_window_prefix = f"PRICE_WINDOW_{price_days}"
+    write_blankline_kv_window(price_window_df, price_window_txt_path, price_window_prefix)
+    write_blankline_kv_window(price_window_df, docs_price_window_txt_path, price_window_prefix)
+    write_html_table(price_window_df, price_window_html_path, f"{stock_id} {stock_name} price window {len(price_window_df)} rows")
+    write_html_table(price_window_df, docs_price_window_html_path, f"{stock_id} {stock_name} price window {len(price_window_df)} rows")
     write_csv(tdcc_window_df, tdcc_window_path)
     write_csv(tdcc_window_df, docs_tdcc_window_path)
     write_blankline_kv_window(tdcc_window_df, tdcc_window_txt_path, "TDCC_WINDOW")
@@ -416,6 +489,9 @@ def build_packet(
         f"- price_window_{price_days}_txt_pages_url: {pages_url_for(docs_price_window_txt_path)}",
         f"- price_window_{price_days}_txt_raw_url: {raw_url(price_window_txt_path)}",
         f"- price_window_{price_days}_txt_github_api_url: {github_api_url(price_window_txt_path)}",
+        f"- price_window_{price_days}_html_pages_url: {pages_url_for(docs_price_window_html_path)}",
+        f"- price_window_{price_days}_html_raw_url: {raw_url(price_window_html_path)}",
+        f"- price_window_{price_days}_html_github_api_url: {github_api_url(price_window_html_path)}",
         f"- tdcc_window_pages_url: {pages_url_for(docs_tdcc_window_path)}",
         f"- tdcc_window_raw_url: {raw_url(tdcc_window_path)}",
         f"- tdcc_window_github_api_url: {github_api_url(tdcc_window_path)}",
@@ -435,7 +511,7 @@ def build_packet(
         "## Data Quality Rules",
         "- This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.",
         "- Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.",
-        f"- For chart or K-line work, read `price_window_{price_days}_txt_*` first. It is blank-line separated so ChatGPT can expand it more reliably than CSV.",
+        f"- For chart or K-line work, always read `price_window_{price_days}_html_pages_url` or `price_window_{price_days}_txt_*` first. The 20-row preview is not enough for technical analysis.",
         "- The full historical CSV remains available for Python backtests.",
         "- If price_rows < 60, do not produce a standard technical report.",
         "- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.",
@@ -586,6 +662,9 @@ def build_packet(
         f"price_window_{price_days}_txt_raw_url": raw_url(price_window_txt_path),
         f"price_window_{price_days}_txt_pages_url": pages_url_for(docs_price_window_txt_path),
         f"price_window_{price_days}_txt_github_api_url": github_api_url(price_window_txt_path),
+        f"price_window_{price_days}_html_raw_url": raw_url(price_window_html_path),
+        f"price_window_{price_days}_html_pages_url": pages_url_for(docs_price_window_html_path),
+        f"price_window_{price_days}_html_github_api_url": github_api_url(price_window_html_path),
         "tdcc_window_raw_url": raw_url(tdcc_window_path),
         "tdcc_window_pages_url": pages_url_for(docs_tdcc_window_path),
         "tdcc_window_github_api_url": github_api_url(tdcc_window_path),
@@ -672,8 +751,10 @@ def clear_packet_dirs() -> None:
             list(directory.glob("*_packet_latest.md"))
             + list(directory.glob("*_price_window_120_latest.csv"))
             + list(directory.glob("*_price_window_120_latest.txt"))
+            + list(directory.glob("*_price_window_120_latest.html"))
             + list(directory.glob("*_price_window_180_latest.csv"))
             + list(directory.glob("*_price_window_180_latest.txt"))
+            + list(directory.glob("*_price_window_180_latest.html"))
             + list(directory.glob("*_tdcc_window_latest.csv"))
             + list(directory.glob("*_tdcc_window_latest.txt"))
         ):

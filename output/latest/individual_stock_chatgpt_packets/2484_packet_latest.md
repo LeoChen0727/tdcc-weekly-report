@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2484 希華
 
 ## Metadata
-- generated_at: 2026-05-26 02:41:13 Asia/Taipei
+- generated_at: 2026-05-26 02:46:43 Asia/Taipei
 - stock_id: 2484
 - stock_name: 希華
 - packet_status: standard_120d_plus_packet
@@ -24,6 +24,9 @@
 - price_window_180_txt_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_price_windows/2484_price_window_180_latest.txt
 - price_window_180_txt_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_price_windows/2484_price_window_180_latest.txt
 - price_window_180_txt_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_price_windows/2484_price_window_180_latest.txt?ref=main
+- price_window_180_html_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_price_windows/2484_price_window_180_latest.html
+- price_window_180_html_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_price_windows/2484_price_window_180_latest.html
+- price_window_180_html_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_price_windows/2484_price_window_180_latest.html?ref=main
 - tdcc_window_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_tdcc_windows/2484_tdcc_window_latest.csv
 - tdcc_window_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_tdcc_windows/2484_tdcc_window_latest.csv
 - tdcc_window_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_tdcc_windows/2484_tdcc_window_latest.csv?ref=main
@@ -43,7 +46,7 @@
 ## Data Quality Rules
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
-- For chart or K-line work, read `price_window_180_txt_*` first. It is blank-line separated so ChatGPT can expand it more reliably than CSV.
+- For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
