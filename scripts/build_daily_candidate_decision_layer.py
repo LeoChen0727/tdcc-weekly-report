@@ -29,6 +29,7 @@ ALL_CANDIDATES_MD = LATEST_DIR / "all_candidates_latest.md"
 
 REGRESSION_2484_MD = LATEST_DIR / "daily_candidate_regression_2484_latest.md"
 REGRESSION_2484_CSV = LATEST_DIR / "daily_candidate_regression_2484_latest.csv"
+REGRESSION_8069_CSV = LATEST_DIR / "daily_candidate_regression_8069_latest.csv"
 
 DECISION_CSV = LATEST_DIR / "daily_candidate_decision_latest.csv"
 DECISION_MD = LATEST_DIR / "daily_candidate_decision_latest.md"
@@ -533,6 +534,29 @@ def regression_2484_summary() -> list[str]:
     return lines
 
 
+def regression_8069_summary() -> list[str]:
+    lines: list[str] = []
+    if not REGRESSION_8069_CSV.exists():
+        return ["- 8069 regression file missing."]
+    df = read_csv(REGRESSION_8069_CSV, dtype=str, keep_default_na=False)
+    if df.empty:
+        return ["- 8069 regression file empty."]
+    cols = [
+        "case_date",
+        "breakout_type",
+        "score",
+        "pattern_stage",
+        "w_bottom_flag",
+        "early_entry_watch_flag",
+        "neckline_challenge_flag",
+        "neckline_breakout_flag",
+        "platform_breakout_flag",
+        "volume_confirmed_breakout",
+    ]
+    lines.append(df[[col for col in cols if col in df.columns]].to_markdown(index=False))
+    return lines
+
+
 def write_markdown(decision: pd.DataFrame, main_date: str) -> None:
     lines = [
         "# Daily Candidate Decision Layer",
@@ -573,6 +597,9 @@ def write_markdown(decision: pd.DataFrame, main_date: str) -> None:
 
     lines.extend(["", "## 2484 Regression Guardrail", ""])
     lines.extend(regression_2484_summary())
+
+    lines.extend(["", "## 8069 Regression Guardrail", ""])
+    lines.extend(regression_8069_summary())
 
     display_cols = [
         "decision_rank_in_category",
@@ -625,6 +652,7 @@ def write_packet(decision: pd.DataFrame, main_date: str) -> None:
         "- `decision_priority` is a reporting and tracking priority, not a buy/sell instruction.",
         "- Strong breakout patterns must still be downgraded when TDCC distribution, stale repeat appearance, or overheat flags appear.",
         "- For 2484 regression: 20260520-20260521 platform_right_side, 20260522 neckline_breakout, 20260525 breakout_confirmed.",
+        "- For 8069 regression: 20260507 early right-side watch, 20260508 neckline_challenge, 20260512 strict volume-confirmed breakout.",
         "",
         "## Priority Summary",
         "",
@@ -668,6 +696,9 @@ def write_packet(decision: pd.DataFrame, main_date: str) -> None:
 
     lines.extend(["", "## 2484 Regression Replay", ""])
     lines.extend(regression_2484_summary())
+
+    lines.extend(["", "## 8069 Regression Replay", ""])
+    lines.extend(regression_8069_summary())
     lines.append("")
     DECISION_PACKET.write_text("\n".join(lines), encoding="utf-8")
 
