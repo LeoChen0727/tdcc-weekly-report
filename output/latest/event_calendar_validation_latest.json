@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-05-26 06:10:18 Asia/Taipei",
+  "generated_at": "2026-05-26 06:38:27 Asia/Taipei",
   "status": "pass",
-  "schema_only": true,
+  "schema_only": false,
   "issues": [],
   "files": {
     "company_event_calendar": {
@@ -32,13 +32,13 @@
       "path": "output/latest/calendar_data_source_status_latest.json",
       "exists": true,
       "rows": 0,
-      "size_bytes": 2606
+      "size_bytes": 2517
     },
     "status_md": {
       "path": "output/latest/calendar_data_source_status_latest.md",
       "exists": true,
       "rows": 0,
-      "size_bytes": 2324
+      "size_bytes": 2235
     },
     "needs_review_csv": {
       "path": "output/latest/catalyst_needs_review_latest.csv",

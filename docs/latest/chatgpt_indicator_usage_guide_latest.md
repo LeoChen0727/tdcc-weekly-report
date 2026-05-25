@@ -1,6 +1,6 @@
 # ChatGPT Indicator Usage Guide
 
-- generated_at: `2026-05-25 22:00:42 UTC`
+- generated_at: `2026-05-25 22:38:27 UTC`
 - main_price_date: `20260526`
 - purpose: Use program-side classifications first. ChatGPT should explain and synthesize, not re-rank from memory.
 - rule: If memory, PDF, or ad-hoc interpretation conflicts with program-side fields, use the structured program-side fields.
@@ -27,7 +27,7 @@
 | Market timing backtest | output/latest/market_timing_backtest_latest.csv | event_name, sample_status, best_horizon, mature counts | D+1:insufficient_sample;D+3:insufficient_sample;D+5:insufficient_sample;D+10:insufficient_sample;D+20:insufficient_sample;D+40:insufficient_sample;D+60:insufficient_sample=16; D+1:ok;D+3:ok;D+5:ok;D+10:ok;D+20:ok;D+40:ok;D+60:ok=7; D+1:insufficient_sample;D+3:insufficient_sample;D+5:insufficient_sample;D+10:insufficient_sample;D+20:insufficient_sample;D+40:ok;D+60:ok=2; D+1:insufficient_sample;D+3:insufficient_sample;D+5:insufficient_sample;D+10:insufficient_sample;D+20:pending_only;D+40:pending_only;D+60:pending_only=1; D+1:insufficient_sample;D+3:insufficient_sample;D+5:insufficient_sample;D+10:insufficient_sample;D+20:insufficient_sample;D+40:ok;D+60:insufficient_sample=1 | Use only mature_dN samples. If sample_status is insufficient, say it is observation only. |
 | Surge precondition model | output/latest/surge_precondition_candidates_latest.csv | surge_precondition_score, surge_watch_label, reason_summary, risk_flags | A_surge_watch=97; B_confirm_needed=3 | Independent research layer; not the daily recommendation model. |
 | Signal performance | output/latest/daily_signal_performance_summary_latest.csv | category/TDCC/warrant/sector/revenue/catalyst groups with D+N and relative benchmark returns | pattern=2; pullback_rebound=2; range_rebound=2; revenue_breakout_low_response=2; revenue_pullback=2; true_breakout=2 | Use for review/backtest, not for one-day parameter changes. |
-| Volume breakout watch | output/latest/volume_breakout_watch_latest.csv | volume_breakout_type, volume_breakout_priority, selection_status, not_selected_reason, risk_flags, next_volume_breakout_confirmation | D_risk_downgrade=36; B_confirm_needed=25; A_valid_breakout_watch=10 / neckline_volume_breakout=71 | Use when asked about 帶量突破 / 放量突破 / 放量攻擊. Strict breakout is only one subset. |
+| Volume breakout watch | output/latest/volume_breakout_watch_latest.csv | volume_breakout_type, volume_watch_scope, volume_breakout_priority, selection_status, not_selected_reason, risk_flags, next_volume_breakout_confirmation | D_risk_downgrade=230; B_confirm_needed=36; C_watch_only=29; A_valid_breakout_watch=10 / loose_platform_volume_watch=132; loose_ma_reclaim_volume_watch=88; neckline_volume_breakout=71; loose_right_side_volume_watch=14 | Use when asked about 帶量突破 / 放量突破 / 放量攻擊. Strict breakout is only one subset. |
 | Individual stock raw availability | output/latest/individual_stock_available_raw_data_index_slim.csv | data_quality_status, report_status, price/TDCC row counts | partial=2043; ok=81; insufficient_data=25 | Check before single-stock analysis. |
 | Catalyst layer | output/latest/fundamental_catalyst_layer_latest.md | catalyst_quality, catalyst_tags, price_reaction_level, needs_eps_confirmation | needs_review_rows=4 | Currently source-limited; do not upgrade without confirmed source rows. |
 | Chip-flow positive streak | output/latest/chip_flow_positive_streak_latest.csv | positive_streak_days and category if source data exists | rows=0 | If empty/unavailable, do not mention as active signal. |
@@ -39,7 +39,7 @@
 - Use `decision_priority` as the primary reporting priority: `A_priority_watch`, `B_confirm_needed`, `C_watch_only`, `D_risk_downgrade`.
 - Use `why_selected`, `why_downgraded`, and `next_confirmation` directly. Do not invent a different reason when these fields exist.
 - `must_not_overstate=True` means do not call the stock a top pick, even if the chart looks attractive.
-- For volume breakout questions, read `volume_breakout_chatgpt_packet_latest.md` and `volume_breakout_watch_latest.csv`; do not assume an empty strict breakout file means there were no volume attacks.
+- For volume breakout questions, read `volume_breakout_chatgpt_packet_latest.md` and `volume_breakout_watch_latest.csv`; use `volume_watch_scope=broad_watch` as a broad recall universe, not as strict breakout confirmation.
 
 ### TDCC / ABM report
 - Use `tdcc_chatgpt_tracking_packet_latest.md`, then `tdcc_strength_ranking_top_latest.csv`, `tdcc_pre_move_abm_top_latest.csv`, and `tdcc_top_risk_list_latest.csv`.
