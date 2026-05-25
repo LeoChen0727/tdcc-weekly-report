@@ -1,9 +1,9 @@
-main_price_date=20260524
-report_ready=False
-commit_sha=954ccd3b4a0c98333e9792406f305e8ff27f27ed
+main_price_date=20260525
+report_ready=True
+commit_sha=3730894803e2b3e10aeacb64e40f930ddadccc0b
 preferred_chatgpt_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt
 packet_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt
-packet_commit_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/954ccd3b4a0c98333e9792406f305e8ff27f27ed/output/history/reports/20260524_CHATGPT_DAILY_REPORT_PACKET.txt
+packet_commit_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/3730894803e2b3e10aeacb64e40f930ddadccc0b/output/history/reports/20260525_CHATGPT_DAILY_REPORT_PACKET.txt
 packet_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/chatgpt_daily_report_packet_latest.txt
 packet_github_api_url=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/chatgpt_daily_report_packet_latest.txt?ref=main
 summary_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_summary_latest.md
@@ -18,8 +18,8 @@ pdf_kline_status_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/late
 pdf_kline_status_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/pdf_kline_chart_status_latest.md
 summary_pdf_kline_policy=local_price_redraw_first
 summary_pdf_kline_status=generated
-summary_pdf_kline_total_charts=20
-summary_pdf_kline_local_price_redraw_count=20
+summary_pdf_kline_total_charts=30
+summary_pdf_kline_local_price_redraw_count=30
 summary_pdf_chart_path_and_chart_url_are_fallback_only=True
 do_not_label_summary_pdf_as_chart_path_version_or_image_download_failed=True
 fundamental_catalyst_layer_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/fundamental_catalyst_layer_latest.md
@@ -92,7 +92,7 @@ rules_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/m
 packet_pages_ok=True
 packet_commit_raw_ok=True
 packet_latest_raw_ok=True
-packet_github_api_ok=False
+packet_github_api_ok=True
 read_order=packet_pages_url,packet_commit_raw_url,packet_latest_raw_url,packet_github_api_url
 
 RULES:
