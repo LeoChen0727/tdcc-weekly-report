@@ -1,9 +1,9 @@
 {
   "status": "pass",
   "main_price_date": "20260526",
-  "decision_rows": 704,
-  "decision_md_lines": 224,
-  "decision_packet_lines": 174,
+  "decision_rows": 640,
+  "decision_md_lines": 236,
+  "decision_packet_lines": 205,
   "regression_2484_status": "pass",
   "errors": [],
   "warnings": []

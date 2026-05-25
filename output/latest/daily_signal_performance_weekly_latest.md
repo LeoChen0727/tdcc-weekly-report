@@ -1,8 +1,8 @@
 # 每日候選股訊號績效週報
 
-- generated_at: `2026-05-26 05:22:24 Asia/Taipei`
+- generated_at: `2026-05-26 05:56:30 Asia/Taipei`
 - latest_signal_date: `20260526`
-- signal_count: `2182`
+- signal_count: `2343`
 - period: latest 14 calendar days
 
 ## 市場背景摘要
@@ -14,51 +14,51 @@
 
 | category | signal_count | avg_return_d5 | avg_return_d10 | avg_relative_return_vs_benchmark_d5 | avg_relative_return_vs_benchmark_d10 | win_rate_d10 | benchmark_outperform_rate_d10 | avg_mfe_d10 | avg_mae_d10 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| pattern | 1080 |  |  |  |  |  |  | 6.80306553793759 | 0.01798974225112897 |
-| pullback_rebound | 21 |  |  |  |  |  |  | -3.6090875189729954 | -7.374116110464778 |
-| range_rebound | 356 |  |  |  |  |  |  | 3.6374779868022498 | -4.603941629698015 |
-| revenue_breakout_low_response | 81 |  |  |  |  |  |  | 2.9413560525610114 | -1.6534229632633923 |
-| revenue_pullback | 570 |  |  |  |  |  |  | 3.5409846896968435 | -2.6050291643907393 |
-| true_breakout | 74 |  |  |  |  |  |  | -6.396167216310771 | -11.656021731048325 |
+| pattern | 1107 |  |  |  |  |  |  | 7.507448364998513 | 1.4865090054454704 |
+| pullback_rebound | 21 |  |  |  |  |  |  | 0.8328934120737626 | -4.682682434397762 |
+| range_rebound | 474 |  |  |  |  |  |  | 4.824232281789252 | -2.610062946772949 |
+| revenue_breakout_low_response | 83 |  |  |  |  |  |  | 2.3997652379198877 | -1.7499303532685129 |
+| revenue_pullback | 584 |  |  |  |  |  |  | 3.733029960430295 | -1.611343175688837 |
+| true_breakout | 74 |  |  |  |  |  |  | 0.9188187457053245 | -4.483926709012415 |
 
 ## TDCC 分層效果
 
 | tdcc_status | signal_count | avg_return_d5 | avg_return_d10 | avg_relative_return_vs_benchmark_d10 | win_rate_d10 | avg_mfe_d10 | avg_mae_d10 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  | 2 |  |  |  |  |  |  |
-| distribution_warning | 962 |  |  |  |  | 5.118685430457044 | -1.809933551194664 |
-| mild_accumulation | 892 |  |  |  |  | 4.350285464170243 | -2.186220955977204 |
-| neutral | 10 |  |  |  |  | 3.415893837235955 | -3.1805902320751014 |
-| strong_accumulation | 312 |  |  |  |  | 3.4479229195187404 | -2.587422548070185 |
-| 無TDCC資料 | 4 |  |  |  |  | 5.068955399061033 | 0.4841549295774516 |
+|  | 4 |  |  |  |  |  |  |
+| distribution_warning | 1030 |  |  |  |  | 6.0580631722372456 | -0.014828597044639269 |
+| mild_accumulation | 955 |  |  |  |  | 5.208407032477182 | -0.6899114047229125 |
+| neutral | 11 |  |  |  |  | 5.047978293958044 | -0.8321588697460977 |
+| strong_accumulation | 339 |  |  |  |  | 4.606637651490633 | -1.0421982275407153 |
+| 無TDCC資料 | 4 |  |  |  |  | 6.536091549295775 | 3.198356807511734 |
 
 ## 權證分層效果
 
 | warrant_status | signal_count | avg_return_d5 | avg_return_d10 | avg_relative_return_vs_benchmark_d10 | win_rate_d10 |
 | --- | --- | --- | --- | --- | --- |
-|  | 971 |  |  |  |  |
-| call_inflow | 150 |  |  |  |  |
-| call_put_bullish | 97 |  |  |  |  |
-| call_strong_inflow | 162 |  |  |  |  |
-| mixed_flow | 26 |  |  |  |  |
-| no_signal | 776 |  |  |  |  |
+|  | 1025 |  |  |  |  |
+| call_inflow | 166 |  |  |  |  |
+| call_put_bullish | 115 |  |  |  |  |
+| call_strong_inflow | 193 |  |  |  |  |
+| mixed_flow | 30 |  |  |  |  |
+| no_signal | 814 |  |  |  |  |
 
 ## 族群表現
 
 | sector | sub_theme | signal_count | avg_return_d5 | avg_return_d10 | avg_relative_return_vs_benchmark_d10 | win_rate_d10 |
 | --- | --- | --- | --- | --- | --- | --- |
-|  |  | 2101 |  |  |  |  |
+|  |  | 2260 |  |  |  |  |
 | cyclical_turnaround | cyclical_turnaround | 13 |  |  |  |  |
-| mainstream_growth | mainstream_growth | 34 |  |  |  |  |
-| neutral | neutral | 34 |  |  |  |  |
+| mainstream_growth | mainstream_growth | 35 |  |  |  |  |
+| neutral | neutral | 35 |  |  |  |  |
 
 ## 營收類型比較
 
 | revenue_signal_type | signal_count | avg_return_d10 | avg_relative_return_vs_benchmark_d10 | win_rate_d10 | benchmark_outperform_rate_d10 |
 | --- | --- | --- | --- | --- | --- |
-|  | 1503 |  |  |  |  |
-| 出貨型營收 / 其他 | 586 |  |  |  |  |
-| 營建認列型 / 交屋認列型 | 93 |  |  |  |  |
+|  | 1650 |  |  |  |  |
+| 出貨型營收 / 其他 | 601 |  |  |  |  |
+| 營建認列型 / 交屋認列型 | 92 |  |  |  |  |
 
 ## 財報 / 事件催化層績效
 
@@ -67,49 +67,49 @@
 | similar_to_shihsinko_flag | signal_count | avg_return_d5 | avg_return_d10 | avg_return_d20 | avg_relative_return_vs_benchmark_d10 | benchmark_outperform_rate_d10 |
 | --- | --- | --- | --- | --- | --- | --- |
 |  | 565 |  |  |  |  |  |
-| False | 1617 |  |  |  |  |  |
+| False | 1778 |  |  |  |  |  |
 
 ### EPS / 毛利率 / 營收待確認
 
 | eps_surprise_flag | signal_count | avg_return_d10 | avg_relative_return_vs_benchmark_d10 | benchmark_outperform_rate_d10 |
 | --- | --- | --- | --- | --- |
 |  | 565 |  |  |  |
-| False | 1617 |  |  |  |
+| False | 1778 |  |  |  |
 
 | margin_improvement_flag | signal_count | avg_return_d10 | avg_relative_return_vs_benchmark_d10 | benchmark_outperform_rate_d10 |
 | --- | --- | --- | --- | --- |
 |  | 565 |  |  |  |
-| False | 1617 |  |  |  |
+| False | 1778 |  |  |  |
 
 | revenue_good_eps_unconfirmed_flag | signal_count | avg_return_d10 | avg_relative_return_vs_benchmark_d10 | benchmark_outperform_rate_d10 |
 | --- | --- | --- | --- | --- |
 |  | 565 |  |  |  |
-| False | 1235 |  |  |  |
-| True | 382 |  |  |  |
+| False | 1381 |  |  |  |
+| True | 397 |  |  |  |
 
 ### 利多反應程度
 
 | low_reaction_after_catalyst | signal_count | avg_return_d10 | avg_relative_return_vs_benchmark_d10 | benchmark_outperform_rate_d10 |
 | --- | --- | --- | --- | --- |
 |  | 565 |  |  |  |
-| False | 326 |  |  |  |
-| True | 1291 |  |  |  |
+| False | 391 |  |  |  |
+| True | 1387 |  |  |  |
 
 | already_reacted_to_catalyst | signal_count | avg_return_d10 | avg_relative_return_vs_benchmark_d10 | benchmark_outperform_rate_d10 |
 | --- | --- | --- | --- | --- |
 |  | 565 |  |  |  |
-| False | 1440 |  |  |  |
-| True | 177 |  |  |  |
+| False | 1571 |  |  |  |
+| True | 207 |  |  |  |
 
 ## 不同市場背景下的分類表現
 
 | category | market_regime | signal_count | avg_return_d10 | avg_relative_return_vs_benchmark_d10 | benchmark_outperform_rate_d10 |
 | --- | --- | --- | --- | --- | --- |
-| pattern | strong_bull | 1080 |  |  |  |
+| pattern | strong_bull | 1107 |  |  |  |
 | pullback_rebound | strong_bull | 21 |  |  |  |
-| range_rebound | strong_bull | 356 |  |  |  |
-| revenue_breakout_low_response | strong_bull | 81 |  |  |  |
-| revenue_pullback | strong_bull | 570 |  |  |  |
+| range_rebound | strong_bull | 474 |  |  |  |
+| revenue_breakout_low_response | strong_bull | 83 |  |  |  |
+| revenue_pullback | strong_bull | 584 |  |  |  |
 | true_breakout | strong_bull | 74 |  |  |  |
 
 ## 判讀規則

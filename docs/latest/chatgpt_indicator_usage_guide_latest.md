@@ -1,6 +1,6 @@
 # ChatGPT Indicator Usage Guide
 
-- generated_at: `2026-05-25 21:26:43 UTC`
+- generated_at: `2026-05-25 22:00:42 UTC`
 - main_price_date: `20260526`
 - purpose: Use program-side classifications first. ChatGPT should explain and synthesize, not re-rank from memory.
 - rule: If memory, PDF, or ad-hoc interpretation conflicts with program-side fields, use the structured program-side fields.
@@ -17,17 +17,17 @@
 ## Program-Side Classification Coverage
 | layer | file | classification fields | current buckets | ChatGPT use |
 | --- | --- | --- | --- | --- |
-| Daily candidate decision | output/latest/daily_candidate_decision_latest.csv | decision_priority, decision_score, pattern_mapped_category, downgrade_flags, risk_tags, why_selected, why_downgraded, next_confirmation | D_risk_downgrade=456; C_watch_only=170; B_confirm_needed=75; A_priority_watch=3 | Primary source for daily candidate ranking and downgrade. |
-| Repeat appearance | output/latest/candidate_repeat_appearance_latest.csv | repeat_appear_label, consecutive_appear_days_any_category, appear_count_5d/10d/20d | stale_signal=199; repeated_but_no_breakout=146; first_seen=80; continued_overheated=19; continued_2_3d=14 | Use as persistence/staleness signal, never as a standalone upgrade. |
+| Daily candidate decision | output/latest/daily_candidate_decision_latest.csv | decision_priority, decision_score, pattern_mapped_category, downgrade_flags, risk_tags, why_selected, why_downgraded, next_confirmation | D_risk_downgrade=391; C_watch_only=152; B_confirm_needed=83; A_priority_watch=14 | Primary source for daily candidate ranking and downgrade. |
+| Repeat appearance | output/latest/candidate_repeat_appearance_latest.csv | repeat_appear_label, consecutive_appear_days_any_category, appear_count_5d/10d/20d | stale_signal=175; repeated_but_no_breakout=171; first_seen=108; continued_2_3d=37; continued_overheated=23 | Use as persistence/staleness signal, never as a standalone upgrade. |
 | TDCC strength | output/latest/tdcc_strength_ranking_top_latest.csv | tdcc_strength_score, tdcc_price_phase, risk_bucket, theme_mainstream_status | strong_but_pre_move=23; strong_but_divergent=23; insufficient_data=2; strong_but_late=1; strong_but_overheated=1 | Strength list only. It is not the pre-move list. |
 | TDCC pre-move / ABM | output/latest/tdcc_pre_move_abm_top_latest.csv | tracking_priority, accumulation_label, tdcc_price_phase, setup_type, trigger_to_watch | C_weak_or_discounted=23; B_confirm_needed=22; A_prime_watch=5 | Use for hidden accumulation candidates, subject to mature-sample caveats. |
 | TDCC risk list | output/latest/tdcc_top_risk_list_latest.csv | risk_group, tdcc_price_phase, risk_bucket | strong_but_late=20; strong_but_overheated=20; strong_but_divergent=20 | Use to avoid mislabeling late/overheated/divergent names as accumulation. |
 | Warrant flow | output/latest/warrant_flow_by_stock_latest.csv | warrant_flow_signal, warrant_flow_score, warrant_flow_warning | no_signal=236; call_inflow=82; call_strong_inflow=75; call_put_bullish=53; mixed_flow=9 | Auxiliary only. Do not make warrant-only conclusions. |
 | Market regime / futures options | output/latest/market_regime_latest.csv | market_regime, risk_level, vix_state, put_call_state, foreign_futures_state, retail_mtx_state | strong_bull=1 / high_risk=1 | Background for exposure, index futures, and chasing-risk interpretation. |
 | Market timing backtest | output/latest/market_timing_backtest_latest.csv | event_name, sample_status, best_horizon, mature counts | D+1:insufficient_sample;D+3:insufficient_sample;D+5:insufficient_sample;D+10:insufficient_sample;D+20:insufficient_sample;D+40:insufficient_sample;D+60:insufficient_sample=16; D+1:ok;D+3:ok;D+5:ok;D+10:ok;D+20:ok;D+40:ok;D+60:ok=7; D+1:insufficient_sample;D+3:insufficient_sample;D+5:insufficient_sample;D+10:insufficient_sample;D+20:insufficient_sample;D+40:ok;D+60:ok=2; D+1:insufficient_sample;D+3:insufficient_sample;D+5:insufficient_sample;D+10:insufficient_sample;D+20:pending_only;D+40:pending_only;D+60:pending_only=1; D+1:insufficient_sample;D+3:insufficient_sample;D+5:insufficient_sample;D+10:insufficient_sample;D+20:insufficient_sample;D+40:ok;D+60:insufficient_sample=1 | Use only mature_dN samples. If sample_status is insufficient, say it is observation only. |
-| Surge precondition model | output/latest/surge_precondition_candidates_latest.csv | surge_precondition_score, surge_watch_label, reason_summary, risk_flags | A_surge_watch=93; B_confirm_needed=7 | Independent research layer; not the daily recommendation model. |
+| Surge precondition model | output/latest/surge_precondition_candidates_latest.csv | surge_precondition_score, surge_watch_label, reason_summary, risk_flags | A_surge_watch=97; B_confirm_needed=3 | Independent research layer; not the daily recommendation model. |
 | Signal performance | output/latest/daily_signal_performance_summary_latest.csv | category/TDCC/warrant/sector/revenue/catalyst groups with D+N and relative benchmark returns | pattern=2; pullback_rebound=2; range_rebound=2; revenue_breakout_low_response=2; revenue_pullback=2; true_breakout=2 | Use for review/backtest, not for one-day parameter changes. |
-| Volume breakout watch | output/latest/volume_breakout_watch_latest.csv | volume_breakout_type, volume_breakout_priority, selection_status, not_selected_reason, risk_flags, next_volume_breakout_confirmation | D_risk_downgrade=38; B_confirm_needed=13; A_valid_breakout_watch=5 / volume_expansion_watch=30; neckline_volume_breakout=24; right_side_volume_attack=1; abnormal_volume_up=1 | Use when asked about 帶量突破 / 放量突破 / 放量攻擊. Strict breakout is only one subset. |
+| Volume breakout watch | output/latest/volume_breakout_watch_latest.csv | volume_breakout_type, volume_breakout_priority, selection_status, not_selected_reason, risk_flags, next_volume_breakout_confirmation | D_risk_downgrade=36; B_confirm_needed=25; A_valid_breakout_watch=10 / neckline_volume_breakout=71 | Use when asked about 帶量突破 / 放量突破 / 放量攻擊. Strict breakout is only one subset. |
 | Individual stock raw availability | output/latest/individual_stock_available_raw_data_index_slim.csv | data_quality_status, report_status, price/TDCC row counts | partial=2043; ok=81; insufficient_data=25 | Check before single-stock analysis. |
 | Catalyst layer | output/latest/fundamental_catalyst_layer_latest.md | catalyst_quality, catalyst_tags, price_reaction_level, needs_eps_confirmation | needs_review_rows=4 | Currently source-limited; do not upgrade without confirmed source rows. |
 | Chip-flow positive streak | output/latest/chip_flow_positive_streak_latest.csv | positive_streak_days and category if source data exists | rows=0 | If empty/unavailable, do not mention as active signal. |
@@ -78,7 +78,7 @@
 ## Current Data Quality Snapshot
 | file | status | rows |
 | --- | --- | --- |
-| daily_candidate_decision_latest.csv | ready | 704 |
+| daily_candidate_decision_latest.csv | ready | 640 |
 | tdcc_chatgpt_tracking_packet_latest.md | ready | - |
 | market_timing_chatgpt_packet_latest.md | ready | - |
 | surge_model_chatgpt_packet_latest.md | ready | - |
