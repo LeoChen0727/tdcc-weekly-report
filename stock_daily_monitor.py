@@ -173,6 +173,12 @@ def bool_text(value: bool) -> str:
     return "True" if bool(value) else "False"
 
 
+def bool_text_to_bool(value: Any) -> bool:
+    if isinstance(value, bool):
+        return value
+    return normalize_text(value).lower() in {"true", "1", "yes", "y"}
+
+
 def is_mainstream_industry(industry: Any) -> bool:
     text = normalize_text(industry)
     return any(keyword in text for keyword in MAINSTREAM_INDUSTRY_KEYWORDS)
@@ -757,6 +763,7 @@ def calculate_structure_pattern_metrics(df: pd.DataFrame, metrics: dict[str, Any
 
     latest = tech.iloc[-1]
     close = metrics["close"]
+    open_price = metrics["open"]
     high = metrics["high"]
     low = metrics["low"]
     volume_ratio = metrics["volume_ratio"]
@@ -786,15 +793,31 @@ def calculate_structure_pattern_metrics(df: pd.DataFrame, metrics: dict[str, Any
     ma5 = latest.get("ma5", pd.NA)
     ma10 = latest.get("ma10", pd.NA)
     ma20 = latest.get("ma20", pd.NA)
+    ema23 = latest.get("ema23", pd.NA)
     ma5_prev3 = tech.iloc[-4].get("ma5", pd.NA) if len(tech) >= 4 else pd.NA
     ma10_prev3 = tech.iloc[-4].get("ma10", pd.NA) if len(tech) >= 4 else pd.NA
     ma5_turning_up = not pd.isna(ma5) and not pd.isna(ma5_prev3) and ma5 > ma5_prev3
     ma10_turning_up = not pd.isna(ma10) and not pd.isna(ma10_prev3) and ma10 >= ma10_prev3
     close_above_ma20 = not pd.isna(ma20) and close > ma20
+    close_above_ema23 = not pd.isna(ema23) and close > ema23
+    gap_ma20_pct = metrics.get("gap_ma20_pct", pd.NA)
+    gap_ema23_pct = metrics.get("gap_ema23_pct", pd.NA)
 
     low_5 = tech.iloc[-6:-1]["low"].min()
     low_20_before = tech.iloc[-26:-6]["low"].min() if len(tech) >= 26 else previous_20d_low
     higher_lows = low_5 > low_20_before * 1.03 if low_20_before and low_20_before > 0 else False
+    current_5d_low = tech.tail(5)["low"].min()
+    rebound_from_5d_low_pct = pct_change(close, current_5d_low) if current_5d_low and current_5d_low > 0 else 0.0
+    pullback_near_key_ma = (
+        (not pd.isna(gap_ma20_pct) and -11 <= gap_ma20_pct <= 3)
+        or (not pd.isna(gap_ema23_pct) and -5 <= gap_ema23_pct <= 3)
+    )
+    reclaim_near_ma20 = not pd.isna(gap_ma20_pct) and -3 <= gap_ma20_pct <= 8
+    prior_volume_impulse = (
+        ("volume_ratio" in previous_10.columns and previous_10["volume_ratio"].max() >= 1.5)
+        or width_pct(previous_10d_high, previous_40d_low) >= 25
+        or metrics["return_20d_pct"] >= 10
+    )
 
     neckline_candidates = [
         ("previous_60d_high", previous_60d_high),
@@ -813,6 +836,48 @@ def calculate_structure_pattern_metrics(df: pd.DataFrame, metrics: dict[str, Any
     close_position = (close - low) / (high - low) if high > low else 1.0
     breakout_close_near_high = close >= high * 0.995 or close_position >= 0.8
     volume_confirmed_breakout = volume_ratio >= 1.5
+
+    pullback_entry_zone_flag = bool(
+        pullback_near_key_ma
+        and prior_volume_impulse
+        and volume_ratio <= 1.25
+        and daily_return >= -6
+        and metrics["return_20d_pct"] <= 35
+        and close >= previous_20d_low * 1.05
+    )
+    ma20_reclaim_setup_flag = bool(
+        reclaim_near_ma20
+        and close_above_ema23
+        and (ma5_turning_up or rebound_from_5d_low_pct >= 8 or daily_return >= 5)
+        and volume_ratio >= 1.2
+        and (daily_return >= 3 or breakout_close_near_high)
+        and metrics["return_20d_pct"] <= 25
+    )
+    pullback_right_side_flag = bool(
+        reclaim_near_ma20
+        and close_above_ema23
+        and (ma5_turning_up or ma10_turning_up or rebound_from_5d_low_pct >= 8 or daily_return >= 5)
+        and (higher_lows or rebound_from_5d_low_pct >= 6)
+        and volume_ratio >= 0.8
+        and metrics["return_20d_pct"] <= 30
+    )
+    early_attack_volume_flag = bool(
+        volume_ratio >= 1.2
+        and daily_return >= 4
+        and breakout_close_near_high
+        and close >= open_price
+        and metrics["return_20d_pct"] <= 30
+    )
+    early_entry_watch_flag = bool(
+        (pullback_right_side_flag or ma20_reclaim_setup_flag or (early_attack_volume_flag and close_above_ema23 and reclaim_near_ma20))
+        and (early_attack_volume_flag or close_above_ma20 or volume_ratio >= 1.2)
+    )
+    right_side_follow_through_flag = bool(
+        (pullback_right_side_flag or ma20_reclaim_setup_flag or close_above_ma20)
+        and volume_ratio >= 1.5
+        and metrics["return_5d_pct"] >= 10
+        and metrics["return_20d_pct"] <= 30
+    )
 
     platform_base_flag = (
         (recent_platform_width <= 35 or short_platform_width <= 25)
@@ -882,6 +947,12 @@ def calculate_structure_pattern_metrics(df: pd.DataFrame, metrics: dict[str, Any
         pattern_stage = "platform_right_side"
     elif w_bottom_right_side_flag:
         pattern_stage = "w_bottom_right_side"
+    elif early_entry_watch_flag:
+        pattern_stage = "early_entry_watch"
+    elif pullback_right_side_flag:
+        pattern_stage = "pullback_right_side"
+    elif pullback_entry_zone_flag:
+        pattern_stage = "pullback_entry_zone"
     elif platform_base_flag:
         pattern_stage = "base_building"
     else:
@@ -892,6 +963,13 @@ def calculate_structure_pattern_metrics(df: pd.DataFrame, metrics: dict[str, Any
         "w_bottom_right_side_flag": bool_text(w_bottom_right_side_flag),
         "platform_base_flag": bool_text(platform_base_flag),
         "platform_right_side_flag": bool_text(platform_right_side_flag),
+        "pullback_entry_zone_flag": bool_text(pullback_entry_zone_flag),
+        "pullback_right_side_flag": bool_text(pullback_right_side_flag),
+        "ma20_reclaim_setup_flag": bool_text(ma20_reclaim_setup_flag),
+        "early_attack_volume_flag": bool_text(early_attack_volume_flag),
+        "early_entry_watch_flag": bool_text(early_entry_watch_flag),
+        "right_side_follow_through_flag": bool_text(right_side_follow_through_flag),
+        "rebound_from_5d_low_pct": rebound_from_5d_low_pct,
         "neckline_price": neckline_price,
         "neckline_source": nearest_name,
         "neckline_distance_pct": neckline_distance_pct,
@@ -957,9 +1035,14 @@ def calculate_breakout_score(df: pd.DataFrame) -> dict[str, Any] | None:
     }
     pattern_watch_signal = pattern_stage in {
         "base_building",
+        "pullback_entry_zone",
+        "pullback_right_side",
+        "early_entry_watch",
         "platform_right_side",
         "w_bottom_right_side",
     }
+    right_side_attack_signal = bool_text_to_bool(pattern_metrics.get("early_attack_volume_flag", False))
+    right_side_follow_through_signal = bool_text_to_bool(pattern_metrics.get("right_side_follow_through_flag", False))
 
     limit_up_breakout = (
         close > previous_60d_high
@@ -984,10 +1067,14 @@ def calculate_breakout_score(df: pd.DataFrame) -> dict[str, Any] | None:
     range_rebound = (
         not true_breakout
         and close < previous_60d_high
-        and (volume_ratio >= 1.5 or platform_prebreakout_signal)
+        and (volume_ratio >= 1.5 or platform_prebreakout_signal or right_side_attack_signal or right_side_follow_through_signal)
         and (close_above_ma20 or close_above_ema23)
-        and (distance_to_previous_60d_high_pct >= -10 or platform_prebreakout_signal)
-        and close >= open_price
+        and (
+            distance_to_previous_60d_high_pct >= -10
+            or platform_prebreakout_signal
+            or ((right_side_attack_signal or right_side_follow_through_signal) and distance_to_previous_60d_high_pct >= -18)
+        )
+        and (close >= open_price or right_side_follow_through_signal)
     )
 
     near_resistance = (
@@ -1058,8 +1145,21 @@ def calculate_breakout_score(df: pd.DataFrame) -> dict[str, Any] | None:
         score += 6
     elif pattern_stage == "neckline_challenge":
         score += 5
-    elif pattern_stage in {"platform_right_side", "w_bottom_right_side"}:
+    elif pattern_stage in {"platform_right_side", "w_bottom_right_side", "pullback_right_side", "early_entry_watch"}:
         score += 3
+    elif pattern_stage == "pullback_entry_zone":
+        score += 2
+
+    if bool_text_to_bool(pattern_metrics.get("pullback_entry_zone_flag", False)):
+        score += 15
+    if bool_text_to_bool(pattern_metrics.get("pullback_right_side_flag", False)):
+        score += 10
+    if bool_text_to_bool(pattern_metrics.get("early_entry_watch_flag", False)):
+        score += 12
+    if right_side_attack_signal:
+        score += 10
+    elif right_side_follow_through_signal:
+        score += 8
 
     if breakout_type == "true_breakout":
         if return_5d > 20:
@@ -1131,7 +1231,18 @@ def find_breakout_candidates(
             if metrics["score"] < 55 and metrics.get("breakout_type") != "pattern_watch":
                 continue
 
-            if metrics.get("breakout_type") == "pattern_watch" and metrics["score"] < 45:
+            if (
+                metrics.get("breakout_type") == "pattern_watch"
+                and normalize_text(metrics.get("pattern_stage", "")) == "pullback_entry_zone"
+                and metrics["score"] < 35
+            ):
+                continue
+
+            if (
+                metrics.get("breakout_type") == "pattern_watch"
+                and normalize_text(metrics.get("pattern_stage", "")) != "pullback_entry_zone"
+                and metrics["score"] < 45
+            ):
                 continue
 
             latest = df.iloc[-1]
@@ -1465,6 +1576,13 @@ def choose_output_columns(df: pd.DataFrame) -> pd.DataFrame:
         "w_bottom_right_side_flag",
         "platform_base_flag",
         "platform_right_side_flag",
+        "pullback_entry_zone_flag",
+        "pullback_right_side_flag",
+        "ma20_reclaim_setup_flag",
+        "early_attack_volume_flag",
+        "early_entry_watch_flag",
+        "right_side_follow_through_flag",
+        "rebound_from_5d_low_pct",
         "neckline_price",
         "neckline_source",
         "neckline_distance_pct",
