@@ -39,6 +39,10 @@ DOCS_FIXED_PDF_VALIDATION_MD = DOCS_LATEST_DIR / "daily_market_report_validation
 
 README_TXT = LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt"
 DOCS_README_TXT = DOCS_LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt"
+README_INDEX_TXT = LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT_INDEX.txt"
+README_INDEX_JSON = LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT_INDEX.json"
+DOCS_README_INDEX_TXT = DOCS_LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT_INDEX.txt"
+DOCS_README_INDEX_JSON = DOCS_LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT_INDEX.json"
 
 PUBLISH_CHECK_MD = LATEST_DIR / "report_publish_check_latest.md"
 PUBLISH_CHECK_JSON = LATEST_DIR / "report_publish_check_latest.json"
@@ -451,12 +455,16 @@ def build_readme(
         f"commit_sha={commit_sha}",
         f"readme_latest_pages_url={pages_url('latest/READ_ME_FIRST_DAILY_REPORT.txt')}",
         f"readme_latest_raw_url={raw_url('main', README_TXT)}",
+        f"readme_index_pages_url={pages_url('latest/READ_ME_FIRST_DAILY_REPORT_INDEX.txt')}",
+        f"readme_index_raw_url={raw_url('main', README_INDEX_TXT)}",
+        f"readme_index_json_raw_url={raw_url('main', README_INDEX_JSON)}",
+        f"readme_index_github_api_url={github_api_url(README_INDEX_JSON, ref='main')}",
         f"readme_date_stamped_pages_url={readme_date_stamped_pages_url}",
         f"readme_date_stamped_raw_url={readme_date_stamped_raw_url}",
         f"readme_date_stamped_github_api_url={readme_date_stamped_github_api_url}",
         f"readme_history_pages_url={readme_history_pages_url}",
         f"readme_history_raw_url={readme_history_raw_url}",
-        "readme_cache_bypass_order=readme_date_stamped_pages_url,readme_date_stamped_raw_url,readme_date_stamped_github_api_url,readme_history_pages_url,readme_history_raw_url,readme_latest_pages_url,readme_latest_raw_url",
+        "readme_cache_bypass_order=readme_date_stamped_pages_url,readme_date_stamped_raw_url,readme_date_stamped_github_api_url,readme_index_github_api_url,readme_history_pages_url,readme_history_raw_url,readme_latest_pages_url,readme_latest_raw_url",
         f"preferred_chatgpt_url={preferred_chatgpt_url}",
         f"packet_pages_url={packet_pages_url}",
         f"packet_commit_raw_url={packet_commit_raw_url}",
@@ -676,6 +684,67 @@ def build_publish_check_md(
         lines.append("```")
         lines.append("")
 
+    return "\n".join(lines)
+
+
+def build_readme_index(
+    *,
+    main_price_date: str,
+    report_ready: str,
+    commit_sha: str,
+    readme_date_stamped_pages_url: str,
+    readme_date_stamped_raw_url: str,
+    readme_date_stamped_github_api_url: str,
+    readme_history_pages_url: str,
+    readme_history_raw_url: str,
+    preferred_chatgpt_url: str,
+) -> dict[str, Any]:
+    return {
+        "generated_at": now_text(),
+        "main_price_date": main_price_date,
+        "report_ready": report_ready,
+        "commit_sha": commit_sha,
+        "latest_readme_pages_url": pages_url("latest/READ_ME_FIRST_DAILY_REPORT.txt"),
+        "latest_readme_raw_url": raw_url("main", README_TXT),
+        "latest_readme_github_api_url": github_api_url(README_TXT, ref="main"),
+        "date_stamped_readme_pages_url": readme_date_stamped_pages_url,
+        "date_stamped_readme_raw_url": readme_date_stamped_raw_url,
+        "date_stamped_readme_github_api_url": readme_date_stamped_github_api_url,
+        "history_readme_pages_url": readme_history_pages_url,
+        "history_readme_raw_url": readme_history_raw_url,
+        "preferred_chatgpt_url": preferred_chatgpt_url,
+        "recommended_read_order": [
+            "date_stamped_readme_pages_url",
+            "date_stamped_readme_raw_url",
+            "date_stamped_readme_github_api_url",
+            "history_readme_pages_url",
+            "history_readme_raw_url",
+            "latest_readme_pages_url",
+            "latest_readme_raw_url",
+            "latest_readme_github_api_url",
+        ],
+        "daily_task_fallback_rule": (
+            "If latest_readme_* returns an older main_price_date, do not stop. "
+            "Try the date-stamped README for the expected Taiwan trading date. "
+            "If that fails, try the previous 7 calendar dates through raw and GitHub API. "
+            "Use only a report_ready=True entry and state the actual main_price_date used."
+        ),
+    }
+
+
+def build_readme_index_text(index: dict[str, Any]) -> str:
+    lines: list[str] = []
+    for key, value in index.items():
+        if isinstance(value, list):
+            lines.append(f"{key}={','.join(str(item) for item in value)}")
+        else:
+            lines.append(f"{key}={value}")
+    lines.append("")
+    lines.append("RULES:")
+    lines.append("1. Prefer date-stamped README URLs over latest URLs when a daily task expects a specific date.")
+    lines.append("2. If latest is stale, try the expected YYYYMMDD date-stamped README, then previous 7 calendar dates.")
+    lines.append("3. GitHub API contents URLs must be base64 decoded before parsing key=value.")
+    lines.append("4. Never use an old main_price_date as a newer-date report.")
     return "\n".join(lines)
 
 
@@ -908,9 +977,31 @@ def main() -> int:
         preferred_chatgpt_url=preferred,
         checks=checks,
     )
+    readme_index = build_readme_index(
+        main_price_date=main_price_date,
+        report_ready=report_ready,
+        commit_sha=commit_sha,
+        readme_date_stamped_pages_url=readme_date_stamped_pages_url,
+        readme_date_stamped_raw_url=readme_date_stamped_raw_url,
+        readme_date_stamped_github_api_url=readme_date_stamped_github_api_url,
+        readme_history_pages_url=readme_history_pages_url,
+        readme_history_raw_url=readme_history_raw_url,
+        preferred_chatgpt_url=preferred,
+    )
+    readme_index_text = build_readme_index_text(readme_index)
 
     README_TXT.write_text(readme, encoding="utf-8")
     DOCS_README_TXT.write_text(readme, encoding="utf-8")
+    README_INDEX_TXT.write_text(readme_index_text, encoding="utf-8")
+    DOCS_README_INDEX_TXT.write_text(readme_index_text, encoding="utf-8")
+    README_INDEX_JSON.write_text(
+        json.dumps(readme_index, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+    DOCS_README_INDEX_JSON.write_text(
+        json.dumps(readme_index, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
     HISTORY_REPORT_DIR.mkdir(parents=True, exist_ok=True)
     DOCS_HISTORY_REPORT_DIR.mkdir(parents=True, exist_ok=True)
     readme_date_stamped.write_text(readme, encoding="utf-8")
@@ -949,6 +1040,10 @@ def main() -> int:
         "commit_sha": commit_sha,
         "readme_latest_pages_url": pages_url("latest/READ_ME_FIRST_DAILY_REPORT.txt"),
         "readme_latest_raw_url": raw_url("main", README_TXT),
+        "readme_index_pages_url": pages_url("latest/READ_ME_FIRST_DAILY_REPORT_INDEX.txt"),
+        "readme_index_raw_url": raw_url("main", README_INDEX_TXT),
+        "readme_index_json_raw_url": raw_url("main", README_INDEX_JSON),
+        "readme_index_github_api_url": github_api_url(README_INDEX_JSON, ref="main"),
         "readme_date_stamped_pages_url": readme_date_stamped_pages_url,
         "readme_date_stamped_raw_url": readme_date_stamped_raw_url,
         "readme_date_stamped_github_api_url": readme_date_stamped_github_api_url,
@@ -958,6 +1053,7 @@ def main() -> int:
             "readme_date_stamped_pages_url",
             "readme_date_stamped_raw_url",
             "readme_date_stamped_github_api_url",
+            "readme_index_github_api_url",
             "readme_history_pages_url",
             "readme_history_raw_url",
             "readme_latest_pages_url",
@@ -1076,6 +1172,10 @@ def main() -> int:
 
     print(f"Saved: {README_TXT}")
     print(f"Saved: {DOCS_README_TXT}")
+    print(f"Saved: {README_INDEX_TXT}")
+    print(f"Saved: {README_INDEX_JSON}")
+    print(f"Saved: {DOCS_README_INDEX_TXT}")
+    print(f"Saved: {DOCS_README_INDEX_JSON}")
     print(f"Saved: {readme_date_stamped}")
     print(f"Saved: {docs_readme_date_stamped}")
     print(f"Saved: {history_readme}")

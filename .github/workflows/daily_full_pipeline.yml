@@ -555,11 +555,15 @@ jobs:
 
           git add output/latest/READ_ME_FIRST_DAILY_REPORT.txt || true
           git add output/latest/READ_ME_FIRST_DAILY_REPORT_*.txt || true
+          git add output/latest/READ_ME_FIRST_DAILY_REPORT_INDEX.txt || true
+          git add output/latest/READ_ME_FIRST_DAILY_REPORT_INDEX.json || true
           git add output/latest/report_publish_check_latest.md || true
           git add output/latest/report_publish_check_latest.json || true
 
           git add docs/latest/READ_ME_FIRST_DAILY_REPORT.txt || true
           git add docs/latest/READ_ME_FIRST_DAILY_REPORT_*.txt || true
+          git add docs/latest/READ_ME_FIRST_DAILY_REPORT_INDEX.txt || true
+          git add docs/latest/READ_ME_FIRST_DAILY_REPORT_INDEX.json || true
           git add docs/latest/chatgpt_daily_report_packet_latest.txt || true
           git add docs/latest/CHATGPT_DAILY_REPORT_RULES.txt || true
           git add docs/latest/pdf_kline_chart_status_latest.md || true
