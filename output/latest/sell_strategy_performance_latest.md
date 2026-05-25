@@ -1,6 +1,6 @@
 # Sell Strategy Performance Latest
 
-- generated_at: 2026-05-25 19:06:19 Asia/Taipei
+- generated_at: 2026-05-25 23:59:53 Asia/Taipei
 - note: 這是賣出規則回測資料，不是買賣建議。
 
 | stock_id | stock_name | strategy | sample | avg_return | win_rate | status |
@@ -38,10 +38,10 @@
 | 8299 | 群聯 | 跌破 EMA23 賣 | 0 | - | - | insufficient_sample |
 | 8299 | 群聯 | 跌破 MA20 賣 | 0 | - | - | insufficient_sample |
 | 8299 | 群聯 | 跌破頸線賣 | 0 | - | - | insufficient_sample |
-| 8299 | 群聯 | 跌破突破K低點賣 | 0 | - | - | insufficient_sample |
+| 8299 | 群聯 | 跌破突破K低點賣 | 1 | 2.1% | 100.0% | insufficient_sample |
 | 8299 | 群聯 | 放量長黑賣 | 0 | - | - | insufficient_sample |
 | 8299 | 群聯 | 固定 D+5 賣 | 0 | - | - | insufficient_sample |
 | 8299 | 群聯 | 固定 D+10 賣 | 0 | - | - | insufficient_sample |
 | 8299 | 群聯 | 固定 D+20 賣 | 0 | - | - | insufficient_sample |
 | 8299 | 群聯 | ATR trailing stop 賣 | 0 | - | - | insufficient_sample |
-| 8299 | 群聯 | 固定百分比 trailing stop 賣 | 0 | - | - | insufficient_sample |
+| 8299 | 群聯 | 固定百分比 trailing stop 賣 | 1 | -3.8% | 0.0% | insufficient_sample |

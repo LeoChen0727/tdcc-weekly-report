@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-05-25 19:06:20 Asia/Taipei",
+  "generated_at": "2026-05-25 23:59:54 Asia/Taipei",
   "status": "generated",
   "stock_id": "8299",
   "stock_name": "群聯",
-  "main_price_date": "20260524",
+  "main_price_date": "20260525",
   "analysis_days": 180,
-  "available_price_days": 134,
+  "available_price_days": 135,
   "priority": "僅觀察",
   "latest_md_path": "output/latest/individual_stock_reports/8299_latest.md",
   "latest_pdf_path": "output/latest/individual_stock_reports/8299_latest.pdf",
@@ -25,6 +25,6 @@
   "sell_strategy_summary_path": "output/history/sell_strategy_backtest/8299_sell_strategy_summary.md",
   "sell_strategy_performance_latest_csv": "output/latest/sell_strategy_performance_latest.csv",
   "sell_strategy_performance_latest_md": "output/latest/sell_strategy_performance_latest.md",
-  "history_md_path": "output/history/individual_stock_reports/20260524_8299.md",
-  "history_pdf_path": "output/history/individual_stock_reports/20260524_8299.pdf"
+  "history_md_path": "output/history/individual_stock_reports/20260525_8299.md",
+  "history_pdf_path": "output/history/individual_stock_reports/20260525_8299.pdf"
 }
