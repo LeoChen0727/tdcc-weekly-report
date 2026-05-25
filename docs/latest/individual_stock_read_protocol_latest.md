@@ -1,6 +1,6 @@
 # Individual Stock Raw Data Read Protocol
 
-- generated_at: 2026-05-26 01:30:37 Asia/Taipei
+- generated_at: 2026-05-26 02:10:50 Asia/Taipei
 - scope: every Taiwan stock id with repo raw data
 - individual_report_md_is_optional: True
 - price_and_tdcc_raw_are_primary: True

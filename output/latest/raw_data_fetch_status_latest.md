@@ -1,9 +1,9 @@
 # Raw Data Fetch Status
 
-- generated_at: 2026-05-26 01:30:42 Asia/Taipei
+- generated_at: 2026-05-26 02:10:54 Asia/Taipei
 - sources_checked: raw, pages, api
 - checked_rows: 141
-- success_rows: 105
+- success_rows: 104
 - suspicious_single_line_rows: 0
 - content_not_expanded_rows: 0
 - cache_miss_rows: 0
@@ -53,24 +53,24 @@
 
 | logical_source | stock_id | source_type | status_category | http_status | rows | columns | line_count | local_line_count | sample_status | chatgpt_friendly |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| all_candidates |  | api | success | 200 | 611 | 224 | 612 | 612 | ok | True |
-| all_candidates |  | pages | missing_file | 404 | 0 | 0 | 0 | 612 | ok | False |
-| all_candidates |  | raw | success | 200 | 611 | 224 | 612 | 612 | ok | True |
-| candidate_repeat_appearance |  | api | success | 200 | 426 | 13 | 427 | 427 | ok | True |
-| candidate_repeat_appearance |  | pages | missing_file | 404 | 0 | 0 | 0 | 427 | ok | False |
-| candidate_repeat_appearance |  | raw | success | 200 | 426 | 13 | 427 | 427 | ok | True |
-| daily_market_full |  | api | success | 200 | 652 | 1 | 652 | 652 | ok | True |
-| daily_market_full |  | pages | missing_file | 404 | 0 | 0 | 0 | 652 | ok | False |
-| daily_market_full |  | raw | success | 200 | 652 | 1 | 652 | 652 | ok | True |
-| daily_market_summary |  | api | success | 200 | 377 | 1 | 377 | 377 | ok | True |
-| daily_market_summary |  | pages | missing_file | 404 | 0 | 0 | 0 | 377 | ok | False |
-| daily_market_summary |  | raw | success | 200 | 377 | 1 | 377 | 377 | ok | True |
-| daily_report_packet |  | api | success | 200 | 1190 | 1 | 1190 | 1190 | ok | True |
-| daily_report_packet |  | pages | success | 200 | 1190 | 1 | 1190 | 1190 | ok | True |
-| daily_report_packet |  | raw | success | 200 | 1190 | 1 | 1190 | 1190 | ok | True |
-| daily_signal_performance_summary |  | api | success | 200 | 120 | 1 | 120 | 120 | ok | True |
-| daily_signal_performance_summary |  | pages | missing_file | 404 | 0 | 0 | 0 | 120 | ok | False |
-| daily_signal_performance_summary |  | raw | success | 200 | 120 | 1 | 120 | 120 | ok | True |
+| all_candidates |  | api | api_decode_failed | 200 | 0 | 0 | 0 | 705 | ok | False |
+| all_candidates |  | pages | missing_file | 404 | 0 | 0 | 0 | 705 | ok | False |
+| all_candidates |  | raw | success | 200 | 704 | 231 | 705 | 705 | ok | True |
+| candidate_repeat_appearance |  | api | success | 200 | 458 | 13 | 459 | 459 | ok | True |
+| candidate_repeat_appearance |  | pages | missing_file | 404 | 0 | 0 | 0 | 459 | ok | False |
+| candidate_repeat_appearance |  | raw | success | 200 | 458 | 13 | 459 | 459 | ok | True |
+| daily_market_full |  | api | success | 200 | 745 | 1 | 745 | 745 | ok | True |
+| daily_market_full |  | pages | missing_file | 404 | 0 | 0 | 0 | 745 | ok | False |
+| daily_market_full |  | raw | success | 200 | 745 | 1 | 745 | 745 | ok | True |
+| daily_market_summary |  | api | success | 200 | 376 | 1 | 376 | 376 | ok | True |
+| daily_market_summary |  | pages | missing_file | 404 | 0 | 0 | 0 | 376 | ok | False |
+| daily_market_summary |  | raw | success | 200 | 376 | 1 | 376 | 376 | ok | True |
+| daily_report_packet |  | api | success | 200 | 1282 | 1 | 1282 | 1282 | ok | True |
+| daily_report_packet |  | pages | success | 200 | 1282 | 1 | 1282 | 1282 | ok | True |
+| daily_report_packet |  | raw | success | 200 | 1282 | 1 | 1282 | 1282 | ok | True |
+| daily_signal_performance_summary |  | api | success | 200 | 121 | 1 | 121 | 121 | ok | True |
+| daily_signal_performance_summary |  | pages | missing_file | 404 | 0 | 0 | 0 | 121 | ok | False |
+| daily_signal_performance_summary |  | raw | success | 200 | 121 | 1 | 121 | 121 | ok | True |
 | individual_stock_available_raw_data_index |  | api | api_decode_failed | 200 | 0 | 0 | 0 | 2150 | ok | False |
 | individual_stock_available_raw_data_index |  | pages | success | 200 | 2149 | 32 | 2150 | 2150 | ok | True |
 | individual_stock_available_raw_data_index |  | raw | success | 200 | 2149 | 32 | 2150 | 2150 | ok | True |
@@ -132,19 +132,19 @@
 | stock_monitor |  | pages | missing_file | 404 | 0 | 0 | 0 | 119 | ok | False |
 | stock_monitor |  | raw | success | 200 | 119 | 1 | 119 | 119 | ok | True |
 | stock_price_history | 1815 | api | success | 200 | 136 | 39 | 137 | 137 | ok | True |
-| stock_price_history | 1815 | pages | success | 200 | 135 | 39 | 136 | 137 | ok | True |
+| stock_price_history | 1815 | pages | success | 200 | 136 | 39 | 137 | 137 | ok | True |
 | stock_price_history | 1815 | raw | success | 200 | 136 | 39 | 137 | 137 | ok | True |
 | stock_price_history | 2330 | api | success | 200 | 136 | 39 | 137 | 137 | ok | True |
-| stock_price_history | 2330 | pages | success | 200 | 135 | 39 | 136 | 137 | ok | True |
+| stock_price_history | 2330 | pages | success | 200 | 136 | 39 | 137 | 137 | ok | True |
 | stock_price_history | 2330 | raw | success | 200 | 136 | 39 | 137 | 137 | ok | True |
 | stock_price_history | 2353 | api | success | 200 | 136 | 39 | 137 | 137 | ok | True |
-| stock_price_history | 2353 | pages | success | 200 | 135 | 39 | 136 | 137 | ok | True |
+| stock_price_history | 2353 | pages | success | 200 | 136 | 39 | 137 | 137 | ok | True |
 | stock_price_history | 2353 | raw | success | 200 | 136 | 39 | 137 | 137 | ok | True |
 | stock_price_history | 2484 | api | success | 200 | 136 | 39 | 137 | 137 | ok | True |
-| stock_price_history | 2484 | pages | success | 200 | 135 | 39 | 136 | 137 | ok | True |
+| stock_price_history | 2484 | pages | success | 200 | 136 | 39 | 137 | 137 | ok | True |
 | stock_price_history | 2484 | raw | success | 200 | 136 | 39 | 137 | 137 | ok | True |
 | stock_price_history | 8299 | api | success | 200 | 136 | 39 | 137 | 137 | ok | True |
-| stock_price_history | 8299 | pages | success | 200 | 135 | 39 | 136 | 137 | ok | True |
+| stock_price_history | 8299 | pages | success | 200 | 136 | 39 | 137 | 137 | ok | True |
 | stock_price_history | 8299 | raw | success | 200 | 136 | 39 | 137 | 137 | ok | True |
 | surge_model_backtest |  | api | success | 200 | 15 | 17 | 16 | 16 | ok | True |
 | surge_model_backtest |  | pages | missing_file | 404 | 0 | 0 | 0 | 16 | ok | False |
