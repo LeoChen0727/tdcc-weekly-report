@@ -94,6 +94,14 @@ TDCC_PRE_MOVE_ABM_TOP_CSV = LATEST_DIR / "tdcc_pre_move_abm_top_latest.csv"
 TDCC_PHASE_DISTRIBUTION_MD = LATEST_DIR / "tdcc_phase_distribution_latest.md"
 TDCC_PHASE_DISTRIBUTION_CSV = LATEST_DIR / "tdcc_phase_distribution_latest.csv"
 TDCC_CHATGPT_TRACKING_PACKET_MD = LATEST_DIR / "tdcc_chatgpt_tracking_packet_latest.md"
+SURGE_MODEL_PACKET_MD = LATEST_DIR / "surge_model_chatgpt_packet_latest.md"
+SURGE_PRECONDITION_CANDIDATES_MD = LATEST_DIR / "surge_precondition_candidates_latest.md"
+SURGE_PRECONDITION_CANDIDATES_CSV = LATEST_DIR / "surge_precondition_candidates_latest.csv"
+SURGE_MODEL_BACKTEST_MD = LATEST_DIR / "surge_model_backtest_latest.md"
+SURGE_MODEL_BACKTEST_CSV = LATEST_DIR / "surge_model_backtest_latest.csv"
+SURGE_MODEL_FEATURE_IMPORTANCE_MD = LATEST_DIR / "surge_model_feature_importance_latest.md"
+SURGE_MODEL_FEATURE_IMPORTANCE_CSV = LATEST_DIR / "surge_model_feature_importance_latest.csv"
+SURGE_MODEL_VALIDATION_MD = LATEST_DIR / "surge_model_validation_latest.md"
 
 
 def now_taipei() -> datetime:
@@ -487,6 +495,14 @@ def build_readme(
         f"tdcc_phase_distribution_md_raw_url={raw_url('main', TDCC_PHASE_DISTRIBUTION_MD)}",
         f"tdcc_phase_distribution_csv_raw_url={raw_url('main', TDCC_PHASE_DISTRIBUTION_CSV)}",
         f"tdcc_chatgpt_tracking_packet_raw_url={raw_url('main', TDCC_CHATGPT_TRACKING_PACKET_MD)}",
+        f"surge_model_chatgpt_packet_raw_url={raw_url('main', SURGE_MODEL_PACKET_MD)}",
+        f"surge_precondition_candidates_md_raw_url={raw_url('main', SURGE_PRECONDITION_CANDIDATES_MD)}",
+        f"surge_precondition_candidates_csv_raw_url={raw_url('main', SURGE_PRECONDITION_CANDIDATES_CSV)}",
+        f"surge_model_backtest_md_raw_url={raw_url('main', SURGE_MODEL_BACKTEST_MD)}",
+        f"surge_model_backtest_csv_raw_url={raw_url('main', SURGE_MODEL_BACKTEST_CSV)}",
+        f"surge_model_feature_importance_md_raw_url={raw_url('main', SURGE_MODEL_FEATURE_IMPORTANCE_MD)}",
+        f"surge_model_feature_importance_csv_raw_url={raw_url('main', SURGE_MODEL_FEATURE_IMPORTANCE_CSV)}",
+        f"surge_model_validation_raw_url={raw_url('main', SURGE_MODEL_VALIDATION_MD)}",
         f"rules_pages_url={rules_pages_url}",
         f"rules_raw_url={rules_raw_url}",
         f"packet_pages_ok={status_map.get('packet_pages_url')}",
@@ -939,6 +955,14 @@ def main() -> int:
         "tdcc_phase_distribution_md_raw_url": raw_url("main", TDCC_PHASE_DISTRIBUTION_MD),
         "tdcc_phase_distribution_csv_raw_url": raw_url("main", TDCC_PHASE_DISTRIBUTION_CSV),
         "tdcc_chatgpt_tracking_packet_raw_url": raw_url("main", TDCC_CHATGPT_TRACKING_PACKET_MD),
+        "surge_model_chatgpt_packet_raw_url": raw_url("main", SURGE_MODEL_PACKET_MD),
+        "surge_precondition_candidates_md_raw_url": raw_url("main", SURGE_PRECONDITION_CANDIDATES_MD),
+        "surge_precondition_candidates_csv_raw_url": raw_url("main", SURGE_PRECONDITION_CANDIDATES_CSV),
+        "surge_model_backtest_md_raw_url": raw_url("main", SURGE_MODEL_BACKTEST_MD),
+        "surge_model_backtest_csv_raw_url": raw_url("main", SURGE_MODEL_BACKTEST_CSV),
+        "surge_model_feature_importance_md_raw_url": raw_url("main", SURGE_MODEL_FEATURE_IMPORTANCE_MD),
+        "surge_model_feature_importance_csv_raw_url": raw_url("main", SURGE_MODEL_FEATURE_IMPORTANCE_CSV),
+        "surge_model_validation_raw_url": raw_url("main", SURGE_MODEL_VALIDATION_MD),
         "rules_pages_url": rules_pages_url,
         "rules_raw_url": rules_raw_url,
         "checks": checks,

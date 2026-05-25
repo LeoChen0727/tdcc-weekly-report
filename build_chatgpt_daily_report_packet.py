@@ -58,6 +58,14 @@ MARKET_RISK_DASHBOARD_MD = LATEST_DIR / "market_risk_dashboard_latest.md"
 MARKET_RISK_DASHBOARD_PDF = LATEST_DIR / "market_risk_dashboard_latest.pdf"
 FUTURES_OPTIONS_INDICATORS_CSV = LATEST_DIR / "futures_options_indicators_latest.csv"
 FUTURES_OPTIONS_SOURCE_STATUS_MD = LATEST_DIR / "futures_options_source_status_latest.md"
+SURGE_MODEL_PACKET_MD = LATEST_DIR / "surge_model_chatgpt_packet_latest.md"
+SURGE_PRECONDITION_CANDIDATES_MD = LATEST_DIR / "surge_precondition_candidates_latest.md"
+SURGE_PRECONDITION_CANDIDATES_CSV = LATEST_DIR / "surge_precondition_candidates_latest.csv"
+SURGE_MODEL_BACKTEST_MD = LATEST_DIR / "surge_model_backtest_latest.md"
+SURGE_MODEL_BACKTEST_CSV = LATEST_DIR / "surge_model_backtest_latest.csv"
+SURGE_MODEL_FEATURE_IMPORTANCE_MD = LATEST_DIR / "surge_model_feature_importance_latest.md"
+SURGE_MODEL_FEATURE_IMPORTANCE_CSV = LATEST_DIR / "surge_model_feature_importance_latest.csv"
+SURGE_MODEL_VALIDATION_MD = LATEST_DIR / "surge_model_validation_latest.md"
 
 SUMMARY_LATEST_MD = LATEST_DIR / "daily_market_summary_latest.md"
 FULL_LATEST_MD = LATEST_DIR / "daily_market_full_latest.md"
@@ -418,6 +426,18 @@ def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path],
     lines.append(f"status: {'generated' if MARKET_REGIME_CSV.exists() and MARKET_RISK_DASHBOARD_MD.exists() else 'missing'}")
     lines.append("note: Market regime is background for index futures / exposure review, not a standalone trading instruction.")
     lines.append("")
+    lines.append("SURGE PRECONDITION MODEL")
+    lines.append(f"surge_model_chatgpt_packet_raw_url: {raw_url(SURGE_MODEL_PACKET_MD)}")
+    lines.append(f"surge_precondition_candidates_md_raw_url: {raw_url(SURGE_PRECONDITION_CANDIDATES_MD)}")
+    lines.append(f"surge_precondition_candidates_csv_raw_url: {raw_url(SURGE_PRECONDITION_CANDIDATES_CSV)}")
+    lines.append(f"surge_model_backtest_md_raw_url: {raw_url(SURGE_MODEL_BACKTEST_MD)}")
+    lines.append(f"surge_model_backtest_csv_raw_url: {raw_url(SURGE_MODEL_BACKTEST_CSV)}")
+    lines.append(f"surge_model_feature_importance_md_raw_url: {raw_url(SURGE_MODEL_FEATURE_IMPORTANCE_MD)}")
+    lines.append(f"surge_model_feature_importance_csv_raw_url: {raw_url(SURGE_MODEL_FEATURE_IMPORTANCE_CSV)}")
+    lines.append(f"surge_model_validation_raw_url: {raw_url(SURGE_MODEL_VALIDATION_MD)}")
+    lines.append(f"status: {'generated' if SURGE_MODEL_PACKET_MD.exists() and SURGE_PRECONDITION_CANDIDATES_CSV.exists() else 'missing'}")
+    lines.append("note: This is an independent pre-surge pattern mining model. It is not the daily recommendation model and must not change core weights until mature samples are sufficient.")
+    lines.append("")
     lines.append("PURPOSE")
     lines.append("This packet embeds the daily market report content directly.")
     lines.append("If ChatGPT cannot read GitHub raw/latest/MD/PDF files, paste this packet into the daily report conversation.")
@@ -511,6 +531,15 @@ def write_packet_manifest(main_date: str, report_ready: str, paths: dict[str, Pa
         "candidate_repeat_appearance_raw_url": raw_url(CANDIDATE_REPEAT_CSV),
         "candidate_repeat_appearance_md_raw_url": raw_url(CANDIDATE_REPEAT_MD),
         "candidate_repeat_appearance_status": "generated" if CANDIDATE_REPEAT_CSV.exists() and CANDIDATE_REPEAT_MD.exists() else "missing",
+        "surge_model_chatgpt_packet_raw_url": raw_url(SURGE_MODEL_PACKET_MD),
+        "surge_precondition_candidates_md_raw_url": raw_url(SURGE_PRECONDITION_CANDIDATES_MD),
+        "surge_precondition_candidates_csv_raw_url": raw_url(SURGE_PRECONDITION_CANDIDATES_CSV),
+        "surge_model_backtest_md_raw_url": raw_url(SURGE_MODEL_BACKTEST_MD),
+        "surge_model_backtest_csv_raw_url": raw_url(SURGE_MODEL_BACKTEST_CSV),
+        "surge_model_feature_importance_md_raw_url": raw_url(SURGE_MODEL_FEATURE_IMPORTANCE_MD),
+        "surge_model_feature_importance_csv_raw_url": raw_url(SURGE_MODEL_FEATURE_IMPORTANCE_CSV),
+        "surge_model_validation_raw_url": raw_url(SURGE_MODEL_VALIDATION_MD),
+        "surge_model_status": "generated" if SURGE_MODEL_PACKET_MD.exists() and SURGE_PRECONDITION_CANDIDATES_CSV.exists() else "missing",
         "latest_packet_path": PACKET_LATEST.as_posix(),
         "latest_packet_raw_url_main": raw_url(PACKET_LATEST, ref="main"),
         "legacy_latest_packet_path": PACKET_LATEST_OLD.as_posix(),

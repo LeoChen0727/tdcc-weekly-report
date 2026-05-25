@@ -268,6 +268,11 @@ jobs:
           python scripts/validate_daily_signal_performance.py
           python scripts/validate_candidate_repeat_appearance.py
 
+      - name: Build surge precondition model
+        run: |
+          python scripts/build_surge_precondition_model.py
+          python scripts/validate_surge_precondition_model.py
+
       - name: Build ChatGPT daily report packet
         run: |
           python build_chatgpt_daily_report_packet.py
@@ -402,6 +407,18 @@ jobs:
           git add output/latest/candidate_repeat_appearance_validation_latest.md || true
           git add output/history/daily_signals/ || true
           git add output/history/daily_candidates/ || true
+          git add output/history/surge_model/ || true
+          git add output/latest/surge_model_feature_importance_latest.csv || true
+          git add output/latest/surge_model_feature_importance_latest.md || true
+          git add output/latest/surge_model_score_latest.csv || true
+          git add output/latest/surge_model_score_latest.md || true
+          git add output/latest/surge_precondition_candidates_latest.csv || true
+          git add output/latest/surge_precondition_candidates_latest.md || true
+          git add output/latest/surge_model_backtest_latest.csv || true
+          git add output/latest/surge_model_backtest_latest.md || true
+          git add output/latest/surge_model_chatgpt_packet_latest.md || true
+          git add output/latest/surge_model_validation_latest.json || true
+          git add output/latest/surge_model_validation_latest.md || true
           git add data/market_index_history.csv || true
           git add output/latest/market_benchmark_latest.csv || true
           git add data/warrant_daily/ || true
@@ -468,6 +485,8 @@ jobs:
           git add scripts/update_daily_candidate_signal_performance.py || true
           git add scripts/generate_daily_signal_performance_report.py || true
           git add scripts/validate_daily_signal_performance.py || true
+          git add scripts/build_surge_precondition_model.py || true
+          git add scripts/validate_surge_precondition_model.py || true
           git add scripts/build_warrant_market_report.py || true
           git add build_warrant_flow_latest.py || true
           git add merge_warrant_flow_into_candidates.py || true
@@ -559,6 +578,18 @@ jobs:
           git add output/latest/candidate_repeat_appearance_validation_latest.md || true
           git add output/history/daily_signals/ || true
           git add output/history/daily_candidates/ || true
+          git add output/history/surge_model/ || true
+          git add output/latest/surge_model_feature_importance_latest.csv || true
+          git add output/latest/surge_model_feature_importance_latest.md || true
+          git add output/latest/surge_model_score_latest.csv || true
+          git add output/latest/surge_model_score_latest.md || true
+          git add output/latest/surge_precondition_candidates_latest.csv || true
+          git add output/latest/surge_precondition_candidates_latest.md || true
+          git add output/latest/surge_model_backtest_latest.csv || true
+          git add output/latest/surge_model_backtest_latest.md || true
+          git add output/latest/surge_model_chatgpt_packet_latest.md || true
+          git add output/latest/surge_model_validation_latest.json || true
+          git add output/latest/surge_model_validation_latest.md || true
           git add data/market_index_history.csv || true
           git add output/latest/market_benchmark_latest.csv || true
           git add data/futures_options/ || true
@@ -633,6 +664,8 @@ jobs:
           git add scripts/update_daily_candidate_signal_performance.py || true
           git add scripts/generate_daily_signal_performance_report.py || true
           git add scripts/validate_daily_signal_performance.py || true
+          git add scripts/build_surge_precondition_model.py || true
+          git add scripts/validate_surge_precondition_model.py || true
 
           git status --short
           git commit -m "Publish ChatGPT daily report readme, rules, and multi-entry checks" || echo "No changes to commit"

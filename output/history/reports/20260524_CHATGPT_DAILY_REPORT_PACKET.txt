@@ -1,6 +1,6 @@
 CHATGPT DAILY REPORT PACKET
 
-generated_at: 2026-05-25 13:17:45 Asia/Taipei
+generated_at: 2026-05-25 15:21:07 Asia/Taipei
 repo: LeoChen0727/tdcc-weekly-report
 main_price_date: 20260524
 report_ready: True
@@ -92,7 +92,7 @@ performance_csv_path: output/history/daily_signals/daily_candidate_signal_perfor
 summary_latest_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_signal_performance_summary_latest.md
 weekly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_weekly_latest.pdf
 monthly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_monthly_latest.pdf
-last_updated_at: 2026-05-25 13:17:45 Asia/Taipei
+last_updated_at: 2026-05-25 15:21:07 Asia/Taipei
 status: generated
 
 CANDIDATE REPEAT APPEARANCE
@@ -126,6 +126,18 @@ futures_options_indicators_raw_url: https://raw.githubusercontent.com/LeoChen072
 futures_options_source_status_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/futures_options_source_status_latest.md
 status: generated
 note: Market regime is background for index futures / exposure review, not a standalone trading instruction.
+
+SURGE PRECONDITION MODEL
+surge_model_chatgpt_packet_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/surge_model_chatgpt_packet_latest.md
+surge_precondition_candidates_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/surge_precondition_candidates_latest.md
+surge_precondition_candidates_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/surge_precondition_candidates_latest.csv
+surge_model_backtest_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/surge_model_backtest_latest.md
+surge_model_backtest_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/surge_model_backtest_latest.csv
+surge_model_feature_importance_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/surge_model_feature_importance_latest.md
+surge_model_feature_importance_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/surge_model_feature_importance_latest.csv
+surge_model_validation_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/surge_model_validation_latest.md
+status: generated
+note: This is an independent pre-surge pattern mining model. It is not the daily recommendation model and must not change core weights until mature samples are sufficient.
 
 PURPOSE
 This packet embeds the daily market report content directly.
