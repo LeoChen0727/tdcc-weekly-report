@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3694 海華
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:36 Asia/Taipei
+- generated_at: 2026-05-26 06:02:42 Asia/Taipei
 - stock_id: 3694
 - stock_name: 海華
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 70.7
+- open: 70.6
 - high: 72
-- low: 69.6
-- close: 70.5
-- volume: 5841825
-- ma5: 70.56
-- ma20: 63.65
-- ma60: 59.65
+- low: 69.9
+- close: 70.8
+- volume: 5149047
+- ma5: 70.62
+- ma20: 63.66
+- ma60: 59.66
 - ma120: 60.34
-- ema23: 64.73
-- return_5d: -1.81
-- return_20d: 16.34
-- volume_ratio: 1.32
-- distance_to_ma20_pct: 10.76
-- distance_to_high_60_pct: -3.29
+- ema23: 64.75
+- return_5d: -1.39
+- return_20d: 16.83
+- volume_ratio: 1.17
+- distance_to_ma20_pct: 11.21
+- distance_to_high_60_pct: -2.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,70.7,72,69.6,70.5,5841825,69.76,62.16,59.2,62.97,1.57
 20260524,70.7,72,69.6,70.5,5841825,70.9,62.71,59.34,63.6,1.47
 20260525,70.6,72,69.9,70.8,5149047,70.82,63.16,59.49,64.2,1.23
-20260526,70.7,72,69.6,70.5,5841825,70.56,63.65,59.65,64.73,1.32
+20260526,70.6,72,69.9,70.8,5149047,70.62,63.66,59.66,64.75,1.17
 ```
 
 ## Latest TDCC Snapshot
@@ -122,6 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 3694 | 海華 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 58.0 |  |  | neckline_challenge |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 3694 | 海華 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

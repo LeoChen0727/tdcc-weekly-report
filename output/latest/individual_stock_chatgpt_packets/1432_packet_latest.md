@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1432 大魯閣
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:32 Asia/Taipei
+- generated_at: 2026-05-26 06:01:42 Asia/Taipei
 - stock_id: 1432
 - stock_name: 大魯閣
 - packet_status: standard_180d_window_packet
@@ -57,18 +57,18 @@
 - open: 16.5
 - high: 16.5
 - low: 16.3
-- close: 16.45
-- volume: 145488
-- ma5: 16.44
+- close: 16.4
+- volume: 335288
+- ma5: 16.43
 - ma20: 16.55
 - ma60: 17.16
 - ma120: 17.73
 - ema23: 16.59
-- return_5d: 0.3
-- return_20d: -2.95
-- volume_ratio: 0.68
-- distance_to_ma20_pct: -0.6
-- distance_to_high_60_pct: -15.86
+- return_5d: 0
+- return_20d: -3.24
+- volume_ratio: 1.49
+- distance_to_ma20_pct: -0.89
+- distance_to_high_60_pct: -16.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,16.5,16.5,16.3,16.45,145488,16.36,16.59,17.24,16.64,0.66
 20260524,16.5,16.5,16.3,16.45,145488,16.4,16.59,17.21,16.62,0.7
 20260525,16.5,16.5,16.3,16.4,335288,16.43,16.57,17.19,16.61,1.53
-20260526,16.5,16.5,16.3,16.45,145488,16.44,16.55,17.16,16.59,0.68
+20260526,16.5,16.5,16.3,16.4,335288,16.43,16.55,17.16,16.59,1.49
 ```
 
 ## Latest TDCC Snapshot

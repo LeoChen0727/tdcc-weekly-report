@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6201 亞弘電
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:13 Asia/Taipei
+- generated_at: 2026-05-26 06:03:16 Asia/Taipei
 - stock_id: 6201
 - stock_name: 亞弘電
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 46.75
-- high: 47.05
-- low: 46.7
-- close: 47
-- volume: 29655
-- ma5: 47.2
-- ma20: 48.68
-- ma60: 50.3
-- ma120: 52.88
-- ema23: 48.52
-- return_5d: 0.32
-- return_20d: -7.84
-- volume_ratio: 0.56
-- distance_to_ma20_pct: -3.45
-- distance_to_high_60_pct: -12.8
+- open: 47
+- high: 48.35
+- low: 47
+- close: 48
+- volume: 135067
+- ma5: 47.4
+- ma20: 48.73
+- ma60: 50.31
+- ma120: 52.89
+- ema23: 48.61
+- return_5d: 2.45
+- return_20d: -5.88
+- volume_ratio: 2.33
+- distance_to_ma20_pct: -1.49
+- distance_to_high_60_pct: -10.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,46.75,47.05,46.7,47,29655,46.9,49.2,50.62,48.88,0.64
 20260524,46.75,47.05,46.7,47,29655,46.96,49.03,50.5,48.72,0.64
 20260525,47,48.35,47,48,135067,47.17,48.88,50.41,48.66,2.6
-20260526,46.75,47.05,46.7,47,29655,47.2,48.68,50.3,48.52,0.56
+20260526,47,48.35,47,48,135067,47.4,48.73,50.31,48.61,2.33
 ```
 
 ## Latest TDCC Snapshot

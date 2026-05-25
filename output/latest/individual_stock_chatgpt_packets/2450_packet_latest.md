@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2450 神腦
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:59 Asia/Taipei
+- generated_at: 2026-05-26 06:02:07 Asia/Taipei
 - stock_id: 2450
 - stock_name: 神腦
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 29.1
-- high: 29.35
-- low: 29.05
+- open: 29.2
+- high: 29.45
+- low: 29
 - close: 29.2
-- volume: 142461
+- volume: 514622
 - ma5: 29.2
 - ma20: 29.43
 - ma60: 29.55
@@ -66,7 +66,7 @@
 - ema23: 29.41
 - return_5d: 0
 - return_20d: -2.83
-- volume_ratio: 0.76
+- volume_ratio: 2.48
 - distance_to_ma20_pct: -0.8
 - distance_to_high_60_pct: -4.58
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,29.1,29.35,29.05,29.2,142461,29.15,29.53,29.61,29.48,0.85
 20260524,29.1,29.35,29.05,29.2,142461,29.17,29.5,29.59,29.45,0.83
 20260525,29.2,29.45,29,29.2,514622,29.2,29.48,29.57,29.43,2.72
-20260526,29.1,29.35,29.05,29.2,142461,29.2,29.43,29.55,29.41,0.76
+20260526,29.2,29.45,29,29.2,514622,29.2,29.43,29.55,29.41,2.48
 ```
 
 ## Latest TDCC Snapshot

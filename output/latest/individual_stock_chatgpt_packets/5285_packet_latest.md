@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5285 界霖
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:57 Asia/Taipei
+- generated_at: 2026-05-26 06:03:02 Asia/Taipei
 - stock_id: 5285
 - stock_name: 界霖
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 81
+- open: 79.2
 - high: 82.8
-- low: 76.2
-- close: 79.1
-- volume: 5906546
-- ma5: 79.58
-- ma20: 70.86
-- ma60: 57.04
-- ma120: 54.19
-- ema23: 70.91
-- return_5d: -3.54
-- return_20d: 45.4
-- volume_ratio: 1.8
-- distance_to_ma20_pct: 11.64
-- distance_to_high_60_pct: -7.49
+- low: 78.9
+- close: 81.5
+- volume: 3750883
+- ma5: 80.06
+- ma20: 70.97
+- ma60: 57.08
+- ma120: 54.21
+- ema23: 71.11
+- return_5d: -0.61
+- return_20d: 49.82
+- volume_ratio: 1.18
+- distance_to_ma20_pct: 14.83
+- distance_to_high_60_pct: -4.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,81,82.8,76.2,79.1,5906546,79.32,66.92,55.57,68.23,2.33
 20260524,81,82.8,76.2,79.1,5906546,79.94,68.22,56.04,69.14,2.09
 20260525,79.2,82.8,78.9,81.5,3750883,80.16,69.62,56.56,70.17,1.25
-20260526,81,82.8,76.2,79.1,5906546,79.58,70.86,57.04,70.91,1.8
+20260526,79.2,82.8,78.9,81.5,3750883,80.06,70.97,57.08,71.11,1.18
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 5285 | 界霖 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 5285 | 界霖 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 55.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

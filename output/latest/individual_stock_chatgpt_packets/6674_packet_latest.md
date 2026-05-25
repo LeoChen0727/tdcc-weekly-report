@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6674 鋐寶科技
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:28 Asia/Taipei
+- generated_at: 2026-05-26 06:03:30 Asia/Taipei
 - stock_id: 6674
 - stock_name: 鋐寶科技
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 17.15
-- high: 17.95
-- low: 16.95
-- close: 17.6
-- volume: 71000
-- ma5: 17.69
-- ma20: 17.77
-- ma60: 18.37
+- open: 17.6
+- high: 18.25
+- low: 17.6
+- close: 18.05
+- volume: 80010
+- ma5: 17.78
+- ma20: 17.79
+- ma60: 18.38
 - ma120: 19.36
-- ema23: 17.82
-- return_5d: 4.45
-- return_20d: -6.88
-- volume_ratio: 1.63
-- distance_to_ma20_pct: -0.93
-- distance_to_high_60_pct: -14.98
+- ema23: 17.86
+- return_5d: 7.12
+- return_20d: -4.5
+- volume_ratio: 1.82
+- distance_to_ma20_pct: 1.48
+- distance_to_high_60_pct: -12.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,17.15,17.95,16.95,17.6,71000,17.16,17.92,18.48,17.84,1.95
 20260524,17.15,17.95,16.95,17.6,71000,17.31,17.88,18.44,17.82,1.82
 20260525,17.6,18.25,17.6,18.05,80010,17.54,17.83,18.41,17.84,1.97
-20260526,17.15,17.95,16.95,17.6,71000,17.69,17.77,18.37,17.82,1.63
+20260526,17.6,18.25,17.6,18.05,80010,17.78,17.79,18.38,17.86,1.82
 ```
 
 ## Latest TDCC Snapshot

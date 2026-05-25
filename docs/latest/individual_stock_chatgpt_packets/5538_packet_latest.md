@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5538 東明-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:04 Asia/Taipei
+- generated_at: 2026-05-26 06:03:08 Asia/Taipei
 - stock_id: 5538
 - stock_name: 東明-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 34.3
-- high: 35.7
-- low: 33.95
-- close: 34
-- volume: 54100
-- ma5: 34.09
-- ma20: 32.98
-- ma60: 31.59
+- open: 34.8
+- high: 34.8
+- low: 33.75
+- close: 34.45
+- volume: 26402
+- ma5: 34.18
+- ma20: 33
+- ma60: 31.6
 - ma120: 31.29
-- ema23: 33.15
-- return_5d: -1.02
-- return_20d: 6.58
-- volume_ratio: 0.68
-- distance_to_ma20_pct: 3.1
-- distance_to_high_60_pct: -8.48
+- ema23: 33.19
+- return_5d: 0.29
+- return_20d: 7.99
+- volume_ratio: 0.34
+- distance_to_ma20_pct: 4.39
+- distance_to_high_60_pct: -7.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,34.3,35.7,33.95,34,54100,34.47,32.58,31.55,32.86,0.69
 20260524,34.3,35.7,33.95,34,54100,34.15,32.72,31.56,32.95,0.68
 20260525,34.8,34.8,33.75,34.45,26402,34.16,32.87,31.57,33.08,0.33
-20260526,34.3,35.7,33.95,34,54100,34.09,32.98,31.59,33.15,0.68
+20260526,34.8,34.8,33.75,34.45,26402,34.18,33,31.6,33.19,0.34
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6887 寶綠特-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:36 Asia/Taipei
+- generated_at: 2026-05-26 06:03:37 Asia/Taipei
 - stock_id: 6887
 - stock_name: 寶綠特-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 34.65
-- high: 34.8
-- low: 33.95
-- close: 33.95
-- volume: 81141
-- ma5: 33.5
-- ma20: 36.57
-- ma60: 40.96
-- ma120: 50.4
-- ema23: 36.59
-- return_5d: -2.02
-- return_20d: -10.42
-- volume_ratio: 1.3
-- distance_to_ma20_pct: -7.17
-- distance_to_high_60_pct: -36.06
+- open: 35.1
+- high: 35.1
+- low: 30.65
+- close: 31.7
+- volume: 286346
+- ma5: 33.05
+- ma20: 36.46
+- ma60: 40.93
+- ma120: 50.38
+- ema23: 36.41
+- return_5d: -8.51
+- return_20d: -16.36
+- volume_ratio: 3.95
+- distance_to_ma20_pct: -13.06
+- distance_to_high_60_pct: -40.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,34.65,34.8,33.95,33.95,81141,34.58,37.31,41.74,37.61,1.91
 20260524,34.65,34.8,33.95,33.95,81141,34.29,37.1,41.47,37.3,1.76
 20260525,35.1,35.1,30.65,31.7,286346,33.64,36.77,41.18,36.83,4.88
-20260526,34.65,34.8,33.95,33.95,81141,33.5,36.57,40.96,36.59,1.3
+20260526,35.1,35.1,30.65,31.7,286346,33.05,36.46,40.93,36.41,3.95
 ```
 
 ## Latest TDCC Snapshot

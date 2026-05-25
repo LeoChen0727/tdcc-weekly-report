@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8466 美吉吉-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:54 Asia/Taipei
+- generated_at: 2026-05-26 06:03:54 Asia/Taipei
 - stock_id: 8466
 - stock_name: 美吉吉-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 14.3
-- high: 14.3
-- low: 14
-- close: 14.1
-- volume: 67306
-- ma5: 14.18
-- ma20: 14.73
+- open: 14.4
+- high: 14.5
+- low: 14.1
+- close: 14.5
+- volume: 91316
+- ma5: 14.26
+- ma20: 14.76
 - ma60: 17.16
 - ma120: 19.75
-- ema23: 15.02
-- return_5d: -0.7
-- return_20d: -12.15
-- volume_ratio: 0.45
-- distance_to_ma20_pct: -4.31
-- distance_to_high_60_pct: -35.62
+- ema23: 15.05
+- return_5d: 2.11
+- return_20d: -9.66
+- volume_ratio: 0.6
+- distance_to_ma20_pct: -1.73
+- distance_to_high_60_pct: -33.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,14.3,14.3,14,14.1,67306,14.21,15.01,17.57,15.25,0.43
 20260524,14.3,14.3,14,14.1,67306,14.14,14.91,17.43,15.15,0.44
 20260525,14.4,14.5,14.1,14.5,91316,14.2,14.83,17.29,15.1,0.6
-20260526,14.3,14.3,14,14.1,67306,14.18,14.73,17.16,15.02,0.45
+20260526,14.4,14.5,14.1,14.5,91316,14.26,14.76,17.16,15.05,0.6
 ```
 
 ## Latest TDCC Snapshot

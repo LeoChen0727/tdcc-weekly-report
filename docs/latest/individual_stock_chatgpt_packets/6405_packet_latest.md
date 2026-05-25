@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6405 悅城
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:18 Asia/Taipei
+- generated_at: 2026-05-26 06:03:21 Asia/Taipei
 - stock_id: 6405
 - stock_name: 悅城
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 59.8
-- high: 62.8
-- low: 58.9
-- close: 62.8
-- volume: 963885
-- ma5: 64.04
-- ma20: 59.04
-- ma60: 42.29
-- ma120: 35.56
-- ema23: 55.99
-- return_5d: 9.98
-- return_20d: 35.64
-- volume_ratio: 0.54
-- distance_to_ma20_pct: 6.37
-- distance_to_high_60_pct: -8.99
+- open: 69
+- high: 69
+- low: 69
+- close: 69
+- volume: 1676904
+- ma5: 65.28
+- ma20: 59.35
+- ma60: 42.39
+- ma120: 35.61
+- ema23: 56.5
+- return_5d: 20.84
+- return_20d: 49.03
+- volume_ratio: 0.92
+- distance_to_ma20_pct: 16.26
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,59.8,62.8,58.9,62.8,963885,58.02,55.65,40.78,53.34,0.44
 20260524,59.8,62.8,58.9,62.8,963885,59.8,56.87,41.25,54.13,0.45
 20260525,69,69,69,69,1676904,62.9,58.22,41.81,55.37,0.89
-20260526,59.8,62.8,58.9,62.8,963885,64.04,59.04,42.29,55.99,0.54
+20260526,69,69,69,69,1676904,65.28,59.35,42.39,56.5,0.92
 ```
 
 ## Latest TDCC Snapshot

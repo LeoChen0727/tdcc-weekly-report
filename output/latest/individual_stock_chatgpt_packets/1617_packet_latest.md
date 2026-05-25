@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1617 榮星
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:40 Asia/Taipei
+- generated_at: 2026-05-26 06:01:50 Asia/Taipei
 - stock_id: 1617
 - stock_name: 榮星
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 14.55
-- high: 15
-- low: 14.35
-- close: 14.9
-- volume: 381525
-- ma5: 14.86
-- ma20: 14.8
+- open: 15
+- high: 15.15
+- low: 14.7
+- close: 14.7
+- volume: 192883
+- ma5: 14.82
+- ma20: 14.79
 - ma60: 14.97
 - ma120: 15.13
-- ema23: 14.84
-- return_5d: 2.41
-- return_20d: -2.3
-- volume_ratio: 1.61
-- distance_to_ma20_pct: 0.68
-- distance_to_high_60_pct: -10.24
+- ema23: 14.83
+- return_5d: 1.03
+- return_20d: -3.61
+- volume_ratio: 0.85
+- distance_to_ma20_pct: -0.61
+- distance_to_high_60_pct: -11.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,14.55,15,14.35,14.9,381525,14.59,14.84,15.02,14.85,1.8
 20260524,14.55,15,14.35,14.9,381525,14.71,14.84,15,14.85,1.73
 20260525,15,15.15,14.7,14.7,192883,14.79,14.82,14.98,14.84,0.86
-20260526,14.55,15,14.35,14.9,381525,14.86,14.8,14.97,14.84,1.61
+20260526,15,15.15,14.7,14.7,192883,14.82,14.79,14.97,14.83,0.85
 ```
 
 ## Latest TDCC Snapshot

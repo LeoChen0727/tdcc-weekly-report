@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6949 沛爾生醫-創
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:38 Asia/Taipei
+- generated_at: 2026-05-26 06:03:39 Asia/Taipei
 - stock_id: 6949
 - stock_name: 沛爾生醫-創
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 674
-- high: 685
-- low: 669
-- close: 669
-- volume: 94907
-- ma5: 666.4
-- ma20: 693.3
-- ma60: 663.77
-- ma120: 554.19
-- ema23: 689.81
-- return_5d: -0.74
-- return_20d: -14.99
-- volume_ratio: 0.44
-- distance_to_ma20_pct: -3.5
-- distance_to_high_60_pct: -27.99
+- open: 678
+- high: 679
+- low: 648
+- close: 656
+- volume: 161051
+- ma5: 663.8
+- ma20: 692.65
+- ma60: 663.55
+- ma120: 554.08
+- ema23: 688.73
+- return_5d: -2.67
+- return_20d: -16.65
+- volume_ratio: 0.74
+- distance_to_ma20_pct: -5.29
+- distance_to_high_60_pct: -29.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,674,685,669,669,94907,673.6,709.05,665.12,697.31,0.44
 20260524,674,685,669,669,94907,673.6,704.7,664.77,694.95,0.45
 20260525,678,679,648,656,161051,667.4,699.2,664.12,691.7,0.75
-20260526,674,685,669,669,94907,666.4,693.3,663.77,689.81,0.44
+20260526,678,679,648,656,161051,663.8,692.65,663.55,688.73,0.74
 ```
 
 ## Latest TDCC Snapshot

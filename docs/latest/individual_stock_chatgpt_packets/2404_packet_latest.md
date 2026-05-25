@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2404 漢唐
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:56 Asia/Taipei
+- generated_at: 2026-05-26 06:02:05 Asia/Taipei
 - stock_id: 2404
 - stock_name: 漢唐
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 1125
-- high: 1170
-- low: 1105
-- close: 1155
-- volume: 5166332
-- ma5: 1173
-- ma20: 1050.95
-- ma60: 987.88
-- ma120: 965.72
-- ema23: 1063.22
-- return_5d: 5
-- return_20d: 20.44
-- volume_ratio: 1.02
-- distance_to_ma20_pct: 9.9
-- distance_to_high_60_pct: -9.06
+- open: 1185
+- high: 1270
+- low: 1165
+- close: 1245
+- volume: 5552089
+- ma5: 1191
+- ma20: 1055.45
+- ma60: 989.38
+- ma120: 966.47
+- ema23: 1070.72
+- return_5d: 13.18
+- return_20d: 29.82
+- volume_ratio: 1.09
+- distance_to_ma20_pct: 17.96
+- distance_to_high_60_pct: -1.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,1125,1170,1105,1155,5166332,1093,1018.05,982.63,1026.92,1.09
 20260524,1125,1170,1105,1155,5166332,1118,1027.35,984.63,1037.59,1.08
 20260525,1185,1270,1165,1245,5552089,1162,1041.15,986.55,1054.88,1.13
-20260526,1125,1170,1105,1155,5166332,1173,1050.95,987.88,1063.22,1.02
+20260526,1185,1270,1165,1245,5552089,1191,1055.45,989.38,1070.72,1.09
 ```
 
 ## Latest TDCC Snapshot
@@ -122,8 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2404 | 漢唐 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260526 | 2404 | 漢唐 | revenue_breakout_low_response | 營收爆發低反應股 | 20.0 | 4.0 | A_優先追蹤 |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 2404 | 漢唐 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 58.0 |  |  | neckline_challenge |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 2404 | 漢唐 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

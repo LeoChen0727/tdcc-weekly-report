@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2239 英利-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:50 Asia/Taipei
+- generated_at: 2026-05-26 06:01:59 Asia/Taipei
 - stock_id: 2239
 - stock_name: 英利-KY
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 22.7
-- high: 23.8
-- low: 22.25
+- open: 22.8
+- high: 22.8
+- low: 22.2
 - close: 22.4
-- volume: 170563
+- volume: 71000
 - ma5: 22.4
 - ma20: 22.07
 - ma60: 22.96
@@ -66,7 +66,7 @@
 - ema23: 22.29
 - return_5d: -0.44
 - return_20d: 2.05
-- volume_ratio: 1.7
+- volume_ratio: 0.75
 - distance_to_ma20_pct: 1.47
 - distance_to_high_60_pct: -16.57
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,22.7,23.8,22.25,22.4,170563,22.05,22.02,23.21,22.26,1.94
 20260524,22.7,23.8,22.25,22.4,170563,22.24,22.05,23.12,22.27,1.79
 20260525,22.8,22.8,22.2,22.4,71000,22.42,22.05,23.03,22.28,0.73
-20260526,22.7,23.8,22.25,22.4,170563,22.4,22.07,22.96,22.29,1.7
+20260526,22.8,22.8,22.2,22.4,71000,22.4,22.07,22.96,22.29,0.75
 ```
 
 ## Latest TDCC Snapshot

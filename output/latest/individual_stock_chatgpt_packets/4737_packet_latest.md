@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4737 華廣
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:48 Asia/Taipei
+- generated_at: 2026-05-26 06:02:53 Asia/Taipei
 - stock_id: 4737
 - stock_name: 華廣
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 57.3
-- high: 57.3
-- low: 56.5
-- close: 57
-- volume: 47769
-- ma5: 56.86
-- ma20: 58.07
-- ma60: 62.05
+- open: 56.7
+- high: 56.7
+- low: 54.4
+- close: 56.3
+- volume: 139251
+- ma5: 56.72
+- ma20: 58.03
+- ma60: 62.04
 - ma120: 59.1
-- ema23: 58.81
-- return_5d: -0.87
-- return_20d: -9.09
-- volume_ratio: 0.48
-- distance_to_ma20_pct: -1.84
-- distance_to_high_60_pct: -21.81
+- ema23: 58.75
+- return_5d: -2.09
+- return_20d: -10.21
+- volume_ratio: 1.34
+- distance_to_ma20_pct: -2.99
+- distance_to_high_60_pct: -22.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,57.3,57.3,56.5,57,47769,57.58,58.84,61.92,59.42,0.44
 20260524,57.3,57.3,56.5,57,47769,57.34,58.69,61.97,59.22,0.46
 20260525,56.7,56.7,54.4,56.3,139251,56.96,58.35,62.01,58.98,1.37
-20260526,57.3,57.3,56.5,57,47769,56.86,58.07,62.05,58.81,0.48
+20260526,56.7,56.7,54.4,56.3,139251,56.72,58.03,62.04,58.75,1.34
 ```
 
 ## Latest TDCC Snapshot

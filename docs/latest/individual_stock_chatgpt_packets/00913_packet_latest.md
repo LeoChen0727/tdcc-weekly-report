@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00913 兆豐台灣晶圓製造
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:26 Asia/Taipei
+- generated_at: 2026-05-26 06:01:36 Asia/Taipei
 - stock_id: 00913
 - stock_name: 兆豐台灣晶圓製造
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 44.19
-- high: 45.23
-- low: 44.17
-- close: 45.2
-- volume: 1423003
-- ma5: 45.75
-- ma20: 45.75
-- ma60: 45.75
-- ma120: 45.75
-- ema23: 45.41
+- open: 45.96
+- high: 47.98
+- low: 45.96
+- close: 47.97
+- volume: 1080481
+- ma5: 46.31
+- ma20: 46.31
+- ma60: 46.31
+- ma120: 46.31
+- ema23: 45.64
 - return_5d: 
 - return_20d: 
-- volume_ratio: 1.05
-- distance_to_ma20_pct: -1.21
-- distance_to_high_60_pct: -5.79
+- volume_ratio: 0.84
+- distance_to_ma20_pct: 3.59
+- distance_to_high_60_pct: -0.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,44.19,45.23,44.17,45.2,1423003,,,,,
 20260524,44.19,45.23,44.17,45.2,1423003,,,,,
 20260525,45.96,47.98,45.96,47.97,1080481,,,,,
-20260526,44.19,45.23,44.17,45.2,1423003,45.75,45.75,45.75,45.41,1.05
+20260526,45.96,47.98,45.96,47.97,1080481,46.31,46.31,46.31,45.64,0.84
 ```
 
 ## Latest TDCC Snapshot

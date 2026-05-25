@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1713 國化
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:41 Asia/Taipei
+- generated_at: 2026-05-26 06:01:50 Asia/Taipei
 - stock_id: 1713
 - stock_name: 國化
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 47.95
-- high: 48.3
-- low: 47.8
-- close: 47.8
-- volume: 188019
-- ma5: 48.04
-- ma20: 47.44
-- ma60: 47.24
-- ma120: 46.83
-- ema23: 47.59
-- return_5d: -0.31
-- return_20d: 2.36
-- volume_ratio: 0.88
-- distance_to_ma20_pct: 0.76
-- distance_to_high_60_pct: -2.65
+- open: 48.1
+- high: 49.1
+- low: 48
+- close: 49
+- volume: 518580
+- ma5: 48.28
+- ma20: 47.5
+- ma60: 47.26
+- ma120: 46.84
+- ema23: 47.69
+- return_5d: 2.19
+- return_20d: 4.93
+- volume_ratio: 2.26
+- distance_to_ma20_pct: 3.16
+- distance_to_high_60_pct: -0.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,47.95,48.3,47.8,47.8,188019,47.57,47.18,47.24,47.41,1.01
 20260524,47.95,48.3,47.8,47.8,188019,47.71,47.25,47.25,47.44,1.01
 20260525,48.1,49.1,48,49,518580,48.07,47.38,47.24,47.57,2.5
-20260526,47.95,48.3,47.8,47.8,188019,48.04,47.44,47.24,47.59,0.88
+20260526,48.1,49.1,48,49,518580,48.28,47.5,47.26,47.69,2.26
 ```
 
 ## Latest TDCC Snapshot

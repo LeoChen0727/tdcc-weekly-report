@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1623 大東電
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:40 Asia/Taipei
+- generated_at: 2026-05-26 06:01:50 Asia/Taipei
 - stock_id: 1623
 - stock_name: 大東電
 - packet_status: standard_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 225
-- high: 226
-- low: 221
-- close: 224.5
-- volume: 186243
-- ma5: 225.2
-- ma20: 231.55
-- ma60: 212.87
-- ma120: 220.79
-- ema23: 226.1
-- return_5d: 1.13
-- return_20d: -6.46
-- volume_ratio: 0.91
-- distance_to_ma20_pct: -3.04
-- distance_to_high_60_pct: -14.64
+- open: 229
+- high: 230
+- low: 225
+- close: 228
+- volume: 227518
+- ma5: 225.9
+- ma20: 231.72
+- ma60: 212.93
+- ma120: 220.83
+- ema23: 226.39
+- return_5d: 2.7
+- return_20d: -5
+- volume_ratio: 1.1
+- distance_to_ma20_pct: -1.61
+- distance_to_high_60_pct: -13.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,225,226,221,224.5,186243,221.4,233.15,213.22,226.23,0.94
 20260524,225,226,221,224.5,186243,222.2,232.8,212.96,226.09,0.95
 20260525,229,230,225,228,227518,224.7,232.32,212.88,226.25,1.13
-20260526,225,226,221,224.5,186243,225.2,231.55,212.87,226.1,0.91
+20260526,229,230,225,228,227518,225.9,231.72,212.93,226.39,1.1
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2524 京城
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:03 Asia/Taipei
+- generated_at: 2026-05-26 06:02:11 Asia/Taipei
 - stock_id: 2524
 - stock_name: 京城
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 34.05
-- high: 34.15
-- low: 33.3
-- close: 33.35
-- volume: 79049
-- ma5: 33.22
-- ma20: 34.94
-- ma60: 37.58
+- open: 33.2
+- high: 33.2
+- low: 32.5
+- close: 32.7
+- volume: 450980
+- ma5: 33.09
+- ma20: 34.91
+- ma60: 37.56
 - ma120: 39.84
-- ema23: 35.06
-- return_5d: -2.49
-- return_20d: -11.54
-- volume_ratio: 0.65
-- distance_to_ma20_pct: -4.55
-- distance_to_high_60_pct: -22.17
+- ema23: 35
+- return_5d: -4.39
+- return_20d: -13.26
+- volume_ratio: 3.2
+- distance_to_ma20_pct: -6.32
+- distance_to_high_60_pct: -23.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,34.05,34.15,33.3,33.35,79049,33.93,35.54,38.07,35.63,0.73
 20260524,34.05,34.15,33.3,33.35,79049,33.71,35.37,37.91,35.44,0.73
 20260525,33.2,33.2,32.5,32.7,450980,33.39,35.16,37.73,35.21,3.52
-20260526,34.05,34.15,33.3,33.35,79049,33.22,34.94,37.58,35.06,0.65
+20260526,33.2,33.2,32.5,32.7,450980,33.09,34.91,37.56,35,3.2
 ```
 
 ## Latest TDCC Snapshot

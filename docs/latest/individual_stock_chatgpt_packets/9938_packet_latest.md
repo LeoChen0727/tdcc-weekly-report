@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9938 百和
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:59 Asia/Taipei
+- generated_at: 2026-05-26 06:03:59 Asia/Taipei
 - stock_id: 9938
 - stock_name: 百和
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 43.35
+- open: 43.3
 - high: 43.35
-- low: 42.7
-- close: 43.15
-- volume: 2271667
-- ma5: 43.04
-- ma20: 44.13
+- low: 42.6
+- close: 42.6
+- volume: 2948089
+- ma5: 42.93
+- ma20: 44.1
 - ma60: 45.94
 - ma120: 49.24
-- ema23: 44.03
-- return_5d: -0.46
-- return_20d: -1.93
-- volume_ratio: 1.13
-- distance_to_ma20_pct: -2.22
-- distance_to_high_60_pct: -17.02
+- ema23: 43.99
+- return_5d: -1.73
+- return_20d: -3.18
+- volume_ratio: 1.45
+- distance_to_ma20_pct: -3.4
+- distance_to_high_60_pct: -18.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,43.35,43.35,42.7,43.15,2271667,43.41,44.2,46.39,44.35,1.2
 20260524,43.35,43.35,42.7,43.15,2271667,43.24,44.21,46.24,44.25,1.2
 20260525,43.3,43.35,42.6,42.6,2948089,43.08,44.17,46.09,44.12,1.5
-20260526,43.35,43.35,42.7,43.15,2271667,43.04,44.13,45.94,44.03,1.13
+20260526,43.3,43.35,42.6,42.6,2948089,42.93,44.1,45.94,43.99,1.45
 ```
 
 ## Latest TDCC Snapshot

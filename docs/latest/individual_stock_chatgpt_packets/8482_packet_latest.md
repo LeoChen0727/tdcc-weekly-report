@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8482 商億-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:54 Asia/Taipei
+- generated_at: 2026-05-26 06:03:55 Asia/Taipei
 - stock_id: 8482
 - stock_name: 商億-KY
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 47.85
-- high: 49.45
-- low: 47.85
+- open: 49
+- high: 49
+- low: 49
 - close: 49
-- volume: 9026
+- volume: 2157
 - ma5: 49
 - ma20: 49.02
 - ma60: 49.03
@@ -66,7 +66,7 @@
 - ema23: 48.98
 - return_5d: 0.62
 - return_20d: -1.01
-- volume_ratio: 1.57
+- volume_ratio: 0.4
 - distance_to_ma20_pct: -0.04
 - distance_to_high_60_pct: -12.97
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,47.85,49.45,47.85,49,9026,48.88,49,49.29,48.98,1.63
 20260524,47.85,49.45,47.85,49,9026,48.88,49.06,49.22,48.98,1.68
 20260525,49,49,49,49,2157,48.94,49.05,49.13,48.98,0.4
-20260526,47.85,49.45,47.85,49,9026,49,49.02,49.03,48.98,1.57
+20260526,49,49,49,49,2157,49,49.02,49.03,48.98,0.4
 ```
 
 ## Latest TDCC Snapshot

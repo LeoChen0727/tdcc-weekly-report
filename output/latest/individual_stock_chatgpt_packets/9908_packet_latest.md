@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9908 大台北
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:57 Asia/Taipei
+- generated_at: 2026-05-26 06:03:57 Asia/Taipei
 - stock_id: 9908
 - stock_name: 大台北
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 29.2
+- open: 29.25
 - high: 29.3
-- low: 29.15
-- close: 29.2
-- volume: 205559
-- ma5: 29.17
-- ma20: 29.3
+- low: 29.05
+- close: 29.05
+- volume: 318560
+- ma5: 29.14
+- ma20: 29.29
 - ma60: 29.89
 - ma120: 29.91
-- ema23: 29.34
-- return_5d: 0
-- return_20d: -2.01
-- volume_ratio: 0.6
-- distance_to_ma20_pct: -0.33
-- distance_to_high_60_pct: -16.81
+- ema23: 29.33
+- return_5d: -0.51
+- return_20d: -2.52
+- volume_ratio: 0.92
+- distance_to_ma20_pct: -0.82
+- distance_to_high_60_pct: -17.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,29.2,29.3,29.15,29.2,205559,29.2,29.37,29.93,29.39,0.58
 20260524,29.2,29.3,29.15,29.2,205559,29.19,29.36,29.92,29.38,0.61
 20260525,29.25,29.3,29.05,29.05,318560,29.17,29.33,29.9,29.35,0.92
-20260526,29.2,29.3,29.15,29.2,205559,29.17,29.3,29.89,29.34,0.6
+20260526,29.25,29.3,29.05,29.05,318560,29.14,29.29,29.89,29.33,0.92
 ```
 
 ## Latest TDCC Snapshot

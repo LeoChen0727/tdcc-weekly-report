@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2427 三商電
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:58 Asia/Taipei
+- generated_at: 2026-05-26 06:02:06 Asia/Taipei
 - stock_id: 2427
 - stock_name: 三商電
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 20.4
-- high: 20.75
+- open: 20.8
+- high: 20.85
 - low: 20.25
-- close: 20.7
-- volume: 844381
-- ma5: 20.69
+- close: 20.65
+- volume: 963981
+- ma5: 20.68
 - ma20: 20.93
 - ma60: 22.52
 - ma120: 24.66
-- ema23: 21.08
-- return_5d: 1.47
-- return_20d: -2.36
-- volume_ratio: 1.29
-- distance_to_ma20_pct: -1.12
-- distance_to_high_60_pct: -22.91
+- ema23: 21.07
+- return_5d: 1.23
+- return_20d: -2.59
+- volume_ratio: 1.46
+- distance_to_ma20_pct: -1.35
+- distance_to_high_60_pct: -23.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,20.4,20.75,20.25,20.7,844381,20.48,21.02,22.82,21.2,1.36
 20260524,20.4,20.75,20.25,20.7,844381,20.57,20.99,22.72,21.16,1.38
 20260525,20.8,20.85,20.25,20.65,963981,20.63,20.96,22.62,21.11,1.52
-20260526,20.4,20.75,20.25,20.7,844381,20.69,20.93,22.52,21.08,1.29
+20260526,20.8,20.85,20.25,20.65,963981,20.68,20.93,22.52,21.07,1.46
 ```
 
 ## Latest TDCC Snapshot

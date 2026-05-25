@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3645 達邁
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:34 Asia/Taipei
+- generated_at: 2026-05-26 06:02:40 Asia/Taipei
 - stock_id: 3645
 - stock_name: 達邁
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 109.5
-- high: 112
-- low: 107
-- close: 109
-- volume: 9565050
-- ma5: 110.7
-- ma20: 105.44
-- ma60: 91.27
-- ma120: 74.26
-- ema23: 105.06
-- return_5d: -0.46
-- return_20d: 6.86
-- volume_ratio: 0.79
-- distance_to_ma20_pct: 3.38
-- distance_to_high_60_pct: -9.17
+- open: 110.5
+- high: 119
+- low: 108
+- close: 117.5
+- volume: 19496730
+- ma5: 112.4
+- ma20: 105.86
+- ma60: 91.42
+- ma120: 74.33
+- ema23: 105.77
+- return_5d: 7.31
+- return_20d: 15.2
+- volume_ratio: 1.55
+- distance_to_ma20_pct: 11
+- distance_to_high_60_pct: -2.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,109.5,112,107,109,9565050,107.8,103.79,88.88,103.04,0.85
 20260524,109.5,112,107,109,9565050,107.9,104.26,89.71,103.54,0.84
 20260525,110.5,119,108,117.5,19496730,110.8,105.08,90.59,104.7,1.62
-20260526,109.5,112,107,109,9565050,110.7,105.44,91.27,105.06,0.79
+20260526,110.5,119,108,117.5,19496730,112.4,105.86,91.42,105.77,1.55
 ```
 
 ## Latest TDCC Snapshot
@@ -120,14 +120,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 3645 | 達邁 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 3645 | 達邁 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

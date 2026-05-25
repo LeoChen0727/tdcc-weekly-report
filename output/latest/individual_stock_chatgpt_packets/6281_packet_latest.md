@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6281 全國電
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:18 Asia/Taipei
+- generated_at: 2026-05-26 06:03:20 Asia/Taipei
 - stock_id: 6281
 - stock_name: 全國電
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 50.6
-- high: 50.8
-- low: 50.6
-- close: 50.7
-- volume: 112787
-- ma5: 50.62
-- ma20: 50.49
-- ma60: 54.37
+- open: 50.5
+- high: 50.5
+- low: 49.95
+- close: 50.3
+- volume: 204456
+- ma5: 50.54
+- ma20: 50.47
+- ma60: 54.36
 - ma120: 58.35
-- ema23: 51.1
-- return_5d: 0
-- return_20d: 0.6
-- volume_ratio: 0.76
-- distance_to_ma20_pct: 0.41
-- distance_to_high_60_pct: -17.29
+- ema23: 51.07
+- return_5d: -0.79
+- return_20d: -0.2
+- volume_ratio: 1.34
+- distance_to_ma20_pct: -0.34
+- distance_to_high_60_pct: -17.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,50.6,50.8,50.6,50.7,112787,50.66,50.45,54.87,51.26,0.71
 20260524,50.6,50.8,50.6,50.7,112787,50.66,50.47,54.7,51.21,0.75
 20260525,50.5,50.5,49.95,50.3,204456,50.62,50.48,54.53,51.14,1.39
-20260526,50.6,50.8,50.6,50.7,112787,50.62,50.49,54.37,51.1,0.76
+20260526,50.5,50.5,49.95,50.3,204456,50.54,50.47,54.36,51.07,1.34
 ```
 
 ## Latest TDCC Snapshot

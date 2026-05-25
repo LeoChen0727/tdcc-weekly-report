@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6994 富威電力
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:39 Asia/Taipei
+- generated_at: 2026-05-26 06:03:40 Asia/Taipei
 - stock_id: 6994
 - stock_name: 富威電力
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 54
-- high: 56.8
-- low: 52.8
-- close: 56
-- volume: 512026
-- ma5: 55.82
-- ma20: 58.84
-- ma60: 69.28
+- open: 57.4
+- high: 57.4
+- low: 55
+- close: 55.1
+- volume: 397426
+- ma5: 55.64
+- ma20: 58.8
+- ma60: 69.26
 - ma120: 80.89
-- ema23: 59.26
-- return_5d: 4.87
-- return_20d: -11.81
-- volume_ratio: 0.77
-- distance_to_ma20_pct: -4.83
-- distance_to_high_60_pct: -46.67
+- ema23: 59.18
+- return_5d: 3.18
+- return_20d: -13.23
+- volume_ratio: 0.6
+- distance_to_ma20_pct: -6.29
+- distance_to_high_60_pct: -47.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,54,56.8,52.8,56,512026,53.94,60.01,70.84,60.32,0.78
 20260524,54,56.8,52.8,56,512026,54.68,59.63,70.4,59.96,0.78
 20260525,57.4,57.4,55,55.1,397426,55.3,59.22,69.84,59.55,0.61
-20260526,54,56.8,52.8,56,512026,55.82,58.84,69.28,59.26,0.77
+20260526,57.4,57.4,55,55.1,397426,55.64,58.8,69.26,59.18,0.6
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2812 台中銀
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:09 Asia/Taipei
+- generated_at: 2026-05-26 06:02:17 Asia/Taipei
 - stock_id: 2812
 - stock_name: 台中銀
 - packet_status: standard_180d_window_packet
@@ -55,20 +55,20 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 19
-- high: 19.05
-- low: 18.9
-- close: 18.95
-- volume: 9345144
-- ma5: 18.91
-- ma20: 19.28
-- ma60: 20.12
+- high: 19
+- low: 18.75
+- close: 18.75
+- volume: 13345189
+- ma5: 18.87
+- ma20: 19.27
+- ma60: 20.11
 - ma120: 20.46
-- ema23: 19.35
-- return_5d: -0.26
-- return_20d: -5.25
-- volume_ratio: 0.53
-- distance_to_ma20_pct: -1.72
-- distance_to_high_60_pct: -10.4
+- ema23: 19.33
+- return_5d: -1.32
+- return_20d: -6.25
+- volume_ratio: 0.74
+- distance_to_ma20_pct: -2.71
+- distance_to_high_60_pct: -11.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,19,19.05,18.9,18.95,9345144,18.99,19.45,20.22,19.48,0.51
 20260524,19,19.05,18.9,18.95,9345144,18.95,19.4,20.19,19.44,0.53
 20260525,19,19,18.75,18.75,13345189,18.92,19.34,20.15,19.38,0.76
-20260526,19,19.05,18.9,18.95,9345144,18.91,19.28,20.12,19.35,0.53
+20260526,19,19,18.75,18.75,13345189,18.87,19.27,20.11,19.33,0.74
 ```
 
 ## Latest TDCC Snapshot

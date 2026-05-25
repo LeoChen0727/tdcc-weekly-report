@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6257 矽格
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:16 Asia/Taipei
+- generated_at: 2026-05-26 06:03:19 Asia/Taipei
 - stock_id: 6257
 - stock_name: 矽格
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 221
-- high: 235
-- low: 219.5
-- close: 222
-- volume: 13548709
-- ma5: 223.9
-- ma20: 211.45
-- ma60: 172.8
-- ma120: 144.43
-- ema23: 207.85
-- return_5d: 2.54
-- return_20d: 25.07
-- volume_ratio: 0.88
-- distance_to_ma20_pct: 4.99
-- distance_to_high_60_pct: -5.93
+- open: 225
+- high: 236
+- low: 224
+- close: 231.5
+- volume: 10422000
+- ma5: 225.8
+- ma20: 211.93
+- ma60: 172.96
+- ma120: 144.51
+- ema23: 208.64
+- return_5d: 6.93
+- return_20d: 30.42
+- volume_ratio: 0.68
+- distance_to_ma20_pct: 9.24
+- distance_to_high_60_pct: -1.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,221,235,219.5,222,13548709,215.6,204.47,168.62,202.68,0.9
 20260524,221,235,219.5,222,13548709,217.9,206.68,170.03,204.29,0.91
 20260525,225,236,224,231.5,10422000,222.8,209.22,171.38,206.56,0.69
-20260526,221,235,219.5,222,13548709,223.9,211.45,172.8,207.85,0.88
+20260526,225,236,224,231.5,10422000,225.8,211.93,172.96,208.64,0.68
 ```
 
 ## Latest TDCC Snapshot
@@ -120,10 +120,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6257 | 矽格 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 6257 | 矽格 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

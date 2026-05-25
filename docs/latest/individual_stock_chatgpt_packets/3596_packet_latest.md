@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3596 智易
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:33 Asia/Taipei
+- generated_at: 2026-05-26 06:02:39 Asia/Taipei
 - stock_id: 3596
 - stock_name: 智易
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 186
-- high: 189
-- low: 184
+- open: 192
+- high: 193
+- low: 186.5
 - close: 189
-- volume: 1806763
+- volume: 3150555
 - ma5: 189
 - ma20: 179.3
 - ma60: 180.38
@@ -66,7 +66,7 @@
 - ema23: 180.97
 - return_5d: 2.72
 - return_20d: 17.39
-- volume_ratio: 0.89
+- volume_ratio: 1.51
 - distance_to_ma20_pct: 5.41
 - distance_to_high_60_pct: -11.68
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,186,189,184,189,1806763,184.5,175.28,180.57,178.58,1
 20260524,186,189,184,189,1806763,186.5,176.62,180.61,179.45,0.98
 20260525,192,193,186.5,189,3150555,188,177.9,180.47,180.24,1.6
-20260526,186,189,184,189,1806763,189,179.3,180.38,180.97,0.89
+20260526,192,193,186.5,189,3150555,189,179.3,180.38,180.97,1.51
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3596 | 智易 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 3596 | 智易 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

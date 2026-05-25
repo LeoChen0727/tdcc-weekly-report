@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5469 瀚宇博
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:01 Asia/Taipei
+- generated_at: 2026-05-26 06:03:05 Asia/Taipei
 - stock_id: 5469
 - stock_name: 瀚宇博
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 82.5
-- high: 83.5
-- low: 82.4
-- close: 82.9
-- volume: 2093159
-- ma5: 83.02
-- ma20: 82.19
-- ma60: 85.67
-- ma120: 91.63
-- ema23: 83.4
-- return_5d: 1.59
-- return_20d: -1.54
-- volume_ratio: 0.68
-- distance_to_ma20_pct: 0.86
-- distance_to_high_60_pct: -17.1
+- open: 83.8
+- high: 84.3
+- low: 83.2
+- close: 83.5
+- volume: 3048237
+- ma5: 83.14
+- ma20: 82.22
+- ma60: 85.68
+- ma120: 91.64
+- ema23: 83.45
+- return_5d: 2.33
+- return_20d: -0.83
+- volume_ratio: 0.98
+- distance_to_ma20_pct: 1.55
+- distance_to_high_60_pct: -16.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,82.5,83.5,82.4,82.9,2093159,81.16,83.05,86.22,83.49,0.59
 20260524,82.5,83.5,82.4,82.9,2093159,81.86,82.66,86.03,83.44,0.6
 20260525,83.8,84.3,83.2,83.5,3048237,82.76,82.26,85.86,83.45,0.86
-20260526,82.5,83.5,82.4,82.9,2093159,83.02,82.19,85.67,83.4,0.68
+20260526,83.8,84.3,83.2,83.5,3048237,83.14,82.22,85.68,83.45,0.98
 ```
 
 ## Latest TDCC Snapshot
@@ -120,14 +120,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 5469 | 瀚宇博 | pattern | 型態觀察 | 51.0 |  |  | platform_right_side |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 5469 | 瀚宇博 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

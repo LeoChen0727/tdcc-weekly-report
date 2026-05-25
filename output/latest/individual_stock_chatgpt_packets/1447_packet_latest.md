@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1447 力鵬
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:34 Asia/Taipei
+- generated_at: 2026-05-26 06:01:43 Asia/Taipei
 - stock_id: 1447
 - stock_name: 力鵬
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 5.9
-- high: 6.05
-- low: 5.74
-- close: 6
-- volume: 2293485
-- ma5: 5.97
-- ma20: 5.42
+- open: 5.98
+- high: 5.98
+- low: 5.75
+- close: 5.85
+- volume: 1867164
+- ma5: 5.94
+- ma20: 5.41
 - ma60: 5.32
 - ma120: 5.38
-- ema23: 5.54
-- return_5d: 1.69
-- return_20d: 19.52
-- volume_ratio: 0.97
-- distance_to_ma20_pct: 10.7
-- distance_to_high_60_pct: -0.83
+- ema23: 5.53
+- return_5d: -0.85
+- return_20d: 16.53
+- volume_ratio: 0.8
+- distance_to_ma20_pct: 8.08
+- distance_to_high_60_pct: -3.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,5.9,6.05,5.74,6,2293485,5.92,5.28,5.3,5.42,1.04
 20260524,5.9,6.05,5.74,6,2293485,5.96,5.33,5.31,5.47,1.01
 20260525,5.98,5.98,5.75,5.85,1867164,5.95,5.37,5.31,5.5,0.81
-20260526,5.9,6.05,5.74,6,2293485,5.97,5.42,5.32,5.54,0.97
+20260526,5.98,5.98,5.75,5.85,1867164,5.94,5.41,5.32,5.53,0.8
 ```
 
 ## Latest TDCC Snapshot
@@ -130,7 +130,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1447 | 力鵬 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 1447 | 力鵬 | pattern | 型態觀察 | 51.0 |  |  | base_building |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 1447 | 力鵬 | pattern | 型態觀察 |  |  |  | 預備發動型 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

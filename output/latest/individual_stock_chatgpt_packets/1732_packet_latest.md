@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1732 毛寶
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:42 Asia/Taipei
+- generated_at: 2026-05-26 06:01:51 Asia/Taipei
 - stock_id: 1732
 - stock_name: 毛寶
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 26.85
-- high: 26.9
-- low: 26.05
-- close: 26.55
-- volume: 372093
-- ma5: 26.52
-- ma20: 26.46
+- open: 26.6
+- high: 26.8
+- low: 26.3
+- close: 26.4
+- volume: 197884
+- ma5: 26.49
+- ma20: 26.45
 - ma60: 26.26
 - ma120: 27.3
-- ema23: 26.42
-- return_5d: -0.19
-- return_20d: 1.92
-- volume_ratio: 1.04
-- distance_to_ma20_pct: 0.34
-- distance_to_high_60_pct: -5.52
+- ema23: 26.41
+- return_5d: -0.75
+- return_20d: 1.34
+- volume_ratio: 0.57
+- distance_to_ma20_pct: -0.2
+- distance_to_high_60_pct: -6.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,26.85,26.9,26.05,26.55,372093,26.71,26.32,26.32,26.39,1.13
 20260524,26.85,26.9,26.05,26.55,372093,26.59,26.39,26.3,26.41,1.09
 20260525,26.6,26.8,26.3,26.4,197884,26.53,26.43,26.28,26.41,0.57
-20260526,26.85,26.9,26.05,26.55,372093,26.52,26.46,26.26,26.42,1.04
+20260526,26.6,26.8,26.3,26.4,197884,26.49,26.45,26.26,26.41,0.57
 ```
 
 ## Latest TDCC Snapshot

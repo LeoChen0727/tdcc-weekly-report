@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1102 亞泥
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:27 Asia/Taipei
+- generated_at: 2026-05-26 06:01:38 Asia/Taipei
 - stock_id: 1102
 - stock_name: 亞泥
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 34.6
-- high: 34.8
-- low: 34.4
-- close: 34.4
-- volume: 11752214
-- ma5: 34.24
-- ma20: 34.7
-- ma60: 34.9
-- ma120: 35.82
-- ema23: 34.7
-- return_5d: -1.57
-- return_20d: -2.82
-- volume_ratio: 1.16
-- distance_to_ma20_pct: -0.85
-- distance_to_high_60_pct: -4.84
+- open: 34.45
+- high: 34.5
+- low: 33.6
+- close: 33.6
+- volume: 26457340
+- ma5: 34.08
+- ma20: 34.66
+- ma60: 34.88
+- ma120: 35.81
+- ema23: 34.63
+- return_5d: -3.86
+- return_20d: -5.08
+- volume_ratio: 2.43
+- distance_to_ma20_pct: -3.04
+- distance_to_high_60_pct: -7.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,34.6,34.8,34.4,34.4,11752214,34.61,34.87,34.98,34.87,1.31
 20260524,34.6,34.8,34.4,34.4,11752214,34.53,34.83,34.95,34.83,1.31
 20260525,34.45,34.5,33.6,33.6,26457340,34.35,34.74,34.92,34.73,2.66
-20260526,34.6,34.8,34.4,34.4,11752214,34.24,34.7,34.9,34.7,1.16
+20260526,34.45,34.5,33.6,33.6,26457340,34.08,34.66,34.88,34.63,2.43
 ```
 
 ## Latest TDCC Snapshot

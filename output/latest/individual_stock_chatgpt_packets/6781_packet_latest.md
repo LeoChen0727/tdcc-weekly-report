@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6781 AES-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:32 Asia/Taipei
+- generated_at: 2026-05-26 06:03:34 Asia/Taipei
 - stock_id: 6781
 - stock_name: AES-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 1160
-- high: 1220
-- low: 1135
-- close: 1210
-- volume: 1250692
-- ma5: 1220
-- ma20: 1185.75
-- ma60: 1088.9
-- ma120: 1173.12
-- ema23: 1171.93
-- return_5d: 6.14
-- return_20d: 7.08
-- volume_ratio: 0.7
-- distance_to_ma20_pct: 2.05
-- distance_to_high_60_pct: -11.68
+- open: 1245
+- high: 1290
+- low: 1230
+- close: 1260
+- volume: 2114609
+- ma5: 1230
+- ma20: 1188.25
+- ma60: 1089.73
+- ma120: 1173.53
+- ema23: 1176.09
+- return_5d: 10.53
+- return_20d: 11.5
+- volume_ratio: 1.15
+- distance_to_ma20_pct: 6.04
+- distance_to_high_60_pct: -8.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,1160,1220,1135,1210,1250692,1155,1179.75,1087.23,1155.61,0.61
 20260524,1160,1220,1135,1210,1250692,1172,1179,1087.48,1160.15,0.66
 20260525,1245,1290,1230,1260,2114609,1206,1181.75,1088.4,1168.47,1.14
-20260526,1160,1220,1135,1210,1250692,1220,1185.75,1088.9,1171.93,0.7
+20260526,1245,1290,1230,1260,2114609,1230,1188.25,1089.73,1176.09,1.15
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6781 | AES-KY | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | call_put_bullish | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 6781 | AES-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

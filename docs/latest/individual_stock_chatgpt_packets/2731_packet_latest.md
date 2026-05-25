@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2731 雄獅
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:08 Asia/Taipei
+- generated_at: 2026-05-26 06:02:15 Asia/Taipei
 - stock_id: 2731
 - stock_name: 雄獅
 - packet_status: standard_180d_window_packet
@@ -55,10 +55,10 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 161.5
-- high: 162
-- low: 160
+- high: 161.5
+- low: 159.5
 - close: 160
-- volume: 456869
+- volume: 924795
 - ma5: 160
 - ma20: 160.12
 - ma60: 162.78
@@ -66,7 +66,7 @@
 - ema23: 160.28
 - return_5d: 0
 - return_20d: 0.95
-- volume_ratio: 0.54
+- volume_ratio: 1.05
 - distance_to_ma20_pct: -0.08
 - distance_to_high_60_pct: -9.86
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,161.5,162,160,160,456869,160.1,159.95,163.45,160.36,0.54
 20260524,161.5,162,160,160,456869,160,160.03,163.23,160.33,0.55
 20260525,161.5,161.5,159.5,160,924795,160,160.05,162.97,160.3,1.08
-20260526,161.5,162,160,160,456869,160,160.12,162.78,160.28,0.54
+20260526,161.5,161.5,159.5,160,924795,160,160.12,162.78,160.28,1.05
 ```
 
 ## Latest TDCC Snapshot

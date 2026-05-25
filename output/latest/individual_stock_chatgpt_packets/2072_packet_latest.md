@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2072 世紀風電
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:48 Asia/Taipei
+- generated_at: 2026-05-26 06:01:57 Asia/Taipei
 - stock_id: 2072
 - stock_name: 世紀風電
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 172.5
-- high: 172.5
-- low: 168.5
-- close: 169
-- volume: 443434
-- ma5: 168.7
-- ma20: 174.93
-- ma60: 178.02
-- ma120: 178.02
-- ema23: 174.17
-- return_5d: -2.03
-- return_20d: -6.63
-- volume_ratio: 0.75
-- distance_to_ma20_pct: -3.39
-- distance_to_high_60_pct: -15.5
+- open: 171
+- high: 171
+- low: 165
+- close: 167.5
+- volume: 595215
+- ma5: 168.4
+- ma20: 174.85
+- ma60: 177.99
+- ma120: 177.99
+- ema23: 174.04
+- return_5d: -2.9
+- return_20d: -7.46
+- volume_ratio: 1
+- distance_to_ma20_pct: -4.2
+- distance_to_high_60_pct: -16.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,172.5,172.5,168.5,169,443434,170.8,176.1,178.74,175.86,0.77
 20260524,172.5,172.5,168.5,169,443434,169.7,175.88,178.5,175.28,0.77
 20260525,171,171,165,167.5,595215,169.4,175.53,178.24,174.64,1
-20260526,172.5,172.5,168.5,169,443434,168.7,174.93,178.02,174.17,0.75
+20260526,171,171,165,167.5,595215,168.4,174.85,177.99,174.04,1
 ```
 
 ## Latest TDCC Snapshot

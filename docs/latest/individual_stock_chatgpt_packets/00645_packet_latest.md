@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00645 富邦日本
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:24 Asia/Taipei
+- generated_at: 2026-05-26 06:01:34 Asia/Taipei
 - stock_id: 00645
 - stock_name: 富邦日本
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 54.8
-- high: 54.95
-- low: 54.7
-- close: 54.85
-- volume: 179481
-- ma5: 54.97
-- ma20: 54.97
-- ma60: 54.97
-- ma120: 54.97
-- ema23: 54.9
+- open: 55.4
+- high: 55.6
+- low: 55.3
+- close: 55.45
+- volume: 238431
+- ma5: 55.09
+- ma20: 55.09
+- ma60: 55.09
+- ma120: 55.09
+- ema23: 54.95
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.94
-- distance_to_ma20_pct: -0.22
-- distance_to_high_60_pct: -1.35
+- volume_ratio: 1.17
+- distance_to_ma20_pct: 0.65
+- distance_to_high_60_pct: -0.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,54.8,54.95,54.7,54.85,179481,,,,,
 20260524,54.8,54.95,54.7,54.85,179481,,,,,
 20260525,55.4,55.6,55.3,55.45,238431,,,,,
-20260526,54.8,54.95,54.7,54.85,179481,54.97,54.97,54.97,54.9,0.94
+20260526,55.4,55.6,55.3,55.45,238431,55.09,55.09,55.09,54.95,1.17
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4572 駐龍
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:46 Asia/Taipei
+- generated_at: 2026-05-26 06:02:52 Asia/Taipei
 - stock_id: 4572
 - stock_name: 駐龍
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 144.5
+- open: 142.5
 - high: 144.5
-- low: 143
-- close: 143
-- volume: 33380
-- ma5: 143.3
-- ma20: 145.43
-- ma60: 144.53
-- ma120: 147.72
-- ema23: 144.71
-- return_5d: 0
-- return_20d: -2.05
-- volume_ratio: 0.75
-- distance_to_ma20_pct: -1.67
-- distance_to_high_60_pct: -5.3
+- low: 142
+- close: 144.5
+- volume: 40695
+- ma5: 143.6
+- ma20: 145.5
+- ma60: 144.56
+- ma120: 147.74
+- ema23: 144.83
+- return_5d: 1.05
+- return_20d: -1.03
+- volume_ratio: 0.91
+- distance_to_ma20_pct: -0.69
+- distance_to_high_60_pct: -4.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,144.5,144.5,143,143,33380,143.7,145.78,144.8,145.07,0.79
 20260524,144.5,144.5,143,143,33380,143.5,145.62,144.69,144.9,0.79
 20260525,142.5,144.5,142,144.5,40695,143.3,145.57,144.63,144.86,0.94
-20260526,144.5,144.5,143,143,33380,143.3,145.43,144.53,144.71,0.75
+20260526,142.5,144.5,142,144.5,40695,143.6,145.5,144.56,144.83,0.91
 ```
 
 ## Latest TDCC Snapshot

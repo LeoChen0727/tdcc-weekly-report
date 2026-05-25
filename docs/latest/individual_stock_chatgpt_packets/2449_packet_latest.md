@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2449 京元電子
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:59 Asia/Taipei
+- generated_at: 2026-05-26 06:02:07 Asia/Taipei
 - stock_id: 2449
 - stock_name: 京元電子
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 292
-- high: 301
-- low: 290.5
-- close: 296
-- volume: 26407806
-- ma5: 300.2
-- ma20: 305.85
-- ma60: 292.77
-- ma120: 276.31
-- ema23: 298.11
-- return_5d: 3.5
-- return_20d: 4.41
-- volume_ratio: 0.68
-- distance_to_ma20_pct: -3.22
-- distance_to_high_60_pct: -18.79
+- open: 305
+- high: 318.5
+- low: 302.5
+- close: 317
+- volume: 53596825
+- ma5: 304.4
+- ma20: 306.9
+- ma60: 293.12
+- ma120: 276.48
+- ema23: 299.86
+- return_5d: 10.84
+- return_20d: 11.82
+- volume_ratio: 1.33
+- distance_to_ma20_pct: 3.29
+- distance_to_high_60_pct: -13.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,292,301,290.5,296,26407806,288.9,302.93,293.68,296.66,0.69
 20260524,292,301,290.5,296,26407806,290.3,303.55,293.27,296.6,0.7
 20260525,305,318.5,302.5,317,53596825,298.2,305.23,293.11,298.3,1.37
-20260526,292,301,290.5,296,26407806,300.2,305.85,292.77,298.11,0.68
+20260526,305,318.5,302.5,317,53596825,304.4,306.9,293.12,299.86,1.33
 ```
 
 ## Latest TDCC Snapshot
@@ -123,6 +123,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260526 | 2449 | 京元電子 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | mixed_flow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 2449 | 京元電子 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | mixed_flow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 2449 | 京元電子 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | mixed_flow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

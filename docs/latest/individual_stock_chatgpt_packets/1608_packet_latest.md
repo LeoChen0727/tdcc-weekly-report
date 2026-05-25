@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1608 華榮
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:40 Asia/Taipei
+- generated_at: 2026-05-26 06:01:49 Asia/Taipei
 - stock_id: 1608
 - stock_name: 華榮
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 32.8
-- high: 33.6
-- low: 32.45
-- close: 33.3
-- volume: 3336279
-- ma5: 33.45
-- ma20: 33.08
-- ma60: 33.01
-- ma120: 35
-- ema23: 33.05
-- return_5d: 1.52
-- return_20d: 1.83
-- volume_ratio: 0.93
-- distance_to_ma20_pct: 0.66
-- distance_to_high_60_pct: -8.64
+- open: 34.15
+- high: 34.7
+- low: 33.9
+- close: 34.05
+- volume: 4221152
+- ma5: 33.6
+- ma20: 33.12
+- ma60: 33.02
+- ma120: 35.01
+- ema23: 33.11
+- return_5d: 3.81
+- return_20d: 4.13
+- volume_ratio: 1.17
+- distance_to_ma20_pct: 2.81
+- distance_to_high_60_pct: -6.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,32.8,33.6,32.45,33.3,3336279,32.46,32.95,33.14,32.9,1.01
 20260524,32.8,33.6,32.45,33.3,3336279,32.84,32.98,33.09,32.93,1
 20260525,34.15,34.7,33.9,34.05,4221152,33.35,33.05,33.05,33.03,1.21
-20260526,32.8,33.6,32.45,33.3,3336279,33.45,33.08,33.01,33.05,0.93
+20260526,34.15,34.7,33.9,34.05,4221152,33.6,33.12,33.02,33.11,1.17
 ```
 
 ## Latest TDCC Snapshot
@@ -120,9 +120,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1608 | 華榮 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

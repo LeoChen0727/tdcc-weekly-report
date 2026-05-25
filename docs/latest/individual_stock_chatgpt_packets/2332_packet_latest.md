@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2332 友訊
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:52 Asia/Taipei
+- generated_at: 2026-05-26 06:02:01 Asia/Taipei
 - stock_id: 2332
 - stock_name: 友訊
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 14.65
-- high: 15.7
-- low: 14.45
-- close: 15.45
-- volume: 12015319
-- ma5: 15.5
-- ma20: 14.35
-- ma60: 14.85
-- ma120: 15.31
-- ema23: 14.67
-- return_5d: 5.82
-- return_20d: 11.15
-- volume_ratio: 2.24
-- distance_to_ma20_pct: 7.65
-- distance_to_high_60_pct: -4.63
+- open: 15.85
+- high: 16
+- low: 15.4
+- close: 15.7
+- volume: 8723136
+- ma5: 15.55
+- ma20: 14.37
+- ma60: 14.86
+- ma120: 15.32
+- ema23: 14.69
+- return_5d: 7.53
+- return_20d: 12.95
+- volume_ratio: 1.68
+- distance_to_ma20_pct: 9.29
+- distance_to_high_60_pct: -3.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,14.65,15.7,14.45,15.45,12015319,14.66,14.12,14.87,14.42,2.84
 20260524,14.65,15.7,14.45,15.45,12015319,14.98,14.19,14.86,14.5,2.66
 20260525,15.85,16,15.4,15.7,8723136,15.33,14.28,14.86,14.6,1.8
-20260526,14.65,15.7,14.45,15.45,12015319,15.5,14.35,14.85,14.67,2.24
+20260526,15.85,16,15.4,15.7,8723136,15.55,14.37,14.86,14.69,1.68
 ```
 
 ## Latest TDCC Snapshot

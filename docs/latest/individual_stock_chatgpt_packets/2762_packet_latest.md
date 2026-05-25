@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2762 世界健身-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:09 Asia/Taipei
+- generated_at: 2026-05-26 06:02:17 Asia/Taipei
 - stock_id: 2762
 - stock_name: 世界健身-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 81.7
-- high: 83
-- low: 81.7
-- close: 82.9
-- volume: 123218
-- ma5: 82.72
-- ma20: 79.25
-- ma60: 75.73
+- open: 82.1
+- high: 82.3
+- low: 80
+- close: 82
+- volume: 137070
+- ma5: 82.54
+- ma20: 79.2
+- ma60: 75.72
 - ma120: 75.99
-- ema23: 79.62
-- return_5d: 0
-- return_20d: 13.56
-- volume_ratio: 0.71
-- distance_to_ma20_pct: 4.61
-- distance_to_high_60_pct: -3.15
+- ema23: 79.55
+- return_5d: -1.09
+- return_20d: 12.33
+- volume_ratio: 0.79
+- distance_to_ma20_pct: 3.53
+- distance_to_high_60_pct: -4.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,81.7,83,81.7,82.9,123218,83.26,77.83,75.48,78.73,0.73
 20260524,81.7,83,81.7,82.9,123218,82.94,78.33,75.58,79.08,0.72
 20260525,82.1,82.3,80,82,137070,82.72,78.75,75.66,79.32,0.79
-20260526,81.7,83,81.7,82.9,123218,82.72,79.25,75.73,79.62,0.71
+20260526,82.1,82.3,80,82,137070,82.54,79.2,75.72,79.55,0.79
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6472 保瑞
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:21 Asia/Taipei
+- generated_at: 2026-05-26 06:03:23 Asia/Taipei
 - stock_id: 6472
 - stock_name: 保瑞
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 386
-- high: 391
-- low: 376
-- close: 379.5
-- volume: 1938051
-- ma5: 376.9
-- ma20: 390.38
-- ma60: 426.62
-- ma120: 475.46
-- ema23: 391.8
-- return_5d: -1.17
-- return_20d: -8.99
+- open: 384.5
+- high: 384.5
+- low: 366
+- close: 366.5
+- volume: 1940384
+- ma5: 374.3
+- ma20: 389.73
+- ma60: 426.41
+- ma120: 475.35
+- ema23: 390.72
+- return_5d: -4.56
+- return_20d: -12.11
 - volume_ratio: 1.05
-- distance_to_ma20_pct: -2.79
-- distance_to_high_60_pct: -27.85
+- distance_to_ma20_pct: -5.96
+- distance_to_high_60_pct: -30.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,386,391,376,379.5,1938051,379.7,395.65,433.05,396.76,1.17
 20260524,386,391,376,379.5,1938051,381.2,394.32,430.88,395.32,1.13
 20260525,384.5,384.5,366,366.5,1940384,377.8,392.25,428.53,392.92,1.08
-20260526,386,391,376,379.5,1938051,376.9,390.38,426.62,391.8,1.05
+20260526,384.5,384.5,366,366.5,1940384,374.3,389.73,426.41,390.72,1.05
 ```
 
 ## Latest TDCC Snapshot

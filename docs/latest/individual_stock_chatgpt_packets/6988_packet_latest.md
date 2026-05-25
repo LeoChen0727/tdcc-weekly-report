@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6988 威力暘-創
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:39 Asia/Taipei
+- generated_at: 2026-05-26 06:03:40 Asia/Taipei
 - stock_id: 6988
 - stock_name: 威力暘-創
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 16.95
-- high: 17.4
-- low: 16.7
-- close: 16.7
-- volume: 93271
-- ma5: 16.69
+- open: 16.7
+- high: 17.45
+- low: 16.65
+- close: 16.65
+- volume: 135145
+- ma5: 16.68
 - ma20: 15.69
 - ma60: 14.88
 - ma120: 15.42
 - ema23: 15.87
-- return_5d: 0
-- return_20d: 23.7
-- volume_ratio: 1
-- distance_to_ma20_pct: 6.45
-- distance_to_high_60_pct: -7.99
+- return_5d: -0.3
+- return_20d: 23.33
+- volume_ratio: 1.42
+- distance_to_ma20_pct: 6.15
+- distance_to_high_60_pct: -8.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,16.95,17.4,16.7,16.7,93271,16.77,15.23,14.91,15.63,1.07
 20260524,16.95,17.4,16.7,16.7,93271,16.74,15.39,14.9,15.72,1.07
 20260525,16.7,17.45,16.65,16.65,135145,16.69,15.53,14.87,15.79,1.52
-20260526,16.95,17.4,16.7,16.7,93271,16.69,15.69,14.88,15.87,1
+20260526,16.7,17.45,16.65,16.65,135145,16.68,15.69,14.88,15.87,1.42
 ```
 
 ## Latest TDCC Snapshot

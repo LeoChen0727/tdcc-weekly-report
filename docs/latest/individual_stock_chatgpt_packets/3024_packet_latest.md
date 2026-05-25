@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3024 憶聲
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:14 Asia/Taipei
+- generated_at: 2026-05-26 06:02:22 Asia/Taipei
 - stock_id: 3024
 - stock_name: 憶聲
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 17.1
-- high: 17.75
-- low: 16.6
-- close: 17.6
-- volume: 3534283
-- ma5: 17.29
-- ma20: 15.87
-- ma60: 12.55
-- ma120: 11.72
-- ema23: 15.71
-- return_5d: 2.62
-- return_20d: 34.35
-- volume_ratio: 0.66
-- distance_to_ma20_pct: 10.94
-- distance_to_high_60_pct: -4.35
+- open: 17.95
+- high: 17.95
+- low: 15.9
+- close: 16.05
+- volume: 7539508
+- ma5: 16.98
+- ma20: 15.79
+- ma60: 12.53
+- ma120: 11.71
+- ema23: 15.58
+- return_5d: -6.41
+- return_20d: 22.52
+- volume_ratio: 1.37
+- distance_to_ma20_pct: 1.66
+- distance_to_high_60_pct: -12.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,17.1,17.75,16.6,17.6,3534283,17.51,15.32,12.23,15.3,0.7
 20260524,17.1,17.75,16.6,17.6,3534283,17.55,15.51,12.34,15.49,0.7
 20260525,17.95,17.95,15.9,16.05,7539508,17.2,15.64,12.44,15.54,1.43
-20260526,17.1,17.75,16.6,17.6,3534283,17.29,15.87,12.55,15.71,0.66
+20260526,17.95,17.95,15.9,16.05,7539508,16.98,15.79,12.53,15.58,1.37
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3024 | 憶聲 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 3024 | 憶聲 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

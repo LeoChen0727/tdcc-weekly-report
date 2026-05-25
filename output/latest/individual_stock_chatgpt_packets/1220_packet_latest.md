@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1220 台榮
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:28 Asia/Taipei
+- generated_at: 2026-05-26 06:01:39 Asia/Taipei
 - stock_id: 1220
 - stock_name: 台榮
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 11.9
+- open: 11.85
 - high: 11.9
-- low: 11.8
+- low: 11.7
 - close: 11.85
-- volume: 122709
+- volume: 293864
 - ma5: 11.85
 - ma20: 12.1
 - ma60: 12.47
@@ -66,7 +66,7 @@
 - ema23: 12.09
 - return_5d: 0.42
 - return_20d: -4.44
-- volume_ratio: 0.84
+- volume_ratio: 1.9
 - distance_to_ma20_pct: -2.05
 - distance_to_high_60_pct: -12.55
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,11.9,11.9,11.8,11.85,122709,11.85,12.18,12.53,12.17,0.95
 20260524,11.9,11.9,11.8,11.85,122709,11.83,12.15,12.51,12.14,0.93
 20260525,11.85,11.9,11.7,11.85,293864,11.84,12.12,12.49,12.11,2.05
-20260526,11.9,11.9,11.8,11.85,122709,11.85,12.1,12.47,12.09,0.84
+20260526,11.85,11.9,11.7,11.85,293864,11.85,12.1,12.47,12.09,1.9
 ```
 
 ## Latest TDCC Snapshot

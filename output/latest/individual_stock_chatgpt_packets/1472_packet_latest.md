@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1472 三洋實業
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:35 Asia/Taipei
+- generated_at: 2026-05-26 06:01:45 Asia/Taipei
 - stock_id: 1472
 - stock_name: 三洋實業
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 88.9
-- high: 89.5
-- low: 88.9
+- open: 89.7
+- high: 90
+- low: 89
 - close: 89.5
-- volume: 5293
+- volume: 19272
 - ma5: 89.5
 - ma20: 89.62
 - ma60: 92.58
@@ -66,7 +66,7 @@
 - ema23: 90.37
 - return_5d: 0.79
 - return_20d: -1.97
-- volume_ratio: 0.41
+- volume_ratio: 1.41
 - distance_to_ma20_pct: -0.13
 - distance_to_high_60_pct: -9.69
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,88.9,89.5,88.9,89.5,5293,88.96,90.14,92.63,90.62,0.42
 20260524,88.9,89.5,88.9,89.5,5293,89.16,89.9,92.62,90.53,0.42
 20260525,89.7,90,89,89.5,19272,89.36,89.71,92.61,90.44,1.46
-20260526,88.9,89.5,88.9,89.5,5293,89.5,89.62,92.58,90.37,0.41
+20260526,89.7,90,89,89.5,19272,89.5,89.62,92.58,90.37,1.41
 ```
 
 ## Latest TDCC Snapshot

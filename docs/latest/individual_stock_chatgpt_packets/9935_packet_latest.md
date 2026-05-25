@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9935 慶豐富
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:59 Asia/Taipei
+- generated_at: 2026-05-26 06:03:59 Asia/Taipei
 - stock_id: 9935
 - stock_name: 慶豐富
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 18.55
-- high: 18.7
-- low: 18.45
-- close: 18.6
-- volume: 267449
-- ma5: 18.62
-- ma20: 18.41
+- open: 18.7
+- high: 18.75
+- low: 18.35
+- close: 18.7
+- volume: 584956
+- ma5: 18.64
+- ma20: 18.42
 - ma60: 18.83
-- ma120: 19.48
+- ma120: 19.49
 - ema23: 18.55
-- return_5d: 0.27
-- return_20d: 1.09
-- volume_ratio: 0.93
-- distance_to_ma20_pct: 1.02
-- distance_to_high_60_pct: -7.46
+- return_5d: 0.81
+- return_20d: 1.63
+- volume_ratio: 1.92
+- distance_to_ma20_pct: 1.53
+- distance_to_high_60_pct: -6.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,18.55,18.7,18.45,18.6,267449,18.55,18.37,18.85,18.52,0.96
 20260524,18.55,18.7,18.45,18.6,267449,18.58,18.39,18.84,18.53,0.96
 20260525,18.7,18.75,18.35,18.7,584956,18.61,18.4,18.83,18.54,2.08
-20260526,18.55,18.7,18.45,18.6,267449,18.62,18.41,18.83,18.55,0.93
+20260526,18.7,18.75,18.35,18.7,584956,18.64,18.42,18.83,18.55,1.92
 ```
 
 ## Latest TDCC Snapshot

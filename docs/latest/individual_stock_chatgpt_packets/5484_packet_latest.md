@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5484 慧友
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:02 Asia/Taipei
+- generated_at: 2026-05-26 06:03:06 Asia/Taipei
 - stock_id: 5484
 - stock_name: 慧友
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 43
-- high: 45.3
-- low: 42.35
-- close: 44.7
-- volume: 2154100
-- ma5: 45.59
-- ma20: 40.86
-- ma60: 39.93
-- ma120: 39.55
-- ema23: 41.64
-- return_5d: 6.56
-- return_20d: 18.41
-- volume_ratio: 1.98
-- distance_to_ma20_pct: 9.4
-- distance_to_high_60_pct: -9.05
+- open: 45
+- high: 49.15
+- low: 45
+- close: 49.15
+- volume: 2221752
+- ma5: 46.48
+- ma20: 41.08
+- ma60: 40.01
+- ma120: 39.59
+- ema23: 42.01
+- return_5d: 17.16
+- return_20d: 30.2
+- volume_ratio: 2.04
+- distance_to_ma20_pct: 19.64
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,43,45.3,42.35,44.7,2154100,42.18,39.54,39.57,40.28,2.69
 20260524,43,45.3,42.35,44.7,2154100,43.1,39.94,39.67,40.65,2.41
 20260525,45,49.15,45,49.15,2221752,45.04,40.51,39.84,41.36,2.24
-20260526,43,45.3,42.35,44.7,2154100,45.59,40.86,39.93,41.64,1.98
+20260526,45,49.15,45,49.15,2221752,46.48,41.08,40.01,42.01,2.04
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 5484 | 慧友 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 5484 | 慧友 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

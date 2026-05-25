@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2890 永豐金
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:11 Asia/Taipei
+- generated_at: 2026-05-26 06:02:19 Asia/Taipei
 - stock_id: 2890
 - stock_name: 永豐金
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 29.65
-- high: 29.8
-- low: 29.1
-- close: 29.1
-- volume: 48666211
-- ma5: 29.07
-- ma20: 30.12
-- ma60: 31.34
+- open: 29.1
+- high: 29.15
+- low: 28.65
+- close: 28.95
+- volume: 50297031
+- ma5: 29.04
+- ma20: 30.11
+- ma60: 31.33
 - ma120: 30.14
-- ema23: 30.18
-- return_5d: -2.02
-- return_20d: -8.78
-- volume_ratio: 1.27
-- distance_to_ma20_pct: -3.39
-- distance_to_high_60_pct: -13.52
+- ema23: 30.17
+- return_5d: -2.53
+- return_20d: -9.25
+- volume_ratio: 1.31
+- distance_to_ma20_pct: -3.86
+- distance_to_high_60_pct: -13.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,29.65,29.8,29.1,29.1,48666211,29.56,30.54,31.53,30.52,1.41
 20260524,29.65,29.8,29.1,29.1,48666211,29.36,30.41,31.47,30.4,1.39
 20260525,29.1,29.15,28.65,28.95,50297031,29.19,30.26,31.4,30.28,1.37
-20260526,29.65,29.8,29.1,29.1,48666211,29.07,30.12,31.34,30.18,1.27
+20260526,29.1,29.15,28.65,28.95,50297031,29.04,30.11,31.33,30.17,1.31
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2890 | 永豐金 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 2890 | 永豐金 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

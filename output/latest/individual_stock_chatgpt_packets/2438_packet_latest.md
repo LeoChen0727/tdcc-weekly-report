@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2438 翔耀
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:58 Asia/Taipei
+- generated_at: 2026-05-26 06:02:07 Asia/Taipei
 - stock_id: 2438
 - stock_name: 翔耀
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 22
-- high: 22.4
-- low: 21.5
-- close: 22
-- volume: 135422
-- ma5: 22.1
-- ma20: 22.09
+- open: 22.1
+- high: 22.9
+- low: 22.05
+- close: 22.5
+- volume: 263222
+- ma5: 22.2
+- ma20: 22.11
 - ma60: 22
-- ma120: 22.28
-- ema23: 22.04
-- return_5d: 0
-- return_20d: -2
-- volume_ratio: 0.69
-- distance_to_ma20_pct: -0.41
-- distance_to_high_60_pct: -11.65
+- ma120: 22.29
+- ema23: 22.08
+- return_5d: 2.27
+- return_20d: 0.22
+- volume_ratio: 1.29
+- distance_to_ma20_pct: 1.74
+- distance_to_high_60_pct: -9.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,22,22.4,21.5,22,135422,21.83,22.14,22,22,0.7
 20260524,22,22.4,21.5,22,135422,21.9,22.11,21.99,22,0.71
 20260525,22.1,22.9,22.05,22.5,263222,22.1,22.11,22,22.04,1.33
-20260526,22,22.4,21.5,22,135422,22.1,22.09,22,22.04,0.69
+20260526,22.1,22.9,22.05,22.5,263222,22.2,22.11,22,22.08,1.29
 ```
 
 ## Latest TDCC Snapshot

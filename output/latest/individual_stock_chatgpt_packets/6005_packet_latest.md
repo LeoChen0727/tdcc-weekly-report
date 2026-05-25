@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6005 群益證
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:06 Asia/Taipei
+- generated_at: 2026-05-26 06:03:09 Asia/Taipei
 - stock_id: 6005
 - stock_name: 群益證
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 31.5
-- high: 32
-- low: 31.3
-- close: 31.9
-- volume: 8226812
-- ma5: 32.06
-- ma20: 31.05
-- ma60: 29.2
+- open: 32.25
+- high: 32.75
+- low: 32.1
+- close: 32.7
+- volume: 11900696
+- ma5: 32.22
+- ma20: 31.09
+- ma60: 29.21
 - ma120: 27.99
-- ema23: 30.84
-- return_5d: 0.95
-- return_20d: 13.52
-- volume_ratio: 0.51
-- distance_to_ma20_pct: 2.75
-- distance_to_high_60_pct: -3.04
+- ema23: 30.9
+- return_5d: 3.48
+- return_20d: 16.37
+- volume_ratio: 0.73
+- distance_to_ma20_pct: 5.19
+- distance_to_high_60_pct: -0.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,31.5,32,31.3,31.9,8226812,31.33,30.43,29.16,30.44,0.5
 20260524,31.5,32,31.3,31.9,8226812,31.58,30.62,29.17,30.56,0.51
 20260525,32.25,32.75,32.1,32.7,11900696,32,30.86,29.18,30.74,0.73
-20260526,31.5,32,31.3,31.9,8226812,32.06,31.05,29.2,30.84,0.51
+20260526,32.25,32.75,32.1,32.7,11900696,32.22,31.09,29.21,30.9,0.73
 ```
 
 ## Latest TDCC Snapshot
@@ -122,8 +122,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6005 | 群益證 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 6005 | 群益證 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 6005 | 群益證 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 6005 | 群益證 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 6005 | 群益證 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

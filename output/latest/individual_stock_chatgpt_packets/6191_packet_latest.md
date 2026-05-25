@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6191 精成科
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:12 Asia/Taipei
+- generated_at: 2026-05-26 06:03:15 Asia/Taipei
 - stock_id: 6191
 - stock_name: 精成科
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 96.6
-- high: 97.4
-- low: 96.2
-- close: 96.8
-- volume: 5335510
-- ma5: 97.04
-- ma20: 95.72
-- ma60: 97.93
-- ma120: 106.37
-- ema23: 96.95
-- return_5d: 1.36
-- return_20d: -5.56
-- volume_ratio: 0.78
-- distance_to_ma20_pct: 1.13
-- distance_to_high_60_pct: -16.55
+- open: 98.9
+- high: 99
+- low: 97.5
+- close: 98
+- volume: 5737322
+- ma5: 97.28
+- ma20: 95.78
+- ma60: 97.95
+- ma120: 106.38
+- ema23: 97.05
+- return_5d: 2.62
+- return_20d: -4.39
+- volume_ratio: 0.84
+- distance_to_ma20_pct: 2.32
+- distance_to_high_60_pct: -15.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,96.6,97.4,96.2,96.8,5335510,95.22,97.04,98.48,96.88,0.71
 20260524,96.6,97.4,96.2,96.8,5335510,96.02,96.53,98.31,96.87,0.74
 20260525,98.9,99,97.5,98,5737322,96.78,96,98.13,96.96,0.79
-20260526,96.6,97.4,96.2,96.8,5335510,97.04,95.72,97.93,96.95,0.78
+20260526,98.9,99,97.5,98,5737322,97.28,95.78,97.95,97.05,0.84
 ```
 
 ## Latest TDCC Snapshot
@@ -122,6 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 6191 | 精成科 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 6191 | 精成科 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5907 大洋-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:06 Asia/Taipei
+- generated_at: 2026-05-26 06:03:09 Asia/Taipei
 - stock_id: 5907
 - stock_name: 大洋-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 4.78
-- high: 5.1
-- low: 4.76
-- close: 5.02
-- volume: 708983
-- ma5: 4.99
+- open: 5.06
+- high: 5.06
+- low: 4.85
+- close: 4.89
+- volume: 532185
+- ma5: 4.97
 - ma20: 5.13
 - ma60: 5.56
 - ma120: 5.67
-- ema23: 5.16
-- return_5d: 6.58
-- return_20d: -8.23
-- volume_ratio: 1.71
-- distance_to_ma20_pct: -2.19
-- distance_to_high_60_pct: -18.51
+- ema23: 5.15
+- return_5d: 3.82
+- return_20d: -10.6
+- volume_ratio: 1.31
+- distance_to_ma20_pct: -4.6
+- distance_to_high_60_pct: -20.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,4.78,5.1,4.76,5.02,708983,4.92,5.2,5.61,5.22,1.95
 20260524,4.78,5.1,4.76,5.02,708983,4.92,5.19,5.59,5.2,1.85
 20260525,5.06,5.06,4.85,4.89,532185,4.93,5.16,5.58,5.18,1.38
-20260526,4.78,5.1,4.76,5.02,708983,4.99,5.13,5.56,5.16,1.71
+20260526,5.06,5.06,4.85,4.89,532185,4.97,5.13,5.56,5.15,1.31
 ```
 
 ## Latest TDCC Snapshot

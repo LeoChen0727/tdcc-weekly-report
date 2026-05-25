@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2241 艾姆勒
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:50 Asia/Taipei
+- generated_at: 2026-05-26 06:01:59 Asia/Taipei
 - stock_id: 2241
 - stock_name: 艾姆勒
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 38.5
-- high: 39.05
-- low: 37.25
-- close: 37.85
-- volume: 5313613
-- ma5: 37.89
-- ma20: 33.7
+- open: 38.55
+- high: 39.9
+- low: 37
+- close: 38.05
+- volume: 3125750
+- ma5: 37.93
+- ma20: 33.71
 - ma60: 30.94
 - ma120: 32.91
-- ema23: 34.19
-- return_5d: 2.57
-- return_20d: 25.96
-- volume_ratio: 2.17
-- distance_to_ma20_pct: 12.32
-- distance_to_high_60_pct: -5.14
+- ema23: 34.2
+- return_5d: 3.12
+- return_20d: 26.62
+- volume_ratio: 1.34
+- distance_to_ma20_pct: 12.88
+- distance_to_high_60_pct: -4.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,38.5,39.05,37.25,37.85,5313613,35.9,32.65,30.52,33.07,2.76
 20260524,38.5,39.05,37.25,37.85,5313613,36.8,32.96,30.66,33.47,2.5
 20260525,38.55,39.9,37,38.05,3125750,37.7,33.31,30.81,33.85,1.39
-20260526,38.5,39.05,37.25,37.85,5313613,37.89,33.7,30.94,34.19,2.17
+20260526,38.55,39.9,37,38.05,3125750,37.93,33.71,30.94,34.2,1.34
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2241 | 艾姆勒 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 2241 | 艾姆勒 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

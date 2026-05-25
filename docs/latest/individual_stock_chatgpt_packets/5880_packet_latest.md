@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5880 合庫金
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:05 Asia/Taipei
+- generated_at: 2026-05-26 06:03:09 Asia/Taipei
 - stock_id: 5880
 - stock_name: 合庫金
 - packet_status: standard_180d_window_packet
@@ -55,20 +55,20 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 22.7
-- high: 22.8
-- low: 22.65
-- close: 22.7
-- volume: 15434059
-- ma5: 22.69
+- high: 22.7
+- low: 22.6
+- close: 22.65
+- volume: 17695942
+- ma5: 22.68
 - ma20: 22.82
 - ma60: 23.2
 - ma120: 23.63
 - ema23: 22.88
-- return_5d: 0
-- return_20d: -1.94
-- volume_ratio: 0.93
-- distance_to_ma20_pct: -0.52
-- distance_to_high_60_pct: -5.81
+- return_5d: -0.22
+- return_20d: -2.16
+- volume_ratio: 1.06
+- distance_to_ma20_pct: -0.72
+- distance_to_high_60_pct: -6.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,22.7,22.8,22.65,22.7,15434059,22.72,22.86,23.26,22.94,0.91
 20260524,22.7,22.8,22.65,22.7,15434059,22.7,22.86,23.24,22.92,0.94
 20260525,22.7,22.7,22.6,22.65,17695942,22.69,22.84,23.22,22.9,1.06
-20260526,22.7,22.8,22.65,22.7,15434059,22.69,22.82,23.2,22.88,0.93
+20260526,22.7,22.7,22.6,22.65,17695942,22.68,22.82,23.2,22.88,1.06
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2420 新巨
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:57 Asia/Taipei
+- generated_at: 2026-05-26 06:02:06 Asia/Taipei
 - stock_id: 2420
 - stock_name: 新巨
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 62.6
-- high: 63.2
-- low: 62.1
-- close: 62.7
-- volume: 1115539
-- ma5: 63.1
-- ma20: 58.58
-- ma60: 54.64
-- ma120: 52.83
-- ema23: 58.99
-- return_5d: 0.32
-- return_20d: 15.47
-- volume_ratio: 1.31
-- distance_to_ma20_pct: 7.03
-- distance_to_high_60_pct: -3.24
+- open: 62.7
+- high: 64.8
+- low: 62.7
+- close: 64.7
+- volume: 1060173
+- ma5: 63.5
+- ma20: 58.68
+- ma60: 54.67
+- ma120: 52.84
+- ema23: 59.16
+- return_5d: 3.52
+- return_20d: 19.15
+- volume_ratio: 1.25
+- distance_to_ma20_pct: 10.26
+- distance_to_high_60_pct: -0.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,62.6,63.2,62.1,62.7,1115539,61.22,57.28,54.08,57.69,1.56
 20260524,62.6,63.2,62.1,62.7,1115539,61.9,57.66,54.26,58.11,1.46
 20260525,62.7,64.8,62.7,64.7,1060173,63.06,58.16,54.47,58.66,1.31
-20260526,62.6,63.2,62.1,62.7,1115539,63.1,58.58,54.64,58.99,1.31
+20260526,62.7,64.8,62.7,64.7,1060173,63.5,58.68,54.67,59.16,1.25
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2420 | 新巨 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 2420 | 新巨 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 58.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

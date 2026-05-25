@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9934 成霖
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:59 Asia/Taipei
+- generated_at: 2026-05-26 06:03:59 Asia/Taipei
 - stock_id: 9934
 - stock_name: 成霖
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 9.79
-- high: 9.84
-- low: 9.66
-- close: 9.71
-- volume: 609702
-- ma5: 9.69
+- open: 9.7
+- high: 9.7
+- low: 9.53
+- close: 9.63
+- volume: 522305
+- ma5: 9.68
 - ma20: 9.53
-- ma60: 9.52
+- ma60: 9.51
 - ma120: 9.78
-- ema23: 9.6
-- return_5d: -1.12
-- return_20d: 3.85
-- volume_ratio: 0.81
-- distance_to_ma20_pct: 1.86
-- distance_to_high_60_pct: -2.9
+- ema23: 9.59
+- return_5d: -1.93
+- return_20d: 2.99
+- volume_ratio: 0.7
+- distance_to_ma20_pct: 1.07
+- distance_to_high_60_pct: -3.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,9.79,9.84,9.66,9.71,609702,9.73,9.48,9.53,9.57,0.82
 20260524,9.79,9.84,9.66,9.71,609702,9.73,9.5,9.52,9.58,0.84
 20260525,9.7,9.7,9.53,9.63,522305,9.72,9.51,9.52,9.58,0.71
-20260526,9.79,9.84,9.66,9.71,609702,9.69,9.53,9.52,9.6,0.81
+20260526,9.7,9.7,9.53,9.63,522305,9.68,9.53,9.51,9.59,0.7
 ```
 
 ## Latest TDCC Snapshot

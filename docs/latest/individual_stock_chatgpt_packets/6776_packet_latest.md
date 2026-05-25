@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6776 展碁國際
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:32 Asia/Taipei
+- generated_at: 2026-05-26 06:03:34 Asia/Taipei
 - stock_id: 6776
 - stock_name: 展碁國際
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 59.2
-- high: 59.6
-- low: 58.3
-- close: 59.1
-- volume: 588454
-- ma5: 59.02
-- ma20: 57.88
-- ma60: 58.88
-- ma120: 56.83
-- ema23: 58.35
-- return_5d: 1.03
-- return_20d: 2.78
-- volume_ratio: 1.33
-- distance_to_ma20_pct: 2.12
-- distance_to_high_60_pct: -21.72
+- open: 59.8
+- high: 60.2
+- low: 58.5
+- close: 58.7
+- volume: 452797
+- ma5: 58.94
+- ma20: 57.85
+- ma60: 58.87
+- ma120: 56.82
+- ema23: 58.32
+- return_5d: 0.34
+- return_20d: 2.09
+- volume_ratio: 1.04
+- distance_to_ma20_pct: 1.46
+- distance_to_high_60_pct: -22.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,59.2,59.6,58.3,59.1,588454,58.16,57.73,58.83,58.17,1.43
 20260524,59.2,59.6,58.3,59.1,588454,58.62,57.78,58.85,58.25,1.42
 20260525,59.8,60.2,58.5,58.7,452797,58.9,57.8,58.85,58.28,1.06
-20260526,59.2,59.6,58.3,59.1,588454,59.02,57.88,58.88,58.35,1.33
+20260526,59.8,60.2,58.5,58.7,452797,58.94,57.85,58.87,58.32,1.04
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2608 嘉里大榮
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:05 Asia/Taipei
+- generated_at: 2026-05-26 06:02:13 Asia/Taipei
 - stock_id: 2608
 - stock_name: 嘉里大榮
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 29.1
-- high: 29.1
-- low: 28.9
-- close: 29
-- volume: 570175
-- ma5: 28.96
-- ma20: 29.49
-- ma60: 30.45
-- ma120: 31.75
-- ema23: 29.53
-- return_5d: -0.34
-- return_20d: -3.65
-- volume_ratio: 1.34
-- distance_to_ma20_pct: -1.66
-- distance_to_high_60_pct: -9.09
+- open: 29
+- high: 29
+- low: 28.65
+- close: 28.8
+- volume: 597615
+- ma5: 28.92
+- ma20: 29.48
+- ma60: 30.44
+- ma120: 31.74
+- ema23: 29.52
+- return_5d: -1.03
+- return_20d: -4.32
+- volume_ratio: 1.4
+- distance_to_ma20_pct: -2.31
+- distance_to_high_60_pct: -9.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,29.1,29.1,28.9,29,570175,29.06,29.66,30.58,29.71,1.47
 20260524,29.1,29.1,28.9,29,570175,29.03,29.61,30.54,29.65,1.46
 20260525,29,29,28.65,28.8,597615,28.98,29.55,30.49,29.58,1.47
-20260526,29.1,29.1,28.9,29,570175,28.96,29.49,30.45,29.53,1.34
+20260526,29,29,28.65,28.8,597615,28.92,29.48,30.44,29.52,1.4
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2359 所羅門
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:54 Asia/Taipei
+- generated_at: 2026-05-26 06:02:02 Asia/Taipei
 - stock_id: 2359
 - stock_name: 所羅門
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 135
-- high: 141.5
-- low: 132.5
-- close: 141
-- volume: 7522496
-- ma5: 141.1
-- ma20: 130.22
-- ma60: 119.73
-- ma120: 124.83
-- ema23: 130.3
-- return_5d: 5.22
-- return_20d: 23.14
-- volume_ratio: 1.19
-- distance_to_ma20_pct: 8.27
-- distance_to_high_60_pct: -2.76
+- open: 145
+- high: 145
+- low: 140
+- close: 141.5
+- volume: 8656381
+- ma5: 141.2
+- ma20: 130.25
+- ma60: 119.74
+- ma120: 124.84
+- ema23: 130.34
+- return_5d: 5.6
+- return_20d: 23.58
+- volume_ratio: 1.36
+- distance_to_ma20_pct: 8.64
+- distance_to_high_60_pct: -2.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,135,141.5,132.5,141,7522496,135.7,126.15,119.25,127.05,1.36
 20260524,135,141.5,132.5,141,7522496,136.9,127.67,119.42,128.22,1.28
 20260525,145,145,140,141.5,8656381,139.7,128.9,119.58,129.32,1.42
-20260526,135,141.5,132.5,141,7522496,141.1,130.22,119.73,130.3,1.19
+20260526,145,145,140,141.5,8656381,141.2,130.25,119.74,130.34,1.36
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2359 | 所羅門 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 58.0 |  |  | neckline_challenge |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 2359 | 所羅門 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

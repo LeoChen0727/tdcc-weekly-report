@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00911 兆豐洲際半導體
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:26 Asia/Taipei
+- generated_at: 2026-05-26 06:01:36 Asia/Taipei
 - stock_id: 00911
 - stock_name: 兆豐洲際半導體
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 56.45
-- high: 56.5
-- low: 56.1
-- close: 56.3
-- volume: 411125
-- ma5: 56.87
-- ma20: 56.87
-- ma60: 56.87
-- ma120: 56.87
-- ema23: 56.52
+- open: 57.1
+- high: 59.2
+- low: 57.1
+- close: 59.15
+- volume: 646102
+- ma5: 57.44
+- ma20: 57.44
+- ma60: 57.44
+- ma120: 57.44
+- ema23: 56.76
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.9
-- distance_to_ma20_pct: -1
-- distance_to_high_60_pct: -4.9
+- volume_ratio: 1.28
+- distance_to_ma20_pct: 2.98
+- distance_to_high_60_pct: -0.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,56.45,56.5,56.1,56.3,411125,,,,,
 20260524,56.45,56.5,56.1,56.3,411125,,,,,
 20260525,57.1,59.2,57.1,59.15,646102,,,,,
-20260526,56.45,56.5,56.1,56.3,411125,56.87,56.87,56.87,56.52,0.9
+20260526,57.1,59.2,57.1,59.15,646102,57.44,57.44,57.44,56.76,1.28
 ```
 
 ## Latest TDCC Snapshot

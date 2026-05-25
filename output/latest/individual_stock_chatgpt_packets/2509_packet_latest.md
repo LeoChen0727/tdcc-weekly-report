@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2509 全坤建
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:02 Asia/Taipei
+- generated_at: 2026-05-26 06:02:10 Asia/Taipei
 - stock_id: 2509
 - stock_name: 全坤建
 - packet_status: standard_180d_window_packet
@@ -55,20 +55,20 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 12.8
-- high: 12.9
-- low: 12.7
-- close: 12.9
-- volume: 80184
-- ma5: 12.81
-- ma20: 13.05
-- ma60: 13.77
+- high: 12.8
+- low: 12.4
+- close: 12.45
+- volume: 498906
+- ma5: 12.72
+- ma20: 13.03
+- ma60: 13.76
 - ma120: 14.44
-- ema23: 13.12
-- return_5d: 1.18
-- return_20d: -5.15
-- volume_ratio: 0.36
-- distance_to_ma20_pct: -1.15
-- distance_to_high_60_pct: -13.13
+- ema23: 13.09
+- return_5d: -2.35
+- return_20d: -8.46
+- volume_ratio: 2.06
+- distance_to_ma20_pct: -4.43
+- distance_to_high_60_pct: -16.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,12.8,12.9,12.7,12.9,80184,12.81,13.18,13.86,13.24,0.32
 20260524,12.8,12.9,12.7,12.9,80184,12.85,13.14,13.83,13.21,0.37
 20260525,12.8,12.8,12.4,12.45,498906,12.78,13.09,13.8,13.15,2.19
-20260526,12.8,12.9,12.7,12.9,80184,12.81,13.05,13.77,13.12,0.36
+20260526,12.8,12.8,12.4,12.45,498906,12.72,13.03,13.76,13.09,2.06
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2748 雲品
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:08 Asia/Taipei
+- generated_at: 2026-05-26 06:02:16 Asia/Taipei
 - stock_id: 2748
 - stock_name: 雲品
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 39.7
+- open: 39.25
 - high: 39.7
-- low: 39
-- close: 39.25
-- volume: 216173
-- ma5: 39.24
+- low: 39.05
+- close: 39.2
+- volume: 142849
+- ma5: 39.23
 - ma20: 39.82
 - ma60: 40.12
 - ma120: 41.15
 - ema23: 39.74
-- return_5d: -0.13
-- return_20d: -1.38
-- volume_ratio: 1.33
-- distance_to_ma20_pct: -1.44
-- distance_to_high_60_pct: -13.45
+- return_5d: -0.25
+- return_20d: -1.51
+- volume_ratio: 0.9
+- distance_to_ma20_pct: -1.56
+- distance_to_high_60_pct: -13.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,39.7,39.7,39,39.25,216173,39.28,39.87,40.22,39.89,1.43
 20260524,39.7,39.7,39,39.25,216173,39.26,39.88,40.19,39.84,1.42
 20260525,39.25,39.7,39.05,39.2,142849,39.25,39.85,40.16,39.79,0.92
-20260526,39.7,39.7,39,39.25,216173,39.24,39.82,40.12,39.74,1.33
+20260526,39.25,39.7,39.05,39.2,142849,39.23,39.82,40.12,39.74,0.9
 ```
 
 ## Latest TDCC Snapshot

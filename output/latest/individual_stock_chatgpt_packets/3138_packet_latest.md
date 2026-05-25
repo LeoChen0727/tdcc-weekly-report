@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3138 耀登
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:19 Asia/Taipei
+- generated_at: 2026-05-26 06:02:26 Asia/Taipei
 - stock_id: 3138
 - stock_name: 耀登
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 166
-- high: 172
-- low: 165
-- close: 169.5
-- volume: 2013606
-- ma5: 170.9
-- ma20: 160.97
-- ma60: 172.25
-- ma120: 152.89
-- ema23: 165.6
-- return_5d: 2.42
-- return_20d: 10.78
-- volume_ratio: 1.01
-- distance_to_ma20_pct: 5.3
-- distance_to_high_60_pct: -29.08
+- open: 174
+- high: 183
+- low: 173.5
+- close: 176.5
+- volume: 3515566
+- ma5: 172.3
+- ma20: 161.32
+- ma60: 172.37
+- ma120: 152.95
+- ema23: 166.18
+- return_5d: 6.65
+- return_20d: 15.36
+- volume_ratio: 1.7
+- distance_to_ma20_pct: 9.41
+- distance_to_high_60_pct: -26.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,166,172,165,169.5,2013606,166.9,158.65,173.58,163.74,1.07
 20260524,166,172,165,169.5,2013606,167.4,159.2,173.41,164.22,1.1
 20260525,174,183,173.5,176.5,3515566,170.1,160.15,173.05,165.24,1.81
-20260526,166,172,165,169.5,2013606,170.9,160.97,172.25,165.6,1.01
+20260526,174,183,173.5,176.5,3515566,172.3,161.32,172.37,166.18,1.7
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3138 | 耀登 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_strong_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 3138 | 耀登 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 68.0 |  |  | neckline_challenge |  | call_strong_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

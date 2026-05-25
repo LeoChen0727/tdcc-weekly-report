@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1708 東鹼
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:41 Asia/Taipei
+- generated_at: 2026-05-26 06:01:50 Asia/Taipei
 - stock_id: 1708
 - stock_name: 東鹼
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 39.65
-- high: 39.7
-- low: 39.05
-- close: 39.15
-- volume: 2613423
-- ma5: 39.33
-- ma20: 39.75
-- ma60: 40.34
-- ma120: 36.85
-- ema23: 39.85
-- return_5d: -1.39
-- return_20d: -7.45
-- volume_ratio: 0.78
-- distance_to_ma20_pct: -1.51
-- distance_to_high_60_pct: -17.49
+- open: 39.15
+- high: 40.4
+- low: 38.8
+- close: 40.05
+- volume: 3465125
+- ma5: 39.51
+- ma20: 39.8
+- ma60: 40.36
+- ma120: 36.86
+- ema23: 39.92
+- return_5d: 0.88
+- return_20d: -5.32
+- volume_ratio: 1.02
+- distance_to_ma20_pct: 0.64
+- distance_to_high_60_pct: -15.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,39.65,39.7,39.05,39.15,2613423,39.48,40.19,40.2,39.96,0.62
 20260524,39.65,39.7,39.05,39.15,2613423,39.34,40.02,40.25,39.9,0.72
 20260525,39.15,40.4,38.8,40.05,3465125,39.44,39.91,40.31,39.91,0.97
-20260526,39.65,39.7,39.05,39.15,2613423,39.33,39.75,40.34,39.85,0.78
+20260526,39.15,40.4,38.8,40.05,3465125,39.51,39.8,40.36,39.92,1.02
 ```
 
 ## Latest TDCC Snapshot
@@ -123,6 +123,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260526 | 1708 | 東鹼 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | stale_signal | calendar event: ex_dividend on 20260528; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 1708 | 東鹼 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | stale_signal | calendar event: ex_dividend on 20260528; status=confirmed; proximity=within_3d |
 | 20260521 | 1708 | 東鹼 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_inflow | stale_signal | calendar event: ex_dividend on 20260528; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context

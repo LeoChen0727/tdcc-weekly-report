@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00643 群益深証中小
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:24 Asia/Taipei
+- generated_at: 2026-05-26 06:01:34 Asia/Taipei
 - stock_id: 00643
 - stock_name: 群益深証中小
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 20.1
-- high: 20.23
-- low: 19.97
-- close: 20.18
-- volume: 2619111
-- ma5: 20.21
-- ma20: 20.21
-- ma60: 20.21
-- ma120: 20.21
-- ema23: 20.19
+- open: 20.25
+- high: 20.48
+- low: 20.24
+- close: 20.33
+- volume: 3577987
+- ma5: 20.24
+- ma20: 20.24
+- ma60: 20.24
+- ma120: 20.24
+- ema23: 20.2
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.93
-- distance_to_ma20_pct: -0.15
-- distance_to_high_60_pct: -1.46
+- volume_ratio: 1.19
+- distance_to_ma20_pct: 0.44
+- distance_to_high_60_pct: -0.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,20.1,20.23,19.97,20.18,2619111,,,,,
 20260524,20.1,20.23,19.97,20.18,2619111,,,,,
 20260525,20.25,20.48,20.24,20.33,3577987,,,,,
-20260526,20.1,20.23,19.97,20.18,2619111,20.21,20.21,20.21,20.19,0.93
+20260526,20.25,20.48,20.24,20.33,3577987,20.24,20.24,20.24,20.2,1.19
 ```
 
 ## Latest TDCC Snapshot

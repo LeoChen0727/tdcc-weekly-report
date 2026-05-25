@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6605 帝寶
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:26 Asia/Taipei
+- generated_at: 2026-05-26 06:03:28 Asia/Taipei
 - stock_id: 6605
 - stock_name: 帝寶
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 130.5
+- open: 130
 - high: 131
-- low: 129
-- close: 130
-- volume: 246098
-- ma5: 129.9
-- ma20: 129.32
-- ma60: 131.84
+- low: 127.5
+- close: 129.5
+- volume: 459218
+- ma5: 129.8
+- ma20: 129.3
+- ma60: 131.83
 - ma120: 138.44
-- ema23: 129.89
-- return_5d: -0.76
-- return_20d: 3.17
-- volume_ratio: 0.68
-- distance_to_ma20_pct: 0.52
-- distance_to_high_60_pct: -7.47
+- ema23: 129.85
+- return_5d: -1.15
+- return_20d: 2.78
+- volume_ratio: 1.23
+- distance_to_ma20_pct: 0.15
+- distance_to_high_60_pct: -7.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,130.5,131,129,130,246098,130.1,128.65,132.39,129.91,0.64
 20260524,130.5,131,129,130,246098,130.1,128.9,132.2,129.92,0.69
 20260525,130,131,127.5,129.5,459218,130.1,129.12,132,129.88,1.27
-20260526,130.5,131,129,130,246098,129.9,129.32,131.84,129.89,0.68
+20260526,130,131,127.5,129.5,459218,129.8,129.3,131.83,129.85,1.23
 ```
 
 ## Latest TDCC Snapshot

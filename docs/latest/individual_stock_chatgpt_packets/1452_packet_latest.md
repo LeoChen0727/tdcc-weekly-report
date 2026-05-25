@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1452 宏益
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:34 Asia/Taipei
+- generated_at: 2026-05-26 06:01:44 Asia/Taipei
 - stock_id: 1452
 - stock_name: 宏益
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 10.5
+- open: 10.6
 - high: 10.6
-- low: 10.5
-- close: 10.6
-- volume: 52486
-- ma5: 10.57
+- low: 10.4
+- close: 10.45
+- volume: 109927
+- ma5: 10.54
 - ma20: 10.9
 - ma60: 11.29
 - ma120: 11.55
-- ema23: 10.92
-- return_5d: 0.95
-- return_20d: -7.02
-- volume_ratio: 0.63
-- distance_to_ma20_pct: -2.8
-- distance_to_high_60_pct: -15.87
+- ema23: 10.91
+- return_5d: -0.48
+- return_20d: -8.33
+- volume_ratio: 1.27
+- distance_to_ma20_pct: -4.11
+- distance_to_high_60_pct: -17.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,10.5,10.6,10.5,10.6,52486,10.61,11.04,11.34,11.04,0.59
 20260524,10.5,10.6,10.5,10.6,52486,10.57,10.99,11.33,11,0.63
 20260525,10.6,10.6,10.4,10.45,109927,10.55,10.95,11.31,10.95,1.3
-20260526,10.5,10.6,10.5,10.6,52486,10.57,10.9,11.29,10.92,0.63
+20260526,10.6,10.6,10.4,10.45,109927,10.54,10.9,11.29,10.91,1.27
 ```
 
 ## Latest TDCC Snapshot

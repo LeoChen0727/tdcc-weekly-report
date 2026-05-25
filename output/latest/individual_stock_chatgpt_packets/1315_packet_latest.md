@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1315 達新
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:31 Asia/Taipei
+- generated_at: 2026-05-26 06:01:41 Asia/Taipei
 - stock_id: 1315
 - stock_name: 達新
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 60.4
-- high: 61.1
-- low: 60.4
+- open: 60.9
+- high: 60.9
+- low: 60.5
 - close: 60.9
-- volume: 21263
+- volume: 16973
 - ma5: 60.9
 - ma20: 61.31
 - ma60: 63.02
@@ -66,7 +66,7 @@
 - ema23: 61.59
 - return_5d: -0.16
 - return_20d: -2.87
-- volume_ratio: 0.8
+- volume_ratio: 0.64
 - distance_to_ma20_pct: -0.67
 - distance_to_high_60_pct: -10.31
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,60.4,61.1,60.4,60.9,21263,60.84,61.56,63.23,61.8,0.81
 20260524,60.4,61.1,60.4,60.9,21263,60.82,61.49,63.16,61.72,0.81
 20260525,60.9,60.9,60.5,60.9,16973,60.92,61.4,63.08,61.65,0.64
-20260526,60.4,61.1,60.4,60.9,21263,60.9,61.31,63.02,61.59,0.8
+20260526,60.9,60.9,60.5,60.9,16973,60.9,61.31,63.02,61.59,0.64
 ```
 
 ## Latest TDCC Snapshot

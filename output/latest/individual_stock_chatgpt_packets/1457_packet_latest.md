@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1457 宜進
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:34 Asia/Taipei
+- generated_at: 2026-05-26 06:01:44 Asia/Taipei
 - stock_id: 1457
 - stock_name: 宜進
 - packet_status: standard_180d_window_packet
@@ -56,19 +56,19 @@
 - date: 20260526
 - open: 14.1
 - high: 14.1
-- low: 14
-- close: 14.05
-- volume: 153555
-- ma5: 14.01
-- ma20: 14.23
-- ma60: 14.96
+- low: 13.7
+- close: 13.85
+- volume: 332845
+- ma5: 13.97
+- ma20: 14.22
+- ma60: 14.95
 - ma120: 15.29
-- ema23: 14.29
-- return_5d: 0
-- return_20d: -3.77
-- volume_ratio: 1
-- distance_to_ma20_pct: -1.26
-- distance_to_high_60_pct: -14.33
+- ema23: 14.27
+- return_5d: -1.42
+- return_20d: -5.14
+- volume_ratio: 2.06
+- distance_to_ma20_pct: -2.6
+- distance_to_high_60_pct: -15.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,14.1,14.1,14,14.05,153555,14.08,14.32,15.06,14.38,1.05
 20260524,14.1,14.1,14,14.05,153555,14.07,14.29,15.02,14.35,1.07
 20260525,14.1,14.1,13.7,13.85,332845,14.01,14.26,14.99,14.31,2.15
-20260526,14.1,14.1,14,14.05,153555,14.01,14.23,14.96,14.29,1
+20260526,14.1,14.1,13.7,13.85,332845,13.97,14.22,14.95,14.27,2.06
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2514 龍邦
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:02 Asia/Taipei
+- generated_at: 2026-05-26 06:02:11 Asia/Taipei
 - stock_id: 2514
 - stock_name: 龍邦
 - packet_status: standard_180d_window_packet
@@ -55,10 +55,10 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 12.95
-- high: 13
-- low: 12.85
+- high: 12.95
+- low: 12.75
 - close: 12.95
-- volume: 110731
+- volume: 505824
 - ma5: 12.95
 - ma20: 13.11
 - ma60: 13.46
@@ -66,7 +66,7 @@
 - ema23: 13.12
 - return_5d: -0.38
 - return_20d: -2.26
-- volume_ratio: 0.42
+- volume_ratio: 1.78
 - distance_to_ma20_pct: -1.2
 - distance_to_high_60_pct: -13.09
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,12.95,13,12.85,12.95,110731,12.98,13.15,13.55,13.18,0.4
 20260524,12.95,13,12.85,12.95,110731,12.97,13.14,13.52,13.16,0.45
 20260525,12.95,12.95,12.75,12.95,505824,12.96,13.12,13.49,13.14,1.92
-20260526,12.95,13,12.85,12.95,110731,12.95,13.11,13.46,13.12,0.42
+20260526,12.95,12.95,12.75,12.95,505824,12.95,13.11,13.46,13.12,1.78
 ```
 
 ## Latest TDCC Snapshot

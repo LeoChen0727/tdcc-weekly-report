@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1560 中砂
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:38 Asia/Taipei
+- generated_at: 2026-05-26 06:01:47 Asia/Taipei
 - stock_id: 1560
 - stock_name: 中砂
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 678
-- high: 690
-- low: 660
-- close: 688
-- volume: 4019729
-- ma5: 694.4
-- ma20: 632.95
-- ma60: 535.56
-- ma120: 466.49
-- ema23: 628.89
-- return_5d: 2.84
-- return_20d: 32.05
-- volume_ratio: 1.22
-- distance_to_ma20_pct: 8.7
-- distance_to_high_60_pct: -6.52
+- open: 715
+- high: 736
+- low: 703
+- close: 720
+- volume: 2023721
+- ma5: 700.8
+- ma20: 634.55
+- ma60: 536.09
+- ma120: 466.76
+- ema23: 631.56
+- return_5d: 7.62
+- return_20d: 38.2
+- volume_ratio: 0.64
+- distance_to_ma20_pct: 13.47
+- distance_to_high_60_pct: -2.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,678,690,660,688,4019729,659.6,606.95,526.03,608.08,1.3
 20260524,678,690,660,688,4019729,668.4,615.1,529.26,614.74,1.27
 20260525,715,736,703,720,2023721,690.6,624.6,532.52,623.51,0.64
-20260526,678,690,660,688,4019729,694.4,632.95,535.56,628.89,1.22
+20260526,715,736,703,720,2023721,700.8,634.55,536.09,631.56,0.64
 ```
 
 ## Latest TDCC Snapshot

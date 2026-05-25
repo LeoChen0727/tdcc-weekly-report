@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2451 創見
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:59 Asia/Taipei
+- generated_at: 2026-05-26 06:02:07 Asia/Taipei
 - stock_id: 2451
 - stock_name: 創見
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 318
-- high: 324
-- low: 314.5
-- close: 316.5
-- volume: 4258536
-- ma5: 315.4
-- ma20: 312.77
-- ma60: 268.52
-- ma120: 239.56
-- ema23: 304.83
-- return_5d: 0.96
-- return_20d: 18.1
-- volume_ratio: 0.43
-- distance_to_ma20_pct: 1.19
-- distance_to_high_60_pct: -12.08
+- open: 315
+- high: 316
+- low: 304
+- close: 311
+- volume: 6273999
+- ma5: 314.3
+- ma20: 312.5
+- ma60: 268.43
+- ma120: 239.51
+- ema23: 304.37
+- return_5d: -0.8
+- return_20d: 16.04
+- volume_ratio: 0.62
+- distance_to_ma20_pct: -0.48
+- distance_to_high_60_pct: -13.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,318,324,314.5,316.5,4258536,312.5,305.15,263.51,301.89,0.37
 20260524,318,324,314.5,316.5,4258536,314.5,307.88,265.2,303.11,0.39
 20260525,315,316,304,311,6273999,314.8,310.35,266.88,303.77,0.59
-20260526,318,324,314.5,316.5,4258536,315.4,312.77,268.52,304.83,0.43
+20260526,315,316,304,311,6273999,314.3,312.5,268.43,304.37,0.62
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2451 | 創見 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 2451 | 創見 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260526 | 2451 | 創見 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260521 | 2451 | 創見 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 

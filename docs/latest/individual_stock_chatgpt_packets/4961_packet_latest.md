@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4961 天鈺
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:53 Asia/Taipei
+- generated_at: 2026-05-26 06:02:58 Asia/Taipei
 - stock_id: 4961
 - stock_name: 天鈺
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 179.5
+- open: 179
 - high: 179.5
-- low: 172.5
+- low: 175
 - close: 175.5
-- volume: 1886207
+- volume: 1566788
 - ma5: 175.5
 - ma20: 169.25
 - ma60: 155.99
@@ -66,7 +66,7 @@
 - ema23: 168.88
 - return_5d: -1.96
 - return_20d: 11.78
-- volume_ratio: 1.02
+- volume_ratio: 0.85
 - distance_to_ma20_pct: 3.69
 - distance_to_high_60_pct: -3.84
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,179.5,179.5,172.5,175.5,1886207,173.6,166.57,154.66,166.91,1.1
 20260524,179.5,179.5,172.5,175.5,1886207,175.3,167.4,155.11,167.62,1.09
 20260525,179,179.5,175,175.5,1566788,176.2,168.32,155.56,168.28,0.88
-20260526,179.5,179.5,172.5,175.5,1886207,175.5,169.25,155.99,168.88,1.02
+20260526,179,179.5,175,175.5,1566788,175.5,169.25,155.99,168.88,0.85
 ```
 
 ## Latest TDCC Snapshot
@@ -130,6 +130,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 4961 | 天鈺 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 4961 | 天鈺 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

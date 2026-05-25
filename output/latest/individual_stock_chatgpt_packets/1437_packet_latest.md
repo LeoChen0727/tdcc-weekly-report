@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1437 勤益控
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:33 Asia/Taipei
+- generated_at: 2026-05-26 06:01:43 Asia/Taipei
 - stock_id: 1437
 - stock_name: 勤益控
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 28.2
-- high: 28.55
-- low: 28.2
-- close: 28.5
-- volume: 159845
-- ma5: 28.45
-- ma20: 28.69
+- open: 28.3
+- high: 28.35
+- low: 28.15
+- close: 28.25
+- volume: 137440
+- ma5: 28.4
+- ma20: 28.68
 - ma60: 30.09
 - ma120: 31.71
-- ema23: 28.88
-- return_5d: 0
-- return_20d: -4.84
-- volume_ratio: 1.06
-- distance_to_ma20_pct: -0.67
-- distance_to_high_60_pct: -14.16
+- ema23: 28.86
+- return_5d: -0.88
+- return_20d: -5.68
+- volume_ratio: 0.92
+- distance_to_ma20_pct: -1.5
+- distance_to_high_60_pct: -14.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,28.2,28.55,28.2,28.5,159845,28.44,28.91,30.34,29.02,1.17
 20260524,28.2,28.55,28.2,28.5,159845,28.47,28.85,30.26,28.98,1.14
 20260525,28.3,28.35,28.15,28.25,137440,28.45,28.77,30.17,28.92,0.94
-20260526,28.2,28.55,28.2,28.5,159845,28.45,28.69,30.09,28.88,1.06
+20260526,28.3,28.35,28.15,28.25,137440,28.4,28.68,30.09,28.86,0.92
 ```
 
 ## Latest TDCC Snapshot

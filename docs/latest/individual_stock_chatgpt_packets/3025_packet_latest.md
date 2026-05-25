@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3025 星通
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:14 Asia/Taipei
+- generated_at: 2026-05-26 06:02:22 Asia/Taipei
 - stock_id: 3025
 - stock_name: 星通
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 71
-- high: 71
-- low: 70.8
-- close: 71
-- volume: 2775275
-- ma5: 72.42
-- ma20: 64.44
-- ma60: 62.09
-- ma120: 62.64
-- ema23: 65.48
-- return_5d: 9.91
-- return_20d: 16.01
-- volume_ratio: 2.35
-- distance_to_ma20_pct: 10.19
-- distance_to_high_60_pct: -9.09
+- open: 78.1
+- high: 78.1
+- low: 77.7
+- close: 78.1
+- volume: 2240145
+- ma5: 73.84
+- ma20: 64.79
+- ma60: 62.21
+- ma120: 62.7
+- ema23: 66.07
+- return_5d: 20.9
+- return_20d: 27.61
+- volume_ratio: 1.94
+- distance_to_ma20_pct: 20.54
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,71,71,70.8,71,2775275,64.86,62.57,61.28,63.13,3.22
 20260524,71,71,70.8,71,2775275,67.36,63.1,61.55,63.79,2.86
 20260525,78.1,78.1,77.7,78.1,2240145,71.14,63.95,61.88,64.98,2.12
-20260526,71,71,70.8,71,2775275,72.42,64.44,62.09,65.48,2.35
+20260526,78.1,78.1,77.7,78.1,2240145,73.84,64.79,62.21,66.07,1.94
 ```
 
 ## Latest TDCC Snapshot
@@ -120,10 +120,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3025 | 星通 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260526 | 3025 | 星通 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

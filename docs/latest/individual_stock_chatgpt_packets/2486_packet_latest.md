@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2486 一詮
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:01 Asia/Taipei
+- generated_at: 2026-05-26 06:02:09 Asia/Taipei
 - stock_id: 2486
 - stock_name: 一詮
 - packet_status: standard_180d_window_packet
@@ -55,20 +55,20 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 280
-- high: 283.5
-- low: 268.5
-- close: 271
-- volume: 9762141
-- ma5: 276.3
-- ma20: 273
-- ma60: 202.52
-- ma120: 154.5
-- ema23: 258.1
-- return_5d: -2.69
-- return_20d: 6.9
-- volume_ratio: 1.08
-- distance_to_ma20_pct: -0.73
-- distance_to_high_60_pct: -14.78
+- high: 297.5
+- low: 279
+- close: 297.5
+- volume: 9151825
+- ma5: 281.6
+- ma20: 274.32
+- ma60: 202.96
+- ma120: 154.72
+- ema23: 260.31
+- return_5d: 6.82
+- return_20d: 17.36
+- volume_ratio: 1.01
+- distance_to_ma20_pct: 8.45
+- distance_to_high_60_pct: -6.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,280,283.5,268.5,271,9762141,266,266.45,195.46,251.63,1.09
 20260524,280,283.5,268.5,271,9762141,269.9,268.77,197.65,253.24,1.05
 20260525,280,297.5,279,297.5,9151825,277.8,272.12,200.28,256.93,0.95
-20260526,280,283.5,268.5,271,9762141,276.3,273,202.52,258.1,1.08
+20260526,280,297.5,279,297.5,9151825,281.6,274.32,202.96,260.31,1.01
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2486 | 一詮 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 2486 | 一詮 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 55.0 |  |  | neckline_challenge |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

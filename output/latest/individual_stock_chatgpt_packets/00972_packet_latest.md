@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00972 野村日本動能高息
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:27 Asia/Taipei
+- generated_at: 2026-05-26 06:01:37 Asia/Taipei
 - stock_id: 00972
 - stock_name: 野村日本動能高息
 - packet_status: partial_rawdata_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 19.52
-- high: 19.52
-- low: 19.27
-- close: 19.28
-- volume: 418905
+- open: 19.37
+- high: 19.37
+- low: 19.21
+- close: 19.25
+- volume: 86564
 - ma5: 19.27
 - ma20: 19.27
 - ma60: 19.27
@@ -66,9 +66,9 @@
 - ema23: 19.28
 - return_5d: 
 - return_20d: 
-- volume_ratio: 1.19
-- distance_to_ma20_pct: 0.03
-- distance_to_high_60_pct: -1.23
+- volume_ratio: 0.3
+- distance_to_ma20_pct: -0.09
+- distance_to_high_60_pct: -1.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,19.52,19.52,19.27,19.28,418905,,,,,
 20260524,19.52,19.52,19.27,19.28,418905,,,,,
 20260525,19.37,19.37,19.21,19.25,86564,,,,,
-20260526,19.52,19.52,19.27,19.28,418905,19.27,19.27,19.27,19.28,1.19
+20260526,19.37,19.37,19.21,19.25,86564,19.27,19.27,19.27,19.28,0.3
 ```
 
 ## Latest TDCC Snapshot

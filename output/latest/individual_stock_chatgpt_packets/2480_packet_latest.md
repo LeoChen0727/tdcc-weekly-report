@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2480 敦陽科
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:01 Asia/Taipei
+- generated_at: 2026-05-26 06:02:09 Asia/Taipei
 - stock_id: 2480
 - stock_name: 敦陽科
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 147
-- high: 149.5
+- open: 150
+- high: 150
 - low: 146.5
-- close: 149.5
-- volume: 292956
-- ma5: 148.9
-- ma20: 148.05
-- ma60: 143.24
-- ma120: 144.77
-- ema23: 146.81
-- return_5d: 1.7
-- return_20d: 4.55
-- volume_ratio: 0.72
-- distance_to_ma20_pct: 0.98
-- distance_to_high_60_pct: -1.64
+- close: 146.5
+- volume: 643647
+- ma5: 148.3
+- ma20: 147.9
+- ma60: 143.19
+- ma120: 144.74
+- ema23: 146.56
+- return_5d: -0.34
+- return_20d: 2.45
+- volume_ratio: 1.52
+- distance_to_ma20_pct: -0.95
+- distance_to_high_60_pct: -3.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,147,149.5,146.5,149.5,292956,147.8,146.75,143.14,146.31,0.69
 20260524,147,149.5,146.5,149.5,292956,148.4,147.3,143.22,146.58,0.71
 20260525,150,150,146.5,146.5,643647,148.4,147.72,143.21,146.57,1.54
-20260526,147,149.5,146.5,149.5,292956,148.9,148.05,143.24,146.81,0.72
+20260526,150,150,146.5,146.5,643647,148.3,147.9,143.19,146.56,1.52
 ```
 
 ## Latest TDCC Snapshot

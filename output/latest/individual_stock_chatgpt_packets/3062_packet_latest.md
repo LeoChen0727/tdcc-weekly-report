@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3062 建漢
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:17 Asia/Taipei
+- generated_at: 2026-05-26 06:02:25 Asia/Taipei
 - stock_id: 3062
 - stock_name: 建漢
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 28.7
-- high: 29.5
-- low: 28.45
-- close: 29.35
-- volume: 12614047
-- ma5: 29.73
-- ma20: 27.84
-- ma60: 27.39
-- ma120: 26.06
-- ema23: 28.4
-- return_5d: 3.35
-- return_20d: 16.7
-- volume_ratio: 1.25
-- distance_to_ma20_pct: 5.42
-- distance_to_high_60_pct: -13.93
+- open: 30.05
+- high: 31.65
+- low: 29.55
+- close: 31.25
+- volume: 27382092
+- ma5: 30.11
+- ma20: 27.93
+- ma60: 27.43
+- ma120: 26.07
+- ema23: 28.56
+- return_5d: 10.04
+- return_20d: 24.25
+- volume_ratio: 2.54
+- distance_to_ma20_pct: 11.87
+- distance_to_high_60_pct: -8.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,28.7,29.5,28.45,29.35,12614047,28.53,27.18,27.22,27.92,1.52
 20260524,28.7,29.5,28.45,29.35,12614047,28.89,27.35,27.27,28.04,1.49
 20260525,30.05,31.65,29.55,31.25,27382092,29.54,27.63,27.35,28.31,2.84
-20260526,28.7,29.5,28.45,29.35,12614047,29.73,27.84,27.39,28.4,1.25
+20260526,30.05,31.65,29.55,31.25,27382092,30.11,27.93,27.43,28.56,2.54
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3062 | 建漢 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 3062 | 建漢 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 3062 | 建漢 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7740 熙特爾-創
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:42 Asia/Taipei
+- generated_at: 2026-05-26 06:03:43 Asia/Taipei
 - stock_id: 7740
 - stock_name: 熙特爾-創
 - packet_status: standard_180d_window_packet
@@ -55,20 +55,20 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 184.5
-- high: 188.5
-- low: 176
-- close: 182.5
-- volume: 669373
-- ma5: 180.9
-- ma20: 173.93
-- ma60: 182.28
-- ma120: 170.2
-- ema23: 176.01
-- return_5d: 3.69
-- return_20d: 0.83
-- volume_ratio: 1.84
-- distance_to_ma20_pct: 4.93
-- distance_to_high_60_pct: -11.19
+- high: 184.5
+- low: 170
+- close: 174.5
+- volume: 475397
+- ma5: 179.3
+- ma20: 173.53
+- ma60: 182.14
+- ma120: 170.13
+- ema23: 175.34
+- return_5d: -0.85
+- return_20d: -3.59
+- volume_ratio: 1.34
+- distance_to_ma20_pct: 0.56
+- distance_to_high_60_pct: -15.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,184.5,188.5,176,182.5,669373,173.1,174.43,182.36,174.86,2.2
 20260524,184.5,188.5,176,182.5,669373,176.7,174.3,182.4,175.5,2.08
 20260525,184.5,184.5,170,174.5,475397,179.6,173.85,182.22,175.42,1.4
-20260526,184.5,188.5,176,182.5,669373,180.9,173.93,182.28,176.01,1.84
+20260526,184.5,184.5,170,174.5,475397,179.3,173.53,182.14,175.34,1.34
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2233 宇隆
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:50 Asia/Taipei
+- generated_at: 2026-05-26 06:01:59 Asia/Taipei
 - stock_id: 2233
 - stock_name: 宇隆
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 345
-- high: 372.5
-- low: 338
-- close: 347
-- volume: 4445229
-- ma5: 353.9
-- ma20: 320.62
-- ma60: 260.69
-- ma120: 239.27
-- ema23: 314.74
-- return_5d: 0.58
-- return_20d: 27.11
-- volume_ratio: 1.62
-- distance_to_ma20_pct: 8.23
-- distance_to_high_60_pct: -9.04
+- open: 357
+- high: 381.5
+- low: 345
+- close: 381.5
+- volume: 3823922
+- ma5: 360.8
+- ma20: 322.35
+- ma60: 261.27
+- ma120: 239.56
+- ema23: 317.62
+- return_5d: 10.58
+- return_20d: 39.74
+- volume_ratio: 1.41
+- distance_to_ma20_pct: 18.35
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,345,372.5,338,347,4445229,342.2,305.35,254.4,301.7,1.9
 20260524,345,372.5,338,347,4445229,343.6,310.35,256.37,305.47,1.76
 20260525,357,381.5,345,381.5,3823922,353.5,316.93,258.83,311.81,1.43
-20260526,345,372.5,338,347,4445229,353.9,320.62,260.69,314.74,1.62
+20260526,357,381.5,345,381.5,3823922,360.8,322.35,261.27,317.62,1.41
 ```
 
 ## Latest TDCC Snapshot
@@ -120,9 +120,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2233 | 宇隆 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

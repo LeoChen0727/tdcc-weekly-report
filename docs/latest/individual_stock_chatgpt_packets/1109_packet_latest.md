@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1109 信大
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:28 Asia/Taipei
+- generated_at: 2026-05-26 06:01:38 Asia/Taipei
 - stock_id: 1109
 - stock_name: 信大
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 14.65
-- high: 14.65
+- open: 14.6
+- high: 14.6
 - low: 14.4
-- close: 14.55
-- volume: 402830
-- ma5: 14.52
-- ma20: 14.99
+- close: 14.4
+- volume: 404137
+- ma5: 14.49
+- ma20: 14.98
 - ma60: 15.24
-- ma120: 15.39
-- ema23: 14.91
-- return_5d: -0.68
-- return_20d: -5.83
+- ma120: 15.38
+- ema23: 14.9
+- return_5d: -1.71
+- return_20d: -6.8
 - volume_ratio: 1.46
-- distance_to_ma20_pct: -2.94
-- distance_to_high_60_pct: -7.91
+- distance_to_ma20_pct: -3.89
+- distance_to_high_60_pct: -8.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,14.65,14.65,14.4,14.55,402830,14.59,15.13,15.31,15.04,1.7
 20260524,14.65,14.65,14.4,14.55,402830,14.58,15.09,15.29,15,1.65
 20260525,14.6,14.6,14.4,14.4,404137,14.54,15.04,15.26,14.95,1.56
-20260526,14.65,14.65,14.4,14.55,402830,14.52,14.99,15.24,14.91,1.46
+20260526,14.6,14.6,14.4,14.4,404137,14.49,14.98,15.24,14.9,1.46
 ```
 
 ## Latest TDCC Snapshot

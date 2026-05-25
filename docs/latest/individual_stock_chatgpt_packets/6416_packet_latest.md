@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6416 瑞祺電通
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:19 Asia/Taipei
+- generated_at: 2026-05-26 06:03:21 Asia/Taipei
 - stock_id: 6416
 - stock_name: 瑞祺電通
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 90.7
-- high: 91.9
-- low: 90.7
-- close: 91.5
-- volume: 441243
-- ma5: 91.54
-- ma20: 87.45
+- open: 92.3
+- high: 93.8
+- low: 91.6
+- close: 91.7
+- volume: 424302
+- ma5: 91.58
+- ma20: 87.47
 - ma60: 82.67
-- ma120: 83.77
-- ema23: 87.43
-- return_5d: 0.66
-- return_20d: 12.96
-- volume_ratio: 0.91
-- distance_to_ma20_pct: 4.63
-- distance_to_high_60_pct: -2.45
+- ma120: 83.78
+- ema23: 87.45
+- return_5d: 0.88
+- return_20d: 13.21
+- volume_ratio: 0.88
+- distance_to_ma20_pct: 4.84
+- distance_to_high_60_pct: -2.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,90.7,91.9,90.7,91.5,441243,89.98,85.75,82.17,86.2,0.99
 20260524,90.7,91.9,90.7,91.5,441243,90.8,86.33,82.34,86.64,0.97
 20260525,92.3,93.8,91.6,91.7,424302,91.42,86.93,82.51,87.06,0.9
-20260526,90.7,91.9,90.7,91.5,441243,91.54,87.45,82.67,87.43,0.91
+20260526,92.3,93.8,91.6,91.7,424302,91.58,87.47,82.67,87.45,0.88
 ```
 
 ## Latest TDCC Snapshot

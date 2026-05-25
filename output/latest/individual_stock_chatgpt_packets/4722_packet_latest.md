@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4722 國精化
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:48 Asia/Taipei
+- generated_at: 2026-05-26 06:02:53 Asia/Taipei
 - stock_id: 4722
 - stock_name: 國精化
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 272.5
-- high: 286.5
-- low: 269
-- close: 286.5
-- volume: 6927447
-- ma5: 286
-- ma20: 245.07
-- ma60: 200.42
-- ma120: 185.22
-- ema23: 245.53
-- return_5d: 9.98
-- return_20d: 53.62
-- volume_ratio: 1.19
-- distance_to_ma20_pct: 16.9
-- distance_to_high_60_pct: -2.88
+- open: 287.5
+- high: 295
+- low: 279.5
+- close: 284
+- volume: 5291857
+- ma5: 285.5
+- ma20: 244.95
+- ma60: 200.38
+- ma120: 185.2
+- ema23: 245.32
+- return_5d: 9.02
+- return_20d: 52.28
+- volume_ratio: 0.92
+- distance_to_ma20_pct: 15.94
+- distance_to_high_60_pct: -3.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,272.5,286.5,269,286.5,6927447,263,229.53,196.55,233.56,1.37
 20260524,272.5,286.5,269,286.5,6927447,271.4,234.95,197.88,237.97,1.3
 20260525,287.5,295,279.5,284,5291857,280.8,240.07,198.99,241.81,0.95
-20260526,272.5,286.5,269,286.5,6927447,286,245.07,200.42,245.53,1.19
+20260526,287.5,295,279.5,284,5291857,285.5,244.95,200.38,245.32,0.92
 ```
 
 ## Latest TDCC Snapshot
@@ -120,9 +120,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4722 | 國精化 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 63.0 |  |  | neckline_challenge |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

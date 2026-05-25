@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2882 國泰金
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:10 Asia/Taipei
+- generated_at: 2026-05-26 06:02:18 Asia/Taipei
 - stock_id: 2882
 - stock_name: 國泰金
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 78.5
-- high: 79.8
-- low: 78.2
-- close: 79.7
-- volume: 40807865
-- ma5: 80.06
-- ma20: 78.33
-- ma60: 74.76
-- ma120: 74.38
-- ema23: 77.97
-- return_5d: 1.27
-- return_20d: 1.4
-- volume_ratio: 1.13
-- distance_to_ma20_pct: 1.76
-- distance_to_high_60_pct: -2.21
+- open: 79.9
+- high: 81.5
+- low: 78.7
+- close: 81.5
+- volume: 48981185
+- ma5: 80.42
+- ma20: 78.42
+- ma60: 74.79
+- ma120: 74.39
+- ema23: 78.12
+- return_5d: 3.56
+- return_20d: 3.69
+- volume_ratio: 1.34
+- distance_to_ma20_pct: 3.93
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,78.5,79.8,78.2,79.7,40807865,78.76,77.67,74.66,77.27,1.14
 20260524,78.5,79.8,78.2,79.7,40807865,79.14,77.93,74.7,77.47,1.12
 20260525,79.9,81.5,78.7,81.5,48981185,79.86,78.27,74.73,77.81,1.3
-20260526,78.5,79.8,78.2,79.7,40807865,80.06,78.33,74.76,77.97,1.13
+20260526,79.9,81.5,78.7,81.5,48981185,80.42,78.42,74.79,78.12,1.34
 ```
 
 ## Latest TDCC Snapshot
@@ -123,7 +123,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260526 | 2882 | 國泰金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 2882 | 國泰金 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 2882 | 國泰金 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

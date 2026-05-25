@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3481 群創
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:28 Asia/Taipei
+- generated_at: 2026-05-26 06:02:35 Asia/Taipei
 - stock_id: 3481
 - stock_name: 群創
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 42.45
-- high: 44.65
-- low: 42.35
-- close: 44.65
-- volume: 388361570
-- ma5: 45.54
-- ma20: 36.07
-- ma60: 29.48
-- ma120: 24.29
-- ema23: 36.89
-- return_5d: 9.98
-- return_20d: 86.43
-- volume_ratio: 0.64
-- distance_to_ma20_pct: 23.78
-- distance_to_high_60_pct: -9.06
+- open: 49.1
+- high: 49.1
+- low: 49.1
+- close: 49.1
+- volume: 68442854
+- ma5: 46.43
+- ma20: 36.3
+- ma60: 29.56
+- ma120: 24.33
+- ema23: 37.26
+- return_5d: 20.94
+- return_20d: 105.01
+- volume_ratio: 0.12
+- distance_to_ma20_pct: 35.28
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,42.45,44.65,42.35,44.65,388361570,40.86,32.78,28.51,34.13,0.65
 20260524,42.45,44.65,42.35,44.65,388361570,42.3,33.8,28.84,35.01,0.65
 20260525,49.1,49.1,49.1,49.1,68442854,44.73,35.04,29.21,36.18,0.11
-20260526,42.45,44.65,42.35,44.65,388361570,45.54,36.07,29.48,36.89,0.64
+20260526,49.1,49.1,49.1,49.1,68442854,46.43,36.3,29.56,37.26,0.12
 ```
 
 ## Latest TDCC Snapshot

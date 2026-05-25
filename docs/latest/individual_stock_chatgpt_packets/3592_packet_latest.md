@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3592 瑞鼎
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:33 Asia/Taipei
+- generated_at: 2026-05-26 06:02:39 Asia/Taipei
 - stock_id: 3592
 - stock_name: 瑞鼎
 - packet_status: standard_180d_window_packet
@@ -55,20 +55,20 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 268.5
-- high: 269.5
-- low: 262.5
-- close: 265.5
-- volume: 907092
-- ma5: 269.3
-- ma20: 255.78
-- ma60: 235.18
-- ma120: 230
-- ema23: 255.53
-- return_5d: -0.19
-- return_20d: 12.5
-- volume_ratio: 0.7
-- distance_to_ma20_pct: 3.8
-- distance_to_high_60_pct: -6.84
+- high: 285
+- low: 264
+- close: 284.5
+- volume: 2901652
+- ma5: 273.1
+- ma20: 256.73
+- ma60: 235.5
+- ma120: 230.15
+- ema23: 257.11
+- return_5d: 6.95
+- return_20d: 20.55
+- volume_ratio: 2.09
+- distance_to_ma20_pct: 10.82
+- distance_to_high_60_pct: -0.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,268.5,269.5,262.5,265.5,907092,260.3,250.57,233.24,250.67,0.8
 20260524,268.5,269.5,262.5,265.5,907092,263.7,252.05,233.72,251.9,0.78
 20260525,268.5,285,264,284.5,2901652,269.4,254.3,234.57,254.62,2.3
-20260526,268.5,269.5,262.5,265.5,907092,269.3,255.78,235.18,255.53,0.7
+20260526,268.5,285,264,284.5,2901652,273.1,256.73,235.5,257.11,2.09
 ```
 
 ## Latest TDCC Snapshot
@@ -122,6 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 3592 | 瑞鼎 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 3592 | 瑞鼎 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

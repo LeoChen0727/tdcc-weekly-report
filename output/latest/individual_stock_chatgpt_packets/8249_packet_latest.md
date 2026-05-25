@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8249 菱光
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:50 Asia/Taipei
+- generated_at: 2026-05-26 06:03:50 Asia/Taipei
 - stock_id: 8249
 - stock_name: 菱光
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 52.4
-- high: 53.3
-- low: 51.8
-- close: 52.8
-- volume: 1527625
-- ma5: 52.84
-- ma20: 50.95
+- open: 53.1
+- high: 53.5
+- low: 52.2
+- close: 53
+- volume: 1886588
+- ma5: 52.88
+- ma20: 50.97
 - ma60: 50.53
 - ma120: 52.67
-- ema23: 51.2
-- return_5d: 1.15
-- return_20d: 7.87
-- volume_ratio: 1.03
-- distance_to_ma20_pct: 3.62
-- distance_to_high_60_pct: -11.26
+- ema23: 51.21
+- return_5d: 1.53
+- return_20d: 8.27
+- volume_ratio: 1.26
+- distance_to_ma20_pct: 3.99
+- distance_to_high_60_pct: -10.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,52.4,53.3,51.8,52.8,1527625,52.46,50.27,50.88,50.7,1.17
 20260524,52.4,53.3,51.8,52.8,1527625,52.32,50.52,50.76,50.87,1.12
 20260525,53.1,53.5,52.2,53,1886588,52.72,50.76,50.64,51.05,1.31
-20260526,52.4,53.3,51.8,52.8,1527625,52.84,50.95,50.53,51.2,1.03
+20260526,53.1,53.5,52.2,53,1886588,52.88,50.97,50.53,51.21,1.26
 ```
 
 ## Latest TDCC Snapshot

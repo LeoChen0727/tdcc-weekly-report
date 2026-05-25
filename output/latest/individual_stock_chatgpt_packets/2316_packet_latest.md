@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2316 楠梓電
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:51 Asia/Taipei
+- generated_at: 2026-05-26 06:02:00 Asia/Taipei
 - stock_id: 2316
 - stock_name: 楠梓電
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 160
-- high: 163.5
-- low: 153
-- close: 153.5
-- volume: 17207195
-- ma5: 156.5
-- ma20: 134.62
-- ma60: 114.68
-- ma120: 108.31
-- ema23: 136.56
-- return_5d: 1.66
-- return_20d: 34.65
-- volume_ratio: 1.59
-- distance_to_ma20_pct: 14.02
-- distance_to_high_60_pct: -8.9
+- open: 158
+- high: 168.5
+- low: 158
+- close: 168.5
+- volume: 5942563
+- ma5: 159.5
+- ma20: 135.38
+- ma60: 114.93
+- ma120: 108.44
+- ema23: 137.81
+- return_5d: 11.59
+- return_20d: 47.81
+- volume_ratio: 0.58
+- distance_to_ma20_pct: 24.47
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,160,163.5,153,153.5,17207195,146.9,128.18,112.11,130.02,1.75
 20260524,160,163.5,153,153.5,17207195,149.8,129.95,112.97,131.98,1.71
 20260525,158,168.5,158,168.5,5942563,156,132.65,113.9,135.02,0.59
-20260526,160,163.5,153,153.5,17207195,156.5,134.62,114.68,136.56,1.59
+20260526,158,168.5,158,168.5,5942563,159.5,135.38,114.93,137.81,0.58
 ```
 
 ## Latest TDCC Snapshot
@@ -120,14 +120,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2316 | 楠梓電 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2316 | 楠梓電 | 2 | 1 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260526 | 2316 | 楠梓電 | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

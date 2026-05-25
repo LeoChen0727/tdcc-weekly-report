@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3413 京鼎
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:27 Asia/Taipei
+- generated_at: 2026-05-26 06:02:33 Asia/Taipei
 - stock_id: 3413
 - stock_name: 京鼎
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 327.5
-- high: 328.5
-- low: 324
-- close: 325
-- volume: 1110602
-- ma5: 329.8
-- ma20: 320.1
-- ma60: 312.08
-- ma120: 301.2
-- ema23: 321.12
-- return_5d: -0.46
-- return_20d: 4.33
-- volume_ratio: 0.44
-- distance_to_ma20_pct: 1.53
-- distance_to_high_60_pct: -7.01
+- open: 326.5
+- high: 349.5
+- low: 326.5
+- close: 349
+- volume: 4721290
+- ma5: 334.6
+- ma20: 321.3
+- ma60: 312.48
+- ma120: 301.4
+- ema23: 323.12
+- return_5d: 6.89
+- return_20d: 12.04
+- volume_ratio: 1.76
+- distance_to_ma20_pct: 8.62
+- distance_to_high_60_pct: -0.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,327.5,328.5,324,325,1110602,321,316.55,311.09,317.58,0.46
 20260524,327.5,328.5,324,325,1110602,323.1,317.35,311.27,318.2,0.47
 20260525,326.5,349.5,326.5,349,4721290,330.1,319.43,311.82,320.76,1.89
-20260526,327.5,328.5,324,325,1110602,329.8,320.1,312.08,321.12,0.44
+20260526,326.5,349.5,326.5,349,4721290,334.6,321.3,312.48,323.12,1.76
 ```
 
 ## Latest TDCC Snapshot
@@ -130,13 +130,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3413 | 京鼎 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | call_strong_inflow | stale_signal | calendar event: ex_dividend on 20260527; status=confirmed; proximity=within_3d |
-| 20260521 | 3413 | 京鼎 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_strong_inflow | stale_signal | calendar event: ex_dividend on 20260527; status=confirmed; proximity=within_3d |
+| 20260526 | 3413 | 京鼎 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | repeated_but_no_breakout | calendar event: ex_dividend on 20260527; status=confirmed; proximity=within_3d |
+| 20260521 | 3413 | 京鼎 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_strong_inflow | repeated_but_no_breakout | calendar event: ex_dividend on 20260527; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3413 | 京鼎 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260526 | 3413 | 京鼎 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

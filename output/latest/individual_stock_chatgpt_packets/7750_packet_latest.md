@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7750 新代
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:42 Asia/Taipei
+- generated_at: 2026-05-26 06:03:43 Asia/Taipei
 - stock_id: 7750
 - stock_name: 新代
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 2380
-- high: 2440
-- low: 2340
-- close: 2390
-- volume: 405788
-- ma5: 2419
-- ma20: 2572.75
-- ma60: 1884.5
-- ma120: 1400.38
-- ema23: 2399.42
-- return_5d: -0.62
-- return_20d: -0.42
-- volume_ratio: 0.57
-- distance_to_ma20_pct: -7.1
-- distance_to_high_60_pct: -22.15
+- open: 2485
+- high: 2580
+- low: 2470
+- close: 2535
+- volume: 538655
+- ma5: 2448
+- ma20: 2580
+- ma60: 1886.92
+- ma120: 1401.59
+- ema23: 2411.5
+- return_5d: 5.41
+- return_20d: 5.62
+- volume_ratio: 0.75
+- distance_to_ma20_pct: -1.74
+- distance_to_high_60_pct: -17.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,2380,2440,2340,2390,405788,2406,2556.25,1828,2387.85,0.54
 20260524,2380,2440,2340,2390,405788,2414,2566.5,1846.17,2388.03,0.54
 20260525,2485,2580,2470,2535,538655,2422,2573.25,1866,2400.28,0.74
-20260526,2380,2440,2340,2390,405788,2419,2572.75,1884.5,2399.42,0.57
+20260526,2485,2580,2470,2535,538655,2448,2580,1886.92,2411.5,0.75
 ```
 
 ## Latest TDCC Snapshot

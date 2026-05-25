@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4764 雙鍵
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:49 Asia/Taipei
+- generated_at: 2026-05-26 06:02:54 Asia/Taipei
 - stock_id: 4764
 - stock_name: 雙鍵
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 325
-- high: 338.5
-- low: 308.5
-- close: 320
-- volume: 3738885
-- ma5: 326.4
-- ma20: 315.65
-- ma60: 213.57
-- ma120: 160.54
-- ema23: 296.67
-- return_5d: 0
-- return_20d: 29.55
-- volume_ratio: 2.12
-- distance_to_ma20_pct: 1.38
-- distance_to_high_60_pct: -11.85
+- open: 326
+- high: 352
+- low: 318
+- close: 352
+- volume: 3205974
+- ma5: 332.8
+- ma20: 317.25
+- ma60: 214.1
+- ma120: 160.81
+- ema23: 299.34
+- return_5d: 10
+- return_20d: 42.51
+- volume_ratio: 1.85
+- distance_to_ma20_pct: 10.95
+- distance_to_high_60_pct: -3.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,325,338.5,308.5,320,3738885,318.9,301.15,203.76,286.54,2.76
 20260524,325,338.5,308.5,320,3738885,322,306.25,206.83,289.33,2.51
 20260525,326,352,318,352,3205974,326.4,312,210.44,294.55,1.99
-20260526,325,338.5,308.5,320,3738885,326.4,315.65,213.57,296.67,2.12
+20260526,326,352,318,352,3205974,332.8,317.25,214.1,299.34,1.85
 ```
 
 ## Latest TDCC Snapshot
@@ -122,13 +122,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4764 | 雙鍵 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 4764 | 雙鍵 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 4764 | 雙鍵 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4764 | 雙鍵 | 3 | 1 | 3 | 3 | 3 | continued_2_3d | 連續 3 個交易日上榜，訊號延續但仍需確認。 |
+| 20260526 | 4764 | 雙鍵 | 3 | 2 | 3 | 3 | 3 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

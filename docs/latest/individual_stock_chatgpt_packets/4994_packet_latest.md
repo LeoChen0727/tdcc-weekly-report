@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4994 傳奇
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:54 Asia/Taipei
+- generated_at: 2026-05-26 06:02:59 Asia/Taipei
 - stock_id: 4994
 - stock_name: 傳奇
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 89.1
-- high: 93.1
-- low: 88
-- close: 89.4
-- volume: 29732
-- ma5: 90.56
-- ma20: 93.53
-- ma60: 96.5
-- ma120: 97.92
-- ema23: 93.48
-- return_5d: -0.67
-- return_20d: -10.6
-- volume_ratio: 1.31
-- distance_to_ma20_pct: -4.42
-- distance_to_high_60_pct: -18.73
+- open: 89.4
+- high: 95.2
+- low: 89
+- close: 95.2
+- volume: 34432
+- ma5: 91.72
+- ma20: 93.82
+- ma60: 96.59
+- ma120: 97.96
+- ema23: 93.97
+- return_5d: 5.78
+- return_20d: -4.8
+- volume_ratio: 1.5
+- distance_to_ma20_pct: 1.47
+- distance_to_high_60_pct: -13.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,89.1,93.1,88,89.4,29732,90,94.75,97.08,94.13,1.3
 20260524,89.1,93.1,88,89.4,29732,89.64,94.25,96.86,93.73,1.24
 20260525,89.4,95.2,89,95.2,34432,90.68,94.06,96.72,93.86,1.54
-20260526,89.1,93.1,88,89.4,29732,90.56,93.53,96.5,93.48,1.31
+20260526,89.4,95.2,89,95.2,34432,91.72,93.82,96.59,93.97,1.5
 ```
 
 ## Latest TDCC Snapshot

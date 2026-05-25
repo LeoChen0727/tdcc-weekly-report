@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00921 兆豐龍頭等權重
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:26 Asia/Taipei
+- generated_at: 2026-05-26 06:01:36 Asia/Taipei
 - stock_id: 00921
 - stock_name: 兆豐龍頭等權重
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 21.57
-- high: 21.75
-- low: 21.57
-- close: 21.73
-- volume: 390281
-- ma5: 21.84
-- ma20: 21.84
-- ma60: 21.84
-- ma120: 21.84
-- ema23: 21.77
+- open: 22.11
+- high: 22.28
+- low: 22.11
+- close: 22.26
+- volume: 676355
+- ma5: 21.94
+- ma20: 21.94
+- ma60: 21.94
+- ma120: 21.94
+- ema23: 21.81
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.87
-- distance_to_ma20_pct: -0.49
-- distance_to_high_60_pct: -2.47
+- volume_ratio: 1.34
+- distance_to_ma20_pct: 1.45
+- distance_to_high_60_pct: -0.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,21.57,21.75,21.57,21.73,390281,,,,,
 20260524,21.57,21.75,21.57,21.73,390281,,,,,
 20260525,22.11,22.28,22.11,22.26,676355,,,,,
-20260526,21.57,21.75,21.57,21.73,390281,21.84,21.84,21.84,21.77,0.87
+20260526,22.11,22.28,22.11,22.26,676355,21.94,21.94,21.94,21.81,1.34
 ```
 
 ## Latest TDCC Snapshot

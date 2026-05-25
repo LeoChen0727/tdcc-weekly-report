@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1210 大成
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:28 Asia/Taipei
+- generated_at: 2026-05-26 06:01:38 Asia/Taipei
 - stock_id: 1210
 - stock_name: 大成
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 53
-- high: 53
-- low: 52.3
-- close: 52.4
-- volume: 2137410
-- ma5: 52.34
-- ma20: 52.59
+- open: 52.4
+- high: 52.4
+- low: 52
+- close: 52.1
+- volume: 2601117
+- ma5: 52.28
+- ma20: 52.57
 - ma60: 53.23
 - ma120: 52.38
-- ema23: 52.8
-- return_5d: -0.95
-- return_20d: -2.42
-- volume_ratio: 1.01
-- distance_to_ma20_pct: -0.35
-- distance_to_high_60_pct: -6.43
+- ema23: 52.78
+- return_5d: -1.51
+- return_20d: -2.98
+- volume_ratio: 1.22
+- distance_to_ma20_pct: -0.89
+- distance_to_high_60_pct: -6.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,53,53,52.3,52.4,2137410,52.84,52.81,53.18,52.95,1.07
 20260524,53,53,52.3,52.4,2137410,52.62,52.75,53.2,52.91,1.07
 20260525,52.4,52.4,52,52.1,2601117,52.44,52.65,53.22,52.84,1.26
-20260526,53,53,52.3,52.4,2137410,52.34,52.59,53.23,52.8,1.01
+20260526,52.4,52.4,52,52.1,2601117,52.28,52.57,53.23,52.78,1.22
 ```
 
 ## Latest TDCC Snapshot

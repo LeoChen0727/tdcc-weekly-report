@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6937 天虹
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:38 Asia/Taipei
+- generated_at: 2026-05-26 06:03:39 Asia/Taipei
 - stock_id: 6937
 - stock_name: 天虹
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 301
-- high: 323.5
-- low: 296
-- close: 323.5
-- volume: 1646094
-- ma5: 329.1
-- ma20: 311.3
-- ma60: 287.02
-- ma120: 255.42
-- ema23: 308.6
-- return_5d: 9.85
-- return_20d: 7.48
-- volume_ratio: 1.25
-- distance_to_ma20_pct: 3.92
-- distance_to_high_60_pct: -9.76
+- open: 330
+- high: 352
+- low: 330
+- close: 351.5
+- volume: 2500871
+- ma5: 334.7
+- ma20: 312.7
+- ma60: 287.48
+- ma120: 255.65
+- ema23: 310.94
+- return_5d: 19.35
+- return_20d: 16.78
+- volume_ratio: 1.85
+- distance_to_ma20_pct: 12.41
+- distance_to_high_60_pct: -1.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,301,323.5,296,323.5,1646094,300.4,306.25,282.09,301.38,1.47
 20260524,301,323.5,296,323.5,1646094,308.9,307.65,283.76,303.23,1.41
 20260525,330,352,330,351.5,2500871,323.3,310.18,285.75,307.25,2
-20260526,301,323.5,296,323.5,1646094,329.1,311.3,287.02,308.6,1.25
+20260526,330,352,330,351.5,2500871,334.7,312.7,287.48,310.94,1.85
 ```
 
 ## Latest TDCC Snapshot
@@ -122,13 +122,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6937 | 天虹 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_put_bullish | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 6937 | 天虹 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_put_bullish | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 6937 | 天虹 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6937 | 天虹 | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260526 | 6937 | 天虹 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

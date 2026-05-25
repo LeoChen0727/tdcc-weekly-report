@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6277 宏正
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:17 Asia/Taipei
+- generated_at: 2026-05-26 06:03:20 Asia/Taipei
 - stock_id: 6277
 - stock_name: 宏正
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 74.8
-- high: 75
-- low: 73.7
-- close: 74.5
-- volume: 332240
-- ma5: 74.74
-- ma20: 72.38
-- ma60: 67.92
-- ma120: 64.6
-- ema23: 72.45
-- return_5d: -0.13
-- return_20d: 6.58
-- volume_ratio: 1.05
-- distance_to_ma20_pct: 2.94
-- distance_to_high_60_pct: -3.12
+- open: 75.1
+- high: 76.9
+- low: 74.5
+- close: 75.7
+- volume: 581701
+- ma5: 74.98
+- ma20: 72.44
+- ma60: 67.94
+- ma120: 64.61
+- ema23: 72.55
+- return_5d: 1.47
+- return_20d: 8.3
+- volume_ratio: 1.76
+- distance_to_ma20_pct: 4.51
+- distance_to_high_60_pct: -1.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,74.8,75,73.7,74.5,332240,73.66,71.66,67.19,71.72,1.18
 20260524,74.8,75,73.7,74.5,332240,74.1,71.91,67.43,71.95,1.15
 20260525,75.1,76.9,74.5,75.7,581701,74.76,72.14,67.68,72.26,1.9
-20260526,74.8,75,73.7,74.5,332240,74.74,72.38,67.92,72.45,1.05
+20260526,75.1,76.9,74.5,75.7,581701,74.98,72.44,67.94,72.55,1.76
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2836 高雄銀
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:09 Asia/Taipei
+- generated_at: 2026-05-26 06:02:17 Asia/Taipei
 - stock_id: 2836
 - stock_name: 高雄銀
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 11.85
-- high: 11.95
-- low: 11.8
-- close: 11.85
-- volume: 1290909
-- ma5: 11.84
+- open: 11.8
+- high: 11.85
+- low: 11.75
+- close: 11.8
+- volume: 1479389
+- ma5: 11.83
 - ma20: 11.84
 - ma60: 12.05
 - ma120: 12.14
-- ema23: 11.88
-- return_5d: 0
-- return_20d: -0.84
-- volume_ratio: 1.23
-- distance_to_ma20_pct: 0.06
-- distance_to_high_60_pct: -7.42
+- ema23: 11.87
+- return_5d: -0.42
+- return_20d: -1.26
+- volume_ratio: 1.4
+- distance_to_ma20_pct: -0.34
+- distance_to_high_60_pct: -7.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,11.85,11.95,11.8,11.85,1290909,11.84,11.85,12.1,11.89,1.13
 20260524,11.85,11.95,11.8,11.85,1290909,11.84,11.85,12.09,11.89,1.22
 20260525,11.8,11.85,11.75,11.8,1479389,11.84,11.85,12.07,11.88,1.41
-20260526,11.85,11.95,11.8,11.85,1290909,11.84,11.84,12.05,11.88,1.23
+20260526,11.8,11.85,11.75,11.8,1479389,11.83,11.84,12.05,11.87,1.4
 ```
 
 ## Latest TDCC Snapshot
@@ -120,9 +120,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2836 | 高雄銀 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 62.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

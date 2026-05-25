@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1103 嘉泥
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:27 Asia/Taipei
+- generated_at: 2026-05-26 06:01:38 Asia/Taipei
 - stock_id: 1103
 - stock_name: 嘉泥
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 13
-- high: 13.15
-- low: 12.95
-- close: 13.1
-- volume: 183262
-- ma5: 13.12
+- open: 13.1
+- high: 13.25
+- low: 13.05
+- close: 13.2
+- volume: 413873
+- ma5: 13.14
 - ma20: 13.2
 - ma60: 13.51
 - ma120: 13.76
-- ema23: 13.24
-- return_5d: 0.38
-- return_20d: -2.96
-- volume_ratio: 0.62
-- distance_to_ma20_pct: -0.72
-- distance_to_high_60_pct: -6.76
+- ema23: 13.25
+- return_5d: 1.15
+- return_20d: -2.22
+- volume_ratio: 1.34
+- distance_to_ma20_pct: 0
+- distance_to_high_60_pct: -6.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,13,13.15,12.95,13.1,183262,13.06,13.24,13.56,13.27,0.57
 20260524,13,13.15,12.95,13.1,183262,13.07,13.23,13.54,13.26,0.63
 20260525,13.1,13.25,13.05,13.2,413873,13.11,13.21,13.53,13.25,1.39
-20260526,13,13.15,12.95,13.1,183262,13.12,13.2,13.51,13.24,0.62
+20260526,13.1,13.25,13.05,13.2,413873,13.14,13.2,13.51,13.25,1.34
 ```
 
 ## Latest TDCC Snapshot

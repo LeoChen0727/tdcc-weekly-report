@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6164 華興
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:10 Asia/Taipei
+- generated_at: 2026-05-26 06:03:14 Asia/Taipei
 - stock_id: 6164
 - stock_name: 華興
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 12.15
-- high: 12.8
-- low: 12.15
-- close: 12.6
-- volume: 1155888
-- ma5: 12.59
+- open: 12.8
+- high: 13
+- low: 12.4
+- close: 12.55
+- volume: 702800
+- ma5: 12.58
 - ma20: 12.26
 - ma60: 12.27
 - ma120: 12.06
-- ema23: 12.3
-- return_5d: 3.7
-- return_20d: 3.28
-- volume_ratio: 1.59
-- distance_to_ma20_pct: 2.79
-- distance_to_high_60_pct: -8.7
+- ema23: 12.29
+- return_5d: 3.29
+- return_20d: 2.87
+- volume_ratio: 1
+- distance_to_ma20_pct: 2.41
+- distance_to_high_60_pct: -9.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,12.15,12.8,12.15,12.6,1155888,12.14,12.15,12.26,12.21,1.84
 20260524,12.15,12.8,12.15,12.6,1155888,12.33,12.2,12.27,12.24,1.76
 20260525,12.8,13,12.4,12.55,702800,12.5,12.24,12.27,12.27,1.03
-20260526,12.15,12.8,12.15,12.6,1155888,12.59,12.26,12.27,12.3,1.59
+20260526,12.8,13,12.4,12.55,702800,12.58,12.26,12.27,12.29,1
 ```
 
 ## Latest TDCC Snapshot
@@ -120,14 +120,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6164 | 華興 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6164 | 華興 | 1 | 1 | 3 | 3 | 3 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260526 | 6164 | 華興 | 1 | 1 | 3 | 3 | 3 | repeated_but_no_breakout | 近 10 日上榜 3 日、近 20 日上榜 3 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

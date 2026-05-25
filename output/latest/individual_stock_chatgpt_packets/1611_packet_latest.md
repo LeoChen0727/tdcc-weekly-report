@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1611 中電
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:40 Asia/Taipei
+- generated_at: 2026-05-26 06:01:49 Asia/Taipei
 - stock_id: 1611
 - stock_name: 中電
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 11.45
-- high: 11.5
+- open: 11.5
+- high: 11.6
 - low: 11.3
-- close: 11.5
-- volume: 464642
-- ma5: 11.48
-- ma20: 11.53
+- close: 11.4
+- volume: 779470
+- ma5: 11.46
+- ma20: 11.52
 - ma60: 12.23
 - ma120: 12.63
-- ema23: 11.6
-- return_5d: 1.77
-- return_20d: -2.95
-- volume_ratio: 0.84
-- distance_to_ma20_pct: -0.24
-- distance_to_high_60_pct: -16.67
+- ema23: 11.59
+- return_5d: 0.89
+- return_20d: -3.8
+- volume_ratio: 1.38
+- distance_to_ma20_pct: -1.06
+- distance_to_high_60_pct: -17.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,11.45,11.5,11.3,11.5,464642,11.33,11.6,12.32,11.64,0.85
 20260524,11.45,11.5,11.3,11.5,464642,11.39,11.57,12.29,11.63,0.88
 20260525,11.5,11.6,11.3,11.4,779470,11.44,11.54,12.26,11.61,1.44
-20260526,11.45,11.5,11.3,11.5,464642,11.48,11.53,12.23,11.6,0.84
+20260526,11.5,11.6,11.3,11.4,779470,11.46,11.52,12.23,11.59,1.38
 ```
 
 ## Latest TDCC Snapshot

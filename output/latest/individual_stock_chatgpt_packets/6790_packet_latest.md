@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6790 永豐實
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:33 Asia/Taipei
+- generated_at: 2026-05-26 06:03:34 Asia/Taipei
 - stock_id: 6790
 - stock_name: 永豐實
 - packet_status: standard_180d_window_packet
@@ -56,9 +56,9 @@
 - date: 20260526
 - open: 39.5
 - high: 39.5
-- low: 39.2
+- low: 38.85
 - close: 39.2
-- volume: 257853
+- volume: 291107
 - ma5: 39.2
 - ma20: 39.66
 - ma60: 39.93
@@ -66,7 +66,7 @@
 - ema23: 39.59
 - return_5d: -0.89
 - return_20d: -1.01
-- volume_ratio: 1.21
+- volume_ratio: 1.36
 - distance_to_ma20_pct: -1.15
 - distance_to_high_60_pct: -4.97
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,39.5,39.5,39.2,39.2,257853,39.44,39.71,39.98,39.71,1.36
 20260524,39.5,39.5,39.2,39.2,257853,39.32,39.69,39.96,39.67,1.35
 20260525,39.5,39.5,38.85,39.2,291107,39.27,39.67,39.95,39.63,1.44
-20260526,39.5,39.5,39.2,39.2,257853,39.2,39.66,39.93,39.59,1.21
+20260526,39.5,39.5,38.85,39.2,291107,39.2,39.66,39.93,39.59,1.36
 ```
 
 ## Latest TDCC Snapshot

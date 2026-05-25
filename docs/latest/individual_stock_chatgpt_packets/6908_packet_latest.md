@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6908 宏碁遊戲-創
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:36 Asia/Taipei
+- generated_at: 2026-05-26 06:03:38 Asia/Taipei
 - stock_id: 6908
 - stock_name: 宏碁遊戲-創
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 38.6
-- high: 38.85
-- low: 38.3
-- close: 38.3
-- volume: 12573
-- ma5: 38.37
-- ma20: 39.16
-- ma60: 39.59
-- ma120: 39.59
-- ema23: 39.08
-- return_5d: -0.52
-- return_20d: -1.79
-- volume_ratio: 0.74
-- distance_to_ma20_pct: -2.19
-- distance_to_high_60_pct: -29.07
+- open: 38.15
+- high: 39.3
+- low: 38.15
+- close: 38.65
+- volume: 47511
+- ma5: 38.44
+- ma20: 39.17
+- ma60: 39.6
+- ma120: 39.6
+- ema23: 39.11
+- return_5d: 0.39
+- return_20d: -0.9
+- volume_ratio: 2.53
+- distance_to_ma20_pct: -1.34
+- distance_to_high_60_pct: -28.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,38.6,38.85,38.3,38.3,12573,38.28,39.23,39.68,39.28,0.78
 20260524,38.6,38.85,38.3,38.3,12573,38.3,39.21,39.65,39.2,0.82
 20260525,38.15,39.3,38.15,38.65,47511,38.41,39.19,39.62,39.15,2.79
-20260526,38.6,38.85,38.3,38.3,12573,38.37,39.16,39.59,39.08,0.74
+20260526,38.15,39.3,38.15,38.65,47511,38.44,39.17,39.6,39.11,2.53
 ```
 
 ## Latest TDCC Snapshot

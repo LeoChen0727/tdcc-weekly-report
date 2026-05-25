@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5519 隆大
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:03 Asia/Taipei
+- generated_at: 2026-05-26 06:03:07 Asia/Taipei
 - stock_id: 5519
 - stock_name: 隆大
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 32.75
-- high: 32.95
-- low: 32.6
-- close: 32.65
-- volume: 365403
-- ma5: 32.58
-- ma20: 32.55
-- ma60: 33.01
+- open: 32.65
+- high: 32.65
+- low: 32.1
+- close: 32.3
+- volume: 529988
+- ma5: 32.51
+- ma20: 32.53
+- ma60: 33
 - ma120: 32.56
-- ema23: 32.61
-- return_5d: -0.31
-- return_20d: -0.15
-- volume_ratio: 0.98
-- distance_to_ma20_pct: 0.3
-- distance_to_high_60_pct: -8.16
+- ema23: 32.58
+- return_5d: -1.37
+- return_20d: -1.22
+- volume_ratio: 1.39
+- distance_to_ma20_pct: -0.72
+- distance_to_high_60_pct: -9.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,32.75,32.95,32.6,32.65,365403,32.62,32.53,32.99,32.64,0.92
 20260524,32.75,32.95,32.6,32.65,365403,32.66,32.55,33,32.64,0.99
 20260525,32.65,32.65,32.1,32.3,529988,32.6,32.55,33,32.61,1.41
-20260526,32.75,32.95,32.6,32.65,365403,32.58,32.55,33.01,32.61,0.98
+20260526,32.65,32.65,32.1,32.3,529988,32.51,32.53,33,32.58,1.39
 ```
 
 ## Latest TDCC Snapshot

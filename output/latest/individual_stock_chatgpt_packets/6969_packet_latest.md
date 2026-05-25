@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6969 成信實業*-創
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:39 Asia/Taipei
+- generated_at: 2026-05-26 06:03:40 Asia/Taipei
 - stock_id: 6969
 - stock_name: 成信實業*-創
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 27.9
+- open: 28
 - high: 28.1
-- low: 27.85
-- close: 28
-- volume: 65248
-- ma5: 27.96
-- ma20: 28.34
+- low: 27.8
+- close: 27.8
+- volume: 75700
+- ma5: 27.92
+- ma20: 28.33
 - ma60: 28.87
 - ma120: 30.27
-- ema23: 28.4
-- return_5d: -0.36
-- return_20d: -1.93
-- volume_ratio: 0.98
-- distance_to_ma20_pct: -1.2
-- distance_to_high_60_pct: -13.45
+- ema23: 28.39
+- return_5d: -1.07
+- return_20d: -2.63
+- volume_ratio: 1.13
+- distance_to_ma20_pct: -1.87
+- distance_to_high_60_pct: -14.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,27.9,28.1,27.85,28,65248,28.04,28.44,29.05,28.54,0.96
 20260524,27.9,28.1,27.85,28,65248,28.03,28.4,29,28.5,1.01
 20260525,28,28.1,27.8,27.8,75700,27.98,28.37,28.94,28.44,1.17
-20260526,27.9,28.1,27.85,28,65248,27.96,28.34,28.87,28.4,0.98
+20260526,28,28.1,27.8,27.8,75700,27.92,28.33,28.87,28.39,1.13
 ```
 
 ## Latest TDCC Snapshot

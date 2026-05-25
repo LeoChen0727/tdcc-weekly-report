@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1423 利華
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:32 Asia/Taipei
+- generated_at: 2026-05-26 06:01:42 Asia/Taipei
 - stock_id: 1423
 - stock_name: 利華
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 40.8
-- high: 41.8
-- low: 40.75
-- close: 40.9
-- volume: 31794
-- ma5: 41.08
-- ma20: 40.88
-- ma60: 40.41
-- ma120: 39.36
-- ema23: 40.92
-- return_5d: -0.97
-- return_20d: -2.15
-- volume_ratio: 0.54
-- distance_to_ma20_pct: 0.06
-- distance_to_high_60_pct: -4.55
+- open: 41.4
+- high: 42.4
+- low: 41.4
+- close: 41.8
+- volume: 125452
+- ma5: 41.26
+- ma20: 40.92
+- ma60: 40.42
+- ma120: 39.37
+- ema23: 41
+- return_5d: 1.21
+- return_20d: 0
+- volume_ratio: 1.97
+- distance_to_ma20_pct: 2.14
+- distance_to_high_60_pct: -2.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,40.8,41.8,40.75,40.9,31794,40.94,40.98,40.26,40.84,0.56
 20260524,40.8,41.8,40.75,40.9,31794,40.96,40.94,40.3,40.84,0.58
 20260525,41.4,42.4,41.4,41.8,125452,41.16,40.92,40.36,40.92,2.13
-20260526,40.8,41.8,40.75,40.9,31794,41.08,40.88,40.41,40.92,0.54
+20260526,41.4,42.4,41.4,41.8,125452,41.26,40.92,40.42,41,1.97
 ```
 
 ## Latest TDCC Snapshot

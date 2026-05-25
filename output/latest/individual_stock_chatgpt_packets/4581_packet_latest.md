@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4581 光隆精密-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:47 Asia/Taipei
+- generated_at: 2026-05-26 06:02:52 Asia/Taipei
 - stock_id: 4581
 - stock_name: 光隆精密-KY
 - packet_status: standard_180d_window_packet
@@ -55,20 +55,20 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 49.45
-- high: 49.8
+- high: 50.4
 - low: 49.45
-- close: 49.45
-- volume: 15047
-- ma5: 49.64
-- ma20: 49.81
-- ma60: 49.79
-- ma120: 50.79
-- ema23: 49.78
-- return_5d: 0
-- return_20d: -0.5
-- volume_ratio: 0.7
-- distance_to_ma20_pct: -0.72
-- distance_to_high_60_pct: -6.34
+- close: 50.4
+- volume: 36009
+- ma5: 49.83
+- ma20: 49.86
+- ma60: 49.8
+- ma120: 50.8
+- ema23: 49.86
+- return_5d: 1.92
+- return_20d: 1.41
+- volume_ratio: 1.61
+- distance_to_ma20_pct: 1.09
+- distance_to_high_60_pct: -4.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,49.45,49.8,49.45,49.45,15047,49.41,49.82,49.84,49.79,0.74
 20260524,49.45,49.8,49.45,49.45,15047,49.46,49.8,49.81,49.76,0.74
 20260525,49.45,50.4,49.45,50.4,36009,49.64,49.82,49.8,49.81,1.68
-20260526,49.45,49.8,49.45,49.45,15047,49.64,49.81,49.79,49.78,0.7
+20260526,49.45,50.4,49.45,50.4,36009,49.83,49.86,49.8,49.86,1.61
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6666 羅麗芬-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:28 Asia/Taipei
+- generated_at: 2026-05-26 06:03:30 Asia/Taipei
 - stock_id: 6666
 - stock_name: 羅麗芬-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 41.55
-- high: 41.6
-- low: 40.6
-- close: 40.6
-- volume: 14113
-- ma5: 40.49
-- ma20: 40.67
-- ma60: 41.12
+- open: 40.1
+- high: 40.15
+- low: 39.95
+- close: 40.05
+- volume: 41018
+- ma5: 40.38
+- ma20: 40.64
+- ma60: 41.11
 - ma120: 42.94
-- ema23: 40.79
-- return_5d: -2.52
-- return_20d: -0.73
-- volume_ratio: 0.55
-- distance_to_ma20_pct: -0.17
-- distance_to_high_60_pct: -8.66
+- ema23: 40.74
+- return_5d: -3.84
+- return_20d: -2.08
+- volume_ratio: 1.51
+- distance_to_ma20_pct: -1.45
+- distance_to_high_60_pct: -9.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,41.55,41.6,40.6,40.6,14113,40.84,40.74,41.31,40.9,0.58
 20260524,41.55,41.6,40.6,40.6,14113,40.76,40.72,41.25,40.87,0.58
 20260525,40.1,40.15,39.95,40.05,41018,40.7,40.68,41.18,40.8,1.61
-20260526,41.55,41.6,40.6,40.6,14113,40.49,40.67,41.12,40.79,0.55
+20260526,40.1,40.15,39.95,40.05,41018,40.38,40.64,41.11,40.74,1.51
 ```
 
 ## Latest TDCC Snapshot

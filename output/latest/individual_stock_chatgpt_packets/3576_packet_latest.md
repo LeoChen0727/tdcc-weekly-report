@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3576 聯合再生
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:32 Asia/Taipei
+- generated_at: 2026-05-26 06:02:38 Asia/Taipei
 - stock_id: 3576
 - stock_name: 聯合再生
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 17.55
-- high: 18.45
-- low: 17.2
-- close: 18.25
-- volume: 29282073
-- ma5: 18.47
-- ma20: 17.43
-- ma60: 19.52
-- ma120: 14.91
-- ema23: 17.81
-- return_5d: 4.58
-- return_20d: 20.46
-- volume_ratio: 0.95
-- distance_to_ma20_pct: 4.72
-- distance_to_high_60_pct: -34.82
+- open: 18.75
+- high: 19.65
+- low: 18.15
+- close: 19.35
+- volume: 40449019
+- ma5: 18.69
+- ma20: 17.48
+- ma60: 19.54
+- ma120: 14.92
+- ema23: 17.9
+- return_5d: 10.89
+- return_20d: 27.72
+- volume_ratio: 1.29
+- distance_to_ma20_pct: 10.68
+- distance_to_high_60_pct: -30.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,17.55,18.45,17.2,18.25,29282073,18.15,16.89,19.7,17.57,1.03
 20260524,17.55,18.45,17.2,18.25,29282073,17.95,17.04,19.66,17.63,1.02
 20260525,18.75,19.65,18.15,19.35,40449019,18.31,17.27,19.62,17.77,1.34
-20260526,17.55,18.45,17.2,18.25,29282073,18.47,17.43,19.52,17.81,0.95
+20260526,18.75,19.65,18.15,19.35,40449019,18.69,17.48,19.54,17.9,1.29
 ```
 
 ## Latest TDCC Snapshot
@@ -120,9 +120,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3576 | 聯合再生 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

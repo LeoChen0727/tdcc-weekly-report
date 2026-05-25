@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5525 順天
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:03 Asia/Taipei
+- generated_at: 2026-05-26 06:03:07 Asia/Taipei
 - stock_id: 5525
 - stock_name: 順天
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 22.15
-- high: 22.3
-- low: 21.55
-- close: 21.7
-- volume: 292096
-- ma5: 21.56
-- ma20: 22.6
-- ma60: 24.17
+- open: 21.7
+- high: 21.7
+- low: 20.45
+- close: 21
+- volume: 299906
+- ma5: 21.42
+- ma20: 22.57
+- ma60: 24.16
 - ma120: 25.74
-- ema23: 22.69
-- return_5d: -2.69
-- return_20d: -7.66
-- volume_ratio: 2
-- distance_to_ma20_pct: -3.98
-- distance_to_high_60_pct: -19.03
+- ema23: 22.63
+- return_5d: -5.83
+- return_20d: -10.64
+- volume_ratio: 2.05
+- distance_to_ma20_pct: -6.94
+- distance_to_high_60_pct: -21.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,22.15,22.3,21.55,21.7,292096,22.13,22.87,24.41,23.06,2.49
 20260524,22.15,22.3,21.55,21.7,292096,21.96,22.8,24.34,22.94,2.34
 20260525,21.7,21.7,20.45,21,299906,21.68,22.69,24.25,22.78,2.21
-20260526,22.15,22.3,21.55,21.7,292096,21.56,22.6,24.17,22.69,2
+20260526,21.7,21.7,20.45,21,299906,21.42,22.57,24.16,22.63,2.05
 ```
 
 ## Latest TDCC Snapshot

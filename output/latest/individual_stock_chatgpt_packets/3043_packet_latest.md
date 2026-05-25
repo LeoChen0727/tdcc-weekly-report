@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3043 科風
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:16 Asia/Taipei
+- generated_at: 2026-05-26 06:02:23 Asia/Taipei
 - stock_id: 3043
 - stock_name: 科風
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 21.6
-- high: 21.6
+- open: 21.8
+- high: 21.8
 - low: 21
-- close: 21.4
-- volume: 342356
-- ma5: 21.33
-- ma20: 20.46
-- ma60: 20.6
-- ma120: 21.34
-- ema23: 20.69
-- return_5d: 0.71
-- return_20d: 4.9
-- volume_ratio: 1.3
-- distance_to_ma20_pct: 4.59
-- distance_to_high_60_pct: -6.96
+- close: 21.05
+- volume: 285721
+- ma5: 21.26
+- ma20: 20.44
+- ma60: 20.59
+- ma120: 21.33
+- ema23: 20.66
+- return_5d: -0.94
+- return_20d: 3.19
+- volume_ratio: 1.1
+- distance_to_ma20_pct: 2.97
+- distance_to_high_60_pct: -8.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,21.6,21.6,21,21.4,342356,21.06,20.36,20.63,20.52,1.41
 20260524,21.6,21.6,21,21.4,342356,21.41,20.39,20.62,20.59,1.4
 20260525,21.8,21.8,21,21.05,285721,21.3,20.41,20.61,20.63,1.14
-20260526,21.6,21.6,21,21.4,342356,21.33,20.46,20.6,20.69,1.3
+20260526,21.8,21.8,21,21.05,285721,21.26,20.44,20.59,20.66,1.1
 ```
 
 ## Latest TDCC Snapshot

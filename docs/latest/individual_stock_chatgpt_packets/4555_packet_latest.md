@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4555 氣立
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:45 Asia/Taipei
+- generated_at: 2026-05-26 06:02:51 Asia/Taipei
 - stock_id: 4555
 - stock_name: 氣立
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 46.95
-- high: 51
-- low: 46.45
-- close: 49.7
-- volume: 4884680
-- ma5: 50.4
-- ma20: 44.24
-- ma60: 39.34
-- ma120: 39.43
-- ema23: 44.57
-- return_5d: 6.65
-- return_20d: 25.82
-- volume_ratio: 2.95
-- distance_to_ma20_pct: 12.34
-- distance_to_high_60_pct: -8.47
+- open: 50.2
+- high: 54.3
+- low: 50.1
+- close: 53.2
+- volume: 3425527
+- ma5: 51.1
+- ma20: 44.41
+- ma60: 39.4
+- ma120: 39.46
+- ema23: 44.86
+- return_5d: 14.16
+- return_20d: 34.68
+- volume_ratio: 2.16
+- distance_to_ma20_pct: 19.78
+- distance_to_high_60_pct: -2.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,46.95,51,46.45,49.7,4884680,45.99,42.57,38.68,42.7,4.79
 20260524,46.95,51,46.45,49.7,4884680,47.62,43.06,38.89,43.28,3.89
 20260525,50.2,54.3,50.1,53.2,3425527,49.78,43.73,39.14,44.11,2.42
-20260526,46.95,51,46.45,49.7,4884680,50.4,44.24,39.34,44.57,2.95
+20260526,50.2,54.3,50.1,53.2,3425527,51.1,44.41,39.4,44.86,2.16
 ```
 
 ## Latest TDCC Snapshot
@@ -122,13 +122,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4555 | 氣立 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 4555 | 氣立 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 4555 | 氣立 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 4555 | 氣立 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4555 | 氣立 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260526 | 4555 | 氣立 | 4 | 4 | 4 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | status |

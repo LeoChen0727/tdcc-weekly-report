@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2211 長榮鋼
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:49 Asia/Taipei
+- generated_at: 2026-05-26 06:01:58 Asia/Taipei
 - stock_id: 2211
 - stock_name: 長榮鋼
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 91.8
-- high: 92.2
-- low: 91.5
-- close: 92
-- volume: 797049
-- ma5: 92.18
-- ma20: 95.11
-- ma60: 98.6
+- open: 91.7
+- high: 93.5
+- low: 91.3
+- close: 92.9
+- volume: 916635
+- ma5: 92.36
+- ma20: 95.16
+- ma60: 98.61
 - ma120: 102.21
-- ema23: 94.95
-- return_5d: 0
-- return_20d: -7.07
-- volume_ratio: 1.02
-- distance_to_ma20_pct: -3.27
-- distance_to_high_60_pct: -11.96
+- ema23: 95.02
+- return_5d: 0.98
+- return_20d: -6.16
+- volume_ratio: 1.16
+- distance_to_ma20_pct: -2.37
+- distance_to_high_60_pct: -11.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,91.8,92.2,91.5,92,797049,92.04,96,99.14,95.74,0.97
 20260524,91.8,92.2,91.5,92,797049,91.88,95.72,98.96,95.43,1.05
 20260525,91.7,93.5,91.3,92.9,916635,92.18,95.47,98.79,95.22,1.19
-20260526,91.8,92.2,91.5,92,797049,92.18,95.11,98.6,94.95,1.02
+20260526,91.7,93.5,91.3,92.9,916635,92.36,95.16,98.61,95.02,1.16
 ```
 
 ## Latest TDCC Snapshot

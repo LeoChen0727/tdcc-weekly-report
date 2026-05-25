@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2637 慧洋-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:06 Asia/Taipei
+- generated_at: 2026-05-26 06:02:14 Asia/Taipei
 - stock_id: 2637
 - stock_name: 慧洋-KY
 - packet_status: standard_180d_window_packet
@@ -55,20 +55,20 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 72
-- high: 72.2
-- low: 70.7
-- close: 71.2
-- volume: 3253859
-- ma5: 71.98
-- ma20: 73.12
-- ma60: 71.52
-- ma120: 70.48
-- ema23: 72.53
-- return_5d: -0.97
-- return_20d: -0.56
-- volume_ratio: 1.17
-- distance_to_ma20_pct: -2.63
-- distance_to_high_60_pct: -8.25
+- high: 75.5
+- low: 71.2
+- close: 75.1
+- volume: 5448995
+- ma5: 72.76
+- ma20: 73.32
+- ma60: 71.59
+- ma120: 70.51
+- ema23: 72.86
+- return_5d: 4.45
+- return_20d: 4.89
+- volume_ratio: 1.89
+- distance_to_ma20_pct: 2.43
+- distance_to_high_60_pct: -3.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,72,72.2,70.7,71.2,3253859,71.38,73,71.54,72.54,1.36
 20260524,72,72.2,70.7,71.2,3253859,71.46,72.97,71.53,72.43,1.32
 20260525,72,75.5,71.2,75.1,5448995,72.12,73.14,71.56,72.65,2.04
-20260526,72,72.2,70.7,71.2,3253859,71.98,73.12,71.52,72.53,1.17
+20260526,72,75.5,71.2,75.1,5448995,72.76,73.32,71.59,72.86,1.89
 ```
 
 ## Latest TDCC Snapshot
@@ -123,6 +123,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260526 | 2637 | 慧洋-KY | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 2637 | 慧洋-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

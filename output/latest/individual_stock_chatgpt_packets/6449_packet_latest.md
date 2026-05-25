@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6449 鈺邦
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:20 Asia/Taipei
+- generated_at: 2026-05-26 06:03:22 Asia/Taipei
 - stock_id: 6449
 - stock_name: 鈺邦
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 295
-- high: 316.5
-- low: 286.5
-- close: 305.5
-- volume: 1167965
-- ma5: 308.4
-- ma20: 237.65
-- ma60: 187.16
-- ma120: 179.06
-- ema23: 246.21
-- return_5d: 3.56
-- return_20d: 88
-- volume_ratio: 0.47
-- distance_to_ma20_pct: 28.55
-- distance_to_high_60_pct: -8.4
+- open: 300
+- high: 333.5
+- low: 300
+- close: 320
+- volume: 619309
+- ma5: 311.3
+- ma20: 238.38
+- ma60: 187.4
+- ma120: 179.18
+- ema23: 247.42
+- return_5d: 8.47
+- return_20d: 96.92
+- volume_ratio: 0.25
+- distance_to_ma20_pct: 34.24
+- distance_to_high_60_pct: -4.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,295,316.5,286.5,305.5,1167965,283.8,215.5,180.92,227.08,0.47
 20260524,295,316.5,286.5,305.5,1167965,296,222.78,183.03,233.62,0.47
 20260525,300,333.5,300,320,619309,306.3,230.5,185.22,240.82,0.25
-20260526,295,316.5,286.5,305.5,1167965,308.4,237.65,187.16,246.21,0.47
+20260526,300,333.5,300,320,619309,311.3,238.38,187.4,247.42,0.25
 ```
 
 ## Latest TDCC Snapshot

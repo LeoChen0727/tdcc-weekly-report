@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2603 長榮
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:04 Asia/Taipei
+- generated_at: 2026-05-26 06:02:12 Asia/Taipei
 - stock_id: 2603
 - stock_name: 長榮
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 214.5
-- high: 219
+- open: 220
+- high: 222
 - low: 214
-- close: 219
-- volume: 30119281
-- ma5: 218
-- ma20: 210.6
-- ma60: 207.21
-- ma120: 197.5
-- ema23: 210.3
-- return_5d: 3.3
-- return_20d: 8.68
-- volume_ratio: 1.56
-- distance_to_ma20_pct: 3.99
-- distance_to_high_60_pct: -1.57
+- close: 214
+- volume: 31059614
+- ma5: 217
+- ma20: 210.35
+- ma60: 207.12
+- ma120: 197.45
+- ema23: 209.88
+- return_5d: 0.94
+- return_20d: 6.2
+- volume_ratio: 1.61
+- distance_to_ma20_pct: 1.74
+- distance_to_high_60_pct: -3.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,214.5,219,214,219,30119281,211.9,208.05,206.32,208.2,1.9
 20260524,214.5,219,214,219,30119281,216.3,209.03,206.78,209.1,1.78
 20260525,220,222,214,214,31059614,216.6,209.72,207.06,209.51,1.72
-20260526,214.5,219,214,219,30119281,218,210.6,207.21,210.3,1.56
+20260526,220,222,214,214,31059614,217,210.35,207.12,209.88,1.61
 ```
 
 ## Latest TDCC Snapshot

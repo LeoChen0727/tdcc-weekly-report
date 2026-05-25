@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4960 誠美材
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:53 Asia/Taipei
+- generated_at: 2026-05-26 06:02:58 Asia/Taipei
 - stock_id: 4960
 - stock_name: 誠美材
 - packet_status: standard_180d_window_packet
@@ -55,20 +55,20 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 37
-- high: 37.35
-- low: 35.6
-- close: 35.8
-- volume: 25559359
-- ma5: 35.84
-- ma20: 37.09
-- ma60: 29.99
+- high: 38.55
+- low: 36
+- close: 36
+- volume: 16699898
+- ma5: 35.88
+- ma20: 37.1
+- ma60: 30
 - ma120: 21.84
-- ema23: 35.52
-- return_5d: -1.78
-- return_20d: -7.01
-- volume_ratio: 1.49
-- distance_to_ma20_pct: -3.47
-- distance_to_high_60_pct: -25.42
+- ema23: 35.54
+- return_5d: -1.23
+- return_20d: -6.49
+- volume_ratio: 1
+- distance_to_ma20_pct: -2.96
+- distance_to_high_60_pct: -25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,37,37.35,35.6,35.8,25559359,35.15,37.49,28.91,35.42,1.79
 20260524,37,37.35,35.6,35.8,25559359,35.4,37.41,29.27,35.45,1.66
 20260525,37,38.55,36,36,16699898,35.97,37.22,29.64,35.5,1.04
-20260526,37,37.35,35.6,35.8,25559359,35.84,37.09,29.99,35.52,1.49
+20260526,37,38.55,36,36,16699898,35.88,37.1,30,35.54,1
 ```
 
 ## Latest TDCC Snapshot
@@ -120,14 +120,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 4960 | 誠美材 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 4960 | 誠美材 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | status |

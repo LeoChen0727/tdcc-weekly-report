@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9955 佳龍
 
 ## Metadata
-- generated_at: 2026-05-26 05:30:00 Asia/Taipei
+- generated_at: 2026-05-26 06:04:00 Asia/Taipei
 - stock_id: 9955
 - stock_name: 佳龍
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 28.2
-- high: 28.3
-- low: 27.95
+- open: 28.15
+- high: 28.55
+- low: 28.15
 - close: 28.15
-- volume: 326020
+- volume: 541203
 - ma5: 28.15
 - ma20: 28.86
 - ma60: 31.04
@@ -66,7 +66,7 @@
 - ema23: 28.98
 - return_5d: -0.18
 - return_20d: -3.26
-- volume_ratio: 0.85
+- volume_ratio: 1.37
 - distance_to_ma20_pct: -2.47
 - distance_to_high_60_pct: -29
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,28.2,28.3,27.95,28.15,326020,28.13,29.02,31.37,29.23,0.88
 20260524,28.2,28.3,27.95,28.15,326020,28.08,28.98,31.27,29.14,0.89
 20260525,28.15,28.55,28.15,28.15,541203,28.16,28.91,31.18,29.06,1.42
-20260526,28.2,28.3,27.95,28.15,326020,28.15,28.86,31.04,28.98,0.85
+20260526,28.15,28.55,28.15,28.15,541203,28.15,28.86,31.04,28.98,1.37
 ```
 
 ## Latest TDCC Snapshot

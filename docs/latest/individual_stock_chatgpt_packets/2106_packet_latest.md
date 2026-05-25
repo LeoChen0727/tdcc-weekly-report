@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2106 建大
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:48 Asia/Taipei
+- generated_at: 2026-05-26 06:01:57 Asia/Taipei
 - stock_id: 2106
 - stock_name: 建大
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 16.85
-- high: 16.9
-- low: 16.6
-- close: 16.7
-- volume: 1245216
-- ma5: 16.69
-- ma20: 16.97
+- open: 16.7
+- high: 16.7
+- low: 16.4
+- close: 16.65
+- volume: 1903748
+- ma5: 16.68
+- ma20: 16.96
 - ma60: 17.87
 - ma120: 18.97
-- ema23: 17.09
-- return_5d: -0.89
-- return_20d: -4.57
-- volume_ratio: 1.43
-- distance_to_ma20_pct: -1.58
-- distance_to_high_60_pct: -16.29
+- ema23: 17.08
+- return_5d: -1.19
+- return_20d: -4.86
+- volume_ratio: 2.11
+- distance_to_ma20_pct: -1.86
+- distance_to_high_60_pct: -16.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,16.85,16.9,16.6,16.7,1245216,16.76,17.09,18.05,17.21,1.65
 20260524,16.85,16.9,16.6,16.7,1245216,16.73,17.05,17.99,17.16,1.61
 20260525,16.7,16.7,16.4,16.65,1903748,16.72,17.01,17.93,17.12,2.24
-20260526,16.85,16.9,16.6,16.7,1245216,16.69,16.97,17.87,17.09,1.43
+20260526,16.7,16.7,16.4,16.65,1903748,16.68,16.96,17.87,17.08,2.11
 ```
 
 ## Latest TDCC Snapshot

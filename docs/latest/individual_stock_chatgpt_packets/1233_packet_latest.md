@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1233 天仁
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:29 Asia/Taipei
+- generated_at: 2026-05-26 06:01:39 Asia/Taipei
 - stock_id: 1233
 - stock_name: 天仁
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 28.9
-- high: 28.9
-- low: 28.8
-- close: 28.8
-- volume: 5013
-- ma5: 28.75
-- ma20: 28.75
+- open: 28.8
+- high: 28.85
+- low: 28.55
+- close: 28.55
+- volume: 31152
+- ma5: 28.7
+- ma20: 28.74
 - ma60: 29.58
 - ma120: 30.88
-- ema23: 28.84
-- return_5d: 0
-- return_20d: -0.86
-- volume_ratio: 0.26
-- distance_to_ma20_pct: 0.17
-- distance_to_high_60_pct: -14.16
+- ema23: 28.81
+- return_5d: -0.87
+- return_20d: -1.72
+- volume_ratio: 1.49
+- distance_to_ma20_pct: -0.65
+- distance_to_high_60_pct: -14.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,28.9,28.9,28.8,28.8,5013,28.72,28.78,29.82,28.87,0.23
 20260524,28.9,28.9,28.8,28.8,5013,28.75,28.78,29.74,28.86,0.24
 20260525,28.8,28.85,28.55,28.55,31152,28.75,28.76,29.66,28.84,1.53
-20260526,28.9,28.9,28.8,28.8,5013,28.75,28.75,29.58,28.84,0.26
+20260526,28.8,28.85,28.55,28.55,31152,28.7,28.74,29.58,28.81,1.49
 ```
 
 ## Latest TDCC Snapshot

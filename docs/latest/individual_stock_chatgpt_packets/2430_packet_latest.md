@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2430 燦坤
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:58 Asia/Taipei
+- generated_at: 2026-05-26 06:02:06 Asia/Taipei
 - stock_id: 2430
 - stock_name: 燦坤
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 18.3
-- high: 18.3
-- low: 18.2
-- close: 18.3
-- volume: 118610
-- ma5: 18.33
-- ma20: 19
+- open: 18.35
+- high: 18.5
+- low: 18.35
+- close: 18.45
+- volume: 189815
+- ma5: 18.36
+- ma20: 19.01
 - ma60: 20.99
 - ma120: 21.96
-- ema23: 19.18
-- return_5d: 0
-- return_20d: -10.51
-- volume_ratio: 0.75
-- distance_to_ma20_pct: -3.68
-- distance_to_high_60_pct: -20.78
+- ema23: 19.2
+- return_5d: 0.82
+- return_20d: -9.78
+- volume_ratio: 1.18
+- distance_to_ma20_pct: -2.93
+- distance_to_high_60_pct: -20.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,18.3,18.3,18.2,18.3,118610,18.25,19.33,21.23,19.43,0.78
 20260524,18.3,18.3,18.2,18.3,118610,18.28,19.21,21.15,19.34,0.78
 20260525,18.35,18.5,18.35,18.45,189815,18.33,19.11,21.07,19.26,1.22
-20260526,18.3,18.3,18.2,18.3,118610,18.33,19,20.99,19.18,0.75
+20260526,18.35,18.5,18.35,18.45,189815,18.36,19.01,20.99,19.2,1.18
 ```
 
 ## Latest TDCC Snapshot

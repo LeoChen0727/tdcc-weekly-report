@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0052 富邦科技
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:23 Asia/Taipei
+- generated_at: 2026-05-26 06:01:34 Asia/Taipei
 - stock_id: 0052
 - stock_name: 富邦科技
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 56.85
-- high: 57.7
-- low: 56.6
-- close: 57.65
-- volume: 33005123
-- ma5: 58.04
-- ma20: 56.42
-- ma60: 50.19
-- ma120: 46.91
-- ema23: 55.54
-- return_5d: 2.22
-- return_20d: 8.67
-- volume_ratio: 0.91
-- distance_to_ma20_pct: 2.18
-- distance_to_high_60_pct: -3.84
+- open: 58.9
+- high: 59.95
+- low: 58.9
+- close: 59.6
+- volume: 46477310
+- ma5: 58.43
+- ma20: 56.52
+- ma60: 50.22
+- ma120: 46.93
+- ema23: 55.7
+- return_5d: 5.67
+- return_20d: 12.35
+- volume_ratio: 1.26
+- distance_to_ma20_pct: 5.45
+- distance_to_high_60_pct: -0.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,56.85,57.7,56.6,57.65,33005123,56.19,55.76,49.68,54.72,0.79
 20260524,56.85,57.7,56.6,57.65,33005123,56.76,55.9,49.84,54.96,0.86
 20260525,58.9,59.95,58.9,59.6,46477310,57.79,56.19,50.02,55.35,1.25
-20260526,56.85,57.7,56.6,57.65,33005123,58.04,56.42,50.19,55.54,0.91
+20260526,58.9,59.95,58.9,59.6,46477310,58.43,56.52,50.22,55.7,1.26
 ```
 
 ## Latest TDCC Snapshot
@@ -119,7 +119,7 @@ no_rows,True
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 0052 | 富邦科技 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 0052 | 富邦科技 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

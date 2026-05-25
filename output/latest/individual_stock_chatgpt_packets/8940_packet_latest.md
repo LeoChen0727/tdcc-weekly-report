@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8940 新天地
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:56 Asia/Taipei
+- generated_at: 2026-05-26 06:03:56 Asia/Taipei
 - stock_id: 8940
 - stock_name: 新天地
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 17.2
+- open: 17.15
 - high: 17.2
-- low: 16.8
-- close: 17
-- volume: 39959
-- ma5: 17.01
+- low: 16.95
+- close: 17.05
+- volume: 54046
+- ma5: 17.02
 - ma20: 17.39
 - ma60: 18.05
 - ma120: 19.21
 - ema23: 17.32
-- return_5d: 0.59
-- return_20d: -2.3
-- volume_ratio: 0.62
-- distance_to_ma20_pct: -2.26
-- distance_to_high_60_pct: -16.05
+- return_5d: 0.89
+- return_20d: -2.01
+- volume_ratio: 0.83
+- distance_to_ma20_pct: -1.98
+- distance_to_high_60_pct: -15.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,17.2,17.2,16.8,17,39959,16.93,17.42,18.18,17.41,0.6
 20260524,17.2,17.2,16.8,17,39959,16.92,17.43,18.14,17.38,0.63
 20260525,17.15,17.2,16.95,17.05,54046,16.99,17.41,18.09,17.35,0.85
-20260526,17.2,17.2,16.8,17,39959,17.01,17.39,18.05,17.32,0.62
+20260526,17.15,17.2,16.95,17.05,54046,17.02,17.39,18.05,17.32,0.83
 ```
 
 ## Latest TDCC Snapshot

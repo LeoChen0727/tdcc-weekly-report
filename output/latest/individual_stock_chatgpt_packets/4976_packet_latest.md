@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4976 佳凌
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:54 Asia/Taipei
+- generated_at: 2026-05-26 06:02:58 Asia/Taipei
 - stock_id: 4976
 - stock_name: 佳凌
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 33.1
-- high: 33.4
-- low: 32.4
-- close: 32.9
-- volume: 1857220
-- ma5: 32.82
-- ma20: 30.76
-- ma60: 29.67
+- open: 33.3
+- high: 33.6
+- low: 32.2
+- close: 32.5
+- volume: 1393146
+- ma5: 32.74
+- ma20: 30.74
+- ma60: 29.66
 - ma120: 30.33
-- ema23: 31.09
-- return_5d: -0.15
-- return_20d: 11.9
-- volume_ratio: 1.59
-- distance_to_ma20_pct: 6.95
-- distance_to_high_60_pct: -2.08
+- ema23: 31.06
+- return_5d: -1.37
+- return_20d: 10.54
+- volume_ratio: 1.22
+- distance_to_ma20_pct: 5.72
+- distance_to_high_60_pct: -3.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,33.1,33.4,32.4,32.9,1857220,32.09,30.21,29.6,30.6,1.89
 20260524,33.1,33.4,32.4,32.9,1857220,32.51,30.41,29.62,30.79,1.77
 20260525,33.3,33.6,32.2,32.5,1393146,32.83,30.59,29.64,30.93,1.27
-20260526,33.1,33.4,32.4,32.9,1857220,32.82,30.76,29.67,31.09,1.59
+20260526,33.3,33.6,32.2,32.5,1393146,32.74,30.74,29.66,31.06,1.22
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4976 | 佳凌 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 4976 | 佳凌 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

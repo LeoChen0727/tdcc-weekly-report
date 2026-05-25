@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1471 首利
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:35 Asia/Taipei
+- generated_at: 2026-05-26 06:01:45 Asia/Taipei
 - stock_id: 1471
 - stock_name: 首利
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 10.5
-- high: 10.95
-- low: 10.5
-- close: 10.85
-- volume: 557180
-- ma5: 10.83
-- ma20: 10.82
+- open: 11.3
+- high: 11.3
+- low: 10.65
+- close: 10.75
+- volume: 675970
+- ma5: 10.81
+- ma20: 10.81
 - ma60: 11.92
 - ma120: 11.08
-- ema23: 10.99
-- return_5d: 3.33
-- return_20d: -7.66
-- volume_ratio: 0.89
-- distance_to_ma20_pct: 0.3
-- distance_to_high_60_pct: -25.17
+- ema23: 10.98
+- return_5d: 2.38
+- return_20d: -8.51
+- volume_ratio: 1.07
+- distance_to_ma20_pct: -0.58
+- distance_to_high_60_pct: -25.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,10.5,10.95,10.5,10.85,557180,10.53,10.94,12.05,11.04,0.94
 20260524,10.5,10.95,10.5,10.85,557180,10.69,10.91,12.02,11.02,0.94
 20260525,11.3,11.3,10.65,10.75,675970,10.76,10.86,11.98,11,1.11
-20260526,10.5,10.95,10.5,10.85,557180,10.83,10.82,11.92,10.99,0.89
+20260526,11.3,11.3,10.65,10.75,675970,10.81,10.81,11.92,10.98,1.07
 ```
 
 ## Latest TDCC Snapshot

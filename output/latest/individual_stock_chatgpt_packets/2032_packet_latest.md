@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2032 新鋼
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:47 Asia/Taipei
+- generated_at: 2026-05-26 06:01:56 Asia/Taipei
 - stock_id: 2032
 - stock_name: 新鋼
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 16.75
-- high: 16.75
-- low: 16.25
-- close: 16.5
-- volume: 405252
-- ma5: 16.83
-- ma20: 16.57
-- ma60: 16.28
-- ma120: 15.92
-- ema23: 16.6
-- return_5d: -0.6
-- return_20d: -0.3
-- volume_ratio: 0.52
-- distance_to_ma20_pct: -0.41
-- distance_to_high_60_pct: -9.09
+- open: 16.55
+- high: 18.15
+- low: 16.5
+- close: 18.15
+- volume: 3004677
+- ma5: 17.16
+- ma20: 16.65
+- ma60: 16.3
+- ma120: 15.93
+- ema23: 16.74
+- return_5d: 9.34
+- return_20d: 9.67
+- volume_ratio: 3.28
+- distance_to_ma20_pct: 9.01
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,16.75,16.75,16.25,16.5,405252,16.45,16.43,16.24,16.47,0.59
 20260524,16.75,16.75,16.25,16.5,405252,16.5,16.47,16.24,16.47,0.59
 20260525,16.55,18.15,16.5,18.15,3004677,16.85,16.57,16.27,16.61,3.71
-20260526,16.75,16.75,16.25,16.5,405252,16.83,16.57,16.28,16.6,0.52
+20260526,16.55,18.15,16.5,18.15,3004677,17.16,16.65,16.3,16.74,3.28
 ```
 
 ## Latest TDCC Snapshot

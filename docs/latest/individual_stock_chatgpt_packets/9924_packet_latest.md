@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9924 福興
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:58 Asia/Taipei
+- generated_at: 2026-05-26 06:03:58 Asia/Taipei
 - stock_id: 9924
 - stock_name: 福興
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 42.05
-- high: 42.15
-- low: 41.8
-- close: 41.9
-- volume: 190913
-- ma5: 41.97
-- ma20: 42.53
-- ma60: 44.43
+- open: 42.1
+- high: 42.5
+- low: 41.9
+- close: 42.25
+- volume: 243839
+- ma5: 42.04
+- ma20: 42.55
+- ma60: 44.44
 - ma120: 47.75
-- ema23: 42.74
-- return_5d: -0.59
-- return_20d: -4.99
-- volume_ratio: 1.16
-- distance_to_ma20_pct: -1.48
-- distance_to_high_60_pct: -15.86
+- ema23: 42.77
+- return_5d: 0.24
+- return_20d: -4.2
+- volume_ratio: 1.46
+- distance_to_ma20_pct: -0.7
+- distance_to_high_60_pct: -15.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,42.05,42.15,41.8,41.9,190913,41.97,42.84,44.73,42.95,1.28
 20260524,42.05,42.15,41.8,41.9,190913,41.95,42.73,44.62,42.87,1.24
 20260525,42.1,42.5,41.9,42.25,243839,42.02,42.64,44.53,42.82,1.51
-20260526,42.05,42.15,41.8,41.9,190913,41.97,42.53,44.43,42.74,1.16
+20260526,42.1,42.5,41.9,42.25,243839,42.04,42.55,44.44,42.77,1.46
 ```
 
 ## Latest TDCC Snapshot

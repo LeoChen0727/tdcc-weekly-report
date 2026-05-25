@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00952 凱基台灣AI50
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:26 Asia/Taipei
+- generated_at: 2026-05-26 06:01:37 Asia/Taipei
 - stock_id: 00952
 - stock_name: 凱基台灣AI50
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 17.5
-- high: 17.89
-- low: 17.5
-- close: 17.89
-- volume: 3043184
-- ma5: 18.04
-- ma20: 18.04
-- ma60: 18.04
-- ma120: 18.04
-- ema23: 17.95
+- open: 18.35
+- high: 18.84
+- low: 18.3
+- close: 18.62
+- volume: 3250243
+- ma5: 18.18
+- ma20: 18.18
+- ma60: 18.18
+- ma120: 18.18
+- ema23: 18.01
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.99
-- distance_to_ma20_pct: -0.81
-- distance_to_high_60_pct: -5.04
+- volume_ratio: 1.04
+- distance_to_ma20_pct: 2.41
+- distance_to_high_60_pct: -1.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,17.5,17.89,17.5,17.89,3043184,,,,,
 20260524,17.5,17.89,17.5,17.89,3043184,,,,,
 20260525,18.35,18.84,18.3,18.62,3250243,,,,,
-20260526,17.5,17.89,17.5,17.89,3043184,18.04,18.04,18.04,17.95,0.99
+20260526,18.35,18.84,18.3,18.62,3250243,18.18,18.18,18.18,18.01,1.04
 ```
 
 ## Latest TDCC Snapshot

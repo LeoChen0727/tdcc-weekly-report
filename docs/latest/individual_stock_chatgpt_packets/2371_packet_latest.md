@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2371 大同
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:54 Asia/Taipei
+- generated_at: 2026-05-26 06:02:03 Asia/Taipei
 - stock_id: 2371
 - stock_name: 大同
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 28.5
-- high: 29.6
-- low: 28.5
-- close: 29.5
-- volume: 19180353
-- ma5: 29.68
-- ma20: 29.69
-- ma60: 31.04
-- ma120: 32.93
-- ema23: 29.87
-- return_5d: 3.87
-- return_20d: -5.14
-- volume_ratio: 1.04
-- distance_to_ma20_pct: -0.65
-- distance_to_high_60_pct: -20.81
+- open: 29.95
+- high: 31.15
+- low: 29.55
+- close: 30.4
+- volume: 32220043
+- ma5: 29.86
+- ma20: 29.74
+- ma60: 31.06
+- ma120: 32.94
+- ema23: 29.94
+- return_5d: 7.04
+- return_20d: -2.25
+- volume_ratio: 1.69
+- distance_to_ma20_pct: 2.23
+- distance_to_high_60_pct: -18.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,28.5,29.6,28.5,29.5,19180353,28.77,29.8,31.41,29.89,1.13
 20260524,28.5,29.6,28.5,29.5,19180353,28.99,29.76,31.29,29.85,1.13
 20260525,29.95,31.15,29.55,30.4,32220043,29.46,29.77,31.17,29.9,1.78
-20260526,28.5,29.6,28.5,29.5,19180353,29.68,29.69,31.04,29.87,1.04
+20260526,29.95,31.15,29.55,30.4,32220043,29.86,29.74,31.06,29.94,1.69
 ```
 
 ## Latest TDCC Snapshot
@@ -120,14 +120,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 2371 | 大同 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 2371 | 大同 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

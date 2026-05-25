@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6641 基士德-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:27 Asia/Taipei
+- generated_at: 2026-05-26 06:03:29 Asia/Taipei
 - stock_id: 6641
 - stock_name: 基士德-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 18.35
-- high: 18.35
+- open: 18.4
+- high: 18.55
 - low: 18.3
-- close: 18.35
-- volume: 10042
-- ma5: 18.37
+- close: 18.45
+- volume: 31013
+- ma5: 18.39
 - ma20: 18.54
 - ma60: 18.73
 - ma120: 19.84
-- ema23: 18.49
-- return_5d: 0.27
-- return_20d: -0.54
-- volume_ratio: 0.14
-- distance_to_ma20_pct: -1
-- distance_to_high_60_pct: -15.05
+- ema23: 18.5
+- return_5d: 0.82
+- return_20d: 0
+- volume_ratio: 0.41
+- distance_to_ma20_pct: -0.49
+- distance_to_high_60_pct: -14.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,18.35,18.35,18.3,18.35,10042,18.34,18.55,18.91,18.52,0.13
 20260524,18.35,18.35,18.3,18.35,10042,18.32,18.55,18.85,18.51,0.13
 20260525,18.4,18.55,18.3,18.45,31013,18.36,18.54,18.79,18.5,0.42
-20260526,18.35,18.35,18.3,18.35,10042,18.37,18.54,18.73,18.49,0.14
+20260526,18.4,18.55,18.3,18.45,31013,18.39,18.54,18.73,18.5,0.41
 ```
 
 ## Latest TDCC Snapshot

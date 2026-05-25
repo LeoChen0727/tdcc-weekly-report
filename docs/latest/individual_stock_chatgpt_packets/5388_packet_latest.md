@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5388 中磊
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:00 Asia/Taipei
+- generated_at: 2026-05-26 06:03:04 Asia/Taipei
 - stock_id: 5388
 - stock_name: 中磊
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 83.5
-- high: 86.1
-- low: 82.9
-- close: 85.1
-- volume: 5975457
-- ma5: 85.36
-- ma20: 81.81
-- ma60: 80.28
-- ma120: 81.06
-- ema23: 82.31
-- return_5d: 2.53
-- return_20d: 10.23
-- volume_ratio: 0.83
-- distance_to_ma20_pct: 4.03
-- distance_to_high_60_pct: -4.6
+- open: 86.8
+- high: 87.4
+- low: 85.1
+- close: 86.4
+- volume: 4547505
+- ma5: 85.62
+- ma20: 81.87
+- ma60: 80.3
+- ma120: 81.07
+- ema23: 82.42
+- return_5d: 4.1
+- return_20d: 11.92
+- volume_ratio: 0.64
+- distance_to_ma20_pct: 5.53
+- distance_to_high_60_pct: -3.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,83.5,86.1,82.9,85.1,5975457,82.9,80.56,80.15,81.35,0.86
 20260524,83.5,86.1,82.9,85.1,5975457,84.02,80.94,80.19,81.67,0.85
 20260525,86.8,87.4,85.1,86.4,4547505,84.94,81.41,80.25,82.06,0.64
-20260526,83.5,86.1,82.9,85.1,5975457,85.36,81.81,80.28,82.31,0.83
+20260526,86.8,87.4,85.1,86.4,4547505,85.62,81.87,80.3,82.42,0.64
 ```
 
 ## Latest TDCC Snapshot
@@ -122,9 +122,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 5388 | 中磊 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 5388 | 中磊 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260526 | 5388 | 中磊 | revenue_breakout_low_response | 營收爆發低反應股 | 16.0 | 15.0 | D_降級_TDCC轉弱 |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 5388 | 中磊 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 5388 | 中磊 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 5388 | 中磊 | revenue_breakout_low_response | 營收爆發低反應股 | 16.0 | 13.0 | D_降級_TDCC轉弱 |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260521 | 5388 | 中磊 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

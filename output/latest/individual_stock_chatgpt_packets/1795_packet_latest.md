@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1795 美時
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:44 Asia/Taipei
+- generated_at: 2026-05-26 06:01:53 Asia/Taipei
 - stock_id: 1795
 - stock_name: 美時
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 200
-- high: 202.5
-- low: 197.5
-- close: 201
-- volume: 2978740
-- ma5: 200.3
-- ma20: 208.88
-- ma60: 223.23
-- ma120: 263.72
-- ema23: 207.94
-- return_5d: 1.26
-- return_20d: -8.84
-- volume_ratio: 0.83
-- distance_to_ma20_pct: -3.77
-- distance_to_high_60_pct: -28.47
+- open: 202
+- high: 204
+- low: 196
+- close: 197.5
+- volume: 2584268
+- ma5: 199.6
+- ma20: 208.7
+- ma60: 223.18
+- ma120: 263.69
+- ema23: 207.65
+- return_5d: -0.5
+- return_20d: -10.43
+- volume_ratio: 0.72
+- distance_to_ma20_pct: -5.37
+- distance_to_high_60_pct: -29.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,200,202.5,197.5,201,2978740,196.4,212.12,227.28,210.36,0.87
 20260524,200,202.5,197.5,201,2978740,198.8,211.18,225.88,209.58,0.86
 20260525,202,204,196,197.5,2584268,199.8,209.85,224.53,208.58,0.73
-20260526,200,202.5,197.5,201,2978740,200.3,208.88,223.23,207.94,0.83
+20260526,202,204,196,197.5,2584268,199.6,208.7,223.18,207.65,0.72
 ```
 
 ## Latest TDCC Snapshot

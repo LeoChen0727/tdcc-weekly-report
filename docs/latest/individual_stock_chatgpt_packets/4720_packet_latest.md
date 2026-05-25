@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4720 德淵
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:48 Asia/Taipei
+- generated_at: 2026-05-26 06:02:53 Asia/Taipei
 - stock_id: 4720
 - stock_name: 德淵
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 25.75
-- high: 26.35
-- low: 25.6
-- close: 25.8
-- volume: 2501911
-- ma5: 25.74
-- ma20: 26.07
-- ma60: 21.67
-- ma120: 18.77
-- ema23: 25.37
-- return_5d: 1.57
-- return_20d: -8.99
-- volume_ratio: 0.47
-- distance_to_ma20_pct: -1.04
-- distance_to_high_60_pct: -14.14
+- open: 26.2
+- high: 26.4
+- low: 25.35
+- close: 25.5
+- volume: 3246955
+- ma5: 25.68
+- ma20: 26.05
+- ma60: 21.66
+- ma120: 18.76
+- ema23: 25.34
+- return_5d: 0.39
+- return_20d: -10.05
+- volume_ratio: 0.61
+- distance_to_ma20_pct: -2.13
+- distance_to_high_60_pct: -15.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,25.75,26.35,25.6,25.8,2501911,25.27,26.36,21.21,25.27,0.35
 20260524,25.75,26.35,25.6,25.8,2501911,25.44,26.3,21.37,25.31,0.4
 20260525,26.2,26.4,25.35,25.5,3246955,25.66,26.2,21.52,25.33,0.56
-20260526,25.75,26.35,25.6,25.8,2501911,25.74,26.07,21.67,25.37,0.47
+20260526,26.2,26.4,25.35,25.5,3246955,25.68,26.05,21.66,25.34,0.61
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4720 | 德淵 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 4720 | 德淵 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

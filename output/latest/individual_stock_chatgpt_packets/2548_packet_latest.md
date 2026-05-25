@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2548 華固
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:04 Asia/Taipei
+- generated_at: 2026-05-26 06:02:12 Asia/Taipei
 - stock_id: 2548
 - stock_name: 華固
 - packet_status: standard_180d_window_packet
@@ -56,19 +56,19 @@
 - date: 20260526
 - open: 123.5
 - high: 123.5
-- low: 122.5
-- close: 123.5
-- volume: 1776182
-- ma5: 123.2
-- ma20: 124.35
-- ma60: 123.03
-- ma120: 116.02
-- ema23: 124.51
-- return_5d: 0
-- return_20d: -3.14
-- volume_ratio: 0.9
-- distance_to_ma20_pct: -0.68
-- distance_to_high_60_pct: -6.79
+- low: 121
+- close: 122
+- volume: 2593664
+- ma5: 122.9
+- ma20: 124.28
+- ma60: 123.01
+- ma120: 116
+- ema23: 124.39
+- return_5d: -1.21
+- return_20d: -4.31
+- volume_ratio: 1.29
+- distance_to_ma20_pct: -1.83
+- distance_to_high_60_pct: -7.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,123.5,123.5,122.5,123.5,1776182,123.7,125.25,122.47,124.96,0.95
 20260524,123.5,123.5,122.5,123.5,1776182,123.5,124.83,122.65,124.84,0.95
 20260525,123.5,123.5,121,122,2593664,123.2,124.55,122.88,124.6,1.35
-20260526,123.5,123.5,122.5,123.5,1776182,123.2,124.35,123.03,124.51,0.9
+20260526,123.5,123.5,121,122,2593664,122.9,124.28,123.01,124.39,1.29
 ```
 
 ## Latest TDCC Snapshot
@@ -123,7 +123,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260526 | 2548 | 華固 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260526 | 2548 | 華固 | revenue_breakout_low_response | 營收爆發低反應股 | 15.0 | 16.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260526 | 2548 | 華固 | revenue_breakout_low_response | 營收爆發低反應股 | 15.0 | 14.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 | 20260521 | 2548 | 華固 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

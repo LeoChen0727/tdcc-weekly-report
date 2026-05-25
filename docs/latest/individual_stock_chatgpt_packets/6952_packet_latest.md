@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6952 大武山
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:38 Asia/Taipei
+- generated_at: 2026-05-26 06:03:39 Asia/Taipei
 - stock_id: 6952
 - stock_name: 大武山
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 36.8
-- high: 37
-- low: 36.7
-- close: 36.75
-- volume: 42215
-- ma5: 36.7
-- ma20: 36.99
+- open: 36.85
+- high: 36.85
+- low: 36.45
+- close: 36.5
+- volume: 26838
+- ma5: 36.65
+- ma20: 36.98
 - ma60: 38.68
 - ma120: 40.97
-- ema23: 37.29
-- return_5d: -0.68
-- return_20d: -1.74
-- volume_ratio: 1.58
-- distance_to_ma20_pct: -0.65
-- distance_to_high_60_pct: -15.03
+- ema23: 37.26
+- return_5d: -1.35
+- return_20d: -2.41
+- volume_ratio: 1.04
+- distance_to_ma20_pct: -1.29
+- distance_to_high_60_pct: -15.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,36.8,37,36.7,36.75,42215,36.86,37.14,39.03,37.47,1.74
 20260524,36.8,37,36.7,36.75,42215,36.82,37.08,38.91,37.41,1.67
 20260525,36.85,36.85,36.45,36.5,26838,36.75,37.02,38.79,37.33,1.05
-20260526,36.8,37,36.7,36.75,42215,36.7,36.99,38.68,37.29,1.58
+20260526,36.85,36.85,36.45,36.5,26838,36.65,36.98,38.68,37.26,1.04
 ```
 
 ## Latest TDCC Snapshot

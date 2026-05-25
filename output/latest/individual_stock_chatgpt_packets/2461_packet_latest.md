@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2461 光群雷
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:00 Asia/Taipei
+- generated_at: 2026-05-26 06:02:08 Asia/Taipei
 - stock_id: 2461
 - stock_name: 光群雷
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 16.3
-- high: 17.05
-- low: 16.2
-- close: 16.75
-- volume: 1280918
-- ma5: 16.73
-- ma20: 16.47
+- open: 16.8
+- high: 17.15
+- low: 16.4
+- close: 16.65
+- volume: 1221344
+- ma5: 16.71
+- ma20: 16.46
 - ma60: 16.81
 - ma120: 16.41
-- ema23: 16.62
-- return_5d: 3.08
-- return_20d: -1.18
-- volume_ratio: 1.67
-- distance_to_ma20_pct: 1.7
-- distance_to_high_60_pct: -12.76
+- ema23: 16.61
+- return_5d: 2.46
+- return_20d: -1.77
+- volume_ratio: 1.6
+- distance_to_ma20_pct: 1.12
+- distance_to_high_60_pct: -13.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,16.3,17.05,16.2,16.75,1280918,16.36,16.52,16.81,16.59,1.9
 20260524,16.3,17.05,16.2,16.75,1280918,16.49,16.5,16.81,16.6,1.81
 20260525,16.8,17.15,16.4,16.65,1221344,16.63,16.48,16.81,16.6,1.66
-20260526,16.3,17.05,16.2,16.75,1280918,16.73,16.47,16.81,16.62,1.67
+20260526,16.8,17.15,16.4,16.65,1221344,16.71,16.46,16.81,16.61,1.6
 ```
 
 ## Latest TDCC Snapshot
@@ -120,9 +120,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2461 | 光群雷 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

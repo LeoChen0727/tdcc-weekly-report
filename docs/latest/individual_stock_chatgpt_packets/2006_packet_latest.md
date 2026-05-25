@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2006 東和鋼鐵
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:45 Asia/Taipei
+- generated_at: 2026-05-26 06:01:54 Asia/Taipei
 - stock_id: 2006
 - stock_name: 東和鋼鐵
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 65.7
-- high: 65.8
-- low: 65.1
-- close: 65.5
-- volume: 1082443
-- ma5: 65.66
-- ma20: 66.02
-- ma60: 70.62
+- open: 65.9
+- high: 67.3
+- low: 65.5
+- close: 66.3
+- volume: 3433915
+- ma5: 65.82
+- ma20: 66.06
+- ma60: 70.64
 - ma120: 69.94
-- ema23: 66.55
-- return_5d: 0
-- return_20d: -2.38
-- volume_ratio: 0.59
-- distance_to_ma20_pct: -0.78
-- distance_to_high_60_pct: -22.02
+- ema23: 66.61
+- return_5d: 1.22
+- return_20d: -1.19
+- volume_ratio: 1.76
+- distance_to_ma20_pct: 0.37
+- distance_to_high_60_pct: -21.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,65.7,65.8,65.1,65.5,1082443,65.48,66.31,71.07,66.78,0.57
 20260524,65.7,65.8,65.1,65.5,1082443,65.46,66.21,70.94,66.67,0.59
 20260525,65.9,67.3,65.5,66.3,3433915,65.66,66.09,70.82,66.64,1.81
-20260526,65.7,65.8,65.1,65.5,1082443,65.66,66.02,70.62,66.55,0.59
+20260526,65.9,67.3,65.5,66.3,3433915,65.82,66.06,70.64,66.61,1.76
 ```
 
 ## Latest TDCC Snapshot
@@ -120,14 +120,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 2006 | 東和鋼鐵 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 2006 | 東和鋼鐵 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

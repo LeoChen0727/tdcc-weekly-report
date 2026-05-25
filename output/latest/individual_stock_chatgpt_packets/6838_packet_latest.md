@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6838 台新藥
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:34 Asia/Taipei
+- generated_at: 2026-05-26 06:03:35 Asia/Taipei
 - stock_id: 6838
 - stock_name: 台新藥
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 26.1
-- high: 26.1
-- low: 25.75
-- close: 25.9
-- volume: 171459
-- ma5: 25.85
-- ma20: 26.41
-- ma60: 27.42
+- open: 25.8
+- high: 25.8
+- low: 25.3
+- close: 25.65
+- volume: 316702
+- ma5: 25.8
+- ma20: 26.4
+- ma60: 27.41
 - ma120: 27.63
-- ema23: 26.6
-- return_5d: -0.58
-- return_20d: -6.83
-- volume_ratio: 1.03
-- distance_to_ma20_pct: -1.94
-- distance_to_high_60_pct: -22.22
+- ema23: 26.58
+- return_5d: -1.54
+- return_20d: -7.73
+- volume_ratio: 1.83
+- distance_to_ma20_pct: -2.84
+- distance_to_high_60_pct: -22.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,26.1,26.1,25.75,25.9,171459,25.96,26.67,27.53,26.83,1.12
 20260524,26.1,26.1,25.75,25.9,171459,25.93,26.62,27.49,26.76,1.1
 20260525,25.8,25.8,25.3,25.65,316702,25.88,26.51,27.45,26.66,1.96
-20260526,26.1,26.1,25.75,25.9,171459,25.85,26.41,27.42,26.6,1.03
+20260526,25.8,25.8,25.3,25.65,316702,25.8,26.4,27.41,26.58,1.83
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00930 永豐ESG低碳高息
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:26 Asia/Taipei
+- generated_at: 2026-05-26 06:01:36 Asia/Taipei
 - stock_id: 00930
 - stock_name: 永豐ESG低碳高息
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 22.17
-- high: 22.41
-- low: 22.05
-- close: 22.41
-- volume: 4867379
-- ma5: 22.59
-- ma20: 22.59
-- ma60: 22.59
-- ma120: 22.59
-- ema23: 22.48
+- open: 22.63
+- high: 23.3
+- low: 22.63
+- close: 23.3
+- volume: 4575340
+- ma5: 22.77
+- ma20: 22.77
+- ma60: 22.77
+- ma120: 22.77
+- ema23: 22.55
 - return_5d: 
 - return_20d: 
-- volume_ratio: 1.01
-- distance_to_ma20_pct: -0.79
-- distance_to_high_60_pct: -3.82
+- volume_ratio: 0.96
+- distance_to_ma20_pct: 2.35
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,22.17,22.41,22.05,22.41,4867379,,,,,
 20260524,22.17,22.41,22.05,22.41,4867379,,,,,
 20260525,22.63,23.3,22.63,23.3,4575340,,,,,
-20260526,22.17,22.41,22.05,22.41,4867379,22.59,22.59,22.59,22.48,1.01
+20260526,22.63,23.3,22.63,23.3,4575340,22.77,22.77,22.77,22.55,0.96
 ```
 
 ## Latest TDCC Snapshot

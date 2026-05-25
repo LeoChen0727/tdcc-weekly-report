@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1417 嘉裕
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:32 Asia/Taipei
+- generated_at: 2026-05-26 06:01:42 Asia/Taipei
 - stock_id: 1417
 - stock_name: 嘉裕
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 8.18
-- high: 8.27
-- low: 8.16
-- close: 8.16
-- volume: 183094
-- ma5: 8.17
+- open: 8.16
+- high: 8.23
+- low: 8.08
+- close: 8.2
+- volume: 243401
+- ma5: 8.18
 - ma20: 8.45
 - ma60: 8.77
 - ma120: 8.82
 - ema23: 8.44
-- return_5d: -0.73
-- return_20d: -8
-- volume_ratio: 1.23
-- distance_to_ma20_pct: -3.4
-- distance_to_high_60_pct: -13.92
+- return_5d: -0.24
+- return_20d: -7.55
+- volume_ratio: 1.6
+- distance_to_ma20_pct: -2.95
+- distance_to_high_60_pct: -13.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,8.18,8.27,8.16,8.16,183094,8.2,8.55,8.8,8.52,1.38
 20260524,8.18,8.27,8.16,8.16,183094,8.18,8.52,8.79,8.49,1.35
 20260525,8.16,8.23,8.08,8.2,243401,8.18,8.48,8.78,8.46,1.68
-20260526,8.18,8.27,8.16,8.16,183094,8.17,8.45,8.77,8.44,1.23
+20260526,8.16,8.23,8.08,8.2,243401,8.18,8.45,8.77,8.44,1.6
 ```
 
 ## Latest TDCC Snapshot

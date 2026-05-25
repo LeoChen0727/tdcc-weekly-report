@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6269 台郡
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:17 Asia/Taipei
+- generated_at: 2026-05-26 06:03:20 Asia/Taipei
 - stock_id: 6269
 - stock_name: 台郡
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 58.8
-- high: 62.9
-- low: 58.8
-- close: 62.4
-- volume: 4292319
-- ma5: 62.86
-- ma20: 61.55
-- ma60: 61.12
-- ma120: 59.87
-- ema23: 61.54
-- return_5d: 6.3
-- return_20d: -2.04
-- volume_ratio: 0.98
-- distance_to_ma20_pct: 1.39
-- distance_to_high_60_pct: -14.52
+- open: 63.2
+- high: 66.4
+- low: 63.1
+- close: 64.7
+- volume: 4827940
+- ma5: 63.32
+- ma20: 61.66
+- ma60: 61.16
+- ma120: 59.89
+- ema23: 61.74
+- return_5d: 10.22
+- return_20d: 1.57
+- volume_ratio: 1.09
+- distance_to_ma20_pct: 4.93
+- distance_to_high_60_pct: -11.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,58.8,62.9,58.8,62.4,4292319,59.58,61.75,61.17,61.06,1.03
 20260524,58.8,62.9,58.8,62.4,4292319,60.78,61.6,61.12,61.17,1.02
 20260525,63.2,66.4,63.1,64.7,4827940,62.12,61.61,61.12,61.47,1.11
-20260526,58.8,62.9,58.8,62.4,4292319,62.86,61.55,61.12,61.54,0.98
+20260526,63.2,66.4,63.1,64.7,4827940,63.32,61.66,61.16,61.74,1.09
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6269 | 台郡 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 6269 | 台郡 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 6269 | 台郡 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

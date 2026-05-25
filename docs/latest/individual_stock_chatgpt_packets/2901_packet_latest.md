@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2901 欣欣
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:11 Asia/Taipei
+- generated_at: 2026-05-26 06:02:19 Asia/Taipei
 - stock_id: 2901
 - stock_name: 欣欣
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 22.55
-- high: 22.65
-- low: 22.55
-- close: 22.6
-- volume: 16511
-- ma5: 22.74
-- ma20: 23.22
-- ma60: 23.48
+- open: 22.95
+- high: 23.7
+- low: 22.95
+- close: 23.3
+- volume: 16767
+- ma5: 22.88
+- ma20: 23.26
+- ma60: 23.49
 - ma120: 24.09
-- ema23: 23.08
-- return_5d: 0.22
-- return_20d: -6.61
+- ema23: 23.13
+- return_5d: 3.33
+- return_20d: -3.72
 - volume_ratio: 0.59
-- distance_to_ma20_pct: -2.68
-- distance_to_high_60_pct: -9.6
+- distance_to_ma20_pct: 0.18
+- distance_to_high_60_pct: -6.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,22.55,22.65,22.55,22.6,16511,22.63,23.32,23.54,23.15,0.48
 20260524,22.55,22.65,22.55,22.6,16511,22.61,23.31,23.51,23.1,0.51
 20260525,22.95,23.7,22.95,23.3,16767,22.73,23.3,23.5,23.12,0.55
-20260526,22.55,22.65,22.55,22.6,16511,22.74,23.22,23.48,23.08,0.59
+20260526,22.95,23.7,22.95,23.3,16767,22.88,23.26,23.49,23.13,0.59
 ```
 
 ## Latest TDCC Snapshot

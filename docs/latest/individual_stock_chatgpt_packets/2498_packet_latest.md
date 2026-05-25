@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2498 宏達電
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:02 Asia/Taipei
+- generated_at: 2026-05-26 06:02:10 Asia/Taipei
 - stock_id: 2498
 - stock_name: 宏達電
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 46
-- high: 46.7
-- low: 45.65
-- close: 46.4
-- volume: 15829848
-- ma5: 46.36
-- ma20: 43.29
+- open: 47.2
+- high: 47.8
+- low: 46.2
+- close: 46.2
+- volume: 21032552
+- ma5: 46.32
+- ma20: 43.28
 - ma60: 41.72
 - ma120: 44.69
-- ema23: 43.77
-- return_5d: 2.09
-- return_20d: 16.58
-- volume_ratio: 0.86
-- distance_to_ma20_pct: 7.19
-- distance_to_high_60_pct: -2.93
+- ema23: 43.76
+- return_5d: 1.65
+- return_20d: 16.08
+- volume_ratio: 1.13
+- distance_to_ma20_pct: 6.75
+- distance_to_high_60_pct: -3.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,46,46.7,45.65,46.4,15829848,45.87,42.3,41.66,43.01,0.96
 20260524,46,46.7,45.65,46.4,15829848,46.02,42.63,41.68,43.29,0.93
 20260525,47.2,47.8,46.2,46.2,21032552,46.17,42.96,41.7,43.53,1.18
-20260526,46,46.7,45.65,46.4,15829848,46.36,43.29,41.72,43.77,0.86
+20260526,47.2,47.8,46.2,46.2,21032552,46.32,43.28,41.72,43.76,1.13
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2498 | 宏達電 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 2498 | 宏達電 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

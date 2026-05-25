@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1722 台肥
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:41 Asia/Taipei
+- generated_at: 2026-05-26 06:01:51 Asia/Taipei
 - stock_id: 1722
 - stock_name: 台肥
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 46.25
-- high: 46.4
-- low: 45.9
-- close: 46.05
-- volume: 1997903
-- ma5: 46.01
-- ma20: 46.64
+- open: 46.15
+- high: 46.2
+- low: 45.7
+- close: 45.85
+- volume: 3051413
+- ma5: 45.97
+- ma20: 46.63
 - ma60: 46.32
 - ma120: 46.64
-- ema23: 46.21
-- return_5d: -0.43
-- return_20d: -5.44
-- volume_ratio: 0.35
-- distance_to_ma20_pct: -1.26
-- distance_to_high_60_pct: -11.44
+- ema23: 46.19
+- return_5d: -0.86
+- return_20d: -5.85
+- volume_ratio: 0.53
+- distance_to_ma20_pct: -1.67
+- distance_to_high_60_pct: -11.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,46.25,46.4,45.9,46.05,1997903,45.94,46.6,46.38,46.27,0.3
 20260524,46.25,46.4,45.9,46.05,1997903,46.03,46.7,46.36,46.25,0.31
 20260525,46.15,46.2,45.7,45.85,3051413,46.05,46.77,46.34,46.22,0.46
-20260526,46.25,46.4,45.9,46.05,1997903,46.01,46.64,46.32,46.21,0.35
+20260526,46.15,46.2,45.7,45.85,3051413,45.97,46.63,46.32,46.19,0.53
 ```
 
 ## Latest TDCC Snapshot

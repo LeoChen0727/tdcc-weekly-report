@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8150 南茂
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:49 Asia/Taipei
+- generated_at: 2026-05-26 06:03:49 Asia/Taipei
 - stock_id: 8150
 - stock_name: 南茂
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 77.4
-- high: 82.4
-- low: 76.3
-- close: 79.1
-- volume: 46238424
-- ma5: 80.64
-- ma20: 82.61
-- ma60: 69.47
-- ma120: 61.45
-- ema23: 78.95
-- return_5d: 4.22
-- return_20d: 18.06
-- volume_ratio: 1.12
-- distance_to_ma20_pct: -4.24
-- distance_to_high_60_pct: -23.2
+- open: 80.5
+- high: 87
+- low: 79.1
+- close: 86.8
+- volume: 51440041
+- ma5: 82.18
+- ma20: 82.99
+- ma60: 69.6
+- ma120: 61.52
+- ema23: 79.59
+- return_5d: 14.36
+- return_20d: 29.55
+- volume_ratio: 1.24
+- distance_to_ma20_pct: 4.59
+- distance_to_high_60_pct: -15.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,77.4,82.4,76.3,79.1,46238424,77.22,80.51,68.79,78.14,1.28
 20260524,77.4,82.4,76.3,79.1,46238424,77.52,81.08,69.03,78.22,1.23
 20260525,80.5,87,79.1,86.8,51440041,80,82,69.28,78.93,1.3
-20260526,77.4,82.4,76.3,79.1,46238424,80.64,82.61,69.47,78.95,1.12
+20260526,80.5,87,79.1,86.8,51440041,82.18,82.99,69.6,79.59,1.24
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8150 | 南茂 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 8150 | 南茂 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 8150 | 南茂 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

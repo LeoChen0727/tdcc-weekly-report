@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2476 鉅祥
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:00 Asia/Taipei
+- generated_at: 2026-05-26 06:02:09 Asia/Taipei
 - stock_id: 2476
 - stock_name: 鉅祥
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 123.5
-- high: 124.5
-- low: 119
-- close: 121
-- volume: 7045030
-- ma5: 121.7
-- ma20: 117.7
-- ma60: 101.81
-- ma120: 94.87
-- ema23: 116.75
-- return_5d: 0.83
-- return_20d: 6.14
-- volume_ratio: 1.24
-- distance_to_ma20_pct: 2.8
-- distance_to_high_60_pct: -6.2
+- open: 123
+- high: 127.5
+- low: 122
+- close: 124.5
+- volume: 8008393
+- ma5: 122.4
+- ma20: 117.88
+- ma60: 101.86
+- ma120: 94.9
+- ema23: 117.04
+- return_5d: 3.75
+- return_20d: 9.21
+- volume_ratio: 1.4
+- distance_to_ma20_pct: 5.62
+- distance_to_high_60_pct: -3.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,123.5,124.5,119,121,7045030,118.2,117.03,99.92,115.14,1.27
 20260524,123.5,124.5,119,121,7045030,119.4,117.05,100.52,115.62,1.29
 20260525,123,127.5,122,124.5,8008393,121.5,117.35,101.19,116.36,1.43
-20260526,123.5,124.5,119,121,7045030,121.7,117.7,101.81,116.75,1.24
+20260526,123,127.5,122,124.5,8008393,122.4,117.88,101.86,117.04,1.4
 ```
 
 ## Latest TDCC Snapshot
@@ -122,8 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2476 | 鉅祥 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 2476 | 鉅祥 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 2476 | 鉅祥 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

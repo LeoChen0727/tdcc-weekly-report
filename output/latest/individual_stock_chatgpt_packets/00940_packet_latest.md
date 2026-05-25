@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00940 元大台灣價值高息
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:26 Asia/Taipei
+- generated_at: 2026-05-26 06:01:37 Asia/Taipei
 - stock_id: 00940
 - stock_name: 元大台灣價值高息
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 11.38
-- high: 11.51
-- low: 11.37
-- close: 11.49
-- volume: 50842128
-- ma5: 11.54
-- ma20: 11.54
-- ma60: 11.54
-- ma120: 11.54
-- ema23: 11.51
+- open: 11.67
+- high: 11.76
+- low: 11.65
+- close: 11.73
+- volume: 42866716
+- ma5: 11.59
+- ma20: 11.59
+- ma60: 11.59
+- ma120: 11.59
+- ema23: 11.53
 - return_5d: 
 - return_20d: 
-- volume_ratio: 1.03
-- distance_to_ma20_pct: -0.42
-- distance_to_high_60_pct: -2.3
+- volume_ratio: 0.9
+- distance_to_ma20_pct: 1.24
+- distance_to_high_60_pct: -0.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,11.38,11.51,11.37,11.49,50842128,,,,,
 20260524,11.38,11.51,11.37,11.49,50842128,,,,,
 20260525,11.67,11.76,11.65,11.73,42866716,,,,,
-20260526,11.38,11.51,11.37,11.49,50842128,11.54,11.54,11.54,11.51,1.03
+20260526,11.67,11.76,11.65,11.73,42866716,11.59,11.59,11.59,11.53,0.9
 ```
 
 ## Latest TDCC Snapshot

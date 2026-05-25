@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6958 日盛台駿
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:38 Asia/Taipei
+- generated_at: 2026-05-26 06:03:40 Asia/Taipei
 - stock_id: 6958
 - stock_name: 日盛台駿
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 17
-- high: 17.65
-- low: 17
-- close: 17.35
-- volume: 54286
-- ma5: 17.26
-- ma20: 17.91
-- ma60: 18.07
+- open: 17.35
+- high: 17.35
+- low: 16.8
+- close: 16.9
+- volume: 47628
+- ma5: 17.17
+- ma20: 17.89
+- ma60: 18.06
 - ma120: 16.95
-- ema23: 17.78
-- return_5d: 0.58
-- return_20d: -12.37
-- volume_ratio: 0.73
-- distance_to_ma20_pct: -3.14
-- distance_to_high_60_pct: -15.16
+- ema23: 17.74
+- return_5d: -2.03
+- return_20d: -14.65
+- volume_ratio: 0.64
+- distance_to_ma20_pct: -5.53
+- distance_to_high_60_pct: -17.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,17,17.65,17,17.35,54286,17.13,18.26,18.11,17.95,0.65
 20260524,17,17.65,17,17.35,54286,17.26,18.16,18.1,17.9,0.67
 20260525,17.35,17.35,16.8,16.9,47628,17.24,18.04,18.08,17.82,0.62
-20260526,17,17.65,17,17.35,54286,17.26,17.91,18.07,17.78,0.73
+20260526,17.35,17.35,16.8,16.9,47628,17.17,17.89,18.06,17.74,0.64
 ```
 
 ## Latest TDCC Snapshot

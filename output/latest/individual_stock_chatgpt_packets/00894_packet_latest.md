@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00894 中信小資高價30
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:25 Asia/Taipei
+- generated_at: 2026-05-26 06:01:36 Asia/Taipei
 - stock_id: 00894
 - stock_name: 中信小資高價30
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 46.59
-- high: 47.37
-- low: 46.59
-- close: 47.37
-- volume: 4297477
-- ma5: 47.79
-- ma20: 47.79
-- ma60: 47.79
-- ma120: 47.79
-- ema23: 47.53
+- open: 49.19
+- high: 49.78
+- low: 49.14
+- close: 49.45
+- volume: 1782716
+- ma5: 48.2
+- ma20: 48.2
+- ma60: 48.2
+- ma120: 48.2
+- ema23: 47.7
 - return_5d: 
 - return_20d: 
-- volume_ratio: 1.13
-- distance_to_ma20_pct: -0.87
-- distance_to_high_60_pct: -4.84
+- volume_ratio: 0.54
+- distance_to_ma20_pct: 2.59
+- distance_to_high_60_pct: -0.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,46.59,47.37,46.59,47.37,4297477,,,,,
 20260524,46.59,47.37,46.59,47.37,4297477,,,,,
 20260525,49.19,49.78,49.14,49.45,1782716,,,,,
-20260526,46.59,47.37,46.59,47.37,4297477,47.79,47.79,47.79,47.53,1.13
+20260526,49.19,49.78,49.14,49.45,1782716,48.2,48.2,48.2,47.7,0.54
 ```
 
 ## Latest TDCC Snapshot

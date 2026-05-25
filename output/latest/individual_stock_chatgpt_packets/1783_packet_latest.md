@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1783 和康生
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:43 Asia/Taipei
+- generated_at: 2026-05-26 06:01:52 Asia/Taipei
 - stock_id: 1783
 - stock_name: 和康生
 - packet_status: standard_180d_window_packet
@@ -55,20 +55,20 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 38.9
-- high: 39
-- low: 38.8
-- close: 39
-- volume: 79715
-- ma5: 38.89
-- ma20: 39.02
-- ma60: 41.24
+- high: 38.9
+- low: 38.35
+- close: 38.45
+- volume: 391704
+- ma5: 38.78
+- ma20: 38.99
+- ma60: 41.23
 - ma120: 42.8
-- ema23: 39.36
-- return_5d: -0.26
-- return_20d: -1.02
-- volume_ratio: 0.7
-- distance_to_ma20_pct: -0.06
-- distance_to_high_60_pct: -12.95
+- ema23: 39.31
+- return_5d: -1.66
+- return_20d: -2.41
+- volume_ratio: 3.02
+- distance_to_ma20_pct: -1.4
+- distance_to_high_60_pct: -14.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,38.9,39,38.8,39,79715,39.02,38.99,41.53,39.52,0.66
 20260524,38.9,39,38.8,39,79715,39.01,39.02,41.43,39.48,0.74
 20260525,38.9,38.9,38.35,38.45,391704,38.91,39.04,41.33,39.39,3.24
-20260526,38.9,39,38.8,39,79715,38.89,39.02,41.24,39.36,0.7
+20260526,38.9,38.9,38.35,38.45,391704,38.78,38.99,41.23,39.31,3.02
 ```
 
 ## Latest TDCC Snapshot

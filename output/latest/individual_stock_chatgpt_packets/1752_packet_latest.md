@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1752 南光
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:43 Asia/Taipei
+- generated_at: 2026-05-26 06:01:52 Asia/Taipei
 - stock_id: 1752
 - stock_name: 南光
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 32.85
-- high: 32.85
-- low: 32.65
-- close: 32.75
-- volume: 60177
-- ma5: 32.68
-- ma20: 33.08
-- ma60: 34.97
+- open: 32.75
+- high: 32.75
+- low: 32.35
+- close: 32.4
+- volume: 143797
+- ma5: 32.61
+- ma20: 33.06
+- ma60: 34.96
 - ma120: 36.09
-- ema23: 33.32
-- return_5d: 0
-- return_20d: -2.53
-- volume_ratio: 0.64
-- distance_to_ma20_pct: -0.99
-- distance_to_high_60_pct: -12.78
+- ema23: 33.29
+- return_5d: -1.07
+- return_20d: -3.57
+- volume_ratio: 1.46
+- distance_to_ma20_pct: -2
+- distance_to_high_60_pct: -13.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,32.85,32.85,32.65,32.75,60177,32.69,33.27,35.19,33.52,0.57
 20260524,32.85,32.85,32.65,32.75,60177,32.74,33.19,35.12,33.46,0.6
 20260525,32.75,32.75,32.35,32.4,143797,32.68,33.12,35.04,33.37,1.48
-20260526,32.85,32.85,32.65,32.75,60177,32.68,33.08,34.97,33.32,0.64
+20260526,32.75,32.75,32.35,32.4,143797,32.61,33.06,34.96,33.29,1.46
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1605 華新
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:39 Asia/Taipei
+- generated_at: 2026-05-26 06:01:49 Asia/Taipei
 - stock_id: 1605
 - stock_name: 華新
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 35.7
-- high: 37.1
-- low: 35.3
-- close: 36.5
-- volume: 60349986
-- ma5: 36.79
-- ma20: 34.62
-- ma60: 32.69
-- ma120: 33.87
-- ema23: 34.64
-- return_5d: 2.82
-- return_20d: 18.7
-- volume_ratio: 1.1
-- distance_to_ma20_pct: 5.45
-- distance_to_high_60_pct: -4.95
+- open: 37.9
+- high: 38.4
+- low: 37.4
+- close: 37.95
+- volume: 69693062
+- ma5: 37.08
+- ma20: 34.69
+- ma60: 32.71
+- ma120: 33.88
+- ema23: 34.76
+- return_5d: 6.9
+- return_20d: 23.41
+- volume_ratio: 1.26
+- distance_to_ma20_pct: 9.41
+- distance_to_high_60_pct: -1.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,35.7,37.1,35.3,36.5,60349986,35,33.63,32.66,33.94,1.27
 20260524,35.7,37.1,35.3,36.5,60349986,35.62,33.95,32.67,34.15,1.22
 20260525,37.9,38.4,37.4,37.95,69693062,36.59,34.33,32.69,34.47,1.33
-20260526,35.7,37.1,35.3,36.5,60349986,36.79,34.62,32.69,34.64,1.1
+20260526,37.9,38.4,37.4,37.95,69693062,37.08,34.69,32.71,34.76,1.26
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1605 | 華新 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 1605 | 華新 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 58.0 |  |  | neckline_challenge |  | call_put_bullish | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 1605 | 華新 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_put_bullish | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

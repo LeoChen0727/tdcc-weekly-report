@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6278 台表科
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:17 Asia/Taipei
+- generated_at: 2026-05-26 06:03:20 Asia/Taipei
 - stock_id: 6278
 - stock_name: 台表科
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 229
-- high: 245
-- low: 228.5
-- close: 245
-- volume: 19577157
-- ma5: 243.6
-- ma20: 211.75
-- ma60: 146.23
-- ma120: 121.79
-- ema23: 206.5
-- return_5d: 9.87
-- return_20d: 51.7
-- volume_ratio: 0.92
-- distance_to_ma20_pct: 15.7
-- distance_to_high_60_pct: -3.73
+- open: 253
+- high: 254.5
+- low: 238
+- close: 238
+- volume: 28744488
+- ma5: 242.2
+- ma20: 211.4
+- ma60: 146.11
+- ma120: 121.73
+- ema23: 205.92
+- return_5d: 6.73
+- return_20d: 47.37
+- volume_ratio: 1.32
+- distance_to_ma20_pct: 12.58
+- distance_to_high_60_pct: -6.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,229,245,228.5,245,19577157,226.3,198.7,139.16,195.71,1.03
 20260524,229,245,228.5,245,19577157,232.2,203.6,141.56,199.82,0.99
 20260525,253,254.5,238,238,28744488,239.2,207.57,143.84,203,1.38
-20260526,229,245,228.5,245,19577157,243.6,211.75,146.23,206.5,0.92
+20260526,253,254.5,238,238,28744488,242.2,211.4,146.11,205.92,1.32
 ```
 
 ## Latest TDCC Snapshot
@@ -120,9 +120,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6278 | 台表科 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | call_strong_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

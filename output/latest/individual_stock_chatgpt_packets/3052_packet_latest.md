@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3052 夆典
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:17 Asia/Taipei
+- generated_at: 2026-05-26 06:02:24 Asia/Taipei
 - stock_id: 3052
 - stock_name: 夆典
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 10.55
-- high: 10.55
-- low: 10.45
-- close: 10.55
-- volume: 266947
-- ma5: 10.56
+- open: 10.6
+- high: 10.6
+- low: 10.5
+- close: 10.6
+- volume: 572964
+- ma5: 10.57
 - ma20: 10.62
 - ma60: 10.92
 - ma120: 11.29
 - ema23: 10.65
-- return_5d: 0.48
-- return_20d: -1.4
-- volume_ratio: 0.56
-- distance_to_ma20_pct: -0.68
-- distance_to_high_60_pct: -8.26
+- return_5d: 0.95
+- return_20d: -0.93
+- volume_ratio: 1.17
+- distance_to_ma20_pct: -0.24
+- distance_to_high_60_pct: -7.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,10.55,10.55,10.45,10.55,266947,10.51,10.63,10.97,10.67,0.51
 20260524,10.55,10.55,10.45,10.55,266947,10.52,10.63,10.95,10.66,0.55
 20260525,10.6,10.6,10.5,10.6,572964,10.55,10.63,10.93,10.66,1.15
-20260526,10.55,10.55,10.45,10.55,266947,10.56,10.62,10.92,10.65,0.56
+20260526,10.6,10.6,10.5,10.6,572964,10.57,10.62,10.92,10.65,1.17
 ```
 
 ## Latest TDCC Snapshot

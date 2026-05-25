@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1806 冠軍
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:44 Asia/Taipei
+- generated_at: 2026-05-26 06:01:53 Asia/Taipei
 - stock_id: 1806
 - stock_name: 冠軍
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 8.14
-- high: 8.14
-- low: 8.05
-- close: 8.06
-- volume: 209099
-- ma5: 8.06
+- open: 8.08
+- high: 8.08
+- low: 8
+- close: 8.04
+- volume: 835862
+- ma5: 8.05
 - ma20: 8.15
 - ma60: 8.4
-- ma120: 8.72
+- ma120: 8.71
 - ema23: 8.16
-- return_5d: -0.12
-- return_20d: -8.82
-- volume_ratio: 0.5
-- distance_to_ma20_pct: -1.12
-- distance_to_high_60_pct: -11.23
+- return_5d: -0.37
+- return_20d: -9.05
+- volume_ratio: 1.85
+- distance_to_ma20_pct: -1.36
+- distance_to_high_60_pct: -11.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,8.14,8.14,8.05,8.06,209099,8.06,8.23,8.44,8.2,0.19
 20260524,8.14,8.14,8.05,8.06,209099,8.06,8.23,8.43,8.18,0.35
 20260525,8.08,8.08,8,8.04,835862,8.06,8.19,8.41,8.17,1.5
-20260526,8.14,8.14,8.05,8.06,209099,8.06,8.15,8.4,8.16,0.5
+20260526,8.08,8.08,8,8.04,835862,8.05,8.15,8.4,8.16,1.85
 ```
 
 ## Latest TDCC Snapshot

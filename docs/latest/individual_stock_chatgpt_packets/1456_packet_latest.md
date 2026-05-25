@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1456 怡華
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:34 Asia/Taipei
+- generated_at: 2026-05-26 06:01:44 Asia/Taipei
 - stock_id: 1456
 - stock_name: 怡華
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 12.95
-- high: 13.25
-- low: 12.85
-- close: 12.85
-- volume: 20124
-- ma5: 12.87
-- ma20: 13.36
+- open: 12.85
+- high: 13
+- low: 12.75
+- close: 12.95
+- volume: 33992
+- ma5: 12.89
+- ma20: 13.37
 - ma60: 13.76
 - ma120: 13.43
-- ema23: 13.33
-- return_5d: -0.39
-- return_20d: -6.2
-- volume_ratio: 0.26
-- distance_to_ma20_pct: -3.82
-- distance_to_high_60_pct: -20.68
+- ema23: 13.34
+- return_5d: 0.39
+- return_20d: -5.47
+- volume_ratio: 0.43
+- distance_to_ma20_pct: -3.11
+- distance_to_high_60_pct: -20.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,12.95,13.25,12.85,12.85,20124,12.96,13.45,13.78,13.47,0.24
 20260524,12.95,13.25,12.85,12.85,20124,12.88,13.43,13.77,13.42,0.25
 20260525,12.85,13,12.75,12.95,33992,12.88,13.4,13.77,13.38,0.42
-20260526,12.95,13.25,12.85,12.85,20124,12.87,13.36,13.76,13.33,0.26
+20260526,12.85,13,12.75,12.95,33992,12.89,13.37,13.76,13.34,0.43
 ```
 
 ## Latest TDCC Snapshot

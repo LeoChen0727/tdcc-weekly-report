@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6890 來億-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:36 Asia/Taipei
+- generated_at: 2026-05-26 06:03:37 Asia/Taipei
 - stock_id: 6890
 - stock_name: 來億-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 167
-- high: 169
-- low: 166
-- close: 169
-- volume: 344334
-- ma5: 169.1
-- ma20: 163.15
-- ma60: 165.18
+- open: 171
+- high: 171
+- low: 167
+- close: 169.5
+- volume: 442515
+- ma5: 169.2
+- ma20: 163.18
+- ma60: 165.19
 - ma120: 205.25
-- ema23: 165.16
-- return_5d: 1.81
-- return_20d: 7.64
-- volume_ratio: 0.63
-- distance_to_ma20_pct: 3.59
-- distance_to_high_60_pct: -13.99
+- ema23: 165.2
+- return_5d: 2.11
+- return_20d: 7.96
+- volume_ratio: 0.81
+- distance_to_ma20_pct: 3.88
+- distance_to_high_60_pct: -13.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,167,169,166,169,344334,167.3,161.38,166.66,163.97,0.64
 20260524,167,169,166,169,344334,167.7,162.05,166.18,164.39,0.64
 20260525,171,171,167,169.5,442515,168.5,162.55,165.62,164.81,0.82
-20260526,167,169,166,169,344334,169.1,163.15,165.18,165.16,0.63
+20260526,171,171,167,169.5,442515,169.2,163.18,165.19,165.2,0.81
 ```
 
 ## Latest TDCC Snapshot

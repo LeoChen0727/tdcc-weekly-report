@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2886 兆豐金
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:10 Asia/Taipei
+- generated_at: 2026-05-26 06:02:18 Asia/Taipei
 - stock_id: 2886
 - stock_name: 兆豐金
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 40.1
-- high: 40.3
-- low: 39.9
-- close: 39.9
-- volume: 28876620
-- ma5: 39.82
-- ma20: 39.7
-- ma60: 39.44
-- ma120: 39.84
-- ema23: 39.75
-- return_5d: -0.75
-- return_20d: -0.5
-- volume_ratio: 1.12
-- distance_to_ma20_pct: 0.51
-- distance_to_high_60_pct: -3.62
+- open: 39.9
+- high: 39.9
+- low: 39.5
+- close: 39.5
+- volume: 34301485
+- ma5: 39.74
+- ma20: 39.68
+- ma60: 39.43
+- ma120: 39.83
+- ema23: 39.72
+- return_5d: -1.74
+- return_20d: -1.5
+- volume_ratio: 1.31
+- distance_to_ma20_pct: -0.45
+- distance_to_high_60_pct: -4.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,40.1,40.3,39.9,39.9,28876620,40.19,39.73,39.47,39.75,1.12
 20260524,40.1,40.3,39.9,39.9,28876620,40.04,39.74,39.46,39.76,1.14
 20260525,39.9,39.9,39.5,39.5,34301485,39.88,39.71,39.44,39.74,1.35
-20260526,40.1,40.3,39.9,39.9,28876620,39.82,39.7,39.44,39.75,1.12
+20260526,39.9,39.9,39.5,39.5,34301485,39.74,39.68,39.43,39.72,1.31
 ```
 
 ## Latest TDCC Snapshot

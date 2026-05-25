@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2434 統懋
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:58 Asia/Taipei
+- generated_at: 2026-05-26 06:02:07 Asia/Taipei
 - stock_id: 2434
 - stock_name: 統懋
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 29.5
-- high: 30
-- low: 29.4
-- close: 29.95
-- volume: 34912
-- ma5: 29.96
+- open: 30
+- high: 30.3
+- low: 29.75
+- close: 30
+- volume: 51872
+- ma5: 29.97
 - ma20: 30.66
 - ma60: 29.89
 - ma120: 30.23
 - ema23: 30.24
-- return_5d: 1.87
-- return_20d: 1.18
-- volume_ratio: 0.69
-- distance_to_ma20_pct: -2.3
-- distance_to_high_60_pct: -11.78
+- return_5d: 2.04
+- return_20d: 1.35
+- volume_ratio: 1.01
+- distance_to_ma20_pct: -2.14
+- distance_to_high_60_pct: -11.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,29.5,30,29.4,29.95,34912,29.78,30.66,29.9,30.32,0.75
 20260524,29.5,30,29.4,29.95,34912,29.79,30.65,29.89,30.29,0.73
 20260525,30,30.3,29.75,30,51872,29.85,30.64,29.89,30.27,1.05
-20260526,29.5,30,29.4,29.95,34912,29.96,30.66,29.89,30.24,0.69
+20260526,30,30.3,29.75,30,51872,29.97,30.66,29.89,30.24,1.01
 ```
 
 ## Latest TDCC Snapshot

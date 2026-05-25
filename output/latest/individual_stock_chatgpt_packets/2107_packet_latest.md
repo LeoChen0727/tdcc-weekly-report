@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2107 厚生
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:48 Asia/Taipei
+- generated_at: 2026-05-26 06:01:58 Asia/Taipei
 - stock_id: 2107
 - stock_name: 厚生
 - packet_status: standard_180d_window_packet
@@ -55,20 +55,20 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 25.25
-- high: 25.4
-- low: 25.2
-- close: 25.25
-- volume: 288058
-- ma5: 25.18
-- ma20: 25.58
-- ma60: 25.5
-- ma120: 25.09
-- ema23: 25.46
-- return_5d: 0
-- return_20d: -3.44
-- volume_ratio: 0.83
-- distance_to_ma20_pct: -1.29
-- distance_to_high_60_pct: -4.9
+- high: 25.25
+- low: 24.85
+- close: 24.9
+- volume: 504764
+- ma5: 25.11
+- ma20: 25.56
+- ma60: 25.49
+- ma120: 25.08
+- ema23: 25.43
+- return_5d: -1.39
+- return_20d: -4.78
+- volume_ratio: 1.41
+- distance_to_ma20_pct: -2.59
+- distance_to_high_60_pct: -6.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,25.25,25.4,25.2,25.25,288058,25.24,25.72,25.53,25.56,0.86
 20260524,25.25,25.4,25.2,25.25,288058,25.24,25.69,25.52,25.53,0.86
 20260525,25.25,25.25,24.85,24.9,504764,25.18,25.62,25.5,25.48,1.45
-20260526,25.25,25.4,25.2,25.25,288058,25.18,25.58,25.5,25.46,0.83
+20260526,25.25,25.25,24.85,24.9,504764,25.11,25.56,25.49,25.43,1.41
 ```
 
 ## Latest TDCC Snapshot

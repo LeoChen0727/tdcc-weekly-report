@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2355 敬鵬
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:53 Asia/Taipei
+- generated_at: 2026-05-26 06:02:02 Asia/Taipei
 - stock_id: 2355
 - stock_name: 敬鵬
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 64.8
-- high: 67.1
-- low: 63.1
-- close: 65.2
-- volume: 68692468
-- ma5: 65.56
-- ma20: 57.3
-- ma60: 51.37
-- ma120: 43
-- ema23: 58.47
-- return_5d: 0.31
-- return_20d: 28.35
-- volume_ratio: 1.9
-- distance_to_ma20_pct: 13.8
-- distance_to_high_60_pct: -8.17
+- open: 68
+- high: 71
+- low: 66.5
+- close: 67
+- volume: 53636677
+- ma5: 65.92
+- ma20: 57.38
+- ma60: 51.4
+- ma120: 43.01
+- ema23: 58.62
+- return_5d: 3.08
+- return_20d: 31.89
+- volume_ratio: 1.52
+- distance_to_ma20_pct: 16.76
+- distance_to_high_60_pct: -5.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,64.8,67.1,63.1,65.2,68692468,63.58,55.3,50.17,56.28,2.36
 20260524,64.8,67.1,63.1,65.2,68692468,63.94,55.87,50.58,57.03,2.2
 20260525,68,71,66.5,67,53636677,65.52,56.58,50.99,57.86,1.61
-20260526,64.8,67.1,63.1,65.2,68692468,65.56,57.3,51.37,58.47,1.9
+20260526,68,71,66.5,67,53636677,65.92,57.38,51.4,58.62,1.52
 ```
 
 ## Latest TDCC Snapshot
@@ -122,12 +122,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2355 | 敬鵬 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 2355 | 敬鵬 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2355 | 敬鵬 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260526 | 2355 | 敬鵬 | 4 | 4 | 4 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

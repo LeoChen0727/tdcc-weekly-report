@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6120 達運
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:07 Asia/Taipei
+- generated_at: 2026-05-26 06:03:11 Asia/Taipei
 - stock_id: 6120
 - stock_name: 達運
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 13.4
-- high: 14.7
-- low: 13.4
-- close: 14.7
-- volume: 13984511
-- ma5: 14.79
-- ma20: 13.38
+- open: 15
+- high: 15.55
+- low: 14.85
+- close: 15.15
+- volume: 11824535
+- ma5: 14.88
+- ma20: 13.4
 - ma60: 13.44
 - ma120: 13.08
-- ema23: 13.72
-- return_5d: 9.7
-- return_20d: 9.29
-- volume_ratio: 2.4
-- distance_to_ma20_pct: 9.84
-- distance_to_high_60_pct: -5.77
+- ema23: 13.76
+- return_5d: 13.06
+- return_20d: 12.64
+- volume_ratio: 2.06
+- distance_to_ma20_pct: 13.02
+- distance_to_high_60_pct: -2.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,13.4,14.7,13.4,14.7,13984511,13.66,13.15,13.37,13.39,3.22
 20260524,13.4,14.7,13.4,14.7,13984511,14.07,13.23,13.39,13.5,2.91
 20260525,15,15.55,14.85,15.15,11824535,14.53,13.32,13.42,13.64,2.25
-20260526,13.4,14.7,13.4,14.7,13984511,14.79,13.38,13.44,13.72,2.4
+20260526,15,15.55,14.85,15.15,11824535,14.88,13.4,13.44,13.76,2.06
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6120 | 達運 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 6120 | 達運 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 6120 | 達運 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

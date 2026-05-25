@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6909 創控
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:37 Asia/Taipei
+- generated_at: 2026-05-26 06:03:38 Asia/Taipei
 - stock_id: 6909
 - stock_name: 創控
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 53.2
-- high: 54.4
-- low: 53.1
-- close: 53.7
-- volume: 867335
-- ma5: 53.84
-- ma20: 55.08
-- ma60: 51.5
-- ma120: 46.38
-- ema23: 54.37
-- return_5d: 0.94
-- return_20d: -8.21
-- volume_ratio: 0.75
-- distance_to_ma20_pct: -2.5
-- distance_to_high_60_pct: -24.9
+- open: 55
+- high: 55.3
+- low: 54.2
+- close: 54.4
+- volume: 685223
+- ma5: 53.98
+- ma20: 55.11
+- ma60: 51.51
+- ma120: 46.39
+- ema23: 54.43
+- return_5d: 2.26
+- return_20d: -7.01
+- volume_ratio: 0.6
+- distance_to_ma20_pct: -1.29
+- distance_to_high_60_pct: -23.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,53.2,54.4,53.1,53.7,867335,52.36,55.7,50.84,54.5,0.68
 20260524,53.2,54.4,53.1,53.7,867335,53,55.53,51.05,54.43,0.72
 20260525,55,55.3,54.2,54.4,685223,53.74,55.31,51.27,54.43,0.58
-20260526,53.2,54.4,53.1,53.7,867335,53.84,55.08,51.5,54.37,0.75
+20260526,55,55.3,54.2,54.4,685223,53.98,55.11,51.51,54.43,0.6
 ```
 
 ## Latest TDCC Snapshot

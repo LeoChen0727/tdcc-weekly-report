@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6698 旭暉應材
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:29 Asia/Taipei
+- generated_at: 2026-05-26 06:03:31 Asia/Taipei
 - stock_id: 6698
 - stock_name: 旭暉應材
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 31.6
-- high: 34.95
-- low: 31.35
-- close: 34.2
-- volume: 1220506
-- ma5: 34.32
-- ma20: 31.95
-- ma60: 31.36
+- open: 35
+- high: 35.3
+- low: 33.85
+- close: 34.8
+- volume: 942454
+- ma5: 34.44
+- ma20: 31.98
+- ma60: 31.37
 - ma120: 31.84
-- ema23: 32.28
-- return_5d: 7.55
-- return_20d: 11.76
-- volume_ratio: 1.93
-- distance_to_ma20_pct: 7.03
-- distance_to_high_60_pct: -3.12
+- ema23: 32.33
+- return_5d: 9.43
+- return_20d: 13.73
+- volume_ratio: 1.52
+- distance_to_ma20_pct: 8.81
+- distance_to_high_60_pct: -1.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,31.6,34.95,31.35,34.2,1220506,32.49,31.35,31.38,31.64,2.52
 20260524,31.6,34.95,31.35,34.2,1220506,33.15,31.55,31.37,31.86,2.27
 20260525,35,35.3,33.85,34.8,942454,33.84,31.77,31.37,32.1,1.63
-20260526,31.6,34.95,31.35,34.2,1220506,34.32,31.95,31.36,32.28,1.93
+20260526,35,35.3,33.85,34.8,942454,34.44,31.98,31.37,32.33,1.52
 ```
 
 ## Latest TDCC Snapshot
@@ -120,14 +120,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6698 | 旭暉應材 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6698 | 旭暉應材 | 1 | 1 | 3 | 3 | 3 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260526 | 6698 | 旭暉應材 | 1 | 1 | 3 | 3 | 3 | repeated_but_no_breakout | 近 10 日上榜 3 日、近 20 日上榜 3 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

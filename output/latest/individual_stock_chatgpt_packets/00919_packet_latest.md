@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00919 群益台灣精選高息
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:26 Asia/Taipei
+- generated_at: 2026-05-26 06:01:36 Asia/Taipei
 - stock_id: 00919
 - stock_name: 群益台灣精選高息
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 26.73
-- high: 26.74
-- low: 26.53
-- close: 26.73
-- volume: 80979889
-- ma5: 26.88
-- ma20: 26.88
-- ma60: 26.88
-- ma120: 26.88
-- ema23: 26.79
+- open: 26.91
+- high: 27.49
+- low: 26.9
+- close: 27.47
+- volume: 146148130
+- ma5: 27.03
+- ma20: 27.03
+- ma60: 27.03
+- ma120: 27.03
+- ema23: 26.85
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.86
-- distance_to_ma20_pct: -0.55
-- distance_to_high_60_pct: -2.76
+- volume_ratio: 1.37
+- distance_to_ma20_pct: 1.64
+- distance_to_high_60_pct: -0.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,26.73,26.74,26.53,26.73,80979889,,,,,
 20260524,26.73,26.74,26.53,26.73,80979889,,,,,
 20260525,26.91,27.49,26.9,27.47,146148130,,,,,
-20260526,26.73,26.74,26.53,26.73,80979889,26.88,26.88,26.88,26.79,0.86
+20260526,26.91,27.49,26.9,27.47,146148130,27.03,27.03,27.03,26.85,1.37
 ```
 
 ## Latest TDCC Snapshot

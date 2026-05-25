@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5515 建國
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:03 Asia/Taipei
+- generated_at: 2026-05-26 06:03:07 Asia/Taipei
 - stock_id: 5515
 - stock_name: 建國
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 40.2
-- high: 40.35
-- low: 39.65
-- close: 40.2
-- volume: 531868
-- ma5: 40.3
-- ma20: 39.85
+- open: 40
+- high: 40.75
+- low: 39.9
+- close: 40.7
+- volume: 552529
+- ma5: 40.4
+- ma20: 39.87
 - ma60: 38.43
-- ma120: 36.18
-- ema23: 39.91
-- return_5d: 0.25
-- return_20d: -0.37
-- volume_ratio: 0.67
-- distance_to_ma20_pct: 0.88
-- distance_to_high_60_pct: -9.26
+- ma120: 36.19
+- ema23: 39.95
+- return_5d: 1.5
+- return_20d: 0.87
+- volume_ratio: 0.69
+- distance_to_ma20_pct: 2.08
+- distance_to_high_60_pct: -8.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,40.2,40.35,39.65,40.2,531868,39.99,39.86,38.06,39.77,0.69
 20260524,40.2,40.35,39.65,40.2,531868,40.07,39.86,38.18,39.81,0.68
 20260525,40,40.75,39.9,40.7,552529,40.28,39.85,38.31,39.88,0.7
-20260526,40.2,40.35,39.65,40.2,531868,40.3,39.85,38.43,39.91,0.67
+20260526,40,40.75,39.9,40.7,552529,40.4,39.87,38.43,39.95,0.69
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4557 永新-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:46 Asia/Taipei
+- generated_at: 2026-05-26 06:02:51 Asia/Taipei
 - stock_id: 4557
 - stock_name: 永新-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 47.3
-- high: 47.3
-- low: 47
-- close: 47
-- volume: 80439
-- ma5: 46.53
-- ma20: 49.41
-- ma60: 55.07
-- ma120: 64.91
-- ema23: 49.4
-- return_5d: -0.42
-- return_20d: -5.81
-- volume_ratio: 0.58
-- distance_to_ma20_pct: -4.87
-- distance_to_high_60_pct: -32.57
+- open: 46.6
+- high: 46.6
+- low: 44.35
+- close: 44.65
+- volume: 298594
+- ma5: 46.06
+- ma20: 49.29
+- ma60: 55.03
+- ma120: 64.89
+- ema23: 49.2
+- return_5d: -5.4
+- return_20d: -10.52
+- volume_ratio: 2
+- distance_to_ma20_pct: -9.41
+- distance_to_high_60_pct: -35.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,47.3,47.3,47,47,80439,47.18,49.95,56.14,50.35,0.61
 20260524,47.3,47.3,47,47,80439,47.1,49.8,55.81,50.07,0.63
 20260525,46.6,46.6,44.35,44.65,298594,46.57,49.55,55.43,49.62,2.16
-20260526,47.3,47.3,47,47,80439,46.53,49.41,55.07,49.4,0.58
+20260526,46.6,46.6,44.35,44.65,298594,46.06,49.29,55.03,49.2,2
 ```
 
 ## Latest TDCC Snapshot

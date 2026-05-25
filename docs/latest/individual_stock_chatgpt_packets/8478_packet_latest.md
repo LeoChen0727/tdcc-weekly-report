@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8478 東哥遊艇
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:54 Asia/Taipei
+- generated_at: 2026-05-26 06:03:54 Asia/Taipei
 - stock_id: 8478
 - stock_name: 東哥遊艇
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 152.5
-- high: 154
-- low: 152
-- close: 152.5
-- volume: 113714
-- ma5: 152.1
-- ma20: 159.22
-- ma60: 163.27
-- ma120: 176.75
-- ema23: 158.35
-- return_5d: 0.33
-- return_20d: -10.82
-- volume_ratio: 0.51
-- distance_to_ma20_pct: -4.22
-- distance_to_high_60_pct: -17.57
+- open: 153
+- high: 153
+- low: 149.5
+- close: 150.5
+- volume: 229408
+- ma5: 151.7
+- ma20: 159.12
+- ma60: 163.23
+- ma120: 176.74
+- ema23: 158.19
+- return_5d: -0.99
+- return_20d: -11.99
+- volume_ratio: 1
+- distance_to_ma20_pct: -5.42
+- distance_to_high_60_pct: -18.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,152.5,154,152,152.5,113714,151.9,162.05,164.22,160.3,0.53
 20260524,152.5,154,152,152.5,113714,152,161.18,163.89,159.65,0.53
 20260525,153,153,149.5,150.5,229408,152,160.15,163.55,158.89,1.04
-20260526,152.5,154,152,152.5,113714,152.1,159.22,163.27,158.35,0.51
+20260526,153,153,149.5,150.5,229408,151.7,159.12,163.23,158.19,1
 ```
 
 ## Latest TDCC Snapshot

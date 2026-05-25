@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2506 太設
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:02 Asia/Taipei
+- generated_at: 2026-05-26 06:02:10 Asia/Taipei
 - stock_id: 2506
 - stock_name: 太設
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 8.7
+- open: 8.71
 - high: 8.71
-- low: 8.62
-- close: 8.67
-- volume: 126724
-- ma5: 8.67
+- low: 8.6
+- close: 8.65
+- volume: 174591
+- ma5: 8.66
 - ma20: 8.68
 - ma60: 8.84
 - ma120: 9.03
 - ema23: 8.7
-- return_5d: -0.12
-- return_20d: -1.48
-- volume_ratio: 0.74
-- distance_to_ma20_pct: -0.12
-- distance_to_high_60_pct: -4.62
+- return_5d: -0.35
+- return_20d: -1.7
+- volume_ratio: 1.01
+- distance_to_ma20_pct: -0.34
+- distance_to_high_60_pct: -4.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,8.7,8.71,8.62,8.67,126724,8.66,8.69,8.86,8.72,0.77
 20260524,8.7,8.71,8.62,8.67,126724,8.67,8.69,8.85,8.71,0.76
 20260525,8.71,8.71,8.6,8.65,174591,8.67,8.69,8.84,8.71,1.04
-20260526,8.7,8.71,8.62,8.67,126724,8.67,8.68,8.84,8.7,0.74
+20260526,8.71,8.71,8.6,8.65,174591,8.66,8.68,8.84,8.7,1.01
 ```
 
 ## Latest TDCC Snapshot

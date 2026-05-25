@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8039 台虹
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:45 Asia/Taipei
+- generated_at: 2026-05-26 06:03:45 Asia/Taipei
 - stock_id: 8039
 - stock_name: 台虹
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 141
-- high: 152.5
-- low: 141
-- close: 151
-- volume: 21867086
-- ma5: 150.7
-- ma20: 140.62
-- ma60: 129.33
-- ma120: 108.39
-- ema23: 141.3
-- return_5d: 8.63
-- return_20d: 8.24
-- volume_ratio: 1.41
-- distance_to_ma20_pct: 7.38
-- distance_to_high_60_pct: -11.44
+- open: 156.5
+- high: 158
+- low: 147
+- close: 149.5
+- volume: 17938211
+- ma5: 150.4
+- ma20: 140.55
+- ma60: 129.3
+- ma120: 108.37
+- ema23: 141.18
+- return_5d: 7.55
+- return_20d: 7.17
+- volume_ratio: 1.17
+- distance_to_ma20_pct: 6.37
+- distance_to_high_60_pct: -12.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,141,152.5,141,151,21867086,140.2,138.78,126.66,138.56,1.57
 20260524,141,152.5,141,151,21867086,143.7,139.47,127.71,139.6,1.52
 20260525,156.5,158,147,149.5,17938211,148.3,140.05,128.59,140.42,1.2
-20260526,141,152.5,141,151,21867086,150.7,140.62,129.33,141.3,1.41
+20260526,156.5,158,147,149.5,17938211,150.4,140.55,129.3,141.18,1.17
 ```
 
 ## Latest TDCC Snapshot

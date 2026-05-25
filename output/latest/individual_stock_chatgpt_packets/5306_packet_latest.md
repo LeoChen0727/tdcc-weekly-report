@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5306 桂盟
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:58 Asia/Taipei
+- generated_at: 2026-05-26 06:03:02 Asia/Taipei
 - stock_id: 5306
 - stock_name: 桂盟
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 82.7
-- high: 83.2
-- low: 82.1
-- close: 83.2
-- volume: 128359
-- ma5: 83.16
-- ma20: 82.28
+- open: 83.2
+- high: 83.5
+- low: 82.3
+- close: 83
+- volume: 177448
+- ma5: 83.12
+- ma20: 82.27
 - ma60: 85.11
 - ma120: 88.15
-- ema23: 83.05
-- return_5d: -0.24
-- return_20d: 1.84
-- volume_ratio: 0.61
-- distance_to_ma20_pct: 1.12
-- distance_to_high_60_pct: -10.34
+- ema23: 83.03
+- return_5d: -0.48
+- return_20d: 1.59
+- volume_ratio: 0.83
+- distance_to_ma20_pct: 0.89
+- distance_to_high_60_pct: -10.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,82.7,83.2,82.1,83.2,128359,82.9,82.05,85.61,83.02,0.58
 20260524,82.7,83.2,82.1,83.2,128359,83,82.09,85.44,83.04,0.61
 20260525,83.2,83.5,82.3,83,177448,83.2,82.2,85.27,83.03,0.86
-20260526,82.7,83.2,82.1,83.2,128359,83.16,82.28,85.11,83.05,0.61
+20260526,83.2,83.5,82.3,83,177448,83.12,82.27,85.11,83.03,0.83
 ```
 
 ## Latest TDCC Snapshot

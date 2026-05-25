@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00915 凱基優選高股息30
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:26 Asia/Taipei
+- generated_at: 2026-05-26 06:01:36 Asia/Taipei
 - stock_id: 00915
 - stock_name: 凱基優選高股息30
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 27.4
-- high: 27.53
-- low: 27.3
-- close: 27.43
-- volume: 5083517
-- ma5: 27.52
-- ma20: 27.52
-- ma60: 27.52
-- ma120: 27.52
-- ema23: 27.46
+- open: 27.5
+- high: 27.94
+- low: 27.45
+- close: 27.87
+- volume: 10672270
+- ma5: 27.61
+- ma20: 27.61
+- ma60: 27.61
+- ma120: 27.61
+- ema23: 27.5
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.82
-- distance_to_ma20_pct: -0.32
-- distance_to_high_60_pct: -1.83
+- volume_ratio: 1.46
+- distance_to_ma20_pct: 0.96
+- distance_to_high_60_pct: -0.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,27.4,27.53,27.3,27.43,5083517,,,,,
 20260524,27.4,27.53,27.3,27.43,5083517,,,,,
 20260525,27.5,27.94,27.45,27.87,10672270,,,,,
-20260526,27.4,27.53,27.3,27.43,5083517,27.52,27.52,27.52,27.46,0.82
+20260526,27.5,27.94,27.45,27.87,10672270,27.61,27.61,27.61,27.5,1.46
 ```
 
 ## Latest TDCC Snapshot

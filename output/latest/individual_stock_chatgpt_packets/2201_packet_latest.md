@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2201 裕隆
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:49 Asia/Taipei
+- generated_at: 2026-05-26 06:01:58 Asia/Taipei
 - stock_id: 2201
 - stock_name: 裕隆
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 26.8
-- high: 27
-- low: 26.55
-- close: 26.85
-- volume: 2402782
-- ma5: 26.97
-- ma20: 27.11
-- ma60: 27.47
+- open: 27.2
+- high: 27.65
+- low: 27.2
+- close: 27.45
+- volume: 4185013
+- ma5: 27.09
+- ma20: 27.14
+- ma60: 27.48
 - ma120: 30.09
-- ema23: 27.1
-- return_5d: 0.19
-- return_20d: -1.29
-- volume_ratio: 0.84
-- distance_to_ma20_pct: -0.95
-- distance_to_high_60_pct: -11.24
+- ema23: 27.15
+- return_5d: 2.43
+- return_20d: 0.92
+- volume_ratio: 1.42
+- distance_to_ma20_pct: 1.15
+- distance_to_high_60_pct: -9.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,26.8,27,26.55,26.85,2402782,26.71,27.12,27.65,27.11,0.88
 20260524,26.8,27,26.55,26.85,2402782,26.74,27.11,27.59,27.09,0.88
 20260525,27.2,27.65,27.2,27.45,4185013,26.96,27.12,27.53,27.12,1.48
-20260526,26.8,27,26.55,26.85,2402782,26.97,27.11,27.47,27.1,0.84
+20260526,27.2,27.65,27.2,27.45,4185013,27.09,27.14,27.48,27.15,1.42
 ```
 
 ## Latest TDCC Snapshot
@@ -120,14 +120,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 2201 | 裕隆 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 65.0 |  |  | neckline_challenge |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 2201 | 裕隆 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

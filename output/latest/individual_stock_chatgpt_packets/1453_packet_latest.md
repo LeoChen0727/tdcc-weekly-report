@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1453 大將
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:34 Asia/Taipei
+- generated_at: 2026-05-26 06:01:44 Asia/Taipei
 - stock_id: 1453
 - stock_name: 大將
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 11.4
-- high: 11.55
-- low: 11.25
-- close: 11.35
-- volume: 54086
-- ma5: 11.34
+- open: 11.35
+- high: 11.35
+- low: 11.2
+- close: 11.3
+- volume: 69742
+- ma5: 11.33
 - ma20: 11.45
 - ma60: 11.97
 - ma120: 12.28
 - ema23: 11.51
-- return_5d: 0
-- return_20d: -4.22
-- volume_ratio: 0.66
-- distance_to_ma20_pct: -0.85
-- distance_to_high_60_pct: -13.36
+- return_5d: -0.44
+- return_20d: -4.64
+- volume_ratio: 0.85
+- distance_to_ma20_pct: -1.27
+- distance_to_high_60_pct: -13.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,11.4,11.55,11.25,11.35,54086,11.28,11.54,12.06,11.56,0.59
 20260524,11.4,11.55,11.25,11.35,54086,11.33,11.5,12.03,11.55,0.66
 20260525,11.35,11.35,11.2,11.3,69742,11.34,11.47,12,11.53,0.86
-20260526,11.4,11.55,11.25,11.35,54086,11.34,11.45,11.97,11.51,0.66
+20260526,11.35,11.35,11.2,11.3,69742,11.33,11.45,11.97,11.51,0.85
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1568 倉佑
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:38 Asia/Taipei
+- generated_at: 2026-05-26 06:01:48 Asia/Taipei
 - stock_id: 1568
 - stock_name: 倉佑
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 28.95
-- high: 29.2
-- low: 28.65
-- close: 29.05
-- volume: 279808
-- ma5: 29.63
-- ma20: 28.97
-- ma60: 25.56
-- ma120: 24.2
-- ema23: 28.5
-- return_5d: 2.11
-- return_20d: 2.11
-- volume_ratio: 0.57
-- distance_to_ma20_pct: 0.28
-- distance_to_high_60_pct: -9.08
+- open: 29.5
+- high: 31.95
+- low: 29.05
+- close: 31.95
+- volume: 2240761
+- ma5: 30.21
+- ma20: 29.11
+- ma60: 25.61
+- ma120: 24.23
+- ema23: 28.74
+- return_5d: 12.3
+- return_20d: 12.3
+- volume_ratio: 3.8
+- distance_to_ma20_pct: 9.74
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,28.95,29.2,28.65,29.05,279808,28.41,28.73,25.19,28.05,0.68
 20260524,28.95,29.2,28.65,29.05,279808,28.72,28.79,25.3,28.14,0.7
 20260525,29.5,31.95,29.05,31.95,2240761,29.51,28.94,25.45,28.45,4.54
-20260526,28.95,29.2,28.65,29.05,279808,29.63,28.97,25.56,28.5,0.57
+20260526,29.5,31.95,29.05,31.95,2240761,30.21,29.11,25.61,28.74,3.8
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1506 正道
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:36 Asia/Taipei
+- generated_at: 2026-05-26 06:01:45 Asia/Taipei
 - stock_id: 1506
 - stock_name: 正道
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 10.1
-- high: 11.1
-- low: 10
-- close: 10.95
-- volume: 904266
-- ma5: 10.83
-- ma20: 10.49
-- ma60: 10.99
+- open: 10.75
+- high: 10.75
+- low: 10.35
+- close: 10.35
+- volume: 427858
+- ma5: 10.71
+- ma20: 10.46
+- ma60: 10.98
 - ma120: 11.45
-- ema23: 10.63
-- return_5d: 8.42
-- return_20d: 0.92
-- volume_ratio: 2.54
-- distance_to_ma20_pct: 4.34
-- distance_to_high_60_pct: -6.01
+- ema23: 10.58
+- return_5d: 2.48
+- return_20d: -4.61
+- volume_ratio: 1.29
+- distance_to_ma20_pct: -1.1
+- distance_to_high_60_pct: -11.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,10.1,11.1,10,10.95,904266,10.4,10.55,11.04,10.6,3.05
 20260524,10.1,11.1,10,10.95,904266,10.59,10.53,11.03,10.63,2.96
 20260525,10.75,10.75,10.35,10.35,427858,10.66,10.49,11,10.6,1.35
-20260526,10.1,11.1,10,10.95,904266,10.83,10.49,10.99,10.63,2.54
+20260526,10.75,10.75,10.35,10.35,427858,10.71,10.46,10.98,10.58,1.29
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6128 上福
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:08 Asia/Taipei
+- generated_at: 2026-05-26 06:03:12 Asia/Taipei
 - stock_id: 6128
 - stock_name: 上福
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 18.95
-- high: 19.05
-- low: 18.8
+- open: 18.9
+- high: 19.15
+- low: 18.75
 - close: 18.8
-- volume: 377247
+- volume: 301921
 - ma5: 18.8
 - ma20: 19.67
 - ma60: 21.09
@@ -66,7 +66,7 @@
 - ema23: 19.64
 - return_5d: -2.08
 - return_20d: -7.84
-- volume_ratio: 1.87
+- volume_ratio: 1.52
 - distance_to_ma20_pct: -4.44
 - distance_to_high_60_pct: -26.99
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,18.95,19.05,18.8,18.8,377247,18.93,19.93,21.46,19.89,2.22
 20260524,18.95,19.05,18.8,18.8,377247,18.88,19.85,21.34,19.8,2.12
 20260525,18.9,19.15,18.75,18.8,301921,18.88,19.75,21.21,19.72,1.61
-20260526,18.95,19.05,18.8,18.8,377247,18.8,19.67,21.09,19.64,1.87
+20260526,18.9,19.15,18.75,18.8,301921,18.8,19.67,21.09,19.64,1.52
 ```
 
 ## Latest TDCC Snapshot

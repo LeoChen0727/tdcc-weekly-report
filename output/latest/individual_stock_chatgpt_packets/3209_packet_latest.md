@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3209 全科
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:21 Asia/Taipei
+- generated_at: 2026-05-26 06:02:28 Asia/Taipei
 - stock_id: 3209
 - stock_name: 全科
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 79.6
-- high: 80.5
-- low: 78
-- close: 78
-- volume: 5672811
-- ma5: 77.18
-- ma20: 66.87
-- ma60: 51.21
-- ma120: 42.29
-- ema23: 67.02
-- return_5d: -1.39
-- return_20d: 52.64
-- volume_ratio: 0.87
-- distance_to_ma20_pct: 16.64
-- distance_to_high_60_pct: -3.23
+- open: 77.9
+- high: 77.9
+- low: 73.1
+- close: 73.9
+- volume: 7908643
+- ma5: 76.36
+- ma20: 66.67
+- ma60: 51.14
+- ma120: 42.26
+- ema23: 66.68
+- return_5d: -6.57
+- return_20d: 44.62
+- volume_ratio: 1.19
+- distance_to_ma20_pct: 10.85
+- distance_to_high_60_pct: -8.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,79.6,80.5,78,78,5672811,77.86,63.27,49.2,64.15,0.87
 20260524,79.6,80.5,78,78,5672811,78.22,64.5,49.88,65.31,0.92
 20260525,77.9,77.9,73.1,73.9,7908643,77.4,65.53,50.51,66.02,1.23
-20260526,79.6,80.5,78,78,5672811,77.18,66.87,51.21,67.02,0.87
+20260526,77.9,77.9,73.1,73.9,7908643,76.36,66.67,51.14,66.68,1.19
 ```
 
 ## Latest TDCC Snapshot
@@ -120,14 +120,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 3209 | 全科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 3209 | 全科 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

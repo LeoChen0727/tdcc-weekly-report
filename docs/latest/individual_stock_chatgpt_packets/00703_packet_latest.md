@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00703 台新MSCI中國
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:25 Asia/Taipei
+- generated_at: 2026-05-26 06:01:35 Asia/Taipei
 - stock_id: 00703
 - stock_name: 台新MSCI中國
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 19.8
-- high: 19.8
-- low: 19.57
-- close: 19.73
-- volume: 39108
-- ma5: 19.72
-- ma20: 19.72
-- ma60: 19.72
-- ma120: 19.72
-- ema23: 19.73
+- open: 19.81
+- high: 19.81
+- low: 19.63
+- close: 19.68
+- volume: 190554
+- ma5: 19.71
+- ma20: 19.71
+- ma60: 19.71
+- ma120: 19.71
+- ema23: 19.72
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.56
-- distance_to_ma20_pct: 0.05
-- distance_to_high_60_pct: -0.4
+- volume_ratio: 1.91
+- distance_to_ma20_pct: -0.15
+- distance_to_high_60_pct: -0.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,19.8,19.8,19.57,19.73,39108,,,,,
 20260524,19.8,19.8,19.57,19.73,39108,,,,,
 20260525,19.81,19.81,19.63,19.68,190554,,,,,
-20260526,19.8,19.8,19.57,19.73,39108,19.72,19.72,19.72,19.73,0.56
+20260526,19.81,19.81,19.63,19.68,190554,19.71,19.71,19.71,19.72,1.91
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6771 平和環保-創
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:32 Asia/Taipei
+- generated_at: 2026-05-26 06:03:34 Asia/Taipei
 - stock_id: 6771
 - stock_name: 平和環保-創
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 42
-- high: 42.2
+- open: 41.7
+- high: 41.7
 - low: 41.3
-- close: 41.7
-- volume: 83150
-- ma5: 41.69
+- close: 41.65
+- volume: 31143
+- ma5: 41.68
 - ma20: 42.79
 - ma60: 43.81
 - ma120: 44.48
 - ema23: 42.77
-- return_5d: -0.6
-- return_20d: -6.08
-- volume_ratio: 1.88
-- distance_to_ma20_pct: -2.55
-- distance_to_high_60_pct: -11.56
+- return_5d: -0.72
+- return_20d: -6.19
+- volume_ratio: 0.75
+- distance_to_ma20_pct: -2.66
+- distance_to_high_60_pct: -11.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,42,42.2,41.3,41.7,83150,41.95,43.26,43.95,43.09,2.1
 20260524,42,42.2,41.3,41.7,83150,41.83,43.08,43.9,42.98,1.93
 20260525,41.7,41.7,41.3,41.65,31143,41.74,42.92,43.85,42.87,0.74
-20260526,42,42.2,41.3,41.7,83150,41.69,42.79,43.81,42.77,1.88
+20260526,41.7,41.7,41.3,41.65,31143,41.68,42.79,43.81,42.77,0.75
 ```
 
 ## Latest TDCC Snapshot

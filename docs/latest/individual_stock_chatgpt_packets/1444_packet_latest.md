@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1444 力麗
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:33 Asia/Taipei
+- generated_at: 2026-05-26 06:01:43 Asia/Taipei
 - stock_id: 1444
 - stock_name: 力麗
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 5.95
-- high: 5.96
-- low: 5.9
-- close: 5.95
-- volume: 986173
-- ma5: 5.95
+- open: 5.96
+- high: 5.98
+- low: 5.88
+- close: 5.93
+- volume: 1374539
+- ma5: 5.94
 - ma20: 5.95
 - ma60: 6.18
 - ma120: 6.19
 - ema23: 6.01
-- return_5d: 0
-- return_20d: -3.09
-- volume_ratio: 0.86
-- distance_to_ma20_pct: -0.08
-- distance_to_high_60_pct: -12.5
+- return_5d: -0.34
+- return_20d: -3.42
+- volume_ratio: 1.18
+- distance_to_ma20_pct: -0.39
+- distance_to_high_60_pct: -12.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,5.95,5.96,5.9,5.95,986173,5.94,5.99,6.2,6.04,0.88
 20260524,5.95,5.96,5.9,5.95,986173,5.95,5.98,6.19,6.03,0.89
 20260525,5.96,5.98,5.88,5.93,1374539,5.95,5.96,6.18,6.02,1.19
-20260526,5.95,5.96,5.9,5.95,986173,5.95,5.95,6.18,6.01,0.86
+20260526,5.96,5.98,5.88,5.93,1374539,5.94,5.95,6.18,6.01,1.18
 ```
 
 ## Latest TDCC Snapshot

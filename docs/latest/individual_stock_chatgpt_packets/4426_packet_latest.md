@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4426 利勤
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:43 Asia/Taipei
+- generated_at: 2026-05-26 06:02:48 Asia/Taipei
 - stock_id: 4426
 - stock_name: 利勤
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 7.72
-- high: 7.72
-- low: 7.46
-- close: 7.61
-- volume: 260396
+- open: 7.64
+- high: 7.65
+- low: 7.49
+- close: 7.6
+- volume: 264998
 - ma5: 7.61
 - ma20: 7.9
 - ma60: 8.56
 - ma120: 9.07
 - ema23: 7.96
-- return_5d: -1.3
-- return_20d: -9.73
-- volume_ratio: 1.33
-- distance_to_ma20_pct: -3.63
-- distance_to_high_60_pct: -19.21
+- return_5d: -1.43
+- return_20d: -9.85
+- volume_ratio: 1.35
+- distance_to_ma20_pct: -3.75
+- distance_to_high_60_pct: -19.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,7.72,7.72,7.46,7.61,260396,7.71,8.02,8.65,8.06,1.53
 20260524,7.72,7.72,7.46,7.61,260396,7.67,7.98,8.62,8.02,1.48
 20260525,7.64,7.65,7.49,7.6,264998,7.63,7.94,8.59,7.99,1.42
-20260526,7.72,7.72,7.46,7.61,260396,7.61,7.9,8.56,7.96,1.33
+20260526,7.64,7.65,7.49,7.6,264998,7.61,7.9,8.56,7.96,1.35
 ```
 
 ## Latest TDCC Snapshot

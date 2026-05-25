@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2616 山隆
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:05 Asia/Taipei
+- generated_at: 2026-05-26 06:02:13 Asia/Taipei
 - stock_id: 2616
 - stock_name: 山隆
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 13.95
-- high: 13.95
-- low: 13.7
-- close: 13.75
-- volume: 302747
-- ma5: 13.68
-- ma20: 13.77
-- ma60: 15.9
+- open: 13.75
+- high: 13.75
+- low: 13.3
+- close: 13.4
+- volume: 584277
+- ma5: 13.61
+- ma20: 13.75
+- ma60: 15.89
 - ma120: 14.79
-- ema23: 14.02
-- return_5d: 0
-- return_20d: -3.17
-- volume_ratio: 0.85
-- distance_to_ma20_pct: -0.15
-- distance_to_high_60_pct: -42.47
+- ema23: 14
+- return_5d: -2.55
+- return_20d: -5.63
+- volume_ratio: 1.58
+- distance_to_ma20_pct: -2.56
+- distance_to_high_60_pct: -43.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,13.95,13.95,13.7,13.75,302747,13.69,13.87,15.91,14.14,0.82
 20260524,13.95,13.95,13.7,13.75,302747,13.73,13.83,15.92,14.11,0.87
 20260525,13.75,13.75,13.3,13.4,584277,13.68,13.79,15.92,14.05,1.64
-20260526,13.95,13.95,13.7,13.75,302747,13.68,13.77,15.9,14.02,0.85
+20260526,13.75,13.75,13.3,13.4,584277,13.61,13.75,15.89,14,1.58
 ```
 
 ## Latest TDCC Snapshot

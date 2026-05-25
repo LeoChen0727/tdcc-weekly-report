@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6957 裕慶-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:38 Asia/Taipei
+- generated_at: 2026-05-26 06:03:40 Asia/Taipei
 - stock_id: 6957
 - stock_name: 裕慶-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 161.5
-- high: 163.5
-- low: 160.5
-- close: 160.5
-- volume: 84295
-- ma5: 160.4
-- ma20: 160.32
+- open: 160
+- high: 160
+- low: 157.5
+- close: 160
+- volume: 118833
+- ma5: 160.3
+- ma20: 160.3
 - ma60: 161.22
 - ma120: 178.15
-- ema23: 160.28
-- return_5d: 0.31
-- return_20d: 1.58
-- volume_ratio: 0.9
-- distance_to_ma20_pct: 0.11
-- distance_to_high_60_pct: -10.83
+- ema23: 160.24
+- return_5d: 0
+- return_20d: 1.27
+- volume_ratio: 1.25
+- distance_to_ma20_pct: -0.19
+- distance_to_high_60_pct: -11.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,161.5,163.5,160.5,160.5,84295,160.2,159.93,162.16,160.26,0.95
 20260524,161.5,163.5,160.5,160.5,84295,160.3,160.07,161.9,160.28,0.94
 20260525,160,160,157.5,160,118833,160.3,160.2,161.55,160.26,1.28
-20260526,161.5,163.5,160.5,160.5,84295,160.4,160.32,161.22,160.28,0.9
+20260526,160,160,157.5,160,118833,160.3,160.3,161.22,160.24,1.25
 ```
 
 ## Latest TDCC Snapshot

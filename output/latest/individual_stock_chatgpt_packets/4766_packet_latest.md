@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4766 南寶
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:49 Asia/Taipei
+- generated_at: 2026-05-26 06:02:54 Asia/Taipei
 - stock_id: 4766
 - stock_name: 南寶
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 378
-- high: 384
-- low: 376
-- close: 381.5
-- volume: 1319301
-- ma5: 380.3
-- ma20: 373.9
-- ma60: 346.04
-- ma120: 332.95
-- ema23: 369.15
-- return_5d: 2.55
-- return_20d: 7.77
-- volume_ratio: 0.8
-- distance_to_ma20_pct: 2.03
-- distance_to_high_60_pct: -4.15
+- open: 386
+- high: 390
+- low: 371
+- close: 375.5
+- volume: 1759947
+- ma5: 379.1
+- ma20: 373.6
+- ma60: 345.94
+- ma120: 332.9
+- ema23: 368.65
+- return_5d: 0.94
+- return_20d: 6.07
+- volume_ratio: 1.05
+- distance_to_ma20_pct: 0.51
+- distance_to_high_60_pct: -5.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,378,384,376,381.5,1319301,370.2,369.07,343.38,366.06,0.87
 20260524,378,384,376,381.5,1319301,374.5,371.05,344.33,367.35,0.84
 20260525,386,390,371,375.5,1759947,378.4,372.52,345.12,368.03,1.07
-20260526,378,384,376,381.5,1319301,380.3,373.9,346.04,369.15,0.8
+20260526,386,390,371,375.5,1759947,379.1,373.6,345.94,368.65,1.05
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4766 | 南寶 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | call_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 4766 | 南寶 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

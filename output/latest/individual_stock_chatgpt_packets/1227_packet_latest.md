@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1227 佳格
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:29 Asia/Taipei
+- generated_at: 2026-05-26 06:01:39 Asia/Taipei
 - stock_id: 1227
 - stock_name: 佳格
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 28.5
-- high: 28.55
-- low: 28.35
-- close: 28.45
-- volume: 634178
-- ma5: 28.38
-- ma20: 28.62
-- ma60: 29.52
+- open: 28.4
+- high: 28.4
+- low: 28.05
+- close: 28.1
+- volume: 1416096
+- ma5: 28.31
+- ma20: 28.61
+- ma60: 29.51
 - ma120: 29.75
-- ema23: 28.75
-- return_5d: -0.52
-- return_20d: -2.57
-- volume_ratio: 0.68
-- distance_to_ma20_pct: -0.6
-- distance_to_high_60_pct: -8.96
+- ema23: 28.72
+- return_5d: -1.75
+- return_20d: -3.77
+- volume_ratio: 1.45
+- distance_to_ma20_pct: -1.77
+- distance_to_high_60_pct: -10.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,28.5,28.55,28.35,28.45,634178,28.46,28.75,29.6,28.88,0.71
 20260524,28.5,28.55,28.35,28.45,634178,28.45,28.72,29.57,28.84,0.72
 20260525,28.4,28.4,28.05,28.1,1416096,28.41,28.66,29.54,28.78,1.53
-20260526,28.5,28.55,28.35,28.45,634178,28.38,28.62,29.52,28.75,0.68
+20260526,28.4,28.4,28.05,28.1,1416096,28.31,28.61,29.51,28.72,1.45
 ```
 
 ## Latest TDCC Snapshot

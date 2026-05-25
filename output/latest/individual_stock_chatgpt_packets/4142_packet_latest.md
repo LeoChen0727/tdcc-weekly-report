@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4142 國光生
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:40 Asia/Taipei
+- generated_at: 2026-05-26 06:02:45 Asia/Taipei
 - stock_id: 4142
 - stock_name: 國光生
 - packet_status: standard_180d_window_packet
@@ -55,20 +55,20 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 17.6
-- high: 17.7
+- high: 17.6
 - low: 17.3
-- close: 17.5
-- volume: 1157488
-- ma5: 17.48
+- close: 17.4
+- volume: 1544045
+- ma5: 17.46
 - ma20: 17.61
 - ma60: 17.95
 - ma120: 18.63
-- ema23: 17.66
-- return_5d: -0.57
-- return_20d: -2.51
-- volume_ratio: 0.95
-- distance_to_ma20_pct: -0.62
-- distance_to_high_60_pct: -8.85
+- ema23: 17.65
+- return_5d: -1.14
+- return_20d: -3.06
+- volume_ratio: 1.25
+- distance_to_ma20_pct: -1.16
+- distance_to_high_60_pct: -9.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,17.6,17.7,17.3,17.5,1157488,17.46,17.7,17.98,17.72,1.01
 20260524,17.6,17.7,17.3,17.5,1157488,17.49,17.66,17.97,17.7,1.01
 20260525,17.6,17.6,17.3,17.4,1544045,17.5,17.63,17.96,17.68,1.3
-20260526,17.6,17.7,17.3,17.5,1157488,17.48,17.61,17.95,17.66,0.95
+20260526,17.6,17.6,17.3,17.4,1544045,17.46,17.61,17.95,17.65,1.25
 ```
 
 ## Latest TDCC Snapshot
@@ -122,12 +122,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4142 | 國光生 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 4142 | 國光生 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4142 | 國光生 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260526 | 4142 | 國光生 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

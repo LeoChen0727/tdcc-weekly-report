@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2429 銘旺科
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:58 Asia/Taipei
+- generated_at: 2026-05-26 06:02:06 Asia/Taipei
 - stock_id: 2429
 - stock_name: 銘旺科
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 48.4
-- high: 48.6
-- low: 46.3
-- close: 48.45
-- volume: 721127
-- ma5: 48.07
-- ma20: 50.56
-- ma60: 47.73
-- ma120: 60.35
-- ema23: 49.39
-- return_5d: 0.83
-- return_20d: -8.58
-- volume_ratio: 1.24
-- distance_to_ma20_pct: -4.17
-- distance_to_high_60_pct: -20.44
+- open: 48.6
+- high: 48.8
+- low: 46.4
+- close: 46.55
+- volume: 709720
+- ma5: 47.69
+- ma20: 50.47
+- ma60: 47.7
+- ma120: 60.33
+- ema23: 49.23
+- return_5d: -3.12
+- return_20d: -12.17
+- volume_ratio: 1.22
+- distance_to_ma20_pct: -7.76
+- distance_to_high_60_pct: -23.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,48.4,48.6,46.3,48.45,721127,48.68,51.52,48.25,49.86,1.14
 20260524,48.4,48.6,46.3,48.45,721127,48.44,51.2,48.09,49.74,1.26
 20260525,48.6,48.8,46.4,46.55,709720,47.99,50.79,47.88,49.47,1.27
-20260526,48.4,48.6,46.3,48.45,721127,48.07,50.56,47.73,49.39,1.24
+20260526,48.6,48.8,46.4,46.55,709720,47.69,50.47,47.7,49.23,1.22
 ```
 
 ## Latest TDCC Snapshot

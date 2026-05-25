@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6192 巨路
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:12 Asia/Taipei
+- generated_at: 2026-05-26 06:03:15 Asia/Taipei
 - stock_id: 6192
 - stock_name: 巨路
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 130.5
-- high: 132
-- low: 128.5
-- close: 132
-- volume: 374467
-- ma5: 131.8
-- ma20: 126.8
-- ma60: 122.17
-- ma120: 117.67
-- ema23: 127.03
-- return_5d: 0.76
-- return_20d: 13.79
-- volume_ratio: 0.83
-- distance_to_ma20_pct: 4.1
-- distance_to_high_60_pct: -2.94
+- open: 132
+- high: 134
+- low: 130
+- close: 131
+- volume: 420897
+- ma5: 131.6
+- ma20: 126.75
+- ma60: 122.16
+- ma120: 117.66
+- ema23: 126.95
+- return_5d: 0
+- return_20d: 12.93
+- volume_ratio: 0.93
+- distance_to_ma20_pct: 3.35
+- distance_to_high_60_pct: -3.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,130.5,132,128.5,132,374467,129,124.5,122.13,125.65,0.91
 20260524,130.5,132,128.5,132,374467,130.6,125.33,122.19,126.18,0.89
 20260525,132,134,130,131,420897,131.6,126,122.17,126.58,0.97
-20260526,130.5,132,128.5,132,374467,131.8,126.8,122.17,127.03,0.83
+20260526,132,134,130,131,420897,131.6,126.75,122.16,126.95,0.93
 ```
 
 ## Latest TDCC Snapshot

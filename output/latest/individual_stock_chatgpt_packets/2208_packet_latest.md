@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2208 台船
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:49 Asia/Taipei
+- generated_at: 2026-05-26 06:01:58 Asia/Taipei
 - stock_id: 2208
 - stock_name: 台船
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 18.8
-- high: 18.9
-- low: 18.35
-- close: 18.55
-- volume: 3365368
-- ma5: 18.47
-- ma20: 19.41
-- ma60: 20.48
+- open: 18.6
+- high: 18.6
+- low: 18.05
+- close: 18.15
+- volume: 6580356
+- ma5: 18.39
+- ma20: 19.39
+- ma60: 20.47
 - ma120: 20.93
-- ema23: 19.32
-- return_5d: -0.54
-- return_20d: -7.71
-- volume_ratio: 0.75
-- distance_to_ma20_pct: -4.42
-- distance_to_high_60_pct: -21.56
+- ema23: 19.28
+- return_5d: -2.68
+- return_20d: -9.7
+- volume_ratio: 1.41
+- distance_to_ma20_pct: -6.38
+- distance_to_high_60_pct: -23.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,18.8,18.9,18.35,18.55,3365368,18.44,19.69,20.75,19.58,0.77
 20260524,18.8,18.9,18.35,18.55,3365368,18.51,19.6,20.66,19.5,0.77
 20260525,18.6,18.6,18.05,18.15,6580356,18.49,19.48,20.56,19.39,1.45
-20260526,18.8,18.9,18.35,18.55,3365368,18.47,19.41,20.48,19.32,0.75
+20260526,18.6,18.6,18.05,18.15,6580356,18.39,19.39,20.47,19.28,1.41
 ```
 
 ## Latest TDCC Snapshot
@@ -122,8 +122,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2208 | 台船 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260526 | 2208 | 台船 | revenue_breakout_low_response | 營收爆發低反應股 | 13.0 | 20.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 2208 | 台船 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 2208 | 台船 | revenue_breakout_low_response | 營收爆發低反應股 | 12.0 | 18.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

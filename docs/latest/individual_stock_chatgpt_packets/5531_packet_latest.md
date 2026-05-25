@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5531 鄉林
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:03 Asia/Taipei
+- generated_at: 2026-05-26 06:03:07 Asia/Taipei
 - stock_id: 5531
 - stock_name: 鄉林
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 7.77
-- high: 7.77
-- low: 7.64
-- close: 7.72
-- volume: 613219
-- ma5: 7.71
+- open: 7.75
+- high: 7.75
+- low: 7.57
+- close: 7.65
+- volume: 889226
+- ma5: 7.69
 - ma20: 8.04
 - ma60: 8.58
 - ma120: 8.81
-- ema23: 8.06
-- return_5d: -0.77
-- return_20d: -8.1
-- volume_ratio: 0.82
-- distance_to_ma20_pct: -4
-- distance_to_high_60_pct: -15.63
+- ema23: 8.05
+- return_5d: -1.67
+- return_20d: -8.93
+- volume_ratio: 1.16
+- distance_to_ma20_pct: -4.83
+- distance_to_high_60_pct: -16.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,7.77,7.77,7.64,7.72,613219,7.77,8.14,8.64,8.17,0.82
 20260524,7.77,7.77,7.64,7.72,613219,7.74,8.11,8.62,8.13,0.84
 20260525,7.75,7.75,7.57,7.65,889226,7.72,8.08,8.6,8.09,1.2
-20260526,7.77,7.77,7.64,7.72,613219,7.71,8.04,8.58,8.06,0.82
+20260526,7.75,7.75,7.57,7.65,889226,7.69,8.04,8.58,8.05,1.16
 ```
 
 ## Latest TDCC Snapshot

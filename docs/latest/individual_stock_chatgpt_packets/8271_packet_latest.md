@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8271 宇瞻
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:50 Asia/Taipei
+- generated_at: 2026-05-26 06:03:51 Asia/Taipei
 - stock_id: 8271
 - stock_name: 宇瞻
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 223
-- high: 230.5
-- low: 220.5
-- close: 224.5
-- volume: 3421604
-- ma5: 225.4
-- ma20: 234.65
-- ma60: 189.22
-- ma120: 149.5
-- ema23: 223.52
-- return_5d: 2.05
-- return_20d: 2.98
-- volume_ratio: 0.89
-- distance_to_ma20_pct: -4.33
-- distance_to_high_60_pct: -17.16
+- open: 227
+- high: 231.5
+- low: 217.5
+- close: 229
+- volume: 3871829
+- ma5: 226.3
+- ma20: 234.88
+- ma60: 189.3
+- ma120: 149.53
+- ema23: 223.89
+- return_5d: 4.09
+- return_20d: 5.05
+- volume_ratio: 1
+- distance_to_ma20_pct: -2.5
+- distance_to_high_60_pct: -15.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,223,230.5,220.5,224.5,3421604,221.1,233.45,183.93,222.78,0.98
 20260524,223,230.5,220.5,224.5,3421604,221.7,234.12,185.68,222.92,0.95
 20260525,227,231.5,217.5,229,3871829,224.5,234.32,187.47,223.43,1.04
-20260526,223,230.5,220.5,224.5,3421604,225.4,234.65,189.22,223.52,0.89
+20260526,227,231.5,217.5,229,3871829,226.3,234.88,189.3,223.89,1
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8271 | 宇瞻 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 8271 | 宇瞻 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260526 | 8271 | 宇瞻 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context

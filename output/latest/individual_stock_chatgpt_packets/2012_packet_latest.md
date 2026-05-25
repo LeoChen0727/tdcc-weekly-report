@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2012 春雨
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:45 Asia/Taipei
+- generated_at: 2026-05-26 06:01:55 Asia/Taipei
 - stock_id: 2012
 - stock_name: 春雨
 - packet_status: standard_180d_window_packet
@@ -55,20 +55,20 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 14.35
-- high: 14.4
-- low: 14.05
-- close: 14.2
-- volume: 72805
-- ma5: 14.36
-- ma20: 14.67
-- ma60: 15.41
-- ma120: 15.85
-- ema23: 14.74
-- return_5d: -0.35
-- return_20d: -5.65
-- volume_ratio: 0.87
-- distance_to_ma20_pct: -3.19
-- distance_to_high_60_pct: -18.62
+- high: 15.5
+- low: 14.2
+- close: 15
+- volume: 256115
+- ma5: 14.52
+- ma20: 14.71
+- ma60: 15.42
+- ma120: 15.86
+- ema23: 14.81
+- return_5d: 5.26
+- return_20d: -0.33
+- volume_ratio: 2.77
+- distance_to_ma20_pct: 1.99
+- distance_to_high_60_pct: -14.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,14.35,14.4,14.05,14.2,72805,14.31,14.73,15.55,14.82,0.98
 20260524,14.35,14.4,14.05,14.2,72805,14.24,14.71,15.5,14.77,1.01
 20260525,14.35,15.5,14.2,15,256115,14.37,14.71,15.46,14.79,3.13
-20260526,14.35,14.4,14.05,14.2,72805,14.36,14.67,15.41,14.74,0.87
+20260526,14.35,15.5,14.2,15,256115,14.52,14.71,15.42,14.81,2.77
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2413 環科
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:57 Asia/Taipei
+- generated_at: 2026-05-26 06:02:05 Asia/Taipei
 - stock_id: 2413
 - stock_name: 環科
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 51.5
-- high: 52.7
-- low: 51.2
-- close: 51.5
-- volume: 6775215
-- ma5: 51.58
-- ma20: 47.31
+- open: 51.9
+- high: 52.6
+- low: 50.7
+- close: 51.9
+- volume: 5772028
+- ma5: 51.66
+- ma20: 47.33
 - ma60: 49.41
-- ma120: 44.83
-- ema23: 48.72
-- return_5d: 0.78
-- return_20d: 14.83
-- volume_ratio: 1.58
-- distance_to_ma20_pct: 8.85
-- distance_to_high_60_pct: -15.57
+- ma120: 44.84
+- ema23: 48.76
+- return_5d: 1.57
+- return_20d: 15.72
+- volume_ratio: 1.37
+- distance_to_ma20_pct: 9.65
+- distance_to_high_60_pct: -14.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,51.5,52.7,51.2,51.5,6775215,50.67,46.27,49.63,47.85,1.92
 20260524,51.5,52.7,51.2,51.5,6775215,50.98,46.62,49.56,48.16,1.8
 20260525,51.9,52.6,50.7,51.9,5772028,51.5,46.98,49.48,48.47,1.45
-20260526,51.5,52.7,51.2,51.5,6775215,51.58,47.31,49.41,48.72,1.58
+20260526,51.9,52.6,50.7,51.9,5772028,51.66,47.33,49.41,48.76,1.37
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2413 | 環科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 63.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 2413 | 環科 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

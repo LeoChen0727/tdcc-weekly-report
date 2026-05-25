@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009818 華南永昌NASDAQxT
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:27 Asia/Taipei
+- generated_at: 2026-05-26 06:01:37 Asia/Taipei
 - stock_id: 009818
 - stock_name: 華南永昌NASDAQxT
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 19.12
-- high: 19.15
-- low: 19.1
-- close: 19.13
-- volume: 602024
-- ma5: 19.17
-- ma20: 19.17
-- ma60: 19.17
-- ma120: 19.17
-- ema23: 19.14
+- open: 19.26
+- high: 19.38
+- low: 19.26
+- close: 19.32
+- volume: 605017
+- ma5: 19.21
+- ma20: 19.21
+- ma60: 19.21
+- ma120: 19.21
+- ema23: 19.16
 - return_5d: 
 - return_20d: 
 - volume_ratio: 1
-- distance_to_ma20_pct: -0.2
-- distance_to_high_60_pct: -1.29
+- distance_to_ma20_pct: 0.59
+- distance_to_high_60_pct: -0.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,19.12,19.15,19.1,19.13,602024,,,,,
 20260524,19.12,19.15,19.1,19.13,602024,,,,,
 20260525,19.26,19.38,19.26,19.32,605017,,,,,
-20260526,19.12,19.15,19.1,19.13,602024,19.17,19.17,19.17,19.14,1
+20260526,19.26,19.38,19.26,19.32,605017,19.21,19.21,19.21,19.16,1
 ```
 
 ## Latest TDCC Snapshot

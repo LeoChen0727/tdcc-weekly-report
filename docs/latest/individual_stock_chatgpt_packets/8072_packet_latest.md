@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8072 陞泰
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:46 Asia/Taipei
+- generated_at: 2026-05-26 06:03:47 Asia/Taipei
 - stock_id: 8072
 - stock_name: 陞泰
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 27.95
-- high: 28.1
-- low: 27.6
-- close: 27.9
-- volume: 142597
-- ma5: 27.96
-- ma20: 27.76
-- ma60: 28.06
-- ma120: 29.41
-- ema23: 27.86
-- return_5d: 1.09
-- return_20d: 0.36
-- volume_ratio: 0.65
-- distance_to_ma20_pct: 0.5
-- distance_to_high_60_pct: -10.58
+- open: 28.15
+- high: 28.65
+- low: 27.55
+- close: 28.2
+- volume: 588031
+- ma5: 28.02
+- ma20: 27.77
+- ma60: 28.07
+- ma120: 29.42
+- ema23: 27.89
+- return_5d: 2.17
+- return_20d: 1.44
+- volume_ratio: 2.44
+- distance_to_ma20_pct: 1.53
+- distance_to_high_60_pct: -9.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,27.95,28.1,27.6,27.9,142597,27.49,27.73,28.22,27.82,0.69
 20260524,27.95,28.1,27.6,27.9,142597,27.71,27.73,28.17,27.83,0.73
 20260525,28.15,28.65,27.55,28.2,588031,27.9,27.75,28.11,27.86,2.72
-20260526,27.95,28.1,27.6,27.9,142597,27.96,27.76,28.06,27.86,0.65
+20260526,28.15,28.65,27.55,28.2,588031,28.02,27.77,28.07,27.89,2.44
 ```
 
 ## Latest TDCC Snapshot

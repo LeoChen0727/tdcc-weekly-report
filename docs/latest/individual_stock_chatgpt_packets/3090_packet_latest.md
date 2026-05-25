@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3090 日電貿
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:18 Asia/Taipei
+- generated_at: 2026-05-26 06:02:25 Asia/Taipei
 - stock_id: 3090
 - stock_name: 日電貿
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 196
-- high: 215.5
-- low: 188
-- close: 215
-- volume: 9230982
-- ma5: 219.3
-- ma20: 152.94
-- ma60: 115.58
-- ma120: 105.85
-- ema23: 161.49
-- return_5d: 9.69
-- return_20d: 118.5
-- volume_ratio: 0.5
-- distance_to_ma20_pct: 40.58
-- distance_to_high_60_pct: -9.09
+- open: 229.5
+- high: 236.5
+- low: 229.5
+- close: 236.5
+- volume: 4254466
+- ma5: 223.6
+- ma20: 154.01
+- ma60: 115.94
+- ma120: 106.03
+- ema23: 163.28
+- return_5d: 20.66
+- return_20d: 140.35
+- volume_ratio: 0.24
+- distance_to_ma20_pct: 53.56
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,196,215.5,188,215,9230982,193.4,134.31,109.45,143.39,0.52
 20260524,196,215.5,188,215,9230982,203.9,140.27,111.33,149.36,0.51
 20260525,229.5,236.5,229.5,236.5,4254466,215.5,147.11,113.61,156.62,0.24
-20260526,196,215.5,188,215,9230982,219.3,152.94,115.58,161.49,0.5
+20260526,229.5,236.5,229.5,236.5,4254466,223.6,154.01,115.94,163.28,0.24
 ```
 
 ## Latest TDCC Snapshot

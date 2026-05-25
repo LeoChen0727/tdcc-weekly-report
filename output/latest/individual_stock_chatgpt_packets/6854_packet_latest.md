@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6854 錼創科技-KY創
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:34 Asia/Taipei
+- generated_at: 2026-05-26 06:03:36 Asia/Taipei
 - stock_id: 6854
 - stock_name: 錼創科技-KY創
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 160
-- high: 170
-- low: 157.5
-- close: 169.5
-- volume: 1261165
-- ma5: 170.1
-- ma20: 155.65
-- ma60: 150.57
-- ma120: 139.28
-- ema23: 158.54
-- return_5d: 6.94
-- return_20d: 9.35
-- volume_ratio: 1.47
-- distance_to_ma20_pct: 8.9
-- distance_to_high_60_pct: -14.18
+- open: 172
+- high: 179
+- low: 170.5
+- close: 172.5
+- volume: 1529494
+- ma5: 170.7
+- ma20: 155.8
+- ma60: 150.62
+- ma120: 139.31
+- ema23: 158.79
+- return_5d: 8.83
+- return_20d: 11.29
+- volume_ratio: 1.76
+- distance_to_ma20_pct: 10.72
+- distance_to_high_60_pct: -12.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,160,170,157.5,169.5,1261165,158.5,153.38,149.37,154.97,1.57
 20260524,160,170,157.5,169.5,1261165,162.5,154.12,149.78,156.18,1.63
 20260525,172,179,170.5,172.5,1529494,167.9,154.93,150.12,157.54,1.87
-20260526,160,170,157.5,169.5,1261165,170.1,155.65,150.57,158.54,1.47
+20260526,172,179,170.5,172.5,1529494,170.7,155.8,150.62,158.79,1.76
 ```
 
 ## Latest TDCC Snapshot
@@ -122,6 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 6854 | 錼創科技-KY創 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 68.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 6854 | 錼創科技-KY創 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

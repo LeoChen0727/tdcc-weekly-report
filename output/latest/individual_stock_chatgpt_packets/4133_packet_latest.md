@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4133 亞諾法
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:39 Asia/Taipei
+- generated_at: 2026-05-26 06:02:45 Asia/Taipei
 - stock_id: 4133
 - stock_name: 亞諾法
 - packet_status: standard_180d_window_packet
@@ -55,20 +55,20 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 21.3
-- high: 21.3
-- low: 21
-- close: 21.3
-- volume: 145560
-- ma5: 21.27
-- ma20: 21.4
+- high: 21.4
+- low: 21.05
+- close: 21.15
+- volume: 154388
+- ma5: 21.24
+- ma20: 21.39
 - ma60: 22.38
-- ma120: 23.14
-- ema23: 21.52
-- return_5d: 0.71
-- return_20d: -2.07
-- volume_ratio: 0.75
-- distance_to_ma20_pct: -0.48
-- distance_to_high_60_pct: -15.31
+- ma120: 23.13
+- ema23: 21.51
+- return_5d: 0
+- return_20d: -2.76
+- volume_ratio: 0.79
+- distance_to_ma20_pct: -1.15
+- distance_to_high_60_pct: -15.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,21.3,21.3,21,21.3,145560,21.19,21.46,22.58,21.61,0.75
 20260524,21.3,21.3,21,21.3,145560,21.22,21.45,22.52,21.58,0.78
 20260525,21.3,21.4,21.05,21.15,154388,21.24,21.43,22.45,21.55,0.81
-20260526,21.3,21.3,21,21.3,145560,21.27,21.4,22.38,21.52,0.75
+20260526,21.3,21.4,21.05,21.15,154388,21.24,21.39,22.38,21.51,0.79
 ```
 
 ## Latest TDCC Snapshot

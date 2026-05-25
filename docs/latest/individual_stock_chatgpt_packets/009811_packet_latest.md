@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009811 統一美國50
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:27 Asia/Taipei
+- generated_at: 2026-05-26 06:01:37 Asia/Taipei
 - stock_id: 009811
 - stock_name: 統一美國50
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 12.98
-- high: 12.98
-- low: 12.93
-- close: 12.96
-- volume: 1243035
-- ma5: 12.97
-- ma20: 12.97
-- ma60: 12.97
-- ma120: 12.97
-- ema23: 12.96
+- open: 13.01
+- high: 13.04
+- low: 13
+- close: 13.02
+- volume: 2528938
+- ma5: 12.98
+- ma20: 12.98
+- ma60: 12.98
+- ma120: 12.98
+- ema23: 12.97
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.83
-- distance_to_ma20_pct: -0.09
-- distance_to_high_60_pct: -0.61
+- volume_ratio: 1.44
+- distance_to_ma20_pct: 0.28
+- distance_to_high_60_pct: -0.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,12.98,12.98,12.93,12.96,1243035,,,,,
 20260524,12.98,12.98,12.93,12.96,1243035,,,,,
 20260525,13.01,13.04,13,13.02,2528938,,,,,
-20260526,12.98,12.98,12.93,12.96,1243035,12.97,12.97,12.97,12.96,0.83
+20260526,13.01,13.04,13,13.02,2528938,12.98,12.98,12.98,12.97,1.44
 ```
 
 ## Latest TDCC Snapshot

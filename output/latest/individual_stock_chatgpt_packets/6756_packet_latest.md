@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6756 威鋒電子
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:31 Asia/Taipei
+- generated_at: 2026-05-26 06:03:33 Asia/Taipei
 - stock_id: 6756
 - stock_name: 威鋒電子
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 101.5
-- high: 105.5
-- low: 101
-- close: 105
-- volume: 716599
-- ma5: 106.5
-- ma20: 98.31
-- ma60: 83.7
-- ma120: 82.36
-- ema23: 97.23
-- return_5d: 3.45
-- return_20d: 26.81
-- volume_ratio: 0.97
-- distance_to_ma20_pct: 6.81
-- distance_to_high_60_pct: -9.09
+- open: 109
+- high: 115.5
+- low: 105
+- close: 112.5
+- volume: 1115983
+- ma5: 108
+- ma20: 98.68
+- ma60: 83.82
+- ma120: 82.42
+- ema23: 97.86
+- return_5d: 10.84
+- return_20d: 35.87
+- volume_ratio: 1.46
+- distance_to_ma20_pct: 14
+- distance_to_high_60_pct: -2.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,101.5,105.5,101,105,716599,100.34,94.78,82.34,94.17,1.07
 20260524,101.5,105.5,101,105,716599,102.54,95.74,82.75,95.08,1.06
 20260525,109,115.5,105,112.5,1115983,105.8,97.19,83.27,96.53,1.56
-20260526,101.5,105.5,101,105,716599,106.5,98.31,83.7,97.23,0.97
+20260526,109,115.5,105,112.5,1115983,108,98.68,83.82,97.86,1.46
 ```
 
 ## Latest TDCC Snapshot
@@ -120,14 +120,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 6756 | 威鋒電子 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 58.0 |  |  | neckline_challenge |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 6756 | 威鋒電子 | 2 | 1 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | status |

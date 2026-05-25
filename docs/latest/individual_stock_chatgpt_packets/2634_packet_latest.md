@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2634 漢翔
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:06 Asia/Taipei
+- generated_at: 2026-05-26 06:02:14 Asia/Taipei
 - stock_id: 2634
 - stock_name: 漢翔
 - packet_status: standard_180d_window_packet
@@ -55,20 +55,20 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 46.6
-- high: 46.65
-- low: 46.25
-- close: 46.5
-- volume: 3324313
-- ma5: 46.48
-- ma20: 47.2
-- ma60: 48.76
+- high: 47
+- low: 46.2
+- close: 46.4
+- volume: 5102778
+- ma5: 46.46
+- ma20: 47.19
+- ma60: 48.75
 - ma120: 50.88
-- ema23: 47.13
-- return_5d: 0.43
-- return_20d: -2.11
-- volume_ratio: 0.63
-- distance_to_ma20_pct: -1.47
-- distance_to_high_60_pct: -16.96
+- ema23: 47.12
+- return_5d: 0.22
+- return_20d: -2.32
+- volume_ratio: 0.95
+- distance_to_ma20_pct: -1.67
+- distance_to_high_60_pct: -17.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,46.6,46.65,46.25,46.5,3324313,46.14,47.38,49.18,47.33,0.64
 20260524,46.6,46.65,46.25,46.5,3324313,46.28,47.3,49.03,47.26,0.64
 20260525,46.6,47,46.2,46.4,5102778,46.44,47.24,48.89,47.19,0.98
-20260526,46.6,46.65,46.25,46.5,3324313,46.48,47.2,48.76,47.13,0.63
+20260526,46.6,47,46.2,46.4,5102778,46.46,47.19,48.75,47.12,0.95
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5608 四維航
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:04 Asia/Taipei
+- generated_at: 2026-05-26 06:03:08 Asia/Taipei
 - stock_id: 5608
 - stock_name: 四維航
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 14.5
-- high: 14.55
-- low: 14.2
-- close: 14.25
-- volume: 1719364
-- ma5: 14.31
-- ma20: 14.71
-- ma60: 15.92
+- open: 14.3
+- high: 14.7
+- low: 14.1
+- close: 14.55
+- volume: 3005315
+- ma5: 14.37
+- ma20: 14.73
+- ma60: 15.93
 - ma120: 16.92
-- ema23: 14.79
-- return_5d: -0.7
-- return_20d: -6.86
-- volume_ratio: 1.12
-- distance_to_ma20_pct: -3.14
-- distance_to_high_60_pct: -27.85
+- ema23: 14.81
+- return_5d: 1.39
+- return_20d: -4.9
+- volume_ratio: 1.88
+- distance_to_ma20_pct: -1.21
+- distance_to_high_60_pct: -26.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,14.5,14.55,14.2,14.25,1719364,14.25,14.86,16.08,14.92,1.28
 20260524,14.5,14.55,14.2,14.25,1719364,14.26,14.81,16.03,14.87,1.26
 20260525,14.3,14.7,14.1,14.55,3005315,14.33,14.77,15.98,14.84,2.03
-20260526,14.5,14.55,14.2,14.25,1719364,14.31,14.71,15.92,14.79,1.12
+20260526,14.3,14.7,14.1,14.55,3005315,14.37,14.73,15.93,14.81,1.88
 ```
 
 ## Latest TDCC Snapshot

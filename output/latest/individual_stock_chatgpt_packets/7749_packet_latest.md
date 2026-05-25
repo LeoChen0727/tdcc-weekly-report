@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7749 意騰-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:42 Asia/Taipei
+- generated_at: 2026-05-26 06:03:43 Asia/Taipei
 - stock_id: 7749
 - stock_name: 意騰-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 520
-- high: 550
-- low: 506
-- close: 544
-- volume: 1542075
-- ma5: 542.2
-- ma20: 507.7
-- ma60: 435.12
-- ma120: 433.91
-- ema23: 497.29
-- return_5d: 6.25
-- return_20d: 31.56
-- volume_ratio: 1.22
-- distance_to_ma20_pct: 7.15
-- distance_to_high_60_pct: -2.86
+- open: 556
+- high: 558
+- low: 532
+- close: 535
+- volume: 1426211
+- ma5: 540.4
+- ma20: 507.25
+- ma60: 434.97
+- ma120: 433.83
+- ema23: 496.54
+- return_5d: 4.49
+- return_20d: 29.38
+- volume_ratio: 1.14
+- distance_to_ma20_pct: 5.47
+- distance_to_high_60_pct: -4.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,520,550,506,544,1542075,511.5,489.55,430.16,484.24,1.44
 20260524,520,550,506,544,1542075,523.9,495.48,432.17,489.22,1.36
 20260525,556,558,532,535,1426211,535.8,501.18,433.47,493.04,1.19
-20260526,520,550,506,544,1542075,542.2,507.7,435.12,497.29,1.22
+20260526,556,558,532,535,1426211,540.4,507.25,434.97,496.54,1.14
 ```
 
 ## Latest TDCC Snapshot
@@ -122,14 +122,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 7749 | 意騰-KY | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 7749 | 意騰-KY | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260526 | 7749 | 意騰-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 63.0 |  |  | neckline_challenge |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 7749 | 意騰-KY | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 7749 | 意騰-KY | 2 | 2 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260526 | 7749 | 意騰-KY | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

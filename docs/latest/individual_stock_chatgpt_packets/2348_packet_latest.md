@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2348 海悅
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:53 Asia/Taipei
+- generated_at: 2026-05-26 06:02:02 Asia/Taipei
 - stock_id: 2348
 - stock_name: 海悅
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 69.3
-- high: 69.5
-- low: 69
-- close: 69
-- volume: 198293
-- ma5: 68.86
-- ma20: 70.07
-- ma60: 74.21
-- ma120: 76.92
-- ema23: 70.71
-- return_5d: -0.58
-- return_20d: -5.22
-- volume_ratio: 0.72
-- distance_to_ma20_pct: -1.53
-- distance_to_high_60_pct: -22.91
+- open: 69
+- high: 69.3
+- low: 67.7
+- close: 68.3
+- volume: 608426
+- ma5: 68.72
+- ma20: 70.03
+- ma60: 74.19
+- ma120: 76.91
+- ema23: 70.65
+- return_5d: -1.58
+- return_20d: -6.18
+- volume_ratio: 2.05
+- distance_to_ma20_pct: -2.48
+- distance_to_high_60_pct: -23.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,69.3,69.5,69,69,198293,69.2,70.61,74.43,71.29,0.73
 20260524,69.3,69.5,69,69,198293,69.1,70.45,74.36,71.1,0.78
 20260525,69,69.3,67.7,68.3,608426,68.94,70.26,74.27,70.87,2.21
-20260526,69.3,69.5,69,69,198293,68.86,70.07,74.21,70.71,0.72
+20260526,69,69.3,67.7,68.3,608426,68.72,70.03,74.19,70.65,2.05
 ```
 
 ## Latest TDCC Snapshot

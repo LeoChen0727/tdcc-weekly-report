@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2415 錩新
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:57 Asia/Taipei
+- generated_at: 2026-05-26 06:02:05 Asia/Taipei
 - stock_id: 2415
 - stock_name: 錩新
 - packet_status: standard_180d_window_packet
@@ -56,19 +56,19 @@
 - date: 20260526
 - open: 27.5
 - high: 27.5
-- low: 27.25
-- close: 27.25
-- volume: 150903
-- ma5: 27.2
-- ma20: 27.01
+- low: 26.95
+- close: 27
+- volume: 159229
+- ma5: 27.15
+- ma20: 27
 - ma60: 27.96
 - ma120: 27.29
-- ema23: 27.24
-- return_5d: -0.91
-- return_20d: 0.37
-- volume_ratio: 0.92
-- distance_to_ma20_pct: 0.89
-- distance_to_high_60_pct: -13.08
+- ema23: 27.22
+- return_5d: -1.82
+- return_20d: -0.55
+- volume_ratio: 0.97
+- distance_to_ma20_pct: 0.01
+- distance_to_high_60_pct: -13.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,27.5,27.5,27.25,27.25,150903,26.95,26.97,27.98,27.27,0.92
 20260524,27.5,27.5,27.25,27.25,150903,27.14,27,27.97,27.26,0.93
 20260525,27.5,27.5,26.95,27,159229,27.25,27,27.96,27.24,0.98
-20260526,27.5,27.5,27.25,27.25,150903,27.2,27.01,27.96,27.24,0.92
+20260526,27.5,27.5,26.95,27,159229,27.15,27,27.96,27.22,0.97
 ```
 
 ## Latest TDCC Snapshot

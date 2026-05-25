@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2704 國賓
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:07 Asia/Taipei
+- generated_at: 2026-05-26 06:02:15 Asia/Taipei
 - stock_id: 2704
 - stock_name: 國賓
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 41.75
+- open: 41.95
 - high: 42.05
 - low: 41.75
-- close: 41.85
-- volume: 85852
-- ma5: 41.89
-- ma20: 42.07
-- ma60: 42.4
-- ma120: 42.85
-- ema23: 42.11
-- return_5d: -0.48
-- return_20d: -1.99
-- volume_ratio: 0.74
-- distance_to_ma20_pct: -0.52
-- distance_to_high_60_pct: -4.89
+- close: 42.05
+- volume: 142043
+- ma5: 41.93
+- ma20: 42.08
+- ma60: 42.41
+- ma120: 42.86
+- ema23: 42.13
+- return_5d: 0
+- return_20d: -1.52
+- volume_ratio: 1.19
+- distance_to_ma20_pct: -0.07
+- distance_to_high_60_pct: -4.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,41.75,42.05,41.75,41.85,85852,41.88,42.12,42.49,42.17,0.73
 20260524,41.75,42.05,41.75,41.85,85852,41.87,42.11,42.47,42.14,0.74
 20260525,41.95,42.05,41.75,42.05,142043,41.93,42.11,42.43,42.13,1.2
-20260526,41.75,42.05,41.75,41.85,85852,41.89,42.07,42.4,42.11,0.74
+20260526,41.95,42.05,41.75,42.05,142043,41.93,42.08,42.41,42.13,1.19
 ```
 
 ## Latest TDCC Snapshot

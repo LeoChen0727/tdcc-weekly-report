@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00929 復華台灣科技優息
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:26 Asia/Taipei
+- generated_at: 2026-05-26 06:01:36 Asia/Taipei
 - stock_id: 00929
 - stock_name: 復華台灣科技優息
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 26.8
-- high: 27.1
-- low: 26.71
-- close: 27.08
-- volume: 39099925
-- ma5: 27.42
-- ma20: 27.42
-- ma60: 27.42
-- ma120: 27.42
-- ema23: 27.21
+- open: 27.9
+- high: 28.8
+- low: 27.9
+- close: 28.8
+- volume: 54630323
+- ma5: 27.77
+- ma20: 27.77
+- ma60: 27.77
+- ma120: 27.77
+- ema23: 27.35
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.93
-- distance_to_ma20_pct: -1.25
-- distance_to_high_60_pct: -5.97
+- volume_ratio: 1.21
+- distance_to_ma20_pct: 3.72
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,26.8,27.1,26.71,27.08,39099925,,,,,
 20260524,26.8,27.1,26.71,27.08,39099925,,,,,
 20260525,27.9,28.8,27.9,28.8,54630323,,,,,
-20260526,26.8,27.1,26.71,27.08,39099925,27.42,27.42,27.42,27.21,0.93
+20260526,27.9,28.8,27.9,28.8,54630323,27.77,27.77,27.77,27.35,1.21
 ```
 
 ## Latest TDCC Snapshot

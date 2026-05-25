@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 006205 富邦上証
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:24 Asia/Taipei
+- generated_at: 2026-05-26 06:01:34 Asia/Taipei
 - stock_id: 006205
 - stock_name: 富邦上証
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 41
-- high: 41
-- low: 40.59
-- close: 40.72
-- volume: 1071464
-- ma5: 40.79
-- ma20: 40.79
-- ma60: 40.79
-- ma120: 40.79
-- ema23: 40.75
+- open: 40.67
+- high: 41.26
+- low: 40.67
+- close: 41.06
+- volume: 717648
+- ma5: 40.86
+- ma20: 40.86
+- ma60: 40.86
+- ma120: 40.86
+- ema23: 40.77
 - return_5d: 
 - return_20d: 
-- volume_ratio: 1.07
-- distance_to_ma20_pct: -0.17
-- distance_to_high_60_pct: -1.31
+- volume_ratio: 0.77
+- distance_to_ma20_pct: 0.5
+- distance_to_high_60_pct: -0.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,41,41,40.59,40.72,1071464,,,,,
 20260524,41,41,40.59,40.72,1071464,,,,,
 20260525,40.67,41.26,40.67,41.06,717648,,,,,
-20260526,41,41,40.59,40.72,1071464,40.79,40.79,40.79,40.75,1.07
+20260526,40.67,41.26,40.67,41.06,717648,40.86,40.86,40.86,40.77,0.77
 ```
 
 ## Latest TDCC Snapshot
@@ -104,7 +104,7 @@ no_rows,True
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6205 | 詮欣 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 6205 | 詮欣 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

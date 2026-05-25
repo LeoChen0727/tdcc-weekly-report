@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2340 台亞
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:52 Asia/Taipei
+- generated_at: 2026-05-26 06:02:01 Asia/Taipei
 - stock_id: 2340
 - stock_name: 台亞
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 35.85
-- high: 38.65
-- low: 35.6
-- close: 38.65
-- volume: 10858463
-- ma5: 38.86
-- ma20: 37.7
-- ma60: 32.3
-- ma120: 29.5
-- ema23: 36.76
-- return_5d: 9.96
-- return_20d: -0.51
-- volume_ratio: 0.85
-- distance_to_ma20_pct: 2.51
-- distance_to_high_60_pct: -15.8
+- open: 39
+- high: 41.2
+- low: 38.25
+- close: 39.7
+- volume: 20127716
+- ma5: 39.07
+- ma20: 37.76
+- ma60: 32.32
+- ma120: 29.51
+- ema23: 36.85
+- return_5d: 12.94
+- return_20d: 2.19
+- volume_ratio: 1.52
+- distance_to_ma20_pct: 5.14
+- distance_to_high_60_pct: -13.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,35.85,38.65,35.6,38.65,10858463,36.17,37.33,31.71,36.09,0.88
 20260524,35.85,38.65,35.6,38.65,10858463,37.11,37.5,31.9,36.31,0.89
 20260525,39,41.2,38.25,39.7,20127716,38.16,37.72,32.11,36.59,1.56
-20260526,35.85,38.65,35.6,38.65,10858463,38.86,37.7,32.3,36.76,0.85
+20260526,39,41.2,38.25,39.7,20127716,39.07,37.76,32.32,36.85,1.52
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2340 | 台亞 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_strong_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 2340 | 台亞 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

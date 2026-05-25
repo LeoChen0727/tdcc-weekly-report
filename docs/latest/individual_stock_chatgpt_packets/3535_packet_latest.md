@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3535 晶彩科
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:31 Asia/Taipei
+- generated_at: 2026-05-26 06:02:37 Asia/Taipei
 - stock_id: 3535
 - stock_name: 晶彩科
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 125
-- high: 128
-- low: 124.5
-- close: 127.5
-- volume: 2535731
-- ma5: 128
-- ma20: 128.68
-- ma60: 125.13
-- ma120: 110.56
-- ema23: 126.55
-- return_5d: 2.41
-- return_20d: 1.19
-- volume_ratio: 0.36
-- distance_to_ma20_pct: -0.91
-- distance_to_high_60_pct: -15.56
+- open: 129.5
+- high: 131
+- low: 127
+- close: 130
+- volume: 4128047
+- ma5: 128.5
+- ma20: 128.8
+- ma60: 125.17
+- ma120: 110.58
+- ema23: 126.76
+- return_5d: 4.42
+- return_20d: 3.17
+- volume_ratio: 0.58
+- distance_to_ma20_pct: 0.93
+- distance_to_high_60_pct: -13.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,125,128,124.5,127.5,2535731,126.7,127.85,125.11,126.02,0.34
 20260524,125,128,124.5,127.5,2535731,125.8,128.4,125.3,126.15,0.34
 20260525,129.5,131,127,130,4128047,127.4,128.6,125.34,126.47,0.56
-20260526,125,128,124.5,127.5,2535731,128,128.68,125.13,126.55,0.36
+20260526,129.5,131,127,130,4128047,128.5,128.8,125.17,126.76,0.58
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3535 | 晶彩科 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 3535 | 晶彩科 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 3535 | 晶彩科 | pattern | 型態觀察 |  |  |  | 預備發動型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

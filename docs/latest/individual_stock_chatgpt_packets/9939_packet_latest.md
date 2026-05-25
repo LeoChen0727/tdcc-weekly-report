@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9939 宏全
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:59 Asia/Taipei
+- generated_at: 2026-05-26 06:03:59 Asia/Taipei
 - stock_id: 9939
 - stock_name: 宏全
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 127.5
-- high: 128.5
-- low: 125.5
-- close: 127
-- volume: 1407526
-- ma5: 126.5
-- ma20: 120.33
-- ma60: 118.34
-- ma120: 119.46
-- ema23: 121.55
-- return_5d: 0.79
-- return_20d: 12.89
-- volume_ratio: 0.77
-- distance_to_ma20_pct: 5.55
-- distance_to_high_60_pct: -1.17
+- open: 127
+- high: 127
+- low: 124.5
+- close: 124.5
+- volume: 1284661
+- ma5: 126
+- ma20: 120.2
+- ma60: 118.3
+- ma120: 119.44
+- ema23: 121.34
+- return_5d: -1.19
+- return_20d: 10.67
+- volume_ratio: 0.71
+- distance_to_ma20_pct: 3.58
+- distance_to_high_60_pct: -3.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,127.5,128.5,125.5,127,1407526,125.9,118.28,118.18,120.17,0.82
 20260524,127.5,128.5,125.5,127,1407526,126.2,119.03,118.24,120.74,0.81
 20260525,127,127,124.5,124.5,1284661,126.3,119.6,118.28,121.05,0.72
-20260526,127.5,128.5,125.5,127,1407526,126.5,120.33,118.34,121.55,0.77
+20260526,127,127,124.5,124.5,1284661,126,120.2,118.3,121.34,0.71
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 9939 | 宏全 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 9939 | 宏全 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 9939 | 宏全 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

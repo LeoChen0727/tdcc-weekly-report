@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4439 冠星-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:43 Asia/Taipei
+- generated_at: 2026-05-26 06:02:48 Asia/Taipei
 - stock_id: 4439
 - stock_name: 冠星-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 93
+- open: 92.5
 - high: 93
-- low: 90.4
-- close: 92
-- volume: 16190
-- ma5: 92.2
-- ma20: 95.27
-- ma60: 93.03
-- ma120: 97.9
-- ema23: 94.39
-- return_5d: 0
-- return_20d: -7.07
-- volume_ratio: 0.79
-- distance_to_ma20_pct: -3.43
-- distance_to_high_60_pct: -12.38
+- low: 92.3
+- close: 93
+- volume: 4000
+- ma5: 92.4
+- ma20: 95.32
+- ma60: 93.04
+- ma120: 97.91
+- ema23: 94.48
+- return_5d: 1.09
+- return_20d: -6.06
+- volume_ratio: 0.2
+- distance_to_ma20_pct: -2.43
+- distance_to_high_60_pct: -11.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,93,93,90.4,92,16190,91.7,96.27,93.52,95.01,0.69
 20260524,93,93,90.4,92,16190,91.8,95.92,93.34,94.76,0.74
 20260525,92.5,93,92.3,93,4000,92.2,95.62,93.17,94.61,0.19
-20260526,93,93,90.4,92,16190,92.2,95.27,93.03,94.39,0.79
+20260526,92.5,93,92.3,93,4000,92.4,95.32,93.04,94.48,0.2
 ```
 
 ## Latest TDCC Snapshot

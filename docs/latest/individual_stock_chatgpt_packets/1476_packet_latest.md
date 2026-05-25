@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1476 儒鴻
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:35 Asia/Taipei
+- generated_at: 2026-05-26 06:01:45 Asia/Taipei
 - stock_id: 1476
 - stock_name: 儒鴻
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 344.5
-- high: 346
-- low: 341
-- close: 342.5
-- volume: 1765917
-- ma5: 341
-- ma20: 338.4
-- ma60: 347.9
-- ma120: 377.57
-- ema23: 339.27
-- return_5d: -0.15
-- return_20d: 1.93
-- volume_ratio: 1.25
-- distance_to_ma20_pct: 1.21
-- distance_to_high_60_pct: -17.87
+- open: 341.5
+- high: 344.5
+- low: 332.5
+- close: 335
+- volume: 1557572
+- ma5: 339.5
+- ma20: 338.02
+- ma60: 347.77
+- ma120: 377.51
+- ema23: 338.65
+- return_5d: -2.33
+- return_20d: -0.3
+- volume_ratio: 1.11
+- distance_to_ma20_pct: -0.89
+- distance_to_high_60_pct: -19.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,344.5,346,341,342.5,1765917,335.7,337.1,351.93,339.06,1.33
 20260524,344.5,346,341,342.5,1765917,340.2,338.02,350.57,339.34,1.3
 20260525,341.5,344.5,332.5,335,1557572,341.1,338.07,349.1,338.98,1.14
-20260526,344.5,346,341,342.5,1765917,341,338.4,347.9,339.27,1.25
+20260526,341.5,344.5,332.5,335,1557572,339.5,338.02,347.77,338.65,1.11
 ```
 
 ## Latest TDCC Snapshot

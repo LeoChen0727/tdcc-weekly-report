@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8101 華冠
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:47 Asia/Taipei
+- generated_at: 2026-05-26 06:03:48 Asia/Taipei
 - stock_id: 8101
 - stock_name: 華冠
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 13
-- high: 13
-- low: 13
-- close: 13
-- volume: 2205
-- ma5: 13.18
-- ma20: 12.93
-- ma60: 13.74
-- ma120: 14.9
-- ema23: 13.15
-- return_5d: 0
-- return_20d: 4
-- volume_ratio: 0.22
-- distance_to_ma20_pct: 0.54
-- distance_to_high_60_pct: -20
+- open: 12.85
+- high: 14.1
+- low: 12.75
+- close: 13.9
+- volume: 15804
+- ma5: 13.36
+- ma20: 12.97
+- ma60: 13.76
+- ma120: 14.91
+- ema23: 13.22
+- return_5d: 6.92
+- return_20d: 11.2
+- volume_ratio: 1.45
+- distance_to_ma20_pct: 7.13
+- distance_to_high_60_pct: -14.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,13,13,13,13,2205,13.05,12.85,13.87,13.1,0.2
 20260524,13,13,13,13,2205,13.03,12.86,13.82,13.1,0.21
 20260525,12.85,14.1,12.75,13.9,15804,13.18,12.9,13.79,13.16,1.43
-20260526,13,13,13,13,2205,13.18,12.93,13.74,13.15,0.22
+20260526,12.85,14.1,12.75,13.9,15804,13.36,12.97,13.76,13.22,1.45
 ```
 
 ## Latest TDCC Snapshot

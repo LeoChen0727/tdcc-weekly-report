@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6625 必應
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:27 Asia/Taipei
+- generated_at: 2026-05-26 06:03:29 Asia/Taipei
 - stock_id: 6625
 - stock_name: 必應
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 73.6
-- high: 73.6
-- low: 72.7
-- close: 73.1
-- volume: 154001
-- ma5: 73.22
-- ma20: 73
-- ma60: 76.07
-- ma120: 79.92
-- ema23: 73.58
-- return_5d: -0.54
-- return_20d: -0.81
-- volume_ratio: 0.98
-- distance_to_ma20_pct: 0.13
-- distance_to_high_60_pct: -12.14
+- open: 75
+- high: 75.1
+- low: 73.4
+- close: 73.7
+- volume: 221870
+- ma5: 73.34
+- ma20: 73.03
+- ma60: 76.08
+- ma120: 79.93
+- ema23: 73.63
+- return_5d: 0.27
+- return_20d: 0
+- volume_ratio: 1.38
+- distance_to_ma20_pct: 0.91
+- distance_to_high_60_pct: -11.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,73.6,73.6,72.7,73.1,154001,72.88,73.06,76.46,73.67,1
 20260524,73.6,73.6,72.7,73.1,154001,73,73.03,76.33,73.62,1.03
 20260525,75,75.1,73.4,73.7,221870,73.3,73.03,76.2,73.63,1.44
-20260526,73.6,73.6,72.7,73.1,154001,73.22,73,76.07,73.58,0.98
+20260526,75,75.1,73.4,73.7,221870,73.34,73.03,76.08,73.63,1.38
 ```
 
 ## Latest TDCC Snapshot

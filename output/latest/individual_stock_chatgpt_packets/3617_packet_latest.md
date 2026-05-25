@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3617 碩天
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:34 Asia/Taipei
+- generated_at: 2026-05-26 06:02:40 Asia/Taipei
 - stock_id: 3617
 - stock_name: 碩天
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 200
-- high: 201.5
-- low: 196
-- close: 200.5
-- volume: 409864
-- ma5: 201.5
-- ma20: 195.43
-- ma60: 185.39
-- ma120: 191.43
-- ema23: 194.74
-- return_5d: 1.78
-- return_20d: 5.25
-- volume_ratio: 1.22
-- distance_to_ma20_pct: 2.6
-- distance_to_high_60_pct: -2.67
+- open: 204
+- high: 206
+- low: 201.5
+- close: 205.5
+- volume: 566446
+- ma5: 202.5
+- ma20: 195.68
+- ma60: 185.47
+- ma120: 191.47
+- ema23: 195.16
+- return_5d: 4.31
+- return_20d: 7.87
+- volume_ratio: 1.64
+- distance_to_ma20_pct: 5.02
+- distance_to_high_60_pct: -0.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,200,201.5,196,200.5,409864,194.9,193.53,184.98,192.53,1.3
 20260524,200,201.5,196,200.5,409864,197.4,194.07,185.08,193.19,1.29
 20260525,204,206,201.5,205.5,566446,200.8,194.93,185.26,194.22,1.67
-20260526,200,201.5,196,200.5,409864,201.5,195.43,185.39,194.74,1.22
+20260526,204,206,201.5,205.5,566446,202.5,195.68,185.47,195.16,1.64
 ```
 
 ## Latest TDCC Snapshot

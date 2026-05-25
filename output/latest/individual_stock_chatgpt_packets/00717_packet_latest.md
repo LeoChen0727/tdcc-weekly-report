@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00717 富邦美國特別股
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:25 Asia/Taipei
+- generated_at: 2026-05-26 06:01:35 Asia/Taipei
 - stock_id: 00717
 - stock_name: 富邦美國特別股
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 14.94
-- high: 14.94
+- open: 14.93
+- high: 14.96
 - low: 14.89
-- close: 14.93
-- volume: 78300
-- ma5: 14.93
-- ma20: 14.93
-- ma60: 14.93
-- ma120: 14.93
+- close: 14.95
+- volume: 862972
+- ma5: 14.94
+- ma20: 14.94
+- ma60: 14.94
+- ma120: 14.94
 - ema23: 14.93
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.33
-- distance_to_ma20_pct: -0.03
-- distance_to_high_60_pct: -0.2
+- volume_ratio: 2.2
+- distance_to_ma20_pct: 0.08
+- distance_to_high_60_pct: -0.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,14.94,14.94,14.89,14.93,78300,,,,,
 20260524,14.94,14.94,14.89,14.93,78300,,,,,
 20260525,14.93,14.96,14.89,14.95,862972,,,,,
-20260526,14.94,14.94,14.89,14.93,78300,14.93,14.93,14.93,14.93,0.33
+20260526,14.93,14.96,14.89,14.95,862972,14.94,14.94,14.94,14.93,2.2
 ```
 
 ## Latest TDCC Snapshot

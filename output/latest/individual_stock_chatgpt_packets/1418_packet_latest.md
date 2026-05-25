@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1418 東華
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:32 Asia/Taipei
+- generated_at: 2026-05-26 06:01:42 Asia/Taipei
 - stock_id: 1418
 - stock_name: 東華
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 18
-- high: 18
-- low: 17.7
+- open: 17.9
+- high: 18.15
+- low: 17.5
 - close: 17.75
-- volume: 31476
+- volume: 37834
 - ma5: 17.75
 - ma20: 18.39
 - ma60: 18.63
@@ -66,7 +66,7 @@
 - ema23: 18.21
 - return_5d: -0.84
 - return_20d: -7.07
-- volume_ratio: 1.07
+- volume_ratio: 1.28
 - distance_to_ma20_pct: -3.48
 - distance_to_high_60_pct: -12.78
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,18,18,17.7,17.75,31476,17.86,18.49,18.72,18.35,1.13
 20260524,18,18,17.7,17.75,31476,17.81,18.46,18.69,18.3,1.09
 20260525,17.9,18.15,17.5,17.75,37834,17.78,18.46,18.66,18.26,1.24
-20260526,18,18,17.7,17.75,31476,17.75,18.39,18.63,18.21,1.07
+20260526,17.9,18.15,17.5,17.75,37834,17.75,18.39,18.63,18.21,1.28
 ```
 
 ## Latest TDCC Snapshot

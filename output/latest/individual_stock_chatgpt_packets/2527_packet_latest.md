@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2527 宏璟
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:03 Asia/Taipei
+- generated_at: 2026-05-26 06:02:11 Asia/Taipei
 - stock_id: 2527
 - stock_name: 宏璟
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 33.35
-- high: 33.55
-- low: 33.05
-- close: 33.55
-- volume: 339236
-- ma5: 33.83
-- ma20: 33.86
-- ma60: 32.59
-- ma120: 30.95
-- ema23: 33.79
-- return_5d: 0.6
-- return_20d: -2.89
-- volume_ratio: 0.77
-- distance_to_ma20_pct: -0.91
-- distance_to_high_60_pct: -16.65
+- open: 33.7
+- high: 35.1
+- low: 33.7
+- close: 34.95
+- volume: 621616
+- ma5: 34.11
+- ma20: 33.93
+- ma60: 32.61
+- ma120: 30.96
+- ema23: 33.9
+- return_5d: 4.8
+- return_20d: 1.16
+- volume_ratio: 1.36
+- distance_to_ma20_pct: 3.01
+- distance_to_high_60_pct: -13.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,33.35,33.55,33.05,33.55,339236,33.34,33.95,32.48,33.72,0.75
 20260524,33.35,33.55,33.05,33.55,339236,33.4,33.88,32.52,33.71,0.8
 20260525,33.7,35.1,33.7,34.95,621616,33.79,33.91,32.56,33.81,1.42
-20260526,33.35,33.55,33.05,33.55,339236,33.83,33.86,32.59,33.79,0.77
+20260526,33.7,35.1,33.7,34.95,621616,34.11,33.93,32.61,33.9,1.36
 ```
 
 ## Latest TDCC Snapshot

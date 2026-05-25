@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2889 國票金
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:11 Asia/Taipei
+- generated_at: 2026-05-26 06:02:19 Asia/Taipei
 - stock_id: 2889
 - stock_name: 國票金
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 14.65
-- high: 14.85
-- low: 14.6
-- close: 14.65
-- volume: 1892071
-- ma5: 14.63
+- open: 14.7
+- high: 14.7
+- low: 14.5
+- close: 14.55
+- volume: 2373133
+- ma5: 14.61
 - ma20: 14.62
 - ma60: 15.31
 - ma120: 15.96
 - ema23: 14.73
-- return_5d: -0.68
-- return_20d: -0.68
-- volume_ratio: 0.71
-- distance_to_ma20_pct: 0.17
-- distance_to_high_60_pct: -15.8
+- return_5d: -1.36
+- return_20d: -1.36
+- volume_ratio: 0.89
+- distance_to_ma20_pct: -0.48
+- distance_to_high_60_pct: -16.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,14.65,14.85,14.6,14.65,1892071,14.68,14.63,15.42,14.77,0.62
 20260524,14.65,14.85,14.6,14.65,1892071,14.68,14.64,15.39,14.76,0.7
 20260525,14.7,14.7,14.5,14.55,2373133,14.65,14.63,15.35,14.74,0.89
-20260526,14.65,14.85,14.6,14.65,1892071,14.63,14.62,15.31,14.73,0.71
+20260526,14.7,14.7,14.5,14.55,2373133,14.61,14.62,15.31,14.73,0.89
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2889 | 國票金 | pattern | 型態觀察 | 48.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260526 | 2889 | 國票金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

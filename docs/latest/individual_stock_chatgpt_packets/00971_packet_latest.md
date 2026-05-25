@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00971 野村美國研發龍頭
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:27 Asia/Taipei
+- generated_at: 2026-05-26 06:01:37 Asia/Taipei
 - stock_id: 00971
 - stock_name: 野村美國研發龍頭
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 16.74
-- high: 16.75
-- low: 16.71
-- close: 16.73
-- volume: 275717
-- ma5: 16.77
-- ma20: 16.77
-- ma60: 16.77
-- ma120: 16.77
-- ema23: 16.74
+- open: 16.79
+- high: 16.93
+- low: 16.79
+- close: 16.91
+- volume: 675848
+- ma5: 16.8
+- ma20: 16.8
+- ma60: 16.8
+- ma120: 16.8
+- ema23: 16.76
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.78
-- distance_to_ma20_pct: -0.21
-- distance_to_high_60_pct: -1.18
+- volume_ratio: 1.55
+- distance_to_ma20_pct: 0.64
+- distance_to_high_60_pct: -0.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,16.74,16.75,16.71,16.73,275717,,,,,
 20260524,16.74,16.75,16.71,16.73,275717,,,,,
 20260525,16.79,16.93,16.79,16.91,675848,,,,,
-20260526,16.74,16.75,16.71,16.73,275717,16.77,16.77,16.77,16.74,0.78
+20260526,16.79,16.93,16.79,16.91,675848,16.8,16.8,16.8,16.76,1.55
 ```
 
 ## Latest TDCC Snapshot

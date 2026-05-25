@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2029 盛餘
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:46 Asia/Taipei
+- generated_at: 2026-05-26 06:01:56 Asia/Taipei
 - stock_id: 2029
 - stock_name: 盛餘
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 20.35
-- high: 20.4
-- low: 20.15
-- close: 20.3
-- volume: 256380
-- ma5: 20.38
-- ma20: 20.28
-- ma60: 20.5
-- ma120: 20.81
-- ema23: 20.35
-- return_5d: -0.73
-- return_20d: 0.99
-- volume_ratio: 1
-- distance_to_ma20_pct: 0.1
-- distance_to_high_60_pct: -7.52
+- open: 20.3
+- high: 20.9
+- low: 20.25
+- close: 20.7
+- volume: 665384
+- ma5: 20.46
+- ma20: 20.3
+- ma60: 20.51
+- ma120: 20.82
+- ema23: 20.38
+- return_5d: 1.22
+- return_20d: 2.99
+- volume_ratio: 2.4
+- distance_to_ma20_pct: 1.97
+- distance_to_high_60_pct: -5.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,20.35,20.4,20.15,20.3,256380,20.37,20.23,20.58,20.32,1.13
 20260524,20.35,20.4,20.15,20.3,256380,20.34,20.25,20.55,20.32,1.14
 20260525,20.3,20.9,20.25,20.7,665384,20.41,20.27,20.53,20.35,2.65
-20260526,20.35,20.4,20.15,20.3,256380,20.38,20.28,20.5,20.35,1
+20260526,20.3,20.9,20.25,20.7,665384,20.46,20.3,20.51,20.38,2.4
 ```
 
 ## Latest TDCC Snapshot

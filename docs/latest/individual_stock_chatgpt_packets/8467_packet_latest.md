@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8467 波力-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:54 Asia/Taipei
+- generated_at: 2026-05-26 06:03:54 Asia/Taipei
 - stock_id: 8467
 - stock_name: 波力-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 127
+- open: 126
 - high: 127
-- low: 126
-- close: 126
-- volume: 21794
-- ma5: 126.2
-- ma20: 131.95
-- ma60: 146.39
-- ma120: 158.7
-- ema23: 133.5
-- return_5d: -0.4
-- return_20d: -15.15
+- low: 125.5
+- close: 127
+- volume: 21560
+- ma5: 126.4
+- ma20: 132
+- ma60: 146.41
+- ma120: 158.71
+- ema23: 133.58
+- return_5d: 0.4
+- return_20d: -14.48
 - volume_ratio: 0.62
-- distance_to_ma20_pct: -4.51
-- distance_to_high_60_pct: -27.38
+- distance_to_ma20_pct: -3.79
+- distance_to_high_60_pct: -26.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,127,127,126,126,21794,126.6,135.1,148.72,135.64,0.65
 20260524,127,127,126,126,21794,126,134.07,147.92,134.83,0.65
 20260525,126,127,125.5,127,21560,126.3,133.07,147.18,134.18,0.63
-20260526,127,127,126,126,21794,126.2,131.95,146.39,133.5,0.62
+20260526,126,127,125.5,127,21560,126.4,132,146.41,133.58,0.62
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3679 新至陞
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:35 Asia/Taipei
+- generated_at: 2026-05-26 06:02:41 Asia/Taipei
 - stock_id: 3679
 - stock_name: 新至陞
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 118.5
-- high: 120
-- low: 117.5
+- open: 120
+- high: 120.5
+- low: 119
 - close: 119.5
-- volume: 75132
+- volume: 70029
 - ma5: 119.5
 - ma20: 118.92
 - ma60: 119.12
@@ -66,7 +66,7 @@
 - ema23: 119.05
 - return_5d: 1.27
 - return_20d: -2.05
-- volume_ratio: 1.24
+- volume_ratio: 1.16
 - distance_to_ma20_pct: 0.48
 - distance_to_high_60_pct: -2.85
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,118.5,120,117.5,119.5,75132,118.5,118.95,119.1,118.92,1.26
 20260524,118.5,120,117.5,119.5,75132,118.8,119.03,119.11,118.97,1.3
 20260525,120,120.5,119,119.5,70029,119.2,119.05,119.11,119.01,1.17
-20260526,118.5,120,117.5,119.5,75132,119.5,118.92,119.12,119.05,1.24
+20260526,120,120.5,119,119.5,70029,119.5,118.92,119.12,119.05,1.16
 ```
 
 ## Latest TDCC Snapshot

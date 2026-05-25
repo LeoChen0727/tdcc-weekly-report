@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6931 青松健康
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:38 Asia/Taipei
+- generated_at: 2026-05-26 06:03:39 Asia/Taipei
 - stock_id: 6931
 - stock_name: 青松健康
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 41.7
-- high: 41.95
-- low: 40.95
-- close: 40.95
-- volume: 119114
-- ma5: 40.76
-- ma20: 42.25
-- ma60: 47.99
-- ma120: 54.26
-- ema23: 43.11
-- return_5d: -0.49
-- return_20d: -15.31
-- volume_ratio: 0.66
-- distance_to_ma20_pct: -3.08
-- distance_to_high_60_pct: -25
+- open: 40.6
+- high: 40.9
+- low: 39.95
+- close: 40
+- volume: 177634
+- ma5: 40.57
+- ma20: 42.2
+- ma60: 47.97
+- ma120: 54.25
+- ema23: 43.03
+- return_5d: -2.79
+- return_20d: -17.27
+- volume_ratio: 0.97
+- distance_to_ma20_pct: -5.22
+- distance_to_high_60_pct: -26.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,41.7,41.95,40.95,40.95,119114,40.96,43.53,48.69,43.84,0.54
 20260524,41.7,41.95,40.95,40.95,119114,40.91,43.09,48.46,43.6,0.55
 20260525,40.6,40.9,39.95,40,177634,40.8,42.62,48.22,43.3,0.82
-20260526,41.7,41.95,40.95,40.95,119114,40.76,42.25,47.99,43.11,0.66
+20260526,40.6,40.9,39.95,40,177634,40.57,42.2,47.97,43.03,0.97
 ```
 
 ## Latest TDCC Snapshot

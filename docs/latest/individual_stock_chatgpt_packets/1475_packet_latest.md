@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1475 業旺
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:35 Asia/Taipei
+- generated_at: 2026-05-26 06:01:45 Asia/Taipei
 - stock_id: 1475
 - stock_name: 業旺
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 25
-- high: 25.1
-- low: 24.8
+- open: 24.95
+- high: 25.25
+- low: 24.7
 - close: 25.1
-- volume: 43410
+- volume: 68678
 - ma5: 25.1
 - ma20: 26.46
 - ma60: 27.95
@@ -66,7 +66,7 @@
 - ema23: 26.43
 - return_5d: 0
 - return_20d: -10.99
-- volume_ratio: 0.77
+- volume_ratio: 1.19
 - distance_to_ma20_pct: -5.15
 - distance_to_high_60_pct: -18.24
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,25,25.1,24.8,25.1,43410,25.34,26.86,28.23,26.83,0.82
 20260524,25,25.1,24.8,25.1,43410,25.14,26.74,28.13,26.68,0.82
 20260525,24.95,25.25,24.7,25.1,68678,25.1,26.62,28.04,26.55,1.24
-20260526,25,25.1,24.8,25.1,43410,25.1,26.46,27.95,26.43,0.77
+20260526,24.95,25.25,24.7,25.1,68678,25.1,26.46,27.95,26.43,1.19
 ```
 
 ## Latest TDCC Snapshot

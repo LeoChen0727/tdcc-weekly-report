@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1314 中石化
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:30 Asia/Taipei
+- generated_at: 2026-05-26 06:01:41 Asia/Taipei
 - stock_id: 1314
 - stock_name: 中石化
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 7.21
-- high: 7.24
-- low: 7.06
-- close: 7.08
-- volume: 19582127
+- open: 7.11
+- high: 7.11
+- low: 6.92
+- close: 7.07
+- volume: 18807365
 - ma5: 7.08
 - ma20: 7.09
 - ma60: 7.82
 - ma120: 7.92
 - ema23: 7.2
-- return_5d: -1.67
-- return_20d: -4.71
-- volume_ratio: 1.05
-- distance_to_ma20_pct: -0.18
-- distance_to_high_60_pct: -27.83
+- return_5d: -1.81
+- return_20d: -4.85
+- volume_ratio: 1.01
+- distance_to_ma20_pct: -0.31
+- distance_to_high_60_pct: -27.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,7.21,7.24,7.06,7.08,19582127,7.06,7.15,7.88,7.23,1.12
 20260524,7.21,7.24,7.06,7.08,19582127,7.09,7.13,7.86,7.22,1.1
 20260525,7.11,7.11,6.92,7.07,18807365,7.1,7.11,7.84,7.21,1.04
-20260526,7.21,7.24,7.06,7.08,19582127,7.08,7.09,7.82,7.2,1.05
+20260526,7.11,7.11,6.92,7.07,18807365,7.08,7.09,7.82,7.2,1.01
 ```
 
 ## Latest TDCC Snapshot

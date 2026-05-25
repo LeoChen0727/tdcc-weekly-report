@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2912 統一超
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:12 Asia/Taipei
+- generated_at: 2026-05-26 06:02:20 Asia/Taipei
 - stock_id: 2912
 - stock_name: 統一超
 - packet_status: standard_180d_window_packet
@@ -55,20 +55,20 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 221
-- high: 222
-- low: 219.5
-- close: 220
-- volume: 6284429
-- ma5: 218.5
-- ma20: 224.12
-- ma60: 224.19
-- ma120: 223.71
-- ema23: 223.51
-- return_5d: -0.45
-- return_20d: -2
-- volume_ratio: 1.7
-- distance_to_ma20_pct: -1.84
-- distance_to_high_60_pct: -8.14
+- high: 221
+- low: 212.5
+- close: 212.5
+- volume: 8794576
+- ma5: 217
+- ma20: 223.75
+- ma60: 224.07
+- ma120: 223.65
+- ema23: 222.88
+- return_5d: -3.85
+- return_20d: -5.35
+- volume_ratio: 2.3
+- distance_to_ma20_pct: -5.03
+- distance_to_high_60_pct: -11.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,221,222,219.5,220,6284429,222.1,225.22,224.43,225.3,2.13
 20260524,221,222,219.5,220,6284429,220.6,224.93,224.39,224.86,1.99
 20260525,221,221,212.5,212.5,8794576,218.7,224.35,224.22,223.83,2.52
-20260526,221,222,219.5,220,6284429,218.5,224.12,224.19,223.51,1.7
+20260526,221,221,212.5,212.5,8794576,217,223.75,224.07,222.88,2.3
 ```
 
 ## Latest TDCC Snapshot

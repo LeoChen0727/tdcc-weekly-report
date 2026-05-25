@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6792 詠業
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:33 Asia/Taipei
+- generated_at: 2026-05-26 06:03:34 Asia/Taipei
 - stock_id: 6792
 - stock_name: 詠業
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 65
-- high: 70.3
-- low: 64.8
-- close: 68.5
-- volume: 398592
-- ma5: 68.68
-- ma20: 61.77
-- ma60: 59.41
+- open: 71
+- high: 72
+- low: 68.6
+- close: 69.4
+- volume: 251396
+- ma5: 68.86
+- ma20: 61.81
+- ma60: 59.42
 - ma120: 56.49
-- ema23: 63.01
-- return_5d: 6.2
-- return_20d: 16.89
-- volume_ratio: 2.12
-- distance_to_ma20_pct: 10.9
-- distance_to_high_60_pct: -4.86
+- ema23: 63.08
+- return_5d: 7.6
+- return_20d: 18.43
+- volume_ratio: 1.39
+- distance_to_ma20_pct: 12.27
+- distance_to_high_60_pct: -3.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,65,70.3,64.8,68.5,398592,65.68,60.23,59.03,61.28,2.73
 20260524,65,70.3,64.8,68.5,398592,66.78,60.76,59.18,61.88,2.47
 20260525,71,72,68.6,69.4,251396,67.88,61.27,59.32,62.51,1.47
-20260526,65,70.3,64.8,68.5,398592,68.68,61.77,59.41,63.01,2.12
+20260526,71,72,68.6,69.4,251396,68.86,61.81,59.42,63.08,1.39
 ```
 
 ## Latest TDCC Snapshot

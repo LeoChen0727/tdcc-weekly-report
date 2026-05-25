@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2913 農林
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:12 Asia/Taipei
+- generated_at: 2026-05-26 06:02:20 Asia/Taipei
 - stock_id: 2913
 - stock_name: 農林
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 11
-- high: 11.05
-- low: 10.85
-- close: 10.9
-- volume: 1280536
-- ma5: 10.88
+- open: 10.95
+- high: 10.95
+- low: 10.65
+- close: 10.8
+- volume: 3437044
+- ma5: 10.86
 - ma20: 11.03
 - ma60: 11.79
 - ma120: 12.59
-- ema23: 11.13
-- return_5d: -0.91
-- return_20d: -4.8
-- volume_ratio: 0.76
-- distance_to_ma20_pct: -1.18
-- distance_to_high_60_pct: -17.11
+- ema23: 11.12
+- return_5d: -1.82
+- return_20d: -5.68
+- volume_ratio: 1.91
+- distance_to_ma20_pct: -2.04
+- distance_to_high_60_pct: -17.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,11,11.05,10.85,10.9,1280536,10.92,11.09,11.9,11.21,0.72
 20260524,11,11.05,10.85,10.9,1280536,10.92,11.08,11.87,11.19,0.75
 20260525,10.95,10.95,10.65,10.8,3437044,10.9,11.06,11.83,11.15,1.92
-20260526,11,11.05,10.85,10.9,1280536,10.88,11.03,11.79,11.13,0.76
+20260526,10.95,10.95,10.65,10.8,3437044,10.86,11.03,11.79,11.12,1.91
 ```
 
 ## Latest TDCC Snapshot

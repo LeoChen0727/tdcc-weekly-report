@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3321 同泰
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:25 Asia/Taipei
+- generated_at: 2026-05-26 06:02:31 Asia/Taipei
 - stock_id: 3321
 - stock_name: 同泰
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 15.45
-- high: 15.95
-- low: 15.35
-- close: 15.95
-- volume: 358394
-- ma5: 16.07
-- ma20: 16.06
-- ma60: 16.15
+- open: 15.95
+- high: 16.6
+- low: 15.8
+- close: 16.55
+- volume: 631153
+- ma5: 16.19
+- ma20: 16.09
+- ma60: 16.16
 - ma120: 17.49
-- ema23: 16.01
-- return_5d: 4.25
-- return_20d: 0.31
-- volume_ratio: 0.91
-- distance_to_ma20_pct: -0.67
-- distance_to_high_60_pct: -15.16
+- ema23: 16.06
+- return_5d: 8.17
+- return_20d: 4.09
+- volume_ratio: 1.55
+- distance_to_ma20_pct: 2.87
+- distance_to_high_60_pct: -11.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,15.45,15.95,15.35,15.95,358394,15.56,16.05,16.27,15.97,1
 20260524,15.45,15.95,15.35,15.95,358394,15.69,16.04,16.22,15.97,1
 20260525,15.95,16.6,15.8,16.55,631153,15.94,16.05,16.19,16.02,1.65
-20260526,15.45,15.95,15.35,15.95,358394,16.07,16.06,16.15,16.01,0.91
+20260526,15.95,16.6,15.8,16.55,631153,16.19,16.09,16.16,16.06,1.55
 ```
 
 ## Latest TDCC Snapshot

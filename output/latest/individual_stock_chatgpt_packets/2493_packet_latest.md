@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2493 揚博
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:02 Asia/Taipei
+- generated_at: 2026-05-26 06:02:10 Asia/Taipei
 - stock_id: 2493
 - stock_name: 揚博
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 137.5
-- high: 140.5
-- low: 136
-- close: 137.5
-- volume: 2529238
-- ma5: 139.8
-- ma20: 134.22
-- ma60: 122.2
-- ma120: 116.27
-- ema23: 133.71
-- return_5d: 1.48
-- return_20d: 10.44
-- volume_ratio: 0.77
-- distance_to_ma20_pct: 2.44
-- distance_to_high_60_pct: -9.84
+- open: 139.5
+- high: 151
+- low: 138.5
+- close: 149
+- volume: 6981961
+- ma5: 142.1
+- ma20: 134.8
+- ma60: 122.39
+- ma120: 116.37
+- ema23: 134.67
+- return_5d: 9.96
+- return_20d: 19.68
+- volume_ratio: 2
+- distance_to_ma20_pct: 10.53
+- distance_to_high_60_pct: -2.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,137.5,140.5,136,137.5,2529238,134.1,131.75,121.06,131.44,0.84
 20260524,137.5,140.5,136,137.5,2529238,135.3,132.45,121.39,131.95,0.84
 20260525,139.5,151,138.5,149,6981961,139.4,133.57,121.8,133.37,2.14
-20260526,137.5,140.5,136,137.5,2529238,139.8,134.22,122.2,133.71,0.77
+20260526,139.5,151,138.5,149,6981961,142.1,134.8,122.39,134.67,2
 ```
 
 ## Latest TDCC Snapshot
@@ -120,14 +120,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 2493 | 揚博 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 2493 | 揚博 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

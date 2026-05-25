@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8045 達運光電
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:45 Asia/Taipei
+- generated_at: 2026-05-26 06:03:46 Asia/Taipei
 - stock_id: 8045
 - stock_name: 達運光電
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 72.1
-- high: 73.2
-- low: 71.2
-- close: 71.8
-- volume: 238863
-- ma5: 71.36
-- ma20: 72.69
-- ma60: 74.93
-- ma120: 76.99
-- ema23: 72.69
-- return_5d: -0.55
-- return_20d: -2.71
-- volume_ratio: 0.77
-- distance_to_ma20_pct: -1.23
-- distance_to_high_60_pct: -17.94
+- open: 73
+- high: 73
+- low: 69.4
+- close: 69.6
+- volume: 468754
+- ma5: 70.92
+- ma20: 72.58
+- ma60: 74.9
+- ma120: 76.97
+- ema23: 72.51
+- return_5d: -3.6
+- return_20d: -5.69
+- volume_ratio: 1.46
+- distance_to_ma20_pct: -4.11
+- distance_to_high_60_pct: -20.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,72.1,73.2,71.2,71.8,238863,71.82,73.08,75.48,73.18,0.8
 20260524,72.1,73.2,71.2,71.8,238863,71.8,72.98,75.31,73.06,0.82
 20260525,73,73,69.4,69.6,468754,71.44,72.8,75.12,72.77,1.55
-20260526,72.1,73.2,71.2,71.8,238863,71.36,72.69,74.93,72.69,0.77
+20260526,73,73,69.4,69.6,468754,70.92,72.58,74.9,72.51,1.46
 ```
 
 ## Latest TDCC Snapshot

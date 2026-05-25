@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009817 國泰日本不動產
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:27 Asia/Taipei
+- generated_at: 2026-05-26 06:01:37 Asia/Taipei
 - stock_id: 009817
 - stock_name: 國泰日本不動產
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 8.92
-- high: 8.92
-- low: 8.86
-- close: 8.88
-- volume: 3554200
-- ma5: 8.87
-- ma20: 8.87
-- ma60: 8.87
-- ma120: 8.87
-- ema23: 8.88
+- open: 8.88
+- high: 8.88
+- low: 8.83
+- close: 8.84
+- volume: 4007160
+- ma5: 8.86
+- ma20: 8.86
+- ma60: 8.86
+- ma120: 8.86
+- ema23: 8.87
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.98
-- distance_to_ma20_pct: 0.09
-- distance_to_high_60_pct: -0.45
+- volume_ratio: 1.07
+- distance_to_ma20_pct: -0.27
+- distance_to_high_60_pct: -0.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,8.92,8.92,8.86,8.88,3554200,,,,,
 20260524,8.92,8.92,8.86,8.88,3554200,,,,,
 20260525,8.88,8.88,8.83,8.84,4007160,,,,,
-20260526,8.92,8.92,8.86,8.88,3554200,8.87,8.87,8.87,8.88,0.98
+20260526,8.88,8.88,8.83,8.84,4007160,8.86,8.86,8.86,8.87,1.07
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8476 台境*
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:54 Asia/Taipei
+- generated_at: 2026-05-26 06:03:54 Asia/Taipei
 - stock_id: 8476
 - stock_name: 台境*
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 16.1
-- high: 16.1
-- low: 15.85
-- close: 15.85
-- volume: 380523
-- ma5: 15.77
-- ma20: 16.46
+- open: 15.85
+- high: 15.85
+- low: 15.4
+- close: 15.45
+- volume: 815862
+- ma5: 15.69
+- ma20: 16.44
 - ma60: 18.03
-- ma120: 18.46
-- ema23: 16.57
-- return_5d: -1.55
-- return_20d: -10.2
-- volume_ratio: 0.93
-- distance_to_ma20_pct: -3.71
-- distance_to_high_60_pct: -23.43
+- ma120: 18.45
+- ema23: 16.53
+- return_5d: -4.04
+- return_20d: -12.46
+- volume_ratio: 1.9
+- distance_to_ma20_pct: -6.02
+- distance_to_high_60_pct: -25.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,16.1,16.1,15.85,15.85,380523,15.89,16.78,18.23,16.82,0.72
 20260524,16.1,16.1,15.85,15.85,380523,15.91,16.68,18.17,16.74,0.72
 20260525,15.85,15.85,15.4,15.45,815862,15.82,16.55,18.1,16.63,1.47
-20260526,16.1,16.1,15.85,15.85,380523,15.77,16.46,18.03,16.57,0.93
+20260526,15.85,15.85,15.4,15.45,815862,15.69,16.44,18.03,16.53,1.9
 ```
 
 ## Latest TDCC Snapshot

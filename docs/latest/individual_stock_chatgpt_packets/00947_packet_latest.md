@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00947 台新臺灣IC設計
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:26 Asia/Taipei
+- generated_at: 2026-05-26 06:01:37 Asia/Taipei
 - stock_id: 00947
 - stock_name: 台新臺灣IC設計
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 35.51
-- high: 36.45
-- low: 35.5
-- close: 36.39
-- volume: 9605476
-- ma5: 36.63
-- ma20: 36.63
-- ma60: 36.63
-- ma120: 36.63
-- ema23: 36.48
+- open: 37.09
+- high: 37.89
+- low: 36.9
+- close: 37.61
+- volume: 10552097
+- ma5: 36.88
+- ma20: 36.88
+- ma60: 36.88
+- ma120: 36.88
+- ema23: 36.58
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.98
-- distance_to_ma20_pct: -0.67
-- distance_to_high_60_pct: -3.96
+- volume_ratio: 1.06
+- distance_to_ma20_pct: 1.98
+- distance_to_high_60_pct: -0.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,35.51,36.45,35.5,36.39,9605476,,,,,
 20260524,35.51,36.45,35.5,36.39,9605476,,,,,
 20260525,37.09,37.89,36.9,37.61,10552097,,,,,
-20260526,35.51,36.45,35.5,36.39,9605476,36.63,36.63,36.63,36.48,0.98
+20260526,37.09,37.89,36.9,37.61,10552097,36.88,36.88,36.88,36.58,1.06
 ```
 
 ## Latest TDCC Snapshot

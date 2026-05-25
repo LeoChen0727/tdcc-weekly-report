@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009810 玉山全球藍籌100
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:27 Asia/Taipei
+- generated_at: 2026-05-26 06:01:37 Asia/Taipei
 - stock_id: 009810
 - stock_name: 玉山全球藍籌100
 - packet_status: partial_rawdata_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 20.78
-- high: 20.84
-- low: 20.78
-- close: 20.84
-- volume: 186214
+- open: 20.84
+- high: 20.86
+- low: 20.82
+- close: 20.83
+- volume: 378901
 - ma5: 20.84
 - ma20: 20.84
 - ma60: 20.84
@@ -66,9 +66,9 @@
 - ema23: 20.84
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.83
-- distance_to_ma20_pct: 0.01
-- distance_to_high_60_pct: -0.1
+- volume_ratio: 1.44
+- distance_to_ma20_pct: -0.03
+- distance_to_high_60_pct: -0.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,20.78,20.84,20.78,20.84,186214,,,,,
 20260524,20.78,20.84,20.78,20.84,186214,,,,,
 20260525,20.84,20.86,20.82,20.83,378901,,,,,
-20260526,20.78,20.84,20.78,20.84,186214,20.84,20.84,20.84,20.84,0.83
+20260526,20.84,20.86,20.82,20.83,378901,20.84,20.84,20.84,20.84,1.44
 ```
 
 ## Latest TDCC Snapshot

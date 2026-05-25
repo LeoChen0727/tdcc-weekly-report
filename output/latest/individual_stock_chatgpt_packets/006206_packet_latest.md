@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 006206 元大上證50
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:24 Asia/Taipei
+- generated_at: 2026-05-26 06:01:34 Asia/Taipei
 - stock_id: 006206
 - stock_name: 元大上證50
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 37
-- high: 37
-- low: 36.46
-- close: 36.57
-- volume: 138415
-- ma5: 36.6
-- ma20: 36.6
-- ma60: 36.6
-- ma120: 36.6
-- ema23: 36.58
+- open: 36.58
+- high: 37.07
+- low: 36.58
+- close: 36.71
+- volume: 74402
+- ma5: 36.63
+- ma20: 36.63
+- ma60: 36.63
+- ma120: 36.63
+- ema23: 36.59
 - return_5d: 
 - return_20d: 
-- volume_ratio: 1.1
-- distance_to_ma20_pct: -0.08
-- distance_to_high_60_pct: -1.35
+- volume_ratio: 0.66
+- distance_to_ma20_pct: 0.23
+- distance_to_high_60_pct: -0.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,37,37,36.46,36.57,138415,,,,,
 20260524,37,37,36.46,36.57,138415,,,,,
 20260525,36.58,37.07,36.58,36.71,74402,,,,,
-20260526,37,37,36.46,36.57,138415,36.6,36.6,36.6,36.58,1.1
+20260526,36.58,37.07,36.58,36.71,74402,36.63,36.63,36.63,36.59,0.66
 ```
 
 ## Latest TDCC Snapshot
@@ -102,9 +102,9 @@ no_rows,True
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6206 | 飛捷 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 55.0 |  |  | neckline_challenge |  | call_strong_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

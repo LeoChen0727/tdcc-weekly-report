@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3011 今皓
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:13 Asia/Taipei
+- generated_at: 2026-05-26 06:02:21 Asia/Taipei
 - stock_id: 3011
 - stock_name: 今皓
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 13.6
-- high: 13.75
-- low: 13.4
-- close: 13.7
-- volume: 1311571
-- ma5: 13.58
-- ma20: 13.39
-- ma60: 13.01
+- open: 13.8
+- high: 14
+- low: 12.95
+- close: 13.1
+- volume: 2224221
+- ma5: 13.46
+- ma20: 13.36
+- ma60: 13
 - ma120: 13.41
-- ema23: 13.35
-- return_5d: 1.86
-- return_20d: 0.74
-- volume_ratio: 1.16
-- distance_to_ma20_pct: 2.32
-- distance_to_high_60_pct: -14.64
+- ema23: 13.3
+- return_5d: -2.6
+- return_20d: -3.68
+- volume_ratio: 1.89
+- distance_to_ma20_pct: -1.95
+- distance_to_high_60_pct: -18.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,13.6,13.75,13.4,13.7,1311571,13.37,13.4,12.99,13.31,1.17
 20260524,13.6,13.75,13.4,13.7,1311571,13.52,13.43,13,13.34,1.21
 20260525,13.8,14,12.95,13.1,2224221,13.53,13.38,13,13.32,2
-20260526,13.6,13.75,13.4,13.7,1311571,13.58,13.39,13.01,13.35,1.16
+20260526,13.8,14,12.95,13.1,2224221,13.46,13.36,13,13.3,1.89
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3011 | 今皓 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 3011 | 今皓 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

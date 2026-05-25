@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7822 倍利科
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:44 Asia/Taipei
+- generated_at: 2026-05-26 06:03:44 Asia/Taipei
 - stock_id: 7822
 - stock_name: 倍利科
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 1030
-- high: 1100
-- low: 1030
-- close: 1070
-- volume: 250725
-- ma5: 1091
-- ma20: 1192.25
-- ma60: 1373.66
-- ma120: 1373.66
-- ema23: 1210.96
-- return_5d: 1.42
-- return_20d: -18.63
-- volume_ratio: 0.79
-- distance_to_ma20_pct: -10.25
-- distance_to_high_60_pct: -42.93
+- open: 1100
+- high: 1175
+- low: 1100
+- close: 1175
+- volume: 445123
+- ma5: 1112
+- ma20: 1197.5
+- ma60: 1376.22
+- ma120: 1376.22
+- ema23: 1219.71
+- return_5d: 11.37
+- return_20d: -10.65
+- volume_ratio: 1.36
+- distance_to_ma20_pct: -1.88
+- distance_to_high_60_pct: -37.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,1030,1100,1030,1070,250725,1062,1221.75,1394.87,1242.59,0.78
 20260524,1030,1100,1030,1070,250725,1061,1213.5,1386.54,1228.2,0.8
 20260525,1100,1175,1100,1175,445123,1088,1204.5,1381.25,1223.77,1.4
-20260526,1030,1100,1030,1070,250725,1091,1192.25,1373.66,1210.96,0.79
+20260526,1100,1175,1100,1175,445123,1112,1197.5,1376.22,1219.71,1.36
 ```
 
 ## Latest TDCC Snapshot

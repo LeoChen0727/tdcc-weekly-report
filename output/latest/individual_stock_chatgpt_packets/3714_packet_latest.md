@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3714 富采
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:37 Asia/Taipei
+- generated_at: 2026-05-26 06:02:43 Asia/Taipei
 - stock_id: 3714
 - stock_name: 富采
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 75.8
-- high: 81.4
-- low: 74.5
-- close: 81.4
-- volume: 76568242
-- ma5: 81.06
-- ma20: 73.57
-- ma60: 60.43
-- ma120: 47.6
-- ema23: 72.88
-- return_5d: 10
-- return_20d: 10.45
-- volume_ratio: 1.7
-- distance_to_ma20_pct: 10.64
-- distance_to_high_60_pct: -6.54
+- open: 85.1
+- high: 87.1
+- low: 78.8
+- close: 79.7
+- volume: 95502160
+- ma5: 80.72
+- ma20: 73.48
+- ma60: 60.4
+- ma120: 47.59
+- ema23: 72.74
+- return_5d: 7.7
+- return_20d: 8.14
+- volume_ratio: 2.07
+- distance_to_ma20_pct: 8.46
+- distance_to_high_60_pct: -8.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,75.8,81.4,74.5,81.4,76568242,74.22,71.94,58.31,70.5,2.22
 20260524,75.8,81.4,74.5,81.4,76568242,77.12,72.77,59.03,71.41,2.03
 20260525,85.1,87.1,78.8,79.7,95502160,79.58,73.19,59.72,72.1,2.28
-20260526,75.8,81.4,74.5,81.4,76568242,81.06,73.57,60.43,72.88,1.7
+20260526,85.1,87.1,78.8,79.7,95502160,80.72,73.48,60.4,72.74,2.07
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3714 | 富采 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 3714 | 富采 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 3714 | 富采 | pattern | 型態觀察 |  |  |  | 預備發動型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

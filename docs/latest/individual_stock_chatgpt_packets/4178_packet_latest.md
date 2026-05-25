@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4178 永笙-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:41 Asia/Taipei
+- generated_at: 2026-05-26 06:02:47 Asia/Taipei
 - stock_id: 4178
 - stock_name: 永笙-KY
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 19
-- high: 19
-- low: 18.8
-- close: 18.95
-- volume: 354843
-- ma5: 18.94
+- open: 18.95
+- high: 18.95
+- low: 18.6
+- close: 18.9
+- volume: 1348005
+- ma5: 18.93
 - ma20: 19
 - ma60: 19
 - ma120: 19
 - ema23: 19
-- return_5d: -0.26
+- return_5d: -0.53
 - return_20d: 
-- volume_ratio: 0.32
-- distance_to_ma20_pct: -0.26
-- distance_to_high_60_pct: -1.81
+- volume_ratio: 1.16
+- distance_to_ma20_pct: -0.51
+- distance_to_high_60_pct: -2.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,19,19,18.8,18.95,354843,18.98,19.01,19.01,19.02,0.3
 20260524,19,19,18.8,18.95,354843,18.97,19.01,19.01,19.02,0.31
 20260525,18.95,18.95,18.6,18.9,1348005,18.95,19,19,19.01,1.17
-20260526,19,19,18.8,18.95,354843,18.94,19,19,19,0.32
+20260526,18.95,18.95,18.6,18.9,1348005,18.93,19,19,19,1.16
 ```
 
 ## Latest TDCC Snapshot

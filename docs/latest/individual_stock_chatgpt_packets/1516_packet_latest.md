@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1516 川飛
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:36 Asia/Taipei
+- generated_at: 2026-05-26 06:01:46 Asia/Taipei
 - stock_id: 1516
 - stock_name: 川飛
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 21.5
-- high: 21.5
-- low: 20.6
-- close: 20.75
-- volume: 18117
-- ma5: 20.8
-- ma20: 21.41
-- ma60: 21.44
+- open: 20.8
+- high: 21.7
+- low: 20.8
+- close: 21
+- volume: 111826
+- ma5: 20.85
+- ma20: 21.43
+- ma60: 21.45
 - ma120: 21.47
-- ema23: 21.12
-- return_5d: -1.19
-- return_20d: 0.48
-- volume_ratio: 0.21
-- distance_to_ma20_pct: -3.09
-- distance_to_high_60_pct: -20.35
+- ema23: 21.14
+- return_5d: 0
+- return_20d: 1.69
+- volume_ratio: 1.2
+- distance_to_ma20_pct: -1.98
+- distance_to_high_60_pct: -19.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,21.5,21.5,20.6,20.75,18117,21.12,21.33,21.49,21.21,0.2
 20260524,21.5,21.5,20.6,20.75,18117,20.91,21.36,21.49,21.17,0.2
 20260525,20.8,21.7,20.8,21,111826,20.85,21.41,21.47,21.16,1.2
-20260526,21.5,21.5,20.6,20.75,18117,20.8,21.41,21.44,21.12,0.21
+20260526,20.8,21.7,20.8,21,111826,20.85,21.43,21.45,21.14,1.2
 ```
 
 ## Latest TDCC Snapshot

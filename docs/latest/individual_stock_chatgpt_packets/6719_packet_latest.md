@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6719 力智
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:30 Asia/Taipei
+- generated_at: 2026-05-26 06:03:32 Asia/Taipei
 - stock_id: 6719
 - stock_name: 力智
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 238.5
-- high: 238.5
-- low: 228.5
-- close: 232
-- volume: 2208564
-- ma5: 236.6
-- ma20: 208.9
-- ma60: 182.18
-- ma120: 188.09
-- ema23: 210.69
-- return_5d: -0.64
-- return_20d: 35.28
-- volume_ratio: 1
-- distance_to_ma20_pct: 11.06
-- distance_to_high_60_pct: -9.02
+- open: 233
+- high: 255
+- low: 232.5
+- close: 255
+- volume: 4204852
+- ma5: 241.2
+- ma20: 210.05
+- ma60: 182.57
+- ma120: 188.28
+- ema23: 212.6
+- return_5d: 9.21
+- return_20d: 48.69
+- volume_ratio: 1.81
+- distance_to_ma20_pct: 21.4
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,238.5,238.5,228.5,232,2208564,228.1,199,179.53,202.05,1.19
 20260524,238.5,238.5,228.5,232,2208564,232.3,201.8,180.31,204.54,1.15
 20260525,233,255,232.5,255,4204852,236.9,205.88,181.47,208.75,1.98
-20260526,238.5,238.5,228.5,232,2208564,236.6,208.9,182.18,210.69,1
+20260526,233,255,232.5,255,4204852,241.2,210.05,182.57,212.6,1.81
 ```
 
 ## Latest TDCC Snapshot

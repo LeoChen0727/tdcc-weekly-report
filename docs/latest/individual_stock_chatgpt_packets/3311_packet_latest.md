@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3311 閎暉
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:24 Asia/Taipei
+- generated_at: 2026-05-26 06:02:31 Asia/Taipei
 - stock_id: 3311
 - stock_name: 閎暉
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 32.7
-- high: 34.45
-- low: 32.55
+- open: 34.05
+- high: 34.65
+- low: 33.6
 - close: 33.85
-- volume: 627003
+- volume: 472417
 - ma5: 33.85
 - ma20: 32.13
 - ma60: 32.22
@@ -66,7 +66,7 @@
 - ema23: 32.51
 - return_5d: 3.52
 - return_20d: 9.02
-- volume_ratio: 1.93
+- volume_ratio: 1.49
 - distance_to_ma20_pct: 5.35
 - distance_to_high_60_pct: -2.73
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,32.7,34.45,32.55,33.85,627003,32.58,31.71,32.2,32.11,2.4
 20260524,32.7,34.45,32.55,33.85,627003,33.15,31.85,32.23,32.26,2.24
 20260525,34.05,34.65,33.6,33.85,472417,33.62,31.99,32.23,32.39,1.59
-20260526,32.7,34.45,32.55,33.85,627003,33.85,32.13,32.22,32.51,1.93
+20260526,34.05,34.65,33.6,33.85,472417,33.85,32.13,32.22,32.51,1.49
 ```
 
 ## Latest TDCC Snapshot

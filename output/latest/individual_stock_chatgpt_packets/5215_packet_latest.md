@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5215 科嘉-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:56 Asia/Taipei
+- generated_at: 2026-05-26 06:03:00 Asia/Taipei
 - stock_id: 5215
 - stock_name: 科嘉-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 45
-- high: 46
+- open: 45.55
+- high: 46.5
 - low: 44.75
-- close: 45.55
-- volume: 265412
-- ma5: 45.74
-- ma20: 42.57
-- ma60: 39.32
-- ma120: 38.01
-- ema23: 42.86
-- return_5d: 1.79
-- return_20d: 20.34
-- volume_ratio: 0.54
-- distance_to_ma20_pct: 7
-- distance_to_high_60_pct: -10.51
+- close: 46.5
+- volume: 416384
+- ma5: 45.93
+- ma20: 42.62
+- ma60: 39.34
+- ma120: 38.02
+- ema23: 42.94
+- return_5d: 3.91
+- return_20d: 22.85
+- volume_ratio: 0.83
+- distance_to_ma20_pct: 9.11
+- distance_to_high_60_pct: -8.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,45,46,44.75,45.55,265412,45.09,41.35,39.02,41.97,0.57
 20260524,45,46,44.75,45.55,265412,45.2,41.73,39.12,42.27,0.56
 20260525,45.55,46.5,44.75,46.5,416384,45.58,42.19,39.23,42.62,0.86
-20260526,45,46,44.75,45.55,265412,45.74,42.57,39.32,42.86,0.54
+20260526,45.55,46.5,44.75,46.5,416384,45.93,42.62,39.34,42.94,0.83
 ```
 
 ## Latest TDCC Snapshot

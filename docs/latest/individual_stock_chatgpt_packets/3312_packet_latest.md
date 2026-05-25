@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3312 弘憶股
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:24 Asia/Taipei
+- generated_at: 2026-05-26 06:02:31 Asia/Taipei
 - stock_id: 3312
 - stock_name: 弘憶股
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 47
-- high: 47.7
-- low: 46.35
-- close: 47.65
-- volume: 2829245
-- ma5: 48.2
-- ma20: 45.42
-- ma60: 40
-- ma120: 39.21
-- ema23: 45.38
-- return_5d: 1.71
-- return_20d: 14.82
-- volume_ratio: 0.75
-- distance_to_ma20_pct: 4.91
-- distance_to_high_60_pct: -9.06
+- open: 48.2
+- high: 52.4
+- low: 47.7
+- close: 50.4
+- volume: 8941444
+- ma5: 48.75
+- ma20: 45.56
+- ma60: 40.04
+- ma120: 39.23
+- ema23: 45.61
+- return_5d: 7.58
+- return_20d: 21.45
+- volume_ratio: 2.19
+- distance_to_ma20_pct: 10.63
+- distance_to_high_60_pct: -3.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,47,47.7,46.35,47.65,2829245,46.64,44.34,39.46,44.43,0.88
 20260524,47,47.7,46.35,47.65,2829245,47.11,44.66,39.62,44.7,0.86
 20260525,48.2,52.4,47.7,50.4,8941444,48.04,45.11,39.83,45.17,2.43
-20260526,47,47.7,46.35,47.65,2829245,48.2,45.42,40,45.38,0.75
+20260526,48.2,52.4,47.7,50.4,8941444,48.75,45.56,40.04,45.61,2.19
 ```
 
 ## Latest TDCC Snapshot
@@ -122,6 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 3312 | 弘憶股 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 3312 | 弘憶股 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

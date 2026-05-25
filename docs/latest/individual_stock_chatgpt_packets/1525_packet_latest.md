@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1525 江申
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:36 Asia/Taipei
+- generated_at: 2026-05-26 06:01:46 Asia/Taipei
 - stock_id: 1525
 - stock_name: 江申
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 58.8
-- high: 64.9
-- low: 58.8
-- close: 64.8
-- volume: 225918
-- ma5: 66.04
-- ma20: 62.09
-- ma60: 61.83
-- ma120: 62.87
-- ema23: 62.51
-- return_5d: 9.83
-- return_20d: 3.68
-- volume_ratio: 2.57
-- distance_to_ma20_pct: 4.36
-- distance_to_high_60_pct: -8.73
+- open: 67
+- high: 71
+- low: 64.9
+- close: 71
+- volume: 305495
+- ma5: 67.28
+- ma20: 62.41
+- ma60: 61.94
+- ma120: 62.92
+- ema23: 63.03
+- return_5d: 20.34
+- return_20d: 13.6
+- volume_ratio: 3.32
+- distance_to_ma20_pct: 13.77
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,58.8,64.9,58.8,64.8,225918,61.08,61.29,61.68,61.21,4.16
 20260524,58.8,64.9,58.8,64.8,225918,62.44,61.49,61.69,61.51,3.51
 20260525,67,71,64.9,71,305495,64.88,61.98,61.81,62.3,3.86
-20260526,58.8,64.9,58.8,64.8,225918,66.04,62.09,61.83,62.51,2.57
+20260526,67,71,64.9,71,305495,67.28,62.41,61.94,63.03,3.32
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 006204 永豐臺灣加權
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:24 Asia/Taipei
+- generated_at: 2026-05-26 06:01:34 Asia/Taipei
 - stock_id: 006204
 - stock_name: 永豐臺灣加權
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 209.25
-- high: 211.65
-- low: 209.25
-- close: 211.65
-- volume: 32807
-- ma5: 212.92
-- ma20: 212.92
-- ma60: 212.92
-- ma120: 212.92
-- ema23: 212.14
+- open: 217.75
+- high: 218
+- low: 217.6
+- close: 218
+- volume: 35816
+- ma5: 214.19
+- ma20: 214.19
+- ma60: 214.19
+- ma120: 214.19
+- ema23: 212.66
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.98
-- distance_to_ma20_pct: -0.6
-- distance_to_high_60_pct: -2.91
+- volume_ratio: 1.05
+- distance_to_ma20_pct: 1.78
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,209.25,211.65,209.25,211.65,32807,,,,,
 20260524,209.25,211.65,209.25,211.65,32807,,,,,
 20260525,217.75,218,217.6,218,35816,,,,,
-20260526,209.25,211.65,209.25,211.65,32807,212.92,212.92,212.92,212.14,0.98
+20260526,217.75,218,217.6,218,35816,214.19,214.19,214.19,212.66,1.05
 ```
 
 ## Latest TDCC Snapshot

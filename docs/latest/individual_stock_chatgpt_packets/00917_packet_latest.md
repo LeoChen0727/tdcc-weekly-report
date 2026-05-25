@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00917 中信特選金融
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:26 Asia/Taipei
+- generated_at: 2026-05-26 06:01:36 Asia/Taipei
 - stock_id: 00917
 - stock_name: 中信特選金融
 - packet_status: partial_rawdata_packet
@@ -55,20 +55,20 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 21.73
-- high: 21.76
-- low: 21.71
-- close: 21.72
-- volume: 1480149
-- ma5: 21.73
-- ma20: 21.73
-- ma60: 21.73
-- ma120: 21.73
+- high: 21.83
+- low: 21.72
+- close: 21.79
+- volume: 877484
+- ma5: 21.75
+- ma20: 21.75
+- ma60: 21.75
+- ma120: 21.75
 - ema23: 21.73
 - return_5d: 
 - return_20d: 
-- volume_ratio: 1.09
-- distance_to_ma20_pct: -0.06
-- distance_to_high_60_pct: -0.5
+- volume_ratio: 0.71
+- distance_to_ma20_pct: 0.19
+- distance_to_high_60_pct: -0.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,21.73,21.76,21.71,21.72,1480149,,,,,
 20260524,21.73,21.76,21.71,21.72,1480149,,,,,
 20260525,21.73,21.83,21.72,21.79,877484,,,,,
-20260526,21.73,21.76,21.71,21.72,1480149,21.73,21.73,21.73,21.73,1.09
+20260526,21.73,21.83,21.72,21.79,877484,21.75,21.75,21.75,21.73,0.71
 ```
 
 ## Latest TDCC Snapshot

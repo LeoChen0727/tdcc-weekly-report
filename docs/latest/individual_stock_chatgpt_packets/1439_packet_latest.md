@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1439 雋揚
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:33 Asia/Taipei
+- generated_at: 2026-05-26 06:01:43 Asia/Taipei
 - stock_id: 1439
 - stock_name: 雋揚
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 24.95
-- high: 26.2
-- low: 24.95
-- close: 25.9
-- volume: 169052
-- ma5: 25.96
-- ma20: 26.07
+- open: 25.55
+- high: 26.5
+- low: 25.55
+- close: 26.2
+- volume: 43234
+- ma5: 26.02
+- ma20: 26.08
 - ma60: 27.1
-- ma120: 28.07
-- ema23: 26.18
-- return_5d: 0.97
-- return_20d: -1.71
-- volume_ratio: 2.34
-- distance_to_ma20_pct: -0.63
-- distance_to_high_60_pct: -13.95
+- ma120: 28.08
+- ema23: 26.2
+- return_5d: 2.14
+- return_20d: -0.57
+- volume_ratio: 0.66
+- distance_to_ma20_pct: 0.46
+- distance_to_high_60_pct: -12.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,24.95,26.2,24.95,25.9,169052,25.68,26.13,27.28,26.23,2.95
 20260524,24.95,26.2,24.95,25.9,169052,25.77,26.1,27.21,26.2,2.61
 20260525,25.55,26.5,25.55,26.2,43234,25.91,26.09,27.15,26.2,0.66
-20260526,24.95,26.2,24.95,25.9,169052,25.96,26.07,27.1,26.18,2.34
+20260526,25.55,26.5,25.55,26.2,43234,26.02,26.08,27.1,26.2,0.66
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6657 華安
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:28 Asia/Taipei
+- generated_at: 2026-05-26 06:03:30 Asia/Taipei
 - stock_id: 6657
 - stock_name: 華安
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 40.75
-- high: 41.05
-- low: 39.7
-- close: 40.35
-- volume: 213001
-- ma5: 40.12
-- ma20: 40.27
-- ma60: 43.04
-- ma120: 44.05
-- ema23: 40.66
-- return_5d: 1.25
-- return_20d: -3.81
-- volume_ratio: 0.97
-- distance_to_ma20_pct: 0.19
-- distance_to_high_60_pct: -21.95
+- open: 40.25
+- high: 40.25
+- low: 39
+- close: 39.2
+- volume: 300091
+- ma5: 39.89
+- ma20: 40.22
+- ma60: 43.02
+- ma120: 44.04
+- ema23: 40.56
+- return_5d: -1.63
+- return_20d: -6.56
+- volume_ratio: 1.34
+- distance_to_ma20_pct: -2.52
+- distance_to_high_60_pct: -24.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,40.75,41.05,39.7,40.35,213001,39.84,40.58,43.48,40.87,1.03
 20260524,40.75,41.05,39.7,40.35,213001,39.98,40.49,43.35,40.82,1.02
 20260525,40.25,40.25,39,39.2,300091,40.02,40.35,43.21,40.69,1.39
-20260526,40.75,41.05,39.7,40.35,213001,40.12,40.27,43.04,40.66,0.97
+20260526,40.25,40.25,39,39.2,300091,39.89,40.22,43.02,40.56,1.34
 ```
 
 ## Latest TDCC Snapshot

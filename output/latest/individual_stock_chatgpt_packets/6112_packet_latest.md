@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6112 邁達特
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:07 Asia/Taipei
+- generated_at: 2026-05-26 06:03:11 Asia/Taipei
 - stock_id: 6112
 - stock_name: 邁達特
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 42.75
-- high: 43.35
-- low: 42.5
-- close: 43.05
-- volume: 548635
-- ma5: 43.02
+- open: 43.25
+- high: 44.05
+- low: 42.75
+- close: 42.9
+- volume: 645143
+- ma5: 42.99
 - ma20: 43.7
 - ma60: 45.26
 - ma120: 45.88
-- ema23: 43.7
-- return_5d: 1.53
-- return_20d: -5.8
-- volume_ratio: 0.91
-- distance_to_ma20_pct: -1.49
-- distance_to_high_60_pct: -14.92
+- ema23: 43.68
+- return_5d: 1.18
+- return_20d: -6.13
+- volume_ratio: 1.07
+- distance_to_ma20_pct: -1.82
+- distance_to_high_60_pct: -15.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,42.75,43.35,42.5,43.05,548635,42.45,44.05,45.46,43.9,0.96
 20260524,42.75,43.35,42.5,43.05,548635,42.71,43.98,45.45,43.83,0.96
 20260525,43.25,44.05,42.75,42.9,645143,42.89,43.84,45.35,43.75,1.1
-20260526,42.75,43.35,42.5,43.05,548635,43.02,43.7,45.26,43.7,0.91
+20260526,43.25,44.05,42.75,42.9,645143,42.99,43.7,45.26,43.68,1.07
 ```
 
 ## Latest TDCC Snapshot

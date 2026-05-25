@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2453 凌群
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:59 Asia/Taipei
+- generated_at: 2026-05-26 06:02:07 Asia/Taipei
 - stock_id: 2453
 - stock_name: 凌群
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 56.2
-- high: 57.2
-- low: 55.9
-- close: 57.2
-- volume: 1184374
-- ma5: 57.26
-- ma20: 55.27
-- ma60: 54.14
+- open: 58.4
+- high: 58.4
+- low: 56.8
+- close: 57.5
+- volume: 1052339
+- ma5: 57.32
+- ma20: 55.28
+- ma60: 54.15
 - ma120: 54.07
-- ema23: 55.47
-- return_5d: 2.69
-- return_20d: 6.72
-- volume_ratio: 1.93
-- distance_to_ma20_pct: 3.5
-- distance_to_high_60_pct: -2.05
+- ema23: 55.49
+- return_5d: 3.23
+- return_20d: 7.28
+- volume_ratio: 1.73
+- distance_to_ma20_pct: 4.02
+- distance_to_high_60_pct: -1.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,56.2,57.2,55.9,57.2,1184374,55.86,54.71,53.93,54.92,2.47
 20260524,56.2,57.2,55.9,57.2,1184374,56.4,54.91,54.01,55.11,2.28
 20260525,58.4,58.4,56.8,57.5,1052339,56.96,55.09,54.07,55.31,1.87
-20260526,56.2,57.2,55.9,57.2,1184374,57.26,55.27,54.14,55.47,1.93
+20260526,58.4,58.4,56.8,57.5,1052339,57.32,55.28,54.15,55.49,1.73
 ```
 
 ## Latest TDCC Snapshot

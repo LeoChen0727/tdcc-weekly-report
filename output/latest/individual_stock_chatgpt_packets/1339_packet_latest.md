@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1339 昭輝
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:31 Asia/Taipei
+- generated_at: 2026-05-26 06:01:41 Asia/Taipei
 - stock_id: 1339
 - stock_name: 昭輝
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 41.2
-- high: 41.2
-- low: 40.5
+- open: 40.55
+- high: 40.7
+- low: 40.4
 - close: 40.7
-- volume: 98069
+- volume: 97161
 - ma5: 40.7
 - ma20: 40.6
 - ma60: 41.13
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,41.2,41.2,40.5,40.7,98069,40.62,40.76,41.28,40.81,0.64
 20260524,41.2,41.2,40.5,40.7,98069,40.67,40.69,41.23,40.81,0.64
 20260525,40.55,40.7,40.4,40.7,97161,40.72,40.66,41.17,40.8,0.62
-20260526,41.2,41.2,40.5,40.7,98069,40.7,40.6,41.13,40.79,0.62
+20260526,40.55,40.7,40.4,40.7,97161,40.7,40.6,41.13,40.79,0.62
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2534 宏盛
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:03 Asia/Taipei
+- generated_at: 2026-05-26 06:02:11 Asia/Taipei
 - stock_id: 2534
 - stock_name: 宏盛
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 17.85
+- open: 18
 - high: 18.1
-- low: 17.75
-- close: 18.1
-- volume: 384291
-- ma5: 18.02
-- ma20: 18.27
-- ma60: 19.32
-- ma120: 19.8
-- ema23: 18.38
-- return_5d: 1.12
-- return_20d: -5.97
-- volume_ratio: 0.52
-- distance_to_ma20_pct: -0.94
-- distance_to_high_60_pct: -11.49
+- low: 17.6
+- close: 17.7
+- volume: 924217
+- ma5: 17.94
+- ma20: 18.25
+- ma60: 19.31
+- ma120: 19.79
+- ema23: 18.34
+- return_5d: -1.12
+- return_20d: -8.05
+- volume_ratio: 1.2
+- distance_to_ma20_pct: -3.03
+- distance_to_high_60_pct: -13.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,17.85,18.1,17.75,18.1,384291,17.88,18.46,19.42,18.5,0.51
 20260524,17.85,18.1,17.75,18.1,384291,18,18.39,19.39,18.46,0.53
 20260525,18,18.1,17.6,17.7,924217,17.98,18.33,19.35,18.4,1.24
-20260526,17.85,18.1,17.75,18.1,384291,18.02,18.27,19.32,18.38,0.52
+20260526,18,18.1,17.6,17.7,924217,17.94,18.25,19.31,18.34,1.2
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6951 青新-創
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:38 Asia/Taipei
+- generated_at: 2026-05-26 06:03:39 Asia/Taipei
 - stock_id: 6951
 - stock_name: 青新-創
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 81.6
-- high: 81.8
-- low: 81
+- open: 81
+- high: 81
+- low: 80
 - close: 81
-- volume: 45547
+- volume: 63620
 - ma5: 81
 - ma20: 80.78
 - ma60: 79.49
@@ -66,7 +66,7 @@
 - ema23: 80.62
 - return_5d: -0.74
 - return_20d: -0.98
-- volume_ratio: 0.82
+- volume_ratio: 1.13
 - distance_to_ma20_pct: 0.28
 - distance_to_high_60_pct: -4.03
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,81.6,81.8,81,81,45547,80.98,80.7,79.2,80.51,0.81
 20260524,81.6,81.8,81,81,45547,81.12,80.77,79.29,80.55,0.81
 20260525,81,81,80,81,63620,81.12,80.81,79.39,80.59,1.09
-20260526,81.6,81.8,81,81,45547,81,80.78,79.49,80.62,0.82
+20260526,81,81,80,81,63620,81,80.78,79.49,80.62,1.13
 ```
 
 ## Latest TDCC Snapshot

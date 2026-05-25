@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8411 福貞-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:52 Asia/Taipei
+- generated_at: 2026-05-26 06:03:52 Asia/Taipei
 - stock_id: 8411
 - stock_name: 福貞-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 12
+- open: 11.9
 - high: 12.1
-- low: 11.9
-- close: 12
-- volume: 27820
-- ma5: 12.02
+- low: 11.85
+- close: 12.1
+- volume: 52929
+- ma5: 12.04
 - ma20: 12.13
 - ma60: 12.22
 - ma120: 12.21
-- ema23: 12.11
-- return_5d: 0
-- return_20d: -2.04
-- volume_ratio: 0.37
-- distance_to_ma20_pct: -1.07
-- distance_to_high_60_pct: -4
+- ema23: 12.12
+- return_5d: 0.83
+- return_20d: -1.22
+- volume_ratio: 0.69
+- distance_to_ma20_pct: -0.29
+- distance_to_high_60_pct: -3.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,12,12.1,11.9,12,27820,11.97,12.16,12.24,12.14,0.35
 20260524,12,12.1,11.9,12,27820,11.97,12.15,12.23,12.13,0.36
 20260525,11.9,12.1,11.85,12.1,52929,12.02,12.14,12.23,12.13,0.7
-20260526,12,12.1,11.9,12,27820,12.02,12.13,12.22,12.11,0.37
+20260526,11.9,12.1,11.85,12.1,52929,12.04,12.13,12.22,12.12,0.69
 ```
 
 ## Latest TDCC Snapshot

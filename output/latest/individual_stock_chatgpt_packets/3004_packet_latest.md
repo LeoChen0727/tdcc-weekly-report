@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3004 豐達科
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:13 Asia/Taipei
+- generated_at: 2026-05-26 06:02:21 Asia/Taipei
 - stock_id: 3004
 - stock_name: 豐達科
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 127
-- high: 132
-- low: 126
-- close: 130.5
-- volume: 949363
-- ma5: 132.5
-- ma20: 123.28
-- ma60: 114.22
-- ma120: 111.2
-- ema23: 123.87
-- return_5d: 3.57
-- return_20d: 12.02
-- volume_ratio: 1.08
-- distance_to_ma20_pct: 5.86
-- distance_to_high_60_pct: -8.1
+- open: 137
+- high: 142
+- low: 135.5
+- close: 140.5
+- volume: 1668263
+- ma5: 134.5
+- ma20: 123.78
+- ma60: 114.39
+- ma120: 111.29
+- ema23: 124.71
+- return_5d: 11.51
+- return_20d: 20.6
+- volume_ratio: 1.83
+- distance_to_ma20_pct: 13.51
+- distance_to_high_60_pct: -1.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,127,132,126,130.5,949363,126.9,120.75,113.18,120.9,1.25
 20260524,127,132,126,130.5,949363,128.1,121.45,113.41,121.7,1.2
 20260525,137,142,135.5,140.5,1668263,131.6,122.58,113.89,123.27,1.96
-20260526,127,132,126,130.5,949363,132.5,123.28,114.22,123.87,1.08
+20260526,137,142,135.5,140.5,1668263,134.5,123.78,114.39,124.71,1.83
 ```
 
 ## Latest TDCC Snapshot
@@ -120,14 +120,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 3004 | 豐達科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 3004 | 豐達科 | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

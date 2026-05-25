@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1441 大東
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:33 Asia/Taipei
+- generated_at: 2026-05-26 06:01:43 Asia/Taipei
 - stock_id: 1441
 - stock_name: 大東
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 9.32
-- high: 9.34
-- low: 9.28
-- close: 9.34
-- volume: 91548
-- ma5: 9.35
+- open: 9.33
+- high: 9.38
+- low: 9.23
+- close: 9.38
+- volume: 85347
+- ma5: 9.36
 - ma20: 9.63
 - ma60: 10.06
 - ma120: 10.21
 - ema23: 9.74
-- return_5d: -0.53
-- return_20d: -8.43
-- volume_ratio: 1.06
-- distance_to_ma20_pct: -3.02
-- distance_to_high_60_pct: -34.23
+- return_5d: -0.11
+- return_20d: -8.04
+- volume_ratio: 0.99
+- distance_to_ma20_pct: -2.62
+- distance_to_high_60_pct: -33.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,9.32,9.34,9.28,9.34,91548,9.36,9.83,10.1,9.86,0.76
 20260524,9.32,9.34,9.28,9.34,91548,9.34,9.73,10.09,9.81,0.79
 20260525,9.33,9.38,9.23,9.38,85347,9.36,9.67,10.08,9.78,0.94
-20260526,9.32,9.34,9.28,9.34,91548,9.35,9.63,10.06,9.74,1.06
+20260526,9.33,9.38,9.23,9.38,85347,9.36,9.63,10.06,9.74,0.99
 ```
 
 ## Latest TDCC Snapshot

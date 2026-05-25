@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4551 智伸科
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:45 Asia/Taipei
+- generated_at: 2026-05-26 06:02:50 Asia/Taipei
 - stock_id: 4551
 - stock_name: 智伸科
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 159.5
-- high: 159.5
-- low: 154.5
-- close: 155.5
-- volume: 1104146
-- ma5: 155.8
-- ma20: 147.95
-- ma60: 135.78
-- ma120: 127.08
-- ema23: 147.96
-- return_5d: -1.89
-- return_20d: 17.8
-- volume_ratio: 1.04
-- distance_to_ma20_pct: 5.1
-- distance_to_high_60_pct: -4.01
+- open: 157
+- high: 158
+- low: 155
+- close: 157
+- volume: 755993
+- ma5: 156.1
+- ma20: 148.03
+- ma60: 135.81
+- ma120: 127.09
+- ema23: 148.09
+- return_5d: -0.95
+- return_20d: 18.94
+- volume_ratio: 0.73
+- distance_to_ma20_pct: 6.06
+- distance_to_high_60_pct: -3.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,159.5,159.5,154.5,155.5,1104146,152.8,144.22,134.24,145.56,1.12
 20260524,159.5,159.5,154.5,155.5,1104146,154.7,145.57,134.78,146.39,1.1
 20260525,157,158,155,157,755993,156.4,146.78,135.31,147.27,0.74
-20260526,159.5,159.5,154.5,155.5,1104146,155.8,147.95,135.78,147.96,1.04
+20260526,157,158,155,157,755993,156.1,148.03,135.81,148.09,0.73
 ```
 
 ## Latest TDCC Snapshot

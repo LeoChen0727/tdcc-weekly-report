@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8473 山林水
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:54 Asia/Taipei
+- generated_at: 2026-05-26 06:03:54 Asia/Taipei
 - stock_id: 8473
 - stock_name: 山林水
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 40.55
-- high: 40.55
-- low: 39.7
-- close: 39.8
-- volume: 1512927
-- ma5: 40.22
-- ma20: 36.8
-- ma60: 37.41
-- ma120: 37.3
-- ema23: 37.77
-- return_5d: -2.21
-- return_20d: 9.64
-- volume_ratio: 1.22
-- distance_to_ma20_pct: 8.14
-- distance_to_high_60_pct: -5.91
+- open: 40.05
+- high: 42.3
+- low: 40.05
+- close: 41.9
+- volume: 2025481
+- ma5: 40.64
+- ma20: 36.91
+- ma60: 37.44
+- ma120: 37.32
+- ema23: 37.95
+- return_5d: 2.95
+- return_20d: 15.43
+- volume_ratio: 1.6
+- distance_to_ma20_pct: 13.52
+- distance_to_high_60_pct: -0.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,40.55,40.55,39.7,39.8,1512927,39.24,36.19,37.3,36.96,1.45
 20260524,40.55,40.55,39.7,39.8,1512927,39.97,36.36,37.33,37.2,1.38
 20260525,40.05,42.3,40.05,41.9,2025481,40.4,36.63,37.38,37.59,1.72
-20260526,40.55,40.55,39.7,39.8,1512927,40.22,36.8,37.41,37.77,1.22
+20260526,40.05,42.3,40.05,41.9,2025481,40.64,36.91,37.44,37.95,1.6
 ```
 
 ## Latest TDCC Snapshot
@@ -122,6 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 8473 | 山林水 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 8473 | 山林水 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1323 永裕
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:31 Asia/Taipei
+- generated_at: 2026-05-26 06:01:41 Asia/Taipei
 - stock_id: 1323
 - stock_name: 永裕
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 20.4
-- high: 20.4
-- low: 19.7
-- close: 20.1
-- volume: 114975
-- ma5: 20.11
+- open: 20.1
+- high: 20.3
+- low: 20
+- close: 20.15
+- volume: 166257
+- ma5: 20.12
 - ma20: 19.75
-- ma60: 20.13
+- ma60: 20.14
 - ma120: 19.66
 - ema23: 20.04
-- return_5d: 1
-- return_20d: -1.71
-- volume_ratio: 0.81
-- distance_to_ma20_pct: 1.78
-- distance_to_high_60_pct: -21.33
+- return_5d: 1.26
+- return_20d: -1.47
+- volume_ratio: 1.15
+- distance_to_ma20_pct: 2.03
+- distance_to_high_60_pct: -21.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,20.4,20.4,19.7,20.1,114975,20,19.84,20.06,20.02,0.74
 20260524,20.4,20.4,19.7,20.1,114975,20.02,19.79,20.09,20.02,0.81
 20260525,20.1,20.3,20,20.15,166257,20.07,19.77,20.11,20.04,1.18
-20260526,20.4,20.4,19.7,20.1,114975,20.11,19.75,20.13,20.04,0.81
+20260526,20.1,20.3,20,20.15,166257,20.12,19.75,20.14,20.04,1.15
 ```
 
 ## Latest TDCC Snapshot

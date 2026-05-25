@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2324 仁寶
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:51 Asia/Taipei
+- generated_at: 2026-05-26 06:02:00 Asia/Taipei
 - stock_id: 2324
 - stock_name: 仁寶
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 30.95
-- high: 32.2
-- low: 30.5
-- close: 31.5
-- volume: 199926271
-- ma5: 32.13
-- ma20: 30.07
-- ma60: 30.28
-- ma120: 30.5
-- ema23: 30.45
-- return_5d: 3.79
-- return_20d: 6.06
-- volume_ratio: 2.01
-- distance_to_ma20_pct: 4.76
-- distance_to_high_60_pct: -9.09
+- open: 33.5
+- high: 34.65
+- low: 33.3
+- close: 34.65
+- volume: 279874397
+- ma5: 32.76
+- ma20: 30.23
+- ma60: 30.33
+- ma120: 30.52
+- ema23: 30.71
+- return_5d: 14.17
+- return_20d: 16.67
+- volume_ratio: 2.71
+- distance_to_ma20_pct: 14.64
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,30.95,32.2,30.5,31.5,199926271,29.75,29.66,30.2,29.82,2.83
 20260524,30.95,32.2,30.5,31.5,199926271,30.49,29.74,30.23,29.96,2.53
 20260525,33.5,34.65,33.3,34.65,279874397,31.9,29.98,30.28,30.35,3.08
-20260526,30.95,32.2,30.5,31.5,199926271,32.13,30.07,30.28,30.45,2.01
+20260526,33.5,34.65,33.3,34.65,279874397,32.76,30.23,30.33,30.71,2.71
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2324 | 仁寶 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | base_building |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 2324 | 仁寶 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2897 王道銀行
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:11 Asia/Taipei
+- generated_at: 2026-05-26 06:02:19 Asia/Taipei
 - stock_id: 2897
 - stock_name: 王道銀行
 - packet_status: standard_180d_window_packet
@@ -56,19 +56,19 @@
 - date: 20260526
 - open: 10.1
 - high: 10.1
-- low: 10
-- close: 10
-- volume: 2713096
-- ma5: 9.99
-- ma20: 10.07
+- low: 9.9
+- close: 9.95
+- volume: 6948908
+- ma5: 9.98
+- ma20: 10.06
 - ma60: 10.03
 - ma120: 9.62
 - ema23: 10.05
-- return_5d: -0.99
-- return_20d: -1.48
-- volume_ratio: 0.78
-- distance_to_ma20_pct: -0.67
-- distance_to_high_60_pct: -3.85
+- return_5d: -1.49
+- return_20d: -1.97
+- volume_ratio: 1.89
+- distance_to_ma20_pct: -1.14
+- distance_to_high_60_pct: -4.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,10.1,10.1,10,10,2713096,10.04,10.09,10.02,10.08,0.81
 20260524,10.1,10.1,10,10,2713096,10.03,10.09,10.03,10.07,0.84
 20260525,10.1,10.1,9.9,9.95,6948908,10.01,10.07,10.03,10.06,2.03
-20260526,10.1,10.1,10,10,2713096,9.99,10.07,10.03,10.05,0.78
+20260526,10.1,10.1,9.9,9.95,6948908,9.98,10.06,10.03,10.05,1.89
 ```
 
 ## Latest TDCC Snapshot
@@ -122,12 +122,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2897 | 王道銀行 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 2897 | 王道銀行 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2897 | 王道銀行 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260526 | 2897 | 王道銀行 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

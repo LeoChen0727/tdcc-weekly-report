@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6861 睿生光電
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:35 Asia/Taipei
+- generated_at: 2026-05-26 06:03:36 Asia/Taipei
 - stock_id: 6861
 - stock_name: 睿生光電
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 412
-- high: 470
-- low: 397
-- close: 449
-- volume: 4317793
-- ma5: 443.6
-- ma20: 414.75
-- ma60: 248.32
-- ma120: 157.42
-- ema23: 385.53
-- return_5d: 5.03
-- return_20d: 49.92
-- volume_ratio: 3.2
-- distance_to_ma20_pct: 8.26
-- distance_to_high_60_pct: -8.37
+- open: 462.5
+- high: 467
+- low: 422
+- close: 422
+- volume: 2039283
+- ma5: 438.2
+- ma20: 413.4
+- ma60: 247.87
+- ma120: 157.2
+- ema23: 383.28
+- return_5d: -1.29
+- return_20d: 40.9
+- volume_ratio: 1.65
+- distance_to_ma20_pct: 2.08
+- distance_to_high_60_pct: -13.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,412,470,397,449,4317793,428.4,390.77,232.03,369.27,4.22
 20260524,412,470,397,449,4317793,436.3,399.82,237.78,375.92,3.74
 20260525,462.5,467,422,422,2039283,439.3,407.27,242.92,379.76,1.74
-20260526,412,470,397,449,4317793,443.6,414.75,248.32,385.53,3.2
+20260526,462.5,467,422,422,2039283,438.2,413.4,247.87,383.28,1.65
 ```
 
 ## Latest TDCC Snapshot
@@ -122,12 +122,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6861 | 睿生光電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 6861 | 睿生光電 | revenue_pullback | 營收成長股價回檔 | 76.0 |  |  |  |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6861 | 睿生光電 | 4 | 1 | 4 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260526 | 6861 | 睿生光電 | 4 | 2 | 4 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | status |

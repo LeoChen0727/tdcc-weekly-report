@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6214 精誠
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:14 Asia/Taipei
+- generated_at: 2026-05-26 06:03:17 Asia/Taipei
 - stock_id: 6214
 - stock_name: 精誠
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 128.5
-- high: 131
-- low: 127
-- close: 130
-- volume: 2833110
-- ma5: 129.8
-- ma20: 125.35
-- ma60: 118.01
+- open: 132
+- high: 132.5
+- low: 128.5
+- close: 129
+- volume: 1584363
+- ma5: 129.6
+- ma20: 125.3
+- ma60: 117.99
 - ma120: 118.05
-- ema23: 125.14
-- return_5d: 1.96
-- return_20d: 7
-- volume_ratio: 1.91
-- distance_to_ma20_pct: 3.71
-- distance_to_high_60_pct: -1.89
+- ema23: 125.05
+- return_5d: 1.18
+- return_20d: 6.17
+- volume_ratio: 1.11
+- distance_to_ma20_pct: 2.95
+- distance_to_high_60_pct: -2.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,128.5,131,127,130,2833110,127,124.2,117.17,123.78,1.88
 20260524,128.5,131,127,130,2833110,128.3,124.75,117.5,124.3,1.77
 20260525,132,132.5,128.5,129,1584363,129.3,124.92,117.73,124.69,1.09
-20260526,128.5,131,127,130,2833110,129.8,125.35,118.01,125.14,1.91
+20260526,132,132.5,128.5,129,1584363,129.6,125.3,117.99,125.05,1.11
 ```
 
 ## Latest TDCC Snapshot
@@ -122,9 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6214 | 精誠 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260526 | 6214 | 精誠 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260526 | 6214 | 精誠 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 6214 | 精誠 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

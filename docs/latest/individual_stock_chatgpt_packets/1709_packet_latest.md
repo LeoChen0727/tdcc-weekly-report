@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1709 和益
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:41 Asia/Taipei
+- generated_at: 2026-05-26 06:01:50 Asia/Taipei
 - stock_id: 1709
 - stock_name: 和益
 - packet_status: standard_180d_window_packet
@@ -55,20 +55,20 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 18.4
-- high: 18.5
-- low: 18.3
-- close: 18.4
-- volume: 575156
-- ma5: 18.55
-- ma20: 18.44
-- ma60: 18.24
-- ma120: 17.54
-- ema23: 18.47
-- return_5d: 0
-- return_20d: -2.65
-- volume_ratio: 0.91
-- distance_to_ma20_pct: -0.2
-- distance_to_high_60_pct: -7.54
+- high: 19.15
+- low: 18.25
+- close: 19.15
+- volume: 1670828
+- ma5: 18.7
+- ma20: 18.48
+- ma60: 18.26
+- ma120: 17.55
+- ema23: 18.53
+- return_5d: 4.08
+- return_20d: 1.32
+- volume_ratio: 2.44
+- distance_to_ma20_pct: 3.65
+- distance_to_high_60_pct: -3.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,18.4,18.5,18.3,18.4,575156,18.32,18.5,18.16,18.42,1.01
 20260524,18.4,18.5,18.3,18.4,575156,18.35,18.46,18.18,18.42,1.03
 20260525,18.4,19.15,18.25,19.15,1670828,18.55,18.46,18.22,18.48,2.71
-20260526,18.4,18.5,18.3,18.4,575156,18.55,18.44,18.24,18.47,0.91
+20260526,18.4,19.15,18.25,19.15,1670828,18.7,18.48,18.26,18.53,2.44
 ```
 
 ## Latest TDCC Snapshot
@@ -128,14 +128,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 1709 | 和益 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 1709 | 和益 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | status |

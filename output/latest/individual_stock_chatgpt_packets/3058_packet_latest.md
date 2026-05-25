@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3058 立德
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:17 Asia/Taipei
+- generated_at: 2026-05-26 06:02:24 Asia/Taipei
 - stock_id: 3058
 - stock_name: 立德
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 8.17
-- high: 8.43
-- low: 8.15
-- close: 8.42
-- volume: 980065
-- ma5: 8.39
-- ma20: 8.35
+- open: 8.45
+- high: 8.57
+- low: 8.16
+- close: 8.26
+- volume: 1116479
+- ma5: 8.36
+- ma20: 8.34
 - ma60: 9.07
 - ma120: 9.66
-- ema23: 8.47
-- return_5d: 2.18
-- return_20d: -3
-- volume_ratio: 1.22
-- distance_to_ma20_pct: 0.88
-- distance_to_high_60_pct: -23.11
+- ema23: 8.46
+- return_5d: 0.24
+- return_20d: -4.84
+- volume_ratio: 1.38
+- distance_to_ma20_pct: -0.94
+- distance_to_high_60_pct: -24.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,8.17,8.43,8.15,8.42,980065,8.26,8.4,9.17,8.5,1.3
 20260524,8.17,8.43,8.15,8.42,980065,8.31,8.38,9.13,8.5,1.3
 20260525,8.45,8.57,8.16,8.26,1116479,8.35,8.36,9.1,8.48,1.42
-20260526,8.17,8.43,8.15,8.42,980065,8.39,8.35,9.07,8.47,1.22
+20260526,8.45,8.57,8.16,8.26,1116479,8.36,8.34,9.07,8.46,1.38
 ```
 
 ## Latest TDCC Snapshot

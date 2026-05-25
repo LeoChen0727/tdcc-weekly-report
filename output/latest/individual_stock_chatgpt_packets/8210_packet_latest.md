@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8210 勤誠
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:49 Asia/Taipei
+- generated_at: 2026-05-26 06:03:50 Asia/Taipei
 - stock_id: 8210
 - stock_name: 勤誠
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 1350
-- high: 1380
-- low: 1330
-- close: 1345
-- volume: 1307613
-- ma5: 1363
-- ma20: 1360.5
-- ma60: 1083.02
-- ma120: 1009.36
-- ema23: 1307.32
-- return_5d: 0.75
-- return_20d: 20.09
-- volume_ratio: 0.49
-- distance_to_ma20_pct: -1.14
-- distance_to_high_60_pct: -15.41
+- open: 1400
+- high: 1455
+- low: 1380
+- close: 1435
+- volume: 1653950
+- ma5: 1381
+- ma20: 1365
+- ma60: 1084.52
+- ma120: 1010.11
+- ema23: 1314.82
+- return_5d: 7.49
+- return_20d: 28.12
+- volume_ratio: 0.61
+- distance_to_ma20_pct: 5.13
+- distance_to_high_60_pct: -9.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,1350,1380,1330,1345,1307613,1327,1327,1060.28,1287.16,0.43
 20260524,1350,1380,1330,1345,1307613,1331,1336,1067.55,1291.98,0.46
 20260525,1400,1455,1380,1435,1653950,1361,1349.25,1076.17,1303.9,0.6
-20260526,1350,1380,1330,1345,1307613,1363,1360.5,1083.02,1307.32,0.49
+20260526,1400,1455,1380,1435,1653950,1381,1365,1084.52,1314.82,0.61
 ```
 
 ## Latest TDCC Snapshot

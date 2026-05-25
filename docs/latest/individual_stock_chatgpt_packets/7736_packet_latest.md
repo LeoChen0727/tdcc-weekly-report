@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7736 虎山
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:41 Asia/Taipei
+- generated_at: 2026-05-26 06:03:42 Asia/Taipei
 - stock_id: 7736
 - stock_name: 虎山
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 72
-- high: 72
-- low: 71.2
-- close: 71.5
-- volume: 25360
-- ma5: 71.62
-- ma20: 73.16
-- ma60: 79.01
+- open: 71.5
+- high: 73.5
+- low: 71.5
+- close: 72.1
+- volume: 51484
+- ma5: 71.74
+- ma20: 73.19
+- ma60: 79.02
 - ma120: 84.25
-- ema23: 73.86
-- return_5d: -0.56
-- return_20d: -9.15
-- volume_ratio: 0.68
-- distance_to_ma20_pct: -2.26
-- distance_to_high_60_pct: -21.26
+- ema23: 73.91
+- return_5d: 0.28
+- return_20d: -8.39
+- volume_ratio: 1.33
+- distance_to_ma20_pct: -1.48
+- distance_to_high_60_pct: -20.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,72,72,71.2,71.5,25360,71.74,74.15,79.91,74.51,0.7
 20260524,72,72,71.2,71.5,25360,71.66,73.8,79.6,74.26,0.73
 20260525,71.5,73.5,71.5,72.1,51484,71.7,73.52,79.32,74.08,1.4
-20260526,72,72,71.2,71.5,25360,71.62,73.16,79.01,73.86,0.68
+20260526,71.5,73.5,71.5,72.1,51484,71.74,73.19,79.02,73.91,1.33
 ```
 
 ## Latest TDCC Snapshot

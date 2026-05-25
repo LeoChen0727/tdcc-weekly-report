@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1108 幸福
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:28 Asia/Taipei
+- generated_at: 2026-05-26 06:01:38 Asia/Taipei
 - stock_id: 1108
 - stock_name: 幸福
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 13.8
-- high: 13.8
-- low: 13.5
-- close: 13.55
-- volume: 687476
-- ma5: 13.54
+- open: 13.55
+- high: 13.55
+- low: 13.4
+- close: 13.5
+- volume: 407880
+- ma5: 13.53
 - ma20: 14.04
 - ma60: 14.59
 - ma120: 14.81
 - ema23: 14.01
-- return_5d: -1.45
-- return_20d: -7.51
-- volume_ratio: 1.67
-- distance_to_ma20_pct: -3.52
-- distance_to_high_60_pct: -11.44
+- return_5d: -1.82
+- return_20d: -7.85
+- volume_ratio: 1.03
+- distance_to_ma20_pct: -3.86
+- distance_to_high_60_pct: -11.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,13.8,13.8,13.5,13.55,687476,13.69,14.2,14.68,14.15,1.97
 20260524,13.8,13.8,13.5,13.55,687476,13.64,14.15,14.65,14.1,1.87
 20260525,13.55,13.55,13.4,13.5,407880,13.58,14.1,14.62,14.05,1.07
-20260526,13.8,13.8,13.5,13.55,687476,13.54,14.04,14.59,14.01,1.67
+20260526,13.55,13.55,13.4,13.5,407880,13.53,14.04,14.59,14.01,1.03
 ```
 
 ## Latest TDCC Snapshot

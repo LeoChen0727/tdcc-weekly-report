@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8341 日友
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:51 Asia/Taipei
+- generated_at: 2026-05-26 06:03:51 Asia/Taipei
 - stock_id: 8341
 - stock_name: 日友
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 76.5
-- high: 76.5
-- low: 76
-- close: 76.2
-- volume: 142523
-- ma5: 76.1
-- ma20: 75.81
-- ma60: 76.17
+- open: 76.2
+- high: 76.3
+- low: 75.5
+- close: 75.7
+- volume: 251067
+- ma5: 76
+- ma20: 75.79
+- ma60: 76.16
 - ma120: 77.62
-- ema23: 75.94
-- return_5d: -0.65
-- return_20d: 1.87
-- volume_ratio: 0.61
-- distance_to_ma20_pct: 0.51
-- distance_to_high_60_pct: -5.11
+- ema23: 75.9
+- return_5d: -1.3
+- return_20d: 1.2
+- volume_ratio: 1.05
+- distance_to_ma20_pct: -0.12
+- distance_to_high_60_pct: -5.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,76.5,76.5,76,76.2,142523,76.26,75.58,76.32,75.92,0.6
 20260524,76.5,76.5,76,76.2,142523,76.26,75.69,76.28,75.94,0.62
 20260525,76.2,76.3,75.5,75.7,251067,76.2,75.75,76.23,75.92,1.07
-20260526,76.5,76.5,76,76.2,142523,76.1,75.81,76.17,75.94,0.61
+20260526,76.2,76.3,75.5,75.7,251067,76,75.79,76.16,75.9,1.05
 ```
 
 ## Latest TDCC Snapshot

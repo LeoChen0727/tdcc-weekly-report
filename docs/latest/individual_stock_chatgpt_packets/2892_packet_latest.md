@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2892 第一金
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:11 Asia/Taipei
+- generated_at: 2026-05-26 06:02:19 Asia/Taipei
 - stock_id: 2892
 - stock_name: 第一金
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 27.8
-- high: 27.8
-- low: 27.4
-- close: 27.55
-- volume: 84956255
-- ma5: 27.56
+- open: 27.6
+- high: 27.6
+- low: 27.2
+- close: 27.6
+- volume: 79808642
+- ma5: 27.57
 - ma20: 28.56
 - ma60: 28.66
 - ma120: 28.86
 - ema23: 28.34
-- return_5d: -0.54
-- return_20d: -3.5
-- volume_ratio: 1.43
-- distance_to_ma20_pct: -3.54
-- distance_to_high_60_pct: -7.55
+- return_5d: -0.36
+- return_20d: -3.33
+- volume_ratio: 1.35
+- distance_to_ma20_pct: -3.37
+- distance_to_high_60_pct: -7.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,27.8,27.8,27.4,27.55,84956255,27.91,28.68,28.77,28.57,1.68
 20260524,27.8,27.8,27.4,27.55,84956255,27.62,28.64,28.73,28.48,1.6
 20260525,27.6,27.6,27.2,27.6,79808642,27.59,28.61,28.69,28.41,1.42
-20260526,27.8,27.8,27.4,27.55,84956255,27.56,28.56,28.66,28.34,1.43
+20260526,27.6,27.6,27.2,27.6,79808642,27.57,28.56,28.66,28.34,1.35
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5007 三星
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:54 Asia/Taipei
+- generated_at: 2026-05-26 06:02:59 Asia/Taipei
 - stock_id: 5007
 - stock_name: 三星
 - packet_status: standard_180d_window_packet
@@ -55,20 +55,20 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 57
-- high: 57
-- low: 56.2
-- close: 56.8
-- volume: 62863
-- ma5: 56.78
-- ma20: 57.18
+- high: 57.4
+- low: 56.7
+- close: 56.7
+- volume: 44839
+- ma5: 56.76
+- ma20: 57.17
 - ma60: 57.02
 - ma120: 56.85
-- ema23: 57.04
-- return_5d: 1.07
-- return_20d: -2.07
-- volume_ratio: 0.99
-- distance_to_ma20_pct: -0.66
-- distance_to_high_60_pct: -4.54
+- ema23: 57.03
+- return_5d: 0.89
+- return_20d: -2.24
+- volume_ratio: 0.71
+- distance_to_ma20_pct: -0.83
+- distance_to_high_60_pct: -4.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,57,57,56.2,56.8,62863,56.26,57.37,57.21,57.12,1.06
 20260524,57,57,56.2,56.8,62863,56.38,57.31,57.14,57.1,1.04
 20260525,57,57.4,56.7,56.7,44839,56.66,57.24,57.07,57.06,0.73
-20260526,57,57,56.2,56.8,62863,56.78,57.18,57.02,57.04,0.99
+20260526,57,57.4,56.7,56.7,44839,56.76,57.17,57.02,57.03,0.71
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00910 第一金太空衛星
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:26 Asia/Taipei
+- generated_at: 2026-05-26 06:01:36 Asia/Taipei
 - stock_id: 00910
 - stock_name: 第一金太空衛星
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 77.45
-- high: 78.2
-- low: 77.45
-- close: 78.1
-- volume: 1765852
-- ma5: 79.44
-- ma20: 79.44
-- ma60: 79.44
-- ma120: 79.44
-- ema23: 78.61
+- open: 82.75
+- high: 86
+- low: 82.75
+- close: 84.8
+- volume: 12334382
+- ma5: 80.78
+- ma20: 80.78
+- ma60: 80.78
+- ma120: 80.78
+- ema23: 79.17
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.46
-- distance_to_ma20_pct: -1.69
-- distance_to_high_60_pct: -9.19
+- volume_ratio: 2.06
+- distance_to_ma20_pct: 4.98
+- distance_to_high_60_pct: -1.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,77.45,78.2,77.45,78.1,1765852,,,,,
 20260524,77.45,78.2,77.45,78.1,1765852,,,,,
 20260525,82.75,86,82.75,84.8,12334382,,,,,
-20260526,77.45,78.2,77.45,78.1,1765852,79.44,79.44,79.44,78.61,0.46
+20260526,82.75,86,82.75,84.8,12334382,80.78,80.78,80.78,79.17,2.06
 ```
 
 ## Latest TDCC Snapshot

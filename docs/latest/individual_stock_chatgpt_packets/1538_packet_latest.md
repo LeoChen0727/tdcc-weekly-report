@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1538 正峰
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:37 Asia/Taipei
+- generated_at: 2026-05-26 06:01:47 Asia/Taipei
 - stock_id: 1538
 - stock_name: 正峰
 - packet_status: standard_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 11.55
+- open: 12
 - high: 12
-- low: 11.55
-- close: 12
-- volume: 3146
-- ma5: 11.96
-- ma20: 12.59
-- ma60: 15.55
+- low: 11.2
+- close: 11.8
+- volume: 29431
+- ma5: 11.92
+- ma20: 12.57
+- ma60: 15.54
 - ma120: 20.51
-- ema23: 12.68
-- return_5d: -3.23
-- return_20d: -6.98
-- volume_ratio: 0.18
-- distance_to_ma20_pct: -4.65
-- distance_to_high_60_pct: -55.56
+- ema23: 12.67
+- return_5d: -4.84
+- return_20d: -8.53
+- volume_ratio: 1.59
+- distance_to_ma20_pct: -6.16
+- distance_to_high_60_pct: -56.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,11.55,12,11.55,12,3146,12.24,12.72,16.26,12.91,0.18
 20260524,11.55,12,11.55,12,3146,12.16,12.68,16.02,12.83,0.18
 20260525,12,12,11.2,11.8,29431,12.04,12.63,15.78,12.74,1.72
-20260526,11.55,12,11.55,12,3146,11.96,12.59,15.55,12.68,0.18
+20260526,12,12,11.2,11.8,29431,11.92,12.57,15.54,12.67,1.59
 ```
 
 ## Latest TDCC Snapshot

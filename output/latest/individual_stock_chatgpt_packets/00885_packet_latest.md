@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00885 富邦越南
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:25 Asia/Taipei
+- generated_at: 2026-05-26 06:01:36 Asia/Taipei
 - stock_id: 00885
 - stock_name: 富邦越南
 - packet_status: partial_rawdata_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 19.26
-- high: 19.28
-- low: 18.89
-- close: 18.96
-- volume: 3838544
+- open: 18.93
+- high: 19.12
+- low: 18.9
+- close: 18.99
+- volume: 3598420
 - ma5: 18.97
 - ma20: 18.97
 - ma60: 18.97
@@ -66,9 +66,9 @@
 - ema23: 18.96
 - return_5d: 
 - return_20d: 
-- volume_ratio: 1.01
-- distance_to_ma20_pct: -0.03
-- distance_to_high_60_pct: -1.66
+- volume_ratio: 0.96
+- distance_to_ma20_pct: 0.09
+- distance_to_high_60_pct: -1.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,19.26,19.28,18.89,18.96,3838544,,,,,
 20260524,19.26,19.28,18.89,18.96,3838544,,,,,
 20260525,18.93,19.12,18.9,18.99,3598420,,,,,
-20260526,19.26,19.28,18.89,18.96,3838544,18.97,18.97,18.97,18.96,1.01
+20260526,18.93,19.12,18.9,18.99,3598420,18.97,18.97,18.97,18.96,0.96
 ```
 
 ## Latest TDCC Snapshot

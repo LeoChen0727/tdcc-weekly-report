@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3532 台勝科
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:31 Asia/Taipei
+- generated_at: 2026-05-26 06:02:37 Asia/Taipei
 - stock_id: 3532
 - stock_name: 台勝科
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 235
-- high: 248.5
-- low: 235
-- close: 248.5
-- volume: 1358746
-- ma5: 253.4
-- ma20: 238.2
-- ma60: 179.58
-- ma120: 148.29
-- ema23: 228.04
-- return_5d: 9.96
-- return_20d: 36.91
-- volume_ratio: 0.31
-- distance_to_ma20_pct: 4.32
-- distance_to_high_60_pct: -8.97
+- open: 273
+- high: 273
+- low: 265
+- close: 273
+- volume: 4498068
+- ma5: 258.3
+- ma20: 239.43
+- ma60: 179.99
+- ma120: 148.5
+- ema23: 230.08
+- return_5d: 20.8
+- return_20d: 50.41
+- volume_ratio: 1
+- distance_to_ma20_pct: 14.02
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,235,248.5,235,248.5,1358746,226.1,226.78,173.61,219.5,0.33
 20260524,235,248.5,235,248.5,1358746,235.4,230.1,175.45,221.92,0.33
 20260525,273,273,265,273,4498068,248.9,234.85,177.7,226.18,1.04
-20260526,235,248.5,235,248.5,1358746,253.4,238.2,179.58,228.04,0.31
+20260526,273,273,265,273,4498068,258.3,239.43,179.99,230.08,1
 ```
 
 ## Latest TDCC Snapshot

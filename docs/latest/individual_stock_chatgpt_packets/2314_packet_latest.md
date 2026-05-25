@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2314 台揚
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:51 Asia/Taipei
+- generated_at: 2026-05-26 06:02:00 Asia/Taipei
 - stock_id: 2314
 - stock_name: 台揚
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 17.6
-- high: 17.6
-- low: 15.8
-- close: 15.8
-- volume: 1909285
-- ma5: 15.92
-- ma20: 14.05
-- ma60: 15.97
+- open: 17.35
+- high: 17.35
+- low: 16.35
+- close: 16.4
+- volume: 1003227
+- ma5: 16.04
+- ma20: 14.09
+- ma60: 15.98
 - ma120: 19.08
-- ema23: 14.76
-- return_5d: -1.56
-- return_20d: 12.06
-- volume_ratio: 2.24
-- distance_to_ma20_pct: 12.42
-- distance_to_high_60_pct: -28.83
+- ema23: 14.81
+- return_5d: 2.18
+- return_20d: 16.31
+- volume_ratio: 1.24
+- distance_to_ma20_pct: 16.44
+- distance_to_high_60_pct: -26.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,17.6,17.6,15.8,15.8,1909285,15.11,13.8,16.2,14.39,2.96
 20260524,17.6,17.6,15.8,15.8,1909285,15.61,13.87,16.11,14.5,2.63
 20260525,17.35,17.35,16.35,16.4,1003227,15.97,13.97,16.05,14.66,1.31
-20260526,17.6,17.6,15.8,15.8,1909285,15.92,14.05,15.97,14.76,2.24
+20260526,17.35,17.35,16.35,16.4,1003227,16.04,14.09,15.98,14.81,1.24
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2314 | 台揚 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260526 | 2314 | 台揚 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context

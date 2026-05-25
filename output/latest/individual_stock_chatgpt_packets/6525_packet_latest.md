@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6525 捷敏-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:23 Asia/Taipei
+- generated_at: 2026-05-26 06:03:25 Asia/Taipei
 - stock_id: 6525
 - stock_name: 捷敏-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 114
-- high: 117
-- low: 112.5
-- close: 116
-- volume: 994347
-- ma5: 117.2
-- ma20: 109.42
-- ma60: 92.93
-- ma120: 85.09
-- ema23: 108.02
-- return_5d: 1.75
-- return_20d: 27.19
-- volume_ratio: 0.61
-- distance_to_ma20_pct: 6.02
-- distance_to_high_60_pct: -7.2
+- open: 119
+- high: 125
+- low: 116.5
+- close: 122
+- volume: 2471726
+- ma5: 118.4
+- ma20: 109.72
+- ma60: 93.03
+- ma120: 85.14
+- ema23: 108.52
+- return_5d: 7.02
+- return_20d: 33.77
+- volume_ratio: 1.45
+- distance_to_ma20_pct: 11.2
+- distance_to_high_60_pct: -2.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,114,117,112.5,116,994347,113.9,105.27,91.16,105.04,0.66
 20260524,114,117,112.5,116,994347,115.1,106.58,91.74,105.95,0.67
 20260525,119,125,116.5,122,2471726,116.8,108.17,92.38,107.29,1.55
-20260526,114,117,112.5,116,994347,117.2,109.42,92.93,108.02,0.61
+20260526,119,125,116.5,122,2471726,118.4,109.72,93.03,108.52,1.45
 ```
 
 ## Latest TDCC Snapshot
@@ -120,14 +120,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 6525 | 捷敏-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 58.0 |  |  | neckline_challenge |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 6525 | 捷敏-KY | 2 | 1 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | status |

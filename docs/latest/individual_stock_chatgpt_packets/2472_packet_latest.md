@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2472 立隆電
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:00 Asia/Taipei
+- generated_at: 2026-05-26 06:02:09 Asia/Taipei
 - stock_id: 2472
 - stock_name: 立隆電
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 265
-- high: 271
-- low: 258
-- close: 260
-- volume: 16654212
-- ma5: 263.9
-- ma20: 229.8
-- ma60: 170.39
-- ma120: 140.43
-- ema23: 228.65
-- return_5d: -2.26
-- return_20d: 46.48
-- volume_ratio: 1.24
-- distance_to_ma20_pct: 13.14
-- distance_to_high_60_pct: -9.09
+- open: 276
+- high: 286
+- low: 260
+- close: 279.5
+- volume: 23870950
+- ma5: 267.8
+- ma20: 230.78
+- ma60: 170.72
+- ma120: 140.59
+- ema23: 230.27
+- return_5d: 5.08
+- return_20d: 57.46
+- volume_ratio: 1.73
+- distance_to_ma20_pct: 21.11
+- distance_to_high_60_pct: -2.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,265,271,258,260,16654212,254.6,215.9,163.21,217.36,1.5
 20260524,265,271,258,260,16654212,260.2,220.45,165.5,220.91,1.41
 20260525,276,286,260,279.5,23870950,265.1,225.68,168.04,225.79,1.87
-20260526,265,271,258,260,16654212,263.9,229.8,170.39,228.65,1.24
+20260526,276,286,260,279.5,23870950,267.8,230.78,170.72,230.27,1.73
 ```
 
 ## Latest TDCC Snapshot
@@ -120,14 +120,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 2472 | 立隆電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 2472 | 立隆電 | 2 | 1 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9136 巨騰-DR
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:57 Asia/Taipei
+- generated_at: 2026-05-26 06:03:57 Asia/Taipei
 - stock_id: 9136
 - stock_name: 巨騰-DR
 - packet_status: standard_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 10.9
-- high: 11.25
-- low: 10.55
-- close: 10.95
-- volume: 1150150
-- ma5: 11.02
-- ma20: 10.27
+- open: 11.25
+- high: 11.5
+- low: 11.2
+- close: 11.3
+- volume: 1117988
+- ma5: 11.09
+- ma20: 10.29
 - ma60: 9.18
 - ma120: 8.35
-- ema23: 10.4
-- return_5d: 2.34
-- return_20d: 25.86
-- volume_ratio: 0.47
-- distance_to_ma20_pct: 6.63
-- distance_to_high_60_pct: -22.06
+- ema23: 10.43
+- return_5d: 5.61
+- return_20d: 29.89
+- volume_ratio: 0.46
+- distance_to_ma20_pct: 9.85
+- distance_to_high_60_pct: -19.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,10.9,11.25,10.55,10.95,1150150,11.06,9.9,9.03,10.21,0.46
 20260524,10.9,11.25,10.55,10.95,1150150,10.91,10.03,9.08,10.27,0.48
 20260525,11.25,11.5,11.2,11.3,1117988,10.97,10.16,9.13,10.36,0.46
-20260526,10.9,11.25,10.55,10.95,1150150,11.02,10.27,9.18,10.4,0.47
+20260526,11.25,11.5,11.2,11.3,1117988,11.09,10.29,9.18,10.43,0.46
 ```
 
 ## Latest TDCC Snapshot

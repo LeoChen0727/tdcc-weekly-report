@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1468 昶和
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:35 Asia/Taipei
+- generated_at: 2026-05-26 06:01:45 Asia/Taipei
 - stock_id: 1468
 - stock_name: 昶和
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 11.85
-- high: 12.05
-- low: 11.6
-- close: 12.05
-- volume: 43000
-- ma5: 12.06
+- open: 11.95
+- high: 12.15
+- low: 11.7
+- close: 12.1
+- volume: 52208
+- ma5: 12.07
 - ma20: 12.16
 - ma60: 12.22
 - ma120: 12.23
 - ema23: 12.14
-- return_5d: 1.26
-- return_20d: -1.63
-- volume_ratio: 0.92
-- distance_to_ma20_pct: -0.88
-- distance_to_high_60_pct: -10.07
+- return_5d: 1.68
+- return_20d: -1.22
+- volume_ratio: 1.11
+- distance_to_ma20_pct: -0.49
+- distance_to_high_60_pct: -9.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,11.85,12.05,11.6,12.05,43000,11.98,12.18,12.29,12.16,0.92
 20260524,11.85,12.05,11.6,12.05,43000,11.99,12.18,12.27,12.15,0.92
 20260525,11.95,12.15,11.7,12.1,52208,12.03,12.17,12.25,12.15,1.12
-20260526,11.85,12.05,11.6,12.05,43000,12.06,12.16,12.22,12.14,0.92
+20260526,11.95,12.15,11.7,12.1,52208,12.07,12.16,12.22,12.14,1.11
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9933 中鼎
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:58 Asia/Taipei
+- generated_at: 2026-05-26 06:03:59 Asia/Taipei
 - stock_id: 9933
 - stock_name: 中鼎
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 39.75
-- high: 40
-- low: 39.15
-- close: 39.3
-- volume: 5063209
-- ma5: 39.34
+- open: 39.35
+- high: 39.6
+- low: 38.9
+- close: 39.5
+- volume: 3516488
+- ma5: 39.38
 - ma20: 37.8
-- ma60: 36
+- ma60: 36.01
 - ma120: 34.04
-- ema23: 37.94
-- return_5d: -0.76
-- return_20d: 6.22
-- volume_ratio: 1.07
-- distance_to_ma20_pct: 3.98
-- distance_to_high_60_pct: -2.48
+- ema23: 37.96
+- return_5d: -0.25
+- return_20d: 6.76
+- volume_ratio: 0.75
+- distance_to_ma20_pct: 4.48
+- distance_to_high_60_pct: -1.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,39.75,40,39.15,39.3,5063209,38.86,37.41,35.6,37.51,1.12
 20260524,39.75,40,39.15,39.3,5063209,39.25,37.56,35.74,37.66,1.11
 20260525,39.35,39.6,38.9,39.5,3516488,39.4,37.68,35.87,37.82,0.76
-20260526,39.75,40,39.15,39.3,5063209,39.34,37.8,36,37.94,1.07
+20260526,39.35,39.6,38.9,39.5,3516488,39.38,37.8,36.01,37.96,0.75
 ```
 
 ## Latest TDCC Snapshot
@@ -122,6 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 9933 | 中鼎 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 9933 | 中鼎 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

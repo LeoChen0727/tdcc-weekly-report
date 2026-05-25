@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1590 亞德客-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:39 Asia/Taipei
+- generated_at: 2026-05-26 06:01:48 Asia/Taipei
 - stock_id: 1590
 - stock_name: 亞德客-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 1430
-- high: 1450
-- low: 1375
-- close: 1410
-- volume: 1344880
-- ma5: 1418
-- ma20: 1454.25
-- ma60: 1225.92
-- ma120: 1119.36
-- ema23: 1405.64
-- return_5d: -0.7
-- return_20d: -5.37
-- volume_ratio: 1.08
-- distance_to_ma20_pct: -3.04
-- distance_to_high_60_pct: -11.88
+- open: 1440
+- high: 1460
+- low: 1405
+- close: 1450
+- volume: 875271
+- ma5: 1426
+- ma20: 1456.25
+- ma60: 1226.58
+- ma120: 1119.69
+- ema23: 1408.97
+- return_5d: 2.11
+- return_20d: -2.68
+- volume_ratio: 0.72
+- distance_to_ma20_pct: -0.43
+- distance_to_high_60_pct: -9.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,1430,1450,1375,1410,1344880,1415,1456,1215.42,1400.37,0.97
 20260524,1430,1450,1375,1410,1344880,1411,1456,1219.08,1401.18,0.99
 20260525,1440,1460,1405,1450,875271,1420,1458.25,1223.17,1405.24,0.67
-20260526,1430,1450,1375,1410,1344880,1418,1454.25,1225.92,1405.64,1.08
+20260526,1440,1460,1405,1450,875271,1426,1456.25,1226.58,1408.97,0.72
 ```
 
 ## Latest TDCC Snapshot
@@ -120,14 +120,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1590 | 亞德客-KY | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1590 | 亞德客-KY | 1 | 1 | 3 | 3 | 3 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260526 | 1590 | 亞德客-KY | 1 | 1 | 3 | 3 | 3 | repeated_but_no_breakout | 近 10 日上榜 3 日、近 20 日上榜 3 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

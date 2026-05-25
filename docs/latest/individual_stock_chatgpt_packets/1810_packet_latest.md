@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1810 和成
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:44 Asia/Taipei
+- generated_at: 2026-05-26 06:01:53 Asia/Taipei
 - stock_id: 1810
 - stock_name: 和成
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 19.25
-- high: 19.4
-- low: 18.9
-- close: 19.05
-- volume: 1421432
-- ma5: 19.02
-- ma20: 18.58
-- ma60: 18.03
+- open: 19.2
+- high: 19.35
+- low: 18.75
+- close: 18.9
+- volume: 1454676
+- ma5: 18.99
+- ma20: 18.57
+- ma60: 18.02
 - ma120: 18.17
-- ema23: 18.57
-- return_5d: -0.52
-- return_20d: 10.43
-- volume_ratio: 0.71
-- distance_to_ma20_pct: 2.54
-- distance_to_high_60_pct: -4.75
+- ema23: 18.55
+- return_5d: -1.31
+- return_20d: 9.57
+- volume_ratio: 0.73
+- distance_to_ma20_pct: 1.78
+- distance_to_high_60_pct: -5.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,19.25,19.4,18.9,19.05,1421432,18.85,18.33,18.03,18.44,0.75
 20260524,19.25,19.4,18.9,19.05,1421432,18.94,18.41,18.03,18.49,0.74
 20260525,19.2,19.35,18.75,18.9,1454676,19.04,18.49,18.03,18.52,0.74
-20260526,19.25,19.4,18.9,19.05,1421432,19.02,18.58,18.03,18.57,0.71
+20260526,19.2,19.35,18.75,18.9,1454676,18.99,18.57,18.02,18.55,0.73
 ```
 
 ## Latest TDCC Snapshot
@@ -130,7 +130,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1810 | 和成 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 1810 | 和成 | pattern | 型態觀察 | 51.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 1810 | 和成 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

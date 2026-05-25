@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8996 高力
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:56 Asia/Taipei
+- generated_at: 2026-05-26 06:03:56 Asia/Taipei
 - stock_id: 8996
 - stock_name: 高力
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 1110
-- high: 1170
-- low: 1110
-- close: 1170
-- volume: 3643258
-- ma5: 1163
-- ma20: 1106.95
-- ma60: 1008.93
-- ma120: 832.36
-- ema23: 1101.26
-- return_5d: 9.86
-- return_20d: 2.63
-- volume_ratio: 1.12
-- distance_to_ma20_pct: 5.7
-- distance_to_high_60_pct: -10.69
+- open: 1185
+- high: 1210
+- low: 1130
+- close: 1135
+- volume: 4034815
+- ma5: 1156
+- ma20: 1105.2
+- ma60: 1008.35
+- ma120: 832.07
+- ema23: 1098.34
+- return_5d: 6.57
+- return_20d: -0.44
+- volume_ratio: 1.24
+- distance_to_ma20_pct: 2.7
+- distance_to_high_60_pct: -13.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,1110,1170,1110,1170,3643258,1087.8,1102.45,995.5,1084.22,1.2
 20260524,1110,1170,1110,1170,3643258,1113.8,1107.45,999.82,1091.37,1.16
 20260525,1185,1210,1130,1135,4034815,1142,1105.45,1004.08,1095.01,1.23
-20260526,1110,1170,1110,1170,3643258,1163,1106.95,1008.93,1101.26,1.12
+20260526,1185,1210,1130,1135,4034815,1156,1105.2,1008.35,1098.34,1.24
 ```
 
 ## Latest TDCC Snapshot
@@ -122,8 +122,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8996 | 高力 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260526 | 8996 | 高力 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 8996 | 高力 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 8996 | 高力 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

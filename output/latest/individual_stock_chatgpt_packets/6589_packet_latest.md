@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6589 台康生技
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:25 Asia/Taipei
+- generated_at: 2026-05-26 06:03:27 Asia/Taipei
 - stock_id: 6589
 - stock_name: 台康生技
 - packet_status: standard_180d_window_packet
@@ -55,20 +55,20 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 43.85
-- high: 43.9
-- low: 42.75
-- close: 43.7
-- volume: 1259153
-- ma5: 43.35
-- ma20: 44.07
-- ma60: 51.04
-- ma120: 58.26
-- ema23: 45.01
-- return_5d: 0.11
-- return_20d: -7.22
-- volume_ratio: 1.05
-- distance_to_ma20_pct: -0.84
-- distance_to_high_60_pct: -28.94
+- high: 43.85
+- low: 41.6
+- close: 41.95
+- volume: 1874656
+- ma5: 43
+- ma20: 43.98
+- ma60: 51.01
+- ma120: 58.24
+- ema23: 44.87
+- return_5d: -3.89
+- return_20d: -10.93
+- volume_ratio: 1.53
+- distance_to_ma20_pct: -4.62
+- distance_to_high_60_pct: -31.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,43.85,43.9,42.75,43.7,1259153,43.71,44.65,51.93,45.58,1.07
 20260524,43.85,43.9,42.75,43.7,1259153,43.67,44.52,51.64,45.42,1.1
 20260525,43.85,43.85,41.6,41.95,1874656,43.34,44.24,51.33,45.13,1.6
-20260526,43.85,43.9,42.75,43.7,1259153,43.35,44.07,51.04,45.01,1.05
+20260526,43.85,43.85,41.6,41.95,1874656,43,43.98,51.01,44.87,1.53
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7610 聯友金屬-創
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:40 Asia/Taipei
+- generated_at: 2026-05-26 06:03:41 Asia/Taipei
 - stock_id: 7610
 - stock_name: 聯友金屬-創
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 1270
-- high: 1310
-- low: 1215
+- open: 1210
+- high: 1295
+- low: 1185
 - close: 1250
-- volume: 1894605
+- volume: 188863
 - ma5: 1250
 - ma20: 961.2
 - ma60: 611.77
@@ -66,7 +66,7 @@
 - ema23: 972.73
 - return_5d: 1.63
 - return_20d: 95.92
-- volume_ratio: 1.59
+- volume_ratio: 0.17
 - distance_to_ma20_pct: 30.05
 - distance_to_high_60_pct: -4.58
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,1270,1310,1215,1250,1894605,1174,865.95,565.23,890.02,1.78
 20260524,1270,1310,1215,1250,1894605,1220,899.7,581.01,920.02,1.69
 20260525,1210,1295,1185,1250,188863,1246,930.6,596.39,947.52,0.17
-20260526,1270,1310,1215,1250,1894605,1250,961.2,611.77,972.73,1.59
+20260526,1210,1295,1185,1250,188863,1250,961.2,611.77,972.73,0.17
 ```
 
 ## Latest TDCC Snapshot
@@ -120,9 +120,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 7610 | 聯友金屬-創 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 68.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

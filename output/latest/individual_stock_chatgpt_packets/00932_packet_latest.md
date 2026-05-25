@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00932 兆豐永續高息等權
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:26 Asia/Taipei
+- generated_at: 2026-05-26 06:01:36 Asia/Taipei
 - stock_id: 00932
 - stock_name: 兆豐永續高息等權
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 16.51
-- high: 16.58
-- low: 16.45
-- close: 16.56
-- volume: 1771936
-- ma5: 16.57
-- ma20: 16.57
-- ma60: 16.57
-- ma120: 16.57
+- open: 16.66
+- high: 16.7
+- low: 16.6
+- close: 16.63
+- volume: 2499922
+- ma5: 16.59
+- ma20: 16.59
+- ma60: 16.59
+- ma120: 16.59
 - ema23: 16.57
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.92
-- distance_to_ma20_pct: -0.08
-- distance_to_high_60_pct: -0.84
+- volume_ratio: 1.21
+- distance_to_ma20_pct: 0.25
+- distance_to_high_60_pct: -0.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,16.51,16.58,16.45,16.56,1771936,,,,,
 20260524,16.51,16.58,16.45,16.56,1771936,,,,,
 20260525,16.66,16.7,16.6,16.63,2499922,,,,,
-20260526,16.51,16.58,16.45,16.56,1771936,16.57,16.57,16.57,16.57,0.92
+20260526,16.66,16.7,16.6,16.63,2499922,16.59,16.59,16.59,16.57,1.21
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2915 潤泰全
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:12 Asia/Taipei
+- generated_at: 2026-05-26 06:02:20 Asia/Taipei
 - stock_id: 2915
 - stock_name: 潤泰全
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 44
-- high: 44.15
-- low: 43.3
-- close: 43.3
-- volume: 3990705
-- ma5: 43.16
-- ma20: 43.55
-- ma60: 46.41
-- ma120: 49.9
-- ema23: 43.94
-- return_5d: -1.7
-- return_20d: -3.13
-- volume_ratio: 1.41
-- distance_to_ma20_pct: -0.57
-- distance_to_high_60_pct: -19.67
+- open: 43.5
+- high: 43.5
+- low: 42.5
+- close: 42.6
+- volume: 4472905
+- ma5: 43.02
+- ma20: 43.52
+- ma60: 46.4
+- ma120: 49.89
+- ema23: 43.88
+- return_5d: -3.29
+- return_20d: -4.7
+- volume_ratio: 1.57
+- distance_to_ma20_pct: -2.1
+- distance_to_high_60_pct: -20.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,44,44.15,43.3,43.3,3990705,43.87,43.74,46.93,44.19,1.58
 20260524,44,44.15,43.3,43.3,3990705,43.57,43.72,46.77,44.12,1.53
 20260525,43.5,43.5,42.5,42.6,4472905,43.31,43.62,46.59,43.99,1.63
-20260526,44,44.15,43.3,43.3,3990705,43.16,43.55,46.41,43.94,1.41
+20260526,43.5,43.5,42.5,42.6,4472905,43.02,43.52,46.4,43.88,1.57
 ```
 
 ## Latest TDCC Snapshot

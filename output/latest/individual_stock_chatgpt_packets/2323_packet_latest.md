@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2323 中環
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:51 Asia/Taipei
+- generated_at: 2026-05-26 06:02:00 Asia/Taipei
 - stock_id: 2323
 - stock_name: 中環
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 9.93
-- high: 10.25
-- low: 9.88
-- close: 10.2
-- volume: 10539859
-- ma5: 10.3
-- ma20: 10.21
+- open: 10.4
+- high: 10.7
+- low: 10.15
+- close: 10.7
+- volume: 16667763
+- ma5: 10.4
+- ma20: 10.23
 - ma60: 10.71
 - ma120: 10.61
-- ema23: 10.25
-- return_5d: 3.45
-- return_20d: -0.49
-- volume_ratio: 1.27
-- distance_to_ma20_pct: -0.06
-- distance_to_high_60_pct: -22.14
+- ema23: 10.29
+- return_5d: 8.52
+- return_20d: 4.39
+- volume_ratio: 1.94
+- distance_to_ma20_pct: 4.58
+- distance_to_high_60_pct: -18.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,9.93,10.25,9.88,10.2,10539859,9.82,10.19,10.75,10.22,1.51
 20260524,9.93,10.25,9.88,10.2,10539859,9.97,10.19,10.73,10.22,1.45
 20260525,10.4,10.7,10.15,10.7,16667763,10.23,10.21,10.72,10.26,2.1
-20260526,9.93,10.25,9.88,10.2,10539859,10.3,10.21,10.71,10.25,1.27
+20260526,10.4,10.7,10.15,10.7,16667763,10.4,10.23,10.71,10.29,1.94
 ```
 
 ## Latest TDCC Snapshot
@@ -120,14 +120,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 2323 | 中環 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 2323 | 中環 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

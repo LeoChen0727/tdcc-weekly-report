@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2489 瑞軒
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:01 Asia/Taipei
+- generated_at: 2026-05-26 06:02:10 Asia/Taipei
 - stock_id: 2489
 - stock_name: 瑞軒
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 50.7
-- high: 51.4
-- low: 50.7
-- close: 51.4
-- volume: 29542292
-- ma5: 52.42
-- ma20: 45.01
-- ma60: 41.19
-- ma120: 30.14
-- ema23: 45.56
-- return_5d: 9.83
-- return_20d: 22.38
-- volume_ratio: 0.63
-- distance_to_ma20_pct: 14.19
-- distance_to_high_60_pct: -9.03
+- open: 56.5
+- high: 56.5
+- low: 56.5
+- close: 56.5
+- volume: 6706560
+- ma5: 53.44
+- ma20: 45.27
+- ma60: 41.27
+- ma120: 30.18
+- ema23: 45.98
+- return_5d: 20.73
+- return_20d: 34.52
+- volume_ratio: 0.15
+- distance_to_ma20_pct: 24.81
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,50.7,51.4,50.7,51.4,29542292,46.73,42.82,40.52,43.31,0.61
 20260524,50.7,51.4,50.7,51.4,29542292,48.71,43.63,40.77,43.99,0.6
 20260525,56.5,56.5,56.5,56.5,6706560,51.5,44.54,41.06,45.03,0.14
-20260526,50.7,51.4,50.7,51.4,29542292,52.42,45.01,41.19,45.56,0.63
+20260526,56.5,56.5,56.5,56.5,6706560,53.44,45.27,41.27,45.98,0.15
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3257 虹冠電
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:22 Asia/Taipei
+- generated_at: 2026-05-26 06:02:29 Asia/Taipei
 - stock_id: 3257
 - stock_name: 虹冠電
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 53.6
-- high: 53.6
-- low: 51.8
-- close: 52.8
-- volume: 918330
-- ma5: 53.12
-- ma20: 54.21
-- ma60: 54.59
-- ma120: 59.89
-- ema23: 54.09
-- return_5d: -6.55
-- return_20d: -1.68
-- volume_ratio: 1.44
-- distance_to_ma20_pct: -2.6
-- distance_to_high_60_pct: -14.56
+- open: 53.7
+- high: 55.9
+- low: 53
+- close: 54.4
+- volume: 1200945
+- ma5: 53.44
+- ma20: 54.29
+- ma60: 54.62
+- ma120: 59.91
+- ema23: 54.23
+- return_5d: -3.72
+- return_20d: 1.3
+- volume_ratio: 1.84
+- distance_to_ma20_pct: 0.2
+- distance_to_high_60_pct: -11.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,53.6,53.6,51.8,52.8,918330,54.2,54.28,54.97,54.32,1.77
 20260524,53.6,53.6,51.8,52.8,918330,53.92,54.24,54.84,54.2,1.67
 20260525,53.7,55.9,53,54.4,1200945,53.86,54.26,54.73,54.21,1.99
-20260526,53.6,53.6,51.8,52.8,918330,53.12,54.21,54.59,54.09,1.44
+20260526,53.7,55.9,53,54.4,1200945,53.44,54.29,54.62,54.23,1.84
 ```
 
 ## Latest TDCC Snapshot
@@ -122,6 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 3257 | 虹冠電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 3257 | 虹冠電 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

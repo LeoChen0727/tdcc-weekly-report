@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2367 燿華
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:54 Asia/Taipei
+- generated_at: 2026-05-26 06:02:03 Asia/Taipei
 - stock_id: 2367
 - stock_name: 燿華
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 64.5
-- high: 67.5
-- low: 64.5
-- close: 66.8
-- volume: 61068731
-- ma5: 67.46
-- ma20: 63.52
-- ma60: 68.06
-- ma120: 52.55
-- ema23: 65.1
-- return_5d: 4.21
-- return_20d: 16.17
-- volume_ratio: 1.12
-- distance_to_ma20_pct: 5.16
-- distance_to_high_60_pct: -19.03
+- open: 69.8
+- high: 72.5
+- low: 68.2
+- close: 70.1
+- volume: 94757587
+- ma5: 68.12
+- ma20: 63.69
+- ma60: 68.11
+- ma120: 52.58
+- ema23: 65.38
+- return_5d: 9.36
+- return_20d: 21.91
+- volume_ratio: 1.69
+- distance_to_ma20_pct: 10.07
+- distance_to_high_60_pct: -15.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,64.5,67.5,64.5,66.8,61068731,65,62.19,67.9,64.27,1.23
 20260524,64.5,67.5,64.5,66.8,61068731,65.7,62.53,68.03,64.48,1.24
 20260525,69.8,72.5,68.2,70.1,94757587,66.92,63.05,68.13,64.95,1.81
-20260526,64.5,67.5,64.5,66.8,61068731,67.46,63.52,68.06,65.1,1.12
+20260526,69.8,72.5,68.2,70.1,94757587,68.12,63.69,68.11,65.38,1.69
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2367 | 燿華 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_put_bullish | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 2367 | 燿華 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 68.0 |  |  | neckline_challenge |  | call_put_bullish | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

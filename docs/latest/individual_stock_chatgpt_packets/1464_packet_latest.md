@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1464 得力
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:34 Asia/Taipei
+- generated_at: 2026-05-26 06:01:44 Asia/Taipei
 - stock_id: 1464
 - stock_name: 得力
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 10.25
-- high: 10.25
-- low: 10.05
-- close: 10.1
-- volume: 445398
-- ma5: 10.09
+- open: 10.1
+- high: 10.1
+- low: 10
+- close: 10.05
+- volume: 918553
+- ma5: 10.08
 - ma20: 10.07
 - ma60: 10.35
 - ma120: 10.81
 - ema23: 10.13
-- return_5d: -1.46
-- return_20d: 0.5
-- volume_ratio: 0.8
-- distance_to_ma20_pct: 0.29
-- distance_to_high_60_pct: -11.01
+- return_5d: -1.95
+- return_20d: 0
+- volume_ratio: 1.58
+- distance_to_ma20_pct: -0.18
+- distance_to_high_60_pct: -11.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,10.25,10.25,10.05,10.1,445398,10.12,10.07,10.4,10.15,0.82
 20260524,10.25,10.25,10.05,10.1,445398,10.14,10.07,10.38,10.14,0.85
 20260525,10.1,10.1,10,10.05,918553,10.12,10.07,10.36,10.14,1.67
-20260526,10.25,10.25,10.05,10.1,445398,10.09,10.07,10.35,10.13,0.8
+20260526,10.1,10.1,10,10.05,918553,10.08,10.07,10.35,10.13,1.58
 ```
 
 ## Latest TDCC Snapshot

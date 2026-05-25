@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1529 樂事綠能
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:37 Asia/Taipei
+- generated_at: 2026-05-26 06:01:47 Asia/Taipei
 - stock_id: 1529
 - stock_name: 樂事綠能
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 20.8
-- high: 21.1
-- low: 20.7
-- close: 21
-- volume: 723128
-- ma5: 20.99
+- open: 21.3
+- high: 21.4
+- low: 20.85
+- close: 20.95
+- volume: 867571
+- ma5: 20.98
 - ma20: 21.46
 - ma60: 23.73
 - ma120: 22.55
 - ema23: 21.58
-- return_5d: 1.2
-- return_20d: -3.67
-- volume_ratio: 0.88
-- distance_to_ma20_pct: -2.15
-- distance_to_high_60_pct: -29.65
+- return_5d: 0.96
+- return_20d: -3.9
+- volume_ratio: 1.04
+- distance_to_ma20_pct: -2.38
+- distance_to_high_60_pct: -29.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,20.8,21.1,20.7,21,723128,20.72,21.62,23.99,21.76,0.92
 20260524,20.8,21.1,20.7,21,723128,20.82,21.56,23.89,21.7,0.92
 20260525,21.3,21.4,20.85,20.95,867571,20.94,21.5,23.81,21.64,1.07
-20260526,20.8,21.1,20.7,21,723128,20.99,21.46,23.73,21.58,0.88
+20260526,21.3,21.4,20.85,20.95,867571,20.98,21.46,23.73,21.58,1.04
 ```
 
 ## Latest TDCC Snapshot

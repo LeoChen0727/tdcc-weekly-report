@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2432 倚天酷碁-創
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:58 Asia/Taipei
+- generated_at: 2026-05-26 06:02:06 Asia/Taipei
 - stock_id: 2432
 - stock_name: 倚天酷碁-創
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 26.3
-- high: 26.5
-- low: 26.05
-- close: 26.25
-- volume: 36262
-- ma5: 26.33
-- ma20: 26.82
-- ma60: 27.16
+- open: 26.25
+- high: 26.65
+- low: 26.25
+- close: 26.65
+- volume: 49094
+- ma5: 26.41
+- ma20: 26.84
+- ma60: 27.17
 - ma120: 26.26
-- ema23: 26.78
-- return_5d: 0
-- return_20d: -5.58
-- volume_ratio: 0.46
-- distance_to_ma20_pct: -2.11
-- distance_to_high_60_pct: -12.79
+- ema23: 26.81
+- return_5d: 1.52
+- return_20d: -4.14
+- volume_ratio: 0.62
+- distance_to_ma20_pct: -0.69
+- distance_to_high_60_pct: -11.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,26.3,26.5,26.05,26.25,36262,26.12,27.04,27.04,26.9,0.45
 20260524,26.3,26.5,26.05,26.25,36262,26.15,26.95,27.08,26.84,0.46
 20260525,26.25,26.65,26.25,26.65,49094,26.33,26.89,27.12,26.83,0.62
-20260526,26.3,26.5,26.05,26.25,36262,26.33,26.82,27.16,26.78,0.46
+20260526,26.25,26.65,26.25,26.65,49094,26.41,26.84,27.17,26.81,0.62
 ```
 
 ## Latest TDCC Snapshot

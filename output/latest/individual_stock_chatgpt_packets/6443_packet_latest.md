@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6443 元晶
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:20 Asia/Taipei
+- generated_at: 2026-05-26 06:03:22 Asia/Taipei
 - stock_id: 6443
 - stock_name: 元晶
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 40.1
-- high: 40.4
-- low: 39.7
-- close: 40.05
-- volume: 14131889
-- ma5: 40.69
-- ma20: 39.69
-- ma60: 42.05
-- ma120: 36
-- ema23: 40
-- return_5d: -0.12
-- return_20d: 13.3
-- volume_ratio: 0.74
-- distance_to_ma20_pct: 0.9
-- distance_to_high_60_pct: -29.11
+- open: 41
+- high: 43.6
+- low: 40.65
+- close: 43.25
+- volume: 44461334
+- ma5: 41.33
+- ma20: 39.85
+- ma60: 42.11
+- ma120: 36.02
+- ema23: 40.27
+- return_5d: 7.86
+- return_20d: 22.35
+- volume_ratio: 2.14
+- distance_to_ma20_pct: 8.53
+- distance_to_high_60_pct: -23.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,40.1,40.4,39.7,40.05,14131889,40.42,38.93,42.26,39.67,0.87
 20260524,40.1,40.4,39.7,40.05,14131889,40.25,39.06,42.24,39.7,0.85
 20260525,41,43.6,40.65,43.25,44461334,40.7,39.46,42.21,40,2.38
-20260526,40.1,40.4,39.7,40.05,14131889,40.69,39.69,42.05,40,0.74
+20260526,41,43.6,40.65,43.25,44461334,41.33,39.85,42.11,40.27,2.14
 ```
 
 ## Latest TDCC Snapshot
@@ -122,6 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 6443 | 元晶 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 6443 | 元晶 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1773 勝一
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:43 Asia/Taipei
+- generated_at: 2026-05-26 06:01:52 Asia/Taipei
 - stock_id: 1773
 - stock_name: 勝一
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 179.5
-- high: 188
-- low: 177
-- close: 184.5
-- volume: 2788032
-- ma5: 185.4
-- ma20: 176.57
-- ma60: 160.11
-- ma120: 153.07
-- ema23: 175.17
-- return_5d: 4.24
-- return_20d: 7.27
-- volume_ratio: 1.66
-- distance_to_ma20_pct: 4.49
-- distance_to_high_60_pct: -3.91
+- open: 189
+- high: 192
+- low: 185.5
+- close: 189
+- volume: 2016066
+- ma5: 186.3
+- ma20: 176.8
+- ma60: 160.18
+- ma120: 153.11
+- ema23: 175.55
+- return_5d: 6.78
+- return_20d: 9.88
+- volume_ratio: 1.23
+- distance_to_ma20_pct: 6.9
+- distance_to_high_60_pct: -1.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,179.5,188,177,184.5,2788032,175.1,174.78,158.62,171.95,1.72
 20260524,179.5,188,177,184.5,2788032,178.8,175.05,159.12,172.99,1.73
 20260525,189,192,185.5,189,2016066,183.9,175.95,159.62,174.33,1.25
-20260526,179.5,188,177,184.5,2788032,185.4,176.57,160.11,175.17,1.66
+20260526,189,192,185.5,189,2016066,186.3,176.8,160.18,175.55,1.23
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1773 | 勝一 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260526 | 1773 | 勝一 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

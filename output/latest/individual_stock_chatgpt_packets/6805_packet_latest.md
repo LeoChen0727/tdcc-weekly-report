@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6805 富世達
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:33 Asia/Taipei
+- generated_at: 2026-05-26 06:03:35 Asia/Taipei
 - stock_id: 6805
 - stock_name: 富世達
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 1830
-- high: 1845
-- low: 1785
-- close: 1795
-- volume: 989339
-- ma5: 1785
-- ma20: 1860.5
-- ma60: 1859.08
-- ma120: 1675.12
-- ema23: 1834.5
-- return_5d: -0.83
-- return_20d: -13.29
-- volume_ratio: 0.52
-- distance_to_ma20_pct: -3.52
-- distance_to_high_60_pct: -21.1
+- open: 1825
+- high: 1825
+- low: 1740
+- close: 1745
+- volume: 1813092
+- ma5: 1775
+- ma20: 1858
+- ma60: 1858.25
+- ma120: 1674.71
+- ema23: 1830.33
+- return_5d: -3.59
+- return_20d: -15.7
+- volume_ratio: 0.94
+- distance_to_ma20_pct: -6.08
+- distance_to_high_60_pct: -23.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,1830,1845,1785,1795,989339,1778,1905,1853.67,1851.24,0.47
 20260524,1830,1845,1785,1795,989339,1783,1891.25,1857.67,1846.55,0.51
 20260525,1825,1825,1740,1745,1813092,1788,1874.25,1858.25,1838.09,0.94
-20260526,1830,1845,1785,1795,989339,1785,1860.5,1859.08,1834.5,0.52
+20260526,1825,1825,1740,1745,1813092,1775,1858,1858.25,1830.33,0.94
 ```
 
 ## Latest TDCC Snapshot
@@ -120,14 +120,15 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 6805 | 富世達 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 6805 | 富世達 | revenue_breakout_low_response | 營收爆發低反應股 | 12.0 | 19.0 | D_降級_TDCC轉弱 |  |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 6805 | 富世達 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

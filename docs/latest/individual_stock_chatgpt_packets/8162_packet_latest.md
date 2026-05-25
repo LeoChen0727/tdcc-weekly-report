@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8162 微矽電子-創
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:49 Asia/Taipei
+- generated_at: 2026-05-26 06:03:49 Asia/Taipei
 - stock_id: 8162
 - stock_name: 微矽電子-創
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 56
-- high: 60.8
-- low: 55.7
-- close: 60.8
-- volume: 821554
-- ma5: 62
-- ma20: 55.78
-- ma60: 46.2
-- ma120: 41.21
-- ema23: 55.25
-- return_5d: 9.95
-- return_20d: 13.64
-- volume_ratio: 1.13
-- distance_to_ma20_pct: 8.99
-- distance_to_high_60_pct: -8.98
+- open: 66.8
+- high: 66.8
+- low: 66.8
+- close: 66.8
+- volume: 515574
+- ma5: 63.2
+- ma20: 56.09
+- ma60: 46.3
+- ma120: 41.26
+- ema23: 55.75
+- return_5d: 20.8
+- return_20d: 24.86
+- volume_ratio: 0.72
+- distance_to_ma20_pct: 19.1
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,56,60.8,55.7,60.8,821554,56.9,53.91,45.09,53,1.02
 20260524,56,60.8,55.7,60.8,821554,58.36,54.52,45.47,53.65,1.09
 20260525,66.8,66.8,66.8,66.8,515574,60.9,55.42,45.91,54.75,0.69
-20260526,56,60.8,55.7,60.8,821554,62,55.78,46.2,55.25,1.13
+20260526,66.8,66.8,66.8,66.8,515574,63.2,56.09,46.3,55.75,0.72
 ```
 
 ## Latest TDCC Snapshot

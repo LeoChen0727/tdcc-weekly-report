@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8374 羅昇
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:51 Asia/Taipei
+- generated_at: 2026-05-26 06:03:52 Asia/Taipei
 - stock_id: 8374
 - stock_name: 羅昇
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 99.9
-- high: 109
-- low: 99.6
-- close: 109
-- volume: 5607226
-- ma5: 109.7
-- ma20: 97.9
-- ma60: 82.32
-- ma120: 83.12
-- ema23: 97.61
-- return_5d: 9.99
-- return_20d: 30.85
-- volume_ratio: 1.47
-- distance_to_ma20_pct: 11.34
-- distance_to_high_60_pct: -8.02
+- open: 113
+- high: 118.5
+- low: 111
+- close: 112.5
+- volume: 6047352
+- ma5: 110.4
+- ma20: 98.08
+- ma60: 82.38
+- ma120: 83.15
+- ema23: 97.9
+- return_5d: 13.52
+- return_20d: 35.05
+- volume_ratio: 1.58
+- distance_to_ma20_pct: 14.71
+- distance_to_high_60_pct: -5.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,99.9,109,99.6,109,5607226,103.2,93.4,81.16,93.86,1.79
 20260524,99.9,109,99.6,109,5607226,104.6,95.11,81.54,95.12,1.65
 20260525,113,118.5,111,112.5,6047352,107.72,96.61,81.97,96.57,1.65
-20260526,99.9,109,99.6,109,5607226,109.7,97.9,82.32,97.61,1.47
+20260526,113,118.5,111,112.5,6047352,110.4,98.08,82.38,97.9,1.58
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8374 | 羅昇 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 8374 | 羅昇 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 8374 | 羅昇 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

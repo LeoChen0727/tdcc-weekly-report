@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00898 國泰基因免疫革命
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:26 Asia/Taipei
+- generated_at: 2026-05-26 06:01:36 Asia/Taipei
 - stock_id: 00898
 - stock_name: 國泰基因免疫革命
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 8.02
-- high: 8.04
-- low: 8.02
-- close: 8.03
-- volume: 246876
-- ma5: 8.06
-- ma20: 8.06
-- ma60: 8.06
-- ma120: 8.06
-- ema23: 8.04
+- open: 8.07
+- high: 8.16
+- low: 8.07
+- close: 8.16
+- volume: 1285545
+- ma5: 8.08
+- ma20: 8.08
+- ma60: 8.08
+- ma120: 8.08
+- ema23: 8.05
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.54
-- distance_to_ma20_pct: -0.32
-- distance_to_high_60_pct: -1.59
+- volume_ratio: 1.94
+- distance_to_ma20_pct: 0.97
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,8.02,8.04,8.02,8.03,246876,,,,,
 20260524,8.02,8.04,8.02,8.03,246876,,,,,
 20260525,8.07,8.16,8.07,8.16,1285545,,,,,
-20260526,8.02,8.04,8.02,8.03,246876,8.06,8.06,8.06,8.04,0.54
+20260526,8.07,8.16,8.07,8.16,1285545,8.08,8.08,8.08,8.05,1.94
 ```
 
 ## Latest TDCC Snapshot

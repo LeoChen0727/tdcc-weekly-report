@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00962 台新AI優息動能
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:27 Asia/Taipei
+- generated_at: 2026-05-26 06:01:37 Asia/Taipei
 - stock_id: 00962
 - stock_name: 台新AI優息動能
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 13.6
-- high: 13.96
-- low: 13.6
-- close: 13.89
-- volume: 406408
-- ma5: 14.01
-- ma20: 14.01
-- ma60: 14.01
-- ma120: 14.01
-- ema23: 13.93
+- open: 14.33
+- high: 14.5
+- low: 14.31
+- close: 14.47
+- volume: 1242146
+- ma5: 14.12
+- ma20: 14.12
+- ma60: 14.12
+- ma120: 14.12
+- ema23: 13.98
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.71
-- distance_to_ma20_pct: -0.83
-- distance_to_high_60_pct: -4.21
+- volume_ratio: 1.68
+- distance_to_ma20_pct: 2.46
+- distance_to_high_60_pct: -0.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,13.6,13.96,13.6,13.89,406408,,,,,
 20260524,13.6,13.96,13.6,13.89,406408,,,,,
 20260525,14.33,14.5,14.31,14.47,1242146,,,,,
-20260526,13.6,13.96,13.6,13.89,406408,14.01,14.01,14.01,13.93,0.71
+20260526,14.33,14.5,14.31,14.47,1242146,14.12,14.12,14.12,13.98,1.68
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1419 新紡
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:32 Asia/Taipei
+- generated_at: 2026-05-26 06:01:42 Asia/Taipei
 - stock_id: 1419
 - stock_name: 新紡
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 62.5
-- high: 63
-- low: 62.1
-- close: 62.6
-- volume: 133934
-- ma5: 63.26
-- ma20: 63.62
-- ma60: 63.03
-- ma120: 67.14
-- ema23: 63.4
-- return_5d: 0.16
-- return_20d: -1.57
-- volume_ratio: 0.75
-- distance_to_ma20_pct: -1.6
-- distance_to_high_60_pct: -9.14
+- open: 64.7
+- high: 66.6
+- low: 64.5
+- close: 65.9
+- volume: 380392
+- ma5: 63.92
+- ma20: 63.78
+- ma60: 63.09
+- ma120: 67.17
+- ema23: 63.68
+- return_5d: 5.44
+- return_20d: 3.62
+- volume_ratio: 1.98
+- distance_to_ma20_pct: 3.32
+- distance_to_high_60_pct: -4.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,62.5,63,62.1,62.6,133934,62.54,63.46,63.22,63.31,0.84
 20260524,62.5,63,62.1,62.6,133934,62.46,63.52,63.15,63.25,0.83
 20260525,64.7,66.6,64.5,65.9,380392,63.24,63.67,63.11,63.47,2.16
-20260526,62.5,63,62.1,62.6,133934,63.26,63.62,63.03,63.4,0.75
+20260526,64.7,66.6,64.5,65.9,380392,63.92,63.78,63.09,63.68,1.98
 ```
 
 ## Latest TDCC Snapshot

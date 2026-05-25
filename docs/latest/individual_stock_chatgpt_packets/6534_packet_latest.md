@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6534 正瀚-創
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:23 Asia/Taipei
+- generated_at: 2026-05-26 06:03:25 Asia/Taipei
 - stock_id: 6534
 - stock_name: 正瀚-創
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 96.1
-- high: 97
-- low: 95.2
+- open: 96.5
+- high: 98.4
+- low: 94.2
 - close: 97
-- volume: 171815
+- volume: 283016
 - ma5: 97
 - ma20: 95.78
 - ma60: 92.19
@@ -66,7 +66,7 @@
 - ema23: 95.96
 - return_5d: 0.1
 - return_20d: 3.85
-- volume_ratio: 1.19
+- volume_ratio: 1.9
 - distance_to_ma20_pct: 1.27
 - distance_to_high_60_pct: -6.73
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,96.1,97,95.2,97,171815,95.82,95.53,91.41,95.65,1.27
 20260524,96.1,97,95.2,97,171815,96.46,95.55,91.65,95.76,1.25
 20260525,96.5,98.4,94.2,97,283016,96.98,95.6,91.92,95.87,2.01
-20260526,96.1,97,95.2,97,171815,97,95.78,92.19,95.96,1.19
+20260526,96.5,98.4,94.2,97,283016,97,95.78,92.19,95.96,1.9
 ```
 
 ## Latest TDCC Snapshot

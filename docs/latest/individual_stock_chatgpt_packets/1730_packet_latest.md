@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1730 花仙子
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:42 Asia/Taipei
+- generated_at: 2026-05-26 06:01:51 Asia/Taipei
 - stock_id: 1730
 - stock_name: 花仙子
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 52.9
-- high: 52.9
+- open: 52.8
+- high: 52.8
 - low: 52.5
-- close: 52.5
-- volume: 96844
-- ma5: 52.54
+- close: 52.7
+- volume: 64827
+- ma5: 52.58
 - ma20: 52.7
-- ma60: 52.82
+- ma60: 52.83
 - ma120: 52.88
-- ema23: 52.69
-- return_5d: -0.76
-- return_20d: 0
-- volume_ratio: 1.77
-- distance_to_ma20_pct: -0.37
-- distance_to_high_60_pct: -2.42
+- ema23: 52.7
+- return_5d: -0.38
+- return_20d: 0.38
+- volume_ratio: 1.22
+- distance_to_ma20_pct: -0.01
+- distance_to_high_60_pct: -2.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,52.9,52.9,52.5,52.5,96844,52.74,52.69,52.87,52.72,2.06
 20260524,52.9,52.9,52.5,52.5,96844,52.66,52.69,52.85,52.7,1.94
 20260525,52.8,52.8,52.5,52.7,64827,52.62,52.7,52.84,52.7,1.25
-20260526,52.9,52.9,52.5,52.5,96844,52.54,52.7,52.82,52.69,1.77
+20260526,52.8,52.8,52.5,52.7,64827,52.58,52.7,52.83,52.7,1.22
 ```
 
 ## Latest TDCC Snapshot

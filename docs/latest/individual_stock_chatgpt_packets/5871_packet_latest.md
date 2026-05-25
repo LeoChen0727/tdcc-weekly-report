@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5871 中租-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:05 Asia/Taipei
+- generated_at: 2026-05-26 06:03:09 Asia/Taipei
 - stock_id: 5871
 - stock_name: 中租-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 112
-- high: 113.5
-- low: 111
-- close: 111
-- volume: 10269084
-- ma5: 110.6
-- ma20: 111.38
-- ma60: 110.14
-- ma120: 107.45
-- ema23: 111.44
-- return_5d: -0.89
-- return_20d: -6.33
-- volume_ratio: 1.23
-- distance_to_ma20_pct: -0.34
-- distance_to_high_60_pct: -9.76
+- open: 111.5
+- high: 111.5
+- low: 109
+- close: 109
+- volume: 9984863
+- ma5: 110.2
+- ma20: 111.28
+- ma60: 110.11
+- ma120: 107.43
+- ema23: 111.28
+- return_5d: -2.68
+- return_20d: -8.02
+- volume_ratio: 1.2
+- distance_to_ma20_pct: -2.04
+- distance_to_high_60_pct: -11.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,112,113.5,111,111,10269084,111,112.45,109.83,111.78,1.32
 20260524,112,113.5,111,111,10269084,111.2,112.2,109.92,111.71,1.3
 20260525,111.5,111.5,109,109,9984863,110.8,111.75,110,111.49,1.22
-20260526,112,113.5,111,111,10269084,110.6,111.38,110.14,111.44,1.23
+20260526,111.5,111.5,109,109,9984863,110.2,111.28,110.11,111.28,1.2
 ```
 
 ## Latest TDCC Snapshot

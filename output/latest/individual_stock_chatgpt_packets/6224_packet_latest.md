@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6224 聚鼎
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:15 Asia/Taipei
+- generated_at: 2026-05-26 06:03:18 Asia/Taipei
 - stock_id: 6224
 - stock_name: 聚鼎
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 83
-- high: 91
-- low: 83
-- close: 86.1
-- volume: 4767554
-- ma5: 85.8
-- ma20: 79.61
-- ma60: 57.66
-- ma120: 50
-- ema23: 76.16
-- return_5d: 3.24
-- return_20d: 28.89
-- volume_ratio: 1.57
-- distance_to_ma20_pct: 8.16
-- distance_to_high_60_pct: -10.78
+- open: 88.1
+- high: 90
+- low: 84.5
+- close: 84.6
+- volume: 3848248
+- ma5: 85.5
+- ma20: 79.53
+- ma60: 57.63
+- ma120: 49.99
+- ema23: 76.04
+- return_5d: 1.44
+- return_20d: 26.65
+- volume_ratio: 1.29
+- distance_to_ma20_pct: 6.38
+- distance_to_high_60_pct: -12.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,83,91,83,86.1,4767554,81.56,76.11,55.55,73.35,1.95
 20260524,83,91,83,86.1,4767554,84.28,77.45,56.26,74.41,1.79
 20260525,88.1,90,84.5,84.6,3848248,85.26,78.64,56.94,75.26,1.36
-20260526,83,91,83,86.1,4767554,85.8,79.61,57.66,76.16,1.57
+20260526,88.1,90,84.5,84.6,3848248,85.5,79.53,57.63,76.04,1.29
 ```
 
 ## Latest TDCC Snapshot

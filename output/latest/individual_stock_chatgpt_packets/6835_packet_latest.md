@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6835 圓裕
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:34 Asia/Taipei
+- generated_at: 2026-05-26 06:03:35 Asia/Taipei
 - stock_id: 6835
 - stock_name: 圓裕
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 39
-- high: 39.8
-- low: 38.65
-- close: 39.3
-- volume: 916533
-- ma5: 39.07
-- ma20: 38.27
-- ma60: 38.52
-- ma120: 38.88
-- ema23: 38.59
-- return_5d: 0.26
-- return_20d: -1.26
-- volume_ratio: 1.67
-- distance_to_ma20_pct: 2.69
-- distance_to_high_60_pct: -3.56
+- open: 39.3
+- high: 39.95
+- low: 38.05
+- close: 38.15
+- volume: 453491
+- ma5: 38.84
+- ma20: 38.21
+- ma60: 38.5
+- ma120: 38.87
+- ema23: 38.49
+- return_5d: -2.68
+- return_20d: -4.15
+- volume_ratio: 0.86
+- distance_to_ma20_pct: -0.16
+- distance_to_high_60_pct: -6.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,39,39.8,38.65,39.3,916533,38.74,38.34,38.6,38.49,1.7
 20260524,39,39.8,38.65,39.3,916533,39.03,38.36,38.6,38.56,1.63
 20260525,39.3,39.95,38.05,38.15,453491,39.05,38.3,38.55,38.52,0.85
-20260526,39,39.8,38.65,39.3,916533,39.07,38.27,38.52,38.59,1.67
+20260526,39.3,39.95,38.05,38.15,453491,38.84,38.21,38.5,38.49,0.86
 ```
 
 ## Latest TDCC Snapshot

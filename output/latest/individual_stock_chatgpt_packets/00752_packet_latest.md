@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00752 中信中國50
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:25 Asia/Taipei
+- generated_at: 2026-05-26 06:01:35 Asia/Taipei
 - stock_id: 00752
 - stock_name: 中信中國50
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 23.4
-- high: 23.47
-- low: 23.22
-- close: 23.26
-- volume: 12011462
-- ma5: 23.22
-- ma20: 23.22
-- ma60: 23.22
-- ma120: 23.22
-- ema23: 23.25
+- open: 23.27
+- high: 23.27
+- low: 23.04
+- close: 23.08
+- volume: 3576335
+- ma5: 23.19
+- ma20: 23.19
+- ma60: 23.19
+- ma120: 23.19
+- ema23: 23.23
 - return_5d: 
 - return_20d: 
-- volume_ratio: 1.16
-- distance_to_ma20_pct: 0.15
-- distance_to_high_60_pct: -0.89
+- volume_ratio: 0.41
+- distance_to_ma20_pct: -0.47
+- distance_to_high_60_pct: -1.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,23.4,23.47,23.22,23.26,12011462,,,,,
 20260524,23.4,23.47,23.22,23.26,12011462,,,,,
 20260525,23.27,23.27,23.04,23.08,3576335,,,,,
-20260526,23.4,23.47,23.22,23.26,12011462,23.22,23.22,23.22,23.25,1.16
+20260526,23.27,23.27,23.04,23.08,3576335,23.19,23.19,23.19,23.23,0.41
 ```
 
 ## Latest TDCC Snapshot

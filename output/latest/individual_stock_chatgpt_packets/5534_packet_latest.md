@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5534 長虹
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:04 Asia/Taipei
+- generated_at: 2026-05-26 06:03:08 Asia/Taipei
 - stock_id: 5534
 - stock_name: 長虹
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 75.6
-- high: 75.6
-- low: 75
-- close: 75.5
-- volume: 679783
-- ma5: 75.4
-- ma20: 76.83
-- ma60: 77.5
-- ma120: 78.87
-- ema23: 76.68
-- return_5d: -0.4
-- return_20d: -3.7
-- volume_ratio: 0.85
-- distance_to_ma20_pct: -1.74
-- distance_to_high_60_pct: -11.38
+- open: 75.5
+- high: 75.5
+- low: 74.3
+- close: 75
+- volume: 830751
+- ma5: 75.3
+- ma20: 76.81
+- ma60: 77.49
+- ma120: 78.86
+- ema23: 76.64
+- return_5d: -1.06
+- return_20d: -4.34
+- volume_ratio: 1.02
+- distance_to_ma20_pct: -2.36
+- distance_to_high_60_pct: -11.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,75.6,75.6,75,75.5,679783,75.58,77.22,77.54,77.08,0.86
 20260524,75.6,75.6,75,75.5,679783,75.58,77.11,77.52,76.95,0.86
 20260525,75.5,75.5,74.3,75,830751,75.46,76.98,77.51,76.79,1.04
-20260526,75.6,75.6,75,75.5,679783,75.4,76.83,77.5,76.68,0.85
+20260526,75.5,75.5,74.3,75,830751,75.3,76.81,77.49,76.64,1.02
 ```
 
 ## Latest TDCC Snapshot

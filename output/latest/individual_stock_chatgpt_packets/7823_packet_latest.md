@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7823 奧義賽博-KY創
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:44 Asia/Taipei
+- generated_at: 2026-05-26 06:03:45 Asia/Taipei
 - stock_id: 7823
 - stock_name: 奧義賽博-KY創
 - packet_status: standard_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 109
-- high: 109
-- low: 100
-- close: 107
-- volume: 107216
-- ma5: 106
-- ma20: 97.32
-- ma60: 86.88
-- ma120: 89.69
-- ema23: 97.36
-- return_5d: -1.83
-- return_20d: 32.26
-- volume_ratio: 1.18
-- distance_to_ma20_pct: 9.95
-- distance_to_high_60_pct: -3.6
+- open: 107
+- high: 107
+- low: 102
+- close: 102
+- volume: 28523
+- ma5: 105
+- ma20: 97.07
+- ma60: 86.79
+- ma120: 89.62
+- ema23: 96.95
+- return_5d: -6.42
+- return_20d: 26.08
+- volume_ratio: 0.33
+- distance_to_ma20_pct: 5.08
+- distance_to_high_60_pct: -8.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,109,109,100,107,107216,106,93.57,86.14,94.99,1.28
 20260524,109,109,100,107,107216,107.4,94.92,86.44,95.99,1.23
 20260525,107,107,102,102,28523,106.4,96.02,86.62,96.49,0.33
-20260526,109,109,100,107,107216,106,97.32,86.88,97.36,1.18
+20260526,107,107,102,102,28523,105,97.07,86.79,96.95,0.33
 ```
 
 ## Latest TDCC Snapshot

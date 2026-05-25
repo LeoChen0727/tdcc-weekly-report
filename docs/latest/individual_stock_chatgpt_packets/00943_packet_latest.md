@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00943 兆豐電子高息等權
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:26 Asia/Taipei
+- generated_at: 2026-05-26 06:01:37 Asia/Taipei
 - stock_id: 00943
 - stock_name: 兆豐電子高息等權
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 20.65
-- high: 21.02
-- low: 20.65
-- close: 21.02
-- volume: 173731
-- ma5: 21.15
-- ma20: 21.15
-- ma60: 21.15
-- ma120: 21.15
-- ema23: 21.07
+- open: 21.5
+- high: 21.72
+- low: 21.42
+- close: 21.68
+- volume: 482162
+- ma5: 21.28
+- ma20: 21.28
+- ma60: 21.28
+- ma120: 21.28
+- ema23: 21.13
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.74
-- distance_to_ma20_pct: -0.62
-- distance_to_high_60_pct: -3.22
+- volume_ratio: 1.62
+- distance_to_ma20_pct: 1.86
+- distance_to_high_60_pct: -0.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,20.65,21.02,20.65,21.02,173731,,,,,
 20260524,20.65,21.02,20.65,21.02,173731,,,,,
 20260525,21.5,21.72,21.42,21.68,482162,,,,,
-20260526,20.65,21.02,20.65,21.02,173731,21.15,21.15,21.15,21.07,0.74
+20260526,21.5,21.72,21.42,21.68,482162,21.28,21.28,21.28,21.13,1.62
 ```
 
 ## Latest TDCC Snapshot

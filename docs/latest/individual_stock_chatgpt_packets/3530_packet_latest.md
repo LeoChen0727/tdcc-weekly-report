@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3530 晶相光
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:30 Asia/Taipei
+- generated_at: 2026-05-26 06:02:37 Asia/Taipei
 - stock_id: 3530
 - stock_name: 晶相光
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 69.1
-- high: 69.7
-- low: 67
-- close: 69
-- volume: 384603
-- ma5: 69.38
-- ma20: 67.9
-- ma60: 62.85
-- ma120: 66.26
-- ema23: 67.22
-- return_5d: 0
-- return_20d: 5.18
-- volume_ratio: 0.85
-- distance_to_ma20_pct: 1.62
-- distance_to_high_60_pct: -6.5
+- open: 70
+- high: 71.7
+- low: 69.5
+- close: 70.9
+- volume: 571853
+- ma5: 69.76
+- ma20: 68
+- ma60: 62.88
+- ma120: 66.28
+- ema23: 67.38
+- return_5d: 2.75
+- return_20d: 8.08
+- volume_ratio: 1.24
+- distance_to_ma20_pct: 4.27
+- distance_to_high_60_pct: -3.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,69.1,69.7,67,69,384603,67.5,67.03,62.51,66.51,0.89
 20260524,69.1,69.7,67,69,384603,68.32,67.34,62.61,66.71,0.88
 20260525,70,71.7,69.5,70.9,571853,69.38,67.73,62.74,67.06,1.26
-20260526,69.1,69.7,67,69,384603,69.38,67.9,62.85,67.22,0.85
+20260526,70,71.7,69.5,70.9,571853,69.76,68,62.88,67.38,1.24
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1527 鑽全
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:37 Asia/Taipei
+- generated_at: 2026-05-26 06:01:46 Asia/Taipei
 - stock_id: 1527
 - stock_name: 鑽全
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 32.75
-- high: 33
-- low: 32.45
-- close: 32.95
-- volume: 422994
-- ma5: 32.87
-- ma20: 32.58
-- ma60: 32.62
-- ma120: 33.26
-- ema23: 32.66
-- return_5d: 0.15
-- return_20d: 1.38
-- volume_ratio: 1.41
-- distance_to_ma20_pct: 1.13
-- distance_to_high_60_pct: -2.08
+- open: 32.95
+- high: 32.95
+- low: 32.55
+- close: 32.55
+- volume: 383611
+- ma5: 32.79
+- ma20: 32.56
+- ma60: 32.61
+- ma120: 33.25
+- ema23: 32.62
+- return_5d: -1.06
+- return_20d: 0.15
+- volume_ratio: 1.29
+- distance_to_ma20_pct: -0.04
+- distance_to_high_60_pct: -3.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,32.75,33,32.45,32.95,422994,32.76,32.53,32.66,32.61,1.57
 20260524,32.75,33,32.45,32.95,422994,32.86,32.56,32.65,32.64,1.52
 20260525,32.95,32.95,32.55,32.55,383611,32.86,32.56,32.63,32.63,1.33
-20260526,32.75,33,32.45,32.95,422994,32.87,32.58,32.62,32.66,1.41
+20260526,32.95,32.95,32.55,32.55,383611,32.79,32.56,32.61,32.62,1.29
 ```
 
 ## Latest TDCC Snapshot

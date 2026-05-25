@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2723 美食-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:07 Asia/Taipei
+- generated_at: 2026-05-26 06:02:15 Asia/Taipei
 - stock_id: 2723
 - stock_name: 美食-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 63.2
-- high: 63.3
-- low: 62.5
-- close: 62.8
-- volume: 403996
-- ma5: 62.62
-- ma20: 64.47
-- ma60: 67.24
-- ma120: 69.45
-- ema23: 64.32
-- return_5d: -0.32
-- return_20d: -0.79
-- volume_ratio: 1.06
-- distance_to_ma20_pct: -2.59
-- distance_to_high_60_pct: -17.8
+- open: 63
+- high: 63
+- low: 61.7
+- close: 61.9
+- volume: 764195
+- ma5: 62.44
+- ma20: 64.42
+- ma60: 67.23
+- ma120: 69.44
+- ema23: 64.24
+- return_5d: -1.75
+- return_20d: -2.21
+- volume_ratio: 1.92
+- distance_to_ma20_pct: -3.92
+- distance_to_high_60_pct: -18.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,63.2,63.3,62.5,62.8,403996,62.94,64.61,67.69,64.86,1.15
 20260524,63.2,63.3,62.5,62.8,403996,62.9,64.58,67.54,64.69,1.14
 20260525,63,63,61.7,61.9,764195,62.66,64.5,67.38,64.46,2.07
-20260526,63.2,63.3,62.5,62.8,403996,62.62,64.47,67.24,64.32,1.06
+20260526,63,63,61.7,61.9,764195,62.44,64.42,67.23,64.24,1.92
 ```
 
 ## Latest TDCC Snapshot

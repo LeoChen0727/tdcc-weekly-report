@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9958 世紀鋼
 
 ## Metadata
-- generated_at: 2026-05-26 05:30:00 Asia/Taipei
+- generated_at: 2026-05-26 06:04:00 Asia/Taipei
 - stock_id: 9958
 - stock_name: 世紀鋼
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 103.5
-- high: 103.5
-- low: 101.5
-- close: 101.5
-- volume: 2097489
-- ma5: 102.1
-- ma20: 103.28
-- ma60: 111.34
-- ma120: 124.36
-- ema23: 104.13
-- return_5d: -1.46
-- return_20d: -1.46
-- volume_ratio: 1.01
-- distance_to_ma20_pct: -1.72
-- distance_to_high_60_pct: -24.81
+- open: 102
+- high: 106
+- low: 100.5
+- close: 104.5
+- volume: 4061512
+- ma5: 102.7
+- ma20: 103.42
+- ma60: 111.39
+- ma120: 124.38
+- ema23: 104.38
+- return_5d: 1.46
+- return_20d: 1.46
+- volume_ratio: 1.87
+- distance_to_ma20_pct: 1.04
+- distance_to_high_60_pct: -22.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,103.5,103.5,101.5,101.5,2097489,102.2,103.3,112.66,104.61,1.15
 20260524,103.5,103.5,101.5,101.5,2097489,101.7,103.28,112.17,104.36,1.14
 20260525,102,106,100.5,104.5,4061512,102.4,103.35,111.79,104.37,2.03
-20260526,103.5,103.5,101.5,101.5,2097489,102.1,103.28,111.34,104.13,1.01
+20260526,102,106,100.5,104.5,4061512,102.7,103.42,111.39,104.38,1.87
 ```
 
 ## Latest TDCC Snapshot
@@ -122,6 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 9958 | 世紀鋼 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260526 | 9958 | 世紀鋼 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context

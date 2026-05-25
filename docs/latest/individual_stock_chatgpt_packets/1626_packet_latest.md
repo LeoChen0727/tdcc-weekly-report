@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1626 艾美特-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:40 Asia/Taipei
+- generated_at: 2026-05-26 06:01:50 Asia/Taipei
 - stock_id: 1626
 - stock_name: 艾美特-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 9.98
-- high: 9.99
-- low: 9.91
-- close: 9.96
-- volume: 39521
+- open: 9.96
+- high: 10
+- low: 9.93
+- close: 9.95
+- volume: 83085
 - ma5: 9.96
 - ma20: 10.42
 - ma60: 10.51
 - ma120: 10.94
 - ema23: 10.31
-- return_5d: 0.3
-- return_20d: -11.07
-- volume_ratio: 0.42
-- distance_to_ma20_pct: -4.39
-- distance_to_high_60_pct: -17.69
+- return_5d: 0.2
+- return_20d: -11.16
+- volume_ratio: 0.86
+- distance_to_ma20_pct: -4.48
+- distance_to_high_60_pct: -17.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,9.98,9.99,9.91,9.96,39521,9.94,10.58,10.56,10.41,0.38
 20260524,9.98,9.99,9.91,9.96,39521,9.94,10.53,10.55,10.37,0.39
 20260525,9.96,10,9.93,9.95,83085,9.95,10.48,10.53,10.34,0.79
-20260526,9.98,9.99,9.91,9.96,39521,9.96,10.42,10.51,10.31,0.42
+20260526,9.96,10,9.93,9.95,83085,9.96,10.42,10.51,10.31,0.86
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5283 禾聯碩
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:57 Asia/Taipei
+- generated_at: 2026-05-26 06:03:02 Asia/Taipei
 - stock_id: 5283
 - stock_name: 禾聯碩
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 52
+- open: 52.2
 - high: 52.2
-- low: 51.7
-- close: 52.1
-- volume: 104850
-- ma5: 52.06
-- ma20: 52.19
+- low: 51.6
+- close: 51.9
+- volume: 168118
+- ma5: 52.02
+- ma20: 52.18
 - ma60: 54.43
-- ma120: 57.76
-- ema23: 52.57
-- return_5d: 0
-- return_20d: -2.07
-- volume_ratio: 0.8
-- distance_to_ma20_pct: -0.17
-- distance_to_high_60_pct: -13.02
+- ma120: 57.75
+- ema23: 52.56
+- return_5d: -0.38
+- return_20d: -2.44
+- volume_ratio: 1.25
+- distance_to_ma20_pct: -0.54
+- distance_to_high_60_pct: -13.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,52,52.2,51.7,52.1,104850,52,52.35,54.83,52.73,0.82
 20260524,52,52.2,51.7,52.1,104850,52.04,52.3,54.7,52.68,0.85
 20260525,52.2,52.2,51.6,51.9,168118,52.06,52.24,54.56,52.62,1.31
-20260526,52,52.2,51.7,52.1,104850,52.06,52.19,54.43,52.57,0.8
+20260526,52.2,52.2,51.6,51.9,168118,52.02,52.18,54.43,52.56,1.25
 ```
 
 ## Latest TDCC Snapshot

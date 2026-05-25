@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6754 匯僑設計
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:31 Asia/Taipei
+- generated_at: 2026-05-26 06:03:33 Asia/Taipei
 - stock_id: 6754
 - stock_name: 匯僑設計
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 44
+- open: 44.5
 - high: 45
-- low: 44
+- low: 44.2
 - close: 44.35
-- volume: 22138
+- volume: 21845
 - ma5: 44.35
 - ma20: 44.77
 - ma60: 45.13
@@ -66,7 +66,7 @@
 - ema23: 44.8
 - return_5d: 0.91
 - return_20d: -4.83
-- volume_ratio: 1.02
+- volume_ratio: 1.01
 - distance_to_ma20_pct: -0.94
 - distance_to_high_60_pct: -7.41
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,44,45,44,44.35,22138,43.92,45.08,45.12,44.93,1.11
 20260524,44,45,44,44.35,22138,44.06,44.98,45.13,44.89,1.08
 20260525,44.5,45,44.2,44.35,21845,44.27,44.88,45.13,44.84,1.05
-20260526,44,45,44,44.35,22138,44.35,44.77,45.13,44.8,1.02
+20260526,44.5,45,44.2,44.35,21845,44.35,44.77,45.13,44.8,1.01
 ```
 
 ## Latest TDCC Snapshot

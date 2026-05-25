@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4588 玖鼎電力
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:47 Asia/Taipei
+- generated_at: 2026-05-26 06:02:52 Asia/Taipei
 - stock_id: 4588
 - stock_name: 玖鼎電力
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 57.4
-- high: 57.4
-- low: 55
-- close: 56.2
-- volume: 82530
-- ma5: 55.94
-- ma20: 57.03
-- ma60: 58.84
-- ma120: 61.51
-- ema23: 56.93
-- return_5d: 1.63
-- return_20d: -4.91
-- volume_ratio: 0.69
-- distance_to_ma20_pct: -1.46
-- distance_to_high_60_pct: -15.49
+- open: 56.9
+- high: 57
+- low: 54.7
+- close: 54.9
+- volume: 175883
+- ma5: 55.68
+- ma20: 56.97
+- ma60: 58.82
+- ma120: 61.5
+- ema23: 56.82
+- return_5d: -0.72
+- return_20d: -7.11
+- volume_ratio: 1.42
+- distance_to_ma20_pct: -3.63
+- distance_to_high_60_pct: -17.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,57.4,57.4,55,56.2,82530,55.42,57.55,59.37,57.27,0.76
 20260524,57.4,57.4,55,56.2,82530,55.88,57.41,59.2,57.19,0.75
 20260525,56.9,57,54.7,54.9,175883,55.76,57.18,59,56.99,1.5
-20260526,57.4,57.4,55,56.2,82530,55.94,57.03,58.84,56.93,0.69
+20260526,56.9,57,54.7,54.9,175883,55.68,56.97,58.82,56.82,1.42
 ```
 
 ## Latest TDCC Snapshot

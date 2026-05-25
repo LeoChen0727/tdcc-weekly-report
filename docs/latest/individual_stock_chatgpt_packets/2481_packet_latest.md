@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2481 強茂
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:01 Asia/Taipei
+- generated_at: 2026-05-26 06:02:09 Asia/Taipei
 - stock_id: 2481
 - stock_name: 強茂
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 134
-- high: 141
-- low: 130.5
-- close: 133.5
-- volume: 50103219
-- ma5: 133.6
-- ma20: 119.16
-- ma60: 105.04
-- ma120: 95.67
-- ema23: 120.95
-- return_5d: 0.75
-- return_20d: 32.18
-- volume_ratio: 1.12
-- distance_to_ma20_pct: 12.03
-- distance_to_high_60_pct: -6.32
+- open: 135.5
+- high: 142.5
+- low: 133
+- close: 134
+- volume: 51247093
+- ma5: 133.7
+- ma20: 119.19
+- ma60: 105.05
+- ma120: 95.68
+- ema23: 120.99
+- return_5d: 1.13
+- return_20d: 32.67
+- volume_ratio: 1.14
+- distance_to_ma20_pct: 12.43
+- distance_to_high_60_pct: -5.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,134,141,130.5,133.5,50103219,133.5,114.27,102.91,117.15,1.23
 20260524,134,141,130.5,133.5,50103219,133.2,115.8,103.67,118.52,1.2
 20260525,135.5,142.5,133,134,51247093,133.4,117.53,104.39,119.81,1.18
-20260526,134,141,130.5,133.5,50103219,133.6,119.16,105.04,120.95,1.12
+20260526,135.5,142.5,133,134,51247093,133.7,119.19,105.05,120.99,1.14
 ```
 
 ## Latest TDCC Snapshot

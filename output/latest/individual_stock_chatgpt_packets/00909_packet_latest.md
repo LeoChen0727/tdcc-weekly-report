@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00909 國泰數位支付服務
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:26 Asia/Taipei
+- generated_at: 2026-05-26 06:01:36 Asia/Taipei
 - stock_id: 00909
 - stock_name: 國泰數位支付服務
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 48.83
-- high: 49.04
-- low: 48.73
-- close: 48.99
-- volume: 3990520
-- ma5: 49.15
-- ma20: 49.15
-- ma60: 49.15
-- ma120: 49.15
-- ema23: 49.05
+- open: 49.08
+- high: 49.78
+- low: 49
+- close: 49.78
+- volume: 4070297
+- ma5: 49.31
+- ma20: 49.31
+- ma60: 49.31
+- ma120: 49.31
+- ema23: 49.12
 - return_5d: 
 - return_20d: 
-- volume_ratio: 1
-- distance_to_ma20_pct: -0.32
-- distance_to_high_60_pct: -1.59
+- volume_ratio: 1.01
+- distance_to_ma20_pct: 0.96
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,48.83,49.04,48.73,48.99,3990520,,,,,
 20260524,48.83,49.04,48.73,48.99,3990520,,,,,
 20260525,49.08,49.78,49,49.78,4070297,,,,,
-20260526,48.83,49.04,48.73,48.99,3990520,49.15,49.15,49.15,49.05,1
+20260526,49.08,49.78,49,49.78,4070297,49.31,49.31,49.31,49.12,1.01
 ```
 
 ## Latest TDCC Snapshot

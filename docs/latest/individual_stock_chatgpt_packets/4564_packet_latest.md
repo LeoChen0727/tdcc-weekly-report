@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4564 元翎
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:46 Asia/Taipei
+- generated_at: 2026-05-26 06:02:51 Asia/Taipei
 - stock_id: 4564
 - stock_name: 元翎
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 16
-- high: 16
-- low: 15.3
-- close: 15.8
-- volume: 2589031
-- ma5: 15.74
-- ma20: 16.99
-- ma60: 18.65
-- ma120: 17.95
-- ema23: 16.95
-- return_5d: -1.25
-- return_20d: -14.36
-- volume_ratio: 1.93
-- distance_to_ma20_pct: -7.02
-- distance_to_high_60_pct: -27.36
+- open: 15.9
+- high: 15.95
+- low: 15.45
+- close: 15.5
+- volume: 1892731
+- ma5: 15.68
+- ma20: 16.98
+- ma60: 18.64
+- ma120: 17.94
+- ema23: 16.92
+- return_5d: -3.12
+- return_20d: -15.99
+- volume_ratio: 1.45
+- distance_to_ma20_pct: -8.7
+- distance_to_high_60_pct: -28.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,16,16,15.3,15.8,2589031,15.97,17.41,18.86,17.32,2.41
 20260524,16,16,15.3,15.8,2589031,15.92,17.28,18.8,17.19,2.23
 20260525,15.9,15.95,15.45,15.5,1892731,15.78,17.12,18.74,17.05,1.53
-20260526,16,16,15.3,15.8,2589031,15.74,16.99,18.65,16.95,1.93
+20260526,15.9,15.95,15.45,15.5,1892731,15.68,16.98,18.64,16.92,1.45
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6902 GOGOLOOK
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:36 Asia/Taipei
+- generated_at: 2026-05-26 06:03:38 Asia/Taipei
 - stock_id: 6902
 - stock_name: GOGOLOOK
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 141.5
-- high: 141.5
-- low: 125
-- close: 129.5
-- volume: 705379
-- ma5: 131.2
-- ma20: 114.65
-- ma60: 94.36
-- ma120: 86.06
-- ema23: 116.22
-- return_5d: -0.77
-- return_20d: 16.14
-- volume_ratio: 1.62
-- distance_to_ma20_pct: 12.95
-- distance_to_high_60_pct: -8.8
+- open: 130.5
+- high: 142
+- low: 129.5
+- close: 138
+- volume: 604961
+- ma5: 132.9
+- ma20: 115.08
+- ma60: 94.5
+- ma120: 86.13
+- ema23: 116.93
+- return_5d: 5.75
+- return_20d: 23.77
+- volume_ratio: 1.41
+- distance_to_ma20_pct: 19.92
+- distance_to_high_60_pct: -2.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,141.5,141.5,125,129.5,705379,128.9,111.45,91.53,111.42,1.76
 20260524,141.5,141.5,125,129.5,705379,129.4,112.33,92.41,112.92,1.75
 20260525,130.5,142,129.5,138,604961,131.4,113.75,93.45,115.01,1.47
-20260526,141.5,141.5,125,129.5,705379,131.2,114.65,94.36,116.22,1.62
+20260526,130.5,142,129.5,138,604961,132.9,115.08,94.5,116.93,1.41
 ```
 
 ## Latest TDCC Snapshot

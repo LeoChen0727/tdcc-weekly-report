@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2455 全新
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:59 Asia/Taipei
+- generated_at: 2026-05-26 06:02:08 Asia/Taipei
 - stock_id: 2455
 - stock_name: 全新
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 398.5
-- high: 425
-- low: 398.5
-- close: 425
-- volume: 15989098
-- ma5: 428.8
-- ma20: 382.15
-- ma60: 306.1
-- ma120: 232.78
-- ema23: 379.1
-- return_5d: 9.96
-- return_20d: 34.49
-- volume_ratio: 1.27
-- distance_to_ma20_pct: 11.21
-- distance_to_high_60_pct: -7.61
+- open: 435
+- high: 460
+- low: 422.5
+- close: 444
+- volume: 21814377
+- ma5: 432.6
+- ma20: 383.1
+- ma60: 306.42
+- ma120: 232.93
+- ema23: 380.69
+- return_5d: 14.88
+- return_20d: 40.51
+- volume_ratio: 1.69
+- distance_to_ma20_pct: 15.9
+- distance_to_high_60_pct: -3.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,398.5,425,398.5,425,15989098,404,364.73,295.44,363.53,1.3
 20260524,398.5,425,398.5,425,15989098,412.4,370.4,299.23,368.65,1.31
 20260525,435,460,422.5,444,21814377,421.1,376.7,303,374.93,1.76
-20260526,398.5,425,398.5,425,15989098,428.8,382.15,306.1,379.1,1.27
+20260526,435,460,422.5,444,21814377,432.6,383.1,306.42,380.69,1.69
 ```
 
 ## Latest TDCC Snapshot
@@ -122,12 +122,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 2455 | 全新 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 2455 | 全新 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 2455 | 全新 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2455 | 全新 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260526 | 2455 | 全新 | 4 | 4 | 4 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

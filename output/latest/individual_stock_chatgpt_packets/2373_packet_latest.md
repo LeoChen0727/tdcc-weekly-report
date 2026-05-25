@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2373 震旦行
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:54 Asia/Taipei
+- generated_at: 2026-05-26 06:02:03 Asia/Taipei
 - stock_id: 2373
 - stock_name: 震旦行
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 56.6
-- high: 58
-- low: 56.4
-- close: 56.8
-- volume: 102486
-- ma5: 56.9
-- ma20: 56.62
-- ma60: 56.51
-- ma120: 56.25
-- ema23: 56.71
-- return_5d: 0
-- return_20d: -1.39
-- volume_ratio: 1.86
-- distance_to_ma20_pct: 0.31
-- distance_to_high_60_pct: -3.73
+- open: 57.3
+- high: 57.8
+- low: 56.8
+- close: 57.3
+- volume: 37534
+- ma5: 57
+- ma20: 56.65
+- ma60: 56.52
+- ma120: 56.26
+- ema23: 56.75
+- return_5d: 0.88
+- return_20d: -0.52
+- volume_ratio: 0.72
+- distance_to_ma20_pct: 1.15
+- distance_to_high_60_pct: -2.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,56.6,58,56.4,56.8,102486,56.6,56.65,56.49,56.64,2.12
 20260524,56.6,58,56.4,56.8,102486,56.74,56.65,56.5,56.65,1.99
 20260525,57.3,57.8,56.8,57.3,37534,56.9,56.66,56.51,56.7,0.73
-20260526,56.6,58,56.4,56.8,102486,56.9,56.62,56.51,56.71,1.86
+20260526,57.3,57.8,56.8,57.3,37534,57,56.65,56.52,56.75,0.72
 ```
 
 ## Latest TDCC Snapshot

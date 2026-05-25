@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7795 長廣
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:43 Asia/Taipei
+- generated_at: 2026-05-26 06:03:44 Asia/Taipei
 - stock_id: 7795
 - stock_name: 長廣
 - packet_status: standard_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 397.5
-- high: 417
-- low: 387
-- close: 414.5
-- volume: 1578060
-- ma5: 417.6
-- ma20: 383.07
-- ma60: 385.94
-- ma120: 385.18
-- ema23: 389.41
-- return_5d: 9.22
-- return_20d: 1.59
-- volume_ratio: 2.1
-- distance_to_ma20_pct: 8.2
-- distance_to_high_60_pct: -11.53
+- open: 415.5
+- high: 442
+- low: 415.5
+- close: 430
+- volume: 896544
+- ma5: 420.7
+- ma20: 383.85
+- ma60: 386.2
+- ma120: 385.36
+- ema23: 390.7
+- return_5d: 13.31
+- return_20d: 5.39
+- volume_ratio: 1.25
+- distance_to_ma20_pct: 12.02
+- distance_to_high_60_pct: -8.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,397.5,417,387,414.5,1578060,379.4,379.8,385.47,380.38,2.48
 20260524,397.5,417,387,414.5,1578060,393.6,380.75,385.46,383.23,2.31
 20260525,415.5,442,415.5,430,896544,410.6,382.75,385.75,387.13,1.25
-20260526,397.5,417,387,414.5,1578060,417.6,383.07,385.94,389.41,2.1
+20260526,415.5,442,415.5,430,896544,420.7,383.85,386.2,390.7,1.25
 ```
 
 ## Latest TDCC Snapshot

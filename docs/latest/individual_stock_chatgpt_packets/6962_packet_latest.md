@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6962 奕力-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:39 Asia/Taipei
+- generated_at: 2026-05-26 06:03:40 Asia/Taipei
 - stock_id: 6962
 - stock_name: 奕力-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 39.75
-- high: 40
-- low: 38.7
-- close: 39.85
-- volume: 8761281
-- ma5: 39.7
-- ma20: 37.49
-- ma60: 34.58
-- ma120: 36.78
-- ema23: 37.62
-- return_5d: 0.76
-- return_20d: 14.68
-- volume_ratio: 1.32
-- distance_to_ma20_pct: 6.28
-- distance_to_high_60_pct: -3.74
+- open: 40.05
+- high: 40.4
+- low: 39.1
+- close: 39.1
+- volume: 9603320
+- ma5: 39.55
+- ma20: 37.46
+- ma60: 34.57
+- ma120: 36.77
+- ema23: 37.56
+- return_5d: -1.14
+- return_20d: 12.52
+- volume_ratio: 1.43
+- distance_to_ma20_pct: 4.38
+- distance_to_high_60_pct: -5.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,39.75,40,38.7,39.85,8761281,38.66,36.86,34.39,37.03,1.41
 20260524,39.75,40,38.7,39.85,8761281,39.44,37.06,34.46,37.27,1.44
 20260525,40.05,40.4,39.1,39.1,9603320,39.64,37.24,34.51,37.42,1.5
-20260526,39.75,40,38.7,39.85,8761281,39.7,37.49,34.58,37.62,1.32
+20260526,40.05,40.4,39.1,39.1,9603320,39.55,37.46,34.57,37.56,1.43
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6962 | 奕力-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 6962 | 奕力-KY | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 6962 | 奕力-KY | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

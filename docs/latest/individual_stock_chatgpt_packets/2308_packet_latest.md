@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2308 台達電
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:51 Asia/Taipei
+- generated_at: 2026-05-26 06:02:00 Asia/Taipei
 - stock_id: 2308
 - stock_name: 台達電
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 2125
-- high: 2125
-- low: 2050
-- close: 2095
-- volume: 8534359
-- ma5: 2134
-- ma20: 2131.25
-- ma60: 1778.67
-- ma120: 1428.83
-- ema23: 2062.52
-- return_5d: 3.2
-- return_20d: -3.23
-- volume_ratio: 0.76
-- distance_to_ma20_pct: -1.7
-- distance_to_high_60_pct: -11.6
+- open: 2205
+- high: 2300
+- low: 2185
+- close: 2290
+- volume: 12049781
+- ma5: 2173
+- ma20: 2141
+- ma60: 1781.92
+- ma120: 1430.46
+- ema23: 2078.77
+- return_5d: 12.81
+- return_20d: 5.77
+- volume_ratio: 1.05
+- distance_to_ma20_pct: 6.96
+- distance_to_high_60_pct: -3.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,2125,2125,2050,2095,8534359,2010,2122.75,1742.17,2033.5,0.71
 20260524,2125,2125,2050,2095,8534359,2046,2126.5,1753.17,2038.62,0.74
 20260525,2205,2300,2185,2290,12049781,2121,2134.75,1767.5,2059.57,1.05
-20260526,2125,2125,2050,2095,8534359,2134,2131.25,1778.67,2062.52,0.76
+20260526,2205,2300,2185,2290,12049781,2173,2141,1781.92,2078.77,1.05
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2308 | 台達電 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 2308 | 台達電 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 2308 | 台達電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

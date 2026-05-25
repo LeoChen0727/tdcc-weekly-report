@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1512 瑞利
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:36 Asia/Taipei
+- generated_at: 2026-05-26 06:01:45 Asia/Taipei
 - stock_id: 1512
 - stock_name: 瑞利
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 6.87
-- high: 6.99
-- low: 6.84
-- close: 6.99
-- volume: 77500
-- ma5: 6.99
+- open: 6.97
+- high: 7
+- low: 6.85
+- close: 6.97
+- volume: 153839
+- ma5: 6.98
 - ma20: 7.12
 - ma60: 7.36
 - ma120: 7.56
 - ema23: 7.12
-- return_5d: 0.43
-- return_20d: -6.8
-- volume_ratio: 0.83
-- distance_to_ma20_pct: -1.88
-- distance_to_high_60_pct: -17.86
+- return_5d: 0.14
+- return_20d: -7.07
+- volume_ratio: 1.59
+- distance_to_ma20_pct: -2.15
+- distance_to_high_60_pct: -18.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,6.87,6.99,6.84,6.99,77500,7.01,7.18,7.4,7.16,0.87
 20260524,6.87,6.99,6.84,6.99,77500,7.01,7.17,7.38,7.15,0.88
 20260525,6.97,7,6.85,6.97,153839,6.98,7.15,7.37,7.13,1.65
-20260526,6.87,6.99,6.84,6.99,77500,6.99,7.12,7.36,7.12,0.83
+20260526,6.97,7,6.85,6.97,153839,6.98,7.12,7.36,7.12,1.59
 ```
 
 ## Latest TDCC Snapshot

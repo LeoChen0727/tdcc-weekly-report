@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0055 元大MSCI金融
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:24 Asia/Taipei
+- generated_at: 2026-05-26 06:01:34 Asia/Taipei
 - stock_id: 0055
 - stock_name: 元大MSCI金融
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 33.95
-- high: 34
-- low: 33.71
-- close: 33.9
-- volume: 321516
-- ma5: 33.91
+- open: 33.88
+- high: 33.95
+- low: 33.7
+- close: 33.95
+- volume: 687733
+- ma5: 33.92
 - ma20: 33.78
 - ma60: 33.12
 - ma120: 32.46
-- ema23: 33.7
-- return_5d: -0.26
-- return_20d: 1.19
-- volume_ratio: 0.95
-- distance_to_ma20_pct: 0.35
-- distance_to_high_60_pct: -1.68
+- ema23: 33.71
+- return_5d: -0.12
+- return_20d: 1.34
+- volume_ratio: 1.93
+- distance_to_ma20_pct: 0.49
+- distance_to_high_60_pct: -1.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,33.95,34,33.71,33.9,321516,33.93,33.69,33.14,33.64,0.98
 20260524,33.95,34,33.71,33.9,321516,33.93,33.73,33.13,33.66,0.97
 20260525,33.88,33.95,33.7,33.95,687733,33.93,33.76,33.12,33.68,2.02
-20260526,33.95,34,33.71,33.9,321516,33.91,33.78,33.12,33.7,0.95
+20260526,33.88,33.95,33.7,33.95,687733,33.92,33.78,33.12,33.71,1.93
 ```
 
 ## Latest TDCC Snapshot

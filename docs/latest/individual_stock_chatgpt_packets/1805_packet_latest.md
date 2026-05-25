@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1805 寶徠
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:44 Asia/Taipei
+- generated_at: 2026-05-26 06:01:53 Asia/Taipei
 - stock_id: 1805
 - stock_name: 寶徠
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 10.05
-- high: 10.1
-- low: 9.7
-- close: 10.1
-- volume: 234707
-- ma5: 10.08
-- ma20: 10.35
+- open: 10.1
+- high: 10.15
+- low: 10
+- close: 10
+- volume: 126547
+- ma5: 10.06
+- ma20: 10.34
 - ma60: 10.63
 - ma120: 11.22
-- ema23: 10.33
-- return_5d: 0
-- return_20d: -6.05
-- volume_ratio: 1.49
-- distance_to_ma20_pct: -2.37
-- distance_to_high_60_pct: -16.87
+- ema23: 10.32
+- return_5d: -0.99
+- return_20d: -6.98
+- volume_ratio: 0.83
+- distance_to_ma20_pct: -3.29
+- distance_to_high_60_pct: -17.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,10.05,10.1,9.7,10.1,234707,10.15,10.44,10.71,10.41,1.61
 20260524,10.05,10.1,9.7,10.1,234707,10.13,10.41,10.68,10.38,1.53
 20260525,10.1,10.15,10,10,126547,10.08,10.38,10.65,10.35,0.81
-20260526,10.05,10.1,9.7,10.1,234707,10.08,10.35,10.63,10.33,1.49
+20260526,10.1,10.15,10,10,126547,10.06,10.34,10.63,10.32,0.83
 ```
 
 ## Latest TDCC Snapshot

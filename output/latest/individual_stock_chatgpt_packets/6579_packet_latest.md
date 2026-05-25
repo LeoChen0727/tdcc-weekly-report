@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6579 研揚
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:25 Asia/Taipei
+- generated_at: 2026-05-26 06:03:27 Asia/Taipei
 - stock_id: 6579
 - stock_name: 研揚
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 153.5
-- high: 156.5
-- low: 152.5
-- close: 154.5
-- volume: 773163
-- ma5: 155.4
-- ma20: 144.28
-- ma60: 124.33
-- ma120: 117.84
-- ema23: 143.05
-- return_5d: 1.31
-- return_20d: 31.49
-- volume_ratio: 0.87
-- distance_to_ma20_pct: 7.09
-- distance_to_high_60_pct: -3.74
+- open: 158.5
+- high: 160.5
+- low: 155
+- close: 159
+- volume: 915068
+- ma5: 156.3
+- ma20: 144.5
+- ma60: 124.41
+- ma120: 117.88
+- ema23: 143.42
+- return_5d: 4.26
+- return_20d: 35.32
+- volume_ratio: 1.02
+- distance_to_ma20_pct: 10.03
+- distance_to_high_60_pct: -0.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,153.5,156.5,152.5,154.5,773163,151.9,138.5,122.27,139.18,0.97
 20260524,153.5,156.5,152.5,154.5,773163,153,140.38,122.94,140.46,0.94
 20260525,158.5,160.5,155,159,915068,155,142.43,123.66,142,1.06
-20260526,153.5,156.5,152.5,154.5,773163,155.4,144.28,124.33,143.05,0.87
+20260526,158.5,160.5,155,159,915068,156.3,144.5,124.41,143.42,1.02
 ```
 
 ## Latest TDCC Snapshot

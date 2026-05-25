@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9930 中聯資源
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:58 Asia/Taipei
+- generated_at: 2026-05-26 06:03:58 Asia/Taipei
 - stock_id: 9930
 - stock_name: 中聯資源
 - packet_status: standard_180d_window_packet
@@ -55,10 +55,10 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 67.6
-- high: 67.8
-- low: 67.5
+- high: 67.7
+- low: 67.3
 - close: 67.7
-- volume: 111394
+- volume: 135610
 - ma5: 67.7
 - ma20: 68.77
 - ma60: 69.88
@@ -66,7 +66,7 @@
 - ema23: 68.68
 - return_5d: -0.29
 - return_20d: -2.73
-- volume_ratio: 0.98
+- volume_ratio: 1.18
 - distance_to_ma20_pct: -1.55
 - distance_to_high_60_pct: -6.49
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,67.6,67.8,67.5,67.7,111394,67.76,69.08,70.09,68.98,1.02
 20260524,67.6,67.8,67.5,67.7,111394,67.72,68.97,70.03,68.87,1.01
 20260525,67.6,67.7,67.3,67.7,135610,67.74,68.86,69.96,68.77,1.17
-20260526,67.6,67.8,67.5,67.7,111394,67.7,68.77,69.88,68.68,0.98
+20260526,67.6,67.7,67.3,67.7,135610,67.7,68.77,69.88,68.68,1.18
 ```
 
 ## Latest TDCC Snapshot

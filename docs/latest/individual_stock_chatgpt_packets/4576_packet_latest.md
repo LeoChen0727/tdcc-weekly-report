@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4576 大銀微系統
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:46 Asia/Taipei
+- generated_at: 2026-05-26 06:02:52 Asia/Taipei
 - stock_id: 4576
 - stock_name: 大銀微系統
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 252
-- high: 270
-- low: 250.5
-- close: 261.5
-- volume: 4359153
-- ma5: 264.6
-- ma20: 248.82
-- ma60: 182.22
-- ma120: 146.92
-- ema23: 239.91
-- return_5d: 5.44
-- return_20d: 29.46
-- volume_ratio: 0.63
-- distance_to_ma20_pct: 5.09
-- distance_to_high_60_pct: -7.76
+- open: 263.5
+- high: 283.5
+- low: 262
+- close: 277
+- volume: 6889135
+- ma5: 267.7
+- ma20: 249.6
+- ma60: 182.48
+- ma120: 147.05
+- ema23: 241.21
+- return_5d: 11.69
+- return_20d: 37.13
+- volume_ratio: 0.98
+- distance_to_ma20_pct: 10.98
+- distance_to_high_60_pct: -2.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,252,270,250.5,261.5,4359153,251.9,237.93,174.88,231.94,0.67
 20260524,252,270,250.5,261.5,4359153,253.8,241.95,177.32,234.4,0.66
 20260525,263.5,283.5,262,277,6889135,261.9,245.85,179.96,237.95,1.01
-20260526,252,270,250.5,261.5,4359153,264.6,248.82,182.22,239.91,0.63
+20260526,263.5,283.5,262,277,6889135,267.7,249.6,182.48,241.21,0.98
 ```
 
 ## Latest TDCC Snapshot
@@ -120,9 +120,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4576 | 大銀微系統 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4540 全球傳動
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:45 Asia/Taipei
+- generated_at: 2026-05-26 06:02:50 Asia/Taipei
 - stock_id: 4540
 - stock_name: 全球傳動
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 69.1
-- high: 74.1
-- low: 68.7
-- close: 72.6
-- volume: 11091732
-- ma5: 72.62
-- ma20: 70.12
+- open: 73.7
+- high: 79.5
+- low: 72.3
+- close: 72.7
+- volume: 16077791
+- ma5: 72.64
+- ma20: 70.13
 - ma60: 55.82
 - ma120: 48.17
-- ema23: 67.59
-- return_5d: 4.46
-- return_20d: 14.33
-- volume_ratio: 0.75
-- distance_to_ma20_pct: 3.53
-- distance_to_high_60_pct: -8.68
+- ema23: 67.6
+- return_5d: 4.6
+- return_20d: 14.49
+- volume_ratio: 1.06
+- distance_to_ma20_pct: 3.66
+- distance_to_high_60_pct: -8.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,69.1,74.1,68.7,72.6,11091732,70.98,68.21,54.74,66.09,0.75
 20260524,69.1,74.1,68.7,72.6,11091732,71,69.08,55.11,66.63,0.73
 20260525,73.7,79.5,72.3,72.7,16077791,72,69.67,55.46,67.14,1.05
-20260526,69.1,74.1,68.7,72.6,11091732,72.62,70.12,55.82,67.59,0.75
+20260526,73.7,79.5,72.3,72.7,16077791,72.64,70.13,55.82,67.6,1.06
 ```
 
 ## Latest TDCC Snapshot
@@ -122,6 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 4540 | 全球傳動 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260526 | 4540 | 全球傳動 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context

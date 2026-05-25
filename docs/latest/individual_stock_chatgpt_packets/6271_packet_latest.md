@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6271 同欣電
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:17 Asia/Taipei
+- generated_at: 2026-05-26 06:03:20 Asia/Taipei
 - stock_id: 6271
 - stock_name: 同欣電
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 217
-- high: 226.5
-- low: 217
-- close: 226.5
-- volume: 8498194
-- ma5: 229.9
-- ma20: 194.47
-- ma60: 173.12
-- ma120: 154.85
-- ema23: 198.39
-- return_5d: 9.95
-- return_20d: 30.92
-- volume_ratio: 1.03
-- distance_to_ma20_pct: 16.47
-- distance_to_high_60_pct: -9.04
+- open: 234
+- high: 249
+- low: 227.5
+- close: 243.5
+- volume: 31053483
+- ma5: 233.3
+- ma20: 195.32
+- ma60: 173.4
+- ma120: 154.99
+- ema23: 199.81
+- return_5d: 18.2
+- return_20d: 40.75
+- volume_ratio: 3.32
+- distance_to_ma20_pct: 24.66
+- distance_to_high_60_pct: -2.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,217,226.5,217,226.5,8498194,205.5,185.78,170.45,188.32,1.32
 20260524,217,226.5,217,226.5,8498194,214.6,188.4,171.07,191.5,1.29
 20260525,234,249,227.5,243.5,31053483,225.8,191.8,172.18,195.83,3.87
-20260526,217,226.5,217,226.5,8498194,229.9,194.47,173.12,198.39,1.03
+20260526,234,249,227.5,243.5,31053483,233.3,195.32,173.4,199.81,3.32
 ```
 
 ## Latest TDCC Snapshot
@@ -120,14 +120,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 6271 | 同欣電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 6271 | 同欣電 | 2 | 1 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

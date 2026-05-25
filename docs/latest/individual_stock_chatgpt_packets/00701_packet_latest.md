@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00701 國泰股利精選30
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:24 Asia/Taipei
+- generated_at: 2026-05-26 06:01:35 Asia/Taipei
 - stock_id: 00701
 - stock_name: 國泰股利精選30
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 32.15
-- high: 32.15
-- low: 31.91
-- close: 32.08
-- volume: 636064
-- ma5: 32.15
-- ma20: 32.15
-- ma60: 32.15
-- ma120: 32.15
-- ema23: 32.11
+- open: 32.08
+- high: 32.7
+- low: 32
+- close: 32.44
+- volume: 2021910
+- ma5: 32.22
+- ma20: 32.22
+- ma60: 32.22
+- ma120: 32.22
+- ema23: 32.14
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.7
-- distance_to_ma20_pct: -0.22
-- distance_to_high_60_pct: -1.9
+- volume_ratio: 1.7
+- distance_to_ma20_pct: 0.67
+- distance_to_high_60_pct: -0.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,32.15,32.15,31.91,32.08,636064,,,,,
 20260524,32.15,32.15,31.91,32.08,636064,,,,,
 20260525,32.08,32.7,32,32.44,2021910,,,,,
-20260526,32.15,32.15,31.91,32.08,636064,32.15,32.15,32.15,32.11,0.7
+20260526,32.08,32.7,32,32.44,2021910,32.22,32.22,32.22,32.14,1.7
 ```
 
 ## Latest TDCC Snapshot

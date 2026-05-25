@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1514 亞力
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:36 Asia/Taipei
+- generated_at: 2026-05-26 06:01:46 Asia/Taipei
 - stock_id: 1514
 - stock_name: 亞力
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 120
-- high: 123
-- low: 118
+- open: 125
+- high: 125
+- low: 121.5
 - close: 122.5
-- volume: 4919110
+- volume: 4760617
 - ma5: 122.5
 - ma20: 119.42
 - ma60: 113.97
@@ -66,7 +66,7 @@
 - ema23: 118.26
 - return_5d: 3.81
 - return_20d: 10.36
-- volume_ratio: 0.83
+- volume_ratio: 0.81
 - distance_to_ma20_pct: 2.57
 - distance_to_high_60_pct: -6.49
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,120,123,118,122.5,4919110,117.9,117.7,114.22,117,0.92
 20260524,120,123,118,122.5,4919110,119.7,118.25,114.08,117.46,0.89
 20260525,125,125,121.5,122.5,4760617,121.6,118.85,113.99,117.88,0.83
-20260526,120,123,118,122.5,4919110,122.5,119.42,113.97,118.26,0.83
+20260526,125,125,121.5,122.5,4760617,122.5,119.42,113.97,118.26,0.81
 ```
 
 ## Latest TDCC Snapshot

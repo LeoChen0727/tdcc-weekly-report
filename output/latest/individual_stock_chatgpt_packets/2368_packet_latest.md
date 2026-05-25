@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2368 金像電
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:54 Asia/Taipei
+- generated_at: 2026-05-26 06:02:03 Asia/Taipei
 - stock_id: 2368
 - stock_name: 金像電
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 1325
-- high: 1365
-- low: 1305
-- close: 1330
-- volume: 5646399
-- ma5: 1349
-- ma20: 1359.75
-- ma60: 1130.15
-- ma120: 901.09
-- ema23: 1313.14
-- return_5d: 3.5
-- return_20d: -2.21
-- volume_ratio: 0.95
-- distance_to_ma20_pct: -2.19
-- distance_to_high_60_pct: -12.5
+- open: 1400
+- high: 1455
+- low: 1360
+- close: 1425
+- volume: 6665391
+- ma5: 1368
+- ma20: 1364.5
+- ma60: 1131.73
+- ma120: 901.88
+- ema23: 1321.06
+- return_5d: 10.89
+- return_20d: 4.78
+- volume_ratio: 1.11
+- distance_to_ma20_pct: 4.43
+- distance_to_high_60_pct: -6.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,1325,1365,1305,1330,5646399,1293,1364,1103.03,1298.69,0.92
 20260524,1325,1365,1305,1330,5646399,1302,1359.5,1111.12,1301.3,0.96
 20260525,1400,1455,1360,1425,6665391,1340,1361.25,1121.1,1311.61,1.12
-20260526,1325,1365,1305,1330,5646399,1349,1359.75,1130.15,1313.14,0.95
+20260526,1400,1455,1360,1425,6665391,1368,1364.5,1131.73,1321.06,1.11
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2368 | 金像電 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 2368 | 金像電 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 2368 | 金像電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

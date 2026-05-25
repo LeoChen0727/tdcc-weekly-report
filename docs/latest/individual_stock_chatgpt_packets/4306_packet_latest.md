@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4306 炎洲
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:42 Asia/Taipei
+- generated_at: 2026-05-26 06:02:47 Asia/Taipei
 - stock_id: 4306
 - stock_name: 炎洲
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 13.8
-- high: 14.1
-- low: 13.8
+- open: 14.15
+- high: 14.15
+- low: 13.65
 - close: 14.05
-- volume: 2840885
+- volume: 2457610
 - ma5: 14.05
 - ma20: 13.51
 - ma60: 13.5
@@ -66,7 +66,7 @@
 - ema23: 13.65
 - return_5d: 1.81
 - return_20d: 5.64
-- volume_ratio: 1.72
+- volume_ratio: 1.51
 - distance_to_ma20_pct: 4.02
 - distance_to_high_60_pct: -2.09
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,13.8,14.1,13.8,14.05,2840885,13.9,13.39,13.48,13.53,2.07
 20260524,13.8,14.1,13.8,14.05,2840885,13.95,13.43,13.49,13.58,1.97
 20260525,14.15,14.15,13.65,14.05,2457610,14,13.47,13.5,13.62,1.6
-20260526,13.8,14.1,13.8,14.05,2840885,14.05,13.51,13.5,13.65,1.72
+20260526,14.15,14.15,13.65,14.05,2457610,14.05,13.51,13.5,13.65,1.51
 ```
 
 ## Latest TDCC Snapshot

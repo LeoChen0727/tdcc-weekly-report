@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1477 聚陽
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:35 Asia/Taipei
+- generated_at: 2026-05-26 06:01:45 Asia/Taipei
 - stock_id: 1477
 - stock_name: 聚陽
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 218
-- high: 222
+- open: 219
+- high: 219.5
 - low: 215.5
-- close: 219
-- volume: 2453896
-- ma5: 218.3
-- ma20: 217.5
-- ma60: 240.08
-- ma120: 274.76
-- ema23: 219.75
-- return_5d: 0.69
-- return_20d: 3.3
-- volume_ratio: 0.92
-- distance_to_ma20_pct: 0.69
-- distance_to_high_60_pct: -32.51
+- close: 215.5
+- volume: 3078043
+- ma5: 217.6
+- ma20: 217.32
+- ma60: 240.03
+- ma120: 274.73
+- ema23: 219.45
+- return_5d: -0.92
+- return_20d: 1.65
+- volume_ratio: 1.13
+- distance_to_ma20_pct: -0.84
+- distance_to_high_60_pct: -33.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,218,222,215.5,219,2453896,215.7,217.05,245.2,220.32,0.95
 20260524,218,222,215.5,219,2453896,217.5,217.25,243.52,220.21,0.94
 20260525,219,219.5,215.5,215.5,3078043,218,217.15,241.78,219.81,1.15
-20260526,218,222,215.5,219,2453896,218.3,217.5,240.08,219.75,0.92
+20260526,219,219.5,215.5,215.5,3078043,217.6,217.32,240.03,219.45,1.13
 ```
 
 ## Latest TDCC Snapshot

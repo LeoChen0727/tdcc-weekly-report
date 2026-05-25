@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2605 新興
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:04 Asia/Taipei
+- generated_at: 2026-05-26 06:02:12 Asia/Taipei
 - stock_id: 2605
 - stock_name: 新興
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 30.7
-- high: 31.35
-- low: 30.65
+- open: 31.3
+- high: 31.5
+- low: 30.3
 - close: 31.3
-- volume: 4496944
+- volume: 5963042
 - ma5: 31.3
 - ma20: 32.23
 - ma60: 35.81
@@ -66,7 +66,7 @@
 - ema23: 32.35
 - return_5d: 2.29
 - return_20d: -6.01
-- volume_ratio: 0.79
+- volume_ratio: 1.03
 - distance_to_ma20_pct: -2.88
 - distance_to_high_60_pct: -32.32
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,30.7,31.35,30.65,31.3,4496944,30.72,32.49,35.97,32.67,0.82
 20260524,30.7,31.35,30.65,31.3,4496944,30.92,32.41,35.94,32.55,0.82
 20260525,31.3,31.5,30.3,31.3,5963042,31.16,32.33,35.9,32.45,1.06
-20260526,30.7,31.35,30.65,31.3,4496944,31.3,32.23,35.81,32.35,0.79
+20260526,31.3,31.5,30.3,31.3,5963042,31.3,32.23,35.81,32.35,1.03
 ```
 
 ## Latest TDCC Snapshot

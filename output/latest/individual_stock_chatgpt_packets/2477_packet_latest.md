@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2477 美隆電
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:00 Asia/Taipei
+- generated_at: 2026-05-26 06:02:09 Asia/Taipei
 - stock_id: 2477
 - stock_name: 美隆電
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 20.95
+- open: 21.25
 - high: 21.25
-- low: 20.85
-- close: 21.15
-- volume: 191174
-- ma5: 21.11
-- ma20: 20.89
+- low: 20.8
+- close: 20.95
+- volume: 242385
+- ma5: 21.07
+- ma20: 20.88
 - ma60: 22.82
-- ma120: 23.59
-- ema23: 21.35
-- return_5d: 0.95
-- return_20d: -0.24
-- volume_ratio: 0.87
-- distance_to_ma20_pct: 1.27
-- distance_to_high_60_pct: -16.24
+- ma120: 23.58
+- ema23: 21.33
+- return_5d: 0
+- return_20d: -1.18
+- volume_ratio: 1.09
+- distance_to_ma20_pct: 0.36
+- distance_to_high_60_pct: -17.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,20.95,21.25,20.85,21.15,191174,20.86,20.91,22.98,21.43,0.79
 20260524,20.95,21.25,20.85,21.15,191174,20.98,20.9,22.92,21.4,0.89
 20260525,21.25,21.25,20.8,20.95,242385,21.07,20.89,22.87,21.36,1.12
-20260526,20.95,21.25,20.85,21.15,191174,21.11,20.89,22.82,21.35,0.87
+20260526,21.25,21.25,20.8,20.95,242385,21.07,20.88,22.82,21.33,1.09
 ```
 
 ## Latest TDCC Snapshot

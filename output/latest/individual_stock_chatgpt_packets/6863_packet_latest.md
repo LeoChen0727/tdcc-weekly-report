@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6863 永道-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:35 Asia/Taipei
+- generated_at: 2026-05-26 06:03:36 Asia/Taipei
 - stock_id: 6863
 - stock_name: 永道-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 111.5
-- high: 112.5
-- low: 109
-- close: 110
-- volume: 124160
-- ma5: 110.4
-- ma20: 108.45
-- ma60: 99.08
-- ma120: 107.02
-- ema23: 107.46
-- return_5d: -1.35
-- return_20d: 10.44
-- volume_ratio: 0.76
-- distance_to_ma20_pct: 1.43
-- distance_to_high_60_pct: -9.46
+- open: 111
+- high: 114
+- low: 111
+- close: 112
+- volume: 186010
+- ma5: 110.8
+- ma20: 108.55
+- ma60: 99.11
+- ma120: 107.04
+- ema23: 107.62
+- return_5d: 0.45
+- return_20d: 12.45
+- volume_ratio: 1.11
+- distance_to_ma20_pct: 3.18
+- distance_to_high_60_pct: -7.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,111.5,112.5,109,110,124160,109.4,106.76,99.11,106.5,0.81
 20260524,111.5,112.5,109,110,124160,110.2,107.27,98.98,106.79,0.81
 20260525,111,114,111,112,186010,110.7,107.93,99.05,107.22,1.17
-20260526,111.5,112.5,109,110,124160,110.4,108.45,99.08,107.46,0.76
+20260526,111,114,111,112,186010,110.8,108.55,99.11,107.62,1.11
 ```
 
 ## Latest TDCC Snapshot

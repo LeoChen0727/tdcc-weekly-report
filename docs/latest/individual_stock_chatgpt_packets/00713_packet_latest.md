@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00713 元大台灣高息低波
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:25 Asia/Taipei
+- generated_at: 2026-05-26 06:01:35 Asia/Taipei
 - stock_id: 00713
 - stock_name: 元大台灣高息低波
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 55.6
-- high: 55.75
-- low: 55.45
-- close: 55.7
-- volume: 10411963
-- ma5: 55.77
-- ma20: 55.77
-- ma60: 55.77
-- ma120: 55.77
-- ema23: 55.73
+- open: 55.95
+- high: 56.25
+- low: 55.85
+- close: 56.05
+- volume: 15420998
+- ma5: 55.84
+- ma20: 55.84
+- ma60: 55.84
+- ma120: 55.84
+- ema23: 55.76
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.91
-- distance_to_ma20_pct: -0.13
-- distance_to_high_60_pct: -0.98
+- volume_ratio: 1.24
+- distance_to_ma20_pct: 0.38
+- distance_to_high_60_pct: -0.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,55.6,55.75,55.45,55.7,10411963,,,,,
 20260524,55.6,55.75,55.45,55.7,10411963,,,,,
 20260525,55.95,56.25,55.85,56.05,15420998,,,,,
-20260526,55.6,55.75,55.45,55.7,10411963,55.77,55.77,55.77,55.73,0.91
+20260526,55.95,56.25,55.85,56.05,15420998,55.84,55.84,55.84,55.76,1.24
 ```
 
 ## Latest TDCC Snapshot

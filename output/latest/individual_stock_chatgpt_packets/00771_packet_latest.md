@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00771 元大US高息特別股
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:25 Asia/Taipei
+- generated_at: 2026-05-26 06:01:35 Asia/Taipei
 - stock_id: 00771
 - stock_name: 元大US高息特別股
 - packet_status: partial_rawdata_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 15.94
-- high: 15.94
-- low: 15.77
-- close: 15.87
-- volume: 102743
+- open: 15.87
+- high: 15.87
+- low: 15.82
+- close: 15.84
+- volume: 66155
 - ma5: 15.86
 - ma20: 15.86
 - ma60: 15.86
@@ -66,9 +66,9 @@
 - ema23: 15.87
 - return_5d: 
 - return_20d: 
-- volume_ratio: 1.08
-- distance_to_ma20_pct: 0.04
-- distance_to_high_60_pct: -0.44
+- volume_ratio: 0.75
+- distance_to_ma20_pct: -0.11
+- distance_to_high_60_pct: -0.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,15.94,15.94,15.77,15.87,102743,,,,,
 20260524,15.94,15.94,15.77,15.87,102743,,,,,
 20260525,15.87,15.87,15.82,15.84,66155,,,,,
-20260526,15.94,15.94,15.77,15.87,102743,15.86,15.86,15.86,15.87,1.08
+20260526,15.87,15.87,15.82,15.84,66155,15.86,15.86,15.86,15.87,0.75
 ```
 
 ## Latest TDCC Snapshot

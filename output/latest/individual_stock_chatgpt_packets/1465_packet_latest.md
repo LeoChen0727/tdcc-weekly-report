@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1465 偉全
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:35 Asia/Taipei
+- generated_at: 2026-05-26 06:01:44 Asia/Taipei
 - stock_id: 1465
 - stock_name: 偉全
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 12
+- open: 11.9
 - high: 12.05
-- low: 12
-- close: 12.05
-- volume: 15756
-- ma5: 12.04
+- low: 11.8
+- close: 12
+- volume: 152500
+- ma5: 12.03
 - ma20: 12.09
 - ma60: 12.26
 - ma120: 12.43
 - ema23: 12.12
-- return_5d: 0
-- return_20d: -0.41
-- volume_ratio: 0.29
-- distance_to_ma20_pct: -0.33
-- distance_to_high_60_pct: -8.71
+- return_5d: -0.41
+- return_20d: -0.83
+- volume_ratio: 2.51
+- distance_to_ma20_pct: -0.72
+- distance_to_high_60_pct: -9.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,12,12.05,12,12.05,15756,12.03,12.11,12.28,12.14,0.24
 20260524,12,12.05,12,12.05,15756,12.04,12.1,12.27,12.14,0.26
 20260525,11.9,12.05,11.8,12,152500,12.04,12.09,12.26,12.13,2.31
-20260526,12,12.05,12,12.05,15756,12.04,12.09,12.26,12.12,0.29
+20260526,11.9,12.05,11.8,12,152500,12.03,12.09,12.26,12.12,2.51
 ```
 
 ## Latest TDCC Snapshot

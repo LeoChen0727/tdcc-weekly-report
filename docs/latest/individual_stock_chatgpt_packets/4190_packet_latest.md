@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4190 佐登-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:41 Asia/Taipei
+- generated_at: 2026-05-26 06:02:47 Asia/Taipei
 - stock_id: 4190
 - stock_name: 佐登-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 24.35
-- high: 24.8
-- low: 24.15
-- close: 24.75
-- volume: 43080
-- ma5: 24.77
-- ma20: 24.73
+- open: 24.55
+- high: 24.85
+- low: 24.05
+- close: 24.85
+- volume: 85151
+- ma5: 24.79
+- ma20: 24.74
 - ma60: 26.59
 - ma120: 28.2
-- ema23: 25.05
-- return_5d: 0
-- return_20d: 0.2
-- volume_ratio: 1.01
-- distance_to_ma20_pct: 0.06
-- distance_to_high_60_pct: -16.24
+- ema23: 25.06
+- return_5d: 0.4
+- return_20d: 0.61
+- volume_ratio: 1.91
+- distance_to_ma20_pct: 0.44
+- distance_to_high_60_pct: -15.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,24.35,24.8,24.15,24.75,43080,24.69,24.75,26.8,25.13,0.98
 20260524,24.35,24.8,24.15,24.75,43080,24.74,24.73,26.73,25.1,1
 20260525,24.55,24.85,24.05,24.85,85151,24.77,24.73,26.67,25.08,2.02
-20260526,24.35,24.8,24.15,24.75,43080,24.77,24.73,26.59,25.05,1.01
+20260526,24.55,24.85,24.05,24.85,85151,24.79,24.74,26.59,25.06,1.91
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3046 建碁
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:16 Asia/Taipei
+- generated_at: 2026-05-26 06:02:24 Asia/Taipei
 - stock_id: 3046
 - stock_name: 建碁
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 52.5
-- high: 53.4
-- low: 52.3
-- close: 53.4
-- volume: 463847
-- ma5: 53.52
-- ma20: 51.33
-- ma60: 48.83
+- open: 54.5
+- high: 54.5
+- low: 53.2
+- close: 54
+- volume: 591116
+- ma5: 53.64
+- ma20: 51.36
+- ma60: 48.84
 - ma120: 50.14
-- ema23: 51.32
-- return_5d: 2.5
-- return_20d: 10.67
-- volume_ratio: 1.28
-- distance_to_ma20_pct: 4.03
-- distance_to_high_60_pct: -2.02
+- ema23: 51.37
+- return_5d: 3.65
+- return_20d: 11.92
+- volume_ratio: 1.6
+- distance_to_ma20_pct: 5.14
+- distance_to_high_60_pct: -0.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,52.5,53.4,52.3,53.4,463847,52.12,50.44,48.6,50.64,1.51
 20260524,52.5,53.4,52.3,53.4,463847,52.72,50.74,48.68,50.87,1.44
 20260525,54.5,54.5,53.2,54,591116,53.26,51.07,48.76,51.13,1.7
-20260526,52.5,53.4,52.3,53.4,463847,53.52,51.33,48.83,51.32,1.28
+20260526,54.5,54.5,53.2,54,591116,53.64,51.36,48.84,51.37,1.6
 ```
 
 ## Latest TDCC Snapshot

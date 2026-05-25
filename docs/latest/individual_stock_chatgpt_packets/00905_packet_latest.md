@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00905 FT臺灣Smart
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:26 Asia/Taipei
+- generated_at: 2026-05-26 06:01:36 Asia/Taipei
 - stock_id: 00905
 - stock_name: FT臺灣Smart
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 25
-- high: 25.4
-- low: 25
-- close: 25.4
-- volume: 2423178
-- ma5: 25.63
-- ma20: 25.63
-- ma60: 25.63
-- ma120: 25.63
-- ema23: 25.49
+- open: 26.09
+- high: 26.55
+- low: 26.09
+- close: 26.55
+- volume: 2651189
+- ma5: 25.86
+- ma20: 25.86
+- ma60: 25.86
+- ma120: 25.86
+- ema23: 25.58
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.98
-- distance_to_ma20_pct: -0.9
-- distance_to_high_60_pct: -4.33
+- volume_ratio: 1.05
+- distance_to_ma20_pct: 2.67
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,25,25.4,25,25.4,2423178,,,,,
 20260524,25,25.4,25,25.4,2423178,,,,,
 20260525,26.09,26.55,26.09,26.55,2651189,,,,,
-20260526,25,25.4,25,25.4,2423178,25.63,25.63,25.63,25.49,0.98
+20260526,26.09,26.55,26.09,26.55,2651189,25.86,25.86,25.86,25.58,1.05
 ```
 
 ## Latest TDCC Snapshot

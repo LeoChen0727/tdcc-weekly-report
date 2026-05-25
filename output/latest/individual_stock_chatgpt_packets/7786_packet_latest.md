@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7786 東方風能
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:43 Asia/Taipei
+- generated_at: 2026-05-26 06:03:44 Asia/Taipei
 - stock_id: 7786
 - stock_name: 東方風能
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 117
-- high: 120
-- low: 115.5
-- close: 118.5
-- volume: 248475
-- ma5: 118.6
-- ma20: 127.67
-- ma60: 134.78
+- open: 120
+- high: 120.5
+- low: 116
+- close: 119
+- volume: 259896
+- ma5: 118.7
+- ma20: 127.7
+- ma60: 134.79
 - ma120: 146.94
-- ema23: 125.87
-- return_5d: 1.28
-- return_20d: -10.9
-- volume_ratio: 0.94
-- distance_to_ma20_pct: -7.19
-- distance_to_high_60_pct: -25.71
+- ema23: 125.91
+- return_5d: 1.71
+- return_20d: -10.53
+- volume_ratio: 0.98
+- distance_to_ma20_pct: -6.81
+- distance_to_high_60_pct: -25.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,117,120,115.5,118.5,248475,117.1,129.7,136.85,128.01,0.99
 20260524,117,120,115.5,118.5,248475,117.4,129.1,136.12,127.22,0.99
 20260525,120,120.5,116,119,259896,118.3,128.4,135.44,126.54,1.01
-20260526,117,120,115.5,118.5,248475,118.6,127.67,134.78,125.87,0.94
+20260526,120,120.5,116,119,259896,118.7,127.7,134.79,125.91,0.98
 ```
 
 ## Latest TDCC Snapshot

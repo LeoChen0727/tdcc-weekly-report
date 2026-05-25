@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6477 安集
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:21 Asia/Taipei
+- generated_at: 2026-05-26 06:03:23 Asia/Taipei
 - stock_id: 6477
 - stock_name: 安集
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 34.45
-- high: 34.7
-- low: 34.35
-- close: 34.45
-- volume: 531479
-- ma5: 34.54
-- ma20: 34.41
-- ma60: 35.05
-- ma120: 35.19
-- ema23: 34.34
-- return_5d: 0
-- return_20d: 2.38
-- volume_ratio: 0.62
-- distance_to_ma20_pct: 0.13
-- distance_to_high_60_pct: -18.27
+- open: 34.85
+- high: 35.25
+- low: 34.65
+- close: 34.9
+- volume: 829375
+- ma5: 34.63
+- ma20: 34.43
+- ma60: 35.06
+- ma120: 35.2
+- ema23: 34.38
+- return_5d: 1.31
+- return_20d: 3.71
+- volume_ratio: 0.95
+- distance_to_ma20_pct: 1.37
+- distance_to_high_60_pct: -17.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,34.45,34.7,34.35,34.45,531479,34.19,34.22,35.22,34.27,0.63
 20260524,34.45,34.7,34.35,34.45,531479,34.33,34.26,35.19,34.28,0.63
 20260525,34.85,35.25,34.65,34.9,829375,34.54,34.37,35.15,34.33,0.96
-20260526,34.45,34.7,34.35,34.45,531479,34.54,34.41,35.05,34.34,0.62
+20260526,34.85,35.25,34.65,34.9,829375,34.63,34.43,35.06,34.38,0.95
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6770 力積電
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:32 Asia/Taipei
+- generated_at: 2026-05-26 06:03:34 Asia/Taipei
 - stock_id: 6770
 - stock_name: 力積電
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 60.3
-- high: 64.8
-- low: 60.2
-- close: 63.8
-- volume: 218295235
-- ma5: 64.56
-- ma20: 60.7
-- ma60: 60.11
-- ma120: 54.82
-- ema23: 60.86
-- return_5d: 7.95
-- return_20d: 19.25
-- volume_ratio: 1.07
-- distance_to_ma20_pct: 5.1
-- distance_to_high_60_pct: -18.21
+- open: 65
+- high: 68.2
+- low: 62.3
+- close: 67.6
+- volume: 321963402
+- ma5: 65.32
+- ma20: 60.9
+- ma60: 60.17
+- ma120: 54.86
+- ema23: 61.18
+- return_5d: 14.38
+- return_20d: 26.36
+- volume_ratio: 1.54
+- distance_to_ma20_pct: 11.01
+- distance_to_high_60_pct: -13.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,60.3,64.8,60.2,63.8,218295235,60.6,59.09,60.66,59.6,1.2
 20260524,60.3,64.8,60.2,63.8,218295235,61.66,59.56,60.44,59.95,1.18
 20260525,65,68.2,62.3,67.6,321963402,63.62,60.19,60.29,60.59,1.64
-20260526,60.3,64.8,60.2,63.8,218295235,64.56,60.7,60.11,60.86,1.07
+20260526,65,68.2,62.3,67.6,321963402,65.32,60.9,60.17,61.18,1.54
 ```
 
 ## Latest TDCC Snapshot
@@ -122,8 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6770 | 力積電 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | mixed_flow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 6770 | 力積電 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | mixed_flow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 6770 | 力積電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | mixed_flow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 6770 | 力積電 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | mixed_flow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6689 伊雲谷
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:29 Asia/Taipei
+- generated_at: 2026-05-26 06:03:31 Asia/Taipei
 - stock_id: 6689
 - stock_name: 伊雲谷
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 67
-- high: 67.4
-- low: 65.8
-- close: 66.9
-- volume: 252266
-- ma5: 67.02
-- ma20: 67.73
-- ma60: 71.82
+- open: 68
+- high: 68.8
+- low: 66.8
+- close: 67.5
+- volume: 395959
+- ma5: 67.14
+- ma20: 67.76
+- ma60: 71.83
 - ma120: 66.9
-- ema23: 67.99
-- return_5d: 0.15
-- return_20d: -3.18
-- volume_ratio: 1.03
-- distance_to_ma20_pct: -1.23
-- distance_to_high_60_pct: -24.41
+- ema23: 68.04
+- return_5d: 1.05
+- return_20d: -2.32
+- volume_ratio: 1.57
+- distance_to_ma20_pct: -0.38
+- distance_to_high_60_pct: -23.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,67,67.4,65.8,66.9,252266,65.9,67.97,71.79,68.26,1.05
 20260524,67,67.4,65.8,66.9,252266,66.36,67.92,71.9,68.15,1.08
 20260525,68,68.8,66.8,67.5,395959,67,67.84,71.92,68.09,1.64
-20260526,67,67.4,65.8,66.9,252266,67.02,67.73,71.82,67.99,1.03
+20260526,68,68.8,66.8,67.5,395959,67.14,67.76,71.83,68.04,1.57
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2816 旺旺保
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:09 Asia/Taipei
+- generated_at: 2026-05-26 06:02:17 Asia/Taipei
 - stock_id: 2816
 - stock_name: 旺旺保
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 30.95
-- high: 31.2
-- low: 30.8
-- close: 31
-- volume: 81539
-- ma5: 31.04
-- ma20: 30.79
+- open: 31.2
+- high: 31.35
+- low: 30.9
+- close: 31.2
+- volume: 255716
+- ma5: 31.08
+- ma20: 30.8
 - ma60: 30.73
 - ma120: 30.02
-- ema23: 30.88
-- return_5d: 0.16
-- return_20d: 1.81
-- volume_ratio: 0.39
-- distance_to_ma20_pct: 0.7
-- distance_to_high_60_pct: -4.02
+- ema23: 30.9
+- return_5d: 0.81
+- return_20d: 2.46
+- volume_ratio: 1.18
+- distance_to_ma20_pct: 1.32
+- distance_to_high_60_pct: -3.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,30.95,31.2,30.8,31,81539,31.12,30.66,30.72,30.83,0.4
 20260524,30.95,31.2,30.8,31,81539,31.05,30.7,30.73,30.84,0.41
 20260525,31.2,31.35,30.9,31.2,255716,31.03,30.76,30.73,30.87,1.24
-20260526,30.95,31.2,30.8,31,81539,31.04,30.79,30.73,30.88,0.39
+20260526,31.2,31.35,30.9,31.2,255716,31.08,30.8,30.73,30.9,1.18
 ```
 
 ## Latest TDCC Snapshot

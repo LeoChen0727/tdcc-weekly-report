@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5292 華懋
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:58 Asia/Taipei
+- generated_at: 2026-05-26 06:03:02 Asia/Taipei
 - stock_id: 5292
 - stock_name: 華懋
 - packet_status: standard_180d_window_packet
@@ -55,20 +55,20 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 220.5
-- high: 223.5
-- low: 219
-- close: 219.5
-- volume: 98116
-- ma5: 219.6
-- ma20: 225.8
-- ma60: 218.66
-- ma120: 195.38
-- ema23: 225.19
-- return_5d: -0.45
-- return_20d: -11.13
-- volume_ratio: 0.37
-- distance_to_ma20_pct: -2.79
-- distance_to_high_60_pct: -19.15
+- high: 222
+- low: 218.5
+- close: 220
+- volume: 198172
+- ma5: 219.7
+- ma20: 225.82
+- ma60: 218.67
+- ma120: 195.39
+- ema23: 225.23
+- return_5d: -0.23
+- return_20d: -10.93
+- volume_ratio: 0.73
+- distance_to_ma20_pct: -2.58
+- distance_to_high_60_pct: -18.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,220.5,223.5,219,219.5,98116,220.1,230.03,216.74,226.84,0.31
 20260524,220.5,223.5,219,219.5,98116,220.2,228.38,217.34,226.23,0.35
 20260525,220.5,222,218.5,220,198172,219.8,227.18,218,225.71,0.72
-20260526,220.5,223.5,219,219.5,98116,219.6,225.8,218.66,225.19,0.37
+20260526,220.5,222,218.5,220,198172,219.7,225.82,218.67,225.23,0.73
 ```
 
 ## Latest TDCC Snapshot

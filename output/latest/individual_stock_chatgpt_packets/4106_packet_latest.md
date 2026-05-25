@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4106 雃博
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:38 Asia/Taipei
+- generated_at: 2026-05-26 06:02:44 Asia/Taipei
 - stock_id: 4106
 - stock_name: 雃博
 - packet_status: standard_180d_window_packet
@@ -57,18 +57,18 @@
 - open: 23.1
 - high: 23.35
 - low: 23.05
-- close: 23.3
-- volume: 103265
-- ma5: 23.31
-- ma20: 22.78
+- close: 23.35
+- volume: 155187
+- ma5: 23.32
+- ma20: 22.79
 - ma60: 22.52
 - ma120: 22.52
-- ema23: 22.87
-- return_5d: 0.87
-- return_20d: 4.96
-- volume_ratio: 0.63
-- distance_to_ma20_pct: 2.27
-- distance_to_high_60_pct: -1.06
+- ema23: 22.88
+- return_5d: 1.08
+- return_20d: 5.18
+- volume_ratio: 0.93
+- distance_to_ma20_pct: 2.48
+- distance_to_high_60_pct: -0.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,23.1,23.35,23.05,23.3,103265,23.16,22.61,22.5,22.74,0.66
 20260524,23.1,23.35,23.05,23.3,103265,23.21,22.67,22.51,22.79,0.66
 20260525,23.1,23.35,23.05,23.35,155187,23.27,22.73,22.52,22.83,0.97
-20260526,23.1,23.35,23.05,23.3,103265,23.31,22.78,22.52,22.87,0.63
+20260526,23.1,23.35,23.05,23.35,155187,23.32,22.79,22.52,22.88,0.93
 ```
 
 ## Latest TDCC Snapshot

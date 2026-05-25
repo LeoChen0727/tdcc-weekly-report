@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7780 大研生醫*
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:43 Asia/Taipei
+- generated_at: 2026-05-26 06:03:44 Asia/Taipei
 - stock_id: 7780
 - stock_name: 大研生醫*
 - packet_status: standard_180d_window_packet
@@ -56,19 +56,19 @@
 - date: 20260526
 - open: 18.5
 - high: 18.55
-- low: 18.1
-- close: 18.5
-- volume: 1959926
-- ma5: 18.43
-- ma20: 18.43
+- low: 18.05
+- close: 18.15
+- volume: 2684953
+- ma5: 18.36
+- ma20: 18.41
 - ma60: 19.57
 - ma120: 69.25
-- ema23: 18.79
-- return_5d: 0
-- return_20d: -1.07
-- volume_ratio: 0.99
-- distance_to_ma20_pct: 0.39
-- distance_to_high_60_pct: -23.4
+- ema23: 18.76
+- return_5d: -1.89
+- return_20d: -2.94
+- volume_ratio: 1.33
+- distance_to_ma20_pct: -1.41
+- distance_to_high_60_pct: -24.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,18.5,18.55,18.1,18.5,1959926,18.49,18.48,19.88,18.92,1.02
 20260524,18.5,18.55,18.1,18.5,1959926,18.5,18.47,19.77,18.88,1.03
 20260525,18.5,18.55,18.05,18.15,2684953,18.43,18.44,19.66,18.82,1.38
-20260526,18.5,18.55,18.1,18.5,1959926,18.43,18.43,19.57,18.79,0.99
+20260526,18.5,18.55,18.05,18.15,2684953,18.36,18.41,19.57,18.76,1.33
 ```
 
 ## Latest TDCC Snapshot

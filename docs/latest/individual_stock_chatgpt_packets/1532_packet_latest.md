@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1532 勤美
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:37 Asia/Taipei
+- generated_at: 2026-05-26 06:01:47 Asia/Taipei
 - stock_id: 1532
 - stock_name: 勤美
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 21
-- high: 21
+- open: 20.6
+- high: 20.75
 - low: 20.5
-- close: 20.55
-- volume: 703021
-- ma5: 20.57
-- ma20: 20.58
+- close: 20.65
+- volume: 500648
+- ma5: 20.59
+- ma20: 20.59
 - ma60: 21.71
 - ma120: 23.81
-- ema23: 20.78
-- return_5d: -0.72
-- return_20d: -1.67
-- volume_ratio: 0.83
-- distance_to_ma20_pct: -0.16
-- distance_to_high_60_pct: -15.61
+- ema23: 20.79
+- return_5d: -0.24
+- return_20d: -1.2
+- volume_ratio: 0.6
+- distance_to_ma20_pct: 0.3
+- distance_to_high_60_pct: -15.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,21,21,20.5,20.55,703021,20.59,20.62,21.89,20.84,0.8
 20260524,21,21,20.5,20.55,703021,20.58,20.61,21.83,20.81,0.81
 20260525,20.6,20.75,20.5,20.65,500648,20.6,20.6,21.77,20.8,0.59
-20260526,21,21,20.5,20.55,703021,20.57,20.58,21.71,20.78,0.83
+20260526,20.6,20.75,20.5,20.65,500648,20.59,20.59,21.71,20.79,0.6
 ```
 
 ## Latest TDCC Snapshot

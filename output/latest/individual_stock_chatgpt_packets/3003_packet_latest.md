@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3003 健和興
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:13 Asia/Taipei
+- generated_at: 2026-05-26 06:02:21 Asia/Taipei
 - stock_id: 3003
 - stock_name: 健和興
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 60.9
-- high: 62.2
-- low: 59.4
-- close: 61.9
-- volume: 1655637
-- ma5: 61.72
-- ma20: 58.75
-- ma60: 53.86
-- ma120: 51.03
-- ema23: 58.58
-- return_5d: 2.31
-- return_20d: 11.53
-- volume_ratio: 1.26
-- distance_to_ma20_pct: 5.36
-- distance_to_high_60_pct: -2.52
+- open: 62.9
+- high: 63.5
+- low: 60.8
+- close: 61
+- volume: 1738481
+- ma5: 61.54
+- ma20: 58.7
+- ma60: 53.85
+- ma120: 51.02
+- ema23: 58.51
+- return_5d: 0.83
+- return_20d: 9.91
+- volume_ratio: 1.31
+- distance_to_ma20_pct: 3.91
+- distance_to_high_60_pct: -3.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,60.9,62.2,59.4,61.9,1655637,60.32,57.67,53.32,57.68,1.44
 20260524,60.9,62.2,59.4,61.9,1655637,61.04,58.06,53.51,58.04,1.38
 20260525,62.9,63.5,60.8,61,1738481,61.44,58.43,53.69,58.28,1.37
-20260526,60.9,62.2,59.4,61.9,1655637,61.72,58.75,53.86,58.58,1.26
+20260526,62.9,63.5,60.8,61,1738481,61.54,58.7,53.85,58.51,1.31
 ```
 
 ## Latest TDCC Snapshot
@@ -122,12 +122,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3003 | 健和興 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 3003 | 健和興 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3003 | 健和興 | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260526 | 3003 | 健和興 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | status |

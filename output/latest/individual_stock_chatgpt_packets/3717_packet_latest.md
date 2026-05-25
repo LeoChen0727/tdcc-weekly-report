@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3717 聯嘉投控
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:38 Asia/Taipei
+- generated_at: 2026-05-26 06:02:43 Asia/Taipei
 - stock_id: 3717
 - stock_name: 聯嘉投控
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 24.1
+- open: 25
 - high: 25
-- low: 24.05
-- close: 24.65
-- volume: 4702922
-- ma5: 24.31
-- ma20: 22.93
-- ma60: 21.34
-- ma120: 19.42
-- ema23: 22.96
-- return_5d: 3.79
-- return_20d: 24.81
-- volume_ratio: 1.4
-- distance_to_ma20_pct: 7.48
-- distance_to_high_60_pct: -1.4
+- low: 22.95
+- close: 22.95
+- volume: 4285479
+- ma5: 23.97
+- ma20: 22.85
+- ma60: 21.32
+- ma120: 19.4
+- ema23: 22.81
+- return_5d: -3.37
+- return_20d: 16.2
+- volume_ratio: 1.29
+- distance_to_ma20_pct: 0.44
+- distance_to_high_60_pct: -8.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,24.1,25,24.05,24.65,4702922,23.72,22.3,21.02,22.62,1.69
 20260524,24.1,25,24.05,24.65,4702922,24.15,22.54,21.13,22.79,1.59
 20260525,25,25,22.95,22.95,4285479,24.13,22.69,21.22,22.8,1.36
-20260526,24.1,25,24.05,24.65,4702922,24.31,22.93,21.34,22.96,1.4
+20260526,25,25,22.95,22.95,4285479,23.97,22.85,21.32,22.81,1.29
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3717 | 聯嘉投控 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: ex_right on 20260528; status=confirmed; proximity=within_3d |
+| 20260526 | 3717 | 聯嘉投控 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: ex_right on 20260528; status=confirmed; proximity=within_3d |
 | 20260521 | 3717 | 聯嘉投控 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | stale_signal | calendar event: ex_right on 20260528; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context

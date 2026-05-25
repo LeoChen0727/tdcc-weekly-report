@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3015 全漢
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:14 Asia/Taipei
+- generated_at: 2026-05-26 06:02:21 Asia/Taipei
 - stock_id: 3015
 - stock_name: 全漢
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 51
-- high: 51.6
-- low: 50.7
-- close: 51.5
-- volume: 509489
-- ma5: 51.6
-- ma20: 50.82
-- ma60: 50.91
-- ma120: 52.31
-- ema23: 50.92
-- return_5d: 0.98
-- return_20d: 3.21
-- volume_ratio: 1.14
-- distance_to_ma20_pct: 1.34
-- distance_to_high_60_pct: -6.87
+- open: 51.8
+- high: 52.2
+- low: 51.4
+- close: 52
+- volume: 699144
+- ma5: 51.7
+- ma20: 50.84
+- ma60: 50.92
+- ma120: 52.32
+- ema23: 50.97
+- return_5d: 1.96
+- return_20d: 4.21
+- volume_ratio: 1.53
+- distance_to_ma20_pct: 2.27
+- distance_to_high_60_pct: -5.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,51,51.6,50.7,51.5,509489,51.08,50.56,51.08,50.7,1.27
 20260524,51,51.6,50.7,51.5,509489,51.24,50.64,51.03,50.77,1.24
 20260525,51.8,52.2,51.4,52,699144,51.5,50.74,50.97,50.87,1.61
-20260526,51,51.6,50.7,51.5,509489,51.6,50.82,50.91,50.92,1.14
+20260526,51.8,52.2,51.4,52,699144,51.7,50.84,50.92,50.97,1.53
 ```
 
 ## Latest TDCC Snapshot

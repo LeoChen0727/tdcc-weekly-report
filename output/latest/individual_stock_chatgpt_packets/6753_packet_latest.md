@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6753 龍德造船
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:31 Asia/Taipei
+- generated_at: 2026-05-26 06:03:33 Asia/Taipei
 - stock_id: 6753
 - stock_name: 龍德造船
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 129
-- high: 129.5
-- low: 126
-- close: 126.5
-- volume: 1590442
-- ma5: 126.1
-- ma20: 131.53
-- ma60: 133.32
-- ma120: 135.09
-- ema23: 130.41
-- return_5d: -1.94
-- return_20d: -8.33
-- volume_ratio: 1.14
-- distance_to_ma20_pct: -3.82
-- distance_to_high_60_pct: -16.23
+- open: 126
+- high: 127.5
+- low: 124
+- close: 124.5
+- volume: 1423040
+- ma5: 125.7
+- ma20: 131.43
+- ma60: 133.28
+- ma120: 135.07
+- ema23: 130.24
+- return_5d: -3.49
+- return_20d: -9.78
+- volume_ratio: 1.02
+- distance_to_ma20_pct: -5.27
+- distance_to_high_60_pct: -17.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,129,129.5,126,126.5,1590442,126.1,133.43,134.57,131.78,1.22
 20260524,129,129.5,126,126.5,1590442,126.6,132.68,134.15,131.34,1.19
 20260525,126,127.5,124,124.5,1423040,126.6,132.1,133.68,130.77,1.06
-20260526,129,129.5,126,126.5,1590442,126.1,131.53,133.32,130.41,1.14
+20260526,126,127.5,124,124.5,1423040,125.7,131.43,133.28,130.24,1.02
 ```
 
 ## Latest TDCC Snapshot

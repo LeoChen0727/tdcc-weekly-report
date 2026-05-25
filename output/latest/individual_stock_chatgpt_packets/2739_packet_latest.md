@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2739 寒舍
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:08 Asia/Taipei
+- generated_at: 2026-05-26 06:02:16 Asia/Taipei
 - stock_id: 2739
 - stock_name: 寒舍
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 35.1
-- high: 35.1
-- low: 34.55
-- close: 34.7
-- volume: 125198
-- ma5: 34.76
-- ma20: 34.66
-- ma60: 34.46
+- open: 34.8
+- high: 35.2
+- low: 34.8
+- close: 35
+- volume: 116957
+- ma5: 34.82
+- ma20: 34.67
+- ma60: 34.47
 - ma120: 34.72
-- ema23: 34.71
-- return_5d: 0.58
-- return_20d: 0.29
-- volume_ratio: 1.1
-- distance_to_ma20_pct: 0.12
-- distance_to_high_60_pct: -8.08
+- ema23: 34.74
+- return_5d: 1.45
+- return_20d: 1.16
+- volume_ratio: 1.03
+- distance_to_ma20_pct: 0.94
+- distance_to_high_60_pct: -7.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,35.1,35.1,34.55,34.7,125198,34.63,34.62,34.4,34.69,1.16
 20260524,35.1,35.1,34.55,34.7,125198,34.63,34.63,34.42,34.69,1.16
 20260525,34.8,35.2,34.8,35,116957,34.72,34.65,34.44,34.71,1.07
-20260526,35.1,35.1,34.55,34.7,125198,34.76,34.66,34.46,34.71,1.1
+20260526,34.8,35.2,34.8,35,116957,34.82,34.67,34.47,34.74,1.03
 ```
 
 ## Latest TDCC Snapshot

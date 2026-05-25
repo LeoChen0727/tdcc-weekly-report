@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3013 晟銘電
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:13 Asia/Taipei
+- generated_at: 2026-05-26 06:02:21 Asia/Taipei
 - stock_id: 3013
 - stock_name: 晟銘電
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 101.5
-- high: 110.5
-- low: 101.5
-- close: 110.5
-- volume: 6115722
-- ma5: 112.7
-- ma20: 106.98
-- ma60: 103.97
-- ma120: 113.7
-- ema23: 107.8
-- return_5d: 9.95
-- return_20d: -1.34
-- volume_ratio: 1.36
-- distance_to_ma20_pct: 3.29
-- distance_to_high_60_pct: -12.3
+- open: 113.5
+- high: 121.5
+- low: 113
+- close: 121.5
+- volume: 19744095
+- ma5: 114.9
+- ma20: 107.53
+- ma60: 104.15
+- ma120: 113.79
+- ema23: 108.71
+- return_5d: 20.9
+- return_20d: 8.48
+- volume_ratio: 3.81
+- distance_to_ma20_pct: 12.99
+- distance_to_high_60_pct: -3.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,101.5,110.5,101.5,110.5,6115722,103.94,106.69,103.88,105.9,1.79
 20260524,101.5,110.5,101.5,110.5,6115722,106.1,106.56,103.84,106.28,1.74
 20260525,113.5,121.5,113,121.5,19744095,110.7,107.06,103.98,107.55,4.57
-20260526,101.5,110.5,101.5,110.5,6115722,112.7,106.98,103.97,107.8,1.36
+20260526,113.5,121.5,113,121.5,19744095,114.9,107.53,104.15,108.71,3.81
 ```
 
 ## Latest TDCC Snapshot
@@ -122,14 +122,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3013 | 晟銘電 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 3013 | 晟銘電 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260521 | 3013 | 晟銘電 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 3013 | 晟銘電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 3013 | 晟銘電 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3013 | 晟銘電 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260526 | 3013 | 晟銘電 | 4 | 4 | 4 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

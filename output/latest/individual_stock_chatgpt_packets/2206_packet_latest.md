@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2206 三陽工業
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:49 Asia/Taipei
+- generated_at: 2026-05-26 06:01:58 Asia/Taipei
 - stock_id: 2206
 - stock_name: 三陽工業
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 59.8
-- high: 60.5
-- low: 59.8
-- close: 60.1
-- volume: 1635943
-- ma5: 60.04
-- ma20: 58.55
+- open: 60.1
+- high: 60.2
+- low: 59.4
+- close: 59.8
+- volume: 1640648
+- ma5: 59.98
+- ma20: 58.54
 - ma60: 58.53
 - ma120: 59.53
-- ema23: 58.86
-- return_5d: 0.5
-- return_20d: 5.44
+- ema23: 58.83
+- return_5d: 0
+- return_20d: 4.91
 - volume_ratio: 1.25
-- distance_to_ma20_pct: 2.64
-- distance_to_high_60_pct: -1.8
+- distance_to_ma20_pct: 2.15
+- distance_to_high_60_pct: -2.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,59.8,60.5,59.8,60.1,1635943,59.4,58.09,58.55,58.52,1.28
 20260524,59.8,60.5,59.8,60.1,1635943,59.68,58.26,58.55,58.65,1.3
 20260525,60.1,60.2,59.4,59.8,1640648,59.98,58.4,58.55,58.74,1.28
-20260526,59.8,60.5,59.8,60.1,1635943,60.04,58.55,58.53,58.86,1.25
+20260526,60.1,60.2,59.4,59.8,1640648,59.98,58.54,58.53,58.83,1.25
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2206 | 三陽工業 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 2206 | 三陽工業 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

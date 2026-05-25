@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4977 眾達-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:54 Asia/Taipei
+- generated_at: 2026-05-26 06:02:58 Asia/Taipei
 - stock_id: 4977
 - stock_name: 眾達-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 211
-- high: 222
-- low: 210.5
-- close: 219.5
-- volume: 5200092
-- ma5: 221.7
-- ma20: 223.93
-- ma60: 202.66
-- ma120: 166.88
-- ema23: 219.33
-- return_5d: 7.33
-- return_20d: 3.05
-- volume_ratio: 0.59
-- distance_to_ma20_pct: -1.98
-- distance_to_high_60_pct: -19.6
+- open: 223.5
+- high: 234.5
+- low: 222
+- close: 230.5
+- volume: 6235151
+- ma5: 223.9
+- ma20: 224.47
+- ma60: 202.84
+- ma120: 166.97
+- ema23: 220.25
+- return_5d: 12.71
+- return_20d: 8.22
+- volume_ratio: 0.7
+- distance_to_ma20_pct: 2.68
+- distance_to_high_60_pct: -15.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,211,222,210.5,219.5,5200092,209.5,222.12,199.4,218.19,0.55
 20260524,211,222,210.5,219.5,5200092,212.8,222.32,200.67,218.3,0.57
 20260525,223.5,234.5,222,230.5,6235151,218.7,223.6,201.88,219.32,0.69
-20260526,211,222,210.5,219.5,5200092,221.7,223.93,202.66,219.33,0.59
+20260526,223.5,234.5,222,230.5,6235151,223.9,224.47,202.84,220.25,0.7
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4977 | 眾達-KY | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  | call_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 4977 | 眾達-KY | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | call_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

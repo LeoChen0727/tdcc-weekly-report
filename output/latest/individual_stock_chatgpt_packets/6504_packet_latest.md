@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6504 南六
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:22 Asia/Taipei
+- generated_at: 2026-05-26 06:03:24 Asia/Taipei
 - stock_id: 6504
 - stock_name: 南六
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 38.45
+- open: 38.5
 - high: 38.95
-- low: 38.45
-- close: 38.55
-- volume: 70508
-- ma5: 38.46
-- ma20: 39.02
-- ma60: 39.86
-- ma120: 41.06
-- ema23: 39.11
-- return_5d: -0.52
-- return_20d: -2.41
-- volume_ratio: 1.2
-- distance_to_ma20_pct: -1.22
-- distance_to_high_60_pct: -11.58
+- low: 38
+- close: 38.1
+- volume: 171381
+- ma5: 38.37
+- ma20: 39
+- ma60: 39.85
+- ma120: 41.05
+- ema23: 39.07
+- return_5d: -1.68
+- return_20d: -3.54
+- volume_ratio: 2.69
+- distance_to_ma20_pct: -2.31
+- distance_to_high_60_pct: -12.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,38.45,38.95,38.45,38.55,70508,38.67,39.17,40.02,39.32,1.43
 20260524,38.45,38.95,38.45,38.55,70508,38.63,39.13,39.96,39.26,1.42
 20260525,38.5,38.95,38,38.1,171381,38.5,39.07,39.9,39.16,3.02
-20260526,38.45,38.95,38.45,38.55,70508,38.46,39.02,39.86,39.11,1.2
+20260526,38.5,38.95,38,38.1,171381,38.37,39,39.85,39.07,2.69
 ```
 
 ## Latest TDCC Snapshot

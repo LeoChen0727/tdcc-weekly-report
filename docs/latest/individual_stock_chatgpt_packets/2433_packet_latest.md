@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2433 互盛電
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:58 Asia/Taipei
+- generated_at: 2026-05-26 06:02:07 Asia/Taipei
 - stock_id: 2433
 - stock_name: 互盛電
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 44.4
-- high: 44.55
-- low: 44.2
-- close: 44.45
-- volume: 70262
-- ma5: 44.38
-- ma20: 45.01
-- ma60: 45.64
+- open: 44.2
+- high: 45
+- low: 44.05
+- close: 44.1
+- volume: 182103
+- ma5: 44.31
+- ma20: 44.99
+- ma60: 45.63
 - ma120: 46.44
-- ema23: 44.97
-- return_5d: -0.11
-- return_20d: -3.16
-- volume_ratio: 1.22
-- distance_to_ma20_pct: -1.25
-- distance_to_high_60_pct: -6.03
+- ema23: 44.94
+- return_5d: -0.9
+- return_20d: -3.92
+- volume_ratio: 2.88
+- distance_to_ma20_pct: -1.99
+- distance_to_high_60_pct: -6.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,44.4,44.55,44.2,44.45,70262,44.57,45.19,45.78,45.17,1.51
 20260524,44.4,44.55,44.2,44.45,70262,44.49,45.15,45.73,45.11,1.49
 20260525,44.2,45,44.05,44.1,182103,44.39,45.09,45.68,45.02,3.29
-20260526,44.4,44.55,44.2,44.45,70262,44.38,45.01,45.64,44.97,1.22
+20260526,44.2,45,44.05,44.1,182103,44.31,44.99,45.63,44.94,2.88
 ```
 
 ## Latest TDCC Snapshot

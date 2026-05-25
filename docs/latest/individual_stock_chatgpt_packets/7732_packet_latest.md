@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7732 金興精密
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:41 Asia/Taipei
+- generated_at: 2026-05-26 06:03:42 Asia/Taipei
 - stock_id: 7732
 - stock_name: 金興精密
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 34.9
-- high: 35.3
-- low: 34.5
-- close: 35.2
-- volume: 14036
-- ma5: 35.26
-- ma20: 35.41
+- open: 35.2
+- high: 36
+- low: 35.05
+- close: 35.5
+- volume: 24017
+- ma5: 35.32
+- ma20: 35.43
 - ma60: 35.69
 - ma120: 37.57
-- ema23: 35.31
-- return_5d: 0.57
-- return_20d: -1.12
-- volume_ratio: 1.08
-- distance_to_ma20_pct: -0.61
-- distance_to_high_60_pct: -12
+- ema23: 35.33
+- return_5d: 1.43
+- return_20d: -0.28
+- volume_ratio: 1.78
+- distance_to_ma20_pct: 0.2
+- distance_to_high_60_pct: -11.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,34.9,35.3,34.5,35.2,14036,34.98,35.41,35.89,35.31,0.72
 20260524,34.9,35.3,34.5,35.2,14036,35.02,35.43,35.81,35.3,1
 20260525,35.2,36,35.05,35.5,24017,35.22,35.44,35.74,35.32,1.89
-20260526,34.9,35.3,34.5,35.2,14036,35.26,35.41,35.69,35.31,1.08
+20260526,35.2,36,35.05,35.5,24017,35.32,35.43,35.69,35.33,1.78
 ```
 
 ## Latest TDCC Snapshot

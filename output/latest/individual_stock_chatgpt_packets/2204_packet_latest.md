@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2204 中華
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:49 Asia/Taipei
+- generated_at: 2026-05-26 06:01:58 Asia/Taipei
 - stock_id: 2204
 - stock_name: 中華
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 52.8
-- high: 53.2
-- low: 52
-- close: 53.1
-- volume: 1727576
-- ma5: 53.14
-- ma20: 53.27
+- open: 53
+- high: 53.4
+- low: 52.4
+- close: 53.3
+- volume: 1616570
+- ma5: 53.18
+- ma20: 53.28
 - ma60: 54.53
 - ma120: 56.56
-- ema23: 53.33
-- return_5d: 0.57
-- return_20d: -2.03
-- volume_ratio: 1.1
-- distance_to_ma20_pct: -0.33
-- distance_to_high_60_pct: -11.35
+- ema23: 53.34
+- return_5d: 0.95
+- return_20d: -1.66
+- volume_ratio: 1.03
+- distance_to_ma20_pct: 0.03
+- distance_to_high_60_pct: -11.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,52.8,53.2,52,53.1,1727576,52.64,53.38,54.85,53.37,1.19
 20260524,52.8,53.2,52,53.1,1727576,52.86,53.36,54.75,53.35,1.16
 20260525,53,53.4,52.4,53.3,1616570,53.08,53.33,54.64,53.35,1.06
-20260526,52.8,53.2,52,53.1,1727576,53.14,53.27,54.53,53.33,1.1
+20260526,53,53.4,52.4,53.3,1616570,53.18,53.28,54.53,53.34,1.03
 ```
 
 ## Latest TDCC Snapshot
@@ -120,14 +120,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 2204 | 中華 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 57.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 2204 | 中華 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | status |

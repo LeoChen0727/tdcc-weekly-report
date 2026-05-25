@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8222 寶一
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:50 Asia/Taipei
+- generated_at: 2026-05-26 06:03:50 Asia/Taipei
 - stock_id: 8222
 - stock_name: 寶一
 - packet_status: standard_180d_window_packet
@@ -55,20 +55,20 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 36.8
-- high: 36.8
-- low: 36
-- close: 36.35
-- volume: 277952
-- ma5: 36.23
-- ma20: 36.16
-- ma60: 36.54
-- ma120: 38.99
-- ema23: 36.15
-- return_5d: 0
-- return_20d: 3.56
-- volume_ratio: 0.66
-- distance_to_ma20_pct: 0.53
-- distance_to_high_60_pct: -11.77
+- high: 37.1
+- low: 35.3
+- close: 35.75
+- volume: 613544
+- ma5: 36.11
+- ma20: 36.13
+- ma60: 36.53
+- ma120: 38.98
+- ema23: 36.1
+- return_5d: -1.65
+- return_20d: 1.85
+- volume_ratio: 1.4
+- distance_to_ma20_pct: -1.04
+- distance_to_high_60_pct: -13.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,36.8,36.8,36,36.35,277952,35.91,36.05,36.75,36.15,0.68
 20260524,36.8,36.8,36,36.35,277952,36.14,36.06,36.69,36.16,0.68
 20260525,36.8,37.1,35.3,35.75,613544,36.23,36.09,36.62,36.13,1.47
-20260526,36.8,36.8,36,36.35,277952,36.23,36.16,36.54,36.15,0.66
+20260526,36.8,37.1,35.3,35.75,613544,36.11,36.13,36.53,36.1,1.4
 ```
 
 ## Latest TDCC Snapshot

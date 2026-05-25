@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00960 野村全球航運龍頭
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:27 Asia/Taipei
+- generated_at: 2026-05-26 06:01:37 Asia/Taipei
 - stock_id: 00960
 - stock_name: 野村全球航運龍頭
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 17.76
+- open: 17.8
 - high: 17.8
-- low: 17.73
-- close: 17.76
-- volume: 305566
-- ma5: 17.72
-- ma20: 17.72
-- ma60: 17.72
-- ma120: 17.72
-- ema23: 17.74
+- low: 17.52
+- close: 17.54
+- volume: 409730
+- ma5: 17.67
+- ma20: 17.67
+- ma60: 17.67
+- ma120: 17.67
+- ema23: 17.72
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.94
-- distance_to_ma20_pct: 0.25
-- distance_to_high_60_pct: -0.22
+- volume_ratio: 1.18
+- distance_to_ma20_pct: -0.75
+- distance_to_high_60_pct: -1.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,17.76,17.8,17.73,17.76,305566,,,,,
 20260524,17.76,17.8,17.73,17.76,305566,,,,,
 20260525,17.8,17.8,17.52,17.54,409730,,,,,
-20260526,17.76,17.8,17.73,17.76,305566,17.72,17.72,17.72,17.74,0.94
+20260526,17.8,17.8,17.52,17.54,409730,17.67,17.67,17.67,17.72,1.18
 ```
 
 ## Latest TDCC Snapshot

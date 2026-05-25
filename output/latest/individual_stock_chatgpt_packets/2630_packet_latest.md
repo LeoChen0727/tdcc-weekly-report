@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2630 亞航
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:06 Asia/Taipei
+- generated_at: 2026-05-26 06:02:14 Asia/Taipei
 - stock_id: 2630
 - stock_name: 亞航
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 43.8
-- high: 43.95
-- low: 43
-- close: 43.5
-- volume: 794051
-- ma5: 43.39
-- ma20: 45.29
-- ma60: 47.78
+- open: 43.35
+- high: 43.6
+- low: 42.7
+- close: 42.95
+- volume: 1282582
+- ma5: 43.28
+- ma20: 45.26
+- ma60: 47.77
 - ma120: 49.89
-- ema23: 45.1
-- return_5d: -0.11
-- return_20d: -7.84
-- volume_ratio: 0.64
-- distance_to_ma20_pct: -3.95
-- distance_to_high_60_pct: -20.33
+- ema23: 45.06
+- return_5d: -1.38
+- return_20d: -9
+- volume_ratio: 1.01
+- distance_to_ma20_pct: -5.11
+- distance_to_high_60_pct: -21.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,43.8,43.95,43,43.5,794051,43.21,46.03,48.26,45.64,0.64
 20260524,43.8,43.95,43,43.5,794051,43.36,45.74,48.1,45.46,0.64
 20260525,43.35,43.6,42.7,42.95,1282582,43.4,45.48,47.93,45.25,1.02
-20260526,43.8,43.95,43,43.5,794051,43.39,45.29,47.78,45.1,0.64
+20260526,43.35,43.6,42.7,42.95,1282582,43.28,45.26,47.77,45.06,1.01
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6669 緯穎
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:28 Asia/Taipei
+- generated_at: 2026-05-26 06:03:30 Asia/Taipei
 - stock_id: 6669
 - stock_name: 緯穎
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 5460
-- high: 5575
-- low: 5330
-- close: 5525
-- volume: 1969769
-- ma5: 5542
-- ma20: 5227.25
-- ma60: 4348.25
-- ma120: 4236.12
-- ema23: 5109.34
-- return_5d: 3.37
-- return_20d: 14.04
-- volume_ratio: 0.85
-- distance_to_ma20_pct: 5.7
-- distance_to_high_60_pct: -6.04
+- open: 5755
+- high: 5880
+- low: 5555
+- close: 5610
+- volume: 2115890
+- ma5: 5559
+- ma20: 5231.5
+- ma60: 4349.67
+- ma120: 4236.83
+- ema23: 5116.43
+- return_5d: 4.96
+- return_20d: 15.79
+- volume_ratio: 0.91
+- distance_to_ma20_pct: 7.24
+- distance_to_high_60_pct: -4.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,5460,5575,5330,5525,1969769,5239,5121,4274.08,4976.93,0.78
 20260524,5460,5575,5330,5525,1969769,5366,5152.75,4298.5,5022.61,0.84
 20260525,5755,5880,5555,5610,2115890,5506,5193.25,4325.33,5071.56,0.91
-20260526,5460,5575,5330,5525,1969769,5542,5227.25,4348.25,5109.34,0.85
+20260526,5755,5880,5555,5610,2115890,5559,5231.5,4349.67,5116.43,0.91
 ```
 
 ## Latest TDCC Snapshot

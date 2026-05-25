@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6205 詮欣
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:13 Asia/Taipei
+- generated_at: 2026-05-26 06:03:16 Asia/Taipei
 - stock_id: 6205
 - stock_name: 詮欣
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 77.8
-- high: 84.9
-- low: 77.2
-- close: 84.9
-- volume: 4617635
-- ma5: 85.22
-- ma20: 84.16
-- ma60: 69.71
-- ma120: 59.46
-- ema23: 81.01
-- return_5d: 9.97
-- return_20d: -7.42
-- volume_ratio: 0.72
-- distance_to_ma20_pct: 0.88
-- distance_to_high_60_pct: -18.76
+- open: 85.5
+- high: 88.5
+- low: 83.2
+- close: 86.5
+- volume: 6668759
+- ma5: 85.54
+- ma20: 84.24
+- ma60: 69.73
+- ma120: 59.48
+- ema23: 81.14
+- return_5d: 12.05
+- return_20d: -5.67
+- volume_ratio: 1.02
+- distance_to_ma20_pct: 2.68
+- distance_to_high_60_pct: -17.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,77.8,84.9,77.2,84.9,4617635,78.66,84.04,67.95,79.69,0.65
 20260524,77.8,84.9,77.2,84.9,4617635,80.88,84.34,68.54,80.13,0.66
 20260525,85.5,88.5,83.2,86.5,6668759,83.68,84.5,69.14,80.66,0.94
-20260526,77.8,84.9,77.2,84.9,4617635,85.22,84.16,69.71,81.01,0.72
+20260526,85.5,88.5,83.2,86.5,6668759,85.54,84.24,69.73,81.14,1.02
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6205 | 詮欣 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 6205 | 詮欣 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

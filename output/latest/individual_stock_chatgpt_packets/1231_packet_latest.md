@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1231 聯華食
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:29 Asia/Taipei
+- generated_at: 2026-05-26 06:01:39 Asia/Taipei
 - stock_id: 1231
 - stock_name: 聯華食
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 86.6
-- high: 86.6
-- low: 85.8
-- close: 85.8
-- volume: 302628
-- ma5: 85.6
-- ma20: 86.33
-- ma60: 88.19
-- ma120: 91.94
-- ema23: 86.66
-- return_5d: -1.15
-- return_20d: -2.05
-- volume_ratio: 0.87
-- distance_to_ma20_pct: -0.61
-- distance_to_high_60_pct: -8.53
+- open: 85.5
+- high: 85.5
+- low: 84.1
+- close: 84.8
+- volume: 673581
+- ma5: 85.4
+- ma20: 86.28
+- ma60: 88.17
+- ma120: 91.93
+- ema23: 86.58
+- return_5d: -2.3
+- return_20d: -3.2
+- volume_ratio: 1.84
+- distance_to_ma20_pct: -1.72
+- distance_to_high_60_pct: -9.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,86.6,86.6,85.8,85.8,302628,86.48,86.53,88.25,87.02,0.9
 20260524,86.6,86.6,85.8,85.8,302628,86.16,86.53,88.22,86.92,0.94
 20260525,85.5,85.5,84.1,84.8,673581,85.8,86.42,88.19,86.74,1.98
-20260526,86.6,86.6,85.8,85.8,302628,85.6,86.33,88.19,86.66,0.87
+20260526,85.5,85.5,84.1,84.8,673581,85.4,86.28,88.17,86.58,1.84
 ```
 
 ## Latest TDCC Snapshot

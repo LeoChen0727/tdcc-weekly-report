@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00924 復華S&P500成長
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:26 Asia/Taipei
+- generated_at: 2026-05-26 06:01:36 Asia/Taipei
 - stock_id: 00924
 - stock_name: 復華S&P500成長
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 32.31
-- high: 32.31
-- low: 32.26
-- close: 32.29
-- volume: 1764139
-- ma5: 32.31
-- ma20: 32.31
-- ma60: 32.31
-- ma120: 32.31
-- ema23: 32.3
+- open: 32.36
+- high: 32.46
+- low: 32.32
+- close: 32.39
+- volume: 3675361
+- ma5: 32.33
+- ma20: 32.33
+- ma60: 32.33
+- ma120: 32.33
+- ema23: 32.31
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.82
-- distance_to_ma20_pct: -0.06
-- distance_to_high_60_pct: -0.52
+- volume_ratio: 1.45
+- distance_to_ma20_pct: 0.19
+- distance_to_high_60_pct: -0.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,32.31,32.31,32.26,32.29,1764139,,,,,
 20260524,32.31,32.31,32.26,32.29,1764139,,,,,
 20260525,32.36,32.46,32.32,32.39,3675361,,,,,
-20260526,32.31,32.31,32.26,32.29,1764139,32.31,32.31,32.31,32.3,0.82
+20260526,32.36,32.46,32.32,32.39,3675361,32.33,32.33,32.33,32.31,1.45
 ```
 
 ## Latest TDCC Snapshot

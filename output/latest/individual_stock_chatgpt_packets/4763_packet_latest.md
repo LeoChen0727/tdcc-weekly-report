@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4763 材料*-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:49 Asia/Taipei
+- generated_at: 2026-05-26 06:02:54 Asia/Taipei
 - stock_id: 4763
 - stock_name: 材料*-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 42.85
+- open: 44.2
 - high: 44.2
-- low: 42.3
-- close: 43.7
-- volume: 10996694
-- ma5: 43.57
-- ma20: 42.43
-- ma60: 43.45
+- low: 42.85
+- close: 43.05
+- volume: 6888389
+- ma5: 43.44
+- ma20: 42.4
+- ma60: 43.44
 - ma120: 47.6
-- ema23: 42.86
-- return_5d: 3.31
-- return_20d: 1.86
-- volume_ratio: 1.6
-- distance_to_ma20_pct: 2.99
-- distance_to_high_60_pct: -10.08
+- ema23: 42.81
+- return_5d: 1.77
+- return_20d: 0.35
+- volume_ratio: 1.03
+- distance_to_ma20_pct: 1.53
+- distance_to_high_60_pct: -11.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,42.85,44.2,42.3,43.7,10996694,42.48,42.35,43.62,42.68,1.7
 20260524,42.85,44.2,42.3,43.7,10996694,42.91,42.36,43.56,42.76,1.67
 20260525,44.2,44.2,42.85,43.05,6888389,43.29,42.39,43.49,42.79,1.05
-20260526,42.85,44.2,42.3,43.7,10996694,43.57,42.43,43.45,42.86,1.6
+20260526,44.2,44.2,42.85,43.05,6888389,43.44,42.4,43.44,42.81,1.03
 ```
 
 ## Latest TDCC Snapshot
@@ -120,9 +120,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4763 | 材料*-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

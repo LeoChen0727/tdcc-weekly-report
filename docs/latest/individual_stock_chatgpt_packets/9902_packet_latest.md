@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9902 台火
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:57 Asia/Taipei
+- generated_at: 2026-05-26 06:03:57 Asia/Taipei
 - stock_id: 9902
 - stock_name: 台火
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 13.8
-- high: 13.9
-- low: 13.5
-- close: 13.65
-- volume: 173087
-- ma5: 13.72
-- ma20: 14.01
+- open: 13.95
+- high: 14.3
+- low: 13.9
+- close: 14
+- volume: 252442
+- ma5: 13.79
+- ma20: 14.03
 - ma60: 14.49
 - ma120: 15.81
-- ema23: 14.02
-- return_5d: -0.36
-- return_20d: -6.19
-- volume_ratio: 1.06
-- distance_to_ma20_pct: -2.57
-- distance_to_high_60_pct: -17.27
+- ema23: 14.05
+- return_5d: 2.19
+- return_20d: -3.78
+- volume_ratio: 1.51
+- distance_to_ma20_pct: -0.2
+- distance_to_high_60_pct: -15.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,13.8,13.9,13.5,13.65,173087,13.69,14.12,14.63,14.1,1.19
 20260524,13.8,13.9,13.5,13.65,173087,13.67,14.08,14.58,14.06,1.16
 20260525,13.95,14.3,13.9,14,252442,13.73,14.05,14.54,14.06,1.59
-20260526,13.8,13.9,13.5,13.65,173087,13.72,14.01,14.49,14.02,1.06
+20260526,13.95,14.3,13.9,14,252442,13.79,14.03,14.49,14.05,1.51
 ```
 
 ## Latest TDCC Snapshot

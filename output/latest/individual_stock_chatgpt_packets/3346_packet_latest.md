@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3346 麗清
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:25 Asia/Taipei
+- generated_at: 2026-05-26 06:02:32 Asia/Taipei
 - stock_id: 3346
 - stock_name: 麗清
 - packet_status: standard_180d_window_packet
@@ -55,20 +55,20 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 16.35
-- high: 16.45
-- low: 16.15
-- close: 16.35
-- volume: 438725
-- ma5: 16.28
-- ma20: 16.42
+- high: 16.4
+- low: 15.75
+- close: 16
+- volume: 611811
+- ma5: 16.21
+- ma20: 16.4
 - ma60: 17.99
 - ma120: 19.06
-- ema23: 16.62
-- return_5d: 1.24
-- return_20d: -5.76
-- volume_ratio: 0.84
-- distance_to_ma20_pct: -0.41
-- distance_to_high_60_pct: -24.31
+- ema23: 16.59
+- return_5d: -0.93
+- return_20d: -7.78
+- volume_ratio: 1.15
+- distance_to_ma20_pct: -2.44
+- distance_to_high_60_pct: -25.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,16.35,16.45,16.15,16.35,438725,16.12,16.59,18.23,16.73,0.85
 20260524,16.35,16.45,16.15,16.35,438725,16.25,16.55,18.16,16.7,0.88
 20260525,16.35,16.4,15.75,16,611811,16.24,16.47,18.07,16.64,1.19
-20260526,16.35,16.45,16.15,16.35,438725,16.28,16.42,17.99,16.62,0.84
+20260526,16.35,16.4,15.75,16,611811,16.21,16.4,17.99,16.59,1.15
 ```
 
 ## Latest TDCC Snapshot

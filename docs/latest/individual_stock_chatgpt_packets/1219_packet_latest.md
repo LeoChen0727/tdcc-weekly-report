@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1219 福壽
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:28 Asia/Taipei
+- generated_at: 2026-05-26 06:01:39 Asia/Taipei
 - stock_id: 1219
 - stock_name: 福壽
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 12.55
+- open: 12.4
 - high: 12.55
-- low: 12.4
+- low: 12.3
 - close: 12.45
-- volume: 585279
+- volume: 597781
 - ma5: 12.45
 - ma20: 12.92
 - ma60: 13.51
@@ -66,7 +66,7 @@
 - ema23: 12.93
 - return_5d: -0.4
 - return_20d: -7.78
-- volume_ratio: 0.96
+- volume_ratio: 0.98
 - distance_to_ma20_pct: -3.62
 - distance_to_high_60_pct: -16.16
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,12.55,12.55,12.4,12.45,585279,12.51,13.08,13.57,13.07,1
 20260524,12.55,12.55,12.4,12.45,585279,12.47,13.03,13.55,13.02,1.02
 20260525,12.4,12.55,12.3,12.45,597781,12.46,12.97,13.53,12.97,1.01
-20260526,12.55,12.55,12.4,12.45,585279,12.45,12.92,13.51,12.93,0.96
+20260526,12.4,12.55,12.3,12.45,597781,12.45,12.92,13.51,12.93,0.98
 ```
 
 ## Latest TDCC Snapshot

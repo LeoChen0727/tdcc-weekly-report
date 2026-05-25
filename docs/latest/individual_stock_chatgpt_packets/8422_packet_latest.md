@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8422 可寧衛*
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:52 Asia/Taipei
+- generated_at: 2026-05-26 06:03:52 Asia/Taipei
 - stock_id: 8422
 - stock_name: 可寧衛*
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 26.5
-- high: 26.8
-- low: 26.35
-- close: 26.8
-- volume: 7159306
-- ma5: 26.95
-- ma20: 27.08
-- ma60: 28.87
-- ma120: 30.52
-- ema23: 27.3
-- return_5d: 1.9
-- return_20d: -3.77
-- volume_ratio: 0.84
-- distance_to_ma20_pct: -1.02
-- distance_to_high_60_pct: -20
+- open: 27
+- high: 27.95
+- low: 27
+- close: 27.55
+- volume: 12513338
+- ma5: 27.1
+- ma20: 27.11
+- ma60: 28.88
+- ma120: 30.53
+- ema23: 27.37
+- return_5d: 4.75
+- return_20d: -1.08
+- volume_ratio: 1.43
+- distance_to_ma20_pct: 1.6
+- distance_to_high_60_pct: -17.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,26.5,26.8,26.35,26.8,7159306,26.23,27.22,29.23,27.38,0.85
 20260524,26.5,26.8,26.35,26.8,7159306,26.48,27.16,29.1,27.33,0.89
 20260525,27,27.95,27,27.55,12513338,26.85,27.13,28.98,27.35,1.48
-20260526,26.5,26.8,26.35,26.8,7159306,26.95,27.08,28.87,27.3,0.84
+20260526,27,27.95,27,27.55,12513338,27.1,27.11,28.88,27.37,1.43
 ```
 
 ## Latest TDCC Snapshot
@@ -120,14 +120,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 8422 | 可寧衛* | range_rebound | 區間內轉強 / 挑戰前高觀察 | 55.0 |  |  | neckline_challenge |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 8422 | 可寧衛* | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

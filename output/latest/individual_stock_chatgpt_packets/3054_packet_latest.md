@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3054 立萬利
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:17 Asia/Taipei
+- generated_at: 2026-05-26 06:02:24 Asia/Taipei
 - stock_id: 3054
 - stock_name: 立萬利
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 66.8
-- high: 68.5
-- low: 66.8
-- close: 67.6
-- volume: 194889
-- ma5: 67.88
-- ma20: 68.28
-- ma60: 67.69
-- ma120: 48.38
-- ema23: 68.23
-- return_5d: 1.2
-- return_20d: 0.45
-- volume_ratio: 0.52
-- distance_to_ma20_pct: -1
-- distance_to_high_60_pct: -29.58
+- open: 70
+- high: 70
+- low: 67.5
+- close: 69
+- volume: 353813
+- ma5: 68.16
+- ma20: 68.36
+- ma60: 67.72
+- ma120: 48.39
+- ema23: 68.35
+- return_5d: 3.29
+- return_20d: 2.53
+- volume_ratio: 0.93
+- distance_to_ma20_pct: 0.94
+- distance_to_high_60_pct: -28.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,66.8,68.5,66.8,67.6,194889,66.96,68.86,66.19,68.28,0.39
 20260524,66.8,68.5,66.8,67.6,194889,67.24,68.33,66.74,68.22,0.41
 20260525,70,70,67.5,69,353813,67.72,68.27,67.26,68.29,0.88
-20260526,66.8,68.5,66.8,67.6,194889,67.88,68.28,67.69,68.23,0.52
+20260526,70,70,67.5,69,353813,68.16,68.36,67.72,68.35,0.93
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2108 南帝
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:48 Asia/Taipei
+- generated_at: 2026-05-26 06:01:58 Asia/Taipei
 - stock_id: 2108
 - stock_name: 南帝
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 28.2
-- high: 28.3
-- low: 27.7
-- close: 27.95
-- volume: 1043865
-- ma5: 27.84
-- ma20: 27.56
-- ma60: 26.44
+- open: 28
+- high: 28.4
+- low: 27
+- close: 27.4
+- volume: 2217955
+- ma5: 27.73
+- ma20: 27.53
+- ma60: 26.43
 - ma120: 25.13
-- ema23: 27.43
-- return_5d: -0.53
-- return_20d: 4.88
-- volume_ratio: 0.6
-- distance_to_ma20_pct: 1.42
-- distance_to_high_60_pct: -6.68
+- ema23: 27.38
+- return_5d: -2.49
+- return_20d: 2.81
+- volume_ratio: 1.23
+- distance_to_ma20_pct: -0.48
+- distance_to_high_60_pct: -8.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,28.2,28.3,27.7,27.95,1043865,27.73,27.48,26.4,27.33,0.52
 20260524,28.2,28.3,27.7,27.95,1043865,27.9,27.48,26.41,27.38,0.59
 20260525,28,28.4,27,27.4,2217955,27.87,27.5,26.42,27.38,1.26
-20260526,28.2,28.3,27.7,27.95,1043865,27.84,27.56,26.44,27.43,0.6
+20260526,28,28.4,27,27.4,2217955,27.73,27.53,26.43,27.38,1.23
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2108 | 南帝 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260526 | 2108 | 南帝 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260521 | 2108 | 南帝 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1203 味王
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:28 Asia/Taipei
+- generated_at: 2026-05-26 06:01:38 Asia/Taipei
 - stock_id: 1203
 - stock_name: 味王
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 42.4
-- high: 42.8
-- low: 42.3
+- open: 42.6
+- high: 43.1
+- low: 42.2
 - close: 42.6
-- volume: 42071
+- volume: 53776
 - ma5: 42.6
 - ma20: 42.69
 - ma60: 41.28
@@ -66,7 +66,7 @@
 - ema23: 42.47
 - return_5d: -0.12
 - return_20d: -1.96
-- volume_ratio: 1.31
+- volume_ratio: 1.65
 - distance_to_ma20_pct: -0.22
 - distance_to_high_60_pct: -4.27
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,42.4,42.8,42.3,42.6,42071,42.05,42.83,41.21,42.43,1.48
 20260524,42.4,42.8,42.3,42.6,42071,42.42,42.8,41.23,42.44,1.45
 20260525,42.6,43.1,42.2,42.6,53776,42.61,42.73,41.26,42.46,1.74
-20260526,42.4,42.8,42.3,42.6,42071,42.6,42.69,41.28,42.47,1.31
+20260526,42.6,43.1,42.2,42.6,53776,42.6,42.69,41.28,42.47,1.65
 ```
 
 ## Latest TDCC Snapshot

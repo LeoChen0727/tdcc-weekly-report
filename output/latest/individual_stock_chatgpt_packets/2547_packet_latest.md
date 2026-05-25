@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2547 日勝生
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:04 Asia/Taipei
+- generated_at: 2026-05-26 06:02:12 Asia/Taipei
 - stock_id: 2547
 - stock_name: 日勝生
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 10.1
-- high: 10.1
-- low: 9.98
-- close: 10
-- volume: 1767823
-- ma5: 9.98
+- open: 10
+- high: 10
+- low: 9.85
+- close: 9.91
+- volume: 4452459
+- ma5: 9.96
 - ma20: 10.1
 - ma60: 10.58
 - ma120: 10.7
 - ema23: 10.15
-- return_5d: -0.5
-- return_20d: -3.38
-- volume_ratio: 0.77
-- distance_to_ma20_pct: -1
-- distance_to_high_60_pct: -13.42
+- return_5d: -1.39
+- return_20d: -4.25
+- volume_ratio: 1.83
+- distance_to_ma20_pct: -1.85
+- distance_to_high_60_pct: -14.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,10.1,10.1,9.98,10,1767823,10.01,10.17,10.63,10.21,0.8
 20260524,10.1,10.1,9.98,10,1767823,10.01,10.15,10.62,10.19,0.82
 20260525,10,10,9.85,9.91,4452459,9.99,10.12,10.6,10.17,1.91
-20260526,10.1,10.1,9.98,10,1767823,9.98,10.1,10.58,10.15,0.77
+20260526,10,10,9.85,9.91,4452459,9.96,10.1,10.58,10.15,1.83
 ```
 
 ## Latest TDCC Snapshot

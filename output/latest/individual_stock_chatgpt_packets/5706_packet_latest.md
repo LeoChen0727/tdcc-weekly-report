@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5706 鳳凰
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:05 Asia/Taipei
+- generated_at: 2026-05-26 06:03:09 Asia/Taipei
 - stock_id: 5706
 - stock_name: 鳳凰
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 50.4
-- high: 50.4
-- low: 49.75
-- close: 49.95
-- volume: 293307
-- ma5: 49.89
-- ma20: 50.47
-- ma60: 51.03
-- ma120: 50.82
-- ema23: 50.46
-- return_5d: -0.3
-- return_20d: -1.87
-- volume_ratio: 1.15
-- distance_to_ma20_pct: -1.04
-- distance_to_high_60_pct: -12.67
+- open: 49.95
+- high: 49.95
+- low: 49.55
+- close: 49.65
+- volume: 371177
+- ma5: 49.83
+- ma20: 50.46
+- ma60: 51.02
+- ma120: 50.81
+- ema23: 50.43
+- return_5d: -0.9
+- return_20d: -2.46
+- volume_ratio: 1.43
+- distance_to_ma20_pct: -1.6
+- distance_to_high_60_pct: -13.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,50.4,50.4,49.75,49.95,293307,49.85,50.64,51.04,50.64,1.18
 20260524,50.4,50.4,49.75,49.95,293307,49.92,50.58,51.02,50.58,1.21
 20260525,49.95,49.95,49.55,49.65,371177,49.92,50.52,51.02,50.5,1.48
-20260526,50.4,50.4,49.75,49.95,293307,49.89,50.47,51.03,50.46,1.15
+20260526,49.95,49.95,49.55,49.65,371177,49.83,50.46,51.02,50.43,1.43
 ```
 
 ## Latest TDCC Snapshot

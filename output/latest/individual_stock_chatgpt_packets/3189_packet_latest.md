@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3189 景碩
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:21 Asia/Taipei
+- generated_at: 2026-05-26 06:02:28 Asia/Taipei
 - stock_id: 3189
 - stock_name: 景碩
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 588
-- high: 609
-- low: 588
-- close: 609
-- volume: 11454728
-- ma5: 621
-- ma20: 535.12
-- ma60: 425.58
-- ma120: 308.51
-- ema23: 533.89
-- return_5d: 9.93
-- return_20d: 19.88
-- volume_ratio: 0.44
-- distance_to_ma20_pct: 13.81
-- distance_to_high_60_pct: -8.97
+- open: 664
+- high: 669
+- low: 660
+- close: 669
+- volume: 8536899
+- ma5: 633
+- ma20: 538.12
+- ma60: 426.58
+- ma120: 309.01
+- ema23: 538.89
+- return_5d: 20.76
+- return_20d: 31.69
+- volume_ratio: 0.33
+- distance_to_ma20_pct: 24.32
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,588,609,588,609,11454728,557.8,517.33,409.88,505.54,0.38
 20260524,588,609,588,609,11454728,577,522.02,414.6,514.16,0.4
 20260525,664,669,660,669,8536899,610,530.08,420.51,527.06,0.32
-20260526,588,609,588,609,11454728,621,535.12,425.58,533.89,0.44
+20260526,664,669,660,669,8536899,633,538.12,426.58,538.89,0.33
 ```
 
 ## Latest TDCC Snapshot

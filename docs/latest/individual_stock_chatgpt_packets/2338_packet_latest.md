@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2338 光罩
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:52 Asia/Taipei
+- generated_at: 2026-05-26 06:02:01 Asia/Taipei
 - stock_id: 2338
 - stock_name: 光罩
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 53
-- high: 54.8
-- low: 52.6
-- close: 54.4
-- volume: 9340371
-- ma5: 54.94
-- ma20: 51.06
-- ma60: 49.06
-- ma120: 43.4
-- ema23: 51.24
-- return_5d: 3.03
-- return_20d: 14.89
-- volume_ratio: 1.14
-- distance_to_ma20_pct: 6.54
-- distance_to_high_60_pct: -8.42
+- open: 55.2
+- high: 58.5
+- low: 53.5
+- close: 57.1
+- volume: 16550566
+- ma5: 55.48
+- ma20: 51.2
+- ma60: 49.1
+- ma120: 43.42
+- ema23: 51.46
+- return_5d: 8.14
+- return_20d: 20.59
+- volume_ratio: 1.94
+- distance_to_ma20_pct: 11.53
+- distance_to_high_60_pct: -3.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,53,54.8,52.6,54.4,9340371,52.02,49.87,48.76,50.03,1.36
 20260524,53,54.8,52.6,54.4,9340371,53.17,50.24,48.92,50.39,1.31
 20260525,55.2,58.5,53.5,57.1,16550566,54.62,50.71,49.05,50.95,2.12
-20260526,53,54.8,52.6,54.4,9340371,54.94,51.06,49.06,51.24,1.14
+20260526,55.2,58.5,53.5,57.1,16550566,55.48,51.2,49.1,51.46,1.94
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2338 | 光罩 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 2338 | 光罩 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 2338 | 光罩 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

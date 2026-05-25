@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1201 味全
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:28 Asia/Taipei
+- generated_at: 2026-05-26 06:01:38 Asia/Taipei
 - stock_id: 1201
 - stock_name: 味全
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 12.1
-- high: 12.1
-- low: 11.95
-- close: 12.05
-- volume: 496557
-- ma5: 12.04
+- open: 12.05
+- high: 12.05
+- low: 11.9
+- close: 12
+- volume: 951814
+- ma5: 12.03
 - ma20: 12.17
 - ma60: 13.08
 - ma120: 13.85
-- ema23: 12.31
-- return_5d: -0.41
-- return_20d: -4.74
-- volume_ratio: 1.04
-- distance_to_ma20_pct: -0.99
-- distance_to_high_60_pct: -16.9
+- ema23: 12.3
+- return_5d: -0.83
+- return_20d: -5.14
+- volume_ratio: 1.91
+- distance_to_ma20_pct: -1.38
+- distance_to_high_60_pct: -17.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,12.1,12.1,11.95,12.05,496557,12.06,12.27,13.21,12.39,1.08
 20260524,12.1,12.1,11.95,12.05,496557,12.07,12.23,13.17,12.36,1.12
 20260525,12.05,12.05,11.9,12,951814,12.05,12.2,13.12,12.33,2.02
-20260526,12.1,12.1,11.95,12.05,496557,12.04,12.17,13.08,12.31,1.04
+20260526,12.05,12.05,11.9,12,951814,12.03,12.17,13.08,12.3,1.91
 ```
 
 ## Latest TDCC Snapshot

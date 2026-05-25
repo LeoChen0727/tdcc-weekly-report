@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6272 驊陞
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:17 Asia/Taipei
+- generated_at: 2026-05-26 06:03:20 Asia/Taipei
 - stock_id: 6272
 - stock_name: 驊陞
 - packet_status: standard_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 32.2
-- high: 33.8
-- low: 32.2
-- close: 33.65
-- volume: 519209
-- ma5: 33.52
-- ma20: 32.06
-- ma60: 33.02
-- ma120: 37.08
-- ema23: 32.44
-- return_5d: 4.99
-- return_20d: 5.65
-- volume_ratio: 1.19
-- distance_to_ma20_pct: 4.96
-- distance_to_high_60_pct: -14.59
+- open: 34.3
+- high: 34.3
+- low: 32.7
+- close: 33
+- volume: 496052
+- ma5: 33.39
+- ma20: 32.03
+- ma60: 33.01
+- ma120: 37.07
+- ema23: 32.39
+- return_5d: 2.96
+- return_20d: 3.61
+- volume_ratio: 1.14
+- distance_to_ma20_pct: 3.04
+- distance_to_high_60_pct: -16.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,32.2,33.8,32.2,33.65,519209,32.55,31.81,33.31,32.14,1.31
 20260524,32.2,33.8,32.2,33.65,519209,32.92,31.91,33.21,32.27,1.27
 20260525,34.3,34.3,32.7,33,496052,33.2,31.97,33.1,32.33,1.18
-20260526,32.2,33.8,32.2,33.65,519209,33.52,32.06,33.02,32.44,1.19
+20260526,34.3,34.3,32.7,33,496052,33.39,32.03,33.01,32.39,1.14
 ```
 
 ## Latest TDCC Snapshot

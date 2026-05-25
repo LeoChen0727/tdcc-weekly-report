@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2537 聯上發
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:03 Asia/Taipei
+- generated_at: 2026-05-26 06:02:11 Asia/Taipei
 - stock_id: 2537
 - stock_name: 聯上發
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 9.89
-- high: 9.89
-- low: 9.5
-- close: 9.57
-- volume: 2015643
-- ma5: 9.57
-- ma20: 9.93
-- ma60: 10.19
+- open: 9.57
+- high: 9.6
+- low: 9.38
+- close: 9.55
+- volume: 1412427
+- ma5: 9.56
+- ma20: 9.92
+- ma60: 10.18
 - ma120: 10.58
 - ema23: 9.9
-- return_5d: -2.65
-- return_20d: -8.42
-- volume_ratio: 1.63
-- distance_to_ma20_pct: -3.58
-- distance_to_high_60_pct: -12.6
+- return_5d: -2.85
+- return_20d: -8.61
+- volume_ratio: 1.17
+- distance_to_ma20_pct: -3.77
+- distance_to_high_60_pct: -12.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,9.89,9.89,9.5,9.57,2015643,9.66,10.05,10.23,10,1.88
 20260524,9.89,9.89,9.5,9.57,2015643,9.64,10.01,10.21,9.97,1.8
 20260525,9.57,9.6,9.38,9.55,1412427,9.62,9.97,10.2,9.93,1.21
-20260526,9.89,9.89,9.5,9.57,2015643,9.57,9.93,10.19,9.9,1.63
+20260526,9.57,9.6,9.38,9.55,1412427,9.56,9.92,10.18,9.9,1.17
 ```
 
 ## Latest TDCC Snapshot
@@ -123,7 +123,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260526 | 2537 | 聯上發 | revenue_pullback | 營收成長股價回檔 | 82.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260526 | 2537 | 聯上發 | revenue_breakout_low_response | 營收爆發低反應股 | 22.0 | 8.0 | B_可觀察 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260526 | 2537 | 聯上發 | revenue_breakout_low_response | 營收爆發低反應股 | 22.0 | 5.0 | B_可觀察 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

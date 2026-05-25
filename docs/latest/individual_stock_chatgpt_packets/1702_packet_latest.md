@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1702 南僑
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:40 Asia/Taipei
+- generated_at: 2026-05-26 06:01:50 Asia/Taipei
 - stock_id: 1702
 - stock_name: 南僑
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 33.35
-- high: 33.35
-- low: 33
-- close: 33.25
-- volume: 382109
-- ma5: 33.18
-- ma20: 33.67
+- open: 33.3
+- high: 33.3
+- low: 32.7
+- close: 32.9
+- volume: 674299
+- ma5: 33.11
+- ma20: 33.65
 - ma60: 35.34
 - ma120: 36.77
-- ema23: 33.86
-- return_5d: -0.3
-- return_20d: -5.94
-- volume_ratio: 0.7
-- distance_to_ma20_pct: -1.24
-- distance_to_high_60_pct: -12.62
+- ema23: 33.83
+- return_5d: -1.35
+- return_20d: -6.93
+- volume_ratio: 1.2
+- distance_to_ma20_pct: -2.23
+- distance_to_high_60_pct: -13.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,33.35,33.35,33,33.25,382109,33.11,34.02,35.59,34.08,0.74
 20260524,33.35,33.35,33,33.25,382109,33.22,33.9,35.51,34.01,0.73
 20260525,33.3,33.3,32.7,32.9,674299,33.2,33.77,35.42,33.92,1.25
-20260526,33.35,33.35,33,33.25,382109,33.18,33.67,35.34,33.86,0.7
+20260526,33.3,33.3,32.7,32.9,674299,33.11,33.65,35.34,33.83,1.2
 ```
 
 ## Latest TDCC Snapshot

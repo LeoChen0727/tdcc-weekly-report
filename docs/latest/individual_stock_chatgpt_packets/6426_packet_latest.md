@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6426 統新
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:19 Asia/Taipei
+- generated_at: 2026-05-26 06:03:22 Asia/Taipei
 - stock_id: 6426
 - stock_name: 統新
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 268
-- high: 279
-- low: 266
-- close: 268
-- volume: 2482908
-- ma5: 269.2
-- ma20: 256.5
-- ma60: 202.82
-- ma120: 153.5
-- ema23: 250.72
-- return_5d: 2.1
-- return_20d: 27.92
-- volume_ratio: 0.68
-- distance_to_ma20_pct: 4.48
-- distance_to_high_60_pct: -8.84
+- open: 274.5
+- high: 282
+- low: 268.5
+- close: 274
+- volume: 2312223
+- ma5: 270.4
+- ma20: 256.8
+- ma60: 202.93
+- ma120: 153.56
+- ema23: 251.22
+- return_5d: 4.38
+- return_20d: 30.79
+- volume_ratio: 0.63
+- distance_to_ma20_pct: 6.7
+- distance_to_high_60_pct: -6.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,268,279,266,268,2482908,258,247.5,198.45,244.98,0.68
 20260524,268,279,266,268,2482908,261.1,250.65,199.97,246.89,0.68
 20260525,274.5,282,268.5,274,2312223,268.1,253.57,201.34,249.15,0.64
-20260526,268,279,266,268,2482908,269.2,256.5,202.82,250.72,0.68
+20260526,274.5,282,268.5,274,2312223,270.4,256.8,202.93,251.22,0.63
 ```
 
 ## Latest TDCC Snapshot
@@ -122,12 +122,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6426 | 統新 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 6426 | 統新 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6426 | 統新 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260526 | 6426 | 統新 | 4 | 4 | 4 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | status |

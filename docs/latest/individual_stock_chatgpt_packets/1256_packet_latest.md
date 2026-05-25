@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1256 鮮活果汁-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:29 Asia/Taipei
+- generated_at: 2026-05-26 06:01:39 Asia/Taipei
 - stock_id: 1256
 - stock_name: 鮮活果汁-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 189.5
-- high: 189.5
-- low: 183
-- close: 183.5
-- volume: 90436
-- ma5: 183.6
-- ma20: 178.97
-- ma60: 163.89
-- ma120: 156.7
-- ema23: 177.36
-- return_5d: -2.39
-- return_20d: 12.58
-- volume_ratio: 0.69
-- distance_to_ma20_pct: 2.53
-- distance_to_high_60_pct: -7.79
+- open: 183.5
+- high: 184
+- low: 180
+- close: 184
+- volume: 116072
+- ma5: 183.7
+- ma20: 179
+- ma60: 163.9
+- ma120: 156.71
+- ema23: 177.4
+- return_5d: -2.13
+- return_20d: 12.88
+- volume_ratio: 0.88
+- distance_to_ma20_pct: 2.79
+- distance_to_high_60_pct: -7.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,189.5,189.5,183,183.5,90436,184.3,175.47,162.57,175.48,0.73
 20260524,189.5,189.5,183,183.5,90436,184.3,176.78,163.03,176.15,0.72
 20260525,183.5,184,180,184,116072,184.5,177.95,163.5,176.8,0.9
-20260526,189.5,189.5,183,183.5,90436,183.6,178.97,163.89,177.36,0.69
+20260526,183.5,184,180,184,116072,183.7,179,163.9,177.4,0.88
 ```
 
 ## Latest TDCC Snapshot

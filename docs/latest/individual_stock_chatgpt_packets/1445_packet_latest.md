@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1445 大宇
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:33 Asia/Taipei
+- generated_at: 2026-05-26 06:01:43 Asia/Taipei
 - stock_id: 1445
 - stock_name: 大宇
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 12.1
-- high: 12.1
-- low: 11.8
-- close: 11.8
-- volume: 211061
-- ma5: 11.78
-- ma20: 12.06
+- open: 11.9
+- high: 11.9
+- low: 11.6
+- close: 11.7
+- volume: 194657
+- ma5: 11.76
+- ma20: 12.05
 - ma60: 12.62
 - ma120: 13.22
-- ema23: 12.08
-- return_5d: -2.88
-- return_20d: -6.72
-- volume_ratio: 1.93
-- distance_to_ma20_pct: -2.14
-- distance_to_high_60_pct: -18.62
+- ema23: 12.07
+- return_5d: -3.7
+- return_20d: -7.51
+- volume_ratio: 1.79
+- distance_to_ma20_pct: -2.92
+- distance_to_high_60_pct: -19.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,12.1,12.1,11.8,11.8,211061,11.72,12.21,12.78,12.17,2.45
 20260524,12.1,12.1,11.8,11.8,211061,11.81,12.16,12.72,12.14,2.29
 20260525,11.9,11.9,11.6,11.7,194657,11.85,12.1,12.67,12.11,1.93
-20260526,12.1,12.1,11.8,11.8,211061,11.78,12.06,12.62,12.08,1.93
+20260526,11.9,11.9,11.6,11.7,194657,11.76,12.05,12.62,12.07,1.79
 ```
 
 ## Latest TDCC Snapshot

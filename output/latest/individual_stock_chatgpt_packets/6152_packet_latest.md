@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6152 百一
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:09 Asia/Taipei
+- generated_at: 2026-05-26 06:03:13 Asia/Taipei
 - stock_id: 6152
 - stock_name: 百一
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 15.6
-- high: 16.2
-- low: 15.45
-- close: 16.1
-- volume: 3023462
-- ma5: 16.01
-- ma20: 15.04
-- ma60: 16.76
-- ma120: 14.36
-- ema23: 15.52
-- return_5d: 4.55
-- return_20d: 15.83
-- volume_ratio: 1.45
-- distance_to_ma20_pct: 7.03
-- distance_to_high_60_pct: -27.48
+- open: 16.5
+- high: 16.5
+- low: 15.4
+- close: 15.65
+- volume: 2837801
+- ma5: 15.92
+- ma20: 15.02
+- ma60: 16.75
+- ma120: 14.35
+- ema23: 15.48
+- return_5d: 1.62
+- return_20d: 12.59
+- volume_ratio: 1.37
+- distance_to_ma20_pct: 4.19
+- distance_to_high_60_pct: -29.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,15.6,16.2,15.45,16.1,3023462,15.54,14.72,16.88,15.39,1.58
 20260524,15.6,16.2,15.45,16.1,3023462,15.73,14.85,16.87,15.45,1.59
 20260525,16.5,16.5,15.4,15.65,2837801,15.87,14.93,16.83,15.46,1.44
-20260526,15.6,16.2,15.45,16.1,3023462,16.01,15.04,16.76,15.52,1.45
+20260526,16.5,16.5,15.4,15.65,2837801,15.92,15.02,16.75,15.48,1.37
 ```
 
 ## Latest TDCC Snapshot
@@ -122,9 +122,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6152 | 百一 | pullback_rebound | 回檔後短線轉強 | 63.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 6152 | 百一 | pattern | 型態觀察 | 51.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260526 | 6152 | 百一 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260526 | 6152 | 百一 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 67.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

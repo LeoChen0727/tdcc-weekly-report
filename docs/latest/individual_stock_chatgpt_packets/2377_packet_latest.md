@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2377 微星
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:55 Asia/Taipei
+- generated_at: 2026-05-26 06:02:04 Asia/Taipei
 - stock_id: 2377
 - stock_name: 微星
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 114.5
-- high: 124
-- low: 113.5
-- close: 124
-- volume: 54500942
-- ma5: 124.6
-- ma20: 110.83
-- ma60: 98.68
-- ma120: 98.25
-- ema23: 111.5
-- return_5d: 9.73
-- return_20d: 24
-- volume_ratio: 1.34
-- distance_to_ma20_pct: 11.89
-- distance_to_high_60_pct: -8.82
+- open: 131.5
+- high: 136
+- low: 127
+- close: 127
+- volume: 80479778
+- ma5: 125.2
+- ma20: 110.97
+- ma60: 98.73
+- ma120: 98.28
+- ema23: 111.75
+- return_5d: 12.39
+- return_20d: 27
+- volume_ratio: 1.91
+- distance_to_ma20_pct: 14.44
+- distance_to_high_60_pct: -6.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,114.5,124,113.5,124,54500942,116.4,106.61,97.19,107.48,1.62
 20260524,114.5,124,113.5,124,54500942,118.9,108.14,97.72,108.85,1.52
 20260525,131.5,136,127,127,80479778,122.4,109.62,98.26,110.37,2.06
-20260526,114.5,124,113.5,124,54500942,124.6,110.83,98.68,111.5,1.34
+20260526,131.5,136,127,127,80479778,125.2,110.97,98.73,111.75,1.91
 ```
 
 ## Latest TDCC Snapshot
@@ -122,6 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 2377 | 微星 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 2377 | 微星 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

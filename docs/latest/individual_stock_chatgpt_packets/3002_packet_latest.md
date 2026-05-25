@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3002 歐格
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:13 Asia/Taipei
+- generated_at: 2026-05-26 06:02:21 Asia/Taipei
 - stock_id: 3002
 - stock_name: 歐格
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 17.2
-- high: 17.6
-- low: 17.05
-- close: 17.55
-- volume: 300665
-- ma5: 17.54
+- open: 17.65
+- high: 17.8
+- low: 17.45
+- close: 17.5
+- volume: 436779
+- ma5: 17.53
 - ma20: 17.48
 - ma60: 18.85
 - ma120: 21.61
 - ema23: 17.66
-- return_5d: 2.63
-- return_20d: -3.57
-- volume_ratio: 1.16
-- distance_to_ma20_pct: 0.37
-- distance_to_high_60_pct: -20.77
+- return_5d: 2.34
+- return_20d: -3.85
+- volume_ratio: 1.64
+- distance_to_ma20_pct: 0.1
+- distance_to_high_60_pct: -20.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,17.2,17.6,17.05,17.55,300665,17.07,17.58,19.07,17.7,1.32
 20260524,17.2,17.6,17.05,17.55,300665,17.28,17.55,19.01,17.69,1.31
 20260525,17.65,17.8,17.45,17.5,436779,17.45,17.52,18.93,17.67,1.77
-20260526,17.2,17.6,17.05,17.55,300665,17.54,17.48,18.85,17.66,1.16
+20260526,17.65,17.8,17.45,17.5,436779,17.53,17.48,18.85,17.66,1.64
 ```
 
 ## Latest TDCC Snapshot

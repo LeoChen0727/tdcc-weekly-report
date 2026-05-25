@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6533 晶心科
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:23 Asia/Taipei
+- generated_at: 2026-05-26 06:03:25 Asia/Taipei
 - stock_id: 6533
 - stock_name: 晶心科
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 234
-- high: 246
-- low: 230.5
-- close: 240
-- volume: 1031399
-- ma5: 240.9
-- ma20: 235.88
-- ma60: 211.18
-- ma120: 228.72
-- ema23: 232.14
-- return_5d: 4.35
-- return_20d: 4.12
-- volume_ratio: 0.91
-- distance_to_ma20_pct: 1.75
-- distance_to_high_60_pct: -13.51
+- open: 245
+- high: 249.5
+- low: 240
+- close: 244.5
+- volume: 1324091
+- ma5: 241.8
+- ma20: 236.1
+- ma60: 211.26
+- ma120: 228.76
+- ema23: 232.52
+- return_5d: 6.3
+- return_20d: 6.07
+- volume_ratio: 1.16
+- distance_to_ma20_pct: 3.56
+- distance_to_high_60_pct: -11.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,234,246,230.5,240,1031399,228.2,234.72,209.93,229.35,0.91
 20260524,234,246,230.5,240,1031399,233.3,234.75,210.3,230.24,0.93
 20260525,245,249.5,240,244.5,1324091,238.9,235.4,210.72,231.43,1.2
-20260526,234,246,230.5,240,1031399,240.9,235.88,211.18,232.14,0.91
+20260526,245,249.5,240,244.5,1324091,241.8,236.1,211.26,232.52,1.16
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6533 | 晶心科 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260526 | 6533 | 晶心科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context

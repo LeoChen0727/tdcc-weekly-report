@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1539 巨庭
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:37 Asia/Taipei
+- generated_at: 2026-05-26 06:01:47 Asia/Taipei
 - stock_id: 1539
 - stock_name: 巨庭
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 15.45
-- high: 15.5
-- low: 15.25
-- close: 15.45
-- volume: 89822
-- ma5: 15.6
-- ma20: 15.66
-- ma60: 16.31
-- ma120: 17.08
-- ema23: 15.76
-- return_5d: -0.32
-- return_20d: -4.63
-- volume_ratio: 0.93
-- distance_to_ma20_pct: -1.37
-- distance_to_high_60_pct: -13.69
+- open: 15.5
+- high: 16.7
+- low: 15.5
+- close: 16.2
+- volume: 304757
+- ma5: 15.75
+- ma20: 15.7
+- ma60: 16.33
+- ma120: 17.09
+- ema23: 15.82
+- return_5d: 4.52
+- return_20d: 0
+- volume_ratio: 2.84
+- distance_to_ma20_pct: 3.17
+- distance_to_high_60_pct: -9.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,15.45,15.5,15.25,15.45,89822,15.46,15.73,16.43,15.78,1.09
 20260524,15.45,15.5,15.25,15.45,89822,15.47,15.7,16.39,15.75,1.08
 20260525,15.5,16.7,15.5,16.2,304757,15.61,15.7,16.36,15.79,3.22
-20260526,15.45,15.5,15.25,15.45,89822,15.6,15.66,16.31,15.76,0.93
+20260526,15.5,16.7,15.5,16.2,304757,15.75,15.7,16.33,15.82,2.84
 ```
 
 ## Latest TDCC Snapshot

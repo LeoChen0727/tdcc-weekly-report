@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2459 敦吉
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:59 Asia/Taipei
+- generated_at: 2026-05-26 06:02:08 Asia/Taipei
 - stock_id: 2459
 - stock_name: 敦吉
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 66.4
-- high: 67.2
-- low: 66.4
-- close: 67.1
-- volume: 198984
-- ma5: 66.96
-- ma20: 66.51
-- ma60: 66.19
+- open: 67
+- high: 67
+- low: 65.9
+- close: 66.4
+- volume: 394263
+- ma5: 66.82
+- ma20: 66.47
+- ma60: 66.18
 - ma120: 66.33
-- ema23: 66.57
-- return_5d: 0.75
-- return_20d: 0.15
-- volume_ratio: 1.14
-- distance_to_ma20_pct: 0.89
-- distance_to_high_60_pct: -2.75
+- ema23: 66.51
+- return_5d: -0.3
+- return_20d: -0.9
+- volume_ratio: 2.13
+- distance_to_ma20_pct: -0.11
+- distance_to_high_60_pct: -3.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,66.4,67.2,66.4,67.1,198984,66.56,66.55,66.22,66.49,1.28
 20260524,66.4,67.2,66.4,67.1,198984,66.76,66.56,66.22,66.54,1.27
 20260525,67,67,65.9,66.4,394263,66.86,66.5,66.2,66.53,2.29
-20260526,66.4,67.2,66.4,67.1,198984,66.96,66.51,66.19,66.57,1.14
+20260526,67,67,65.9,66.4,394263,66.82,66.47,66.18,66.51,2.13
 ```
 
 ## Latest TDCC Snapshot

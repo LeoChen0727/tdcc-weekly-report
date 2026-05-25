@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3048 益登
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:16 Asia/Taipei
+- generated_at: 2026-05-26 06:02:24 Asia/Taipei
 - stock_id: 3048
 - stock_name: 益登
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 74
-- high: 74.5
-- low: 71.2
-- close: 74.5
-- volume: 21793143
-- ma5: 74.26
-- ma20: 55.09
-- ma60: 43.55
-- ma120: 41.89
-- ema23: 57.43
-- return_5d: 9.88
-- return_20d: 92.76
-- volume_ratio: 1.18
-- distance_to_ma20_pct: 35.22
-- distance_to_high_60_pct: -9.04
+- open: 79.1
+- high: 81.9
+- low: 73
+- close: 73.3
+- volume: 36332297
+- ma5: 74.02
+- ma20: 55.03
+- ma60: 43.53
+- ma120: 41.88
+- ema23: 57.33
+- return_5d: 8.11
+- return_20d: 89.65
+- volume_ratio: 1.9
+- distance_to_ma20_pct: 33.19
+- distance_to_high_60_pct: -10.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,74,74.5,71.2,74.5,21793143,66.92,49.84,41.83,52.46,1.47
 20260524,74,74.5,71.2,74.5,21793143,70.6,51.61,42.41,54.29,1.39
 20260525,79.1,81.9,73,73.3,36332297,72.92,53.3,42.96,55.88,2.09
-20260526,74,74.5,71.2,74.5,21793143,74.26,55.09,43.55,57.43,1.18
+20260526,79.1,81.9,73,73.3,36332297,74.02,55.03,43.53,57.33,1.9
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3048 | 益登 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 3048 | 益登 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

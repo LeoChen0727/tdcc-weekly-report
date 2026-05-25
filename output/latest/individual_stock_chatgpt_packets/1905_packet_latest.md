@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1905 華紙
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:45 Asia/Taipei
+- generated_at: 2026-05-26 06:01:54 Asia/Taipei
 - stock_id: 1905
 - stock_name: 華紙
 - packet_status: standard_180d_window_packet
@@ -55,20 +55,20 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 12.15
-- high: 12.15
-- low: 11.9
-- close: 12.1
-- volume: 2769456
-- ma5: 12.13
+- high: 12.25
+- low: 11.75
+- close: 12.25
+- volume: 5981013
+- ma5: 12.16
 - ma20: 12.27
 - ma60: 13.04
-- ma120: 12.54
-- ema23: 12.46
-- return_5d: 0
-- return_20d: -8.68
-- volume_ratio: 0.81
-- distance_to_ma20_pct: -1.35
-- distance_to_high_60_pct: -34.77
+- ma120: 12.55
+- ema23: 12.47
+- return_5d: 1.24
+- return_20d: -7.55
+- volume_ratio: 1.68
+- distance_to_ma20_pct: -0.18
+- distance_to_high_60_pct: -33.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,12.15,12.15,11.9,12.1,2769456,11.99,12.44,13.05,12.55,0.73
 20260524,12.15,12.15,11.9,12.1,2769456,12.04,12.38,13.05,12.51,0.85
 20260525,12.15,12.25,11.75,12.25,5981013,12.13,12.32,13.04,12.49,1.77
-20260526,12.15,12.15,11.9,12.1,2769456,12.13,12.27,13.04,12.46,0.81
+20260526,12.15,12.25,11.75,12.25,5981013,12.16,12.27,13.04,12.47,1.68
 ```
 
 ## Latest TDCC Snapshot

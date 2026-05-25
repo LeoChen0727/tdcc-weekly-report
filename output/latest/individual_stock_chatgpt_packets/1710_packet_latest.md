@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1710 東聯
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:41 Asia/Taipei
+- generated_at: 2026-05-26 06:01:50 Asia/Taipei
 - stock_id: 1710
 - stock_name: 東聯
 - packet_status: standard_180d_window_packet
@@ -55,20 +55,20 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 13
-- high: 13.15
-- low: 12.85
-- close: 12.95
-- volume: 5602796
-- ma5: 12.99
-- ma20: 12.48
-- ma60: 13.45
+- high: 13.2
+- low: 12.5
+- close: 13.15
+- volume: 7530814
+- ma5: 13.03
+- ma20: 12.49
+- ma60: 13.46
 - ma120: 13.03
-- ema23: 12.79
-- return_5d: -1.15
-- return_20d: -1.89
-- volume_ratio: 1.27
-- distance_to_ma20_pct: 3.75
-- distance_to_high_60_pct: -23.15
+- ema23: 12.8
+- return_5d: 0.38
+- return_20d: -0.38
+- volume_ratio: 1.67
+- distance_to_ma20_pct: 5.26
+- distance_to_high_60_pct: -21.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,13,13.15,12.85,12.95,5602796,12.75,12.51,13.46,12.72,1.46
 20260524,13,13.15,12.85,12.95,5602796,12.98,12.5,13.45,12.74,1.41
 20260525,13,13.2,12.5,13.15,7530814,13.02,12.49,13.45,12.77,1.78
-20260526,13,13.15,12.85,12.95,5602796,12.99,12.48,13.45,12.79,1.27
+20260526,13,13.2,12.5,13.15,7530814,13.03,12.49,13.46,12.8,1.67
 ```
 
 ## Latest TDCC Snapshot
@@ -122,6 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 1710 | 東聯 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 1710 | 東聯 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

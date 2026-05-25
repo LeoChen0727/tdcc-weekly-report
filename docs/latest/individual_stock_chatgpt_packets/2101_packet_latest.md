@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2101 南港
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:48 Asia/Taipei
+- generated_at: 2026-05-26 06:01:57 Asia/Taipei
 - stock_id: 2101
 - stock_name: 南港
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 31.1
-- high: 31.3
-- low: 30.55
-- close: 30.7
-- volume: 2199366
-- ma5: 30.6
-- ma20: 32.06
-- ma60: 33.79
+- open: 30.8
+- high: 30.8
+- low: 29.9
+- close: 30.2
+- volume: 3725390
+- ma5: 30.5
+- ma20: 32.03
+- ma60: 33.78
 - ma120: 35.39
-- ema23: 32.04
-- return_5d: -1.29
-- return_20d: -9.97
-- volume_ratio: 1.03
-- distance_to_ma20_pct: -4.23
-- distance_to_high_60_pct: -19.95
+- ema23: 32
+- return_5d: -2.89
+- return_20d: -11.44
+- volume_ratio: 1.69
+- distance_to_ma20_pct: -5.72
+- distance_to_high_60_pct: -21.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,31.1,31.3,30.55,30.7,2199366,30.65,32.49,34.05,32.49,1.03
 20260524,31.1,31.3,30.55,30.7,2199366,30.79,32.38,33.96,32.34,1.13
 20260525,30.8,30.8,29.9,30.2,3725390,30.68,32.23,33.87,32.16,1.79
-20260526,31.1,31.3,30.55,30.7,2199366,30.6,32.06,33.79,32.04,1.03
+20260526,30.8,30.8,29.9,30.2,3725390,30.5,32.03,33.78,32,1.69
 ```
 
 ## Latest TDCC Snapshot
@@ -122,8 +122,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2101 | 南港 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260526 | 2101 | 南港 | revenue_breakout_low_response | 營收爆發低反應股 | 19.0 | 11.0 | B_可觀察 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 2101 | 南港 | revenue_pullback | 營收成長股價回檔 | 57.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 2101 | 南港 | revenue_breakout_low_response | 營收爆發低反應股 | 18.0 | 9.0 | B_可觀察 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9927 泰銘
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:58 Asia/Taipei
+- generated_at: 2026-05-26 06:03:58 Asia/Taipei
 - stock_id: 9927
 - stock_name: 泰銘
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 67.5
+- open: 67.6
 - high: 67.8
-- low: 67.1
-- close: 67.7
-- volume: 78785
-- ma5: 67.6
-- ma20: 67.84
-- ma60: 68.19
-- ma120: 68.63
-- ema23: 67.89
-- return_5d: 0.3
-- return_20d: -2.03
-- volume_ratio: 0.66
-- distance_to_ma20_pct: -0.21
-- distance_to_high_60_pct: -4.65
+- low: 67
+- close: 67.2
+- volume: 182204
+- ma5: 67.5
+- ma20: 67.81
+- ma60: 68.18
+- ma120: 68.62
+- ema23: 67.85
+- return_5d: -0.44
+- return_20d: -2.75
+- volume_ratio: 1.47
+- distance_to_ma20_pct: -0.91
+- distance_to_high_60_pct: -5.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,67.5,67.8,67.1,67.7,78785,67.24,68.03,68.31,68,0.71
 20260524,67.5,67.8,67.1,67.7,78785,67.46,67.98,68.27,67.97,0.72
 20260525,67.6,67.8,67,67.2,182204,67.56,67.91,68.23,67.91,1.56
-20260526,67.5,67.8,67.1,67.7,78785,67.6,67.84,68.19,67.89,0.66
+20260526,67.6,67.8,67,67.2,182204,67.5,67.81,68.18,67.85,1.47
 ```
 
 ## Latest TDCC Snapshot

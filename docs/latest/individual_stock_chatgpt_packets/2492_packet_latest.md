@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2492 華新科
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:01 Asia/Taipei
+- generated_at: 2026-05-26 06:02:10 Asia/Taipei
 - stock_id: 2492
 - stock_name: 華新科
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 280.5
-- high: 292.5
-- low: 280.5
-- close: 292.5
-- volume: 11024695
-- ma5: 298.3
-- ma20: 215.22
-- ma60: 159.57
-- ma120: 143.83
-- ema23: 224.3
-- return_5d: 9.96
-- return_20d: 117.47
-- volume_ratio: 0.56
-- distance_to_ma20_pct: 35.9
-- distance_to_high_60_pct: -9.02
+- open: 306
+- high: 321.5
+- low: 306
+- close: 321.5
+- volume: 5847721
+- ma5: 304.1
+- ma20: 216.68
+- ma60: 160.06
+- ma120: 144.07
+- ema23: 226.72
+- return_5d: 20.86
+- return_20d: 139.03
+- volume_ratio: 0.3
+- distance_to_ma20_pct: 48.38
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,280.5,292.5,280.5,292.5,11024695,262.6,190.2,152.13,201.08,0.56
 20260524,280.5,292.5,280.5,292.5,11024695,277.1,198.35,154.41,208.7,0.55
 20260525,306,321.5,306,321.5,5847721,293,207.32,157.17,218.1,0.3
-20260526,280.5,292.5,280.5,292.5,11024695,298.3,215.22,159.57,224.3,0.56
+20260526,306,321.5,306,321.5,5847721,304.1,216.68,160.06,226.72,0.3
 ```
 
 ## Latest TDCC Snapshot

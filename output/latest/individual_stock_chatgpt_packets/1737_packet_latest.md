@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1737 臺鹽
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:42 Asia/Taipei
+- generated_at: 2026-05-26 06:01:52 Asia/Taipei
 - stock_id: 1737
 - stock_name: 臺鹽
 - packet_status: standard_180d_window_packet
@@ -56,19 +56,19 @@
 - date: 20260526
 - open: 31.55
 - high: 31.6
-- low: 31.5
-- close: 31.55
-- volume: 103383
-- ma5: 31.54
+- low: 31.45
+- close: 31.5
+- volume: 220550
+- ma5: 31.53
 - ma20: 31.54
 - ma60: 31.69
 - ma120: 31.66
 - ema23: 31.58
-- return_5d: 0.16
-- return_20d: -0.79
-- volume_ratio: 0.94
-- distance_to_ma20_pct: 0.02
-- distance_to_high_60_pct: -2.32
+- return_5d: 0
+- return_20d: -0.94
+- volume_ratio: 1.91
+- distance_to_ma20_pct: -0.13
+- distance_to_high_60_pct: -2.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,31.55,31.6,31.5,31.55,103383,31.53,31.56,31.7,31.6,1.01
 20260524,31.55,31.6,31.5,31.55,103383,31.53,31.57,31.7,31.6,1.04
 20260525,31.55,31.6,31.45,31.5,220550,31.53,31.55,31.7,31.59,2.05
-20260526,31.55,31.6,31.5,31.55,103383,31.54,31.54,31.69,31.58,0.94
+20260526,31.55,31.6,31.45,31.5,220550,31.53,31.54,31.69,31.58,1.91
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1434 福懋
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:33 Asia/Taipei
+- generated_at: 2026-05-26 06:01:43 Asia/Taipei
 - stock_id: 1434
 - stock_name: 福懋
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 15.25
-- high: 15.3
-- low: 15.15
-- close: 15.2
-- volume: 1689614
-- ma5: 15.18
-- ma20: 15.51
+- open: 15.2
+- high: 15.2
+- low: 14.95
+- close: 15.1
+- volume: 3637339
+- ma5: 15.16
+- ma20: 15.5
 - ma60: 16.24
 - ma120: 16.37
 - ema23: 15.54
-- return_5d: -0.65
-- return_20d: -5.3
-- volume_ratio: 0.9
-- distance_to_ma20_pct: -1.98
-- distance_to_high_60_pct: -16.71
+- return_5d: -1.31
+- return_20d: -5.92
+- volume_ratio: 1.85
+- distance_to_ma20_pct: -2.6
+- distance_to_high_60_pct: -17.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,15.25,15.3,15.15,15.2,1689614,15.21,15.62,16.4,15.66,0.97
 20260524,15.25,15.3,15.15,15.2,1689614,15.21,15.59,16.34,15.62,0.98
 20260525,15.2,15.2,14.95,15.1,3637339,15.2,15.55,16.29,15.57,1.98
-20260526,15.25,15.3,15.15,15.2,1689614,15.18,15.51,16.24,15.54,0.9
+20260526,15.2,15.2,14.95,15.1,3637339,15.16,15.5,16.24,15.54,1.85
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0053 元大電子
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:24 Asia/Taipei
+- generated_at: 2026-05-26 06:01:34 Asia/Taipei
 - stock_id: 0053
 - stock_name: 元大電子
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 224.95
-- high: 226.5
-- low: 224.4
-- close: 225.85
-- volume: 26564
-- ma5: 227.75
-- ma20: 221.51
-- ma60: 193.19
-- ma120: 171.24
-- ema23: 217.38
-- return_5d: 1.62
-- return_20d: 8.87
-- volume_ratio: 0.84
-- distance_to_ma20_pct: 1.96
-- distance_to_high_60_pct: -4.04
+- open: 229.7
+- high: 235.35
+- low: 229.7
+- close: 235.35
+- volume: 45590
+- ma5: 229.65
+- ma20: 221.99
+- ma60: 193.34
+- ma120: 171.31
+- ema23: 218.18
+- return_5d: 5.89
+- return_20d: 13.45
+- volume_ratio: 1.4
+- distance_to_ma20_pct: 6.02
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,224.95,226.5,224.4,225.85,26564,219.69,218.76,190.69,213.92,0.83
 20260524,224.95,226.5,224.4,225.85,26564,222.41,219.4,191.46,214.91,0.85
 20260525,229.7,235.35,229.7,235.35,45590,227.03,220.59,192.39,216.61,1.42
-20260526,224.95,226.5,224.4,225.85,26564,227.75,221.51,193.19,217.38,0.84
+20260526,229.7,235.35,229.7,235.35,45590,229.65,221.99,193.34,218.18,1.4
 ```
 
 ## Latest TDCC Snapshot

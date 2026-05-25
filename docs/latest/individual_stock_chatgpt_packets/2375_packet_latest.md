@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2375 凱美
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:55 Asia/Taipei
+- generated_at: 2026-05-26 06:02:03 Asia/Taipei
 - stock_id: 2375
 - stock_name: 凱美
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 131.5
-- high: 134.5
-- low: 125.5
-- close: 134.5
-- volume: 28362060
-- ma5: 135.2
-- ma20: 106.51
-- ma60: 89.91
-- ma120: 91.58
-- ema23: 109.68
-- return_5d: 9.8
-- return_20d: 53.54
-- volume_ratio: 1.9
-- distance_to_ma20_pct: 26.28
-- distance_to_high_60_pct: -7.24
+- open: 142
+- high: 145
+- low: 133.5
+- close: 138
+- volume: 40344995
+- ma5: 135.9
+- ma20: 106.69
+- ma60: 89.97
+- ma120: 91.61
+- ema23: 109.97
+- return_5d: 12.65
+- return_20d: 57.53
+- volume_ratio: 2.6
+- distance_to_ma20_pct: 29.35
+- distance_to_high_60_pct: -4.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,131.5,134.5,125.5,134.5,28362060,120.9,98.97,87.84,101.93,2.59
 20260524,131.5,134.5,125.5,134.5,28362060,127.5,101.68,88.49,104.64,2.31
 20260525,142,145,133.5,138,40344995,132.8,104.17,89.21,107.42,2.9
-20260526,131.5,134.5,125.5,134.5,28362060,135.2,106.51,89.91,109.68,1.9
+20260526,142,145,133.5,138,40344995,135.9,106.69,89.97,109.97,2.6
 ```
 
 ## Latest TDCC Snapshot
@@ -124,7 +124,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2375 | 凱美 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  | call_put_bullish | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 2375 | 凱美 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2025 千興
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:46 Asia/Taipei
+- generated_at: 2026-05-26 06:01:55 Asia/Taipei
 - stock_id: 2025
 - stock_name: 千興
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 12.8
+- open: 12
 - high: 12.8
-- low: 12.05
-- close: 12.4
-- volume: 895853
-- ma5: 12.42
-- ma20: 11.83
+- low: 11.6
+- close: 12.5
+- volume: 859796
+- ma5: 12.44
+- ma20: 11.84
 - ma60: 11.55
 - ma120: 11.37
-- ema23: 11.94
-- return_5d: 6.44
-- return_20d: 9.25
-- volume_ratio: 1.43
-- distance_to_ma20_pct: 4.82
-- distance_to_high_60_pct: -7.81
+- ema23: 11.95
+- return_5d: 7.3
+- return_20d: 10.13
+- volume_ratio: 1.38
+- distance_to_ma20_pct: 5.62
+- distance_to_high_60_pct: -7.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,12.8,12.8,12.05,12.4,895853,11.98,11.66,11.53,11.79,1.75
 20260524,12.8,12.8,12.05,12.4,895853,12.1,11.72,11.54,11.84,1.62
 20260525,12,12.8,11.6,12.5,859796,12.27,11.78,11.55,11.9,1.47
-20260526,12.8,12.8,12.05,12.4,895853,12.42,11.83,11.55,11.94,1.43
+20260526,12,12.8,11.6,12.5,859796,12.44,11.84,11.55,11.95,1.38
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2321 東訊
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:51 Asia/Taipei
+- generated_at: 2026-05-26 06:02:00 Asia/Taipei
 - stock_id: 2321
 - stock_name: 東訊
 - packet_status: standard_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 13
+- open: 12.4
 - high: 13
-- low: 12.8
-- close: 12.8
-- volume: 15230
-- ma5: 12.84
+- low: 12.4
+- close: 13
+- volume: 6084
+- ma5: 12.88
 - ma20: 12.88
 - ma60: 14.51
 - ma120: 15.55
-- ema23: 13.11
-- return_5d: 0.79
-- return_20d: 0
-- volume_ratio: 1.65
-- distance_to_ma20_pct: -0.58
-- distance_to_high_60_pct: -24.71
+- ema23: 13.13
+- return_5d: 2.36
+- return_20d: 1.56
+- volume_ratio: 0.7
+- distance_to_ma20_pct: 0.89
+- distance_to_high_60_pct: -23.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,13,13,12.8,12.8,15230,12.78,12.89,14.72,13.18,1.01
 20260524,13,13,12.8,12.8,15230,12.82,12.87,14.65,13.15,1.38
 20260525,12.4,13,12.4,13,6084,12.82,12.88,14.58,13.14,0.69
-20260526,13,13,12.8,12.8,15230,12.84,12.88,14.51,13.11,1.65
+20260526,12.4,13,12.4,13,6084,12.88,12.88,14.51,13.13,0.7
 ```
 
 ## Latest TDCC Snapshot

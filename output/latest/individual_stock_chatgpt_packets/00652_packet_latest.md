@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00652 富邦印度
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:24 Asia/Taipei
+- generated_at: 2026-05-26 06:01:34 Asia/Taipei
 - stock_id: 00652
 - stock_name: 富邦印度
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 32.21
-- high: 32.3
-- low: 32.05
-- close: 32.29
-- volume: 310059
-- ma5: 32.33
-- ma20: 32.33
-- ma60: 32.33
-- ma120: 32.33
-- ema23: 32.3
+- open: 32.3
+- high: 32.48
+- low: 32.3
+- close: 32.48
+- volume: 415765
+- ma5: 32.37
+- ma20: 32.37
+- ma60: 32.37
+- ma120: 32.37
+- ema23: 32.32
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.94
-- distance_to_ma20_pct: -0.12
-- distance_to_high_60_pct: -0.58
+- volume_ratio: 1.18
+- distance_to_ma20_pct: 0.35
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,32.21,32.3,32.05,32.29,310059,,,,,
 20260524,32.21,32.3,32.05,32.29,310059,,,,,
 20260525,32.3,32.48,32.3,32.48,415765,,,,,
-20260526,32.21,32.3,32.05,32.29,310059,32.33,32.33,32.33,32.3,0.94
+20260526,32.3,32.48,32.3,32.48,415765,32.37,32.37,32.37,32.32,1.18
 ```
 
 ## Latest TDCC Snapshot

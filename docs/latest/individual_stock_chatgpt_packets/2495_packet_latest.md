@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2495 普安
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:02 Asia/Taipei
+- generated_at: 2026-05-26 06:02:10 Asia/Taipei
 - stock_id: 2495
 - stock_name: 普安
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 41.4
-- high: 44.7
-- low: 40.55
-- close: 44.2
-- volume: 24118617
-- ma5: 44.59
-- ma20: 39.79
-- ma60: 37.45
-- ma120: 34.21
-- ema23: 40.48
-- return_5d: 8.73
-- return_20d: 7.94
-- volume_ratio: 2.3
-- distance_to_ma20_pct: 11.08
-- distance_to_high_60_pct: -5.15
+- open: 45.05
+- high: 46.6
+- low: 43.7
+- close: 46.15
+- volume: 17745244
+- ma5: 44.98
+- ma20: 39.89
+- ma60: 37.48
+- ma120: 34.23
+- ema23: 40.64
+- return_5d: 13.53
+- return_20d: 12.7
+- volume_ratio: 1.75
+- distance_to_ma20_pct: 15.69
+- distance_to_high_60_pct: -0.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,41.4,44.7,40.55,44.2,24118617,40.46,39.2,36.8,39.18,2.81
 20260524,41.4,44.7,40.55,44.2,24118617,42.15,39.36,37.01,39.59,2.58
 20260525,45.05,46.6,43.7,46.15,17745244,43.88,39.63,37.24,40.14,1.78
-20260526,41.4,44.7,40.55,44.2,24118617,44.59,39.79,37.45,40.48,2.3
+20260526,45.05,46.6,43.7,46.15,17745244,44.98,39.89,37.48,40.64,1.75
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2495 | 普安 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 2495 | 普安 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 2495 | 普安 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

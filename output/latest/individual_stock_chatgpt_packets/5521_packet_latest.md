@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5521 工信
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:03 Asia/Taipei
+- generated_at: 2026-05-26 06:03:07 Asia/Taipei
 - stock_id: 5521
 - stock_name: 工信
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 11.05
-- high: 11.1
-- low: 10.5
-- close: 10.7
-- volume: 5641295
-- ma5: 10.63
-- ma20: 11.04
+- open: 10.8
+- high: 10.9
+- low: 10.25
+- close: 10.35
+- volume: 7019858
+- ma5: 10.56
+- ma20: 11.02
 - ma60: 13.08
 - ma120: 17.19
-- ema23: 11.16
-- return_5d: -2.28
-- return_20d: -5.73
-- volume_ratio: 0.91
-- distance_to_ma20_pct: -3.08
-- distance_to_high_60_pct: -61.37
+- ema23: 11.13
+- return_5d: -5.48
+- return_20d: -8.81
+- volume_ratio: 1.12
+- distance_to_ma20_pct: -6.1
+- distance_to_high_60_pct: -62.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,11.05,11.1,10.5,10.7,5641295,10.63,11.18,13.84,11.34,0.97
 20260524,11.05,11.1,10.5,10.7,5641295,10.72,11.14,13.62,11.28,0.96
 20260525,10.8,10.9,10.25,10.35,7019858,10.68,11.07,13.36,11.21,1.15
-20260526,11.05,11.1,10.5,10.7,5641295,10.63,11.04,13.08,11.16,0.91
+20260526,10.8,10.9,10.25,10.35,7019858,10.56,11.02,13.08,11.13,1.12
 ```
 
 ## Latest TDCC Snapshot

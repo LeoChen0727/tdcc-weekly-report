@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2707 晶華
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:07 Asia/Taipei
+- generated_at: 2026-05-26 06:02:15 Asia/Taipei
 - stock_id: 2707
 - stock_name: 晶華
 - packet_status: standard_180d_window_packet
@@ -57,18 +57,18 @@
 - open: 174
 - high: 174
 - low: 172
-- close: 174
-- volume: 174533
-- ma5: 173.6
-- ma20: 172.3
-- ma60: 179.92
-- ma120: 184.71
-- ema23: 174.23
-- return_5d: 0
-- return_20d: 2.05
-- volume_ratio: 0.78
-- distance_to_ma20_pct: 0.99
-- distance_to_high_60_pct: -13.86
+- close: 172
+- volume: 215307
+- ma5: 173.2
+- ma20: 172.2
+- ma60: 179.88
+- ma120: 184.7
+- ema23: 174.06
+- return_5d: -1.15
+- return_20d: 0.88
+- volume_ratio: 0.95
+- distance_to_ma20_pct: -0.12
+- distance_to_high_60_pct: -14.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,174,174,172,174,174533,173.8,172.07,180.65,174.49,0.72
 20260524,174,174,172,174,174533,173.8,172.12,180.42,174.45,0.74
 20260525,174,174,172,172,215307,173.6,172.12,180.14,174.25,0.92
-20260526,174,174,172,174,174533,173.6,172.3,179.92,174.23,0.78
+20260526,174,174,172,172,215307,173.2,172.2,179.88,174.06,0.95
 ```
 
 ## Latest TDCC Snapshot

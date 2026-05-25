@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6831 邁科
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:34 Asia/Taipei
+- generated_at: 2026-05-26 06:03:35 Asia/Taipei
 - stock_id: 6831
 - stock_name: 邁科
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 769
-- high: 787
-- low: 767
-- close: 786
-- volume: 451948
-- ma5: 787.2
-- ma20: 669.23
-- ma60: 483.46
-- ma120: 369.81
-- ema23: 669.56
-- return_5d: 0.64
-- return_20d: 70.5
-- volume_ratio: 0.3
-- distance_to_ma20_pct: 17.45
-- distance_to_high_60_pct: -1.13
+- open: 790
+- high: 795
+- low: 780
+- close: 792
+- volume: 530475
+- ma5: 788.4
+- ma20: 669.52
+- ma60: 483.56
+- ma120: 369.86
+- ema23: 670.06
+- return_5d: 1.41
+- return_20d: 71.8
+- volume_ratio: 0.35
+- distance_to_ma20_pct: 18.29
+- distance_to_high_60_pct: -0.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,769,787,767,786,451948,761.2,622.27,458.6,634.24,0.28
 20260524,769,787,767,786,451948,771.8,637.12,466.79,646.88,0.29
 20260525,790,795,780,792,530475,786.2,652.98,475.15,658.98,0.35
-20260526,769,787,767,786,451948,787.2,669.23,483.46,669.56,0.3
+20260526,790,795,780,792,530475,788.4,669.52,483.56,670.06,0.35
 ```
 
 ## Latest TDCC Snapshot

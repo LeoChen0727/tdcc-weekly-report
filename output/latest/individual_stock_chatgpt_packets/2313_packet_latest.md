@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2313 華通
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:51 Asia/Taipei
+- generated_at: 2026-05-26 06:02:00 Asia/Taipei
 - stock_id: 2313
 - stock_name: 華通
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 261.5
-- high: 281
-- low: 261.5
-- close: 278
-- volume: 99747807
-- ma5: 282.1
-- ma20: 259.95
-- ma60: 245.07
-- ma120: 187.06
-- ema23: 261.27
-- return_5d: 7.75
-- return_20d: 20.87
-- volume_ratio: 1.09
-- distance_to_ma20_pct: 6.94
-- distance_to_high_60_pct: -9
+- open: 296
+- high: 305.5
+- low: 287
+- close: 298.5
+- volume: 100470188
+- ma5: 286.2
+- ma20: 260.98
+- ma60: 245.42
+- ma120: 187.23
+- ema23: 262.98
+- return_5d: 15.7
+- return_20d: 29.78
+- volume_ratio: 1.1
+- distance_to_ma20_pct: 14.38
+- distance_to_high_60_pct: -2.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,261.5,281,261.5,278,99747807,265,252.47,241.47,254.25,1.13
 20260524,261.5,281,261.5,278,99747807,269.4,254.6,242.62,256.23,1.13
 20260525,296,305.5,287,298.5,100470188,278.1,257.55,244.18,259.75,1.13
-20260526,261.5,281,261.5,278,99747807,282.1,259.95,245.07,261.27,1.09
+20260526,296,305.5,287,298.5,100470188,286.2,260.98,245.42,262.98,1.1
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2313 | 華通 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_put_bullish | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 2313 | 華通 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 58.0 |  |  | neckline_challenge |  | call_put_bullish | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

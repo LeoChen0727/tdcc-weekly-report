@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2352 佳世達
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:53 Asia/Taipei
+- generated_at: 2026-05-26 06:02:02 Asia/Taipei
 - stock_id: 2352
 - stock_name: 佳世達
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 28.2
+- open: 29.3
 - high: 29.3
-- low: 28.05
-- close: 28.75
-- volume: 31150472
-- ma5: 28.73
-- ma20: 26.25
+- low: 28.1
+- close: 28.65
+- volume: 17372030
+- ma5: 28.71
+- ma20: 26.24
 - ma60: 24.84
 - ma120: 25.27
-- ema23: 26.51
-- return_5d: 5.7
-- return_20d: 18.07
-- volume_ratio: 2.51
-- distance_to_ma20_pct: 9.54
-- distance_to_high_60_pct: -1.88
+- ema23: 26.5
+- return_5d: 5.33
+- return_20d: 17.66
+- volume_ratio: 1.48
+- distance_to_ma20_pct: 9.18
+- distance_to_high_60_pct: -2.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,28.2,29.3,28.05,28.75,31150472,27.16,25.56,24.7,25.86,3.49
 20260524,28.2,29.3,28.05,28.75,31150472,27.9,25.8,24.74,26.1,3.05
 20260525,29.3,29.3,28.1,28.65,17372030,28.42,26.02,24.78,26.31,1.58
-20260526,28.2,29.3,28.05,28.75,31150472,28.73,26.25,24.84,26.51,2.51
+20260526,29.3,29.3,28.1,28.65,17372030,28.71,26.24,24.84,26.5,1.48
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2352 | 佳世達 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 2352 | 佳世達 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

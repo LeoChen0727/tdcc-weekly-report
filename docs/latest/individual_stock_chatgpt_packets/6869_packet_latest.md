@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6869 雲豹能源
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:35 Asia/Taipei
+- generated_at: 2026-05-26 06:03:36 Asia/Taipei
 - stock_id: 6869
 - stock_name: 雲豹能源
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 81.7
-- high: 81.9
-- low: 80.5
-- close: 80.7
-- volume: 568193
-- ma5: 81.2
-- ma20: 82.75
-- ma60: 89.39
-- ma120: 94.73
-- ema23: 82.84
-- return_5d: -1.1
-- return_20d: -2.18
-- volume_ratio: 0.74
-- distance_to_ma20_pct: -2.47
-- distance_to_high_60_pct: -31.03
+- open: 81.6
+- high: 86
+- low: 81.6
+- close: 83.2
+- volume: 902573
+- ma5: 81.7
+- ma20: 82.87
+- ma60: 89.43
+- ma120: 94.75
+- ema23: 83.04
+- return_5d: 1.96
+- return_20d: 0.85
+- volume_ratio: 1.15
+- distance_to_ma20_pct: 0.4
+- distance_to_high_60_pct: -28.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,81.7,81.9,80.5,80.7,568193,79.8,82.78,90.86,83.22,0.77
 20260524,81.7,81.9,80.5,80.7,568193,80.5,82.75,90.31,83.01,0.78
 20260525,81.6,86,81.6,83.2,902573,81.38,82.83,89.87,83.03,1.2
-20260526,81.7,81.9,80.5,80.7,568193,81.2,82.75,89.39,82.84,0.74
+20260526,81.6,86,81.6,83.2,902573,81.7,82.87,89.43,83.04,1.15
 ```
 
 ## Latest TDCC Snapshot

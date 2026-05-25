@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6215 和椿
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:14 Asia/Taipei
+- generated_at: 2026-05-26 06:03:17 Asia/Taipei
 - stock_id: 6215
 - stock_name: 和椿
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 127
-- high: 137.5
-- low: 125.5
-- close: 134.5
-- volume: 12353730
-- ma5: 134.6
-- ma20: 123.28
-- ma60: 110.45
-- ma120: 110.13
-- ema23: 122.97
-- return_5d: 6.75
-- return_20d: 25.7
-- volume_ratio: 1.62
-- distance_to_ma20_pct: 9.11
-- distance_to_high_60_pct: -2.54
+- open: 136
+- high: 138
+- low: 132.5
+- close: 135
+- volume: 8501779
+- ma5: 134.7
+- ma20: 123.3
+- ma60: 110.46
+- ma120: 110.14
+- ema23: 123.01
+- return_5d: 7.14
+- return_20d: 26.17
+- volume_ratio: 1.15
+- distance_to_ma20_pct: 9.49
+- distance_to_high_60_pct: -2.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,127,137.5,125.5,134.5,12353730,128.1,118.83,109.52,119.48,1.96
 20260524,127,137.5,125.5,134.5,12353730,130.3,120.53,109.87,120.73,1.8
 20260525,136,138,132.5,135,8501779,132.9,121.9,110.19,121.92,1.19
-20260526,127,137.5,125.5,134.5,12353730,134.6,123.28,110.45,122.97,1.62
+20260526,136,138,132.5,135,8501779,134.7,123.3,110.46,123.01,1.15
 ```
 
 ## Latest TDCC Snapshot
@@ -123,7 +123,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260526 | 6215 | 和椿 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260526 | 6215 | 和椿 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 6215 | 和椿 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

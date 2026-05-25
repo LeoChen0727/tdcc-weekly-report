@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9941 裕融
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:59 Asia/Taipei
+- generated_at: 2026-05-26 06:03:59 Asia/Taipei
 - stock_id: 9941
 - stock_name: 裕融
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 74.6
-- high: 74.6
-- low: 73
-- close: 73.5
-- volume: 1691505
-- ma5: 73.38
-- ma20: 74.42
+- open: 73.7
+- high: 74
+- low: 72.6
+- close: 72.9
+- volume: 1980189
+- ma5: 73.26
+- ma20: 74.39
 - ma60: 76.03
-- ma120: 80.29
-- ema23: 74.62
-- return_5d: -0.27
-- return_20d: -6.73
-- volume_ratio: 0.97
-- distance_to_ma20_pct: -1.24
-- distance_to_high_60_pct: -8.7
+- ma120: 80.28
+- ema23: 74.57
+- return_5d: -1.09
+- return_20d: -7.49
+- volume_ratio: 1.12
+- distance_to_ma20_pct: -2
+- distance_to_high_60_pct: -9.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,74.6,74.6,73,73.5,1691505,73.6,75.29,76.06,75.02,0.97
 20260524,74.6,74.6,73,73.5,1691505,73.58,75.03,76.06,74.89,0.96
 20260525,73.7,74,72.6,72.9,1980189,73.42,74.69,76.05,74.72,1.13
-20260526,74.6,74.6,73,73.5,1691505,73.38,74.42,76.03,74.62,0.97
+20260526,73.7,74,72.6,72.9,1980189,73.26,74.39,76.03,74.57,1.12
 ```
 
 ## Latest TDCC Snapshot

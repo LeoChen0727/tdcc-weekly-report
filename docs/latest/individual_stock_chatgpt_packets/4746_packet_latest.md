@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4746 台耀
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:49 Asia/Taipei
+- generated_at: 2026-05-26 06:02:54 Asia/Taipei
 - stock_id: 4746
 - stock_name: 台耀
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 53.1
-- high: 53.1
-- low: 52.2
-- close: 52.3
-- volume: 626982
-- ma5: 52.1
-- ma20: 53.4
-- ma60: 53.56
+- open: 52.5
+- high: 52.6
+- low: 51.2
+- close: 51.3
+- volume: 1625202
+- ma5: 51.9
+- ma20: 53.35
+- ma60: 53.55
 - ma120: 56.8
-- ema23: 52.99
-- return_5d: -1.51
-- return_20d: -4.91
-- volume_ratio: 0.61
-- distance_to_ma20_pct: -2.06
-- distance_to_high_60_pct: -8.41
+- ema23: 52.91
+- return_5d: -3.39
+- return_20d: -6.73
+- volume_ratio: 1.5
+- distance_to_ma20_pct: -3.84
+- distance_to_high_60_pct: -10.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,53.1,53.1,52.2,52.3,626982,52.18,53.8,53.79,53.29,0.55
 20260524,53.1,53.1,52.2,52.3,626982,52.32,53.75,53.71,53.21,0.57
 20260525,52.5,52.6,51.2,51.3,1625202,52.26,53.53,53.62,53.05,1.55
-20260526,53.1,53.1,52.2,52.3,626982,52.1,53.4,53.56,52.99,0.61
+20260526,52.5,52.6,51.2,51.3,1625202,51.9,53.35,53.55,52.91,1.5
 ```
 
 ## Latest TDCC Snapshot

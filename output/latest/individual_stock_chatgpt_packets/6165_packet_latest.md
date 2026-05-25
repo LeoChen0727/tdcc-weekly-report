@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6165 浪凡
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:10 Asia/Taipei
+- generated_at: 2026-05-26 06:03:14 Asia/Taipei
 - stock_id: 6165
 - stock_name: 浪凡
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 49
-- high: 49.5
-- low: 48.35
-- close: 49.45
-- volume: 472554
-- ma5: 49.23
-- ma20: 49.99
-- ma60: 47.48
-- ma120: 46.78
-- ema23: 49.18
-- return_5d: 2.38
-- return_20d: -5.27
-- volume_ratio: 0.4
-- distance_to_ma20_pct: -1.09
-- distance_to_high_60_pct: -10.09
+- open: 49.5
+- high: 49.55
+- low: 48.1
+- close: 48.35
+- volume: 838763
+- ma5: 49.01
+- ma20: 49.94
+- ma60: 47.46
+- ma120: 46.77
+- ema23: 49.09
+- return_5d: 0.1
+- return_20d: -7.38
+- volume_ratio: 0.71
+- distance_to_ma20_pct: -3.18
+- distance_to_high_60_pct: -12.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,49,49.5,48.35,49.45,472554,48.57,50.37,47.19,49.21,0.31
 20260524,49,49.5,48.35,49.45,472554,48.91,50.24,47.29,49.23,0.33
 20260525,49.5,49.55,48.1,48.35,838763,49,50.13,47.38,49.16,0.58
-20260526,49,49.5,48.35,49.45,472554,49.23,49.99,47.48,49.18,0.4
+20260526,49.5,49.55,48.1,48.35,838763,49.01,49.94,47.46,49.09,0.71
 ```
 
 ## Latest TDCC Snapshot

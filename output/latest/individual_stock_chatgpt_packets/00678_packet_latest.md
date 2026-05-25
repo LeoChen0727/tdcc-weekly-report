@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00678 群益那斯達克生技
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:24 Asia/Taipei
+- generated_at: 2026-05-26 06:01:35 Asia/Taipei
 - stock_id: 00678
 - stock_name: 群益那斯達克生技
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 35.81
-- high: 35.82
-- low: 35.74
-- close: 35.81
-- volume: 217895
-- ma5: 35.83
-- ma20: 35.83
-- ma60: 35.83
-- ma120: 35.83
-- ema23: 35.82
+- open: 35.96
+- high: 35.96
+- low: 35.87
+- close: 35.93
+- volume: 331997
+- ma5: 35.86
+- ma20: 35.86
+- ma60: 35.86
+- ma120: 35.86
+- ema23: 35.83
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.91
-- distance_to_ma20_pct: -0.07
-- distance_to_high_60_pct: -0.42
+- volume_ratio: 1.26
+- distance_to_ma20_pct: 0.2
+- distance_to_high_60_pct: -0.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,35.81,35.82,35.74,35.81,217895,,,,,
 20260524,35.81,35.82,35.74,35.81,217895,,,,,
 20260525,35.96,35.96,35.87,35.93,331997,,,,,
-20260526,35.81,35.82,35.74,35.81,217895,35.83,35.83,35.83,35.82,0.91
+20260526,35.96,35.96,35.87,35.93,331997,35.86,35.86,35.86,35.83,1.26
 ```
 
 ## Latest TDCC Snapshot

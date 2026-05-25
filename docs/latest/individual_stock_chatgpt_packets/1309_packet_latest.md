@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1309 台達化
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:30 Asia/Taipei
+- generated_at: 2026-05-26 06:01:40 Asia/Taipei
 - stock_id: 1309
 - stock_name: 台達化
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 15.35
-- high: 15.8
-- low: 15.25
-- close: 15.75
-- volume: 4331166
-- ma5: 15.73
-- ma20: 16.77
+- open: 15.55
+- high: 15.75
+- low: 14.95
+- close: 15.65
+- volume: 6346096
+- ma5: 15.71
+- ma20: 16.76
 - ma60: 18.35
 - ma120: 15.04
-- ema23: 16.91
-- return_5d: 0.64
-- return_20d: -16.89
-- volume_ratio: 0.54
-- distance_to_ma20_pct: -6.07
-- distance_to_high_60_pct: -41.67
+- ema23: 16.9
+- return_5d: 0
+- return_20d: -17.41
+- volume_ratio: 0.79
+- distance_to_ma20_pct: -6.64
+- distance_to_high_60_pct: -42.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,15.35,15.8,15.25,15.75,4331166,15.64,17.28,18.19,17.26,0.49
 20260524,15.35,15.8,15.25,15.75,4331166,15.69,17.11,18.24,17.14,0.52
 20260525,15.55,15.75,14.95,15.65,6346096,15.71,16.93,18.3,17.01,0.77
-20260526,15.35,15.8,15.25,15.75,4331166,15.73,16.77,18.35,16.91,0.54
+20260526,15.55,15.75,14.95,15.65,6346096,15.71,16.76,18.35,16.9,0.79
 ```
 
 ## Latest TDCC Snapshot

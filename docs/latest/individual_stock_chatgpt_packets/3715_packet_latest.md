@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3715 定穎投控
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:37 Asia/Taipei
+- generated_at: 2026-05-26 06:02:43 Asia/Taipei
 - stock_id: 3715
 - stock_name: 定穎投控
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 165.5
-- high: 178.5
-- low: 165.5
-- close: 174.5
-- volume: 13230542
-- ma5: 175.4
-- ma20: 176.88
-- ma60: 175.6
-- ma120: 152.95
-- ema23: 176.07
-- return_5d: 6.4
-- return_20d: -1.69
-- volume_ratio: 0.84
-- distance_to_ma20_pct: -1.34
-- distance_to_high_60_pct: -14.25
+- open: 176
+- high: 185
+- low: 176
+- close: 179
+- volume: 16821685
+- ma5: 176.3
+- ma20: 177.1
+- ma60: 175.68
+- ma120: 152.98
+- ema23: 176.44
+- return_5d: 9.15
+- return_20d: 0.85
+- volume_ratio: 1.05
+- distance_to_ma20_pct: 1.07
+- distance_to_high_60_pct: -12.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,165.5,178.5,165.5,174.5,13230542,167.8,177.18,174.53,176.09,0.88
 20260524,165.5,178.5,165.5,174.5,13230542,169.7,177.03,174.89,175.95,0.88
 20260525,176,185,176,179,16821685,173.3,177.03,175.24,176.21,1.09
-20260526,165.5,178.5,165.5,174.5,13230542,175.4,176.88,175.6,176.07,0.84
+20260526,176,185,176,179,16821685,176.3,177.1,175.68,176.44,1.05
 ```
 
 ## Latest TDCC Snapshot
@@ -123,6 +123,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260526 | 3715 | 定穎投控 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_put_bullish | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 3715 | 定穎投控 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

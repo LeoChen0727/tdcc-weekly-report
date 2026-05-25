@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3036 文曄
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:15 Asia/Taipei
+- generated_at: 2026-05-26 06:02:23 Asia/Taipei
 - stock_id: 3036
 - stock_name: 文曄
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 291
-- high: 301.5
-- low: 288.5
-- close: 289
-- volume: 12509307
-- ma5: 291.5
-- ma20: 260.95
-- ma60: 236.36
-- ma120: 194.04
-- ema23: 263.56
-- return_5d: -0.86
-- return_20d: 42.36
-- volume_ratio: 0.82
-- distance_to_ma20_pct: 10.75
-- distance_to_high_60_pct: -6.17
+- open: 292
+- high: 308
+- low: 289
+- close: 301.5
+- volume: 13776354
+- ma5: 294
+- ma20: 261.57
+- ma60: 236.57
+- ma120: 194.14
+- ema23: 264.6
+- return_5d: 3.43
+- return_20d: 48.52
+- volume_ratio: 0.9
+- distance_to_ma20_pct: 15.26
+- distance_to_high_60_pct: -2.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,291,301.5,288.5,289,12509307,282.7,247.53,230.9,254.73,0.87
 20260524,291,301.5,288.5,289,12509307,287.5,251.93,232.67,257.59,0.85
 20260525,292,308,289,301.5,13776354,292,256.65,234.62,261.25,0.92
-20260526,291,301.5,288.5,289,12509307,291.5,260.95,236.36,263.56,0.82
+20260526,292,308,289,301.5,13776354,294,261.57,236.57,264.6,0.9
 ```
 
 ## Latest TDCC Snapshot
@@ -120,9 +120,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3036 | 文曄 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

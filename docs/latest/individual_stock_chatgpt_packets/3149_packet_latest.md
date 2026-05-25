@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3149 正達
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:20 Asia/Taipei
+- generated_at: 2026-05-26 06:02:27 Asia/Taipei
 - stock_id: 3149
 - stock_name: 正達
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 58
-- high: 61.1
-- low: 57.9
-- close: 59.1
-- volume: 34321698
-- ma5: 60.28
-- ma20: 54.76
-- ma60: 48.48
-- ma120: 45.69
-- ema23: 54.63
-- return_5d: 4.42
-- return_20d: 23.9
-- volume_ratio: 1.35
-- distance_to_ma20_pct: 7.93
-- distance_to_high_60_pct: -9.08
+- open: 60.1
+- high: 65
+- low: 59
+- close: 65
+- volume: 41465191
+- ma5: 61.46
+- ma20: 55.05
+- ma60: 48.57
+- ma120: 45.74
+- ema23: 55.12
+- return_5d: 14.84
+- return_20d: 36.27
+- volume_ratio: 1.61
+- distance_to_ma20_pct: 18.07
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,58,61.1,57.9,59.1,34321698,57.72,52.37,48.06,52.71,1.63
 20260524,58,61.1,57.9,59.1,34321698,57.98,53.11,48.16,53.24,1.52
 20260525,60.1,65,59,65,41465191,59.78,54.19,48.37,54.22,1.7
-20260526,58,61.1,57.9,59.1,34321698,60.28,54.76,48.48,54.63,1.35
+20260526,60.1,65,59,65,41465191,61.46,55.05,48.57,55.12,1.61
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3149 | 正達 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 3149 | 正達 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

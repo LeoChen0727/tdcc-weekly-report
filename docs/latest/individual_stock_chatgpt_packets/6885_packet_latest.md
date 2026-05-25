@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6885 全福生技
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:36 Asia/Taipei
+- generated_at: 2026-05-26 06:03:37 Asia/Taipei
 - stock_id: 6885
 - stock_name: 全福生技
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 22.45
-- high: 22.45
-- low: 22.05
-- close: 22.4
-- volume: 260583
-- ma5: 22.22
-- ma20: 22.44
-- ma60: 23.69
-- ma120: 26.13
-- ema23: 22.57
-- return_5d: -0.22
-- return_20d: -2.61
-- volume_ratio: 0.74
-- distance_to_ma20_pct: -0.18
-- distance_to_high_60_pct: -17.65
+- open: 22.35
+- high: 22.35
+- low: 21.5
+- close: 21.5
+- volume: 633838
+- ma5: 22.04
+- ma20: 22.39
+- ma60: 23.67
+- ma120: 26.12
+- ema23: 22.5
+- return_5d: -4.23
+- return_20d: -6.52
+- volume_ratio: 1.71
+- distance_to_ma20_pct: -4
+- distance_to_high_60_pct: -20.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,22.45,22.45,22.05,22.4,260583,22.27,22.58,23.97,22.71,0.78
 20260524,22.45,22.45,22.05,22.4,260583,22.37,22.54,23.87,22.68,0.8
 20260525,22.35,22.35,21.5,21.5,633838,22.23,22.47,23.77,22.59,1.83
-20260526,22.45,22.45,22.05,22.4,260583,22.22,22.44,23.69,22.57,0.74
+20260526,22.35,22.35,21.5,21.5,633838,22.04,22.39,23.67,22.5,1.71
 ```
 
 ## Latest TDCC Snapshot

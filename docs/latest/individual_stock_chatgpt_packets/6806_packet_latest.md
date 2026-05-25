@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6806 森崴能源
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:33 Asia/Taipei
+- generated_at: 2026-05-26 06:03:35 Asia/Taipei
 - stock_id: 6806
 - stock_name: 森崴能源
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 9.27
-- high: 9.27
-- low: 9.27
-- close: 9.27
-- volume: 700012
-- ma5: 9.09
-- ma20: 15.79
-- ma60: 27.88
-- ma120: 35.31
-- ema23: 15.92
-- return_5d: -10
-- return_20d: -57.18
-- volume_ratio: 0.86
-- distance_to_ma20_pct: -41.3
-- distance_to_high_60_pct: -79.4
+- open: 8.35
+- high: 8.35
+- low: 8.35
+- close: 8.35
+- volume: 327830
+- ma5: 8.9
+- ma20: 15.75
+- ma60: 27.86
+- ma120: 35.3
+- ema23: 15.84
+- return_5d: -18.93
+- return_20d: -61.43
+- volume_ratio: 0.41
+- distance_to_ma20_pct: -46.97
+- distance_to_high_60_pct: -81.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,9.27,9.27,9.27,9.27,700012,10.58,17.77,29.68,17.99,0.86
 20260524,9.27,9.27,9.27,9.27,700012,9.9,17.07,29.1,17.27,0.86
 20260525,8.35,8.35,8.35,8.35,327830,9.29,16.41,28.46,16.52,0.41
-20260526,9.27,9.27,9.27,9.27,700012,9.09,15.79,27.88,15.92,0.86
+20260526,8.35,8.35,8.35,8.35,327830,8.9,15.75,27.86,15.84,0.41
 ```
 
 ## Latest TDCC Snapshot

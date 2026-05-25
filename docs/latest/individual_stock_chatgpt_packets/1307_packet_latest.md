@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1307 三芳
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:30 Asia/Taipei
+- generated_at: 2026-05-26 06:01:40 Asia/Taipei
 - stock_id: 1307
 - stock_name: 三芳
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 31.6
-- high: 31.8
-- low: 31.5
-- close: 31.5
-- volume: 517676
-- ma5: 31.4
-- ma20: 31.67
-- ma60: 32.5
-- ma120: 32.54
-- ema23: 31.68
-- return_5d: -0.47
-- return_20d: 0.48
-- volume_ratio: 0.58
-- distance_to_ma20_pct: -0.53
-- distance_to_high_60_pct: -12.98
+- open: 31.5
+- high: 31.65
+- low: 30.75
+- close: 31
+- volume: 1672443
+- ma5: 31.3
+- ma20: 31.64
+- ma60: 32.49
+- ma120: 32.53
+- ema23: 31.64
+- return_5d: -2.05
+- return_20d: -1.12
+- volume_ratio: 1.76
+- distance_to_ma20_pct: -2.03
+- distance_to_high_60_pct: -14.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,31.6,31.8,31.5,31.5,517676,31.53,31.65,32.69,31.78,0.59
 20260524,31.6,31.8,31.5,31.5,517676,31.5,31.66,32.62,31.76,0.6
 20260525,31.5,31.65,30.75,31,1672443,31.43,31.66,32.55,31.7,1.82
-20260526,31.6,31.8,31.5,31.5,517676,31.4,31.67,32.5,31.68,0.58
+20260526,31.5,31.65,30.75,31,1672443,31.3,31.64,32.49,31.64,1.76
 ```
 
 ## Latest TDCC Snapshot

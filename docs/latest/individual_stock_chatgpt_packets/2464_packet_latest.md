@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2464 盟立
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:00 Asia/Taipei
+- generated_at: 2026-05-26 06:02:08 Asia/Taipei
 - stock_id: 2464
 - stock_name: 盟立
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 134.5
-- high: 149
-- low: 134
-- close: 144
-- volume: 37571437
-- ma5: 146.8
-- ma20: 127.35
-- ma60: 93.15
-- ma120: 79.2
-- ema23: 124.96
-- return_5d: 5.88
-- return_20d: 25.76
-- volume_ratio: 1.31
-- distance_to_ma20_pct: 13.07
-- distance_to_high_60_pct: -8.86
+- open: 156
+- high: 158
+- low: 155
+- close: 158
+- volume: 8728463
+- ma5: 149.6
+- ma20: 128.05
+- ma60: 93.38
+- ma120: 79.31
+- ema23: 126.13
+- return_5d: 16.18
+- return_20d: 37.99
+- volume_ratio: 0.32
+- distance_to_ma20_pct: 23.39
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,134.5,149,134,144,37571437,136.7,120.95,89.38,117.89,1.23
 20260524,134.5,149,134,144,37571437,138.5,123.3,90.6,120.07,1.23
 20260525,156,158,155,158,8728463,145.2,125.88,91.98,123.23,0.3
-20260526,134.5,149,134,144,37571437,146.8,127.35,93.15,124.96,1.31
+20260526,156,158,155,158,8728463,149.6,128.05,93.38,126.13,0.32
 ```
 
 ## Latest TDCC Snapshot

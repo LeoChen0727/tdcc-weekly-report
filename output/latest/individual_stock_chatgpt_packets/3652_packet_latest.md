@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3652 精聯
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:35 Asia/Taipei
+- generated_at: 2026-05-26 06:02:41 Asia/Taipei
 - stock_id: 3652
 - stock_name: 精聯
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 30
-- high: 31.8
-- low: 30
-- close: 31.35
-- volume: 155752
-- ma5: 31.47
-- ma20: 30.39
-- ma60: 28.62
-- ma120: 28.7
-- ema23: 30.3
-- return_5d: 3.64
-- return_20d: -2.18
-- volume_ratio: 1.13
-- distance_to_ma20_pct: 3.18
-- distance_to_high_60_pct: -7.93
+- open: 31.7
+- high: 32.7
+- low: 31.7
+- close: 31.95
+- volume: 299361
+- ma5: 31.59
+- ma20: 30.41
+- ma60: 28.63
+- ma120: 28.71
+- ema23: 30.35
+- return_5d: 5.62
+- return_20d: -0.31
+- volume_ratio: 2.06
+- distance_to_ma20_pct: 5.05
+- distance_to_high_60_pct: -6.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,30,31.8,30,31.35,155752,30.33,30.47,28.46,29.92,0.64
 20260524,30,31.8,30,31.35,155752,30.72,30.42,28.51,30.04,0.74
 20260525,31.7,32.7,31.7,31.95,299361,31.25,30.42,28.57,30.2,2.05
-20260526,30,31.8,30,31.35,155752,31.47,30.39,28.62,30.3,1.13
+20260526,31.7,32.7,31.7,31.95,299361,31.59,30.41,28.63,30.35,2.06
 ```
 
 ## Latest TDCC Snapshot

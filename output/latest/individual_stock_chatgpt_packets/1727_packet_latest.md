@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1727 中華化
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:42 Asia/Taipei
+- generated_at: 2026-05-26 06:01:51 Asia/Taipei
 - stock_id: 1727
 - stock_name: 中華化
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 94
-- high: 102
-- low: 94
-- close: 102
-- volume: 15109095
-- ma5: 102.5
-- ma20: 86.94
-- ma60: 65.82
-- ma120: 54.64
-- ema23: 86.19
-- return_5d: 9.68
-- return_20d: 22.6
-- volume_ratio: 0.92
-- distance_to_ma20_pct: 17.33
-- distance_to_high_60_pct: -8.93
+- open: 109
+- high: 112
+- low: 101
+- close: 104.5
+- volume: 24179813
+- ma5: 103
+- ma20: 87.06
+- ma60: 65.86
+- ma120: 54.66
+- ema23: 86.4
+- return_5d: 12.37
+- return_20d: 25.6
+- volume_ratio: 1.43
+- distance_to_ma20_pct: 20.03
+- distance_to_high_60_pct: -6.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,94,102,94,102,15109095,93.82,83.14,63.08,81.23,0.85
 20260524,94,102,94,102,15109095,96.72,84.56,63.98,82.96,0.92
 20260525,109,112,101,104.5,24179813,100.7,86,64.93,84.75,1.45
-20260526,94,102,94,102,15109095,102.5,86.94,65.82,86.19,0.92
+20260526,109,112,101,104.5,24179813,103,87.06,65.86,86.4,1.43
 ```
 
 ## Latest TDCC Snapshot

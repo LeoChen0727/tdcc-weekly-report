@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5203 訊連
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:55 Asia/Taipei
+- generated_at: 2026-05-26 06:03:00 Asia/Taipei
 - stock_id: 5203
 - stock_name: 訊連
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 64.4
-- high: 65
-- low: 64.1
+- open: 65.4
+- high: 66.5
+- low: 64.4
 - close: 64.9
-- volume: 247306
+- volume: 376266
 - ma5: 64.9
 - ma20: 64.96
 - ma60: 63.82
@@ -66,7 +66,7 @@
 - ema23: 64.67
 - return_5d: 0.46
 - return_20d: 1.25
-- volume_ratio: 0.89
+- volume_ratio: 1.32
 - distance_to_ma20_pct: -0.09
 - distance_to_high_60_pct: -5.12
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,64.4,65,64.1,64.9,247306,64.66,64.74,64.14,64.6,0.96
 20260524,64.4,65,64.1,64.9,247306,64.76,64.85,63.93,64.62,0.95
 20260525,65.4,66.5,64.4,64.9,376266,64.84,64.92,63.84,64.65,1.39
-20260526,64.4,65,64.1,64.9,247306,64.9,64.96,63.82,64.67,0.89
+20260526,65.4,66.5,64.4,64.9,376266,64.9,64.96,63.82,64.67,1.32
 ```
 
 ## Latest TDCC Snapshot

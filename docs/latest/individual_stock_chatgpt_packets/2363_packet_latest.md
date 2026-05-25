@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2363 矽統
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:54 Asia/Taipei
+- generated_at: 2026-05-26 06:02:03 Asia/Taipei
 - stock_id: 2363
 - stock_name: 矽統
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 65.2
-- high: 68.7
-- low: 64
-- close: 66.7
-- volume: 45743277
-- ma5: 67.2
-- ma20: 61.26
-- ma60: 54.12
-- ma120: 52.22
-- ema23: 61.21
-- return_5d: 6.21
-- return_20d: 30.02
-- volume_ratio: 1.62
-- distance_to_ma20_pct: 8.89
-- distance_to_high_60_pct: -7.36
+- open: 68.9
+- high: 72
+- low: 66.4
+- close: 69.2
+- volume: 44653611
+- ma5: 67.7
+- ma20: 61.38
+- ma60: 54.16
+- ma120: 52.24
+- ema23: 61.42
+- return_5d: 10.19
+- return_20d: 34.89
+- volume_ratio: 1.58
+- distance_to_ma20_pct: 12.74
+- distance_to_high_60_pct: -3.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,65.2,68.7,64,66.7,45743277,63.36,58.99,53.46,59.32,2.03
 20260524,65.2,68.7,64,66.7,45743277,64.6,59.68,53.66,59.94,1.88
 20260525,68.9,72,66.4,69.2,44653611,66.42,60.48,53.9,60.71,1.7
-20260526,65.2,68.7,64,66.7,45743277,67.2,61.26,54.12,61.21,1.62
+20260526,68.9,72,66.4,69.2,44653611,67.7,61.38,54.16,61.42,1.58
 ```
 
 ## Latest TDCC Snapshot
@@ -122,8 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2363 | 矽統 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_put_bullish | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260526 | 2363 | 矽統 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  | call_put_bullish | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 2363 | 矽統 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 2363 | 矽統 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_put_bullish | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

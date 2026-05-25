@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6438 迅得
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:20 Asia/Taipei
+- generated_at: 2026-05-26 06:03:22 Asia/Taipei
 - stock_id: 6438
 - stock_name: 迅得
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 165.5
-- high: 171
-- low: 163.5
-- close: 169
-- volume: 1365067
-- ma5: 170
-- ma20: 170.12
-- ma60: 168.44
-- ma120: 155.72
-- ema23: 169.83
-- return_5d: 3.05
-- return_20d: -2.87
-- volume_ratio: 0.93
-- distance_to_ma20_pct: -0.66
-- distance_to_high_60_pct: -12.44
+- open: 172.5
+- high: 176.5
+- low: 170
+- close: 174
+- volume: 1816239
+- ma5: 171
+- ma20: 170.38
+- ma60: 168.53
+- ma120: 155.76
+- ema23: 170.25
+- return_5d: 6.1
+- return_20d: 0
+- volume_ratio: 1.22
+- distance_to_ma20_pct: 2.13
+- distance_to_high_60_pct: -9.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,165.5,171,163.5,169,1365067,165,170.7,167.49,169.58,0.88
 20260524,165.5,171,163.5,169,1365067,166.3,170.6,167.77,169.53,0.89
 20260525,172.5,176.5,170,174,1816239,169,170.38,168.14,169.9,1.24
-20260526,165.5,171,163.5,169,1365067,170,170.12,168.44,169.83,0.93
+20260526,172.5,176.5,170,174,1816239,171,170.38,168.53,170.25,1.22
 ```
 
 ## Latest TDCC Snapshot
@@ -123,6 +123,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260526 | 6438 | 迅得 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 6438 | 迅得 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

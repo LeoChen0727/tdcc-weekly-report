@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2356 英業達
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:53 Asia/Taipei
+- generated_at: 2026-05-26 06:02:02 Asia/Taipei
 - stock_id: 2356
 - stock_name: 英業達
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 56.8
-- high: 59.5
-- low: 54.8
-- close: 59.5
-- volume: 122964502
-- ma5: 60.68
-- ma20: 52.88
-- ma60: 46.66
-- ma120: 45.52
-- ema23: 53.44
-- return_5d: 9.98
-- return_20d: 28.51
-- volume_ratio: 1.93
-- distance_to_ma20_pct: 12.51
-- distance_to_high_60_pct: -9.02
+- open: 65.4
+- high: 65.4
+- low: 62.9
+- close: 65.4
+- volume: 135283743
+- ma5: 61.86
+- ma20: 53.18
+- ma60: 46.76
+- ma120: 45.57
+- ema23: 53.93
+- return_5d: 20.89
+- return_20d: 41.25
+- volume_ratio: 2.11
+- distance_to_ma20_pct: 22.98
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,56.8,59.5,54.8,59.5,122964502,55.24,50.63,45.88,51.05,2.53
 20260524,56.8,59.5,54.8,59.5,122964502,56.8,51.27,46.1,51.75,2.34
 20260525,65.4,65.4,62.9,65.4,135283743,59.6,52.22,46.41,52.89,2.32
-20260526,56.8,59.5,54.8,59.5,122964502,60.68,52.88,46.66,53.44,1.93
+20260526,65.4,65.4,62.9,65.4,135283743,61.86,53.18,46.76,53.93,2.11
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2356 | 英業達 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  | call_put_bullish | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 2356 | 英業達 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_put_bullish | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1720 生達
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:41 Asia/Taipei
+- generated_at: 2026-05-26 06:01:51 Asia/Taipei
 - stock_id: 1720
 - stock_name: 生達
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 62.2
-- high: 62.2
-- low: 61.8
-- close: 62.1
-- volume: 195218
-- ma5: 61.96
-- ma20: 61.52
-- ma60: 62.51
+- open: 62.1
+- high: 62.1
+- low: 61.2
+- close: 61.4
+- volume: 403869
+- ma5: 61.82
+- ma20: 61.48
+- ma60: 62.5
 - ma120: 61.87
-- ema23: 61.8
-- return_5d: -0.48
-- return_20d: 1.14
-- volume_ratio: 0.79
-- distance_to_ma20_pct: 0.95
-- distance_to_high_60_pct: -5.91
+- ema23: 61.75
+- return_5d: -1.6
+- return_20d: 0
+- volume_ratio: 1.57
+- distance_to_ma20_pct: -0.13
+- distance_to_high_60_pct: -6.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,62.2,62.2,61.8,62.1,195218,62.04,61.42,62.68,61.78,0.84
 20260524,62.2,62.2,61.8,62.1,195218,62.1,61.47,62.63,61.81,0.85
 20260525,62.1,62.1,61.2,61.4,403869,62.02,61.48,62.56,61.78,1.67
-20260526,62.2,62.2,61.8,62.1,195218,61.96,61.52,62.51,61.8,0.79
+20260526,62.1,62.1,61.2,61.4,403869,61.82,61.48,62.5,61.75,1.57
 ```
 
 ## Latest TDCC Snapshot

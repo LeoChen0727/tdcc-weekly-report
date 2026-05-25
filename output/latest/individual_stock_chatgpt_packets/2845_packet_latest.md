@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2845 遠東銀
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:09 Asia/Taipei
+- generated_at: 2026-05-26 06:02:17 Asia/Taipei
 - stock_id: 2845
 - stock_name: 遠東銀
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 12
+- open: 12.1
 - high: 12.1
-- low: 11.95
-- close: 12.1
-- volume: 10330463
-- ma5: 12.09
-- ma20: 12.12
+- low: 12
+- close: 12.05
+- volume: 10164055
+- ma5: 12.08
+- ma20: 12.11
 - ma60: 12.35
 - ma120: 12.52
-- ema23: 12.16
-- return_5d: 0.83
-- return_20d: -1.63
-- volume_ratio: 1.01
-- distance_to_ma20_pct: -0.12
-- distance_to_high_60_pct: -5.1
+- ema23: 12.15
+- return_5d: 0.42
+- return_20d: -2.03
+- volume_ratio: 1
+- distance_to_ma20_pct: -0.52
+- distance_to_high_60_pct: -5.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,12,12.1,11.95,12.1,10330463,12.04,12.15,12.38,12.18,1.05
 20260524,12,12.1,11.95,12.1,10330463,12.05,12.14,12.37,12.17,1.07
 20260525,12.1,12.1,12,12.05,10164055,12.07,12.12,12.36,12.16,1.02
-20260526,12,12.1,11.95,12.1,10330463,12.09,12.12,12.35,12.16,1.01
+20260526,12.1,12.1,12,12.05,10164055,12.08,12.11,12.35,12.15,1
 ```
 
 ## Latest TDCC Snapshot

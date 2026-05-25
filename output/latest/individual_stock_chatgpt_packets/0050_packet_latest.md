@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0050 元大台灣50
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:23 Asia/Taipei
+- generated_at: 2026-05-26 06:01:34 Asia/Taipei
 - stock_id: 0050
 - stock_name: 元大台灣50
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 96.3
-- high: 97.3
-- low: 96
-- close: 97.3
-- volume: 64288280
-- ma5: 98
-- ma20: 95.86
-- ma60: 84.98
-- ma120: 76.85
-- ema23: 94.19
-- return_5d: 1.51
-- return_20d: 7.22
-- volume_ratio: 0.65
-- distance_to_ma20_pct: 1.5
-- distance_to_high_60_pct: -3.66
+- open: 99.55
+- high: 101
+- low: 99.55
+- close: 100.8
+- volume: 129483256
+- ma5: 98.7
+- ma20: 96.03
+- ma60: 85.04
+- ma120: 76.88
+- ema23: 94.48
+- return_5d: 5.16
+- return_20d: 11.07
+- volume_ratio: 1.27
+- distance_to_ma20_pct: 4.96
+- distance_to_high_60_pct: -0.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,96.3,97.3,96,97.3,64288280,95.21,94.88,84.1,92.92,0.6
 20260524,96.3,97.3,96,97.3,64288280,96.05,95.09,84.37,93.28,0.64
 20260525,99.55,101,99.55,100.8,129483256,97.71,95.53,84.7,93.91,1.29
-20260526,96.3,97.3,96,97.3,64288280,98,95.86,84.98,94.19,0.65
+20260526,99.55,101,99.55,100.8,129483256,98.7,96.03,85.04,94.48,1.27
 ```
 
 ## Latest TDCC Snapshot
@@ -119,7 +119,7 @@ no_rows,True
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 0050 | 元大台灣50 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | call_put_bullish | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 0050 | 元大台灣50 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

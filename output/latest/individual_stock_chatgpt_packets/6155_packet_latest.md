@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6155 鈞寶
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:10 Asia/Taipei
+- generated_at: 2026-05-26 06:03:13 Asia/Taipei
 - stock_id: 6155
 - stock_name: 鈞寶
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 59.2
-- high: 65.3
-- low: 57
+- open: 62.3
+- high: 64.7
+- low: 61.1
 - close: 61.2
-- volume: 23088794
+- volume: 11088750
 - ma5: 61.2
 - ma20: 53.56
 - ma60: 48.7
@@ -66,7 +66,7 @@
 - ema23: 54.41
 - return_5d: 3.03
 - return_20d: 27.9
-- volume_ratio: 2.24
+- volume_ratio: 1.14
 - distance_to_ma20_pct: 14.25
 - distance_to_high_60_pct: -6.28
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,59.2,65.3,57,61.2,23088794,57.72,51.62,48.23,52.39,2.92
 20260524,59.2,65.3,57,61.2,23088794,59.78,52.31,48.41,53.12,2.59
 20260525,62.3,64.7,61.1,61.2,11088750,60.84,52.9,48.54,53.8,1.2
-20260526,59.2,65.3,57,61.2,23088794,61.2,53.56,48.7,54.41,2.24
+20260526,62.3,64.7,61.1,61.2,11088750,61.2,53.56,48.7,54.41,1.14
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6155 | 鈞寶 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 6155 | 鈞寶 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

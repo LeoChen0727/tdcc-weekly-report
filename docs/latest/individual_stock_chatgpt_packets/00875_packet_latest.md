@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00875 國泰網路資安
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:25 Asia/Taipei
+- generated_at: 2026-05-26 06:01:35 Asia/Taipei
 - stock_id: 00875
 - stock_name: 國泰網路資安
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 45.22
-- high: 45.27
-- low: 45.16
-- close: 45.27
-- volume: 259341
-- ma5: 45.63
-- ma20: 45.63
-- ma60: 45.63
-- ma120: 45.63
-- ema23: 45.41
+- open: 46.5
+- high: 47.16
+- low: 46.5
+- close: 47.08
+- volume: 472412
+- ma5: 45.99
+- ma20: 45.99
+- ma60: 45.99
+- ma120: 45.99
+- ema23: 45.56
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.86
-- distance_to_ma20_pct: -0.79
-- distance_to_high_60_pct: -4.01
+- volume_ratio: 1.37
+- distance_to_ma20_pct: 2.36
+- distance_to_high_60_pct: -0.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,45.22,45.27,45.16,45.27,259341,,,,,
 20260524,45.22,45.27,45.16,45.27,259341,,,,,
 20260525,46.5,47.16,46.5,47.08,472412,,,,,
-20260526,45.22,45.27,45.16,45.27,259341,45.63,45.63,45.63,45.41,0.86
+20260526,46.5,47.16,46.5,47.08,472412,45.99,45.99,45.99,45.56,1.37
 ```
 
 ## Latest TDCC Snapshot

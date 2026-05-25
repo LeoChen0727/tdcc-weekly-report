@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2546 根基
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:04 Asia/Taipei
+- generated_at: 2026-05-26 06:02:12 Asia/Taipei
 - stock_id: 2546
 - stock_name: 根基
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 84.2
-- high: 84.8
+- open: 84.6
+- high: 85
 - low: 84
-- close: 84.6
-- volume: 94850
-- ma5: 84.54
-- ma20: 84.7
-- ma60: 84.29
+- close: 84.3
+- volume: 131173
+- ma5: 84.48
+- ma20: 84.69
+- ma60: 84.28
 - ma120: 85.91
-- ema23: 84.62
-- return_5d: 0.24
-- return_20d: -0.82
-- volume_ratio: 0.67
-- distance_to_ma20_pct: -0.12
-- distance_to_high_60_pct: -6.42
+- ema23: 84.59
+- return_5d: -0.12
+- return_20d: -1.17
+- volume_ratio: 0.91
+- distance_to_ma20_pct: -0.45
+- distance_to_high_60_pct: -6.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,84.2,84.8,84,84.6,94850,84.44,84.77,84.47,84.65,0.67
 20260524,84.2,84.8,84,84.6,94850,84.52,84.79,84.43,84.65,0.69
 20260525,84.6,85,84,84.3,131173,84.5,84.73,84.38,84.62,0.94
-20260526,84.2,84.8,84,84.6,94850,84.54,84.7,84.29,84.62,0.67
+20260526,84.6,85,84,84.3,131173,84.48,84.69,84.28,84.59,0.91
 ```
 
 ## Latest TDCC Snapshot

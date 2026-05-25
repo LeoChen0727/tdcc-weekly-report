@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3665 貿聯-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:35 Asia/Taipei
+- generated_at: 2026-05-26 06:02:41 Asia/Taipei
 - stock_id: 3665
 - stock_name: 貿聯-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 2255
-- high: 2270
-- low: 2200
-- close: 2225
-- volume: 2291246
-- ma5: 2257
-- ma20: 2440.25
-- ma60: 2160.08
-- ma120: 1801.58
-- ema23: 2328.38
-- return_5d: 3.25
-- return_20d: -19.96
-- volume_ratio: 0.69
-- distance_to_ma20_pct: -8.82
-- distance_to_high_60_pct: -26.08
+- open: 2340
+- high: 2430
+- low: 2340
+- close: 2385
+- volume: 2036304
+- ma5: 2289
+- ma20: 2448.25
+- ma60: 2162.75
+- ma120: 1802.92
+- ema23: 2341.72
+- return_5d: 10.67
+- return_20d: -14.21
+- volume_ratio: 0.62
+- distance_to_ma20_pct: -2.58
+- distance_to_high_60_pct: -20.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,2255,2270,2200,2225,2291246,2112,2500.5,2117.17,2343.35,0.67
 20260524,2255,2270,2200,2225,2291246,2159,2480.25,2131.83,2333.49,0.68
 20260525,2340,2430,2340,2385,2036304,2243,2468,2148.08,2337.78,0.61
-20260526,2255,2270,2200,2225,2291246,2257,2440.25,2160.08,2328.38,0.69
+20260526,2340,2430,2340,2385,2036304,2289,2448.25,2162.75,2341.72,0.62
 ```
 
 ## Latest TDCC Snapshot
@@ -120,14 +120,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 3665 | 貿聯-KY | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  | call_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 3665 | 貿聯-KY | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

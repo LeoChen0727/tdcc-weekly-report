@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3016 嘉晶
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:14 Asia/Taipei
+- generated_at: 2026-05-26 06:02:21 Asia/Taipei
 - stock_id: 3016
 - stock_name: 嘉晶
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 118
-- high: 123
-- low: 118
-- close: 121
-- volume: 1522134
-- ma5: 123.4
-- ma20: 115.11
-- ma60: 78.99
-- ma120: 67.8
-- ema23: 108.28
-- return_5d: 4.76
-- return_20d: 48.28
-- volume_ratio: 0.46
-- distance_to_ma20_pct: 5.11
-- distance_to_high_60_pct: -9.02
+- open: 127
+- high: 133
+- low: 127
+- close: 133
+- volume: 2242944
+- ma5: 125.8
+- ma20: 115.72
+- ma60: 79.19
+- ma120: 67.9
+- ema23: 109.28
+- return_5d: 15.15
+- return_20d: 62.99
+- volume_ratio: 0.66
+- distance_to_ma20_pct: 14.94
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,118,123,118,121,1522134,113,107.53,75.77,103.3,0.33
 20260524,118,123,118,121,1522134,116.7,110.2,76.81,104.78,0.35
 20260525,127,133,127,133,2242944,122.3,113.14,77.98,107.13,0.53
-20260526,118,123,118,121,1522134,123.4,115.11,78.99,108.28,0.46
+20260526,127,133,127,133,2242944,125.8,115.72,79.19,109.28,0.66
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3040 遠見
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:16 Asia/Taipei
+- generated_at: 2026-05-26 06:02:23 Asia/Taipei
 - stock_id: 3040
 - stock_name: 遠見
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 39.95
-- high: 40.2
-- low: 39.35
-- close: 39.6
-- volume: 117239
-- ma5: 39.58
-- ma20: 40.49
+- open: 40.05
+- high: 40.3
+- low: 39.2
+- close: 39.5
+- volume: 102874
+- ma5: 39.56
+- ma20: 40.48
 - ma60: 44.49
 - ma120: 48.39
-- ema23: 41.15
-- return_5d: -1.49
-- return_20d: -9.59
-- volume_ratio: 0.85
-- distance_to_ma20_pct: -2.19
-- distance_to_high_60_pct: -26.67
+- ema23: 41.14
+- return_5d: -1.74
+- return_20d: -9.82
+- volume_ratio: 0.75
+- distance_to_ma20_pct: -2.43
+- distance_to_high_60_pct: -26.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,39.95,40.2,39.35,39.6,117239,39.79,41.18,44.49,41.62,0.85
 20260524,39.95,40.2,39.35,39.6,117239,39.81,40.94,44.48,41.45,0.87
 20260525,40.05,40.3,39.2,39.5,102874,39.7,40.7,44.47,41.29,0.76
-20260526,39.95,40.2,39.35,39.6,117239,39.58,40.49,44.49,41.15,0.85
+20260526,40.05,40.3,39.2,39.5,102874,39.56,40.48,44.49,41.14,0.75
 ```
 
 ## Latest TDCC Snapshot

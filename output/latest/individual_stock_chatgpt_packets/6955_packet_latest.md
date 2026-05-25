@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6955 邦睿生技-創
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:38 Asia/Taipei
+- generated_at: 2026-05-26 06:03:40 Asia/Taipei
 - stock_id: 6955
 - stock_name: 邦睿生技-創
 - packet_status: standard_rawdata_packet
@@ -58,7 +58,7 @@
 - high: 152
 - low: 151.5
 - close: 151.5
-- volume: 3016
+- volume: 5309
 - ma5: 151.5
 - ma20: 157.43
 - ma60: 163.67
@@ -66,7 +66,7 @@
 - ema23: 156.83
 - return_5d: -0.33
 - return_20d: -7.62
-- volume_ratio: 0.17
+- volume_ratio: 0.3
 - distance_to_ma20_pct: -3.76
 - distance_to_high_60_pct: -13.18
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,152,152,151.5,151.5,3016,151.8,159.32,164.75,158.41,0.17
 20260524,152,152,151.5,151.5,3016,151.5,158.7,164.32,157.84,0.17
 20260525,152,152,151.5,151.5,5309,151.6,158.05,164,157.31,0.3
-20260526,152,152,151.5,151.5,3016,151.5,157.43,163.67,156.83,0.17
+20260526,152,152,151.5,151.5,5309,151.5,157.43,163.67,156.83,0.3
 ```
 
 ## Latest TDCC Snapshot

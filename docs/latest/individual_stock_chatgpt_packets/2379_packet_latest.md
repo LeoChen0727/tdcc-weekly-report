@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2379 瑞昱
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:55 Asia/Taipei
+- generated_at: 2026-05-26 06:02:04 Asia/Taipei
 - stock_id: 2379
 - stock_name: 瑞昱
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 574
-- high: 578
-- low: 566
-- close: 578
-- volume: 3741508
-- ma5: 579
-- ma20: 561.3
-- ma60: 520.77
-- ma120: 513.9
-- ema23: 560.27
-- return_5d: 0.52
-- return_20d: 4.9
-- volume_ratio: 0.8
-- distance_to_ma20_pct: 2.98
-- distance_to_high_60_pct: -6.02
+- open: 584
+- high: 594
+- low: 578
+- close: 583
+- volume: 4143796
+- ma5: 580
+- ma20: 561.55
+- ma60: 520.85
+- ma120: 513.95
+- ema23: 560.68
+- return_5d: 1.39
+- return_20d: 5.81
+- volume_ratio: 0.88
+- distance_to_ma20_pct: 3.82
+- distance_to_high_60_pct: -5.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,574,578,566,578,3741508,570.6,557.7,515.67,554.48,0.83
 20260524,574,578,566,578,3741508,575.2,558.85,517.4,556.44,0.82
 20260525,584,594,578,583,4143796,578.4,559.95,519.09,558.65,0.9
-20260526,574,578,566,578,3741508,579,561.3,520.77,560.27,0.8
+20260526,584,594,578,583,4143796,580,561.55,520.85,560.68,0.88
 ```
 
 ## Latest TDCC Snapshot
@@ -122,6 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 2379 | 瑞昱 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 2379 | 瑞昱 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

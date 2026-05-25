@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6916 華凌
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:37 Asia/Taipei
+- generated_at: 2026-05-26 06:03:38 Asia/Taipei
 - stock_id: 6916
 - stock_name: 華凌
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 17.3
-- high: 17.85
-- low: 17.3
-- close: 17.8
-- volume: 39241
-- ma5: 17.93
-- ma20: 18.05
-- ma60: 18.16
+- open: 18
+- high: 18.65
+- low: 17.7
+- close: 18.45
+- volume: 63136
+- ma5: 18.06
+- ma20: 18.08
+- ma60: 18.17
 - ma120: 18.27
-- ema23: 18.01
-- return_5d: 2.3
-- return_20d: -7.05
-- volume_ratio: 0.91
-- distance_to_ma20_pct: -1.39
-- distance_to_high_60_pct: -11
+- ema23: 18.07
+- return_5d: 6.03
+- return_20d: -3.66
+- volume_ratio: 1.43
+- distance_to_ma20_pct: 2.03
+- distance_to_high_60_pct: -7.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,17.3,17.85,17.3,17.8,39241,17.38,18.18,18.2,18.01,0.97
 20260524,17.3,17.85,17.3,17.8,39241,17.53,18.14,18.18,18,0.94
 20260525,18,18.65,17.7,18.45,63136,17.85,18.12,18.18,18.03,1.46
-20260526,17.3,17.85,17.3,17.8,39241,17.93,18.05,18.16,18.01,0.91
+20260526,18,18.65,17.7,18.45,63136,18.06,18.08,18.17,18.07,1.43
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9912 偉聯
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:57 Asia/Taipei
+- generated_at: 2026-05-26 06:03:58 Asia/Taipei
 - stock_id: 9912
 - stock_name: 偉聯
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 12.35
-- high: 12.6
-- low: 12.35
-- close: 12.5
-- volume: 87874
-- ma5: 12.55
-- ma20: 12.53
-- ma60: 12.48
+- open: 12.5
+- high: 12.85
+- low: 12.4
+- close: 12.75
+- volume: 213498
+- ma5: 12.6
+- ma20: 12.54
+- ma60: 12.49
 - ma120: 12.3
-- ema23: 12.5
-- return_5d: 0.81
-- return_20d: -0.79
-- volume_ratio: 0.57
-- distance_to_ma20_pct: -0.22
-- distance_to_high_60_pct: -3.85
+- ema23: 12.52
+- return_5d: 2.82
+- return_20d: 1.19
+- volume_ratio: 1.32
+- distance_to_ma20_pct: 1.67
+- distance_to_high_60_pct: -1.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,12.35,12.6,12.35,12.5,87874,12.47,12.51,12.46,12.48,0.61
 20260524,12.35,12.6,12.35,12.5,87874,12.48,12.52,12.47,12.48,0.6
 20260525,12.5,12.85,12.4,12.75,213498,12.53,12.53,12.48,12.5,1.39
-20260526,12.35,12.6,12.35,12.5,87874,12.55,12.53,12.48,12.5,0.57
+20260526,12.5,12.85,12.4,12.75,213498,12.6,12.54,12.49,12.52,1.32
 ```
 
 ## Latest TDCC Snapshot

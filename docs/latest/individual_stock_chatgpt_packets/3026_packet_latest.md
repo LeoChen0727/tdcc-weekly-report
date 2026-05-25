@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3026 禾伸堂
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:15 Asia/Taipei
+- generated_at: 2026-05-26 06:02:22 Asia/Taipei
 - stock_id: 3026
 - stock_name: 禾伸堂
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 460
-- high: 476.5
-- low: 460
-- close: 476.5
-- volume: 1700070
-- ma5: 485.8
-- ma20: 362.02
-- ma60: 228.72
-- ma120: 167.03
-- ema23: 367.94
-- return_5d: 9.92
-- return_20d: 101.91
-- volume_ratio: 0.21
-- distance_to_ma20_pct: 31.62
-- distance_to_high_60_pct: -9.06
+- open: 522
+- high: 524
+- low: 522
+- close: 523
+- volume: 1786878
+- ma5: 495.1
+- ma20: 364.35
+- ma60: 229.5
+- ma120: 167.41
+- ema23: 371.82
+- return_5d: 20.65
+- return_20d: 121.61
+- volume_ratio: 0.22
+- distance_to_ma20_pct: 43.54
+- distance_to_high_60_pct: -0.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,460,476.5,460,476.5,1700070,429.2,322.62,210.03,330.95,0.19
 20260524,460,476.5,460,476.5,1700070,451.5,335.55,215.97,343.08,0.19
 20260525,522,524,522,523,1786878,477.2,350,222.7,358.07,0.21
-20260526,460,476.5,460,476.5,1700070,485.8,362.02,228.72,367.94,0.21
+20260526,522,524,522,523,1786878,495.1,364.35,229.5,371.82,0.22
 ```
 
 ## Latest TDCC Snapshot

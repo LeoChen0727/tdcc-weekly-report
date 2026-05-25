@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2497 怡利電
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:02 Asia/Taipei
+- generated_at: 2026-05-26 06:02:10 Asia/Taipei
 - stock_id: 2497
 - stock_name: 怡利電
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 56.9
-- high: 57.4
-- low: 56.3
-- close: 57
-- volume: 353844
-- ma5: 57.4
-- ma20: 57.12
-- ma60: 51.64
-- ma120: 49.95
-- ema23: 56.62
-- return_5d: 0.35
-- return_20d: 3.45
-- volume_ratio: 0.47
-- distance_to_ma20_pct: -0.2
-- distance_to_high_60_pct: -9.09
+- open: 59
+- high: 59.7
+- low: 57.1
+- close: 59
+- volume: 906067
+- ma5: 57.8
+- ma20: 57.22
+- ma60: 51.67
+- ma120: 49.97
+- ema23: 56.79
+- return_5d: 3.87
+- return_20d: 7.08
+- volume_ratio: 1.15
+- distance_to_ma20_pct: 3.12
+- distance_to_high_60_pct: -5.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,56.9,57.4,56.3,57,353844,56.54,56.95,51.02,56.31,0.46
 20260524,56.9,57.4,56.3,57,353844,56.78,56.91,51.22,56.37,0.47
 20260525,59,59.7,57.1,59,906067,57.36,57.02,51.45,56.59,1.18
-20260526,56.9,57.4,56.3,57,353844,57.4,57.12,51.64,56.62,0.47
+20260526,59,59.7,57.1,59,906067,57.8,57.22,51.67,56.79,1.15
 ```
 
 ## Latest TDCC Snapshot

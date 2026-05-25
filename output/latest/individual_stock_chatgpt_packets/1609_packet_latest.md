@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1609 大亞
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:40 Asia/Taipei
+- generated_at: 2026-05-26 06:01:49 Asia/Taipei
 - stock_id: 1609
 - stock_name: 大亞
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 35.3
-- high: 35.6
-- low: 34.8
-- close: 35.5
-- volume: 5018270
-- ma5: 35.6
-- ma20: 34.49
-- ma60: 34.3
+- open: 35.95
+- high: 36.25
+- low: 35.65
+- close: 36
+- volume: 7956444
+- ma5: 35.7
+- ma20: 34.52
+- ma60: 34.31
 - ma120: 36.97
-- ema23: 34.59
-- return_5d: 1.28
-- return_20d: 10.08
-- volume_ratio: 0.83
-- distance_to_ma20_pct: 2.92
-- distance_to_high_60_pct: -14.77
+- ema23: 34.63
+- return_5d: 2.71
+- return_20d: 11.63
+- volume_ratio: 1.29
+- distance_to_ma20_pct: 4.29
+- distance_to_high_60_pct: -13.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,35.3,35.6,34.8,35.5,5018270,34.72,33.96,34.57,34.26,0.91
 20260524,35.3,35.6,34.8,35.5,5018270,35.07,34.14,34.48,34.37,0.9
 20260525,35.95,36.25,35.65,36,7956444,35.51,34.33,34.4,34.5,1.35
-20260526,35.3,35.6,34.8,35.5,5018270,35.6,34.49,34.3,34.59,0.83
+20260526,35.95,36.25,35.65,36,7956444,35.7,34.52,34.31,34.63,1.29
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1609 | 大亞 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 1609 | 大亞 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 1609 | 大亞 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

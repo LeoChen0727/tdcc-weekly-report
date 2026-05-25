@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4441 振大環球
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:43 Asia/Taipei
+- generated_at: 2026-05-26 06:02:49 Asia/Taipei
 - stock_id: 4441
 - stock_name: 振大環球
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 204.5
+- open: 208.5
 - high: 208.5
-- low: 201.5
-- close: 207.5
-- volume: 143036
-- ma5: 206.4
-- ma20: 202.12
-- ma60: 202.93
-- ma120: 228.07
-- ema23: 202.48
-- return_5d: 2.22
-- return_20d: 12.16
-- volume_ratio: 1.27
-- distance_to_ma20_pct: 2.66
-- distance_to_high_60_pct: -15.31
+- low: 201
+- close: 202
+- volume: 99580
+- ma5: 205.3
+- ma20: 201.85
+- ma60: 202.83
+- ma120: 228.03
+- ema23: 202.02
+- return_5d: -0.49
+- return_20d: 9.19
+- volume_ratio: 0.9
+- distance_to_ma20_pct: 0.07
+- distance_to_high_60_pct: -17.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,204.5,208.5,201.5,207.5,143036,203.6,199.15,204.93,201.53,1.38
 20260524,204.5,208.5,201.5,207.5,143036,205.2,200.35,204.23,202.03,1.34
 20260525,208.5,208.5,201,202,99580,205.5,201,203.51,202.03,0.91
-20260526,204.5,208.5,201.5,207.5,143036,206.4,202.12,202.93,202.48,1.27
+20260526,208.5,208.5,201,202,99580,205.3,201.85,202.83,202.02,0.9
 ```
 
 ## Latest TDCC Snapshot

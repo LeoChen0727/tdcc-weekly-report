@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2243 宏旭-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:50 Asia/Taipei
+- generated_at: 2026-05-26 06:01:59 Asia/Taipei
 - stock_id: 2243
 - stock_name: 宏旭-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 22.45
-- high: 22.95
-- low: 22.2
-- close: 22.8
-- volume: 627322
-- ma5: 22.94
-- ma20: 23.16
-- ma60: 21.05
-- ma120: 16.27
-- ema23: 22.77
-- return_5d: 3.64
-- return_20d: -19.15
-- volume_ratio: 0.5
-- distance_to_ma20_pct: -1.56
-- distance_to_high_60_pct: -20.83
+- open: 22.8
+- high: 23.5
+- low: 22.15
+- close: 23.5
+- volume: 954090
+- ma5: 23.08
+- ma20: 23.2
+- ma60: 21.06
+- ma120: 16.28
+- ema23: 22.83
+- return_5d: 6.82
+- return_20d: -16.67
+- volume_ratio: 0.76
+- distance_to_ma20_pct: 1.3
+- distance_to_high_60_pct: -18.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,22.45,22.95,22.2,22.8,627322,22.02,23.73,20.5,22.69,0.4
 20260524,22.45,22.95,22.2,22.8,627322,22.26,23.63,20.68,22.7,0.41
 20260525,22.8,23.5,22.15,23.5,954090,22.78,23.43,20.87,22.76,0.68
-20260526,22.45,22.95,22.2,22.8,627322,22.94,23.16,21.05,22.77,0.5
+20260526,22.8,23.5,22.15,23.5,954090,23.08,23.2,21.06,22.83,0.76
 ```
 
 ## Latest TDCC Snapshot

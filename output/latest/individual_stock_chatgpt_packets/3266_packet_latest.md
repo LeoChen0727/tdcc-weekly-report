@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3266 昇陽
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:23 Asia/Taipei
+- generated_at: 2026-05-26 06:02:30 Asia/Taipei
 - stock_id: 3266
 - stock_name: 昇陽
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 12.4
-- high: 12.6
-- low: 12.25
-- close: 12.4
-- volume: 155648
-- ma5: 12.49
-- ma20: 12.91
-- ma60: 13.32
+- open: 12.6
+- high: 12.85
+- low: 12.3
+- close: 12.85
+- volume: 300305
+- ma5: 12.58
+- ma20: 12.93
+- ma60: 13.33
 - ma120: 13.61
-- ema23: 12.87
-- return_5d: 1.22
-- return_20d: -8.82
-- volume_ratio: 1.16
-- distance_to_ma20_pct: -3.95
-- distance_to_high_60_pct: -12.68
+- ema23: 12.91
+- return_5d: 4.9
+- return_20d: -5.51
+- volume_ratio: 2.12
+- distance_to_ma20_pct: -0.64
+- distance_to_high_60_pct: -9.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,12.4,12.6,12.25,12.4,155648,12.33,13.07,13.4,12.97,1.37
 20260524,12.4,12.6,12.25,12.4,155648,12.32,13.01,13.37,12.92,1.31
 20260525,12.6,12.85,12.3,12.85,300305,12.46,12.97,13.35,12.92,2.3
-20260526,12.4,12.6,12.25,12.4,155648,12.49,12.91,13.32,12.87,1.16
+20260526,12.6,12.85,12.3,12.85,300305,12.58,12.93,13.33,12.91,2.12
 ```
 
 ## Latest TDCC Snapshot

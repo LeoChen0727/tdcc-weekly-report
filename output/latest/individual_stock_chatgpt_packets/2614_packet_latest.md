@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2614 東森
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:05 Asia/Taipei
+- generated_at: 2026-05-26 06:02:13 Asia/Taipei
 - stock_id: 2614
 - stock_name: 東森
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 18.25
-- high: 18.3
+- open: 18.1
+- high: 18.25
 - low: 17.9
-- close: 18.1
-- volume: 1263650
-- ma5: 18.13
-- ma20: 19.01
+- close: 18.25
+- volume: 1439941
+- ma5: 18.16
+- ma20: 19.02
 - ma60: 20.04
 - ma120: 20.95
-- ema23: 18.93
-- return_5d: -0.28
-- return_20d: -10.84
-- volume_ratio: 1.11
-- distance_to_ma20_pct: -4.77
-- distance_to_high_60_pct: -15.22
+- ema23: 18.94
+- return_5d: 0.55
+- return_20d: -10.1
+- volume_ratio: 1.25
+- distance_to_ma20_pct: -4.02
+- distance_to_high_60_pct: -14.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,18.25,18.3,17.9,18.1,1263650,18.13,19.31,20.16,19.17,1.24
 20260524,18.25,18.3,17.9,18.1,1263650,18.12,19.22,20.11,19.08,1.2
 20260525,18.1,18.25,17.9,18.25,1439941,18.14,19.12,20.08,19.01,1.32
-20260526,18.25,18.3,17.9,18.1,1263650,18.13,19.01,20.04,18.93,1.11
+20260526,18.1,18.25,17.9,18.25,1439941,18.16,19.02,20.04,18.94,1.25
 ```
 
 ## Latest TDCC Snapshot

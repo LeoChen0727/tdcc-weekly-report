@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2362 藍天
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:54 Asia/Taipei
+- generated_at: 2026-05-26 06:02:03 Asia/Taipei
 - stock_id: 2362
 - stock_name: 藍天
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 40
-- high: 41.2
-- low: 39.65
-- close: 40.85
-- volume: 1602483
-- ma5: 41.14
-- ma20: 39.69
-- ma60: 38.8
-- ma120: 39.02
-- ema23: 39.77
-- return_5d: 2.38
-- return_20d: 5.56
-- volume_ratio: 1.44
-- distance_to_ma20_pct: 2.93
-- distance_to_high_60_pct: -4.56
+- open: 41.8
+- high: 42.8
+- low: 41.45
+- close: 42.3
+- volume: 4281225
+- ma5: 41.43
+- ma20: 39.76
+- ma60: 38.82
+- ma120: 39.03
+- ema23: 39.89
+- return_5d: 6.01
+- return_20d: 9.3
+- volume_ratio: 3.42
+- distance_to_ma20_pct: 6.39
+- distance_to_high_60_pct: -1.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,40,41.2,39.65,40.85,1602483,39.79,39.28,38.71,39.3,2.01
 20260524,40,41.2,39.65,40.85,1602483,40.25,39.41,38.72,39.43,1.87
 20260525,41.8,42.8,41.45,42.3,4281225,40.95,39.58,38.77,39.67,4.08
-20260526,40,41.2,39.65,40.85,1602483,41.14,39.69,38.8,39.77,1.44
+20260526,41.8,42.8,41.45,42.3,4281225,41.43,39.76,38.82,39.89,3.42
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6928 攸泰科技
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:37 Asia/Taipei
+- generated_at: 2026-05-26 06:03:39 Asia/Taipei
 - stock_id: 6928
 - stock_name: 攸泰科技
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 46.9
-- high: 47.25
-- low: 46.25
-- close: 47
-- volume: 81411
-- ma5: 46.97
-- ma20: 47.56
-- ma60: 47.72
+- open: 47.9
+- high: 47.9
+- low: 46.5
+- close: 46.85
+- volume: 141591
+- ma5: 46.94
+- ma20: 47.55
+- ma60: 47.71
 - ma120: 49.89
-- ema23: 47.21
-- return_5d: 1.08
-- return_20d: -1.26
-- volume_ratio: 0.54
-- distance_to_ma20_pct: -1.18
-- distance_to_high_60_pct: -17.98
+- ema23: 47.2
+- return_5d: 0.75
+- return_20d: -1.58
+- volume_ratio: 0.92
+- distance_to_ma20_pct: -1.48
+- distance_to_high_60_pct: -18.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,46.9,47.25,46.25,47,81411,46.43,47.59,48.01,47.29,0.56
 20260524,46.9,47.25,46.25,47,81411,46.67,47.63,47.91,47.27,0.56
 20260525,47.9,47.9,46.5,46.85,141591,46.87,47.59,47.81,47.23,0.95
-20260526,46.9,47.25,46.25,47,81411,46.97,47.56,47.72,47.21,0.54
+20260526,47.9,47.9,46.5,46.85,141591,46.94,47.55,47.71,47.2,0.92
 ```
 
 ## Latest TDCC Snapshot

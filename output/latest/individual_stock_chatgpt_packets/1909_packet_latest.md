@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1909 榮成
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:45 Asia/Taipei
+- generated_at: 2026-05-26 06:01:54 Asia/Taipei
 - stock_id: 1909
 - stock_name: 榮成
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 8.95
-- high: 9
-- low: 8.93
-- close: 8.96
-- volume: 2533307
-- ma5: 8.95
+- open: 8.92
+- high: 8.94
+- low: 8.81
+- close: 8.91
+- volume: 4443020
+- ma5: 8.94
 - ma20: 9.03
 - ma60: 9.37
-- ma120: 9.78
+- ma120: 9.77
 - ema23: 9.09
-- return_5d: -0.67
-- return_20d: -2.71
-- volume_ratio: 0.88
-- distance_to_ma20_pct: -0.79
-- distance_to_high_60_pct: -19.64
+- return_5d: -1.22
+- return_20d: -3.26
+- volume_ratio: 1.5
+- distance_to_ma20_pct: -1.32
+- distance_to_high_60_pct: -20.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,8.95,9,8.93,8.96,2533307,8.99,9.06,9.42,9.13,0.92
 20260524,8.95,9,8.93,8.96,2533307,8.97,9.05,9.4,9.12,0.94
 20260525,8.92,8.94,8.81,8.91,4443020,8.96,9.04,9.38,9.1,1.57
-20260526,8.95,9,8.93,8.96,2533307,8.95,9.03,9.37,9.09,0.88
+20260526,8.92,8.94,8.81,8.91,4443020,8.94,9.03,9.37,9.09,1.5
 ```
 
 ## Latest TDCC Snapshot

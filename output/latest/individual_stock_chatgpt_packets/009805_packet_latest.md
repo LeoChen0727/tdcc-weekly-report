@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009805 新光美國電力基建
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:27 Asia/Taipei
+- generated_at: 2026-05-26 06:01:37 Asia/Taipei
 - stock_id: 009805
 - stock_name: 新光美國電力基建
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 16.51
-- high: 16.6
-- low: 16.51
-- close: 16.54
-- volume: 14577097
-- ma5: 16.63
-- ma20: 16.63
-- ma60: 16.63
-- ma120: 16.63
-- ema23: 16.58
+- open: 16.76
+- high: 17
+- low: 16.76
+- close: 17
+- volume: 21424434
+- ma5: 16.72
+- ma20: 16.72
+- ma60: 16.72
+- ma120: 16.72
+- ema23: 16.61
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.91
-- distance_to_ma20_pct: -0.55
-- distance_to_high_60_pct: -2.71
+- volume_ratio: 1.24
+- distance_to_ma20_pct: 1.65
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,16.51,16.6,16.51,16.54,14577097,,,,,
 20260524,16.51,16.6,16.51,16.54,14577097,,,,,
 20260525,16.76,17,16.76,17,21424434,,,,,
-20260526,16.51,16.6,16.51,16.54,14577097,16.63,16.63,16.63,16.58,0.91
+20260526,16.76,17,16.76,17,21424434,16.72,16.72,16.72,16.61,1.24
 ```
 
 ## Latest TDCC Snapshot

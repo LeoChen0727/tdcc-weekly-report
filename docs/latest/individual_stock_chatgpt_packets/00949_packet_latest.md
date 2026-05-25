@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00949 復華日本龍頭
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:26 Asia/Taipei
+- generated_at: 2026-05-26 06:01:37 Asia/Taipei
 - stock_id: 00949
 - stock_name: 復華日本龍頭
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 20.13
-- high: 20.25
-- low: 20.12
-- close: 20.23
-- volume: 1241374
-- ma5: 20.27
-- ma20: 20.27
-- ma60: 20.27
-- ma120: 20.27
-- ema23: 20.24
+- open: 20.45
+- high: 20.54
+- low: 20.4
+- close: 20.41
+- volume: 1391072
+- ma5: 20.3
+- ma20: 20.3
+- ma60: 20.3
+- ma120: 20.3
+- ema23: 20.26
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.98
-- distance_to_ma20_pct: -0.18
-- distance_to_high_60_pct: -1.51
+- volume_ratio: 1.07
+- distance_to_ma20_pct: 0.53
+- distance_to_high_60_pct: -0.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,20.13,20.25,20.12,20.23,1241374,,,,,
 20260524,20.13,20.25,20.12,20.23,1241374,,,,,
 20260525,20.45,20.54,20.4,20.41,1391072,,,,,
-20260526,20.13,20.25,20.12,20.23,1241374,20.27,20.27,20.27,20.24,0.98
+20260526,20.45,20.54,20.4,20.41,1391072,20.3,20.3,20.3,20.26,1.07
 ```
 
 ## Latest TDCC Snapshot

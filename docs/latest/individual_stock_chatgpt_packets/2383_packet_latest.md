@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2383 台光電
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:55 Asia/Taipei
+- generated_at: 2026-05-26 06:02:04 Asia/Taipei
 - stock_id: 2383
 - stock_name: 台光電
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 4925
-- high: 5085
-- low: 4800
-- close: 5005
-- volume: 3037648
-- ma5: 5105
-- ma20: 4829.75
-- ma60: 3701.42
-- ma120: 2706.71
-- ema23: 4674.46
-- return_5d: 6.72
-- return_20d: 12.73
-- volume_ratio: 1.13
-- distance_to_ma20_pct: 3.63
-- distance_to_high_60_pct: -9.08
+- open: 5355
+- high: 5505
+- low: 5205
+- close: 5505
+- volume: 1801298
+- ma5: 5205
+- ma20: 4854.75
+- ma60: 3709.75
+- ma120: 2710.88
+- ema23: 4716.12
+- return_5d: 17.38
+- return_20d: 23.99
+- volume_ratio: 0.69
+- distance_to_ma20_pct: 13.39
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,4925,5085,4800,5005,3037648,4726,4731.25,3563.5,4526.28,1.02
 20260524,4925,5085,4800,5005,3037648,4820,4745,3606.58,4566.17,1.06
 20260525,5355,5505,5205,5505,1801298,5042,4801.5,3657.67,4644.41,0.66
-20260526,4925,5085,4800,5005,3037648,5105,4829.75,3701.42,4674.46,1.13
+20260526,5355,5505,5205,5505,1801298,5205,4854.75,3709.75,4716.12,0.69
 ```
 
 ## Latest TDCC Snapshot
@@ -120,10 +120,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2383 | 台光電 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 2383 | 台光電 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2354 鴻準
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:53 Asia/Taipei
+- generated_at: 2026-05-26 06:02:02 Asia/Taipei
 - stock_id: 2354
 - stock_name: 鴻準
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 59.1
-- high: 60.4
-- low: 58.7
-- close: 60.2
-- volume: 10293287
-- ma5: 60.38
-- ma20: 59.52
-- ma60: 54.86
-- ma120: 57.87
-- ema23: 58.39
-- return_5d: 2.21
-- return_20d: 18.04
-- volume_ratio: 0.49
-- distance_to_ma20_pct: 1.15
-- distance_to_high_60_pct: -7.81
+- open: 61.5
+- high: 61.6
+- low: 60.1
+- close: 61.1
+- volume: 13341786
+- ma5: 60.56
+- ma20: 59.56
+- ma60: 54.87
+- ma120: 57.88
+- ema23: 58.47
+- return_5d: 3.74
+- return_20d: 19.8
+- volume_ratio: 0.63
+- distance_to_ma20_pct: 2.59
+- distance_to_high_60_pct: -6.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,59.1,60.4,58.7,60.2,10293287,58.9,58.09,54.8,57.77,0.52
 20260524,59.1,60.4,58.7,60.2,10293287,59.4,58.55,54.81,57.97,0.51
 20260525,61.5,61.6,60.1,61.1,13341786,60.12,59.05,54.84,58.23,0.65
-20260526,59.1,60.4,58.7,60.2,10293287,60.38,59.52,54.86,58.39,0.49
+20260526,61.5,61.6,60.1,61.1,13341786,60.56,59.56,54.87,58.47,0.63
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2354 | 鴻準 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 2354 | 鴻準 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 2354 | 鴻準 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

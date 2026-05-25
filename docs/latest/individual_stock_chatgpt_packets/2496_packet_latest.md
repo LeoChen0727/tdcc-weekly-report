@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2496 卓越
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:02 Asia/Taipei
+- generated_at: 2026-05-26 06:02:10 Asia/Taipei
 - stock_id: 2496
 - stock_name: 卓越
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 64.2
-- high: 64.7
+- open: 64.8
+- high: 64.8
 - low: 64.2
 - close: 64.5
-- volume: 12478
+- volume: 19079
 - ma5: 64.5
 - ma20: 64.78
 - ma60: 66.25
@@ -66,7 +66,7 @@
 - ema23: 64.89
 - return_5d: 0
 - return_20d: 0.16
-- volume_ratio: 0.64
+- volume_ratio: 0.96
 - distance_to_ma20_pct: -0.44
 - distance_to_high_60_pct: -7.73
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,64.2,64.7,64.2,64.5,12478,64.46,64.77,66.48,65.01,0.63
 20260524,64.2,64.7,64.2,64.5,12478,64.46,64.78,66.41,64.97,0.65
 20260525,64.8,64.8,64.2,64.5,19079,64.5,64.78,66.33,64.93,0.99
-20260526,64.2,64.7,64.2,64.5,12478,64.5,64.78,66.25,64.89,0.64
+20260526,64.8,64.8,64.2,64.5,19079,64.5,64.78,66.25,64.89,0.96
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3055 蔚華科
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:17 Asia/Taipei
+- generated_at: 2026-05-26 06:02:24 Asia/Taipei
 - stock_id: 3055
 - stock_name: 蔚華科
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 117
-- high: 122.5
-- low: 116
+- open: 120
+- high: 126
+- low: 117.5
 - close: 118
-- volume: 4735075
+- volume: 6726058
 - ma5: 118
 - ma20: 104.02
 - ma60: 77.28
@@ -66,7 +66,7 @@
 - ema23: 103.21
 - return_5d: 1.29
 - return_20d: 48.61
-- volume_ratio: 0.85
+- volume_ratio: 1.18
 - distance_to_ma20_pct: 13.44
 - distance_to_high_60_pct: -6.35
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,117,122.5,116,118,4735075,117.7,98,74.82,98.8,0.94
 20260524,117,122.5,116,118,4735075,116.5,100.08,75.67,100.4,0.91
 20260525,120,126,117.5,118,6726058,117.7,102.09,76.48,101.86,1.23
-20260526,117,122.5,116,118,4735075,118,104.02,77.28,103.21,0.85
+20260526,120,126,117.5,118,6726058,118,104.02,77.28,103.21,1.18
 ```
 
 ## Latest TDCC Snapshot

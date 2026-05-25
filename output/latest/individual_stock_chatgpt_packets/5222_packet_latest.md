@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5222 全訊
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:56 Asia/Taipei
+- generated_at: 2026-05-26 06:03:00 Asia/Taipei
 - stock_id: 5222
 - stock_name: 全訊
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 125.5
-- high: 128
-- low: 125.5
+- open: 130
+- high: 130.5
+- low: 127.5
 - close: 128
-- volume: 618434
+- volume: 687694
 - ma5: 128
 - ma20: 129.28
 - ma60: 131.68
@@ -66,7 +66,7 @@
 - ema23: 129
 - return_5d: 2.81
 - return_20d: -3.4
-- volume_ratio: 0.96
+- volume_ratio: 1.07
 - distance_to_ma20_pct: -0.99
 - distance_to_high_60_pct: -16.34
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,125.5,128,125.5,128,618434,125,130.12,132.45,129.29,0.96
 20260524,125.5,128,125.5,128,618434,126.2,129.7,132.16,129.18,0.99
 20260525,130,130.5,127.5,128,687694,127.3,129.5,131.89,129.09,1.1
-20260526,125.5,128,125.5,128,618434,128,129.28,131.68,129,0.96
+20260526,130,130.5,127.5,128,687694,128,129.28,131.68,129,1.07
 ```
 
 ## Latest TDCC Snapshot

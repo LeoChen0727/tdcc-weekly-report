@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4155 訊映
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:40 Asia/Taipei
+- generated_at: 2026-05-26 06:02:46 Asia/Taipei
 - stock_id: 4155
 - stock_name: 訊映
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 15.5
-- high: 15.5
-- low: 15.2
-- close: 15.2
-- volume: 547323
-- ma5: 15.11
-- ma20: 14.1
+- open: 15.2
+- high: 15.35
+- low: 14.75
+- close: 14.75
+- volume: 598245
+- ma5: 15.02
+- ma20: 14.08
 - ma60: 13.62
-- ma120: 14.17
-- ema23: 14.27
-- return_5d: -0.65
-- return_20d: 17.37
-- volume_ratio: 0.92
-- distance_to_ma20_pct: 7.8
-- distance_to_high_60_pct: -1.94
+- ma120: 14.16
+- ema23: 14.23
+- return_5d: -3.59
+- return_20d: 13.9
+- volume_ratio: 1.01
+- distance_to_ma20_pct: 4.78
+- distance_to_high_60_pct: -4.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,15.5,15.5,15.2,15.2,547323,15.04,13.78,13.59,14.04,1.03
 20260524,15.5,15.5,15.2,15.2,547323,15.14,13.89,13.61,14.13,1
 20260525,15.2,15.35,14.75,14.75,598245,15.13,13.99,13.61,14.19,1.04
-20260526,15.5,15.5,15.2,15.2,547323,15.11,14.1,13.62,14.27,0.92
+20260526,15.2,15.35,14.75,14.75,598245,15.02,14.08,13.62,14.23,1.01
 ```
 
 ## Latest TDCC Snapshot

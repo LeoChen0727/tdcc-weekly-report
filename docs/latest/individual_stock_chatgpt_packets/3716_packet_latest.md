@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3716 中化控股
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:37 Asia/Taipei
+- generated_at: 2026-05-26 06:02:43 Asia/Taipei
 - stock_id: 3716
 - stock_name: 中化控股
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 34.6
-- high: 34.75
-- low: 34.3
-- close: 34.35
-- volume: 188764
-- ma5: 34.4
-- ma20: 33.97
+- open: 34.55
+- high: 34.65
+- low: 33.95
+- close: 34.6
+- volume: 390283
+- ma5: 34.45
+- ma20: 33.98
 - ma60: 33.34
 - ma120: 33.59
-- ema23: 33.93
-- return_5d: -0.72
-- return_20d: 6.02
-- volume_ratio: 0.49
-- distance_to_ma20_pct: 1.13
-- distance_to_high_60_pct: -2.69
+- ema23: 33.95
+- return_5d: 0
+- return_20d: 6.79
+- volume_ratio: 1
+- distance_to_ma20_pct: 1.83
+- distance_to_high_60_pct: -1.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,34.6,34.75,34.3,34.35,188764,34.31,33.61,33.33,33.78,0.52
 20260524,34.6,34.75,34.3,34.35,188764,34.38,33.73,33.33,33.82,0.52
 20260525,34.55,34.65,33.95,34.6,390283,34.45,33.87,33.33,33.89,1.03
-20260526,34.6,34.75,34.3,34.35,188764,34.4,33.97,33.34,33.93,0.49
+20260526,34.55,34.65,33.95,34.6,390283,34.45,33.98,33.34,33.95,1
 ```
 
 ## Latest TDCC Snapshot

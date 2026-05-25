@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6691 洋基工程
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:29 Asia/Taipei
+- generated_at: 2026-05-26 06:03:31 Asia/Taipei
 - stock_id: 6691
 - stock_name: 洋基工程
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 624
-- high: 632
-- low: 619
-- close: 628
-- volume: 285069
-- ma5: 631.6
-- ma20: 636.05
-- ma60: 626.55
-- ma120: 601.77
-- ema23: 633.21
-- return_5d: 1.13
-- return_20d: -1.26
-- volume_ratio: 0.67
-- distance_to_ma20_pct: -1.27
-- distance_to_high_60_pct: -9.77
+- open: 631
+- high: 652
+- low: 631
+- close: 646
+- volume: 639126
+- ma5: 635.2
+- ma20: 636.95
+- ma60: 626.85
+- ma120: 601.92
+- ema23: 634.71
+- return_5d: 4.03
+- return_20d: 1.57
+- volume_ratio: 1.43
+- distance_to_ma20_pct: 1.42
+- distance_to_high_60_pct: -7.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,624,632,619,628,285069,622,636.5,627.87,632.98,0.64
 20260524,624,632,619,628,285069,623.6,636.05,627.98,632.57,0.69
 20260525,631,652,631,646,639126,630.2,636.45,627.37,633.69,1.48
-20260526,624,632,619,628,285069,631.6,636.05,626.55,633.21,0.67
+20260526,631,652,631,646,639126,635.2,636.95,626.85,634.71,1.43
 ```
 
 ## Latest TDCC Snapshot

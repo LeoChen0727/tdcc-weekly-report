@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2419 仲琦
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:57 Asia/Taipei
+- generated_at: 2026-05-26 06:02:06 Asia/Taipei
 - stock_id: 2419
 - stock_name: 仲琦
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 30.9
-- high: 31.7
-- low: 30.8
-- close: 31.6
-- volume: 3753286
-- ma5: 31.74
-- ma20: 30.51
-- ma60: 31.74
-- ma120: 29.37
-- ema23: 31.18
-- return_5d: 2.93
-- return_20d: 3.44
-- volume_ratio: 1.56
-- distance_to_ma20_pct: 3.57
-- distance_to_high_60_pct: -20.7
+- open: 32.2
+- high: 32.75
+- low: 31.65
+- close: 32.3
+- volume: 4211320
+- ma5: 31.88
+- ma20: 30.55
+- ma60: 31.75
+- ma120: 29.38
+- ema23: 31.23
+- return_5d: 5.21
+- return_20d: 5.73
+- volume_ratio: 1.73
+- distance_to_ma20_pct: 5.75
+- distance_to_high_60_pct: -18.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,30.9,31.7,30.8,31.6,3753286,30.78,30.41,31.66,30.98,1.7
 20260524,30.9,31.7,30.8,31.6,3753286,31.08,30.41,31.69,31.03,1.72
 20260525,32.2,32.75,31.65,32.3,4211320,31.56,30.46,31.73,31.14,1.83
-20260526,30.9,31.7,30.8,31.6,3753286,31.74,30.51,31.74,31.18,1.56
+20260526,32.2,32.75,31.65,32.3,4211320,31.88,30.55,31.75,31.23,1.73
 ```
 
 ## Latest TDCC Snapshot

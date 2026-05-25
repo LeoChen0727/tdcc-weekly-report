@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6658 聯策
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:28 Asia/Taipei
+- generated_at: 2026-05-26 06:03:30 Asia/Taipei
 - stock_id: 6658
 - stock_name: 聯策
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 178
-- high: 193
-- low: 177
-- close: 193
-- volume: 1381316
-- ma5: 196.8
-- ma20: 180.75
-- ma60: 111.46
-- ma120: 82.58
-- ema23: 170.55
-- return_5d: 9.97
-- return_20d: 31.74
-- volume_ratio: 1.04
-- distance_to_ma20_pct: 6.78
-- distance_to_high_60_pct: -10.65
+- open: 212
+- high: 212
+- low: 211.5
+- close: 212
+- volume: 628069
+- ma5: 200.6
+- ma20: 181.7
+- ma60: 111.78
+- ma120: 82.74
+- ema23: 172.13
+- return_5d: 20.8
+- return_20d: 44.71
+- volume_ratio: 0.48
+- distance_to_ma20_pct: 16.68
+- distance_to_high_60_pct: -1.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,178,193,177,193,1381316,182.9,170.93,104.41,161.97,0.92
 20260524,178,193,177,193,1381316,184.9,174.5,106.68,164.55,0.96
 20260525,212,212,211.5,212,628069,193.3,178.43,109.24,168.51,0.44
-20260526,178,193,177,193,1381316,196.8,180.75,111.46,170.55,1.04
+20260526,212,212,211.5,212,628069,200.6,181.7,111.78,172.13,0.48
 ```
 
 ## Latest TDCC Snapshot

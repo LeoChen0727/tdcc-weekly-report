@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2474 可成
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:00 Asia/Taipei
+- generated_at: 2026-05-26 06:02:09 Asia/Taipei
 - stock_id: 2474
 - stock_name: 可成
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 185
-- high: 188.5
-- low: 184
-- close: 187.5
-- volume: 5636943
-- ma5: 187.3
-- ma20: 195.78
-- ma60: 195.74
+- open: 189.5
+- high: 190.5
+- low: 186
+- close: 186.5
+- volume: 7852117
+- ma5: 187.1
+- ma20: 195.72
+- ma60: 195.72
 - ma120: 198.12
-- ema23: 194.32
-- return_5d: 1.35
-- return_20d: -13.39
-- volume_ratio: 1.15
-- distance_to_ma20_pct: -4.23
-- distance_to_high_60_pct: -22.84
+- ema23: 194.23
+- return_5d: 0.81
+- return_20d: -13.86
+- volume_ratio: 1.56
+- distance_to_ma20_pct: -4.71
+- distance_to_high_60_pct: -23.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,185,188.5,184,187.5,5636943,185.4,201.32,195.96,196.45,1.13
 20260524,185,188.5,184,187.5,5636943,186.1,199.45,195.88,195.7,1.16
 20260525,189.5,190.5,186,186.5,7852117,186.8,197.22,195.79,194.94,1.58
-20260526,185,188.5,184,187.5,5636943,187.3,195.78,195.74,194.32,1.15
+20260526,189.5,190.5,186,186.5,7852117,187.1,195.72,195.72,194.23,1.56
 ```
 
 ## Latest TDCC Snapshot

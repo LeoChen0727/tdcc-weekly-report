@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2392 正崴
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:56 Asia/Taipei
+- generated_at: 2026-05-26 06:02:04 Asia/Taipei
 - stock_id: 2392
 - stock_name: 正崴
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 37.05
-- high: 38.2
-- low: 36.3
-- close: 38.05
-- volume: 3893276
-- ma5: 38.16
-- ma20: 37.26
-- ma60: 36.64
-- ma120: 37.69
-- ema23: 37.13
-- return_5d: 3.12
-- return_20d: 2.28
-- volume_ratio: 1.08
-- distance_to_ma20_pct: 2.11
-- distance_to_high_60_pct: -7.53
+- open: 38.65
+- high: 39
+- low: 37.8
+- close: 38.6
+- volume: 2401828
+- ma5: 38.27
+- ma20: 37.29
+- ma60: 36.65
+- ma120: 37.7
+- ema23: 37.17
+- return_5d: 4.61
+- return_20d: 3.76
+- volume_ratio: 0.68
+- distance_to_ma20_pct: 3.51
+- distance_to_high_60_pct: -6.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,37.05,38.2,36.3,38.05,3893276,36.58,37.06,36.73,36.8,1.16
 20260524,37.05,38.2,36.3,38.05,3893276,37.33,37.15,36.7,36.9,1.12
 20260525,38.65,39,37.8,38.6,2401828,37.93,37.22,36.67,37.04,0.69
-20260526,37.05,38.2,36.3,38.05,3893276,38.16,37.26,36.64,37.13,1.08
+20260526,38.65,39,37.8,38.6,2401828,38.27,37.29,36.65,37.17,0.68
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2392 | 正崴 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 2392 | 正崴 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1535 中宇
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:37 Asia/Taipei
+- generated_at: 2026-05-26 06:01:47 Asia/Taipei
 - stock_id: 1535
 - stock_name: 中宇
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 49
-- high: 49.5
-- low: 49
-- close: 49.45
-- volume: 34728
-- ma5: 49.32
-- ma20: 49.76
-- ma60: 51.23
+- open: 49.45
+- high: 49.45
+- low: 48.75
+- close: 48.8
+- volume: 216048
+- ma5: 49.19
+- ma20: 49.73
+- ma60: 51.22
 - ma120: 51.77
-- ema23: 49.92
-- return_5d: -0.1
-- return_20d: -2.85
-- volume_ratio: 0.51
-- distance_to_ma20_pct: -0.63
-- distance_to_high_60_pct: -10.9
+- ema23: 49.86
+- return_5d: -1.41
+- return_20d: -4.13
+- volume_ratio: 2.8
+- distance_to_ma20_pct: -1.87
+- distance_to_high_60_pct: -12.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,49,49.5,49,49.45,34728,49.38,49.99,51.33,50.12,0.55
 20260524,49,49.5,49,49.45,34728,49.41,49.93,51.3,50.06,0.57
 20260525,49.45,49.45,48.75,48.8,216048,49.33,49.84,51.25,49.96,3.15
-20260526,49,49.5,49,49.45,34728,49.32,49.76,51.23,49.92,0.51
+20260526,49.45,49.45,48.75,48.8,216048,49.19,49.73,51.22,49.86,2.8
 ```
 
 ## Latest TDCC Snapshot

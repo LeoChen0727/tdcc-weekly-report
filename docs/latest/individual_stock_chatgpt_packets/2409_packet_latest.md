@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2409 友達
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:56 Asia/Taipei
+- generated_at: 2026-05-26 06:02:05 Asia/Taipei
 - stock_id: 2409
 - stock_name: 友達
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 20.85
-- high: 22.2
-- low: 20.55
-- close: 22.2
-- volume: 394425774
-- ma5: 22.64
-- ma20: 19.76
-- ma60: 17.75
-- ma120: 15.68
-- ema23: 20.07
-- return_5d: 9.9
-- return_20d: 28.32
-- volume_ratio: 1.3
-- distance_to_ma20_pct: 12.36
-- distance_to_high_60_pct: -9.02
+- open: 24.35
+- high: 24.4
+- low: 24.15
+- close: 24.4
+- volume: 82302936
+- ma5: 23.08
+- ma20: 19.87
+- ma60: 17.79
+- ma120: 15.7
+- ema23: 20.26
+- return_5d: 20.79
+- return_20d: 41.04
+- volume_ratio: 0.29
+- distance_to_ma20_pct: 22.81
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,20.85,22.2,20.55,22.2,394425774,20.5,18.91,17.43,19.22,1.41
 20260524,20.85,22.2,20.55,22.2,394425774,21.11,19.15,17.54,19.47,1.36
 20260525,24.35,24.4,24.15,24.4,82302936,22.24,19.51,17.67,19.88,0.28
-20260526,20.85,22.2,20.55,22.2,394425774,22.64,19.76,17.75,20.07,1.3
+20260526,24.35,24.4,24.15,24.4,82302936,23.08,19.87,17.79,20.26,0.29
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2483 百容
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:01 Asia/Taipei
+- generated_at: 2026-05-26 06:02:09 Asia/Taipei
 - stock_id: 2483
 - stock_name: 百容
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 24.85
-- high: 26
-- low: 24.65
-- close: 25.95
-- volume: 985912
-- ma5: 25.83
-- ma20: 24.23
-- ma60: 22.6
-- ma120: 21.01
-- ema23: 24.25
-- return_5d: 5.49
-- return_20d: 14.32
-- volume_ratio: 1.49
-- distance_to_ma20_pct: 7.09
-- distance_to_high_60_pct: -1.7
+- open: 26.4
+- high: 26.4
+- low: 25
+- close: 25.35
+- volume: 794602
+- ma5: 25.71
+- ma20: 24.2
+- ma60: 22.59
+- ma120: 21
+- ema23: 24.2
+- return_5d: 3.05
+- return_20d: 11.67
+- volume_ratio: 1.22
+- distance_to_ma20_pct: 4.74
+- distance_to_high_60_pct: -3.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,24.85,26,24.65,25.95,985912,24.74,23.7,22.44,23.8,1.6
 20260524,24.85,26,24.65,25.95,985912,25.17,23.91,22.51,23.98,1.66
 20260525,26.4,26.4,25,25.35,794602,25.56,24.07,22.56,24.09,1.28
-20260526,24.85,26,24.65,25.95,985912,25.83,24.23,22.6,24.25,1.49
+20260526,26.4,26.4,25,25.35,794602,25.71,24.2,22.59,24.2,1.22
 ```
 
 ## Latest TDCC Snapshot

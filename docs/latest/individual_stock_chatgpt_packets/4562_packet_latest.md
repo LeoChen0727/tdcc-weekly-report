@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4562 穎漢
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:46 Asia/Taipei
+- generated_at: 2026-05-26 06:02:51 Asia/Taipei
 - stock_id: 4562
 - stock_name: 穎漢
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 40.5
-- high: 43.5
-- low: 40.25
-- close: 42.8
-- volume: 3708991
-- ma5: 42.69
-- ma20: 39.55
-- ma60: 35
-- ma120: 36.29
-- ema23: 39.31
-- return_5d: 4.9
-- return_20d: 14.9
-- volume_ratio: 1.23
-- distance_to_ma20_pct: 8.22
-- distance_to_high_60_pct: -3.06
+- open: 42.95
+- high: 43.8
+- low: 41.75
+- close: 42.25
+- volume: 2489136
+- ma5: 42.58
+- ma20: 39.52
+- ma60: 34.99
+- ma120: 36.28
+- ema23: 39.27
+- return_5d: 3.55
+- return_20d: 13.42
+- volume_ratio: 0.84
+- distance_to_ma20_pct: 6.91
+- distance_to_high_60_pct: -4.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,40.5,43.5,40.25,42.8,3708991,41.7,38.26,34.74,38.32,1.34
 20260524,40.5,43.5,40.25,42.8,3708991,41.9,38.85,34.83,38.7,1.27
 20260525,42.95,43.8,41.75,42.25,2489136,42.29,39.27,34.91,38.99,0.82
-20260526,40.5,43.5,40.25,42.8,3708991,42.69,39.55,35,39.31,1.23
+20260526,42.95,43.8,41.75,42.25,2489136,42.58,39.52,34.99,39.27,0.84
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4562 | 穎漢 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 60.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 4562 | 穎漢 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 4562 | 穎漢 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

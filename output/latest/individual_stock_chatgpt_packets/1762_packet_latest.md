@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1762 中化生
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:43 Asia/Taipei
+- generated_at: 2026-05-26 06:01:52 Asia/Taipei
 - stock_id: 1762
 - stock_name: 中化生
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 37.85
-- high: 38.85
-- low: 37.55
-- close: 37.95
-- volume: 443017
-- ma5: 38.4
-- ma20: 35.84
-- ma60: 31.04
-- ma120: 28.26
-- ema23: 35.52
-- return_5d: 0.53
-- return_20d: 34.1
-- volume_ratio: 0.56
-- distance_to_ma20_pct: 5.89
-- distance_to_high_60_pct: -7.1
+- open: 38.25
+- high: 40.5
+- low: 37.95
+- close: 40.2
+- volume: 1073209
+- ma5: 38.85
+- ma20: 35.95
+- ma60: 31.07
+- ma120: 28.28
+- ema23: 35.7
+- return_5d: 6.49
+- return_20d: 42.05
+- volume_ratio: 1.31
+- distance_to_ma20_pct: 11.82
+- distance_to_high_60_pct: -1.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,37.85,38.85,37.55,37.95,443017,37.9,34.24,30.46,34.57,0.63
 20260524,37.85,38.85,37.55,37.95,443017,38.07,34.76,30.64,34.85,0.62
 20260525,38.25,40.5,37.95,40.2,1073209,38.36,35.35,30.86,35.3,1.39
-20260526,37.85,38.85,37.55,37.95,443017,38.4,35.84,31.04,35.52,0.56
+20260526,38.25,40.5,37.95,40.2,1073209,38.85,35.95,31.07,35.7,1.31
 ```
 
 ## Latest TDCC Snapshot
@@ -120,14 +120,15 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 1762 | 中化生 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 1762 | 中化生 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 58.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 1762 | 中化生 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | status |

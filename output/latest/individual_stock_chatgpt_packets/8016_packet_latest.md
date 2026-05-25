@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8016 矽創
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:44 Asia/Taipei
+- generated_at: 2026-05-26 06:03:45 Asia/Taipei
 - stock_id: 8016
 - stock_name: 矽創
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 297
-- high: 297
-- low: 287
-- close: 292
-- volume: 2245245
-- ma5: 291.8
-- ma20: 272.73
-- ma60: 226.75
-- ma120: 206.48
-- ema23: 269.16
-- return_5d: -1.85
-- return_20d: 27.79
-- volume_ratio: 0.77
-- distance_to_ma20_pct: 7.07
-- distance_to_high_60_pct: -2.67
+- open: 293.5
+- high: 294.5
+- low: 288.5
+- close: 291
+- volume: 1820441
+- ma5: 291.6
+- ma20: 272.68
+- ma60: 226.73
+- ma120: 206.47
+- ema23: 269.08
+- return_5d: -2.18
+- return_20d: 27.35
+- volume_ratio: 0.63
+- distance_to_ma20_pct: 6.72
+- distance_to_high_60_pct: -3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,297,297,287,292,2245245,289.5,262.65,221.99,262.45,0.81
 20260524,297,297,287,292,2245245,291.8,266.07,223.59,264.91,0.8
 20260525,293.5,294.5,288.5,291,1820441,292.9,269.55,225.12,267.09,0.64
-20260526,297,297,287,292,2245245,291.8,272.73,226.75,269.16,0.77
+20260526,293.5,294.5,288.5,291,1820441,291.6,272.68,226.73,269.08,0.63
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0056 元大高股息
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:24 Asia/Taipei
+- generated_at: 2026-05-26 06:01:34 Asia/Taipei
 - stock_id: 0056
 - stock_name: 元大高股息
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 45.82
-- high: 46.41
-- low: 45.66
-- close: 46.35
-- volume: 56808210
-- ma5: 46.75
-- ma20: 44.84
-- ma60: 41.12
-- ma120: 39.24
-- ema23: 44.53
-- return_5d: 2
-- return_20d: 13.24
-- volume_ratio: 0.86
-- distance_to_ma20_pct: 3.38
-- distance_to_high_60_pct: -4.26
+- open: 47.51
+- high: 48.41
+- low: 47.51
+- close: 48.35
+- volume: 64623589
+- ma5: 47.15
+- ma20: 44.94
+- ma60: 41.15
+- ma120: 39.26
+- ema23: 44.69
+- return_5d: 6.4
+- return_20d: 18.13
+- volume_ratio: 0.97
+- distance_to_ma20_pct: 7.6
+- distance_to_high_60_pct: -0.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,45.82,46.41,45.66,46.35,56808210,45.24,43.93,40.77,43.78,0.8
 20260524,45.82,46.41,45.66,46.35,56808210,45.71,44.2,40.88,44,0.86
 20260525,47.51,48.41,47.51,48.35,64623589,46.57,44.56,41.01,44.36,0.99
-20260526,45.82,46.41,45.66,46.35,56808210,46.75,44.84,41.12,44.53,0.86
+20260526,47.51,48.41,47.51,48.35,64623589,47.15,44.94,41.15,44.69,0.97
 ```
 
 ## Latest TDCC Snapshot
@@ -119,7 +119,7 @@ no_rows,True
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 0056 | 元大高股息 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 0056 | 元大高股息 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 0056 | 元大高股息 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

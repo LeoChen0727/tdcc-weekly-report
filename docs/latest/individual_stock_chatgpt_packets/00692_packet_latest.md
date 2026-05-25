@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00692 富邦公司治理
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:24 Asia/Taipei
+- generated_at: 2026-05-26 06:01:35 Asia/Taipei
 - stock_id: 00692
 - stock_name: 富邦公司治理
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 83.95
-- high: 84.6
-- low: 83.55
-- close: 84.6
-- volume: 1543809
-- ma5: 85.2
-- ma20: 85.2
-- ma60: 85.2
-- ma120: 85.2
-- ema23: 84.83
+- open: 86.1
+- high: 87.75
+- low: 86.1
+- close: 87.6
+- volume: 1713682
+- ma5: 85.8
+- ma20: 85.8
+- ma60: 85.8
+- ma120: 85.8
+- ema23: 85.08
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.98
-- distance_to_ma20_pct: -0.7
-- distance_to_high_60_pct: -3.59
+- volume_ratio: 1.06
+- distance_to_ma20_pct: 2.1
+- distance_to_high_60_pct: -0.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,83.95,84.6,83.55,84.6,1543809,,,,,
 20260524,83.95,84.6,83.55,84.6,1543809,,,,,
 20260525,86.1,87.75,86.1,87.6,1713682,,,,,
-20260526,83.95,84.6,83.55,84.6,1543809,85.2,85.2,85.2,84.83,0.98
+20260526,86.1,87.75,86.1,87.6,1713682,85.8,85.8,85.8,85.08,1.06
 ```
 
 ## Latest TDCC Snapshot

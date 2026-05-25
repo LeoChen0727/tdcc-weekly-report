@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1455 集盛
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:34 Asia/Taipei
+- generated_at: 2026-05-26 06:01:44 Asia/Taipei
 - stock_id: 1455
 - stock_name: 集盛
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 8.21
+- open: 8.15
 - high: 8.21
-- low: 8.09
-- close: 8.17
-- volume: 555036
-- ma5: 8.15
-- ma20: 8.12
+- low: 7.95
+- close: 8.07
+- volume: 1091052
+- ma5: 8.13
+- ma20: 8.11
 - ma60: 8.56
 - ma120: 8.33
-- ema23: 8.23
-- return_5d: -0.12
-- return_20d: -2.39
-- volume_ratio: 0.87
-- distance_to_ma20_pct: 0.68
-- distance_to_high_60_pct: -14.9
+- ema23: 8.22
+- return_5d: -1.34
+- return_20d: -3.58
+- volume_ratio: 1.63
+- distance_to_ma20_pct: -0.49
+- distance_to_high_60_pct: -15.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,8.21,8.21,8.09,8.17,555036,8.17,8.16,8.57,8.26,0.92
 20260524,8.21,8.21,8.09,8.17,555036,8.17,8.15,8.57,8.25,0.92
 20260525,8.15,8.21,7.95,8.07,1091052,8.15,8.12,8.56,8.23,1.71
-20260526,8.21,8.21,8.09,8.17,555036,8.15,8.12,8.56,8.23,0.87
+20260526,8.15,8.21,7.95,8.07,1091052,8.13,8.11,8.56,8.22,1.63
 ```
 
 ## Latest TDCC Snapshot

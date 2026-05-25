@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2929 淘帝-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:12 Asia/Taipei
+- generated_at: 2026-05-26 06:02:20 Asia/Taipei
 - stock_id: 2929
 - stock_name: 淘帝-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 5.8
-- high: 6.18
-- low: 5.72
-- close: 5.73
-- volume: 1378108
-- ma5: 5.68
-- ma20: 5.55
-- ma60: 6.11
+- open: 5.79
+- high: 5.8
+- low: 5.5
+- close: 5.5
+- volume: 632005
+- ma5: 5.64
+- ma20: 5.54
+- ma60: 6.1
 - ma120: 6.98
-- ema23: 5.66
-- return_5d: 0.88
-- return_20d: 1.96
-- volume_ratio: 2.4
-- distance_to_ma20_pct: 3.16
-- distance_to_high_60_pct: -22.36
+- ema23: 5.64
+- return_5d: -3.17
+- return_20d: -2.14
+- volume_ratio: 1.17
+- distance_to_ma20_pct: -0.78
+- distance_to_high_60_pct: -25.47
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,5.8,6.18,5.72,5.73,1378108,5.52,5.55,6.2,5.66,3.01
 20260524,5.8,6.18,5.72,5.73,1378108,5.61,5.55,6.17,5.66,2.74
 20260525,5.79,5.8,5.5,5.5,632005,5.67,5.55,6.14,5.65,1.21
-20260526,5.8,6.18,5.72,5.73,1378108,5.68,5.55,6.11,5.66,2.4
+20260526,5.79,5.8,5.5,5.5,632005,5.64,5.54,6.1,5.64,1.17
 ```
 
 ## Latest TDCC Snapshot
@@ -120,9 +120,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2929 | 淘帝-KY | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

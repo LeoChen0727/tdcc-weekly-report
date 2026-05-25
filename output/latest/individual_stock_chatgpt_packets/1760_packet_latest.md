@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1760 寶齡富錦
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:43 Asia/Taipei
+- generated_at: 2026-05-26 06:01:52 Asia/Taipei
 - stock_id: 1760
 - stock_name: 寶齡富錦
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 62.8
-- high: 62.8
-- low: 61.1
-- close: 61.8
-- volume: 153407
-- ma5: 61.64
-- ma20: 63.02
-- ma60: 63
-- ma120: 63.75
-- ema23: 62.69
-- return_5d: 0
-- return_20d: -9.65
-- volume_ratio: 0.59
-- distance_to_ma20_pct: -1.94
-- distance_to_high_60_pct: -19.11
+- open: 62.5
+- high: 62.5
+- low: 60.8
+- close: 61
+- volume: 275791
+- ma5: 61.48
+- ma20: 62.98
+- ma60: 62.98
+- ma120: 63.74
+- ema23: 62.62
+- return_5d: -1.29
+- return_20d: -10.82
+- volume_ratio: 1.03
+- distance_to_ma20_pct: -3.14
+- distance_to_high_60_pct: -20.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,62.8,62.8,61.1,61.8,153407,61.54,63.88,63.04,63.03,0.34
 20260524,62.8,62.8,61.1,61.8,153407,61.64,63.79,63.02,62.93,0.35
 20260525,62.5,62.5,60.8,61,275791,61.64,63.35,63,62.77,0.65
-20260526,62.8,62.8,61.1,61.8,153407,61.64,63.02,63,62.69,0.59
+20260526,62.5,62.5,60.8,61,275791,61.48,62.98,62.98,62.62,1.03
 ```
 
 ## Latest TDCC Snapshot

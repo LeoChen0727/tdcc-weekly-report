@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1906 寶隆
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:45 Asia/Taipei
+- generated_at: 2026-05-26 06:01:54 Asia/Taipei
 - stock_id: 1906
 - stock_name: 寶隆
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 10.55
-- high: 10.55
-- low: 10
+- open: 10.5
+- high: 10.6
+- low: 10.45
 - close: 10.5
-- volume: 222005
+- volume: 213632
 - ma5: 10.5
 - ma20: 10.77
 - ma60: 11.36
@@ -66,7 +66,7 @@
 - ema23: 10.83
 - return_5d: 0.48
 - return_20d: -7.49
-- volume_ratio: 1.71
+- volume_ratio: 1.65
 - distance_to_ma20_pct: -2.51
 - distance_to_high_60_pct: -24.46
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,10.55,10.55,10,10.5,222005,10.48,10.89,11.42,10.92,1.95
 20260524,10.55,10.55,10,10.5,222005,10.47,10.85,11.4,10.89,1.95
 20260525,10.5,10.6,10.45,10.5,213632,10.49,10.81,11.38,10.86,1.76
-20260526,10.55,10.55,10,10.5,222005,10.5,10.77,11.36,10.83,1.71
+20260526,10.5,10.6,10.45,10.5,213632,10.5,10.77,11.36,10.83,1.65
 ```
 
 ## Latest TDCC Snapshot

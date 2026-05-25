@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1416 廣豐
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:32 Asia/Taipei
+- generated_at: 2026-05-26 06:01:42 Asia/Taipei
 - stock_id: 1416
 - stock_name: 廣豐
 - packet_status: standard_180d_window_packet
@@ -55,10 +55,10 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 11.15
-- high: 11.15
-- low: 11
+- high: 11.2
+- low: 11.05
 - close: 11.15
-- volume: 265409
+- volume: 336530
 - ma5: 11.15
 - ma20: 11.21
 - ma60: 11.44
@@ -66,7 +66,7 @@
 - ema23: 11.24
 - return_5d: 0.45
 - return_20d: -3.04
-- volume_ratio: 1.16
+- volume_ratio: 1.45
 - distance_to_ma20_pct: -0.54
 - distance_to_high_60_pct: -5.51
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,11.15,11.15,11,11.15,265409,11.11,11.26,11.47,11.26,1.25
 20260524,11.15,11.15,11,11.15,265409,11.13,11.24,11.46,11.25,1.23
 20260525,11.15,11.2,11.05,11.15,336530,11.14,11.23,11.45,11.24,1.5
-20260526,11.15,11.15,11,11.15,265409,11.15,11.21,11.44,11.24,1.16
+20260526,11.15,11.2,11.05,11.15,336530,11.15,11.21,11.44,11.24,1.45
 ```
 
 ## Latest TDCC Snapshot

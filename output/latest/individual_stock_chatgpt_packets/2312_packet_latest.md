@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2312 金寶
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:51 Asia/Taipei
+- generated_at: 2026-05-26 06:02:00 Asia/Taipei
 - stock_id: 2312
 - stock_name: 金寶
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 31.85
-- high: 33.1
-- low: 31.35
-- close: 33.1
-- volume: 134951031
-- ma5: 33.76
-- ma20: 29.8
-- ma60: 25.91
-- ma120: 25.46
-- ema23: 29.89
-- return_5d: 9.97
-- return_20d: 15.94
-- volume_ratio: 2.19
-- distance_to_ma20_pct: 11.06
-- distance_to_high_60_pct: -9.07
+- open: 36
+- high: 36.4
+- low: 35.5
+- close: 36.4
+- volume: 66663284
+- ma5: 34.42
+- ma20: 29.97
+- ma60: 25.97
+- ma120: 25.48
+- ema23: 30.17
+- return_5d: 20.93
+- return_20d: 27.5
+- volume_ratio: 1.15
+- distance_to_ma20_pct: 21.46
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,31.85,33.1,31.35,33.1,134951031,30.47,28.98,25.47,28.61,2.23
 20260524,31.85,33.1,31.35,33.1,134951031,31.54,29.26,25.6,28.98,2.07
 20260525,36,36.4,35.5,36.4,66663284,33.16,29.57,25.78,29.6,1.08
-20260526,31.85,33.1,31.35,33.1,134951031,33.76,29.8,25.91,29.89,2.19
+20260526,36,36.4,35.5,36.4,66663284,34.42,29.97,25.97,30.17,1.15
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2312 | 金寶 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 2312 | 金寶 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

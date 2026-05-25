@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4566 時碩工業
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:46 Asia/Taipei
+- generated_at: 2026-05-26 06:02:51 Asia/Taipei
 - stock_id: 4566
 - stock_name: 時碩工業
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 62.1
-- high: 63.5
-- low: 61.9
-- close: 63.2
-- volume: 758736
-- ma5: 63.48
-- ma20: 64.95
-- ma60: 62.67
-- ma120: 60
-- ema23: 64.16
-- return_5d: 1.94
-- return_20d: -2.17
-- volume_ratio: 0.53
-- distance_to_ma20_pct: -2.7
-- distance_to_high_60_pct: -17.82
+- open: 64.3
+- high: 66.4
+- low: 63.4
+- close: 64.6
+- volume: 1367064
+- ma5: 63.76
+- ma20: 65.03
+- ma60: 62.7
+- ma120: 60.01
+- ema23: 64.27
+- return_5d: 4.19
+- return_20d: 0
+- volume_ratio: 0.94
+- distance_to_ma20_pct: -0.65
+- distance_to_high_60_pct: -15.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,62.1,63.5,61.9,63.2,758736,61.94,65.09,62.44,64.3,0.54
 20260524,62.1,63.5,61.9,63.2,758736,62.42,65.08,62.5,64.21,0.55
 20260525,64.3,66.4,63.4,64.6,1367064,63.24,65.03,62.59,64.24,0.97
-20260526,62.1,63.5,61.9,63.2,758736,63.48,64.95,62.67,64.16,0.53
+20260526,64.3,66.4,63.4,64.6,1367064,63.76,65.03,62.7,64.27,0.94
 ```
 
 ## Latest TDCC Snapshot

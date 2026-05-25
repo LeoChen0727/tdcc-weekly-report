@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2380 虹光
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:55 Asia/Taipei
+- generated_at: 2026-05-26 06:02:04 Asia/Taipei
 - stock_id: 2380
 - stock_name: 虹光
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 5.96
-- high: 5.96
-- low: 5.82
-- close: 5.82
-- volume: 157624
+- open: 5.86
+- high: 5.87
+- low: 5.85
+- close: 5.85
+- volume: 421647
 - ma5: 5.83
 - ma20: 5.89
 - ma60: 5.7
 - ma120: 5.31
 - ema23: 5.79
-- return_5d: -2.51
-- return_20d: 13.89
-- volume_ratio: 0.37
-- distance_to_ma20_pct: -1.24
-- distance_to_high_60_pct: -20.6
+- return_5d: -2.01
+- return_20d: 14.48
+- volume_ratio: 0.97
+- distance_to_ma20_pct: -0.75
+- distance_to_high_60_pct: -20.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,5.96,5.96,5.82,5.82,157624,5.89,5.78,5.65,5.78,0.38
 20260524,5.96,5.96,5.82,5.82,157624,5.86,5.82,5.67,5.78,0.38
 20260525,5.86,5.87,5.85,5.85,421647,5.86,5.86,5.68,5.79,0.98
-20260526,5.96,5.96,5.82,5.82,157624,5.83,5.89,5.7,5.79,0.37
+20260526,5.86,5.87,5.85,5.85,421647,5.83,5.89,5.7,5.79,0.97
 ```
 
 ## Latest TDCC Snapshot

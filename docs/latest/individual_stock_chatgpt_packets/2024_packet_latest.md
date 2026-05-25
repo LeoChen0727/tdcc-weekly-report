@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2024 志聯
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:46 Asia/Taipei
+- generated_at: 2026-05-26 06:01:55 Asia/Taipei
 - stock_id: 2024
 - stock_name: 志聯
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260525
-- price_rows: 125
+- latest_price_date: 20260526
+- price_rows: 126
 - latest_tdcc_date: 20260522
 - tdcc_rows: 26
 - tdcc_history_status: tdcc_history_ready
@@ -53,28 +53,27 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260525
+- date: 20260526
 - open: 14.3
 - high: 14.4
 - low: 13.9
 - close: 14.25
 - volume: 46987
-- ma5: 13.86
-- ma20: 13.88
-- ma60: 14.66
-- ma120: 15.38
-- ema23: 13.99
-- return_5d: 8.78
-- return_20d: -0.35
-- volume_ratio: 1.85
-- distance_to_ma20_pct: 2.7
+- ma5: 14.06
+- ma20: 13.87
+- ma60: 14.62
+- ma120: 15.36
+- ema23: 14.01
+- return_5d: 7.55
+- return_20d: -1.04
+- volume_ratio: 1.78
+- distance_to_ma20_pct: 2.76
 - distance_to_high_60_pct: -14.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260424,14.3,14.4,14,14.4,28690,14.41,14.62,15.34,14.69,1.78
 20260427,14.35,14.35,13.8,13.8,26678,14.28,14.57,15.3,14.62,1.59
 20260428,14.2,14.2,14,14.15,17062,14.21,14.53,15.26,14.58,1.02
 20260429,14.1,14.35,14.1,14.1,16752,14.15,14.5,15.23,14.54,0.97
@@ -94,6 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260520,13.6,13.8,13.6,13.8,3794,13.48,13.89,14.73,13.95,0.17
 20260521,13.8,14.3,13.8,14.15,40298,13.63,13.88,14.7,13.96,1.69
 20260525,14.3,14.4,13.9,14.25,46987,13.86,13.88,14.66,13.99,1.85
+20260526,14.3,14.4,13.9,14.25,46987,14.06,13.87,14.62,14.01,1.78
 ```
 
 ## Latest TDCC Snapshot

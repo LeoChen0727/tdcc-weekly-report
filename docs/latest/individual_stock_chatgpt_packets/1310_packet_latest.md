@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1310 台苯
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:30 Asia/Taipei
+- generated_at: 2026-05-26 06:01:40 Asia/Taipei
 - stock_id: 1310
 - stock_name: 台苯
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 8.03
-- high: 8.08
-- low: 7.9
-- close: 7.98
-- volume: 3803198
+- open: 7.95
+- high: 8.05
+- low: 7.78
+- close: 8.01
+- volume: 3883784
 - ma5: 7.99
 - ma20: 8.36
 - ma60: 9.94
 - ma120: 9.41
-- ema23: 8.53
-- return_5d: -1.12
-- return_20d: -15.02
-- volume_ratio: 1.06
-- distance_to_ma20_pct: -4.57
-- distance_to_high_60_pct: -39.77
+- ema23: 8.54
+- return_5d: -0.74
+- return_20d: -14.7
+- volume_ratio: 1.08
+- distance_to_ma20_pct: -4.23
+- distance_to_high_60_pct: -39.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,8.03,8.08,7.9,7.98,3803198,8,8.59,10,8.7,1.08
 20260524,8.03,8.08,7.9,7.98,3803198,8,8.51,9.98,8.64,1.08
 20260525,7.95,8.05,7.78,8.01,3883784,8,8.43,9.96,8.58,1.08
-20260526,8.03,8.08,7.9,7.98,3803198,7.99,8.36,9.94,8.53,1.06
+20260526,7.95,8.05,7.78,8.01,3883784,7.99,8.36,9.94,8.54,1.08
 ```
 
 ## Latest TDCC Snapshot

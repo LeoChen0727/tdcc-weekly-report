@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1409 新纖
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:32 Asia/Taipei
+- generated_at: 2026-05-26 06:01:42 Asia/Taipei
 - stock_id: 1409
 - stock_name: 新纖
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 17
-- high: 17.25
-- low: 16.9
-- close: 17.2
-- volume: 8991615
-- ma5: 17.28
-- ma20: 16.97
-- ma60: 16.4
-- ma120: 15.81
-- ema23: 16.95
-- return_5d: 1.47
-- return_20d: 1.18
-- volume_ratio: 1.08
-- distance_to_ma20_pct: 1.34
-- distance_to_high_60_pct: -3.64
+- open: 17.35
+- high: 17.65
+- low: 17.25
+- close: 17.6
+- volume: 13071276
+- ma5: 17.36
+- ma20: 16.99
+- ma60: 16.41
+- ma120: 15.82
+- ema23: 16.98
+- return_5d: 3.83
+- return_20d: 3.53
+- volume_ratio: 1.54
+- distance_to_ma20_pct: 3.58
+- distance_to_high_60_pct: -1.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,17,17.25,16.9,17.2,8991615,16.94,16.89,16.31,16.84,1.17
 20260524,17,17.25,16.9,17.2,8991615,17.04,16.92,16.33,16.87,1.15
 20260525,17.35,17.65,17.25,17.6,13071276,17.23,16.96,16.37,16.93,1.59
-20260526,17,17.25,16.9,17.2,8991615,17.28,16.97,16.4,16.95,1.08
+20260526,17.35,17.65,17.25,17.6,13071276,17.36,16.99,16.41,16.98,1.54
 ```
 
 ## Latest TDCC Snapshot

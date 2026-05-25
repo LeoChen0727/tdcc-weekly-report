@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6558 興能高
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:24 Asia/Taipei
+- generated_at: 2026-05-26 06:03:26 Asia/Taipei
 - stock_id: 6558
 - stock_name: 興能高
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 31.85
-- high: 33.3
-- low: 31.4
-- close: 33
-- volume: 1889863
-- ma5: 33.05
-- ma20: 30.86
+- open: 33.3
+- high: 34.65
+- low: 33.25
+- close: 33.25
+- volume: 2427821
+- ma5: 33.1
+- ma20: 30.87
 - ma60: 29.87
-- ma120: 33.41
-- ema23: 31.22
-- return_5d: 3.61
-- return_20d: 12.63
-- volume_ratio: 1.38
-- distance_to_ma20_pct: 6.95
-- distance_to_high_60_pct: -4.76
+- ma120: 33.42
+- ema23: 31.24
+- return_5d: 4.4
+- return_20d: 13.48
+- volume_ratio: 1.74
+- distance_to_ma20_pct: 7.72
+- distance_to_high_60_pct: -4.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,31.85,33.3,31.4,33,1889863,32.06,30.3,29.89,30.67,1.68
 20260524,31.85,33.3,31.4,33,1889863,32.61,30.46,29.88,30.86,1.6
 20260525,33.3,34.65,33.25,33.25,2427821,32.82,30.67,29.87,31.06,1.88
-20260526,31.85,33.3,31.4,33,1889863,33.05,30.86,29.87,31.22,1.38
+20260526,33.3,34.65,33.25,33.25,2427821,33.1,30.87,29.87,31.24,1.74
 ```
 
 ## Latest TDCC Snapshot

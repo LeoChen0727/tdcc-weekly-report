@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1413 宏洲
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:32 Asia/Taipei
+- generated_at: 2026-05-26 06:01:42 Asia/Taipei
 - stock_id: 1413
 - stock_name: 宏洲
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 9.52
-- high: 9.55
-- low: 9.42
-- close: 9.42
-- volume: 4528
-- ma5: 9.41
-- ma20: 9.51
+- open: 9.42
+- high: 9.42
+- low: 9.35
+- close: 9.35
+- volume: 47306
+- ma5: 9.39
+- ma20: 9.5
 - ma60: 9.68
 - ma120: 9.84
 - ema23: 9.52
-- return_5d: -1.15
-- return_20d: -0.84
-- volume_ratio: 0.2
-- distance_to_ma20_pct: -0.9
-- distance_to_high_60_pct: -8.99
+- return_5d: -1.89
+- return_20d: -1.58
+- volume_ratio: 1.89
+- distance_to_ma20_pct: -1.6
+- distance_to_high_60_pct: -9.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,9.52,9.55,9.42,9.42,4528,9.47,9.54,9.71,9.56,0.2
 20260524,9.52,9.55,9.42,9.42,4528,9.46,9.53,9.7,9.55,0.2
 20260525,9.42,9.42,9.35,9.35,47306,9.43,9.51,9.69,9.53,1.98
-20260526,9.52,9.55,9.42,9.42,4528,9.41,9.51,9.68,9.52,0.2
+20260526,9.42,9.42,9.35,9.35,47306,9.39,9.5,9.68,9.52,1.89
 ```
 
 ## Latest TDCC Snapshot

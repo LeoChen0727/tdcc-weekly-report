@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1410 南染
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:32 Asia/Taipei
+- generated_at: 2026-05-26 06:01:42 Asia/Taipei
 - stock_id: 1410
 - stock_name: 南染
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 26.8
-- high: 26.8
-- low: 26.4
+- open: 26.3
+- high: 26.95
+- low: 26.3
 - close: 26.5
-- volume: 17225
+- volume: 11985
 - ma5: 26.5
 - ma20: 27.1
 - ma60: 30.02
@@ -66,7 +66,7 @@
 - ema23: 27.53
 - return_5d: 0.38
 - return_20d: -6.53
-- volume_ratio: 0.22
+- volume_ratio: 0.15
 - distance_to_ma20_pct: -2.21
 - distance_to_high_60_pct: -22.06
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,26.8,26.8,26.4,26.5,17225,26.49,27.43,30.36,27.84,0.16
 20260524,26.8,26.8,26.4,26.5,17225,26.4,27.27,30.25,27.73,0.16
 20260525,26.3,26.95,26.3,26.5,11985,26.48,27.19,30.13,27.63,0.15
-20260526,26.8,26.8,26.4,26.5,17225,26.5,27.1,30.02,27.53,0.22
+20260526,26.3,26.95,26.3,26.5,11985,26.5,27.1,30.02,27.53,0.15
 ```
 
 ## Latest TDCC Snapshot

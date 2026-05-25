@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2881 富邦金
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:10 Asia/Taipei
+- generated_at: 2026-05-26 06:02:18 Asia/Taipei
 - stock_id: 2881
 - stock_name: 富邦金
 - packet_status: standard_180d_window_packet
@@ -55,20 +55,20 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 95.4
-- high: 96
-- low: 94.3
-- close: 95.1
-- volume: 41801468
-- ma5: 95.62
-- ma20: 94.71
-- ma60: 90.47
-- ma120: 92.55
-- ema23: 94.06
-- return_5d: -1.04
-- return_20d: 4.16
-- volume_ratio: 1.1
-- distance_to_ma20_pct: 0.41
-- distance_to_high_60_pct: -3.55
+- high: 97.7
+- low: 94.7
+- close: 97.7
+- volume: 47023876
+- ma5: 96.14
+- ma20: 94.84
+- ma60: 90.52
+- ma120: 92.57
+- ema23: 94.28
+- return_5d: 1.66
+- return_20d: 7.01
+- volume_ratio: 1.23
+- distance_to_ma20_pct: 3.02
+- distance_to_high_60_pct: -0.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,95.4,96,94.3,95.1,41801468,95.86,93.7,90.34,93.49,1.17
 20260524,95.4,96,94.3,95.1,41801468,95.44,94.06,90.38,93.63,1.15
 20260525,95.4,97.7,94.7,97.7,47023876,95.82,94.52,90.44,93.97,1.24
-20260526,95.4,96,94.3,95.1,41801468,95.62,94.71,90.47,94.06,1.1
+20260526,95.4,97.7,94.7,97.7,47023876,96.14,94.84,90.52,94.28,1.23
 ```
 
 ## Latest TDCC Snapshot
@@ -123,6 +123,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260526 | 2881 | 富邦金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 2881 | 富邦金 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 2881 | 富邦金 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

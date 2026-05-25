@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3653 健策
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:35 Asia/Taipei
+- generated_at: 2026-05-26 06:02:41 Asia/Taipei
 - stock_id: 3653
 - stock_name: 健策
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 3505
-- high: 3660
-- low: 3475
-- close: 3660
-- volume: 638947
-- ma5: 3682
-- ma20: 3835.75
-- ma60: 3984.42
-- ma120: 3384.21
-- ema23: 3830.11
-- return_5d: 9.91
-- return_20d: -32.78
-- volume_ratio: 0.44
-- distance_to_ma20_pct: -4.58
-- distance_to_high_60_pct: -35.62
+- open: 3750
+- high: 3770
+- low: 3700
+- close: 3770
+- volume: 693208
+- ma5: 3704
+- ma20: 3841.25
+- ma60: 3986.25
+- ma120: 3385.12
+- ema23: 3839.27
+- return_5d: 13.21
+- return_20d: -30.76
+- volume_ratio: 0.48
+- distance_to_ma20_pct: -1.85
+- distance_to_high_60_pct: -33.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,3505,3660,3475,3660,638947,3354,4049,3954.5,3869.94,0.45
 20260524,3505,3660,3475,3660,638947,3468,3984,3963.33,3852.44,0.45
 20260525,3750,3770,3700,3770,693208,3616,3925,3974.17,3845.57,0.48
-20260526,3505,3660,3475,3660,638947,3682,3835.75,3984.42,3830.11,0.44
+20260526,3750,3770,3700,3770,693208,3704,3841.25,3986.25,3839.27,0.48
 ```
 
 ## Latest TDCC Snapshot

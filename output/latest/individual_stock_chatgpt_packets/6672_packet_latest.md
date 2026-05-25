@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6672 騰輝電子-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:28 Asia/Taipei
+- generated_at: 2026-05-26 06:03:30 Asia/Taipei
 - stock_id: 6672
 - stock_name: 騰輝電子-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 180.5
-- high: 194.5
-- low: 180.5
-- close: 193
-- volume: 7301038
-- ma5: 196.4
-- ma20: 199.85
-- ma60: 158.6
-- ma120: 126.03
-- ema23: 191.03
-- return_5d: 8.12
-- return_20d: -7.21
-- volume_ratio: 1.16
-- distance_to_ma20_pct: -3.43
-- distance_to_high_60_pct: -18.91
+- open: 200.5
+- high: 212
+- low: 200
+- close: 210
+- volume: 11890181
+- ma5: 199.8
+- ma20: 200.7
+- ma60: 158.88
+- ma120: 126.18
+- ema23: 192.45
+- return_5d: 17.65
+- return_20d: 0.96
+- volume_ratio: 1.83
+- distance_to_ma20_pct: 4.63
+- distance_to_high_60_pct: -11.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,180.5,194.5,180.5,193,7301038,184,201.2,153.7,188.76,1.13
 20260524,180.5,194.5,180.5,193,7301038,186.8,200.47,155.24,189.11,1.19
 20260525,200.5,212,200,210,11890181,193.5,200.6,157.03,190.85,1.91
-20260526,180.5,194.5,180.5,193,7301038,196.4,199.85,158.6,191.03,1.16
+20260526,200.5,212,200,210,11890181,199.8,200.7,158.88,192.45,1.83
 ```
 
 ## Latest TDCC Snapshot
@@ -122,12 +122,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6672 | 騰輝電子-KY | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 6672 | 騰輝電子-KY | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 6672 | 騰輝電子-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6672 | 騰輝電子-KY | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260526 | 6672 | 騰輝電子-KY | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

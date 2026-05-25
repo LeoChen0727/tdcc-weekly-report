@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6197 佳必琪
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:13 Asia/Taipei
+- generated_at: 2026-05-26 06:03:16 Asia/Taipei
 - stock_id: 6197
 - stock_name: 佳必琪
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 244.5
-- high: 258
-- low: 240.5
-- close: 256
-- volume: 9330534
-- ma5: 259.6
-- ma20: 234.65
-- ma60: 194.65
-- ma120: 168.82
-- ema23: 229.95
-- return_5d: 7.56
-- return_20d: 23.97
-- volume_ratio: 1.51
-- distance_to_ma20_pct: 9.1
-- distance_to_high_60_pct: -8.24
+- open: 264.5
+- high: 279
+- low: 257.5
+- close: 274
+- volume: 7820023
+- ma5: 263.2
+- ma20: 235.55
+- ma60: 194.95
+- ma120: 168.97
+- ema23: 231.45
+- return_5d: 15.13
+- return_20d: 32.69
+- volume_ratio: 1.28
+- distance_to_ma20_pct: 16.32
+- distance_to_high_60_pct: -1.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,244.5,258,240.5,256,9330534,236.6,223.97,189.21,220.4,1.58
 20260524,244.5,258,240.5,256,9330534,244.6,227.88,190.97,223.37,1.5
 20260525,264.5,279,257.5,274,7820023,256,232.18,192.96,227.59,1.22
-20260526,244.5,258,240.5,256,9330534,259.6,234.65,194.65,229.95,1.51
+20260526,264.5,279,257.5,274,7820023,263.2,235.55,194.95,231.45,1.28
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6197 | 佳必琪 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 6197 | 佳必琪 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 58.0 |  |  | neckline_challenge |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

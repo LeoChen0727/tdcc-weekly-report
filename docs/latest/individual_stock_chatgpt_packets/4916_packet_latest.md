@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4916 事欣科
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:51 Asia/Taipei
+- generated_at: 2026-05-26 06:02:56 Asia/Taipei
 - stock_id: 4916
 - stock_name: 事欣科
 - packet_status: standard_180d_window_packet
@@ -56,19 +56,19 @@
 - date: 20260526
 - open: 100
 - high: 105
-- low: 97.4
-- close: 98.3
-- volume: 50432884
-- ma5: 98.94
-- ma20: 77.66
-- ma60: 66.33
-- ma120: 62.36
-- ema23: 80.84
-- return_5d: -0.51
-- return_20d: 57.28
-- volume_ratio: 2.55
-- distance_to_ma20_pct: 26.58
-- distance_to_high_60_pct: -6.38
+- low: 99.2
+- close: 101.5
+- volume: 25271124
+- ma5: 99.58
+- ma20: 77.82
+- ma60: 66.38
+- ma120: 62.39
+- ema23: 81.11
+- return_5d: 2.73
+- return_20d: 62.4
+- volume_ratio: 1.37
+- distance_to_ma20_pct: 30.43
+- distance_to_high_60_pct: -3.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,100,105,97.4,98.3,50432884,93.42,72.1,64.54,75.32,3.58
 20260524,100,105,97.4,98.3,50432884,96.72,73.89,65.12,77.23,3.1
 20260525,100,105,99.2,101.5,25271124,99.04,75.87,65.75,79.26,1.46
-20260526,100,105,97.4,98.3,50432884,98.94,77.66,66.33,80.84,2.55
+20260526,100,105,99.2,101.5,25271124,99.58,77.82,66.38,81.11,1.37
 ```
 
 ## Latest TDCC Snapshot
@@ -124,7 +124,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4916 | 事欣科 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 4916 | 事欣科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 55.0 |  |  | neckline_challenge |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

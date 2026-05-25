@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00830 國泰費城半導體
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:25 Asia/Taipei
+- generated_at: 2026-05-26 06:01:35 Asia/Taipei
 - stock_id: 00830
 - stock_name: 國泰費城半導體
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 84.35
-- high: 84.35
-- low: 83.8
-- close: 84.25
-- volume: 6457321
-- ma5: 84.96
-- ma20: 84.96
-- ma60: 84.96
-- ma120: 84.96
-- ema23: 84.52
+- open: 87
+- high: 87.85
+- low: 86.85
+- close: 87.8
+- volume: 10878767
+- ma5: 85.67
+- ma20: 85.67
+- ma60: 85.67
+- ma120: 85.67
+- ema23: 84.82
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.88
-- distance_to_ma20_pct: -0.84
-- distance_to_high_60_pct: -4.1
+- volume_ratio: 1.32
+- distance_to_ma20_pct: 2.49
+- distance_to_high_60_pct: -0.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,84.35,84.35,83.8,84.25,6457321,,,,,
 20260524,84.35,84.35,83.8,84.25,6457321,,,,,
 20260525,87,87.85,86.85,87.8,10878767,,,,,
-20260526,84.35,84.35,83.8,84.25,6457321,84.96,84.96,84.96,84.52,0.88
+20260526,87,87.85,86.85,87.8,10878767,85.67,85.67,85.67,84.82,1.32
 ```
 
 ## Latest TDCC Snapshot

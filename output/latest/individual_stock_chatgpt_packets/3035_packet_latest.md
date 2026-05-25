@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3035 智原
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:15 Asia/Taipei
+- generated_at: 2026-05-26 06:02:23 Asia/Taipei
 - stock_id: 3035
 - stock_name: 智原
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 210
-- high: 216.5
-- low: 205
-- close: 211
-- volume: 28366148
-- ma5: 212.5
-- ma20: 194.12
-- ma60: 169.47
-- ma120: 169.19
-- ema23: 194.01
-- return_5d: 1.44
-- return_20d: 25.22
-- volume_ratio: 1.44
-- distance_to_ma20_pct: 8.69
-- distance_to_high_60_pct: -8.66
+- open: 218
+- high: 231
+- low: 209
+- close: 218.5
+- volume: 30348381
+- ma5: 214
+- ma20: 194.5
+- ma60: 169.6
+- ma120: 169.25
+- ema23: 194.64
+- return_5d: 5.05
+- return_20d: 29.67
+- volume_ratio: 1.53
+- distance_to_ma20_pct: 12.34
+- distance_to_high_60_pct: -5.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,210,216.5,205,211,28366148,201.6,188.68,167.17,188.2,1.44
 20260524,210,216.5,205,211,28366148,206.1,189.9,167.89,190.1,1.53
 20260525,218,231,209,218.5,30348381,211.9,192,168.73,192.47,1.6
-20260526,210,216.5,205,211,28366148,212.5,194.12,169.47,194.01,1.44
+20260526,218,231,209,218.5,30348381,214,194.5,169.6,194.64,1.53
 ```
 
 ## Latest TDCC Snapshot
@@ -122,6 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 3035 | 智原 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 3035 | 智原 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

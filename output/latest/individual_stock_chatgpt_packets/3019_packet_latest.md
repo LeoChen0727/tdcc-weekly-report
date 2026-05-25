@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3019 亞光
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:14 Asia/Taipei
+- generated_at: 2026-05-26 06:02:22 Asia/Taipei
 - stock_id: 3019
 - stock_name: 亞光
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 152.5
-- high: 157.5
-- low: 150.5
-- close: 153.5
-- volume: 12803127
-- ma5: 154.1
-- ma20: 147.45
-- ma60: 135.91
-- ma120: 139.86
-- ema23: 146.77
-- return_5d: 1.32
-- return_20d: 8.1
-- volume_ratio: 1.35
-- distance_to_ma20_pct: 4.1
-- distance_to_high_60_pct: -3.46
+- open: 157.5
+- high: 159
+- low: 153.5
+- close: 156.5
+- volume: 10965077
+- ma5: 154.7
+- ma20: 147.6
+- ma60: 135.96
+- ma120: 139.89
+- ema23: 147.02
+- return_5d: 3.3
+- return_20d: 10.21
+- volume_ratio: 1.17
+- distance_to_ma20_pct: 6.03
+- distance_to_high_60_pct: -1.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,152.5,157.5,150.5,153.5,12803127,152.3,145.7,135.77,144.47,1.26
 20260524,152.5,157.5,150.5,153.5,12803127,153.1,146.2,135.82,145.22,1.36
 20260525,157.5,159,153.5,156.5,10965077,153.7,146.88,135.89,146.16,1.16
-20260526,152.5,157.5,150.5,153.5,12803127,154.1,147.45,135.91,146.77,1.35
+20260526,157.5,159,153.5,156.5,10965077,154.7,147.6,135.96,147.02,1.17
 ```
 
 ## Latest TDCC Snapshot
@@ -122,8 +122,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3019 | 亞光 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260526 | 3019 | 亞光 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 3019 | 亞光 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

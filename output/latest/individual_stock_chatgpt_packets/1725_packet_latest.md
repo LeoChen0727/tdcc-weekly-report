@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1725 元禎
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:42 Asia/Taipei
+- generated_at: 2026-05-26 06:01:51 Asia/Taipei
 - stock_id: 1725
 - stock_name: 元禎
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 31.3
-- high: 31.4
-- low: 31
-- close: 31.1
-- volume: 121937
-- ma5: 31.16
-- ma20: 31.19
+- open: 31.2
+- high: 31.65
+- low: 30.85
+- close: 31.4
+- volume: 131983
+- ma5: 31.22
+- ma20: 31.2
 - ma60: 30.8
-- ma120: 29.13
-- ema23: 31.16
-- return_5d: 0.32
-- return_20d: -4.01
-- volume_ratio: 0.59
-- distance_to_ma20_pct: -0.29
-- distance_to_high_60_pct: -15.6
+- ma120: 29.14
+- ema23: 31.19
+- return_5d: 1.29
+- return_20d: -3.09
+- volume_ratio: 0.64
+- distance_to_ma20_pct: 0.62
+- distance_to_high_60_pct: -14.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,31.3,31.4,31,31.1,121937,30.75,31.26,30.68,31.15,0.55
 20260524,31.3,31.4,31,31.1,121937,30.89,31.25,30.73,31.15,0.57
 20260525,31.2,31.65,30.85,31.4,131983,31.14,31.25,30.78,31.17,0.61
-20260526,31.3,31.4,31,31.1,121937,31.16,31.19,30.8,31.16,0.59
+20260526,31.2,31.65,30.85,31.4,131983,31.22,31.2,30.8,31.19,0.64
 ```
 
 ## Latest TDCC Snapshot

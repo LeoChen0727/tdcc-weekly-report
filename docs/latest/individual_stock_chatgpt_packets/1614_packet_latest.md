@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1614 三洋電
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:40 Asia/Taipei
+- generated_at: 2026-05-26 06:01:49 Asia/Taipei
 - stock_id: 1614
 - stock_name: 三洋電
 - packet_status: standard_180d_window_packet
@@ -55,20 +55,20 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 30.7
-- high: 31
-- low: 30.6
-- close: 30.8
-- volume: 63616
-- ma5: 30.78
-- ma20: 31.26
+- high: 31.25
+- low: 30.7
+- close: 30.7
+- volume: 77610
+- ma5: 30.76
+- ma20: 31.25
 - ma60: 31.97
 - ma120: 33.04
-- ema23: 31.25
-- return_5d: 0
-- return_20d: -4.2
-- volume_ratio: 0.87
-- distance_to_ma20_pct: -1.47
-- distance_to_high_60_pct: -11.24
+- ema23: 31.24
+- return_5d: -0.32
+- return_20d: -4.51
+- volume_ratio: 1.05
+- distance_to_ma20_pct: -1.78
+- distance_to_high_60_pct: -11.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,30.7,31,30.6,30.8,63616,30.76,31.45,32.17,31.39,0.88
 20260524,30.7,31,30.6,30.8,63616,30.81,31.39,32.1,31.34,0.89
 20260525,30.7,31.25,30.7,30.7,77610,30.78,31.33,32.04,31.29,1.06
-20260526,30.7,31,30.6,30.8,63616,30.78,31.26,31.97,31.25,0.87
+20260526,30.7,31.25,30.7,30.7,77610,30.76,31.25,31.97,31.24,1.05
 ```
 
 ## Latest TDCC Snapshot

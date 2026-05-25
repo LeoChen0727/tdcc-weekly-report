@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8070 長華*
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:46 Asia/Taipei
+- generated_at: 2026-05-26 06:03:47 Asia/Taipei
 - stock_id: 8070
 - stock_name: 長華*
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 44.2
-- high: 45.05
-- low: 44.1
-- close: 44.9
-- volume: 2943940
-- ma5: 45.19
-- ma20: 46.15
-- ma60: 45.33
-- ma120: 45.21
-- ema23: 45.66
-- return_5d: 1.7
-- return_20d: -4.16
-- volume_ratio: 0.91
-- distance_to_ma20_pct: -2.71
-- distance_to_high_60_pct: -11.26
+- open: 45.6
+- high: 46.35
+- low: 45
+- close: 46.35
+- volume: 3318973
+- ma5: 45.48
+- ma20: 46.23
+- ma60: 45.35
+- ma120: 45.23
+- ema23: 45.78
+- return_5d: 4.98
+- return_20d: -1.07
+- volume_ratio: 1.02
+- distance_to_ma20_pct: 0.27
+- distance_to_high_60_pct: -8.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,44.2,45.05,44.1,44.9,2943940,43.88,46.36,45.21,45.75,0.97
 20260524,44.2,45.05,44.1,44.9,2943940,44.33,46.26,45.24,45.67,0.97
 20260525,45.6,46.35,45,46.35,3318973,45.04,46.25,45.29,45.73,1.06
-20260526,44.2,45.05,44.1,44.9,2943940,45.19,46.15,45.33,45.66,0.91
+20260526,45.6,46.35,45,46.35,3318973,45.48,46.23,45.35,45.78,1.02
 ```
 
 ## Latest TDCC Snapshot
@@ -122,13 +122,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8070 | 長華* | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260521 | 8070 | 長華* | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 8070 | 長華* | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 8070 | 長華* | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 8070 | 長華* | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8070 | 長華* | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260526 | 8070 | 長華* | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

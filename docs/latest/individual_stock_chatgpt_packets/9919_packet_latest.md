@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9919 康那香
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:58 Asia/Taipei
+- generated_at: 2026-05-26 06:03:58 Asia/Taipei
 - stock_id: 9919
 - stock_name: 康那香
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 14.35
+- open: 14.4
 - high: 14.4
-- low: 14.15
-- close: 14.25
-- volume: 481297
-- ma5: 14.26
+- low: 14.05
+- close: 14.3
+- volume: 767589
+- ma5: 14.27
 - ma20: 14.28
 - ma60: 14.97
 - ma120: 15.86
-- ema23: 14.38
-- return_5d: -0.35
-- return_20d: -1.04
-- volume_ratio: 0.85
-- distance_to_ma20_pct: -0.19
-- distance_to_high_60_pct: -14.41
+- ema23: 14.39
+- return_5d: 0
+- return_20d: -0.69
+- volume_ratio: 1.33
+- distance_to_ma20_pct: 0.14
+- distance_to_high_60_pct: -14.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,14.35,14.4,14.15,14.25,481297,14.28,14.27,15.08,14.42,0.9
 20260524,14.35,14.4,14.15,14.25,481297,14.26,14.28,15.04,14.4,0.91
 20260525,14.4,14.4,14.05,14.3,767589,14.27,14.29,15.01,14.39,1.38
-20260526,14.35,14.4,14.15,14.25,481297,14.26,14.28,14.97,14.38,0.85
+20260526,14.4,14.4,14.05,14.3,767589,14.27,14.28,14.97,14.39,1.33
 ```
 
 ## Latest TDCC Snapshot

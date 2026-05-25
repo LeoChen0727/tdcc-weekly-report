@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6464 台數科
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:20 Asia/Taipei
+- generated_at: 2026-05-26 06:03:23 Asia/Taipei
 - stock_id: 6464
 - stock_name: 台數科
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 77.3
+- open: 77.8
 - high: 78.1
-- low: 77.1
-- close: 78.1
-- volume: 36577
-- ma5: 78.08
+- low: 77.8
+- close: 78
+- volume: 247412
+- ma5: 78.06
 - ma20: 77.16
 - ma60: 76.72
 - ma120: 76.97
-- ema23: 77.31
-- return_5d: 0.13
-- return_20d: 3.31
-- volume_ratio: 0.64
-- distance_to_ma20_pct: 1.22
-- distance_to_high_60_pct: -1.88
+- ema23: 77.3
+- return_5d: 0
+- return_20d: 3.17
+- volume_ratio: 3.64
+- distance_to_ma20_pct: 1.1
+- distance_to_high_60_pct: -2.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,77.3,78.1,77.1,78.1,36577,78.04,76.81,76.81,77.08,0.78
 20260524,77.3,78.1,77.1,78.1,36577,78.06,76.94,76.77,77.17,0.76
 20260525,77.8,78.1,77.8,78,247412,78.06,77.03,76.75,77.24,4.44
-20260526,77.3,78.1,77.1,78.1,36577,78.08,77.16,76.72,77.31,0.64
+20260526,77.8,78.1,77.8,78,247412,78.06,77.16,76.72,77.3,3.64
 ```
 
 ## Latest TDCC Snapshot

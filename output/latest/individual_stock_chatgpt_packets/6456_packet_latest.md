@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6456 GIS-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:20 Asia/Taipei
+- generated_at: 2026-05-26 06:03:23 Asia/Taipei
 - stock_id: 6456
 - stock_name: GIS-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 70.8
-- high: 76.8
-- low: 70.4
-- close: 76.1
-- volume: 22341219
-- ma5: 75.8
-- ma20: 71.56
-- ma60: 66.39
-- ma120: 54.67
-- ema23: 71.48
-- return_5d: 8.87
-- return_20d: -3.67
-- volume_ratio: 1.97
-- distance_to_ma20_pct: 6.35
-- distance_to_high_60_pct: -10.26
+- open: 78
+- high: 78.5
+- low: 74.5
+- close: 74.6
+- volume: 17672817
+- ma5: 75.5
+- ma20: 71.48
+- ma60: 66.37
+- ma120: 54.66
+- ema23: 71.35
+- return_5d: 6.72
+- return_20d: -5.57
+- volume_ratio: 1.59
+- distance_to_ma20_pct: 4.36
+- distance_to_high_60_pct: -12.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,70.8,76.8,70.4,76.1,22341219,70.76,71.73,65.01,70.25,2.55
 20260524,70.8,76.8,70.4,76.1,22341219,72.36,71.9,65.55,70.73,2.3
 20260525,78,78.5,74.5,74.6,17672817,74.56,71.7,66,71.06,1.7
-20260526,70.8,76.8,70.4,76.1,22341219,75.8,71.56,66.39,71.48,1.97
+20260526,78,78.5,74.5,74.6,17672817,75.5,71.48,66.37,71.35,1.59
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6456 | GIS-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 6456 | GIS-KY | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

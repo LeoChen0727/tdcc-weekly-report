@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9929 秋雨
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:58 Asia/Taipei
+- generated_at: 2026-05-26 06:03:58 Asia/Taipei
 - stock_id: 9929
 - stock_name: 秋雨
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 11.4
-- high: 11.4
-- low: 11.25
-- close: 11.4
-- volume: 25095
-- ma5: 11.44
-- ma20: 11.62
+- open: 11.3
+- high: 11.6
+- low: 11.3
+- close: 11.6
+- volume: 4954
+- ma5: 11.48
+- ma20: 11.63
 - ma60: 11.81
 - ma120: 11.19
-- ema23: 11.64
-- return_5d: 0
-- return_20d: -0.44
-- volume_ratio: 0.84
-- distance_to_ma20_pct: -1.91
-- distance_to_high_60_pct: -24
+- ema23: 11.66
+- return_5d: 1.75
+- return_20d: 1.31
+- volume_ratio: 0.17
+- distance_to_ma20_pct: -0.28
+- distance_to_high_60_pct: -22.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,11.4,11.4,11.25,11.4,25095,11.45,11.63,11.76,11.7,0.9
 20260524,11.4,11.4,11.25,11.4,25095,11.4,11.63,11.77,11.67,0.87
 20260525,11.3,11.6,11.3,11.6,4954,11.44,11.62,11.79,11.67,0.17
-20260526,11.4,11.4,11.25,11.4,25095,11.44,11.62,11.81,11.64,0.84
+20260526,11.3,11.6,11.3,11.6,4954,11.48,11.63,11.81,11.66,0.17
 ```
 
 ## Latest TDCC Snapshot

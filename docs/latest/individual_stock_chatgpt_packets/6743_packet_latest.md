@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6743 安普新
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:31 Asia/Taipei
+- generated_at: 2026-05-26 06:03:33 Asia/Taipei
 - stock_id: 6743
 - stock_name: 安普新
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 29.1
-- high: 29.55
-- low: 28.9
-- close: 29.15
-- volume: 369247
-- ma5: 29.1
-- ma20: 29.22
+- open: 29.2
+- high: 29.4
+- low: 28.85
+- close: 28.9
+- volume: 424596
+- ma5: 29.05
+- ma20: 29.2
 - ma60: 25.89
-- ma120: 26.82
-- ema23: 28.41
-- return_5d: 0.87
-- return_20d: -5.05
-- volume_ratio: 0.67
-- distance_to_ma20_pct: -0.23
-- distance_to_high_60_pct: -8.04
+- ma120: 26.81
+- ema23: 28.39
+- return_5d: 0
+- return_20d: -5.86
+- volume_ratio: 0.77
+- distance_to_ma20_pct: -1.04
+- distance_to_high_60_pct: -8.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,29.1,29.55,28.9,29.15,369247,28.88,29.31,25.77,28.21,0.42
 20260524,29.1,29.55,28.9,29.15,369247,29.04,29.38,25.81,28.29,0.42
 20260525,29.2,29.4,28.85,28.9,424596,29.05,29.3,25.85,28.34,0.58
-20260526,29.1,29.55,28.9,29.15,369247,29.1,29.22,25.89,28.41,0.67
+20260526,29.2,29.4,28.85,28.9,424596,29.05,29.2,25.89,28.39,0.77
 ```
 
 ## Latest TDCC Snapshot

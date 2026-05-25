@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6906 現觀科
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:36 Asia/Taipei
+- generated_at: 2026-05-26 06:03:38 Asia/Taipei
 - stock_id: 6906
 - stock_name: 現觀科
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 84.3
-- high: 84.3
-- low: 84.3
-- close: 84.3
-- volume: 379976
-- ma5: 85.98
-- ma20: 70.62
-- ma60: 69.06
-- ma120: 74.89
-- ema23: 73.5
-- return_5d: 9.91
-- return_20d: 34.45
-- volume_ratio: 1.27
-- distance_to_ma20_pct: 19.37
-- distance_to_high_60_pct: -9.06
+- open: 90.2
+- high: 92.7
+- low: 85.5
+- close: 92.7
+- volume: 1091793
+- ma5: 87.66
+- ma20: 71.04
+- ma60: 69.2
+- ma120: 74.96
+- ema23: 74.2
+- return_5d: 20.86
+- return_20d: 47.85
+- volume_ratio: 3.27
+- distance_to_ma20_pct: 30.49
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,84.3,84.3,84.3,84.3,379976,75.72,66.99,68.49,69.44,1.69
 20260524,84.3,84.3,84.3,84.3,379976,79.88,68.04,68.65,70.68,1.64
 20260525,90.2,92.7,85.5,92.7,1091793,84.46,69.54,68.94,72.52,3.87
-20260526,84.3,84.3,84.3,84.3,379976,85.98,70.62,69.06,73.5,1.27
+20260526,90.2,92.7,85.5,92.7,1091793,87.66,71.04,69.2,74.2,3.27
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1438 三地開發
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:33 Asia/Taipei
+- generated_at: 2026-05-26 06:01:43 Asia/Taipei
 - stock_id: 1438
 - stock_name: 三地開發
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 20.45
-- high: 20.7
-- low: 20.45
-- close: 20.7
-- volume: 30803
-- ma5: 20.74
-- ma20: 20.83
-- ma60: 26.11
+- open: 21
+- high: 21.15
+- low: 20.9
+- close: 20.9
+- volume: 59491
+- ma5: 20.78
+- ma20: 20.84
+- ma60: 26.12
 - ma120: 29.7
-- ema23: 21.93
-- return_5d: 0.98
-- return_20d: -11.73
-- volume_ratio: 0.26
-- distance_to_ma20_pct: -0.62
-- distance_to_high_60_pct: -37.18
+- ema23: 21.94
+- return_5d: 1.95
+- return_20d: -10.87
+- volume_ratio: 0.5
+- distance_to_ma20_pct: 0.29
+- distance_to_high_60_pct: -36.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,20.45,20.7,20.45,20.7,30803,20.63,21.31,26.78,22.27,0.25
 20260524,20.45,20.7,20.45,20.7,30803,20.65,21.11,26.54,22.14,0.26
 20260525,21,21.15,20.9,20.9,59491,20.7,20.97,26.31,22.04,0.51
-20260526,20.45,20.7,20.45,20.7,30803,20.74,20.83,26.11,21.93,0.26
+20260526,21,21.15,20.9,20.9,59491,20.78,20.84,26.12,21.94,0.5
 ```
 
 ## Latest TDCC Snapshot

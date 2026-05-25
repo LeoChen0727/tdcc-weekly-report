@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1707 葡萄王
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:40 Asia/Taipei
+- generated_at: 2026-05-26 06:01:50 Asia/Taipei
 - stock_id: 1707
 - stock_name: 葡萄王
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 104
-- high: 104
-- low: 102
-- close: 103
-- volume: 529532
-- ma5: 102.7
-- ma20: 107.83
-- ma60: 115.47
-- ma120: 120.28
-- ema23: 108.02
-- return_5d: -0.96
-- return_20d: -9.65
-- volume_ratio: 1.57
-- distance_to_ma20_pct: -4.47
-- distance_to_high_60_pct: -16.6
+- open: 103
+- high: 103.5
+- low: 101.5
+- close: 101.5
+- volume: 512449
+- ma5: 102.4
+- ma20: 107.75
+- ma60: 115.45
+- ma120: 120.27
+- ema23: 107.89
+- return_5d: -2.4
+- return_20d: -10.96
+- volume_ratio: 1.52
+- distance_to_ma20_pct: -5.8
+- distance_to_high_60_pct: -17.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,104,104,102,103,529532,103.8,109.55,116.53,109.66,1.74
 20260524,104,104,102,103,529532,103.3,109,116.18,109.11,1.77
 20260525,103,103.5,101.5,101.5,512449,102.9,108.38,115.81,108.47,1.62
-20260526,104,104,102,103,529532,102.7,107.83,115.47,108.02,1.57
+20260526,103,103.5,101.5,101.5,512449,102.4,107.75,115.45,107.89,1.52
 ```
 
 ## Latest TDCC Snapshot

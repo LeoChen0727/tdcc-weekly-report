@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2349 錸德
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:53 Asia/Taipei
+- generated_at: 2026-05-26 06:02:02 Asia/Taipei
 - stock_id: 2349
 - stock_name: 錸德
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 12.9
-- high: 13.15
-- low: 12.65
-- close: 13
-- volume: 7113668
-- ma5: 13.26
-- ma20: 12.72
-- ma60: 13.13
-- ma120: 13.38
-- ema23: 12.91
-- return_5d: 2.77
-- return_20d: 3.17
-- volume_ratio: 1.36
-- distance_to_ma20_pct: 2.22
-- distance_to_high_60_pct: -17.72
+- open: 13.2
+- high: 14.3
+- low: 13
+- close: 14.3
+- volume: 17477489
+- ma5: 13.52
+- ma20: 12.78
+- ma60: 13.16
+- ma120: 13.39
+- ema23: 13.02
+- return_5d: 13.04
+- return_20d: 13.49
+- volume_ratio: 3.04
+- distance_to_ma20_pct: 11.87
+- distance_to_high_60_pct: -9.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,12.9,13.15,12.65,13,7113668,12.62,12.59,13.2,12.76,1.78
 20260524,12.9,13.15,12.65,13,7113668,12.76,12.61,13.16,12.78,1.7
 20260525,13.2,14.3,13,14.3,17477489,13.19,12.7,13.16,12.91,3.53
-20260526,12.9,13.15,12.65,13,7113668,13.26,12.72,13.13,12.91,1.36
+20260526,13.2,14.3,13,14.3,17477489,13.52,12.78,13.16,13.02,3.04
 ```
 
 ## Latest TDCC Snapshot
@@ -122,12 +122,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2349 | 錸德 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 2349 | 錸德 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2349 | 錸德 | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260526 | 2349 | 錸德 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | status |

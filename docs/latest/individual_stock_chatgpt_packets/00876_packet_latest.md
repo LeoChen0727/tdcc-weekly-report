@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00876 元大全球5G
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:25 Asia/Taipei
+- generated_at: 2026-05-26 06:01:35 Asia/Taipei
 - stock_id: 00876
 - stock_name: 元大全球5G
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 85.85
-- high: 86.5
-- low: 85.55
-- close: 86.35
-- volume: 300057
-- ma5: 87.13
-- ma20: 87.13
-- ma60: 87.13
-- ma120: 87.13
-- ema23: 86.65
+- open: 88.7
+- high: 90.35
+- low: 88.7
+- close: 90.25
+- volume: 305378
+- ma5: 87.91
+- ma20: 87.91
+- ma60: 87.91
+- ma120: 87.91
+- ema23: 86.97
 - return_5d: 
 - return_20d: 
-- volume_ratio: 1
-- distance_to_ma20_pct: -0.9
-- distance_to_high_60_pct: -4.43
+- volume_ratio: 1.01
+- distance_to_ma20_pct: 2.66
+- distance_to_high_60_pct: -0.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,85.85,86.5,85.55,86.35,300057,,,,,
 20260524,85.85,86.5,85.55,86.35,300057,,,,,
 20260525,88.7,90.35,88.7,90.25,305378,,,,,
-20260526,85.85,86.5,85.55,86.35,300057,87.13,87.13,87.13,86.65,1
+20260526,88.7,90.35,88.7,90.25,305378,87.91,87.91,87.91,86.97,1.01
 ```
 
 ## Latest TDCC Snapshot

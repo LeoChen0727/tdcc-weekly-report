@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3041 揚智
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:16 Asia/Taipei
+- generated_at: 2026-05-26 06:02:23 Asia/Taipei
 - stock_id: 3041
 - stock_name: 揚智
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 25.4
-- high: 27.2
-- low: 24.9
-- close: 27.15
-- volume: 5202068
-- ma5: 27.12
+- open: 27.5
+- high: 27.6
+- low: 26.5
+- close: 27
+- volume: 3986590
+- ma5: 27.09
 - ma20: 24.8
 - ma60: 23.61
 - ma120: 24.59
-- ema23: 24.96
-- return_5d: 9.26
-- return_20d: 15.53
-- volume_ratio: 2.15
-- distance_to_ma20_pct: 9.45
-- distance_to_high_60_pct: -1.63
+- ema23: 24.94
+- return_5d: 8.65
+- return_20d: 14.89
+- volume_ratio: 1.69
+- distance_to_ma20_pct: 8.88
+- distance_to_high_60_pct: -2.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,25.4,27.2,24.9,27.15,5202068,25.11,24.27,23.5,24.32,2.81
 20260524,25.4,27.2,24.9,27.15,5202068,25.98,24.46,23.54,24.55,2.56
 20260525,27.5,27.6,26.5,27,3986590,26.66,24.62,23.57,24.76,1.82
-20260526,25.4,27.2,24.9,27.15,5202068,27.12,24.8,23.61,24.96,2.15
+20260526,27.5,27.6,26.5,27,3986590,27.09,24.8,23.61,24.94,1.69
 ```
 
 ## Latest TDCC Snapshot

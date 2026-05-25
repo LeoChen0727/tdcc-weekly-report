@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2530 華建
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:03 Asia/Taipei
+- generated_at: 2026-05-26 06:02:11 Asia/Taipei
 - stock_id: 2530
 - stock_name: 華建
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 20.65
-- high: 20.75
-- low: 20.25
-- close: 20.45
-- volume: 1353880
-- ma5: 20.34
-- ma20: 20.79
-- ma60: 23.03
-- ma120: 25.36
-- ema23: 21.07
-- return_5d: -1.92
-- return_20d: -3.54
-- volume_ratio: 0.83
-- distance_to_ma20_pct: -1.64
-- distance_to_high_60_pct: -25.36
+- open: 20.3
+- high: 20.3
+- low: 19.9
+- close: 19.9
+- volume: 1447958
+- ma5: 20.23
+- ma20: 20.76
+- ma60: 23.02
+- ma120: 25.35
+- ema23: 21.02
+- return_5d: -4.56
+- return_20d: -6.13
+- volume_ratio: 0.88
+- distance_to_ma20_pct: -4.15
+- distance_to_high_60_pct: -27.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,20.65,20.75,20.25,20.45,1353880,20.67,20.94,23.37,21.31,0.82
 20260524,20.65,20.75,20.25,20.45,1353880,20.62,20.89,23.26,21.24,0.82
 20260525,20.3,20.3,19.9,19.9,1447958,20.42,20.83,23.15,21.13,0.9
-20260526,20.65,20.75,20.25,20.45,1353880,20.34,20.79,23.03,21.07,0.83
+20260526,20.3,20.3,19.9,19.9,1447958,20.23,20.76,23.02,21.02,0.88
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00709 富邦歐洲
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:25 Asia/Taipei
+- generated_at: 2026-05-26 06:01:35 Asia/Taipei
 - stock_id: 00709
 - stock_name: 富邦歐洲
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 38.65
-- high: 38.76
-- low: 38.59
-- close: 38.68
-- volume: 78381
-- ma5: 38.73
-- ma20: 38.73
-- ma60: 38.73
-- ma120: 38.73
-- ema23: 38.7
+- open: 38.28
+- high: 38.95
+- low: 38.28
+- close: 38.95
+- volume: 87201
+- ma5: 38.79
+- ma20: 38.79
+- ma60: 38.79
+- ma120: 38.79
+- ema23: 38.72
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.98
-- distance_to_ma20_pct: -0.14
-- distance_to_high_60_pct: -0.69
+- volume_ratio: 1.06
+- distance_to_ma20_pct: 0.42
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,38.65,38.76,38.59,38.68,78381,,,,,
 20260524,38.65,38.76,38.59,38.68,78381,,,,,
 20260525,38.28,38.95,38.28,38.95,87201,,,,,
-20260526,38.65,38.76,38.59,38.68,78381,38.73,38.73,38.73,38.7,0.98
+20260526,38.28,38.95,38.28,38.95,87201,38.79,38.79,38.79,38.72,1.06
 ```
 
 ## Latest TDCC Snapshot

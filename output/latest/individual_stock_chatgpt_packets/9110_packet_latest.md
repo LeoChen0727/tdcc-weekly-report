@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9110 越南控-DR
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:57 Asia/Taipei
+- generated_at: 2026-05-26 06:03:57 Asia/Taipei
 - stock_id: 9110
 - stock_name: 越南控-DR
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 2.69
-- high: 2.69
-- low: 2.5
-- close: 2.51
-- volume: 28000
-- ma5: 2.53
-- ma20: 2.73
+- open: 2.59
+- high: 2.67
+- low: 2.48
+- close: 2.6
+- volume: 179000
+- ma5: 2.55
+- ma20: 2.74
 - ma60: 2.97
 - ma120: 3.03
-- ema23: 2.73
-- return_5d: -0.4
-- return_20d: -15.2
-- volume_ratio: 0.37
-- distance_to_ma20_pct: -8.13
-- distance_to_high_60_pct: -24.85
+- ema23: 2.74
+- return_5d: 3.17
+- return_20d: -12.16
+- volume_ratio: 2.13
+- distance_to_ma20_pct: -4.99
+- distance_to_high_60_pct: -22.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,2.69,2.69,2.5,2.51,28000,2.6,2.8,3,2.78,0.39
 20260524,2.69,2.69,2.5,2.51,28000,2.55,2.77,2.99,2.76,0.39
 20260525,2.59,2.67,2.48,2.6,179000,2.53,2.75,2.98,2.75,2.26
-20260526,2.69,2.69,2.5,2.51,28000,2.53,2.73,2.97,2.73,0.37
+20260526,2.59,2.67,2.48,2.6,179000,2.55,2.74,2.97,2.74,2.13
 ```
 
 ## Latest TDCC Snapshot

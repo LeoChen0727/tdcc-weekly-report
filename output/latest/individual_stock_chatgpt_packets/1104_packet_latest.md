@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1104 環泥
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:27 Asia/Taipei
+- generated_at: 2026-05-26 06:01:38 Asia/Taipei
 - stock_id: 1104
 - stock_name: 環泥
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 27.5
-- high: 27.6
-- low: 27.45
+- open: 27.85
+- high: 27.85
+- low: 27.5
 - close: 27.55
-- volume: 410128
+- volume: 820540
 - ma5: 27.55
 - ma20: 27.85
 - ma60: 28.78
@@ -66,7 +66,7 @@
 - ema23: 27.94
 - return_5d: 0.18
 - return_20d: -3.67
-- volume_ratio: 0.6
+- volume_ratio: 1.16
 - distance_to_ma20_pct: -1.08
 - distance_to_high_60_pct: -9.23
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,27.5,27.6,27.45,27.55,410128,27.49,27.99,28.91,28.06,0.58
 20260524,27.5,27.6,27.45,27.55,410128,27.51,27.95,28.86,28.02,0.62
 20260525,27.85,27.85,27.5,27.55,820540,27.54,27.9,28.82,27.98,1.2
-20260526,27.5,27.6,27.45,27.55,410128,27.55,27.85,28.78,27.94,0.6
+20260526,27.85,27.85,27.5,27.55,820540,27.55,27.85,28.78,27.94,1.16
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2466 冠西電
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:00 Asia/Taipei
+- generated_at: 2026-05-26 06:02:08 Asia/Taipei
 - stock_id: 2466
 - stock_name: 冠西電
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 47.9
-- high: 50.3
-- low: 47.9
-- close: 50.3
-- volume: 572077
-- ma5: 50.21
-- ma20: 50.62
-- ma60: 52.38
-- ma120: 56.5
-- ema23: 51.08
-- return_5d: 5.45
-- return_20d: -15.03
-- volume_ratio: 1.37
-- distance_to_ma20_pct: -0.63
-- distance_to_high_60_pct: -24.7
+- open: 51
+- high: 51.9
+- low: 49.1
+- close: 49.85
+- volume: 432039
+- ma5: 50.12
+- ma20: 50.6
+- ma60: 52.37
+- ma120: 56.49
+- ema23: 51.05
+- return_5d: 4.51
+- return_20d: -15.79
+- volume_ratio: 1.05
+- distance_to_ma20_pct: -1.48
+- distance_to_high_60_pct: -25.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,47.9,50.3,47.9,50.3,572077,48.42,51.42,52.43,51.36,1.39
 20260524,47.9,50.3,47.9,50.3,572077,49.08,51.27,52.42,51.27,1.34
 20260525,51,51.9,49.1,49.85,432039,49.69,51.06,52.38,51.16,0.99
-20260526,47.9,50.3,47.9,50.3,572077,50.21,50.62,52.38,51.08,1.37
+20260526,51,51.9,49.1,49.85,432039,50.12,50.6,52.37,51.05,1.05
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2618 長榮航
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:05 Asia/Taipei
+- generated_at: 2026-05-26 06:02:13 Asia/Taipei
 - stock_id: 2618
 - stock_name: 長榮航
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 35.5
-- high: 35.65
-- low: 35.1
-- close: 35.5
-- volume: 45237975
-- ma5: 35.49
-- ma20: 34.85
+- open: 36
+- high: 36.1
+- low: 35.45
+- close: 35.45
+- volume: 66136647
+- ma5: 35.48
+- ma20: 34.84
 - ma60: 34.67
 - ma120: 35.66
-- ema23: 34.96
-- return_5d: 0.57
-- return_20d: 4.41
-- volume_ratio: 1.32
-- distance_to_ma20_pct: 1.87
-- distance_to_high_60_pct: -1.93
+- ema23: 34.95
+- return_5d: 0.42
+- return_20d: 4.26
+- volume_ratio: 1.87
+- distance_to_ma20_pct: 1.74
+- distance_to_high_60_pct: -2.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,35.5,35.65,35.1,35.5,45237975,35.01,34.56,34.77,34.8,1.5
 20260524,35.5,35.65,35.1,35.5,45237975,35.22,34.67,34.72,34.86,1.46
 20260525,36,36.1,35.45,35.45,66136647,35.45,34.77,34.68,34.91,1.99
-20260526,35.5,35.65,35.1,35.5,45237975,35.49,34.85,34.67,34.96,1.32
+20260526,36,36.1,35.45,35.45,66136647,35.48,34.84,34.67,34.95,1.87
 ```
 
 ## Latest TDCC Snapshot

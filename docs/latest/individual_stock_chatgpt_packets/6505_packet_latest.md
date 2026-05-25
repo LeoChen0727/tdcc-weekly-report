@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6505 台塑化
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:22 Asia/Taipei
+- generated_at: 2026-05-26 06:03:24 Asia/Taipei
 - stock_id: 6505
 - stock_name: 台塑化
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 51.1
+- open: 51.3
 - high: 51.3
-- low: 50.6
-- close: 51
-- volume: 5352015
-- ma5: 50.7
-- ma20: 52.41
-- ma60: 54.77
-- ma120: 52.34
-- ema23: 52.09
-- return_5d: -0.58
-- return_20d: -5.56
-- volume_ratio: 0.64
-- distance_to_ma20_pct: -2.68
-- distance_to_high_60_pct: -25.22
+- low: 49.3
+- close: 49.5
+- volume: 13646379
+- ma5: 50.4
+- ma20: 52.33
+- ma60: 54.75
+- ma120: 52.33
+- ema23: 51.97
+- return_5d: -3.51
+- return_20d: -8.33
+- volume_ratio: 1.56
+- distance_to_ma20_pct: -5.41
+- distance_to_high_60_pct: -27.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,51.1,51.3,50.6,51,5352015,51.16,52.77,55.03,52.57,0.64
 20260524,51.1,51.3,50.6,51,5352015,51.1,52.73,54.95,52.44,0.65
 20260525,51.3,51.3,49.3,49.5,13646379,50.76,52.55,54.87,52.19,1.6
-20260526,51.1,51.3,50.6,51,5352015,50.7,52.41,54.77,52.09,0.64
+20260526,51.3,51.3,49.3,49.5,13646379,50.4,52.33,54.75,51.97,1.56
 ```
 
 ## Latest TDCC Snapshot

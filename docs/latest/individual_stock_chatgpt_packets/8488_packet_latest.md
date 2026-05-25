@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8488 吉源-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:54 Asia/Taipei
+- generated_at: 2026-05-26 06:03:55 Asia/Taipei
 - stock_id: 8488
 - stock_name: 吉源-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 9.62
-- high: 9.87
-- low: 9.62
-- close: 9.85
-- volume: 14000
-- ma5: 9.82
+- open: 9.85
+- high: 9.85
+- low: 9.71
+- close: 9.71
+- volume: 4000
+- ma5: 9.79
 - ma20: 10.01
-- ma60: 9.99
+- ma60: 9.98
 - ma120: 10.02
-- ema23: 9.97
-- return_5d: 1.65
-- return_20d: -0.51
-- volume_ratio: 0.24
-- distance_to_ma20_pct: -1.64
-- distance_to_high_60_pct: -13.97
+- ema23: 9.96
+- return_5d: 0.21
+- return_20d: -1.92
+- volume_ratio: 0.07
+- distance_to_ma20_pct: -2.97
+- distance_to_high_60_pct: -15.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,9.62,9.87,9.62,9.85,14000,9.86,10.05,10,10.02,0.25
 20260524,9.62,9.87,9.62,9.85,14000,9.81,10.04,10,10.01,0.25
 20260525,9.85,9.85,9.71,9.71,4000,9.79,10.02,9.99,9.98,0.07
-20260526,9.62,9.87,9.62,9.85,14000,9.82,10.01,9.99,9.97,0.24
+20260526,9.85,9.85,9.71,9.71,4000,9.79,10.01,9.98,9.96,0.07
 ```
 
 ## Latest TDCC Snapshot

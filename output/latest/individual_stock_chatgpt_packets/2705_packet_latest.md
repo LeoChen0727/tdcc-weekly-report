@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2705 六福
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:07 Asia/Taipei
+- generated_at: 2026-05-26 06:02:15 Asia/Taipei
 - stock_id: 2705
 - stock_name: 六福
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 15.4
-- high: 15.4
-- low: 15.15
-- close: 15.15
-- volume: 266873
-- ma5: 15.16
+- open: 15.25
+- high: 15.25
+- low: 15.05
+- close: 15.2
+- volume: 227833
+- ma5: 15.17
 - ma20: 15.66
 - ma60: 16.27
 - ma120: 16.37
-- ema23: 15.68
-- return_5d: -1.62
-- return_20d: -7.34
-- volume_ratio: 0.81
-- distance_to_ma20_pct: -3.27
-- distance_to_high_60_pct: -16.76
+- ema23: 15.69
+- return_5d: -1.3
+- return_20d: -7.03
+- volume_ratio: 0.69
+- distance_to_ma20_pct: -2.97
+- distance_to_high_60_pct: -16.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,15.4,15.4,15.15,15.15,266873,15.28,15.87,16.33,15.84,0.78
 20260524,15.4,15.4,15.15,15.15,266873,15.24,15.79,16.31,15.78,0.78
 20260525,15.25,15.25,15.05,15.2,227833,15.21,15.72,16.29,15.73,0.68
-20260526,15.4,15.4,15.15,15.15,266873,15.16,15.66,16.27,15.68,0.81
+20260526,15.25,15.25,15.05,15.2,227833,15.17,15.66,16.27,15.69,0.69
 ```
 
 ## Latest TDCC Snapshot

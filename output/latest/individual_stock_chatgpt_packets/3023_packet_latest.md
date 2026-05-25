@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3023 信邦
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:14 Asia/Taipei
+- generated_at: 2026-05-26 06:02:22 Asia/Taipei
 - stock_id: 3023
 - stock_name: 信邦
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 317
-- high: 322
-- low: 314
-- close: 314.5
-- volume: 2355982
-- ma5: 314.4
-- ma20: 302.32
-- ma60: 273.41
+- open: 321.5
+- high: 323
+- low: 312.5
+- close: 314
+- volume: 1668991
+- ma5: 314.3
+- ma20: 302.3
+- ma60: 273.4
 - ma120: 242.9
-- ema23: 299.91
-- return_5d: 0.32
-- return_20d: 11.33
-- volume_ratio: 0.95
-- distance_to_ma20_pct: 4.03
-- distance_to_high_60_pct: -2.63
+- ema23: 299.87
+- return_5d: 0.16
+- return_20d: 11.15
+- volume_ratio: 0.69
+- distance_to_ma20_pct: 3.87
+- distance_to_high_60_pct: -2.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,317,322,314,314.5,2355982,310.7,296.9,269.85,295.61,0.9
 20260524,317,322,314,314.5,2355982,312.1,298.77,271.02,297.19,0.9
 20260525,321.5,323,312.5,314,1668991,314.2,300.73,272.19,298.59,0.67
-20260526,317,322,314,314.5,2355982,314.4,302.32,273.41,299.91,0.95
+20260526,321.5,323,312.5,314,1668991,314.3,302.3,273.4,299.87,0.69
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3023 | 信邦 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 3023 | 信邦 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

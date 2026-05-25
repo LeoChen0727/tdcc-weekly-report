@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3042 晶技
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:16 Asia/Taipei
+- generated_at: 2026-05-26 06:02:23 Asia/Taipei
 - stock_id: 3042
 - stock_name: 晶技
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 165.5
-- high: 176
-- low: 161
-- close: 176
-- volume: 31527773
-- ma5: 179.5
-- ma20: 159.88
-- ma60: 127.6
-- ma120: 106.28
-- ema23: 158.46
-- return_5d: 10
-- return_20d: 11.75
-- volume_ratio: 1.85
-- distance_to_ma20_pct: 10.09
-- distance_to_high_60_pct: -9.04
+- open: 193.5
+- high: 193.5
+- low: 193.5
+- close: 193.5
+- volume: 2292251
+- ma5: 183
+- ma20: 160.75
+- ma60: 127.89
+- ma120: 106.43
+- ema23: 159.92
+- return_5d: 20.94
+- return_20d: 22.86
+- volume_ratio: 0.15
+- distance_to_ma20_pct: 20.37
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,165.5,176,161,176,31527773,161.6,154.95,123.12,151.49,2.2
 20260524,165.5,176,161,176,31527773,167.2,156.75,124.52,153.53,2
 20260525,193.5,193.5,193.5,193.5,2292251,176.3,158.95,126.22,156.86,0.15
-20260526,165.5,176,161,176,31527773,179.5,159.88,127.6,158.46,1.85
+20260526,193.5,193.5,193.5,193.5,2292251,183,160.75,127.89,159.92,0.15
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3042 | 晶技 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 3042 | 晶技 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

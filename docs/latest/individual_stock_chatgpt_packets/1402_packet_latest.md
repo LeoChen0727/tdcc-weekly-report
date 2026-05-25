@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1402 遠東新
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:32 Asia/Taipei
+- generated_at: 2026-05-26 06:01:42 Asia/Taipei
 - stock_id: 1402
 - stock_name: 遠東新
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 27.1
-- high: 27.15
-- low: 26.75
-- close: 27
-- volume: 35815467
-- ma5: 27.04
-- ma20: 26.47
-- ma60: 26.72
+- open: 27
+- high: 27.2
+- low: 26.5
+- close: 27.2
+- volume: 39203721
+- ma5: 27.08
+- ma20: 26.48
+- ma60: 26.73
 - ma120: 27.48
-- ema23: 26.63
-- return_5d: -0.74
-- return_20d: 3.65
-- volume_ratio: 1.67
-- distance_to_ma20_pct: 2
-- distance_to_high_60_pct: -9.09
+- ema23: 26.65
+- return_5d: 0
+- return_20d: 4.41
+- volume_ratio: 1.81
+- distance_to_ma20_pct: 2.72
+- distance_to_high_60_pct: -8.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,27.1,27.15,26.75,27,35815467,26.84,26.32,26.81,26.5,2.08
 20260524,27.1,27.15,26.75,27,35815467,26.99,26.36,26.79,26.54,1.93
 20260525,27,27.2,26.5,27.2,39203721,27.08,26.42,26.76,26.6,1.94
-20260526,27.1,27.15,26.75,27,35815467,27.04,26.47,26.72,26.63,1.67
+20260526,27,27.2,26.5,27.2,39203721,27.08,26.48,26.73,26.65,1.81
 ```
 
 ## Latest TDCC Snapshot
@@ -130,6 +130,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 1402 | 遠東新 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 1402 | 遠東新 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

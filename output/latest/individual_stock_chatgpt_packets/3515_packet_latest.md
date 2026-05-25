@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3515 華擎
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:29 Asia/Taipei
+- generated_at: 2026-05-26 06:02:36 Asia/Taipei
 - stock_id: 3515
 - stock_name: 華擎
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 227.5
-- high: 232
-- low: 225
-- close: 232
-- volume: 680589
-- ma5: 234.6
-- ma20: 232.53
-- ma60: 222.95
-- ma120: 230.34
-- ema23: 230.32
-- return_5d: 3.34
-- return_20d: -1.28
-- volume_ratio: 0.74
-- distance_to_ma20_pct: -0.23
-- distance_to_high_60_pct: -8.66
+- open: 237.5
+- high: 246.5
+- low: 233.5
+- close: 245
+- volume: 1301237
+- ma5: 237.2
+- ma20: 233.18
+- ma60: 223.17
+- ma120: 230.45
+- ema23: 231.41
+- return_5d: 9.13
+- return_20d: 4.26
+- volume_ratio: 1.36
+- distance_to_ma20_pct: 5.07
+- distance_to_high_60_pct: -3.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,227.5,232,225,232,680589,225.7,232.72,222.54,228.53,0.62
 20260524,227.5,232,225,232,680589,227.9,232.43,222.6,228.82,0.65
 20260525,237.5,246.5,233.5,245,1301237,233.1,232.68,222.88,230.17,1.4
-20260526,227.5,232,225,232,680589,234.6,232.53,222.95,230.32,0.74
+20260526,237.5,246.5,233.5,245,1301237,237.2,233.18,223.17,231.41,1.36
 ```
 
 ## Latest TDCC Snapshot
@@ -122,6 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 3515 | 華擎 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 3515 | 華擎 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

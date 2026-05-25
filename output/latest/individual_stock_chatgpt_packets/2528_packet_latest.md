@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2528 皇普
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:03 Asia/Taipei
+- generated_at: 2026-05-26 06:02:11 Asia/Taipei
 - stock_id: 2528
 - stock_name: 皇普
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 22
-- high: 22.25
+- open: 22.3
+- high: 22.3
 - low: 22
 - close: 22.15
-- volume: 329871
+- volume: 664311
 - ma5: 22.15
 - ma20: 22.25
 - ma60: 24.27
@@ -66,7 +66,7 @@
 - ema23: 22.51
 - return_5d: 0.23
 - return_20d: -1.77
-- volume_ratio: 0.57
+- volume_ratio: 1.12
 - distance_to_ma20_pct: -0.46
 - distance_to_high_60_pct: -24.4
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,22,22.25,22,22.15,329871,22.14,22.31,24.59,22.62,0.51
 20260524,22,22.25,22,22.15,329871,22.15,22.29,24.49,22.58,0.58
 20260525,22.3,22.3,22,22.15,664311,22.14,22.27,24.38,22.54,1.12
-20260526,22,22.25,22,22.15,329871,22.15,22.25,24.27,22.51,0.57
+20260526,22.3,22.3,22,22.15,664311,22.15,22.25,24.27,22.51,1.12
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8481 政伸
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:54 Asia/Taipei
+- generated_at: 2026-05-26 06:03:55 Asia/Taipei
 - stock_id: 8481
 - stock_name: 政伸
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 40.25
-- high: 40.6
-- low: 40.05
-- close: 40.6
-- volume: 10614
-- ma5: 40.52
-- ma20: 40.44
-- ma60: 41.33
+- open: 40.1
+- high: 40.8
+- low: 40.1
+- close: 40.2
+- volume: 27319
+- ma5: 40.44
+- ma20: 40.41
+- ma60: 41.32
 - ma120: 41.33
-- ema23: 40.61
-- return_5d: 0.74
-- return_20d: -2.17
-- volume_ratio: 0.32
-- distance_to_ma20_pct: 0.41
-- distance_to_high_60_pct: -4.02
+- ema23: 40.57
+- return_5d: -0.25
+- return_20d: -3.13
+- volume_ratio: 0.8
+- distance_to_ma20_pct: -0.53
+- distance_to_high_60_pct: -4.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,40.25,40.6,40.05,40.6,10614,40.34,40.53,41.41,40.65,0.31
 20260524,40.25,40.6,40.05,40.6,10614,40.47,40.52,41.39,40.64,0.31
 20260525,40.1,40.8,40.1,40.2,27319,40.46,40.48,41.36,40.61,0.82
-20260526,40.25,40.6,40.05,40.6,10614,40.52,40.44,41.33,40.61,0.32
+20260526,40.1,40.8,40.1,40.2,27319,40.44,40.41,41.32,40.57,0.8
 ```
 
 ## Latest TDCC Snapshot

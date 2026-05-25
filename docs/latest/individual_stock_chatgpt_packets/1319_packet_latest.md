@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1319 東陽
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:31 Asia/Taipei
+- generated_at: 2026-05-26 06:01:41 Asia/Taipei
 - stock_id: 1319
 - stock_name: 東陽
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 80.9
-- high: 82.4
-- low: 80.1
-- close: 81.6
-- volume: 3108916
-- ma5: 81.44
-- ma20: 79.42
-- ma60: 81.41
+- open: 82.6
+- high: 82.7
+- low: 80.7
+- close: 80.8
+- volume: 2980663
+- ma5: 81.28
+- ma20: 79.38
+- ma60: 81.4
 - ma120: 90.69
-- ema23: 80.02
-- return_5d: 1.87
-- return_20d: 9.09
-- volume_ratio: 0.98
-- distance_to_ma20_pct: 2.75
-- distance_to_high_60_pct: -17.41
+- ema23: 79.95
+- return_5d: 0.87
+- return_20d: 8.02
+- volume_ratio: 0.94
+- distance_to_ma20_pct: 1.8
+- distance_to_high_60_pct: -18.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,80.9,82.4,80.1,81.6,3108916,80.78,78.42,82.3,79.63,0.99
 20260524,80.9,82.4,80.1,81.6,3108916,81.1,78.82,82,79.79,0.98
 20260525,82.6,82.7,80.7,80.8,2980663,81.14,79.08,81.69,79.88,0.94
-20260526,80.9,82.4,80.1,81.6,3108916,81.44,79.42,81.41,80.02,0.98
+20260526,82.6,82.7,80.7,80.8,2980663,81.28,79.38,81.4,79.95,0.94
 ```
 
 ## Latest TDCC Snapshot

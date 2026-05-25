@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2115 六暉-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:49 Asia/Taipei
+- generated_at: 2026-05-26 06:01:58 Asia/Taipei
 - stock_id: 2115
 - stock_name: 六暉-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 20.65
-- high: 20.85
-- low: 20.65
-- close: 20.7
-- volume: 29828
-- ma5: 20.68
+- open: 20.7
+- high: 20.7
+- low: 20.55
+- close: 20.6
+- volume: 99586
+- ma5: 20.66
 - ma20: 20.71
 - ma60: 21.5
 - ma120: 23.13
-- ema23: 20.83
-- return_5d: -0.72
-- return_20d: -2.82
-- volume_ratio: 0.21
-- distance_to_ma20_pct: -0.07
-- distance_to_high_60_pct: -14.64
+- ema23: 20.82
+- return_5d: -1.2
+- return_20d: -3.29
+- volume_ratio: 0.69
+- distance_to_ma20_pct: -0.53
+- distance_to_high_60_pct: -15.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,20.65,20.85,20.65,20.7,29828,20.58,20.82,21.69,20.87,0.21
 20260524,20.65,20.85,20.65,20.7,29828,20.67,20.79,21.63,20.86,0.21
 20260525,20.7,20.7,20.55,20.6,99586,20.71,20.75,21.56,20.84,0.7
-20260526,20.65,20.85,20.65,20.7,29828,20.68,20.71,21.5,20.83,0.21
+20260526,20.7,20.7,20.55,20.6,99586,20.66,20.71,21.5,20.82,0.69
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4438 廣越
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:43 Asia/Taipei
+- generated_at: 2026-05-26 06:02:48 Asia/Taipei
 - stock_id: 4438
 - stock_name: 廣越
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 57.7
-- high: 58.5
-- low: 57.4
+- open: 58.2
+- high: 58.6
+- low: 57.2
 - close: 57.9
-- volume: 65705
+- volume: 63638
 - ma5: 57.9
 - ma20: 57.81
 - ma60: 58.46
@@ -66,7 +66,7 @@
 - ema23: 57.84
 - return_5d: 0
 - return_20d: 2.3
-- volume_ratio: 0.59
+- volume_ratio: 0.57
 - distance_to_ma20_pct: 0.16
 - distance_to_high_60_pct: -13.84
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,57.7,58.5,57.4,57.9,65705,57.82,57.56,58.98,57.83,0.59
 20260524,57.7,58.5,57.4,57.9,65705,57.82,57.66,58.8,57.83,0.6
 20260525,58.2,58.6,57.2,57.9,63638,57.9,57.74,58.62,57.84,0.57
-20260526,57.7,58.5,57.4,57.9,65705,57.9,57.81,58.46,57.84,0.59
+20260526,58.2,58.6,57.2,57.9,63638,57.9,57.81,58.46,57.84,0.57
 ```
 
 ## Latest TDCC Snapshot

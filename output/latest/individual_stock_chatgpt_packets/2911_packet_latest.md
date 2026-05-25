@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2911 麗嬰房
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:12 Asia/Taipei
+- generated_at: 2026-05-26 06:02:19 Asia/Taipei
 - stock_id: 2911
 - stock_name: 麗嬰房
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 8.69
-- high: 8.69
-- low: 8.69
-- close: 8.69
-- volume: 766171
-- ma5: 8.86
-- ma20: 6.39
-- ma60: 5.55
-- ma120: 5.21
-- ema23: 6.8
-- return_5d: 10
-- return_20d: 63.65
-- volume_ratio: 1.77
-- distance_to_ma20_pct: 36.03
-- distance_to_high_60_pct: -9.01
+- open: 9.55
+- high: 9.55
+- low: 9.55
+- close: 9.55
+- volume: 836732
+- ma5: 9.03
+- ma20: 6.43
+- ma60: 5.56
+- ma120: 5.22
+- ema23: 6.87
+- return_5d: 20.89
+- return_20d: 79.85
+- volume_ratio: 1.92
+- distance_to_ma20_pct: 48.49
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,8.69,8.69,8.69,8.69,766171,7.8,5.88,5.36,6.15,1.76
 20260524,8.69,8.69,8.69,8.69,766171,8.23,6.04,5.41,6.36,1.7
 20260525,9.55,9.55,9.55,9.55,836732,8.7,6.22,5.49,6.63,1.85
-20260526,8.69,8.69,8.69,8.69,766171,8.86,6.39,5.55,6.8,1.77
+20260526,9.55,9.55,9.55,9.55,836732,9.03,6.43,5.56,6.87,1.92
 ```
 
 ## Latest TDCC Snapshot

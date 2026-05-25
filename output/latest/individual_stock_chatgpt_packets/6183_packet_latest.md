@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6183 關貿
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:12 Asia/Taipei
+- generated_at: 2026-05-26 06:03:15 Asia/Taipei
 - stock_id: 6183
 - stock_name: 關貿
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 91.5
-- high: 92
-- low: 91.5
-- close: 91.6
-- volume: 26903
-- ma5: 91.56
-- ma20: 91.91
-- ma60: 93
+- open: 91.6
+- high: 91.9
+- low: 91.4
+- close: 91.4
+- volume: 26752
+- ma5: 91.52
+- ma20: 91.9
+- ma60: 92.99
 - ma120: 94.29
-- ema23: 92.14
-- return_5d: 0.11
-- return_20d: -1.08
+- ema23: 92.12
+- return_5d: -0.11
+- return_20d: -1.3
 - volume_ratio: 0.83
-- distance_to_ma20_pct: -0.34
-- distance_to_high_60_pct: -4.88
+- distance_to_ma20_pct: -0.54
+- distance_to_high_60_pct: -5.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,91.5,92,91.5,91.6,26903,91.7,92.12,93.19,92.32,0.83
 20260524,91.5,92,91.5,91.6,26903,91.7,92.07,93.13,92.26,0.86
 20260525,91.6,91.9,91.4,91.4,26752,91.54,91.96,93.06,92.19,0.84
-20260526,91.5,92,91.5,91.6,26903,91.56,91.91,93,92.14,0.83
+20260526,91.6,91.9,91.4,91.4,26752,91.52,91.9,92.99,92.12,0.83
 ```
 
 ## Latest TDCC Snapshot

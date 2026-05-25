@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6133 金橋
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:08 Asia/Taipei
+- generated_at: 2026-05-26 06:03:12 Asia/Taipei
 - stock_id: 6133
 - stock_name: 金橋
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 24
-- high: 24.25
-- low: 23.65
+- open: 24.45
+- high: 24.6
+- low: 23.95
 - close: 24.1
-- volume: 2771330
+- volume: 2825331
 - ma5: 24.1
 - ma20: 22.7
 - ma60: 23.27
@@ -66,7 +66,7 @@
 - ema23: 23.04
 - return_5d: 0.42
 - return_20d: 9.55
-- volume_ratio: 1.28
+- volume_ratio: 1.3
 - distance_to_ma20_pct: 6.18
 - distance_to_high_60_pct: -19.8
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,24,24.25,23.65,24.1,2771330,23.83,22.34,23.26,22.72,1.46
 20260524,24,24.25,23.65,24.1,2771330,24.13,22.49,23.28,22.83,1.4
 20260525,24.45,24.6,23.95,24.1,2825331,24.08,22.59,23.27,22.94,1.36
-20260526,24,24.25,23.65,24.1,2771330,24.1,22.7,23.27,23.04,1.28
+20260526,24.45,24.6,23.95,24.1,2825331,24.1,22.7,23.27,23.04,1.3
 ```
 
 ## Latest TDCC Snapshot
@@ -120,9 +120,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6133 | 金橋 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

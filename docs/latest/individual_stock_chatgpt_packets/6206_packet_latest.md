@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6206 飛捷
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:13 Asia/Taipei
+- generated_at: 2026-05-26 06:03:16 Asia/Taipei
 - stock_id: 6206
 - stock_name: 飛捷
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 136.5
-- high: 142
-- low: 133.5
-- close: 140
-- volume: 3440403
-- ma5: 140.8
-- ma20: 129.15
-- ma60: 110.89
-- ma120: 101.78
-- ema23: 128.51
-- return_5d: 2.19
-- return_20d: 32.08
-- volume_ratio: 1.03
-- distance_to_ma20_pct: 8.4
-- distance_to_high_60_pct: -4.11
+- open: 142
+- high: 146
+- low: 139.5
+- close: 144
+- volume: 3260443
+- ma5: 141.6
+- ma20: 129.35
+- ma60: 110.96
+- ma120: 101.81
+- ema23: 128.84
+- return_5d: 5.11
+- return_20d: 35.85
+- volume_ratio: 0.98
+- distance_to_ma20_pct: 11.33
+- distance_to_high_60_pct: -1.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,136.5,142,133.5,140,3440403,135.5,123.8,108.52,124.68,1.18
 20260524,136.5,142,133.5,140,3440403,137.6,125.5,109.28,125.96,1.13
 20260525,142,146,139.5,144,3260443,140.2,127.45,110.12,127.46,1.02
-20260526,136.5,142,133.5,140,3440403,140.8,129.15,110.89,128.51,1.03
+20260526,142,146,139.5,144,3260443,141.6,129.35,110.96,128.84,0.98
 ```
 
 ## Latest TDCC Snapshot
@@ -120,9 +120,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6206 | 飛捷 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 55.0 |  |  | neckline_challenge |  | call_strong_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2471 資通
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:00 Asia/Taipei
+- generated_at: 2026-05-26 06:02:09 Asia/Taipei
 - stock_id: 2471
 - stock_name: 資通
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 50.4
-- high: 50.6
+- open: 50.5
+- high: 50.5
 - low: 50
-- close: 50.5
-- volume: 180116
-- ma5: 50.48
-- ma20: 51.16
+- close: 50.4
+- volume: 224741
+- ma5: 50.46
+- ma20: 51.15
 - ma60: 51.63
 - ma120: 51.19
 - ema23: 51.03
-- return_5d: 0.2
-- return_20d: -3.44
-- volume_ratio: 0.78
-- distance_to_ma20_pct: -1.28
-- distance_to_high_60_pct: -8.68
+- return_5d: 0
+- return_20d: -3.63
+- volume_ratio: 0.97
+- distance_to_ma20_pct: -1.47
+- distance_to_high_60_pct: -8.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,50.4,50.6,50,50.5,180116,50.29,51.38,51.63,51.2,0.78
 20260524,50.4,50.6,50,50.5,180116,50.42,51.32,51.65,51.14,0.77
 20260525,50.5,50.5,50,50.4,224741,50.46,51.24,51.63,51.08,0.96
-20260526,50.4,50.6,50,50.5,180116,50.48,51.16,51.63,51.03,0.78
+20260526,50.5,50.5,50,50.4,224741,50.46,51.15,51.63,51.03,0.97
 ```
 
 ## Latest TDCC Snapshot

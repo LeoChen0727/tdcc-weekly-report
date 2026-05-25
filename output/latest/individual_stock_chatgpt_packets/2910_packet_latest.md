@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2910 統領
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:12 Asia/Taipei
+- generated_at: 2026-05-26 06:02:19 Asia/Taipei
 - stock_id: 2910
 - stock_name: 統領
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 21.2
-- high: 21.25
+- open: 21.15
+- high: 21.15
 - low: 21.15
 - close: 21.15
-- volume: 6087
+- volume: 7087
 - ma5: 21.15
 - ma20: 21.65
 - ma60: 21.65
@@ -66,7 +66,7 @@
 - ema23: 21.56
 - return_5d: -0.24
 - return_20d: -4.08
-- volume_ratio: 0.57
+- volume_ratio: 0.66
 - distance_to_ma20_pct: -2.3
 - distance_to_high_60_pct: -10.76
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,21.2,21.25,21.15,21.15,6087,21.22,21.79,21.75,21.68,0.58
 20260524,21.2,21.25,21.15,21.15,6087,21.2,21.75,21.72,21.64,0.57
 20260525,21.15,21.15,21.15,21.15,7087,21.16,21.69,21.69,21.6,0.66
-20260526,21.2,21.25,21.15,21.15,6087,21.15,21.65,21.65,21.56,0.57
+20260526,21.15,21.15,21.15,21.15,7087,21.15,21.65,21.65,21.56,0.66
 ```
 
 ## Latest TDCC Snapshot

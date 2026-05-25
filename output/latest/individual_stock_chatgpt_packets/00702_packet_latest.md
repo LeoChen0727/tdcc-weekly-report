@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00702 國泰標普低波高息
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:25 Asia/Taipei
+- generated_at: 2026-05-26 06:01:35 Asia/Taipei
 - stock_id: 00702
 - stock_name: 國泰標普低波高息
 - packet_status: partial_rawdata_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 24.07
-- high: 24.07
-- low: 24
+- open: 24.03
+- high: 24.08
+- low: 24.03
 - close: 24.03
-- volume: 167809
+- volume: 158949
 - ma5: 24.03
 - ma20: 24.03
 - ma60: 24.03
@@ -66,7 +66,7 @@
 - ema23: 24.03
 - return_5d: 
 - return_20d: 
-- volume_ratio: 1.01
+- volume_ratio: 0.97
 - distance_to_ma20_pct: 0
 - distance_to_high_60_pct: -0.21
 
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,24.07,24.07,24,24.03,167809,,,,,
 20260524,24.07,24.07,24,24.03,167809,,,,,
 20260525,24.03,24.08,24.03,24.03,158949,,,,,
-20260526,24.07,24.07,24,24.03,167809,24.03,24.03,24.03,24.03,1.01
+20260526,24.03,24.08,24.03,24.03,158949,24.03,24.03,24.03,24.03,0.97
 ```
 
 ## Latest TDCC Snapshot

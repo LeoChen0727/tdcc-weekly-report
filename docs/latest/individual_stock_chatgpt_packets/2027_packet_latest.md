@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2027 大成鋼
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:46 Asia/Taipei
+- generated_at: 2026-05-26 06:01:55 Asia/Taipei
 - stock_id: 2027
 - stock_name: 大成鋼
 - packet_status: standard_180d_window_packet
@@ -55,20 +55,20 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 42.5
-- high: 42.9
-- low: 41.75
-- close: 41.95
-- volume: 24351187
-- ma5: 42.32
-- ma20: 40.11
-- ma60: 38.17
-- ma120: 37.58
-- ema23: 40.25
-- return_5d: -0.94
-- return_20d: 9.1
-- volume_ratio: 0.79
-- distance_to_ma20_pct: 4.59
-- distance_to_high_60_pct: -5.41
+- high: 44.35
+- low: 42.5
+- close: 43.8
+- volume: 37622473
+- ma5: 42.69
+- ma20: 40.2
+- ma60: 38.2
+- ma120: 37.6
+- ema23: 40.41
+- return_5d: 3.42
+- return_20d: 13.91
+- volume_ratio: 1.2
+- distance_to_ma20_pct: 8.95
+- distance_to_high_60_pct: -1.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,42.5,42.9,41.75,41.95,24351187,41.48,39.37,37.9,39.56,0.79
 20260524,42.5,42.9,41.75,41.95,24351187,41.87,39.65,37.97,39.76,0.77
 20260525,42.5,44.35,42.5,43.8,37622473,42.4,39.94,38.09,40.1,1.19
-20260526,42.5,42.9,41.75,41.95,24351187,42.32,40.11,38.17,40.25,0.79
+20260526,42.5,44.35,42.5,43.8,37622473,42.69,40.2,38.2,40.41,1.2
 ```
 
 ## Latest TDCC Snapshot
@@ -122,14 +122,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2027 | 大成鋼 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 2027 | 大成鋼 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260521 | 2027 | 大成鋼 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 2027 | 大成鋼 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 2027 | 大成鋼 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2027 | 大成鋼 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260526 | 2027 | 大成鋼 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

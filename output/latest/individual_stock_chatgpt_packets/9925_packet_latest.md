@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9925 新保
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:58 Asia/Taipei
+- generated_at: 2026-05-26 06:03:58 Asia/Taipei
 - stock_id: 9925
 - stock_name: 新保
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 40.1
-- high: 40.2
+- open: 40.15
+- high: 40.25
 - low: 40.1
 - close: 40.15
-- volume: 223252
+- volume: 273242
 - ma5: 40.15
 - ma20: 40.25
 - ma60: 40.55
@@ -66,7 +66,7 @@
 - ema23: 40.28
 - return_5d: -0.37
 - return_20d: -0.37
-- volume_ratio: 0.9
+- volume_ratio: 1.09
 - distance_to_ma20_pct: -0.25
 - distance_to_high_60_pct: -2.55
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,40.1,40.2,40.1,40.15,223252,40.19,40.27,40.58,40.32,0.77
 20260524,40.1,40.2,40.1,40.15,223252,40.18,40.27,40.57,40.31,0.88
 20260525,40.15,40.25,40.1,40.15,273242,40.18,40.26,40.56,40.3,1.09
-20260526,40.1,40.2,40.1,40.15,223252,40.15,40.25,40.55,40.28,0.9
+20260526,40.15,40.25,40.1,40.15,273242,40.15,40.25,40.55,40.28,1.09
 ```
 
 ## Latest TDCC Snapshot

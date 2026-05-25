@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2462 良得電
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:00 Asia/Taipei
+- generated_at: 2026-05-26 06:02:08 Asia/Taipei
 - stock_id: 2462
 - stock_name: 良得電
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 20.55
-- high: 20.8
-- low: 20.25
-- close: 20.8
-- volume: 414325
-- ma5: 20.82
-- ma20: 20.7
+- open: 20.95
+- high: 21.05
+- low: 20.55
+- close: 20.9
+- volume: 659935
+- ma5: 20.84
+- ma20: 20.71
 - ma60: 21.84
-- ma120: 22.85
-- ema23: 20.94
-- return_5d: 1.46
-- return_20d: -3.7
-- volume_ratio: 0.86
-- distance_to_ma20_pct: 0.47
-- distance_to_high_60_pct: -19.07
+- ma120: 22.86
+- ema23: 20.95
+- return_5d: 1.95
+- return_20d: -3.24
+- volume_ratio: 1.34
+- distance_to_ma20_pct: 0.93
+- distance_to_high_60_pct: -18.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,20.55,20.8,20.25,20.8,414325,20.42,20.84,22.07,20.97,0.92
 20260524,20.55,20.8,20.25,20.8,414325,20.62,20.78,22,20.96,0.92
 20260525,20.95,21.05,20.55,20.9,659935,20.76,20.74,21.92,20.95,1.4
-20260526,20.55,20.8,20.25,20.8,414325,20.82,20.7,21.84,20.94,0.86
+20260526,20.95,21.05,20.55,20.9,659935,20.84,20.71,21.84,20.95,1.34
 ```
 
 ## Latest TDCC Snapshot

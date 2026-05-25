@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2482 連宇
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:01 Asia/Taipei
+- generated_at: 2026-05-26 06:02:09 Asia/Taipei
 - stock_id: 2482
 - stock_name: 連宇
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 16.15
-- high: 17
-- low: 16.15
-- close: 16.9
-- volume: 281322
-- ma5: 16.89
+- open: 17
+- high: 17.1
+- low: 16.6
+- close: 16.85
+- volume: 298883
+- ma5: 16.88
 - ma20: 16.6
 - ma60: 16.8
 - ma120: 17.21
-- ema23: 16.73
-- return_5d: 3.68
-- return_20d: -0.29
-- volume_ratio: 1.43
-- distance_to_ma20_pct: 1.79
-- distance_to_high_60_pct: -8.65
+- ema23: 16.72
+- return_5d: 3.37
+- return_20d: -0.59
+- volume_ratio: 1.51
+- distance_to_ma20_pct: 1.51
+- distance_to_high_60_pct: -8.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,16.15,17,16.15,16.9,281322,16.53,16.62,16.85,16.68,1.58
 20260524,16.15,17,16.15,16.9,281322,16.63,16.61,16.83,16.7,1.56
 20260525,17,17.1,16.6,16.85,298883,16.77,16.61,16.82,16.71,1.59
-20260526,16.15,17,16.15,16.9,281322,16.89,16.6,16.8,16.73,1.43
+20260526,17,17.1,16.6,16.85,298883,16.88,16.6,16.8,16.72,1.51
 ```
 
 ## Latest TDCC Snapshot

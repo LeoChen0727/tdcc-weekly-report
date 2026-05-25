@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6706 惠特
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:30 Asia/Taipei
+- generated_at: 2026-05-26 06:03:31 Asia/Taipei
 - stock_id: 6706
 - stock_name: 惠特
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 174
-- high: 185
-- low: 173
-- close: 185
-- volume: 9381150
-- ma5: 183.9
-- ma20: 171.75
-- ma60: 142.88
-- ma120: 129.68
-- ema23: 167.37
-- return_5d: 9.79
-- return_20d: 25.85
-- volume_ratio: 0.96
-- distance_to_ma20_pct: 7.71
-- distance_to_high_60_pct: -5.37
+- open: 189
+- high: 195.5
+- low: 178
+- close: 179.5
+- volume: 13160809
+- ma5: 182.8
+- ma20: 171.47
+- ma60: 142.78
+- ma120: 129.63
+- ema23: 166.91
+- return_5d: 6.53
+- return_20d: 22.11
+- volume_ratio: 1.32
+- distance_to_ma20_pct: 4.68
+- distance_to_high_60_pct: -8.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,174,185,173,185,9381150,174.4,164.43,140.18,162.66,1.04
 20260524,174,185,173,185,9381150,176.8,167.57,141.23,164.52,1.01
 20260525,189,195.5,178,179.5,13160809,180.6,169.85,142,165.77,1.35
-20260526,174,185,173,185,9381150,183.9,171.75,142.88,167.37,0.96
+20260526,189,195.5,178,179.5,13160809,182.8,171.47,142.78,166.91,1.32
 ```
 
 ## Latest TDCC Snapshot

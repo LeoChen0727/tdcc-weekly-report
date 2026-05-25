@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6184 大豐電
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:12 Asia/Taipei
+- generated_at: 2026-05-26 06:03:15 Asia/Taipei
 - stock_id: 6184
 - stock_name: 大豐電
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 46.1
-- high: 46.25
-- low: 46
-- close: 46.15
-- volume: 59637
-- ma5: 46.12
-- ma20: 46.41
+- open: 46.05
+- high: 46.1
+- low: 45.8
+- close: 46
+- volume: 104620
+- ma5: 46.09
+- ma20: 46.4
 - ma60: 47.22
 - ma120: 47.69
-- ema23: 46.48
-- return_5d: 0.11
-- return_20d: -1.18
-- volume_ratio: 1
-- distance_to_ma20_pct: -0.56
-- distance_to_high_60_pct: -4.55
+- ema23: 46.46
+- return_5d: -0.22
+- return_20d: -1.5
+- volume_ratio: 1.69
+- distance_to_ma20_pct: -0.87
+- distance_to_high_60_pct: -4.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,46.1,46.25,46,46.15,59637,46.2,46.51,47.32,46.59,1.01
 20260524,46.1,46.25,46,46.15,59637,46.12,46.47,47.29,46.55,1.01
 20260525,46.05,46.1,45.8,46,104620,46.11,46.44,47.25,46.51,1.75
-20260526,46.1,46.25,46,46.15,59637,46.12,46.41,47.22,46.48,1
+20260526,46.05,46.1,45.8,46,104620,46.09,46.4,47.22,46.46,1.69
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6592 和潤企業
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:25 Asia/Taipei
+- generated_at: 2026-05-26 06:03:28 Asia/Taipei
 - stock_id: 6592
 - stock_name: 和潤企業
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 60.8
-- high: 60.8
-- low: 60.2
-- close: 60.6
-- volume: 435766
-- ma5: 60.56
+- open: 61
+- high: 61
+- low: 59.7
+- close: 60.4
+- volume: 759236
+- ma5: 60.52
 - ma20: 60.77
 - ma60: 62.14
 - ma120: 61.66
-- ema23: 61.05
-- return_5d: -0.33
-- return_20d: -2.42
-- volume_ratio: 0.78
-- distance_to_ma20_pct: -0.29
-- distance_to_high_60_pct: -8.87
+- ema23: 61.03
+- return_5d: -0.66
+- return_20d: -2.74
+- volume_ratio: 1.32
+- distance_to_ma20_pct: -0.6
+- distance_to_high_60_pct: -9.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,60.8,60.8,60.2,60.6,435766,60.82,60.97,62.11,61.21,0.79
 20260524,60.8,60.8,60.2,60.6,435766,60.72,60.94,62.12,61.16,0.81
 20260525,61,61,59.7,60.4,759236,60.6,60.85,62.13,61.09,1.37
-20260526,60.8,60.8,60.2,60.6,435766,60.56,60.77,62.14,61.05,0.78
+20260526,61,61,59.7,60.4,759236,60.52,60.77,62.14,61.03,1.32
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2369 菱生
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:54 Asia/Taipei
+- generated_at: 2026-05-26 06:02:03 Asia/Taipei
 - stock_id: 2369
 - stock_name: 菱生
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 30.5
-- high: 32.7
-- low: 30.3
-- close: 32.05
-- volume: 20618549
-- ma5: 32.5
-- ma20: 31.07
-- ma60: 30.34
-- ma120: 27.59
-- ema23: 31.1
-- return_5d: 6.83
-- return_20d: 6.13
-- volume_ratio: 1.31
-- distance_to_ma20_pct: 3.15
-- distance_to_high_60_pct: -17.29
+- open: 33
+- high: 34.7
+- low: 31.7
+- close: 34.3
+- volume: 34218864
+- ma5: 32.95
+- ma20: 31.18
+- ma60: 30.38
+- ma120: 27.61
+- ema23: 31.29
+- return_5d: 14.33
+- return_20d: 13.58
+- volume_ratio: 2.09
+- distance_to_ma20_pct: 10
+- distance_to_high_60_pct: -11.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,30.5,32.7,30.3,32.05,20618549,30.29,30.74,30.11,30.59,1.48
 20260524,30.5,32.7,30.3,32.05,20618549,31,30.81,30.19,30.71,1.46
 20260525,33,34.7,31.7,34.3,34218864,32.09,30.98,30.28,31.01,2.28
-20260526,30.5,32.7,30.3,32.05,20618549,32.5,31.07,30.34,31.1,1.31
+20260526,33,34.7,31.7,34.3,34218864,32.95,31.18,30.38,31.29,2.09
 ```
 
 ## Latest TDCC Snapshot
@@ -122,8 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2369 | 菱生 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 2369 | 菱生 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 2369 | 菱生 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 2369 | 菱生 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

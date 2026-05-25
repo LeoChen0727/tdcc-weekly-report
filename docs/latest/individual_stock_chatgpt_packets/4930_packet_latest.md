@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4930 燦星網
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:51 Asia/Taipei
+- generated_at: 2026-05-26 06:02:56 Asia/Taipei
 - stock_id: 4930
 - stock_name: 燦星網
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 16.6
-- high: 16.75
-- low: 16.55
-- close: 16.7
-- volume: 89328
-- ma5: 16.82
-- ma20: 17.32
-- ma60: 18.98
+- open: 16.7
+- high: 17.45
+- low: 16.7
+- close: 17.3
+- volume: 147655
+- ma5: 16.94
+- ma20: 17.35
+- ma60: 18.99
 - ma120: 20.49
-- ema23: 17.46
-- return_5d: 0.6
-- return_20d: -8.99
-- volume_ratio: 0.8
-- distance_to_ma20_pct: -3.58
-- distance_to_high_60_pct: -23.39
+- ema23: 17.51
+- return_5d: 4.22
+- return_20d: -5.72
+- volume_ratio: 1.29
+- distance_to_ma20_pct: -0.29
+- distance_to_high_60_pct: -20.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,16.6,16.75,16.55,16.7,89328,16.64,17.55,19.23,17.63,0.81
 20260524,16.6,16.75,16.55,16.7,89328,16.65,17.46,19.14,17.55,0.83
 20260525,16.7,17.45,16.7,17.3,147655,16.8,17.4,19.07,17.53,1.33
-20260526,16.6,16.75,16.55,16.7,89328,16.82,17.32,18.98,17.46,0.8
+20260526,16.7,17.45,16.7,17.3,147655,16.94,17.35,18.99,17.51,1.29
 ```
 
 ## Latest TDCC Snapshot

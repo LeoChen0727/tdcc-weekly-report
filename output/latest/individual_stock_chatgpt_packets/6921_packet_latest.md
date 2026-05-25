@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6921 嘉雨思-創
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:37 Asia/Taipei
+- generated_at: 2026-05-26 06:03:38 Asia/Taipei
 - stock_id: 6921
 - stock_name: 嘉雨思-創
 - packet_status: standard_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 75.5
-- high: 79.2
-- low: 75.5
-- close: 78.2
-- volume: 38371
-- ma5: 78.16
-- ma20: 82.4
+- open: 79.8
+- high: 79.9
+- low: 77
+- close: 78
+- volume: 50080
+- ma5: 78.12
+- ma20: 82.39
 - ma60: 79.3
 - ma120: 76.45
-- ema23: 80.91
-- return_5d: 2.62
-- return_20d: -16.09
-- volume_ratio: 0.73
-- distance_to_ma20_pct: -5.1
-- distance_to_high_60_pct: -25.17
+- ema23: 80.9
+- return_5d: 2.36
+- return_20d: -16.31
+- volume_ratio: 0.94
+- distance_to_ma20_pct: -5.33
+- distance_to_high_60_pct: -25.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,75.5,79.2,75.5,78.2,38371,76.88,84.76,79.41,81.74,0.69
 20260524,75.5,79.2,75.5,78.2,38371,77.34,84.09,79.37,81.45,0.71
 20260525,79.8,79.9,77,78,50080,77.76,83.15,79.33,81.16,0.93
-20260526,75.5,79.2,75.5,78.2,38371,78.16,82.4,79.3,80.91,0.73
+20260526,79.8,79.9,77,78,50080,78.12,82.39,79.3,80.9,0.94
 ```
 
 ## Latest TDCC Snapshot

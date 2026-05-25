@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9910 豐泰
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:57 Asia/Taipei
+- generated_at: 2026-05-26 06:03:57 Asia/Taipei
 - stock_id: 9910
 - stock_name: 豐泰
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 69.2
-- high: 69.8
+- open: 69
+- high: 69.3
 - low: 67.8
-- close: 68.7
-- volume: 3534389
-- ma5: 68.52
-- ma20: 70.24
-- ma60: 77.43
+- close: 67.8
+- volume: 2260102
+- ma5: 68.34
+- ma20: 70.19
+- ma60: 77.41
 - ma120: 93.17
-- ema23: 71.08
-- return_5d: -0.72
-- return_20d: -2.97
-- volume_ratio: 1.37
-- distance_to_ma20_pct: -2.19
-- distance_to_high_60_pct: -29.39
+- ema23: 71.01
+- return_5d: -2.02
+- return_20d: -4.24
+- volume_ratio: 0.9
+- distance_to_ma20_pct: -3.41
+- distance_to_high_60_pct: -30.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,69.2,69.8,67.8,68.7,3534389,69.22,70.64,78.7,71.88,1.45
 20260524,69.2,69.8,67.8,68.7,3534389,69.08,70.54,78.26,71.62,1.42
 20260525,69,69.3,67.8,67.8,2260102,68.62,70.34,77.83,71.3,0.91
-20260526,69.2,69.8,67.8,68.7,3534389,68.52,70.24,77.43,71.08,1.37
+20260526,69,69.3,67.8,67.8,2260102,68.34,70.19,77.41,71.01,0.9
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2402 毅嘉
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:56 Asia/Taipei
+- generated_at: 2026-05-26 06:02:05 Asia/Taipei
 - stock_id: 2402
 - stock_name: 毅嘉
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 62.4
-- high: 66.3
-- low: 62.4
-- close: 65.9
-- volume: 6332112
-- ma5: 66.28
-- ma20: 67.32
-- ma60: 61.46
-- ma120: 58.98
-- ema23: 66.31
-- return_5d: 5.61
-- return_20d: -3.65
-- volume_ratio: 0.71
-- distance_to_ma20_pct: -2.11
-- distance_to_high_60_pct: -22.47
+- open: 67.2
+- high: 70.2
+- low: 65.6
+- close: 67.8
+- volume: 15057837
+- ma5: 66.66
+- ma20: 67.42
+- ma60: 61.49
+- ma120: 59
+- ema23: 66.47
+- return_5d: 8.65
+- return_20d: -0.88
+- volume_ratio: 1.62
+- distance_to_ma20_pct: 0.57
+- distance_to_high_60_pct: -20.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,62.4,66.3,62.4,65.9,6332112,63.84,67.7,61.02,66.25,0.68
 20260524,62.4,66.3,62.4,65.9,6332112,64.4,67.53,61.2,66.22,0.73
 20260525,67.2,70.2,65.6,67.8,15057837,65.58,67.44,61.38,66.35,1.7
-20260526,62.4,66.3,62.4,65.9,6332112,66.28,67.32,61.46,66.31,0.71
+20260526,67.2,70.2,65.6,67.8,15057837,66.66,67.42,61.49,66.47,1.62
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2402 | 毅嘉 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 2402 | 毅嘉 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 2402 | 毅嘉 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

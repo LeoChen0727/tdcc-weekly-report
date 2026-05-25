@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3708 上緯投控
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:37 Asia/Taipei
+- generated_at: 2026-05-26 06:02:43 Asia/Taipei
 - stock_id: 3708
 - stock_name: 上緯投控
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 126
-- high: 128
-- low: 125
-- close: 126
-- volume: 1321676
-- ma5: 125.8
-- ma20: 121.03
-- ma60: 120.72
-- ma120: 116.7
-- ema23: 121.72
-- return_5d: -0.4
-- return_20d: 8.15
-- volume_ratio: 1.1
-- distance_to_ma20_pct: 4.11
-- distance_to_high_60_pct: -5.62
+- open: 128
+- high: 128.5
+- low: 123
+- close: 125
+- volume: 1009619
+- ma5: 125.6
+- ma20: 120.97
+- ma60: 120.71
+- ma120: 116.69
+- ema23: 121.64
+- return_5d: -1.19
+- return_20d: 7.3
+- volume_ratio: 0.85
+- distance_to_ma20_pct: 3.33
+- distance_to_high_60_pct: -6.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,126,128,125,126,1321676,122.6,119.72,120.47,120.54,1.11
 20260524,126,128,125,126,1321676,124.7,120.2,120.61,121,1.15
 20260525,128,128.5,123,125,1009619,125.9,120.55,120.67,121.33,0.86
-20260526,126,128,125,126,1321676,125.8,121.03,120.72,121.72,1.1
+20260526,128,128.5,123,125,1009619,125.6,120.97,120.71,121.64,0.85
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3708 | 上緯投控 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 3708 | 上緯投控 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

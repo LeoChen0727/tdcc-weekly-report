@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3711 日月光投控
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:37 Asia/Taipei
+- generated_at: 2026-05-26 06:02:43 Asia/Taipei
 - stock_id: 3711
 - stock_name: 日月光投控
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 535
-- high: 561
-- low: 524
-- close: 561
-- volume: 31183324
-- ma5: 572.2
-- ma20: 533.35
-- ma60: 435.41
-- ma120: 355.85
-- ema23: 522.46
-- return_5d: 10
-- return_20d: 14.84
-- volume_ratio: 1.12
-- distance_to_ma20_pct: 5.18
-- distance_to_high_60_pct: -9.08
+- open: 598
+- high: 617
+- low: 584
+- close: 617
+- volume: 26609382
+- ma5: 583.4
+- ma20: 536.15
+- ma60: 436.34
+- ma120: 356.31
+- ema23: 527.13
+- return_5d: 20.98
+- return_20d: 26.3
+- volume_ratio: 0.97
+- distance_to_ma20_pct: 15.08
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,535,561,524,561,31183324,516,520.38,425.54,505.41,1.15
 20260524,535,561,524,561,31183324,533.8,523.65,428.41,510.05,1.15
 20260525,598,617,584,617,26609382,562,529.73,432.23,518.96,0.97
-20260526,535,561,524,561,31183324,572.2,533.35,435.41,522.46,1.12
+20260526,598,617,584,617,26609382,583.4,536.15,436.34,527.13,0.97
 ```
 
 ## Latest TDCC Snapshot
@@ -120,9 +120,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3711 | 日月光投控 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3437 榮創
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:27 Asia/Taipei
+- generated_at: 2026-05-26 06:02:34 Asia/Taipei
 - stock_id: 3437
 - stock_name: 榮創
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 25.1
-- high: 26.6
-- low: 25
-- close: 26.15
-- volume: 4693136
-- ma5: 26.05
-- ma20: 25.68
-- ma60: 23
-- ma120: 18.97
-- ema23: 25.2
-- return_5d: 5.87
-- return_20d: 4.39
-- volume_ratio: 0.95
-- distance_to_ma20_pct: 1.81
-- distance_to_high_60_pct: -16.45
+- open: 26.35
+- high: 26.8
+- low: 25.45
+- close: 25.65
+- volume: 4198996
+- ma5: 25.95
+- ma20: 25.66
+- ma60: 22.99
+- ma120: 18.96
+- ema23: 25.16
+- return_5d: 3.85
+- return_20d: 2.4
+- volume_ratio: 0.86
+- distance_to_ma20_pct: -0.04
+- distance_to_high_60_pct: -18.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,25.1,26.6,25,26.15,4693136,25.05,25.45,22.47,24.96,0.9
 20260524,25.1,26.6,25,26.15,4693136,25.42,25.61,22.65,25.06,0.89
 20260525,26.35,26.8,25.45,25.65,4198996,25.76,25.63,22.82,25.11,0.8
-20260526,25.1,26.6,25,26.15,4693136,26.05,25.68,23,25.2,0.95
+20260526,26.35,26.8,25.45,25.65,4198996,25.95,25.66,22.99,25.16,0.86
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3437 | 榮創 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 3437 | 榮創 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

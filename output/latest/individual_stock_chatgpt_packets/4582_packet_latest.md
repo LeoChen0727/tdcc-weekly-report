@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4582 聚恆-創
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:47 Asia/Taipei
+- generated_at: 2026-05-26 06:02:52 Asia/Taipei
 - stock_id: 4582
 - stock_name: 聚恆-創
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 23.7
-- high: 24.5
-- low: 23
-- close: 24.15
-- volume: 1980210
-- ma5: 24.01
-- ma20: 24.01
-- ma60: 24.01
-- ma120: 24.01
-- ema23: 24.1
+- open: 24.25
+- high: 24.6
+- low: 23.4
+- close: 23.45
+- volume: 703020
+- ma5: 23.87
+- ma20: 23.87
+- ma60: 23.87
+- ma120: 23.87
+- ema23: 24.04
 - return_5d: 
 - return_20d: 
-- volume_ratio: 1.15
-- distance_to_ma20_pct: 0.58
-- distance_to_high_60_pct: -1.83
+- volume_ratio: 0.48
+- distance_to_ma20_pct: -1.76
+- distance_to_high_60_pct: -4.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,23.7,24.5,23,24.15,1980210,,,,,
 20260524,23.7,24.5,23,24.15,1980210,,,,,
 20260525,24.25,24.6,23.4,23.45,703020,,,,,
-20260526,23.7,24.5,23,24.15,1980210,24.01,24.01,24.01,24.1,1.15
+20260526,24.25,24.6,23.4,23.45,703020,23.87,23.87,23.87,24.04,0.48
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2248 華勝-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:50 Asia/Taipei
+- generated_at: 2026-05-26 06:01:59 Asia/Taipei
 - stock_id: 2248
 - stock_name: 華勝-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 55.4
-- high: 55.4
-- low: 54.4
-- close: 54.6
-- volume: 48111
-- ma5: 54.52
-- ma20: 54.98
-- ma60: 52.58
+- open: 54.6
+- high: 54.6
+- low: 53.3
+- close: 54.2
+- volume: 68927
+- ma5: 54.44
+- ma20: 54.96
+- ma60: 52.57
 - ma120: 50.79
-- ema23: 54.7
-- return_5d: -0.73
-- return_20d: -4.88
-- volume_ratio: 0.73
-- distance_to_ma20_pct: -0.69
-- distance_to_high_60_pct: -12.08
+- ema23: 54.67
+- return_5d: -1.45
+- return_20d: -5.57
+- volume_ratio: 1.03
+- distance_to_ma20_pct: -1.38
+- distance_to_high_60_pct: -12.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,55.4,55.4,54.4,54.6,48111,54.86,55.46,52.31,54.77,0.67
 20260524,55.4,55.4,54.4,54.6,48111,54.8,55.26,52.4,54.75,0.71
 20260525,54.6,54.6,53.3,54.2,68927,54.6,55.12,52.5,54.71,1.04
-20260526,55.4,55.4,54.4,54.6,48111,54.52,54.98,52.58,54.7,0.73
+20260526,54.6,54.6,53.3,54.2,68927,54.44,54.96,52.57,54.67,1.03
 ```
 
 ## Latest TDCC Snapshot

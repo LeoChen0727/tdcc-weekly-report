@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8201 無敵
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:49 Asia/Taipei
+- generated_at: 2026-05-26 06:03:50 Asia/Taipei
 - stock_id: 8201
 - stock_name: 無敵
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 12.85
-- high: 13.8
-- low: 12.85
-- close: 13.3
-- volume: 441953
-- ma5: 13.41
-- ma20: 12.82
-- ma60: 13.08
-- ma120: 13.68
-- ema23: 13
-- return_5d: 1.92
-- return_20d: 3.5
-- volume_ratio: 2.56
-- distance_to_ma20_pct: 3.7
-- distance_to_high_60_pct: -6.99
+- open: 12.8
+- high: 14.15
+- low: 12.8
+- close: 13.85
+- volume: 516765
+- ma5: 13.52
+- ma20: 12.85
+- ma60: 13.09
+- ma120: 13.69
+- ema23: 13.04
+- return_5d: 6.13
+- return_20d: 7.78
+- volume_ratio: 2.93
+- distance_to_ma20_pct: 7.76
+- distance_to_high_60_pct: -3.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,12.85,13.8,12.85,13.3,441953,12.88,12.73,13.12,12.85,3.99
 20260524,12.85,13.8,12.85,13.3,441953,13.11,12.75,13.1,12.89,3.43
 20260525,12.8,14.15,12.8,13.85,516765,13.36,12.8,13.09,12.97,3.42
-20260526,12.85,13.8,12.85,13.3,441953,13.41,12.82,13.08,13,2.56
+20260526,12.8,14.15,12.8,13.85,516765,13.52,12.85,13.09,13.04,2.93
 ```
 
 ## Latest TDCC Snapshot

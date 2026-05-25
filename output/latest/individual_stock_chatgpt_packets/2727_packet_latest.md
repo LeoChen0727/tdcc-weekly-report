@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2727 王品
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:07 Asia/Taipei
+- generated_at: 2026-05-26 06:02:15 Asia/Taipei
 - stock_id: 2727
 - stock_name: 王品
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 234.5
-- high: 234.5
-- low: 231
-- close: 232
-- volume: 354086
-- ma5: 231.5
-- ma20: 232.72
-- ma60: 228.78
-- ma120: 222.44
-- ema23: 231.72
-- return_5d: -1.07
-- return_20d: 2.65
-- volume_ratio: 0.8
-- distance_to_ma20_pct: -0.31
-- distance_to_high_60_pct: -2.73
+- open: 233
+- high: 233
+- low: 229.5
+- close: 229.5
+- volume: 486043
+- ma5: 231
+- ma20: 232.6
+- ma60: 228.74
+- ma120: 222.42
+- ema23: 231.52
+- return_5d: -2.13
+- return_20d: 1.55
+- volume_ratio: 1.08
+- distance_to_ma20_pct: -1.33
+- distance_to_high_60_pct: -3.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,234.5,234.5,231,232,354086,233.4,232.22,228.16,231.89,0.81
 20260524,234.5,234.5,231,232,354086,233,232.38,228.4,231.9,0.84
 20260525,233,233,229.5,229.5,486043,232,232.43,228.57,231.7,1.11
-20260526,234.5,234.5,231,232,354086,231.5,232.72,228.78,231.72,0.8
+20260526,233,233,229.5,229.5,486043,231,232.6,228.74,231.52,1.08
 ```
 
 ## Latest TDCC Snapshot

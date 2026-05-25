@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3092 鴻碩
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:18 Asia/Taipei
+- generated_at: 2026-05-26 06:02:26 Asia/Taipei
 - stock_id: 3092
 - stock_name: 鴻碩
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 28.95
-- high: 31.9
-- low: 28.95
-- close: 30.7
-- volume: 1042808
-- ma5: 30.62
-- ma20: 30.39
-- ma60: 31.64
-- ma120: 26.99
-- ema23: 30.54
-- return_5d: 5.86
-- return_20d: -5.83
-- volume_ratio: 1.68
-- distance_to_ma20_pct: 1.03
-- distance_to_high_60_pct: -24.2
+- open: 31
+- high: 31.4
+- low: 30.05
+- close: 30.3
+- volume: 750162
+- ma5: 30.54
+- ma20: 30.37
+- ma60: 31.63
+- ma120: 26.98
+- ema23: 30.51
+- return_5d: 4.48
+- return_20d: -7.06
+- volume_ratio: 1.23
+- distance_to_ma20_pct: -0.22
+- distance_to_high_60_pct: -25.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,28.95,31.9,28.95,30.7,1042808,29.44,30.7,31.72,30.53,1.65
 20260524,28.95,31.9,28.95,30.7,1042808,29.84,30.64,31.74,30.55,1.63
 20260525,31,31.4,30.05,30.3,750162,30.28,30.48,31.71,30.53,1.25
-20260526,28.95,31.9,28.95,30.7,1042808,30.62,30.39,31.64,30.54,1.68
+20260526,31,31.4,30.05,30.3,750162,30.54,30.37,31.63,30.51,1.23
 ```
 
 ## Latest TDCC Snapshot
@@ -120,9 +120,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3092 | 鴻碩 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

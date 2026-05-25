@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1340 勝悅-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:31 Asia/Taipei
+- generated_at: 2026-05-26 06:01:42 Asia/Taipei
 - stock_id: 1340
 - stock_name: 勝悅-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 5.45
-- high: 5.52
-- low: 5.3
-- close: 5.45
-- volume: 259009
-- ma5: 5.44
+- open: 5.48
+- high: 5.49
+- low: 5.35
+- close: 5.4
+- volume: 162703
+- ma5: 5.43
 - ma20: 5.53
-- ma60: 6.3
+- ma60: 6.29
 - ma120: 6.7
-- ema23: 5.64
-- return_5d: -0.91
-- return_20d: -5.87
-- volume_ratio: 1.12
-- distance_to_ma20_pct: -1.46
-- distance_to_high_60_pct: -27.33
+- ema23: 5.63
+- return_5d: -1.82
+- return_20d: -6.74
+- volume_ratio: 0.72
+- distance_to_ma20_pct: -2.32
+- distance_to_high_60_pct: -28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,5.45,5.52,5.3,5.45,259009,5.46,5.58,6.38,5.7,1.15
 20260524,5.45,5.52,5.3,5.45,259009,5.46,5.57,6.35,5.68,1.13
 20260525,5.48,5.49,5.35,5.4,162703,5.45,5.55,6.32,5.65,0.72
-20260526,5.45,5.52,5.3,5.45,259009,5.44,5.53,6.3,5.64,1.12
+20260526,5.48,5.49,5.35,5.4,162703,5.43,5.53,6.29,5.63,0.72
 ```
 
 ## Latest TDCC Snapshot

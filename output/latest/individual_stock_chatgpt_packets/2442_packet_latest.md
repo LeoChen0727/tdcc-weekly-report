@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2442 新美齊
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:59 Asia/Taipei
+- generated_at: 2026-05-26 06:02:07 Asia/Taipei
 - stock_id: 2442
 - stock_name: 新美齊
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 18.8
-- high: 18.8
-- low: 18.45
-- close: 18.5
-- volume: 1394560
-- ma5: 18.49
+- open: 18.6
+- high: 18.6
+- low: 18.25
+- close: 18.45
+- volume: 2074035
+- ma5: 18.48
 - ma20: 18.48
 - ma60: 19.36
 - ma120: 21.48
 - ema23: 18.64
-- return_5d: -1.07
-- return_20d: 0.27
-- volume_ratio: 0.93
-- distance_to_ma20_pct: 0.12
-- distance_to_high_60_pct: -16.1
+- return_5d: -1.34
+- return_20d: 0
+- volume_ratio: 1.35
+- distance_to_ma20_pct: -0.14
+- distance_to_high_60_pct: -16.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,18.8,18.8,18.45,18.5,1394560,18.48,18.45,19.41,18.69,0.82
 20260524,18.8,18.8,18.45,18.5,1394560,18.53,18.46,19.4,18.68,0.92
 20260525,18.6,18.6,18.25,18.45,2074035,18.53,18.48,19.37,18.66,1.38
-20260526,18.8,18.8,18.45,18.5,1394560,18.49,18.48,19.36,18.64,0.93
+20260526,18.6,18.6,18.25,18.45,2074035,18.48,18.48,19.36,18.64,1.35
 ```
 
 ## Latest TDCC Snapshot
@@ -122,9 +122,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2442 | 新美齊 | pattern | 型態觀察 | 48.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260526 | 2442 | 新美齊 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260526 | 2442 | 新美齊 | revenue_breakout_low_response | 營收爆發低反應股 | 15.0 | 18.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260526 | 2442 | 新美齊 | revenue_breakout_low_response | 營收爆發低反應股 | 14.0 | 16.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

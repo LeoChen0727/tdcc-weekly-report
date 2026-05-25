@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1515 力山
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:36 Asia/Taipei
+- generated_at: 2026-05-26 06:01:46 Asia/Taipei
 - stock_id: 1515
 - stock_name: 力山
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 22.15
-- high: 22.85
-- low: 22
-- close: 22.65
-- volume: 469109
-- ma5: 22.7
-- ma20: 22.38
+- open: 23.15
+- high: 23.15
+- low: 22.6
+- close: 22.9
+- volume: 470821
+- ma5: 22.75
+- ma20: 22.39
 - ma60: 23.45
 - ma120: 25.48
-- ema23: 22.6
-- return_5d: 2.26
-- return_20d: 3.42
+- ema23: 22.62
+- return_5d: 3.39
+- return_20d: 4.57
 - volume_ratio: 0.96
-- distance_to_ma20_pct: 1.2
-- distance_to_high_60_pct: -15.8
+- distance_to_ma20_pct: 2.25
+- distance_to_high_60_pct: -14.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,22.15,22.85,22,22.65,469109,22.27,22.28,23.65,22.56,1.01
 20260524,22.15,22.85,22,22.65,469109,22.42,22.3,23.58,22.56,1.02
 20260525,23.15,23.15,22.6,22.9,470821,22.6,22.34,23.52,22.59,1
-20260526,22.15,22.85,22,22.65,469109,22.7,22.38,23.45,22.6,0.96
+20260526,23.15,23.15,22.6,22.9,470821,22.75,22.39,23.45,22.62,0.96
 ```
 
 ## Latest TDCC Snapshot

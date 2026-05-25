@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3164 景岳
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:20 Asia/Taipei
+- generated_at: 2026-05-26 06:02:27 Asia/Taipei
 - stock_id: 3164
 - stock_name: 景岳
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 16.85
-- high: 16.85
+- open: 16.6
+- high: 16.6
 - low: 16.45
-- close: 16.8
-- volume: 164096
-- ma5: 16.73
-- ma20: 17.17
+- close: 16.45
+- volume: 73077
+- ma5: 16.66
+- ma20: 17.15
 - ma60: 17.77
 - ma120: 17.99
-- ema23: 17.17
-- return_5d: 0.9
-- return_20d: -5.35
-- volume_ratio: 1.61
-- distance_to_ma20_pct: -2.14
-- distance_to_high_60_pct: -10.16
+- ema23: 17.14
+- return_5d: -1.2
+- return_20d: -7.32
+- volume_ratio: 0.75
+- distance_to_ma20_pct: -4.08
+- distance_to_high_60_pct: -12.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,16.85,16.85,16.45,16.8,164096,16.81,17.34,17.83,17.31,1.88
 20260524,16.85,16.85,16.45,16.8,164096,16.81,17.29,17.81,17.27,1.74
 20260525,16.6,16.6,16.45,16.45,73077,16.7,17.21,17.79,17.2,0.76
-20260526,16.85,16.85,16.45,16.8,164096,16.73,17.17,17.77,17.17,1.61
+20260526,16.6,16.6,16.45,16.45,73077,16.66,17.15,17.77,17.14,0.75
 ```
 
 ## Latest TDCC Snapshot

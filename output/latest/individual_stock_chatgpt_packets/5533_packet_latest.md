@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5533 皇鼎
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:04 Asia/Taipei
+- generated_at: 2026-05-26 06:03:08 Asia/Taipei
 - stock_id: 5533
 - stock_name: 皇鼎
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 13.85
-- high: 13.9
-- low: 13.75
+- open: 13.75
+- high: 13.85
+- low: 13.7
 - close: 13.85
-- volume: 86200
+- volume: 195397
 - ma5: 13.85
 - ma20: 13.98
 - ma60: 14.26
@@ -66,7 +66,7 @@
 - ema23: 14.01
 - return_5d: 0
 - return_20d: -3.48
-- volume_ratio: 0.65
+- volume_ratio: 1.41
 - distance_to_ma20_pct: -0.91
 - distance_to_high_60_pct: -6.73
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,13.85,13.9,13.75,13.85,86200,13.85,14.05,14.3,14.06,0.57
 20260524,13.85,13.9,13.75,13.85,86200,13.85,14.03,14.29,14.04,0.6
 20260525,13.75,13.85,13.7,13.85,195397,13.85,14,14.28,14.03,1.42
-20260526,13.85,13.9,13.75,13.85,86200,13.85,13.98,14.26,14.01,0.65
+20260526,13.75,13.85,13.7,13.85,195397,13.85,13.98,14.26,14.01,1.41
 ```
 
 ## Latest TDCC Snapshot

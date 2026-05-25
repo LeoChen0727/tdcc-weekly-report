@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9906 欣巴巴
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:57 Asia/Taipei
+- generated_at: 2026-05-26 06:03:57 Asia/Taipei
 - stock_id: 9906
 - stock_name: 欣巴巴
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 34.95
-- high: 35.05
-- low: 33.2
-- close: 34.5
-- volume: 389972
-- ma5: 34.34
-- ma20: 34.81
-- ma60: 39.07
-- ma120: 43.52
-- ema23: 35.4
-- return_5d: -1.43
-- return_20d: -9.92
-- volume_ratio: 1.54
-- distance_to_ma20_pct: -0.88
-- distance_to_high_60_pct: -23.84
+- open: 34.15
+- high: 34.65
+- low: 33.55
+- close: 33.7
+- volume: 185352
+- ma5: 34.18
+- ma20: 34.77
+- ma60: 39.05
+- ma120: 43.51
+- ema23: 35.33
+- return_5d: -3.71
+- return_20d: -12.01
+- volume_ratio: 0.76
+- distance_to_ma20_pct: -3.07
+- distance_to_high_60_pct: -25.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,34.95,35.05,33.2,34.5,389972,33.82,35.37,39.44,35.74,1.67
 20260524,34.95,35.05,33.2,34.5,389972,34.33,35.23,39.33,35.64,1.64
 20260525,34.15,34.65,33.55,33.7,185352,34.44,35,39.21,35.48,0.78
-20260526,34.95,35.05,33.2,34.5,389972,34.34,34.81,39.07,35.4,1.54
+20260526,34.15,34.65,33.55,33.7,185352,34.18,34.77,39.05,35.33,0.76
 ```
 
 ## Latest TDCC Snapshot

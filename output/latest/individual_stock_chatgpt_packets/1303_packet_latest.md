@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1303 南亞
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:30 Asia/Taipei
+- generated_at: 2026-05-26 06:01:40 Asia/Taipei
 - stock_id: 1303
 - stock_name: 南亞
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 88
-- high: 89.1
-- low: 86.7
-- close: 86.7
-- volume: 45973684
-- ma5: 86.78
-- ma20: 87.52
-- ma60: 84.29
+- open: 87.4
+- high: 89.2
+- low: 86.4
+- close: 87.1
+- volume: 32588153
+- ma5: 86.86
+- ma20: 87.53
+- ma60: 84.3
 - ma120: 76.14
-- ema23: 86.52
-- return_5d: -0.69
-- return_20d: -5.35
-- volume_ratio: 0.7
-- distance_to_ma20_pct: -0.93
-- distance_to_high_60_pct: -14.58
+- ema23: 86.55
+- return_5d: -0.23
+- return_20d: -4.91
+- volume_ratio: 0.5
+- distance_to_ma20_pct: -0.5
+- distance_to_high_60_pct: -14.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,88,89.1,86.7,86.7,45973684,84.64,87.94,84.55,86.42,0.64
 20260524,88,89.1,86.7,86.7,45973684,85.64,87.88,84.42,86.45,0.64
 20260525,87.4,89.2,86.4,87.1,32588153,86.9,87.76,84.34,86.5,0.48
-20260526,88,89.1,86.7,86.7,45973684,86.78,87.52,84.29,86.52,0.7
+20260526,87.4,89.2,86.4,87.1,32588153,86.86,87.53,84.3,86.55,0.5
 ```
 
 ## Latest TDCC Snapshot

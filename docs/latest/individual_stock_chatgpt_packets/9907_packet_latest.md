@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9907 統一實
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:57 Asia/Taipei
+- generated_at: 2026-05-26 06:03:57 Asia/Taipei
 - stock_id: 9907
 - stock_name: 統一實
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 16.05
-- high: 16.15
-- low: 15.9
+- open: 16
+- high: 16.05
+- low: 15.85
 - close: 15.95
-- volume: 3990305
+- volume: 2994642
 - ma5: 15.95
 - ma20: 16.54
 - ma60: 17.66
@@ -66,7 +66,7 @@
 - ema23: 16.58
 - return_5d: -0.62
 - return_20d: -9.89
-- volume_ratio: 0.85
+- volume_ratio: 0.64
 - distance_to_ma20_pct: -3.58
 - distance_to_high_60_pct: -17.99
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,16.05,16.15,15.9,15.95,3990305,15.97,16.82,17.82,16.77,0.86
 20260524,16.05,16.15,15.9,15.95,3990305,15.96,16.72,17.76,16.7,0.86
 20260525,16,16.05,15.85,15.95,2994642,15.97,16.63,17.71,16.64,0.64
-20260526,16.05,16.15,15.9,15.95,3990305,15.95,16.54,17.66,16.58,0.85
+20260526,16,16.05,15.85,15.95,2994642,15.95,16.54,17.66,16.58,0.64
 ```
 
 ## Latest TDCC Snapshot

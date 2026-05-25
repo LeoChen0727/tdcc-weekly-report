@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7705 三商餐飲
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:40 Asia/Taipei
+- generated_at: 2026-05-26 06:03:41 Asia/Taipei
 - stock_id: 7705
 - stock_name: 三商餐飲
 - packet_status: standard_180d_window_packet
@@ -55,20 +55,20 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 31.9
-- high: 31.9
-- low: 31.65
-- close: 31.9
-- volume: 67320
-- ma5: 31.77
-- ma20: 31.62
-- ma60: 33.99
-- ma120: 36.91
-- ema23: 32.05
-- return_5d: 1.92
-- return_20d: -4.06
-- volume_ratio: 0.79
-- distance_to_ma20_pct: 0.89
-- distance_to_high_60_pct: -17.04
+- high: 31.95
+- low: 31.25
+- close: 31.25
+- volume: 76530
+- ma5: 31.64
+- ma20: 31.59
+- ma60: 33.98
+- ma120: 36.9
+- ema23: 31.99
+- return_5d: -0.16
+- return_20d: -6.01
+- volume_ratio: 0.89
+- distance_to_ma20_pct: -1.06
+- distance_to_high_60_pct: -18.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,31.9,31.9,31.65,31.9,67320,31.31,31.86,34.34,32.15,0.79
 20260524,31.9,31.9,31.65,31.9,67320,31.6,31.79,34.23,32.13,0.81
 20260525,31.9,31.95,31.25,31.25,76530,31.65,31.68,34.1,32.06,0.89
-20260526,31.9,31.9,31.65,31.9,67320,31.77,31.62,33.99,32.05,0.79
+20260526,31.9,31.95,31.25,31.25,76530,31.64,31.59,33.98,31.99,0.89
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8028 昇陽半導體
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:44 Asia/Taipei
+- generated_at: 2026-05-26 06:03:45 Asia/Taipei
 - stock_id: 8028
 - stock_name: 昇陽半導體
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 280.5
-- high: 294
-- low: 280.5
-- close: 294
-- volume: 8520221
-- ma5: 297.5
-- ma20: 261.77
-- ma60: 215.75
-- ma120: 194.67
-- ema23: 261.53
-- return_5d: 9.91
-- return_20d: 19.51
-- volume_ratio: 0.58
-- distance_to_ma20_pct: 12.31
-- distance_to_high_60_pct: -8.41
+- open: 308
+- high: 321
+- low: 305.5
+- close: 311.5
+- volume: 14593592
+- ma5: 301
+- ma20: 262.65
+- ma60: 216.04
+- ma120: 194.82
+- ema23: 262.98
+- return_5d: 16.45
+- return_20d: 26.63
+- volume_ratio: 0.98
+- distance_to_ma20_pct: 18.6
+- distance_to_high_60_pct: -2.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,280.5,294,280.5,294,8520221,275.2,252.35,209.99,250.1,0.51
 20260524,280.5,294,280.5,294,8520221,281.6,255.57,211.84,253.76,0.55
 20260525,308,321,305.5,311.5,14593592,292.2,259.38,213.9,258.57,0.96
-20260526,280.5,294,280.5,294,8520221,297.5,261.77,215.75,261.53,0.58
+20260526,308,321,305.5,311.5,14593592,301,262.65,216.04,262.98,0.98
 ```
 
 ## Latest TDCC Snapshot

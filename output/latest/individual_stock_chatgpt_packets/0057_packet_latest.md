@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0057 富邦摩台
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:24 Asia/Taipei
+- generated_at: 2026-05-26 06:01:34 Asia/Taipei
 - stock_id: 0057
 - stock_name: 富邦摩台
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 287.5
-- high: 289.45
-- low: 286.6
-- close: 289.4
-- volume: 6322
-- ma5: 291.19
-- ma20: 285.79
-- ma60: 252.6
-- ma120: 227.14
-- ema23: 280.46
-- return_5d: 1.51
-- return_20d: 7.32
-- volume_ratio: 0.23
-- distance_to_ma20_pct: 1.26
-- distance_to_high_60_pct: -3.44
+- open: 298.55
+- high: 299.7
+- low: 296.95
+- close: 298.35
+- volume: 148277
+- ma5: 292.98
+- ma20: 286.24
+- ma60: 252.75
+- ma120: 227.21
+- ema23: 281.2
+- return_5d: 4.65
+- return_20d: 10.64
+- volume_ratio: 4.28
+- distance_to_ma20_pct: 4.23
+- distance_to_high_60_pct: -0.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,287.5,289.45,286.6,289.4,6322,283.1,282.82,249.92,276.9,0.23
 20260524,287.5,289.45,286.6,289.4,6322,285.59,283.51,250.77,277.95,0.26
 20260525,298.55,299.7,296.95,298.35,148277,290.33,284.81,251.75,279.65,4.83
-20260526,287.5,289.45,286.6,289.4,6322,291.19,285.79,252.6,280.46,0.23
+20260526,298.55,299.7,296.95,298.35,148277,292.98,286.24,252.75,281.2,4.28
 ```
 
 ## Latest TDCC Snapshot

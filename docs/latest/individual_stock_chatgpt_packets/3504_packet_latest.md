@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3504 揚明光
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:29 Asia/Taipei
+- generated_at: 2026-05-26 06:02:36 Asia/Taipei
 - stock_id: 3504
 - stock_name: 揚明光
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 86.1
-- high: 86.4
+- open: 83.4
+- high: 85.6
 - low: 82.5
-- close: 83.4
-- volume: 4148850
-- ma5: 83.26
-- ma20: 73.39
-- ma60: 63.99
-- ma120: 58.67
-- ema23: 74.61
-- return_5d: -2.8
-- return_20d: 28.31
-- volume_ratio: 1.21
-- distance_to_ma20_pct: 13.65
-- distance_to_high_60_pct: -7.33
+- close: 82.7
+- volume: 3241340
+- ma5: 83.12
+- ma20: 73.35
+- ma60: 63.98
+- ma120: 58.66
+- ema23: 74.55
+- return_5d: -3.61
+- return_20d: 27.23
+- volume_ratio: 0.96
+- distance_to_ma20_pct: 12.75
+- distance_to_high_60_pct: -8.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,86.1,86.4,82.5,83.4,4148850,82.62,70.67,62.99,72.06,1.39
 20260524,86.1,86.4,82.5,83.4,4148850,83.66,71.56,63.36,73.01,1.32
 20260525,83.4,85.6,82.5,82.7,3241340,83.74,72.47,63.66,73.81,0.99
-20260526,86.1,86.4,82.5,83.4,4148850,83.26,73.39,63.99,74.61,1.21
+20260526,83.4,85.6,82.5,82.7,3241340,83.12,73.35,63.98,74.55,0.96
 ```
 
 ## Latest TDCC Snapshot

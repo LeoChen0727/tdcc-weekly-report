@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6153 嘉聯益
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:10 Asia/Taipei
+- generated_at: 2026-05-26 06:03:13 Asia/Taipei
 - stock_id: 6153
 - stock_name: 嘉聯益
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 18.75
-- high: 19.6
-- low: 18.4
-- close: 19.35
-- volume: 8414666
-- ma5: 19.3
-- ma20: 18.33
-- ma60: 17.47
+- open: 20
+- high: 20
+- low: 19.1
+- close: 19.1
+- volume: 6587789
+- ma5: 19.25
+- ma20: 18.32
+- ma60: 17.46
 - ma120: 16.65
-- ema23: 18.38
-- return_5d: 5.45
-- return_20d: 9.01
-- volume_ratio: 1.48
-- distance_to_ma20_pct: 5.55
-- distance_to_high_60_pct: -11.24
+- ema23: 18.36
+- return_5d: 4.09
+- return_20d: 7.61
+- volume_ratio: 1.18
+- distance_to_ma20_pct: 4.26
+- distance_to_high_60_pct: -12.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,18.75,19.6,18.4,19.35,8414666,18.46,18.13,17.32,18.12,1.63
 20260524,18.75,19.6,18.4,19.35,8414666,18.79,18.2,17.37,18.22,1.6
 20260525,20,20,19.1,19.1,6587789,19.1,18.25,17.42,18.29,1.21
-20260526,18.75,19.6,18.4,19.35,8414666,19.3,18.33,17.47,18.38,1.48
+20260526,20,20,19.1,19.1,6587789,19.25,18.32,17.46,18.36,1.18
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6153 | 嘉聯益 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 6153 | 嘉聯益 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

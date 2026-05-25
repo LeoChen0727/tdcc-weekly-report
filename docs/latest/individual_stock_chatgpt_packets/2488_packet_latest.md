@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2488 漢平
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:01 Asia/Taipei
+- generated_at: 2026-05-26 06:02:10 Asia/Taipei
 - stock_id: 2488
 - stock_name: 漢平
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 52.9
+- open: 54.5
 - high: 54.5
-- low: 52.6
-- close: 54.4
-- volume: 593877
-- ma5: 54.26
-- ma20: 52.34
-- ma60: 50.11
-- ma120: 48.04
-- ema23: 52.38
-- return_5d: 3.82
-- return_20d: 5.84
-- volume_ratio: 2.22
-- distance_to_ma20_pct: 3.95
-- distance_to_high_60_pct: -0.18
+- low: 53.3
+- close: 53.7
+- volume: 302527
+- ma5: 54.12
+- ma20: 52.3
+- ma60: 50.1
+- ma120: 48.03
+- ema23: 52.33
+- return_5d: 2.48
+- return_20d: 4.47
+- volume_ratio: 1.19
+- distance_to_ma20_pct: 2.68
+- distance_to_high_60_pct: -1.47
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,52.9,54.5,52.6,54.4,593877,53.02,51.92,49.8,51.85,2.67
 20260524,52.9,54.5,52.6,54.4,593877,53.54,52.08,49.9,52.07,2.47
 20260525,54.5,54.5,53.3,53.7,302527,53.86,52.19,50,52.2,1.21
-20260526,52.9,54.5,52.6,54.4,593877,54.26,52.34,50.11,52.38,2.22
+20260526,54.5,54.5,53.3,53.7,302527,54.12,52.3,50.1,52.33,1.19
 ```
 
 ## Latest TDCC Snapshot

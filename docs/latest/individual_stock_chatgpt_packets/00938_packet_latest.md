@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00938 凱基優選30
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:26 Asia/Taipei
+- generated_at: 2026-05-26 06:01:37 Asia/Taipei
 - stock_id: 00938
 - stock_name: 凱基優選30
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 20.87
-- high: 20.99
-- low: 20.87
-- close: 20.99
-- volume: 1757030
-- ma5: 21.03
-- ma20: 21.03
-- ma60: 21.03
-- ma120: 21.03
-- ema23: 21.01
+- open: 21.1
+- high: 21.3
+- low: 21.1
+- close: 21.21
+- volume: 1066799
+- ma5: 21.08
+- ma20: 21.08
+- ma60: 21.08
+- ma120: 21.08
+- ema23: 21.03
 - return_5d: 
 - return_20d: 
-- volume_ratio: 1.09
-- distance_to_ma20_pct: -0.21
-- distance_to_high_60_pct: -1.46
+- volume_ratio: 0.72
+- distance_to_ma20_pct: 0.63
+- distance_to_high_60_pct: -0.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,20.87,20.99,20.87,20.99,1757030,,,,,
 20260524,20.87,20.99,20.87,20.99,1757030,,,,,
 20260525,21.1,21.3,21.1,21.21,1066799,,,,,
-20260526,20.87,20.99,20.87,20.99,1757030,21.03,21.03,21.03,21.01,1.09
+20260526,21.1,21.3,21.1,21.21,1066799,21.08,21.08,21.08,21.03,0.72
 ```
 
 ## Latest TDCC Snapshot

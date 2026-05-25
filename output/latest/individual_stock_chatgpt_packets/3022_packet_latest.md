@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3022 威強電
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:14 Asia/Taipei
+- generated_at: 2026-05-26 06:02:22 Asia/Taipei
 - stock_id: 3022
 - stock_name: 威強電
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 69.9
-- high: 72.2
-- low: 69.9
-- close: 71.6
-- volume: 1022164
-- ma5: 71.98
-- ma20: 70.65
-- ma60: 66.39
-- ma120: 65.77
-- ema23: 70
-- return_5d: 2.43
-- return_20d: 4.07
-- volume_ratio: 0.89
-- distance_to_ma20_pct: 1.34
-- distance_to_high_60_pct: -6.41
+- open: 72.4
+- high: 74.3
+- low: 72.4
+- close: 73.5
+- volume: 1057061
+- ma5: 72.36
+- ma20: 70.75
+- ma60: 66.42
+- ma120: 65.78
+- ema23: 70.16
+- return_5d: 5.15
+- return_20d: 6.83
+- volume_ratio: 0.91
+- distance_to_ma20_pct: 3.89
+- distance_to_high_60_pct: -3.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,69.9,72.2,69.9,71.6,1022164,69.78,70.14,65.8,69.33,0.95
 20260524,69.9,72.2,69.9,71.6,1022164,70.56,70.28,65.99,69.52,0.93
 20260525,72.4,74.3,72.4,73.5,1057061,71.64,70.51,66.21,69.85,0.94
-20260526,69.9,72.2,69.9,71.6,1022164,71.98,70.65,66.39,70,0.89
+20260526,72.4,74.3,72.4,73.5,1057061,72.36,70.75,66.42,70.16,0.91
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3022 | 威強電 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 3022 | 威強電 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 3022 | 威強電 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

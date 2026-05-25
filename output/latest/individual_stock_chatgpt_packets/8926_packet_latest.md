@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8926 台汽電
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:55 Asia/Taipei
+- generated_at: 2026-05-26 06:03:55 Asia/Taipei
 - stock_id: 8926
 - stock_name: 台汽電
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 60.8
-- high: 62.3
-- low: 60.5
-- close: 60.9
-- volume: 6817867
-- ma5: 61.22
-- ma20: 55.02
-- ma60: 48.54
-- ma120: 45.45
-- ema23: 55.44
-- return_5d: -0.16
-- return_20d: 34.88
-- volume_ratio: 0.74
-- distance_to_ma20_pct: 10.69
-- distance_to_high_60_pct: -4.55
+- open: 60
+- high: 63.8
+- low: 59.2
+- close: 62.5
+- volume: 16050793
+- ma5: 61.54
+- ma20: 55.1
+- ma60: 48.56
+- ma120: 45.47
+- ema23: 55.57
+- return_5d: 2.46
+- return_20d: 38.43
+- volume_ratio: 1.65
+- distance_to_ma20_pct: 13.43
+- distance_to_high_60_pct: -2.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,60.8,62.3,60.5,60.9,6817867,59.94,52.65,47.81,53.65,0.86
 20260524,60.8,62.3,60.5,60.9,6817867,60.72,53.4,48.05,54.26,0.83
 20260525,60,63.8,59.2,62.5,16050793,61.24,54.23,48.3,54.94,1.79
-20260526,60.8,62.3,60.5,60.9,6817867,61.22,55.02,48.54,55.44,0.74
+20260526,60,63.8,59.2,62.5,16050793,61.54,55.1,48.56,55.57,1.65
 ```
 
 ## Latest TDCC Snapshot
@@ -122,12 +122,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8926 | 台汽電 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 8926 | 台汽電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8926 | 台汽電 | 2 | 1 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260526 | 8926 | 台汽電 | 2 | 2 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | status |

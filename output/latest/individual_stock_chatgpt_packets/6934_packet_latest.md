@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6934 心誠鎂
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:38 Asia/Taipei
+- generated_at: 2026-05-26 06:03:39 Asia/Taipei
 - stock_id: 6934
 - stock_name: 心誠鎂
 - packet_status: standard_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 74.3
-- high: 77.1
-- low: 74
-- close: 76.8
-- volume: 28128
-- ma5: 76.6
-- ma20: 76.92
-- ma60: 81.17
-- ma120: 90.29
-- ema23: 77.96
-- return_5d: 1.05
-- return_20d: -8.79
-- volume_ratio: 0.41
-- distance_to_ma20_pct: -0.16
-- distance_to_high_60_pct: -27.2
+- open: 76.8
+- high: 76.8
+- low: 75.2
+- close: 75.8
+- volume: 99430
+- ma5: 76.4
+- ma20: 76.88
+- ma60: 81.15
+- ma120: 90.28
+- ema23: 77.88
+- return_5d: -0.26
+- return_20d: -9.98
+- volume_ratio: 1.38
+- distance_to_ma20_pct: -1.4
+- distance_to_high_60_pct: -28.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,74.3,77.1,74,76.8,28128,75.22,77.96,83.5,78.41,0.37
 20260524,74.3,77.1,74,76.8,28128,76.28,77.65,82.74,78.28,0.41
 20260525,76.8,76.8,75.2,75.8,99430,76.44,77.3,81.84,78.07,1.41
-20260526,74.3,77.1,74,76.8,28128,76.6,76.92,81.17,77.96,0.41
+20260526,76.8,76.8,75.2,75.8,99430,76.4,76.88,81.15,77.88,1.38
 ```
 
 ## Latest TDCC Snapshot

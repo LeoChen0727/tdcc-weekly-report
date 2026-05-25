@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3038 全台
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:16 Asia/Taipei
+- generated_at: 2026-05-26 06:02:23 Asia/Taipei
 - stock_id: 3038
 - stock_name: 全台
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 22.5
-- high: 23.2
-- low: 22.4
-- close: 23.15
-- volume: 626789
-- ma5: 23.22
-- ma20: 22.85
-- ma60: 22.28
-- ma120: 22.57
-- ema23: 22.8
-- return_5d: 2.66
-- return_20d: 0.87
-- volume_ratio: 1.41
-- distance_to_ma20_pct: 1.32
-- distance_to_high_60_pct: -4.14
+- open: 23.25
+- high: 23.65
+- low: 23.15
+- close: 23.5
+- volume: 834990
+- ma5: 23.29
+- ma20: 22.86
+- ma60: 22.29
+- ma120: 22.58
+- ema23: 22.83
+- return_5d: 4.21
+- return_20d: 2.4
+- volume_ratio: 1.83
+- distance_to_ma20_pct: 2.78
+- distance_to_high_60_pct: -2.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,22.5,23.2,22.4,23.15,626789,22.62,22.79,22.28,22.66,1.64
 20260524,22.5,23.2,22.4,23.15,626789,22.84,22.81,22.28,22.7,1.59
 20260525,23.25,23.65,23.15,23.5,834990,23.1,22.84,22.28,22.76,1.97
-20260526,22.5,23.2,22.4,23.15,626789,23.22,22.85,22.28,22.8,1.41
+20260526,23.25,23.65,23.15,23.5,834990,23.29,22.86,22.29,22.83,1.83
 ```
 
 ## Latest TDCC Snapshot

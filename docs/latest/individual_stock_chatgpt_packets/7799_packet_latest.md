@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7799 禾榮科
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:43 Asia/Taipei
+- generated_at: 2026-05-26 06:03:44 Asia/Taipei
 - stock_id: 7799
 - stock_name: 禾榮科
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 317
-- high: 330
-- low: 316
-- close: 328.5
-- volume: 205190
-- ma5: 330.5
-- ma20: 332.85
-- ma60: 376.87
-- ma120: 432.13
-- ema23: 338.89
-- return_5d: 3.63
-- return_20d: -14.01
-- volume_ratio: 0.73
-- distance_to_ma20_pct: -1.31
-- distance_to_high_60_pct: -39.72
+- open: 329.5
+- high: 346.5
+- low: 327
+- close: 338.5
+- volume: 436578
+- ma5: 332.5
+- ma20: 333.35
+- ma60: 377.03
+- ma120: 432.21
+- ema23: 339.72
+- return_5d: 6.78
+- return_20d: -11.39
+- volume_ratio: 1.5
+- distance_to_ma20_pct: 1.54
+- distance_to_high_60_pct: -37.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,317,330,316,328.5,205190,316.8,339.88,387.54,341,0.75
 20260524,317,330,316,328.5,205190,321.9,337.43,384.1,339.95,0.76
 20260525,329.5,346.5,327,338.5,436578,328.2,335.52,380.48,339.83,1.56
-20260526,317,330,316,328.5,205190,330.5,332.85,376.87,338.89,0.73
+20260526,329.5,346.5,327,338.5,436578,332.5,333.35,377.03,339.72,1.5
 ```
 
 ## Latest TDCC Snapshot

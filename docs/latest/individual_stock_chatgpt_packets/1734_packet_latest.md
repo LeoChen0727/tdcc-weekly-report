@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1734 杏輝
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:42 Asia/Taipei
+- generated_at: 2026-05-26 06:01:52 Asia/Taipei
 - stock_id: 1734
 - stock_name: 杏輝
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 30.8
-- high: 30.85
-- low: 30.55
-- close: 30.75
-- volume: 285102
-- ma5: 30.7
-- ma20: 30.82
-- ma60: 31.15
+- open: 30.75
+- high: 30.75
+- low: 30.4
+- close: 30.5
+- volume: 561438
+- ma5: 30.65
+- ma20: 30.81
+- ma60: 31.14
 - ma120: 30.94
-- ema23: 30.91
-- return_5d: -0.16
-- return_20d: -3.45
-- volume_ratio: 0.82
-- distance_to_ma20_pct: -0.23
-- distance_to_high_60_pct: -4.95
+- ema23: 30.89
+- return_5d: -0.97
+- return_20d: -4.24
+- volume_ratio: 1.54
+- distance_to_ma20_pct: -1
+- distance_to_high_60_pct: -5.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,30.8,30.85,30.55,30.75,285102,30.7,31,31.15,30.98,0.89
 20260524,30.8,30.85,30.55,30.75,285102,30.74,30.94,31.15,30.96,0.9
 20260525,30.75,30.75,30.4,30.5,561438,30.71,30.88,31.15,30.92,1.65
-20260526,30.8,30.85,30.55,30.75,285102,30.7,30.82,31.15,30.91,0.82
+20260526,30.75,30.75,30.4,30.5,561438,30.65,30.81,31.14,30.89,1.54
 ```
 
 ## Latest TDCC Snapshot

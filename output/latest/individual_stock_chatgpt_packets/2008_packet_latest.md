@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2008 高興昌
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:45 Asia/Taipei
+- generated_at: 2026-05-26 06:01:54 Asia/Taipei
 - stock_id: 2008
 - stock_name: 高興昌
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 27.5
-- high: 27.85
+- open: 27.55
+- high: 27.75
 - low: 27.5
-- close: 27.55
-- volume: 15108
-- ma5: 27.59
-- ma20: 27.67
+- close: 27.75
+- volume: 20927
+- ma5: 27.63
+- ma20: 27.68
 - ma60: 27.82
 - ma120: 28.57
-- ema23: 27.67
-- return_5d: -1.08
-- return_20d: -1.61
-- volume_ratio: 0.66
-- distance_to_ma20_pct: -0.43
-- distance_to_high_60_pct: -8.01
+- ema23: 27.68
+- return_5d: -0.36
+- return_20d: -0.89
+- volume_ratio: 0.9
+- distance_to_ma20_pct: 0.25
+- distance_to_high_60_pct: -7.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,27.5,27.85,27.5,27.55,15108,27.72,27.68,27.93,27.68,0.62
 20260524,27.5,27.85,27.5,27.55,15108,27.68,27.68,27.89,27.67,0.61
 20260525,27.55,27.75,27.5,27.75,20927,27.65,27.69,27.85,27.68,0.86
-20260526,27.5,27.85,27.5,27.55,15108,27.59,27.67,27.82,27.67,0.66
+20260526,27.55,27.75,27.5,27.75,20927,27.63,27.68,27.82,27.68,0.9
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9917 中保科
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:58 Asia/Taipei
+- generated_at: 2026-05-26 06:03:58 Asia/Taipei
 - stock_id: 9917
 - stock_name: 中保科
 - packet_status: standard_180d_window_packet
@@ -57,18 +57,18 @@
 - open: 113
 - high: 113
 - low: 112
-- close: 112
-- volume: 332331
-- ma5: 112.2
-- ma20: 112.65
-- ma60: 112.84
-- ma120: 110.01
-- ema23: 112.79
-- return_5d: -0.44
-- return_20d: -2.18
-- volume_ratio: 0.76
-- distance_to_ma20_pct: -0.58
-- distance_to_high_60_pct: -3.86
+- close: 113
+- volume: 344310
+- ma5: 112.4
+- ma20: 112.7
+- ma60: 112.86
+- ma120: 110.02
+- ema23: 112.87
+- return_5d: 0.44
+- return_20d: -1.31
+- volume_ratio: 0.79
+- distance_to_ma20_pct: 0.27
+- distance_to_high_60_pct: -3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,113,113,112,112,332331,112.5,112.83,112.54,112.93,0.75
 20260524,113,113,112,112,332331,112.3,112.78,112.64,112.85,0.79
 20260525,113,113,112,113,344310,112.3,112.78,112.76,112.86,0.8
-20260526,113,113,112,112,332331,112.2,112.65,112.84,112.79,0.76
+20260526,113,113,112,113,344310,112.4,112.7,112.86,112.87,0.79
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2344 華邦電
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:52 Asia/Taipei
+- generated_at: 2026-05-26 06:02:01 Asia/Taipei
 - stock_id: 2344
 - stock_name: 華邦電
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 116.5
-- high: 125
-- low: 115.5
-- close: 125
-- volume: 193146658
-- ma5: 125.7
-- ma20: 117.2
-- ma60: 105.5
-- ma120: 98.46
-- ema23: 116.12
-- return_5d: 9.65
-- return_20d: 34.84
-- volume_ratio: 0.86
-- distance_to_ma20_pct: 6.66
-- distance_to_high_60_pct: -8.42
+- open: 120.5
+- high: 133
+- low: 119
+- close: 128.5
+- volume: 357612926
+- ma5: 126.4
+- ma20: 117.38
+- ma60: 105.56
+- ma120: 98.49
+- ema23: 116.41
+- return_5d: 12.72
+- return_20d: 38.62
+- volume_ratio: 1.53
+- distance_to_ma20_pct: 9.48
+- distance_to_high_60_pct: -5.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,116.5,125,115.5,125,193146658,119.4,112.38,105.28,113.12,0.88
 20260524,116.5,125,115.5,125,193146658,120.9,113.94,105.39,114.11,0.9
 20260525,120.5,133,119,128.5,357612926,123.5,115.58,105.5,115.31,1.61
-20260526,116.5,125,115.5,125,193146658,125.7,117.2,105.5,116.12,0.86
+20260526,120.5,133,119,128.5,357612926,126.4,117.38,105.56,116.41,1.53
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2344 | 華邦電 | revenue_pullback | 營收成長股價回檔 | 77.0 |  |  |  |  | mixed_flow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 2344 | 華邦電 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | mixed_flow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 2344 | 華邦電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  | mixed_flow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 2344 | 華邦電 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | mixed_flow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2908 特力
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:11 Asia/Taipei
+- generated_at: 2026-05-26 06:02:19 Asia/Taipei
 - stock_id: 2908
 - stock_name: 特力
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 21
+- open: 21.15
 - high: 21.15
-- low: 20.85
+- low: 20.9
 - close: 21.15
-- volume: 383889
+- volume: 406341
 - ma5: 21.15
 - ma20: 20.88
 - ma60: 20.39
@@ -66,7 +66,7 @@
 - ema23: 20.85
 - return_5d: 0.48
 - return_20d: 1.68
-- volume_ratio: 1.35
+- volume_ratio: 1.42
 - distance_to_ma20_pct: 1.29
 - distance_to_high_60_pct: 0
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,21,21.15,20.85,21.15,383889,21.04,20.82,20.37,20.77,1.42
 20260524,21,21.15,20.85,21.15,383889,21.09,20.84,20.38,20.8,1.42
 20260525,21.15,21.15,20.9,21.15,406341,21.13,20.86,20.38,20.83,1.44
-20260526,21,21.15,20.85,21.15,383889,21.15,20.88,20.39,20.85,1.35
+20260526,21.15,21.15,20.9,21.15,406341,21.15,20.88,20.39,20.85,1.42
 ```
 
 ## Latest TDCC Snapshot

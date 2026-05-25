@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00916 國泰全球品牌50
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:26 Asia/Taipei
+- generated_at: 2026-05-26 06:01:36 Asia/Taipei
 - stock_id: 00916
 - stock_name: 國泰全球品牌50
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 28.05
-- high: 28.12
-- low: 28.05
-- close: 28.11
-- volume: 136293
-- ma5: 28.14
-- ma20: 28.14
-- ma60: 28.14
-- ma120: 28.14
-- ema23: 28.12
+- open: 28.15
+- high: 28.27
+- low: 28.08
+- close: 28.24
+- volume: 826574
+- ma5: 28.16
+- ma20: 28.16
+- ma60: 28.16
+- ma120: 28.16
+- ema23: 28.13
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.5
-- distance_to_ma20_pct: -0.09
-- distance_to_high_60_pct: -0.57
+- volume_ratio: 2
+- distance_to_ma20_pct: 0.28
+- distance_to_high_60_pct: -0.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,28.05,28.12,28.05,28.11,136293,,,,,
 20260524,28.05,28.12,28.05,28.11,136293,,,,,
 20260525,28.15,28.27,28.08,28.24,826574,,,,,
-20260526,28.05,28.12,28.05,28.11,136293,28.14,28.14,28.14,28.12,0.5
+20260526,28.15,28.27,28.08,28.24,826574,28.16,28.16,28.16,28.13,2
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3686 達能
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:36 Asia/Taipei
+- generated_at: 2026-05-26 06:02:42 Asia/Taipei
 - stock_id: 3686
 - stock_name: 達能
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 16.8
-- high: 18.3
-- low: 16.8
-- close: 18.25
-- volume: 825498
-- ma5: 18.24
+- open: 18.15
+- high: 18.45
+- low: 17.7
+- close: 18.2
+- volume: 503339
+- ma5: 18.23
 - ma20: 17.57
 - ma60: 18.04
 - ma120: 18.55
 - ema23: 17.7
-- return_5d: 8.96
-- return_20d: 4.89
-- volume_ratio: 1.84
-- distance_to_ma20_pct: 3.87
-- distance_to_high_60_pct: -19.6
+- return_5d: 8.66
+- return_20d: 4.6
+- volume_ratio: 1.17
+- distance_to_ma20_pct: 3.6
+- distance_to_high_60_pct: -19.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,16.8,18.3,16.8,18.25,825498,17.42,17.43,18.15,17.55,2.29
 20260524,16.8,18.3,16.8,18.25,825498,17.64,17.47,18.13,17.6,2.1
 20260525,18.15,18.45,17.7,18.2,503339,17.94,17.53,18.1,17.65,1.22
-20260526,16.8,18.3,16.8,18.25,825498,18.24,17.57,18.04,17.7,1.84
+20260526,18.15,18.45,17.7,18.2,503339,18.23,17.57,18.04,17.7,1.17
 ```
 
 ## Latest TDCC Snapshot

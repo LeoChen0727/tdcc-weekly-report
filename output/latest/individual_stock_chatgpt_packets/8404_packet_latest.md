@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8404 百和興業-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:51 Asia/Taipei
+- generated_at: 2026-05-26 06:03:52 Asia/Taipei
 - stock_id: 8404
 - stock_name: 百和興業-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 16.5
-- high: 16.6
-- low: 16.4
-- close: 16.6
-- volume: 364227
-- ma5: 16.64
+- open: 16.6
+- high: 16.95
+- low: 16.25
+- close: 16.8
+- volume: 989289
+- ma5: 16.68
 - ma20: 16.77
 - ma60: 18.22
 - ma120: 21.14
-- ema23: 16.91
-- return_5d: 0
-- return_20d: -2.35
-- volume_ratio: 0.85
-- distance_to_ma20_pct: -0.98
-- distance_to_high_60_pct: -28.45
+- ema23: 16.93
+- return_5d: 1.2
+- return_20d: -1.18
+- volume_ratio: 2.15
+- distance_to_ma20_pct: 0.15
+- distance_to_high_60_pct: -27.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,16.5,16.6,16.4,16.6,364227,16.5,16.8,18.55,16.99,0.88
 20260524,16.5,16.6,16.4,16.6,364227,16.54,16.79,18.43,16.95,0.92
 20260525,16.6,16.95,16.25,16.8,989289,16.64,16.79,18.32,16.94,2.3
-20260526,16.5,16.6,16.4,16.6,364227,16.64,16.77,18.22,16.91,0.85
+20260526,16.6,16.95,16.25,16.8,989289,16.68,16.77,18.22,16.93,2.15
 ```
 
 ## Latest TDCC Snapshot

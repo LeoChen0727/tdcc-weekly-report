@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8487 愛爾達-創
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:54 Asia/Taipei
+- generated_at: 2026-05-26 06:03:55 Asia/Taipei
 - stock_id: 8487
 - stock_name: 愛爾達-創
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 79
-- high: 80.5
-- low: 79
-- close: 80.4
-- volume: 41537
-- ma5: 80.54
-- ma20: 78.58
-- ma60: 79.55
+- open: 80.4
+- high: 81.7
+- low: 80.4
+- close: 81.1
+- volume: 72566
+- ma5: 80.68
+- ma20: 78.62
+- ma60: 79.56
 - ma120: 79.43
-- ema23: 79.2
-- return_5d: 1.52
-- return_20d: 3.74
-- volume_ratio: 0.71
-- distance_to_ma20_pct: 2.31
-- distance_to_high_60_pct: -7.37
+- ema23: 79.26
+- return_5d: 2.4
+- return_20d: 4.65
+- volume_ratio: 1.21
+- distance_to_ma20_pct: 3.15
+- distance_to_high_60_pct: -6.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,79,80.5,79,80.4,41537,79.52,78.22,79.66,78.77,0.74
 20260524,79,80.5,79,80.4,41537,79.88,78.28,79.62,78.91,0.72
 20260525,80.4,81.7,80.4,81.1,72566,80.3,78.44,79.6,79.09,1.23
-20260526,79,80.5,79,80.4,41537,80.54,78.58,79.55,79.2,0.71
+20260526,80.4,81.7,80.4,81.1,72566,80.68,78.62,79.56,79.26,1.21
 ```
 
 ## Latest TDCC Snapshot

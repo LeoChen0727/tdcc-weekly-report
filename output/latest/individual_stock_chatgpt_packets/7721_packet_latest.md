@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7721 微程式
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:41 Asia/Taipei
+- generated_at: 2026-05-26 06:03:42 Asia/Taipei
 - stock_id: 7721
 - stock_name: 微程式
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 73.4
-- high: 80
-- low: 72.7
-- close: 80
-- volume: 940280
-- ma5: 80.2
-- ma20: 76.7
-- ma60: 69.83
-- ma120: 59.52
-- ema23: 76.69
-- return_5d: 9.89
-- return_20d: 12.68
-- volume_ratio: 1.21
-- distance_to_ma20_pct: 4.3
-- distance_to_high_60_pct: -13.98
+- open: 80.5
+- high: 84.6
+- low: 80.5
+- close: 81
+- volume: 1640405
+- ma5: 80.4
+- ma20: 76.75
+- ma60: 69.84
+- ma120: 59.53
+- ema23: 76.77
+- return_5d: 11.26
+- return_20d: 14.08
+- volume_ratio: 2.02
+- distance_to_ma20_pct: 5.54
+- distance_to_high_60_pct: -12.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,73.4,80,72.7,80,940280,75.24,75.19,68.53,75.6,1.31
 20260524,73.4,80,72.7,80,940280,76.84,75.7,68.97,75.97,1.32
 20260525,80.5,84.6,80.5,81,1640405,78.76,76.25,69.41,76.39,2.13
-20260526,73.4,80,72.7,80,940280,80.2,76.7,69.83,76.69,1.21
+20260526,80.5,84.6,80.5,81,1640405,80.4,76.75,69.84,76.77,2.02
 ```
 
 ## Latest TDCC Snapshot
@@ -120,14 +120,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 7721 | 微程式 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 7721 | 微程式 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | status |

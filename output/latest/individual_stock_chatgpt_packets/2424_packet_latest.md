@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2424 隴華
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:57 Asia/Taipei
+- generated_at: 2026-05-26 06:02:06 Asia/Taipei
 - stock_id: 2424
 - stock_name: 隴華
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 14.6
-- high: 14.6
-- low: 14.6
-- close: 14.6
-- volume: 93765
-- ma5: 14.31
-- ma20: 18.98
-- ma60: 24.15
-- ma120: 30
-- ema23: 18.95
-- return_5d: -9.88
-- return_20d: -33.33
-- volume_ratio: 0.31
-- distance_to_ma20_pct: -23.09
-- distance_to_high_60_pct: -59.33
+- open: 13.15
+- high: 13.15
+- low: 13.15
+- close: 13.15
+- volume: 106132
+- ma5: 14.02
+- ma20: 18.91
+- ma60: 24.13
+- ma120: 29.98
+- ema23: 18.83
+- return_5d: -18.83
+- return_20d: -39.95
+- volume_ratio: 0.35
+- distance_to_ma20_pct: -30.46
+- distance_to_high_60_pct: -63.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,14.6,14.6,14.6,14.6,93765,16.67,20.18,25.09,20.39,0.31
 20260524,14.6,14.6,14.6,14.6,93765,15.6,19.81,24.78,19.91,0.32
 20260525,13.15,13.15,13.15,13.15,106132,14.63,19.35,24.45,19.34,0.35
-20260526,14.6,14.6,14.6,14.6,93765,14.31,18.98,24.15,18.95,0.31
+20260526,13.15,13.15,13.15,13.15,106132,14.02,18.91,24.13,18.83,0.35
 ```
 
 ## Latest TDCC Snapshot

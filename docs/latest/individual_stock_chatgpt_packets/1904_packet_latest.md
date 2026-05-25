@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1904 正隆
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:45 Asia/Taipei
+- generated_at: 2026-05-26 06:01:54 Asia/Taipei
 - stock_id: 1904
 - stock_name: 正隆
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 19.15
-- high: 19.3
-- low: 18.8
-- close: 19.1
-- volume: 2034159
-- ma5: 19.14
-- ma20: 18.53
+- open: 19.1
+- high: 19.4
+- low: 18.65
+- close: 19.3
+- volume: 2354561
+- ma5: 19.18
+- ma20: 18.54
 - ma60: 18.46
 - ma120: 18.2
-- ema23: 18.75
-- return_5d: 1.33
-- return_20d: 6.41
-- volume_ratio: 0.73
-- distance_to_ma20_pct: 3.08
-- distance_to_high_60_pct: -9.69
+- ema23: 18.76
+- return_5d: 2.39
+- return_20d: 7.52
+- volume_ratio: 0.84
+- distance_to_ma20_pct: 4.1
+- distance_to_high_60_pct: -8.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,19.15,19.3,18.8,19.1,2034159,18.85,18.36,18.43,18.62,0.77
 20260524,19.15,19.3,18.8,19.1,2034159,18.91,18.41,18.43,18.66,0.76
 20260525,19.1,19.4,18.65,19.3,2354561,19.09,18.47,18.45,18.71,0.86
-20260526,19.15,19.3,18.8,19.1,2034159,19.14,18.53,18.46,18.75,0.73
+20260526,19.1,19.4,18.65,19.3,2354561,19.18,18.54,18.46,18.76,0.84
 ```
 
 ## Latest TDCC Snapshot
@@ -122,13 +122,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1904 | 正隆 | pattern | 型態觀察 | 51.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 1904 | 正隆 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 1904 | 正隆 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 1904 | 正隆 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1904 | 正隆 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260526 | 1904 | 正隆 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2887 台新新光金
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:11 Asia/Taipei
+- generated_at: 2026-05-26 06:02:18 Asia/Taipei
 - stock_id: 2887
 - stock_name: 台新新光金
 - packet_status: standard_180d_window_packet
@@ -55,20 +55,20 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 23.9
-- high: 24.15
-- low: 23.75
-- close: 23.8
-- volume: 105580110
-- ma5: 23.7
-- ma20: 23.63
-- ma60: 24.09
+- high: 23.9
+- low: 23.3
+- close: 23.3
+- volume: 149281651
+- ma5: 23.6
+- ma20: 23.6
+- ma60: 24.08
 - ma120: 22.73
-- ema23: 23.73
-- return_5d: -0.21
-- return_20d: -1.04
-- volume_ratio: 1
-- distance_to_ma20_pct: 0.73
-- distance_to_high_60_pct: -6.3
+- ema23: 23.69
+- return_5d: -2.31
+- return_20d: -3.12
+- volume_ratio: 1.39
+- distance_to_ma20_pct: -1.28
+- distance_to_high_60_pct: -8.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,23.9,24.15,23.75,23.8,105580110,23.79,23.7,24.16,23.76,1.08
 20260524,23.9,24.15,23.75,23.8,105580110,23.83,23.7,24.14,23.77,1.06
 20260525,23.9,23.9,23.3,23.3,149281651,23.71,23.64,24.11,23.73,1.45
-20260526,23.9,24.15,23.75,23.8,105580110,23.7,23.63,24.09,23.73,1
+20260526,23.9,23.9,23.3,23.3,149281651,23.6,23.6,24.08,23.69,1.39
 ```
 
 ## Latest TDCC Snapshot

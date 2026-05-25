@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3406 玉晶光
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:27 Asia/Taipei
+- generated_at: 2026-05-26 06:02:33 Asia/Taipei
 - stock_id: 3406
 - stock_name: 玉晶光
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 577
-- high: 585
-- low: 570
-- close: 576
-- volume: 1967937
-- ma5: 579
-- ma20: 547.8
-- ma60: 490.27
-- ma120: 466.79
-- ema23: 547.64
-- return_5d: -0.17
-- return_20d: 11.84
-- volume_ratio: 0.82
-- distance_to_ma20_pct: 5.15
-- distance_to_high_60_pct: -5.26
+- open: 588
+- high: 602
+- low: 584
+- close: 591
+- volume: 1625721
+- ma5: 582
+- ma20: 548.55
+- ma60: 490.52
+- ma120: 466.91
+- ema23: 548.89
+- return_5d: 2.43
+- return_20d: 14.76
+- volume_ratio: 0.68
+- distance_to_ma20_pct: 7.74
+- distance_to_high_60_pct: -2.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,577,585,570,576,1967937,567.2,536.55,483.15,537.69,0.82
 20260524,577,585,570,576,1967937,571,540.2,485.44,540.88,0.83
 20260525,588,602,584,591,1625721,579.2,544.75,487.93,545.06,0.69
-20260526,577,585,570,576,1967937,579,547.8,490.27,547.64,0.82
+20260526,588,602,584,591,1625721,582,548.55,490.52,548.89,0.68
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3406 | 玉晶光 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 3406 | 玉晶光 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

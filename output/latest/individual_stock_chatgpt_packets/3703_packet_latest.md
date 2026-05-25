@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3703 欣陸
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:36 Asia/Taipei
+- generated_at: 2026-05-26 06:02:42 Asia/Taipei
 - stock_id: 3703
 - stock_name: 欣陸
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 20.2
+- open: 20.25
 - high: 20.25
-- low: 20
-- close: 20.15
-- volume: 1129863
-- ma5: 20.13
-- ma20: 20.35
+- low: 19.8
+- close: 20.05
+- volume: 2509105
+- ma5: 20.11
+- ma20: 20.34
 - ma60: 21.48
-- ma120: 22.16
-- ema23: 20.5
-- return_5d: -0.74
-- return_20d: -3.82
-- volume_ratio: 0.92
-- distance_to_ma20_pct: -0.97
-- distance_to_high_60_pct: -13.89
+- ma120: 22.15
+- ema23: 20.49
+- return_5d: -1.23
+- return_20d: -4.3
+- volume_ratio: 1.94
+- distance_to_ma20_pct: -1.44
+- distance_to_high_60_pct: -14.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,20.2,20.25,20,20.15,1129863,20.16,20.46,21.6,20.62,1
 20260524,20.2,20.25,20,20.15,1129863,20.17,20.43,21.56,20.58,1.02
 20260525,20.25,20.25,19.8,20.05,2509105,20.16,20.39,21.52,20.53,2.07
-20260526,20.2,20.25,20,20.15,1129863,20.13,20.35,21.48,20.5,0.92
+20260526,20.25,20.25,19.8,20.05,2509105,20.11,20.34,21.48,20.49,1.94
 ```
 
 ## Latest TDCC Snapshot

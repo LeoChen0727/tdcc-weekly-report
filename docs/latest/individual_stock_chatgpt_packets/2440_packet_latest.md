@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2440 太空梭
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:58 Asia/Taipei
+- generated_at: 2026-05-26 06:02:07 Asia/Taipei
 - stock_id: 2440
 - stock_name: 太空梭
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 17.75
-- high: 18.2
-- low: 17.45
-- close: 18
-- volume: 1090847
-- ma5: 18.05
-- ma20: 17.68
-- ma60: 16.02
+- open: 18.35
+- high: 18.7
+- low: 17.95
+- close: 18.25
+- volume: 1260701
+- ma5: 18.1
+- ma20: 17.69
+- ma60: 16.03
 - ma120: 15.27
-- ema23: 17.42
-- return_5d: 3.15
-- return_20d: -3.23
-- volume_ratio: 0.89
-- distance_to_ma20_pct: 1.82
-- distance_to_high_60_pct: -7.69
+- ema23: 17.44
+- return_5d: 4.58
+- return_20d: -1.88
+- volume_ratio: 1.02
+- distance_to_ma20_pct: 3.17
+- distance_to_high_60_pct: -6.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,17.75,18.2,17.45,18,1090847,17.75,17.62,15.92,17.22,0.67
 20260524,17.75,18.2,17.45,18,1090847,17.74,17.68,15.96,17.29,0.67
 20260525,18.35,18.7,17.95,18.25,1260701,17.94,17.71,15.99,17.37,0.86
-20260526,17.75,18.2,17.45,18,1090847,18.05,17.68,16.02,17.42,0.89
+20260526,18.35,18.7,17.95,18.25,1260701,18.1,17.69,16.03,17.44,1.02
 ```
 
 ## Latest TDCC Snapshot
@@ -120,9 +120,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2440 | 太空梭 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

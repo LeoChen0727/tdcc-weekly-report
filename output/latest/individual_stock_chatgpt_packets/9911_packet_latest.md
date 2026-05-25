@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9911 櫻花
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:57 Asia/Taipei
+- generated_at: 2026-05-26 06:03:57 Asia/Taipei
 - stock_id: 9911
 - stock_name: 櫻花
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 82.5
-- high: 82.9
-- low: 82.4
-- close: 82.7
-- volume: 207788
-- ma5: 82.6
-- ma20: 82.83
-- ma60: 85.57
+- open: 82.7
+- high: 83
+- low: 82
+- close: 82.2
+- volume: 410897
+- ma5: 82.5
+- ma20: 82.8
+- ma60: 85.56
 - ma120: 84.86
-- ema23: 83
-- return_5d: -0.24
-- return_20d: 0.61
-- volume_ratio: 0.79
-- distance_to_ma20_pct: -0.15
-- distance_to_high_60_pct: -10.88
+- ema23: 82.96
+- return_5d: -0.84
+- return_20d: 0
+- volume_ratio: 1.5
+- distance_to_ma20_pct: -0.72
+- distance_to_high_60_pct: -11.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,82.5,82.9,82.4,82.7,207788,82.68,82.73,85.78,83.14,0.77
 20260524,82.5,82.9,82.4,82.7,207788,82.76,82.78,85.72,83.1,0.81
 20260525,82.7,83,82,82.2,410897,82.64,82.8,85.66,83.02,1.54
-20260526,82.5,82.9,82.4,82.7,207788,82.6,82.83,85.57,83,0.79
+20260526,82.7,83,82,82.2,410897,82.5,82.8,85.56,82.96,1.5
 ```
 
 ## Latest TDCC Snapshot

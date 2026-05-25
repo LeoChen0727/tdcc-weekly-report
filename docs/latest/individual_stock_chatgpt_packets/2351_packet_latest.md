@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2351 順德
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:53 Asia/Taipei
+- generated_at: 2026-05-26 06:02:02 Asia/Taipei
 - stock_id: 2351
 - stock_name: 順德
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 196
-- high: 197
-- low: 183.5
-- close: 186.5
-- volume: 8467659
-- ma5: 188.5
-- ma20: 178.12
-- ma60: 132.64
-- ma120: 106.82
-- ema23: 173.15
-- return_5d: -2.86
-- return_20d: 22.7
-- volume_ratio: 0.94
-- distance_to_ma20_pct: 4.7
-- distance_to_high_60_pct: -6.52
+- open: 191.5
+- high: 199.5
+- low: 188.5
+- close: 196.5
+- volume: 9253939
+- ma5: 190.5
+- ma20: 178.62
+- ma60: 132.81
+- ma120: 106.91
+- ema23: 173.99
+- return_5d: 2.34
+- return_20d: 29.28
+- volume_ratio: 1.02
+- distance_to_ma20_pct: 10.01
+- distance_to_high_60_pct: -1.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,196,197,183.5,186.5,8467659,183.7,171.88,127.47,168.18,0.95
 20260524,196,197,183.5,186.5,8467659,186.3,173.9,129.12,169.71,0.95
 20260525,191.5,199.5,188.5,196.5,9253939,189.6,176.4,130.95,171.94,1.01
-20260526,196,197,183.5,186.5,8467659,188.5,178.12,132.64,173.15,0.94
+20260526,191.5,199.5,188.5,196.5,9253939,190.5,178.62,132.81,173.99,1.02
 ```
 
 ## Latest TDCC Snapshot
@@ -122,8 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2351 | 順德 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 2351 | 順德 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 2351 | 順德 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 58.0 |  |  | neckline_challenge |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

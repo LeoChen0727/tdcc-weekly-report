@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009808 華南永昌優選50
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:27 Asia/Taipei
+- generated_at: 2026-05-26 06:01:37 Asia/Taipei
 - stock_id: 009808
 - stock_name: 華南永昌優選50
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 28.1
-- high: 28.49
-- low: 28.1
-- close: 28.49
-- volume: 572807
-- ma5: 28.67
-- ma20: 28.67
-- ma60: 28.67
-- ma120: 28.67
-- ema23: 28.56
+- open: 29.19
+- high: 29.5
+- low: 29.17
+- close: 29.4
+- volume: 1954276
+- ma5: 28.85
+- ma20: 28.85
+- ma60: 28.85
+- ma120: 28.85
+- ema23: 28.64
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.67
-- distance_to_ma20_pct: -0.63
-- distance_to_high_60_pct: -3.42
+- volume_ratio: 1.74
+- distance_to_ma20_pct: 1.89
+- distance_to_high_60_pct: -0.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,28.1,28.49,28.1,28.49,572807,,,,,
 20260524,28.1,28.49,28.1,28.49,572807,,,,,
 20260525,29.19,29.5,29.17,29.4,1954276,,,,,
-20260526,28.1,28.49,28.1,28.49,572807,28.67,28.67,28.67,28.56,0.67
+20260526,29.19,29.5,29.17,29.4,1954276,28.85,28.85,28.85,28.64,1.74
 ```
 
 ## Latest TDCC Snapshot

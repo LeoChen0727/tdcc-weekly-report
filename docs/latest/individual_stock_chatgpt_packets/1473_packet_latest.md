@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1473 台南
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:35 Asia/Taipei
+- generated_at: 2026-05-26 06:01:45 Asia/Taipei
 - stock_id: 1473
 - stock_name: 台南
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 20.45
-- high: 20.6
-- low: 20.35
-- close: 20.45
-- volume: 67400
-- ma5: 20.4
-- ma20: 20.59
+- open: 20.4
+- high: 20.4
+- low: 20.15
+- close: 20.2
+- volume: 128548
+- ma5: 20.35
+- ma20: 20.58
 - ma60: 22.64
 - ma120: 23.76
-- ema23: 20.98
-- return_5d: 0.25
-- return_20d: -5.32
-- volume_ratio: 0.54
-- distance_to_ma20_pct: -0.69
-- distance_to_high_60_pct: -18.53
+- ema23: 20.96
+- return_5d: -0.98
+- return_20d: -6.48
+- volume_ratio: 1
+- distance_to_ma20_pct: -1.85
+- distance_to_high_60_pct: -19.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,20.45,20.6,20.35,20.45,67400,20.46,20.83,22.88,21.16,0.49
 20260524,20.45,20.6,20.35,20.45,67400,20.43,20.74,22.8,21.1,0.5
 20260525,20.4,20.4,20.15,20.2,128548,20.39,20.65,22.72,21.03,0.95
-20260526,20.45,20.6,20.35,20.45,67400,20.4,20.59,22.64,20.98,0.54
+20260526,20.4,20.4,20.15,20.2,128548,20.35,20.58,22.64,20.96,1
 ```
 
 ## Latest TDCC Snapshot

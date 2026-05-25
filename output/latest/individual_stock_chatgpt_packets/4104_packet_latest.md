@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4104 佳醫
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:38 Asia/Taipei
+- generated_at: 2026-05-26 06:02:44 Asia/Taipei
 - stock_id: 4104
 - stock_name: 佳醫
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 70.8
-- high: 70.8
-- low: 70
-- close: 70.4
-- volume: 159361
-- ma5: 70.32
-- ma20: 70.03
+- open: 70.2
+- high: 70.2
+- low: 69.1
+- close: 70
+- volume: 385689
+- ma5: 70.24
+- ma20: 70
 - ma60: 74.5
 - ma120: 77.2
-- ema23: 71.07
-- return_5d: -0.56
-- return_20d: -2.09
-- volume_ratio: 0.42
-- distance_to_ma20_pct: 0.54
-- distance_to_high_60_pct: -11.45
+- ema23: 71.04
+- return_5d: -1.13
+- return_20d: -2.64
+- volume_ratio: 0.99
+- distance_to_ma20_pct: -0.01
+- distance_to_high_60_pct: -11.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,70.8,70.8,70,70.4,159361,70.18,70.33,74.9,71.31,0.39
 20260524,70.8,70.8,70,70.4,159361,70.52,70.22,74.77,71.23,0.42
 20260525,70.2,70.2,69.1,70,385689,70.4,70.1,74.63,71.13,1
-20260526,70.8,70.8,70,70.4,159361,70.32,70.03,74.5,71.07,0.42
+20260526,70.2,70.2,69.1,70,385689,70.24,70,74.5,71.04,0.99
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2364 倫飛
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:54 Asia/Taipei
+- generated_at: 2026-05-26 06:02:03 Asia/Taipei
 - stock_id: 2364
 - stock_name: 倫飛
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 68.4
-- high: 70
-- low: 67.8
-- close: 69.7
-- volume: 342965
-- ma5: 69.58
-- ma20: 67.31
-- ma60: 64.4
+- open: 70.5
+- high: 70.8
+- low: 68.6
+- close: 69.1
+- volume: 375061
+- ma5: 69.46
+- ma20: 67.28
+- ma60: 64.39
 - ma120: 65.17
-- ema23: 67.25
-- return_5d: 3.41
-- return_20d: 8.74
-- volume_ratio: 0.9
-- distance_to_ma20_pct: 3.56
-- distance_to_high_60_pct: -3.99
+- ema23: 67.2
+- return_5d: 2.52
+- return_20d: 7.8
+- volume_ratio: 0.98
+- distance_to_ma20_pct: 2.71
+- distance_to_high_60_pct: -4.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,68.4,70,67.8,69.7,342965,67.68,66.48,64.09,66.58,1.01
 20260524,68.4,70,67.8,69.7,342965,68.5,66.77,64.2,66.84,0.98
 20260525,70.5,70.8,68.6,69.1,375061,69.12,67.03,64.29,67.03,1.02
-20260526,68.4,70,67.8,69.7,342965,69.58,67.31,64.4,67.25,0.9
+20260526,70.5,70.8,68.6,69.1,375061,69.46,67.28,64.39,67.2,0.98
 ```
 
 ## Latest TDCC Snapshot

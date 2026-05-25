@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3135 凌航
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:19 Asia/Taipei
+- generated_at: 2026-05-26 06:02:26 Asia/Taipei
 - stock_id: 3135
 - stock_name: 凌航
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 199.5
-- high: 214
-- low: 199
-- close: 211.5
-- volume: 1785665
-- ma5: 211.9
-- ma20: 193.8
-- ma60: 145.11
-- ma120: 119
-- ema23: 187.92
-- return_5d: 8.18
-- return_20d: 46.37
-- volume_ratio: 0.28
-- distance_to_ma20_pct: 9.13
-- distance_to_high_60_pct: -12.06
+- open: 210
+- high: 214.5
+- low: 203
+- close: 213.5
+- volume: 1982348
+- ma5: 212.3
+- ma20: 193.9
+- ma60: 145.14
+- ma120: 119.02
+- ema23: 188.08
+- return_5d: 9.21
+- return_20d: 47.75
+- volume_ratio: 0.31
+- distance_to_ma20_pct: 10.11
+- distance_to_high_60_pct: -11.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,199.5,214,199,211.5,1785665,199.4,183.12,140.82,180.69,0.23
 20260524,199.5,214,199,211.5,1785665,204.1,186.78,142.21,183.25,0.24
 20260525,210,214.5,203,213.5,1982348,208.7,190.45,143.68,185.77,0.28
-20260526,199.5,214,199,211.5,1785665,211.9,193.8,145.11,187.92,0.28
+20260526,210,214.5,203,213.5,1982348,212.3,193.9,145.14,188.08,0.31
 ```
 
 ## Latest TDCC Snapshot

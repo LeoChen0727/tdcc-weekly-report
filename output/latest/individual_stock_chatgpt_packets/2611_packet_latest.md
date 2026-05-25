@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2611 志信
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:05 Asia/Taipei
+- generated_at: 2026-05-26 06:02:13 Asia/Taipei
 - stock_id: 2611
 - stock_name: 志信
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 13.05
+- open: 13
 - high: 13.05
-- low: 12.9
-- close: 12.95
-- volume: 520829
-- ma5: 12.94
+- low: 12.65
+- close: 12.9
+- volume: 918323
+- ma5: 12.93
 - ma20: 13.15
 - ma60: 14.05
 - ma120: 14.48
-- ema23: 13.27
-- return_5d: -0.77
-- return_20d: -4.78
-- volume_ratio: 1.11
-- distance_to_ma20_pct: -1.54
-- distance_to_high_60_pct: -19.06
+- ema23: 13.26
+- return_5d: -1.15
+- return_20d: -5.15
+- volume_ratio: 1.87
+- distance_to_ma20_pct: -1.9
+- distance_to_high_60_pct: -19.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,13.05,13.05,12.9,12.95,520829,12.96,13.24,14.14,13.37,1.26
 20260524,13.05,13.05,12.9,12.95,520829,12.97,13.22,14.12,13.33,1.26
 20260525,13,13.05,12.65,12.9,918323,12.96,13.19,14.09,13.3,2.04
-20260526,13.05,13.05,12.9,12.95,520829,12.94,13.15,14.05,13.27,1.11
+20260526,13,13.05,12.65,12.9,918323,12.93,13.15,14.05,13.26,1.87
 ```
 
 ## Latest TDCC Snapshot

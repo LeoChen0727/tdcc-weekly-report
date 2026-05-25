@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6283 淳安
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:18 Asia/Taipei
+- generated_at: 2026-05-26 06:03:20 Asia/Taipei
 - stock_id: 6283
 - stock_name: 淳安
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 24.55
-- high: 25.05
-- low: 24.5
-- close: 24.6
-- volume: 176610
-- ma5: 24.66
-- ma20: 24.51
+- open: 24.75
+- high: 24.9
+- low: 24.05
+- close: 24.9
+- volume: 595458
+- ma5: 24.72
+- ma20: 24.52
 - ma60: 22.34
 - ma120: 23.4
-- ema23: 24.19
-- return_5d: -0.2
-- return_20d: 12.84
-- volume_ratio: 0.27
-- distance_to_ma20_pct: 0.38
-- distance_to_high_60_pct: -7.69
+- ema23: 24.21
+- return_5d: 1.01
+- return_20d: 14.22
+- volume_ratio: 0.89
+- distance_to_ma20_pct: 1.54
+- distance_to_high_60_pct: -6.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,24.55,25.05,24.5,24.6,176610,24.6,24.11,22.21,24.04,0.28
 20260524,24.55,25.05,24.5,24.6,176610,24.53,24.22,22.25,24.08,0.28
 20260525,24.75,24.9,24.05,24.9,595458,24.67,24.37,22.3,24.15,0.92
-20260526,24.55,25.05,24.5,24.6,176610,24.66,24.51,22.34,24.19,0.27
+20260526,24.75,24.9,24.05,24.9,595458,24.72,24.52,22.34,24.21,0.89
 ```
 
 ## Latest TDCC Snapshot

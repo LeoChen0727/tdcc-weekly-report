@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3607 谷崧
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:33 Asia/Taipei
+- generated_at: 2026-05-26 06:02:40 Asia/Taipei
 - stock_id: 3607
 - stock_name: 谷崧
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 14.6
-- high: 15.05
-- low: 14.55
-- close: 14.95
-- volume: 856494
-- ma5: 14.98
-- ma20: 14.54
+- open: 15.15
+- high: 15.2
+- low: 14.8
+- close: 15.1
+- volume: 596804
+- ma5: 15.01
+- ma20: 14.55
 - ma60: 14.45
 - ma120: 14.38
-- ema23: 14.65
-- return_5d: 2.75
-- return_20d: 2.4
-- volume_ratio: 1.52
-- distance_to_ma20_pct: 2.78
-- distance_to_high_60_pct: -6.56
+- ema23: 14.66
+- return_5d: 3.78
+- return_20d: 3.42
+- volume_ratio: 1.08
+- distance_to_ma20_pct: 3.76
+- distance_to_high_60_pct: -5.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,14.6,15.05,14.55,14.95,856494,14.58,14.5,14.41,14.55,1.75
 20260524,14.6,15.05,14.55,14.95,856494,14.72,14.51,14.43,14.58,1.68
 20260525,15.15,15.2,14.8,15.1,596804,14.9,14.53,14.44,14.62,1.13
-20260526,14.6,15.05,14.55,14.95,856494,14.98,14.54,14.45,14.65,1.52
+20260526,15.15,15.2,14.8,15.1,596804,15.01,14.55,14.45,14.66,1.08
 ```
 
 ## Latest TDCC Snapshot

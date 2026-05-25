@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4536 拓凱
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:44 Asia/Taipei
+- generated_at: 2026-05-26 06:02:50 Asia/Taipei
 - stock_id: 4536
 - stock_name: 拓凱
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 161.5
+- open: 163
 - high: 163.5
-- low: 160.5
-- close: 163
-- volume: 356800
-- ma5: 162.3
-- ma20: 155.53
-- ma60: 154.97
-- ma120: 158.9
-- ema23: 156.99
-- return_5d: 1.24
-- return_20d: 7.59
-- volume_ratio: 1.04
-- distance_to_ma20_pct: 4.81
-- distance_to_high_60_pct: -3.55
+- low: 158.5
+- close: 159.5
+- volume: 390207
+- ma5: 161.6
+- ma20: 155.35
+- ma60: 154.91
+- ma120: 158.87
+- ema23: 156.7
+- return_5d: -0.93
+- return_20d: 5.28
+- volume_ratio: 1.13
+- distance_to_ma20_pct: 2.67
+- distance_to_high_60_pct: -5.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,161.5,163.5,160.5,163,356800,160.5,153.95,155.23,155.55,1.08
 20260524,161.5,163.5,160.5,163,356800,161.6,154.55,155.23,156.17,1.08
 20260525,163,163.5,158.5,159.5,390207,161.9,154.95,155.07,156.45,1.15
-20260526,161.5,163.5,160.5,163,356800,162.3,155.53,154.97,156.99,1.04
+20260526,163,163.5,158.5,159.5,390207,161.6,155.35,154.91,156.7,1.13
 ```
 
 ## Latest TDCC Snapshot

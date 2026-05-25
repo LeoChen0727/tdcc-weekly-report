@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9944 新麗
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:59 Asia/Taipei
+- generated_at: 2026-05-26 06:03:59 Asia/Taipei
 - stock_id: 9944
 - stock_name: 新麗
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 16.95
-- high: 17
-- low: 16.85
-- close: 17
-- volume: 160293
-- ma5: 17.01
+- open: 17
+- high: 17.05
+- low: 16.75
+- close: 17.05
+- volume: 211933
+- ma5: 17.02
 - ma20: 16.84
 - ma60: 16.58
 - ma120: 16.71
 - ema23: 16.85
-- return_5d: 0
-- return_20d: 4.29
-- volume_ratio: 1.07
-- distance_to_ma20_pct: 0.95
-- distance_to_high_60_pct: -2.02
+- return_5d: 0.29
+- return_20d: 4.6
+- volume_ratio: 1.39
+- distance_to_ma20_pct: 1.23
+- distance_to_high_60_pct: -1.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,16.95,17,16.85,17,160293,16.98,16.75,16.57,16.8,1.23
 20260524,16.95,17,16.85,17,160293,17,16.78,16.57,16.82,1.19
 20260525,17,17.05,16.75,17.05,211933,17.01,16.8,16.58,16.84,1.48
-20260526,16.95,17,16.85,17,160293,17.01,16.84,16.58,16.85,1.07
+20260526,17,17.05,16.75,17.05,211933,17.02,16.84,16.58,16.85,1.39
 ```
 
 ## Latest TDCC Snapshot

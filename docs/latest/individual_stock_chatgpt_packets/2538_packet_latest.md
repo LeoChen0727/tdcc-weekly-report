@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2538 基泰
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:03 Asia/Taipei
+- generated_at: 2026-05-26 06:02:12 Asia/Taipei
 - stock_id: 2538
 - stock_name: 基泰
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 9.43
-- high: 9.48
-- low: 9.37
-- close: 9.41
-- volume: 197510
-- ma5: 9.4
+- open: 9.41
+- high: 9.41
+- low: 9.29
+- close: 9.37
+- volume: 381075
+- ma5: 9.39
 - ma20: 9.58
 - ma60: 9.95
 - ma120: 10.48
 - ema23: 9.6
-- return_5d: -0.53
-- return_20d: -5.24
-- volume_ratio: 0.41
-- distance_to_ma20_pct: -1.75
-- distance_to_high_60_pct: -11.64
+- return_5d: -0.95
+- return_20d: -5.64
+- volume_ratio: 0.78
+- distance_to_ma20_pct: -2.15
+- distance_to_high_60_pct: -12.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,9.43,9.48,9.37,9.41,197510,9.38,9.66,10.01,9.66,0.4
 20260524,9.43,9.48,9.37,9.41,197510,9.41,9.63,9.99,9.64,0.41
 20260525,9.41,9.41,9.29,9.37,381075,9.41,9.6,9.97,9.62,0.79
-20260526,9.43,9.48,9.37,9.41,197510,9.4,9.58,9.95,9.6,0.41
+20260526,9.41,9.41,9.29,9.37,381075,9.39,9.58,9.95,9.6,0.78
 ```
 
 ## Latest TDCC Snapshot

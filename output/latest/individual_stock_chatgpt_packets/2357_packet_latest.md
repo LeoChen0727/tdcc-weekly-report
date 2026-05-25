@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2357 華碩
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:53 Asia/Taipei
+- generated_at: 2026-05-26 06:02:02 Asia/Taipei
 - stock_id: 2357
 - stock_name: 華碩
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 656
-- high: 685
-- low: 655
-- close: 682
-- volume: 5480314
-- ma5: 687.4
-- ma20: 651.6
-- ma60: 597.68
-- ma120: 571.44
-- ema23: 649
-- return_5d: 3.96
-- return_20d: 15.99
-- volume_ratio: 0.91
-- distance_to_ma20_pct: 4.67
-- distance_to_high_60_pct: -4.88
+- open: 692
+- high: 717
+- low: 690
+- close: 709
+- volume: 6899791
+- ma5: 692.8
+- ma20: 652.95
+- ma60: 598.13
+- ma120: 571.66
+- ema23: 651.25
+- return_5d: 8.08
+- return_20d: 20.58
+- volume_ratio: 1.14
+- distance_to_ma20_pct: 8.58
+- distance_to_high_60_pct: -1.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,656,685,655,682,5480314,660.4,636.15,589.58,636.49,1
 20260524,656,685,655,682,5480314,668.4,640.85,592.2,640.28,0.97
 20260525,692,717,690,709,6899791,682.2,646.9,595.15,646.01,1.18
-20260526,656,685,655,682,5480314,687.4,651.6,597.68,649,0.91
+20260526,692,717,690,709,6899791,692.8,652.95,598.13,651.25,1.14
 ```
 
 ## Latest TDCC Snapshot
@@ -122,8 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2357 | 華碩 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_put_bullish | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 2357 | 華碩 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | call_put_bullish | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 2357 | 華碩 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 58.0 |  |  | neckline_challenge |  | call_put_bullish | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 2357 | 華碩 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_put_bullish | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

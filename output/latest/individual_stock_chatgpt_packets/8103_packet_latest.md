@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8103 瀚荃
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:48 Asia/Taipei
+- generated_at: 2026-05-26 06:03:48 Asia/Taipei
 - stock_id: 8103
 - stock_name: 瀚荃
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 104.5
-- high: 106
-- low: 103.5
-- close: 105.5
-- volume: 1085574
-- ma5: 105.9
-- ma20: 111.47
-- ma60: 97.77
-- ma120: 93.71
-- ema23: 106.99
-- return_5d: 1.93
-- return_20d: -15.26
-- volume_ratio: 0.43
-- distance_to_ma20_pct: -5.36
-- distance_to_high_60_pct: -22.71
+- open: 107.5
+- high: 109.5
+- low: 106.5
+- close: 107.5
+- volume: 2088599
+- ma5: 106.3
+- ma20: 111.58
+- ma60: 97.8
+- ma120: 93.73
+- ema23: 107.16
+- return_5d: 3.86
+- return_20d: -13.65
+- volume_ratio: 0.82
+- distance_to_ma20_pct: -3.65
+- distance_to_high_60_pct: -21.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,104.5,106,103.5,105.5,1085574,104.5,114,97.41,107.23,0.31
 20260524,104.5,106,103.5,105.5,1085574,104.8,113.45,97.56,107.09,0.34
 20260525,107.5,109.5,106.5,107.5,2088599,105.5,112.42,97.69,107.12,0.74
-20260526,104.5,106,103.5,105.5,1085574,105.9,111.47,97.77,106.99,0.43
+20260526,107.5,109.5,106.5,107.5,2088599,106.3,111.58,97.8,107.16,0.82
 ```
 
 ## Latest TDCC Snapshot
@@ -122,8 +122,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8103 | 瀚荃 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 8103 | 瀚荃 | revenue_pullback | 營收成長股價回檔 | 60.0 |  |  |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 8103 | 瀚荃 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 8103 | 瀚荃 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

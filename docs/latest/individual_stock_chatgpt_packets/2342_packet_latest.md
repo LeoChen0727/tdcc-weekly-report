@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2342 茂矽
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:52 Asia/Taipei
+- generated_at: 2026-05-26 06:02:01 Asia/Taipei
 - stock_id: 2342
 - stock_name: 茂矽
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 41.3
-- high: 41.6
-- low: 40.4
-- close: 41.4
-- volume: 4583060
-- ma5: 41.75
-- ma20: 40.87
-- ma60: 34.05
-- ma120: 32.74
-- ema23: 39.33
-- return_5d: 2.35
-- return_20d: 27.38
-- volume_ratio: 0.43
-- distance_to_ma20_pct: 1.3
-- distance_to_high_60_pct: -11.35
+- open: 43.35
+- high: 44.4
+- low: 42.2
+- close: 43.15
+- volume: 8930361
+- ma5: 42.1
+- ma20: 40.95
+- ma60: 34.08
+- ma120: 32.75
+- ema23: 39.47
+- return_5d: 6.67
+- return_20d: 32.77
+- volume_ratio: 0.82
+- distance_to_ma20_pct: 5.36
+- distance_to_high_60_pct: -7.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,41.3,41.6,40.4,41.4,4583060,40.01,39.34,33.58,38.53,0.46
 20260524,41.3,41.6,40.4,41.4,4583060,40.58,39.84,33.74,38.77,0.45
 20260525,43.35,44.4,42.2,43.15,8930361,41.56,40.42,33.91,39.14,0.85
-20260526,41.3,41.6,40.4,41.4,4583060,41.75,40.87,34.05,39.33,0.43
+20260526,43.35,44.4,42.2,43.15,8930361,42.1,40.95,34.08,39.47,0.82
 ```
 
 ## Latest TDCC Snapshot
@@ -120,9 +120,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2342 | 茂矽 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

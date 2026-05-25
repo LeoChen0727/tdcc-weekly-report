@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6226 光鼎
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:15 Asia/Taipei
+- generated_at: 2026-05-26 06:03:18 Asia/Taipei
 - stock_id: 6226
 - stock_name: 光鼎
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 12.4
-- high: 13.7
-- low: 12.15
-- close: 13.15
-- volume: 3367372
-- ma5: 13.32
-- ma20: 12.56
-- ma60: 12.26
-- ma120: 10.13
-- ema23: 12.74
-- return_5d: 5.2
-- return_20d: -1.13
-- volume_ratio: 1.73
-- distance_to_ma20_pct: 4.66
-- distance_to_high_60_pct: -18.32
+- open: 14.1
+- high: 14.3
+- low: 13.25
+- close: 14
+- volume: 6722758
+- ma5: 13.49
+- ma20: 12.61
+- ma60: 12.28
+- ma120: 10.14
+- ema23: 12.82
+- return_5d: 12
+- return_20d: 5.26
+- volume_ratio: 3.17
+- distance_to_ma20_pct: 11.04
+- distance_to_high_60_pct: -13.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,12.4,13.7,12.15,13.15,3367372,12.61,12.45,12.05,12.54,2.16
 20260524,12.4,13.7,12.15,13.15,3367372,12.85,12.5,12.12,12.59,2.06
 20260525,14.1,14.3,13.25,14,6722758,13.19,12.57,12.2,12.71,3.54
-20260526,12.4,13.7,12.15,13.15,3367372,13.32,12.56,12.26,12.74,1.73
+20260526,14.1,14.3,13.25,14,6722758,13.49,12.61,12.28,12.82,3.17
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6226 | 光鼎 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 6226 | 光鼎 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

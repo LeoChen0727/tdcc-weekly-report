@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2606 裕民
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:04 Asia/Taipei
+- generated_at: 2026-05-26 06:02:13 Asia/Taipei
 - stock_id: 2606
 - stock_name: 裕民
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 65
-- high: 65.6
+- open: 65.9
+- high: 67.9
 - low: 64.4
-- close: 65.4
-- volume: 4979472
-- ma5: 65.9
-- ma20: 64.34
-- ma60: 62.19
-- ma120: 62.14
-- ema23: 64.2
-- return_5d: 0.62
-- return_20d: 8.1
-- volume_ratio: 0.8
-- distance_to_ma20_pct: 1.64
-- distance_to_high_60_pct: -7.5
+- close: 67.9
+- volume: 7675465
+- ma5: 66.4
+- ma20: 64.47
+- ma60: 62.23
+- ma120: 62.16
+- ema23: 64.41
+- return_5d: 4.46
+- return_20d: 12.23
+- volume_ratio: 1.2
+- distance_to_ma20_pct: 5.32
+- distance_to_high_60_pct: -3.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,65,65.6,64.4,65.4,4979472,64.76,63.48,62.19,63.59,0.87
 20260524,65,65.6,64.4,65.4,4979472,65.14,63.73,62.2,63.74,0.85
 20260525,65.9,67.9,64.4,67.9,7675465,65.82,64.1,62.23,64.09,1.25
-20260526,65,65.6,64.4,65.4,4979472,65.9,64.34,62.19,64.2,0.8
+20260526,65.9,67.9,64.4,67.9,7675465,66.4,64.47,62.23,64.41,1.2
 ```
 
 ## Latest TDCC Snapshot
@@ -130,8 +130,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2606 | 裕民 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 2606 | 裕民 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 2606 | 裕民 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 2606 | 裕民 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1733 五鼎
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:42 Asia/Taipei
+- generated_at: 2026-05-26 06:01:51 Asia/Taipei
 - stock_id: 1733
 - stock_name: 五鼎
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 29.55
-- high: 29.75
-- low: 29.5
-- close: 29.65
-- volume: 122831
-- ma5: 29.7
-- ma20: 28.98
+- open: 29.85
+- high: 29.9
+- low: 29.35
+- close: 29.9
+- volume: 389174
+- ma5: 29.75
+- ma20: 28.99
 - ma60: 29.25
 - ma120: 29.77
-- ema23: 29.25
-- return_5d: 0.68
-- return_20d: 3.31
-- volume_ratio: 0.76
-- distance_to_ma20_pct: 2.33
-- distance_to_high_60_pct: -2.15
+- ema23: 29.27
+- return_5d: 1.53
+- return_20d: 4.18
+- volume_ratio: 2.22
+- distance_to_ma20_pct: 3.15
+- distance_to_high_60_pct: -1.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,29.55,29.75,29.5,29.65,122831,29.58,28.81,29.28,29.11,0.82
 20260524,29.55,29.75,29.5,29.65,122831,29.65,28.87,29.26,29.15,0.86
 20260525,29.85,29.9,29.35,29.9,389174,29.66,28.93,29.26,29.21,2.47
-20260526,29.55,29.75,29.5,29.65,122831,29.7,28.98,29.25,29.25,0.76
+20260526,29.85,29.9,29.35,29.9,389174,29.75,28.99,29.25,29.27,2.22
 ```
 
 ## Latest TDCC Snapshot

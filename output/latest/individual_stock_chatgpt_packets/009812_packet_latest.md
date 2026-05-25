@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009812 野村日本東證
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:27 Asia/Taipei
+- generated_at: 2026-05-26 06:01:37 Asia/Taipei
 - stock_id: 009812
 - stock_name: 野村日本東證
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 12.09
-- high: 12.12
-- low: 12.07
-- close: 12.11
-- volume: 810293
-- ma5: 12.13
-- ma20: 12.13
-- ma60: 12.13
-- ma120: 12.13
+- open: 12.25
+- high: 12.26
+- low: 12.17
+- close: 12.19
+- volume: 870343
+- ma5: 12.14
+- ma20: 12.14
+- ma60: 12.14
+- ma120: 12.14
 - ema23: 12.12
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.99
-- distance_to_ma20_pct: -0.13
-- distance_to_high_60_pct: -1.22
+- volume_ratio: 1.04
+- distance_to_ma20_pct: 0.4
+- distance_to_high_60_pct: -0.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,12.09,12.12,12.07,12.11,810293,,,,,
 20260524,12.09,12.12,12.07,12.11,810293,,,,,
 20260525,12.25,12.26,12.17,12.19,870343,,,,,
-20260526,12.09,12.12,12.07,12.11,810293,12.13,12.13,12.13,12.12,0.99
+20260526,12.25,12.26,12.17,12.19,870343,12.14,12.14,12.14,12.12,1.04
 ```
 
 ## Latest TDCC Snapshot

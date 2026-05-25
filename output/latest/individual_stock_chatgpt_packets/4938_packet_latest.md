@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4938 和碩
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:52 Asia/Taipei
+- generated_at: 2026-05-26 06:02:57 Asia/Taipei
 - stock_id: 4938
 - stock_name: 和碩
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 79.1
-- high: 81.1
-- low: 79.1
-- close: 80.7
-- volume: 14071678
-- ma5: 80.8
-- ma20: 80.55
-- ma60: 78.79
-- ma120: 74.54
-- ema23: 80.25
-- return_5d: 2.02
-- return_20d: -1.59
-- volume_ratio: 1.07
-- distance_to_ma20_pct: 0.19
-- distance_to_high_60_pct: -6.16
+- open: 81.7
+- high: 82.7
+- low: 81.1
+- close: 81.2
+- volume: 18210538
+- ma5: 80.9
+- ma20: 80.57
+- ma60: 78.8
+- ma120: 74.55
+- ema23: 80.29
+- return_5d: 2.65
+- return_20d: -0.98
+- volume_ratio: 1.37
+- distance_to_ma20_pct: 0.78
+- distance_to_high_60_pct: -5.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,79.1,81.1,79.1,80.7,14071678,78.92,80.81,78.39,80.06,1.17
 20260524,79.1,81.1,79.1,80.7,14071678,79.68,80.69,78.51,80.12,1.15
 20260525,81.7,82.7,81.1,81.2,18210538,80.48,80.61,78.64,80.21,1.42
-20260526,79.1,81.1,79.1,80.7,14071678,80.8,80.55,78.79,80.25,1.07
+20260526,81.7,82.7,81.1,81.2,18210538,80.9,80.57,78.8,80.29,1.37
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4938 | 和碩 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 4938 | 和碩 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6282 康舒
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:18 Asia/Taipei
+- generated_at: 2026-05-26 06:03:20 Asia/Taipei
 - stock_id: 6282
 - stock_name: 康舒
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 54.6
-- high: 58.3
-- low: 54.4
-- close: 57.4
-- volume: 78458652
-- ma5: 58.54
-- ma20: 52.95
-- ma60: 49.3
-- ma120: 47.89
-- ema23: 53.36
-- return_5d: 7.09
-- return_20d: 19.58
-- volume_ratio: 1.63
-- distance_to_ma20_pct: 8.39
-- distance_to_high_60_pct: -9.03
+- open: 60.2
+- high: 63.1
+- low: 58.6
+- close: 63.1
+- volume: 83984619
+- ma5: 59.68
+- ma20: 53.24
+- ma60: 49.4
+- ma120: 47.94
+- ema23: 53.83
+- return_5d: 17.72
+- return_20d: 31.46
+- volume_ratio: 1.73
+- distance_to_ma20_pct: 18.52
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,54.6,58.3,54.4,57.4,78458652,54,51.18,48.92,51.59,2.06
 20260524,54.6,58.3,54.4,57.4,78458652,55.32,51.72,49.02,52.07,1.9
 20260525,60.2,63.1,58.6,63.1,83984619,57.78,52.48,49.21,52.99,1.86
-20260526,54.6,58.3,54.4,57.4,78458652,58.54,52.95,49.3,53.36,1.63
+20260526,60.2,63.1,58.6,63.1,83984619,59.68,53.24,49.4,53.83,1.73
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6282 | 康舒 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  | call_put_bullish | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 6282 | 康舒 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_put_bullish | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

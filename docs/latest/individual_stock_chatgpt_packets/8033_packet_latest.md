@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8033 雷虎
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:44 Asia/Taipei
+- generated_at: 2026-05-26 06:03:45 Asia/Taipei
 - stock_id: 8033
 - stock_name: 雷虎
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 137
-- high: 138
-- low: 135
-- close: 138
-- volume: 2955500
-- ma5: 138.1
-- ma20: 142.22
-- ma60: 143.66
+- open: 139
+- high: 141
+- low: 136.5
+- close: 138.5
+- volume: 3307957
+- ma5: 138.2
+- ma20: 142.25
+- ma60: 143.67
 - ma120: 144.89
-- ema23: 140.9
-- return_5d: 1.84
-- return_20d: -3.5
-- volume_ratio: 0.69
-- distance_to_ma20_pct: -2.97
-- distance_to_high_60_pct: -16.11
+- ema23: 140.95
+- return_5d: 2.21
+- return_20d: -3.15
+- volume_ratio: 0.77
+- distance_to_ma20_pct: -2.64
+- distance_to_high_60_pct: -15.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,137,138,135,138,2955500,135.4,143.53,144.72,141.72,0.67
 20260524,137,138,135,138,2955500,136.5,142.78,144.37,141.41,0.67
 20260525,139,141,136.5,138.5,3307957,137.6,142.47,143.99,141.17,0.77
-20260526,137,138,135,138,2955500,138.1,142.22,143.66,140.9,0.69
+20260526,139,141,136.5,138.5,3307957,138.2,142.25,143.67,140.95,0.77
 ```
 
 ## Latest TDCC Snapshot

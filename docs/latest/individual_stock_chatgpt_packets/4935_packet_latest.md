@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4935 茂林-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:52 Asia/Taipei
+- generated_at: 2026-05-26 06:02:57 Asia/Taipei
 - stock_id: 4935
 - stock_name: 茂林-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 36.55
-- high: 37.5
-- low: 36.55
-- close: 37
-- volume: 106306
-- ma5: 37.05
-- ma20: 36.87
+- open: 37.1
+- high: 37.3
+- low: 36.5
+- close: 37.25
+- volume: 185370
+- ma5: 37.1
+- ma20: 36.88
 - ma60: 36.99
 - ma120: 38.78
-- ema23: 36.95
-- return_5d: 1.09
-- return_20d: -2.37
-- volume_ratio: 1.07
-- distance_to_ma20_pct: 0.37
-- distance_to_high_60_pct: -8.75
+- ema23: 36.97
+- return_5d: 1.78
+- return_20d: -1.72
+- volume_ratio: 1.8
+- distance_to_ma20_pct: 1.01
+- distance_to_high_60_pct: -8.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,36.55,37.5,36.55,37,106306,36.58,37.02,37.09,36.91,1.2
 20260524,36.55,37.5,36.55,37,106306,36.74,36.95,37.06,36.92,1.17
 20260525,37.1,37.3,36.5,37.25,185370,36.97,36.91,37.03,36.95,1.91
-20260526,36.55,37.5,36.55,37,106306,37.05,36.87,36.99,36.95,1.07
+20260526,37.1,37.3,36.5,37.25,185370,37.1,36.88,36.99,36.97,1.8
 ```
 
 ## Latest TDCC Snapshot

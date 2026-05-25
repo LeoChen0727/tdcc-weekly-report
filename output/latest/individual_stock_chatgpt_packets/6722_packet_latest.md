@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6722 輝創
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:30 Asia/Taipei
+- generated_at: 2026-05-26 06:03:32 Asia/Taipei
 - stock_id: 6722
 - stock_name: 輝創
 - packet_status: standard_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 37.5
-- high: 37.95
+- open: 37.6
+- high: 38.15
 - low: 37.3
-- close: 37.6
-- volume: 102826
-- ma5: 37.71
-- ma20: 38.66
-- ma60: 39.58
-- ma120: 40.66
-- ema23: 38.52
-- return_5d: -0.53
-- return_20d: -6
-- volume_ratio: 1.1
-- distance_to_ma20_pct: -2.75
-- distance_to_high_60_pct: -11.43
+- close: 38.15
+- volume: 123925
+- ma5: 37.82
+- ma20: 38.69
+- ma60: 39.59
+- ma120: 40.67
+- ema23: 38.57
+- return_5d: 0.93
+- return_20d: -4.62
+- volume_ratio: 1.31
+- distance_to_ma20_pct: -1.4
+- distance_to_high_60_pct: -10.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,37.5,37.95,37.3,37.6,102826,37.5,38.96,39.8,38.74,1.2
 20260524,37.5,37.95,37.3,37.6,102826,37.56,38.88,39.72,38.64,1.17
 20260525,37.6,38.15,37.3,38.15,123925,37.75,38.78,39.65,38.6,1.37
-20260526,37.5,37.95,37.3,37.6,102826,37.71,38.66,39.58,38.52,1.1
+20260526,37.6,38.15,37.3,38.15,123925,37.82,38.69,39.59,38.57,1.31
 ```
 
 ## Latest TDCC Snapshot

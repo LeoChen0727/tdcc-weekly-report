@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 006207 復華滬深
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:24 Asia/Taipei
+- generated_at: 2026-05-26 06:01:34 Asia/Taipei
 - stock_id: 006207
 - stock_name: 復華滬深
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 33.31
-- high: 33.31
-- low: 32.81
-- close: 32.99
-- volume: 162877
-- ma5: 33.07
-- ma20: 33.07
-- ma60: 33.07
-- ma120: 33.07
-- ema23: 33.02
+- open: 33.16
+- high: 33.41
+- low: 33.16
+- close: 33.38
+- volume: 154426
+- ma5: 33.15
+- ma20: 33.15
+- ma60: 33.15
+- ma120: 33.15
+- ema23: 33.05
 - return_5d: 
 - return_20d: 
-- volume_ratio: 1.01
-- distance_to_ma20_pct: -0.24
-- distance_to_high_60_pct: -1.26
+- volume_ratio: 0.97
+- distance_to_ma20_pct: 0.71
+- distance_to_high_60_pct: -0.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,33.31,33.31,32.81,32.99,162877,,,,,
 20260524,33.31,33.31,32.81,32.99,162877,,,,,
 20260525,33.16,33.41,33.16,33.38,154426,,,,,
-20260526,33.31,33.31,32.81,32.99,162877,33.07,33.07,33.07,33.02,1.01
+20260526,33.16,33.41,33.16,33.38,154426,33.15,33.15,33.15,33.05,0.97
 ```
 
 ## Latest TDCC Snapshot

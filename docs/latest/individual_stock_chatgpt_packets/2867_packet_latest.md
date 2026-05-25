@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2867 三商壽
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:10 Asia/Taipei
+- generated_at: 2026-05-26 06:02:18 Asia/Taipei
 - stock_id: 2867
 - stock_name: 三商壽
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 7.72
-- high: 7.74
-- low: 7.61
-- close: 7.63
-- volume: 7897344
-- ma5: 7.6
-- ma20: 7.69
+- open: 7.63
+- high: 7.63
+- low: 7.48
+- close: 7.5
+- volume: 13515677
+- ma5: 7.58
+- ma20: 7.68
 - ma60: 7.76
 - ma120: 7.79
-- ema23: 7.69
-- return_5d: -0.39
-- return_20d: -2.43
-- volume_ratio: 0.99
-- distance_to_ma20_pct: -0.73
-- distance_to_high_60_pct: -8.18
+- ema23: 7.68
+- return_5d: -2.09
+- return_20d: -4.09
+- volume_ratio: 1.64
+- distance_to_ma20_pct: -2.34
+- distance_to_high_60_pct: -9.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,7.72,7.74,7.61,7.63,7897344,7.67,7.72,7.79,7.72,1.06
 20260524,7.72,7.74,7.61,7.63,7897344,7.65,7.71,7.79,7.72,1.07
 20260525,7.63,7.63,7.48,7.5,13515677,7.61,7.7,7.77,7.7,1.74
-20260526,7.72,7.74,7.61,7.63,7897344,7.6,7.69,7.76,7.69,0.99
+20260526,7.63,7.63,7.48,7.5,13515677,7.58,7.68,7.76,7.68,1.64
 ```
 
 ## Latest TDCC Snapshot
@@ -122,12 +122,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2867 | 三商壽 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 2867 | 三商壽 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2867 | 三商壽 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260526 | 2867 | 三商壽 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

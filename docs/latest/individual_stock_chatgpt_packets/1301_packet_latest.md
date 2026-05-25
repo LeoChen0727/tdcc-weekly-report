@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1301 台塑
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:30 Asia/Taipei
+- generated_at: 2026-05-26 06:01:40 Asia/Taipei
 - stock_id: 1301
 - stock_name: 台塑
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 45.85
-- high: 45.95
-- low: 45.2
-- close: 45.25
-- volume: 12293483
-- ma5: 45.16
-- ma20: 47.34
+- open: 45.45
+- high: 45.5
+- low: 44.2
+- close: 44.8
+- volume: 21422060
+- ma5: 45.07
+- ma20: 47.32
 - ma60: 48.2
-- ma120: 45.64
-- ema23: 47.05
-- return_5d: -1.09
-- return_20d: -11.27
-- volume_ratio: 0.68
-- distance_to_ma20_pct: -4.41
-- distance_to_high_60_pct: -19.63
+- ma120: 45.63
+- ema23: 47.01
+- return_5d: -2.08
+- return_20d: -12.16
+- volume_ratio: 1.15
+- distance_to_ma20_pct: -5.32
+- distance_to_high_60_pct: -20.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,45.85,45.95,45.2,45.25,12293483,45.52,48.2,48.54,47.63,0.66
 20260524,45.85,45.95,45.2,45.25,12293483,45.38,47.94,48.41,47.43,0.67
 20260525,45.45,45.5,44.2,44.8,21422060,45.26,47.63,48.29,47.21,1.16
-20260526,45.85,45.95,45.2,45.25,12293483,45.16,47.34,48.2,47.05,0.68
+20260526,45.45,45.5,44.2,44.8,21422060,45.07,47.32,48.2,47.01,1.15
 ```
 
 ## Latest TDCC Snapshot

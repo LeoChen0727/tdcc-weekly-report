@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2615 萬海
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:05 Asia/Taipei
+- generated_at: 2026-05-26 06:02:13 Asia/Taipei
 - stock_id: 2615
 - stock_name: 萬海
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 82.7
-- high: 85.2
-- low: 82.4
-- close: 84.3
-- volume: 23283486
-- ma5: 84.1
-- ma20: 78.92
-- ma60: 77.96
-- ma120: 77.82
-- ema23: 79.63
-- return_5d: 3.82
-- return_20d: 11.36
-- volume_ratio: 1.74
-- distance_to_ma20_pct: 6.81
-- distance_to_high_60_pct: -8.77
+- open: 84.4
+- high: 85.3
+- low: 80.9
+- close: 83.3
+- volume: 18668678
+- ma5: 83.9
+- ma20: 78.88
+- ma60: 77.94
+- ma120: 77.81
+- ema23: 79.54
+- return_5d: 2.59
+- return_20d: 10.04
+- volume_ratio: 1.42
+- distance_to_ma20_pct: 5.61
+- distance_to_high_60_pct: -9.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,82.7,85.2,82.4,84.3,23283486,82.26,77.59,77.64,78.33,2.13
 20260524,82.7,85.2,82.4,84.3,23283486,83.04,78.08,77.77,78.83,1.98
 20260525,84.4,85.3,80.9,83.3,18668678,83.48,78.5,77.88,79.2,1.5
-20260526,82.7,85.2,82.4,84.3,23283486,84.1,78.92,77.96,79.63,1.74
+20260526,84.4,85.3,80.9,83.3,18668678,83.9,78.88,77.94,79.54,1.42
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2615 | 萬海 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 2615 | 萬海 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4440 宜新實業
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:43 Asia/Taipei
+- generated_at: 2026-05-26 06:02:48 Asia/Taipei
 - stock_id: 4440
 - stock_name: 宜新實業
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 18.1
-- high: 18.25
-- low: 18.05
-- close: 18.25
-- volume: 53628
-- ma5: 18.15
-- ma20: 18.18
-- ma60: 17.8
-- ma120: 17.71
-- ema23: 18.13
-- return_5d: 0.83
-- return_20d: 1.39
-- volume_ratio: 0.34
-- distance_to_ma20_pct: 0.36
-- distance_to_high_60_pct: -9.2
+- open: 18.3
+- high: 18.4
+- low: 17.75
+- close: 17.75
+- volume: 167364
+- ma5: 18.05
+- ma20: 18.16
+- ma60: 17.79
+- ma120: 17.7
+- ema23: 18.09
+- return_5d: -1.93
+- return_20d: -1.39
+- volume_ratio: 1.03
+- distance_to_ma20_pct: -2.26
+- distance_to_high_60_pct: -11.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,18.1,18.25,18.05,18.25,53628,18.25,18.16,17.77,18.15,0.36
 20260524,18.1,18.25,18.05,18.25,53628,18.21,18.18,17.79,18.16,0.36
 20260525,18.3,18.4,17.75,17.75,167364,18.12,18.17,17.79,18.12,1.08
-20260526,18.1,18.25,18.05,18.25,53628,18.15,18.18,17.8,18.13,0.34
+20260526,18.3,18.4,17.75,17.75,167364,18.05,18.16,17.79,18.09,1.03
 ```
 
 ## Latest TDCC Snapshot

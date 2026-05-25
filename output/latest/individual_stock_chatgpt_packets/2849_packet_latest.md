@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2849 安泰銀
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:09 Asia/Taipei
+- generated_at: 2026-05-26 06:02:17 Asia/Taipei
 - stock_id: 2849
 - stock_name: 安泰銀
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 13.15
+- open: 13.3
 - high: 13.35
-- low: 13.15
+- low: 13.2
 - close: 13.3
-- volume: 87550
+- volume: 58190
 - ma5: 13.3
 - ma20: 13.48
 - ma60: 13.4
@@ -66,7 +66,7 @@
 - ema23: 13.43
 - return_5d: 0
 - return_20d: -3.62
-- volume_ratio: 0.78
+- volume_ratio: 0.53
 - distance_to_ma20_pct: -1.34
 - distance_to_high_60_pct: -6.99
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,13.15,13.35,13.15,13.3,87550,13.27,13.56,13.44,13.47,0.8
 20260524,13.15,13.35,13.15,13.3,87550,13.27,13.54,13.43,13.46,0.8
 20260525,13.3,13.35,13.2,13.3,58190,13.3,13.51,13.41,13.44,0.53
-20260526,13.15,13.35,13.15,13.3,87550,13.3,13.48,13.4,13.43,0.78
+20260526,13.3,13.35,13.2,13.3,58190,13.3,13.48,13.4,13.43,0.53
 ```
 
 ## Latest TDCC Snapshot

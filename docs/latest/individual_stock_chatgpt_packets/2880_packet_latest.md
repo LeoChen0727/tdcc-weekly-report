@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2880 華南金
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:10 Asia/Taipei
+- generated_at: 2026-05-26 06:02:18 Asia/Taipei
 - stock_id: 2880
 - stock_name: 華南金
 - packet_status: standard_180d_window_packet
@@ -55,20 +55,20 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 32
-- high: 32.4
-- low: 31.6
-- close: 31.95
-- volume: 32193459
-- ma5: 31.67
-- ma20: 32.3
-- ma60: 33.65
-- ma120: 33.01
-- ema23: 32.52
-- return_5d: -0.31
-- return_20d: -2.89
-- volume_ratio: 1.25
-- distance_to_ma20_pct: -1.1
-- distance_to_high_60_pct: -13.18
+- high: 32
+- low: 30.55
+- close: 30.55
+- volume: 66355162
+- ma5: 31.39
+- ma20: 32.23
+- ma60: 33.62
+- ma120: 33
+- ema23: 32.41
+- return_5d: -4.68
+- return_20d: -7.14
+- volume_ratio: 2.42
+- distance_to_ma20_pct: -5.23
+- distance_to_high_60_pct: -16.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,32,32.4,31.6,31.95,32193459,32.04,32.64,33.94,32.84,1.37
 20260524,32,32.4,31.6,31.95,32193459,31.99,32.48,33.85,32.76,1.33
 20260525,32,32,30.55,30.55,66355162,31.69,32.35,33.73,32.58,2.6
-20260526,32,32.4,31.6,31.95,32193459,31.67,32.3,33.65,32.52,1.25
+20260526,32,32,30.55,30.55,66355162,31.39,32.23,33.62,32.41,2.42
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2880 | 華南金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 2880 | 華南金 | revenue_pullback | 營收成長股價回檔 | 77.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

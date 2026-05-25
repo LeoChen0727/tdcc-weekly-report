@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2516 新建
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:03 Asia/Taipei
+- generated_at: 2026-05-26 06:02:11 Asia/Taipei
 - stock_id: 2516
 - stock_name: 新建
 - packet_status: standard_180d_window_packet
@@ -56,19 +56,19 @@
 - date: 20260526
 - open: 12.35
 - high: 12.35
-- low: 12.2
-- close: 12.35
-- volume: 93250
-- ma5: 12.29
-- ma20: 12.84
-- ma60: 13.46
+- low: 11.9
+- close: 12.05
+- volume: 602103
+- ma5: 12.23
+- ma20: 12.82
+- ma60: 13.45
 - ma120: 14.12
-- ema23: 12.77
-- return_5d: 0
-- return_20d: -10.18
-- volume_ratio: 0.36
-- distance_to_ma20_pct: -3.82
-- distance_to_high_60_pct: -19.28
+- ema23: 12.74
+- return_5d: -2.43
+- return_20d: -12.36
+- volume_ratio: 2.13
+- distance_to_ma20_pct: -6.04
+- distance_to_high_60_pct: -21.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,12.35,12.35,12.2,12.35,93250,12.36,12.99,13.59,12.92,0.34
 20260524,12.35,12.35,12.2,12.35,93250,12.34,12.98,13.55,12.87,0.35
 20260525,12.35,12.35,11.9,12.05,602103,12.29,12.91,13.5,12.8,2.24
-20260526,12.35,12.35,12.2,12.35,93250,12.29,12.84,13.46,12.77,0.36
+20260526,12.35,12.35,11.9,12.05,602103,12.23,12.82,13.45,12.74,2.13
 ```
 
 ## Latest TDCC Snapshot

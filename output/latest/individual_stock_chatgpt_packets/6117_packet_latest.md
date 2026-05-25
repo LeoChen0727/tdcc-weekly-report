@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6117 迎廣
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:07 Asia/Taipei
+- generated_at: 2026-05-26 06:03:11 Asia/Taipei
 - stock_id: 6117
 - stock_name: 迎廣
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 83.5
-- high: 88.6
-- low: 83.1
-- close: 88.5
-- volume: 1400142
-- ma5: 89.18
-- ma20: 84.3
-- ma60: 78.42
-- ma120: 78.96
-- ema23: 84.28
-- return_5d: 7.14
-- return_20d: -2.43
-- volume_ratio: 1.43
-- distance_to_ma20_pct: 4.99
-- distance_to_high_60_pct: -4.22
+- open: 90.2
+- high: 92.4
+- low: 89.1
+- close: 91.9
+- volume: 2262487
+- ma5: 89.86
+- ma20: 84.47
+- ma60: 78.47
+- ma120: 78.99
+- ema23: 84.57
+- return_5d: 11.26
+- return_20d: 1.32
+- volume_ratio: 2.22
+- distance_to_ma20_pct: 8.8
+- distance_to_high_60_pct: -0.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,83.5,88.6,83.1,88.5,1400142,83.68,84.2,77.72,82.69,1.3
 20260524,83.5,88.6,83.1,88.5,1400142,85.42,84.27,77.93,83.17,1.34
 20260525,90.2,92.4,89.1,91.9,2262487,88,84.41,78.19,83.9,2.29
-20260526,83.5,88.6,83.1,88.5,1400142,89.18,84.3,78.42,84.28,1.43
+20260526,90.2,92.4,89.1,91.9,2262487,89.86,84.47,78.47,84.57,2.22
 ```
 
 ## Latest TDCC Snapshot

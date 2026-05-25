@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9937 全國
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:59 Asia/Taipei
+- generated_at: 2026-05-26 06:03:59 Asia/Taipei
 - stock_id: 9937
 - stock_name: 全國
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 55.7
-- high: 55.7
-- low: 55.2
-- close: 55.6
-- volume: 57376
-- ma5: 55.58
-- ma20: 56.21
+- open: 55.6
+- high: 56.1
+- low: 55.3
+- close: 55.5
+- volume: 39992
+- ma5: 55.56
+- ma20: 56.2
 - ma60: 56.88
 - ma120: 57.39
-- ema23: 56.18
-- return_5d: -0.54
-- return_20d: -1.77
-- volume_ratio: 1.22
-- distance_to_ma20_pct: -1.09
-- distance_to_high_60_pct: -14.46
+- ema23: 56.17
+- return_5d: -0.72
+- return_20d: -1.94
+- volume_ratio: 0.86
+- distance_to_ma20_pct: -1.25
+- distance_to_high_60_pct: -14.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,55.7,55.7,55.2,55.6,57376,55.9,56.35,57.05,56.36,1.3
 20260524,55.7,55.7,55.2,55.6,57376,55.74,56.31,57,56.3,1.3
 20260525,55.6,56.1,55.3,55.5,39992,55.64,56.26,56.94,56.23,0.88
-20260526,55.7,55.7,55.2,55.6,57376,55.58,56.21,56.88,56.18,1.22
+20260526,55.6,56.1,55.3,55.5,39992,55.56,56.2,56.88,56.17,0.86
 ```
 
 ## Latest TDCC Snapshot

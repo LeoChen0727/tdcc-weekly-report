@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6671 三能-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:28 Asia/Taipei
+- generated_at: 2026-05-26 06:03:30 Asia/Taipei
 - stock_id: 6671
 - stock_name: 三能-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 28.55
-- high: 28.55
-- low: 27.85
-- close: 28
-- volume: 44399
-- ma5: 27.9
-- ma20: 28.93
-- ma60: 30.81
+- open: 28.05
+- high: 28.05
+- low: 27.5
+- close: 27.5
+- volume: 81171
+- ma5: 27.8
+- ma20: 28.91
+- ma60: 30.8
 - ma120: 33.65
-- ema23: 29.03
-- return_5d: -0.89
-- return_20d: -7.28
-- volume_ratio: 1.1
-- distance_to_ma20_pct: -3.23
-- distance_to_high_60_pct: -25.73
+- ema23: 28.99
+- return_5d: -2.65
+- return_20d: -8.94
+- volume_ratio: 1.92
+- distance_to_ma20_pct: -4.88
+- distance_to_high_60_pct: -27.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,28.55,28.55,27.85,28,44399,28.11,29.28,31.27,29.39,1.23
 20260524,28.55,28.55,27.85,28,44399,28.11,29.18,31.12,29.27,1.2
 20260525,28.05,28.05,27.5,27.5,81171,27.95,29.05,30.96,29.12,2.08
-20260526,28.55,28.55,27.85,28,44399,27.9,28.93,30.81,29.03,1.1
+20260526,28.05,28.05,27.5,27.5,81171,27.8,28.91,30.8,28.99,1.92
 ```
 
 ## Latest TDCC Snapshot

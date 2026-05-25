@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1342 八貫
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:32 Asia/Taipei
+- generated_at: 2026-05-26 06:01:42 Asia/Taipei
 - stock_id: 1342
 - stock_name: 八貫
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 93.2
-- high: 95.3
-- low: 93
-- close: 94.2
-- volume: 354050
-- ma5: 94.02
-- ma20: 93.74
-- ma60: 91.53
-- ma120: 92
-- ema23: 93.42
-- return_5d: 1.07
-- return_20d: 0.75
-- volume_ratio: 1.18
-- distance_to_ma20_pct: 0.49
-- distance_to_high_60_pct: -8.54
+- open: 94.3
+- high: 94.5
+- low: 92.5
+- close: 93.3
+- volume: 287556
+- ma5: 93.84
+- ma20: 93.69
+- ma60: 91.51
+- ma120: 91.99
+- ema23: 93.34
+- return_5d: 0.11
+- return_20d: -0.21
+- volume_ratio: 0.97
+- distance_to_ma20_pct: -0.42
+- distance_to_high_60_pct: -9.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,93.2,95.3,93,94.2,354050,93.1,93.53,91.93,93.27,1.11
 20260524,93.2,95.3,93,94.2,354050,93.56,93.63,91.78,93.35,1.18
 20260525,94.3,94.5,92.5,93.3,287556,93.82,93.7,91.65,93.35,0.97
-20260526,93.2,95.3,93,94.2,354050,94.02,93.74,91.53,93.42,1.18
+20260526,94.3,94.5,92.5,93.3,287556,93.84,93.69,91.51,93.34,0.97
 ```
 
 ## Latest TDCC Snapshot

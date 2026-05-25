@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2405 輔信
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:56 Asia/Taipei
+- generated_at: 2026-05-26 06:02:05 Asia/Taipei
 - stock_id: 2405
 - stock_name: 輔信
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 16.35
-- high: 16.85
-- low: 16.15
-- close: 16.55
-- volume: 5532772
-- ma5: 16.65
-- ma20: 15.61
-- ma60: 15.49
+- open: 16.9
+- high: 17.45
+- low: 16.7
+- close: 17.05
+- volume: 8397429
+- ma5: 16.75
+- ma20: 15.64
+- ma60: 15.5
 - ma120: 16.41
-- ema23: 15.81
-- return_5d: 3.44
-- return_20d: 9.97
-- volume_ratio: 1.72
-- distance_to_ma20_pct: 6
-- distance_to_high_60_pct: -6.23
+- ema23: 15.85
+- return_5d: 6.56
+- return_20d: 13.29
+- volume_ratio: 2.5
+- distance_to_ma20_pct: 9.03
+- distance_to_high_60_pct: -3.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,16.35,16.85,16.15,16.55,5532772,15.92,15.37,15.46,15.54,2.26
 20260524,16.35,16.85,16.15,16.55,5532772,16.23,15.44,15.47,15.63,2.09
 20260525,16.9,17.45,16.7,17.05,8397429,16.54,15.54,15.48,15.75,2.8
-20260526,16.35,16.85,16.15,16.55,5532772,16.65,15.61,15.49,15.81,1.72
+20260526,16.9,17.45,16.7,17.05,8397429,16.75,15.64,15.5,15.85,2.5
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2405 | 輔信 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 2405 | 輔信 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 2405 | 輔信 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

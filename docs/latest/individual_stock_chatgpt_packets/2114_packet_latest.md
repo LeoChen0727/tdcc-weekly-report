@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2114 鑫永銓
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:49 Asia/Taipei
+- generated_at: 2026-05-26 06:01:58 Asia/Taipei
 - stock_id: 2114
 - stock_name: 鑫永銓
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 89.2
-- high: 90.6
-- low: 89.2
-- close: 90.1
-- volume: 107446
-- ma5: 90.4
-- ma20: 88.83
-- ma60: 88.69
-- ma120: 89.24
-- ema23: 89.18
-- return_5d: 0.56
-- return_20d: 1.69
-- volume_ratio: 1.15
-- distance_to_ma20_pct: 1.43
-- distance_to_high_60_pct: -1.74
+- open: 90.5
+- high: 91.7
+- low: 90.5
+- close: 91.6
+- volume: 149373
+- ma5: 90.7
+- ma20: 88.91
+- ma60: 88.72
+- ma120: 89.25
+- ema23: 89.3
+- return_5d: 2.23
+- return_20d: 3.39
+- volume_ratio: 1.57
+- distance_to_ma20_pct: 3.03
+- distance_to_high_60_pct: -0.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,89.2,90.6,89.2,90.1,107446,89.54,88.56,88.65,88.75,1.32
 20260524,89.2,90.6,89.2,90.1,107446,89.82,88.61,88.66,88.87,1.29
 20260525,90.5,91.7,90.5,91.6,149373,90.3,88.75,88.69,89.09,1.67
-20260526,89.2,90.6,89.2,90.1,107446,90.4,88.83,88.69,89.18,1.15
+20260526,90.5,91.7,90.5,91.6,149373,90.7,88.91,88.72,89.3,1.57
 ```
 
 ## Latest TDCC Snapshot

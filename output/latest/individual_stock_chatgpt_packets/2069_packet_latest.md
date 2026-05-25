@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2069 運錩
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:48 Asia/Taipei
+- generated_at: 2026-05-26 06:01:57 Asia/Taipei
 - stock_id: 2069
 - stock_name: 運錩
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 19.3
-- high: 19.55
-- low: 19.15
-- close: 19.2
-- volume: 655340
-- ma5: 19.27
-- ma20: 19.36
+- open: 19.2
+- high: 20
+- low: 19.2
+- close: 19.55
+- volume: 825279
+- ma5: 19.34
+- ma20: 19.38
 - ma60: 18.92
-- ma120: 18.57
-- ema23: 19.28
-- return_5d: -1.03
-- return_20d: 0.52
-- volume_ratio: 1.25
-- distance_to_ma20_pct: -0.84
-- distance_to_high_60_pct: -8.35
+- ma120: 18.58
+- ema23: 19.31
+- return_5d: 0.77
+- return_20d: 2.36
+- volume_ratio: 1.55
+- distance_to_ma20_pct: 0.88
+- distance_to_high_60_pct: -6.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,19.3,19.55,19.15,19.2,655340,19.27,19.31,18.9,19.27,1.39
 20260524,19.3,19.55,19.15,19.2,655340,19.27,19.34,18.9,19.26,1.34
 20260525,19.2,20,19.2,19.55,825279,19.31,19.36,18.91,19.29,1.62
-20260526,19.3,19.55,19.15,19.2,655340,19.27,19.36,18.92,19.28,1.25
+20260526,19.2,20,19.2,19.55,825279,19.34,19.38,18.92,19.31,1.55
 ```
 
 ## Latest TDCC Snapshot

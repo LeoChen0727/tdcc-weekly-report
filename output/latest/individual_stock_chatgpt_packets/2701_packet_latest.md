@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2701 萬企
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:06 Asia/Taipei
+- generated_at: 2026-05-26 06:02:14 Asia/Taipei
 - stock_id: 2701
 - stock_name: 萬企
 - packet_status: standard_180d_window_packet
@@ -58,7 +58,7 @@
 - high: 10.3
 - low: 10.2
 - close: 10.25
-- volume: 221345
+- volume: 193203
 - ma5: 10.25
 - ma20: 10.44
 - ma60: 10.67
@@ -66,7 +66,7 @@
 - ema23: 10.43
 - return_5d: 0
 - return_20d: -4.21
-- volume_ratio: 1.59
+- volume_ratio: 1.4
 - distance_to_ma20_pct: -1.84
 - distance_to_high_60_pct: -7.66
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,10.25,10.3,10.2,10.25,221345,10.25,10.51,10.71,10.48,1.89
 20260524,10.25,10.3,10.2,10.25,221345,10.24,10.49,10.69,10.47,1.81
 20260525,10.25,10.3,10.2,10.25,193203,10.25,10.46,10.68,10.45,1.5
-20260526,10.25,10.3,10.2,10.25,221345,10.25,10.44,10.67,10.43,1.59
+20260526,10.25,10.3,10.2,10.25,193203,10.25,10.44,10.67,10.43,1.4
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2832 台產
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:09 Asia/Taipei
+- generated_at: 2026-05-26 06:02:17 Asia/Taipei
 - stock_id: 2832
 - stock_name: 台產
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 53.3
-- high: 53.5
-- low: 53.1
-- close: 53.2
-- volume: 122179
-- ma5: 53.14
-- ma20: 53.12
+- open: 53
+- high: 53
+- low: 52.7
+- close: 52.9
+- volume: 242039
+- ma5: 53.08
+- ma20: 53.1
 - ma60: 50.11
 - ma120: 50.27
-- ema23: 52.58
-- return_5d: -0.56
-- return_20d: 2.7
-- volume_ratio: 0.57
-- distance_to_ma20_pct: 0.16
-- distance_to_high_60_pct: -3.45
+- ema23: 52.55
+- return_5d: -1.12
+- return_20d: 2.12
+- volume_ratio: 1.1
+- distance_to_ma20_pct: -0.38
+- distance_to_high_60_pct: -3.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,53.3,53.5,53.1,53.2,122179,53.28,52.89,49.94,52.42,0.57
 20260524,53.3,53.5,53.1,53.2,122179,53.34,53,50,52.49,0.57
 20260525,53,53,52.7,52.9,242039,53.2,53.05,50.06,52.52,1.14
-20260526,53.3,53.5,53.1,53.2,122179,53.14,53.12,50.11,52.58,0.57
+20260526,53,53,52.7,52.9,242039,53.08,53.1,50.11,52.55,1.1
 ```
 
 ## Latest TDCC Snapshot

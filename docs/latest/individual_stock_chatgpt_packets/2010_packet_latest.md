@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2010 春源
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:45 Asia/Taipei
+- generated_at: 2026-05-26 06:01:55 Asia/Taipei
 - stock_id: 2010
 - stock_name: 春源
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 22.55
-- high: 22.6
-- low: 22.35
-- close: 22.4
-- volume: 1353995
-- ma5: 22.53
-- ma20: 23.26
-- ma60: 24.08
+- open: 22.6
+- high: 23.3
+- low: 22.5
+- close: 23.05
+- volume: 2819116
+- ma5: 22.66
+- ma20: 23.29
+- ma60: 24.09
 - ma120: 22.62
-- ema23: 23.22
-- return_5d: -0.44
-- return_20d: -9.86
-- volume_ratio: 0.69
-- distance_to_ma20_pct: -3.7
-- distance_to_high_60_pct: -14.83
+- ema23: 23.28
+- return_5d: 2.44
+- return_20d: -7.24
+- volume_ratio: 1.38
+- distance_to_ma20_pct: -1.04
+- distance_to_high_60_pct: -12.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,22.55,22.6,22.35,22.4,1353995,22.39,23.58,24.09,23.41,0.72
 20260524,22.55,22.6,22.35,22.4,1353995,22.38,23.48,24.09,23.32,0.71
 20260525,22.6,23.3,22.5,23.05,2819116,22.55,23.38,24.09,23.3,1.44
-20260526,22.55,22.6,22.35,22.4,1353995,22.53,23.26,24.08,23.22,0.69
+20260526,22.6,23.3,22.5,23.05,2819116,22.66,23.29,24.09,23.28,1.38
 ```
 
 ## Latest TDCC Snapshot

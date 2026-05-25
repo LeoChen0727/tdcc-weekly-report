@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00661 元大日經225
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:24 Asia/Taipei
+- generated_at: 2026-05-26 06:01:35 Asia/Taipei
 - stock_id: 00661
 - stock_name: 元大日經225
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 81.15
-- high: 81.85
-- low: 80.95
-- close: 81.85
-- volume: 78192
-- ma5: 82.32
-- ma20: 82.32
-- ma60: 82.32
-- ma120: 82.32
-- ema23: 82.03
+- open: 83.8
+- high: 84.35
+- low: 83.8
+- close: 84.2
+- volume: 239666
+- ma5: 82.79
+- ma20: 82.79
+- ma60: 82.79
+- ma120: 82.79
+- ema23: 82.23
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.71
-- distance_to_ma20_pct: -0.57
-- distance_to_high_60_pct: -2.96
+- volume_ratio: 1.68
+- distance_to_ma20_pct: 1.7
+- distance_to_high_60_pct: -0.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,81.15,81.85,80.95,81.85,78192,,,,,
 20260524,81.15,81.85,80.95,81.85,78192,,,,,
 20260525,83.8,84.35,83.8,84.2,239666,,,,,
-20260526,81.15,81.85,80.95,81.85,78192,82.32,82.32,82.32,82.03,0.71
+20260526,83.8,84.35,83.8,84.2,239666,82.79,82.79,82.79,82.23,1.68
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6581 鋼聯
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:25 Asia/Taipei
+- generated_at: 2026-05-26 06:03:27 Asia/Taipei
 - stock_id: 6581
 - stock_name: 鋼聯
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 106.5
+- open: 107
 - high: 107.5
 - low: 106.5
 - close: 107
-- volume: 10631
+- volume: 36423
 - ma5: 107
 - ma20: 107.67
 - ma60: 108.33
@@ -66,7 +66,7 @@
 - ema23: 107.47
 - return_5d: 0.47
 - return_20d: -0.47
-- volume_ratio: 0.5
+- volume_ratio: 1.61
 - distance_to_ma20_pct: -0.63
 - distance_to_high_60_pct: -5.73
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,106.5,107.5,106.5,107,10631,107,107.75,108.51,107.61,0.51
 20260524,106.5,107.5,106.5,107,10631,106.9,107.75,108.46,107.56,0.52
 20260525,107,107.5,106.5,107,36423,106.9,107.7,108.39,107.51,1.7
-20260526,106.5,107.5,106.5,107,10631,107,107.67,108.33,107.47,0.5
+20260526,107,107.5,106.5,107,36423,107,107.67,108.33,107.47,1.61
 ```
 
 ## Latest TDCC Snapshot

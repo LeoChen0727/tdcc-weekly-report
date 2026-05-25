@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00936 台新永續高息中小
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:26 Asia/Taipei
+- generated_at: 2026-05-26 06:01:37 Asia/Taipei
 - stock_id: 00936
 - stock_name: 台新永續高息中小
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 19.93
-- high: 20.02
-- low: 19.82
-- close: 20.02
-- volume: 6266026
-- ma5: 20.08
-- ma20: 20.08
-- ma60: 20.08
-- ma120: 20.08
-- ema23: 20.04
+- open: 20.2
+- high: 20.41
+- low: 20.19
+- close: 20.33
+- volume: 5354100
+- ma5: 20.14
+- ma20: 20.14
+- ma60: 20.14
+- ma120: 20.14
+- ema23: 20.07
 - return_5d: 
 - return_20d: 
-- volume_ratio: 1.03
-- distance_to_ma20_pct: -0.31
-- distance_to_high_60_pct: -1.91
+- volume_ratio: 0.91
+- distance_to_ma20_pct: 0.92
+- distance_to_high_60_pct: -0.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,19.93,20.02,19.82,20.02,6266026,,,,,
 20260524,19.93,20.02,19.82,20.02,6266026,,,,,
 20260525,20.2,20.41,20.19,20.33,5354100,,,,,
-20260526,19.93,20.02,19.82,20.02,6266026,20.08,20.08,20.08,20.04,1.03
+20260526,20.2,20.41,20.19,20.33,5354100,20.14,20.14,20.14,20.07,0.91
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2428 興勤
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:58 Asia/Taipei
+- generated_at: 2026-05-26 06:02:06 Asia/Taipei
 - stock_id: 2428
 - stock_name: 興勤
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 230.5
-- high: 243.5
-- low: 230
-- close: 242.5
-- volume: 2117639
-- ma5: 242.6
-- ma20: 210.62
-- ma60: 181.39
-- ma120: 179.35
-- ema23: 212.94
-- return_5d: 5.43
-- return_20d: 35.85
-- volume_ratio: 0.98
-- distance_to_ma20_pct: 15.13
-- distance_to_high_60_pct: -4.34
+- open: 252
+- high: 253.5
+- low: 240
+- close: 243
+- volume: 2635774
+- ma5: 242.7
+- ma20: 210.65
+- ma60: 181.4
+- ma120: 179.36
+- ema23: 212.98
+- return_5d: 5.65
+- return_20d: 36.13
+- volume_ratio: 1.2
+- distance_to_ma20_pct: 15.36
+- distance_to_high_60_pct: -4.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,230.5,243.5,230,242.5,2117639,230.4,200.6,178.7,204.07,1.1
 20260524,230.5,243.5,230,242.5,2117639,236.1,204.07,179.58,207.27,1.06
 20260525,252,253.5,240,243,2635774,240.1,207.43,180.47,210.25,1.25
-20260526,230.5,243.5,230,242.5,2117639,242.6,210.62,181.39,212.94,0.98
+20260526,252,253.5,240,243,2635774,242.7,210.65,181.4,212.98,1.2
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6235 華孚
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:15 Asia/Taipei
+- generated_at: 2026-05-26 06:03:18 Asia/Taipei
 - stock_id: 6235
 - stock_name: 華孚
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 41.4
-- high: 42.15
-- low: 41.25
-- close: 41.9
-- volume: 867540
-- ma5: 41.78
-- ma20: 41.81
-- ma60: 45.46
-- ma120: 52.97
-- ema23: 42.37
-- return_5d: 1.45
-- return_20d: -4.45
-- volume_ratio: 0.97
-- distance_to_ma20_pct: 0.22
-- distance_to_high_60_pct: -26.75
+- open: 41.9
+- high: 42.25
+- low: 41.05
+- close: 41.3
+- volume: 1170672
+- ma5: 41.66
+- ma20: 41.78
+- ma60: 45.45
+- ma120: 52.96
+- ema23: 42.32
+- return_5d: 0
+- return_20d: -5.82
+- volume_ratio: 1.29
+- distance_to_ma20_pct: -1.15
+- distance_to_high_60_pct: -27.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,41.4,42.15,41.25,41.9,867540,40.91,42.17,46.27,42.57,1.05
 20260524,41.4,42.15,41.25,41.9,867540,41.35,42.08,45.99,42.52,1.04
 20260525,41.9,42.25,41.05,41.3,1170672,41.66,41.91,45.72,42.41,1.35
-20260526,41.4,42.15,41.25,41.9,867540,41.78,41.81,45.46,42.37,0.97
+20260526,41.9,42.25,41.05,41.3,1170672,41.66,41.78,45.45,42.32,1.29
 ```
 
 ## Latest TDCC Snapshot

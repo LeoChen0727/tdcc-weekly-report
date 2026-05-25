@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1443 立益物流
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:33 Asia/Taipei
+- generated_at: 2026-05-26 06:01:43 Asia/Taipei
 - stock_id: 1443
 - stock_name: 立益物流
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 26.4
-- high: 26.6
-- low: 26.1
-- close: 26.1
-- volume: 11100
-- ma5: 26.06
-- ma20: 25.6
+- open: 26.5
+- high: 26.5
+- low: 25.4
+- close: 25.9
+- volume: 13982
+- ma5: 26.02
+- ma20: 25.59
 - ma60: 24.52
 - ma120: 25.82
-- ema23: 25.48
-- return_5d: -1.32
-- return_20d: 22.54
-- volume_ratio: 0.32
-- distance_to_ma20_pct: 1.94
-- distance_to_high_60_pct: -5.78
+- ema23: 25.46
+- return_5d: -2.08
+- return_20d: 21.6
+- volume_ratio: 0.4
+- distance_to_ma20_pct: 1.2
+- distance_to_high_60_pct: -6.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,26.4,26.6,26.1,26.1,11100,26.32,24.93,24.59,25.31,0.27
 20260524,26.4,26.6,26.1,26.1,11100,26.24,25.14,24.56,25.38,0.27
 20260525,26.5,26.5,25.4,25.9,13982,26.13,25.36,24.53,25.42,0.36
-20260526,26.4,26.6,26.1,26.1,11100,26.06,25.6,24.52,25.48,0.32
+20260526,26.5,26.5,25.4,25.9,13982,26.02,25.59,24.52,25.46,0.4
 ```
 
 ## Latest TDCC Snapshot

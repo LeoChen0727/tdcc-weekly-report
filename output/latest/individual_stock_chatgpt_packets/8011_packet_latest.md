@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8011 台通
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:44 Asia/Taipei
+- generated_at: 2026-05-26 06:03:45 Asia/Taipei
 - stock_id: 8011
 - stock_name: 台通
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 18.1
-- high: 18.4
-- low: 17.85
-- close: 18.4
-- volume: 1701485
-- ma5: 18.37
-- ma20: 18.68
+- open: 18.6
+- high: 18.65
+- low: 18.2
+- close: 18.25
+- volume: 1092197
+- ma5: 18.34
+- ma20: 18.67
 - ma60: 19.85
 - ma120: 20.86
-- ema23: 18.8
-- return_5d: 1.94
-- return_20d: -5.64
-- volume_ratio: 0.94
-- distance_to_ma20_pct: -1.47
-- distance_to_high_60_pct: -16.74
+- ema23: 18.79
+- return_5d: 1.11
+- return_20d: -6.41
+- volume_ratio: 0.61
+- distance_to_ma20_pct: -2.24
+- distance_to_high_60_pct: -17.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,18.1,18.4,17.85,18.4,1701485,18.1,18.86,19.99,18.93,0.94
 20260524,18.1,18.4,17.85,18.4,1701485,18.21,18.8,19.95,18.89,0.95
 20260525,18.6,18.65,18.2,18.25,1092197,18.3,18.73,19.9,18.84,0.61
-20260526,18.1,18.4,17.85,18.4,1701485,18.37,18.68,19.85,18.8,0.94
+20260526,18.6,18.65,18.2,18.25,1092197,18.34,18.67,19.85,18.79,0.61
 ```
 
 ## Latest TDCC Snapshot

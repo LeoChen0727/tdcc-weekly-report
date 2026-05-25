@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3051 力特
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:17 Asia/Taipei
+- generated_at: 2026-05-26 06:02:24 Asia/Taipei
 - stock_id: 3051
 - stock_name: 力特
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 26.35
-- high: 28.2
-- low: 26.25
-- close: 28.2
-- volume: 7126759
-- ma5: 28.72
-- ma20: 27.09
-- ma60: 23.37
-- ma120: 22.27
-- ema23: 26.46
-- return_5d: 9.94
-- return_20d: 2.73
-- volume_ratio: 1.08
-- distance_to_ma20_pct: 4.08
-- distance_to_high_60_pct: -9.03
+- open: 31
+- high: 31
+- low: 30
+- close: 30.8
+- volume: 18063694
+- ma5: 29.24
+- ma20: 27.23
+- ma60: 23.41
+- ma120: 22.29
+- ema23: 26.67
+- return_5d: 20.08
+- return_20d: 12.2
+- volume_ratio: 2.53
+- distance_to_ma20_pct: 13.13
+- distance_to_high_60_pct: -0.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,26.35,28.2,26.25,28.2,7126759,26.4,26.64,23.07,25.68,1.09
 20260524,26.35,28.2,26.25,28.2,7126759,27.02,26.84,23.15,25.89,1.05
 20260525,31,31,30,30.8,18063694,28.21,27.06,23.28,26.3,2.49
-20260526,26.35,28.2,26.25,28.2,7126759,28.72,27.09,23.37,26.46,1.08
+20260526,31,31,30,30.8,18063694,29.24,27.23,23.41,26.67,2.53
 ```
 
 ## Latest TDCC Snapshot
@@ -122,13 +122,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3051 | 力特 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 3051 | 力特 | pattern | 型態觀察 |  |  |  | 預備發動型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 3051 | 力特 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 3051 | 力特 | pattern | 型態觀察 |  |  |  | 預備發動型 |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3051 | 力特 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260526 | 3051 | 力特 | 4 | 4 | 4 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | status |

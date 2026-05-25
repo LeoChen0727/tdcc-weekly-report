@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1802 台玻
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:44 Asia/Taipei
+- generated_at: 2026-05-26 06:01:53 Asia/Taipei
 - stock_id: 1802
 - stock_name: 台玻
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 67.1
-- high: 70.6
-- low: 67
-- close: 70.5
-- volume: 125407590
-- ma5: 71.18
-- ma20: 68.64
-- ma60: 63.28
-- ma120: 52.45
-- ema23: 68.07
-- return_5d: 8.29
-- return_20d: 6.5
-- volume_ratio: 1.17
-- distance_to_ma20_pct: 2.71
-- distance_to_high_60_pct: -8.32
+- open: 73
+- high: 76.8
+- low: 71.9
+- close: 73.9
+- volume: 185285181
+- ma5: 71.86
+- ma20: 68.81
+- ma60: 63.34
+- ma120: 52.48
+- ema23: 68.35
+- return_5d: 13.52
+- return_20d: 11.63
+- volume_ratio: 1.69
+- distance_to_ma20_pct: 7.4
+- distance_to_high_60_pct: -3.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,67.1,70.6,67,70.5,125407590,67.06,67.94,62.86,67,1.22
 20260524,67.1,70.6,67,70.5,125407590,68.1,68.26,63.01,67.3,1.2
 20260525,73,76.8,71.9,73.9,185285181,70.1,68.42,63.22,67.85,1.73
-20260526,67.1,70.6,67,70.5,125407590,71.18,68.64,63.28,68.07,1.17
+20260526,73,76.8,71.9,73.9,185285181,71.86,68.81,63.34,68.35,1.69
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1802 | 台玻 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 1802 | 台玻 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 1802 | 台玻 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1234 黑松
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:29 Asia/Taipei
+- generated_at: 2026-05-26 06:01:39 Asia/Taipei
 - stock_id: 1234
 - stock_name: 黑松
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 33.75
-- high: 33.85
+- open: 33.55
+- high: 33.95
 - low: 33.55
-- close: 33.55
-- volume: 137831
-- ma5: 33.63
-- ma20: 34.31
+- close: 33.95
+- volume: 140516
+- ma5: 33.71
+- ma20: 34.33
 - ma60: 35.43
-- ma120: 36.47
-- ema23: 34.34
-- return_5d: -1.03
-- return_20d: -4.82
-- volume_ratio: 0.7
-- distance_to_ma20_pct: -2.22
-- distance_to_high_60_pct: -10.05
+- ma120: 36.48
+- ema23: 34.38
+- return_5d: 0.15
+- return_20d: -3.69
+- volume_ratio: 0.72
+- distance_to_ma20_pct: -1.11
+- distance_to_high_60_pct: -8.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,33.75,33.85,33.55,33.55,137831,33.75,34.55,35.61,34.54,0.69
 20260524,33.75,33.85,33.55,33.55,137831,33.66,34.46,35.55,34.46,0.71
 20260525,33.55,33.95,33.55,33.95,140516,33.7,34.4,35.49,34.41,0.72
-20260526,33.75,33.85,33.55,33.55,137831,33.63,34.31,35.43,34.34,0.7
+20260526,33.55,33.95,33.55,33.95,140516,33.71,34.33,35.43,34.38,0.72
 ```
 
 ## Latest TDCC Snapshot

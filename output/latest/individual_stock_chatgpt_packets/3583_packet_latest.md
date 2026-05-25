@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3583 辛耘
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:33 Asia/Taipei
+- generated_at: 2026-05-26 06:02:39 Asia/Taipei
 - stock_id: 3583
 - stock_name: 辛耘
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 881
-- high: 916
-- low: 867
-- close: 875
-- volume: 2131668
-- ma5: 883.2
-- ma20: 860.65
-- ma60: 650.62
-- ma120: 490.78
-- ema23: 837.24
-- return_5d: 1.63
-- return_20d: 13.34
-- volume_ratio: 0.67
-- distance_to_ma20_pct: 1.67
-- distance_to_high_60_pct: -13.37
+- open: 891
+- high: 957
+- low: 888
+- close: 916
+- volume: 2911488
+- ma5: 891.4
+- ma20: 862.7
+- ma60: 651.3
+- ma120: 491.12
+- ema23: 840.66
+- return_5d: 6.39
+- return_20d: 18.65
+- volume_ratio: 0.9
+- distance_to_ma20_pct: 6.18
+- distance_to_high_60_pct: -9.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,881,916,867,875,2131668,855.8,839.65,624.5,821.91,0.63
 20260524,881,916,867,875,2131668,862.4,846.6,633.08,826.34,0.63
 20260525,891,957,888,916,2911488,880.4,855.5,642.17,833.81,0.88
-20260526,881,916,867,875,2131668,883.2,860.65,650.62,837.24,0.67
+20260526,891,957,888,916,2911488,891.4,862.7,651.3,840.66,0.9
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3583 | 辛耘 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | call_put_bullish | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 3583 | 辛耘 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_put_bullish | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1731 美吾華
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:42 Asia/Taipei
+- generated_at: 2026-05-26 06:01:51 Asia/Taipei
 - stock_id: 1731
 - stock_name: 美吾華
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 21.6
-- high: 21.6
-- low: 21.5
+- open: 21.5
+- high: 21.55
+- low: 21.45
 - close: 21.5
-- volume: 133768
+- volume: 153576
 - ma5: 21.5
 - ma20: 21.59
 - ma60: 21.75
@@ -66,7 +66,7 @@
 - ema23: 21.6
 - return_5d: -0.46
 - return_20d: -0.69
-- volume_ratio: 1.16
+- volume_ratio: 1.32
 - distance_to_ma20_pct: -0.44
 - distance_to_high_60_pct: -3.15
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,21.6,21.6,21.5,21.5,133768,21.55,21.63,21.77,21.63,1.21
 20260524,21.6,21.6,21.5,21.5,133768,21.55,21.62,21.77,21.62,1.19
 20260525,21.5,21.55,21.45,21.5,153576,21.52,21.6,21.76,21.61,1.38
-20260526,21.6,21.6,21.5,21.5,133768,21.5,21.59,21.75,21.6,1.16
+20260526,21.5,21.55,21.45,21.5,153576,21.5,21.59,21.75,21.6,1.32
 ```
 
 ## Latest TDCC Snapshot

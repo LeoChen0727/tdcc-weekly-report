@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3008 大立光
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:13 Asia/Taipei
+- generated_at: 2026-05-26 06:02:21 Asia/Taipei
 - stock_id: 3008
 - stock_name: 大立光
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 3450
-- high: 3595
-- low: 3450
-- close: 3540
-- volume: 1289200
-- ma5: 3601
-- ma20: 3069.5
-- ma60: 2621.5
-- ma120: 2472.33
-- ema23: 3134.17
-- return_5d: 2.31
-- return_20d: 36.42
-- volume_ratio: 0.6
-- distance_to_ma20_pct: 15.33
-- distance_to_high_60_pct: -7.93
+- open: 3635
+- high: 3845
+- low: 3635
+- close: 3845
+- volume: 1446961
+- ma5: 3662
+- ma20: 3084.75
+- ma60: 2626.58
+- ma120: 2474.88
+- ema23: 3159.58
+- return_5d: 11.13
+- return_20d: 48.17
+- volume_ratio: 0.67
+- distance_to_ma20_pct: 24.65
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,3450,3595,3450,3540,1289200,3421,2912.75,2562.58,2982.87,0.58
 20260524,3450,3595,3450,3540,1289200,3456,2959,2581.33,3029.3,0.59
 20260525,3635,3845,3635,3845,1446961,3585,3022.25,2603.42,3097.27,0.67
-20260526,3450,3595,3450,3540,1289200,3601,3069.5,2621.5,3134.17,0.6
+20260526,3635,3845,3635,3845,1446961,3662,3084.75,2626.58,3159.58,0.67
 ```
 
 ## Latest TDCC Snapshot

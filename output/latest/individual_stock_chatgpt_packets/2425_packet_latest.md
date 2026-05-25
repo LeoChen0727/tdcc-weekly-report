@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2425 承啟
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:57 Asia/Taipei
+- generated_at: 2026-05-26 06:02:06 Asia/Taipei
 - stock_id: 2425
 - stock_name: 承啟
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 34.4
-- high: 34.85
-- low: 34.15
-- close: 34.7
-- volume: 618830
-- ma5: 34.76
-- ma20: 33.22
-- ma60: 30.29
-- ma120: 29.96
-- ema23: 33.03
-- return_5d: 1.91
-- return_20d: 16.25
-- volume_ratio: 0.67
-- distance_to_ma20_pct: 4.45
-- distance_to_high_60_pct: -3.48
+- open: 35
+- high: 35.65
+- low: 34.85
+- close: 35
+- volume: 877321
+- ma5: 34.82
+- ma20: 33.24
+- ma60: 30.3
+- ma120: 29.97
+- ema23: 33.05
+- return_5d: 2.79
+- return_20d: 17.25
+- volume_ratio: 0.93
+- distance_to_ma20_pct: 5.3
+- distance_to_high_60_pct: -2.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,34.4,34.85,34.15,34.7,618830,33.72,32.47,29.96,32.5,0.72
 20260524,34.4,34.85,34.15,34.7,618830,34.16,32.73,30.07,32.68,0.71
 20260525,35,35.65,34.85,35,877321,34.63,32.98,30.18,32.87,0.97
-20260526,34.4,34.85,34.15,34.7,618830,34.76,33.22,30.29,33.03,0.67
+20260526,35,35.65,34.85,35,877321,34.82,33.24,30.3,33.05,0.93
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3557 嘉威
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:32 Asia/Taipei
+- generated_at: 2026-05-26 06:02:38 Asia/Taipei
 - stock_id: 3557
 - stock_name: 嘉威
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 24.5
-- high: 25.9
-- low: 24.1
-- close: 25.9
-- volume: 427991
-- ma5: 25.88
-- ma20: 27.22
+- open: 25.95
+- high: 26.45
+- low: 25.5
+- close: 25.8
+- volume: 88224
+- ma5: 25.86
+- ma20: 27.21
 - ma60: 29.64
 - ma120: 32.7
-- ema23: 27.26
-- return_5d: 5.71
-- return_20d: -15.5
-- volume_ratio: 1.84
-- distance_to_ma20_pct: -4.85
-- distance_to_high_60_pct: -22.69
+- ema23: 27.25
+- return_5d: 5.31
+- return_20d: -15.82
+- volume_ratio: 0.41
+- distance_to_ma20_pct: -5.2
+- distance_to_high_60_pct: -22.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,24.5,25.9,24.1,25.9,427991,25.2,27.9,30.06,27.67,2.19
 20260524,24.5,25.9,24.1,25.9,427991,25.37,27.7,29.92,27.52,2.03
 20260525,25.95,26.45,25.5,25.8,88224,25.6,27.46,29.78,27.38,0.41
-20260526,24.5,25.9,24.1,25.9,427991,25.88,27.22,29.64,27.26,1.84
+20260526,25.95,26.45,25.5,25.8,88224,25.86,27.21,29.64,27.25,0.41
 ```
 
 ## Latest TDCC Snapshot

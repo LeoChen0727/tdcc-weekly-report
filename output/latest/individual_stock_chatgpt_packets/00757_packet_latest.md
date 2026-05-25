@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00757 統一FANG+
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:25 Asia/Taipei
+- generated_at: 2026-05-26 06:01:35 Asia/Taipei
 - stock_id: 00757
 - stock_name: 統一FANG+
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 129
-- high: 129.3
-- low: 128.85
-- close: 129.2
-- volume: 2083392
-- ma5: 129.26
-- ma20: 129.26
-- ma60: 129.26
-- ma120: 129.26
-- ema23: 129.22
+- open: 129.3
+- high: 129.55
+- low: 129.05
+- close: 129.5
+- volume: 3744483
+- ma5: 129.32
+- ma20: 129.32
+- ma60: 129.32
+- ma120: 129.32
+- ema23: 129.25
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.86
-- distance_to_ma20_pct: -0.05
-- distance_to_high_60_pct: -0.27
+- volume_ratio: 1.36
+- distance_to_ma20_pct: 0.14
+- distance_to_high_60_pct: -0.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,129,129.3,128.85,129.2,2083392,,,,,
 20260524,129,129.3,128.85,129.2,2083392,,,,,
 20260525,129.3,129.55,129.05,129.5,3744483,,,,,
-20260526,129,129.3,128.85,129.2,2083392,129.26,129.26,129.26,129.22,0.86
+20260526,129.3,129.55,129.05,129.5,3744483,129.32,129.32,129.32,129.25,1.36
 ```
 
 ## Latest TDCC Snapshot

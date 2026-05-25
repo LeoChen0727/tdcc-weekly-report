@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1463 強盛新
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:34 Asia/Taipei
+- generated_at: 2026-05-26 06:01:44 Asia/Taipei
 - stock_id: 1463
 - stock_name: 強盛新
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 17.9
-- high: 18
-- low: 17.9
-- close: 17.9
-- volume: 35697
-- ma5: 17.87
-- ma20: 18.11
+- open: 17.8
+- high: 17.85
+- low: 17.75
+- close: 17.75
+- volume: 22201
+- ma5: 17.84
+- ma20: 18.1
 - ma60: 18.03
 - ma120: 18.25
-- ema23: 18.03
-- return_5d: -0.56
-- return_20d: -5.04
-- volume_ratio: 0.67
-- distance_to_ma20_pct: -1.16
-- distance_to_high_60_pct: -9.14
+- ema23: 18.02
+- return_5d: -1.39
+- return_20d: -5.84
+- volume_ratio: 0.42
+- distance_to_ma20_pct: -1.95
+- distance_to_high_60_pct: -9.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,17.9,18,17.9,17.9,35697,17.95,18.26,18.06,18.09,0.26
 20260524,17.9,18,17.9,17.9,35697,17.98,18.25,18.05,18.07,0.36
 20260525,17.8,17.85,17.75,17.75,22201,17.89,18.16,18.04,18.04,0.28
-20260526,17.9,18,17.9,17.9,35697,17.87,18.11,18.03,18.03,0.67
+20260526,17.8,17.85,17.75,17.75,22201,17.84,18.1,18.03,18.02,0.42
 ```
 
 ## Latest TDCC Snapshot

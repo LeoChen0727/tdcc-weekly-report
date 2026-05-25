@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5225 東科-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:56 Asia/Taipei
+- generated_at: 2026-05-26 06:03:00 Asia/Taipei
 - stock_id: 5225
 - stock_name: 東科-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 71.1
+- open: 71.5
 - high: 71.5
-- low: 70.5
-- close: 71.2
-- volume: 234790
-- ma5: 71.06
-- ma20: 72.81
-- ma60: 80.72
-- ma120: 91.24
-- ema23: 73.25
-- return_5d: 0.14
-- return_20d: -7.29
-- volume_ratio: 0.74
-- distance_to_ma20_pct: -2.2
-- distance_to_high_60_pct: -27.49
+- low: 70.3
+- close: 70.5
+- volume: 352033
+- ma5: 70.92
+- ma20: 72.77
+- ma60: 80.71
+- ma120: 91.23
+- ema23: 73.2
+- return_5d: -0.84
+- return_20d: -8.2
+- volume_ratio: 1.09
+- distance_to_ma20_pct: -3.12
+- distance_to_high_60_pct: -28.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,71.1,71.5,70.5,71.2,234790,70.86,73.52,82.12,73.94,0.74
 20260524,71.1,71.5,70.5,71.2,234790,71,73.31,81.65,73.71,0.76
 20260525,71.5,71.5,70.3,70.5,352033,71.04,73.08,81.17,73.44,1.1
-20260526,71.1,71.5,70.5,71.2,234790,71.06,72.81,80.72,73.25,0.74
+20260526,71.5,71.5,70.3,70.5,352033,70.92,72.77,80.71,73.2,1.09
 ```
 
 ## Latest TDCC Snapshot

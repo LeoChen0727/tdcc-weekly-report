@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6768 志強-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:32 Asia/Taipei
+- generated_at: 2026-05-26 06:03:33 Asia/Taipei
 - stock_id: 6768
 - stock_name: 志強-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 85.2
-- high: 85.3
-- low: 84
-- close: 84.2
-- volume: 549164
-- ma5: 84.16
-- ma20: 84.38
+- open: 85
+- high: 85.4
+- low: 83.2
+- close: 84
+- volume: 412641
+- ma5: 84.12
+- ma20: 84.37
 - ma60: 86.73
 - ma120: 97.49
-- ema23: 84.4
-- return_5d: -1.17
-- return_20d: 8.93
-- volume_ratio: 0.73
-- distance_to_ma20_pct: -0.21
-- distance_to_high_60_pct: -17.04
+- ema23: 84.39
+- return_5d: -1.41
+- return_20d: 8.67
+- volume_ratio: 0.55
+- distance_to_ma20_pct: -0.44
+- distance_to_high_60_pct: -17.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,85.2,85.3,84,84.2,549164,84.66,83.22,87.55,84.48,0.68
 20260524,85.2,85.3,84,84.2,549164,84.42,83.71,87.27,84.46,0.71
 20260525,85,85.4,83.2,84,412641,84.36,84.03,87,84.42,0.55
-20260526,85.2,85.3,84,84.2,549164,84.16,84.38,86.73,84.4,0.73
+20260526,85,85.4,83.2,84,412641,84.12,84.37,86.73,84.39,0.55
 ```
 
 ## Latest TDCC Snapshot

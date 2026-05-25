@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6213 聯茂
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:14 Asia/Taipei
+- generated_at: 2026-05-26 06:03:17 Asia/Taipei
 - stock_id: 6213
 - stock_name: 聯茂
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 253
-- high: 270.5
-- low: 250
-- close: 262
-- volume: 12036161
-- ma5: 263
-- ma20: 269
-- ma60: 213.43
-- ma120: 164.3
-- ema23: 257.94
-- return_5d: 6.29
-- return_20d: 3.35
-- volume_ratio: 1.1
-- distance_to_ma20_pct: -2.6
-- distance_to_high_60_pct: -18.63
+- open: 270
+- high: 276
+- low: 265
+- close: 267
+- volume: 15399710
+- ma5: 264
+- ma20: 269.25
+- ma60: 213.52
+- ma120: 164.34
+- ema23: 258.35
+- return_5d: 8.32
+- return_20d: 5.33
+- volume_ratio: 1.38
+- distance_to_ma20_pct: -0.84
+- distance_to_high_60_pct: -17.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,253,270.5,250,262,12036161,249.5,268.05,207.25,256.23,1.17
 20260524,253,270.5,250,262,12036161,253.8,267.9,209.18,256.71,1.17
 20260525,270,276,265,267,15399710,259.9,268.57,211.27,257.57,1.44
-20260526,253,270.5,250,262,12036161,263,269,213.43,257.94,1.1
+20260526,270,276,265,267,15399710,264,269.25,213.52,258.35,1.38
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6213 | 聯茂 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | call_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 6213 | 聯茂 | pattern | 型態觀察 | 51.0 |  |  | early_entry_watch |  | call_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2712 遠雄來
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:07 Asia/Taipei
+- generated_at: 2026-05-26 06:02:15 Asia/Taipei
 - stock_id: 2712
 - stock_name: 遠雄來
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 15.25
-- high: 15.5
-- low: 15.25
-- close: 15.5
-- volume: 8080
-- ma5: 15.4
-- ma20: 16.21
-- ma60: 16.13
+- open: 15.15
+- high: 15.15
+- low: 15
+- close: 15
+- volume: 22819
+- ma5: 15.3
+- ma20: 16.18
+- ma60: 16.12
 - ma120: 17.1
-- ema23: 15.95
-- return_5d: 2.31
-- return_20d: -13.41
-- volume_ratio: 0.59
-- distance_to_ma20_pct: -4.38
-- distance_to_high_60_pct: -15.07
+- ema23: 15.91
+- return_5d: -0.99
+- return_20d: -16.2
+- volume_ratio: 1.59
+- distance_to_ma20_pct: -7.32
+- distance_to_high_60_pct: -17.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,15.25,15.5,15.25,15.5,8080,15.22,16.5,16.23,16.14,0.43
 20260524,15.25,15.5,15.25,15.5,8080,15.32,16.47,16.2,16.08,0.44
 20260525,15.15,15.15,15,15,22819,15.33,16.33,16.16,15.99,1.46
-20260526,15.25,15.5,15.25,15.5,8080,15.4,16.21,16.13,15.95,0.59
+20260526,15.15,15.15,15,15,22819,15.3,16.18,16.12,15.91,1.59
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4560 強信-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:46 Asia/Taipei
+- generated_at: 2026-05-26 06:02:51 Asia/Taipei
 - stock_id: 4560
 - stock_name: 強信-KY
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 33.05
-- high: 33.05
-- low: 32.25
+- open: 32.5
+- high: 32.75
+- low: 32
 - close: 32.3
-- volume: 267710
+- volume: 495002
 - ma5: 32.3
 - ma20: 34.13
 - ma60: 33.58
@@ -66,7 +66,7 @@
 - ema23: 33.57
 - return_5d: -1.82
 - return_20d: -10.03
-- volume_ratio: 0.92
+- volume_ratio: 1.63
 - distance_to_ma20_pct: -5.35
 - distance_to_high_60_pct: -13.87
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,33.05,33.05,32.25,32.3,267710,32.58,34.72,33.63,33.95,0.89
 20260524,33.05,33.05,32.25,32.3,267710,32.48,34.55,33.61,33.82,0.91
 20260525,32.5,32.75,32,32.3,495002,32.42,34.31,33.59,33.69,1.66
-20260526,33.05,33.05,32.25,32.3,267710,32.3,34.13,33.58,33.57,0.92
+20260526,32.5,32.75,32,32.3,495002,32.3,34.13,33.58,33.57,1.63
 ```
 
 ## Latest TDCC Snapshot

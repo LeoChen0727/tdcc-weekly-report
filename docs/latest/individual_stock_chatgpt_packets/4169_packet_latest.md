@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4169 泰宗
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:41 Asia/Taipei
+- generated_at: 2026-05-26 06:02:46 Asia/Taipei
 - stock_id: 4169
 - stock_name: 泰宗
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 158
-- high: 161
-- low: 157
-- close: 159
-- volume: 134518
-- ma5: 158.9
-- ma20: 155.47
-- ma60: 158.51
-- ma120: 158.51
-- ema23: 156.34
-- return_5d: 0.95
-- return_20d: 0.63
-- volume_ratio: 0.85
-- distance_to_ma20_pct: 2.27
-- distance_to_high_60_pct: -12.15
+- open: 156
+- high: 159
+- low: 152
+- close: 158.5
+- volume: 217243
+- ma5: 158.8
+- ma20: 155.45
+- ma60: 158.5
+- ma120: 158.5
+- ema23: 156.29
+- return_5d: 0.63
+- return_20d: 0.32
+- volume_ratio: 1.34
+- distance_to_ma20_pct: 1.96
+- distance_to_high_60_pct: -12.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,158,161,157,159,134518,155.5,155.43,158.48,155.59,0.79
 20260524,158,161,157,159,134518,157.3,155.38,158.5,155.88,0.85
 20260525,156,159,152,158.5,217243,158.6,155.43,158.5,156.09,1.35
-20260526,158,161,157,159,134518,158.9,155.47,158.51,156.34,0.85
+20260526,156,159,152,158.5,217243,158.8,155.45,158.5,156.29,1.34
 ```
 
 ## Latest TDCC Snapshot

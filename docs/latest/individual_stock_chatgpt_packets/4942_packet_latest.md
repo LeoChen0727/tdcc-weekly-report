@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4942 嘉彰
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:52 Asia/Taipei
+- generated_at: 2026-05-26 06:02:57 Asia/Taipei
 - stock_id: 4942
 - stock_name: 嘉彰
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 37.25
-- high: 37.65
-- low: 37
-- close: 37.65
-- volume: 198324
-- ma5: 37.71
-- ma20: 37.61
-- ma60: 37.85
+- open: 37.8
+- high: 38.15
+- low: 37.75
+- close: 37.95
+- volume: 169103
+- ma5: 37.77
+- ma20: 37.63
+- ma60: 37.86
 - ma120: 38.17
-- ema23: 37.67
-- return_5d: 1.21
-- return_20d: -1.18
-- volume_ratio: 1.55
-- distance_to_ma20_pct: 0.1
-- distance_to_high_60_pct: -3.46
+- ema23: 37.69
+- return_5d: 2.02
+- return_20d: -0.39
+- volume_ratio: 1.34
+- distance_to_ma20_pct: 0.86
+- distance_to_high_60_pct: -2.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,37.25,37.65,37,37.65,198324,37.27,37.66,37.89,37.64,1.76
 20260524,37.25,37.65,37,37.65,198324,37.44,37.64,37.88,37.64,1.67
 20260525,37.8,38.15,37.75,37.95,169103,37.62,37.63,37.87,37.67,1.37
-20260526,37.25,37.65,37,37.65,198324,37.71,37.61,37.85,37.67,1.55
+20260526,37.8,38.15,37.75,37.95,169103,37.77,37.63,37.86,37.69,1.34
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1326 台化
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:31 Asia/Taipei
+- generated_at: 2026-05-26 06:01:41 Asia/Taipei
 - stock_id: 1326
 - stock_name: 台化
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 45.5
-- high: 45.75
-- low: 45.15
-- close: 45.55
-- volume: 11219996
-- ma5: 45.43
-- ma20: 47
-- ma60: 46.83
+- open: 45.55
+- high: 45.55
+- low: 44.25
+- close: 44.95
+- volume: 17590321
+- ma5: 45.31
+- ma20: 46.97
+- ma60: 46.82
 - ma120: 41.33
-- ema23: 46.61
-- return_5d: 0.22
-- return_20d: -13.24
-- volume_ratio: 0.61
-- distance_to_ma20_pct: -3.08
-- distance_to_high_60_pct: -17.18
+- ema23: 46.56
+- return_5d: -1.1
+- return_20d: -14.38
+- volume_ratio: 0.94
+- distance_to_ma20_pct: -4.3
+- distance_to_high_60_pct: -18.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,45.5,45.75,45.15,45.55,11219996,45.2,47.91,47.03,46.99,0.52
 20260524,45.5,45.75,45.15,45.55,11219996,45.33,47.67,46.97,46.87,0.54
 20260525,45.55,45.55,44.25,44.95,17590321,45.41,47.34,46.87,46.71,0.87
-20260526,45.5,45.75,45.15,45.55,11219996,45.43,47,46.83,46.61,0.61
+20260526,45.55,45.55,44.25,44.95,17590321,45.31,46.97,46.82,46.56,0.94
 ```
 
 ## Latest TDCC Snapshot

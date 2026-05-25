@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9926 新海
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:58 Asia/Taipei
+- generated_at: 2026-05-26 06:03:58 Asia/Taipei
 - stock_id: 9926
 - stock_name: 新海
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 48.8
-- high: 49
-- low: 48.8
-- close: 49
-- volume: 31903
-- ma5: 48.99
-- ma20: 49.15
+- open: 49.05
+- high: 49.1
+- low: 48.95
+- close: 48.95
+- volume: 21659
+- ma5: 48.98
+- ma20: 49.14
 - ma60: 49.89
 - ma120: 49.72
 - ema23: 49.19
-- return_5d: 0.1
-- return_20d: -0.61
-- volume_ratio: 0.57
-- distance_to_ma20_pct: -0.29
-- distance_to_high_60_pct: -14.34
+- return_5d: 0
+- return_20d: -0.71
+- volume_ratio: 0.39
+- distance_to_ma20_pct: -0.39
+- distance_to_high_60_pct: -14.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,48.8,49,48.8,49,31903,49.02,49.19,49.94,49.26,0.55
 20260524,48.8,49,48.8,49,31903,49,49.18,49.93,49.23,0.56
 20260525,49.05,49.1,48.95,48.95,21659,48.98,49.16,49.91,49.21,0.39
-20260526,48.8,49,48.8,49,31903,48.99,49.15,49.89,49.19,0.57
+20260526,49.05,49.1,48.95,48.95,21659,48.98,49.14,49.89,49.19,0.39
 ```
 
 ## Latest TDCC Snapshot

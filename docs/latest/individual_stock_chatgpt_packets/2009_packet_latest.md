@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2009 第一銅
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:45 Asia/Taipei
+- generated_at: 2026-05-26 06:01:55 Asia/Taipei
 - stock_id: 2009
 - stock_name: 第一銅
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 39
-- high: 39.6
-- low: 38.55
-- close: 39.3
-- volume: 1666124
-- ma5: 39.57
-- ma20: 39.02
-- ma60: 40.31
-- ma120: 43.42
-- ema23: 39.3
-- return_5d: 1.29
-- return_20d: 3.42
-- volume_ratio: 0.69
-- distance_to_ma20_pct: 0.72
-- distance_to_high_60_pct: -16.12
+- open: 40.05
+- high: 40.9
+- low: 39.9
+- close: 40.65
+- volume: 3720678
+- ma5: 39.84
+- ma20: 39.09
+- ma60: 40.33
+- ma120: 43.43
+- ema23: 39.42
+- return_5d: 4.77
+- return_20d: 6.97
+- volume_ratio: 1.49
+- distance_to_ma20_pct: 4
+- distance_to_high_60_pct: -13.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,39,39.6,38.55,39.3,1666124,38.59,38.75,40.64,39.17,0.76
 20260524,39,39.6,38.55,39.3,1666124,38.94,38.84,40.53,39.18,0.75
 20260525,40.05,40.9,39.9,40.65,3720678,39.47,38.95,40.43,39.3,1.58
-20260526,39,39.6,38.55,39.3,1666124,39.57,39.02,40.31,39.3,0.69
+20260526,40.05,40.9,39.9,40.65,3720678,39.84,39.09,40.33,39.42,1.49
 ```
 
 ## Latest TDCC Snapshot
@@ -122,13 +122,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2009 | 第一銅 | pattern | 型態觀察 | 48.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 2009 | 第一銅 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 2009 | 第一銅 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 2009 | 第一銅 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2009 | 第一銅 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260526 | 2009 | 第一銅 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

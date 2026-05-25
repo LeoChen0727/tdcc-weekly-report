@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5471 松翰
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:01 Asia/Taipei
+- generated_at: 2026-05-26 06:03:05 Asia/Taipei
 - stock_id: 5471
 - stock_name: 松翰
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 52.7
-- high: 54.1
-- low: 52.1
-- close: 54
-- volume: 4079111
-- ma5: 53.8
-- ma20: 49.48
-- ma60: 44.08
-- ma120: 39.63
-- ema23: 49.47
-- return_5d: 2.86
-- return_20d: 27.66
-- volume_ratio: 1.15
-- distance_to_ma20_pct: 9.12
-- distance_to_high_60_pct: -1.1
+- open: 53.9
+- high: 54.6
+- low: 52.8
+- close: 53
+- volume: 2866200
+- ma5: 53.6
+- ma20: 49.44
+- ma60: 44.06
+- ma120: 39.62
+- ema23: 49.38
+- return_5d: 0.95
+- return_20d: 25.3
+- volume_ratio: 0.82
+- distance_to_ma20_pct: 7.21
+- distance_to_high_60_pct: -2.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,52.7,54.1,52.1,54,4079111,52.08,47.73,43.62,48.21,1.27
 20260524,52.7,54.1,52.1,54,4079111,53.36,48.36,43.81,48.7,1.23
 20260525,53.9,54.6,52.8,53,2866200,53.5,48.9,43.96,49.05,0.84
-20260526,52.7,54.1,52.1,54,4079111,53.8,49.48,44.08,49.47,1.15
+20260526,53.9,54.6,52.8,53,2866200,53.6,49.44,44.06,49.38,0.82
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 5471 | 松翰 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 63.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 5471 | 松翰 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 5471 | 松翰 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

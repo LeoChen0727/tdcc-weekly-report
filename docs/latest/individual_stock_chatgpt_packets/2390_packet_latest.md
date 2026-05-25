@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2390 云辰
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:55 Asia/Taipei
+- generated_at: 2026-05-26 06:02:04 Asia/Taipei
 - stock_id: 2390
 - stock_name: 云辰
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 10.7
-- high: 10.75
-- low: 10.4
-- close: 10.6
-- volume: 1687987
-- ma5: 10.58
+- open: 10.65
+- high: 10.85
+- low: 10.3
+- close: 10.5
+- volume: 1251061
+- ma5: 10.56
 - ma20: 9.94
 - ma60: 10.07
 - ma120: 10.07
-- ema23: 10.13
-- return_5d: 3.41
-- return_20d: 6.75
-- volume_ratio: 1.6
-- distance_to_ma20_pct: 6.59
-- distance_to_high_60_pct: -10.17
+- ema23: 10.12
+- return_5d: 2.44
+- return_20d: 5.74
+- volume_ratio: 1.21
+- distance_to_ma20_pct: 5.64
+- distance_to_high_60_pct: -11.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,10.7,10.75,10.4,10.6,1687987,10.27,9.86,10.06,10,1.87
 20260524,10.7,10.75,10.4,10.6,1687987,10.41,9.89,10.06,10.05,1.78
 20260525,10.65,10.85,10.3,10.5,1251061,10.51,9.91,10.06,10.09,1.27
-20260526,10.7,10.75,10.4,10.6,1687987,10.58,9.94,10.07,10.13,1.6
+20260526,10.65,10.85,10.3,10.5,1251061,10.56,9.94,10.07,10.12,1.21
 ```
 
 ## Latest TDCC Snapshot

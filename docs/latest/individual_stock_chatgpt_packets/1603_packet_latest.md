@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1603 華電
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:39 Asia/Taipei
+- generated_at: 2026-05-26 06:01:49 Asia/Taipei
 - stock_id: 1603
 - stock_name: 華電
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 30.55
-- high: 30.9
-- low: 30.4
+- open: 31
+- high: 31.05
+- low: 30.55
 - close: 30.7
-- volume: 312842
+- volume: 450803
 - ma5: 30.7
 - ma20: 31.21
 - ma60: 32.79
@@ -66,7 +66,7 @@
 - ema23: 31.21
 - return_5d: 0.99
 - return_20d: -5.1
-- volume_ratio: 0.69
+- volume_ratio: 0.97
 - distance_to_ma20_pct: -1.64
 - distance_to_high_60_pct: -20.67
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,30.55,30.9,30.4,30.7,312842,30.13,31.39,33.18,31.36,0.72
 20260524,30.55,30.9,30.4,30.7,312842,30.38,31.35,33.05,31.31,0.71
 20260525,31,31.05,30.55,30.7,450803,30.64,31.3,32.92,31.25,1
-20260526,30.55,30.9,30.4,30.7,312842,30.7,31.21,32.79,31.21,0.69
+20260526,31,31.05,30.55,30.7,450803,30.7,31.21,32.79,31.21,0.97
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1236 宏亞
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:29 Asia/Taipei
+- generated_at: 2026-05-26 06:01:39 Asia/Taipei
 - stock_id: 1236
 - stock_name: 宏亞
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 23.6
-- high: 24
-- low: 23.6
-- close: 24
-- volume: 23742
-- ma5: 24.07
-- ma20: 24.81
-- ma60: 26.01
-- ma120: 25.75
-- ema23: 24.72
-- return_5d: 1.27
-- return_20d: -6.8
-- volume_ratio: 0.48
-- distance_to_ma20_pct: -3.27
-- distance_to_high_60_pct: -16.38
+- open: 25
+- high: 25
+- low: 24
+- close: 24.35
+- volume: 36165
+- ma5: 24.14
+- ma20: 24.83
+- ma60: 26.02
+- ma120: 25.76
+- ema23: 24.75
+- return_5d: 2.74
+- return_20d: -5.44
+- volume_ratio: 0.73
+- distance_to_ma20_pct: -1.93
+- distance_to_high_60_pct: -15.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,23.6,24,23.6,24,23742,23.82,25.05,26.15,24.91,0.46
 20260524,23.6,24,23.6,24,23742,23.88,24.96,26.11,24.83,0.47
 20260525,25,25,24,24.35,36165,24.01,24.9,26.07,24.79,0.73
-20260526,23.6,24,23.6,24,23742,24.07,24.81,26.01,24.72,0.48
+20260526,25,25,24,24.35,36165,24.14,24.83,26.02,24.75,0.73
 ```
 
 ## Latest TDCC Snapshot

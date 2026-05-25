@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2231 為升
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:50 Asia/Taipei
+- generated_at: 2026-05-26 06:01:59 Asia/Taipei
 - stock_id: 2231
 - stock_name: 為升
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 107.5
-- high: 108
-- low: 105.5
-- close: 106.5
-- volume: 325920
-- ma5: 106.3
-- ma20: 110.25
-- ma60: 109.18
-- ma120: 102.5
-- ema23: 110.54
-- return_5d: -0.47
-- return_20d: -11.62
-- volume_ratio: 0.54
-- distance_to_ma20_pct: -3.4
-- distance_to_high_60_pct: -28.28
+- open: 107
+- high: 108.5
+- low: 104.5
+- close: 105.5
+- volume: 442535
+- ma5: 106.1
+- ma20: 110.2
+- ma60: 109.17
+- ma120: 102.49
+- ema23: 110.46
+- return_5d: -1.4
+- return_20d: -12.45
+- volume_ratio: 0.72
+- distance_to_ma20_pct: -4.26
+- distance_to_high_60_pct: -28.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,107.5,108,105.5,106.5,325920,105.8,112.95,108.64,111.84,0.46
 20260524,107.5,108,105.5,106.5,325920,106.1,111.95,108.78,111.4,0.49
 20260525,107,108.5,104.5,105.5,442535,106.4,110.95,108.95,110.91,0.69
-20260526,107.5,108,105.5,106.5,325920,106.3,110.25,109.18,110.54,0.54
+20260526,107,108.5,104.5,105.5,442535,106.1,110.2,109.17,110.46,0.72
 ```
 
 ## Latest TDCC Snapshot

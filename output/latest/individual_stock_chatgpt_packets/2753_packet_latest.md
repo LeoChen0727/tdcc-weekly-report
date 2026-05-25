@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2753 八方雲集
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:08 Asia/Taipei
+- generated_at: 2026-05-26 06:02:16 Asia/Taipei
 - stock_id: 2753
 - stock_name: 八方雲集
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 174.5
-- high: 174.5
-- low: 172.5
-- close: 173.5
-- volume: 464001
-- ma5: 173.7
-- ma20: 176.62
-- ma60: 180.29
-- ma120: 184.04
-- ema23: 176.4
-- return_5d: 0
-- return_20d: -3.07
-- volume_ratio: 1.3
-- distance_to_ma20_pct: -1.77
-- distance_to_high_60_pct: -11.48
+- open: 175
+- high: 176.5
+- low: 173.5
+- close: 174.5
+- volume: 375292
+- ma5: 173.9
+- ma20: 176.68
+- ma60: 180.31
+- ma120: 184.05
+- ema23: 176.48
+- return_5d: 0.58
+- return_20d: -2.51
+- volume_ratio: 1.07
+- distance_to_ma20_pct: -1.23
+- distance_to_high_60_pct: -10.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,174.5,174.5,172.5,173.5,464001,173.5,177.35,180.82,177.17,1.43
 20260524,174.5,174.5,172.5,173.5,464001,173.4,177.07,180.63,176.86,1.39
 20260525,175,176.5,173.5,174.5,375292,173.7,176.9,180.47,176.66,1.09
-20260526,174.5,174.5,172.5,173.5,464001,173.7,176.62,180.29,176.4,1.3
+20260526,175,176.5,173.5,174.5,375292,173.9,176.68,180.31,176.48,1.07
 ```
 
 ## Latest TDCC Snapshot

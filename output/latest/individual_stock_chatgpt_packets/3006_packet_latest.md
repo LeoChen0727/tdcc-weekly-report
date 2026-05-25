@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3006 晶豪科
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:13 Asia/Taipei
+- generated_at: 2026-05-26 06:02:21 Asia/Taipei
 - stock_id: 3006
 - stock_name: 晶豪科
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 225
-- high: 244
-- low: 224
-- close: 237.5
-- volume: 29748415
-- ma5: 235.8
-- ma20: 219.1
-- ma60: 182.52
-- ma120: 153.96
-- ema23: 215.95
-- return_5d: 6.98
-- return_20d: 35.71
+- open: 237.5
+- high: 237.5
+- low: 221
+- close: 229
+- volume: 29848298
+- ma5: 234.1
+- ma20: 218.68
+- ma60: 182.38
+- ma120: 153.89
+- ema23: 215.25
+- return_5d: 3.15
+- return_20d: 30.86
 - volume_ratio: 0.96
-- distance_to_ma20_pct: 8.4
-- distance_to_high_60_pct: -9
+- distance_to_ma20_pct: 4.72
+- distance_to_high_60_pct: -12.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,225,244,224,237.5,29748415,231.1,210.28,178.88,210.37,0.94
 20260524,225,244,224,237.5,29748415,231.4,213.75,180.18,212.63,0.93
 20260525,237.5,237.5,221,229,29848298,232.7,215.97,181.39,214,0.95
-20260526,225,244,224,237.5,29748415,235.8,219.1,182.52,215.95,0.96
+20260526,237.5,237.5,221,229,29848298,234.1,218.68,182.38,215.25,0.96
 ```
 
 ## Latest TDCC Snapshot
@@ -122,8 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3006 | 晶豪科 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 3006 | 晶豪科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 3006 | 晶豪科 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

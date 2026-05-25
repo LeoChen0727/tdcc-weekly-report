@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009802 富邦旗艦50
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:27 Asia/Taipei
+- generated_at: 2026-05-26 06:01:37 Asia/Taipei
 - stock_id: 009802
 - stock_name: 富邦旗艦50
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 17.89
-- high: 18.35
-- low: 17.89
-- close: 18.33
-- volume: 9072409
-- ma5: 18.59
-- ma20: 18.59
-- ma60: 18.59
-- ma120: 18.59
-- ema23: 18.43
+- open: 19.2
+- high: 19.67
+- low: 19.2
+- close: 19.64
+- volume: 18704432
+- ma5: 18.85
+- ma20: 18.85
+- ma60: 18.85
+- ma120: 18.85
+- ema23: 18.54
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.82
-- distance_to_ma20_pct: -1.41
-- distance_to_high_60_pct: -6.81
+- volume_ratio: 1.45
+- distance_to_ma20_pct: 4.17
+- distance_to_high_60_pct: -0.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,17.89,18.35,17.89,18.33,9072409,,,,,
 20260524,17.89,18.35,17.89,18.33,9072409,,,,,
 20260525,19.2,19.67,19.2,19.64,18704432,,,,,
-20260526,17.89,18.35,17.89,18.33,9072409,18.59,18.59,18.59,18.43,0.82
+20260526,19.2,19.67,19.2,19.64,18704432,18.85,18.85,18.85,18.54,1.45
 ```
 
 ## Latest TDCC Snapshot

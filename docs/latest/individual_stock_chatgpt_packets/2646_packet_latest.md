@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2646 星宇航空
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:06 Asia/Taipei
+- generated_at: 2026-05-26 06:02:14 Asia/Taipei
 - stock_id: 2646
 - stock_name: 星宇航空
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 20.3
-- high: 20.5
+- open: 20.45
+- high: 20.6
 - low: 20.2
-- close: 20.45
-- volume: 5230186
-- ma5: 20.42
-- ma20: 20.35
-- ma60: 20.94
+- close: 20.3
+- volume: 8132002
+- ma5: 20.39
+- ma20: 20.34
+- ma60: 20.93
 - ma120: 22.08
-- ema23: 20.44
-- return_5d: 0.74
-- return_20d: 0
-- volume_ratio: 1.07
-- distance_to_ma20_pct: 0.5
-- distance_to_high_60_pct: -10.11
+- ema23: 20.42
+- return_5d: 0
+- return_20d: -0.73
+- volume_ratio: 1.61
+- distance_to_ma20_pct: -0.2
+- distance_to_high_60_pct: -10.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,20.3,20.5,20.2,20.45,5230186,20.33,20.33,21.06,20.45,1.12
 20260524,20.3,20.5,20.2,20.45,5230186,20.37,20.35,21.02,20.45,1.14
 20260525,20.45,20.6,20.2,20.3,8132002,20.39,20.35,20.98,20.44,1.7
-20260526,20.3,20.5,20.2,20.45,5230186,20.42,20.35,20.94,20.44,1.07
+20260526,20.45,20.6,20.2,20.3,8132002,20.39,20.34,20.93,20.42,1.61
 ```
 
 ## Latest TDCC Snapshot
@@ -123,7 +123,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260526 | 2646 | 星宇航空 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260526 | 2646 | 星宇航空 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

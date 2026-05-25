@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1721 三晃
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:41 Asia/Taipei
+- generated_at: 2026-05-26 06:01:51 Asia/Taipei
 - stock_id: 1721
 - stock_name: 三晃
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 28.7
-- high: 29.65
-- low: 28.3
-- close: 29
-- volume: 8117373
-- ma5: 28.83
-- ma20: 29.33
-- ma60: 22.94
+- open: 29.15
+- high: 29.15
+- low: 27.6
+- close: 28.15
+- volume: 6290308
+- ma5: 28.66
+- ma20: 29.29
+- ma60: 22.93
 - ma120: 19.19
-- ema23: 28.16
-- return_5d: -3.01
-- return_20d: 15.54
-- volume_ratio: 1.04
-- distance_to_ma20_pct: -1.13
-- distance_to_high_60_pct: -19.44
+- ema23: 28.09
+- return_5d: -5.85
+- return_20d: 12.15
+- volume_ratio: 0.81
+- distance_to_ma20_pct: -3.88
+- distance_to_high_60_pct: -21.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,28.7,29.65,28.3,29,8117373,28.92,28.82,22.42,28,1.14
 20260524,28.7,29.65,28.3,29,8117373,28.98,29.03,22.6,28.08,1.1
 20260525,29.15,29.15,27.6,28.15,6290308,29.01,29.14,22.76,28.08,0.83
-20260526,28.7,29.65,28.3,29,8117373,28.83,29.33,22.94,28.16,1.04
+20260526,29.15,29.15,27.6,28.15,6290308,28.66,29.29,22.93,28.09,0.81
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1721 | 三晃 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 1721 | 三晃 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

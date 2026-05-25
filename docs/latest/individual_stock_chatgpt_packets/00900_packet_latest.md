@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00900 富邦特選高股息30
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:26 Asia/Taipei
+- generated_at: 2026-05-26 06:01:36 Asia/Taipei
 - stock_id: 00900
 - stock_name: 富邦特選高股息30
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 17.24
-- high: 17.46
-- low: 17.18
-- close: 17.43
-- volume: 16367599
-- ma5: 17.57
-- ma20: 17.57
-- ma60: 17.57
-- ma120: 17.57
-- ema23: 17.48
+- open: 17.85
+- high: 18.16
+- low: 17.83
+- close: 18.11
+- volume: 17095164
+- ma5: 17.7
+- ma20: 17.7
+- ma60: 17.7
+- ma120: 17.7
+- ema23: 17.54
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.99
-- distance_to_ma20_pct: -0.77
-- distance_to_high_60_pct: -4.02
+- volume_ratio: 1.03
+- distance_to_ma20_pct: 2.3
+- distance_to_high_60_pct: -0.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,17.24,17.46,17.18,17.43,16367599,,,,,
 20260524,17.24,17.46,17.18,17.43,16367599,,,,,
 20260525,17.85,18.16,17.83,18.11,17095164,,,,,
-20260526,17.24,17.46,17.18,17.43,16367599,17.57,17.57,17.57,17.48,0.99
+20260526,17.85,18.16,17.83,18.11,17095164,17.7,17.7,17.7,17.54,1.03
 ```
 
 ## Latest TDCC Snapshot

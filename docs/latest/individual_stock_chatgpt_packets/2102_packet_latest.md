@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2102 泰豐
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:48 Asia/Taipei
+- generated_at: 2026-05-26 06:01:57 Asia/Taipei
 - stock_id: 2102
 - stock_name: 泰豐
 - packet_status: standard_180d_window_packet
@@ -55,20 +55,20 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 18.3
-- high: 18.5
-- low: 18.15
-- close: 18.3
-- volume: 412138
-- ma5: 18.25
-- ma20: 18.35
-- ma60: 19.03
+- high: 18.3
+- low: 18
+- close: 18.05
+- volume: 424661
+- ma5: 18.2
+- ma20: 18.34
+- ma60: 19.02
 - ma120: 19.49
-- ema23: 18.47
-- return_5d: 0
-- return_20d: -4.44
-- volume_ratio: 0.88
-- distance_to_ma20_pct: -0.27
-- distance_to_high_60_pct: -14.49
+- ema23: 18.45
+- return_5d: -1.37
+- return_20d: -5.74
+- volume_ratio: 0.91
+- distance_to_ma20_pct: -1.57
+- distance_to_high_60_pct: -15.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,18.3,18.5,18.15,18.3,412138,18.11,18.49,19.16,18.55,0.88
 20260524,18.3,18.5,18.15,18.3,412138,18.19,18.45,19.12,18.52,0.89
 20260525,18.3,18.3,18,18.05,424661,18.25,18.39,19.07,18.49,0.9
-20260526,18.3,18.5,18.15,18.3,412138,18.25,18.35,19.03,18.47,0.88
+20260526,18.3,18.3,18,18.05,424661,18.2,18.34,19.02,18.45,0.91
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8463 潤泰材
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:54 Asia/Taipei
+- generated_at: 2026-05-26 06:03:54 Asia/Taipei
 - stock_id: 8463
 - stock_name: 潤泰材
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 21.1
-- high: 21.65
-- low: 21.05
+- open: 21.25
+- high: 21.5
+- low: 21.2
 - close: 21.25
-- volume: 93129
+- volume: 74027
 - ma5: 21.25
 - ma20: 21.72
 - ma60: 23.11
@@ -66,7 +66,7 @@
 - ema23: 21.78
 - return_5d: 0.95
 - return_20d: -4.71
-- volume_ratio: 1.36
+- volume_ratio: 1.1
 - distance_to_ma20_pct: -2.16
 - distance_to_high_60_pct: -22.3
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,21.1,21.65,21.05,21.25,93129,21.25,21.87,23.41,21.93,1.46
 20260524,21.1,21.65,21.05,21.25,93129,21.16,21.82,23.31,21.88,1.44
 20260525,21.25,21.5,21.2,21.25,74027,21.21,21.77,23.21,21.82,1.11
-20260526,21.1,21.65,21.05,21.25,93129,21.25,21.72,23.11,21.78,1.36
+20260526,21.25,21.5,21.2,21.25,74027,21.25,21.72,23.11,21.78,1.1
 ```
 
 ## Latest TDCC Snapshot

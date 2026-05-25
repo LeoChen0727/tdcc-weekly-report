@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2903 遠百
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:11 Asia/Taipei
+- generated_at: 2026-05-26 06:02:19 Asia/Taipei
 - stock_id: 2903
 - stock_name: 遠百
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 22.15
+- open: 22.3
 - high: 22.3
-- low: 22.1
-- close: 22.25
-- volume: 1324947
-- ma5: 22.23
+- low: 22
+- close: 22.15
+- volume: 2259351
+- ma5: 22.21
 - ma20: 22.24
 - ma60: 22.64
 - ma120: 22.66
-- ema23: 22.31
-- return_5d: 0
-- return_20d: -0.45
-- volume_ratio: 0.76
-- distance_to_ma20_pct: 0.03
-- distance_to_high_60_pct: -5.92
+- ema23: 22.3
+- return_5d: -0.45
+- return_20d: -0.89
+- volume_ratio: 1.27
+- distance_to_ma20_pct: -0.39
+- distance_to_high_60_pct: -6.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,22.15,22.3,22.1,22.25,1324947,22.21,22.25,22.67,22.33,0.74
 20260524,22.15,22.3,22.1,22.25,1324947,22.23,22.25,22.66,22.33,0.76
 20260525,22.3,22.3,22,22.15,2259351,22.23,22.25,22.65,22.31,1.26
-20260526,22.15,22.3,22.1,22.25,1324947,22.23,22.24,22.64,22.31,0.76
+20260526,22.3,22.3,22,22.15,2259351,22.21,22.24,22.64,22.3,1.27
 ```
 
 ## Latest TDCC Snapshot
@@ -120,9 +120,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2903 | 遠百 | pattern | 型態觀察 | 53.0 |  |  | base_building |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

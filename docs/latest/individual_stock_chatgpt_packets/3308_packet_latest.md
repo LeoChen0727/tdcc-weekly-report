@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3308 聯德
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:24 Asia/Taipei
+- generated_at: 2026-05-26 06:02:31 Asia/Taipei
 - stock_id: 3308
 - stock_name: 聯德
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 20.65
-- high: 20.8
-- low: 20.1
-- close: 20.5
-- volume: 158583
-- ma5: 20.46
-- ma20: 20.45
-- ma60: 21.29
-- ma120: 20.6
-- ema23: 20.53
-- return_5d: 0.99
-- return_20d: -3.53
-- volume_ratio: 1
-- distance_to_ma20_pct: 0.26
-- distance_to_high_60_pct: -22.93
+- open: 20.55
+- high: 20.7
+- low: 20.25
+- close: 20.3
+- volume: 237111
+- ma5: 20.42
+- ma20: 20.44
+- ma60: 21.28
+- ma120: 20.59
+- ema23: 20.51
+- return_5d: 0
+- return_20d: -4.47
+- volume_ratio: 1.45
+- distance_to_ma20_pct: -0.67
+- distance_to_high_60_pct: -23.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,20.65,20.8,20.1,20.5,158583,20.05,20.57,21.55,20.55,1.06
 20260524,20.65,20.8,20.1,20.5,158583,20.27,20.53,21.46,20.55,1.07
 20260525,20.55,20.7,20.25,20.3,237111,20.42,20.48,21.38,20.53,1.53
-20260526,20.65,20.8,20.1,20.5,158583,20.46,20.45,21.29,20.53,1
+20260526,20.55,20.7,20.25,20.3,237111,20.42,20.44,21.28,20.51,1.45
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6914 阜爾運通
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:37 Asia/Taipei
+- generated_at: 2026-05-26 06:03:38 Asia/Taipei
 - stock_id: 6914
 - stock_name: 阜爾運通
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 144.5
-- high: 146
-- low: 143
-- close: 143.5
-- volume: 120366
-- ma5: 143.1
-- ma20: 144.15
-- ma60: 147.12
-- ma120: 145.88
-- ema23: 144.56
-- return_5d: 0
-- return_20d: -2.05
-- volume_ratio: 1.25
-- distance_to_ma20_pct: -0.45
-- distance_to_high_60_pct: -7.42
+- open: 143.5
+- high: 143.5
+- low: 141
+- close: 141.5
+- volume: 188971
+- ma5: 142.7
+- ma20: 144.05
+- ma60: 147.09
+- ma120: 145.86
+- ema23: 144.4
+- return_5d: -1.39
+- return_20d: -3.41
+- volume_ratio: 1.9
+- distance_to_ma20_pct: -1.77
+- distance_to_high_60_pct: -8.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,144.5,146,143,143.5,120366,143.2,144.68,147.09,145.08,1.35
 20260524,144.5,146,143,143.5,120366,143.4,144.55,147.12,144.95,1.41
 20260525,143.5,143.5,141,141.5,188971,143.1,144.3,147.1,144.66,2.05
-20260526,144.5,146,143,143.5,120366,143.1,144.15,147.12,144.56,1.25
+20260526,143.5,143.5,141,141.5,188971,142.7,144.05,147.09,144.4,1.9
 ```
 
 ## Latest TDCC Snapshot

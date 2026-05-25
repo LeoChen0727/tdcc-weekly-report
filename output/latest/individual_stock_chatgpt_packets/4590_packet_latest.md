@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4590 富田-創
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:47 Asia/Taipei
+- generated_at: 2026-05-26 06:02:52 Asia/Taipei
 - stock_id: 4590
 - stock_name: 富田-創
 - packet_status: standard_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 74.7
-- high: 75
-- low: 73.5
-- close: 74
-- volume: 179616
-- ma5: 73.84
-- ma20: 75.14
-- ma60: 74.91
-- ma120: 76.09
-- ema23: 74.66
-- return_5d: -0.94
-- return_20d: -0.4
-- volume_ratio: 0.79
-- distance_to_ma20_pct: -1.52
-- distance_to_high_60_pct: -9.54
+- open: 74.3
+- high: 74.4
+- low: 72.9
+- close: 73.2
+- volume: 288037
+- ma5: 73.68
+- ma20: 75.11
+- ma60: 74.89
+- ma120: 76.08
+- ema23: 74.59
+- return_5d: -2.01
+- return_20d: -1.48
+- volume_ratio: 1.24
+- distance_to_ma20_pct: -2.54
+- distance_to_high_60_pct: -10.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,74.7,75,73.5,74,179616,73.78,75.09,75.23,74.93,0.84
 20260524,74.7,75,73.5,74,179616,73.94,75.19,75.14,74.85,0.85
 20260525,74.3,74.4,72.9,73.2,288037,73.98,75.16,75.01,74.72,1.3
-20260526,74.7,75,73.5,74,179616,73.84,75.14,74.91,74.66,0.79
+20260526,74.3,74.4,72.9,73.2,288037,73.68,75.11,74.89,74.59,1.24
 ```
 
 ## Latest TDCC Snapshot

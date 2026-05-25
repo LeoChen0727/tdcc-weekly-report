@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2254 巨鎧精密-創
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:50 Asia/Taipei
+- generated_at: 2026-05-26 06:01:59 Asia/Taipei
 - stock_id: 2254
 - stock_name: 巨鎧精密-創
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 57.5
-- high: 58.1
-- low: 57.5
-- close: 58.1
-- volume: 3121
-- ma5: 58.18
-- ma20: 62.36
-- ma60: 68.31
+- open: 58.5
+- high: 58.5
+- low: 58.5
+- close: 58.5
+- volume: 1002
+- ma5: 58.26
+- ma20: 62.38
+- ma60: 68.32
 - ma120: 64.07
-- ema23: 62.62
-- return_5d: -0.51
-- return_20d: -19.86
-- volume_ratio: 0.13
-- distance_to_ma20_pct: -6.83
-- distance_to_high_60_pct: -37.99
+- ema23: 62.66
+- return_5d: 0.17
+- return_20d: -19.31
+- volume_ratio: 0.04
+- distance_to_ma20_pct: -6.22
+- distance_to_high_60_pct: -37.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,57.5,58.1,57.5,58.1,3121,58.3,64.52,68.7,63.93,0.12
 20260524,57.5,58.1,57.5,58.1,3121,58.14,63.8,68.65,63.45,0.13
 20260525,58.5,58.5,58.5,58.5,1002,58.24,63.08,68.5,63.03,0.04
-20260526,57.5,58.1,57.5,58.1,3121,58.18,62.36,68.31,62.62,0.13
+20260526,58.5,58.5,58.5,58.5,1002,58.26,62.38,68.32,62.66,0.04
 ```
 
 ## Latest TDCC Snapshot

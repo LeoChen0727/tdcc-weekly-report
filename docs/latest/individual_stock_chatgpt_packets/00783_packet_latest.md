@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00783 富邦中証500
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:25 Asia/Taipei
+- generated_at: 2026-05-26 06:01:35 Asia/Taipei
 - stock_id: 00783
 - stock_name: 富邦中証500
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 29.7
-- high: 29.85
-- low: 29.57
-- close: 29.85
-- volume: 155833
-- ma5: 29.92
-- ma20: 29.92
-- ma60: 29.92
-- ma120: 29.92
-- ema23: 29.88
+- open: 30.11
+- high: 30.2
+- low: 29.86
+- close: 30.2
+- volume: 244007
+- ma5: 29.99
+- ma20: 29.99
+- ma60: 29.99
+- ma120: 29.99
+- ema23: 29.91
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.9
-- distance_to_ma20_pct: -0.23
-- distance_to_high_60_pct: -1.16
+- volume_ratio: 1.28
+- distance_to_ma20_pct: 0.7
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,29.7,29.85,29.57,29.85,155833,,,,,
 20260524,29.7,29.85,29.57,29.85,155833,,,,,
 20260525,30.11,30.2,29.86,30.2,244007,,,,,
-20260526,29.7,29.85,29.57,29.85,155833,29.92,29.92,29.92,29.88,0.9
+20260526,30.11,30.2,29.86,30.2,244007,29.99,29.99,29.99,29.91,1.28
 ```
 
 ## Latest TDCC Snapshot

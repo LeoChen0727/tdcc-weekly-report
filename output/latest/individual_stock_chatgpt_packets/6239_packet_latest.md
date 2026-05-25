@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6239 力成
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:16 Asia/Taipei
+- generated_at: 2026-05-26 06:03:18 Asia/Taipei
 - stock_id: 6239
 - stock_name: 力成
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 283
-- high: 283
-- low: 283
-- close: 283
-- volume: 7198413
-- ma5: 288.6
-- ma20: 245.68
-- ma60: 220.4
-- ma120: 213.7
-- ema23: 249.61
-- return_5d: 9.9
-- return_20d: 38.39
-- volume_ratio: 0.31
-- distance_to_ma20_pct: 15.19
-- distance_to_high_60_pct: -9
+- open: 311
+- high: 311
+- low: 311
+- close: 311
+- volume: 3433065
+- ma5: 294.2
+- ma20: 247.07
+- ma60: 220.87
+- ma120: 213.93
+- ema23: 251.95
+- return_5d: 20.78
+- return_20d: 52.08
+- volume_ratio: 0.15
+- distance_to_ma20_pct: 25.87
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,283,283,283,283,7198413,257,233.82,218.6,236.88,0.29
 20260524,283,283,283,283,7198413,268.2,237.12,219.02,240.72,0.29
 20260525,311,311,311,311,3433065,283.5,241.75,219.9,246.58,0.14
-20260526,283,283,283,283,7198413,288.6,245.68,220.4,249.61,0.31
+20260526,311,311,311,311,3433065,294.2,247.07,220.87,251.95,0.15
 ```
 
 ## Latest TDCC Snapshot

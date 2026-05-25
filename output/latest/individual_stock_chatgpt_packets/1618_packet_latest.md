@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1618 合機
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:40 Asia/Taipei
+- generated_at: 2026-05-26 06:01:50 Asia/Taipei
 - stock_id: 1618
 - stock_name: 合機
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 39.15
-- high: 39.6
-- low: 38.8
-- close: 39.3
-- volume: 586847
-- ma5: 39.39
-- ma20: 38.76
-- ma60: 39.78
+- open: 39.6
+- high: 39.95
+- low: 38.95
+- close: 39.75
+- volume: 1166039
+- ma5: 39.48
+- ma20: 38.78
+- ma60: 39.79
 - ma120: 41.69
-- ema23: 39.03
-- return_5d: 0.77
-- return_20d: 0.64
-- volume_ratio: 0.88
-- distance_to_ma20_pct: 1.39
-- distance_to_high_60_pct: -15.85
+- ema23: 39.07
+- return_5d: 1.92
+- return_20d: 1.79
+- volume_ratio: 1.67
+- distance_to_ma20_pct: 2.49
+- distance_to_high_60_pct: -14.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,39.15,39.6,38.8,39.3,586847,38.8,38.7,40.12,38.91,0.94
 20260524,39.15,39.6,38.8,39.3,586847,39.04,38.72,40.02,38.94,0.95
 20260525,39.6,39.95,38.95,39.75,1166039,39.33,38.75,39.9,39.01,1.77
-20260526,39.15,39.6,38.8,39.3,586847,39.39,38.76,39.78,39.03,0.88
+20260526,39.6,39.95,38.95,39.75,1166039,39.48,38.78,39.79,39.07,1.67
 ```
 
 ## Latest TDCC Snapshot
@@ -120,14 +120,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 1618 | 合機 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 1618 | 合機 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

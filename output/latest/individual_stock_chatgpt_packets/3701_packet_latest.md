@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3701 大眾控
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:36 Asia/Taipei
+- generated_at: 2026-05-26 06:02:42 Asia/Taipei
 - stock_id: 3701
 - stock_name: 大眾控
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 55.1
-- high: 57.5
-- low: 54.8
-- close: 57
-- volume: 2715626
-- ma5: 57.12
-- ma20: 59.33
-- ma60: 61.03
+- open: 57.7
+- high: 58.8
+- low: 57.1
+- close: 57.6
+- volume: 2790856
+- ma5: 57.24
+- ma20: 59.36
+- ma60: 61.04
 - ma120: 54
-- ema23: 58.96
-- return_5d: 4.01
-- return_20d: -17.03
-- volume_ratio: 0.84
-- distance_to_ma20_pct: -3.93
-- distance_to_high_60_pct: -28.57
+- ema23: 59.01
+- return_5d: 5.11
+- return_20d: -16.16
+- volume_ratio: 0.86
+- distance_to_ma20_pct: -2.96
+- distance_to_high_60_pct: -27.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,55.1,57.5,54.8,57,2715626,54.98,60.75,61.23,59.48,0.7
 20260524,55.1,57.5,54.8,57,2715626,55.44,60.4,61.18,59.27,0.73
 20260525,57.7,58.8,57.1,57.6,2790856,56.68,59.91,61.16,59.13,0.8
-20260526,55.1,57.5,54.8,57,2715626,57.12,59.33,61.03,58.96,0.84
+20260526,57.7,58.8,57.1,57.6,2790856,57.24,59.36,61.04,59.01,0.86
 ```
 
 ## Latest TDCC Snapshot

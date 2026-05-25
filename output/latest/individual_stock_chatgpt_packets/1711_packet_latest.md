@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1711 永光
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:41 Asia/Taipei
+- generated_at: 2026-05-26 06:01:50 Asia/Taipei
 - stock_id: 1711
 - stock_name: 永光
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 51.2
-- high: 52.1
-- low: 50.5
+- open: 52
+- high: 52.3
+- low: 50.6
 - close: 51.1
-- volume: 15376533
+- volume: 16755453
 - ma5: 51.1
 - ma20: 53.3
 - ma60: 44.37
@@ -66,7 +66,7 @@
 - ema23: 50.97
 - return_5d: 2.82
 - return_20d: -10.66
-- volume_ratio: 0.99
+- volume_ratio: 1.08
 - distance_to_ma20_pct: -4.14
 - distance_to_high_60_pct: -20.53
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,51.2,52.1,50.5,51.1,15376533,49.36,53.88,43.17,50.93,1.09
 20260524,51.2,52.1,50.5,51.1,15376533,49.96,53.87,43.58,50.94,1.07
 20260525,52,52.3,50.6,51.1,16755453,50.82,53.61,43.97,50.95,1.12
-20260526,51.2,52.1,50.5,51.1,15376533,51.1,53.3,44.37,50.97,0.99
+20260526,52,52.3,50.6,51.1,16755453,51.1,53.3,44.37,50.97,1.08
 ```
 
 ## Latest TDCC Snapshot

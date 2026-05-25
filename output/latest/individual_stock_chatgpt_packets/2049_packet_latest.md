@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2049 上銀
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:47 Asia/Taipei
+- generated_at: 2026-05-26 06:01:56 Asia/Taipei
 - stock_id: 2049
 - stock_name: 上銀
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 381
-- high: 386
-- low: 373
-- close: 376.5
-- volume: 5779172
-- ma5: 380.2
-- ma20: 357.18
-- ma60: 287.73
-- ma120: 250.21
-- ema23: 351.39
-- return_5d: 0.8
-- return_20d: 22.04
-- volume_ratio: 0.7
-- distance_to_ma20_pct: 5.41
-- distance_to_high_60_pct: -6.58
+- open: 379
+- high: 403
+- low: 378
+- close: 395
+- volume: 7865207
+- ma5: 383.9
+- ma20: 358.1
+- ma60: 288.04
+- ma120: 250.37
+- ema23: 352.93
+- return_5d: 5.76
+- return_20d: 28.04
+- volume_ratio: 0.94
+- distance_to_ma20_pct: 10.3
+- distance_to_high_60_pct: -1.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,381,386,373,376.5,5779172,372.4,345,280.4,342.06,0.69
 20260524,381,386,373,376.5,5779172,372.5,349.07,282.93,344.93,0.68
 20260525,379,403,378,395,7865207,379.6,353.77,285.68,349.11,0.92
-20260526,381,386,373,376.5,5779172,380.2,357.18,287.73,351.39,0.7
+20260526,379,403,378,395,7865207,383.9,358.1,288.04,352.93,0.94
 ```
 
 ## Latest TDCC Snapshot

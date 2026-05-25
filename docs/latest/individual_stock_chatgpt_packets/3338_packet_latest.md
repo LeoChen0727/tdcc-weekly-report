@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3338 泰碩
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:25 Asia/Taipei
+- generated_at: 2026-05-26 06:02:32 Asia/Taipei
 - stock_id: 3338
 - stock_name: 泰碩
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 73.7
-- high: 77.5
-- low: 73.1
-- close: 77
-- volume: 2172452
-- ma5: 76.88
-- ma20: 74
-- ma60: 67.02
-- ma120: 58.94
-- ema23: 73.63
-- return_5d: 5.77
-- return_20d: 0.52
-- volume_ratio: 0.99
-- distance_to_ma20_pct: 4.05
-- distance_to_high_60_pct: -14.16
+- open: 79.3
+- high: 79.6
+- low: 76.2
+- close: 76.4
+- volume: 3526299
+- ma5: 76.76
+- ma20: 73.97
+- ma60: 67.01
+- ma120: 58.93
+- ema23: 73.58
+- return_5d: 4.95
+- return_20d: -0.26
+- volume_ratio: 1.57
+- distance_to_ma20_pct: 3.28
+- distance_to_high_60_pct: -14.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,73.7,77.5,73.1,77,2172452,74.54,74.02,66.06,72.68,0.86
 20260524,73.7,77.5,73.1,77,2172452,75.26,73.94,66.39,73.04,0.95
 20260525,79.3,79.6,76.2,76.4,3526299,76.04,73.98,66.7,73.32,1.58
-20260526,73.7,77.5,73.1,77,2172452,76.88,74,67.02,73.63,0.99
+20260526,79.3,79.6,76.2,76.4,3526299,76.76,73.97,67.01,73.58,1.57
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3338 | 泰碩 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 3338 | 泰碩 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

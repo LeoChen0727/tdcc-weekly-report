@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4571 鈞興-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:46 Asia/Taipei
+- generated_at: 2026-05-26 06:02:52 Asia/Taipei
 - stock_id: 4571
 - stock_name: 鈞興-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 219.5
+- open: 232
 - high: 237.5
-- low: 218.5
-- close: 229.5
-- volume: 2160477
-- ma5: 229
-- ma20: 208.97
-- ma60: 177.56
-- ma120: 173.72
-- ema23: 206.88
-- return_5d: 6.25
-- return_20d: 29.66
-- volume_ratio: 1.12
-- distance_to_ma20_pct: 9.82
-- distance_to_high_60_pct: -4.97
+- low: 226
+- close: 227
+- volume: 1498329
+- ma5: 228.5
+- ma20: 208.85
+- ma60: 177.52
+- ma120: 173.7
+- ema23: 206.67
+- return_5d: 5.09
+- return_20d: 28.25
+- volume_ratio: 0.79
+- distance_to_ma20_pct: 8.69
+- distance_to_high_60_pct: -6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,219.5,237.5,218.5,229.5,2160477,222.6,200.18,175.29,200.38,1.26
 20260524,219.5,237.5,218.5,229.5,2160477,223,203.5,176.19,202.8,1.21
 20260525,232,237.5,226,227,1498329,226.3,206.35,176.93,204.82,0.81
-20260526,219.5,237.5,218.5,229.5,2160477,229,208.97,177.56,206.88,1.12
+20260526,232,237.5,226,227,1498329,228.5,208.85,177.52,206.67,0.79
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4571 | 鈞興-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 60.0 |  |  | neckline_challenge |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 4571 | 鈞興-KY | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

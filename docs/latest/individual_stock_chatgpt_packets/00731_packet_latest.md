@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00731 復華富時高息低波
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:25 Asia/Taipei
+- generated_at: 2026-05-26 06:01:35 Asia/Taipei
 - stock_id: 00731
 - stock_name: 復華富時高息低波
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 75.1
-- high: 75.35
-- low: 74.85
-- close: 75.35
-- volume: 990235
-- ma5: 75.43
-- ma20: 75.43
-- ma60: 75.43
-- ma120: 75.43
-- ema23: 75.38
+- open: 75.6
+- high: 76.5
+- low: 75.45
+- close: 75.75
+- volume: 1071277
+- ma5: 75.51
+- ma20: 75.51
+- ma60: 75.51
+- ma120: 75.51
+- ema23: 75.41
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.98
-- distance_to_ma20_pct: -0.11
-- distance_to_high_60_pct: -1.5
+- volume_ratio: 1.05
+- distance_to_ma20_pct: 0.32
+- distance_to_high_60_pct: -0.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,75.1,75.35,74.85,75.35,990235,,,,,
 20260524,75.1,75.35,74.85,75.35,990235,,,,,
 20260525,75.6,76.5,75.45,75.75,1071277,,,,,
-20260526,75.1,75.35,74.85,75.35,990235,75.43,75.43,75.43,75.38,0.98
+20260526,75.6,76.5,75.45,75.75,1071277,75.51,75.51,75.51,75.41,1.05
 ```
 
 ## Latest TDCC Snapshot

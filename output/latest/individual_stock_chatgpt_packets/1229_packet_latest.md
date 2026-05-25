@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1229 聯華
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:29 Asia/Taipei
+- generated_at: 2026-05-26 06:01:39 Asia/Taipei
 - stock_id: 1229
 - stock_name: 聯華
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 38.9
-- high: 39.05
-- low: 38.55
-- close: 38.7
-- volume: 3163692
-- ma5: 38.66
-- ma20: 39.93
+- open: 38.7
+- high: 38.95
+- low: 38
+- close: 38.5
+- volume: 5426303
+- ma5: 38.62
+- ma20: 39.92
 - ma60: 42.67
 - ma120: 44.65
-- ema23: 40.11
-- return_5d: -0.39
-- return_20d: -7.64
-- volume_ratio: 0.87
-- distance_to_ma20_pct: -3.07
-- distance_to_high_60_pct: -17.57
+- ema23: 40.1
+- return_5d: -0.9
+- return_20d: -8.11
+- volume_ratio: 1.45
+- distance_to_ma20_pct: -3.55
+- distance_to_high_60_pct: -18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,38.9,39.05,38.55,38.7,3163692,38.64,40.4,42.98,40.55,0.9
 20260524,38.9,39.05,38.55,38.7,3163692,38.65,40.25,42.88,40.4,0.93
 20260525,38.7,38.95,38,38.5,5426303,38.69,40.09,42.77,40.24,1.52
-20260526,38.9,39.05,38.55,38.7,3163692,38.66,39.93,42.67,40.11,0.87
+20260526,38.7,38.95,38,38.5,5426303,38.62,39.92,42.67,40.1,1.45
 ```
 
 ## Latest TDCC Snapshot

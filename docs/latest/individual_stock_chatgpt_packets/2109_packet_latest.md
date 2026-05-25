@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2109 華豐
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:49 Asia/Taipei
+- generated_at: 2026-05-26 06:01:58 Asia/Taipei
 - stock_id: 2109
 - stock_name: 華豐
 - packet_status: standard_180d_window_packet
@@ -55,20 +55,20 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 14
-- high: 14.05
-- low: 13.95
-- close: 14
-- volume: 124140
-- ma5: 13.99
+- high: 14
+- low: 13.9
+- close: 13.95
+- volume: 203647
+- ma5: 13.98
 - ma20: 14.03
 - ma60: 14.54
 - ma120: 14.78
 - ema23: 14.11
-- return_5d: 0
-- return_20d: -2.78
-- volume_ratio: 0.69
-- distance_to_ma20_pct: -0.2
-- distance_to_high_60_pct: -8.2
+- return_5d: -0.36
+- return_20d: -3.12
+- volume_ratio: 1.11
+- distance_to_ma20_pct: -0.53
+- distance_to_high_60_pct: -8.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,14,14.05,13.95,14,124140,13.98,14.09,14.6,14.15,0.72
 20260524,14,14.05,13.95,14,124140,13.98,14.07,14.58,14.14,0.72
 20260525,14,14,13.9,13.95,203647,13.99,14.05,14.56,14.12,1.16
-20260526,14,14.05,13.95,14,124140,13.99,14.03,14.54,14.11,0.69
+20260526,14,14,13.9,13.95,203647,13.98,14.03,14.54,14.11,1.11
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1808 潤隆
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:44 Asia/Taipei
+- generated_at: 2026-05-26 06:01:53 Asia/Taipei
 - stock_id: 1808
 - stock_name: 潤隆
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 29.4
-- high: 29.4
-- low: 28.6
-- close: 28.65
-- volume: 2503440
-- ma5: 28.71
-- ma20: 28.8
+- open: 28.7
+- high: 29
+- low: 28.25
+- close: 28.95
+- volume: 1864173
+- ma5: 28.77
+- ma20: 28.82
 - ma60: 29.84
 - ma120: 31.25
-- ema23: 29.09
-- return_5d: -2.72
-- return_20d: -2.88
-- volume_ratio: 1.55
-- distance_to_ma20_pct: -0.52
-- distance_to_high_60_pct: -11.16
+- ema23: 29.12
+- return_5d: -1.7
+- return_20d: -1.86
+- volume_ratio: 1.18
+- distance_to_ma20_pct: 0.47
+- distance_to_high_60_pct: -10.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,29.4,29.4,28.6,28.65,2503440,28.98,28.91,29.92,29.19,1.66
 20260524,29.4,29.4,28.6,28.65,2503440,28.92,28.86,29.89,29.15,1.65
 20260525,28.7,29,28.25,28.95,1864173,28.87,28.84,29.87,29.13,1.21
-20260526,29.4,29.4,28.6,28.65,2503440,28.71,28.8,29.84,29.09,1.55
+20260526,28.7,29,28.25,28.95,1864173,28.77,28.82,29.84,29.12,1.18
 ```
 
 ## Latest TDCC Snapshot
@@ -131,7 +131,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260526 | 1808 | 潤隆 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260526 | 1808 | 潤隆 | revenue_breakout_low_response | 營收爆發低反應股 | 20.0 | 10.0 | B_可觀察 |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260526 | 1808 | 潤隆 | revenue_breakout_low_response | 營收爆發低反應股 | 21.0 | 7.0 | B_可觀察 |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260526 | 1808 | 潤隆 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 57.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

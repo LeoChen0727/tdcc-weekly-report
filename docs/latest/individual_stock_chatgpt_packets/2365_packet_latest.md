@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2365 昆盈
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:54 Asia/Taipei
+- generated_at: 2026-05-26 06:02:03 Asia/Taipei
 - stock_id: 2365
 - stock_name: 昆盈
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 37.8
-- high: 39.45
-- low: 37.15
-- close: 39.15
-- volume: 12081304
-- ma5: 39.25
-- ma20: 36.94
-- ma60: 34.78
+- open: 39.35
+- high: 40.55
+- low: 38.6
+- close: 39.65
+- volume: 14189825
+- ma5: 39.35
+- ma20: 36.97
+- ma60: 34.79
 - ma120: 35.46
-- ema23: 36.9
-- return_5d: 7.11
-- return_20d: 5.95
-- volume_ratio: 1.36
-- distance_to_ma20_pct: 5.98
-- distance_to_high_60_pct: -3.45
+- ema23: 36.94
+- return_5d: 8.48
+- return_20d: 7.31
+- volume_ratio: 1.58
+- distance_to_ma20_pct: 7.26
+- distance_to_high_60_pct: -2.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,37.8,39.45,37.15,39.15,12081304,37.17,36.41,34.65,36.18,1.26
 20260524,37.8,39.45,37.15,39.15,12081304,37.83,36.69,34.69,36.43,1.25
 20260525,39.35,40.55,38.6,39.65,14189825,38.73,36.83,34.74,36.7,1.47
-20260526,37.8,39.45,37.15,39.15,12081304,39.25,36.94,34.78,36.9,1.36
+20260526,39.35,40.55,38.6,39.65,14189825,39.35,36.97,34.79,36.94,1.58
 ```
 
 ## Latest TDCC Snapshot

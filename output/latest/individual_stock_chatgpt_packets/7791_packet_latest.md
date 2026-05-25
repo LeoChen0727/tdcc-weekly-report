@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7791 皇家可口
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:43 Asia/Taipei
+- generated_at: 2026-05-26 06:03:44 Asia/Taipei
 - stock_id: 7791
 - stock_name: 皇家可口
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 63.4
-- high: 63.4
-- low: 62.9
-- close: 63.2
-- volume: 23562
-- ma5: 63.44
-- ma20: 63.76
-- ma60: 65.21
-- ma120: 68.4
-- ema23: 63.94
-- return_5d: -0.16
-- return_20d: -2.32
-- volume_ratio: 0.53
-- distance_to_ma20_pct: -0.88
-- distance_to_high_60_pct: -9.06
+- open: 63.2
+- high: 64.4
+- low: 63.2
+- close: 64.4
+- volume: 50632
+- ma5: 63.68
+- ma20: 63.82
+- ma60: 65.23
+- ma120: 68.41
+- ema23: 64.04
+- return_5d: 1.74
+- return_20d: -0.46
+- volume_ratio: 1.1
+- distance_to_ma20_pct: 0.91
+- distance_to_high_60_pct: -7.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,63.4,63.4,62.9,63.2,23562,63.08,63.91,65.44,64.04,0.5
 20260524,63.4,63.4,62.9,63.2,23562,63.16,63.84,65.35,63.97,0.51
 20260525,63.2,64.4,63.2,64.4,50632,63.46,63.84,65.28,64.01,1.14
-20260526,63.4,63.4,62.9,63.2,23562,63.44,63.76,65.21,63.94,0.53
+20260526,63.2,64.4,63.2,64.4,50632,63.68,63.82,65.23,64.04,1.1
 ```
 
 ## Latest TDCC Snapshot

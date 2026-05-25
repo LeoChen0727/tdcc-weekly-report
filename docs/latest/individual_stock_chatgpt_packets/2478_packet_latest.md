@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2478 大毅
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:01 Asia/Taipei
+- generated_at: 2026-05-26 06:02:09 Asia/Taipei
 - stock_id: 2478
 - stock_name: 大毅
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 125.5
-- high: 127.5
-- low: 125.5
-- close: 127.5
-- volume: 3699889
-- ma5: 126
-- ma20: 94.79
-- ma60: 76.26
-- ma120: 69.54
-- ema23: 98.15
-- return_5d: 9.91
-- return_20d: 83.98
-- volume_ratio: 0.44
-- distance_to_ma20_pct: 34.51
-- distance_to_high_60_pct: -4.85
+- open: 134
+- high: 134
+- low: 119
+- close: 120
+- volume: 25874117
+- ma5: 124.5
+- ma20: 94.42
+- ma60: 76.14
+- ma120: 69.48
+- ema23: 97.53
+- return_5d: 3.45
+- return_20d: 73.16
+- volume_ratio: 2.7
+- distance_to_ma20_pct: 27.1
+- distance_to_high_60_pct: -10.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,125.5,127.5,125.5,127.5,3699889,114.56,86.23,73.63,90.14,0.52
 20260524,125.5,127.5,125.5,127.5,3699889,120.8,89.3,74.55,93.25,0.51
 20260525,134,134,119,120,25874117,123.7,91.88,75.34,95.48,3.08
-20260526,125.5,127.5,125.5,127.5,3699889,126,94.79,76.26,98.15,0.44
+20260526,134,134,119,120,25874117,124.5,94.42,76.14,97.53,2.7
 ```
 
 ## Latest TDCC Snapshot
@@ -120,14 +120,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 2478 | 大毅 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_strong_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 2478 | 大毅 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

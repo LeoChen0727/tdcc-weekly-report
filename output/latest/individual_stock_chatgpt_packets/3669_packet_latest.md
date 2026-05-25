@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3669 圓展
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:35 Asia/Taipei
+- generated_at: 2026-05-26 06:02:41 Asia/Taipei
 - stock_id: 3669
 - stock_name: 圓展
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 37
-- high: 38.7
-- low: 37
-- close: 38.5
-- volume: 308330
-- ma5: 38.59
-- ma20: 38.9
-- ma60: 36.74
-- ma120: 35.28
-- ema23: 38.27
-- return_5d: 4.19
-- return_20d: -1.41
-- volume_ratio: 0.75
-- distance_to_ma20_pct: -1.02
-- distance_to_high_60_pct: -12.99
+- open: 39.7
+- high: 39.7
+- low: 38.75
+- close: 38.95
+- volume: 283980
+- ma5: 38.68
+- ma20: 38.92
+- ma60: 36.75
+- ma120: 35.29
+- ema23: 38.31
+- return_5d: 5.41
+- return_20d: -0.26
+- volume_ratio: 0.69
+- distance_to_ma20_pct: 0.08
+- distance_to_high_60_pct: -11.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,37,38.7,37,38.5,308330,37.44,38.76,36.51,38.16,0.79
 20260524,37,38.7,37,38.5,308330,37.8,38.84,36.59,38.19,0.77
 20260525,39.7,39.7,38.75,38.95,283980,38.28,38.92,36.66,38.25,0.69
-20260526,37,38.7,37,38.5,308330,38.59,38.9,36.74,38.27,0.75
+20260526,39.7,39.7,38.75,38.95,283980,38.68,38.92,36.75,38.31,0.69
 ```
 
 ## Latest TDCC Snapshot

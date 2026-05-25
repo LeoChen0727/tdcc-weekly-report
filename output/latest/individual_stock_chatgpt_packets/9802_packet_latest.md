@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9802 鈺齊-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:57 Asia/Taipei
+- generated_at: 2026-05-26 06:03:57 Asia/Taipei
 - stock_id: 9802
 - stock_name: 鈺齊-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 75.4
+- open: 75.9
 - high: 75.9
-- low: 74.9
-- close: 75.1
-- volume: 611856
-- ma5: 74.84
-- ma20: 77.67
-- ma60: 79.73
-- ma120: 90.94
-- ema23: 76.89
-- return_5d: -0.4
-- return_20d: -2.85
-- volume_ratio: 0.66
-- distance_to_ma20_pct: -3.31
-- distance_to_high_60_pct: -20.61
+- low: 73.1
+- close: 73.8
+- volume: 1397987
+- ma5: 74.58
+- ma20: 77.61
+- ma60: 79.7
+- ma120: 90.93
+- ema23: 76.78
+- return_5d: -2.12
+- return_20d: -4.53
+- volume_ratio: 1.45
+- distance_to_ma20_pct: -4.9
+- distance_to_high_60_pct: -21.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,75.4,75.9,74.9,75.1,611856,75.7,77.79,80.72,77.55,0.64
 20260524,75.4,75.9,74.9,75.1,611856,75.32,77.85,80.39,77.35,0.67
 20260525,75.9,75.9,73.1,73.8,1397987,74.9,77.78,80.05,77.05,1.5
-20260526,75.4,75.9,74.9,75.1,611856,74.84,77.67,79.73,76.89,0.66
+20260526,75.9,75.9,73.1,73.8,1397987,74.58,77.61,79.7,76.78,1.45
 ```
 
 ## Latest TDCC Snapshot

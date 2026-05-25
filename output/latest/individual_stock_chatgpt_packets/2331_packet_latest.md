@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2331 精英
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:52 Asia/Taipei
+- generated_at: 2026-05-26 06:02:01 Asia/Taipei
 - stock_id: 2331
 - stock_name: 精英
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 19.7
-- high: 21.3
-- low: 19.4
-- close: 20.85
-- volume: 8000801
-- ma5: 21.04
-- ma20: 20.34
-- ma60: 21.66
-- ma120: 23.17
-- ema23: 20.58
-- return_5d: 6.38
-- return_20d: 1.96
-- volume_ratio: 2.09
-- distance_to_ma20_pct: 2.48
-- distance_to_high_60_pct: -23.91
+- open: 21.15
+- high: 22.25
+- low: 21
+- close: 21.8
+- volume: 12607687
+- ma5: 21.23
+- ma20: 20.39
+- ma60: 21.68
+- ma120: 23.18
+- ema23: 20.66
+- return_5d: 11.22
+- return_20d: 6.6
+- volume_ratio: 3.11
+- distance_to_ma20_pct: 6.9
+- distance_to_high_60_pct: -20.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,19.7,21.3,19.4,20.85,8000801,19.78,20.22,21.97,20.4,3.06
 20260524,19.7,21.3,19.4,20.85,8000801,20.16,20.25,21.86,20.44,2.74
 20260525,21.15,22.25,21,21.8,12607687,20.79,20.32,21.76,20.55,3.62
-20260526,19.7,21.3,19.4,20.85,8000801,21.04,20.34,21.66,20.58,2.09
+20260526,21.15,22.25,21,21.8,12607687,21.23,20.39,21.68,20.66,3.11
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2331 | 精英 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 2331 | 精英 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

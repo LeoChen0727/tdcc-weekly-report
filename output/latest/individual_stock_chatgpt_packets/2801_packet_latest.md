@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2801 彰銀
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:09 Asia/Taipei
+- generated_at: 2026-05-26 06:02:17 Asia/Taipei
 - stock_id: 2801
 - stock_name: 彰銀
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 20.3
-- high: 20.45
-- low: 20.25
-- close: 20.3
-- volume: 25690679
-- ma5: 20.28
-- ma20: 20.55
+- open: 20.35
+- high: 20.35
+- low: 20.15
+- close: 20.2
+- volume: 29062602
+- ma5: 20.26
+- ma20: 20.54
 - ma60: 20.76
 - ma120: 20.67
-- ema23: 20.55
-- return_5d: 0
-- return_20d: -4.92
-- volume_ratio: 1.15
-- distance_to_ma20_pct: -1.19
-- distance_to_high_60_pct: -6.67
+- ema23: 20.54
+- return_5d: -0.49
+- return_20d: -5.39
+- volume_ratio: 1.29
+- distance_to_ma20_pct: -1.66
+- distance_to_high_60_pct: -7.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,20.3,20.45,20.25,20.3,25690679,20.35,20.68,20.81,20.63,1.25
 20260524,20.3,20.45,20.25,20.3,25690679,20.31,20.65,20.79,20.6,1.23
 20260525,20.35,20.35,20.15,20.2,29062602,20.28,20.6,20.77,20.57,1.33
-20260526,20.3,20.45,20.25,20.3,25690679,20.28,20.55,20.76,20.55,1.15
+20260526,20.35,20.35,20.15,20.2,29062602,20.26,20.54,20.76,20.54,1.29
 ```
 
 ## Latest TDCC Snapshot

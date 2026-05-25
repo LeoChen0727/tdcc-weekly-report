@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1449 佳和
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:34 Asia/Taipei
+- generated_at: 2026-05-26 06:01:44 Asia/Taipei
 - stock_id: 1449
 - stock_name: 佳和
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 12.4
-- high: 12.8
-- low: 12.3
-- close: 12.65
-- volume: 960222
-- ma5: 12.6
-- ma20: 12.88
+- open: 12.65
+- high: 12.75
+- low: 12.1
+- close: 12.4
+- volume: 1841754
+- ma5: 12.55
+- ma20: 12.86
 - ma60: 12.74
 - ma120: 11.94
-- ema23: 12.89
-- return_5d: 1.61
-- return_20d: -5.24
-- volume_ratio: 0.73
-- distance_to_ma20_pct: -1.75
-- distance_to_high_60_pct: -25.81
+- ema23: 12.87
+- return_5d: -0.4
+- return_20d: -7.12
+- volume_ratio: 1.36
+- distance_to_ma20_pct: -3.6
+- distance_to_high_60_pct: -27.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,12.4,12.8,12.3,12.65,960222,12.47,13,12.65,12.99,0.74
 20260524,12.4,12.8,12.3,12.65,960222,12.53,12.96,12.68,12.96,0.76
 20260525,12.65,12.75,12.1,12.4,1841754,12.56,12.91,12.71,12.92,1.4
-20260526,12.4,12.8,12.3,12.65,960222,12.6,12.88,12.74,12.89,0.73
+20260526,12.65,12.75,12.1,12.4,1841754,12.55,12.86,12.74,12.87,1.36
 ```
 
 ## Latest TDCC Snapshot
@@ -120,14 +120,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 1449 | 佳和 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 1449 | 佳和 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | status |

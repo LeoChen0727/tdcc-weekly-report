@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2884 玉山金
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:10 Asia/Taipei
+- generated_at: 2026-05-26 06:02:18 Asia/Taipei
 - stock_id: 2884
 - stock_name: 玉山金
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 31.5
-- high: 31.8
-- low: 31.3
-- close: 31.3
-- volume: 40828522
-- ma5: 31.22
-- ma20: 31.7
+- open: 31.3
+- high: 31.35
+- low: 30.9
+- close: 30.9
+- volume: 47765179
+- ma5: 31.14
+- ma20: 31.68
 - ma60: 32.31
-- ma120: 32.66
-- ema23: 31.76
-- return_5d: -0.79
-- return_20d: -3.4
-- volume_ratio: 1.05
-- distance_to_ma20_pct: -1.26
-- distance_to_high_60_pct: -10.83
+- ma120: 32.65
+- ema23: 31.72
+- return_5d: -2.06
+- return_20d: -4.63
+- volume_ratio: 1.22
+- distance_to_ma20_pct: -2.46
+- distance_to_high_60_pct: -11.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,31.5,31.8,31.3,31.3,40828522,31.57,31.89,32.51,31.93,1.08
 20260524,31.5,31.8,31.3,31.3,40828522,31.43,31.83,32.45,31.88,1.08
 20260525,31.3,31.35,30.9,30.9,47765179,31.27,31.75,32.38,31.8,1.24
-20260526,31.5,31.8,31.3,31.3,40828522,31.22,31.7,32.31,31.76,1.05
+20260526,31.3,31.35,30.9,30.9,47765179,31.14,31.68,32.31,31.72,1.22
 ```
 
 ## Latest TDCC Snapshot

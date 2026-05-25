@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1541 錩泰
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:38 Asia/Taipei
+- generated_at: 2026-05-26 06:01:47 Asia/Taipei
 - stock_id: 1541
 - stock_name: 錩泰
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 20.9
-- high: 20.9
-- low: 20.4
-- close: 20.7
-- volume: 21004
-- ma5: 20.6
-- ma20: 21.79
-- ma60: 24.01
+- open: 21.45
+- high: 21.45
+- low: 20.1
+- close: 20.2
+- volume: 68409
+- ma5: 20.5
+- ma20: 21.76
+- ma60: 24
 - ma120: 24.22
-- ema23: 21.89
-- return_5d: -0.24
-- return_20d: -14.64
-- volume_ratio: 0.29
-- distance_to_ma20_pct: -4.98
-- distance_to_high_60_pct: -23.9
+- ema23: 21.85
+- return_5d: -2.65
+- return_20d: -16.7
+- volume_ratio: 0.92
+- distance_to_ma20_pct: -7.17
+- distance_to_high_60_pct: -25.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,20.9,20.9,20.4,20.7,21004,20.59,22.34,24.24,22.3,0.28
 20260524,20.9,20.9,20.4,20.7,21004,20.65,22.17,24.17,22.16,0.3
 20260525,21.45,21.45,20.1,20.2,68409,20.61,21.96,24.08,22,0.94
-20260526,20.9,20.9,20.4,20.7,21004,20.6,21.79,24.01,21.89,0.29
+20260526,21.45,21.45,20.1,20.2,68409,20.5,21.76,24,21.85,0.92
 ```
 
 ## Latest TDCC Snapshot

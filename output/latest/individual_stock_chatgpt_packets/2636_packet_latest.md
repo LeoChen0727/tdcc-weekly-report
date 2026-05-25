@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2636 台驊控股
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:06 Asia/Taipei
+- generated_at: 2026-05-26 06:02:14 Asia/Taipei
 - stock_id: 2636
 - stock_name: 台驊控股
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 65.7
-- high: 67.2
-- low: 65.7
-- close: 67.2
-- volume: 450233
-- ma5: 67.18
+- open: 68.1
+- high: 68.1
+- low: 66
+- close: 67.1
+- volume: 535711
+- ma5: 67.16
 - ma20: 66.92
 - ma60: 67.63
 - ma120: 66.84
 - ema23: 66.91
-- return_5d: 2.6
-- return_20d: 0.15
-- volume_ratio: 1.11
-- distance_to_ma20_pct: 0.41
-- distance_to_high_60_pct: -6.28
+- return_5d: 2.44
+- return_20d: 0
+- volume_ratio: 1.3
+- distance_to_ma20_pct: 0.27
+- distance_to_high_60_pct: -6.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,65.7,67.2,65.7,67.2,450233,65.8,66.88,67.52,66.84,1.24
 20260524,65.7,67.2,65.7,67.2,450233,66.38,66.91,67.57,66.87,1.21
 20260525,68.1,68.1,66,67.1,535711,66.84,66.92,67.62,66.89,1.37
-20260526,65.7,67.2,65.7,67.2,450233,67.18,66.92,67.63,66.91,1.11
+20260526,68.1,68.1,66,67.1,535711,67.16,66.92,67.63,66.91,1.3
 ```
 
 ## Latest TDCC Snapshot

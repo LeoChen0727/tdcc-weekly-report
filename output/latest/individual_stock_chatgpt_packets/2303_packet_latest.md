@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2303 聯電
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:51 Asia/Taipei
+- generated_at: 2026-05-26 06:02:00 Asia/Taipei
 - stock_id: 2303
 - stock_name: 聯電
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 119.5
-- high: 119.5
+- open: 115
+- high: 125
 - low: 113
-- close: 114
-- volume: 203495119
-- ma5: 116.2
-- ma20: 103.28
-- ma60: 76.54
-- ma120: 66.22
-- ema23: 101.63
-- return_5d: -1.72
-- return_20d: 53.02
-- volume_ratio: 0.76
-- distance_to_ma20_pct: 10.37
-- distance_to_high_60_pct: -8.8
+- close: 125
+- volume: 340935766
+- ma5: 118.4
+- ma20: 103.83
+- ma60: 76.72
+- ma120: 66.32
+- ema23: 102.55
+- return_5d: 7.76
+- return_20d: 67.79
+- volume_ratio: 1.25
+- distance_to_ma20_pct: 20.38
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,119.5,119.5,113,114,203495119,113,96.75,73.91,96.85,0.81
 20260524,119.5,119.5,113,114,203495119,113.2,98.81,74.72,98.28,0.8
 20260525,115,125,113,125,340935766,116.6,101.31,75.71,100.51,1.3
-20260526,119.5,119.5,113,114,203495119,116.2,103.28,76.54,101.63,0.76
+20260526,115,125,113,125,340935766,118.4,103.83,76.72,102.55,1.25
 ```
 
 ## Latest TDCC Snapshot

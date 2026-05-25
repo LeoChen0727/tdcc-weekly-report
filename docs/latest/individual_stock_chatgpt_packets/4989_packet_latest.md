@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4989 榮科
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:54 Asia/Taipei
+- generated_at: 2026-05-26 06:02:59 Asia/Taipei
 - stock_id: 4989
 - stock_name: 榮科
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 97.8
-- high: 102
-- low: 97.6
-- close: 99.4
-- volume: 17701543
-- ma5: 99.42
-- ma20: 97.45
+- open: 101
+- high: 102.5
+- low: 98.2
+- close: 99.5
+- volume: 13312145
+- ma5: 99.44
+- ma20: 97.46
 - ma60: 85.63
 - ma120: 68.02
-- ema23: 96.13
-- return_5d: 3.22
-- return_20d: -6.67
-- volume_ratio: 1.39
-- distance_to_ma20_pct: 2
-- distance_to_high_60_pct: -20.48
+- ema23: 96.14
+- return_5d: 3.32
+- return_20d: -6.57
+- volume_ratio: 1.07
+- distance_to_ma20_pct: 2.09
+- distance_to_high_60_pct: -20.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,97.8,102,97.6,99.4,17701543,95.32,98.34,83.94,95.15,1.64
 20260524,97.8,102,97.6,99.4,17701543,97.46,98.23,84.56,95.5,1.54
 20260525,101,102.5,98.2,99.5,13312145,98.8,97.81,85.15,95.83,1.12
-20260526,97.8,102,97.6,99.4,17701543,99.42,97.45,85.63,96.13,1.39
+20260526,101,102.5,98.2,99.5,13312145,99.44,97.46,85.63,96.14,1.07
 ```
 
 ## Latest TDCC Snapshot
@@ -123,7 +123,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260526 | 4989 | 榮科 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260526 | 4989 | 榮科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

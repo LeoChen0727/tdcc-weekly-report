@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3593 力銘
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:33 Asia/Taipei
+- generated_at: 2026-05-26 06:02:39 Asia/Taipei
 - stock_id: 3593
 - stock_name: 力銘
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 16.5
-- high: 17.65
-- low: 16.5
+- open: 17.45
+- high: 17.45
+- low: 17.05
 - close: 17.45
-- volume: 22629
+- volume: 44213
 - ma5: 17.45
 - ma20: 18.22
 - ma60: 16
@@ -66,7 +66,7 @@
 - ema23: 17.79
 - return_5d: -1.41
 - return_20d: -12.53
-- volume_ratio: 0.63
+- volume_ratio: 1.2
 - distance_to_ma20_pct: -4.23
 - distance_to_high_60_pct: -14.46
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,16.5,17.65,16.5,17.45,22629,17.81,18.53,15.73,17.89,0.54
 20260524,16.5,17.65,16.5,17.45,22629,17.6,18.46,15.82,17.85,0.55
 20260525,17.45,17.45,17.05,17.45,44213,17.5,18.34,15.91,17.82,1.1
-20260526,16.5,17.65,16.5,17.45,22629,17.45,18.22,16,17.79,0.63
+20260526,17.45,17.45,17.05,17.45,44213,17.45,18.22,16,17.79,1.2
 ```
 
 ## Latest TDCC Snapshot

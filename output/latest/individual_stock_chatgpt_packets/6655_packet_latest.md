@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6655 科定
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:27 Asia/Taipei
+- generated_at: 2026-05-26 06:03:29 Asia/Taipei
 - stock_id: 6655
 - stock_name: 科定
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 130
-- high: 132.5
-- low: 130
-- close: 132.5
-- volume: 10016
-- ma5: 132.3
-- ma20: 135.12
-- ma60: 133.11
+- open: 135.5
+- high: 135.5
+- low: 131.5
+- close: 131.5
+- volume: 12100
+- ma5: 132.1
+- ma20: 135.07
+- ma60: 133.09
 - ma120: 125.65
-- ema23: 134.15
-- return_5d: 0.38
-- return_20d: -3.99
-- volume_ratio: 1.14
-- distance_to_ma20_pct: -1.94
-- distance_to_high_60_pct: -6.03
+- ema23: 134.07
+- return_5d: -0.38
+- return_20d: -4.71
+- volume_ratio: 1.36
+- distance_to_ma20_pct: -2.65
+- distance_to_high_60_pct: -6.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,130,132.5,130,132.5,10016,132.4,136.05,133.01,134.74,1.12
 20260524,130,132.5,130,132.5,10016,132.5,135.8,133.06,134.56,1.08
 20260525,135.5,135.5,131.5,131.5,12100,132.2,135.4,133.08,134.3,1.42
-20260526,130,132.5,130,132.5,10016,132.3,135.12,133.11,134.15,1.14
+20260526,135.5,135.5,131.5,131.5,12100,132.1,135.07,133.09,134.07,1.36
 ```
 
 ## Latest TDCC Snapshot

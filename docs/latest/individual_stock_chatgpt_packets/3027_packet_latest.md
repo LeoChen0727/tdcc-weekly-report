@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3027 盛達
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:15 Asia/Taipei
+- generated_at: 2026-05-26 06:02:22 Asia/Taipei
 - stock_id: 3027
 - stock_name: 盛達
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 17.6
-- high: 18.2
-- low: 17.4
-- close: 18.15
-- volume: 546462
-- ma5: 18.31
-- ma20: 18.2
-- ma60: 19.48
-- ma120: 21.79
-- ema23: 18.34
-- return_5d: 3.12
-- return_20d: -1.89
-- volume_ratio: 1.33
-- distance_to_ma20_pct: -0.29
-- distance_to_high_60_pct: -25.46
+- open: 18.3
+- high: 19.35
+- low: 18.2
+- close: 18.95
+- volume: 961564
+- ma5: 18.47
+- ma20: 18.24
+- ma60: 19.5
+- ma120: 21.8
+- ema23: 18.41
+- return_5d: 7.67
+- return_20d: 2.43
+- volume_ratio: 2.22
+- distance_to_ma20_pct: 3.88
+- distance_to_high_60_pct: -22.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,17.6,18.2,17.4,18.15,546462,17.73,18.15,19.75,18.32,1.47
 20260524,17.6,18.2,17.4,18.15,546462,17.85,18.17,19.66,18.3,1.48
 20260525,18.3,19.35,18.2,18.95,961564,18.2,18.22,19.58,18.36,2.39
-20260526,17.6,18.2,17.4,18.15,546462,18.31,18.2,19.48,18.34,1.33
+20260526,18.3,19.35,18.2,18.95,961564,18.47,18.24,19.5,18.41,2.22
 ```
 
 ## Latest TDCC Snapshot

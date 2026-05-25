@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2258 鴻華先進-創
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:50 Asia/Taipei
+- generated_at: 2026-05-26 06:01:59 Asia/Taipei
 - stock_id: 2258
 - stock_name: 鴻華先進-創
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 28.05
-- high: 30.5
-- low: 28.05
-- close: 30.4
-- volume: 2178880
-- ma5: 30.31
-- ma20: 28.54
-- ma60: 29.65
+- open: 30.8
+- high: 31.45
+- low: 29.4
+- close: 29.95
+- volume: 1453505
+- ma5: 30.22
+- ma20: 28.52
+- ma60: 29.64
 - ma120: 34.63
-- ema23: 28.9
-- return_5d: 8.57
-- return_20d: 6.67
-- volume_ratio: 1.91
-- distance_to_ma20_pct: 6.51
-- distance_to_high_60_pct: -21.14
+- ema23: 28.87
+- return_5d: 6.96
+- return_20d: 5.09
+- volume_ratio: 1.31
+- distance_to_ma20_pct: 5.01
+- distance_to_high_60_pct: -22.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,28.05,30.5,28.05,30.4,2178880,28.49,28.28,30.09,28.5,2.35
 20260524,28.05,30.5,28.05,30.4,2178880,29.19,28.37,29.95,28.66,2.18
 20260525,30.8,31.45,29.4,29.95,1453505,29.83,28.45,29.79,28.77,1.37
-20260526,28.05,30.5,28.05,30.4,2178880,30.31,28.54,29.65,28.9,1.91
+20260526,30.8,31.45,29.4,29.95,1453505,30.22,28.52,29.64,28.87,1.31
 ```
 
 ## Latest TDCC Snapshot
@@ -120,9 +120,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2258 | 鴻華先進-創 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

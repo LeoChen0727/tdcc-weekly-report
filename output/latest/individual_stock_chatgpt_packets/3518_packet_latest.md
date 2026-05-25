@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3518 柏騰
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:30 Asia/Taipei
+- generated_at: 2026-05-26 06:02:36 Asia/Taipei
 - stock_id: 3518
 - stock_name: 柏騰
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 34.15
-- high: 35.75
-- low: 33.8
-- close: 35.65
-- volume: 1418101
-- ma5: 36.01
-- ma20: 35.36
-- ma60: 27.37
-- ma120: 24.32
-- ema23: 33.74
-- return_5d: 6.26
-- return_20d: 8.69
-- volume_ratio: 0.81
-- distance_to_ma20_pct: 0.83
-- distance_to_high_60_pct: -10.88
+- open: 36.2
+- high: 38.95
+- low: 36.2
+- close: 37.45
+- volume: 2600351
+- ma5: 36.37
+- ma20: 35.45
+- ma60: 27.4
+- ma120: 24.33
+- ema23: 33.89
+- return_5d: 11.62
+- return_20d: 14.18
+- volume_ratio: 1.44
+- distance_to_ma20_pct: 5.65
+- distance_to_high_60_pct: -6.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,34.15,35.75,33.8,35.65,1418101,33.79,34.6,26.63,33,0.88
 20260524,34.15,35.75,33.8,35.65,1418101,34.54,34.92,26.88,33.22,0.86
 20260525,36.2,38.95,36.2,37.45,2600351,35.59,35.22,27.15,33.57,1.5
-20260526,34.15,35.75,33.8,35.65,1418101,36.01,35.36,27.37,33.74,0.81
+20260526,36.2,38.95,36.2,37.45,2600351,36.37,35.45,27.4,33.89,1.44
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3518 | 柏騰 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 3518 | 柏騰 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

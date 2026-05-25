@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7818 溢泰實業
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:43 Asia/Taipei
+- generated_at: 2026-05-26 06:03:44 Asia/Taipei
 - stock_id: 7818
 - stock_name: 溢泰實業
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 66.8
-- high: 66.8
-- low: 64
-- close: 65
-- volume: 1099672
-- ma5: 65.18
-- ma20: 65.63
-- ma60: 65.63
-- ma120: 65.63
-- ema23: 64.77
-- return_5d: -2.84
+- open: 65.6
+- high: 67.6
+- low: 65.2
+- close: 65.9
+- volume: 1100047
+- ma5: 65.36
+- ma20: 65.73
+- ma60: 65.73
+- ma120: 65.73
+- ema23: 64.84
+- return_5d: -1.49
 - return_20d: 
 - volume_ratio: 0.89
-- distance_to_ma20_pct: -0.96
-- distance_to_high_60_pct: -6.07
+- distance_to_ma20_pct: 0.25
+- distance_to_high_60_pct: -4.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -82,7 +82,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,66.8,66.8,64,65,1099672,66.2,65.8,65.8,64.61,0.85
 20260524,66.8,66.8,64,65,1099672,65.8,65.69,65.69,64.64,0.87
 20260525,65.6,67.6,65.2,65.9,1100047,65.56,65.71,65.71,64.75,0.88
-20260526,66.8,66.8,64,65,1099672,65.18,65.63,65.63,64.77,0.89
+20260526,65.6,67.6,65.2,65.9,1100047,65.36,65.73,65.73,64.84,0.89
 ```
 
 ## Latest TDCC Snapshot

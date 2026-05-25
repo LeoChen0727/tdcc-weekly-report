@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4952 凌通
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:52 Asia/Taipei
+- generated_at: 2026-05-26 06:02:57 Asia/Taipei
 - stock_id: 4952
 - stock_name: 凌通
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 52.6
-- high: 54.3
-- low: 52
-- close: 53.9
-- volume: 2348532
-- ma5: 54.06
-- ma20: 50.56
-- ma60: 46.09
-- ma120: 41.84
-- ema23: 50.51
-- return_5d: 2.67
-- return_20d: 15.79
-- volume_ratio: 1.62
-- distance_to_ma20_pct: 6.6
-- distance_to_high_60_pct: -4.43
+- open: 54.4
+- high: 56.4
+- low: 53.1
+- close: 54.7
+- volume: 2282914
+- ma5: 54.22
+- ma20: 50.6
+- ma60: 46.1
+- ma120: 41.85
+- ema23: 50.58
+- return_5d: 4.19
+- return_20d: 17.51
+- volume_ratio: 1.57
+- distance_to_ma20_pct: 8.09
+- distance_to_high_60_pct: -3.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,52.6,54.3,52,53.9,2348532,51.6,49.55,45.53,49.42,1.94
 20260524,52.6,54.3,52,53.9,2348532,52.78,49.85,45.73,49.79,1.83
 20260525,54.4,56.4,53.1,54.7,2282914,53.78,50.2,45.94,50.2,1.67
-20260526,52.6,54.3,52,53.9,2348532,54.06,50.56,46.09,50.51,1.62
+20260526,54.4,56.4,53.1,54.7,2282914,54.22,50.6,46.1,50.58,1.57
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2028 威致
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:46 Asia/Taipei
+- generated_at: 2026-05-26 06:01:56 Asia/Taipei
 - stock_id: 2028
 - stock_name: 威致
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 17
-- high: 17.25
-- low: 16.95
-- close: 17.1
-- volume: 288738
-- ma5: 17.33
-- ma20: 17.04
-- ma60: 17.87
-- ma120: 17.85
-- ema23: 17.31
-- return_5d: 0.89
-- return_20d: -5.26
-- volume_ratio: 1.15
-- distance_to_ma20_pct: 0.37
-- distance_to_high_60_pct: -16.18
+- open: 17.4
+- high: 18.45
+- low: 17.05
+- close: 18.25
+- volume: 612796
+- ma5: 17.56
+- ma20: 17.09
+- ma60: 17.89
+- ma120: 17.86
+- ema23: 17.4
+- return_5d: 7.67
+- return_20d: 1.11
+- volume_ratio: 2.29
+- distance_to_ma20_pct: 6.76
+- distance_to_high_60_pct: -10.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,17,17.25,16.95,17.1,288738,17.01,17.1,17.96,17.25,1.28
 20260524,17,17.25,16.95,17.1,288738,17.04,17.06,17.92,17.24,1.23
 20260525,17.4,18.45,17.05,18.25,612796,17.3,17.09,17.91,17.33,2.37
-20260526,17,17.25,16.95,17.1,288738,17.33,17.04,17.87,17.31,1.15
+20260526,17.4,18.45,17.05,18.25,612796,17.56,17.09,17.89,17.4,2.29
 ```
 
 ## Latest TDCC Snapshot

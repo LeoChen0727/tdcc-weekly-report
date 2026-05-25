@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00736 國泰新興市場
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:25 Asia/Taipei
+- generated_at: 2026-05-26 06:01:35 Asia/Taipei
 - stock_id: 00736
 - stock_name: 國泰新興市場
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 30.2
-- high: 30.23
-- low: 30.2
-- close: 30.23
-- volume: 101521
-- ma5: 30.29
-- ma20: 30.29
-- ma60: 30.29
-- ma120: 30.29
-- ema23: 30.25
+- open: 30.38
+- high: 30.52
+- low: 30.38
+- close: 30.52
+- volume: 108966
+- ma5: 30.35
+- ma20: 30.35
+- ma60: 30.35
+- ma120: 30.35
+- ema23: 30.28
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.99
-- distance_to_ma20_pct: -0.19
-- distance_to_high_60_pct: -0.95
+- volume_ratio: 1.04
+- distance_to_ma20_pct: 0.57
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,30.2,30.23,30.2,30.23,101521,,,,,
 20260524,30.2,30.23,30.2,30.23,101521,,,,,
 20260525,30.38,30.52,30.38,30.52,108966,,,,,
-20260526,30.2,30.23,30.2,30.23,101521,30.29,30.29,30.29,30.25,0.99
+20260526,30.38,30.52,30.38,30.52,108966,30.35,30.35,30.35,30.28,1.04
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2401 凌陽
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:56 Asia/Taipei
+- generated_at: 2026-05-26 06:02:05 Asia/Taipei
 - stock_id: 2401
 - stock_name: 凌陽
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 30.45
-- high: 31.75
-- low: 29.2
-- close: 30.75
-- volume: 57498129
-- ma5: 30.49
-- ma20: 26.75
-- ma60: 23.31
-- ma120: 22.23
-- ema23: 26.9
-- return_5d: 4.06
-- return_20d: 31.69
-- volume_ratio: 2.65
-- distance_to_ma20_pct: 14.94
-- distance_to_high_60_pct: -3.15
+- open: 30.75
+- high: 31
+- low: 29.35
+- close: 29.45
+- volume: 27071134
+- ma5: 30.23
+- ma20: 26.69
+- ma60: 23.29
+- ma120: 22.22
+- ema23: 26.79
+- return_5d: -0.34
+- return_20d: 26.12
+- volume_ratio: 1.34
+- distance_to_ma20_pct: 10.35
+- distance_to_high_60_pct: -7.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,30.45,31.75,29.2,30.75,57498129,28.58,25.69,22.93,25.87,3.67
 20260524,30.45,31.75,29.2,30.75,57498129,29.74,26.08,23.07,26.28,3.22
 20260525,30.75,31,29.35,29.45,27071134,30.25,26.38,23.18,26.55,1.43
-20260526,30.45,31.75,29.2,30.75,57498129,30.49,26.75,23.31,26.9,2.65
+20260526,30.75,31,29.35,29.45,27071134,30.23,26.69,23.29,26.79,1.34
 ```
 
 ## Latest TDCC Snapshot
@@ -120,9 +120,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2401 | 凌陽 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

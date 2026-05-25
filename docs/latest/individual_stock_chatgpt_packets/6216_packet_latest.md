@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6216 居易
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:14 Asia/Taipei
+- generated_at: 2026-05-26 06:03:17 Asia/Taipei
 - stock_id: 6216
 - stock_name: 居易
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 22.35
-- high: 22.8
-- low: 22.3
-- close: 22.7
-- volume: 220186
-- ma5: 22.63
-- ma20: 22.98
-- ma60: 24.61
-- ma120: 25.87
-- ema23: 23.19
-- return_5d: 0.67
-- return_20d: -7.91
-- volume_ratio: 0.79
-- distance_to_ma20_pct: -1.22
-- distance_to_high_60_pct: -16.7
+- open: 22.7
+- high: 22.95
+- low: 22.1
+- close: 22.35
+- volume: 366693
+- ma5: 22.56
+- ma20: 22.96
+- ma60: 24.6
+- ma120: 25.86
+- ema23: 23.16
+- return_5d: -0.89
+- return_20d: -9.33
+- volume_ratio: 1.28
+- distance_to_ma20_pct: -2.67
+- distance_to_high_60_pct: -17.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,22.35,22.8,22.3,22.7,220186,22.49,23.29,24.84,23.37,0.85
 20260524,22.35,22.8,22.3,22.7,220186,22.61,23.19,24.76,23.31,0.84
 20260525,22.7,22.95,22.1,22.35,366693,22.6,23.08,24.68,23.23,1.34
-20260526,22.35,22.8,22.3,22.7,220186,22.63,22.98,24.61,23.19,0.79
+20260526,22.7,22.95,22.1,22.35,366693,22.56,22.96,24.6,23.16,1.28
 ```
 
 ## Latest TDCC Snapshot

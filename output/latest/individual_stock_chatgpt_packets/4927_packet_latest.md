@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4927 泰鼎-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:51 Asia/Taipei
+- generated_at: 2026-05-26 06:02:56 Asia/Taipei
 - stock_id: 4927
 - stock_name: 泰鼎-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 51.5
-- high: 56.3
-- low: 51.4
-- close: 56.3
-- volume: 27506157
-- ma5: 57.42
-- ma20: 53.76
-- ma60: 48.99
-- ma120: 40.74
-- ema23: 53.42
-- return_5d: 9.96
-- return_20d: -0.71
-- volume_ratio: 1.46
-- distance_to_ma20_pct: 4.72
-- distance_to_high_60_pct: -9.05
+- open: 58.1
+- high: 61.9
+- low: 57.1
+- close: 61.9
+- volume: 24148123
+- ma5: 58.54
+- ma20: 54.04
+- ma60: 49.08
+- ma120: 40.78
+- ema23: 53.89
+- return_5d: 20.9
+- return_20d: 9.17
+- volume_ratio: 1.29
+- distance_to_ma20_pct: 14.54
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,51.5,56.3,51.4,56.3,27506157,52.28,53.76,48.38,52.01,1.35
 20260524,51.5,56.3,51.4,56.3,27506157,53.56,53.64,48.58,52.37,1.43
 20260525,58.1,61.9,57.1,61.9,24148123,56.4,53.78,48.83,53.16,1.3
-20260526,51.5,56.3,51.4,56.3,27506157,57.42,53.76,48.99,53.42,1.46
+20260526,58.1,61.9,57.1,61.9,24148123,58.54,54.04,49.08,53.89,1.29
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4927 | 泰鼎-KY | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 4927 | 泰鼎-KY | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

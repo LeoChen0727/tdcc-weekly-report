@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6176 瑞儀
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:11 Asia/Taipei
+- generated_at: 2026-05-26 06:03:14 Asia/Taipei
 - stock_id: 6176
 - stock_name: 瑞儀
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 105.5
-- high: 108
-- low: 104.5
+- open: 109
+- high: 109.5
+- low: 106.5
 - close: 107.5
-- volume: 7163513
+- volume: 6949932
 - ma5: 107.5
 - ma20: 103.56
 - ma60: 97.91
@@ -66,7 +66,7 @@
 - ema23: 103.23
 - return_5d: 2.38
 - return_20d: 6.97
-- volume_ratio: 1.03
+- volume_ratio: 1
 - distance_to_ma20_pct: 3.8
 - distance_to_high_60_pct: -7.73
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,105.5,108,104.5,107.5,7163513,105.3,102.19,98.66,101.95,0.88
 20260524,105.5,108,104.5,107.5,7163513,106.4,102.61,98.2,102.41,0.97
 20260525,109,109.5,106.5,107.5,6949932,107,103.21,97.95,102.84,0.97
-20260526,105.5,108,104.5,107.5,7163513,107.5,103.56,97.91,103.23,1.03
+20260526,109,109.5,106.5,107.5,6949932,107.5,103.56,97.91,103.23,1
 ```
 
 ## Latest TDCC Snapshot
@@ -120,9 +120,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6176 | 瑞儀 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | first_seen | calendar event: ex_dividend on 20260601; status=confirmed; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

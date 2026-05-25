@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1531 高林股
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:37 Asia/Taipei
+- generated_at: 2026-05-26 06:01:47 Asia/Taipei
 - stock_id: 1531
 - stock_name: 高林股
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 12.55
-- high: 12.55
-- low: 12.35
-- close: 12.35
-- volume: 148131
-- ma5: 12.32
-- ma20: 12.61
-- ma60: 12.69
+- open: 12.3
+- high: 12.35
+- low: 12.05
+- close: 12.2
+- volume: 447617
+- ma5: 12.29
+- ma20: 12.6
+- ma60: 12.68
 - ma120: 12.39
-- ema23: 12.58
-- return_5d: -1.59
-- return_20d: -5.73
-- volume_ratio: 0.83
-- distance_to_ma20_pct: -2.06
-- distance_to_high_60_pct: -8.86
+- ema23: 12.57
+- return_5d: -2.79
+- return_20d: -6.87
+- volume_ratio: 2.31
+- distance_to_ma20_pct: -3.19
+- distance_to_high_60_pct: -9.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,12.55,12.55,12.35,12.35,148131,12.37,12.71,12.69,12.67,0.83
 20260524,12.55,12.55,12.35,12.35,148131,12.38,12.69,12.69,12.64,0.85
 20260525,12.3,12.35,12.05,12.2,447617,12.36,12.65,12.69,12.61,2.43
-20260526,12.55,12.55,12.35,12.35,148131,12.32,12.61,12.69,12.58,0.83
+20260526,12.3,12.35,12.05,12.2,447617,12.29,12.6,12.68,12.57,2.31
 ```
 
 ## Latest TDCC Snapshot

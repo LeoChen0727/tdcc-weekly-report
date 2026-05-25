@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6115 鎰勝
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:07 Asia/Taipei
+- generated_at: 2026-05-26 06:03:11 Asia/Taipei
 - stock_id: 6115
 - stock_name: 鎰勝
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 47.05
+- open: 47
 - high: 47.05
-- low: 46.75
-- close: 46.95
-- volume: 142540
-- ma5: 46.92
+- low: 46.8
+- close: 46.8
+- volume: 258921
+- ma5: 46.89
 - ma20: 47.22
 - ma60: 47.17
 - ma120: 47.15
-- ema23: 47.15
-- return_5d: -0.11
-- return_20d: -2.09
-- volume_ratio: 0.76
-- distance_to_ma20_pct: -0.58
-- distance_to_high_60_pct: -3.4
+- ema23: 47.14
+- return_5d: -0.43
+- return_20d: -2.4
+- volume_ratio: 1.33
+- distance_to_ma20_pct: -0.88
+- distance_to_high_60_pct: -3.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,47.05,47.05,46.75,46.95,142540,46.91,47.36,47.23,47.23,0.78
 20260524,47.05,47.05,46.75,46.95,142540,46.97,47.32,47.21,47.21,0.81
 20260525,47,47.05,46.8,46.8,258921,46.93,47.27,47.19,47.17,1.4
-20260526,47.05,47.05,46.75,46.95,142540,46.92,47.22,47.17,47.15,0.76
+20260526,47,47.05,46.8,46.8,258921,46.89,47.22,47.17,47.14,1.33
 ```
 
 ## Latest TDCC Snapshot

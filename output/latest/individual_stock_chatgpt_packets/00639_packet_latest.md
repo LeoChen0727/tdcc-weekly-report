@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00639 富邦深100
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:24 Asia/Taipei
+- generated_at: 2026-05-26 06:01:34 Asia/Taipei
 - stock_id: 00639
 - stock_name: 富邦深100
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 17.68
-- high: 17.74
-- low: 17.51
-- close: 17.7
-- volume: 1386717
-- ma5: 17.75
-- ma20: 17.75
-- ma60: 17.75
-- ma120: 17.75
-- ema23: 17.72
+- open: 17.77
+- high: 18.05
+- low: 17.77
+- close: 17.94
+- volume: 1475786
+- ma5: 17.8
+- ma20: 17.8
+- ma60: 17.8
+- ma120: 17.8
+- ema23: 17.74
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.99
-- distance_to_ma20_pct: -0.27
-- distance_to_high_60_pct: -1.94
+- volume_ratio: 1.04
+- distance_to_ma20_pct: 0.81
+- distance_to_high_60_pct: -0.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,17.68,17.74,17.51,17.7,1386717,,,,,
 20260524,17.68,17.74,17.51,17.7,1386717,,,,,
 20260525,17.77,18.05,17.77,17.94,1475786,,,,,
-20260526,17.68,17.74,17.51,17.7,1386717,17.75,17.75,17.75,17.72,0.99
+20260526,17.77,18.05,17.77,17.94,1475786,17.8,17.8,17.8,17.74,1.04
 ```
 
 ## Latest TDCC Snapshot

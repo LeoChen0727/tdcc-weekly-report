@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2484 希華
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:01 Asia/Taipei
+- generated_at: 2026-05-26 06:02:09 Asia/Taipei
 - stock_id: 2484
 - stock_name: 希華
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 45.4
-- high: 49.3
-- low: 45.3
-- close: 49.3
-- volume: 34513068
-- ma5: 50.28
-- ma20: 43.24
-- ma60: 36.08
-- ma120: 30.06
-- ema23: 43.69
-- return_5d: 9.92
-- return_20d: 22.64
-- volume_ratio: 1.84
-- distance_to_ma20_pct: 14
-- distance_to_high_60_pct: -9.04
+- open: 52.4
+- high: 54.2
+- low: 52
+- close: 54.2
+- volume: 41229853
+- ma5: 51.26
+- ma20: 43.49
+- ma60: 36.16
+- ma120: 30.1
+- ema23: 44.1
+- return_5d: 20.85
+- return_20d: 34.83
+- volume_ratio: 2.15
+- distance_to_ma20_pct: 24.63
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,45.4,49.3,45.3,49.3,34513068,45.61,41.5,35.05,41.53,2.49
 20260524,45.4,49.3,45.3,49.3,34513068,47.41,42.1,35.36,42.18,2.25
 20260525,52.4,54.2,52,54.2,41229853,49.39,42.79,35.76,43.18,2.4
-20260526,45.4,49.3,45.3,49.3,34513068,50.28,43.24,36.08,43.69,1.84
+20260526,52.4,54.2,52,54.2,41229853,51.26,43.49,36.16,44.1,2.15
 ```
 
 ## Latest TDCC Snapshot
@@ -120,14 +120,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2484 | 希華 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2484 | 希華 | 4 | 1 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260526 | 2484 | 希華 | 4 | 1 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

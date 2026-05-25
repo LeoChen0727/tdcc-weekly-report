@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3605 宏致
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:33 Asia/Taipei
+- generated_at: 2026-05-26 06:02:39 Asia/Taipei
 - stock_id: 3605
 - stock_name: 宏致
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 81.8
-- high: 82.2
-- low: 80.7
-- close: 80.9
-- volume: 5098883
-- ma5: 80.84
-- ma20: 82.11
-- ma60: 70.24
+- open: 81.2
+- high: 81.5
+- low: 80.2
+- close: 80.6
+- volume: 4386528
+- ma5: 80.78
+- ma20: 82.1
+- ma60: 70.23
 - ma120: 66.46
-- ema23: 79.14
-- return_5d: -1.1
-- return_20d: -1.94
-- volume_ratio: 0.63
-- distance_to_ma20_pct: -1.48
-- distance_to_high_60_pct: -11.87
+- ema23: 79.11
+- return_5d: -1.47
+- return_20d: -2.3
+- volume_ratio: 0.54
+- distance_to_ma20_pct: -1.83
+- distance_to_high_60_pct: -12.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,81.8,82.2,80.7,80.9,5098883,79.98,82.12,69.44,78.64,0.52
 20260524,81.8,82.2,80.7,80.9,5098883,80.96,82.34,69.71,78.83,0.53
 20260525,81.2,81.5,80.2,80.6,4386528,81.02,82.19,69.98,78.98,0.51
-20260526,81.8,82.2,80.7,80.9,5098883,80.84,82.11,70.24,79.14,0.63
+20260526,81.2,81.5,80.2,80.6,4386528,80.78,82.1,70.23,79.11,0.54
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3605 | 宏致 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 3605 | 宏致 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

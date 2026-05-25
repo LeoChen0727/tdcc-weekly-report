@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2059 川湖
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:47 Asia/Taipei
+- generated_at: 2026-05-26 06:01:56 Asia/Taipei
 - stock_id: 2059
 - stock_name: 川湖
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 4605
-- high: 5200
-- low: 4605
-- close: 5090
-- volume: 218511
-- ma5: 5068
-- ma20: 4835
-- ma60: 3923.83
-- ma120: 3669.83
-- ema23: 4692.72
-- return_5d: 3.98
-- return_20d: 22.36
-- volume_ratio: 0.37
-- distance_to_ma20_pct: 5.27
-- distance_to_high_60_pct: -9.35
+- open: 5290
+- high: 5290
+- low: 4980
+- close: 4980
+- volume: 274035
+- ma5: 5046
+- ma20: 4829.5
+- ma60: 3922
+- ma120: 3668.92
+- ema23: 4683.56
+- return_5d: 1.74
+- return_20d: 19.71
+- volume_ratio: 0.46
+- distance_to_ma20_pct: 3.12
+- distance_to_high_60_pct: -11.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,4605,5200,4605,5090,218511,4805,4682,3841.58,4585.14,0.3
 20260524,4605,5200,4605,5090,218511,4933,4738.5,3870.42,4627.21,0.33
 20260525,5290,5290,4980,4980,274035,5029,4788.5,3896,4656.61,0.44
-20260526,4605,5200,4605,5090,218511,5068,4835,3923.83,4692.72,0.37
+20260526,5290,5290,4980,4980,274035,5046,4829.5,3922,4683.56,0.46
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1460 宏遠
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:34 Asia/Taipei
+- generated_at: 2026-05-26 06:01:44 Asia/Taipei
 - stock_id: 1460
 - stock_name: 宏遠
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 7.05
-- high: 7.05
-- low: 6.92
-- close: 6.98
-- volume: 565224
-- ma5: 6.97
+- open: 6.96
+- high: 7
+- low: 6.94
+- close: 6.94
+- volume: 532301
+- ma5: 6.96
 - ma20: 7.04
 - ma60: 6.99
 - ma120: 6.69
-- ema23: 7.01
-- return_5d: 0
-- return_20d: 0
-- volume_ratio: 0.75
-- distance_to_ma20_pct: -0.9
-- distance_to_high_60_pct: -5.42
+- ema23: 7
+- return_5d: -0.57
+- return_20d: -0.57
+- volume_ratio: 0.71
+- distance_to_ma20_pct: -1.44
+- distance_to_high_60_pct: -5.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,7.05,7.05,6.92,6.98,565224,7,7.04,6.98,7.02,0.71
 20260524,7.05,7.05,6.92,6.98,565224,6.99,7.04,6.98,7.01,0.74
 20260525,6.96,7,6.94,6.94,532301,6.97,7.04,6.99,7.01,0.7
-20260526,7.05,7.05,6.92,6.98,565224,6.97,7.04,6.99,7.01,0.75
+20260526,6.96,7,6.94,6.94,532301,6.96,7.04,6.99,7,0.71
 ```
 
 ## Latest TDCC Snapshot

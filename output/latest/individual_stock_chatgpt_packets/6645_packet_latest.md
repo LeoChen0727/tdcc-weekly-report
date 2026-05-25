@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6645 金萬林-創
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:27 Asia/Taipei
+- generated_at: 2026-05-26 06:03:29 Asia/Taipei
 - stock_id: 6645
 - stock_name: 金萬林-創
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 12.1
-- high: 12.1
-- low: 11.5
-- close: 11.95
-- volume: 139602
-- ma5: 11.92
-- ma20: 12.39
+- open: 12
+- high: 12
+- low: 11.8
+- close: 11.8
+- volume: 52509
+- ma5: 11.89
+- ma20: 12.38
 - ma60: 13.43
 - ma120: 15.73
-- ema23: 12.42
-- return_5d: -0.42
-- return_20d: -8.43
-- volume_ratio: 2.11
-- distance_to_ma20_pct: -3.53
-- distance_to_high_60_pct: -30.52
+- ema23: 12.41
+- return_5d: -1.67
+- return_20d: -9.58
+- volume_ratio: 0.85
+- distance_to_ma20_pct: -4.68
+- distance_to_high_60_pct: -31.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,12.1,12.1,11.5,11.95,139602,11.97,12.54,13.7,12.57,2.55
 20260524,12.1,12.1,11.5,11.95,139602,11.96,12.5,13.61,12.52,2.4
 20260525,12,12,11.8,11.8,52509,11.93,12.44,13.51,12.46,0.87
-20260526,12.1,12.1,11.5,11.95,139602,11.92,12.39,13.43,12.42,2.11
+20260526,12,12,11.8,11.8,52509,11.89,12.38,13.43,12.41,0.85
 ```
 
 ## Latest TDCC Snapshot

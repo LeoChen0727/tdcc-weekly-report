@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4919 新唐
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:51 Asia/Taipei
+- generated_at: 2026-05-26 06:02:56 Asia/Taipei
 - stock_id: 4919
 - stock_name: 新唐
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 190.5
-- high: 199.5
-- low: 188.5
-- close: 199.5
-- volume: 42517850
-- ma5: 203.4
-- ma20: 174.38
-- ma60: 127.35
-- ma120: 91.94
-- ema23: 170.94
-- return_5d: 9.92
-- return_20d: 38.06
-- volume_ratio: 1.3
-- distance_to_ma20_pct: 14.41
-- distance_to_high_60_pct: -8.9
+- open: 210.5
+- high: 219
+- low: 202.5
+- close: 219
+- volume: 55367779
+- ma5: 207.3
+- ma20: 175.35
+- ma60: 127.68
+- ma120: 92.11
+- ema23: 172.56
+- return_5d: 20.66
+- return_20d: 51.56
+- volume_ratio: 1.67
+- distance_to_ma20_pct: 24.89
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,190.5,199.5,188.5,199.5,42517850,179.1,164.95,120.77,160.48,1.61
 20260524,190.5,199.5,188.5,199.5,42517850,189,168.12,122.92,163.73,1.5
 20260525,210.5,219,202.5,219,55367779,199.8,171.62,125.36,168.34,1.8
-20260526,190.5,199.5,188.5,199.5,42517850,203.4,174.38,127.35,170.94,1.3
+20260526,210.5,219,202.5,219,55367779,207.3,175.35,127.68,172.56,1.67
 ```
 
 ## Latest TDCC Snapshot

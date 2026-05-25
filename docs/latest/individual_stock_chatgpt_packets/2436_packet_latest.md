@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2436 偉詮電
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:58 Asia/Taipei
+- generated_at: 2026-05-26 06:02:07 Asia/Taipei
 - stock_id: 2436
 - stock_name: 偉詮電
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 76.2
-- high: 78
-- low: 75.7
-- close: 77.6
-- volume: 12500893
-- ma5: 78.18
-- ma20: 74.28
-- ma60: 67.05
-- ma120: 58.69
-- ema23: 73.78
-- return_5d: 3.74
-- return_20d: 10.38
-- volume_ratio: 1.31
-- distance_to_ma20_pct: 4.46
-- distance_to_high_60_pct: -8.06
+- open: 80.1
+- high: 82
+- low: 78.6
+- close: 80.5
+- volume: 18747787
+- ma5: 78.76
+- ma20: 74.43
+- ma60: 67.1
+- ma120: 58.72
+- ema23: 74.03
+- return_5d: 7.62
+- return_20d: 14.51
+- volume_ratio: 1.91
+- distance_to_ma20_pct: 8.16
+- distance_to_high_60_pct: -4.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,76.2,78,75.7,77.6,12500893,74.26,73.34,66.15,72.36,1.37
 20260524,76.2,78,75.7,77.6,12500893,75.88,73.58,66.45,72.79,1.42
 20260525,80.1,82,78.6,80.5,18747787,77.62,73.92,66.75,73.44,2.03
-20260526,76.2,78,75.7,77.6,12500893,78.18,74.28,67.05,73.78,1.31
+20260526,80.1,82,78.6,80.5,18747787,78.76,74.43,67.1,74.03,1.91
 ```
 
 ## Latest TDCC Snapshot
@@ -122,8 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2436 | 偉詮電 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 2436 | 偉詮電 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 2436 | 偉詮電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 2436 | 偉詮電 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

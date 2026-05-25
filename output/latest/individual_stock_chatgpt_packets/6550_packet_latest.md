@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6550 北極星藥業-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:24 Asia/Taipei
+- generated_at: 2026-05-26 06:03:26 Asia/Taipei
 - stock_id: 6550
 - stock_name: 北極星藥業-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 16
-- high: 16.35
-- low: 16
-- close: 16.25
-- volume: 861354
-- ma5: 16.35
-- ma20: 16.89
-- ma60: 19.95
+- open: 16.25
+- high: 17
+- low: 16.2
+- close: 16.75
+- volume: 1902080
+- ma5: 16.45
+- ma20: 16.91
+- ma60: 19.96
 - ma120: 25.49
-- ema23: 17.11
-- return_5d: 0.93
-- return_20d: -9.22
-- volume_ratio: 0.64
-- distance_to_ma20_pct: -3.79
-- distance_to_high_60_pct: -49.38
+- ema23: 17.15
+- return_5d: 4.04
+- return_20d: -6.42
+- volume_ratio: 1.37
+- distance_to_ma20_pct: -0.98
+- distance_to_high_60_pct: -47.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,16,16.35,16,16.25,861354,16.2,17.07,20.77,17.32,0.67
 20260524,16,16.35,16,16.25,861354,16.21,17.01,20.49,17.23,0.68
 20260525,16.25,17,16.2,16.75,1902080,16.32,16.97,20.21,17.19,1.43
-20260526,16,16.35,16,16.25,861354,16.35,16.89,19.95,17.11,0.64
+20260526,16.25,17,16.2,16.75,1902080,16.45,16.91,19.96,17.15,1.37
 ```
 
 ## Latest TDCC Snapshot

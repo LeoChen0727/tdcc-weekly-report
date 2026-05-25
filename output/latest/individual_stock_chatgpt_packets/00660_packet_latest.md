@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00660 元大歐洲50
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:24 Asia/Taipei
+- generated_at: 2026-05-26 06:01:35 Asia/Taipei
 - stock_id: 00660
 - stock_name: 元大歐洲50
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 43.4
-- high: 43.7
-- low: 43.4
-- close: 43.7
-- volume: 19156
-- ma5: 43.76
-- ma20: 43.76
-- ma60: 43.76
-- ma120: 43.76
-- ema23: 43.72
+- open: 43.8
+- high: 44
+- low: 43.77
+- close: 43.99
+- volume: 12864
+- ma5: 43.82
+- ma20: 43.82
+- ma60: 43.82
+- ma120: 43.82
+- ema23: 43.75
 - return_5d: 
 - return_20d: 
-- volume_ratio: 1.07
-- distance_to_ma20_pct: -0.13
-- distance_to_high_60_pct: -0.68
+- volume_ratio: 0.77
+- distance_to_ma20_pct: 0.4
+- distance_to_high_60_pct: -0.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,43.4,43.7,43.4,43.7,19156,,,,,
 20260524,43.4,43.7,43.4,43.7,19156,,,,,
 20260525,43.8,44,43.77,43.99,12864,,,,,
-20260526,43.4,43.7,43.4,43.7,19156,43.76,43.76,43.76,43.72,1.07
+20260526,43.8,44,43.77,43.99,12864,43.82,43.82,43.82,43.75,0.77
 ```
 
 ## Latest TDCC Snapshot

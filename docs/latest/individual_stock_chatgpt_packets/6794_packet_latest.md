@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6794 向榮生技
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:33 Asia/Taipei
+- generated_at: 2026-05-26 06:03:34 Asia/Taipei
 - stock_id: 6794
 - stock_name: 向榮生技
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 81.5
-- high: 81.5
-- low: 79
-- close: 79.5
-- volume: 41005
-- ma5: 79.58
-- ma20: 80.97
-- ma60: 81.24
+- open: 79.5
+- high: 80.8
+- low: 79.4
+- close: 79.9
+- volume: 20562
+- ma5: 79.66
+- ma20: 81
+- ma60: 81.25
 - ma120: 83.34
-- ema23: 80.57
-- return_5d: -0.62
-- return_20d: -2.21
-- volume_ratio: 0.76
-- distance_to_ma20_pct: -1.82
-- distance_to_high_60_pct: -11.07
+- ema23: 80.6
+- return_5d: -0.12
+- return_20d: -1.72
+- volume_ratio: 0.39
+- distance_to_ma20_pct: -1.35
+- distance_to_high_60_pct: -10.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,81.5,81.5,79,79.5,41005,79.54,81.2,81.69,80.84,0.78
 20260524,81.5,81.5,79,79.5,41005,79.4,81.15,81.48,80.73,0.77
 20260525,79.5,80.8,79.4,79.9,20562,79.68,81.06,81.38,80.66,0.39
-20260526,81.5,81.5,79,79.5,41005,79.58,80.97,81.24,80.57,0.76
+20260526,79.5,80.8,79.4,79.9,20562,79.66,81,81.25,80.6,0.39
 ```
 
 ## Latest TDCC Snapshot

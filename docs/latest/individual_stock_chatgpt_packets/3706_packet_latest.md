@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3706 神達
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:37 Asia/Taipei
+- generated_at: 2026-05-26 06:02:43 Asia/Taipei
 - stock_id: 3706
 - stock_name: 神達
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 84.3
-- high: 88.4
-- low: 83.6
-- close: 87.8
-- volume: 37196613
-- ma5: 87.94
-- ma20: 84.5
-- ma60: 81.97
+- open: 89.3
+- high: 89.3
+- low: 87.2
+- close: 88.5
+- volume: 30434560
+- ma5: 88.08
+- ma20: 84.53
+- ma60: 81.98
 - ma120: 83.24
-- ema23: 84.41
-- return_5d: 5.15
-- return_20d: 8.13
-- volume_ratio: 1.77
-- distance_to_ma20_pct: 3.91
-- distance_to_high_60_pct: -1.68
+- ema23: 84.47
+- return_5d: 5.99
+- return_20d: 8.99
+- volume_ratio: 1.47
+- distance_to_ma20_pct: 4.69
+- distance_to_high_60_pct: -0.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,84.3,88.4,83.6,87.8,37196613,84.02,83.52,81.58,83.33,2.21
 20260524,84.3,88.4,83.6,87.8,37196613,85.44,83.84,81.68,83.7,2.04
 20260525,89.3,89.3,87.2,88.5,30434560,87.08,84.17,81.83,84.1,1.56
-20260526,84.3,88.4,83.6,87.8,37196613,87.94,84.5,81.97,84.41,1.77
+20260526,89.3,89.3,87.2,88.5,30434560,88.08,84.53,81.98,84.47,1.47
 ```
 
 ## Latest TDCC Snapshot
@@ -123,7 +123,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260526 | 3706 | 神達 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260526 | 3706 | 神達 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 3706 | 神達 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

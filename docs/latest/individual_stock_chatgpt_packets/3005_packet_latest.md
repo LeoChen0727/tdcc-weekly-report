@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3005 神基
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:13 Asia/Taipei
+- generated_at: 2026-05-26 06:02:21 Asia/Taipei
 - stock_id: 3005
 - stock_name: 神基
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 103.5
-- high: 105
-- low: 102
-- close: 104
-- volume: 7379439
-- ma5: 103.9
-- ma20: 100.31
-- ma60: 108.09
-- ma120: 112.5
-- ema23: 101.53
-- return_5d: 1.96
-- return_20d: 5.91
-- volume_ratio: 1.3
-- distance_to_ma20_pct: 3.67
-- distance_to_high_60_pct: -25.45
+- open: 105
+- high: 105.5
+- low: 103
+- close: 103.5
+- volume: 4556125
+- ma5: 103.8
+- ma20: 100.29
+- ma60: 108.08
+- ma120: 112.49
+- ema23: 101.49
+- return_5d: 1.47
+- return_20d: 5.4
+- volume_ratio: 0.82
+- distance_to_ma20_pct: 3.2
+- distance_to_high_60_pct: -25.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,103.5,105,102,104,7379439,101.4,99.37,108.75,100.85,1.41
 20260524,103.5,105,102,104,7379439,102.5,99.72,108.58,101.11,1.38
 20260525,105,105.5,103,103.5,4556125,103.5,100.03,108.42,101.31,0.84
-20260526,103.5,105,102,104,7379439,103.9,100.31,108.09,101.53,1.3
+20260526,105,105.5,103,103.5,4556125,103.8,100.29,108.08,101.49,0.82
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3005 | 神基 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 3005 | 神基 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_strong_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

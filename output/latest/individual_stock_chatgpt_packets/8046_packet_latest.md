@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8046 南電
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:45 Asia/Taipei
+- generated_at: 2026-05-26 06:03:46 Asia/Taipei
 - stock_id: 8046
 - stock_name: 南電
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 904
-- high: 952
-- low: 904
-- close: 934
-- volume: 17476938
-- ma5: 924
-- ma20: 898
-- ma60: 711.34
-- ma120: 513.49
-- ema23: 863.94
-- return_5d: 7.11
-- return_20d: 1.97
-- volume_ratio: 1.01
-- distance_to_ma20_pct: 4.01
-- distance_to_high_60_pct: -9.76
+- open: 940
+- high: 947
+- low: 879
+- close: 884
+- volume: 30914905
+- ma5: 914
+- ma20: 895.5
+- ma60: 710.51
+- ma120: 513.08
+- ema23: 859.77
+- return_5d: 1.38
+- return_20d: -3.49
+- volume_ratio: 1.73
+- distance_to_ma20_pct: -1.28
+- distance_to_high_60_pct: -14.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,904,952,904,934,17476938,873.4,898.45,692.96,848,1
 20260524,904,952,904,934,17476938,900.6,899.5,699.31,855.16,1.04
 20260525,940,947,879,884,30914905,911.6,897.1,704.79,857.57,1.79
-20260526,904,952,904,934,17476938,924,898,711.34,863.94,1.01
+20260526,940,947,879,884,30914905,914,895.5,710.51,859.77,1.73
 ```
 
 ## Latest TDCC Snapshot
@@ -122,8 +122,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 8046 | 南電 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | mixed_flow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260526 | 8046 | 南電 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | mixed_flow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260526 | 8046 | 南電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | mixed_flow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

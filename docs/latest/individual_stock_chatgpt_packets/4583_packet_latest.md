@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4583 台灣精銳
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:47 Asia/Taipei
+- generated_at: 2026-05-26 06:02:52 Asia/Taipei
 - stock_id: 4583
 - stock_name: 台灣精銳
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 705
-- high: 743
-- low: 699
-- close: 729
-- volume: 152923
-- ma5: 729.4
-- ma20: 746.55
-- ma60: 697
-- ma120: 692.24
-- ema23: 732.68
-- return_5d: 3.11
-- return_20d: -0.27
-- volume_ratio: 0.66
-- distance_to_ma20_pct: -2.35
-- distance_to_high_60_pct: -11.1
+- open: 735
+- high: 759
+- low: 725
+- close: 731
+- volume: 187984
+- ma5: 729.8
+- ma20: 746.65
+- ma60: 697.03
+- ma120: 692.26
+- ema23: 732.85
+- return_5d: 3.39
+- return_20d: 0
+- volume_ratio: 0.8
+- distance_to_ma20_pct: -2.1
+- distance_to_high_60_pct: -10.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,705,743,699,729,152923,711.4,745.85,695.42,733.58,0.65
 20260524,705,743,699,729,152923,716.2,746.2,695.87,733.2,0.66
 20260525,735,759,725,731,187984,725,746.65,696.45,733.02,0.79
-20260526,705,743,699,729,152923,729.4,746.55,697,732.68,0.66
+20260526,735,759,725,731,187984,729.8,746.65,697.03,732.85,0.8
 ```
 
 ## Latest TDCC Snapshot

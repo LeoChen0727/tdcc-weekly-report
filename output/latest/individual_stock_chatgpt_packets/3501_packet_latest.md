@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3501 維熹
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:29 Asia/Taipei
+- generated_at: 2026-05-26 06:02:36 Asia/Taipei
 - stock_id: 3501
 - stock_name: 維熹
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 40.3
-- high: 40.3
-- low: 39.9
-- close: 40.05
-- volume: 333735
-- ma5: 40.04
-- ma20: 42.88
-- ma60: 46.48
+- open: 40.15
+- high: 40.85
+- low: 40
+- close: 40
+- volume: 432001
+- ma5: 40.03
+- ma20: 42.87
+- ma60: 46.47
 - ma120: 48.36
-- ema23: 42.65
-- return_5d: -0.62
-- return_20d: -14.61
-- volume_ratio: 0.68
-- distance_to_ma20_pct: -6.59
-- distance_to_high_60_pct: -21.78
+- ema23: 42.64
+- return_5d: -0.74
+- return_20d: -14.71
+- volume_ratio: 0.87
+- distance_to_ma20_pct: -6.7
+- distance_to_high_60_pct: -21.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,40.3,40.3,39.9,40.05,333735,40.02,43.91,47.06,43.43,0.73
 20260524,40.3,40.3,39.9,40.05,333735,40.08,43.57,46.86,43.15,0.72
 20260525,40.15,40.85,40,40,432001,40.09,43.22,46.66,42.88,0.9
-20260526,40.3,40.3,39.9,40.05,333735,40.04,42.88,46.48,42.65,0.68
+20260526,40.15,40.85,40,40,432001,40.03,42.87,46.47,42.64,0.87
 ```
 
 ## Latest TDCC Snapshot

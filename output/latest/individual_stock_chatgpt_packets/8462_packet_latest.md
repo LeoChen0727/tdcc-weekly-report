@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8462 柏文
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:53 Asia/Taipei
+- generated_at: 2026-05-26 06:03:54 Asia/Taipei
 - stock_id: 8462
 - stock_name: 柏文
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 140
-- high: 140
-- low: 137.5
-- close: 138.5
-- volume: 148558
-- ma5: 138.4
-- ma20: 143.1
-- ma60: 142.41
-- ma120: 145.82
-- ema23: 141.6
-- return_5d: -0.72
-- return_20d: -7.36
-- volume_ratio: 1.1
-- distance_to_ma20_pct: -3.21
-- distance_to_high_60_pct: -8.88
+- open: 138.5
+- high: 139
+- low: 137
+- close: 138
+- volume: 190493
+- ma5: 138.3
+- ma20: 143.07
+- ma60: 142.4
+- ma120: 145.81
+- ema23: 141.56
+- return_5d: -1.08
+- return_20d: -7.69
+- volume_ratio: 1.39
+- distance_to_ma20_pct: -3.55
+- distance_to_high_60_pct: -9.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,140,140,137.5,138.5,148558,138.8,144.47,142.62,142.58,1.02
 20260524,140,140,137.5,138.5,148558,138.6,144.22,142.54,142.24,1.03
 20260525,138.5,139,137,138,190493,138.6,143.65,142.46,141.88,1.4
-20260526,140,140,137.5,138.5,148558,138.4,143.1,142.41,141.6,1.1
+20260526,138.5,139,137,138,190493,138.3,143.07,142.4,141.56,1.39
 ```
 
 ## Latest TDCC Snapshot

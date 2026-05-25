@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3296 勝德
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:24 Asia/Taipei
+- generated_at: 2026-05-26 06:02:31 Asia/Taipei
 - stock_id: 3296
 - stock_name: 勝德
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 19.05
-- high: 19.65
-- low: 19.05
-- close: 19.65
-- volume: 166877
-- ma5: 19.74
-- ma20: 20.48
-- ma60: 21.17
+- open: 19.95
+- high: 20.3
+- low: 19.95
+- close: 20.1
+- volume: 141181
+- ma5: 19.83
+- ma20: 20.5
+- ma60: 21.18
 - ma120: 22.38
-- ema23: 20.36
-- return_5d: 3.15
-- return_20d: -0.25
-- volume_ratio: 0.99
-- distance_to_ma20_pct: -4.04
-- distance_to_high_60_pct: -18.63
+- ema23: 20.4
+- return_5d: 5.51
+- return_20d: 2.03
+- volume_ratio: 0.84
+- distance_to_ma20_pct: -1.95
+- distance_to_high_60_pct: -16.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,19.05,19.65,19.05,19.65,166877,19.44,20.48,21.38,20.53,1.03
 20260524,19.05,19.65,19.05,19.65,166877,19.48,20.47,21.31,20.45,1.02
 20260525,19.95,20.3,19.95,20.1,141181,19.62,20.48,21.24,20.42,0.86
-20260526,19.05,19.65,19.05,19.65,166877,19.74,20.48,21.17,20.36,0.99
+20260526,19.95,20.3,19.95,20.1,141181,19.83,20.5,21.18,20.4,0.84
 ```
 
 ## Latest TDCC Snapshot

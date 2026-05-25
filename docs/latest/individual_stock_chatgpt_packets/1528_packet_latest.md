@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1528 恩德
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:37 Asia/Taipei
+- generated_at: 2026-05-26 06:01:46 Asia/Taipei
 - stock_id: 1528
 - stock_name: 恩德
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 26.1
-- high: 26.65
-- low: 25.85
-- close: 26.3
-- volume: 5565296
-- ma5: 26.44
-- ma20: 26.64
-- ma60: 25.57
-- ma120: 23.62
-- ema23: 26.42
-- return_5d: 2.14
-- return_20d: -5.23
-- volume_ratio: 0.66
-- distance_to_ma20_pct: -1.29
-- distance_to_high_60_pct: -17.17
+- open: 27.45
+- high: 27.45
+- low: 26.55
+- close: 27
+- volume: 7833071
+- ma5: 26.58
+- ma20: 26.68
+- ma60: 25.58
+- ma120: 23.63
+- ema23: 26.48
+- return_5d: 4.85
+- return_20d: -2.7
+- volume_ratio: 0.91
+- distance_to_ma20_pct: 1.2
+- distance_to_high_60_pct: -14.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,26.1,26.65,25.85,26.3,5565296,25.83,26.6,25.41,26.38,0.6
 20260524,26.1,26.65,25.85,26.3,5565296,25.96,26.67,25.46,26.38,0.6
 20260525,27.45,27.45,26.55,27,7833071,26.33,26.72,25.52,26.43,0.84
-20260526,26.1,26.65,25.85,26.3,5565296,26.44,26.64,25.57,26.42,0.66
+20260526,27.45,27.45,26.55,27,7833071,26.58,26.68,25.58,26.48,0.91
 ```
 
 ## Latest TDCC Snapshot
@@ -122,6 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 1528 | 恩德 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 1528 | 恩德 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

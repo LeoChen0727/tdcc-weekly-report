@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6168 宏齊
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:11 Asia/Taipei
+- generated_at: 2026-05-26 06:03:14 Asia/Taipei
 - stock_id: 6168
 - stock_name: 宏齊
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 29.3
-- high: 30.8
-- low: 28.9
-- close: 30.8
-- volume: 24535872
-- ma5: 30.82
-- ma20: 27.63
+- open: 31.65
+- high: 32.75
+- low: 30.85
+- close: 30.9
+- volume: 24050838
+- ma5: 30.84
+- ma20: 27.64
 - ma60: 25.43
 - ma120: 22.87
-- ema23: 27.94
-- return_5d: 10
-- return_20d: 14.29
-- volume_ratio: 2.44
-- distance_to_ma20_pct: 11.47
-- distance_to_high_60_pct: -5.95
+- ema23: 27.95
+- return_5d: 10.36
+- return_20d: 14.66
+- volume_ratio: 2.4
+- distance_to_ma20_pct: 11.81
+- distance_to_high_60_pct: -5.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,29.3,30.8,28.9,30.8,24535872,28.35,26.78,24.91,27.08,3.51
 20260524,29.3,30.8,28.9,30.8,24535872,29.35,27.12,25.08,27.39,3.05
 20260525,31.65,32.75,30.85,30.9,24050838,30.26,27.44,25.25,27.68,2.64
-20260526,29.3,30.8,28.9,30.8,24535872,30.82,27.63,25.43,27.94,2.44
+20260526,31.65,32.75,30.85,30.9,24050838,30.84,27.64,25.43,27.95,2.4
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3533 嘉澤
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:31 Asia/Taipei
+- generated_at: 2026-05-26 06:02:37 Asia/Taipei
 - stock_id: 3533
 - stock_name: 嘉澤
 - packet_status: standard_180d_window_packet
@@ -55,20 +55,20 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 2600
-- high: 2625
-- low: 2480
-- close: 2555
-- volume: 1568971
-- ma5: 2561
-- ma20: 2568
-- ma60: 2269.67
-- ma120: 1836.62
-- ema23: 2514.77
-- return_5d: 1.19
-- return_20d: -3.58
-- volume_ratio: 0.81
-- distance_to_ma20_pct: -0.51
-- distance_to_high_60_pct: -13.54
+- high: 2630
+- low: 2525
+- close: 2585
+- volume: 1266807
+- ma5: 2567
+- ma20: 2569.5
+- ma60: 2270.17
+- ma120: 1836.88
+- ema23: 2517.27
+- return_5d: 2.38
+- return_20d: -2.45
+- volume_ratio: 0.66
+- distance_to_ma20_pct: 0.6
+- distance_to_high_60_pct: -12.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,2600,2625,2480,2555,1568971,2464,2584.75,2229.25,2499.79,0.81
 20260524,2600,2625,2480,2555,1568971,2510,2577,2241.92,2504.4,0.83
 20260525,2600,2630,2525,2585,1266807,2555,2572.75,2255.42,2511.11,0.67
-20260526,2600,2625,2480,2555,1568971,2561,2568,2269.67,2514.77,0.81
+20260526,2600,2630,2525,2585,1266807,2567,2569.5,2270.17,2517.27,0.66
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3533 | 嘉澤 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 3533 | 嘉澤 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 3533 | 嘉澤 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

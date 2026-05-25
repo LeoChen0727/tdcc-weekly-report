@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4526 東台
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:44 Asia/Taipei
+- generated_at: 2026-05-26 06:02:49 Asia/Taipei
 - stock_id: 4526
 - stock_name: 東台
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 38.2
-- high: 39.9
-- low: 37.7
-- close: 39.45
-- volume: 12211438
-- ma5: 39.63
-- ma20: 37.59
-- ma60: 34.8
+- open: 39.95
+- high: 40.6
+- low: 39.1
+- close: 40.35
+- volume: 10660350
+- ma5: 39.81
+- ma20: 37.64
+- ma60: 34.82
 - ma120: 33.78
-- ema23: 37.37
-- return_5d: 3.68
-- return_20d: 15.01
-- volume_ratio: 1.07
-- distance_to_ma20_pct: 4.93
-- distance_to_high_60_pct: -3.31
+- ema23: 37.44
+- return_5d: 6.04
+- return_20d: 17.64
+- volume_ratio: 0.94
+- distance_to_ma20_pct: 7.2
+- distance_to_high_60_pct: -1.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,38.2,39.9,37.7,39.45,12211438,38.29,36.71,34.54,36.66,1.12
 20260524,38.2,39.9,37.7,39.45,12211438,38.7,37.07,34.6,36.89,1.07
 20260525,39.95,40.6,39.1,40.35,10660350,39.35,37.34,34.72,37.18,0.94
-20260526,38.2,39.9,37.7,39.45,12211438,39.63,37.59,34.8,37.37,1.07
+20260526,39.95,40.6,39.1,40.35,10660350,39.81,37.64,34.82,37.44,0.94
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4526 | 東台 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 4526 | 東台 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 4526 | 東台 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

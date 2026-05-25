@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2601 益航
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:04 Asia/Taipei
+- generated_at: 2026-05-26 06:02:12 Asia/Taipei
 - stock_id: 2601
 - stock_name: 益航
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 5.01
-- high: 5.05
-- low: 4.95
-- close: 5.03
-- volume: 2223498
-- ma5: 5.04
+- open: 5.16
+- high: 5.18
+- low: 4.99
+- close: 5.08
+- volume: 3205752
+- ma5: 5.05
 - ma20: 4.94
 - ma60: 5.63
 - ma120: 5.58
 - ema23: 5.08
-- return_5d: 0.4
-- return_20d: -2.9
-- volume_ratio: 0.89
-- distance_to_ma20_pct: 1.8
-- distance_to_high_60_pct: -30.52
+- return_5d: 1.4
+- return_20d: -1.93
+- volume_ratio: 1.26
+- distance_to_ma20_pct: 2.76
+- distance_to_high_60_pct: -29.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,5.01,5.05,4.95,5.03,2223498,5,4.98,5.65,5.09,0.9
 20260524,5.01,5.05,4.95,5.03,2223498,5.01,4.96,5.64,5.08,0.9
 20260525,5.16,5.18,4.99,5.08,3205752,5.04,4.95,5.63,5.08,1.24
-20260526,5.01,5.05,4.95,5.03,2223498,5.04,4.94,5.63,5.08,0.89
+20260526,5.16,5.18,4.99,5.08,3205752,5.05,4.94,5.63,5.08,1.26
 ```
 
 ## Latest TDCC Snapshot

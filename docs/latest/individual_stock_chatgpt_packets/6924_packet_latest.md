@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6924 榮惠-KY創
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:37 Asia/Taipei
+- generated_at: 2026-05-26 06:03:39 Asia/Taipei
 - stock_id: 6924
 - stock_name: 榮惠-KY創
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 164.5
-- high: 170
-- low: 164.5
-- close: 168.5
-- volume: 65534
-- ma5: 167.2
-- ma20: 130.53
-- ma60: 95.56
-- ma120: 80.55
-- ema23: 134.28
-- return_5d: 2.74
-- return_20d: 87.64
-- volume_ratio: 0.42
-- distance_to_ma20_pct: 29.09
-- distance_to_high_60_pct: -0.88
+- open: 165
+- high: 165
+- low: 155
+- close: 162
+- volume: 179135
+- ma5: 165.9
+- ma20: 130.21
+- ma60: 95.45
+- ma120: 80.49
+- ema23: 133.74
+- return_5d: -1.22
+- return_20d: 80.4
+- volume_ratio: 1.1
+- distance_to_ma20_pct: 24.42
+- distance_to_high_60_pct: -4.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,164.5,170,164.5,168.5,65534,164.7,118.97,90.44,124.72,0.45
 20260524,164.5,170,164.5,168.5,65534,166.5,122.94,92.18,128.36,0.45
 20260525,165,165,155,162,179135,166.3,126.59,93.8,131.17,1.16
-20260526,164.5,170,164.5,168.5,65534,167.2,130.53,95.56,134.28,0.42
+20260526,165,165,155,162,179135,165.9,130.21,95.45,133.74,1.1
 ```
 
 ## Latest TDCC Snapshot

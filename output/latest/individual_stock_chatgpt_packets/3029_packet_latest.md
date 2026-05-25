@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3029 零壹
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:15 Asia/Taipei
+- generated_at: 2026-05-26 06:02:22 Asia/Taipei
 - stock_id: 3029
 - stock_name: 零壹
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 96.2
-- high: 97.3
-- low: 95.8
+- open: 97.6
+- high: 98
+- low: 96.7
 - close: 97
-- volume: 973192
+- volume: 1110785
 - ma5: 97
 - ma20: 98.03
 - ma60: 101.53
@@ -66,7 +66,7 @@
 - ema23: 97.45
 - return_5d: 0.94
 - return_20d: 1.78
-- volume_ratio: 0.7
+- volume_ratio: 0.8
 - distance_to_ma20_pct: -1.05
 - distance_to_high_60_pct: -21.77
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,96.2,97.3,95.8,97,973192,96.12,97.7,102.57,97.59,0.7
 20260524,96.2,97.3,95.8,97,973192,96.32,97.87,102.31,97.54,0.71
 20260525,97.6,98,96.7,97,1110785,96.82,97.94,101.9,97.49,0.81
-20260526,96.2,97.3,95.8,97,973192,97,98.03,101.53,97.45,0.7
+20260526,97.6,98,96.7,97,1110785,97,98.03,101.53,97.45,0.8
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1776 展宇
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:43 Asia/Taipei
+- generated_at: 2026-05-26 06:01:52 Asia/Taipei
 - stock_id: 1776
 - stock_name: 展宇
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 18.2
-- high: 19.15
-- low: 18.2
-- close: 18.95
-- volume: 411051
-- ma5: 18.88
-- ma20: 17.82
-- ma60: 16.5
-- ma120: 15.88
-- ema23: 17.82
-- return_5d: 4.41
-- return_20d: 15.2
-- volume_ratio: 0.97
-- distance_to_ma20_pct: 6.34
-- distance_to_high_60_pct: -7.79
+- open: 19.15
+- high: 19.3
+- low: 18.5
+- close: 18.6
+- volume: 347388
+- ma5: 18.81
+- ma20: 17.8
+- ma60: 16.49
+- ma120: 15.87
+- ema23: 17.79
+- return_5d: 2.48
+- return_20d: 13.07
+- volume_ratio: 0.82
+- distance_to_ma20_pct: 4.48
+- distance_to_high_60_pct: -9.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,18.2,19.15,18.2,18.95,411051,18.33,17.44,16.32,17.52,1.09
 20260524,18.2,19.15,18.2,18.95,411051,18.58,17.59,16.38,17.64,1.05
 20260525,19.15,19.3,18.5,18.6,347388,18.72,17.7,16.44,17.72,0.85
-20260526,18.2,19.15,18.2,18.95,411051,18.88,17.82,16.5,17.82,0.97
+20260526,19.15,19.3,18.5,18.6,347388,18.81,17.8,16.49,17.79,0.82
 ```
 
 ## Latest TDCC Snapshot

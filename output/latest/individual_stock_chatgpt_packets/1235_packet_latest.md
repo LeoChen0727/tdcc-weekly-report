@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1235 興泰
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:29 Asia/Taipei
+- generated_at: 2026-05-26 06:01:39 Asia/Taipei
 - stock_id: 1235
 - stock_name: 興泰
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 37.3
-- high: 39.25
-- low: 37.15
-- close: 38.35
-- volume: 14083
-- ma5: 38.27
-- ma20: 40.98
+- open: 38.35
+- high: 39.4
+- low: 37.3
+- close: 37.95
+- volume: 14132
+- ma5: 38.19
+- ma20: 40.97
 - ma60: 41.17
-- ma120: 43.19
-- ema23: 40.47
-- return_5d: 2.81
-- return_20d: -15.06
+- ma120: 43.18
+- ema23: 40.44
+- return_5d: 1.74
+- return_20d: -15.95
 - volume_ratio: 0.47
-- distance_to_ma20_pct: -6.43
-- distance_to_high_60_pct: -19.69
+- distance_to_ma20_pct: -7.36
+- distance_to_high_60_pct: -20.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,37.3,39.25,37.15,38.35,14083,38.3,41.97,41.55,41.15,0.48
 20260524,37.3,39.25,37.15,38.35,14083,37.87,41.7,41.46,40.91,0.48
 20260525,38.35,39.4,37.3,37.95,14132,38.06,41.33,41.33,40.67,0.47
-20260526,37.3,39.25,37.15,38.35,14083,38.27,40.98,41.17,40.47,0.47
+20260526,38.35,39.4,37.3,37.95,14132,38.19,40.97,41.17,40.44,0.47
 ```
 
 ## Latest TDCC Snapshot

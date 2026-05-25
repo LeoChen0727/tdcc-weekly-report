@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3673 TPK-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:35 Asia/Taipei
+- generated_at: 2026-05-26 06:02:41 Asia/Taipei
 - stock_id: 3673
 - stock_name: TPK-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 75.5
-- high: 81.6
-- low: 74.8
-- close: 77
-- volume: 46498888
-- ma5: 77.5
-- ma20: 67.83
-- ma60: 55.95
-- ma120: 48.68
-- ema23: 68.75
-- return_5d: 3.77
-- return_20d: 27.69
-- volume_ratio: 1.67
-- distance_to_ma20_pct: 13.51
-- distance_to_high_60_pct: -5.64
+- open: 78.5
+- high: 81.3
+- low: 77.1
+- close: 79.5
+- volume: 33370466
+- ma5: 78
+- ma20: 67.96
+- ma60: 55.99
+- ma120: 48.7
+- ema23: 68.96
+- return_5d: 7.14
+- return_20d: 31.84
+- volume_ratio: 1.23
+- distance_to_ma20_pct: 16.98
+- distance_to_high_60_pct: -2.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,75.5,81.6,74.8,77,46498888,75.06,65.14,54.17,66.04,2.04
 20260524,75.5,81.6,74.8,77,46498888,75.38,66.03,54.76,66.95,1.88
 20260525,78.5,81.3,77.1,79.5,33370466,76.94,67,55.37,68,1.28
-20260526,75.5,81.6,74.8,77,46498888,77.5,67.83,55.95,68.75,1.67
+20260526,78.5,81.3,77.1,79.5,33370466,78,67.96,55.99,68.96,1.23
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3673 | TPK-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 3673 | TPK-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 58.0 |  |  | neckline_challenge |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

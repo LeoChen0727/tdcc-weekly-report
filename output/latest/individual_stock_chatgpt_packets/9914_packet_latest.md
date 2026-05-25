@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9914 美利達
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:58 Asia/Taipei
+- generated_at: 2026-05-26 06:03:58 Asia/Taipei
 - stock_id: 9914
 - stock_name: 美利達
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 69.6
-- high: 69.6
-- low: 67.5
-- close: 67.8
-- volume: 3290541
-- ma5: 67.88
-- ma20: 63.54
+- open: 68.5
+- high: 68.9
+- low: 67.3
+- close: 68.2
+- volume: 1424014
+- ma5: 67.96
+- ma20: 63.56
 - ma60: 64.38
 - ma120: 75.14
-- ema23: 64.94
-- return_5d: -3.14
-- return_20d: 17.1
-- volume_ratio: 1.21
-- distance_to_ma20_pct: 6.7
-- distance_to_high_60_pct: -8.13
+- ema23: 64.97
+- return_5d: -2.57
+- return_20d: 17.79
+- volume_ratio: 0.54
+- distance_to_ma20_pct: 7.3
+- distance_to_high_60_pct: -7.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,69.6,69.6,67.5,67.8,3290541,68.52,61.94,64.73,64.05,1.32
 20260524,69.6,69.6,67.5,67.8,3290541,68.38,62.47,64.59,64.36,1.28
 20260525,68.5,68.9,67.3,68.2,1424014,68.32,63.05,64.48,64.68,0.55
-20260526,69.6,69.6,67.5,67.8,3290541,67.88,63.54,64.38,64.94,1.21
+20260526,68.5,68.9,67.3,68.2,1424014,67.96,63.56,64.38,64.97,0.54
 ```
 
 ## Latest TDCC Snapshot

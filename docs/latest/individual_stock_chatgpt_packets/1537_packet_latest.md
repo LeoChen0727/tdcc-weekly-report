@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1537 廣隆
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:37 Asia/Taipei
+- generated_at: 2026-05-26 06:01:47 Asia/Taipei
 - stock_id: 1537
 - stock_name: 廣隆
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 125
-- high: 125.5
+- open: 125.5
+- high: 126
 - low: 124.5
 - close: 125.5
-- volume: 63571
+- volume: 113245
 - ma5: 125.5
 - ma20: 124.65
 - ma60: 124.06
@@ -66,7 +66,7 @@
 - ema23: 124.83
 - return_5d: 0
 - return_20d: 2.45
-- volume_ratio: 0.65
+- volume_ratio: 1.13
 - distance_to_ma20_pct: 0.68
 - distance_to_high_60_pct: -0.79
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,125,125.5,124.5,125.5,63571,125.4,124.22,124.04,124.63,0.67
 20260524,125,125.5,124.5,125.5,63571,125.3,124.4,124.05,124.71,0.68
 20260525,125.5,126,124.5,125.5,113245,125.5,124.5,124.05,124.77,1.18
-20260526,125,125.5,124.5,125.5,63571,125.5,124.65,124.06,124.83,0.65
+20260526,125.5,126,124.5,125.5,113245,125.5,124.65,124.06,124.83,1.13
 ```
 
 ## Latest TDCC Snapshot

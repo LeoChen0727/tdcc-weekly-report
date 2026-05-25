@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009820 元大納斯達克精選
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:27 Asia/Taipei
+- generated_at: 2026-05-26 06:01:37 Asia/Taipei
 - stock_id: 009820
 - stock_name: 元大納斯達克精選
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 10.23
-- high: 10.25
-- low: 10.19
-- close: 10.22
-- volume: 29519935
-- ma5: 10.25
-- ma20: 10.25
-- ma60: 10.25
-- ma120: 10.25
-- ema23: 10.23
+- open: 10.33
+- high: 10.38
+- low: 10.29
+- close: 10.35
+- volume: 47524376
+- ma5: 10.27
+- ma20: 10.27
+- ma60: 10.27
+- ma120: 10.27
+- ema23: 10.24
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.89
-- distance_to_ma20_pct: -0.25
-- distance_to_high_60_pct: -1.54
+- volume_ratio: 1.29
+- distance_to_ma20_pct: 0.76
+- distance_to_high_60_pct: -0.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,10.23,10.25,10.19,10.22,29519935,,,,,
 20260524,10.23,10.25,10.19,10.22,29519935,,,,,
 20260525,10.33,10.38,10.29,10.35,47524376,,,,,
-20260526,10.23,10.25,10.19,10.22,29519935,10.25,10.25,10.25,10.23,0.89
+20260526,10.33,10.38,10.29,10.35,47524376,10.27,10.27,10.27,10.24,1.29
 ```
 
 ## Latest TDCC Snapshot

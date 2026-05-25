@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6136 富爾特
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:08 Asia/Taipei
+- generated_at: 2026-05-26 06:03:12 Asia/Taipei
 - stock_id: 6136
 - stock_name: 富爾特
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 25.45
-- high: 25.8
-- low: 25.05
-- close: 25.75
-- volume: 568045
-- ma5: 25.72
+- open: 25.95
+- high: 25.95
+- low: 25.6
+- close: 25.6
+- volume: 412818
+- ma5: 25.69
 - ma20: 25.25
 - ma60: 24.8
 - ma120: 24.41
-- ema23: 25.35
-- return_5d: 1.18
-- return_20d: 2.39
-- volume_ratio: 1.11
-- distance_to_ma20_pct: 1.96
-- distance_to_high_60_pct: -12.71
+- ema23: 25.34
+- return_5d: 0.59
+- return_20d: 1.79
+- volume_ratio: 0.82
+- distance_to_ma20_pct: 1.4
+- distance_to_high_60_pct: -13.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,25.45,25.8,25.05,25.75,568045,25.33,25.25,24.72,25.25,0.95
 20260524,25.45,25.8,25.05,25.75,568045,25.57,25.22,24.75,25.29,1.04
 20260525,25.95,25.95,25.6,25.6,412818,25.66,25.23,24.77,25.32,0.8
-20260526,25.45,25.8,25.05,25.75,568045,25.72,25.25,24.8,25.35,1.11
+20260526,25.95,25.95,25.6,25.6,412818,25.69,25.25,24.8,25.34,0.82
 ```
 
 ## Latest TDCC Snapshot

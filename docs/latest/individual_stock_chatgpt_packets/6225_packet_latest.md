@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6225 天瀚
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:15 Asia/Taipei
+- generated_at: 2026-05-26 06:03:18 Asia/Taipei
 - stock_id: 6225
 - stock_name: 天瀚
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 26.2
-- high: 26.85
+- open: 26.3
+- high: 27.5
 - low: 25
 - close: 25
-- volume: 18356
+- volume: 24737
 - ma5: 25
 - ma20: 26.09
 - ma60: 22.2
@@ -66,7 +66,7 @@
 - ema23: 25.09
 - return_5d: -4.03
 - return_20d: 24.07
-- volume_ratio: 0.42
+- volume_ratio: 0.56
 - distance_to_ma20_pct: -4.17
 - distance_to_high_60_pct: -28.67
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,26.2,26.85,25,25,18356,26.36,25.18,21.89,25.12,0.43
 20260524,26.2,26.85,25,25,18356,25.6,25.51,22,25.11,0.43
 20260525,26.3,27.5,25,25,24737,25.21,25.84,22.11,25.1,0.57
-20260526,26.2,26.85,25,25,18356,25,26.09,22.2,25.09,0.42
+20260526,26.3,27.5,25,25,24737,25,26.09,22.2,25.09,0.56
 ```
 
 ## Latest TDCC Snapshot

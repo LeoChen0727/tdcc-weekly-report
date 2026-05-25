@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00851 台新全球AI
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:25 Asia/Taipei
+- generated_at: 2026-05-26 06:01:35 Asia/Taipei
 - stock_id: 00851
 - stock_name: 台新全球AI
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 65.5
-- high: 65.8
-- low: 65.5
-- close: 65.55
-- volume: 19141
-- ma5: 65.92
-- ma20: 65.92
-- ma60: 65.92
-- ma120: 65.92
-- ema23: 65.69
+- open: 66.65
+- high: 67.45
+- low: 66.05
+- close: 67.4
+- volume: 51313
+- ma5: 66.29
+- ma20: 66.29
+- ma60: 66.29
+- ma120: 66.29
+- ema23: 65.85
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.75
-- distance_to_ma20_pct: -0.56
-- distance_to_high_60_pct: -2.82
+- volume_ratio: 1.6
+- distance_to_ma20_pct: 1.67
+- distance_to_high_60_pct: -0.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,65.5,65.8,65.5,65.55,19141,,,,,
 20260524,65.5,65.8,65.5,65.55,19141,,,,,
 20260525,66.65,67.45,66.05,67.4,51313,,,,,
-20260526,65.5,65.8,65.5,65.55,19141,65.92,65.92,65.92,65.69,0.75
+20260526,66.65,67.45,66.05,67.4,51313,66.29,66.29,66.29,65.85,1.6
 ```
 
 ## Latest TDCC Snapshot

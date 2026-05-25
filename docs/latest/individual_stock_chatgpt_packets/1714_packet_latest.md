@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1714 和桐
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:41 Asia/Taipei
+- generated_at: 2026-05-26 06:01:51 Asia/Taipei
 - stock_id: 1714
 - stock_name: 和桐
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 9.8
-- high: 9.8
-- low: 9.62
-- close: 9.67
-- volume: 2312963
-- ma5: 9.67
+- open: 9.71
+- high: 9.71
+- low: 9.54
+- close: 9.65
+- volume: 2528560
+- ma5: 9.66
 - ma20: 9.62
 - ma60: 9.68
 - ma120: 9.2
 - ema23: 9.67
-- return_5d: -1.33
-- return_20d: 0.73
-- volume_ratio: 0.5
-- distance_to_ma20_pct: 0.56
-- distance_to_high_60_pct: -9.2
+- return_5d: -1.53
+- return_20d: 0.52
+- volume_ratio: 0.55
+- distance_to_ma20_pct: 0.36
+- distance_to_high_60_pct: -9.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,9.8,9.8,9.62,9.67,2312963,9.67,9.61,9.69,9.68,0.5
 20260524,9.8,9.8,9.62,9.67,2312963,9.67,9.61,9.69,9.68,0.51
 20260525,9.71,9.71,9.54,9.65,2528560,9.69,9.61,9.68,9.67,0.55
-20260526,9.8,9.8,9.62,9.67,2312963,9.67,9.62,9.68,9.67,0.5
+20260526,9.71,9.71,9.54,9.65,2528560,9.66,9.62,9.68,9.67,0.55
 ```
 
 ## Latest TDCC Snapshot
@@ -123,7 +123,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260526 | 1714 | 和桐 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260526 | 1714 | 和桐 | revenue_breakout_low_response | 營收爆發低反應股 | 19.0 | 12.0 | B_可觀察 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 1714 | 和桐 | revenue_breakout_low_response | 營收爆發低反應股 | 19.0 | 8.0 | B_可觀察 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260521 | 1714 | 和桐 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

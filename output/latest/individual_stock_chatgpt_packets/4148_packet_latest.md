@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4148 全宇生技-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:40 Asia/Taipei
+- generated_at: 2026-05-26 06:02:45 Asia/Taipei
 - stock_id: 4148
 - stock_name: 全宇生技-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 34.5
-- high: 34.5
-- low: 34.1
-- close: 34.25
-- volume: 26160
-- ma5: 33.89
-- ma20: 35.33
-- ma60: 38.28
-- ma120: 38.44
-- ema23: 35.5
-- return_5d: -0.15
-- return_20d: -6.8
-- volume_ratio: 0.34
-- distance_to_ma20_pct: -3.05
-- distance_to_high_60_pct: -23.72
+- open: 34.55
+- high: 34.55
+- low: 32.35
+- close: 32.45
+- volume: 152302
+- ma5: 33.53
+- ma20: 35.24
+- ma60: 38.25
+- ma120: 38.42
+- ema23: 35.35
+- return_5d: -5.39
+- return_20d: -11.7
+- volume_ratio: 1.81
+- distance_to_ma20_pct: -7.91
+- distance_to_high_60_pct: -27.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,34.5,34.5,34.1,34.25,26160,34.16,35.88,38.44,36.06,0.33
 20260524,34.5,34.5,34.1,34.25,26160,34.21,35.71,38.4,35.91,0.33
 20260525,34.55,34.55,32.35,32.45,152302,33.9,35.45,38.32,35.62,1.79
-20260526,34.5,34.5,34.1,34.25,26160,33.89,35.33,38.28,35.5,0.34
+20260526,34.55,34.55,32.35,32.45,152302,33.53,35.24,38.25,35.35,1.81
 ```
 
 ## Latest TDCC Snapshot

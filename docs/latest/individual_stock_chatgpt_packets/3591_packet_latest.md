@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3591 艾笛森
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:33 Asia/Taipei
+- generated_at: 2026-05-26 06:02:39 Asia/Taipei
 - stock_id: 3591
 - stock_name: 艾笛森
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 26.3
-- high: 27.05
-- low: 26.05
-- close: 26.75
-- volume: 3874133
-- ma5: 26.7
-- ma20: 24.94
+- open: 27.3
+- high: 27.3
+- low: 26.35
+- close: 26.5
+- volume: 3302723
+- ma5: 26.65
+- ma20: 24.93
 - ma60: 22.48
 - ma120: 20.72
-- ema23: 25.02
-- return_5d: 2.88
-- return_20d: 14.32
-- volume_ratio: 1.37
-- distance_to_ma20_pct: 7.25
-- distance_to_high_60_pct: -10.54
+- ema23: 25
+- return_5d: 1.92
+- return_20d: 13.25
+- volume_ratio: 1.18
+- distance_to_ma20_pct: 6.3
+- distance_to_high_60_pct: -11.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,26.3,27.05,26.05,26.75,3874133,26.23,24.36,22.09,24.53,1.39
 20260524,26.3,27.05,26.05,26.75,3874133,26.43,24.58,22.22,24.72,1.4
 20260525,27.3,27.3,26.35,26.5,3302723,26.55,24.77,22.35,24.86,1.15
-20260526,26.3,27.05,26.05,26.75,3874133,26.7,24.94,22.48,25.02,1.37
+20260526,27.3,27.3,26.35,26.5,3302723,26.65,24.93,22.48,25,1.18
 ```
 
 ## Latest TDCC Snapshot
@@ -120,9 +120,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3591 | 艾笛森 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

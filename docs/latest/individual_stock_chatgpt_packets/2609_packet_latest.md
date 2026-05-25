@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2609 陽明
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:05 Asia/Taipei
+- generated_at: 2026-05-26 06:02:13 Asia/Taipei
 - stock_id: 2609
 - stock_name: 陽明
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 51.9
-- high: 53.9
-- low: 51.8
-- close: 53
-- volume: 44488347
-- ma5: 52.76
-- ma20: 50.52
-- ma60: 53.11
-- ma120: 53.47
-- ema23: 51.09
-- return_5d: 3.72
-- return_20d: 7.4
-- volume_ratio: 1.9
-- distance_to_ma20_pct: 4.9
-- distance_to_high_60_pct: -24.18
+- open: 53
+- high: 53.1
+- low: 51
+- close: 51.8
+- volume: 29869029
+- ma5: 52.52
+- ma20: 50.46
+- ma60: 53.09
+- ma120: 53.46
+- ema23: 50.99
+- return_5d: 1.37
+- return_20d: 4.96
+- volume_ratio: 1.31
+- distance_to_ma20_pct: 2.65
+- distance_to_high_60_pct: -25.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,51.9,53.9,51.8,53,44488347,51.38,50.04,53.38,50.64,2.25
 20260524,51.9,53.9,51.8,53,44488347,52.08,50.23,53.32,50.84,2.12
 20260525,53,53.1,51,51.8,29869029,52.38,50.34,53.23,50.92,1.37
-20260526,51.9,53.9,51.8,53,44488347,52.76,50.52,53.11,51.09,1.9
+20260526,53,53.1,51,51.8,29869029,52.52,50.46,53.09,50.99,1.31
 ```
 
 ## Latest TDCC Snapshot
@@ -120,9 +120,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2609 | 陽明 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

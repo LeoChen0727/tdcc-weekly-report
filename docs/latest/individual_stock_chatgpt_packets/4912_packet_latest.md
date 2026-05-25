@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4912 聯德控股-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:51 Asia/Taipei
+- generated_at: 2026-05-26 06:02:56 Asia/Taipei
 - stock_id: 4912
 - stock_name: 聯德控股-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 102
-- high: 106.5
-- low: 101
-- close: 106
-- volume: 1121897
-- ma5: 106.8
-- ma20: 98.2
-- ma60: 91.7
-- ma120: 91.48
-- ema23: 99.32
-- return_5d: 4.43
-- return_20d: 32.33
-- volume_ratio: 0.85
-- distance_to_ma20_pct: 7.94
-- distance_to_high_60_pct: -8.62
+- open: 107
+- high: 116
+- low: 107
+- close: 110
+- volume: 2010644
+- ma5: 107.6
+- ma20: 98.4
+- ma60: 91.76
+- ma120: 91.52
+- ema23: 99.66
+- return_5d: 8.37
+- return_20d: 37.33
+- volume_ratio: 1.47
+- distance_to_ma20_pct: 11.79
+- distance_to_high_60_pct: -5.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,102,106.5,101,106,1121897,103.7,94.36,91.3,96.94,0.94
 20260524,102,106.5,101,106,1121897,104.5,95.49,91.39,97.69,0.92
 20260525,107,116,107,110,2010644,105.9,96.91,91.59,98.72,1.54
-20260526,102,106.5,101,106,1121897,106.8,98.2,91.7,99.32,0.85
+20260526,107,116,107,110,2010644,107.6,98.4,91.76,99.66,1.47
 ```
 
 ## Latest TDCC Snapshot

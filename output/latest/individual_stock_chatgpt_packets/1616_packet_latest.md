@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1616 億泰
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:40 Asia/Taipei
+- generated_at: 2026-05-26 06:01:50 Asia/Taipei
 - stock_id: 1616
 - stock_name: 億泰
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 22
-- high: 22.1
-- low: 21.5
+- open: 22.25
+- high: 22.5
+- low: 22
 - close: 22.05
-- volume: 585382
+- volume: 740073
 - ma5: 22.05
 - ma20: 21.83
 - ma60: 23.5
@@ -66,7 +66,7 @@
 - ema23: 22.08
 - return_5d: 0.92
 - return_20d: -1.12
-- volume_ratio: 0.91
+- volume_ratio: 1.14
 - distance_to_ma20_pct: 1.01
 - distance_to_high_60_pct: -24.87
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,22,22.1,21.5,22.05,585382,21.56,21.86,23.85,22.09,0.96
 20260524,22,22.1,21.5,22.05,585382,21.85,21.86,23.73,22.09,0.97
 20260525,22.25,22.5,22,22.05,740073,22.01,21.84,23.61,22.09,1.18
-20260526,22,22.1,21.5,22.05,585382,22.05,21.83,23.5,22.08,0.91
+20260526,22.25,22.5,22,22.05,740073,22.05,21.83,23.5,22.08,1.14
 ```
 
 ## Latest TDCC Snapshot

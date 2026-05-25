@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6782 視陽
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:32 Asia/Taipei
+- generated_at: 2026-05-26 06:03:34 Asia/Taipei
 - stock_id: 6782
 - stock_name: 視陽
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 192
-- high: 192
-- low: 189
-- close: 191
-- volume: 258577
-- ma5: 190.8
-- ma20: 198.45
-- ma60: 203.1
-- ma120: 189.25
-- ema23: 197.71
-- return_5d: 0
-- return_20d: -13.18
-- volume_ratio: 0.55
-- distance_to_ma20_pct: -3.75
-- distance_to_high_60_pct: -20.75
+- open: 192.5
+- high: 192.5
+- low: 188
+- close: 190
+- volume: 371588
+- ma5: 190.6
+- ma20: 198.4
+- ma60: 203.08
+- ma120: 189.24
+- ema23: 197.63
+- return_5d: -0.52
+- return_20d: -13.64
+- volume_ratio: 0.78
+- distance_to_ma20_pct: -4.23
+- distance_to_high_60_pct: -21.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,192,192,189,191,258577,191.3,202.82,202.95,199.81,0.55
 20260524,192,192,189,191,258577,190.9,201.5,203.12,199.08,0.55
 20260525,192.5,192.5,188,190,371588,190.8,199.9,203.12,198.32,0.79
-20260526,192,192,189,191,258577,190.8,198.45,203.1,197.71,0.55
+20260526,192.5,192.5,188,190,371588,190.6,198.4,203.08,197.63,0.78
 ```
 
 ## Latest TDCC Snapshot

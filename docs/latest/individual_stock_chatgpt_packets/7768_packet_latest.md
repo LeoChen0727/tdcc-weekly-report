@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7768 頌勝科技
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:42 Asia/Taipei
+- generated_at: 2026-05-26 06:03:43 Asia/Taipei
 - stock_id: 7768
 - stock_name: 頌勝科技
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 373
-- high: 382
-- low: 368
-- close: 378
-- volume: 295045
-- ma5: 381.2
-- ma20: 366.44
-- ma60: 366.44
-- ma120: 366.44
-- ema23: 373.96
-- return_5d: 1.07
+- open: 382
+- high: 394.5
+- low: 378
+- close: 394
+- volume: 521001
+- ma5: 384.4
+- ma20: 367.44
+- ma60: 367.44
+- ma120: 367.44
+- ema23: 375.29
+- return_5d: 5.35
 - return_20d: 
-- volume_ratio: 0.58
-- distance_to_ma20_pct: 3.16
-- distance_to_high_60_pct: -7.35
+- volume_ratio: 0.99
+- distance_to_ma20_pct: 7.23
+- distance_to_high_60_pct: -3.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -89,7 +89,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,373,382,368,378,295045,372.5,362.54,362.54,371.17,0.54
 20260524,373,382,368,378,295045,375.4,363.64,363.64,371.74,0.56
 20260525,382,394.5,378,394,521001,380.4,365.67,365.67,373.59,0.99
-20260526,373,382,368,378,295045,381.2,366.44,366.44,373.96,0.58
+20260526,382,394.5,378,394,521001,384.4,367.44,367.44,375.29,0.99
 ```
 
 ## Latest TDCC Snapshot

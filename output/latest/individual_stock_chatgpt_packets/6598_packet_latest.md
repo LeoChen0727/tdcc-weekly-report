@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6598 ABC-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:26 Asia/Taipei
+- generated_at: 2026-05-26 06:03:28 Asia/Taipei
 - stock_id: 6598
 - stock_name: ABC-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 24.5
-- high: 24.5
-- low: 24.05
-- close: 24.3
-- volume: 88424
-- ma5: 24.34
-- ma20: 23.61
-- ma60: 23.47
+- open: 24.35
+- high: 24.9
+- low: 24.2
+- close: 24.5
+- volume: 272233
+- ma5: 24.38
+- ma20: 23.62
+- ma60: 23.48
 - ma120: 23.2
-- ema23: 23.73
-- return_5d: 0
-- return_20d: 10.71
-- volume_ratio: 0.47
-- distance_to_ma20_pct: 2.92
-- distance_to_high_60_pct: -6.18
+- ema23: 23.74
+- return_5d: 0.82
+- return_20d: 11.62
+- volume_ratio: 1.37
+- distance_to_ma20_pct: 3.73
+- distance_to_high_60_pct: -5.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,24.5,24.5,24.05,24.3,88424,24.35,23.24,23.51,23.53,0.49
 20260524,24.5,24.5,24.05,24.3,88424,24.28,23.36,23.51,23.6,0.5
 20260525,24.35,24.9,24.2,24.5,272233,24.34,23.49,23.49,23.67,1.45
-20260526,24.5,24.5,24.05,24.3,88424,24.34,23.61,23.47,23.73,0.47
+20260526,24.35,24.9,24.2,24.5,272233,24.38,23.62,23.48,23.74,1.37
 ```
 
 ## Latest TDCC Snapshot

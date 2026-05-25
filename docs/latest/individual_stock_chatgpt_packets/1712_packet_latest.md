@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1712 興農
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:41 Asia/Taipei
+- generated_at: 2026-05-26 06:01:50 Asia/Taipei
 - stock_id: 1712
 - stock_name: 興農
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 40.2
-- high: 40.2
-- low: 39.75
-- close: 39.9
-- volume: 1645403
-- ma5: 39.8
-- ma20: 41.01
-- ma60: 43.18
+- open: 39.9
+- high: 39.95
+- low: 39.3
+- close: 39.4
+- volume: 1799523
+- ma5: 39.7
+- ma20: 40.98
+- ma60: 43.17
 - ma120: 43.93
-- ema23: 41.02
-- return_5d: -0.75
-- return_20d: -6.88
-- volume_ratio: 1.68
-- distance_to_ma20_pct: -2.71
-- distance_to_high_60_pct: -17.22
+- ema23: 40.98
+- return_5d: -1.99
+- return_20d: -8.05
+- volume_ratio: 1.82
+- distance_to_ma20_pct: -3.87
+- distance_to_high_60_pct: -18.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,40.2,40.2,39.75,39.9,1645403,40.23,41.41,43.48,41.4,1.98
 20260524,40.2,40.2,39.75,39.9,1645403,40.08,41.3,43.38,41.28,1.89
 20260525,39.9,39.95,39.3,39.4,1799523,39.86,41.16,43.29,41.12,1.94
-20260526,40.2,40.2,39.75,39.9,1645403,39.8,41.01,43.18,41.02,1.68
+20260526,39.9,39.95,39.3,39.4,1799523,39.7,40.98,43.17,40.98,1.82
 ```
 
 ## Latest TDCC Snapshot

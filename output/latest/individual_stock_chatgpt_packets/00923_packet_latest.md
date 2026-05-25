@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00923 群益台ESG低碳50
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:26 Asia/Taipei
+- generated_at: 2026-05-26 06:01:36 Asia/Taipei
 - stock_id: 00923
 - stock_name: 群益台ESG低碳50
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 38.42
-- high: 38.89
-- low: 38.35
-- close: 38.87
-- volume: 5000301
-- ma5: 39.2
-- ma20: 39.2
-- ma60: 39.2
-- ma120: 39.2
-- ema23: 39
+- open: 39.52
+- high: 40.63
+- low: 39.52
+- close: 40.53
+- volume: 4281584
+- ma5: 39.53
+- ma20: 39.53
+- ma60: 39.53
+- ma120: 39.53
+- ema23: 39.14
 - return_5d: 
 - return_20d: 
-- volume_ratio: 1.03
-- distance_to_ma20_pct: -0.85
-- distance_to_high_60_pct: -4.33
+- volume_ratio: 0.91
+- distance_to_ma20_pct: 2.52
+- distance_to_high_60_pct: -0.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,38.42,38.89,38.35,38.87,5000301,,,,,
 20260524,38.42,38.89,38.35,38.87,5000301,,,,,
 20260525,39.52,40.63,39.52,40.53,4281584,,,,,
-20260526,38.42,38.89,38.35,38.87,5000301,39.2,39.2,39.2,39,1.03
+20260526,39.52,40.63,39.52,40.53,4281584,39.53,39.53,39.53,39.14,0.91
 ```
 
 ## Latest TDCC Snapshot

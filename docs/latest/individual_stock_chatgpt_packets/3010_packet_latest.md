@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3010 華立
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:13 Asia/Taipei
+- generated_at: 2026-05-26 06:02:21 Asia/Taipei
 - stock_id: 3010
 - stock_name: 華立
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 135
-- high: 138
-- low: 134
-- close: 138
-- volume: 1469735
-- ma5: 138.4
-- ma20: 133.88
-- ma60: 130.41
-- ma120: 122.89
-- ema23: 134
-- return_5d: 2.22
-- return_20d: 3.37
-- volume_ratio: 0.89
-- distance_to_ma20_pct: 3.08
-- distance_to_high_60_pct: -8.61
+- open: 140.5
+- high: 141.5
+- low: 137.5
+- close: 140
+- volume: 1767198
+- ma5: 138.8
+- ma20: 133.97
+- ma60: 130.44
+- ma120: 122.91
+- ema23: 134.16
+- return_5d: 3.7
+- return_20d: 4.87
+- volume_ratio: 1.06
+- distance_to_ma20_pct: 4.5
+- distance_to_high_60_pct: -7.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,135,138,134,138,1469735,132.6,133.12,129.83,132.6,0.92
 20260524,135,138,134,138,1469735,135.6,133.35,130,133.05,0.94
 20260525,140.5,141.5,137.5,140,1767198,137.8,133.65,130.18,133.63,1.1
-20260526,135,138,134,138,1469735,138.4,133.88,130.41,134,0.89
+20260526,140.5,141.5,137.5,140,1767198,138.8,133.97,130.44,134.16,1.06
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3010 | 華立 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 3010 | 華立 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

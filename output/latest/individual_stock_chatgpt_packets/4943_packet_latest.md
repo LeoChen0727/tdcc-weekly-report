@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4943 康控-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:52 Asia/Taipei
+- generated_at: 2026-05-26 06:02:57 Asia/Taipei
 - stock_id: 4943
 - stock_name: 康控-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 8.99
-- high: 8.99
-- low: 8.65
-- close: 8.94
-- volume: 70328
-- ma5: 8.93
+- open: 9.1
+- high: 9.1
+- low: 8.9
+- close: 8.9
+- volume: 80831
+- ma5: 8.92
 - ma20: 9.16
 - ma60: 10.51
 - ma120: 11.65
-- ema23: 9.35
-- return_5d: -0.11
-- return_20d: -4.08
-- volume_ratio: 1.4
-- distance_to_ma20_pct: -2.38
-- distance_to_high_60_pct: -33.53
+- ema23: 9.34
+- return_5d: -0.56
+- return_20d: -4.51
+- volume_ratio: 1.59
+- distance_to_ma20_pct: -2.8
+- distance_to_high_60_pct: -33.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,8.99,8.99,8.65,8.94,70328,8.97,9.25,10.64,9.47,1.54
 20260524,8.99,8.99,8.65,8.94,70328,8.95,9.22,10.6,9.43,1.46
 20260525,9.1,9.1,8.9,8.9,80831,8.93,9.18,10.56,9.38,1.61
-20260526,8.99,8.99,8.65,8.94,70328,8.93,9.16,10.51,9.35,1.4
+20260526,9.1,9.1,8.9,8.9,80831,8.92,9.16,10.51,9.34,1.59
 ```
 
 ## Latest TDCC Snapshot

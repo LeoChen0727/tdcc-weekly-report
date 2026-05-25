@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2013 中鋼構
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:46 Asia/Taipei
+- generated_at: 2026-05-26 06:01:55 Asia/Taipei
 - stock_id: 2013
 - stock_name: 中鋼構
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 42.05
-- high: 42.15
-- low: 41.9
-- close: 41.9
-- volume: 99507
-- ma5: 42.08
-- ma20: 42.38
-- ma60: 43.34
-- ma120: 42.73
-- ema23: 42.48
-- return_5d: -0.59
-- return_20d: -2.67
-- volume_ratio: 0.94
-- distance_to_ma20_pct: -1.13
-- distance_to_high_60_pct: -10.85
+- open: 42
+- high: 43
+- low: 41.7
+- close: 42.8
+- volume: 266112
+- ma5: 42.26
+- ma20: 42.42
+- ma60: 43.36
+- ma120: 42.74
+- ema23: 42.55
+- return_5d: 1.54
+- return_20d: -0.58
+- volume_ratio: 2.33
+- distance_to_ma20_pct: 0.88
+- distance_to_high_60_pct: -8.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,42.05,42.15,41.9,41.9,99507,41.95,42.48,43.39,42.56,1.03
 20260524,42.05,42.15,41.9,41.9,99507,41.96,42.44,43.37,42.5,1.06
 20260525,42,43,41.7,42.8,266112,42.13,42.44,43.36,42.53,2.53
-20260526,42.05,42.15,41.9,41.9,99507,42.08,42.38,43.34,42.48,0.94
+20260526,42,43,41.7,42.8,266112,42.26,42.42,43.36,42.55,2.33
 ```
 
 ## Latest TDCC Snapshot

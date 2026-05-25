@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8442 威宏-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:53 Asia/Taipei
+- generated_at: 2026-05-26 06:03:53 Asia/Taipei
 - stock_id: 8442
 - stock_name: 威宏-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 40.65
-- high: 40.75
-- low: 40.2
-- close: 40.5
-- volume: 51826
-- ma5: 40.41
-- ma20: 45.13
-- ma60: 51.47
+- open: 42.5
+- high: 42.5
+- low: 38.9
+- close: 40.05
+- volume: 189854
+- ma5: 40.32
+- ma20: 45.11
+- ma60: 51.46
 - ma120: 60.79
-- ema23: 44.76
-- return_5d: -0.74
-- return_20d: -19.16
-- volume_ratio: 0.43
-- distance_to_ma20_pct: -10.26
-- distance_to_high_60_pct: -40.18
+- ema23: 44.72
+- return_5d: -1.84
+- return_20d: -20.06
+- volume_ratio: 1.5
+- distance_to_ma20_pct: -11.21
+- distance_to_high_60_pct: -40.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,40.65,40.75,40.2,40.5,51826,40.62,46.53,52.8,46.08,0.44
 20260524,40.65,40.75,40.2,40.5,51826,40.52,46.11,52.36,45.61,0.46
 20260525,42.5,42.5,38.9,40.05,189854,40.47,45.61,51.91,45.15,1.61
-20260526,40.65,40.75,40.2,40.5,51826,40.41,45.13,51.47,44.76,0.43
+20260526,42.5,42.5,38.9,40.05,189854,40.32,45.11,51.46,44.72,1.5
 ```
 
 ## Latest TDCC Snapshot

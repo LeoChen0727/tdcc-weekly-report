@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1467 南緯
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:35 Asia/Taipei
+- generated_at: 2026-05-26 06:01:45 Asia/Taipei
 - stock_id: 1467
 - stock_name: 南緯
 - packet_status: standard_180d_window_packet
@@ -55,20 +55,20 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 6.99
-- high: 7
-- low: 6.9
-- close: 6.95
-- volume: 481457
+- high: 6.99
+- low: 6.92
+- close: 6.94
+- volume: 232393
 - ma5: 6.95
 - ma20: 7.05
 - ma60: 7.13
 - ma120: 7.25
 - ema23: 7.06
-- return_5d: -0.14
-- return_20d: -6.33
-- volume_ratio: 1.58
-- distance_to_ma20_pct: -1.43
-- distance_to_high_60_pct: -17.56
+- return_5d: -0.29
+- return_20d: -6.47
+- volume_ratio: 0.8
+- distance_to_ma20_pct: -1.57
+- distance_to_high_60_pct: -17.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,6.99,7,6.9,6.95,481457,6.95,7.12,7.16,7.09,1.7
 20260524,6.99,7,6.9,6.95,481457,6.95,7.1,7.15,7.08,1.67
 20260525,6.99,6.99,6.92,6.94,232393,6.95,7.07,7.14,7.07,0.8
-20260526,6.99,7,6.9,6.95,481457,6.95,7.05,7.13,7.06,1.58
+20260526,6.99,6.99,6.92,6.94,232393,6.95,7.05,7.13,7.06,0.8
 ```
 
 ## Latest TDCC Snapshot

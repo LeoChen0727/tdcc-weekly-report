@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2327 國巨*
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:52 Asia/Taipei
+- generated_at: 2026-05-26 06:02:01 Asia/Taipei
 - stock_id: 2327
 - stock_name: 國巨*
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 605
-- high: 629
-- low: 600
-- close: 629
-- volume: 73991747
-- ma5: 641.4
-- ma20: 477.6
-- ma60: 345.64
-- ma120: 299.44
-- ema23: 491.2
-- return_5d: 9.96
-- return_20d: 95.34
-- volume_ratio: 1.16
-- distance_to_ma20_pct: 31.7
-- distance_to_high_60_pct: -8.97
+- open: 679
+- high: 691
+- low: 662
+- close: 691
+- volume: 67663245
+- ma5: 653.8
+- ma20: 480.7
+- ma60: 346.68
+- ma120: 299.95
+- ema23: 496.37
+- return_5d: 20.8
+- return_20d: 114.6
+- volume_ratio: 1.06
+- distance_to_ma20_pct: 43.75
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,605,629,600,629,73991747,569.4,427.82,327.99,443.95,1.26
 20260524,605,629,600,629,73991747,595.8,444.02,333.48,459.37,1.21
 20260525,679,691,662,691,67663245,630,462.25,340.02,478.67,1.1
-20260526,605,629,600,629,73991747,641.4,477.6,345.64,491.2,1.16
+20260526,679,691,662,691,67663245,653.8,480.7,346.68,496.37,1.06
 ```
 
 ## Latest TDCC Snapshot

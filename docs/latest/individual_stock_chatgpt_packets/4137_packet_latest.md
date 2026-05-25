@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4137 麗豐-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:39 Asia/Taipei
+- generated_at: 2026-05-26 06:02:45 Asia/Taipei
 - stock_id: 4137
 - stock_name: 麗豐-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 104.5
-- high: 104.5
-- low: 103.5
-- close: 104
-- volume: 146692
-- ma5: 103.8
-- ma20: 105.1
-- ma60: 107.32
-- ma120: 105.05
-- ema23: 105.07
-- return_5d: -0.48
-- return_20d: -2.8
-- volume_ratio: 0.75
-- distance_to_ma20_pct: -1.05
-- distance_to_high_60_pct: -11.86
+- open: 104
+- high: 104
+- low: 102
+- close: 103
+- volume: 361332
+- ma5: 103.6
+- ma20: 105.05
+- ma60: 107.3
+- ma120: 105.04
+- ema23: 104.99
+- return_5d: -1.44
+- return_20d: -3.74
+- volume_ratio: 1.76
+- distance_to_ma20_pct: -1.95
+- distance_to_high_60_pct: -12.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,104.5,104.5,103.5,104,146692,104,105.4,107.67,105.49,0.82
 20260524,104.5,104.5,103.5,104,146692,103.9,105.38,107.57,105.36,0.83
 20260525,104,104,102,103,361332,103.9,105.25,107.46,105.17,1.89
-20260526,104.5,104.5,103.5,104,146692,103.8,105.1,107.32,105.07,0.75
+20260526,104,104,102,103,361332,103.6,105.05,107.3,104.99,1.76
 ```
 
 ## Latest TDCC Snapshot

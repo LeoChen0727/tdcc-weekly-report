@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2520 冠德
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:03 Asia/Taipei
+- generated_at: 2026-05-26 06:02:11 Asia/Taipei
 - stock_id: 2520
 - stock_name: 冠德
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 30.5
-- high: 30.65
-- low: 30
-- close: 30.45
-- volume: 1501024
-- ma5: 30.37
-- ma20: 30.21
-- ma60: 31.11
-- ma120: 31.93
-- ema23: 30.5
-- return_5d: -0.98
-- return_20d: 0.16
-- volume_ratio: 0.95
-- distance_to_ma20_pct: 0.79
-- distance_to_high_60_pct: -8.83
+- open: 30.45
+- high: 30.45
+- low: 29.65
+- close: 30.05
+- volume: 2106524
+- ma5: 30.29
+- ma20: 30.19
+- ma60: 31.1
+- ma120: 31.92
+- ema23: 30.46
+- return_5d: -2.28
+- return_20d: -1.15
+- volume_ratio: 1.31
+- distance_to_ma20_pct: -0.47
+- distance_to_high_60_pct: -10.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,30.5,30.65,30,30.45,1501024,30.56,30.19,31.18,30.55,0.97
 20260524,30.5,30.65,30,30.45,1501024,30.57,30.21,31.16,30.54,1.01
 20260525,30.45,30.45,29.65,30.05,2106524,30.43,30.21,31.14,30.5,1.38
-20260526,30.5,30.65,30,30.45,1501024,30.37,30.21,31.11,30.5,0.95
+20260526,30.45,30.45,29.65,30.05,2106524,30.29,30.19,31.1,30.46,1.31
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2520 | 冠德 | pattern | 型態觀察 | 48.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260526 | 2520 | 冠德 | revenue_pullback | 營收成長股價回檔 | 63.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context

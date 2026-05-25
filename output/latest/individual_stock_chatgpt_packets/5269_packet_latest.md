@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5269 祥碩
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:57 Asia/Taipei
+- generated_at: 2026-05-26 06:03:01 Asia/Taipei
 - stock_id: 5269
 - stock_name: 祥碩
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 1430
-- high: 1495
-- low: 1420
-- close: 1480
-- volume: 1861941
-- ma5: 1491
-- ma20: 1425.5
-- ma60: 1277
-- ma120: 1267.25
-- ema23: 1407.18
-- return_5d: 4.96
-- return_20d: 13.41
-- volume_ratio: 0.7
-- distance_to_ma20_pct: 3.82
-- distance_to_high_60_pct: -4.52
+- open: 1535
+- high: 1550
+- low: 1515
+- close: 1535
+- volume: 2155035
+- ma5: 1502
+- ma20: 1428.25
+- ma60: 1277.92
+- ma120: 1267.71
+- ema23: 1411.76
+- return_5d: 8.87
+- return_20d: 17.62
+- volume_ratio: 0.81
+- distance_to_ma20_pct: 7.47
+- distance_to_high_60_pct: -0.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,1430,1495,1420,1480,1861941,1427,1394.5,1267.33,1380,0.73
 20260524,1430,1495,1420,1480,1861941,1447,1404,1270.08,1388.34,0.73
 20260525,1535,1550,1515,1535,2155035,1477,1416.75,1273.75,1400.56,0.83
-20260526,1430,1495,1420,1480,1861941,1491,1425.5,1277,1407.18,0.7
+20260526,1535,1550,1515,1535,2155035,1502,1428.25,1277.92,1411.76,0.81
 ```
 
 ## Latest TDCC Snapshot
@@ -122,6 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 5269 | 祥碩 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 5269 | 祥碩 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

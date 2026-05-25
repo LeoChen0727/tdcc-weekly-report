@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5434 崇越
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:00 Asia/Taipei
+- generated_at: 2026-05-26 06:03:05 Asia/Taipei
 - stock_id: 5434
 - stock_name: 崇越
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 424
-- high: 454.5
-- low: 422
-- close: 449.5
-- volume: 2028959
-- ma5: 456.6
-- ma20: 423.82
-- ma60: 380.09
-- ma120: 346.58
-- ema23: 423.7
-- return_5d: 7.28
-- return_20d: 10.17
-- volume_ratio: 1.99
-- distance_to_ma20_pct: 6.06
-- distance_to_high_60_pct: -9.01
+- open: 479.5
+- high: 494
+- low: 470.5
+- close: 485
+- volume: 1301701
+- ma5: 463.7
+- ma20: 425.6
+- ma60: 380.68
+- ma120: 346.88
+- ema23: 426.66
+- return_5d: 15.75
+- return_20d: 18.87
+- volume_ratio: 1.32
+- distance_to_ma20_pct: 13.96
+- distance_to_high_60_pct: -1.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,424,454.5,422,449.5,2028959,421.8,416.05,374.21,412.49,2.39
 20260524,424,454.5,422,449.5,2028959,432.9,418.18,375.9,415.57,2.24
 20260525,479.5,494,470.5,485,1301701,450.5,421.75,378.18,421.36,1.38
-20260526,424,454.5,422,449.5,2028959,456.6,423.82,380.09,423.7,1.99
+20260526,479.5,494,470.5,485,1301701,463.7,425.6,380.68,426.66,1.32
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 5434 | 崇越 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | early_entry_watch |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 5434 | 崇越 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 58.0 |  |  | neckline_challenge |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

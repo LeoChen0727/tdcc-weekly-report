@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2855 統一證
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:10 Asia/Taipei
+- generated_at: 2026-05-26 06:02:18 Asia/Taipei
 - stock_id: 2855
 - stock_name: 統一證
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 40.35
-- high: 40.8
-- low: 40.05
-- close: 40.75
-- volume: 5524095
-- ma5: 41.01
-- ma20: 40.13
-- ma60: 34.82
-- ma120: 30.72
-- ema23: 39.2
-- return_5d: 1.37
-- return_20d: 16.1
-- volume_ratio: 0.61
-- distance_to_ma20_pct: 1.54
-- distance_to_high_60_pct: -7.39
+- open: 41.25
+- high: 42.25
+- low: 41
+- close: 42.05
+- volume: 7154644
+- ma5: 41.27
+- ma20: 40.2
+- ma60: 34.84
+- ma120: 30.73
+- ema23: 39.31
+- return_5d: 4.6
+- return_20d: 19.8
+- volume_ratio: 0.78
+- distance_to_ma20_pct: 4.61
+- distance_to_high_60_pct: -4.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,40.35,40.8,40.05,40.75,5524095,40.05,39.27,34.34,38.61,0.61
 20260524,40.35,40.8,40.05,40.75,5524095,40.33,39.52,34.49,38.79,0.62
 20260525,41.25,42.25,41,42.05,7154644,40.9,39.85,34.66,39.06,0.79
-20260526,40.35,40.8,40.05,40.75,5524095,41.01,40.13,34.82,39.2,0.61
+20260526,41.25,42.25,41,42.05,7154644,41.27,40.2,34.84,39.31,0.78
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2855 | 統一證 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260526 | 2855 | 統一證 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

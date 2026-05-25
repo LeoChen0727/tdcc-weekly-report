@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8081 致新
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:46 Asia/Taipei
+- generated_at: 2026-05-26 06:03:47 Asia/Taipei
 - stock_id: 8081
 - stock_name: 致新
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 275.5
-- high: 281
-- low: 272
-- close: 279.5
-- volume: 1514980
-- ma5: 281.2
-- ma20: 266.77
-- ma60: 247.54
-- ma120: 233.62
-- ema23: 265.98
-- return_5d: 2.01
-- return_20d: 11.8
-- volume_ratio: 0.93
-- distance_to_ma20_pct: 4.77
-- distance_to_high_60_pct: -4.61
+- open: 285
+- high: 293
+- low: 283
+- close: 288
+- volume: 2205711
+- ma5: 282.9
+- ma20: 267.2
+- ma60: 247.68
+- ma120: 233.69
+- ema23: 266.69
+- return_5d: 5.11
+- return_20d: 15.2
+- volume_ratio: 1.32
+- distance_to_ma20_pct: 7.78
+- distance_to_high_60_pct: -1.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,275.5,281,272,279.5,1514980,273.8,262.18,245.71,261.11,0.98
 20260524,275.5,281,272,279.5,1514980,276.9,263.38,246.27,262.64,1
 20260525,285,293,283,288,2205711,280.1,265.3,246.93,264.75,1.4
-20260526,275.5,281,272,279.5,1514980,281.2,266.77,247.54,265.98,0.93
+20260526,285,293,283,288,2205711,282.9,267.2,247.68,266.69,1.32
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8081 | 致新 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 8081 | 致新 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 8081 | 致新 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7760 享溫馨
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:42 Asia/Taipei
+- generated_at: 2026-05-26 06:03:43 Asia/Taipei
 - stock_id: 7760
 - stock_name: 享溫馨
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 33.55
-- high: 33.55
-- low: 33.4
-- close: 33.4
-- volume: 81002
-- ma5: 33.38
+- open: 33.3
+- high: 33.5
+- low: 32.75
+- close: 33.3
+- volume: 486321
+- ma5: 33.36
 - ma20: 34.06
 - ma60: 34.18
 - ma120: 34.18
-- ema23: 34.16
-- return_5d: -0.15
-- return_20d: -4.57
-- volume_ratio: 0.52
-- distance_to_ma20_pct: -1.95
-- distance_to_high_60_pct: -6.7
+- ema23: 34.15
+- return_5d: -0.45
+- return_20d: -4.86
+- volume_ratio: 2.75
+- distance_to_ma20_pct: -2.22
+- distance_to_high_60_pct: -6.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,33.55,33.55,33.4,33.4,81002,33.59,34.31,34.31,34.39,0.4
 20260524,33.55,33.55,33.4,33.4,81002,33.46,34.27,34.27,34.31,0.41
 20260525,33.3,33.5,32.75,33.3,486321,33.39,34.14,34.22,34.23,2.76
-20260526,33.55,33.55,33.4,33.4,81002,33.38,34.06,34.18,34.16,0.52
+20260526,33.3,33.5,32.75,33.3,486321,33.36,34.06,34.18,34.15,2.75
 ```
 
 ## Latest TDCC Snapshot

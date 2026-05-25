@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3059 華晶科
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:17 Asia/Taipei
+- generated_at: 2026-05-26 06:02:24 Asia/Taipei
 - stock_id: 3059
 - stock_name: 華晶科
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 43.35
-- high: 44.3
-- low: 42.8
-- close: 43.55
-- volume: 8797060
-- ma5: 43.5
-- ma20: 41.51
-- ma60: 38.78
-- ma120: 39.86
-- ema23: 41.44
-- return_5d: 0.81
-- return_20d: 6.74
-- volume_ratio: 1.07
-- distance_to_ma20_pct: 4.91
-- distance_to_high_60_pct: -3.86
+- open: 44.2
+- high: 45.3
+- low: 43.15
+- close: 43.3
+- volume: 20131007
+- ma5: 43.45
+- ma20: 41.5
+- ma60: 38.77
+- ma120: 39.85
+- ema23: 41.42
+- return_5d: 0.23
+- return_20d: 6.13
+- volume_ratio: 2.3
+- distance_to_ma20_pct: 4.34
+- distance_to_high_60_pct: -4.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,43.35,44.3,42.8,43.55,8797060,42.98,40.98,38.6,40.84,1.18
 20260524,43.35,44.3,42.8,43.55,8797060,43.27,41.22,38.66,41.06,1.16
 20260525,44.2,45.3,43.15,43.3,20131007,43.43,41.38,38.72,41.25,2.47
-20260526,43.35,44.3,42.8,43.55,8797060,43.5,41.51,38.78,41.44,1.07
+20260526,44.2,45.3,43.15,43.3,20131007,43.45,41.5,38.77,41.42,2.3
 ```
 
 ## Latest TDCC Snapshot

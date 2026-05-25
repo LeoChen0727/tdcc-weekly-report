@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4545 銘鈺
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:45 Asia/Taipei
+- generated_at: 2026-05-26 06:02:50 Asia/Taipei
 - stock_id: 4545
 - stock_name: 銘鈺
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 32.9
-- high: 34
-- low: 32.15
-- close: 33.2
-- volume: 599376
-- ma5: 33.13
-- ma20: 30.95
+- open: 34.2
+- high: 34.2
+- low: 32.8
+- close: 32.85
+- volume: 320091
+- ma5: 33.06
+- ma20: 30.94
 - ma60: 31.29
 - ma120: 33.71
-- ema23: 31.39
-- return_5d: 4.57
-- return_20d: 7.1
-- volume_ratio: 2.1
-- distance_to_ma20_pct: 7.25
-- distance_to_high_60_pct: -6.61
+- ema23: 31.36
+- return_5d: 3.46
+- return_20d: 5.97
+- volume_ratio: 1.18
+- distance_to_ma20_pct: 6.18
+- distance_to_high_60_pct: -7.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,32.9,34,32.15,33.2,599376,31.94,30.51,31.41,30.89,2.42
 20260524,32.9,34,32.15,33.2,599376,32.29,30.7,31.37,31.08,2.23
 20260525,34.2,34.2,32.8,32.85,320091,32.84,30.84,31.32,31.23,1.14
-20260526,32.9,34,32.15,33.2,599376,33.13,30.95,31.29,31.39,2.1
+20260526,34.2,34.2,32.8,32.85,320091,33.06,30.94,31.29,31.36,1.18
 ```
 
 ## Latest TDCC Snapshot

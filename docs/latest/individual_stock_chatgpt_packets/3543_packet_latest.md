@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3543 州巧
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:31 Asia/Taipei
+- generated_at: 2026-05-26 06:02:37 Asia/Taipei
 - stock_id: 3543
 - stock_name: 州巧
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 35.3
-- high: 37.7
-- low: 35.2
-- close: 37
-- volume: 1243912
-- ma5: 36.82
-- ma20: 37.77
-- ma60: 43.61
-- ma120: 44.35
-- ema23: 38.34
-- return_5d: 5.26
-- return_20d: -11.69
-- volume_ratio: 1.07
-- distance_to_ma20_pct: -2.03
-- distance_to_high_60_pct: -34.28
+- open: 37
+- high: 37.3
+- low: 35.7
+- close: 36.1
+- volume: 1289109
+- ma5: 36.64
+- ma20: 37.72
+- ma60: 43.59
+- ma120: 44.34
+- ema23: 38.26
+- return_5d: 2.7
+- return_20d: -13.84
+- volume_ratio: 1.11
+- distance_to_ma20_pct: -4.29
+- distance_to_high_60_pct: -35.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,35.3,37.7,35.2,37,1243912,35.94,38.33,44.43,38.83,1.03
 20260524,35.3,37.7,35.2,37,1243912,36.26,38.18,44.13,38.68,1.05
 20260525,37,37.3,35.7,36.1,1289109,36.45,38.01,43.84,38.46,1.09
-20260526,35.3,37.7,35.2,37,1243912,36.82,37.77,43.61,38.34,1.07
+20260526,37,37.3,35.7,36.1,1289109,36.64,37.72,43.59,38.26,1.11
 ```
 
 ## Latest TDCC Snapshot

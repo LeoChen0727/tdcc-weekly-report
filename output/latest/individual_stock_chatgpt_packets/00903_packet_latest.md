@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00903 富邦元宇宙
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:26 Asia/Taipei
+- generated_at: 2026-05-26 06:01:36 Asia/Taipei
 - stock_id: 00903
 - stock_name: 富邦元宇宙
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 21.6
-- high: 21.69
-- low: 21.6
-- close: 21.69
-- volume: 142774
-- ma5: 21.77
-- ma20: 21.77
-- ma60: 21.77
-- ma120: 21.77
-- ema23: 21.72
+- open: 22.07
+- high: 22.11
+- low: 22.06
+- close: 22.1
+- volume: 1142410
+- ma5: 21.85
+- ma20: 21.85
+- ma60: 21.85
+- ma120: 21.85
+- ema23: 21.76
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.42
-- distance_to_ma20_pct: -0.38
-- distance_to_high_60_pct: -1.9
+- volume_ratio: 2.11
+- distance_to_ma20_pct: 1.13
+- distance_to_high_60_pct: -0.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,21.6,21.69,21.6,21.69,142774,,,,,
 20260524,21.6,21.69,21.6,21.69,142774,,,,,
 20260525,22.07,22.11,22.06,22.1,1142410,,,,,
-20260526,21.6,21.69,21.6,21.69,142774,21.77,21.77,21.77,21.72,0.42
+20260526,22.07,22.11,22.06,22.1,1142410,21.85,21.85,21.85,21.76,2.11
 ```
 
 ## Latest TDCC Snapshot

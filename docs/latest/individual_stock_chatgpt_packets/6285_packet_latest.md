@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6285 啟碁
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:18 Asia/Taipei
+- generated_at: 2026-05-26 06:03:21 Asia/Taipei
 - stock_id: 6285
 - stock_name: 啟碁
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 281
-- high: 298
-- low: 279
-- close: 296
-- volume: 30884029
-- ma5: 296.4
-- ma20: 268.25
-- ma60: 220.2
-- ma120: 174.44
-- ema23: 268
-- return_5d: 5.53
-- return_20d: 38.97
-- volume_ratio: 0.92
-- distance_to_ma20_pct: 10.34
-- distance_to_high_60_pct: -6.62
+- open: 303
+- high: 317
+- low: 297.5
+- close: 298
+- volume: 35285750
+- ma5: 296.8
+- ma20: 268.35
+- ma60: 220.23
+- ma120: 174.46
+- ema23: 268.17
+- return_5d: 6.24
+- return_20d: 39.91
+- volume_ratio: 1.05
+- distance_to_ma20_pct: 11.05
+- distance_to_high_60_pct: -5.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,281,298,279,296,30884029,288.7,255.85,214.72,259.46,0.97
 20260524,281,298,279,296,30884029,289.5,260.07,216.49,262.5,0.97
 20260525,303,317,297.5,298,35285750,293.3,264.1,218.34,265.46,1.09
-20260526,281,298,279,296,30884029,296.4,268.25,220.2,268,0.92
+20260526,303,317,297.5,298,35285750,296.8,268.35,220.23,268.17,1.05
 ```
 
 ## Latest TDCC Snapshot

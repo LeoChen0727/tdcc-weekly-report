@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2236 百達-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:50 Asia/Taipei
+- generated_at: 2026-05-26 06:01:59 Asia/Taipei
 - stock_id: 2236
 - stock_name: 百達-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 139.5
-- high: 148
-- low: 137.5
-- close: 146.5
-- volume: 1003578
-- ma5: 146.1
-- ma20: 138.6
-- ma60: 124.5
-- ma120: 118.12
-- ema23: 137.49
-- return_5d: 6.16
-- return_20d: 10.98
-- volume_ratio: 1.6
-- distance_to_ma20_pct: 5.7
-- distance_to_high_60_pct: -2.66
+- open: 148.5
+- high: 150.5
+- low: 143.5
+- close: 144.5
+- volume: 725625
+- ma5: 145.7
+- ma20: 138.5
+- ma60: 124.47
+- ma120: 118.11
+- ema23: 137.32
+- return_5d: 4.71
+- return_20d: 9.47
+- volume_ratio: 1.18
+- distance_to_ma20_pct: 4.33
+- distance_to_high_60_pct: -3.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,139.5,148,137.5,146.5,1003578,138.7,136.65,122.93,135,1.8
 20260524,139.5,148,137.5,146.5,1003578,141.6,137.25,123.46,135.96,1.74
 20260525,148.5,150.5,143.5,144.5,725625,144.4,137.88,123.95,136.67,1.22
-20260526,139.5,148,137.5,146.5,1003578,146.1,138.6,124.5,137.49,1.6
+20260526,148.5,150.5,143.5,144.5,725625,145.7,138.5,124.47,137.32,1.18
 ```
 
 ## Latest TDCC Snapshot
@@ -120,14 +120,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2236 | 百達-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2236 | 百達-KY | 1 | 1 | 3 | 3 | 3 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260526 | 2236 | 百達-KY | 1 | 1 | 3 | 3 | 3 | repeated_but_no_breakout | 近 10 日上榜 3 日、近 20 日上榜 3 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

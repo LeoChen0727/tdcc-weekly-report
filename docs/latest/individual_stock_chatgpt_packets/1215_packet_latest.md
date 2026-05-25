@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1215 卜蜂
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:28 Asia/Taipei
+- generated_at: 2026-05-26 06:01:38 Asia/Taipei
 - stock_id: 1215
 - stock_name: 卜蜂
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 143
-- high: 145
-- low: 143
-- close: 143
-- volume: 1442995
-- ma5: 142.9
-- ma20: 139.82
+- open: 143.5
+- high: 144
+- low: 139
+- close: 142.5
+- volume: 1753582
+- ma5: 142.8
+- ma20: 139.8
 - ma60: 144.22
 - ma120: 144.13
-- ema23: 141.15
-- return_5d: -0.69
-- return_20d: 2.14
-- volume_ratio: 0.85
-- distance_to_ma20_pct: 2.27
-- distance_to_high_60_pct: -12.54
+- ema23: 141.11
+- return_5d: -1.04
+- return_20d: 1.79
+- volume_ratio: 1.02
+- distance_to_ma20_pct: 1.93
+- distance_to_high_60_pct: -12.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,143,145,143,143,1442995,142.7,139.3,144.73,140.65,0.87
 20260524,143,145,143,143,1442995,143,139.5,144.6,140.85,0.88
 20260525,143.5,144,139,142.5,1753582,143.1,139.68,144.43,140.98,1.05
-20260526,143,145,143,143,1442995,142.9,139.82,144.22,141.15,0.85
+20260526,143.5,144,139,142.5,1753582,142.8,139.8,144.22,141.11,1.02
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1215 | 卜蜂 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: ex_dividend on 20260527; status=confirmed; proximity=within_3d |
 | 20260521 | 1215 | 卜蜂 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | stale_signal | calendar event: ex_dividend on 20260527; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context

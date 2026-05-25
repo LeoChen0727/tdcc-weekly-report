@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2007 燁興
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:45 Asia/Taipei
+- generated_at: 2026-05-26 06:01:54 Asia/Taipei
 - stock_id: 2007
 - stock_name: 燁興
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 7
-- high: 7
-- low: 6.93
-- close: 6.97
-- volume: 243817
-- ma5: 7.11
-- ma20: 7.18
-- ma60: 7.75
-- ma120: 7.79
-- ema23: 7.26
-- return_5d: -0.43
-- return_20d: -9.48
-- volume_ratio: 0.62
-- distance_to_ma20_pct: -2.86
-- distance_to_high_60_pct: -24.97
+- open: 7.04
+- high: 7.66
+- low: 7.03
+- close: 7.66
+- volume: 1444615
+- ma5: 7.25
+- ma20: 7.21
+- ma60: 7.76
+- ma120: 7.8
+- ema23: 7.32
+- return_5d: 9.43
+- return_20d: -0.52
+- volume_ratio: 3.2
+- distance_to_ma20_pct: 6.24
+- distance_to_high_60_pct: -17.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,7,7,6.93,6.97,243817,6.95,7.23,7.81,7.28,0.66
 20260524,7,7,6.93,6.97,243817,6.97,7.2,7.79,7.25,0.69
 20260525,7.04,7.66,7.03,7.66,1444615,7.11,7.21,7.77,7.29,3.51
-20260526,7,7,6.93,6.97,243817,7.11,7.18,7.75,7.26,0.62
+20260526,7.04,7.66,7.03,7.66,1444615,7.25,7.21,7.76,7.32,3.2
 ```
 
 ## Latest TDCC Snapshot
@@ -120,14 +120,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 2007 | 燁興 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 2007 | 燁興 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | status |

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6412 群電
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:19 Asia/Taipei
+- generated_at: 2026-05-26 06:03:21 Asia/Taipei
 - stock_id: 6412
 - stock_name: 群電
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 99.8
-- high: 101
-- low: 96.5
-- close: 100.5
-- volume: 4925428
-- ma5: 101.2
-- ma20: 93.22
-- ma60: 84.2
-- ma120: 86.31
-- ema23: 92.64
-- return_5d: 3.5
-- return_20d: 29.34
-- volume_ratio: 1.08
-- distance_to_ma20_pct: 7.81
-- distance_to_high_60_pct: -6.07
+- open: 103
+- high: 107
+- low: 100.5
+- close: 104
+- volume: 4384371
+- ma5: 101.9
+- ma20: 93.39
+- ma60: 84.26
+- ma120: 86.33
+- ema23: 92.94
+- return_5d: 7.11
+- return_20d: 33.85
+- volume_ratio: 0.96
+- distance_to_ma20_pct: 11.36
+- distance_to_high_60_pct: -2.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,99.8,101,96.5,100.5,4925428,96.96,89.55,83.75,89.95,1.21
 20260524,99.8,101,96.5,100.5,4925428,98.62,90.71,83.89,90.83,1.15
 20260525,103,107,100.5,104,4384371,100.52,92.08,84.11,91.93,0.99
-20260526,99.8,101,96.5,100.5,4925428,101.2,93.22,84.2,92.64,1.08
+20260526,103,107,100.5,104,4384371,101.9,93.39,84.26,92.94,0.96
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6412 | 群電 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 6412 | 群電 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

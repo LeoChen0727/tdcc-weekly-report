@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1414 東和
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:32 Asia/Taipei
+- generated_at: 2026-05-26 06:01:42 Asia/Taipei
 - stock_id: 1414
 - stock_name: 東和
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 15.8
-- high: 15.8
-- low: 15.4
-- close: 15.45
-- volume: 245511
-- ma5: 15.31
-- ma20: 15.88
-- ma60: 17.3
+- open: 15.4
+- high: 15.4
+- low: 14.7
+- close: 14.75
+- volume: 486083
+- ma5: 15.17
+- ma20: 15.85
+- ma60: 17.29
 - ma120: 17.79
-- ema23: 15.92
-- return_5d: -2.22
-- return_20d: -8.58
-- volume_ratio: 0.91
-- distance_to_ma20_pct: -2.72
-- distance_to_high_60_pct: -29.45
+- ema23: 15.86
+- return_5d: -6.65
+- return_20d: -12.72
+- volume_ratio: 1.72
+- distance_to_ma20_pct: -6.93
+- distance_to_high_60_pct: -32.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,15.8,15.8,15.4,15.45,245511,15.67,16.11,17.54,16.13,0.9
 20260524,15.8,15.8,15.4,15.45,245511,15.58,16.05,17.46,16.07,0.89
 20260525,15.4,15.4,14.7,14.75,486083,15.38,15.96,17.38,15.96,1.74
-20260526,15.8,15.8,15.4,15.45,245511,15.31,15.88,17.3,15.92,0.91
+20260526,15.4,15.4,14.7,14.75,486083,15.17,15.85,17.29,15.86,1.72
 ```
 
 ## Latest TDCC Snapshot

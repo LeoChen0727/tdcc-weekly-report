@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1436 華友聯
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:33 Asia/Taipei
+- generated_at: 2026-05-26 06:01:43 Asia/Taipei
 - stock_id: 1436
 - stock_name: 華友聯
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 45.35
-- high: 45.45
-- low: 44.9
-- close: 45.45
-- volume: 248056
-- ma5: 45.28
-- ma20: 47.3
-- ma60: 51.29
+- open: 45.45
+- high: 45.6
+- low: 44.35
+- close: 44.6
+- volume: 575218
+- ma5: 45.11
+- ma20: 47.26
+- ma60: 51.27
 - ma120: 56.65
-- ema23: 47.53
-- return_5d: -0.11
-- return_20d: -10.18
-- volume_ratio: 0.75
-- distance_to_ma20_pct: -3.92
-- distance_to_high_60_pct: -22.31
+- ema23: 47.46
+- return_5d: -1.98
+- return_20d: -11.86
+- volume_ratio: 1.65
+- distance_to_ma20_pct: -5.63
+- distance_to_high_60_pct: -23.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,45.35,45.45,44.9,45.45,248056,45.65,48.08,51.89,48.23,0.77
 20260524,45.35,45.45,44.9,45.45,248056,45.52,47.84,51.66,48,0.79
 20260525,45.45,45.6,44.35,44.6,575218,45.29,47.56,51.46,47.72,1.74
-20260526,45.35,45.45,44.9,45.45,248056,45.28,47.3,51.29,47.53,0.75
+20260526,45.45,45.6,44.35,44.6,575218,45.11,47.26,51.27,47.46,1.65
 ```
 
 ## Latest TDCC Snapshot

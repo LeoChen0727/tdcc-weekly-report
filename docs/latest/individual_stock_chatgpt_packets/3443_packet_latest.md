@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3443 創意
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:28 Asia/Taipei
+- generated_at: 2026-05-26 06:02:34 Asia/Taipei
 - stock_id: 3443
 - stock_name: 創意
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 5105
-- high: 5195
-- low: 4955
-- close: 5140
-- volume: 2682444
-- ma5: 5174
-- ma20: 5034.5
-- ma60: 3541.92
-- ma120: 2946.79
-- ema23: 4753.32
-- return_5d: 1.48
-- return_20d: 24.76
-- volume_ratio: 0.97
-- distance_to_ma20_pct: 2.1
-- distance_to_high_60_pct: -13.61
+- open: 5320
+- high: 5560
+- low: 5155
+- close: 5310
+- volume: 2519157
+- ma5: 5208
+- ma20: 5043
+- ma60: 3544.75
+- ma120: 2948.21
+- ema23: 4767.49
+- return_5d: 4.84
+- return_20d: 28.88
+- volume_ratio: 0.91
+- distance_to_ma20_pct: 5.29
+- distance_to_high_60_pct: -10.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,5105,5195,4955,5140,2682444,4883,4868.25,3415.25,4621.13,1.06
 20260524,5105,5195,4955,5140,2682444,5018,4927.5,3458,4664.37,1.04
 20260525,5320,5560,5155,5310,2519157,5159,4983.5,3500.33,4718.17,0.94
-20260526,5105,5195,4955,5140,2682444,5174,5034.5,3541.92,4753.32,0.97
+20260526,5320,5560,5155,5310,2519157,5208,5043,3544.75,4767.49,0.91
 ```
 
 ## Latest TDCC Snapshot
@@ -123,7 +123,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260526 | 3443 | 創意 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 3443 | 創意 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 3443 | 創意 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

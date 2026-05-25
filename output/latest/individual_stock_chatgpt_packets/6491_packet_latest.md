@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6491 晶碩
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:21 Asia/Taipei
+- generated_at: 2026-05-26 06:03:24 Asia/Taipei
 - stock_id: 6491
 - stock_name: 晶碩
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 307
+- open: 309
 - high: 309
-- low: 305
-- close: 308
-- volume: 440125
-- ma5: 307.9
-- ma20: 293.77
-- ma60: 287.11
-- ma120: 288.05
-- ema23: 296.68
-- return_5d: 0.33
-- return_20d: 9.41
-- volume_ratio: 0.83
-- distance_to_ma20_pct: 4.84
-- distance_to_high_60_pct: -1.6
+- low: 304.5
+- close: 307.5
+- volume: 703378
+- ma5: 307.8
+- ma20: 293.75
+- ma60: 287.1
+- ma120: 288.04
+- ema23: 296.64
+- return_5d: 0.16
+- return_20d: 9.24
+- volume_ratio: 1.29
+- distance_to_ma20_pct: 4.68
+- distance_to_high_60_pct: -1.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,307,309,305,308,440125,306.3,290.1,286.44,293.35,0.88
 20260524,307,309,305,308,440125,306.8,291.18,286.67,294.57,0.87
 20260525,309,309,304.5,307.5,703378,307.7,292.45,286.86,295.65,1.33
-20260526,307,309,305,308,440125,307.9,293.77,287.11,296.68,0.83
+20260526,309,309,304.5,307.5,703378,307.8,293.75,287.1,296.64,1.29
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3031 佰鴻
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:15 Asia/Taipei
+- generated_at: 2026-05-26 06:02:22 Asia/Taipei
 - stock_id: 3031
 - stock_name: 佰鴻
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 34.75
-- high: 34.8
-- low: 33.2
-- close: 33.75
-- volume: 10695490
-- ma5: 33.57
-- ma20: 31.12
-- ma60: 27.28
+- open: 34
+- high: 34.4
+- low: 32.85
+- close: 32.85
+- volume: 6364027
+- ma5: 33.39
+- ma20: 31.07
+- ma60: 27.26
 - ma120: 23.57
-- ema23: 31.23
-- return_5d: 0.45
-- return_20d: 2.9
-- volume_ratio: 2.12
-- distance_to_ma20_pct: 8.46
-- distance_to_high_60_pct: -4.39
+- ema23: 31.16
+- return_5d: -2.23
+- return_20d: 0.15
+- volume_ratio: 1.32
+- distance_to_ma20_pct: 5.72
+- distance_to_high_60_pct: -6.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,34.75,34.8,33.2,33.75,10695490,32.05,31.08,26.62,30.57,1.89
 20260524,34.75,34.8,33.2,33.75,10695490,33.08,31.11,26.84,30.83,1.91
 20260525,34,34.4,32.85,32.85,6364027,33.54,31.07,27.05,31,1.23
-20260526,34.75,34.8,33.2,33.75,10695490,33.57,31.12,27.28,31.23,2.12
+20260526,34,34.4,32.85,32.85,6364027,33.39,31.07,27.26,31.16,1.32
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3031 | 佰鴻 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 3031 | 佰鴻 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

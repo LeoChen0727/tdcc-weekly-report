@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6139 亞翔
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:09 Asia/Taipei
+- generated_at: 2026-05-26 06:03:12 Asia/Taipei
 - stock_id: 6139
 - stock_name: 亞翔
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 808
-- high: 808
-- low: 767
-- close: 769
-- volume: 6471356
-- ma5: 776.6
-- ma20: 725.5
-- ma60: 641.67
-- ma120: 594.73
-- ema23: 725.62
-- return_5d: -1.91
-- return_20d: 14.61
-- volume_ratio: 1.22
-- distance_to_ma20_pct: 6
-- distance_to_high_60_pct: -6.79
+- open: 783
+- high: 825
+- low: 777
+- close: 807
+- volume: 5848431
+- ma5: 784.2
+- ma20: 727.4
+- ma60: 642.3
+- ma120: 595.05
+- ema23: 728.78
+- return_5d: 2.93
+- return_20d: 20.27
+- volume_ratio: 1.11
+- distance_to_ma20_pct: 10.94
+- distance_to_high_60_pct: -2.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,808,808,767,769,6471356,756,709.1,630.9,708.91,1.32
 20260524,808,808,767,769,6471356,762.2,714.25,634.43,713.92,1.31
 20260525,783,825,777,807,5848431,779.6,720.6,638.13,721.67,1.15
-20260526,808,808,767,769,6471356,776.6,725.5,641.67,725.62,1.22
+20260526,783,825,777,807,5848431,784.2,727.4,642.3,728.78,1.11
 ```
 
 ## Latest TDCC Snapshot
@@ -122,8 +122,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6139 | 亞翔 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 6139 | 亞翔 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 6139 | 亞翔 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 6139 | 亞翔 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 58.0 |  |  | neckline_challenge |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 6139 | 亞翔 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

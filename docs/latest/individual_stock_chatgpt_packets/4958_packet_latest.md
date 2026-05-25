@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4958 臻鼎-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:53 Asia/Taipei
+- generated_at: 2026-05-26 06:02:57 Asia/Taipei
 - stock_id: 4958
 - stock_name: 臻鼎-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 481
-- high: 516
-- low: 480
-- close: 516
-- volume: 53330852
-- ma5: 518.6
-- ma20: 445.88
-- ma60: 308.26
-- ma120: 234.35
-- ema23: 433.87
-- return_5d: 9.9
-- return_20d: 34.73
-- volume_ratio: 1.03
-- distance_to_ma20_pct: 15.73
-- distance_to_high_60_pct: -7.53
+- open: 558
+- high: 558
+- low: 525
+- close: 529
+- volume: 47336484
+- ma5: 521.2
+- ma20: 446.52
+- ma60: 308.48
+- ma120: 234.46
+- ema23: 434.95
+- return_5d: 12.67
+- return_20d: 38.12
+- volume_ratio: 0.92
+- distance_to_ma20_pct: 18.47
+- distance_to_high_60_pct: -5.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,481,516,480,516,53330852,469.8,424.6,292.44,408.08,0.95
 20260524,481,516,480,516,53330852,491.3,432.48,297.62,417.08,0.98
 20260525,558,558,525,529,47336484,509.3,439.23,302.95,426.4,0.9
-20260526,481,516,480,516,53330852,518.6,445.88,308.26,433.87,1.03
+20260526,558,558,525,529,47336484,521.2,446.52,308.48,434.95,0.92
 ```
 
 ## Latest TDCC Snapshot

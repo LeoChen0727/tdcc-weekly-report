@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7765 中華資安
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:42 Asia/Taipei
+- generated_at: 2026-05-26 06:03:43 Asia/Taipei
 - stock_id: 7765
 - stock_name: 中華資安
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 249.5
-- high: 250
-- low: 248.5
-- close: 249
-- volume: 50820
-- ma5: 248.4
-- ma20: 242.78
-- ma60: 234.28
-- ma120: 252.16
-- ema23: 242.19
-- return_5d: -0.4
-- return_20d: 11.16
-- volume_ratio: 0.45
-- distance_to_ma20_pct: 2.56
-- distance_to_high_60_pct: -4.78
+- open: 250
+- high: 250.5
+- low: 244.5
+- close: 246
+- volume: 127070
+- ma5: 247.8
+- ma20: 242.62
+- ma60: 234.23
+- ma120: 252.13
+- ema23: 241.94
+- return_5d: -1.6
+- return_20d: 9.82
+- volume_ratio: 1.09
+- distance_to_ma20_pct: 1.39
+- distance_to_high_60_pct: -5.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,249.5,250,248.5,249,50820,247.3,239,234.89,240.46,0.47
 20260524,249.5,250,248.5,249,50820,248.1,240.43,234.74,241.17,0.48
 20260525,250,250.5,244.5,246,127070,248.6,241.53,234.47,241.57,1.14
-20260526,249.5,250,248.5,249,50820,248.4,242.78,234.28,242.19,0.45
+20260526,250,250.5,244.5,246,127070,247.8,242.62,234.23,241.94,1.09
 ```
 
 ## Latest TDCC Snapshot

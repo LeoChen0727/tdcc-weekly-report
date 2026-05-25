@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1558 伸興
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:38 Asia/Taipei
+- generated_at: 2026-05-26 06:01:47 Asia/Taipei
 - stock_id: 1558
 - stock_name: 伸興
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 90.3
-- high: 91
-- low: 90
-- close: 90.8
-- volume: 51525
-- ma5: 90.66
-- ma20: 90.88
-- ma60: 92.41
-- ma120: 96.17
-- ema23: 91.02
-- return_5d: 0.55
-- return_20d: -0.22
-- volume_ratio: 0.84
-- distance_to_ma20_pct: -0.09
-- distance_to_high_60_pct: -7.63
+- open: 90.8
+- high: 90.8
+- low: 89.7
+- close: 90.1
+- volume: 88435
+- ma5: 90.52
+- ma20: 90.84
+- ma60: 92.39
+- ma120: 96.16
+- ema23: 90.96
+- return_5d: -0.22
+- return_20d: -0.99
+- volume_ratio: 1.4
+- distance_to_ma20_pct: -0.82
+- distance_to_high_60_pct: -8.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,90.3,91,90,90.8,51525,90.44,90.89,92.79,91.15,0.78
 20260524,90.3,91,90,90.8,51525,90.54,90.94,92.65,91.12,0.87
 20260525,90.8,90.8,89.7,90.1,88435,90.56,90.89,92.51,91.03,1.46
-20260526,90.3,91,90,90.8,51525,90.66,90.88,92.41,91.02,0.84
+20260526,90.8,90.8,89.7,90.1,88435,90.52,90.84,92.39,90.96,1.4
 ```
 
 ## Latest TDCC Snapshot

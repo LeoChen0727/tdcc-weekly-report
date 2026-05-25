@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00733 富邦臺灣中小
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:25 Asia/Taipei
+- generated_at: 2026-05-26 06:01:35 Asia/Taipei
 - stock_id: 00733
 - stock_name: 富邦臺灣中小
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 71.7
-- high: 72.7
-- low: 71.7
-- close: 72.35
-- volume: 1336262
-- ma5: 73
-- ma20: 73
-- ma60: 73
-- ma120: 73
-- ema23: 72.6
+- open: 74.7
+- high: 76.2
+- low: 74.55
+- close: 75.6
+- volume: 1021062
+- ma5: 73.65
+- ma20: 73.65
+- ma60: 73.65
+- ma120: 73.65
+- ema23: 72.87
 - return_5d: 
 - return_20d: 
-- volume_ratio: 1.05
-- distance_to_ma20_pct: -0.89
-- distance_to_high_60_pct: -5.05
+- volume_ratio: 0.84
+- distance_to_ma20_pct: 2.65
+- distance_to_high_60_pct: -0.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,71.7,72.7,71.7,72.35,1336262,,,,,
 20260524,71.7,72.7,71.7,72.35,1336262,,,,,
 20260525,74.7,76.2,74.55,75.6,1021062,,,,,
-20260526,71.7,72.7,71.7,72.35,1336262,73,73,73,72.6,1.05
+20260526,74.7,76.2,74.55,75.6,1021062,73.65,73.65,73.65,72.87,0.84
 ```
 
 ## Latest TDCC Snapshot

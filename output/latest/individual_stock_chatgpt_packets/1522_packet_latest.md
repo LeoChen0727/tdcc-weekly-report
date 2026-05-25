@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1522 堤維西
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:36 Asia/Taipei
+- generated_at: 2026-05-26 06:01:46 Asia/Taipei
 - stock_id: 1522
 - stock_name: 堤維西
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 29.65
-- high: 29.7
-- low: 29.25
-- close: 29.45
-- volume: 729760
-- ma5: 29.4
-- ma20: 30.45
-- ma60: 33.03
+- open: 29.55
+- high: 29.9
+- low: 29.05
+- close: 29.2
+- volume: 1045104
+- ma5: 29.35
+- ma20: 30.43
+- ma60: 33.02
 - ma120: 40.33
-- ema23: 30.48
-- return_5d: -0.67
-- return_20d: -5.76
-- volume_ratio: 0.54
-- distance_to_ma20_pct: -3.27
-- distance_to_high_60_pct: -33.37
+- ema23: 30.46
+- return_5d: -1.52
+- return_20d: -6.56
+- volume_ratio: 0.76
+- distance_to_ma20_pct: -4.05
+- distance_to_high_60_pct: -33.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,29.65,29.7,29.25,29.45,729760,29.37,30.74,33.74,30.82,0.54
 20260524,29.65,29.7,29.25,29.45,729760,29.42,30.65,33.51,30.7,0.54
 20260525,29.55,29.9,29.05,29.2,1045104,29.44,30.54,33.26,30.58,0.77
-20260526,29.65,29.7,29.25,29.45,729760,29.4,30.45,33.03,30.48,0.54
+20260526,29.55,29.9,29.05,29.2,1045104,29.35,30.43,33.02,30.46,0.76
 ```
 
 ## Latest TDCC Snapshot
@@ -120,14 +120,15 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 1522 | 堤維西 | revenue_pullback | 營收成長股價回檔 | 50.0 |  |  |  |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 1522 | 堤維西 | revenue_breakout_low_response | 營收爆發低反應股 | 13.0 | 11.0 | B_可觀察 |  |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 1522 | 堤維西 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

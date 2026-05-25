@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1470 大統新創
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:35 Asia/Taipei
+- generated_at: 2026-05-26 06:01:45 Asia/Taipei
 - stock_id: 1470
 - stock_name: 大統新創
 - packet_status: standard_rawdata_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 21.95
+- open: 22
 - high: 22
-- low: 21.95
+- low: 22
 - close: 22
-- volume: 11001
+- volume: 5000
 - ma5: 22
 - ma20: 22
 - ma60: 22.39
@@ -66,7 +66,7 @@
 - ema23: 22.05
 - return_5d: 0.46
 - return_20d: -5.38
-- volume_ratio: 0.33
+- volume_ratio: 0.15
 - distance_to_ma20_pct: 0
 - distance_to_high_60_pct: -9.65
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,21.95,22,21.95,22,11001,21.62,22.11,22.46,22.06,0.34
 20260524,21.95,22,21.95,22,11001,21.8,22.09,22.44,22.06,0.33
 20260525,22,22,22,22,5000,21.98,22.06,22.41,22.05,0.15
-20260526,21.95,22,21.95,22,11001,22,22,22.39,22.05,0.33
+20260526,22,22,22,22,5000,22,22,22.39,22.05,0.15
 ```
 
 ## Latest TDCC Snapshot

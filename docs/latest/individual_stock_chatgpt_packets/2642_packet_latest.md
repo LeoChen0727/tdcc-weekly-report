@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2642 宅配通
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:06 Asia/Taipei
+- generated_at: 2026-05-26 06:02:14 Asia/Taipei
 - stock_id: 2642
 - stock_name: 宅配通
 - packet_status: standard_180d_window_packet
@@ -55,20 +55,20 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 20.4
-- high: 20.45
-- low: 20.3
-- close: 20.4
-- volume: 92310
-- ma5: 20.39
-- ma20: 20.94
+- high: 20.7
+- low: 20.35
+- close: 20.35
+- volume: 132142
+- ma5: 20.38
+- ma20: 20.93
 - ma60: 22.53
 - ma120: 24.23
 - ema23: 21.07
-- return_5d: -0.24
-- return_20d: -7.06
-- volume_ratio: 0.93
-- distance_to_ma20_pct: -2.57
-- distance_to_high_60_pct: -18.56
+- return_5d: -0.49
+- return_20d: -7.29
+- volume_ratio: 1.31
+- distance_to_ma20_pct: -2.79
+- distance_to_high_60_pct: -18.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,20.4,20.45,20.3,20.4,92310,20.39,21.16,22.75,21.28,0.96
 20260524,20.4,20.45,20.3,20.4,92310,20.4,21.09,22.68,21.21,0.99
 20260525,20.4,20.7,20.35,20.35,132142,20.4,21.02,22.6,21.14,1.38
-20260526,20.4,20.45,20.3,20.4,92310,20.39,20.94,22.53,21.07,0.93
+20260526,20.4,20.7,20.35,20.35,132142,20.38,20.93,22.53,21.07,1.31
 ```
 
 ## Latest TDCC Snapshot

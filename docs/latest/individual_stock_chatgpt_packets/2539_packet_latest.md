@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2539 櫻花建
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:03 Asia/Taipei
+- generated_at: 2026-05-26 06:02:12 Asia/Taipei
 - stock_id: 2539
 - stock_name: 櫻花建
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 38.25
-- high: 38.4
-- low: 38.05
-- close: 38.2
-- volume: 645940
-- ma5: 37.88
-- ma20: 38.83
-- ma60: 44.4
-- ma120: 46.13
-- ema23: 39.66
-- return_5d: -0.52
-- return_20d: -7.95
-- volume_ratio: 0.48
-- distance_to_ma20_pct: -1.61
-- distance_to_high_60_pct: -24.36
+- open: 38.2
+- high: 38.2
+- low: 35.95
+- close: 36.6
+- volume: 4824459
+- ma5: 37.56
+- ma20: 38.74
+- ma60: 44.37
+- ma120: 46.11
+- ema23: 39.52
+- return_5d: -4.69
+- return_20d: -11.81
+- volume_ratio: 3.11
+- distance_to_ma20_pct: -5.54
+- distance_to_high_60_pct: -27.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,38.25,38.4,38.05,38.2,645940,38.26,39.37,44.99,40.25,0.49
 20260524,38.25,38.4,38.05,38.2,645940,38.27,39.22,44.8,40.08,0.54
 20260525,38.2,38.2,35.95,36.6,4824459,37.92,38.99,44.6,39.79,3.54
-20260526,38.25,38.4,38.05,38.2,645940,37.88,38.83,44.4,39.66,0.48
+20260526,38.2,38.2,35.95,36.6,4824459,37.56,38.74,44.37,39.52,3.11
 ```
 
 ## Latest TDCC Snapshot

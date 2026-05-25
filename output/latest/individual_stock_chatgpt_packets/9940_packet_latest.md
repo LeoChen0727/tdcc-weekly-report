@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9940 信義
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:59 Asia/Taipei
+- generated_at: 2026-05-26 06:03:59 Asia/Taipei
 - stock_id: 9940
 - stock_name: 信義
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 18.8
-- high: 18.8
-- low: 18.6
-- close: 18.75
-- volume: 287504
-- ma5: 18.72
+- open: 18.75
+- high: 18.95
+- low: 18.45
+- close: 18.6
+- volume: 538306
+- ma5: 18.69
 - ma20: 19.04
-- ma60: 19.76
+- ma60: 19.75
 - ma120: 21.1
-- ema23: 19.08
-- return_5d: -0.27
-- return_20d: -5.78
-- volume_ratio: 0.53
-- distance_to_ma20_pct: -1.54
-- distance_to_high_60_pct: -12.18
+- ema23: 19.07
+- return_5d: -1.06
+- return_20d: -6.53
+- volume_ratio: 0.97
+- distance_to_ma20_pct: -2.29
+- distance_to_high_60_pct: -12.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,18.8,18.8,18.6,18.75,287504,18.78,19.22,19.91,19.19,0.53
 20260524,18.8,18.8,18.6,18.75,287504,18.77,19.17,19.86,19.15,0.55
 20260525,18.75,18.95,18.45,18.6,538306,18.73,19.1,19.8,19.11,1
-20260526,18.8,18.8,18.6,18.75,287504,18.72,19.04,19.76,19.08,0.53
+20260526,18.75,18.95,18.45,18.6,538306,18.69,19.04,19.75,19.07,0.97
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1101 台泥
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:27 Asia/Taipei
+- generated_at: 2026-05-26 06:01:37 Asia/Taipei
 - stock_id: 1101
 - stock_name: 台泥
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 24.2
-- high: 24.2
+- open: 24.1
+- high: 24.45
 - low: 23.95
-- close: 24.1
-- volume: 22434398
-- ma5: 24.14
-- ma20: 24.48
+- close: 24.3
+- volume: 33786766
+- ma5: 24.18
+- ma20: 24.49
 - ma60: 24.39
 - ma120: 24.28
-- ema23: 24.38
-- return_5d: -0.41
-- return_20d: -1.63
-- volume_ratio: 0.81
-- distance_to_ma20_pct: -1.55
-- distance_to_high_60_pct: -8.71
+- ema23: 24.4
+- return_5d: 0.41
+- return_20d: -0.82
+- volume_ratio: 1.19
+- distance_to_ma20_pct: -0.78
+- distance_to_high_60_pct: -7.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,24.2,24.2,23.95,24.1,22434398,24.15,24.52,24.5,24.44,0.81
 20260524,24.2,24.2,23.95,24.1,22434398,24.13,24.5,24.46,24.41,0.82
 20260525,24.1,24.45,23.95,24.3,33786766,24.16,24.5,24.42,24.4,1.21
-20260526,24.2,24.2,23.95,24.1,22434398,24.14,24.48,24.39,24.38,0.81
+20260526,24.1,24.45,23.95,24.3,33786766,24.18,24.49,24.39,24.4,1.19
 ```
 
 ## Latest TDCC Snapshot

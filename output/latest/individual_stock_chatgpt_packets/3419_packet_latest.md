@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3419 譁裕
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:27 Asia/Taipei
+- generated_at: 2026-05-26 06:02:34 Asia/Taipei
 - stock_id: 3419
 - stock_name: 譁裕
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 13.9
-- high: 14.3
-- low: 13.45
-- close: 14
-- volume: 558471
-- ma5: 14.02
-- ma20: 14.3
+- open: 14.1
+- high: 14.1
+- low: 13.75
+- close: 14.1
+- volume: 552633
+- ma5: 14.04
+- ma20: 14.31
 - ma60: 15.29
 - ma120: 14.6
-- ema23: 14.43
-- return_5d: 0.72
-- return_20d: -11.11
-- volume_ratio: 1.28
-- distance_to_ma20_pct: -2.13
-- distance_to_high_60_pct: -22.01
+- ema23: 14.44
+- return_5d: 1.44
+- return_20d: -10.48
+- volume_ratio: 1.27
+- distance_to_ma20_pct: -1.47
+- distance_to_high_60_pct: -21.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,13.9,14.3,13.45,14,558471,13.92,14.61,15.39,14.55,1.32
 20260524,13.9,14.3,13.45,14,558471,13.95,14.49,15.36,14.51,1.32
 20260525,14.1,14.1,13.75,14.1,552633,14,14.39,15.34,14.47,1.29
-20260526,13.9,14.3,13.45,14,558471,14.02,14.3,15.29,14.43,1.28
+20260526,14.1,14.1,13.75,14.1,552633,14.04,14.31,15.29,14.44,1.27
 ```
 
 ## Latest TDCC Snapshot

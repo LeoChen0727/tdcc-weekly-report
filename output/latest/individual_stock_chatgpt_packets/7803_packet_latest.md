@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7803 雲象科技-創
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:43 Asia/Taipei
+- generated_at: 2026-05-26 06:03:44 Asia/Taipei
 - stock_id: 7803
 - stock_name: 雲象科技-創
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 23
-- high: 23.95
-- low: 22.95
-- close: 23.9
-- volume: 518300
-- ma5: 24.17
-- ma20: 23.8
-- ma60: 23.8
-- ma120: 23.8
-- ema23: 23.38
-- return_5d: 4.82
+- open: 25
+- high: 27.3
+- low: 25
+- close: 25.25
+- volume: 1106004
+- ma5: 24.44
+- ma20: 23.99
+- ma60: 23.99
+- ma120: 23.99
+- ema23: 23.49
+- return_5d: 10.75
 - return_20d: 
-- volume_ratio: 0.8
-- distance_to_ma20_pct: 0.42
-- distance_to_high_60_pct: -12.45
+- volume_ratio: 1.51
+- distance_to_ma20_pct: 5.24
+- distance_to_high_60_pct: -7.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -80,7 +80,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,23,23.95,22.95,23.9,518300,,,,,
 20260524,23,23.95,22.95,23.9,518300,23.49,23.49,23.49,23.16,0.89
 20260525,25,27.3,25,25.25,1106004,23.95,23.78,23.78,23.33,1.65
-20260526,23,23.95,22.95,23.9,518300,24.17,23.8,23.8,23.38,0.8
+20260526,25,27.3,25,25.25,1106004,24.44,23.99,23.99,23.49,1.51
 ```
 
 ## Latest TDCC Snapshot

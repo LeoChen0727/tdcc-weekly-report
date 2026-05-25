@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6799 來頡
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:33 Asia/Taipei
+- generated_at: 2026-05-26 06:03:34 Asia/Taipei
 - stock_id: 6799
 - stock_name: 來頡
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 98.3
-- high: 102.5
-- low: 97.7
-- close: 100.5
-- volume: 1206744
-- ma5: 100.6
-- ma20: 94.16
-- ma60: 84.33
-- ma120: 83.99
-- ema23: 93.88
-- return_5d: 4.15
-- return_20d: 12.29
-- volume_ratio: 1.69
-- distance_to_ma20_pct: 6.74
-- distance_to_high_60_pct: -3.37
+- open: 103
+- high: 104
+- low: 100.5
+- close: 101
+- volume: 746855
+- ma5: 100.7
+- ma20: 94.18
+- ma60: 84.34
+- ma120: 84
+- ema23: 93.93
+- return_5d: 4.66
+- return_20d: 12.85
+- volume_ratio: 1.08
+- distance_to_ma20_pct: 7.24
+- distance_to_high_60_pct: -2.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,98.3,102.5,97.7,100.5,1206744,96.86,92.47,83.39,91.86,1.87
 20260524,98.3,102.5,97.7,100.5,1206744,98.54,93,83.67,92.58,1.85
 20260525,103,104,100.5,101,746855,99.8,93.61,83.99,93.28,1.12
-20260526,98.3,102.5,97.7,100.5,1206744,100.6,94.16,84.33,93.88,1.69
+20260526,103,104,100.5,101,746855,100.7,94.18,84.34,93.93,1.08
 ```
 
 ## Latest TDCC Snapshot
@@ -120,14 +120,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6799 | 來頡 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6799 | 來頡 | 1 | 1 | 3 | 3 | 3 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260526 | 6799 | 來頡 | 1 | 1 | 3 | 3 | 3 | repeated_but_no_breakout | 近 10 日上榜 3 日、近 20 日上榜 3 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009819 中信數據及電力
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:27 Asia/Taipei
+- generated_at: 2026-05-26 06:01:37 Asia/Taipei
 - stock_id: 009819
 - stock_name: 中信數據及電力
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 10.16
-- high: 10.19
-- low: 10.14
-- close: 10.17
-- volume: 12829853
-- ma5: 10.19
-- ma20: 10.19
-- ma60: 10.19
-- ma120: 10.19
+- open: 10.29
+- high: 10.31
+- low: 10.24
+- close: 10.26
+- volume: 24699518
+- ma5: 10.21
+- ma20: 10.21
+- ma60: 10.21
+- ma120: 10.21
 - ema23: 10.18
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.84
-- distance_to_ma20_pct: -0.18
-- distance_to_high_60_pct: -1.36
+- volume_ratio: 1.41
+- distance_to_ma20_pct: 0.53
+- distance_to_high_60_pct: -0.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,10.16,10.19,10.14,10.17,12829853,,,,,
 20260524,10.16,10.19,10.14,10.17,12829853,,,,,
 20260525,10.29,10.31,10.24,10.26,24699518,,,,,
-20260526,10.16,10.19,10.14,10.17,12829853,10.19,10.19,10.19,10.18,0.84
+20260526,10.29,10.31,10.24,10.26,24699518,10.21,10.21,10.21,10.18,1.41
 ```
 
 ## Latest TDCC Snapshot

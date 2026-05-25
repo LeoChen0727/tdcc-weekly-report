@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2722 夏都
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:07 Asia/Taipei
+- generated_at: 2026-05-26 06:02:15 Asia/Taipei
 - stock_id: 2722
 - stock_name: 夏都
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 22.6
-- high: 22.65
-- low: 22.2
-- close: 22.65
-- volume: 21627
-- ma5: 22.63
+- open: 23.1
+- high: 23.1
+- low: 22.15
+- close: 22.55
+- volume: 46480
+- ma5: 22.61
 - ma20: 23.01
 - ma60: 23.45
 - ma120: 24.79
-- ema23: 23.02
-- return_5d: 1.34
-- return_20d: -3.21
-- volume_ratio: 0.59
-- distance_to_ma20_pct: -1.58
-- distance_to_high_60_pct: -14.53
+- ema23: 23.01
+- return_5d: 0.89
+- return_20d: -3.63
+- volume_ratio: 1.23
+- distance_to_ma20_pct: -1.99
+- distance_to_high_60_pct: -14.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,22.6,22.65,22.2,22.65,21627,22.49,23.12,23.59,23.14,0.59
 20260524,22.6,22.65,22.2,22.65,21627,22.52,23.09,23.54,23.1,0.62
 20260525,23.1,23.1,22.15,22.55,46480,22.57,23.05,23.49,23.05,1.27
-20260526,22.6,22.65,22.2,22.65,21627,22.63,23.01,23.45,23.02,0.59
+20260526,23.1,23.1,22.15,22.55,46480,22.61,23.01,23.45,23.01,1.23
 ```
 
 ## Latest TDCC Snapshot

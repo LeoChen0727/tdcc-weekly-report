@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3150 鈺寶-創
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:20 Asia/Taipei
+- generated_at: 2026-05-26 06:02:27 Asia/Taipei
 - stock_id: 3150
 - stock_name: 鈺寶-創
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 19.65
-- high: 20.15
-- low: 19.5
-- close: 20.15
-- volume: 134020
-- ma5: 20.08
-- ma20: 19.14
+- open: 20.15
+- high: 20.8
+- low: 19.8
+- close: 19.8
+- volume: 121263
+- ma5: 20.01
+- ma20: 19.12
 - ma60: 18.31
-- ma120: 18.71
-- ema23: 19.28
-- return_5d: 2.03
-- return_20d: 3.87
-- volume_ratio: 1.42
-- distance_to_ma20_pct: 5.3
-- distance_to_high_60_pct: -17.08
+- ma120: 18.7
+- ema23: 19.25
+- return_5d: 0.25
+- return_20d: 2.06
+- volume_ratio: 1.29
+- distance_to_ma20_pct: 3.57
+- distance_to_high_60_pct: -18.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,19.65,20.15,19.5,20.15,134020,19.28,19.06,18.18,19.06,1.47
 20260524,19.65,20.15,19.5,20.15,134020,19.68,19.07,18.22,19.15,1.45
 20260525,20.15,20.8,19.8,19.8,121263,20,19.1,18.26,19.2,1.35
-20260526,19.65,20.15,19.5,20.15,134020,20.08,19.14,18.31,19.28,1.42
+20260526,20.15,20.8,19.8,19.8,121263,20.01,19.12,18.31,19.25,1.29
 ```
 
 ## Latest TDCC Snapshot

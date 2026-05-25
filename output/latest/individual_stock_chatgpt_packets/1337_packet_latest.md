@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1337 再生-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:31 Asia/Taipei
+- generated_at: 2026-05-26 06:01:41 Asia/Taipei
 - stock_id: 1337
 - stock_name: 再生-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 4.81
-- high: 4.83
+- open: 4.8
+- high: 4.8
 - low: 4.68
-- close: 4.8
-- volume: 455512
-- ma5: 4.79
+- close: 4.76
+- volume: 833546
+- ma5: 4.78
 - ma20: 4.88
 - ma60: 5.48
 - ma120: 5.29
-- ema23: 4.96
-- return_5d: 0.63
-- return_20d: -6.61
-- volume_ratio: 0.87
-- distance_to_ma20_pct: -1.59
-- distance_to_high_60_pct: -28.57
+- ema23: 4.95
+- return_5d: -0.21
+- return_20d: -7.39
+- volume_ratio: 1.54
+- distance_to_ma20_pct: -2.37
+- distance_to_high_60_pct: -29.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,4.81,4.83,4.68,4.8,455512,4.77,4.94,5.51,5.01,0.88
 20260524,4.81,4.83,4.68,4.8,455512,4.77,4.92,5.5,4.99,0.9
 20260525,4.8,4.8,4.68,4.76,833546,4.79,4.89,5.49,4.97,1.6
-20260526,4.81,4.83,4.68,4.8,455512,4.79,4.88,5.48,4.96,0.87
+20260526,4.8,4.8,4.68,4.76,833546,4.78,4.88,5.48,4.95,1.54
 ```
 
 ## Latest TDCC Snapshot

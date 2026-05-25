@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8438 昶昕
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:53 Asia/Taipei
+- generated_at: 2026-05-26 06:03:53 Asia/Taipei
 - stock_id: 8438
 - stock_name: 昶昕
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 88.1
+- open: 94.2
 - high: 94.6
-- low: 87.9
-- close: 92.5
-- volume: 1153591
-- ma5: 92.3
-- ma20: 93.03
-- ma60: 80.83
+- low: 91.5
+- close: 91.5
+- volume: 607009
+- ma5: 92.1
+- ma20: 92.97
+- ma60: 80.81
 - ma120: 63.52
-- ema23: 90.72
-- return_5d: 4.99
-- return_20d: 4.05
-- volume_ratio: 0.94
-- distance_to_ma20_pct: -0.56
-- distance_to_high_60_pct: -17.41
+- ema23: 90.63
+- return_5d: 3.86
+- return_20d: 2.92
+- volume_ratio: 0.5
+- distance_to_ma20_pct: -1.59
+- distance_to_high_60_pct: -18.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,88.1,94.6,87.9,92.5,1153591,89.34,92.36,79.69,90.28,1.02
 20260524,88.1,94.6,87.9,92.5,1153591,90.86,92.74,80.18,90.47,0.98
 20260525,94.2,94.6,91.5,91.5,607009,91.42,92.84,80.55,90.56,0.51
-20260526,88.1,94.6,87.9,92.5,1153591,92.3,93.03,80.83,90.72,0.94
+20260526,94.2,94.6,91.5,91.5,607009,92.1,92.97,80.81,90.63,0.5
 ```
 
 ## Latest TDCC Snapshot
@@ -120,10 +120,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8438 | 昶昕 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 8438 | 昶昕 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2030 彰源
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:46 Asia/Taipei
+- generated_at: 2026-05-26 06:01:56 Asia/Taipei
 - stock_id: 2030
 - stock_name: 彰源
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 17.1
-- high: 17.2
-- low: 16.8
-- close: 17.1
-- volume: 1214229
-- ma5: 17.38
-- ma20: 17.04
-- ma60: 16.33
-- ma120: 15.77
-- ema23: 17.02
-- return_5d: -1.44
-- return_20d: 4.27
-- volume_ratio: 0.56
-- distance_to_ma20_pct: 0.38
-- distance_to_high_60_pct: -8.8
+- open: 17.5
+- high: 18.75
+- low: 17.3
+- close: 18.5
+- volume: 5044990
+- ma5: 17.66
+- ma20: 17.11
+- ma60: 16.35
+- ma120: 15.78
+- ema23: 17.14
+- return_5d: 6.63
+- return_20d: 12.8
+- volume_ratio: 2.13
+- distance_to_ma20_pct: 8.16
+- distance_to_high_60_pct: -1.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,17.1,17.2,16.8,17.1,1214229,17.12,16.8,16.27,16.86,0.63
 20260524,17.1,17.2,16.8,17.1,1214229,17.18,16.88,16.28,16.88,0.62
 20260525,17.5,18.75,17.3,18.5,5044990,17.43,17,16.31,17.01,2.32
-20260526,17.1,17.2,16.8,17.1,1214229,17.38,17.04,16.33,17.02,0.56
+20260526,17.5,18.75,17.3,18.5,5044990,17.66,17.11,16.35,17.14,2.13
 ```
 
 ## Latest TDCC Snapshot
@@ -122,12 +122,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2030 | 彰源 | pattern | 型態觀察 | 51.0 |  |  | base_building |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 2030 | 彰源 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2030 | 彰源 | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260526 | 2030 | 彰源 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | status |

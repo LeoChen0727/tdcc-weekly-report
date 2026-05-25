@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5288 豐祥-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:58 Asia/Taipei
+- generated_at: 2026-05-26 06:03:02 Asia/Taipei
 - stock_id: 5288
 - stock_name: 豐祥-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 149.5
-- high: 151.5
-- low: 149.5
-- close: 150.5
-- volume: 92699
-- ma5: 150.8
-- ma20: 154.07
-- ma60: 150.61
-- ma120: 146.13
-- ema23: 153.46
-- return_5d: -0.66
-- return_20d: -11.73
-- volume_ratio: 0.46
-- distance_to_ma20_pct: -2.32
-- distance_to_high_60_pct: -15.69
+- open: 151.5
+- high: 153.5
+- low: 150
+- close: 152
+- volume: 120205
+- ma5: 151.1
+- ma20: 154.15
+- ma60: 150.63
+- ma120: 146.14
+- ema23: 153.58
+- return_5d: 0.33
+- return_20d: -10.85
+- volume_ratio: 0.59
+- distance_to_ma20_pct: -1.39
+- distance_to_high_60_pct: -14.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,149.5,151.5,149.5,150.5,92699,149,156.88,150.35,154.19,0.42
 20260524,149.5,151.5,149.5,150.5,92699,149.9,155.97,150.43,153.88,0.43
 20260525,151.5,153.5,150,152,120205,151,155.07,150.53,153.73,0.58
-20260526,149.5,151.5,149.5,150.5,92699,150.8,154.07,150.61,153.46,0.46
+20260526,151.5,153.5,150,152,120205,151.1,154.15,150.63,153.58,0.59
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3028 增你強
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:15 Asia/Taipei
+- generated_at: 2026-05-26 06:02:22 Asia/Taipei
 - stock_id: 3028
 - stock_name: 增你強
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 84.2
-- high: 86.2
-- low: 81.9
-- close: 82.3
-- volume: 5644962
-- ma5: 82.1
-- ma20: 78.09
-- ma60: 63.84
-- ma120: 52.56
-- ema23: 76.63
-- return_5d: -1.2
-- return_20d: 16.57
-- volume_ratio: 0.81
-- distance_to_ma20_pct: 5.38
-- distance_to_high_60_pct: -6.79
+- open: 83
+- high: 83.4
+- low: 79.7
+- close: 81.3
+- volume: 5431367
+- ma5: 81.9
+- ma20: 78.05
+- ma60: 63.83
+- ma120: 52.55
+- ema23: 76.55
+- return_5d: -2.4
+- return_20d: 15.16
+- volume_ratio: 0.78
+- distance_to_ma20_pct: 4.17
+- distance_to_high_60_pct: -7.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,84.2,86.2,81.9,82.3,5644962,82.82,76.3,62.46,75.04,0.67
 20260524,84.2,86.2,81.9,82.3,5644962,82.92,76.98,62.92,75.64,0.68
 20260525,83,83.4,79.7,81.3,5431367,82.3,77.51,63.35,76.11,0.73
-20260526,84.2,86.2,81.9,82.3,5644962,82.1,78.09,63.84,76.63,0.81
+20260526,83,83.4,79.7,81.3,5431367,81.9,78.05,63.83,76.55,0.78
 ```
 
 ## Latest TDCC Snapshot
@@ -122,13 +122,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3028 | 增你強 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 3028 | 增你強 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 3028 | 增你強 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3028 | 增你強 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260526 | 3028 | 增你強 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

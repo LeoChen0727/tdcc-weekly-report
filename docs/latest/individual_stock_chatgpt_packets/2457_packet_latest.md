@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2457 飛宏
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:59 Asia/Taipei
+- generated_at: 2026-05-26 06:02:08 Asia/Taipei
 - stock_id: 2457
 - stock_name: 飛宏
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 25.2
-- high: 26.2
-- low: 25.05
-- close: 26.2
-- volume: 5288826
-- ma5: 26.33
-- ma20: 25.18
-- ma60: 25.72
+- open: 27.15
+- high: 27.45
+- low: 26.4
+- close: 26.85
+- volume: 5625024
+- ma5: 26.46
+- ma20: 25.21
+- ma60: 25.73
 - ma120: 27.8
-- ema23: 25.35
-- return_5d: 4.59
-- return_20d: 9.39
-- volume_ratio: 1.59
-- distance_to_ma20_pct: 4.07
-- distance_to_high_60_pct: -17.35
+- ema23: 25.4
+- return_5d: 7.19
+- return_20d: 12.11
+- volume_ratio: 1.68
+- distance_to_ma20_pct: 6.52
+- distance_to_high_60_pct: -15.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,25.2,26.2,25.05,26.2,5288826,25.16,24.79,25.93,25.03,1.88
 20260524,25.2,26.2,25.05,26.2,5288826,25.59,24.91,25.87,25.13,1.81
 20260525,27.15,27.45,26.4,26.85,5625024,26.1,25.06,25.8,25.27,1.8
-20260526,25.2,26.2,25.05,26.2,5288826,26.33,25.18,25.72,25.35,1.59
+20260526,27.15,27.45,26.4,26.85,5625024,26.46,25.21,25.73,25.4,1.68
 ```
 
 ## Latest TDCC Snapshot
@@ -120,9 +120,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2457 | 飛宏 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

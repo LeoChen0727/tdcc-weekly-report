@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2330 台積電
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:52 Asia/Taipei
+- generated_at: 2026-05-26 06:02:01 Asia/Taipei
 - stock_id: 2330
 - stock_name: 台積電
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 2245
-- high: 2260
-- low: 2225
-- close: 2255
-- volume: 26823133
-- ma5: 2266
-- ma20: 2247.25
-- ma60: 2043
-- ma120: 1844.21
-- ema23: 2213.18
-- return_5d: 1.12
-- return_20d: 3.44
-- volume_ratio: 0.73
-- distance_to_ma20_pct: 0.34
-- distance_to_high_60_pct: -3.84
+- open: 2275
+- high: 2310
+- low: 2275
+- close: 2310
+- volume: 28250944
+- ma5: 2277
+- ma20: 2250
+- ma60: 2043.92
+- ma120: 1844.67
+- ema23: 2217.76
+- return_5d: 3.59
+- return_20d: 5.96
+- volume_ratio: 0.76
+- distance_to_ma20_pct: 2.67
+- distance_to_high_60_pct: -1.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,2245,2260,2225,2255,26823133,2226,2239.25,2029.08,2195.25,0.64
 20260524,2245,2260,2225,2255,26823133,2236,2238.75,2033.08,2200.23,0.68
 20260525,2275,2310,2275,2310,28250944,2261,2243.5,2038.33,2209.38,0.74
-20260526,2245,2260,2225,2255,26823133,2266,2247.25,2043,2213.18,0.73
+20260526,2275,2310,2275,2310,28250944,2277,2250,2043.92,2217.76,0.76
 ```
 
 ## Latest TDCC Snapshot

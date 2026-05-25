@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2103 台橡
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:48 Asia/Taipei
+- generated_at: 2026-05-26 06:01:57 Asia/Taipei
 - stock_id: 2103
 - stock_name: 台橡
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 20.5
-- high: 20.5
-- low: 19.75
-- close: 19.8
-- volume: 5476070
-- ma5: 19.74
-- ma20: 20.24
+- open: 19.8
+- high: 19.8
+- low: 19.2
+- close: 19.5
+- volume: 5589920
+- ma5: 19.68
+- ma20: 20.23
 - ma60: 19.95
 - ma120: 17.88
-- ema23: 20.04
-- return_5d: -3.18
-- return_20d: 1.02
-- volume_ratio: 0.87
-- distance_to_ma20_pct: -2.19
-- distance_to_high_60_pct: -12.78
+- ema23: 20.02
+- return_5d: -4.65
+- return_20d: -0.51
+- volume_ratio: 0.89
+- distance_to_ma20_pct: -3.6
+- distance_to_high_60_pct: -14.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,20.5,20.5,19.75,19.8,5476070,20.13,20.27,19.97,20.15,0.76
 20260524,20.5,20.5,19.75,19.8,5476070,20.04,20.24,19.95,20.12,0.83
 20260525,19.8,19.8,19.2,19.5,5589920,19.87,20.23,19.94,20.07,0.9
-20260526,20.5,20.5,19.75,19.8,5476070,19.74,20.24,19.95,20.04,0.87
+20260526,19.8,19.8,19.2,19.5,5589920,19.68,20.23,19.95,20.02,0.89
 ```
 
 ## Latest TDCC Snapshot

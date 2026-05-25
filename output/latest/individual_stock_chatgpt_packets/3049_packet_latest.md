@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3049 精金
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:16 Asia/Taipei
+- generated_at: 2026-05-26 06:02:24 Asia/Taipei
 - stock_id: 3049
 - stock_name: 精金
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 12.05
-- high: 12.75
-- low: 12.05
-- close: 12.45
-- volume: 6060149
-- ma5: 12.51
-- ma20: 12.6
-- ma60: 12.91
+- open: 12.7
+- high: 12.8
+- low: 12.4
+- close: 12.75
+- volume: 8925372
+- ma5: 12.57
+- ma20: 12.62
+- ma60: 12.92
 - ma120: 10.44
-- ema23: 12.52
-- return_5d: 3.75
-- return_20d: -1.19
-- volume_ratio: 0.84
-- distance_to_ma20_pct: -1.21
-- distance_to_high_60_pct: -30.83
+- ema23: 12.55
+- return_5d: 6.25
+- return_20d: 1.19
+- volume_ratio: 1.21
+- distance_to_ma20_pct: 1.05
+- distance_to_high_60_pct: -29.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,12.05,12.75,12.05,12.45,6060149,12.14,12.61,12.81,12.52,0.85
 20260524,12.05,12.75,12.05,12.45,6060149,12.25,12.63,12.86,12.51,0.85
 20260525,12.7,12.8,12.4,12.75,8925372,12.42,12.61,12.89,12.53,1.24
-20260526,12.05,12.75,12.05,12.45,6060149,12.51,12.6,12.91,12.52,0.84
+20260526,12.7,12.8,12.4,12.75,8925372,12.57,12.62,12.92,12.55,1.21
 ```
 
 ## Latest TDCC Snapshot

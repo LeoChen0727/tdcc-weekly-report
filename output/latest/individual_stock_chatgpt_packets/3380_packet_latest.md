@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3380 明泰
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:26 Asia/Taipei
+- generated_at: 2026-05-26 06:02:33 Asia/Taipei
 - stock_id: 3380
 - stock_name: 明泰
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 33
-- high: 34.3
-- low: 32.95
-- close: 34.15
-- volume: 5385356
-- ma5: 34.48
-- ma20: 32.88
-- ma60: 35.48
-- ma120: 33.84
-- ema23: 33.88
-- return_5d: 4.43
-- return_20d: 0.44
-- volume_ratio: 1.41
-- distance_to_ma20_pct: 3.88
-- distance_to_high_60_pct: -22.3
+- open: 35.3
+- high: 36.15
+- low: 35.05
+- close: 35.8
+- volume: 7177530
+- ma5: 34.81
+- ma20: 32.96
+- ma60: 35.51
+- ma120: 33.85
+- ema23: 34.01
+- return_5d: 9.48
+- return_20d: 5.29
+- volume_ratio: 1.83
+- distance_to_ma20_pct: 8.62
+- distance_to_high_60_pct: -18.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,33,34.3,32.95,34.15,5385356,32.94,32.88,35.38,33.63,1.6
 20260524,33,34.3,32.95,34.15,5385356,33.48,32.82,35.41,33.67,1.57
 20260525,35.3,36.15,35.05,35.8,7177530,34.19,32.87,35.48,33.85,1.95
-20260526,33,34.3,32.95,34.15,5385356,34.48,32.88,35.48,33.88,1.41
+20260526,35.3,36.15,35.05,35.8,7177530,34.81,32.96,35.51,34.01,1.83
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3380 | 明泰 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 3380 | 明泰 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 68.0 |  |  | neckline_challenge |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 3380 | 明泰 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

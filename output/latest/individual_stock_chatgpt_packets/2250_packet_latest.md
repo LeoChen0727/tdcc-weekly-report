@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2250 IKKA-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:50 Asia/Taipei
+- generated_at: 2026-05-26 06:01:59 Asia/Taipei
 - stock_id: 2250
 - stock_name: IKKA-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 62.4
-- high: 63.1
-- low: 62.3
-- close: 63
-- volume: 75081
-- ma5: 62.82
-- ma20: 63.17
-- ma60: 63.42
-- ma120: 68.28
-- ema23: 62.96
-- return_5d: 1.12
-- return_20d: -0.47
-- volume_ratio: 0.89
-- distance_to_ma20_pct: -0.28
-- distance_to_high_60_pct: -11.64
+- open: 63.3
+- high: 63.3
+- low: 61.8
+- close: 62.1
+- volume: 157180
+- ma5: 62.64
+- ma20: 63.13
+- ma60: 63.41
+- ma120: 68.27
+- ema23: 62.88
+- return_5d: -0.32
+- return_20d: -1.9
+- volume_ratio: 1.77
+- distance_to_ma20_pct: -1.63
+- distance_to_high_60_pct: -12.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,62.4,63.1,62.3,63,75081,62.6,63.05,63.81,63.03,0.84
 20260524,62.4,63.1,62.3,63,75081,62.68,63.15,63.68,63.03,0.89
 20260525,63.3,63.3,61.8,62.1,157180,62.68,63.19,63.54,62.95,1.84
-20260526,62.4,63.1,62.3,63,75081,62.82,63.17,63.42,62.96,0.89
+20260526,63.3,63.3,61.8,62.1,157180,62.64,63.13,63.41,62.88,1.77
 ```
 
 ## Latest TDCC Snapshot

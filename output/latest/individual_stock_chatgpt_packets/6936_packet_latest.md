@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6936 永鴻生技
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:38 Asia/Taipei
+- generated_at: 2026-05-26 06:03:39 Asia/Taipei
 - stock_id: 6936
 - stock_name: 永鴻生技
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 34.1
-- high: 34.1
-- low: 33.6
-- close: 33.6
-- volume: 26134
-- ma5: 33.5
-- ma20: 33.83
-- ma60: 34.43
+- open: 33.6
+- high: 33.6
+- low: 33.1
+- close: 33.1
+- volume: 106312
+- ma5: 33.4
+- ma20: 33.8
+- ma60: 34.42
 - ma120: 35.04
-- ema23: 33.88
-- return_5d: -1.18
-- return_20d: -3.03
-- volume_ratio: 0.54
-- distance_to_ma20_pct: -0.67
-- distance_to_high_60_pct: -6.8
+- ema23: 33.83
+- return_5d: -2.65
+- return_20d: -4.47
+- volume_ratio: 2.03
+- distance_to_ma20_pct: -2.07
+- distance_to_high_60_pct: -8.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,34.1,34.1,33.6,33.6,26134,33.57,33.98,34.56,34.01,0.5
 20260524,34.1,34.1,33.6,33.6,26134,33.64,33.94,34.52,33.97,0.53
 20260525,33.6,33.6,33.1,33.1,106312,33.58,33.88,34.47,33.9,2.02
-20260526,34.1,34.1,33.6,33.6,26134,33.5,33.83,34.43,33.88,0.54
+20260526,33.6,33.6,33.1,33.1,106312,33.4,33.8,34.42,33.83,2.03
 ```
 
 ## Latest TDCC Snapshot

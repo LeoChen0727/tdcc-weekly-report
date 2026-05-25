@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7788 松川精密
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:43 Asia/Taipei
+- generated_at: 2026-05-26 06:03:44 Asia/Taipei
 - stock_id: 7788
 - stock_name: 松川精密
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 185
-- high: 195
-- low: 182.5
-- close: 192.5
-- volume: 878399
-- ma5: 192.7
-- ma20: 186.93
-- ma60: 164.78
-- ma120: 155.44
-- ema23: 185.18
-- return_5d: 4.05
-- return_20d: 11.27
-- volume_ratio: 0.72
-- distance_to_ma20_pct: 2.98
-- distance_to_high_60_pct: -14.82
+- open: 198
+- high: 206
+- low: 193.5
+- close: 193.5
+- volume: 1653653
+- ma5: 192.9
+- ma20: 186.97
+- ma60: 164.8
+- ma120: 155.45
+- ema23: 185.27
+- return_5d: 4.59
+- return_20d: 11.85
+- volume_ratio: 1.31
+- distance_to_ma20_pct: 3.49
+- distance_to_high_60_pct: -14.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,185,195,182.5,192.5,878399,192.9,183.4,164.46,182.9,0.79
 20260524,185,195,182.5,192.5,878399,189.9,184.6,164.53,183.7,0.77
 20260525,198,206,193.5,193.5,1653653,191.2,185.95,164.61,184.52,1.37
-20260526,185,195,182.5,192.5,878399,192.7,186.93,164.78,185.18,0.72
+20260526,198,206,193.5,193.5,1653653,192.9,186.97,164.8,185.27,1.31
 ```
 
 ## Latest TDCC Snapshot
@@ -122,6 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 7788 | 松川精密 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 7788 | 松川精密 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

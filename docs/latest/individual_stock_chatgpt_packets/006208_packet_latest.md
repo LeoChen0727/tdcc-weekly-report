@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 006208 富邦台50
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:24 Asia/Taipei
+- generated_at: 2026-05-26 06:01:34 Asia/Taipei
 - stock_id: 006208
 - stock_name: 富邦台50
 - packet_status: partial_rawdata_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 222.8
-- high: 225.05
-- low: 222.05
-- close: 225.05
-- volume: 3447577
-- ma5: 226.67
-- ma20: 226.67
-- ma60: 226.67
-- ma120: 226.67
-- ema23: 225.67
+- open: 230.25
+- high: 234
+- low: 230.15
+- close: 233.15
+- volume: 7505248
+- ma5: 228.29
+- ma20: 228.29
+- ma60: 228.29
+- ma120: 228.29
+- ema23: 226.34
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.81
-- distance_to_ma20_pct: -0.71
-- distance_to_high_60_pct: -3.82
+- volume_ratio: 1.48
+- distance_to_ma20_pct: 2.13
+- distance_to_high_60_pct: -0.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,222.8,225.05,222.05,225.05,3447577,,,,,
 20260524,222.8,225.05,222.05,225.05,3447577,,,,,
 20260525,230.25,234,230.15,233.15,7505248,,,,,
-20260526,222.8,225.05,222.05,225.05,3447577,226.67,226.67,226.67,225.67,0.81
+20260526,230.25,234,230.15,233.15,7505248,228.29,228.29,228.29,226.34,1.48
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3376 新日興
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:26 Asia/Taipei
+- generated_at: 2026-05-26 06:02:33 Asia/Taipei
 - stock_id: 3376
 - stock_name: 新日興
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 211
-- high: 216
-- low: 207
-- close: 210
-- volume: 5985758
-- ma5: 212.1
-- ma20: 206.15
-- ma60: 205.8
-- ma120: 207.48
-- ema23: 207.3
-- return_5d: 0.24
-- return_20d: 2.44
-- volume_ratio: 1.08
-- distance_to_ma20_pct: 1.87
-- distance_to_high_60_pct: -10.26
+- open: 212.5
+- high: 226
+- low: 209.5
+- close: 220.5
+- volume: 13387221
+- ma5: 214.2
+- ma20: 206.68
+- ma60: 205.97
+- ma120: 207.57
+- ema23: 208.18
+- return_5d: 5.25
+- return_20d: 7.56
+- volume_ratio: 2.27
+- distance_to_ma20_pct: 6.69
+- distance_to_high_60_pct: -5.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,211,216,207,210,5985758,207.3,205,205.53,205.46,1.23
 20260524,211,216,207,210,5985758,208.4,205.12,205.67,205.84,1.23
 20260525,212.5,226,209.5,220.5,13387221,212,205.9,205.89,207.06,2.49
-20260526,211,216,207,210,5985758,212.1,206.15,205.8,207.3,1.08
+20260526,212.5,226,209.5,220.5,13387221,214.2,206.68,205.97,208.18,2.27
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3376 | 新日興 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 3376 | 新日興 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 3376 | 新日興 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3705 永信
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:37 Asia/Taipei
+- generated_at: 2026-05-26 06:02:42 Asia/Taipei
 - stock_id: 3705
 - stock_name: 永信
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 55.6
+- open: 55.7
 - high: 55.8
-- low: 55.5
-- close: 55.7
-- volume: 186594
-- ma5: 55.72
+- low: 55.3
+- close: 55.8
+- volume: 175231
+- ma5: 55.74
 - ma20: 55.63
 - ma60: 54.84
 - ma120: 55.66
-- ema23: 55.59
-- return_5d: -0.18
-- return_20d: 0
-- volume_ratio: 0.99
-- distance_to_ma20_pct: 0.13
-- distance_to_high_60_pct: -1.76
+- ema23: 55.6
+- return_5d: 0
+- return_20d: 0.18
+- volume_ratio: 0.93
+- distance_to_ma20_pct: 0.3
+- distance_to_high_60_pct: -1.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,55.6,55.8,55.5,55.7,186594,55.78,55.57,54.8,55.54,1.01
 20260524,55.6,55.8,55.5,55.7,186594,55.74,55.6,54.81,55.56,1
 20260525,55.7,55.8,55.3,55.8,175231,55.74,55.63,54.83,55.58,0.93
-20260526,55.6,55.8,55.5,55.7,186594,55.72,55.63,54.84,55.59,0.99
+20260526,55.7,55.8,55.3,55.8,175231,55.74,55.63,54.84,55.6,0.93
 ```
 
 ## Latest TDCC Snapshot

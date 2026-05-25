@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1312 國喬
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:30 Asia/Taipei
+- generated_at: 2026-05-26 06:01:40 Asia/Taipei
 - stock_id: 1312
 - stock_name: 國喬
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 10.65
-- high: 10.65
-- low: 10.25
+- open: 10.5
+- high: 10.5
+- low: 10.1
 - close: 10.4
-- volume: 5402415
+- volume: 7388699
 - ma5: 10.4
 - ma20: 11.03
 - ma60: 12.68
@@ -66,7 +66,7 @@
 - ema23: 11.19
 - return_5d: -1.89
 - return_20d: -15.79
-- volume_ratio: 0.93
+- volume_ratio: 1.26
 - distance_to_ma20_pct: -5.73
 - distance_to_high_60_pct: -32.69
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,10.65,10.65,10.25,10.4,5402415,10.46,11.36,12.83,11.42,0.94
 20260524,10.65,10.65,10.25,10.4,5402415,10.44,11.25,12.77,11.34,0.94
 20260525,10.5,10.5,10.1,10.4,7388699,10.44,11.13,12.72,11.26,1.25
-20260526,10.65,10.65,10.25,10.4,5402415,10.4,11.03,12.68,11.19,0.93
+20260526,10.5,10.5,10.1,10.4,7388699,10.4,11.03,12.68,11.19,1.26
 ```
 
 ## Latest TDCC Snapshot

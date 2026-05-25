@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6807 峰源-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:33 Asia/Taipei
+- generated_at: 2026-05-26 06:03:35 Asia/Taipei
 - stock_id: 6807
 - stock_name: 峰源-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 33
-- high: 33.6
-- low: 33
-- close: 33.3
-- volume: 8010
-- ma5: 33.35
-- ma20: 34.36
+- open: 33.35
+- high: 33.75
+- low: 33.1
+- close: 33.55
+- volume: 14644
+- ma5: 33.4
+- ma20: 34.38
 - ma60: 39.28
-- ma120: 42.52
-- ema23: 34.85
-- return_5d: -0.15
-- return_20d: -9.02
-- volume_ratio: 0.54
-- distance_to_ma20_pct: -3.09
-- distance_to_high_60_pct: -28.62
+- ma120: 42.53
+- ema23: 34.87
+- return_5d: 0.6
+- return_20d: -8.33
+- volume_ratio: 0.97
+- distance_to_ma20_pct: -2.4
+- distance_to_high_60_pct: -28.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,33,33.6,33,33.3,8010,33.28,34.72,39.93,35.29,0.45
 20260524,33,33.6,33,33.3,8010,33.25,34.66,39.71,35.12,0.53
 20260525,33.35,33.75,33.1,33.55,14644,33.36,34.53,39.5,34.99,1
-20260526,33,33.6,33,33.3,8010,33.35,34.36,39.28,34.85,0.54
+20260526,33.35,33.75,33.1,33.55,14644,33.4,34.38,39.28,34.87,0.97
 ```
 
 ## Latest TDCC Snapshot

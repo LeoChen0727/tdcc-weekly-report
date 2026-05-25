@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8429 金麗-KY
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:52 Asia/Taipei
+- generated_at: 2026-05-26 06:03:53 Asia/Taipei
 - stock_id: 8429
 - stock_name: 金麗-KY
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 6.15
-- high: 6.42
-- low: 6.15
-- close: 6.27
-- volume: 357531
-- ma5: 6.24
-- ma20: 6.31
+- open: 6.27
+- high: 6.27
+- low: 6.1
+- close: 6.11
+- volume: 710493
+- ma5: 6.21
+- ma20: 6.3
 - ma60: 6.71
 - ma120: 7.15
-- ema23: 6.35
-- return_5d: 2.12
-- return_20d: -5.29
-- volume_ratio: 1.04
-- distance_to_ma20_pct: -0.63
-- distance_to_high_60_pct: -14.93
+- ema23: 6.33
+- return_5d: -0.49
+- return_20d: -7.7
+- volume_ratio: 1.96
+- distance_to_ma20_pct: -3.05
+- distance_to_high_60_pct: -17.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,6.15,6.42,6.15,6.27,357531,6.16,6.36,6.77,6.39,1.13
 20260524,6.15,6.42,6.15,6.27,357531,6.2,6.35,6.75,6.38,1.14
 20260525,6.27,6.27,6.1,6.11,710493,6.21,6.33,6.73,6.35,2.1
-20260526,6.15,6.42,6.15,6.27,357531,6.24,6.31,6.71,6.35,1.04
+20260526,6.27,6.27,6.1,6.11,710493,6.21,6.3,6.71,6.33,1.96
 ```
 
 ## Latest TDCC Snapshot

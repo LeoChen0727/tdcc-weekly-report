@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6901 鑽石投資
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:36 Asia/Taipei
+- generated_at: 2026-05-26 06:03:38 Asia/Taipei
 - stock_id: 6901
 - stock_name: 鑽石投資
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 14.15
-- high: 14.2
-- low: 13.75
-- close: 14
-- volume: 1342642
-- ma5: 13.86
-- ma20: 13.73
-- ma60: 14.14
-- ma120: 15.52
-- ema23: 13.85
-- return_5d: -0.71
-- return_20d: 1.08
-- volume_ratio: 0.74
-- distance_to_ma20_pct: 1.97
-- distance_to_high_60_pct: -17.89
+- open: 14
+- high: 14
+- low: 13.25
+- close: 13.3
+- volume: 2531195
+- ma5: 13.72
+- ma20: 13.7
+- ma60: 14.13
+- ma120: 15.51
+- ema23: 13.79
+- return_5d: -5.67
+- return_20d: -3.97
+- volume_ratio: 1.34
+- distance_to_ma20_pct: -2.88
+- distance_to_high_60_pct: -21.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,14.15,14.2,13.75,14,1342642,13.84,13.73,14.32,13.88,0.82
 20260524,14.15,14.2,13.75,14,1342642,13.91,13.75,14.27,13.89,0.81
 20260525,14,14,13.25,13.3,2531195,13.88,13.72,14.2,13.84,1.43
-20260526,14.15,14.2,13.75,14,1342642,13.86,13.73,14.14,13.85,0.74
+20260526,14,14,13.25,13.3,2531195,13.72,13.7,14.13,13.79,1.34
 ```
 
 ## Latest TDCC Snapshot
@@ -122,9 +122,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6901 | 鑽石投資 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 6901 | 鑽石投資 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260526 | 6901 | 鑽石投資 | revenue_breakout_low_response | 營收爆發低反應股 | 15.0 | 17.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 6901 | 鑽石投資 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 6901 | 鑽石投資 | revenue_breakout_low_response | 營收爆發低反應股 | 14.0 | 15.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260521 | 6901 | 鑽石投資 | pattern | 型態觀察 |  |  |  | 預備發動型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

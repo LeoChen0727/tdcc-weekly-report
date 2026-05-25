@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2228 劍麟
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:49 Asia/Taipei
+- generated_at: 2026-05-26 06:01:59 Asia/Taipei
 - stock_id: 2228
 - stock_name: 劍麟
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 83.7
-- high: 84.7
-- low: 83.6
-- close: 83.6
-- volume: 167882
-- ma5: 83.48
-- ma20: 85.14
-- ma60: 88.29
+- open: 83.6
+- high: 83.8
+- low: 83
+- close: 83
+- volume: 255874
+- ma5: 83.36
+- ma20: 85.11
+- ma60: 88.28
 - ma120: 95.73
-- ema23: 85.17
-- return_5d: -1.07
-- return_20d: -4.67
-- volume_ratio: 0.73
-- distance_to_ma20_pct: -1.81
-- distance_to_high_60_pct: -12.92
+- ema23: 85.12
+- return_5d: -1.78
+- return_20d: -5.36
+- volume_ratio: 1.09
+- distance_to_ma20_pct: -2.48
+- distance_to_high_60_pct: -13.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,83.7,84.7,83.6,83.6,167882,82.6,85.89,88.91,85.7,0.73
 20260524,83.7,84.7,83.6,83.6,167882,83.14,85.62,88.71,85.52,0.73
 20260525,83.6,83.8,83,83,255874,83.66,85.35,88.49,85.31,1.08
-20260526,83.7,84.7,83.6,83.6,167882,83.48,85.14,88.29,85.17,0.73
+20260526,83.6,83.8,83,83,255874,83.36,85.11,88.28,85.12,1.09
 ```
 
 ## Latest TDCC Snapshot

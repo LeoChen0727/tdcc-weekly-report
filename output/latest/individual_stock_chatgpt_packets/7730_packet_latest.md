@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7730 暉盛-創
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:41 Asia/Taipei
+- generated_at: 2026-05-26 06:03:42 Asia/Taipei
 - stock_id: 7730
 - stock_name: 暉盛-創
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 227
-- high: 244.5
-- low: 227
-- close: 230
-- volume: 634782
-- ma5: 227.8
-- ma20: 193.97
-- ma60: 170.98
-- ma120: 132.74
-- ema23: 199.72
-- return_5d: 3.37
-- return_20d: 39.39
-- volume_ratio: 2.57
-- distance_to_ma20_pct: 18.57
-- distance_to_high_60_pct: -5.93
+- open: 225
+- high: 229
+- low: 207.5
+- close: 219
+- volume: 271730
+- ma5: 225.6
+- ma20: 193.43
+- ma60: 170.8
+- ma120: 132.64
+- ema23: 198.81
+- return_5d: -1.57
+- return_20d: 32.73
+- volume_ratio: 1.19
+- distance_to_ma20_pct: 13.22
+- distance_to_high_60_pct: -10.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,227,244.5,227,230,634782,225.4,184.62,164.83,191.78,3.56
 20260524,227,244.5,227,230,634782,227.7,187.95,167,194.97,3.08
 20260525,225,229,207.5,219,271730,226.3,190.72,168.98,196.97,1.26
-20260526,227,244.5,227,230,634782,227.8,193.97,170.98,199.72,2.57
+20260526,225,229,207.5,219,271730,225.6,193.43,170.8,198.81,1.19
 ```
 
 ## Latest TDCC Snapshot

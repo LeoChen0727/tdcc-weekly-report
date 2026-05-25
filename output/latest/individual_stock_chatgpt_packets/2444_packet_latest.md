@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2444 兆勁
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:59 Asia/Taipei
+- generated_at: 2026-05-26 06:02:07 Asia/Taipei
 - stock_id: 2444
 - stock_name: 兆勁
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 12.8
-- high: 13
-- low: 12.6
-- close: 12.65
-- volume: 727429
-- ma5: 12.67
-- ma20: 13.1
-- ma60: 13.16
+- open: 12.65
+- high: 13.1
+- low: 12.35
+- close: 12.75
+- volume: 1240582
+- ma5: 12.69
+- ma20: 13.11
+- ma60: 13.17
 - ma120: 12.61
-- ema23: 12.99
-- return_5d: -0.78
-- return_20d: -5.24
-- volume_ratio: 1.02
-- distance_to_ma20_pct: -3.44
-- distance_to_high_60_pct: -19.68
+- ema23: 13
+- return_5d: 0
+- return_20d: -4.49
+- volume_ratio: 1.68
+- distance_to_ma20_pct: -2.71
+- distance_to_high_60_pct: -19.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,12.8,13,12.6,12.65,727429,12.76,13.19,13.22,13.08,1.08
 20260524,12.8,13,12.6,12.65,727429,12.71,13.14,13.22,13.05,1.07
 20260525,12.65,13.1,12.35,12.75,1240582,12.69,13.13,13.2,13.02,1.76
-20260526,12.8,13,12.6,12.65,727429,12.67,13.1,13.16,12.99,1.02
+20260526,12.65,13.1,12.35,12.75,1240582,12.69,13.11,13.17,13,1.68
 ```
 
 ## Latest TDCC Snapshot

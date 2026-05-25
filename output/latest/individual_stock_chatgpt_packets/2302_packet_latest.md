@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2302 麗正
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:51 Asia/Taipei
+- generated_at: 2026-05-26 06:02:00 Asia/Taipei
 - stock_id: 2302
 - stock_name: 麗正
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 26.5
-- high: 29
-- low: 26.35
-- close: 28.1
-- volume: 7990440
-- ma5: 28.66
-- ma20: 24.23
-- ma60: 20.26
-- ma120: 19.48
-- ema23: 24.52
-- return_5d: 6.44
-- return_20d: 50.67
-- volume_ratio: 1.23
-- distance_to_ma20_pct: 15.98
-- distance_to_high_60_pct: -9.06
+- open: 28.35
+- high: 30.9
+- low: 28.2
+- close: 30.9
+- volume: 9364396
+- ma5: 29.22
+- ma20: 24.37
+- ma60: 20.31
+- ma120: 19.51
+- ema23: 24.75
+- return_5d: 17.05
+- return_20d: 65.68
+- volume_ratio: 1.42
+- distance_to_ma20_pct: 26.81
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,26.5,29,26.35,28.1,7990440,26.52,22.63,19.75,23.17,1.49
 20260524,26.5,29,26.35,28.1,7990440,27.13,23.14,19.91,23.58,1.4
 20260525,28.35,30.9,28.2,30.9,9364396,28.32,23.75,20.11,24.19,1.52
-20260526,26.5,29,26.35,28.1,7990440,28.66,24.23,20.26,24.52,1.23
+20260526,28.35,30.9,28.2,30.9,9364396,29.22,24.37,20.31,24.75,1.42
 ```
 
 ## Latest TDCC Snapshot

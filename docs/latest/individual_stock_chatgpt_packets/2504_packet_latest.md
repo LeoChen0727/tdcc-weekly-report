@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2504 國產
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:02 Asia/Taipei
+- generated_at: 2026-05-26 06:02:10 Asia/Taipei
 - stock_id: 2504
 - stock_name: 國產
 - packet_status: standard_180d_window_packet
@@ -55,20 +55,20 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 34.85
-- high: 35.05
-- low: 34.6
-- close: 34.65
-- volume: 1673271
-- ma5: 34.74
-- ma20: 34.69
-- ma60: 36.21
+- high: 35.1
+- low: 34.3
+- close: 35.1
+- volume: 2491487
+- ma5: 34.83
+- ma20: 34.71
+- ma60: 36.22
 - ma120: 36.33
-- ema23: 34.95
-- return_5d: -0.57
-- return_20d: -2.67
-- volume_ratio: 0.8
-- distance_to_ma20_pct: -0.11
-- distance_to_high_60_pct: -13.05
+- ema23: 34.99
+- return_5d: 0.72
+- return_20d: -1.4
+- volume_ratio: 1.16
+- distance_to_ma20_pct: 1.12
+- distance_to_high_60_pct: -11.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,34.85,35.05,34.6,34.65,1673271,34.71,34.79,36.36,35,0.81
 20260524,34.85,35.05,34.6,34.65,1673271,34.71,34.75,36.33,34.97,0.82
 20260525,34.85,35.1,34.3,35.1,2491487,34.78,34.73,36.29,34.98,1.19
-20260526,34.85,35.05,34.6,34.65,1673271,34.74,34.69,36.21,34.95,0.8
+20260526,34.85,35.1,34.3,35.1,2491487,34.83,34.71,36.22,34.99,1.16
 ```
 
 ## Latest TDCC Snapshot
@@ -120,14 +120,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 2504 | 國產 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 65.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 2504 | 國產 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | status |

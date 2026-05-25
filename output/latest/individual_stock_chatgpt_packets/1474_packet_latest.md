@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1474 弘裕
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:35 Asia/Taipei
+- generated_at: 2026-05-26 06:01:45 Asia/Taipei
 - stock_id: 1474
 - stock_name: 弘裕
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 9.87
-- high: 9.87
-- low: 9.75
-- close: 9.81
-- volume: 292393
+- open: 9.84
+- high: 9.84
+- low: 9.74
+- close: 9.8
+- volume: 134405
 - ma5: 9.81
 - ma20: 9.92
 - ma60: 10.04
 - ma120: 10.37
 - ema23: 9.93
-- return_5d: -0.1
-- return_20d: -1.8
-- volume_ratio: 2.16
-- distance_to_ma20_pct: -1.13
-- distance_to_high_60_pct: -7.89
+- return_5d: -0.2
+- return_20d: -1.9
+- volume_ratio: 1.06
+- distance_to_ma20_pct: -1.22
+- distance_to_high_60_pct: -7.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,9.87,9.87,9.75,9.81,292393,9.86,9.95,10.07,9.97,2.69
 20260524,9.87,9.87,9.75,9.81,292393,9.84,9.94,10.06,9.96,2.47
 20260525,9.84,9.84,9.74,9.8,134405,9.81,9.93,10.05,9.94,1.09
-20260526,9.87,9.87,9.75,9.81,292393,9.81,9.92,10.04,9.93,2.16
+20260526,9.84,9.84,9.74,9.8,134405,9.81,9.92,10.04,9.93,1.06
 ```
 
 ## Latest TDCC Snapshot

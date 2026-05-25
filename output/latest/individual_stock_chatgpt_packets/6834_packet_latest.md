@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6834 天二科技
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:34 Asia/Taipei
+- generated_at: 2026-05-26 06:03:35 Asia/Taipei
 - stock_id: 6834
 - stock_name: 天二科技
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 73.2
-- high: 73.2
-- low: 68.8
-- close: 70.5
-- volume: 12289268
-- ma5: 71.9
-- ma20: 53.77
-- ma60: 39.67
-- ma120: 34.92
-- ema23: 55.42
-- return_5d: 5.86
-- return_20d: 84.56
-- volume_ratio: 2.11
-- distance_to_ma20_pct: 31.12
-- distance_to_high_60_pct: -9.03
+- open: 68.8
+- high: 77.5
+- low: 67
+- close: 77.5
+- volume: 3223226
+- ma5: 73.3
+- ma20: 54.12
+- ma60: 39.79
+- ma120: 34.98
+- ema23: 56
+- return_5d: 16.37
+- return_20d: 102.88
+- volume_ratio: 0.6
+- distance_to_ma20_pct: 43.21
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,73.2,73.2,68.8,70.5,12289268,64.66,48.38,37.6,50.23,2.68
 20260524,73.2,73.2,68.8,70.5,12289268,67.74,50.17,38.25,51.91,2.38
 20260525,68.8,77.5,67,77.5,3223226,71.12,52.15,39.02,54.05,0.61
-20260526,73.2,73.2,68.8,70.5,12289268,71.9,53.77,39.67,55.42,2.11
+20260526,68.8,77.5,67,77.5,3223226,73.3,54.12,39.79,56,0.6
 ```
 
 ## Latest TDCC Snapshot
@@ -120,14 +120,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6834 | 天二科技 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6834 | 天二科技 | 4 | 1 | 4 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260526 | 6834 | 天二科技 | 4 | 1 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

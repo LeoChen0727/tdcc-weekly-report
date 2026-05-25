@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1907 永豐餘
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:45 Asia/Taipei
+- generated_at: 2026-05-26 06:01:54 Asia/Taipei
 - stock_id: 1907
 - stock_name: 永豐餘
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 24.55
-- high: 24.75
-- low: 24.4
-- close: 24.45
-- volume: 792612
-- ma5: 24.53
-- ma20: 24.24
-- ma60: 24.79
+- open: 24.5
+- high: 24.9
+- low: 24.2
+- close: 24.85
+- volume: 1076230
+- ma5: 24.61
+- ma20: 24.26
+- ma60: 24.8
 - ma120: 25.38
-- ema23: 24.49
-- return_5d: -1.21
-- return_20d: 2.09
-- volume_ratio: 0.61
-- distance_to_ma20_pct: 0.87
-- distance_to_high_60_pct: -14.06
+- ema23: 24.53
+- return_5d: 0.4
+- return_20d: 3.76
+- volume_ratio: 0.82
+- distance_to_ma20_pct: 2.43
+- distance_to_high_60_pct: -12.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,24.55,24.75,24.4,24.45,792612,24.45,24.15,24.86,24.47,0.57
 20260524,24.55,24.75,24.4,24.45,792612,24.46,24.18,24.83,24.47,0.6
 20260525,24.5,24.9,24.2,24.85,1076230,24.59,24.21,24.81,24.5,0.8
-20260526,24.55,24.75,24.4,24.45,792612,24.53,24.24,24.79,24.49,0.61
+20260526,24.5,24.9,24.2,24.85,1076230,24.61,24.26,24.8,24.53,0.82
 ```
 
 ## Latest TDCC Snapshot
@@ -120,14 +120,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 1907 | 永豐餘 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 1907 | 永豐餘 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | status |

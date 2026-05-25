@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1604 聲寶
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:39 Asia/Taipei
+- generated_at: 2026-05-26 06:01:49 Asia/Taipei
 - stock_id: 1604
 - stock_name: 聲寶
 - packet_status: standard_180d_window_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 23.1
-- high: 23.3
+- open: 23.2
+- high: 23.2
 - low: 22.9
 - close: 23.2
-- volume: 361787
+- volume: 554819
 - ma5: 23.2
 - ma20: 22.98
 - ma60: 24.04
@@ -66,7 +66,7 @@
 - ema23: 23.23
 - return_5d: 0
 - return_20d: 0.65
-- volume_ratio: 1.04
+- volume_ratio: 1.55
 - distance_to_ma20_pct: 0.96
 - distance_to_high_60_pct: -10.08
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,23.1,23.3,22.9,23.2,361787,23.17,22.95,24.09,23.24,1.12
 20260524,23.1,23.3,22.9,23.2,361787,23.18,22.96,24.07,23.24,1.11
 20260525,23.2,23.2,22.9,23.2,554819,23.2,22.97,24.05,23.24,1.63
-20260526,23.1,23.3,22.9,23.2,361787,23.2,22.98,24.04,23.23,1.04
+20260526,23.2,23.2,22.9,23.2,554819,23.2,22.98,24.04,23.23,1.55
 ```
 
 ## Latest TDCC Snapshot

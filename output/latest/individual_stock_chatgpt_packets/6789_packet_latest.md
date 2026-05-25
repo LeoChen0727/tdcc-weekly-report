@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6789 采鈺
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:32 Asia/Taipei
+- generated_at: 2026-05-26 06:03:34 Asia/Taipei
 - stock_id: 6789
 - stock_name: 采鈺
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 533
-- high: 560
-- low: 532
-- close: 556
-- volume: 4577035
-- ma5: 558.6
-- ma20: 568.85
-- ma60: 444.66
-- ma120: 361.27
-- ema23: 541.04
-- return_5d: 5.9
-- return_20d: 0.18
-- volume_ratio: 0.57
-- distance_to_ma20_pct: -2.26
-- distance_to_high_60_pct: -13.4
+- open: 575
+- high: 584
+- low: 566
+- close: 569
+- volume: 4963701
+- ma5: 561.2
+- ma20: 569.5
+- ma60: 444.88
+- ma120: 361.38
+- ema23: 542.13
+- return_5d: 8.38
+- return_20d: 2.52
+- volume_ratio: 0.62
+- distance_to_ma20_pct: -0.09
+- distance_to_high_60_pct: -11.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,533,560,532,556,4577035,535,568.5,433.79,535.29,0.5
 20260524,533,560,532,556,4577035,542.4,568.45,437.88,537.02,0.55
 20260525,575,584,566,569,4963701,552.4,568.8,441.66,539.69,0.61
-20260526,533,560,532,556,4577035,558.6,568.85,444.66,541.04,0.57
+20260526,575,584,566,569,4963701,561.2,569.5,444.88,542.13,0.62
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6789 | 采鈺 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  | call_strong_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 6789 | 采鈺 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | call_strong_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

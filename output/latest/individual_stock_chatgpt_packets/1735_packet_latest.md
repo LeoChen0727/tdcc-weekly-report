@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1735 日勝化
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:42 Asia/Taipei
+- generated_at: 2026-05-26 06:01:52 Asia/Taipei
 - stock_id: 1735
 - stock_name: 日勝化
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 26.85
-- high: 27.45
-- low: 25.95
-- close: 26.8
-- volume: 650777
-- ma5: 26.83
-- ma20: 26.4
+- open: 27.6
+- high: 27.6
+- low: 26.55
+- close: 26.95
+- volume: 872343
+- ma5: 26.86
+- ma20: 26.41
 - ma60: 26.03
-- ma120: 21.39
-- ema23: 26.55
-- return_5d: 1.52
-- return_20d: -6.78
-- volume_ratio: 0.84
-- distance_to_ma20_pct: 1.52
-- distance_to_high_60_pct: -20.83
+- ma120: 21.4
+- ema23: 26.57
+- return_5d: 2.08
+- return_20d: -6.26
+- volume_ratio: 1.12
+- distance_to_ma20_pct: 2.05
+- distance_to_high_60_pct: -20.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,26.85,27.45,25.95,26.8,650777,25.95,26.52,25.63,26.46,0.73
 20260524,26.85,27.45,25.95,26.8,650777,26.34,26.52,25.79,26.49,0.76
 20260525,27.6,27.6,26.55,26.95,872343,26.75,26.5,25.93,26.53,1.01
-20260526,26.85,27.45,25.95,26.8,650777,26.83,26.4,26.03,26.55,0.84
+20260526,27.6,27.6,26.55,26.95,872343,26.86,26.41,26.03,26.57,1.12
 ```
 
 ## Latest TDCC Snapshot

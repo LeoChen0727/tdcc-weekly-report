@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8105 凌巨
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:48 Asia/Taipei
+- generated_at: 2026-05-26 06:03:48 Asia/Taipei
 - stock_id: 8105
 - stock_name: 凌巨
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 16.5
-- high: 17.45
-- low: 16.45
-- close: 17.4
-- volume: 16041135
-- ma5: 17.39
+- open: 17.85
+- high: 18.6
+- low: 17.25
+- close: 17.35
+- volume: 18363632
+- ma5: 17.38
 - ma20: 15.36
 - ma60: 13.98
 - ma120: 13.1
-- ema23: 15.63
-- return_5d: 5.78
-- return_20d: 28.89
-- volume_ratio: 1.6
-- distance_to_ma20_pct: 13.3
-- distance_to_high_60_pct: -6.45
+- ema23: 15.62
+- return_5d: 5.47
+- return_20d: 28.52
+- volume_ratio: 1.81
+- distance_to_ma20_pct: 12.99
+- distance_to_high_60_pct: -6.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,16.5,17.45,16.45,17.4,16041135,16.48,14.76,13.77,15.1,2.09
 20260524,16.5,17.45,16.45,17.4,16041135,16.82,14.97,13.85,15.29,1.91
 20260525,17.85,18.6,17.25,17.35,18363632,17.2,15.16,13.91,15.46,1.99
-20260526,16.5,17.45,16.45,17.4,16041135,17.39,15.36,13.98,15.63,1.6
+20260526,17.85,18.6,17.25,17.35,18363632,17.38,15.36,13.98,15.62,1.81
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8105 | 凌巨 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 8105 | 凌巨 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

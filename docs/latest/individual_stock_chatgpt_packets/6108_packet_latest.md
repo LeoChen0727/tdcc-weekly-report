@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6108 競國
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:07 Asia/Taipei
+- generated_at: 2026-05-26 06:03:10 Asia/Taipei
 - stock_id: 6108
 - stock_name: 競國
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 19
-- high: 19.65
-- low: 18.9
-- close: 19.45
-- volume: 1492845
-- ma5: 19.53
-- ma20: 19.82
-- ma60: 17.86
-- ma120: 16.19
-- ema23: 19.29
-- return_5d: 1.04
-- return_20d: -2.75
-- volume_ratio: 0.52
-- distance_to_ma20_pct: -1.89
-- distance_to_high_60_pct: -19.63
+- open: 19.7
+- high: 20.2
+- low: 19.5
+- close: 19.85
+- volume: 1687816
+- ma5: 19.61
+- ma20: 19.84
+- ma60: 17.87
+- ma120: 16.2
+- ema23: 19.33
+- return_5d: 3.12
+- return_20d: -0.75
+- volume_ratio: 0.58
+- distance_to_ma20_pct: 0.03
+- distance_to_high_60_pct: -17.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,19,19.65,18.9,19.45,1492845,19.13,19.87,17.64,19.21,0.41
 20260524,19,19.65,18.9,19.45,1492845,19.32,19.84,17.72,19.23,0.49
 20260525,19.7,20.2,19.5,19.85,1687816,19.49,19.85,17.79,19.28,0.58
-20260526,19,19.65,18.9,19.45,1492845,19.53,19.82,17.86,19.29,0.52
+20260526,19.7,20.2,19.5,19.85,1687816,19.61,19.84,17.87,19.33,0.58
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6108 | 競國 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 6108 | 競國 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260526 | 6108 | 競國 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context

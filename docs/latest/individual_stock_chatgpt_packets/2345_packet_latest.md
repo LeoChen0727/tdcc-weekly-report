@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2345 智邦
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:53 Asia/Taipei
+- generated_at: 2026-05-26 06:02:01 Asia/Taipei
 - stock_id: 2345
 - stock_name: 智邦
 - packet_status: standard_180d_window_packet
@@ -55,20 +55,20 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 2535
-- high: 2535
-- low: 2450
-- close: 2470
-- volume: 2750416
-- ma5: 2484
-- ma20: 2478.5
-- ma60: 1974.83
-- ma120: 1575.68
-- ema23: 2386.03
-- return_5d: -0.4
-- return_20d: 11.76
-- volume_ratio: 0.57
-- distance_to_ma20_pct: -0.34
-- distance_to_high_60_pct: -8.35
+- high: 2600
+- low: 2505
+- close: 2540
+- volume: 2633850
+- ma5: 2498
+- ma20: 2482
+- ma60: 1976
+- ma120: 1576.27
+- ema23: 2391.86
+- return_5d: 2.42
+- return_20d: 14.93
+- volume_ratio: 0.54
+- distance_to_ma20_pct: 2.34
+- distance_to_high_60_pct: -5.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,2535,2535,2450,2470,2750416,2433,2438.5,1921.25,2354.04,0.53
 20260524,2535,2535,2450,2470,2750416,2449,2453.25,1938.25,2363.7,0.54
 20260525,2535,2600,2505,2540,2633850,2486,2465.5,1957.25,2378.39,0.53
-20260526,2535,2535,2450,2470,2750416,2484,2478.5,1974.83,2386.03,0.57
+20260526,2535,2600,2505,2540,2633850,2498,2482,1976,2391.86,0.54
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2345 | 智邦 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 2345 | 智邦 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260526 | 2345 | 智邦 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context

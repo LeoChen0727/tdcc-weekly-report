@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2885 元大金
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:10 Asia/Taipei
+- generated_at: 2026-05-26 06:02:18 Asia/Taipei
 - stock_id: 2885
 - stock_name: 元大金
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 54.5
-- high: 55.5
-- low: 54.4
-- close: 55.1
-- volume: 25396600
-- ma5: 55.3
-- ma20: 55.1
-- ma60: 49.7
-- ma120: 45.21
-- ema23: 54.1
-- return_5d: 0.73
-- return_20d: 5.35
-- volume_ratio: 0.96
-- distance_to_ma20_pct: 0
-- distance_to_high_60_pct: -4.01
+- open: 55.1
+- high: 56.1
+- low: 54.9
+- close: 56.1
+- volume: 28737220
+- ma5: 55.5
+- ma20: 55.15
+- ma60: 49.71
+- ma120: 45.22
+- ema23: 54.19
+- return_5d: 2.56
+- return_20d: 7.27
+- volume_ratio: 1.07
+- distance_to_ma20_pct: 1.72
+- distance_to_high_60_pct: -2.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,54.5,55.5,54.4,55.1,25396600,54.94,54.55,49.32,53.71,0.95
 20260524,54.5,55.5,54.4,55.1,25396600,55.02,54.77,49.45,53.82,0.96
 20260525,55.1,56.1,54.9,56.1,28737220,55.22,54.96,49.56,54.01,1.09
-20260526,54.5,55.5,54.4,55.1,25396600,55.3,55.1,49.7,54.1,0.96
+20260526,55.1,56.1,54.9,56.1,28737220,55.5,55.15,49.71,54.19,1.07
 ```
 
 ## Latest TDCC Snapshot
@@ -122,8 +122,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2885 | 元大金 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260526 | 2885 | 元大金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 2885 | 元大金 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

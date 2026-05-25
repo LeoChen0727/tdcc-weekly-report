@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3528 安馳
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:30 Asia/Taipei
+- generated_at: 2026-05-26 06:02:37 Asia/Taipei
 - stock_id: 3528
 - stock_name: 安馳
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 86.8
-- high: 93.8
-- low: 85.4
-- close: 93.8
-- volume: 1916889
-- ma5: 93.36
-- ma20: 85.97
-- ma60: 73.76
-- ma120: 71.18
-- ema23: 84.97
-- return_5d: 9.96
-- return_20d: 17.25
-- volume_ratio: 1.68
-- distance_to_ma20_pct: 9.1
-- distance_to_high_60_pct: -4.67
+- open: 97.2
+- high: 98.4
+- low: 91.3
+- close: 91.6
+- volume: 1848246
+- ma5: 92.92
+- ma20: 85.86
+- ma60: 73.72
+- ma120: 71.16
+- ema23: 84.78
+- return_5d: 7.39
+- return_20d: 14.5
+- volume_ratio: 1.63
+- distance_to_ma20_pct: 6.68
+- distance_to_high_60_pct: -6.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,86.8,93.8,85.4,93.8,1916889,87.52,83.78,72.67,82.55,2.05
 20260524,86.8,93.8,85.4,93.8,1916889,89.92,84.64,73.04,83.49,1.89
 20260525,97.2,98.4,91.3,91.6,1848246,91.66,85.28,73.38,84.16,1.73
-20260526,86.8,93.8,85.4,93.8,1916889,93.36,85.97,73.76,84.97,1.68
+20260526,97.2,98.4,91.3,91.6,1848246,92.92,85.86,73.72,84.78,1.63
 ```
 
 ## Latest TDCC Snapshot
@@ -122,9 +122,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3528 | 安馳 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 3528 | 安馳 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260526 | 3528 | 安馳 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 3528 | 安馳 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 3528 | 安馳 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

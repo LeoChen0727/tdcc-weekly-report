@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3356 奇偶
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:25 Asia/Taipei
+- generated_at: 2026-05-26 06:02:32 Asia/Taipei
 - stock_id: 3356
 - stock_name: 奇偶
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 62.9
-- high: 64.6
-- low: 62.6
-- close: 63.3
-- volume: 2091550
-- ma5: 63.7
-- ma20: 59.9
-- ma60: 53
-- ma120: 50.28
-- ema23: 59.52
-- return_5d: 3.26
-- return_20d: 20.11
-- volume_ratio: 1.23
-- distance_to_ma20_pct: 5.68
-- distance_to_high_60_pct: -6.36
+- open: 65.8
+- high: 67.6
+- low: 64
+- close: 65.3
+- volume: 2368037
+- ma5: 64.1
+- ma20: 59.99
+- ma60: 53.03
+- ma120: 50.3
+- ema23: 59.69
+- return_5d: 6.53
+- return_20d: 23.91
+- volume_ratio: 1.38
+- distance_to_ma20_pct: 8.84
+- distance_to_high_60_pct: -3.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,62.9,64.6,62.6,63.3,2091550,61.66,58.18,52.16,58.2,1.4
 20260524,62.9,64.6,62.6,63.3,2091550,62.26,58.72,52.43,58.62,1.34
 20260525,65.8,67.6,64,65.3,2368037,63.3,59.37,52.73,59.18,1.46
-20260526,62.9,64.6,62.6,63.3,2091550,63.7,59.9,53,59.52,1.23
+20260526,65.8,67.6,64,65.3,2368037,64.1,59.99,53.03,59.69,1.38
 ```
 
 ## Latest TDCC Snapshot
@@ -120,9 +120,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3356 | 奇偶 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

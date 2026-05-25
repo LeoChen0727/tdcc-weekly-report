@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1615 大山
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:40 Asia/Taipei
+- generated_at: 2026-05-26 06:01:49 Asia/Taipei
 - stock_id: 1615
 - stock_name: 大山
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 42.9
-- high: 43
-- low: 42.7
-- close: 42.9
-- volume: 119530
-- ma5: 42.88
+- open: 42.85
+- high: 44.2
+- low: 42.6
+- close: 42.8
+- volume: 224037
+- ma5: 42.86
 - ma20: 43.88
 - ma60: 45.36
 - ma120: 47.11
-- ema23: 43.94
-- return_5d: -0.23
-- return_20d: -7.14
-- volume_ratio: 0.59
-- distance_to_ma20_pct: -2.24
-- distance_to_high_60_pct: -14.54
+- ema23: 43.93
+- return_5d: -0.47
+- return_20d: -7.36
+- volume_ratio: 1.08
+- distance_to_ma20_pct: -2.46
+- distance_to_high_60_pct: -14.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,42.9,43,42.7,42.9,119530,42.89,44.38,45.65,44.25,0.62
 20260524,42.9,43,42.7,42.9,119530,42.88,44.22,45.56,44.14,0.62
 20260525,42.85,44.2,42.6,42.8,224037,42.9,44.05,45.45,44.03,1.12
-20260526,42.9,43,42.7,42.9,119530,42.88,43.88,45.36,43.94,0.59
+20260526,42.85,44.2,42.6,42.8,224037,42.86,43.88,45.36,43.93,1.08
 ```
 
 ## Latest TDCC Snapshot

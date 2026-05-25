@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5607 遠雄港
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:04 Asia/Taipei
+- generated_at: 2026-05-26 06:03:08 Asia/Taipei
 - stock_id: 5607
 - stock_name: 遠雄港
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 49.05
-- high: 50.2
-- low: 49.05
-- close: 50.1
-- volume: 796567
-- ma5: 50.18
-- ma20: 48.94
-- ma60: 48.44
-- ma120: 48.59
-- ema23: 48.99
-- return_5d: 2.24
-- return_20d: 6.48
-- volume_ratio: 1.19
-- distance_to_ma20_pct: 2.37
-- distance_to_high_60_pct: -10.54
+- open: 50.9
+- high: 51.7
+- low: 50.3
+- close: 50.5
+- volume: 882061
+- ma5: 50.26
+- ma20: 48.96
+- ma60: 48.45
+- ma120: 48.6
+- ema23: 49.03
+- return_5d: 3.06
+- return_20d: 7.33
+- volume_ratio: 1.31
+- distance_to_ma20_pct: 3.14
+- distance_to_high_60_pct: -9.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,49.05,50.2,49.05,50.1,796567,49.04,48.48,48.67,48.62,1.35
 20260524,49.05,50.2,49.05,50.1,796567,49.47,48.62,48.62,48.75,1.31
 20260525,50.9,51.7,50.3,50.5,882061,49.96,48.79,48.53,48.89,1.38
-20260526,49.05,50.2,49.05,50.1,796567,50.18,48.94,48.44,48.99,1.19
+20260526,50.9,51.7,50.3,50.5,882061,50.26,48.96,48.45,49.03,1.31
 ```
 
 ## Latest TDCC Snapshot

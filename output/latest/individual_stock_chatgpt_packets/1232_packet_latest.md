@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1232 大統益
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:29 Asia/Taipei
+- generated_at: 2026-05-26 06:01:39 Asia/Taipei
 - stock_id: 1232
 - stock_name: 大統益
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 148
-- high: 148
+- open: 147.5
+- high: 148.5
 - low: 147.5
-- close: 147.5
-- volume: 74716
-- ma5: 147.7
-- ma20: 148
-- ma60: 149.39
-- ma120: 147.72
-- ema23: 148.26
-- return_5d: -0.34
-- return_20d: -1.01
-- volume_ratio: 0.89
-- distance_to_ma20_pct: -0.34
-- distance_to_high_60_pct: -3.59
+- close: 148.5
+- volume: 132253
+- ma5: 147.9
+- ma20: 148.05
+- ma60: 149.41
+- ma120: 147.73
+- ema23: 148.35
+- return_5d: 0.34
+- return_20d: -0.34
+- volume_ratio: 1.52
+- distance_to_ma20_pct: 0.3
+- distance_to_high_60_pct: -2.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,148,148,147.5,147.5,74716,148,148.22,149.6,148.39,0.89
 20260524,148,148,147.5,147.5,74716,147.9,148.12,149.53,148.32,0.95
 20260525,147.5,148.5,147.5,148.5,132253,147.8,148.07,149.48,148.33,1.6
-20260526,148,148,147.5,147.5,74716,147.7,148,149.39,148.26,0.89
+20260526,147.5,148.5,147.5,148.5,132253,147.9,148.05,149.41,148.35,1.52
 ```
 
 ## Latest TDCC Snapshot

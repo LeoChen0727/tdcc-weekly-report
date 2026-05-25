@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6552 易華電
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:24 Asia/Taipei
+- generated_at: 2026-05-26 06:03:26 Asia/Taipei
 - stock_id: 6552
 - stock_name: 易華電
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 28.8
-- high: 31.55
-- low: 28.8
-- close: 31.55
-- volume: 1391902
-- ma5: 32.18
-- ma20: 30.49
-- ma60: 28.52
-- ma120: 27.73
-- ema23: 30.29
-- return_5d: 9.93
-- return_20d: -3.96
-- volume_ratio: 1.97
-- distance_to_ma20_pct: 3.48
-- distance_to_high_60_pct: -11.38
+- open: 32
+- high: 34.7
+- low: 32
+- close: 34.7
+- volume: 2018132
+- ma5: 32.81
+- ma20: 30.65
+- ma60: 28.57
+- ma120: 27.76
+- ema23: 30.55
+- return_5d: 20.91
+- return_20d: 5.63
+- volume_ratio: 2.74
+- distance_to_ma20_pct: 13.22
+- distance_to_high_60_pct: -2.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,28.8,31.55,28.8,31.55,1391902,29.56,30.24,28.38,29.6,2.61
 20260524,28.8,31.55,28.8,31.55,1391902,30.27,30.32,28.41,29.77,2.42
 20260525,32,34.7,32,34.7,2018132,31.61,30.55,28.49,30.18,3.02
-20260526,28.8,31.55,28.8,31.55,1391902,32.18,30.49,28.52,30.29,1.97
+20260526,32,34.7,32,34.7,2018132,32.81,30.65,28.57,30.55,2.74
 ```
 
 ## Latest TDCC Snapshot
@@ -122,12 +122,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6552 | 易華電 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 6552 | 易華電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6552 | 易華電 | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260526 | 6552 | 易華電 | 2 | 2 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | status |

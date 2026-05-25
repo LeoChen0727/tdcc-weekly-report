@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2511 太子
 
 ## Metadata
-- generated_at: 2026-05-26 05:28:02 Asia/Taipei
+- generated_at: 2026-05-26 06:02:11 Asia/Taipei
 - stock_id: 2511
 - stock_name: 太子
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 7.67
-- high: 7.76
-- low: 7.65
-- close: 7.74
-- volume: 898295
-- ma5: 7.73
-- ma20: 7.75
+- open: 7.75
+- high: 7.75
+- low: 7.62
+- close: 7.69
+- volume: 1433189
+- ma5: 7.72
+- ma20: 7.74
 - ma60: 8
 - ma120: 8.15
 - ema23: 7.78
-- return_5d: 0.78
-- return_20d: -3.25
-- volume_ratio: 0.7
-- distance_to_ma20_pct: -0.08
-- distance_to_high_60_pct: -6.75
+- return_5d: 0.13
+- return_20d: -3.88
+- volume_ratio: 1.1
+- distance_to_ma20_pct: -0.69
+- distance_to_high_60_pct: -7.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,7.67,7.76,7.65,7.74,898295,7.68,7.78,8.02,7.8,0.67
 20260524,7.67,7.76,7.65,7.74,898295,7.71,7.77,8.02,7.8,0.71
 20260525,7.75,7.75,7.62,7.69,1433189,7.72,7.76,8.01,7.79,1.13
-20260526,7.67,7.76,7.65,7.74,898295,7.73,7.75,8,7.78,0.7
+20260526,7.75,7.75,7.62,7.69,1433189,7.72,7.74,8,7.78,1.1
 ```
 
 ## Latest TDCC Snapshot

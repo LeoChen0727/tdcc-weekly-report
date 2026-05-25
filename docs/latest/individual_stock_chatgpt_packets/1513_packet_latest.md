@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1513 中興電
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:36 Asia/Taipei
+- generated_at: 2026-05-26 06:01:46 Asia/Taipei
 - stock_id: 1513
 - stock_name: 中興電
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 155
-- high: 157
-- low: 153.5
-- close: 156.5
-- volume: 6295032
-- ma5: 157.2
-- ma20: 154.47
-- ma60: 153.78
-- ma120: 155.72
-- ema23: 154.33
-- return_5d: 1.29
-- return_20d: 5.39
-- volume_ratio: 0.88
-- distance_to_ma20_pct: 1.31
-- distance_to_high_60_pct: -9.8
+- open: 158
+- high: 160
+- low: 155.5
+- close: 160
+- volume: 12479266
+- ma5: 157.9
+- ma20: 154.65
+- ma60: 153.84
+- ma120: 155.75
+- ema23: 154.62
+- return_5d: 3.56
+- return_20d: 7.74
+- volume_ratio: 1.68
+- distance_to_ma20_pct: 3.46
+- distance_to_high_60_pct: -7.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,155,157,153.5,156.5,6295032,153.2,153.2,154.53,153.33,0.97
 20260524,155,157,153.5,156.5,6295032,154.5,153.53,154.29,153.6,0.96
 20260525,158,160,155.5,160,12479266,156.8,154.07,154.03,154.13,1.78
-20260526,155,157,153.5,156.5,6295032,157.2,154.47,153.78,154.33,0.88
+20260526,158,160,155.5,160,12479266,157.9,154.65,153.84,154.62,1.68
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +122,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1513 | 中興電 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 1513 | 中興電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 1513 | 中興電 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00956 中信日經高股息
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:27 Asia/Taipei
+- generated_at: 2026-05-26 06:01:37 Asia/Taipei
 - stock_id: 00956
 - stock_name: 中信日經高股息
 - packet_status: partial_rawdata_packet
@@ -54,11 +54,11 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 12.32
-- high: 12.34
-- low: 12.29
+- open: 12.38
+- high: 12.42
+- low: 12.31
 - close: 12.32
-- volume: 286513
+- volume: 672433
 - ma5: 12.32
 - ma20: 12.32
 - ma60: 12.32
@@ -66,7 +66,7 @@
 - ema23: 12.32
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.79
+- volume_ratio: 1.53
 - distance_to_ma20_pct: 0
 - distance_to_high_60_pct: -0.81
 
@@ -78,7 +78,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,12.32,12.34,12.29,12.32,286513,,,,,
 20260524,12.32,12.34,12.29,12.32,286513,,,,,
 20260525,12.38,12.42,12.31,12.32,672433,,,,,
-20260526,12.32,12.34,12.29,12.32,286513,12.32,12.32,12.32,12.32,0.79
+20260526,12.38,12.42,12.31,12.32,672433,12.32,12.32,12.32,12.32,1.53
 ```
 
 ## Latest TDCC Snapshot

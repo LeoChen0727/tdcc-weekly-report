@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0061 元大寶滬深
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:24 Asia/Taipei
+- generated_at: 2026-05-26 06:01:34 Asia/Taipei
 - stock_id: 0061
 - stock_name: 元大寶滬深
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 24.88
-- high: 24.88
-- low: 24.6
-- close: 24.69
-- volume: 279022
-- ma5: 24.72
+- open: 24.79
+- high: 24.99
+- low: 24.79
+- close: 24.83
+- volume: 325822
+- ma5: 24.75
 - ma20: 24.87
-- ma60: 24.03
+- ma60: 24.04
 - ma120: 23.63
-- ema23: 24.68
-- return_5d: -1.2
-- return_20d: 1.73
-- volume_ratio: 0.94
-- distance_to_ma20_pct: -0.71
-- distance_to_high_60_pct: -3.93
+- ema23: 24.69
+- return_5d: -0.64
+- return_20d: 2.31
+- volume_ratio: 1.09
+- distance_to_ma20_pct: -0.18
+- distance_to_high_60_pct: -3.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,24.88,24.88,24.6,24.69,279022,24.76,24.79,23.99,24.66,0.94
 20260524,24.88,24.88,24.6,24.69,279022,24.77,24.82,24,24.66,0.94
 20260525,24.79,24.99,24.79,24.83,325822,24.78,24.85,24.02,24.68,1.12
-20260526,24.88,24.88,24.6,24.69,279022,24.72,24.87,24.03,24.68,0.94
+20260526,24.79,24.99,24.79,24.83,325822,24.75,24.87,24.04,24.69,1.09
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1451 年興
 
 ## Metadata
-- generated_at: 2026-05-26 05:27:34 Asia/Taipei
+- generated_at: 2026-05-26 06:01:44 Asia/Taipei
 - stock_id: 1451
 - stock_name: 年興
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 16.75
-- high: 16.75
-- low: 16.65
-- close: 16.7
-- volume: 385482
-- ma5: 16.67
-- ma20: 16.77
+- open: 16.7
+- high: 16.7
+- low: 16.5
+- close: 16.55
+- volume: 423997
+- ma5: 16.64
+- ma20: 16.76
 - ma60: 17.5
 - ma120: 17.53
-- ema23: 16.87
-- return_5d: 0
-- return_20d: -1.47
-- volume_ratio: 1.49
-- distance_to_ma20_pct: -0.39
-- distance_to_high_60_pct: -10.93
+- ema23: 16.86
+- return_5d: -0.9
+- return_20d: -2.36
+- volume_ratio: 1.63
+- distance_to_ma20_pct: -1.24
+- distance_to_high_60_pct: -11.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,16.75,16.75,16.65,16.7,385482,16.7,16.79,17.59,16.94,1.65
 20260524,16.75,16.75,16.65,16.7,385482,16.7,16.79,17.56,16.92,1.63
 20260525,16.7,16.7,16.5,16.55,423997,16.67,16.78,17.53,16.89,1.74
-20260526,16.75,16.75,16.65,16.7,385482,16.67,16.77,17.5,16.87,1.49
+20260526,16.7,16.7,16.5,16.55,423997,16.64,16.76,17.5,16.86,1.63
 ```
 
 ## Latest TDCC Snapshot

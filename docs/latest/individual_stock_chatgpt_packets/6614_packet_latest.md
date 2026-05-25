@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6614 資拓宏宇
 
 ## Metadata
-- generated_at: 2026-05-26 05:29:26 Asia/Taipei
+- generated_at: 2026-05-26 06:03:28 Asia/Taipei
 - stock_id: 6614
 - stock_name: 資拓宏宇
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,21 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 39.8
-- high: 39.85
-- low: 39.35
-- close: 39.4
-- volume: 70783
-- ma5: 39.31
-- ma20: 40.23
+- open: 39.15
+- high: 39.25
+- low: 38.7
+- close: 38.95
+- volume: 233597
+- ma5: 39.22
+- ma20: 40.2
 - ma60: 41.41
 - ma120: 44.95
-- ema23: 40.14
-- return_5d: -0.76
-- return_20d: -8.8
-- volume_ratio: 0.75
-- distance_to_ma20_pct: -2.06
-- distance_to_high_60_pct: -13.79
+- ema23: 40.1
+- return_5d: -1.89
+- return_20d: -9.84
+- volume_ratio: 2.27
+- distance_to_ma20_pct: -3.12
+- distance_to_high_60_pct: -14.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
 20260523,39.8,39.85,39.35,39.4,70783,39.44,40.59,41.72,40.4,0.71
 20260524,39.8,39.85,39.35,39.4,70783,39.45,40.55,41.62,40.32,0.73
 20260525,39.15,39.25,38.7,38.95,233597,39.37,40.42,41.51,40.21,2.3
-20260526,39.8,39.85,39.35,39.4,70783,39.31,40.23,41.41,40.14,0.75
+20260526,39.15,39.25,38.7,38.95,233597,39.22,40.2,41.41,40.1,2.27
 ```
 
 ## Latest TDCC Snapshot
