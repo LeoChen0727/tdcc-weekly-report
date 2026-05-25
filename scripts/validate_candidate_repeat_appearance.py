@@ -18,6 +18,7 @@ from tracking_utils import (  # noqa: E402
     normalize_date,
     now_text,
     read_csv,
+    resolve_candidate_signal_date,
     safe_str,
 )
 
@@ -61,12 +62,16 @@ def inspect_csv(path: Path) -> pd.DataFrame:
 def validate() -> dict[str, Any]:
     errors: list[str] = []
     warnings: list[str] = []
-    main_date = main_price_date_from_freshness()
+    preferred_date = main_price_date_from_freshness()
 
     log = inspect_csv(SIGNAL_LOG)
     alias = inspect_csv(SIGNAL_LOG_ALIAS)
     repeat = inspect_csv(REPEAT_CSV)
     all_candidates = inspect_csv(ALL_CANDIDATES)
+    main_date, date_notes = resolve_candidate_signal_date(all_candidates, preferred_date)
+    if not main_date:
+        main_date = preferred_date
+    warnings.extend(date_notes)
 
     if log.empty:
         errors.append(f"missing or empty {SIGNAL_LOG}")
@@ -114,8 +119,14 @@ def validate() -> dict[str, Any]:
         if "date" in all_candidates.columns:
             dates = {normalize_date(x) for x in all_candidates["date"].tolist()}
             dates.discard("")
-            if dates and main_date not in dates:
-                errors.append(f"{ALL_CANDIDATES} date mismatch: main_price_date={main_date}, dates={sorted(dates)}")
+            signal_dates = set()
+            if "signal_date" in all_candidates.columns:
+                signal_dates = {normalize_date(x) for x in all_candidates["signal_date"].tolist()}
+                signal_dates.discard("")
+            if dates and main_date not in dates and main_date not in signal_dates:
+                warnings.append(
+                    f"{ALL_CANDIDATES} source date mismatch: resolved_signal_date={main_date}, dates={sorted(dates)}"
+                )
 
     history_days = 0
     if not log.empty and "signal_date" in log.columns:

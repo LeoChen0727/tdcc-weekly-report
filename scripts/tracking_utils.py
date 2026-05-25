@@ -171,6 +171,57 @@ def latest_price_date() -> str:
     return max(dates) if dates else now_taipei().strftime("%Y%m%d")
 
 
+def resolve_candidate_signal_date(candidates: pd.DataFrame, preferred_date: str = "") -> tuple[str, list[str]]:
+    """Resolve the effective signal date for daily candidate tracking.
+
+    `all_candidates_latest.csv` can contain a `date` column copied from category
+    source files. Pattern rows often keep the original pattern date, so that
+    column is not always the report signal date. Prefer an explicit
+    `signal_date` when present, then the preferred freshness date when it is
+    represented in candidate dates, then the latest candidate date.
+    """
+    preferred = normalize_date(preferred_date)
+    notes: list[str] = []
+    if candidates.empty:
+        return preferred, ["empty_candidates"]
+
+    signal_dates: set[str] = set()
+    if "signal_date" in candidates.columns:
+        signal_dates = {normalize_date(x) for x in candidates["signal_date"].tolist()}
+        signal_dates.discard("")
+        if preferred and preferred in signal_dates:
+            return preferred, notes
+        if len(signal_dates) == 1:
+            resolved = next(iter(signal_dates))
+            if preferred and resolved != preferred:
+                notes.append(f"preferred_date={preferred} differs from signal_date={resolved}; using signal_date")
+            return resolved, notes
+        if signal_dates:
+            resolved = max(signal_dates)
+            notes.append(f"multiple signal_date values={sorted(signal_dates)}; using latest={resolved}")
+            return resolved, notes
+
+    candidate_dates: set[str] = set()
+    if "date" in candidates.columns:
+        candidate_dates = {normalize_date(x) for x in candidates["date"].tolist()}
+        candidate_dates.discard("")
+        if preferred and preferred in candidate_dates:
+            if len(candidate_dates) > 1:
+                notes.append(
+                    f"candidate date column has mixed source dates={sorted(candidate_dates)}; using preferred_date={preferred}"
+                )
+            return preferred, notes
+        if candidate_dates:
+            resolved = max(candidate_dates)
+            if preferred and resolved != preferred:
+                notes.append(
+                    f"preferred_date={preferred} not found in candidate source dates={sorted(candidate_dates)}; using latest={resolved}"
+                )
+            return resolved, notes
+
+    return preferred, notes
+
+
 def main_price_date_from_freshness() -> str:
     freshness = read_csv(LATEST_DIR / "data_freshness_latest.csv", dtype=str)
     if not freshness.empty:

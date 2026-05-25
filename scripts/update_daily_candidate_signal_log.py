@@ -26,6 +26,7 @@ from tracking_utils import (  # noqa: E402
     normalize_date,
     now_text,
     recognition_type,
+    resolve_candidate_signal_date,
     safe_str,
     to_number,
     write_csv,
@@ -288,15 +289,15 @@ def row_to_signal(row: pd.Series, main_date: str, index_df: pd.DataFrame, sha: s
 def main() -> int:
     if not ALL_CANDIDATES.exists():
         raise FileNotFoundError(f"Missing {ALL_CANDIDATES}")
-    main_date = main_price_date_from_freshness()
+    preferred_date = main_price_date_from_freshness()
     df = pd.read_csv(ALL_CANDIDATES, dtype=str, keep_default_na=False)
     if df.empty:
         raise RuntimeError("all_candidates_latest.csv is empty")
-    if "date" in df.columns:
-        dates = {normalize_date(x) for x in df["date"].dropna().astype(str).unique()}
-        dates.discard("")
-        if dates and main_date not in dates:
-            raise RuntimeError(f"all_candidates date mismatch: main_price_date={main_date}, candidate_dates={sorted(dates)}")
+    main_date, date_notes = resolve_candidate_signal_date(df, preferred_date)
+    if not main_date:
+        raise RuntimeError("cannot resolve signal_date from all_candidates_latest.csv or data freshness")
+    for note in date_notes:
+        print(f"WARNING: {note}")
 
     index_df = load_market_index_history(update_if_missing=True)
     sha = git_sha()

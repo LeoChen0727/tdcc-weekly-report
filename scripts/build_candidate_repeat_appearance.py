@@ -18,6 +18,7 @@ from tracking_utils import (  # noqa: E402
     normalize_date,
     now_text,
     read_csv,
+    resolve_candidate_signal_date,
     safe_str,
     to_number,
     write_csv,
@@ -343,18 +344,23 @@ def rewrite_all_candidates(candidates: pd.DataFrame, repeat: pd.DataFrame) -> pd
 
 
 def main() -> int:
-    main_date = main_price_date_from_freshness()
+    preferred_date = main_price_date_from_freshness()
     log = read_signal_log()
     if log.empty:
         raise RuntimeError(f"missing daily candidate signal log: {SIGNAL_LOG} or {SIGNAL_LOG_ALIAS}")
     candidates = read_csv(ALL_CANDIDATES, dtype=str, keep_default_na=False)
     if candidates.empty:
         raise RuntimeError(f"missing or empty {ALL_CANDIDATES}")
-    if "date" in candidates.columns:
-        candidate_dates = {normalize_date(x) for x in candidates["date"].tolist()}
-        candidate_dates.discard("")
-        if candidate_dates and main_date not in candidate_dates:
-            raise RuntimeError(f"all_candidates date mismatch: main_price_date={main_date}, candidate_dates={sorted(candidate_dates)}")
+    main_date, date_notes = resolve_candidate_signal_date(candidates, preferred_date)
+    if main_date not in set(log["signal_date"].astype(str)):
+        latest_log_date = max(set(log["signal_date"].astype(str))) if not log.empty else ""
+        if latest_log_date:
+            date_notes.append(
+                f"resolved signal_date={main_date} not found in signal log; using latest signal log date={latest_log_date}"
+            )
+            main_date = latest_log_date
+    for note in date_notes:
+        print(f"WARNING: {note}")
 
     repeat = build_repeat_table(log, candidates, main_date)
     history_days = len(sorted(log["signal_date"].dropna().astype(str).unique().tolist()))

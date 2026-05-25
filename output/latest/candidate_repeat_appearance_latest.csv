@@ -1,4 +1,4 @@
-﻿signal_date,stock_id,stock_name,consecutive_appear_days_any_category,consecutive_appear_days_same_category,appear_count_5d,appear_count_10d,appear_count_20d,first_seen_date,last_seen_date,multi_category_flags,repeat_appear_label,repeat_appear_note
+signal_date,stock_id,stock_name,consecutive_appear_days_any_category,consecutive_appear_days_same_category,appear_count_5d,appear_count_10d,appear_count_20d,first_seen_date,last_seen_date,multi_category_flags,repeat_appear_label,repeat_appear_note
 20260524,0056,元大高股息,2,2,2,2,2,20260523,20260524,pattern,continued_2_3d,連續 2 個交易日上榜，訊號延續但仍需確認。
 20260524,1215,卜蜂,2,2,2,2,2,20260523,20260524,pattern,continued_2_3d,連續 2 個交易日上榜，訊號延續但仍需確認。
 20260524,1304,台聚,2,2,2,2,2,20260523,20260524,pattern,continued_2_3d,連續 2 個交易日上榜，訊號延續但仍需確認。
