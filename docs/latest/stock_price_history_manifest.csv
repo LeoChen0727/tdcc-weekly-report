@@ -1,4 +1,4 @@
-﻿stock_id,stock_name,market,rows,start_date,end_date,latest_close,latest_volume,file_path,raw_url
+stock_id,stock_name,market,rows,start_date,end_date,latest_close,latest_volume,file_path,raw_url
 0050,元大台灣50,TWSE,135,20251103,20260525,100.8,129483256,data/stock_price_history/0050.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/0050.csv
 0051,元大中型100,TWSE,135,20251103,20260525,140.65,135683,data/stock_price_history/0051.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/0051.csv
 0052,富邦科技,TWSE,130,20251103,20260525,59.6,46477310,data/stock_price_history/0052.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/0052.csv
