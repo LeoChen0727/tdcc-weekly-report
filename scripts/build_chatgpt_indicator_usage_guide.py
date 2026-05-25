@@ -110,6 +110,7 @@ def build_guide() -> str:
     individual_index = read_csv(LATEST_DIR / "individual_stock_available_raw_data_index_slim.csv")
     catalyst_needs_review = read_csv(LATEST_DIR / "catalyst_needs_review_latest.csv")
     chip = read_csv(LATEST_DIR / "chip_flow_positive_streak_latest.csv")
+    volume_breakout = read_csv(LATEST_DIR / "volume_breakout_watch_latest.csv")
 
     main_price_date = ""
     readme = LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt"
@@ -216,6 +217,13 @@ def build_guide() -> str:
             "Use for review/backtest, not for one-day parameter changes.",
         ],
         [
+            "Volume breakout watch",
+            "output/latest/volume_breakout_watch_latest.csv",
+            "volume_breakout_type, volume_breakout_priority, selection_status, not_selected_reason, risk_flags, next_volume_breakout_confirmation",
+            f"{count_values(volume_breakout, 'volume_breakout_priority')} / {count_values(volume_breakout, 'volume_breakout_type')}",
+            "Use when asked about 帶量突破 / 放量突破 / 放量攻擊. Strict breakout is only one subset.",
+        ],
+        [
             "Individual stock raw availability",
             "output/latest/individual_stock_available_raw_data_index_slim.csv",
             "data_quality_status, report_status, price/TDCC row counts",
@@ -247,6 +255,7 @@ def build_guide() -> str:
     lines.append("- Use `decision_priority` as the primary reporting priority: `A_priority_watch`, `B_confirm_needed`, `C_watch_only`, `D_risk_downgrade`.")
     lines.append("- Use `why_selected`, `why_downgraded`, and `next_confirmation` directly. Do not invent a different reason when these fields exist.")
     lines.append("- `must_not_overstate=True` means do not call the stock a top pick, even if the chart looks attractive.")
+    lines.append("- For volume breakout questions, read `volume_breakout_chatgpt_packet_latest.md` and `volume_breakout_watch_latest.csv`; do not assume an empty strict breakout file means there were no volume attacks.")
     lines.append("")
 
     lines.append("### TDCC / ABM report")

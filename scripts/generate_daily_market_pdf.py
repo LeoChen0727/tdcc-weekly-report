@@ -41,6 +41,7 @@ ALL_CANDIDATES_CSV = LATEST_DIR / "all_candidates_latest.csv"
 DATA_FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
 MARKET_REGIME_CSV = LATEST_DIR / "market_regime_latest.csv"
 WARRANT_FLOW_BY_STOCK_CSV = LATEST_DIR / "warrant_flow_by_stock_latest.csv"
+VOLUME_BREAKOUT_WATCH_CSV = LATEST_DIR / "volume_breakout_watch_latest.csv"
 
 CURATED_PDF = LATEST_DIR / "daily_market_curated_report_latest.pdf"
 FULL_TABLE_PDF = LATEST_DIR / "daily_market_full_table_report_latest.pdf"
@@ -1024,6 +1025,7 @@ def build_curated_pdf(df: pd.DataFrame, freshness: dict[str, Any], main_date: st
     story.append(para("本報告由 Daily Full Pipeline 固定格式產生，精華版只放精選標的，完整清單請看完整版表格 PDF。", style_map["normal"]))
     append_context_sections(story, style_map, freshness, [4.2 * cm, 12.8 * cm])
     append_catalyst_section(story, style_map, df)
+
     story.append(PageBreak())
 
     story.append(para("今日優先追蹤", style_map["h1"]))
@@ -1157,6 +1159,58 @@ def full_table_rows(part: pd.DataFrame, warrant_flow_date: str) -> list[list[Any
     return rows
 
 
+def load_volume_breakout_watch() -> pd.DataFrame:
+    if not VOLUME_BREAKOUT_WATCH_CSV.exists():
+        return pd.DataFrame()
+    try:
+        df = pd.read_csv(VOLUME_BREAKOUT_WATCH_CSV, dtype=str, keep_default_na=False)
+    except Exception:
+        return pd.DataFrame()
+    if df.empty:
+        return df
+    if "volume_breakout_rank" in df.columns:
+        df["_rank"] = pd.to_numeric(df["volume_breakout_rank"], errors="coerce")
+        df = df.sort_values("_rank").drop(columns=["_rank"])
+    return df
+
+
+def volume_breakout_table_rows(part: pd.DataFrame) -> list[list[Any]]:
+    rows = [[
+        "code",
+        "name",
+        "volume setup",
+        "priority",
+        "routed category",
+        "decision",
+        "TDCC",
+        "repeat",
+        "vol ratio",
+        "5d",
+        "20d",
+        "risk flags",
+        "next check",
+    ]]
+    for _, row in part.iterrows():
+        rows.append(
+            [
+                safe_str(row.get("stock_id", "")),
+                clean_text(row.get("stock_name", ""), 14),
+                clean_text(row.get("volume_breakout_type", ""), 28),
+                clean_text(row.get("volume_breakout_priority", ""), 24),
+                clean_text(row.get("category", row.get("original_category", "")), 18),
+                clean_text(row.get("decision_priority", ""), 22),
+                clean_text(row.get("tdcc_status", ""), 22),
+                clean_text(row.get("repeat_appear_label", ""), 24),
+                num_text(row.get("volume_ratio", ""), 2),
+                pct_text(row.get("return_5d", "")),
+                pct_text(row.get("return_20d", "")),
+                clean_text(row.get("risk_flags", ""), 42),
+                clean_text(row.get("next_volume_breakout_confirmation", ""), 48),
+            ]
+        )
+    return rows
+
+
 def build_full_table_pdf(df: pd.DataFrame, freshness: dict[str, Any], main_date: str, path: Path) -> None:
     style_map = styles()
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -1175,6 +1229,29 @@ def build_full_table_pdf(df: pd.DataFrame, freshness: dict[str, Any], main_date:
     story.append(para("族群性分析 / 今日族群輪動", style_map["h1"]))
     story.append(para("族群排序依多分類共振、嚴格突破與區間轉強、營收低反應搭配 TDCC 支持度綜合判斷。", style_map["normal"]))
     append_context_sections(story, style_map, freshness, [5.0 * cm, 21.5 * cm])
+
+    volume_watch = load_volume_breakout_watch()
+    story.append(Spacer(1, 0.25 * cm))
+    story.append(para("Volume Breakout / Volume Attack Watch", style_map["h2"]))
+    story.append(
+        para(
+            "This section lists price-derived volume breakouts and volume attacks before the normal category tables. It separates strict 60-day breakouts from platform, neckline, range, and right-side volume attacks, then applies TDCC/repeat/overheat risk labels.",
+            style_map["normal"],
+        )
+    )
+    if volume_watch.empty:
+        story.append(para("No volume breakout watch rows were generated for the current report date.", style_map["normal"]))
+    else:
+        for start in range(0, min(len(volume_watch), 60), 18):
+            chunk = volume_watch.iloc[start : start + 18]
+            story.append(
+                make_table(
+                    volume_breakout_table_rows(chunk),
+                    style_map,
+                    [1.0 * cm, 1.3 * cm, 2.8 * cm, 2.3 * cm, 1.8 * cm, 2.0 * cm, 1.8 * cm, 2.0 * cm, 1.1 * cm, 1.0 * cm, 1.0 * cm, 3.6 * cm, 4.2 * cm],
+                )
+            )
+            story.append(Spacer(1, 0.2 * cm))
 
     matrix = sector_matrix(df, warrant_flow_date)
     story.append(para("族群矩陣", style_map["h2"]))

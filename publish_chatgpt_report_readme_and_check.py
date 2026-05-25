@@ -126,6 +126,11 @@ SURGE_MODEL_BACKTEST_CSV = LATEST_DIR / "surge_model_backtest_latest.csv"
 SURGE_MODEL_FEATURE_IMPORTANCE_MD = LATEST_DIR / "surge_model_feature_importance_latest.md"
 SURGE_MODEL_FEATURE_IMPORTANCE_CSV = LATEST_DIR / "surge_model_feature_importance_latest.csv"
 SURGE_MODEL_VALIDATION_MD = LATEST_DIR / "surge_model_validation_latest.md"
+VOLUME_BREAKOUT_WATCH_MD = LATEST_DIR / "volume_breakout_watch_latest.md"
+VOLUME_BREAKOUT_WATCH_CSV = LATEST_DIR / "volume_breakout_watch_latest.csv"
+VOLUME_BREAKOUT_BACKTEST_MD = LATEST_DIR / "volume_breakout_backtest_latest.md"
+VOLUME_BREAKOUT_BACKTEST_CSV = LATEST_DIR / "volume_breakout_backtest_latest.csv"
+VOLUME_BREAKOUT_PACKET_MD = LATEST_DIR / "volume_breakout_chatgpt_packet_latest.md"
 RAW_DATA_FETCH_STATUS_CSV = LATEST_DIR / "raw_data_fetch_status_latest.csv"
 RAW_DATA_FETCH_STATUS_MD = LATEST_DIR / "raw_data_fetch_status_latest.md"
 INDIVIDUAL_STOCK_AVAILABLE_RAW_DATA_INDEX_CSV = LATEST_DIR / "individual_stock_available_raw_data_index.csv"
@@ -549,6 +554,11 @@ def build_readme(
         f"chatgpt_indicator_usage_guide_txt_raw_url={raw_url('main', INDICATOR_USAGE_GUIDE_TXT)}",
         f"chatgpt_indicator_usage_guide_pages_url={pages_url('latest/chatgpt_indicator_usage_guide_latest.md')}",
         f"chatgpt_indicator_usage_guide_txt_pages_url={pages_url('latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt')}",
+        f"volume_breakout_watch_md_raw_url={raw_url('main', VOLUME_BREAKOUT_WATCH_MD)}",
+        f"volume_breakout_watch_csv_raw_url={raw_url('main', VOLUME_BREAKOUT_WATCH_CSV)}",
+        f"volume_breakout_backtest_md_raw_url={raw_url('main', VOLUME_BREAKOUT_BACKTEST_MD)}",
+        f"volume_breakout_backtest_csv_raw_url={raw_url('main', VOLUME_BREAKOUT_BACKTEST_CSV)}",
+        f"volume_breakout_chatgpt_packet_raw_url={raw_url('main', VOLUME_BREAKOUT_PACKET_MD)}",
         f"raw_data_fetch_status_raw_url={raw_url('main', RAW_DATA_FETCH_STATUS_CSV)}",
         f"raw_data_fetch_status_md_raw_url={raw_url('main', RAW_DATA_FETCH_STATUS_MD)}",
         f"raw_data_fetch_status_pages_url={pages_url('latest/raw_data_fetch_status_latest.csv')}",
@@ -1210,6 +1220,11 @@ def main() -> int:
         "chatgpt_indicator_usage_guide_txt_raw_url": raw_url("main", INDICATOR_USAGE_GUIDE_TXT),
         "chatgpt_indicator_usage_guide_pages_url": pages_url("latest/chatgpt_indicator_usage_guide_latest.md"),
         "chatgpt_indicator_usage_guide_txt_pages_url": pages_url("latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt"),
+        "volume_breakout_watch_md_raw_url": raw_url("main", VOLUME_BREAKOUT_WATCH_MD),
+        "volume_breakout_watch_csv_raw_url": raw_url("main", VOLUME_BREAKOUT_WATCH_CSV),
+        "volume_breakout_backtest_md_raw_url": raw_url("main", VOLUME_BREAKOUT_BACKTEST_MD),
+        "volume_breakout_backtest_csv_raw_url": raw_url("main", VOLUME_BREAKOUT_BACKTEST_CSV),
+        "volume_breakout_chatgpt_packet_raw_url": raw_url("main", VOLUME_BREAKOUT_PACKET_MD),
         "raw_data_fetch_status_raw_url": raw_url("main", RAW_DATA_FETCH_STATUS_CSV),
         "raw_data_fetch_status_md_raw_url": raw_url("main", RAW_DATA_FETCH_STATUS_MD),
         "raw_data_fetch_status_pages_url": pages_url("latest/raw_data_fetch_status_latest.csv"),

@@ -42,6 +42,7 @@ DATA_PRICE_DIR = Path("data/daily_price")
 DATA_FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
 DATA_FRESHNESS_MD = LATEST_DIR / "data_freshness_latest.md"
 ALL_CANDIDATES_CSV = LATEST_DIR / "all_candidates_latest.csv"
+VOLUME_BREAKOUT_WATCH_CSV = LATEST_DIR / "volume_breakout_watch_latest.csv"
 CHART_MANIFEST_CSV = LATEST_DIR / "chart_manifest.csv"
 PDF_KLINE_DIR = LATEST_DIR / "charts" / "pdf_kline"
 PDF_KLINE_STATUS_CSV = LATEST_DIR / "pdf_kline_chart_status_latest.csv"
@@ -1770,6 +1771,56 @@ def build_full_markdown(
     ]
 
     display_cols = [col for col in display_cols if col in candidates.columns]
+
+    if VOLUME_BREAKOUT_WATCH_CSV.exists():
+        try:
+            volume_watch = pd.read_csv(VOLUME_BREAKOUT_WATCH_CSV, dtype=str, keep_default_na=False)
+        except Exception:
+            volume_watch = pd.DataFrame()
+    else:
+        volume_watch = pd.DataFrame()
+
+    lines.append("## 帶量突破 / 放量攻擊觀察")
+    lines.append("")
+    lines.append("- 這個區塊由程式端從日價 raw data 偵測，會列出嚴格 60 日突破、平台突破、頸線突破、右側放量攻擊與異常放量上漲。")
+    lines.append("- 它是完整報告的可見度與回測層，不等於單獨買進理由；仍需搭配 TDCC、連續上榜、過熱與假突破風險。")
+    lines.append("")
+    volume_cols = [
+        "volume_breakout_rank",
+        "stock_id",
+        "stock_name",
+        "volume_breakout_type",
+        "volume_breakout_priority",
+        "selection_status",
+        "category",
+        "pattern_stage",
+        "decision_priority",
+        "tdcc_status",
+        "repeat_appear_label",
+        "volume_ratio",
+        "return_5d",
+        "return_20d",
+        "risk_flags",
+        "next_volume_breakout_confirmation",
+    ]
+    volume_cols = [col for col in volume_cols if col in volume_watch.columns]
+    if volume_watch.empty or not volume_cols:
+        lines.append("_今日沒有產出帶量突破觀察名單。_")
+        lines.append("")
+    else:
+        lines.append(f"- watch_rows: `{len(volume_watch)}`")
+        lines.append("")
+        lines.append("| " + " | ".join(volume_cols) + " |")
+        lines.append("| " + " | ".join(["---"] * len(volume_cols)) + " |")
+        for _, row in volume_watch.head(80).iterrows():
+            values = []
+            for col in volume_cols:
+                value = safe_str(row.get(col, "")).replace("\n", " ").replace("|", "/")
+                if len(value) > 120:
+                    value = value[:120] + "..."
+                values.append(value)
+            lines.append("| " + " | ".join(values) + " |")
+        lines.append("")
 
     for category, part in get_category_groups(candidates):
         cn = CATEGORY_CN.get(category, safe_str(part["category_cn"].iloc[0]) if "category_cn" in part.columns else category)

@@ -71,6 +71,11 @@ SURGE_MODEL_BACKTEST_CSV = LATEST_DIR / "surge_model_backtest_latest.csv"
 SURGE_MODEL_FEATURE_IMPORTANCE_MD = LATEST_DIR / "surge_model_feature_importance_latest.md"
 SURGE_MODEL_FEATURE_IMPORTANCE_CSV = LATEST_DIR / "surge_model_feature_importance_latest.csv"
 SURGE_MODEL_VALIDATION_MD = LATEST_DIR / "surge_model_validation_latest.md"
+VOLUME_BREAKOUT_WATCH_MD = LATEST_DIR / "volume_breakout_watch_latest.md"
+VOLUME_BREAKOUT_WATCH_CSV = LATEST_DIR / "volume_breakout_watch_latest.csv"
+VOLUME_BREAKOUT_BACKTEST_MD = LATEST_DIR / "volume_breakout_backtest_latest.md"
+VOLUME_BREAKOUT_BACKTEST_CSV = LATEST_DIR / "volume_breakout_backtest_latest.csv"
+VOLUME_BREAKOUT_PACKET_MD = LATEST_DIR / "volume_breakout_chatgpt_packet_latest.md"
 
 SUMMARY_LATEST_MD = LATEST_DIR / "daily_market_summary_latest.md"
 FULL_LATEST_MD = LATEST_DIR / "daily_market_full_latest.md"
@@ -425,6 +430,16 @@ def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path],
     lines.append(f"status: {'generated' if DAILY_CANDIDATE_DECISION_CSV.exists() and DAILY_CANDIDATE_DECISION_PACKET_MD.exists() else 'missing'}")
     lines.append("fields: pattern_mapped_category,decision_priority,decision_score,downgrade_flags,risk_tags,why_selected,why_downgraded,next_confirmation,must_not_overstate")
     lines.append("note: This is the program-side ranking/downgrade layer. ChatGPT should use it before memory-based interpretation.")
+    lines.append("")
+    lines.append("VOLUME BREAKOUT WATCH")
+    lines.append(f"volume_breakout_watch_md_raw_url: {raw_url(VOLUME_BREAKOUT_WATCH_MD)}")
+    lines.append(f"volume_breakout_watch_csv_raw_url: {raw_url(VOLUME_BREAKOUT_WATCH_CSV)}")
+    lines.append(f"volume_breakout_backtest_md_raw_url: {raw_url(VOLUME_BREAKOUT_BACKTEST_MD)}")
+    lines.append(f"volume_breakout_backtest_csv_raw_url: {raw_url(VOLUME_BREAKOUT_BACKTEST_CSV)}")
+    lines.append(f"volume_breakout_chatgpt_packet_raw_url: {raw_url(VOLUME_BREAKOUT_PACKET_MD)}")
+    lines.append(f"status: {'generated' if VOLUME_BREAKOUT_WATCH_CSV.exists() and VOLUME_BREAKOUT_PACKET_MD.exists() else 'missing'}")
+    lines.append("fields: volume_breakout_type,volume_breakout_priority,selection_status,not_selected_reason,risk_flags,next_volume_breakout_confirmation")
+    lines.append("note: Strict breakout is not the same as all volume-confirmed attacks. Use this packet when asked about 帶量突破 / 放量突破 / 放量攻擊.")
     lines.append("")
     lines.append("WARRANT MARKET ANALYSIS")
     lines.append(f"market_report_md_raw_url: {raw_url(WARRANT_MARKET_MD)}")
