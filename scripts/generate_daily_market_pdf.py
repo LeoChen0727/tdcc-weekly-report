@@ -1179,6 +1179,7 @@ def volume_breakout_table_rows(part: pd.DataFrame) -> list[list[Any]]:
         "code",
         "name",
         "volume setup",
+        "scope",
         "priority",
         "routed category",
         "decision",
@@ -1196,6 +1197,7 @@ def volume_breakout_table_rows(part: pd.DataFrame) -> list[list[Any]]:
                 safe_str(row.get("stock_id", "")),
                 clean_text(row.get("stock_name", ""), 14),
                 clean_text(row.get("volume_breakout_type", ""), 28),
+                clean_text(row.get("volume_watch_scope", ""), 16),
                 clean_text(row.get("volume_breakout_priority", ""), 24),
                 clean_text(row.get("category", row.get("original_category", "")), 18),
                 clean_text(row.get("decision_priority", ""), 22),
@@ -1248,7 +1250,7 @@ def build_full_table_pdf(df: pd.DataFrame, freshness: dict[str, Any], main_date:
                 make_table(
                     volume_breakout_table_rows(chunk),
                     style_map,
-                    [1.0 * cm, 1.3 * cm, 2.8 * cm, 2.3 * cm, 1.8 * cm, 2.0 * cm, 1.8 * cm, 2.0 * cm, 1.1 * cm, 1.0 * cm, 1.0 * cm, 3.6 * cm, 4.2 * cm],
+                    [0.9 * cm, 1.2 * cm, 2.6 * cm, 1.5 * cm, 2.1 * cm, 1.7 * cm, 1.8 * cm, 1.6 * cm, 1.8 * cm, 1.0 * cm, 0.9 * cm, 0.9 * cm, 3.2 * cm, 4.0 * cm],
                 )
             )
             story.append(Spacer(1, 0.2 * cm))

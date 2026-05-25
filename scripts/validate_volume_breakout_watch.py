@@ -23,6 +23,7 @@ WATCH_REQUIRED_COLUMNS = [
     "stock_id",
     "stock_name",
     "volume_breakout_type",
+    "volume_watch_scope",
     "volume_breakout_priority",
     "selection_status",
     "risk_flags",

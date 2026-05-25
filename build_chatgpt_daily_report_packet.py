@@ -438,7 +438,7 @@ def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path],
     lines.append(f"volume_breakout_backtest_csv_raw_url: {raw_url(VOLUME_BREAKOUT_BACKTEST_CSV)}")
     lines.append(f"volume_breakout_chatgpt_packet_raw_url: {raw_url(VOLUME_BREAKOUT_PACKET_MD)}")
     lines.append(f"status: {'generated' if VOLUME_BREAKOUT_WATCH_CSV.exists() and VOLUME_BREAKOUT_PACKET_MD.exists() else 'missing'}")
-    lines.append("fields: volume_breakout_type,volume_breakout_priority,selection_status,not_selected_reason,risk_flags,next_volume_breakout_confirmation")
+    lines.append("fields: volume_breakout_type,volume_watch_scope,volume_breakout_priority,selection_status,not_selected_reason,risk_flags,next_volume_breakout_confirmation")
     lines.append("note: Strict breakout is not the same as all volume-confirmed attacks. Use this packet when asked about 帶量突破 / 放量突破 / 放量攻擊.")
     lines.append("")
     lines.append("WARRANT MARKET ANALYSIS")
