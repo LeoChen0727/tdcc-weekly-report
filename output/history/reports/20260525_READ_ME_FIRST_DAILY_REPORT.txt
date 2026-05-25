@@ -1,9 +1,17 @@
 main_price_date=20260525
 report_ready=True
-commit_sha=d54f60ce15413b501f9059e81227ce617359af23
+commit_sha=b49a4515275c510afc32dd217125b8516874d025
+readme_latest_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT.txt
+readme_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/READ_ME_FIRST_DAILY_REPORT.txt
+readme_date_stamped_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT_20260525.txt
+readme_date_stamped_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/READ_ME_FIRST_DAILY_REPORT_20260525.txt
+readme_date_stamped_github_api_url=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/READ_ME_FIRST_DAILY_REPORT_20260525.txt?ref=main
+readme_history_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/history/reports/20260525_READ_ME_FIRST_DAILY_REPORT.txt
+readme_history_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260525_READ_ME_FIRST_DAILY_REPORT.txt
+readme_cache_bypass_order=readme_date_stamped_pages_url,readme_date_stamped_raw_url,readme_date_stamped_github_api_url,readme_history_pages_url,readme_history_raw_url,readme_latest_pages_url,readme_latest_raw_url
 preferred_chatgpt_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt
 packet_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt
-packet_commit_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/d54f60ce15413b501f9059e81227ce617359af23/output/history/reports/20260525_CHATGPT_DAILY_REPORT_PACKET.txt
+packet_commit_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/b49a4515275c510afc32dd217125b8516874d025/output/history/reports/20260525_CHATGPT_DAILY_REPORT_PACKET.txt
 packet_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/chatgpt_daily_report_packet_latest.txt
 packet_github_api_url=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/chatgpt_daily_report_packet_latest.txt?ref=main
 summary_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_summary_latest.md
@@ -107,6 +115,8 @@ read_order=packet_pages_url,packet_commit_raw_url,packet_latest_raw_url,packet_g
 
 RULES:
 1. Read this entry file first.
+1a. If latest READ_ME_FIRST appears stale, read readme_date_stamped_pages_url, then readme_date_stamped_raw_url, then readme_date_stamped_github_api_url.
+1b. If the date-stamped GitHub API URL is used, decode the JSON content field from base64 before parsing key=value lines.
 2. Read rules_pages_url or rules_raw_url to load report format rules.
 3. Read preferred_chatgpt_url for the packet.
 4. If preferred_chatgpt_url fails, follow read_order.

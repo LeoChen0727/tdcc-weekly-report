@@ -554,10 +554,12 @@ jobs:
           git pull --rebase --autostash origin "$TARGET_BRANCH" || true
 
           git add output/latest/READ_ME_FIRST_DAILY_REPORT.txt || true
+          git add output/latest/READ_ME_FIRST_DAILY_REPORT_*.txt || true
           git add output/latest/report_publish_check_latest.md || true
           git add output/latest/report_publish_check_latest.json || true
 
           git add docs/latest/READ_ME_FIRST_DAILY_REPORT.txt || true
+          git add docs/latest/READ_ME_FIRST_DAILY_REPORT_*.txt || true
           git add docs/latest/chatgpt_daily_report_packet_latest.txt || true
           git add docs/latest/CHATGPT_DAILY_REPORT_RULES.txt || true
           git add docs/latest/pdf_kline_chart_status_latest.md || true
@@ -674,6 +676,7 @@ jobs:
           git add output/latest/event_calendar_validation_latest.md || true
           git add output/latest/event_calendar_validation_latest.json || true
           git add output/history/reports/ || true
+          git add docs/history/reports/ || true
 
           git add publish_chatgpt_report_readme_and_check.py || true
           git add scripts/generate_daily_market_pdf.py || true

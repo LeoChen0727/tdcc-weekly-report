@@ -20,6 +20,7 @@ PAGES_PREFIX = "https://LeoChen0727.github.io/tdcc-weekly-report"
 LATEST_DIR = Path("output/latest")
 HISTORY_REPORT_DIR = Path("output/history/reports")
 DOCS_LATEST_DIR = Path("docs/latest")
+DOCS_HISTORY_REPORT_DIR = Path("docs/history/reports")
 
 DATA_FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
 DATA_FRESHNESS_MD = LATEST_DIR / "data_freshness_latest.md"
@@ -375,6 +376,11 @@ def build_readme(
     main_price_date: str,
     report_ready: str,
     commit_sha: str,
+    readme_date_stamped_pages_url: str,
+    readme_date_stamped_raw_url: str,
+    readme_date_stamped_github_api_url: str,
+    readme_history_pages_url: str,
+    readme_history_raw_url: str,
     packet_pages_url: str,
     packet_latest_raw_url: str,
     packet_commit_raw_url: str,
@@ -443,6 +449,14 @@ def build_readme(
         f"main_price_date={main_price_date}",
         f"report_ready={report_ready}",
         f"commit_sha={commit_sha}",
+        f"readme_latest_pages_url={pages_url('latest/READ_ME_FIRST_DAILY_REPORT.txt')}",
+        f"readme_latest_raw_url={raw_url('main', README_TXT)}",
+        f"readme_date_stamped_pages_url={readme_date_stamped_pages_url}",
+        f"readme_date_stamped_raw_url={readme_date_stamped_raw_url}",
+        f"readme_date_stamped_github_api_url={readme_date_stamped_github_api_url}",
+        f"readme_history_pages_url={readme_history_pages_url}",
+        f"readme_history_raw_url={readme_history_raw_url}",
+        "readme_cache_bypass_order=readme_date_stamped_pages_url,readme_date_stamped_raw_url,readme_date_stamped_github_api_url,readme_history_pages_url,readme_history_raw_url,readme_latest_pages_url,readme_latest_raw_url",
         f"preferred_chatgpt_url={preferred_chatgpt_url}",
         f"packet_pages_url={packet_pages_url}",
         f"packet_commit_raw_url={packet_commit_raw_url}",
@@ -549,6 +563,8 @@ def build_readme(
         "",
         "RULES:",
         "1. Read this entry file first.",
+        "1a. If latest READ_ME_FIRST appears stale, read readme_date_stamped_pages_url, then readme_date_stamped_raw_url, then readme_date_stamped_github_api_url.",
+        "1b. If the date-stamped GitHub API URL is used, decode the JSON content field from base64 before parsing key=value lines.",
         "2. Read rules_pages_url or rules_raw_url to load report format rules.",
         "3. Read preferred_chatgpt_url for the packet.",
         "4. If preferred_chatgpt_url fails, follow read_order.",
@@ -727,6 +743,15 @@ def main() -> int:
     if not commit_sha:
         raise RuntimeError("artifact commit sha is missing")
 
+    readme_date_stamped = LATEST_DIR / f"READ_ME_FIRST_DAILY_REPORT_{main_price_date}.txt"
+    docs_readme_date_stamped = DOCS_LATEST_DIR / f"READ_ME_FIRST_DAILY_REPORT_{main_price_date}.txt"
+    history_readme = HISTORY_REPORT_DIR / f"{main_price_date}_READ_ME_FIRST_DAILY_REPORT.txt"
+    docs_history_readme = DOCS_HISTORY_REPORT_DIR / f"{main_price_date}_READ_ME_FIRST_DAILY_REPORT.txt"
+    readme_date_stamped_pages_url = pages_url(f"latest/{docs_readme_date_stamped.name}")
+    readme_date_stamped_raw_url = raw_url("main", readme_date_stamped)
+    readme_date_stamped_github_api_url = github_api_url(readme_date_stamped, ref="main")
+    readme_history_pages_url = pages_url(f"history/reports/{docs_history_readme.name}")
+    readme_history_raw_url = raw_url("main", history_readme)
     history_packet = HISTORY_REPORT_DIR / f"{main_price_date}_CHATGPT_DAILY_REPORT_PACKET.txt"
 
     packet_pages_url = pages_url("latest/chatgpt_daily_report_packet_latest.txt")
@@ -816,6 +841,11 @@ def main() -> int:
         main_price_date=main_price_date,
         report_ready=report_ready,
         commit_sha=commit_sha,
+        readme_date_stamped_pages_url=readme_date_stamped_pages_url,
+        readme_date_stamped_raw_url=readme_date_stamped_raw_url,
+        readme_date_stamped_github_api_url=readme_date_stamped_github_api_url,
+        readme_history_pages_url=readme_history_pages_url,
+        readme_history_raw_url=readme_history_raw_url,
         packet_pages_url=packet_pages_url,
         packet_latest_raw_url=packet_latest_raw_url,
         packet_commit_raw_url=packet_commit_raw_url,
@@ -882,10 +912,11 @@ def main() -> int:
     README_TXT.write_text(readme, encoding="utf-8")
     DOCS_README_TXT.write_text(readme, encoding="utf-8")
     HISTORY_REPORT_DIR.mkdir(parents=True, exist_ok=True)
-    (HISTORY_REPORT_DIR / f"{main_price_date}_READ_ME_FIRST_DAILY_REPORT.txt").write_text(
-        readme,
-        encoding="utf-8",
-    )
+    DOCS_HISTORY_REPORT_DIR.mkdir(parents=True, exist_ok=True)
+    readme_date_stamped.write_text(readme, encoding="utf-8")
+    docs_readme_date_stamped.write_text(readme, encoding="utf-8")
+    history_readme.write_text(readme, encoding="utf-8")
+    docs_history_readme.write_text(readme, encoding="utf-8")
 
     publish_check_md = build_publish_check_md(
         main_price_date=main_price_date,
@@ -916,6 +947,22 @@ def main() -> int:
         "main_price_date": main_price_date,
         "report_ready": report_ready,
         "commit_sha": commit_sha,
+        "readme_latest_pages_url": pages_url("latest/READ_ME_FIRST_DAILY_REPORT.txt"),
+        "readme_latest_raw_url": raw_url("main", README_TXT),
+        "readme_date_stamped_pages_url": readme_date_stamped_pages_url,
+        "readme_date_stamped_raw_url": readme_date_stamped_raw_url,
+        "readme_date_stamped_github_api_url": readme_date_stamped_github_api_url,
+        "readme_history_pages_url": readme_history_pages_url,
+        "readme_history_raw_url": readme_history_raw_url,
+        "readme_cache_bypass_order": [
+            "readme_date_stamped_pages_url",
+            "readme_date_stamped_raw_url",
+            "readme_date_stamped_github_api_url",
+            "readme_history_pages_url",
+            "readme_history_raw_url",
+            "readme_latest_pages_url",
+            "readme_latest_raw_url",
+        ],
         "preferred_chatgpt_url": preferred,
         "read_order": [
             "packet_pages_url",
@@ -1029,6 +1076,10 @@ def main() -> int:
 
     print(f"Saved: {README_TXT}")
     print(f"Saved: {DOCS_README_TXT}")
+    print(f"Saved: {readme_date_stamped}")
+    print(f"Saved: {docs_readme_date_stamped}")
+    print(f"Saved: {history_readme}")
+    print(f"Saved: {docs_history_readme}")
     print(f"Saved: {PUBLISH_CHECK_MD}")
     print(f"Saved: {PUBLISH_CHECK_JSON}")
     print(f"preferred_chatgpt_url={preferred}")
