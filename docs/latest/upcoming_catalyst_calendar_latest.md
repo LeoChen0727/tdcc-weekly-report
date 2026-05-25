@@ -1,7 +1,7 @@
 # Upcoming Catalyst Calendar
 
-- generated_at: `2026-05-26 01:21:38 Asia/Taipei`
-- rows: `567`
+- generated_at: `2026-05-26 02:01:31 Asia/Taipei`
+- rows: `597`
 - note: Calendar proximity is a reminder, not a confirmed bullish catalyst.
 
 ## Company / Stock Calendar
@@ -22,6 +22,8 @@
 | 20260528 | 20260528 | 1708 | 東鹼 | ex_dividend | confirmed | 2 | within_3d | dividend_calendar | cash_dividend=1.60000000; ex_right_dividend_flag=息 |
 | 20260528 | 20260528 | 3717 | 聯嘉投控 | ex_right | confirmed | 2 | within_3d | dividend_calendar | cash_dividend=0.00000000; ex_right_dividend_flag=權 |
 | 20260528 | 20260528 | 4585 | 達明 | ex_dividend | confirmed | 2 | within_3d | dividend_calendar | cash_dividend=1.00000000; ex_right_dividend_flag=息 |
+| 20260601 | 20260610 | 0050 | 元大台灣50 | monthly_revenue_expected_window | expected_window | 6 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
+| 20260601 | 20260610 | 0052 | 富邦科技 | monthly_revenue_expected_window | expected_window | 6 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
 | 20260601 | 20260610 | 0056 | 元大高股息 | monthly_revenue_expected_window | expected_window | 6 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
 | 20260601 | 20260610 | 1215 | 卜蜂 | monthly_revenue_expected_window | expected_window | 6 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
 | 20260601 | 20260610 | 1304 | 台聚 | monthly_revenue_expected_window | expected_window | 6 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
@@ -51,8 +53,10 @@
 | 20260601 | 20260610 | 1708 | 東鹼 | monthly_revenue_expected_window | expected_window | 6 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
 | 20260601 | 20260610 | 1709 | 和益 | monthly_revenue_expected_window | expected_window | 6 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
 | 20260601 | 20260610 | 1710 | 東聯 | monthly_revenue_expected_window | expected_window | 6 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
+| 20260601 | 20260610 | 1711 | 永光 | monthly_revenue_expected_window | expected_window | 6 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
 | 20260601 | 20260610 | 1714 | 和桐 | monthly_revenue_expected_window | expected_window | 6 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
 | 20260601 | 20260610 | 1717 | 長興 | monthly_revenue_expected_window | expected_window | 6 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
+| 20260601 | 20260610 | 1721 | 三晃 | monthly_revenue_expected_window | expected_window | 6 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
 | 20260601 | 20260610 | 1722 | 台肥 | monthly_revenue_expected_window | expected_window | 6 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
 | 20260601 | 20260610 | 1773 | 勝一 | monthly_revenue_expected_window | expected_window | 6 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
 | 20260601 | 20260610 | 1802 | 台玻 | monthly_revenue_expected_window | expected_window | 6 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
@@ -84,7 +88,3 @@
 | 20260601 | 20260610 | 2208 | 台船 | monthly_revenue_expected_window | expected_window | 6 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
 | 20260601 | 20260610 | 2233 | 宇隆 | monthly_revenue_expected_window | expected_window | 6 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
 | 20260601 | 20260610 | 2236 | 百達-KY | monthly_revenue_expected_window | expected_window | 6 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
-| 20260601 | 20260610 | 2241 | 艾姆勒 | monthly_revenue_expected_window | expected_window | 6 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
-| 20260601 | 20260610 | 2258 | 鴻華先進-創 | monthly_revenue_expected_window | expected_window | 6 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
-| 20260601 | 20260610 | 2301 | 光寶科 | monthly_revenue_expected_window | expected_window | 6 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
-| 20260601 | 20260610 | 2302 | 麗正 | monthly_revenue_expected_window | expected_window | 6 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |

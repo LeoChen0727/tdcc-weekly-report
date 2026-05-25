@@ -2,6 +2,6 @@
 
 status: pass
 main_price_date: `20260526`
-signal_log_rows: `2123`
-performance_rows: `2123`
-summary_rows: `61`
+signal_log_rows: `2182`
+performance_rows: `2182`
+summary_rows: `62`

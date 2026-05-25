@@ -1,7 +1,7 @@
 # SURGE MODEL CHATGPT PACKET
 
 ## Metadata
-- generated_at: 2026-05-26 01:29:11 Asia/Taipei
+- generated_at: 2026-05-26 02:09:35 Asia/Taipei
 - main_price_date: 20260526
 - surge_definition: surge_5d=future 5d high >= 20%; surge_10d=future 10d high >= 25%; surge_20d=future 20d high >= 35%
 - feature_panel_rows: 262835
