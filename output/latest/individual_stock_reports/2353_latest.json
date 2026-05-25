@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-05-23 15:43:05 Asia/Taipei",
+  "generated_at": "2026-05-25 14:24:57 Asia/Taipei",
   "status": "generated",
   "stock_id": "2353",
   "stock_name": "宏碁",
-  "main_price_date": "20260523",
+  "main_price_date": "20260524",
   "analysis_days": 180,
-  "available_price_days": 133,
+  "available_price_days": 134,
   "priority": "最優先追蹤",
   "latest_md_path": "output/latest/individual_stock_reports/2353_latest.md",
   "latest_pdf_path": "output/latest/individual_stock_reports/2353_latest.pdf",
@@ -16,6 +16,15 @@
   "raw_md_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_reports/2353_latest.md",
   "raw_pdf_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_reports/2353_latest.pdf",
   "raw_chart_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_reports/2353_latest.png",
-  "history_md_path": "output/history/individual_stock_reports/20260523_2353.md",
-  "history_pdf_path": "output/history/individual_stock_reports/20260523_2353.pdf"
+  "tdcc_history_source": "data/tdcc_stock_history/2353.csv",
+  "tdcc_history_weeks": 4,
+  "tdcc_price_phase": "neutral_or_unclear",
+  "tdcc_history_chart_path": "output/latest/charts/2353_tdcc_history.png",
+  "tdcc_history_chart_raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/charts/2353_tdcc_history.png",
+  "sell_strategy_backtest_path": "output/history/sell_strategy_backtest/2353_sell_strategy_backtest.csv",
+  "sell_strategy_summary_path": "output/history/sell_strategy_backtest/2353_sell_strategy_summary.md",
+  "sell_strategy_performance_latest_csv": "output/latest/sell_strategy_performance_latest.csv",
+  "sell_strategy_performance_latest_md": "output/latest/sell_strategy_performance_latest.md",
+  "history_md_path": "output/history/individual_stock_reports/20260524_2353.md",
+  "history_pdf_path": "output/history/individual_stock_reports/20260524_2353.pdf"
 }

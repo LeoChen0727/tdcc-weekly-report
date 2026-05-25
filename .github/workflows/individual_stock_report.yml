@@ -49,7 +49,10 @@ jobs:
 
           git add output/latest/individual_stock_reports/ || true
           git add output/latest/charts/ || true
+          git add output/latest/sell_strategy_performance_latest.csv || true
+          git add output/latest/sell_strategy_performance_latest.md || true
           git add output/history/individual_stock_reports/ || true
+          git add output/history/sell_strategy_backtest/ || true
           git add docs/latest/individual_stock_reports/ || true
 
           git status --short
