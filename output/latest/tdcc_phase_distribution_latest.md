@@ -1,7 +1,10 @@
 # TDCC Phase Distribution
 
-- generated_at: 2026-05-25 10:12:56 Asia/Taipei
+- generated_at: 2026-05-25 11:16:06 Asia/Taipei
 - latest_signal_count: 1195
+- phase_mature_d5_count: 0
+- phase_mature_d10_count: 0
+- phase_mature_d20_count: 0
 
 ## Phase 分布
 
@@ -105,7 +108,9 @@
 
 ## Phase 後續績效
 
-D+5 / D+10 / D+20 尚未成熟，pending 不可視為正面或負面。
+phase-level D+5 尚未成熟，不可做 phase 勝率結論。
+phase-level D+10 尚未成熟，不可做 phase 勝率結論。
+phase-level D+20 尚未成熟，不可做 phase 勝率結論。
 
 | tdcc_price_phase | mature_sample_d5 | avg_ret_d5 | avg_relative_ret_d5 | mature_sample_d10 | avg_ret_d10 | avg_relative_ret_d10 | mature_sample_d20 | avg_ret_d20 | avg_relative_ret_d20 | avg_mfe_d10 | avg_mae_d10 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |

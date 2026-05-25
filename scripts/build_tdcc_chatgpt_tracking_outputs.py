@@ -45,6 +45,7 @@ README_PATHS = [
 
 TOP_N = 50
 PACKET_N = 30
+RISK_N = 20
 
 REQUIRED_COLUMNS = [
     "tdcc_consecutive_up_weeks",
@@ -81,6 +82,7 @@ STRENGTH_COLUMNS = [
     "volume_ratio_20d",
     "theme_breadth_score",
     "risk_label",
+    "risk_bucket",
     "interpretation",
 ]
 
@@ -103,7 +105,38 @@ ABM_COLUMNS = [
     "volume_ratio_20d",
     "theme_breadth_score",
     "accumulation_label",
+    "tracking_priority",
+    "trigger_to_watch",
     "interpretation",
+]
+
+RISK_COLUMNS = [
+    "stock_id",
+    "stock_name",
+    "theme",
+    "tdcc_strength_score",
+    "tdcc_price_phase",
+    "price_return_20d",
+    "relative_return_vs_benchmark",
+    "distance_ma20_pct",
+    "volume_ratio_20d",
+    "risk_bucket",
+    "interpretation",
+]
+
+PHASE_PERFORMANCE_COLUMNS = [
+    "tdcc_price_phase",
+    "mature_sample_d5",
+    "avg_ret_d5",
+    "avg_relative_ret_d5",
+    "mature_sample_d10",
+    "avg_ret_d10",
+    "avg_relative_ret_d10",
+    "mature_sample_d20",
+    "avg_ret_d20",
+    "avg_relative_ret_d20",
+    "avg_mfe_d10",
+    "avg_mae_d10",
 ]
 
 
@@ -143,6 +176,8 @@ def signal_id_frame(df: pd.DataFrame) -> pd.DataFrame:
         out["code"] = out["stock_id"]
     if "stock_id" not in out.columns and "code" in out.columns:
         out["stock_id"] = out["code"]
+    if "signal_date" not in out.columns and "signal_trade_date" in out.columns:
+        out["signal_date"] = out["signal_trade_date"]
     if "signal_date" not in out.columns:
         out["signal_date"] = ""
     if "signal_id" not in out.columns:
@@ -150,6 +185,14 @@ def signal_id_frame(df: pd.DataFrame) -> pd.DataFrame:
             out["signal_date"].astype(str)
             + "_"
             + out.get("code", "").astype(str)
+            + "_normalized"
+        )
+    else:
+        empty = out["signal_id"].astype(str).isin(["", "nan", "None", "<NA>"])
+        out.loc[empty, "signal_id"] = (
+            out.loc[empty, "signal_date"].astype(str)
+            + "_"
+            + out.loc[empty, "code"].astype(str)
             + "_normalized"
         )
     return out
@@ -170,6 +213,7 @@ def prepare_latest_frame() -> tuple[pd.DataFrame, dict[str, Any]]:
         "ranking_quality": "complete",
         "missing_columns": [],
         "latest_signal_date": "",
+        "benchmark_available": "unknown",
     }
 
     if snapshot.empty and abm.empty:
@@ -238,6 +282,9 @@ def prepare_latest_frame() -> tuple[pd.DataFrame, dict[str, Any]]:
             sources["missing_columns"].append(col)
 
     sources["latest_signal_date"] = latest_date(base)
+    if "relative_return_vs_benchmark" in base.columns:
+        available = numeric_series(base, "relative_return_vs_benchmark").notna().sum()
+        sources["benchmark_available"] = "yes" if available > 0 else "no"
     if sources["missing_columns"]:
         sources["ranking_quality"] = "partial"
 
@@ -257,16 +304,14 @@ def add_strength_fields(df: pd.DataFrame) -> None:
         over_1000_up = over_1000_up | (numeric_series(df, "tdcc_1w_change_1000", 0) > 0)
     if "tdcc_1w_change_800" in df.columns:
         over_800_up = over_800_up | (numeric_series(df, "tdcc_1w_change_800", 0) > 0)
-
-    score = (
+    df["tdcc_strength_score"] = (
         all_up.astype(int) * 30
         + high_up.astype(int) * 20
         + weeks * 10
         + breadth * 10
         + over_1000_up.astype(int) * 10
         + over_800_up.astype(int) * 5
-    )
-    df["tdcc_strength_score"] = score.round(2)
+    ).round(2)
 
 
 def risk_label(phase: Any) -> str:
@@ -282,6 +327,20 @@ def risk_label(phase: Any) -> str:
         "insufficient_tdcc_history": "insufficient_data",
         "neutral_or_unclear": "neutral",
     }.get(phase_text, "neutral")
+
+
+def risk_bucket(phase: Any) -> str:
+    phase_text = safe_str(phase)
+    return {
+        "tdcc_leading_price": "strong_but_pre_move",
+        "tdcc_price_confirmed": "strong_confirmed",
+        "price_leading_tdcc": "strong_but_late",
+        "overheated_after_tdcc": "strong_but_overheated",
+        "tdcc_price_divergence": "strong_but_divergent",
+        "failed_after_tdcc": "strong_but_divergent",
+        "insufficient_price_context": "insufficient_data",
+        "insufficient_tdcc_history": "insufficient_data",
+    }.get(phase_text, "insufficient_data" if "insufficient" in phase_text else "neutral")
 
 
 def phase_interpretation(phase: Any) -> str:
@@ -318,23 +377,77 @@ def accumulation_label(row: pd.Series) -> str:
     return "watch_only"
 
 
-def write_strength_top(df: pd.DataFrame, meta: dict[str, Any]) -> pd.DataFrame:
-    if df.empty:
-        write_csv(pd.DataFrame(columns=STRENGTH_COLUMNS), STRENGTH_CSV)
-        STRENGTH_MD.write_text("# TDCC Strength Ranking Top\n\n目前沒有可用資料。\n", encoding="utf-8")
-        return pd.DataFrame(columns=STRENGTH_COLUMNS)
+def tracking_priority(row: pd.Series) -> str:
+    phase = safe_str(row.get("tdcc_price_phase"))
+    setup = safe_str(row.get("setup_type"))
+    label = safe_str(row.get("accumulation_label"))
+    abm = to_number(row.get("abm_score"), 0)
+    weeks = to_number(row.get("tdcc_consecutive_up_weeks"), 0)
+    price20 = to_number(row.get("price_return_20d"))
+    dist20 = to_number(row.get("distance_ma20_pct"))
+    vol20 = to_number(row.get("volume_ratio_20d"))
+    rel = to_number(row.get("relative_return_vs_benchmark"))
 
-    top = df.copy()
-    top["risk_label"] = top["tdcc_price_phase"].map(risk_label)
-    top["interpretation"] = top["tdcc_price_phase"].map(phase_interpretation)
-    top = top.sort_values(["tdcc_strength_score", "tdcc_consecutive_up_weeks", "stock_id"], ascending=[False, False, True])
-    top = top.head(TOP_N).copy()
-    top["rank"] = range(1, len(top) + 1)
-    for col in STRENGTH_COLUMNS:
-        if col not in top.columns:
-            top[col] = ""
-    out = top[STRENGTH_COLUMNS].copy()
-    for col in [
+    if phase in {"insufficient_price_context", "insufficient_tdcc_history"} or math.isnan(rel):
+        return "D_insufficient_data"
+    if (
+        phase == "tdcc_leading_price"
+        and setup == "quiet_accumulation"
+        and label == "prime_pre_move"
+        and abm >= 90
+        and weeks >= 2
+        and not math.isnan(price20)
+        and -3 <= price20 <= 8
+        and not math.isnan(dist20)
+        and dist20 <= 6
+        and not math.isnan(vol20)
+        and vol20 <= 1.5
+        and rel >= 0
+    ):
+        return "A_prime_watch"
+    if phase == "tdcc_leading_price" and label in {"prime_pre_move", "watch_pre_move"} and abm >= 80:
+        if (not math.isnan(price20) and price20 < -10) or rel < -5 or (not math.isnan(price20) and price20 > 20):
+            return "C_weak_or_discounted"
+        return "B_confirm_needed"
+    if phase == "tdcc_leading_price":
+        return "C_weak_or_discounted"
+    return "D_insufficient_data" if "insufficient" in phase else "C_weak_or_discounted"
+
+
+def trigger_to_watch(row: pd.Series) -> str:
+    priority = safe_str(row.get("tracking_priority"))
+    rel = to_number(row.get("relative_return_vs_benchmark"))
+    price20 = to_number(row.get("price_return_20d"))
+    dist20 = to_number(row.get("distance_ma20_pct"))
+    vol20 = to_number(row.get("volume_ratio_20d"))
+    phase = safe_str(row.get("tdcc_price_phase"))
+
+    triggers: list[str] = []
+    if priority == "A_prime_watch":
+        triggers.extend(["量縮守住 MA20", "相對 benchmark 維持轉強", "避免爆量長上影"])
+    else:
+        if math.isnan(rel) or rel < 0:
+            triggers.append("相對 benchmark 轉正")
+        if math.isnan(dist20) or dist20 < 0:
+            triggers.append("站回 MA20")
+        elif dist20 <= 6:
+            triggers.append("量縮守住 MA20")
+        else:
+            triggers.append("等待乖離收斂至 MA20 附近")
+        if not math.isnan(vol20) and vol20 > 1.5:
+            triggers.append("量能降溫後再確認")
+        else:
+            triggers.append("溫和放量站上 5 日 / 10 日均線")
+        if not math.isnan(price20) and price20 < -3:
+            triggers.append("股價止跌並族群同步轉強")
+        if phase in {"tdcc_price_divergence", "failed_after_tdcc"}:
+            triggers.append("先排除 TDCC 與股價背離")
+    return "；".join(dict.fromkeys(triggers[:4]))
+
+
+def format_numeric_columns(df: pd.DataFrame, columns: list[str]) -> pd.DataFrame:
+    out = df.copy()
+    numeric_cols = [
         "tdcc_strength_score",
         "abm_score",
         "price_return_5d",
@@ -343,8 +456,30 @@ def write_strength_top(df: pd.DataFrame, meta: dict[str, Any]) -> pd.DataFrame:
         "distance_ma20_pct",
         "volume_ratio_20d",
         "theme_breadth_score",
-    ]:
-        out[col] = out[col].map(lambda v: fmt_num(v, 2))
+    ]
+    for col in numeric_cols:
+        if col in out.columns:
+            out[col] = out[col].map(lambda v: fmt_num(v, 2))
+    return out[columns]
+
+
+def write_strength_top(df: pd.DataFrame, meta: dict[str, Any]) -> pd.DataFrame:
+    if df.empty:
+        write_csv(pd.DataFrame(columns=STRENGTH_COLUMNS), STRENGTH_CSV)
+        STRENGTH_MD.write_text("# TDCC Strength Ranking Top\n\n目前沒有可用資料。\n", encoding="utf-8")
+        return pd.DataFrame(columns=STRENGTH_COLUMNS)
+
+    top = df.copy()
+    top["risk_label"] = top["tdcc_price_phase"].map(risk_label)
+    top["risk_bucket"] = top["tdcc_price_phase"].map(risk_bucket)
+    top["interpretation"] = top["tdcc_price_phase"].map(phase_interpretation)
+    top = top.sort_values(["tdcc_strength_score", "tdcc_consecutive_up_weeks", "stock_id"], ascending=[False, False, True])
+    top = top.head(TOP_N).copy()
+    top["rank"] = range(1, len(top) + 1)
+    for col in STRENGTH_COLUMNS:
+        if col not in top.columns:
+            top[col] = ""
+    out = format_numeric_columns(top, STRENGTH_COLUMNS)
     write_csv(out, STRENGTH_CSV)
     lines = [
         "# TDCC Strength Ranking Top",
@@ -371,6 +506,8 @@ def write_abm_top(df: pd.DataFrame, meta: dict[str, Any]) -> tuple[pd.DataFrame,
 
     work = df.copy()
     work["accumulation_label"] = work.apply(accumulation_label, axis=1)
+    work["tracking_priority"] = work.apply(tracking_priority, axis=1)
+    work["trigger_to_watch"] = work.apply(trigger_to_watch, axis=1)
     work["interpretation"] = work["tdcc_price_phase"].map(phase_interpretation)
 
     strict = (
@@ -397,6 +534,12 @@ def write_abm_top(df: pd.DataFrame, meta: dict[str, Any]) -> tuple[pd.DataFrame,
             & (numeric_series(work, "distance_ma20_pct", 999) <= 20)
         ].copy()
 
+    priority_order = {
+        "A_prime_watch": 0,
+        "B_confirm_needed": 1,
+        "C_weak_or_discounted": 2,
+        "D_insufficient_data": 3,
+    }
     label_order = {
         "prime_pre_move": 0,
         "watch_pre_move": 1,
@@ -406,27 +549,17 @@ def write_abm_top(df: pd.DataFrame, meta: dict[str, Any]) -> tuple[pd.DataFrame,
         "insufficient_data": 5,
         "not_pre_move_overheated": 6,
     }
+    filtered["_priority_order"] = filtered["tracking_priority"].map(priority_order).fillna(9)
     filtered["_label_order"] = filtered["accumulation_label"].map(label_order).fillna(9)
     filtered = filtered.sort_values(
-        ["_label_order", "tdcc_price_phase", "setup_type", "abm_score", "tdcc_strength_score", "stock_id"],
-        ascending=[True, True, True, False, False, True],
+        ["_priority_order", "_label_order", "abm_score", "tdcc_strength_score", "stock_id"],
+        ascending=[True, True, False, False, True],
     ).head(TOP_N)
     filtered["abm_rank"] = range(1, len(filtered) + 1)
     for col in ABM_COLUMNS:
         if col not in filtered.columns:
             filtered[col] = ""
-    out = filtered[ABM_COLUMNS].copy()
-    for col in [
-        "abm_score",
-        "tdcc_strength_score",
-        "price_return_5d",
-        "price_return_20d",
-        "relative_return_vs_benchmark",
-        "distance_ma20_pct",
-        "volume_ratio_20d",
-        "theme_breadth_score",
-    ]:
-        out[col] = out[col].map(lambda v: fmt_num(v, 2))
+    out = format_numeric_columns(filtered, ABM_COLUMNS)
     write_csv(out, ABM_TOP_CSV)
     lines = [
         "# TDCC Pre-Move Accumulation / ABM Top",
@@ -446,14 +579,29 @@ def write_abm_top(df: pd.DataFrame, meta: dict[str, Any]) -> tuple[pd.DataFrame,
     return out, relaxed
 
 
+def normalize_performance(perf: pd.DataFrame) -> pd.DataFrame:
+    perf = signal_id_frame(perf)
+    if perf.empty:
+        return perf
+    value_cols = [col for col in perf.columns if col != "signal_id"]
+    agg = {col: "last" for col in value_cols}
+    return perf.groupby("signal_id", as_index=False).agg(agg)
+
+
 def merge_snapshot_performance(snapshot: pd.DataFrame) -> pd.DataFrame:
-    perf = signal_id_frame(read_csv(PERFORMANCE_CSV, dtype=str))
+    perf = normalize_performance(read_csv(PERFORMANCE_CSV, dtype=str))
     if snapshot.empty:
         return pd.DataFrame()
     base = signal_id_frame(snapshot.copy())
     if perf.empty:
         return base
-    keep_cols = [c for c in perf.columns if c == "signal_id" or c.startswith(("d", "mature_", "relative_", "max_", "min_")) or c in {"status"}]
+    keep_cols = [
+        c
+        for c in perf.columns
+        if c == "signal_id"
+        or c.startswith(("d", "mature_", "relative_", "max_", "min_"))
+        or c in {"status"}
+    ]
     perf = perf[keep_cols].drop_duplicates("signal_id", keep="last")
     return base.merge(perf, on="signal_id", how="left", suffixes=("", "_perf"))
 
@@ -475,6 +623,18 @@ def avg_col(df: pd.DataFrame, col: str) -> str:
     if math.isnan(value):
         return ""
     return f"{value:.2f}"
+
+
+def phase_mature_counts(phase_table: pd.DataFrame) -> dict[str, int]:
+    performance = phase_table[phase_table.get("section", "") == "phase_performance"] if not phase_table.empty else pd.DataFrame()
+    out: dict[str, int] = {}
+    for horizon in [5, 10, 20]:
+        col = f"mature_sample_d{horizon}"
+        if col in performance.columns:
+            out[f"phase_mature_d{horizon}_count"] = int(pd.to_numeric(performance[col], errors="coerce").fillna(0).sum())
+        else:
+            out[f"phase_mature_d{horizon}_count"] = 0
+    return out
 
 
 def write_phase_distribution(latest_df: pd.DataFrame) -> pd.DataFrame:
@@ -562,32 +722,19 @@ def write_phase_distribution(latest_df: pd.DataFrame) -> pd.DataFrame:
     weeks_phase = out[out["section"] == "consecutive_weeks_x_phase"]
     condition_phase = out[out["section"] == "condition_x_phase"]
     performance = out[out["section"] == "phase_performance"]
-    mature_cols = [
-        "tdcc_price_phase",
-        "mature_sample_d5",
-        "avg_ret_d5",
-        "avg_relative_ret_d5",
-        "mature_sample_d10",
-        "avg_ret_d10",
-        "avg_relative_ret_d10",
-        "mature_sample_d20",
-        "avg_ret_d20",
-        "avg_relative_ret_d20",
-        "avg_mfe_d10",
-        "avg_mae_d10",
-    ]
-    matured_total = 0
-    for col in ["mature_sample_d5", "mature_sample_d10", "mature_sample_d20"]:
-        if col in performance.columns:
-            matured_total += pd.to_numeric(performance[col], errors="coerce").fillna(0).sum()
-    pending_note = ""
-    if matured_total == 0:
-        pending_note = "D+5 / D+10 / D+20 尚未成熟，pending 不可視為正面或負面。"
+    counts = phase_mature_counts(out)
+    pending_notes: list[str] = []
+    for horizon in [5, 10, 20]:
+        if counts[f"phase_mature_d{horizon}_count"] == 0:
+            pending_notes.append(f"phase-level D+{horizon} 尚未成熟，不可做 phase 勝率結論。")
     lines = [
         "# TDCC Phase Distribution",
         "",
         f"- generated_at: {now_text()}",
         f"- latest_signal_count: {total}",
+        f"- phase_mature_d5_count: {counts['phase_mature_d5_count']}",
+        f"- phase_mature_d10_count: {counts['phase_mature_d10_count']}",
+        f"- phase_mature_d20_count: {counts['phase_mature_d20_count']}",
         "",
         "## Phase 分布",
         "",
@@ -603,9 +750,9 @@ def write_phase_distribution(latest_df: pd.DataFrame) -> pd.DataFrame:
         "",
         "## Phase 後續績效",
         "",
-        pending_note,
+        "\n".join(pending_notes),
         "",
-        markdown_table(performance, mature_cols),
+        markdown_table(performance, PHASE_PERFORMANCE_COLUMNS),
         "",
     ]
     PHASE_MD.write_text("\n".join(lines), encoding="utf-8")
@@ -615,11 +762,65 @@ def write_phase_distribution(latest_df: pd.DataFrame) -> pd.DataFrame:
 def count_mature(perf: pd.DataFrame, horizon: int) -> int:
     if perf.empty:
         return 0
-    return int(maturity_mask(signal_id_frame(perf), horizon).sum())
+    normalized = normalize_performance(perf)
+    return int(maturity_mask(normalized, horizon).sum())
+
+
+def count_pending(perf: pd.DataFrame) -> int:
+    if perf.empty:
+        return 0
+    normalized = normalize_performance(perf)
+    mature_any = pd.Series(False, index=normalized.index)
+    for horizon in [5, 10, 20]:
+        mature_any = mature_any | maturity_mask(normalized, horizon)
+    return int((~mature_any).sum())
 
 
 def file_ok(path: Path) -> str:
     return "yes" if path.exists() and path.stat().st_size > 0 else "no"
+
+
+def build_risk_lists(df: pd.DataFrame) -> dict[str, pd.DataFrame]:
+    if df.empty:
+        return {
+            "price_leading_tdcc": pd.DataFrame(columns=RISK_COLUMNS),
+            "overheated_after_tdcc": pd.DataFrame(columns=RISK_COLUMNS),
+            "tdcc_price_divergence": pd.DataFrame(columns=RISK_COLUMNS),
+        }
+    work = df.copy()
+    work["risk_bucket"] = work["tdcc_price_phase"].map(risk_bucket)
+    work["interpretation"] = work["tdcc_price_phase"].map(phase_interpretation)
+    out: dict[str, pd.DataFrame] = {}
+    for phase in ["price_leading_tdcc", "overheated_after_tdcc", "tdcc_price_divergence"]:
+        part = work[work["tdcc_price_phase"].astype(str).eq(phase)].copy()
+        part = part.sort_values(["tdcc_strength_score", "price_return_20d", "stock_id"], ascending=[False, False, True]).head(RISK_N)
+        for col in RISK_COLUMNS:
+            if col not in part.columns:
+                part[col] = ""
+        out[phase] = format_numeric_columns(part, RISK_COLUMNS)
+    return out
+
+
+def phase_join_quality(overall_counts: dict[str, int], phase_counts: dict[str, int]) -> str:
+    notes = []
+    for horizon in [5, 10, 20]:
+        overall = overall_counts[f"overall_mature_d{horizon}_count"]
+        phase = phase_counts[f"phase_mature_d{horizon}_count"]
+        if overall > 0 and phase == 0:
+            notes.append(f"D+{horizon}: overall成熟但phase join為0，可能是phase欄位新加、舊樣本未補phase，或performance join key不完整")
+        elif overall != phase:
+            notes.append(f"D+{horizon}: overall={overall}, phase={phase}")
+    return "ok" if not notes else "；".join(notes)
+
+
+def sample_status(overall_counts: dict[str, int], phase_counts: dict[str, int]) -> str:
+    if phase_counts["phase_mature_d5_count"] == 0:
+        if overall_counts["overall_mature_d5_count"] > 0:
+            return "overall_mature_available_but_phase_level_not_ready"
+        return "no_mature_phase_samples"
+    if phase_counts["phase_mature_d10_count"] == 0 or phase_counts["phase_mature_d20_count"] == 0:
+        return "phase_d5_available_longer_horizons_pending"
+    return "phase_samples_available"
 
 
 def write_packet(
@@ -627,14 +828,19 @@ def write_packet(
     strength_top: pd.DataFrame,
     abm_top: pd.DataFrame,
     phase_table: pd.DataFrame,
+    latest_df: pd.DataFrame,
 ) -> None:
     perf = read_csv(PERFORMANCE_CSV, dtype=str)
-    pending_count = 0
-    if not perf.empty:
-        mature_any = pd.Series(False, index=perf.index)
-        for horizon in [5, 10, 20]:
-            mature_any = mature_any | maturity_mask(signal_id_frame(perf), horizon)
-        pending_count = int((~mature_any).sum())
+    overall_counts = {
+        "overall_mature_d5_count": count_mature(perf, 5),
+        "overall_mature_d10_count": count_mature(perf, 10),
+        "overall_mature_d20_count": count_mature(perf, 20),
+    }
+    phase_counts = phase_mature_counts(phase_table)
+    pending_count = count_pending(perf)
+    join_quality = phase_join_quality(overall_counts, phase_counts)
+    status = sample_status(overall_counts, phase_counts)
+
     insufficient_count = 0
     if not phase_table.empty and "tdcc_price_phase" in phase_table.columns:
         insufficient_count = int(
@@ -650,18 +856,18 @@ def write_packet(
     phase_dist = phase_table[phase_table.get("section", "") == "phase_distribution"] if not phase_table.empty else pd.DataFrame()
     weeks_phase = phase_table[phase_table.get("section", "") == "consecutive_weeks_x_phase"] if not phase_table.empty else pd.DataFrame()
     performance = phase_table[phase_table.get("section", "") == "phase_performance"] if not phase_table.empty else pd.DataFrame()
-    mature_cols = [
-        "tdcc_price_phase",
-        "mature_sample_d5",
-        "avg_ret_d5",
-        "avg_relative_ret_d5",
-        "mature_sample_d10",
-        "avg_ret_d10",
-        "avg_relative_ret_d10",
-        "mature_sample_d20",
-        "avg_ret_d20",
-        "avg_relative_ret_d20",
-    ]
+    risk_lists = build_risk_lists(latest_df)
+
+    mature_notes: list[str] = []
+    for horizon in [5, 10, 20]:
+        phase_count = phase_counts[f"phase_mature_d{horizon}_count"]
+        overall_count = overall_counts[f"overall_mature_d{horizon}_count"]
+        if phase_count == 0:
+            mature_notes.append(f"- phase-level D+{horizon} 尚未成熟，不可做 phase 勝率結論。")
+        if overall_count > 0 and phase_count == 0:
+            mature_notes.append(
+                f"- overall_mature_d{horizon}_count={overall_count} 但 phase_mature_d{horizon}_count=0；原因通常是 phase 欄位是新加的、舊樣本未補 phase，或 performance join key 不完整。"
+            )
 
     lines = [
         "# TDCC CHATGPT TRACKING PACKET",
@@ -671,12 +877,19 @@ def write_packet(
         f"- main_price_date: {main_price_date_from_freshness()}",
         f"- latest_tdcc_signal_date: {meta.get('latest_signal_date', '')}",
         "- source_files: tdcc_signal_snapshot.csv, tdcc_normalized_signal_log.csv, tdcc_signal_performance.csv, tdcc_pre_move_accumulation_latest.csv, tdcc_signal_effectiveness_latest.md",
-        f"- mature_d5_count: {count_mature(perf, 5)}",
-        f"- mature_d10_count: {count_mature(perf, 10)}",
-        f"- mature_d20_count: {count_mature(perf, 20)}",
+        f"- overall_mature_d5_count: {overall_counts['overall_mature_d5_count']}",
+        f"- phase_mature_d5_count: {phase_counts['phase_mature_d5_count']}",
+        f"- overall_mature_d10_count: {overall_counts['overall_mature_d10_count']}",
+        f"- phase_mature_d10_count: {phase_counts['phase_mature_d10_count']}",
+        f"- overall_mature_d20_count: {overall_counts['overall_mature_d20_count']}",
+        f"- phase_mature_d20_count: {phase_counts['phase_mature_d20_count']}",
         f"- pending_count: {pending_count}",
         f"- insufficient_sample_count: {insufficient_count}",
         f"- ranking_quality: {meta.get('ranking_quality', '')}",
+        f"- phase_mature_join_quality: {join_quality}",
+        f"- benchmark_available: {meta.get('benchmark_available', 'unknown')}",
+        f"- sample_status: {status}",
+        f"- relaxed_filter: {meta.get('relaxed_filter', '')}",
         f"- missing_columns: {','.join(meta.get('missing_columns', [])) or 'none'}",
         "",
         "## Data Availability",
@@ -687,6 +900,15 @@ def write_packet(
         f"- tdcc_pre_move_accumulation_latest.csv: {file_ok(ABM_LATEST_CSV)}",
         f"- tdcc_signal_effectiveness_latest.md: {file_ok(EFFECTIVENESS_MD)}",
         "",
+        "## Data Quality Notes",
+        f"- missing_columns: {','.join(meta.get('missing_columns', [])) or 'none'}",
+        f"- ranking_quality: {meta.get('ranking_quality', '')}",
+        f"- phase_mature_join_quality: {join_quality}",
+        f"- benchmark_available: {meta.get('benchmark_available', 'unknown')}",
+        f"- sample_status: {status}",
+        f"- relaxed_filter: {meta.get('relaxed_filter', '')}",
+        "- packet_generated_from: snapshot + ABM latest + normalized performance + phase distribution",
+        "",
         "## TDCC Strength Ranking Top 30",
         "",
         markdown_table(strength_top.head(PACKET_N), STRENGTH_COLUMNS),
@@ -694,6 +916,18 @@ def write_packet(
         "## Pre-Move Accumulation / ABM Top 30",
         "",
         markdown_table(abm_top.head(PACKET_N), ABM_COLUMNS),
+        "",
+        "## Top Risk List - price_leading_tdcc Top 20",
+        "",
+        markdown_table(risk_lists["price_leading_tdcc"], RISK_COLUMNS),
+        "",
+        "## Top Risk List - overheated_after_tdcc Top 20",
+        "",
+        markdown_table(risk_lists["overheated_after_tdcc"], RISK_COLUMNS),
+        "",
+        "## Top Risk List - tdcc_price_divergence Top 20",
+        "",
+        markdown_table(risk_lists["tdcc_price_divergence"], RISK_COLUMNS),
         "",
         "## Phase Distribution",
         "",
@@ -705,9 +939,11 @@ def write_packet(
         "",
         "## Mature Performance Summary",
         "",
-        "只使用 mature_dN=True 的資料。若 mature sample = 0，目前不能下績效結論。",
+        "只使用 mature_dN=True 的資料。pending 不可視為正面或負面。",
         "",
-        markdown_table(performance, mature_cols),
+        "\n".join(mature_notes) if mature_notes else "- phase-level mature sample 已可用。",
+        "",
+        markdown_table(performance, PHASE_PERFORMANCE_COLUMNS),
         "",
         "## Interpretation Rules",
         "- pending 不可視為正面或負面。",
@@ -772,7 +1008,7 @@ def main() -> None:
     abm_top, relaxed = write_abm_top(latest_df, meta)
     meta["relaxed_filter"] = relaxed
     phase_table = write_phase_distribution(latest_df)
-    write_packet(meta, strength_top, abm_top, phase_table)
+    write_packet(meta, strength_top, abm_top, phase_table, latest_df)
     upsert_readme_fields()
     print(f"Saved: {STRENGTH_MD}")
     print(f"Saved: {STRENGTH_CSV}")

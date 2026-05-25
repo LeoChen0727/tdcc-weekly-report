@@ -1,61 +1,61 @@
 # TDCC Strength Ranking Top
 
-- generated_at: 2026-05-25 10:12:56 Asia/Taipei
+- generated_at: 2026-05-25 11:16:06 Asia/Taipei
 - latest_signal_date: 20260522
 - ranking_quality: complete
 - missing_columns: none
 
 說明：這是籌碼強弱榜，不等於潛伏吸籌榜。若 phase 是 price_leading_tdcc 或 overheated_after_tdcc，不可解讀成潛伏吸籌。
 
-| rank | stock_id | stock_name | theme | tdcc_strength_score | tdcc_consecutive_up_weeks | all_thresholds_up | high_thresholds_up | tdcc_price_phase | setup_type | abm_score | price_return_5d | price_return_20d | relative_return_vs_benchmark | distance_ma20_pct | volume_ratio_20d | theme_breadth_score | risk_label | interpretation |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | 1217 | 愛之味 | other | 195.00 | 3 | True | True | tdcc_price_divergence | watch_only | 66.00 | -0.84 | -8.54 | -4.08 | -2.61 | 0.66 | 10.00 | divergence_failed_watch | TDCC 增加但股價轉弱，需防失效。 |
-| 2 | 1233 | 天仁 | other | 195.00 | 3 | True | True | tdcc_leading_price | quiet_accumulation | 90.00 | 0.00 | 1.41 | -1.60 | 0.11 | 0.22 | 10.00 | potential_accumulation | 籌碼強，但股價尚未明顯反應。 |
-| 3 | 1304 | 台聚 | other | 195.00 | 3 | True | True | tdcc_price_divergence | quiet_accumulation | 80.00 | 0.41 | -16.04 | -4.75 | -5.98 | 0.71 | 10.00 | divergence_failed_watch | TDCC 增加但股價轉弱，需防失效。 |
-| 4 | 1305 | 華夏 | other | 195.00 | 3 | True | True | tdcc_price_divergence | quiet_accumulation | 80.00 | -0.80 | -17.61 | -4.34 | -6.85 | 0.76 | 10.00 | divergence_failed_watch | TDCC 增加但股價轉弱，需防失效。 |
-| 5 | 1308 | 亞聚 | other | 195.00 | 3 | True | True | tdcc_price_divergence | quiet_accumulation | 62.00 | 2.31 | -15.02 | -2.34 | -3.83 | 0.69 | 10.00 | divergence_failed_watch | TDCC 增加但股價轉弱，需防失效。 |
-| 6 | 1323 | 永裕 | other | 195.00 | 3 | True | True | tdcc_leading_price | quiet_accumulation | 96.00 | 4.15 | -9.66 | 2.82 | 0.78 | 0.54 | 10.00 | potential_accumulation | 籌碼強，但股價尚未明顯反應。 |
-| 7 | 1325 | 恆大 | other | 195.00 | 3 | True | True | tdcc_price_divergence | quiet_accumulation | 85.00 | 0.57 | 0.76 | -4.16 | -0.42 | 0.89 | 10.00 | divergence_failed_watch | TDCC 增加但股價轉弱，需防失效。 |
-| 8 | 1402 | 遠東新 | other | 195.00 | 3 | True | True | tdcc_leading_price | quiet_accumulation | 95.00 | 2.08 | 3.25 | 1.85 | 2.77 | 2.24 | 10.00 | potential_accumulation | 籌碼強，但股價尚未明顯反應。 |
-| 9 | 1410 | 南染 | other | 195.00 | 3 | True | True | tdcc_price_divergence | quiet_accumulation | 70.00 | -1.85 | -16.40 | -5.58 | -4.07 | 0.15 | 10.00 | divergence_failed_watch | TDCC 增加但股價轉弱，需防失效。 |
-| 10 | 1414 | 東和 | other | 195.00 | 3 | True | True | tdcc_price_divergence | quiet_accumulation | 75.00 | -0.96 | -4.63 | -6.23 | -4.42 | 0.88 | 10.00 | divergence_failed_watch | TDCC 增加但股價轉弱，需防失效。 |
-| 11 | 1438 | 三地開發 | other | 195.00 | 3 | True | True | failed_after_tdcc | quiet_accumulation | 62.00 | 0.98 | -23.33 | -0.37 | -4.26 | 0.25 | 10.00 | divergence_failed_watch | 訊號後價格走弱，列為失效觀察。 |
-| 12 | 1443 | 立益物流 | other | 195.00 | 3 | True | True | tdcc_price_divergence | strong_momentum | 62.00 | -0.38 | 16.26 | -4.21 | 5.59 | 0.26 | 10.00 | divergence_failed_watch | TDCC 增加但股價轉弱，需防失效。 |
-| 13 | 1447 | 力鵬 | other | 195.00 | 3 | True | True | price_leading_tdcc | strong_momentum | 57.00 | 12.36 | 17.88 | 19.62 | 14.65 | 1.05 | 10.00 | late_or_chasing_risk | 股價已先漲，TDCC 訊號可能偏晚。 |
-| 14 | 1452 | 宏益 | other | 195.00 | 3 | True | True | tdcc_price_divergence | quiet_accumulation | 76.00 | -2.75 | -8.23 | -6.95 | -4.35 | 0.58 | 10.00 | divergence_failed_watch | TDCC 增加但股價轉弱，需防失效。 |
-| 15 | 1455 | 集盛 | other | 195.00 | 3 | True | True | tdcc_leading_price | quiet_accumulation | 79.00 | 2.90 | -6.31 | -0.48 | -0.06 | 0.89 | 10.00 | potential_accumulation | 籌碼強，但股價尚未明顯反應。 |
-| 16 | 1460 | 宏遠 | other | 195.00 | 3 | True | True | tdcc_price_divergence | watch_only | 76.00 | -0.85 | 3.71 | -5.32 | -0.81 | 0.70 | 10.00 | divergence_failed_watch | TDCC 增加但股價轉弱，需防失效。 |
-| 17 | 1467 | 南緯 | other | 195.00 | 3 | True | True | tdcc_price_divergence | watch_only | 67.00 | -1.97 | -13.12 | -4.12 | -2.75 | 1.49 | 10.00 | divergence_failed_watch | TDCC 增加但股價轉弱，需防失效。 |
-| 18 | 1471 | 首利 | other | 195.00 | 3 | True | True | tdcc_price_divergence | quiet_accumulation | 77.00 | 5.85 | -8.82 | -3.85 | -1.30 | 0.95 | 10.00 | divergence_failed_watch | TDCC 增加但股價轉弱，需防失效。 |
-| 19 | 1474 | 弘裕 | other | 195.00 | 3 | True | True | tdcc_price_divergence | quiet_accumulation | 78.00 | -1.41 | -2.87 | -3.98 | -1.56 | 2.95 | 10.00 | divergence_failed_watch | TDCC 增加但股價轉弱，需防失效。 |
-| 20 | 1527 | 鑽全 | other | 195.00 | 3 | True | True | tdcc_leading_price | quiet_accumulation | 100.00 | 2.81 | 2.17 | 0.10 | 1.35 | 1.65 | 10.00 | potential_accumulation | 籌碼強，但股價尚未明顯反應。 |
-| 21 | 1535 | 中宇 | other | 195.00 | 3 | True | True | tdcc_price_divergence | quiet_accumulation | 96.00 | 0.41 | -3.42 | -3.29 | -1.29 | 0.55 | 10.00 | divergence_failed_watch | TDCC 增加但股價轉弱，需防失效。 |
-| 22 | 1563 | 巧新 | other | 195.00 | 3 | True | True | insufficient_price_context | quiet_accumulation | 86.00 | 2.91 | 9.64 | 3.30 | 6.20 | 0.92 | 10.00 | insufficient_data | 價格或 benchmark 資料不足，不列入強弱判斷。 |
-| 23 | 1582 | 信錦 | other | 195.00 | 3 | True | True | overheated_after_tdcc | strong_momentum | 49.00 | 15.69 | 23.66 | 29.38 | 18.90 | 1.99 | 10.00 | overheated | 籌碼強但股價已過熱，防追高。 |
-| 24 | 1584 | 精剛 | other | 195.00 | 3 | True | True | tdcc_price_divergence | watch_only | 66.00 | -0.51 | -3.68 | -5.61 | -1.12 | 0.00 | 10.00 | divergence_failed_watch | TDCC 增加但股價轉弱，需防失效。 |
-| 25 | 1586 | 和勤 | other | 195.00 | 3 | True | True | insufficient_price_context | quiet_accumulation | 92.00 | 6.59 | 4.22 | 4.69 | 6.30 | 0.00 | 10.00 | insufficient_data | 價格或 benchmark 資料不足，不列入強弱判斷。 |
-| 26 | 1614 | 三洋電 | other | 195.00 | 3 | True | True | tdcc_price_divergence | quiet_accumulation | 79.00 | -0.65 | -3.75 | -5.35 | -2.25 | 0.90 | 10.00 | divergence_failed_watch | TDCC 增加但股價轉弱，需防失效。 |
-| 27 | 1617 | 榮星 | other | 195.00 | 3 | True | True | tdcc_price_divergence | watch_only | 75.00 | 4.20 | -2.93 | -2.59 | 0.15 | 1.93 | 10.00 | divergence_failed_watch | TDCC 增加但股價轉弱，需防失效。 |
-| 28 | 1626 | 艾美特-KY | other | 195.00 | 3 | True | True | tdcc_price_divergence | quiet_accumulation | 76.00 | -0.40 | -9.45 | -10.64 | -6.33 | 0.35 | 10.00 | divergence_failed_watch | TDCC 增加但股價轉弱，需防失效。 |
-| 29 | 1709 | 和益 | other | 195.00 | 3 | True | True | tdcc_price_divergence | quiet_accumulation | 93.00 | 1.10 | -1.08 | -2.94 | -0.58 | 1.02 | 10.00 | divergence_failed_watch | TDCC 增加但股價轉弱，需防失效。 |
-| 30 | 1723 | 中碳 | other | 195.00 | 3 | True | True | tdcc_leading_price | quiet_accumulation | 97.00 | 3.03 | 1.11 | 0.66 | 2.88 | 1.01 | 10.00 | potential_accumulation | 籌碼強，但股價尚未明顯反應。 |
-| 31 | 1733 | 五鼎 | other | 195.00 | 3 | True | True | tdcc_leading_price | quiet_accumulation | 95.00 | 3.13 | 2.95 | 2.99 | 3.08 | 0.82 | 10.00 | potential_accumulation | 籌碼強，但股價尚未明顯反應。 |
-| 32 | 1734 | 杏輝 | other | 195.00 | 3 | True | True | tdcc_leading_price | quiet_accumulation | 89.00 | 0.49 | -3.45 | -1.27 | -0.93 | 0.90 | 10.00 | potential_accumulation | 籌碼強，但股價尚未明顯反應。 |
-| 33 | 1737 | 臺鹽 | other | 195.00 | 3 | True | True | tdcc_leading_price | quiet_accumulation | 81.00 | 0.32 | -0.32 | -1.60 | -0.05 | 1.01 | 10.00 | potential_accumulation | 籌碼強，但股價尚未明顯反應。 |
-| 34 | 1760 | 寶齡富錦 | other | 195.00 | 3 | True | True | tdcc_price_divergence | quiet_accumulation | 70.00 | 0.98 | -4.19 | -5.63 | -3.36 | 0.34 | 10.00 | divergence_failed_watch | TDCC 增加但股價轉弱，需防失效。 |
-| 35 | 1799 | 易威 | other | 195.00 | 3 | True | True | tdcc_price_divergence | quiet_accumulation | 80.00 | -5.53 | -15.57 | -8.51 | -6.94 | 0.00 | 10.00 | divergence_failed_watch | TDCC 增加但股價轉弱，需防失效。 |
-| 36 | 1805 | 寶徠 | other | 195.00 | 3 | True | True | tdcc_price_divergence | quiet_accumulation | 85.00 | -0.49 | -4.27 | -7.64 | -3.42 | 1.71 | 10.00 | divergence_failed_watch | TDCC 增加但股價轉弱，需防失效。 |
-| 37 | 1810 | 和成 | other | 195.00 | 3 | True | True | tdcc_leading_price | quiet_accumulation | 86.00 | 1.33 | 4.67 | 1.38 | 4.28 | 0.77 | 10.00 | potential_accumulation | 籌碼強，但股價尚未明顯反應。 |
-| 38 | 1906 | 寶隆 | other | 195.00 | 3 | True | True | tdcc_price_divergence | quiet_accumulation | 69.00 | -0.94 | -9.09 | -6.14 | -4.04 | 2.03 | 10.00 | divergence_failed_watch | TDCC 增加但股價轉弱，需防失效。 |
-| 39 | 2008 | 高興昌 | other | 195.00 | 3 | True | True | tdcc_price_divergence | quiet_accumulation | 86.00 | 0.18 | -0.18 | -3.73 | -0.55 | 0.61 | 10.00 | divergence_failed_watch | TDCC 增加但股價轉弱，需防失效。 |
-| 40 | 2017 | 官田鋼 | other | 195.00 | 3 | True | True | tdcc_price_divergence | quiet_accumulation | 81.00 | 0.24 | -4.27 | -5.22 | -2.13 | 0.88 | 10.00 | divergence_failed_watch | TDCC 增加但股價轉弱，需防失效。 |
-| 41 | 2024 | 志聯 | other | 195.00 | 3 | True | True | tdcc_leading_price | quiet_accumulation | 95.00 | 5.60 | -1.74 | -0.16 | 1.96 | 1.69 | 10.00 | potential_accumulation | 籌碼強，但股價尚未明顯反應。 |
-| 42 | 2027 | 大成鋼 | other | 195.00 | 3 | True | True | insufficient_price_context | strong_momentum | 79.00 | 5.27 | 15.72 | 4.34 | 7.32 | 0.80 | 10.00 | insufficient_data | 價格或 benchmark 資料不足，不列入強弱判斷。 |
-| 43 | 2064 | 晉椿 | other | 195.00 | 3 | True | True | tdcc_leading_price | watch_only | 77.00 | 1.56 | 12.50 | -1.42 | 5.09 | 0.00 | 10.00 | potential_accumulation | 籌碼強，但股價尚未明顯反應。 |
-| 44 | 2102 | 泰豐 | other | 195.00 | 3 | True | True | tdcc_price_divergence | watch_only | 69.00 | 0.83 | -6.15 | -4.26 | -1.25 | 0.85 | 10.00 | divergence_failed_watch | TDCC 增加但股價轉弱，需防失效。 |
-| 45 | 2107 | 厚生 | other | 195.00 | 3 | True | True | tdcc_price_divergence | quiet_accumulation | 99.00 | 0.20 | -3.63 | -4.85 | -1.98 | 0.82 | 10.00 | divergence_failed_watch | TDCC 增加但股價轉弱，需防失效。 |
-| 46 | 2230 | 泰茂 | other | 195.00 | 3 | True | True | tdcc_price_divergence | watch_only | 48.00 | 1.55 | 0.34 | -16.22 | -0.25 | 0.00 | 10.00 | divergence_failed_watch | TDCC 增加但股價轉弱，需防失效。 |
-| 47 | 2233 | 宇隆 | other | 195.00 | 3 | True | True | price_leading_tdcc | overheated | 0.00 | 17.63 | 44.89 | 17.24 | 15.64 | 2.04 | 10.00 | late_or_chasing_risk | 股價已先漲，TDCC 訊號可能偏晚。 |
-| 48 | 2316 | 楠梓電 | other | 195.00 | 3 | True | True | overheated_after_tdcc | overheated | 0.00 | 18.53 | 34.06 | 34.85 | 21.44 | 1.66 | 10.00 | overheated | 籌碼強但股價已過熱，防追高。 |
-| 49 | 2317 | 鴻海 | other | 195.00 | 3 | True | True | tdcc_leading_price | watch_only | 83.00 | 0.60 | 11.11 | -1.60 | 3.76 | 0.61 | 10.00 | potential_accumulation | 籌碼強，但股價尚未明顯反應。 |
-| 50 | 2327 | 國巨* | other | 195.00 | 3 | True | True | overheated_after_tdcc | overheated | 0.00 | 38.09 | 113.22 | 60.10 | 52.96 | 1.30 | 10.00 | overheated | 籌碼強但股價已過熱，防追高。 |
+| rank | stock_id | stock_name | theme | tdcc_strength_score | tdcc_consecutive_up_weeks | all_thresholds_up | high_thresholds_up | tdcc_price_phase | setup_type | abm_score | price_return_5d | price_return_20d | relative_return_vs_benchmark | distance_ma20_pct | volume_ratio_20d | theme_breadth_score | risk_label | risk_bucket | interpretation |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 1217 | 愛之味 | other | 195.00 | 3 | True | True | tdcc_price_divergence | watch_only | 66.00 | -0.84 | -8.54 | -4.08 | -2.61 | 0.66 | 10.00 | divergence_failed_watch | strong_but_divergent | TDCC 增加但股價轉弱，需防失效。 |
+| 2 | 1233 | 天仁 | other | 195.00 | 3 | True | True | tdcc_leading_price | quiet_accumulation | 90.00 | 0.00 | 1.41 | -1.60 | 0.11 | 0.22 | 10.00 | potential_accumulation | strong_but_pre_move | 籌碼強，但股價尚未明顯反應。 |
+| 3 | 1304 | 台聚 | other | 195.00 | 3 | True | True | tdcc_price_divergence | quiet_accumulation | 80.00 | 0.41 | -16.04 | -4.75 | -5.98 | 0.71 | 10.00 | divergence_failed_watch | strong_but_divergent | TDCC 增加但股價轉弱，需防失效。 |
+| 4 | 1305 | 華夏 | other | 195.00 | 3 | True | True | tdcc_price_divergence | quiet_accumulation | 80.00 | -0.80 | -17.61 | -4.34 | -6.85 | 0.76 | 10.00 | divergence_failed_watch | strong_but_divergent | TDCC 增加但股價轉弱，需防失效。 |
+| 5 | 1308 | 亞聚 | other | 195.00 | 3 | True | True | tdcc_price_divergence | quiet_accumulation | 62.00 | 2.31 | -15.02 | -2.34 | -3.83 | 0.69 | 10.00 | divergence_failed_watch | strong_but_divergent | TDCC 增加但股價轉弱，需防失效。 |
+| 6 | 1323 | 永裕 | other | 195.00 | 3 | True | True | tdcc_leading_price | quiet_accumulation | 96.00 | 4.15 | -9.66 | 2.82 | 0.78 | 0.54 | 10.00 | potential_accumulation | strong_but_pre_move | 籌碼強，但股價尚未明顯反應。 |
+| 7 | 1325 | 恆大 | other | 195.00 | 3 | True | True | tdcc_price_divergence | quiet_accumulation | 85.00 | 0.57 | 0.76 | -4.16 | -0.42 | 0.89 | 10.00 | divergence_failed_watch | strong_but_divergent | TDCC 增加但股價轉弱，需防失效。 |
+| 8 | 1402 | 遠東新 | other | 195.00 | 3 | True | True | tdcc_leading_price | quiet_accumulation | 95.00 | 2.08 | 3.25 | 1.85 | 2.77 | 2.24 | 10.00 | potential_accumulation | strong_but_pre_move | 籌碼強，但股價尚未明顯反應。 |
+| 9 | 1410 | 南染 | other | 195.00 | 3 | True | True | tdcc_price_divergence | quiet_accumulation | 70.00 | -1.85 | -16.40 | -5.58 | -4.07 | 0.15 | 10.00 | divergence_failed_watch | strong_but_divergent | TDCC 增加但股價轉弱，需防失效。 |
+| 10 | 1414 | 東和 | other | 195.00 | 3 | True | True | tdcc_price_divergence | quiet_accumulation | 75.00 | -0.96 | -4.63 | -6.23 | -4.42 | 0.88 | 10.00 | divergence_failed_watch | strong_but_divergent | TDCC 增加但股價轉弱，需防失效。 |
+| 11 | 1438 | 三地開發 | other | 195.00 | 3 | True | True | failed_after_tdcc | quiet_accumulation | 62.00 | 0.98 | -23.33 | -0.37 | -4.26 | 0.25 | 10.00 | divergence_failed_watch | strong_but_divergent | 訊號後價格走弱，列為失效觀察。 |
+| 12 | 1443 | 立益物流 | other | 195.00 | 3 | True | True | tdcc_price_divergence | strong_momentum | 62.00 | -0.38 | 16.26 | -4.21 | 5.59 | 0.26 | 10.00 | divergence_failed_watch | strong_but_divergent | TDCC 增加但股價轉弱，需防失效。 |
+| 13 | 1447 | 力鵬 | other | 195.00 | 3 | True | True | price_leading_tdcc | strong_momentum | 57.00 | 12.36 | 17.88 | 19.62 | 14.65 | 1.05 | 10.00 | late_or_chasing_risk | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
+| 14 | 1452 | 宏益 | other | 195.00 | 3 | True | True | tdcc_price_divergence | quiet_accumulation | 76.00 | -2.75 | -8.23 | -6.95 | -4.35 | 0.58 | 10.00 | divergence_failed_watch | strong_but_divergent | TDCC 增加但股價轉弱，需防失效。 |
+| 15 | 1455 | 集盛 | other | 195.00 | 3 | True | True | tdcc_leading_price | quiet_accumulation | 79.00 | 2.90 | -6.31 | -0.48 | -0.06 | 0.89 | 10.00 | potential_accumulation | strong_but_pre_move | 籌碼強，但股價尚未明顯反應。 |
+| 16 | 1460 | 宏遠 | other | 195.00 | 3 | True | True | tdcc_price_divergence | watch_only | 76.00 | -0.85 | 3.71 | -5.32 | -0.81 | 0.70 | 10.00 | divergence_failed_watch | strong_but_divergent | TDCC 增加但股價轉弱，需防失效。 |
+| 17 | 1467 | 南緯 | other | 195.00 | 3 | True | True | tdcc_price_divergence | watch_only | 67.00 | -1.97 | -13.12 | -4.12 | -2.75 | 1.49 | 10.00 | divergence_failed_watch | strong_but_divergent | TDCC 增加但股價轉弱，需防失效。 |
+| 18 | 1471 | 首利 | other | 195.00 | 3 | True | True | tdcc_price_divergence | quiet_accumulation | 77.00 | 5.85 | -8.82 | -3.85 | -1.30 | 0.95 | 10.00 | divergence_failed_watch | strong_but_divergent | TDCC 增加但股價轉弱，需防失效。 |
+| 19 | 1474 | 弘裕 | other | 195.00 | 3 | True | True | tdcc_price_divergence | quiet_accumulation | 78.00 | -1.41 | -2.87 | -3.98 | -1.56 | 2.95 | 10.00 | divergence_failed_watch | strong_but_divergent | TDCC 增加但股價轉弱，需防失效。 |
+| 20 | 1527 | 鑽全 | other | 195.00 | 3 | True | True | tdcc_leading_price | quiet_accumulation | 100.00 | 2.81 | 2.17 | 0.10 | 1.35 | 1.65 | 10.00 | potential_accumulation | strong_but_pre_move | 籌碼強，但股價尚未明顯反應。 |
+| 21 | 1535 | 中宇 | other | 195.00 | 3 | True | True | tdcc_price_divergence | quiet_accumulation | 96.00 | 0.41 | -3.42 | -3.29 | -1.29 | 0.55 | 10.00 | divergence_failed_watch | strong_but_divergent | TDCC 增加但股價轉弱，需防失效。 |
+| 22 | 1563 | 巧新 | other | 195.00 | 3 | True | True | insufficient_price_context | quiet_accumulation | 86.00 | 2.91 | 9.64 | 3.30 | 6.20 | 0.92 | 10.00 | insufficient_data | insufficient_data | 價格或 benchmark 資料不足，不列入強弱判斷。 |
+| 23 | 1582 | 信錦 | other | 195.00 | 3 | True | True | overheated_after_tdcc | strong_momentum | 49.00 | 15.69 | 23.66 | 29.38 | 18.90 | 1.99 | 10.00 | overheated | strong_but_overheated | 籌碼強但股價已過熱，防追高。 |
+| 24 | 1584 | 精剛 | other | 195.00 | 3 | True | True | tdcc_price_divergence | watch_only | 66.00 | -0.51 | -3.68 | -5.61 | -1.12 | 0.00 | 10.00 | divergence_failed_watch | strong_but_divergent | TDCC 增加但股價轉弱，需防失效。 |
+| 25 | 1586 | 和勤 | other | 195.00 | 3 | True | True | insufficient_price_context | quiet_accumulation | 92.00 | 6.59 | 4.22 | 4.69 | 6.30 | 0.00 | 10.00 | insufficient_data | insufficient_data | 價格或 benchmark 資料不足，不列入強弱判斷。 |
+| 26 | 1614 | 三洋電 | other | 195.00 | 3 | True | True | tdcc_price_divergence | quiet_accumulation | 79.00 | -0.65 | -3.75 | -5.35 | -2.25 | 0.90 | 10.00 | divergence_failed_watch | strong_but_divergent | TDCC 增加但股價轉弱，需防失效。 |
+| 27 | 1617 | 榮星 | other | 195.00 | 3 | True | True | tdcc_price_divergence | watch_only | 75.00 | 4.20 | -2.93 | -2.59 | 0.15 | 1.93 | 10.00 | divergence_failed_watch | strong_but_divergent | TDCC 增加但股價轉弱，需防失效。 |
+| 28 | 1626 | 艾美特-KY | other | 195.00 | 3 | True | True | tdcc_price_divergence | quiet_accumulation | 76.00 | -0.40 | -9.45 | -10.64 | -6.33 | 0.35 | 10.00 | divergence_failed_watch | strong_but_divergent | TDCC 增加但股價轉弱，需防失效。 |
+| 29 | 1709 | 和益 | other | 195.00 | 3 | True | True | tdcc_price_divergence | quiet_accumulation | 93.00 | 1.10 | -1.08 | -2.94 | -0.58 | 1.02 | 10.00 | divergence_failed_watch | strong_but_divergent | TDCC 增加但股價轉弱，需防失效。 |
+| 30 | 1723 | 中碳 | other | 195.00 | 3 | True | True | tdcc_leading_price | quiet_accumulation | 97.00 | 3.03 | 1.11 | 0.66 | 2.88 | 1.01 | 10.00 | potential_accumulation | strong_but_pre_move | 籌碼強，但股價尚未明顯反應。 |
+| 31 | 1733 | 五鼎 | other | 195.00 | 3 | True | True | tdcc_leading_price | quiet_accumulation | 95.00 | 3.13 | 2.95 | 2.99 | 3.08 | 0.82 | 10.00 | potential_accumulation | strong_but_pre_move | 籌碼強，但股價尚未明顯反應。 |
+| 32 | 1734 | 杏輝 | other | 195.00 | 3 | True | True | tdcc_leading_price | quiet_accumulation | 89.00 | 0.49 | -3.45 | -1.27 | -0.93 | 0.90 | 10.00 | potential_accumulation | strong_but_pre_move | 籌碼強，但股價尚未明顯反應。 |
+| 33 | 1737 | 臺鹽 | other | 195.00 | 3 | True | True | tdcc_leading_price | quiet_accumulation | 81.00 | 0.32 | -0.32 | -1.60 | -0.05 | 1.01 | 10.00 | potential_accumulation | strong_but_pre_move | 籌碼強，但股價尚未明顯反應。 |
+| 34 | 1760 | 寶齡富錦 | other | 195.00 | 3 | True | True | tdcc_price_divergence | quiet_accumulation | 70.00 | 0.98 | -4.19 | -5.63 | -3.36 | 0.34 | 10.00 | divergence_failed_watch | strong_but_divergent | TDCC 增加但股價轉弱，需防失效。 |
+| 35 | 1799 | 易威 | other | 195.00 | 3 | True | True | tdcc_price_divergence | quiet_accumulation | 80.00 | -5.53 | -15.57 | -8.51 | -6.94 | 0.00 | 10.00 | divergence_failed_watch | strong_but_divergent | TDCC 增加但股價轉弱，需防失效。 |
+| 36 | 1805 | 寶徠 | other | 195.00 | 3 | True | True | tdcc_price_divergence | quiet_accumulation | 85.00 | -0.49 | -4.27 | -7.64 | -3.42 | 1.71 | 10.00 | divergence_failed_watch | strong_but_divergent | TDCC 增加但股價轉弱，需防失效。 |
+| 37 | 1810 | 和成 | other | 195.00 | 3 | True | True | tdcc_leading_price | quiet_accumulation | 86.00 | 1.33 | 4.67 | 1.38 | 4.28 | 0.77 | 10.00 | potential_accumulation | strong_but_pre_move | 籌碼強，但股價尚未明顯反應。 |
+| 38 | 1906 | 寶隆 | other | 195.00 | 3 | True | True | tdcc_price_divergence | quiet_accumulation | 69.00 | -0.94 | -9.09 | -6.14 | -4.04 | 2.03 | 10.00 | divergence_failed_watch | strong_but_divergent | TDCC 增加但股價轉弱，需防失效。 |
+| 39 | 2008 | 高興昌 | other | 195.00 | 3 | True | True | tdcc_price_divergence | quiet_accumulation | 86.00 | 0.18 | -0.18 | -3.73 | -0.55 | 0.61 | 10.00 | divergence_failed_watch | strong_but_divergent | TDCC 增加但股價轉弱，需防失效。 |
+| 40 | 2017 | 官田鋼 | other | 195.00 | 3 | True | True | tdcc_price_divergence | quiet_accumulation | 81.00 | 0.24 | -4.27 | -5.22 | -2.13 | 0.88 | 10.00 | divergence_failed_watch | strong_but_divergent | TDCC 增加但股價轉弱，需防失效。 |
+| 41 | 2024 | 志聯 | other | 195.00 | 3 | True | True | tdcc_leading_price | quiet_accumulation | 95.00 | 5.60 | -1.74 | -0.16 | 1.96 | 1.69 | 10.00 | potential_accumulation | strong_but_pre_move | 籌碼強，但股價尚未明顯反應。 |
+| 42 | 2027 | 大成鋼 | other | 195.00 | 3 | True | True | insufficient_price_context | strong_momentum | 79.00 | 5.27 | 15.72 | 4.34 | 7.32 | 0.80 | 10.00 | insufficient_data | insufficient_data | 價格或 benchmark 資料不足，不列入強弱判斷。 |
+| 43 | 2064 | 晉椿 | other | 195.00 | 3 | True | True | tdcc_leading_price | watch_only | 77.00 | 1.56 | 12.50 | -1.42 | 5.09 | 0.00 | 10.00 | potential_accumulation | strong_but_pre_move | 籌碼強，但股價尚未明顯反應。 |
+| 44 | 2102 | 泰豐 | other | 195.00 | 3 | True | True | tdcc_price_divergence | watch_only | 69.00 | 0.83 | -6.15 | -4.26 | -1.25 | 0.85 | 10.00 | divergence_failed_watch | strong_but_divergent | TDCC 增加但股價轉弱，需防失效。 |
+| 45 | 2107 | 厚生 | other | 195.00 | 3 | True | True | tdcc_price_divergence | quiet_accumulation | 99.00 | 0.20 | -3.63 | -4.85 | -1.98 | 0.82 | 10.00 | divergence_failed_watch | strong_but_divergent | TDCC 增加但股價轉弱，需防失效。 |
+| 46 | 2230 | 泰茂 | other | 195.00 | 3 | True | True | tdcc_price_divergence | watch_only | 48.00 | 1.55 | 0.34 | -16.22 | -0.25 | 0.00 | 10.00 | divergence_failed_watch | strong_but_divergent | TDCC 增加但股價轉弱，需防失效。 |
+| 47 | 2233 | 宇隆 | other | 195.00 | 3 | True | True | price_leading_tdcc | overheated | 0.00 | 17.63 | 44.89 | 17.24 | 15.64 | 2.04 | 10.00 | late_or_chasing_risk | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
+| 48 | 2316 | 楠梓電 | other | 195.00 | 3 | True | True | overheated_after_tdcc | overheated | 0.00 | 18.53 | 34.06 | 34.85 | 21.44 | 1.66 | 10.00 | overheated | strong_but_overheated | 籌碼強但股價已過熱，防追高。 |
+| 49 | 2317 | 鴻海 | other | 195.00 | 3 | True | True | tdcc_leading_price | watch_only | 83.00 | 0.60 | 11.11 | -1.60 | 3.76 | 0.61 | 10.00 | potential_accumulation | strong_but_pre_move | 籌碼強，但股價尚未明顯反應。 |
+| 50 | 2327 | 國巨* | other | 195.00 | 3 | True | True | overheated_after_tdcc | overheated | 0.00 | 38.09 | 113.22 | 60.10 | 52.96 | 1.30 | 10.00 | overheated | strong_but_overheated | 籌碼強但股價已過熱，防追高。 |
