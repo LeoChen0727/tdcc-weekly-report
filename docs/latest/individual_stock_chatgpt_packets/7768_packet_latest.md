@@ -1,0 +1,120 @@
+# INDIVIDUAL STOCK CHATGPT PACKET - 7768 頌勝科技
+
+## Metadata
+- generated_at: 2026-05-26 02:30:47 Asia/Taipei
+- stock_id: 7768
+- stock_name: 頌勝科技
+- packet_status: partial_rawdata_packet
+- latest_price_date: 20260526
+- price_rows: 16
+- latest_tdcc_date: 20260522
+- tdcc_rows: 4
+- tdcc_history_status: insufficient_tdcc_history
+- individual_report_md_exists: False
+- sell_strategy_summary_exists: False
+- notes: price history shorter than 120 rows; K-line context is partial; TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
+
+## Stable Read URLs
+- packet_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_chatgpt_packets/7768_packet_latest.md
+- packet_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_chatgpt_packets/7768_packet_latest.md
+- packet_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_chatgpt_packets/7768_packet_latest.md?ref=main
+- price_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/7768.csv
+- price_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/data/stock_price_history/7768.csv
+- price_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/data/stock_price_history/7768.csv?ref=main
+- tdcc_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/tdcc_stock_history/7768.csv
+- tdcc_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/data/tdcc_stock_history/7768.csv
+- tdcc_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/data/tdcc_stock_history/7768.csv?ref=main
+- individual_report_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_reports/7768_latest.md
+- individual_report_md_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_reports/7768_latest.md
+- individual_report_md_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_reports/7768_latest.md?ref=main
+
+## Data Quality Rules
+- This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
+- Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
+- If price_rows < 60, do not produce a standard technical report.
+- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
+
+## Latest Price Snapshot
+- date: 20260526
+- open: 373
+- high: 382
+- low: 368
+- close: 378
+- volume: 295045
+- ma5: 381.2
+- ma20: 366.44
+- ma60: 366.44
+- ma120: 366.44
+- ema23: 373.96
+- return_5d: 1.07
+- return_20d: 
+- volume_ratio: 0.58
+- distance_to_ma20_pct: 3.16
+- distance_to_high_60_pct: -7.35
+
+## PRICE_WINDOW_180D_CSV
+This compact OHLCV window is for K-line, MA20/MA60/EMA23, volume, support/resistance, and recent pattern checks.
+```csv
+date,open,high,low,close,volume,ma5,ma20,ma60,ma120,ema23,return_1d,return_5d,return_20d,volume_ratio,distance_to_ma20_pct,distance_to_high_60_pct
+20260507,388,408,380,384.5,1832285,,,,,,,,,,,
+20260508,368,381,348,350,1027633,,,,,,-8.97,,,,,
+20260511,350,365,330,354,733381,,,,,,1.14,,,,,
+20260512,355,355,334,336,578562,,,,,,-5.08,,,,,
+20260513,341,347,333.5,341.5,423313,353.2,353.2,353.2,353.2,372.86,1.64,,,0.46,-3.31,-16.3
+20260514,347,374.5,337.5,374.5,633817,351.2,356.75,356.75,356.75,373,9.66,-2.6,,0.73,4.98,-8.21
+20260515,374.5,374.5,360,360,401999,353.2,357.21,357.21,357.21,371.92,-3.87,2.86,,0.5,0.78,-11.76
+20260518,351.5,355,345,350,162500,352.4,356.31,356.31,356.31,370.09,-2.78,-1.13,,0.22,-1.77,-14.22
+20260519,354.5,368.5,351.5,363.5,321980,357.9,357.11,357.11,357.11,369.54,3.86,8.18,,0.47,1.79,-10.91
+20260520,365,375,364,369,198162,363.4,358.3,358.3,358.3,369.49,1.51,8.05,,0.31,2.99,-9.56
+20260521,377,377,360.5,374,185039,363.3,359.73,359.73,359.73,369.87,1.35,-0.13,,0.31,3.97,-8.33
+20260522,373,382,368,378,295045,366.9,361.25,361.25,361.25,370.55,1.07,5,,0.52,4.64,-7.35
+20260523,373,382,368,378,295045,372.5,362.54,362.54,362.54,371.17,0,8,,0.54,4.26,-7.35
+20260524,373,382,368,378,295045,375.4,363.64,363.64,363.64,371.74,0,3.99,,0.56,3.95,-7.35
+20260525,382,394.5,378,394,521001,380.4,365.67,365.67,365.67,373.59,4.23,6.78,,0.99,7.75,-3.43
+20260526,373,382,368,378,295045,381.2,366.44,366.44,366.44,373.96,-4.06,1.07,,0.58,3.16,-7.35
+```
+
+## Latest TDCC Snapshot
+- as_of_date: 20260522
+- over_400_ratio: 63.97
+- over_600_ratio: 61.75
+- over_800_ratio: 59.04
+- over_1000_ratio: 54.98
+- over_400_change_1w: 0.37
+- over_800_change_1w: 0.08
+- over_1000_change_1w: 0.08
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
+- high_thresholds_up: True
+
+## TDCC_WINDOW_12W_CSV
+```csv
+as_of_date,over_400_ratio,over_400_change_1w,over_600_ratio,over_600_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up,four_thresholds_sync_up,retail_ratio,total_shareholders
+20260430,70.8,,69.24,,67.16,,61.07,,0,False,False,False,,
+20260508,63.23,-7.57,61,-8.24,58.07,-9.09,54.01,-7.06,0,False,False,False,,
+20260515,63.6,0.37,60.8,-0.2,58.96,0.89,54.9,0.89,1,False,True,False,,
+20260522,63.97,0.37,61.75,0.95,59.04,0.08,54.98,0.08,2,True,True,True,,
+```
+
+## Candidate Context
+| status |
+| --- |
+| no rows |
+
+## Repeat Appearance Context
+| status |
+| --- |
+| no rows |
+
+## Warrant Context
+| status |
+| --- |
+| no rows |
+
+## Interpretation Guardrails
+- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
+- For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
+- Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.
+- Warrant signals are auxiliary only and must not be used as a standalone reason.

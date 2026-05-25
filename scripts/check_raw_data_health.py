@@ -64,6 +64,8 @@ CORE_PATHS = [
     ("individual_stock_available_raw_data_index", Path("output/latest/individual_stock_available_raw_data_index.csv")),
     ("individual_stock_available_raw_data_index_slim", Path("output/latest/individual_stock_available_raw_data_index_slim.csv")),
     ("individual_stock_reports_index", Path("output/latest/individual_stock_reports_index.csv")),
+    ("individual_stock_chatgpt_packet_index", Path("output/latest/individual_stock_chatgpt_packet_index.csv")),
+    ("individual_stock_chatgpt_packet_index_md", Path("output/latest/individual_stock_chatgpt_packet_index.md")),
 ]
 
 
@@ -362,6 +364,7 @@ def stock_paths(stock_id: str) -> list[tuple[str, Path]]:
     return [
         ("stock_price_history", Path(f"data/stock_price_history/{stock_id}.csv")),
         ("tdcc_stock_history", Path(f"data/tdcc_stock_history/{stock_id}.csv")),
+        ("individual_stock_chatgpt_packet", Path(f"output/latest/individual_stock_chatgpt_packets/{stock_id}_packet_latest.md")),
         ("individual_stock_report_md", Path(f"output/latest/individual_stock_reports/{stock_id}_latest.md")),
         ("sell_strategy_summary", Path(f"output/history/sell_strategy_backtest/{stock_id}_sell_strategy_summary.md")),
         ("sell_strategy_backtest", Path(f"output/history/sell_strategy_backtest/{stock_id}_sell_strategy_backtest.csv")),

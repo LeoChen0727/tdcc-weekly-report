@@ -130,6 +130,8 @@ INDIVIDUAL_STOCK_AVAILABLE_RAW_DATA_INDEX_SLIM_MD = LATEST_DIR / "individual_sto
 INDIVIDUAL_STOCK_READ_PROTOCOL_MD = LATEST_DIR / "individual_stock_read_protocol_latest.md"
 INDIVIDUAL_STOCK_REPORTS_INDEX_CSV = LATEST_DIR / "individual_stock_reports_index.csv"
 INDIVIDUAL_STOCK_REPORTS_INDEX_MD = LATEST_DIR / "individual_stock_reports_index.md"
+INDIVIDUAL_STOCK_CHATGPT_PACKET_INDEX_CSV = LATEST_DIR / "individual_stock_chatgpt_packet_index.csv"
+INDIVIDUAL_STOCK_CHATGPT_PACKET_INDEX_MD = LATEST_DIR / "individual_stock_chatgpt_packet_index.md"
 
 
 def now_taipei() -> datetime:
@@ -562,6 +564,16 @@ def build_readme(
         f"individual_stock_reports_index_md_pages_url={pages_url('latest/individual_stock_reports_index.md')}",
         f"individual_stock_reports_index_github_api_url={github_api_url(INDIVIDUAL_STOCK_REPORTS_INDEX_CSV, ref='main')}",
         f"individual_stock_reports_index_md_github_api_url={github_api_url(INDIVIDUAL_STOCK_REPORTS_INDEX_MD, ref='main')}",
+        f"individual_stock_chatgpt_packet_index_raw_url={raw_url('main', INDIVIDUAL_STOCK_CHATGPT_PACKET_INDEX_CSV)}",
+        f"individual_stock_chatgpt_packet_index_md_raw_url={raw_url('main', INDIVIDUAL_STOCK_CHATGPT_PACKET_INDEX_MD)}",
+        f"individual_stock_chatgpt_packet_index_pages_url={pages_url('latest/individual_stock_chatgpt_packet_index.csv')}",
+        f"individual_stock_chatgpt_packet_index_md_pages_url={pages_url('latest/individual_stock_chatgpt_packet_index.md')}",
+        f"individual_stock_chatgpt_packet_index_github_api_url={github_api_url(INDIVIDUAL_STOCK_CHATGPT_PACKET_INDEX_CSV, ref='main')}",
+        f"individual_stock_chatgpt_packet_index_md_github_api_url={github_api_url(INDIVIDUAL_STOCK_CHATGPT_PACKET_INDEX_MD, ref='main')}",
+        "individual_stock_chatgpt_packet_raw_url_template=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_chatgpt_packets/{stock_id}_packet_latest.md",
+        "individual_stock_chatgpt_packet_pages_url_template=https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_chatgpt_packets/{stock_id}_packet_latest.md",
+        "individual_stock_chatgpt_packet_github_api_url_template=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_chatgpt_packets/{stock_id}_packet_latest.md?ref=main",
+        "individual_stock_primary_read_order=individual_stock_chatgpt_packet_pages_url_template,individual_stock_chatgpt_packet_raw_url_template,individual_stock_chatgpt_packet_github_api_url_template,individual_stock_price_github_api_url_template,individual_stock_tdcc_github_api_url_template",
         "individual_stock_price_raw_url_template=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/{stock_id}.csv",
         "individual_stock_price_pages_url_template=https://LeoChen0727.github.io/tdcc-weekly-report/data/stock_price_history/{stock_id}.csv",
         "individual_stock_price_github_api_url_template=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/data/stock_price_history/{stock_id}.csv?ref=main",
@@ -1197,6 +1209,16 @@ def main() -> int:
         "individual_stock_reports_index_md_pages_url": pages_url("latest/individual_stock_reports_index.md"),
         "individual_stock_reports_index_github_api_url": github_api_url(INDIVIDUAL_STOCK_REPORTS_INDEX_CSV, ref="main"),
         "individual_stock_reports_index_md_github_api_url": github_api_url(INDIVIDUAL_STOCK_REPORTS_INDEX_MD, ref="main"),
+        "individual_stock_chatgpt_packet_index_raw_url": raw_url("main", INDIVIDUAL_STOCK_CHATGPT_PACKET_INDEX_CSV),
+        "individual_stock_chatgpt_packet_index_md_raw_url": raw_url("main", INDIVIDUAL_STOCK_CHATGPT_PACKET_INDEX_MD),
+        "individual_stock_chatgpt_packet_index_pages_url": pages_url("latest/individual_stock_chatgpt_packet_index.csv"),
+        "individual_stock_chatgpt_packet_index_md_pages_url": pages_url("latest/individual_stock_chatgpt_packet_index.md"),
+        "individual_stock_chatgpt_packet_index_github_api_url": github_api_url(INDIVIDUAL_STOCK_CHATGPT_PACKET_INDEX_CSV, ref="main"),
+        "individual_stock_chatgpt_packet_index_md_github_api_url": github_api_url(INDIVIDUAL_STOCK_CHATGPT_PACKET_INDEX_MD, ref="main"),
+        "individual_stock_chatgpt_packet_raw_url_template": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_chatgpt_packets/{stock_id}_packet_latest.md",
+        "individual_stock_chatgpt_packet_pages_url_template": "https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_chatgpt_packets/{stock_id}_packet_latest.md",
+        "individual_stock_chatgpt_packet_github_api_url_template": "https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_chatgpt_packets/{stock_id}_packet_latest.md?ref=main",
+        "individual_stock_primary_read_order": "individual_stock_chatgpt_packet_pages_url_template,individual_stock_chatgpt_packet_raw_url_template,individual_stock_chatgpt_packet_github_api_url_template,individual_stock_price_github_api_url_template,individual_stock_tdcc_github_api_url_template",
         "individual_stock_price_raw_url_template": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/{stock_id}.csv",
         "individual_stock_price_pages_url_template": "https://LeoChen0727.github.io/tdcc-weekly-report/data/stock_price_history/{stock_id}.csv",
         "individual_stock_price_github_api_url_template": "https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/data/stock_price_history/{stock_id}.csv?ref=main",

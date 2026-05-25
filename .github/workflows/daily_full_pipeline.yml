@@ -554,6 +554,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
+          python scripts/build_individual_stock_chatgpt_packets.py
           python scripts/build_individual_stock_raw_data_index.py
           python scripts/check_raw_data_health.py --all --sources raw,pages,api --max-workers 8
 
@@ -604,6 +605,9 @@ jobs:
           git add docs/latest/individual_stock_read_protocol_latest.md || true
           git add docs/latest/individual_stock_reports_index.csv || true
           git add docs/latest/individual_stock_reports_index.md || true
+          git add docs/latest/individual_stock_chatgpt_packet_index.csv || true
+          git add docs/latest/individual_stock_chatgpt_packet_index.md || true
+          git add docs/latest/individual_stock_chatgpt_packets/ || true
 
           git add output/latest/CHATGPT_DAILY_REPORT_RULES.txt || true
           git add output/latest/pdf_kline_chart_status_latest.csv || true
@@ -631,6 +635,9 @@ jobs:
           git add output/latest/individual_stock_read_protocol_latest.md || true
           git add output/latest/individual_stock_reports_index.csv || true
           git add output/latest/individual_stock_reports_index.md || true
+          git add output/latest/individual_stock_chatgpt_packet_index.csv || true
+          git add output/latest/individual_stock_chatgpt_packet_index.md || true
+          git add output/latest/individual_stock_chatgpt_packets/ || true
           git add output/latest/candidate_repeat_appearance_latest.csv || true
           git add output/latest/candidate_repeat_appearance_latest.md || true
           git add output/latest/candidate_repeat_appearance_validation_latest.json || true
@@ -739,6 +746,7 @@ jobs:
           git add scripts/build_surge_precondition_model.py || true
           git add scripts/validate_surge_precondition_model.py || true
           git add scripts/build_individual_stock_raw_data_index.py || true
+          git add scripts/build_individual_stock_chatgpt_packets.py || true
           git add scripts/check_raw_data_health.py || true
 
           git status --short
