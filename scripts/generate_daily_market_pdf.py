@@ -322,7 +322,7 @@ def load_candidates() -> pd.DataFrame:
     df = pd.read_csv(ALL_CANDIDATES_CSV, dtype=str, keep_default_na=False)
     if "category" in df.columns:
         df = df[~df["category"].astype(str).isin(EXCLUDED_FINAL_REPORT_CATEGORIES)].copy()
-    for col in ["score", "rank", "volume_ratio", "return_20d", "return_60d", "return_120d"]:
+    for col in ["score", "rank", "decision_score", "volume_ratio", "return_20d", "return_60d", "return_120d"]:
         if col in df.columns:
             df[col] = pd.to_numeric(df[col], errors="coerce")
     df["category_key"] = df.apply(category_key, axis=1)
@@ -553,6 +553,9 @@ def overheated(row: pd.Series) -> bool:
 
 
 def priority_label(row: pd.Series) -> str:
+    decision_label = clean_text(row.get("decision_priority_label", ""))
+    if decision_label:
+        return decision_label
     tdcc = tdcc_signal(row)
     rev = clean_text(row.get("revaluation_priority", ""))
     if tdcc == "distribution_warning" or rev.startswith("D_") or is_truthy(row.get("already_priced_in", "")) or overheated(row):
@@ -567,6 +570,19 @@ def priority_label(row: pd.Series) -> str:
 
 
 def sort_score(row: pd.Series) -> float:
+    decision_priority = clean_text(row.get("decision_priority", ""))
+    decision_score = safe_float(row.get("decision_score"), math.nan)
+    if decision_priority:
+        priority_bonus = {
+            "A_priority_watch": 1000,
+            "B_confirm_needed": 700,
+            "C_watch_only": 350,
+            "D_risk_downgrade": 0,
+        }.get(decision_priority, 250)
+        if math.isnan(decision_score):
+            decision_score = 0
+        return priority_bonus + decision_score
+
     priority_bonus = {
         "最優先追蹤": 1000,
         "可等確認": 700,
@@ -588,9 +604,12 @@ def sort_score(row: pd.Series) -> float:
 
 def score_rank_text(row: pd.Series) -> str:
     parts: list[str] = []
+    decision_score = num_text(row.get("decision_score"), 1)
     score = num_text(row.get("score"), 1)
     rank = num_text(row.get("rank"), 0)
     priority = clean_text(row.get("revaluation_priority", ""))
+    if decision_score:
+        parts.append(f"decision {decision_score}")
     if score:
         parts.append(f"score {score}")
     if rank:
@@ -642,6 +661,9 @@ def stock_text(row: pd.Series) -> str:
 
 
 def reason_text(row: pd.Series) -> str:
+    decision_reason = clean_text(row.get("why_selected", ""), 130)
+    if decision_reason:
+        return decision_reason
     cat = safe_str(row.get("category_key", ""))
     parts: list[str] = []
     if cat == "revenue_breakout_low_response":
@@ -685,6 +707,9 @@ def reason_text(row: pd.Series) -> str:
 
 
 def risk_text(row: pd.Series, warrant_flow_date: str) -> str:
+    decision_risk = clean_text(row.get("why_downgraded", ""), 120)
+    if decision_risk:
+        return decision_risk
     risks: list[str] = []
     tdcc = tdcc_signal(row)
     if tdcc == "distribution_warning":
@@ -704,6 +729,9 @@ def risk_text(row: pd.Series, warrant_flow_date: str) -> str:
 
 
 def confirm_text(row: pd.Series) -> str:
+    decision_confirmation = clean_text(row.get("next_confirmation", ""), 130)
+    if decision_confirmation:
+        return decision_confirmation
     cat = safe_str(row.get("category_key", ""))
     if cat == "true_breakout":
         return "突破價上方換手，成交量維持且不跌回平台。"

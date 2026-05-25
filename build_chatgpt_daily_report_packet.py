@@ -29,6 +29,9 @@ DAILY_SIGNAL_PERFORMANCE = Path("output/history/daily_signals/daily_candidate_si
 DAILY_SIGNAL_SUMMARY_MD = LATEST_DIR / "daily_signal_performance_summary_latest.md"
 CANDIDATE_REPEAT_CSV = LATEST_DIR / "candidate_repeat_appearance_latest.csv"
 CANDIDATE_REPEAT_MD = LATEST_DIR / "candidate_repeat_appearance_latest.md"
+DAILY_CANDIDATE_DECISION_CSV = LATEST_DIR / "daily_candidate_decision_latest.csv"
+DAILY_CANDIDATE_DECISION_MD = LATEST_DIR / "daily_candidate_decision_latest.md"
+DAILY_CANDIDATE_DECISION_PACKET_MD = LATEST_DIR / "daily_candidate_decision_chatgpt_packet_latest.md"
 DAILY_SIGNAL_WEEKLY_PDF = LATEST_DIR / "daily_signal_performance_weekly_latest.pdf"
 DAILY_SIGNAL_MONTHLY_PDF = LATEST_DIR / "daily_signal_performance_monthly_latest.pdf"
 FUNDAMENTAL_CATALYST_MD = LATEST_DIR / "fundamental_catalyst_layer_latest.md"
@@ -406,6 +409,15 @@ def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path],
     lines.append("fields: consecutive_appear_days_any_category,consecutive_appear_days_same_category,appear_count_5d,appear_count_10d,appear_count_20d,first_seen_date,last_seen_date,multi_category_flags,repeat_appear_label,repeat_appear_note")
     lines.append("note: Repeat appearance is calculated from raw daily candidate signal logs. ChatGPT must not infer consecutive days manually.")
     lines.append("")
+    lines.append("DAILY CANDIDATE DECISION LAYER")
+    lines.append(f"decision_csv_path: {DAILY_CANDIDATE_DECISION_CSV.as_posix()}")
+    lines.append(f"decision_md_raw_url: {raw_url(DAILY_CANDIDATE_DECISION_MD)}")
+    lines.append(f"decision_csv_raw_url: {raw_url(DAILY_CANDIDATE_DECISION_CSV)}")
+    lines.append(f"decision_chatgpt_packet_raw_url: {raw_url(DAILY_CANDIDATE_DECISION_PACKET_MD)}")
+    lines.append(f"status: {'generated' if DAILY_CANDIDATE_DECISION_CSV.exists() and DAILY_CANDIDATE_DECISION_PACKET_MD.exists() else 'missing'}")
+    lines.append("fields: pattern_mapped_category,decision_priority,decision_score,downgrade_flags,risk_tags,why_selected,why_downgraded,next_confirmation,must_not_overstate")
+    lines.append("note: This is the program-side ranking/downgrade layer. ChatGPT should use it before memory-based interpretation.")
+    lines.append("")
     lines.append("WARRANT MARKET ANALYSIS")
     lines.append(f"market_report_md_raw_url: {raw_url(WARRANT_MARKET_MD)}")
     lines.append(f"market_report_pdf_pages_url: {pages_url(Path('docs/latest/warrant_market_report_latest.pdf'))}")
@@ -531,6 +543,10 @@ def write_packet_manifest(main_date: str, report_ready: str, paths: dict[str, Pa
         "candidate_repeat_appearance_raw_url": raw_url(CANDIDATE_REPEAT_CSV),
         "candidate_repeat_appearance_md_raw_url": raw_url(CANDIDATE_REPEAT_MD),
         "candidate_repeat_appearance_status": "generated" if CANDIDATE_REPEAT_CSV.exists() and CANDIDATE_REPEAT_MD.exists() else "missing",
+        "daily_candidate_decision_csv_raw_url": raw_url(DAILY_CANDIDATE_DECISION_CSV),
+        "daily_candidate_decision_md_raw_url": raw_url(DAILY_CANDIDATE_DECISION_MD),
+        "daily_candidate_decision_chatgpt_packet_raw_url": raw_url(DAILY_CANDIDATE_DECISION_PACKET_MD),
+        "daily_candidate_decision_status": "generated" if DAILY_CANDIDATE_DECISION_CSV.exists() and DAILY_CANDIDATE_DECISION_PACKET_MD.exists() else "missing",
         "surge_model_chatgpt_packet_raw_url": raw_url(SURGE_MODEL_PACKET_MD),
         "surge_precondition_candidates_md_raw_url": raw_url(SURGE_PRECONDITION_CANDIDATES_MD),
         "surge_precondition_candidates_csv_raw_url": raw_url(SURGE_PRECONDITION_CANDIDATES_CSV),

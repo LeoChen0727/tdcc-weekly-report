@@ -1,6 +1,6 @@
 CHATGPT DAILY REPORT PACKET
 
-generated_at: 2026-05-26 02:09:38 Asia/Taipei
+generated_at: 2026-05-26 03:27:16 Asia/Taipei
 repo: LeoChen0727/tdcc-weekly-report
 main_price_date: 20260526
 report_ready: True
@@ -31,14 +31,14 @@ CURATED PDF REPORT
 pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_market_curated_report_latest.pdf
 raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_curated_report_latest.pdf
 file_path: output/latest/daily_market_curated_report_latest.pdf
-generated_at: 2026-05-26 02:04:04 Asia/Taipei
+generated_at: 2026-05-26 03:27:07 Asia/Taipei
 status: generated
 
 FULL TABLE PDF REPORT
 pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_market_full_table_report_latest.pdf
 raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_full_table_report_latest.pdf
 file_path: output/latest/daily_market_full_table_report_latest.pdf
-generated_at: 2026-05-26 02:04:04 Asia/Taipei
+generated_at: 2026-05-26 03:27:07 Asia/Taipei
 status: generated
 
 FIXED PDF VALIDATION
@@ -92,7 +92,7 @@ performance_csv_path: output/history/daily_signals/daily_candidate_signal_perfor
 summary_latest_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_signal_performance_summary_latest.md
 weekly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_weekly_latest.pdf
 monthly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_monthly_latest.pdf
-last_updated_at: 2026-05-26 02:09:38 Asia/Taipei
+last_updated_at: 2026-05-26 03:27:16 Asia/Taipei
 status: generated
 
 CANDIDATE REPEAT APPEARANCE
@@ -106,6 +106,15 @@ status: generated
 latest_signal_date: 20260526
 fields: consecutive_appear_days_any_category,consecutive_appear_days_same_category,appear_count_5d,appear_count_10d,appear_count_20d,first_seen_date,last_seen_date,multi_category_flags,repeat_appear_label,repeat_appear_note
 note: Repeat appearance is calculated from raw daily candidate signal logs. ChatGPT must not infer consecutive days manually.
+
+DAILY CANDIDATE DECISION LAYER
+decision_csv_path: output/latest/daily_candidate_decision_latest.csv
+decision_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_candidate_decision_latest.md
+decision_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_candidate_decision_latest.csv
+decision_chatgpt_packet_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_candidate_decision_chatgpt_packet_latest.md
+status: generated
+fields: pattern_mapped_category,decision_priority,decision_score,downgrade_flags,risk_tags,why_selected,why_downgraded,next_confirmation,must_not_overstate
+note: This is the program-side ranking/downgrade layer. ChatGPT should use it before memory-based interpretation.
 
 WARRANT MARKET ANALYSIS
 market_report_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/warrant_market_report_latest.md
