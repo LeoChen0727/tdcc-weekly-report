@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from argparse import ArgumentParser
 from base64 import b64decode
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from hashlib import sha256
 from io import StringIO
@@ -244,23 +245,27 @@ def classify_status(
     return "missing_file" if str(http_status) == "404" else "content_not_expanded"
 
 
-def check_one(logical_source: str, path: Path, stock_id: str = "") -> list[dict[str, Any]]:
+def check_one(logical_source: str, path: Path, stock_id: str = "", source_types: list[str] | None = None) -> list[dict[str, Any]]:
     local = local_text(path)
     local_stats = parse_table_stats(local, path.suffix)
     local_line_count = int(local_stats["line_count"])
     local_exists = path.exists()
     checked_at = now_text()
 
-    blob = fetch_text(blob_url(path), timeout=15)
-    blob_exists = bool(blob.get("ok"))
-    rows: list[dict[str, Any]] = []
-
-    sources = [
+    all_sources = [
         ("raw", raw_url(path), False),
         ("pages", pages_url(path), False),
         ("api", api_url(path), True),
         ("blob", blob_url(path), False),
     ]
+    wanted = set(source_types or ["raw", "pages", "api", "blob"])
+    sources = [source for source in all_sources if source[0] in wanted]
+    if not sources:
+        sources = [all_sources[0]]
+
+    blob = fetch_text(blob_url(path), timeout=15) if "blob" in wanted else {"ok": local_exists, "http_status": "", "text": "", "error": ""}
+    blob_exists = bool(blob.get("ok")) or local_exists
+    rows: list[dict[str, Any]] = []
     for source_type, url, is_api in sources:
         fetched = blob if source_type == "blob" else fetch_text(url, expect_api=is_api, timeout=20)
         text = safe_str(fetched.get("text", ""))
@@ -385,7 +390,7 @@ def md_table(df: pd.DataFrame, columns: list[str], limit: int = 120) -> list[str
     return lines
 
 
-def write_status_md(df: pd.DataFrame) -> None:
+def write_status_md(df: pd.DataFrame, source_types: list[str]) -> None:
     status_counts = df["status_category"].value_counts().to_dict() if not df.empty else {}
     logical = (
         df.groupby("logical_source")["status_category"]
@@ -398,6 +403,7 @@ def write_status_md(df: pd.DataFrame) -> None:
         "# Raw Data Fetch Status",
         "",
         f"- generated_at: {now_text()}",
+        f"- sources_checked: {', '.join(source_types)}",
         f"- checked_rows: {len(df)}",
         f"- success_rows: {status_counts.get('success', 0)}",
         f"- suspicious_single_line_rows: {status_counts.get('suspicious_single_line', 0)}",
@@ -440,13 +446,26 @@ def write_status_md(df: pd.DataFrame) -> None:
     FETCH_STATUS_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
-def run(stock_ids: list[str], include_all_core: bool) -> pd.DataFrame:
+def run(stock_ids: list[str], include_all_core: bool, source_types: list[str], max_workers: int) -> pd.DataFrame:
     rows: list[dict[str, Any]] = []
-    for logical_source, path, stock_id in build_check_list(stock_ids, include_all_core):
-        rows.extend(check_one(logical_source, path, stock_id))
+    items = build_check_list(stock_ids, include_all_core)
+    workers = max(1, min(max_workers, len(items) or 1))
+    if workers == 1:
+        for logical_source, path, stock_id in items:
+            rows.extend(check_one(logical_source, path, stock_id, source_types))
+    else:
+        with ThreadPoolExecutor(max_workers=workers) as executor:
+            futures = {
+                executor.submit(check_one, logical_source, path, stock_id, source_types): (logical_source, path, stock_id)
+                for logical_source, path, stock_id in items
+            }
+            for future in as_completed(futures):
+                rows.extend(future.result())
     df = pd.DataFrame(rows)
+    if not df.empty:
+        df = df.sort_values(["logical_source", "stock_id", "source_type", "expected_path"]).reset_index(drop=True)
     write_csv(df, FETCH_STATUS_CSV)
-    write_status_md(df)
+    write_status_md(df, source_types)
     return df
 
 
@@ -454,6 +473,12 @@ def parse_args() -> Any:
     parser = ArgumentParser(description="Check GitHub raw/API/Pages readability for ChatGPT-facing data files.")
     parser.add_argument("--stock-id", action="append", default=[], help="Stock id to check. Can be repeated.")
     parser.add_argument("--all", action="store_true", help="Check core ChatGPT-facing files.")
+    parser.add_argument(
+        "--sources",
+        default="raw,pages,api,blob",
+        help="Comma-separated sources to check: raw,pages,api,blob. Use raw for a faster daily health check.",
+    )
+    parser.add_argument("--max-workers", type=int, default=8, help="Parallel fetch workers.")
     return parser.parse_args()
 
 
@@ -462,7 +487,10 @@ def main() -> int:
     stock_ids = [normalize_stock_id(x) for x in args.stock_id if normalize_stock_id(x)]
     if not stock_ids and not args.all:
         args.all = True
-    df = run(stock_ids, args.all)
+    source_types = [safe_str(x).lower() for x in safe_str(args.sources).split(",") if safe_str(x)]
+    valid_sources = {"raw", "pages", "api", "blob"}
+    source_types = [x for x in source_types if x in valid_sources] or ["raw"]
+    df = run(stock_ids, args.all, source_types, args.max_workers)
     print(f"Saved: {FETCH_STATUS_CSV} rows={len(df)}")
     print(f"Saved: {FETCH_STATUS_MD}")
     return 0

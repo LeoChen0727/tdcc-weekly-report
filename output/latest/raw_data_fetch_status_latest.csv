@@ -1,180 +1,22 @@
 logical_source,stock_id,expected_path,url,source_type,success,status_category,http_status,error_message,rows,columns,line_count,local_file_exists,local_line_count,local_rows,local_columns,file_size,latest_date,empty_table,newline_ok,chatgpt_friendly,sample_status,mature_sample_status,content_preview_hash,checked_at
-readme_first,,output/latest/READ_ME_FIRST_DAILY_REPORT.txt,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/READ_ME_FIRST_DAILY_REPORT.txt,raw,True,success,200,,112,1,112,True,112,112,1,14145,,False,True,True,ok,,069016c451d826be,2026-05-25 22:30:14 Asia/Taipei
-readme_first,,output/latest/READ_ME_FIRST_DAILY_REPORT.txt,https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT.txt,pages,True,success,200,,5,1,5,True,112,112,1,14145,,False,True,True,ok,,29a75f23cf19a179,2026-05-25 22:30:14 Asia/Taipei
-readme_first,,output/latest/READ_ME_FIRST_DAILY_REPORT.txt,https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/READ_ME_FIRST_DAILY_REPORT.txt?ref=main,api,True,success,200,,112,1,112,True,112,112,1,14145,,False,True,True,ok,,069016c451d826be,2026-05-25 22:30:14 Asia/Taipei
-readme_first,,output/latest/READ_ME_FIRST_DAILY_REPORT.txt,https://github.com/LeoChen0727/tdcc-weekly-report/blob/main/output/latest/READ_ME_FIRST_DAILY_REPORT.txt,blob,True,success,200,,,,,True,112,112,1,14145,,,True,True,ok,,5902839e0ac215e8,2026-05-25 22:30:14 Asia/Taipei
-daily_report_packet,,output/latest/chatgpt_daily_report_packet_latest.txt,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/chatgpt_daily_report_packet_latest.txt,raw,True,success,200,,1175,1,1175,True,1175,1175,1,358567,,False,True,True,ok,,535b8de0c315cd18,2026-05-25 22:30:15 Asia/Taipei
-daily_report_packet,,output/latest/chatgpt_daily_report_packet_latest.txt,https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt,pages,True,success,200,,1175,1,1175,True,1175,1175,1,358567,,False,True,True,ok,,535b8de0c315cd18,2026-05-25 22:30:15 Asia/Taipei
-daily_report_packet,,output/latest/chatgpt_daily_report_packet_latest.txt,https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/chatgpt_daily_report_packet_latest.txt?ref=main,api,True,success,200,,1175,1,1175,True,1175,1175,1,358567,,False,True,True,ok,,535b8de0c315cd18,2026-05-25 22:30:15 Asia/Taipei
-daily_report_packet,,output/latest/chatgpt_daily_report_packet_latest.txt,https://github.com/LeoChen0727/tdcc-weekly-report/blob/main/output/latest/chatgpt_daily_report_packet_latest.txt,blob,True,success,200,,,,,True,1175,1175,1,358567,,,True,True,ok,,5902839e0ac215e8,2026-05-25 22:30:15 Asia/Taipei
-daily_market_summary,,output/latest/daily_market_summary_latest.md,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_summary_latest.md,raw,True,success,200,,447,1,447,True,447,447,1,32661,,False,True,True,ok,,0b8885b86545bb12,2026-05-25 22:30:16 Asia/Taipei
-daily_market_summary,,output/latest/daily_market_summary_latest.md,https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_market_summary_latest.md,pages,False,missing_file,404,"<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv=""Content-type"" content=""text/html; charset=utf-8"">
-    <meta http-equiv=""Content-Security-Policy"" content=""default-src 'none'; style-src 'unsafe-inline'; img-src data:; connect-src 'self'"">
-    <title>Page not found &middot; GitHub Pages</title>",0,0,0,True,447,447,1,32661,,False,True,False,ok,,,2026-05-25 22:30:16 Asia/Taipei
-daily_market_summary,,output/latest/daily_market_summary_latest.md,https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/daily_market_summary_latest.md?ref=main,api,True,success,200,,447,1,447,True,447,447,1,32661,,False,True,True,ok,,0b8885b86545bb12,2026-05-25 22:30:16 Asia/Taipei
-daily_market_summary,,output/latest/daily_market_summary_latest.md,https://github.com/LeoChen0727/tdcc-weekly-report/blob/main/output/latest/daily_market_summary_latest.md,blob,True,success,200,,,,,True,447,447,1,32661,,,True,True,ok,,5902839e0ac215e8,2026-05-25 22:30:16 Asia/Taipei
-daily_market_full,,output/latest/daily_market_full_latest.md,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_full_latest.md,raw,True,success,200,,567,1,567,True,567,567,1,313252,,False,True,True,ok,,3b1a90fa9bb313a8,2026-05-25 22:30:17 Asia/Taipei
-daily_market_full,,output/latest/daily_market_full_latest.md,https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_market_full_latest.md,pages,False,missing_file,404,"<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv=""Content-type"" content=""text/html; charset=utf-8"">
-    <meta http-equiv=""Content-Security-Policy"" content=""default-src 'none'; style-src 'unsafe-inline'; img-src data:; connect-src 'self'"">
-    <title>Page not found &middot; GitHub Pages</title>",0,0,0,True,567,567,1,313252,,False,True,False,ok,,,2026-05-25 22:30:17 Asia/Taipei
-daily_market_full,,output/latest/daily_market_full_latest.md,https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/daily_market_full_latest.md?ref=main,api,True,success,200,,567,1,567,True,567,567,1,313252,,False,True,True,ok,,3b1a90fa9bb313a8,2026-05-25 22:30:17 Asia/Taipei
-daily_market_full,,output/latest/daily_market_full_latest.md,https://github.com/LeoChen0727/tdcc-weekly-report/blob/main/output/latest/daily_market_full_latest.md,blob,True,success,200,,,,,True,567,567,1,313252,,,True,True,ok,,5902839e0ac215e8,2026-05-25 22:30:17 Asia/Taipei
-stock_monitor,,output/latest/stock_monitor_latest.md,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/stock_monitor_latest.md,raw,True,success,200,,161,1,161,True,161,161,1,17581,,False,True,True,ok,,41f808f406fdc61d,2026-05-25 22:30:19 Asia/Taipei
-stock_monitor,,output/latest/stock_monitor_latest.md,https://LeoChen0727.github.io/tdcc-weekly-report/latest/stock_monitor_latest.md,pages,False,missing_file,404,"<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv=""Content-type"" content=""text/html; charset=utf-8"">
-    <meta http-equiv=""Content-Security-Policy"" content=""default-src 'none'; style-src 'unsafe-inline'; img-src data:; connect-src 'self'"">
-    <title>Page not found &middot; GitHub Pages</title>",0,0,0,True,161,161,1,17581,,False,True,False,ok,,,2026-05-25 22:30:19 Asia/Taipei
-stock_monitor,,output/latest/stock_monitor_latest.md,https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/stock_monitor_latest.md?ref=main,api,True,success,200,,161,1,161,True,161,161,1,17581,,False,True,True,ok,,41f808f406fdc61d,2026-05-25 22:30:19 Asia/Taipei
-stock_monitor,,output/latest/stock_monitor_latest.md,https://github.com/LeoChen0727/tdcc-weekly-report/blob/main/output/latest/stock_monitor_latest.md,blob,True,success,200,,,,,True,161,161,1,17581,,,True,True,ok,,5902839e0ac215e8,2026-05-25 22:30:19 Asia/Taipei
-all_candidates,,output/latest/all_candidates_latest.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/all_candidates_latest.csv,raw,True,success,200,,519,205,520,True,520,519,205,745101,20260525,False,True,True,ok,,2776fb198ac53174,2026-05-25 22:30:20 Asia/Taipei
-all_candidates,,output/latest/all_candidates_latest.csv,https://LeoChen0727.github.io/tdcc-weekly-report/latest/all_candidates_latest.csv,pages,False,missing_file,404,"<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv=""Content-type"" content=""text/html; charset=utf-8"">
-    <meta http-equiv=""Content-Security-Policy"" content=""default-src 'none'; style-src 'unsafe-inline'; img-src data:; connect-src 'self'"">
-    <title>Page not found &middot; GitHub Pages</title>",0,0,0,True,520,519,205,745101,20260525,False,True,False,ok,,,2026-05-25 22:30:20 Asia/Taipei
-all_candidates,,output/latest/all_candidates_latest.csv,https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/all_candidates_latest.csv?ref=main,api,True,success,200,,519,205,520,True,520,519,205,745101,20260525,False,True,True,ok,,2776fb198ac53174,2026-05-25 22:30:20 Asia/Taipei
-all_candidates,,output/latest/all_candidates_latest.csv,https://github.com/LeoChen0727/tdcc-weekly-report/blob/main/output/latest/all_candidates_latest.csv,blob,True,content_not_expanded,200,,,,,True,520,519,205,745101,20260525,,True,False,ok,,5902839e0ac215e8,2026-05-25 22:30:20 Asia/Taipei
-candidate_repeat_appearance,,output/latest/candidate_repeat_appearance_latest.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/candidate_repeat_appearance_latest.csv,raw,True,success,200,,400,13,401,True,401,400,13,60705,20260525,False,True,True,ok,,0eba1ee338c6d54d,2026-05-25 22:30:22 Asia/Taipei
-candidate_repeat_appearance,,output/latest/candidate_repeat_appearance_latest.csv,https://LeoChen0727.github.io/tdcc-weekly-report/latest/candidate_repeat_appearance_latest.csv,pages,False,missing_file,404,"<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv=""Content-type"" content=""text/html; charset=utf-8"">
-    <meta http-equiv=""Content-Security-Policy"" content=""default-src 'none'; style-src 'unsafe-inline'; img-src data:; connect-src 'self'"">
-    <title>Page not found &middot; GitHub Pages</title>",0,0,0,True,401,400,13,60705,20260525,False,True,False,ok,,,2026-05-25 22:30:22 Asia/Taipei
-candidate_repeat_appearance,,output/latest/candidate_repeat_appearance_latest.csv,https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/candidate_repeat_appearance_latest.csv?ref=main,api,True,success,200,,400,13,401,True,401,400,13,60705,20260525,False,True,True,ok,,0eba1ee338c6d54d,2026-05-25 22:30:22 Asia/Taipei
-candidate_repeat_appearance,,output/latest/candidate_repeat_appearance_latest.csv,https://github.com/LeoChen0727/tdcc-weekly-report/blob/main/output/latest/candidate_repeat_appearance_latest.csv,blob,True,content_not_expanded,200,,,,,True,401,400,13,60705,20260525,,True,False,ok,,5902839e0ac215e8,2026-05-25 22:30:22 Asia/Taipei
-warrant_market_report,,output/latest/warrant_market_report_latest.md,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/warrant_market_report_latest.md,raw,True,success,200,,197,1,197,True,197,197,1,10943,,False,True,True,ok,,749d798dacf8c279,2026-05-25 22:30:23 Asia/Taipei
-warrant_market_report,,output/latest/warrant_market_report_latest.md,https://LeoChen0727.github.io/tdcc-weekly-report/latest/warrant_market_report_latest.md,pages,False,missing_file,404,"<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv=""Content-type"" content=""text/html; charset=utf-8"">
-    <meta http-equiv=""Content-Security-Policy"" content=""default-src 'none'; style-src 'unsafe-inline'; img-src data:; connect-src 'self'"">
-    <title>Page not found &middot; GitHub Pages</title>",0,0,0,True,197,197,1,10943,,False,True,False,ok,,,2026-05-25 22:30:23 Asia/Taipei
-warrant_market_report,,output/latest/warrant_market_report_latest.md,https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/warrant_market_report_latest.md?ref=main,api,True,success,200,,197,1,197,True,197,197,1,10943,,False,True,True,ok,,749d798dacf8c279,2026-05-25 22:30:23 Asia/Taipei
-warrant_market_report,,output/latest/warrant_market_report_latest.md,https://github.com/LeoChen0727/tdcc-weekly-report/blob/main/output/latest/warrant_market_report_latest.md,blob,True,success,200,,,,,True,197,197,1,10943,,,True,True,ok,,5902839e0ac215e8,2026-05-25 22:30:23 Asia/Taipei
-warrant_flow_by_stock,,output/latest/warrant_flow_by_stock_latest.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/warrant_flow_by_stock_latest.csv,raw,True,success,200,,455,38,456,True,456,455,38,100460,20260525,False,True,True,ok,,e136fa9b5ff70a32,2026-05-25 22:30:24 Asia/Taipei
-warrant_flow_by_stock,,output/latest/warrant_flow_by_stock_latest.csv,https://LeoChen0727.github.io/tdcc-weekly-report/latest/warrant_flow_by_stock_latest.csv,pages,False,missing_file,404,"<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv=""Content-type"" content=""text/html; charset=utf-8"">
-    <meta http-equiv=""Content-Security-Policy"" content=""default-src 'none'; style-src 'unsafe-inline'; img-src data:; connect-src 'self'"">
-    <title>Page not found &middot; GitHub Pages</title>",0,0,0,True,456,455,38,100460,20260525,False,True,False,ok,,,2026-05-25 22:30:24 Asia/Taipei
-warrant_flow_by_stock,,output/latest/warrant_flow_by_stock_latest.csv,https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/warrant_flow_by_stock_latest.csv?ref=main,api,True,success,200,,455,38,456,True,456,455,38,100460,20260525,False,True,True,ok,,e136fa9b5ff70a32,2026-05-25 22:30:24 Asia/Taipei
-warrant_flow_by_stock,,output/latest/warrant_flow_by_stock_latest.csv,https://github.com/LeoChen0727/tdcc-weekly-report/blob/main/output/latest/warrant_flow_by_stock_latest.csv,blob,True,content_not_expanded,200,,,,,True,456,455,38,100460,20260525,,True,False,ok,,5902839e0ac215e8,2026-05-25 22:30:24 Asia/Taipei
-tdcc_tracking_packet,,output/latest/tdcc_chatgpt_tracking_packet_latest.md,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_chatgpt_tracking_packet_latest.md,raw,True,success,200,,661,1,661,True,661,661,1,96331,,False,True,True,ok,,57237e953a1da064,2026-05-25 22:30:25 Asia/Taipei
-tdcc_tracking_packet,,output/latest/tdcc_chatgpt_tracking_packet_latest.md,https://LeoChen0727.github.io/tdcc-weekly-report/latest/tdcc_chatgpt_tracking_packet_latest.md,pages,False,missing_file,404,"<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv=""Content-type"" content=""text/html; charset=utf-8"">
-    <meta http-equiv=""Content-Security-Policy"" content=""default-src 'none'; style-src 'unsafe-inline'; img-src data:; connect-src 'self'"">
-    <title>Page not found &middot; GitHub Pages</title>",0,0,0,True,661,661,1,96331,,False,True,False,ok,,,2026-05-25 22:30:25 Asia/Taipei
-tdcc_tracking_packet,,output/latest/tdcc_chatgpt_tracking_packet_latest.md,https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/tdcc_chatgpt_tracking_packet_latest.md?ref=main,api,True,success,200,,661,1,661,True,661,661,1,96331,,False,True,True,ok,,57237e953a1da064,2026-05-25 22:30:25 Asia/Taipei
-tdcc_tracking_packet,,output/latest/tdcc_chatgpt_tracking_packet_latest.md,https://github.com/LeoChen0727/tdcc-weekly-report/blob/main/output/latest/tdcc_chatgpt_tracking_packet_latest.md,blob,True,success,200,,,,,True,661,661,1,96331,,,True,True,ok,,5902839e0ac215e8,2026-05-25 22:30:25 Asia/Taipei
-tdcc_strength_ranking_top,,output/latest/tdcc_strength_ranking_top_latest.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_strength_ranking_top_latest.csv,raw,True,success,200,,50,27,51,True,51,50,27,14229,,False,True,True,ok,,cdfad02cec660756,2026-05-25 22:30:27 Asia/Taipei
-tdcc_strength_ranking_top,,output/latest/tdcc_strength_ranking_top_latest.csv,https://LeoChen0727.github.io/tdcc-weekly-report/latest/tdcc_strength_ranking_top_latest.csv,pages,False,missing_file,404,"<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv=""Content-type"" content=""text/html; charset=utf-8"">
-    <meta http-equiv=""Content-Security-Policy"" content=""default-src 'none'; style-src 'unsafe-inline'; img-src data:; connect-src 'self'"">
-    <title>Page not found &middot; GitHub Pages</title>",0,0,0,True,51,50,27,14229,,False,True,False,ok,,,2026-05-25 22:30:27 Asia/Taipei
-tdcc_strength_ranking_top,,output/latest/tdcc_strength_ranking_top_latest.csv,https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/tdcc_strength_ranking_top_latest.csv?ref=main,api,True,success,200,,50,27,51,True,51,50,27,14229,,False,True,True,ok,,cdfad02cec660756,2026-05-25 22:30:27 Asia/Taipei
-tdcc_strength_ranking_top,,output/latest/tdcc_strength_ranking_top_latest.csv,https://github.com/LeoChen0727/tdcc-weekly-report/blob/main/output/latest/tdcc_strength_ranking_top_latest.csv,blob,True,content_not_expanded,200,,,,,True,51,50,27,14229,,,True,False,ok,,5902839e0ac215e8,2026-05-25 22:30:27 Asia/Taipei
-tdcc_pre_move_abm_top,,output/latest/tdcc_pre_move_abm_top_latest.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_pre_move_abm_top_latest.csv,raw,True,success,200,,50,28,51,True,51,50,28,17663,,False,True,True,ok,,816ac43e26d21153,2026-05-25 22:30:27 Asia/Taipei
-tdcc_pre_move_abm_top,,output/latest/tdcc_pre_move_abm_top_latest.csv,https://LeoChen0727.github.io/tdcc-weekly-report/latest/tdcc_pre_move_abm_top_latest.csv,pages,False,missing_file,404,"<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv=""Content-type"" content=""text/html; charset=utf-8"">
-    <meta http-equiv=""Content-Security-Policy"" content=""default-src 'none'; style-src 'unsafe-inline'; img-src data:; connect-src 'self'"">
-    <title>Page not found &middot; GitHub Pages</title>",0,0,0,True,51,50,28,17663,,False,True,False,ok,,,2026-05-25 22:30:27 Asia/Taipei
-tdcc_pre_move_abm_top,,output/latest/tdcc_pre_move_abm_top_latest.csv,https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/tdcc_pre_move_abm_top_latest.csv?ref=main,api,True,success,200,,50,28,51,True,51,50,28,17663,,False,True,True,ok,,816ac43e26d21153,2026-05-25 22:30:27 Asia/Taipei
-tdcc_pre_move_abm_top,,output/latest/tdcc_pre_move_abm_top_latest.csv,https://github.com/LeoChen0727/tdcc-weekly-report/blob/main/output/latest/tdcc_pre_move_abm_top_latest.csv,blob,True,content_not_expanded,200,,,,,True,51,50,28,17663,,,True,False,ok,,5902839e0ac215e8,2026-05-25 22:30:27 Asia/Taipei
-tdcc_phase_distribution,,output/latest/tdcc_phase_distribution_latest.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_phase_distribution_latest.csv,raw,True,success,200,,112,18,113,True,113,112,18,8528,,False,True,True,ok,,ccad38867e6ddbb4,2026-05-25 22:30:28 Asia/Taipei
-tdcc_phase_distribution,,output/latest/tdcc_phase_distribution_latest.csv,https://LeoChen0727.github.io/tdcc-weekly-report/latest/tdcc_phase_distribution_latest.csv,pages,False,missing_file,404,"<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv=""Content-type"" content=""text/html; charset=utf-8"">
-    <meta http-equiv=""Content-Security-Policy"" content=""default-src 'none'; style-src 'unsafe-inline'; img-src data:; connect-src 'self'"">
-    <title>Page not found &middot; GitHub Pages</title>",0,0,0,True,113,112,18,8528,,False,True,False,ok,,,2026-05-25 22:30:28 Asia/Taipei
-tdcc_phase_distribution,,output/latest/tdcc_phase_distribution_latest.csv,https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/tdcc_phase_distribution_latest.csv?ref=main,api,True,success,200,,112,18,113,True,113,112,18,8528,,False,True,True,ok,,ccad38867e6ddbb4,2026-05-25 22:30:28 Asia/Taipei
-tdcc_phase_distribution,,output/latest/tdcc_phase_distribution_latest.csv,https://github.com/LeoChen0727/tdcc-weekly-report/blob/main/output/latest/tdcc_phase_distribution_latest.csv,blob,True,content_not_expanded,200,,,,,True,113,112,18,8528,,,True,False,ok,,5902839e0ac215e8,2026-05-25 22:30:28 Asia/Taipei
-tdcc_top_risk_list,,output/latest/tdcc_top_risk_list_latest.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_top_risk_list_latest.csv,raw,True,success,200,,60,13,61,True,61,60,13,11390,,False,True,True,ok,,f6e2338719d8d311,2026-05-25 22:30:29 Asia/Taipei
-tdcc_top_risk_list,,output/latest/tdcc_top_risk_list_latest.csv,https://LeoChen0727.github.io/tdcc-weekly-report/latest/tdcc_top_risk_list_latest.csv,pages,False,missing_file,404,"<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv=""Content-type"" content=""text/html; charset=utf-8"">
-    <meta http-equiv=""Content-Security-Policy"" content=""default-src 'none'; style-src 'unsafe-inline'; img-src data:; connect-src 'self'"">
-    <title>Page not found &middot; GitHub Pages</title>",0,0,0,True,61,60,13,11390,,False,True,False,ok,,,2026-05-25 22:30:29 Asia/Taipei
-tdcc_top_risk_list,,output/latest/tdcc_top_risk_list_latest.csv,https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/tdcc_top_risk_list_latest.csv?ref=main,api,True,success,200,,60,13,61,True,61,60,13,11390,,False,True,True,ok,,f6e2338719d8d311,2026-05-25 22:30:29 Asia/Taipei
-tdcc_top_risk_list,,output/latest/tdcc_top_risk_list_latest.csv,https://github.com/LeoChen0727/tdcc-weekly-report/blob/main/output/latest/tdcc_top_risk_list_latest.csv,blob,True,content_not_expanded,200,,,,,True,61,60,13,11390,,,True,False,ok,,5902839e0ac215e8,2026-05-25 22:30:29 Asia/Taipei
-surge_model_packet,,output/latest/surge_model_chatgpt_packet_latest.md,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/surge_model_chatgpt_packet_latest.md,raw,True,success,200,,109,1,109,True,109,109,1,18519,,False,True,True,ok,,a24b402b32e11ebb,2026-05-25 22:30:30 Asia/Taipei
-surge_model_packet,,output/latest/surge_model_chatgpt_packet_latest.md,https://LeoChen0727.github.io/tdcc-weekly-report/latest/surge_model_chatgpt_packet_latest.md,pages,False,missing_file,404,"<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv=""Content-type"" content=""text/html; charset=utf-8"">
-    <meta http-equiv=""Content-Security-Policy"" content=""default-src 'none'; style-src 'unsafe-inline'; img-src data:; connect-src 'self'"">
-    <title>Page not found &middot; GitHub Pages</title>",0,0,0,True,109,109,1,18519,,False,True,False,ok,,,2026-05-25 22:30:30 Asia/Taipei
-surge_model_packet,,output/latest/surge_model_chatgpt_packet_latest.md,https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/surge_model_chatgpt_packet_latest.md?ref=main,api,True,success,200,,109,1,109,True,109,109,1,18519,,False,True,True,ok,,a24b402b32e11ebb,2026-05-25 22:30:30 Asia/Taipei
-surge_model_packet,,output/latest/surge_model_chatgpt_packet_latest.md,https://github.com/LeoChen0727/tdcc-weekly-report/blob/main/output/latest/surge_model_chatgpt_packet_latest.md,blob,True,success,200,,,,,True,109,109,1,18519,,,True,True,ok,,5902839e0ac215e8,2026-05-25 22:30:30 Asia/Taipei
-surge_precondition_candidates,,output/latest/surge_precondition_candidates_latest.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/surge_precondition_candidates_latest.csv,raw,True,success,200,,100,19,101,True,101,100,19,22130,20260525,False,True,True,ok,,35e2c984f030d2b3,2026-05-25 22:30:31 Asia/Taipei
-surge_precondition_candidates,,output/latest/surge_precondition_candidates_latest.csv,https://LeoChen0727.github.io/tdcc-weekly-report/latest/surge_precondition_candidates_latest.csv,pages,False,missing_file,404,"<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv=""Content-type"" content=""text/html; charset=utf-8"">
-    <meta http-equiv=""Content-Security-Policy"" content=""default-src 'none'; style-src 'unsafe-inline'; img-src data:; connect-src 'self'"">
-    <title>Page not found &middot; GitHub Pages</title>",0,0,0,True,101,100,19,22130,20260525,False,True,False,ok,,,2026-05-25 22:30:31 Asia/Taipei
-surge_precondition_candidates,,output/latest/surge_precondition_candidates_latest.csv,https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/surge_precondition_candidates_latest.csv?ref=main,api,True,success,200,,100,19,101,True,101,100,19,22130,20260525,False,True,True,ok,,35e2c984f030d2b3,2026-05-25 22:30:31 Asia/Taipei
-surge_precondition_candidates,,output/latest/surge_precondition_candidates_latest.csv,https://github.com/LeoChen0727/tdcc-weekly-report/blob/main/output/latest/surge_precondition_candidates_latest.csv,blob,True,content_not_expanded,200,,,,,True,101,100,19,22130,20260525,,True,False,ok,,5902839e0ac215e8,2026-05-25 22:30:31 Asia/Taipei
-surge_model_backtest,,output/latest/surge_model_backtest_latest.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/surge_model_backtest_latest.csv,raw,True,success,200,,15,17,16,True,16,15,17,4439,,False,True,True,ok,,03464c93a13a546d,2026-05-25 22:30:32 Asia/Taipei
-surge_model_backtest,,output/latest/surge_model_backtest_latest.csv,https://LeoChen0727.github.io/tdcc-weekly-report/latest/surge_model_backtest_latest.csv,pages,False,missing_file,404,"<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv=""Content-type"" content=""text/html; charset=utf-8"">
-    <meta http-equiv=""Content-Security-Policy"" content=""default-src 'none'; style-src 'unsafe-inline'; img-src data:; connect-src 'self'"">
-    <title>Page not found &middot; GitHub Pages</title>",0,0,0,True,16,15,17,4439,,False,True,False,ok,,,2026-05-25 22:30:32 Asia/Taipei
-surge_model_backtest,,output/latest/surge_model_backtest_latest.csv,https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/surge_model_backtest_latest.csv?ref=main,api,True,success,200,,15,17,16,True,16,15,17,4439,,False,True,True,ok,,03464c93a13a546d,2026-05-25 22:30:32 Asia/Taipei
-surge_model_backtest,,output/latest/surge_model_backtest_latest.csv,https://github.com/LeoChen0727/tdcc-weekly-report/blob/main/output/latest/surge_model_backtest_latest.csv,blob,True,content_not_expanded,200,,,,,True,16,15,17,4439,,,True,False,ok,,5902839e0ac215e8,2026-05-25 22:30:32 Asia/Taipei
-surge_model_feature_importance,,output/latest/surge_model_feature_importance_latest.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/surge_model_feature_importance_latest.csv,raw,True,success,200,,10,14,11,True,11,10,14,2036,,False,True,True,ok,,7f6e3faf9c19c5e7,2026-05-25 22:30:33 Asia/Taipei
-surge_model_feature_importance,,output/latest/surge_model_feature_importance_latest.csv,https://LeoChen0727.github.io/tdcc-weekly-report/latest/surge_model_feature_importance_latest.csv,pages,False,missing_file,404,"<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv=""Content-type"" content=""text/html; charset=utf-8"">
-    <meta http-equiv=""Content-Security-Policy"" content=""default-src 'none'; style-src 'unsafe-inline'; img-src data:; connect-src 'self'"">
-    <title>Page not found &middot; GitHub Pages</title>",0,0,0,True,11,10,14,2036,,False,True,False,ok,,,2026-05-25 22:30:33 Asia/Taipei
-surge_model_feature_importance,,output/latest/surge_model_feature_importance_latest.csv,https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/surge_model_feature_importance_latest.csv?ref=main,api,True,success,200,,10,14,11,True,11,10,14,2036,,False,True,True,ok,,7f6e3faf9c19c5e7,2026-05-25 22:30:33 Asia/Taipei
-surge_model_feature_importance,,output/latest/surge_model_feature_importance_latest.csv,https://github.com/LeoChen0727/tdcc-weekly-report/blob/main/output/latest/surge_model_feature_importance_latest.csv,blob,True,content_not_expanded,200,,,,,True,11,10,14,2036,,,True,False,ok,,5902839e0ac215e8,2026-05-25 22:30:33 Asia/Taipei
-daily_signal_performance_summary,,output/latest/daily_signal_performance_summary_latest.md,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_signal_performance_summary_latest.md,raw,True,success,200,,120,1,120,True,120,120,1,5306,,False,True,True,ok,,526114f19eeeb4f5,2026-05-25 22:30:33 Asia/Taipei
-daily_signal_performance_summary,,output/latest/daily_signal_performance_summary_latest.md,https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_summary_latest.md,pages,False,missing_file,404,"<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv=""Content-type"" content=""text/html; charset=utf-8"">
-    <meta http-equiv=""Content-Security-Policy"" content=""default-src 'none'; style-src 'unsafe-inline'; img-src data:; connect-src 'self'"">
-    <title>Page not found &middot; GitHub Pages</title>",0,0,0,True,120,120,1,5306,,False,True,False,ok,,,2026-05-25 22:30:33 Asia/Taipei
-daily_signal_performance_summary,,output/latest/daily_signal_performance_summary_latest.md,https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/daily_signal_performance_summary_latest.md?ref=main,api,True,success,200,,120,1,120,True,120,120,1,5306,,False,True,True,ok,,526114f19eeeb4f5,2026-05-25 22:30:33 Asia/Taipei
-daily_signal_performance_summary,,output/latest/daily_signal_performance_summary_latest.md,https://github.com/LeoChen0727/tdcc-weekly-report/blob/main/output/latest/daily_signal_performance_summary_latest.md,blob,True,success,200,,,,,True,120,120,1,5306,,,True,True,ok,,5902839e0ac215e8,2026-05-25 22:30:33 Asia/Taipei
-individual_stock_available_raw_data_index,,output/latest/individual_stock_available_raw_data_index.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_available_raw_data_index.csv,raw,True,success,200,,2149,28,2150,True,2150,2149,28,1440836,,False,True,True,ok,,6326ecdf21368eb3,2026-05-25 22:30:34 Asia/Taipei
-individual_stock_available_raw_data_index,,output/latest/individual_stock_available_raw_data_index.csv,https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_available_raw_data_index.csv,pages,False,missing_file,404,"<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv=""Content-type"" content=""text/html; charset=utf-8"">
-    <meta http-equiv=""Content-Security-Policy"" content=""default-src 'none'; style-src 'unsafe-inline'; img-src data:; connect-src 'self'"">
-    <title>Page not found &middot; GitHub Pages</title>",0,0,0,True,2150,2149,28,1440836,,False,True,False,ok,,,2026-05-25 22:30:34 Asia/Taipei
-individual_stock_available_raw_data_index,,output/latest/individual_stock_available_raw_data_index.csv,https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_available_raw_data_index.csv?ref=main,api,False,api_decode_failed,200,api_decode_failed,0,0,0,True,2150,2149,28,1440836,,False,True,False,ok,,,2026-05-25 22:30:34 Asia/Taipei
-individual_stock_available_raw_data_index,,output/latest/individual_stock_available_raw_data_index.csv,https://github.com/LeoChen0727/tdcc-weekly-report/blob/main/output/latest/individual_stock_available_raw_data_index.csv,blob,True,content_not_expanded,200,,,,,True,2150,2149,28,1440836,,,True,False,ok,,5902839e0ac215e8,2026-05-25 22:30:34 Asia/Taipei
-individual_stock_reports_index,,output/latest/individual_stock_reports_index.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_reports_index.csv,raw,True,success,200,,4,13,5,True,5,4,13,2507,,False,True,True,ok,,06988a7292dcad7e,2026-05-25 22:30:35 Asia/Taipei
-individual_stock_reports_index,,output/latest/individual_stock_reports_index.csv,https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_reports_index.csv,pages,False,missing_file,404,"<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv=""Content-type"" content=""text/html; charset=utf-8"">
-    <meta http-equiv=""Content-Security-Policy"" content=""default-src 'none'; style-src 'unsafe-inline'; img-src data:; connect-src 'self'"">
-    <title>Page not found &middot; GitHub Pages</title>",0,0,0,True,5,4,13,2507,,False,True,False,ok,,,2026-05-25 22:30:35 Asia/Taipei
-individual_stock_reports_index,,output/latest/individual_stock_reports_index.csv,https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_reports_index.csv?ref=main,api,True,success,200,,4,13,5,True,5,4,13,2507,,False,True,True,ok,,06988a7292dcad7e,2026-05-25 22:30:35 Asia/Taipei
-individual_stock_reports_index,,output/latest/individual_stock_reports_index.csv,https://github.com/LeoChen0727/tdcc-weekly-report/blob/main/output/latest/individual_stock_reports_index.csv,blob,True,content_not_expanded,200,,,,,True,5,4,13,2507,,,True,False,ok,,5902839e0ac215e8,2026-05-25 22:30:35 Asia/Taipei
+all_candidates,,output/latest/all_candidates_latest.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/all_candidates_latest.csv,raw,True,success,200,,519,205,520,True,520,519,205,745621,20260525,False,True,True,ok,,2776fb198ac53174,2026-05-25 22:42:54 Asia/Taipei
+candidate_repeat_appearance,,output/latest/candidate_repeat_appearance_latest.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/candidate_repeat_appearance_latest.csv,raw,True,success,200,,400,13,401,True,401,400,13,61106,20260525,False,True,True,ok,,0eba1ee338c6d54d,2026-05-25 22:42:54 Asia/Taipei
+daily_market_full,,output/latest/daily_market_full_latest.md,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_full_latest.md,raw,True,success,200,,567,1,567,True,567,567,1,313819,,False,True,True,ok,,3b1a90fa9bb313a8,2026-05-25 22:42:54 Asia/Taipei
+daily_market_summary,,output/latest/daily_market_summary_latest.md,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_summary_latest.md,raw,True,success,200,,447,1,447,True,447,447,1,33108,,False,True,True,ok,,0b8885b86545bb12,2026-05-25 22:42:54 Asia/Taipei
+daily_report_packet,,output/latest/chatgpt_daily_report_packet_latest.txt,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/chatgpt_daily_report_packet_latest.txt,raw,True,success,200,,1175,1,1175,True,1175,1175,1,359742,,False,True,True,ok,,535b8de0c315cd18,2026-05-25 22:42:54 Asia/Taipei
+daily_signal_performance_summary,,output/latest/daily_signal_performance_summary_latest.md,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_signal_performance_summary_latest.md,raw,True,success,200,,120,1,120,True,120,120,1,5426,,False,True,True,ok,,526114f19eeeb4f5,2026-05-25 22:43:00 Asia/Taipei
+individual_stock_available_raw_data_index,,output/latest/individual_stock_available_raw_data_index.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_available_raw_data_index.csv,raw,True,success,200,,2149,28,2150,True,2150,2149,28,1442986,,False,True,True,ok,,03037be88fc0a2b3,2026-05-25 22:43:00 Asia/Taipei
+individual_stock_reports_index,,output/latest/individual_stock_reports_index.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_reports_index.csv,raw,True,success,200,,4,13,5,True,5,4,13,2512,,False,True,True,ok,,57b4e6038ff3c6d9,2026-05-25 22:43:00 Asia/Taipei
+readme_first,,output/latest/READ_ME_FIRST_DAILY_REPORT.txt,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/READ_ME_FIRST_DAILY_REPORT.txt,raw,True,success,200,,122,1,122,True,122,122,1,15920,,False,True,True,ok,,c703aee769d8d0ab,2026-05-25 22:42:54 Asia/Taipei
+stock_monitor,,output/latest/stock_monitor_latest.md,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/stock_monitor_latest.md,raw,True,success,200,,161,1,161,True,161,161,1,17742,,False,True,True,ok,,41f808f406fdc61d,2026-05-25 22:42:54 Asia/Taipei
+surge_model_backtest,,output/latest/surge_model_backtest_latest.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/surge_model_backtest_latest.csv,raw,True,success,200,,15,17,16,True,16,15,17,4455,,False,True,True,ok,,03464c93a13a546d,2026-05-25 22:42:59 Asia/Taipei
+surge_model_feature_importance,,output/latest/surge_model_feature_importance_latest.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/surge_model_feature_importance_latest.csv,raw,True,success,200,,10,14,11,True,11,10,14,2047,,False,True,True,ok,,7f6e3faf9c19c5e7,2026-05-25 22:42:59 Asia/Taipei
+surge_model_packet,,output/latest/surge_model_chatgpt_packet_latest.md,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/surge_model_chatgpt_packet_latest.md,raw,True,success,200,,109,1,109,True,109,109,1,18628,,False,True,True,ok,,a24b402b32e11ebb,2026-05-25 22:42:59 Asia/Taipei
+surge_precondition_candidates,,output/latest/surge_precondition_candidates_latest.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/surge_precondition_candidates_latest.csv,raw,True,success,200,,100,19,101,True,101,100,19,22231,20260525,False,True,True,ok,,35e2c984f030d2b3,2026-05-25 22:42:59 Asia/Taipei
+tdcc_phase_distribution,,output/latest/tdcc_phase_distribution_latest.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_phase_distribution_latest.csv,raw,True,success,200,,112,18,113,True,113,112,18,8641,,False,True,True,ok,,ccad38867e6ddbb4,2026-05-25 22:42:58 Asia/Taipei
+tdcc_pre_move_abm_top,,output/latest/tdcc_pre_move_abm_top_latest.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_pre_move_abm_top_latest.csv,raw,True,success,200,,50,28,51,True,51,50,28,17714,,False,True,True,ok,,816ac43e26d21153,2026-05-25 22:42:57 Asia/Taipei
+tdcc_strength_ranking_top,,output/latest/tdcc_strength_ranking_top_latest.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_strength_ranking_top_latest.csv,raw,True,success,200,,50,27,51,True,51,50,27,14280,,False,True,True,ok,,cdfad02cec660756,2026-05-25 22:42:56 Asia/Taipei
+tdcc_top_risk_list,,output/latest/tdcc_top_risk_list_latest.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_top_risk_list_latest.csv,raw,True,success,200,,60,13,61,True,61,60,13,11451,,False,True,True,ok,,f6e2338719d8d311,2026-05-25 22:42:59 Asia/Taipei
+tdcc_tracking_packet,,output/latest/tdcc_chatgpt_tracking_packet_latest.md,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_chatgpt_tracking_packet_latest.md,raw,True,success,200,,661,1,661,True,661,661,1,96992,,False,True,True,ok,,57237e953a1da064,2026-05-25 22:42:56 Asia/Taipei
+warrant_flow_by_stock,,output/latest/warrant_flow_by_stock_latest.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/warrant_flow_by_stock_latest.csv,raw,True,success,200,,455,38,456,True,456,455,38,100916,20260525,False,True,True,ok,,e136fa9b5ff70a32,2026-05-25 22:42:56 Asia/Taipei
+warrant_market_report,,output/latest/warrant_market_report_latest.md,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/warrant_market_report_latest.md,raw,True,success,200,,197,1,197,True,197,197,1,11140,,False,True,True,ok,,749d798dacf8c279,2026-05-25 22:42:54 Asia/Taipei

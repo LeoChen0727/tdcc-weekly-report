@@ -40,7 +40,7 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-          git pull --rebase origin "$TARGET_BRANCH" || true
+          git pull --rebase --autostash origin "$TARGET_BRANCH" || true
 
           git add data/daily_price/ || true
           git add output/latest/official_daily_price_latest.csv || true
@@ -54,7 +54,7 @@ jobs:
 
           PUSHED=0
           for i in 1 2 3; do
-            git pull --rebase origin "$TARGET_BRANCH" || true
+            git pull --rebase --autostash origin "$TARGET_BRANCH" || true
             if git push; then
               PUSHED=1
               echo "Push succeeded"
@@ -71,7 +71,7 @@ jobs:
 
       - name: Pull latest after official price commit
         run: |
-          git pull --rebase origin "$TARGET_BRANCH" || true
+          git pull --rebase --autostash origin "$TARGET_BRANCH" || true
 
       - name: Build per-stock price history
         run: |
@@ -98,7 +98,7 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-          git pull --rebase origin "$TARGET_BRANCH" || true
+          git pull --rebase --autostash origin "$TARGET_BRANCH" || true
 
           git add data/ || true
           git add output/latest/stock_price_history_manifest.csv || true
@@ -130,7 +130,7 @@ jobs:
 
           PUSHED=0
           for i in 1 2 3; do
-            git pull --rebase origin "$TARGET_BRANCH" || true
+            git pull --rebase --autostash origin "$TARGET_BRANCH" || true
             if git push; then
               PUSHED=1
               echo "Push succeeded"
@@ -177,7 +177,7 @@ jobs:
 
           git stash push -u -m "Temporary stash before pulling child workflow outputs" || true
 
-          git pull --rebase origin "$TARGET_BRANCH"
+          git pull --rebase --autostash origin "$TARGET_BRANCH"
 
           git stash pop || true
 
@@ -324,7 +324,7 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-          git pull --rebase origin "$TARGET_BRANCH" || true
+          git pull --rebase --autostash origin "$TARGET_BRANCH" || true
 
           git add output/latest/chart_manifest.csv || true
           git add output/latest/contact_sheet_manifest.csv || true
@@ -514,7 +514,7 @@ jobs:
 
           PUSHED=0
           for i in 1 2 3; do
-            git pull --rebase origin "$TARGET_BRANCH" || true
+            git pull --rebase --autostash origin "$TARGET_BRANCH" || true
             if git push; then
               PUSHED=1
               echo "Push succeeded"
@@ -540,7 +540,7 @@ jobs:
       - name: Build individual raw data indexes and raw health status
         run: |
           python scripts/build_individual_stock_raw_data_index.py
-          python scripts/check_raw_data_health.py --all
+          python scripts/check_raw_data_health.py --all --sources raw --max-workers 8
 
       - name: Publish readme and multi-entry URL check
         run: |
@@ -551,7 +551,7 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-          git pull --rebase origin "$TARGET_BRANCH" || true
+          git pull --rebase --autostash origin "$TARGET_BRANCH" || true
 
           git add output/latest/READ_ME_FIRST_DAILY_REPORT.txt || true
           git add output/latest/report_publish_check_latest.md || true
@@ -709,7 +709,7 @@ jobs:
 
           PUSHED=0
           for i in 1 2 3; do
-            git pull --rebase origin "$TARGET_BRANCH" || true
+            git pull --rebase --autostash origin "$TARGET_BRANCH" || true
             if git push; then
               PUSHED=1
               echo "Push succeeded"
