@@ -12,6 +12,7 @@ from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
 import json
+import os
 import re
 
 import pandas as pd
@@ -26,6 +27,8 @@ BLOB_PREFIX = f"https://github.com/{OWNER_REPO}/blob/main"
 LATEST_DIR = Path("output/latest")
 FETCH_STATUS_CSV = LATEST_DIR / "raw_data_fetch_status_latest.csv"
 FETCH_STATUS_MD = LATEST_DIR / "raw_data_fetch_status_latest.md"
+DOCS_FETCH_STATUS_CSV = Path("docs/latest/raw_data_fetch_status_latest.csv")
+DOCS_FETCH_STATUS_MD = Path("docs/latest/raw_data_fetch_status_latest.md")
 
 DATE_COLUMNS = [
     "date",
@@ -59,6 +62,7 @@ CORE_PATHS = [
     ("surge_model_feature_importance", Path("output/latest/surge_model_feature_importance_latest.csv")),
     ("daily_signal_performance_summary", Path("output/latest/daily_signal_performance_summary_latest.md")),
     ("individual_stock_available_raw_data_index", Path("output/latest/individual_stock_available_raw_data_index.csv")),
+    ("individual_stock_available_raw_data_index_slim", Path("output/latest/individual_stock_available_raw_data_index_slim.csv")),
     ("individual_stock_reports_index", Path("output/latest/individual_stock_reports_index.csv")),
 ]
 
@@ -121,7 +125,13 @@ def blob_url(path: Path) -> str:
 
 
 def fetch_text(url: str, *, expect_api: bool = False, timeout: int = 20) -> dict[str, Any]:
-    request = Request(url, headers={"User-Agent": "tdcc-weekly-report-health-check"})
+    headers = {"User-Agent": "tdcc-weekly-report-health-check"}
+    token = os.environ.get("GITHUB_TOKEN", "").strip()
+    if token and "api.github.com" in url:
+        headers["Authorization"] = f"Bearer {token}"
+        headers["Accept"] = "application/vnd.github+json"
+        headers["X-GitHub-Api-Version"] = "2022-11-28"
+    request = Request(url, headers=headers)
     try:
         with urlopen(request, timeout=timeout) as response:
             status = int(getattr(response, "status", 0) or 0)
@@ -228,6 +238,13 @@ def classify_status(
         return "success"
     if source_type == "api" and "api_decode_failed" in lowered:
         return "api_decode_failed"
+    if "rate limit" in lowered:
+        if source_type == "api":
+            return "api_fetch_failed"
+        if source_type == "raw":
+            return "raw_fetch_failed"
+        if source_type == "pages":
+            return "pages_fetch_failed"
     if "cache miss" in lowered:
         return "cache_miss"
     if "internal error" in lowered:
@@ -355,6 +372,10 @@ def build_check_list(stock_ids: list[str], include_all_core: bool) -> list[tuple
     items: list[tuple[str, Path, str]] = []
     if include_all_core:
         items.extend((label, path, "") for label, path in CORE_PATHS)
+        for report_path in sorted(Path("output/latest/individual_stock_reports").glob("*_latest.md")):
+            stock_id = normalize_stock_id(report_path.stem.replace("_latest", ""))
+            if stock_id:
+                items.extend((label, path, stock_id) for label, path in stock_paths(stock_id))
     for stock_id in stock_ids:
         normalized = normalize_stock_id(stock_id)
         items.extend((label, path, normalized) for label, path in stock_paths(normalized))
@@ -466,6 +487,9 @@ def run(stock_ids: list[str], include_all_core: bool, source_types: list[str], m
         df = df.sort_values(["logical_source", "stock_id", "source_type", "expected_path"]).reset_index(drop=True)
     write_csv(df, FETCH_STATUS_CSV)
     write_status_md(df, source_types)
+    write_csv(df, DOCS_FETCH_STATUS_CSV)
+    DOCS_FETCH_STATUS_MD.parent.mkdir(parents=True, exist_ok=True)
+    DOCS_FETCH_STATUS_MD.write_text(FETCH_STATUS_MD.read_text(encoding="utf-8"), encoding="utf-8")
     return df
 
 

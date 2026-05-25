@@ -28,8 +28,16 @@ DAILY_CANDIDATE_LOG = Path("output/history/daily_candidates/daily_candidate_sign
 
 AVAILABLE_INDEX_CSV = LATEST_DIR / "individual_stock_available_raw_data_index.csv"
 AVAILABLE_INDEX_MD = LATEST_DIR / "individual_stock_available_raw_data_index.md"
+AVAILABLE_INDEX_SLIM_CSV = LATEST_DIR / "individual_stock_available_raw_data_index_slim.csv"
+AVAILABLE_INDEX_SLIM_MD = LATEST_DIR / "individual_stock_available_raw_data_index_slim.md"
 REPORT_INDEX_CSV = LATEST_DIR / "individual_stock_reports_index.csv"
 REPORT_INDEX_MD = LATEST_DIR / "individual_stock_reports_index.md"
+DOCS_AVAILABLE_INDEX_CSV = Path("docs/latest/individual_stock_available_raw_data_index.csv")
+DOCS_AVAILABLE_INDEX_MD = Path("docs/latest/individual_stock_available_raw_data_index.md")
+DOCS_AVAILABLE_INDEX_SLIM_CSV = Path("docs/latest/individual_stock_available_raw_data_index_slim.csv")
+DOCS_AVAILABLE_INDEX_SLIM_MD = Path("docs/latest/individual_stock_available_raw_data_index_slim.md")
+DOCS_REPORT_INDEX_CSV = Path("docs/latest/individual_stock_reports_index.csv")
+DOCS_REPORT_INDEX_MD = Path("docs/latest/individual_stock_reports_index.md")
 
 
 def now_text() -> str:
@@ -319,10 +327,38 @@ def build_indexes() -> tuple[pd.DataFrame, pd.DataFrame]:
 
     index = pd.DataFrame(rows).sort_values(["stock_id"]).reset_index(drop=True)
     report_index = pd.DataFrame(report_rows).sort_values(["stock_id"]).reset_index(drop=True)
+    slim_cols = [
+        "stock_id",
+        "stock_name",
+        "price_history_rows",
+        "latest_price_date",
+        "tdcc_history_rows",
+        "latest_tdcc_date",
+        "tdcc_history_status",
+        "has_individual_md",
+        "has_individual_pdf",
+        "has_sell_strategy_summary",
+        "has_warrant_data",
+        "has_revenue_data",
+        "has_candidate_signal",
+        "report_status",
+        "data_quality_status",
+        "notes",
+        "updated_at",
+    ]
+    slim_index = index[[col for col in slim_cols if col in index.columns]].copy()
     write_csv(index, AVAILABLE_INDEX_CSV)
+    write_csv(index, DOCS_AVAILABLE_INDEX_CSV)
+    write_csv(slim_index, AVAILABLE_INDEX_SLIM_CSV)
+    write_csv(slim_index, DOCS_AVAILABLE_INDEX_SLIM_CSV)
     write_csv(report_index, REPORT_INDEX_CSV)
+    write_csv(report_index, DOCS_REPORT_INDEX_CSV)
     write_index_md(index, AVAILABLE_INDEX_MD)
+    write_index_md(index, DOCS_AVAILABLE_INDEX_MD)
+    write_slim_index_md(slim_index, AVAILABLE_INDEX_SLIM_MD)
+    write_slim_index_md(slim_index, DOCS_AVAILABLE_INDEX_SLIM_MD)
     write_report_index_md(report_index, REPORT_INDEX_MD)
+    write_report_index_md(report_index, DOCS_REPORT_INDEX_MD)
     return index, report_index
 
 
@@ -399,6 +435,45 @@ def write_report_index_md(report_index: pd.DataFrame, path: Path) -> None:
             limit=200,
         )
     )
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+def write_slim_index_md(index: pd.DataFrame, path: Path) -> None:
+    status_counts = index["report_status"].value_counts().to_dict() if "report_status" in index.columns else {}
+    lines = [
+        "# Individual Stock Raw Data Index Slim",
+        "",
+        f"- generated_at: {now_text()}",
+        f"- total_stocks: {len(index)}",
+        f"- standard_rawdata_report: {status_counts.get('standard_rawdata_report', 0)}",
+        f"- partial_rawdata_report: {status_counts.get('partial_rawdata_report', 0)}",
+        f"- insufficient_data: {status_counts.get('insufficient_data', 0)}",
+        f"- csv_raw_url: {raw_url(AVAILABLE_INDEX_SLIM_CSV)}",
+        f"- csv_pages_url: {pages_url_for(Path('docs/latest/individual_stock_available_raw_data_index_slim.csv'))}",
+        f"- csv_github_api_url: {github_api_url(AVAILABLE_INDEX_SLIM_CSV)}",
+        "",
+        "## Usage",
+        "",
+        "- Use this slim index first to check whether a stock has price history, TDCC history, and individual reports.",
+        "- Use READ_ME_FIRST URL templates to fetch the exact stock raw CSV or GitHub API contents endpoint.",
+        "- If full index is too large for GitHub API content decoding, this slim index is the ChatGPT-safe fallback.",
+        "",
+        "## Preview",
+        "",
+    ]
+    preview_cols = [
+        "stock_id",
+        "stock_name",
+        "price_history_rows",
+        "latest_price_date",
+        "tdcc_history_rows",
+        "latest_tdcc_date",
+        "tdcc_history_status",
+        "has_individual_md",
+        "report_status",
+        "notes",
+    ]
+    lines.extend(markdown_table(index, preview_cols, limit=220))
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 

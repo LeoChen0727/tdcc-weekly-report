@@ -125,6 +125,8 @@ RAW_DATA_FETCH_STATUS_CSV = LATEST_DIR / "raw_data_fetch_status_latest.csv"
 RAW_DATA_FETCH_STATUS_MD = LATEST_DIR / "raw_data_fetch_status_latest.md"
 INDIVIDUAL_STOCK_AVAILABLE_RAW_DATA_INDEX_CSV = LATEST_DIR / "individual_stock_available_raw_data_index.csv"
 INDIVIDUAL_STOCK_AVAILABLE_RAW_DATA_INDEX_MD = LATEST_DIR / "individual_stock_available_raw_data_index.md"
+INDIVIDUAL_STOCK_AVAILABLE_RAW_DATA_INDEX_SLIM_CSV = LATEST_DIR / "individual_stock_available_raw_data_index_slim.csv"
+INDIVIDUAL_STOCK_AVAILABLE_RAW_DATA_INDEX_SLIM_MD = LATEST_DIR / "individual_stock_available_raw_data_index_slim.md"
 INDIVIDUAL_STOCK_REPORTS_INDEX_CSV = LATEST_DIR / "individual_stock_reports_index.csv"
 INDIVIDUAL_STOCK_REPORTS_INDEX_MD = LATEST_DIR / "individual_stock_reports_index.md"
 
@@ -171,6 +173,20 @@ def run_command(args: list[str], timeout: int = 40) -> tuple[int, str, str]:
         return 124, exc.stdout or "", exc.stderr or "timeout"
     except Exception as exc:
         return 1, "", str(exc)
+
+
+def curl_auth_args(url: str) -> list[str]:
+    token = os.environ.get("GITHUB_TOKEN", "").strip()
+    if token and "api.github.com" in url:
+        return [
+            "-H",
+            f"Authorization: Bearer {token}",
+            "-H",
+            "Accept: application/vnd.github+json",
+            "-H",
+            "X-GitHub-Api-Version: 2022-11-28",
+        ]
+    return []
 
 
 def raw_url(ref: str, path: Path) -> str:
@@ -253,7 +269,7 @@ def get_artifact_commit_sha() -> str:
 
 def curl_head(url: str) -> dict[str, Any]:
     code, out, err = run_command(
-        ["curl", "-I", "-L", "--max-time", "30", url],
+        ["curl", "-I", "-L", "--max-time", "30", *curl_auth_args(url), url],
         timeout=45,
     )
 
@@ -277,7 +293,7 @@ def curl_head(url: str) -> dict[str, Any]:
 
 def curl_body(url: str) -> dict[str, Any]:
     code, out, err = run_command(
-        ["curl", "-L", "--max-time", "30", url],
+        ["curl", "-L", "--max-time", "30", *curl_auth_args(url), url],
         timeout=45,
     )
 
@@ -299,7 +315,7 @@ def curl_body(url: str) -> dict[str, Any]:
 
 def curl_github_api_packet(url: str) -> dict[str, Any]:
     code, out, err = run_command(
-        ["curl", "-L", "--max-time", "30", url],
+        ["curl", "-L", "--max-time", "30", *curl_auth_args(url), url],
         timeout=45,
     )
 
@@ -520,10 +536,41 @@ def build_readme(
         f"candidate_repeat_appearance_md_raw_url={candidate_repeat_appearance_md_raw_url}",
         f"raw_data_fetch_status_raw_url={raw_url('main', RAW_DATA_FETCH_STATUS_CSV)}",
         f"raw_data_fetch_status_md_raw_url={raw_url('main', RAW_DATA_FETCH_STATUS_MD)}",
+        f"raw_data_fetch_status_pages_url={pages_url('latest/raw_data_fetch_status_latest.csv')}",
+        f"raw_data_fetch_status_md_pages_url={pages_url('latest/raw_data_fetch_status_latest.md')}",
+        f"raw_data_fetch_status_github_api_url={github_api_url(RAW_DATA_FETCH_STATUS_CSV, ref='main')}",
+        f"raw_data_fetch_status_md_github_api_url={github_api_url(RAW_DATA_FETCH_STATUS_MD, ref='main')}",
         f"individual_stock_available_raw_data_index_raw_url={raw_url('main', INDIVIDUAL_STOCK_AVAILABLE_RAW_DATA_INDEX_CSV)}",
         f"individual_stock_available_raw_data_index_md_raw_url={raw_url('main', INDIVIDUAL_STOCK_AVAILABLE_RAW_DATA_INDEX_MD)}",
+        f"individual_stock_available_raw_data_index_pages_url={pages_url('latest/individual_stock_available_raw_data_index.csv')}",
+        f"individual_stock_available_raw_data_index_md_pages_url={pages_url('latest/individual_stock_available_raw_data_index.md')}",
+        f"individual_stock_available_raw_data_index_github_api_url={github_api_url(INDIVIDUAL_STOCK_AVAILABLE_RAW_DATA_INDEX_CSV, ref='main')}",
+        f"individual_stock_available_raw_data_index_md_github_api_url={github_api_url(INDIVIDUAL_STOCK_AVAILABLE_RAW_DATA_INDEX_MD, ref='main')}",
+        f"individual_stock_available_raw_data_index_slim_raw_url={raw_url('main', INDIVIDUAL_STOCK_AVAILABLE_RAW_DATA_INDEX_SLIM_CSV)}",
+        f"individual_stock_available_raw_data_index_slim_md_raw_url={raw_url('main', INDIVIDUAL_STOCK_AVAILABLE_RAW_DATA_INDEX_SLIM_MD)}",
+        f"individual_stock_available_raw_data_index_slim_pages_url={pages_url('latest/individual_stock_available_raw_data_index_slim.csv')}",
+        f"individual_stock_available_raw_data_index_slim_md_pages_url={pages_url('latest/individual_stock_available_raw_data_index_slim.md')}",
+        f"individual_stock_available_raw_data_index_slim_github_api_url={github_api_url(INDIVIDUAL_STOCK_AVAILABLE_RAW_DATA_INDEX_SLIM_CSV, ref='main')}",
+        f"individual_stock_available_raw_data_index_slim_md_github_api_url={github_api_url(INDIVIDUAL_STOCK_AVAILABLE_RAW_DATA_INDEX_SLIM_MD, ref='main')}",
         f"individual_stock_reports_index_raw_url={raw_url('main', INDIVIDUAL_STOCK_REPORTS_INDEX_CSV)}",
         f"individual_stock_reports_index_md_raw_url={raw_url('main', INDIVIDUAL_STOCK_REPORTS_INDEX_MD)}",
+        f"individual_stock_reports_index_pages_url={pages_url('latest/individual_stock_reports_index.csv')}",
+        f"individual_stock_reports_index_md_pages_url={pages_url('latest/individual_stock_reports_index.md')}",
+        f"individual_stock_reports_index_github_api_url={github_api_url(INDIVIDUAL_STOCK_REPORTS_INDEX_CSV, ref='main')}",
+        f"individual_stock_reports_index_md_github_api_url={github_api_url(INDIVIDUAL_STOCK_REPORTS_INDEX_MD, ref='main')}",
+        "individual_stock_price_raw_url_template=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/{stock_id}.csv",
+        "individual_stock_price_pages_url_template=https://LeoChen0727.github.io/tdcc-weekly-report/data/stock_price_history/{stock_id}.csv",
+        "individual_stock_price_github_api_url_template=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/data/stock_price_history/{stock_id}.csv?ref=main",
+        "individual_stock_tdcc_raw_url_template=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/tdcc_stock_history/{stock_id}.csv",
+        "individual_stock_tdcc_pages_url_template=https://LeoChen0727.github.io/tdcc-weekly-report/data/tdcc_stock_history/{stock_id}.csv",
+        "individual_stock_tdcc_github_api_url_template=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/data/tdcc_stock_history/{stock_id}.csv?ref=main",
+        "individual_stock_report_md_raw_url_template=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_reports/{stock_id}_latest.md",
+        "individual_stock_report_md_pages_url_template=https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_reports/{stock_id}_latest.md",
+        "individual_stock_report_md_github_api_url_template=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_reports/{stock_id}_latest.md?ref=main",
+        "individual_stock_report_json_github_api_url_template=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_reports/{stock_id}_latest.json?ref=main",
+        "individual_stock_sell_strategy_summary_raw_url_template=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/sell_strategy_backtest/{stock_id}_sell_strategy_summary.md",
+        "individual_stock_raw_cache_rule=if raw/pages returns cache_miss, internal_error, stale date, or Total lines 1 for a known multi-line CSV, use the GitHub API contents URL and base64-decode content; do not replace repo price/TDCC raw data with external websites.",
+        "individual_stock_github_api_decode_required=True",
         f"warrant_market_report_md_raw_url={warrant_market_report_md_raw_url}",
         f"warrant_market_report_pdf_pages_url={warrant_market_report_pdf_pages_url}",
         f"warrant_market_report_pdf_raw_url={warrant_market_report_pdf_raw_url}",
@@ -1121,10 +1168,41 @@ def main() -> int:
         "candidate_repeat_appearance_md_raw_url": candidate_repeat_appearance_md_raw_url,
         "raw_data_fetch_status_raw_url": raw_url("main", RAW_DATA_FETCH_STATUS_CSV),
         "raw_data_fetch_status_md_raw_url": raw_url("main", RAW_DATA_FETCH_STATUS_MD),
+        "raw_data_fetch_status_pages_url": pages_url("latest/raw_data_fetch_status_latest.csv"),
+        "raw_data_fetch_status_md_pages_url": pages_url("latest/raw_data_fetch_status_latest.md"),
+        "raw_data_fetch_status_github_api_url": github_api_url(RAW_DATA_FETCH_STATUS_CSV, ref="main"),
+        "raw_data_fetch_status_md_github_api_url": github_api_url(RAW_DATA_FETCH_STATUS_MD, ref="main"),
         "individual_stock_available_raw_data_index_raw_url": raw_url("main", INDIVIDUAL_STOCK_AVAILABLE_RAW_DATA_INDEX_CSV),
         "individual_stock_available_raw_data_index_md_raw_url": raw_url("main", INDIVIDUAL_STOCK_AVAILABLE_RAW_DATA_INDEX_MD),
+        "individual_stock_available_raw_data_index_pages_url": pages_url("latest/individual_stock_available_raw_data_index.csv"),
+        "individual_stock_available_raw_data_index_md_pages_url": pages_url("latest/individual_stock_available_raw_data_index.md"),
+        "individual_stock_available_raw_data_index_github_api_url": github_api_url(INDIVIDUAL_STOCK_AVAILABLE_RAW_DATA_INDEX_CSV, ref="main"),
+        "individual_stock_available_raw_data_index_md_github_api_url": github_api_url(INDIVIDUAL_STOCK_AVAILABLE_RAW_DATA_INDEX_MD, ref="main"),
+        "individual_stock_available_raw_data_index_slim_raw_url": raw_url("main", INDIVIDUAL_STOCK_AVAILABLE_RAW_DATA_INDEX_SLIM_CSV),
+        "individual_stock_available_raw_data_index_slim_md_raw_url": raw_url("main", INDIVIDUAL_STOCK_AVAILABLE_RAW_DATA_INDEX_SLIM_MD),
+        "individual_stock_available_raw_data_index_slim_pages_url": pages_url("latest/individual_stock_available_raw_data_index_slim.csv"),
+        "individual_stock_available_raw_data_index_slim_md_pages_url": pages_url("latest/individual_stock_available_raw_data_index_slim.md"),
+        "individual_stock_available_raw_data_index_slim_github_api_url": github_api_url(INDIVIDUAL_STOCK_AVAILABLE_RAW_DATA_INDEX_SLIM_CSV, ref="main"),
+        "individual_stock_available_raw_data_index_slim_md_github_api_url": github_api_url(INDIVIDUAL_STOCK_AVAILABLE_RAW_DATA_INDEX_SLIM_MD, ref="main"),
         "individual_stock_reports_index_raw_url": raw_url("main", INDIVIDUAL_STOCK_REPORTS_INDEX_CSV),
         "individual_stock_reports_index_md_raw_url": raw_url("main", INDIVIDUAL_STOCK_REPORTS_INDEX_MD),
+        "individual_stock_reports_index_pages_url": pages_url("latest/individual_stock_reports_index.csv"),
+        "individual_stock_reports_index_md_pages_url": pages_url("latest/individual_stock_reports_index.md"),
+        "individual_stock_reports_index_github_api_url": github_api_url(INDIVIDUAL_STOCK_REPORTS_INDEX_CSV, ref="main"),
+        "individual_stock_reports_index_md_github_api_url": github_api_url(INDIVIDUAL_STOCK_REPORTS_INDEX_MD, ref="main"),
+        "individual_stock_price_raw_url_template": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/{stock_id}.csv",
+        "individual_stock_price_pages_url_template": "https://LeoChen0727.github.io/tdcc-weekly-report/data/stock_price_history/{stock_id}.csv",
+        "individual_stock_price_github_api_url_template": "https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/data/stock_price_history/{stock_id}.csv?ref=main",
+        "individual_stock_tdcc_raw_url_template": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/tdcc_stock_history/{stock_id}.csv",
+        "individual_stock_tdcc_pages_url_template": "https://LeoChen0727.github.io/tdcc-weekly-report/data/tdcc_stock_history/{stock_id}.csv",
+        "individual_stock_tdcc_github_api_url_template": "https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/data/tdcc_stock_history/{stock_id}.csv?ref=main",
+        "individual_stock_report_md_raw_url_template": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_reports/{stock_id}_latest.md",
+        "individual_stock_report_md_pages_url_template": "https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_reports/{stock_id}_latest.md",
+        "individual_stock_report_md_github_api_url_template": "https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_reports/{stock_id}_latest.md?ref=main",
+        "individual_stock_report_json_github_api_url_template": "https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_reports/{stock_id}_latest.json?ref=main",
+        "individual_stock_sell_strategy_summary_raw_url_template": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/sell_strategy_backtest/{stock_id}_sell_strategy_summary.md",
+        "individual_stock_raw_cache_rule": "if raw/pages returns cache_miss, internal_error, stale date, or Total lines 1 for a known multi-line CSV, use the GitHub API contents URL and base64-decode content; do not replace repo price/TDCC raw data with external websites.",
+        "individual_stock_github_api_decode_required": True,
         "warrant_market_report_md_raw_url": warrant_market_report_md_raw_url,
         "warrant_market_report_pdf_pages_url": warrant_market_report_pdf_pages_url,
         "warrant_market_report_pdf_raw_url": warrant_market_report_pdf_raw_url,
