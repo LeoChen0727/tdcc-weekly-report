@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-05-26 03:46:31 Asia/Taipei",
+  "generated_at": "2026-05-26 04:19:25 Asia/Taipei",
   "status": "pass",
   "main_price_date": "20260526",
   "curated_pdf": {
     "path": "output/latest/daily_market_curated_report_latest.pdf",
     "exists": true,
-    "size_bytes": 29683,
+    "size_bytes": 29710,
     "pages": 11
   },
   "full_table_pdf": {
     "path": "output/latest/daily_market_full_table_report_latest.pdf",
     "exists": true,
-    "size_bytes": 432060,
-    "pages": 133
+    "size_bytes": 454318,
+    "pages": 140
   },
   "checks": {
     "pdf_exists": true,
@@ -30,6 +30,6 @@
   },
   "errors": [],
   "warnings": [
-    "full_table: PDF page count is high: 133"
+    "full_table: PDF page count is high: 140"
   ]
 }

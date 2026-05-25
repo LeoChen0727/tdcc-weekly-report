@@ -1,6 +1,6 @@
 # 每日候選股模型績效月報
 
-- generated_at: `2026-05-26 03:47:31 Asia/Taipei`
+- generated_at: `2026-05-26 04:20:26 Asia/Taipei`
 - latest_signal_date: `20260526`
 - signal_count: `2182`
 - period: latest signal month
@@ -56,9 +56,9 @@
 
 | revenue_signal_type | signal_count | avg_return_d10 | avg_relative_return_vs_benchmark_d10 | win_rate_d10 | benchmark_outperform_rate_d10 |
 | --- | --- | --- | --- | --- | --- |
-|  | 1509 |  |  |  |  |
+|  | 1503 |  |  |  |  |
 | 出貨型營收 / 其他 | 586 |  |  |  |  |
-| 營建認列型 / 交屋認列型 | 87 |  |  |  |  |
+| 營建認列型 / 交屋認列型 | 93 |  |  |  |  |
 
 ## 財報 / 事件催化層績效
 
