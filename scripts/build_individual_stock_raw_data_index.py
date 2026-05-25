@@ -88,6 +88,10 @@ def raw_url(path: Path) -> str:
     return f"{RAW_PREFIX}/{path.as_posix()}"
 
 
+def github_api_url(path: Path) -> str:
+    return f"https://api.github.com/repos/{OWNER_REPO}/contents/{path.as_posix()}?ref=main"
+
+
 def pages_url_for(path: Path) -> str:
     text = path.as_posix()
     if text.startswith("docs/"):
@@ -265,12 +269,14 @@ def build_indexes() -> tuple[pd.DataFrame, pd.DataFrame]:
             "latest_price_date": latest_date_from(price_df, ["date", "trade_date"]),
             "price_history_raw_url": raw_url(price_path),
             "price_history_pages_url": pages_url_for(Path(docs_price_path)) if docs_price_path else "",
+            "price_history_github_api_url": github_api_url(price_path),
             "has_tdcc_history": bool(tdcc_rows),
             "tdcc_history_rows": tdcc_rows,
             "latest_tdcc_date": latest_date_from(tdcc_df, ["as_of_date", "date", "signal_date"]),
             "tdcc_history_status": "ok" if tdcc_rows >= 8 else ("insufficient_tdcc_history" if tdcc_rows else "tdcc_history_missing"),
             "tdcc_history_raw_url": raw_url(tdcc_path),
             "tdcc_history_pages_url": pages_url_for(Path(docs_tdcc_path)) if docs_tdcc_path else "",
+            "tdcc_history_github_api_url": github_api_url(tdcc_path),
             "has_individual_md": has_individual_md,
             "has_individual_pdf": latest_pdf.exists(),
             "has_individual_json": latest_json.exists(),
@@ -282,6 +288,8 @@ def build_indexes() -> tuple[pd.DataFrame, pd.DataFrame]:
             "individual_md_raw_url": raw_url(latest_md),
             "individual_pdf_raw_url": raw_url(latest_pdf),
             "individual_md_pages_url": pages_url_for(Path("docs/latest/individual_stock_reports") / latest_md.name) if has_individual_md else "",
+            "individual_md_github_api_url": github_api_url(latest_md),
+            "individual_json_github_api_url": github_api_url(latest_json),
             "report_status": report_status,
             "data_quality_status": data_quality,
             "notes": "; ".join(notes),
@@ -302,6 +310,8 @@ def build_indexes() -> tuple[pd.DataFrame, pd.DataFrame]:
                     "md_raw_url": raw_url(latest_md),
                     "pdf_raw_url": raw_url(latest_pdf),
                     "md_pages_url": pages_url_for(Path("docs/latest/individual_stock_reports") / latest_md.name) if has_individual_md else "",
+                    "md_github_api_url": github_api_url(latest_md),
+                    "json_github_api_url": github_api_url(latest_json),
                     "report_status": report_status,
                     "updated_at": now_text(),
                 }
@@ -352,6 +362,7 @@ def write_index_md(index: pd.DataFrame, path: Path) -> None:
         "- `report_status=standard_rawdata_report` means price raw data has at least 60 rows.",
         "- `insufficient_tdcc_history` means TDCC history has fewer than 8 weekly rows.",
         "- Missing individual Markdown does not mean missing raw data; use price/TDCC raw first.",
+        "- If a `raw.githubusercontent.com/.../main/...` URL returns stale content, use the matching `*_github_api_url` and base64-decode the `content` field.",
         "",
         "## Preview",
         "",
@@ -384,7 +395,7 @@ def write_report_index_md(report_index: pd.DataFrame, path: Path) -> None:
     lines.extend(
         markdown_table(
             report_index,
-            ["stock_id", "stock_name", "has_md", "has_pdf", "has_json", "report_status", "md_raw_url"],
+            ["stock_id", "stock_name", "has_md", "has_pdf", "has_json", "report_status", "md_raw_url", "md_github_api_url"],
             limit=200,
         )
     )

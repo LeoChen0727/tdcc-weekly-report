@@ -1,6 +1,6 @@
 # Individual Stock Available Raw Data Index
 
-- generated_at: 2026-05-26 00:00:47 Asia/Taipei
+- generated_at: 2026-05-26 00:05:14 Asia/Taipei
 - total_stocks: 2149
 - standard_rawdata_report: 1956
 - partial_rawdata_report: 168
@@ -13,6 +13,7 @@
 - `report_status=standard_rawdata_report` means price raw data has at least 60 rows.
 - `insufficient_tdcc_history` means TDCC history has fewer than 8 weekly rows.
 - Missing individual Markdown does not mean missing raw data; use price/TDCC raw first.
+- If a `raw.githubusercontent.com/.../main/...` URL returns stale content, use the matching `*_github_api_url` and base64-decode the `content` field.
 
 ## Preview
 
