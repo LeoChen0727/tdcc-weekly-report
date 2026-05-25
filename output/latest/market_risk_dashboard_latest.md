@@ -1,6 +1,6 @@
 # Market Risk Dashboard
 
-- generated_at: `2026-05-25 22:23:57 Asia/Taipei`
+- generated_at: `2026-05-25 23:51:22 Asia/Taipei`
 - data_date: `20260525`
 - market_regime: `strong_bull`
 - risk_level: `high_risk`
@@ -54,7 +54,7 @@ This report uses official market index data already stored in the repo plus TAIF
 
 The PDF version of this dashboard must include six-month charts for index trend, fear/option indicators, foreign futures positioning, and retail mini-TAIEX futures proxy positioning. If a source has insufficient history, the PDF still includes a placeholder chart and states the limitation.
 
-Important limitation: the current repo stores TWSE/TPEx index close, MA20, MA60, and return history, but not a complete index OHLC/volume raw table. Therefore this dashboard labels the index chart as a close/MA technical chart, not a candlestick K-line chart. After index_ohlc_history.csv is added, the next version should draw standard index K-line charts.
+Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available with volume/turnover overlay. TPEx / OTC: standard OHLC K-line data is available with volume/turnover overlay.
 
 - chart: `output/latest/charts/market_regime/market_index_technical_6m.png`
 - chart: `output/latest/charts/market_regime/risk_indicators_6m.png`

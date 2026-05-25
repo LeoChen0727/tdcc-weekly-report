@@ -10,6 +10,8 @@ import matplotlib
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+from matplotlib.patches import Rectangle
 import pandas as pd
 
 from reportlab.lib import colors
@@ -315,11 +317,46 @@ def make_market_index_chart(index_history: pd.DataFrame, path: Path) -> Path:
             ax.text(0.5, 0.5, f"{label}: no data", ha="center", va="center", transform=ax.transAxes)
             ax.set_axis_off()
             continue
-        for col in ["close", "ma20", "ma60"]:
+        for col in ["open", "high", "low", "close", "ma20", "ma60", "volume"]:
             part[col] = to_numeric_col(part, col)
-        ax.plot(part["_dt"], part["close"], color="#1f77b4", linewidth=1.7, label="Close")
+        ohlc_ready = part[["open", "high", "low", "close"]].notna().all(axis=1).any()
+        if "ohlc_available" in part.columns:
+            ohlc_ready = part["ohlc_available"].astype(str).str.lower().isin(["true", "1", "yes"]).any()
+        if ohlc_ready:
+            x = mdates.date2num(part["_dt"])
+            for x_value, row in zip(x, part.to_dict("records")):
+                open_price = to_number(row.get("open"))
+                high_price = to_number(row.get("high"))
+                low_price = to_number(row.get("low"))
+                close_price = to_number(row.get("close"))
+                if any(math.isnan(v) for v in [open_price, high_price, low_price, close_price]):
+                    continue
+                candle_color = "#d62728" if close_price >= open_price else "#2ca02c"
+                ax.vlines(x_value, low_price, high_price, color=candle_color, linewidth=0.8, alpha=0.9)
+                bottom = min(open_price, close_price)
+                height = max(abs(close_price - open_price), max(close_price, 1) * 0.00015)
+                ax.add_patch(
+                    Rectangle(
+                        (x_value - 0.32, bottom),
+                        0.64,
+                        height,
+                        facecolor=candle_color,
+                        edgecolor=candle_color,
+                        alpha=0.72,
+                        linewidth=0.5,
+                    )
+                )
+            ax.xaxis_date()
+            ax.plot(part["_dt"], part["close"], color="#333333", linewidth=0.8, alpha=0.65, label="Close")
+        else:
+            ax.plot(part["_dt"], part["close"], color="#1f77b4", linewidth=1.7, label="Close")
         ax.plot(part["_dt"], part["ma20"], color="#ff7f0e", linewidth=1.1, label="MA20")
         ax.plot(part["_dt"], part["ma60"], color="#2ca02c", linewidth=1.1, label="MA60")
+        if part["volume"].notna().any():
+            ax2 = ax.twinx()
+            ax2.bar(part["_dt"], part["volume"], color="#9e9e9e", alpha=0.16, width=1.0, label="Volume")
+            ax2.set_yticks([])
+            ax2.set_ylim(0, max(part["volume"].dropna().max() * 4, 1))
         high_60 = part["close"].tail(min(60, len(part))).max()
         low_60 = part["close"].tail(min(60, len(part))).min()
         if not math.isnan(high_60):
@@ -328,10 +365,11 @@ def make_market_index_chart(index_history: pd.DataFrame, path: Path) -> Path:
             ax.axhline(low_60, color="#9467bd", linestyle=":", linewidth=0.8, alpha=0.7, label="60D low")
         latest = part.iloc[-1]
         regime = classify_market_regime(latest)
-        ax.set_title(f"{label} technical trend - {regime}", fontsize=11, fontweight="bold")
+        chart_kind = "K-line" if ohlc_ready else "close-line"
+        ax.set_title(f"{label} {chart_kind} technical trend - {regime}", fontsize=11, fontweight="bold")
         ax.grid(True, alpha=0.25)
         ax.legend(loc="upper left", fontsize=8, ncol=4)
-    fig.suptitle("Six-Month Market Index Technical View", fontsize=14, fontweight="bold")
+    fig.suptitle("Six-Month Market Index K-Line / Technical View", fontsize=14, fontweight="bold")
     fig.autofmt_xdate()
     fig.tight_layout(rect=[0, 0, 1, 0.96])
     fig.savefig(path, dpi=150, bbox_inches="tight")
@@ -504,6 +542,32 @@ def technical_pattern_notes(index_history: pd.DataFrame) -> list[str]:
     return notes
 
 
+def index_ohlc_data_status_note(index_history: pd.DataFrame) -> str:
+    data = last_six_months(index_history, "date")
+    if data.empty:
+        return "Index chart data status: market index history is unavailable, so the PDF uses a placeholder chart."
+
+    parts: list[str] = []
+    for code, label in [("TWSE", "TWSE / TAIEX"), ("TPEX", "TPEx / OTC")]:
+        part = data[data["index_code"].astype(str) == code].copy()
+        if part.empty:
+            parts.append(f"{label}: no six-month index rows.")
+            continue
+        for col in ["open", "high", "low", "close", "volume"]:
+            part[col] = to_numeric_col(part, col)
+        official_ohlc = part[["open", "high", "low", "close"]].notna().all(axis=1).any()
+        if "ohlc_available" in part.columns:
+            official_ohlc = part["ohlc_available"].astype(str).str.lower().isin(["true", "1", "yes"]).any()
+        volume_ready = part["volume"].notna().any()
+        if official_ohlc and volume_ready:
+            parts.append(f"{label}: standard OHLC K-line data is available with volume/turnover overlay.")
+        elif official_ohlc:
+            parts.append(f"{label}: standard OHLC K-line data is available; volume data is unavailable or partial.")
+        else:
+            parts.append(f"{label}: OHLC is unavailable, so the chart falls back to close/MA trend lines.")
+    return "Index chart data status: " + " ".join(parts)
+
+
 def markdown_table(rows: list[list[str]]) -> str:
     if not rows:
         return ""
@@ -614,7 +678,7 @@ def build_markdown(
             "",
             "The PDF version of this dashboard must include six-month charts for index trend, fear/option indicators, foreign futures positioning, and retail mini-TAIEX futures proxy positioning. If a source has insufficient history, the PDF still includes a placeholder chart and states the limitation.",
             "",
-            "Important limitation: the current repo stores TWSE/TPEx index close, MA20, MA60, and return history, but not a complete index OHLC/volume raw table. Therefore this dashboard labels the index chart as a close/MA technical chart, not a candlestick K-line chart. After index_ohlc_history.csv is added, the next version should draw standard index K-line charts.",
+            index_ohlc_data_status_note(index_history),
             "",
         ]
     )

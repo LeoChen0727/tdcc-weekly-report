@@ -424,6 +424,7 @@ jobs:
           git add output/latest/surge_model_validation_latest.json || true
           git add output/latest/surge_model_validation_latest.md || true
           git add data/market_index_history.csv || true
+          git add data/market_index_ohlc_history.csv || true
           git add output/latest/market_benchmark_latest.csv || true
           git add output/history/market_timing/ || true
           git add output/latest/market_timing_backtest_latest.csv || true
@@ -621,6 +622,7 @@ jobs:
           git add output/latest/surge_model_validation_latest.json || true
           git add output/latest/surge_model_validation_latest.md || true
           git add data/market_index_history.csv || true
+          git add data/market_index_ohlc_history.csv || true
           git add output/latest/market_benchmark_latest.csv || true
           git add output/history/market_timing/ || true
           git add output/latest/market_timing_backtest_latest.csv || true

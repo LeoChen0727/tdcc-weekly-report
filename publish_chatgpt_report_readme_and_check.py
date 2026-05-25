@@ -90,6 +90,8 @@ WARRANT_SIGNAL_PERFORMANCE_MD = LATEST_DIR / "warrant_signal_performance_latest.
 MARKET_REGIME_CSV = LATEST_DIR / "market_regime_latest.csv"
 MARKET_RISK_DASHBOARD_MD = LATEST_DIR / "market_risk_dashboard_latest.md"
 MARKET_RISK_DASHBOARD_PDF = LATEST_DIR / "market_risk_dashboard_latest.pdf"
+MARKET_INDEX_HISTORY_CSV = Path("data/market_index_history.csv")
+MARKET_INDEX_OHLC_HISTORY_CSV = Path("data/market_index_ohlc_history.csv")
 FUTURES_OPTIONS_INDICATORS_CSV = LATEST_DIR / "futures_options_indicators_latest.csv"
 FUTURES_OPTIONS_SOURCE_STATUS_MD = LATEST_DIR / "futures_options_source_status_latest.md"
 MARKET_TIMING_PACKET_MD = LATEST_DIR / "market_timing_chatgpt_packet_latest.md"
@@ -529,6 +531,8 @@ def build_readme(
         f"warrant_sector_heat_raw_url={warrant_sector_heat_raw_url}",
         f"warrant_signal_performance_raw_url={warrant_signal_performance_raw_url}",
         f"market_regime_raw_url={market_regime_raw_url}",
+        f"market_index_history_raw_url={raw_url('main', MARKET_INDEX_HISTORY_CSV)}",
+        f"market_index_ohlc_history_raw_url={raw_url('main', MARKET_INDEX_OHLC_HISTORY_CSV)}",
         f"market_risk_dashboard_md_raw_url={market_risk_dashboard_md_raw_url}",
         f"market_risk_dashboard_pdf_pages_url={market_risk_dashboard_pdf_pages_url}",
         f"market_risk_dashboard_pdf_raw_url={market_risk_dashboard_pdf_raw_url}",
@@ -1128,6 +1132,8 @@ def main() -> int:
         "warrant_sector_heat_raw_url": warrant_sector_heat_raw_url,
         "warrant_signal_performance_raw_url": warrant_signal_performance_raw_url,
         "market_regime_raw_url": market_regime_raw_url,
+        "market_index_history_raw_url": raw_url("main", MARKET_INDEX_HISTORY_CSV),
+        "market_index_ohlc_history_raw_url": raw_url("main", MARKET_INDEX_OHLC_HISTORY_CSV),
         "market_risk_dashboard_md_raw_url": market_risk_dashboard_md_raw_url,
         "market_risk_dashboard_pdf_pages_url": market_risk_dashboard_pdf_pages_url,
         "market_risk_dashboard_pdf_raw_url": market_risk_dashboard_pdf_raw_url,

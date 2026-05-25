@@ -24,6 +24,7 @@ TDCC_SIGNALS_DIR = HISTORY_DIR / "tdcc_signals"
 DAILY_PRICE_DIR = DATA_DIR / "daily_price"
 STOCK_PRICE_HISTORY_DIR = DATA_DIR / "stock_price_history"
 MARKET_INDEX_PATH = DATA_DIR / "market_index_history.csv"
+MARKET_INDEX_OHLC_PATH = DATA_DIR / "market_index_ohlc_history.csv"
 
 HORIZONS = [1, 2, 5, 10, 20]
 
@@ -327,6 +328,69 @@ def fetch_twse_index_month(month_start: str) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+def fetch_twse_index_ohlc_month(month_start: str) -> pd.DataFrame:
+    url = f"https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date={month_start}&response=json"
+    try:
+        data = requests.get(url, timeout=30, headers={"User-Agent": "Mozilla/5.0"}).json()
+    except Exception as exc:
+        print(f"WARNING: TWSE index OHLC fetch failed {month_start}: {exc}")
+        return pd.DataFrame()
+
+    rows: list[dict[str, Any]] = []
+    for item in data.get("data", []) or []:
+        if len(item) < 5:
+            continue
+        parts = re.findall(r"\d+", safe_str(item[0]))
+        if len(parts) >= 3 and len(parts[0]) <= 3:
+            date = f"{int(parts[0]) + 1911:04d}{int(parts[1]):02d}{int(parts[2]):02d}"
+        else:
+            date = normalize_date(item[0])
+        rows.append(
+            {
+                "date": date,
+                "index_code": "TWSE",
+                "index_name": "TAIEX",
+                "open": to_number(item[1]),
+                "high": to_number(item[2]),
+                "low": to_number(item[3]),
+                "close": to_number(item[4]),
+                "ohlc_source": url,
+                "ohlc_available": True,
+            }
+        )
+    return pd.DataFrame(rows)
+
+
+def fetch_twse_index_turnover_month(month_start: str) -> pd.DataFrame:
+    url = f"https://www.twse.com.tw/rwd/zh/afterTrading/FMTQIK?date={month_start}&response=json"
+    try:
+        data = requests.get(url, timeout=30, headers={"User-Agent": "Mozilla/5.0"}).json()
+    except Exception as exc:
+        print(f"WARNING: TWSE index turnover fetch failed {month_start}: {exc}")
+        return pd.DataFrame()
+
+    rows: list[dict[str, Any]] = []
+    for item in data.get("data", []) or []:
+        if len(item) < 5:
+            continue
+        parts = re.findall(r"\d+", safe_str(item[0]))
+        if len(parts) >= 3 and len(parts[0]) <= 3:
+            date = f"{int(parts[0]) + 1911:04d}{int(parts[1]):02d}{int(parts[2]):02d}"
+        else:
+            date = normalize_date(item[0])
+        rows.append(
+            {
+                "date": date,
+                "index_code": "TWSE",
+                "volume": to_number(item[1]) if len(item) > 1 else math.nan,
+                "turnover_value": to_number(item[2]) if len(item) > 2 else math.nan,
+                "transactions": to_number(item[3]) if len(item) > 3 else math.nan,
+                "turnover_source": url,
+            }
+        )
+    return pd.DataFrame(rows)
+
+
 def fetch_tpex_index_month(month_start: str) -> pd.DataFrame:
     url = f"https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date={roc_month_from_yyyymmdd(month_start)}&response=json"
     try:
@@ -343,25 +407,153 @@ def fetch_tpex_index_month(month_start: str) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+def fetch_tpex_index_ohlc_month(month_start: str) -> pd.DataFrame:
+    url = f"https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date={roc_month_from_yyyymmdd(month_start)}&response=json"
+    try:
+        data = requests.get(url, timeout=30, headers={"User-Agent": "Mozilla/5.0"}).json()
+    except Exception as exc:
+        print(f"WARNING: TPEx index OHLC fetch failed {month_start}: {exc}")
+        return pd.DataFrame()
+
+    rows: list[dict[str, Any]] = []
+    for table in data.get("tables", []) or []:
+        for item in table.get("data", []) or []:
+            if len(item) < 5:
+                continue
+            rows.append(
+                {
+                    "date": normalize_date(item[0]),
+                    "index_code": "TPEX",
+                    "index_name": "TPEx",
+                    "open": to_number(item[1]),
+                    "high": to_number(item[2]),
+                    "low": to_number(item[3]),
+                    "close": to_number(item[4]),
+                    "ohlc_source": url,
+                    "ohlc_available": True,
+                }
+            )
+    return pd.DataFrame(rows)
+
+
+def fetch_tpex_index_turnover_latest() -> pd.DataFrame:
+    url = "https://www.tpex.org.tw/openapi/v1/tpex_daily_trading_index"
+    try:
+        data = requests.get(url, timeout=30, headers={"User-Agent": "Mozilla/5.0"}).json()
+    except Exception as exc:
+        print(f"WARNING: TPEx index turnover fetch failed: {exc}")
+        return pd.DataFrame()
+
+    if not isinstance(data, list):
+        return pd.DataFrame()
+    rows: list[dict[str, Any]] = []
+    for item in data:
+        date_raw = safe_str(item.get("Date", ""))
+        if len(date_raw) == 7 and date_raw[:3].isdigit():
+            date = f"{int(date_raw[:3]) + 1911:04d}{date_raw[3:5]}{date_raw[5:7]}"
+        else:
+            date = normalize_date(date_raw)
+        rows.append(
+            {
+                "date": date,
+                "index_code": "TPEX",
+                "volume": to_number(item.get("TradeVolume", "")),
+                "turnover_value": to_number(item.get("TradeAmount", "")),
+                "transactions": to_number(item.get("NumberOfTransactions", "")),
+                "turnover_source": url,
+            }
+        )
+    return pd.DataFrame(rows)
+
+
+def build_market_index_ohlc_history(months: int = 18) -> pd.DataFrame:
+    latest = latest_price_date()
+    frames: list[pd.DataFrame] = []
+    old = read_csv(MARKET_INDEX_OHLC_PATH, dtype=str)
+    if not old.empty:
+        frames.append(old)
+    for month_start in month_starts_back(latest, months):
+        frames.append(fetch_twse_index_ohlc_month(month_start))
+        frames.append(fetch_tpex_index_ohlc_month(month_start))
+
+    frames = [df for df in frames if not df.empty]
+    if not frames:
+        return pd.DataFrame()
+    ohlc = pd.concat(frames, ignore_index=True, sort=False)
+    ohlc["date"] = ohlc["date"].map(normalize_date)
+    ohlc = ohlc[ohlc["date"] != ""].copy()
+    ohlc = ohlc.drop_duplicates(["date", "index_code"], keep="last")
+
+    turnover_frames: list[pd.DataFrame] = []
+    for month_start in month_starts_back(latest, months):
+        turnover_frames.append(fetch_twse_index_turnover_month(month_start))
+    turnover_frames.append(fetch_tpex_index_turnover_latest())
+    turnover_frames = [df for df in turnover_frames if not df.empty]
+    if turnover_frames:
+        turnover = pd.concat(turnover_frames, ignore_index=True, sort=False)
+        turnover["date"] = turnover["date"].map(normalize_date)
+        turnover = turnover[turnover["date"] != ""].copy()
+        turnover = turnover.drop_duplicates(["date", "index_code"], keep="last")
+        ohlc = ohlc.merge(turnover, on=["date", "index_code"], how="left", suffixes=("", "_turnover"))
+        for col in ["volume", "turnover_value", "transactions", "turnover_source"]:
+            turnover_col = f"{col}_turnover"
+            if turnover_col in ohlc.columns:
+                if col in ohlc.columns:
+                    ohlc[col] = ohlc[col].where(ohlc[col].notna() & (ohlc[col].astype(str) != ""), ohlc[turnover_col])
+                else:
+                    ohlc[col] = ohlc[turnover_col]
+                ohlc = ohlc.drop(columns=[turnover_col])
+
+    for col in ["open", "high", "low", "close", "volume", "turnover_value", "transactions"]:
+        if col not in ohlc.columns:
+            ohlc[col] = math.nan
+        ohlc[col] = pd.to_numeric(ohlc[col], errors="coerce")
+    ohlc["ohlc_available"] = ohlc[["open", "high", "low", "close"]].notna().all(axis=1)
+    ohlc["volume_available"] = ohlc["volume"].notna()
+    ohlc = ohlc.sort_values(["index_code", "date"]).reset_index(drop=True)
+    write_csv(ohlc, MARKET_INDEX_OHLC_PATH)
+    return ohlc
+
+
 def update_market_index_history(months: int = 18) -> pd.DataFrame:
     DATA_DIR.mkdir(parents=True, exist_ok=True)
+    ohlc = build_market_index_ohlc_history(months=months)
     latest = latest_price_date()
     frames: list[pd.DataFrame] = []
     old = read_csv(MARKET_INDEX_PATH, dtype=str)
     if not old.empty:
         frames.append(old)
-    for month_start in month_starts_back(latest, months):
-        frames.append(fetch_twse_index_month(month_start))
-        frames.append(fetch_tpex_index_month(month_start))
+    if ohlc.empty:
+        # Close-only endpoints are a fallback for environments where the
+        # official OHLC endpoints are temporarily unavailable.
+        for month_start in month_starts_back(latest, months):
+            frames.append(fetch_twse_index_month(month_start))
+            frames.append(fetch_tpex_index_month(month_start))
+    if not ohlc.empty:
+        # Keep official OHLC rows last so close-only legacy sources cannot
+        # overwrite candlestick-ready data for the same index/date.
+        frames.append(ohlc)
     frames = [df for df in frames if not df.empty]
     if not frames:
         return pd.DataFrame()
     df = pd.concat(frames, ignore_index=True, sort=False)
     df["date"] = df["date"].map(normalize_date)
-    df["close"] = pd.to_numeric(df["close"], errors="coerce")
+    for col in ["open", "high", "low", "close", "volume", "turnover_value", "transactions"]:
+        if col not in df.columns:
+            df[col] = math.nan
+        df[col] = pd.to_numeric(df[col], errors="coerce")
     df = df.dropna(subset=["date", "index_code", "close"])
     df = df.drop_duplicates(["date", "index_code"], keep="last")
     df = df.sort_values(["index_code", "date"]).reset_index(drop=True)
+    if "ohlc_available" in df.columns:
+        source_ohlc_available = df["ohlc_available"].astype(str).str.lower().isin(["true", "1", "yes"])
+    else:
+        source_ohlc_available = pd.Series(False, index=df.index)
+    raw_ohlc_available = df[["open", "high", "low", "close"]].notna().all(axis=1)
+    for col in ["open", "high", "low"]:
+        df[col] = df[col].fillna(df["close"])
+    df["ohlc_available"] = source_ohlc_available | raw_ohlc_available
+    df["volume_available"] = df["volume"].notna()
 
     for window in [5, 10, 20, 60]:
         col = f"return_{window}d"
@@ -395,7 +587,7 @@ def load_market_index_history(update_if_missing: bool = True) -> pd.DataFrame:
     if df.empty:
         return df
     df["date"] = df["date"].map(normalize_date)
-    for col in ["close", "ma20", "ma60", "return_5d", "return_10d", "return_20d", "return_60d"]:
+    for col in ["open", "high", "low", "close", "volume", "turnover_value", "ma20", "ma60", "return_5d", "return_10d", "return_20d", "return_60d"]:
         if col in df.columns:
             df[col] = pd.to_numeric(df[col], errors="coerce")
     for col in ["above_ma20", "above_ma60"]:

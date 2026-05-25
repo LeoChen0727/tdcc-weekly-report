@@ -906,7 +906,7 @@ def write_packet(feature: pd.DataFrame, events: pd.DataFrame, backtest: pd.DataF
         f"- main_price_date: {feature['trade_date'].max() if not feature.empty else ''}",
         f"- index_list: {', '.join(sorted(feature['index_id'].dropna().unique())) if not feature.empty else ''}",
         f"- data_range: {feature['trade_date'].min() if not feature.empty else ''} ~ {feature['trade_date'].max() if not feature.empty else ''}",
-        f"- source_files: data/market_index_history.csv, {BREADTH_HISTORY.as_posix()}, {EVENT_LOG.as_posix()}",
+        f"- source_files: data/market_index_history.csv, data/market_index_ohlc_history.csv, {BREADTH_HISTORY.as_posix()}, {EVENT_LOG.as_posix()}",
         "- tuning_status: not_ready",
         "",
         "## Current Market Technical State",
