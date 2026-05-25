@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20260523,00916,國泰全球品牌50,TWSE,28.05,28.12,28.05,28.11,136293,3829899.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260523.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260524,00916,國泰全球品牌50,TWSE,28.05,28.12,28.05,28.11,136293,3829899.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260524.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260525,00916,國泰全球品牌50,TWSE,28.15,28.27,28.08,28.24,826574,23314567.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,0.4625,,,,,,,,,,,,,,,,,,,,,
+20260526,00916,國泰全球品牌50,TWSE,28.05,28.12,28.05,28.11,136293,3829899.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260526.csv,28.136,28.136,28.136,28.136,28.1199,-0.4603,,,,,274349.2,0.4968,28.27,28.27,28.27,28.05,28.05,28.05,-0.0924,-0.0924,-0.0924,-0.0353,-0.566,-0.566,-0.566,0.2139,0.2139

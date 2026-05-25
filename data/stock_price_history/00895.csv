@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20260523,00895,富邦未來車,TWSE,50.05,50.2,49.99,50.2,1211064,60663833.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260523.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260524,00895,富邦未來車,TWSE,50.05,50.2,49.99,50.2,1211064,60663833.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260524.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260525,00895,富邦未來車,TWSE,51.4,51.85,51.05,51.2,431886,22114250.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,1.992,,,,,,,,,,,,,,,,,,,,,
+20260526,00895,富邦未來車,TWSE,50.05,50.2,49.99,50.2,1211064,60663833.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260526.csv,50.4,50.4,50.4,50.4,50.2764,-1.9531,,,,,1055228.4,1.1477,51.85,51.85,51.85,49.99,49.99,49.99,-0.3968,-0.3968,-0.3968,-0.1519,-3.1823,-3.1823,-3.1823,0.4201,0.4201

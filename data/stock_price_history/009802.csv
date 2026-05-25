@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20260523,009802,富邦旗艦50,TWSE,17.89,18.35,17.89,18.33,9072409,164579804.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260523.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260524,009802,富邦旗艦50,TWSE,17.89,18.35,17.89,18.33,9072409,164579804.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260524.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260525,009802,富邦旗艦50,TWSE,19.2,19.67,19.2,19.64,18704432,365607648.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,7.1468,,,,,,,,,,,,,,,,,,,,,
+20260526,009802,富邦旗艦50,TWSE,17.89,18.35,17.89,18.33,9072409,164579804.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260526.csv,18.592,18.592,18.592,18.592,18.4301,-6.6701,,,,,10998813.6,0.8249,19.67,19.67,19.67,17.89,17.89,17.89,-1.4092,-1.4092,-1.4092,-0.543,-6.8124,-6.8124,-6.8124,2.4595,2.4595

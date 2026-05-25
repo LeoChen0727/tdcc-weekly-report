@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20260523,00735,國泰臺韓科技,TWSE,100.25,101.2,99.8,101.2,1844383,185258686.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260523.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260524,00735,國泰臺韓科技,TWSE,100.25,101.2,99.8,101.2,1844383,185258686.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260524.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260525,00735,國泰臺韓科技,TWSE,102.6,105.0,102.55,105.0,2739048,286033106.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,3.7549,,,,,,,,,,,,,,,,,,,,,
+20260526,00735,國泰臺韓科技,TWSE,100.25,101.2,99.8,101.2,1844383,185258686.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260526.csv,101.96,101.96,101.96,101.96,101.4903,-3.619,,,,,2023316.0,0.9116,105.0,105.0,105.0,99.8,99.8,99.8,-0.7454,-0.7454,-0.7454,-0.286,-3.619,-3.619,-3.619,1.4028,1.4028

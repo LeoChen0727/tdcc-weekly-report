@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20260523,009817,國泰日本不動產,TWSE,8.92,8.92,8.86,8.88,3554200,31562568.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260523.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260524,009817,國泰日本不動產,TWSE,8.92,8.92,8.86,8.88,3554200,31562568.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260524.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260525,009817,國泰日本不動產,TWSE,8.88,8.88,8.83,8.84,4007160,35479617.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,-0.4505,,,,,,,,,,,,,,,,,,,,,
+20260526,009817,國泰日本不動產,TWSE,8.92,8.92,8.86,8.88,3554200,31562568.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260526.csv,8.872,8.872,8.872,8.872,8.8769,0.4525,,,,,3644792.0,0.9751,8.92,8.92,8.92,8.83,8.83,8.83,0.0902,0.0902,0.0902,0.0344,-0.4484,-0.4484,-0.4484,0.5663,0.5663

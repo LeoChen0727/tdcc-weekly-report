@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20260523,00961,FT臺灣永續高息,TWSE,11.46,11.59,11.41,11.57,5755473,66315889.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260523.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260524,00961,FT臺灣永續高息,TWSE,11.46,11.59,11.41,11.57,5755473,66315889.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260524.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260525,00961,FT臺灣永續高息,TWSE,11.75,11.96,11.75,11.93,4781497,56833276.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,3.1115,,,,,,,,,,,,,,,,,,,,,
+20260526,00961,FT臺灣永續高息,TWSE,11.46,11.59,11.41,11.57,5755473,66315889.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260526.csv,11.642,11.642,11.642,11.642,11.5975,-3.0176,,,,,5560677.8,1.035,11.96,11.96,11.96,11.41,11.41,11.41,-0.6185,-0.6185,-0.6185,-0.2371,-3.2609,-3.2609,-3.2609,1.4023,1.4023

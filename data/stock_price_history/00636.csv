@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20260523,00636,國泰中國A50,TWSE,28.44,28.44,27.98,28.08,1131986,31818535.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260523.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260524,00636,國泰中國A50,TWSE,28.44,28.44,27.98,28.08,1131986,31818535.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260524.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260525,00636,國泰中國A50,TWSE,28.08,28.49,28.08,28.33,1121005,31793507.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,0.8903,,,,,,,,,,,,,,,,,,,,,
+20260526,00636,國泰中國A50,TWSE,28.44,28.44,27.98,28.08,1131986,31818535.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260526.csv,28.13,28.13,28.13,28.13,28.0991,-0.8825,,,,,1129789.8,1.0019,28.49,28.49,28.49,27.98,27.98,27.98,-0.1777,-0.1777,-0.1777,-0.068,-1.4391,-1.4391,-1.4391,0.3574,0.3574

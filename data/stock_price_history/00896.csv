@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20260523,00896,中信綠能及電動車,TWSE,26.25,26.8,26.25,26.8,1668059,44219302.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260523.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260524,00896,中信綠能及電動車,TWSE,26.25,26.8,26.25,26.8,1668059,44219302.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260524.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260525,00896,中信綠能及電動車,TWSE,27.12,27.85,27.0,27.84,3321998,92167876.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,3.8806,,,,,,,,,,,,,,,,,,,,,
+20260526,00896,中信綠能及電動車,TWSE,26.25,26.8,26.25,26.8,1668059,44219302.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260526.csv,27.008,27.008,27.008,27.008,26.8794,-3.7356,,,,,1998846.8,0.8345,27.85,27.85,27.85,26.25,26.25,26.25,-0.7701,-0.7701,-0.7701,-0.2956,-3.7702,-3.7702,-3.7702,2.0952,2.0952

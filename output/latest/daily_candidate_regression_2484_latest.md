@@ -4,7 +4,7 @@
 - stock_name: `希華`
 - status: `pass`
 - raw_universe: `True`
-- raw_history_rows: `135`
+- raw_history_rows: `136`
 - first_trigger_date: `20260520`
 - latest_breakout_detected: `True`
 

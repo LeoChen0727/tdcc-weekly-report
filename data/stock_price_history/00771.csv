@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20260523,00771,元大US高息特別股,TWSE,15.94,15.94,15.77,15.87,102743,1628359.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260523.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260524,00771,元大US高息特別股,TWSE,15.94,15.94,15.77,15.87,102743,1628359.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260524.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260525,00771,元大US高息特別股,TWSE,15.87,15.87,15.82,15.84,66155,1048089.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,-0.189,,,,,,,,,,,,,,,,,,,,,
+20260526,00771,元大US高息特別股,TWSE,15.94,15.94,15.77,15.87,102743,1628359.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260526.csv,15.864,15.864,15.864,15.864,15.8677,0.1894,,,,,95425.4,1.0767,15.94,15.94,15.94,15.77,15.77,15.77,0.0378,0.0378,0.0378,0.0144,-0.4391,-0.4391,-0.4391,0.6341,0.6341

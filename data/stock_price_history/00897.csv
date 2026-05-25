@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20260523,00897,富邦基因免疫生技,TWSE,9.76,9.78,9.75,9.76,395272,3860688.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260523.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260524,00897,富邦基因免疫生技,TWSE,9.76,9.78,9.75,9.76,395272,3860688.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260524.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260525,00897,富邦基因免疫生技,TWSE,9.76,9.84,9.73,9.82,578706,5674497.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,0.6148,,,,,,,,,,,,,,,,,,,,,
+20260526,00897,富邦基因免疫生技,TWSE,9.76,9.78,9.75,9.76,395272,3860688.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260526.csv,9.772,9.772,9.772,9.772,9.7646,-0.611,,,,,431958.8,0.9151,9.84,9.84,9.84,9.73,9.73,9.73,-0.1228,-0.1228,-0.1228,-0.0469,-0.813,-0.813,-0.813,0.3083,0.3083

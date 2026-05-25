@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20260523,009801,中信美國創新科技,TWSE,12.16,12.19,12.16,12.17,582365,7089079.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260523.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260524,009801,中信美國創新科技,TWSE,12.16,12.19,12.16,12.17,582365,7089079.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260524.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260525,009801,中信美國創新科技,TWSE,12.25,12.29,12.24,12.27,1541850,18901121.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,0.8217,,,,,,,,,,,,,,,,,,,,,
+20260526,009801,中信美國創新科技,TWSE,12.16,12.19,12.16,12.17,582365,7089079.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260526.csv,12.19,12.19,12.19,12.19,12.1776,-0.815,,,,,774262.0,0.7522,12.29,12.29,12.29,12.16,12.16,12.16,-0.1641,-0.1641,-0.1641,-0.0627,-0.9764,-0.9764,-0.9764,0.0822,0.0822

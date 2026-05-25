@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20260523,00912,中信臺灣智慧50,TWSE,30.33,30.87,30.33,30.87,797934,24401309.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260523.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260524,00912,中信臺灣智慧50,TWSE,30.33,30.87,30.33,30.87,797934,24401309.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260524.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260525,00912,中信臺灣智慧50,TWSE,31.1,31.9,31.09,31.74,936361,29713396.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,2.8183,,,,,,,,,,,,,,,,,,,,,
+20260526,00912,中信臺灣智慧50,TWSE,30.33,30.87,30.33,30.87,797934,24401309.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260526.csv,31.044,31.044,31.044,31.044,30.9365,-2.741,,,,,825619.4,0.9665,31.9,31.9,31.9,30.33,30.33,30.33,-0.5605,-0.5605,-0.5605,-0.2148,-3.2288,-3.2288,-3.2288,1.7804,1.7804

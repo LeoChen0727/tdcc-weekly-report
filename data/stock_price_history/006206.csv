@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20260523,006206,元大上證50,TWSE,37.0,37.0,36.46,36.57,138415,5060891.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260523.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260524,006206,元大上證50,TWSE,37.0,37.0,36.46,36.57,138415,5060891.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260524.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260525,006206,元大上證50,TWSE,36.58,37.07,36.58,36.71,74402,2732162.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,0.3828,,,,,,,,,,,,,,,,,,,,,
+20260526,006206,元大上證50,TWSE,37.0,37.0,36.46,36.57,138415,5060891.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260526.csv,36.598,36.598,36.598,36.598,36.5807,-0.3814,,,,,125612.4,1.1019,37.07,37.07,37.07,36.46,36.46,36.46,-0.0765,-0.0765,-0.0765,-0.0292,-1.3488,-1.3488,-1.3488,0.3017,0.3017

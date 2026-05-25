@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20260523,00877,復華中國5G,TPEx,39.1,40.0,38.72,39.97,39,2964105.0,TPEX_OLD_DAILY_JSON,data/daily_price/daily_price_20260523.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260524,00877,復華中國5G,TPEx,39.1,40.0,38.72,39.97,39,2964105.0,TPEX_OLD_DAILY_JSON,data/daily_price/daily_price_20260524.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260525,00877,復華中國5G,TPEx,40.65,41.8,40.5,41.48,41,3553718.0,TPEX_OLD_DAILY_JSON,data/daily_price/daily_price_20260525.csv,,,,,,3.7778,,,,,,,,,,,,,,,,,,,,,
+20260526,00877,復華中國5G,TPEx,40.65,41.8,40.5,41.48,41,3553718.0,TPEX_OLD_DAILY_JSON,data/daily_price/daily_price_20260526.csv,40.574,40.574,40.574,40.574,40.2112,0.0,,,,,39.8,1.0302,41.8,41.8,41.8,38.72,38.72,38.72,2.233,2.233,2.233,3.1554,-0.7656,-0.7656,-0.7656,7.1281,7.1281

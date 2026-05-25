@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20260523,00762,元大全球AI,TWSE,111.85,112.0,111.15,111.5,136398,15201267.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260523.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260524,00762,元大全球AI,TWSE,111.85,112.0,111.15,111.5,136398,15201267.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260524.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260525,00762,元大全球AI,TWSE,112.45,113.8,112.45,113.8,185437,21043889.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,2.0628,,,,,,,,,,,,,,,,,,,,,
+20260526,00762,元大全球AI,TWSE,111.85,112.0,111.15,111.5,136398,15201267.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260526.csv,111.96,111.96,111.96,111.96,111.6757,-2.0211,,,,,146205.8,0.9329,113.8,113.8,113.8,111.15,111.15,111.15,-0.4109,-0.4109,-0.4109,-0.1573,-2.0211,-2.0211,-2.0211,0.3149,0.3149

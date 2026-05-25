@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20260523,00770,國泰北美科技,TWSE,65.05,65.25,65.05,65.2,600552,39122477.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260523.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260524,00770,國泰北美科技,TWSE,65.05,65.25,65.05,65.2,600552,39122477.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260524.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260525,00770,國泰北美科技,TWSE,65.95,66.3,65.95,66.25,528959,34999465.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,1.6104,,,,,,,,,,,,,,,,,,,,,
+20260526,00770,國泰北美科技,TWSE,65.05,65.25,65.05,65.2,600552,39122477.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260526.csv,65.41,65.41,65.41,65.41,65.2802,-1.5849,,,,,586233.4,1.0244,66.3,66.3,66.3,65.05,65.05,65.05,-0.3211,-0.3211,-0.3211,-0.1229,-1.6591,-1.6591,-1.6591,0.2306,0.2306

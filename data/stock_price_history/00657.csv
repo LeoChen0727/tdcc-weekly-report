@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20260523,00657,國泰日經225,TWSE,73.85,74.3,73.8,74.3,93102,6894704.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260523.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260524,00657,國泰日經225,TWSE,73.85,74.3,73.8,74.3,93102,6894704.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260524.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260525,00657,國泰日經225,TWSE,76.1,76.6,76.1,76.55,49772,3802486.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,3.0283,,,,,,,,,,,,,,,,,,,,,
+20260526,00657,國泰日經225,TWSE,73.85,74.3,73.8,74.3,93102,6894704.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260526.csv,74.75,74.75,74.75,74.75,74.4719,-2.9393,,,,,84436.0,1.1026,76.6,76.6,76.6,73.8,73.8,73.8,-0.602,-0.602,-0.602,-0.2308,-3.0026,-3.0026,-3.0026,0.6775,0.6775

@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20260523,00905,FT臺灣Smart,TWSE,25.0,25.4,25.0,25.4,2423178,61119557.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260523.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260524,00905,FT臺灣Smart,TWSE,25.0,25.4,25.0,25.4,2423178,61119557.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260524.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260525,00905,FT臺灣Smart,TWSE,26.09,26.55,26.09,26.55,2651189,70081243.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,4.5276,,,,,,,,,,,,,,,,,,,,,
+20260526,00905,FT臺灣Smart,TWSE,25.0,25.4,25.0,25.4,2423178,61119557.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260526.csv,25.63,25.63,25.63,25.63,25.4878,-4.3315,,,,,2468780.2,0.9815,26.55,26.55,26.55,25.0,25.0,25.0,-0.8974,-0.8974,-0.8974,-0.3447,-4.3315,-4.3315,-4.3315,1.6,1.6

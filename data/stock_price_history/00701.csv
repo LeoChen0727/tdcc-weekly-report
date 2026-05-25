@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20260523,00701,國泰股利精選30,TWSE,32.15,32.15,31.91,32.08,636064,20358693.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260523.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260524,00701,國泰股利精選30,TWSE,32.15,32.15,31.91,32.08,636064,20358693.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260524.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260525,00701,國泰股利精選30,TWSE,32.08,32.7,32.0,32.44,2021910,65305074.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,1.1222,,,,,,,,,,,,,,,,,,,,,
+20260526,00701,國泰股利精選30,TWSE,32.15,32.15,31.91,32.08,636064,20358693.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260526.csv,32.152,32.152,32.152,32.152,32.1075,-1.1097,,,,,913233.2,0.6965,32.7,32.7,32.7,31.91,31.91,31.91,-0.2239,-0.2239,-0.2239,-0.0856,-1.896,-1.896,-1.896,0.5327,0.5327

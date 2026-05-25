@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20260523,00952,凱基台灣AI50,TWSE,17.5,17.89,17.5,17.89,3043184,53993137.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260523.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260524,00952,凱基台灣AI50,TWSE,17.5,17.89,17.5,17.89,3043184,53993137.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260524.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260525,00952,凱基台灣AI50,TWSE,18.35,18.84,18.3,18.62,3250243,60355670.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,4.0805,,,,,,,,,,,,,,,,,,,,,
+20260526,00952,凱基台灣AI50,TWSE,17.5,17.89,17.5,17.89,3043184,53993137.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260526.csv,18.036,18.036,18.036,18.036,17.9458,-3.9205,,,,,3084595.8,0.9866,18.84,18.84,18.84,17.5,17.5,17.5,-0.8095,-0.8095,-0.8095,-0.3107,-5.0425,-5.0425,-5.0425,2.2286,2.2286

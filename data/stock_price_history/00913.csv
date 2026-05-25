@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20260523,00913,兆豐台灣晶圓製造,TWSE,44.19,45.23,44.17,45.2,1423003,63803988.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260523.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260524,00913,兆豐台灣晶圓製造,TWSE,44.19,45.23,44.17,45.2,1423003,63803988.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260524.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260525,00913,兆豐台灣晶圓製造,TWSE,45.96,47.98,45.96,47.97,1080481,51388268.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,6.1283,,,,,,,,,,,,,,,,,,,,,
+20260526,00913,兆豐台灣晶圓製造,TWSE,44.19,45.23,44.17,45.2,1423003,63803988.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260526.csv,45.754,45.754,45.754,45.754,45.4116,-5.7744,,,,,1354498.6,1.0506,47.98,47.98,47.98,44.17,44.17,44.17,-1.2108,-1.2108,-1.2108,-0.466,-5.7941,-5.7941,-5.7941,2.3319,2.3319

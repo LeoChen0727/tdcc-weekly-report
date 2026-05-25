@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20260523,00850,元大臺灣ESG永續,TWSE,81.75,82.9,81.65,82.85,2860471,235298827.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260523.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260524,00850,元大臺灣ESG永續,TWSE,81.75,82.9,81.65,82.85,2860471,235298827.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260524.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260525,00850,元大臺灣ESG永續,TWSE,84.25,86.55,84.25,86.5,2905492,250499826.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,4.4056,,,,,,,,,,,,,,,,,,,,,
+20260526,00850,元大臺灣ESG永續,TWSE,81.75,82.9,81.65,82.85,2860471,235298827.0,TWSE_OPENAPI_STOCK_DAY_ALL,data/daily_price/daily_price_20260526.csv,83.58,83.58,83.58,83.58,83.1288,-4.2197,,,,,2869475.2,0.9969,86.55,86.55,86.55,81.65,81.65,81.65,-0.8734,-0.8734,-0.8734,-0.3354,-4.275,-4.275,-4.275,1.4697,1.4697
