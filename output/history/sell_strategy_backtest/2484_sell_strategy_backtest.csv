@@ -1,0 +1,61 @@
+stock_id,stock_name,entry_date,strategy_key,strategy_name,entry_price,exit_date,exit_price,return_pct,mfe_pct,mae_pct,holding_days,reference_level,mature,status,generated_at
+2484,希華,20260523,prior_high,碰前高賣,49.3,20260524,49.3,0.0,9.93914807302232,-8.113590263691684,1,49.3,True,hit,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260523,high_20d,碰 20日高賣,49.3,20260524,49.3,0.0,9.93914807302232,-8.113590263691684,1,49.3,True,hit,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260523,high_60d,碰 60日高賣,49.3,20260525,51.2,3.8539553752535705,9.93914807302232,-8.113590263691684,2,51.2,True,hit,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260523,high_120d,碰 120日高賣,49.3,20260525,51.2,3.8539553752535705,9.93914807302232,-8.113590263691684,2,51.2,True,hit,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260523,resistance_scale_out,壓力區分批賣,49.3,20260525,51.2,3.8539553752535705,9.93914807302232,-8.113590263691684,2,51.2,True,hit,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260523,broker_target_median,券商目標價中位數賣,,,,,,,,,False,source_unavailable_or_not_implemented,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260523,broker_target_average,券商目標價平均數賣,,,,,,,,,False,source_unavailable_or_not_implemented,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260523,tdcc_weakening,TDCC 大戶轉弱賣,,,,,,,,,False,source_unavailable_or_not_implemented,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260523,shareholders_surge,股東人數暴增賣,,,,,,,,,False,source_unavailable_or_not_implemented,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260523,margin_surge,融資快速增加賣,,,,,,,,,False,source_unavailable_or_not_implemented,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260523,break_ema23,跌破 EMA23 賣,49.3,,,,9.93914807302232,-8.113590263691684,2,,False,pending,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260523,break_ma20,跌破 MA20 賣,49.3,,,,9.93914807302232,-8.113590263691684,2,,False,pending,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260523,break_neckline,跌破頸線賣,49.3,,,,9.93914807302232,-8.113590263691684,2,,False,pending,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260523,break_breakout_low,跌破突破K低點賣,49.3,,,,9.93914807302232,-8.113590263691684,2,45.3,False,pending,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260523,high_volume_black,放量長黑賣,49.3,,,,9.93914807302232,-8.113590263691684,2,,False,pending,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260523,fixed_d5,固定 D+5 賣,49.3,,,,9.93914807302232,-8.113590263691684,2,,False,pending,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260523,fixed_d10,固定 D+10 賣,49.3,,,,9.93914807302232,-8.113590263691684,2,,False,pending,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260523,fixed_d20,固定 D+20 賣,49.3,,,,9.93914807302232,-8.113590263691684,2,,False,pending,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260523,atr_trailing_stop,ATR trailing stop 賣,49.3,,,,9.93914807302232,-8.113590263691684,2,,False,pending,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260523,percent_trailing_stop,固定百分比 trailing stop 賣,49.3,20260524,45.356,-7.9999999999999964,9.93914807302232,-8.113590263691684,1,,True,percent_trailing_stop,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260524,prior_high,碰前高賣,49.3,20260525,49.3,0.0,9.93914807302232,5.476673427991896,1,49.3,True,hit,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260524,high_20d,碰 20日高賣,49.3,20260525,49.3,0.0,9.93914807302232,5.476673427991896,1,49.3,True,hit,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260524,high_60d,碰 60日高賣,49.3,20260525,51.2,3.8539553752535705,9.93914807302232,5.476673427991896,1,51.2,True,hit,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260524,high_120d,碰 120日高賣,49.3,20260525,51.2,3.8539553752535705,9.93914807302232,5.476673427991896,1,51.2,True,hit,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260524,resistance_scale_out,壓力區分批賣,49.3,20260525,51.2,3.8539553752535705,9.93914807302232,5.476673427991896,1,51.2,True,hit,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260524,broker_target_median,券商目標價中位數賣,,,,,,,,,False,source_unavailable_or_not_implemented,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260524,broker_target_average,券商目標價平均數賣,,,,,,,,,False,source_unavailable_or_not_implemented,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260524,tdcc_weakening,TDCC 大戶轉弱賣,,,,,,,,,False,source_unavailable_or_not_implemented,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260524,shareholders_surge,股東人數暴增賣,,,,,,,,,False,source_unavailable_or_not_implemented,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260524,margin_surge,融資快速增加賣,,,,,,,,,False,source_unavailable_or_not_implemented,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260524,break_ema23,跌破 EMA23 賣,49.3,,,,9.93914807302232,5.476673427991896,1,,False,pending,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260524,break_ma20,跌破 MA20 賣,49.3,,,,9.93914807302232,5.476673427991896,1,,False,pending,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260524,break_neckline,跌破頸線賣,49.3,,,,9.93914807302232,5.476673427991896,1,,False,pending,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260524,break_breakout_low,跌破突破K低點賣,49.3,,,,9.93914807302232,5.476673427991896,1,45.3,False,pending,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260524,high_volume_black,放量長黑賣,49.3,,,,9.93914807302232,5.476673427991896,1,,False,pending,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260524,fixed_d5,固定 D+5 賣,49.3,,,,9.93914807302232,5.476673427991896,1,,False,pending,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260524,fixed_d10,固定 D+10 賣,49.3,,,,9.93914807302232,5.476673427991896,1,,False,pending,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260524,fixed_d20,固定 D+20 賣,49.3,,,,9.93914807302232,5.476673427991896,1,,False,pending,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260524,atr_trailing_stop,ATR trailing stop 賣,49.3,,,,9.93914807302232,5.476673427991896,1,,False,pending,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260524,percent_trailing_stop,固定百分比 trailing stop 賣,49.3,,,,9.93914807302232,5.476673427991896,1,,False,pending,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260525,prior_high,碰前高賣,54.2,,,,,,0,54.2,False,level_unavailable,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260525,high_20d,碰 20日高賣,54.2,,,,,,0,54.2,False,level_unavailable,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260525,high_60d,碰 60日高賣,54.2,,,,,,0,54.2,False,level_unavailable,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260525,high_120d,碰 120日高賣,54.2,,,,,,0,54.2,False,level_unavailable,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260525,resistance_scale_out,壓力區分批賣,54.2,,,,,,0,54.2,False,level_unavailable,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260525,broker_target_median,券商目標價中位數賣,,,,,,,,,False,source_unavailable_or_not_implemented,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260525,broker_target_average,券商目標價平均數賣,,,,,,,,,False,source_unavailable_or_not_implemented,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260525,tdcc_weakening,TDCC 大戶轉弱賣,,,,,,,,,False,source_unavailable_or_not_implemented,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260525,shareholders_surge,股東人數暴增賣,,,,,,,,,False,source_unavailable_or_not_implemented,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260525,margin_surge,融資快速增加賣,,,,,,,,,False,source_unavailable_or_not_implemented,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260525,break_ema23,跌破 EMA23 賣,54.2,,,,,,0,,False,pending,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260525,break_ma20,跌破 MA20 賣,54.2,,,,,,0,,False,pending,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260525,break_neckline,跌破頸線賣,54.2,,,,,,0,,False,pending,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260525,break_breakout_low,跌破突破K低點賣,54.2,,,,,,0,52.0,False,pending,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260525,high_volume_black,放量長黑賣,54.2,,,,,,0,,False,pending,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260525,fixed_d5,固定 D+5 賣,54.2,,,,,,0,,False,pending,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260525,fixed_d10,固定 D+10 賣,54.2,,,,,,0,,False,pending,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260525,fixed_d20,固定 D+20 賣,54.2,,,,,,0,,False,pending,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260525,atr_trailing_stop,ATR trailing stop 賣,54.2,,,,,,0,,False,pending,2026-05-26 00:28:46 Asia/Taipei
+2484,希華,20260525,percent_trailing_stop,固定百分比 trailing stop 賣,54.2,,,,,,0,,False,pending,2026-05-26 00:28:46 Asia/Taipei
