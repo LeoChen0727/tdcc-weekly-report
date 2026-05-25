@@ -55,12 +55,13 @@ jobs:
           python scripts/update_tdcc_normalized_signal_performance.py
           python scripts/build_tdcc_signal_effectiveness_report.py
           python scripts/build_tdcc_chatgpt_tracking_outputs.py
+          python scripts/validate_tdcc_chatgpt_tracking_outputs.py
 
       - name: Commit TDCC history backfill outputs
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add output/ data/ scripts/backfill_tdcc_history.py scripts/update_tdcc_normalized_signal_performance.py scripts/build_tdcc_signal_structures.py .github/workflows/tdcc_history_backfill.yml .github/workflows/tdcc_weekly.yml || true
+          git add output/ data/ scripts/backfill_tdcc_history.py scripts/update_tdcc_normalized_signal_performance.py scripts/build_tdcc_signal_structures.py scripts/build_tdcc_chatgpt_tracking_outputs.py scripts/validate_tdcc_chatgpt_tracking_outputs.py .github/workflows/tdcc_history_backfill.yml .github/workflows/tdcc_weekly.yml || true
           git status --short
           git commit -m "Backfill TDCC history and rebuild tracking outputs" || echo "No changes to commit"
           git push

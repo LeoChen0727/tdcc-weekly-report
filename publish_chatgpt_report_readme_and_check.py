@@ -93,6 +93,8 @@ TDCC_PRE_MOVE_ABM_TOP_MD = LATEST_DIR / "tdcc_pre_move_abm_top_latest.md"
 TDCC_PRE_MOVE_ABM_TOP_CSV = LATEST_DIR / "tdcc_pre_move_abm_top_latest.csv"
 TDCC_PHASE_DISTRIBUTION_MD = LATEST_DIR / "tdcc_phase_distribution_latest.md"
 TDCC_PHASE_DISTRIBUTION_CSV = LATEST_DIR / "tdcc_phase_distribution_latest.csv"
+TDCC_TOP_RISK_LIST_MD = LATEST_DIR / "tdcc_top_risk_list_latest.md"
+TDCC_TOP_RISK_LIST_CSV = LATEST_DIR / "tdcc_top_risk_list_latest.csv"
 TDCC_CHATGPT_TRACKING_PACKET_MD = LATEST_DIR / "tdcc_chatgpt_tracking_packet_latest.md"
 SURGE_MODEL_PACKET_MD = LATEST_DIR / "surge_model_chatgpt_packet_latest.md"
 SURGE_PRECONDITION_CANDIDATES_MD = LATEST_DIR / "surge_precondition_candidates_latest.md"
@@ -494,6 +496,8 @@ def build_readme(
         f"tdcc_pre_move_abm_top_csv_raw_url={raw_url('main', TDCC_PRE_MOVE_ABM_TOP_CSV)}",
         f"tdcc_phase_distribution_md_raw_url={raw_url('main', TDCC_PHASE_DISTRIBUTION_MD)}",
         f"tdcc_phase_distribution_csv_raw_url={raw_url('main', TDCC_PHASE_DISTRIBUTION_CSV)}",
+        f"tdcc_top_risk_list_md_raw_url={raw_url('main', TDCC_TOP_RISK_LIST_MD)}",
+        f"tdcc_top_risk_list_csv_raw_url={raw_url('main', TDCC_TOP_RISK_LIST_CSV)}",
         f"tdcc_chatgpt_tracking_packet_raw_url={raw_url('main', TDCC_CHATGPT_TRACKING_PACKET_MD)}",
         f"surge_model_chatgpt_packet_raw_url={raw_url('main', SURGE_MODEL_PACKET_MD)}",
         f"surge_precondition_candidates_md_raw_url={raw_url('main', SURGE_PRECONDITION_CANDIDATES_MD)}",
@@ -954,6 +958,8 @@ def main() -> int:
         "tdcc_pre_move_abm_top_csv_raw_url": raw_url("main", TDCC_PRE_MOVE_ABM_TOP_CSV),
         "tdcc_phase_distribution_md_raw_url": raw_url("main", TDCC_PHASE_DISTRIBUTION_MD),
         "tdcc_phase_distribution_csv_raw_url": raw_url("main", TDCC_PHASE_DISTRIBUTION_CSV),
+        "tdcc_top_risk_list_md_raw_url": raw_url("main", TDCC_TOP_RISK_LIST_MD),
+        "tdcc_top_risk_list_csv_raw_url": raw_url("main", TDCC_TOP_RISK_LIST_CSV),
         "tdcc_chatgpt_tracking_packet_raw_url": raw_url("main", TDCC_CHATGPT_TRACKING_PACKET_MD),
         "surge_model_chatgpt_packet_raw_url": raw_url("main", SURGE_MODEL_PACKET_MD),
         "surge_precondition_candidates_md_raw_url": raw_url("main", SURGE_PRECONDITION_CANDIDATES_MD),

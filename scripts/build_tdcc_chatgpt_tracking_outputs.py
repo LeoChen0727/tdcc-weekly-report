@@ -14,6 +14,7 @@ from tracking_utils import (  # noqa: E402
     TDCC_SIGNALS_DIR,
     main_price_date_from_freshness,
     markdown_table,
+    normalize_code,
     now_text,
     raw_url,
     read_csv,
@@ -30,6 +31,9 @@ ABM_HISTORY_CSV = TDCC_SIGNALS_DIR / "tdcc_pre_move_accumulation_history.csv"
 ABM_LATEST_CSV = LATEST_DIR / "tdcc_pre_move_accumulation_latest.csv"
 EFFECTIVENESS_CSV = LATEST_DIR / "tdcc_signal_effectiveness_latest.csv"
 EFFECTIVENESS_MD = LATEST_DIR / "tdcc_signal_effectiveness_latest.md"
+STOCK_THEME_MAP_CSV = Path("config/stock_theme_map.csv")
+COMPANY_THEME_MAPPING_CSV = Path("data/theme_events/company_theme_mapping.csv")
+ALL_CANDIDATES_CSV = LATEST_DIR / "all_candidates_latest.csv"
 
 STRENGTH_MD = LATEST_DIR / "tdcc_strength_ranking_top_latest.md"
 STRENGTH_CSV = LATEST_DIR / "tdcc_strength_ranking_top_latest.csv"
@@ -37,6 +41,8 @@ ABM_TOP_MD = LATEST_DIR / "tdcc_pre_move_abm_top_latest.md"
 ABM_TOP_CSV = LATEST_DIR / "tdcc_pre_move_abm_top_latest.csv"
 PHASE_MD = LATEST_DIR / "tdcc_phase_distribution_latest.md"
 PHASE_CSV = LATEST_DIR / "tdcc_phase_distribution_latest.csv"
+TOP_RISK_MD = LATEST_DIR / "tdcc_top_risk_list_latest.md"
+TOP_RISK_CSV = LATEST_DIR / "tdcc_top_risk_list_latest.csv"
 PACKET_MD = LATEST_DIR / "tdcc_chatgpt_tracking_packet_latest.md"
 
 README_PATHS = [
@@ -150,6 +156,8 @@ RISK_COLUMNS = [
     "interpretation",
 ]
 
+TOP_RISK_COLUMNS = ["risk_group"] + RISK_COLUMNS
+
 PHASE_PERFORMANCE_COLUMNS = [
     "tdcc_price_phase",
     "mature_sample_d5",
@@ -187,6 +195,144 @@ def fmt_num(value: Any, digits: int = 2) -> str:
     if math.isnan(num):
         return ""
     return f"{num:.{digits}f}"
+
+
+def standard_theme_from_text(*values: Any) -> str:
+    text = " ".join(safe_str(v) for v in values if safe_str(v)).lower()
+    if not text:
+        return ""
+    rules = [
+        ("optical communication/CPO", ["optical", "cpo", "光通訊", "光通", "光纖"]),
+        ("semiconductor equipment/materials", ["semiconductor_equipment", "wafer reclaim", "equipment", "material", "半導體設備", "設備", "材料"]),
+        ("memory", ["memory", "dram", "flash", "記憶"]),
+        ("passive components", ["passive", "mlcc", "capacitor", "resistor", "inductor", "被動", "電容", "電阻", "電感"]),
+        ("PCB/CCL", ["pcb_ccl", "pcb", "ccl", "printed circuit", "玻纖", "銅箔", "電路板"]),
+        ("power discrete/diodes", ["power_discrete", "mosfet", "diode", "diodes", "二極體", "功率"]),
+        ("AI server supply chain", ["ai_server", "ai server", "server", "伺服器", "ipc"]),
+        ("networking", ["networking", "wireless", "communications", "通信", "網通"]),
+        ("EV/auto electronics", ["auto", "vehicle", "automotive", "汽車", "車用"]),
+        ("green energy", ["green", "energy", "solar", "battery", "storage", "綠能", "電池", "儲能", "太陽能"]),
+        ("biotechnology", ["biotech", "medical", "生技", "醫療"]),
+        ("finance", ["finance", "bank", "insurance", "金融", "銀行", "保險"]),
+        ("semiconductor", ["semiconductor", "ic design", "foundry", "半導體", "晶圓", "ic"]),
+        ("consumer electronics", ["consumer", "panel", "display", "optoelectronics", "光電", "面板"]),
+        ("traditional industries", ["cement", "food", "textile", "chemical", "plastic", "steel", "shipping", "tourism", "construction", "水泥", "食品", "紡織", "化學", "塑膠", "鋼鐵", "航運", "觀光", "營建", "建材", "不動產"]),
+        ("other electronics", ["electronics", "electronic", "computer", "電機", "電子", "電腦", "資訊"]),
+    ]
+    for theme, keywords in rules:
+        if any(keyword in text for keyword in keywords):
+            return theme
+    return ""
+
+
+def fallback_theme_from_code(stock_id: Any, stock_name: Any = "") -> str:
+    code = normalize_code(stock_id)
+    name = safe_str(stock_name)
+    if not code:
+        return "other"
+    if any(token in name for token in ["銀行", "金控", "保", "證"]):
+        return "finance"
+    if any(token in name for token in ["藥", "生", "醫", "寶齡", "杏輝", "逸達", "正瀚", "五鼎"]):
+        return "biotechnology"
+    if any(token in name for token in ["營", "建", "地產", "開發", "工"]):
+        return "traditional industries"
+    prefix2 = code[:2]
+    prefix3 = code[:3]
+    if prefix2 in {"28", "58"}:
+        return "finance"
+    if prefix2 in {"17", "65", "84"}:
+        return "biotechnology"
+    if prefix2 in {"13", "14", "18", "19", "20", "21", "22", "25", "26", "27", "29", "55", "56"}:
+        return "traditional industries"
+    if prefix3 in {"300", "301", "303", "304", "305", "306", "307", "308", "309", "310", "311", "312", "313", "314", "315", "316", "317", "318", "319", "320", "321", "322", "323", "324", "325", "326", "327", "328", "329"}:
+        return "semiconductor"
+    if prefix2 in {"30", "31", "32", "33", "34", "35", "36", "37"}:
+        return "other electronics"
+    if prefix2 in {"15", "16", "23", "24", "49", "52", "53", "54", "61", "62", "64", "66", "67", "80", "81", "82"}:
+        return "other electronics"
+    return "other"
+
+
+def first_existing_value(row: pd.Series, columns: list[str]) -> str:
+    for col in columns:
+        if col in row.index:
+            value = safe_str(row.get(col))
+            if value:
+                return value
+    return ""
+
+
+def load_theme_lookup() -> tuple[dict[str, str], dict[str, Any]]:
+    lookup: dict[str, str] = {}
+    source_counts = {"config": 0, "company_theme_mapping": 0, "all_candidates": 0}
+
+    all_candidates = read_csv(ALL_CANDIDATES_CSV, dtype=str)
+    if not all_candidates.empty:
+        for _, row in all_candidates.iterrows():
+            code = normalize_code(first_existing_value(row, ["stock_id", "code", "ticker"]))
+            if not code:
+                continue
+            theme = first_existing_value(row, ["theme_group", "primary_theme", "細分族群", "industry", "sector", "sub_theme"])
+            standard = standard_theme_from_text(theme)
+            if standard:
+                lookup[code] = standard
+                source_counts["all_candidates"] += 1
+
+    company_mapping = read_csv(COMPANY_THEME_MAPPING_CSV, dtype=str)
+    if not company_mapping.empty:
+        for _, row in company_mapping.iterrows():
+            code = normalize_code(row.get("stock_id"))
+            if not code:
+                continue
+            standard = standard_theme_from_text(row.get("theme_tags"), row.get("industry"), row.get("theme_summary"))
+            if standard:
+                lookup[code] = standard
+                source_counts["company_theme_mapping"] += 1
+
+    config_map = read_csv(STOCK_THEME_MAP_CSV, dtype=str)
+    if not config_map.empty:
+        for _, row in config_map.iterrows():
+            code = normalize_code(row.get("code"))
+            if not code:
+                continue
+            theme = safe_str(row.get("primary_theme"))
+            standard = standard_theme_from_text(theme, row.get("secondary_theme"), row.get("industry"), row.get("concept_tags")) or theme
+            if standard:
+                lookup[code] = standard
+                source_counts["config"] += 1
+
+    return lookup, source_counts
+
+
+def apply_theme_lookup(df: pd.DataFrame, meta: dict[str, Any]) -> None:
+    if df.empty:
+        meta["theme_lookup_rows"] = 0
+        meta["theme_other_pct"] = 0
+        return
+    lookup, source_counts = load_theme_lookup()
+    if "theme" not in df.columns:
+        df["theme"] = ""
+    before_other = df["theme"].astype(str).str.lower().isin(["", "other", "nan", "none"]).sum()
+    for idx, row in df.iterrows():
+        current = safe_str(row.get("theme"))
+        if current and current.lower() not in {"other", "nan", "none"}:
+            standard = standard_theme_from_text(current)
+            if standard:
+                df.at[idx, "theme"] = standard
+            continue
+        code = normalize_code(first_existing_value(row, ["stock_id", "code", "ticker"]))
+        theme = lookup.get(code, "")
+        if not theme:
+            theme = standard_theme_from_text(row.get("industry"), row.get("secondary_theme"), row.get("stock_name"), row.get("name"))
+        if not theme:
+            theme = fallback_theme_from_code(code, first_existing_value(row, ["stock_name", "name"]))
+        df.at[idx, "theme"] = theme or "other"
+    after_other = df["theme"].astype(str).str.lower().isin(["", "other", "nan", "none"]).sum()
+    meta["theme_lookup_rows"] = len(lookup)
+    meta["theme_lookup_sources"] = source_counts
+    meta["theme_other_before"] = int(before_other)
+    meta["theme_other_after"] = int(after_other)
+    meta["theme_other_pct"] = round(after_other / max(len(df), 1) * 100, 2)
 
 
 def latest_date(df: pd.DataFrame) -> str:
@@ -360,6 +506,8 @@ def prepare_latest_frame() -> tuple[pd.DataFrame, dict[str, Any]]:
         "latest_signal_date": "",
         "benchmark_available": "unknown",
         "theme_data_available": "unknown",
+        "theme_lookup_rows": 0,
+        "theme_other_pct": 100,
     }
     if snapshot.empty and abm.empty:
         meta["ranking_quality"] = "no_data"
@@ -421,10 +569,11 @@ def prepare_latest_frame() -> tuple[pd.DataFrame, dict[str, Any]]:
 
     base = base.drop_duplicates("signal_id", keep="last").reset_index(drop=True)
     add_strength_fields(base)
+    apply_theme_lookup(base, meta)
     derive_theme_fields(base)
     meta["latest_signal_date"] = latest_date(base)
     meta["benchmark_available"] = "yes" if numeric_series(base, "relative_return_vs_benchmark").notna().any() else "no"
-    meta["theme_data_available"] = "yes" if base["theme"].astype(str).str.strip().ne("").any() else "no"
+    meta["theme_data_available"] = "yes" if meta.get("theme_other_pct", 100) < 80 else "partial"
     if meta["missing_columns"]:
         meta["ranking_quality"] = "partial"
     return base, meta
@@ -932,6 +1081,85 @@ def theme_section_table(df: pd.DataFrame, status_values: set[str], columns: list
     return part.head(limit)[columns]
 
 
+def build_theme_summary(df: pd.DataFrame) -> pd.DataFrame:
+    columns = [
+        "theme",
+        "theme_mainstream_status",
+        "signal_count",
+        "leading_count",
+        "confirmed_count",
+        "late_or_overheated_count",
+        "divergence_count",
+        "avg_tdcc_strength_score",
+        "avg_abm_score",
+        "representative_codes",
+    ]
+    if df.empty or "theme" not in df.columns:
+        return pd.DataFrame(columns=columns)
+    work = df.copy()
+    work["_leading"] = work["tdcc_price_phase"].astype(str).eq("tdcc_leading_price")
+    work["_confirmed"] = work["tdcc_price_phase"].astype(str).eq("tdcc_price_confirmed")
+    work["_late_or_overheated"] = work["tdcc_price_phase"].astype(str).isin(["price_leading_tdcc", "overheated_after_tdcc"])
+    work["_divergence"] = work["tdcc_price_phase"].astype(str).isin(["tdcc_price_divergence", "failed_after_tdcc"])
+    rows: list[dict[str, Any]] = []
+    for theme, group in work.groupby("theme", dropna=False):
+        theme_text = safe_str(theme) or "other"
+        codes = group.sort_values("tdcc_strength_score", ascending=False)["stock_id"].astype(str).head(5).tolist()
+        rows.append(
+            {
+                "theme": theme_text,
+                "theme_mainstream_status": group["theme_mainstream_status"].astype(str).mode().iloc[0] if "theme_mainstream_status" in group.columns and not group.empty else "",
+                "signal_count": len(group),
+                "leading_count": int(group["_leading"].sum()),
+                "confirmed_count": int(group["_confirmed"].sum()),
+                "late_or_overheated_count": int(group["_late_or_overheated"].sum()),
+                "divergence_count": int(group["_divergence"].sum()),
+                "avg_tdcc_strength_score": fmt_num(numeric_series(group, "tdcc_strength_score").mean(), 2),
+                "avg_abm_score": fmt_num(numeric_series(group, "abm_score").mean(), 2),
+                "representative_codes": "|".join(codes),
+            }
+        )
+    out = pd.DataFrame(rows, columns=columns)
+    if out.empty:
+        return out
+    return out.sort_values(["signal_count", "leading_count", "confirmed_count"], ascending=[False, False, False]).head(30)
+
+
+def write_top_risk_list(risk_lists: dict[str, pd.DataFrame]) -> pd.DataFrame:
+    frames: list[pd.DataFrame] = []
+    for phase, part in risk_lists.items():
+        tmp = part.copy()
+        tmp.insert(0, "risk_group", phase)
+        frames.append(tmp)
+    out = pd.concat(frames, ignore_index=True) if frames else pd.DataFrame(columns=TOP_RISK_COLUMNS)
+    for col in TOP_RISK_COLUMNS:
+        if col not in out.columns:
+            out[col] = ""
+    out = out[TOP_RISK_COLUMNS]
+    write_csv(out, TOP_RISK_CSV)
+    lines = [
+        "# TDCC Top Risk List",
+        "",
+        f"- generated_at: {now_text()}",
+        "- purpose: identify TDCC-strong names that are late, overheated, or divergent; do not treat these as pre-move accumulation.",
+        "",
+        "## price_leading_tdcc Top 20",
+        "",
+        markdown_table(risk_lists.get("price_leading_tdcc", pd.DataFrame(columns=RISK_COLUMNS)), RISK_COLUMNS),
+        "",
+        "## overheated_after_tdcc Top 20",
+        "",
+        markdown_table(risk_lists.get("overheated_after_tdcc", pd.DataFrame(columns=RISK_COLUMNS)), RISK_COLUMNS),
+        "",
+        "## tdcc_price_divergence Top 20",
+        "",
+        markdown_table(risk_lists.get("tdcc_price_divergence", pd.DataFrame(columns=RISK_COLUMNS)), RISK_COLUMNS),
+        "",
+    ]
+    TOP_RISK_MD.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
+    return out
+
+
 def write_packet(meta: dict[str, Any], strength_top: pd.DataFrame, abm_top: pd.DataFrame, phase_table: pd.DataFrame, latest_df: pd.DataFrame) -> None:
     perf = read_csv(PERFORMANCE_CSV, dtype=str)
     overall_counts = {
@@ -960,6 +1188,8 @@ def write_packet(meta: dict[str, Any], strength_top: pd.DataFrame, abm_top: pd.D
     weeks_phase = phase_table[phase_table.get("section", "") == "consecutive_weeks_x_phase"] if not phase_table.empty else pd.DataFrame()
     performance = phase_table[phase_table.get("section", "") == "phase_performance"] if not phase_table.empty else pd.DataFrame()
     risk_lists = build_risk_lists(latest_df)
+    write_top_risk_list(risk_lists)
+    theme_summary = build_theme_summary(latest_df)
     mature_notes: list[str] = []
     for horizon in [5, 10, 20]:
         phase_count = phase_counts[f"phase_mature_d{horizon}_count"]
@@ -997,6 +1227,8 @@ def write_packet(meta: dict[str, Any], strength_top: pd.DataFrame, abm_top: pd.D
         f"- phase_mature_join_quality: {join_quality}",
         f"- benchmark_available: {meta.get('benchmark_available', 'unknown')}",
         f"- theme_data_available: {meta.get('theme_data_available', 'unknown')}",
+        f"- theme_lookup_rows: {meta.get('theme_lookup_rows', 0)}",
+        f"- theme_other_pct: {meta.get('theme_other_pct', '')}",
         f"- sample_status: {status}",
         f"- relaxed_filter: {meta.get('relaxed_filter', '')}",
         f"- missing_columns: {','.join(meta.get('missing_columns', [])) or 'none'}",
@@ -1016,9 +1248,29 @@ def write_packet(meta: dict[str, Any], strength_top: pd.DataFrame, abm_top: pd.D
         f"- phase_mature_join_quality: {join_quality}",
         f"- benchmark_available: {meta.get('benchmark_available', 'unknown')}",
         f"- theme_data_available: {meta.get('theme_data_available', 'unknown')}",
+        f"- theme_lookup_rows: {meta.get('theme_lookup_rows', 0)}",
+        f"- theme_lookup_sources: {meta.get('theme_lookup_sources', {})}",
+        f"- theme_other_before: {meta.get('theme_other_before', '')}",
+        f"- theme_other_after: {meta.get('theme_other_after', '')}",
+        f"- theme_other_pct: {meta.get('theme_other_pct', '')}",
         f"- sample_status: {status}",
         f"- relaxed_filter: {meta.get('relaxed_filter', '')}",
         "- packet_generated_from: snapshot + ABM latest + normalized performance + phase distribution",
+        "",
+        "## Mature Sample Status",
+        "",
+        f"- overall_mature_d5_count: {overall_counts['overall_mature_d5_count']}",
+        f"- phase_mature_d5_count: {phase_counts['phase_mature_d5_count']}",
+        f"- overall_mature_d10_count: {overall_counts['overall_mature_d10_count']}",
+        f"- phase_mature_d10_count: {phase_counts['phase_mature_d10_count']}",
+        f"- overall_mature_d20_count: {overall_counts['overall_mature_d20_count']}",
+        f"- phase_mature_d20_count: {phase_counts['phase_mature_d20_count']}",
+        f"- pending_count: {pending_count}",
+        f"- insufficient_sample_count: {insufficient_count}",
+        f"- phase_mature_join_quality: {join_quality}",
+        f"- sample_status: {status}",
+        "",
+        "\n".join(mature_notes) if mature_notes else "- phase-level mature sample 已可使用。",
         "",
         "## TDCC Strength Ranking Top 30",
         "",
@@ -1027,6 +1279,21 @@ def write_packet(meta: dict[str, Any], strength_top: pd.DataFrame, abm_top: pd.D
         "## Pre-Move Accumulation / ABM Top 30",
         "",
         markdown_table(abm_top.head(PACKET_N), ABM_COLUMNS),
+        "",
+        "## Theme Mainstream Summary",
+        "",
+        markdown_table(theme_summary, list(theme_summary.columns) if not theme_summary.empty else [
+            "theme",
+            "theme_mainstream_status",
+            "signal_count",
+            "leading_count",
+            "confirmed_count",
+            "late_or_overheated_count",
+            "divergence_count",
+            "avg_tdcc_strength_score",
+            "avg_abm_score",
+            "representative_codes",
+        ]),
         "",
         "## TDCC Strength Ranking by Theme Mainstream Status",
         "",
@@ -1061,6 +1328,12 @@ def write_packet(meta: dict[str, Any], strength_top: pd.DataFrame, abm_top: pd.D
             ].assign(risk_bucket=lambda d: d["tdcc_price_phase"].map(risk_bucket), interpretation=lambda d: d["tdcc_price_phase"].map(phase_interpretation)).pipe(format_numeric_columns, strength_theme_cols),
             strength_theme_cols,
         ),
+        "",
+        "## Top Risk List",
+        "",
+        "- price_leading_tdcc: 股價已先漲，TDCC 訊號可能偏晚。",
+        "- overheated_after_tdcc: 籌碼強但股價已過熱。",
+        "- tdcc_price_divergence: TDCC 增加但股價轉弱，需列為失效觀察。",
         "",
         "## Top Risk List - price_leading_tdcc Top 20",
         "",
@@ -1110,7 +1383,7 @@ def write_packet(meta: dict[str, Any], strength_top: pd.DataFrame, abm_top: pd.D
         "- 在 tuning_status=not_ready 前，不可調整核心模型權重。",
         "",
     ]
-    PACKET_MD.write_text("\n".join(lines), encoding="utf-8")
+    PACKET_MD.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
 
 
 def upsert_readme_fields() -> None:
@@ -1121,6 +1394,8 @@ def upsert_readme_fields() -> None:
         "tdcc_pre_move_abm_top_csv_raw_url": raw_url(ABM_TOP_CSV),
         "tdcc_phase_distribution_md_raw_url": raw_url(PHASE_MD),
         "tdcc_phase_distribution_csv_raw_url": raw_url(PHASE_CSV),
+        "tdcc_top_risk_list_md_raw_url": raw_url(TOP_RISK_MD),
+        "tdcc_top_risk_list_csv_raw_url": raw_url(TOP_RISK_CSV),
         "tdcc_chatgpt_tracking_packet_raw_url": raw_url(PACKET_MD),
     }
     for path in README_PATHS:
@@ -1166,9 +1441,12 @@ def main() -> None:
     print(f"Saved: {ABM_TOP_CSV}")
     print(f"Saved: {PHASE_MD}")
     print(f"Saved: {PHASE_CSV}")
+    print(f"Saved: {TOP_RISK_MD}")
+    print(f"Saved: {TOP_RISK_CSV}")
     print(f"Saved: {PACKET_MD}")
     print(f"ranking_quality={meta.get('ranking_quality')}")
     print(f"missing_columns={','.join(meta.get('missing_columns', [])) or 'none'}")
+    print(f"theme_other_pct={meta.get('theme_other_pct')}")
 
 
 if __name__ == "__main__":
