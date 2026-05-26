@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5205 中茂
 
 ## Metadata
-- generated_at: 2026-05-26 23:01:49 Asia/Taipei
+- generated_at: 2026-05-26 23:54:15 Asia/Taipei
 - stock_id: 5205
 - stock_name: 中茂
 - packet_status: standard_rawdata_packet

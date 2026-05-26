@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6477 安集
 
 ## Metadata
-- generated_at: 2026-05-26 23:02:19 Asia/Taipei
+- generated_at: 2026-05-26 23:54:41 Asia/Taipei
 - stock_id: 6477
 - stock_name: 安集
 - packet_status: standard_180d_window_packet

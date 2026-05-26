@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5703 亞都
 
 ## Metadata
-- generated_at: 2026-05-26 23:02:00 Asia/Taipei
+- generated_at: 2026-05-26 23:54:25 Asia/Taipei
 - stock_id: 5703
 - stock_name: 亞都
 - packet_status: standard_rawdata_packet

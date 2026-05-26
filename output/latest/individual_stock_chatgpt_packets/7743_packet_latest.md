@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7743 金利食安
 
 ## Metadata
-- generated_at: 2026-05-26 23:02:43 Asia/Taipei
+- generated_at: 2026-05-26 23:55:01 Asia/Taipei
 - stock_id: 7743
 - stock_name: 金利食安
 - packet_status: standard_180d_window_packet

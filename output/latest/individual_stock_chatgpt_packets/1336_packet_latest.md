@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1336 台翰
 
 ## Metadata
-- generated_at: 2026-05-26 23:00:11 Asia/Taipei
+- generated_at: 2026-05-26 23:52:52 Asia/Taipei
 - stock_id: 1336
 - stock_name: 台翰
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7780 大研生醫*
 
 ## Metadata
-- generated_at: 2026-05-26 23:02:44 Asia/Taipei
+- generated_at: 2026-05-26 23:55:02 Asia/Taipei
 - stock_id: 7780
 - stock_name: 大研生醫*
 - packet_status: standard_180d_window_packet

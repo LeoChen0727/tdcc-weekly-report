@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5301 寶得利
 
 ## Metadata
-- generated_at: 2026-05-26 23:01:53 Asia/Taipei
+- generated_at: 2026-05-26 23:54:18 Asia/Taipei
 - stock_id: 5301
 - stock_name: 寶得利
 - packet_status: standard_rawdata_packet

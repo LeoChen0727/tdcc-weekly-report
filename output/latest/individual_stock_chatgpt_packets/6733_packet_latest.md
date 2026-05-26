@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6733 博晟生醫
 
 ## Metadata
-- generated_at: 2026-05-26 23:02:30 Asia/Taipei
+- generated_at: 2026-05-26 23:54:50 Asia/Taipei
 - stock_id: 6733
 - stock_name: 博晟生醫
 - packet_status: standard_180d_window_packet

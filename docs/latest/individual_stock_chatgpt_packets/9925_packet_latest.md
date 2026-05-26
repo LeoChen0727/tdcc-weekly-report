@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9925 新保
 
 ## Metadata
-- generated_at: 2026-05-26 23:03:02 Asia/Taipei
+- generated_at: 2026-05-26 23:55:17 Asia/Taipei
 - stock_id: 9925
 - stock_name: 新保
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8436 大江
 
 ## Metadata
-- generated_at: 2026-05-26 23:02:56 Asia/Taipei
+- generated_at: 2026-05-26 23:55:12 Asia/Taipei
 - stock_id: 8436
 - stock_name: 大江
 - packet_status: standard_180d_window_packet

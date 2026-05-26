@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8215 明基材
 
 ## Metadata
-- generated_at: 2026-05-26 23:02:52 Asia/Taipei
+- generated_at: 2026-05-26 23:55:09 Asia/Taipei
 - stock_id: 8215
 - stock_name: 明基材
 - packet_status: standard_180d_window_packet

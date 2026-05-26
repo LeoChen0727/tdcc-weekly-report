@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1441 大東
 
 ## Metadata
-- generated_at: 2026-05-26 23:00:13 Asia/Taipei
+- generated_at: 2026-05-26 23:52:54 Asia/Taipei
 - stock_id: 1441
 - stock_name: 大東
 - packet_status: standard_180d_window_packet

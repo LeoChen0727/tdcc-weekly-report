@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4960 誠美材
 
 ## Metadata
-- generated_at: 2026-05-26 23:01:47 Asia/Taipei
+- generated_at: 2026-05-26 23:54:13 Asia/Taipei
 - stock_id: 4960
 - stock_name: 誠美材
 - packet_status: standard_180d_window_packet

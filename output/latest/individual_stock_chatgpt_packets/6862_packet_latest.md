@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6862 三集瑞-KY
 
 ## Metadata
-- generated_at: 2026-05-26 23:02:35 Asia/Taipei
+- generated_at: 2026-05-26 23:54:54 Asia/Taipei
 - stock_id: 6862
 - stock_name: 三集瑞-KY
 - packet_status: standard_180d_window_packet

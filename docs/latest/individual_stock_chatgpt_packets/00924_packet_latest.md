@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00924 復華S&P500成長
 
 ## Metadata
-- generated_at: 2026-05-26 23:00:05 Asia/Taipei
+- generated_at: 2026-05-26 23:52:47 Asia/Taipei
 - stock_id: 00924
 - stock_name: 復華S&P500成長
 - packet_status: partial_rawdata_packet

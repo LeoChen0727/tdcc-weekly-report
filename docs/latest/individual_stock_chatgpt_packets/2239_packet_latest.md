@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2239 英利-KY
 
 ## Metadata
-- generated_at: 2026-05-26 23:00:33 Asia/Taipei
+- generated_at: 2026-05-26 23:53:11 Asia/Taipei
 - stock_id: 2239
 - stock_name: 英利-KY
 - packet_status: standard_180d_window_packet

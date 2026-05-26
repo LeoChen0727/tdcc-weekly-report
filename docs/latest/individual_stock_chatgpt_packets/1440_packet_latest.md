@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1440 南紡
 
 ## Metadata
-- generated_at: 2026-05-26 23:00:13 Asia/Taipei
+- generated_at: 2026-05-26 23:52:54 Asia/Taipei
 - stock_id: 1440
 - stock_name: 南紡
 - packet_status: standard_180d_window_packet

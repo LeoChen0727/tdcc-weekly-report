@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3260 威剛
 
 ## Metadata
-- generated_at: 2026-05-26 23:01:12 Asia/Taipei
+- generated_at: 2026-05-26 23:53:44 Asia/Taipei
 - stock_id: 3260
 - stock_name: 威剛
 - packet_status: standard_180d_window_packet

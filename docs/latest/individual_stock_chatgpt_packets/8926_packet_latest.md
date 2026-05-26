@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8926 台汽電
 
 ## Metadata
-- generated_at: 2026-05-26 23:02:59 Asia/Taipei
+- generated_at: 2026-05-26 23:55:15 Asia/Taipei
 - stock_id: 8926
 - stock_name: 台汽電
 - packet_status: standard_180d_window_packet

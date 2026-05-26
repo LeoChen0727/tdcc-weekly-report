@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4406 新昕纖
 
 ## Metadata
-- generated_at: 2026-05-26 23:01:34 Asia/Taipei
+- generated_at: 2026-05-26 23:54:03 Asia/Taipei
 - stock_id: 4406
 - stock_name: 新昕纖
 - packet_status: standard_rawdata_packet

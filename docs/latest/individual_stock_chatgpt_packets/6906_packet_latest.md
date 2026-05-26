@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6906 現觀科
 
 ## Metadata
-- generated_at: 2026-05-26 23:02:37 Asia/Taipei
+- generated_at: 2026-05-26 23:54:56 Asia/Taipei
 - stock_id: 6906
 - stock_name: 現觀科
 - packet_status: standard_180d_window_packet

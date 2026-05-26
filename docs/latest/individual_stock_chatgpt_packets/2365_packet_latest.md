@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2365 昆盈
 
 ## Metadata
-- generated_at: 2026-05-26 23:00:38 Asia/Taipei
+- generated_at: 2026-05-26 23:53:15 Asia/Taipei
 - stock_id: 2365
 - stock_name: 昆盈
 - packet_status: standard_180d_window_packet

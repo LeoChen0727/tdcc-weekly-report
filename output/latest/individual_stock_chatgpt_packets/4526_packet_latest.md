@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4526 東台
 
 ## Metadata
-- generated_at: 2026-05-26 23:01:36 Asia/Taipei
+- generated_at: 2026-05-26 23:54:04 Asia/Taipei
 - stock_id: 4526
 - stock_name: 東台
 - packet_status: standard_180d_window_packet

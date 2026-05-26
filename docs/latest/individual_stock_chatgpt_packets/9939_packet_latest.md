@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9939 宏全
 
 ## Metadata
-- generated_at: 2026-05-26 23:03:03 Asia/Taipei
+- generated_at: 2026-05-26 23:55:18 Asia/Taipei
 - stock_id: 9939
 - stock_name: 宏全
 - packet_status: standard_180d_window_packet

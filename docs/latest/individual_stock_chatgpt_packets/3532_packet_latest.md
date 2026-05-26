@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3532 台勝科
 
 ## Metadata
-- generated_at: 2026-05-26 23:01:21 Asia/Taipei
+- generated_at: 2026-05-26 23:53:51 Asia/Taipei
 - stock_id: 3532
 - stock_name: 台勝科
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6794 向榮生技
 
 ## Metadata
-- generated_at: 2026-05-26 23:02:33 Asia/Taipei
+- generated_at: 2026-05-26 23:54:52 Asia/Taipei
 - stock_id: 6794
 - stock_name: 向榮生技
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1788 杏昌
 
 ## Metadata
-- generated_at: 2026-05-26 23:00:26 Asia/Taipei
+- generated_at: 2026-05-26 23:53:04 Asia/Taipei
 - stock_id: 1788
 - stock_name: 杏昌
 - packet_status: standard_180d_window_packet

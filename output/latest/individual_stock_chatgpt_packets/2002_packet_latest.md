@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2002 中鋼
 
 ## Metadata
-- generated_at: 2026-05-26 23:00:27 Asia/Taipei
+- generated_at: 2026-05-26 23:53:06 Asia/Taipei
 - stock_id: 2002
 - stock_name: 中鋼
 - packet_status: standard_180d_window_packet

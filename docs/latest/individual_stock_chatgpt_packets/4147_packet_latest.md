@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4147 中裕
 
 ## Metadata
-- generated_at: 2026-05-26 23:01:31 Asia/Taipei
+- generated_at: 2026-05-26 23:54:00 Asia/Taipei
 - stock_id: 4147
 - stock_name: 中裕
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6569 醫揚
 
 ## Metadata
-- generated_at: 2026-05-26 23:02:23 Asia/Taipei
+- generated_at: 2026-05-26 23:54:44 Asia/Taipei
 - stock_id: 6569
 - stock_name: 醫揚
 - packet_status: standard_180d_window_packet

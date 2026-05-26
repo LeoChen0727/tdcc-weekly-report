@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3105 穩懋
 
 ## Metadata
-- generated_at: 2026-05-26 23:01:07 Asia/Taipei
+- generated_at: 2026-05-26 23:53:40 Asia/Taipei
 - stock_id: 3105
 - stock_name: 穩懋
 - packet_status: standard_180d_window_packet

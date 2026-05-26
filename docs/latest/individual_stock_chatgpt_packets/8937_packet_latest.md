@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8937 合騏*
 
 ## Metadata
-- generated_at: 2026-05-26 23:03:00 Asia/Taipei
+- generated_at: 2026-05-26 23:55:15 Asia/Taipei
 - stock_id: 8937
 - stock_name: 合騏*
 - packet_status: standard_180d_window_packet
