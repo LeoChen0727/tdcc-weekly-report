@@ -1,10 +1,10 @@
 # Market Risk Dashboard
 
-- generated_at: `2026-05-26 06:34:02 Asia/Taipei`
+- generated_at: `2026-05-26 14:08:51 Asia/Taipei`
 - data_date: `20260525`
 - market_regime: `strong_bull`
-- risk_level: `high_risk`
-- risk_score: `4`
+- risk_level: `elevated_risk`
+- risk_score: `3`
 - futures_options_source_status: `ready`
 
 ## Data Status
@@ -30,12 +30,12 @@ This report uses official market index data already stored in the repo plus TAIF
 
 | indicator | value | state |
 | --- | --- | --- |
-| Foreign TX futures net OI | -97,941 | foreign_heavy_net_short |
-| Dealer TX futures net OI | +2,657 |  |
-| Trust TX futures net OI | +85,065 |  |
-| Retail MTX net OI proxy | +12,004 | retail_net_long_watch |
-| Foreign TXO call net OI | +5,125 |  |
-| Foreign TXO put net OI | +9,326 |  |
+| Foreign TX futures net OI | -51,458 | foreign_heavy_net_short |
+| Dealer TX futures net OI | +1,728 |  |
+| Trust TX futures net OI | +43,018 |  |
+| Retail MTX net OI proxy | +7,875 | neutral |
+| Foreign TXO call net OI | +3,224 |  |
+| Foreign TXO put net OI | +5,433 |  |
 | TXO put/call OI ratio | 148.71% | put_hedge_elevated |
 | Taiwan VIX | 33.91 | risk_elevated |
 
@@ -69,8 +69,8 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 ## Retail Mini-TAIEX Futures Proxy
 
 - This is a contrarian sentiment proxy, calculated as the negative of the three-institution net open interest in mini-TAIEX futures.
-- latest_proxy_value: `+12,004`
-- state: `retail_net_long_watch`
+- latest_proxy_value: `+7,875`
+- state: `neutral`
 - Positive proxy values mean non-three-institution accounts are net long MTX; crowded net-long readings are treated as a caution signal, not a standalone short signal.
 - Negative proxy values mean non-three-institution accounts are net short MTX; extreme net-short readings may support contrarian risk-on interpretation, but still need index confirmation.
 
@@ -81,7 +81,6 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 - Taiwan VIX elevated
 - TXO put/call OI hedge elevated
 - Foreign TX futures heavy net short
-- Retail MTX proxy net long watch
 
 ## Usage Boundary
 

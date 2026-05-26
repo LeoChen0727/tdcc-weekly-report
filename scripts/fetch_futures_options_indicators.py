@@ -110,7 +110,8 @@ def save_source(name: str, df: pd.DataFrame, key_cols: list[str]) -> pd.DataFram
     date = latest_date_from_df(df)
     write_csv(df, raw_snapshot_path(name, date))
     write_csv(df, LATEST_FILES[name])
-    return append_update_csv(df, HISTORY_FILES[name], key_cols=key_cols, sort_cols=key_cols)
+    append_update_csv(df, HISTORY_FILES[name], key_cols=key_cols, sort_cols=key_cols)
+    return df
 
 
 def fetch_vix_month(yyyymm: str) -> pd.DataFrame:
