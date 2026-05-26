@@ -66,6 +66,14 @@ CANDIDATE_REPEAT_APPEARANCE_MD = LATEST_DIR / "candidate_repeat_appearance_lates
 DAILY_CANDIDATE_DECISION_CSV = LATEST_DIR / "daily_candidate_decision_latest.csv"
 DAILY_CANDIDATE_DECISION_MD = LATEST_DIR / "daily_candidate_decision_latest.md"
 DAILY_CANDIDATE_DECISION_PACKET_MD = LATEST_DIR / "daily_candidate_decision_chatgpt_packet_latest.md"
+DAILY_THEME_LEADERSHIP_CSV = LATEST_DIR / "daily_theme_leadership_latest.csv"
+DAILY_THEME_LEADERSHIP_MD = LATEST_DIR / "daily_theme_leadership_latest.md"
+DAILY_CANDIDATE_TWO_LINE_VIEW_CSV = LATEST_DIR / "daily_candidate_two_line_view_latest.csv"
+DAILY_CANDIDATE_TWO_LINE_VIEW_MD = LATEST_DIR / "daily_candidate_two_line_view_latest.md"
+DOCS_DAILY_THEME_LEADERSHIP_CSV = DOCS_LATEST_DIR / "daily_theme_leadership_latest.csv"
+DOCS_DAILY_THEME_LEADERSHIP_MD = DOCS_LATEST_DIR / "daily_theme_leadership_latest.md"
+DOCS_DAILY_CANDIDATE_TWO_LINE_VIEW_CSV = DOCS_LATEST_DIR / "daily_candidate_two_line_view_latest.csv"
+DOCS_DAILY_CANDIDATE_TWO_LINE_VIEW_MD = DOCS_LATEST_DIR / "daily_candidate_two_line_view_latest.md"
 INDICATOR_USAGE_GUIDE_MD = LATEST_DIR / "chatgpt_indicator_usage_guide_latest.md"
 INDICATOR_USAGE_GUIDE_TXT = LATEST_DIR / "CHATGPT_INDICATOR_USAGE_GUIDE.txt"
 DOCS_DAILY_SIGNAL_WEEKLY_PDF = DOCS_LATEST_DIR / "daily_signal_performance_weekly_latest.pdf"
@@ -550,6 +558,14 @@ def build_readme(
         f"daily_candidate_decision_raw_url={raw_url('main', DAILY_CANDIDATE_DECISION_CSV)}",
         f"daily_candidate_decision_md_raw_url={raw_url('main', DAILY_CANDIDATE_DECISION_MD)}",
         f"daily_candidate_decision_chatgpt_packet_raw_url={raw_url('main', DAILY_CANDIDATE_DECISION_PACKET_MD)}",
+        f"daily_theme_leadership_pages_url={pages_url('latest/daily_theme_leadership_latest.csv')}",
+        f"daily_theme_leadership_raw_url={raw_url('main', DAILY_THEME_LEADERSHIP_CSV)}",
+        f"daily_theme_leadership_md_pages_url={pages_url('latest/daily_theme_leadership_latest.md')}",
+        f"daily_theme_leadership_md_raw_url={raw_url('main', DAILY_THEME_LEADERSHIP_MD)}",
+        f"daily_candidate_two_line_view_pages_url={pages_url('latest/daily_candidate_two_line_view_latest.csv')}",
+        f"daily_candidate_two_line_view_raw_url={raw_url('main', DAILY_CANDIDATE_TWO_LINE_VIEW_CSV)}",
+        f"daily_candidate_two_line_view_md_pages_url={pages_url('latest/daily_candidate_two_line_view_latest.md')}",
+        f"daily_candidate_two_line_view_md_raw_url={raw_url('main', DAILY_CANDIDATE_TWO_LINE_VIEW_MD)}",
         f"chatgpt_indicator_usage_guide_md_raw_url={raw_url('main', INDICATOR_USAGE_GUIDE_MD)}",
         f"chatgpt_indicator_usage_guide_txt_raw_url={raw_url('main', INDICATOR_USAGE_GUIDE_TXT)}",
         f"chatgpt_indicator_usage_guide_pages_url={pages_url('latest/chatgpt_indicator_usage_guide_latest.md')}",
@@ -885,6 +901,15 @@ def sync_docs_files() -> None:
     if DAILY_SIGNAL_MONTHLY_PDF.exists():
         DOCS_DAILY_SIGNAL_MONTHLY_PDF.write_bytes(DAILY_SIGNAL_MONTHLY_PDF.read_bytes())
 
+    for src, dst in [
+        (DAILY_THEME_LEADERSHIP_CSV, DOCS_DAILY_THEME_LEADERSHIP_CSV),
+        (DAILY_THEME_LEADERSHIP_MD, DOCS_DAILY_THEME_LEADERSHIP_MD),
+        (DAILY_CANDIDATE_TWO_LINE_VIEW_CSV, DOCS_DAILY_CANDIDATE_TWO_LINE_VIEW_CSV),
+        (DAILY_CANDIDATE_TWO_LINE_VIEW_MD, DOCS_DAILY_CANDIDATE_TWO_LINE_VIEW_MD),
+    ]:
+        if src.exists():
+            dst.write_text(src.read_text(encoding="utf-8", errors="replace"), encoding="utf-8")
+
 
 def main() -> int:
     LATEST_DIR.mkdir(parents=True, exist_ok=True)
@@ -1216,6 +1241,14 @@ def main() -> int:
         "daily_candidate_decision_raw_url": raw_url("main", DAILY_CANDIDATE_DECISION_CSV),
         "daily_candidate_decision_md_raw_url": raw_url("main", DAILY_CANDIDATE_DECISION_MD),
         "daily_candidate_decision_chatgpt_packet_raw_url": raw_url("main", DAILY_CANDIDATE_DECISION_PACKET_MD),
+        "daily_theme_leadership_pages_url": pages_url("latest/daily_theme_leadership_latest.csv"),
+        "daily_theme_leadership_raw_url": raw_url("main", DAILY_THEME_LEADERSHIP_CSV),
+        "daily_theme_leadership_md_pages_url": pages_url("latest/daily_theme_leadership_latest.md"),
+        "daily_theme_leadership_md_raw_url": raw_url("main", DAILY_THEME_LEADERSHIP_MD),
+        "daily_candidate_two_line_view_pages_url": pages_url("latest/daily_candidate_two_line_view_latest.csv"),
+        "daily_candidate_two_line_view_raw_url": raw_url("main", DAILY_CANDIDATE_TWO_LINE_VIEW_CSV),
+        "daily_candidate_two_line_view_md_pages_url": pages_url("latest/daily_candidate_two_line_view_latest.md"),
+        "daily_candidate_two_line_view_md_raw_url": raw_url("main", DAILY_CANDIDATE_TWO_LINE_VIEW_MD),
         "chatgpt_indicator_usage_guide_md_raw_url": raw_url("main", INDICATOR_USAGE_GUIDE_MD),
         "chatgpt_indicator_usage_guide_txt_raw_url": raw_url("main", INDICATOR_USAGE_GUIDE_TXT),
         "chatgpt_indicator_usage_guide_pages_url": pages_url("latest/chatgpt_indicator_usage_guide_latest.md"),

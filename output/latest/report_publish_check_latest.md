@@ -1,9 +1,9 @@
 # Report Publish Check
 
-- generated_at: `2026-05-26 23:03:49 Asia/Taipei`
+- generated_at: `2026-05-26 23:32:58 Asia/Taipei`
 - main_price_date: `20260526`
 - report_ready: `True`
-- artifact_commit_sha: `c1030f38de7187e09bfc932310ad21993d08f0bf`
+- artifact_commit_sha: `020aecc8b51a65ae91698600a07a730e78ed1366`
 - preferred_chatgpt_url: `https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt`
 - rules_pages_url: `https://LeoChen0727.github.io/tdcc-weekly-report/latest/CHATGPT_DAILY_REPORT_RULES.txt`
 - rules_raw_url: `https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/CHATGPT_DAILY_REPORT_RULES.txt`
@@ -37,29 +37,29 @@
 
 ```text
 curl -I -L --max-time 30 https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt
-HTTP/2 200 
-server: GitHub.com
-content-type: text/plain; charset=utf-8
-x-origin-cache: HIT
-last-modified: Tue, 26 May 2026 15:01:33 GMT
-access-control-allow-origin: *
-strict-transport-security: max-age=31556952
-etag: "6a15b5cd-70ad1"
-expires: Tue, 26 May 2026 15:13:48 GMT
-cache-control: max-age=600
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Length: 461521
+Server: GitHub.com
+Content-Type: text/plain; charset=utf-8
+Last-Modified: Tue, 26 May 2026 15:06:29 GMT
+Access-Control-Allow-Origin: *
+Strict-Transport-Security: max-age=31556952
+ETag: "6a15b6f5-70ad1"
+expires: Tue, 26 May 2026 15:35:55 GMT
+Cache-Control: max-age=600
 x-proxy-cache: MISS
-x-github-request-id: 2BDC:24B53E:604398:62D75E:6A15B654
-accept-ranges: bytes
-age: 0
-date: Tue, 26 May 2026 15:03:48 GMT
-via: 1.1 varnish
-x-served-by: cache-sjc10035-SJC
-x-cache: MISS
-x-cache-hits: 0
-x-timer: S1779807828.160770,VS0,VE109
-vary: Accept-Encoding
-x-fastly-request-id: f9df4c32a28f0c33c9c39f3d198d68e81430de37
-content-length: 461521
+X-GitHub-Request-Id: 1A5A:85385:15E585:174A04:6A15BB83
+Accept-Ranges: bytes
+Date: Tue, 26 May 2026 15:32:54 GMT
+Via: 1.1 varnish
+Age: 419
+X-Served-By: cache-sin-wsss1830063-SIN
+X-Cache: HIT
+X-Cache-Hits: 1
+X-Timer: S1779809575.679103,VS0,VE2
+Vary: Accept-Encoding
+X-Fastly-Request-ID: 8754f0a7674ce9d3ae0cfca3f9143d5aaa6b5aba
 
 
 STDERR:
@@ -130,7 +130,7 @@ STDERR:
                                  Dload  Upload   Total   Spent    Left  Speed
 
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100  450k  100  450k    0     0  13.3M      0 --:--:-- --:--:-- --:--:-- 13.7M
+100  450k  100  450k    0     0   955k      0 --:--:-- --:--:-- --:--:--  960k
 
 ```
 
@@ -138,36 +138,37 @@ STDERR:
 
 - ok: `True`
 - type: `plain`
-- url: `https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/c1030f38de7187e09bfc932310ad21993d08f0bf/output/history/reports/20260526_CHATGPT_DAILY_REPORT_PACKET.txt`
+- url: `https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/020aecc8b51a65ae91698600a07a730e78ed1366/output/history/reports/20260526_CHATGPT_DAILY_REPORT_PACKET.txt`
 
 ### curl -I
 
 ```text
-curl -I -L --max-time 30 https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/c1030f38de7187e09bfc932310ad21993d08f0bf/output/history/reports/20260526_CHATGPT_DAILY_REPORT_PACKET.txt
-HTTP/2 200 
-cache-control: max-age=300
-content-security-policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
-content-type: text/plain; charset=utf-8
-etag: "e90f256a2920de89785ca1e0581e67d6e94f926a306da702c25431be8a7e76ab"
-strict-transport-security: max-age=31536000
-x-content-type-options: nosniff
-x-frame-options: deny
-x-xss-protection: 1; mode=block
-x-github-request-id: 1C82:48155:709FD9:7C756B:6A15B654
-accept-ranges: bytes
-date: Tue, 26 May 2026 15:03:48 GMT
-via: 1.1 varnish
-x-served-by: cache-sjc10042-SJC
-x-cache: MISS
-x-cache-hits: 0
-x-timer: S1779807828.344717,VS0,VE368
-vary: Authorization,Accept-Encoding
-access-control-allow-origin: *
-cross-origin-resource-policy: cross-origin
-x-fastly-request-id: fc9384a815b8b12800ff244b77e8eb007d276c0c
-expires: Tue, 26 May 2026 15:08:48 GMT
-source-age: 0
-content-length: 461521
+curl -I -L --max-time 30 https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/020aecc8b51a65ae91698600a07a730e78ed1366/output/history/reports/20260526_CHATGPT_DAILY_REPORT_PACKET.txt
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Length: 461521
+Cache-Control: max-age=300
+Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+Content-Type: text/plain; charset=utf-8
+ETag: "e90f256a2920de89785ca1e0581e67d6e94f926a306da702c25431be8a7e76ab"
+Strict-Transport-Security: max-age=31536000
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-XSS-Protection: 1; mode=block
+X-GitHub-Request-Id: CE00:A67AE:B0A769:BC3F65:6A15BB83
+Accept-Ranges: bytes
+Date: Tue, 26 May 2026 15:32:55 GMT
+Via: 1.1 varnish
+X-Served-By: cache-sin-wsss1830096-SIN
+X-Cache: HIT
+X-Cache-Hits: 1
+X-Timer: S1779809575.458463,VS0,VE2
+Vary: Authorization,Accept-Encoding
+Access-Control-Allow-Origin: *
+Cross-Origin-Resource-Policy: cross-origin
+X-Fastly-Request-ID: e978e4507c0bf7925bc835eb8c0e810677c4d876
+Expires: Tue, 26 May 2026 15:37:55 GMT
+Source-Age: 109
 
 
 STDERR:
@@ -182,7 +183,7 @@ STDERR:
 ### curl -L | head -50
 
 ```text
-curl -L --max-time 30 https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/c1030f38de7187e09bfc932310ad21993d08f0bf/output/history/reports/20260526_CHATGPT_DAILY_REPORT_PACKET.txt
+curl -L --max-time 30 https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/020aecc8b51a65ae91698600a07a730e78ed1366/output/history/reports/20260526_CHATGPT_DAILY_REPORT_PACKET.txt
 CHATGPT DAILY REPORT PACKET
 
 generated_at: 2026-05-26 22:59:20 Asia/Taipei
@@ -238,7 +239,7 @@ STDERR:
                                  Dload  Upload   Total   Spent    Left  Speed
 
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100  450k  100  450k    0     0  2118k      0 --:--:-- --:--:-- --:--:-- 2125k
+100  450k  100  450k    0     0   872k      0 --:--:-- --:--:-- --:--:--  882k
 
 ```
 
@@ -252,36 +253,38 @@ STDERR:
 
 ```text
 curl -I -L --max-time 30 https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/chatgpt_daily_report_packet_latest.txt
-HTTP/2 200 
-cache-control: max-age=300
-content-security-policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
-content-type: text/plain; charset=utf-8
-etag: "e90f256a2920de89785ca1e0581e67d6e94f926a306da702c25431be8a7e76ab"
-strict-transport-security: max-age=31536000
-x-content-type-options: nosniff
-x-frame-options: deny
-x-xss-protection: 1; mode=block
-x-github-request-id: 802A:105D4F:752DB6:8103FA:6A15B64B
-accept-ranges: bytes
-date: Tue, 26 May 2026 15:03:48 GMT
-via: 1.1 varnish
-x-served-by: cache-sjc10067-SJC
-x-cache: HIT
-x-cache-hits: 1
-x-timer: S1779807829.970169,VS0,VE1
-vary: Authorization,Accept-Encoding
-access-control-allow-origin: *
-cross-origin-resource-policy: cross-origin
-x-fastly-request-id: c9e6af6a0046d7fe6fb823c68dcebcdef1558642
-expires: Tue, 26 May 2026 15:08:48 GMT
-source-age: 9
-content-length: 461521
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Length: 461521
+Cache-Control: max-age=300
+Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+Content-Type: text/plain; charset=utf-8
+ETag: "e90f256a2920de89785ca1e0581e67d6e94f926a306da702c25431be8a7e76ab"
+Strict-Transport-Security: max-age=31536000
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-XSS-Protection: 1; mode=block
+X-GitHub-Request-Id: D9E8:1BFD2C:110F08:21D4F6:6A15BB86
+Accept-Ranges: bytes
+Date: Tue, 26 May 2026 15:32:56 GMT
+Via: 1.1 varnish
+X-Served-By: cache-sin-wsat1880087-SIN
+X-Cache: HIT
+X-Cache-Hits: 1
+X-Timer: S1779809576.292705,VS0,VE1
+Vary: Authorization,Accept-Encoding
+Access-Control-Allow-Origin: *
+Cross-Origin-Resource-Policy: cross-origin
+X-Fastly-Request-ID: 25272de3ebf031e6a06b06b4b93c9ba5cdfc9e03
+Expires: Tue, 26 May 2026 15:37:56 GMT
+Source-Age: 109
 
 
 STDERR:
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
   0  450k    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
 
@@ -346,7 +349,7 @@ STDERR:
                                  Dload  Upload   Total   Spent    Left  Speed
 
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100  450k  100  450k    0     0  13.8M      0 --:--:-- --:--:-- --:--:-- 14.1M
+100  450k  100  450k    0     0  1067k      0 --:--:-- --:--:-- --:--:-- 1078k
 
 ```
 
@@ -360,31 +363,31 @@ STDERR:
 
 ```text
 curl -I -L --max-time 30 https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/chatgpt_daily_report_packet_latest.txt?ref=main
-HTTP/2 200 
-access-control-allow-origin: *
-access-control-expose-headers: ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
-cache-control: private, max-age=60, s-maxage=60
-content-length: 637090
-content-security-policy: default-src 'none'
-content-type: application/json; charset=utf-8
-date: Tue, 26 May 2026 15:03:49 GMT
-etag: "ef384f9bffef43b72a4072a325383a3eeaaad02c"
-last-modified: Tue, 26 May 2026 14:59:26 GMT
-referrer-policy: origin-when-cross-origin, strict-origin-when-cross-origin
-vary: Accept, Authorization, Cookie, X-GitHub-OTP, Accept-Encoding, Accept, X-Requested-With
-x-accepted-github-permissions: contents=read
-x-content-type-options: nosniff
-x-frame-options: deny
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: *
+Access-Control-Expose-Headers: ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
+Cache-Control: public, max-age=60, s-maxage=60
+Content-Security-Policy: default-src 'none'
+Date: Tue, 26 May 2026 15:32:57 GMT
+ETag: "ef384f9bffef43b72a4072a325383a3eeaaad02c"
+Last-Modified: Tue, 26 May 2026 15:03:55 GMT
+Referrer-Policy: origin-when-cross-origin, strict-origin-when-cross-origin
+Vary: Accept, Accept-Encoding, Accept, X-Requested-With
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
 x-github-api-version-selected: 2022-11-28
-x-github-media-type: github.v3; format=json
-x-xss-protection: 0
-server: github.com
-x-ratelimit-limit: 5000
-x-ratelimit-remaining: 4656
-x-ratelimit-reset: 1779808709
-x-ratelimit-used: 344
-x-ratelimit-resource: core
-x-github-request-id: 3C40:4B31F:644FE9:64CA5F:6A15B655
+X-XSS-Protection: 0
+Server: github.com
+Content-Length: 637090
+Content-Type: application/json; charset=utf-8
+X-GitHub-Media-Type: github.v3; format=json
+Accept-Ranges: bytes
+X-RateLimit-Limit: 60
+X-RateLimit-Remaining: 51
+X-RateLimit-Used: 9
+X-RateLimit-Resource: core
+X-RateLimit-Reset: 1779812759
+X-GitHub-Request-Id: C968:348348:BF5086:D0C800:6A15BD28
 
 
 STDERR:
@@ -392,7 +395,7 @@ STDERR:
                                  Dload  Upload   Total   Spent    Left  Speed
 
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0  622k    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
   0  622k    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
 
 ```
@@ -476,6 +479,6 @@ STDERR:
                                  Dload  Upload   Total   Spent    Left  Speed
 
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100  622k  100  622k    0     0   931k      0 --:--:-- --:--:-- --:--:--  932k
+100  622k  100  622k    0     0  1507k      0 --:--:-- --:--:-- --:--:-- 1524k
 
 ```

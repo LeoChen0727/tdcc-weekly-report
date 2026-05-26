@@ -1,6 +1,6 @@
 CHATGPT DAILY REPORT PACKET
 
-generated_at: 2026-05-26 22:59:20 Asia/Taipei
+generated_at: 2026-05-26 23:27:16 Asia/Taipei
 repo: LeoChen0727/tdcc-weekly-report
 main_price_date: 20260526
 report_ready: True
@@ -31,14 +31,14 @@ CURATED PDF REPORT
 pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_market_curated_report_latest.pdf
 raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_curated_report_latest.pdf
 file_path: output/latest/daily_market_curated_report_latest.pdf
-generated_at: 2026-05-26 22:53:43 Asia/Taipei
+generated_at: 2026-05-26 23:26:54 Asia/Taipei
 status: generated
 
 FULL TABLE PDF REPORT
 pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_market_full_table_report_latest.pdf
 raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_full_table_report_latest.pdf
 file_path: output/latest/daily_market_full_table_report_latest.pdf
-generated_at: 2026-05-26 22:53:43 Asia/Taipei
+generated_at: 2026-05-26 23:26:54 Asia/Taipei
 status: generated
 
 FIXED PDF VALIDATION
@@ -98,7 +98,7 @@ performance_csv_path: output/history/daily_signals/daily_candidate_signal_perfor
 summary_latest_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_signal_performance_summary_latest.md
 weekly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_weekly_latest.pdf
 monthly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_monthly_latest.pdf
-last_updated_at: 2026-05-26 22:59:20 Asia/Taipei
+last_updated_at: 2026-05-26 23:27:16 Asia/Taipei
 status: generated
 
 CANDIDATE REPEAT APPEARANCE
@@ -121,6 +121,15 @@ decision_chatgpt_packet_raw_url: https://raw.githubusercontent.com/LeoChen0727/t
 status: generated
 fields: pattern_mapped_category,decision_priority,decision_score,downgrade_flags,risk_tags,why_selected,why_downgraded,next_confirmation,must_not_overstate
 note: This is the program-side ranking/downgrade layer. ChatGPT should use it before memory-based interpretation.
+
+DAILY THEME LEADERSHIP LAYER
+theme_leadership_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_theme_leadership_latest.csv
+theme_leadership_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_theme_leadership_latest.md
+candidate_two_line_view_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_candidate_two_line_view_latest.csv
+candidate_two_line_view_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_candidate_two_line_view_latest.md
+status: generated
+fields: theme_final_status,candidate_source_type,candidate_line,candidate_line_group,two_line_overlap_flag,theme_leadership_note
+note: Keep 主流資金線 separate from 個股條件線 / 潛伏觀察線. Do not mix them into one total ranking.
 
 VOLUME BREAKOUT WATCH
 volume_breakout_watch_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/volume_breakout_watch_latest.md

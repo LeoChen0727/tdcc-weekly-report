@@ -1,0 +1,15 @@
+# Daily Theme Leadership Layer Validation
+
+- status: `pass`
+- main_price_date: `20260526`
+- theme_rows: `32`
+- two_line_rows: `638`
+- all_candidate_rows: `638`
+
+## Errors
+
+- none
+
+## Warnings
+
+- none

@@ -42,6 +42,8 @@ DATA_FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
 MARKET_REGIME_CSV = LATEST_DIR / "market_regime_latest.csv"
 WARRANT_FLOW_BY_STOCK_CSV = LATEST_DIR / "warrant_flow_by_stock_latest.csv"
 VOLUME_BREAKOUT_WATCH_CSV = LATEST_DIR / "volume_breakout_watch_latest.csv"
+THEME_LEADERSHIP_CSV = LATEST_DIR / "daily_theme_leadership_latest.csv"
+TWO_LINE_VIEW_CSV = LATEST_DIR / "daily_candidate_two_line_view_latest.csv"
 
 CURATED_PDF = LATEST_DIR / "daily_market_curated_report_latest.pdf"
 FULL_TABLE_PDF = LATEST_DIR / "daily_market_full_table_report_latest.pdf"
@@ -858,6 +860,191 @@ def append_catalyst_section(story: list[Any], style_map: dict[str, ParagraphStyl
     story.append(Spacer(1, 0.35 * cm))
 
 
+def load_theme_leadership() -> pd.DataFrame:
+    if not THEME_LEADERSHIP_CSV.exists():
+        return pd.DataFrame()
+    try:
+        return pd.read_csv(THEME_LEADERSHIP_CSV, dtype=str, keep_default_na=False)
+    except Exception:
+        return pd.DataFrame()
+
+
+def load_two_line_view() -> pd.DataFrame:
+    if not TWO_LINE_VIEW_CSV.exists():
+        return pd.DataFrame()
+    try:
+        return pd.read_csv(TWO_LINE_VIEW_CSV, dtype=str, keep_default_na=False)
+    except Exception:
+        return pd.DataFrame()
+
+
+def theme_leadership_rows(theme_df: pd.DataFrame, limit: int = 12) -> list[list[Any]]:
+    rows = [[
+        "theme",
+        "status",
+        "count",
+        "breakout",
+        "volume",
+        "near high",
+        "TDCC",
+        "warrant",
+        "overheat",
+        "leader",
+        "score",
+        "interpretation",
+    ]]
+    if theme_df.empty:
+        rows.append(["n/a", "missing", "", "", "", "", "", "", "", "", "", "daily_theme_leadership_latest.csv missing"])
+        return rows
+    view = theme_df.copy()
+    for col in ["theme_strength_score", "theme_breadth_score", "theme_risk_score"]:
+        if col in view.columns:
+            view[col] = pd.to_numeric(view[col], errors="coerce").fillna(0)
+    view = view.sort_values(["theme_strength_score", "theme_breadth_score", "theme_risk_score"], ascending=[False, False, True]).head(limit)
+    for _, row in view.iterrows():
+        status = clean_text(row.get("theme_final_status", ""), 28)
+        if status == "mainstream_leader":
+            note = "主流領漲；優先看兩條線交集股"
+        elif status == "mainstream_follow_through":
+            note = "主流延伸；適合找補漲與轉強確認"
+        elif status == "emerging_theme":
+            note = "新興擴散；等第二/第三檔確認"
+        elif status == "single_name_signal":
+            note = "單一個股訊號；放個股條件線"
+        elif status == "mainstream_overheated":
+            note = "主流但過熱；避免追高"
+        else:
+            note = "弱族群或零散訊號"
+        rows.append(
+            [
+                clean_text(row.get("theme_name", ""), 18),
+                status,
+                safe_str(row.get("theme_candidate_count", "")),
+                safe_str(row.get("theme_true_breakout_count", "")),
+                safe_str(row.get("theme_volume_breakout_count", "")),
+                safe_str(row.get("theme_near_high_count", "")),
+                f"{safe_str(row.get('theme_tdcc_strong_count', ''))}/{safe_str(row.get('theme_tdcc_mild_count', ''))}",
+                safe_str(row.get("theme_warrant_bullish_count", "")),
+                safe_str(row.get("theme_overheated_count", "")),
+                f"{safe_str(row.get('theme_leader_stock_id', ''))} {clean_text(row.get('theme_leader_stock_name', ''), 10)}",
+                safe_str(row.get("theme_strength_score", "")),
+                note,
+            ]
+        )
+    return rows
+
+
+def two_line_rows(two_line: pd.DataFrame, groups: set[str], limit: int = 12) -> list[list[Any]]:
+    rows = [["stock", "category", "theme", "line", "priority", "score", "TDCC", "warrant", "repeat", "note"]]
+    if two_line.empty:
+        rows.append(["n/a", "", "", "", "", "", "", "", "", "daily_candidate_two_line_view_latest.csv missing"])
+        return rows
+    part = two_line[two_line["candidate_line_group"].isin(groups)].copy()
+    if part.empty:
+        rows.append(["n/a", "", "", "", "", "", "", "", "", "no rows"])
+        return rows
+    part["_priority_order"] = part["decision_priority"].map(
+        {"A_priority_watch": 1, "B_confirm_needed": 2, "C_watch_only": 3, "D_risk_downgrade": 4}
+    ).fillna(9)
+    part["_score"] = pd.to_numeric(part.get("decision_score", ""), errors="coerce").fillna(0)
+    part = part.sort_values(["_priority_order", "_score"], ascending=[True, False]).head(limit)
+    for _, row in part.iterrows():
+        rows.append(
+            [
+                f"{safe_str(row.get('stock_id', ''))} {clean_text(row.get('stock_name', ''), 10)}",
+                clean_text(row.get("category", ""), 18),
+                f"{clean_text(row.get('theme_name', ''), 14)} / {clean_text(row.get('theme_final_status', ''), 24)}",
+                clean_text(row.get("candidate_line", ""), 20),
+                clean_text(row.get("decision_priority", ""), 20),
+                safe_str(row.get("decision_score", "")),
+                clean_text(row.get("tdcc_status", ""), 20),
+                clean_text(row.get("warrant_flow_signal", ""), 18),
+                clean_text(row.get("repeat_appear_label", ""), 18),
+                clean_text(row.get("theme_leadership_note", ""), 65),
+            ]
+        )
+    return rows
+
+
+def append_theme_leadership_sections(
+    story: list[Any],
+    style_map: dict[str, ParagraphStyle],
+    compact: bool = True,
+) -> None:
+    theme_df = load_theme_leadership()
+    two_line = load_two_line_view()
+    story.append(para("主流族群矩陣 / 兩條線分流", style_map["h1"]))
+    story.append(
+        para(
+            "主流資金線與個股條件線並存，報告固定分線呈現。雙重確認股代表同時有族群支持與個股條件；潛伏觀察股仍可追蹤，但不能放在主流資金線前段。",
+            style_map["normal"],
+        )
+    )
+    theme_limit = 8 if compact else 18
+    story.append(para("今日主流族群矩陣", style_map["h2"]))
+    story.append(
+        make_table(
+            theme_leadership_rows(theme_df, limit=theme_limit),
+            style_map,
+            [1.6 * cm, 2.0 * cm, 0.7 * cm, 0.8 * cm, 0.8 * cm, 0.8 * cm, 0.8 * cm, 0.7 * cm, 0.7 * cm, 1.8 * cm, 0.8 * cm, 4.3 * cm],
+            header_bg="#375623",
+        )
+    )
+    story.append(Spacer(1, 0.25 * cm))
+    story.append(para("雙重確認優先股", style_map["h2"]))
+    story.append(
+        make_table(
+            two_line_rows(two_line, {"two_line_overlap"}, limit=8 if compact else 20),
+            style_map,
+            [1.8 * cm, 1.6 * cm, 2.3 * cm, 2.0 * cm, 1.5 * cm, 0.7 * cm, 1.3 * cm, 1.2 * cm, 1.2 * cm, 3.2 * cm],
+            header_bg="#1F4E79",
+        )
+    )
+    story.append(Spacer(1, 0.25 * cm))
+    story.append(para("主流資金股", style_map["h2"]))
+    story.append(
+        make_table(
+            two_line_rows(two_line, {"mainstream_leader_stock", "mainstream_follow_through_stock", "emerging_theme_watch"}, limit=10 if compact else 30),
+            style_map,
+            [1.8 * cm, 1.6 * cm, 2.3 * cm, 2.0 * cm, 1.5 * cm, 0.7 * cm, 1.3 * cm, 1.2 * cm, 1.2 * cm, 3.2 * cm],
+            header_bg="#2F5597",
+        )
+    )
+    story.append(Spacer(1, 0.25 * cm))
+    story.append(para("個股條件股 / 潛伏觀察股", style_map["h2"]))
+    story.append(
+        make_table(
+            two_line_rows(
+                two_line,
+                {
+                    "individual_revenue_low_response_watch",
+                    "individual_fundamental_catalyst_watch",
+                    "individual_tdcc_latent_watch",
+                    "individual_single_name_signal",
+                    "individual_pattern_watch",
+                    "individual_quality_watch",
+                    "individual_watch",
+                },
+                limit=10 if compact else 35,
+            ),
+            style_map,
+            [1.8 * cm, 1.6 * cm, 2.3 * cm, 2.0 * cm, 1.5 * cm, 0.7 * cm, 1.3 * cm, 1.2 * cm, 1.2 * cm, 3.2 * cm],
+            header_bg="#7F6000",
+        )
+    )
+    story.append(Spacer(1, 0.25 * cm))
+    story.append(para("降級 / 鈍化 / 風險清單", style_map["h2"]))
+    story.append(
+        make_table(
+            two_line_rows(two_line, {"risk"}, limit=8 if compact else 25),
+            style_map,
+            [1.8 * cm, 1.6 * cm, 2.3 * cm, 2.0 * cm, 1.5 * cm, 0.7 * cm, 1.3 * cm, 1.2 * cm, 1.2 * cm, 3.2 * cm],
+            header_bg="#7F1D1D",
+        )
+    )
+    story.append(Spacer(1, 0.35 * cm))
+
+
 def downgrade_reason(row: pd.Series) -> str:
     items: list[str] = []
     if tdcc_signal(row) == "distribution_warning":
@@ -1025,6 +1212,7 @@ def build_curated_pdf(df: pd.DataFrame, freshness: dict[str, Any], main_date: st
     story.append(para("本報告由 Daily Full Pipeline 固定格式產生，精華版只放精選標的，完整清單請看完整版表格 PDF。", style_map["normal"]))
     append_context_sections(story, style_map, freshness, [4.2 * cm, 12.8 * cm])
     append_catalyst_section(story, style_map, df)
+    append_theme_leadership_sections(story, style_map, compact=True)
 
     story.append(PageBreak())
 
@@ -1231,6 +1419,7 @@ def build_full_table_pdf(df: pd.DataFrame, freshness: dict[str, Any], main_date:
     story.append(para("族群性分析 / 今日族群輪動", style_map["h1"]))
     story.append(para("族群排序依多分類共振、嚴格突破與區間轉強、營收低反應搭配 TDCC 支持度綜合判斷。", style_map["normal"]))
     append_context_sections(story, style_map, freshness, [5.0 * cm, 21.5 * cm])
+    append_theme_leadership_sections(story, style_map, compact=False)
 
     volume_watch = load_volume_breakout_watch()
     story.append(Spacer(1, 0.25 * cm))

@@ -32,6 +32,10 @@ CANDIDATE_REPEAT_MD = LATEST_DIR / "candidate_repeat_appearance_latest.md"
 DAILY_CANDIDATE_DECISION_CSV = LATEST_DIR / "daily_candidate_decision_latest.csv"
 DAILY_CANDIDATE_DECISION_MD = LATEST_DIR / "daily_candidate_decision_latest.md"
 DAILY_CANDIDATE_DECISION_PACKET_MD = LATEST_DIR / "daily_candidate_decision_chatgpt_packet_latest.md"
+DAILY_THEME_LEADERSHIP_CSV = LATEST_DIR / "daily_theme_leadership_latest.csv"
+DAILY_THEME_LEADERSHIP_MD = LATEST_DIR / "daily_theme_leadership_latest.md"
+DAILY_CANDIDATE_TWO_LINE_VIEW_CSV = LATEST_DIR / "daily_candidate_two_line_view_latest.csv"
+DAILY_CANDIDATE_TWO_LINE_VIEW_MD = LATEST_DIR / "daily_candidate_two_line_view_latest.md"
 INDICATOR_USAGE_GUIDE_MD = LATEST_DIR / "chatgpt_indicator_usage_guide_latest.md"
 INDICATOR_USAGE_GUIDE_TXT = LATEST_DIR / "CHATGPT_INDICATOR_USAGE_GUIDE.txt"
 DAILY_SIGNAL_WEEKLY_PDF = LATEST_DIR / "daily_signal_performance_weekly_latest.pdf"
@@ -431,6 +435,15 @@ def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path],
     lines.append("fields: pattern_mapped_category,decision_priority,decision_score,downgrade_flags,risk_tags,why_selected,why_downgraded,next_confirmation,must_not_overstate")
     lines.append("note: This is the program-side ranking/downgrade layer. ChatGPT should use it before memory-based interpretation.")
     lines.append("")
+    lines.append("DAILY THEME LEADERSHIP LAYER")
+    lines.append(f"theme_leadership_csv_raw_url: {raw_url(DAILY_THEME_LEADERSHIP_CSV)}")
+    lines.append(f"theme_leadership_md_raw_url: {raw_url(DAILY_THEME_LEADERSHIP_MD)}")
+    lines.append(f"candidate_two_line_view_csv_raw_url: {raw_url(DAILY_CANDIDATE_TWO_LINE_VIEW_CSV)}")
+    lines.append(f"candidate_two_line_view_md_raw_url: {raw_url(DAILY_CANDIDATE_TWO_LINE_VIEW_MD)}")
+    lines.append(f"status: {'generated' if DAILY_THEME_LEADERSHIP_CSV.exists() and DAILY_CANDIDATE_TWO_LINE_VIEW_CSV.exists() else 'missing'}")
+    lines.append("fields: theme_final_status,candidate_source_type,candidate_line,candidate_line_group,two_line_overlap_flag,theme_leadership_note")
+    lines.append("note: Keep 主流資金線 separate from 個股條件線 / 潛伏觀察線. Do not mix them into one total ranking.")
+    lines.append("")
     lines.append("VOLUME BREAKOUT WATCH")
     lines.append(f"volume_breakout_watch_md_raw_url: {raw_url(VOLUME_BREAKOUT_WATCH_MD)}")
     lines.append(f"volume_breakout_watch_csv_raw_url: {raw_url(VOLUME_BREAKOUT_WATCH_CSV)}")
@@ -570,6 +583,11 @@ def write_packet_manifest(main_date: str, report_ready: str, paths: dict[str, Pa
         "daily_candidate_decision_md_raw_url": raw_url(DAILY_CANDIDATE_DECISION_MD),
         "daily_candidate_decision_chatgpt_packet_raw_url": raw_url(DAILY_CANDIDATE_DECISION_PACKET_MD),
         "daily_candidate_decision_status": "generated" if DAILY_CANDIDATE_DECISION_CSV.exists() and DAILY_CANDIDATE_DECISION_PACKET_MD.exists() else "missing",
+        "daily_theme_leadership_csv_raw_url": raw_url(DAILY_THEME_LEADERSHIP_CSV),
+        "daily_theme_leadership_md_raw_url": raw_url(DAILY_THEME_LEADERSHIP_MD),
+        "daily_candidate_two_line_view_csv_raw_url": raw_url(DAILY_CANDIDATE_TWO_LINE_VIEW_CSV),
+        "daily_candidate_two_line_view_md_raw_url": raw_url(DAILY_CANDIDATE_TWO_LINE_VIEW_MD),
+        "daily_theme_leadership_status": "generated" if DAILY_THEME_LEADERSHIP_CSV.exists() and DAILY_CANDIDATE_TWO_LINE_VIEW_CSV.exists() else "missing",
         "chatgpt_indicator_usage_guide_md_raw_url": raw_url(INDICATOR_USAGE_GUIDE_MD),
         "chatgpt_indicator_usage_guide_txt_raw_url": raw_url(INDICATOR_USAGE_GUIDE_TXT),
         "chatgpt_indicator_usage_guide_status": "generated" if INDICATOR_USAGE_GUIDE_MD.exists() and INDICATOR_USAGE_GUIDE_TXT.exists() else "missing",
