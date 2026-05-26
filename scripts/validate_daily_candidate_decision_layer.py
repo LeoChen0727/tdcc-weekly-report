@@ -14,11 +14,13 @@ from tracking_utils import LATEST_DIR, main_price_date_from_freshness, normalize
 DECISION_CSV = LATEST_DIR / "daily_candidate_decision_latest.csv"
 DECISION_MD = LATEST_DIR / "daily_candidate_decision_latest.md"
 DECISION_PACKET = LATEST_DIR / "daily_candidate_decision_chatgpt_packet_latest.md"
+ALL_CANDIDATES = LATEST_DIR / "all_candidates_latest.csv"
 REGRESSION_2484_JSON = LATEST_DIR / "daily_candidate_regression_2484_latest.json"
 VALIDATION_JSON = LATEST_DIR / "daily_candidate_decision_validation_latest.json"
 VALIDATION_MD = LATEST_DIR / "daily_candidate_decision_validation_latest.md"
 
 REQUIRED_COLUMNS = [
+    "source_row_index",
     "signal_date",
     "stock_id",
     "stock_name",
@@ -62,6 +64,21 @@ def validate() -> tuple[dict[str, object], list[str]]:
             invalid = sorted({safe_str(x) for x in df["decision_priority"].tolist() if safe_str(x) and safe_str(x) not in valid})
             if invalid:
                 errors.append(f"invalid_decision_priority: {invalid}")
+        if {
+            "original_category",
+            "repeat_appear_label",
+            "warrant_flow_signal",
+            "downgrade_flags",
+            "decision_priority",
+        }.issubset(df.columns):
+            stale_revenue = df[
+                df["original_category"].astype(str).eq("revenue_breakout_low_response")
+                & df["repeat_appear_label"].astype(str).isin(["stale_signal", "反覆上榜未突破"])
+                & df["warrant_flow_signal"].astype(str).isin(["", "no_signal", "none", "nan", "null"])
+                & df["downgrade_flags"].astype(str).str.contains("revenue_no_warrant_stale_no_breakout", na=False)
+            ]
+            if stale_revenue["decision_priority"].astype(str).eq("A_priority_watch").any():
+                errors.append("stale revenue low-response candidates without warrant/breakout must not be A_priority_watch")
 
         case_2484 = df[df.get("stock_id", pd.Series(dtype=str)).astype(str).eq("2484")]
         if not case_2484.empty:
@@ -76,6 +93,26 @@ def validate() -> tuple[dict[str, object], list[str]]:
             ]
             if not risky.empty and priority_series.loc[risky.index].isin(["A_priority_watch"]).any():
                 errors.append("2484 risky latest row must not be A_priority_watch")
+
+    all_candidates = read_csv(ALL_CANDIDATES, dtype=str, keep_default_na=False)
+    if not all_candidates.empty and not df.empty:
+        required_merge_cols = {"source_row_index", "stock_id", "decision_priority"}
+        if required_merge_cols.issubset(df.columns) and required_merge_cols.issubset(all_candidates.columns):
+            left = df[["source_row_index", "stock_id", "decision_priority"]].rename(
+                columns={"stock_id": "decision_stock_id", "decision_priority": "decision_priority_decision"}
+            )
+            right = all_candidates[["source_row_index", "stock_id", "decision_priority"]].rename(
+                columns={"stock_id": "candidate_stock_id", "decision_priority": "decision_priority_candidates"}
+            )
+            merged = left.merge(right, on="source_row_index", how="inner")
+            mismatched = merged[
+                (merged["decision_stock_id"].astype(str) != merged["candidate_stock_id"].astype(str))
+                | (merged["decision_priority_decision"].astype(str) != merged["decision_priority_candidates"].astype(str))
+            ]
+            if not mismatched.empty:
+                errors.append(f"all_candidates decision merge mismatch rows={len(mismatched)}")
+        else:
+            warnings.append("all_candidates merge alignment check skipped because source_row_index/decision columns are missing")
 
     for path in [DECISION_MD, DECISION_PACKET]:
         if not path.exists():

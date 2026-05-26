@@ -68,6 +68,7 @@ PRIORITY_SORT = {
 }
 
 DECISION_COLUMNS = [
+    "source_row_index",
     "signal_date",
     "stock_id",
     "stock_name",
@@ -104,6 +105,23 @@ DECISION_COLUMNS = [
     "already_priced_in",
     "catalyst_overheated",
 ]
+
+BULLISH_WARRANT_SIGNALS = {"call_inflow", "call_strong_inflow", "call_put_bullish"}
+NO_WARRANT_SIGNALS = {"", "no_signal", "none", "nan", "null"}
+STALE_REPEAT_LABELS = {"stale_signal", "repeated_but_no_breakout", "反覆上榜未突破"}
+REVENUE_LOW_RESPONSE_LABELS = {"revenue_breakout_low_response", "營收爆發低反應股"}
+CONFIRMED_CATALYST_TAGS = {
+    "eps_surprise",
+    "margin_improvement",
+    "profit_turnaround",
+    "earnings_acceleration",
+    "confirmed_event",
+    "gross_margin",
+    "new_order",
+    "customer_win",
+    "mass_production",
+    "technology_validation",
+}
 
 
 def truthy(value: Any) -> bool:
@@ -223,6 +241,107 @@ def warrant_tag(row: pd.Series) -> str:
     return signal or ""
 
 
+def combined_text(row: pd.Series, names: list[str]) -> str:
+    return " ".join(first_text(row, [name]) for name in names).lower()
+
+
+def is_revenue_low_response(row: pd.Series, category: str) -> bool:
+    category_cn = first_text(row, ["category_cn", "original_category_cn"])
+    return category in REVENUE_LOW_RESPONSE_LABELS or category_cn in REVENUE_LOW_RESPONSE_LABELS
+
+
+def is_no_warrant(row: pd.Series) -> bool:
+    return warrant_tag(row) in NO_WARRANT_SIGNALS
+
+
+def has_bullish_warrant(row: pd.Series) -> bool:
+    return warrant_tag(row) in BULLISH_WARRANT_SIGNALS
+
+
+def has_eps_or_margin_confirmation(row: pd.Series) -> bool:
+    if any(
+        truthy(row.get(name, ""))
+        for name in [
+            "eps_surprise_flag",
+            "earnings_acceleration_flag",
+            "margin_improvement_flag",
+            "profit_turnaround_flag",
+            "undervalued_after_eps_flag",
+        ]
+    ):
+        return True
+    tags = combined_text(
+        row,
+        [
+            "fundamental_catalyst_tags",
+            "event_catalyst_tags",
+            "catalyst_tags",
+            "theme_catalyst_tags",
+            "catalyst_summary",
+        ],
+    )
+    return any(tag in tags for tag in CONFIRMED_CATALYST_TAGS)
+
+
+def has_revenue_good_eps_unconfirmed(row: pd.Series) -> bool:
+    if truthy(row.get("revenue_good_eps_unconfirmed_flag", "")):
+        return True
+    tags = combined_text(row, ["fundamental_catalyst_tags", "catalyst_tags", "catalyst_summary"])
+    return "revenue_good_eps_unconfirmed" in tags or "eps / 毛利率尚未" in tags
+
+
+def has_price_breakout_confirmation(row: pd.Series, category: str, stage: str) -> bool:
+    breakout_type = first_text(row, ["breakout_type"]).lower()
+    if category in {"true_breakout", "breakout"} or breakout_type in {"true_breakout", "breakout", "strict_60d_volume_breakout"}:
+        return True
+    if truthy(row.get("strict_breakout", "")) or truthy(row.get("true_breakout", "")):
+        return True
+    if stage in {"breakout_confirmed", "platform_breakout", "neckline_breakout"}:
+        return True
+    if truthy(row.get("platform_breakout_flag", "")) or truthy(row.get("neckline_breakout_flag", "")):
+        return True
+    for name in ["distance_to_previous_60d_high_pct", "distance_to_previous_high_pct", "distance_to_high_60_pct"]:
+        value = num(row, [name])
+        if not math.isnan(value) and value >= 0:
+            return True
+    return False
+
+
+def has_volume_ma_confirmation(row: pd.Series) -> bool:
+    volume_ratio = num(row, ["volume_ratio"])
+    if math.isnan(volume_ratio) or volume_ratio < 1.5:
+        return False
+    for name in ["distance_to_ma20_pct", "gap_ma20_pct", "distance_to_ema23_pct", "gap_ema23_pct"]:
+        value = num(row, [name])
+        if not math.isnan(value) and value >= 0:
+            return True
+    return False
+
+
+def has_attack_confirmation(row: pd.Series, category: str, stage: str) -> bool:
+    return (
+        has_price_breakout_confirmation(row, category, stage)
+        or has_volume_ma_confirmation(row)
+        or has_bullish_warrant(row)
+        or has_eps_or_margin_confirmation(row)
+    )
+
+
+def cap_priority(priority: str, max_priority: str) -> str:
+    if PRIORITY_SORT.get(priority, 9) < PRIORITY_SORT.get(max_priority, 9):
+        return max_priority
+    return priority
+
+
+def downgrade_original_priority_once(row: pd.Series, priority: str, default_cap: str = "B_confirm_needed") -> str:
+    original = first_text(row, ["revaluation_priority", "priority"]).lower()
+    if "a_" in original or "優先" in original:
+        return "D_risk_downgrade" if priority == "D_risk_downgrade" else "B_confirm_needed"
+    if "b_" in original or "可觀察" in original or "可等" in original:
+        return "D_risk_downgrade" if priority == "D_risk_downgrade" else "C_watch_only"
+    return cap_priority(priority, default_cap)
+
+
 def build_reasons(row: pd.Series, pattern_category: str, pattern_route: str, tdcc_status: str) -> list[str]:
     reasons: list[str] = []
     category = category_of(row)
@@ -255,6 +374,12 @@ def next_confirmation_for(row: pd.Series, pattern_category: str, priority: str, 
     stage = first_text(row, ["pattern_stage", "pattern"]).lower()
     if "tdcc_distribution_warning" in downgrade_flags:
         return "先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。"
+    if "revenue_no_warrant_stale_no_breakout" in downgrade_flags:
+        return "等待放量突破平台 / 前高，以及權證或法人資金轉為明確偏多。"
+    if "revenue_eps_unconfirmed_no_attack" in downgrade_flags:
+        return "等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。"
+    if "missing_attack_confirmation" in downgrade_flags:
+        return "等待嚴格突破、放量站上重要均線、權證資金偏多，或財報品質確認。"
     if "stale_signal" in downgrade_flags:
         return "等待量價重新轉強、相對強弱轉正，否則只保留觀察。"
     if "overheated_or_priced_in" in downgrade_flags:
@@ -276,6 +401,14 @@ def evaluate_row(row: pd.Series) -> dict[str, Any]:
     repeat_label = first_text(row, ["repeat_appear_label"])
     score = num(row, ["score", "pattern_score"])
     volume_ratio = num(row, ["volume_ratio"])
+    stage = first_text(row, ["pattern_stage", "pattern"]).lower()
+    stale_repeat = repeat_label in STALE_REPEAT_LABELS
+    no_warrant = is_no_warrant(row)
+    price_breakout_confirmed = has_price_breakout_confirmation(row, category, stage)
+    attack_confirmed = has_attack_confirmation(row, category, stage)
+    revenue_low_response = is_revenue_low_response(row, category)
+    revenue_eps_unconfirmed = has_revenue_good_eps_unconfirmed(row)
+    eps_or_margin_confirmed = has_eps_or_margin_confirmation(row)
 
     decision_score = 50
     decision_score += {
@@ -289,7 +422,6 @@ def evaluate_row(row: pd.Series) -> dict[str, Any]:
         "pattern": 8,
     }.get(category, 5)
 
-    stage = first_text(row, ["pattern_stage", "pattern"]).lower()
     decision_score += {
         "breakout_confirmed": 12,
         "neckline_breakout": 8,
@@ -320,7 +452,7 @@ def evaluate_row(row: pd.Series) -> dict[str, Any]:
     if repeat_label == "stale_signal":
         downgrade_flags.append("stale_signal")
         risk_tags.append("反覆上榜鈍化")
-        decision_score -= 14
+        decision_score -= 4
     elif repeat_label == "continued_overheated":
         downgrade_flags.append("continued_overheated")
         risk_tags.append("連續上榜但過熱")
@@ -328,9 +460,23 @@ def evaluate_row(row: pd.Series) -> dict[str, Any]:
     elif repeat_label == "repeated_but_no_breakout":
         downgrade_flags.append("repeated_but_no_breakout")
         risk_tags.append("反覆上榜未突破")
-        decision_score -= 6
+        decision_score -= 4
     elif repeat_label == "continued_2_3d":
         decision_score += 4
+
+    if stale_repeat and not price_breakout_confirmed and no_warrant:
+        downgrade_flags.append("stale_no_warrant_no_breakout")
+        risk_tags.append("反覆上榜但尚未突破，且權證資金未確認，訊號可能鈍化。")
+        decision_score -= 3
+
+    if revenue_low_response and revenue_eps_unconfirmed and not eps_or_margin_confirmed and not attack_confirmed:
+        downgrade_flags.append("revenue_eps_unconfirmed_no_attack")
+        risk_tags.append("營收成長尚未由 EPS / 毛利或正式催化確認，需等待獲利品質或量價突破。")
+        decision_score -= 3
+
+    if revenue_low_response and no_warrant and stale_repeat and not price_breakout_confirmed:
+        downgrade_flags.append("revenue_no_warrant_stale_no_breakout")
+        decision_score -= 2
 
     if overheat_flags:
         downgrade_flags.extend(overheat_flags)
@@ -348,7 +494,6 @@ def evaluate_row(row: pd.Series) -> dict[str, Any]:
 
     severe_flags = {
         "tdcc_distribution_warning",
-        "stale_signal",
         "continued_overheated",
         "return_20d_gt_30",
         "distance_ma20_gt_20",
@@ -364,6 +509,18 @@ def evaluate_row(row: pd.Series) -> dict[str, Any]:
         priority = "B_confirm_needed"
     else:
         priority = "C_watch_only"
+
+    if stale_repeat and not price_breakout_confirmed and no_warrant:
+        priority = downgrade_original_priority_once(row, priority, default_cap="B_confirm_needed")
+    if revenue_low_response and revenue_eps_unconfirmed and not eps_or_margin_confirmed and not attack_confirmed:
+        priority = cap_priority(priority, "B_confirm_needed")
+    if revenue_low_response and no_warrant and stale_repeat and not price_breakout_confirmed:
+        priority = cap_priority(priority, "B_confirm_needed")
+    if priority == "A_priority_watch" and not attack_confirmed:
+        downgrade_flags.append("missing_attack_confirmation")
+        risk_tags.append("缺乏突破 / 量價 / 權證 / 財報品質攻擊確認，最高只能可等確認。")
+        priority = "B_confirm_needed"
+        decision_score = min(decision_score, 81.0)
 
     priority_label = {
         "A_priority_watch": "最優先追蹤",
@@ -415,6 +572,7 @@ def build_decision(candidates: pd.DataFrame, main_date: str) -> pd.DataFrame:
         category = category_of(row)
         date = normalize_date(row.get("signal_date", "")) or main_date
         base = {
+            "source_row_index": idx,
             "signal_date": date,
             "stock_id": stock_id,
             "stock_name": stock_name_of(row),
@@ -465,11 +623,14 @@ def rewrite_all_candidates(candidates: pd.DataFrame, decision: pd.DataFrame) -> 
     if out.empty or decision.empty:
         return out
 
-    out["_row_key"] = range(len(out))
+    out["_source_index"] = range(len(out))
     decision_for_merge = decision.copy()
-    decision_for_merge["_row_key"] = range(len(decision_for_merge))
+    if "source_row_index" not in decision_for_merge.columns:
+        raise RuntimeError("decision output missing source_row_index; cannot safely merge back into all_candidates")
+    decision_for_merge["_source_index"] = pd.to_numeric(decision_for_merge["source_row_index"], errors="coerce").astype("Int64")
     merge_cols = [
-        "_row_key",
+        "_source_index",
+        "source_row_index",
         "pattern_mapped_category",
         "pattern_route",
         "decision_priority",
@@ -489,9 +650,9 @@ def rewrite_all_candidates(candidates: pd.DataFrame, decision: pd.DataFrame) -> 
         "must_not_overstate",
     ]
     for col in merge_cols:
-        if col != "_row_key" and col in out.columns:
+        if col != "_source_index" and col in out.columns:
             out = out.drop(columns=[col])
-    out = out.merge(decision_for_merge[merge_cols], on="_row_key", how="left").drop(columns=["_row_key"])
+    out = out.merge(decision_for_merge[merge_cols], on="_source_index", how="left").drop(columns=["_source_index"])
     out = out.fillna("")
     write_csv(out, ALL_CANDIDATES)
     try:
