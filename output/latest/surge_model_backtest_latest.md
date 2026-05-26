@@ -1,6 +1,6 @@
 # Surge Model Backtest Latest
 
-generated_at: 2026-05-26 22:17:09 Asia/Taipei
+generated_at: 2026-05-26 22:59:17 Asia/Taipei
 
 所有回測僅使用 mature_dN=True 的樣本；pending 不視為成功或失敗。
 
