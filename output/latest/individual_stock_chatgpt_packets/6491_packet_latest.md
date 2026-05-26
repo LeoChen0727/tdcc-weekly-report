@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6491 晶碩
 
 ## Metadata
-- generated_at: 2026-05-26 22:20:13 Asia/Taipei
+- generated_at: 2026-05-26 23:02:19 Asia/Taipei
 - stock_id: 6491
 - stock_name: 晶碩
 - packet_status: standard_180d_window_packet

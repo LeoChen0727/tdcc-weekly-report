@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2390 云辰
 
 ## Metadata
-- generated_at: 2026-05-26 22:18:31 Asia/Taipei
+- generated_at: 2026-05-26 23:00:40 Asia/Taipei
 - stock_id: 2390
 - stock_name: 云辰
 - packet_status: standard_180d_window_packet

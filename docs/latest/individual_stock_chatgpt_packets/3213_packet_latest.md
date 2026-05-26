@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3213 茂訊
 
 ## Metadata
-- generated_at: 2026-05-26 22:19:02 Asia/Taipei
+- generated_at: 2026-05-26 23:01:10 Asia/Taipei
 - stock_id: 3213
 - stock_name: 茂訊
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6841 長佳智能
 
 ## Metadata
-- generated_at: 2026-05-26 22:20:28 Asia/Taipei
+- generated_at: 2026-05-26 23:02:34 Asia/Taipei
 - stock_id: 6841
 - stock_name: 長佳智能
 - packet_status: standard_180d_window_packet

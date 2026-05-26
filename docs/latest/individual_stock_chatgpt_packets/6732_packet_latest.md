@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6732 昇佳電子
 
 ## Metadata
-- generated_at: 2026-05-26 22:20:24 Asia/Taipei
+- generated_at: 2026-05-26 23:02:30 Asia/Taipei
 - stock_id: 6732
 - stock_name: 昇佳電子
 - packet_status: standard_180d_window_packet

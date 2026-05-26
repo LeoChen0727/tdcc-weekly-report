@@ -1,6 +1,6 @@
 # Raw Data Fetch Status
 
-- generated_at: 2026-05-26 22:21:40 Asia/Taipei
+- generated_at: 2026-05-26 23:03:47 Asia/Taipei
 - sources_checked: raw, pages, api
 - checked_rows: 216
 - success_rows: 175
@@ -64,13 +64,13 @@
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | all_candidates |  | api | api_decode_failed | 200 | 0 | 0 | 0 | 639 | ok | False |
 | all_candidates |  | pages | missing_file | 404 | 0 | 0 | 0 | 639 | ok | False |
-| all_candidates |  | raw | success | 200 | 638 | 248 | 639 | 639 | ok | True |
+| all_candidates |  | raw | success | 200 | 638 | 249 | 639 | 639 | ok | True |
 | candidate_repeat_appearance |  | api | success | 200 | 555 | 13 | 556 | 556 | ok | True |
 | candidate_repeat_appearance |  | pages | missing_file | 404 | 0 | 0 | 0 | 556 | ok | False |
 | candidate_repeat_appearance |  | raw | success | 200 | 555 | 13 | 556 | 556 | ok | True |
-| daily_candidate_decision |  | api | success | 200 | 638 | 35 | 639 | 639 | ok | True |
+| daily_candidate_decision |  | api | success | 200 | 638 | 36 | 639 | 639 | ok | True |
 | daily_candidate_decision |  | pages | missing_file | 404 | 0 | 0 | 0 | 639 | ok | False |
-| daily_candidate_decision |  | raw | success | 200 | 638 | 35 | 639 | 639 | ok | True |
+| daily_candidate_decision |  | raw | success | 200 | 638 | 36 | 639 | 639 | ok | True |
 | daily_candidate_decision_md |  | api | success | 200 | 274 | 1 | 274 | 274 | ok | True |
 | daily_candidate_decision_md |  | pages | missing_file | 404 | 0 | 0 | 0 | 274 | ok | False |
 | daily_candidate_decision_md |  | raw | success | 200 | 274 | 1 | 274 | 274 | ok | True |

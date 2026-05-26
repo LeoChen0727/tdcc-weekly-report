@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4754 國碳科
 
 ## Metadata
-- generated_at: 2026-05-26 22:19:35 Asia/Taipei
+- generated_at: 2026-05-26 23:01:42 Asia/Taipei
 - stock_id: 4754
 - stock_name: 國碳科
 - packet_status: standard_180d_window_packet

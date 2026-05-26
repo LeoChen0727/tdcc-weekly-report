@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6184 大豐電
 
 ## Metadata
-- generated_at: 2026-05-26 22:20:01 Asia/Taipei
+- generated_at: 2026-05-26 23:02:08 Asia/Taipei
 - stock_id: 6184
 - stock_name: 大豐電
 - packet_status: standard_180d_window_packet

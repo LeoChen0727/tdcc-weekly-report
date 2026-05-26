@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3128 昇銳
 
 ## Metadata
-- generated_at: 2026-05-26 22:18:59 Asia/Taipei
+- generated_at: 2026-05-26 23:01:07 Asia/Taipei
 - stock_id: 3128
 - stock_name: 昇銳
 - packet_status: standard_180d_window_packet

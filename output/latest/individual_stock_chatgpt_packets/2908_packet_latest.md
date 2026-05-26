@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2908 特力
 
 ## Metadata
-- generated_at: 2026-05-26 22:18:50 Asia/Taipei
+- generated_at: 2026-05-26 23:00:59 Asia/Taipei
 - stock_id: 2908
 - stock_name: 特力
 - packet_status: standard_180d_window_packet

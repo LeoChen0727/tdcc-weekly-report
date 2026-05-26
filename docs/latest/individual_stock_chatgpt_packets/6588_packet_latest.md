@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6588 東典光電
 
 ## Metadata
-- generated_at: 2026-05-26 22:20:17 Asia/Taipei
+- generated_at: 2026-05-26 23:02:24 Asia/Taipei
 - stock_id: 6588
 - stock_name: 東典光電
 - packet_status: standard_180d_window_packet

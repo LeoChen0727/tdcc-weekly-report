@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00971 野村美國研發龍頭
 
 ## Metadata
-- generated_at: 2026-05-26 22:17:56 Asia/Taipei
+- generated_at: 2026-05-26 23:00:06 Asia/Taipei
 - stock_id: 00971
 - stock_name: 野村美國研發龍頭
 - packet_status: partial_rawdata_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6261 久元
 
 ## Metadata
-- generated_at: 2026-05-26 22:20:07 Asia/Taipei
+- generated_at: 2026-05-26 23:02:14 Asia/Taipei
 - stock_id: 6261
 - stock_name: 久元
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5880 合庫金
 
 ## Metadata
-- generated_at: 2026-05-26 22:19:54 Asia/Taipei
+- generated_at: 2026-05-26 23:02:01 Asia/Taipei
 - stock_id: 5880
 - stock_name: 合庫金
 - packet_status: standard_180d_window_packet

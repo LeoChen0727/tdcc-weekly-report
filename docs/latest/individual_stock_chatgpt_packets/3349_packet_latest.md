@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3349 寶德
 
 ## Metadata
-- generated_at: 2026-05-26 22:19:07 Asia/Taipei
+- generated_at: 2026-05-26 23:01:15 Asia/Taipei
 - stock_id: 3349
 - stock_name: 寶德
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8462 柏文
 
 ## Metadata
-- generated_at: 2026-05-26 22:20:51 Asia/Taipei
+- generated_at: 2026-05-26 23:02:57 Asia/Taipei
 - stock_id: 8462
 - stock_name: 柏文
 - packet_status: standard_180d_window_packet

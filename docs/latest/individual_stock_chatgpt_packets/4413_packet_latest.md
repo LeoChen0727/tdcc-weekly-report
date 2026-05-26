@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4413 飛寶企業
 
 ## Metadata
-- generated_at: 2026-05-26 22:19:27 Asia/Taipei
+- generated_at: 2026-05-26 23:01:34 Asia/Taipei
 - stock_id: 4413
 - stock_name: 飛寶企業
 - packet_status: standard_rawdata_packet

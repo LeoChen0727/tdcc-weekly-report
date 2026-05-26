@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3321 同泰
 
 ## Metadata
-- generated_at: 2026-05-26 22:19:06 Asia/Taipei
+- generated_at: 2026-05-26 23:01:14 Asia/Taipei
 - stock_id: 3321
 - stock_name: 同泰
 - packet_status: standard_180d_window_packet

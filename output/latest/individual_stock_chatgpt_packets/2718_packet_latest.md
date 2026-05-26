@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2718 全心投控
 
 ## Metadata
-- generated_at: 2026-05-26 22:18:45 Asia/Taipei
+- generated_at: 2026-05-26 23:00:53 Asia/Taipei
 - stock_id: 2718
 - stock_name: 全心投控
 - packet_status: standard_180d_window_packet

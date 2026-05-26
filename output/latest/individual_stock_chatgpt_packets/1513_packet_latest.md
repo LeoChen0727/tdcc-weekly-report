@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1513 中興電
 
 ## Metadata
-- generated_at: 2026-05-26 22:18:07 Asia/Taipei
+- generated_at: 2026-05-26 23:00:17 Asia/Taipei
 - stock_id: 1513
 - stock_name: 中興電
 - packet_status: standard_180d_window_packet

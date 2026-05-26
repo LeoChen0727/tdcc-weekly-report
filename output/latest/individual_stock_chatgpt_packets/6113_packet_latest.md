@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6113 亞矽
 
 ## Metadata
-- generated_at: 2026-05-26 22:19:56 Asia/Taipei
+- generated_at: 2026-05-26 23:02:03 Asia/Taipei
 - stock_id: 6113
 - stock_name: 亞矽
 - packet_status: standard_180d_window_packet

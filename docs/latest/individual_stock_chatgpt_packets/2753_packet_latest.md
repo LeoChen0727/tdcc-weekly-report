@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2753 八方雲集
 
 ## Metadata
-- generated_at: 2026-05-26 22:18:47 Asia/Taipei
+- generated_at: 2026-05-26 23:00:55 Asia/Taipei
 - stock_id: 2753
 - stock_name: 八方雲集
 - packet_status: standard_180d_window_packet

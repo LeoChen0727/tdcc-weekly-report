@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1752 南光
 
 ## Metadata
-- generated_at: 2026-05-26 22:18:16 Asia/Taipei
+- generated_at: 2026-05-26 23:00:25 Asia/Taipei
 - stock_id: 1752
 - stock_name: 南光
 - packet_status: standard_180d_window_packet

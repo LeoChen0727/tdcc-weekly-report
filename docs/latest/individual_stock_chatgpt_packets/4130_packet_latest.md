@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4130 健亞
 
 ## Metadata
-- generated_at: 2026-05-26 22:19:23 Asia/Taipei
+- generated_at: 2026-05-26 23:01:31 Asia/Taipei
 - stock_id: 4130
 - stock_name: 健亞
 - packet_status: standard_180d_window_packet

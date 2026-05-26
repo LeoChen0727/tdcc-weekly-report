@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2337 旺宏
 
 ## Metadata
-- generated_at: 2026-05-26 22:18:27 Asia/Taipei
+- generated_at: 2026-05-26 23:00:36 Asia/Taipei
 - stock_id: 2337
 - stock_name: 旺宏
 - packet_status: standard_180d_window_packet

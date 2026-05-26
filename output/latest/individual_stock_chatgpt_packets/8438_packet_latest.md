@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8438 昶昕
 
 ## Metadata
-- generated_at: 2026-05-26 22:20:51 Asia/Taipei
+- generated_at: 2026-05-26 23:02:56 Asia/Taipei
 - stock_id: 8438
 - stock_name: 昶昕
 - packet_status: standard_180d_window_packet

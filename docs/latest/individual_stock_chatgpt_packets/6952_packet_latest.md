@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6952 大武山
 
 ## Metadata
-- generated_at: 2026-05-26 22:20:33 Asia/Taipei
+- generated_at: 2026-05-26 23:02:39 Asia/Taipei
 - stock_id: 6952
 - stock_name: 大武山
 - packet_status: standard_180d_window_packet

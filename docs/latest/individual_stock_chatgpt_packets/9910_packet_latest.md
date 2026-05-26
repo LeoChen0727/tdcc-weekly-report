@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9910 豐泰
 
 ## Metadata
-- generated_at: 2026-05-26 22:20:56 Asia/Taipei
+- generated_at: 2026-05-26 23:03:01 Asia/Taipei
 - stock_id: 9910
 - stock_name: 豐泰
 - packet_status: standard_180d_window_packet

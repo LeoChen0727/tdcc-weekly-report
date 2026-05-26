@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1410 南染
 
 ## Metadata
-- generated_at: 2026-05-26 22:18:03 Asia/Taipei
+- generated_at: 2026-05-26 23:00:12 Asia/Taipei
 - stock_id: 1410
 - stock_name: 南染
 - packet_status: standard_180d_window_packet

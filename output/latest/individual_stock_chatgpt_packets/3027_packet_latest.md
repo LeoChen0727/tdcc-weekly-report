@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3027 盛達
 
 ## Metadata
-- generated_at: 2026-05-26 22:18:54 Asia/Taipei
+- generated_at: 2026-05-26 23:01:02 Asia/Taipei
 - stock_id: 3027
 - stock_name: 盛達
 - packet_status: standard_180d_window_packet
