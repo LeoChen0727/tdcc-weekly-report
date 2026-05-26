@@ -161,6 +161,35 @@ def normalize_daily_price_file(path: Path) -> pd.DataFrame:
     result = result[result["date"].ne("") & result["stock_id"].ne("")]
     result = result[result["stock_id"].map(is_supported_security_id)]
     result = result.dropna(subset=["close"])
+    result = result[~result["date"].map(is_weekend_yyyymmdd)]
+    result = normalize_source_volume_units(result)
+    return result
+
+
+def is_weekend_yyyymmdd(value: Any) -> bool:
+    text = safe_str(value)
+    if not re.fullmatch(r"\d{8}", text):
+        return False
+    parsed = pd.to_datetime(text, format="%Y%m%d", errors="coerce")
+    if pd.isna(parsed):
+        return False
+    return int(parsed.weekday()) >= 5
+
+
+def normalize_source_volume_units(df: pd.DataFrame) -> pd.DataFrame:
+    """Normalize all stock histories to share count.
+
+    The TPEx legacy daily JSON source reports trading volume in board lots.
+    Older daily files and TWSE files use shares. Without this conversion,
+    high-price TPEx names such as 8299 show a fake volume collapse from
+    millions of shares to a few thousand lots.
+    """
+    result = df.copy()
+    if "source" not in result.columns or "volume" not in result.columns:
+        return result
+    source = result["source"].astype(str).str.upper()
+    legacy_tpex = source.eq("TPEX_OLD_DAILY_JSON")
+    result.loc[legacy_tpex, "volume"] = pd.to_numeric(result.loc[legacy_tpex, "volume"], errors="coerce") * 1000
     return result
 
 
@@ -178,7 +207,51 @@ def load_all_daily_prices() -> pd.DataFrame:
     df = df.sort_values(["stock_id", "date", "_source_priority", "source_file"])
     df = df.drop_duplicates(["stock_id", "date"], keep="last")
     df = df.drop(columns=["_source_priority"])
+    df = drop_stale_duplicate_dates(df)
     return df.sort_values(["stock_id", "date"]).reset_index(drop=True)
+
+
+def drop_stale_duplicate_dates(df: pd.DataFrame, same_threshold: float = 0.98, min_common_rows: int = 500) -> pd.DataFrame:
+    """Drop synthetic date snapshots that duplicate the previous trading day.
+
+    Some fallback fetches write a file with the requested date even when the
+    exchange has only published the previous trading day's prices. These rows
+    should not enter per-stock histories, otherwise packet/PDF readers see fake
+    weekend or pre-market candles.
+    """
+    if df.empty:
+        return df
+    keep_dates: list[str] = []
+    previous: pd.DataFrame | None = None
+    previous_date = ""
+    compare_cols = ["open", "high", "low", "close", "volume"]
+    for date in sorted(df["date"].dropna().astype(str).unique()):
+        current = df[df["date"].astype(str).eq(date)].copy()
+        drop_current = False
+        if previous is not None:
+            merged = previous[["stock_id"] + compare_cols].merge(
+                current[["stock_id"] + compare_cols],
+                on="stock_id",
+                suffixes=("_prev", "_cur"),
+            )
+            if len(merged) >= min_common_rows:
+                same = pd.Series(True, index=merged.index)
+                for col in compare_cols:
+                    prev = pd.to_numeric(merged[f"{col}_prev"], errors="coerce")
+                    cur = pd.to_numeric(merged[f"{col}_cur"], errors="coerce")
+                    same &= (prev - cur).abs().fillna(math.inf) <= 1e-9
+                same_ratio = float(same.mean()) if len(same) else 0.0
+                if same_ratio >= same_threshold:
+                    print(
+                        f"Skip stale duplicate daily price date {date}: "
+                        f"{same_ratio:.1%} rows match previous kept date {previous_date}"
+                    )
+                    drop_current = True
+        if not drop_current:
+            keep_dates.append(date)
+            previous = current
+            previous_date = date
+    return df[df["date"].astype(str).isin(keep_dates)].copy()
 
 
 def rolling_mean(series: pd.Series, window: int) -> pd.Series:

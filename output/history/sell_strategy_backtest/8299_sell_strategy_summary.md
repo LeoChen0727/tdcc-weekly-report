@@ -1,6 +1,6 @@
 # Sell Strategy Backtest Summary - 8299 群聯
 
-- generated_at: 2026-05-25 23:59:53 Asia/Taipei
+- generated_at: 2026-05-26 13:40:41 Asia/Taipei
 - signal_sample_dates: 1
 - note: 賣出規則為策略假設，不是保證價格，也不是投資建議。
 
@@ -17,7 +17,7 @@
 | 股東人數暴增賣 | 0 | - | - | - | - | insufficient_sample |
 | 融資快速增加賣 | 0 | - | - | - | - | insufficient_sample |
 | 跌破 EMA23 賣 | 0 | - | - | - | - | insufficient_sample |
-| 跌破 MA20 賣 | 0 | - | - | - | - | insufficient_sample |
+| 跌破 MA20 輔助觀察賣 | 0 | - | - | - | - | insufficient_sample |
 | 跌破頸線賣 | 0 | - | - | - | - | insufficient_sample |
 | 跌破突破K低點賣 | 1 | 2.1% | 100.0% | 4.5% | -4.5% | insufficient_sample |
 | 放量長黑賣 | 0 | - | - | - | - | insufficient_sample |

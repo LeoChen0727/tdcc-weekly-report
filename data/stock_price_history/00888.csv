@@ -1,6 +1,3 @@
 date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,source_file,ma5,ma20,ma60,ma120,ema23,return_1d,return_5d,return_20d,return_60d,return_120d,volume_ma20,volume_ratio,high_20,high_60,high_120,low_20,low_60,low_120,distance_to_ma20_pct,distance_to_ma60_pct,distance_to_ma120_pct,distance_to_ema23_pct,distance_to_high_20_pct,distance_to_high_60_pct,distance_to_high_120_pct,distance_to_low_60_pct,distance_to_low_120_pct
-20260522,00888,永豐台灣ESG,TPEx,31.25,31.6,31.11,31.56,31,4329782.0,TPEX_OLD_DAILY_JSON,data/daily_price/daily_price_20260522.csv,,,,,,,,,,,,,,,,,,,,,,,,,,,
-20260523,00888,永豐台灣ESG,TPEx,31.25,31.6,31.11,31.56,31,4329782.0,TPEX_OLD_DAILY_JSON,data/daily_price/daily_price_20260523.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
-20260524,00888,永豐台灣ESG,TPEx,31.25,31.6,31.11,31.56,31,4329782.0,TPEX_OLD_DAILY_JSON,data/daily_price/daily_price_20260524.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
-20260525,00888,永豐台灣ESG,TPEx,32.12,33.19,32.04,33.16,33,7069245.0,TPEX_OLD_DAILY_JSON,data/daily_price/daily_price_20260525.csv,,,,,,5.0697,,,,,,,,,,,,,,,,,,,,,
-20260526,00888,永豐台灣ESG,TPEx,32.12,33.19,32.04,33.16,33,7069245.0,TPEX_OLD_DAILY_JSON,data/daily_price/daily_price_20260526.csv,32.2,32.2,32.2,32.2,31.8156,0.0,,,,,31.8,1.0377,33.19,33.19,33.19,31.11,31.11,31.11,2.9814,2.9814,2.9814,4.2257,-0.0904,-0.0904,-0.0904,6.5895,6.5895
+20260522,00888,永豐台灣ESG,TPEx,31.25,31.6,31.11,31.56,31000,4329782.0,TPEX_OLD_DAILY_JSON,data/daily_price/daily_price_20260522.csv,,,,,,,,,,,,,,,,,,,,,,,,,,,
+20260525,00888,永豐台灣ESG,TPEx,32.12,33.19,32.04,33.16,33000,7069245.0,TPEX_OLD_DAILY_JSON,data/daily_price/daily_price_20260525.csv,,,,,,5.0697,,,,,,,,,,,,,,,,,,,,,

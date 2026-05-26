@@ -1,6 +1,6 @@
 # Sell Strategy Performance Latest
 
-- generated_at: 2026-05-26 06:58:30 Asia/Taipei
+- generated_at: 2026-05-26 13:40:41 Asia/Taipei
 - note: 這是賣出規則回測資料，不是買賣建議。
 
 | stock_id | stock_name | strategy | sample | avg_return | win_rate | status |
@@ -25,26 +25,6 @@
 | 2353 | 宏碁 | 固定 D+20 賣 | 0 | - | - | insufficient_sample |
 | 2353 | 宏碁 | ATR trailing stop 賣 | 0 | - | - | insufficient_sample |
 | 2353 | 宏碁 | 固定百分比 trailing stop 賣 | 0 | - | - | insufficient_sample |
-| 8299 | 群聯 | 碰前高賣 | 0 | - | - | insufficient_sample |
-| 8299 | 群聯 | 碰 20日高賣 | 0 | - | - | insufficient_sample |
-| 8299 | 群聯 | 碰 60日高賣 | 0 | - | - | insufficient_sample |
-| 8299 | 群聯 | 碰 120日高賣 | 0 | - | - | insufficient_sample |
-| 8299 | 群聯 | 壓力區分批賣 | 0 | - | - | insufficient_sample |
-| 8299 | 群聯 | 券商目標價中位數賣 | 0 | - | - | insufficient_sample |
-| 8299 | 群聯 | 券商目標價平均數賣 | 0 | - | - | insufficient_sample |
-| 8299 | 群聯 | TDCC 大戶轉弱賣 | 0 | - | - | insufficient_sample |
-| 8299 | 群聯 | 股東人數暴增賣 | 0 | - | - | insufficient_sample |
-| 8299 | 群聯 | 融資快速增加賣 | 0 | - | - | insufficient_sample |
-| 8299 | 群聯 | 跌破 EMA23 賣 | 0 | - | - | insufficient_sample |
-| 8299 | 群聯 | 跌破 MA20 賣 | 0 | - | - | insufficient_sample |
-| 8299 | 群聯 | 跌破頸線賣 | 0 | - | - | insufficient_sample |
-| 8299 | 群聯 | 跌破突破K低點賣 | 1 | 2.1% | 100.0% | insufficient_sample |
-| 8299 | 群聯 | 放量長黑賣 | 0 | - | - | insufficient_sample |
-| 8299 | 群聯 | 固定 D+5 賣 | 0 | - | - | insufficient_sample |
-| 8299 | 群聯 | 固定 D+10 賣 | 0 | - | - | insufficient_sample |
-| 8299 | 群聯 | 固定 D+20 賣 | 0 | - | - | insufficient_sample |
-| 8299 | 群聯 | ATR trailing stop 賣 | 0 | - | - | insufficient_sample |
-| 8299 | 群聯 | 固定百分比 trailing stop 賣 | 1 | -3.8% | 0.0% | insufficient_sample |
 | 2484 | 希華 | 碰前高賣 | 3 | 0.0% | 0.0% | ok |
 | 2484 | 希華 | 碰 20日高賣 | 3 | 0.0% | 0.0% | ok |
 | 2484 | 希華 | 碰 60日高賣 | 3 | 2.6% | 66.7% | ok |
@@ -65,3 +45,23 @@
 | 2484 | 希華 | 固定 D+20 賣 | 0 | - | - | insufficient_sample |
 | 2484 | 希華 | ATR trailing stop 賣 | 0 | - | - | insufficient_sample |
 | 2484 | 希華 | 固定百分比 trailing stop 賣 | 1 | -8.0% | 0.0% | insufficient_sample |
+| 8299 | 群聯 | 碰前高賣 | 0 | - | - | insufficient_sample |
+| 8299 | 群聯 | 碰 20日高賣 | 0 | - | - | insufficient_sample |
+| 8299 | 群聯 | 碰 60日高賣 | 0 | - | - | insufficient_sample |
+| 8299 | 群聯 | 碰 120日高賣 | 0 | - | - | insufficient_sample |
+| 8299 | 群聯 | 壓力區分批賣 | 0 | - | - | insufficient_sample |
+| 8299 | 群聯 | 券商目標價中位數賣 | 0 | - | - | insufficient_sample |
+| 8299 | 群聯 | 券商目標價平均數賣 | 0 | - | - | insufficient_sample |
+| 8299 | 群聯 | TDCC 大戶轉弱賣 | 0 | - | - | insufficient_sample |
+| 8299 | 群聯 | 股東人數暴增賣 | 0 | - | - | insufficient_sample |
+| 8299 | 群聯 | 融資快速增加賣 | 0 | - | - | insufficient_sample |
+| 8299 | 群聯 | 跌破 EMA23 賣 | 0 | - | - | insufficient_sample |
+| 8299 | 群聯 | 跌破 MA20 輔助觀察賣 | 0 | - | - | insufficient_sample |
+| 8299 | 群聯 | 跌破頸線賣 | 0 | - | - | insufficient_sample |
+| 8299 | 群聯 | 跌破突破K低點賣 | 1 | 2.1% | 100.0% | insufficient_sample |
+| 8299 | 群聯 | 放量長黑賣 | 0 | - | - | insufficient_sample |
+| 8299 | 群聯 | 固定 D+5 賣 | 0 | - | - | insufficient_sample |
+| 8299 | 群聯 | 固定 D+10 賣 | 0 | - | - | insufficient_sample |
+| 8299 | 群聯 | 固定 D+20 賣 | 0 | - | - | insufficient_sample |
+| 8299 | 群聯 | ATR trailing stop 賣 | 0 | - | - | insufficient_sample |
+| 8299 | 群聯 | 固定百分比 trailing stop 賣 | 1 | -3.8% | 0.0% | insufficient_sample |

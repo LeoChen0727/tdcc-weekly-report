@@ -1,21 +1,21 @@
 stock_id,stock_name,entry_date,strategy_key,strategy_name,entry_price,exit_date,exit_price,return_pct,mfe_pct,mae_pct,holding_days,reference_level,mature,status,generated_at
-8299,群聯,20260524,prior_high,碰前高賣,2430.0,,,,4.526748971193406,-4.526748971193417,1,2880.0,False,not_hit,2026-05-25 23:59:53 Asia/Taipei
-8299,群聯,20260524,high_20d,碰 20日高賣,2430.0,,,,4.526748971193406,-4.526748971193417,1,2880.0,False,not_hit,2026-05-25 23:59:53 Asia/Taipei
-8299,群聯,20260524,high_60d,碰 60日高賣,2430.0,,,,4.526748971193406,-4.526748971193417,1,2880.0,False,not_hit,2026-05-25 23:59:53 Asia/Taipei
-8299,群聯,20260524,high_120d,碰 120日高賣,2430.0,,,,4.526748971193406,-4.526748971193417,1,2880.0,False,not_hit,2026-05-25 23:59:53 Asia/Taipei
-8299,群聯,20260524,resistance_scale_out,壓力區分批賣,2430.0,,,,4.526748971193406,-4.526748971193417,1,2880.0,False,not_hit,2026-05-25 23:59:53 Asia/Taipei
-8299,群聯,20260524,broker_target_median,券商目標價中位數賣,,,,,,,,,False,source_unavailable_or_not_implemented,2026-05-25 23:59:53 Asia/Taipei
-8299,群聯,20260524,broker_target_average,券商目標價平均數賣,,,,,,,,,False,source_unavailable_or_not_implemented,2026-05-25 23:59:53 Asia/Taipei
-8299,群聯,20260524,tdcc_weakening,TDCC 大戶轉弱賣,,,,,,,,,False,source_unavailable_or_not_implemented,2026-05-25 23:59:53 Asia/Taipei
-8299,群聯,20260524,shareholders_surge,股東人數暴增賣,,,,,,,,,False,source_unavailable_or_not_implemented,2026-05-25 23:59:53 Asia/Taipei
-8299,群聯,20260524,margin_surge,融資快速增加賣,,,,,,,,,False,source_unavailable_or_not_implemented,2026-05-25 23:59:53 Asia/Taipei
-8299,群聯,20260524,break_ema23,跌破 EMA23 賣,2430.0,,,,4.526748971193406,-4.526748971193417,1,,False,pending,2026-05-25 23:59:53 Asia/Taipei
-8299,群聯,20260524,break_ma20,跌破 MA20 賣,2430.0,,,,4.526748971193406,-4.526748971193417,1,,False,pending,2026-05-25 23:59:53 Asia/Taipei
-8299,群聯,20260524,break_neckline,跌破頸線賣,2430.0,,,,4.526748971193406,-4.526748971193417,1,,False,pending,2026-05-25 23:59:53 Asia/Taipei
-8299,群聯,20260524,break_breakout_low,跌破突破K低點賣,2430.0,20260525,2480.0,2.0576131687242816,4.526748971193406,-4.526748971193417,1,2400.0,True,breakout_low_break,2026-05-25 23:59:53 Asia/Taipei
-8299,群聯,20260524,high_volume_black,放量長黑賣,2430.0,,,,4.526748971193406,-4.526748971193417,1,,False,pending,2026-05-25 23:59:53 Asia/Taipei
-8299,群聯,20260524,fixed_d5,固定 D+5 賣,2430.0,,,,4.526748971193406,-4.526748971193417,1,,False,pending,2026-05-25 23:59:53 Asia/Taipei
-8299,群聯,20260524,fixed_d10,固定 D+10 賣,2430.0,,,,4.526748971193406,-4.526748971193417,1,,False,pending,2026-05-25 23:59:53 Asia/Taipei
-8299,群聯,20260524,fixed_d20,固定 D+20 賣,2430.0,,,,4.526748971193406,-4.526748971193417,1,,False,pending,2026-05-25 23:59:53 Asia/Taipei
-8299,群聯,20260524,atr_trailing_stop,ATR trailing stop 賣,2430.0,,,,4.526748971193406,-4.526748971193417,1,,False,pending,2026-05-25 23:59:53 Asia/Taipei
-8299,群聯,20260524,percent_trailing_stop,固定百分比 trailing stop 賣,2430.0,20260525,2336.8,-3.8353909465020486,4.526748971193406,-4.526748971193417,1,,True,percent_trailing_stop,2026-05-25 23:59:53 Asia/Taipei
+8299,群聯,20260522,prior_high,碰前高賣,2430.0,,,,4.526748971193406,-4.526748971193417,1,2880.0,False,not_hit,2026-05-26 13:40:41 Asia/Taipei
+8299,群聯,20260522,high_20d,碰 20日高賣,2430.0,,,,4.526748971193406,-4.526748971193417,1,2880.0,False,not_hit,2026-05-26 13:40:41 Asia/Taipei
+8299,群聯,20260522,high_60d,碰 60日高賣,2430.0,,,,4.526748971193406,-4.526748971193417,1,2880.0,False,not_hit,2026-05-26 13:40:41 Asia/Taipei
+8299,群聯,20260522,high_120d,碰 120日高賣,2430.0,,,,4.526748971193406,-4.526748971193417,1,2880.0,False,not_hit,2026-05-26 13:40:41 Asia/Taipei
+8299,群聯,20260522,resistance_scale_out,壓力區分批賣,2430.0,,,,4.526748971193406,-4.526748971193417,1,2880.0,False,not_hit,2026-05-26 13:40:41 Asia/Taipei
+8299,群聯,20260524,broker_target_median,券商目標價中位數賣,,,,,,,,,False,source_unavailable_or_not_implemented,2026-05-26 13:40:41 Asia/Taipei
+8299,群聯,20260524,broker_target_average,券商目標價平均數賣,,,,,,,,,False,source_unavailable_or_not_implemented,2026-05-26 13:40:41 Asia/Taipei
+8299,群聯,20260524,tdcc_weakening,TDCC 大戶轉弱賣,,,,,,,,,False,source_unavailable_or_not_implemented,2026-05-26 13:40:41 Asia/Taipei
+8299,群聯,20260524,shareholders_surge,股東人數暴增賣,,,,,,,,,False,source_unavailable_or_not_implemented,2026-05-26 13:40:41 Asia/Taipei
+8299,群聯,20260524,margin_surge,融資快速增加賣,,,,,,,,,False,source_unavailable_or_not_implemented,2026-05-26 13:40:41 Asia/Taipei
+8299,群聯,20260522,break_ema23,跌破 EMA23 賣,2430.0,,,,4.526748971193406,-4.526748971193417,1,,False,pending,2026-05-26 13:40:41 Asia/Taipei
+8299,群聯,20260522,break_ma20,跌破 MA20 輔助觀察賣,2430.0,,,,4.526748971193406,-4.526748971193417,1,,False,pending,2026-05-26 13:40:41 Asia/Taipei
+8299,群聯,20260522,break_neckline,跌破頸線賣,2430.0,,,,4.526748971193406,-4.526748971193417,1,,False,pending,2026-05-26 13:40:41 Asia/Taipei
+8299,群聯,20260522,break_breakout_low,跌破突破K低點賣,2430.0,20260525,2480.0,2.0576131687242816,4.526748971193406,-4.526748971193417,1,2400.0,True,breakout_low_break,2026-05-26 13:40:41 Asia/Taipei
+8299,群聯,20260522,high_volume_black,放量長黑賣,2430.0,,,,4.526748971193406,-4.526748971193417,1,,False,pending,2026-05-26 13:40:41 Asia/Taipei
+8299,群聯,20260522,fixed_d5,固定 D+5 賣,2430.0,,,,4.526748971193406,-4.526748971193417,1,,False,pending,2026-05-26 13:40:41 Asia/Taipei
+8299,群聯,20260522,fixed_d10,固定 D+10 賣,2430.0,,,,4.526748971193406,-4.526748971193417,1,,False,pending,2026-05-26 13:40:41 Asia/Taipei
+8299,群聯,20260522,fixed_d20,固定 D+20 賣,2430.0,,,,4.526748971193406,-4.526748971193417,1,,False,pending,2026-05-26 13:40:41 Asia/Taipei
+8299,群聯,20260522,atr_trailing_stop,ATR trailing stop 賣,2430.0,,,,4.526748971193406,-4.526748971193417,1,,False,pending,2026-05-26 13:40:41 Asia/Taipei
+8299,群聯,20260522,percent_trailing_stop,固定百分比 trailing stop 賣,2430.0,20260525,2336.8,-3.8353909465020486,4.526748971193406,-4.526748971193417,1,,True,percent_trailing_stop,2026-05-26 13:40:41 Asia/Taipei
