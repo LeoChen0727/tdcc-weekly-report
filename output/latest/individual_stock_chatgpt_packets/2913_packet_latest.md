@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2913 農林
 
 ## Metadata
-- generated_at: 2026-05-26 21:25:16 Asia/Taipei
+- generated_at: 2026-05-26 22:18:51 Asia/Taipei
 - stock_id: 2913
 - stock_name: 農林
 - packet_status: standard_180d_window_packet

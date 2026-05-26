@@ -1,6 +1,6 @@
 # Raw Data Fetch Status
 
-- generated_at: 2026-05-26 21:27:45 Asia/Taipei
+- generated_at: 2026-05-26 22:21:40 Asia/Taipei
 - sources_checked: raw, pages, api
 - checked_rows: 216
 - success_rows: 175
@@ -95,15 +95,15 @@
 | individual_stock_available_raw_data_index_slim |  | api | success | 200 | 2149 | 17 | 2150 | 2150 | ok | True |
 | individual_stock_available_raw_data_index_slim |  | pages | success | 200 | 2149 | 17 | 2150 | 2150 | ok | True |
 | individual_stock_available_raw_data_index_slim |  | raw | success | 200 | 2149 | 17 | 2150 | 2150 | ok | True |
-| individual_stock_chatgpt_packet | 1815 | api | success | 200 | 142 | 1 | 142 | 145 | ok | True |
-| individual_stock_chatgpt_packet | 1815 | pages | success | 200 | 142 | 1 | 142 | 145 | ok | True |
-| individual_stock_chatgpt_packet | 1815 | raw | success | 200 | 142 | 1 | 142 | 145 | ok | True |
-| individual_stock_chatgpt_packet | 2330 | api | success | 200 | 142 | 1 | 142 | 145 | ok | True |
-| individual_stock_chatgpt_packet | 2330 | pages | success | 200 | 142 | 1 | 142 | 145 | ok | True |
-| individual_stock_chatgpt_packet | 2330 | raw | success | 200 | 142 | 1 | 142 | 145 | ok | True |
-| individual_stock_chatgpt_packet | 2353 | api | success | 200 | 142 | 1 | 142 | 146 | ok | True |
-| individual_stock_chatgpt_packet | 2353 | pages | success | 200 | 142 | 1 | 142 | 146 | ok | True |
-| individual_stock_chatgpt_packet | 2353 | raw | success | 200 | 142 | 1 | 142 | 146 | ok | True |
+| individual_stock_chatgpt_packet | 1815 | api | success | 200 | 145 | 1 | 145 | 145 | ok | True |
+| individual_stock_chatgpt_packet | 1815 | pages | success | 200 | 145 | 1 | 145 | 145 | ok | True |
+| individual_stock_chatgpt_packet | 1815 | raw | success | 200 | 145 | 1 | 145 | 145 | ok | True |
+| individual_stock_chatgpt_packet | 2330 | api | success | 200 | 145 | 1 | 145 | 145 | ok | True |
+| individual_stock_chatgpt_packet | 2330 | pages | success | 200 | 145 | 1 | 145 | 145 | ok | True |
+| individual_stock_chatgpt_packet | 2330 | raw | success | 200 | 145 | 1 | 145 | 145 | ok | True |
+| individual_stock_chatgpt_packet | 2353 | api | success | 200 | 146 | 1 | 146 | 146 | ok | True |
+| individual_stock_chatgpt_packet | 2353 | pages | success | 200 | 146 | 1 | 146 | 146 | ok | True |
+| individual_stock_chatgpt_packet | 2353 | raw | success | 200 | 146 | 1 | 146 | 146 | ok | True |
 | individual_stock_chatgpt_packet | 2484 | api | success | 200 | 145 | 1 | 145 | 145 | ok | True |
 | individual_stock_chatgpt_packet | 2484 | pages | success | 200 | 145 | 1 | 145 | 145 | ok | True |
 | individual_stock_chatgpt_packet | 2484 | raw | success | 200 | 145 | 1 | 145 | 145 | ok | True |
@@ -116,36 +116,36 @@
 | individual_stock_chatgpt_packet_index_md |  | api | success | 200 | 245 | 1 | 245 | 245 | ok | True |
 | individual_stock_chatgpt_packet_index_md |  | pages | success | 200 | 245 | 1 | 245 | 245 | ok | True |
 | individual_stock_chatgpt_packet_index_md |  | raw | success | 200 | 245 | 1 | 245 | 245 | ok | True |
-| individual_stock_price_window_180_html | 1815 | api | success | 200 | 0 | 0 | 154 | 152 | ok | True |
-| individual_stock_price_window_180_html | 1815 | pages | success | 200 | 0 | 0 | 154 | 152 | ok | True |
-| individual_stock_price_window_180_html | 1815 | raw | success | 200 | 0 | 0 | 154 | 152 | ok | True |
-| individual_stock_price_window_180_html | 2330 | api | success | 200 | 0 | 0 | 154 | 152 | ok | True |
-| individual_stock_price_window_180_html | 2330 | pages | success | 200 | 0 | 0 | 154 | 152 | ok | True |
-| individual_stock_price_window_180_html | 2330 | raw | success | 200 | 0 | 0 | 154 | 152 | ok | True |
-| individual_stock_price_window_180_html | 2353 | api | success | 200 | 0 | 0 | 154 | 152 | ok | True |
-| individual_stock_price_window_180_html | 2353 | pages | success | 200 | 0 | 0 | 154 | 152 | ok | True |
-| individual_stock_price_window_180_html | 2353 | raw | success | 200 | 0 | 0 | 154 | 152 | ok | True |
-| individual_stock_price_window_180_html | 2484 | api | success | 200 | 0 | 0 | 154 | 152 | ok | True |
-| individual_stock_price_window_180_html | 2484 | pages | success | 200 | 0 | 0 | 154 | 152 | ok | True |
-| individual_stock_price_window_180_html | 2484 | raw | success | 200 | 0 | 0 | 154 | 152 | ok | True |
-| individual_stock_price_window_180_html | 8299 | api | success | 200 | 0 | 0 | 151 | 152 | ok | True |
-| individual_stock_price_window_180_html | 8299 | pages | success | 200 | 0 | 0 | 151 | 152 | ok | True |
-| individual_stock_price_window_180_html | 8299 | raw | success | 200 | 0 | 0 | 151 | 152 | ok | True |
-| individual_stock_price_window_180_txt | 1815 | api | success | 200 | 275 | 1 | 275 | 271 | ok | True |
-| individual_stock_price_window_180_txt | 1815 | pages | success | 200 | 275 | 1 | 275 | 271 | ok | True |
-| individual_stock_price_window_180_txt | 1815 | raw | success | 200 | 275 | 1 | 275 | 271 | ok | True |
-| individual_stock_price_window_180_txt | 2330 | api | success | 200 | 275 | 1 | 275 | 271 | ok | True |
-| individual_stock_price_window_180_txt | 2330 | pages | success | 200 | 275 | 1 | 275 | 271 | ok | True |
-| individual_stock_price_window_180_txt | 2330 | raw | success | 200 | 275 | 1 | 275 | 271 | ok | True |
-| individual_stock_price_window_180_txt | 2353 | api | success | 200 | 275 | 1 | 275 | 271 | ok | True |
-| individual_stock_price_window_180_txt | 2353 | pages | success | 200 | 275 | 1 | 275 | 271 | ok | True |
-| individual_stock_price_window_180_txt | 2353 | raw | success | 200 | 275 | 1 | 275 | 271 | ok | True |
-| individual_stock_price_window_180_txt | 2484 | api | success | 200 | 275 | 1 | 275 | 271 | ok | True |
-| individual_stock_price_window_180_txt | 2484 | pages | success | 200 | 275 | 1 | 275 | 271 | ok | True |
-| individual_stock_price_window_180_txt | 2484 | raw | success | 200 | 275 | 1 | 275 | 271 | ok | True |
-| individual_stock_price_window_180_txt | 8299 | api | success | 200 | 269 | 1 | 269 | 271 | ok | True |
-| individual_stock_price_window_180_txt | 8299 | pages | success | 200 | 269 | 1 | 269 | 271 | ok | True |
-| individual_stock_price_window_180_txt | 8299 | raw | success | 200 | 269 | 1 | 269 | 271 | ok | True |
+| individual_stock_price_window_180_html | 1815 | api | success | 200 | 0 | 0 | 152 | 152 | ok | True |
+| individual_stock_price_window_180_html | 1815 | pages | success | 200 | 0 | 0 | 152 | 152 | ok | True |
+| individual_stock_price_window_180_html | 1815 | raw | success | 200 | 0 | 0 | 152 | 152 | ok | True |
+| individual_stock_price_window_180_html | 2330 | api | success | 200 | 0 | 0 | 152 | 152 | ok | True |
+| individual_stock_price_window_180_html | 2330 | pages | success | 200 | 0 | 0 | 152 | 152 | ok | True |
+| individual_stock_price_window_180_html | 2330 | raw | success | 200 | 0 | 0 | 152 | 152 | ok | True |
+| individual_stock_price_window_180_html | 2353 | api | success | 200 | 0 | 0 | 152 | 152 | ok | True |
+| individual_stock_price_window_180_html | 2353 | pages | success | 200 | 0 | 0 | 152 | 152 | ok | True |
+| individual_stock_price_window_180_html | 2353 | raw | success | 200 | 0 | 0 | 152 | 152 | ok | True |
+| individual_stock_price_window_180_html | 2484 | api | success | 200 | 0 | 0 | 152 | 152 | ok | True |
+| individual_stock_price_window_180_html | 2484 | pages | success | 200 | 0 | 0 | 152 | 152 | ok | True |
+| individual_stock_price_window_180_html | 2484 | raw | success | 200 | 0 | 0 | 152 | 152 | ok | True |
+| individual_stock_price_window_180_html | 8299 | api | success | 200 | 0 | 0 | 152 | 152 | ok | True |
+| individual_stock_price_window_180_html | 8299 | pages | success | 200 | 0 | 0 | 152 | 152 | ok | True |
+| individual_stock_price_window_180_html | 8299 | raw | success | 200 | 0 | 0 | 152 | 152 | ok | True |
+| individual_stock_price_window_180_txt | 1815 | api | success | 200 | 271 | 1 | 271 | 271 | ok | True |
+| individual_stock_price_window_180_txt | 1815 | pages | success | 200 | 271 | 1 | 271 | 271 | ok | True |
+| individual_stock_price_window_180_txt | 1815 | raw | success | 200 | 271 | 1 | 271 | 271 | ok | True |
+| individual_stock_price_window_180_txt | 2330 | api | success | 200 | 271 | 1 | 271 | 271 | ok | True |
+| individual_stock_price_window_180_txt | 2330 | pages | success | 200 | 271 | 1 | 271 | 271 | ok | True |
+| individual_stock_price_window_180_txt | 2330 | raw | success | 200 | 271 | 1 | 271 | 271 | ok | True |
+| individual_stock_price_window_180_txt | 2353 | api | success | 200 | 271 | 1 | 271 | 271 | ok | True |
+| individual_stock_price_window_180_txt | 2353 | pages | success | 200 | 271 | 1 | 271 | 271 | ok | True |
+| individual_stock_price_window_180_txt | 2353 | raw | success | 200 | 271 | 1 | 271 | 271 | ok | True |
+| individual_stock_price_window_180_txt | 2484 | api | success | 200 | 271 | 1 | 271 | 271 | ok | True |
+| individual_stock_price_window_180_txt | 2484 | pages | success | 200 | 271 | 1 | 271 | 271 | ok | True |
+| individual_stock_price_window_180_txt | 2484 | raw | success | 200 | 271 | 1 | 271 | 271 | ok | True |
+| individual_stock_price_window_180_txt | 8299 | api | success | 200 | 271 | 1 | 271 | 271 | ok | True |
+| individual_stock_price_window_180_txt | 8299 | pages | success | 200 | 271 | 1 | 271 | 271 | ok | True |
+| individual_stock_price_window_180_txt | 8299 | raw | success | 200 | 271 | 1 | 271 | 271 | ok | True |
 | individual_stock_report_md | 1815 | api | success | 200 | 77 | 1 | 77 | 77 | ok | True |
 | individual_stock_report_md | 1815 | pages | success | 200 | 77 | 1 | 77 | 77 | ok | True |
 | individual_stock_report_md | 1815 | raw | success | 200 | 77 | 1 | 77 | 77 | ok | True |
@@ -216,19 +216,19 @@
 | stock_monitor |  | pages | missing_file | 404 | 0 | 0 | 0 | 155 | ok | False |
 | stock_monitor |  | raw | success | 200 | 155 | 1 | 155 | 155 | ok | True |
 | stock_price_history | 1815 | api | success | 200 | 134 | 39 | 135 | 135 | ok | True |
-| stock_price_history | 1815 | pages | success | 200 | 133 | 39 | 134 | 135 | ok | True |
+| stock_price_history | 1815 | pages | success | 200 | 134 | 39 | 135 | 135 | ok | True |
 | stock_price_history | 1815 | raw | success | 200 | 134 | 39 | 135 | 135 | ok | True |
 | stock_price_history | 2330 | api | success | 200 | 134 | 39 | 135 | 135 | ok | True |
-| stock_price_history | 2330 | pages | success | 200 | 133 | 39 | 134 | 135 | ok | True |
+| stock_price_history | 2330 | pages | success | 200 | 134 | 39 | 135 | 135 | ok | True |
 | stock_price_history | 2330 | raw | success | 200 | 134 | 39 | 135 | 135 | ok | True |
 | stock_price_history | 2353 | api | success | 200 | 134 | 39 | 135 | 135 | ok | True |
-| stock_price_history | 2353 | pages | success | 200 | 133 | 39 | 134 | 135 | ok | True |
+| stock_price_history | 2353 | pages | success | 200 | 134 | 39 | 135 | 135 | ok | True |
 | stock_price_history | 2353 | raw | success | 200 | 134 | 39 | 135 | 135 | ok | True |
 | stock_price_history | 2484 | api | success | 200 | 134 | 39 | 135 | 135 | ok | True |
-| stock_price_history | 2484 | pages | success | 200 | 133 | 39 | 134 | 135 | ok | True |
+| stock_price_history | 2484 | pages | success | 200 | 134 | 39 | 135 | 135 | ok | True |
 | stock_price_history | 2484 | raw | success | 200 | 134 | 39 | 135 | 135 | ok | True |
 | stock_price_history | 8299 | api | success | 200 | 134 | 39 | 135 | 135 | ok | True |
-| stock_price_history | 8299 | pages | success | 200 | 133 | 39 | 134 | 135 | ok | True |
+| stock_price_history | 8299 | pages | success | 200 | 134 | 39 | 135 | 135 | ok | True |
 | stock_price_history | 8299 | raw | success | 200 | 134 | 39 | 135 | 135 | ok | True |
 | surge_model_backtest |  | api | success | 200 | 15 | 17 | 16 | 16 | ok | True |
 | surge_model_backtest |  | pages | missing_file | 404 | 0 | 0 | 0 | 16 | ok | False |

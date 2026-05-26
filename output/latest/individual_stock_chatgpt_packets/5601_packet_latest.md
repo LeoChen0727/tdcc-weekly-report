@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5601 台聯櫃
 
 ## Metadata
-- generated_at: 2026-05-26 21:26:09 Asia/Taipei
+- generated_at: 2026-05-26 22:19:53 Asia/Taipei
 - stock_id: 5601
 - stock_name: 台聯櫃
 - packet_status: standard_rawdata_packet

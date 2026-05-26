@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6683 雍智科技
 
 ## Metadata
-- generated_at: 2026-05-26 21:26:33 Asia/Taipei
+- generated_at: 2026-05-26 22:20:22 Asia/Taipei
 - stock_id: 6683
 - stock_name: 雍智科技
 - packet_status: standard_180d_window_packet

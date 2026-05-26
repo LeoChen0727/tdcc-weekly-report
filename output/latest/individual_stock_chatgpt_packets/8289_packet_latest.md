@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8289 泰藝
 
 ## Metadata
-- generated_at: 2026-05-26 21:26:55 Asia/Taipei
+- generated_at: 2026-05-26 22:20:48 Asia/Taipei
 - stock_id: 8289
 - stock_name: 泰藝
 - packet_status: standard_180d_window_packet

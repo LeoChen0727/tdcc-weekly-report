@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3558 神準
 
 ## Metadata
-- generated_at: 2026-05-26 21:25:36 Asia/Taipei
+- generated_at: 2026-05-26 22:19:15 Asia/Taipei
 - stock_id: 3558
 - stock_name: 神準
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4440 宜新實業
 
 ## Metadata
-- generated_at: 2026-05-26 21:25:48 Asia/Taipei
+- generated_at: 2026-05-26 22:19:28 Asia/Taipei
 - stock_id: 4440
 - stock_name: 宜新實業
 - packet_status: standard_180d_window_packet

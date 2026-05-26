@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8201 無敵
 
 ## Metadata
-- generated_at: 2026-05-26 21:26:54 Asia/Taipei
+- generated_at: 2026-05-26 22:20:46 Asia/Taipei
 - stock_id: 8201
 - stock_name: 無敵
 - packet_status: standard_180d_window_packet

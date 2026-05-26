@@ -1,6 +1,6 @@
 # Market Risk Dashboard
 
-- generated_at: `2026-05-26 21:17:43 Asia/Taipei`
+- generated_at: `2026-05-26 22:10:32 Asia/Taipei`
 - data_date: `20260526`
 - market_regime: `strong_bull`
 - risk_level: `elevated_risk`

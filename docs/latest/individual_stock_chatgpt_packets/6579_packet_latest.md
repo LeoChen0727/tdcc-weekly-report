@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6579 研揚
 
 ## Metadata
-- generated_at: 2026-05-26 21:26:29 Asia/Taipei
+- generated_at: 2026-05-26 22:20:17 Asia/Taipei
 - stock_id: 6579
 - stock_name: 研揚
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5498 凱崴
 
 ## Metadata
-- generated_at: 2026-05-26 21:26:07 Asia/Taipei
+- generated_at: 2026-05-26 22:19:51 Asia/Taipei
 - stock_id: 5498
 - stock_name: 凱崴
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6730 常廣
 
 ## Metadata
-- generated_at: 2026-05-26 21:26:35 Asia/Taipei
+- generated_at: 2026-05-26 22:20:24 Asia/Taipei
 - stock_id: 6730
 - stock_name: 常廣
 - packet_status: standard_rawdata_packet

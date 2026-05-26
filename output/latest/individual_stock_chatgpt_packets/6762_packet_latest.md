@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6762 達亞
 
 ## Metadata
-- generated_at: 2026-05-26 21:26:36 Asia/Taipei
+- generated_at: 2026-05-26 22:20:25 Asia/Taipei
 - stock_id: 6762
 - stock_name: 達亞
 - packet_status: standard_rawdata_packet

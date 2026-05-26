@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2107 厚生
 
 ## Metadata
-- generated_at: 2026-05-26 21:24:52 Asia/Taipei
+- generated_at: 2026-05-26 22:18:23 Asia/Taipei
 - stock_id: 2107
 - stock_name: 厚生
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6209 今國光
 
 ## Metadata
-- generated_at: 2026-05-26 21:26:18 Asia/Taipei
+- generated_at: 2026-05-26 22:20:04 Asia/Taipei
 - stock_id: 6209
 - stock_name: 今國光
 - packet_status: standard_180d_window_packet

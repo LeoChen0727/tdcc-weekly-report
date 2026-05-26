@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2949 欣新網
 
 ## Metadata
-- generated_at: 2026-05-26 21:25:17 Asia/Taipei
+- generated_at: 2026-05-26 22:18:52 Asia/Taipei
 - stock_id: 2949
 - stock_name: 欣新網
 - packet_status: standard_rawdata_packet

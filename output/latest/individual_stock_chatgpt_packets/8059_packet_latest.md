@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8059 凱碩
 
 ## Metadata
-- generated_at: 2026-05-26 21:26:50 Asia/Taipei
+- generated_at: 2026-05-26 22:20:42 Asia/Taipei
 - stock_id: 8059
 - stock_name: 凱碩
 - packet_status: standard_180d_window_packet

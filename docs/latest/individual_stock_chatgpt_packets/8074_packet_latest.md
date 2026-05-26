@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8074 鉅橡
 
 ## Metadata
-- generated_at: 2026-05-26 21:26:50 Asia/Taipei
+- generated_at: 2026-05-26 22:20:43 Asia/Taipei
 - stock_id: 8074
 - stock_name: 鉅橡
 - packet_status: standard_180d_window_packet

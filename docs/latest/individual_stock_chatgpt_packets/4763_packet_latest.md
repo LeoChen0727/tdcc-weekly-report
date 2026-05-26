@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4763 材料*-KY
 
 ## Metadata
-- generated_at: 2026-05-26 21:25:54 Asia/Taipei
+- generated_at: 2026-05-26 22:19:35 Asia/Taipei
 - stock_id: 4763
 - stock_name: 材料*-KY
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2515 中工
 
 ## Metadata
-- generated_at: 2026-05-26 21:25:07 Asia/Taipei
+- generated_at: 2026-05-26 22:18:40 Asia/Taipei
 - stock_id: 2515
 - stock_name: 中工
 - packet_status: standard_180d_window_packet

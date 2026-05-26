@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00888 永豐台灣ESG
 
 ## Metadata
-- generated_at: 2026-05-26 21:24:29 Asia/Taipei
+- generated_at: 2026-05-26 22:17:55 Asia/Taipei
 - stock_id: 00888
 - stock_name: 永豐台灣ESG
 - packet_status: partial_rawdata_packet

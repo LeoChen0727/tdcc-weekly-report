@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4542 科嶠
 
 ## Metadata
-- generated_at: 2026-05-26 21:25:49 Asia/Taipei
+- generated_at: 2026-05-26 22:19:30 Asia/Taipei
 - stock_id: 4542
 - stock_name: 科嶠
 - packet_status: standard_180d_window_packet

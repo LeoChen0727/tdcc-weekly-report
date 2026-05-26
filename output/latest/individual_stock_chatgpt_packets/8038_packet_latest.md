@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8038 長園科
 
 ## Metadata
-- generated_at: 2026-05-26 21:26:49 Asia/Taipei
+- generated_at: 2026-05-26 22:20:41 Asia/Taipei
 - stock_id: 8038
 - stock_name: 長園科
 - packet_status: standard_180d_window_packet

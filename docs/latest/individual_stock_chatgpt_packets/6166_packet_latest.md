@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6166 凌華
 
 ## Metadata
-- generated_at: 2026-05-26 21:26:15 Asia/Taipei
+- generated_at: 2026-05-26 22:20:00 Asia/Taipei
 - stock_id: 6166
 - stock_name: 凌華
 - packet_status: standard_180d_window_packet

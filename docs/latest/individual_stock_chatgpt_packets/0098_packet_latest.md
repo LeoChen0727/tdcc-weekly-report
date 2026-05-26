@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0098 主動統一台股增長
 
 ## Metadata
-- generated_at: 2026-05-26 21:24:30 Asia/Taipei
+- generated_at: 2026-05-26 22:17:56 Asia/Taipei
 - stock_id: 0098
 - stock_name: 主動統一台股增長
 - packet_status: insufficient_price_data

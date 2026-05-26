@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3046 建碁
 
 ## Metadata
-- generated_at: 2026-05-26 21:25:21 Asia/Taipei
+- generated_at: 2026-05-26 22:18:56 Asia/Taipei
 - stock_id: 3046
 - stock_name: 建碁
 - packet_status: standard_180d_window_packet

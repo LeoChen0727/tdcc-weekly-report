@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6223 旺矽
 
 ## Metadata
-- generated_at: 2026-05-26 21:26:19 Asia/Taipei
+- generated_at: 2026-05-26 22:20:05 Asia/Taipei
 - stock_id: 6223
 - stock_name: 旺矽
 - packet_status: standard_180d_window_packet

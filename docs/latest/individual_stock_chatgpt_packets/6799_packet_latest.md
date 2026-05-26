@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6799 來頡
 
 ## Metadata
-- generated_at: 2026-05-26 21:26:37 Asia/Taipei
+- generated_at: 2026-05-26 22:20:27 Asia/Taipei
 - stock_id: 6799
 - stock_name: 來頡
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3217 優群
 
 ## Metadata
-- generated_at: 2026-05-26 21:25:26 Asia/Taipei
+- generated_at: 2026-05-26 22:19:02 Asia/Taipei
 - stock_id: 3217
 - stock_name: 優群
 - packet_status: standard_180d_window_packet

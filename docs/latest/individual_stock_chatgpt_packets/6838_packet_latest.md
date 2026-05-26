@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6838 台新藥
 
 ## Metadata
-- generated_at: 2026-05-26 21:26:38 Asia/Taipei
+- generated_at: 2026-05-26 22:20:28 Asia/Taipei
 - stock_id: 6838
 - stock_name: 台新藥
 - packet_status: standard_180d_window_packet

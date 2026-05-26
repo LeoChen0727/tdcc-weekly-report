@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4175 杏一
 
 ## Metadata
-- generated_at: 2026-05-26 21:25:45 Asia/Taipei
+- generated_at: 2026-05-26 22:19:25 Asia/Taipei
 - stock_id: 4175
 - stock_name: 杏一
 - packet_status: standard_180d_window_packet

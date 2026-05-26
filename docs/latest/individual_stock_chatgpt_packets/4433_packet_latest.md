@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4433 興采
 
 ## Metadata
-- generated_at: 2026-05-26 21:25:47 Asia/Taipei
+- generated_at: 2026-05-26 22:19:28 Asia/Taipei
 - stock_id: 4433
 - stock_name: 興采
 - packet_status: standard_180d_window_packet
