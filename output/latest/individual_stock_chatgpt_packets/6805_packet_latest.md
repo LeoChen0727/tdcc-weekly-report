@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6805 富世達
 
 ## Metadata
-- generated_at: 2026-05-26 06:40:44 Asia/Taipei
+- generated_at: 2026-05-26 21:26:37 Asia/Taipei
 - stock_id: 6805
 - stock_name: 富世達
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 1825
-- high: 1825
-- low: 1740
-- close: 1745
-- volume: 1813092
-- ma5: 1775
-- ma20: 1858
-- ma60: 1858.25
-- ma120: 1674.71
-- ema23: 1830.33
-- return_5d: -3.59
-- return_20d: -15.7
-- volume_ratio: 0.94
-- distance_to_ma20_pct: -6.08
-- distance_to_high_60_pct: -23.3
+- open: 1750
+- high: 1820
+- low: 1705
+- close: 1785
+- volume: 2439880
+- ma5: 1771
+- ema23_primary: 1841.9
+- distance_to_ema23_pct: -3.09
+- ma20: 1888.25
+- ma60: 1856.67
+- ma120: 1667.5
+- return_5d: 0.85
+- return_20d: -13.77
+- volume_ratio: 1.19
+- distance_to_ma20_pct_auxiliary: -5.47
+- distance_to_high_60_pct: -21.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,2080,2115,1995,2070,1768168,2042,1913,1753.67,1921.87,0.8
-20260504,2180,2275,2110,2215,2587650,2102,1927.5,1767.58,1946.3,1.13
-20260505,2160,2165,1995,1995,3283287,2087,1933,1777.33,1950.36,1.38
-20260506,2015,2015,1805,1880,5137849,2046,1934.5,1785,1944.49,1.99
-20260507,1925,1950,1875,1920,1763898,2016,1936,1792.17,1942.45,0.7
-20260508,1925,2035,1900,1980,2786603,1998,1943,1800.42,1945.58,1.08
-20260511,2020,2055,1965,1995,1945868,1954,1949.5,1809.92,1949.7,0.75
-20260512,2020,2035,1845,1850,2904762,1925,1953.75,1817.33,1941.39,1.13
-20260513,1835,1890,1805,1830,2136690,1915,1958.75,1822.25,1932.11,0.83
-20260514,1875,1885,1780,1780,2191888,1887,1956.5,1826.5,1919.43,0.86
-20260515,1820,1840,1725,1735,1692195,1838,1948.25,1829.58,1904.06,0.67
-20260518,1700,1745,1645,1735,981759,1786,1941.5,1832.75,1889.98,0.4
-20260519,1735,1815,1695,1770,1131323,1770,1935.25,1836.42,1879.98,0.46
-20260520,1770,1810,1710,1720,1087686,1748,1925.5,1838.75,1866.65,0.45
-20260521,1770,1810,1755,1810,759562,1754,1916.75,1843.17,1861.93,0.33
-20260522,1830,1845,1785,1795,989339,1766,1911,1848.42,1856.35,0.45
-20260523,1830,1845,1785,1795,989339,1778,1905,1853.67,1851.24,0.47
-20260524,1830,1845,1785,1795,989339,1783,1891.25,1857.67,1846.55,0.51
-20260525,1825,1825,1740,1745,1813092,1788,1874.25,1858.25,1838.09,0.94
-20260526,1825,1825,1740,1745,1813092,1775,1858,1858.25,1830.33,0.94
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,2095,2180,2005,2085,2119322,1893.71,10.1,1885,1729.58,0.98
+20260429,2065,2160,2045,2070,1537056,1908.41,8.47,1897,1742.67,0.7
+20260430,2080,2115,1995,2070,1768168,1921.87,7.71,1913,1753.67,0.8
+20260504,2180,2275,2110,2215,2587650,1946.3,13.81,1927.5,1767.58,1.13
+20260505,2160,2165,1995,1995,3283287,1950.36,2.29,1933,1777.33,1.38
+20260506,2015,2015,1805,1880,5137849,1944.49,-3.32,1934.5,1785,1.99
+20260507,1925,1950,1875,1920,1763898,1942.45,-1.16,1936,1792.17,0.7
+20260508,1925,2035,1900,1980,2786603,1945.58,1.77,1943,1800.42,1.08
+20260511,2020,2055,1965,1995,1945868,1949.7,2.32,1949.5,1809.92,0.75
+20260512,2020,2035,1845,1850,2904762,1941.39,-4.71,1953.75,1817.33,1.13
+20260513,1835,1890,1805,1830,2136690,1932.11,-5.28,1958.75,1822.25,0.83
+20260514,1875,1885,1780,1780,2191888,1919.43,-7.26,1956.5,1826.5,0.86
+20260515,1820,1840,1725,1735,1692195,1904.06,-8.88,1948.25,1829.58,0.67
+20260518,1700,1745,1645,1735,981759,1889.98,-8.2,1941.5,1832.75,0.4
+20260519,1735,1815,1695,1770,1131323,1879.98,-5.85,1935.25,1836.42,0.46
+20260520,1770,1810,1710,1720,1087686,1866.65,-7.86,1925.5,1838.75,0.45
+20260521,1770,1810,1755,1810,759562,1861.93,-2.79,1916.75,1843.17,0.33
+20260522,1830,1845,1785,1795,989339,1856.35,-3.3,1911,1848.42,0.45
+20260525,1825,1825,1740,1745,1813092,1847.07,-5.53,1902.5,1852.83,0.85
+20260526,1750,1820,1705,1785,2439880,1841.9,-3.09,1888.25,1856.67,1.19
 ```
 
 ## Latest TDCC Snapshot
@@ -122,8 +125,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6805 | 富世達 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260526 | 6805 | 富世達 | revenue_breakout_low_response | 營收爆發低反應股 | 12.0 | 19.0 | D_降級_TDCC轉弱 |  |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 6805 | 富世達 | pullback_rebound | 回檔後短線轉強 | 82.0 |  |  |  |  | call_put_bullish | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 6805 | 富世達 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | call_put_bullish | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 6805 | 富世達 | revenue_breakout_low_response | 營收爆發低反應股 | 12.0 | 21.0 | D_降級_TDCC轉弱 |  |  | call_put_bullish | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -133,7 +137,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260525 | 6805 | 富世達 | 173 | 11 | 16441360.0 | 3800.0 | 4326.67 | no_signal | 0 |  |
+| 20260526 | 6805 | 富世達 | 170 | 11 | 30166220.0 | 8840.0 | 3412.47 | call_put_bullish | 3 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

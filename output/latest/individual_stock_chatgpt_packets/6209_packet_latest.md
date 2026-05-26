@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6209 今國光
 
 ## Metadata
-- generated_at: 2026-05-26 06:40:30 Asia/Taipei
+- generated_at: 2026-05-26 21:26:18 Asia/Taipei
 - stock_id: 6209
 - stock_name: 今國光
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 87.9
-- high: 90.9
-- low: 86
-- close: 86.2
-- volume: 24327776
-- ma5: 85.96
-- ma20: 73.22
-- ma60: 62.18
-- ma120: 62.02
-- ema23: 74.26
-- return_5d: -0.58
-- return_20d: 37.04
-- volume_ratio: 1.22
-- distance_to_ma20_pct: 17.74
-- distance_to_high_60_pct: -5.17
+- open: 86.2
+- high: 86.2
+- low: 80.3
+- close: 81
+- volume: 17326289
+- ma5: 83.72
+- ema23_primary: 71.62
+- distance_to_ema23_pct: 13.1
+- ma20: 70.73
+- ma60: 61.32
+- ma120: 61.5
+- return_5d: 12.81
+- return_20d: 22.91
+- volume_ratio: 1.07
+- distance_to_ma20_pct_auxiliary: 14.51
+- distance_to_high_60_pct: -10.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,63.9,64.5,62,62.3,4023722,63.26,59.93,59.05,60.5,0.61
-20260504,62.9,63.7,62.1,62.5,3083311,63.58,60.54,58.97,60.66,0.46
-20260505,62.5,68.7,62,68.7,10567936,64.14,61.46,58.9,61.33,1.49
-20260506,68.5,69,64.6,68.2,14048692,64.92,62.4,58.72,61.9,1.82
-20260507,68.9,74.3,68.3,72.2,19533542,66.78,63.28,58.71,62.76,2.29
-20260508,72.2,73.3,65.9,66,15090186,67.52,63.81,58.67,63.03,1.67
-20260511,68,68.3,64.5,65.8,7271001,68.18,64.36,58.67,63.26,0.78
-20260512,66.1,67.6,65.1,66,6418915,67.64,64.63,58.77,63.49,0.69
-20260513,66,66,61.9,62.1,5793582,66.42,64.59,58.8,63.38,0.65
-20260514,62.8,68.3,62.8,68.3,12031271,65.64,64.94,58.94,63.79,1.31
-20260515,68.3,69.7,66.7,67,19369451,65.84,65.25,59.08,64.05,1.93
-20260518,67.4,68.5,65.9,68,7460283,66.28,65.55,59.21,64.38,0.74
-20260519,68.2,74.8,67.8,71.8,35981304,67.44,65.84,59.42,65,3.2
-20260520,76.3,78.9,76,78.9,17710968,70.8,66.38,59.76,66.16,1.55
-20260521,85.6,86.7,79.5,86.7,52264877,74.48,67.47,60.23,67.87,3.83
-20260522,89,89.5,84.1,85.8,40358447,78.24,68.72,60.65,69.36,2.65
-20260523,89,89.5,84.1,85.8,40358447,81.8,69.96,61.05,70.73,2.37
-20260524,89,89.5,84.1,85.8,40358447,84.6,70.95,61.39,71.99,2.22
-20260525,87.9,90.9,86,86.2,24327776,86.06,72.05,61.77,73.17,1.28
-20260526,87.9,90.9,86,86.2,24327776,85.96,73.22,62.18,74.26,1.22
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,65.5,66.4,64.3,64.3,7808779,60.1,6.99,58.61,59.03,1.24
+20260429,64.8,65,62.9,62.9,4386067,60.33,4.26,59.26,59.07,0.68
+20260430,63.9,64.5,62,62.3,4023722,60.5,2.98,59.93,59.05,0.61
+20260504,62.9,63.7,62.1,62.5,3083311,60.66,3.03,60.54,58.97,0.46
+20260505,62.5,68.7,62,68.7,10567936,61.33,12.01,61.46,58.9,1.49
+20260506,68.5,69,64.6,68.2,14048692,61.9,10.17,62.4,58.72,1.82
+20260507,68.9,74.3,68.3,72.2,19533542,62.76,15.04,63.28,58.71,2.29
+20260508,72.2,73.3,65.9,66,15090186,63.03,4.71,63.81,58.67,1.67
+20260511,68,68.3,64.5,65.8,7271001,63.26,4.01,64.36,58.67,0.78
+20260512,66.1,67.6,65.1,66,6418915,63.49,3.95,64.63,58.77,0.69
+20260513,66,66,61.9,62.1,5793582,63.38,-2.01,64.59,58.8,0.65
+20260514,62.8,68.3,62.8,68.3,12031271,63.79,7.08,64.94,58.94,1.31
+20260515,68.3,69.7,66.7,67,19369451,64.05,4.6,65.25,59.08,1.93
+20260518,67.4,68.5,65.9,68,7460283,64.38,5.62,65.55,59.21,0.74
+20260519,68.2,74.8,67.8,71.8,35981304,65,10.46,65.84,59.42,3.2
+20260520,76.3,78.9,76,78.9,17710968,66.16,19.26,66.38,59.76,1.55
+20260521,85.6,86.7,79.5,86.7,52264877,67.87,27.74,67.47,60.23,3.83
+20260522,89,89.5,84.1,85.8,40358447,69.36,23.69,68.72,60.65,2.65
+20260525,87.9,90.9,86,86.2,24327776,70.77,21.81,69.98,61.05,1.5
+20260526,86.2,86.2,80.3,81,17326289,71.62,13.1,70.73,61.32,1.07
 ```
 
 ## Latest TDCC Snapshot
@@ -122,6 +125,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 6209 | 今國光 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260521 | 6209 | 今國光 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
@@ -132,7 +136,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260525 | 6209 | 今國光 | 44 | 0 | 10821090.0 | 0.0 |  | no_signal | 0 |  |
+| 20260526 | 6209 | 今國光 | 44 | 0 | 7286160.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

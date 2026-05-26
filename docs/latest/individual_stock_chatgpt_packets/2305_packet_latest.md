@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2305 全友
 
 ## Metadata
-- generated_at: 2026-05-26 06:39:32 Asia/Taipei
+- generated_at: 2026-05-26 21:24:55 Asia/Taipei
 - stock_id: 2305
 - stock_name: 全友
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 20.65
-- high: 20.65
-- low: 20.6
-- close: 20.65
-- volume: 2671285
-- ma5: 19.54
-- ma20: 17.45
-- ma60: 16.3
-- ma120: 14.26
-- ema23: 17.77
-- return_5d: 16.67
-- return_20d: 27.08
-- volume_ratio: 0.59
-- distance_to_ma20_pct: 18.3
-- distance_to_high_60_pct: 0
+- open: 22.1
+- high: 22.7
+- low: 18.95
+- close: 20.8
+- volume: 37880895
+- ma5: 18.91
+- ema23_primary: 17.53
+- distance_to_ema23_pct: 18.68
+- ma20: 17.21
+- ma60: 16.13
+- ma120: 14.12
+- return_5d: 26.83
+- return_20d: 30.82
+- volume_ratio: 6.79
+- distance_to_ma20_pct_auxiliary: 20.84
+- distance_to_high_60_pct: -8.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,16.3,16.5,15.7,15.7,2298533,15.99,17.07,14.97,16.5,0.52
-20260504,16.15,16.6,15.95,16.2,2585028,16.08,17.08,15.01,16.47,0.59
-20260505,16.2,16.8,16.05,16.75,1440253,16.25,17.11,15.05,16.5,0.34
-20260506,17.1,17.2,16.45,16.85,2230733,16.35,17.14,15.1,16.52,0.53
-20260507,16.85,16.85,16.05,16.2,2415655,16.34,17.12,15.14,16.5,0.58
-20260508,17.8,17.8,17.2,17.8,9100241,16.76,17.13,15.21,16.61,2.09
-20260511,17.45,18.9,17.4,17.55,11452096,17.03,17.1,15.28,16.68,2.57
-20260512,17.55,18.25,17.1,17.5,5468691,17.18,16.99,15.35,16.75,1.29
-20260513,17.55,17.7,16.45,16.8,3366583,17.17,16.93,15.41,16.76,0.91
-20260514,16.8,17,16.2,16.35,1591865,17.2,16.87,15.45,16.72,0.45
-20260515,16.6,16.85,16.2,16.4,1993654,16.92,16.8,15.51,16.7,0.57
-20260518,16.15,16.95,15.7,16.6,2331504,16.73,16.75,15.57,16.69,0.67
-20260519,16.7,17.35,16.35,16.4,1646828,16.51,16.71,15.64,16.66,0.48
-20260520,16.4,16.9,16.1,16.6,1366080,16.47,16.61,15.7,16.66,0.42
-20260521,16.95,18.25,16.8,17.7,9598048,16.74,16.6,15.79,16.75,2.7
-20260522,18.3,19.1,17.85,18.8,8991259,17.22,16.72,15.88,16.92,2.35
-20260523,18.3,19.1,17.85,18.8,8991259,17.66,16.88,15.97,17.07,2.17
-20260524,18.3,19.1,17.85,18.8,8991259,18.14,17.02,16.06,17.22,2.02
-20260525,20.65,20.65,20.6,20.65,2671285,18.95,17.23,16.18,17.5,0.59
-20260526,20.65,20.65,20.6,20.65,2671285,19.54,17.45,16.3,17.77,0.59
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,16.25,16.5,15.95,16.35,1601142,16.6,-1.5,17.1,14.93,0.33
+20260429,16.15,16.45,15.7,16.25,1606704,16.57,-1.93,17.07,14.96,0.35
+20260430,16.3,16.5,15.7,15.7,2298533,16.5,-4.83,17.07,14.97,0.52
+20260504,16.15,16.6,15.95,16.2,2585028,16.47,-1.65,17.08,15.01,0.59
+20260505,16.2,16.8,16.05,16.75,1440253,16.5,1.54,17.11,15.05,0.34
+20260506,17.1,17.2,16.45,16.85,2230733,16.52,1.97,17.14,15.1,0.53
+20260507,16.85,16.85,16.05,16.2,2415655,16.5,-1.8,17.12,15.14,0.58
+20260508,17.8,17.8,17.2,17.8,9100241,16.61,7.19,17.13,15.21,2.09
+20260511,17.45,18.9,17.4,17.55,11452096,16.68,5.18,17.1,15.28,2.57
+20260512,17.55,18.25,17.1,17.5,5468691,16.75,4.46,16.99,15.35,1.29
+20260513,17.55,17.7,16.45,16.8,3366583,16.76,0.26,16.93,15.41,0.91
+20260514,16.8,17,16.2,16.35,1591865,16.72,-2.23,16.87,15.45,0.45
+20260515,16.6,16.85,16.2,16.4,1993654,16.7,-1.77,16.8,15.51,0.57
+20260518,16.15,16.95,15.7,16.6,2331504,16.69,-0.53,16.75,15.57,0.67
+20260519,16.7,17.35,16.35,16.4,1646828,16.66,-1.58,16.71,15.64,0.48
+20260520,16.4,16.9,16.1,16.6,1366080,16.66,-0.35,16.61,15.7,0.42
+20260521,16.95,18.25,16.8,17.7,9598048,16.75,5.7,16.6,15.79,2.7
+20260522,18.3,19.1,17.85,18.8,8991259,16.92,11.13,16.72,15.88,2.35
+20260525,20.65,20.65,20.6,20.65,2671285,17.23,19.86,16.97,16,0.7
+20260526,22.1,22.7,18.95,20.8,37880895,17.53,18.68,17.21,16.13,6.79
 ```
 
 ## Latest TDCC Snapshot
@@ -120,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 2305 | 全友 | true_breakout | 嚴格突破 | 97.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2305 | 全友 | 1 | 1 | 3 | 3 | 3 | repeated_but_no_breakout | 近 10 日上榜 3 日、近 20 日上榜 3 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260526 | 2305 | 全友 | 1 | 1 | 3 | 3 | 3 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
 
 ## Warrant Context
 | status |

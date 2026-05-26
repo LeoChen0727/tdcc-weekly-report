@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7772 耀穎
 
 ## Metadata
-- generated_at: 2026-05-26 06:40:51 Asia/Taipei
+- generated_at: 2026-05-26 21:26:47 Asia/Taipei
 - stock_id: 7772
 - stock_name: 耀穎
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260526
-- price_rows: 15
+- price_rows: 13
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,41 +56,40 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 175
-- high: 178.5
-- low: 168
-- close: 170.5
-- volume: 173
-- ma5: 167.5
-- ma20: 165.83
-- ma60: 165.83
-- ma120: 165.83
-- ema23: 173.23
-- return_5d: 13.29
+- open: 170
+- high: 171.5
+- low: 160
+- close: 164
+- volume: 163000
+- ma5: 160.1
+- ema23_primary: 174
+- distance_to_ema23_pct: -5.75
+- ma20: 165.38
+- ma60: 165.38
+- ma120: 165.38
+- return_5d: 3.8
 - return_20d: 
-- volume_ratio: 0
-- distance_to_ma20_pct: 2.81
-- distance_to_high_60_pct: -18.42
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: -0.84
+- distance_to_high_60_pct: -21.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260508,196,196.5,179,196.5,1271000,,,,,
 20260511,198.5,209,186,186.5,894000,,,,,
 20260512,190,192,173,175,688000,,,,,
 20260513,168,169.5,161.5,164.5,427000,,,,,
-20260514,166.5,181,166.5,170,434000,178.5,178.5,178.5,189.7,0.58
-20260515,167,172.5,153,155,637000,170.2,174.58,174.58,186.81,0.88
-20260518,153,153,139.5,144,505000,161.7,170.21,170.21,183.24,0.73
-20260519,145.5,158,142,158,501000,158.3,168.69,168.69,181.14,0.75
-20260520,163,165,148,150,437000,155.4,166.61,166.61,178.54,0.68
-20260521,151,156.5,150,150.5,205000,151.5,165,165,176.21,0.34
-20260522,155,165.5,151.5,165.5,159,153.6,165.05,165.05,175.31,0
-20260523,155,165.5,151.5,165.5,159,157.9,165.08,165.08,174.5,0
-20260524,155,165.5,151.5,165.5,159,159.4,165.12,165.12,173.75,0
-20260525,175,178.5,168,170.5,173,163.5,165.5,165.5,173.48,0
-20260526,175,178.5,168,170.5,173,167.5,165.83,165.83,173.23,0
+20260514,166.5,181,166.5,170,434000,189.7,-10.38,178.5,178.5,0.58
+20260515,167,172.5,153,155,637000,186.81,-17.03,174.58,174.58,0.88
+20260518,153,153,139.5,144,505000,183.24,-21.41,170.21,170.21,0.73
+20260519,145.5,158,142,158,501000,181.14,-12.77,168.69,168.69,0.75
+20260520,163,165,148,150,437000,178.54,-15.99,166.61,166.61,0.68
+20260521,151,156.5,150,150.5,205000,176.21,-14.59,165,165,0.34
+20260522,155,165.5,151.5,165.5,159000,175.31,-5.6,165.05,165.05,0.28
+20260525,175,178.5,168,170.5,173000,174.91,-2.52,165.5,165.5,0.33
+20260526,170,171.5,160,164,163000,174,-5.75,165.38,165.38,0.33
 ```
 
 ## Latest TDCC Snapshot

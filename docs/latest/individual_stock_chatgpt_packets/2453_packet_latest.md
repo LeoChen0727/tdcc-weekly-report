@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2453 凌群
 
 ## Metadata
-- generated_at: 2026-05-26 06:39:38 Asia/Taipei
+- generated_at: 2026-05-26 21:25:03 Asia/Taipei
 - stock_id: 2453
 - stock_name: 凌群
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 58.4
-- high: 58.4
-- low: 56.8
-- close: 57.5
-- volume: 1052339
-- ma5: 57.32
-- ma20: 55.28
-- ma60: 54.15
-- ma120: 54.07
-- ema23: 55.49
-- return_5d: 3.23
-- return_20d: 7.28
-- volume_ratio: 1.73
-- distance_to_ma20_pct: 4.02
-- distance_to_high_60_pct: -1.54
+- open: 58.2
+- high: 62.2
+- low: 58.2
+- close: 61.6
+- volume: 5423106
+- ma5: 57.34
+- ema23_primary: 55.5
+- distance_to_ema23_pct: 10.99
+- ma20: 55.15
+- ma60: 54.09
+- ma120: 54.01
+- return_5d: 13.03
+- return_20d: 15.79
+- volume_ratio: 7.47
+- distance_to_ma20_pct_auxiliary: 11.71
+- distance_to_high_60_pct: -0.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,53.8,55,53.1,53.5,357470,53.5,53.83,54.07,53.87,0.95
-20260504,54,54.5,53.6,53.7,310517,53.6,53.87,53.91,53.86,0.82
-20260505,53.7,55.5,53,55.1,613384,53.98,54.02,53.84,53.96,1.54
-20260506,56,56,54.4,54.6,418698,54.1,54.15,53.78,54.01,1.01
-20260507,55,55.2,54.5,55,288365,54.38,54.24,53.72,54.1,0.69
-20260508,55,55.5,54.2,54.6,336462,54.6,54.32,53.65,54.14,0.79
-20260511,54.6,55.2,54.3,54.8,377353,54.82,54.38,53.63,54.19,0.88
-20260512,54.9,55.1,54,54.6,268721,54.72,54.42,53.64,54.23,0.63
-20260513,54.5,54.9,53.9,53.9,396124,54.58,54.41,53.63,54.2,0.92
-20260514,54.1,55.2,54.1,54.8,384906,54.54,54.44,53.63,54.25,0.9
-20260515,55.2,55.8,54.1,54.2,712177,54.46,54.35,53.64,54.25,1.7
-20260518,54.2,55.8,54,55.3,629840,54.56,54.34,53.68,54.33,1.47
-20260519,55.7,56.1,54.4,54.5,599447,54.54,54.34,53.7,54.35,1.37
-20260520,54.9,55.2,54.5,54.7,207951,54.7,54.35,53.73,54.38,0.51
-20260521,55.5,56.2,55.1,55.7,605350,54.88,54.34,53.79,54.49,1.47
-20260522,56.2,57.2,55.9,57.2,1184374,55.48,54.51,53.86,54.71,2.71
-20260523,56.2,57.2,55.9,57.2,1184374,55.86,54.71,53.93,54.92,2.47
-20260524,56.2,57.2,55.9,57.2,1184374,56.4,54.91,54.01,55.11,2.28
-20260525,58.4,58.4,56.8,57.5,1052339,56.96,55.09,54.07,55.31,1.87
-20260526,58.4,58.4,56.8,57.5,1052339,57.32,55.28,54.15,55.49,1.73
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,53.2,54.1,53,54,220989,53.93,0.13,53.63,54.16,0.56
+20260429,54.3,54.3,53.4,53.6,125555,53.9,-0.56,53.73,54.13,0.33
+20260430,53.8,55,53.1,53.5,357470,53.87,-0.69,53.83,54.07,0.95
+20260504,54,54.5,53.6,53.7,310517,53.86,-0.29,53.87,53.91,0.82
+20260505,53.7,55.5,53,55.1,613384,53.96,2.11,54.02,53.84,1.54
+20260506,56,56,54.4,54.6,418698,54.01,1.09,54.15,53.78,1.01
+20260507,55,55.2,54.5,55,288365,54.1,1.67,54.24,53.72,0.69
+20260508,55,55.5,54.2,54.6,336462,54.14,0.85,54.32,53.65,0.79
+20260511,54.6,55.2,54.3,54.8,377353,54.19,1.12,54.38,53.63,0.88
+20260512,54.9,55.1,54,54.6,268721,54.23,0.69,54.42,53.64,0.63
+20260513,54.5,54.9,53.9,53.9,396124,54.2,-0.55,54.41,53.63,0.92
+20260514,54.1,55.2,54.1,54.8,384906,54.25,1.01,54.44,53.63,0.9
+20260515,55.2,55.8,54.1,54.2,712177,54.25,-0.08,54.35,53.64,1.7
+20260518,54.2,55.8,54,55.3,629840,54.33,1.78,54.34,53.68,1.47
+20260519,55.7,56.1,54.4,54.5,599447,54.35,0.28,54.34,53.7,1.37
+20260520,54.9,55.2,54.5,54.7,207951,54.38,0.59,54.35,53.73,0.51
+20260521,55.5,56.2,55.1,55.7,605350,54.49,2.23,54.34,53.79,1.47
+20260522,56.2,57.2,55.9,57.2,1184374,54.71,4.55,54.51,53.86,2.71
+20260525,58.4,58.4,56.8,57.5,1052339,54.95,4.65,54.73,53.94,2.22
+20260526,58.2,62.2,58.2,61.6,5423106,55.5,10.99,55.15,54.09,7.47
 ```
 
 ## Latest TDCC Snapshot
@@ -122,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2453 | 凌群 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 2453 | 凌群 | true_breakout | 嚴格突破 | 146.0 |  |  | breakout_confirmed |  |  | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2453 | 凌群 | 4 | 1 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260526 | 2453 | 凌群 | 4 | 2 | 4 | 4 | 4 | continued_many_days | 連續 4 個交易日上榜，需判斷是持續醞釀或訊號鈍化。 |
 
 ## Warrant Context
 | status |

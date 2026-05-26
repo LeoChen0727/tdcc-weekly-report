@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3013 晟銘電
 
 ## Metadata
-- generated_at: 2026-05-26 06:39:48 Asia/Taipei
+- generated_at: 2026-05-26 21:25:18 Asia/Taipei
 - stock_id: 3013
 - stock_name: 晟銘電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 113.5
-- high: 121.5
-- low: 113
-- close: 121.5
-- volume: 19744095
-- ma5: 114.9
-- ma20: 107.53
-- ma60: 104.15
-- ma120: 113.79
-- ema23: 108.71
-- return_5d: 20.9
-- return_20d: 8.48
-- volume_ratio: 3.81
-- distance_to_ma20_pct: 12.99
-- distance_to_high_60_pct: -3.57
+- open: 123
+- high: 124.5
+- low: 118.5
+- close: 124
+- volume: 13122956
+- ma5: 111
+- ema23_primary: 108.25
+- distance_to_ema23_pct: 14.55
+- ma20: 107.78
+- ma60: 104.25
+- ma120: 113.95
+- return_5d: 24.37
+- return_20d: 9.73
+- volume_ratio: 2.89
+- distance_to_ma20_pct_auxiliary: 15.04
+- distance_to_high_60_pct: -1.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,111,111,104,104.5,6974143,110.7,106.7,105.64,107.36,1.5
-20260504,105,107.5,104,106.5,2552662,109.5,107.03,105.43,107.29,0.55
-20260505,107.5,109.5,107,108.5,2900588,108.6,107.55,105.25,107.39,0.61
-20260506,111.5,111.5,105,107.5,3095720,107.8,108.05,105.05,107.4,0.64
-20260507,109,109,104,105,3151600,106.4,108.25,104.85,107.2,0.64
-20260508,105.5,108,104,107,3307219,106.9,108.5,104.73,107.18,0.67
-20260511,111.5,115,110,112,6560975,108,108.92,104.72,107.58,1.27
-20260512,113.5,114,108.5,110,2957384,108.3,109.28,104.74,107.78,0.57
-20260513,109,110,106.5,107,2231687,108.2,109.45,104.67,107.72,0.43
-20260514,108,109.5,105,105.5,2247693,108.3,109.53,104.55,107.53,0.43
-20260515,107,107.5,103,103,2271561,107.5,109.42,104.42,107.16,0.44
-20260518,101.5,102,98.2,101,2414444,105.3,108.92,104.32,106.64,0.51
-20260519,101,102.5,99.6,99.7,1494977,103.24,108.31,104.14,106.06,0.32
-20260520,99,100.5,98.3,98.5,1878577,101.54,107.73,104,105.43,0.42
-20260521,100.5,102,100.5,100.5,1855722,100.54,106.71,103.88,105.02,0.47
-20260522,101.5,110.5,101.5,110.5,6115722,102.04,106.78,103.89,105.48,1.76
-20260523,101.5,110.5,101.5,110.5,6115722,103.94,106.69,103.88,105.9,1.79
-20260524,101.5,110.5,101.5,110.5,6115722,106.1,106.56,103.84,106.28,1.74
-20260525,113.5,121.5,113,121.5,19744095,110.7,107.06,103.98,107.55,4.57
-20260526,113.5,121.5,113,121.5,19744095,114.9,107.53,104.15,108.71,3.81
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,112.5,115,111,111.5,3420241,107.22,3.99,105.92,105.97,0.69
+20260429,111,112.5,109.5,112,2474254,107.62,4.07,106.3,105.89,0.55
+20260430,111,111,104,104.5,6974143,107.36,-2.66,106.7,105.64,1.5
+20260504,105,107.5,104,106.5,2552662,107.29,-0.73,107.03,105.43,0.55
+20260505,107.5,109.5,107,108.5,2900588,107.39,1.04,107.55,105.25,0.61
+20260506,111.5,111.5,105,107.5,3095720,107.4,0.1,108.05,105.05,0.64
+20260507,109,109,104,105,3151600,107.2,-2.05,108.25,104.85,0.64
+20260508,105.5,108,104,107,3307219,107.18,-0.17,108.5,104.73,0.67
+20260511,111.5,115,110,112,6560975,107.58,4.11,108.92,104.72,1.27
+20260512,113.5,114,108.5,110,2957384,107.78,2.06,109.28,104.74,0.57
+20260513,109,110,106.5,107,2231687,107.72,-0.67,109.45,104.67,0.43
+20260514,108,109.5,105,105.5,2247693,107.53,-1.89,109.53,104.55,0.43
+20260515,107,107.5,103,103,2271561,107.16,-3.88,109.42,104.42,0.44
+20260518,101.5,102,98.2,101,2414444,106.64,-5.29,108.92,104.32,0.51
+20260519,101,102.5,99.6,99.7,1494977,106.06,-6,108.31,104.14,0.32
+20260520,99,100.5,98.3,98.5,1878577,105.43,-6.58,107.73,104,0.42
+20260521,100.5,102,100.5,100.5,1855722,105.02,-4.31,106.71,103.88,0.47
+20260522,101.5,110.5,101.5,110.5,6115722,105.48,4.76,106.78,103.89,1.76
+20260525,113.5,121.5,113,121.5,19744095,106.81,13.75,107.23,104.06,4.82
+20260526,123,124.5,118.5,124,13122956,108.25,14.55,107.78,104.25,2.89
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +125,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3013 | 晟銘電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 3013 | 晟銘電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 3013 | 晟銘電 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
@@ -133,7 +136,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260525 | 3013 | 晟銘電 | 72 | 0 | 22245480.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260526 | 3013 | 晟銘電 | 72 | 0 | 28185410.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

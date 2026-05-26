@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4157 太景*-KY
 
 ## Metadata
-- generated_at: 2026-05-26 06:40:07 Asia/Taipei
+- generated_at: 2026-05-26 21:25:44 Asia/Taipei
 - stock_id: 4157
 - stock_name: 太景*-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -55,45 +57,46 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 9.22
-- high: 9.32
-- low: 9.07
-- close: 9.22
-- volume: 9
-- ma5: 9.24
-- ma20: 9.39
-- ma60: 10.5
+- high: 9.22
+- low: 9.03
+- close: 9.03
+- volume: 9000
+- ma5: 9.15
+- ema23_primary: 9.57
+- distance_to_ema23_pct: -5.69
+- ma20: 9.46
+- ma60: 10.59
 - ma120: 11.64
-- ema23: 9.54
-- return_5d: 0.11
-- return_20d: -9.16
-- volume_ratio: 0
-- distance_to_ma20_pct: -1.79
-- distance_to_high_60_pct: -25.34
+- return_5d: -1.85
+- return_20d: -10.59
+- volume_ratio: 0.01
+- distance_to_ma20_pct_auxiliary: -4.58
+- distance_to_high_60_pct: -27.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,10.2,10.3,9.98,10,935000,10.08,10.6,11.68,10.61,0.73
-20260504,9.97,10.15,9.9,9.92,1515000,10.04,10.54,11.61,10.55,1.19
-20260505,9.93,10.15,9.93,10,797000,10.02,10.47,11.53,10.51,0.65
-20260506,10,10.05,9.68,9.68,2358000,9.95,10.39,11.44,10.44,1.81
-20260507,9.73,9.85,9.68,9.72,1041000,9.86,10.32,11.36,10.38,0.8
-20260508,9.72,9.84,9.44,9.45,1702000,9.75,10.24,11.29,10.3,1.27
-20260511,9.51,9.58,9.24,9.26,1755000,9.62,10.14,11.22,10.21,1.28
-20260512,9.27,9.4,9.15,9.23,1174000,9.47,10.07,11.15,10.13,0.95
-20260513,9.22,9.29,9.13,9.21,967000,9.37,10.01,11.09,10.05,0.79
-20260514,9.21,9.28,9.08,9.24,1911000,9.28,9.93,11.02,9.99,1.52
-20260515,9.24,9.39,9.13,9.17,875000,9.22,9.85,10.96,9.92,0.7
-20260518,9.16,9.24,8.97,9.24,776000,9.22,9.78,10.91,9.86,0.63
-20260519,9.24,9.67,9.18,9.2,1633000,9.21,9.72,10.86,9.81,1.3
-20260520,9.25,9.25,9.02,9.02,1202000,9.17,9.66,10.8,9.74,0.95
-20260521,9.07,9.28,9.04,9.21,1267000,9.17,9.6,10.75,9.7,0.99
-20260522,9.21,9.33,9.09,9.26,9,9.19,9.56,10.7,9.66,0
-20260523,9.21,9.33,9.09,9.26,9,9.19,9.52,10.65,9.63,0
-20260524,9.21,9.33,9.09,9.26,9,9.2,9.48,10.6,9.6,0
-20260525,9.22,9.32,9.07,9.22,9,9.24,9.44,10.55,9.57,0
-20260526,9.22,9.32,9.07,9.22,9,9.24,9.39,10.5,9.54,0
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,10.1,10.2,10,10.05,428000,10.71,-6.18,10.71,11.82,0.33
+20260429,10.1,10.25,10.05,10.15,576000,10.66,-4.83,10.66,11.75,0.45
+20260430,10.2,10.3,9.98,10,935000,10.61,-5.74,10.6,11.68,0.73
+20260504,9.97,10.15,9.9,9.92,1515000,10.55,-5.99,10.54,11.61,1.19
+20260505,9.93,10.15,9.93,10,797000,10.51,-4.82,10.47,11.53,0.65
+20260506,10,10.05,9.68,9.68,2358000,10.44,-7.25,10.39,11.44,1.81
+20260507,9.73,9.85,9.68,9.72,1041000,10.38,-6.33,10.32,11.36,0.8
+20260508,9.72,9.84,9.44,9.45,1702000,10.3,-8.25,10.24,11.29,1.27
+20260511,9.51,9.58,9.24,9.26,1755000,10.21,-9.33,10.14,11.22,1.28
+20260512,9.27,9.4,9.15,9.23,1174000,10.13,-8.9,10.07,11.15,0.95
+20260513,9.22,9.29,9.13,9.21,967000,10.05,-8.4,10.01,11.09,0.79
+20260514,9.21,9.28,9.08,9.24,1911000,9.99,-7.48,9.93,11.02,1.52
+20260515,9.24,9.39,9.13,9.17,875000,9.92,-7.55,9.85,10.96,0.7
+20260518,9.16,9.24,8.97,9.24,776000,9.86,-6.31,9.78,10.91,0.63
+20260519,9.24,9.67,9.18,9.2,1633000,9.81,-6.19,9.72,10.86,1.3
+20260520,9.25,9.25,9.02,9.02,1202000,9.74,-7.41,9.66,10.8,0.95
+20260521,9.07,9.28,9.04,9.21,1267000,9.7,-5.02,9.6,10.75,0.99
+20260522,9.21,9.33,9.09,9.26,9000,9.66,-4.15,9.56,10.7,0.01
+20260525,9.22,9.32,9.07,9.22,9000,9.62,-4.2,9.52,10.65,0.01
+20260526,9.22,9.22,9.03,9.03,9000,9.57,-5.69,9.46,10.59,0.01
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0052 富邦科技
 
 ## Metadata
-- generated_at: 2026-05-26 06:39:13 Asia/Taipei
+- generated_at: 2026-05-26 21:24:27 Asia/Taipei
 - stock_id: 0052
 - stock_name: 富邦科技
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 131
+- price_rows: 129
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 58.9
-- high: 59.95
-- low: 58.9
-- close: 59.6
-- volume: 46477310
-- ma5: 58.43
-- ma20: 56.52
-- ma60: 50.22
-- ma120: 46.93
-- ema23: 55.7
-- return_5d: 5.67
-- return_20d: 12.35
-- volume_ratio: 1.26
-- distance_to_ma20_pct: 5.45
-- distance_to_high_60_pct: -0.58
+- open: 60.1
+- high: 60.2
+- low: 59.25
+- close: 59.25
+- volume: 26652531
+- ma5: 57.47
+- ema23_primary: 55.24
+- distance_to_ema23_pct: 7.25
+- ma20: 56.08
+- ma60: 49.9
+- ma120: 50.11
+- return_5d: 8.12
+- return_20d: 8.02
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: 5.65
+- distance_to_high_60_pct: -1.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,53.55,53.6,52.65,52.65,47706881,53.41,49.49,46.39,49.77,0.88
-20260504,53.95,55.5,53.85,55.4,51424584,53.95,50.02,46.6,50.24,0.94
-20260505,55.35,55.55,55.05,55.4,29271912,54.06,50.6,46.81,50.67,0.54
-20260506,56.2,56.75,55.4,56.1,42282249,54.52,51.18,47.02,51.12,0.76
-20260507,57.5,57.75,57.15,57.55,40445236,55.42,51.71,47.25,51.65,0.76
-20260508,57.2,57.5,56.2,57.1,33899557,56.31,52.22,47.46,52.11,0.64
-20260511,56.75,57.1,56.5,56.95,30943205,56.62,52.67,47.69,52.51,0.61
-20260512,57.05,57.4,56.1,56.9,42873369,56.92,53.12,47.93,52.88,0.83
-20260513,55.8,56.35,55.6,56.15,33153615,56.93,53.46,48.14,53.15,0.66
-20260514,57,57.15,56.2,56.6,25099890,56.74,53.78,48.36,53.44,0.51
-20260515,57.8,58.1,55.85,55.95,50888764,56.51,54.05,48.58,53.65,1.02
-20260518,55.15,56.1,54.75,55.85,31823580,56.29,54.34,48.8,53.83,0.66
-20260519,55.4,55.75,54.75,54.8,32719343,55.87,54.62,48.98,53.91,0.7
-20260520,54.75,55,54.4,54.45,28912670,55.53,54.84,49.14,53.96,0.62
-20260521,55.8,56.6,55.75,56.4,21841577,55.49,55.15,49.31,54.16,0.48
-20260522,56.85,57.7,56.6,57.65,33005123,55.83,55.52,49.51,54.45,0.76
-20260523,56.85,57.7,56.6,57.65,33005123,56.19,55.76,49.68,54.72,0.79
-20260524,56.85,57.7,56.6,57.65,33005123,56.76,55.9,49.84,54.96,0.86
-20260525,58.9,59.95,58.9,59.6,46477310,57.79,56.19,50.02,55.35,1.25
-20260526,58.9,59.95,58.9,59.6,46477310,58.43,56.52,50.22,55.7,1.26
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,54.3,54.95,53.8,53.8,72213436,49.18,9.39,48.53,46.04,1.32
+20260429,52.9,53.55,52.55,53.05,52313591,49.5,7.16,49,46.22,0.95
+20260430,53.55,53.6,52.65,52.65,47706881,49.77,5.8,49.49,46.39,0.88
+20260504,53.95,55.5,53.85,55.4,51424584,50.24,10.28,50.02,46.6,0.94
+20260505,55.35,55.55,55.05,55.4,29271912,50.67,9.34,50.6,46.81,0.54
+20260506,56.2,56.75,55.4,56.1,42282249,51.12,9.75,51.18,47.02,0.76
+20260507,57.5,57.75,57.15,57.55,40445236,51.65,11.41,51.71,47.25,0.76
+20260508,57.2,57.5,56.2,57.1,33899557,52.11,9.58,52.22,47.46,0.64
+20260511,56.75,57.1,56.5,56.95,30943205,52.51,8.45,52.67,47.69,0.61
+20260512,57.05,57.4,56.1,56.9,42873369,52.88,7.61,53.12,47.93,0.83
+20260513,55.8,56.35,55.6,56.15,33153615,53.15,5.64,53.46,48.14,0.66
+20260514,57,57.15,56.2,56.6,25099890,53.44,5.92,53.78,48.36,0.51
+20260515,57.8,58.1,55.85,55.95,50888764,53.65,4.29,54.05,48.58,1.02
+20260518,55.15,56.1,54.75,55.85,31823580,53.83,3.75,54.34,48.8,0.66
+20260519,55.4,55.75,54.75,54.8,32719343,53.91,1.65,54.62,48.98,0.7
+20260520,54.75,55,54.4,54.45,28912670,53.96,0.92,54.84,49.14,0.62
+20260521,55.8,56.6,55.75,56.4,21841577,54.16,4.14,55.15,49.31,0.48
+20260522,56.85,57.7,56.6,57.65,33005123,54.45,5.88,55.52,49.51,0.76
+20260525,58.9,59.95,58.9,59.6,46477310,54.88,8.6,55.86,49.72,1.1
+20260526,60.1,60.2,59.25,59.25,26652531,55.24,7.25,56.08,49.9,0.69
 ```
 
 ## Latest TDCC Snapshot
@@ -117,9 +120,9 @@ no_rows,True
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 0052 | 富邦科技 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -129,7 +132,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260525 | 0052 | 富邦科技 | 17 | 5 | 1650460.0 | 380.0 | 4343.32 | call_inflow | 1 |  |
+| 20260526 | 0052 | 富邦科技 | 17 | 5 | 3827720.0 | 549550.0 | 6.97 | call_put_bullish | 3 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

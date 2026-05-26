@@ -1,13 +1,9 @@
-# PRICE_WINDOW_5
+# PRICE_WINDOW_3
 
-columns=date,open,high,low,close,volume,ma5,ma20,ma60,ma120,ema23,return_1d,return_5d,return_20d,volume_ratio,distance_to_ma20_pct,distance_to_high_60_pct
+columns=date,open,high,low,close,volume,ma5,ema23,ma20,ma60,ma120,return_1d,return_5d,return_20d,volume_ratio,distance_to_ema23_pct,distance_to_ma20_pct,distance_to_high_60_pct
 
-PRICE_WINDOW_180_ROW_001=20260522,85.5,85.75,85.25,85.75,178219,,,,,,,,,,,
+PRICE_WINDOW_180_ROW_001=20260522,85.5,85.75,85.25,85.75,178219,,,,,,,,,,,,
 
-PRICE_WINDOW_180_ROW_002=20260523,85.5,85.75,85.25,85.75,178219,,,,,,0.0,,,,,
+PRICE_WINDOW_180_ROW_002=20260525,87.3,88.65,87.3,88.5,838303,,,,,,3.207,,,,,,
 
-PRICE_WINDOW_180_ROW_003=20260524,85.5,85.75,85.25,85.75,178219,,,,,,0.0,,,,,
-
-PRICE_WINDOW_180_ROW_004=20260525,87.3,88.65,87.3,88.5,838303,,,,,,3.207,,,,,
-
-PRICE_WINDOW_180_ROW_005=20260526,87.3,88.65,87.3,88.5,838303,86.85,86.85,86.85,86.85,86.1892,0.0,,,1.8955,1.8998,-0.1692
+PRICE_WINDOW_180_ROW_003=20260526,89.5,89.5,88.3,88.55,125735,,,,,,0.0565,,,,,,

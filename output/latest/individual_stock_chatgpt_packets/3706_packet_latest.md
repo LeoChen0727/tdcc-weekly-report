@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3706 神達
 
 ## Metadata
-- generated_at: 2026-05-26 06:40:04 Asia/Taipei
+- generated_at: 2026-05-26 21:25:41 Asia/Taipei
 - stock_id: 3706
 - stock_name: 神達
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 89.3
-- high: 89.3
-- low: 87.2
-- close: 88.5
-- volume: 30434560
-- ma5: 88.08
-- ma20: 84.53
-- ma60: 81.98
-- ma120: 83.24
-- ema23: 84.47
-- return_5d: 5.99
-- return_20d: 8.99
-- volume_ratio: 1.47
-- distance_to_ma20_pct: 4.69
-- distance_to_high_60_pct: -0.9
+- open: 89.1
+- high: 89.7
+- low: 86.4
+- close: 87.4
+- volume: 19983885
+- ma5: 85.5
+- ema23_primary: 83.72
+- distance_to_ema23_pct: 4.39
+- ma20: 83.86
+- ma60: 81.69
+- ma120: 83.22
+- return_5d: 8.3
+- return_20d: 7.5
+- volume_ratio: 1.17
+- distance_to_ma20_pct_auxiliary: 4.22
+- distance_to_high_60_pct: -2.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,81.4,82.7,80.9,81.4,6368901,81.56,81.25,80.33,81.53,0.59
-20260504,82.2,83,81.5,82.9,6720160,81.76,81.57,80.33,81.65,0.62
-20260505,83,85.2,82.5,84.1,16895411,82.32,82.04,80.35,81.85,1.49
-20260506,85.3,88.3,83.6,87.8,36666496,83.48,82.69,80.46,82.35,2.84
-20260507,88.4,88.7,86.8,87.4,27974163,84.72,83.09,80.56,82.77,2.06
-20260508,87.2,88.4,85.2,86.2,16332332,85.68,83.49,80.66,83.05,1.16
-20260511,86.9,89.2,85.7,86.8,21367106,86.46,83.68,80.79,83.37,1.55
-20260512,87,87.5,84.7,85.9,12996258,86.82,83.86,80.94,83.58,0.93
-20260513,83.4,83.4,80.9,82.1,29666339,85.68,83.84,81,83.45,2
-20260514,82.4,82.5,81.2,81.2,12014167,84.44,83.8,81.04,83.27,0.81
-20260515,81.8,82.5,79.5,79.9,14866755,83.18,83.66,81.08,82.99,0.99
-20260518,79.3,80.3,77.8,80.1,8216802,81.84,83.45,81.16,82.74,0.56
-20260519,80.1,81,79.6,80.7,8211781,80.8,83.28,81.22,82.57,0.57
-20260520,80.7,80.8,79.9,80.3,7923561,80.44,83.05,81.24,82.38,0.56
-20260521,81.5,83.6,81,83.5,15896258,80.9,82.96,81.33,82.48,1.11
-20260522,84.3,88.4,83.6,87.8,37196613,82.48,83.22,81.46,82.92,2.43
-20260523,84.3,88.4,83.6,87.8,37196613,84.02,83.52,81.58,83.33,2.21
-20260524,84.3,88.4,83.6,87.8,37196613,85.44,83.84,81.68,83.7,2.04
-20260525,89.3,89.3,87.2,88.5,30434560,87.08,84.17,81.83,84.1,1.56
-20260526,89.3,89.3,87.2,88.5,30434560,88.08,84.53,81.98,84.47,1.47
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,81.6,82.5,80.8,82,5924552,81.57,0.52,80.66,80.4,0.53
+20260429,82,82.1,80.9,81.2,5336155,81.54,-0.42,80.86,80.38,0.48
+20260430,81.4,82.7,80.9,81.4,6368901,81.53,-0.16,81.25,80.33,0.59
+20260504,82.2,83,81.5,82.9,6720160,81.65,1.54,81.57,80.33,0.62
+20260505,83,85.2,82.5,84.1,16895411,81.85,2.75,82.04,80.35,1.49
+20260506,85.3,88.3,83.6,87.8,36666496,82.35,6.62,82.69,80.46,2.84
+20260507,88.4,88.7,86.8,87.4,27974163,82.77,5.6,83.09,80.56,2.06
+20260508,87.2,88.4,85.2,86.2,16332332,83.05,3.79,83.49,80.66,1.16
+20260511,86.9,89.2,85.7,86.8,21367106,83.37,4.12,83.68,80.79,1.55
+20260512,87,87.5,84.7,85.9,12996258,83.58,2.78,83.86,80.94,0.93
+20260513,83.4,83.4,80.9,82.1,29666339,83.45,-1.62,83.84,81,2
+20260514,82.4,82.5,81.2,81.2,12014167,83.27,-2.48,83.8,81.04,0.81
+20260515,81.8,82.5,79.5,79.9,14866755,82.99,-3.72,83.66,81.08,0.99
+20260518,79.3,80.3,77.8,80.1,8216802,82.74,-3.2,83.45,81.16,0.56
+20260519,80.1,81,79.6,80.7,8211781,82.57,-2.27,83.28,81.22,0.57
+20260520,80.7,80.8,79.9,80.3,7923561,82.38,-2.53,83.05,81.24,0.56
+20260521,81.5,83.6,81,83.5,15896258,82.48,1.24,82.96,81.33,1.11
+20260522,84.3,88.4,83.6,87.8,37196613,82.92,5.88,83.22,81.46,2.43
+20260525,89.3,89.3,87.2,88.5,30434560,83.39,6.13,83.56,81.59,1.85
+20260526,89.1,89.7,86.4,87.4,19983885,83.72,4.39,83.86,81.69,1.17
 ```
 
 ## Latest TDCC Snapshot
@@ -122,8 +125,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3706 | 神達 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260521 | 3706 | 神達 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 3706 | 神達 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 3706 | 神達 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260521 | 3706 | 神達 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -133,7 +137,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260525 | 3706 | 神達 | 116 | 5 | 13931390.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260526 | 3706 | 神達 | 115 | 5 | 7688660.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

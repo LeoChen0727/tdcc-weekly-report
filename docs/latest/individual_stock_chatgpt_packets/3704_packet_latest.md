@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3704 合勤控
 
 ## Metadata
-- generated_at: 2026-05-26 06:40:04 Asia/Taipei
+- generated_at: 2026-05-26 21:25:41 Asia/Taipei
 - stock_id: 3704
 - stock_name: 合勤控
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 44.15
-- high: 44.45
-- low: 42.6
-- close: 43.5
-- volume: 8744814
-- ma5: 43.8
-- ma20: 38.49
-- ma60: 35.47
-- ma120: 34.98
-- ema23: 39.23
-- return_5d: 5.07
-- return_20d: 28.7
-- volume_ratio: 1.43
-- distance_to_ma20_pct: 13.02
-- distance_to_high_60_pct: -2.14
+- open: 43.9
+- high: 46.65
+- low: 43.2
+- close: 45.25
+- volume: 9352287
+- ma5: 42.57
+- ema23_primary: 38.48
+- distance_to_ema23_pct: 17.58
+- ma20: 37.6
+- ma60: 35.18
+- ma120: 34.82
+- return_5d: 18.77
+- return_20d: 31.54
+- volume_ratio: 1.88
+- distance_to_ma20_pct_auxiliary: 20.35
+- distance_to_high_60_pct: -3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,33.85,35.45,33.8,34.95,2802060,34.45,35.32,34.49,35.06,0.86
-20260504,35.4,36.3,34.5,34.7,2580506,34.5,35.4,34.42,35.03,0.79
-20260505,34.35,35,33.2,35,4330035,34.62,35.53,34.35,35.02,1.27
-20260506,35.2,35.6,34.35,35.1,2765983,34.71,35.66,34.29,35.03,0.79
-20260507,35.15,36.4,35.1,35.4,3005895,35.03,35.71,34.25,35.06,0.88
-20260508,35.9,36.35,35,35.3,2171276,35.1,35.76,34.2,35.08,0.64
-20260511,35.3,35.85,34.75,35.05,1674303,35.17,35.84,34.18,35.08,0.5
-20260512,35.85,37.45,35.8,37.05,5392202,35.58,35.85,34.19,35.24,1.67
-20260513,36.4,36.6,35.2,36.55,2742740,35.87,35.88,34.19,35.35,0.86
-20260514,37.4,38.25,36.7,36.7,4602941,36.13,35.88,34.19,35.46,1.43
-20260515,37.2,39.2,36.9,38.2,8711452,36.71,35.94,34.25,35.69,2.5
-20260518,38.4,38.6,37.5,38.6,3309709,37.42,36,34.34,35.93,0.97
-20260519,38.4,39.4,38,38.1,3769299,37.63,36,34.41,36.11,1.14
-20260520,38.35,39.15,38.1,38.7,3676853,38.06,36.04,34.51,36.33,1.1
-20260521,39.25,41.8,39.2,41.4,12325428,39,36.19,34.65,36.75,3.23
-20260522,41.45,44.4,39.7,44,13709228,40.16,36.6,34.82,37.36,3.2
-20260523,41.45,44.4,39.7,44,13709228,41.24,37.08,35,37.91,2.83
-20260524,41.45,44.4,39.7,44,13709228,42.42,37.56,35.16,38.42,2.52
-20260525,44.15,44.45,42.6,43.5,8744814,43.38,38.01,35.32,38.84,1.52
-20260526,44.15,44.45,42.6,43.5,8744814,43.8,38.49,35.47,39.23,1.43
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,34.45,35.1,33.35,34.65,2198522,35.18,-1.51,35.17,34.64,0.6
+20260429,34.7,34.7,33.75,33.8,1474453,35.07,-3.61,35.21,34.55,0.44
+20260430,33.85,35.45,33.8,34.95,2802060,35.06,-0.3,35.32,34.49,0.86
+20260504,35.4,36.3,34.5,34.7,2580506,35.03,-0.93,35.4,34.42,0.79
+20260505,34.35,35,33.2,35,4330035,35.02,-0.07,35.53,34.35,1.27
+20260506,35.2,35.6,34.35,35.1,2765983,35.03,0.2,35.66,34.29,0.79
+20260507,35.15,36.4,35.1,35.4,3005895,35.06,0.97,35.71,34.25,0.88
+20260508,35.9,36.35,35,35.3,2171276,35.08,0.62,35.76,34.2,0.64
+20260511,35.3,35.85,34.75,35.05,1674303,35.08,-0.08,35.84,34.18,0.5
+20260512,35.85,37.45,35.8,37.05,5392202,35.24,5.13,35.85,34.19,1.67
+20260513,36.4,36.6,35.2,36.55,2742740,35.35,3.39,35.88,34.19,0.86
+20260514,37.4,38.25,36.7,36.7,4602941,35.46,3.49,35.88,34.19,1.43
+20260515,37.2,39.2,36.9,38.2,8711452,35.69,7.03,35.94,34.25,2.5
+20260518,38.4,38.6,37.5,38.6,3309709,35.93,7.42,36,34.34,0.97
+20260519,38.4,39.4,38,38.1,3769299,36.11,5.5,36,34.41,1.14
+20260520,38.35,39.15,38.1,38.7,3676853,36.33,6.52,36.04,34.51,1.1
+20260521,39.25,41.8,39.2,41.4,12325428,36.75,12.64,36.19,34.65,3.23
+20260522,41.45,44.4,39.7,44,13709228,37.36,17.78,36.6,34.82,3.2
+20260525,44.15,44.45,42.6,43.5,8744814,37.87,14.87,37.06,34.99,1.91
+20260526,43.9,46.65,43.2,45.25,9352287,38.48,17.58,37.6,35.18,1.88
 ```
 
 ## Latest TDCC Snapshot
@@ -122,12 +125,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 3704 | 合勤控 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 3704 | 合勤控 | true_breakout | 嚴格突破 | 92.0 |  |  | platform_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 3704 | 合勤控 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3704 | 合勤控 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260526 | 3704 | 合勤控 | 4 | 4 | 4 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | status |

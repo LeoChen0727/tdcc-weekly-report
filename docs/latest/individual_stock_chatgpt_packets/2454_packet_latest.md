@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2454 聯發科
 
 ## Metadata
-- generated_at: 2026-05-26 06:39:38 Asia/Taipei
+- generated_at: 2026-05-26 21:25:03 Asia/Taipei
 - stock_id: 2454
 - stock_name: 聯發科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 4245
-- high: 4245
-- low: 4245
-- close: 4245
-- volume: 4616291
-- ma5: 4014
-- ma20: 3513
-- ma60: 2370.08
-- ma120: 1957.29
-- ema23: 3370.04
-- return_5d: 19.58
-- return_20d: 64.85
-- volume_ratio: 0.39
-- distance_to_ma20_pct: 20.84
-- distance_to_high_60_pct: 0
+- open: 4375
+- high: 4440
+- low: 4180
+- close: 4265
+- volume: 19540872
+- ma5: 3830
+- ema23_primary: 3266.89
+- distance_to_ema23_pct: 30.55
+- ma20: 3387.5
+- ma60: 2305.83
+- ma120: 1912.25
+- return_5d: 35.18
+- return_20d: 75.15
+- volume_ratio: 1.58
+- distance_to_ma20_pct_auxiliary: 25.9
+- distance_to_high_60_pct: -3.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,2665,2685,2565,2610,17532158,2534,1962.5,1811.58,2069.18,1.08
-20260504,2870,2870,2870,2870,4019865,2621,2032.75,1832.25,2135.92,0.25
-20260505,3155,3155,3155,3155,10091886,2765,2117.25,1855.33,2220.84,0.63
-20260506,3470,3470,3155,3430,39638460,2928,2215.25,1882.92,2321.6,2.26
-20260507,3430,3430,3295,3420,8465341,3097,2307.25,1910.25,2413.14,0.49
-20260508,3320,3670,3320,3630,9525653,3301,2410,1941.08,2514.54,0.55
-20260511,3575,3985,3565,3880,8690923,3503,2525.25,1976.42,2628.33,0.5
-20260512,3835,3910,3700,3700,11090404,3612,2629.25,2009.67,2717.64,0.63
-20260513,3625,3680,3400,3495,9694046,3625,2718,2038,2782.42,0.56
-20260514,3585,3590,3385,3405,7103890,3622,2798.75,2064.75,2834.3,0.43
-20260515,3425,3555,3200,3260,7341025,3548,2867,2089.58,2869.77,0.46
-20260518,3240,3550,3150,3400,7040537,3452,2940.75,2117.75,2913.96,0.45
-20260519,3475,3495,3100,3155,10055471,3343,3003.5,2139.83,2934.05,0.65
-20260520,3195,3350,3155,3230,9296108,3290,3060.5,2162.92,2958.71,0.62
-20260521,3415,3550,3405,3550,5983092,3319,3123.25,2191.17,3007.98,0.43
-20260522,3765,3880,3675,3860,20839466,3439,3205.5,2225.58,3078.98,1.53
-20260523,3765,3880,3675,3860,20839466,3531,3276.75,2259.5,3144.07,1.54
-20260524,3765,3880,3675,3860,20839466,3672,3348,2292.67,3203.73,1.57
-20260525,4245,4245,4245,4245,4616291,3875,3429.5,2331,3290.5,0.38
-20260526,4245,4245,4245,4245,4616291,4014,3513,2370.08,3370.04,0.39
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,2490,2675,2485,2615,24314216,1969.57,32.77,1853.25,1774.33,1.54
+20260429,2550,2595,2500,2575,13156720,2020.02,27.47,1906.5,1792.83,0.82
+20260430,2665,2685,2565,2610,17532158,2069.18,26.14,1962.5,1811.58,1.08
+20260504,2870,2870,2870,2870,4019865,2135.92,34.37,2032.75,1832.25,0.25
+20260505,3155,3155,3155,3155,10091886,2220.84,42.06,2117.25,1855.33,0.63
+20260506,3470,3470,3155,3430,39638460,2321.6,47.74,2215.25,1882.92,2.26
+20260507,3430,3430,3295,3420,8465341,2413.14,41.72,2307.25,1910.25,0.49
+20260508,3320,3670,3320,3630,9525653,2514.54,44.36,2410,1941.08,0.55
+20260511,3575,3985,3565,3880,8690923,2628.33,47.62,2525.25,1976.42,0.5
+20260512,3835,3910,3700,3700,11090404,2717.64,36.15,2629.25,2009.67,0.63
+20260513,3625,3680,3400,3495,9694046,2782.42,25.61,2718,2038,0.56
+20260514,3585,3590,3385,3405,7103890,2834.3,20.14,2798.75,2064.75,0.43
+20260515,3425,3555,3200,3260,7341025,2869.77,13.6,2867,2089.58,0.46
+20260518,3240,3550,3150,3400,7040537,2913.96,16.68,2940.75,2117.75,0.45
+20260519,3475,3495,3100,3155,10055471,2934.05,7.53,3003.5,2139.83,0.65
+20260520,3195,3350,3155,3230,9296108,2958.71,9.17,3060.5,2162.92,0.62
+20260521,3415,3550,3405,3550,5983092,3007.98,18.02,3123.25,2191.17,0.43
+20260522,3765,3880,3675,3860,20839466,3078.98,25.37,3205.5,2225.58,1.53
+20260525,4245,4245,4245,4245,4616291,3176.15,33.65,3296,2265.92,0.36
+20260526,4375,4440,4180,4265,19540872,3266.89,30.55,3387.5,2305.83,1.58
 ```
 
 ## Latest TDCC Snapshot
@@ -120,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 2454 | 聯發科 | true_breakout | 嚴格突破 | 66.0 |  |  | neckline_challenge |  | mixed_flow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2454 | 聯發科 | 4 | 1 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260526 | 2454 | 聯發科 | 4 | 2 | 4 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260525 | 2454 | 聯發科 | 511 | 48 | 55238440.0 | 682840.0 | 80.9 | no_signal | 0 |  |
+| 20260526 | 2454 | 聯發科 | 507 | 48 | 224475400.0 | 2350090.0 | 95.52 | mixed_flow | 0 | 認購權證成交金額很大且認購/認售比偏高，需檢查標的是否高位追價或獲利結清 |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

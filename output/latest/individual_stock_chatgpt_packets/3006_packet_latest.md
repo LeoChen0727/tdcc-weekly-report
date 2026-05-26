@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3006 晶豪科
 
 ## Metadata
-- generated_at: 2026-05-26 06:39:48 Asia/Taipei
+- generated_at: 2026-05-26 21:25:17 Asia/Taipei
 - stock_id: 3006
 - stock_name: 晶豪科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 237.5
-- high: 237.5
-- low: 221
-- close: 229
-- volume: 29848298
-- ma5: 234.1
-- ma20: 218.68
-- ma60: 182.38
-- ma120: 153.89
-- ema23: 215.25
-- return_5d: 3.15
-- return_20d: 30.86
-- volume_ratio: 0.96
-- distance_to_ma20_pct: 4.72
-- distance_to_high_60_pct: -12.26
+- open: 231
+- high: 240
+- low: 226
+- close: 231.5
+- volume: 23104160
+- ma5: 228.5
+- ema23_primary: 211.48
+- distance_to_ema23_pct: 9.47
+- ma20: 213.03
+- ma60: 179.94
+- ma120: 151.29
+- return_5d: -1.91
+- return_20d: 37.8
+- volume_ratio: 0.73
+- distance_to_ma20_pct_auxiliary: 8.67
+- distance_to_high_60_pct: -11.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,179.5,186,168.5,169.5,26728218,170.3,160.38,164.31,164.22,1.47
-20260504,176,177.5,166.5,173,25858318,174,161.2,164.82,164.95,1.34
-20260505,174,185,172.5,182,25013864,176.8,162.78,165.26,166.37,1.22
-20260506,200,200,193,200,33684152,179.9,164.93,166.07,169.17,1.59
-20260507,205,210,192,196.5,49732248,184.2,166.72,166.58,171.45,2.23
-20260508,196.5,215,194.5,202,43461379,190.7,169.07,166.99,174,1.82
-20260511,214,222,211.5,222,26736471,200.5,172.38,167.44,178,1.1
-20260512,227,227.5,210,220,40934048,208.1,175.4,168.06,181.5,1.59
-20260513,217.5,221,211.5,216.5,13974959,211.4,178.2,168.86,184.41,0.55
-20260514,230,238,229.5,238,20445860,219.7,182.3,169.94,188.88,0.79
-20260515,238,261,233.5,251,42081863,229.5,187,171.3,194.06,1.52
-20260518,243,252.5,228.5,252,24726848,235.5,191.95,172.83,198.88,0.87
-20260519,261,261,233,236,36306388,238.7,196.22,174.07,201.98,1.23
-20260520,236.5,241,216,222.5,32929977,239.9,199.3,175.19,203.69,1.09
-20260521,232,237,219,222,27899797,236.7,202.03,176.32,205.21,0.91
-20260522,225,244,224,237.5,29748415,234,206.12,177.7,207.9,0.97
-20260523,225,244,224,237.5,29748415,231.1,210.28,178.88,210.37,0.94
-20260524,225,244,224,237.5,29748415,231.4,213.75,180.18,212.63,0.93
-20260525,237.5,237.5,221,229,29848298,232.7,215.97,181.39,214,0.95
-20260526,237.5,237.5,221,229,29848298,234.1,218.68,182.38,215.25,0.96
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,166,184.5,166,184.5,37876439,162.71,13.39,158.97,163.31,2.45
+20260429,181.5,187.5,175,175,38806360,163.74,6.88,159.4,163.94,2.26
+20260430,179.5,186,168.5,169.5,26728218,164.22,3.22,160.38,164.31,1.47
+20260504,176,177.5,166.5,173,25858318,164.95,4.88,161.2,164.82,1.34
+20260505,174,185,172.5,182,25013864,166.37,9.39,162.78,165.26,1.22
+20260506,200,200,193,200,33684152,169.17,18.22,164.93,166.07,1.59
+20260507,205,210,192,196.5,49732248,171.45,14.61,166.72,166.58,2.23
+20260508,196.5,215,194.5,202,43461379,174,16.09,169.07,166.99,1.82
+20260511,214,222,211.5,222,26736471,178,24.72,172.38,167.44,1.1
+20260512,227,227.5,210,220,40934048,181.5,21.21,175.4,168.06,1.59
+20260513,217.5,221,211.5,216.5,13974959,184.41,17.4,178.2,168.86,0.55
+20260514,230,238,229.5,238,20445860,188.88,26.01,182.3,169.94,0.79
+20260515,238,261,233.5,251,42081863,194.06,29.34,187,171.3,1.52
+20260518,243,252.5,228.5,252,24726848,198.88,26.71,191.95,172.83,0.87
+20260519,261,261,233,236,36306388,201.98,16.84,196.22,174.07,1.23
+20260520,236.5,241,216,222.5,32929977,203.69,9.24,199.3,175.19,1.09
+20260521,232,237,219,222,27899797,205.21,8.18,202.03,176.32,0.91
+20260522,225,244,224,237.5,29748415,207.9,14.24,206.12,177.7,0.97
+20260525,237.5,237.5,221,229,29848298,209.66,9.22,209.85,178.73,0.95
+20260526,231,240,226,231.5,23104160,211.48,9.47,213.03,179.94,0.73
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +125,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3006 | 晶豪科 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 3006 | 晶豪科 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 3006 | 晶豪科 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -132,7 +136,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260525 | 3006 | 晶豪科 | 126 | 15 | 34566960.0 | 975250.0 | 35.44 | no_signal | 0 |  |
+| 20260526 | 3006 | 晶豪科 | 125 | 15 | 43625890.0 | 560190.0 | 77.88 | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

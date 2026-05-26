@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4938 和碩
 
 ## Metadata
-- generated_at: 2026-05-26 06:40:15 Asia/Taipei
+- generated_at: 2026-05-26 21:25:56 Asia/Taipei
 - stock_id: 4938
 - stock_name: 和碩
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 81.7
-- high: 82.7
-- low: 81.1
-- close: 81.2
-- volume: 18210538
-- ma5: 80.9
-- ma20: 80.57
-- ma60: 78.8
-- ma120: 74.55
-- ema23: 80.29
-- return_5d: 2.65
-- return_20d: -0.98
-- volume_ratio: 1.37
-- distance_to_ma20_pct: 0.78
-- distance_to_high_60_pct: -5.58
+- open: 81.8
+- high: 82.5
+- low: 80.7
+- close: 81.4
+- volume: 8234361
+- ma5: 79.92
+- ema23_primary: 80.21
+- distance_to_ema23_pct: 1.48
+- ma20: 80.75
+- ma60: 78.53
+- ma120: 74.38
+- return_5d: 5.85
+- return_20d: -2.05
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: 0.81
+- distance_to_high_60_pct: -5.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,81.5,83.3,81.5,82.3,7456670,82.88,81.13,75.69,80.85,0.62
-20260504,83.4,83.4,81.2,81.3,11709483,82.28,81.28,75.88,80.88,0.95
-20260505,81.5,81.7,80.9,81.5,8402325,81.96,81.46,76.06,80.94,0.68
-20260506,82.3,83.6,81.7,83.6,11744739,82.14,81.75,76.28,81.16,0.92
-20260507,83.8,84.7,83.3,84.3,10411342,82.6,81.98,76.5,81.42,0.81
-20260508,84.5,85.3,83.9,84.4,10969204,83.02,82.2,76.74,81.67,0.85
-20260511,84.4,84.4,82.6,83.4,10027621,83.44,82.33,76.97,81.81,0.77
-20260512,83.6,83.8,81.1,81.1,12329100,83.36,82.49,77.16,81.75,0.97
-20260513,80.8,82.4,80.2,81.8,12307315,83,82.66,77.37,81.76,0.96
-20260514,81,81,75.8,77,36439159,81.54,82.56,77.49,81.36,2.58
-20260515,77.2,78.5,76.4,76.5,15549468,79.96,82.39,77.61,80.96,1.09
-20260518,77,77.5,75.8,76.5,10111329,78.58,82.06,77.71,80.58,0.75
-20260519,77.2,78,76.8,76.9,8017022,77.74,81.77,77.83,80.28,0.61
-20260520,76.9,77.7,76.6,77.2,10080428,76.82,81.43,77.93,80.02,0.78
-20260521,78,79.5,77.7,79.1,12044909,77.24,81.15,78.08,79.94,0.96
-20260522,79.1,81.1,79.1,80.7,14071678,78.08,80.98,78.24,80.01,1.17
-20260523,79.1,81.1,79.1,80.7,14071678,78.92,80.81,78.39,80.06,1.17
-20260524,79.1,81.1,79.1,80.7,14071678,79.68,80.69,78.51,80.12,1.15
-20260525,81.7,82.7,81.1,81.2,18210538,80.48,80.61,78.64,80.21,1.42
-20260526,81.7,82.7,81.1,81.2,18210538,80.9,80.57,78.8,80.29,1.37
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,83.3,83.3,82.2,82.7,6495707,80.6,2.61,80.66,75.25,0.52
+20260429,83,83,81.5,82,8333263,80.71,1.59,80.83,75.48,0.67
+20260430,81.5,83.3,81.5,82.3,7456670,80.85,1.8,81.13,75.69,0.62
+20260504,83.4,83.4,81.2,81.3,11709483,80.88,0.51,81.28,75.88,0.95
+20260505,81.5,81.7,80.9,81.5,8402325,80.94,0.7,81.46,76.06,0.68
+20260506,82.3,83.6,81.7,83.6,11744739,81.16,3.01,81.75,76.28,0.92
+20260507,83.8,84.7,83.3,84.3,10411342,81.42,3.54,81.98,76.5,0.81
+20260508,84.5,85.3,83.9,84.4,10969204,81.67,3.35,82.2,76.74,0.85
+20260511,84.4,84.4,82.6,83.4,10027621,81.81,1.94,82.33,76.97,0.77
+20260512,83.6,83.8,81.1,81.1,12329100,81.75,-0.8,82.49,77.16,0.97
+20260513,80.8,82.4,80.2,81.8,12307315,81.76,0.05,82.66,77.37,0.96
+20260514,81,81,75.8,77,36439159,81.36,-5.36,82.56,77.49,2.58
+20260515,77.2,78.5,76.4,76.5,15549468,80.96,-5.5,82.39,77.61,1.09
+20260518,77,77.5,75.8,76.5,10111329,80.58,-5.07,82.06,77.71,0.75
+20260519,77.2,78,76.8,76.9,8017022,80.28,-4.21,81.77,77.83,0.61
+20260520,76.9,77.7,76.6,77.2,10080428,80.02,-3.52,81.43,77.93,0.78
+20260521,78,79.5,77.7,79.1,12044909,79.94,-1.06,81.15,78.08,0.96
+20260522,79.1,81.1,79.1,80.7,14071678,80.01,0.87,80.98,78.24,1.17
+20260525,81.7,82.7,81.1,81.2,18210538,80.11,1.37,80.83,78.39,1.48
+20260526,81.8,82.5,80.7,81.4,8234361,80.21,1.48,80.75,78.53,0.68
 ```
 
 ## Latest TDCC Snapshot
@@ -122,6 +125,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 4938 | 和碩 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 4938 | 和碩 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
@@ -132,7 +136,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260525 | 4938 | 和碩 | 18 | 0 | 8655930.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260526 | 4938 | 和碩 | 19 | 0 | 6716330.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

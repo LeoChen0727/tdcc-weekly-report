@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 006205 富邦上証
 
 ## Metadata
-- generated_at: 2026-05-26 06:39:13 Asia/Taipei
+- generated_at: 2026-05-26 21:24:27 Asia/Taipei
 - stock_id: 006205
 - stock_name: 富邦上証
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260526
-- price_rows: 5
+- price_rows: 3
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,31 +56,30 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 40.67
-- high: 41.26
-- low: 40.67
-- close: 41.06
-- volume: 717648
-- ma5: 40.86
-- ma20: 40.86
-- ma60: 40.86
-- ma120: 40.86
-- ema23: 40.77
+- open: 41.23
+- high: 41.47
+- low: 41.06
+- close: 41.24
+- volume: 630961
+- ma5: 
+- ema23_primary: 
+- distance_to_ema23_pct: 
+- ma20: 
+- ma60: 
+- ma120: 
 - return_5d: 
 - return_20d: 
-- volume_ratio: 0.77
-- distance_to_ma20_pct: 0.5
-- distance_to_high_60_pct: -0.48
+- volume_ratio: 
+- distance_to_ma20_pct_auxiliary: 
+- distance_to_high_60_pct: 
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260522,41,41,40.59,40.72,1071464,,,,,
-20260523,41,41,40.59,40.72,1071464,,,,,
-20260524,41,41,40.59,40.72,1071464,,,,,
 20260525,40.67,41.26,40.67,41.06,717648,,,,,
-20260526,40.67,41.26,40.67,41.06,717648,40.86,40.86,40.86,40.77,0.77
+20260526,41.23,41.47,41.06,41.24,630961,,,,,
 ```
 
 ## Latest TDCC Snapshot
@@ -104,7 +105,7 @@ no_rows,True
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6205 | 詮欣 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 6205 | 詮欣 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

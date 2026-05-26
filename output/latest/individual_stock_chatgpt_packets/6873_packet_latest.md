@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6873 泓德能源
 
 ## Metadata
-- generated_at: 2026-05-26 06:40:46 Asia/Taipei
+- generated_at: 2026-05-26 21:26:39 Asia/Taipei
 - stock_id: 6873
 - stock_name: 泓德能源
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 88.7
-- high: 89.5
-- low: 87.1
-- close: 87.7
-- volume: 464203
-- ma5: 87.52
-- ma20: 88.38
-- ma60: 90.82
-- ma120: 98.64
-- ema23: 87.95
-- return_5d: -0.34
-- return_20d: -0.11
-- volume_ratio: 0.76
-- distance_to_ma20_pct: -0.76
-- distance_to_high_60_pct: -21.35
+- open: 89
+- high: 92.6
+- low: 89
+- close: 89.7
+- volume: 747423
+- ma5: 87.54
+- ema23_primary: 88.21
+- distance_to_ema23_pct: 1.69
+- ma20: 88.45
+- ma60: 91.54
+- ma120: 98.74
+- return_5d: 8.46
+- return_20d: 4.79
+- volume_ratio: 1.21
+- distance_to_ma20_pct_auxiliary: 1.41
+- distance_to_high_60_pct: -19.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,88,89.3,86.9,89.2,316605,87.28,87.27,99.15,89.24,0.46
-20260504,89.1,91.8,89,91.1,619759,88.06,87.61,98.68,89.39,0.9
-20260505,91.2,91.8,88.7,90.6,491513,89.06,88.02,98.19,89.49,0.73
-20260506,90,90.9,88.9,89.1,520056,89.56,88.28,97.74,89.46,0.78
-20260507,89.1,94,87.3,93.8,1006323,90.76,88.55,97.35,89.82,1.52
-20260508,95,95,91.9,91.9,487412,91.3,88.75,96.98,90,0.75
-20260511,93.1,94.5,91,94.1,557081,91.9,89.19,96.59,90.34,0.88
-20260512,91.5,91.5,87.6,90.1,1067526,91.8,89.47,96.11,90.32,1.65
-20260513,89.8,90.9,87.7,90,564017,91.98,89.64,95.63,90.29,0.88
-20260514,89.8,91,87.1,87.1,718978,90.64,89.62,95.05,90.03,1.11
-20260515,87.8,88,82.1,82.8,1258215,88.82,89.32,94.43,89.42,1.87
-20260518,82.8,86.1,82.6,84.5,466845,86.9,89.02,93.88,89.01,0.72
-20260519,84.5,85.7,82,82.7,501051,85.42,88.65,93.34,88.49,0.78
-20260520,82.7,85.9,82.7,84.9,698921,84.4,88.44,92.87,88.19,1.07
-20260521,85,89,84.5,88,528679,84.58,88.33,92.53,88.17,0.81
-20260522,88.2,89,85.5,87.4,492964,85.5,88.22,92.22,88.11,0.77
-20260523,88.2,89,85.5,87.4,492964,86.08,88.23,91.87,88.05,0.79
-20260524,88.2,89,85.5,87.4,492964,87.02,88.33,91.5,88,0.81
-20260525,88.7,89.5,87.1,87.7,464203,87.58,88.38,91.14,87.97,0.77
-20260526,88.7,89.5,87.1,87.7,464203,87.52,88.38,90.82,87.95,0.76
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,85.6,87.3,83.5,86.6,578484,89.37,-3.1,86.75,100.03,0.77
+20260429,86.6,87.8,85.5,87.8,303814,89.24,-1.62,86.92,99.58,0.42
+20260430,88,89.3,86.9,89.2,316605,89.24,-0.04,87.27,99.15,0.46
+20260504,89.1,91.8,89,91.1,619759,89.39,1.91,87.61,98.68,0.9
+20260505,91.2,91.8,88.7,90.6,491513,89.49,1.24,88.02,98.19,0.73
+20260506,90,90.9,88.9,89.1,520056,89.46,-0.4,88.28,97.74,0.78
+20260507,89.1,94,87.3,93.8,1006323,89.82,4.43,88.55,97.35,1.52
+20260508,95,95,91.9,91.9,487412,90,2.12,88.75,96.98,0.75
+20260511,93.1,94.5,91,94.1,557081,90.34,4.16,89.19,96.59,0.88
+20260512,91.5,91.5,87.6,90.1,1067526,90.32,-0.24,89.47,96.11,1.65
+20260513,89.8,90.9,87.7,90,564017,90.29,-0.32,89.64,95.63,0.88
+20260514,89.8,91,87.1,87.1,718978,90.03,-3.25,89.62,95.05,1.11
+20260515,87.8,88,82.1,82.8,1258215,89.42,-7.41,89.32,94.43,1.87
+20260518,82.8,86.1,82.6,84.5,466845,89.01,-5.07,89.02,93.88,0.72
+20260519,84.5,85.7,82,82.7,501051,88.49,-6.54,88.65,93.34,0.78
+20260520,82.7,85.9,82.7,84.9,698921,88.19,-3.73,88.44,92.87,1.07
+20260521,85,89,84.5,88,528679,88.17,-0.2,88.33,92.53,0.81
+20260522,88.2,89,85.5,87.4,492964,88.11,-0.8,88.22,92.22,0.77
+20260525,88.7,89.5,87.1,87.7,464203,88.07,-0.42,88.25,91.88,0.75
+20260526,89,92.6,89,89.7,747423,88.21,1.69,88.45,91.54,1.21
 ```
 
 ## Latest TDCC Snapshot
@@ -132,7 +135,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260525 | 6873 | 泓德能源 | 26 | 0 | 58290.0 | 0.0 |  | no_signal | 0 |  |
+| 20260526 | 6873 | 泓德能源 | 26 | 0 | 322890.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

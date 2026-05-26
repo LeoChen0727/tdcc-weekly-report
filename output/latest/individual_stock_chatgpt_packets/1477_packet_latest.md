@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1477 聚陽
 
 ## Metadata
-- generated_at: 2026-05-26 06:39:21 Asia/Taipei
+- generated_at: 2026-05-26 21:24:39 Asia/Taipei
 - stock_id: 1477
 - stock_name: 聚陽
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 219
-- high: 219.5
-- low: 215.5
-- close: 215.5
-- volume: 3078043
-- ma5: 217.6
-- ma20: 217.32
-- ma60: 240.03
-- ma120: 274.73
-- ema23: 219.45
-- return_5d: -0.92
-- return_20d: 1.65
-- volume_ratio: 1.13
-- distance_to_ma20_pct: -0.84
-- distance_to_high_60_pct: -33.59
+- open: 215.5
+- high: 217.5
+- low: 211.5
+- close: 212
+- volume: 2650847
+- ma5: 215.4
+- ema23_primary: 219.35
+- distance_to_ema23_pct: -3.35
+- ma20: 216.72
+- ma60: 243.34
+- ma120: 276.13
+- return_5d: 0.95
+- return_20d: -1.4
+- volume_ratio: 1
+- distance_to_ma20_pct_auxiliary: -2.18
+- distance_to_high_60_pct: -35.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,212,213.5,210,211.5,1336076,214.6,218.43,271.05,227.8,0.7
-20260504,211.5,212.5,208.5,211,1535032,213.4,217.57,269.28,226.4,0.85
-20260505,211,213,203,211,4094727,212.6,217.18,267.48,225.11,2.2
-20260506,211,216,208,212.5,2357738,211.6,216.88,265.68,224.06,1.23
-20260507,212,224,212,220.5,3237566,213.3,216.9,264.18,223.77,1.63
-20260508,223,225.5,218,221.5,2623338,215.3,216.85,262.65,223.58,1.28
-20260511,223.5,226,215.5,218,2053360,216.7,216.78,261.19,223.11,0.98
-20260512,218.5,230.5,216.5,228.5,4892501,220.2,217.43,259.85,223.56,2.2
-20260513,228,232,225.5,229,3200414,223.5,218.05,258.42,224.01,1.38
-20260514,231,231,222.5,223,2788469,224,218.45,256.93,223.93,1.17
-20260515,224,225.5,217,218,3267334,223.3,218.53,255.25,223.44,1.32
-20260518,219,220,213,213.5,2058278,222.4,218.45,253.51,222.61,0.82
-20260519,214,215.5,209.5,210,2236161,218.7,217.7,251.79,221.56,0.9
-20260520,212.5,217,210.5,213,2714451,215.5,217.12,250.12,220.84,1.07
-20260521,216,217.5,214,217.5,2330012,214.4,217,248.57,220.57,0.92
-20260522,218,222,215.5,219,2453896,214.6,216.95,246.86,220.43,0.96
-20260523,218,222,215.5,219,2453896,215.7,217.05,245.2,220.32,0.95
-20260524,218,222,215.5,219,2453896,217.5,217.25,243.52,220.21,0.94
-20260525,219,219.5,215.5,215.5,3078043,218,217.15,241.78,219.81,1.15
-20260526,219,219.5,215.5,215.5,3078043,217.6,217.32,240.03,219.45,1.13
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,216,218,214.5,217.5,1898317,230.85,-5.78,220.4,274.82,0.97
+20260429,220,220,211.5,212,2186276,229.28,-7.54,219.22,272.97,1.11
+20260430,212,213.5,210,211.5,1336076,227.8,-7.15,218.43,271.05,0.7
+20260504,211.5,212.5,208.5,211,1535032,226.4,-6.8,217.57,269.28,0.85
+20260505,211,213,203,211,4094727,225.11,-6.27,217.18,267.48,2.2
+20260506,211,216,208,212.5,2357738,224.06,-5.16,216.88,265.68,1.23
+20260507,212,224,212,220.5,3237566,223.77,-1.46,216.9,264.18,1.63
+20260508,223,225.5,218,221.5,2623338,223.58,-0.93,216.85,262.65,1.28
+20260511,223.5,226,215.5,218,2053360,223.11,-2.29,216.78,261.19,0.98
+20260512,218.5,230.5,216.5,228.5,4892501,223.56,2.21,217.43,259.85,2.2
+20260513,228,232,225.5,229,3200414,224.01,2.23,218.05,258.42,1.38
+20260514,231,231,222.5,223,2788469,223.93,-0.42,218.45,256.93,1.17
+20260515,224,225.5,217,218,3267334,223.44,-2.43,218.53,255.25,1.32
+20260518,219,220,213,213.5,2058278,222.61,-4.09,218.45,253.51,0.82
+20260519,214,215.5,209.5,210,2236161,221.56,-5.22,217.7,251.79,0.9
+20260520,212.5,217,210.5,213,2714451,220.84,-3.55,217.12,250.12,1.07
+20260521,216,217.5,214,217.5,2330012,220.57,-1.39,217,248.57,0.92
+20260522,218,222,215.5,219,2453896,220.43,-0.65,216.95,246.86,0.96
+20260525,219,219.5,215.5,215.5,3078043,220.02,-2.06,216.88,245.14,1.17
+20260526,215.5,217.5,211.5,212,2650847,219.35,-3.35,216.72,243.34,1
 ```
 
 ## Latest TDCC Snapshot
@@ -132,7 +135,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260525 | 1477 | 聚陽 | 14 | 0 | 1601820.0 | 0.0 |  | no_signal | 0 |  |
+| 20260526 | 1477 | 聚陽 | 14 | 0 | 1383720.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

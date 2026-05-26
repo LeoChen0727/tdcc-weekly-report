@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2345 智邦
 
 ## Metadata
-- generated_at: 2026-05-26 06:39:34 Asia/Taipei
+- generated_at: 2026-05-26 21:24:57 Asia/Taipei
 - stock_id: 2345
 - stock_name: 智邦
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 2535
-- high: 2600
-- low: 2505
-- close: 2540
-- volume: 2633850
-- ma5: 2498
-- ma20: 2482
-- ma60: 1976
-- ma120: 1576.27
-- ema23: 2391.86
-- return_5d: 2.42
-- return_20d: 14.93
-- volume_ratio: 0.54
-- distance_to_ma20_pct: 2.34
-- distance_to_high_60_pct: -5.75
+- open: 2610
+- high: 2695
+- low: 2560
+- close: 2620
+- volume: 3688871
+- ma5: 2493
+- ema23_primary: 2381.55
+- distance_to_ema23_pct: 10.01
+- ma20: 2464.25
+- ma60: 1941.92
+- ma120: 1551.19
+- return_5d: 9.62
+- return_20d: 20.46
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: 6.32
+- distance_to_high_60_pct: -2.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,2225,2315,2215,2280,3775578,2220,1973,1586.25,1974.36,0.81
-20260504,2380,2505,2360,2505,4412365,2293,2015.25,1608.42,2018.58,0.95
-20260505,2520,2550,2440,2495,3474551,2357,2060.5,1630.83,2058.29,0.74
-20260506,2545,2620,2325,2485,6256364,2395,2104,1653,2093.84,1.3
-20260507,2495,2560,2465,2560,3820023,2465,2146.5,1676.17,2132.69,0.81
-20260508,2400,2425,2305,2375,10934471,2484,2180.75,1696.25,2152.88,2.14
-20260511,2490,2610,2485,2590,8849256,2501,2218.5,1720.83,2189.31,1.68
-20260512,2675,2695,2520,2525,6056908,2507,2253.75,1743.92,2217.28,1.12
-20260513,2510,2555,2435,2435,4119903,2497,2281,1764.75,2235.43,0.76
-20260514,2625,2675,2605,2675,7660332,2520,2316.25,1789.58,2272.06,1.4
-20260515,2640,2640,2500,2505,7039823,2546,2339.75,1812.58,2291.47,1.25
-20260518,2375,2530,2375,2495,3138457,2527,2361,1834.33,2308.43,0.56
-20260519,2460,2505,2375,2390,4254714,2500,2380.25,1852.42,2315.23,0.76
-20260520,2330,2475,2325,2355,4381174,2484,2388.5,1868.5,2318.54,0.8
-20260521,2480,2530,2450,2480,5468981,2445,2402.5,1885.67,2332,0.99
-20260522,2535,2535,2450,2470,2750416,2438,2422,1903.5,2343.5,0.51
-20260523,2535,2535,2450,2470,2750416,2433,2438.5,1921.25,2354.04,0.53
-20260524,2535,2535,2450,2470,2750416,2449,2453.25,1938.25,2363.7,0.54
-20260525,2535,2600,2505,2540,2633850,2486,2465.5,1957.25,2378.39,0.53
-20260526,2535,2600,2505,2540,2633850,2498,2482,1976,2391.86,0.54
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,2250,2340,2195,2295,5955672,1922.63,19.37,1905.75,1549.75,1.26
+20260429,2245,2270,2190,2210,4561794,1946.58,13.53,1934.5,1567.42,0.96
+20260430,2225,2315,2215,2280,3775578,1974.36,15.48,1973,1586.25,0.81
+20260504,2380,2505,2360,2505,4412365,2018.58,24.1,2015.25,1608.42,0.95
+20260505,2520,2550,2440,2495,3474551,2058.29,21.22,2060.5,1630.83,0.74
+20260506,2545,2620,2325,2485,6256364,2093.84,18.68,2104,1653,1.3
+20260507,2495,2560,2465,2560,3820023,2132.69,20.04,2146.5,1676.17,0.81
+20260508,2400,2425,2305,2375,10934471,2152.88,10.32,2180.75,1696.25,2.14
+20260511,2490,2610,2485,2590,8849256,2189.31,18.3,2218.5,1720.83,1.68
+20260512,2675,2695,2520,2525,6056908,2217.28,13.88,2253.75,1743.92,1.12
+20260513,2510,2555,2435,2435,4119903,2235.43,8.93,2281,1764.75,0.76
+20260514,2625,2675,2605,2675,7660332,2272.06,17.73,2316.25,1789.58,1.4
+20260515,2640,2640,2500,2505,7039823,2291.47,9.32,2339.75,1812.58,1.25
+20260518,2375,2530,2375,2495,3138457,2308.43,8.08,2361,1834.33,0.56
+20260519,2460,2505,2375,2390,4254714,2315.23,3.23,2380.25,1852.42,0.76
+20260520,2330,2475,2325,2355,4381174,2318.54,1.57,2388.5,1868.5,0.8
+20260521,2480,2530,2450,2480,5468981,2332,6.35,2402.5,1885.67,0.99
+20260522,2535,2535,2450,2470,2750416,2343.5,5.4,2422,1903.5,0.51
+20260525,2535,2600,2505,2540,2633850,2359.87,7.63,2442,1922.42,0.5
+20260526,2610,2695,2560,2620,3688871,2381.55,10.01,2464.25,1941.92,0.71
 ```
 
 ## Latest TDCC Snapshot
@@ -122,8 +125,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2345 | 智邦 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 2345 | 智邦 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 2345 | 智邦 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 2345 | 智邦 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -133,7 +136,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260525 | 2345 | 智邦 | 296 | 41 | 27092730.0 | 567820.0 | 47.71 | no_signal | 0 |  |
+| 20260526 | 2345 | 智邦 | 297 | 41 | 34795260.0 | 657290.0 | 52.94 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00735 國泰臺韓科技
 
 ## Metadata
-- generated_at: 2026-05-26 06:39:14 Asia/Taipei
+- generated_at: 2026-05-26 21:24:28 Asia/Taipei
 - stock_id: 00735
 - stock_name: 國泰臺韓科技
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260526
-- price_rows: 5
+- price_rows: 3
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,31 +56,30 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 102.6
-- high: 105
-- low: 102.55
-- close: 105
-- volume: 2739048
-- ma5: 102.72
-- ma20: 102.72
-- ma60: 102.72
-- ma120: 102.72
-- ema23: 101.81
+- open: 106.85
+- high: 107.9
+- low: 105.4
+- close: 106.65
+- volume: 2423334
+- ma5: 
+- ema23_primary: 
+- distance_to_ema23_pct: 
+- ma20: 
+- ma60: 
+- ma120: 
 - return_5d: 
 - return_20d: 
-- volume_ratio: 1.24
-- distance_to_ma20_pct: 2.22
-- distance_to_high_60_pct: 0
+- volume_ratio: 
+- distance_to_ma20_pct_auxiliary: 
+- distance_to_high_60_pct: 
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260522,100.25,101.2,99.8,101.2,1844383,,,,,
-20260523,100.25,101.2,99.8,101.2,1844383,,,,,
-20260524,100.25,101.2,99.8,101.2,1844383,,,,,
 20260525,102.6,105,102.55,105,2739048,,,,,
-20260526,102.6,105,102.55,105,2739048,102.72,102.72,102.72,101.81,1.24
+20260526,106.85,107.9,105.4,106.65,2423334,,,,,
 ```
 
 ## Latest TDCC Snapshot

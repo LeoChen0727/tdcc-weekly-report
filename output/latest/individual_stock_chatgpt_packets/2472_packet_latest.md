@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2472 立隆電
 
 ## Metadata
-- generated_at: 2026-05-26 06:39:39 Asia/Taipei
+- generated_at: 2026-05-26 21:25:04 Asia/Taipei
 - stock_id: 2472
 - stock_name: 立隆電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 276
-- high: 286
-- low: 260
-- close: 279.5
-- volume: 23870950
-- ma5: 267.8
-- ma20: 230.78
-- ma60: 170.72
-- ma120: 140.59
-- ema23: 230.27
-- return_5d: 5.08
-- return_20d: 57.46
-- volume_ratio: 1.73
-- distance_to_ma20_pct: 21.11
-- distance_to_high_60_pct: -2.27
+- open: 280.5
+- high: 307
+- low: 266
+- close: 307
+- volume: 15044620
+- ma5: 273.5
+- ema23_primary: 226.32
+- distance_to_ema23_pct: 35.65
+- ma20: 223.78
+- ma60: 166.61
+- ma120: 138.25
+- return_5d: 32.33
+- return_20d: 81.66
+- volume_ratio: 1.25
+- distance_to_ma20_pct_auxiliary: 37.19
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,180.5,181.5,174,176.5,2759541,174.1,165.5,132.51,162.67,0.51
-20260504,179,188,175,184,4717000,176.4,168.05,133.62,164.44,0.9
-20260505,184,193,183.5,188.5,4274133,180.3,170.9,134.82,166.45,0.82
-20260506,192.5,193,181,186.5,4177327,182.6,173.82,135.97,168.12,0.8
-20260507,191,205,188,201.5,9532418,187.4,176.88,137.41,170.9,1.82
-20260508,198.5,221.5,197.5,221.5,10762892,196.4,180.68,139.24,175.12,1.98
-20260511,219,228,203.5,225,16591811,204.6,184.53,141.19,179.27,2.75
-20260512,221.5,234,209.5,223,16652302,211.5,187.55,143.2,182.92,2.48
-20260513,219,234,218,233.5,11128528,220.9,190.3,145.28,187.13,1.55
-20260514,236,256,227,231.5,18720713,226.9,192.8,147.3,190.83,2.52
-20260515,228.5,231.5,213,217,13435721,226,194.7,149.12,193.01,1.75
-20260518,215,236,215,235,12246194,228,197.22,151.31,196.51,1.55
-20260519,235,237.5,226,232,7772220,229.8,199.68,153.37,199.47,0.96
-20260520,234,255,232,255,14327283,234.1,203.03,155.81,204.1,1.67
-20260521,264.5,272.5,255,266,31301981,241,207.12,158.43,209.25,3.14
-20260522,265,271,258,260,16654212,249.6,211.53,160.87,213.48,1.59
-20260523,265,271,258,260,16654212,254.6,215.9,163.21,217.36,1.5
-20260524,265,271,258,260,16654212,260.2,220.45,165.5,220.91,1.41
-20260525,276,286,260,279.5,23870950,265.1,225.68,168.04,225.79,1.87
-20260526,276,286,260,279.5,23870950,267.8,230.78,170.72,230.27,1.73
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,169.5,177.5,168.5,175,4043865,159.94,9.41,160.7,130.57,0.72
+20260429,175,181.5,171.5,177.5,3089765,161.41,9.97,162.97,131.57,0.56
+20260430,180.5,181.5,174,176.5,2759541,162.67,8.51,165.5,132.51,0.51
+20260504,179,188,175,184,4717000,164.44,11.89,168.05,133.62,0.9
+20260505,184,193,183.5,188.5,4274133,166.45,13.25,170.9,134.82,0.82
+20260506,192.5,193,181,186.5,4177327,168.12,10.93,173.82,135.97,0.8
+20260507,191,205,188,201.5,9532418,170.9,17.9,176.88,137.41,1.82
+20260508,198.5,221.5,197.5,221.5,10762892,175.12,26.49,180.68,139.24,1.98
+20260511,219,228,203.5,225,16591811,179.27,25.51,184.53,141.19,2.75
+20260512,221.5,234,209.5,223,16652302,182.92,21.91,187.55,143.2,2.48
+20260513,219,234,218,233.5,11128528,187.13,24.78,190.3,145.28,1.55
+20260514,236,256,227,231.5,18720713,190.83,21.31,192.8,147.3,2.52
+20260515,228.5,231.5,213,217,13435721,193.01,12.43,194.7,149.12,1.75
+20260518,215,236,215,235,12246194,196.51,19.59,197.22,151.31,1.55
+20260519,235,237.5,226,232,7772220,199.47,16.31,199.68,153.37,0.96
+20260520,234,255,232,255,14327283,204.1,24.94,203.03,155.81,1.67
+20260521,264.5,272.5,255,266,31301981,209.25,27.12,207.12,158.43,3.14
+20260522,265,271,258,260,16654212,213.48,21.79,211.53,160.87,1.59
+20260525,276,286,260,279.5,23870950,218.98,27.63,216.88,163.53,2.08
+20260526,280.5,307,266,307,15044620,226.32,35.65,223.78,166.61,1.25
 ```
 
 ## Latest TDCC Snapshot
@@ -122,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2472 | 立隆電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 2472 | 立隆電 | true_breakout | 嚴格突破 | 74.0 |  |  | platform_right_side |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2472 | 立隆電 | 2 | 1 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260526 | 2472 | 立隆電 | 2 | 2 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260525 | 2472 | 立隆電 | 85 | 3 | 43619390.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260526 | 2472 | 立隆電 | 90 | 3 | 19219340.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

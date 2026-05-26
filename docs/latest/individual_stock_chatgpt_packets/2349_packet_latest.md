@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2349 錸德
 
 ## Metadata
-- generated_at: 2026-05-26 06:39:34 Asia/Taipei
+- generated_at: 2026-05-26 21:24:57 Asia/Taipei
 - stock_id: 2349
 - stock_name: 錸德
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 13.2
-- high: 14.3
-- low: 13
-- close: 14.3
-- volume: 17477489
-- ma5: 13.52
-- ma20: 12.78
-- ma60: 13.16
-- ma120: 13.39
-- ema23: 13.02
-- return_5d: 13.04
-- return_20d: 13.49
-- volume_ratio: 3.04
-- distance_to_ma20_pct: 11.87
-- distance_to_high_60_pct: -9.49
+- open: 14.55
+- high: 14.6
+- low: 13.2
+- close: 13.5
+- volume: 15116415
+- ma5: 13.12
+- ema23_primary: 12.92
+- distance_to_ema23_pct: 4.49
+- ma20: 12.7
+- ma60: 13.19
+- ma120: 13.32
+- return_5d: 9.76
+- return_20d: 7.14
+- volume_ratio: 2.97
+- distance_to_ma20_pct_auxiliary: 6.3
+- distance_to_high_60_pct: -14.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,12.7,12.75,12.35,12.45,2919151,12.6,13.19,13.5,13.18,0.75
-20260504,12.6,12.75,12.35,12.4,3160089,12.52,13.16,13.46,13.11,0.8
-20260505,12.45,12.7,12.4,12.6,2339684,12.52,13.14,13.43,13.07,0.59
-20260506,12.7,12.75,12.4,12.45,3927531,12.5,13.12,13.4,13.02,0.97
-20260507,12.5,13.2,12.35,12.8,4943526,12.54,13.1,13.38,13,1.19
-20260508,12.8,12.95,12.4,12.45,4317243,12.54,13.06,13.36,12.95,1.02
-20260511,12.5,12.75,12.45,12.6,2943795,12.58,13.03,13.34,12.92,0.71
-20260512,12.8,13.65,12.55,13.25,8962518,12.71,13.02,13.34,12.95,2.01
-20260513,13,13,12.5,12.6,5940683,12.74,12.98,13.33,12.92,1.32
-20260514,12.7,12.75,12.5,12.6,3261212,12.7,12.93,13.3,12.9,0.73
-20260515,12.7,12.85,12.3,12.35,3823705,12.68,12.84,13.28,12.85,0.92
-20260518,12.25,12.6,12.15,12.4,2009835,12.64,12.77,13.27,12.81,0.51
-20260519,12.55,12.6,12.2,12.3,2363156,12.45,12.71,13.26,12.77,0.62
-20260520,12.35,12.5,12.1,12.15,2456578,12.36,12.63,13.24,12.72,0.65
-20260521,12.2,12.7,12.2,12.65,5196320,12.37,12.59,13.23,12.71,1.35
-20260522,12.9,13.15,12.65,13,7113668,12.5,12.58,13.22,12.74,1.84
-20260523,12.9,13.15,12.65,13,7113668,12.62,12.59,13.2,12.76,1.78
-20260524,12.9,13.15,12.65,13,7113668,12.76,12.61,13.16,12.78,1.7
-20260525,13.2,14.3,13,14.3,17477489,13.19,12.7,13.16,12.91,3.53
-20260526,13.2,14.3,13,14.3,17477489,13.52,12.78,13.16,13.02,3.04
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,12.6,12.65,12.4,12.55,1989600,13.3,-5.65,13.23,13.58,0.49
+20260429,12.55,12.75,12.5,12.6,1577608,13.24,-4.86,13.21,13.54,0.4
+20260430,12.7,12.75,12.35,12.45,2919151,13.18,-5.52,13.19,13.5,0.75
+20260504,12.6,12.75,12.35,12.4,3160089,13.11,-5.43,13.16,13.46,0.8
+20260505,12.45,12.7,12.4,12.6,2339684,13.07,-3.6,13.14,13.43,0.59
+20260506,12.7,12.75,12.4,12.45,3927531,13.02,-4.37,13.12,13.4,0.97
+20260507,12.5,13.2,12.35,12.8,4943526,13,-1.54,13.1,13.38,1.19
+20260508,12.8,12.95,12.4,12.45,4317243,12.95,-3.89,13.06,13.36,1.02
+20260511,12.5,12.75,12.45,12.6,2943795,12.92,-2.51,13.03,13.34,0.71
+20260512,12.8,13.65,12.55,13.25,8962518,12.95,2.3,13.02,13.34,2.01
+20260513,13,13,12.5,12.6,5940683,12.92,-2.5,12.98,13.33,1.32
+20260514,12.7,12.75,12.5,12.6,3261212,12.9,-2.29,12.93,13.3,0.73
+20260515,12.7,12.85,12.3,12.35,3823705,12.85,-3.89,12.84,13.28,0.92
+20260518,12.25,12.6,12.15,12.4,2009835,12.81,-3.22,12.77,13.27,0.51
+20260519,12.55,12.6,12.2,12.3,2363156,12.77,-3.68,12.71,13.26,0.62
+20260520,12.35,12.5,12.1,12.15,2456578,12.72,-4.47,12.63,13.24,0.65
+20260521,12.2,12.7,12.2,12.65,5196320,12.71,-0.49,12.59,13.23,1.35
+20260522,12.9,13.15,12.65,13,7113668,12.74,2.07,12.58,13.22,1.84
+20260525,13.2,14.3,13,14.3,17477489,12.87,11.14,12.65,13.22,3.86
+20260526,14.55,14.6,13.2,13.5,15116415,12.92,4.49,12.7,13.19,2.97
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +125,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2349 | 錸德 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 2349 | 錸德 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

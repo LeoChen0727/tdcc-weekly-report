@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2498 宏達電
 
 ## Metadata
-- generated_at: 2026-05-26 06:39:40 Asia/Taipei
+- generated_at: 2026-05-26 21:25:06 Asia/Taipei
 - stock_id: 2498
 - stock_name: 宏達電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 47.2
-- high: 47.8
-- low: 46.2
-- close: 46.2
-- volume: 21032552
-- ma5: 46.32
-- ma20: 43.28
-- ma60: 41.72
+- open: 46.5
+- high: 46.95
+- low: 44.35
+- close: 44.35
+- volume: 15432709
+- ma5: 45.57
+- ema23_primary: 43.11
+- distance_to_ema23_pct: 2.89
+- ma20: 42.52
+- ma60: 41.64
 - ma120: 44.69
-- ema23: 43.76
-- return_5d: 1.65
-- return_20d: 16.08
-- volume_ratio: 1.13
-- distance_to_ma20_pct: 6.75
-- distance_to_high_60_pct: -3.35
+- return_5d: -2.85
+- return_20d: 11.57
+- volume_ratio: 0.9
+- distance_to_ma20_pct_auxiliary: 4.3
+- distance_to_high_60_pct: -7.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,39.85,40.9,39.85,40.15,6917634,39.88,40.3,42.3,40.57,1.07
-20260504,40.6,41.45,40.4,41.1,6734932,40.1,40.35,42.21,40.61,1.02
-20260505,41.3,41.45,40.75,41,4660647,40.35,40.43,42.1,40.65,0.7
-20260506,41.55,41.55,40,40.1,8182552,40.43,40.48,41.99,40.6,1.19
-20260507,40.1,40.85,39.6,40.45,7053001,40.56,40.46,41.9,40.59,1.03
-20260508,40.9,41.25,39.3,39.35,12845816,40.4,40.42,41.79,40.48,1.76
-20260511,39.45,40.25,38.65,40.25,8626307,40.23,40.45,41.72,40.47,1.15
-20260512,40.35,41.3,39.35,41.3,12069492,40.29,40.52,41.68,40.53,1.55
-20260513,41,41.25,39.8,40.1,8146362,40.29,40.51,41.61,40.5,1.04
-20260514,40.3,44.1,39.4,44.1,21497834,41.02,40.66,41.58,40.8,2.57
-20260515,46.35,46.9,44.75,45.3,71302266,42.21,40.86,41.59,41.17,6.16
-20260518,45.6,46.95,44.1,44.2,43881556,43,41.01,41.57,41.43,3.24
-20260519,44.05,46.3,43.75,45.65,26249966,43.87,41.27,41.59,41.78,1.8
-20260520,45.85,47.7,45.3,45.45,30019647,44.94,41.48,41.6,42.08,1.91
-20260521,45.85,46.2,45.35,45.45,15833029,45.21,41.66,41.62,42.36,0.99
-20260522,46,46.7,45.65,46.4,15829848,45.43,41.98,41.64,42.7,0.98
-20260523,46,46.7,45.65,46.4,15829848,45.87,42.3,41.66,43.01,0.96
-20260524,46,46.7,45.65,46.4,15829848,46.02,42.63,41.68,43.29,0.93
-20260525,47.2,47.8,46.2,46.2,21032552,46.17,42.96,41.7,43.53,1.18
-20260526,47.2,47.8,46.2,46.2,21032552,46.32,43.28,41.72,43.76,1.13
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,39.8,39.95,39.35,39.7,3885811,40.68,-2.41,40.27,42.52,0.61
+20260429,39.8,40.4,39.5,39.8,3690284,40.61,-1.99,40.26,42.42,0.58
+20260430,39.85,40.9,39.85,40.15,6917634,40.57,-1.03,40.3,42.3,1.07
+20260504,40.6,41.45,40.4,41.1,6734932,40.61,1.2,40.35,42.21,1.02
+20260505,41.3,41.45,40.75,41,4660647,40.65,0.87,40.43,42.1,0.7
+20260506,41.55,41.55,40,40.1,8182552,40.6,-1.23,40.48,41.99,1.19
+20260507,40.1,40.85,39.6,40.45,7053001,40.59,-0.34,40.46,41.9,1.03
+20260508,40.9,41.25,39.3,39.35,12845816,40.48,-2.8,40.42,41.79,1.76
+20260511,39.45,40.25,38.65,40.25,8626307,40.47,-0.53,40.45,41.72,1.15
+20260512,40.35,41.3,39.35,41.3,12069492,40.53,1.89,40.52,41.68,1.55
+20260513,41,41.25,39.8,40.1,8146362,40.5,-0.98,40.51,41.61,1.04
+20260514,40.3,44.1,39.4,44.1,21497834,40.8,8.09,40.66,41.58,2.57
+20260515,46.35,46.9,44.75,45.3,71302266,41.17,10.02,40.86,41.59,6.16
+20260518,45.6,46.95,44.1,44.2,43881556,41.43,6.7,41.01,41.57,3.24
+20260519,44.05,46.3,43.75,45.65,26249966,41.78,9.27,41.27,41.59,1.8
+20260520,45.85,47.7,45.3,45.45,30019647,42.08,8,41.48,41.6,1.91
+20260521,45.85,46.2,45.35,45.45,15833029,42.36,7.28,41.66,41.62,0.99
+20260522,46,46.7,45.65,46.4,15829848,42.7,8.66,41.98,41.64,0.98
+20260525,47.2,47.8,46.2,46.2,21032552,42.99,7.46,42.29,41.66,1.26
+20260526,46.5,46.95,44.35,44.35,15432709,43.11,2.89,42.52,41.64,0.9
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +125,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 2498 | 宏達電 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 2498 | 宏達電 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 2498 | 宏達電 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -132,7 +136,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260525 | 2498 | 宏達電 | 92 | 10 | 11847960.0 | 199660.0 | 59.34 | call_inflow | 1 |  |
+| 20260526 | 2498 | 宏達電 | 93 | 10 | 6248410.0 | 91060.0 | 68.62 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

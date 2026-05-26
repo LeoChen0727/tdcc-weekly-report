@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6899 創為精密
 
 ## Metadata
-- generated_at: 2026-05-26 06:40:46 Asia/Taipei
+- generated_at: 2026-05-26 21:26:40 Asia/Taipei
 - stock_id: 6899
 - stock_name: 創為精密
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 133
+- price_rows: 131
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 62.8
-- high: 66
-- low: 61.5
-- close: 63.1
-- volume: 64
-- ma5: 62.74
-- ma20: 58.77
-- ma60: 54.59
-- ma120: 53.78
-- ema23: 59.1
-- return_5d: 3.61
-- return_20d: 18.16
-- volume_ratio: 0
-- distance_to_ma20_pct: 7.38
-- distance_to_high_60_pct: -10.88
+- open: 64.1
+- high: 64.6
+- low: 61.1
+- close: 61.3
+- volume: 62000
+- ma5: 61.44
+- ema23_primary: 58.28
+- distance_to_ema23_pct: 5.18
+- ma20: 57.78
+- ma60: 54.18
+- ma120: 53.6
+- return_5d: 4.79
+- return_20d: 14.58
+- volume_ratio: 0.3
+- distance_to_ma20_pct_auxiliary: 6.08
+- distance_to_high_60_pct: -13.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,53.4,54.2,53.4,53.4,8000,53.54,54.14,52.41,53.57,0.2
-20260504,53.5,53.5,53.3,53.3,10000,53.48,54.22,52.41,53.54,0.25
-20260505,52.7,54.7,52.6,54.4,39000,53.66,54.38,52.44,53.61,0.94
-20260506,54.4,54.4,52.8,53.8,15000,53.66,54.3,52.45,53.63,0.44
-20260507,53,53.8,53,53.6,13000,53.7,54.25,52.47,53.63,0.44
-20260508,53.3,53.5,53,53.5,13000,53.72,54.16,52.46,53.62,0.49
-20260511,53.5,54,53.3,54,15000,53.86,54.06,52.48,53.65,0.61
-20260512,55,59.4,55,59.4,520000,54.86,54.28,52.6,54.13,10.74
-20260513,60.3,65.3,60.3,65.3,997000,57.16,54.84,52.81,55.06,10.29
-20260514,70.5,70.8,63,63,1339000,59.04,55.28,53,55.72,8.28
-20260515,64.2,65,60.2,60.2,302000,60.38,55.57,53.13,56.09,1.73
-20260518,60.2,60.2,57.4,58.9,118000,61.36,55.77,53.25,56.33,0.66
-20260519,58.8,61.8,58.3,58.5,88000,61.18,55.98,53.36,56.51,0.48
-20260520,59,63,58.8,59.4,133000,60,56.25,53.49,56.75,0.71
-20260521,60.6,63.2,57.5,60.9,363000,59.58,56.55,53.64,57.1,1.77
-20260522,60.9,65,60.2,62.5,63,60.04,56.92,53.81,57.55,0
-20260523,60.9,65,60.2,62.5,63,60.76,57.37,54,57.96,0
-20260524,60.9,65,60.2,62.5,63,61.56,57.81,54.19,58.34,0
-20260525,62.8,66,61.5,63.1,64,62.3,58.28,54.38,58.73,0
-20260526,62.8,66,61.5,63.1,64,62.74,58.77,54.59,59.1,0
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,53.7,53.8,53.6,53.8,7000,53.6,0.38,53.9,52.41,0.17
+20260429,53.4,53.4,53.4,53.4,4000,53.58,-0.34,54.02,52.41,0.1
+20260430,53.4,54.2,53.4,53.4,8000,53.57,-0.31,54.14,52.41,0.2
+20260504,53.5,53.5,53.3,53.3,10000,53.54,-0.45,54.22,52.41,0.25
+20260505,52.7,54.7,52.6,54.4,39000,53.61,1.46,54.38,52.44,0.94
+20260506,54.4,54.4,52.8,53.8,15000,53.63,0.32,54.3,52.45,0.44
+20260507,53,53.8,53,53.6,13000,53.63,-0.05,54.25,52.47,0.44
+20260508,53.3,53.5,53,53.5,13000,53.62,-0.22,54.16,52.46,0.49
+20260511,53.5,54,53.3,54,15000,53.65,0.65,54.06,52.48,0.61
+20260512,55,59.4,55,59.4,520000,54.13,9.74,54.28,52.6,10.74
+20260513,60.3,65.3,60.3,65.3,997000,55.06,18.6,54.84,52.81,10.29
+20260514,70.5,70.8,63,63,1339000,55.72,13.06,55.28,53,8.28
+20260515,64.2,65,60.2,60.2,302000,56.09,7.32,55.57,53.13,1.73
+20260518,60.2,60.2,57.4,58.9,118000,56.33,4.57,55.77,53.25,0.66
+20260519,58.8,61.8,58.3,58.5,88000,56.51,3.52,55.98,53.36,0.48
+20260520,59,63,58.8,59.4,133000,56.75,4.67,56.25,53.49,0.71
+20260521,60.6,63.2,57.5,60.9,363000,57.1,6.66,56.55,53.64,1.77
+20260522,60.9,65,60.2,62.5,63000,57.55,8.61,56.92,53.81,0.31
+20260525,62.8,66,61.5,63.1,64000,58.01,8.78,57.4,54.01,0.31
+20260526,64.1,64.6,61.1,61.3,62000,58.28,5.18,57.78,54.18,0.3
 ```
 
 ## Latest TDCC Snapshot

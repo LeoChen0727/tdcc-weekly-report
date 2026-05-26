@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6756 威鋒電子
 
 ## Metadata
-- generated_at: 2026-05-26 06:40:43 Asia/Taipei
+- generated_at: 2026-05-26 21:26:36 Asia/Taipei
 - stock_id: 6756
 - stock_name: 威鋒電子
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 109
-- high: 115.5
-- low: 105
-- close: 112.5
-- volume: 1115983
-- ma5: 108
-- ma20: 98.68
-- ma60: 83.82
-- ma120: 82.42
-- ema23: 97.86
-- return_5d: 10.84
-- return_20d: 35.87
-- volume_ratio: 1.46
-- distance_to_ma20_pct: 14
-- distance_to_high_60_pct: -2.6
+- open: 112.5
+- high: 112.5
+- low: 104.5
+- close: 107
+- volume: 748955
+- ma5: 104.44
+- ema23_primary: 95.81
+- distance_to_ema23_pct: 11.67
+- ma20: 96.22
+- ma60: 82.91
+- ma120: 81.84
+- return_5d: 13.83
+- return_20d: 24.56
+- volume_ratio: 1.08
+- distance_to_ma20_pct_auxiliary: 11.21
+- distance_to_high_60_pct: -7.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,83.9,87.7,83.9,84.6,544899,85.16,78.02,77.81,79.86,1.4
-20260504,85.7,89,85.7,86.5,415537,84.64,78.79,77.86,80.41,1.02
-20260505,90.2,93.4,89.1,91.7,867186,85.8,79.85,77.96,81.35,1.95
-20260506,93.4,93.4,87.7,88.5,589408,86.82,80.75,78.03,81.95,1.25
-20260507,89.2,97.3,89,97.3,954154,89.72,81.97,78.24,83.23,1.87
-20260508,100,101.5,92,92.8,1551191,91.36,83.03,78.43,84.02,2.65
-20260511,94.1,97.5,92.4,95.6,565595,93.18,84.28,78.72,84.99,0.93
-20260512,95.1,105,94.6,105,1072421,95.84,85.94,79.22,86.66,1.63
-20260513,105,106.5,101,101.5,1080530,98.44,87.37,79.61,87.89,1.54
-20260514,103.5,106,100,102,582797,99.38,88.74,79.96,89.07,0.81
-20260515,103,106.5,97.5,98.8,817145,100.58,89.83,80.27,89.88,1.09
-20260518,98,98.5,91.8,97.6,606697,100.98,90.91,80.59,90.52,0.79
-20260519,98.9,99,92.9,94,354278,98.78,91.66,80.85,90.81,0.46
-20260520,95.5,99.5,93.5,96.2,410008,97.72,92.36,81.13,91.26,0.54
-20260521,98,101.5,98,101.5,451816,97.62,92.91,81.51,92.11,0.6
-20260522,101.5,105.5,101,105,716599,98.86,93.99,81.95,93.19,1.01
-20260523,101.5,105.5,101,105,716599,100.34,94.78,82.34,94.17,1.07
-20260524,101.5,105.5,101,105,716599,102.54,95.74,82.75,95.08,1.06
-20260525,109,115.5,105,112.5,1115983,105.8,97.19,83.27,96.53,1.56
-20260526,109,115.5,105,112.5,1115983,108,98.68,83.82,97.86,1.46
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,85.9,85.9,83.2,83.4,263413,79.12,5.41,76.77,77.73,0.72
+20260429,82.3,84.2,82.3,82.8,205827,79.43,4.25,77.3,77.76,0.56
+20260430,83.9,87.7,83.9,84.6,544899,79.86,5.94,78.02,77.81,1.4
+20260504,85.7,89,85.7,86.5,415537,80.41,7.57,78.79,77.86,1.02
+20260505,90.2,93.4,89.1,91.7,867186,81.35,12.72,79.85,77.96,1.95
+20260506,93.4,93.4,87.7,88.5,589408,81.95,8,80.75,78.03,1.25
+20260507,89.2,97.3,89,97.3,954154,83.23,16.91,81.97,78.24,1.87
+20260508,100,101.5,92,92.8,1551191,84.02,10.44,83.03,78.43,2.65
+20260511,94.1,97.5,92.4,95.6,565595,84.99,12.49,84.28,78.72,0.93
+20260512,95.1,105,94.6,105,1072421,86.66,21.17,85.94,79.22,1.63
+20260513,105,106.5,101,101.5,1080530,87.89,15.48,87.37,79.61,1.54
+20260514,103.5,106,100,102,582797,89.07,14.52,88.74,79.96,0.81
+20260515,103,106.5,97.5,98.8,817145,89.88,9.92,89.83,80.27,1.09
+20260518,98,98.5,91.8,97.6,606697,90.52,7.82,90.91,80.59,0.79
+20260519,98.9,99,92.9,94,354278,90.81,3.51,91.66,80.85,0.46
+20260520,95.5,99.5,93.5,96.2,410008,91.26,5.41,92.36,81.13,0.54
+20260521,98,101.5,98,101.5,451816,92.11,10.19,92.91,81.51,0.6
+20260522,101.5,105.5,101,105,716599,93.19,12.67,93.99,81.95,1.01
+20260525,109,115.5,105,112.5,1115983,94.8,18.67,95.16,82.47,1.62
+20260526,112.5,112.5,104.5,107,748955,95.81,11.67,96.22,82.91,1.08
 ```
 
 ## Latest TDCC Snapshot
@@ -120,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6756 | 威鋒電子 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 58.0 |  |  | neckline_challenge |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6756 | 威鋒電子 | 2 | 1 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260526 | 6756 | 威鋒電子 | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | status |

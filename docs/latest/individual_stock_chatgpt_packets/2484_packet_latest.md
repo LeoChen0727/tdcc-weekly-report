@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2484 希華
 
 ## Metadata
-- generated_at: 2026-05-26 06:58:33 Asia/Taipei
+- generated_at: 2026-05-26 21:25:05 Asia/Taipei
 - stock_id: 2484
 - stock_name: 希華
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -56,27 +56,29 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 52.4
-- high: 54.2
-- low: 52
-- close: 54.2
-- volume: 41229853
-- ma5: 51.26
-- ema23_primary: 44.1
-- distance_to_ema23_pct: 22.91
-- ma20: 43.49
-- ma60: 36.16
-- ma120: 30.1
-- return_5d: 20.85
-- return_20d: 34.83
-- volume_ratio: 2.15
-- distance_to_ma20_pct_auxiliary: 24.63
-- distance_to_high_60_pct: 0
+- open: 54.7
+- high: 56.8
+- low: 50.4
+- close: 56
+- volume: 44955078
+- ma5: 49.73
+- ema23_primary: 43.11
+- distance_to_ema23_pct: 29.91
+- ma20: 42.69
+- ma60: 35.55
+- ma120: 29.62
+- return_5d: 38.96
+- return_20d: 50.54
+- volume_ratio: 2.78
+- distance_to_ma20_pct_auxiliary: 31.19
+- distance_to_high_60_pct: -1.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,38,40.85,38,40.5,3234703,37.11,9.13,36.65,31,0.21
+20260429,40,41.9,38.9,40.2,2823573,37.37,7.58,37.26,31.2,0.19
 20260430,40.6,40.75,39.4,39.55,1692067,37.55,5.33,37.8,31.39,0.11
 20260504,40.75,41.8,39.6,41.5,2696881,37.88,9.56,38.31,31.57,0.19
 20260505,41.5,42.55,41,42.55,2171584,38.27,11.19,38.92,31.78,0.15
@@ -93,10 +95,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260520,40,44.3,40,44.3,23421542,39.61,11.83,40.87,34.08,2.46
 20260521,45,46.5,44.1,44.85,38956384,40.05,11.98,40.74,34.38,3.49
 20260522,45.4,49.3,45.3,49.3,34513068,40.82,20.77,41.05,34.73,2.76
-20260523,45.4,49.3,45.3,49.3,34513068,41.53,18.71,41.5,35.05,2.49
-20260524,45.4,49.3,45.3,49.3,34513068,42.18,16.89,42.1,35.36,2.25
-20260525,52.4,54.2,52,54.2,41229853,43.18,25.53,42.79,35.76,2.4
-20260526,52.4,54.2,52,54.2,41229853,44.1,22.91,43.49,36.16,2.15
+20260525,52.4,54.2,52,54.2,41229853,41.94,29.24,41.74,35.13,2.9
+20260526,54.7,56.8,50.4,56,44955078,43.11,29.91,42.69,35.55,2.78
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 2484 | 希華 | true_breakout | 嚴格突破 | 83.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2484 | 希華 | 4 | 1 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260526 | 2484 | 希華 | 4 | 2 | 4 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | status |

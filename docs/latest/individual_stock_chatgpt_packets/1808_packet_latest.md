@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1808 潤隆
 
 ## Metadata
-- generated_at: 2026-05-26 06:39:28 Asia/Taipei
+- generated_at: 2026-05-26 21:24:48 Asia/Taipei
 - stock_id: 1808
 - stock_name: 潤隆
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 129
+- price_rows: 127
 - latest_tdcc_date: 20260522
 - tdcc_rows: 26
 - tdcc_history_status: tdcc_history_ready
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 28.7
-- high: 29
-- low: 28.25
+- open: 28.8
+- high: 29.05
+- low: 28.55
 - close: 28.95
-- volume: 1864173
-- ma5: 28.77
-- ma20: 28.82
-- ma60: 29.84
-- ma120: 31.25
-- ema23: 29.12
-- return_5d: -1.7
-- return_20d: -1.86
-- volume_ratio: 1.18
-- distance_to_ma20_pct: 0.47
+- volume: 1230377
+- ma5: 29.04
+- ema23_primary: 29.19
+- distance_to_ema23_pct: -0.84
+- ma20: 28.89
+- ma60: 29.9
+- ma120: 31.36
+- return_5d: 0
+- return_20d: -2.2
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: 0.2
 - distance_to_high_60_pct: -10.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,29.5,29.55,28.7,28.7,2204046,29.59,30.14,30.69,30.1,1.5
-20260504,28.95,28.95,28.4,28.4,1645880,29.11,30.02,30.61,29.95,1.07
-20260505,28.45,28.5,28.05,28.3,1461861,28.85,29.91,30.55,29.82,0.93
-20260506,28.5,28.6,28.2,28.3,1149170,28.64,29.8,30.51,29.69,0.71
-20260507,28.3,28.4,28.05,28.4,1182735,28.42,29.66,30.46,29.58,0.73
-20260508,28.4,28.65,28.2,28.45,849324,28.37,29.57,30.41,29.49,0.53
-20260511,28.6,29.25,28.6,28.9,1385167,28.47,29.46,30.37,29.44,0.85
-20260512,28.9,29.1,28.75,28.75,1192100,28.56,29.4,30.31,29.38,0.74
-20260513,31,31,28.7,28.9,2215018,28.68,29.35,30.26,29.34,1.36
-20260514,29,29.55,28.7,29.45,1832124,28.89,29.33,30.21,29.35,1.1
-20260515,29.7,29.75,29,29.05,1266400,29.01,29.26,30.16,29.33,0.75
-20260518,29,29.35,28.8,29.25,918665,29.08,29.22,30.13,29.32,0.56
-20260519,29.25,29.5,28.8,28.95,914291,29.12,29.18,30.09,29.29,0.57
-20260520,28.95,29.2,28.7,29.2,955080,29.18,29.14,30.05,29.28,0.6
-20260521,29.35,29.45,29,29.45,1297666,29.18,29.13,30.01,29.3,0.82
-20260522,29.4,29.4,28.6,28.65,2503440,29.1,29.02,29.96,29.24,1.65
-20260523,29.4,29.4,28.6,28.65,2503440,28.98,28.91,29.92,29.19,1.66
-20260524,29.4,29.4,28.6,28.65,2503440,28.92,28.86,29.89,29.15,1.65
-20260525,28.7,29,28.25,28.95,1864173,28.87,28.84,29.87,29.13,1.21
-20260526,28.7,29,28.25,28.95,1864173,28.77,28.82,29.84,29.12,1.18
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,29.6,29.65,29,29.35,1532102,30.29,-3.1,30.29,30.79,1.08
+20260429,29.7,30,29.35,29.5,863706,30.22,-2.39,30.23,30.75,0.61
+20260430,29.5,29.55,28.7,28.7,2204046,30.1,-4.64,30.14,30.69,1.5
+20260504,28.95,28.95,28.4,28.4,1645880,29.95,-5.19,30.02,30.61,1.07
+20260505,28.45,28.5,28.05,28.3,1461861,29.82,-5.09,29.91,30.55,0.93
+20260506,28.5,28.6,28.2,28.3,1149170,29.69,-4.68,29.8,30.51,0.71
+20260507,28.3,28.4,28.05,28.4,1182735,29.58,-4,29.66,30.46,0.73
+20260508,28.4,28.65,28.2,28.45,849324,29.49,-3.52,29.57,30.41,0.53
+20260511,28.6,29.25,28.6,28.9,1385167,29.44,-1.83,29.46,30.37,0.85
+20260512,28.9,29.1,28.75,28.75,1192100,29.38,-2.15,29.4,30.31,0.74
+20260513,31,31,28.7,28.9,2215018,29.34,-1.51,29.35,30.26,1.36
+20260514,29,29.55,28.7,29.45,1832124,29.35,0.34,29.33,30.21,1.1
+20260515,29.7,29.75,29,29.05,1266400,29.33,-0.94,29.26,30.16,0.75
+20260518,29,29.35,28.8,29.25,918665,29.32,-0.24,29.22,30.13,0.56
+20260519,29.25,29.5,28.8,28.95,914291,29.29,-1.16,29.18,30.09,0.57
+20260520,28.95,29.2,28.7,29.2,955080,29.28,-0.28,29.14,30.05,0.6
+20260521,29.35,29.45,29,29.45,1297666,29.3,0.53,29.13,30.01,0.82
+20260522,29.4,29.4,28.6,28.65,2503440,29.24,-2.02,29.02,29.96,1.65
+20260525,28.7,29,28.25,28.95,1864173,29.22,-0.91,28.93,29.93,1.26
+20260526,28.8,29.05,28.55,28.95,1230377,29.19,-0.84,28.89,29.9,0.86
 ```
 
 ## Latest TDCC Snapshot
@@ -130,14 +133,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1808 | 潤隆 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260526 | 1808 | 潤隆 | revenue_breakout_low_response | 營收爆發低反應股 | 21.0 | 7.0 | B_可觀察 |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260526 | 1808 | 潤隆 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 57.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 1808 | 潤隆 | pattern | 型態觀察 | 48.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 1808 | 潤隆 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260526 | 1808 | 潤隆 | revenue_breakout_low_response | 營收爆發低反應股 | 21.0 | 8.0 | B_可觀察 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1808 | 潤隆 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260526 | 1808 | 潤隆 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

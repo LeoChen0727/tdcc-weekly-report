@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2515 中工
 
 ## Metadata
-- generated_at: 2026-05-26 06:39:41 Asia/Taipei
+- generated_at: 2026-05-26 21:25:07 Asia/Taipei
 - stock_id: 2515
 - stock_name: 中工
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 13.4
-- high: 13.4
-- low: 12.9
-- close: 13.15
-- volume: 9927170
-- ma5: 13.27
-- ma20: 13.03
-- ma60: 13.85
-- ma120: 13.86
-- ema23: 13.16
-- return_5d: -5.05
-- return_20d: -1.13
-- volume_ratio: 1.05
-- distance_to_ma20_pct: 0.9
-- distance_to_high_60_pct: -25.92
+- open: 13.2
+- high: 13.25
+- low: 12.75
+- close: 12.85
+- volume: 9639527
+- ma5: 13.16
+- ema23_primary: 13.1
+- distance_to_ema23_pct: -1.94
+- ma20: 13.02
+- ma60: 13.98
+- ma120: 13.88
+- return_5d: 4.9
+- return_20d: -2.65
+- volume_ratio: 1.27
+- distance_to_ma20_pct_auxiliary: -1.29
+- distance_to_high_60_pct: -29.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,13.4,13.4,13,13.05,6091662,13.23,13.38,14.46,13.58,0.86
-20260504,13.05,13.2,12.95,13.05,6838679,13.2,13.37,14.46,13.54,0.94
-20260505,13.1,13.15,13,13.05,2552705,13.17,13.36,14.44,13.49,0.36
-20260506,13.15,13.25,13.05,13.2,4279111,13.13,13.37,14.43,13.47,0.6
-20260507,13.2,13.3,13.1,13.25,3902547,13.12,13.35,14.41,13.45,0.56
-20260508,13.25,13.4,13.1,13.1,3251769,13.13,13.35,14.4,13.42,0.47
-20260511,13.15,13.35,13.05,13.2,3415703,13.16,13.35,14.39,13.4,0.5
-20260512,13.2,13.3,13.05,13.05,6052992,13.16,13.34,14.38,13.37,0.88
-20260513,13.05,13.45,13.05,13.35,7074795,13.19,13.33,14.38,13.37,1.01
-20260514,13.35,13.35,12.75,12.9,12011769,13.12,13.31,14.37,13.33,1.63
-20260515,12.9,12.9,12.25,12.25,11213200,12.95,13.24,14.34,13.24,1.54
-20260518,12.2,12.25,12.1,12.15,4897399,12.74,13.15,14.31,13.15,0.75
-20260519,12.2,12.4,12.2,12.25,4902018,12.58,13.08,14.26,13.08,0.82
-20260520,12.45,12.7,12.25,12.6,8760870,12.43,13.03,14.22,13.04,1.48
-20260521,12.65,13.85,12.6,13.85,20276952,12.62,13.04,14.19,13.1,3.14
-20260522,13.95,13.95,13.15,13.35,21266681,12.84,13.04,14.12,13.13,3.02
-20260523,13.95,13.95,13.15,13.35,21266681,13.08,13.04,14.04,13.14,2.69
-20260524,13.95,13.95,13.15,13.35,21266681,13.3,13.05,13.99,13.16,2.43
-20260525,13.4,13.4,12.9,13.15,9927170,13.41,13.04,13.92,13.16,1.1
-20260526,13.4,13.4,12.9,13.15,9927170,13.27,13.03,13.85,13.16,1.05
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,13.3,13.5,13.25,13.4,3431872,13.66,-1.88,13.4,14.46,0.47
+20260429,13.4,13.45,13.3,13.3,1942313,13.63,-2.4,13.39,14.47,0.27
+20260430,13.4,13.4,13,13.05,6091662,13.58,-3.9,13.38,14.46,0.86
+20260504,13.05,13.2,12.95,13.05,6838679,13.54,-3.58,13.37,14.46,0.94
+20260505,13.1,13.15,13,13.05,2552705,13.49,-3.3,13.36,14.44,0.36
+20260506,13.15,13.25,13.05,13.2,4279111,13.47,-2.01,13.37,14.43,0.6
+20260507,13.2,13.3,13.1,13.25,3902547,13.45,-1.5,13.35,14.41,0.56
+20260508,13.25,13.4,13.1,13.1,3251769,13.42,-2.4,13.35,14.4,0.47
+20260511,13.15,13.35,13.05,13.2,3415703,13.4,-1.52,13.35,14.39,0.5
+20260512,13.2,13.3,13.05,13.05,6052992,13.37,-2.43,13.34,14.38,0.88
+20260513,13.05,13.45,13.05,13.35,7074795,13.37,-0.17,13.33,14.38,1.01
+20260514,13.35,13.35,12.75,12.9,12011769,13.33,-3.25,13.31,14.37,1.63
+20260515,12.9,12.9,12.25,12.25,11213200,13.24,-7.5,13.24,14.34,1.54
+20260518,12.2,12.25,12.1,12.15,4897399,13.15,-7.62,13.15,14.31,0.75
+20260519,12.2,12.4,12.2,12.25,4902018,13.08,-6.32,13.08,14.26,0.82
+20260520,12.45,12.7,12.25,12.6,8760870,13.04,-3.35,13.03,14.22,1.48
+20260521,12.65,13.85,12.6,13.85,20276952,13.1,5.69,13.04,14.19,3.14
+20260522,13.95,13.95,13.15,13.35,21266681,13.13,1.71,13.04,14.12,3.02
+20260525,13.4,13.4,12.9,13.15,9927170,13.13,0.17,13.04,14.04,1.35
+20260526,13.2,13.25,12.75,12.85,9639527,13.1,-1.94,13.02,13.98,1.27
 ```
 
 ## Latest TDCC Snapshot
@@ -123,7 +126,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260526 | 2515 | 中工 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260526 | 2515 | 中工 | revenue_breakout_low_response | 營收爆發低反應股 | 14.0 | 10.0 | B_可觀察 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260526 | 2515 | 中工 | revenue_breakout_low_response | 營收爆發低反應股 | 13.0 | 12.0 | B_可觀察 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 | 20260521 | 2515 | 中工 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
@@ -134,7 +137,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260525 | 2515 | 中工 | 9 | 0 | 193080.0 | 0.0 |  | no_signal | 0 |  |
+| 20260526 | 2515 | 中工 | 9 | 0 | 43250.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

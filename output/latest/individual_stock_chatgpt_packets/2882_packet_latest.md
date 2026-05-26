@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2882 國泰金
 
 ## Metadata
-- generated_at: 2026-05-26 06:39:46 Asia/Taipei
+- generated_at: 2026-05-26 21:25:14 Asia/Taipei
 - stock_id: 2882
 - stock_name: 國泰金
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 79.9
-- high: 81.5
-- low: 78.7
-- close: 81.5
-- volume: 48981185
-- ma5: 80.42
-- ma20: 78.42
+- open: 80.6
+- high: 83.1
+- low: 80.6
+- close: 83.1
+- volume: 54668752
+- ma5: 80.18
+- ema23_primary: 77.9
+- distance_to_ema23_pct: 6.68
+- ma20: 78.19
 - ma60: 74.79
-- ma120: 74.39
-- ema23: 78.12
-- return_5d: 3.56
-- return_20d: 3.69
-- volume_ratio: 1.34
-- distance_to_ma20_pct: 3.93
+- ma120: 74.16
+- return_5d: 6.81
+- return_20d: 11.54
+- volume_ratio: 1.46
+- distance_to_ma20_pct_auxiliary: 6.28
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,78,79.5,77.2,77.2,29476709,75.98,74.17,74.28,74.47,1.02
-20260504,77.8,78.8,76.2,76.2,35405947,76.24,74.39,74.27,74.61,1.2
-20260505,76.2,77.7,75.8,77.2,28364586,76.78,74.66,74.28,74.83,0.94
-20260506,77.7,79.2,77.6,78.7,31579706,77.58,75,74.32,75.15,1.02
-20260507,78.5,79.2,78,79,24209426,77.66,75.25,74.38,75.47,0.79
-20260508,79.5,80.8,79.3,80,36917624,78.22,75.58,74.44,75.85,1.19
-20260511,79.6,79.6,78.4,78.4,21997102,78.66,75.85,74.48,76.06,0.7
-20260512,78.7,79.5,76.4,76.4,44745841,78.5,76.07,74.52,76.09,1.38
-20260513,76.6,78.3,76.1,77.3,34439783,78.22,76.3,74.56,76.19,1.05
-20260514,76.9,78.6,76.7,76.7,26797880,77.76,76.49,74.57,76.23,0.82
-20260515,77.4,79.7,77,77.9,54795472,77.34,76.67,74.6,76.37,1.62
-20260518,78,78,76.5,76.8,26109183,77.02,76.77,74.62,76.41,0.78
-20260519,77.5,79.7,77.3,77.8,46048117,77.3,76.92,74.63,76.52,1.34
-20260520,78,78.4,77,77.9,27763937,77.42,77.05,74.63,76.64,0.81
-20260521,77.8,79.1,77.8,78.7,41862607,77.82,77.19,74.63,76.81,1.2
-20260522,78.5,79.8,78.2,79.7,40807865,78.18,77.43,74.63,77.05,1.16
-20260523,78.5,79.8,78.2,79.7,40807865,78.76,77.67,74.66,77.27,1.14
-20260524,78.5,79.8,78.2,79.7,40807865,79.14,77.93,74.7,77.47,1.12
-20260525,79.9,81.5,78.7,81.5,48981185,79.86,78.27,74.73,77.81,1.3
-20260526,79.9,81.5,78.7,81.5,48981185,80.42,78.42,74.79,78.12,1.34
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,74.5,75.3,74.3,74.7,23101950,73.82,1.19,73.42,74.2,0.86
+20260429,75.9,79.5,75.9,78.6,71391632,74.22,5.9,73.83,74.25,2.45
+20260430,78,79.5,77.2,77.2,29476709,74.47,3.67,74.17,74.28,1.02
+20260504,77.8,78.8,76.2,76.2,35405947,74.61,2.13,74.39,74.27,1.2
+20260505,76.2,77.7,75.8,77.2,28364586,74.83,3.17,74.66,74.28,0.94
+20260506,77.7,79.2,77.6,78.7,31579706,75.15,4.72,75,74.32,1.02
+20260507,78.5,79.2,78,79,24209426,75.47,4.67,75.25,74.38,0.79
+20260508,79.5,80.8,79.3,80,36917624,75.85,5.47,75.58,74.44,1.19
+20260511,79.6,79.6,78.4,78.4,21997102,76.06,3.07,75.85,74.48,0.7
+20260512,78.7,79.5,76.4,76.4,44745841,76.09,0.41,76.07,74.52,1.38
+20260513,76.6,78.3,76.1,77.3,34439783,76.19,1.46,76.3,74.56,1.05
+20260514,76.9,78.6,76.7,76.7,26797880,76.23,0.61,76.49,74.57,0.82
+20260515,77.4,79.7,77,77.9,54795472,76.37,2,76.67,74.6,1.62
+20260518,78,78,76.5,76.8,26109183,76.41,0.51,76.77,74.62,0.78
+20260519,77.5,79.7,77.3,77.8,46048117,76.52,1.67,76.92,74.63,1.34
+20260520,78,78.4,77,77.9,27763937,76.64,1.65,77.05,74.63,0.81
+20260521,77.8,79.1,77.8,78.7,41862607,76.81,2.46,77.19,74.63,1.2
+20260522,78.5,79.8,78.2,79.7,40807865,77.05,3.44,77.43,74.63,1.16
+20260525,79.9,81.5,78.7,81.5,48981185,77.42,5.27,77.76,74.69,1.36
+20260526,80.6,83.1,80.6,83.1,54668752,77.9,6.68,78.19,74.79,1.46
 ```
 
 ## Latest TDCC Snapshot
@@ -122,18 +125,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2882 | 國泰金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 2882 | 國泰金 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 2882 | 國泰金 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_put_bullish | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 2882 | 國泰金 | pullback_rebound | 回檔後短線轉強 | 63.0 |  |  |  |  | call_put_bullish | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 2882 | 國泰金 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | call_put_bullish | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 2882 | 國泰金 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_put_bullish | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2882 | 國泰金 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260526 | 2882 | 國泰金 | 4 | 4 | 4 | 4 | 4 | continued_many_days | 連續 4 個交易日上榜，需判斷是持續醞釀或訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260525 | 2882 | 國泰金 | 30 | 3 | 2503280.0 | 0.0 |  | no_signal | 0 |  |
+| 20260526 | 2882 | 國泰金 | 29 | 3 | 8631080.0 | 250.0 | 34524.32 | call_put_bullish | 3 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

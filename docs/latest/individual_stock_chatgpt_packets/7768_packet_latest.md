@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7768 頌勝科技
 
 ## Metadata
-- generated_at: 2026-05-26 06:40:51 Asia/Taipei
+- generated_at: 2026-05-26 21:26:47 Asia/Taipei
 - stock_id: 7768
 - stock_name: 頌勝科技
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260526
-- price_rows: 16
+- price_rows: 14
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,42 +56,41 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 382
-- high: 394.5
-- low: 378
-- close: 394
-- volume: 521001
-- ma5: 384.4
-- ma20: 367.44
-- ma60: 367.44
-- ma120: 367.44
-- ema23: 375.29
-- return_5d: 5.35
+- open: 393.5
+- high: 393.5
+- low: 380
+- close: 385
+- volume: 387014
+- ma5: 380
+- ema23_primary: 373.54
+- distance_to_ema23_pct: 3.07
+- ma20: 365.29
+- ma60: 365.29
+- ma120: 365.29
+- return_5d: 5.91
 - return_20d: 
-- volume_ratio: 0.99
-- distance_to_ma20_pct: 7.23
-- distance_to_high_60_pct: -3.43
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: 5.4
+- distance_to_high_60_pct: -5.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260507,388,408,380,384.5,1832285,,,,,
 20260508,368,381,348,350,1027633,,,,,
 20260511,350,365,330,354,733381,,,,,
 20260512,355,355,334,336,578562,,,,,
-20260513,341,347,333.5,341.5,423313,353.2,353.2,353.2,372.86,0.46
-20260514,347,374.5,337.5,374.5,633817,351.2,356.75,356.75,373,0.73
-20260515,374.5,374.5,360,360,401999,353.2,357.21,357.21,371.92,0.5
-20260518,351.5,355,345,350,162500,352.4,356.31,356.31,370.09,0.22
-20260519,354.5,368.5,351.5,363.5,321980,357.9,357.11,357.11,369.54,0.47
-20260520,365,375,364,369,198162,363.4,358.3,358.3,369.49,0.31
-20260521,377,377,360.5,374,185039,363.3,359.73,359.73,369.87,0.31
-20260522,373,382,368,378,295045,366.9,361.25,361.25,370.55,0.52
-20260523,373,382,368,378,295045,372.5,362.54,362.54,371.17,0.54
-20260524,373,382,368,378,295045,375.4,363.64,363.64,371.74,0.56
-20260525,382,394.5,378,394,521001,380.4,365.67,365.67,373.59,0.99
-20260526,382,394.5,378,394,521001,384.4,367.44,367.44,375.29,0.99
+20260513,341,347,333.5,341.5,423313,372.86,-8.41,353.2,353.2,0.46
+20260514,347,374.5,337.5,374.5,633817,373,0.4,356.75,356.75,0.73
+20260515,374.5,374.5,360,360,401999,371.92,-3.2,357.21,357.21,0.5
+20260518,351.5,355,345,350,162500,370.09,-5.43,356.31,356.31,0.22
+20260519,354.5,368.5,351.5,363.5,321980,369.54,-1.63,357.11,357.11,0.47
+20260520,365,375,364,369,198162,369.49,-0.13,358.3,358.3,0.31
+20260521,377,377,360.5,374,185039,369.87,1.12,359.73,359.73,0.31
+20260522,373,382,368,378,295045,370.55,2.01,361.25,361.25,0.52
+20260525,382,394.5,378,394,521001,372.5,5.77,363.77,363.77,0.93
+20260526,393.5,393.5,380,385,387014,373.54,3.07,365.29,365.29,0.7
 ```
 
 ## Latest TDCC Snapshot

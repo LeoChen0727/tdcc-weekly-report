@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7818 溢泰實業
 
 ## Metadata
-- generated_at: 2026-05-26 06:40:52 Asia/Taipei
+- generated_at: 2026-05-26 21:26:48 Asia/Taipei
 - stock_id: 7818
 - stock_name: 溢泰實業
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260526
-- price_rows: 9
+- price_rows: 7
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,35 +56,34 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 65.6
-- high: 67.6
-- low: 65.2
-- close: 65.9
-- volume: 1100047
-- ma5: 65.36
-- ma20: 65.73
-- ma60: 65.73
-- ma120: 65.73
-- ema23: 64.84
-- return_5d: -1.49
+- open: 66.5
+- high: 67.9
+- low: 66.4
+- close: 67
+- volume: 829446
+- ma5: 66.38
+- ema23_primary: 64.88
+- distance_to_ema23_pct: 3.27
+- ma20: 66.1
+- ma60: 66.1
+- ma120: 66.1
+- return_5d: 0
 - return_20d: 
-- volume_ratio: 0.89
-- distance_to_ma20_pct: 0.25
-- distance_to_high_60_pct: -4.77
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: 1.36
+- distance_to_high_60_pct: -3.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260518,68.6,68.6,63,63.8,3221479,,,,,
 20260519,64.9,67.5,64.5,67,973182,,,,,
 20260520,68.8,69.2,66.7,67.1,699837,,,,,
 20260521,68,68.1,65.9,66.9,701095,,,,,
-20260522,66.8,66.8,64,65,1099672,65.96,65.96,65.96,64.57,0.82
-20260523,66.8,66.8,64,65,1099672,66.2,65.8,65.8,64.61,0.85
-20260524,66.8,66.8,64,65,1099672,65.8,65.69,65.69,64.64,0.87
-20260525,65.6,67.6,65.2,65.9,1100047,65.56,65.71,65.71,64.75,0.88
-20260526,65.6,67.6,65.2,65.9,1100047,65.36,65.73,65.73,64.84,0.89
+20260522,66.8,66.8,64,65,1099672,64.57,0.66,65.96,65.96,0.82
+20260525,65.6,67.6,65.2,65.9,1100047,64.68,1.88,65.95,65.95,0.85
+20260526,66.5,67.9,66.4,67,829446,64.88,3.27,66.1,66.1,0.67
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3694 海華
 
 ## Metadata
-- generated_at: 2026-05-26 06:40:04 Asia/Taipei
+- generated_at: 2026-05-26 21:25:41 Asia/Taipei
 - stock_id: 3694
 - stock_name: 海華
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 70.6
-- high: 72
-- low: 69.9
-- close: 70.8
-- volume: 5149047
-- ma5: 70.62
-- ma20: 63.66
-- ma60: 59.66
-- ma120: 60.34
-- ema23: 64.75
-- return_5d: -1.39
-- return_20d: 16.83
-- volume_ratio: 1.17
-- distance_to_ma20_pct: 11.21
-- distance_to_high_60_pct: -2.88
+- open: 71.3
+- high: 71.5
+- low: 68.4
+- close: 70.2
+- volume: 4046165
+- ma5: 70.9
+- ema23_primary: 63.6
+- distance_to_ema23_pct: 10.38
+- ma20: 62.71
+- ma60: 59.34
+- ma120: 60.2
+- return_5d: 8.33
+- return_20d: 18.18
+- volume_ratio: 1.05
+- distance_to_ma20_pct_auxiliary: 11.94
+- distance_to_high_60_pct: -3.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,61.4,61.4,60.1,60.6,501574,60.46,59.26,58.66,59.51,0.46
-20260504,61.6,62.4,60.7,61.4,1222649,60.78,59.55,58.67,59.67,1.09
-20260505,62,63.3,61.7,62,2095815,61.3,59.97,58.59,59.86,1.77
-20260506,62.8,62.8,59.4,60.6,2077884,61.04,60.33,58.51,59.92,1.64
-20260507,61.1,62.5,60.5,61.9,1117470,61.3,60.65,58.5,60.09,0.87
-20260508,61.6,62.4,59.8,60,1400908,61.18,60.86,58.49,60.08,1.05
-20260511,59,59,56.4,56.8,2320371,60.26,60.84,58.45,59.81,1.64
-20260512,57.5,57.5,55.4,56.1,1288098,59.08,60.56,58.43,59.5,0.96
-20260513,56.9,56.9,55.2,55.6,871868,58.08,60.28,58.39,59.17,0.67
-20260514,56.4,59.5,55.6,58.1,1206555,57.32,60.18,58.35,59.08,0.93
-20260515,59,61.8,57.5,59,3302672,57.12,60.06,58.34,59.08,2.32
-20260518,59,61.1,58.8,60.3,2931396,57.82,60.02,58.38,59.18,1.93
-20260519,60.3,65.3,60,64.8,7109313,59.56,60.18,58.5,59.65,3.97
-20260520,67,71.2,66.6,71.2,12437256,62.68,60.62,58.72,60.61,5.33
-20260521,71.2,72.9,67.6,71.8,20015070,65.42,61.1,58.91,61.54,6.11
-20260522,70.7,72,69.6,70.5,5841825,67.72,61.62,59.05,62.29,1.68
-20260523,70.7,72,69.6,70.5,5841825,69.76,62.16,59.2,62.97,1.57
-20260524,70.7,72,69.6,70.5,5841825,70.9,62.71,59.34,63.6,1.47
-20260525,70.6,72,69.9,70.8,5149047,70.82,63.16,59.49,64.2,1.23
-20260526,70.6,72,69.9,70.8,5149047,70.62,63.66,59.66,64.75,1.17
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,59.6,62.2,58.5,61.9,1141203,59.3,4.38,58.7,58.68,1.05
+20260429,61.7,62,60.4,60.6,993995,59.41,2,58.93,58.68,0.9
+20260430,61.4,61.4,60.1,60.6,501574,59.51,1.83,59.26,58.66,0.46
+20260504,61.6,62.4,60.7,61.4,1222649,59.67,2.9,59.55,58.67,1.09
+20260505,62,63.3,61.7,62,2095815,59.86,3.57,59.97,58.59,1.77
+20260506,62.8,62.8,59.4,60.6,2077884,59.92,1.13,60.33,58.51,1.64
+20260507,61.1,62.5,60.5,61.9,1117470,60.09,3.01,60.65,58.5,0.87
+20260508,61.6,62.4,59.8,60,1400908,60.08,-0.13,60.86,58.49,1.05
+20260511,59,59,56.4,56.8,2320371,59.81,-5.03,60.84,58.45,1.64
+20260512,57.5,57.5,55.4,56.1,1288098,59.5,-5.71,60.56,58.43,0.96
+20260513,56.9,56.9,55.2,55.6,871868,59.17,-6.04,60.28,58.39,0.67
+20260514,56.4,59.5,55.6,58.1,1206555,59.08,-1.67,60.18,58.35,0.93
+20260515,59,61.8,57.5,59,3302672,59.08,-0.13,60.06,58.34,2.32
+20260518,59,61.1,58.8,60.3,2931396,59.18,1.89,60.02,58.38,1.93
+20260519,60.3,65.3,60,64.8,7109313,59.65,8.64,60.18,58.5,3.97
+20260520,67,71.2,66.6,71.2,12437256,60.61,17.47,60.62,58.72,5.33
+20260521,71.2,72.9,67.6,71.8,20015070,61.54,16.67,61.1,58.91,6.11
+20260522,70.7,72,69.6,70.5,5841825,62.29,13.18,61.62,59.05,1.68
+20260525,70.6,72,69.9,70.8,5149047,63,12.38,62.17,59.2,1.39
+20260526,71.3,71.5,68.4,70.2,4046165,63.6,10.38,62.71,59.34,1.05
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +125,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3694 | 海華 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 58.0 |  |  | neckline_challenge |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 3694 | 海華 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
@@ -133,7 +135,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260525 | 3694 | 海華 | 11 | 0 | 1829460.0 | 0.0 |  | no_signal | 0 |  |
+| 20260526 | 3694 | 海華 | 11 | 0 | 2216220.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

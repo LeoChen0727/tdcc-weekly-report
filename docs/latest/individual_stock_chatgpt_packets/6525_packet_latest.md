@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6525 捷敏-KY
 
 ## Metadata
-- generated_at: 2026-05-26 06:40:37 Asia/Taipei
+- generated_at: 2026-05-26 21:26:27 Asia/Taipei
 - stock_id: 6525
 - stock_name: 捷敏-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 119
-- high: 125
-- low: 116.5
-- close: 122
-- volume: 2471726
-- ma5: 118.4
-- ma20: 109.72
-- ma60: 93.03
-- ma120: 85.14
-- ema23: 108.52
-- return_5d: 7.02
-- return_20d: 33.77
-- volume_ratio: 1.45
-- distance_to_ma20_pct: 11.2
-- distance_to_high_60_pct: -2.4
+- open: 125
+- high: 134
+- low: 124
+- close: 134
+- volume: 4298446
+- ma5: 119.9
+- ema23_primary: 107.91
+- distance_to_ema23_pct: 24.18
+- ma20: 107.78
+- ma60: 92.14
+- ma120: 84.53
+- return_5d: 21.82
+- return_20d: 49.55
+- volume_ratio: 2.48
+- distance_to_ma20_pct_auxiliary: 24.32
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,91.5,93.4,90,92.4,599511,91.24,87.89,83.35,88.27,1.15
-20260504,94.5,96.1,93.8,95.9,938444,91.86,88.66,83.61,88.9,1.66
-20260505,95.9,102.5,95.5,102.5,1864557,94.44,89.81,84,90.03,2.87
-20260506,106,107,100.5,103,2242330,97,90.91,84.37,91.12,2.97
-20260507,107.5,113,107,109.5,3461181,100.66,92.21,84.85,92.65,3.81
-20260508,108,113.5,104.5,106.5,2029485,103.48,93.33,85.3,93.8,2.03
-20260511,105.5,111,103,109.5,1722827,106.2,94.58,85.82,95.11,1.6
-20260512,109.5,110.5,106.5,107.5,881503,107.2,95.69,86.31,96.14,0.8
-20260513,107,108,104,106,809226,107.8,96.7,86.74,96.96,0.72
-20260514,107,116.5,107,116.5,2069885,109.2,98.19,87.37,98.59,1.74
-20260515,114.5,115,105,105,3919132,108.9,99.02,87.82,99.13,2.86
-20260518,102.5,112.5,101,110.5,1515196,109.1,100.02,88.36,100.07,1.09
-20260519,110,112.5,108.5,110,1304649,109.6,100.97,88.87,100.9,0.91
-20260520,110,115,110,113.5,1475717,111.1,102.01,89.44,101.95,1
-20260521,115.5,118,113.5,114,1271612,110.6,102.89,90.01,102.95,0.86
-20260522,114,117,112.5,116,994347,112.8,104.11,90.6,104.04,0.67
-20260523,114,117,112.5,116,994347,113.9,105.27,91.16,105.04,0.66
-20260524,114,117,112.5,116,994347,115.1,106.58,91.74,105.95,0.67
-20260525,119,125,116.5,122,2471726,116.8,108.17,92.38,107.29,1.55
-20260526,119,125,116.5,122,2471726,118.4,109.72,93.03,108.52,1.45
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,90,91.6,88.9,90.2,473551,87.59,2.98,86.75,82.99,0.96
+20260429,90.7,91.8,89.3,91.2,337726,87.89,3.77,87.26,83.16,0.67
+20260430,91.5,93.4,90,92.4,599511,88.27,4.68,87.89,83.35,1.15
+20260504,94.5,96.1,93.8,95.9,938444,88.9,7.87,88.66,83.61,1.66
+20260505,95.9,102.5,95.5,102.5,1864557,90.03,13.85,89.81,84,2.87
+20260506,106,107,100.5,103,2242330,91.12,13.04,90.91,84.37,2.97
+20260507,107.5,113,107,109.5,3461181,92.65,18.19,92.21,84.85,3.81
+20260508,108,113.5,104.5,106.5,2029485,93.8,13.54,93.33,85.3,2.03
+20260511,105.5,111,103,109.5,1722827,95.11,15.13,94.58,85.82,1.6
+20260512,109.5,110.5,106.5,107.5,881503,96.14,11.81,95.69,86.31,0.8
+20260513,107,108,104,106,809226,96.96,9.32,96.7,86.74,0.72
+20260514,107,116.5,107,116.5,2069885,98.59,18.16,98.19,87.37,1.74
+20260515,114.5,115,105,105,3919132,99.13,5.93,99.02,87.82,2.86
+20260518,102.5,112.5,101,110.5,1515196,100.07,10.42,100.02,88.36,1.09
+20260519,110,112.5,108.5,110,1304649,100.9,9.02,100.97,88.87,0.91
+20260520,110,115,110,113.5,1475717,101.95,11.33,102.01,89.44,1
+20260521,115.5,118,113.5,114,1271612,102.95,10.73,102.89,90.01,0.86
+20260522,114,117,112.5,116,994347,104.04,11.49,104.11,90.6,0.67
+20260525,119,125,116.5,122,2471726,105.54,15.6,105.56,91.26,1.57
+20260526,125,134,124,134,4298446,107.91,24.18,107.78,92.14,2.48
 ```
 
 ## Latest TDCC Snapshot
@@ -122,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6525 | 捷敏-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 58.0 |  |  | neckline_challenge |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 6525 | 捷敏-KY | true_breakout | 嚴格突破 | 104.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6525 | 捷敏-KY | 2 | 1 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260526 | 6525 | 捷敏-KY | 2 | 2 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | status |

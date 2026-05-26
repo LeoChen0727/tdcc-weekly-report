@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3715 定穎投控
 
 ## Metadata
-- generated_at: 2026-05-26 06:40:05 Asia/Taipei
+- generated_at: 2026-05-26 21:25:42 Asia/Taipei
 - stock_id: 3715
 - stock_name: 定穎投控
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 176
-- high: 185
-- low: 176
-- close: 179
-- volume: 16821685
-- ma5: 176.3
-- ma20: 177.1
-- ma60: 175.68
-- ma120: 152.98
-- ema23: 176.44
-- return_5d: 9.15
-- return_20d: 0.85
-- volume_ratio: 1.05
-- distance_to_ma20_pct: 1.07
-- distance_to_high_60_pct: -12.04
+- open: 181
+- high: 188
+- low: 178
+- close: 186
+- volume: 20563558
+- ma5: 172.9
+- ema23_primary: 177.26
+- distance_to_ema23_pct: 4.93
+- ma20: 177.82
+- ma60: 175.16
+- ma120: 151.96
+- return_5d: 12.73
+- return_20d: 4.79
+- volume_ratio: 1.31
+- distance_to_ma20_pct_auxiliary: 4.6
+- distance_to_high_60_pct: -8.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,175.5,178.5,173,174,13277267,178.2,184.3,166.05,180.55,0.51
-20260504,176,183,174,179,12704738,177.4,184.25,166.68,180.42,0.52
-20260505,179.5,196.5,178,196.5,47001121,181.2,185.47,167.36,181.76,1.87
-20260506,198,200,183,186.5,44004111,182.7,185.72,167.98,182.16,1.7
-20260507,189,192,185,189,19073946,185,185.45,168.63,182.73,0.77
-20260508,189,190.5,177,180.5,19061361,186.3,185.12,169.26,182.54,0.79
-20260511,182,182,177,181.5,8846837,186.8,184.88,169.9,182.46,0.38
-20260512,182,184,179,180.5,8670623,183.6,184.57,170.61,182.29,0.38
-20260513,179,180.5,176,176.5,7133672,181.6,184.07,171.16,181.81,0.32
-20260514,178.5,186.5,177.5,181,15769877,180,183.85,171.55,181.74,0.73
-20260515,182.5,182.5,172,175,15836148,178.9,183.28,171.95,181.18,0.73
-20260518,171,172.5,163,170.5,10936783,176.7,181.9,172.43,180.29,0.57
-20260519,169.5,174.5,163.5,165,9050588,173.6,180.62,172.78,179.02,0.51
-20260520,166,166,159,161,7960400,170.5,179.07,173.09,177.51,0.47
-20260521,165,168,163.5,164,6405639,167.1,177.82,173.47,176.39,0.4
-20260522,165.5,178.5,165.5,174.5,13230542,167,177.6,174.04,176.23,0.86
-20260523,165.5,178.5,165.5,174.5,13230542,167.8,177.18,174.53,176.09,0.88
-20260524,165.5,178.5,165.5,174.5,13230542,169.7,177.03,174.89,175.95,0.88
-20260525,176,185,176,179,16821685,173.3,177.03,175.24,176.21,1.09
-20260526,176,185,176,179,16821685,176.3,177.1,175.68,176.44,1.05
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,178,183,176,179,9668506,181.48,-1.37,184.72,164.7,0.32
+20260429,178,179,174.5,177.5,6842098,181.15,-2.01,184.35,165.43,0.25
+20260430,175.5,178.5,173,174,13277267,180.55,-3.63,184.3,166.05,0.51
+20260504,176,183,174,179,12704738,180.42,-0.79,184.25,166.68,0.52
+20260505,179.5,196.5,178,196.5,47001121,181.76,8.11,185.47,167.36,1.87
+20260506,198,200,183,186.5,44004111,182.16,2.38,185.72,167.98,1.7
+20260507,189,192,185,189,19073946,182.73,3.43,185.45,168.63,0.77
+20260508,189,190.5,177,180.5,19061361,182.54,-1.12,185.12,169.26,0.79
+20260511,182,182,177,181.5,8846837,182.46,-0.52,184.88,169.9,0.38
+20260512,182,184,179,180.5,8670623,182.29,-0.98,184.57,170.61,0.38
+20260513,179,180.5,176,176.5,7133672,181.81,-2.92,184.07,171.16,0.32
+20260514,178.5,186.5,177.5,181,15769877,181.74,-0.41,183.85,171.55,0.73
+20260515,182.5,182.5,172,175,15836148,181.18,-3.41,183.28,171.95,0.73
+20260518,171,172.5,163,170.5,10936783,180.29,-5.43,181.9,172.43,0.57
+20260519,169.5,174.5,163.5,165,9050588,179.02,-7.83,180.62,172.78,0.51
+20260520,166,166,159,161,7960400,177.51,-9.3,179.07,173.09,0.47
+20260521,165,168,163.5,164,6405639,176.39,-7.02,177.82,173.47,0.4
+20260522,165.5,178.5,165.5,174.5,13230542,176.23,-0.98,177.6,174.04,0.86
+20260525,176,185,176,179,16821685,176.46,1.44,177.4,174.61,1.1
+20260526,181,188,178,186,20563558,177.26,4.93,177.82,175.16,1.31
 ```
 
 ## Latest TDCC Snapshot
@@ -122,8 +125,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3715 | 定穎投控 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_put_bullish | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260526 | 3715 | 定穎投控 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 3715 | 定穎投控 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 3715 | 定穎投控 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 3715 | 定穎投控 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -133,7 +137,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260525 | 3715 | 定穎投控 | 241 | 16 | 54908210.0 | 592670.0 | 92.65 | call_put_bullish | 3 |  |
+| 20260526 | 3715 | 定穎投控 | 242 | 16 | 45638220.0 | 992360.0 | 45.99 | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

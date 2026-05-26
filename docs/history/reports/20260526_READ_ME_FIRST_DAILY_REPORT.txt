@@ -1,6 +1,6 @@
 main_price_date=20260526
 report_ready=True
-commit_sha=a3b4934ffed86b848d58c174d3e908e717e40d33
+commit_sha=0246eea53c8d06f4fb3969cbbdeb5fd805dc84ad
 readme_latest_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT.txt
 readme_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/READ_ME_FIRST_DAILY_REPORT.txt
 readme_index_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT_INDEX.txt
@@ -15,7 +15,7 @@ readme_history_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly
 readme_cache_bypass_order=readme_date_stamped_pages_url,readme_date_stamped_raw_url,readme_date_stamped_github_api_url,readme_index_github_api_url,readme_history_pages_url,readme_history_raw_url,readme_latest_pages_url,readme_latest_raw_url
 preferred_chatgpt_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt
 packet_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt
-packet_commit_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/a3b4934ffed86b848d58c174d3e908e717e40d33/output/history/reports/20260526_CHATGPT_DAILY_REPORT_PACKET.txt
+packet_commit_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/0246eea53c8d06f4fb3969cbbdeb5fd805dc84ad/output/history/reports/20260526_CHATGPT_DAILY_REPORT_PACKET.txt
 packet_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/chatgpt_daily_report_packet_latest.txt
 packet_github_api_url=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/chatgpt_daily_report_packet_latest.txt?ref=main
 summary_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_summary_latest.md
@@ -30,8 +30,8 @@ pdf_kline_status_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/late
 pdf_kline_status_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/pdf_kline_chart_status_latest.md
 summary_pdf_kline_policy=local_price_redraw_first
 summary_pdf_kline_status=generated
-summary_pdf_kline_total_charts=20
-summary_pdf_kline_local_price_redraw_count=20
+summary_pdf_kline_total_charts=30
+summary_pdf_kline_local_price_redraw_count=30
 summary_pdf_chart_path_and_chart_url_are_fallback_only=True
 do_not_label_summary_pdf_as_chart_path_version_or_image_download_failed=True
 fundamental_catalyst_layer_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/fundamental_catalyst_layer_latest.md

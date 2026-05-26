@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8162 微矽電子-創
 
 ## Metadata
-- generated_at: 2026-05-26 06:40:55 Asia/Taipei
+- generated_at: 2026-05-26 21:26:53 Asia/Taipei
 - stock_id: 8162
 - stock_name: 微矽電子-創
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 66.8
-- high: 66.8
-- low: 66.8
-- close: 66.8
-- volume: 515574
-- ma5: 63.2
-- ma20: 56.09
-- ma60: 46.3
-- ma120: 41.26
-- ema23: 55.75
-- return_5d: 20.8
-- return_20d: 24.86
-- volume_ratio: 0.72
-- distance_to_ma20_pct: 19.1
+- open: 73.4
+- high: 73.4
+- low: 69.9
+- close: 73.4
+- volume: 2166923
+- ma5: 62.08
+- ema23_primary: 55.16
+- distance_to_ema23_pct: 33.07
+- ma20: 55.45
+- ma60: 45.78
+- ma120: 40.86
+- return_5d: 37.2
+- return_20d: 50.41
+- volume_ratio: 2.69
+- distance_to_ma20_pct_auxiliary: 32.38
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,53.5,53.7,50.4,50.7,1417562,51.06,44.72,40.44,45.39,1.39
-20260504,50.8,52.7,50.8,50.8,681968,50.5,45.32,40.63,45.84,0.65
-20260505,50.2,52.8,49.8,52,548974,51.14,46.01,40.85,46.35,0.51
-20260506,53,57.2,52.3,52.8,1274197,51.96,46.73,41.09,46.89,1.12
-20260507,51.5,57.5,50.7,56.2,1073248,52.5,47.52,41.38,47.66,0.91
-20260508,56.1,58.9,53.9,54.7,898690,53.3,48.12,41.66,48.25,0.76
-20260511,56.7,57,54.8,55,776883,54.14,48.72,41.96,48.81,0.66
-20260512,56.8,56.8,52.3,54.2,768683,54.58,49.3,42.26,49.26,0.64
-20260513,53.5,53.8,52.6,53.3,258056,54.68,49.84,42.54,49.6,0.22
-20260514,54,56.4,53.7,56.2,828291,54.68,50.53,42.86,50.15,0.68
-20260515,56.4,56.4,53.5,53.7,454892,54.48,51.12,43.14,50.44,0.37
-20260518,53.5,53.9,51.6,53.2,353685,54.12,51.63,43.43,50.67,0.29
-20260519,53.2,55.4,52.3,53.5,511239,53.98,52.24,43.72,50.91,0.43
-20260520,53.5,55.1,53.2,54.1,378400,54.14,52.77,44.01,51.18,0.32
-20260521,54.5,56.4,54.3,55.3,575305,53.96,53.15,44.31,51.52,0.51
-20260522,56,60.8,55.7,60.8,821554,55.38,53.55,44.7,52.29,0.83
-20260523,56,60.8,55.7,60.8,821554,56.9,53.91,45.09,53,1.02
-20260524,56,60.8,55.7,60.8,821554,58.36,54.52,45.47,53.65,1.09
-20260525,66.8,66.8,66.8,66.8,515574,60.9,55.42,45.91,54.75,0.69
-20260526,66.8,66.8,66.8,66.8,515574,63.2,56.09,46.3,55.75,0.72
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,48.8,49.65,47.25,48.7,606502,44.12,10.38,43.37,40,0.67
+20260429,49.1,53.5,48.8,53.5,1175853,44.9,19.15,44.09,40.25,1.23
+20260430,53.5,53.7,50.4,50.7,1417562,45.39,11.71,44.72,40.44,1.39
+20260504,50.8,52.7,50.8,50.8,681968,45.84,10.83,45.32,40.63,0.65
+20260505,50.2,52.8,49.8,52,548974,46.35,12.19,46.01,40.85,0.51
+20260506,53,57.2,52.3,52.8,1274197,46.89,12.61,46.73,41.09,1.12
+20260507,51.5,57.5,50.7,56.2,1073248,47.66,17.91,47.52,41.38,0.91
+20260508,56.1,58.9,53.9,54.7,898690,48.25,13.37,48.12,41.66,0.76
+20260511,56.7,57,54.8,55,776883,48.81,12.68,48.72,41.96,0.66
+20260512,56.8,56.8,52.3,54.2,768683,49.26,10.03,49.3,42.26,0.64
+20260513,53.5,53.8,52.6,53.3,258056,49.6,7.46,49.84,42.54,0.22
+20260514,54,56.4,53.7,56.2,828291,50.15,12.07,50.53,42.86,0.68
+20260515,56.4,56.4,53.5,53.7,454892,50.44,6.45,51.12,43.14,0.37
+20260518,53.5,53.9,51.6,53.2,353685,50.67,4.99,51.63,43.43,0.29
+20260519,53.2,55.4,52.3,53.5,511239,50.91,5.09,52.24,43.72,0.43
+20260520,53.5,55.1,53.2,54.1,378400,51.18,5.72,52.77,44.01,0.32
+20260521,54.5,56.4,54.3,55.3,575305,51.52,7.34,53.15,44.31,0.51
+20260522,56,60.8,55.7,60.8,821554,52.29,16.27,53.55,44.7,0.83
+20260525,66.8,66.8,66.8,66.8,515574,53.5,24.86,54.22,45.19,0.65
+20260526,73.4,73.4,69.9,73.4,2166923,55.16,33.07,55.45,45.78,2.69
 ```
 
 ## Latest TDCC Snapshot
@@ -120,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 8162 | 微矽電子-創 | true_breakout | 嚴格突破 | 89.0 |  |  | breakout_confirmed |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 8162 | 微矽電子-創 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | status |

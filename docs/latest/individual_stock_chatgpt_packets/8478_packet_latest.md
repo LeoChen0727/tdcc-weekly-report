@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8478 東哥遊艇
 
 ## Metadata
-- generated_at: 2026-05-26 06:40:59 Asia/Taipei
+- generated_at: 2026-05-26 21:26:58 Asia/Taipei
 - stock_id: 8478
 - stock_name: 東哥遊艇
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 153
-- high: 153
-- low: 149.5
+- open: 150.5
+- high: 152
+- low: 150
 - close: 150.5
-- volume: 229408
-- ma5: 151.7
-- ma20: 159.12
-- ma60: 163.23
-- ma120: 176.74
-- ema23: 158.19
+- volume: 136665
+- ma5: 151.2
+- ema23_primary: 159.33
+- distance_to_ema23_pct: -5.54
+- ma20: 160.97
+- ma60: 163.82
+- ma120: 177.38
 - return_5d: -0.99
-- return_20d: -11.99
-- volume_ratio: 1
-- distance_to_ma20_pct: -5.42
+- return_20d: -11.47
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: -6.51
 - distance_to_high_60_pct: -18.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,171,171,167.5,168.5,125939,169.9,167.5,170.16,168.57,0.68
-20260504,168.5,168.5,163.5,166.5,245460,169.4,167.9,169.74,168.4,1.27
-20260505,168,169,167,168,92560,169,168.5,169.34,168.36,0.48
-20260506,170,173.5,168,169.5,379943,168.7,169.1,169.01,168.46,1.81
-20260507,169,169,166.5,168,166592,168.1,169.32,168.66,168.42,0.79
-20260508,168,169.5,166.5,169,107116,168.2,169.8,168.33,168.47,0.51
-20260511,169,169,163,163,340960,167.5,169.85,167.97,168.01,1.53
-20260512,164.5,164.5,160,160,313050,165.9,169.32,167.62,167.35,1.51
-20260513,166,169.5,163.5,165,661488,165,169.12,167.35,167.15,2.9
-20260514,164,166,160.5,160.5,227686,163.5,168.78,166.93,166.6,0.98
-20260515,162.5,162.5,157,158,233021,161.3,168.2,166.51,165.88,0.98
-20260518,156,156,153,153.5,244642,159.4,167.3,166.08,164.85,1
-20260519,152.5,154.5,152,152,149173,157.8,166.28,165.63,163.78,0.61
-20260520,153,153,149,150.5,198879,154.9,165.15,165.11,162.67,0.82
-20260521,152,154.5,150.5,152,282155,153.2,163.9,164.82,161.78,1.17
-20260522,152.5,154,152,152.5,113714,152.1,162.88,164.53,161.01,0.52
-20260523,152.5,154,152,152.5,113714,151.9,162.05,164.22,160.3,0.53
-20260524,152.5,154,152,152.5,113714,152,161.18,163.89,159.65,0.53
-20260525,153,153,149.5,150.5,229408,152,160.15,163.55,158.89,1.04
-20260526,153,153,149.5,150.5,229408,151.7,159.12,163.23,158.19,1
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,170,171.5,170,171,81722,168.36,1.57,166.32,170.82,0.42
+20260429,172.5,172.5,169.5,171,86699,168.58,1.44,166.88,170.52,0.47
+20260430,171,171,167.5,168.5,125939,168.57,-0.04,167.5,170.16,0.68
+20260504,168.5,168.5,163.5,166.5,245460,168.4,-1.13,167.9,169.74,1.27
+20260505,168,169,167,168,92560,168.36,-0.22,168.5,169.34,0.48
+20260506,170,173.5,168,169.5,379943,168.46,0.62,169.1,169.01,1.81
+20260507,169,169,166.5,168,166592,168.42,-0.25,169.32,168.66,0.79
+20260508,168,169.5,166.5,169,107116,168.47,0.32,169.8,168.33,0.51
+20260511,169,169,163,163,340960,168.01,-2.98,169.85,167.97,1.53
+20260512,164.5,164.5,160,160,313050,167.35,-4.39,169.32,167.62,1.51
+20260513,166,169.5,163.5,165,661488,167.15,-1.29,169.12,167.35,2.9
+20260514,164,166,160.5,160.5,227686,166.6,-3.66,168.78,166.93,0.98
+20260515,162.5,162.5,157,158,233021,165.88,-4.75,168.2,166.51,0.98
+20260518,156,156,153,153.5,244642,164.85,-6.88,167.3,166.08,1
+20260519,152.5,154.5,152,152,149173,163.78,-7.19,166.28,165.63,0.61
+20260520,153,153,149,150.5,198879,162.67,-7.48,165.15,165.11,0.82
+20260521,152,154.5,150.5,152,282155,161.78,-6.05,163.9,164.82,1.17
+20260522,152.5,154,152,152.5,113714,161.01,-5.28,162.88,164.53,0.52
+20260525,153,153,149.5,150.5,229408,160.13,-6.02,161.95,164.18,1.04
+20260526,150.5,152,150,150.5,136665,159.33,-5.54,160.97,163.82,0.62
 ```
 
 ## Latest TDCC Snapshot
@@ -132,7 +135,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260525 | 8478 | 東哥遊艇 | 10 | 0 | 131290.0 | 0.0 |  | no_signal | 0 |  |
+| 20260526 | 8478 | 東哥遊艇 | 10 | 0 | 440.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

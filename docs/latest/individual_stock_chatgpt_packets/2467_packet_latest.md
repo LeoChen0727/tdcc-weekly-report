@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2467 志聖
 
 ## Metadata
-- generated_at: 2026-05-26 06:39:39 Asia/Taipei
+- generated_at: 2026-05-26 21:25:04 Asia/Taipei
 - stock_id: 2467
 - stock_name: 志聖
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 617
-- high: 663
-- low: 614
-- close: 663
-- volume: 3970310
-- ma5: 627
-- ma20: 596.2
-- ma60: 494.82
-- ma120: 370.69
-- ema23: 586.27
-- return_5d: 13.33
-- return_20d: 19.68
-- volume_ratio: 1.21
-- distance_to_ma20_pct: 11.2
-- distance_to_high_60_pct: 0
+- open: 670
+- high: 692
+- low: 661
+- close: 668
+- volume: 4304760
+- ma5: 614.6
+- ema23_primary: 581.68
+- distance_to_ema23_pct: 14.84
+- ma20: 591.1
+- ma60: 486.03
+- ma120: 363.61
+- return_5d: 15.97
+- return_20d: 34.81
+- volume_ratio: 1.29
+- distance_to_ma20_pct_auxiliary: 13.01
+- distance_to_high_60_pct: -3.47
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,566,609,556,609,5898109,548.3,518.1,391.62,507.89,1.8
-20260504,643,649,571,580,7693643,556.7,527.17,397.33,513.9,2.33
-20260505,580,585,564,571,3572979,571.8,536.12,402.95,518.66,1.09
-20260506,580,583,537,567,3415457,576.2,544.05,408.45,522.69,1.05
-20260507,579,579,545,554,2177869,576.2,549.3,413.63,525.3,0.7
-20260508,555,564,524,537,1940823,561.8,551.48,418.3,526.27,0.68
-20260511,542,590,542,590,3671316,563.8,553.88,424.17,531.58,1.33
-20260512,604,649,604,649,5112057,579.4,558.88,430.94,541.37,1.92
-20260513,635,653,618,626,3477650,591.2,562.77,436.93,548.42,1.36
-20260514,636,639,598,610,2431699,602.4,567.77,442.48,553.55,0.94
-20260515,628,634,572,587,2793680,612.4,571.38,447.66,556.34,1.04
-20260518,579,594,561,594,1506671,613.2,573.58,453,559.48,0.56
-20260519,589,599,569,576,1437604,598.6,573.88,458.12,560.86,0.53
-20260520,578,602,547,554,2978151,584.2,573.58,462.82,560.28,1.04
-20260521,579,602,569,585,1952197,579.2,572.98,468.02,562.34,0.67
-20260522,598,625,591,603,2458444,582.4,576.23,473.39,565.73,0.82
-20260523,598,625,591,603,2458444,584.2,579.48,478.77,568.84,0.8
-20260524,598,625,591,603,2458444,589.6,584.85,483.95,571.68,0.78
-20260525,617,663,614,663,3970310,611.4,590.75,489.65,579.29,1.19
-20260526,617,663,614,663,3970310,627,596.2,494.82,586.27,1.21
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,520,545,508,545,593003,493.67,10.4,500.4,380.61,0.17
+20260429,526,585,526,554,5369698,498.7,11.09,507.9,385.59,1.55
+20260430,566,609,556,609,5898109,507.89,19.91,518.1,391.62,1.8
+20260504,643,649,571,580,7693643,513.9,12.86,527.17,397.33,2.33
+20260505,580,585,564,571,3572979,518.66,10.09,536.12,402.95,1.09
+20260506,580,583,537,567,3415457,522.69,8.48,544.05,408.45,1.05
+20260507,579,579,545,554,2177869,525.3,5.46,549.3,413.63,0.7
+20260508,555,564,524,537,1940823,526.27,2.04,551.48,418.3,0.68
+20260511,542,590,542,590,3671316,531.58,10.99,553.88,424.17,1.33
+20260512,604,649,604,649,5112057,541.37,19.88,558.88,430.94,1.92
+20260513,635,653,618,626,3477650,548.42,14.15,562.77,436.93,1.36
+20260514,636,639,598,610,2431699,553.55,10.2,567.77,442.48,0.94
+20260515,628,634,572,587,2793680,556.34,5.51,571.38,447.66,1.04
+20260518,579,594,561,594,1506671,559.48,6.17,573.58,453,0.56
+20260519,589,599,569,576,1437604,560.86,2.7,573.88,458.12,0.53
+20260520,578,602,547,554,2978151,560.28,-1.12,573.58,462.82,1.04
+20260521,579,602,569,585,1952197,562.34,4.03,572.98,468.02,0.67
+20260522,598,625,591,603,2458444,565.73,6.59,576.23,473.39,0.82
+20260525,617,663,614,663,3970310,573.84,15.54,582.48,479.77,1.26
+20260526,670,692,661,668,4304760,581.68,14.84,591.1,486.03,1.29
 ```
 
 ## Latest TDCC Snapshot
@@ -122,8 +125,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2467 | 志聖 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260521 | 2467 | 志聖 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 2467 | 志聖 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260521 | 2467 | 志聖 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -133,7 +136,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260525 | 2467 | 志聖 | 60 | 2 | 2936730.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260526 | 2467 | 志聖 | 57 | 2 | 4146440.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

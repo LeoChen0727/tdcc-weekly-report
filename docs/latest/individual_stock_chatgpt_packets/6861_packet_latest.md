@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6861 睿生光電
 
 ## Metadata
-- generated_at: 2026-05-26 06:40:45 Asia/Taipei
+- generated_at: 2026-05-26 21:26:39 Asia/Taipei
 - stock_id: 6861
 - stock_name: 睿生光電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 462.5
-- high: 467
-- low: 422
-- close: 422
-- volume: 2039283
-- ma5: 438.2
-- ma20: 413.4
-- ma60: 247.87
-- ma120: 157.2
-- ema23: 383.28
-- return_5d: -1.29
-- return_20d: 40.9
-- volume_ratio: 1.65
-- distance_to_ma20_pct: 2.08
-- distance_to_high_60_pct: -13.88
+- open: 410.5
+- high: 463.5
+- low: 403
+- close: 449.5
+- volume: 2660750
+- ma5: 431
+- ema23_primary: 373.89
+- distance_to_ema23_pct: 20.22
+- ma20: 398.5
+- ma60: 237.34
+- ma120: 150.89
+- return_5d: 9.77
+- return_20d: 67.72
+- volume_ratio: 2.77
+- distance_to_ma20_pct_auxiliary: 12.8
+- distance_to_high_60_pct: -8.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,305,328,305,328,612788,285.5,188.88,140.12,205.12,0.29
-20260504,350,360.5,346,360.5,650762,305.8,200.3,145.03,218.07,0.31
-20260505,379.5,396.5,379.5,396.5,652186,331.5,213.68,150.52,232.94,0.31
-20260506,435,435,366,376,1046863,352.1,226.18,155.71,244.86,0.49
-20260507,376,409.5,361,405,567413,373.2,239.9,161.39,258.2,0.26
-20260508,408,413,375,376,537326,382.8,251.95,166.6,268.02,0.25
-20260511,381,389,379,389,435102,388.5,264.6,172.03,278.1,0.21
-20260512,400,427.5,390,426,497220,394.4,279.27,178.09,290.43,0.24
-20260513,413.5,460,413.5,420,354573,403.2,293,184.05,301.22,0.18
-20260514,445,450,440,450,346083,412.2,307.93,190.41,313.62,0.19
-20260515,490,490,450.5,451,396361,427.2,323.07,196.68,325.07,0.23
-20260518,430.5,458,419.5,455,293954,440.4,337.75,203.07,335.9,0.2
-20260519,467,470,409.5,409.5,424683,437.1,349.35,208.67,342.03,0.34
-20260520,410,418,391,407,284156,434.5,359.95,214.26,347.45,0.31
-20260521,420,435,420,427.5,611406,430,370.6,220.08,354.12,0.67
-20260522,412,470,397,449,4317793,429.6,381.27,226.13,362.02,4.74
-20260523,412,470,397,449,4317793,428.4,390.77,232.03,369.27,4.22
-20260524,412,470,397,449,4317793,436.3,399.82,237.78,375.92,3.74
-20260525,462.5,467,422,422,2039283,439.3,407.27,242.92,379.76,1.74
-20260526,462.5,467,422,422,2039283,438.2,413.4,247.87,383.28,1.65
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,260.5,292,260.5,273,1740882,184.35,48.09,170.53,131.85,0.82
+20260429,266,300,266,299.5,710622,193.95,54.42,178.78,135.75,0.34
+20260430,305,328,305,328,612788,205.12,59.91,188.88,140.12,0.29
+20260504,350,360.5,346,360.5,650762,218.07,65.32,200.3,145.03,0.31
+20260505,379.5,396.5,379.5,396.5,652186,232.94,70.22,213.68,150.52,0.31
+20260506,435,435,366,376,1046863,244.86,53.56,226.18,155.71,0.49
+20260507,376,409.5,361,405,567413,258.2,56.85,239.9,161.39,0.26
+20260508,408,413,375,376,537326,268.02,40.29,251.95,166.6,0.25
+20260511,381,389,379,389,435102,278.1,39.88,264.6,172.03,0.21
+20260512,400,427.5,390,426,497220,290.43,46.68,279.27,178.09,0.24
+20260513,413.5,460,413.5,420,354573,301.22,39.43,293,184.05,0.18
+20260514,445,450,440,450,346083,313.62,43.48,307.93,190.41,0.19
+20260515,490,490,450.5,451,396361,325.07,38.74,323.07,196.68,0.23
+20260518,430.5,458,419.5,455,293954,335.9,35.46,337.75,203.07,0.2
+20260519,467,470,409.5,409.5,424683,342.03,19.73,349.35,208.67,0.34
+20260520,410,418,391,407,284156,347.45,17.14,359.95,214.26,0.31
+20260521,420,435,420,427.5,611406,354.12,20.72,370.6,220.08,0.67
+20260522,412,470,397,449,4317793,362.02,24.02,381.27,226.13,4.74
+20260525,462.5,467,422,422,2039283,367.02,14.98,389.43,231.58,2.25
+20260526,410.5,463.5,403,449.5,2660750,373.89,20.22,398.5,237.34,2.77
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +125,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6861 | 睿生光電 | revenue_pullback | 營收成長股價回檔 | 76.0 |  |  |  |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 6861 | 睿生光電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

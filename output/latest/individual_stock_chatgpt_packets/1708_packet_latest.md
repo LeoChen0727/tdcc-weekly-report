@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1708 東鹼
 
 ## Metadata
-- generated_at: 2026-05-26 06:39:25 Asia/Taipei
+- generated_at: 2026-05-26 21:24:44 Asia/Taipei
 - stock_id: 1708
 - stock_name: 東鹼
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 39.15
-- high: 40.4
-- low: 38.8
-- close: 40.05
-- volume: 3465125
-- ma5: 39.51
-- ma20: 39.8
-- ma60: 40.36
-- ma120: 36.86
-- ema23: 39.92
-- return_5d: 0.88
-- return_20d: -5.32
-- volume_ratio: 1.02
-- distance_to_ma20_pct: 0.64
-- distance_to_high_60_pct: -15.6
+- open: 40.15
+- high: 40.2
+- low: 38.3
+- close: 38.3
+- volume: 6095701
+- ma5: 39.35
+- ema23_primary: 39.89
+- distance_to_ema23_pct: -4
+- ma20: 40.02
+- ma60: 40.25
+- ma120: 36.71
+- return_5d: -3.89
+- return_20d: -10.09
+- volume_ratio: 1.58
+- distance_to_ma20_pct_auxiliary: -4.3
+- distance_to_high_60_pct: -19.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,42.3,43.4,41.1,41.8,5919003,42,40.77,38.78,40.84,1
-20260504,41.8,41.8,39.3,39.45,6270914,41.68,40.63,38.88,40.72,1.06
-20260505,39.8,40.25,39.55,40.2,3275644,41.2,40.55,38.99,40.68,0.56
-20260506,40.45,40.45,39.2,39.2,2786604,40.59,40.34,39.08,40.56,0.49
-20260507,39.2,39.2,37.7,38.1,4980963,39.75,40.3,39.15,40.35,0.95
-20260508,38.1,38.7,37.15,37.2,3689998,38.83,40.19,39.2,40.09,0.73
-20260511,38.65,40.4,38.55,40.15,6248057,38.97,40.22,39.31,40.09,1.2
-20260512,39.95,41.8,39.25,41.75,4377500,39.28,40.22,39.45,40.23,0.87
-20260513,41.35,42.35,41.1,41.6,3175429,39.76,40.23,39.58,40.35,0.64
-20260514,41.6,41.6,40.45,40.5,2487053,40.24,40.23,39.67,40.36,0.52
-20260515,40.45,40.45,39.4,39.65,2218495,40.73,40.21,39.76,40.3,0.46
-20260518,40.2,40.5,39.35,39.65,1866456,40.63,40.23,39.85,40.25,0.4
-20260519,39.65,40.95,39.5,39.85,2597635,40.25,40.25,39.93,40.21,0.55
-20260520,40.05,40.3,39.1,39.55,1830618,39.84,40.27,40,40.16,0.39
-20260521,39.5,39.9,39.45,39.7,1518169,39.68,40.3,40.08,40.12,0.33
-20260522,39.65,39.7,39.05,39.15,2613423,39.58,40.28,40.14,40.04,0.58
-20260523,39.65,39.7,39.05,39.15,2613423,39.48,40.19,40.2,39.96,0.62
-20260524,39.65,39.7,39.05,39.15,2613423,39.34,40.02,40.25,39.9,0.72
-20260525,39.15,40.4,38.8,40.05,3465125,39.44,39.91,40.31,39.91,0.97
-20260526,39.15,40.4,38.8,40.05,3465125,39.51,39.8,40.36,39.92,1.02
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,42.9,42.9,41.45,42.25,4794347,40.61,4.04,40.8,38.47,0.71
+20260429,42.5,43.6,42.2,42.3,6927249,40.75,3.8,40.78,38.63,1.14
+20260430,42.3,43.4,41.1,41.8,5919003,40.84,2.36,40.77,38.78,1
+20260504,41.8,41.8,39.3,39.45,6270914,40.72,-3.12,40.63,38.88,1.06
+20260505,39.8,40.25,39.55,40.2,3275644,40.68,-1.18,40.55,38.99,0.56
+20260506,40.45,40.45,39.2,39.2,2786604,40.56,-3.34,40.34,39.08,0.49
+20260507,39.2,39.2,37.7,38.1,4980963,40.35,-5.58,40.3,39.15,0.95
+20260508,38.1,38.7,37.15,37.2,3689998,40.09,-7.21,40.19,39.2,0.73
+20260511,38.65,40.4,38.55,40.15,6248057,40.09,0.14,40.22,39.31,1.2
+20260512,39.95,41.8,39.25,41.75,4377500,40.23,3.77,40.22,39.45,0.87
+20260513,41.35,42.35,41.1,41.6,3175429,40.35,3.11,40.23,39.58,0.64
+20260514,41.6,41.6,40.45,40.5,2487053,40.36,0.35,40.23,39.67,0.52
+20260515,40.45,40.45,39.4,39.65,2218495,40.3,-1.61,40.21,39.76,0.46
+20260518,40.2,40.5,39.35,39.65,1866456,40.25,-1.48,40.23,39.85,0.4
+20260519,39.65,40.95,39.5,39.85,2597635,40.21,-0.9,40.25,39.93,0.55
+20260520,40.05,40.3,39.1,39.55,1830618,40.16,-1.51,40.27,40,0.39
+20260521,39.5,39.9,39.45,39.7,1518169,40.12,-1.04,40.3,40.08,0.33
+20260522,39.65,39.7,39.05,39.15,2613423,40.04,-2.22,40.28,40.14,0.58
+20260525,39.15,40.4,38.8,40.05,3465125,40.04,0.03,40.23,40.21,0.81
+20260526,40.15,40.2,38.3,38.3,6095701,39.89,-4,40.02,40.25,1.58
 ```
 
 ## Latest TDCC Snapshot
@@ -122,9 +125,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1708 | 東鹼 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | stale_signal | calendar event: ex_dividend on 20260528; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260526 | 1708 | 東鹼 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | stale_signal | calendar event: ex_dividend on 20260528; status=confirmed; proximity=within_3d |
-| 20260521 | 1708 | 東鹼 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_inflow | stale_signal | calendar event: ex_dividend on 20260528; status=confirmed; proximity=within_3d |
+| 20260526 | 1708 | 東鹼 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  | no_signal | stale_signal | calendar event: ex_dividend on 20260528; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260521 | 1708 | 東鹼 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | stale_signal | calendar event: ex_dividend on 20260528; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -134,7 +136,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260525 | 1708 | 東鹼 | 23 | 0 | 1300810.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260526 | 1708 | 東鹼 | 23 | 0 | 939890.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

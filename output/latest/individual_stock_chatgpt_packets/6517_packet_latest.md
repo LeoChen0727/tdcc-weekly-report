@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6517 保勝光學
 
 ## Metadata
-- generated_at: 2026-05-26 06:40:37 Asia/Taipei
+- generated_at: 2026-05-26 21:26:27 Asia/Taipei
 - stock_id: 6517
 - stock_name: 保勝光學
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 63.1
-- high: 64
-- low: 61.7
-- close: 61.8
-- volume: 63
-- ma5: 62.1
-- ma20: 59.76
-- ma60: 58.55
-- ma120: 62.03
-- ema23: 60.16
-- return_5d: 0
-- return_20d: 7.11
-- volume_ratio: 0
-- distance_to_ma20_pct: 3.42
-- distance_to_high_60_pct: -3.44
+- open: 62
+- high: 62.4
+- low: 60.5
+- close: 60.8
+- volume: 61000
+- ma5: 61.44
+- ema23_primary: 59.68
+- distance_to_ema23_pct: 1.88
+- ma20: 59.25
+- ma60: 58.49
+- ma120: 61.9
+- return_5d: 0.66
+- return_20d: 6.48
+- volume_ratio: 0.23
+- distance_to_ma20_pct_auxiliary: 2.62
+- distance_to_high_60_pct: -5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,57.7,59.5,57.6,57.7,117000,57.74,58.27,60.56,58.49,0.56
-20260504,58.1,60.8,58,59.8,259000,58.02,58.43,60.32,58.6,1.19
-20260505,60.4,61.3,59.7,59.8,194000,58.56,58.6,60.07,58.7,0.87
-20260506,60.3,60.4,58.3,59,211000,58.8,58.78,59.83,58.73,0.93
-20260507,60.1,60.1,58.6,58.8,131000,59.02,58.92,59.62,58.73,0.57
-20260508,58.8,59.9,57.7,58,179000,59.08,59.01,59.4,58.67,0.77
-20260511,57.9,57.9,57,57,194000,58.52,58.99,59.18,58.53,0.84
-20260512,57,57,56,56.3,204000,57.82,58.88,59.01,58.35,0.9
-20260513,56,56.2,55.2,56.2,109000,57.26,58.75,58.85,58.17,0.49
-20260514,56.5,58.6,56.5,57.5,236000,57,58.59,58.68,58.11,1.15
-20260515,58.2,62.4,58.1,60,1163000,57.4,58.56,58.58,58.27,4.67
-20260518,59.7,62,58.3,61.8,365000,58.36,58.66,58.54,58.56,1.42
-20260519,62.3,63.6,60.2,60.4,740000,59.18,58.69,58.5,58.72,2.63
-20260520,60.4,63,60.4,60.5,524000,60.04,58.67,58.46,58.87,1.81
-20260521,61,62.8,61,61.8,310000,60.9,58.72,58.48,59.11,1.06
-20260522,62,63,61.1,62.3,62,61.36,58.9,58.49,59.38,0
-20260523,62,63,61.1,62.3,62,61.46,59.09,58.5,59.62,0
-20260524,62,63,61.1,62.3,62,61.84,59.35,58.52,59.84,0
-20260525,63.1,64,61.7,61.8,63,62.1,59.55,58.54,60.01,0
-20260526,63.1,64,61.7,61.8,63,62.1,59.76,58.55,60.16,0
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,58.3,58.3,57.1,57.8,91000,58.64,-1.44,58.12,61.08,0.43
+20260429,57.8,58,57.5,57.7,106000,58.57,-1.48,58.15,60.81,0.5
+20260430,57.7,59.5,57.6,57.7,117000,58.49,-1.36,58.27,60.56,0.56
+20260504,58.1,60.8,58,59.8,259000,58.6,2.04,58.43,60.32,1.19
+20260505,60.4,61.3,59.7,59.8,194000,58.7,1.87,58.6,60.07,0.87
+20260506,60.3,60.4,58.3,59,211000,58.73,0.46,58.78,59.83,0.93
+20260507,60.1,60.1,58.6,58.8,131000,58.73,0.11,58.92,59.62,0.57
+20260508,58.8,59.9,57.7,58,179000,58.67,-1.15,59.01,59.4,0.77
+20260511,57.9,57.9,57,57,194000,58.53,-2.62,58.99,59.18,0.84
+20260512,57,57,56,56.3,204000,58.35,-3.51,58.88,59.01,0.9
+20260513,56,56.2,55.2,56.2,109000,58.17,-3.38,58.75,58.85,0.49
+20260514,56.5,58.6,56.5,57.5,236000,58.11,-1.05,58.59,58.68,1.15
+20260515,58.2,62.4,58.1,60,1163000,58.27,2.97,58.56,58.58,4.67
+20260518,59.7,62,58.3,61.8,365000,58.56,5.53,58.66,58.54,1.42
+20260519,62.3,63.6,60.2,60.4,740000,58.72,2.87,58.69,58.5,2.63
+20260520,60.4,63,60.4,60.5,524000,58.87,2.78,58.67,58.46,1.81
+20260521,61,62.8,61,61.8,310000,59.11,4.55,58.72,58.48,1.06
+20260522,62,63,61.1,62.3,62000,59.38,4.92,58.9,58.49,0.22
+20260525,63.1,64,61.7,61.8,63000,59.58,3.73,59.06,58.49,0.23
+20260526,62,62.4,60.5,60.8,61000,59.68,1.88,59.25,58.49,0.23
 ```
 
 ## Latest TDCC Snapshot

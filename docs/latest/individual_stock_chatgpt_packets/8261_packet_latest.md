@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8261 富鼎
 
 ## Metadata
-- generated_at: 2026-05-26 06:40:56 Asia/Taipei
+- generated_at: 2026-05-26 21:26:54 Asia/Taipei
 - stock_id: 8261
 - stock_name: 富鼎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 166.5
-- high: 176
-- low: 166.5
-- close: 176
-- volume: 4849541
-- ma5: 166.4
-- ma20: 140.6
-- ma60: 119.36
-- ma120: 105.5
-- ema23: 142.82
-- return_5d: 17.33
-- return_20d: 47.9
-- volume_ratio: 0.6
-- distance_to_ma20_pct: 25.18
+- open: 193.5
+- high: 193.5
+- low: 185.5
+- close: 193.5
+- volume: 14430777
+- ma5: 165.7
+- ema23_primary: 140.53
+- distance_to_ema23_pct: 37.69
+- ma20: 137.35
+- ma60: 117.61
+- ma120: 104.45
+- return_5d: 42.8
+- return_20d: 62.6
+- volume_ratio: 1.89
+- distance_to_ma20_pct_auxiliary: 40.88
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,119,121,117,118.5,1706622,118.2,114.61,104.06,114.61,0.41
-20260504,120.5,120.5,118.5,119.5,2002688,118.9,115.62,104.44,115.02,0.47
-20260505,120,125,120,124.5,4173275,120,116.83,104.91,115.81,0.96
-20260506,127,127,120.5,122,3324741,120.7,117.72,105.36,116.32,0.75
-20260507,124.5,128.5,122.5,128,8069956,122.5,118.7,105.89,117.3,1.74
-20260508,126.5,127.5,120.5,126,4695505,124,119.6,106.4,118.02,0.98
-20260511,127,137.5,124.5,135,12187966,127.1,120.97,107.11,119.44,2.3
-20260512,135,139.5,129.5,131,7254442,128.4,121.97,107.81,120.4,1.31
-20260513,128.5,132.5,127,132,3536640,130.4,123.03,108.54,121.37,0.63
-20260514,136,145,136,136,17730749,132,124.38,109.31,122.59,2.79
-20260515,137,141.5,133.5,134.5,8269556,133.7,125.3,110,123.58,1.28
-20260518,134.5,141.5,130.5,138.5,7880890,134.4,125.85,110.81,124.82,1.24
-20260519,136,139.5,133,135.5,5923634,135.3,126.33,111.56,125.71,0.99
-20260520,136.5,149,135.5,149,11264130,138.7,127.38,112.54,127.65,1.85
-20260521,149,156,143.5,150,19882964,141.5,128.47,113.55,129.52,2.89
-20260522,151,164.5,149,160,11495296,146.6,130.62,114.63,132.06,1.63
-20260523,151,164.5,149,160,11495296,150.9,132.82,115.71,134.38,1.54
-20260524,151,164.5,149,160,11495296,155.8,134.88,116.78,136.52,1.47
-20260525,166.5,176,166.5,176,4849541,161.2,137.75,118.08,139.81,0.61
-20260526,166.5,176,166.5,176,4849541,166.4,140.6,119.36,142.82,0.6
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,119,120,116,118.5,2083056,113.82,4.11,112.53,103.41,0.5
+20260429,116.5,120,115.5,119,1981081,114.26,4.15,113.52,103.75,0.48
+20260430,119,121,117,118.5,1706622,114.61,3.39,114.61,104.06,0.41
+20260504,120.5,120.5,118.5,119.5,2002688,115.02,3.9,115.62,104.44,0.47
+20260505,120,125,120,124.5,4173275,115.81,7.51,116.83,104.91,0.96
+20260506,127,127,120.5,122,3324741,116.32,4.88,117.72,105.36,0.75
+20260507,124.5,128.5,122.5,128,8069956,117.3,9.12,118.7,105.89,1.74
+20260508,126.5,127.5,120.5,126,4695505,118.02,6.76,119.6,106.4,0.98
+20260511,127,137.5,124.5,135,12187966,119.44,13.03,120.97,107.11,2.3
+20260512,135,139.5,129.5,131,7254442,120.4,8.8,121.97,107.81,1.31
+20260513,128.5,132.5,127,132,3536640,121.37,8.76,123.03,108.54,0.63
+20260514,136,145,136,136,17730749,122.59,10.94,124.38,109.31,2.79
+20260515,137,141.5,133.5,134.5,8269556,123.58,8.84,125.3,110,1.28
+20260518,134.5,141.5,130.5,138.5,7880890,124.82,10.96,125.85,110.81,1.24
+20260519,136,139.5,133,135.5,5923634,125.71,7.79,126.33,111.56,0.99
+20260520,136.5,149,135.5,149,11264130,127.65,16.72,127.38,112.54,1.85
+20260521,149,156,143.5,150,19882964,129.52,15.82,128.47,113.55,2.89
+20260522,151,164.5,149,160,11495296,132.06,21.16,130.62,114.63,1.63
+20260525,166.5,176,166.5,176,4849541,135.72,29.68,133.62,115.97,0.68
+20260526,193.5,193.5,185.5,193.5,14430777,140.53,37.69,137.35,117.61,1.89
 ```
 
 ## Latest TDCC Snapshot
@@ -120,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 8261 | 富鼎 | true_breakout | 嚴格突破 | 82.0 |  |  | breakout_confirmed |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 8261 | 富鼎 | 2 | 2 | 3 | 3 | 3 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260525 | 8261 | 富鼎 | 44 | 0 | 6510000.0 | 0.0 |  | no_signal | 0 |  |
+| 20260526 | 8261 | 富鼎 | 47 | 0 | 23353180.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

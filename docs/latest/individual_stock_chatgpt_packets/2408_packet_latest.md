@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2408 南亞科
 
 ## Metadata
-- generated_at: 2026-05-26 06:39:36 Asia/Taipei
+- generated_at: 2026-05-26 21:25:00 Asia/Taipei
 - stock_id: 2408
 - stock_name: 南亞科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 295
-- high: 303.5
-- low: 288
-- close: 296
-- volume: 155862832
-- ma5: 304.7
-- ma20: 290.93
-- ma60: 248.43
-- ma120: 235.01
-- ema23: 283.8
-- return_5d: 1.02
-- return_20d: 25.96
-- volume_ratio: 1.03
-- distance_to_ma20_pct: 1.74
-- distance_to_high_60_pct: -16.15
+- open: 300.5
+- high: 314
+- low: 295.5
+- close: 303.5
+- volume: 152949355
+- ma5: 295.6
+- ema23_primary: 279.79
+- distance_to_ema23_pct: 8.47
+- ma20: 283.88
+- ma60: 247.71
+- ma120: 232.26
+- return_5d: 10.56
+- return_20d: 34
+- volume_ratio: 1.02
+- distance_to_ma20_pct_auxiliary: 6.91
+- distance_to_high_60_pct: -14.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,239.5,240,214.5,215.5,125666192,224.1,215.78,245.53,221.76,1.18
-20260504,223,237,217,237,144354307,230.3,217.07,244.96,223.03,1.34
-20260505,243,259,242.5,256.5,207567196,236.3,219.88,244.47,225.82,1.85
-20260506,282,282,270.5,282,149468917,245.2,223.68,244.55,230.5,1.29
-20260507,293,296,278,287,197355586,255.6,226.88,244.38,235.21,1.63
-20260508,282,289,260,274,130863185,267.3,230.32,244,238.44,1.06
-20260511,300.5,301,296,301,108987498,280.1,234.62,243.57,243.65,0.88
-20260512,312.5,325,301,321,217595653,293,239.4,244.03,250.1,1.67
-20260513,311.5,322.5,303,321,106103420,300.8,244.45,244.75,256.01,0.83
-20260514,342.5,353,335.5,341,181771498,311.6,250.93,245.52,263.09,1.39
-20260515,330.5,334.5,308.5,311.5,160442326,319.1,255.82,246.12,267.12,1.18
-20260518,300,309,287,305,117077708,319.9,260.57,246.81,270.28,0.84
-20260519,291.5,295,274.5,274.5,118906988,310.6,263.95,246.81,270.63,0.84
-20260520,279.5,285,265.5,275,123868197,301.4,266.7,246.88,271,0.87
-20260521,291.5,295,280,293,149826596,291.8,270.4,247.12,272.83,1.03
-20260522,299.5,321,296,310.5,157819181,291.6,275.52,247.48,275.97,1.08
-20260523,299.5,321,296,310.5,157819181,292.7,280.75,247.69,278.85,1.05
-20260524,299.5,321,296,310.5,157819181,299.9,284.95,248.07,281.48,1.05
-20260525,295,303.5,288,296,155862832,304.1,287.88,248.24,282.69,1.05
-20260526,295,303.5,288,296,155862832,304.7,290.93,248.43,283.8,1.03
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,234.5,242.5,231.5,237.5,204983861,221.18,7.38,214.2,246.65,1.88
+20260429,236,242,232,235,98792725,222.33,5.7,214.93,246.38,0.92
+20260430,239.5,240,214.5,215.5,125666192,221.76,-2.82,215.78,245.53,1.18
+20260504,223,237,217,237,144354307,223.03,6.26,217.07,244.96,1.34
+20260505,243,259,242.5,256.5,207567196,225.82,13.59,219.88,244.47,1.85
+20260506,282,282,270.5,282,149468917,230.5,22.34,223.68,244.55,1.29
+20260507,293,296,278,287,197355586,235.21,22.02,226.88,244.38,1.63
+20260508,282,289,260,274,130863185,238.44,14.91,230.32,244,1.06
+20260511,300.5,301,296,301,108987498,243.65,23.54,234.62,243.57,0.88
+20260512,312.5,325,301,321,217595653,250.1,28.35,239.4,244.03,1.67
+20260513,311.5,322.5,303,321,106103420,256.01,25.39,244.45,244.75,0.83
+20260514,342.5,353,335.5,341,181771498,263.09,29.61,250.93,245.52,1.39
+20260515,330.5,334.5,308.5,311.5,160442326,267.12,16.61,255.82,246.12,1.18
+20260518,300,309,287,305,117077708,270.28,12.85,260.57,246.81,0.84
+20260519,291.5,295,274.5,274.5,118906988,270.63,1.43,263.95,246.81,0.84
+20260520,279.5,285,265.5,275,123868197,271,1.48,266.7,246.88,0.87
+20260521,291.5,295,280,293,149826596,272.83,7.39,270.4,247.12,1.03
+20260522,299.5,321,296,310.5,157819181,275.97,12.51,275.52,247.48,1.08
+20260525,295,303.5,288,296,155862832,277.64,6.61,280.02,247.45,1.04
+20260526,300.5,314,295.5,303.5,152949355,279.79,8.47,283.88,247.71,1.02
 ```
 
 ## Latest TDCC Snapshot
@@ -122,9 +125,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2408 | 南亞科 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | mixed_flow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 2408 | 南亞科 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | mixed_flow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260521 | 2408 | 南亞科 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | mixed_flow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 2408 | 南亞科 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | put_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 2408 | 南亞科 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | put_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260521 | 2408 | 南亞科 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | put_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -134,7 +137,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260525 | 2408 | 南亞科 | 162 | 13 | 154257010.0 | 2190100.0 | 70.43 | mixed_flow | 0 | 認購權證成交金額很大且認購/認售比偏高，需檢查標的是否高位追價或獲利結清；認購權證成交量與成交金額同步偏大，短線資金關注度高 |
+| 20260526 | 2408 | 南亞科 | 166 | 13 | 102068150.0 | 1992410.0 | 51.23 | put_inflow | -1 | 認售權證資金升溫，偏空或避險訊號；認購權證成交金額很大且認購/認售比偏高，需檢查標的是否高位追價或獲利結清；認購權證成交量與成交金額同步偏大，短線資金關注度高 |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2618 長榮航
 
 ## Metadata
-- generated_at: 2026-05-26 06:39:43 Asia/Taipei
+- generated_at: 2026-05-26 21:25:10 Asia/Taipei
 - stock_id: 2618
 - stock_name: 長榮航
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 26
 - tdcc_history_status: tdcc_history_ready
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 36
-- high: 36.1
-- low: 35.45
-- close: 35.45
-- volume: 66136647
-- ma5: 35.48
-- ma20: 34.84
-- ma60: 34.67
-- ma120: 35.66
-- ema23: 34.95
-- return_5d: 0.42
-- return_20d: 4.26
-- volume_ratio: 1.87
-- distance_to_ma20_pct: 1.74
-- distance_to_high_60_pct: -2.07
+- open: 35.8
+- high: 36.05
+- low: 35.2
+- close: 35.2
+- volume: 66828833
+- ma5: 35.15
+- ema23_primary: 34.83
+- distance_to_ema23_pct: 1.07
+- ma20: 34.65
+- ma60: 34.72
+- ma120: 35.63
+- return_5d: 2.18
+- return_20d: 5.55
+- volume_ratio: 2.02
+- distance_to_ma20_pct_auxiliary: 1.59
+- distance_to_high_60_pct: -8.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,33.95,34.2,33.5,33.5,26150659,33.59,34.61,35.69,34.51,1.18
-20260504,33.55,33.9,33.5,33.8,16096854,33.6,34.55,35.61,34.45,0.72
-20260505,33.75,34.3,33.4,34,22178408,33.73,34.5,35.53,34.41,0.98
-20260506,34.2,34.25,33.7,33.95,34613053,33.85,34.48,35.46,34.37,1.44
-20260507,34.2,35.5,34.2,35.4,44124546,34.13,34.48,35.42,34.46,1.73
-20260508,35.4,35.7,35.2,35.65,34415959,34.56,34.53,35.38,34.56,1.3
-20260511,35.9,36,35.7,35.85,23645405,34.97,34.58,35.35,34.66,0.88
-20260512,35.75,35.9,35.05,35.1,35572657,35.19,34.58,35.31,34.7,1.28
-20260513,35,35,34.35,34.45,21572695,35.29,34.54,35.25,34.68,0.77
-20260514,35.5,36.2,34.95,35,37043843,35.21,34.55,35.2,34.71,1.31
-20260515,35.2,35.4,34.65,34.65,23270613,35.01,34.52,35.13,34.7,0.81
-20260518,34.5,34.75,34.1,34.1,26384216,34.66,34.47,35.06,34.65,0.91
-20260519,34.1,34.85,34.1,34.45,21604663,34.53,34.42,34.99,34.63,0.75
-20260520,34.75,34.75,34.3,34.3,28780544,34.5,34.37,34.91,34.61,0.98
-20260521,34.8,35.45,34.7,35.3,45014236,34.56,34.38,34.85,34.66,1.5
-20260522,35.5,35.65,35.1,35.5,45237975,34.73,34.47,34.81,34.73,1.55
-20260523,35.5,35.65,35.1,35.5,45237975,35.01,34.56,34.77,34.8,1.5
-20260524,35.5,35.65,35.1,35.5,45237975,35.22,34.67,34.72,34.86,1.46
-20260525,36,36.1,35.45,35.45,66136647,35.45,34.77,34.68,34.91,1.99
-20260526,36,36.1,35.45,35.45,66136647,35.48,34.84,34.67,34.95,1.87
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,33.4,33.6,33.25,33.35,21657036,34.65,-3.76,34.66,35.86,0.97
+20260429,33.6,34.05,33.5,34,21860085,34.6,-1.73,34.63,35.79,0.98
+20260430,33.95,34.2,33.5,33.5,26150659,34.51,-2.91,34.61,35.69,1.18
+20260504,33.55,33.9,33.5,33.8,16096854,34.45,-1.88,34.55,35.61,0.72
+20260505,33.75,34.3,33.4,34,22178408,34.41,-1.19,34.5,35.53,0.98
+20260506,34.2,34.25,33.7,33.95,34613053,34.37,-1.23,34.48,35.46,1.44
+20260507,34.2,35.5,34.2,35.4,44124546,34.46,2.74,34.48,35.42,1.73
+20260508,35.4,35.7,35.2,35.65,34415959,34.56,3.16,34.53,35.38,1.3
+20260511,35.9,36,35.7,35.85,23645405,34.66,3.42,34.58,35.35,0.88
+20260512,35.75,35.9,35.05,35.1,35572657,34.7,1.15,34.58,35.31,1.28
+20260513,35,35,34.35,34.45,21572695,34.68,-0.66,34.54,35.25,0.77
+20260514,35.5,36.2,34.95,35,37043843,34.71,0.85,34.55,35.2,1.31
+20260515,35.2,35.4,34.65,34.65,23270613,34.7,-0.15,34.52,35.13,0.81
+20260518,34.5,34.75,34.1,34.1,26384216,34.65,-1.59,34.47,35.06,0.91
+20260519,34.1,34.85,34.1,34.45,21604663,34.63,-0.53,34.42,34.99,0.75
+20260520,34.75,34.75,34.3,34.3,28780544,34.61,-0.89,34.37,34.91,0.98
+20260521,34.8,35.45,34.7,35.3,45014236,34.66,1.83,34.38,34.85,1.5
+20260522,35.5,35.65,35.1,35.5,45237975,34.73,2.2,34.47,34.81,1.55
+20260525,36,36.1,35.45,35.45,66136647,34.79,1.89,34.56,34.76,2.12
+20260526,35.8,36.05,35.2,35.2,66828833,34.83,1.07,34.65,34.72,2.02
 ```
 
 ## Latest TDCC Snapshot
@@ -130,7 +133,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2618 | 長榮航 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 2618 | 長榮航 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -140,7 +143,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260525 | 2618 | 長榮航 | 33 | 0 | 3602140.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260526 | 2618 | 長榮航 | 32 | 0 | 1280020.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

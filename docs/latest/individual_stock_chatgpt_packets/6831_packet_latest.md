@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6831 邁科
 
 ## Metadata
-- generated_at: 2026-05-26 06:40:45 Asia/Taipei
+- generated_at: 2026-05-26 21:26:38 Asia/Taipei
 - stock_id: 6831
 - stock_name: 邁科
-- packet_status: standard_180d_window_packet
+- packet_status: standard_rawdata_packet
 - latest_price_date: 20260526
-- price_rows: 120
+- price_rows: 118
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
+- notes: price history shorter than 120 rows; K-line context is partial; TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
 
 ## Stable Read URLs
 - packet_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_chatgpt_packets/6831_packet_latest.md
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 790
-- high: 795
-- low: 780
-- close: 792
-- volume: 530475
-- ma5: 788.4
-- ma20: 669.52
-- ma60: 483.56
-- ma120: 369.86
-- ema23: 670.06
-- return_5d: 1.41
-- return_20d: 71.8
-- volume_ratio: 0.35
-- distance_to_ma20_pct: 18.29
-- distance_to_high_60_pct: -0.38
+- open: 795
+- high: 821
+- low: 790
+- close: 820
+- volume: 411568
+- ma5: 779.8
+- ema23_primary: 650.17
+- distance_to_ema23_pct: 26.12
+- ma20: 639.12
+- ma60: 467.46
+- ma120: 363.05
+- return_5d: 11.87
+- return_20d: 67.69
+- volume_ratio: 0.26
+- distance_to_ma20_pct_auxiliary: 28.3
+- distance_to_high_60_pct: -0.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,470,496.5,470,474.5,1545922,477.9,457.73,351.2,447.39,0.94
-20260504,474.5,486,468,473,1182404,474.5,461.02,355.1,449.53,0.73
-20260505,472,520,468,520,1668989,480.7,467.7,359.52,455.4,1.03
-20260506,535,569,490,561,3268307,497.9,476.1,364.72,464.2,1.89
-20260507,590,594,550,559,2355430,517.5,483.12,369.91,472.1,1.35
-20260508,535,573,527,540,2677629,530.6,489.25,374.89,477.76,1.48
-20260511,543,594,537,594,2209867,554.8,497.45,380.82,487.44,1.19
-20260512,600,650,600,626,2148859,576,506.27,387.48,498.99,1.13
-20260513,640,688,638,688,2851443,601.4,518,395.02,514.74,1.45
-20260514,733,755,709,722,3907610,634,532.73,403.01,532.01,1.87
-20260515,745,745,700,725,793822,671,547.38,410.85,548.09,0.38
-20260518,692,732,654,732,751486,698.6,560.23,418.69,563.42,0.37
-20260519,728,737,709,733,574003,720,572.17,426.55,577.55,0.29
-20260520,726,728,700,720,659967,726.4,582.38,434.07,589.42,0.35
-20260521,729,792,727,781,869872,738.2,594.17,442.29,605.39,0.48
-20260522,769,787,767,786,451948,750.4,607.48,450.45,620.44,0.27
-20260523,769,787,767,786,451948,761.2,622.27,458.6,634.24,0.28
-20260524,769,787,767,786,451948,771.8,637.12,466.79,646.88,0.29
-20260525,790,795,780,792,530475,786.2,652.98,475.15,658.98,0.35
-20260526,790,795,780,792,530475,788.4,669.52,483.56,670.06,0.35
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,492.5,497,474,475,1161748,443.47,7.11,449.2,343.51,0.71
+20260429,475,480,458,461,1291046,444.93,3.61,453.3,347.25,0.79
+20260430,470,496.5,470,474.5,1545922,447.39,6.06,457.73,351.2,0.94
+20260504,474.5,486,468,473,1182404,449.53,5.22,461.02,355.1,0.73
+20260505,472,520,468,520,1668989,455.4,14.19,467.7,359.52,1.03
+20260506,535,569,490,561,3268307,464.2,20.85,476.1,364.72,1.89
+20260507,590,594,550,559,2355430,472.1,18.41,483.12,369.91,1.35
+20260508,535,573,527,540,2677629,477.76,13.03,489.25,374.89,1.48
+20260511,543,594,537,594,2209867,487.44,21.86,497.45,380.82,1.19
+20260512,600,650,600,626,2148859,498.99,25.45,506.27,387.48,1.13
+20260513,640,688,638,688,2851443,514.74,33.66,518,395.02,1.45
+20260514,733,755,709,722,3907610,532.01,35.71,532.73,403.01,1.87
+20260515,745,745,700,725,793822,548.09,32.28,547.38,410.85,0.38
+20260518,692,732,654,732,751486,563.42,29.92,560.23,418.69,0.37
+20260519,728,737,709,733,574003,577.55,26.91,572.17,426.55,0.29
+20260520,726,728,700,720,659967,589.42,22.15,582.38,434.07,0.35
+20260521,729,792,727,781,869872,605.39,29.01,594.17,442.29,0.48
+20260522,769,787,767,786,451948,620.44,26.68,607.48,450.45,0.27
+20260525,790,795,780,792,530475,634.74,24.78,622.58,458.7,0.33
+20260526,795,821,790,820,411568,650.17,26.12,639.12,467.46,0.26
 ```
 
 ## Latest TDCC Snapshot
@@ -132,7 +135,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260525 | 6831 | 邁科 | 19 | 0 | 760340.0 | 0.0 |  | no_signal | 0 |  |
+| 20260526 | 6831 | 邁科 | 19 | 0 | 1385510.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

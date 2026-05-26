@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6196 帆宣
 
 ## Metadata
-- generated_at: 2026-05-26 06:40:29 Asia/Taipei
+- generated_at: 2026-05-26 21:26:17 Asia/Taipei
 - stock_id: 6196
 - stock_name: 帆宣
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 477
-- high: 486
-- low: 475
-- close: 486
-- volume: 1790886
-- ma5: 459.6
-- ma20: 419.18
-- ma60: 347.94
-- ma120: 309.13
-- ema23: 417.03
-- return_5d: 13.15
-- return_20d: 29.08
-- volume_ratio: 0.56
-- distance_to_ma20_pct: 15.94
-- distance_to_high_60_pct: 0
+- open: 489
+- high: 529
+- low: 489
+- close: 506
+- volume: 6296212
+- ma5: 453.5
+- ema23_primary: 412.61
+- distance_to_ema23_pct: 22.63
+- ma20: 413.88
+- ma60: 343.59
+- ma120: 305.61
+- return_5d: 24.94
+- return_20d: 32.98
+- volume_ratio: 1.94
+- distance_to_ma20_pct_auxiliary: 22.26
+- distance_to_high_60_pct: -4.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,376.5,385,371.5,378,1569919,380.5,348.23,303.75,349.25,0.48
-20260504,386,388,379,383,1900320,379.9,353.38,305.27,352.06,0.57
-20260505,385,386,371,374,2001960,378.6,357.98,306.68,353.89,0.6
-20260506,382.5,397,377,395.5,4627563,381.4,363.15,308.39,357.36,1.33
-20260507,405.5,406,392,393,3052447,384.7,367.7,310.02,360.33,0.88
-20260508,398,429,398,410,6222739,391.1,372.27,312.01,364.47,1.8
-20260511,420,437.5,410,425,4394222,399.5,377.25,314.36,369.51,1.27
-20260512,445,446.5,415,419.5,3790284,408.6,382.2,316.73,373.68,1.08
-20260513,414,426.5,412.5,419.5,2182946,413.4,386.62,319.03,377.5,0.63
-20260514,426,450,408,435.5,5660678,421.9,390.75,321.68,382.33,1.61
-20260515,415.5,417.5,397.5,403.5,7285370,420.6,393.93,323.98,384.09,2.02
-20260518,398,411.5,392.5,410.5,2313281,417.7,396.5,326.52,386.29,0.66
-20260519,409.5,414.5,400,405,1806955,414.8,397.02,328.9,387.85,0.52
-20260520,405.5,412,399,404,1554449,411.7,397.35,331.22,389.2,0.48
-20260521,415,430,412,429.5,3030426,410.5,399.3,333.99,392.56,0.94
-20260522,444,447.5,436,442,2960893,418.2,402.6,336.71,396.68,0.94
-20260523,444,447.5,436,442,2960893,424.5,405.4,339.29,400.45,0.94
-20260524,444,447.5,436,442,2960893,431.9,408.48,341.79,403.92,0.94
-20260525,477,486,475,486,1790886,448.3,413.7,344.81,410.76,0.57
-20260526,477,486,475,486,1790886,459.6,419.18,347.94,417.03,0.56
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,389,389.5,378,381.5,1482722,343.92,10.93,338.23,300.94,0.45
+20260429,381,381.5,371.5,376.5,932183,346.63,8.62,342.98,302.38,0.28
+20260430,376.5,385,371.5,378,1569919,349.25,8.23,348.23,303.75,0.48
+20260504,386,388,379,383,1900320,352.06,8.79,353.38,305.27,0.57
+20260505,385,386,371,374,2001960,353.89,5.68,357.98,306.68,0.6
+20260506,382.5,397,377,395.5,4627563,357.36,10.67,363.15,308.39,1.33
+20260507,405.5,406,392,393,3052447,360.33,9.07,367.7,310.02,0.88
+20260508,398,429,398,410,6222739,364.47,12.49,372.27,312.01,1.8
+20260511,420,437.5,410,425,4394222,369.51,15.02,377.25,314.36,1.27
+20260512,445,446.5,415,419.5,3790284,373.68,12.26,382.2,316.73,1.08
+20260513,414,426.5,412.5,419.5,2182946,377.5,11.13,386.62,319.03,0.63
+20260514,426,450,408,435.5,5660678,382.33,13.91,390.75,321.68,1.61
+20260515,415.5,417.5,397.5,403.5,7285370,384.09,5.05,393.93,323.98,2.02
+20260518,398,411.5,392.5,410.5,2313281,386.29,6.27,396.5,326.52,0.66
+20260519,409.5,414.5,400,405,1806955,387.85,4.42,397.02,328.9,0.52
+20260520,405.5,412,399,404,1554449,389.2,3.8,397.35,331.22,0.48
+20260521,415,430,412,429.5,3030426,392.56,9.41,399.3,333.99,0.94
+20260522,444,447.5,436,442,2960893,396.68,11.43,402.6,336.71,0.94
+20260525,477,486,475,486,1790886,404.12,20.26,407.6,340.02,0.58
+20260526,489,529,489,506,6296212,412.61,22.63,413.88,343.59,1.94
 ```
 
 ## Latest TDCC Snapshot
@@ -120,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 6196 | 帆宣 | true_breakout | 嚴格突破 | 84.0 |  |  | platform_breakout |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6196 | 帆宣 | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260526 | 6196 | 帆宣 | 2 | 2 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260525 | 6196 | 帆宣 | 86 | 2 | 3814880.0 | 0.0 |  | no_signal | 0 |  |
+| 20260526 | 6196 | 帆宣 | 87 | 2 | 13573990.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

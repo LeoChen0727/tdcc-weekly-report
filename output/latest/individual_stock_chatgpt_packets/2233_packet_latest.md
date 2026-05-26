@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2233 宇隆
 
 ## Metadata
-- generated_at: 2026-05-26 06:39:32 Asia/Taipei
+- generated_at: 2026-05-26 21:24:54 Asia/Taipei
 - stock_id: 2233
 - stock_name: 宇隆
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 357
-- high: 381.5
-- low: 345
-- close: 381.5
-- volume: 3823922
-- ma5: 360.8
-- ma20: 322.35
-- ma60: 261.27
-- ma120: 239.56
-- ema23: 317.62
-- return_5d: 10.58
-- return_20d: 39.74
-- volume_ratio: 1.41
-- distance_to_ma20_pct: 18.35
-- distance_to_high_60_pct: 0
+- open: 375
+- high: 394
+- low: 367
+- close: 377
+- volume: 3745234
+- ma5: 356.5
+- ema23_primary: 310.61
+- distance_to_ema23_pct: 21.37
+- ma20: 313.57
+- ma60: 257.44
+- ma120: 236.88
+- return_5d: 10.88
+- return_20d: 52.63
+- volume_ratio: 1.53
+- distance_to_ma20_pct_auxiliary: 20.23
+- distance_to_high_60_pct: -4.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,275,300,271,300,6174279,262.3,237.8,235.55,243.87,4.04
-20260504,315.5,325,301,318.5,6301467,277.7,242.45,236.96,250.09,3.46
-20260505,318,326,309.5,314.5,2750003,291.2,247.25,238.21,255.46,1.42
-20260506,317.5,330,306,315.5,3335963,304.3,252.28,239.57,260.46,1.6
-20260507,310,315.5,290,295,1803309,308.7,255.95,240.48,263.34,0.84
-20260508,287,297.5,280,292,905849,307.1,259.93,240.94,265.73,0.42
-20260511,290,308,288.5,302.5,798256,303.9,264.4,241.16,268.79,0.37
-20260512,309,309,295.5,298,623001,300.6,267.95,241.32,271.23,0.3
-20260513,288,291,286,288,600659,295.1,270.88,241.75,272.62,0.29
-20260514,292,292.5,279.5,282.5,523046,292.6,273.55,242.21,273.45,0.26
-20260515,290,298,283.5,295,780964,293.2,276.73,243.24,275.24,0.39
-20260518,291,324.5,290,324.5,1636350,297.6,281.38,244.95,279.35,0.79
-20260519,333,345.5,320,340,1517169,306,286.15,246.81,284.4,0.74
-20260520,333.5,347,332,332,699111,314.8,290.48,248.62,288.37,0.35
-20260521,346,365,327.5,345,4709278,327.3,294.7,250.66,293.09,2.24
-20260522,345,372.5,338,347,4445229,337.7,300.07,252.52,297.58,2.04
-20260523,345,372.5,338,347,4445229,342.2,305.35,254.4,301.7,1.9
-20260524,345,372.5,338,347,4445229,343.6,310.35,256.37,305.47,1.76
-20260525,357,381.5,345,381.5,3823922,353.5,316.93,258.83,311.81,1.43
-20260526,357,381.5,345,381.5,3823922,360.8,322.35,261.27,317.62,1.41
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,249,254.5,243,250,823392,235.66,6.09,231.28,233.73,0.73
+20260429,248.5,274.5,248.5,273,3064146,238.77,14.34,233.65,234.52,2.45
+20260430,275,300,271,300,6174279,243.87,23.02,237.8,235.55,4.04
+20260504,315.5,325,301,318.5,6301467,250.09,27.35,242.45,236.96,3.46
+20260505,318,326,309.5,314.5,2750003,255.46,23.11,247.25,238.21,1.42
+20260506,317.5,330,306,315.5,3335963,260.46,21.13,252.28,239.57,1.6
+20260507,310,315.5,290,295,1803309,263.34,12.02,255.95,240.48,0.84
+20260508,287,297.5,280,292,905849,265.73,9.89,259.93,240.94,0.42
+20260511,290,308,288.5,302.5,798256,268.79,12.54,264.4,241.16,0.37
+20260512,309,309,295.5,298,623001,271.23,9.87,267.95,241.32,0.3
+20260513,288,291,286,288,600659,272.62,5.64,270.88,241.75,0.29
+20260514,292,292.5,279.5,282.5,523046,273.45,3.31,273.55,242.21,0.26
+20260515,290,298,283.5,295,780964,275.24,7.18,276.73,243.24,0.39
+20260518,291,324.5,290,324.5,1636350,279.35,16.16,281.38,244.95,0.79
+20260519,333,345.5,320,340,1517169,284.4,19.55,286.15,246.81,0.74
+20260520,333.5,347,332,332,699111,288.37,15.13,290.48,248.62,0.35
+20260521,346,365,327.5,345,4709278,293.09,17.71,294.7,250.66,2.24
+20260522,345,372.5,338,347,4445229,297.58,16.61,300.07,252.52,2.04
+20260525,357,381.5,345,381.5,3823922,304.57,25.26,307.07,254.97,1.65
+20260526,375,394,367,377,3745234,310.61,21.37,313.57,257.44,1.53
 ```
 
 ## Latest TDCC Snapshot
@@ -120,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 2233 | 宇隆 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 58.0 |  |  | neckline_challenge |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2233 | 宇隆 | 4 | 1 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260526 | 2233 | 宇隆 | 4 | 1 | 4 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260525 | 2233 | 宇隆 | 50 | 1 | 15369100.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260526 | 2233 | 宇隆 | 49 | 1 | 16109420.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

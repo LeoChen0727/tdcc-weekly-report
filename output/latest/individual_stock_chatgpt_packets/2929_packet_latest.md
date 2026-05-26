@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2929 淘帝-KY
 
 ## Metadata
-- generated_at: 2026-05-26 06:39:48 Asia/Taipei
+- generated_at: 2026-05-26 21:25:17 Asia/Taipei
 - stock_id: 2929
 - stock_name: 淘帝-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 5.79
-- high: 5.8
-- low: 5.5
-- close: 5.5
-- volume: 632005
-- ma5: 5.64
-- ma20: 5.54
-- ma60: 6.1
-- ma120: 6.98
-- ema23: 5.64
-- return_5d: -3.17
-- return_20d: -2.14
-- volume_ratio: 1.17
-- distance_to_ma20_pct: -0.78
-- distance_to_high_60_pct: -25.47
+- open: 5.54
+- high: 6.05
+- low: 5.54
+- close: 6.05
+- volume: 1150440
+- ma5: 5.63
+- ema23_primary: 5.67
+- distance_to_ema23_pct: 6.64
+- ma20: 5.56
+- ma60: 6.17
+- ma120: 7.02
+- return_5d: 14.15
+- return_20d: 7.08
+- volume_ratio: 2.53
+- distance_to_ma20_pct_auxiliary: 8.84
+- distance_to_high_60_pct: -19.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,5.6,5.64,5.57,5.57,237113,5.65,6.05,6.8,6.06,0.86
-20260504,5.52,5.86,5.45,5.86,550424,5.66,6.03,6.76,6.04,1.94
-20260505,5.74,5.78,5.65,5.69,420284,5.67,6,6.73,6.01,1.44
-20260506,5.7,5.7,5.58,5.63,239226,5.67,5.97,6.69,5.98,0.81
-20260507,5.63,5.63,5.51,5.55,348736,5.66,5.93,6.65,5.95,1.16
-20260508,5.57,5.66,5.51,5.52,199344,5.65,5.9,6.61,5.91,0.65
-20260511,5.52,5.65,5.5,5.51,295428,5.58,5.86,6.57,5.88,0.96
-20260512,5.51,5.55,5.47,5.5,518662,5.54,5.83,6.53,5.85,1.59
-20260513,5.5,5.61,5.47,5.54,198165,5.52,5.8,6.5,5.82,0.6
-20260514,5.54,5.57,5.5,5.5,291291,5.51,5.76,6.46,5.79,0.87
-20260515,5.5,5.54,5.39,5.39,521637,5.49,5.72,6.42,5.76,1.47
-20260518,5.39,5.39,5.22,5.26,133593,5.44,5.67,6.38,5.72,0.39
-20260519,5.28,5.4,5.27,5.3,142253,5.4,5.63,6.34,5.68,0.42
-20260520,5.26,5.3,5.14,5.17,284762,5.32,5.58,6.3,5.64,0.82
-20260521,5.18,5.68,5.15,5.68,981018,5.36,5.56,6.26,5.64,2.61
-20260522,5.8,6.18,5.72,5.73,1378108,5.43,5.55,6.23,5.65,3.33
-20260523,5.8,6.18,5.72,5.73,1378108,5.52,5.55,6.2,5.66,3.01
-20260524,5.8,6.18,5.72,5.73,1378108,5.61,5.55,6.17,5.66,2.74
-20260525,5.79,5.8,5.5,5.5,632005,5.67,5.55,6.14,5.65,1.21
-20260526,5.79,5.8,5.5,5.5,632005,5.64,5.54,6.1,5.64,1.17
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,5.64,5.68,5.6,5.6,258340,6.15,-8.94,6.1,6.87,0.93
+20260429,5.6,5.66,5.49,5.62,305200,6.11,-7.96,6.07,6.83,1.09
+20260430,5.6,5.64,5.57,5.57,237113,6.06,-8.11,6.05,6.8,0.86
+20260504,5.52,5.86,5.45,5.86,550424,6.04,-3.05,6.03,6.76,1.94
+20260505,5.74,5.78,5.65,5.69,420284,6.01,-5.4,6,6.73,1.44
+20260506,5.7,5.7,5.58,5.63,239226,5.98,-5.9,5.97,6.69,0.81
+20260507,5.63,5.63,5.51,5.55,348736,5.95,-6.67,5.93,6.65,1.16
+20260508,5.57,5.66,5.51,5.52,199344,5.91,-6.62,5.9,6.61,0.65
+20260511,5.52,5.65,5.5,5.51,295428,5.88,-6.26,5.86,6.57,0.96
+20260512,5.51,5.55,5.47,5.5,518662,5.85,-5.92,5.83,6.53,1.59
+20260513,5.5,5.61,5.47,5.54,198165,5.82,-4.82,5.8,6.5,0.6
+20260514,5.54,5.57,5.5,5.5,291291,5.79,-5.08,5.76,6.46,0.87
+20260515,5.5,5.54,5.39,5.39,521637,5.76,-6.43,5.72,6.42,1.47
+20260518,5.39,5.39,5.22,5.26,133593,5.72,-8.02,5.67,6.38,0.39
+20260519,5.28,5.4,5.27,5.3,142253,5.68,-6.75,5.63,6.34,0.42
+20260520,5.26,5.3,5.14,5.17,284762,5.64,-8.35,5.58,6.3,0.82
+20260521,5.18,5.68,5.15,5.68,981018,5.64,0.63,5.56,6.26,2.61
+20260522,5.8,6.18,5.72,5.73,1378108,5.65,1.39,5.55,6.23,3.33
+20260525,5.79,5.8,5.5,5.5,632005,5.64,-2.46,5.54,6.2,1.5
+20260526,5.54,6.05,5.54,6.05,1150440,5.67,6.64,5.56,6.17,2.53
 ```
 
 ## Latest TDCC Snapshot
@@ -120,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 2929 | 淘帝-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

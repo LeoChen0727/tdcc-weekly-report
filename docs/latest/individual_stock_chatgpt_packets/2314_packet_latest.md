@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2314 台揚
 
 ## Metadata
-- generated_at: 2026-05-26 06:39:33 Asia/Taipei
+- generated_at: 2026-05-26 21:24:55 Asia/Taipei
 - stock_id: 2314
 - stock_name: 台揚
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 17.35
-- high: 17.35
-- low: 16.35
-- close: 16.4
-- volume: 1003227
-- ma5: 16.04
-- ma20: 14.09
-- ma60: 15.98
-- ma120: 19.08
-- ema23: 14.81
-- return_5d: 2.18
-- return_20d: 16.31
-- volume_ratio: 1.24
-- distance_to_ma20_pct: 16.44
-- distance_to_high_60_pct: -26.13
+- open: 16.8
+- high: 16.8
+- low: 16.3
+- close: 16.35
+- volume: 526389
+- ma5: 15.84
+- ema23_primary: 14.6
+- distance_to_ema23_pct: 12.02
+- ma20: 13.92
+- ma60: 16.13
+- ma120: 19.18
+- return_5d: 22.93
+- return_20d: 12.37
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: 17.44
+- distance_to_high_60_pct: -26.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,14.1,14.25,14.1,14.1,261195,14.52,14.95,18.17,15.61,0.45
-20260504,14.15,14.5,14.15,14.2,181444,14.25,14.71,18.04,15.49,0.31
-20260505,14.25,14.25,13.8,13.8,431779,14.1,14.56,17.9,15.35,0.79
-20260506,14.1,14.1,13.8,13.8,324759,14,14.48,17.77,15.22,0.6
-20260507,13.8,13.8,12.8,12.95,786356,13.77,14.44,17.62,15.03,1.42
-20260508,13,13,12.9,13,395675,13.55,14.47,17.47,14.86,0.72
-20260511,13.2,13.2,12.5,12.6,619076,13.23,14.41,17.33,14.67,1.33
-20260512,12.7,13,12.6,13,497149,13.07,14.38,17.21,14.53,1.13
-20260513,12.7,13.45,12.7,13.05,247484,12.92,14.37,17.08,14.41,0.59
-20260514,12.85,13.2,12.6,12.6,348034,12.85,14.32,16.93,14.26,0.83
-20260515,12.85,13.2,12.35,12.35,297770,12.72,14.23,16.79,14.1,0.72
-20260518,12.35,12.35,12.05,12.1,266831,12.62,14.06,16.65,13.93,0.66
-20260519,13.25,13.3,13.25,13.3,794449,12.68,13.88,16.52,13.88,1.94
-20260520,13.45,14.6,13.45,14.6,1386121,12.99,13.83,16.42,13.94,3.28
-20260521,16,16.05,16,16.05,1576371,13.68,13.84,16.35,14.12,3.25
-20260522,17.6,17.6,15.8,15.8,1909285,14.37,13.79,16.27,14.26,3.41
-20260523,17.6,17.6,15.8,15.8,1909285,15.11,13.8,16.2,14.39,2.96
-20260524,17.6,17.6,15.8,15.8,1909285,15.61,13.87,16.11,14.5,2.63
-20260525,17.35,17.35,16.35,16.4,1003227,15.97,13.97,16.05,14.66,1.31
-20260526,17.35,17.35,16.35,16.4,1003227,16.04,14.09,15.98,14.81,1.24
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,14.55,14.6,14.3,14.3,194462,15.89,-10.03,15.47,18.44,0.32
+20260429,14.35,14.35,14,14.1,160622,15.75,-10.45,15.21,18.31,0.27
+20260430,14.1,14.25,14.1,14.1,261195,15.61,-9.66,14.95,18.17,0.45
+20260504,14.15,14.5,14.15,14.2,181444,15.49,-8.33,14.71,18.04,0.31
+20260505,14.25,14.25,13.8,13.8,431779,15.35,-10.1,14.56,17.9,0.79
+20260506,14.1,14.1,13.8,13.8,324759,15.22,-9.33,14.48,17.77,0.6
+20260507,13.8,13.8,12.8,12.95,786356,15.03,-13.85,14.44,17.62,1.42
+20260508,13,13,12.9,13,395675,14.86,-12.53,14.47,17.47,0.72
+20260511,13.2,13.2,12.5,12.6,619076,14.67,-14.13,14.41,17.33,1.33
+20260512,12.7,13,12.6,13,497149,14.53,-10.56,14.38,17.21,1.13
+20260513,12.7,13.45,12.7,13.05,247484,14.41,-9.44,14.37,17.08,0.59
+20260514,12.85,13.2,12.6,12.6,348034,14.26,-11.64,14.32,16.93,0.83
+20260515,12.85,13.2,12.35,12.35,297770,14.1,-12.41,14.23,16.79,0.72
+20260518,12.35,12.35,12.05,12.1,266831,13.93,-13.16,14.06,16.65,0.66
+20260519,13.25,13.3,13.25,13.3,794449,13.88,-4.19,13.88,16.52,1.94
+20260520,13.45,14.6,13.45,14.6,1386121,13.94,4.73,13.83,16.42,3.28
+20260521,16,16.05,16,16.05,1576371,14.12,13.7,13.84,16.35,3.25
+20260522,17.6,17.6,15.8,15.8,1909285,14.26,10.82,13.79,16.27,3.41
+20260525,17.35,17.35,16.35,16.4,1003227,14.44,13.61,13.83,16.21,1.67
+20260526,16.8,16.8,16.3,16.35,526389,14.6,12.02,13.92,16.13,0.86
 ```
 
 ## Latest TDCC Snapshot
@@ -120,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2314 | 台揚 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2314 | 台揚 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260526 | 2314 | 台揚 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

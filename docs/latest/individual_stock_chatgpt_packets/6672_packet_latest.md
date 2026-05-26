@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6672 騰輝電子-KY
 
 ## Metadata
-- generated_at: 2026-05-26 06:40:41 Asia/Taipei
+- generated_at: 2026-05-26 21:26:33 Asia/Taipei
 - stock_id: 6672
 - stock_name: 騰輝電子-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 200.5
-- high: 212
-- low: 200
-- close: 210
-- volume: 11890181
-- ma5: 199.8
-- ma20: 200.7
-- ma60: 158.88
-- ma120: 126.18
-- ema23: 192.45
-- return_5d: 17.65
-- return_20d: 0.96
-- volume_ratio: 1.83
-- distance_to_ma20_pct: 4.63
-- distance_to_high_60_pct: -11.76
+- open: 211
+- high: 214
+- low: 205.5
+- close: 214
+- volume: 8369900
+- ma5: 194.4
+- ema23_primary: 192.16
+- distance_to_ema23_pct: 11.37
+- ma20: 202.38
+- ma60: 155.87
+- ma120: 124.39
+- return_5d: 19.55
+- return_20d: 3.13
+- volume_ratio: 1.3
+- distance_to_ma20_pct_auxiliary: 5.74
+- distance_to_high_60_pct: -10.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,208,227,206,219,12796191,210.5,172.47,126.38,173.55,1.38
-20260504,222.5,238,220,223,10613593,213,177.12,128.44,177.67,1.11
-20260505,219.5,225,217,220.5,5230448,215.6,181.68,130.44,181.24,0.55
-20260506,223.5,223.5,205.5,214.5,7917147,217,185.95,132.38,184.01,0.81
-20260507,221,229.5,216,226,7043622,220.6,190.18,134.54,187.51,0.72
-20260508,226.5,226.5,205,208,6478240,218.4,192.88,136.43,189.22,0.68
-20260511,208,211,197,209,5447945,215.6,195.82,138.42,190.87,0.58
-20260512,209.5,215,204.5,206,3942101,212.7,198.7,140.42,192.13,0.42
-20260513,201.5,204,196.5,198,3629983,209.4,201.05,142.26,192.62,0.39
-20260514,199.5,201,192.5,195,5148804,203.2,203.03,143.91,192.82,0.57
-20260515,197,198,177,181.5,7355748,197.9,204.1,145.18,191.87,0.82
-20260518,177,183,174,180.5,2402089,192.2,204.32,146.52,190.92,0.27
-20260519,179,184.5,176.5,179,2398037,186.8,203.93,147.87,189.93,0.29
-20260520,179,181.5,176,176.5,1485391,182.5,203.38,149.21,188.81,0.19
-20260521,180,184.5,178,178.5,2366956,179.2,202,150.6,187.95,0.32
-20260522,180.5,194.5,180.5,193,7301038,181.5,202.07,152.19,188.37,1.08
-20260523,180.5,194.5,180.5,193,7301038,184,201.2,153.7,188.76,1.13
-20260524,180.5,194.5,180.5,193,7301038,186.8,200.47,155.24,189.11,1.19
-20260525,200.5,212,200,210,11890181,193.5,200.6,157.03,190.85,1.91
-20260526,200.5,212,200,210,11890181,199.8,200.7,158.88,192.45,1.83
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,208.5,225,205.5,207.5,10574489,165.91,25.07,163.82,122.58,1.21
+20260429,209,214,203.5,208,6417308,169.42,22.77,167.8,124.4,0.73
+20260430,208,227,206,219,12796191,173.55,26.19,172.47,126.38,1.38
+20260504,222.5,238,220,223,10613593,177.67,25.51,177.12,128.44,1.11
+20260505,219.5,225,217,220.5,5230448,181.24,21.66,181.68,130.44,0.55
+20260506,223.5,223.5,205.5,214.5,7917147,184.01,16.57,185.95,132.38,0.81
+20260507,221,229.5,216,226,7043622,187.51,20.53,190.18,134.54,0.72
+20260508,226.5,226.5,205,208,6478240,189.22,9.93,192.88,136.43,0.68
+20260511,208,211,197,209,5447945,190.87,9.5,195.82,138.42,0.58
+20260512,209.5,215,204.5,206,3942101,192.13,7.22,198.7,140.42,0.42
+20260513,201.5,204,196.5,198,3629983,192.62,2.79,201.05,142.26,0.39
+20260514,199.5,201,192.5,195,5148804,192.82,1.13,203.03,143.91,0.57
+20260515,197,198,177,181.5,7355748,191.87,-5.41,204.1,145.18,0.82
+20260518,177,183,174,180.5,2402089,190.92,-5.46,204.32,146.52,0.27
+20260519,179,184.5,176.5,179,2398037,189.93,-5.76,203.93,147.87,0.29
+20260520,179,181.5,176,176.5,1485391,188.81,-6.52,203.38,149.21,0.19
+20260521,180,184.5,178,178.5,2366956,187.95,-5.03,202,150.6,0.32
+20260522,180.5,194.5,180.5,193,7301038,188.37,2.46,202.07,152.19,1.08
+20260525,200.5,212,200,210,11890181,190.18,10.42,202.05,153.99,1.78
+20260526,211,214,205.5,214,8369900,192.16,11.37,202.38,155.87,1.3
 ```
 
 ## Latest TDCC Snapshot
@@ -122,8 +125,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6672 | 騰輝電子-KY | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260526 | 6672 | 騰輝電子-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 6672 | 騰輝電子-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -133,7 +135,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260525 | 6672 | 騰輝電子-KY | 10 | 0 | 9111050.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260526 | 6672 | 騰輝電子-KY | 10 | 0 | 6431640.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9933 中鼎
 
 ## Metadata
-- generated_at: 2026-05-26 06:41:02 Asia/Taipei
+- generated_at: 2026-05-26 21:27:03 Asia/Taipei
 - stock_id: 9933
 - stock_name: 中鼎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 39.35
-- high: 39.6
-- low: 38.9
-- close: 39.5
-- volume: 3516488
-- ma5: 39.38
-- ma20: 37.8
-- ma60: 36.01
-- ma120: 34.04
-- ema23: 37.96
-- return_5d: -0.25
-- return_20d: 6.76
-- volume_ratio: 0.75
-- distance_to_ma20_pct: 4.48
-- distance_to_high_60_pct: -1.99
+- open: 39.9
+- high: 41
+- low: 39.75
+- close: 40.6
+- volume: 8418662
+- ma5: 39.55
+- ema23_primary: 37.79
+- distance_to_ema23_pct: 7.44
+- ma20: 37.63
+- ma60: 35.76
+- ma120: 33.92
+- return_5d: 8.7
+- return_20d: 11.54
+- volume_ratio: 1.81
+- distance_to_ma20_pct_auxiliary: 7.89
+- distance_to_high_60_pct: -0.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,37,37,36.4,36.75,3091570,36.83,36.47,33.94,36.3,0.47
-20260504,36.95,37.4,36.6,37,2927533,36.84,36.55,34.02,36.36,0.46
-20260505,37.1,37.1,36.35,36.5,3134500,36.86,36.59,34.09,36.37,0.49
-20260506,36.8,37,36.35,36.8,2948283,36.81,36.66,34.16,36.4,0.47
-20260507,36.8,37.65,36.8,37.3,4754918,36.87,36.73,34.25,36.48,0.79
-20260508,37.9,38.4,36.75,36.8,7089802,36.88,36.79,34.33,36.51,1.15
-20260511,36.95,36.95,36.2,36.45,3268526,36.77,36.84,34.42,36.5,0.54
-20260512,36.6,37.3,36,37.1,4165181,36.89,36.94,34.53,36.55,0.69
-20260513,37.95,38.1,36.6,36.8,5195446,36.89,37.05,34.63,36.57,0.85
-20260514,36.9,37.8,36.75,37.6,3975406,36.95,37.02,34.73,36.66,0.73
-20260515,38,39,37.55,37.6,8592577,37.11,37.01,34.83,36.74,1.73
-20260518,37.2,37.4,36.55,36.8,3229039,37.18,36.92,34.93,36.74,0.69
-20260519,36.7,37.8,36.7,37.35,3150215,37.23,36.97,35.04,36.79,0.73
-20260520,37.75,38.8,37.45,38.75,7553068,37.62,37.05,35.17,36.95,1.7
-20260521,38.9,39.7,38.75,39.6,8055053,38.02,37.18,35.32,37.18,1.74
-20260522,39.75,40,39.15,39.3,5063209,38.36,37.3,35.46,37.35,1.12
-20260523,39.75,40,39.15,39.3,5063209,38.86,37.41,35.6,37.51,1.12
-20260524,39.75,40,39.15,39.3,5063209,39.25,37.56,35.74,37.66,1.11
-20260525,39.35,39.6,38.9,39.5,3516488,39.4,37.68,35.87,37.82,0.76
-20260526,39.35,39.6,38.9,39.5,3516488,39.38,37.8,36.01,37.96,0.75
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,36.6,37.05,36.45,37.05,2388307,36.19,2.38,36.33,33.8,0.34
+20260429,37.25,37.25,36.4,37,2582109,36.26,2.05,36.41,33.87,0.38
+20260430,37,37,36.4,36.75,3091570,36.3,1.25,36.47,33.94,0.47
+20260504,36.95,37.4,36.6,37,2927533,36.36,1.77,36.55,34.02,0.46
+20260505,37.1,37.1,36.35,36.5,3134500,36.37,0.36,36.59,34.09,0.49
+20260506,36.8,37,36.35,36.8,2948283,36.4,1.09,36.66,34.16,0.47
+20260507,36.8,37.65,36.8,37.3,4754918,36.48,2.25,36.73,34.25,0.79
+20260508,37.9,38.4,36.75,36.8,7089802,36.51,0.81,36.79,34.33,1.15
+20260511,36.95,36.95,36.2,36.45,3268526,36.5,-0.14,36.84,34.42,0.54
+20260512,36.6,37.3,36,37.1,4165181,36.55,1.5,36.94,34.53,0.69
+20260513,37.95,38.1,36.6,36.8,5195446,36.57,0.63,37.05,34.63,0.85
+20260514,36.9,37.8,36.75,37.6,3975406,36.66,2.57,37.02,34.73,0.73
+20260515,38,39,37.55,37.6,8592577,36.74,2.35,37.01,34.83,1.73
+20260518,37.2,37.4,36.55,36.8,3229039,36.74,0.16,36.92,34.93,0.69
+20260519,36.7,37.8,36.7,37.35,3150215,36.79,1.52,36.97,35.04,0.73
+20260520,37.75,38.8,37.45,38.75,7553068,36.95,4.86,37.05,35.17,1.7
+20260521,38.9,39.7,38.75,39.6,8055053,37.18,6.52,37.18,35.32,1.74
+20260522,39.75,40,39.15,39.3,5063209,37.35,5.21,37.3,35.46,1.12
+20260525,39.35,39.6,38.9,39.5,3516488,37.53,5.25,37.42,35.61,0.79
+20260526,39.9,41,39.75,40.6,8418662,37.79,7.44,37.63,35.76,1.81
 ```
 
 ## Latest TDCC Snapshot
@@ -122,13 +125,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 9933 | 中鼎 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 9933 | 中鼎 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 9933 | 中鼎 | true_breakout | 嚴格突破 | 139.0 |  |  | platform_breakout |  |  | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 9933 | 中鼎 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 9933 | 中鼎 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260526 | 9933 | 中鼎 | 4 | 4 | 4 | 4 | 4 | continued_many_days | 連續 4 個交易日上榜，需判斷是持續醞釀或訊號鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2308 台達電
 
 ## Metadata
-- generated_at: 2026-05-26 06:39:33 Asia/Taipei
+- generated_at: 2026-05-26 21:24:55 Asia/Taipei
 - stock_id: 2308
 - stock_name: 台達電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 2205
-- high: 2300
-- low: 2185
-- close: 2290
-- volume: 12049781
-- ma5: 2173
-- ma20: 2141
-- ma60: 1781.92
-- ma120: 1430.46
-- ema23: 2078.77
-- return_5d: 12.81
-- return_20d: 5.77
-- volume_ratio: 1.05
-- distance_to_ma20_pct: 6.96
-- distance_to_high_60_pct: -3.38
+- open: 2350
+- high: 2410
+- low: 2290
+- close: 2350
+- volume: 12198582
+- ma5: 2136
+- ema23_primary: 2074.77
+- distance_to_ema23_pct: 13.27
+- ma20: 2149
+- ma60: 1760.67
+- ma120: 1410.94
+- return_5d: 22.72
+- return_20d: 16.34
+- volume_ratio: 1.02
+- distance_to_ma20_pct_auxiliary: 9.35
+- distance_to_high_60_pct: -2.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,2220,2280,2150,2165,14060511,2110,1844.25,1504.5,1850.08,1.12
-20260504,2250,2260,2150,2220,12649019,2139,1881.5,1520.5,1880.9,1
-20260505,2185,2195,2145,2165,10559120,2168,1918.25,1536.08,1904.58,0.84
-20260506,2215,2270,2150,2210,15562046,2185,1953,1552.08,1930.03,1.21
-20260507,2275,2370,2250,2280,15656408,2208,1983.75,1568.75,1959.19,1.21
-20260508,2230,2250,2170,2200,11802071,2215,2011.5,1584.5,1979.26,0.92
-20260511,2215,2270,2205,2245,9200516,2220,2037,1601.58,2001.41,0.73
-20260512,2225,2260,2190,2195,13011711,2226,2059.75,1618.58,2017.54,1
-20260513,2160,2185,2140,2165,7659621,2217,2080.5,1634.42,2029.83,0.6
-20260514,2210,2250,2155,2155,7332576,2192,2099,1650.17,2040.26,0.59
-20260515,2185,2195,2075,2075,12351492,2167,2110.5,1665.58,2043.15,1
-20260518,1985,2040,1985,2020,10082191,2122,2119.5,1679.92,2041.22,0.82
-20260519,2020,2025,1910,1915,16288903,2066,2120.25,1692.17,2030.71,1.3
-20260520,1880,1960,1880,1915,10890054,2016,2115.25,1704.33,2021.06,0.87
-20260521,2015,2060,1990,2030,11663874,1991,2116,1717.17,2021.81,0.93
-20260522,2125,2125,2050,2095,8534359,1995,2121.75,1730.33,2027.91,0.71
-20260523,2125,2125,2050,2095,8534359,2010,2122.75,1742.17,2033.5,0.71
-20260524,2125,2125,2050,2095,8534359,2046,2126.5,1753.17,2038.62,0.74
-20260525,2205,2300,2185,2290,12049781,2121,2134.75,1767.5,2059.57,1.05
-20260526,2205,2300,2185,2290,12049781,2173,2141,1781.92,2078.77,1.05
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,2030,2160,2030,2125,15038642,1790.22,18.7,1771,1472,1.16
+20260429,2040,2170,2035,2165,12261414,1821.45,18.86,1805,1489.17,0.95
+20260430,2220,2280,2150,2165,14060511,1850.08,17.02,1844.25,1504.5,1.12
+20260504,2250,2260,2150,2220,12649019,1880.9,18.03,1881.5,1520.5,1
+20260505,2185,2195,2145,2165,10559120,1904.58,13.67,1918.25,1536.08,0.84
+20260506,2215,2270,2150,2210,15562046,1930.03,14.51,1953,1552.08,1.21
+20260507,2275,2370,2250,2280,15656408,1959.19,16.37,1983.75,1568.75,1.21
+20260508,2230,2250,2170,2200,11802071,1979.26,11.15,2011.5,1584.5,0.92
+20260511,2215,2270,2205,2245,9200516,2001.41,12.17,2037,1601.58,0.73
+20260512,2225,2260,2190,2195,13011711,2017.54,8.8,2059.75,1618.58,1
+20260513,2160,2185,2140,2165,7659621,2029.83,6.66,2080.5,1634.42,0.6
+20260514,2210,2250,2155,2155,7332576,2040.26,5.62,2099,1650.17,0.59
+20260515,2185,2195,2075,2075,12351492,2043.15,1.56,2110.5,1665.58,1
+20260518,1985,2040,1985,2020,10082191,2041.22,-1.04,2119.5,1679.92,0.82
+20260519,2020,2025,1910,1915,16288903,2030.71,-5.7,2120.25,1692.17,1.3
+20260520,1880,1960,1880,1915,10890054,2021.06,-5.25,2115.25,1704.33,0.87
+20260521,2015,2060,1990,2030,11663874,2021.81,0.41,2116,1717.17,0.93
+20260522,2125,2125,2050,2095,8534359,2027.91,3.31,2121.75,1730.33,0.71
+20260525,2205,2300,2185,2290,12049781,2049.75,11.72,2132.5,1745.42,0.99
+20260526,2350,2410,2290,2350,12198582,2074.77,13.27,2149,1760.67,1.02
 ```
 
 ## Latest TDCC Snapshot
@@ -122,8 +125,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2308 | 台達電 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260526 | 2308 | 台達電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 2308 | 台達電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 58.0 |  |  | neckline_challenge |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -133,7 +135,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260525 | 2308 | 台達電 | 299 | 60 | 58058420.0 | 905800.0 | 64.1 | call_put_bullish | 3 |  |
+| 20260526 | 2308 | 台達電 | 299 | 60 | 59731120.0 | 585140.0 | 102.08 | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

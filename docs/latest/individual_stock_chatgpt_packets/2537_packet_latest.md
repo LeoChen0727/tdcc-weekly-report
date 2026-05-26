@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2537 聯上發
 
 ## Metadata
-- generated_at: 2026-05-26 06:39:41 Asia/Taipei
+- generated_at: 2026-05-26 21:25:08 Asia/Taipei
 - stock_id: 2537
 - stock_name: 聯上發
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -55,45 +57,46 @@
 ## Latest Price Snapshot
 - date: 20260526
 - open: 9.57
-- high: 9.6
-- low: 9.38
-- close: 9.55
-- volume: 1412427
-- ma5: 9.56
-- ma20: 9.92
-- ma60: 10.18
-- ma120: 10.58
-- ema23: 9.9
-- return_5d: -2.85
-- return_20d: -8.61
-- volume_ratio: 1.17
-- distance_to_ma20_pct: -3.77
-- distance_to_high_60_pct: -12.79
+- high: 9.63
+- low: 9.52
+- close: 9.58
+- volume: 1313073
+- ma5: 9.64
+- ema23_primary: 9.97
+- distance_to_ema23_pct: -3.88
+- ma20: 10.01
+- ma60: 10.21
+- ma120: 10.59
+- return_5d: -0.93
+- return_20d: -7.88
+- volume_ratio: 1.24
+- distance_to_ma20_pct_auxiliary: -4.29
+- distance_to_high_60_pct: -12.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,10.45,10.55,10.2,10.2,1453368,10.38,10.42,10.38,10.4,1.81
-20260504,10.3,10.3,10.2,10.25,929840,10.33,10.41,10.38,10.39,1.14
-20260505,10.25,10.3,10.2,10.25,580600,10.3,10.41,10.37,10.38,0.71
-20260506,10.25,10.45,10.25,10.3,819400,10.29,10.41,10.36,10.37,0.97
-20260507,10.35,10.5,10.3,10.5,973551,10.3,10.41,10.36,10.38,1.13
-20260508,10.55,10.55,10.25,10.25,621814,10.31,10.41,10.36,10.37,0.71
-20260511,10.3,10.35,10.2,10.25,698130,10.31,10.4,10.35,10.36,0.8
-20260512,10.25,10.25,10.05,10.1,1403332,10.28,10.38,10.35,10.34,1.56
-20260513,10.05,10.15,10,10,1280440,10.22,10.36,10.34,10.31,1.36
-20260514,10.1,10.1,9.98,9.99,1128181,10.12,10.33,10.33,10.28,1.16
-20260515,10.05,10.05,9.5,9.66,2402270,10,10.3,10.31,10.23,2.24
-20260518,9.75,9.86,9.62,9.76,778193,9.9,10.27,10.31,10.19,0.72
-20260519,9.71,9.87,9.65,9.67,750635,9.82,10.23,10.29,10.15,0.69
-20260520,9.75,9.75,9.58,9.67,819712,9.75,10.19,10.28,10.11,0.76
-20260521,9.76,9.84,9.74,9.83,573027,9.72,10.15,10.27,10.09,0.58
-20260522,9.89,9.89,9.5,9.57,2015643,9.7,10.1,10.25,10.04,2
-20260523,9.89,9.89,9.5,9.57,2015643,9.66,10.05,10.23,10,1.88
-20260524,9.89,9.89,9.5,9.57,2015643,9.64,10.01,10.21,9.97,1.8
-20260525,9.57,9.6,9.38,9.55,1412427,9.62,9.97,10.2,9.93,1.21
-20260526,9.57,9.6,9.38,9.55,1412427,9.56,9.92,10.18,9.9,1.17
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,10.45,10.45,10.3,10.35,504048,10.42,-0.64,10.41,10.4,0.66
+20260429,10.45,10.45,10.35,10.45,656354,10.42,0.29,10.42,10.39,0.85
+20260430,10.45,10.55,10.2,10.2,1453368,10.4,-1.93,10.42,10.38,1.81
+20260504,10.3,10.3,10.2,10.25,929840,10.39,-1.33,10.41,10.38,1.14
+20260505,10.25,10.3,10.2,10.25,580600,10.38,-1.22,10.41,10.37,0.71
+20260506,10.25,10.45,10.25,10.3,819400,10.37,-0.68,10.41,10.36,0.97
+20260507,10.35,10.5,10.3,10.5,973551,10.38,1.14,10.41,10.36,1.13
+20260508,10.55,10.55,10.25,10.25,621814,10.37,-1.16,10.41,10.36,0.71
+20260511,10.3,10.35,10.2,10.25,698130,10.36,-1.07,10.4,10.35,0.8
+20260512,10.25,10.25,10.05,10.1,1403332,10.34,-2.31,10.38,10.35,1.56
+20260513,10.05,10.15,10,10,1280440,10.31,-3.01,10.36,10.34,1.36
+20260514,10.1,10.1,9.98,9.99,1128181,10.28,-2.86,10.33,10.33,1.16
+20260515,10.05,10.05,9.5,9.66,2402270,10.23,-5.59,10.3,10.31,2.24
+20260518,9.75,9.86,9.62,9.76,778193,10.19,-4.24,10.27,10.31,0.72
+20260519,9.71,9.87,9.65,9.67,750635,10.15,-4.72,10.23,10.29,0.69
+20260520,9.75,9.75,9.58,9.67,819712,10.11,-4.34,10.19,10.28,0.76
+20260521,9.76,9.84,9.74,9.83,573027,10.09,-2.54,10.15,10.27,0.58
+20260522,9.89,9.89,9.5,9.57,2015643,10.04,-4.71,10.1,10.25,2
+20260525,9.57,9.6,9.38,9.55,1412427,10,-4.52,10.05,10.23,1.36
+20260526,9.57,9.63,9.52,9.58,1313073,9.97,-3.88,10.01,10.21,1.24
 ```
 
 ## Latest TDCC Snapshot
@@ -123,7 +126,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260526 | 2537 | 聯上發 | revenue_pullback | 營收成長股價回檔 | 82.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260526 | 2537 | 聯上發 | revenue_breakout_low_response | 營收爆發低反應股 | 22.0 | 5.0 | B_可觀察 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260526 | 2537 | 聯上發 | revenue_breakout_low_response | 營收爆發低反應股 | 22.0 | 6.0 | B_可觀察 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

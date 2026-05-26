@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2376 技嘉
 
 ## Metadata
-- generated_at: 2026-05-26 06:39:35 Asia/Taipei
+- generated_at: 2026-05-26 21:24:59 Asia/Taipei
 - stock_id: 2376
 - stock_name: 技嘉
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 331.5
-- high: 343
-- low: 331
-- close: 336.5
-- volume: 17128036
-- ma5: 328.1
-- ma20: 313.27
-- ma60: 269.65
-- ma120: 254.23
-- ema23: 309.66
-- return_5d: 6.32
-- return_20d: 23.49
-- volume_ratio: 0.99
-- distance_to_ma20_pct: 7.41
-- distance_to_high_60_pct: -4.13
+- open: 340
+- high: 340.5
+- low: 330
+- close: 336
+- volume: 11025246
+- ma5: 322.7
+- ema23_primary: 306.75
+- distance_to_ema23_pct: 9.54
+- ma20: 308.7
+- ma60: 266.82
+- ma120: 252.88
+- return_5d: 10.16
+- return_20d: 17.89
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: 8.84
+- distance_to_high_60_pct: -4.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,273,280,271,273,5636066,278,266.35,243.38,265.8,0.58
-20260504,278,282,270.5,279,6508646,278.2,268.7,244.06,266.9,0.66
-20260505,279,281,275.5,279.5,4539828,277.1,271.27,244.68,267.95,0.46
-20260506,283,304.5,283,301,24158935,281,275.2,245.68,270.7,2.2
-20260507,311,316.5,300.5,309,24537224,288.3,278.43,246.82,273.89,2.1
-20260508,316,323.5,304.5,317,21918327,297.1,281.73,248.15,277.49,1.8
-20260511,329,333,317,324.5,20716173,306.2,284.82,249.68,281.4,1.67
-20260512,327.5,329,315,321,12394600,314.5,287.68,251.23,284.7,0.99
-20260513,317.5,318,310.5,313.5,12824543,317,290.18,252.66,287.1,1.01
-20260514,322.5,332,320,327,16985216,320.6,292.57,254.29,290.43,1.39
-20260515,330,332,315,326.5,20435886,322.5,294.85,255.97,293.43,1.64
-20260518,336,351,328,330.5,39137868,323.7,297.3,257.68,296.52,2.82
-20260519,320,324,304.5,305,33752266,320.5,298.6,259.03,297.23,2.23
-20260520,309,313.5,300,302,13967293,318.2,299.27,260.29,297.63,0.93
-20260521,308,319.5,305,316.5,15510557,316.1,300.85,261.74,299.2,1.01
-20260522,318.5,325,311.5,322.5,13226599,315.3,303.23,263.33,301.14,0.85
-20260523,318.5,325,311.5,322.5,13226599,313.7,305.45,264.91,302.92,0.83
-20260524,318.5,325,311.5,322.5,13226599,317.2,307.32,266.37,304.55,0.81
-20260525,331.5,343,331,336.5,17128036,324.1,310.07,267.98,307.22,1.02
-20260526,331.5,343,331,336.5,17128036,328.1,313.27,269.65,309.66,0.99
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,288,288.5,280,281.5,5090754,264.48,6.44,261.6,242.22,0.54
+20260429,281,281,271,272.5,7261839,265.14,2.77,263.82,242.82,0.75
+20260430,273,280,271,273,5636066,265.8,2.71,266.35,243.38,0.58
+20260504,278,282,270.5,279,6508646,266.9,4.53,268.7,244.06,0.66
+20260505,279,281,275.5,279.5,4539828,267.95,4.31,271.27,244.68,0.46
+20260506,283,304.5,283,301,24158935,270.7,11.19,275.2,245.68,2.2
+20260507,311,316.5,300.5,309,24537224,273.89,12.82,278.43,246.82,2.1
+20260508,316,323.5,304.5,317,21918327,277.49,14.24,281.73,248.15,1.8
+20260511,329,333,317,324.5,20716173,281.4,15.31,284.82,249.68,1.67
+20260512,327.5,329,315,321,12394600,284.7,12.75,287.68,251.23,0.99
+20260513,317.5,318,310.5,313.5,12824543,287.1,9.19,290.18,252.66,1.01
+20260514,322.5,332,320,327,16985216,290.43,12.59,292.57,254.29,1.39
+20260515,330,332,315,326.5,20435886,293.43,11.27,294.85,255.97,1.64
+20260518,336,351,328,330.5,39137868,296.52,11.46,297.3,257.68,2.82
+20260519,320,324,304.5,305,33752266,297.23,2.61,298.6,259.03,2.23
+20260520,309,313.5,300,302,13967293,297.63,1.47,299.27,260.29,0.93
+20260521,308,319.5,305,316.5,15510557,299.2,5.78,300.85,261.74,1.01
+20260522,318.5,325,311.5,322.5,13226599,301.14,7.09,303.23,263.33,0.85
+20260525,331.5,343,331,336.5,17128036,304.09,10.66,306.15,265.14,1.06
+20260526,340,340.5,330,336,11025246,306.75,9.54,308.7,266.82,0.67
 ```
 
 ## Latest TDCC Snapshot
@@ -122,18 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2376 | 技嘉 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 2376 | 技嘉 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 2376 | 技嘉 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2376 | 技嘉 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260526 | 2376 | 技嘉 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260525 | 2376 | 技嘉 | 99 | 2 | 38375070.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260526 | 2376 | 技嘉 | 100 | 2 | 26863440.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

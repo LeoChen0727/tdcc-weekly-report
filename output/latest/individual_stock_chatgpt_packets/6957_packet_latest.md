@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6957 裕慶-KY
 
 ## Metadata
-- generated_at: 2026-05-26 06:40:48 Asia/Taipei
+- generated_at: 2026-05-26 21:26:43 Asia/Taipei
 - stock_id: 6957
 - stock_name: 裕慶-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -56,44 +58,45 @@
 - date: 20260526
 - open: 160
 - high: 160
-- low: 157.5
-- close: 160
-- volume: 118833
-- ma5: 160.3
-- ma20: 160.3
-- ma60: 161.22
-- ma120: 178.15
-- ema23: 160.24
-- return_5d: 0
+- low: 157
+- close: 159.5
+- volume: 83816
+- ma5: 160
+- ema23_primary: 160.16
+- distance_to_ema23_pct: -0.41
+- ma20: 160
+- ma60: 161.88
+- ma120: 178.96
+- return_5d: -0.31
 - return_20d: 1.27
-- volume_ratio: 1.25
-- distance_to_ma20_pct: -0.19
-- distance_to_high_60_pct: -11.11
+- volume_ratio: 0.91
+- distance_to_ma20_pct_auxiliary: -0.31
+- distance_to_high_60_pct: -13.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,159.5,163.5,159.5,160.5,60710,158.8,159.22,168.4,160.65,0.7
-20260504,160.5,167.5,158,165,164763,159.7,159.45,168.02,161.01,1.76
-20260505,165,165,160,160,66638,160.2,159.65,167.64,160.93,0.7
-20260506,162,162,159,162,82387,161.1,160,167.28,161.02,0.84
-20260507,160,162,160,162,57734,161.9,160.4,166.88,161.1,0.63
-20260508,162,162,159,159.5,97800,161.7,160.7,166.42,160.97,1.13
-20260511,158,159,155,159,156707,160.5,160.8,166.02,160.8,1.8
-20260512,156,159.5,156,159,49195,160.3,160.7,165.63,160.65,0.58
-20260513,159.5,159.5,156.5,159,55387,159.7,160.75,165.18,160.51,0.68
-20260514,156.5,159,153.5,159,206816,159.1,160.78,164.64,160.39,2.38
-20260515,157,160,154.5,160,115810,159.2,160.45,164.14,160.36,1.34
-20260518,157,160.5,157,159.5,62851,159.3,160.25,163.69,160.28,0.73
-20260519,158,163,157,160,136002,159.5,160.12,163.33,160.26,1.52
-20260520,160,161,159,160,44101,159.7,160.03,163,160.24,0.49
-20260521,160,162,160,160,60526,159.9,159.93,162.77,160.22,0.67
-20260522,161.5,163.5,160.5,160.5,84295,160,159.93,162.47,160.24,0.93
-20260523,161.5,163.5,160.5,160.5,84295,160.2,159.93,162.16,160.26,0.95
-20260524,161.5,163.5,160.5,160.5,84295,160.3,160.07,161.9,160.28,0.94
-20260525,160,160,157.5,160,118833,160.3,160.2,161.55,160.26,1.28
-20260526,160,160,157.5,160,118833,160.3,160.3,161.22,160.24,1.25
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,159.5,159.5,156.5,157.5,61831,160.9,-2.12,158.93,169.3,0.73
+20260429,160,160.5,156.5,158,69630,160.66,-1.66,159.03,168.82,0.83
+20260430,159.5,163.5,159.5,160.5,60710,160.65,-0.09,159.22,168.4,0.7
+20260504,160.5,167.5,158,165,164763,161.01,2.48,159.45,168.02,1.76
+20260505,165,165,160,160,66638,160.93,-0.58,159.65,167.64,0.7
+20260506,162,162,159,162,82387,161.02,0.61,160,167.28,0.84
+20260507,160,162,160,162,57734,161.1,0.56,160.4,166.88,0.63
+20260508,162,162,159,159.5,97800,160.97,-0.91,160.7,166.42,1.13
+20260511,158,159,155,159,156707,160.8,-1.12,160.8,166.02,1.8
+20260512,156,159.5,156,159,49195,160.65,-1.03,160.7,165.63,0.58
+20260513,159.5,159.5,156.5,159,55387,160.51,-0.94,160.75,165.18,0.68
+20260514,156.5,159,153.5,159,206816,160.39,-0.86,160.78,164.64,2.38
+20260515,157,160,154.5,160,115810,160.36,-0.22,160.45,164.14,1.34
+20260518,157,160.5,157,159.5,62851,160.28,-0.49,160.25,163.69,0.73
+20260519,158,163,157,160,136002,160.26,-0.16,160.12,163.33,1.52
+20260520,160,161,159,160,44101,160.24,-0.15,160.03,163,0.49
+20260521,160,162,160,160,60526,160.22,-0.14,159.93,162.77,0.67
+20260522,161.5,163.5,160.5,160.5,84295,160.24,0.16,159.93,162.47,0.93
+20260525,160,160,157.5,160,118833,160.22,-0.14,159.9,162.15,1.31
+20260526,160,160,157,159.5,83816,160.16,-0.41,160,161.88,0.91
 ```
 
 ## Latest TDCC Snapshot
@@ -132,7 +135,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260525 | 6957 | 裕慶-KY | 2 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
+| 20260526 | 6957 | 裕慶-KY | 2 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

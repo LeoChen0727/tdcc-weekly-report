@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2344 華邦電
 
 ## Metadata
-- generated_at: 2026-05-26 06:39:34 Asia/Taipei
+- generated_at: 2026-05-26 21:24:56 Asia/Taipei
 - stock_id: 2344
 - stock_name: 華邦電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 120.5
-- high: 133
-- low: 119
-- close: 128.5
-- volume: 357612926
-- ma5: 126.4
-- ma20: 117.38
-- ma60: 105.56
-- ma120: 98.49
-- ema23: 116.41
-- return_5d: 12.72
-- return_20d: 38.62
-- volume_ratio: 1.53
-- distance_to_ma20_pct: 9.48
-- distance_to_high_60_pct: -5.86
+- open: 133.5
+- high: 141
+- low: 133
+- close: 141
+- volume: 336105421
+- ma5: 124.8
+- ema23_primary: 115.72
+- distance_to_ema23_pct: 21.85
+- ma20: 114.91
+- ma60: 105.72
+- ma120: 97.4
+- return_5d: 20
+- return_20d: 50.16
+- volume_ratio: 1.45
+- distance_to_ma20_pct_auxiliary: 22.7
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,94.2,94.6,88.8,89.8,116065273,92.02,91.26,104.03,93.6,0.74
-20260504,91.9,98.4,91.1,95.4,198798052,93.46,91.38,103.9,93.75,1.27
-20260505,96.8,100.5,96.6,98.8,196655974,94.44,91.72,103.67,94.17,1.25
-20260506,108.5,108.5,104,108.5,241792428,97.04,92.68,103.55,95.36,1.51
-20260507,113,117,106.5,114,338649833,101.3,93.6,103.33,96.92,2
-20260508,111,115,103.5,107,174129448,104.74,94.4,102.95,97.76,1.02
-20260511,115,117.5,113,117.5,162759860,109.16,95.6,102.77,99.4,0.95
-20260512,118.5,123.5,116,121.5,317628648,113.7,96.95,102.86,101.24,1.75
-20260513,117,122,115,122,133243035,116.4,98.38,103.13,102.97,0.74
-20260514,127,134,124.5,134,419382102,120.4,100.57,103.56,105.56,2.16
-20260515,132.5,136.5,127.5,129.5,348302189,124.9,102.56,104.01,107.55,1.69
-20260518,126,134,119,130.5,192808793,127.5,104.7,104.55,109.47,0.92
-20260519,125,127,117.5,117.5,184930796,126.7,106.29,104.72,110.14,0.88
-20260520,117.5,119,112,115.5,150894253,125.4,107.51,104.92,110.58,0.72
-20260521,120,122.5,113.5,114,209614242,121.4,108.68,105.06,110.87,0.98
-20260522,116.5,125,115.5,125,193146658,120.5,110.54,105.23,112.05,0.89
-20260523,116.5,125,115.5,125,193146658,119.4,112.38,105.28,113.12,0.88
-20260524,116.5,125,115.5,125,193146658,120.9,113.94,105.39,114.11,0.9
-20260525,120.5,133,119,128.5,357612926,123.5,115.58,105.5,115.31,1.61
-20260526,120.5,133,119,128.5,357612926,126.4,117.38,105.56,116.41,1.53
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,95.3,96.9,93.5,95.5,219580752,94.06,1.53,91.3,104.49,1.34
+20260429,94.5,96,92.1,92.7,129993397,93.94,-1.32,91.28,104.28,0.8
+20260430,94.2,94.6,88.8,89.8,116065273,93.6,-4.06,91.26,104.03,0.74
+20260504,91.9,98.4,91.1,95.4,198798052,93.75,1.76,91.38,103.9,1.27
+20260505,96.8,100.5,96.6,98.8,196655974,94.17,4.92,91.72,103.67,1.25
+20260506,108.5,108.5,104,108.5,241792428,95.36,13.77,92.68,103.55,1.51
+20260507,113,117,106.5,114,338649833,96.92,17.63,93.6,103.33,2
+20260508,111,115,103.5,107,174129448,97.76,9.45,94.4,102.95,1.02
+20260511,115,117.5,113,117.5,162759860,99.4,18.21,95.6,102.77,0.95
+20260512,118.5,123.5,116,121.5,317628648,101.24,20.01,96.95,102.86,1.75
+20260513,117,122,115,122,133243035,102.97,18.48,98.38,103.13,0.74
+20260514,127,134,124.5,134,419382102,105.56,26.94,100.57,103.56,2.16
+20260515,132.5,136.5,127.5,129.5,348302189,107.55,20.4,102.56,104.01,1.69
+20260518,126,134,119,130.5,192808793,109.47,19.21,104.7,104.55,0.92
+20260519,125,127,117.5,117.5,184930796,110.14,6.69,106.29,104.72,0.88
+20260520,117.5,119,112,115.5,150894253,110.58,4.45,107.51,104.92,0.72
+20260521,120,122.5,113.5,114,209614242,110.87,2.83,108.68,105.06,0.98
+20260522,116.5,125,115.5,125,193146658,112.05,11.56,110.54,105.23,0.89
+20260525,120.5,133,119,128.5,357612926,113.42,13.3,112.56,105.34,1.57
+20260526,133.5,141,133,141,336105421,115.72,21.85,114.91,105.72,1.45
 ```
 
 ## Latest TDCC Snapshot
@@ -122,8 +125,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2344 | 華邦電 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | mixed_flow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260526 | 2344 | 華邦電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  | mixed_flow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 2344 | 華邦電 | true_breakout | 嚴格突破 | 61.0 |  |  | platform_right_side |  | mixed_flow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 2344 | 華邦電 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | mixed_flow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
@@ -134,7 +136,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260525 | 2344 | 華邦電 | 156 | 20 | 90613300.0 | 1435970.0 | 63.1 | mixed_flow | 0 | 認購權證成交量與成交金額同步偏大，短線資金關注度高 |
+| 20260526 | 2344 | 華邦電 | 157 | 20 | 97938040.0 | 1170620.0 | 83.66 | mixed_flow | 0 | 認購權證成交量與成交金額同步偏大，短線資金關注度高 |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

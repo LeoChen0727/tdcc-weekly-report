@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8103 瀚荃
 
 ## Metadata
-- generated_at: 2026-05-26 06:40:55 Asia/Taipei
+- generated_at: 2026-05-26 21:26:52 Asia/Taipei
 - stock_id: 8103
 - stock_name: 瀚荃
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 129
+- price_rows: 127
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 107.5
-- high: 109.5
-- low: 106.5
-- close: 107.5
-- volume: 2088599
-- ma5: 106.3
-- ma20: 111.58
-- ma60: 97.8
-- ma120: 93.73
-- ema23: 107.16
-- return_5d: 3.86
-- return_20d: -13.65
-- volume_ratio: 0.82
-- distance_to_ma20_pct: -3.65
-- distance_to_high_60_pct: -21.25
+- open: 108.5
+- high: 108.5
+- low: 105.5
+- close: 107
+- volume: 1896033
+- ma5: 105.5
+- ema23_primary: 107.37
+- distance_to_ema23_pct: -0.34
+- ma20: 113.62
+- ma60: 97.62
+- ma120: 93.33
+- return_5d: 2.88
+- return_20d: -8.15
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: -5.83
+- distance_to_high_60_pct: -21.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,132,136.5,124,125,6612778,120,97.81,92.77,101.59,1.84
-20260504,121.5,126,113.5,123,4602176,123.4,99.93,93.22,103.38,1.21
-20260505,121.5,125,118.5,122.5,2568242,124.6,102.09,93.66,104.97,0.66
-20260506,123,125,113,117,3788282,122.4,103.98,94.01,105.97,0.93
-20260507,117,127,115.5,121.5,2720319,121.8,105.85,94.45,107.27,0.65
-20260508,120.5,123.5,115.5,116,1597748,120,107.22,94.91,108,0.39
-20260511,120,122.5,115,115.5,3439232,118.5,108.56,95.41,108.62,0.82
-20260512,116.5,121.5,115.5,118,2586122,117.6,110.08,95.92,109.4,0.61
-20260513,117,120,113,118,1962641,117.8,111.45,96.38,110.12,0.46
-20260514,117.5,117.5,106.5,107,5975878,114.9,112.19,96.62,109.86,1.33
-20260515,108,108,102.5,103,2616532,112.3,112.73,96.88,109.29,0.58
-20260518,102,104.5,99.5,102,1180897,109.6,113.17,97,108.68,0.26
-20260519,103,109.5,103,104,1754661,106.8,113.35,97.12,108.29,0.41
-20260520,104.5,104.5,102.5,104,910307,104,113.75,97.19,107.93,0.22
-20260521,105,107,103,103.5,1340464,103.3,113.8,97.09,107.56,0.34
-20260522,104.5,106,103.5,105.5,1085574,103.8,114.03,97.21,107.39,0.29
-20260523,104.5,106,103.5,105.5,1085574,104.5,114,97.41,107.23,0.31
-20260524,104.5,106,103.5,105.5,1085574,104.8,113.45,97.56,107.09,0.34
-20260525,107.5,109.5,106.5,107.5,2088599,105.5,112.42,97.69,107.12,0.74
-20260526,107.5,109.5,106.5,107.5,2088599,106.3,111.58,97.8,107.16,0.82
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,122.5,128,120,128,10241784,97.19,31.7,93.3,91.9,3.39
+20260429,126,130,122.5,124.5,7120524,99.47,25.17,95.46,92.37,2.13
+20260430,132,136.5,124,125,6612778,101.59,23.04,97.81,92.77,1.84
+20260504,121.5,126,113.5,123,4602176,103.38,18.98,99.93,93.22,1.21
+20260505,121.5,125,118.5,122.5,2568242,104.97,16.7,102.09,93.66,0.66
+20260506,123,125,113,117,3788282,105.97,10.4,103.98,94.01,0.93
+20260507,117,127,115.5,121.5,2720319,107.27,13.27,105.85,94.45,0.65
+20260508,120.5,123.5,115.5,116,1597748,108,7.41,107.22,94.91,0.39
+20260511,120,122.5,115,115.5,3439232,108.62,6.33,108.56,95.41,0.82
+20260512,116.5,121.5,115.5,118,2586122,109.4,7.86,110.08,95.92,0.61
+20260513,117,120,113,118,1962641,110.12,7.16,111.45,96.38,0.46
+20260514,117.5,117.5,106.5,107,5975878,109.86,-2.6,112.19,96.62,1.33
+20260515,108,108,102.5,103,2616532,109.29,-5.75,112.73,96.88,0.58
+20260518,102,104.5,99.5,102,1180897,108.68,-6.15,113.17,97,0.26
+20260519,103,109.5,103,104,1754661,108.29,-3.96,113.35,97.12,0.41
+20260520,104.5,104.5,102.5,104,910307,107.93,-3.64,113.75,97.19,0.22
+20260521,105,107,103,103.5,1340464,107.56,-3.78,113.8,97.09,0.34
+20260522,104.5,106,103.5,105.5,1085574,107.39,-1.76,114.03,97.21,0.29
+20260525,107.5,109.5,106.5,107.5,2088599,107.4,0.09,114.1,97.45,0.59
+20260526,108.5,108.5,105.5,107,1896033,107.37,-0.34,113.62,97.62,0.57
 ```
 
 ## Latest TDCC Snapshot
@@ -122,8 +125,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8103 | 瀚荃 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 8103 | 瀚荃 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 8103 | 瀚荃 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 8103 | 瀚荃 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -133,7 +136,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260525 | 8103 | 瀚荃 | 17 | 0 | 1801540.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260526 | 8103 | 瀚荃 | 17 | 0 | 665660.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

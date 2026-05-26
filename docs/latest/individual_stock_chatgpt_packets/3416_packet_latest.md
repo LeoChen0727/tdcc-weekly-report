@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3416 融程電
 
 ## Metadata
-- generated_at: 2026-05-26 06:39:58 Asia/Taipei
+- generated_at: 2026-05-26 21:25:31 Asia/Taipei
 - stock_id: 3416
 - stock_name: 融程電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 195
-- high: 196
-- low: 188.5
-- close: 190.5
-- volume: 2495650
-- ma5: 186
-- ma20: 171.3
-- ma60: 157.53
-- ma120: 153.15
-- ema23: 171.62
-- return_5d: 9.8
-- return_20d: 22.51
-- volume_ratio: 2.32
-- distance_to_ma20_pct: 11.21
-- distance_to_high_60_pct: -2.81
+- open: 191.5
+- high: 191.5
+- low: 185
+- close: 188
+- volume: 922907
+- ma5: 180.3
+- ema23_primary: 169.03
+- distance_to_ema23_pct: 11.23
+- ma20: 168.4
+- ma60: 156.41
+- ma120: 152.44
+- return_5d: 14.98
+- return_20d: 23.28
+- volume_ratio: 1.12
+- distance_to_ma20_pct_auxiliary: 11.64
+- distance_to_high_60_pct: -4.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,156.5,161,156,157.5,407614,155.2,154.1,149.68,154.12,1.05
-20260504,161.5,162.5,159.5,160.5,605148,156.2,154.93,149.78,154.65,1.46
-20260505,159,159,156,157.5,464411,157.2,155.62,149.85,154.89,1.07
-20260506,159,161,156,161,461930,158.4,156.45,150.03,155.4,1.02
-20260507,162,176,160.5,171.5,1957512,161.6,157.57,150.41,156.74,3.61
-20260508,171,178.5,168.5,175.5,1538176,165.2,158.85,150.88,158.31,2.52
-20260511,178.5,179,169.5,171.5,861898,167.4,159.97,151.32,159.41,1.34
-20260512,173,174,170,170.5,741754,170,160.68,151.77,160.33,1.13
-20260513,169,169.5,165.5,167,525809,171.2,160.95,152.13,160.89,0.87
-20260514,169.5,171,167,168.5,371929,170.6,161.45,152.49,161.52,0.63
-20260515,169,170.5,162.5,163,540909,168.1,161.65,152.79,161.64,0.91
-20260518,161,169,159.5,168.5,578230,167.5,162.07,153.17,162.21,0.95
-20260519,170.5,170.5,162.5,163.5,275016,166.1,162.32,153.53,162.32,0.46
-20260520,165,169,163.5,166.5,459853,166,162.85,153.91,162.67,0.77
-20260521,173,177.5,170,173.5,988542,167,163.53,154.43,163.57,1.57
-20260522,173.5,190,173,183,1900998,171,164.88,155.06,165.19,2.76
-20260523,173.5,190,173,183,1900998,173.9,166.25,155.69,166.68,2.49
-20260524,173.5,190,173,183,1900998,177.8,167.78,156.2,168.04,2.26
-20260525,195,196,188.5,190.5,2495650,182.6,169.55,156.86,169.91,2.61
-20260526,195,196,188.5,190.5,2495650,186,171.3,157.53,171.62,2.32
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,154,155.5,152,155,186389,153.66,0.87,152.9,149.64,0.48
+20260429,156,156,154.5,155.5,157780,153.82,1.09,153.38,149.72,0.41
+20260430,156.5,161,156,157.5,407614,154.12,2.19,154.1,149.68,1.05
+20260504,161.5,162.5,159.5,160.5,605148,154.65,3.78,154.93,149.78,1.46
+20260505,159,159,156,157.5,464411,154.89,1.68,155.62,149.85,1.07
+20260506,159,161,156,161,461930,155.4,3.6,156.45,150.03,1.02
+20260507,162,176,160.5,171.5,1957512,156.74,9.42,157.57,150.41,3.61
+20260508,171,178.5,168.5,175.5,1538176,158.31,10.86,158.85,150.88,2.52
+20260511,178.5,179,169.5,171.5,861898,159.41,7.59,159.97,151.32,1.34
+20260512,173,174,170,170.5,741754,160.33,6.34,160.68,151.77,1.13
+20260513,169,169.5,165.5,167,525809,160.89,3.8,160.95,152.13,0.87
+20260514,169.5,171,167,168.5,371929,161.52,4.32,161.45,152.49,0.63
+20260515,169,170.5,162.5,163,540909,161.64,0.84,161.65,152.79,0.91
+20260518,161,169,159.5,168.5,578230,162.21,3.87,162.07,153.17,0.95
+20260519,170.5,170.5,162.5,163.5,275016,162.32,0.73,162.32,153.53,0.46
+20260520,165,169,163.5,166.5,459853,162.67,2.35,162.85,153.91,0.77
+20260521,173,177.5,170,173.5,988542,163.57,6.07,163.53,154.43,1.57
+20260522,173.5,190,173,183,1900998,165.19,10.78,164.88,155.06,2.76
+20260525,195,196,188.5,190.5,2495650,167.3,13.87,166.62,155.82,3.15
+20260526,191.5,191.5,185,188,922907,169.03,11.23,168.4,156.41,1.12
 ```
 
 ## Latest TDCC Snapshot
@@ -120,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3416 | 融程電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3416 | 融程電 | 4 | 1 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260526 | 3416 | 融程電 | 4 | 1 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260525 | 3416 | 融程電 | 12 | 0 | 8667090.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260526 | 3416 | 融程電 | 12 | 0 | 2121110.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

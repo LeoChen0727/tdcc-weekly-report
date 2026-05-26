@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2241 艾姆勒
 
 ## Metadata
-- generated_at: 2026-05-26 06:39:32 Asia/Taipei
+- generated_at: 2026-05-26 21:24:54 Asia/Taipei
 - stock_id: 2241
 - stock_name: 艾姆勒
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 38.55
-- high: 39.9
-- low: 37
-- close: 38.05
-- volume: 3125750
-- ma5: 37.93
-- ma20: 33.71
-- ma60: 30.94
-- ma120: 32.91
-- ema23: 34.2
-- return_5d: 3.12
-- return_20d: 26.62
-- volume_ratio: 1.34
-- distance_to_ma20_pct: 12.88
-- distance_to_high_60_pct: -4.64
+- open: 38.8
+- high: 38.8
+- low: 36.1
+- close: 36.95
+- volume: 2498561
+- ma5: 36.66
+- ema23_primary: 33.41
+- distance_to_ema23_pct: 10.59
+- ma20: 32.93
+- ma60: 30.65
+- ma120: 32.86
+- return_5d: 10.79
+- return_20d: 16.75
+- volume_ratio: 1.33
+- distance_to_ma20_pct_auxiliary: 12.22
+- distance_to_high_60_pct: -7.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,30.05,30.35,29.7,29.8,627872,30.97,29.38,30,30.01,0.65
-20260504,29.9,31.5,29.7,29.8,932504,30.49,29.42,29.93,29.99,0.93
-20260505,30.9,31.4,30.3,31.2,788643,30.4,29.57,29.89,30.09,0.77
-20260506,31.5,31.5,30,30.25,608422,30.22,29.69,29.84,30.11,0.58
-20260507,30.3,30.7,29.7,30.7,762352,30.35,29.83,29.8,30.16,0.71
-20260508,30.9,30.9,29.5,29.65,583442,30.32,29.95,29.76,30.11,0.54
-20260511,30,31.65,29.8,31.15,1164538,30.59,30.14,29.74,30.2,1.03
-20260512,32.1,34.25,31.85,34.25,3186032,31.2,30.44,29.81,30.54,2.49
-20260513,33.9,37.65,33.05,33.3,4622424,31.81,30.7,29.85,30.77,3.1
-20260514,32.8,33.2,31.75,32.85,1171966,32.24,30.92,29.89,30.94,0.76
-20260515,32.55,36.1,32.4,34.3,3588698,33.17,31.24,29.95,31.22,2.12
-20260518,33.6,34.1,32.6,33.45,1131763,33.63,31.49,30.01,31.41,0.65
-20260519,33.15,34.7,32.7,33.35,944873,33.45,31.68,30.07,31.57,0.54
-20260520,33.45,34.05,32.85,33.55,628118,33.5,31.91,30.13,31.73,0.36
-20260521,34.2,36.9,33.9,36.9,3783574,34.31,32.16,30.25,32.16,2.02
-20260522,38.5,39.05,37.25,37.85,5313613,35.02,32.37,30.39,32.64,3.04
-20260523,38.5,39.05,37.25,37.85,5313613,35.9,32.65,30.52,33.07,2.76
-20260524,38.5,39.05,37.25,37.85,5313613,36.8,32.96,30.66,33.47,2.5
-20260525,38.55,39.9,37,38.05,3125750,37.7,33.31,30.81,33.85,1.39
-20260526,38.55,39.9,37,38.05,3125750,37.93,33.71,30.94,34.2,1.34
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,31.35,31.65,31,31.15,490701,30.03,3.74,29.32,30.18,0.54
+20260429,31.2,32.2,29.65,30.05,1498975,30.03,0.07,29.32,30.08,1.56
+20260430,30.05,30.35,29.7,29.8,627872,30.01,-0.7,29.38,30,0.65
+20260504,29.9,31.5,29.7,29.8,932504,29.99,-0.64,29.42,29.93,0.93
+20260505,30.9,31.4,30.3,31.2,788643,30.09,3.68,29.57,29.89,0.77
+20260506,31.5,31.5,30,30.25,608422,30.11,0.48,29.69,29.84,0.58
+20260507,30.3,30.7,29.7,30.7,762352,30.16,1.81,29.83,29.8,0.71
+20260508,30.9,30.9,29.5,29.65,583442,30.11,-1.54,29.95,29.76,0.54
+20260511,30,31.65,29.8,31.15,1164538,30.2,3.15,30.14,29.74,1.03
+20260512,32.1,34.25,31.85,34.25,3186032,30.54,12.16,30.44,29.81,2.49
+20260513,33.9,37.65,33.05,33.3,4622424,30.77,8.23,30.7,29.85,3.1
+20260514,32.8,33.2,31.75,32.85,1171966,30.94,6.17,30.92,29.89,0.76
+20260515,32.55,36.1,32.4,34.3,3588698,31.22,9.86,31.24,29.95,2.12
+20260518,33.6,34.1,32.6,33.45,1131763,31.41,6.51,31.49,30.01,0.65
+20260519,33.15,34.7,32.7,33.35,944873,31.57,5.64,31.68,30.07,0.54
+20260520,33.45,34.05,32.85,33.55,628118,31.73,5.72,31.91,30.13,0.36
+20260521,34.2,36.9,33.9,36.9,3783574,32.16,14.72,32.16,30.25,2.02
+20260522,38.5,39.05,37.25,37.85,5313613,32.64,15.97,32.37,30.39,3.04
+20260525,38.55,39.9,37,38.05,3125750,33.09,14.99,32.66,30.52,1.72
+20260526,38.8,38.8,36.1,36.95,2498561,33.41,10.59,32.93,30.65,1.33
 ```
 
 ## Latest TDCC Snapshot
@@ -122,6 +125,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 2241 | 艾姆勒 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260526 | 2241 | 艾姆勒 | revenue_breakout_low_response | 營收爆發低反應股 | 16.0 | 11.0 | B_可觀察 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260521 | 2241 | 艾姆勒 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

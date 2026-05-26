@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2646 星宇航空
 
 ## Metadata
-- generated_at: 2026-05-26 06:39:43 Asia/Taipei
+- generated_at: 2026-05-26 21:25:11 Asia/Taipei
 - stock_id: 2646
 - stock_name: 星宇航空
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 20.45
-- high: 20.6
-- low: 20.2
-- close: 20.3
-- volume: 8132002
-- ma5: 20.39
-- ma20: 20.34
-- ma60: 20.93
-- ma120: 22.08
-- ema23: 20.42
-- return_5d: 0
-- return_20d: -0.73
-- volume_ratio: 1.61
-- distance_to_ma20_pct: -0.2
-- distance_to_high_60_pct: -10.77
+- open: 20.3
+- high: 20.5
+- low: 20.15
+- close: 20.2
+- volume: 6090354
+- ma5: 20.29
+- ema23_primary: 20.42
+- distance_to_ema23_pct: -1.06
+- ma20: 20.33
+- ma60: 21.01
+- ma120: 22.13
+- return_5d: -0.25
+- return_20d: 0.5
+- volume_ratio: 1.28
+- distance_to_ma20_pct_auxiliary: -0.64
+- distance_to_high_60_pct: -12.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,20.45,20.5,20.25,20.25,3208646,20.26,20.78,21.77,20.82,0.74
-20260504,20.25,20.4,20.2,20.25,3879768,20.28,20.73,21.71,20.77,0.89
-20260505,20.25,20.65,20.2,20.6,4935086,20.38,20.71,21.67,20.76,1.1
-20260506,20.6,20.6,20.2,20.3,5153675,20.37,20.68,21.62,20.72,1.12
-20260507,20.3,20.8,20.3,20.6,6103467,20.4,20.64,21.58,20.71,1.3
-20260508,20.6,20.7,20.4,20.6,4015737,20.47,20.62,21.54,20.7,0.85
-20260511,20.6,20.65,20.35,20.5,4829006,20.52,20.59,21.5,20.68,1
-20260512,20.5,20.6,20.4,20.45,4268053,20.49,20.57,21.46,20.66,0.89
-20260513,20.4,20.4,20.1,20.25,6610513,20.48,20.54,21.42,20.63,1.35
-20260514,20.25,20.35,20.2,20.2,3323694,20.4,20.5,21.37,20.59,0.68
-20260515,20.2,20.3,20.05,20.1,5361092,20.3,20.44,21.33,20.55,1.09
-20260518,20.05,20.05,19.85,20,5322668,20.2,20.39,21.28,20.51,1.08
-20260519,20,20.45,19.95,20.25,4222853,20.16,20.36,21.23,20.48,0.85
-20260520,20.25,20.3,20.1,20.2,3245837,20.15,20.33,21.19,20.46,0.66
-20260521,20.35,20.45,20.2,20.3,4330553,20.17,20.32,21.14,20.45,0.9
-20260522,20.3,20.5,20.2,20.45,5230186,20.24,20.32,21.1,20.45,1.11
-20260523,20.3,20.5,20.2,20.45,5230186,20.33,20.33,21.06,20.45,1.12
-20260524,20.3,20.5,20.2,20.45,5230186,20.37,20.35,21.02,20.45,1.14
-20260525,20.45,20.6,20.2,20.3,8132002,20.39,20.35,20.98,20.44,1.7
-20260526,20.45,20.6,20.2,20.3,8132002,20.39,20.34,20.93,20.42,1.61
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,20.1,20.4,20,20.35,4149726,20.91,-2.67,20.84,21.87,0.94
+20260429,20.35,20.5,20.2,20.45,2907930,20.87,-2.01,20.81,21.82,0.66
+20260430,20.45,20.5,20.25,20.25,3208646,20.82,-2.73,20.78,21.77,0.74
+20260504,20.25,20.4,20.2,20.25,3879768,20.77,-2.51,20.73,21.71,0.89
+20260505,20.25,20.65,20.2,20.6,4935086,20.76,-0.75,20.71,21.67,1.1
+20260506,20.6,20.6,20.2,20.3,5153675,20.72,-2.02,20.68,21.62,1.12
+20260507,20.3,20.8,20.3,20.6,6103467,20.71,-0.52,20.64,21.58,1.3
+20260508,20.6,20.7,20.4,20.6,4015737,20.7,-0.48,20.62,21.54,0.85
+20260511,20.6,20.65,20.35,20.5,4829006,20.68,-0.88,20.59,21.5,1
+20260512,20.5,20.6,20.4,20.45,4268053,20.66,-1.03,20.57,21.46,0.89
+20260513,20.4,20.4,20.1,20.25,6610513,20.63,-1.84,20.54,21.42,1.35
+20260514,20.25,20.35,20.2,20.2,3323694,20.59,-1.91,20.5,21.37,0.68
+20260515,20.2,20.3,20.05,20.1,5361092,20.55,-2.2,20.44,21.33,1.09
+20260518,20.05,20.05,19.85,20,5322668,20.51,-2.47,20.39,21.28,1.08
+20260519,20,20.45,19.95,20.25,4222853,20.48,-1.15,20.36,21.23,0.85
+20260520,20.25,20.3,20.1,20.2,3245837,20.46,-1.28,20.33,21.19,0.66
+20260521,20.35,20.45,20.2,20.3,4330553,20.45,-0.72,20.32,21.14,0.9
+20260522,20.3,20.5,20.2,20.45,5230186,20.45,0.01,20.32,21.1,1.11
+20260525,20.45,20.6,20.2,20.3,8132002,20.44,-0.66,20.32,21.06,1.69
+20260526,20.3,20.5,20.15,20.2,6090354,20.42,-1.06,20.33,21.01,1.28
 ```
 
 ## Latest TDCC Snapshot
@@ -132,7 +135,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260525 | 2646 | 星宇航空 | 4 | 0 | 98060.0 | 0.0 |  | no_signal | 0 |  |
+| 20260526 | 2646 | 星宇航空 | 4 | 0 | 51800.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

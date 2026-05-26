@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3708 上緯投控
 
 ## Metadata
-- generated_at: 2026-05-26 06:40:05 Asia/Taipei
+- generated_at: 2026-05-26 21:25:41 Asia/Taipei
 - stock_id: 3708
 - stock_name: 上緯投控
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 128
-- high: 128.5
-- low: 123
-- close: 125
-- volume: 1009619
+- open: 125.5
+- high: 135.5
+- low: 124
+- close: 131.5
+- volume: 4629976
 - ma5: 125.6
-- ma20: 120.97
-- ma60: 120.71
-- ma120: 116.69
-- ema23: 121.64
-- return_5d: -1.19
-- return_20d: 7.3
-- volume_ratio: 0.85
-- distance_to_ma20_pct: 3.33
-- distance_to_high_60_pct: -6.37
+- ema23_primary: 121.38
+- distance_to_ema23_pct: 8.34
+- ma20: 120.42
+- ma60: 120.68
+- ma120: 116.4
+- return_5d: 13.85
+- return_20d: 12.88
+- volume_ratio: 3.57
+- distance_to_ma20_pct_auxiliary: 9.2
+- distance_to_high_60_pct: -2.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,116.5,117.5,115,116.5,395138,118,119.03,118.88,119.78,0.31
-20260504,116.5,122.5,116.5,120.5,947068,117.6,118.92,118.81,119.84,0.76
-20260505,120,127.5,119.5,126,1547894,119.5,119.42,118.86,120.36,1.25
-20260506,126,127.5,119.5,121,1442118,120.1,119.83,118.85,120.41,1.15
-20260507,122,123,119.5,120.5,863738,120.9,120.17,118.86,120.42,0.68
-20260508,121.5,121.5,117,118.5,730189,121.3,120.4,118.85,120.26,0.57
-20260511,119,124.5,118,121.5,1704405,121.5,120.67,118.93,120.36,1.29
-20260512,122.5,124.5,120.5,121.5,1045779,120.6,120.92,119.09,120.46,0.79
-20260513,119.5,119.5,115.5,118,1480802,120,121,119.18,120.25,1.07
-20260514,118.5,120.5,116,116.5,797924,119.2,121.15,119.17,119.94,0.58
-20260515,116.5,117.5,113,113.5,937925,118.2,120.9,119.18,119.4,0.68
-20260518,112,116.5,111.5,116.5,546872,117.2,120.55,119.33,119.16,0.42
-20260519,115,118,114,115.5,398360,116,119.92,119.52,118.86,0.33
-20260520,116,119.5,114.5,119,963824,116.2,119.47,119.75,118.87,0.83
-20260521,120.5,130.5,119.5,126.5,3945233,118.2,119.5,120.14,119.5,3.07
-20260522,126,128,125,126,1321676,120.7,119.55,120.36,120.04,1.12
-20260523,126,128,125,126,1321676,122.6,119.72,120.47,120.54,1.11
-20260524,126,128,125,126,1321676,124.7,120.2,120.61,121,1.15
-20260525,128,128.5,123,125,1009619,125.9,120.55,120.67,121.33,0.86
-20260526,128,128.5,123,125,1009619,125.6,120.97,120.71,121.64,0.85
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,117,118.5,116.5,118,571047,120.41,-2,119.65,119.11,0.39
+20260429,118,118,115,116.5,669004,120.08,-2.98,119.15,119,0.49
+20260430,116.5,117.5,115,116.5,395138,119.78,-2.74,119.03,118.88,0.31
+20260504,116.5,122.5,116.5,120.5,947068,119.84,0.55,118.92,118.81,0.76
+20260505,120,127.5,119.5,126,1547894,120.36,4.69,119.42,118.86,1.25
+20260506,126,127.5,119.5,121,1442118,120.41,0.49,119.83,118.85,1.15
+20260507,122,123,119.5,120.5,863738,120.42,0.07,120.17,118.86,0.68
+20260508,121.5,121.5,117,118.5,730189,120.26,-1.46,120.4,118.85,0.57
+20260511,119,124.5,118,121.5,1704405,120.36,0.95,120.67,118.93,1.29
+20260512,122.5,124.5,120.5,121.5,1045779,120.46,0.87,120.92,119.09,0.79
+20260513,119.5,119.5,115.5,118,1480802,120.25,-1.87,121,119.18,1.07
+20260514,118.5,120.5,116,116.5,797924,119.94,-2.87,121.15,119.17,0.58
+20260515,116.5,117.5,113,113.5,937925,119.4,-4.94,120.9,119.18,0.68
+20260518,112,116.5,111.5,116.5,546872,119.16,-2.23,120.55,119.33,0.42
+20260519,115,118,114,115.5,398360,118.86,-2.82,119.92,119.52,0.33
+20260520,116,119.5,114.5,119,963824,118.87,0.11,119.47,119.75,0.83
+20260521,120.5,130.5,119.5,126.5,3945233,119.5,5.85,119.5,120.14,3.07
+20260522,126,128,125,126,1321676,120.04,4.96,119.55,120.36,1.12
+20260525,128,128.5,123,125,1009619,120.46,3.77,119.67,120.46,0.86
+20260526,125.5,135.5,124,131.5,4629976,121.38,8.34,120.42,120.68,3.57
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +125,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3708 | 上緯投控 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 3708 | 上緯投控 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | call_put_bullish | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -132,7 +135,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260525 | 3708 | 上緯投控 | 27 | 3 | 2568970.0 | 0.0 |  | no_signal | 0 |  |
+| 20260526 | 3708 | 上緯投控 | 27 | 2 | 5879150.0 | 20000.0 | 293.96 | call_put_bullish | 3 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

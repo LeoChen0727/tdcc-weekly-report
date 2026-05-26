@@ -1,7 +1,7 @@
 # Market Risk Dashboard
 
-- generated_at: `2026-05-26 14:08:51 Asia/Taipei`
-- data_date: `20260525`
+- generated_at: `2026-05-26 21:17:43 Asia/Taipei`
+- data_date: `20260526`
 - market_regime: `strong_bull`
 - risk_level: `elevated_risk`
 - risk_score: `3`
@@ -13,31 +13,31 @@ This report uses official market index data already stored in the repo plus TAIF
 
 | source | status | rows | latest_date |
 | --- | --- | ---: | --- |
-| institutional_fo | ok | 3 | 20260525 |
-| futures_contracts | ok | 66 | 20260525 |
-| options_call_put | ok | 30 | 20260525 |
-| put_call_ratio | ok | 20 | 20260525 |
-| taiwan_vix | ok | 70 | 20260525 |
+| institutional_fo | ok | 3 | 20260526 |
+| futures_contracts | ok | 66 | 20260526 |
+| options_call_put | ok | 30 | 20260526 |
+| put_call_ratio | ok | 21 | 20260526 |
+| taiwan_vix | ok | 71 | 20260526 |
 
 ## Market Index Regime
 
 | index | close | 5d | 20d | MA20 | MA60 | regime |
 | --- | --- | --- | --- | --- | --- | --- |
-| TWSE | 43,644.40 | +6.73% | +12.10% | True | True | strong_bull |
-| TPEx | 434.99 | +6.19% | +14.01% | True | True | strong_bull |
+| TWSE | 43,525.37 | +8.34% | +9.87% | True | True | strong_bull |
+| TPEx | 439.30 | +10.33% | +16.51% | True | True | strong_bull |
 
 ## Futures / Options Positioning
 
 | indicator | value | state |
 | --- | --- | --- |
-| Foreign TX futures net OI | -51,458 | foreign_heavy_net_short |
-| Dealer TX futures net OI | +1,728 |  |
-| Trust TX futures net OI | +43,018 |  |
-| Retail MTX net OI proxy | +7,875 | neutral |
-| Foreign TXO call net OI | +3,224 |  |
-| Foreign TXO put net OI | +5,433 |  |
-| TXO put/call OI ratio | 148.71% | put_hedge_elevated |
-| Taiwan VIX | 33.91 | risk_elevated |
+| Foreign TX futures net OI | -54,391 | foreign_heavy_net_short |
+| Dealer TX futures net OI | +1,993 |  |
+| Trust TX futures net OI | +43,336 |  |
+| Retail MTX net OI proxy | +13,753 | retail_net_long_watch |
+| Foreign TXO call net OI | +3,321 |  |
+| Foreign TXO put net OI | +7,043 |  |
+| TXO put/call OI ratio | 125.76% | neutral |
+| Taiwan VIX | 32.91 | risk_elevated |
 
 ## Upcoming Macro Event Calendar
 
@@ -63,14 +63,14 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 
 ## Technical / Pattern Notes
 
-- TWSE / TAIEX: strong_bull; close 43,644.40; 6M range 26,912.17-43,644.40; distance from 6M high +0.00%; above MA20=True, above MA60=True.
-- TPEx / OTC: strong_bull; close 434.99; 6M range 254.40-434.99; distance from 6M high +0.00%; above MA20=True, above MA60=True.
+- TWSE / TAIEX: strong_bull; close 43,525.37; 6M range 27,342.53-43,644.40; distance from 6M high -0.27%; above MA20=True, above MA60=True.
+- TPEx / OTC: strong_bull; close 439.30; 6M range 256.14-439.30; distance from 6M high +0.00%; above MA20=True, above MA60=True.
 
 ## Retail Mini-TAIEX Futures Proxy
 
 - This is a contrarian sentiment proxy, calculated as the negative of the three-institution net open interest in mini-TAIEX futures.
-- latest_proxy_value: `+7,875`
-- state: `neutral`
+- latest_proxy_value: `+13,753`
+- state: `retail_net_long_watch`
 - Positive proxy values mean non-three-institution accounts are net long MTX; crowded net-long readings are treated as a caution signal, not a standalone short signal.
 - Negative proxy values mean non-three-institution accounts are net short MTX; extreme net-short readings may support contrarian risk-on interpretation, but still need index confirmation.
 
@@ -79,8 +79,8 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 - TWSE strong bull
 - TPEx strong bull
 - Taiwan VIX elevated
-- TXO put/call OI hedge elevated
 - Foreign TX futures heavy net short
+- Retail MTX proxy net long watch
 
 ## Usage Boundary
 

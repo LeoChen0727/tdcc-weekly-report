@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3550 聯穎
 
 ## Metadata
-- generated_at: 2026-05-26 06:40:01 Asia/Taipei
+- generated_at: 2026-05-26 21:25:36 Asia/Taipei
 - stock_id: 3550
 - stock_name: 聯穎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 22.5
-- high: 22.5
-- low: 21.15
-- close: 21.5
-- volume: 2910581
-- ma5: 21.65
-- ma20: 21.27
-- ma60: 19.54
-- ma120: 17.41
-- ema23: 20.9
-- return_5d: 2.87
-- return_20d: 3.86
-- volume_ratio: 0.67
-- distance_to_ma20_pct: 1.06
-- distance_to_high_60_pct: -12.24
+- open: 21.7
+- high: 21.8
+- low: 20.35
+- close: 20.4
+- volume: 2269789
+- ma5: 20.9
+- ema23_primary: 20.65
+- distance_to_ema23_pct: -1.23
+- ma20: 21.02
+- ma60: 19.41
+- ma120: 17.25
+- return_5d: 0.74
+- return_20d: 10.87
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: -2.96
+- distance_to_high_60_pct: -16.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,20.5,22.7,20.5,21.3,13846456,19.64,19.58,18.41,19.5,3.74
-20260504,20.95,22.35,20.9,21.4,4392732,20.13,19.73,18.51,19.66,1.17
-20260505,21.1,23.5,21.1,23.5,9625894,21.15,20.02,18.64,19.98,2.32
-20260506,24.25,24.5,21.9,22.25,12506891,21.83,20.24,18.75,20.17,2.67
-20260507,22.25,22.6,21.6,22,4017028,22.09,20.43,18.84,20.32,0.83
-20260508,22,22.4,20.7,21.35,3453534,22.1,20.5,18.91,20.41,0.75
-20260511,21.55,21.65,21,21.4,2973012,22.1,20.61,18.98,20.49,0.66
-20260512,21.85,21.95,19.95,20.3,3458698,21.46,20.62,19.05,20.47,0.78
-20260513,20.1,20.2,19.65,20.05,1222738,21.02,20.62,19.11,20.44,0.28
-20260514,20.55,21.9,20.25,21.05,3869674,20.83,20.68,19.18,20.49,0.88
-20260515,21.35,22.45,20.5,21,4371187,20.76,20.76,19.25,20.53,0.97
-20260518,20.95,21.05,20.15,20.55,1721300,20.59,20.73,19.28,20.53,0.4
-20260519,20.75,20.8,19.8,20.25,2247293,20.58,20.68,19.27,20.51,0.54
-20260520,20.25,20.35,19.8,19.95,1090931,20.56,20.64,19.26,20.46,0.27
-20260521,20.15,21.1,20.15,20.9,2652019,20.53,20.67,19.29,20.5,0.65
-20260522,21.35,22.2,21.2,21.75,3203023,20.68,20.8,19.33,20.6,0.79
-20260523,21.35,22.2,21.2,21.75,3203023,20.92,20.93,19.38,20.7,0.77
-20260524,21.35,22.2,21.2,21.75,3203023,21.22,21.1,19.43,20.79,0.75
-20260525,22.5,22.5,21.15,21.5,2910581,21.53,21.23,19.49,20.85,0.67
-20260526,22.5,22.5,21.15,21.5,2910581,21.65,21.27,19.54,20.9,0.67
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,18.7,18.9,18.35,18.85,925782,19.21,-1.88,19.29,18.21,0.29
+20260429,18.65,20.7,18.65,20.7,3350375,19.33,7.06,19.4,18.3,1.09
+20260430,20.5,22.7,20.5,21.3,13846456,19.5,9.24,19.58,18.41,3.74
+20260504,20.95,22.35,20.9,21.4,4392732,19.66,8.87,19.73,18.51,1.17
+20260505,21.1,23.5,21.1,23.5,9625894,19.98,17.63,20.02,18.64,2.32
+20260506,24.25,24.5,21.9,22.25,12506891,20.17,10.33,20.24,18.75,2.67
+20260507,22.25,22.6,21.6,22,4017028,20.32,8.27,20.43,18.84,0.83
+20260508,22,22.4,20.7,21.35,3453534,20.41,4.63,20.5,18.91,0.75
+20260511,21.55,21.65,21,21.4,2973012,20.49,4.45,20.61,18.98,0.66
+20260512,21.85,21.95,19.95,20.3,3458698,20.47,-0.84,20.62,19.05,0.78
+20260513,20.1,20.2,19.65,20.05,1222738,20.44,-1.9,20.62,19.11,0.28
+20260514,20.55,21.9,20.25,21.05,3869674,20.49,2.74,20.68,19.18,0.88
+20260515,21.35,22.45,20.5,21,4371187,20.53,2.28,20.76,19.25,0.97
+20260518,20.95,21.05,20.15,20.55,1721300,20.53,0.08,20.73,19.28,0.4
+20260519,20.75,20.8,19.8,20.25,2247293,20.51,-1.26,20.68,19.27,0.54
+20260520,20.25,20.35,19.8,19.95,1090931,20.46,-2.5,20.64,19.26,0.27
+20260521,20.15,21.1,20.15,20.9,2652019,20.5,1.96,20.67,19.29,0.65
+20260522,21.35,22.2,21.2,21.75,3203023,20.6,5.57,20.8,19.33,0.79
+20260525,22.5,22.5,21.15,21.5,2910581,20.68,3.98,20.92,19.37,0.7
+20260526,21.7,21.8,20.35,20.4,2269789,20.65,-1.23,21.02,19.41,0.54
 ```
 
 ## Latest TDCC Snapshot
@@ -122,7 +125,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3550 | 聯穎 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260526 | 3550 | 聯穎 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260526 | 3550 | 聯穎 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260521 | 3550 | 聯穎 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 

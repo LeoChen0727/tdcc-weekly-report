@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3532 台勝科
 
 ## Metadata
-- generated_at: 2026-05-26 06:40:00 Asia/Taipei
+- generated_at: 2026-05-26 21:25:35 Asia/Taipei
 - stock_id: 3532
 - stock_name: 台勝科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260526
-- price_rows: 136
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -47,6 +47,8 @@
 - This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
 - Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
 - For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
@@ -54,46 +56,47 @@
 
 ## Latest Price Snapshot
 - date: 20260526
-- open: 273
-- high: 273
-- low: 265
-- close: 273
-- volume: 4498068
-- ma5: 258.3
-- ma20: 239.43
-- ma60: 179.99
-- ma120: 148.5
-- ema23: 230.08
-- return_5d: 20.8
-- return_20d: 50.41
-- volume_ratio: 1
-- distance_to_ma20_pct: 14.02
+- open: 297
+- high: 300
+- low: 293.5
+- close: 300
+- volume: 3630484
+- ma5: 250.6
+- ema23_primary: 228.08
+- distance_to_ema23_pct: 31.53
+- ma20: 233.9
+- ma60: 176.72
+- ma120: 146.01
+- return_5d: 48.51
+- return_20d: 64.84
+- volume_ratio: 0.83
+- distance_to_ma20_pct_auxiliary: 28.26
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-date,open,high,low,close,volume,ma5,ma20,ma60,ema23,volume_ratio
-20260430,190.5,199.5,188,189,8140774,180.6,171,148.32,169.78,2.43
-20260504,192.5,207.5,191.5,207.5,4853450,187.6,174.62,149.34,172.92,1.37
-20260505,209.5,228,207,228,7926989,196.8,179.5,150.56,177.51,2.04
-20260506,242,250.5,214,250.5,16611741,211.3,185.5,152.19,183.6,3.54
-20260507,250.5,273,246,263,16975158,227.6,191.6,154.09,190.21,3.15
-20260508,260,271,250,257.5,13841349,241.3,196.95,155.94,195.82,2.36
-20260511,255,269.5,255,268,967292,253.4,202.07,158.06,201.84,0.17
-20260512,269,269,260,264.5,691865,260.7,206.2,160.25,207.06,0.13
-20260513,259,259,240.5,246.5,844669,259.9,209.57,162.04,210.34,0.17
-20260514,248,250,245,246,713103,256.5,212.2,163.82,213.32,0.16
-20260515,236.5,236.5,221.5,221.5,1186518,249.3,213.57,165.28,214,0.27
-20260518,212,221.5,199.5,221.5,1094116,240,215.22,166.75,214.62,0.25
-20260519,218,218.5,202,202,977194,227.5,216.03,167.82,213.57,0.23
-20260520,210,210,202.5,205.5,686068,219.3,217.18,168.73,212.9,0.16
-20260521,226,226,222,226,957162,215.3,219.12,170.03,213.99,0.23
-20260522,235,248.5,235,248.5,1358746,220.7,222.97,171.78,216.87,0.33
-20260523,235,248.5,235,248.5,1358746,226.1,226.78,173.61,219.5,0.33
-20260524,235,248.5,235,248.5,1358746,235.4,230.1,175.45,221.92,0.33
-20260525,273,273,265,273,4498068,248.9,234.85,177.7,226.18,1.04
-20260526,273,273,265,273,4498068,258.3,239.43,179.99,230.08,1
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260428,183,183,177,178,849877,166.81,6.71,166.03,146.57,0.28
+20260429,179,185,178,181.5,1121290,168.03,8.01,168.07,147.4,0.37
+20260430,190.5,199.5,188,189,8140774,169.78,11.32,171,148.32,2.43
+20260504,192.5,207.5,191.5,207.5,4853450,172.92,19.99,174.62,149.34,1.37
+20260505,209.5,228,207,228,7926989,177.51,28.44,179.5,150.56,2.04
+20260506,242,250.5,214,250.5,16611741,183.6,36.44,185.5,152.19,3.54
+20260507,250.5,273,246,263,16975158,190.21,38.27,191.6,154.09,3.15
+20260508,260,271,250,257.5,13841349,195.82,31.5,196.95,155.94,2.36
+20260511,255,269.5,255,268,967292,201.84,32.78,202.07,158.06,0.17
+20260512,269,269,260,264.5,691865,207.06,27.74,206.2,160.25,0.13
+20260513,259,259,240.5,246.5,844669,210.34,17.19,209.57,162.04,0.17
+20260514,248,250,245,246,713103,213.32,15.32,212.2,163.82,0.16
+20260515,236.5,236.5,221.5,221.5,1186518,214,3.51,213.57,165.28,0.27
+20260518,212,221.5,199.5,221.5,1094116,214.62,3.2,215.22,166.75,0.25
+20260519,218,218.5,202,202,977194,213.57,-5.42,216.03,167.82,0.23
+20260520,210,210,202.5,205.5,686068,212.9,-3.48,217.18,168.73,0.16
+20260521,226,226,222,226,957162,213.99,5.61,219.12,170.03,0.23
+20260522,235,248.5,235,248.5,1358746,216.87,14.59,222.97,171.78,0.33
+20260525,273,273,265,273,4498068,221.54,23.23,228,174.02,1.05
+20260526,297,300,293.5,300,3630484,228.08,31.53,233.9,176.72,0.83
 ```
 
 ## Latest TDCC Snapshot
@@ -120,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 3532 | 台勝科 | true_breakout | 嚴格突破 | 61.0 |  |  |  |  | call_strong_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260526 | 3532 | 台勝科 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260525 | 3532 | 台勝科 | 65 | 0 | 3425360.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260526 | 3532 | 台勝科 | 65 | 0 | 5085380.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.
