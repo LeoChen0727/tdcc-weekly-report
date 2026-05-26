@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-05-26 23:51:58 Asia/Taipei",
+  "generated_at": "2026-05-27 06:33:54 Asia/Taipei",
   "status": "pass",
-  "schema_only": false,
+  "schema_only": true,
   "issues": [],
   "files": {
     "company_event_calendar": {
       "path": "data/company_calendar/company_event_calendar.csv",
       "exists": true,
       "rows": 659,
-      "size_bytes": 298939
+      "size_bytes": 298935
     },
     "macro_event_calendar": {
       "path": "data/macro_events/macro_event_calendar.csv",
@@ -20,7 +20,7 @@
       "path": "output/latest/upcoming_catalyst_calendar_latest.csv",
       "exists": true,
       "rows": 658,
-      "size_bytes": 298622
+      "size_bytes": 298618
     },
     "upcoming_macro_calendar": {
       "path": "output/latest/upcoming_macro_event_calendar_latest.csv",
@@ -32,13 +32,13 @@
       "path": "output/latest/calendar_data_source_status_latest.json",
       "exists": true,
       "rows": 0,
-      "size_bytes": 2517
+      "size_bytes": 2606
     },
     "status_md": {
       "path": "output/latest/calendar_data_source_status_latest.md",
       "exists": true,
       "rows": 0,
-      "size_bytes": 2235
+      "size_bytes": 2324
     },
     "needs_review_csv": {
       "path": "output/latest/catalyst_needs_review_latest.csv",
