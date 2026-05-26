@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-26 21:23:28 Asia/Taipei",
+  "generated_at": "2026-05-26 22:17:13 Asia/Taipei",
   "status": "pass",
   "schema_only": false,
   "issues": [],
@@ -32,13 +32,13 @@
       "path": "output/latest/calendar_data_source_status_latest.json",
       "exists": true,
       "rows": 0,
-      "size_bytes": 2582
+      "size_bytes": 2592
     },
     "status_md": {
       "path": "output/latest/calendar_data_source_status_latest.md",
       "exists": true,
       "rows": 0,
-      "size_bytes": 2326
+      "size_bytes": 2310
     },
     "needs_review_csv": {
       "path": "output/latest/catalyst_needs_review_latest.csv",

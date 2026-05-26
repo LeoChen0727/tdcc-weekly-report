@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-26 21:15:55 Asia/Taipei",
+  "generated_at": "2026-05-26 22:08:11 Asia/Taipei",
   "files": {
     "company_event_calendar": {
       "path": "data/company_calendar/company_event_calendar.csv",
@@ -21,9 +21,10 @@
   "sources": {
     "twse_ex_right_ex_dividend": {
       "url": "https://www.twse.com.tw/rwd/zh/exRight/TWT48U?response=json",
-      "status": "failed",
-      "rows": 0,
-      "error": "HTTPSConnectionPool(host='www.twse.com.tw', port=443): Read timed out. (read timeout=30)"
+      "status": "ok",
+      "rows": 79,
+      "error": "",
+      "http_status": 200
     },
     "monthly_revenue_expected_window": {
       "url": "https://mops.twse.com.tw/mops/web/t05st10_ifrs",
@@ -40,10 +41,10 @@
     },
     "bea_release_schedule": {
       "url": "https://www.bea.gov/news/schedule",
-      "status": "ok",
-      "rows": 26,
-      "error": "",
-      "http_status": 200
+      "status": "failed",
+      "rows": 0,
+      "error": "502 Server Error: Bad Gateway for url: https://www.bea.gov/news/schedule",
+      "http_status": 502
     },
     "bls_cpi_release_schedule": {
       "url": "https://www.bls.gov/schedule/news_release/cpi.htm",
