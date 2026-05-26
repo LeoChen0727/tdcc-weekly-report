@@ -1,7 +1,7 @@
 # MARKET TIMING CHATGPT PACKET
 
 ## Metadata
-- generated_at: 2026-05-26 22:53:15 Asia/Taipei
+- generated_at: 2026-05-26 23:46:06 Asia/Taipei
 - main_price_date: 20260526
 - index_list: TPEX, TWSE
 - data_range: 20241202 ~ 20260526
@@ -68,7 +68,7 @@
 | event_name | index_id | sample_count | mature_d5_count | avg_ret_d5 | win_rate_d5 | mature_d10_count | avg_ret_d10 | win_rate_d10 | mature_d20_count | avg_ret_d20 | win_rate_d20 | best_horizon | sample_status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | composite_bull_confirmation | TPEX | 5 | 5 | 3.16 | 100.00 | 5 | -0.20 | 40.00 | 0 |  |  | D+5 | D+1:insufficient_sample;D+3:insufficient_sample;D+5:insufficient_sample;D+10:insufficient_sample;D+20:pending_only;D+40:pending_only;D+60:pending_only |
-| composite_bull_confirmation | TWSE | 76 | 75 | 0.64 | 61.33 | 75 | 1.67 | 64.00 | 71 | 3.87 | 77.46 | D+60 | D+1:ok;D+3:ok;D+5:ok;D+10:ok;D+20:ok;D+40:ok;D+60:ok |
+| composite_bull_confirmation | TWSE | 72 | 71 | 0.87 | 63.38 | 71 | 1.99 | 67.61 | 67 | 4.40 | 82.09 | D+60 | D+1:ok;D+3:ok;D+5:ok;D+10:ok;D+20:ok;D+40:ok;D+60:ok |
 | kd_high_death_cross | TPEX | 17 | 17 | 1.65 | 82.35 | 16 | 2.67 | 75.00 | 16 | 4.68 | 81.25 | D+60 | D+1:insufficient_sample;D+3:insufficient_sample;D+5:insufficient_sample;D+10:insufficient_sample;D+20:insufficient_sample;D+40:insufficient_sample;D+60:insufficient_sample |
 | kd_high_death_cross | TWSE | 29 | 29 | 0.70 | 58.62 | 28 | 1.97 | 67.86 | 28 | 3.66 | 82.14 | D+60 | D+1:insufficient_sample;D+3:insufficient_sample;D+5:insufficient_sample;D+10:insufficient_sample;D+20:insufficient_sample;D+40:ok;D+60:ok |
 | kd_low_golden_cross | TPEX | 6 | 6 | 2.06 | 83.33 | 6 | 2.75 | 83.33 | 6 | 4.26 | 83.33 | D+60 | D+1:insufficient_sample;D+3:insufficient_sample;D+5:insufficient_sample;D+10:insufficient_sample;D+20:insufficient_sample;D+40:insufficient_sample;D+60:insufficient_sample |
@@ -99,7 +99,7 @@
 | event_name | index_id | sample_count | mature_d5_count | avg_ret_d5 | win_rate_d5 | mature_d10_count | avg_ret_d10 | win_rate_d10 | best_horizon | sample_status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | composite_bull_confirmation | TPEX | 5 | 5 | 3.16 | 100.00 | 5 | -0.20 | 40.00 | D+5 | D+1:insufficient_sample;D+3:insufficient_sample;D+5:insufficient_sample;D+10:insufficient_sample;D+20:pending_only;D+40:pending_only;D+60:pending_only |
-| composite_bull_confirmation | TWSE | 76 | 75 | 0.64 | 61.33 | 75 | 1.67 | 64.00 | D+60 | D+1:ok;D+3:ok;D+5:ok;D+10:ok;D+20:ok;D+40:ok;D+60:ok |
+| composite_bull_confirmation | TWSE | 72 | 71 | 0.87 | 63.38 | 71 | 1.99 | 67.61 | D+60 | D+1:ok;D+3:ok;D+5:ok;D+10:ok;D+20:ok;D+40:ok;D+60:ok |
 
 ## Regime Sensitivity
 | event_name | index_id | market_regime | sample_count | mature_d5_count | avg_ret_d5 | win_rate_d5 | mature_d10_count | avg_ret_d10 | sample_status |
@@ -121,7 +121,7 @@
 | composite_bull_confirmation | TPEX | strong_bull | 5 | 5 | 3.16 | 100.00 | 5 | -0.20 | insufficient_sample |
 | composite_bull_confirmation | TWSE | mild_bull | 21 | 21 | 0.94 | 61.90 | 21 | 1.59 | insufficient_sample |
 | composite_bull_confirmation | TWSE | range_bound | 2 | 2 | 1.39 | 100.00 | 2 | 0.98 | insufficient_sample |
-| composite_bull_confirmation | TWSE | strong_bull | 53 | 52 | 0.49 | 59.62 | 52 | 1.73 | ok |
+| composite_bull_confirmation | TWSE | strong_bull | 49 | 48 | 0.81 | 62.50 | 48 | 2.20 | ok |
 | golden_cross_ma20_ma60 | TPEX | mild_bull | 1 | 1 | 1.45 | 100.00 | 1 | -0.68 | insufficient_sample |
 | golden_cross_ma20_ma60 | TPEX | strong_bull | 2 | 2 | 1.46 | 50.00 | 2 | 1.13 | insufficient_sample |
 | golden_cross_ma20_ma60 | TWSE | correction | 1 | 1 | -0.24 | 0.00 | 1 | -1.67 | insufficient_sample |
@@ -177,7 +177,7 @@
 - benchmark_available: TWSE/TPEX index history available=True
 - regime_available: True
 - breadth_available: True
-- mature_counts: {'mature_d1_count': 1210, 'mature_d3_count': 1202, 'mature_d5_count': 1194, 'mature_d10_count': 1171, 'mature_d20_count': 1100, 'mature_d40_count': 1013, 'mature_d60_count': 966}
+- mature_counts: {'mature_d1_count': 1206, 'mature_d3_count': 1198, 'mature_d5_count': 1190, 'mature_d10_count': 1167, 'mature_d20_count': 1096, 'mature_d40_count': 1009, 'mature_d60_count': 963}
 
 ## Model Tuning Recommendation
 - tuning_status = not_ready

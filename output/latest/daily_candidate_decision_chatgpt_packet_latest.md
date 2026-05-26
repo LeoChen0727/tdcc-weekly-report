@@ -1,7 +1,7 @@
 # DAILY CANDIDATE DECISION CHATGPT PACKET
 
 ## Metadata
-- generated_at: 2026-05-26 22:50:45 Asia/Taipei
+- generated_at: 2026-05-26 23:43:34 Asia/Taipei
 - signal_date: 20260526
 - source_file: output/latest/all_candidates_latest.csv
 - decision_csv: output/latest/daily_candidate_decision_latest.csv
