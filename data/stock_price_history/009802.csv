@@ -1,3 +1,4 @@
 date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,source_file,ma5,ma20,ma60,ma120,ema23,return_1d,return_5d,return_20d,return_60d,return_120d,volume_ma20,volume_ratio,high_20,high_60,high_120,low_20,low_60,low_120,distance_to_ma20_pct,distance_to_ma60_pct,distance_to_ma120_pct,distance_to_ema23_pct,distance_to_high_20_pct,distance_to_high_60_pct,distance_to_high_120_pct,distance_to_low_60_pct,distance_to_low_120_pct
 20260522,009802,富邦旗艦50,TWSE,17.89,18.35,17.89,18.33,9072409,164579804.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260522.csv,,,,,,,,,,,,,,,,,,,,,,,,,,,
 20260525,009802,富邦旗艦50,TWSE,19.2,19.67,19.2,19.64,18704432,365607648.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,7.1468,,,,,,,,,,,,,,,,,,,,,
+20260526,009802,富邦旗艦50,TWSE,20.0,20.0,19.47,19.6,15949083,314560897.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260526.csv,,,,,,-0.2037,,,,,,,,,,,,,,,,,,,,,

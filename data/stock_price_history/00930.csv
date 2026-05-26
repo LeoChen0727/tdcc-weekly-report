@@ -1,3 +1,4 @@
 date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,source_file,ma5,ma20,ma60,ma120,ema23,return_1d,return_5d,return_20d,return_60d,return_120d,volume_ma20,volume_ratio,high_20,high_60,high_120,low_20,low_60,low_120,distance_to_ma20_pct,distance_to_ma60_pct,distance_to_ma120_pct,distance_to_ema23_pct,distance_to_high_20_pct,distance_to_high_60_pct,distance_to_high_120_pct,distance_to_low_60_pct,distance_to_low_120_pct
 20260522,00930,永豐ESG低碳高息,TWSE,22.17,22.41,22.05,22.41,4867379,108212646.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260522.csv,,,,,,,,,,,,,,,,,,,,,,,,,,,
 20260525,00930,永豐ESG低碳高息,TWSE,22.63,23.3,22.63,23.3,4575340,105598327.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,3.9714,,,,,,,,,,,,,,,,,,,,,
+20260526,00930,永豐ESG低碳高息,TWSE,23.13,23.29,23.08,23.24,6202677,143912253.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260526.csv,,,,,,-0.2575,,,,,,,,,,,,,,,,,,,,,

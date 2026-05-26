@@ -1,3 +1,4 @@
 date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,source_file,ma5,ma20,ma60,ma120,ema23,return_1d,return_5d,return_20d,return_60d,return_120d,volume_ma20,volume_ratio,high_20,high_60,high_120,low_20,low_60,low_120,distance_to_ma20_pct,distance_to_ma60_pct,distance_to_ma120_pct,distance_to_ema23_pct,distance_to_high_20_pct,distance_to_high_60_pct,distance_to_high_120_pct,distance_to_low_60_pct,distance_to_low_120_pct
 20260522,009819,中信數據及電力,TWSE,10.16,10.19,10.14,10.17,12829853,130468416.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260522.csv,,,,,,,,,,,,,,,,,,,,,,,,,,,
 20260525,009819,中信數據及電力,TWSE,10.29,10.31,10.24,10.26,24699518,253348694.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,0.885,,,,,,,,,,,,,,,,,,,,,
+20260526,009819,中信數據及電力,TWSE,10.29,10.29,10.21,10.25,15409796,157757588.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260526.csv,,,,,,-0.0975,,,,,,,,,,,,,,,,,,,,,

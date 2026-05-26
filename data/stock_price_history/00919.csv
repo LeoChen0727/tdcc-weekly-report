@@ -1,3 +1,4 @@
 date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,source_file,ma5,ma20,ma60,ma120,ema23,return_1d,return_5d,return_20d,return_60d,return_120d,volume_ma20,volume_ratio,high_20,high_60,high_120,low_20,low_60,low_120,distance_to_ma20_pct,distance_to_ma60_pct,distance_to_ma120_pct,distance_to_ema23_pct,distance_to_high_20_pct,distance_to_high_60_pct,distance_to_high_120_pct,distance_to_low_60_pct,distance_to_low_120_pct
 20260522,00919,群益台灣精選高息,TWSE,26.73,26.74,26.53,26.73,80979889,2161381858.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260522.csv,,,,,,,,,,,,,,,,,,,,,,,,,,,
 20260525,00919,群益台灣精選高息,TWSE,26.91,27.49,26.9,27.47,146148130,3984280773.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,2.7684,,,,,,,,,,,,,,,,,,,,,
+20260526,00919,群益台灣精選高息,TWSE,27.82,28.03,27.75,27.93,112594782,3141891270.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260526.csv,,,,,,1.6746,,,,,,,,,,,,,,,,,,,,,
