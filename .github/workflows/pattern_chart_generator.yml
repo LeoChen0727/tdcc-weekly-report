@@ -420,6 +420,32 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
+
+          TARGET_BRANCH="${GITHUB_REF_NAME:-main}"
+          git pull --rebase --autostash origin "$TARGET_BRANCH" || true
+
           git add output/latest/pattern_chart_report.md output/latest/pattern_charts/ output/latest/pattern_charts_contact_sheet.png
-          git commit -m "Update pattern chart report" || echo "No changes to commit"
-          git push
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+
+          git commit -m "Update pattern chart report"
+
+          PUSHED=0
+          for i in 1 2 3 4 5; do
+            git pull --rebase --autostash origin "$TARGET_BRANCH" || true
+            if git push origin HEAD:"$TARGET_BRANCH"; then
+              PUSHED=1
+              echo "Push succeeded"
+              break
+            fi
+            echo "Push failed, retry $i"
+            sleep $((i * 5))
+          done
+
+          if [ "$PUSHED" != "1" ]; then
+            echo "Push failed after retries"
+            exit 1
+          fi

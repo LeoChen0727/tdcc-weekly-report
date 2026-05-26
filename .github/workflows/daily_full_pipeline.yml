@@ -156,25 +156,67 @@ jobs:
             exit 1
           fi
 
-      - name: Trigger Pattern Scan
+      - name: Trigger and wait for Pattern Scan
         run: |
-          gh workflow run pattern_scan.yml --ref "$TARGET_BRANCH"
-          sleep 10
+          WORKFLOW_FILE="pattern_scan.yml"
+          PREVIOUS_RUN_ID=$(gh run list --workflow "$WORKFLOW_FILE" --branch "$TARGET_BRANCH" --limit 1 --json databaseId --jq '.[0].databaseId' 2>/dev/null || true)
+          if [ "$PREVIOUS_RUN_ID" = "null" ]; then
+            PREVIOUS_RUN_ID=""
+          fi
+          echo "Previous $WORKFLOW_FILE run id: ${PREVIOUS_RUN_ID:-none}"
 
-      - name: Wait for Pattern Scan
-        run: |
-          RUN_ID=$(gh run list --workflow pattern_scan.yml --branch "$TARGET_BRANCH" --limit 1 --json databaseId --jq '.[0].databaseId')
+          gh workflow run "$WORKFLOW_FILE" --ref "$TARGET_BRANCH"
+
+          RUN_ID=""
+          for i in $(seq 1 60); do
+            RUN_ID=$(gh run list --workflow "$WORKFLOW_FILE" --branch "$TARGET_BRANCH" --limit 1 --json databaseId --jq '.[0].databaseId' 2>/dev/null || true)
+            if [ "$RUN_ID" = "null" ]; then
+              RUN_ID=""
+            fi
+            if [ -n "$RUN_ID" ] && [ "$RUN_ID" != "$PREVIOUS_RUN_ID" ]; then
+              break
+            fi
+            echo "Waiting for new $WORKFLOW_FILE run to appear... attempt $i"
+            sleep 5
+          done
+
+          if [ -z "$RUN_ID" ] || [ "$RUN_ID" = "$PREVIOUS_RUN_ID" ]; then
+            echo "Failed to locate newly triggered $WORKFLOW_FILE run"
+            exit 1
+          fi
+
           echo "Pattern Scan run id: $RUN_ID"
           gh run watch "$RUN_ID" --exit-status
 
-      - name: Trigger Pattern Chart Generator
+      - name: Trigger and wait for Pattern Chart Generator
         run: |
-          gh workflow run pattern_chart_generator.yml --ref "$TARGET_BRANCH"
-          sleep 10
+          WORKFLOW_FILE="pattern_chart_generator.yml"
+          PREVIOUS_RUN_ID=$(gh run list --workflow "$WORKFLOW_FILE" --branch "$TARGET_BRANCH" --limit 1 --json databaseId --jq '.[0].databaseId' 2>/dev/null || true)
+          if [ "$PREVIOUS_RUN_ID" = "null" ]; then
+            PREVIOUS_RUN_ID=""
+          fi
+          echo "Previous $WORKFLOW_FILE run id: ${PREVIOUS_RUN_ID:-none}"
 
-      - name: Wait for Pattern Chart Generator
-        run: |
-          RUN_ID=$(gh run list --workflow pattern_chart_generator.yml --branch "$TARGET_BRANCH" --limit 1 --json databaseId --jq '.[0].databaseId')
+          gh workflow run "$WORKFLOW_FILE" --ref "$TARGET_BRANCH"
+
+          RUN_ID=""
+          for i in $(seq 1 60); do
+            RUN_ID=$(gh run list --workflow "$WORKFLOW_FILE" --branch "$TARGET_BRANCH" --limit 1 --json databaseId --jq '.[0].databaseId' 2>/dev/null || true)
+            if [ "$RUN_ID" = "null" ]; then
+              RUN_ID=""
+            fi
+            if [ -n "$RUN_ID" ] && [ "$RUN_ID" != "$PREVIOUS_RUN_ID" ]; then
+              break
+            fi
+            echo "Waiting for new $WORKFLOW_FILE run to appear... attempt $i"
+            sleep 5
+          done
+
+          if [ -z "$RUN_ID" ] || [ "$RUN_ID" = "$PREVIOUS_RUN_ID" ]; then
+            echo "Failed to locate newly triggered $WORKFLOW_FILE run"
+            exit 1
+          fi
+
           echo "Pattern Chart Generator run id: $RUN_ID"
           gh run watch "$RUN_ID" --exit-status
 
