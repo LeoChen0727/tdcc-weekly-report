@@ -186,6 +186,15 @@ WARRANT FLOW RULES
 - call_put_bullish may indicate bullish structure but still needs price confirmation.
 - Do not treat warrant flow as the main buy reason.
 
+MAINSTREAM / VOLUME ATTACK THEME STATUS RULES
+- The mainstream-vs-non-mainstream split must come from program-side fields, not ChatGPT memory.
+- For the two-line daily candidate view, read `daily_candidate_two_line_view_latest.md/csv` and show `theme_final_status` in every table.
+- For volume-attack / early-mainstream sections, read `volume_attack_theme_layer_latest.md/csv` and `volume_attack_theme_stocks_latest.md/csv`.
+- Volume-attack tables must include both `theme_final_status` and `theme_volume_attack_status`; do not show only the generic theme name.
+- `confirmed_volume_theme` and `early_mainstream_candidate` may be placed in the volume-attack theme line.
+- `single_stock_volume_attack`, `non_mainstream_volume_watch`, `weak_or_non_mainstream_volume_watch`, `overheated_volume_theme`, and `failed_volume_theme` must be separated from the mainstream-funding front section.
+- If these status fields are missing, write `theme_status_missing` and do not guess mainstream/non-mainstream from memory.
+
 FUNDAMENTAL / EVENT CATALYST LAYER RULES
 - The catalyst layer is a cross-category tag layer, not a seventh major category.
 - Keep every stock in its original six-category bucket; use catalyst fields only for labels, upgrades, downgrades, and follow-up tracking.

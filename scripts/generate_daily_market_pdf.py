@@ -42,6 +42,7 @@ DATA_FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
 MARKET_REGIME_CSV = LATEST_DIR / "market_regime_latest.csv"
 WARRANT_FLOW_BY_STOCK_CSV = LATEST_DIR / "warrant_flow_by_stock_latest.csv"
 VOLUME_BREAKOUT_WATCH_CSV = LATEST_DIR / "volume_breakout_watch_latest.csv"
+VOLUME_ATTACK_THEME_STOCKS_CSV = LATEST_DIR / "volume_attack_theme_stocks_latest.csv"
 THEME_LEADERSHIP_CSV = LATEST_DIR / "daily_theme_leadership_latest.csv"
 TWO_LINE_VIEW_CSV = LATEST_DIR / "daily_candidate_two_line_view_latest.csv"
 
@@ -1348,10 +1349,11 @@ def full_table_rows(part: pd.DataFrame, warrant_flow_date: str) -> list[list[Any
 
 
 def load_volume_breakout_watch() -> pd.DataFrame:
-    if not VOLUME_BREAKOUT_WATCH_CSV.exists():
+    source = VOLUME_ATTACK_THEME_STOCKS_CSV if VOLUME_ATTACK_THEME_STOCKS_CSV.exists() else VOLUME_BREAKOUT_WATCH_CSV
+    if not source.exists():
         return pd.DataFrame()
     try:
-        df = pd.read_csv(VOLUME_BREAKOUT_WATCH_CSV, dtype=str, keep_default_na=False)
+        df = pd.read_csv(source, dtype=str, keep_default_na=False)
     except Exception:
         return pd.DataFrame()
     if df.empty:
@@ -1366,17 +1368,16 @@ def volume_breakout_table_rows(part: pd.DataFrame) -> list[list[Any]]:
     rows = [[
         "code",
         "name",
+        "theme",
+        "theme status",
+        "volume theme status",
         "volume setup",
-        "scope",
         "priority",
         "routed category",
-        "decision",
         "TDCC",
-        "repeat",
         "vol ratio",
         "5d",
         "20d",
-        "risk flags",
         "next check",
     ]]
     for _, row in part.iterrows():
@@ -1384,17 +1385,16 @@ def volume_breakout_table_rows(part: pd.DataFrame) -> list[list[Any]]:
             [
                 safe_str(row.get("stock_id", "")),
                 clean_text(row.get("stock_name", ""), 14),
+                clean_text(row.get("theme_name", row.get("theme_group", "")), 14),
+                clean_text(row.get("theme_final_status", ""), 22),
+                clean_text(row.get("theme_volume_attack_status", ""), 24),
                 clean_text(row.get("volume_breakout_type", ""), 28),
-                clean_text(row.get("volume_watch_scope", ""), 16),
                 clean_text(row.get("volume_breakout_priority", ""), 24),
                 clean_text(row.get("category", row.get("original_category", "")), 18),
-                clean_text(row.get("decision_priority", ""), 22),
                 clean_text(row.get("tdcc_status", ""), 22),
-                clean_text(row.get("repeat_appear_label", ""), 24),
                 num_text(row.get("volume_ratio", ""), 2),
                 pct_text(row.get("return_5d", "")),
                 pct_text(row.get("return_20d", "")),
-                clean_text(row.get("risk_flags", ""), 42),
                 clean_text(row.get("next_volume_breakout_confirmation", ""), 48),
             ]
         )
@@ -1439,7 +1439,7 @@ def build_full_table_pdf(df: pd.DataFrame, freshness: dict[str, Any], main_date:
                 make_table(
                     volume_breakout_table_rows(chunk),
                     style_map,
-                    [0.9 * cm, 1.2 * cm, 2.6 * cm, 1.5 * cm, 2.1 * cm, 1.7 * cm, 1.8 * cm, 1.6 * cm, 1.8 * cm, 1.0 * cm, 0.9 * cm, 0.9 * cm, 3.2 * cm, 4.0 * cm],
+                    [0.8 * cm, 1.1 * cm, 1.4 * cm, 2.0 * cm, 2.4 * cm, 2.4 * cm, 1.9 * cm, 1.6 * cm, 1.5 * cm, 0.9 * cm, 0.8 * cm, 0.8 * cm, 4.4 * cm],
                 )
             )
             story.append(Spacer(1, 0.2 * cm))

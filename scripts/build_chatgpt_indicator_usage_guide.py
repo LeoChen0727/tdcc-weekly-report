@@ -111,6 +111,8 @@ def build_guide() -> str:
     catalyst_needs_review = read_csv(LATEST_DIR / "catalyst_needs_review_latest.csv")
     chip = read_csv(LATEST_DIR / "chip_flow_positive_streak_latest.csv")
     volume_breakout = read_csv(LATEST_DIR / "volume_breakout_watch_latest.csv")
+    volume_attack_theme = read_csv(LATEST_DIR / "volume_attack_theme_layer_latest.csv")
+    volume_attack_stocks = read_csv(LATEST_DIR / "volume_attack_theme_stocks_latest.csv")
 
     main_price_date = ""
     readme = LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt"
@@ -234,6 +236,13 @@ def build_guide() -> str:
             "Use when asked about 帶量突破 / 放量突破 / 放量攻擊. Strict breakout is only one subset.",
         ],
         [
+            "Volume attack theme layer",
+            "output/latest/volume_attack_theme_layer_latest.csv",
+            "theme_final_status, theme_volume_attack_status, leader_stock, range/strict/watch counts, interpretation",
+            f"{count_values(volume_attack_theme, 'theme_volume_attack_status')} / stocks={len(volume_attack_stocks)}",
+            "Authoritative mainstream/non-mainstream split for volume-attack sections. Do not show only the theme name.",
+        ],
+        [
             "Individual stock raw availability",
             "output/latest/individual_stock_available_raw_data_index_slim.csv",
             "data_quality_status, report_status, price/TDCC row counts",
@@ -265,7 +274,9 @@ def build_guide() -> str:
     lines.append("- Use `decision_priority` as the primary reporting priority: `A_priority_watch`, `B_confirm_needed`, `C_watch_only`, `D_risk_downgrade`.")
     lines.append("- Use `why_selected`, `why_downgraded`, and `next_confirmation` directly. Do not invent a different reason when these fields exist.")
     lines.append("- `must_not_overstate=True` means do not call the stock a top pick, even if the chart looks attractive.")
-    lines.append("- For volume breakout questions, read `volume_breakout_chatgpt_packet_latest.md` and `volume_breakout_watch_latest.csv`; use `volume_watch_scope=broad_watch` as a broad recall universe, not as strict breakout confirmation.")
+    lines.append("- For volume breakout questions, read `volume_breakout_chatgpt_packet_latest.md`, `volume_attack_theme_layer_latest.md/csv`, `volume_attack_theme_stocks_latest.md/csv`, and then `volume_breakout_watch_latest.csv` for detail fields.")
+    lines.append("- Every volume-attack / early-theme table must include explicit `theme_final_status` and `theme_volume_attack_status`; never show only a generic theme name.")
+    lines.append("- `theme_volume_attack_status=confirmed_volume_theme` or `early_mainstream_candidate` can be shown in the volume-attack theme line; `single_stock_volume_attack`, `non_mainstream_volume_watch`, `weak_or_non_mainstream_volume_watch`, `overheated_volume_theme`, and `failed_volume_theme` must not be mixed into the mainstream-funding front section.")
     lines.append("")
 
     lines.append("### TDCC / ABM report")
