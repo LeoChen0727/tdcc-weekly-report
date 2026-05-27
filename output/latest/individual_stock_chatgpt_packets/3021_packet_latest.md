@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3021 鴻名
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:35 Asia/Taipei
+- generated_at: 2026-05-27 21:26:53 Asia/Taipei
 - stock_id: 3021
 - stock_name: 鴻名
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 22.7
-- high: 22.7
-- low: 22.7
-- close: 22.7
-- volume: 627301
-- ma5: 19.25
-- ema23_primary: 17.59
-- distance_to_ema23_pct: 29.02
-- ma20: 17.24
-- ma60: 16.66
-- ma120: 17.2
-- return_5d: 35.52
-- return_20d: 38.84
-- volume_ratio: 1.44
-- distance_to_ma20_pct_auxiliary: 31.67
+- date: 20260527
+- open: 24.95
+- high: 24.95
+- low: 24.95
+- close: 24.95
+- volume: 500771
+- ma5: 20.84
+- ema23_primary: 18.21
+- distance_to_ema23_pct: 37.03
+- ma20: 17.66
+- ma60: 16.78
+- ma120: 17.27
+- return_5d: 46.76
+- return_20d: 51.21
+- volume_ratio: 1.09
+- distance_to_ma20_pct_auxiliary: 41.26
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,16.45,16.8,16.35,16.5,52012,16.4,0.61,16.27,16.82,0.39
 20260429,16.65,16.65,16.4,16.45,53199,16.4,0.28,16.3,16.78,0.4
 20260430,16.75,17.55,16.7,17.2,459563,16.47,4.43,16.37,16.76,3.05
 20260504,17.4,17.4,16.7,16.7,186664,16.49,1.28,16.41,16.73,1.19
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,17.55,18.8,17.35,18.8,1360416,16.81,11.84,16.73,16.51,4.87
 20260525,19.5,20.65,19.5,20.65,2939616,17.13,20.55,16.92,16.57,7.14
 20260526,22.7,22.7,22.7,22.7,627301,17.59,29.02,17.24,16.66,1.44
+20260527,24.95,24.95,24.95,24.95,500771,18.21,37.03,17.66,16.78,1.09
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3021 | 鴻名 | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

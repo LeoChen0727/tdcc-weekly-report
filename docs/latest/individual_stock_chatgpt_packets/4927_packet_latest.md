@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4927 泰鼎-KY
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:12 Asia/Taipei
+- generated_at: 2026-05-27 21:27:31 Asia/Taipei
 - stock_id: 4927
 - stock_name: 泰鼎-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 63.9
-- high: 65.9
-- low: 59.7
-- close: 61.2
-- volume: 35508554
-- ma5: 55.66
-- ema23_primary: 53.2
-- distance_to_ema23_pct: 15.03
-- ma20: 54.17
-- ma60: 48.76
-- ma120: 40.18
-- return_5d: 22.65
-- return_20d: 4.44
-- volume_ratio: 1.82
-- distance_to_ma20_pct_auxiliary: 12.98
-- distance_to_high_60_pct: -7.13
+- date: 20260527
+- open: 61.8
+- high: 63.4
+- low: 57.2
+- close: 58.6
+- volume: 18786787
+- ma5: 57.84
+- ema23_primary: 53.65
+- distance_to_ema23_pct: 9.22
+- ma20: 54.14
+- ma60: 48.95
+- ma120: 40.5
+- return_5d: 22.85
+- return_20d: -0.85
+- volume_ratio: 1.01
+- distance_to_ma20_pct_auxiliary: 8.23
+- distance_to_high_60_pct: -11.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,58,60.8,56,59.1,37634507,49.5,19.4,48.21,42.61,1.7
 20260429,58.2,59.8,56.4,56.7,21317867,50.1,13.18,48.95,42.94,0.93
 20260430,56.4,56.4,51.1,52.2,41771364,50.27,3.83,49.55,43.2,1.7
 20260504,53,54.8,51.3,53.4,18444782,50.53,5.67,50.15,43.49,0.73
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,51.5,56.3,51.4,56.3,27506157,51.62,9.07,53.61,48.11,1.33
 20260525,58.1,61.9,57.1,61.9,24148123,52.48,17.96,54.04,48.47,1.2
 20260526,63.9,65.9,59.7,61.2,35508554,53.2,15.03,54.17,48.76,1.82
+20260527,61.8,63.4,57.2,58.6,18786787,53.65,9.22,54.14,48.95,1.01
 ```
 
 ## Latest TDCC Snapshot
@@ -125,13 +125,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4927 | 泰鼎-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 4927 | 泰鼎-KY | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 4927 | 泰鼎-KY | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4927 | 泰鼎-KY | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 4927 | 泰鼎-KY | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

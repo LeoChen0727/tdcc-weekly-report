@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7721 微程式
 
 ## Metadata
-- generated_at: 2026-05-26 23:55:00 Asia/Taipei
+- generated_at: 2026-05-27 21:28:22 Asia/Taipei
 - stock_id: 7721
 - stock_name: 微程式
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 81.5
-- high: 81.9
-- low: 78.1
-- close: 78.8
-- volume: 532497
-- ma5: 76.8
-- ema23_primary: 75.94
-- distance_to_ema23_pct: 3.76
-- ma20: 75.69
-- ma60: 68.97
-- ma120: 58.95
-- return_5d: 9.44
-- return_20d: 13.06
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: 4.1
-- distance_to_high_60_pct: -15.27
+- date: 20260527
+- open: 78.8
+- high: 78.9
+- low: 74
+- close: 75.1
+- volume: 599904
+- ma5: 77.54
+- ema23_primary: 75.87
+- distance_to_ema23_pct: -1.02
+- ma20: 75.94
+- ma60: 69.31
+- ma120: 59.19
+- return_5d: 5.18
+- return_20d: 7.13
+- volume_ratio: 0.82
+- distance_to_ma20_pct_auxiliary: -1.11
+- distance_to_high_60_pct: -19.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,69.9,72.4,68.9,70.1,527671,74.68,-6.14,80.49,60.15,0.36
 20260429,70.1,74.4,70.1,71,737117,74.38,-4.54,80.67,60.53,0.5
 20260430,72.8,78.1,71.1,78.1,945191,74.69,4.57,80.88,61.02,0.64
 20260504,83.1,83.1,76.6,77.7,1615717,74.94,3.68,80.92,61.51,1.38
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,73.4,80,72.7,80,940280,75.2,6.38,74.81,68,1.3
 20260525,80.5,84.6,80.5,81,1640405,75.68,7.02,75.24,68.54,2.18
 20260526,81.5,81.9,78.1,78.8,532497,75.94,3.76,75.69,68.97,0.73
+20260527,78.8,78.9,74,75.1,599904,75.87,-1.02,75.94,69.31,0.82
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 7721 | 微程式 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

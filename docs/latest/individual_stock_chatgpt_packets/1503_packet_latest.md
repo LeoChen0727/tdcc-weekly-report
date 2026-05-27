@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1503 士電
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:56 Asia/Taipei
+- generated_at: 2026-05-27 21:26:12 Asia/Taipei
 - stock_id: 1503
 - stock_name: 士電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 205
-- high: 209.5
-- low: 203
-- close: 203
-- volume: 6955470
-- ma5: 194.2
-- ema23_primary: 194.84
-- distance_to_ema23_pct: 4.19
-- ma20: 195.32
-- ma60: 196.83
-- ma120: 192.83
-- return_5d: 10.63
-- return_20d: 6.28
-- volume_ratio: 2.29
-- distance_to_ma20_pct_auxiliary: 3.93
-- distance_to_high_60_pct: -16.29
+- date: 20260527
+- open: 209
+- high: 223
+- low: 209
+- close: 221
+- volume: 20890394
+- ma5: 202.2
+- ema23_primary: 197.02
+- distance_to_ema23_pct: 12.17
+- ma20: 196.95
+- ma60: 196.58
+- ma120: 193.32
+- return_5d: 22.1
+- return_20d: 17.24
+- volume_ratio: 5.18
+- distance_to_ma20_pct_auxiliary: 12.21
+- distance_to_high_60_pct: -5.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,192,192,188,188.5,1096781,193.13,-2.4,189.25,205.09,0.7
 20260429,189,190.5,187,190.5,1044475,192.91,-1.25,189.55,204.68,0.68
 20260430,190.5,194.5,187,189.5,1542099,192.63,-1.62,190.1,203.88,1
 20260504,193,208,192.5,201.5,7072939,193.36,4.21,191.05,203.47,3.83
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,190.5,198,189.5,197,2587279,193.43,1.85,194.2,197.62,1
 20260525,202,205,198,201.5,4659806,194.1,3.81,194.72,197.24,1.69
 20260526,205,209.5,203,203,6955470,194.84,4.19,195.32,196.83,2.29
+20260527,209,223,209,221,20890394,197.02,12.17,196.95,196.58,5.18
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1503 | 士電 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260527 | 1503 | 士電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  | call_put_bullish | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1503 | 士電 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 1503 | 士電 | 5 | 1 | 5 | 5 | 5 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1503 | 士電 | 81 | 2 | 12497450.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260527 | 1503 | 士電 | 81 | 2 | 26552720.0 | 14600.0 | 1818.68 | call_put_bullish | 3 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1519 華城
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:57 Asia/Taipei
+- generated_at: 2026-05-27 21:26:13 Asia/Taipei
 - stock_id: 1519
 - stock_name: 華城
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 845
-- high: 885
-- low: 845
-- close: 851
-- volume: 3578095
-- ma5: 815.4
-- ema23_primary: 850.5
-- distance_to_ema23_pct: 0.06
-- ma20: 860.35
-- ma60: 879.95
-- ma120: 860.91
-- return_5d: 8.68
-- return_20d: -4.17
-- volume_ratio: 1.12
-- distance_to_ma20_pct_auxiliary: -1.09
-- distance_to_high_60_pct: -23.68
+- date: 20260527
+- open: 870
+- high: 912
+- low: 867
+- close: 878
+- volume: 6244413
+- ma5: 837
+- ema23_primary: 852.79
+- distance_to_ema23_pct: 2.96
+- ma20: 860.5
+- ma60: 876.75
+- ma120: 862.49
+- return_5d: 14.03
+- return_20d: 0.34
+- volume_ratio: 1.83
+- distance_to_ma20_pct_auxiliary: 2.03
+- distance_to_high_60_pct: -17.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,889,889,872,875,1782839,874.8,0.02,849.2,920.92,0.55
 20260429,876,878,862,871,1414427,874.48,-0.4,851.05,918.35,0.45
 20260430,874,905,862,888,2812385,875.61,1.42,856.1,915.15,0.93
 20260504,914,944,908,917,5796349,879.06,4.32,861.35,913.27,1.84
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,809,835,802,826,1840162,852.31,-3.09,865,885.37,0.57
 20260525,836,844,822,830,1884487,850.45,-2.4,862.2,883.27,0.6
 20260526,845,885,845,851,3578095,850.5,0.06,860.35,879.95,1.12
+20260527,870,912,867,878,6244413,852.79,2.96,860.5,876.75,1.83
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1519 | 華城 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 1519 | 華城 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1519 | 華城 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260527 | 1519 | 華城 | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1519 | 華城 | 137 | 13 | 20620210.0 | 125880.0 | 163.81 | no_signal | 0 |  |
+| 20260527 | 1519 | 華城 | 138 | 13 | 46327870.0 | 107940.0 | 429.2 | call_put_bullish | 3 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

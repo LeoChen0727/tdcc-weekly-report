@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3717 聯嘉投控
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:58 Asia/Taipei
+- generated_at: 2026-05-27 21:27:17 Asia/Taipei
 - stock_id: 3717
 - stock_name: 聯嘉投控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 23.5
-- high: 23.5
-- low: 22
-- close: 22.45
-- volume: 2580227
-- ma5: 23.37
-- ema23_primary: 22.47
-- distance_to_ema23_pct: -0.11
-- ma20: 22.34
-- ma60: 21.07
-- ma120: 19.27
-- return_5d: -0.22
-- return_20d: 13.38
-- volume_ratio: 0.91
-- distance_to_ma20_pct_auxiliary: 0.47
-- distance_to_high_60_pct: -10.2
+- date: 20260527
+- open: 22.5
+- high: 22.65
+- low: 21.95
+- close: 22
+- volume: 1744096
+- ma5: 23.16
+- ema23_primary: 22.44
+- distance_to_ema23_pct: -1.94
+- ma20: 22.45
+- ma60: 21.14
+- ma120: 19.31
+- return_5d: -4.56
+- return_20d: 10.28
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: -1.99
+- distance_to_high_60_pct: -12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,20.1,20.25,19.65,19.95,509073,21.2,-5.88,21.9,19.62,0.3
 20260429,20.2,20.2,19.7,19.75,516830,21.08,-6.29,21.81,19.62,0.32
 20260430,19.75,19.8,19.5,19.5,398885,20.94,-6.9,21.7,19.63,0.26
 20260504,19.85,20.3,19.8,20,641985,20.87,-4.15,21.56,19.64,0.44
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,24.1,25,24.05,24.65,4702922,22.43,9.88,22.1,20.9,1.82
 20260525,25,25,22.95,22.95,4285479,22.48,2.11,22.21,20.99,1.55
 20260526,23.5,23.5,22,22.45,2580227,22.47,-0.11,22.34,21.07,0.91
+20260527,22.5,22.65,21.95,22,1744096,22.44,-1.94,22.45,21.14,0.6
 ```
 
 ## Latest TDCC Snapshot
@@ -125,13 +125,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3717 | 聯嘉投控 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: ex_right on 20260528; status=confirmed; proximity=within_3d |
+| 20260527 | 3717 | 聯嘉投控 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: ex_right on 20260528; status=confirmed; proximity=within_3d |
 | 20260521 | 3717 | 聯嘉投控 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | stale_signal | calendar event: ex_right on 20260528; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3717 | 聯嘉投控 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 3717 | 聯嘉投控 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

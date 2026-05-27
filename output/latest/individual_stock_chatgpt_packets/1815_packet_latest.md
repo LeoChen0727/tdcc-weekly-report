@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1815 富喬
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:05 Asia/Taipei
+- generated_at: 2026-05-27 21:26:21 Asia/Taipei
 - stock_id: 1815
 - stock_name: 富喬
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 110
-- high: 114
-- low: 108
-- close: 108
-- volume: 111000
-- ma5: 105
-- ema23_primary: 107.15
-- distance_to_ema23_pct: 0.79
-- ma20: 107.58
-- ma60: 107.96
-- ma120: 99.07
-- return_5d: 5.88
-- return_20d: 0
+- date: 20260527
+- open: 109.5
+- high: 110
+- low: 103
+- close: 103.5
+- volume: 106000
+- ma5: 105.8
+- ema23_primary: 106.85
+- distance_to_ema23_pct: -3.14
+- ma20: 107.08
+- ma60: 107.84
+- ma120: 99.25
+- return_5d: 4.02
+- return_20d: -8.81
 - volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 0.4
-- distance_to_high_60_pct: -16.6
+- distance_to_ma20_pct_auxiliary: -3.34
+- distance_to_high_60_pct: -20.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,108.5,113.5,107,113.5,60919000,110.74,2.5,110.58,104.61,0.87
 20260429,111,113.5,108,110.5,30158000,110.72,-0.2,110.93,104.72,0.43
 20260430,112,112.5,107,108.5,41089000,110.53,-1.84,111.56,104.87,0.59
 20260504,111,113,107,109,39477000,110.4,-1.27,112.08,105.13,0.56
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,104,108,104,107,106000,106.9,0.09,107.55,108.15,0
 20260525,109,111,107,109,109000,107.08,1.8,107.58,108.04,0
 20260526,110,114,108,108,111000,107.15,0.79,107.58,107.96,0
+20260527,109.5,110,103,103.5,106000,106.85,-3.14,107.08,107.84,0
 ```
 
 ## Latest TDCC Snapshot
@@ -130,7 +130,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1815 | 富喬 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 1815 | 富喬 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

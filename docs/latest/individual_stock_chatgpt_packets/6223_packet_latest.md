@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6223 旺矽
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:34 Asia/Taipei
+- generated_at: 2026-05-27 21:27:54 Asia/Taipei
 - stock_id: 6223
 - stock_name: 旺矽
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 6425
-- high: 6425
-- low: 6120
-- close: 6240
-- volume: 6268000
-- ma5: 5961
-- ema23_primary: 5478.97
-- distance_to_ema23_pct: 13.89
-- ma20: 5498
-- ma60: 4424.17
-- ma120: 3395.88
-- return_5d: 8.9
-- return_20d: 27.87
-- volume_ratio: 3.02
-- distance_to_ma20_pct_auxiliary: 13.5
-- distance_to_high_60_pct: -6.38
+- date: 20260527
+- open: 6400
+- high: 6645
+- low: 6280
+- close: 6390
+- volume: 6434000
+- ma5: 6103
+- ema23_primary: 5554.89
+- distance_to_ema23_pct: 15.03
+- ma20: 5573.5
+- ma60: 4481.58
+- ma120: 3433.79
+- return_5d: 12.5
+- return_20d: 30.94
+- volume_ratio: 2.75
+- distance_to_ma20_pct_auxiliary: 14.65
+- distance_to_high_60_pct: -4.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,4950,4985,4770,4880,1043000,4451.93,9.62,4514.25,3516.75,0.89
 20260429,4870,4970,4785,4945,929000,4493.02,10.06,4574.75,3558.17,0.79
 20260430,5000,5040,4835,4925,1142000,4529.02,8.74,4641.25,3600,0.97
 20260504,5005,5200,4910,5165,1256000,4582.01,12.72,4702,3643.67,1.07
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,5880,6035,5765,6035,5945000,5337.95,13.06,5352.5,4305.67,3.75
 20260525,6240,6465,6115,6200,6314000,5409.78,14.61,5430,4364.83,3.45
 20260526,6425,6425,6120,6240,6268000,5478.97,13.89,5498,4424.17,3.02
+20260527,6400,6645,6280,6390,6434000,5554.89,15.03,5573.5,4481.58,2.75
 ```
 
 ## Latest TDCC Snapshot
@@ -130,7 +130,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6223 | 旺矽 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260527 | 6223 | 旺矽 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

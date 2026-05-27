@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00921 兆豐龍頭等權重
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:46 Asia/Taipei
+- generated_at: 2026-05-27 21:26:02 Asia/Taipei
 - stock_id: 00921
 - stock_name: 兆豐龍頭等權重
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 22.45
-- high: 22.55
-- low: 22.12
-- close: 22.2
-- volume: 467930
+- date: 20260527
+- open: 22.41
+- high: 22.66
+- low: 22.39
+- close: 22.47
+- volume: 1012083
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,21.57,21.75,21.57,21.73,390281,,,,,
 20260525,22.11,22.28,22.11,22.26,676355,,,,,
 20260526,22.45,22.55,22.12,22.2,467930,,,,,
+20260527,22.41,22.66,22.39,22.47,1012083,,,,,
 ```
 
 ## Latest TDCC Snapshot

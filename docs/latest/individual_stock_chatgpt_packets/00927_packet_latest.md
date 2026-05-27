@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00927 群益半導體收益
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:47 Asia/Taipei
+- generated_at: 2026-05-27 21:26:02 Asia/Taipei
 - stock_id: 00927
 - stock_name: 群益半導體收益
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 39.78
-- high: 39.78
-- low: 39.05
-- close: 39.46
-- volume: 21568309
+- date: 20260527
+- open: 41.15
+- high: 41.57
+- low: 40.5
+- close: 40.86
+- volume: 30670416
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,36.07,36.53,35.93,36.53,19539857,,,,,
 20260525,37.68,39,37.68,39,29264775,,,,,
 20260526,39.78,39.78,39.05,39.46,21568309,,,,,
+20260527,41.15,41.57,40.5,40.86,30670416,,,,,
 ```
 
 ## Latest TDCC Snapshot

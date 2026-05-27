@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2108 南帝
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:09 Asia/Taipei
+- generated_at: 2026-05-27 21:26:26 Asia/Taipei
 - stock_id: 2108
 - stock_name: 南帝
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 27.8
+- date: 20260527
+- open: 27.7
 - high: 28.15
-- low: 27.3
-- close: 27.4
-- volume: 1239670
-- ma5: 27.68
-- ema23_primary: 27.29
-- distance_to_ema23_pct: 0.4
+- low: 26.6
+- close: 27
+- volume: 2378329
+- ma5: 27.57
+- ema23_primary: 27.27
+- distance_to_ema23_pct: -0.98
 - ma20: 27.42
 - ma60: 26.39
-- ma120: 25.03
-- return_5d: 1.11
-- return_20d: -2.14
-- volume_ratio: 0.68
-- distance_to_ma20_pct_auxiliary: -0.07
-- distance_to_high_60_pct: -8.51
+- ma120: 25.07
+- return_5d: -2
+- return_20d: 0
+- volume_ratio: 1.3
+- distance_to_ma20_pct_auxiliary: -1.53
+- distance_to_high_60_pct: -9.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,27.8,27.8,27,27,2457450,26.27,2.79,26.24,25.45,1.22
 20260429,27.35,27.35,26.55,26.65,1123230,26.3,1.34,26.23,25.5,0.67
 20260430,26.9,26.9,26.35,26.7,974700,26.33,1.4,26.29,25.54,0.63
 20260504,27.35,27.35,26.2,26.55,1373892,26.35,0.76,26.32,25.59,0.89
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,28.2,28.3,27.7,27.95,1043865,27.27,2.49,27.41,26.39,0.51
 20260525,28,28.4,27,27.4,2217955,27.28,0.44,27.45,26.39,1.07
 20260526,27.8,28.15,27.3,27.4,1239670,27.29,0.4,27.42,26.39,0.68
+20260527,27.7,28.15,26.6,27,2378329,27.27,-0.98,27.42,26.39,1.3
 ```
 
 ## Latest TDCC Snapshot
@@ -125,13 +125,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2108 | 南帝 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260527 | 2108 | 南帝 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260521 | 2108 | 南帝 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2108 | 南帝 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 2108 | 南帝 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

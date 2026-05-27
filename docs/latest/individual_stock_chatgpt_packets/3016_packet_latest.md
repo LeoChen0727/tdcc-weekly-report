@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3016 嘉晶
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:35 Asia/Taipei
+- generated_at: 2026-05-27 21:26:52 Asia/Taipei
 - stock_id: 3016
 - stock_name: 嘉晶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 140
-- high: 145.5
-- low: 123
+- date: 20260527
+- open: 131
+- high: 138
+- low: 122
 - close: 126
-- volume: 21713325
-- ma5: 120.1
-- ema23_primary: 106.11
-- distance_to_ema23_pct: 18.75
-- ma20: 111.06
-- ma60: 77.09
-- ma120: 66.62
-- return_5d: 22.93
-- return_20d: 86.67
-- volume_ratio: 3.98
-- distance_to_ma20_pct_auxiliary: 13.46
+- volume: 15299263
+- ma5: 124.3
+- ema23_primary: 107.77
+- distance_to_ema23_pct: 16.92
+- ma20: 113.64
+- ma60: 78.14
+- ma120: 67.27
+- return_5d: 20
+- return_20d: 69.81
+- volume_ratio: 2.56
+- distance_to_ma20_pct_auxiliary: 10.87
 - distance_to_high_60_pct: -13.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,68,74.2,66.8,74.2,4997983,63.84,16.23,61.13,61.11,1.27
 20260429,73.5,81.6,69.9,81.6,20043561,65.32,24.93,62.48,61.26,4.1
 20260430,89.7,89.7,89.7,89.7,3049701,67.35,33.19,64.38,61.59,0.61
 20260504,98.6,98.6,98.6,98.6,2218752,69.95,40.95,66.67,62.11,0.44
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,118,123,118,121,1522134,101.69,18.99,104.86,74.76,0.32
 20260525,127,133,127,133,2242944,104.3,27.52,108.13,75.97,0.48
 20260526,140,145.5,123,126,21713325,106.11,18.75,111.06,77.09,3.98
+20260527,131,138,122,126,15299263,107.77,16.92,113.64,78.14,2.56
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3016 | 嘉晶 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_put_bullish | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 3016 | 嘉晶 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3016 | 嘉晶 | 2 | 1 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260527 | 3016 | 嘉晶 | 3 | 2 | 3 | 3 | 3 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3016 | 嘉晶 | 48 | 3 | 13564010.0 | 49980.0 | 271.39 | call_put_bullish | 3 |  |
+| 20260527 | 3016 | 嘉晶 | 48 | 3 | 6532360.0 | 22970.0 | 284.39 | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

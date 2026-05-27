@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3576 聯合再生
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:53 Asia/Taipei
+- generated_at: 2026-05-27 21:27:11 Asia/Taipei
 - stock_id: 3576
 - stock_name: 聯合再生
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 20.1
-- high: 20.75
-- low: 18.65
-- close: 18.9
-- volume: 43255955
-- ma5: 18.3
-- ema23_primary: 17.77
-- distance_to_ema23_pct: 6.37
-- ma20: 17.13
-- ma60: 19.69
-- ma120: 14.72
-- return_5d: -1.82
-- return_20d: 23.93
-- volume_ratio: 1.44
-- distance_to_ma20_pct_auxiliary: 10.33
-- distance_to_high_60_pct: -32.5
+- date: 20260527
+- open: 19.2
+- high: 19.5
+- low: 18.4
+- close: 19.1
+- volume: 29166482
+- ma5: 18.61
+- ema23_primary: 17.88
+- distance_to_ema23_pct: 6.83
+- ma20: 17.35
+- ma60: 19.64
+- ma120: 14.83
+- return_5d: 8.83
+- return_20d: 29.49
+- volume_ratio: 0.95
+- distance_to_ma20_pct_auxiliary: 10.1
+- distance_to_high_60_pct: -31.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,15.2,15.2,14.65,14.75,13781099,17.95,-17.81,18.14,18.46,0.46
 20260429,14.8,15.5,14.6,15.15,18022644,17.71,-14.47,17.8,18.53,0.61
 20260430,15.2,16.25,14.5,16,27163887,17.57,-8.94,17.54,18.62,0.92
 20260504,16,16,15.35,15.4,23242684,17.39,-11.45,17.24,18.71,0.78
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,17.55,18.45,17.2,18.25,29282073,17.51,4.21,16.73,19.7,1.05
 20260525,18.75,19.65,18.15,19.35,40449019,17.67,9.54,16.95,19.71,1.39
 20260526,20.1,20.75,18.65,18.9,43255955,17.77,6.37,17.13,19.69,1.44
+20260527,19.2,19.5,18.4,19.1,29166482,17.88,6.83,17.35,19.64,0.95
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3576 | 聯合再生 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6191 精成科
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:32 Asia/Taipei
+- generated_at: 2026-05-27 21:27:52 Asia/Taipei
 - stock_id: 6191
 - stock_name: 精成科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 98.7
-- high: 98.7
-- low: 95.6
-- close: 96.2
-- volume: 4478285
-- ma5: 96.14
-- ema23_primary: 96.91
-- distance_to_ema23_pct: -0.73
-- ma20: 96.56
-- ma60: 98.32
-- ma120: 106.59
-- return_5d: 3.66
-- return_20d: -10.09
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: -0.37
-- distance_to_high_60_pct: -17.07
+- date: 20260527
+- open: 96.3
+- high: 100.5
+- low: 96.2
+- close: 98
+- volume: 14358326
+- ma5: 96.9
+- ema23_primary: 97
+- distance_to_ema23_pct: 1.03
+- ma20: 96.03
+- ma60: 98.14
+- ma120: 106.49
+- return_5d: 4.03
+- return_20d: -9.68
+- volume_ratio: 1.87
+- distance_to_ma20_pct_auxiliary: 2.05
+- distance_to_high_60_pct: -15.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,107.5,109.5,106,108.5,5760998,103.44,4.89,101,102.76,0.55
 20260429,104.5,104.5,100.5,102.5,14323625,103.36,-0.83,101.52,102.6,1.3
 20260430,102,103,97.7,98.4,13518354,102.95,-4.42,102.03,102.28,1.18
 20260504,99.7,99.9,97.6,98.5,6554717,102.58,-3.97,102.42,101.94,0.56
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,96.6,97.4,96.2,96.8,5335510,96.88,-0.09,97.65,98.7,0.66
 20260525,98.9,99,97.5,98,5737322,96.98,1.06,97.1,98.5,0.76
 20260526,98.7,98.7,95.6,96.2,4478285,96.91,-0.73,96.56,98.32,0.62
+20260527,96.3,100.5,96.2,98,14358326,97,1.03,96.03,98.14,1.87
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 6191 | 精成科 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 6191 | 精成科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 6191 | 精成科 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6191 | 精成科 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 6191 | 精成科 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6191 | 精成科 | 75 | 6 | 2108750.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 6191 | 精成科 | 74 | 6 | 7845950.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4749 新應材
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:09 Asia/Taipei
+- generated_at: 2026-05-27 21:27:28 Asia/Taipei
 - stock_id: 4749
 - stock_name: 新應材
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 1155
-- high: 1190
-- low: 1130
-- close: 1140
-- volume: 1155000
-- ma5: 1109.8
-- ema23_primary: 1052.45
-- distance_to_ema23_pct: 8.32
-- ma20: 1062.7
-- ma60: 961.67
-- ma120: 901.05
-- return_5d: 15.74
-- return_20d: 18.01
-- volume_ratio: 0.37
-- distance_to_ma20_pct_auxiliary: 7.27
-- distance_to_high_60_pct: -5.79
+- date: 20260527
+- open: 1160
+- high: 1165
+- low: 1105
+- close: 1115
+- volume: 1126000
+- ma5: 1134
+- ema23_primary: 1057.66
+- distance_to_ema23_pct: 5.42
+- ma20: 1068.85
+- ma60: 965.07
+- ma120: 904.2
+- return_5d: 12.17
+- return_20d: 12.4
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: 4.32
+- distance_to_high_60_pct: -7.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,973,1000,955,992,1779000,932.08,6.43,908.75,893.22,0.79
 20260429,993,1020,975,1010,2058000,938.58,7.61,918.25,896,0.91
 20260430,1030,1065,1005,1005,2900000,944.11,6.45,928.6,898.68,1.25
 20260504,1035,1040,1010,1030,1458000,951.27,8.28,938.7,901.43,0.62
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,1125,1195,1125,1170,1168000,1034.44,13.1,1045.25,953.32,0.35
 20260525,1200,1210,1150,1155,1180000,1044.49,10.58,1054,957.58,0.37
 20260526,1155,1190,1130,1140,1155000,1052.45,8.32,1062.7,961.67,0.37
+20260527,1160,1165,1105,1115,1126000,1057.66,5.42,1068.85,965.07,0.36
 ```
 
 ## Latest TDCC Snapshot
@@ -130,7 +130,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4749 | 新應材 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260527 | 4749 | 新應材 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

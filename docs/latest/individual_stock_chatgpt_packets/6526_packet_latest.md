@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6526 達發
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:42 Asia/Taipei
+- generated_at: 2026-05-27 21:28:03 Asia/Taipei
 - stock_id: 6526
 - stock_name: 達發
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 755
-- high: 755
-- low: 695
-- close: 696
-- volume: 2228540
-- ma5: 706.4
-- ema23_primary: 659.89
-- distance_to_ema23_pct: 5.47
-- ma20: 671.55
-- ma60: 564.49
-- ma120: 505.21
-- return_5d: 7.57
-- return_20d: 19.79
-- volume_ratio: 0.87
-- distance_to_ma20_pct_auxiliary: 3.64
-- distance_to_high_60_pct: -11.56
+- date: 20260527
+- open: 690
+- high: 715
+- low: 680
+- close: 682
+- volume: 1731600
+- ma5: 711.4
+- ema23_primary: 661.74
+- distance_to_ema23_pct: 3.06
+- ma20: 677.15
+- ma60: 567.24
+- ma120: 507.25
+- return_5d: 3.81
+- return_20d: 19.65
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: 0.72
+- distance_to_high_60_pct: -13.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,586,607,570,570,2231042,526.91,8.18,513.27,493.29,1.83
 20260429,566,570,548,548,1574174,528.67,3.66,516.92,495.38,1.22
 20260430,558,562,541,551,1499748,530.53,3.86,521.27,497.43,1.12
 20260504,582,595,579,589,1789235,535.4,10.01,526.55,499.41,1.27
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,709,725,695,725,1994424,648.12,11.86,658.35,555.98,0.76
 20260525,745,774,741,750,2558448,656.61,14.22,665.8,560.73,1
 20260526,755,755,695,696,2228540,659.89,5.47,671.55,564.49,0.87
+20260527,690,715,680,682,1731600,661.74,3.06,677.15,567.24,0.68
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6526 | 達發 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 6526 | 達發 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6526 | 達發 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260527 | 6526 | 達發 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6526 | 達發 | 36 | 1 | 14537940.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260527 | 6526 | 達發 | 36 | 1 | 4966870.0 | 17100.0 | 290.46 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

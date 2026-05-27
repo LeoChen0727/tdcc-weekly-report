@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8046 南電
 
 ## Metadata
-- generated_at: 2026-05-26 23:55:04 Asia/Taipei
+- generated_at: 2026-05-27 21:28:26 Asia/Taipei
 - stock_id: 8046
 - stock_name: 南電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 888
-- high: 947
-- low: 871
-- close: 922
-- volume: 24438087
-- ma5: 888.2
-- ema23_primary: 850.35
-- distance_to_ema23_pct: 8.43
-- ma20: 896.4
-- ma60: 698.27
-- ma120: 501.97
-- return_5d: 15.54
-- return_20d: 0.99
-- volume_ratio: 1.37
-- distance_to_ma20_pct_auxiliary: 2.86
-- distance_to_high_60_pct: -10.92
+- date: 20260527
+- open: 939
+- high: 966
+- low: 897
+- close: 905
+- volume: 22754033
+- ma5: 903.4
+- ema23_primary: 854.9
+- distance_to_ema23_pct: 5.86
+- ma20: 895.05
+- ma60: 704.11
+- ma120: 507.43
+- return_5d: 9.17
+- return_20d: -2.9
+- volume_ratio: 1.27
+- distance_to_ma20_pct_auxiliary: 1.11
+- distance_to_high_60_pct: -12.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,937,977,904,932,23729993,716.9,30,707.25,544.03,1.01
 20260429,925,963,910,916,17717098,733.49,24.88,724.05,553.28,0.76
 20260430,935,1005,926,1005,20919397,756.11,32.92,748.2,563.86,0.9
 20260504,1020,1025,960,986,22522372,775.27,27.18,768.8,573.92,0.96
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,904,952,904,934,17476938,840.18,11.17,895.45,685.77,0.99
 20260525,940,947,879,884,30914905,843.83,4.76,895.95,692.12,1.71
 20260526,888,947,871,922,24438087,850.35,8.43,896.4,698.27,1.37
+20260527,939,966,897,905,22754033,854.9,5.86,895.05,704.11,1.27
 ```
 
 ## Latest TDCC Snapshot
@@ -125,19 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8046 | 南電 | pullback_rebound | 回檔後短線轉強 | 62.0 |  |  |  |  | put_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 8046 | 南電 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | put_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260526 | 8046 | 南電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | put_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 8046 | 南電 | revenue_pullback | 營收成長股價回檔 | 74.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8046 | 南電 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 8046 | 南電 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8046 | 南電 | 118 | 19 | 6336780.0 | 1039710.0 | 6.09 | put_inflow | -1 | 認售權證資金升溫，偏空或避險訊號 |
+| 20260527 | 8046 | 南電 | 118 | 19 | 5325240.0 | 397350.0 | 13.4 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

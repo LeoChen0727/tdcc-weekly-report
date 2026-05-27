@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00645 富邦日本
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:44 Asia/Taipei
+- generated_at: 2026-05-27 21:26:00 Asia/Taipei
 - stock_id: 00645
 - stock_name: 富邦日本
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 55.45
-- high: 55.55
-- low: 55.35
-- close: 55.5
-- volume: 177931
+- date: 20260527
+- open: 55.5
+- high: 55.5
+- low: 55.15
+- close: 55.15
+- volume: 327227
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,54.8,54.95,54.7,54.85,179481,,,,,
 20260525,55.4,55.6,55.3,55.45,238431,,,,,
 20260526,55.45,55.55,55.35,55.5,177931,,,,,
+20260527,55.5,55.5,55.15,55.15,327227,,,,,
 ```
 
 ## Latest TDCC Snapshot

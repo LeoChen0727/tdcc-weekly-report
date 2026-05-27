@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3013 晟銘電
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:35 Asia/Taipei
+- generated_at: 2026-05-27 21:26:52 Asia/Taipei
 - stock_id: 3013
 - stock_name: 晟銘電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 123
-- high: 124.5
-- low: 118.5
-- close: 124
-- volume: 13122956
-- ma5: 111
-- ema23_primary: 108.25
-- distance_to_ema23_pct: 14.55
-- ma20: 107.78
-- ma60: 104.25
-- ma120: 113.95
-- return_5d: 24.37
-- return_20d: 9.73
-- volume_ratio: 2.89
-- distance_to_ma20_pct_auxiliary: 15.04
-- distance_to_high_60_pct: -1.59
+- date: 20260527
+- open: 124
+- high: 125
+- low: 119
+- close: 119.5
+- volume: 8185601
+- ma5: 115.2
+- ema23_primary: 109.18
+- distance_to_ema23_pct: 9.45
+- ma20: 108.19
+- ma60: 104.35
+- ma120: 113.97
+- return_5d: 21.32
+- return_20d: 7.17
+- volume_ratio: 1.71
+- distance_to_ma20_pct_auxiliary: 10.46
+- distance_to_high_60_pct: -5.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,112.5,115,111,111.5,3420241,107.22,3.99,105.92,105.97,0.69
 20260429,111,112.5,109.5,112,2474254,107.62,4.07,106.3,105.89,0.55
 20260430,111,111,104,104.5,6974143,107.36,-2.66,106.7,105.64,1.5
 20260504,105,107.5,104,106.5,2552662,107.29,-0.73,107.03,105.43,0.55
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,101.5,110.5,101.5,110.5,6115722,105.48,4.76,106.78,103.89,1.76
 20260525,113.5,121.5,113,121.5,19744095,106.81,13.75,107.23,104.06,4.82
 20260526,123,124.5,118.5,124,13122956,108.25,14.55,107.78,104.25,2.89
+20260527,124,125,119,119.5,8185601,109.18,9.45,108.19,104.35,1.71
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3013 | 晟銘電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 3013 | 晟銘電 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 3013 | 晟銘電 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3013 | 晟銘電 | 4 | 4 | 4 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260527 | 3013 | 晟銘電 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3013 | 晟銘電 | 72 | 0 | 28185410.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260527 | 3013 | 晟銘電 | 71 | 0 | 12618560.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009811 統一美國50
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:48 Asia/Taipei
+- generated_at: 2026-05-27 21:26:03 Asia/Taipei
 - stock_id: 009811
 - stock_name: 統一美國50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 13.02
-- high: 13.02
-- low: 12.97
-- close: 13
-- volume: 1415676
+- date: 20260527
+- open: 13
+- high: 13
+- low: 12.95
+- close: 12.95
+- volume: 2842804
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,12.98,12.98,12.93,12.96,1243035,,,,,
 20260525,13.01,13.04,13,13.02,2528938,,,,,
 20260526,13.02,13.02,12.97,13,1415676,,,,,
+20260527,13,13,12.95,12.95,2842804,,,,,
 ```
 
 ## Latest TDCC Snapshot

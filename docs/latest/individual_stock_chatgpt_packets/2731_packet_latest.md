@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2731 雄獅
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:29 Asia/Taipei
+- generated_at: 2026-05-27 21:26:46 Asia/Taipei
 - stock_id: 2731
 - stock_name: 雄獅
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 26
 - tdcc_history_status: tdcc_history_ready
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 163.5
-- high: 168
-- low: 163
-- close: 168
-- volume: 2764384
-- ma5: 161.6
-- ema23_primary: 161
-- distance_to_ema23_pct: 4.35
-- ma20: 160.43
-- ma60: 163.37
-- ma120: 166.62
-- return_5d: 4.67
-- return_20d: 5.99
-- volume_ratio: 2.83
-- distance_to_ma20_pct_auxiliary: 4.72
-- distance_to_high_60_pct: -5.35
+- date: 20260527
+- open: 169
+- high: 169
+- low: 165.5
+- close: 166
+- volume: 1287015
+- ma5: 162.8
+- ema23_primary: 161.41
+- distance_to_ema23_pct: 2.84
+- ma20: 160.75
+- ma60: 163.21
+- ma120: 166.51
+- return_5d: 3.75
+- return_20d: 4.08
+- volume_ratio: 1.27
+- distance_to_ma20_pct_auxiliary: 3.27
+- distance_to_high_60_pct: -6.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,160,161,158.5,159.5,533265,161.51,-1.25,160.25,167.51,0.58
 20260429,160.5,160.5,158,158.5,510364,161.26,-1.71,160.2,167.31,0.58
 20260430,159,160.5,158.5,159,529915,161.07,-1.29,160.38,167.07,0.63
 20260504,159.5,161.5,159,161.5,715987,161.11,0.24,160.4,166.91,0.85
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,161.5,162,160,160,456869,160.39,-0.24,159.82,163.72,0.53
 20260525,161.5,161.5,159.5,160,924795,160.36,-0.22,159.95,163.45,1.06
 20260526,163.5,168,163,168,2764384,161,4.35,160.43,163.37,2.83
+20260527,169,169,165.5,166,1287015,161.41,2.84,160.75,163.21,1.27
 ```
 
 ## Latest TDCC Snapshot
@@ -131,19 +131,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2731 | 雄獅 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  | call_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2731 | 雄獅 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2731 | 雄獅 | 9 | 0 | 1201590.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260527 | 2731 | 雄獅 | 9 | 0 | 546460.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

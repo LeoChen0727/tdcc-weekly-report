@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3485 敘豐
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:49 Asia/Taipei
+- generated_at: 2026-05-27 21:27:07 Asia/Taipei
 - stock_id: 3485
 - stock_name: 敘豐
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 15
+- latest_price_date: 20260527
+- price_rows: 16
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 317
-- high: 320.5
-- low: 300.5
-- close: 320.5
-- volume: 313000
-- ma5: 272.1
-- ema23_primary: 286.28
-- distance_to_ema23_pct: 11.95
-- ma20: 280.9
-- ma60: 280.9
-- ma120: 280.9
-- return_5d: 27.94
+- date: 20260527
+- open: 342.5
+- high: 343.5
+- low: 304
+- close: 322
+- volume: 319000
+- ma5: 288
+- ema23_primary: 289.26
+- distance_to_ema23_pct: 11.32
+- ma20: 283.47
+- ma60: 283.47
+- ma120: 283.47
+- return_5d: 32.78
 - return_20d: 
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: 14.1
-- distance_to_high_60_pct: -0.77
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: 13.59
+- distance_to_high_60_pct: -6.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -92,6 +92,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,225.5,265,225.5,265,252000,282.41,-6.17,277.04,277.04,0.41
 20260525,291.5,291.5,291.5,291.5,292000,283.17,2.94,278.07,278.07,0.49
 20260526,317,320.5,300.5,320.5,313000,286.28,11.95,280.9,280.9,0.54
+20260527,342.5,343.5,304,322,319000,289.26,11.32,283.47,283.47,0.57
 ```
 
 ## Latest TDCC Snapshot

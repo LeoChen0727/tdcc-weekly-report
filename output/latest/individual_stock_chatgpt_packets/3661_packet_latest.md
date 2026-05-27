@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3661 世芯-KY
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:56 Asia/Taipei
+- generated_at: 2026-05-27 21:27:14 Asia/Taipei
 - stock_id: 3661
 - stock_name: 世芯-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 4945
-- high: 4955
-- low: 4640
-- close: 4640
-- volume: 1916456
-- ma5: 4788
-- ema23_primary: 4494.28
-- distance_to_ema23_pct: 3.24
-- ma20: 4632.5
-- ma60: 3716.67
-- ma120: 3519.08
-- return_5d: 4.74
-- return_20d: 11.54
-- volume_ratio: 0.8
-- distance_to_ma20_pct_auxiliary: 0.16
-- distance_to_high_60_pct: -17.73
+- date: 20260527
+- open: 4785
+- high: 4845
+- low: 4460
+- close: 4500
+- volume: 2528669
+- ma5: 4768
+- ema23_primary: 4494.75
+- distance_to_ema23_pct: 0.12
+- ma20: 4657.5
+- ma60: 3733.5
+- ma120: 3531.67
+- return_5d: -2.17
+- return_20d: 12.5
+- volume_ratio: 1.06
+- distance_to_ma20_pct_auxiliary: -3.38
+- distance_to_high_60_pct: -20.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,4185,4245,3990,4000,2376054,3528.85,13.35,3333.75,3290.33,0.81
 20260429,4000,4065,3900,4005,1731909,3568.52,12.23,3396.5,3303.08,0.62
 20260430,4135,4275,4130,4135,2862609,3615.73,14.36,3479,3317.42,1.07
 20260504,4290,4340,4135,4250,2805978,3668.59,15.85,3555,3331.08,1.03
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,4955,4960,4750,4895,1648310,4442.94,10.17,4574.25,3672.83,0.66
 20260525,5020,5050,4900,4900,1584407,4481.03,9.35,4608.5,3697.33,0.65
 20260526,4945,4955,4640,4640,1916456,4494.28,3.24,4632.5,3716.67,0.8
+20260527,4785,4845,4460,4500,2528669,4494.75,0.12,4657.5,3733.5,1.06
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3661 | 世芯-KY | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | put_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 3661 | 世芯-KY | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | mixed_flow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3661 | 世芯-KY | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260527 | 3661 | 世芯-KY | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3661 | 世芯-KY | 462 | 24 | 82077960.0 | 1102910.0 | 74.42 | put_inflow | -1 | 認售權證資金升溫，偏空或避險訊號 |
+| 20260527 | 3661 | 世芯-KY | 461 | 24 | 104154590.0 | 1811600.0 | 57.49 | mixed_flow | 0 | 認購權證成交金額很大且認購/認售比偏高，需檢查標的是否高位追價或獲利結清；認購權證成交量與成交金額同步偏大，短線資金關注度高 |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

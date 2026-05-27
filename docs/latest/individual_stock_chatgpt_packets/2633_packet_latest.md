@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2633 台灣高鐵
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:27 Asia/Taipei
+- generated_at: 2026-05-27 21:26:44 Asia/Taipei
 - stock_id: 2633
 - stock_name: 台灣高鐵
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 25.25
-- high: 25.3
-- low: 25.05
-- close: 25.05
-- volume: 16178625
-- ma5: 25.59
-- ema23_primary: 26.05
-- distance_to_ema23_pct: -3.83
-- ma20: 26.12
-- ma60: 26.38
-- ma120: 26.97
-- return_5d: -3.47
-- return_20d: -4.93
-- volume_ratio: 2.11
-- distance_to_ma20_pct_auxiliary: -4.11
-- distance_to_high_60_pct: -8.07
+- date: 20260527
+- open: 25.1
+- high: 25.55
+- low: 24.8
+- close: 25.25
+- volume: 16971023
+- ma5: 25.47
+- ema23_primary: 25.98
+- distance_to_ema23_pct: -2.81
+- ma20: 26.06
+- ma60: 26.35
+- ma120: 26.95
+- return_5d: -2.32
+- return_20d: -4.54
+- volume_ratio: 2.05
+- distance_to_ma20_pct_auxiliary: -3.12
+- distance_to_high_60_pct: -7.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,26.55,26.6,26.25,26.45,4894671,26.61,-0.59,26.68,26.72,0.91
 20260429,26.6,26.7,26.25,26.65,6223781,26.61,0.15,26.69,26.71,1.19
 20260430,26.6,26.6,26.4,26.5,5489391,26.6,-0.38,26.7,26.7,1.07
 20260504,26.55,26.55,26.3,26.4,4245041,26.58,-0.7,26.68,26.69,0.85
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,25.8,25.95,25.8,25.8,8569002,26.21,-1.58,26.26,26.45,1.39
 20260525,25.75,25.8,25.3,25.3,24174212,26.14,-3.2,26.19,26.41,3.39
 20260526,25.25,25.3,25.05,25.05,16178625,26.05,-3.83,26.12,26.38,2.11
+20260527,25.1,25.55,24.8,25.25,16971023,25.98,-2.81,26.06,26.35,2.05
 ```
 
 ## Latest TDCC Snapshot
@@ -135,7 +135,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2633 | 台灣高鐵 | 2 | 0 | 88060.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 2633 | 台灣高鐵 | 2 | 0 | 227690.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

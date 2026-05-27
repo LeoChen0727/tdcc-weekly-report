@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00903 富邦元宇宙
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:46 Asia/Taipei
+- generated_at: 2026-05-27 21:26:02 Asia/Taipei
 - stock_id: 00903
 - stock_name: 富邦元宇宙
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 22.05
-- high: 22.05
-- low: 22
-- close: 22.01
-- volume: 82167
+- date: 20260527
+- open: 22.26
+- high: 22.36
+- low: 22.26
+- close: 22.29
+- volume: 525035
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,21.6,21.69,21.6,21.69,142774,,,,,
 20260525,22.07,22.11,22.06,22.1,1142410,,,,,
 20260526,22.05,22.05,22,22.01,82167,,,,,
+20260527,22.26,22.36,22.26,22.29,525035,,,,,
 ```
 
 ## Latest TDCC Snapshot

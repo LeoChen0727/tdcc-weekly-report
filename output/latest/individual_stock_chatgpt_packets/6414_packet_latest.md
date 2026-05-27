@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6414 樺漢
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:38 Asia/Taipei
+- generated_at: 2026-05-27 21:27:59 Asia/Taipei
 - stock_id: 6414
 - stock_name: 樺漢
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 364
-- high: 364
-- low: 348
-- close: 355.5
-- volume: 1568429
-- ma5: 349.7
-- ema23_primary: 335.42
-- distance_to_ema23_pct: 5.99
-- ma20: 341.45
-- ma60: 301.72
-- ma120: 295.77
-- return_5d: 8.38
-- return_20d: 14.13
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: 4.11
-- distance_to_high_60_pct: -3.4
+- date: 20260527
+- open: 358.5
+- high: 363.5
+- low: 354
+- close: 360
+- volume: 1634263
+- ma5: 355.4
+- ema23_primary: 337.46
+- distance_to_ema23_pct: 6.68
+- ma20: 343.38
+- ma60: 302.97
+- ma120: 296.38
+- return_5d: 8.6
+- return_20d: 11.98
+- volume_ratio: 0.79
+- distance_to_ma20_pct_auxiliary: 4.84
+- distance_to_high_60_pct: -2.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,313.5,321.5,310.5,321.5,1766906,297.4,8.1,294.57,283.65,1.02
 20260429,321.5,322.5,318,319.5,803477,299.24,6.77,297.1,284.19,0.47
 20260430,318.5,323,316.5,322,1251370,301.14,6.93,299.65,284.72,0.78
 20260504,323,334.5,323,334,2405527,303.87,9.91,302.62,285.43,1.5
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,352,353.5,347,350.5,1454615,330.87,5.93,336.7,299.21,0.72
 20260525,356.5,368,355,363.5,2265136,333.59,8.97,339.25,300.54,1.1
 20260526,364,364,348,355.5,1568429,335.42,5.99,341.45,301.72,0.75
+20260527,358.5,363.5,354,360,1634263,337.46,6.68,343.38,302.97,0.79
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6414 | 樺漢 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260521 | 6414 | 樺漢 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 6414 | 樺漢 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 6414 | 樺漢 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260521 | 6414 | 樺漢 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6414 | 樺漢 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 6414 | 樺漢 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6414 | 樺漢 | 25 | 0 | 4022680.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260527 | 6414 | 樺漢 | 25 | 0 | 4153230.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

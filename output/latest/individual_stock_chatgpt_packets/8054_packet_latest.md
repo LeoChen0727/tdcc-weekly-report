@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8054 安國
 
 ## Metadata
-- generated_at: 2026-05-26 23:55:05 Asia/Taipei
+- generated_at: 2026-05-27 21:28:26 Asia/Taipei
 - stock_id: 8054
 - stock_name: 安國
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 117
-- high: 117.5
-- low: 110
-- close: 112
-- volume: 113000
-- ma5: 111.1
-- ema23_primary: 107.03
-- distance_to_ema23_pct: 4.65
-- ma20: 106.92
-- ma60: 103.93
-- ma120: 118.24
-- return_5d: 6.16
-- return_20d: 5.66
+- date: 20260527
+- open: 113
+- high: 115
+- low: 106.5
+- close: 107.5
+- volume: 110000
+- ma5: 111.3
+- ema23_primary: 107.07
+- distance_to_ema23_pct: 0.41
+- ma20: 106.83
+- ma60: 103.71
+- ma120: 118.09
+- return_5d: 0.94
+- return_20d: -1.83
 - volume_ratio: 0.05
-- distance_to_ma20_pct_auxiliary: 4.75
-- distance_to_high_60_pct: -13.85
+- distance_to_ma20_pct_auxiliary: 0.63
+- distance_to_high_60_pct: -17.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,107.5,111,107,109.5,3576000,105.04,4.24,101.91,109.89,1.1
 20260429,107.5,110.5,106.5,107.5,2161000,105.25,2.14,102.44,109.67,0.66
 20260430,108,111,106,106,2672000,105.31,0.65,103.2,109.43,0.8
 20260504,107.5,107.5,103,106,1994000,105.37,0.6,103.78,109.17,0.59
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,112,118,107,111.5,111000,105.72,5.47,106.1,104.13,0.04
 20260525,112.5,119.5,111,116,115000,106.57,8.85,106.62,104.08,0.05
 20260526,117,117.5,110,112,113000,107.03,4.65,106.92,103.93,0.05
+20260527,113,115,106.5,107.5,110000,107.07,0.41,106.83,103.71,0.05
 ```
 
 ## Latest TDCC Snapshot
@@ -130,7 +130,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8054 | 安國 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 8054 | 安國 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

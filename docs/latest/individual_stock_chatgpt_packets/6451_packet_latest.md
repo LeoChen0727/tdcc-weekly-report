@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6451 訊芯-KY
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:40 Asia/Taipei
+- generated_at: 2026-05-27 21:28:00 Asia/Taipei
 - stock_id: 6451
 - stock_name: 訊芯-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 600
-- high: 633
-- low: 556
-- close: 632
-- volume: 9341995
-- ma5: 543.3
-- ema23_primary: 493.19
-- distance_to_ema23_pct: 28.15
-- ma20: 492.48
-- ma60: 379
-- ma120: 270.73
-- return_5d: 30.58
-- return_20d: 66.53
-- volume_ratio: 1.67
-- distance_to_ma20_pct_auxiliary: 28.33
-- distance_to_high_60_pct: -0.16
+- date: 20260527
+- open: 634
+- high: 653
+- low: 583
+- close: 602
+- volume: 7794709
+- ma5: 566.6
+- ema23_primary: 502.25
+- distance_to_ema23_pct: 19.86
+- ma20: 502.32
+- ma60: 385.55
+- ma120: 274.63
+- return_5d: 24
+- return_20d: 48.64
+- volume_ratio: 1.31
+- distance_to_ma20_pct_auxiliary: 19.84
+- distance_to_high_60_pct: -7.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,383.5,409.5,363.5,405,771044,397.91,1.78,412.43,276.5,0.24
 20260429,399.5,415,397,397.5,671997,397.88,-0.09,415.88,280.58,0.22
 20260430,410,431.5,410,431,920534,400.64,7.58,422.62,285.23,0.3
 20260504,456,474,435,474,1269733,406.75,16.53,431.07,290.67,0.43
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,516,533,502,524,4693315,471.89,11.04,471.15,365.73,0.92
 20260525,549,576,544,576,3614079,480.57,19.86,479.85,371.98,0.69
 20260526,600,633,556,632,9341995,493.19,28.15,492.48,379,1.67
+20260527,634,653,583,602,7794709,502.25,19.86,502.32,385.55,1.31
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6451 | 訊芯-KY | true_breakout | 嚴格突破 | 87.0 |  |  | breakout_confirmed |  | call_put_bullish | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 6451 | 訊芯-KY | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_put_bullish | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 6451 | 訊芯-KY | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6451 | 訊芯-KY | 4 | 4 | 4 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260527 | 6451 | 訊芯-KY | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6451 | 訊芯-KY | 84 | 3 | 13749780.0 | 253320.0 | 54.28 | call_put_bullish | 3 |  |
+| 20260527 | 6451 | 訊芯-KY | 84 | 3 | 4664840.0 | 172920.0 | 26.98 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

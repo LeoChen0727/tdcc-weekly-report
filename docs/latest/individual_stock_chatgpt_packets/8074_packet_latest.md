@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8074 鉅橡
 
 ## Metadata
-- generated_at: 2026-05-26 23:55:05 Asia/Taipei
+- generated_at: 2026-05-27 21:28:27 Asia/Taipei
 - stock_id: 8074
 - stock_name: 鉅橡
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 81.6
-- high: 82.7
-- low: 78.5
-- close: 80
-- volume: 80000
-- ma5: 77.4
-- ema23_primary: 77.07
-- distance_to_ema23_pct: 3.81
-- ma20: 79.6
-- ma60: 69.33
-- ma120: 60.23
-- return_5d: 7.67
-- return_20d: 13.64
+- date: 20260527
+- open: 81.2
+- high: 81.2
+- low: 77.1
+- close: 78.1
+- volume: 79000
+- ma5: 78.46
+- ema23_primary: 77.15
+- distance_to_ema23_pct: 1.23
+- ma20: 79.9
+- ma60: 69.47
+- ma120: 60.6
+- return_5d: 7.28
+- return_20d: 8.32
 - volume_ratio: 0.02
-- distance_to_ma20_pct_auxiliary: 0.5
-- distance_to_high_60_pct: -16.93
+- distance_to_ma20_pct_auxiliary: -2.25
+- distance_to_high_60_pct: -18.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,70.3,72.8,69.1,72.1,2943000,68.88,4.67,67.28,64.51,0.35
 20260429,71.8,75.8,70.9,73,3707000,69.23,5.45,68.16,64.53,0.43
 20260430,73.6,80.3,72.9,80.3,7919000,70.15,14.47,69.53,64.75,0.89
 20260504,88,88.3,83.2,88.3,10861000,71.66,23.22,71.16,65.16,1.15
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,75,79.5,75,78.8,78000,76.43,3.1,78.85,68.91,0.02
 20260525,81.4,84.3,80.1,80.9,82000,76.8,5.34,79.12,69.11,0.02
 20260526,81.6,82.7,78.5,80,80000,77.07,3.81,79.6,69.33,0.02
+20260527,81.2,81.2,77.1,78.1,79000,77.15,1.23,79.9,69.47,0.02
 ```
 
 ## Latest TDCC Snapshot
@@ -130,7 +130,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8074 | 鉅橡 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 8074 | 鉅橡 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

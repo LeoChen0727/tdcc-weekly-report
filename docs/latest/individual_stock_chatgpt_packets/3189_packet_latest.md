@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3189 景碩
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:42 Asia/Taipei
+- generated_at: 2026-05-27 21:26:59 Asia/Taipei
 - stock_id: 3189
 - stock_name: 景碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 670
-- high: 719
-- low: 654
-- close: 696
-- volume: 50429815
-- ma5: 606.4
-- ema23_primary: 525.99
-- distance_to_ema23_pct: 32.32
-- ma20: 529.38
-- ma60: 417.05
-- ma120: 301.26
-- return_5d: 35.67
-- return_20d: 35.15
-- volume_ratio: 1.67
-- distance_to_ma20_pct_auxiliary: 31.48
-- distance_to_high_60_pct: -3.2
+- date: 20260527
+- open: 726
+- high: 764
+- low: 693
+- close: 702
+- volume: 30662886
+- ma5: 646
+- ema23_primary: 540.66
+- distance_to_ema23_pct: 29.84
+- ma20: 539.08
+- ma60: 423.51
+- ma120: 306.04
+- return_5d: 39.29
+- return_20d: 38.19
+- volume_ratio: 1.04
+- distance_to_ma20_pct_auxiliary: 30.22
+- distance_to_high_60_pct: -8.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,521,538,496,508,44138536,418.19,21.48,408.88,328.32,1.39
 20260429,508,516,490,508,24948151,425.67,19.34,416.95,333.45,0.76
 20260430,516,556,510,528,49392113,434.2,21.6,427.7,338.82,1.42
 20260504,544,544,512,531,24877312,442.27,20.06,437.65,344.11,0.7
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,588,609,588,609,11454728,496.13,22.75,513.17,405.07,0.35
 20260525,664,669,660,669,8536899,510.54,31.04,520.33,410.88,0.28
 20260526,670,719,654,696,50429815,525.99,32.32,529.38,417.05,1.67
+20260527,726,764,693,702,30662886,540.66,29.84,539.08,423.51,1.04
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3189 | 景碩 | true_breakout | 嚴格突破 | 74.0 |  |  | platform_breakout |  | call_put_bullish | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3189 | 景碩 | 2 | 2 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3189 | 景碩 | 159 | 14 | 47568460.0 | 347920.0 | 136.72 | call_put_bullish | 3 |  |
+| 20260527 | 3189 | 景碩 | 159 | 14 | 33504200.0 | 349130.0 | 95.96 | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

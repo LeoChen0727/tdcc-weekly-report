@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3532 台勝科
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:51 Asia/Taipei
+- generated_at: 2026-05-27 21:27:09 Asia/Taipei
 - stock_id: 3532
 - stock_name: 台勝科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 297
-- high: 300
-- low: 293.5
-- close: 300
-- volume: 3630484
-- ma5: 250.6
-- ema23_primary: 228.08
-- distance_to_ema23_pct: 31.53
-- ma20: 233.9
-- ma60: 176.72
-- ma120: 146.01
-- return_5d: 48.51
-- return_20d: 64.84
-- volume_ratio: 0.83
-- distance_to_ma20_pct_auxiliary: 28.26
-- distance_to_high_60_pct: 0
+- date: 20260527
+- open: 299.5
+- high: 316.5
+- low: 280
+- close: 290.5
+- volume: 10671282
+- ma5: 267.6
+- ema23_primary: 233.28
+- distance_to_ema23_pct: 24.53
+- ma20: 239.53
+- ma60: 179.26
+- ma120: 147.72
+- return_5d: 41.36
+- return_20d: 63.2
+- volume_ratio: 2.18
+- distance_to_ma20_pct_auxiliary: 21.28
+- distance_to_high_60_pct: -8.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,183,183,177,178,849877,166.81,6.71,166.03,146.57,0.28
 20260429,179,185,178,181.5,1121290,168.03,8.01,168.07,147.4,0.37
 20260430,190.5,199.5,188,189,8140774,169.78,11.32,171,148.32,2.43
 20260504,192.5,207.5,191.5,207.5,4853450,172.92,19.99,174.62,149.34,1.37
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,235,248.5,235,248.5,1358746,216.87,14.59,222.97,171.78,0.33
 20260525,273,273,265,273,4498068,221.54,23.23,228,174.02,1.05
 20260526,297,300,293.5,300,3630484,228.08,31.53,233.9,176.72,0.83
+20260527,299.5,316.5,280,290.5,10671282,233.28,24.53,239.53,179.26,2.18
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3532 | 台勝科 | true_breakout | 嚴格突破 | 61.0 |  |  |  |  | call_strong_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 3532 | 台勝科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3532 | 台勝科 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260527 | 3532 | 台勝科 | 2 | 1 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3532 | 台勝科 | 65 | 0 | 5085380.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260527 | 3532 | 台勝科 | 65 | 0 | 6883320.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

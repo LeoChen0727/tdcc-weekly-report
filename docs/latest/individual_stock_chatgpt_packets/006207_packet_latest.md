@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 006207 復華滬深
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:44 Asia/Taipei
+- generated_at: 2026-05-27 21:26:00 Asia/Taipei
 - stock_id: 006207
 - stock_name: 復華滬深
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 33.38
-- high: 33.74
-- low: 33.38
-- close: 33.58
-- volume: 310043
+- date: 20260527
+- open: 33.56
+- high: 33.9
+- low: 33.5
+- close: 33.61
+- volume: 392900
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,33.31,33.31,32.81,32.99,162877,,,,,
 20260525,33.16,33.41,33.16,33.38,154426,,,,,
 20260526,33.38,33.74,33.38,33.58,310043,,,,,
+20260527,33.56,33.9,33.5,33.61,392900,,,,,
 ```
 
 ## Latest TDCC Snapshot

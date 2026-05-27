@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6166 凌華
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:30 Asia/Taipei
+- generated_at: 2026-05-27 21:27:50 Asia/Taipei
 - stock_id: 6166
 - stock_name: 凌華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 127.5
-- high: 133
-- low: 123.5
-- close: 133
-- volume: 3243988
-- ma5: 124.1
-- ema23_primary: 102.67
-- distance_to_ema23_pct: 29.55
-- ma20: 100.87
-- ma60: 76.52
-- ma120: 69.93
-- return_5d: 17.18
-- return_20d: 79.25
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: 31.85
-- distance_to_high_60_pct: 0
+- date: 20260527
+- open: 135.5
+- high: 138.5
+- low: 132
+- close: 136
+- volume: 2753798
+- ma5: 128.2
+- ema23_primary: 105.44
+- distance_to_ema23_pct: 28.98
+- ma20: 103.81
+- ma60: 77.7
+- ma120: 70.61
+- return_5d: 17.75
+- return_20d: 76.39
+- volume_ratio: 0.59
+- distance_to_ma20_pct_auxiliary: 31
+- distance_to_high_60_pct: -1.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,76.6,78.3,75.1,77.1,1454018,69.91,10.28,68.27,63.99,0.92
 20260429,77.6,78,74.5,74.5,960993,70.3,5.98,69.05,64.19,0.59
 20260430,74.5,76.7,73.8,75,803457,70.69,6.1,69.92,64.39,0.49
 20260504,77.6,82.5,77.1,82.3,4452902,71.66,14.86,71.14,64.7,2.41
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,122,130,119,127,4729382,97.49,30.27,95.41,74.35,1.08
 20260525,128.5,130,124.5,126.5,3422973,99.91,26.61,97.93,75.38,0.77
 20260526,127.5,133,123.5,133,3243988,102.67,29.55,100.87,76.52,0.71
+20260527,135.5,138.5,132,136,2753798,105.44,28.98,103.81,77.7,0.59
 ```
 
 ## Latest TDCC Snapshot
@@ -128,14 +128,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6166 | 凌華 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6166 | 凌華 | 5 | 0 | 202800.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 6166 | 凌華 | 5 | 0 | 85400.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

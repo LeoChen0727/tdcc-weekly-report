@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3705 永信
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:57 Asia/Taipei
+- generated_at: 2026-05-27 21:27:16 Asia/Taipei
 - stock_id: 3705
 - stock_name: 永信
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 26
 - tdcc_history_status: tdcc_history_ready
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 55.7
-- high: 55.8
+- date: 20260527
+- open: 55.9
+- high: 56
 - low: 55.4
-- close: 55.7
-- volume: 144862
-- ma5: 55.76
+- close: 55.5
+- volume: 303632
+- ma5: 55.7
 - ema23_primary: 55.56
-- distance_to_ema23_pct: 0.24
-- ma20: 55.6
-- ma60: 54.81
+- distance_to_ema23_pct: -0.11
+- ma20: 55.62
+- ma60: 54.83
 - ma120: 55.66
-- return_5d: -0.36
-- return_20d: 1.09
-- volume_ratio: 0.79
-- distance_to_ma20_pct_auxiliary: 0.17
-- distance_to_high_60_pct: -1.76
+- return_5d: -0.54
+- return_20d: 0.54
+- volume_ratio: 1.58
+- distance_to_ma20_pct_auxiliary: -0.22
+- distance_to_high_60_pct: -2.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,55.1,55.4,54.6,55.2,148112,55.01,0.35,55.26,54.91,0.61
 20260429,55.9,56.7,55.6,55.7,188659,55.06,1.16,55.31,54.89,0.79
 20260430,55.7,55.7,55.5,55.6,122116,55.11,0.89,55.38,54.87,0.52
 20260504,55.6,56.1,55.1,55.1,291841,55.11,-0.01,55.41,54.84,1.25
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,55.6,55.8,55.5,55.7,186594,55.53,0.31,55.52,54.8,1.04
 20260525,55.7,55.8,55.3,55.8,175231,55.55,0.45,55.58,54.8,0.95
 20260526,55.7,55.8,55.4,55.7,144862,55.56,0.24,55.6,54.81,0.79
+20260527,55.9,56,55.4,55.5,303632,55.56,-0.11,55.62,54.83,1.58
 ```
 
 ## Latest TDCC Snapshot
@@ -143,7 +143,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3705 | 永信 | 3 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 3705 | 永信 | 3 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

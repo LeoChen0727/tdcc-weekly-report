@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6196 帆宣
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:32 Asia/Taipei
+- generated_at: 2026-05-27 21:27:52 Asia/Taipei
 - stock_id: 6196
 - stock_name: 帆宣
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 489
-- high: 529
-- low: 489
-- close: 506
-- volume: 6296212
-- ma5: 453.5
-- ema23_primary: 412.61
-- distance_to_ema23_pct: 22.63
-- ma20: 413.88
-- ma60: 343.59
-- ma120: 305.61
-- return_5d: 24.94
-- return_20d: 32.98
-- volume_ratio: 1.94
-- distance_to_ma20_pct_auxiliary: 22.26
-- distance_to_high_60_pct: -4.35
+- date: 20260527
+- open: 523
+- high: 523
+- low: 491
+- close: 500
+- volume: 3485959
+- ma5: 472.7
+- ema23_primary: 419.89
+- distance_to_ema23_pct: 19.08
+- ma20: 419.8
+- ma60: 346.84
+- ma120: 307.94
+- return_5d: 23.76
+- return_20d: 31.06
+- volume_ratio: 1.04
+- distance_to_ma20_pct_auxiliary: 19.1
+- distance_to_high_60_pct: -5.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,389,389.5,378,381.5,1482722,343.92,10.93,338.23,300.94,0.45
 20260429,381,381.5,371.5,376.5,932183,346.63,8.62,342.98,302.38,0.28
 20260430,376.5,385,371.5,378,1569919,349.25,8.23,348.23,303.75,0.48
 20260504,386,388,379,383,1900320,352.06,8.79,353.38,305.27,0.57
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,444,447.5,436,442,2960893,396.68,11.43,402.6,336.71,0.94
 20260525,477,486,475,486,1790886,404.12,20.26,407.6,340.02,0.58
 20260526,489,529,489,506,6296212,412.61,22.63,413.88,343.59,1.94
+20260527,523,523,491,500,3485959,419.89,19.08,419.8,346.84,1.04
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6196 | 帆宣 | true_breakout | 嚴格突破 | 84.0 |  |  | platform_breakout |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6196 | 帆宣 | 2 | 2 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6196 | 帆宣 | 87 | 2 | 13573990.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260527 | 6196 | 帆宣 | 88 | 2 | 8387300.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

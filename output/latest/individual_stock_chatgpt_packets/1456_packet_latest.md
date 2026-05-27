@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1456 怡華
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:55 Asia/Taipei
+- generated_at: 2026-05-27 21:26:11 Asia/Taipei
 - stock_id: 1456
 - stock_name: 怡華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 12.95
+- date: 20260527
+- open: 12.9
 - high: 13.1
-- low: 12.5
-- close: 13
-- volume: 172177
-- ma5: 12.93
-- ema23_primary: 13.44
-- distance_to_ema23_pct: -3.25
-- ma20: 13.44
+- low: 12.65
+- close: 13.05
+- volume: 94370
+- ma5: 12.95
+- ema23_primary: 13.4
+- distance_to_ema23_pct: -2.65
+- ma20: 13.42
 - ma60: 13.77
-- ma120: 13.42
-- return_5d: -1.89
-- return_20d: -2.62
-- volume_ratio: 1.91
-- distance_to_ma20_pct_auxiliary: -3.27
-- distance_to_high_60_pct: -19.75
+- ma120: 13.43
+- return_5d: 0.77
+- return_20d: -2.97
+- volume_ratio: 1.02
+- distance_to_ma20_pct_auxiliary: -2.76
+- distance_to_high_60_pct: -19.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,13.6,13.6,13.15,13.45,51101,14.01,-3.99,14.18,13.66,0.45
 20260429,13.5,14,13.2,13.7,60100,13.98,-2.02,14.14,13.66,0.53
 20260430,13.55,13.95,13.55,13.7,38759,13.96,-1.86,14.15,13.68,0.35
 20260504,14.05,14.05,13.3,13.3,22240,13.9,-4.35,14.07,13.68,0.23
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,12.95,13.25,12.85,12.85,20124,13.53,-4.99,13.5,13.78,0.23
 20260525,12.85,13,12.75,12.95,33992,13.48,-3.91,13.46,13.78,0.4
 20260526,12.95,13.1,12.5,13,172177,13.44,-3.25,13.44,13.77,1.91
+20260527,12.9,13.1,12.65,13.05,94370,13.4,-2.65,13.42,13.77,1.02
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8150 南茂
 
 ## Metadata
-- generated_at: 2026-05-26 23:55:08 Asia/Taipei
+- generated_at: 2026-05-27 21:28:29 Asia/Taipei
 - stock_id: 8150
 - stock_name: 南茂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 86.8
-- high: 88.1
-- low: 83.8
-- close: 85.4
-- volume: 44236285
-- ma5: 80.32
-- ema23_primary: 79.33
-- distance_to_ema23_pct: 7.65
-- ma20: 81.78
-- ma60: 69.26
-- ma120: 60.93
-- return_5d: 10.05
-- return_20d: 25.96
-- volume_ratio: 1.18
-- distance_to_ma20_pct_auxiliary: 4.43
-- distance_to_high_60_pct: -17.09
+- date: 20260527
+- open: 89.7
+- high: 93.9
+- low: 86
+- close: 93.9
+- volume: 90891826
+- ma5: 84.22
+- ema23_primary: 80.55
+- distance_to_ema23_pct: 16.58
+- ma20: 83.06
+- ma60: 69.64
+- ma120: 61.34
+- return_5d: 26.21
+- return_20d: 37.48
+- volume_ratio: 2.19
+- distance_to_ma20_pct_auxiliary: 13.06
+- distance_to_high_60_pct: -8.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,68.3,68.9,66.6,68.3,11540450,66.1,3.32,64.75,62.04,0.38
 20260429,66.8,67.9,66,67,9777458,66.18,1.24,65.28,62.05,0.32
 20260430,67.3,73.5,67.2,69.8,32774904,66.48,4.99,66.08,62.12,1.05
 20260504,71.2,76.7,70.7,76.5,43860152,67.32,13.64,67.14,62.3,1.32
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,77.4,82.4,76.3,79.1,46238424,78.05,1.34,80.05,68.46,1.3
 20260525,80.5,87,79.1,86.8,51440041,78.78,10.18,80.89,68.92,1.41
 20260526,86.8,88.1,83.8,85.4,44236285,79.33,7.65,81.78,69.26,1.18
+20260527,89.7,93.9,86,93.9,90891826,80.55,16.58,83.06,69.64,2.19
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8150 | 南茂 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260527 | 8150 | 南茂 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8150 | 南茂 | 1 | 1 | 3 | 3 | 3 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 8150 | 南茂 | 2 | 2 | 4 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8150 | 南茂 | 150 | 3 | 48701510.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260527 | 8150 | 南茂 | 150 | 3 | 40532980.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

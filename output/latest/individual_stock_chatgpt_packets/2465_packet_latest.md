@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2465 麗臺
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:21 Asia/Taipei
+- generated_at: 2026-05-27 21:26:38 Asia/Taipei
 - stock_id: 2465
 - stock_name: 麗臺
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 87.7
-- high: 87.7
-- low: 85.3
-- close: 87.2
-- volume: 1787325
-- ma5: 83.6
-- ema23_primary: 78.42
-- distance_to_ema23_pct: 11.2
-- ma20: 81.06
-- ma60: 65.54
-- ma120: 61.21
-- return_5d: 15.34
-- return_20d: 26.74
-- volume_ratio: 0.55
-- distance_to_ma20_pct_auxiliary: 7.57
-- distance_to_high_60_pct: -7.04
+- date: 20260527
+- open: 88.6
+- high: 90.8
+- low: 84.5
+- close: 86
+- volume: 3244164
+- ma5: 85.68
+- ema23_primary: 79.05
+- distance_to_ema23_pct: 8.79
+- ma20: 81.89
+- ma60: 66.08
+- ma120: 61.49
+- return_5d: 13.76
+- return_20d: 23.74
+- volume_ratio: 0.97
+- distance_to_ma20_pct_auxiliary: 5.03
+- distance_to_high_60_pct: -8.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,68.6,70.9,67.9,69.5,1500010,62.49,11.22,61.14,56.82,0.85
 20260429,70.1,70.8,68.1,70,1209491,63.11,10.91,61.98,57.04,0.66
 20260430,73,75,70.1,74,4358783,64.02,15.59,63.08,57.34,2.16
 20260504,76.1,81.4,75,81.4,6841042,65.47,24.34,64.53,57.76,2.91
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,83.5,88.9,83.4,85.9,4282214,76.84,11.79,79.21,64.41,1.33
 20260525,87,88,84.3,86.2,2250202,77.62,11.06,80.14,64.97,0.7
 20260526,87.7,87.7,85.3,87.2,1787325,78.42,11.2,81.06,65.54,0.55
+20260527,88.6,90.8,84.5,86,3244164,79.05,8.79,81.89,66.08,0.97
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2465 | 麗臺 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260527 | 2465 | 麗臺 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 2465 | 麗臺 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2465 | 麗臺 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 2465 | 麗臺 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

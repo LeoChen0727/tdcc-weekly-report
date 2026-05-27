@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00643 群益深証中小
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:44 Asia/Taipei
+- generated_at: 2026-05-27 21:26:00 Asia/Taipei
 - stock_id: 00643
 - stock_name: 群益深証中小
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 20.48
-- high: 20.56
-- low: 20.3
+- date: 20260527
+- open: 20.52
+- high: 20.7
+- low: 20.42
 - close: 20.45
-- volume: 3091453
+- volume: 3376337
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,20.1,20.23,19.97,20.18,2619111,,,,,
 20260525,20.25,20.48,20.24,20.33,3577987,,,,,
 20260526,20.48,20.56,20.3,20.45,3091453,,,,,
+20260527,20.52,20.7,20.42,20.45,3376337,,,,,
 ```
 
 ## Latest TDCC Snapshot

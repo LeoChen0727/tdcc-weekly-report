@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00713 元大台灣高息低波
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:45 Asia/Taipei
+- generated_at: 2026-05-27 21:26:01 Asia/Taipei
 - stock_id: 00713
 - stock_name: 元大台灣高息低波
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 56.05
-- high: 56.15
+- date: 20260527
+- open: 56
+- high: 56.4
 - low: 55.9
-- close: 55.95
-- volume: 13397306
+- close: 56.05
+- volume: 19972335
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,55.6,55.75,55.45,55.7,10411963,,,,,
 20260525,55.95,56.25,55.85,56.05,15420998,,,,,
 20260526,56.05,56.15,55.9,55.95,13397306,,,,,
+20260527,56,56.4,55.9,56.05,19972335,,,,,
 ```
 
 ## Latest TDCC Snapshot

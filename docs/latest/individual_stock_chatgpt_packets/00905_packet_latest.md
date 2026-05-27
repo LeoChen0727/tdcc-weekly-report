@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00905 FT臺灣Smart
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:46 Asia/Taipei
+- generated_at: 2026-05-27 21:26:02 Asia/Taipei
 - stock_id: 00905
 - stock_name: FT臺灣Smart
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 26.68
-- high: 26.88
-- low: 26.3
-- close: 26.53
-- volume: 1459613
+- date: 20260527
+- open: 27.22
+- high: 27.52
+- low: 26.94
+- close: 27.13
+- volume: 2447323
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,25,25.4,25,25.4,2423178,,,,,
 20260525,26.09,26.55,26.09,26.55,2651189,,,,,
 20260526,26.68,26.88,26.3,26.53,1459613,,,,,
+20260527,27.22,27.52,26.94,27.13,2447323,,,,,
 ```
 
 ## Latest TDCC Snapshot

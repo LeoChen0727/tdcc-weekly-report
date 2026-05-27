@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5483 中美晶
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:22 Asia/Taipei
+- generated_at: 2026-05-27 21:27:42 Asia/Taipei
 - stock_id: 5483
 - stock_name: 中美晶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 162.5
-- high: 168
-- low: 158
-- close: 164
-- volume: 163000
-- ma5: 148.7
-- ema23_primary: 142.9
-- distance_to_ema23_pct: 14.76
-- ma20: 145.28
-- ma60: 127.01
-- ma120: 119.03
-- return_5d: 20.59
-- return_20d: 14.69
+- date: 20260527
+- open: 168
+- high: 168.5
+- low: 160.5
+- close: 162
+- volume: 164000
+- ma5: 154.1
+- ema23_primary: 144.49
+- distance_to_ema23_pct: 12.12
+- ma20: 146.65
+- ma60: 127.74
+- ma120: 119.56
+- return_5d: 20
+- return_20d: 20.45
 - volume_ratio: 0.01
-- distance_to_ma20_pct_auxiliary: 12.89
-- distance_to_high_60_pct: -2.38
+- distance_to_ma20_pct_auxiliary: 10.47
+- distance_to_high_60_pct: -3.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,145,145,134,134.5,35015000,124.57,7.97,121.53,118.44,2.52
 20260429,134,135,129.5,131,11297000,125.1,4.71,122.5,118.65,0.8
 20260430,133,136.5,132.5,134,17684000,125.85,6.48,123.83,118.87,1.22
 20260504,136,141,135.5,136.5,21210000,126.73,7.71,125.3,119.08,1.41
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,145.5,149.5,143.5,147.5,147000,139.76,5.54,143,125.61,0.01
 20260525,151.5,159,148.5,154.5,155000,140.98,9.59,144.22,126.23,0.01
 20260526,162.5,168,158,164,163000,142.9,14.76,145.28,127.01,0.01
+20260527,168,168.5,160.5,162,164000,144.49,12.12,146.65,127.74,0.01
 ```
 
 ## Latest TDCC Snapshot
@@ -130,7 +130,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 5483 | 中美晶 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260527 | 5483 | 中美晶 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

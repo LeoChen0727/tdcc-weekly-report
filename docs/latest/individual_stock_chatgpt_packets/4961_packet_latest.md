@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4961 天鈺
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:13 Asia/Taipei
+- generated_at: 2026-05-27 21:27:32 Asia/Taipei
 - stock_id: 4961
 - stock_name: 天鈺
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 26
 - tdcc_history_status: tdcc_history_ready
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 177
-- high: 177.5
-- low: 171.5
-- close: 174.5
-- volume: 1273986
-- ma5: 175.1
-- ema23_primary: 167.54
-- distance_to_ema23_pct: 4.15
-- ma20: 167.35
-- ma60: 155.09
-- ma120: 150
-- return_5d: 4.49
-- return_20d: 9.75
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: 4.27
-- distance_to_high_60_pct: -4.38
+- date: 20260527
+- open: 176.5
+- high: 178
+- low: 170.5
+- close: 171.5
+- volume: 1113976
+- ma5: 175.2
+- ema23_primary: 167.87
+- distance_to_ema23_pct: 2.16
+- ma20: 168.07
+- ma60: 155.47
+- ma120: 150.28
+- return_5d: 0.29
+- return_20d: 9.24
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: 2.04
+- distance_to_high_60_pct: -6.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,160,160,156.5,157,679499,154.15,1.85,154.62,148.9,0.41
 20260429,156,158,155.5,157,446678,154.39,1.69,154.97,149.03,0.29
 20260430,157.5,159,151.5,152.5,1415166,154.23,-1.12,155,149,0.92
 20260504,155,158,153.5,155.5,771340,154.34,0.75,155.12,149.07,0.53
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,179.5,179.5,172.5,175.5,1886207,166.13,5.64,165.8,154.28,1.11
 20260525,179,179.5,175,175.5,1566788,166.91,5.15,166.57,154.66,0.92
 20260526,177,177.5,171.5,174.5,1273986,167.54,4.15,167.35,155.09,0.75
+20260527,176.5,178,170.5,171.5,1113976,167.87,2.16,168.07,155.47,0.65
 ```
 
 ## Latest TDCC Snapshot
@@ -133,17 +133,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 4961 | 天鈺 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 4961 | 天鈺 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 4961 | 天鈺 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4961 | 天鈺 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260527 | 4961 | 天鈺 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4961 | 天鈺 | 11 | 0 | 608480.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 4961 | 天鈺 | 11 | 0 | 841220.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0076 期街口道瓊銅
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:45 Asia/Taipei
+- generated_at: 2026-05-27 21:26:01 Asia/Taipei
 - stock_id: 0076
 - stock_name: 期街口道瓊銅
 - packet_status: insufficient_price_data
@@ -113,7 +113,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 0076 | 期街口道瓊銅 | 45 | 6 | 751940.0 | 44690.0 | 16.83 | no_signal | 0 |  |
+| 20260527 | 0076 | 期街口道瓊銅 | 45 | 6 | 777440.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

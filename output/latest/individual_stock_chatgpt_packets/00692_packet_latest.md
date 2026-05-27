@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00692 富邦公司治理
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:45 Asia/Taipei
+- generated_at: 2026-05-27 21:26:01 Asia/Taipei
 - stock_id: 00692
 - stock_name: 富邦公司治理
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 88.05
-- high: 88.2
-- low: 87.05
-- close: 87.25
-- volume: 1021079
+- date: 20260527
+- open: 89
+- high: 90.2
+- low: 88.5
+- close: 89.05
+- volume: 1852258
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,83.95,84.6,83.55,84.6,1543809,,,,,
 20260525,86.1,87.75,86.1,87.6,1713682,,,,,
 20260526,88.05,88.2,87.05,87.25,1021079,,,,,
+20260527,89,90.2,88.5,89.05,1852258,,,,,
 ```
 
 ## Latest TDCC Snapshot

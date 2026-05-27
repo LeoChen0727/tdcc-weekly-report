@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3036 文曄
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:37 Asia/Taipei
+- generated_at: 2026-05-27 21:26:54 Asia/Taipei
 - stock_id: 3036
 - stock_name: 文曄
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 299
-- high: 303.5
-- low: 291.5
-- close: 293.5
-- volume: 8573585
-- ma5: 290.9
-- ema23_primary: 258.92
-- distance_to_ema23_pct: 13.36
-- ma20: 252.78
-- ma60: 232.95
-- ma120: 191.45
-- return_5d: 10.75
-- return_20d: 46.02
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: 16.11
-- distance_to_high_60_pct: -4.71
+- date: 20260527
+- open: 300
+- high: 304.5
+- low: 292.5
+- close: 296
+- volume: 9274773
+- ma5: 294.3
+- ema23_primary: 262.01
+- distance_to_ema23_pct: 12.97
+- ma20: 257.23
+- ma60: 234.82
+- ma120: 192.82
+- return_5d: 6.09
+- return_20d: 43
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: 15.07
+- distance_to_high_60_pct: -3.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,203.5,211,201.5,207,7484735,217.44,-4.8,220.62,202.97,0.97
 20260429,206.5,207.5,199,203,5796021,216.24,-6.12,219.53,203.84,0.75
 20260430,203,207.5,202.5,204,4991122,215.22,-5.21,218.88,204.77,0.67
 20260504,206,213.5,206,210.5,10172435,214.83,-2.01,218.15,205.83,1.37
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,291,301.5,288.5,289,12509307,251.62,14.86,243.03,229.09,0.88
 20260525,292,308,289,301.5,13776354,255.77,17.88,248.15,231.11,0.96
 20260526,299,303.5,291.5,293.5,8573585,258.92,13.36,252.78,232.95,0.59
+20260527,300,304.5,292.5,296,9274773,262.01,12.97,257.23,234.82,0.63
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260527 | 3036 | 文曄 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3036 | 文曄 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260527 | 3036 | 文曄 | 2 | 2 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3036 | 文曄 | 74 | 1 | 20312500.0 | 531790.0 | 38.2 | no_signal | 0 |  |
+| 20260527 | 3036 | 文曄 | 75 | 1 | 10164150.0 | 873000.0 | 11.64 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

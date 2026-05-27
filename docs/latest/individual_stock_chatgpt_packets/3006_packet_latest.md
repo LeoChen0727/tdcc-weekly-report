@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3006 晶豪科
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:34 Asia/Taipei
+- generated_at: 2026-05-27 21:26:52 Asia/Taipei
 - stock_id: 3006
 - stock_name: 晶豪科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 231
-- high: 240
-- low: 226
-- close: 231.5
-- volume: 23104160
-- ma5: 228.5
-- ema23_primary: 211.48
-- distance_to_ema23_pct: 9.47
-- ma20: 213.03
-- ma60: 179.94
-- ma120: 151.29
-- return_5d: -1.91
-- return_20d: 37.8
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: 8.67
-- distance_to_high_60_pct: -11.3
+- date: 20260527
+- open: 252
+- high: 254.5
+- low: 238
+- close: 241
+- volume: 30642864
+- ma5: 232.2
+- ema23_primary: 213.94
+- distance_to_ema23_pct: 12.65
+- ma20: 215.85
+- ma60: 181.35
+- ma120: 152.64
+- return_5d: 8.31
+- return_20d: 30.62
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: 11.65
+- distance_to_high_60_pct: -7.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,166,184.5,166,184.5,37876439,162.71,13.39,158.97,163.31,2.45
 20260429,181.5,187.5,175,175,38806360,163.74,6.88,159.4,163.94,2.26
 20260430,179.5,186,168.5,169.5,26728218,164.22,3.22,160.38,164.31,1.47
 20260504,176,177.5,166.5,173,25858318,164.95,4.88,161.2,164.82,1.34
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,225,244,224,237.5,29748415,207.9,14.24,206.12,177.7,0.97
 20260525,237.5,237.5,221,229,29848298,209.66,9.22,209.85,178.73,0.95
 20260526,231,240,226,231.5,23104160,211.48,9.47,213.03,179.94,0.73
+20260527,252,254.5,238,241,30642864,213.94,12.65,215.85,181.35,0.98
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3006 | 晶豪科 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 3006 | 晶豪科 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260527 | 3006 | 晶豪科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_put_bullish | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3006 | 晶豪科 | 3 | 3 | 3 | 3 | 3 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260527 | 3006 | 晶豪科 | 4 | 4 | 4 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3006 | 晶豪科 | 125 | 15 | 43625890.0 | 560190.0 | 77.88 | call_inflow | 1 |  |
+| 20260527 | 3006 | 晶豪科 | 125 | 15 | 55744200.0 | 393220.0 | 141.76 | call_put_bullish | 3 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

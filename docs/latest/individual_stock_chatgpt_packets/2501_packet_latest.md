@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2501 國建
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:23 Asia/Taipei
+- generated_at: 2026-05-27 21:26:40 Asia/Taipei
 - stock_id: 2501
 - stock_name: 國建
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 21.8
-- high: 21.9
+- date: 20260527
+- open: 21.7
+- high: 21.85
 - low: 21.6
-- close: 21.7
-- volume: 2239689
-- ma5: 22.04
-- ema23_primary: 22.69
-- distance_to_ema23_pct: -4.35
-- ma20: 22.53
-- ma60: 23.26
-- ma120: 22.98
-- return_5d: -2.25
-- return_20d: -18.27
-- volume_ratio: 0.55
-- distance_to_ma20_pct_auxiliary: -3.68
-- distance_to_high_60_pct: -18.27
+- close: 21.85
+- volume: 2375569
+- ma5: 21.95
+- ema23_primary: 22.62
+- distance_to_ema23_pct: -3.39
+- ma20: 22.43
+- ma60: 23.24
+- ma120: 22.99
+- return_5d: -2.02
+- return_20d: -8.58
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: -2.58
+- distance_to_high_60_pct: -17.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,24.5,24.5,23.9,23.9,15286215,24.39,-2.03,24.16,23.23,3.77
 20260429,23.5,23.5,22.85,23.2,7473637,24.3,-4.51,24.17,23.24,1.77
 20260430,23.3,23.5,23,23.15,3209432,24.2,-4.34,24.2,23.25,0.76
 20260504,23.15,23.15,22.4,22.5,6479940,24.06,-6.48,24.19,23.25,1.46
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,22.3,22.3,21.95,22.05,2757248,22.86,-3.56,22.96,23.29,0.64
 20260525,22.05,22.05,21.7,21.8,3198754,22.78,-4.29,22.77,23.27,0.75
 20260526,21.8,21.9,21.6,21.7,2239689,22.69,-4.35,22.53,23.26,0.55
+20260527,21.7,21.85,21.6,21.85,2375569,22.62,-3.39,22.43,23.24,0.69
 ```
 
 ## Latest TDCC Snapshot
@@ -130,7 +130,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2501 | 國建 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 2501 | 國建 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8374 羅昇
 
 ## Metadata
-- generated_at: 2026-05-26 23:55:10 Asia/Taipei
+- generated_at: 2026-05-27 21:28:32 Asia/Taipei
 - stock_id: 8374
 - stock_name: 羅昇
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 111
-- high: 117
-- low: 107.5
-- close: 110.5
-- volume: 3295480
-- ma5: 105.6
-- ema23_primary: 95.51
-- distance_to_ema23_pct: 15.69
-- ma20: 95.36
-- ma60: 81.63
-- ma120: 82.58
-- return_5d: 8.33
-- return_20d: 47.53
-- volume_ratio: 1
-- distance_to_ma20_pct_auxiliary: 15.88
-- distance_to_high_60_pct: -6.75
+- date: 20260527
+- open: 112.5
+- high: 113.5
+- low: 106.5
+- close: 108
+- volume: 2683351
+- ma5: 107.82
+- ema23_primary: 96.55
+- distance_to_ema23_pct: 11.85
+- ma20: 96.64
+- ma60: 81.97
+- ma120: 82.86
+- return_5d: 11.46
+- return_20d: 31.23
+- volume_ratio: 0.79
+- distance_to_ma20_pct_auxiliary: 11.76
+- distance_to_high_60_pct: -8.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,75,82.3,75,82.3,857905,76.93,6.99,75.36,79.31,0.96
 20260429,83.3,89.1,82.5,83.3,2628894,77.46,7.54,76.16,79.24,2.58
 20260430,82.4,86.7,82.4,84.3,1534212,78.03,8.04,77.09,79.17,1.42
 20260504,84.6,91,83.6,86.1,1894522,78.7,9.4,78.03,79.09,1.62
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,99.9,109,99.6,109,5607226,92.48,17.86,91.75,80.81,1.95
 20260525,113,118.5,111,112.5,6047352,94.15,19.49,93.58,81.22,1.91
 20260526,111,117,107.5,110.5,3295480,95.51,15.69,95.36,81.63,1
+20260527,112.5,113.5,106.5,108,2683351,96.55,11.85,96.64,81.97,0.79
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 8374 | 羅昇 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 8374 | 羅昇 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260521 | 8374 | 羅昇 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8374 | 羅昇 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260527 | 8374 | 羅昇 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8374 | 羅昇 | 15 | 0 | 4077300.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260527 | 8374 | 羅昇 | 15 | 0 | 3109300.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

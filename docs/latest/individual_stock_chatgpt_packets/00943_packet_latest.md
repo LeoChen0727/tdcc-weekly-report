@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00943 兆豐電子高息等權
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:47 Asia/Taipei
+- generated_at: 2026-05-27 21:26:03 Asia/Taipei
 - stock_id: 00943
 - stock_name: 兆豐電子高息等權
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 21.8
-- high: 21.8
-- low: 21.51
-- close: 21.77
-- volume: 232140
+- date: 20260527
+- open: 21.82
+- high: 22.28
+- low: 21.7
+- close: 21.86
+- volume: 194507
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,20.65,21.02,20.65,21.02,173731,,,,,
 20260525,21.5,21.72,21.42,21.68,482162,,,,,
 20260526,21.8,21.8,21.51,21.77,232140,,,,,
+20260527,21.82,22.28,21.7,21.86,194507,,,,,
 ```
 
 ## Latest TDCC Snapshot

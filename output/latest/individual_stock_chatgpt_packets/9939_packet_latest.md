@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9939 宏全
 
 ## Metadata
-- generated_at: 2026-05-26 23:55:18 Asia/Taipei
+- generated_at: 2026-05-27 21:28:40 Asia/Taipei
 - stock_id: 9939
 - stock_name: 宏全
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 124.5
-- high: 125
-- low: 122.5
+- date: 20260527
+- open: 122.5
+- high: 124
+- low: 122
 - close: 122.5
-- volume: 840719
-- ma5: 124.8
-- ema23_primary: 120.17
-- distance_to_ema23_pct: 1.94
-- ma20: 118.67
-- ma60: 118.12
+- volume: 845565
+- ma5: 124.5
+- ema23_primary: 120.37
+- distance_to_ema23_pct: 1.77
+- ma20: 119.15
+- ma60: 118.13
 - ma120: 119.35
-- return_5d: -2.39
-- return_20d: 9.38
+- return_5d: -1.21
+- return_20d: 8.41
 - volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: 3.22
+- distance_to_ma20_pct_auxiliary: 2.81
 - distance_to_high_60_pct: -4.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,113,113.5,111,113,580198,115.5,-2.16,114.78,118.6,0.38
 20260429,113.5,113.5,112.5,112.5,536762,115.25,-2.38,114.53,118.49,0.35
 20260430,112.5,113,111.5,111.5,1142368,114.93,-2.99,114.33,118.35,0.75
 20260504,112,113.5,111.5,112.5,767459,114.73,-1.94,114.1,118.22,0.5
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,127.5,128.5,125.5,127,1407526,119.55,6.23,117.55,118.1,0.82
 20260525,127,127,124.5,124.5,1284661,119.96,3.78,118.15,118.14,0.75
 20260526,124.5,125,122.5,122.5,840719,120.17,1.94,118.67,118.12,0.49
+20260527,122.5,124,122,122.5,845565,120.37,1.77,119.15,118.13,0.49
 ```
 
 ## Latest TDCC Snapshot
@@ -130,12 +130,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 9939 | 宏全 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260527 | 9939 | 宏全 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 9939 | 宏全 | 7 | 0 | 98150.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 9939 | 宏全 | 7 | 0 | 478840.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6781 AES-KY
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:52 Asia/Taipei
+- generated_at: 2026-05-27 21:28:12 Asia/Taipei
 - stock_id: 6781
 - stock_name: AES-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 1270
-- high: 1315
-- low: 1235
-- close: 1245
-- volume: 2030758
-- ma5: 1189
-- ema23_primary: 1166.88
-- distance_to_ema23_pct: 6.69
+- date: 20260527
+- open: 1265
+- high: 1300
+- low: 1195
+- close: 1205
+- volume: 1704374
+- ma5: 1212
+- ema23_primary: 1170.06
+- distance_to_ema23_pct: 2.99
 - ma20: 1183.25
 - ma60: 1088.9
-- ma120: 1174.24
-- return_5d: 10.67
-- return_20d: 1.63
-- volume_ratio: 1.02
-- distance_to_ma20_pct_auxiliary: 5.22
-- distance_to_high_60_pct: -9.12
+- ma120: 1173.7
+- return_5d: 10.55
+- return_20d: 0
+- volume_ratio: 0.89
+- distance_to_ma20_pct_auxiliary: 1.84
+- distance_to_high_60_pct: -12.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,1225,1270,1180,1205,3255706,1069.66,12.65,1034.95,1083.82,1.84
 20260429,1185,1190,1125,1130,2396310,1074.69,5.15,1040.7,1083.9,1.32
 20260430,1125,1160,1100,1105,1492056,1077.21,2.58,1046.7,1081.9,0.81
 20260504,1120,1140,1100,1135,1067158,1082.03,4.9,1053.55,1080.9,0.58
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,1160,1220,1135,1210,1250692,1150.67,5.16,1175,1086.98,0.6
 20260525,1245,1290,1230,1260,2114609,1159.78,8.64,1182.25,1088.07,1.02
 20260526,1270,1315,1235,1245,2030758,1166.88,6.69,1183.25,1088.9,1.02
+20260527,1265,1300,1195,1205,1704374,1170.06,2.99,1183.25,1088.9,0.89
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260527 | 6781 | AES-KY | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6781 | AES-KY | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260527 | 6781 | AES-KY | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6781 | AES-KY | 189 | 5 | 29778480.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260527 | 6781 | AES-KY | 189 | 5 | 22968380.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

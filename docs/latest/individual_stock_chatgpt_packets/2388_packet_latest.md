@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2388 威盛
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:17 Asia/Taipei
+- generated_at: 2026-05-27 21:26:33 Asia/Taipei
 - stock_id: 2388
 - stock_name: 威盛
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 84.6
-- high: 84.9
-- low: 77.1
-- close: 78
-- volume: 21728417
-- ma5: 83.58
-- ema23_primary: 76.29
-- distance_to_ema23_pct: 2.25
-- ma20: 77.99
-- ma60: 62.89
-- ma120: 58.19
-- return_5d: 4.98
-- return_20d: 4.42
-- volume_ratio: 1.05
-- distance_to_ma20_pct_auxiliary: 0.01
-- distance_to_high_60_pct: -14.57
+- date: 20260527
+- open: 78.7
+- high: 79.5
+- low: 75.6
+- close: 75.9
+- volume: 12942255
+- ma5: 82.42
+- ema23_primary: 76.25
+- distance_to_ema23_pct: -0.46
+- ma20: 78.08
+- ma60: 63.31
+- ma120: 58.42
+- return_5d: -7.1
+- return_20d: 2.43
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: -2.79
+- distance_to_high_60_pct: -16.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,74.6,74.9,69.7,74.1,16821469,64.06,15.66,62.17,54.72,1.19
 20260429,72.9,74.1,71.1,71.5,8294543,64.68,10.54,63.15,55.04,0.58
 20260430,72.1,78.6,71.7,78.6,21343602,65.84,19.37,64.47,55.44,1.42
 20260504,83,84.2,75.2,83.1,57348953,67.28,23.51,66,55.92,3.24
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,88.5,90.5,84.2,88,35608717,75.4,16.72,77.53,61.86,1.61
 20260525,90.3,91.3,84.1,84.2,23364457,76.13,10.6,77.83,62.41,1.12
 20260526,84.6,84.9,77.1,78,21728417,76.29,2.25,77.99,62.89,1.05
+20260527,78.7,79.5,75.6,75.9,12942255,76.25,-0.46,78.08,63.31,0.63
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2388 | 威盛 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260527 | 2388 | 威盛 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 2388 | 威盛 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2388 | 威盛 | 4 | 2 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 2388 | 威盛 | 5 | 3 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2388 | 威盛 | 65 | 5 | 14967970.0 | 307250.0 | 48.72 | no_signal | 0 |  |
+| 20260527 | 2388 | 威盛 | 68 | 5 | 7230460.0 | 134000.0 | 53.96 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

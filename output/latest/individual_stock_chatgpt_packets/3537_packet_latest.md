@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3537 堡達
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:52 Asia/Taipei
+- generated_at: 2026-05-27 21:27:10 Asia/Taipei
 - stock_id: 3537
 - stock_name: 堡達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 76.1
-- high: 76.1
-- low: 69.1
-- close: 69.1
-- volume: 71000
-- ma5: 67.38
-- ema23_primary: 54.76
-- distance_to_ema23_pct: 26.18
-- ma20: 52.29
-- ma60: 46.89
-- ma120: 48.41
-- return_5d: 31.37
-- return_20d: 61.26
+- date: 20260527
+- open: 69.5
+- high: 72.9
+- low: 65.4
+- close: 67.2
+- volume: 69000
+- ma5: 69.26
+- ema23_primary: 55.8
+- distance_to_ema23_pct: 20.43
+- ma20: 53.47
+- ma60: 47.22
+- ma120: 48.56
+- return_5d: 16.26
+- return_20d: 54.13
 - volume_ratio: 0.05
-- distance_to_ma20_pct_auxiliary: 32.15
-- distance_to_high_60_pct: -9.91
+- distance_to_ma20_pct_auxiliary: 25.68
+- distance_to_high_60_pct: -12.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,43.2,43.8,43,43.6,122000,44.41,-1.83,44.24,45.31,0.76
 20260429,43.4,43.7,43.05,43.2,61000,44.31,-2.51,44.24,45.19,0.38
 20260430,43.2,43.35,42.8,42.85,98000,44.19,-3.03,44.29,45.05,0.62
 20260504,42.5,43.2,42.5,42.8,156000,44.07,-2.89,44.3,44.91,0.98
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,69.8,69.8,69.8,69.8,70000,51.35,35.94,49.31,46.06,0.05
 20260525,76.7,76.7,73.5,76.7,76000,53.46,43.47,50.98,46.53,0.06
 20260526,76.1,76.1,69.1,69.1,71000,54.76,26.18,52.29,46.89,0.05
+20260527,69.5,72.9,65.4,67.2,69000,55.8,20.43,53.47,47.22,0.05
 ```
 
 ## Latest TDCC Snapshot

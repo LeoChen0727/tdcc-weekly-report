@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2440 太空梭
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:20 Asia/Taipei
+- generated_at: 2026-05-27 21:26:36 Asia/Taipei
 - stock_id: 2440
 - stock_name: 太空梭
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 18.35
-- high: 18.55
-- low: 17.7
-- close: 17.8
-- volume: 793399
-- ma5: 17.75
+- date: 20260527
+- open: 17.85
+- high: 17.9
+- low: 17
+- close: 17.35
+- volume: 970181
+- ma5: 17.77
 - ema23_primary: 17.29
-- distance_to_ema23_pct: 2.96
-- ma20: 17.68
-- ma60: 15.96
-- ma120: 15.17
-- return_5d: -1.39
-- return_20d: 4.71
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: 0.69
-- distance_to_high_60_pct: -8.72
+- distance_to_ema23_pct: 0.33
+- ma20: 17.66
+- ma60: 15.98
+- ma120: 15.21
+- return_5d: 0.58
+- return_20d: -1.42
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: -1.78
+- distance_to_high_60_pct: -11.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,16.9,18.7,16.9,17.6,4481061,15.65,12.5,15.34,15.26,6.49
 20260429,17.1,19.35,17.1,18.6,5694478,15.89,17.04,15.54,15.31,5.9
 20260430,18.7,19.5,18.05,18.25,3254089,16.09,13.44,15.75,15.35,2.92
 20260504,18.4,18.55,17.2,17.95,1831005,16.24,10.51,15.94,15.37,1.54
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,17.75,18.2,17.45,18,1090847,17.15,4.96,17.54,15.88,0.69
 20260525,18.35,18.7,17.95,18.25,1260701,17.24,5.85,17.64,15.93,0.77
 20260526,18.35,18.55,17.7,17.8,793399,17.29,2.96,17.68,15.96,0.49
+20260527,17.85,17.9,17,17.35,970181,17.29,0.33,17.66,15.98,0.67
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2440 | 太空梭 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

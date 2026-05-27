@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00646 元大S&P500
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:45 Asia/Taipei
+- generated_at: 2026-05-27 21:26:00 Asia/Taipei
 - stock_id: 00646
 - stock_name: 元大S&P500
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 74.6
-- high: 74.6
-- low: 74.3
-- close: 74.45
-- volume: 2063817
+- date: 20260527
+- open: 74.5
+- high: 74.5
+- low: 74.15
+- close: 74.35
+- volume: 3140569
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,74,74.25,74,74.25,5870192,,,,,
 20260525,74.45,74.65,74.4,74.65,4397716,,,,,
 20260526,74.6,74.6,74.3,74.45,2063817,,,,,
+20260527,74.5,74.5,74.15,74.35,3140569,,,,,
 ```
 
 ## Latest TDCC Snapshot

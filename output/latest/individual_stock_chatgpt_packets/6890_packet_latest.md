@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6890 來億-KY
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:55 Asia/Taipei
+- generated_at: 2026-05-27 21:28:16 Asia/Taipei
 - stock_id: 6890
 - stock_name: 來億-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 170.5
+- date: 20260527
+- open: 171.5
 - high: 173
-- low: 168
-- close: 169
-- volume: 380486
-- ma5: 167.8
-- ema23_primary: 164.42
-- distance_to_ema23_pct: 2.78
-- ma20: 162.07
-- ma60: 166.19
-- ma120: 206.99
-- return_5d: 1.2
-- return_20d: 8.68
-- volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: 4.27
-- distance_to_high_60_pct: -16.75
+- low: 168.5
+- close: 170.5
+- volume: 386391
+- ma5: 168.8
+- ema23_primary: 164.93
+- distance_to_ema23_pct: 3.38
+- ma20: 162.62
+- ma60: 165.65
+- ma120: 206.21
+- return_5d: 3.02
+- return_20d: 6.9
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: 4.84
+- distance_to_high_60_pct: -14.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,155.5,162.5,155,159.5,329568,164.88,-3.26,161.28,184.79,0.45
 20260429,160,160,155,157,304163,164.22,-4.4,161.22,183.45,0.43
 20260430,158,160.5,155.5,156.5,344612,163.58,-4.33,161.03,181.98,0.49
 20260504,157.5,160,155,157,297919,163.03,-3.7,160.5,180.62,0.43
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,167,169,166,169,344334,163.51,3.36,160.88,167.21,0.63
 20260525,171,171,167,169.5,442515,164.01,3.35,161.4,166.67,0.82
 20260526,170.5,173,168,169,380486,164.42,2.78,162.07,166.19,0.7
+20260527,171.5,173,168.5,170.5,386391,164.93,3.38,162.62,165.65,0.71
 ```
 
 ## Latest TDCC Snapshot
@@ -135,7 +135,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6890 | 來億-KY | 33 | 0 | 461380.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 6890 | 來億-KY | 33 | 0 | 454510.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

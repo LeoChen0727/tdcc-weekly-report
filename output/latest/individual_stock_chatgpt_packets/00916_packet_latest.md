@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00916 國泰全球品牌50
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:46 Asia/Taipei
+- generated_at: 2026-05-27 21:26:02 Asia/Taipei
 - stock_id: 00916
 - stock_name: 國泰全球品牌50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 28.24
-- high: 28.25
-- low: 28.19
-- close: 28.21
-- volume: 163079
+- date: 20260527
+- open: 28.21
+- high: 28.21
+- low: 27.95
+- close: 27.96
+- volume: 237747
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,28.05,28.12,28.05,28.11,136293,,,,,
 20260525,28.15,28.27,28.08,28.24,826574,,,,,
 20260526,28.24,28.25,28.19,28.21,163079,,,,,
+20260527,28.21,28.21,27.95,27.96,237747,,,,,
 ```
 
 ## Latest TDCC Snapshot

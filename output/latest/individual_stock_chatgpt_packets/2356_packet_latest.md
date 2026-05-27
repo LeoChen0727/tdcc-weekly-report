@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2356 英業達
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:15 Asia/Taipei
+- generated_at: 2026-05-27 21:26:31 Asia/Taipei
 - stock_id: 2356
 - stock_name: 英業達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 69
-- high: 69.5
-- low: 61.5
-- close: 62.6
-- volume: 192799649
-- ma5: 58.6
-- ema23_primary: 52.46
-- distance_to_ema23_pct: 19.33
-- ma20: 51.72
-- ma60: 46.25
-- ma120: 45.24
-- return_5d: 21.08
-- return_20d: 34.05
-- volume_ratio: 3.4
-- distance_to_ma20_pct_auxiliary: 21.04
-- distance_to_high_60_pct: -9.93
+- date: 20260527
+- open: 63.7
+- high: 63.7
+- low: 60.8
+- close: 62
+- volume: 79832135
+- ma5: 60.72
+- ema23_primary: 53.26
+- distance_to_ema23_pct: 16.42
+- ma20: 52.5
+- ma60: 46.51
+- ma120: 45.42
+- return_5d: 20.62
+- return_20d: 33.76
+- volume_ratio: 1.34
+- distance_to_ma20_pct_auxiliary: 18.09
+- distance_to_high_60_pct: -10.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,46.35,46.7,45.15,46.35,22790176,45.06,2.86,44.42,44.21,0.91
 20260429,46.4,46.9,45.9,46.3,15236929,45.17,2.51,44.67,44.21,0.61
 20260430,46.45,46.65,45.8,45.9,15146613,45.23,1.49,44.96,44.12,0.62
 20260504,46.65,46.7,45.85,46.5,14239649,45.33,2.57,45.23,44.09,0.58
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,56.8,59.5,54.8,59.5,122964502,50.28,18.34,50.06,45.63,2.75
 20260525,65.4,65.4,62.9,65.4,135283743,51.54,26.9,50.92,45.98,2.75
 20260526,69,69.5,61.5,62.6,192799649,52.46,19.33,51.72,46.25,3.4
+20260527,63.7,63.7,60.8,62,79832135,53.26,16.42,52.5,46.51,1.34
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2356 | 英業達 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 2356 | 英業達 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_put_bullish | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 2356 | 英業達 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2356 | 英業達 | 4 | 4 | 4 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260527 | 2356 | 英業達 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2356 | 英業達 | 56 | 5 | 29926480.0 | 153540.0 | 194.91 | call_put_bullish | 3 |  |
+| 20260527 | 2356 | 英業達 | 64 | 5 | 11122980.0 | 104830.0 | 106.1 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

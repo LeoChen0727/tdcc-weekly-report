@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1597 直得
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:00 Asia/Taipei
+- generated_at: 2026-05-27 21:26:16 Asia/Taipei
 - stock_id: 1597
 - stock_name: 直得
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 211
-- high: 221
-- low: 208.5
-- close: 221
-- volume: 9254720
-- ma5: 188.5
-- ema23_primary: 167.93
-- distance_to_ema23_pct: 31.6
-- ma20: 174.32
-- ma60: 118.39
-- ma120: 97.06
-- return_5d: 23.12
-- return_20d: 100
-- volume_ratio: 2.17
-- distance_to_ma20_pct_auxiliary: 26.77
-- distance_to_high_60_pct: 0
+- date: 20260527
+- open: 215
+- high: 215
+- low: 199
+- close: 199
+- volume: 9347148
+- ma5: 194.1
+- ema23_primary: 170.52
+- distance_to_ema23_pct: 16.7
+- ma20: 178.2
+- ma60: 120.4
+- ma120: 98.14
+- return_5d: 16.37
+- return_20d: 63.79
+- volume_ratio: 2.04
+- distance_to_ma20_pct_auxiliary: 11.67
+- distance_to_high_60_pct: -9.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,110.5,121.5,108,121.5,2998482,103.98,16.85,104.39,87.73,0.8
 20260429,121.5,133.5,120.5,130.5,16811910,106.19,22.9,106.55,88.53,3.73
 20260430,143.5,143.5,140.5,143.5,4524620,109.3,31.29,109.5,89.54,0.97
 20260504,144,157.5,144,157.5,4281902,113.31,38.99,113.05,90.8,0.89
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,169,183,161.5,183,4946548,159.66,14.62,164.18,113.99,1.25
 20260525,201,201,195,201,2345949,163.11,23.23,168.8,116,0.59
 20260526,211,221,208.5,221,9254720,167.93,31.6,174.32,118.39,2.17
+20260527,215,215,199,199,9347148,170.52,16.7,178.2,120.4,2.04
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1597 | 直得 | true_breakout | 嚴格突破 | 94.0 |  |  | breakout_confirmed |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 1597 | 直得 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 1597 | 直得 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1597 | 直得 | 4 | 2 | 4 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260527 | 1597 | 直得 | 5 | 2 | 5 | 5 | 5 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1597 | 直得 | 17 | 0 | 13404730.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260527 | 1597 | 直得 | 17 | 0 | 8564920.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

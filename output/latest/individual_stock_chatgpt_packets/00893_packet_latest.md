@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00893 國泰智能電動車
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:46 Asia/Taipei
+- generated_at: 2026-05-27 21:26:02 Asia/Taipei
 - stock_id: 00893
 - stock_name: 國泰智能電動車
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 45.77
-- high: 46.41
-- low: 45.77
-- close: 46.35
-- volume: 1150202
+- date: 20260527
+- open: 47.08
+- high: 47.66
+- low: 47.08
+- close: 47.5
+- volume: 1746650
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,45,45.18,45,45.18,660986,,,,,
 20260525,45.81,46.3,45.81,46.28,3143850,,,,,
 20260526,45.77,46.41,45.77,46.35,1150202,,,,,
+20260527,47.08,47.66,47.08,47.5,1746650,,,,,
 ```
 
 ## Latest TDCC Snapshot

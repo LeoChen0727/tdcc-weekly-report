@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00930 永豐ESG低碳高息
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:47 Asia/Taipei
+- generated_at: 2026-05-27 21:26:02 Asia/Taipei
 - stock_id: 00930
 - stock_name: 永豐ESG低碳高息
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 23.13
-- high: 23.29
-- low: 23.08
-- close: 23.24
-- volume: 6202677
+- date: 20260527
+- open: 23.81
+- high: 24.12
+- low: 23.81
+- close: 24.06
+- volume: 5103087
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,22.17,22.41,22.05,22.41,4867379,,,,,
 20260525,22.63,23.3,22.63,23.3,4575340,,,,,
 20260526,23.13,23.29,23.08,23.24,6202677,,,,,
+20260527,23.81,24.12,23.81,24.06,5103087,,,,,
 ```
 
 ## Latest TDCC Snapshot

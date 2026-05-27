@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2303 聯電
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:12 Asia/Taipei
+- generated_at: 2026-05-27 21:26:28 Asia/Taipei
 - stock_id: 2303
 - stock_name: 聯電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 129
-- high: 133.5
-- low: 128
-- close: 130.5
-- volume: 291896012
-- ma5: 118.7
-- ema23_primary: 100.5
-- distance_to_ema23_pct: 29.86
-- ma20: 100.19
-- ma60: 75.18
-- ma120: 65.22
-- return_5d: 15.49
-- return_20d: 79.5
-- volume_ratio: 1.1
-- distance_to_ma20_pct_auxiliary: 30.25
-- distance_to_high_60_pct: -2.25
+- date: 20260527
+- open: 139.5
+- high: 143.5
+- low: 138.5
+- close: 143.5
+- volume: 280261963
+- ma5: 125.8
+- ema23_primary: 104.08
+- distance_to_ema23_pct: 37.88
+- ma20: 103.61
+- ma60: 76.48
+- ma120: 66.05
+- return_5d: 32.87
+- return_20d: 91.08
+- volume_ratio: 1.04
+- distance_to_ma20_pct_auxiliary: 38.5
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,72.3,77.7,71.3,75.1,163741430,67.65,11.02,65.8,63.77,0.9
 20260429,75.3,75.3,72.4,74.5,120372117,68.22,9.21,66.67,63.87,0.65
 20260430,80.5,80.9,76.3,77.3,333288108,68.97,12.07,67.71,64.03,1.68
 20260504,80,82.4,79.4,81.2,242174345,69.99,16.01,68.9,64.31,1.17
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,119.5,119.5,113,114,203495119,95.29,19.63,94.78,73.14,0.81
 20260525,115,125,113,125,340935766,97.77,27.85,97.3,74.09,1.31
 20260526,129,133.5,128,130.5,291896012,100.5,29.86,100.19,75.18,1.1
+20260527,139.5,143.5,138.5,143.5,280261963,104.08,37.88,103.61,76.48,1.04
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2303 | 聯電 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | mixed_flow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 2303 | 聯電 | true_breakout | 嚴格突破 | 64.0 |  |  | platform_right_side |  | put_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2303 | 聯電 | 2 | 1 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260527 | 2303 | 聯電 | 3 | 1 | 3 | 3 | 3 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2303 | 聯電 | 274 | 23 | 139754940.0 | 1360520.0 | 102.72 | mixed_flow | 0 | 認購權證成交金額很大且認購/認售比偏高，需檢查標的是否高位追價或獲利結清 |
+| 20260527 | 2303 | 聯電 | 275 | 23 | 79279070.0 | 1237810.0 | 64.05 | put_inflow | -1 | 認售權證資金升溫，偏空或避險訊號 |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4763 材料*-KY
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:10 Asia/Taipei
+- generated_at: 2026-05-27 21:27:29 Asia/Taipei
 - stock_id: 4763
 - stock_name: 材料*-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 43.05
-- high: 43.1
-- low: 41.85
-- close: 41.9
-- volume: 7007900
-- ma5: 42.42
-- ema23_primary: 42.56
-- distance_to_ema23_pct: -1.56
-- ma20: 42.24
-- ma60: 43.52
-- ma120: 47.75
-- return_5d: 0.84
-- return_20d: -3.79
-- volume_ratio: 1.14
-- distance_to_ma20_pct_auxiliary: -0.8
-- distance_to_high_60_pct: -13.79
+- date: 20260527
+- open: 42.2
+- high: 42.2
+- low: 41.3
+- close: 41.4
+- volume: 6289956
+- ma5: 42.47
+- ema23_primary: 42.47
+- distance_to_ema23_pct: -2.51
+- ma20: 42.19
+- ma60: 43.43
+- ma120: 47.66
+- return_5d: 0.61
+- return_20d: -2.36
+- volume_ratio: 1.02
+- distance_to_ma20_pct_auxiliary: -1.87
+- distance_to_high_60_pct: -14.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,43.7,43.7,42.35,42.4,6854771,44.08,-3.8,43.55,46,0.82
 20260429,42.6,43.2,42.35,42.9,5090348,43.98,-2.45,43.53,45.87,0.61
 20260430,43.1,43.3,42.2,42.3,6100032,43.84,-3.51,43.55,45.73,0.73
 20260504,42.5,43,42.3,42.8,3818251,43.75,-2.18,43.54,45.61,0.45
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,42.85,44.2,42.3,43.7,10996694,42.58,2.62,42.31,43.7,1.71
 20260525,44.2,44.2,42.85,43.05,6888389,42.62,1,42.32,43.61,1.1
 20260526,43.05,43.1,41.85,41.9,7007900,42.56,-1.56,42.24,43.52,1.14
+20260527,42.2,42.2,41.3,41.4,6289956,42.47,-2.51,42.19,43.43,1.02
 ```
 
 ## Latest TDCC Snapshot
@@ -128,14 +128,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4763 | 材料*-KY | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4763 | 材料*-KY | 65 | 3 | 1803030.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 4763 | 材料*-KY | 65 | 3 | 700920.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

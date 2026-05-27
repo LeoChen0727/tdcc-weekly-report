@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2009 第一銅
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:06 Asia/Taipei
+- generated_at: 2026-05-27 21:26:22 Asia/Taipei
 - stock_id: 2009
 - stock_name: 第一銅
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 41
-- high: 41
-- low: 39.4
-- close: 39.55
-- volume: 2012298
-- ma5: 39.26
-- ema23_primary: 39.31
-- distance_to_ema23_pct: 0.62
-- ma20: 38.91
-- ma60: 40.55
-- ma120: 43.39
-- return_5d: 5.33
-- return_20d: 5.05
-- volume_ratio: 0.86
-- distance_to_ma20_pct_auxiliary: 1.63
-- distance_to_high_60_pct: -16.21
+- date: 20260527
+- open: 40
+- high: 40.3
+- low: 39.35
+- close: 39.7
+- volume: 1730563
+- ma5: 39.6
+- ema23_primary: 39.34
+- distance_to_ema23_pct: 0.92
+- ma20: 38.99
+- ma60: 40.44
+- ma120: 43.41
+- return_5d: 4.47
+- return_20d: 3.79
+- volume_ratio: 0.73
+- distance_to_ma20_pct_auxiliary: 1.83
+- distance_to_high_60_pct: -15.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,37.7,38.25,37.7,38.25,914744,40.08,-4.57,39.9,43.22,0.54
 20260429,38.05,38.6,38,38,849297,39.91,-4.78,39.79,43.03,0.5
 20260430,37.85,38.15,37.35,37.5,1336302,39.71,-5.56,39.68,42.85,0.8
 20260504,37.65,38.2,37.65,37.85,1310573,39.55,-4.31,39.53,42.66,0.78
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,39,39.6,38.55,39.3,1666124,39.16,0.36,38.69,40.77,0.76
 20260525,40.05,40.9,39.9,40.65,3720678,39.28,3.48,38.82,40.67,1.61
 20260526,41,41,39.4,39.55,2012298,39.31,0.62,38.91,40.55,0.86
+20260527,40,40.3,39.35,39.7,1730563,39.34,0.92,38.99,40.44,0.73
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2009 | 第一銅 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 2009 | 第一銅 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 2009 | 第一銅 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 2009 | 第一銅 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2009 | 第一銅 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260527 | 2009 | 第一銅 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2009 | 第一銅 | 43 | 0 | 318330.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 2009 | 第一銅 | 43 | 0 | 316390.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

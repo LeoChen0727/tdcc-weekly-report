@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7610 聯友金屬-創
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:59 Asia/Taipei
+- generated_at: 2026-05-27 21:28:20 Asia/Taipei
 - stock_id: 7610
 - stock_name: 聯友金屬-創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 1300
-- high: 1300
-- low: 1240
-- close: 1260
-- volume: 153642
-- ma5: 1222
-- ema23_primary: 920.85
-- distance_to_ema23_pct: 36.83
-- ma20: 900.2
-- ma60: 581.17
-- ma120: 371.63
-- return_5d: 23.53
-- return_20d: 119.13
-- volume_ratio: 0.16
-- distance_to_ma20_pct_auxiliary: 39.97
-- distance_to_high_60_pct: -3.82
+- date: 20260527
+- open: 1280
+- high: 1290
+- low: 1220
+- close: 1230
+- volume: 229649
+- ma5: 1244
+- ema23_primary: 946.62
+- distance_to_ema23_pct: 29.94
+- ma20: 930.1
+- ma60: 596.23
+- ma120: 381.07
+- return_5d: 9.82
+- return_20d: 94.62
+- volume_ratio: 0.24
+- distance_to_ma20_pct_auxiliary: 32.24
+- distance_to_high_60_pct: -6.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,594,632,594,632,319192,532.05,18.79,536.3,362.54,0.37
 20260429,638,679,638,638,286257,540.88,17.96,550,369.99,0.34
 20260430,643,658,640,640,291338,549.14,16.55,564.45,377.5,0.36
 20260504,675,675,652,663,296155,558.63,18.68,579.27,385.4,0.39
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,1270,1310,1215,1250,1894605,857.3,45.81,832.8,549.14,1.9
 20260525,1210,1295,1185,1250,188863,890.02,40.45,865.95,565.23,0.19
 20260526,1300,1300,1240,1260,153642,920.85,36.83,900.2,581.17,0.16
+20260527,1280,1290,1220,1230,229649,946.62,29.94,930.1,596.23,0.24
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 7610 | 聯友金屬-創 | 1 | 1 | 3 | 3 | 3 | repeated_but_no_breakout | 近 10 日上榜 3 日、近 20 日上榜 3 日，尚未突破，需分辨醞釀或鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

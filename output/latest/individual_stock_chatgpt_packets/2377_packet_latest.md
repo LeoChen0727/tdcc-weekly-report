@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2377 微星
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:16 Asia/Taipei
+- generated_at: 2026-05-27 21:26:32 Asia/Taipei
 - stock_id: 2377
 - stock_name: 微星
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 128
-- high: 128.5
-- low: 123.5
-- close: 126
-- volume: 29116711
-- ma5: 119.9
-- ema23_primary: 109.25
-- distance_to_ema23_pct: 15.33
-- ma20: 108.39
-- ma60: 97.8
-- ma120: 97.9
-- return_5d: 13
-- return_20d: 34.9
-- volume_ratio: 0.81
-- distance_to_ma20_pct_auxiliary: 16.24
-- distance_to_high_60_pct: -7.35
+- date: 20260527
+- open: 127.5
+- high: 132
+- low: 125.5
+- close: 126.5
+- volume: 31363755
+- ma5: 123.3
+- ema23_primary: 110.69
+- distance_to_ema23_pct: 14.29
+- ma20: 109.85
+- ma60: 98.33
+- ma120: 98.11
+- return_5d: 15.53
+- return_20d: 29.88
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: 15.16
+- distance_to_high_60_pct: -6.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,93.4,99.2,91.3,97.4,17215094,92.92,4.82,91.46,92.86,1.84
 20260429,98.3,101.5,95.8,100,19913974,93.51,6.94,92.05,92.86,1.97
 20260430,100.5,101,97.1,97.7,15980140,93.86,4.09,92.68,92.81,1.53
 20260504,97.7,98.1,95,95.1,11398692,93.96,1.21,93.03,92.72,1.05
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,114.5,124,113.5,124,54500942,105.97,17.01,105.17,96.64,1.71
 20260525,131.5,136,127,127,80479778,107.73,17.89,106.77,97.23,2.31
 20260526,128,128.5,123.5,126,29116711,109.25,15.33,108.39,97.8,0.81
+20260527,127.5,132,125.5,126.5,31363755,110.69,14.29,109.85,98.33,0.86
 ```
 
 ## Latest TDCC Snapshot
@@ -130,12 +130,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2377 | 微星 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 2377 | 微星 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2377 | 微星 | 55 | 2 | 15691870.0 | 30650.0 | 511.97 | no_signal | 0 |  |
+| 20260527 | 2377 | 微星 | 59 | 2 | 18439510.0 | 38850.0 | 474.63 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2032 新鋼
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:08 Asia/Taipei
+- generated_at: 2026-05-27 21:26:24 Asia/Taipei
 - stock_id: 2032
 - stock_name: 新鋼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 19
-- high: 19.25
-- low: 17.6
-- close: 17.75
-- volume: 5439783
-- ma5: 17.08
-- ema23_primary: 16.7
-- distance_to_ema23_pct: 6.27
-- ma20: 16.62
-- ma60: 16.29
-- ma120: 15.88
-- return_5d: 9.23
-- return_20d: 13.78
-- volume_ratio: 5.11
-- distance_to_ma20_pct_auxiliary: 6.82
-- distance_to_high_60_pct: -7.79
+- date: 20260527
+- open: 17.8
+- high: 18.6
+- low: 17.65
+- close: 18
+- volume: 2391282
+- ma5: 17.4
+- ema23_primary: 16.81
+- distance_to_ema23_pct: 7.08
+- ma20: 16.71
+- ma60: 16.32
+- ma120: 15.92
+- return_5d: 9.76
+- return_20d: 11.11
+- volume_ratio: 2.06
+- distance_to_ma20_pct_auxiliary: 7.74
+- distance_to_high_60_pct: -6.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,15.8,16.2,15.8,16.2,462604,16.22,-0.15,16.46,16.28,0.7
 20260429,16.35,16.8,16.35,16.55,912867,16.25,1.84,16.45,16.29,1.73
 20260430,16.55,16.55,15.9,16,376765,16.23,-1.42,16.42,16.3,0.78
 20260504,15.85,15.9,15.55,15.55,289125,16.17,-3.86,16.37,16.29,0.62
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,16.75,16.75,16.25,16.5,405252,16.47,0.2,16.36,16.24,0.6
 20260525,16.55,18.15,16.5,18.15,3004677,16.61,9.29,16.51,16.27,3.68
 20260526,19,19.25,17.6,17.75,5439783,16.7,6.27,16.62,16.29,5.11
+20260527,17.8,18.6,17.65,18,2391282,16.81,7.08,16.71,16.32,2.06
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2032 | 新鋼 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 2032 | 新鋼 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2032 | 新鋼 | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260527 | 2032 | 新鋼 | 3 | 2 | 3 | 3 | 3 | continued_2_3d | 連續 3 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6962 奕力-KY
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:58 Asia/Taipei
+- generated_at: 2026-05-27 21:28:19 Asia/Taipei
 - stock_id: 6962
 - stock_name: 奕力-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 39.35
-- high: 39.8
-- low: 38.5
-- close: 38.7
-- volume: 5976000
-- ma5: 39.06
-- ema23_primary: 37.12
-- distance_to_ema23_pct: 4.27
-- ma20: 36.97
-- ma60: 34.42
-- ma120: 36.76
-- return_5d: 7.65
-- return_20d: 7.8
-- volume_ratio: 1
-- distance_to_ma20_pct_auxiliary: 4.69
-- distance_to_high_60_pct: -6.52
+- date: 20260527
+- open: 39.2
+- high: 39.7
+- low: 37.8
+- close: 37.85
+- volume: 5957466
+- ma5: 39.01
+- ema23_primary: 37.18
+- distance_to_ema23_pct: 1.81
+- ma20: 37.08
+- ma60: 34.45
+- ma120: 36.74
+- return_5d: -0.66
+- return_20d: 6.62
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: 2.07
+- distance_to_high_60_pct: -8.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,35.8,36.5,35.35,35.5,3903769,34.91,1.68,34.61,34.88,0.62
 20260429,35.5,35.75,34.65,34.75,3210680,34.9,-0.43,34.65,34.81,0.54
 20260430,34.7,35.45,33.95,34,3119280,34.83,-2.37,34.71,34.73,0.52
 20260504,34.65,35.9,34.35,34.7,3767212,34.81,-0.33,34.78,34.65,0.62
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,39.75,40,38.7,39.85,8761281,36.78,8.35,36.84,34.34,1.28
 20260525,40.05,40.4,39.1,39.1,9603320,36.97,5.76,36.83,34.38,1.53
 20260526,39.35,39.8,38.5,38.7,5976000,37.12,4.27,36.97,34.42,1
+20260527,39.2,39.7,37.8,37.85,5957466,37.18,1.81,37.08,34.45,0.98
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6962 | 奕力-KY | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 6962 | 奕力-KY | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 6962 | 奕力-KY | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6962 | 奕力-KY | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260527 | 6962 | 奕力-KY | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6962 | 奕力-KY | 10 | 0 | 1331290.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260527 | 6962 | 奕力-KY | 10 | 0 | 1769790.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6533 晶心科
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:43 Asia/Taipei
+- generated_at: 2026-05-27 21:28:03 Asia/Taipei
 - stock_id: 6533
 - stock_name: 晶心科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 245
-- high: 245
-- low: 234
-- close: 234.5
-- volume: 911660
-- ma5: 233.1
-- ema23_primary: 230.12
-- distance_to_ema23_pct: 1.9
-- ma20: 234.7
-- ma60: 210.28
-- ma120: 229.18
-- return_5d: 9.32
-- return_20d: -2.09
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: -0.09
-- distance_to_high_60_pct: -15.5
+- date: 20260527
+- open: 238.5
+- high: 240
+- low: 226.5
+- close: 228
+- volume: 840485
+- ma5: 235.4
+- ema23_primary: 229.95
+- distance_to_ema23_pct: -0.85
+- ma20: 234.53
+- ma60: 210.43
+- ma120: 228.85
+- return_5d: 5.31
+- return_20d: -1.51
+- volume_ratio: 0.77
+- distance_to_ma20_pct_auxiliary: -2.78
+- distance_to_high_60_pct: -17.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,231,243,227,231.5,1281431,214.59,7.88,205.93,209.88,0.92
 20260429,231.5,235,228.5,230.5,528514,215.91,6.76,208.5,209.76,0.38
 20260430,228.5,230.5,224.5,228.5,757958,216.96,5.32,211.32,209.61,0.54
 20260504,235,241.5,232.5,237.5,1149895,218.67,8.61,214.25,209.51,0.8
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,234,246,230.5,240,1031399,228.38,5.09,235.07,209.68,0.86
 20260525,245,249.5,240,244.5,1324091,229.72,6.43,234.95,210,1.15
 20260526,245,245,234,234.5,911660,230.12,1.9,234.7,210.28,0.82
+20260527,238.5,240,226.5,228,840485,229.95,-0.85,234.53,210.43,0.77
 ```
 
 ## Latest TDCC Snapshot
@@ -128,14 +128,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6533 | 晶心科 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6533 | 晶心科 | 8 | 0 | 83680.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 6533 | 晶心科 | 8 | 0 | 125630.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1419 新紡
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:53 Asia/Taipei
+- generated_at: 2026-05-27 21:26:09 Asia/Taipei
 - stock_id: 1419
 - stock_name: 新紡
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 67.9
-- high: 71
-- low: 66.3
-- close: 66.8
-- volume: 456299
-- ma5: 63.96
-- ema23_primary: 63.86
-- distance_to_ema23_pct: 4.61
-- ma20: 63.9
-- ma60: 63.27
-- ma120: 67.31
-- return_5d: 6.03
-- return_20d: 8.97
-- volume_ratio: 2.41
-- distance_to_ma20_pct_auxiliary: 4.54
-- distance_to_high_60_pct: -5.92
+- date: 20260527
+- open: 66.9
+- high: 66.9
+- low: 63.5
+- close: 63.8
+- volume: 334670
+- ma5: 64.32
+- ema23_primary: 63.85
+- distance_to_ema23_pct: -0.08
+- ma20: 63.94
+- ma60: 63.2
+- ma120: 67.28
+- return_5d: 2.9
+- return_20d: 1.27
+- volume_ratio: 1.65
+- distance_to_ma20_pct_auxiliary: -0.22
+- distance_to_high_60_pct: -10.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,62.9,63,61,63,70435,63.12,-0.19,62.77,65.92,0.67
 20260429,63.9,64.6,63.2,63.6,68674,63.16,0.7,62.88,65.74,0.69
 20260430,63.2,64.5,62.8,64.4,131676,63.26,1.8,63.06,65.53,1.3
 20260504,64.4,65.4,63.3,64.8,154221,63.39,2.22,63.19,65.33,1.49
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,62.5,63,62.1,62.6,133934,63.38,-1.23,63.44,63.31,0.86
 20260525,64.7,66.6,64.5,65.9,380392,63.59,3.63,63.62,63.27,2.22
 20260526,67.9,71,66.3,66.8,456299,63.86,4.61,63.9,63.27,2.41
+20260527,66.9,66.9,63.5,63.8,334670,63.85,-0.08,63.94,63.2,1.65
 ```
 
 ## Latest TDCC Snapshot

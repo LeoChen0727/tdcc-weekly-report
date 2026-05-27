@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6197 佳必琪
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:32 Asia/Taipei
+- generated_at: 2026-05-27 21:27:53 Asia/Taipei
 - stock_id: 6197
 - stock_name: 佳必琪
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 277.5
-- high: 287.5
-- low: 272
-- close: 279.5
-- volume: 7419502
-- ma5: 252.9
-- ema23_primary: 226.7
-- distance_to_ema23_pct: 23.29
-- ma20: 229.95
-- ma60: 191.66
-- ma120: 167.06
-- return_5d: 29.4
-- return_20d: 57.02
-- volume_ratio: 1.23
-- distance_to_ma20_pct_auxiliary: 21.55
-- distance_to_high_60_pct: -2.78
+- date: 20260527
+- open: 279.5
+- high: 291
+- low: 277.5
+- close: 281.5
+- volume: 5861480
+- ma5: 265.8
+- ema23_primary: 231.27
+- distance_to_ema23_pct: 21.72
+- ma20: 234.62
+- ma60: 193.78
+- ma120: 168.27
+- return_5d: 29.72
+- return_20d: 49.73
+- volume_ratio: 0.95
+- distance_to_ma20_pct_auxiliary: 19.98
+- distance_to_high_60_pct: -3.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,179.5,189,175.5,188,3763071,178.56,5.29,177.47,164.56,0.92
 20260429,196,206.5,186,206.5,14266259,180.89,14.16,179.68,165.58,3.05
 20260430,207.5,210,197.5,208,11773244,183.15,13.57,182.15,166.58,2.29
 20260504,220,228.5,220,228.5,4078101,186.93,22.24,185.43,167.93,0.78
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,244.5,258,240.5,256,9330534,217.16,17.88,219.9,187.41,1.59
 20260525,264.5,279,257.5,274,7820023,221.9,23.48,224.88,189.51,1.34
 20260526,277.5,287.5,272,279.5,7419502,226.7,23.29,229.95,191.66,1.23
+20260527,279.5,291,277.5,281.5,5861480,231.27,21.72,234.62,193.78,0.95
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260527 | 6197 | 佳必琪 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 63.0 |  |  | neckline_challenge |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6197 | 佳必琪 | 1 | 1 | 3 | 3 | 3 | repeated_but_no_breakout | 近 10 日上榜 3 日、近 20 日上榜 3 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260527 | 6197 | 佳必琪 | 2 | 2 | 4 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6197 | 佳必琪 | 90 | 0 | 30253070.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 6197 | 佳必琪 | 90 | 0 | 17991810.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

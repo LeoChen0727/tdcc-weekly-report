@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00964 中信亞太高股息
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:47 Asia/Taipei
+- generated_at: 2026-05-27 21:26:03 Asia/Taipei
 - stock_id: 00964
 - stock_name: 中信亞太高股息
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 14.35
-- high: 14.43
-- low: 14.23
-- close: 14.4
-- volume: 5548427
+- date: 20260527
+- open: 14.45
+- high: 14.45
+- low: 14.31
+- close: 14.34
+- volume: 6065084
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,14.16,14.24,14.16,14.22,1259582,,,,,
 20260525,14.25,14.37,14.25,14.35,1939849,,,,,
 20260526,14.35,14.43,14.23,14.4,5548427,,,,,
+20260527,14.45,14.45,14.31,14.34,6065084,,,,,
 ```
 
 ## Latest TDCC Snapshot

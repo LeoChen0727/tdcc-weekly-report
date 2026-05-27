@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1623 大東電
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:01 Asia/Taipei
+- generated_at: 2026-05-27 21:26:17 Asia/Taipei
 - stock_id: 1623
 - stock_name: 大東電
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 78
+- latest_price_date: 20260527
+- price_rows: 79
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 232
-- high: 232
-- low: 227.5
-- close: 229
-- volume: 193839
-- ma5: 223.8
-- ema23_primary: 226.73
-- distance_to_ema23_pct: 1
-- ma20: 233.2
-- ma60: 213.09
-- ma120: 220.75
-- return_5d: 3.85
-- return_20d: -1.08
-- volume_ratio: 0.97
-- distance_to_ma20_pct_auxiliary: -1.8
-- distance_to_high_60_pct: -12.93
+- date: 20260527
+- open: 230
+- high: 245
+- low: 230
+- close: 238.5
+- volume: 555880
+- ma5: 228.4
+- ema23_primary: 227.71
+- distance_to_ema23_pct: 4.74
+- ma20: 233.25
+- ma60: 213.18
+- ma120: 220.97
+- return_5d: 10.67
+- return_20d: 0.42
+- volume_ratio: 2.53
+- distance_to_ma20_pct_auxiliary: 2.25
+- distance_to_high_60_pct: -9.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,232,240,232,237.5,143441,215.46,10.23,204.85,216.81,0.38
 20260429,237.5,241.5,237.5,240,123460,217.51,10.34,207.7,217.2,0.33
 20260430,240,240,238,239,97762,219.3,8.98,210.7,216.27,0.27
 20260504,241.5,258,241.5,250,293063,221.86,12.69,214.12,214.77,0.78
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,225,226,221,224.5,186243,226.39,-0.83,233.93,213.13,0.9
 20260525,229,230,225,228,227518,226.52,0.65,233.32,213.28,1.13
 20260526,232,232,227.5,229,193839,226.73,1,233.2,213.09,0.97
+20260527,230,245,230,238.5,555880,227.71,4.74,233.25,213.18,2.53
 ```
 
 ## Latest TDCC Snapshot

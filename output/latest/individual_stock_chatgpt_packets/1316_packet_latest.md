@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1316 上曜
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:51 Asia/Taipei
+- generated_at: 2026-05-27 21:26:07 Asia/Taipei
 - stock_id: 1316
 - stock_name: 上曜
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
+- date: 20260527
 - open: 10.2
-- high: 10.4
-- low: 10.1
-- close: 10.2
-- volume: 1657656
-- ma5: 10.44
-- ema23_primary: 10.99
-- distance_to_ema23_pct: -7.17
-- ma20: 10.95
-- ma60: 11.91
-- ma120: 13.31
-- return_5d: -1.92
-- return_20d: -6.42
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: -6.81
-- distance_to_high_60_pct: -26.62
+- high: 10.2
+- low: 10
+- close: 10.15
+- volume: 2616714
+- ma5: 10.35
+- ema23_primary: 10.92
+- distance_to_ema23_pct: -7.03
+- ma20: 10.89
+- ma60: 11.85
+- ma120: 13.28
+- return_5d: -4.25
+- return_20d: -9.38
+- volume_ratio: 1.01
+- distance_to_ma20_pct_auxiliary: -6.82
+- distance_to_high_60_pct: -25.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,10.9,11.25,10.9,11.2,3091647,11.92,-6.04,11.88,12.86,1.51
 20260429,11.15,11.3,11.15,11.25,1575424,11.86,-5.17,11.83,12.81,0.77
 20260430,11.3,11.3,10.95,11,1376821,11.79,-6.71,11.78,12.76,0.68
 20260504,11.15,11.15,10.95,11,1567491,11.73,-6.19,11.72,12.71,0.77
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,10.75,10.75,10.35,10.4,2522591,11.13,-6.58,11.02,12.03,0.96
 20260525,10.4,10.4,10,10.25,3960158,11.06,-7.31,10.98,11.97,1.48
 20260526,10.2,10.4,10.1,10.2,1657656,10.99,-7.17,10.95,11.91,0.63
+20260527,10.2,10.2,10,10.15,2616714,10.92,-7.03,10.89,11.85,1.01
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1316 | 上曜 | revenue_pullback | 營收成長股價回檔 | 63.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1316 | 上曜 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

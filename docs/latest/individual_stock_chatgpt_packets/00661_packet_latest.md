@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00661 元大日經225
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:45 Asia/Taipei
+- generated_at: 2026-05-27 21:26:00 Asia/Taipei
 - stock_id: 00661
 - stock_name: 元大日經225
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 83.9
-- high: 83.95
-- low: 83.55
-- close: 83.9
-- volume: 105613
+- date: 20260527
+- open: 84.6
+- high: 85.3
+- low: 84.1
+- close: 84.1
+- volume: 136444
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,81.15,81.85,80.95,81.85,78192,,,,,
 20260525,83.8,84.35,83.8,84.2,239666,,,,,
 20260526,83.9,83.95,83.55,83.9,105613,,,,,
+20260527,84.6,85.3,84.1,84.1,136444,,,,,
 ```
 
 ## Latest TDCC Snapshot

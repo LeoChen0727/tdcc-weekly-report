@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8478 東哥遊艇
 
 ## Metadata
-- generated_at: 2026-05-26 23:55:14 Asia/Taipei
+- generated_at: 2026-05-27 21:28:35 Asia/Taipei
 - stock_id: 8478
 - stock_name: 東哥遊艇
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 150.5
-- high: 152
+- date: 20260527
+- open: 151.5
+- high: 154
 - low: 150
-- close: 150.5
-- volume: 136665
-- ma5: 151.2
-- ema23_primary: 159.33
-- distance_to_ema23_pct: -5.54
-- ma20: 160.97
-- ma60: 163.82
-- ma120: 177.38
-- return_5d: -0.99
-- return_20d: -11.47
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: -6.51
-- distance_to_high_60_pct: -18.65
+- close: 150
+- volume: 366161
+- ma5: 151.1
+- ema23_primary: 158.55
+- distance_to_ema23_pct: -5.39
+- ma20: 159.93
+- ma60: 163.47
+- ma120: 177.03
+- return_5d: -0.33
+- return_20d: -12.28
+- volume_ratio: 1.56
+- distance_to_ma20_pct_auxiliary: -6.21
+- distance_to_high_60_pct: -18.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,170,171.5,170,171,81722,168.36,1.57,166.32,170.82,0.42
 20260429,172.5,172.5,169.5,171,86699,168.58,1.44,166.88,170.52,0.47
 20260430,171,171,167.5,168.5,125939,168.57,-0.04,167.5,170.16,0.68
 20260504,168.5,168.5,163.5,166.5,245460,168.4,-1.13,167.9,169.74,1.27
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,152.5,154,152,152.5,113714,161.01,-5.28,162.88,164.53,0.52
 20260525,153,153,149.5,150.5,229408,160.13,-6.02,161.95,164.18,1.04
 20260526,150.5,152,150,150.5,136665,159.33,-5.54,160.97,163.82,0.62
+20260527,151.5,154,150,150,366161,158.55,-5.39,159.93,163.47,1.56
 ```
 
 ## Latest TDCC Snapshot
@@ -135,7 +135,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8478 | 東哥遊艇 | 10 | 0 | 440.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 8478 | 東哥遊艇 | 10 | 0 | 2280.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

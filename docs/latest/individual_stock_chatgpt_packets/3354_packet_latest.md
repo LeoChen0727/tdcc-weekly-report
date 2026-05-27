@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3354 律勝
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:46 Asia/Taipei
+- generated_at: 2026-05-27 21:27:04 Asia/Taipei
 - stock_id: 3354
 - stock_name: 律勝
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 34
-- high: 36.7
-- low: 33.05
-- close: 34.2
-- volume: 35000
-- ma5: 33.32
-- ema23_primary: 31.81
-- distance_to_ema23_pct: 7.51
-- ma20: 31.95
-- ma60: 28.91
-- ma120: 26.6
-- return_5d: 3.32
-- return_20d: 31.79
+- date: 20260527
+- open: 34.45
+- high: 35.1
+- low: 32.3
+- close: 32.5
+- volume: 33000
+- ma5: 33.47
+- ema23_primary: 31.87
+- distance_to_ema23_pct: 1.98
+- ma20: 32.25
+- ma60: 29.01
+- ma120: 26.74
+- return_5d: 2.36
+- return_20d: 23.34
 - volume_ratio: 0.02
-- distance_to_ma20_pct_auxiliary: 7.06
-- distance_to_high_60_pct: -9.04
+- distance_to_ma20_pct_auxiliary: 0.77
+- distance_to_high_60_pct: -13.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,26.45,27.3,26.05,26.35,487000,27.25,-3.32,26.68,26.83,0.44
 20260429,26.3,26.95,25.6,26.5,268000,27.19,-2.54,26.79,26.78,0.25
 20260430,26.75,27.2,26.3,26.35,239000,27.12,-2.84,26.92,26.73,0.22
 20260504,26.95,28.1,26.95,28.05,637000,27.2,3.13,27.1,26.72,0.58
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,32.65,34.75,32,34.75,34000,31.4,10.68,31.21,28.6,0.02
 20260525,35.15,35.9,33.4,33.75,34000,31.59,6.83,31.53,28.75,0.02
 20260526,34,36.7,33.05,34.2,35000,31.81,7.51,31.95,28.91,0.02
+20260527,34.45,35.1,32.3,32.5,33000,31.87,1.98,32.25,29.01,0.02
 ```
 
 ## Latest TDCC Snapshot

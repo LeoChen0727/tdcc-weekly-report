@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2937 集雅社
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:34 Asia/Taipei
+- generated_at: 2026-05-27 21:26:51 Asia/Taipei
 - stock_id: 2937
 - stock_name: 集雅社
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 117
+- latest_price_date: 20260527
+- price_rows: 118
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 47.5
-- high: 47.75
-- low: 47.15
-- close: 47.75
-- volume: 47000
-- ma5: 47.13
-- ema23_primary: 45.59
-- distance_to_ema23_pct: 4.74
-- ma20: 44.98
-- ma60: 45.2
-- ma120: 44.52
-- return_5d: 3.35
-- return_20d: 6.82
-- volume_ratio: 3.69
-- distance_to_ma20_pct_auxiliary: 6.16
-- distance_to_high_60_pct: -3.92
+- date: 20260527
+- open: 48.95
+- high: 48.95
+- low: 47.8
+- close: 47.85
+- volume: 48000
+- ma5: 47.41
+- ema23_primary: 45.78
+- distance_to_ema23_pct: 4.52
+- ma20: 45.15
+- ma60: 45.27
+- ma120: 44.55
+- return_5d: 3.01
+- return_20d: 7.65
+- volume_ratio: 3.21
+- distance_to_ma20_pct_auxiliary: 5.99
+- distance_to_high_60_pct: -3.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260423,44.2,44.45,43.85,44.45,4000,45.14,-1.54,45.4,44.87,0.42
 20260424,43.9,43.9,43.8,43.8,6000,45.03,-2.74,45.16,44.87,0.62
 20260427,43.8,43.8,43.8,43.8,1000,44.93,-2.51,44.93,44.87,0.11
 20260429,42.45,43.05,42.45,43.05,5000,44.77,-3.85,44.66,44.85,0.58
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260521,46.5,49.7,46.5,47.5,38000,45.2,5.08,44.68,45.08,4.58
 20260522,47.5,47.55,47.5,47.5,48000,45.4,4.64,44.83,45.14,4.59
 20260526,47.5,47.75,47.15,47.75,47000,45.59,4.74,44.98,45.2,3.69
+20260527,48.95,48.95,47.8,47.85,48000,45.78,4.52,45.15,45.27,3.21
 ```
 
 ## Latest TDCC Snapshot

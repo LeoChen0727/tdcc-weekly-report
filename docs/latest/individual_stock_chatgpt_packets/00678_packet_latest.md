@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00678 群益那斯達克生技
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:45 Asia/Taipei
+- generated_at: 2026-05-27 21:26:01 Asia/Taipei
 - stock_id: 00678
 - stock_name: 群益那斯達克生技
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 35.8
-- high: 35.81
-- low: 35.73
-- close: 35.77
-- volume: 247530
+- date: 20260527
+- open: 35.62
+- high: 35.7
+- low: 35.55
+- close: 35.65
+- volume: 391383
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,35.81,35.82,35.74,35.81,217895,,,,,
 20260525,35.96,35.96,35.87,35.93,331997,,,,,
 20260526,35.8,35.81,35.73,35.77,247530,,,,,
+20260527,35.62,35.7,35.55,35.65,391383,,,,,
 ```
 
 ## Latest TDCC Snapshot

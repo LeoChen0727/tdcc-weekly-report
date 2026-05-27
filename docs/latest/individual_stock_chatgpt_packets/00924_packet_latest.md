@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00924 復華S&P500成長
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:47 Asia/Taipei
+- generated_at: 2026-05-27 21:26:02 Asia/Taipei
 - stock_id: 00924
 - stock_name: 復華S&P500成長
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 32.4
-- high: 32.4
-- low: 32.31
-- close: 32.36
-- volume: 1513430
+- date: 20260527
+- open: 32.46
+- high: 32.46
+- low: 32.33
+- close: 32.34
+- volume: 3785919
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,32.31,32.31,32.26,32.29,1764139,,,,,
 20260525,32.36,32.46,32.32,32.39,3675361,,,,,
 20260526,32.4,32.4,32.31,32.36,1513430,,,,,
+20260527,32.46,32.46,32.33,32.34,3785919,,,,,
 ```
 
 ## Latest TDCC Snapshot

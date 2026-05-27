@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2359 所羅門
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:15 Asia/Taipei
+- generated_at: 2026-05-27 21:26:31 Asia/Taipei
 - stock_id: 2359
 - stock_name: 所羅門
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 141.5
-- high: 148
-- low: 139
-- close: 144
-- volume: 6651885
-- ma5: 137.6
-- ema23_primary: 128.5
-- distance_to_ema23_pct: 12.06
-- ma20: 127.85
-- ma60: 119.48
-- ma120: 124.53
-- return_5d: 6.67
-- return_20d: 30.32
-- volume_ratio: 1.13
-- distance_to_ma20_pct_auxiliary: 12.63
-- distance_to_high_60_pct: -2.7
+- date: 20260527
+- open: 147.5
+- high: 150
+- low: 142
+- close: 144.5
+- volume: 10233217
+- ma5: 141
+- ema23_primary: 129.84
+- distance_to_ema23_pct: 11.29
+- ma20: 129.22
+- ma60: 119.68
+- ma120: 124.72
+- return_5d: 13.33
+- return_20d: 23.5
+- volume_ratio: 1.65
+- distance_to_ma20_pct_auxiliary: 11.82
+- distance_to_high_60_pct: -3.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,110.5,117.5,108,117,3420806,113.86,2.76,112.2,120.03,2.74
 20260429,115.5,120,114.5,114.5,3476446,113.92,0.51,112.4,119.77,2.5
 20260430,114.5,124.5,114.5,119,6495003,114.34,4.08,112.97,119.55,3.91
 20260504,122,127,119.5,125.5,5403780,115.27,8.88,113.7,119.41,2.84
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,135,141.5,132.5,141,7522496,125.79,12.09,124.55,119.07,1.44
 20260525,145,145,140,141.5,8656381,127.1,11.33,126.17,119.26,1.54
 20260526,141.5,148,139,144,6651885,128.5,12.06,127.85,119.48,1.13
+20260527,147.5,150,142,144.5,10233217,129.84,11.29,129.22,119.68,1.65
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2359 | 所羅門 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 63.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 2359 | 所羅門 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 2359 | 所羅門 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 2359 | 所羅門 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2359 | 所羅門 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260527 | 2359 | 所羅門 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2359 | 所羅門 | 46 | 0 | 6600620.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 2359 | 所羅門 | 46 | 0 | 15739630.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

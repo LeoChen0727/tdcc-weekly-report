@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3026 禾伸堂
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:36 Asia/Taipei
+- generated_at: 2026-05-27 21:26:53 Asia/Taipei
 - stock_id: 3026
 - stock_name: 禾伸堂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 523
-- high: 570
-- low: 471
-- close: 570
-- volume: 3383416
-- ma5: 479.5
-- ema23_primary: 354.42
-- distance_to_ema23_pct: 60.82
-- ma20: 342.55
-- ma60: 218.3
-- ma120: 161.62
-- return_5d: 56.16
-- return_20d: 161.47
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: 66.4
-- distance_to_high_60_pct: 0
+- date: 20260527
+- open: 599
+- high: 620
+- low: 596
+- close: 608
+- volume: 1917131
+- ma5: 522.2
+- ema23_primary: 375.55
+- distance_to_ema23_pct: 61.89
+- ma20: 361.25
+- ma60: 226.45
+- ma120: 165.81
+- return_5d: 54.12
+- return_20d: 159.83
+- volume_ratio: 0.22
+- distance_to_ma20_pct_auxiliary: 68.3
+- distance_to_high_60_pct: -1.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,218,238.5,218,234,3191893,198.94,17.62,201.47,142.03,0.41
 20260429,228,250.5,212.5,236,15639491,202.03,16.82,205.93,144.21,1.92
 20260430,233.5,233.5,212.5,212.5,17109724,202.9,4.73,209.68,145.9,1.98
 20260504,215,233.5,202,226,16422071,204.82,10.34,213.88,147.86,1.79
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,460,476.5,460,476.5,1700070,317.72,49.98,309.6,204.05,0.19
 20260525,522,524,522,523,1786878,334.83,56.2,324.95,210.8,0.2
 20260526,523,570,471,570,3383416,354.42,60.82,342.55,218.3,0.38
+20260527,599,620,596,608,1917131,375.55,61.89,361.25,226.45,0.22
 ```
 
 ## Latest TDCC Snapshot
@@ -135,7 +135,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3026 | 禾伸堂 | 64 | 0 | 8446220.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260527 | 3026 | 禾伸堂 | 63 | 0 | 15031210.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

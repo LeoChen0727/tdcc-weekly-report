@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1341 富林-KY
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:52 Asia/Taipei
+- generated_at: 2026-05-27 21:26:08 Asia/Taipei
 - stock_id: 1341
 - stock_name: 富林-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 131
+- latest_price_date: 20260527
+- price_rows: 132
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 61.5
-- high: 61.5
-- low: 61.5
-- close: 61.5
-- volume: 5004
-- ma5: 61.68
-- ema23_primary: 61.13
-- distance_to_ema23_pct: 0.6
-- ma20: 61.3
+- date: 20260527
+- open: 61
+- high: 61.8
+- low: 61
+- close: 61.8
+- volume: 4244
+- ma5: 61.84
+- ema23_primary: 61.19
+- distance_to_ema23_pct: 1
+- ma20: 61.34
 - ma60: 60.14
-- ma120: 59.3
-- return_5d: 0.82
-- return_20d: 2.16
-- volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: 0.33
-- distance_to_high_60_pct: -3.15
+- ma120: 59.33
+- return_5d: 1.31
+- return_20d: 1.31
+- volume_ratio: 0.45
+- distance_to_ma20_pct_auxiliary: 0.75
+- distance_to_high_60_pct: -2.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,60.4,61,60,61,7130,60.09,1.52,59.95,59.44,1.02
 20260429,60,61,60,61,3002,60.16,1.39,60.08,59.48,0.44
 20260430,60.7,61.3,60.1,61.2,7320,60.25,1.58,60.24,59.53,1.04
 20260504,61.1,61.1,60.7,60.8,8025,60.3,0.84,60.38,59.59,1.13
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,62,62,61.3,61.3,8628,61.05,0.41,61.2,60.16,0.92
 20260525,60.3,61.6,60.2,61.6,5355,61.1,0.82,61.23,60.16,0.56
 20260526,61.5,61.5,61.5,61.5,5004,61.13,0.6,61.3,60.14,0.52
+20260527,61,61.8,61,61.8,4244,61.19,1,61.34,60.14,0.45
 ```
 
 ## Latest TDCC Snapshot

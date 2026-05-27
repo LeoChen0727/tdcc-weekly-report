@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3014 聯陽
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:35 Asia/Taipei
+- generated_at: 2026-05-27 21:26:52 Asia/Taipei
 - stock_id: 3014
 - stock_name: 聯陽
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 148.5
-- high: 151.5
-- low: 147
-- close: 151
-- volume: 2839111
-- ma5: 146.1
-- ema23_primary: 136.3
-- distance_to_ema23_pct: 10.79
-- ma20: 136.03
-- ma60: 124.92
-- ma120: 121.33
-- return_5d: 12.69
-- return_20d: 21.29
-- volume_ratio: 0.93
-- distance_to_ma20_pct_auxiliary: 11.01
-- distance_to_high_60_pct: -0.98
+- date: 20260527
+- open: 152
+- high: 153.5
+- low: 149
+- close: 153
+- volume: 3236990
+- ma5: 149.1
+- ema23_primary: 137.69
+- distance_to_ema23_pct: 11.12
+- ma20: 137.5
+- ma60: 125.42
+- ma120: 121.63
+- return_5d: 10.87
+- return_20d: 23.89
+- volume_ratio: 1.02
+- distance_to_ma20_pct_auxiliary: 11.27
+- distance_to_high_60_pct: -0.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,124,124.5,123,123.5,898875,121.54,1.62,120.62,119.65,0.9
 20260429,124,124,122.5,124,474405,121.74,1.86,121.05,119.74,0.47
 20260430,125.5,126,123.5,124,1185680,121.93,1.7,121.53,119.79,1.16
 20260504,125.5,128.5,125.5,127,1445227,122.35,3.8,122.08,119.88,1.36
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,146,149,143,148,4648958,133.73,10.67,133.55,124.02,1.62
 20260525,151.5,152.5,148,148.5,3426757,134.96,10.03,134.7,124.47,1.15
 20260526,148.5,151.5,147,151,2839111,136.3,10.79,136.03,124.92,0.93
+20260527,152,153.5,149,153,3236990,137.69,11.12,137.5,125.42,1.02
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3014 | 聯陽 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 3014 | 聯陽 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | call_inflow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3014 | 聯陽 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| 20260527 | 3014 | 聯陽 | 2 | 2 | 3 | 3 | 3 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3014 | 聯陽 | 5 | 0 | 697160.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 3014 | 聯陽 | 5 | 0 | 1046370.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6505 台塑化
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:41 Asia/Taipei
+- generated_at: 2026-05-27 21:28:02 Asia/Taipei
 - stock_id: 6505
 - stock_name: 台塑化
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 49.5
-- high: 50.2
-- low: 49.1
-- close: 49.3
-- volume: 7903750
-- ma5: 50.46
-- ema23_primary: 52.18
-- distance_to_ema23_pct: -5.52
-- ma20: 52.56
-- ma60: 54.9
-- ma120: 52.38
-- return_5d: -3.9
-- return_20d: -4.83
-- volume_ratio: 0.9
-- distance_to_ma20_pct_auxiliary: -6.21
-- distance_to_high_60_pct: -27.71
+- date: 20260527
+- open: 49.8
+- high: 50.3
+- low: 49.6
+- close: 50.1
+- volume: 8193135
+- ma5: 50.24
+- ema23_primary: 52.01
+- distance_to_ema23_pct: -3.67
+- ma20: 52.42
+- ma60: 54.82
+- ma120: 52.36
+- return_5d: -2.15
+- return_20d: -5.29
+- volume_ratio: 0.93
+- distance_to_ma20_pct_auxiliary: -4.43
+- distance_to_high_60_pct: -26.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,53.5,53.5,52.1,52.9,8845012,53.94,-1.93,54.05,54.21,0.61
 20260429,53.6,54,53.1,54,9027204,53.95,0.1,53.94,54.34,0.67
 20260430,55,56.7,53.6,56.4,21140235,54.15,4.15,54,54.5,1.55
 20260504,55.5,55.5,53.8,54,11677895,54.14,-0.25,53.91,54.61,0.88
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,51.1,51.3,50.6,51,5352015,52.71,-3.24,52.8,55.05,0.63
 20260525,51.3,51.3,49.3,49.5,13646379,52.44,-5.61,52.69,55.01,1.56
 20260526,49.5,50.2,49.1,49.3,7903750,52.18,-5.52,52.56,54.9,0.9
+20260527,49.8,50.3,49.6,50.1,8193135,52.01,-3.67,52.42,54.82,0.93
 ```
 
 ## Latest TDCC Snapshot
@@ -130,12 +130,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6505 | 台塑化 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260527 | 6505 | 台塑化 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6505 | 台塑化 | 44 | 1 | 2031950.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260527 | 6505 | 台塑化 | 44 | 1 | 2662210.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 006204 永豐臺灣加權
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:44 Asia/Taipei
+- generated_at: 2026-05-27 21:26:00 Asia/Taipei
 - stock_id: 006204
 - stock_name: 永豐臺灣加權
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 218.65
-- high: 218.65
-- low: 218.6
-- close: 218.6
-- volume: 23336
+- date: 20260527
+- open: 221.4
+- high: 221.45
+- low: 220.35
+- close: 221.35
+- volume: 25815
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,209.25,211.65,209.25,211.65,32807,,,,,
 20260525,217.75,218,217.6,218,35816,,,,,
 20260526,218.65,218.65,218.6,218.6,23336,,,,,
+20260527,221.4,221.45,220.35,221.35,25815,,,,,
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3380 明泰
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:47 Asia/Taipei
+- generated_at: 2026-05-27 21:27:05 Asia/Taipei
 - stock_id: 3380
 - stock_name: 明泰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 36.2
-- high: 36.2
-- low: 34.7
-- close: 35.4
-- volume: 4641382
-- ma5: 34.06
-- ema23_primary: 33.9
-- distance_to_ema23_pct: 4.41
-- ma20: 32.97
-- ma60: 35.46
-- ma120: 33.75
-- return_5d: 12.56
-- return_20d: 0.28
-- volume_ratio: 1.34
-- distance_to_ma20_pct_auxiliary: 7.38
-- distance_to_high_60_pct: -19.45
+- date: 20260527
+- open: 36
+- high: 36.7
+- low: 34.75
+- close: 35.5
+- volume: 5336548
+- ma5: 34.71
+- ema23_primary: 34.04
+- distance_to_ema23_pct: 4.3
+- ma20: 33
+- ma60: 35.53
+- ma120: 33.82
+- return_5d: 10.08
+- return_20d: 1.72
+- volume_ratio: 1.47
+- distance_to_ma20_pct_auxiliary: 7.58
+- distance_to_high_60_pct: -19.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,35.3,35.3,34.25,34.9,1954904,37.51,-6.96,38.22,35.47,0.22
 20260429,34.8,34.85,33.9,34,2376355,37.22,-8.65,38.11,35.47,0.27
 20260430,34.4,34.45,33.55,33.6,2358642,36.92,-8.99,38.04,35.46,0.27
 20260504,34.35,34.75,33.6,33.7,2729389,36.65,-8.05,37.89,35.44,0.32
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,33,34.3,32.95,34.15,5385356,33.58,1.69,32.92,35.36,1.55
 20260525,35.3,36.15,35.05,35.8,7177530,33.77,6.02,32.96,35.41,2.08
 20260526,36.2,36.2,34.7,35.4,4641382,33.9,4.41,32.97,35.46,1.34
+20260527,36,36.7,34.75,35.5,5336548,34.04,4.3,33,35.53,1.47
 ```
 
 ## Latest TDCC Snapshot
@@ -130,12 +130,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3380 | 明泰 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 3380 | 明泰 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3380 | 明泰 | 18 | 0 | 1166240.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 3380 | 明泰 | 18 | 0 | 1140130.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

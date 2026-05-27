@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00639 富邦深100
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:44 Asia/Taipei
+- generated_at: 2026-05-27 21:26:00 Asia/Taipei
 - stock_id: 00639
 - stock_name: 富邦深100
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 18.03
-- high: 18.27
-- low: 18
-- close: 18.19
-- volume: 1752437
+- date: 20260527
+- open: 18.26
+- high: 18.5
+- low: 18.23
+- close: 18.32
+- volume: 1430896
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,17.68,17.74,17.51,17.7,1386717,,,,,
 20260525,17.77,18.05,17.77,17.94,1475786,,,,,
 20260526,18.03,18.27,18,18.19,1752437,,,,,
+20260527,18.26,18.5,18.23,18.32,1430896,,,,,
 ```
 
 ## Latest TDCC Snapshot

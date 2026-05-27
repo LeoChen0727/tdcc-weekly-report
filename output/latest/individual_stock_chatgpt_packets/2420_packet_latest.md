@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2420 新巨
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:18 Asia/Taipei
+- generated_at: 2026-05-27 21:26:35 Asia/Taipei
 - stock_id: 2420
 - stock_name: 新巨
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 64.9
-- high: 64.9
+- date: 20260527
+- open: 63
+- high: 64.2
 - low: 62.3
-- close: 62.7
-- volume: 992129
-- ma5: 62.3
-- ema23_primary: 58.26
-- distance_to_ema23_pct: 7.62
-- ma20: 57.77
-- ma60: 54.3
-- ma120: 52.59
-- return_5d: 5.73
-- return_20d: 14
-- volume_ratio: 1.31
-- distance_to_ma20_pct_auxiliary: 8.54
-- distance_to_high_60_pct: -3.39
+- close: 62.5
+- volume: 927025
+- ma5: 63.02
+- ema23_primary: 58.61
+- distance_to_ema23_pct: 6.63
+- ma20: 58.15
+- ma60: 54.47
+- ma120: 52.71
+- return_5d: 6.11
+- return_20d: 14.05
+- volume_ratio: 1.17
+- distance_to_ma20_pct_auxiliary: 7.48
+- distance_to_high_60_pct: -3.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,55.3,55.3,54.5,54.8,170198,53.89,1.69,53.58,52.29,0.55
 20260429,54.8,54.8,53.9,54.3,210477,53.92,0.7,53.73,52.31,0.67
 20260430,54.3,55.3,54.3,54.7,181803,53.99,1.32,53.95,52.33,0.58
 20260504,55.2,56,55.1,55.4,325268,54.1,2.39,54.16,52.35,0.99
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,62.6,63.2,62.1,62.7,1115539,57.23,9.55,56.91,53.9,1.66
 20260525,62.7,64.8,62.7,64.7,1060173,57.86,11.83,57.38,54.11,1.48
 20260526,64.9,64.9,62.3,62.7,992129,58.26,7.62,57.77,54.3,1.31
+20260527,63,64.2,62.3,62.5,927025,58.61,6.63,58.15,54.47,1.17
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2420 | 新巨 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00886 永豐美國科技
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:46 Asia/Taipei
+- generated_at: 2026-05-27 21:26:02 Asia/Taipei
 - stock_id: 00886
 - stock_name: 永豐美國科技
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,11 +55,11 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 43.89
-- high: 43.89
-- low: 43.78
-- close: 43.89
+- date: 20260527
+- open: 44.26
+- high: 44.3
+- low: 44.09
+- close: 44.09
 - volume: 44000
 - ma5: 
 - ema23_primary: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,43.13,43.25,43.11,43.25,43000,,,,,
 20260525,43.89,44,43.89,43.98,44000,,,,,
 20260526,43.89,43.89,43.78,43.89,44000,,,,,
+20260527,44.26,44.3,44.09,44.09,44000,,,,,
 ```
 
 ## Latest TDCC Snapshot

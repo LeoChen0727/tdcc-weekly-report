@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8271 宇瞻
 
 ## Metadata
-- generated_at: 2026-05-26 23:55:09 Asia/Taipei
+- generated_at: 2026-05-27 21:28:31 Asia/Taipei
 - stock_id: 8271
 - stock_name: 宇瞻
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 230.5
-- high: 235
-- low: 226.5
-- close: 230
-- volume: 3137304
-- ma5: 223.7
-- ema23_primary: 223.72
-- distance_to_ema23_pct: 2.81
-- ma20: 234.62
-- ma60: 185.85
-- ma120: 147.39
-- return_5d: 3.84
-- return_20d: 9
-- volume_ratio: 0.87
-- distance_to_ma20_pct_auxiliary: -1.97
-- distance_to_high_60_pct: -15.13
+- date: 20260527
+- open: 245
+- high: 249
+- low: 228
+- close: 232.5
+- volume: 5662870
+- ma5: 227.2
+- ema23_primary: 224.45
+- distance_to_ema23_pct: 3.59
+- ma20: 235
+- ma60: 187.7
+- ma120: 148.53
+- return_5d: 8.14
+- return_20d: 3.33
+- volume_ratio: 1.48
+- distance_to_ma20_pct_auxiliary: -1.06
+- distance_to_high_60_pct: -14.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,219.5,225,215,225,972448,183.14,22.86,175.3,148.18,0.14
 20260429,214,229.5,214,218,896161,186.05,17.18,179,149.84,0.13
 20260430,225,225,220,220,893470,188.88,16.48,183.5,151.54,0.13
 20260504,229,229,222.5,223,913642,191.72,16.32,187.5,153.39,0.14
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,223,230.5,220.5,224.5,3421604,222.62,0.85,232.22,182.23,1
 20260525,227,231.5,217.5,229,3871829,223.15,2.62,233.68,184.01,1.1
 20260526,230.5,235,226.5,230,3137304,223.72,2.81,234.62,185.85,0.87
+20260527,245,249,228,232.5,5662870,224.45,3.59,235,187.7,1.48
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8271 | 宇瞻 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 8271 | 宇瞻 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260527 | 8271 | 宇瞻 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 8271 | 宇瞻 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8271 | 宇瞻 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 8271 | 宇瞻 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8271 | 宇瞻 | 48 | 8 | 3287790.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 8271 | 宇瞻 | 48 | 8 | 2180000.0 | 17600.0 | 123.86 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

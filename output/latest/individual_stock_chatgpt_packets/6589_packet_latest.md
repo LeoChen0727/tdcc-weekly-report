@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6589 台康生技
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:45 Asia/Taipei
+- generated_at: 2026-05-27 21:28:05 Asia/Taipei
 - stock_id: 6589
 - stock_name: 台康生技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 42
-- high: 42.5
-- low: 40.75
-- close: 41.45
-- volume: 1803186
-- ma5: 42.87
-- ema23_primary: 45.1
-- distance_to_ema23_pct: -8.1
-- ma20: 44.33
-- ma60: 51.58
-- ma120: 58.71
-- return_5d: -5.58
-- return_20d: -10.09
-- volume_ratio: 1.51
-- distance_to_ma20_pct_auxiliary: -6.49
-- distance_to_high_60_pct: -32.93
+- date: 20260527
+- open: 41.45
+- high: 41.45
+- low: 40.25
+- close: 40.85
+- volume: 1800032
+- ma5: 42.32
+- ema23_primary: 44.75
+- distance_to_ema23_pct: -8.71
+- ma20: 43.98
+- ma60: 51.25
+- ma120: 58.45
+- return_5d: -6.31
+- return_20d: -14.27
+- volume_ratio: 1.47
+- distance_to_ma20_pct_auxiliary: -7.13
+- distance_to_high_60_pct: -33.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,46.3,48.45,46.1,47.65,1238153,51.46,-7.41,51.65,57.27,1.17
 20260429,47.85,48.2,46.85,47.1,799056,51.1,-7.83,51.22,57,0.74
 20260430,47,47,45,45.15,1238023,50.6,-10.78,50.73,56.71,1.1
 20260504,45.3,46.45,44.7,45.7,862000,50.2,-8.96,50.17,56.39,0.75
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,43.85,43.9,42.75,43.7,1259153,45.75,-4.48,44.74,52.23,1.04
 20260525,43.85,43.85,41.6,41.95,1874656,45.43,-7.67,44.56,51.9,1.55
 20260526,42,42.5,40.75,41.45,1803186,45.1,-8.1,44.33,51.58,1.51
+20260527,41.45,41.45,40.25,40.85,1800032,44.75,-8.71,43.98,51.25,1.47
 ```
 
 ## Latest TDCC Snapshot

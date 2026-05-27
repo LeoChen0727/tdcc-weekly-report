@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00939 統一台灣高息動能
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:47 Asia/Taipei
+- generated_at: 2026-05-27 21:26:03 Asia/Taipei
 - stock_id: 00939
 - stock_name: 統一台灣高息動能
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 19.61
-- high: 19.92
-- low: 19.55
-- close: 19.78
-- volume: 9259996
+- date: 20260527
+- open: 20
+- high: 20.26
+- low: 19.98
+- close: 20.08
+- volume: 14628993
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,18.73,18.87,18.69,18.8,5082014,,,,,
 20260525,19.01,19.44,19.01,19.38,7528142,,,,,
 20260526,19.61,19.92,19.55,19.78,9259996,,,,,
+20260527,20,20.26,19.98,20.08,14628993,,,,,
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2103 台橡
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:09 Asia/Taipei
+- generated_at: 2026-05-27 21:26:25 Asia/Taipei
 - stock_id: 2103
 - stock_name: 台橡
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 19.7
-- high: 19.75
-- low: 19.2
-- close: 19.25
-- volume: 3510625
-- ma5: 19.87
-- ema23_primary: 20.05
-- distance_to_ema23_pct: -3.99
-- ma20: 20.2
-- ma60: 19.94
-- ma120: 17.78
-- return_5d: -4.94
-- return_20d: -5.64
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: -4.7
-- distance_to_high_60_pct: -15.2
+- date: 20260527
+- open: 19.4
+- high: 19.4
+- low: 18.7
+- close: 18.8
+- volume: 7012270
+- ma5: 19.56
+- ema23_primary: 19.95
+- distance_to_ema23_pct: -5.74
+- ma20: 20.16
+- ma60: 19.91
+- ma120: 17.82
+- return_5d: -7.62
+- return_20d: -4.57
+- volume_ratio: 1.13
+- distance_to_ma20_pct_auxiliary: -6.72
+- distance_to_high_60_pct: -17.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,20.2,20.75,19.35,19.7,13356818,19.34,1.84,19.31,18.61,2.43
 20260429,19.95,20.1,19.35,19.6,3760988,19.37,1.21,19.3,18.68,0.72
 20260430,19.6,19.95,19.4,19.65,3362384,19.39,1.34,19.32,18.76,0.68
 20260504,19.7,19.8,19,19.15,3406465,19.37,-1.13,19.3,18.83,0.68
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,20.5,20.5,19.75,19.8,5476070,20.18,-1.88,20.21,19.97,0.77
 20260525,19.8,19.8,19.2,19.5,5589920,20.12,-3.09,20.26,19.96,0.78
 20260526,19.7,19.75,19.2,19.25,3510625,20.05,-3.99,20.2,19.94,0.54
+20260527,19.4,19.4,18.7,18.8,7012270,19.95,-5.74,20.16,19.91,1.13
 ```
 
 ## Latest TDCC Snapshot
@@ -130,12 +130,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2103 | 台橡 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260527 | 2103 | 台橡 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2103 | 台橡 | 5 | 0 | 182400.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 2103 | 台橡 | 5 | 0 | 127710.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

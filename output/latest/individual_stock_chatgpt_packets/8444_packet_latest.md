@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8444 綠河-KY
 
 ## Metadata
-- generated_at: 2026-05-26 23:55:13 Asia/Taipei
+- generated_at: 2026-05-27 21:28:34 Asia/Taipei
 - stock_id: 8444
 - stock_name: 綠河-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 6.2
-- high: 6.35
+- date: 20260527
+- open: 6.5
+- high: 6.5
 - low: 6.15
 - close: 6.15
 - volume: 6000
-- ma5: 6.56
-- ema23_primary: 6.89
-- distance_to_ema23_pct: -10.72
-- ma20: 6.88
-- ma60: 7.43
-- ma120: 9.23
-- return_5d: -15.87
-- return_20d: 20.59
+- ma5: 6.43
+- ema23_primary: 6.83
+- distance_to_ema23_pct: -9.92
+- ma20: 6.92
+- ma60: 7.38
+- ma120: 9.2
+- return_5d: -9.56
+- return_20d: 18.73
 - volume_ratio: 0.11
-- distance_to_ma20_pct_auxiliary: -10.55
+- distance_to_ma20_pct_auxiliary: -11.17
 - distance_to_high_60_pct: -37.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,5.1,5.18,5,5.18,14000,6.32,-18.08,6.36,8.46,0.29
 20260429,5.55,5.69,5.55,5.69,70000,6.27,-9.25,6.2,8.38,1.4
 20260430,5.69,6.25,5.69,6.25,135000,6.27,-0.3,6.06,8.31,2.49
 20260504,6.21,6.23,6,6.03,104000,6.25,-3.5,5.9,8.23,1.81
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,6.01,6.67,6,6.67,6000,7,-4.67,6.75,7.55,0.11
 20260525,6.67,6.67,6.5,6.5,7000,6.96,-6.55,6.82,7.49,0.13
 20260526,6.2,6.35,6.15,6.15,6000,6.89,-10.72,6.88,7.43,0.11
+20260527,6.5,6.5,6.15,6.15,6000,6.83,-9.92,6.92,7.38,0.11
 ```
 
 ## Latest TDCC Snapshot

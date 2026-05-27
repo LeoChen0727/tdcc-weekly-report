@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6206 飛捷
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:33 Asia/Taipei
+- generated_at: 2026-05-27 21:27:53 Asia/Taipei
 - stock_id: 6206
 - stock_name: 飛捷
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 145
-- high: 145
-- low: 137
-- close: 140
-- volume: 2852483
-- ma5: 138.4
-- ema23_primary: 126.26
-- distance_to_ema23_pct: 10.88
-- ma20: 125.7
-- ma60: 109.35
-- ma120: 100.99
-- return_5d: 8.11
-- return_20d: 32.08
-- volume_ratio: 0.94
-- distance_to_ma20_pct_auxiliary: 11.38
-- distance_to_high_60_pct: -4.11
+- date: 20260527
+- open: 141
+- high: 143.5
+- low: 138.5
+- close: 138.5
+- volume: 2117347
+- ma5: 139.9
+- ema23_primary: 127.28
+- distance_to_ema23_pct: 8.81
+- ma20: 127.38
+- ma60: 110.09
+- ma120: 101.37
+- return_5d: 5.73
+- return_20d: 31.9
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: 8.73
+- distance_to_high_60_pct: -5.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,105.5,105.5,103.5,105,729326,104.11,0.86,103.69,98.46,0.78
 20260429,105,107,105,106,525129,104.26,1.67,104.02,98.67,0.56
 20260430,106,108,105,108,711118,104.58,3.27,104.59,98.91,0.75
 20260504,110.5,111,108,111,1301727,105.11,5.6,105.21,99.2,1.31
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,136.5,142,133.5,140,3440403,123.29,13.55,122.08,107.76,1.23
 20260525,142,146,139.5,144,3260443,125.02,15.19,124,108.58,1.12
 20260526,145,145,137,140,2852483,126.26,10.88,125.7,109.35,0.94
+20260527,141,143.5,138.5,138.5,2117347,127.28,8.81,127.38,110.09,0.69
 ```
 
 ## Latest TDCC Snapshot
@@ -128,14 +128,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6206 | 飛捷 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6206 | 飛捷 | 14 | 0 | 6098610.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260527 | 6206 | 飛捷 | 14 | 0 | 2207670.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2360 致茂
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:15 Asia/Taipei
+- generated_at: 2026-05-27 21:26:31 Asia/Taipei
 - stock_id: 2360
 - stock_name: 致茂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
+- date: 20260527
 - open: 2550
-- high: 2590
-- low: 2450
-- close: 2500
-- volume: 2805851
-- ma5: 2313
-- ema23_primary: 2201.98
-- distance_to_ema23_pct: 13.53
-- ma20: 2259.75
-- ma60: 1856
-- ma120: 1377.07
-- return_5d: 21.65
-- return_20d: 29.87
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: 10.63
-- distance_to_high_60_pct: -3.47
+- high: 2680
+- low: 2495
+- close: 2625
+- volume: 2643485
+- ma5: 2425
+- ema23_primary: 2237.23
+- distance_to_ema23_pct: 17.33
+- ma20: 2287.75
+- ma60: 1876.75
+- ma120: 1392.49
+- return_5d: 27.12
+- return_20d: 27.12
+- volume_ratio: 0.73
+- distance_to_ma20_pct_auxiliary: 14.74
+- distance_to_high_60_pct: -2.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,1985,2100,1970,2065,4471625,1843.62,12.01,1857.75,1467.95,0.93
 20260429,2085,2085,2005,2055,2978572,1861.23,10.41,1879.25,1485.62,0.62
 20260430,2115,2155,2085,2120,3995528,1882.8,12.6,1912,1504.12,0.85
 20260504,2265,2330,2145,2310,6653939,1918.4,20.41,1947,1525.53,1.38
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,2380,2380,2245,2270,3643007,2148.97,5.63,2204,1814.67,0.95
 20260525,2345,2460,2310,2460,2662774,2174.89,13.11,2231,1835.25,0.7
 20260526,2550,2590,2450,2500,2805851,2201.98,13.53,2259.75,1856,0.76
+20260527,2550,2680,2495,2625,2643485,2237.23,17.33,2287.75,1876.75,0.73
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2360 | 致茂 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260527 | 2360 | 致茂 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2360 | 致茂 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 2360 | 致茂 | 5 | 2 | 5 | 5 | 5 | continued_many_days | 連續 5 個交易日上榜，需判斷是持續醞釀或訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2360 | 致茂 | 71 | 5 | 5866260.0 | 1200.0 | 4888.55 | call_inflow | 1 |  |
+| 20260527 | 2360 | 致茂 | 70 | 5 | 7124760.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

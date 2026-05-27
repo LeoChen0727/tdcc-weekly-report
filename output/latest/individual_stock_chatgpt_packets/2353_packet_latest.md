@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2353 宏碁
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:14 Asia/Taipei
+- generated_at: 2026-05-27 21:26:30 Asia/Taipei
 - stock_id: 2353
 - stock_name: 宏碁
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 34.25
-- high: 34.25
+- date: 20260527
+- open: 32.1
+- high: 32.4
 - low: 31.2
-- close: 31.9
-- volume: 120325110
-- ma5: 29.96
-- ema23_primary: 28.66
-- distance_to_ema23_pct: 11.32
-- ma20: 28.4
-- ma60: 27.73
-- ma120: 27.17
-- return_5d: 14.96
-- return_20d: 17.28
-- volume_ratio: 3.54
-- distance_to_ma20_pct_auxiliary: 12.31
-- distance_to_high_60_pct: -6.86
+- close: 31.4
+- volume: 61791194
+- ma5: 30.75
+- ema23_primary: 28.89
+- distance_to_ema23_pct: 8.71
+- ma20: 28.61
+- ma60: 27.8
+- ma120: 27.2
+- return_5d: 14.39
+- return_20d: 15.23
+- volume_ratio: 1.7
+- distance_to_ma20_pct_auxiliary: 9.75
+- distance_to_high_60_pct: -8.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,27.2,27.45,27.15,27.25,13813394,27.58,-1.19,27.55,27.1,0.64
 20260429,27.3,27.45,27.15,27.35,9863321,27.56,-0.76,27.57,27.12,0.46
 20260430,27.35,28.05,27.35,27.6,21657038,27.56,0.14,27.59,27.14,1.01
 20260504,27.85,28.3,27.75,28.05,22633147,27.6,1.62,27.63,27.16,1.04
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,28.6,29.95,28.5,29.55,70184347,27.99,5.59,27.93,27.56,2.78
 20260525,31.8,32.5,30.85,32.5,95589396,28.36,14.59,28.17,27.66,3.31
 20260526,34.25,34.25,31.2,31.9,120325110,28.66,11.32,28.4,27.73,3.54
+20260527,32.1,32.4,31.2,31.4,61791194,28.89,8.71,28.61,27.8,1.7
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2353 | 宏碁 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 2353 | 宏碁 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 2353 | 宏碁 | revenue_breakout_low_response | 營收爆發低反應股 | 19.0 | 6.0 | A_優先追蹤 |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260521 | 2353 | 宏碁 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2353 | 宏碁 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260527 | 2353 | 宏碁 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2353 | 宏碁 | 34 | 2 | 14866710.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260527 | 2353 | 宏碁 | 37 | 2 | 9464110.0 | 1500.0 | 6309.41 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

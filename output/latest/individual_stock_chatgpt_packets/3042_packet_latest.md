@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3042 晶技
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:37 Asia/Taipei
+- generated_at: 2026-05-27 21:26:54 Asia/Taipei
 - stock_id: 3042
 - stock_name: 晶技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 209
-- high: 212
-- low: 182
-- close: 203
-- volume: 50022508
-- ma5: 176.1
-- ema23_primary: 157.12
-- distance_to_ema23_pct: 29.2
-- ma20: 158.97
-- ma60: 125.27
-- ma120: 104.92
-- return_5d: 37.16
-- return_20d: 45
-- volume_ratio: 3.29
-- distance_to_ma20_pct_auxiliary: 27.69
-- distance_to_high_60_pct: -4.25
+- date: 20260527
+- open: 220
+- high: 221.5
+- low: 192
+- close: 198
+- volume: 28448686
+- ma5: 186.1
+- ema23_primary: 160.53
+- distance_to_ema23_pct: 23.34
+- ma20: 161.4
+- ma60: 127.03
+- ma120: 105.89
+- return_5d: 33.78
+- return_20d: 32.44
+- volume_ratio: 1.73
+- distance_to_ma20_pct_auxiliary: 22.68
+- distance_to_high_60_pct: -10.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,145,150,145,149.5,3170746,130.21,14.82,127.91,102.69,0.3
 20260429,152.5,162,152.5,157.5,4525471,132.48,18.88,131.27,103.86,0.42
 20260430,160,160,150,153,2506834,134.19,14.01,134.28,104.92,0.24
 20260504,156.5,166,154,166,2477115,136.84,21.31,137.89,106.2,0.23
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,165.5,176,161,176,31527773,149.26,17.91,153.38,121.72,2.42
 20260525,193.5,193.5,193.5,193.5,2292251,152.95,26.51,155.82,123.42,0.18
 20260526,209,212,182,203,50022508,157.12,29.2,158.97,125.27,3.29
+20260527,220,221.5,192,198,28448686,160.53,23.34,161.4,127.03,1.73
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3042 | 晶技 | true_breakout | 嚴格突破 | 84.0 |  |  | platform_breakout |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 3042 | 晶技 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 3042 | 晶技 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3042 | 晶技 | 4 | 4 | 4 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260527 | 3042 | 晶技 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3042 | 晶技 | 27 | 0 | 25122960.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260527 | 3042 | 晶技 | 27 | 0 | 23162440.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

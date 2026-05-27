@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00918 大華優利高填息30
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:46 Asia/Taipei
+- generated_at: 2026-05-27 21:26:02 Asia/Taipei
 - stock_id: 00918
 - stock_name: 大華優利高填息30
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 27.95
-- high: 28.06
-- low: 27.7
-- close: 27.85
-- volume: 20831261
+- date: 20260527
+- open: 28.18
+- high: 28.78
+- low: 28.18
+- close: 28.56
+- volume: 33126405
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,26.75,27.01,26.62,26.99,22804912,,,,,
 20260525,27.33,27.85,27.33,27.83,25835684,,,,,
 20260526,27.95,28.06,27.7,27.85,20831261,,,,,
+20260527,28.18,28.78,28.18,28.56,33126405,,,,,
 ```
 
 ## Latest TDCC Snapshot

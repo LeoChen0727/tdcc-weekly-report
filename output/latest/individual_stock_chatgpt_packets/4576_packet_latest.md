@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4576 大銀微系統
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:07 Asia/Taipei
+- generated_at: 2026-05-27 21:27:26 Asia/Taipei
 - stock_id: 4576
 - stock_name: 大銀微系統
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 278
-- high: 289
-- low: 271
-- close: 284.5
-- volume: 7667849
-- ma5: 261.5
-- ema23_primary: 237.5
-- distance_to_ema23_pct: 19.79
-- ma20: 243.88
-- ma60: 177.96
-- ma120: 144.41
-- return_5d: 12.9
-- return_20d: 57.18
-- volume_ratio: 1.11
-- distance_to_ma20_pct_auxiliary: 16.66
-- distance_to_high_60_pct: -1.56
+- date: 20260527
+- open: 288
+- high: 291
+- low: 271.5
+- close: 273
+- volume: 5359708
+- ma5: 268.8
+- ema23_primary: 240.46
+- distance_to_ema23_pct: 13.53
+- ma20: 247.57
+- ma60: 180.53
+- ma120: 145.86
+- return_5d: 15.43
+- return_20d: 37.19
+- volume_ratio: 0.76
+- distance_to_ma20_pct_auxiliary: 10.27
+- distance_to_high_60_pct: -6.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,182,199,178,199,2548901,170.96,16.4,171.97,137.19,0.58
 20260429,201,215,201,202,3000281,173.55,16.39,175.18,138.5,0.71
 20260430,198,222,193.5,222,10276060,177.59,25.01,179.72,140.15,2.3
 20260504,232.5,243,210,233,18931571,182.2,27.88,184.8,142.01,3.56
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,252,270,250.5,261.5,4359153,229.25,14.07,233.8,172.49,0.69
 20260525,263.5,283.5,262,277,6889135,233.23,18.77,238.7,175.14,1.05
 20260526,278,289,271,284.5,7667849,237.5,19.79,243.88,177.96,1.11
+20260527,288,291,271.5,273,5359708,240.46,13.53,247.57,180.53,0.76
 ```
 
 ## Latest TDCC Snapshot
@@ -128,14 +128,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4576 | 大銀微系統 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4576 | 大銀微系統 | 59 | 0 | 17113000.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260527 | 4576 | 大銀微系統 | 59 | 0 | 17220400.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

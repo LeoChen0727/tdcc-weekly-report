@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2329 華泰
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:13 Asia/Taipei
+- generated_at: 2026-05-27 21:26:29 Asia/Taipei
 - stock_id: 2329
 - stock_name: 華泰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 57.2
-- high: 58.4
-- low: 55.8
-- close: 58.4
-- volume: 18560714
-- ma5: 54.74
-- ema23_primary: 56.53
-- distance_to_ema23_pct: 3.3
-- ma20: 57.38
-- ma60: 55.86
-- ma120: 54.82
-- return_5d: 13.84
-- return_20d: 3.91
-- volume_ratio: 1.05
-- distance_to_ma20_pct_auxiliary: 1.77
-- distance_to_high_60_pct: -11.92
+- date: 20260527
+- open: 60.4
+- high: 61
+- low: 58.3
+- close: 58.5
+- volume: 22890579
+- ma5: 56.16
+- ema23_primary: 56.7
+- distance_to_ema23_pct: 3.18
+- ma20: 57.35
+- ma60: 55.87
+- ma120: 54.92
+- return_5d: 13.81
+- return_20d: -1.02
+- volume_ratio: 1.29
+- distance_to_ma20_pct_auxiliary: 2
+- distance_to_high_60_pct: -11.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,56.8,60.3,55.6,59.1,18821623,56.86,3.94,56.04,55.64,0.98
 20260429,59.5,59.7,56.7,56.9,16118363,56.86,0.07,56.3,55.53,0.82
 20260430,56.9,57.5,54.8,54.9,13179875,56.7,-3.17,56.55,55.4,0.67
 20260504,55.8,60.3,55.3,60.3,25467443,57,5.79,57.04,55.37,1.24
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,53.5,55.1,53.2,54.6,11498543,56.36,-3.12,57.22,55.78,0.67
 20260525,55.7,56.7,54.4,56.4,11318690,56.36,0.07,57.27,55.81,0.66
 20260526,57.2,58.4,55.8,58.4,18560714,56.53,3.3,57.38,55.86,1.05
+20260527,60.4,61,58.3,58.5,22890579,56.7,3.18,57.35,55.87,1.29
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2329 | 華泰 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 2329 | 華泰 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2329 | 華泰 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 2329 | 華泰 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2329 | 華泰 | 142 | 4 | 15001360.0 | 18600.0 | 806.52 | call_inflow | 1 |  |
+| 20260527 | 2329 | 華泰 | 142 | 4 | 14299890.0 | 51900.0 | 275.53 | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

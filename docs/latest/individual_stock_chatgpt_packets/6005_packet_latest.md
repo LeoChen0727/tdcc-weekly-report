@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6005 群益證
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:26 Asia/Taipei
+- generated_at: 2026-05-27 21:27:46 Asia/Taipei
 - stock_id: 6005
 - stock_name: 群益證
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 32.85
-- high: 33.4
-- low: 32.5
-- close: 33.05
-- volume: 11583644
-- ma5: 31.97
-- ema23_primary: 30.72
-- distance_to_ema23_pct: 7.58
-- ma20: 30.72
-- ma60: 29.2
-- ma120: 27.88
-- return_5d: 7.83
-- return_20d: 18.25
-- volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: 7.58
-- distance_to_high_60_pct: -1.05
+- date: 20260527
+- open: 33.35
+- high: 35.25
+- low: 33.25
+- close: 35
+- volume: 21539861
+- ma5: 32.85
+- ema23_primary: 31.08
+- distance_to_ema23_pct: 12.62
+- ma20: 31.07
+- ma60: 29.25
+- ma120: 27.97
+- return_5d: 14.38
+- return_20d: 25
+- volume_ratio: 1.26
+- distance_to_ma20_pct_auxiliary: 12.65
+- distance_to_high_60_pct: -0.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,28.05,28.4,27.95,28,10134392,28.15,-0.54,28.09,28.68,0.79
 20260429,28.1,28.2,27.95,28.1,9667043,28.15,-0.17,28.11,28.69,0.75
 20260430,28.15,28.35,28,28.05,13405792,28.14,-0.32,28.14,28.68,1.01
 20260504,28.2,29.25,28.2,29,29460704,28.21,2.79,28.19,28.69,2.02
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,31.5,32,31.3,31.9,8226812,30.31,5.25,30.24,29.14,0.48
 20260525,32.25,32.75,32.1,32.7,11900696,30.51,7.18,30.46,29.17,0.71
 20260526,32.85,33.4,32.5,33.05,11583644,30.72,7.58,30.72,29.2,0.7
+20260527,33.35,35.25,33.25,35,21539861,31.08,12.62,31.07,29.25,1.26
 ```
 
 ## Latest TDCC Snapshot
@@ -125,14 +125,15 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6005 | 群益證 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 6005 | 群益證 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 6005 | 群益證 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 6005 | 群益證 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  |  | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 6005 | 群益證 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 6005 | 群益證 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6005 | 群益證 | 4 | 4 | 4 | 4 | 4 | continued_many_days | 連續 4 個交易日上榜，需判斷是持續醞釀或訊號鈍化。 |
+| 20260527 | 6005 | 群益證 | 5 | 5 | 5 | 5 | 5 | continued_many_days | 連續 5 個交易日上榜，需判斷是持續醞釀或訊號鈍化。 |
 
 ## Warrant Context
 | status |

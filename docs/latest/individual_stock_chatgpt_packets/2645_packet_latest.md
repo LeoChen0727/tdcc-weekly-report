@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2645 長榮航太
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:28 Asia/Taipei
+- generated_at: 2026-05-27 21:26:44 Asia/Taipei
 - stock_id: 2645
 - stock_name: 長榮航太
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 162.5
-- high: 162.5
-- low: 158
-- close: 158.5
-- volume: 1082679
-- ma5: 159.3
-- ema23_primary: 157.15
-- distance_to_ema23_pct: 0.86
-- ma20: 156.62
-- ma60: 157.38
-- ma120: 155.17
-- return_5d: 4.28
-- return_20d: -2.16
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: 1.2
-- distance_to_high_60_pct: -14.78
+- date: 20260527
+- open: 159
+- high: 163.5
+- low: 157.5
+- close: 161.5
+- volume: 1853347
+- ma5: 161.1
+- ema23_primary: 157.51
+- distance_to_ema23_pct: 2.53
+- ma20: 156.88
+- ma60: 157.12
+- ma120: 155.37
+- return_5d: 5.9
+- return_20d: 3.19
+- volume_ratio: 1.09
+- distance_to_ma20_pct_auxiliary: 2.95
+- distance_to_high_60_pct: -13.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,161,161,156,156.5,1505632,158.12,-1.02,155.38,160.66,1.3
 20260429,157,157,151.5,154.5,1249124,157.81,-2.1,155.53,160.28,1.08
 20260430,155,155,152.5,153,687858,157.41,-2.8,155.88,159.89,0.61
 20260504,153.5,162,153.5,159,1767933,157.55,0.92,156.4,159.68,1.48
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,163,164.5,159,160.5,1489709,156.53,2.54,156.85,157.83,0.89
 20260525,162.5,164,160,162.5,1149766,157.02,3.49,156.8,157.64,0.68
 20260526,162.5,162.5,158,158.5,1082679,157.15,0.86,156.62,157.38,0.64
+20260527,159,163.5,157.5,161.5,1853347,157.51,2.53,156.88,157.12,1.09
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2645 | 長榮航太 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 2645 | 長榮航太 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 2645 | 長榮航太 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 2645 | 長榮航太 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2645 | 長榮航太 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 2645 | 長榮航太 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2645 | 長榮航太 | 50 | 1 | 704820.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 2645 | 長榮航太 | 50 | 1 | 2393570.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

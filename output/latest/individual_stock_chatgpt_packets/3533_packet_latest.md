@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3533 嘉澤
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:52 Asia/Taipei
+- generated_at: 2026-05-27 21:27:09 Asia/Taipei
 - stock_id: 3533
 - stock_name: 嘉澤
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 2600
-- high: 2670
-- low: 2550
-- close: 2640
-- volume: 769995
-- ma5: 2533
-- ema23_primary: 2513.77
-- distance_to_ema23_pct: 5.02
-- ma20: 2582.75
-- ma60: 2243.83
-- ma120: 1814.08
-- return_5d: 13.55
-- return_20d: -2.58
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: 2.22
-- distance_to_high_60_pct: -10.66
+- date: 20260527
+- open: 2660
+- high: 2740
+- low: 2610
+- close: 2625
+- volume: 1311565
+- ma5: 2586
+- ema23_primary: 2523.04
+- distance_to_ema23_pct: 4.04
+- ma20: 2580.5
+- ma60: 2258
+- ma120: 1826.33
+- return_5d: 11.23
+- return_20d: -1.69
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: 1.72
+- distance_to_high_60_pct: -11.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,2740,2740,2610,2670,1020578,2360.1,13.13,2370,1918.25,0.59
 20260429,2690,2700,2630,2650,717179,2384.26,11.15,2391.5,1940.25,0.43
 20260430,2700,2790,2615,2615,1133861,2403.49,8.8,2419.75,1959.5,0.74
 20260504,2695,2730,2525,2610,1613113,2420.7,7.82,2444,1978.83,1.08
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,2600,2625,2480,2555,1568971,2494.78,2.41,2583,2213.92,0.79
 20260525,2600,2630,2525,2585,1266807,2502.29,3.31,2586.25,2229.75,0.66
 20260526,2600,2670,2550,2640,769995,2513.77,5.02,2582.75,2243.83,0.42
+20260527,2660,2740,2610,2625,1311565,2523.04,4.04,2580.5,2258,0.71
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 3533 | 嘉澤 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 3533 | 嘉澤 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 3533 | 嘉澤 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3533 | 嘉澤 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260527 | 3533 | 嘉澤 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3533 | 嘉澤 | 166 | 3 | 23632580.0 | 24980.0 | 946.06 | no_signal | 0 |  |
+| 20260527 | 3533 | 嘉澤 | 167 | 3 | 35934350.0 | 6540.0 | 5494.55 | call_put_bullish | 3 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

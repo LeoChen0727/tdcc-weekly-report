@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2064 晉椿
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:08 Asia/Taipei
+- generated_at: 2026-05-27 21:26:25 Asia/Taipei
 - stock_id: 2064
 - stock_name: 晉椿
-- packet_status: standard_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 119
+- packet_status: standard_180d_window_packet
+- latest_price_date: 20260527
+- price_rows: 120
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: price history shorter than 120 rows; K-line context is partial; TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
+- notes: TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
 
 ## Stable Read URLs
 - packet_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_chatgpt_packets/2064_packet_latest.md
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 13.15
-- high: 13.4
-- low: 13.15
-- close: 13.4
+- date: 20260527
+- open: 13.55
+- high: 13.55
+- low: 13.4
+- close: 13.45
 - volume: 13000
-- ma5: 13.22
-- ema23_primary: 12.65
-- distance_to_ema23_pct: 5.89
-- ma20: 12.6
-- ma60: 12.13
-- ma120: 11.95
-- return_5d: 3.88
-- return_20d: 16.02
+- ma5: 13.29
+- ema23_primary: 12.72
+- distance_to_ema23_pct: 5.73
+- ma20: 12.7
+- ma60: 12.15
+- ma120: 11.96
+- return_5d: 2.67
+- return_20d: 16.96
 - volume_ratio: 0.41
-- distance_to_ma20_pct_auxiliary: 6.35
-- distance_to_high_60_pct: -2.19
+- distance_to_ma20_pct_auxiliary: 5.93
+- distance_to_high_60_pct: -1.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,11.75,11.8,11.45,11.5,8000,11.72,-1.88,11.74,11.9,0.18
 20260429,11.45,11.6,11.35,11.6,10000,11.71,-0.94,11.72,11.9,0.22
 20260430,11.45,11.7,11.45,11.6,38000,11.7,-0.87,11.71,11.9,0.82
 20260504,11.5,12,11.5,11.95,55000,11.72,1.94,11.7,11.9,1.12
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,13.1,13.7,12.85,13.05,13000,12.52,4.22,12.42,12.08,0.41
 20260525,13.1,13.3,12.85,13.3,13000,12.59,5.66,12.51,12.1,0.41
 20260526,13.15,13.4,13.15,13.4,13000,12.65,5.89,12.6,12.13,0.41
+20260527,13.55,13.55,13.4,13.45,13000,12.72,5.73,12.7,12.15,0.41
 ```
 
 ## Latest TDCC Snapshot

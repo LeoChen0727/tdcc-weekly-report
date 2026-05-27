@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009809 富邦淨零ESG50
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:47 Asia/Taipei
+- generated_at: 2026-05-27 21:26:03 Asia/Taipei
 - stock_id: 009809
 - stock_name: 富邦淨零ESG50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 16.5
-- high: 16.6
-- low: 16.29
-- close: 16.38
-- volume: 1180670
+- date: 20260527
+- open: 16.95
+- high: 17.07
+- low: 16.83
+- close: 16.9
+- volume: 957880
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,15.52,15.7,15.5,15.64,1015138,,,,,
 20260525,16.05,16.31,16,16.28,1466191,,,,,
 20260526,16.5,16.6,16.29,16.38,1180670,,,,,
+20260527,16.95,17.07,16.83,16.9,957880,,,,,
 ```
 
 ## Latest TDCC Snapshot

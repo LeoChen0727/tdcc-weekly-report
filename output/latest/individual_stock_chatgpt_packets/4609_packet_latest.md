@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4609 唐鋒
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:08 Asia/Taipei
+- generated_at: 2026-05-27 21:27:27 Asia/Taipei
 - stock_id: 4609
 - stock_name: 唐鋒
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 106
+- latest_price_date: 20260527
+- price_rows: 107
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 5.38
-- high: 5.78
-- low: 5.38
-- close: 5.75
-- volume: 6000
-- ma5: 5.47
+- date: 20260527
+- open: 5.73
+- high: 5.73
+- low: 5.2
+- close: 5.2
+- volume: 5000
+- ma5: 5.4
 - ema23_primary: 5.16
-- distance_to_ema23_pct: 11.5
-- ma20: 5.1
-- ma60: 5.05
-- ma120: 5.5
-- return_5d: 2.13
-- return_20d: 26.37
-- volume_ratio: 0.27
-- distance_to_ma20_pct_auxiliary: 12.72
-- distance_to_high_60_pct: -4.01
+- distance_to_ema23_pct: 0.77
+- ma20: 5.13
+- ma60: 5.04
+- ma120: 5.49
+- return_5d: -6.47
+- return_20d: 14.29
+- volume_ratio: 0.23
+- distance_to_ma20_pct_auxiliary: 1.3
+- distance_to_high_60_pct: -13.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260424,4.55,4.55,4.55,4.55,2000,4.73,-3.81,4.77,5.26,0.06
 20260427,4.25,4.83,4.24,4.32,40000,4.7,-8,4.73,5.23,1.13
 20260428,4.32,4.59,4.32,4.59,25000,4.69,-2.07,4.7,5.2,0.7
 20260429,4.4,4.4,4.4,4.4,4000,4.66,-5.64,4.66,5.16,0.11
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,5.16,5.16,5.16,5.16,5000,5.08,1.62,5.01,5.04,0.2
 20260525,5.2,5.38,5.2,5.38,5000,5.1,5.43,5.04,5.04,0.22
 20260526,5.38,5.78,5.38,5.75,6000,5.16,11.5,5.1,5.05,0.27
+20260527,5.73,5.73,5.2,5.2,5000,5.16,0.77,5.13,5.04,0.23
 ```
 
 ## Latest TDCC Snapshot

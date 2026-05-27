@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8105 凌巨
 
 ## Metadata
-- generated_at: 2026-05-26 23:55:07 Asia/Taipei
+- generated_at: 2026-05-27 21:28:29 Asia/Taipei
 - stock_id: 8105
 - stock_name: 凌巨
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 17.5
-- high: 17.7
-- low: 16.4
-- close: 16.6
-- volume: 7976565
-- ma5: 16.65
-- ema23_primary: 15.22
-- distance_to_ema23_pct: 9.05
-- ma20: 14.93
-- ma60: 13.83
-- ma120: 12.98
-- return_5d: 5.73
-- return_20d: 26.24
-- volume_ratio: 0.98
-- distance_to_ma20_pct_auxiliary: 11.22
-- distance_to_high_60_pct: -10.75
+- date: 20260527
+- open: 16.95
+- high: 16.95
+- low: 15.95
+- close: 16.8
+- volume: 5527599
+- ma5: 16.92
+- ema23_primary: 15.35
+- distance_to_ema23_pct: 9.42
+- ma20: 15.09
+- ma60: 13.89
+- ma120: 13.03
+- return_5d: 8.74
+- return_20d: 24.91
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: 11.31
+- distance_to_high_60_pct: -9.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,13.25,13.45,13,13.45,1232213,13.59,-1.01,13.65,13.06,0.49
 20260429,13.5,13.55,13.35,13.5,813893,13.58,-0.58,13.69,13.05,0.33
 20260430,13.5,13.6,13.2,13.3,919832,13.56,-1.89,13.73,13.04,0.37
 20260504,13.3,13.45,13.1,13.15,1479035,13.52,-2.75,13.75,13.04,0.6
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,16.5,17.45,16.45,17.4,16041135,14.89,16.84,14.54,13.69,2.3
 20260525,17.85,18.6,17.25,17.35,18363632,15.1,14.93,14.75,13.77,2.36
 20260526,17.5,17.7,16.4,16.6,7976565,15.22,9.05,14.93,13.83,0.98
+20260527,16.95,16.95,15.95,16.8,5527599,15.35,9.42,15.09,13.89,0.66
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8105 | 凌巨 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1590 亞德客-KY
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:00 Asia/Taipei
+- generated_at: 2026-05-27 21:26:15 Asia/Taipei
 - stock_id: 1590
 - stock_name: 亞德客-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 1450
-- high: 1490
+- date: 20260527
+- open: 1495
+- high: 1500
 - low: 1430
-- close: 1465
-- volume: 643290
-- ma5: 1430
-- ema23_primary: 1408.82
-- distance_to_ema23_pct: 3.99
-- ma20: 1460.75
-- ma60: 1220.67
-- ma120: 1111.08
-- return_5d: 2.45
-- return_20d: 3.9
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: 0.29
-- distance_to_high_60_pct: -8.44
+- close: 1435
+- volume: 612964
+- ma5: 1436
+- ema23_primary: 1411
+- distance_to_ema23_pct: 1.7
+- ma20: 1462.25
+- ma60: 1224.5
+- ma120: 1115.72
+- return_5d: 2.14
+- return_20d: 2.14
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: -1.86
+- distance_to_high_60_pct: -10.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,1370,1430,1365,1405,1958675,1210.27,16.09,1179.55,1115.25,1.34
 20260429,1420,1500,1405,1490,2626994,1233.58,20.79,1204.7,1123,1.68
 20260430,1565,1580,1455,1455,2744949,1252.03,16.21,1227.8,1130.33,1.67
 20260504,1455,1495,1440,1470,1428289,1270.19,15.73,1250.05,1137.83,0.85
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,1430,1450,1375,1410,1344880,1399.5,0.75,1453.5,1211.67,0.92
 20260525,1440,1460,1405,1450,875271,1403.71,3.3,1458,1216.08,0.64
 20260526,1450,1490,1430,1465,643290,1408.82,3.99,1460.75,1220.67,0.49
+20260527,1495,1500,1430,1435,612964,1411,1.7,1462.25,1224.5,0.5
 ```
 
 ## Latest TDCC Snapshot
@@ -128,14 +128,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1590 | 亞德客-KY | 1 | 1 | 3 | 3 | 3 | repeated_but_no_breakout | 近 10 日上榜 3 日、近 20 日上榜 3 日，尚未突破，需分辨醞釀或鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1590 | 亞德客-KY | 45 | 0 | 8463280.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260527 | 1590 | 亞德客-KY | 45 | 0 | 7707460.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

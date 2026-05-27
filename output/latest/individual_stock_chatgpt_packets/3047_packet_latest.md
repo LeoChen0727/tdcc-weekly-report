@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3047 訊舟
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:38 Asia/Taipei
+- generated_at: 2026-05-27 21:26:55 Asia/Taipei
 - stock_id: 3047
 - stock_name: 訊舟
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 15.6
-- high: 15.65
-- low: 15
-- close: 15.1
-- volume: 1540855
-- ma5: 14.98
+- date: 20260527
+- open: 15.2
+- high: 15.25
+- low: 14.8
+- close: 14.9
+- volume: 1602962
+- ma5: 15.12
 - ema23_primary: 14.9
-- distance_to_ema23_pct: 1.34
-- ma20: 14.64
-- ma60: 15.61
-- ma120: 16.94
-- return_5d: 6.71
-- return_20d: 1.68
-- volume_ratio: 1.22
-- distance_to_ma20_pct_auxiliary: 3.14
-- distance_to_high_60_pct: -16.8
+- distance_to_ema23_pct: 0
+- ma20: 14.65
+- ma60: 15.56
+- ma120: 16.93
+- return_5d: 4.93
+- return_20d: 2.05
+- volume_ratio: 1.23
+- distance_to_ma20_pct_auxiliary: 1.67
+- distance_to_high_60_pct: -17.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,14.9,14.9,14.55,14.6,780223,15.7,-7.02,15.63,16.78,0.64
 20260429,14.75,14.9,14.45,14.8,1069267,15.63,-5.3,15.57,16.7,0.87
 20260430,14.9,14.9,14.45,14.65,693262,15.55,-5.77,15.52,16.62,0.58
 20260504,14.7,14.9,14.5,14.55,1000756,15.46,-5.91,15.45,16.54,0.84
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,14.7,15.75,14.65,15.4,3564665,14.82,3.91,14.59,15.69,2.87
 20260525,15.7,15.8,15.3,15.55,2539286,14.88,4.49,14.63,15.65,2.02
 20260526,15.6,15.65,15,15.1,1540855,14.9,1.34,14.64,15.61,1.22
+20260527,15.2,15.25,14.8,14.9,1602962,14.9,0,14.65,15.56,1.23
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3047 | 訊舟 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4739 康普
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:09 Asia/Taipei
+- generated_at: 2026-05-27 21:27:28 Asia/Taipei
 - stock_id: 4739
 - stock_name: 康普
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 105
-- high: 108
-- low: 103.5
-- close: 105
-- volume: 3756578
-- ma5: 99.62
-- ema23_primary: 94.91
-- distance_to_ema23_pct: 10.63
-- ma20: 94.23
-- ma60: 85.98
-- ma120: 77.83
-- return_5d: 10.76
-- return_20d: 24.56
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: 11.43
-- distance_to_high_60_pct: -3.23
+- date: 20260527
+- open: 106
+- high: 107.5
+- low: 100
+- close: 104
+- volume: 5413060
+- ma5: 102.12
+- ema23_primary: 95.67
+- distance_to_ema23_pct: 8.71
+- ma20: 95.28
+- ma60: 86.42
+- ma120: 78.16
+- return_5d: 13.66
+- return_20d: 25.3
+- volume_ratio: 1.08
+- distance_to_ma20_pct_auxiliary: 9.15
+- distance_to_high_60_pct: -4.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,84.7,85.9,83,83,3126673,86.3,-3.83,85.92,78.39,0.61
 20260429,83,86.8,82.6,85.2,2794376,86.21,-1.17,86.09,78.53,0.55
 20260430,85.3,86.6,84.3,84.8,1986360,86.09,-1.5,86.45,78.64,0.4
 20260504,85.3,88.5,84.7,87.1,2053885,86.18,1.07,86.91,78.84,0.41
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,96,103,95.2,101,5434508,92.9,8.71,92.42,84.97,1.04
 20260525,104,107.5,99.2,106,6680418,94,12.77,93.19,85.51,1.33
 20260526,105,108,103.5,105,3756578,94.91,10.63,94.23,85.98,0.77
+20260527,106,107.5,100,104,5413060,95.67,8.71,95.28,86.42,1.08
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4739 | 康普 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260521 | 4739 | 康普 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 4739 | 康普 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260521 | 4739 | 康普 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4739 | 康普 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 4739 | 康普 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4739 | 康普 | 31 | 0 | 8907510.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 4739 | 康普 | 32 | 0 | 9508800.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

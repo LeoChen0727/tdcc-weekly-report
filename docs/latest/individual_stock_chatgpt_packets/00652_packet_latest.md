@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00652 富邦印度
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:45 Asia/Taipei
+- generated_at: 2026-05-27 21:26:00 Asia/Taipei
 - stock_id: 00652
 - stock_name: 富邦印度
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 32.48
-- high: 32.63
-- low: 32.48
-- close: 32.63
-- volume: 276998
+- date: 20260527
+- open: 32.6
+- high: 32.6
+- low: 32.21
+- close: 32.33
+- volume: 520067
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,32.21,32.3,32.05,32.29,310059,,,,,
 20260525,32.3,32.48,32.3,32.48,415765,,,,,
 20260526,32.48,32.63,32.48,32.63,276998,,,,,
+20260527,32.6,32.6,32.21,32.33,520067,,,,,
 ```
 
 ## Latest TDCC Snapshot

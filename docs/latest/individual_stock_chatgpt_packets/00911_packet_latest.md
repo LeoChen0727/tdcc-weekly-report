@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00911 兆豐洲際半導體
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:46 Asia/Taipei
+- generated_at: 2026-05-27 21:26:02 Asia/Taipei
 - stock_id: 00911
 - stock_name: 兆豐洲際半導體
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 59.15
-- high: 59.15
-- low: 58.05
-- close: 58.4
-- volume: 259398
+- date: 20260527
+- open: 61.15
+- high: 62.4
+- low: 61
+- close: 61.3
+- volume: 1338302
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,56.45,56.5,56.1,56.3,411125,,,,,
 20260525,57.1,59.2,57.1,59.15,646102,,,,,
 20260526,59.15,59.15,58.05,58.4,259398,,,,,
+20260527,61.15,62.4,61,61.3,1338302,,,,,
 ```
 
 ## Latest TDCC Snapshot

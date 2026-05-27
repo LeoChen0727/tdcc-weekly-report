@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2441 超豐
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:20 Asia/Taipei
+- generated_at: 2026-05-27 21:26:36 Asia/Taipei
 - stock_id: 2441
 - stock_name: 超豐
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 130.5
-- high: 137.5
-- low: 125
+- date: 20260527
+- open: 139
+- high: 139
+- low: 132.5
 - close: 136
-- volume: 33284451
-- ma5: 118.1
-- ema23_primary: 103.83
-- distance_to_ema23_pct: 30.98
-- ma20: 100.72
-- ma60: 93.46
-- ma120: 89.82
-- return_5d: 33.33
-- return_20d: 51.62
-- volume_ratio: 1.93
-- distance_to_ma20_pct_auxiliary: 35.03
-- distance_to_high_60_pct: -1.09
+- volume: 19478323
+- ma5: 124.8
+- ema23_primary: 106.51
+- distance_to_ema23_pct: 27.68
+- ma20: 103.06
+- ma60: 94.13
+- ma120: 90.38
+- return_5d: 32.68
+- return_20d: 52.3
+- volume_ratio: 1.09
+- distance_to_ma20_pct_auxiliary: 31.97
+- distance_to_high_60_pct: -2.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,89.7,90.7,88,89.3,7611355,90.51,-1.34,90.42,90.55,0.73
 20260429,89.2,90,86,87.9,9493181,90.29,-2.65,90.12,90.37,0.89
 20260430,87.9,88.4,83.7,84,12017798,89.77,-6.43,90.1,90.11,1.12
 20260504,85.5,92.4,85.5,92.4,17911318,89.99,2.68,90.3,89.99,1.57
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,110.5,117,110.5,117,16320995,98.4,18.9,96.39,92.16,1.06
 20260525,125,128.5,122.5,128.5,24752679,100.91,27.34,98.41,92.75,1.55
 20260526,130.5,137.5,125,136,33284451,103.83,30.98,100.72,93.46,1.93
+20260527,139,139,132.5,136,19478323,106.51,27.68,103.06,94.13,1.09
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2441 | 超豐 | true_breakout | 嚴格突破 | 79.0 |  |  | breakout_confirmed |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 2441 | 超豐 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 2441 | 超豐 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2441 | 超豐 | 4 | 4 | 4 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260527 | 2441 | 超豐 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2441 | 超豐 | 63 | 0 | 28106450.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260527 | 2441 | 超豐 | 67 | 0 | 18840830.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

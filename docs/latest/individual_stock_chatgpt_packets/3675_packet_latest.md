@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3675 德微
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:56 Asia/Taipei
+- generated_at: 2026-05-27 21:27:14 Asia/Taipei
 - stock_id: 3675
 - stock_name: 德微
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 340
-- high: 341
-- low: 320
-- close: 334
-- volume: 335000
-- ma5: 323.1
-- ema23_primary: 265.42
-- distance_to_ema23_pct: 25.84
-- ma20: 258.5
-- ma60: 217.78
-- ma120: 179.62
-- return_5d: 17.81
-- return_20d: 47.14
-- volume_ratio: 0.17
-- distance_to_ma20_pct_auxiliary: 29.21
-- distance_to_high_60_pct: -2.05
+- date: 20260527
+- open: 367
+- high: 367
+- low: 353.5
+- close: 365
+- volume: 365000
+- ma5: 333.8
+- ema23_primary: 273.72
+- distance_to_ema23_pct: 33.35
+- ma20: 265.9
+- ma60: 220.82
+- ma120: 181.59
+- return_5d: 17.18
+- return_20d: 68.2
+- volume_ratio: 0.19
+- distance_to_ma20_pct_auxiliary: 37.27
+- distance_to_high_60_pct: -0.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,226.5,226.5,216.5,217,862000,206.67,5,202.95,183.85,0.81
 20260429,216,221,215,215.5,497000,207.41,3.9,204.12,184.9,0.47
 20260430,220,223,210,217,736000,208.21,4.22,205.9,185.97,0.69
 20260504,216.5,221,209,210.5,933000,208.4,1.01,207.22,187.04,0.85
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,316.5,321,305,319.5,314000,252.38,26.59,247.65,212.67,0.15
 20260525,316.5,336,310,334,324000,259.19,28.87,253.15,215.28,0.16
 20260526,340,341,320,334,335000,265.42,25.84,258.5,217.78,0.17
+20260527,367,367,353.5,365,365000,273.72,33.35,265.9,220.82,0.19
 ```
 
 ## Latest TDCC Snapshot

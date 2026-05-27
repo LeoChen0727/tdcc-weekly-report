@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1535 中宇
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:58 Asia/Taipei
+- generated_at: 2026-05-27 21:26:14 Asia/Taipei
 - stock_id: 1535
 - stock_name: 中宇
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 26
 - tdcc_history_status: tdcc_history_ready
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
+- date: 20260527
 - open: 49.5
-- high: 49.7
-- low: 49.15
-- close: 49.55
-- volume: 144702
-- ma5: 49.3
-- ema23_primary: 50.02
-- distance_to_ema23_pct: -0.94
-- ma20: 49.9
-- ma60: 51.29
-- ma120: 51.86
-- return_5d: 0.51
-- return_20d: -2.27
-- volume_ratio: 1.93
-- distance_to_ma20_pct_auxiliary: -0.71
-- distance_to_high_60_pct: -10.72
+- high: 49.6
+- low: 48.8
+- close: 49
+- volume: 135441
+- ma5: 49.26
+- ema23_primary: 49.94
+- distance_to_ema23_pct: -1.88
+- ma20: 49.82
+- ma60: 51.25
+- ma120: 51.81
+- return_5d: -0.41
+- return_20d: -3.35
+- volume_ratio: 1.71
+- distance_to_ma20_pct_auxiliary: -1.64
+- distance_to_high_60_pct: -11.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,50.1,50.9,50.1,50.7,52140,51.76,-2.05,51.98,51.37,0.75
 20260429,50.7,50.9,50.6,50.9,42118,51.69,-1.52,51.86,51.34,0.63
 20260430,50.8,51.1,50.6,50.9,41877,51.62,-1.4,51.79,51.31,0.64
 20260504,50.7,51.1,50.1,50.5,53444,51.53,-2,51.66,51.28,0.81
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,49,49.5,49,49.45,34728,50.18,-1.46,50.09,51.31,0.55
 20260525,49.45,49.45,48.75,48.8,216048,50.07,-2.53,49.96,51.31,2.99
 20260526,49.5,49.7,49.15,49.55,144702,50.02,-0.94,49.9,51.29,1.93
+20260527,49.5,49.6,48.8,49,135441,49.94,-1.88,49.82,51.25,1.71
 ```
 
 ## Latest TDCC Snapshot

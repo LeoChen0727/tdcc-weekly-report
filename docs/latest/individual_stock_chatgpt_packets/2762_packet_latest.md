@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2762 世界健身-KY
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:30 Asia/Taipei
+- generated_at: 2026-05-27 21:26:47 Asia/Taipei
 - stock_id: 2762
 - stock_name: 世界健身-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 82
-- high: 82
-- low: 80.7
-- close: 81.8
-- volume: 31047
-- ma5: 82.54
-- ema23_primary: 78.92
-- distance_to_ema23_pct: 3.65
-- ma20: 78.23
-- ma60: 75.55
-- ma120: 75.92
-- return_5d: -3.2
-- return_20d: 12.21
-- volume_ratio: 0.18
-- distance_to_ma20_pct_auxiliary: 4.56
-- distance_to_high_60_pct: -4.44
+- date: 20260527
+- open: 80.8
+- high: 81.8
+- low: 80.5
+- close: 81.1
+- volume: 52324
+- ma5: 82.14
+- ema23_primary: 79.1
+- distance_to_ema23_pct: 2.53
+- ma20: 78.61
+- ma60: 75.61
+- ma120: 75.94
+- return_5d: -2.41
+- return_20d: 10.34
+- volume_ratio: 0.32
+- distance_to_ma20_pct_auxiliary: 3.17
+- distance_to_high_60_pct: -5.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,72.7,74,72.7,73.5,114463,73.23,0.37,72.83,74.14,2.88
 20260429,73.6,74.2,72.9,73,125529,73.21,-0.28,72.87,74.11,2.82
 20260430,73.1,73.5,73,73,48625,73.19,-0.26,72.92,74.08,1.05
 20260504,73,73.2,72.4,72.4,84809,73.12,-0.99,72.92,74.05,1.71
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,81.7,83,81.7,82.9,123218,78.35,5.8,77.33,75.41,0.74
 20260525,82.1,82.3,80,82,137070,78.66,4.25,77.78,75.46,0.81
 20260526,82,82,80.7,81.8,31047,78.92,3.65,78.23,75.55,0.18
+20260527,80.8,81.8,80.5,81.1,52324,79.1,2.53,78.61,75.61,0.32
 ```
 
 ## Latest TDCC Snapshot

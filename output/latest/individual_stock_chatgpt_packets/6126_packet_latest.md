@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6126 信音
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:28 Asia/Taipei
+- generated_at: 2026-05-27 21:27:48 Asia/Taipei
 - stock_id: 6126
 - stock_name: 信音
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 36.7
-- high: 36.7
-- low: 35.15
-- close: 36.45
-- volume: 36000
-- ma5: 35.68
-- ema23_primary: 33.76
-- distance_to_ema23_pct: 7.97
-- ma20: 33.47
-- ma60: 32.57
-- ma120: 33.03
-- return_5d: 8.32
-- return_20d: 17.2
+- date: 20260527
+- open: 36.6
+- high: 36.6
+- low: 34.6
+- close: 35.1
+- volume: 35000
+- ma5: 35.89
+- ema23_primary: 33.87
+- distance_to_ema23_pct: 3.63
+- ma20: 33.68
+- ma60: 32.51
+- ma120: 33.07
+- return_5d: 3.08
+- return_20d: 13.59
 - volume_ratio: 0.03
-- distance_to_ma20_pct_auxiliary: 8.9
-- distance_to_high_60_pct: -7.13
+- distance_to_ma20_pct_auxiliary: 4.22
+- distance_to_high_60_pct: -5.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,31.7,31.7,30.75,30.9,616000,31.94,-3.26,31.44,34.02,0.52
 20260429,31.3,32.4,31.15,31.8,913000,31.93,-0.41,31.54,33.93,0.76
 20260430,31.65,32.2,31.05,31.1,797000,31.86,-2.39,31.65,33.82,0.67
 20260504,31.7,34.1,31.5,33.65,2923000,32.01,5.12,31.84,33.77,2.24
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,36.5,36.8,35.75,36,36000,33.27,8.21,32.97,32.67,0.02
 20260525,36.75,37.1,35.9,36.2,36000,33.51,8.01,33.2,32.61,0.03
 20260526,36.7,36.7,35.15,36.45,36000,33.76,7.97,33.47,32.57,0.03
+20260527,36.6,36.6,34.6,35.1,35000,33.87,3.63,33.68,32.51,0.03
 ```
 
 ## Latest TDCC Snapshot
@@ -130,7 +130,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6126 | 信音 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260527 | 6126 | 信音 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8042 金山電
 
 ## Metadata
-- generated_at: 2026-05-26 23:55:04 Asia/Taipei
+- generated_at: 2026-05-27 21:28:25 Asia/Taipei
 - stock_id: 8042
 - stock_name: 金山電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 133
-- high: 148.5
-- low: 121.5
-- close: 147
-- volume: 131000
-- ma5: 129.3
-- ema23_primary: 99.56
-- distance_to_ema23_pct: 47.66
-- ma20: 96.02
-- ma60: 70.02
-- ma120: 64.32
-- return_5d: 35.48
-- return_20d: 161.1
+- date: 20260527
+- open: 147.5
+- high: 159
+- low: 147.5
+- close: 150.5
+- volume: 155000
+- ma5: 136.1
+- ema23_primary: 103.8
+- distance_to_ema23_pct: 44.99
+- ma20: 100.61
+- ma60: 71.5
+- ma120: 65.15
+- return_5d: 29.18
+- return_20d: 155.95
 - volume_ratio: 0.03
-- distance_to_ma20_pct_auxiliary: 53.09
-- distance_to_high_60_pct: -1.01
+- distance_to_ma20_pct_auxiliary: 49.59
+- distance_to_high_60_pct: -5.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,56.6,59.6,56.2,58.8,2081000,59.21,-0.69,59.15,57.93,0.58
 20260429,60,60,57.5,59.2,1000000,59.21,-0.01,59.23,57.79,0.28
 20260430,60,60.4,58.2,58.6,811000,59.16,-0.94,59.47,57.64,0.25
 20260504,64.4,64.4,64.4,64.4,1411000,59.59,8.06,59.98,57.63,0.44
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,122,123,120,123,122000,91.63,34.24,87.56,67.32,0.03
 20260525,129,135,129,135,134000,95.24,41.74,91.48,68.56,0.03
 20260526,133,148.5,121.5,147,131000,99.56,47.66,96.02,70.02,0.03
+20260527,147.5,159,147.5,150.5,155000,103.8,44.99,100.61,71.5,0.03
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3406 玉晶光
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:48 Asia/Taipei
+- generated_at: 2026-05-27 21:27:05 Asia/Taipei
 - stock_id: 3406
 - stock_name: 玉晶光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 600
-- high: 600
-- low: 580
-- close: 588
-- volume: 1370839
-- ma5: 576.4
-- ema23_primary: 543.03
-- distance_to_ema23_pct: 8.28
-- ma20: 541.55
-- ma60: 485.89
-- ma120: 464.86
-- return_5d: 5.57
-- return_20d: 16.9
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: 8.58
-- distance_to_high_60_pct: -3.29
+- date: 20260527
+- open: 597
+- high: 597
+- low: 578
+- close: 585
+- volume: 1528732
+- ma5: 583.4
+- ema23_primary: 546.53
+- distance_to_ema23_pct: 7.04
+- ma20: 545.8
+- ma60: 488.27
+- ma120: 465.99
+- return_5d: 6.36
+- return_20d: 17
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: 7.18
+- distance_to_high_60_pct: -3.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,505,506,497,500,1521503,488.71,2.31,486.12,456.94,0.84
 20260429,504,515,498.5,515,1348321,490.9,4.91,489.85,457.86,0.72
 20260430,513,520,504,509,938364,492.41,3.37,493.43,458.62,0.5
 20260504,516,546,513,540,2159275,496.37,8.79,497.85,459.73,1.1
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,577,585,570,576,1967937,534.21,7.82,533.45,480.86,0.84
 20260525,588,602,584,591,1625721,538.94,9.66,537.3,483.4,0.69
 20260526,600,600,580,588,1370839,543.03,8.28,541.55,485.89,0.59
+20260527,597,597,578,585,1528732,546.53,7.04,545.8,488.27,0.66
 ```
 
 ## Latest TDCC Snapshot
@@ -130,12 +130,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3406 | 玉晶光 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260527 | 3406 | 玉晶光 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3406 | 玉晶光 | 64 | 4 | 10336630.0 | 21000.0 | 492.22 | no_signal | 0 |  |
+| 20260527 | 3406 | 玉晶光 | 64 | 4 | 6963850.0 | 73920.0 | 94.21 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

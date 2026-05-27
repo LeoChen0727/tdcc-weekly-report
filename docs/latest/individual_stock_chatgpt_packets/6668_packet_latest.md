@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6668 中揚光
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:48 Asia/Taipei
+- generated_at: 2026-05-27 21:28:08 Asia/Taipei
 - stock_id: 6668
 - stock_name: 中揚光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 42.2
-- high: 42.45
-- low: 40.3
-- close: 41.05
-- volume: 2469933
-- ma5: 39.81
-- ema23_primary: 37.76
-- distance_to_ema23_pct: 8.7
-- ma20: 37.35
-- ma60: 35.74
-- ma120: 36.87
-- return_5d: 6.9
-- return_20d: 19.33
-- volume_ratio: 3.13
-- distance_to_ma20_pct_auxiliary: 9.89
-- distance_to_high_60_pct: -3.3
+- date: 20260527
+- open: 41.2
+- high: 41.2
+- low: 39.25
+- close: 39.8
+- volume: 1074778
+- ma5: 40.2
+- ema23_primary: 37.93
+- distance_to_ema23_pct: 4.92
+- ma20: 37.62
+- ma60: 35.79
+- ma120: 36.89
+- return_5d: 5.15
+- return_20d: 15.53
+- volume_ratio: 1.3
+- distance_to_ma20_pct_auxiliary: 5.79
+- distance_to_high_60_pct: -6.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,34.9,34.9,33.75,34.45,307887,35.41,-2.71,35.14,35.83,0.55
 20260429,34,34.45,33.3,33.9,345911,35.28,-3.92,35.11,35.74,0.62
 20260430,33.9,34.45,33.5,34,222589,35.18,-3.34,35.16,35.66,0.4
 20260504,35.35,35.55,34.5,34.8,417897,35.14,-0.98,35.18,35.6,0.74
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,39.6,40,39.05,39.65,635472,37.14,6.76,36.74,35.61,1.02
 20260525,39.75,41.65,38.8,41.05,1583542,37.47,9.57,37.02,35.68,2.32
 20260526,42.2,42.45,40.3,41.05,2469933,37.76,8.7,37.35,35.74,3.13
+20260527,41.2,41.2,39.25,39.8,1074778,37.93,4.92,37.62,35.79,1.3
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6668 | 中揚光 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 6668 | 中揚光 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6668 | 中揚光 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260527 | 6668 | 中揚光 | 3 | 1 | 3 | 3 | 3 | continued_2_3d | 連續 3 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | status |

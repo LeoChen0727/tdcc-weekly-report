@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1529 樂事綠能
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:58 Asia/Taipei
+- generated_at: 2026-05-27 21:26:13 Asia/Taipei
 - stock_id: 1529
 - stock_name: 樂事綠能
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 21
-- high: 21.95
-- low: 21
-- close: 21.55
-- volume: 1504850
-- ma5: 20.92
-- ema23_primary: 21.74
-- distance_to_ema23_pct: -0.87
-- ma20: 21.59
-- ma60: 23.9
-- ma120: 22.52
-- return_5d: 5.12
-- return_20d: -2.93
-- volume_ratio: 1.81
-- distance_to_ma20_pct_auxiliary: -0.16
-- distance_to_high_60_pct: -27.81
+- date: 20260527
+- open: 21.8
+- high: 23.1
+- low: 21.8
+- close: 22.45
+- volume: 2037575
+- ma5: 21.34
+- ema23_primary: 21.8
+- distance_to_ema23_pct: 2.99
+- ma20: 21.6
+- ma60: 23.85
+- ma120: 22.55
+- return_5d: 10.32
+- return_20d: 1.58
+- volume_ratio: 2.22
+- distance_to_ma20_pct_auxiliary: 3.92
+- distance_to_high_60_pct: -24.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,22.2,22.4,22.05,22.1,333634,23.68,-6.67,23.4,24.89,0.37
 20260429,22.1,22.1,21.8,21.8,491099,23.52,-7.33,23.31,24.82,0.56
 20260430,21.9,22.05,21.7,21.7,374670,23.37,-7.15,23.24,24.74,0.45
 20260504,21.75,23.2,21.75,22.7,1833013,23.32,-2.64,23.2,24.67,2.04
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,20.8,21.1,20.7,21,723128,21.83,-3.8,21.68,24.05,0.94
 20260525,21.3,21.4,20.85,20.95,867571,21.76,-3.71,21.62,23.98,1.1
 20260526,21,21.95,21,21.55,1504850,21.74,-0.87,21.59,23.9,1.81
+20260527,21.8,23.1,21.8,22.45,2037575,21.8,2.99,21.6,23.85,2.22
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1529 | 樂事綠能 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 55.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 1529 | 樂事綠能 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1529 | 樂事綠能 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260527 | 1529 | 樂事綠能 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | status |

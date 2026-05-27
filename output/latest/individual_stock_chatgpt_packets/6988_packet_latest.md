@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6988 威力暘-創
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:59 Asia/Taipei
+- generated_at: 2026-05-27 21:28:20 Asia/Taipei
 - stock_id: 6988
 - stock_name: 威力暘-創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 16.65
-- high: 17
-- low: 16.5
-- close: 16.55
-- volume: 49000
-- ma5: 16.7
-- ema23_primary: 15.7
-- distance_to_ema23_pct: 5.42
-- ma20: 15.38
-- ma60: 14.89
-- ma120: 15.38
-- return_5d: -1.78
-- return_20d: 22.59
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: 7.57
-- distance_to_high_60_pct: -8.82
+- date: 20260527
+- open: 17.3
+- high: 17.3
+- low: 16.45
+- close: 16.45
+- volume: 123070
+- ma5: 16.61
+- ema23_primary: 15.76
+- distance_to_ema23_pct: 4.36
+- ma20: 15.51
+- ma60: 14.87
+- ma120: 15.4
+- return_5d: -2.66
+- return_20d: 17.5
+- volume_ratio: 1.39
+- distance_to_ma20_pct_auxiliary: 6.08
+- distance_to_high_60_pct: -9.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,13.5,14.2,13.2,14,100100,14.55,-3.77,14.54,16.06,2.28
 20260429,14,14.1,13.5,13.5,16000,14.46,-6.65,14.53,15.98,0.37
 20260430,13.6,13.8,13.5,13.6,45000,14.39,-5.49,14.53,15.88,1.03
 20260504,14,14.6,13.7,13.8,37007,14.34,-3.77,14.47,15.79,0.86
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,16.95,17.4,16.7,16.7,93271,15.53,7.54,15.1,14.94,1.11
 20260525,16.7,17.45,16.65,16.65,135145,15.62,6.58,15.23,14.91,1.52
 20260526,16.65,17,16.5,16.55,49000,15.7,5.42,15.38,14.89,0.56
+20260527,17.3,17.3,16.45,16.45,123070,15.76,4.36,15.51,14.87,1.39
 ```
 
 ## Latest TDCC Snapshot

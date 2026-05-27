@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2337 旺宏
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:13 Asia/Taipei
+- generated_at: 2026-05-27 21:26:29 Asia/Taipei
 - stock_id: 2337
 - stock_name: 旺宏
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 154.5
-- high: 162.5
-- low: 151
-- close: 160.5
-- volume: 163663703
-- ma5: 148.9
-- ema23_primary: 151.42
-- distance_to_ema23_pct: 5.99
-- ma20: 157.28
-- ma60: 137.4
-- ma120: 97.6
-- return_5d: 11.46
-- return_20d: 10.69
-- volume_ratio: 0.87
-- distance_to_ma20_pct_auxiliary: 2.05
-- distance_to_high_60_pct: -10.08
+- date: 20260527
+- open: 172
+- high: 175
+- low: 154
+- close: 155.5
+- volume: 242819740
+- ma5: 151.8
+- ema23_primary: 151.76
+- distance_to_ema23_pct: 2.46
+- ma20: 157.07
+- ma60: 138.15
+- ma120: 98.61
+- return_5d: 10.28
+- return_20d: -2.51
+- volume_ratio: 1.29
+- distance_to_ma20_pct_auxiliary: -1
+- distance_to_high_60_pct: -12.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,151.5,159.5,151,159.5,246502790,135.14,18.02,136.95,115.41,1.88
 20260429,161.5,171.5,159,167,356096402,137.8,21.19,138.9,116.97,2.41
 20260430,172.5,176,154,154,290565132,139.15,10.67,140.82,118.31,1.8
 20260504,161,163,151,154.5,225527175,140.43,10.02,142.2,119.73,1.32
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,144,152.5,143.5,149.5,112827275,150.42,-0.61,155.47,135.87,0.6
 20260525,148,154.5,140.5,152.5,135809749,150.6,1.26,156.5,136.52,0.72
 20260526,154.5,162.5,151,160.5,163663703,151.42,5.99,157.28,137.4,0.87
+20260527,172,175,154,155.5,242819740,151.76,2.46,157.07,138.15,1.29
 ```
 
 ## Latest TDCC Snapshot
@@ -125,19 +125,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2337 | 旺宏 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 2337 | 旺宏 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260527 | 2337 | 旺宏 | pattern | 型態觀察 | 51.0 |  |  | early_entry_watch |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 2337 | 旺宏 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260521 | 2337 | 旺宏 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2337 | 旺宏 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 2337 | 旺宏 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2337 | 旺宏 | 98 | 25 | 9036910.0 | 227760.0 | 39.68 | call_put_bullish | 3 |  |
+| 20260527 | 2337 | 旺宏 | 98 | 25 | 11191930.0 | 127390.0 | 87.86 | call_put_bullish | 3 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

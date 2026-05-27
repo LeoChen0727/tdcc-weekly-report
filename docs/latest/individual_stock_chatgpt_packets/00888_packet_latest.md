@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00888 永豐台灣ESG
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:46 Asia/Taipei
+- generated_at: 2026-05-27 21:26:02 Asia/Taipei
 - stock_id: 00888
 - stock_name: 永豐台灣ESG
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 33.71
-- high: 33.82
-- low: 33.17
-- close: 33.48
-- volume: 34000
+- date: 20260527
+- open: 34.7
+- high: 35.3
+- low: 34.62
+- close: 35.13
+- volume: 35000
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,31.25,31.6,31.11,31.56,31000,,,,,
 20260525,32.12,33.19,32.04,33.16,33000,,,,,
 20260526,33.71,33.82,33.17,33.48,34000,,,,,
+20260527,34.7,35.3,34.62,35.13,35000,,,,,
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9904 寶成
 
 ## Metadata
-- generated_at: 2026-05-26 23:55:16 Asia/Taipei
+- generated_at: 2026-05-27 21:28:38 Asia/Taipei
 - stock_id: 9904
 - stock_name: 寶成
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 25.7
-- high: 25.85
-- low: 25.5
-- close: 25.55
-- volume: 11925417
-- ma5: 25.69
-- ema23_primary: 26.18
-- distance_to_ema23_pct: -2.41
-- ma20: 25.82
-- ma60: 27.72
-- ma120: 29.28
-- return_5d: -2.11
-- return_20d: -2.48
-- volume_ratio: 0.83
-- distance_to_ma20_pct_auxiliary: -1.06
-- distance_to_high_60_pct: -17.85
+- date: 20260527
+- open: 25.6
+- high: 25.6
+- low: 25.35
+- close: 25.35
+- volume: 16984480
+- ma5: 25.63
+- ema23_primary: 26.11
+- distance_to_ema23_pct: -2.91
+- ma20: 25.8
+- ma60: 27.62
+- ma120: 29.25
+- return_5d: -1.17
+- return_20d: -1.74
+- volume_ratio: 1.2
+- distance_to_ma20_pct_auxiliary: -1.75
+- distance_to_high_60_pct: -18.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,26.05,26.2,25.8,25.8,20819946,27.69,-6.83,27.76,29.32,1.53
 20260429,25.8,25.95,25.8,25.85,11634499,27.54,-6.13,27.62,29.23,0.84
 20260430,25.9,26.3,25.75,25.75,12978022,27.39,-5.99,27.5,29.15,0.91
 20260504,26.05,26.05,25.55,25.6,12176446,27.24,-6.02,27.33,29.06,0.84
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,25.8,25.9,25.7,25.8,12592104,26.29,-1.87,25.91,27.9,0.87
 20260525,25.85,25.85,25.55,25.65,13594173,26.24,-2.24,25.86,27.81,0.94
 20260526,25.7,25.85,25.5,25.55,11925417,26.18,-2.41,25.82,27.72,0.83
+20260527,25.6,25.6,25.35,25.35,16984480,26.11,-2.91,25.8,27.62,1.2
 ```
 
 ## Latest TDCC Snapshot
@@ -135,7 +135,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 9904 | 寶成 | 9 | 0 | 88030.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 9904 | 寶成 | 9 | 0 | 30490.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

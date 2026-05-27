@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2543 皇昌
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:25 Asia/Taipei
+- generated_at: 2026-05-27 21:26:42 Asia/Taipei
 - stock_id: 2543
 - stock_name: 皇昌
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 42.45
-- high: 43
-- low: 39.95
-- close: 40.8
-- volume: 3719460
-- ma5: 43.48
-- ema23_primary: 44.82
-- distance_to_ema23_pct: -8.96
-- ma20: 42.83
-- ma60: 56.18
-- ma120: 59.13
-- return_5d: 5.7
-- return_20d: -11.97
-- volume_ratio: 0.93
-- distance_to_ma20_pct_auxiliary: -4.73
-- distance_to_high_60_pct: -50
+- date: 20260527
+- open: 41.2
+- high: 41.8
+- low: 40.4
+- close: 41.5
+- volume: 1972681
+- ma5: 43.29
+- ema23_primary: 44.54
+- distance_to_ema23_pct: -6.82
+- ma20: 42.57
+- ma60: 55.84
+- ma120: 58.99
+- return_5d: -2.24
+- return_20d: -10.94
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: -2.52
+- distance_to_high_60_pct: -49.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,46,47.65,45.15,46.6,4619979,55.65,-16.26,55.12,62.62,1.77
 20260429,46.6,46.6,45.25,45.4,2364083,54.8,-17.15,54.4,62.35,0.94
 20260430,46,48.65,46,46.7,4727769,54.12,-13.71,53.84,62.02,1.83
 20260504,47,47,45.3,45.3,2623798,53.39,-15.15,53.2,61.73,1.01
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,46.7,49.3,45.35,45.5,6869124,45.45,0.11,43.39,56.85,1.72
 20260525,46,46,41.95,42.2,5389413,45.18,-6.6,43.1,56.52,1.32
 20260526,42.45,43,39.95,40.8,3719460,44.82,-8.96,42.83,56.18,0.93
+20260527,41.2,41.8,40.4,41.5,1972681,44.54,-6.82,42.57,55.84,0.51
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2543 | 皇昌 | revenue_pullback | 營收成長股價回檔 | 62.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260527 | 2543 | 皇昌 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 2543 | 皇昌 | revenue_pullback | 營收成長股價回檔 | 62.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2543 | 皇昌 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260527 | 2543 | 皇昌 | 3 | 3 | 3 | 3 | 3 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2543 | 皇昌 | 22 | 0 | 738660.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 2543 | 皇昌 | 22 | 0 | 421450.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

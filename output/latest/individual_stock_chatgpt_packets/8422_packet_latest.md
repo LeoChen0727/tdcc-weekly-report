@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8422 可寧衛*
 
 ## Metadata
-- generated_at: 2026-05-26 23:55:11 Asia/Taipei
+- generated_at: 2026-05-27 21:28:33 Asia/Taipei
 - stock_id: 8422
 - stock_name: 可寧衛*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 127
+- latest_price_date: 20260527
+- price_rows: 128
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 28
-- high: 28.45
-- low: 27.15
-- close: 27.15
-- volume: 11842845
-- ma5: 26.7
-- ema23_primary: 27.42
-- distance_to_ema23_pct: -0.98
-- ma20: 27.21
-- ma60: 29.12
-- ma120: 30.45
-- return_5d: 6.26
-- return_20d: -3.38
-- volume_ratio: 1.38
-- distance_to_ma20_pct_auxiliary: -0.23
-- distance_to_high_60_pct: -23.52
+- date: 20260527
+- open: 27.5
+- high: 27.6
+- low: 27.1
+- close: 27.3
+- volume: 6946127
+- ma5: 27.02
+- ema23_primary: 27.41
+- distance_to_ema23_pct: -0.4
+- ma20: 27.17
+- ma60: 29
+- ma120: 30.5
+- return_5d: 6.23
+- return_20d: -2.85
+- volume_ratio: 0.8
+- distance_to_ma20_pct_auxiliary: 0.47
+- distance_to_high_60_pct: -20.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,28.1,28.2,27.8,28.1,5350715,29.51,-4.77,29.21,32.18,0.47
 20260429,28.1,28.15,27.8,27.85,6425480,29.37,-5.18,29.16,31.93,0.56
 20260430,27.9,28.4,27.75,27.75,6252402,29.24,-5.08,29.08,31.7,0.57
 20260504,27.8,28.1,27.75,27.95,5343044,29.13,-4.05,29.01,31.49,0.49
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,26.5,26.8,26.35,26.8,7159306,27.43,-2.31,27.32,29.38,0.82
 20260525,27,27.95,27,27.55,12513338,27.44,0.39,27.26,29.24,1.44
 20260526,28,28.45,27.15,27.15,11842845,27.42,-0.98,27.21,29.12,1.38
+20260527,27.5,27.6,27.1,27.3,6946127,27.41,-0.4,27.17,29,0.8
 ```
 
 ## Latest TDCC Snapshot
@@ -128,14 +128,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8422 | 可寧衛* | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8422 | 可寧衛* | 92 | 13 | 226330.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 8422 | 可寧衛* | 92 | 13 | 280210.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

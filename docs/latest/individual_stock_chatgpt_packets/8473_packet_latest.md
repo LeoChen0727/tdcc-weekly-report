@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8473 山林水
 
 ## Metadata
-- generated_at: 2026-05-26 23:55:13 Asia/Taipei
+- generated_at: 2026-05-27 21:28:35 Asia/Taipei
 - stock_id: 8473
 - stock_name: 山林水
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 42.15
-- high: 42.8
-- low: 41.2
-- close: 42.1
-- volume: 1739165
-- ma5: 40.85
-- ema23_primary: 37.55
-- distance_to_ema23_pct: 12.12
-- ma20: 36.58
-- ma60: 37.4
-- ma120: 37.25
-- return_5d: 16.46
-- return_20d: 16.14
-- volume_ratio: 1.54
-- distance_to_ma20_pct_auxiliary: 15.08
-- distance_to_high_60_pct: -1.64
+- date: 20260527
+- open: 42.25
+- high: 43.3
+- low: 41.75
+- close: 42.85
+- volume: 2053236
+- ma5: 41.47
+- ema23_primary: 37.99
+- distance_to_ema23_pct: 12.79
+- ma20: 36.9
+- ma60: 37.47
+- ma120: 37.31
+- return_5d: 7.8
+- return_20d: 17.24
+- volume_ratio: 1.69
+- distance_to_ma20_pct_auxiliary: 16.13
+- distance_to_high_60_pct: -1.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,36.35,36.8,36.15,36.55,337284,37.31,-2.04,37.17,37.77,0.72
 20260429,36.6,36.65,36.2,36.3,308989,37.23,-2.49,37.05,37.71,0.68
 20260430,36.5,36.5,35.65,35.9,798864,37.12,-3.27,36.95,37.65,1.72
 20260504,35.75,35.9,35.35,35.4,730425,36.97,-4.25,36.83,37.59,1.53
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,40.55,40.55,39.7,39.8,1512927,36.7,8.44,36.01,37.26,1.54
 20260525,40.05,42.3,40.05,41.9,2025481,37.14,12.83,36.29,37.33,1.9
 20260526,42.15,42.8,41.2,42.1,1739165,37.55,12.12,36.58,37.4,1.54
+20260527,42.25,43.3,41.75,42.85,2053236,37.99,12.79,36.9,37.47,1.69
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 8473 | 山林水 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 8473 | 山林水 | true_breakout | 嚴格突破 | 91.0 |  |  | neckline_challenge |  |  | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 8473 | 山林水 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8473 | 山林水 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 8473 | 山林水 | 5 | 5 | 5 | 5 | 5 | continued_many_days | 連續 5 個交易日上榜，需判斷是持續醞釀或訊號鈍化。 |
 
 ## Warrant Context
 | status |

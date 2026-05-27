@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009820 元大納斯達克精選
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:48 Asia/Taipei
+- generated_at: 2026-05-27 21:26:03 Asia/Taipei
 - stock_id: 009820
 - stock_name: 元大納斯達克精選
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 10.3
-- high: 10.3
-- low: 10.25
-- close: 10.28
-- volume: 19007537
+- date: 20260527
+- open: 10.26
+- high: 10.27
+- low: 10.2
+- close: 10.25
+- volume: 43694764
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,10.23,10.25,10.19,10.22,29519935,,,,,
 20260525,10.33,10.38,10.29,10.35,47524376,,,,,
 20260526,10.3,10.3,10.25,10.28,19007537,,,,,
+20260527,10.26,10.27,10.2,10.25,43694764,,,,,
 ```
 
 ## Latest TDCC Snapshot

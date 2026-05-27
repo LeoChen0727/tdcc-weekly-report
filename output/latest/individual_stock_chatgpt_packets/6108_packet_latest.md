@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6108 競國
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:27 Asia/Taipei
+- generated_at: 2026-05-27 21:27:47 Asia/Taipei
 - stock_id: 6108
 - stock_name: 競國
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 20
-- high: 20.1
-- low: 19.6
+- date: 20260527
+- open: 19.8
+- high: 20
+- low: 19.25
 - close: 19.65
-- volume: 1607599
-- ma5: 19.44
-- ema23_primary: 19.28
-- distance_to_ema23_pct: 1.94
-- ma20: 19.86
-- ma60: 17.73
-- ma120: 16.08
-- return_5d: 6.22
-- return_20d: -2.72
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: -1.08
+- volume: 1763622
+- ma5: 19.57
+- ema23_primary: 19.31
+- distance_to_ema23_pct: 1.78
+- ma20: 19.87
+- ma60: 17.8
+- ma120: 16.14
+- return_5d: 3.42
+- return_20d: 0.77
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: -1.12
 - distance_to_high_60_pct: -18.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,20.15,20.7,19.45,19.5,4417566,17.65,10.5,17.43,16.13,2.53
 20260429,19.6,20.5,19.4,20,1819341,17.84,12.09,17.61,16.21,1
 20260430,20.1,20.25,19.1,19.1,1300404,17.95,6.42,17.75,16.28,0.69
 20260504,19,19.15,18.65,19,1513425,18.04,5.35,17.89,16.34,0.78
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,19,19.65,18.9,19.45,1492845,19.19,1.37,19.87,17.56,0.38
 20260525,19.7,20.2,19.5,19.85,1687816,19.24,3.16,19.89,17.65,0.46
 20260526,20,20.1,19.6,19.65,1607599,19.28,1.94,19.86,17.73,0.53
+20260527,19.8,20,19.25,19.65,1763622,19.31,1.78,19.87,17.8,0.6
 ```
 
 ## Latest TDCC Snapshot
@@ -125,13 +125,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6108 | 競國 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 6108 | 競國 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260527 | 6108 | 競國 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 6108 | 競國 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6108 | 競國 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 6108 | 競國 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

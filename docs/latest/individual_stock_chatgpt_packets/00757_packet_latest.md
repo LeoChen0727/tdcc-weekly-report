@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00757 統一FANG+
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:45 Asia/Taipei
+- generated_at: 2026-05-27 21:26:01 Asia/Taipei
 - stock_id: 00757
 - stock_name: 統一FANG+
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 128.9
-- high: 129.05
-- low: 128.55
-- close: 129.05
-- volume: 1486642
+- date: 20260527
+- open: 131.5
+- high: 131.7
+- low: 131.3
+- close: 131.6
+- volume: 2570342
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,129,129.3,128.85,129.2,2083392,,,,,
 20260525,129.3,129.55,129.05,129.5,3744483,,,,,
 20260526,128.9,129.05,128.55,129.05,1486642,,,,,
+20260527,131.5,131.7,131.3,131.6,2570342,,,,,
 ```
 
 ## Latest TDCC Snapshot

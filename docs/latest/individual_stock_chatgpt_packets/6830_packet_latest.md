@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6830 汎銓
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:53 Asia/Taipei
+- generated_at: 2026-05-27 21:28:14 Asia/Taipei
 - stock_id: 6830
 - stock_name: 汎銓
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 819
-- high: 822
-- low: 765
-- close: 778
-- volume: 3599234
-- ma5: 731.6
-- ema23_primary: 747.21
-- distance_to_ema23_pct: 4.12
-- ma20: 781.35
-- ma60: 619.61
-- ma120: 400.39
-- return_5d: 9.27
-- return_20d: 19.51
-- volume_ratio: 1.3
-- distance_to_ma20_pct_auxiliary: -0.43
-- distance_to_high_60_pct: -22.2
+- date: 20260527
+- open: 788
+- high: 800
+- low: 710
+- close: 720
+- volume: 2806394
+- ma5: 738.8
+- ema23_primary: 744.94
+- distance_to_ema23_pct: -3.35
+- ma20: 781.55
+- ma60: 626.86
+- ma120: 405.17
+- return_5d: 5.26
+- return_20d: 0.56
+- volume_ratio: 1.04
+- distance_to_ma20_pct_auxiliary: -7.88
+- distance_to_high_60_pct: -28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,651,716,608,716,4263141,680.51,5.21,709.42,434.82,2.17
 20260429,720,786,719,773,5120282,688.22,12.32,725.48,444.67,2.52
 20260430,827,850,827,850,1495241,701.7,21.13,744.6,455.86,0.91
 20260504,935,935,893,925,2998532,720.31,28.42,765.15,468.32,1.82
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,705,732,702,716,1830389,740.54,-3.31,771.8,601.78,0.71
 20260525,735,787,735,787,1786248,744.41,5.72,775,610.97,0.68
 20260526,819,822,765,778,3599234,747.21,4.12,781.35,619.61,1.3
+20260527,788,800,710,720,2806394,744.94,-3.35,781.55,626.86,1.04
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6830 | 汎銓 | pattern | 型態觀察 | 51.0 |  |  | early_entry_watch |  | call_put_bullish | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 6830 | 汎銓 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_put_bullish | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260527 | 6830 | 汎銓 | revenue_pullback | 營收成長股價回檔 | 60.0 |  |  |  |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6830 | 汎銓 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260527 | 6830 | 汎銓 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6830 | 汎銓 | 32 | 2 | 7467550.0 | 43330.0 | 172.34 | call_put_bullish | 3 |  |
+| 20260527 | 6830 | 汎銓 | 32 | 2 | 21065250.0 | 24090.0 | 874.44 | call_put_bullish | 3 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

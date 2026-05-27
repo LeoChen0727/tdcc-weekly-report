@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00904 新光臺灣半導體30
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:46 Asia/Taipei
+- generated_at: 2026-05-27 21:26:02 Asia/Taipei
 - stock_id: 00904
 - stock_name: 新光臺灣半導體30
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 41.74
-- high: 41.74
-- low: 40.95
-- close: 41.22
-- volume: 3082630
+- date: 20260527
+- open: 42.54
+- high: 43.08
+- low: 41.95
+- close: 42.35
+- volume: 2912796
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,39.01,39.51,38.89,39.47,2143583,,,,,
 20260525,40.1,41.32,40.1,41.07,2552871,,,,,
 20260526,41.74,41.74,40.95,41.22,3082630,,,,,
+20260527,42.54,43.08,41.95,42.35,2912796,,,,,
 ```
 
 ## Latest TDCC Snapshot

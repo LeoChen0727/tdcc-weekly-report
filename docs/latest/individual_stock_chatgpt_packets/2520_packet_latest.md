@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2520 冠德
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:24 Asia/Taipei
+- generated_at: 2026-05-27 21:26:41 Asia/Taipei
 - stock_id: 2520
 - stock_name: 冠德
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 30.05
-- high: 30.4
+- date: 20260527
+- open: 30.15
+- high: 30.3
 - low: 29.9
-- close: 30.15
-- volume: 1401272
-- ma5: 30.43
-- ema23_primary: 30.49
-- distance_to_ema23_pct: -1.11
-- ma20: 30.17
-- ma60: 31.15
-- ma120: 31.96
-- return_5d: -0.82
-- return_20d: 0.33
-- volume_ratio: 0.93
-- distance_to_ma20_pct_auxiliary: -0.07
-- distance_to_high_60_pct: -9.73
+- close: 30.05
+- volume: 1341939
+- ma5: 30.29
+- ema23_primary: 30.45
+- distance_to_ema23_pct: -1.32
+- ma20: 30.18
+- ma60: 31.12
+- ma120: 31.94
+- return_5d: -2.28
+- return_20d: 0.17
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: -0.41
+- distance_to_high_60_pct: -10.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,30.05,30.3,30,30,1181802,31.16,-3.73,31.16,31.72,0.78
 20260429,30.15,30.5,30.1,30.4,680215,31.1,-2.25,31.09,31.68,0.47
 20260430,30.5,30.5,29.45,29.45,2639297,30.96,-4.88,30.97,31.61,1.8
 20260504,29.75,29.75,29,29.15,2481121,30.81,-5.39,30.82,31.55,1.6
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,30.5,30.65,30,30.45,1501024,30.56,-0.37,30.21,31.2,0.99
 20260525,30.45,30.45,29.65,30.05,2106524,30.52,-1.54,30.17,31.17,1.34
 20260526,30.05,30.4,29.9,30.15,1401272,30.49,-1.11,30.17,31.15,0.93
+20260527,30.15,30.3,29.9,30.05,1341939,30.45,-1.32,30.18,31.12,0.88
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2520 | 冠德 | revenue_pullback | 營收成長股價回檔 | 63.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260527 | 2520 | 冠德 | revenue_pullback | 營收成長股價回檔 | 63.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2520 | 冠德 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 2520 | 冠德 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2520 | 冠德 | 7 | 0 | 59000.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 2520 | 冠德 | 7 | 0 | 45400.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

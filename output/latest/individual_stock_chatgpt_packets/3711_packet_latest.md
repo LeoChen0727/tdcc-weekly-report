@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3711 日月光投控
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:58 Asia/Taipei
+- generated_at: 2026-05-27 21:27:16 Asia/Taipei
 - stock_id: 3711
 - stock_name: 日月光投控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 636
-- high: 636
-- low: 590
-- close: 611
-- volume: 39627497
-- ma5: 555
-- ema23_primary: 518.49
-- distance_to_ema23_pct: 17.84
-- ma20: 528.95
-- ma60: 430.18
-- ma120: 350.41
-- return_5d: 29.45
-- return_20d: 23.31
-- volume_ratio: 1.45
-- distance_to_ma20_pct_auxiliary: 15.51
-- distance_to_high_60_pct: -3.93
+- date: 20260527
+- open: 641
+- high: 669
+- low: 626
+- close: 642
+- volume: 30005707
+- ma5: 588.2
+- ema23_primary: 528.78
+- distance_to_ema23_pct: 21.41
+- ma20: 536.27
+- ma60: 434.42
+- ma120: 354.02
+- return_5d: 34.87
+- return_20d: 29.57
+- volume_ratio: 1.09
+- distance_to_ma20_pct_auxiliary: 19.71
+- distance_to_high_60_pct: -4.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,489,510,483.5,495.5,22748609,428.29,15.69,422.73,363.22,1
 20260429,487,492,472.5,488.5,22424827,433.31,12.74,429.48,366.51,0.97
 20260430,490.5,512,478,478,36584546,437.03,9.37,436.95,369.51,1.56
 20260504,497,525,497,525,27594760,444.36,18.15,445.15,373.13,1.15
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,535,561,524,561,31183324,500.36,12.12,517.12,422.55,1.16
 20260525,598,617,584,617,26609382,510.08,20.96,523.17,426.48,0.99
 20260526,636,636,590,611,39627497,518.49,17.84,528.95,430.18,1.45
+20260527,641,669,626,642,30005707,528.78,21.41,536.27,434.42,1.09
 ```
 
 ## Latest TDCC Snapshot
@@ -128,14 +128,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3711 | 日月光投控 | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3711 | 日月光投控 | 221 | 11 | 42418270.0 | 327800.0 | 129.4 | call_inflow | 1 |  |
+| 20260527 | 3711 | 日月光投控 | 223 | 12 | 52647300.0 | 325600.0 | 161.69 | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

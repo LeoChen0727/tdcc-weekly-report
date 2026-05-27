@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2345 智邦
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:14 Asia/Taipei
+- generated_at: 2026-05-27 21:26:30 Asia/Taipei
 - stock_id: 2345
 - stock_name: 智邦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 2610
-- high: 2695
-- low: 2560
+- date: 20260527
+- open: 2645
+- high: 2670
+- low: 2570
 - close: 2620
-- volume: 3688871
-- ma5: 2493
-- ema23_primary: 2381.55
-- distance_to_ema23_pct: 10.01
-- ma20: 2464.25
-- ma60: 1941.92
-- ma120: 1551.19
-- return_5d: 9.62
-- return_20d: 20.46
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: 6.32
+- volume: 3955442
+- ma5: 2546
+- ema23_primary: 2401.42
+- distance_to_ema23_pct: 9.1
+- ma20: 2480.5
+- ma60: 1962.25
+- ma120: 1565.47
+- return_5d: 11.25
+- return_20d: 14.16
+- volume_ratio: 0.78
+- distance_to_ma20_pct_auxiliary: 5.62
 - distance_to_high_60_pct: -2.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,2250,2340,2195,2295,5955672,1922.63,19.37,1905.75,1549.75,1.26
 20260429,2245,2270,2190,2210,4561794,1946.58,13.53,1934.5,1567.42,0.96
 20260430,2225,2315,2215,2280,3775578,1974.36,15.48,1973,1586.25,0.81
 20260504,2380,2505,2360,2505,4412365,2018.58,24.1,2015.25,1608.42,0.95
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,2535,2535,2450,2470,2750416,2343.5,5.4,2422,1903.5,0.51
 20260525,2535,2600,2505,2540,2633850,2359.87,7.63,2442,1922.42,0.5
 20260526,2610,2695,2560,2620,3688871,2381.55,10.01,2464.25,1941.92,0.71
+20260527,2645,2670,2570,2620,3955442,2401.42,9.1,2480.5,1962.25,0.78
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2345 | 智邦 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 2345 | 智邦 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260527 | 2345 | 智邦 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 2345 | 智邦 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2345 | 智邦 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 2345 | 智邦 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2345 | 智邦 | 297 | 41 | 34795260.0 | 657290.0 | 52.94 | no_signal | 0 |  |
+| 20260527 | 2345 | 智邦 | 296 | 41 | 39624930.0 | 354930.0 | 111.64 | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

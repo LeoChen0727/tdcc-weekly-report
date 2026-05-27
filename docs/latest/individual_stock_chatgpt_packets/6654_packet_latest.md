@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6654 天正國際
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:47 Asia/Taipei
+- generated_at: 2026-05-27 21:28:08 Asia/Taipei
 - stock_id: 6654
 - stock_name: 天正國際
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 133
+- latest_price_date: 20260527
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 110
-- high: 116
-- low: 110
-- close: 116
-- volume: 115000
-- ma5: 102.32
-- ema23_primary: 96.1
-- distance_to_ema23_pct: 20.71
-- ma20: 94.91
-- ma60: 92.06
-- ma120: 90.63
-- return_5d: 20.21
-- return_20d: 26.91
-- volume_ratio: 1.95
-- distance_to_ma20_pct_auxiliary: 22.23
+- date: 20260527
+- open: 127.5
+- high: 127.5
+- low: 118
+- close: 127.5
+- volume: 125000
+- ma5: 108.42
+- ema23_primary: 98.71
+- distance_to_ema23_pct: 29.16
+- ma20: 96.7
+- ma60: 92.59
+- ma120: 91.01
+- return_5d: 31.44
+- return_20d: 39.34
+- volume_ratio: 1.94
+- distance_to_ma20_pct_auxiliary: 31.84
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,91.3,91.5,91.1,91.5,19000,89.7,2.01,89.14,91.41,0.7
 20260429,90.2,91,89.2,89.2,21000,89.66,-0.51,89.09,91.29,0.76
 20260430,89.2,90.2,89,89.9,19000,89.68,0.25,89.02,91.17,0.7
 20260504,91,92.5,91,91.3,23000,89.81,1.66,89.02,91.06,0.81
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,97,97,94,96.1,96000,93.27,3.04,92.95,91.55,1.84
 20260525,97.1,105.5,97.1,105.5,104000,94.29,11.89,93.67,91.72,1.85
 20260526,110,116,110,116,115000,96.1,20.71,94.91,92.06,1.95
+20260527,127.5,127.5,118,127.5,125000,98.71,29.16,96.7,92.59,1.94
 ```
 
 ## Latest TDCC Snapshot

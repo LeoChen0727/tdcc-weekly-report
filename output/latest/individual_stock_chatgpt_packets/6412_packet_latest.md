@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6412 群電
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:38 Asia/Taipei
+- generated_at: 2026-05-27 21:27:59 Asia/Taipei
 - stock_id: 6412
 - stock_name: 群電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 105
-- high: 106.5
-- low: 100.5
-- close: 102
-- volume: 3535885
-- ma5: 99.62
-- ema23_primary: 91.23
-- distance_to_ema23_pct: 11.81
-- ma20: 90.96
-- ma60: 83.97
-- ma120: 86.15
-- return_5d: 10.63
-- return_20d: 31.95
-- volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: 12.14
-- distance_to_high_60_pct: -4.67
+- date: 20260527
+- open: 102
+- high: 105
+- low: 99.2
+- close: 100
+- volume: 2578450
+- ma5: 100.72
+- ema23_primary: 91.96
+- distance_to_ema23_pct: 8.75
+- ma20: 92.13
+- ma60: 84.12
+- ma120: 86.23
+- return_5d: 5.82
+- return_20d: 30.55
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: 8.54
+- distance_to_high_60_pct: -6.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,77.4,78.1,76.3,76.6,1270649,78.42,-2.33,77.25,82.58,1.13
 20260429,76.7,79.5,76.6,77.7,1988123,78.36,-0.85,77.42,82.51,1.71
 20260430,79.5,83.4,78.8,81,5158751,78.58,3.07,77.85,82.46,3.79
 20260504,85.6,89.1,85.6,89.1,9097397,79.46,12.13,78.66,82.54,5.11
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,99.8,101,96.5,100.5,4925428,89,12.93,88.44,83.61,1.27
 20260525,103,107,100.5,104,4384371,90.25,15.24,89.72,83.81,1.08
 20260526,105,106.5,100.5,102,3535885,91.23,11.81,90.96,83.97,0.85
+20260527,102,105,99.2,100,2578450,91.96,8.75,92.13,84.12,0.61
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 6412 | 群電 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 6412 | 群電 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6412 | 群電 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260527 | 6412 | 群電 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6412 | 群電 | 20 | 0 | 10505650.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260527 | 6412 | 群電 | 20 | 0 | 4312580.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

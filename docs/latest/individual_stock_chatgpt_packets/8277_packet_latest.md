@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8277 商丞
 
 ## Metadata
-- generated_at: 2026-05-26 23:55:10 Asia/Taipei
+- generated_at: 2026-05-27 21:28:31 Asia/Taipei
 - stock_id: 8277
 - stock_name: 商丞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
+- date: 20260527
 - open: 7.1
-- high: 7.14
-- low: 7
-- close: 7.08
+- high: 7.15
+- low: 7.08
+- close: 7.12
 - volume: 7000
-- ma5: 7
+- ma5: 7.06
 - ema23_primary: 7.12
-- distance_to_ema23_pct: -0.54
-- ma20: 7.07
-- ma60: 7.74
-- ma120: 8.52
-- return_5d: 1.43
-- return_20d: 9.77
+- distance_to_ema23_pct: 0.02
+- ma20: 7.09
+- ma60: 7.7
+- ma120: 8.49
+- return_5d: 4.25
+- return_20d: 7.88
 - volume_ratio: 0.04
-- distance_to_ma20_pct_auxiliary: 0.17
-- distance_to_high_60_pct: -23.79
+- distance_to_ma20_pct_auxiliary: 0.37
+- distance_to_high_60_pct: -23.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,6.5,6.71,6.49,6.6,189000,7.54,-12.47,7.5,8.62,0.79
 20260429,6.66,7.26,6.66,7.26,347000,7.52,-3.42,7.45,8.56,1.38
 20260430,7.71,7.98,7.5,7.98,584000,7.56,5.62,7.46,8.5,2.17
 20260504,7.25,7.79,7.25,7.5,460000,7.55,-0.67,7.43,8.44,1.61
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,6.97,7.1,6.84,7,7000,7.12,-1.74,7.03,7.81,0.03
 20260525,6.99,7.14,6.99,7.1,7000,7.12,-0.3,7.04,7.77,0.03
 20260526,7.1,7.14,7,7.08,7000,7.12,-0.54,7.07,7.74,0.04
+20260527,7.1,7.15,7.08,7.12,7000,7.12,0.02,7.09,7.7,0.04
 ```
 
 ## Latest TDCC Snapshot

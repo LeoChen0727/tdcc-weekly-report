@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00660 元大歐洲50
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:45 Asia/Taipei
+- generated_at: 2026-05-27 21:26:00 Asia/Taipei
 - stock_id: 00660
 - stock_name: 元大歐洲50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 44
-- high: 44.32
+- date: 20260527
+- open: 44.14
+- high: 44.26
 - low: 44
-- close: 44.29
-- volume: 14313
+- close: 44.26
+- volume: 16930
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,43.4,43.7,43.4,43.7,19156,,,,,
 20260525,43.8,44,43.77,43.99,12864,,,,,
 20260526,44,44.32,44,44.29,14313,,,,,
+20260527,44.14,44.26,44,44.26,16930,,,,,
 ```
 
 ## Latest TDCC Snapshot

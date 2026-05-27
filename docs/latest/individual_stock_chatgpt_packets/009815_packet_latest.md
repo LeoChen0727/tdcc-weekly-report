@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009815 大華美國MAG7+
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:48 Asia/Taipei
+- generated_at: 2026-05-27 21:26:03 Asia/Taipei
 - stock_id: 009815
 - stock_name: 大華美國MAG7+
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,11 +55,11 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 11.37
-- high: 11.42
+- date: 20260527
+- open: 11.41
+- high: 11.43
 - low: 11.35
-- close: 11.38
+- close: 11.36
 - volume: 11000
 - ma5: 
 - ema23_primary: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,11.34,11.36,11.33,11.34,11000,,,,,
 20260525,11.45,11.47,11.42,11.43,11000,,,,,
 20260526,11.37,11.42,11.35,11.38,11000,,,,,
+20260527,11.41,11.43,11.35,11.36,11000,,,,,
 ```
 
 ## Latest TDCC Snapshot

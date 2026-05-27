@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00668 國泰美國道瓊
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:45 Asia/Taipei
+- generated_at: 2026-05-27 21:26:01 Asia/Taipei
 - stock_id: 00668
 - stock_name: 國泰美國道瓊
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 58.4
-- high: 58.4
-- low: 58.35
-- close: 58.35
-- volume: 33494
+- date: 20260527
+- open: 57.85
+- high: 57.9
+- low: 57.85
+- close: 57.85
+- volume: 132277
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,58,58.1,57.95,58,44373,,,,,
 20260525,58.5,58.5,58.35,58.4,43206,,,,,
 20260526,58.4,58.4,58.35,58.35,33494,,,,,
+20260527,57.85,57.9,57.85,57.85,132277,,,,,
 ```
 
 ## Latest TDCC Snapshot

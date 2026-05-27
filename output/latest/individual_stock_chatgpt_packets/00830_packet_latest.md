@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00830 國泰費城半導體
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:45 Asia/Taipei
+- generated_at: 2026-05-27 21:26:01 Asia/Taipei
 - stock_id: 00830
 - stock_name: 國泰費城半導體
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 87.65
-- high: 87.65
-- low: 86.6
-- close: 87.1
-- volume: 6352731
+- date: 20260527
+- open: 90.85
+- high: 90.85
+- low: 90.4
+- close: 90.6
+- volume: 9665813
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,84.35,84.35,83.8,84.25,6457321,,,,,
 20260525,87,87.85,86.85,87.8,10878767,,,,,
 20260526,87.65,87.65,86.6,87.1,6352731,,,,,
+20260527,90.85,90.85,90.4,90.6,9665813,,,,,
 ```
 
 ## Latest TDCC Snapshot

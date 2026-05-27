@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2313 華通
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:12 Asia/Taipei
+- generated_at: 2026-05-27 21:26:28 Asia/Taipei
 - stock_id: 2313
 - stock_name: 華通
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 299
-- high: 299
-- low: 282
-- close: 284.5
-- volume: 88509083
-- ma5: 274.8
-- ema23_primary: 258.34
-- distance_to_ema23_pct: 10.13
-- ma20: 255.95
-- ma60: 243.07
-- ma120: 183.76
-- return_5d: 11.13
-- return_20d: 20.81
-- volume_ratio: 1.01
-- distance_to_ma20_pct_auxiliary: 11.15
-- distance_to_high_60_pct: -6.87
+- date: 20260527
+- open: 289.5
+- high: 291
+- low: 277
+- close: 282
+- volume: 80875520
+- ma5: 280.2
+- ema23_primary: 260.31
+- distance_to_ema23_pct: 8.33
+- ma20: 258.07
+- ma60: 244.36
+- ma120: 185.47
+- return_5d: 10.59
+- return_20d: 17.75
+- volume_ratio: 0.93
+- distance_to_ma20_pct_auxiliary: 9.27
+- distance_to_high_60_pct: -7.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,236,242,230,239.5,88958371,244.22,-1.93,256.93,218.67,0.97
 20260429,238.5,240,229,230,43477664,243.04,-5.36,255.28,220.09,0.5
 20260430,231.5,251.5,227.5,244.5,78199478,243.16,0.55,255.1,221.57,0.93
 20260504,254.5,268.5,247,268.5,83904966,245.27,9.47,255.22,223.2,1.01
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,261.5,281,261.5,278,99747807,252.09,10.28,249.3,240.6,1.12
 20260525,296,305.5,287,298.5,100470188,255.96,16.62,253.5,241.82,1.14
 20260526,299,299,282,284.5,88509083,258.34,10.13,255.95,243.07,1.01
+20260527,289.5,291,277,282,80875520,260.31,8.33,258.07,244.36,0.93
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260527 | 2313 | 華通 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2313 | 華通 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260527 | 2313 | 華通 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2313 | 華通 | 322 | 46 | 103559330.0 | 1418160.0 | 73.02 | put_inflow | -1 | 認售權證資金升溫，偏空或避險訊號；認購權證成交金額很大且認購/認售比偏高，需檢查標的是否高位追價或獲利結清；認購權證成交量與成交金額同步偏大，短線資金關注度高 |
+| 20260527 | 2313 | 華通 | 323 | 46 | 61193500.0 | 824800.0 | 74.19 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

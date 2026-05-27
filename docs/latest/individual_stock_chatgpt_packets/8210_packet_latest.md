@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8210 勤誠
 
 ## Metadata
-- generated_at: 2026-05-26 23:55:09 Asia/Taipei
+- generated_at: 2026-05-27 21:28:30 Asia/Taipei
 - stock_id: 8210
 - stock_name: 勤誠
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
+- date: 20260527
 - open: 1470
 - high: 1470
-- low: 1410
-- close: 1440
-- volume: 1471408
-- ma5: 1368
-- ema23_primary: 1306.77
-- distance_to_ema23_pct: 10.2
-- ma20: 1345.25
-- ma60: 1070.63
-- ma120: 1002.52
-- return_5d: 8.68
-- return_20d: 23.61
+- low: 1385
+- close: 1395
+- volume: 1433207
+- ma5: 1390
+- ema23_primary: 1314.12
+- distance_to_ema23_pct: 6.15
+- ma20: 1356.5
+- ma60: 1078.58
+- ma120: 1006.69
+- return_5d: 8.56
+- return_20d: 19.23
 - volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: 7.04
-- distance_to_high_60_pct: -9.43
+- distance_to_ma20_pct_auxiliary: 2.84
+- distance_to_high_60_pct: -12.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,1150,1185,1105,1170,3137876,1010.66,15.77,981.15,941.72,0.86
 20260429,1160,1160,1115,1120,2555253,1019.77,9.83,992.4,945.23,0.7
 20260430,1150,1155,1110,1130,2256259,1028.96,9.82,1005.55,948.4,0.63
 20260504,1150,1170,1130,1150,1496800,1039.05,10.68,1018.1,951.42,0.42
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,1350,1380,1330,1345,1307613,1281.9,4.92,1320.25,1052.37,0.4
 20260525,1400,1455,1380,1435,1653950,1294.66,10.84,1331.5,1061.78,0.54
 20260526,1470,1470,1410,1440,1471408,1306.77,10.2,1345.25,1070.63,0.52
+20260527,1470,1470,1385,1395,1433207,1314.12,6.15,1356.5,1078.58,0.52
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260527 | 8210 | 勤誠 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260527 | 8210 | 勤誠 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8210 | 勤誠 | 204 | 6 | 27375340.0 | 620.0 | 44153.77 | no_signal | 0 |  |
+| 20260527 | 8210 | 勤誠 | 204 | 6 | 23339300.0 | 14650.0 | 1593.13 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3043 科風
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:37 Asia/Taipei
+- generated_at: 2026-05-27 21:26:54 Asia/Taipei
 - stock_id: 3043
 - stock_name: 科風
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 21.05
-- high: 21.1
-- low: 20.6
-- close: 20.7
-- volume: 159823
-- ma5: 21.2
+- date: 20260527
+- open: 20.85
+- high: 21.15
+- low: 20.55
+- close: 20.55
+- volume: 152087
+- ma5: 20.99
 - ema23_primary: 20.51
-- distance_to_ema23_pct: 0.95
-- ma20: 20.34
-- ma60: 20.6
+- distance_to_ema23_pct: 0.2
+- ma20: 20.33
+- ma60: 20.58
 - ma120: 21.31
-- return_5d: 5.34
-- return_20d: -0.48
-- volume_ratio: 0.69
-- distance_to_ma20_pct_auxiliary: 1.79
-- distance_to_high_60_pct: -10
+- return_5d: -4.86
+- return_20d: -0.24
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: 1.07
+- distance_to_high_60_pct: -10.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,20.5,21.5,20.2,20.6,166770,20.7,-0.5,20.25,21.38,1.09
 20260429,20.6,20.8,20.4,20.4,105349,20.68,-1.35,20.26,21.31,0.68
 20260430,20.3,20.75,20.3,20.5,75474,20.66,-0.79,20.3,21.24,0.5
 20260504,20.5,21,20.35,20.35,101792,20.64,-1.4,20.32,21.18,0.67
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,21.6,21.6,21,21.4,342356,20.44,4.71,20.43,20.64,1.41
 20260525,21.8,21.8,21,21.05,285721,20.49,2.74,20.34,20.62,1.19
 20260526,21.05,21.1,20.6,20.7,159823,20.51,0.95,20.34,20.6,0.69
+20260527,20.85,21.15,20.55,20.55,152087,20.51,0.2,20.33,20.58,0.65
 ```
 
 ## Latest TDCC Snapshot
@@ -130,7 +130,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3043 | 科風 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 3043 | 科風 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

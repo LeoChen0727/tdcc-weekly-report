@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3673 TPK-KY
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:56 Asia/Taipei
+- generated_at: 2026-05-27 21:27:14 Asia/Taipei
 - stock_id: 3673
 - stock_name: TPK-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 85.2
-- high: 87.4
-- low: 85.2
-- close: 87.4
-- volume: 26030149
-- ma5: 77.96
-- ema23_primary: 68.01
-- distance_to_ema23_pct: 28.51
-- ma20: 66.67
-- ma60: 54.97
-- ma120: 48.16
-- return_5d: 15.92
-- return_20d: 47.39
-- volume_ratio: 1.13
-- distance_to_ma20_pct_auxiliary: 31.08
-- distance_to_high_60_pct: 0
+- date: 20260527
+- open: 91.3
+- high: 93
+- low: 84.1
+- close: 87.9
+- volume: 65003683
+- ma5: 81.2
+- ema23_primary: 69.67
+- distance_to_ema23_pct: 26.17
+- ma20: 68.06
+- ma60: 55.72
+- ma120: 48.55
+- return_5d: 22.59
+- return_20d: 46.26
+- volume_ratio: 2.51
+- distance_to_ma20_pct_auxiliary: 29.14
+- distance_to_high_60_pct: -5.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,59.3,60.9,58.7,60.1,7933961,57.2,5.06,57.36,46.46,0.49
 20260429,59.7,63.2,59.4,60.3,10297884,57.46,4.94,58.13,46.75,0.62
 20260430,60.3,61.5,59.5,60.4,7159433,57.71,4.67,58.98,47.05,0.43
 20260504,60.9,62.4,60.3,61.4,7429980,58.01,5.84,59.88,47.37,0.44
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,75.5,81.6,74.8,77,46498888,65.04,18.38,64.24,53.59,2.19
 20260525,78.5,81.3,77.1,79.5,33370466,66.25,20,65.27,54.21,1.51
 20260526,85.2,87.4,85.2,87.4,26030149,68.01,28.51,66.67,54.97,1.13
+20260527,91.3,93,84.1,87.9,65003683,69.67,26.17,68.06,55.72,2.51
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3673 | TPK-KY | true_breakout | 嚴格突破 | 74.0 |  |  | platform_right_side |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 3673 | TPK-KY | true_breakout | 嚴格突破 | 84.0 |  |  | platform_breakout |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3673 | TPK-KY | 1 | 1 | 3 | 3 | 3 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| 20260527 | 3673 | TPK-KY | 2 | 2 | 4 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3673 | TPK-KY | 49 | 0 | 15519740.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 3673 | TPK-KY | 50 | 0 | 31249520.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

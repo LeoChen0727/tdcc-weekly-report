@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6277 宏正
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:37 Asia/Taipei
+- generated_at: 2026-05-27 21:27:57 Asia/Taipei
 - stock_id: 6277
 - stock_name: 宏正
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 75.7
-- high: 78.6
-- low: 74.6
-- close: 78
-- volume: 1014275
-- ma5: 75.04
-- ema23_primary: 72.33
-- distance_to_ema23_pct: 7.84
-- ma20: 72.14
-- ma60: 67.51
-- ma120: 64.41
-- return_5d: 7.88
-- return_20d: 12.39
-- volume_ratio: 3.03
-- distance_to_ma20_pct_auxiliary: 8.12
-- distance_to_high_60_pct: -0.76
+- date: 20260527
+- open: 78
+- high: 78
+- low: 75.2
+- close: 75.8
+- volume: 449550
+- ma5: 75.72
+- ema23_primary: 72.62
+- distance_to_ema23_pct: 4.38
+- ma20: 72.39
+- ma60: 67.76
+- ma120: 64.53
+- return_5d: 4.7
+- return_20d: 6.76
+- volume_ratio: 1.3
+- distance_to_ma20_pct_auxiliary: 4.72
+- distance_to_high_60_pct: -3.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,69.8,71.7,69,71,203252,69.01,2.88,70.63,63.67,0.41
 20260429,71.4,71.4,69.5,69.9,117304,69.09,1.18,70.63,63.84,0.29
 20260430,69.7,69.7,68.9,69.2,174685,69.1,0.15,70.62,63.98,0.45
 20260504,69.4,72,69.3,70.7,237918,69.23,2.12,70.55,64.15,0.68
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,74.8,75,73.7,74.5,332240,71.46,4.25,71.42,66.95,1.2
 20260525,75.1,76.9,74.5,75.7,581701,71.82,5.41,71.72,67.21,1.97
 20260526,75.7,78.6,74.6,78,1014275,72.33,7.84,72.14,67.51,3.03
+20260527,78,78,75.2,75.8,449550,72.62,4.38,72.39,67.76,1.3
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6277 | 宏正 | true_breakout | 嚴格突破 | 148.0 |  |  | breakout_confirmed |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6277 | 宏正 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

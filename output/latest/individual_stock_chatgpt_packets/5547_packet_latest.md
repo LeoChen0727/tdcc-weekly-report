@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5547 久舜
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:24 Asia/Taipei
+- generated_at: 2026-05-27 21:27:44 Asia/Taipei
 - stock_id: 5547
 - stock_name: 久舜
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 70
+- latest_price_date: 20260527
+- price_rows: 71
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
+- date: 20260527
 - open: 21.6
-- high: 21.8
-- low: 21.6
-- close: 21.6
+- high: 21.6
+- low: 21.5
+- close: 21.55
 - volume: 22000
-- ma5: 21.54
+- ma5: 21.55
 - ema23_primary: 21.6
-- distance_to_ema23_pct: -0.02
-- ma20: 21.52
-- ma60: 22.05
-- ma120: 22.16
-- return_5d: 0.7
-- return_20d: 3.35
-- volume_ratio: 0.69
-- distance_to_ma20_pct_auxiliary: 0.38
-- distance_to_high_60_pct: -7.1
+- distance_to_ema23_pct: -0.23
+- ma20: 21.55
+- ma60: 22.04
+- ma120: 22.15
+- return_5d: 0.23
+- return_20d: 3.11
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: 0
+- distance_to_high_60_pct: -7.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,21,21,20.85,20.9,43000,21.87,-4.43,21.92,22.38,0.72
 20260429,20.9,21.05,20.9,21.05,16000,21.8,-3.44,21.85,22.36,0.28
 20260430,21.05,22,20.95,21.9,39000,21.81,0.42,21.83,22.35,0.72
 20260504,21.9,21.9,21.1,21.2,35000,21.76,-2.56,21.77,22.33,0.66
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,21.4,21.6,21.35,21.6,21000,21.61,-0.02,21.47,22.08,0.58
 20260525,21.6,21.65,21.5,21.6,22000,21.6,-0.02,21.48,22.06,0.63
 20260526,21.6,21.8,21.6,21.6,22000,21.6,-0.02,21.52,22.05,0.69
+20260527,21.6,21.6,21.5,21.55,22000,21.6,-0.23,21.55,22.04,0.71
 ```
 
 ## Latest TDCC Snapshot

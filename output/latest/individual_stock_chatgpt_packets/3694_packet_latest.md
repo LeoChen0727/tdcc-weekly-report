@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3694 海華
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:57 Asia/Taipei
+- generated_at: 2026-05-27 21:27:15 Asia/Taipei
 - stock_id: 3694
 - stock_name: 海華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 71.3
+- date: 20260527
+- open: 71.2
 - high: 71.5
-- low: 68.4
-- close: 70.2
-- volume: 4046165
-- ma5: 70.9
-- ema23_primary: 63.6
-- distance_to_ema23_pct: 10.38
-- ma20: 62.71
-- ma60: 59.34
-- ma120: 60.2
-- return_5d: 8.33
-- return_20d: 18.18
-- volume_ratio: 1.05
-- distance_to_ma20_pct_auxiliary: 11.94
-- distance_to_high_60_pct: -3.7
+- low: 68
+- close: 68.5
+- volume: 2997395
+- ma5: 70.36
+- ema23_primary: 64.01
+- distance_to_ema23_pct: 7.02
+- ma20: 63.04
+- ma60: 59.45
+- ma120: 60.26
+- return_5d: -3.79
+- return_20d: 10.66
+- volume_ratio: 0.76
+- distance_to_ma20_pct_auxiliary: 8.66
+- distance_to_high_60_pct: -6.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,59.6,62.2,58.5,61.9,1141203,59.3,4.38,58.7,58.68,1.05
 20260429,61.7,62,60.4,60.6,993995,59.41,2,58.93,58.68,0.9
 20260430,61.4,61.4,60.1,60.6,501574,59.51,1.83,59.26,58.66,0.46
 20260504,61.6,62.4,60.7,61.4,1222649,59.67,2.9,59.55,58.67,1.09
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,70.7,72,69.6,70.5,5841825,62.29,13.18,61.62,59.05,1.68
 20260525,70.6,72,69.9,70.8,5149047,63,12.38,62.17,59.2,1.39
 20260526,71.3,71.5,68.4,70.2,4046165,63.6,10.38,62.71,59.34,1.05
+20260527,71.2,71.5,68,68.5,2997395,64.01,7.02,63.04,59.45,0.76
 ```
 
 ## Latest TDCC Snapshot
@@ -130,12 +130,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3694 | 海華 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 3694 | 海華 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3694 | 海華 | 11 | 0 | 2216220.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 3694 | 海華 | 11 | 0 | 648030.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2615 萬海
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:27 Asia/Taipei
+- generated_at: 2026-05-27 21:26:43 Asia/Taipei
 - stock_id: 2615
 - stock_name: 萬海
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 83.3
-- high: 83.8
-- low: 81.2
-- close: 81.5
-- volume: 10516356
-- ma5: 82.28
-- ema23_primary: 78.52
-- distance_to_ema23_pct: 3.79
-- ma20: 77.89
-- ma60: 77.7
-- ma120: 77.72
-- return_5d: 1.37
-- return_20d: 9.25
-- volume_ratio: 0.97
-- distance_to_ma20_pct_auxiliary: 4.63
-- distance_to_high_60_pct: -11.8
+- date: 20260527
+- open: 81.8
+- high: 82.7
+- low: 80
+- close: 81.8
+- volume: 9778040
+- ma5: 82.42
+- ema23_primary: 78.79
+- distance_to_ema23_pct: 3.82
+- ma20: 78.23
+- ma60: 77.8
+- ma120: 77.74
+- return_5d: 0.86
+- return_20d: 9.07
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: 4.56
+- distance_to_high_60_pct: -11.47
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,74.6,75.6,74.5,75,5065541,75.96,-1.26,76.45,76.7,0.57
 20260429,75.9,75.9,74.4,75.7,4173405,75.93,-0.31,76.33,76.69,0.51
 20260430,75.1,76,74.5,74.6,4808930,75.82,-1.61,76.2,76.66,0.62
 20260504,75.8,77.8,74.9,75.6,8222170,75.81,-0.27,76,76.66,1.08
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,82.7,85.2,82.4,84.3,23283486,77.79,8.37,77.09,77.49,2.31
 20260525,84.4,85.3,80.9,83.3,18668678,78.25,6.45,77.55,77.62,1.74
 20260526,83.3,83.8,81.2,81.5,10516356,78.52,3.79,77.89,77.7,0.97
+20260527,81.8,82.7,80,81.8,9778040,78.79,3.82,78.23,77.8,0.88
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2615 | 萬海 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 2615 | 萬海 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 2615 | 萬海 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 2615 | 萬海 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2615 | 萬海 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260527 | 2615 | 萬海 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2615 | 萬海 | 74 | 7 | 5844230.0 | 10340.0 | 565.21 | no_signal | 0 |  |
+| 20260527 | 2615 | 萬海 | 75 | 8 | 7841180.0 | 113740.0 | 68.94 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

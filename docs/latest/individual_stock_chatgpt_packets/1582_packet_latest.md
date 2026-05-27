@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1582 信錦
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:59 Asia/Taipei
+- generated_at: 2026-05-27 21:26:15 Asia/Taipei
 - stock_id: 1582
 - stock_name: 信錦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 26
 - tdcc_history_status: tdcc_history_ready
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 115.5
-- high: 116.5
-- low: 108.5
-- close: 111.5
-- volume: 8725077
-- ma5: 113
-- ema23_primary: 102.48
-- distance_to_ema23_pct: 8.8
-- ma20: 99.03
-- ma60: 95.38
-- ma120: 81.08
-- return_5d: -4.7
-- return_20d: 23.2
-- volume_ratio: 0.98
-- distance_to_ma20_pct_auxiliary: 12.59
-- distance_to_high_60_pct: -9.35
+- date: 20260527
+- open: 113
+- high: 114.5
+- low: 109
+- close: 110
+- volume: 7279926
+- ma5: 113.6
+- ema23_primary: 103.11
+- distance_to_ema23_pct: 6.69
+- ma20: 100.05
+- ma60: 96
+- ma120: 81.46
+- return_5d: 2.8
+- return_20d: 22.63
+- volume_ratio: 0.79
+- distance_to_ma20_pct_auxiliary: 9.95
+- distance_to_high_60_pct: -10.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,90.3,90.9,88.6,89.7,1334020,96.27,-6.83,100.5,85.62,0.13
 20260429,89,92.5,88.5,90.7,1977963,95.81,-5.33,99.93,85.98,0.22
 20260430,91.2,91.5,88.5,88.6,1957551,95.21,-6.94,99.43,86.32,0.23
 20260504,89.4,97.4,88.7,94,6428352,95.11,-1.16,98.73,86.75,0.78
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,119,120.5,112.5,115,16417505,100.54,14.38,96.72,93.96,1.99
 20260525,119.5,123,113,114,15434704,101.66,12.14,97.98,94.69,1.79
 20260526,115.5,116.5,108.5,111.5,8725077,102.48,8.8,99.03,95.38,0.98
+20260527,113,114.5,109,110,7279926,103.11,6.69,100.05,96,0.79
 ```
 
 ## Latest TDCC Snapshot
@@ -136,14 +136,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1582 | 信錦 | 1 | 1 | 3 | 3 | 3 | repeated_but_no_breakout | 近 10 日上榜 3 日、近 20 日上榜 3 日，尚未突破，需分辨醞釀或鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1582 | 信錦 | 35 | 1 | 6434480.0 | 5910.0 | 1088.74 | no_signal | 0 |  |
+| 20260527 | 1582 | 信錦 | 35 | 1 | 9736190.0 | 5640.0 | 1726.27 | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

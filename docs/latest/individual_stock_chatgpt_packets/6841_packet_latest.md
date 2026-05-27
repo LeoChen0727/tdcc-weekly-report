@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6841 長佳智能
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:54 Asia/Taipei
+- generated_at: 2026-05-27 21:28:15 Asia/Taipei
 - stock_id: 6841
 - stock_name: 長佳智能
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 58.2
-- high: 58.3
-- low: 57.3
-- close: 57.5
-- volume: 58000
-- ma5: 58.74
-- ema23_primary: 59.45
-- distance_to_ema23_pct: -3.28
-- ma20: 59.66
-- ma60: 59.95
-- ma120: 63.77
-- return_5d: -3.2
-- return_20d: -2.21
-- volume_ratio: 0.3
-- distance_to_ma20_pct_auxiliary: -3.62
-- distance_to_high_60_pct: -15.44
+- date: 20260527
+- open: 57.3
+- high: 57.5
+- low: 56.7
+- close: 56.8
+- volume: 57000
+- ma5: 58.34
+- ema23_primary: 59.23
+- distance_to_ema23_pct: -4.1
+- ma20: 59.58
+- ma60: 59.83
+- ma120: 63.71
+- return_5d: -3.4
+- return_20d: -2.74
+- volume_ratio: 0.31
+- distance_to_ma20_pct_auxiliary: -4.67
+- distance_to_high_60_pct: -16.47
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,58.7,58.7,57.8,58.4,210000,59.5,-1.86,59.38,62.24,0.82
 20260429,58.4,58.8,58,58.4,132000,59.41,-1.7,59.2,62.12,0.53
 20260430,58.5,59.3,58.5,58.8,154000,59.36,-0.95,59.05,62.01,0.64
 20260504,59.6,60.9,59.2,60.7,348000,59.47,2.06,59.01,61.91,1.41
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,60.5,60.5,59,59.3,59000,59.78,-0.81,59.76,60.17,0.28
 20260525,59.2,59.5,57.6,57.9,58000,59.63,-2.9,59.73,60.07,0.29
 20260526,58.2,58.3,57.3,57.5,58000,59.45,-3.28,59.66,59.95,0.3
+20260527,57.3,57.5,56.7,56.8,57000,59.23,-4.1,59.58,59.83,0.31
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4166 友霖
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:01 Asia/Taipei
+- generated_at: 2026-05-27 21:27:20 Asia/Taipei
 - stock_id: 4166
 - stock_name: 友霖
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 23.7
-- high: 24.05
-- low: 23.6
-- close: 23.75
+- date: 20260527
+- open: 23.9
+- high: 24
+- low: 23.45
+- close: 23.55
 - volume: 24000
-- ma5: 24.26
-- ema23_primary: 25.32
-- distance_to_ema23_pct: -6.2
-- ma20: 25.64
-- ma60: 25.38
+- ma5: 23.95
+- ema23_primary: 25.17
+- distance_to_ema23_pct: -6.44
+- ma20: 25.5
+- ma60: 25.34
 - ma120: 25.66
-- return_5d: -5
-- return_20d: -8.65
+- return_5d: -6.18
+- return_20d: -10.63
 - volume_ratio: 0.09
-- distance_to_ma20_pct_auxiliary: -7.35
-- distance_to_high_60_pct: -19.76
+- distance_to_ma20_pct_auxiliary: -7.63
+- distance_to_high_60_pct: -20.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,25.9,26.5,25.9,26.35,129000,25.77,2.27,25.77,25.76,0.53
 20260429,26.3,26.6,26,26.5,133000,25.83,2.61,25.8,25.76,0.55
 20260430,26.5,26.75,25.8,25.8,209000,25.82,-0.1,25.83,25.74,0.86
 20260504,26,26.7,25.85,26,204000,25.84,0.62,25.82,25.71,0.83
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,24.4,24.4,23.9,24.35,24000,25.62,-4.97,25.86,25.47,0.08
 20260525,24.1,24.1,23.65,23.7,24000,25.46,-6.92,25.75,25.42,0.09
 20260526,23.7,24.05,23.6,23.75,24000,25.32,-6.2,25.64,25.38,0.09
+20260527,23.9,24,23.45,23.55,24000,25.17,-6.44,25.5,25.34,0.09
 ```
 
 ## Latest TDCC Snapshot
@@ -130,7 +130,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4166 | 友霖 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260527 | 4166 | 友霖 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

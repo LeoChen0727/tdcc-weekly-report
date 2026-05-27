@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3680 家登
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:56 Asia/Taipei
+- generated_at: 2026-05-27 21:27:15 Asia/Taipei
 - stock_id: 3680
 - stock_name: 家登
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 603
-- high: 610
-- low: 583
-- close: 589
-- volume: 594000
-- ma5: 560.4
-- ema23_primary: 540.04
-- distance_to_ema23_pct: 9.07
-- ma20: 560.62
-- ma60: 458.38
-- ma120: 419.05
-- return_5d: 14.59
-- return_20d: 31.18
+- date: 20260527
+- open: 600
+- high: 601
+- low: 548
+- close: 557
+- volume: 568000
+- ma5: 570.6
+- ema23_primary: 541.45
+- distance_to_ema23_pct: 2.87
+- ma20: 564.05
+- ma60: 460.57
+- ma120: 420.97
+- return_5d: 10.08
+- return_20d: 14.02
 - volume_ratio: 0.16
-- distance_to_ma20_pct_auxiliary: 5.06
-- distance_to_high_60_pct: -5.46
+- distance_to_ma20_pct_auxiliary: -1.25
+- distance_to_high_60_pct: -10.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,460,491,446,488.5,4156000,434.82,12.34,425.15,411.8,1.29
 20260429,487.5,513,479,501,5378000,440.34,13.78,430.4,413.02,1.56
 20260430,513,551,511,537,8010000,448.39,19.76,438.43,414.68,2.1
 20260504,549,582,545,564,7139000,458.03,23.14,447.77,416.73,1.74
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,550,581,541,568,565000,530.18,7.13,546.83,452.63,0.14
 20260525,590,615,580,595,601000,535.58,11.09,553.62,455.61,0.15
 20260526,603,610,583,589,594000,540.04,9.07,560.62,458.38,0.16
+20260527,600,601,548,557,568000,541.45,2.87,564.05,460.57,0.16
 ```
 
 ## Latest TDCC Snapshot
@@ -130,7 +130,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3680 | 家登 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260527 | 3680 | 家登 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

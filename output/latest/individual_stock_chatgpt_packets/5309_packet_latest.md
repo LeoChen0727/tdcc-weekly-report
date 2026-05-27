@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5309 系統電
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:18 Asia/Taipei
+- generated_at: 2026-05-27 21:27:38 Asia/Taipei
 - stock_id: 5309
 - stock_name: 系統電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 70.5
-- high: 72.5
-- low: 67.8
-- close: 68
-- volume: 69000
-- ma5: 68.48
-- ema23_primary: 65.02
-- distance_to_ema23_pct: 4.59
-- ma20: 64.99
-- ma60: 61.56
-- ma120: 63.52
-- return_5d: 5.1
-- return_20d: 9.15
+- date: 20260527
+- open: 69
+- high: 71.9
+- low: 67.9
+- close: 68.5
+- volume: 70000
+- ma5: 68.64
+- ema23_primary: 65.31
+- distance_to_ema23_pct: 4.89
+- ma20: 65.28
+- ma60: 61.53
+- ma120: 63.65
+- return_5d: 1.18
+- return_20d: 9.08
 - volume_ratio: 0.01
-- distance_to_ma20_pct_auxiliary: 4.63
-- distance_to_high_60_pct: -6.72
+- distance_to_ma20_pct_auxiliary: 4.94
+- distance_to_high_60_pct: -6.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,63,63.4,60.8,62.8,6344000,60.04,4.59,58.77,62.06,1.34
 20260429,62.1,62.2,60.5,60.5,3424000,60.08,0.7,58.83,61.96,0.71
 20260430,60.6,62.5,60,60,4032000,60.07,-0.12,59.01,61.81,0.84
 20260504,61,61.8,60.3,60.6,2619000,60.12,0.8,59.15,61.66,0.54
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,67.8,70,67.1,69.3,69000,64.28,7.82,64.21,61.52,0.01
 20260525,70.5,72.9,69.3,69.9,71000,64.74,7.96,64.7,61.55,0.01
 20260526,70.5,72.5,67.8,68,69000,65.02,4.59,64.99,61.56,0.01
+20260527,69,71.9,67.9,68.5,70000,65.31,4.89,65.28,61.53,0.01
 ```
 
 ## Latest TDCC Snapshot
@@ -130,7 +130,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 5309 | 系統電 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260527 | 5309 | 系統電 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

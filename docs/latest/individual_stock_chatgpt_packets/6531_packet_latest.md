@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6531 愛普*
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:42 Asia/Taipei
+- generated_at: 2026-05-27 21:28:03 Asia/Taipei
 - stock_id: 6531
 - stock_name: 愛普*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 1055
-- high: 1125
-- low: 1045
+- date: 20260527
+- open: 1135
+- high: 1145
+- low: 1055
 - close: 1080
-- volume: 10066961
-- ma5: 989.4
-- ema23_primary: 928.91
-- distance_to_ema23_pct: 16.27
-- ma20: 968.9
-- ma60: 680.94
-- ma120: 554.35
-- return_5d: 5.37
-- return_20d: 43.43
-- volume_ratio: 1.58
-- distance_to_ma20_pct_auxiliary: 11.47
+- volume: 6994229
+- ma5: 1010.8
+- ema23_primary: 941.5
+- distance_to_ema23_pct: 14.71
+- ma20: 982.9
+- ma60: 691.72
+- ma120: 560.17
+- return_5d: 11
+- return_20d: 35
+- volume_ratio: 1.07
+- distance_to_ma20_pct_auxiliary: 9.88
 - distance_to_high_60_pct: -6.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,788,822,775,800,2982782,634.28,26.13,604.35,507.62,0.38
 20260429,810,835,781,820,1826020,649.75,26.2,621.1,513.12,0.24
 20260430,877,902,840,840,4175617,665.61,26.2,641,519.19,0.54
 20260504,906,924,886,924,2344431,687.14,34.47,664.2,526.82,0.31
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,919,963,906,963,8159956,902.47,6.71,939.2,659.35,1.24
 20260525,1010,1055,981,1055,4567035,915.18,15.28,952.55,670.07,0.75
 20260526,1055,1125,1045,1080,10066961,928.91,16.27,968.9,680.94,1.58
+20260527,1135,1145,1055,1080,6994229,941.5,14.71,982.9,691.72,1.07
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6531 | 愛普* | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 6531 | 愛普* | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260527 | 6531 | 愛普* | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6531 | 愛普* | 4 | 4 | 4 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260527 | 6531 | 愛普* | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6531 | 愛普* | 119 | 4 | 19211100.0 | 13200.0 | 1455.39 | call_inflow | 1 |  |
+| 20260527 | 6531 | 愛普* | 117 | 4 | 10363690.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

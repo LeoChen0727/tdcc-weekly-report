@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00636 國泰中國A50
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:44 Asia/Taipei
+- generated_at: 2026-05-27 21:26:00 Asia/Taipei
 - stock_id: 00636
 - stock_name: 國泰中國A50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 28.38
-- high: 28.71
-- low: 28.26
-- close: 28.56
-- volume: 1165985
+- date: 20260527
+- open: 28.62
+- high: 28.88
+- low: 28.54
+- close: 28.65
+- volume: 703882
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,28.44,28.44,27.98,28.08,1131986,,,,,
 20260525,28.08,28.49,28.08,28.33,1121005,,,,,
 20260526,28.38,28.71,28.26,28.56,1165985,,,,,
+20260527,28.62,28.88,28.54,28.65,703882,,,,,
 ```
 
 ## Latest TDCC Snapshot

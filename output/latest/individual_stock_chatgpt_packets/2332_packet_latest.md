@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2332 友訊
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:13 Asia/Taipei
+- generated_at: 2026-05-27 21:26:29 Asia/Taipei
 - stock_id: 2332
 - stock_name: 友訊
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 16.1
-- high: 16.15
-- low: 15.2
-- close: 15.5
-- volume: 6702381
-- ma5: 15.04
-- ema23_primary: 14.53
-- distance_to_ema23_pct: 6.71
-- ma20: 14.2
-- ma60: 14.87
-- ma120: 15.3
-- return_5d: 11.91
-- return_20d: 10.32
-- volume_ratio: 1.64
-- distance_to_ma20_pct_auxiliary: 9.14
-- distance_to_high_60_pct: -4.32
+- date: 20260527
+- open: 15.7
+- high: 15.8
+- low: 15.3
+- close: 15.6
+- volume: 6331872
+- ma5: 15.37
+- ema23_primary: 14.62
+- distance_to_ema23_pct: 6.74
+- ma20: 14.29
+- ma60: 14.86
+- ma120: 15.31
+- return_5d: 11.83
+- return_20d: 11.83
+- volume_ratio: 1.47
+- distance_to_ma20_pct_auxiliary: 9.21
+- distance_to_high_60_pct: -3.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,14,14.1,13.8,13.95,2004337,14.93,-6.54,14.98,15.41,0.52
 20260429,14,14.1,13.8,13.9,1889861,14.84,-6.34,14.91,15.36,0.5
 20260430,13.95,14.05,13.8,13.85,1623601,14.76,-6.16,14.87,15.31,0.44
 20260504,13.95,14.05,13.85,13.85,2581767,14.68,-5.67,14.79,15.27,0.74
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,14.65,15.7,14.45,15.45,12015319,14.32,7.87,14.05,14.87,2.83
 20260525,15.85,16,15.4,15.7,8723136,14.44,8.75,14.13,14.87,2.14
 20260526,16.1,16.15,15.2,15.5,6702381,14.53,6.71,14.2,14.87,1.64
+20260527,15.7,15.8,15.3,15.6,6331872,14.62,6.74,14.29,14.86,1.47
 ```
 
 ## Latest TDCC Snapshot
@@ -128,14 +128,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2332 | 友訊 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2332 | 友訊 | 4 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 2332 | 友訊 | 4 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

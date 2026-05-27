@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00878 國泰永續高股息
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:46 Asia/Taipei
+- generated_at: 2026-05-27 21:26:01 Asia/Taipei
 - stock_id: 00878
 - stock_name: 國泰永續高股息
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 29.69
-- high: 29.83
-- low: 29.48
-- close: 29.62
-- volume: 84260566
+- date: 20260527
+- open: 30.28
+- high: 30.8
+- low: 30.28
+- close: 30.55
+- volume: 110473016
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,27.91,28.3,27.81,28.27,95636213,,,,,
 20260525,28.86,29.5,28.83,29.48,142122086,,,,,
 20260526,29.69,29.83,29.48,29.62,84260566,,,,,
+20260527,30.28,30.8,30.28,30.55,110473016,,,,,
 ```
 
 ## Latest TDCC Snapshot

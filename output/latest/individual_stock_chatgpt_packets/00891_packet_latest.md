@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00891 中信關鍵半導體
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:46 Asia/Taipei
+- generated_at: 2026-05-27 21:26:02 Asia/Taipei
 - stock_id: 00891
 - stock_name: 中信關鍵半導體
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 35.55
-- high: 35.56
-- low: 34.92
-- close: 35.11
-- volume: 51026763
+- date: 20260527
+- open: 35.88
+- high: 36.84
+- low: 35.81
+- close: 36.26
+- volume: 60723858
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,33.17,33.65,33.04,33.61,29879651,,,,,
 20260525,34.35,35.27,34.25,35.09,81618832,,,,,
 20260526,35.55,35.56,34.92,35.11,51026763,,,,,
+20260527,35.88,36.84,35.81,36.26,60723858,,,,,
 ```
 
 ## Latest TDCC Snapshot

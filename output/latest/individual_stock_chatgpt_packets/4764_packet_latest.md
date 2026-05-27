@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4764 雙鍵
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:10 Asia/Taipei
+- generated_at: 2026-05-27 21:27:29 Asia/Taipei
 - stock_id: 4764
 - stock_name: 雙鍵
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 366
-- high: 366.5
-- low: 330
-- close: 338
-- volume: 3201600
-- ma5: 332
-- ema23_primary: 293.27
-- distance_to_ema23_pct: 15.25
-- ma20: 308.75
-- ma60: 207.67
-- ma120: 156.22
-- return_5d: 11
-- return_20d: 55.05
-- volume_ratio: 2.23
-- distance_to_ma20_pct_auxiliary: 9.47
-- distance_to_high_60_pct: -7.78
+- date: 20260527
+- open: 349.5
+- high: 355
+- low: 319
+- close: 321
+- volume: 3102816
+- ma5: 330.2
+- ema23_primary: 295.58
+- distance_to_ema23_pct: 8.6
+- ma20: 312.95
+- ma60: 210.76
+- ma120: 158.45
+- return_5d: -2.73
+- return_20d: 35.44
+- volume_ratio: 2
+- distance_to_ma20_pct_auxiliary: 2.57
+- distance_to_high_60_pct: -12.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,228,239.5,228,237,671159,185.64,27.67,178.38,145.13,0.23
 20260429,229,255,226.5,247,809662,190.75,29.49,184.38,147.27,0.28
 20260430,256.5,267.5,249.5,258,672644,196.36,31.39,191.43,149.62,0.24
 20260504,283.5,283.5,278,283.5,530518,203.62,39.23,199.32,152.38,0.2
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,325,338.5,308.5,320,3738885,283.49,12.88,295.1,200.48,3.09
 20260525,326,352,318,352,3205974,289.2,21.71,302.75,204.29,2.42
 20260526,366,366.5,330,338,3201600,293.27,15.25,308.75,207.67,2.23
+20260527,349.5,355,319,321,3102816,295.58,8.6,312.95,210.76,2
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4764 | 雙鍵 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 4764 | 雙鍵 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 4764 | 雙鍵 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4764 | 雙鍵 | 3 | 2 | 3 | 3 | 3 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260527 | 4764 | 雙鍵 | 4 | 2 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4764 | 雙鍵 | 28 | 0 | 741680.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 4764 | 雙鍵 | 28 | 0 | 1137930.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

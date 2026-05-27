@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3545 敦泰
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:52 Asia/Taipei
+- generated_at: 2026-05-27 21:27:10 Asia/Taipei
 - stock_id: 3545
 - stock_name: 敦泰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 133
+- latest_price_date: 20260527
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 63.2
-- high: 63.2
-- low: 60.3
-- close: 60.9
-- volume: 2757053
-- ma5: 60.54
-- ema23_primary: 56.2
-- distance_to_ema23_pct: 8.36
-- ma20: 55.97
-- ma60: 50.38
-- ma120: 51.43
-- return_5d: 8.56
-- return_20d: 19.65
-- volume_ratio: 0.93
-- distance_to_ma20_pct_auxiliary: 8.81
-- distance_to_high_60_pct: -3.94
+- date: 20260527
+- open: 61.9
+- high: 61.9
+- low: 58.9
+- close: 59.3
+- volume: 2660029
+- ma5: 60.92
+- ema23_primary: 56.46
+- distance_to_ema23_pct: 5.03
+- ma20: 56.43
+- ma60: 50.49
+- ma120: 51.51
+- return_5d: 3.31
+- return_20d: 18.36
+- volume_ratio: 0.87
+- distance_to_ma20_pct_auxiliary: 5.09
+- distance_to_high_60_pct: -6.47
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,50.9,51.2,49.9,50.1,1115187,49.83,0.54,50.03,49.67,0.4
 20260429,50.1,52.3,49.85,51.1,1596743,49.94,2.33,50.1,49.58,0.66
 20260430,51.8,51.9,50.1,50.1,1005402,49.95,0.3,50.24,49.48,0.45
 20260504,51.1,52.3,50.8,51.2,1198840,50.05,2.29,50.37,49.4,0.56
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,61.2,62,59.8,61.6,4399306,55.25,11.5,55.04,50.07,1.54
 20260525,62.7,63.4,61.1,61.6,3811644,55.77,10.44,55.47,50.23,1.31
 20260526,63.2,63.2,60.3,60.9,2757053,56.2,8.36,55.97,50.38,0.93
+20260527,61.9,61.9,58.9,59.3,2660029,56.46,5.03,56.43,50.49,0.87
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3545 | 敦泰 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 3545 | 敦泰 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3545 | 敦泰 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260527 | 3545 | 敦泰 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3545 | 敦泰 | 15 | 0 | 1253150.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 3545 | 敦泰 | 15 | 0 | 565620.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

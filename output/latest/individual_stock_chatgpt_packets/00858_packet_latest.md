@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00858 永豐美國500大
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:45 Asia/Taipei
+- generated_at: 2026-05-27 21:26:01 Asia/Taipei
 - stock_id: 00858
 - stock_name: 永豐美國500大
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,11 +55,11 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 35.95
-- high: 35.96
-- low: 35.84
-- close: 35.92
+- date: 20260527
+- open: 35.92
+- high: 35.95
+- low: 35.89
+- close: 35.91
 - volume: 36000
 - ma5: 
 - ema23_primary: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,35.74,35.8,35.74,35.8,36000,,,,,
 20260525,35.9,35.97,35.88,35.94,36000,,,,,
 20260526,35.95,35.96,35.84,35.92,36000,,,,,
+20260527,35.92,35.95,35.89,35.91,36000,,,,,
 ```
 
 ## Latest TDCC Snapshot

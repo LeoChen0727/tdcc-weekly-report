@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6243 迅杰
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:36 Asia/Taipei
+- generated_at: 2026-05-27 21:27:56 Asia/Taipei
 - stock_id: 6243
 - stock_name: 迅杰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 36.25
-- high: 36.35
-- low: 34.6
-- close: 35.05
-- volume: 367574
-- ma5: 35.03
-- ema23_primary: 34.08
-- distance_to_ema23_pct: 2.85
-- ma20: 34.36
+- date: 20260527
+- open: 35.5
+- high: 35.65
+- low: 34.4
+- close: 34.55
+- volume: 349921
+- ma5: 35.23
+- ema23_primary: 34.12
+- distance_to_ema23_pct: 1.26
+- ma20: 34.39
 - ma60: 32.51
-- ma120: 33.19
-- return_5d: 5.57
-- return_20d: 3.85
-- volume_ratio: 0.81
-- distance_to_ma20_pct_auxiliary: 2
-- distance_to_high_60_pct: -9.08
+- ma120: 33.25
+- return_5d: 2.98
+- return_20d: 1.62
+- volume_ratio: 0.76
+- distance_to_ma20_pct_auxiliary: 0.47
+- distance_to_high_60_pct: -10.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,33.25,34.1,32.85,34,262311,32.08,5.97,31.09,32.59,0.49
 20260429,34.9,35.35,33.3,33.3,384779,32.18,3.47,31.31,32.56,0.71
 20260430,33.8,34.5,33.5,33.55,266399,32.3,3.88,31.58,32.54,0.49
 20260504,33.4,34.95,33.05,34,408715,32.44,4.81,31.84,32.53,0.73
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,34.35,36.95,34.35,36.3,1260722,33.82,7.34,34.24,32.48,2.3
 20260525,36.35,36.8,35.35,35.9,753166,33.99,5.61,34.3,32.5,1.6
 20260526,36.25,36.35,34.6,35.05,367574,34.08,2.85,34.36,32.51,0.81
+20260527,35.5,35.65,34.4,34.55,349921,34.12,1.26,34.39,32.51,0.76
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6243 | 迅杰 | 1 | 1 | 3 | 3 | 3 | repeated_but_no_breakout | 近 10 日上榜 3 日、近 20 日上榜 3 日，尚未突破，需分辨醞釀或鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

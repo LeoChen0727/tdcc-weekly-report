@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00895 富邦未來車
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:46 Asia/Taipei
+- generated_at: 2026-05-27 21:26:02 Asia/Taipei
 - stock_id: 00895
 - stock_name: 富邦未來車
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 51.15
-- high: 51.45
-- low: 51.05
-- close: 51.15
-- volume: 700070
+- date: 20260527
+- open: 51.6
+- high: 51.85
+- low: 51.55
+- close: 51.65
+- volume: 610060
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,50.05,50.2,49.99,50.2,1211064,,,,,
 20260525,51.4,51.85,51.05,51.2,431886,,,,,
 20260526,51.15,51.45,51.05,51.15,700070,,,,,
+20260527,51.6,51.85,51.55,51.65,610060,,,,,
 ```
 
 ## Latest TDCC Snapshot

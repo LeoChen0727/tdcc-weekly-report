@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00885 富邦越南
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:46 Asia/Taipei
+- generated_at: 2026-05-27 21:26:01 Asia/Taipei
 - stock_id: 00885
 - stock_name: 富邦越南
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 18.99
-- high: 19.08
-- low: 18.99
-- close: 19.02
-- volume: 2657206
+- date: 20260527
+- open: 19.02
+- high: 19.02
+- low: 18.85
+- close: 18.86
+- volume: 3922135
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,19.26,19.28,18.89,18.96,3838544,,,,,
 20260525,18.93,19.12,18.9,18.99,3598420,,,,,
 20260526,18.99,19.08,18.99,19.02,2657206,,,,,
+20260527,19.02,19.02,18.85,18.86,3922135,,,,,
 ```
 
 ## Latest TDCC Snapshot

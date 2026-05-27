@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5871 中租-KY
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:25 Asia/Taipei
+- generated_at: 2026-05-27 21:27:45 Asia/Taipei
 - stock_id: 5871
 - stock_name: 中租-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 108.5
-- high: 110
+- date: 20260527
+- open: 108
+- high: 109.5
 - low: 107
 - close: 107
-- volume: 10385536
-- ma5: 110
-- ema23_primary: 111.23
-- distance_to_ema23_pct: -3.8
-- ma20: 111.9
-- ma60: 109.82
-- ma120: 107.3
-- return_5d: -2.73
-- return_20d: -7.76
-- volume_ratio: 1.32
-- distance_to_ma20_pct_auxiliary: -4.38
+- volume: 10109750
+- ma5: 109.2
+- ema23_primary: 110.87
+- distance_to_ema23_pct: -3.49
+- ma20: 111.35
+- ma60: 109.87
+- ma120: 107.33
+- return_5d: -3.6
+- return_20d: -9.32
+- volume_ratio: 1.23
+- distance_to_ma20_pct_auxiliary: -3.91
 - distance_to_high_60_pct: -13.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,116,118,115,118,4107360,114.16,3.36,113.97,107.87,0.48
 20260429,116.5,119,116,118.5,6859683,114.52,3.47,114.35,108.12,0.81
 20260430,117.5,118.5,115,115.5,4947482,114.6,0.78,114.65,108.29,0.61
 20260504,116.5,116.5,113.5,115,6192597,114.64,0.32,114.95,108.44,0.75
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,112,113.5,111,111,10269084,111.85,-0.76,112.97,109.75,1.31
 20260525,111.5,111.5,109,109,9984863,111.61,-2.34,112.35,109.79,1.29
 20260526,108.5,110,107,107,10385536,111.23,-3.8,111.9,109.82,1.32
+20260527,108,109.5,107,107,10109750,110.87,-3.49,111.35,109.87,1.23
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 5871 | 中租-KY | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 5871 | 中租-KY | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 5871 | 中租-KY | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 5871 | 中租-KY | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 5871 | 中租-KY | 10 | 0 | 2272440.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260527 | 5871 | 中租-KY | 10 | 0 | 399400.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

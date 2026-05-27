@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2317 鴻海
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:12 Asia/Taipei
+- generated_at: 2026-05-27 21:26:29 Asia/Taipei
 - stock_id: 2317
 - stock_name: 鴻海
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 262.5
-- high: 263.5
-- low: 257
-- close: 259
-- volume: 55665305
-- ma5: 251.5
-- ema23_primary: 241.44
-- distance_to_ema23_pct: 7.27
-- ma20: 244.47
-- ma60: 221.29
-- ma120: 223.65
-- return_5d: 5.71
-- return_20d: 13.6
-- volume_ratio: 0.61
-- distance_to_ma20_pct_auxiliary: 5.94
-- distance_to_high_60_pct: -1.71
+- date: 20260527
+- open: 263
+- high: 269
+- low: 261
+- close: 264
+- volume: 78352856
+- ma5: 256.3
+- ema23_primary: 243.32
+- distance_to_ema23_pct: 8.5
+- ma20: 246.4
+- ma60: 221.64
+- ma120: 223.98
+- return_5d: 10
+- return_20d: 17.07
+- volume_ratio: 0.87
+- distance_to_ma20_pct_auxiliary: 7.14
+- distance_to_high_60_pct: -1.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,230,234,225,225.5,104089860,211.92,6.41,206.65,214.18,1.48
 20260429,226,226,222,225,43603455,213.01,5.63,208.2,214.28,0.62
 20260430,224.5,230,219.5,219.5,73683654,213.55,2.79,209.8,214.22,1.07
 20260504,224,229.5,223.5,227.5,57506042,214.71,5.96,211.32,214.32,0.83
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,249,251.5,245,250,56310552,237.92,5.08,240.95,220.6,0.61
 20260525,255,263.5,255,261,122990174,239.84,8.82,242.93,221.08,1.31
 20260526,262.5,263.5,257,259,55665305,241.44,7.27,244.47,221.29,0.61
+20260527,263,269,261,264,78352856,243.32,8.5,246.4,221.64,0.87
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2317 | 鴻海 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260521 | 2317 | 鴻海 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 2317 | 鴻海 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | mixed_flow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 2317 | 鴻海 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | mixed_flow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2317 | 鴻海 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 2317 | 鴻海 | 5 | 5 | 5 | 5 | 5 | continued_many_days | 連續 5 個交易日上榜，需判斷是持續醞釀或訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2317 | 鴻海 | 536 | 48 | 92034090.0 | 336720.0 | 273.33 | no_signal | 0 | 認購權證成交量與成交金額同步偏大，短線資金關注度高 |
+| 20260527 | 2317 | 鴻海 | 535 | 48 | 114689780.0 | 1501090.0 | 76.4 | mixed_flow | 0 | 認購權證成交金額很大且認購/認售比偏高，需檢查標的是否高位追價或獲利結清；認購權證成交量與成交金額同步偏大，短線資金關注度高 |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

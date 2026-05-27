@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00735 國泰臺韓科技
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:45 Asia/Taipei
+- generated_at: 2026-05-27 21:26:01 Asia/Taipei
 - stock_id: 00735
 - stock_name: 國泰臺韓科技
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 106.85
-- high: 107.9
-- low: 105.4
-- close: 106.65
-- volume: 2423334
+- date: 20260527
+- open: 111.1
+- high: 113.7
+- low: 111.1
+- close: 111.65
+- volume: 6198600
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,100.25,101.2,99.8,101.2,1844383,,,,,
 20260525,102.6,105,102.55,105,2739048,,,,,
 20260526,106.85,107.9,105.4,106.65,2423334,,,,,
+20260527,111.1,113.7,111.1,111.65,6198600,,,,,
 ```
 
 ## Latest TDCC Snapshot

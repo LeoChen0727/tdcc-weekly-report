@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1907 永豐餘
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:06 Asia/Taipei
+- generated_at: 2026-05-27 21:26:22 Asia/Taipei
 - stock_id: 1907
 - stock_name: 永豐餘
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 24.6
-- high: 24.9
-- low: 24.4
-- close: 24.5
-- volume: 1020035
-- ma5: 24.55
-- ema23_primary: 24.5
-- distance_to_ema23_pct: -0.01
+- date: 20260527
+- open: 24.5
+- high: 24.5
+- low: 23.95
+- close: 24
+- volume: 1790134
+- ma5: 24.51
+- ema23_primary: 24.46
+- distance_to_ema23_pct: -1.88
 - ma20: 24.2
-- ma60: 24.84
-- ma120: 25.43
-- return_5d: 0.41
-- return_20d: 2.08
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: 1.25
-- distance_to_high_60_pct: -13.88
+- ma60: 24.81
+- ma120: 25.4
+- return_5d: -0.83
+- return_20d: -0.21
+- volume_ratio: 1.28
+- distance_to_ma20_pct_auxiliary: -0.81
+- distance_to_high_60_pct: -15.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,24,24.4,23.95,24.05,860177,25.15,-4.36,25.59,25.23,0.49
 20260429,24.3,24.3,23.85,23.95,1524027,25.05,-4.38,25.44,25.22,1.09
 20260430,23.95,24,23.6,23.6,1941421,24.93,-5.32,25.28,25.2,1.48
 20260504,23.65,23.75,23.4,23.5,1331728,24.81,-5.27,25.13,25.17,1.1
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,24.55,24.75,24.4,24.45,792612,24.47,-0.08,24.14,24.89,0.56
 20260525,24.5,24.9,24.2,24.85,1076230,24.5,1.42,24.17,24.87,0.77
 20260526,24.6,24.9,24.4,24.5,1020035,24.5,-0.01,24.2,24.84,0.75
+20260527,24.5,24.5,23.95,24,1790134,24.46,-1.88,24.2,24.81,1.28
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1907 | 永豐餘 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

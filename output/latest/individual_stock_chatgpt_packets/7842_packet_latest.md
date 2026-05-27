@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7842 天能綠電
 
 ## Metadata
-- generated_at: 2026-05-26 23:55:03 Asia/Taipei
+- generated_at: 2026-05-27 21:28:24 Asia/Taipei
 - stock_id: 7842
 - stock_name: 天能綠電
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 12
+- latest_price_date: 20260527
+- price_rows: 13
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 111
-- high: 122
-- low: 110.5
-- close: 121
-- volume: 116000
-- ma5: 107.1
+- date: 20260527
+- open: 119.5
+- high: 119.5
+- low: 114
+- close: 115
+- volume: 115000
+- ma5: 110
 - ema23_primary: 114.96
-- distance_to_ema23_pct: 5.25
-- ma20: 110
-- ma60: 110
-- ma120: 110
-- return_5d: 18.63
+- distance_to_ema23_pct: 0.03
+- ma20: 110.38
+- ma60: 110.38
+- ma120: 110.38
+- return_5d: 14.43
 - return_20d: 
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: 10
-- distance_to_high_60_pct: -5.1
+- volume_ratio: 0.72
+- distance_to_ma20_pct_auxiliary: 4.18
+- distance_to_high_60_pct: -9.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -89,6 +89,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,102.5,103,100.5,101,102000,114.72,-11.96,108.8,108.8,0.59
 20260525,102,111,101,111,106000,114.41,-2.98,109,109,0.63
 20260526,111,122,110.5,121,116000,114.96,5.25,110,110,0.71
+20260527,119.5,119.5,114,115,115000,114.96,0.03,110.38,110.38,0.72
 ```
 
 ## Latest TDCC Snapshot

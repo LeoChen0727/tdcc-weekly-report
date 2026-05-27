@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1536 和大
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:58 Asia/Taipei
+- generated_at: 2026-05-27 21:26:14 Asia/Taipei
 - stock_id: 1536
 - stock_name: 和大
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 52.5
-- high: 52.9
-- low: 50.2
-- close: 51
-- volume: 2928821
-- ma5: 50.84
-- ema23_primary: 51.53
-- distance_to_ema23_pct: -1.03
-- ma20: 52.19
-- ma60: 51.98
-- ma120: 55.6
-- return_5d: 2
-- return_20d: 3.34
-- volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: -2.28
-- distance_to_high_60_pct: -18.92
+- date: 20260527
+- open: 51
+- high: 51.1
+- low: 49.3
+- close: 49.7
+- volume: 3088907
+- ma5: 50.96
+- ema23_primary: 51.38
+- distance_to_ema23_pct: -3.26
+- ma20: 52.15
+- ma60: 51.79
+- ma120: 55.55
+- return_5d: 1.22
+- return_20d: -1.58
+- volume_ratio: 0.97
+- distance_to_ma20_pct_auxiliary: -4.7
+- distance_to_high_60_pct: -20.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,49.5,50.8,49,50.5,1248664,50.83,-0.66,49.88,55.1,0.83
 20260429,50.5,52.8,50.5,51.5,2525272,50.89,1.2,49.95,54.92,1.62
 20260430,51.6,53.3,51.5,51.5,2814239,50.94,1.1,50.07,54.73,1.72
 20260504,52.5,56.6,51.8,55,7206086,51.28,7.26,50.35,54.57,3.72
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,50.5,52.2,50,51.6,2231236,51.51,0.17,52.03,52.32,0.76
 20260525,52.3,52.8,50.9,52.3,3739276,51.58,1.4,52.11,52.15,1.24
 20260526,52.5,52.9,50.2,51,2928821,51.53,-1.03,52.19,51.98,0.95
+20260527,51,51.1,49.3,49.7,3088907,51.38,-3.26,52.15,51.79,0.97
 ```
 
 ## Latest TDCC Snapshot
@@ -130,12 +130,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1536 | 和大 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260527 | 1536 | 和大 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1536 | 和大 | 21 | 0 | 388220.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 1536 | 和大 | 21 | 0 | 265790.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

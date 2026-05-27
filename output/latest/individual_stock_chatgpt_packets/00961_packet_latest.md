@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00961 FT臺灣永續高息
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:47 Asia/Taipei
+- generated_at: 2026-05-27 21:26:03 Asia/Taipei
 - stock_id: 00961
 - stock_name: FT臺灣永續高息
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 12.13
-- high: 12.13
-- low: 11.81
-- close: 11.84
-- volume: 5238207
+- date: 20260527
+- open: 11.93
+- high: 12.09
+- low: 11.9
+- close: 12.06
+- volume: 5587769
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,11.46,11.59,11.41,11.57,5755473,,,,,
 20260525,11.75,11.96,11.75,11.93,4781497,,,,,
 20260526,12.13,12.13,11.81,11.84,5238207,,,,,
+20260527,11.93,12.09,11.9,12.06,5587769,,,,,
 ```
 
 ## Latest TDCC Snapshot

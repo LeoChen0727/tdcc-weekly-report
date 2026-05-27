@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00954 中信日本半導體
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:47 Asia/Taipei
+- generated_at: 2026-05-27 21:26:03 Asia/Taipei
 - stock_id: 00954
 - stock_name: 中信日本半導體
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 18.27
-- high: 18.27
-- low: 18.09
-- close: 18.22
-- volume: 5478482
+- date: 20260527
+- open: 18.52
+- high: 18.74
+- low: 18.3
+- close: 18.38
+- volume: 9458011
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,17.53,17.62,17.46,17.6,1956871,,,,,
 20260525,18.34,18.5,18.34,18.49,3632692,,,,,
 20260526,18.27,18.27,18.09,18.22,5478482,,,,,
+20260527,18.52,18.74,18.3,18.38,9458011,,,,,
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00909 國泰數位支付服務
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:46 Asia/Taipei
+- generated_at: 2026-05-27 21:26:02 Asia/Taipei
 - stock_id: 00909
 - stock_name: 國泰數位支付服務
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 49.65
-- high: 49.65
-- low: 48.98
-- close: 49.3
-- volume: 1798298
+- date: 20260527
+- open: 49.64
+- high: 49.71
+- low: 49.35
+- close: 49.38
+- volume: 2314536
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,48.83,49.04,48.73,48.99,3990520,,,,,
 20260525,49.08,49.78,49,49.78,4070297,,,,,
 20260526,49.65,49.65,48.98,49.3,1798298,,,,,
+20260527,49.64,49.71,49.35,49.38,2314536,,,,,
 ```
 
 ## Latest TDCC Snapshot

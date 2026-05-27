@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4195 基米-創
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:02 Asia/Taipei
+- generated_at: 2026-05-27 21:27:20 Asia/Taipei
 - stock_id: 4195
 - stock_name: 基米-創
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 12
+- latest_price_date: 20260527
+- price_rows: 13
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 17.9
-- high: 17.9
-- low: 16.9
-- close: 17.5
-- volume: 495322
-- ma5: 18.35
-- ema23_primary: 20.16
-- distance_to_ema23_pct: -13.19
-- ma20: 19.33
-- ma60: 19.33
-- ma120: 19.33
-- return_5d: -5.91
+- date: 20260527
+- open: 17.3
+- high: 17.55
+- low: 16.85
+- close: 16.85
+- volume: 351007
+- ma5: 17.96
+- ema23_primary: 19.88
+- distance_to_ema23_pct: -15.25
+- ma20: 19.14
+- ma60: 19.14
+- ma120: 19.14
+- return_5d: -10.37
 - return_20d: 
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: -9.48
-- distance_to_high_60_pct: -23.41
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: -11.98
+- distance_to_high_60_pct: -26.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -89,6 +89,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,18.75,19,18.5,18.85,363104,20.63,-8.62,19.66,19.66,0.41
 20260525,18.85,18.85,17.5,17.9,745993,20.4,-12.26,19.5,19.5,0.86
 20260526,17.9,17.9,16.9,17.5,495322,20.16,-13.19,19.33,19.33,0.59
+20260527,17.3,17.55,16.85,16.85,351007,19.88,-15.25,19.14,19.14,0.44
 ```
 
 ## Latest TDCC Snapshot

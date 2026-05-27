@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00965 元大航太防衛科技
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:47 Asia/Taipei
+- generated_at: 2026-05-27 21:26:03 Asia/Taipei
 - stock_id: 00965
 - stock_name: 元大航太防衛科技
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 25.78
-- high: 26
-- low: 25.78
-- close: 25.97
-- volume: 4616405
+- date: 20260527
+- open: 25.95
+- high: 25.95
+- low: 25.77
+- close: 25.8
+- volume: 3024357
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,25.34,25.5,25.3,25.34,3854872,,,,,
 20260525,25.5,25.58,25.49,25.57,5964607,,,,,
 20260526,25.78,26,25.78,25.97,4616405,,,,,
+20260527,25.95,25.95,25.77,25.8,3024357,,,,,
 ```
 
 ## Latest TDCC Snapshot

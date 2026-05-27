@@ -1,4 +1,4 @@
-# PRICE_WINDOW_3
+# PRICE_WINDOW_4
 
 columns=date,open,high,low,close,volume,ma5,ema23,ma20,ma60,ma120,return_1d,return_5d,return_20d,volume_ratio,distance_to_ema23_pct,distance_to_ma20_pct,distance_to_high_60_pct
 
@@ -7,3 +7,5 @@ PRICE_WINDOW_180_ROW_001=20260522,20.78,20.84,20.78,20.84,186214,,,,,,,,,,,,
 PRICE_WINDOW_180_ROW_002=20260525,20.84,20.86,20.82,20.83,378901,,,,,,-0.048,,,,,,
 
 PRICE_WINDOW_180_ROW_003=20260526,20.82,20.89,20.82,20.89,370183,,,,,,0.288,,,,,,
+
+PRICE_WINDOW_180_ROW_004=20260527,20.89,20.89,20.71,20.71,302175,,,,,,-0.8617,,,,,,

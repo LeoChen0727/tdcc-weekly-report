@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1514 亞力
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:57 Asia/Taipei
+- generated_at: 2026-05-27 21:26:12 Asia/Taipei
 - stock_id: 1514
 - stock_name: 亞力
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
+- date: 20260527
 - open: 126
-- high: 129
+- high: 132.5
 - low: 124
-- close: 124
-- volume: 12480121
-- ma5: 120
-- ema23_primary: 117.58
-- distance_to_ema23_pct: 5.46
-- ma20: 118.33
-- ma60: 114.11
-- ma120: 111.65
-- return_5d: 9.25
-- return_20d: 11.21
-- volume_ratio: 2.12
-- distance_to_ma20_pct_auxiliary: 4.8
-- distance_to_high_60_pct: -6.06
+- close: 125
+- volume: 14329362
+- ma5: 122.4
+- ema23_primary: 118.2
+- distance_to_ema23_pct: 5.75
+- ma20: 119.05
+- ma60: 114.06
+- ma120: 111.89
+- return_5d: 10.62
+- return_20d: 13.12
+- volume_ratio: 2.19
+- distance_to_ma20_pct_auxiliary: 5
+- distance_to_high_60_pct: -5.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,112,112,110,110.5,1206995,110.73,-0.21,107.88,117.24,0.51
 20260429,110.5,111.5,110,111,1075206,110.75,0.22,108.17,116.77,0.46
 20260430,111.5,113,109.5,110,1809249,110.69,-0.62,108.6,116.26,0.79
 20260504,113,121,112.5,121,5673982,111.55,8.47,109.5,115.9,2.28
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,120,123,118,122.5,4919110,116.5,5.15,117.2,114.22,0.95
 20260525,125,125,121.5,122.5,4760617,117,4.7,117.7,114.22,0.89
 20260526,126,129,124,124,12480121,117.58,5.46,118.33,114.11,2.12
+20260527,126,132.5,124,125,14329362,118.2,5.75,119.05,114.06,2.19
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1514 | 亞力 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260521 | 1514 | 亞力 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 1514 | 亞力 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260527 | 1514 | 亞力 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 1514 | 亞力 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1514 | 亞力 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 1514 | 亞力 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1514 | 亞力 | 61 | 1 | 11532580.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260527 | 1514 | 亞力 | 61 | 1 | 15884080.0 | 29930.0 | 530.71 | call_put_bullish | 3 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

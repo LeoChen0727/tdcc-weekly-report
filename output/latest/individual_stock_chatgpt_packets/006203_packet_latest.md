@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 006203 元大MSCI台灣
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:44 Asia/Taipei
+- generated_at: 2026-05-27 21:26:00 Asia/Taipei
 - stock_id: 006203
 - stock_name: 元大MSCI台灣
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 184.8
-- high: 184.8
-- low: 182.75
-- close: 182.75
-- volume: 12843
+- date: 20260527
+- open: 188.5
+- high: 188.5
+- low: 186.45
+- close: 186.45
+- volume: 13081
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,176.8,178.05,176.5,177.25,36674,,,,,
 20260525,182.1,183.65,182.1,183.65,11788,,,,,
 20260526,184.8,184.8,182.75,182.75,12843,,,,,
+20260527,188.5,188.5,186.45,186.45,13081,,,,,
 ```
 
 ## Latest TDCC Snapshot

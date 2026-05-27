@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3025 星通
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:36 Asia/Taipei
+- generated_at: 2026-05-27 21:26:53 Asia/Taipei
 - stock_id: 3025
 - stock_name: 星通
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 85
-- high: 85
-- low: 74.2
-- close: 78.8
-- volume: 7419415
-- ma5: 70.34
-- ema23_primary: 64.98
-- distance_to_ema23_pct: 21.27
-- ma20: 63.84
-- ma60: 61.8
-- ma120: 62.24
-- return_5d: 34.7
-- return_20d: 30.46
-- volume_ratio: 6.31
-- distance_to_ma20_pct_auxiliary: 23.42
-- distance_to_high_60_pct: -7.29
+- date: 20260527
+- open: 79.9
+- high: 79.9
+- low: 76.3
+- close: 77.2
+- volume: 2305912
+- ma5: 73.94
+- ema23_primary: 66
+- distance_to_ema23_pct: 16.98
+- ma20: 64.64
+- ma60: 62.11
+- ma120: 62.52
+- return_5d: 30.41
+- return_20d: 26.14
+- volume_ratio: 1.82
+- distance_to_ma20_pct_auxiliary: 19.42
+- distance_to_high_60_pct: -9.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,60.5,61.2,59.6,61.2,472097,61.9,-1.13,61.91,62.33,0.62
 20260429,61.1,62.2,60.8,61.2,319989,61.84,-1.04,62.05,62.14,0.42
 20260430,61.4,61.8,60,60.1,387168,61.7,-2.59,62.26,61.94,0.52
 20260504,61,61.4,60,61,425388,61.64,-1.04,62.4,61.77,0.56
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,71,71,70.8,71,2775275,62.41,13.76,61.98,61.03,3.68
 20260525,78.1,78.1,77.7,78.1,2240145,63.72,22.57,62.92,61.4,2.68
 20260526,85,85,74.2,78.8,7419415,64.98,21.27,63.84,61.8,6.31
+20260527,79.9,79.9,76.3,77.2,2305912,66,16.98,64.64,62.11,1.82
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3025 | 星通 | true_breakout | 嚴格突破 | 87.0 |  |  | platform_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 3025 | 星通 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3025 | 星通 | 2 | 2 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260527 | 3025 | 星通 | 3 | 1 | 3 | 3 | 3 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

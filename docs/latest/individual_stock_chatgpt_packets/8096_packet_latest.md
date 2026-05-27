@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8096 擎亞
 
 ## Metadata
-- generated_at: 2026-05-26 23:55:07 Asia/Taipei
+- generated_at: 2026-05-27 21:28:28 Asia/Taipei
 - stock_id: 8096
 - stock_name: 擎亞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 124.5
+- date: 20260527
+- open: 123
 - high: 125
-- low: 117
-- close: 119.5
+- low: 117.5
+- close: 121
 - volume: 120000
-- ma5: 115.6
-- ema23_primary: 102.91
-- distance_to_ema23_pct: 16.12
-- ma20: 101.09
-- ma60: 90.28
-- ma120: 72.54
-- return_5d: 13.27
-- return_20d: 30.32
+- ma5: 118.3
+- ema23_primary: 104.42
+- distance_to_ema23_pct: 15.88
+- ma20: 102.58
+- ma60: 91.1
+- ma120: 73.18
+- return_5d: 12.56
+- return_20d: 32.82
 - volume_ratio: 0.01
-- distance_to_ma20_pct_auxiliary: 18.21
-- distance_to_high_60_pct: -5.53
+- distance_to_ma20_pct_auxiliary: 17.95
+- distance_to_high_60_pct: -4.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,93.3,94.7,90.3,91.1,9417000,90.45,0.71,93.24,78.55,0.51
 20260429,90,97.6,89.1,92.2,15092000,90.6,1.77,93.22,79.27,0.87
 20260430,92,93,88.3,89.2,11320000,90.48,-1.42,93.36,79.94,0.67
 20260504,90.2,94.9,88.9,93.3,9881000,90.72,2.85,93.44,80.69,0.6
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,110.5,118.5,110,118.5,116000,99.3,19.33,97.91,88.71,0.01
 20260525,121,126.5,117.5,124.5,122000,101.4,22.78,99.7,89.53,0.01
 20260526,124.5,125,117,119.5,120000,102.91,16.12,101.09,90.28,0.01
+20260527,123,125,117.5,121,120000,104.42,15.88,102.58,91.1,0.01
 ```
 
 ## Latest TDCC Snapshot
@@ -130,7 +130,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8096 | 擎亞 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 8096 | 擎亞 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

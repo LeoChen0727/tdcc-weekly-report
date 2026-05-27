@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6449 鈺邦
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:40 Asia/Taipei
+- generated_at: 2026-05-27 21:28:00 Asia/Taipei
 - stock_id: 6449
 - stock_name: 鈺邦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 312
-- high: 352
-- low: 290.5
-- close: 352
-- volume: 1061443
-- ma5: 308.2
-- ema23_primary: 238.6
-- distance_to_ema23_pct: 47.53
-- ma20: 225.82
-- ma60: 184.04
-- ma120: 177.1
-- return_5d: 43.97
-- return_20d: 120
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: 55.87
-- distance_to_high_60_pct: 0
+- date: 20260527
+- open: 382.5
+- high: 382.5
+- low: 355
+- close: 370
+- volume: 478571
+- ma5: 328.5
+- ema23_primary: 249.55
+- distance_to_ema23_pct: 48.27
+- ma20: 236.05
+- ma60: 187.07
+- ma120: 178.82
+- return_5d: 37.8
+- return_20d: 123.56
+- volume_ratio: 0.2
+- distance_to_ma20_pct_auxiliary: 56.75
+- distance_to_high_60_pct: -3.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,160.5,169.5,158.5,165.5,973757,165.18,0.19,163.75,165.12,1.05
 20260429,165.5,165.5,159.5,162.5,298295,164.96,-1.49,163.88,164.81,0.32
 20260430,164.5,165.5,161,161.5,292926,164.67,-1.93,164.47,164.41,0.33
 20260504,162,169,161.5,166,695204,164.78,0.74,165.22,164.09,0.76
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,295,316.5,286.5,305.5,1167965,219.96,38.89,208.2,178.72,0.48
 20260525,300,333.5,300,320,619309,228.29,40.17,216.22,181.16,0.25
 20260526,312,352,290.5,352,1061443,238.6,47.53,225.82,184.04,0.44
+20260527,382.5,382.5,355,370,478571,249.55,48.27,236.05,187.07,0.2
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6449 | 鈺邦 | true_breakout | 嚴格突破 | 71.0 |  |  |  |  | call_strong_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6449 | 鈺邦 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6449 | 鈺邦 | 44 | 0 | 3898990.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260527 | 6449 | 鈺邦 | 41 | 0 | 6097340.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

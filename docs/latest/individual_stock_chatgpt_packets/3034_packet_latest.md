@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3034 聯詠
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:36 Asia/Taipei
+- generated_at: 2026-05-27 21:26:54 Asia/Taipei
 - stock_id: 3034
 - stock_name: 聯詠
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 491.5
-- high: 496.5
-- low: 486
-- close: 491.5
-- volume: 4379249
-- ma5: 484.6
-- ema23_primary: 460.8
-- distance_to_ema23_pct: 6.66
-- ma20: 462.6
-- ma60: 415.23
-- ma120: 398.22
-- return_5d: 5.47
-- return_20d: 18.01
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: 6.25
-- distance_to_high_60_pct: -2.29
+- date: 20260527
+- open: 491
+- high: 495.5
+- low: 484
+- close: 485
+- volume: 6970773
+- ma5: 487.1
+- ema23_primary: 462.81
+- distance_to_ema23_pct: 4.79
+- ma20: 466.23
+- ma60: 416.77
+- ma120: 399.02
+- return_5d: 2.65
+- return_20d: 17.58
+- volume_ratio: 0.99
+- distance_to_ma20_pct_auxiliary: 4.03
+- distance_to_high_60_pct: -3.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,418.5,420,410,412.5,3363158,403.62,2.2,402.73,388.02,0.78
 20260429,414,416,406.5,408.5,2555141,404.02,1.11,403.6,388.54,0.62
 20260430,409.5,413,407,409,2586981,404.44,1.13,405.07,388.97,0.65
 20260504,418,423,413,415.5,3525874,405.36,2.5,406.27,389.34,0.88
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,482,490,476,485.5,8287679,455.19,6.66,455.3,411.76,1.2
 20260525,489.5,498,487.5,489,4857812,458,6.77,458.85,413.49,0.71
 20260526,491.5,496.5,486,491.5,4379249,460.8,6.66,462.6,415.23,0.64
+20260527,491,495.5,484,485,6970773,462.81,4.79,466.23,416.77,0.99
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260527 | 3034 | 聯詠 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3034 | 聯詠 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260527 | 3034 | 聯詠 | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3034 | 聯詠 | 87 | 8 | 8265190.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 3034 | 聯詠 | 88 | 8 | 11982890.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

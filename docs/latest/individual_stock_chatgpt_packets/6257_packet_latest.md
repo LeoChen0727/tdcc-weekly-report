@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6257 矽格
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:36 Asia/Taipei
+- generated_at: 2026-05-27 21:27:56 Asia/Taipei
 - stock_id: 6257
 - stock_name: 矽格
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 236
-- high: 239.5
-- low: 227
-- close: 237
-- volume: 14407436
-- ma5: 222.8
-- ema23_primary: 206.27
-- distance_to_ema23_pct: 14.9
-- ma20: 207.9
-- ma60: 170.44
-- ma120: 142.41
-- return_5d: 12.59
-- return_20d: 33.15
-- volume_ratio: 0.97
-- distance_to_ma20_pct_auxiliary: 14
-- distance_to_high_60_pct: -1.04
+- date: 20260527
+- open: 242
+- high: 242
+- low: 230.5
+- close: 233.5
+- volume: 12315942
+- ma5: 228.1
+- ema23_primary: 208.54
+- distance_to_ema23_pct: 11.97
+- ma20: 210.55
+- ma60: 171.82
+- ma120: 143.58
+- return_5d: 12.8
+- return_20d: 29.36
+- volume_ratio: 0.82
+- distance_to_ma20_pct_auxiliary: 10.9
+- distance_to_high_60_pct: -3.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,177,182,175.5,180.5,7749724,169.45,6.52,172.62,145.32,0.39
 20260429,178,179,175.5,177.5,6729505,170.12,4.34,174.1,146.03,0.34
 20260430,178,183,177,180,8903022,170.95,5.3,175.62,146.78,0.5
 20260504,183.5,193.5,183,190.5,17801362,172.58,10.39,177.35,147.73,1.02
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,221,235,219.5,222,13548709,200.93,10.49,202.62,167.1,0.88
 20260525,225,236,224,231.5,10422000,203.48,13.77,204.95,168.78,0.7
 20260526,236,239.5,227,237,14407436,206.27,14.9,207.9,170.44,0.97
+20260527,242,242,230.5,233.5,12315942,208.54,11.97,210.55,171.82,0.82
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6257 | 矽格 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | call_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6257 | 矽格 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6257 | 矽格 | 117 | 6 | 24371550.0 | 41300.0 | 590.11 | call_inflow | 1 |  |
+| 20260527 | 6257 | 矽格 | 117 | 7 | 16265650.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

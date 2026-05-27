@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2881 富邦金
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:31 Asia/Taipei
+- generated_at: 2026-05-27 21:26:48 Asia/Taipei
 - stock_id: 2881
 - stock_name: 富邦金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 97.8
-- high: 103.5
-- low: 97.8
-- close: 103.5
-- volume: 103318900
-- ma5: 97.64
-- ema23_primary: 94.53
-- distance_to_ema23_pct: 9.49
-- ma20: 94.61
-- ma60: 90.56
-- ma120: 92.54
-- return_5d: 6.48
-- return_20d: 17.75
-- volume_ratio: 2.59
-- distance_to_ma20_pct_auxiliary: 9.39
+- date: 20260527
+- open: 104.5
+- high: 110
+- low: 103
+- close: 110
+- volume: 95547479
+- ma5: 100.48
+- ema23_primary: 95.82
+- distance_to_ema23_pct: 14.8
+- ma20: 95.69
+- ma60: 90.83
+- ma120: 92.72
+- return_5d: 14.82
+- return_20d: 24.15
+- volume_ratio: 2.19
+- distance_to_ma20_pct_auxiliary: 14.96
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,88.5,89.2,88.1,88.6,21109166,88.15,0.51,87.72,89.97,1.07
 20260429,89.4,91.3,89.1,91.3,38229183,88.42,3.26,87.97,89.94,1.85
 20260430,90.4,91.8,90,90,31101166,88.55,1.64,88.17,89.89,1.47
 20260504,91.8,94,91,91,49550204,88.75,2.53,88.33,89.84,2.16
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,95.4,96,94.3,95.1,41801468,93.35,1.88,93.34,90.33,1.22
 20260525,95.4,97.7,94.7,97.7,47023876,93.71,4.26,93.83,90.39,1.31
 20260526,97.8,103.5,97.8,103.5,103318900,94.53,9.49,94.61,90.56,2.59
+20260527,104.5,110,103,110,95547479,95.82,14.8,95.69,90.83,2.19
 ```
 
 ## Latest TDCC Snapshot
@@ -125,20 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2881 | 富邦金 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  | call_strong_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 2881 | 富邦金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 2881 | 富邦金 | true_breakout | 嚴格突破 | 138.0 |  |  | breakout_confirmed |  | call_strong_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 2881 | 富邦金 | true_breakout | 嚴格突破 | 121.0 |  |  | breakout_confirmed |  | call_strong_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 2881 | 富邦金 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_strong_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2881 | 富邦金 | 4 | 4 | 4 | 4 | 4 | continued_many_days | 連續 4 個交易日上榜，需判斷是持續醞釀或訊號鈍化。 |
+| 20260527 | 2881 | 富邦金 | 5 | 5 | 5 | 5 | 5 | continued_many_days | 連續 5 個交易日上榜，需判斷是持續醞釀或訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2881 | 富邦金 | 23 | 0 | 9677220.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260527 | 2881 | 富邦金 | 23 | 0 | 17400920.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

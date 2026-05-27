@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009806 台新標普500
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:47 Asia/Taipei
+- generated_at: 2026-05-27 21:26:03 Asia/Taipei
 - stock_id: 009806
 - stock_name: 台新標普500
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,11 +55,11 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 13.13
+- date: 20260527
+- open: 13.16
 - high: 13.16
-- low: 13.12
-- close: 13.16
+- low: 13.13
+- close: 13.13
 - volume: 13000
 - ma5: 
 - ema23_primary: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,13.09,13.13,13.08,13.13,13000,,,,,
 20260525,13.16,13.19,13.14,13.19,13000,,,,,
 20260526,13.13,13.16,13.12,13.16,13000,,,,,
+20260527,13.16,13.16,13.13,13.13,13000,,,,,
 ```
 
 ## Latest TDCC Snapshot

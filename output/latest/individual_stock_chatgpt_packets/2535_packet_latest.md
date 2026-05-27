@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2535 達欣工
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:24 Asia/Taipei
+- generated_at: 2026-05-27 21:26:41 Asia/Taipei
 - stock_id: 2535
 - stock_name: 達欣工
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 26
 - tdcc_history_status: tdcc_history_ready
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 76.7
-- high: 77.3
-- low: 75.5
-- close: 75.9
-- volume: 329759
-- ma5: 76.12
-- ema23_primary: 74.49
-- distance_to_ema23_pct: 1.9
-- ma20: 74.64
-- ma60: 72.86
-- ma120: 69.28
-- return_5d: 3.97
-- return_20d: -0.13
-- volume_ratio: 0.43
-- distance_to_ma20_pct_auxiliary: 1.69
-- distance_to_high_60_pct: -3.56
+- date: 20260527
+- open: 76.3
+- high: 78.8
+- low: 75.8
+- close: 78
+- volume: 1469377
+- ma5: 76.8
+- ema23_primary: 74.78
+- distance_to_ema23_pct: 4.31
+- ma20: 74.78
+- ma60: 72.94
+- ma120: 69.42
+- return_5d: 4.56
+- return_20d: 3.86
+- volume_ratio: 1.79
+- distance_to_ma20_pct_auxiliary: 4.3
+- distance_to_high_60_pct: -1.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,76.1,76.4,74.9,75.1,466290,72.28,3.9,71.5,71.43,0.49
 20260429,76.5,77.2,74.7,75.7,1279605,72.57,4.32,71.73,71.54,1.29
 20260430,76.2,76.2,72.1,72.1,816630,72.53,-0.59,71.81,71.55,0.81
 20260504,73.7,75,71.8,73.3,452006,72.59,0.97,71.93,71.59,0.46
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,75.9,77.6,75.9,77.5,916429,74.15,4.52,74.64,72.79,1.05
 20260525,78.5,78.7,76.3,76.7,602145,74.36,3.15,74.64,72.83,0.74
 20260526,76.7,77.3,75.5,75.9,329759,74.49,1.9,74.64,72.86,0.43
+20260527,76.3,78.8,75.8,78,1469377,74.78,4.31,74.78,72.94,1.79
 ```
 
 ## Latest TDCC Snapshot
@@ -131,14 +131,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260527 | 2535 | 達欣工 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260527 | 2535 | 達欣工 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | status |

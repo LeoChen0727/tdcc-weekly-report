@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4581 光隆精密-KY
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:07 Asia/Taipei
+- generated_at: 2026-05-27 21:27:26 Asia/Taipei
 - stock_id: 4581
 - stock_name: 光隆精密-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 133
+- latest_price_date: 20260527
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 50.4
-- high: 50.5
-- low: 50
-- close: 50.1
-- volume: 24008
-- ma5: 49.78
+- date: 20260527
+- open: 49.95
+- high: 50
+- low: 49.8
+- close: 49.8
+- volume: 26095
+- ma5: 49.84
 - ema23_primary: 49.88
-- distance_to_ema23_pct: 0.43
-- ma20: 49.88
-- ma60: 49.84
-- ma120: 50.85
-- return_5d: 1.83
-- return_20d: 0.4
-- volume_ratio: 1.1
-- distance_to_ma20_pct_auxiliary: 0.45
-- distance_to_high_60_pct: -5.11
+- distance_to_ema23_pct: -0.15
+- ma20: 49.87
+- ma60: 49.82
+- ma120: 50.83
+- return_5d: 0.61
+- return_20d: -0.2
+- volume_ratio: 1.16
+- distance_to_ma20_pct_auxiliary: -0.15
+- distance_to_high_60_pct: -5.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,49.7,50.8,49.7,49.9,13079,50.1,-0.39,49.98,50.27,1.13
 20260429,49.5,49.85,49.5,49.7,17000,50.06,-0.73,50.02,50.23,1.41
 20260430,49.95,49.95,49.5,49.5,14040,50.02,-1.03,50.04,50.18,1.11
 20260504,49.6,49.9,49.6,49.75,15010,49.99,-0.49,50.08,50.16,1.16
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,49.45,49.8,49.45,49.45,15047,49.82,-0.73,49.87,49.86,0.77
 20260525,49.45,50.4,49.45,50.4,36009,49.86,1.07,49.87,49.85,1.69
 20260526,50.4,50.5,50,50.1,24008,49.88,0.43,49.88,49.84,1.1
+20260527,49.95,50,49.8,49.8,26095,49.88,-0.15,49.87,49.82,1.16
 ```
 
 ## Latest TDCC Snapshot

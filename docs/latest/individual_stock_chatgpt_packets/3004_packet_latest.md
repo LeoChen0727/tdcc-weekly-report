@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3004 豐達科
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:34 Asia/Taipei
+- generated_at: 2026-05-27 21:26:51 Asia/Taipei
 - stock_id: 3004
 - stock_name: 豐達科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 140.5
-- high: 141
-- low: 137
-- close: 137.5
-- volume: 740258
-- ma5: 131.5
-- ema23_primary: 123.05
-- distance_to_ema23_pct: 11.74
-- ma20: 122.3
-- ma60: 113.69
-- ma120: 110.77
-- return_5d: 10.44
-- return_20d: 18.03
-- volume_ratio: 0.91
-- distance_to_ma20_pct_auxiliary: 12.43
-- distance_to_high_60_pct: -3.17
+- date: 20260527
+- open: 134.5
+- high: 134.5
+- low: 124
+- close: 124
+- volume: 2402674
+- ma5: 131.7
+- ema23_primary: 123.13
+- distance_to_ema23_pct: 0.71
+- ma20: 122.6
+- ma60: 113.9
+- ma120: 110.98
+- return_5d: 0.81
+- return_20d: 5.08
+- volume_ratio: 2.63
+- distance_to_ma20_pct_auxiliary: 1.14
+- distance_to_high_60_pct: -12.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,117,118,114.5,118,455045,113.12,4.31,112.86,110.8,0.97
 20260429,117.5,119.5,115,116.5,445327,113.4,2.73,113.63,110.77,0.91
 20260430,116.5,118,115.5,116.5,191361,113.66,2.5,114.53,110.73,0.39
 20260504,119.5,120.5,115,115.5,700000,113.82,1.48,114.9,110.71,1.41
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,127,132,126,130.5,949363,120.03,8.72,119.95,112.95,1.31
 20260525,137,142,135.5,140.5,1668263,121.74,15.41,121.25,113.34,2.1
 20260526,140.5,141,137,137.5,740258,123.05,11.74,122.3,113.69,0.91
+20260527,134.5,134.5,124,124,2402674,123.13,0.71,122.6,113.9,2.63
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260527 | 3004 | 豐達科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3004 | 豐達科 | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260527 | 3004 | 豐達科 | 3 | 1 | 3 | 3 | 3 | continued_2_3d | 連續 3 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3004 | 豐達科 | 5 | 0 | 321620.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 3004 | 豐達科 | 5 | 0 | 595900.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

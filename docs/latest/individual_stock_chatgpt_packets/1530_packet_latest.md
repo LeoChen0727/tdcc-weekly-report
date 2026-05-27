@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1530 亞崴
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:58 Asia/Taipei
+- generated_at: 2026-05-27 21:26:13 Asia/Taipei
 - stock_id: 1530
 - stock_name: 亞崴
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 29.75
-- high: 31.95
-- low: 29.75
-- close: 31.95
-- volume: 512979
-- ma5: 28.83
-- ema23_primary: 27.53
-- distance_to_ema23_pct: 16.05
-- ma20: 27.07
-- ma60: 27.02
-- ma120: 27.47
-- return_5d: 17.03
-- return_20d: 21.02
-- volume_ratio: 5.72
-- distance_to_ma20_pct_auxiliary: 18.03
-- distance_to_high_60_pct: 0
+- date: 20260527
+- open: 34.5
+- high: 35.1
+- low: 32.1
+- close: 32.7
+- volume: 2063286
+- ma5: 29.9
+- ema23_primary: 27.96
+- distance_to_ema23_pct: 16.94
+- ma20: 27.39
+- ma60: 27.09
+- ma120: 27.52
+- return_5d: 19.56
+- return_20d: 23.86
+- volume_ratio: 10.73
+- distance_to_ma20_pct_auxiliary: 19.41
+- distance_to_high_60_pct: -6.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,26.55,26.55,26.2,26.4,11122,27.04,-2.37,26.96,27.65,0.33
 20260429,26.55,26.55,26.5,26.5,5910,26.99,-1.83,26.95,27.61,0.18
 20260430,26.65,26.65,26.35,26.45,15331,26.95,-1.85,26.95,27.57,0.47
 20260504,26.5,26.5,26.05,26.05,49548,26.87,-3.07,26.94,27.51,1.46
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,28.2,28.2,27.55,28,76993,26.96,3.87,26.68,26.98,1.83
 20260525,28.5,29.45,28.3,29.05,489988,27.13,7.08,26.79,26.98,7.47
 20260526,29.75,31.95,29.75,31.95,512979,27.53,16.05,27.07,27.02,5.72
+20260527,34.5,35.1,32.1,32.7,2063286,27.96,16.94,27.39,27.09,10.73
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260527 | 1530 | 亞崴 | true_breakout | 嚴格突破 | 114.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260527 | 1530 | 亞崴 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | status |

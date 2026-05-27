@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00851 台新全球AI
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:45 Asia/Taipei
+- generated_at: 2026-05-27 21:26:01 Asia/Taipei
 - stock_id: 00851
 - stock_name: 台新全球AI
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 67.3
-- high: 67.3
-- low: 66.8
-- close: 67.05
-- volume: 22639
+- date: 20260527
+- open: 68.3
+- high: 69.05
+- low: 68.3
+- close: 69
+- volume: 58515
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,65.5,65.8,65.5,65.55,19141,,,,,
 20260525,66.65,67.45,66.05,67.4,51313,,,,,
 20260526,67.3,67.3,66.8,67.05,22639,,,,,
+20260527,68.3,69.05,68.3,69,58515,,,,,
 ```
 
 ## Latest TDCC Snapshot

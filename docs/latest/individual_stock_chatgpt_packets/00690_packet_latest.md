@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00690 兆豐藍籌30
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:45 Asia/Taipei
+- generated_at: 2026-05-27 21:26:01 Asia/Taipei
 - stock_id: 00690
 - stock_name: 兆豐藍籌30
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 78.25
-- high: 79
-- low: 77.25
-- close: 78.15
-- volume: 751126
+- date: 20260527
+- open: 79.65
+- high: 81.9
+- low: 79.3
+- close: 81
+- volume: 943269
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,72.85,73.7,72.5,73.6,841496,,,,,
 20260525,75.45,77.55,75.45,77.5,943200,,,,,
 20260526,78.25,79,77.25,78.15,751126,,,,,
+20260527,79.65,81.9,79.3,81,943269,,,,,
 ```
 
 ## Latest TDCC Snapshot

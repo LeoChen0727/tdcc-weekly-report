@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1294 漢田生技
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:50 Asia/Taipei
+- generated_at: 2026-05-27 21:26:06 Asia/Taipei
 - stock_id: 1294
 - stock_name: 漢田生技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 133
+- latest_price_date: 20260527
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 77
+- date: 20260527
+- open: 76.7
 - high: 77
-- low: 76
+- low: 76.7
 - close: 77
 - volume: 77000
-- ma5: 77.46
-- ema23_primary: 78.58
-- distance_to_ema23_pct: -2.01
-- ma20: 78.37
-- ma60: 81.2
-- ma120: 79.38
-- return_5d: -0.77
-- return_20d: -2.78
-- volume_ratio: 2.37
-- distance_to_ma20_pct_auxiliary: -1.75
+- ma5: 77.3
+- ema23_primary: 78.45
+- distance_to_ema23_pct: -1.85
+- ma20: 78.25
+- ma60: 81.17
+- ma120: 79.41
+- return_5d: -1.03
+- return_20d: -3.14
+- volume_ratio: 2.19
+- distance_to_ma20_pct_auxiliary: -1.59
 - distance_to_high_60_pct: -19.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,79.5,79.6,78.4,79.5,25000,81.22,-2.12,81.03,81.18,0.89
 20260429,79.6,79.6,79,79.4,12000,81.07,-2.06,80.94,81.2,0.42
 20260430,80,80.1,79.6,79.6,33000,80.95,-1.67,80.92,81.25,1.14
 20260504,79.6,80.5,79.6,79.7,21000,80.84,-1.42,80.85,81.3,0.74
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,78,78,77.8,77.8,78000,78.88,-1.37,78.64,81.26,2.94
 20260525,77.6,77.6,77,77,77000,78.72,-2.19,78.48,81.23,2.64
 20260526,77,77,76,77,77000,78.58,-2.01,78.37,81.2,2.37
+20260527,76.7,77,76.7,77,77000,78.45,-1.85,78.25,81.17,2.19
 ```
 
 ## Latest TDCC Snapshot

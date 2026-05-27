@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2887 台新新光金
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:32 Asia/Taipei
+- generated_at: 2026-05-27 21:26:49 Asia/Taipei
 - stock_id: 2887
 - stock_name: 台新新光金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 23.4
-- high: 24.1
-- low: 23.4
-- close: 23.6
-- volume: 157314234
-- ma5: 23.69
-- ema23_primary: 23.71
-- distance_to_ema23_pct: -0.47
-- ma20: 23.66
-- ma60: 24.13
-- ma120: 22.64
-- return_5d: 0
-- return_20d: -0.84
-- volume_ratio: 1.51
-- distance_to_ma20_pct_auxiliary: -0.25
-- distance_to_high_60_pct: -9.23
+- date: 20260527
+- open: 23.7
+- high: 23.8
+- low: 23.3
+- close: 23.3
+- volume: 170451126
+- ma5: 23.57
+- ema23_primary: 23.68
+- distance_to_ema23_pct: -1.6
+- ma20: 23.61
+- ma60: 24.09
+- ma120: 22.68
+- return_5d: -2.51
+- return_20d: -4.51
+- volume_ratio: 1.57
+- distance_to_ma20_pct_auxiliary: -1.29
+- distance_to_high_60_pct: -8.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,23.95,24.5,23.95,24.4,76165609,24.19,0.88,24.2,24.03,1.06
 20260429,24.45,24.55,23.9,24.05,62589098,24.18,-0.52,24.21,24.06,0.88
 20260430,24.05,24.15,23.8,23.8,61035540,24.14,-1.43,24.25,24.09,0.88
 20260504,24.15,24.15,23.45,23.5,83198289,24.09,-2.45,24.22,24.11,1.2
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,23.9,24.15,23.75,23.8,105580110,23.76,0.16,23.7,24.19,1.1
 20260525,23.9,23.9,23.3,23.3,149281651,23.72,-1.78,23.67,24.15,1.5
 20260526,23.4,24.1,23.4,23.6,157314234,23.71,-0.47,23.66,24.13,1.51
+20260527,23.7,23.8,23.3,23.3,170451126,23.68,-1.6,23.61,24.09,1.57
 ```
 
 ## Latest TDCC Snapshot
@@ -130,12 +130,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2887 | 台新新光金 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 2887 | 台新新光金 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2887 | 台新新光金 | 30 | 1 | 1409120.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260527 | 2887 | 台新新光金 | 30 | 1 | 2035150.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

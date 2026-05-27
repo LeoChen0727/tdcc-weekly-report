@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2911 麗嬰房
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:33 Asia/Taipei
+- generated_at: 2026-05-27 21:26:50 Asia/Taipei
 - stock_id: 2911
 - stock_name: 麗嬰房
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 133
+- latest_price_date: 20260527
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 10.5
-- high: 10.5
-- low: 9
-- close: 9.55
-- volume: 3866841
-- ma5: 8.58
-- ema23_primary: 6.5
-- distance_to_ema23_pct: 46.99
-- ma20: 6.12
-- ma60: 5.44
-- ma120: 5.15
-- return_5d: 46.02
-- return_20d: 75.23
-- volume_ratio: 6.34
-- distance_to_ma20_pct_auxiliary: 55.97
-- distance_to_high_60_pct: -9.05
+- date: 20260527
+- open: 9.27
+- high: 9.69
+- low: 8.6
+- close: 9.25
+- volume: 1944140
+- ma5: 8.99
+- ema23_primary: 6.73
+- distance_to_ema23_pct: 37.52
+- ma20: 6.29
+- ma60: 5.51
+- ma120: 5.19
+- return_5d: 28.65
+- return_20d: 56.78
+- volume_ratio: 2.92
+- distance_to_ma20_pct_auxiliary: 47.05
+- distance_to_high_60_pct: -11.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,5.99,5.99,5.9,5.9,814921,5.15,14.46,5.11,5.12,5.56
 20260429,5.46,6.4,5.31,5.31,1153861,5.17,2.75,5.12,5.13,5.7
 20260430,5.2,5.2,5.07,5.1,56375,5.16,-1.2,5.12,5.13,0.28
 20260504,5.1,5.37,4.59,5.1,463463,5.16,-1.1,5.12,5.13,2.13
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,8.69,8.69,8.69,8.69,766171,5.92,46.88,5.69,5.3,1.9
 20260525,9.55,9.55,9.55,9.55,836732,6.22,53.55,5.92,5.37,1.9
 20260526,10.5,10.5,9,9.55,3866841,6.5,46.99,6.12,5.44,6.34
+20260527,9.27,9.69,8.6,9.25,1944140,6.73,37.52,6.29,5.51,2.92
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260527 | 2911 | 麗嬰房 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260527 | 2911 | 麗嬰房 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | status |

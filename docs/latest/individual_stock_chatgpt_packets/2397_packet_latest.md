@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2397 友通
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:17 Asia/Taipei
+- generated_at: 2026-05-27 21:26:33 Asia/Taipei
 - stock_id: 2397
 - stock_name: 友通
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 66.3
-- high: 66.3
-- low: 62.8
-- close: 63.9
-- volume: 597654
-- ma5: 62.36
-- ema23_primary: 60.06
-- distance_to_ema23_pct: 6.4
-- ma20: 59.65
-- ma60: 57.81
-- ma120: 59.48
-- return_5d: 8.49
-- return_20d: 14.11
-- volume_ratio: 1.47
-- distance_to_ma20_pct_auxiliary: 7.12
-- distance_to_high_60_pct: -3.62
+- date: 20260527
+- open: 65
+- high: 65.5
+- low: 62.7
+- close: 62.9
+- volume: 586185
+- ma5: 62.9
+- ema23_primary: 60.29
+- distance_to_ema23_pct: 4.32
+- ma20: 59.94
+- ma60: 57.83
+- ma120: 59.5
+- return_5d: 4.49
+- return_20d: 10.16
+- volume_ratio: 1.36
+- distance_to_ma20_pct_auxiliary: 4.94
+- distance_to_high_60_pct: -5.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,56.2,57.4,56.2,57.1,115561,57.65,-0.95,57.51,58.11,0.56
 20260429,57.7,57.7,56.8,57.2,74618,57.61,-0.72,57.65,58.06,0.36
 20260430,56.8,57,56.5,56.5,112341,57.52,-1.77,57.81,58,0.55
 20260504,55.5,56.8,55.5,56.4,263450,57.43,-1.79,57.92,57.91,1.24
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,61.5,62.7,60.6,62.1,692890,59.24,4.84,58.87,57.72,2.04
 20260525,64.9,66.3,63.3,64.9,1270404,59.71,8.7,59.26,57.77,3.28
 20260526,66.3,66.3,62.8,63.9,597654,60.06,6.4,59.65,57.81,1.47
+20260527,65,65.5,62.7,62.9,586185,60.29,4.32,59.94,57.83,1.36
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2397 | 友通 | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

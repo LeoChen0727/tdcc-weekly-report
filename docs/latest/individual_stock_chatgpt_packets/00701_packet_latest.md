@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00701 國泰股利精選30
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:45 Asia/Taipei
+- generated_at: 2026-05-27 21:26:01 Asia/Taipei
 - stock_id: 00701
 - stock_name: 國泰股利精選30
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 32.71
-- high: 33.06
-- low: 32.71
-- close: 32.89
-- volume: 1571227
+- date: 20260527
+- open: 33
+- high: 33.94
+- low: 33
+- close: 33.89
+- volume: 1496045
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,32.15,32.15,31.91,32.08,636064,,,,,
 20260525,32.08,32.7,32,32.44,2021910,,,,,
 20260526,32.71,33.06,32.71,32.89,1571227,,,,,
+20260527,33,33.94,33,33.89,1496045,,,,,
 ```
 
 ## Latest TDCC Snapshot

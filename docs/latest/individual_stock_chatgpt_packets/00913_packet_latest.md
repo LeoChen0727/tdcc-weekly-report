@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00913 兆豐台灣晶圓製造
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:46 Asia/Taipei
+- generated_at: 2026-05-27 21:26:02 Asia/Taipei
 - stock_id: 00913
 - stock_name: 兆豐台灣晶圓製造
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 48.84
-- high: 49.24
-- low: 48.21
-- close: 48.89
-- volume: 1161443
+- date: 20260527
+- open: 51.1
+- high: 52.1
+- low: 50.75
+- close: 51.45
+- volume: 4567854
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,44.19,45.23,44.17,45.2,1423003,,,,,
 20260525,45.96,47.98,45.96,47.97,1080481,,,,,
 20260526,48.84,49.24,48.21,48.89,1161443,,,,,
+20260527,51.1,52.1,50.75,51.45,4567854,,,,,
 ```
 
 ## Latest TDCC Snapshot

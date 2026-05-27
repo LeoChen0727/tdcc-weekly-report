@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8102 傑霖科技
 
 ## Metadata
-- generated_at: 2026-05-26 23:55:07 Asia/Taipei
+- generated_at: 2026-05-27 21:28:28 Asia/Taipei
 - stock_id: 8102
 - stock_name: 傑霖科技
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 94
+- latest_price_date: 20260527
+- price_rows: 95
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 63.1
-- high: 64.9
-- low: 62.8
-- close: 64.9
-- volume: 64000
-- ma5: 64.44
-- ema23_primary: 64.75
-- distance_to_ema23_pct: 0.22
-- ma20: 65.94
-- ma60: 60.17
-- ma120: 59.57
-- return_5d: 7.81
-- return_20d: -8.85
-- volume_ratio: 1.4
-- distance_to_ma20_pct_auxiliary: -1.58
-- distance_to_high_60_pct: -20.76
+- date: 20260527
+- open: 64.9
+- high: 65
+- low: 62.1
+- close: 63.6
+- volume: 63000
+- ma5: 64.5
+- ema23_primary: 64.66
+- distance_to_ema23_pct: -1.64
+- ma20: 65.63
+- ma60: 60.32
+- ma120: 59.61
+- return_5d: 0.47
+- return_20d: -8.88
+- volume_ratio: 1.34
+- distance_to_ma20_pct_auxiliary: -3.09
+- distance_to_high_60_pct: -22.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,71.2,71.2,69,69.8,42000,64.46,8.29,63.69,57.51,0.49
 20260429,69.2,69.5,68.4,68.9,24000,64.83,6.28,64.31,57.65,0.28
 20260430,68.3,70.8,68.3,68.4,42000,65.13,5.03,64.88,57.79,0.49
 20260504,70,70,68.4,68.4,36000,65.4,4.59,65.57,57.95,0.42
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,65.6,65.6,62.7,64.9,64000,64.82,0.13,66.55,59.88,1.42
 20260525,64.8,64.8,63.1,63.9,64000,64.74,-1.3,66.25,60.02,1.42
 20260526,63.1,64.9,62.8,64.9,64000,64.75,0.22,65.94,60.17,1.4
+20260527,64.9,65,62.1,63.6,63000,64.66,-1.64,65.63,60.32,1.34
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9926 新海
 
 ## Metadata
-- generated_at: 2026-05-26 23:55:17 Asia/Taipei
+- generated_at: 2026-05-27 21:28:39 Asia/Taipei
 - stock_id: 9926
 - stock_name: 新海
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 131
+- latest_price_date: 20260527
+- price_rows: 132
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
+- date: 20260527
 - open: 48.95
 - high: 49.2
 - low: 48.95
 - close: 48.95
-- volume: 59404
-- ma5: 48.98
-- ema23_primary: 49.23
-- distance_to_ema23_pct: -0.56
-- ma20: 49.17
-- ma60: 49.92
+- volume: 18772
+- ma5: 48.96
+- ema23_primary: 49.2
+- distance_to_ema23_pct: -0.52
+- ma20: 49.16
+- ma60: 49.91
 - ma120: 49.72
-- return_5d: -0.31
+- return_5d: -0.2
 - return_20d: -0.71
-- volume_ratio: 1.02
-- distance_to_ma20_pct_auxiliary: -0.45
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: -0.42
 - distance_to_high_60_pct: -14.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,49.95,49.95,49.25,49.3,44485,49.78,-0.97,49.7,50,0.81
 20260429,49.8,49.8,49.3,49.3,41007,49.74,-0.89,49.68,50,0.82
 20260430,49.7,49.7,49.3,49.4,65338,49.72,-0.63,49.68,50,1.32
 20260504,49.4,49.4,49.3,49.35,42165,49.68,-0.67,49.66,50,0.91
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,48.8,49,48.8,49,31903,49.28,-0.57,49.22,49.96,0.54
 20260525,49.05,49.1,48.95,48.95,21659,49.25,-0.61,49.19,49.94,0.37
 20260526,48.95,49.2,48.95,48.95,59404,49.23,-0.56,49.17,49.92,1.02
+20260527,48.95,49.2,48.95,48.95,18772,49.2,-0.52,49.16,49.91,0.33
 ```
 
 ## Latest TDCC Snapshot

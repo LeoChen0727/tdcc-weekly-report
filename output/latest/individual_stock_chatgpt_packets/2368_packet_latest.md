@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2368 金像電
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:15 Asia/Taipei
+- generated_at: 2026-05-27 21:26:32 Asia/Taipei
 - stock_id: 2368
 - stock_name: 金像電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 1465
-- high: 1495
-- low: 1425
-- close: 1445
-- volume: 5681233
-- ma5: 1344
-- ema23_primary: 1318.14
-- distance_to_ema23_pct: 9.62
-- ma20: 1370
-- ma60: 1114.62
-- ma120: 888.97
-- return_5d: 12.45
-- return_20d: 1.76
+- date: 20260527
+- open: 1450
+- high: 1470
+- low: 1370
+- close: 1375
+- volume: 5687897
+- ma5: 1372
+- ema23_primary: 1322.88
+- distance_to_ema23_pct: 3.94
+- ma20: 1369.25
+- ma60: 1123.77
+- ma120: 895.84
+- return_5d: 11.34
+- return_20d: -1.08
 - volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: 5.47
-- distance_to_high_60_pct: -4.93
+- distance_to_ma20_pct_auxiliary: 0.42
+- distance_to_high_60_pct: -9.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,1410,1425,1370,1390,5537197,1148.92,20.98,1128.95,915.52,0.78
 20260429,1325,1390,1300,1360,5672136,1166.51,16.59,1152.05,928.25,0.8
 20260430,1360,1410,1320,1390,4979385,1185.14,17.29,1178.55,940.98,0.72
 20260504,1430,1480,1400,1440,4541472,1206.37,19.37,1203.25,954.22,0.67
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,1325,1365,1305,1330,5646399,1295.85,2.64,1367,1094.75,0.9
 20260525,1400,1455,1360,1425,6665391,1306.61,9.06,1368.75,1104.62,1.08
 20260526,1465,1495,1425,1445,5681233,1318.14,9.62,1370,1114.62,0.95
+20260527,1450,1470,1370,1375,5687897,1322.88,3.94,1369.25,1123.77,0.95
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2368 | 金像電 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 2368 | 金像電 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260527 | 2368 | 金像電 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | put_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 2368 | 金像電 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | put_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2368 | 金像電 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260527 | 2368 | 金像電 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2368 | 金像電 | 266 | 26 | 45303760.0 | 792630.0 | 57.16 | no_signal | 0 |  |
+| 20260527 | 2368 | 金像電 | 273 | 28 | 40596920.0 | 1018520.0 | 39.86 | put_inflow | -1 | 認售權證資金升溫，偏空或避險訊號 |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

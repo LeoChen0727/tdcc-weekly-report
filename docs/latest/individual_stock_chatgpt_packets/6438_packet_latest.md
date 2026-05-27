@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6438 迅得
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:39 Asia/Taipei
+- generated_at: 2026-05-27 21:28:00 Asia/Taipei
 - stock_id: 6438
 - stock_name: 迅得
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
+- date: 20260527
 - open: 176
-- high: 176
-- low: 171.5
-- close: 174
-- volume: 1268857
-- ma5: 168.3
-- ema23_primary: 170.33
-- distance_to_ema23_pct: 2.15
-- ma20: 171.1
-- ma60: 167.93
-- ma120: 154.93
-- return_5d: 7.08
-- return_20d: 1.75
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: 1.69
-- distance_to_high_60_pct: -9.84
+- high: 176.5
+- low: 170.5
+- close: 171.5
+- volume: 998540
+- ma5: 170.5
+- ema23_primary: 170.43
+- distance_to_ema23_pct: 0.63
+- ma20: 170.75
+- ma60: 168.27
+- ma120: 155.38
+- return_5d: 6.85
+- return_20d: -3.92
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: 0.44
+- distance_to_high_60_pct: -11.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,172.5,181.5,172.5,178.5,3042939,173.96,2.61,176.25,161.22,0.87
 20260429,177.5,177.5,173,174,1516190,173.96,0.02,176.38,161.63,0.44
 20260430,174.5,177.5,171,176,2018191,174.13,1.07,176.82,162.07,0.6
 20260504,178,180.5,177,177,1777081,174.37,1.51,177.05,162.53,0.53
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,165.5,171,163.5,169,1365067,169.63,-0.37,170.93,167.22,0.84
 20260525,172.5,176.5,170,174,1816239,170,2.36,170.95,167.57,1.15
 20260526,176,176,171.5,174,1268857,170.33,2.15,171.1,167.93,0.82
+20260527,176,176.5,170.5,171.5,998540,170.43,0.63,170.75,168.27,0.69
 ```
 
 ## Latest TDCC Snapshot
@@ -123,20 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6438 | 迅得 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 6438 | 迅得 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6438 | 迅得 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6438 | 迅得 | 42 | 0 | 10450290.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260527 | 6438 | 迅得 | 42 | 0 | 1516030.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

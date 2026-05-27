@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00875 國泰網路資安
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:46 Asia/Taipei
+- generated_at: 2026-05-27 21:26:01 Asia/Taipei
 - stock_id: 00875
 - stock_name: 國泰網路資安
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 47.08
-- high: 47.08
-- low: 46.68
-- close: 46.85
-- volume: 133983
+- date: 20260527
+- open: 46.74
+- high: 46.8
+- low: 46.64
+- close: 46.64
+- volume: 130674
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,45.22,45.27,45.16,45.27,259341,,,,,
 20260525,46.5,47.16,46.5,47.08,472412,,,,,
 20260526,47.08,47.08,46.68,46.85,133983,,,,,
+20260527,46.74,46.8,46.64,46.64,130674,,,,,
 ```
 
 ## Latest TDCC Snapshot

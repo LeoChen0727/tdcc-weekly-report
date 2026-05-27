@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2929 淘帝-KY
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:34 Asia/Taipei
+- generated_at: 2026-05-27 21:26:51 Asia/Taipei
 - stock_id: 2929
 - stock_name: 淘帝-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 5.54
-- high: 6.05
-- low: 5.54
-- close: 6.05
-- volume: 1150440
-- ma5: 5.63
-- ema23_primary: 5.67
-- distance_to_ema23_pct: 6.64
-- ma20: 5.56
-- ma60: 6.17
-- ma120: 7.02
-- return_5d: 14.15
-- return_20d: 7.08
-- volume_ratio: 2.53
-- distance_to_ma20_pct_auxiliary: 8.84
-- distance_to_high_60_pct: -19.97
+- date: 20260527
+- open: 6.6
+- high: 6.65
+- low: 6.37
+- close: 6.65
+- volume: 1258487
+- ma5: 5.92
+- ema23_primary: 5.75
+- distance_to_ema23_pct: 15.56
+- ma20: 5.61
+- ma60: 6.16
+- ma120: 7.01
+- return_5d: 28.63
+- return_20d: 18.75
+- volume_ratio: 2.5
+- distance_to_ma20_pct_auxiliary: 18.52
+- distance_to_high_60_pct: -11.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,5.64,5.68,5.6,5.6,258340,6.15,-8.94,6.1,6.87,0.93
 20260429,5.6,5.66,5.49,5.62,305200,6.11,-7.96,6.07,6.83,1.09
 20260430,5.6,5.64,5.57,5.57,237113,6.06,-8.11,6.05,6.8,0.86
 20260504,5.52,5.86,5.45,5.86,550424,6.04,-3.05,6.03,6.76,1.94
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,5.8,6.18,5.72,5.73,1378108,5.65,1.39,5.55,6.23,3.33
 20260525,5.79,5.8,5.5,5.5,632005,5.64,-2.46,5.54,6.2,1.5
 20260526,5.54,6.05,5.54,6.05,1150440,5.67,6.64,5.56,6.17,2.53
+20260527,6.6,6.65,6.37,6.65,1258487,5.75,15.56,5.61,6.16,2.5
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2929 | 淘帝-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 2929 | 淘帝-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2929 | 淘帝-KY | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260527 | 2929 | 淘帝-KY | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | status |

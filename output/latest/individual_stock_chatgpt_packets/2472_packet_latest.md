@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2472 立隆電
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:22 Asia/Taipei
+- generated_at: 2026-05-27 21:26:38 Asia/Taipei
 - stock_id: 2472
 - stock_name: 立隆電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 280.5
-- high: 307
-- low: 266
-- close: 307
-- volume: 15044620
-- ma5: 273.5
-- ema23_primary: 226.32
-- distance_to_ema23_pct: 35.65
-- ma20: 223.78
-- ma60: 166.61
-- ma120: 138.25
-- return_5d: 32.33
-- return_20d: 81.66
-- volume_ratio: 1.25
-- distance_to_ma20_pct_auxiliary: 37.19
+- date: 20260527
+- open: 337
+- high: 337.5
+- low: 328.5
+- close: 337.5
+- volume: 12343744
+- ma5: 290
+- ema23_primary: 235.58
+- distance_to_ema23_pct: 43.26
+- ma20: 231.9
+- ma60: 170.12
+- ma120: 140.16
+- return_5d: 32.35
+- return_20d: 92.86
+- volume_ratio: 0.99
+- distance_to_ma20_pct_auxiliary: 45.54
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,169.5,177.5,168.5,175,4043865,159.94,9.41,160.7,130.57,0.72
 20260429,175,181.5,171.5,177.5,3089765,161.41,9.97,162.97,131.57,0.56
 20260430,180.5,181.5,174,176.5,2759541,162.67,8.51,165.5,132.51,0.51
 20260504,179,188,175,184,4717000,164.44,11.89,168.05,133.62,0.9
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,265,271,258,260,16654212,213.48,21.79,211.53,160.87,1.59
 20260525,276,286,260,279.5,23870950,218.98,27.63,216.88,163.53,2.08
 20260526,280.5,307,266,307,15044620,226.32,35.65,223.78,166.61,1.25
+20260527,337,337.5,328.5,337.5,12343744,235.58,43.26,231.9,170.12,0.99
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2472 | 立隆電 | true_breakout | 嚴格突破 | 74.0 |  |  | platform_right_side |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 2472 | 立隆電 | true_breakout | 嚴格突破 | 61.0 |  |  |  |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2472 | 立隆電 | 2 | 2 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260527 | 2472 | 立隆電 | 3 | 3 | 3 | 3 | 3 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2472 | 立隆電 | 90 | 3 | 19219340.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 2472 | 立隆電 | 91 | 0 | 16294640.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

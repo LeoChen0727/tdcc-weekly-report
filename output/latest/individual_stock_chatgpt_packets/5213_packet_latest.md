@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5213 亞昕
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:16 Asia/Taipei
+- generated_at: 2026-05-27 21:27:35 Asia/Taipei
 - stock_id: 5213
 - stock_name: 亞昕
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 26.2
-- high: 26.35
-- low: 26.05
-- close: 26.15
+- date: 20260527
+- open: 26.25
+- high: 26.45
+- low: 26.25
+- close: 26.35
 - volume: 26000
-- ma5: 26.42
-- ema23_primary: 26.18
-- distance_to_ema23_pct: -0.1
-- ma20: 26.01
-- ma60: 26.42
-- ma120: 25.37
-- return_5d: 0.19
-- return_20d: 2.15
+- ma5: 26.47
+- ema23_primary: 26.19
+- distance_to_ema23_pct: 0.6
+- ma20: 26.03
+- ma60: 26.45
+- ma120: 25.39
+- return_5d: 0.96
+- return_20d: 1.74
 - volume_ratio: 0.05
-- distance_to_ma20_pct_auxiliary: 0.54
-- distance_to_high_60_pct: -7.6
+- distance_to_ma20_pct_auxiliary: 1.22
+- distance_to_high_60_pct: -6.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,25.6,25.9,25.45,25.9,346000,26.44,-2.04,26.61,25.93,0.67
 20260429,25.65,26.3,25.65,26.05,287000,26.41,-1.35,26.56,25.94,0.56
 20260430,26.05,26.15,25.9,25.9,627000,26.36,-1.76,26.52,25.96,1.24
 20260504,25.9,25.9,25.55,25.75,418000,26.31,-2.14,26.46,25.97,0.83
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,26.95,27,26.45,26.75,27000,26.18,2.19,25.99,26.36,0.04
 20260525,26.75,26.75,26.2,26.2,26000,26.18,0.08,25.98,26.39,0.04
 20260526,26.2,26.35,26.05,26.15,26000,26.18,-0.1,26.01,26.42,0.05
+20260527,26.25,26.45,26.25,26.35,26000,26.19,0.6,26.03,26.45,0.05
 ```
 
 ## Latest TDCC Snapshot
@@ -130,7 +130,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 5213 | 亞昕 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260527 | 5213 | 亞昕 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

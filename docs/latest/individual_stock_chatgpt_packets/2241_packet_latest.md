@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2241 艾姆勒
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:11 Asia/Taipei
+- generated_at: 2026-05-27 21:26:27 Asia/Taipei
 - stock_id: 2241
 - stock_name: 艾姆勒
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 38.8
+- date: 20260527
+- open: 37.7
 - high: 38.8
-- low: 36.1
-- close: 36.95
-- volume: 2498561
-- ma5: 36.66
-- ema23_primary: 33.41
-- distance_to_ema23_pct: 10.59
-- ma20: 32.93
-- ma60: 30.65
-- ma120: 32.86
-- return_5d: 10.79
-- return_20d: 16.75
-- volume_ratio: 1.33
-- distance_to_ma20_pct_auxiliary: 12.22
-- distance_to_high_60_pct: -7.39
+- low: 36.2
+- close: 36.35
+- volume: 1706368
+- ma5: 37.22
+- ema23_primary: 33.66
+- distance_to_ema23_pct: 8.01
+- ma20: 33.19
+- ma60: 30.77
+- ma120: 32.87
+- return_5d: 8.35
+- return_20d: 16.69
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: 9.53
+- distance_to_high_60_pct: -8.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,31.35,31.65,31,31.15,490701,30.03,3.74,29.32,30.18,0.54
 20260429,31.2,32.2,29.65,30.05,1498975,30.03,0.07,29.32,30.08,1.56
 20260430,30.05,30.35,29.7,29.8,627872,30.01,-0.7,29.38,30,0.65
 20260504,29.9,31.5,29.7,29.8,932504,29.99,-0.64,29.42,29.93,0.93
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,38.5,39.05,37.25,37.85,5313613,32.64,15.97,32.37,30.39,3.04
 20260525,38.55,39.9,37,38.05,3125750,33.09,14.99,32.66,30.52,1.72
 20260526,38.8,38.8,36.1,36.95,2498561,33.41,10.59,32.93,30.65,1.33
+20260527,37.7,38.8,36.2,36.35,1706368,33.66,8.01,33.19,30.77,0.88
 ```
 
 ## Latest TDCC Snapshot
@@ -125,14 +125,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2241 | 艾姆勒 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260526 | 2241 | 艾姆勒 | revenue_breakout_low_response | 營收爆發低反應股 | 16.0 | 11.0 | B_可觀察 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260527 | 2241 | 艾姆勒 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260527 | 2241 | 艾姆勒 | revenue_breakout_low_response | 營收爆發低反應股 | 17.0 | 14.0 | B_可觀察 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260521 | 2241 | 艾姆勒 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2241 | 艾姆勒 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 2241 | 艾姆勒 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

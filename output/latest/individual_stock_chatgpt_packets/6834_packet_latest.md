@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6834 天二科技
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:53 Asia/Taipei
+- generated_at: 2026-05-27 21:28:14 Asia/Taipei
 - stock_id: 6834
 - stock_name: 天二科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 76.4
-- high: 82.7
-- low: 72
-- close: 81.9
-- volume: 2886120
-- ma5: 71.42
-- ema23_primary: 53.4
-- distance_to_ema23_pct: 53.37
-- ma20: 51.09
-- ma60: 38.55
-- ma120: 34.3
-- return_5d: 48.64
-- return_20d: 137.39
-- volume_ratio: 0.68
-- distance_to_ma20_pct_auxiliary: 60.29
-- distance_to_high_60_pct: -0.97
+- date: 20260527
+- open: 81
+- high: 85
+- low: 76
+- close: 77.7
+- volume: 2394909
+- ma5: 74.84
+- ema23_primary: 55.42
+- distance_to_ema23_pct: 40.19
+- ma20: 53.08
+- ma60: 39.33
+- ma120: 34.72
+- return_5d: 28.22
+- return_20d: 104.74
+- volume_ratio: 0.55
+- distance_to_ma20_pct_auxiliary: 46.38
+- distance_to_high_60_pct: -8.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,34.9,37.95,34.7,37.95,472032,34.83,8.97,34.93,32.22,0.55
 20260429,39.3,39.8,38,38.2,1832723,35.11,8.81,35.32,32.31,1.94
 20260430,38.2,39,37.2,37.6,410802,35.32,6.47,35.67,32.33,0.44
 20260504,37.95,40.95,37.75,39.35,1550118,35.65,10.37,36.05,32.41,1.58
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,73.2,73.2,68.8,70.5,12289268,48.38,45.72,46.57,36.96,3.09
 20260525,68.8,77.5,67,77.5,3223226,50.81,52.53,48.73,37.72,0.78
 20260526,76.4,82.7,72,81.9,2886120,53.4,53.37,51.09,38.55,0.68
+20260527,81,85,76,77.7,2394909,55.42,40.19,53.08,39.33,0.55
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6834 | 天二科技 | 4 | 1 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

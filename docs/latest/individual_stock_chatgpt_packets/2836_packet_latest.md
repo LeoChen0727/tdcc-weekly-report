@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2836 高雄銀
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:31 Asia/Taipei
+- generated_at: 2026-05-27 21:26:47 Asia/Taipei
 - stock_id: 2836
 - stock_name: 高雄銀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
+- date: 20260527
 - open: 11.8
 - high: 11.85
 - low: 11.75
-- close: 11.85
-- volume: 761661
+- close: 11.8
+- volume: 1346349
 - ma5: 11.83
 - ema23_primary: 11.88
-- distance_to_ema23_pct: -0.28
+- distance_to_ema23_pct: -0.65
 - ma20: 11.85
-- ma60: 12.09
+- ma60: 12.07
 - ma120: 12.14
 - return_5d: 0
-- return_20d: 0
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: 0.02
-- distance_to_high_60_pct: -8.14
+- return_20d: -0.42
+- volume_ratio: 1.32
+- distance_to_ma20_pct_auxiliary: -0.38
+- distance_to_high_60_pct: -8.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,11.9,11.95,11.85,11.85,1714436,12.08,-1.89,12.1,12.19,0.92
 20260429,12,12,11.9,11.95,1286161,12.07,-0.97,12.09,12.19,0.69
 20260430,11.95,12,11.85,11.85,1074876,12.05,-1.65,12.08,12.19,0.58
 20260504,11.85,11.9,11.8,11.8,1266395,12.03,-1.9,12.06,12.18,0.68
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,11.85,11.95,11.8,11.85,1290909,11.89,-0.38,11.85,12.11,1.08
 20260525,11.8,11.85,11.75,11.8,1479389,11.89,-0.73,11.85,12.1,1.28
 20260526,11.8,11.85,11.75,11.85,761661,11.88,-0.28,11.85,12.09,0.73
+20260527,11.8,11.85,11.75,11.8,1346349,11.88,-0.65,11.85,12.07,1.32
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2836 | 高雄銀 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

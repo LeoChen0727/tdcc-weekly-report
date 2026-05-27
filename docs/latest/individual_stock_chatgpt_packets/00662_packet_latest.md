@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00662 富邦NASDAQ
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:45 Asia/Taipei
+- generated_at: 2026-05-27 21:26:00 Asia/Taipei
 - stock_id: 00662
 - stock_name: 富邦NASDAQ
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 120.6
-- high: 120.6
-- low: 120.05
-- close: 120.25
-- volume: 5967076
+- date: 20260527
+- open: 121.5
+- high: 121.5
+- low: 121.1
+- close: 121.15
+- volume: 4280250
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,119.6,119.65,119.35,119.5,3228112,,,,,
 20260525,120.6,120.85,120.5,120.8,8591772,,,,,
 20260526,120.6,120.6,120.05,120.25,5967076,,,,,
+20260527,121.5,121.5,121.1,121.15,4280250,,,,,
 ```
 
 ## Latest TDCC Snapshot

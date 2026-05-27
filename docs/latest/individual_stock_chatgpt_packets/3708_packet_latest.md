@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3708 上緯投控
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:58 Asia/Taipei
+- generated_at: 2026-05-27 21:27:16 Asia/Taipei
 - stock_id: 3708
 - stock_name: 上緯投控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 125.5
-- high: 135.5
-- low: 124
-- close: 131.5
-- volume: 4629976
-- ma5: 125.6
-- ema23_primary: 121.38
-- distance_to_ema23_pct: 8.34
-- ma20: 120.42
-- ma60: 120.68
-- ma120: 116.4
-- return_5d: 13.85
-- return_20d: 12.88
-- volume_ratio: 3.57
-- distance_to_ma20_pct_auxiliary: 9.2
-- distance_to_high_60_pct: -2.95
+- date: 20260527
+- open: 133
+- high: 140.5
+- low: 128.5
+- close: 131
+- volume: 4430689
+- ma5: 128
+- ema23_primary: 122.18
+- distance_to_ema23_pct: 7.22
+- ma20: 121.08
+- ma60: 120.84
+- ma120: 116.61
+- return_5d: 10.08
+- return_20d: 11.02
+- volume_ratio: 2.97
+- distance_to_ma20_pct_auxiliary: 8.2
+- distance_to_high_60_pct: -6.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,117,118.5,116.5,118,571047,120.41,-2,119.65,119.11,0.39
 20260429,118,118,115,116.5,669004,120.08,-2.98,119.15,119,0.49
 20260430,116.5,117.5,115,116.5,395138,119.78,-2.74,119.03,118.88,0.31
 20260504,116.5,122.5,116.5,120.5,947068,119.84,0.55,118.92,118.81,0.76
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,126,128,125,126,1321676,120.04,4.96,119.55,120.36,1.12
 20260525,128,128.5,123,125,1009619,120.46,3.77,119.67,120.46,0.86
 20260526,125.5,135.5,124,131.5,4629976,121.38,8.34,120.42,120.68,3.57
+20260527,133,140.5,128.5,131,4430689,122.18,7.22,121.08,120.84,2.97
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3708 | 上緯投控 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | call_put_bullish | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 3708 | 上緯投控 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3708 | 上緯投控 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260527 | 3708 | 上緯投控 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3708 | 上緯投控 | 27 | 2 | 5879150.0 | 20000.0 | 293.96 | call_put_bullish | 3 |  |
+| 20260527 | 3708 | 上緯投控 | 27 | 2 | 6585660.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

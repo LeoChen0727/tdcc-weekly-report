@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3689 湧德
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:57 Asia/Taipei
+- generated_at: 2026-05-27 21:27:15 Asia/Taipei
 - stock_id: 3689
 - stock_name: 湧德
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 127
-- high: 127.5
+- date: 20260527
+- open: 126.5
+- high: 132.5
 - low: 123.5
-- close: 124.5
-- volume: 125000
-- ma5: 122.5
-- ema23_primary: 124.8
-- distance_to_ema23_pct: -0.24
-- ma20: 126.42
-- ma60: 121.41
-- ma120: 116.42
-- return_5d: 6.41
-- return_20d: -5.32
+- close: 130.5
+- volume: 129000
+- ma5: 124.9
+- ema23_primary: 125.27
+- distance_to_ema23_pct: 4.17
+- ma20: 126.35
+- ma60: 121.61
+- ma120: 116.68
+- return_5d: 10.13
+- return_20d: -1.14
 - volume_ratio: 0.04
-- distance_to_ma20_pct_auxiliary: -1.52
-- distance_to_high_60_pct: -14.73
+- distance_to_ma20_pct_auxiliary: 3.28
+- distance_to_high_60_pct: -10.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,131,133.5,129,132,2023000,127.81,3.27,128.47,117.7,0.32
 20260429,130.5,133,129.5,131.5,1662000,128.12,2.64,129.53,117.87,0.27
 20260430,132.5,137.5,132.5,134,6807000,128.61,4.19,130.93,118.03,1.07
 20260504,136.5,137.5,134,136.5,3809000,129.27,5.59,132.12,118.33,0.59
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,122.5,124,121.5,123.5,123000,124.81,-1.05,127.17,121.22,0.03
 20260525,125,126.5,123,125,125000,124.83,0.14,126.78,121.3,0.03
 20260526,127,127.5,123.5,124.5,125000,124.8,-0.24,126.42,121.41,0.04
+20260527,126.5,132.5,123.5,130.5,129000,125.27,4.17,126.35,121.61,0.04
 ```
 
 ## Latest TDCC Snapshot
@@ -130,7 +130,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3689 | 湧德 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 3689 | 湧德 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

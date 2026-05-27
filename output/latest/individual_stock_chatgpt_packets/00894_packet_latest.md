@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00894 中信小資高價30
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:46 Asia/Taipei
+- generated_at: 2026-05-27 21:26:02 Asia/Taipei
 - stock_id: 00894
 - stock_name: 中信小資高價30
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 50.1
-- high: 50.15
-- low: 48.92
-- close: 49.42
-- volume: 2777206
+- date: 20260527
+- open: 50.45
+- high: 51.75
+- low: 50.1
+- close: 50.55
+- volume: 2917131
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,46.59,47.37,46.59,47.37,4297477,,,,,
 20260525,49.19,49.78,49.14,49.45,1782716,,,,,
 20260526,50.1,50.15,48.92,49.42,2777206,,,,,
+20260527,50.45,51.75,50.1,50.55,2917131,,,,,
 ```
 
 ## Latest TDCC Snapshot

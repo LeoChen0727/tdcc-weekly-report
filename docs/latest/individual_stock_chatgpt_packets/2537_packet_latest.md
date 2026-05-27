@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2537 聯上發
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:25 Asia/Taipei
+- generated_at: 2026-05-27 21:26:41 Asia/Taipei
 - stock_id: 2537
 - stock_name: 聯上發
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 9.57
-- high: 9.63
-- low: 9.52
-- close: 9.58
-- volume: 1313073
-- ma5: 9.64
-- ema23_primary: 9.97
-- distance_to_ema23_pct: -3.88
-- ma20: 10.01
-- ma60: 10.21
+- date: 20260527
+- open: 9.58
+- high: 9.58
+- low: 9.39
+- close: 9.39
+- volume: 1581260
+- ma5: 9.58
+- ema23_primary: 9.92
+- distance_to_ema23_pct: -5.33
+- ma20: 9.96
+- ma60: 10.2
 - ma120: 10.59
-- return_5d: -0.93
-- return_20d: -7.88
-- volume_ratio: 1.24
-- distance_to_ma20_pct_auxiliary: -4.29
-- distance_to_high_60_pct: -12.51
+- return_5d: -2.9
+- return_20d: -9.28
+- volume_ratio: 1.43
+- distance_to_ma20_pct_auxiliary: -5.73
+- distance_to_high_60_pct: -14.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,10.45,10.45,10.3,10.35,504048,10.42,-0.64,10.41,10.4,0.66
 20260429,10.45,10.45,10.35,10.45,656354,10.42,0.29,10.42,10.39,0.85
 20260430,10.45,10.55,10.2,10.2,1453368,10.4,-1.93,10.42,10.38,1.81
 20260504,10.3,10.3,10.2,10.25,929840,10.39,-1.33,10.41,10.38,1.14
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,9.89,9.89,9.5,9.57,2015643,10.04,-4.71,10.1,10.25,2
 20260525,9.57,9.6,9.38,9.55,1412427,10,-4.52,10.05,10.23,1.36
 20260526,9.57,9.63,9.52,9.58,1313073,9.97,-3.88,10.01,10.21,1.24
+20260527,9.58,9.58,9.39,9.39,1581260,9.92,-5.33,9.96,10.2,1.43
 ```
 
 ## Latest TDCC Snapshot
@@ -125,13 +125,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2537 | 聯上發 | revenue_pullback | 營收成長股價回檔 | 82.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260526 | 2537 | 聯上發 | revenue_breakout_low_response | 營收爆發低反應股 | 22.0 | 6.0 | B_可觀察 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260527 | 2537 | 聯上發 | revenue_pullback | 營收成長股價回檔 | 63.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260527 | 2537 | 聯上發 | revenue_breakout_low_response | 營收爆發低反應股 | 22.0 | 9.0 | B_可觀察 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2537 | 聯上發 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 2537 | 聯上發 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

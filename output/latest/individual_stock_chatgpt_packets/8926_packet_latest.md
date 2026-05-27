@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8926 台汽電
 
 ## Metadata
-- generated_at: 2026-05-26 23:55:15 Asia/Taipei
+- generated_at: 2026-05-27 21:28:36 Asia/Taipei
 - stock_id: 8926
 - stock_name: 台汽電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 63.5
-- high: 68.7
-- low: 63
-- close: 68.7
-- volume: 18031005
-- ma5: 62.6
-- ema23_primary: 55.03
-- distance_to_ema23_pct: 24.84
-- ma20: 53.87
-- ma60: 48.2
-- ma120: 45.19
-- return_5d: 20.53
-- return_20d: 49.51
-- volume_ratio: 1.96
-- distance_to_ma20_pct_auxiliary: 27.54
-- distance_to_high_60_pct: 0
+- date: 20260527
+- open: 69
+- high: 72.5
+- low: 68.8
+- close: 72.3
+- volume: 27210810
+- ma5: 65.08
+- ema23_primary: 56.47
+- distance_to_ema23_pct: 28.04
+- ma20: 55.19
+- ma60: 48.62
+- ma120: 45.45
+- return_5d: 20.7
+- return_20d: 58.03
+- volume_ratio: 2.58
+- distance_to_ma20_pct_auxiliary: 31
+- distance_to_high_60_pct: -0.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,46.35,46.35,45.5,45.75,686773,45.11,1.42,44.51,45,0.48
 20260429,45.5,45.6,45,45.15,1141688,45.11,0.08,44.56,45.03,0.88
 20260430,45.15,45.25,44.15,44.4,2019927,45.05,-1.45,44.62,45.03,1.52
 20260504,44.65,46.85,44.65,45.9,4287919,45.12,1.72,44.74,45.06,2.84
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,60.8,62.3,60.5,60.9,6817867,52.99,14.92,51.87,47.58,0.89
 20260525,60,63.8,59.2,62.5,16050793,53.79,16.2,52.73,47.84,1.91
 20260526,63.5,68.7,63,68.7,18031005,55.03,24.84,53.87,48.2,1.96
+20260527,69,72.5,68.8,72.3,27210810,56.47,28.04,55.19,48.62,2.58
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8926 | 台汽電 | true_breakout | 嚴格突破 | 97.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 8926 | 台汽電 | true_breakout | 嚴格突破 | 96.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8926 | 台汽電 | 2 | 2 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260527 | 8926 | 台汽電 | 3 | 2 | 3 | 3 | 3 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | status |

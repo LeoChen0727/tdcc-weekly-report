@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00944 野村趨勢動能高息
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:47 Asia/Taipei
+- generated_at: 2026-05-27 21:26:03 Asia/Taipei
 - stock_id: 00944
 - stock_name: 野村趨勢動能高息
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 19.6
-- high: 19.68
-- low: 19.5
-- close: 19.64
-- volume: 556428
+- date: 20260527
+- open: 19.91
+- high: 20.15
+- low: 19.91
+- close: 20.05
+- volume: 1734015
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,18.95,19.05,18.89,19.04,500432,,,,,
 20260525,19.29,19.52,19.29,19.46,1801160,,,,,
 20260526,19.6,19.68,19.5,19.64,556428,,,,,
+20260527,19.91,20.15,19.91,20.05,1734015,,,,,
 ```
 
 ## Latest TDCC Snapshot

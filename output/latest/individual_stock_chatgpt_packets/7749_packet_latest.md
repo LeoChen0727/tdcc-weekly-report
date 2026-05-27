@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7749 意騰-KY
 
 ## Metadata
-- generated_at: 2026-05-26 23:55:01 Asia/Taipei
+- generated_at: 2026-05-27 21:28:23 Asia/Taipei
 - stock_id: 7749
 - stock_name: 意騰-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 535
-- high: 540
-- low: 516
-- close: 519
-- volume: 724607
-- ma5: 517.1
-- ema23_primary: 486.45
-- distance_to_ema23_pct: 6.69
-- ma20: 493.77
-- ma60: 431.6
-- ma120: 431.36
-- return_5d: 7.68
-- return_20d: 21.97
-- volume_ratio: 0.67
-- distance_to_ma20_pct_auxiliary: 5.11
-- distance_to_high_60_pct: -7.32
+- date: 20260527
+- open: 525
+- high: 532
+- low: 498
+- close: 499.5
+- volume: 928369
+- ma5: 521.9
+- ema23_primary: 487.54
+- distance_to_ema23_pct: 2.45
+- ma20: 497.7
+- ma60: 432.31
+- ma120: 432.16
+- return_5d: 5.05
+- return_20d: 18.65
+- volume_ratio: 0.83
+- distance_to_ma20_pct_auxiliary: 0.36
+- distance_to_high_60_pct: -10.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,428,431.5,421,421,196933,406.62,3.54,393.57,406.91,0.7
 20260429,424,427,412.5,413.5,189629,407.2,1.55,395.25,406.82,0.67
 20260430,415,434,412.5,426,260017,408.76,4.22,398.77,406.88,0.94
 20260504,468.5,468.5,468.5,468.5,337545,413.74,13.24,404.2,407.29,1.18
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,520,550,506,544,1542075,478.81,13.61,483.98,428.16,1.51
 20260525,556,558,532,535,1426211,483.49,10.65,489.1,430.01,1.34
 20260526,535,540,516,519,724607,486.45,6.69,493.77,431.6,0.67
+20260527,525,532,498,499.5,928369,487.54,2.45,497.7,432.31,0.83
 ```
 
 ## Latest TDCC Snapshot
@@ -128,14 +128,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 7749 | 意騰-KY | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 7749 | 意騰-KY | 19 | 0 | 4065890.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 7749 | 意騰-KY | 19 | 0 | 1652490.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

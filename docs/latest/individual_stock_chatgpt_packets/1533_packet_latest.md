@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1533 車王電
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:58 Asia/Taipei
+- generated_at: 2026-05-27 21:26:14 Asia/Taipei
 - stock_id: 1533
 - stock_name: 車王電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 38.85
-- high: 39.1
-- low: 38.1
+- date: 20260527
+- open: 38.9
+- high: 39.6
+- low: 38.35
 - close: 38.65
-- volume: 459577
-- ma5: 38.84
-- ema23_primary: 35.08
-- distance_to_ema23_pct: 10.17
-- ma20: 34.98
-- ma60: 31.93
-- ma120: 31.93
-- return_5d: 11.87
-- return_20d: 27.56
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: 10.51
+- volume: 596514
+- ma5: 38.97
+- ema23_primary: 35.38
+- distance_to_ema23_pct: 9.24
+- ma20: 35.24
+- ma60: 32.06
+- ma120: 32
+- return_5d: 1.71
+- return_20d: 16.07
+- volume_ratio: 0.87
+- distance_to_ma20_pct_auxiliary: 9.67
 - distance_to_high_60_pct: -4.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,33.3,33.3,32.3,33.3,768138,30.88,7.84,30.61,30.73,5.25
 20260429,32.15,33.05,31.5,32.5,991248,31.01,4.79,30.75,30.73,5.17
 20260430,32.95,33,32.2,32.5,204852,31.14,4.38,30.91,30.72,1.04
 20260504,32.9,33.75,32.55,32.85,358921,31.28,5.02,31.07,30.74,1.69
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,40,40.35,38,38.85,1290230,34.39,12.98,34.16,31.67,1.99
 20260525,39.4,39.7,38.2,38.85,596678,34.76,11.77,34.56,31.8,0.88
 20260526,38.85,39.1,38.1,38.65,459577,35.08,10.17,34.98,31.93,0.66
+20260527,38.9,39.6,38.35,38.65,596514,35.38,9.24,35.24,32.06,0.87
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1533 | 車王電 | 1 | 1 | 3 | 3 | 3 | repeated_but_no_breakout | 近 10 日上榜 3 日、近 20 日上榜 3 日，尚未突破，需分辨醞釀或鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4720 德淵
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:08 Asia/Taipei
+- generated_at: 2026-05-27 21:27:27 Asia/Taipei
 - stock_id: 4720
 - stock_name: 德淵
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 25.75
-- high: 25.85
-- low: 24.65
-- close: 24.8
-- volume: 2320590
-- ma5: 25.18
-- ema23_primary: 25.21
-- distance_to_ema23_pct: -1.62
-- ma20: 26.23
-- ma60: 21.35
-- ma120: 18.56
-- return_5d: -0.6
-- return_20d: -8.66
-- volume_ratio: 0.37
-- distance_to_ma20_pct_auxiliary: -5.45
-- distance_to_high_60_pct: -17.47
+- date: 20260527
+- open: 24.9
+- high: 27.25
+- low: 24.7
+- close: 26.9
+- volume: 15310288
+- ma5: 25.68
+- ema23_primary: 25.35
+- distance_to_ema23_pct: 6.12
+- ma20: 26.2
+- ma60: 21.52
+- ma120: 18.67
+- return_5d: 10.25
+- return_20d: -2
+- volume_ratio: 2.4
+- distance_to_ma20_pct_auxiliary: 2.66
+- distance_to_high_60_pct: -10.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,27.35,28.4,26.2,27.45,12670167,22.25,23.38,21.71,18.27,1.47
 20260429,27,29.9,26.6,28.35,11134124,22.76,24.58,22.2,18.46,1.25
 20260430,28.5,28.5,26.25,26.4,7817474,23.06,14.48,22.64,18.62,0.86
 20260504,26.3,26.4,25.25,25.4,5689165,23.26,9.22,23.03,18.76,0.61
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,25.75,26.35,25.6,25.8,2501911,25.22,2.29,26.44,21.06,0.33
 20260525,26.2,26.4,25.35,25.5,3246955,25.25,1.01,26.35,21.21,0.45
 20260526,25.75,25.85,24.65,24.8,2320590,25.21,-1.62,26.23,21.35,0.37
+20260527,24.9,27.25,24.7,26.9,15310288,25.35,6.12,26.2,21.52,2.4
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260527 | 4720 | 德淵 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | early_entry_watch |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4720 | 德淵 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260527 | 4720 | 德淵 | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | status |

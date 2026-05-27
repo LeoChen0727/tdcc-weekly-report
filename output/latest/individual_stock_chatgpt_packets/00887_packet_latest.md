@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00887 永豐中國科技50大
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:46 Asia/Taipei
+- generated_at: 2026-05-27 21:26:02 Asia/Taipei
 - stock_id: 00887
 - stock_name: 永豐中國科技50大
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,11 +55,11 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 17.64
-- high: 17.87
-- low: 17.53
-- close: 17.69
+- date: 20260527
+- open: 17.86
+- high: 18.15
+- low: 17.74
+- close: 17.78
 - volume: 18000
 - ma5: 
 - ema23_primary: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,16.64,16.83,16.5,16.79,17000,,,,,
 20260525,16.86,17.53,16.86,17.51,17000,,,,,
 20260526,17.64,17.87,17.53,17.69,18000,,,,,
+20260527,17.86,18.15,17.74,17.78,18000,,,,,
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00882 中信中國高股息
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:46 Asia/Taipei
+- generated_at: 2026-05-27 21:26:01 Asia/Taipei
 - stock_id: 00882
 - stock_name: 中信中國高股息
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 15.72
-- high: 15.79
-- low: 15.61
-- close: 15.73
-- volume: 9351953
+- date: 20260527
+- open: 15.78
+- high: 15.78
+- low: 15.55
+- close: 15.6
+- volume: 10613224
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,15.9,15.91,15.72,15.79,9374115,,,,,
 20260525,15.79,15.8,15.68,15.72,6714236,,,,,
 20260526,15.72,15.79,15.61,15.73,9351953,,,,,
+20260527,15.78,15.78,15.55,15.6,10613224,,,,,
 ```
 
 ## Latest TDCC Snapshot

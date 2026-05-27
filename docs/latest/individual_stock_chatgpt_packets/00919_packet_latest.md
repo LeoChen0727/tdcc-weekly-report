@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00919 群益台灣精選高息
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:46 Asia/Taipei
+- generated_at: 2026-05-27 21:26:02 Asia/Taipei
 - stock_id: 00919
 - stock_name: 群益台灣精選高息
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 27.82
-- high: 28.03
-- low: 27.75
-- close: 27.93
-- volume: 112594782
+- date: 20260527
+- open: 28.3
+- high: 28.92
+- low: 28.3
+- close: 28.85
+- volume: 165225160
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,26.73,26.74,26.53,26.73,80979889,,,,,
 20260525,26.91,27.49,26.9,27.47,146148130,,,,,
 20260526,27.82,28.03,27.75,27.93,112594782,,,,,
+20260527,28.3,28.92,28.3,28.85,165225160,,,,,
 ```
 
 ## Latest TDCC Snapshot

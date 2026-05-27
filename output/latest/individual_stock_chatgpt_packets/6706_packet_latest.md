@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6706 惠特
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:49 Asia/Taipei
+- generated_at: 2026-05-27 21:28:10 Asia/Taipei
 - stock_id: 6706
 - stock_name: 惠特
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 182
-- high: 197
-- low: 179.5
-- close: 197
-- volume: 14579655
-- ma5: 178.1
-- ema23_primary: 165.1
-- distance_to_ema23_pct: 19.32
-- ma20: 167.9
-- ma60: 141.34
-- ma120: 127.99
-- return_5d: 13.87
-- return_20d: 61.48
-- volume_ratio: 1.5
-- distance_to_ma20_pct_auxiliary: 17.33
+- date: 20260527
+- open: 204.5
+- high: 216.5
+- low: 204.5
+- close: 216.5
+- volume: 12845565
+- ma5: 189.3
+- ema23_primary: 169.38
+- distance_to_ema23_pct: 27.82
+- ma20: 172.03
+- ma60: 142.72
+- ma120: 129.16
+- return_5d: 34.89
+- return_20d: 61.57
+- volume_ratio: 1.26
+- distance_to_ma20_pct_auxiliary: 25.85
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,123,134,122,134,3044093,132.66,1.01,132.85,124.17,0.36
 20260429,142,147,138,147,9121416,133.86,9.82,134.07,124.68,1.03
 20260430,151.5,160,150.5,151.5,21234654,135.33,11.95,136.03,125.33,2.2
 20260504,166,166.5,165.5,166.5,2877992,137.93,20.72,138.6,126.22,0.3
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,174,185,173,185,9381150,160.63,15.17,161.43,139.18,1.06
 20260525,189,195.5,178,179.5,13160809,162.2,10.67,164.15,140.08,1.43
 20260526,182,197,179.5,197,14579655,165.1,19.32,167.9,141.34,1.5
+20260527,204.5,216.5,204.5,216.5,12845565,169.38,27.82,172.03,142.72,1.26
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6706 | 惠特 | true_breakout | 嚴格突破 | 69.0 |  |  | platform_right_side |  | call_put_bullish | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 6706 | 惠特 | true_breakout | 嚴格突破 | 74.0 |  |  | platform_right_side |  | call_put_bullish | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6706 | 惠特 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260527 | 6706 | 惠特 | 2 | 2 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6706 | 惠特 | 86 | 6 | 24071710.0 | 85150.0 | 282.7 | call_put_bullish | 3 |  |
+| 20260527 | 6706 | 惠特 | 86 | 6 | 30648480.0 | 371490.0 | 82.5 | call_put_bullish | 3 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00949 復華日本龍頭
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:47 Asia/Taipei
+- generated_at: 2026-05-27 21:26:03 Asia/Taipei
 - stock_id: 00949
 - stock_name: 復華日本龍頭
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 20.41
-- high: 20.47
-- low: 20.34
-- close: 20.42
-- volume: 982454
+- date: 20260527
+- open: 20.38
+- high: 20.4
+- low: 20.28
+- close: 20.34
+- volume: 1151658
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,20.13,20.25,20.12,20.23,1241374,,,,,
 20260525,20.45,20.54,20.4,20.41,1391072,,,,,
 20260526,20.41,20.47,20.34,20.42,982454,,,,,
+20260527,20.38,20.4,20.28,20.34,1151658,,,,,
 ```
 
 ## Latest TDCC Snapshot

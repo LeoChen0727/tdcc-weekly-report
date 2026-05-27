@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00762 元大全球AI
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:45 Asia/Taipei
+- generated_at: 2026-05-27 21:26:01 Asia/Taipei
 - stock_id: 00762
 - stock_name: 元大全球AI
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 114
-- high: 114
-- low: 112.85
-- close: 113.25
-- volume: 175430
+- date: 20260527
+- open: 114.25
+- high: 114.75
+- low: 114.25
+- close: 114.25
+- volume: 155241
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,111.85,112,111.15,111.5,136398,,,,,
 20260525,112.45,113.8,112.45,113.8,185437,,,,,
 20260526,114,114,112.85,113.25,175430,,,,,
+20260527,114.25,114.75,114.25,114.25,155241,,,,,
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009804 聯邦台精彩50
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:47 Asia/Taipei
+- generated_at: 2026-05-27 21:26:03 Asia/Taipei
 - stock_id: 009804
 - stock_name: 聯邦台精彩50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 22.65
-- high: 22.66
-- low: 22.38
-- close: 22.52
-- volume: 1265188
+- date: 20260527
+- open: 23.18
+- high: 23.53
+- low: 23.09
+- close: 23.28
+- volume: 1162886
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,21.18,21.5,21.18,21.49,1305425,,,,,
 20260525,21.85,22.43,21.85,22.4,2423899,,,,,
 20260526,22.65,22.66,22.38,22.52,1265188,,,,,
+20260527,23.18,23.53,23.09,23.28,1162886,,,,,
 ```
 
 ## Latest TDCC Snapshot

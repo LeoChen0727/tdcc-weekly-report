@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2489 瑞軒
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:23 Asia/Taipei
+- generated_at: 2026-05-27 21:26:39 Asia/Taipei
 - stock_id: 2489
 - stock_name: 瑞軒
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 57.5
-- high: 57.7
-- low: 50.9
-- close: 51.7
-- volume: 127851563
-- ma5: 49.79
-- ema23_primary: 44.4
-- distance_to_ema23_pct: 16.44
-- ma20: 43.9
-- ma60: 40.86
-- ma120: 29.52
-- return_5d: 24.58
-- return_20d: 46.67
-- volume_ratio: 2.4
-- distance_to_ma20_pct_auxiliary: 17.77
-- distance_to_high_60_pct: -10.4
+- date: 20260527
+- open: 53.1
+- high: 53.2
+- low: 48.3
+- close: 50.7
+- volume: 80204687
+- ma5: 51.42
+- ema23_primary: 44.93
+- distance_to_ema23_pct: 12.85
+- ma20: 44.52
+- ma60: 41.05
+- ma120: 29.83
+- return_5d: 19.15
+- return_20d: 32.72
+- volume_ratio: 1.41
+- distance_to_ma20_pct_auxiliary: 13.88
+- distance_to_high_60_pct: -12.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,37.5,38.75,36,38.2,9118316,39.68,-3.73,40.04,34.58,0.19
 20260429,38.85,42,37.5,42,85451042,39.87,5.33,40.5,34.93,1.74
 20260430,42,45.5,41.5,42.1,108916868,40.06,5.1,41.05,35.24,2.11
 20260504,42.1,42.8,41.25,42,42868114,40.22,4.42,41.48,35.58,0.84
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,50.7,51.4,50.7,51.4,29542292,42.58,20.72,42.17,40.21,0.62
 20260525,56.5,56.5,56.5,56.5,6706560,43.74,29.18,43.08,40.6,0.14
 20260526,57.5,57.7,50.9,51.7,127851563,44.4,16.44,43.9,40.86,2.4
+20260527,53.1,53.2,48.3,50.7,80204687,44.93,12.85,44.52,41.05,1.41
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2489 | 瑞軒 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  | call_inflow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 2489 | 瑞軒 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2489 | 瑞軒 | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260527 | 2489 | 瑞軒 | 3 | 1 | 3 | 3 | 3 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2489 | 瑞軒 | 6 | 1 | 1703100.0 | 4400.0 | 387.07 | call_inflow | 1 |  |
+| 20260527 | 2489 | 瑞軒 | 6 | 1 | 448340.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

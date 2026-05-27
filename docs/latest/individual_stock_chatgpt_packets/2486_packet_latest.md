@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2486 一詮
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:23 Asia/Taipei
+- generated_at: 2026-05-27 21:26:39 Asia/Taipei
 - stock_id: 2486
 - stock_name: 一詮
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 305.5
-- high: 314
-- low: 288
-- close: 289
-- volume: 12804684
-- ma5: 278.8
-- ema23_primary: 256.77
-- distance_to_ema23_pct: 12.55
-- ma20: 271
-- ma60: 198.39
-- ma120: 151.64
-- return_5d: 14.91
-- return_20d: 28.73
-- volume_ratio: 1.36
-- distance_to_ma20_pct_auxiliary: 6.64
-- distance_to_high_60_pct: -9.12
+- date: 20260527
+- open: 292
+- high: 299
+- low: 273
+- close: 276
+- volume: 10120755
+- ma5: 282.4
+- ema23_primary: 258.37
+- distance_to_ema23_pct: 6.82
+- ma20: 273.27
+- ma60: 200.66
+- ma120: 153.18
+- return_5d: 6.98
+- return_20d: 19.74
+- volume_ratio: 1.03
+- distance_to_ma20_pct_auxiliary: 1
+- distance_to_high_60_pct: -13.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,225,234,224.5,230.5,2286928,188.93,22,184.75,153.03,0.29
 20260429,223,253.5,222,253.5,22024048,194.31,30.46,190.1,155.68,2.48
 20260430,258,278,242,270.5,33488505,200.66,34.8,197,158.59,3.21
 20260504,280,297.5,279,297.5,16433973,208.73,42.53,204.62,161.79,1.46
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,280,283.5,268.5,271,9762141,249.87,8.46,264.1,193.32,1.14
 20260525,280,297.5,279,297.5,9151825,253.84,17.2,267.77,195.9,1.03
 20260526,305.5,314,288,289,12804684,256.77,12.55,271,198.39,1.36
+20260527,292,299,273,276,10120755,258.37,6.82,273.27,200.66,1.03
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260527 | 2486 | 一詮 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 2486 | 一詮 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2486 | 一詮 | 1 | 1 | 3 | 3 | 3 | repeated_but_no_breakout | 近 10 日上榜 3 日、近 20 日上榜 3 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260527 | 2486 | 一詮 | 2 | 2 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2486 | 一詮 | 57 | 4 | 4945030.0 | 440.0 | 11238.7 | call_inflow | 1 |  |
+| 20260527 | 2486 | 一詮 | 57 | 4 | 2088550.0 | 8710.0 | 239.79 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

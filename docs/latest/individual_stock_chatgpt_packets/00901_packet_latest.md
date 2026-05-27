@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00901 永豐智能車供應鏈
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:46 Asia/Taipei
+- generated_at: 2026-05-27 21:26:02 Asia/Taipei
 - stock_id: 00901
 - stock_name: 永豐智能車供應鏈
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 45.5
-- high: 45.81
-- low: 44.8
-- close: 45.21
-- volume: 469426
+- date: 20260527
+- open: 46.56
+- high: 47.49
+- low: 46.49
+- close: 46.87
+- volume: 2521904
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,41.94,42.86,41.94,42.82,396945,,,,,
 20260525,44.14,45.22,44.14,45.22,2398082,,,,,
 20260526,45.5,45.81,44.8,45.21,469426,,,,,
+20260527,46.56,47.49,46.49,46.87,2521904,,,,,
 ```
 
 ## Latest TDCC Snapshot

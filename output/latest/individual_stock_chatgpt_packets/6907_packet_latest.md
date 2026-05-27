@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6907 雅特力-KY
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:56 Asia/Taipei
+- generated_at: 2026-05-27 21:28:17 Asia/Taipei
 - stock_id: 6907
 - stock_name: 雅特力-KY
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 73
+- latest_price_date: 20260527
+- price_rows: 74
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 124.5
-- high: 126
-- low: 119
-- close: 121.5
+- date: 20260527
+- open: 123
+- high: 125.5
+- low: 116
+- close: 117
 - volume: 121000
-- ma5: 117.9
-- ema23_primary: 120.88
-- distance_to_ema23_pct: 0.51
-- ma20: 121.72
-- ma60: 120.22
-- ma120: 108.3
-- return_5d: 9.46
-- return_20d: 1.25
-- volume_ratio: 0.09
-- distance_to_ma20_pct_auxiliary: -0.18
-- distance_to_high_60_pct: -30.57
+- ma5: 119.4
+- ema23_primary: 120.56
+- distance_to_ema23_pct: -2.95
+- ma20: 121.58
+- ma60: 120.74
+- ma120: 108.42
+- return_5d: 6.85
+- return_20d: -2.5
+- volume_ratio: 0.1
+- distance_to_ma20_pct_auxiliary: -3.76
+- distance_to_high_60_pct: -33.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,117.5,128.5,117.5,120,1408000,122.12,-1.74,121.33,103.54,0.85
 20260429,120,124,117,121,953000,122.03,-0.84,121.48,103.86,0.57
 20260430,119,131,118.5,118.5,1270000,121.73,-2.66,122.08,104.12,0.74
 20260504,119.5,122,115.5,117,896000,121.34,-3.58,122.48,104.35,0.52
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,116,125,114,121.5,120000,120.62,0.73,122.08,118.62,0.07
 20260525,123.5,126.5,119,123,123000,120.82,1.8,121.65,119.49,0.09
 20260526,124.5,126,119,121.5,121000,120.88,0.51,121.72,120.22,0.09
+20260527,123,125.5,116,117,121000,120.56,-2.95,121.58,120.74,0.1
 ```
 
 ## Latest TDCC Snapshot

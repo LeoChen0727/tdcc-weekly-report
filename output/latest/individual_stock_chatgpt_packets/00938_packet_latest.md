@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00938 凱基優選30
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:47 Asia/Taipei
+- generated_at: 2026-05-27 21:26:02 Asia/Taipei
 - stock_id: 00938
 - stock_name: 凱基優選30
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 21.3
-- high: 21.42
-- low: 21.3
-- close: 21.35
-- volume: 2144321
+- date: 20260527
+- open: 21.51
+- high: 21.91
+- low: 21.51
+- close: 21.74
+- volume: 1480603
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,20.87,20.99,20.87,20.99,1757030,,,,,
 20260525,21.1,21.3,21.1,21.21,1066799,,,,,
 20260526,21.3,21.42,21.3,21.35,2144321,,,,,
+20260527,21.51,21.91,21.51,21.74,1480603,,,,,
 ```
 
 ## Latest TDCC Snapshot

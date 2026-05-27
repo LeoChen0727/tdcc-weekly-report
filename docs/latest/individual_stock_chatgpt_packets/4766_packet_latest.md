@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4766 南寶
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:10 Asia/Taipei
+- generated_at: 2026-05-27 21:27:29 Asia/Taipei
 - stock_id: 4766
 - stock_name: 南寶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 378
-- high: 380.5
-- low: 372.5
-- close: 375
-- volume: 809824
-- ma5: 372
-- ema23_primary: 366.35
-- distance_to_ema23_pct: 2.36
-- ma20: 370.43
-- ma60: 344.12
-- ma120: 331.84
-- return_5d: 4.17
-- return_20d: 9.65
-- volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: 1.24
-- distance_to_high_60_pct: -5.78
+- date: 20260527
+- open: 378.5
+- high: 380
+- low: 365
+- close: 367
+- volume: 998556
+- ma5: 374.2
+- ema23_primary: 366.41
+- distance_to_ema23_pct: 0.16
+- ma20: 371.48
+- ma60: 344.77
+- ma120: 332.27
+- return_5d: 3.09
+- return_20d: 6.07
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: -1.2
+- distance_to_high_60_pct: -7.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,345.5,348.5,340.5,346,329829,340.36,1.66,338.73,326.39,0.36
 20260429,349,358.5,346,354,896746,341.5,3.66,340.62,326.97,0.95
 20260430,370.5,389,357,358.5,4668447,342.91,4.55,343.12,327.66,4.05
 20260504,358,384,351,374.5,2032258,345.54,8.38,346.12,328.61,1.64
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,378,384,376,381.5,1319301,364.66,4.62,367.38,342.43,0.9
 20260525,386,390,371,375.5,1759947,365.56,2.72,368.77,343.28,1.14
 20260526,378,380.5,372.5,375,809824,366.35,2.36,370.43,344.12,0.52
+20260527,378.5,380,365,367,998556,366.41,0.16,371.48,344.77,0.63
 ```
 
 ## Latest TDCC Snapshot
@@ -128,14 +128,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4766 | 南寶 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4766 | 南寶 | 32 | 0 | 2374160.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260527 | 4766 | 南寶 | 32 | 0 | 950250.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

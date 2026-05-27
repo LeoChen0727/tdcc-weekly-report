@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6026 福邦證
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:26 Asia/Taipei
+- generated_at: 2026-05-27 21:27:46 Asia/Taipei
 - stock_id: 6026
 - stock_name: 福邦證
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 15.65
-- high: 15.85
-- low: 15.4
-- close: 15.75
+- date: 20260527
+- open: 15.85
+- high: 16.65
+- low: 15.8
+- close: 16.45
 - volume: 16000
-- ma5: 15.41
-- ema23_primary: 15.45
-- distance_to_ema23_pct: 1.97
-- ma20: 15.67
-- ma60: 14.93
-- ma120: 14.17
-- return_5d: 5
-- return_20d: 5.35
+- ma5: 15.69
+- ema23_primary: 15.53
+- distance_to_ema23_pct: 5.93
+- ma20: 15.73
+- ma60: 14.96
+- ma120: 14.21
+- return_5d: 9.3
+- return_20d: 8.58
 - volume_ratio: 0.01
-- distance_to_ma20_pct_auxiliary: 0.53
-- distance_to_high_60_pct: -7.35
+- distance_to_ma20_pct_auxiliary: 4.56
+- distance_to_high_60_pct: -3.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,15.05,15.25,14.85,15.15,2224000,14.77,2.6,14.78,14.58,1.49
 20260429,15.15,15.3,15.05,15.25,2421000,14.81,2.99,14.81,14.6,1.58
 20260430,15.3,15.4,15.1,15.35,1938000,14.85,3.35,14.86,14.61,1.24
 20260504,15.5,15.7,15.4,15.7,3948000,14.92,5.21,14.9,14.63,2.31
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,15.45,15.45,15.2,15.3,15000,15.4,-0.66,15.59,14.89,0
 20260525,15.4,15.7,15.35,15.6,16000,15.42,1.18,15.63,14.91,0.01
 20260526,15.65,15.85,15.4,15.75,16000,15.45,1.97,15.67,14.93,0.01
+20260527,15.85,16.65,15.8,16.45,16000,15.53,5.93,15.73,14.96,0.01
 ```
 
 ## Latest TDCC Snapshot
@@ -130,7 +130,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6026 | 福邦證 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260527 | 6026 | 福邦證 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

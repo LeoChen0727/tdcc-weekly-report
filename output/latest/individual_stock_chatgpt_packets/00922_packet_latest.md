@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00922 國泰台灣領袖50
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:47 Asia/Taipei
+- generated_at: 2026-05-27 21:26:02 Asia/Taipei
 - stock_id: 00922
 - stock_name: 國泰台灣領袖50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 38.81
-- high: 38.84
-- low: 38.25
-- close: 38.38
-- volume: 10500297
+- date: 20260527
+- open: 39
+- high: 39.79
+- low: 39
+- close: 39.27
+- volume: 11517534
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,36.47,36.89,36.39,36.86,9330872,,,,,
 20260525,37.82,38.52,37.82,38.49,26107165,,,,,
 20260526,38.81,38.84,38.25,38.38,10500297,,,,,
+20260527,39,39.79,39,39.27,11517534,,,,,
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2408 南亞科
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:18 Asia/Taipei
+- generated_at: 2026-05-27 21:26:34 Asia/Taipei
 - stock_id: 2408
 - stock_name: 南亞科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 300.5
-- high: 314
-- low: 295.5
-- close: 303.5
-- volume: 152949355
-- ma5: 295.6
-- ema23_primary: 279.79
-- distance_to_ema23_pct: 8.47
-- ma20: 283.88
-- ma60: 247.71
-- ma120: 232.26
-- return_5d: 10.56
-- return_20d: 34
-- volume_ratio: 1.02
-- distance_to_ma20_pct_auxiliary: 6.91
-- distance_to_high_60_pct: -14.02
+- date: 20260527
+- open: 333
+- high: 333.5
+- low: 306
+- close: 312
+- volume: 206216639
+- ma5: 303
+- ema23_primary: 282.48
+- distance_to_ema23_pct: 10.45
+- ma20: 287.6
+- ma60: 248.15
+- ma120: 233.69
+- return_5d: 13.45
+- return_20d: 31.37
+- volume_ratio: 1.37
+- distance_to_ma20_pct_auxiliary: 8.48
+- distance_to_high_60_pct: -11.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,234.5,242.5,231.5,237.5,204983861,221.18,7.38,214.2,246.65,1.88
 20260429,236,242,232,235,98792725,222.33,5.7,214.93,246.38,0.92
 20260430,239.5,240,214.5,215.5,125666192,221.76,-2.82,215.78,245.53,1.18
 20260504,223,237,217,237,144354307,223.03,6.26,217.07,244.96,1.34
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,299.5,321,296,310.5,157819181,275.97,12.51,275.52,247.48,1.08
 20260525,295,303.5,288,296,155862832,277.64,6.61,280.02,247.45,1.04
 20260526,300.5,314,295.5,303.5,152949355,279.79,8.47,283.88,247.71,1.02
+20260527,333,333.5,306,312,206216639,282.48,10.45,287.6,248.15,1.37
 ```
 
 ## Latest TDCC Snapshot
@@ -125,19 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2408 | 南亞科 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | put_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 2408 | 南亞科 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | put_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260521 | 2408 | 南亞科 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | put_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 2408 | 南亞科 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | mixed_flow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260521 | 2408 | 南亞科 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | mixed_flow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2408 | 南亞科 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260527 | 2408 | 南亞科 | 5 | 5 | 5 | 5 | 5 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2408 | 南亞科 | 166 | 13 | 102068150.0 | 1992410.0 | 51.23 | put_inflow | -1 | 認售權證資金升溫，偏空或避險訊號；認購權證成交金額很大且認購/認售比偏高，需檢查標的是否高位追價或獲利結清；認購權證成交量與成交金額同步偏大，短線資金關注度高 |
+| 20260527 | 2408 | 南亞科 | 173 | 15 | 146125650.0 | 2512890.0 | 58.15 | mixed_flow | 0 | 認購權證成交金額很大且認購/認售比偏高，需檢查標的是否高位追價或獲利結清；認購權證成交量與成交金額同步偏大，短線資金關注度高 |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

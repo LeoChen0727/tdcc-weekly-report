@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2851 中再保
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:31 Asia/Taipei
+- generated_at: 2026-05-27 21:26:48 Asia/Taipei
 - stock_id: 2851
 - stock_name: 中再保
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 35
-- high: 35.2
-- low: 34.7
-- close: 35.15
-- volume: 1485020
-- ma5: 35.1
-- ema23_primary: 33.08
-- distance_to_ema23_pct: 6.27
-- ma20: 32.84
-- ma60: 30.77
-- ma120: 28.71
-- return_5d: 0.43
-- return_20d: 16.39
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: 7.05
-- distance_to_high_60_pct: -1.4
+- date: 20260527
+- open: 35.2
+- high: 35.35
+- low: 34.8
+- close: 35
+- volume: 3293630
+- ma5: 35.12
+- ema23_primary: 33.24
+- distance_to_ema23_pct: 5.3
+- ma20: 33.05
+- ma60: 30.9
+- ma120: 28.79
+- return_5d: 0.29
+- return_20d: 14.01
+- volume_ratio: 1.09
+- distance_to_ma20_pct_auxiliary: 5.9
+- distance_to_high_60_pct: -1.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,30.2,30.75,30.2,30.7,1645903,30.24,1.53,30.57,28.92,0.8
 20260429,30.7,30.8,30.35,30.4,696124,30.25,0.49,30.56,28.97,0.34
 20260430,30.5,30.5,30.15,30.15,1192715,30.24,-0.31,30.53,29.02,0.59
 20260504,30.15,30.45,30.15,30.35,1196497,30.25,0.32,30.5,29.08,0.61
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,35.4,35.65,34.65,34.8,3284911,32.69,6.46,32.34,30.53,1.14
 20260525,35.05,35.25,34.45,35.1,2236785,32.89,6.73,32.59,30.65,0.76
 20260526,35,35.2,34.7,35.15,1485020,33.08,6.27,32.84,30.77,0.5
+20260527,35.2,35.35,34.8,35,3293630,33.24,5.3,33.05,30.9,1.09
 ```
 
 ## Latest TDCC Snapshot
@@ -125,14 +125,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2851 | 中再保 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 2851 | 中再保 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 2851 | 中再保 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 2851 | 中再保 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 2851 | 中再保 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2851 | 中再保 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 2851 | 中再保 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

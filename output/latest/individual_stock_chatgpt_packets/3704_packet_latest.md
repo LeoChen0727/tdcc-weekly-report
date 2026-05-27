@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3704 合勤控
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:57 Asia/Taipei
+- generated_at: 2026-05-27 21:27:16 Asia/Taipei
 - stock_id: 3704
 - stock_name: 合勤控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 43.9
-- high: 46.65
-- low: 43.2
+- date: 20260527
+- open: 45.65
+- high: 46.3
+- low: 44.7
 - close: 45.25
-- volume: 9352287
-- ma5: 42.57
-- ema23_primary: 38.48
-- distance_to_ema23_pct: 17.58
-- ma20: 37.6
-- ma60: 35.18
-- ma120: 34.82
-- return_5d: 18.77
-- return_20d: 31.54
-- volume_ratio: 1.88
-- distance_to_ma20_pct_auxiliary: 20.35
+- volume: 7911189
+- ma5: 43.88
+- ema23_primary: 39.05
+- distance_to_ema23_pct: 15.88
+- ma20: 38.13
+- ma60: 35.36
+- ma120: 34.92
+- return_5d: 16.93
+- return_20d: 30.59
+- volume_ratio: 1.51
+- distance_to_ma20_pct_auxiliary: 18.67
 - distance_to_high_60_pct: -3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,34.45,35.1,33.35,34.65,2198522,35.18,-1.51,35.17,34.64,0.6
 20260429,34.7,34.7,33.75,33.8,1474453,35.07,-3.61,35.21,34.55,0.44
 20260430,33.85,35.45,33.8,34.95,2802060,35.06,-0.3,35.32,34.49,0.86
 20260504,35.4,36.3,34.5,34.7,2580506,35.03,-0.93,35.4,34.42,0.79
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,41.45,44.4,39.7,44,13709228,37.36,17.78,36.6,34.82,3.2
 20260525,44.15,44.45,42.6,43.5,8744814,37.87,14.87,37.06,34.99,1.91
 20260526,43.9,46.65,43.2,45.25,9352287,38.48,17.58,37.6,35.18,1.88
+20260527,45.65,46.3,44.7,45.25,7911189,39.05,15.88,38.13,35.36,1.51
 ```
 
 ## Latest TDCC Snapshot
@@ -125,13 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3704 | 合勤控 | true_breakout | 嚴格突破 | 92.0 |  |  | platform_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 3704 | 合勤控 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 3704 | 合勤控 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3704 | 合勤控 | 4 | 4 | 4 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260527 | 3704 | 合勤控 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

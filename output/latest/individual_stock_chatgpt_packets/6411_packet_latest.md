@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6411 晶焱
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:38 Asia/Taipei
+- generated_at: 2026-05-27 21:27:58 Asia/Taipei
 - stock_id: 6411
 - stock_name: 晶焱
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 96.9
-- high: 102
-- low: 94.8
-- close: 100.5
-- volume: 98000
-- ma5: 94.4
-- ema23_primary: 85.8
-- distance_to_ema23_pct: 17.14
-- ma20: 84.47
-- ma60: 80.44
-- ma120: 80.03
-- return_5d: 21.82
-- return_20d: 30.01
+- date: 20260527
+- open: 105
+- high: 105
+- low: 98.7
+- close: 101
+- volume: 101000
+- ma5: 97.4
+- ema23_primary: 87.06
+- distance_to_ema23_pct: 16.01
+- ma20: 85.63
+- ma60: 80.65
+- ma120: 80.22
+- return_5d: 17.44
+- return_20d: 29.82
 - volume_ratio: 0.13
-- distance_to_ma20_pct_auxiliary: 18.98
-- distance_to_high_60_pct: -1.47
+- distance_to_ma20_pct_auxiliary: 17.95
+- distance_to_high_60_pct: -3.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,78.1,79.1,77.5,77.8,162000,78.09,-0.37,76.95,79.69,0.41
 20260429,77.3,78.4,76.6,77.6,299000,78.05,-0.57,77.1,79.57,0.76
 20260430,77.8,79.3,77.3,77.4,246000,77.99,-0.76,77.34,79.45,0.63
 20260504,79.1,79.4,77.8,78.1,321000,78,0.13,77.59,79.38,0.81
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,95.8,99.8,92.6,94.9,96000,83.41,13.77,82.48,80.02,0.12
 20260525,97,99.5,94.5,96,96000,84.46,13.66,83.31,80.19,0.12
 20260526,96.9,102,94.8,100.5,98000,85.8,17.14,84.47,80.44,0.13
+20260527,105,105,98.7,101,101000,87.06,16.01,85.63,80.65,0.13
 ```
 
 ## Latest TDCC Snapshot
@@ -130,7 +130,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6411 | 晶焱 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260527 | 6411 | 晶焱 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

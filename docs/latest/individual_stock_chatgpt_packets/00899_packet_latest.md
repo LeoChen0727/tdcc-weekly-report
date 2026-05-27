@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00899 FT潔淨能源
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:46 Asia/Taipei
+- generated_at: 2026-05-27 21:26:02 Asia/Taipei
 - stock_id: 00899
 - stock_name: FT潔淨能源
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 28.6
-- high: 28.76
-- low: 28.58
-- close: 28.75
-- volume: 138951
+- date: 20260527
+- open: 29.06
+- high: 29.5
+- low: 29.06
+- close: 29.36
+- volume: 82040
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,28.18,28.5,28.06,28.26,243435,,,,,
 20260525,28.38,28.5,28.31,28.44,153500,,,,,
 20260526,28.6,28.76,28.58,28.75,138951,,,,,
+20260527,29.06,29.5,29.06,29.36,82040,,,,,
 ```
 
 ## Latest TDCC Snapshot

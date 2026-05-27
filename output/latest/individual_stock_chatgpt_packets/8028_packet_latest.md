@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8028 昇陽半導體
 
 ## Metadata
-- generated_at: 2026-05-26 23:55:03 Asia/Taipei
+- generated_at: 2026-05-27 21:28:25 Asia/Taipei
 - stock_id: 8028
 - stock_name: 昇陽半導體
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 319.5
-- high: 335
-- low: 309
-- close: 311
-- volume: 13567730
-- ma5: 288.5
-- ema23_primary: 256.52
-- distance_to_ema23_pct: 21.24
-- ma20: 257.3
-- ma60: 212.42
-- ma120: 192.4
-- return_5d: 18.7
-- return_20d: 35.51
-- volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: 20.87
-- distance_to_high_60_pct: -7.16
+- date: 20260527
+- open: 318
+- high: 318
+- low: 301.5
+- close: 308
+- volume: 7556258
+- ma5: 298.4
+- ema23_primary: 260.81
+- distance_to_ema23_pct: 18.1
+- ma20: 260.93
+- ma60: 214.42
+- ma120: 193.74
+- return_5d: 19.15
+- return_20d: 30.79
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: 18.04
+- distance_to_high_60_pct: -8.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,225.5,239.5,218,235.5,19384215,204.29,15.28,199.82,185.02,1.13
 20260429,232.5,252.5,227.5,246,20072434,207.77,18.4,202.7,186.22,1.14
 20260430,245,255,240,245,18660316,210.87,16.19,205.9,187.4,1.04
 20260504,249,250,239.5,244.5,14741760,213.67,14.43,209.25,188.56,0.81
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,280.5,294,280.5,294,8520221,246.11,19.46,249.75,208.08,0.49
 20260525,308,321,305.5,311.5,14593592,251.56,23.83,253.22,210.28,0.86
 20260526,319.5,335,309,311,13567730,256.52,21.24,257.3,212.42,0.85
+20260527,318,318,301.5,308,7556258,260.81,18.1,260.93,214.42,0.49
 ```
 
 ## Latest TDCC Snapshot
@@ -135,7 +135,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8028 | 昇陽半導體 | 177 | 2 | 26451470.0 | 102590.0 | 257.84 | no_signal | 0 |  |
+| 20260527 | 8028 | 昇陽半導體 | 177 | 2 | 12115850.0 | 266250.0 | 45.51 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

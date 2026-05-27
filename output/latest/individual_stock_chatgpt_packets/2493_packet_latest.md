@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2493 揚博
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:23 Asia/Taipei
+- generated_at: 2026-05-27 21:26:39 Asia/Taipei
 - stock_id: 2493
 - stock_name: 揚博
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 155.5
-- high: 163.5
-- low: 153
-- close: 163.5
-- volume: 13254705
-- ma5: 142.8
-- ema23_primary: 134.99
-- distance_to_ema23_pct: 21.12
-- ma20: 134.32
-- ma60: 122.01
-- ma120: 115.68
-- return_5d: 24.33
-- return_20d: 32.39
-- volume_ratio: 3.5
-- distance_to_ma20_pct_auxiliary: 21.72
-- distance_to_high_60_pct: 0
+- date: 20260527
+- open: 171
+- high: 171.5
+- low: 151
+- close: 158
+- volume: 10164240
+- ma5: 148.7
+- ema23_primary: 136.91
+- distance_to_ema23_pct: 15.41
+- ma20: 135.9
+- ma60: 122.57
+- ma120: 116.26
+- return_5d: 22.96
+- return_20d: 24.9
+- volume_ratio: 2.43
+- distance_to_ma20_pct_auxiliary: 16.26
+- distance_to_high_60_pct: -7.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,123.5,129,122,126.5,2175070,123.72,2.24,124.03,114.38,0.59
 20260429,126,129,121,124.5,2558855,123.79,0.58,124.83,114.52,0.69
 20260430,125.5,126.5,123,123,1228380,123.72,-0.58,125.7,114.61,0.33
 20260504,123.5,127,120,124,1640358,123.75,0.21,126.45,114.76,0.43
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,137.5,140.5,136,137.5,2529238,130.89,5.05,130.82,120.56,0.82
 20260525,139.5,151,138.5,149,6981961,132.4,12.54,132.32,121.25,2.15
 20260526,155.5,163.5,153,163.5,13254705,134.99,21.12,134.32,122.01,3.5
+20260527,171,171.5,151,158,10164240,136.91,15.41,135.9,122.57,2.43
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2493 | 揚博 | true_breakout | 嚴格突破 | 99.0 |  |  | breakout_confirmed |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 2493 | 揚博 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2493 | 揚博 | 2 | 2 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260527 | 2493 | 揚博 | 3 | 3 | 3 | 3 | 3 | continued_2_3d | 連續 3 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2493 | 揚博 | 55 | 1 | 20476450.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260527 | 2493 | 揚博 | 55 | 1 | 13373280.0 | 11400.0 | 1173.09 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

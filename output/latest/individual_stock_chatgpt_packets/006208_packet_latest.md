@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 006208 富邦台50
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:44 Asia/Taipei
+- generated_at: 2026-05-27 21:26:00 Asia/Taipei
 - stock_id: 006208
 - stock_name: 富邦台50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 235
-- high: 235.45
-- low: 232.5
-- close: 232.55
-- volume: 2549863
+- date: 20260527
+- open: 237.75
+- high: 240.2
+- low: 236.05
+- close: 237.6
+- volume: 4846354
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,222.8,225.05,222.05,225.05,3447577,,,,,
 20260525,230.25,234,230.15,233.15,7505248,,,,,
 20260526,235,235.45,232.5,232.55,2549863,,,,,
+20260527,237.75,240.2,236.05,237.6,4846354,,,,,
 ```
 
 ## Latest TDCC Snapshot

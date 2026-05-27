@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2453 凌群
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:20 Asia/Taipei
+- generated_at: 2026-05-27 21:26:37 Asia/Taipei
 - stock_id: 2453
 - stock_name: 凌群
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 58.2
-- high: 62.2
-- low: 58.2
-- close: 61.6
-- volume: 5423106
-- ma5: 57.34
-- ema23_primary: 55.5
-- distance_to_ema23_pct: 10.99
-- ma20: 55.15
-- ma60: 54.09
-- ma120: 54.01
-- return_5d: 13.03
-- return_20d: 15.79
-- volume_ratio: 7.47
-- distance_to_ma20_pct_auxiliary: 11.71
-- distance_to_high_60_pct: -0.96
+- date: 20260527
+- open: 65.6
+- high: 65.6
+- low: 61.6
+- close: 62.5
+- volume: 8958771
+- ma5: 58.9
+- ema23_primary: 56.08
+- distance_to_ema23_pct: 11.44
+- ma20: 55.57
+- ma60: 54.23
+- ma120: 54.1
+- return_5d: 14.26
+- return_20d: 15.74
+- volume_ratio: 7.71
+- distance_to_ma20_pct_auxiliary: 12.47
+- distance_to_high_60_pct: -4.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,53.2,54.1,53,54,220989,53.93,0.13,53.63,54.16,0.56
 20260429,54.3,54.3,53.4,53.6,125555,53.9,-0.56,53.73,54.13,0.33
 20260430,53.8,55,53.1,53.5,357470,53.87,-0.69,53.83,54.07,0.95
 20260504,54,54.5,53.6,53.7,310517,53.86,-0.29,53.87,53.91,0.82
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,56.2,57.2,55.9,57.2,1184374,54.71,4.55,54.51,53.86,2.71
 20260525,58.4,58.4,56.8,57.5,1052339,54.95,4.65,54.73,53.94,2.22
 20260526,58.2,62.2,58.2,61.6,5423106,55.5,10.99,55.15,54.09,7.47
+20260527,65.6,65.6,61.6,62.5,8958771,56.08,11.44,55.57,54.23,7.71
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2453 | 凌群 | true_breakout | 嚴格突破 | 146.0 |  |  | breakout_confirmed |  |  | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 2453 | 凌群 | true_breakout | 嚴格突破 | 113.0 |  |  | neckline_challenge |  |  | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2453 | 凌群 | 4 | 2 | 4 | 4 | 4 | continued_many_days | 連續 4 個交易日上榜，需判斷是持續醞釀或訊號鈍化。 |
+| 20260527 | 2453 | 凌群 | 5 | 3 | 5 | 5 | 5 | continued_many_days | 連續 5 個交易日上榜，需判斷是持續醞釀或訊號鈍化。 |
 
 ## Warrant Context
 | status |

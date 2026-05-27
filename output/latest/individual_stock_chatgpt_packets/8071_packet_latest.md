@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8071 能率網通
 
 ## Metadata
-- generated_at: 2026-05-26 23:55:05 Asia/Taipei
+- generated_at: 2026-05-27 21:28:27 Asia/Taipei
 - stock_id: 8071
 - stock_name: 能率網通
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 21.25
-- high: 21.25
-- low: 20
-- close: 20.1
+- date: 20260527
+- open: 20.15
+- high: 20.25
+- low: 19.5
+- close: 19.5
 - volume: 20000
-- ma5: 20.23
-- ema23_primary: 18.47
-- distance_to_ema23_pct: 8.8
-- ma20: 18.16
-- ma60: 17.02
-- ma120: 17.44
-- return_5d: -4.29
-- return_20d: 30.1
+- ma5: 20.2
+- ema23_primary: 18.56
+- distance_to_ema23_pct: 5.06
+- ma20: 18.36
+- ma60: 17.06
+- ma120: 17.46
+- return_5d: -0.76
+- return_20d: 25
 - volume_ratio: 0.01
-- distance_to_ma20_pct_auxiliary: 10.65
-- distance_to_high_60_pct: -8.22
+- distance_to_ma20_pct_auxiliary: 6.21
+- distance_to_high_60_pct: -10.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,15.35,16.05,15.25,15.6,261000,16.23,-3.88,16.11,16.86,1.63
 20260429,15.7,16.45,15.7,16.2,341000,16.23,-0.17,16.11,16.83,2
 20260430,16.4,16.55,16.1,16.4,259000,16.24,0.97,16.13,16.79,1.48
 20260504,16.65,16.9,16.1,16.1,407000,16.23,-0.8,16.14,16.75,2.19
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,19.85,20.25,19.4,20.05,20000,18.04,11.12,17.65,16.9,0.01
 20260525,20.05,21.6,19.7,21.45,20000,18.33,17.04,17.93,16.97,0.01
 20260526,21.25,21.25,20,20.1,20000,18.47,8.8,18.16,17.02,0.01
+20260527,20.15,20.25,19.5,19.5,20000,18.56,5.06,18.36,17.06,0.01
 ```
 
 ## Latest TDCC Snapshot
@@ -130,7 +130,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8071 | 能率網通 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 8071 | 能率網通 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4755 三福化
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:09 Asia/Taipei
+- generated_at: 2026-05-27 21:27:29 Asia/Taipei
 - stock_id: 4755
 - stock_name: 三福化
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 154.5
-- high: 159
-- low: 152
-- close: 155.5
-- volume: 1259870
-- ma5: 146.1
-- ema23_primary: 144.91
-- distance_to_ema23_pct: 7.31
-- ma20: 143.82
-- ma60: 146.93
-- ma120: 130.31
-- return_5d: 15.61
-- return_20d: -3.42
-- volume_ratio: 1.77
-- distance_to_ma20_pct_auxiliary: 8.12
-- distance_to_high_60_pct: -13.61
+- date: 20260527
+- open: 156.5
+- high: 165
+- low: 156
+- close: 162.5
+- volume: 2150031
+- ma5: 151.6
+- ema23_primary: 146.37
+- distance_to_ema23_pct: 11.02
+- ma20: 144.22
+- ma60: 147.17
+- ma120: 130.85
+- return_5d: 20.37
+- return_20d: 5.18
+- volume_ratio: 2.81
+- distance_to_ma20_pct_auxiliary: 12.67
+- distance_to_high_60_pct: -9.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,163.5,163.5,152.5,154.5,1102395,152.03,1.62,149.2,142.19,0.82
 20260429,154.5,156.5,150.5,156,635978,152.36,2.39,150.03,142.67,0.47
 20260430,155.5,155.5,148.5,149,961808,152.08,-2.03,150.47,143.03,0.7
 20260504,150,151,148.5,149,563732,151.82,-1.86,150.88,143.42,0.41
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,140,148.5,140,146.5,1125641,143.12,2.36,144.5,146.63,1.56
 20260525,149.5,153.5,148,153,1209007,143.94,6.29,144.1,146.82,1.74
 20260526,154.5,159,152,155.5,1259870,144.91,7.31,143.82,146.93,1.77
+20260527,156.5,165,156,162.5,2150031,146.37,11.02,144.22,147.17,2.81
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4755 | 三福化 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | call_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 4755 | 三福化 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | call_inflow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4755 | 三福化 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260527 | 4755 | 三福化 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4755 | 三福化 | 3 | 0 | 1274900.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260527 | 4755 | 三福化 | 3 | 0 | 1332180.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2474 可成
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:22 Asia/Taipei
+- generated_at: 2026-05-27 21:26:38 Asia/Taipei
 - stock_id: 2474
 - stock_name: 可成
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 188.5
-- high: 198
+- date: 20260527
+- open: 195
+- high: 214.5
 - low: 188
-- close: 195
-- volume: 13086286
-- ma5: 187.4
-- ema23_primary: 196.25
-- distance_to_ema23_pct: -0.64
-- ma20: 199.78
-- ma60: 195.98
-- ma120: 198.5
-- return_5d: 5.98
-- return_20d: -13.33
-- volume_ratio: 2.45
-- distance_to_ma20_pct_auxiliary: -2.39
-- distance_to_high_60_pct: -19.75
+- close: 208.5
+- volume: 22629999
+- ma5: 192.5
+- ema23_primary: 197.27
+- distance_to_ema23_pct: 5.69
+- ma20: 198.65
+- ma60: 196.27
+- ma120: 198.51
+- return_5d: 13.93
+- return_20d: -9.74
+- volume_ratio: 3.65
+- distance_to_ma20_pct_auxiliary: 4.96
+- distance_to_high_60_pct: -14.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,235,237,227.5,231,5375214,206.5,11.86,203.43,196.51,1.03
 20260429,228,239.5,215,216.5,6882311,207.34,4.42,204.78,196.72,1.27
 20260430,215.5,217,208,209,7164622,207.48,0.73,205.82,196.83,1.27
 20260504,210,214.5,207.5,209.5,5729767,207.64,0.89,206.82,196.95,0.98
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,185,188.5,184,187.5,5636943,197.26,-4.95,203.12,196.04,1.04
 20260525,189.5,190.5,186,186.5,7852117,196.37,-5.02,201.28,195.94,1.54
 20260526,188.5,198,188,195,13086286,196.25,-0.64,199.78,195.98,2.45
+20260527,195,214.5,188,208.5,22629999,197.27,5.69,198.65,196.27,3.65
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2474 | 可成 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_put_bullish | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 2474 | 可成 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | call_strong_inflow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2474 | 可成 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260527 | 2474 | 可成 | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2474 | 可成 | 23 | 2 | 4838000.0 | 5200.0 | 930.38 | call_put_bullish | 3 |  |
+| 20260527 | 2474 | 可成 | 23 | 2 | 17990780.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00932 兆豐永續高息等權
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:47 Asia/Taipei
+- generated_at: 2026-05-27 21:26:02 Asia/Taipei
 - stock_id: 00932
 - stock_name: 兆豐永續高息等權
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 16.69
-- high: 16.71
-- low: 16.59
-- close: 16.65
-- volume: 1543467
+- date: 20260527
+- open: 16.72
+- high: 16.77
+- low: 16.65
+- close: 16.69
+- volume: 3403010
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,16.51,16.58,16.45,16.56,1771936,,,,,
 20260525,16.66,16.7,16.6,16.63,2499922,,,,,
 20260526,16.69,16.71,16.59,16.65,1543467,,,,,
+20260527,16.72,16.77,16.65,16.69,3403010,,,,,
 ```
 
 ## Latest TDCC Snapshot

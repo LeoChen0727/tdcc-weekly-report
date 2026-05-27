@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00752 中信中國50
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:45 Asia/Taipei
+- generated_at: 2026-05-27 21:26:01 Asia/Taipei
 - stock_id: 00752
 - stock_name: 中信中國50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 23.08
-- high: 23.29
-- low: 22.92
-- close: 23.24
-- volume: 3969278
+- date: 20260527
+- open: 23.24
+- high: 23.24
+- low: 22.82
+- close: 22.84
+- volume: 4090764
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,23.4,23.47,23.22,23.26,12011462,,,,,
 20260525,23.27,23.27,23.04,23.08,3576335,,,,,
 20260526,23.08,23.29,22.92,23.24,3969278,,,,,
+20260527,23.24,23.24,22.82,22.84,4090764,,,,,
 ```
 
 ## Latest TDCC Snapshot

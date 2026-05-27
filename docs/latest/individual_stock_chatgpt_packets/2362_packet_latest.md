@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2362 藍天
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:15 Asia/Taipei
+- generated_at: 2026-05-27 21:26:31 Asia/Taipei
 - stock_id: 2362
 - stock_name: 藍天
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 42.4
-- high: 42.8
-- low: 41.3
-- close: 41.7
-- volume: 1822733
-- ma5: 40.71
-- ema23_primary: 39.61
-- distance_to_ema23_pct: 5.27
-- ma20: 39.52
-- ma60: 38.76
-- ma120: 39.02
-- return_5d: 8.17
-- return_20d: 8.59
-- volume_ratio: 1.82
-- distance_to_ma20_pct_auxiliary: 5.52
-- distance_to_high_60_pct: -2.57
+- date: 20260527
+- open: 42
+- high: 42.2
+- low: 40.95
+- close: 41.05
+- volume: 1389962
+- ma5: 41.16
+- ema23_primary: 39.73
+- distance_to_ema23_pct: 3.31
+- ma20: 39.63
+- ma60: 38.78
+- ma120: 39.03
+- return_5d: 5.8
+- return_20d: 5.8
+- volume_ratio: 1.32
+- distance_to_ma20_pct_auxiliary: 3.58
+- distance_to_high_60_pct: -4.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,38.7,39,38.25,38.8,398096,38.49,0.81,38.36,38.39,0.72
 20260429,39.1,39.1,38.5,38.7,265222,38.51,0.51,38.38,38.39,0.49
 20260430,38.65,38.75,38.35,38.5,367395,38.5,-0.01,38.44,38.38,0.69
 20260504,38.5,38.55,37.6,38.3,296463,38.49,-0.49,38.47,38.37,0.56
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,40,41.2,39.65,40.85,1602483,39.16,4.31,39.15,38.68,2.16
 20260525,41.8,42.8,41.45,42.3,4281225,39.42,7.3,39.35,38.73,4.6
 20260526,42.4,42.8,41.3,41.7,1822733,39.61,5.27,39.52,38.76,1.82
+20260527,42,42.2,40.95,41.05,1389962,39.73,3.31,39.63,38.78,1.32
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2362 | 藍天 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2362 | 藍天 | 4 | 1 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2362 | 藍天 | 1 | 0 | 31020.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 2362 | 藍天 | 1 | 0 | 19650.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

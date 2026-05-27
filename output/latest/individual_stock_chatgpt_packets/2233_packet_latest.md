@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2233 宇隆
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:11 Asia/Taipei
+- generated_at: 2026-05-27 21:26:27 Asia/Taipei
 - stock_id: 2233
 - stock_name: 宇隆
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 375
-- high: 394
-- low: 367
-- close: 377
-- volume: 3745234
-- ma5: 356.5
-- ema23_primary: 310.61
-- distance_to_ema23_pct: 21.37
-- ma20: 313.57
-- ma60: 257.44
-- ma120: 236.88
-- return_5d: 10.88
-- return_20d: 52.63
-- volume_ratio: 1.53
-- distance_to_ma20_pct_auxiliary: 20.23
-- distance_to_high_60_pct: -4.31
+- date: 20260527
+- open: 380
+- high: 381.5
+- low: 362
+- close: 365
+- volume: 2143533
+- ma5: 363.1
+- ema23_primary: 315.14
+- distance_to_ema23_pct: 15.82
+- ma20: 319.32
+- ma60: 259.63
+- ma120: 238.35
+- return_5d: 9.94
+- return_20d: 46
+- volume_ratio: 0.85
+- distance_to_ma20_pct_auxiliary: 14.3
+- distance_to_high_60_pct: -7.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,249,254.5,243,250,823392,235.66,6.09,231.28,233.73,0.73
 20260429,248.5,274.5,248.5,273,3064146,238.77,14.34,233.65,234.52,2.45
 20260430,275,300,271,300,6174279,243.87,23.02,237.8,235.55,4.04
 20260504,315.5,325,301,318.5,6301467,250.09,27.35,242.45,236.96,3.46
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,345,372.5,338,347,4445229,297.58,16.61,300.07,252.52,2.04
 20260525,357,381.5,345,381.5,3823922,304.57,25.26,307.07,254.97,1.65
 20260526,375,394,367,377,3745234,310.61,21.37,313.57,257.44,1.53
+20260527,380,381.5,362,365,2143533,315.14,15.82,319.32,259.63,0.85
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2233 | 宇隆 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 58.0 |  |  | neckline_challenge |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2233 | 宇隆 | 4 | 1 | 4 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2233 | 宇隆 | 49 | 1 | 16109420.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260527 | 2233 | 宇隆 | 49 | 1 | 6776230.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

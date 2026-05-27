@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6176 瑞儀
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:31 Asia/Taipei
+- generated_at: 2026-05-27 21:27:51 Asia/Taipei
 - stock_id: 6176
 - stock_name: 瑞儀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 108
-- high: 108
-- low: 104
-- close: 105
-- volume: 6571468
-- ma5: 105.9
-- ema23_primary: 102.21
-- distance_to_ema23_pct: 2.73
-- ma20: 102.48
-- ma60: 98.16
-- ma120: 110.16
-- return_5d: 2.94
-- return_20d: 6.06
-- volume_ratio: 0.89
-- distance_to_ma20_pct_auxiliary: 2.45
-- distance_to_high_60_pct: -16.67
+- date: 20260527
+- open: 105
+- high: 105.5
+- low: 101.5
+- close: 101.5
+- volume: 6731004
+- ma5: 105.3
+- ema23_primary: 102.15
+- distance_to_ema23_pct: -0.63
+- ma20: 102.78
+- ma60: 97.81
+- ma120: 110.01
+- return_5d: -2.87
+- return_20d: 6.28
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: -1.25
+- distance_to_high_60_pct: -12.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,98,99.4,94.8,95.5,10982434,96.49,-1.03,93.83,105.32,1.21
 20260429,96.3,102.5,95.7,100.5,12102761,96.83,3.79,94.26,104.93,1.26
 20260430,100.5,102,98.5,99.7,12574651,97.07,2.71,94.67,104.5,1.24
 20260504,101,103,100,101,6823033,97.39,3.7,95.05,104.06,0.66
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,105.5,108,104.5,107.5,7163513,101.45,5.97,102.31,99.08,0.7
 20260525,109,109.5,106.5,107.5,6949932,101.95,5.44,102.19,98.66,0.85
 20260526,108,108,104,105,6571468,102.21,2.73,102.48,98.16,0.89
+20260527,105,105.5,101.5,101.5,6731004,102.15,-0.63,102.78,97.81,0.94
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6176 | 瑞儀 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | first_seen | calendar event: ex_dividend on 20260601; status=confirmed; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6176 | 瑞儀 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6176 | 瑞儀 | 21 | 1 | 2173230.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 6176 | 瑞儀 | 21 | 1 | 2030580.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1537 廣隆
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:58 Asia/Taipei
+- generated_at: 2026-05-27 21:26:14 Asia/Taipei
 - stock_id: 1537
 - stock_name: 廣隆
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
+- date: 20260527
 - open: 125.5
 - high: 126
-- low: 125
+- low: 124
 - close: 125.5
-- volume: 85437
-- ma5: 125.3
-- ema23_primary: 124.71
-- distance_to_ema23_pct: 0.64
-- ma20: 124.4
+- volume: 118354
+- ma5: 125.5
+- ema23_primary: 124.77
+- distance_to_ema23_pct: 0.58
+- ma20: 124.5
 - ma60: 124.05
-- ma120: 124.09
-- return_5d: -0.4
-- return_20d: 2.87
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: 0.88
+- ma120: 124.12
+- return_5d: 0.8
+- return_20d: 1.62
+- volume_ratio: 1.18
+- distance_to_ma20_pct_auxiliary: 0.8
 - distance_to_high_60_pct: -0.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,123,123.5,122,123.5,68468,123.75,-0.2,123.9,123.82,1.03
 20260429,123.5,123.5,122.5,122.5,42604,123.64,-0.92,123.85,123.79,0.65
 20260430,122.5,123.5,122,123,88219,123.59,-0.48,123.83,123.78,1.3
 20260504,122.5,122.5,122,122,115439,123.46,-1.18,123.72,123.73,1.59
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,125,125.5,124.5,125.5,63571,124.55,0.76,124.08,124.03,0.66
 20260525,125.5,126,124.5,125.5,113245,124.63,0.7,124.22,124.04,1.16
 20260526,125.5,126,125,125.5,85437,124.71,0.64,124.4,124.05,0.88
+20260527,125.5,126,124,125.5,118354,124.77,0.58,124.5,124.05,1.18
 ```
 
 ## Latest TDCC Snapshot

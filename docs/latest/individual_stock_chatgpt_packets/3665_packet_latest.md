@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3665 貿聯-KY
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:56 Asia/Taipei
+- generated_at: 2026-05-27 21:27:14 Asia/Taipei
 - stock_id: 3665
 - stock_name: 貿聯-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 2410
-- high: 2415
-- low: 2250
-- close: 2265
-- volume: 1437122
-- ma5: 2199
-- ema23_primary: 2349.05
-- distance_to_ema23_pct: -3.58
-- ma20: 2490.25
-- ma60: 2135.17
-- ma120: 1791.21
-- return_5d: 13.82
-- return_20d: -13.88
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: -9.05
-- distance_to_high_60_pct: -24.75
+- date: 20260527
+- open: 2310
+- high: 2335
+- low: 2115
+- close: 2115
+- volume: 2487948
+- ma5: 2229
+- ema23_primary: 2329.54
+- distance_to_ema23_pct: -9.21
+- ma20: 2464.5
+- ma60: 2146.92
+- ma120: 1795.46
+- return_5d: 7.63
+- return_20d: -19.58
+- volume_ratio: 0.75
+- distance_to_ma20_pct_auxiliary: -14.18
+- distance_to_high_60_pct: -29.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,2660,2745,2605,2630,2406516,2285.74,15.06,2281.5,1775.83,0.77
 20260429,2620,2820,2605,2780,2748760,2326.92,19.47,2326.5,1800.5,0.88
 20260430,2760,2815,2715,2770,2725883,2363.85,17.18,2378,1823,0.88
 20260504,2950,2970,2860,2940,2964568,2411.86,21.9,2429.5,1848.83,0.96
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,2255,2270,2200,2225,2291246,2354.11,-5.48,2527.5,2101.67,0.66
 20260525,2340,2430,2340,2385,2036304,2356.69,1.2,2508.5,2119.83,0.6
 20260526,2410,2415,2250,2265,1437122,2349.05,-3.58,2490.25,2135.17,0.44
+20260527,2310,2335,2115,2115,2487948,2329.54,-9.21,2464.5,2146.92,0.75
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3665 | 貿聯-KY | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3665 | 貿聯-KY | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3665 | 貿聯-KY | 254 | 14 | 11081780.0 | 81660.0 | 135.71 | no_signal | 0 |  |
+| 20260527 | 3665 | 貿聯-KY | 252 | 14 | 8308920.0 | 12440.0 | 667.92 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2236 百達-KY
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:11 Asia/Taipei
+- generated_at: 2026-05-27 21:26:27 Asia/Taipei
 - stock_id: 2236
 - stock_name: 百達-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 144.5
-- high: 146.5
-- low: 139
-- close: 142.5
-- volume: 540667
-- ma5: 140.4
-- ema23_primary: 135.47
-- distance_to_ema23_pct: 5.19
-- ma20: 136.95
-- ma60: 123.36
-- ma120: 117.14
-- return_5d: 7.95
-- return_20d: 5.95
-- volume_ratio: 1
-- distance_to_ma20_pct_auxiliary: 4.05
-- distance_to_high_60_pct: -5.32
+- date: 20260527
+- open: 142.5
+- high: 144.5
+- low: 139.5
+- close: 141.5
+- volume: 421572
+- ma5: 142.6
+- ema23_primary: 135.98
+- distance_to_ema23_pct: 4.06
+- ma20: 137.43
+- ma60: 123.8
+- ma120: 117.57
+- return_5d: 8.43
+- return_20d: 7.2
+- volume_ratio: 0.78
+- distance_to_ma20_pct_auxiliary: 2.97
+- distance_to_high_60_pct: -5.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,134.5,135,132,132,377438,124.04,6.42,123.1,115.83,0.66
 20260429,131,133,130.5,132,336373,124.7,5.85,124.12,116.17,0.59
 20260430,134,134,131.5,132,199331,125.31,5.34,125.17,116.51,0.36
 20260504,132,140,132,139.5,830409,126.49,10.28,126.55,116.97,1.44
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,139.5,148,137.5,146.5,1003578,133.96,9.36,136.03,122.42,1.86
 20260525,148.5,150.5,143.5,144.5,725625,134.84,7.17,136.55,122.9,1.34
 20260526,144.5,146.5,139,142.5,540667,135.47,5.19,136.95,123.36,1
+20260527,142.5,144.5,139.5,141.5,421572,135.98,4.06,137.43,123.8,0.78
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2236 | 百達-KY | 1 | 1 | 3 | 3 | 3 | repeated_but_no_breakout | 近 10 日上榜 3 日、近 20 日上榜 3 日，尚未突破，需分辨醞釀或鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

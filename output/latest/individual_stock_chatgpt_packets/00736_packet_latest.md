@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00736 國泰新興市場
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:45 Asia/Taipei
+- generated_at: 2026-05-27 21:26:01 Asia/Taipei
 - stock_id: 00736
 - stock_name: 國泰新興市場
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 30.67
-- high: 30.67
-- low: 30.57
-- close: 30.63
-- volume: 109133
+- date: 20260527
+- open: 31.03
+- high: 31.03
+- low: 30.96
+- close: 30.96
+- volume: 221224
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,30.2,30.23,30.2,30.23,101521,,,,,
 20260525,30.38,30.52,30.38,30.52,108966,,,,,
 20260526,30.67,30.67,30.57,30.63,109133,,,,,
+20260527,31.03,31.03,30.96,30.96,221224,,,,,
 ```
 
 ## Latest TDCC Snapshot

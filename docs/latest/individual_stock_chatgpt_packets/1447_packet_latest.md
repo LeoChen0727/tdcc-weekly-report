@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1447 力鵬
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:54 Asia/Taipei
+- generated_at: 2026-05-27 21:26:10 Asia/Taipei
 - stock_id: 1447
 - stock_name: 力鵬
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 26
 - tdcc_history_status: tdcc_history_ready
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 5.85
-- high: 5.86
-- low: 5.45
-- close: 5.51
-- volume: 3511949
-- ma5: 5.83
-- ema23_primary: 5.42
-- distance_to_ema23_pct: 1.67
-- ma20: 5.3
+- date: 20260527
+- open: 5.39
+- high: 5.54
+- low: 5.36
+- close: 5.5
+- volume: 2262795
+- ma5: 5.75
+- ema23_primary: 5.43
+- distance_to_ema23_pct: 1.36
+- ma20: 5.32
 - ma60: 5.3
 - ma120: 5.37
-- return_5d: -5
-- return_20d: 9.33
-- volume_ratio: 1.52
-- distance_to_ma20_pct_auxiliary: 3.99
-- distance_to_high_60_pct: -8.93
+- return_5d: -6.62
+- return_20d: 9.13
+- volume_ratio: 0.96
+- distance_to_ma20_pct_auxiliary: 3.35
+- distance_to_high_60_pct: -9.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,5.04,5.08,5.01,5.04,1140289,5.2,-3.02,5.17,5.35,1.02
 20260429,5.07,5.17,5,5.02,1161036,5.18,-3.13,5.16,5.35,1.02
 20260430,5.02,5.06,4.98,4.99,978173,5.17,-3.41,5.16,5.35,0.85
 20260504,5.01,5.04,4.97,4.99,947571,5.15,-3.13,5.15,5.34,0.81
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,5.9,6.05,5.74,6,2293485,5.37,11.7,5.23,5.29,1.05
 20260525,5.98,5.98,5.75,5.85,1867164,5.41,8.11,5.28,5.3,0.85
 20260526,5.85,5.86,5.45,5.51,3511949,5.42,1.67,5.3,5.3,1.52
+20260527,5.39,5.54,5.36,5.5,2262795,5.43,1.36,5.32,5.3,0.96
 ```
 
 ## Latest TDCC Snapshot
@@ -133,14 +133,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1447 | 力鵬 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 1447 | 力鵬 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260527 | 1447 | 力鵬 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 1447 | 力鵬 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260521 | 1447 | 力鵬 | pattern | 型態觀察 |  |  |  | 預備發動型 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1447 | 力鵬 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260527 | 1447 | 力鵬 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

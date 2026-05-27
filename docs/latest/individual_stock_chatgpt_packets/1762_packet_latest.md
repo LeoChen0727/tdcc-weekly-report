@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1762 中化生
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:03 Asia/Taipei
+- generated_at: 2026-05-27 21:26:20 Asia/Taipei
 - stock_id: 1762
 - stock_name: 中化生
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 39.8
-- high: 40
-- low: 39
-- close: 39.6
-- volume: 455178
-- ma5: 38.85
-- ema23_primary: 35.16
-- distance_to_ema23_pct: 12.63
-- ma20: 34.95
-- ma60: 30.7
-- ma120: 28.05
-- return_5d: 6.74
-- return_20d: 43.74
-- volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: 13.29
-- distance_to_high_60_pct: -3.06
+- date: 20260527
+- open: 39.95
+- high: 40.55
+- low: 39.15
+- close: 39.7
+- volume: 544340
+- ma5: 39.04
+- ema23_primary: 35.54
+- distance_to_ema23_pct: 11.71
+- ma20: 35.52
+- ma60: 30.91
+- ma120: 28.18
+- return_5d: 2.45
+- return_20d: 40.28
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: 11.75
+- distance_to_high_60_pct: -2.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,27.9,28.55,27.8,28.3,67578,28.43,-0.45,28.44,27.91,0.6
 20260429,28.3,28.35,27.9,28.3,105863,28.42,-0.41,28.41,27.95,0.94
 20260430,28.3,28.45,28.15,28.25,94365,28.4,-0.54,28.39,27.99,0.85
 20260504,28.6,28.6,27.7,27.7,117950,28.35,-2.28,28.34,28.02,1.05
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,37.85,38.85,37.55,37.95,443017,34.26,10.77,33.74,30.28,0.65
 20260525,38.25,40.5,37.95,40.2,1073209,34.76,15.66,34.35,30.5,1.46
 20260526,39.8,40,39,39.6,455178,35.16,12.63,34.95,30.7,0.6
+20260527,39.95,40.55,39.15,39.7,544340,35.54,11.71,35.52,30.91,0.7
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 1762 | 中化生 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

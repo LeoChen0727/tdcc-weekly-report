@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4746 台耀
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:09 Asia/Taipei
+- generated_at: 2026-05-27 21:27:28 Asia/Taipei
 - stock_id: 4746
 - stock_name: 台耀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 51.1
-- high: 51.9
-- low: 51
-- close: 51.2
-- volume: 728267
-- ma5: 51.9
-- ema23_primary: 53.04
-- distance_to_ema23_pct: -3.47
-- ma20: 53.65
-- ma60: 53.67
-- ma120: 56.97
-- return_5d: -0.78
-- return_20d: -4.12
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: -4.56
-- distance_to_high_60_pct: -11.57
+- date: 20260527
+- open: 51.8
+- high: 51.8
+- low: 50.5
+- close: 50.8
+- volume: 1088719
+- ma5: 51.74
+- ema23_primary: 52.86
+- distance_to_ema23_pct: -3.89
+- ma20: 53.41
+- ma60: 53.58
+- ma120: 56.88
+- return_5d: -1.55
+- return_20d: -8.63
+- volume_ratio: 1.01
+- distance_to_ma20_pct_auxiliary: -4.88
+- distance_to_high_60_pct: -11.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,53.8,56.4,53.5,55.6,2716799,53.52,3.89,53.41,55.14,2.85
 20260429,55.1,56.2,54.9,55,957563,53.64,2.53,53.43,55.09,1
 20260430,55.3,55.6,53.7,54.1,734653,53.68,0.78,53.45,55.03,0.77
 20260504,54.2,55.1,53.9,54.8,750740,53.77,1.91,53.4,54.92,0.79
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,53.1,53.1,52.2,52.3,626982,53.38,-2.03,53.75,53.87,0.55
 20260525,52.5,52.6,51.2,51.3,1625202,53.21,-3.59,53.76,53.77,1.37
 20260526,51.1,51.9,51,51.2,728267,53.04,-3.47,53.65,53.67,0.63
+20260527,51.8,51.8,50.5,50.8,1088719,52.86,-3.89,53.41,53.58,1.01
 ```
 
 ## Latest TDCC Snapshot
@@ -135,7 +135,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4746 | 台耀 | 2 | 0 | 90250.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 4746 | 台耀 | 2 | 0 | 16290.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

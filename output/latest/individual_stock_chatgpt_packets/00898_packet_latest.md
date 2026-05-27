@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00898 國泰基因免疫革命
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:46 Asia/Taipei
+- generated_at: 2026-05-27 21:26:02 Asia/Taipei
 - stock_id: 00898
 - stock_name: 國泰基因免疫革命
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
+- date: 20260527
 - open: 8.16
-- high: 8.18
-- low: 8.14
-- close: 8.16
-- volume: 478269
+- high: 8.16
+- low: 8.1
+- close: 8.11
+- volume: 712065
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,8.02,8.04,8.02,8.03,246876,,,,,
 20260525,8.07,8.16,8.07,8.16,1285545,,,,,
 20260526,8.16,8.18,8.14,8.16,478269,,,,,
+20260527,8.16,8.16,8.1,8.11,712065,,,,,
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00935 野村臺灣新科技50
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:47 Asia/Taipei
+- generated_at: 2026-05-27 21:26:02 Asia/Taipei
 - stock_id: 00935
 - stock_name: 野村臺灣新科技50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 60.55
-- high: 60.6
-- low: 59.15
-- close: 60
-- volume: 24350341
+- date: 20260527
+- open: 62.1
+- high: 63.3
+- low: 61.5
+- close: 62.1
+- volume: 30815939
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,55.2,56.35,55.2,56.35,13711383,,,,,
 20260525,58.35,59.8,58.35,59.8,44309996,,,,,
 20260526,60.55,60.6,59.15,60,24350341,,,,,
+20260527,62.1,63.3,61.5,62.1,30815939,,,,,
 ```
 
 ## Latest TDCC Snapshot

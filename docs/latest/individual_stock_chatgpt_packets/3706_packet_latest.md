@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3706 神達
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:57 Asia/Taipei
+- generated_at: 2026-05-27 21:27:16 Asia/Taipei
 - stock_id: 3706
 - stock_name: 神達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 89.1
-- high: 89.7
-- low: 86.4
-- close: 87.4
-- volume: 19983885
-- ma5: 85.5
-- ema23_primary: 83.72
-- distance_to_ema23_pct: 4.39
-- ma20: 83.86
-- ma60: 81.69
-- ma120: 83.22
-- return_5d: 8.3
-- return_20d: 7.5
-- volume_ratio: 1.17
-- distance_to_ma20_pct_auxiliary: 4.22
-- distance_to_high_60_pct: -2.56
+- date: 20260527
+- open: 86.3
+- high: 87.2
+- low: 83.8
+- close: 84.2
+- volume: 23319730
+- ma5: 86.28
+- ema23_primary: 83.76
+- distance_to_ema23_pct: 0.52
+- ma20: 83.97
+- ma60: 81.76
+- ma120: 83.21
+- return_5d: 4.86
+- return_20d: 2.68
+- volume_ratio: 1.3
+- distance_to_ma20_pct_auxiliary: 0.27
+- distance_to_high_60_pct: -6.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,81.6,82.5,80.8,82,5924552,81.57,0.52,80.66,80.4,0.53
 20260429,82,82.1,80.9,81.2,5336155,81.54,-0.42,80.86,80.38,0.48
 20260430,81.4,82.7,80.9,81.4,6368901,81.53,-0.16,81.25,80.33,0.59
 20260504,82.2,83,81.5,82.9,6720160,81.65,1.54,81.57,80.33,0.62
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,84.3,88.4,83.6,87.8,37196613,82.92,5.88,83.22,81.46,2.43
 20260525,89.3,89.3,87.2,88.5,30434560,83.39,6.13,83.56,81.59,1.85
 20260526,89.1,89.7,86.4,87.4,19983885,83.72,4.39,83.86,81.69,1.17
+20260527,86.3,87.2,83.8,84.2,23319730,83.76,0.52,83.97,81.76,1.3
 ```
 
 ## Latest TDCC Snapshot
@@ -125,19 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3706 | 神達 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 3706 | 神達 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260527 | 3706 | 神達 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260521 | 3706 | 神達 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3706 | 神達 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 3706 | 神達 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3706 | 神達 | 115 | 5 | 7688660.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 3706 | 神達 | 116 | 5 | 6149450.0 | 26000.0 | 236.52 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

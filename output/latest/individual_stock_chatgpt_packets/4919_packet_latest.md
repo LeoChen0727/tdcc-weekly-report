@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4919 新唐
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:11 Asia/Taipei
+- generated_at: 2026-05-27 21:27:31 Asia/Taipei
 - stock_id: 4919
 - stock_name: 新唐
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 226
-- high: 230
-- low: 206
-- close: 211
-- volume: 57485904
-- ma5: 195.2
-- ema23_primary: 166.18
-- distance_to_ema23_pct: 26.97
-- ma20: 169.68
-- ma60: 123.44
-- ma120: 89.55
-- return_5d: 40.67
-- return_20d: 55.15
-- volume_ratio: 1.94
-- distance_to_ma20_pct_auxiliary: 24.36
-- distance_to_high_60_pct: -8.26
+- date: 20260527
+- open: 210
+- high: 229
+- low: 205
+- close: 206.5
+- volume: 45269589
+- ma5: 203.5
+- ema23_primary: 169.54
+- distance_to_ema23_pct: 21.8
+- ma20: 172.55
+- ma60: 125.67
+- ma120: 90.85
+- return_5d: 25.15
+- return_20d: 38.59
+- volume_ratio: 1.43
+- distance_to_ma20_pct_auxiliary: 19.68
+- distance_to_high_60_pct: -10.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,142,149.5,138.5,149,6968477,119.59,24.59,115.66,88.82,0.38
 20260429,143.5,148,143,144.5,4424469,121.67,18.77,118.14,90.27,0.25
 20260430,147,150.5,144,147.5,5565647,123.82,19.13,121.06,91.77,0.32
 20260504,151,162,148,162,11152111,127,27.56,124.44,93.49,0.65
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,190.5,199.5,188.5,199.5,42517850,156.94,27.12,162.22,118.66,1.72
 20260525,210.5,219,202.5,219,55367779,162.11,35.09,165.93,121.1,2.04
 20260526,226,230,206,211,57485904,166.18,26.97,169.68,123.44,1.94
+20260527,210,229,205,206.5,45269589,169.54,21.8,172.55,125.67,1.43
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4919 | 新唐 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 68.0 |  |  | neckline_challenge |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4919 | 新唐 | 2 | 1 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4919 | 新唐 | 88 | 0 | 23060700.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 4919 | 新唐 | 88 | 0 | 20908360.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

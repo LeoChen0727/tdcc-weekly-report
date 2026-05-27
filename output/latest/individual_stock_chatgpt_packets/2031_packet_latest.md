@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2031 新光鋼
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:07 Asia/Taipei
+- generated_at: 2026-05-27 21:26:24 Asia/Taipei
 - stock_id: 2031
 - stock_name: 新光鋼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 39.9
-- high: 40.15
-- low: 38.75
+- date: 20260527
+- open: 38.95
+- high: 39.1
+- low: 38.5
 - close: 38.85
-- volume: 1846770
-- ma5: 38.67
-- ema23_primary: 39.15
-- distance_to_ema23_pct: -0.76
-- ma20: 39.3
+- volume: 928986
+- ma5: 38.78
+- ema23_primary: 39.12
+- distance_to_ema23_pct: -0.7
+- ma20: 39.24
 - ma60: 39.56
-- ma120: 39.05
-- return_5d: 1.7
-- return_20d: 0.78
-- volume_ratio: 1.75
-- distance_to_ma20_pct_auxiliary: -1.15
+- ma120: 39.07
+- return_5d: 1.44
+- return_20d: -2.88
+- volume_ratio: 0.89
+- distance_to_ma20_pct_auxiliary: -1.01
 - distance_to_high_60_pct: -6.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,38.9,40,38.9,40,1183040,39.92,0.2,40.23,39.53,1.49
 20260429,40.2,40.9,40.1,40.85,1046447,40,2.13,40.27,39.58,1.29
 20260430,40.85,40.9,40.45,40.65,871562,40.05,1.49,40.33,39.62,1.07
 20260504,40.65,40.95,40.45,40.7,1015891,40.11,1.48,40.37,39.66,1.21
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,38.4,38.5,38.2,38.25,910108,39.14,-2.27,39.25,39.58,0.97
 20260525,38.5,39.9,38.4,39.6,1718132,39.18,1.08,39.29,39.58,1.72
 20260526,39.9,40.15,38.75,38.85,1846770,39.15,-0.76,39.3,39.56,1.75
+20260527,38.95,39.1,38.5,38.85,928986,39.12,-0.7,39.24,39.56,0.89
 ```
 
 ## Latest TDCC Snapshot
@@ -128,14 +128,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2031 | 新光鋼 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2031 | 新光鋼 | 1 | 0 | 7200.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 2031 | 新光鋼 | 1 | 0 | 6500.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

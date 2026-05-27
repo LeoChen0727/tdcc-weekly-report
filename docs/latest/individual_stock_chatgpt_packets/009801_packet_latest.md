@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009801 中信美國創新科技
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:47 Asia/Taipei
+- generated_at: 2026-05-27 21:26:03 Asia/Taipei
 - stock_id: 009801
 - stock_name: 中信美國創新科技
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 12.27
-- high: 12.28
-- low: 12.21
-- close: 12.25
-- volume: 543482
+- date: 20260527
+- open: 12.38
+- high: 12.42
+- low: 12.38
+- close: 12.39
+- volume: 903958
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,12.16,12.19,12.16,12.17,582365,,,,,
 20260525,12.25,12.29,12.24,12.27,1541850,,,,,
 20260526,12.27,12.28,12.21,12.25,543482,,,,,
+20260527,12.38,12.42,12.38,12.39,903958,,,,,
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2419 仲琦
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:18 Asia/Taipei
+- generated_at: 2026-05-27 21:26:35 Asia/Taipei
 - stock_id: 2419
 - stock_name: 仲琦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 32.6
-- high: 32.6
-- low: 30.65
-- close: 31.05
-- volume: 2857015
-- ma5: 31.11
-- ema23_primary: 31.04
-- distance_to_ema23_pct: 0.04
-- ma20: 30.42
-- ma60: 31.69
-- ma120: 29.19
-- return_5d: 3.16
-- return_20d: -1.74
-- volume_ratio: 1.32
-- distance_to_ma20_pct_auxiliary: 2.08
-- distance_to_high_60_pct: -22.08
+- date: 20260527
+- open: 31.3
+- high: 31.9
+- low: 30.3
+- close: 30.5
+- volume: 1967491
+- ma5: 31.23
+- ema23_primary: 30.99
+- distance_to_ema23_pct: -1.59
+- ma20: 30.38
+- ma60: 31.7
+- ma120: 29.27
+- return_5d: 2.01
+- return_20d: -2.71
+- volume_ratio: 0.91
+- distance_to_ma20_pct_auxiliary: 0.41
+- distance_to_high_60_pct: -23.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,31.25,31.35,30.75,31.35,1720174,33.34,-5.98,34.41,31.64,0.13
 20260429,31.5,31.5,30.5,30.55,1649173,33.11,-7.73,34.2,31.63,0.13
 20260430,30.75,31,30.2,30.25,1605364,32.87,-7.97,34.09,31.63,0.13
 20260504,30.8,31.4,30.4,30.65,1720778,32.69,-6.23,33.87,31.62,0.15
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,30.9,31.7,30.8,31.6,3753286,30.92,2.19,30.36,31.64,1.67
 20260525,32.2,32.75,31.65,32.3,4211320,31.04,4.07,30.45,31.67,1.89
 20260526,32.6,32.6,30.65,31.05,2857015,31.04,0.04,30.42,31.69,1.32
+20260527,31.3,31.9,30.3,30.5,1967491,30.99,-1.59,30.38,31.7,0.91
 ```
 
 ## Latest TDCC Snapshot
@@ -130,12 +130,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2419 | 仲琦 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260527 | 2419 | 仲琦 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2419 | 仲琦 | 33 | 0 | 853300.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 2419 | 仲琦 | 33 | 0 | 545660.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

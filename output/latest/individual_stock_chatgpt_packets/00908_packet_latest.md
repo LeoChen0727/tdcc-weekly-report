@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00908 富邦入息REITs+
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:46 Asia/Taipei
+- generated_at: 2026-05-27 21:26:02 Asia/Taipei
 - stock_id: 00908
 - stock_name: 富邦入息REITs+
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 14.38
-- high: 14.39
-- low: 14.37
-- close: 14.38
-- volume: 122536
+- date: 20260527
+- open: 14.42
+- high: 14.49
+- low: 14.42
+- close: 14.45
+- volume: 125438
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,14.38,14.39,14.37,14.38,63379,,,,,
 20260525,14.34,14.39,14.34,14.37,283371,,,,,
 20260526,14.38,14.39,14.37,14.38,122536,,,,,
+20260527,14.42,14.49,14.42,14.45,125438,,,,,
 ```
 
 ## Latest TDCC Snapshot

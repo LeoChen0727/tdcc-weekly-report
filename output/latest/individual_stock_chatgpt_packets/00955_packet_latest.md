@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00955 中信日本商社
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:47 Asia/Taipei
+- generated_at: 2026-05-27 21:26:03 Asia/Taipei
 - stock_id: 00955
 - stock_name: 中信日本商社
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,11 +55,11 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 15.55
-- high: 15.55
-- low: 15.45
-- close: 15.46
+- date: 20260527
+- open: 15.38
+- high: 15.39
+- low: 15.23
+- close: 15.25
 - volume: 15000
 - ma5: 
 - ema23_primary: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,15.68,15.68,15.56,15.62,16000,,,,,
 20260525,15.67,15.72,15.5,15.55,16000,,,,,
 20260526,15.55,15.55,15.45,15.46,15000,,,,,
+20260527,15.38,15.39,15.23,15.25,15000,,,,,
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6239 力成
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:35 Asia/Taipei
+- generated_at: 2026-05-27 21:27:56 Asia/Taipei
 - stock_id: 6239
 - stock_name: 力成
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 342
-- high: 342
-- low: 325.5
-- close: 342
-- volume: 57938700
-- ma5: 285.6
-- ema23_primary: 247.78
-- distance_to_ema23_pct: 38.03
-- ma20: 241.47
-- ma60: 220.47
-- ma120: 212
-- return_5d: 50.66
-- return_20d: 57.6
-- volume_ratio: 2.15
-- distance_to_ma20_pct_auxiliary: 41.63
-- distance_to_high_60_pct: 0
+- date: 20260527
+- open: 343
+- high: 353.5
+- low: 332
+- close: 340.5
+- volume: 76518930
+- ma5: 306.8
+- ema23_primary: 255.51
+- distance_to_ema23_pct: 33.27
+- ma20: 247.57
+- ma60: 221.84
+- ma120: 213.57
+- return_5d: 45.2
+- return_20d: 55.84
+- volume_ratio: 2.54
+- distance_to_ma20_pct_auxiliary: 37.53
+- distance_to_high_60_pct: -3.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,219.5,222,213,218.5,11208843,211.06,3.53,208.25,223.01,0.89
 20260429,219.5,220,201.5,204.5,30442812,210.51,-2.85,208.68,222.43,2.2
 20260430,205.5,210.5,201,203,26149433,209.88,-3.28,209.47,221.52,1.77
 20260504,208,223,208,223,27700254,210.98,5.7,210.88,221.12,1.75
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,283,283,283,283,7198413,232.69,21.62,230.18,218.18,0.29
 20260525,311,311,311,311,3433065,239.21,30.01,235.22,219.07,0.14
 20260526,342,342,325.5,342,57938700,247.78,38.03,241.47,220.47,2.15
+20260527,343,353.5,332,340.5,76518930,255.51,33.27,247.57,221.84,2.54
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6239 | 力成 | true_breakout | 嚴格突破 | 89.0 |  |  | breakout_confirmed |  | call_put_bullish | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 6239 | 力成 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 6239 | 力成 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_put_bullish | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6239 | 力成 | 4 | 4 | 4 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260527 | 6239 | 力成 | 5 | 5 | 5 | 5 | 5 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6239 | 力成 | 197 | 6 | 185000410.0 | 98220.0 | 1883.53 | call_put_bullish | 3 | 認購權證成交金額很大且認購/認售比偏高，需檢查標的是否高位追價或獲利結清 |
+| 20260527 | 6239 | 力成 | 204 | 6 | 113600840.0 | 325020.0 | 349.52 | call_put_bullish | 3 | 認購權證成交金額很大且認購/認售比偏高，需檢查標的是否高位追價或獲利結清 |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

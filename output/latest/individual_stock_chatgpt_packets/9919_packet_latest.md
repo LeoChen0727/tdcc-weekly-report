@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9919 康那香
 
 ## Metadata
-- generated_at: 2026-05-26 23:55:17 Asia/Taipei
+- generated_at: 2026-05-27 21:28:39 Asia/Taipei
 - stock_id: 9919
 - stock_name: 康那香
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,21 +55,21 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 14.3
-- high: 14.35
-- low: 14
+- date: 20260527
+- open: 14.25
+- high: 14.3
+- low: 14.1
 - close: 14.15
-- volume: 548823
-- ma5: 14.25
-- ema23_primary: 14.4
-- distance_to_ema23_pct: -1.72
+- volume: 445519
+- ma5: 14.23
+- ema23_primary: 14.38
+- distance_to_ema23_pct: -1.58
 - ma20: 14.28
-- ma60: 15.04
-- ma120: 15.89
-- return_5d: -1.39
-- return_20d: 0.71
-- volume_ratio: 1
+- ma60: 15
+- ma120: 15.88
+- return_5d: -0.7
+- return_20d: 0
+- volume_ratio: 0.8
 - distance_to_ma20_pct_auxiliary: -0.88
 - distance_to_high_60_pct: -15.02
 
@@ -77,7 +77,6 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,14.15,14.2,14,14.15,214940,14.95,-5.35,15,15.9,0.44
 20260429,14.4,14.45,14.15,14.4,324568,14.9,-3.38,14.94,15.87,0.65
 20260430,14.5,14.5,14.1,14.25,331149,14.85,-4.04,14.87,15.84,0.74
 20260504,14.35,14.35,14.15,14.2,268191,14.8,-4.03,14.8,15.8,0.61
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,14.35,14.4,14.15,14.25,481297,14.43,-1.26,14.27,15.12,0.91
 20260525,14.4,14.4,14.05,14.3,767589,14.42,-0.84,14.27,15.08,1.39
 20260526,14.3,14.35,14,14.15,548823,14.4,-1.72,14.28,15.04,1
+20260527,14.25,14.3,14.1,14.15,445519,14.38,-1.58,14.28,15,0.8
 ```
 
 ## Latest TDCC Snapshot

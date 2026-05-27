@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8438 昶昕
 
 ## Metadata
-- generated_at: 2026-05-26 23:55:12 Asia/Taipei
+- generated_at: 2026-05-27 21:28:34 Asia/Taipei
 - stock_id: 8438
 - stock_name: 昶昕
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 92
-- high: 95
-- low: 92
-- close: 92.1
-- volume: 399174
-- ma5: 90.58
-- ema23_primary: 90.36
-- distance_to_ema23_pct: 1.93
-- ma20: 92.67
-- ma60: 80.16
-- ma120: 62.45
-- return_5d: 8.48
-- return_20d: 8.35
-- volume_ratio: 0.36
-- distance_to_ma20_pct_auxiliary: -0.62
-- distance_to_high_60_pct: -17.77
+- date: 20260527
+- open: 93.3
+- high: 93.3
+- low: 87.8
+- close: 88.5
+- volume: 494485
+- ma5: 90.54
+- ema23_primary: 90.2
+- distance_to_ema23_pct: -1.89
+- ma20: 92.62
+- ma60: 80.47
+- ma120: 62.95
+- return_5d: -0.23
+- return_20d: -1.01
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: -4.45
+- distance_to_high_60_pct: -20.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,85,89.4,85,89.4,403707,81.28,9.98,82.66,69.76,0.12
 20260429,89.4,90,86.5,88.9,233598,81.92,8.52,83.61,70.24,0.08
 20260430,90.4,90.4,88.1,88.3,234780,82.45,7.09,84.59,70.66,0.08
 20260504,88.6,95.3,88.6,94.6,550926,83.46,13.34,85.89,71.08,0.19
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,88.1,94.6,87.9,92.5,1153591,90.08,2.68,91.99,79.11,1.06
 20260525,94.2,94.6,91.5,91.5,607009,90.2,1.44,92.31,79.67,0.55
 20260526,92,95,92,92.1,399174,90.36,1.93,92.67,80.16,0.36
+20260527,93.3,93.3,87.8,88.5,494485,90.2,-1.89,92.62,80.47,0.44
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8438 | 昶昕 | 1 | 1 | 3 | 3 | 3 | repeated_but_no_breakout | 近 10 日上榜 3 日、近 20 日上榜 3 日，尚未突破，需分辨醞釀或鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

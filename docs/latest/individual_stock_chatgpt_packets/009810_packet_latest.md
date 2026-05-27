@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009810 玉山全球藍籌100
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:47 Asia/Taipei
+- generated_at: 2026-05-27 21:26:03 Asia/Taipei
 - stock_id: 009810
 - stock_name: 玉山全球藍籌100
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 20.82
+- date: 20260527
+- open: 20.89
 - high: 20.89
-- low: 20.82
-- close: 20.89
-- volume: 370183
+- low: 20.71
+- close: 20.71
+- volume: 302175
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,20.78,20.84,20.78,20.84,186214,,,,,
 20260525,20.84,20.86,20.82,20.83,378901,,,,,
 20260526,20.82,20.89,20.82,20.89,370183,,,,,
+20260527,20.89,20.89,20.71,20.71,302175,,,,,
 ```
 
 ## Latest TDCC Snapshot

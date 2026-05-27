@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00739 元大MSCI A股
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:45 Asia/Taipei
+- generated_at: 2026-05-27 21:26:01 Asia/Taipei
 - stock_id: 00739
 - stock_name: 元大MSCI A股
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 28.84
-- high: 29.15
-- low: 28.84
-- close: 29.15
-- volume: 79609
+- date: 20260527
+- open: 29.16
+- high: 29.23
+- low: 28.96
+- close: 28.96
+- volume: 71503
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,28.5,28.61,28.4,28.53,39720,,,,,
 20260525,28.98,28.98,28.58,28.83,186816,,,,,
 20260526,28.84,29.15,28.84,29.15,79609,,,,,
+20260527,29.16,29.23,28.96,28.96,71503,,,,,
 ```
 
 ## Latest TDCC Snapshot

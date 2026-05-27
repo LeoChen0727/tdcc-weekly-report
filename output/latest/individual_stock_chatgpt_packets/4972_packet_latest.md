@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4972 湯石照明
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:13 Asia/Taipei
+- generated_at: 2026-05-27 21:27:33 Asia/Taipei
 - stock_id: 4972
 - stock_name: 湯石照明
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 16.3
+- date: 20260527
+- open: 16.4
 - high: 16.45
-- low: 16.3
-- close: 16.4
+- low: 16.4
+- close: 16.45
 - volume: 16000
 - ma5: 16.42
-- ema23_primary: 16.55
-- distance_to_ema23_pct: -0.93
+- ema23_primary: 16.54
+- distance_to_ema23_pct: -0.57
 - ma20: 16.43
-- ma60: 17.13
-- ma120: 17.63
+- ma60: 17.11
+- ma120: 17.62
 - return_5d: 0
 - return_20d: 0
-- volume_ratio: 0.3
-- distance_to_ma20_pct_auxiliary: -0.21
-- distance_to_high_60_pct: -9.39
+- volume_ratio: 0.31
+- distance_to_ma20_pct_auxiliary: 0.09
+- distance_to_high_60_pct: -9.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,16.6,16.85,16.35,16.45,40000,17.1,-3.77,17.13,17.64,1.03
 20260429,16.4,16.55,16.4,16.55,31000,17.05,-2.93,17.07,17.61,0.81
 20260430,16.5,16.55,16.5,16.5,22000,17,-2.96,17.01,17.59,0.57
 20260504,16.5,16.5,16.25,16.35,63000,16.95,-3.54,16.95,17.56,1.54
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,16.5,16.5,16.4,16.4,16000,16.58,-1.1,16.45,17.18,0.29
 20260525,16.3,16.4,16.3,16.4,16000,16.57,-1.01,16.43,17.15,0.29
 20260526,16.3,16.45,16.3,16.4,16000,16.55,-0.93,16.43,17.13,0.3
+20260527,16.4,16.45,16.4,16.45,16000,16.54,-0.57,16.43,17.11,0.31
 ```
 
 ## Latest TDCC Snapshot

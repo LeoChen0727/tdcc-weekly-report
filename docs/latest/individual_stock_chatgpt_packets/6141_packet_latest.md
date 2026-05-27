@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6141 柏承
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:29 Asia/Taipei
+- generated_at: 2026-05-27 21:27:49 Asia/Taipei
 - stock_id: 6141
 - stock_name: 柏承
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 32.95
-- high: 35.75
-- low: 32.5
-- close: 35.75
-- volume: 5123644
-- ma5: 34.15
-- ema23_primary: 31.79
-- distance_to_ema23_pct: 12.45
-- ma20: 32.82
-- ma60: 26.31
-- ma120: 18.73
-- return_5d: 4.69
-- return_20d: 16.26
-- volume_ratio: 2.01
-- distance_to_ma20_pct_auxiliary: 8.92
-- distance_to_high_60_pct: -8.33
+- date: 20260527
+- open: 39.25
+- high: 39.3
+- low: 37.55
+- close: 39.3
+- volume: 6924233
+- ma5: 35.11
+- ema23_primary: 32.42
+- distance_to_ema23_pct: 21.23
+- ma20: 33.21
+- ma60: 26.75
+- ma120: 18.97
+- return_5d: 13.91
+- return_20d: 24.56
+- volume_ratio: 2.41
+- distance_to_ma20_pct_auxiliary: 18.34
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,29.35,31.6,29.35,31.55,457604,27.12,16.31,26.59,19.46,0.17
 20260429,33.25,33.25,30.4,32,338207,27.53,16.23,27.1,19.8,0.13
 20260430,33.2,33.2,32.35,32.5,543361,27.95,16.3,27.73,20.14,0.2
 20260504,33.5,35,33.5,35,1109683,28.53,22.66,28.44,20.52,0.42
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,33.8,36.5,33.3,34,2552418,31.33,8.51,32.49,25.54,1.17
 20260525,34,34,31.6,32.5,3451519,31.43,3.4,32.57,25.9,1.49
 20260526,32.95,35.75,32.5,35.75,5123644,31.79,12.45,32.82,26.31,2.01
+20260527,39.25,39.3,37.55,39.3,6924233,32.42,21.23,33.21,26.75,2.41
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6141 | 柏承 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 6141 | 柏承 | true_breakout | 嚴格突破 | 109.0 |  |  | breakout_confirmed |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6141 | 柏承 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260527 | 6141 | 柏承 | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | status |

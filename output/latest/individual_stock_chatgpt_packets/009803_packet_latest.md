@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009803 玉山市值動能50
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:47 Asia/Taipei
+- generated_at: 2026-05-27 21:26:03 Asia/Taipei
 - stock_id: 009803
 - stock_name: 玉山市值動能50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 21.57
-- high: 21.6
-- low: 21.18
-- close: 21.36
-- volume: 1151694
+- date: 20260527
+- open: 21.74
+- high: 22.2
+- low: 21.74
+- close: 21.92
+- volume: 1293395
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,20.2,20.54,20.2,20.48,1988789,,,,,
 20260525,21.15,21.42,21.04,21.33,3595479,,,,,
 20260526,21.57,21.6,21.18,21.36,1151694,,,,,
+20260527,21.74,22.2,21.74,21.92,1293395,,,,,
 ```
 
 ## Latest TDCC Snapshot

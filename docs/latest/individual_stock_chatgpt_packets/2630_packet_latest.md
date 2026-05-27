@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2630 亞航
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:27 Asia/Taipei
+- generated_at: 2026-05-27 21:26:44 Asia/Taipei
 - stock_id: 2630
 - stock_name: 亞航
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 43
-- high: 43.4
-- low: 42
-- close: 42
-- volume: 1128469
-- ma5: 42.95
-- ema23_primary: 45.29
-- distance_to_ema23_pct: -7.27
-- ma20: 45.64
-- ma60: 48.06
-- ma120: 49.94
-- return_5d: -1.75
-- return_20d: -14.72
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: -7.97
-- distance_to_high_60_pct: -25.13
+- date: 20260527
+- open: 42.1
+- high: 42.25
+- low: 41.1
+- close: 41.25
+- volume: 1272661
+- ma5: 42.65
+- ema23_primary: 44.95
+- distance_to_ema23_pct: -8.24
+- ma20: 45.29
+- ma60: 47.87
+- ma120: 49.9
+- return_5d: -3.51
+- return_20d: -14.51
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: -8.92
+- distance_to_high_60_pct: -26.47
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,49.25,49.25,47.7,48.25,983191,48.91,-1.34,48.12,50.01,0.74
 20260429,48.05,48.25,47.2,47.2,993059,48.76,-3.21,48.01,49.87,0.78
 20260430,47.35,47.55,46.75,46.95,656338,48.61,-3.42,48.01,49.73,0.54
 20260504,46.8,49.5,46.8,48.95,1433442,48.64,0.63,48.07,49.63,1.15
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,43.8,43.95,43,43.5,794051,45.83,-5.08,46.37,48.43,0.63
 20260525,43.35,43.6,42.7,42.95,1282582,45.59,-5.79,46,48.25,1.01
 20260526,43,43.4,42,42,1128469,45.29,-7.27,45.64,48.06,0.88
+20260527,42.1,42.25,41.1,41.25,1272661,44.95,-8.24,45.29,47.87,0.98
 ```
 
 ## Latest TDCC Snapshot
@@ -135,7 +135,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2630 | 亞航 | 16 | 0 | 6690.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 2630 | 亞航 | 16 | 0 | 2150.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4906 正文
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:11 Asia/Taipei
+- generated_at: 2026-05-27 21:27:30 Asia/Taipei
 - stock_id: 4906
 - stock_name: 正文
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 44.45
-- high: 44.45
-- low: 42
-- close: 42.85
-- volume: 43668998
-- ma5: 40.79
-- ema23_primary: 38.79
-- distance_to_ema23_pct: 10.47
-- ma20: 38.22
-- ma60: 35.22
-- ma120: 31.29
-- return_5d: 12.76
-- return_20d: 18.21
-- volume_ratio: 1.68
-- distance_to_ma20_pct_auxiliary: 12.11
-- distance_to_high_60_pct: -3.6
+- date: 20260527
+- open: 43.15
+- high: 45.35
+- low: 42.25
+- close: 44.75
+- volume: 37094886
+- ma5: 42.22
+- ema23_primary: 39.29
+- distance_to_ema23_pct: 13.91
+- ma20: 38.69
+- ma60: 35.51
+- ma120: 31.45
+- return_5d: 19.02
+- return_20d: 26.59
+- volume_ratio: 1.35
+- distance_to_ma20_pct_auxiliary: 15.66
+- distance_to_high_60_pct: -1.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,35.7,36.15,35.05,35.35,9101203,36.44,-2.99,38.05,31.81,0.16
 20260429,35,35.1,34.15,34.3,8684637,36.26,-5.41,38.02,31.91,0.16
 20260430,34.8,35.45,34.2,34.3,8811509,36.1,-4.98,37.93,32.02,0.17
 20260504,34.3,35.25,34.15,34.25,7938180,35.95,-4.72,37.66,32.12,0.17
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,39.5,40.7,39.05,40.3,20646378,37.89,6.37,37.39,34.66,0.88
 20260525,41.9,44.3,41.8,44.3,47391433,38.42,15.3,37.89,34.95,1.89
 20260526,44.45,44.45,42,42.85,43668998,38.79,10.47,38.22,35.22,1.68
+20260527,43.15,45.35,42.25,44.75,37094886,39.29,13.91,38.69,35.51,1.35
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4906 | 正文 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 4906 | 正文 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 4906 | 正文 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 4906 | 正文 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4906 | 正文 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260527 | 4906 | 正文 | 5 | 5 | 5 | 5 | 5 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4906 | 正文 | 35 | 0 | 12795720.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260527 | 4906 | 正文 | 37 | 0 | 14467850.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

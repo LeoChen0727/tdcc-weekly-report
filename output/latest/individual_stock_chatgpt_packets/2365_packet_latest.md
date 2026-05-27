@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2365 昆盈
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:15 Asia/Taipei
+- generated_at: 2026-05-27 21:26:31 Asia/Taipei
 - stock_id: 2365
 - stock_name: 昆盈
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 39.85
-- high: 40.4
-- low: 37.85
-- close: 38.15
-- volume: 6797120
-- ma5: 37.73
-- ema23_primary: 36.38
-- distance_to_ema23_pct: 4.85
-- ma20: 36.66
-- ma60: 34.68
-- ma120: 35.34
-- return_5d: 6.42
-- return_20d: 13.88
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: 4.05
-- distance_to_high_60_pct: -5.92
+- date: 20260527
+- open: 38.3
+- high: 39.75
+- low: 36.95
+- close: 37.35
+- volume: 6148627
+- ma5: 38.17
+- ema23_primary: 36.47
+- distance_to_ema23_pct: 2.43
+- ma20: 36.69
+- ma60: 34.69
+- ma120: 35.38
+- return_5d: 6.26
+- return_20d: 1.36
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: 1.8
+- distance_to_high_60_pct: -7.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,33.7,36.85,33.3,36.85,15232586,34.11,8.03,33.3,34.98,2.41
 20260429,37,39.5,36.95,36.95,27535363,34.35,7.57,33.57,34.99,3.6
 20260430,36.3,38,35.75,35.9,9255024,34.48,4.12,33.84,34.98,1.15
 20260504,36.15,37,35.4,36.6,9203894,34.66,5.61,34.11,34.94,1.09
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,37.8,39.45,37.15,39.15,12081304,35.91,9.01,36.16,34.62,1.26
 20260525,39.35,40.55,38.6,39.65,14189825,36.22,9.46,36.43,34.66,1.46
 20260526,39.85,40.4,37.85,38.15,6797120,36.38,4.85,36.66,34.68,0.71
+20260527,38.3,39.75,36.95,37.35,6148627,36.47,2.43,36.69,34.69,0.68
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 2365 | 昆盈 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 2365 | 昆盈 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 2365 | 昆盈 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2365 | 昆盈 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260527 | 2365 | 昆盈 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2365 | 昆盈 | 10 | 0 | 1482320.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 2365 | 昆盈 | 10 | 0 | 563290.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

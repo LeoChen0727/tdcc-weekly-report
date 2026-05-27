@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2491 吉祥全
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:23 Asia/Taipei
+- generated_at: 2026-05-27 21:26:39 Asia/Taipei
 - stock_id: 2491
 - stock_name: 吉祥全
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 23.5
-- high: 23.5
-- low: 22.05
-- close: 22.35
-- volume: 1024581
-- ma5: 21.91
-- ema23_primary: 19.76
-- distance_to_ema23_pct: 13.08
-- ma20: 19.64
-- ma60: 17.18
-- ma120: 18.01
-- return_5d: 11.47
-- return_20d: 49
-- volume_ratio: 0.91
-- distance_to_ma20_pct_auxiliary: 13.8
-- distance_to_high_60_pct: -6.09
+- date: 20260527
+- open: 22.55
+- high: 23.65
+- low: 22.4
+- close: 22.55
+- volume: 1290532
+- ma5: 22.47
+- ema23_primary: 20
+- distance_to_ema23_pct: 12.77
+- ma20: 20
+- ma60: 17.27
+- ma120: 18.09
+- return_5d: 14.18
+- return_20d: 47.87
+- volume_ratio: 1.09
+- distance_to_ma20_pct_auxiliary: 12.72
+- distance_to_high_60_pct: -5.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,15.2,15.25,14.9,15.25,120724,15.74,-3.09,15.46,16.47,0.73
 20260429,15.25,15.45,15.15,15.2,83284,15.69,-3.13,15.44,16.4,0.5
 20260430,15.15,15.6,15.15,15.2,190931,15.65,-2.88,15.44,16.34,1.15
 20260504,15.3,16.2,15.2,15.8,244474,15.66,0.87,15.47,16.29,1.49
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,22,23.8,22,22.15,2287443,19.16,15.61,18.87,16.98,2.24
 20260525,22.9,23.65,22,23.6,1177951,19.53,20.84,19.27,17.09,1.09
 20260526,23.5,23.5,22.05,22.35,1024581,19.76,13.08,19.64,17.18,0.91
+20260527,22.55,23.65,22.4,22.55,1290532,20,12.77,20,17.27,1.09
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2491 | 吉祥全 | 1 | 1 | 3 | 3 | 3 | repeated_but_no_breakout | 近 10 日上榜 3 日、近 20 日上榜 3 日，尚未突破，需分辨醞釀或鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

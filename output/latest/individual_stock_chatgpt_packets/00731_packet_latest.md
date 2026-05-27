@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00731 復華富時高息低波
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:45 Asia/Taipei
+- generated_at: 2026-05-27 21:26:01 Asia/Taipei
 - stock_id: 00731
 - stock_name: 復華富時高息低波
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
+- date: 20260527
 - open: 76.25
-- high: 76.4
-- low: 76
-- close: 76.15
-- volume: 828824
+- high: 77.45
+- low: 76.25
+- close: 77
+- volume: 808180
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,75.1,75.35,74.85,75.35,990235,,,,,
 20260525,75.6,76.5,75.45,75.75,1071277,,,,,
 20260526,76.25,76.4,76,76.15,828824,,,,,
+20260527,76.25,77.45,76.25,77,808180,,,,,
 ```
 
 ## Latest TDCC Snapshot

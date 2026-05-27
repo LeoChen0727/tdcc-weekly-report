@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009819 中信數據及電力
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:48 Asia/Taipei
+- generated_at: 2026-05-27 21:26:03 Asia/Taipei
 - stock_id: 009819
 - stock_name: 中信數據及電力
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 10.29
-- high: 10.29
-- low: 10.21
-- close: 10.25
-- volume: 15409796
+- date: 20260527
+- open: 10.31
+- high: 10.33
+- low: 10.27
+- close: 10.28
+- volume: 16710861
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,10.16,10.19,10.14,10.17,12829853,,,,,
 20260525,10.29,10.31,10.24,10.26,24699518,,,,,
 20260526,10.29,10.29,10.21,10.25,15409796,,,,,
+20260527,10.31,10.33,10.27,10.28,16710861,,,,,
 ```
 
 ## Latest TDCC Snapshot

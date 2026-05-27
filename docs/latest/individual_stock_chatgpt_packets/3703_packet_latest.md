@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3703 欣陸
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:57 Asia/Taipei
+- generated_at: 2026-05-27 21:27:15 Asia/Taipei
 - stock_id: 3703
 - stock_name: 欣陸
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 20
-- high: 20.5
+- date: 20260527
+- open: 20.45
+- high: 20.45
 - low: 20
-- close: 20.4
-- volume: 1649640
+- close: 20.1
+- volume: 3816104
 - ma5: 20.2
-- ema23_primary: 20.59
-- distance_to_ema23_pct: -0.93
-- ma20: 20.44
-- ma60: 21.56
-- ma120: 22.19
-- return_5d: 1.49
-- return_20d: -1.69
-- volume_ratio: 1.37
-- distance_to_ma20_pct_auxiliary: -0.18
-- distance_to_high_60_pct: -12.82
+- ema23_primary: 20.55
+- distance_to_ema23_pct: -2.19
+- ma20: 20.4
+- ma60: 21.53
+- ma120: 22.17
+- return_5d: 0
+- return_20d: -3.83
+- volume_ratio: 2.78
+- distance_to_ma20_pct_auxiliary: -1.46
+- distance_to_high_60_pct: -14.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,20.8,21.05,20.75,20.9,450480,21.74,-3.87,21.82,22.33,0.4
 20260429,21.1,21.1,20.85,20.95,946363,21.68,-3.35,21.75,22.3,0.84
 20260430,20.8,21,20.75,20.75,769406,21.6,-3.93,21.68,22.26,0.7
 20260504,20.75,20.8,20.5,20.55,1382845,21.51,-4.47,21.59,22.21,1.21
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,20.2,20.25,20,20.15,1129863,20.66,-2.46,20.5,21.64,1
 20260525,20.25,20.25,19.8,20.05,2509105,20.61,-2.71,20.45,21.6,2.09
 20260526,20,20.5,20,20.4,1649640,20.59,-0.93,20.44,21.56,1.37
+20260527,20.45,20.45,20,20.1,3816104,20.55,-2.19,20.4,21.53,2.78
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3703 | 欣陸 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 62.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3703 | 欣陸 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

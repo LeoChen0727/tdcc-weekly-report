@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00923 群益台ESG低碳50
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:47 Asia/Taipei
+- generated_at: 2026-05-27 21:26:02 Asia/Taipei
 - stock_id: 00923
 - stock_name: 群益台ESG低碳50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 40.87
-- high: 41.02
-- low: 40.42
-- close: 40.6
-- volume: 4591668
+- date: 20260527
+- open: 41.85
+- high: 42.33
+- low: 41.6
+- close: 41.86
+- volume: 10475702
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,38.42,38.89,38.35,38.87,5000301,,,,,
 20260525,39.52,40.63,39.52,40.53,4281584,,,,,
 20260526,40.87,41.02,40.42,40.6,4591668,,,,,
+20260527,41.85,42.33,41.6,41.86,10475702,,,,,
 ```
 
 ## Latest TDCC Snapshot

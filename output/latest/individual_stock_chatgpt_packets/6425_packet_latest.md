@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6425 易發
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:39 Asia/Taipei
+- generated_at: 2026-05-27 21:27:59 Asia/Taipei
 - stock_id: 6425
 - stock_name: 易發
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 98.3
-- high: 101.5
-- low: 98.3
-- close: 101.5
-- volume: 101000
-- ma5: 92.5
-- ema23_primary: 87.12
-- distance_to_ema23_pct: 16.5
-- ma20: 86.88
-- ma60: 76.54
-- ma120: 78.12
-- return_5d: 14.3
-- return_20d: 19.83
-- volume_ratio: 0.03
-- distance_to_ma20_pct_auxiliary: 16.83
-- distance_to_high_60_pct: 0
+- date: 20260527
+- open: 108.5
+- high: 109
+- low: 100
+- close: 102.5
+- volume: 104000
+- ma5: 95.44
+- ema23_primary: 88.4
+- distance_to_ema23_pct: 15.95
+- ma20: 87.85
+- ma60: 77.08
+- ma120: 78.41
+- return_5d: 16.74
+- return_20d: 23.35
+- volume_ratio: 0.04
+- distance_to_ma20_pct_auxiliary: 16.68
+- distance_to_high_60_pct: -5.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,83.7,85.1,82.1,83.1,1846000,78.65,5.66,76.75,71.33,0.41
 20260429,83.1,84.6,79.5,80.2,1867000,78.78,1.81,77.36,71.3,0.41
 20260430,83,84.5,80.6,83.3,2118000,79.15,5.24,78.39,71.38,0.46
 20260504,83.6,84.1,81.5,81.9,1532000,79.38,3.17,79.31,71.41,0.33
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,91,94.3,89.1,90.4,92000,85.2,6.11,85.92,75.56,0.02
 20260525,91.3,92.7,90.1,92.6,92000,85.81,7.91,86.04,75.97,0.03
 20260526,98.3,101.5,98.3,101.5,101000,87.12,16.5,86.88,76.54,0.03
+20260527,108.5,109,100,102.5,104000,88.4,15.95,87.85,77.08,0.04
 ```
 
 ## Latest TDCC Snapshot
@@ -130,7 +130,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6425 | 易發 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 6425 | 易發 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

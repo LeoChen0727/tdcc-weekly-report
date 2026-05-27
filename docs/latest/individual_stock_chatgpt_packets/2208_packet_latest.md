@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2208 台船
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:10 Asia/Taipei
+- generated_at: 2026-05-27 21:26:26 Asia/Taipei
 - stock_id: 2208
 - stock_name: 台船
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 18.4
-- high: 18.4
-- low: 18.15
-- close: 18.25
-- volume: 3417302
-- ma5: 18.37
-- ema23_primary: 19.44
-- distance_to_ema23_pct: -6.13
-- ma20: 19.56
-- ma60: 20.65
-- ma120: 20.94
-- return_5d: 0.27
-- return_20d: -10.32
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: -6.71
-- distance_to_high_60_pct: -26.41
+- date: 20260527
+- open: 18.15
+- high: 18.3
+- low: 18.05
+- close: 18.1
+- volume: 4181369
+- ma5: 18.34
+- ema23_primary: 19.33
+- distance_to_ema23_pct: -6.37
+- ma20: 19.45
+- ma60: 20.54
+- ma120: 20.93
+- return_5d: -0.82
+- return_20d: -11.27
+- volume_ratio: 0.91
+- distance_to_ma20_pct_auxiliary: -6.93
+- distance_to_high_60_pct: -27.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,20.4,20.45,20.1,20.4,3182210,20.75,-1.66,20.54,21.62,0.91
 20260429,20.45,20.55,20.05,20.1,4116383,20.69,-2.86,20.48,21.56,1.17
 20260430,20.15,20.25,19.8,19.8,4440108,20.62,-3.96,20.45,21.52,1.3
 20260504,20.1,20.4,20,20.15,3848501,20.58,-2.08,20.44,21.49,1.11
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,18.8,18.9,18.35,18.55,3365368,19.68,-5.73,19.77,20.85,0.78
 20260525,18.6,18.6,18.05,18.15,6580356,19.55,-7.17,19.67,20.75,1.46
 20260526,18.4,18.4,18.15,18.25,3417302,19.44,-6.13,19.56,20.65,0.75
+20260527,18.15,18.3,18.05,18.1,4181369,19.33,-6.37,19.45,20.54,0.91
 ```
 
 ## Latest TDCC Snapshot
@@ -125,13 +125,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2208 | 台船 | revenue_pullback | 營收成長股價回檔 | 57.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260526 | 2208 | 台船 | revenue_breakout_low_response | 營收爆發低反應股 | 12.0 | 20.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260527 | 2208 | 台船 | revenue_pullback | 營收成長股價回檔 | 57.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260527 | 2208 | 台船 | revenue_breakout_low_response | 營收爆發低反應股 | 12.0 | 24.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2208 | 台船 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 2208 | 台船 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

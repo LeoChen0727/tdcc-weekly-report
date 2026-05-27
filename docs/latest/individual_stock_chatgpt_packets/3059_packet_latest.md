@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3059 華晶科
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:38 Asia/Taipei
+- generated_at: 2026-05-27 21:26:56 Asia/Taipei
 - stock_id: 3059
 - stock_name: 華晶科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 43.5
-- high: 43.85
-- low: 42.15
-- close: 42.45
-- volume: 6829213
-- ma5: 43
-- ema23_primary: 40.95
-- distance_to_ema23_pct: 3.66
-- ma20: 41.15
-- ma60: 38.64
-- ma120: 39.81
-- return_5d: 0.83
-- return_20d: 9.69
-- volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: 3.15
-- distance_to_high_60_pct: -6.29
+- date: 20260527
+- open: 42.65
+- high: 42.7
+- low: 41.45
+- close: 41.55
+- volume: 4866570
+- ma5: 42.81
+- ema23_primary: 41
+- distance_to_ema23_pct: 1.34
+- ma20: 41.22
+- ma60: 38.67
+- ma120: 39.82
+- return_5d: -2.24
+- return_20d: 3.36
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: 0.8
+- distance_to_high_60_pct: -8.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,38.95,40.25,37.9,40.2,9004187,37.66,6.76,37.07,38.3,3.34
 20260429,40.05,41.4,39.6,40.8,7967601,37.92,7.6,37.3,38.26,2.62
 20260430,41,41.55,40.25,40.3,7032257,38.12,5.73,37.56,38.18,2.13
 20260504,40.85,42.3,40.5,41.05,6947463,38.36,7.01,37.81,38.14,1.94
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,43.35,44.3,42.8,43.55,8797060,40.59,7.29,40.73,38.55,1.17
 20260525,44.2,45.3,43.15,43.3,20131007,40.82,6.09,40.97,38.59,2.51
 20260526,43.5,43.85,42.15,42.45,6829213,40.95,3.66,41.15,38.64,0.85
+20260527,42.65,42.7,41.45,41.55,4866570,41,1.34,41.22,38.67,0.62
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3059 | 華晶科 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 3059 | 華晶科 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 3059 | 華晶科 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 3059 | 華晶科 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3059 | 華晶科 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260527 | 3059 | 華晶科 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3059 | 華晶科 | 30 | 1 | 1547680.0 | 30500.0 | 50.74 | no_signal | 0 |  |
+| 20260527 | 3059 | 華晶科 | 29 | 1 | 2077770.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

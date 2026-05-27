@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2383 台光電
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:16 Asia/Taipei
+- generated_at: 2026-05-27 21:26:33 Asia/Taipei
 - stock_id: 2383
 - stock_name: 台光電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 5635
-- high: 5635
-- low: 5160
-- close: 5290
-- volume: 2917258
-- ma5: 4977
-- ema23_primary: 4628.12
-- distance_to_ema23_pct: 14.3
-- ma20: 4784.25
-- ma60: 3619.67
-- ma120: 2647.58
-- return_5d: 16.65
-- return_20d: 11.84
-- volume_ratio: 1.04
-- distance_to_ma20_pct_auxiliary: 10.57
-- distance_to_high_60_pct: -6.12
+- date: 20260527
+- open: 5500
+- high: 5545
+- low: 5300
+- close: 5305
+- volume: 2342327
+- ma5: 5159
+- ema23_primary: 4684.52
+- distance_to_ema23_pct: 13.25
+- ma20: 4830.75
+- ma60: 3667.42
+- ma120: 2680.88
+- return_5d: 20.71
+- return_20d: 21.26
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: 9.82
+- distance_to_high_60_pct: -5.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,4650,4655,4340,4375,4686444,3636.73,20.3,3582.25,2712.08,1.3
 20260429,4165,4460,4160,4440,3600136,3703.67,19.88,3665,2760.08,1
 20260430,4550,4660,4485,4545,3472525,3773.78,20.44,3762.25,2808.17,0.99
 20260504,4605,4770,4530,4755,3046320,3855.55,23.33,3857,2857.42,0.87
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,4925,5085,4800,5005,3037648,4482.76,11.65,4704.75,3518.58,1
 20260525,5355,5505,5205,5505,1801298,4567.95,20.51,4756.25,3571.83,0.62
 20260526,5635,5635,5160,5290,2917258,4628.12,14.3,4784.25,3619.67,1.04
+20260527,5500,5545,5300,5305,2342327,4684.52,13.25,4830.75,3667.42,0.88
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2383 | 台光電 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_put_bullish | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260527 | 2383 | 台光電 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2383 | 台光電 | 4 | 1 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260527 | 2383 | 台光電 | 5 | 2 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2383 | 台光電 | 153 | 18 | 41970430.0 | 109940.0 | 381.76 | call_put_bullish | 3 |  |
+| 20260527 | 2383 | 台光電 | 152 | 17 | 9074020.0 | 83620.0 | 108.51 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

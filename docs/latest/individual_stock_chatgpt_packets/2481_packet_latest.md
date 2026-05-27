@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2481 強茂
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:22 Asia/Taipei
+- generated_at: 2026-05-27 21:26:38 Asia/Taipei
 - stock_id: 2481
 - stock_name: 強茂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 137
-- high: 147
-- low: 135.5
-- close: 147
-- volume: 52336498
-- ma5: 136
-- ema23_primary: 119.68
-- distance_to_ema23_pct: 22.83
-- ma20: 116.5
-- ma60: 103.9
-- ma120: 94.89
-- return_5d: 8.89
-- return_20d: 42.72
-- volume_ratio: 1.25
-- distance_to_ma20_pct_auxiliary: 26.19
-- distance_to_high_60_pct: 0
+- date: 20260527
+- open: 157.5
+- high: 161.5
+- low: 143
+- close: 147.5
+- volume: 72240943
+- ma5: 138.9
+- ema23_primary: 122
+- distance_to_ema23_pct: 20.9
+- ma20: 118.91
+- ma60: 104.85
+- ma120: 95.46
+- return_5d: 10.9
+- return_20d: 48.69
+- volume_ratio: 1.62
+- distance_to_ma20_pct_auxiliary: 24.04
+- distance_to_high_60_pct: -8.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,102.5,104,99,99.2,17453040,101.11,-1.89,100.92,95.19,0.56
 20260429,99,103,97.8,101,22446809,101.1,-0.1,101.54,95.31,0.73
 20260430,102,105.5,100,101,17478248,101.09,-0.09,102.27,95.33,0.57
 20260504,102.5,103,99.6,99.7,10493178,100.98,-1.27,102.83,95.5,0.34
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,134,141,130.5,133.5,50103219,115.67,15.42,112.59,102.14,1.27
 20260525,135.5,142.5,133,134,51247093,117.2,14.34,114.3,102.91,1.25
 20260526,137,147,135.5,147,52336498,119.68,22.83,116.5,103.9,1.25
+20260527,157.5,161.5,143,147.5,72240943,122,20.9,118.91,104.85,1.62
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2481 | 強茂 | true_breakout | 嚴格突破 | 81.0 |  |  | platform_right_side |  | call_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 2481 | 強茂 | true_breakout | 嚴格突破 | 86.0 |  |  | neckline_challenge |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2481 | 強茂 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260527 | 2481 | 強茂 | 2 | 2 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2481 | 強茂 | 148 | 3 | 37008160.0 | 4380.0 | 8449.35 | call_inflow | 1 |  |
+| 20260527 | 2481 | 強茂 | 148 | 3 | 52058240.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

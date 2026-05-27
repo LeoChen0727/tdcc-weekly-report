@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2485 兆赫
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:22 Asia/Taipei
+- generated_at: 2026-05-27 21:26:39 Asia/Taipei
 - stock_id: 2485
 - stock_name: 兆赫
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 77.6
-- high: 77.8
-- low: 73.6
-- close: 74.6
-- volume: 30717706
-- ma5: 72.98
-- ema23_primary: 70.37
-- distance_to_ema23_pct: 6.02
-- ma20: 68.5
-- ma60: 68.84
-- ma120: 49.84
-- return_5d: 3.04
-- return_20d: 19.94
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: 8.91
-- distance_to_high_60_pct: -14.15
+- date: 20260527
+- open: 75.8
+- high: 76.2
+- low: 73
+- close: 74.1
+- volume: 25057758
+- ma5: 73.68
+- ema23_primary: 70.68
+- distance_to_ema23_pct: 4.84
+- ma20: 69.08
+- ma60: 69.33
+- ma120: 50.32
+- return_5d: 4.96
+- return_20d: 18.94
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: 7.26
+- distance_to_high_60_pct: -14.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,62.3,63.4,60.7,62.3,21710582,69.79,-10.73,73.39,59.6,0.58
 20260429,62.3,62.6,60.9,60.9,9231760,69.05,-11.8,72.45,60.04,0.25
 20260430,60.7,63.1,58.5,58.7,33268714,68.19,-13.91,71.41,60.44,0.86
 20260504,59.5,64.5,58.1,64.5,23947369,67.88,-4.98,70.56,60.92,0.6
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,70.3,73.5,70.1,73,36889592,69.37,5.23,67.06,67.74,0.92
 20260525,74.7,78.6,74,76.7,70451327,69.98,9.6,67.88,68.3,1.7
 20260526,77.6,77.8,73.6,74.6,30717706,70.37,6.02,68.5,68.84,0.75
+20260527,75.8,76.2,73,74.1,25057758,70.68,4.84,69.08,69.33,0.61
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2485 | 兆赫 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260527 | 2485 | 兆赫 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2485 | 兆赫 | 1 | 1 | 3 | 3 | 3 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 2485 | 兆赫 | 2 | 2 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2485 | 兆赫 | 40 | 2 | 8822480.0 | 162850.0 | 54.18 | no_signal | 0 |  |
+| 20260527 | 2485 | 兆赫 | 40 | 2 | 6942360.0 | 75110.0 | 92.43 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

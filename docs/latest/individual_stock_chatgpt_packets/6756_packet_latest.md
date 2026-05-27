@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6756 威鋒電子
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:51 Asia/Taipei
+- generated_at: 2026-05-27 21:28:12 Asia/Taipei
 - stock_id: 6756
 - stock_name: 威鋒電子
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 112.5
-- high: 112.5
-- low: 104.5
-- close: 107
-- volume: 748955
-- ma5: 104.44
-- ema23_primary: 95.81
-- distance_to_ema23_pct: 11.67
-- ma20: 96.22
-- ma60: 82.91
-- ma120: 81.84
-- return_5d: 13.83
-- return_20d: 24.56
-- volume_ratio: 1.08
-- distance_to_ma20_pct_auxiliary: 11.21
-- distance_to_high_60_pct: -7.36
+- date: 20260527
+- open: 109
+- high: 109
+- low: 103
+- close: 105
+- volume: 489625
+- ma5: 106.2
+- ema23_primary: 96.58
+- distance_to_ema23_pct: 8.72
+- ma20: 97.3
+- ma60: 83.31
+- ma120: 82.11
+- return_5d: 9.15
+- return_20d: 25.9
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: 7.92
+- distance_to_high_60_pct: -9.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,85.9,85.9,83.2,83.4,263413,79.12,5.41,76.77,77.73,0.72
 20260429,82.3,84.2,82.3,82.8,205827,79.43,4.25,77.3,77.76,0.56
 20260430,83.9,87.7,83.9,84.6,544899,79.86,5.94,78.02,77.81,1.4
 20260504,85.7,89,85.7,86.5,415537,80.41,7.57,78.79,77.86,1.02
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,101.5,105.5,101,105,716599,93.19,12.67,93.99,81.95,1.01
 20260525,109,115.5,105,112.5,1115983,94.8,18.67,95.16,82.47,1.62
 20260526,112.5,112.5,104.5,107,748955,95.81,11.67,96.22,82.91,1.08
+20260527,109,109,103,105,489625,96.58,8.72,97.3,83.31,0.69
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6756 | 威鋒電子 | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

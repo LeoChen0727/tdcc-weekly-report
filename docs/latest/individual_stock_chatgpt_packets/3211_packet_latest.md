@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3211 順達
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:42 Asia/Taipei
+- generated_at: 2026-05-27 21:27:00 Asia/Taipei
 - stock_id: 3211
 - stock_name: 順達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 450.5
-- high: 469
-- low: 448
-- close: 469
-- volume: 462000
-- ma5: 396.7
-- ema23_primary: 382.13
-- distance_to_ema23_pct: 22.73
-- ma20: 380
-- ma60: 353.01
-- ma120: 325.02
-- return_5d: 30.64
-- return_20d: 21.66
-- volume_ratio: 0.06
-- distance_to_ma20_pct_auxiliary: 23.42
-- distance_to_high_60_pct: 0
+- date: 20260527
+- open: 470
+- high: 492.5
+- low: 455
+- close: 464
+- volume: 471000
+- ma5: 420.1
+- ema23_primary: 388.95
+- distance_to_ema23_pct: 19.3
+- ma20: 384.43
+- ma60: 355.58
+- ma120: 326.71
+- return_5d: 33.72
+- return_20d: 23.57
+- volume_ratio: 0.07
+- distance_to_ma20_pct_auxiliary: 20.7
+- distance_to_high_60_pct: -5.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,384,386.5,368.5,375.5,10727000,363,3.44,366.3,329.05,0.95
 20260429,369,373.5,362,362.5,7222000,362.96,-0.13,366.7,330.45,0.66
 20260430,363,371,360.5,360.5,5323000,362.75,-0.62,367.48,331.36,0.5
 20260504,363.5,365,355,359,3759000,362.44,-0.95,367.8,332.02,0.37
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,356.5,388,356,388,375000,369.48,5.01,373.57,347.64,0.04
 20260525,417.5,426.5,417,426.5,425000,374.23,13.97,375.82,349.98,0.05
 20260526,450.5,469,448,469,462000,382.13,22.73,380,353.01,0.06
+20260527,470,492.5,455,464,471000,388.95,19.3,384.43,355.58,0.07
 ```
 
 ## Latest TDCC Snapshot
@@ -130,7 +130,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3211 | 順達 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 3211 | 順達 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

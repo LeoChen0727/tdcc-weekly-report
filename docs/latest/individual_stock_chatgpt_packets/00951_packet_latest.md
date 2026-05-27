@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00951 台新日本半導體
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:47 Asia/Taipei
+- generated_at: 2026-05-27 21:26:03 Asia/Taipei
 - stock_id: 00951
 - stock_name: 台新日本半導體
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 17.14
-- high: 17.14
-- low: 16.95
-- close: 17.07
-- volume: 2426816
+- date: 20260527
+- open: 17.44
+- high: 17.52
+- low: 17.13
+- close: 17.16
+- volume: 4285733
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,16.41,16.5,16.36,16.49,2089974,,,,,
 20260525,17.21,17.32,17.21,17.32,4068122,,,,,
 20260526,17.14,17.14,16.95,17.07,2426816,,,,,
+20260527,17.44,17.52,17.13,17.16,4285733,,,,,
 ```
 
 ## Latest TDCC Snapshot

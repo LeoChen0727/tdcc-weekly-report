@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00877 復華中國5G
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:46 Asia/Taipei
+- generated_at: 2026-05-27 21:26:01 Asia/Taipei
 - stock_id: 00877
 - stock_name: 復華中國5G
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 42.09
-- high: 42.53
-- low: 41.63
-- close: 42
-- volume: 42000
+- date: 20260527
+- open: 42.43
+- high: 43.51
+- low: 42.23
+- close: 42.52
+- volume: 43000
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,39.1,40,38.72,39.97,39000,,,,,
 20260525,40.65,41.8,40.5,41.48,41000,,,,,
 20260526,42.09,42.53,41.63,42,42000,,,,,
+20260527,42.43,43.51,42.23,42.52,43000,,,,,
 ```
 
 ## Latest TDCC Snapshot

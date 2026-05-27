@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4526 東台
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:04 Asia/Taipei
+- generated_at: 2026-05-27 21:27:23 Asia/Taipei
 - stock_id: 4526
 - stock_name: 東台
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 41.3
-- high: 44.35
-- low: 40.45
-- close: 44.35
-- volume: 27008283
-- ma5: 39.86
-- ema23_primary: 37.37
-- distance_to_ema23_pct: 18.68
-- ma20: 37.36
-- ma60: 34.7
-- ma120: 33.66
-- return_5d: 18.58
-- return_20d: 37.31
-- volume_ratio: 2.24
-- distance_to_ma20_pct_auxiliary: 18.72
-- distance_to_high_60_pct: 0
+- date: 20260527
+- open: 45.8
+- high: 45.8
+- low: 39.95
+- close: 39.95
+- volume: 26830922
+- ma5: 40.43
+- ema23_primary: 37.58
+- distance_to_ema23_pct: 6.3
+- ma20: 37.61
+- ma60: 34.81
+- ma120: 33.75
+- return_5d: 7.68
+- return_20d: 14.31
+- volume_ratio: 2.09
+- distance_to_ma20_pct_auxiliary: 6.23
+- distance_to_high_60_pct: -12.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,32.3,35.5,31.95,34.95,11049940,33.82,3.35,33.94,33.95,2.49
 20260429,34.95,35.2,34.2,34.3,10670283,33.86,1.31,33.99,33.9,2.2
 20260430,34.55,37.4,34.55,36.75,23375944,34.1,7.78,34.23,33.9,3.96
 20260504,37,39.5,36.2,37.5,23657392,34.38,9.07,34.38,33.9,3.48
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,38.2,39.9,37.7,39.45,12211438,36.41,8.36,36.39,34.49,1.15
 20260525,39.95,40.6,39.1,40.35,10660350,36.73,9.84,36.76,34.55,0.98
 20260526,41.3,44.35,40.45,44.35,27008283,37.37,18.68,37.36,34.7,2.24
+20260527,45.8,45.8,39.95,39.95,26830922,37.58,6.3,37.61,34.81,2.09
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4526 | 東台 | true_breakout | 嚴格突破 | 114.0 |  |  | breakout_confirmed |  | call_strong_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 4526 | 東台 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_strong_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 4526 | 東台 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 4526 | 東台 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4526 | 東台 | 4 | 4 | 4 | 4 | 4 | continued_many_days | 連續 4 個交易日上榜，需判斷是持續醞釀或訊號鈍化。 |
+| 20260527 | 4526 | 東台 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4526 | 東台 | 6 | 0 | 5121600.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260527 | 4526 | 東台 | 6 | 0 | 4947850.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2330 台積電
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:13 Asia/Taipei
+- generated_at: 2026-05-27 21:26:29 Asia/Taipei
 - stock_id: 2330
 - stock_name: 台積電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 2320
-- high: 2325
-- low: 2270
-- close: 2270
-- volume: 32781470
-- ma5: 2250
-- ema23_primary: 2205.68
-- distance_to_ema23_pct: 2.92
-- ma20: 2242.25
-- ma60: 2034.25
-- ma120: 1829.75
-- return_5d: 2.95
-- return_20d: 0.22
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: 1.24
-- distance_to_high_60_pct: -3.2
+- date: 20260527
+- open: 2310
+- high: 2330
+- low: 2290
+- close: 2300
+- volume: 40272350
+- ma5: 2273
+- ema23_primary: 2213.54
+- distance_to_ema23_pct: 3.91
+- ma20: 2246.5
+- ma60: 2039.33
+- ma120: 1837.38
+- return_5d: 5.26
+- return_20d: 3.84
+- volume_ratio: 1.03
+- distance_to_ma20_pct_auxiliary: 2.38
+- distance_to_high_60_pct: -1.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,2245,2280,2215,2215,57336004,2026.15,9.32,2004,1900.25,1.3
 20260429,2175,2210,2165,2180,49147402,2038.97,6.92,2024,1907.58,1.11
 20260430,2205,2215,2135,2135,59584011,2046.97,4.3,2042.75,1913.83,1.37
 20260504,2200,2285,2195,2275,44458732,2065.98,10.12,2063.75,1922.25,1.03
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,2245,2260,2225,2255,26823133,2189.82,2.98,2235.75,2024.25,0.62
 20260525,2275,2310,2275,2310,28250944,2199.84,5.01,2242,2030,0.67
 20260526,2320,2325,2270,2270,32781470,2205.68,2.92,2242.25,2034.25,0.82
+20260527,2310,2330,2290,2300,40272350,2213.54,3.91,2246.5,2039.33,1.03
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2330 | 台積電 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2330 | 台積電 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2330 | 台積電 | 933 | 210 | 150412260.0 | 1692590.0 | 88.87 | no_signal | 0 | 認購權證成交金額很大且認購/認售比偏高，需檢查標的是否高位追價或獲利結清；認購權證成交量與成交金額同步偏大，短線資金關注度高 |
+| 20260527 | 2330 | 台積電 | 936 | 209 | 212305080.0 | 4904980.0 | 43.28 | mixed_flow | 0 | 認購權證成交金額很大且認購/認售比偏高，需檢查標的是否高位追價或獲利結清；認購權證成交量與成交金額同步偏大，短線資金關注度高 |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

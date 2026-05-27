@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00926 凱基全球菁英55
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:47 Asia/Taipei
+- generated_at: 2026-05-27 21:26:02 Asia/Taipei
 - stock_id: 00926
 - stock_name: 凱基全球菁英55
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 25.44
-- high: 25.45
-- low: 25.34
-- close: 25.44
-- volume: 2121886
+- date: 20260527
+- open: 25.21
+- high: 25.41
+- low: 25.17
+- close: 25.21
+- volume: 2946392
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,25.35,25.44,25.32,25.43,1982489,,,,,
 20260525,25.49,25.49,25.38,25.45,1028622,,,,,
 20260526,25.44,25.45,25.34,25.44,2121886,,,,,
+20260527,25.21,25.41,25.17,25.21,2946392,,,,,
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3305 昇貿
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:45 Asia/Taipei
+- generated_at: 2026-05-27 21:27:03 Asia/Taipei
 - stock_id: 3305
 - stock_name: 昇貿
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 162.5
-- high: 166
-- low: 157
-- close: 163.5
-- volume: 17035367
-- ma5: 148.8
-- ema23_primary: 131.16
-- distance_to_ema23_pct: 24.65
-- ma20: 127.42
-- ma60: 115.01
-- ma120: 111.62
-- return_5d: 18.48
-- return_20d: 56.46
-- volume_ratio: 1.34
-- distance_to_ma20_pct_auxiliary: 28.31
-- distance_to_high_60_pct: -1.51
+- date: 20260527
+- open: 168
+- high: 169.5
+- low: 158.5
+- close: 160
+- volume: 11672203
+- ma5: 153.8
+- ema23_primary: 133.57
+- distance_to_ema23_pct: 19.79
+- ma20: 130.15
+- ma60: 115.68
+- ma120: 112.2
+- return_5d: 18.52
+- return_20d: 51.66
+- volume_ratio: 0.89
+- distance_to_ma20_pct_auxiliary: 22.94
+- distance_to_high_60_pct: -5.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,104,106.5,102.5,105.5,1477032,110.66,-4.66,111.4,110.36,0.28
 20260429,105.5,107.5,105,106.5,1417640,110.31,-3.46,111.53,110.22,0.27
 20260430,110,111.5,106.5,108.5,3017208,110.16,-1.51,111.6,110.08,0.6
 20260504,110,110.5,107.5,108,1839539,109.98,-1.8,111.75,109.8,0.38
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,139,149,138,146,12605498,125.29,16.53,121.7,113.42,1.1
 20260525,151,160.5,150,160.5,13539729,128.22,25.17,124.47,114.22,1.13
 20260526,162.5,166,157,163.5,17035367,131.16,24.65,127.42,115.01,1.34
+20260527,168,169.5,158.5,160,11672203,133.57,19.79,130.15,115.68,0.89
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3305 | 昇貿 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3305 | 昇貿 | 2 | 1 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3305 | 昇貿 | 85 | 5 | 24071830.0 | 42120.0 | 571.51 | no_signal | 0 |  |
+| 20260527 | 3305 | 昇貿 | 85 | 5 | 20404410.0 | 25980.0 | 785.39 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

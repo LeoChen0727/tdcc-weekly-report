@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6215 和椿
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:34 Asia/Taipei
+- generated_at: 2026-05-27 21:27:54 Asia/Taipei
 - stock_id: 6215
 - stock_name: 和椿
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 134.5
-- high: 137.5
-- low: 130
-- close: 132.5
-- volume: 4565174
-- ma5: 130
-- ema23_primary: 120.6
-- distance_to_ema23_pct: 9.87
-- ma20: 120.45
-- ma60: 109.84
-- ma120: 109.51
-- return_5d: 7.29
-- return_20d: 31.84
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: 10
-- distance_to_high_60_pct: -3.99
+- date: 20260527
+- open: 136
+- high: 136
+- low: 129
+- close: 130.5
+- volume: 3940311
+- ma5: 131.7
+- ema23_primary: 121.43
+- distance_to_ema23_pct: 7.47
+- ma20: 121.6
+- ma60: 110.08
+- ma120: 109.79
+- return_5d: 6.97
+- return_20d: 21.4
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: 7.32
+- distance_to_high_60_pct: -5.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,101,107.5,99.7,107.5,2388007,104.01,3.36,101.84,107.97,1.48
 20260429,107.5,112.5,106.5,107,3564377,104.26,2.63,102.23,107.78,2.02
 20260430,108,116.5,107.5,111,6478341,104.82,5.9,103.03,107.62,3.19
 20260504,111.5,116.5,109,115,4748671,105.67,8.83,103.88,107.51,2.12
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,127,137.5,125.5,134.5,12353730,118.11,13.87,117.2,109.17,2.15
 20260525,136,138,132.5,135,8501779,119.52,12.95,118.85,109.53,1.39
 20260526,134.5,137.5,130,132.5,4565174,120.6,9.87,120.45,109.84,0.73
+20260527,136,136,129,130.5,3940311,121.43,7.47,121.6,110.08,0.62
 ```
 
 ## Latest TDCC Snapshot
@@ -125,19 +125,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6215 | 和椿 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260526 | 6215 | 和椿 | revenue_breakout_low_response | 營收爆發低反應股 | 21.0 | 3.0 | A_優先追蹤 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260527 | 6215 | 和椿 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260527 | 6215 | 和椿 | revenue_breakout_low_response | 營收爆發低反應股 | 21.0 | 3.0 | A_優先追蹤 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260521 | 6215 | 和椿 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6215 | 和椿 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 6215 | 和椿 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6215 | 和椿 | 32 | 0 | 6980520.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 6215 | 和椿 | 33 | 0 | 4869750.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

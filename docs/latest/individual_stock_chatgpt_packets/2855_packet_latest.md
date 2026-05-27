@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2855 統一證
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:31 Asia/Taipei
+- generated_at: 2026-05-27 21:26:48 Asia/Taipei
 - stock_id: 2855
 - stock_name: 統一證
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 42.2
-- high: 42.65
-- low: 41.4
-- close: 42
-- volume: 7453527
-- ma5: 40.84
-- ema23_primary: 38.99
-- distance_to_ema23_pct: 7.72
-- ma20: 39.65
-- ma60: 34.54
-- ma120: 30.46
-- return_5d: 6.73
-- return_20d: 17.65
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: 5.93
-- distance_to_high_60_pct: -4.55
+- date: 20260527
+- open: 42.55
+- high: 44.95
+- low: 42.55
+- close: 44.9
+- volume: 16294597
+- ma5: 41.98
+- ema23_primary: 39.48
+- distance_to_ema23_pct: 13.72
+- ma20: 40.12
+- ma60: 34.75
+- ma120: 30.63
+- return_5d: 14.54
+- return_20d: 26.48
+- volume_ratio: 1.69
+- distance_to_ma20_pct_auxiliary: 11.91
+- distance_to_high_60_pct: -0.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,35.7,35.75,35,35.5,4516359,33.09,7.27,32.93,31.19,0.69
 20260429,35.7,35.75,35.05,35.1,3785115,33.26,5.53,33.1,31.31,0.58
 20260430,35.5,36.05,34.85,35.6,7589759,33.46,6.41,33.28,31.43,1.15
 20260504,35.85,37.6,35.65,37.55,10983622,33.8,11.1,33.53,31.57,1.57
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,40.35,40.8,40.05,40.75,5524095,38.41,6.09,38.99,34.17,0.57
 20260525,41.25,42.25,41,42.05,7154644,38.71,8.61,39.34,34.36,0.78
 20260526,42.2,42.65,41.4,42,7453527,38.99,7.72,39.65,34.54,0.82
+20260527,42.55,44.95,42.55,44.9,16294597,39.48,13.72,40.12,34.75,1.69
 ```
 
 ## Latest TDCC Snapshot
@@ -125,13 +125,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2855 | 統一證 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260526 | 2855 | 統一證 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 2855 | 統一證 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  |  | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 2855 | 統一證 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 2855 | 統一證 | true_breakout | 嚴格突破 | 106.0 |  |  | breakout_confirmed |  |  | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2855 | 統一證 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 2855 | 統一證 | 5 | 5 | 5 | 5 | 5 | continued_many_days | 連續 5 個交易日上榜，需判斷是持續醞釀或訊號鈍化。 |
 
 ## Warrant Context
 | status |

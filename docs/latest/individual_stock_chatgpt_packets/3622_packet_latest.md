@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3622 洋華
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:55 Asia/Taipei
+- generated_at: 2026-05-27 21:27:13 Asia/Taipei
 - stock_id: 3622
 - stock_name: 洋華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 56.6
-- high: 58.6
-- low: 56.6
-- close: 58.5
-- volume: 1229568
-- ma5: 55.86
-- ema23_primary: 55.8
-- distance_to_ema23_pct: 4.84
-- ma20: 55.59
-- ma60: 57.04
-- ma120: 60.93
-- return_5d: 8.13
-- return_20d: 6.95
-- volume_ratio: 2.69
-- distance_to_ma20_pct_auxiliary: 5.23
-- distance_to_high_60_pct: -6.85
+- date: 20260527
+- open: 59
+- high: 59.6
+- low: 57.1
+- close: 57.1
+- volume: 849896
+- ma5: 56.54
+- ema23_primary: 55.91
+- distance_to_ema23_pct: 2.14
+- ma20: 55.69
+- ma60: 56.98
+- ma120: 60.84
+- return_5d: 6.33
+- return_20d: 3.63
+- volume_ratio: 1.75
+- distance_to_ma20_pct_auxiliary: 2.53
+- distance_to_high_60_pct: -9.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,54.9,55.3,54.6,55.1,270190,56.49,-2.46,55.99,59.69,0.77
 20260429,55.3,55.3,54,55,235005,56.36,-2.42,55.84,59.48,0.67
 20260430,55.3,56.3,54.8,55.7,358538,56.31,-1.08,55.82,59.23,1.02
 20260504,56.2,56.5,55.5,55.7,266463,56.26,-0.99,55.75,58.98,0.75
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,54.8,56.1,54.8,55.9,514867,55.47,0.78,55.31,57.12,1.3
 20260525,56.4,57.1,56.1,56.5,562188,55.55,1.71,55.4,57.07,1.36
 20260526,56.6,58.6,56.6,58.5,1229568,55.8,4.84,55.59,57.04,2.69
+20260527,59,59.6,57.1,57.1,849896,55.91,2.14,55.69,56.98,1.75
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3622 | 洋華 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3622 | 洋華 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3622 | 洋華 | 2 | 0 | 42740.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 3622 | 洋華 | 2 | 0 | 31790.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

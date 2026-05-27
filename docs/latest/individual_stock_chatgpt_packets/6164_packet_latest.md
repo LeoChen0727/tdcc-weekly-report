@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6164 華興
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:30 Asia/Taipei
+- generated_at: 2026-05-27 21:27:50 Asia/Taipei
 - stock_id: 6164
 - stock_name: 華興
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 12.55
-- high: 12.6
-- low: 12.15
-- close: 12.2
-- volume: 611398
-- ma5: 12.24
-- ema23_primary: 12.21
-- distance_to_ema23_pct: -0.05
-- ma20: 12.18
-- ma60: 12.26
-- ma120: 12.01
-- return_5d: 4.72
-- return_20d: 4.72
-- volume_ratio: 1.01
-- distance_to_ma20_pct_auxiliary: 0.16
-- distance_to_high_60_pct: -11.59
+- date: 20260527
+- open: 12.3
+- high: 12.35
+- low: 12
+- close: 12.1
+- volume: 549279
+- ma5: 12.32
+- ema23_primary: 12.2
+- distance_to_ema23_pct: -0.8
+- ma20: 12.19
+- ma60: 12.25
+- ma120: 12.03
+- return_5d: 3.42
+- return_20d: 2.11
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: -0.76
+- distance_to_high_60_pct: -12.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,11.65,11.95,11.55,11.85,155024,12.37,-4.21,12.3,12.34,0.2
 20260429,12.05,12.45,11.8,12.2,361949,12.36,-1.27,12.31,12.33,0.47
 20260430,12.55,12.75,12.15,12.3,778102,12.35,-0.42,12.34,12.32,0.98
 20260504,12.4,12.4,11.85,11.85,612460,12.31,-3.74,12.35,12.31,0.75
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,12.15,12.8,12.15,12.6,1155888,12.18,3.49,12.13,12.26,1.92
 20260525,12.8,13,12.4,12.55,702800,12.21,2.81,12.15,12.26,1.16
 20260526,12.55,12.6,12.15,12.2,611398,12.21,-0.05,12.18,12.26,1.01
+20260527,12.3,12.35,12,12.1,549279,12.2,-0.8,12.19,12.25,0.88
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6164 | 華興 | 1 | 1 | 3 | 3 | 3 | repeated_but_no_breakout | 近 10 日上榜 3 日、近 20 日上榜 3 日，尚未突破，需分辨醞釀或鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

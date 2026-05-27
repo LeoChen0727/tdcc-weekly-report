@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8021 尖點
 
 ## Metadata
-- generated_at: 2026-05-26 23:55:03 Asia/Taipei
+- generated_at: 2026-05-27 21:28:25 Asia/Taipei
 - stock_id: 8021
 - stock_name: 尖點
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 440
-- high: 464.5
-- low: 425
-- close: 464.5
-- volume: 2834590
-- ma5: 419.1
-- ema23_primary: 412.37
-- distance_to_ema23_pct: 12.64
-- ma20: 422.68
-- ma60: 335.35
-- ma120: 260.18
-- return_5d: 18.49
-- return_20d: 14.41
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: 9.9
-- distance_to_high_60_pct: -6.54
+- date: 20260527
+- open: 468
+- high: 468
+- low: 436
+- close: 436
+- volume: 1348115
+- ma5: 434.1
+- ema23_primary: 414.34
+- distance_to_ema23_pct: 5.23
+- ma20: 424.5
+- ma60: 338.35
+- ma120: 262.82
+- return_5d: 20.78
+- return_20d: 9.14
+- volume_ratio: 0.2
+- distance_to_ma20_pct_auxiliary: 2.71
+- distance_to_high_60_pct: -12.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,404,404,378,399.5,2513871,354.57,12.67,347.27,270.43,0.22
 20260429,378,398,378,383,1724785,356.94,7.3,353.18,273.14,0.16
 20260430,391,409,390,402.5,1827861,360.74,11.58,361.15,275.82,0.19
 20260504,416,425,405,425,1039177,366.09,16.09,370,279.02,0.11
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,396.5,422,396,422,6017069,402.51,4.84,419.1,328.37,0.92
 20260525,445,464,441,464,9062059,407.63,13.83,419.75,332.02,1.34
 20260526,440,464.5,425,464.5,2834590,412.37,12.64,422.68,335.35,0.42
+20260527,468,468,436,436,1348115,414.34,5.23,424.5,338.35,0.2
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8021 | 尖點 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260527 | 8021 | 尖點 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8021 | 尖點 | 4 | 4 | 4 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260527 | 8021 | 尖點 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

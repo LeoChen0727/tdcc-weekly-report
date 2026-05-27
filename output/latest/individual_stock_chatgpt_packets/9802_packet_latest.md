@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9802 鈺齊-KY
 
 ## Metadata
-- generated_at: 2026-05-26 23:55:16 Asia/Taipei
+- generated_at: 2026-05-27 21:28:38 Asia/Taipei
 - stock_id: 9802
 - stock_name: 鈺齊-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 73.9
-- high: 75.2
+- date: 20260527
+- open: 74.5
+- high: 74.5
 - low: 72.9
-- close: 74.4
-- volume: 661143
-- ma5: 74.92
-- ema23_primary: 77.19
-- distance_to_ema23_pct: -3.61
-- ma20: 77.75
-- ma60: 80.36
-- ma120: 91.51
-- return_5d: -3.38
-- return_20d: 0.68
-- volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: -4.31
-- distance_to_high_60_pct: -22.34
+- close: 73.4
+- volume: 866111
+- ma5: 74.42
+- ema23_primary: 76.87
+- distance_to_ema23_pct: -4.52
+- ma20: 77.66
+- ma60: 80.01
+- ma120: 91.21
+- return_5d: -3.29
+- return_20d: -2.39
+- volume_ratio: 0.92
+- distance_to_ma20_pct_auxiliary: -5.49
+- distance_to_high_60_pct: -22.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,74.2,75.4,72.8,75.2,972111,78.25,-3.9,77.04,85.81,0.79
 20260429,75.9,77.4,75.3,77.3,737062,78.17,-1.12,76.97,85.47,0.61
 20260430,77.7,78.3,76.6,77.5,856169,78.12,-0.79,76.99,85.11,0.7
 20260504,77.5,80.4,76.6,80.3,1415702,78.3,2.55,77.09,84.83,1.16
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,75.4,75.9,74.9,75.1,611856,77.77,-3.44,77.75,81.03,0.62
 20260525,75.9,75.9,73.1,73.8,1397987,77.44,-4.7,77.72,80.7,1.41
 20260526,73.9,75.2,72.9,74.4,661143,77.19,-3.61,77.75,80.36,0.7
+20260527,74.5,74.5,72.9,73.4,866111,76.87,-4.52,77.66,80.01,0.92
 ```
 
 ## Latest TDCC Snapshot
@@ -135,7 +135,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 9802 | 鈺齊-KY | 7 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 9802 | 鈺齊-KY | 7 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

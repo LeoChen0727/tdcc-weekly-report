@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8932 智通*
 
 ## Metadata
-- generated_at: 2026-05-26 23:55:15 Asia/Taipei
+- generated_at: 2026-05-27 21:28:37 Asia/Taipei
 - stock_id: 8932
 - stock_name: 智通*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 127
+- latest_price_date: 20260527
+- price_rows: 128
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 105.5
-- high: 108
-- low: 100
-- close: 101.5
-- volume: 103000
-- ma5: 101.38
-- ema23_primary: 97.4
-- distance_to_ema23_pct: 4.21
-- ma20: 95.69
-- ma60: 100.43
-- ma120: 138.32
-- return_5d: -0.49
-- return_20d: 13.41
+- date: 20260527
+- open: 102.5
+- high: 103
+- low: 99.5
+- close: 100
+- volume: 100000
+- ma5: 101.6
+- ema23_primary: 97.62
+- distance_to_ema23_pct: 2.44
+- ma20: 96.3
+- ma60: 98.9
+- ma120: 137.72
+- return_5d: 1.11
+- return_20d: 13.77
 - volume_ratio: 0.04
-- distance_to_ma20_pct_auxiliary: 6.07
-- distance_to_high_60_pct: -49.25
+- distance_to_ma20_pct_auxiliary: 3.84
+- distance_to_high_60_pct: -50
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,89.6,90.3,87.8,87.9,1435000,94.02,-6.51,87.56,130.66,0.58
 20260429,87.9,90.9,87.6,90.2,1149000,93.7,-3.74,87.93,129.4,0.47
 20260430,91.3,92.4,88.9,89.5,4135000,93.35,-4.13,88.38,128.13,1.62
 20260504,89.6,89.8,88.4,88.5,3897000,92.95,-4.79,88.7,126.7,1.45
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,102,102.5,99,101,100000,96.25,4.93,94.45,103.52,0.04
 20260525,103,107,100.5,105.5,104000,97.03,8.73,95.09,101.96,0.04
 20260526,105.5,108,100,101.5,103000,97.4,4.21,95.69,100.43,0.04
+20260527,102.5,103,99.5,100,100000,97.62,2.44,96.3,98.9,0.04
 ```
 
 ## Latest TDCC Snapshot
@@ -130,7 +130,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 8932 | 智通* | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260527 | 8932 | 智通* | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

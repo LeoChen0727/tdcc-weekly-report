@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6139 亞翔
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:29 Asia/Taipei
+- generated_at: 2026-05-27 21:27:49 Asia/Taipei
 - stock_id: 6139
 - stock_name: 亞翔
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 817
-- high: 853
-- low: 811
-- close: 826
-- volume: 6001122
-- ma5: 781.2
-- ema23_primary: 721.57
-- distance_to_ema23_pct: 14.47
-- ma20: 719
-- ma60: 636.02
-- ma120: 589.68
-- return_5d: 11.92
-- return_20d: 24.02
-- volume_ratio: 1.23
-- distance_to_ma20_pct_auxiliary: 14.88
-- distance_to_high_60_pct: -3.17
+- date: 20260527
+- open: 840
+- high: 840
+- low: 804
+- close: 811
+- volume: 5330076
+- ma5: 799.4
+- ema23_primary: 729.02
+- distance_to_ema23_pct: 11.25
+- ma20: 725.55
+- ma60: 639.78
+- ma120: 592.81
+- return_5d: 12.64
+- return_20d: 19.26
+- volume_ratio: 1.06
+- distance_to_ma20_pct_auxiliary: 11.78
+- distance_to_high_60_pct: -4.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,670,683,666,680,2517169,646.89,5.12,632.7,582.48,0.45
 20260429,680,683,667,671,1885795,648.9,3.41,639,584.32,0.34
 20260430,673,680,666,670,1847143,650.65,2.97,646.3,586.18,0.34
 20260504,679,699,679,695,2811183,654.35,6.21,654.8,588.57,0.52
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,808,808,767,769,6471356,703.44,9.32,705.95,627.13,1.36
 20260525,783,825,777,807,5848431,712.07,13.33,711,631.53,1.2
 20260526,817,853,811,826,6001122,721.57,14.47,719,636.02,1.23
+20260527,840,840,804,811,5330076,729.02,11.25,725.55,639.78,1.06
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260527 | 6139 | 亞翔 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260521 | 6139 | 亞翔 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6139 | 亞翔 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 6139 | 亞翔 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6139 | 亞翔 | 224 | 5 | 43713080.0 | 320.0 | 136603.38 | no_signal | 0 |  |
+| 20260527 | 6139 | 亞翔 | 226 | 5 | 38373360.0 | 1700.0 | 22572.56 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

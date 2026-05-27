@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2316 楠梓電
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:12 Asia/Taipei
+- generated_at: 2026-05-27 21:26:28 Asia/Taipei
 - stock_id: 2316
 - stock_name: 楠梓電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 175
-- high: 177
-- low: 165
-- close: 171.5
-- volume: 13759729
-- ma5: 156.4
-- ema23_primary: 134.62
-- distance_to_ema23_pct: 27.39
-- ma20: 131.6
-- ma60: 113.52
-- ma120: 107.39
-- return_5d: 23.38
-- return_20d: 45.34
-- volume_ratio: 1.48
-- distance_to_ma20_pct_auxiliary: 30.32
-- distance_to_high_60_pct: -3.11
+- date: 20260527
+- open: 174
+- high: 188
+- low: 166
+- close: 168
+- volume: 11974745
+- ma5: 162.5
+- ema23_primary: 137.41
+- distance_to_ema23_pct: 22.27
+- ma20: 134.28
+- ma60: 114.44
+- ma120: 108.05
+- return_5d: 22.18
+- return_20d: 46.72
+- volume_ratio: 1.23
+- distance_to_ma20_pct_auxiliary: 25.12
+- distance_to_high_60_pct: -10.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,118,118.5,114.5,114.5,4512842,110.54,3.59,109.81,102.43,0.51
 20260429,114.5,115.5,111.5,114,2956999,110.82,2.87,110.43,102.72,0.34
 20260430,114,115,112,112.5,2546862,110.96,1.38,111.19,102.94,0.29
 20260504,113.5,117.5,112.5,114.5,4168653,111.26,2.91,111.94,103.21,0.47
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,160,163.5,153,153.5,17207195,127.89,20.03,126.4,111.19,1.66
 20260525,158,168.5,158,168.5,5942563,131.27,28.36,128.93,112.36,0.64
 20260526,175,177,165,171.5,13759729,134.62,27.39,131.6,113.52,1.48
+20260527,174,188,166,168,11974745,137.41,22.27,134.28,114.44,1.23
 ```
 
 ## Latest TDCC Snapshot
@@ -128,14 +128,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2316 | 楠梓電 | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2316 | 楠梓電 | 89 | 5 | 13299280.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260527 | 2316 | 楠梓電 | 89 | 5 | 12290920.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

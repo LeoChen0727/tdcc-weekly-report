@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2351 順德
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:14 Asia/Taipei
+- generated_at: 2026-05-27 21:26:30 Asia/Taipei
 - stock_id: 2351
 - stock_name: 順德
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 206.5
-- high: 216
-- low: 206
-- close: 216
-- volume: 8343627
-- ma5: 194.2
-- ema23_primary: 172.93
-- distance_to_ema23_pct: 24.91
-- ma20: 175.88
-- ma60: 129.77
-- ma120: 105.27
-- return_5d: 24.5
-- return_20d: 47.95
-- volume_ratio: 0.93
-- distance_to_ma20_pct_auxiliary: 22.81
-- distance_to_high_60_pct: 0
+- date: 20260527
+- open: 227.5
+- high: 232
+- low: 215
+- close: 229
+- volume: 12559335
+- ma5: 204
+- ema23_primary: 177.6
+- distance_to_ema23_pct: 28.94
+- ma20: 180
+- ma60: 132.15
+- ma120: 106.53
+- return_5d: 27.22
+- return_20d: 56.31
+- volume_ratio: 1.34
+- distance_to_ma20_pct_auxiliary: 27.22
+- distance_to_high_60_pct: -1.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,147,151,144.5,146.5,4564625,127.54,14.87,126.43,101.44,0.46
 20260429,147,156.5,146,152,10651500,129.58,17.31,129.18,102.54,1.04
 20260430,152,160,151,154,10072980,131.61,17.01,132.16,103.62,0.95
 20260504,156.5,162,155.5,158,10427297,133.81,18.08,134.88,104.85,0.96
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,196,197,183.5,186.5,8467659,166.51,12,169.9,125.82,0.9
 20260525,191.5,199.5,188.5,196.5,9253939,169.01,16.26,172.38,127.63,1.04
 20260526,206.5,216,206,216,8343627,172.93,24.91,175.88,129.77,0.93
+20260527,227.5,232,215,229,12559335,177.6,28.94,180,132.15,1.34
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2351 | 順德 | true_breakout | 嚴格突破 | 74.0 |  |  | platform_right_side |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 2351 | 順德 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2351 | 順德 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260527 | 2351 | 順德 | 2 | 2 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2351 | 順德 | 61 | 0 | 9261000.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 2351 | 順德 | 62 | 0 | 20297650.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

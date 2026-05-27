@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3481 群創
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:49 Asia/Taipei
+- generated_at: 2026-05-27 21:27:07 Asia/Taipei
 - stock_id: 3481
 - stock_name: 群創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 52
-- high: 52.2
-- low: 44.65
-- close: 45.7
-- volume: 1463227218
-- ma5: 43.4
-- ema23_primary: 35.43
-- distance_to_ema23_pct: 28.97
-- ma20: 34.08
-- ma60: 28.93
-- ma120: 23.76
-- return_5d: 22.03
-- return_20d: 88.07
-- volume_ratio: 2.3
-- distance_to_ma20_pct_auxiliary: 34.12
-- distance_to_high_60_pct: -12.45
+- date: 20260527
+- open: 47
+- high: 50.2
+- low: 44.45
+- close: 50.2
+- volume: 1370411333
+- ma5: 46.05
+- ema23_primary: 36.66
+- distance_to_ema23_pct: 36.92
+- ma20: 35.37
+- ma60: 29.32
+- ma120: 24.08
+- return_5d: 35.86
+- return_20d: 106.16
+- volume_ratio: 1.96
+- distance_to_ma20_pct_auxiliary: 41.94
+- distance_to_high_60_pct: -3.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,24.3,25,24,24.35,130750892,25.45,-4.32,25.48,25.23,0.42
 20260429,24.4,24.7,23.9,23.95,132951070,25.33,-5.43,25.45,25.18,0.43
 20260430,24.05,24.3,23.65,23.95,103739940,25.21,-5,25.45,25.16,0.35
 20260504,24.15,25.15,24.05,24.8,152389741,25.18,-1.49,25.44,25.17,0.53
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,42.45,44.65,42.35,44.65,388361570,33.17,34.59,31.72,28.18,0.66
 20260525,49.1,49.1,49.1,49.1,68442854,34.5,42.31,33.01,28.58,0.12
 20260526,52,52.2,44.65,45.7,1463227218,35.43,28.97,34.08,28.93,2.3
+20260527,47,50.2,44.45,50.2,1370411333,36.66,36.92,35.37,29.32,1.96
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3481 | 群創 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | mixed_flow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 3481 | 群創 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | mixed_flow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3481 | 群創 | 2 | 1 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260527 | 3481 | 群創 | 3 | 1 | 3 | 3 | 3 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 3481 | 群創 | 150 | 18 | 254092350.0 | 2665500.0 | 95.33 | mixed_flow | 0 | 認購權證成交金額很大且認購/認售比偏高，需檢查標的是否高位追價或獲利結清；認購權證成交量與成交金額同步偏大，短線資金關注度高 |
+| 20260527 | 3481 | 群創 | 150 | 18 | 204881100.0 | 3856460.0 | 53.13 | mixed_flow | 0 | 認購權證成交金額很大且認購/認售比偏高，需檢查標的是否高位追價或獲利結清 |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4912 聯德控股-KY
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:11 Asia/Taipei
+- generated_at: 2026-05-27 21:27:30 Asia/Taipei
 - stock_id: 4912
 - stock_name: 聯德控股-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 111
-- high: 111.5
-- low: 106
-- close: 106.5
-- volume: 833522
-- ma5: 105.4
-- ema23_primary: 98.04
-- distance_to_ema23_pct: 8.63
-- ma20: 95.72
-- ma60: 91.47
-- ma120: 91.01
-- return_5d: 4.41
-- return_20d: 27.54
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: 11.27
-- distance_to_high_60_pct: -8.19
+- date: 20260527
+- open: 108
+- high: 116
+- low: 104.5
+- close: 112.5
+- volume: 2277595
+- ma5: 107.3
+- ema23_primary: 99.24
+- distance_to_ema23_pct: 13.36
+- ma20: 97.25
+- ma60: 91.7
+- ma120: 91.31
+- return_5d: 9.22
+- return_20d: 37.7
+- volume_ratio: 1.69
+- distance_to_ma20_pct_auxiliary: 15.68
+- distance_to_high_60_pct: -3.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,84.5,84.5,81.4,81.7,424003,87.89,-7.04,88.23,90.66,0.94
 20260429,81.2,81.5,79,80.1,686694,87.24,-8.18,87.54,90.43,1.56
 20260430,80.2,82.2,80.2,81.7,299841,86.78,-5.85,87.17,90.18,0.71
 20260504,82.5,82.8,80.3,80.7,438470,86.27,-6.46,86.69,89.82,1.04
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,102,106.5,101,106,1121897,96.11,10.29,93.31,91.19,0.97
 20260525,107,116,107,110,2010644,97.27,13.09,94.56,91.36,1.62
 20260526,111,111.5,106,106.5,833522,98.04,8.63,95.72,91.47,0.66
+20260527,108,116,104.5,112.5,2277595,99.24,13.36,97.25,91.7,1.69
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260527 | 4912 | 聯德控股-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260527 | 4912 | 聯德控股-KY | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
 
 ## Warrant Context
 | status |

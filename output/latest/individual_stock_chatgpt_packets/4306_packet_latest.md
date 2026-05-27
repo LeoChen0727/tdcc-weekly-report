@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4306 炎洲
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:02 Asia/Taipei
+- generated_at: 2026-05-27 21:27:21 Asia/Taipei
 - stock_id: 4306
 - stock_name: 炎洲
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 14
-- high: 14
+- date: 20260527
+- open: 13.7
+- high: 13.85
 - low: 13.65
-- close: 13.65
-- volume: 1589269
+- close: 13.8
+- volume: 1302618
 - ma5: 13.87
-- ema23_primary: 13.54
-- distance_to_ema23_pct: 0.79
-- ma20: 13.41
+- ema23_primary: 13.56
+- distance_to_ema23_pct: 1.74
+- ma20: 13.44
 - ma60: 13.48
-- ma120: 13.69
-- return_5d: -1.09
-- return_20d: 3.8
-- volume_ratio: 1.17
-- distance_to_ma20_pct_auxiliary: 1.77
-- distance_to_high_60_pct: -4.88
+- ma120: 13.7
+- return_5d: 0
+- return_20d: 3.76
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: 2.7
+- distance_to_high_60_pct: -3.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,13.15,13.35,13.15,13.3,678184,13.52,-1.65,13.6,13.55,0.51
 20260429,13.25,13.35,13.2,13.3,431271,13.5,-1.52,13.57,13.54,0.37
 20260430,13.3,13.3,13.15,13.2,666285,13.48,-2.07,13.54,13.53,0.62
 20260504,13.3,13.3,13.15,13.2,841203,13.46,-1.9,13.52,13.52,0.78
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,13.8,14.1,13.8,14.05,2840885,13.49,4.18,13.35,13.48,2.22
 20260525,14.15,14.15,13.65,14.05,2457610,13.53,3.82,13.39,13.48,1.81
 20260526,14,14,13.65,13.65,1589269,13.54,0.79,13.41,13.48,1.17
+20260527,13.7,13.85,13.65,13.8,1302618,13.56,1.74,13.44,13.48,0.94
 ```
 
 ## Latest TDCC Snapshot
@@ -125,13 +125,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4306 | 炎洲 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260527 | 4306 | 炎洲 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260527 | 4306 | 炎洲 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260521 | 4306 | 炎洲 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 4306 | 炎洲 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260527 | 4306 | 炎洲 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

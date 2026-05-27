@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6155 鈞寶
 
 ## Metadata
-- generated_at: 2026-05-26 23:54:30 Asia/Taipei
+- generated_at: 2026-05-27 21:27:50 Asia/Taipei
 - stock_id: 6155
 - stock_name: 鈞寶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 61.4
-- high: 61.5
-- low: 56.8
-- close: 59.4
-- volume: 6620869
-- ma5: 59.42
-- ema23_primary: 52.97
-- distance_to_ema23_pct: 12.13
-- ma20: 52.22
-- ma60: 48.38
-- ma120: 47.83
-- return_5d: 16.7
-- return_20d: 25.58
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: 13.74
-- distance_to_high_60_pct: -9.04
+- date: 20260527
+- open: 59.4
+- high: 61.1
+- low: 57.7
+- close: 58.7
+- volume: 6183054
+- ma5: 59.98
+- ema23_primary: 53.45
+- distance_to_ema23_pct: 9.82
+- ma20: 52.68
+- ma60: 48.47
+- ma120: 48.03
+- return_5d: 5.01
+- return_20d: 18.59
+- volume_ratio: 0.82
+- distance_to_ma20_pct_auxiliary: 11.42
+- distance_to_high_60_pct: -10.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,47.05,51.3,46.75,49.5,5094570,47.1,5.1,46.65,48.34,1.79
 20260429,49,49.3,47.85,47.85,1230074,47.16,1.46,46.82,48.18,0.43
 20260430,47.85,48.5,45.8,46.05,1462841,47.07,-2.17,46.92,47.9,0.53
 20260504,46.6,48.5,46.5,46.8,944701,47.05,-0.53,47.04,47.72,0.35
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,59.2,65.3,57,61.2,23088794,51.59,18.63,50.71,48.06,3.4
 20260525,62.3,64.7,61.1,61.2,11088750,52.39,16.82,51.62,48.23,1.52
 20260526,61.4,61.5,56.8,59.4,6620869,52.97,12.13,52.22,48.38,0.88
+20260527,59.4,61.1,57.7,58.7,6183054,53.45,9.82,52.68,48.47,0.82
 ```
 
 ## Latest TDCC Snapshot
@@ -130,7 +130,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 6155 | 鈞寶 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260527 | 6155 | 鈞寶 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

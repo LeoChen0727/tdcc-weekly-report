@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00915 凱基優選高股息30
 
 ## Metadata
-- generated_at: 2026-05-26 23:52:46 Asia/Taipei
+- generated_at: 2026-05-27 21:26:02 Asia/Taipei
 - stock_id: 00915
 - stock_name: 凱基優選高股息30
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260526
-- price_rows: 3
+- latest_price_date: 20260527
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 28
-- high: 28.32
-- low: 28
-- close: 28.22
-- volume: 9268083
+- date: 20260527
+- open: 28.35
+- high: 29.16
+- low: 28.35
+- close: 29
+- volume: 13304381
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,6 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,27.4,27.53,27.3,27.43,5083517,,,,,
 20260525,27.5,27.94,27.45,27.87,10672270,,,,,
 20260526,28,28.32,28,28.22,9268083,,,,,
+20260527,28.35,29.16,28.35,29,13304381,,,,,
 ```
 
 ## Latest TDCC Snapshot

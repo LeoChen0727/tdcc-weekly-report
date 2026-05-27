@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2548 華固
 
 ## Metadata
-- generated_at: 2026-05-26 23:53:25 Asia/Taipei
+- generated_at: 2026-05-27 21:26:42 Asia/Taipei
 - stock_id: 2548
 - stock_name: 華固
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260526
-- price_rows: 134
+- latest_price_date: 20260527
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260526
-- open: 122
-- high: 122
-- low: 119.5
-- close: 121
-- volume: 3290082
-- ma5: 122.7
-- ema23_primary: 124.52
-- distance_to_ema23_pct: -2.82
-- ma20: 124.62
-- ma60: 122.58
-- ma120: 115.59
-- return_5d: -2.81
-- return_20d: -8.33
-- volume_ratio: 1.65
-- distance_to_ma20_pct_auxiliary: -2.91
-- distance_to_high_60_pct: -8.68
+- date: 20260527
+- open: 121
+- high: 123.5
+- low: 120.5
+- close: 121.5
+- volume: 2299237
+- ma5: 122.3
+- ema23_primary: 124.27
+- distance_to_ema23_pct: -2.23
+- ma20: 124.33
+- ma60: 122.81
+- ma120: 115.79
+- return_5d: -1.62
+- return_20d: -4.71
+- volume_ratio: 1.13
+- distance_to_ma20_pct_auxiliary: -2.27
+- distance_to_high_60_pct: -8.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,132,132,127.5,127.5,1583090,126.41,0.86,127.25,117.3,0.88
 20260429,127.5,129.5,127.5,127.5,869867,126.51,0.79,127.5,117.65,0.49
 20260430,128,128,125,126,1521370,126.46,-0.37,127.8,117.92,0.9
 20260504,126,126,121,123,2628316,126.17,-2.52,127.8,118.17,1.57
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,123.5,123.5,122.5,123.5,1776182,125.1,-1.28,125.6,122.27,0.98
 20260525,123.5,123.5,121,122,2593664,124.84,-2.27,125.17,122.45,1.36
 20260526,122,122,119.5,121,3290082,124.52,-2.82,124.62,122.58,1.65
+20260527,121,123.5,120.5,121.5,2299237,124.27,-2.23,124.33,122.81,1.13
 ```
 
 ## Latest TDCC Snapshot
@@ -125,19 +125,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2548 | 華固 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260526 | 2548 | 華固 | revenue_breakout_low_response | 營收爆發低反應股 | 15.0 | 16.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260527 | 2548 | 華固 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260527 | 2548 | 華固 | revenue_breakout_low_response | 營收爆發低反應股 | 15.0 | 20.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 | 20260521 | 2548 | 華固 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2548 | 華固 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260527 | 2548 | 華固 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260526 | 2548 | 華固 | 13 | 0 | 14020.0 | 0.0 |  | no_signal | 0 |  |
+| 20260527 | 2548 | 華固 | 13 | 0 | 124620.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.
