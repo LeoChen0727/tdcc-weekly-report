@@ -52,6 +52,14 @@ DOCS_LATEST_PACKET = DOCS_LATEST_DIR / "chatgpt_daily_report_packet_latest.txt"
 
 RULES_LATEST = LATEST_DIR / "CHATGPT_DAILY_REPORT_RULES.txt"
 RULES_DOCS = DOCS_LATEST_DIR / "CHATGPT_DAILY_REPORT_RULES.txt"
+RULES_DIR = Path("rules")
+DOCS_RULES_DIR = Path("docs/rules")
+MASTER_PRIORITY_RULES = RULES_DIR / "master_priority_rules.md"
+DAILY_STOCK_CANDIDATE_RULES = RULES_DIR / "daily_stock_candidate_rules.md"
+RULES_INDEX = RULES_DIR / "rules_index_latest.md"
+DOCS_MASTER_PRIORITY_RULES = DOCS_RULES_DIR / "master_priority_rules.md"
+DOCS_DAILY_STOCK_CANDIDATE_RULES = DOCS_RULES_DIR / "daily_stock_candidate_rules.md"
+DOCS_RULES_INDEX = DOCS_RULES_DIR / "rules_index_latest.md"
 
 LATEST_SUMMARY_MD = LATEST_DIR / "daily_market_summary_latest.md"
 LATEST_FULL_MD = LATEST_DIR / "daily_market_full_latest.md"
@@ -508,6 +516,12 @@ def build_readme(
         f"readme_history_pages_url={readme_history_pages_url}",
         f"readme_history_raw_url={readme_history_raw_url}",
         "readme_cache_bypass_order=readme_date_stamped_pages_url,readme_date_stamped_raw_url,readme_date_stamped_github_api_url,readme_index_github_api_url,readme_history_pages_url,readme_history_raw_url,readme_latest_pages_url,readme_latest_raw_url",
+        f"rules_index_raw_url={raw_url('main', RULES_INDEX)}",
+        f"rules_index_pages_url={pages_url('rules/rules_index_latest.md')}",
+        f"rules_master_priority_raw_url={raw_url('main', MASTER_PRIORITY_RULES)}",
+        f"rules_master_priority_pages_url={pages_url('rules/master_priority_rules.md')}",
+        f"rules_daily_stock_candidate_raw_url={raw_url('main', DAILY_STOCK_CANDIDATE_RULES)}",
+        f"rules_daily_stock_candidate_pages_url={pages_url('rules/daily_stock_candidate_rules.md')}",
         "chatgpt_delivery_contract=repo_artifacts_are_sources_not_final_chatgpt_deliverables",
         "repo_pdf_artifact_role=source_validation_shareable_reference_only",
         "report_ready_meaning=repo_data_packet_and_repo_artifacts_available_not_chatgpt_task_done",
@@ -710,7 +724,9 @@ def build_readme(
         "1b. If the date-stamped GitHub API URL is used, decode the JSON content field from base64 before parsing key=value lines.",
         "1c. Repo pipeline PDFs / Markdown / packets are source artifacts, not the final ChatGPT deliverable when the user asks to do today's report.",
         "1d. report_ready=True and fixed_pdf_validation_status=pass mean repo artifacts are available/validated; they do not mean ChatGPT has delivered the requested PDFs.",
-        "2. Read rules_pages_url or rules_raw_url to load report format rules.",
+        "2. Read rules_master_priority_pages_url or rules_master_priority_raw_url before any generated task rules.",
+        "2a. Read rules_daily_stock_candidate_pages_url or rules_daily_stock_candidate_raw_url for the daily full-market candidate task.",
+        "2b. Read rules_pages_url or rules_raw_url only after the master and task-specific rule files.",
         "3. Read preferred_chatgpt_url for the packet.",
         "4. If preferred_chatgpt_url fails, follow read_order.",
         "5. If the URL is packet_github_api_url, decode the JSON content field from base64 before reading the packet.",
@@ -889,6 +905,7 @@ def build_readme_index_text(index: dict[str, Any]) -> str:
 
 def sync_docs_files() -> None:
     DOCS_LATEST_DIR.mkdir(parents=True, exist_ok=True)
+    DOCS_RULES_DIR.mkdir(parents=True, exist_ok=True)
 
     if LATEST_PACKET.exists():
         DOCS_LATEST_PACKET.write_text(
@@ -901,6 +918,14 @@ def sync_docs_files() -> None:
             RULES_LATEST.read_text(encoding="utf-8", errors="replace"),
             encoding="utf-8",
         )
+
+    for src, dst in [
+        (MASTER_PRIORITY_RULES, DOCS_MASTER_PRIORITY_RULES),
+        (DAILY_STOCK_CANDIDATE_RULES, DOCS_DAILY_STOCK_CANDIDATE_RULES),
+        (RULES_INDEX, DOCS_RULES_INDEX),
+    ]:
+        if src.exists():
+            dst.write_text(src.read_text(encoding="utf-8", errors="replace"), encoding="utf-8")
 
     if PDF_KLINE_STATUS_MD.exists():
         DOCS_PDF_KLINE_STATUS_MD.write_text(

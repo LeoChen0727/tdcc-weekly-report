@@ -1,6 +1,6 @@
 main_price_date=20260527
 report_ready=True
-commit_sha=9c2f8f918e1566c58ce48cb60f6815e83a9f3070
+commit_sha=7789b779b145fc317789ab730aa1ac16c91004f9
 readme_latest_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT.txt
 readme_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/READ_ME_FIRST_DAILY_REPORT.txt
 readme_index_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT_INDEX.txt
@@ -13,6 +13,12 @@ readme_date_stamped_github_api_url=https://api.github.com/repos/LeoChen0727/tdcc
 readme_history_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/history/reports/20260527_READ_ME_FIRST_DAILY_REPORT.txt
 readme_history_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260527_READ_ME_FIRST_DAILY_REPORT.txt
 readme_cache_bypass_order=readme_date_stamped_pages_url,readme_date_stamped_raw_url,readme_date_stamped_github_api_url,readme_index_github_api_url,readme_history_pages_url,readme_history_raw_url,readme_latest_pages_url,readme_latest_raw_url
+rules_index_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/rules/rules_index_latest.md
+rules_index_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/rules/rules_index_latest.md
+rules_master_priority_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/rules/master_priority_rules.md
+rules_master_priority_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/rules/master_priority_rules.md
+rules_daily_stock_candidate_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/rules/daily_stock_candidate_rules.md
+rules_daily_stock_candidate_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/rules/daily_stock_candidate_rules.md
 chatgpt_delivery_contract=repo_artifacts_are_sources_not_final_chatgpt_deliverables
 repo_pdf_artifact_role=source_validation_shareable_reference_only
 report_ready_meaning=repo_data_packet_and_repo_artifacts_available_not_chatgpt_task_done
@@ -24,7 +30,7 @@ repo_artifacts_do_not_satisfy_chatgpt_pdf_delivery=True
 do_not_paste_full_text_instead_of_required_pdf=True
 preferred_chatgpt_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt
 packet_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt
-packet_commit_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/9c2f8f918e1566c58ce48cb60f6815e83a9f3070/output/history/reports/20260527_CHATGPT_DAILY_REPORT_PACKET.txt
+packet_commit_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/7789b779b145fc317789ab730aa1ac16c91004f9/output/history/reports/20260527_CHATGPT_DAILY_REPORT_PACKET.txt
 packet_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/chatgpt_daily_report_packet_latest.txt
 packet_github_api_url=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/chatgpt_daily_report_packet_latest.txt?ref=main
 summary_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_summary_latest.md
@@ -215,7 +221,9 @@ RULES:
 1b. If the date-stamped GitHub API URL is used, decode the JSON content field from base64 before parsing key=value lines.
 1c. Repo pipeline PDFs / Markdown / packets are source artifacts, not the final ChatGPT deliverable when the user asks to do today's report.
 1d. report_ready=True and fixed_pdf_validation_status=pass mean repo artifacts are available/validated; they do not mean ChatGPT has delivered the requested PDFs.
-2. Read rules_pages_url or rules_raw_url to load report format rules.
+2. Read rules_master_priority_pages_url or rules_master_priority_raw_url before any generated task rules.
+2a. Read rules_daily_stock_candidate_pages_url or rules_daily_stock_candidate_raw_url for the daily full-market candidate task.
+2b. Read rules_pages_url or rules_raw_url only after the master and task-specific rule files.
 3. Read preferred_chatgpt_url for the packet.
 4. If preferred_chatgpt_url fails, follow read_order.
 5. If the URL is packet_github_api_url, decode the JSON content field from base64 before reading the packet.
