@@ -151,6 +151,9 @@ VOLUME_ATTACK_THEME_LAYER_CSV = LATEST_DIR / "volume_attack_theme_layer_latest.c
 VOLUME_ATTACK_THEME_LAYER_MD = LATEST_DIR / "volume_attack_theme_layer_latest.md"
 VOLUME_ATTACK_THEME_STOCKS_CSV = LATEST_DIR / "volume_attack_theme_stocks_latest.csv"
 VOLUME_ATTACK_THEME_STOCKS_MD = LATEST_DIR / "volume_attack_theme_stocks_latest.md"
+TDCC_OVERHEATED_EDGE_MD = LATEST_DIR / "tdcc_overheated_short_term_edge_latest.md"
+TDCC_OVERHEATED_EDGE_CSV = LATEST_DIR / "tdcc_overheated_short_term_edge_latest.csv"
+TDCC_OVERHEATED_EDGE_CANDIDATES_CSV = LATEST_DIR / "tdcc_overheated_short_term_edge_candidates_latest.csv"
 RAW_DATA_FETCH_STATUS_CSV = LATEST_DIR / "raw_data_fetch_status_latest.csv"
 RAW_DATA_FETCH_STATUS_MD = LATEST_DIR / "raw_data_fetch_status_latest.md"
 INDIVIDUAL_STOCK_AVAILABLE_RAW_DATA_INDEX_CSV = LATEST_DIR / "individual_stock_available_raw_data_index.csv"
@@ -610,6 +613,12 @@ def build_readme(
         f"volume_attack_theme_stocks_csv_raw_url={raw_url('main', VOLUME_ATTACK_THEME_STOCKS_CSV)}",
         f"volume_attack_theme_stocks_md_pages_url={pages_url('latest/volume_attack_theme_stocks_latest.md')}",
         f"volume_attack_theme_stocks_csv_pages_url={pages_url('latest/volume_attack_theme_stocks_latest.csv')}",
+        f"tdcc_overheated_short_term_edge_md_raw_url={raw_url('main', TDCC_OVERHEATED_EDGE_MD)}",
+        f"tdcc_overheated_short_term_edge_csv_raw_url={raw_url('main', TDCC_OVERHEATED_EDGE_CSV)}",
+        f"tdcc_overheated_short_term_edge_candidates_csv_raw_url={raw_url('main', TDCC_OVERHEATED_EDGE_CANDIDATES_CSV)}",
+        f"tdcc_overheated_short_term_edge_md_pages_url={pages_url('latest/tdcc_overheated_short_term_edge_latest.md')}",
+        f"tdcc_overheated_short_term_edge_csv_pages_url={pages_url('latest/tdcc_overheated_short_term_edge_latest.csv')}",
+        f"tdcc_overheated_short_term_edge_candidates_csv_pages_url={pages_url('latest/tdcc_overheated_short_term_edge_candidates_latest.csv')}",
         f"raw_data_fetch_status_raw_url={raw_url('main', RAW_DATA_FETCH_STATUS_CSV)}",
         f"raw_data_fetch_status_md_raw_url={raw_url('main', RAW_DATA_FETCH_STATUS_MD)}",
         f"raw_data_fetch_status_pages_url={pages_url('latest/raw_data_fetch_status_latest.csv')}",
@@ -1308,6 +1317,20 @@ def main() -> int:
         "volume_breakout_backtest_md_raw_url": raw_url("main", VOLUME_BREAKOUT_BACKTEST_MD),
         "volume_breakout_backtest_csv_raw_url": raw_url("main", VOLUME_BREAKOUT_BACKTEST_CSV),
         "volume_breakout_chatgpt_packet_raw_url": raw_url("main", VOLUME_BREAKOUT_PACKET_MD),
+        "volume_attack_theme_layer_md_raw_url": raw_url("main", VOLUME_ATTACK_THEME_LAYER_MD),
+        "volume_attack_theme_layer_csv_raw_url": raw_url("main", VOLUME_ATTACK_THEME_LAYER_CSV),
+        "volume_attack_theme_layer_md_pages_url": pages_url("latest/volume_attack_theme_layer_latest.md"),
+        "volume_attack_theme_layer_csv_pages_url": pages_url("latest/volume_attack_theme_layer_latest.csv"),
+        "volume_attack_theme_stocks_md_raw_url": raw_url("main", VOLUME_ATTACK_THEME_STOCKS_MD),
+        "volume_attack_theme_stocks_csv_raw_url": raw_url("main", VOLUME_ATTACK_THEME_STOCKS_CSV),
+        "volume_attack_theme_stocks_md_pages_url": pages_url("latest/volume_attack_theme_stocks_latest.md"),
+        "volume_attack_theme_stocks_csv_pages_url": pages_url("latest/volume_attack_theme_stocks_latest.csv"),
+        "tdcc_overheated_short_term_edge_md_raw_url": raw_url("main", TDCC_OVERHEATED_EDGE_MD),
+        "tdcc_overheated_short_term_edge_csv_raw_url": raw_url("main", TDCC_OVERHEATED_EDGE_CSV),
+        "tdcc_overheated_short_term_edge_candidates_csv_raw_url": raw_url("main", TDCC_OVERHEATED_EDGE_CANDIDATES_CSV),
+        "tdcc_overheated_short_term_edge_md_pages_url": pages_url("latest/tdcc_overheated_short_term_edge_latest.md"),
+        "tdcc_overheated_short_term_edge_csv_pages_url": pages_url("latest/tdcc_overheated_short_term_edge_latest.csv"),
+        "tdcc_overheated_short_term_edge_candidates_csv_pages_url": pages_url("latest/tdcc_overheated_short_term_edge_candidates_latest.csv"),
         "raw_data_fetch_status_raw_url": raw_url("main", RAW_DATA_FETCH_STATUS_CSV),
         "raw_data_fetch_status_md_raw_url": raw_url("main", RAW_DATA_FETCH_STATUS_MD),
         "raw_data_fetch_status_pages_url": pages_url("latest/raw_data_fetch_status_latest.csv"),

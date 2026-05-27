@@ -45,6 +45,8 @@ VOLUME_BREAKOUT_WATCH_CSV = LATEST_DIR / "volume_breakout_watch_latest.csv"
 VOLUME_ATTACK_THEME_STOCKS_CSV = LATEST_DIR / "volume_attack_theme_stocks_latest.csv"
 THEME_LEADERSHIP_CSV = LATEST_DIR / "daily_theme_leadership_latest.csv"
 TWO_LINE_VIEW_CSV = LATEST_DIR / "daily_candidate_two_line_view_latest.csv"
+TDCC_OVERHEATED_EDGE_CSV = LATEST_DIR / "tdcc_overheated_short_term_edge_latest.csv"
+TDCC_OVERHEATED_EDGE_CANDIDATES_CSV = LATEST_DIR / "tdcc_overheated_short_term_edge_candidates_latest.csv"
 
 CURATED_PDF = LATEST_DIR / "daily_market_curated_report_latest.pdf"
 FULL_TABLE_PDF = LATEST_DIR / "daily_market_full_table_report_latest.pdf"
@@ -1046,6 +1048,144 @@ def append_theme_leadership_sections(
     story.append(Spacer(1, 0.35 * cm))
 
 
+def load_tdcc_overheated_edge_stats() -> pd.DataFrame:
+    if not TDCC_OVERHEATED_EDGE_CSV.exists():
+        return pd.DataFrame()
+    try:
+        return pd.read_csv(TDCC_OVERHEATED_EDGE_CSV, dtype=str, keep_default_na=False)
+    except Exception:
+        return pd.DataFrame()
+
+
+def load_tdcc_overheated_edge_candidates() -> pd.DataFrame:
+    if not TDCC_OVERHEATED_EDGE_CANDIDATES_CSV.exists():
+        return pd.DataFrame()
+    try:
+        return pd.read_csv(TDCC_OVERHEATED_EDGE_CANDIDATES_CSV, dtype=str, keep_default_na=False)
+    except Exception:
+        return pd.DataFrame()
+
+
+def tdcc_edge_stats_rows(stats: pd.DataFrame, horizon: str) -> list[list[Any]]:
+    rows = [[
+        "rule",
+        "mature",
+        "win C-C",
+        "avg C-C",
+        "median C-C",
+        "avg rel",
+        "win next-open",
+        "avg next-open rel",
+        "status",
+    ]]
+    if stats.empty:
+        rows.append(["n/a", "", "", "", "", "", "", "", "tdcc_overheated_short_term_edge_latest.csv missing"])
+        return rows
+    if "horizon" not in stats.columns:
+        rows.append(["n/a", "", "", "", "", "", "", "", f"{horizon} horizon column missing"])
+        return rows
+    part = stats[stats["horizon"].astype(str).eq(horizon)].copy()
+    if part.empty:
+        rows.append(["n/a", "", "", "", "", "", "", "", f"{horizon} rows missing"])
+        return rows
+    for _, row in part.iterrows():
+        rows.append(
+            [
+                clean_text(row.get("rule_name_zh", row.get("rule_name", "")), 42),
+                safe_str(row.get("mature_count", "")),
+                pct_text(row.get("win_rate_close_to_close_pct", "")),
+                pct_text(row.get("avg_return_close_to_close_pct", "")),
+                pct_text(row.get("median_return_close_to_close_pct", "")),
+                pct_text(row.get("avg_relative_return_vs_benchmark_pct", "")),
+                pct_text(row.get("win_rate_next_open_to_close_pct", "")),
+                pct_text(row.get("avg_next_open_relative_return_vs_benchmark_pct", "")),
+                clean_text(row.get("sample_status", ""), 20),
+            ]
+        )
+    return rows
+
+
+def tdcc_edge_candidate_rows(candidates: pd.DataFrame, limit: int = 12) -> list[list[Any]]:
+    rows = [[
+        "stock",
+        "theme",
+        "rule",
+        "1w",
+        "2w",
+        "D+5 win/rel",
+        "D+10 win/rel",
+        "note",
+    ]]
+    if candidates.empty:
+        rows.append(["n/a", "", "", "", "", "", "", "No current stocks matched this TDCC overheated specialty."])
+        return rows
+    view = candidates.copy()
+    for col in ["d10_win_rate_pct", "d5_win_rate_pct", "price_ret_2w"]:
+        if col in view.columns:
+            view[col] = pd.to_numeric(view[col], errors="coerce").fillna(0)
+    view = view.sort_values(["d10_win_rate_pct", "d5_win_rate_pct", "price_ret_2w"], ascending=[False, False, False]).head(limit)
+    for _, row in view.iterrows():
+        rows.append(
+            [
+                f"{safe_str(row.get('stock_id', ''))} {clean_text(row.get('stock_name', ''), 10)}",
+                clean_text(row.get("theme", ""), 14),
+                clean_text(row.get("rule_name_zh", row.get("rule_id", "")), 34),
+                pct_text(row.get("price_ret_1w", "")),
+                pct_text(row.get("price_ret_2w", "")),
+                f"{pct_text(row.get('d5_win_rate_pct', ''))}/{pct_text(row.get('d5_avg_relative_return_pct', ''))}",
+                f"{pct_text(row.get('d10_win_rate_pct', ''))}/{pct_text(row.get('d10_avg_relative_return_pct', ''))}",
+                "reporting-only; more regimes needed",
+            ]
+        )
+    return rows
+
+
+def append_tdcc_overheated_edge_section(
+    story: list[Any],
+    style_map: dict[str, ParagraphStyle],
+    compact: bool = True,
+) -> None:
+    stats = load_tdcc_overheated_edge_stats()
+    candidates = load_tdcc_overheated_edge_candidates()
+    story.append(para("TDCC 過熱短線勝率專項（D+5 / D+10）", style_map["h1"]))
+    story.append(
+        para(
+            "此段是獨立 reporting-only 專項，不混入六大分類總排名，也不調整 TDCC/ABM 核心權重。勝率以 mature_dN=True 後，訊號日收盤到 D+N 收盤報酬 > 0 計算；next-open 欄位另以隔日開盤到 D+N 收盤計算。",
+            style_map["normal"],
+        )
+    )
+    story.append(para("目前符合專項條件個股", style_map["h2"]))
+    story.append(
+        make_table(
+            tdcc_edge_candidate_rows(candidates, limit=8 if compact else 20),
+            style_map,
+            [1.8 * cm, 1.6 * cm, 4.1 * cm, 0.8 * cm, 0.8 * cm, 1.4 * cm, 1.5 * cm, 3.2 * cm],
+            header_bg="#984807",
+        )
+    )
+    story.append(Spacer(1, 0.22 * cm))
+    story.append(para("D+5 回測表", style_map["h2"]))
+    story.append(
+        make_table(
+            tdcc_edge_stats_rows(stats, "D+5"),
+            style_map,
+            [4.3 * cm, 0.9 * cm, 1.1 * cm, 1.0 * cm, 1.1 * cm, 1.0 * cm, 1.3 * cm, 1.5 * cm, 1.5 * cm],
+            header_bg="#7030A0",
+        )
+    )
+    story.append(Spacer(1, 0.22 * cm))
+    story.append(para("D+10 回測表", style_map["h2"]))
+    story.append(
+        make_table(
+            tdcc_edge_stats_rows(stats, "D+10"),
+            style_map,
+            [4.3 * cm, 0.9 * cm, 1.1 * cm, 1.0 * cm, 1.1 * cm, 1.0 * cm, 1.3 * cm, 1.5 * cm, 1.5 * cm],
+            header_bg="#5B9BD5",
+        )
+    )
+    story.append(Spacer(1, 0.35 * cm))
+
+
 def downgrade_reason(row: pd.Series) -> str:
     items: list[str] = []
     if tdcc_signal(row) == "distribution_warning":
@@ -1214,6 +1354,7 @@ def build_curated_pdf(df: pd.DataFrame, freshness: dict[str, Any], main_date: st
     append_context_sections(story, style_map, freshness, [4.2 * cm, 12.8 * cm])
     append_catalyst_section(story, style_map, df)
     append_theme_leadership_sections(story, style_map, compact=True)
+    append_tdcc_overheated_edge_section(story, style_map, compact=True)
 
     story.append(PageBreak())
 
@@ -1420,6 +1561,7 @@ def build_full_table_pdf(df: pd.DataFrame, freshness: dict[str, Any], main_date:
     story.append(para("族群排序依多分類共振、嚴格突破與區間轉強、營收低反應搭配 TDCC 支持度綜合判斷。", style_map["normal"]))
     append_context_sections(story, style_map, freshness, [5.0 * cm, 21.5 * cm])
     append_theme_leadership_sections(story, style_map, compact=False)
+    append_tdcc_overheated_edge_section(story, style_map, compact=False)
 
     volume_watch = load_volume_breakout_watch()
     story.append(Spacer(1, 0.25 * cm))

@@ -292,6 +292,10 @@ jobs:
         run: |
           python scripts/build_market_timing_technical_backtest.py
 
+      - name: Build TDCC overheated short-term edge
+        run: |
+          python scripts/build_tdcc_overheated_short_term_edge.py
+
       - name: Build warrant market report
         run: |
           python scripts/build_warrant_market_report.py
@@ -519,6 +523,9 @@ jobs:
           git add output/latest/market_timing_regime_effectiveness_latest.csv || true
           git add output/latest/market_timing_regime_effectiveness_latest.md || true
           git add output/latest/market_timing_chatgpt_packet_latest.md || true
+          git add output/latest/tdcc_overheated_short_term_edge_latest.csv || true
+          git add output/latest/tdcc_overheated_short_term_edge_latest.md || true
+          git add output/latest/tdcc_overheated_short_term_edge_candidates_latest.csv || true
           git add data/warrant_daily/ || true
           git add data/warrant_flow_by_stock/ || true
           git add output/latest/warrant_market_report_latest.md || true
@@ -556,6 +563,9 @@ jobs:
           git add docs/latest/daily_theme_leadership_latest.md || true
           git add docs/latest/daily_candidate_two_line_view_latest.csv || true
           git add docs/latest/daily_candidate_two_line_view_latest.md || true
+          git add docs/latest/tdcc_overheated_short_term_edge_latest.csv || true
+          git add docs/latest/tdcc_overheated_short_term_edge_latest.md || true
+          git add docs/latest/tdcc_overheated_short_term_edge_candidates_latest.csv || true
           git add docs/latest/volume_attack_theme_layer_latest.csv || true
           git add docs/latest/volume_attack_theme_layer_latest.md || true
           git add docs/latest/volume_attack_theme_stocks_latest.csv || true
@@ -586,6 +596,7 @@ jobs:
           git add docs/event_calendar_data_layer.md || true
           git add scripts/update_market_index_history.py || true
           git add scripts/build_market_timing_technical_backtest.py || true
+          git add scripts/build_tdcc_overheated_short_term_edge.py || true
           git add scripts/update_daily_candidate_signal_log.py || true
           git add scripts/build_candidate_repeat_appearance.py || true
           git add scripts/validate_candidate_repeat_appearance.py || true
@@ -745,6 +756,12 @@ jobs:
           git add output/latest/volume_attack_theme_stocks_latest.md || true
           git add output/latest/volume_attack_theme_layer_validation_latest.json || true
           git add output/latest/volume_attack_theme_layer_validation_latest.md || true
+          git add output/latest/tdcc_overheated_short_term_edge_latest.csv || true
+          git add output/latest/tdcc_overheated_short_term_edge_latest.md || true
+          git add output/latest/tdcc_overheated_short_term_edge_candidates_latest.csv || true
+          git add docs/latest/tdcc_overheated_short_term_edge_latest.csv || true
+          git add docs/latest/tdcc_overheated_short_term_edge_latest.md || true
+          git add docs/latest/tdcc_overheated_short_term_edge_candidates_latest.csv || true
           git add output/latest/chatgpt_indicator_usage_guide_latest.md || true
           git add output/latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt || true
           git add docs/latest/chatgpt_indicator_usage_guide_latest.md || true
@@ -844,6 +861,7 @@ jobs:
           git add docs/market_regime_data_source_plan.md || true
           git add scripts/update_market_index_history.py || true
           git add scripts/build_market_timing_technical_backtest.py || true
+          git add scripts/build_tdcc_overheated_short_term_edge.py || true
           git add scripts/update_daily_candidate_signal_log.py || true
           git add scripts/build_candidate_repeat_appearance.py || true
           git add scripts/validate_candidate_repeat_appearance.py || true

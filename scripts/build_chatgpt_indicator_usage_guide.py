@@ -102,6 +102,8 @@ def build_guide() -> str:
     tdcc_strength = read_csv(LATEST_DIR / "tdcc_strength_ranking_top_latest.csv")
     tdcc_abm = read_csv(LATEST_DIR / "tdcc_pre_move_abm_top_latest.csv")
     tdcc_risk = read_csv(LATEST_DIR / "tdcc_top_risk_list_latest.csv")
+    tdcc_overheated_edge = read_csv(LATEST_DIR / "tdcc_overheated_short_term_edge_latest.csv")
+    tdcc_overheated_edge_candidates = read_csv(LATEST_DIR / "tdcc_overheated_short_term_edge_candidates_latest.csv")
     warrant = read_csv(LATEST_DIR / "warrant_flow_by_stock_latest.csv")
     market = read_csv(LATEST_DIR / "market_regime_latest.csv")
     market_timing = read_csv(LATEST_DIR / "market_timing_backtest_latest.csv")
@@ -194,6 +196,13 @@ def build_guide() -> str:
             "Use to avoid mislabeling late/overheated/divergent names as accumulation.",
         ],
         [
+            "TDCC overheated short-term edge",
+            "output/latest/tdcc_overheated_short_term_edge_latest.csv",
+            "horizon, mature_count, win_rate_close_to_close_pct, avg_relative_return_vs_benchmark_pct, win_rate_next_open_to_close_pct, avg_next_open_relative_return_vs_benchmark_pct",
+            f"stats_rows={len(tdcc_overheated_edge)} / current_candidates={len(tdcc_overheated_edge_candidates)}",
+            "Standalone D+5/D+10 reporting-only specialty. Do not mix into the six-category ranking or core weights.",
+        ],
+        [
             "Warrant flow",
             "output/latest/warrant_flow_by_stock_latest.csv",
             "warrant_flow_signal, warrant_flow_score, warrant_flow_warning",
@@ -277,6 +286,7 @@ def build_guide() -> str:
     lines.append("- For volume breakout questions, read `volume_breakout_chatgpt_packet_latest.md`, `volume_attack_theme_layer_latest.md/csv`, `volume_attack_theme_stocks_latest.md/csv`, and then `volume_breakout_watch_latest.csv` for detail fields.")
     lines.append("- Every volume-attack / early-theme table must include explicit `theme_final_status` and `theme_volume_attack_status`; never show only a generic theme name.")
     lines.append("- `theme_volume_attack_status=confirmed_volume_theme` or `early_mainstream_candidate` can be shown in the volume-attack theme line; `single_stock_volume_attack`, `non_mainstream_volume_watch`, `weak_or_non_mainstream_volume_watch`, `overheated_volume_theme`, and `failed_volume_theme` must not be mixed into the mainstream-funding front section.")
+    lines.append("- If `tdcc_overheated_short_term_edge_latest.md/csv` exists, include its standalone D+5 and D+10 tables as a TDCC overheated short-term edge specialty; use it for reporting priority only, not core model weights.")
     lines.append("")
 
     lines.append("### TDCC / ABM report")
@@ -284,6 +294,7 @@ def build_guide() -> str:
     lines.append("- Strength ranking and pre-move ranking are separate. `strong_but_late`, `strong_but_overheated`, and `strong_but_divergent` are risk groups.")
     lines.append("- `A_prime_watch` is only a tracking priority. It is not a buy instruction.")
     lines.append("- Check mature sample counts before drawing performance conclusions.")
+    lines.append("- For overheated TDCC short-term setups, use `tdcc_overheated_short_term_edge_latest.md/csv` and the candidates CSV. The close-to-close and next-open metrics must remain separate.")
     lines.append("")
 
     lines.append("### Market / index timing report")

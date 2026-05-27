@@ -116,6 +116,18 @@ Use `volume_breakout_type`:
 
 If strict breakout is empty, do not write that there is no volume attack. Check range breakout and watch rows.
 
+## TDCC Overheated Short-Term Edge
+
+If `tdcc_overheated_short_term_edge_latest.md/csv` exists, the daily report must include it as a standalone specialty section:
+
+- Show separate D+5 and D+10 tables.
+- Keep close-to-close metrics separate from next-open-to-close metrics.
+- Use only `mature_dN=True` samples for win rate and return statistics.
+- Treat the signal as `reporting_priority_only` while sample/regime coverage is still limited.
+- Do not mix this specialty into the fixed six-category ranking.
+- Do not use it to change TDCC / ABM / daily candidate core model weights.
+- If the current candidate CSV has matching stocks, show them as a separate TDCC overheated short-term watch list with confirmation and risk notes.
+
 ## Required Quality Bar
 
 The final report must not be a thin packet summary. It must include:
@@ -131,4 +143,3 @@ The final report must not be a thin packet summary. It must include:
 - next confirmations
 
 If data depth is insufficient, say `資料不足 / 僅能觀察` rather than filling the PDF with generic text.
-
