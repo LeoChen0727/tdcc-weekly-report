@@ -1,6 +1,6 @@
 main_price_date=20260527
 report_ready=True
-commit_sha=0814c53cd3017c2bd152e9c569199a3fb8fa916a
+commit_sha=ca0cfaa514d8a0b1660b38b10ea8081c3354ba58
 readme_latest_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT.txt
 readme_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/READ_ME_FIRST_DAILY_REPORT.txt
 readme_index_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT_INDEX.txt
@@ -13,9 +13,18 @@ readme_date_stamped_github_api_url=https://api.github.com/repos/LeoChen0727/tdcc
 readme_history_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/history/reports/20260527_READ_ME_FIRST_DAILY_REPORT.txt
 readme_history_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260527_READ_ME_FIRST_DAILY_REPORT.txt
 readme_cache_bypass_order=readme_date_stamped_pages_url,readme_date_stamped_raw_url,readme_date_stamped_github_api_url,readme_index_github_api_url,readme_history_pages_url,readme_history_raw_url,readme_latest_pages_url,readme_latest_raw_url
+chatgpt_delivery_contract=repo_artifacts_are_sources_not_final_chatgpt_deliverables
+repo_pdf_artifact_role=source_validation_shareable_reference_only
+report_ready_meaning=repo_data_packet_and_repo_artifacts_available_not_chatgpt_task_done
+fixed_pdf_validation_meaning=repo_pipeline_pdf_validation_only_not_chatgpt_deliverable_pdf
+chatgpt_status_only_request=report_repo_status_and_links_only
+chatgpt_daily_task_request=must_read_repo_structured_data_and_produce_new_chatgpt_side_deliverables
+daily_full_market_default_chatgpt_deliverables=每日推薦分析 PDF|完整候選清單補充 PDF|權證市場輔助分析 PDF|市場風險與大盤期權背景 PDF
+repo_artifacts_do_not_satisfy_chatgpt_pdf_delivery=True
+do_not_paste_full_text_instead_of_required_pdf=True
 preferred_chatgpt_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt
 packet_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt
-packet_commit_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/0814c53cd3017c2bd152e9c569199a3fb8fa916a/output/history/reports/20260527_CHATGPT_DAILY_REPORT_PACKET.txt
+packet_commit_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/ca0cfaa514d8a0b1660b38b10ea8081c3354ba58/output/history/reports/20260527_CHATGPT_DAILY_REPORT_PACKET.txt
 packet_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/chatgpt_daily_report_packet_latest.txt
 packet_github_api_url=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/chatgpt_daily_report_packet_latest.txt?ref=main
 summary_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_summary_latest.md
@@ -196,6 +205,8 @@ RULES:
 1. Read this entry file first.
 1a. If latest READ_ME_FIRST appears stale, read readme_date_stamped_pages_url, then readme_date_stamped_raw_url, then readme_date_stamped_github_api_url.
 1b. If the date-stamped GitHub API URL is used, decode the JSON content field from base64 before parsing key=value lines.
+1c. Repo pipeline PDFs / Markdown / packets are source artifacts, not the final ChatGPT deliverable when the user asks to do today's report.
+1d. report_ready=True and fixed_pdf_validation_status=pass mean repo artifacts are available/validated; they do not mean ChatGPT has delivered the requested PDFs.
 2. Read rules_pages_url or rules_raw_url to load report format rules.
 3. Read preferred_chatgpt_url for the packet.
 4. If preferred_chatgpt_url fails, follow read_order.
@@ -204,7 +215,9 @@ RULES:
 7. Use raw structured data first: CSV files, packet fields, signal logs, warrant tables, market tables, catalyst source logs, and raw URLs.
 8. PDFs are auxiliary/shareable outputs. Use PDFs only if raw data cannot be read, or if the user explicitly asks for the PDF artifact.
 9. If only PDF data is used, start the response with: 本次僅使用 PDF 報告資料，未讀取原始 CSV / packet / source tables，因此只能做摘要型分析。
-10. For shareable PDFs, cite daily_market_curated_pdf_pages_url and daily_market_full_table_pdf_pages_url.
+10. If the user asks 做今天報告 / 四份 PDF / 重新分析 / 執行今天任務, produce new ChatGPT-side deliverable PDFs after reading repo data; do not stop at repo PDF links.
+10a. Default daily full-market ChatGPT deliverables are: 每日推薦分析 PDF, 完整候選清單補充 PDF, 權證市場輔助分析 PDF, 市場風險與大盤期權背景 PDF.
+10b. For status-only requests, cite daily_market_curated_pdf_pages_url and daily_market_full_table_pdf_pages_url as repo artifacts.
 11. For pending catalyst/data-source items, read catalyst_needs_review_* and do not use rows with model_effect_allowed=False or pdf_effect_allowed=False as recommendation reasons.
 12. For the summary PDF K-line charts, use summary_pdf_kline_policy/status/counts above. Do not downgrade the PDF to chart_path/image-download-failed if local_price_redraw_count is greater than 0.
 13. If all URLs fail, say tool reading failed. Do not say GitHub data is not updated.

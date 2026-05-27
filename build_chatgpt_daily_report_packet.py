@@ -307,6 +307,16 @@ def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path],
     lines.append(f"stock_monitor_date: {freshness.get('stock_monitor_date', '')}")
     lines.append(f"warrant_flow_date: {freshness.get('warrant_flow_date', '')}")
     lines.append("")
+    lines.append("CHATGPT_DELIVERY_CONTRACT")
+    lines.append("repo_artifacts_are_sources_not_final_deliverables: True")
+    lines.append("report_ready_meaning: repo data packet and repo artifacts are available; this does not mean ChatGPT has produced the user's requested report.")
+    lines.append("fixed_pdf_validation_meaning: repo pipeline PDF artifact validation only; this is not a newly generated ChatGPT deliverable PDF.")
+    lines.append("if_user_asks_status_only: report repo artifact status and links only.")
+    lines.append("if_user_asks_do_today_report_or_four_pdfs: read repo structured data and produce new ChatGPT-side PDFs; do not stop at repo PDFs.")
+    lines.append("default_daily_full_market_chatgpt_deliverables: 每日推薦分析 PDF|完整候選清單補充 PDF|權證市場輔助分析 PDF|市場風險與大盤期權背景 PDF")
+    lines.append("do_not_replace_required_chatgpt_pdfs_with_repo_artifacts: True")
+    lines.append("do_not_paste_full_text_instead_of_pdf_unless_user_requests_text_only: True")
+    lines.append("")
     lines.append("PACKET_PATHS")
     lines.append(f"latest_packet_path: {PACKET_LATEST.as_posix()}")
     lines.append(f"history_packet_path: {history_packet_path.as_posix()}")
@@ -534,6 +544,15 @@ def write_packet_manifest(main_date: str, report_ready: str, paths: dict[str, Pa
         "generated_at": now_text(),
         "main_price_date": main_date,
         "report_ready": report_ready,
+        "repo_artifacts_are_sources_not_final_chatgpt_deliverables": True,
+        "report_ready_is_not_chatgpt_pdf_done": True,
+        "fixed_pdf_validation_is_repo_artifact_validation_only": True,
+        "daily_full_market_default_chatgpt_deliverables": [
+            "每日推薦分析 PDF",
+            "完整候選清單補充 PDF",
+            "權證市場輔助分析 PDF",
+            "市場風險與大盤期權背景 PDF",
+        ],
         "summary_pdf_kline_policy": kline_status.get("policy") or report_manifest.get("summary_pdf_kline_policy", "local_price_redraw_first"),
         "summary_pdf_kline_status": kline_status.get("status") or report_manifest.get("summary_pdf_kline_status", ""),
         "summary_pdf_kline_total_charts": kline_status.get("total_charts", report_manifest.get("summary_pdf_kline_total_charts", 0)),

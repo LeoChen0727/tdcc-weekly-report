@@ -1,7 +1,16 @@
 {
-  "generated_at": "2026-05-27 21:25:13 Asia/Taipei",
+  "generated_at": "2026-05-27 22:00:53 Asia/Taipei",
   "main_price_date": "20260527",
   "report_ready": "True",
+  "repo_artifacts_are_sources_not_final_chatgpt_deliverables": true,
+  "report_ready_is_not_chatgpt_pdf_done": true,
+  "fixed_pdf_validation_is_repo_artifact_validation_only": true,
+  "daily_full_market_default_chatgpt_deliverables": [
+    "每日推薦分析 PDF",
+    "完整候選清單補充 PDF",
+    "權證市場輔助分析 PDF",
+    "市場風險與大盤期權背景 PDF"
+  ],
   "summary_pdf_kline_policy": "local_price_redraw_first",
   "summary_pdf_kline_status": "generated",
   "summary_pdf_kline_total_charts": 30,

@@ -1,6 +1,6 @@
 CHATGPT DAILY REPORT PACKET
 
-generated_at: 2026-05-27 21:25:13 Asia/Taipei
+generated_at: 2026-05-27 22:00:53 Asia/Taipei
 repo: LeoChen0727/tdcc-weekly-report
 main_price_date: 20260527
 report_ready: True
@@ -8,6 +8,16 @@ all_candidates_date: 20260527
 official_price_fetch_date: 20260527
 stock_monitor_date: 20260527
 warrant_flow_date: 20260527
+
+CHATGPT_DELIVERY_CONTRACT
+repo_artifacts_are_sources_not_final_deliverables: True
+report_ready_meaning: repo data packet and repo artifacts are available; this does not mean ChatGPT has produced the user's requested report.
+fixed_pdf_validation_meaning: repo pipeline PDF artifact validation only; this is not a newly generated ChatGPT deliverable PDF.
+if_user_asks_status_only: report repo artifact status and links only.
+if_user_asks_do_today_report_or_four_pdfs: read repo structured data and produce new ChatGPT-side PDFs; do not stop at repo PDFs.
+default_daily_full_market_chatgpt_deliverables: 每日推薦分析 PDF|完整候選清單補充 PDF|權證市場輔助分析 PDF|市場風險與大盤期權背景 PDF
+do_not_replace_required_chatgpt_pdfs_with_repo_artifacts: True
+do_not_paste_full_text_instead_of_pdf_unless_user_requests_text_only: True
 
 PACKET_PATHS
 latest_packet_path: output/latest/chatgpt_daily_report_packet_latest.txt
@@ -98,7 +108,7 @@ performance_csv_path: output/history/daily_signals/daily_candidate_signal_perfor
 summary_latest_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_signal_performance_summary_latest.md
 weekly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_weekly_latest.pdf
 monthly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_monthly_latest.pdf
-last_updated_at: 2026-05-27 21:25:13 Asia/Taipei
+last_updated_at: 2026-05-27 22:00:53 Asia/Taipei
 status: generated
 
 CANDIDATE REPEAT APPEARANCE

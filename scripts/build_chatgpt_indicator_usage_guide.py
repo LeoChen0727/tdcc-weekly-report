@@ -129,6 +129,16 @@ def build_guide() -> str:
     lines.append("- rule: If memory, PDF, or ad-hoc interpretation conflicts with program-side fields, use the structured program-side fields.")
     lines.append("")
 
+    lines.append("## Delivery Contract")
+    lines.append("")
+    lines.append("- Repo pipeline PDFs / Markdown / packets are source artifacts, validation artifacts, or shareable reference outputs.")
+    lines.append("- `report_ready=True` means repo data and artifacts are available; it does not mean ChatGPT has completed the requested report.")
+    lines.append("- `fixed_pdf_validation_status=pass` means repo PDF artifacts passed validation; it is not the same as a newly generated ChatGPT deliverable PDF.")
+    lines.append("- If the user asks only for pipeline/repo status, report artifact status and links.")
+    lines.append("- If the user asks to do today's report, produce four ChatGPT-side PDFs after reading repo structured data: 每日推薦分析 PDF, 完整候選清單補充 PDF, 權證市場輔助分析 PDF, 市場風險與大盤期權背景 PDF.")
+    lines.append("- Do not replace required ChatGPT-generated PDFs with repo PDF links, and do not paste a full chat report instead of required PDFs unless the user explicitly asks for text-only output.")
+    lines.append("")
+
     lines.append("## Read Order")
     lines.extend(
         md_table(
