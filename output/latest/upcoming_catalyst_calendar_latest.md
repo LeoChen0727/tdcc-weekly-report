@@ -1,7 +1,7 @@
 # Upcoming Catalyst Calendar
 
-- generated_at: `2026-05-27 18:01:25 Asia/Taipei`
-- rows: `664`
+- generated_at: `2026-05-27 20:25:44 Asia/Taipei`
+- rows: `683`
 - note: Calendar proximity is a reminder, not a confirmed bullish catalyst.
 
 ## Company / Stock Calendar
@@ -32,6 +32,7 @@
 | 20260601 | 20260610 | 1313 | 聯成 | monthly_revenue_expected_window | expected_window | 5 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
 | 20260601 | 20260610 | 1316 | 上曜 | monthly_revenue_expected_window | expected_window | 5 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
 | 20260601 | 20260610 | 1319 | 東陽 | monthly_revenue_expected_window | expected_window | 5 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
+| 20260601 | 20260610 | 1340 | 勝悅-KY | monthly_revenue_expected_window | expected_window | 5 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
 | 20260601 | 20260610 | 1402 | 遠東新 | monthly_revenue_expected_window | expected_window | 5 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
 | 20260601 | 20260610 | 1409 | 新纖 | monthly_revenue_expected_window | expected_window | 5 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
 | 20260601 | 20260610 | 1440 | 南紡 | monthly_revenue_expected_window | expected_window | 5 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
@@ -46,6 +47,7 @@
 | 20260601 | 20260610 | 1524 | 耿鼎 | monthly_revenue_expected_window | expected_window | 5 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
 | 20260601 | 20260610 | 1528 | 恩德 | monthly_revenue_expected_window | expected_window | 5 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
 | 20260601 | 20260610 | 1529 | 樂事綠能 | monthly_revenue_expected_window | expected_window | 5 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
+| 20260601 | 20260610 | 1530 | 亞崴 | monthly_revenue_expected_window | expected_window | 5 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
 | 20260601 | 20260610 | 1533 | 車王電 | monthly_revenue_expected_window | expected_window | 5 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
 | 20260601 | 20260610 | 1536 | 和大 | monthly_revenue_expected_window | expected_window | 5 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
 | 20260601 | 20260610 | 1563 | 巧新 | monthly_revenue_expected_window | expected_window | 5 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
@@ -56,6 +58,7 @@
 | 20260601 | 20260610 | 1605 | 華新 | monthly_revenue_expected_window | expected_window | 5 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
 | 20260601 | 20260610 | 1608 | 華榮 | monthly_revenue_expected_window | expected_window | 5 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
 | 20260601 | 20260610 | 1609 | 大亞 | monthly_revenue_expected_window | expected_window | 5 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
+| 20260601 | 20260610 | 1612 | 宏泰 | monthly_revenue_expected_window | expected_window | 5 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
 | 20260601 | 20260610 | 1618 | 合機 | monthly_revenue_expected_window | expected_window | 5 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
 | 20260601 | 20260610 | 1708 | 東鹼 | monthly_revenue_expected_window | expected_window | 5 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
 | 20260601 | 20260610 | 1709 | 和益 | monthly_revenue_expected_window | expected_window | 5 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
@@ -85,6 +88,3 @@
 | 20260601 | 20260610 | 2022 | 聚亨 | monthly_revenue_expected_window | expected_window | 5 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
 | 20260601 | 20260610 | 2023 | 燁輝 | monthly_revenue_expected_window | expected_window | 5 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
 | 20260601 | 20260610 | 2027 | 大成鋼 | monthly_revenue_expected_window | expected_window | 5 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
-| 20260601 | 20260610 | 2030 | 彰源 | monthly_revenue_expected_window | expected_window | 5 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
-| 20260601 | 20260610 | 2031 | 新光鋼 | monthly_revenue_expected_window | expected_window | 5 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
-| 20260601 | 20260610 | 2032 | 新鋼 | monthly_revenue_expected_window | expected_window | 5 | within_7d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
