@@ -6,6 +6,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: pattern-scan-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   pattern-scan:
     runs-on: ubuntu-latest
@@ -717,19 +721,4 @@ jobs:
 
           git commit -m "Update pattern scan report"
 
-          PUSHED=0
-          for i in 1 2 3 4 5; do
-            git pull --rebase --autostash origin "$TARGET_BRANCH" || true
-            if git push origin HEAD:"$TARGET_BRANCH"; then
-              PUSHED=1
-              echo "Push succeeded"
-              break
-            fi
-            echo "Push failed, retry $i"
-            sleep $((i * 5))
-          done
-
-          if [ "$PUSHED" != "1" ]; then
-            echo "Push failed after retries"
-            exit 1
-          fi
+          bash scripts/ci_push_with_retry.sh "$TARGET_BRANCH" 5

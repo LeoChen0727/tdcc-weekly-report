@@ -7,6 +7,10 @@ permissions:
   contents: write
   actions: write
 
+concurrency:
+  group: daily-full-pipeline-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   daily-full-pipeline:
     runs-on: ubuntu-latest
@@ -52,22 +56,7 @@ jobs:
           git status --short
           git commit -m "Update official daily price fetch result" || echo "No changes to commit"
 
-          PUSHED=0
-          for i in 1 2 3; do
-            git pull --rebase --autostash origin "$TARGET_BRANCH" || true
-            if git push; then
-              PUSHED=1
-              echo "Push succeeded"
-              break
-            fi
-            echo "Push failed, retry $i"
-            sleep 5
-          done
-
-          if [ "$PUSHED" != "1" ]; then
-            echo "Push failed after retries"
-            exit 1
-          fi
+          bash scripts/ci_push_with_retry.sh "$TARGET_BRANCH" 5
 
       - name: Pull latest after official price commit
         run: |
@@ -104,7 +93,7 @@ jobs:
 
           git pull --rebase --autostash origin "$TARGET_BRANCH" || true
 
-          git add data/ || true
+          git add data/stock_price_history/ || true
           git add output/latest/stock_price_history_manifest.csv || true
           git add output/latest/stock_price_history_manifest.json || true
           git add output/latest/stock_price_history_manifest.md || true
@@ -139,22 +128,7 @@ jobs:
           git status --short
           git commit -m "Update daily stock monitor and current holdings report" || echo "No changes to commit"
 
-          PUSHED=0
-          for i in 1 2 3; do
-            git pull --rebase --autostash origin "$TARGET_BRANCH" || true
-            if git push; then
-              PUSHED=1
-              echo "Push succeeded"
-              break
-            fi
-            echo "Push failed, retry $i"
-            sleep 5
-          done
-
-          if [ "$PUSHED" != "1" ]; then
-            echo "Push failed after retries"
-            exit 1
-          fi
+          bash scripts/ci_push_with_retry.sh "$TARGET_BRANCH" 5
 
       - name: Trigger and wait for Pattern Scan
         run: |
@@ -623,22 +597,7 @@ jobs:
           git status --short
           git commit -m "Update report artifacts, ChatGPT packet, and rules" || echo "No changes to commit"
 
-          PUSHED=0
-          for i in 1 2 3; do
-            git pull --rebase --autostash origin "$TARGET_BRANCH" || true
-            if git push; then
-              PUSHED=1
-              echo "Push succeeded"
-              break
-            fi
-            echo "Push failed, retry $i"
-            sleep 5
-          done
-
-          if [ "$PUSHED" != "1" ]; then
-            echo "Push failed after retries"
-            exit 1
-          fi
+          bash scripts/ci_push_with_retry.sh "$TARGET_BRANCH" 5
 
           ARTIFACT_COMMIT_SHA=$(git rev-parse HEAD)
           echo "ARTIFACT_COMMIT_SHA=$ARTIFACT_COMMIT_SHA" >> "$GITHUB_ENV"
@@ -878,19 +837,4 @@ jobs:
           git status --short
           git commit -m "Publish ChatGPT daily report readme, rules, and multi-entry checks" || echo "No changes to commit"
 
-          PUSHED=0
-          for i in 1 2 3; do
-            git pull --rebase --autostash origin "$TARGET_BRANCH" || true
-            if git push; then
-              PUSHED=1
-              echo "Push succeeded"
-              break
-            fi
-            echo "Push failed, retry $i"
-            sleep 5
-          done
-
-          if [ "$PUSHED" != "1" ]; then
-            echo "Push failed after retries"
-            exit 1
-          fi
+          bash scripts/ci_push_with_retry.sh "$TARGET_BRANCH" 5
