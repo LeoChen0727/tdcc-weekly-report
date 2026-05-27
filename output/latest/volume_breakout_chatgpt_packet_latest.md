@@ -1,13 +1,13 @@
 # VOLUME BREAKOUT CHATGPT PACKET
 
 ## Metadata
-- generated_at: `2026-05-27 20:26:41 Asia/Taipei`
-- main_price_date: `20260526`
-- watch_rows: `3`
-- strict_60d_volume_breakout_count: `0`
-- broad_recall_watch_count: `0`
-- selected_but_routed_to_other_category_count: `0`
-- not_selected_by_candidate_model_count: `3`
+- generated_at: `2026-05-27 21:17:40 Asia/Taipei`
+- main_price_date: `20260527`
+- watch_rows: `196`
+- strict_60d_volume_breakout_count: `25`
+- broad_recall_watch_count: `52`
+- selected_but_routed_to_other_category_count: `72`
+- not_selected_by_candidate_model_count: `90`
 - watch_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/volume_breakout_watch_latest.csv
 - watch_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/volume_breakout_watch_latest.md
 - backtest_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/volume_breakout_backtest_latest.csv
@@ -24,17 +24,81 @@
 
 | volume_breakout_rank | stock_id | stock_name | volume_breakout_type | volume_watch_scope | volume_breakout_priority | selection_status | category | pattern_stage | decision_priority | tdcc_status | repeat_appear_label | volume_ratio | return_5d | return_20d | risk_flags | next_volume_breakout_confirmation |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | 8342 | 益張 | neckline_volume_breakout | confirmed_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 5.1268 | 0.3289 | -1.6129 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
-| 2 | 6904 | 伯鑫 | volume_expansion_watch | volume_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 7.5974 | 0.0 | -1.2658 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
-| 3 | 8921 | 沈氏 | volume_expansion_watch | volume_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 1.7308 | 3.9326 | 8.8235 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 1 | 2438 | 翔耀 | strict_60d_volume_breakout | strict_breakout | A_valid_breakout_watch | selected_as_strict_breakout | true_breakout | breakout_confirmed | A_priority_watch | mild_accumulation | first_seen | 6.2077 | 17.6744 | 12.9464 |  | next day holds breakout area; volume does not collapse; TDCC not distribution_warning |
+| 2 | 2881 | 富邦金 | strict_60d_volume_breakout | strict_breakout | A_valid_breakout_watch | selected_as_strict_breakout | true_breakout | breakout_confirmed | A_priority_watch | strong_accumulation | continued_many_days | 2.1933 | 14.8225 | 24.1535 |  | next day holds breakout area; volume does not collapse; TDCC not distribution_warning |
+| 3 | 2606 | 裕民 | strict_60d_volume_breakout | strict_breakout | A_valid_breakout_watch | selected_as_strict_breakout | true_breakout | breakout_confirmed | A_priority_watch | strong_accumulation | continued_many_days | 1.9354 | 12.4031 | 20.0331 |  | next day holds breakout area; volume does not collapse; TDCC not distribution_warning |
+| 4 | 2425 | 承啟 | strict_60d_volume_breakout | strict_breakout | A_valid_breakout_watch | selected_as_strict_breakout | true_breakout | platform_breakout | A_priority_watch | mild_accumulation | first_seen | 1.8984 | 11.7917 | 21.6667 |  | next day holds breakout area; volume does not collapse; TDCC not distribution_warning |
+| 5 | 2929 | 淘帝-KY | platform_volume_breakout | confirmed_attack | A_valid_breakout_watch | selected_but_routed_to_other_category | range_rebound | neckline_breakout | A_priority_watch | strong_accumulation | continued_2_3d | 2.4955 | 28.6267 | 18.75 |  | next day holds breakout area; volume does not collapse; TDCC not distribution_warning |
+| 6 | 1810 | 和成 | neckline_volume_breakout | confirmed_attack | A_valid_breakout_watch | selected_but_routed_to_other_category | range_rebound | platform_breakout | B_confirm_needed | mild_accumulation | repeated_but_no_breakout | 4.5796 | 8.1522 | 14.0401 |  | next day holds breakout area; volume does not collapse; TDCC not distribution_warning |
+| 7 | 6691 | 洋基工程 | neckline_volume_breakout | confirmed_attack | A_valid_breakout_watch | selected_but_routed_to_other_category | range_rebound | platform_breakout | A_priority_watch | mild_accumulation | first_seen | 2.1038 | 9.9511 | 5.6426 |  | next day holds breakout area; volume does not collapse; TDCC not distribution_warning |
+| 8 | 2637 | 慧洋-KY | neckline_volume_breakout | confirmed_attack | A_valid_breakout_watch | selected_but_routed_to_other_category | range_rebound | neckline_challenge | B_confirm_needed | mild_accumulation | repeated_but_no_breakout | 2.027 | 5.7103 | 6.1538 |  | next day holds breakout area; volume does not collapse; TDCC not distribution_warning |
+| 9 | 2535 | 達欣工 | neckline_volume_breakout | confirmed_attack | A_valid_breakout_watch | selected_but_routed_to_other_category | range_rebound | neckline_challenge | B_confirm_needed | mild_accumulation | first_seen | 1.786 | 4.5576 | 3.8615 |  | next day holds breakout area; volume does not collapse; TDCC not distribution_warning |
+| 10 | 2206 | 三陽工業 | neckline_volume_breakout | confirmed_attack | A_valid_breakout_watch | selected_but_routed_to_other_category | range_rebound | neckline_challenge | B_confirm_needed | mild_accumulation | repeated_but_no_breakout | 1.5011 | 2.5729 | 4.9123 |  | next day holds breakout area; volume does not collapse; TDCC not distribution_warning |
+| 11 | 3321 | 同泰 | strict_60d_volume_breakout | strict_breakout | B_confirm_needed | selected_as_strict_breakout | true_breakout | breakout_confirmed | C_watch_only | strong_accumulation | continued_overheated | 4.0543 | 24.5098 | 17.2308 | continued_overheated | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 12 | 1583 | 程泰 | strict_60d_volume_breakout | strict_breakout | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 2.9986 | 14.2251 | 13.3825 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 13 | 4545 | 銘鈺 | strict_60d_volume_breakout | strict_breakout | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 2.6991 | 21.2625 | 21.8698 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 14 | 3131 | 弘塑 | platform_volume_breakout | confirmed_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 2.9885 | 32.7519 | 19.338 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 15 | 3067 | 全域 | platform_volume_breakout | confirmed_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 1.989 | 6.9364 | 0.5435 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 16 | 6957 | 裕慶-KY | platform_volume_breakout | confirmed_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 1.9052 | 5.625 | 7.3016 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 17 | 7791 | 皇家可口 | platform_volume_breakout | confirmed_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 1.797 | 4.9285 | 2.3256 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 18 | 2434 | 統懋 | neckline_volume_breakout | confirmed_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 4.3728 | 11.7845 | 9.9338 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 19 | 4198 | 欣大健康 | neckline_volume_breakout | confirmed_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 3.125 | 4.1885 | 3.781 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 20 | 2373 | 震旦行 | neckline_volume_breakout | confirmed_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 2.9371 | 2.6549 | 1.9332 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 21 | 6606 | 建德工業 | neckline_volume_breakout | confirmed_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 2.8765 | 5.5328 | 5.102 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 22 | 6844 | 諾貝兒 | neckline_volume_breakout | confirmed_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 2.1922 | -0.9091 | 4.9759 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 23 | 2727 | 王品 | neckline_volume_breakout | confirmed_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 1.6831 | -0.2132 | 2.407 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 24 | 3426 | 台興 | neckline_volume_breakout | confirmed_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 1.641 | 0.1048 | 0.2099 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 25 | 2849 | 安泰銀 | neckline_volume_breakout | confirmed_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 1.5072 | 4.943 | -0.7194 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 26 | 5274 | 信驊 | abnormal_volume_up | volume_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 4.7819 | 17.1594 | 13.265 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 27 | 1418 | 東華 | abnormal_volume_up | volume_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 3.7486 | 5.0279 | 5.0279 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 28 | 7770 | 君曜 | right_side_volume_attack | volume_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 2.2388 | 14.3035 | -4.8654 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 29 | 2254 | 巨鎧精密-創 | right_side_volume_attack | volume_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 1.553 | 11.7241 | -11.1111 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 30 | 3310 | 佳穎 | right_side_volume_attack | volume_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 1.3358 | 11.1756 | 9.8996 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 31 | 3285 | 微端 | right_side_volume_attack | volume_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 1.2133 | 11.5789 | 13.369 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 32 | 6680 | 鑫創電子 | volume_expansion_watch | volume_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 3.0446 | 8.8346 | 6.2385 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 33 | 1315 | 達新 | volume_expansion_watch | volume_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 4.097 | 2.649 | -1.2739 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 34 | 3226 | 龍鋒 | volume_expansion_watch | volume_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 2.8777 | 4.4025 | 4.798 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 35 | 1259 | 安心 | volume_expansion_watch | volume_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 2.6977 | 1.7544 | -2.3569 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 36 | 2949 | 欣新網 | volume_expansion_watch | volume_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 2.5767 | 4.8253 | 12.5 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 37 | 7732 | 金興精密 | volume_expansion_watch | volume_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 2.0199 | 3.4783 | 0.8475 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 38 | 7716 | 昱臺國際 | volume_expansion_watch | volume_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 2.0161 | 3.2653 | 0.0 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 39 | 6670 | 復盛應用 | volume_expansion_watch | volume_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 1.8607 | 1.1583 | 4.175 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 40 | 4737 | 華廣 | volume_expansion_watch | volume_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 1.7012 | 3.0928 | -4.7619 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
 
 ## Not Selected / Routed Elsewhere Diagnostics
 
 | stock_id | stock_name | volume_breakout_type | volume_watch_scope | selection_status | not_selected_reason | category | pattern_stage | risk_flags |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 8342 | 益張 | neckline_volume_breakout | confirmed_attack | not_selected_by_candidate_model | volume breakout detected from price history but not selected by existing candidate filters |  |  | not_in_candidate_model |
-| 6904 | 伯鑫 | volume_expansion_watch | volume_attack | not_selected_by_candidate_model | volume breakout detected from price history but not selected by existing candidate filters |  |  | not_in_candidate_model |
-| 8921 | 沈氏 | volume_expansion_watch | volume_attack | not_selected_by_candidate_model | volume breakout detected from price history but not selected by existing candidate filters |  |  | not_in_candidate_model |
+| 2929 | 淘帝-KY | platform_volume_breakout | confirmed_attack | selected_but_routed_to_other_category | routed_to_range_rebound; strict_breakout_requires_60d_high_breakout | range_rebound | neckline_breakout |  |
+| 1810 | 和成 | neckline_volume_breakout | confirmed_attack | selected_but_routed_to_other_category | routed_to_range_rebound; strict_breakout_requires_60d_high_breakout | range_rebound | platform_breakout |  |
+| 6691 | 洋基工程 | neckline_volume_breakout | confirmed_attack | selected_but_routed_to_other_category | routed_to_range_rebound; strict_breakout_requires_60d_high_breakout | range_rebound | platform_breakout |  |
+| 2637 | 慧洋-KY | neckline_volume_breakout | confirmed_attack | selected_but_routed_to_other_category | routed_to_range_rebound; strict_breakout_requires_60d_high_breakout | range_rebound | neckline_challenge |  |
+| 2535 | 達欣工 | neckline_volume_breakout | confirmed_attack | selected_but_routed_to_other_category | routed_to_range_rebound; strict_breakout_requires_60d_high_breakout | range_rebound | neckline_challenge |  |
+| 2206 | 三陽工業 | neckline_volume_breakout | confirmed_attack | selected_but_routed_to_other_category | routed_to_range_rebound; strict_breakout_requires_60d_high_breakout | range_rebound | neckline_challenge |  |
+| 1583 | 程泰 | strict_60d_volume_breakout | strict_breakout | not_selected_by_candidate_model | volume breakout detected from price history but not selected by existing candidate filters |  |  | not_in_candidate_model |
+| 4545 | 銘鈺 | strict_60d_volume_breakout | strict_breakout | not_selected_by_candidate_model | volume breakout detected from price history but not selected by existing candidate filters |  |  | not_in_candidate_model |
+| 3131 | 弘塑 | platform_volume_breakout | confirmed_attack | not_selected_by_candidate_model | volume breakout detected from price history but not selected by existing candidate filters |  |  | not_in_candidate_model |
+| 3067 | 全域 | platform_volume_breakout | confirmed_attack | not_selected_by_candidate_model | volume breakout detected from price history but not selected by existing candidate filters |  |  | not_in_candidate_model |
+| 6957 | 裕慶-KY | platform_volume_breakout | confirmed_attack | not_selected_by_candidate_model | volume breakout detected from price history but not selected by existing candidate filters |  |  | not_in_candidate_model |
+| 7791 | 皇家可口 | platform_volume_breakout | confirmed_attack | not_selected_by_candidate_model | volume breakout detected from price history but not selected by existing candidate filters |  |  | not_in_candidate_model |
+| 2434 | 統懋 | neckline_volume_breakout | confirmed_attack | not_selected_by_candidate_model | volume breakout detected from price history but not selected by existing candidate filters |  |  | not_in_candidate_model |
+| 4198 | 欣大健康 | neckline_volume_breakout | confirmed_attack | not_selected_by_candidate_model | volume breakout detected from price history but not selected by existing candidate filters |  |  | not_in_candidate_model |
+| 2373 | 震旦行 | neckline_volume_breakout | confirmed_attack | not_selected_by_candidate_model | volume breakout detected from price history but not selected by existing candidate filters |  |  | not_in_candidate_model |
+| 6606 | 建德工業 | neckline_volume_breakout | confirmed_attack | not_selected_by_candidate_model | volume breakout detected from price history but not selected by existing candidate filters |  |  | not_in_candidate_model |
+| 6844 | 諾貝兒 | neckline_volume_breakout | confirmed_attack | not_selected_by_candidate_model | volume breakout detected from price history but not selected by existing candidate filters |  |  | not_in_candidate_model |
+| 2727 | 王品 | neckline_volume_breakout | confirmed_attack | not_selected_by_candidate_model | volume breakout detected from price history but not selected by existing candidate filters |  |  | not_in_candidate_model |
+| 3426 | 台興 | neckline_volume_breakout | confirmed_attack | not_selected_by_candidate_model | volume breakout detected from price history but not selected by existing candidate filters |  |  | not_in_candidate_model |
+| 2849 | 安泰銀 | neckline_volume_breakout | confirmed_attack | not_selected_by_candidate_model | volume breakout detected from price history but not selected by existing candidate filters |  |  | not_in_candidate_model |
+| 5274 | 信驊 | abnormal_volume_up | volume_attack | not_selected_by_candidate_model | volume breakout detected from price history but not selected by existing candidate filters |  |  | not_in_candidate_model |
+| 1418 | 東華 | abnormal_volume_up | volume_attack | not_selected_by_candidate_model | volume breakout detected from price history but not selected by existing candidate filters |  |  | not_in_candidate_model |
+| 7770 | 君曜 | right_side_volume_attack | volume_attack | not_selected_by_candidate_model | volume breakout detected from price history but not selected by existing candidate filters |  |  | not_in_candidate_model |
+| 2254 | 巨鎧精密-創 | right_side_volume_attack | volume_attack | not_selected_by_candidate_model | volume breakout detected from price history but not selected by existing candidate filters |  |  | not_in_candidate_model |
+| 3310 | 佳穎 | right_side_volume_attack | volume_attack | not_selected_by_candidate_model | volume breakout detected from price history but not selected by existing candidate filters |  |  | not_in_candidate_model |
+| 3285 | 微端 | right_side_volume_attack | volume_attack | not_selected_by_candidate_model | volume breakout detected from price history but not selected by existing candidate filters |  |  | not_in_candidate_model |
+| 6680 | 鑫創電子 | volume_expansion_watch | volume_attack | not_selected_by_candidate_model | volume breakout detected from price history but not selected by existing candidate filters |  |  | not_in_candidate_model |
+| 1315 | 達新 | volume_expansion_watch | volume_attack | not_selected_by_candidate_model | volume breakout detected from price history but not selected by existing candidate filters |  |  | not_in_candidate_model |
+| 3226 | 龍鋒 | volume_expansion_watch | volume_attack | not_selected_by_candidate_model | volume breakout detected from price history but not selected by existing candidate filters |  |  | not_in_candidate_model |
+| 1259 | 安心 | volume_expansion_watch | volume_attack | not_selected_by_candidate_model | volume breakout detected from price history but not selected by existing candidate filters |  |  | not_in_candidate_model |
 
 ## Backtest Summary
 

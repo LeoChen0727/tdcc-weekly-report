@@ -1,6 +1,6 @@
 # 每日候選股訊號績效摘要
 
-- generated_at: `2026-05-27 20:30:15 Asia/Taipei`
+- generated_at: `2026-05-27 21:20:47 Asia/Taipei`
 - latest_signal_date: `20260527`
 - signal_count: `3059`
 - period: all available signals
@@ -57,9 +57,9 @@
 
 | revenue_signal_type | signal_count | avg_return_d10 | avg_relative_return_vs_benchmark_d10 | win_rate_d10 | benchmark_outperform_rate_d10 |
 | --- | --- | --- | --- | --- | --- |
-|  | 2205 |  |  |  |  |
+|  | 2210 |  |  |  |  |
 | 出貨型營收 / 其他 | 727 |  |  |  |  |
-| 營建認列型 / 交屋認列型 | 127 |  |  |  |  |
+| 營建認列型 / 交屋認列型 | 122 |  |  |  |  |
 
 ## 財報 / 事件催化層績效
 

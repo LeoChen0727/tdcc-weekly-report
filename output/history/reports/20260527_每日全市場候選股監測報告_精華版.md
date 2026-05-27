@@ -1,7 +1,7 @@
 # 每日全市場候選股監測報告 - 精華版
 
 - 主資料日期：`20260527`
-- 產生時間：`2026-05-27 20:28:30 Asia/Taipei`
+- 產生時間：`2026-05-27 21:18:59 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：完整候選清單與官方價格資料日期一致，可以產出正式每日報告
 - 權證資料日期：`20260527`
@@ -36,8 +36,8 @@
 | 2374 佳能 | 營收爆發低反應股 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mo... | 大戶同步增加 |
 | 2345 智邦 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mo... | 大戶溫和增加 |
 | 4934 太極 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mo... | 大戶溫和增加 |
-| 4142 國光生 | 營收成長股價回檔 | score 28 / theme 49.2/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mon... | 大戶溫和增加 |
-| 2101 南港 | 營收成長股價回檔 | score 28 / theme 32.4/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mon... | 大戶同步增加 |
+| 4142 國光生 | 營收成長股價回檔 | score 28 / theme 39.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mon... | 大戶溫和增加 |
+| 2101 南港 | 營收成長股價回檔 | score 28 / theme 25.8/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mon... | 大戶同步增加 |
 | 2353 宏碁 | 營收爆發低反應股 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mo... | 大戶同步增加 |
 | 2646 星宇航空 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mo... | 大戶溫和增加 |
 | 2368 金像電 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mo... | 大戶溫和增加 |
@@ -55,7 +55,7 @@
 - 連續上榜：連續 5 日；近5日 5；近10日 5；多分類 pattern|true_breakout
 - TDCC：大戶溫和增加
 - 權證：call_strong_inflow / 2.0
-- 財報 / 事件催化：score 0 / theme 84.8/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window;紡織纖維 / monthly_revenue_calendar;calendar_monthly_...
+- 財報 / 事件催化：score 0 / theme 59.0/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window;紡織纖維 / monthly_revenue_calendar;calendar_monthly_...
 - 摘要：突破 / 量能5.31x / 大戶溫和增加 / call_strong_inflow / 2.0
 - 完整原因：近幾週400張與1000張合計增加；call_strong_inflow；認購權證成交金額明顯升溫；嚴格突破；量比5.31x；月營收YoY 25.1%；累計YoY 2.3%；TDCC近幾週大戶溫和增加
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
@@ -122,7 +122,7 @@
 - 連續上榜：連續 2 日；近5日 2；近10日 2；多分類 range_rebound
 - TDCC：大戶轉弱
 - 權證：call_put_bullish / 3.0
-- 財報 / 事件催化：score 0 / theme 99.0/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window;塑膠工業 / monthly_revenue_calendar;calendar_monthly_...
+- 財報 / 事件催化：score 0 / theme 62.2/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window;塑膠工業 / monthly_revenue_calendar;calendar_monthly_...
 - 摘要：區間轉強 / 距前高-5.91% / 大戶轉弱 / call_put_bullish / 3.0
 - 完整原因：近幾週400張與1000張同步減少；call_put_bullish；認購成交金額明顯大於認售，且認購資金明顯升溫；區間內轉強；量比1.76x；月營收YoY 19.4%；累計YoY 8.5%；TDCC近幾週大戶籌碼轉弱
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
@@ -437,7 +437,7 @@
 - 連續上榜：連續 2 日；近5日 2；近10日 2；多分類 pattern
 - TDCC：
 - 權證：call_inflow / 1.0
-- 財報 / 事件催化：score 0 / theme 31.4/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window / monthly_revenue_calendar;calendar_monthly_reven...
+- 財報 / 事件催化：score 0 / theme 100.0/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window / monthly_revenue_calendar;calendar_monthly_reve...
 - 摘要：pattern_watch / call_inflow / 1.0
 - 完整原因：call_inflow；認購權證資金升溫；量比0.88x
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
