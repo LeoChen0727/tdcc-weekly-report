@@ -117,6 +117,7 @@ def build_guide() -> str:
     volume_attack_stocks = read_csv(LATEST_DIR / "volume_attack_theme_stocks_latest.csv")
     daily_theme_status_history = read_csv(LATEST_DIR / "daily_theme_status_history_latest.csv")
     weekly_surge_theme_segment = read_csv(LATEST_DIR / "weekly_surge_theme_segment_next_open_latest.csv")
+    weekly_surge_technical_grid = read_csv(LATEST_DIR / "weekly_surge_technical_filter_grid_latest.csv")
 
     main_price_date = ""
     readme = LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt"
@@ -266,6 +267,13 @@ def build_guide() -> str:
             "label_type, target_window, theme_status_group, filter_metric, threshold, hit_rate_pct, sample_status",
             f"{count_values(weekly_surge_theme_segment, 'sample_status')} / rows={len(weekly_surge_theme_segment)}",
             "Research only. `provisional_latest_label_only` is exploratory; require strict history before treating as verified.",
+        ],
+        [
+            "Weekly surge technical filter grid",
+            "output/latest/weekly_surge_technical_filter_grid_latest.csv",
+            "rule_family, rule_name, target_window, hit_rate_pct, median_next_open_to_high_return_pct, sample_status",
+            f"{count_values(weekly_surge_technical_grid, 'sample_status')} / rows={len(weekly_surge_technical_grid)}",
+            "Parameter discovery only. Use to discuss candidate filters; do not change core weights until strict-history validation matures.",
         ],
         [
             "Individual stock raw availability",
