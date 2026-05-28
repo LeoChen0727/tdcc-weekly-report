@@ -70,6 +70,15 @@ Recommended opening order:
 
 Do not create a leading section titled "資料日期與流程狀態" for astrology reports. If a data note is necessary, place it as a short note inside the wealth / stock paragraph or at the very end under "資料補充".
 
+Forbidden opening headings for astrology reports:
+
+- 資料狀態
+- 資料日期與流程狀態
+- repo 入口讀取狀態
+- READ_ME_FIRST 讀取狀態
+
+If the model has already written one of these headings, it should rewrite the report before finalizing.
+
 ## Stock And Wealth Paragraph
 
 When discussing stocks:

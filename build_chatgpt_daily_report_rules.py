@@ -25,9 +25,11 @@ rules_version=2026-05-27-delivery-contract-v1
 PURPOSE
 This file defines how ChatGPT should read, interpret, and format the daily Taiwan full-market candidate stock report.
 New ChatGPT conversations should read this file after reading READ_ME_FIRST_DAILY_REPORT.txt.
+This file is not for astrology / Zi Wei / Ba Zi calendar-date reports. Astrology reports must read `rules/astrology_rules.md` instead and must not use this file's data-status opening format.
 
 SCOPE RULES
 - This report is for full-market candidate stocks only.
+- This report is not an astrology / Zi Wei / Ba Zi report.
 - Do not analyze the user's personal holdings.
 - Do not mention personal cost basis, unrealized P/L, margin balance, financing risk, position sizing, or personal portfolio decisions.
 - If any current holding appears naturally in the full-market candidate list, analyze it only as a general market candidate.
@@ -83,6 +85,7 @@ MULTI-ENTRY READ ORDER
 
 CHAT REPORT STRUCTURE
 Use the following structure for the chat report:
+This structure applies only to the daily full-market candidate stock report. It must not be used for astrology / Zi Wei / Ba Zi reports.
 
 一、資料狀態確認
 - State main_price_date.
