@@ -38,6 +38,7 @@ DAILY_CANDIDATE_TWO_LINE_VIEW_CSV = LATEST_DIR / "daily_candidate_two_line_view_
 DAILY_CANDIDATE_TWO_LINE_VIEW_MD = LATEST_DIR / "daily_candidate_two_line_view_latest.md"
 INDICATOR_USAGE_GUIDE_MD = LATEST_DIR / "chatgpt_indicator_usage_guide_latest.md"
 INDICATOR_USAGE_GUIDE_TXT = LATEST_DIR / "CHATGPT_INDICATOR_USAGE_GUIDE.txt"
+SHORT_TERM_SPECIALTY_PACKET_MD = LATEST_DIR / "daily_short_term_specialty_packet_latest.md"
 DAILY_SIGNAL_WEEKLY_PDF = LATEST_DIR / "daily_signal_performance_weekly_latest.pdf"
 DAILY_SIGNAL_MONTHLY_PDF = LATEST_DIR / "daily_signal_performance_monthly_latest.pdf"
 FUNDAMENTAL_CATALYST_MD = LATEST_DIR / "fundamental_catalyst_layer_latest.md"
@@ -368,6 +369,23 @@ def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path],
     lines.append(f"status: {'generated' if INDICATOR_USAGE_GUIDE_MD.exists() and INDICATOR_USAGE_GUIDE_TXT.exists() else 'missing'}")
     lines.append("note: This guide is the cross-indicator routing map. ChatGPT should read it before using memory-based interpretations.")
     lines.append("")
+    lines.append("DAILY SHORT-TERM SPECIALTY PACKET")
+    lines.append(f"daily_short_term_specialty_packet_raw_url: {raw_url(SHORT_TERM_SPECIALTY_PACKET_MD)}")
+    lines.append(f"daily_short_term_specialty_packet_path: {SHORT_TERM_SPECIALTY_PACKET_MD.as_posix()}")
+    lines.append(f"status: {'generated' if SHORT_TERM_SPECIALTY_PACKET_MD.exists() else 'missing'}")
+    lines.append("required_in_daily_pdf: True")
+    lines.append("fields_or_sections: TDCC Overheated Short-Term Edge, Weekly Surge Strict Parameter Research, D+5 tables, D+10 tables")
+    lines.append("note: This is not the fixed six-category `回檔後短線轉強` category. It is a standalone short-term specialty section and must be read separately.")
+    lines.append("")
+    short_term_text = safe_read_text(SHORT_TERM_SPECIALTY_PACKET_MD)
+    lines.append("EMBEDDED DAILY SHORT-TERM SPECIALTY PACKET")
+    lines.append("=" * 80)
+    if short_term_text.strip():
+        lines.append(short_term_text.strip())
+    else:
+        lines.append("[daily_short_term_specialty_packet_latest.md missing or empty]")
+    lines.append("=" * 80)
+    lines.append("")
     lines.append("FUNDAMENTAL / EVENT CATALYST LAYER")
     lines.append(f"catalyst_layer_md_raw_url: {raw_url(FUNDAMENTAL_CATALYST_MD)}")
     lines.append(f"catalyst_layer_path: {FUNDAMENTAL_CATALYST_MD.as_posix()}")
@@ -610,6 +628,8 @@ def write_packet_manifest(main_date: str, report_ready: str, paths: dict[str, Pa
         "chatgpt_indicator_usage_guide_md_raw_url": raw_url(INDICATOR_USAGE_GUIDE_MD),
         "chatgpt_indicator_usage_guide_txt_raw_url": raw_url(INDICATOR_USAGE_GUIDE_TXT),
         "chatgpt_indicator_usage_guide_status": "generated" if INDICATOR_USAGE_GUIDE_MD.exists() and INDICATOR_USAGE_GUIDE_TXT.exists() else "missing",
+        "daily_short_term_specialty_packet_raw_url": raw_url(SHORT_TERM_SPECIALTY_PACKET_MD),
+        "daily_short_term_specialty_packet_status": "generated" if SHORT_TERM_SPECIALTY_PACKET_MD.exists() else "missing",
         "surge_model_chatgpt_packet_raw_url": raw_url(SURGE_MODEL_PACKET_MD),
         "surge_precondition_candidates_md_raw_url": raw_url(SURGE_PRECONDITION_CANDIDATES_MD),
         "surge_precondition_candidates_csv_raw_url": raw_url(SURGE_PRECONDITION_CANDIDATES_CSV),

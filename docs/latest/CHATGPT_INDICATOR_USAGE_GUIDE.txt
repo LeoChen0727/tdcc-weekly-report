@@ -1,6 +1,6 @@
 # ChatGPT Indicator Usage Guide
 
-- generated_at: `2026-05-28 14:21:21 台北標準時間`
+- generated_at: `2026-05-28 14:56:24 台北標準時間`
 - main_price_date: `20260527`
 - purpose: Use program-side classifications first. ChatGPT should explain and synthesize, not re-rank from memory.
 - rule: If memory, PDF, or ad-hoc interpretation conflicts with program-side fields, use the structured program-side fields.
@@ -19,13 +19,15 @@
 | --- | --- | --- |
 | 1 | READ_ME_FIRST_DAILY_REPORT.txt | Confirm date/report_ready and collect raw URLs. |
 | 2 | chatgpt_indicator_usage_guide_latest.md | Understand which indicator layer is authoritative for each task. |
-| 3 | Task-specific packet/top-list CSV | Use packet/top-list fields before PDF text. |
-| 4 | PDF / Markdown reports | Use as readable summaries and presentation artifacts. |
-| 5 | External sources | Only supplement news/events/targets; never replace repo price or TDCC raw data. |
+| 3 | daily_short_term_specialty_packet_latest.md | Mandatory for daily stock reports; contains standalone D+5/D+10 short-term specialty sections. |
+| 4 | Task-specific packet/top-list CSV | Use packet/top-list fields before PDF text. |
+| 5 | PDF / Markdown reports | Use as readable summaries and presentation artifacts. |
+| 6 | External sources | Only supplement news/events/targets; never replace repo price or TDCC raw data. |
 
 ## Program-Side Classification Coverage
 | layer | file | classification fields | current buckets | ChatGPT use |
 | --- | --- | --- | --- | --- |
+| Daily short-term specialty packet | output/latest/daily_short_term_specialty_packet_latest.md | Usage Contract, TDCC Overheated Short-Term Edge, Weekly Surge Strict Parameter Research, D+5/D+10 tables | ready | Mandatory daily-report specialty packet. Read it even when the six fixed categories are already available. |
 | Daily candidate decision | output/latest/daily_candidate_decision_latest.csv | decision_priority, decision_score, pattern_mapped_category, downgrade_flags, risk_tags, why_selected, why_downgraded, next_confirmation | D_risk_downgrade=342; C_watch_only=240; B_confirm_needed=43; A_priority_watch=25 | Primary source for daily candidate ranking and downgrade. |
 | Repeat appearance | output/latest/candidate_repeat_appearance_latest.csv | repeat_appear_label, consecutive_appear_days_any_category, appear_count_5d/10d/20d | stale_signal=182; repeated_but_no_breakout=122; continued_2_3d=64; continued_overheated=52; first_seen=21; continued_many_days=14 | Use as persistence/staleness signal, never as a standalone upgrade. |
 | TDCC strength | output/latest/tdcc_strength_ranking_top_latest.csv | tdcc_strength_score, tdcc_price_phase, risk_bucket, theme_mainstream_status | strong_but_pre_move=23; strong_but_divergent=23; insufficient_data=2; strong_but_late=1; strong_but_overheated=1 | Strength list only. It is not the pre-move list. |
@@ -54,6 +56,7 @@
 
 ### Daily candidate report
 - Start from `daily_candidate_decision_chatgpt_packet_latest.md` or `daily_candidate_decision_latest.csv`.
+- Also read `daily_short_term_specialty_packet_latest.md`; it is the mandatory source for standalone D+5/D+10 short-term specialty sections.
 - Use `decision_priority` as the primary reporting priority: `A_priority_watch`, `B_confirm_needed`, `C_watch_only`, `D_risk_downgrade`.
 - Use `why_selected`, `why_downgraded`, and `next_confirmation` directly. Do not invent a different reason when these fields exist.
 - `must_not_overstate=True` means do not call the stock a top pick, even if the chart looks attractive.
@@ -62,6 +65,7 @@
 - For any mainstream/non-mainstream backtest, use `daily_theme_status_history.csv` by `signal_date + stock_id`. Do not join today's `theme_final_status` backward onto historical signals.
 - `theme_volume_attack_status=confirmed_volume_theme` or `early_mainstream_candidate` can be shown in the volume-attack theme line; `single_stock_volume_attack`, `non_mainstream_volume_watch`, `weak_or_non_mainstream_volume_watch`, `overheated_volume_theme`, and `failed_volume_theme` must not be mixed into the mainstream-funding front section.
 - If `tdcc_overheated_short_term_edge_latest.md/csv` exists, include its standalone D+5 and D+10 tables as a TDCC overheated short-term edge specialty; use it for reporting priority only, not core model weights.
+- Do not confuse the fixed category `回檔後短線轉強` with the short-term specialty layer; they are different sections.
 
 ### TDCC / ABM report
 - Use `tdcc_chatgpt_tracking_packet_latest.md`, then `tdcc_strength_ranking_top_latest.csv`, `tdcc_pre_move_abm_top_latest.csv`, and `tdcc_top_risk_list_latest.csv`.

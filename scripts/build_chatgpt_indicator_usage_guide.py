@@ -122,6 +122,7 @@ def build_guide() -> str:
     weekly_surge_multifactor_candidates = read_csv(LATEST_DIR / "weekly_surge_multifactor_candidates_latest.csv")
     weekly_surge_strict_search = read_csv(LATEST_DIR / "weekly_surge_strict_parameter_search_latest.csv")
     weekly_surge_strict_candidates = read_csv(LATEST_DIR / "weekly_surge_strict_parameter_candidates_latest.csv")
+    short_term_specialty_packet = LATEST_DIR / "daily_short_term_specialty_packet_latest.md"
 
     main_price_date = ""
     readme = LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt"
@@ -157,9 +158,10 @@ def build_guide() -> str:
             [
                 ["1", "READ_ME_FIRST_DAILY_REPORT.txt", "Confirm date/report_ready and collect raw URLs."],
                 ["2", "chatgpt_indicator_usage_guide_latest.md", "Understand which indicator layer is authoritative for each task."],
-                ["3", "Task-specific packet/top-list CSV", "Use packet/top-list fields before PDF text."],
-                ["4", "PDF / Markdown reports", "Use as readable summaries and presentation artifacts."],
-                ["5", "External sources", "Only supplement news/events/targets; never replace repo price or TDCC raw data."],
+                ["3", "daily_short_term_specialty_packet_latest.md", "Mandatory for daily stock reports; contains standalone D+5/D+10 short-term specialty sections."],
+                ["4", "Task-specific packet/top-list CSV", "Use packet/top-list fields before PDF text."],
+                ["5", "PDF / Markdown reports", "Use as readable summaries and presentation artifacts."],
+                ["6", "External sources", "Only supplement news/events/targets; never replace repo price or TDCC raw data."],
             ],
         )
     )
@@ -167,6 +169,13 @@ def build_guide() -> str:
 
     lines.append("## Program-Side Classification Coverage")
     coverage_rows = [
+        [
+            "Daily short-term specialty packet",
+            "output/latest/daily_short_term_specialty_packet_latest.md",
+            "Usage Contract, TDCC Overheated Short-Term Edge, Weekly Surge Strict Parameter Research, D+5/D+10 tables",
+            file_status(short_term_specialty_packet),
+            "Mandatory daily-report specialty packet. Read it even when the six fixed categories are already available.",
+        ],
         [
             "Daily candidate decision",
             "output/latest/daily_candidate_decision_latest.csv",
@@ -336,6 +345,7 @@ def build_guide() -> str:
     lines.append("")
     lines.append("### Daily candidate report")
     lines.append("- Start from `daily_candidate_decision_chatgpt_packet_latest.md` or `daily_candidate_decision_latest.csv`.")
+    lines.append("- Also read `daily_short_term_specialty_packet_latest.md`; it is the mandatory source for standalone D+5/D+10 short-term specialty sections.")
     lines.append("- Use `decision_priority` as the primary reporting priority: `A_priority_watch`, `B_confirm_needed`, `C_watch_only`, `D_risk_downgrade`.")
     lines.append("- Use `why_selected`, `why_downgraded`, and `next_confirmation` directly. Do not invent a different reason when these fields exist.")
     lines.append("- `must_not_overstate=True` means do not call the stock a top pick, even if the chart looks attractive.")
@@ -344,6 +354,7 @@ def build_guide() -> str:
     lines.append("- For any mainstream/non-mainstream backtest, use `daily_theme_status_history.csv` by `signal_date + stock_id`. Do not join today's `theme_final_status` backward onto historical signals.")
     lines.append("- `theme_volume_attack_status=confirmed_volume_theme` or `early_mainstream_candidate` can be shown in the volume-attack theme line; `single_stock_volume_attack`, `non_mainstream_volume_watch`, `weak_or_non_mainstream_volume_watch`, `overheated_volume_theme`, and `failed_volume_theme` must not be mixed into the mainstream-funding front section.")
     lines.append("- If `tdcc_overheated_short_term_edge_latest.md/csv` exists, include its standalone D+5 and D+10 tables as a TDCC overheated short-term edge specialty; use it for reporting priority only, not core model weights.")
+    lines.append("- Do not confuse the fixed category `回檔後短線轉強` with the short-term specialty layer; they are different sections.")
     lines.append("")
 
     lines.append("### TDCC / ABM report")

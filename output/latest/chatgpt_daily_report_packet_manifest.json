@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-27 22:00:53 Asia/Taipei",
+  "generated_at": "2026-05-28 14:56:25 Asia/Taipei",
   "main_price_date": "20260527",
   "report_ready": "True",
   "repo_artifacts_are_sources_not_final_chatgpt_deliverables": true,
@@ -68,6 +68,8 @@
   "chatgpt_indicator_usage_guide_md_raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/chatgpt_indicator_usage_guide_latest.md",
   "chatgpt_indicator_usage_guide_txt_raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt",
   "chatgpt_indicator_usage_guide_status": "generated",
+  "daily_short_term_specialty_packet_raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_short_term_specialty_packet_latest.md",
+  "daily_short_term_specialty_packet_status": "generated",
   "surge_model_chatgpt_packet_raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/surge_model_chatgpt_packet_latest.md",
   "surge_precondition_candidates_md_raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/surge_precondition_candidates_latest.md",
   "surge_precondition_candidates_csv_raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/surge_precondition_candidates_latest.csv",

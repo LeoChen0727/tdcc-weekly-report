@@ -26,8 +26,9 @@ Read in this order:
 3. `rules/daily_stock_candidate_rules.md`
 4. `output/latest/CHATGPT_DAILY_REPORT_RULES.txt`
 5. `output/latest/chatgpt_indicator_usage_guide_latest.md`
-6. `preferred_chatgpt_url` / daily packet
-7. Decision CSVs, theme layers, volume-attack layers, warrant reports, market risk reports, catalyst logs, validation files.
+6. `output/latest/daily_short_term_specialty_packet_latest.md`
+7. `preferred_chatgpt_url` / daily packet
+8. Decision CSVs, theme layers, volume-attack layers, warrant reports, market risk reports, catalyst logs, validation files.
 
 If a CSV shows `Total lines: 1`, continue via packet / GitHub API / index fallback. Do not use a thin summary as a complete report.
 
@@ -130,7 +131,14 @@ If strict breakout is empty, do not write that there is no volume attack. Check 
 
 ## TDCC Overheated Short-Term Edge
 
-If `tdcc_overheated_short_term_edge_latest.md/csv` exists, the daily report must include it as a standalone specialty section:
+If `daily_short_term_specialty_packet_latest.md` exists, it is the mandatory source for the daily short-term specialty section.
+
+Do not confuse `回檔後短線轉強` with the short-term specialty layer:
+
+- `回檔後短線轉強` is one of the fixed six daily candidate categories.
+- The short-term specialty layer is a standalone research/reporting section that currently includes TDCC overheated continuation and strict weekly-surge parameter research.
+
+If `tdcc_overheated_short_term_edge_latest.md/csv` exists, the daily report must include it as a standalone specialty subsection:
 
 - Show separate D+5 and D+10 tables.
 - Keep close-to-close metrics separate from next-open-to-close metrics.
@@ -140,6 +148,13 @@ If `tdcc_overheated_short_term_edge_latest.md/csv` exists, the daily report must
 - Do not use it to change TDCC / ABM / daily candidate core model weights.
 - If the current candidate CSV has matching stocks, show them as a separate TDCC overheated short-term watch list with confirmation and risk notes.
 
+If `weekly_surge_strict_parameter_search_latest.md/csv` exists, the daily report must also include it as a standalone strict weekly-surge research subsection:
+
+- Show separate D+5 and D+10 tables.
+- Use the definition `entry = D+1 open` and `hit = D+1 open to D+N high reaches +10%`.
+- Show current candidates from `weekly_surge_strict_parameter_candidates_latest.md/csv` when available.
+- Treat it as `research_watchlist_and_reporting_priority_only` until more regime samples are available.
+
 ## Required Quality Bar
 
 The final report must not be a thin packet summary. It must include:
@@ -148,6 +163,7 @@ The final report must not be a thin packet summary. It must include:
 - three-line stock split
 - category interpretation
 - volume attack x theme analysis
+- standalone short-term specialty section with D+5 and D+10 tables
 - individual latent watch list
 - downgraded / stale / risk list
 - warrant auxiliary analysis

@@ -1,6 +1,6 @@
 # Daily Stock Candidate Rules
 
-Last updated: 2026-05-27
+Last updated: 2026-05-28
 
 This task is the daily Taiwan full-market candidate report. It is not a holdings report, single-stock report, backtest report, or pure repo-status check.
 
@@ -26,8 +26,9 @@ Read in this order:
 3. `rules/daily_stock_candidate_rules.md`
 4. `output/latest/CHATGPT_DAILY_REPORT_RULES.txt`
 5. `output/latest/chatgpt_indicator_usage_guide_latest.md`
-6. `preferred_chatgpt_url` / daily packet
-7. Decision CSVs, theme layers, volume-attack layers, warrant reports, market risk reports, catalyst logs, validation files.
+6. `output/latest/daily_short_term_specialty_packet_latest.md`
+7. `preferred_chatgpt_url` / daily packet
+8. Decision CSVs, theme layers, volume-attack layers, warrant reports, market risk reports, catalyst logs, validation files.
 
 If a CSV shows `Total lines: 1`, continue via packet / GitHub API / index fallback. Do not use a thin summary as a complete report.
 
@@ -51,6 +52,18 @@ Use program-side fields first:
 - `tuning_status`
 
 Do not reorder or upgrade stocks by memory when these fields exist.
+
+## PDF Selection Contract
+
+The front priority table in the daily recommendation PDF must be selected by the program-side decision layer, not by raw `score`, raw `rank`, or category score.
+
+- `score` and `rank` are secondary ordering fields only inside the same decision bucket.
+- A stock with `decision_priority` below `A_priority_watch` must not be shown as a front priority stock.
+- A stock with `why_downgraded`, `downgrade_flags`, `risk_tags`, `must_not_overstate=True`, `revenue_good_eps_unconfirmed_flag=True`, `repeat_appear_label` in stale/repeated/overheated states, `tdcc_distribution_warning`, `mainstream_overheated`, `weak_theme`, `failed_volume_theme`, or `overheated_volume_theme` must not be promoted into the front priority table even if its score or rank is high.
+- These rows may remain in the correct line, such as individual latent watch, revenue low-response watch, risk list, or confirmation-needed list.
+- PDF tables must surface `why_downgraded` and `next_confirmation` so warning rows are not presented as clean bullish candidates.
+
+Example: a revenue low-response stock with strong revenue, repeated-but-no-breakout, no warrant confirmation, and EPS/gross-margin unconfirmed is a confirmation-needed or latent-watch row. It is not a mainstream priority stock only because raw score or rank is high.
 
 ## Six Categories Remain Fixed
 
@@ -118,7 +131,14 @@ If strict breakout is empty, do not write that there is no volume attack. Check 
 
 ## TDCC Overheated Short-Term Edge
 
-If `tdcc_overheated_short_term_edge_latest.md/csv` exists, the daily report must include it as a standalone specialty section:
+If `daily_short_term_specialty_packet_latest.md` exists, it is the mandatory source for the daily short-term specialty section.
+
+Do not confuse `回檔後短線轉強` with the short-term specialty layer:
+
+- `回檔後短線轉強` is one of the fixed six daily candidate categories.
+- The short-term specialty layer is a standalone research/reporting section that currently includes TDCC overheated continuation and strict weekly-surge parameter research.
+
+If `tdcc_overheated_short_term_edge_latest.md/csv` exists, the daily report must include it as a standalone specialty subsection:
 
 - Show separate D+5 and D+10 tables.
 - Keep close-to-close metrics separate from next-open-to-close metrics.
@@ -128,6 +148,13 @@ If `tdcc_overheated_short_term_edge_latest.md/csv` exists, the daily report must
 - Do not use it to change TDCC / ABM / daily candidate core model weights.
 - If the current candidate CSV has matching stocks, show them as a separate TDCC overheated short-term watch list with confirmation and risk notes.
 
+If `weekly_surge_strict_parameter_search_latest.md/csv` exists, the daily report must also include it as a standalone strict weekly-surge research subsection:
+
+- Show separate D+5 and D+10 tables.
+- Use the definition `entry = D+1 open` and `hit = D+1 open to D+N high reaches +10%`.
+- Show current candidates from `weekly_surge_strict_parameter_candidates_latest.md/csv` when available.
+- Treat it as `research_watchlist_and_reporting_priority_only` until more regime samples are available.
+
 ## Required Quality Bar
 
 The final report must not be a thin packet summary. It must include:
@@ -136,6 +163,7 @@ The final report must not be a thin packet summary. It must include:
 - three-line stock split
 - category interpretation
 - volume attack x theme analysis
+- standalone short-term specialty section with D+5 and D+10 tables
 - individual latent watch list
 - downgraded / stale / risk list
 - warrant auxiliary analysis
