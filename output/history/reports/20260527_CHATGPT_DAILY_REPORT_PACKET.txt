@@ -1,6 +1,6 @@
 CHATGPT DAILY REPORT PACKET
 
-generated_at: 2026-05-28 17:10:11 Asia/Taipei
+generated_at: 2026-05-28 18:31:31 Asia/Taipei
 repo: LeoChen0727/tdcc-weekly-report
 main_price_date: 20260527
 report_ready: True
@@ -41,14 +41,14 @@ CURATED PDF REPORT
 pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_market_curated_report_latest.pdf
 raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_curated_report_latest.pdf
 file_path: output/latest/daily_market_curated_report_latest.pdf
-generated_at: 2026-05-28 14:57:10 Asia/Taipei
+generated_at: 2026-05-28 17:13:59 Asia/Taipei
 status: generated
 
 FULL TABLE PDF REPORT
 pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_market_full_table_report_latest.pdf
 raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_full_table_report_latest.pdf
 file_path: output/latest/daily_market_full_table_report_latest.pdf
-generated_at: 2026-05-28 14:57:10 Asia/Taipei
+generated_at: 2026-05-28 17:13:59 Asia/Taipei
 status: generated
 
 FIXED PDF VALIDATION
@@ -262,7 +262,7 @@ performance_csv_path: output/history/daily_signals/daily_candidate_signal_perfor
 summary_latest_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_signal_performance_summary_latest.md
 weekly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_weekly_latest.pdf
 monthly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_monthly_latest.pdf
-last_updated_at: 2026-05-28 17:10:11 Asia/Taipei
+last_updated_at: 2026-05-28 18:31:31 Asia/Taipei
 status: generated
 
 CANDIDATE REPEAT APPEARANCE

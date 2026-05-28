@@ -204,6 +204,18 @@ def enrich_stocks(watch: pd.DataFrame, theme_df: pd.DataFrame, two_line: pd.Data
             or candidate_info.get("theme_final_status")
             or source.get("theme_final_status")
         )
+        theme_structural_status = normalize_status(
+            theme_info.get("theme_structural_status")
+            or stock_info.get("theme_structural_status")
+            or candidate_info.get("theme_structural_status")
+            or source.get("theme_structural_status")
+        )
+        theme_mainstream_label = normalize_status(
+            theme_info.get("theme_mainstream_label")
+            or stock_info.get("theme_mainstream_label")
+            or candidate_info.get("theme_mainstream_label")
+            or source.get("theme_mainstream_label")
+        )
         candidate_source_type = safe_str(stock_info.get("candidate_source_type", source.get("candidate_source_type", "")))
         candidate_line_group = safe_str(stock_info.get("candidate_line_group", source.get("candidate_line_group", "")))
         candidate_line = safe_str(stock_info.get("candidate_line", source.get("candidate_line", "")))
@@ -220,6 +232,8 @@ def enrich_stocks(watch: pd.DataFrame, theme_df: pd.DataFrame, two_line: pd.Data
                 **source,
                 "theme_name": theme_name,
                 "theme_final_status": theme_final_status,
+                "theme_structural_status": theme_structural_status,
+                "theme_mainstream_label": theme_mainstream_label,
                 "theme_breadth_score": safe_str(theme_info.get("theme_breadth_score", "")),
                 "theme_strength_score": safe_str(theme_info.get("theme_strength_score", "")),
                 "theme_risk_score": safe_str(theme_info.get("theme_risk_score", "")),
@@ -241,7 +255,7 @@ def enrich_stocks(watch: pd.DataFrame, theme_df: pd.DataFrame, two_line: pd.Data
     return out.fillna("")
 
 
-def status_for_theme(part: pd.DataFrame, theme_final_status: str, theme_name: str = "") -> str:
+def status_for_theme(part: pd.DataFrame, theme_final_status: str, theme_name: str = "", theme_structural_status: str = "") -> str:
     total = len(part)
     selected_count = int((part["is_volume_attack_selected"] == "True").sum())
     watch_count = int((part["is_volume_attack_watch"] == "True").sum())
@@ -257,12 +271,15 @@ def status_for_theme(part: pd.DataFrame, theme_final_status: str, theme_name: st
         return "failed_volume_theme"
     if theme_final_status == "mainstream_overheated" or distribution_count >= max(2, total // 2):
         return "overheated_volume_theme"
-    if theme_final_status in MAINSTREAM_STATUSES and selected_count >= 2:
+    is_core_mainstream = safe_str(theme_structural_status) == "core_mainstream_theme"
+    if theme_final_status in MAINSTREAM_STATUSES and is_core_mainstream and selected_count >= 2:
         return "confirmed_volume_theme"
-    if theme_final_status in MAINSTREAM_STATUSES and total >= 3 and (selected_count + watch_count) >= 3:
+    if theme_final_status in MAINSTREAM_STATUSES and is_core_mainstream and total >= 3 and (selected_count + watch_count) >= 3:
         return "early_mainstream_candidate"
-    if theme_final_status in MAINSTREAM_STATUSES and (selected_count + watch_count) >= 1:
+    if theme_final_status in MAINSTREAM_STATUSES and is_core_mainstream and (selected_count + watch_count) >= 1:
         return "watch_volume_theme"
+    if theme_final_status in MAINSTREAM_STATUSES and not is_core_mainstream:
+        return "non_mainstream_volume_watch"
     if selected_count + watch_count == 1:
         return "single_stock_volume_attack"
     if theme_final_status in RISK_THEME_STATUSES:
@@ -296,7 +313,9 @@ def build_theme_layer(stocks: pd.DataFrame) -> pd.DataFrame:
     for theme_name, part in stocks.groupby("theme_name", dropna=False):
         part = part.copy()
         theme_final_status = safe_str(part["theme_final_status"].replace("", pd.NA).dropna().iloc[0]) if not part["theme_final_status"].replace("", pd.NA).dropna().empty else "single_name_signal"
-        status = status_for_theme(part, theme_final_status, safe_str(theme_name))
+        theme_structural_status = safe_str(part["theme_structural_status"].replace("", pd.NA).dropna().iloc[0]) if "theme_structural_status" in part.columns and not part["theme_structural_status"].replace("", pd.NA).dropna().empty else ""
+        theme_mainstream_label = safe_str(part["theme_mainstream_label"].replace("", pd.NA).dropna().iloc[0]) if "theme_mainstream_label" in part.columns and not part["theme_mainstream_label"].replace("", pd.NA).dropna().empty else ""
+        status = status_for_theme(part, theme_final_status, safe_str(theme_name), theme_structural_status)
         volume_ratio = pd.to_numeric(part.get("volume_ratio", ""), errors="coerce")
         score = pd.to_numeric(part.get("volume_breakout_score", ""), errors="coerce").fillna(0)
         leader = part.assign(_score=score).sort_values("_score", ascending=False).iloc[0]
@@ -305,6 +324,8 @@ def build_theme_layer(stocks: pd.DataFrame) -> pd.DataFrame:
             {
                 "theme_name": safe_str(theme_name) or "other",
                 "theme_final_status": theme_final_status,
+                "theme_structural_status": theme_structural_status,
+                "theme_mainstream_label": theme_mainstream_label,
                 "theme_volume_attack_status": status,
                 "theme_stock_count": int(part["stock_id"].nunique()) if "stock_id" in part.columns else int(len(part)),
                 "volume_attack_count": int(len(part)),
@@ -390,6 +411,8 @@ def write_markdown(theme_layer: pd.DataFrame, stock_layer: pd.DataFrame, main_da
     theme_cols = [
         "theme_name",
         "theme_final_status",
+        "theme_structural_status",
+        "theme_mainstream_label",
         "theme_volume_attack_status",
         "volume_attack_count",
         "range_breakout_volume_count",
@@ -410,6 +433,8 @@ def write_markdown(theme_layer: pd.DataFrame, stock_layer: pd.DataFrame, main_da
         "stock_name",
         "theme_name",
         "theme_final_status",
+        "theme_structural_status",
+        "theme_mainstream_label",
         "theme_volume_attack_status",
         "volume_breakout_type",
         "volume_breakout_priority",
@@ -428,7 +453,7 @@ def write_markdown(theme_layer: pd.DataFrame, stock_layer: pd.DataFrame, main_da
         f"- signal_date: `{main_date}`",
         f"- source_watch: `{VOLUME_WATCH_CSV.as_posix()}`",
         f"- source_theme: `{THEME_LEADERSHIP_CSV.as_posix()}`",
-        "- rule: Volume-attack sections must show both `theme_final_status` and `theme_volume_attack_status`; do not show only the theme name.",
+        "- rule: Volume-attack sections must show `theme_final_status`, `theme_structural_status`, `theme_mainstream_label`, and `theme_volume_attack_status`; do not show only the theme name.",
         "",
         "## Status Rules",
         "",

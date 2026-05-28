@@ -43,11 +43,16 @@ REQUIRED_THEME_COLUMNS = [
     "theme_strength_score",
     "theme_risk_score",
     "theme_final_status",
+    "theme_market_flow_status",
+    "theme_structural_status",
+    "theme_mainstream_label",
 ]
 
 REQUIRED_CANDIDATE_COLUMNS = [
     "theme_name",
     "theme_final_status",
+    "theme_structural_status",
+    "theme_mainstream_label",
     "candidate_source_type",
     "candidate_line",
     "candidate_line_group",
@@ -118,8 +123,16 @@ def validate() -> dict[str, Any]:
                 bad = lianqiang[lianqiang["candidate_line_group"].isin(["mainstream_leader_stock", "mainstream_follow_through_stock"])]
                 if not bad.empty:
                     errors.append("2347 stale/non-confirmed rows must not be placed in mainstream fund line")
-                if not lianqiang["candidate_line_group"].isin(["individual_revenue_low_response_watch", "individual_tdcc_latent_watch", "individual_pattern_watch", "risk"]).any():
-                    warnings.append("2347 exists but was not found in an expected individual/latent/risk line group")
+            if not lianqiang["candidate_line_group"].isin(["individual_revenue_low_response_watch", "individual_tdcc_latent_watch", "individual_pattern_watch", "risk"]).any():
+                warnings.append("2347 exists but was not found in an expected individual/latent/risk line group")
+        if {"theme_structural_status", "candidate_line_group"}.issubset(candidates.columns):
+            bad_non_core = candidates[
+                candidates["theme_structural_status"].astype(str).ne("core_mainstream_theme")
+                & candidates["candidate_line_group"].isin(["two_line_overlap", "mainstream_leader_stock", "mainstream_follow_through_stock", "emerging_theme_watch"])
+            ]
+            if not bad_non_core.empty:
+                examples = bad_non_core[["stock_id", "stock_name", "theme_name", "theme_structural_status", "candidate_line_group"]].head(10).to_dict("records")
+                errors.append(f"non-core themes must not enter mainstream capital line: {examples}")
 
     if theme.empty:
         errors.append(f"missing_or_empty: {THEME_LEADERSHIP_CSV}")

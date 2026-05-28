@@ -30,6 +30,8 @@ VALID_THEME_STATUSES = {
 REQUIRED_THEME_COLUMNS = [
     "theme_name",
     "theme_final_status",
+    "theme_structural_status",
+    "theme_mainstream_label",
     "theme_volume_attack_status",
     "volume_attack_count",
     "leader_stock_id",
@@ -42,6 +44,8 @@ REQUIRED_STOCK_COLUMNS = [
     "stock_name",
     "theme_name",
     "theme_final_status",
+    "theme_structural_status",
+    "theme_mainstream_label",
     "theme_volume_attack_status",
     "volume_breakout_type",
     "volume_breakout_priority",

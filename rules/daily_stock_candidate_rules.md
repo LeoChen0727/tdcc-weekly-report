@@ -107,11 +107,27 @@ Do not mix these into one total ranking. Different category scores are not direc
 Every mainstream / volume-attack / early-mainstream table must include:
 
 - `theme_final_status`
+- `theme_market_flow_status`
+- `theme_structural_status`
+- `theme_mainstream_label`
 - `theme_volume_attack_status`
 
 Use `volume_attack_theme_layer_latest.md/csv` and `volume_attack_theme_stocks_latest.md/csv`.
 
 Do not infer mainstream/non-mainstream from memory.
+
+Mainstream / non-mainstream is split into two separate concepts:
+
+- `theme_final_status` / `theme_market_flow_status`: today's flow and breadth state.
+- `theme_structural_status`: structural industry bucket.
+
+Only `theme_structural_status=core_mainstream_theme` may enter the mainstream capital line.
+
+Core mainstream themes include consumer electronics, semiconductors, passive components, PC/NB, AI server, PCB/CCL, networking/optical, power, thermal and connectors.
+
+Textile, financial, steel, shipping, construction, chemical, plastic and similar cyclical/traditional groups are `non_mainstream_theme` even when daily flow is strong.
+
+Non-mainstream groups with strong daily flow should be shown as non-mainstream rotation, short-term theme, or risk/watch sections; do not call them mainstream leaders.
 
 Allowed volume-attack theme statuses:
 

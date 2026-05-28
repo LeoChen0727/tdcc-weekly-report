@@ -306,14 +306,15 @@ def has_watch_attack(row: pd.Series) -> bool:
 
 def has_fund_or_theme_support(row: pd.Series) -> bool:
     theme_status = safe_str(row.get("theme_final_status", ""))
+    structural_status = safe_str(row.get("theme_structural_status", ""))
     volume_theme_status = safe_str(row.get("theme_volume_attack_status", ""))
     warrant = first_value(row, ["warrant_flow_signal", "warrant_flow_signal_volume"])
     tdcc = first_value(row, ["tdcc_status", "tdcc_judgement"])
     source_type = safe_str(row.get("candidate_source_type", ""))
 
-    if theme_status in STRONG_THEME_STATUSES:
+    if theme_status in STRONG_THEME_STATUSES and structural_status == "core_mainstream_theme":
         return True
-    if volume_theme_status in STRONG_VOLUME_THEME_STATUSES:
+    if volume_theme_status in STRONG_VOLUME_THEME_STATUSES and structural_status == "core_mainstream_theme":
         return True
     if warrant in BULLISH_WARRANT_SIGNALS:
         return True
@@ -329,6 +330,8 @@ def has_risk(row: pd.Series) -> bool:
         row,
         [
             "theme_final_status",
+            "theme_structural_status",
+            "theme_mainstream_label",
             "theme_volume_attack_status",
             "volume_breakout_type",
             "downgrade_flags",
@@ -432,6 +435,8 @@ def build_rows(df: pd.DataFrame) -> pd.DataFrame:
                 "non_revenue_action_status": action_status,
                 "fundamental_confirmation_needed": "True",
                 "theme_final_status": safe_str(row.get("theme_final_status", "")),
+                "theme_structural_status": safe_str(row.get("theme_structural_status", "")),
+                "theme_mainstream_label": safe_str(row.get("theme_mainstream_label", "")),
                 "theme_volume_attack_status": safe_str(row.get("theme_volume_attack_status", "")),
                 "candidate_source_type": safe_str(row.get("candidate_source_type", "")),
                 "volume_breakout_type": safe_str(row.get("volume_breakout_type", "")),
@@ -530,6 +535,8 @@ def write_outputs(out: pd.DataFrame) -> None:
             "decision_score",
             "revenue_confirmation_status",
             "theme_final_status",
+            "theme_structural_status",
+            "theme_mainstream_label",
             "theme_volume_attack_status",
             "volume_breakout_type",
             "volume_ratio",

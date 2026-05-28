@@ -999,6 +999,7 @@ def theme_leadership_rows(theme_df: pd.DataFrame, limit: int = 12) -> list[list[
     rows = [[
         "theme",
         "status",
+        "structure",
         "count",
         "breakout",
         "volume",
@@ -1011,7 +1012,7 @@ def theme_leadership_rows(theme_df: pd.DataFrame, limit: int = 12) -> list[list[
         "interpretation",
     ]]
     if theme_df.empty:
-        rows.append(["n/a", "missing", "", "", "", "", "", "", "", "", "", "daily_theme_leadership_latest.csv missing"])
+        rows.append(["n/a", "missing", "", "", "", "", "", "", "", "", "", "", "daily_theme_leadership_latest.csv missing"])
         return rows
     view = theme_df.copy()
     for col in ["theme_strength_score", "theme_breadth_score", "theme_risk_score"]:
@@ -1036,6 +1037,7 @@ def theme_leadership_rows(theme_df: pd.DataFrame, limit: int = 12) -> list[list[
             [
                 clean_text(row.get("theme_name", ""), 18),
                 status,
+                clean_text(row.get("theme_structural_status", ""), 18),
                 safe_str(row.get("theme_candidate_count", "")),
                 safe_str(row.get("theme_true_breakout_count", "")),
                 safe_str(row.get("theme_volume_breakout_count", "")),
@@ -1052,13 +1054,13 @@ def theme_leadership_rows(theme_df: pd.DataFrame, limit: int = 12) -> list[list[
 
 
 def two_line_rows(two_line: pd.DataFrame, groups: set[str], limit: int = 12) -> list[list[Any]]:
-    rows = [["stock", "category", "theme", "line", "priority", "score", "TDCC", "warrant", "repeat", "note"]]
+    rows = [["stock", "category", "theme", "structure", "line", "priority", "score", "TDCC", "warrant", "repeat", "note"]]
     if two_line.empty:
-        rows.append(["n/a", "", "", "", "", "", "", "", "", "daily_candidate_two_line_view_latest.csv missing"])
+        rows.append(["n/a", "", "", "", "", "", "", "", "", "", "daily_candidate_two_line_view_latest.csv missing"])
         return rows
     part = two_line[two_line["candidate_line_group"].isin(groups)].copy()
     if part.empty:
-        rows.append(["n/a", "", "", "", "", "", "", "", "", "no rows"])
+        rows.append(["n/a", "", "", "", "", "", "", "", "", "", "no rows"])
         return rows
     part["_priority_order"] = part["decision_priority"].map(DECISION_PRIORITY_ORDER).fillna(9)
     part["_has_warning"] = part.apply(has_decision_warning, axis=1).astype(int)
@@ -1071,13 +1073,14 @@ def two_line_rows(two_line: pd.DataFrame, groups: set[str], limit: int = 12) -> 
                 f"{safe_str(row.get('stock_id', ''))} {clean_text(row.get('stock_name', ''), 10)}",
                 clean_text(row.get("category", ""), 18),
                 f"{clean_text(row.get('theme_name', ''), 14)} / {clean_text(row.get('theme_final_status', ''), 24)}",
+                clean_text(row.get("theme_structural_status", ""), 20),
                 clean_text(row.get("candidate_line", ""), 20),
                 clean_text(row.get("decision_priority", ""), 20),
                 safe_str(row.get("decision_score", "")),
                 clean_text(row.get("tdcc_status", ""), 20),
                 clean_text(row.get("warrant_flow_signal", ""), 18),
                 clean_text(row.get("repeat_appear_label", ""), 18),
-                note,
+                clean_text(row.get("theme_mainstream_label", ""), 32) or note,
             ]
         )
     return rows
@@ -1103,7 +1106,7 @@ def append_theme_leadership_sections(
         make_table(
             theme_leadership_rows(theme_df, limit=theme_limit),
             style_map,
-            [1.6 * cm, 2.0 * cm, 0.7 * cm, 0.8 * cm, 0.8 * cm, 0.8 * cm, 0.8 * cm, 0.7 * cm, 0.7 * cm, 1.8 * cm, 0.8 * cm, 4.3 * cm],
+            [1.4 * cm, 1.7 * cm, 1.8 * cm, 0.6 * cm, 0.7 * cm, 0.7 * cm, 0.7 * cm, 0.7 * cm, 0.6 * cm, 0.6 * cm, 1.6 * cm, 0.7 * cm, 3.8 * cm],
             header_bg="#375623",
         )
     )
@@ -1113,7 +1116,7 @@ def append_theme_leadership_sections(
         make_table(
             two_line_rows(two_line, {"two_line_overlap"}, limit=8 if compact else 20),
             style_map,
-            [1.8 * cm, 1.6 * cm, 2.3 * cm, 2.0 * cm, 1.5 * cm, 0.7 * cm, 1.3 * cm, 1.2 * cm, 1.2 * cm, 3.2 * cm],
+            [1.5 * cm, 1.4 * cm, 2.1 * cm, 1.6 * cm, 1.7 * cm, 1.3 * cm, 0.6 * cm, 1.1 * cm, 1.0 * cm, 1.0 * cm, 2.9 * cm],
             header_bg="#1F4E79",
         )
     )
@@ -1123,7 +1126,7 @@ def append_theme_leadership_sections(
         make_table(
             two_line_rows(two_line, {"mainstream_leader_stock", "mainstream_follow_through_stock", "emerging_theme_watch"}, limit=10 if compact else 30),
             style_map,
-            [1.8 * cm, 1.6 * cm, 2.3 * cm, 2.0 * cm, 1.5 * cm, 0.7 * cm, 1.3 * cm, 1.2 * cm, 1.2 * cm, 3.2 * cm],
+            [1.5 * cm, 1.4 * cm, 2.1 * cm, 1.6 * cm, 1.7 * cm, 1.3 * cm, 0.6 * cm, 1.1 * cm, 1.0 * cm, 1.0 * cm, 2.9 * cm],
             header_bg="#2F5597",
         )
     )
@@ -1137,6 +1140,7 @@ def append_theme_leadership_sections(
                     "individual_revenue_low_response_watch",
                     "individual_fundamental_catalyst_watch",
                     "individual_tdcc_latent_watch",
+                    "non_mainstream_flow_watch",
                     "individual_single_name_signal",
                     "individual_pattern_watch",
                     "individual_quality_watch",
@@ -1145,7 +1149,7 @@ def append_theme_leadership_sections(
                 limit=10 if compact else 35,
             ),
             style_map,
-            [1.8 * cm, 1.6 * cm, 2.3 * cm, 2.0 * cm, 1.5 * cm, 0.7 * cm, 1.3 * cm, 1.2 * cm, 1.2 * cm, 3.2 * cm],
+            [1.5 * cm, 1.4 * cm, 2.1 * cm, 1.6 * cm, 1.7 * cm, 1.3 * cm, 0.6 * cm, 1.1 * cm, 1.0 * cm, 1.0 * cm, 2.9 * cm],
             header_bg="#7F6000",
         )
     )
@@ -1155,7 +1159,7 @@ def append_theme_leadership_sections(
         make_table(
             two_line_rows(two_line, {"risk"}, limit=8 if compact else 25),
             style_map,
-            [1.8 * cm, 1.6 * cm, 2.3 * cm, 2.0 * cm, 1.5 * cm, 0.7 * cm, 1.3 * cm, 1.2 * cm, 1.2 * cm, 3.2 * cm],
+            [1.5 * cm, 1.4 * cm, 2.1 * cm, 1.6 * cm, 1.7 * cm, 1.3 * cm, 0.6 * cm, 1.1 * cm, 1.0 * cm, 1.0 * cm, 2.9 * cm],
             header_bg="#7F1D1D",
         )
     )

@@ -37,6 +37,57 @@ MAINSTREAM_STATUSES = {"mainstream_leader", "mainstream_follow_through", "emergi
 RISK_STATUSES = {"weak_theme", "mainstream_overheated"}
 GENERIC_THEME_VALUES = {"", "other", "unknown", "nan", "none", "mainstream_growth", "unclassified"}
 
+# Structural theme buckets answer a different question from theme_final_status.
+# theme_final_status = today's breadth/flow state.
+# theme_structural_status = whether the industry belongs to the user's core mainstream universe.
+CORE_MAINSTREAM_THEME_KEYWORDS = {
+    "半導體",
+    "電子零組件",
+    "被動元件",
+    "消費性電子",
+    "電腦及週邊",
+    "電腦週邊",
+    "PC",
+    "NB",
+    "AI PC",
+    "其他電子",
+    "電子通路",
+    "通信網路",
+    "網通",
+    "光通訊",
+    "光電",
+    "PCB",
+    "CCL",
+    "玻纖",
+    "伺服器",
+    "AI",
+    "散熱",
+    "連接器",
+    "電源",
+}
+NON_MAINSTREAM_THEME_KEYWORDS = {
+    "紡織",
+    "成衣",
+    "金融",
+    "金融保險",
+    "鋼鐵",
+    "航運",
+    "建材營造",
+    "營建",
+    "水泥",
+    "玻璃陶瓷",
+    "塑膠",
+    "化學",
+    "橡膠",
+    "食品",
+    "觀光",
+    "貿易百貨",
+    "汽車",
+    "造紙",
+    "油電燃氣",
+    "存託憑證",
+}
+
 THEME_COLUMNS = ["細分族群", "sub_theme", "sector", "industry", "concept", "theme_group", "market"]
 
 THEME_COLUMNS_TO_MERGE = [
@@ -65,6 +116,9 @@ THEME_COLUMNS_TO_MERGE = [
     "theme_strength_score",
     "theme_risk_score",
     "theme_final_status",
+    "theme_market_flow_status",
+    "theme_structural_status",
+    "theme_mainstream_label",
     "candidate_source_type",
     "candidate_line",
     "candidate_line_group",
@@ -110,6 +164,37 @@ def theme_name_of(row: pd.Series) -> str:
         if value and value.lower() not in GENERIC_THEME_VALUES:
             return value
     return "other"
+
+
+def theme_structural_status(theme_name: Any) -> str:
+    text = safe_str(theme_name)
+    if not text or text.lower() in GENERIC_THEME_VALUES:
+        return "unknown_theme"
+    if any(token.lower() in text.lower() for token in CORE_MAINSTREAM_THEME_KEYWORDS):
+        return "core_mainstream_theme"
+    if any(token.lower() in text.lower() for token in NON_MAINSTREAM_THEME_KEYWORDS):
+        return "non_mainstream_theme"
+    return "non_mainstream_theme"
+
+
+def theme_mainstream_label(flow_status: Any, structural_status: Any) -> str:
+    flow = safe_str(flow_status)
+    structural = safe_str(structural_status)
+    if structural == "core_mainstream_theme":
+        if flow in MAINSTREAM_STATUSES:
+            return "core_mainstream_supported"
+        if flow == "mainstream_overheated":
+            return "core_mainstream_overheated"
+        return "core_mainstream_watch"
+    if flow in MAINSTREAM_STATUSES:
+        return "non_mainstream_flow_active"
+    if flow == "mainstream_overheated":
+        return "non_mainstream_overheated"
+    if flow == "single_name_signal":
+        return "non_mainstream_single_name"
+    if flow == "weak_theme":
+        return "non_mainstream_weak"
+    return "non_mainstream_watch"
 
 
 def category_of(row: pd.Series) -> str:
@@ -360,6 +445,12 @@ def build_theme_metrics(candidates: pd.DataFrame) -> pd.DataFrame:
             1,
         )
         metrics["theme_final_status"] = theme_status(metrics)
+        metrics["theme_market_flow_status"] = metrics["theme_final_status"]
+        metrics["theme_structural_status"] = theme_structural_status(theme_name)
+        metrics["theme_mainstream_label"] = theme_mainstream_label(
+            metrics["theme_market_flow_status"],
+            metrics["theme_structural_status"],
+        )
         rows.append(metrics)
 
     if not rows:
@@ -392,8 +483,9 @@ def is_risk_downgraded(row: pd.Series, theme_status_value: str) -> bool:
 
 def candidate_line_group(row: pd.Series) -> tuple[str, str, bool, str]:
     theme_status_value = first_text(row, ["theme_final_status"])
+    structural_status = first_text(row, ["theme_structural_status"]) or theme_structural_status(first_text(row, ["theme_name"]))
     priority = decision_priority_of(row)
-    theme_supported = theme_status_value in MAINSTREAM_STATUSES
+    theme_supported = theme_status_value in MAINSTREAM_STATUSES and structural_status == "core_mainstream_theme"
     individual_quality = is_individual_quality(row)
     risk = is_risk_downgraded(row, theme_status_value)
     attack = is_true_breakout(row) or is_volume_breakout(row) or is_near_high(row)
@@ -405,6 +497,8 @@ def candidate_line_group(row: pd.Series) -> tuple[str, str, bool, str]:
         return "risk_downgraded_candidate", "risk", False, "降級 / 鈍化 / 風險清單"
     if overlap:
         return "mainstream_theme_candidate", "two_line_overlap", True, "雙重確認優先股"
+    if theme_status_value in MAINSTREAM_STATUSES and structural_status != "core_mainstream_theme":
+        return "individual_quality_candidate", "non_mainstream_flow_watch", False, "非主流輪動觀察"
     if theme_status_value == "mainstream_leader":
         return "mainstream_theme_candidate", "mainstream_leader_stock", False, "主流領漲股"
     if theme_status_value == "mainstream_follow_through":
@@ -473,6 +567,9 @@ def enrich_candidates(candidates: pd.DataFrame, theme_df: pd.DataFrame) -> pd.Da
             "theme_strength_score",
             "theme_risk_score",
             "theme_final_status",
+            "theme_market_flow_status",
+            "theme_structural_status",
+            "theme_mainstream_label",
         ]
         for col in merge_cols:
             if col != "theme_name" and col in out.columns:
@@ -512,6 +609,8 @@ def build_two_line_view(enriched: pd.DataFrame) -> pd.DataFrame:
         "category_cn",
         "theme_name",
         "theme_final_status",
+        "theme_structural_status",
+        "theme_mainstream_label",
         "candidate_source_type",
         "candidate_line",
         "candidate_line_group",
@@ -545,8 +644,9 @@ def build_two_line_view(enriched: pd.DataFrame) -> pd.DataFrame:
         "individual_revenue_low_response_watch": 5,
         "individual_fundamental_catalyst_watch": 6,
         "individual_tdcc_latent_watch": 7,
-        "individual_single_name_signal": 8,
-        "individual_pattern_watch": 9,
+        "non_mainstream_flow_watch": 8,
+        "individual_single_name_signal": 9,
+        "individual_pattern_watch": 10,
         "risk": 20,
     }
     out["_line_order"] = out["candidate_line_group"].map(group_order).fillna(15)
@@ -567,6 +667,8 @@ def write_markdown(theme_df: pd.DataFrame, two_line: pd.DataFrame, main_date: st
     theme_cols = [
         "theme_name",
         "theme_final_status",
+        "theme_structural_status",
+        "theme_mainstream_label",
         "theme_candidate_count",
         "theme_A_candidate_count",
         "theme_B_candidate_count",
@@ -590,6 +692,8 @@ def write_markdown(theme_df: pd.DataFrame, two_line: pd.DataFrame, main_date: st
         "category",
         "theme_name",
         "theme_final_status",
+        "theme_structural_status",
+        "theme_mainstream_label",
         "candidate_line",
         "decision_priority",
         "decision_score",
@@ -612,9 +716,10 @@ def write_markdown(theme_df: pd.DataFrame, two_line: pd.DataFrame, main_date: st
         "",
         "## Status Rules",
         "",
-        "- mainstream_leader: multiple candidates, breakout/near-high evidence, volume spread, leader confirmed, acceptable risk.",
-        "- mainstream_follow_through: broad enough theme with follow-through but not the strongest leader.",
-        "- emerging_theme: early spread; watch for second/third stock confirmation.",
+        "- theme_final_status is the daily flow/breadth state, not the structural mainstream definition.",
+        "- theme_structural_status=core_mainstream_theme only for core growth themes such as consumer electronics, semiconductors, passive components, PC/NB, AI server, PCB/CCL, networking/optical, power, thermal and connectors.",
+        "- Textile, financial, steel, shipping, construction, chemical, plastic and similar cyclical/traditional groups are non_mainstream_theme even when daily flow is strong.",
+        "- mainstream_leader/mainstream_follow_through/emerging_theme require core_mainstream_theme before entering the mainstream capital line.",
         "- single_name_signal: stock-level signal only; keep it in individual/latent line.",
         "- weak_theme: theme breadth or relative strength is weak.",
         "- mainstream_overheated: theme is hot but risk/overheat/distribution is high.",
@@ -652,6 +757,7 @@ def write_markdown(theme_df: pd.DataFrame, two_line: pd.DataFrame, main_date: st
                         "individual_revenue_low_response_watch",
                         "individual_fundamental_catalyst_watch",
                         "individual_tdcc_latent_watch",
+                        "non_mainstream_flow_watch",
                         "individual_single_name_signal",
                         "individual_pattern_watch",
                         "individual_quality_watch",

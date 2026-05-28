@@ -237,10 +237,14 @@ WARRANT FLOW RULES
 
 MAINSTREAM / VOLUME ATTACK THEME STATUS RULES
 - The mainstream-vs-non-mainstream split must come from program-side fields, not ChatGPT memory.
-- For the two-line daily candidate view, read `daily_candidate_two_line_view_latest.md/csv` and show `theme_final_status` in every table.
+- For the two-line daily candidate view, read `daily_candidate_two_line_view_latest.md/csv` and show `theme_final_status`, `theme_structural_status`, and `theme_mainstream_label` in every table.
 - For volume-attack / early-mainstream sections, read `volume_attack_theme_layer_latest.md/csv` and `volume_attack_theme_stocks_latest.md/csv`.
-- Volume-attack tables must include both `theme_final_status` and `theme_volume_attack_status`; do not show only the generic theme name.
-- `confirmed_volume_theme` and `early_mainstream_candidate` may be placed in the volume-attack theme line.
+- Volume-attack tables must include `theme_final_status`, `theme_structural_status`, `theme_mainstream_label`, and `theme_volume_attack_status`; do not show only the generic theme name.
+- `theme_final_status` / `theme_market_flow_status` is today's breadth/flow state. `theme_structural_status` is the structural industry bucket.
+- Only `theme_structural_status=core_mainstream_theme` may enter the mainstream capital line.
+- Core mainstream themes include consumer electronics, semiconductors, passive components, PC/NB, AI server, PCB/CCL, networking/optical, power, thermal and connectors.
+- Textile, financial, steel, shipping, construction, chemical, plastic and similar cyclical/traditional groups are `non_mainstream_theme` even when daily flow is strong.
+- `confirmed_volume_theme` and `early_mainstream_candidate` may be placed in the volume-attack theme line only when `theme_structural_status=core_mainstream_theme`.
 - `single_stock_volume_attack`, `non_mainstream_volume_watch`, `weak_or_non_mainstream_volume_watch`, `overheated_volume_theme`, and `failed_volume_theme` must be separated from the mainstream-funding front section.
 - If these status fields are missing, write `theme_status_missing` and do not guess mainstream/non-mainstream from memory.
 
