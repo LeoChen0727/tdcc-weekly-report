@@ -39,6 +39,8 @@ For astrology tasks:
 - If repo market data is stale or unreadable, mention it only briefly in the wealth / stock paragraph or a final data note, then continue the astrology report from the calendar date.
 - Do not put raw fetch status, Pages status, GitHub API status, `cache_miss`, `internal_fetch_error`, or similar debug labels in the visible opening of an astrology report unless the user explicitly asks for data-reading diagnostics.
 - Do not say the astrology report cannot be produced just because the stock repo date differs from the calendar date.
+- The visible astrology report must not start with headings such as `資料狀態`, `資料日期與流程狀態`, `repo 入口讀取狀態`, or `READ_ME_FIRST 讀取狀態`.
+- Before finalizing an astrology report, inspect the first 300 visible characters. If they contain `repo`, `READ_ME_FIRST`, `main_price_date`, `report_ready`, `raw_fetch`, `pages`, `cache`, or `GitHub API` before astrology content, rewrite the opening.
 
 ## Raw Data And Fetch Failures
 

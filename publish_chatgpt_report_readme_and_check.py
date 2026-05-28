@@ -506,6 +506,10 @@ def build_readme(
     status_map = {item["label"]: item.get("ok") for item in checks}
 
     lines = [
+        "astrology_high_priority_guard=for_astrology_zi_wei_ba_zi_tasks_do_not_start_with_data_status_or_repo_status",
+        "astrology_first_visible_heading_rule=first_visible_heading_must_be_fixed_chart_or_today_bazi_not_data_status",
+        "astrology_forbidden_opening_heading_keys=data_status,flow_status,repo_entry_status,readme_status",
+        "astrology_market_data_note_rule=market_data_status_may_appear_only_as_one_sentence_in_wealth_stock_section_or_final_data_note",
         f"main_price_date={main_price_date}",
         f"report_ready={report_ready}",
         f"commit_sha={commit_sha}",

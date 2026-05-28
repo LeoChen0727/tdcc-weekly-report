@@ -27,6 +27,12 @@ This file defines how ChatGPT should read, interpret, and format the daily Taiwa
 New ChatGPT conversations should read this file after reading READ_ME_FIRST_DAILY_REPORT.txt.
 This file is not for astrology / Zi Wei / Ba Zi calendar-date reports. Astrology reports must read `rules/astrology_rules.md` instead and must not use this file's data-status opening format.
 
+ASTROLOGY HARD EXCLUSION
+- If the task is astrology / Zi Wei / Ba Zi, stop using this file for report structure.
+- Switch to `rules/astrology_rules.md`.
+- Do not use the `資料狀態確認` section below.
+- Do not start astrology reports with `main_price_date`, `report_ready`, repo status, raw status, Pages status, or GitHub API status.
+
 SCOPE RULES
 - This report is for full-market candidate stocks only.
 - This report is not an astrology / Zi Wei / Ba Zi report.

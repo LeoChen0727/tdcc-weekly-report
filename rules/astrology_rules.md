@@ -4,15 +4,59 @@ Last updated: 2026-05-28
 
 This task is for Zi Wei Dou Shu plus Ba Zi strategy analysis. It is not a daily stock candidate report, holdings report, market timing report, or backtest report.
 
-## Date Rule
+## Highest Priority Rule
 
-Astrology reports are calendar-date reports.
+Astrology / Zi Wei / Ba Zi reports are calendar-date reports.
 
 - Use the user's requested calendar date as the report date.
 - Do not use `main_price_date` as the astrology report date.
-- `main_price_date` is only the latest available stock-market data date.
-- If `main_price_date` is older than the requested calendar date, state that market data is only available through that date and continue the astrology report.
-- `report_ready=False`, cache miss, raw fetch failure, or stale stock data must not block Ba Zi / Zi Wei calculation.
+- `main_price_date` and `report_ready` are only stock-market data status fields.
+- A stale or previous-trading-day `main_price_date` must not block the astrology report.
+- Repo stock-market data may only support the wealth / stock behavior-risk paragraph.
+
+## Visible Report Format
+
+The visible astrology report must start with astrology content, not repo engineering status.
+
+Recommended opening order:
+
+1. Title with the requested calendar date.
+2. One-sentence overall conclusion for the day.
+3. Fixed chart verification.
+4. Today's Ba Zi.
+5. Today's Zi Wei.
+6. What is different from recent days.
+7. Combined interpretation and practical actions.
+
+Forbidden opening headings for astrology reports:
+
+- 資料狀態
+- 資料日期與流程狀態
+- repo 入口讀取狀態
+- READ_ME_FIRST 讀取狀態
+
+Do not create a leading section with repo status, raw URL status, Pages status, GitHub API status, `main_price_date`, or `report_ready`.
+
+If a market-data note is necessary, place one short sentence inside the wealth / stock paragraph or at the end under "資料補充".
+
+## Hard Final Check
+
+Before sending the final visible astrology report, inspect the first 300 visible characters.
+
+If the opening contains any of the following before fixed chart / Ba Zi / Zi Wei content, rewrite the report:
+
+- 資料狀態
+- 資料日期與流程狀態
+- repo
+- READ_ME_FIRST
+- raw_fetch
+- pages
+- cache
+- GitHub API
+- main_price_date
+- report_ready
+
+The first visible heading after the title must be astrology content such as "固定命盤核對", "今日八字", or "今日紫微"; it must not be a data-status heading.
 
 ## Repo Data Role
 
@@ -22,7 +66,6 @@ Repo market data may only support the wealth / stock behavior-risk paragraph.
 - It cannot replace the fixed chart data.
 - It cannot be treated as the primary source for astrology timing.
 - If repo market data is unreadable, write one short human sentence in the wealth / stock paragraph only, then continue.
-- Do not put repo fetch/debug status in the opening section unless the user explicitly asks about data-reading status.
 - Do not show raw technical statuses such as `raw_fetch_failed`, `pages_safe_open_failed`, `cache_miss`, `internal_fetch_error`, or `content_not_expanded` in the visible astrology report body.
 - If market data is stale or unreadable, the visible wording should be concise, for example: "股票市場資料目前僅作輔助，命理分析仍依 2026-05-28 日曆日期進行。"
 
@@ -42,7 +85,7 @@ Use the fixed chart data already defined by the user unless the user provides a 
 - Current major limit: age 44-53, Mao, corresponding to natal Xin Mao wealth palace.
 - Natal transformations: Ju Men Hua Lu, Tai Yang Hua Quan, Wen Qu Hua Ke, Wen Chang Hua Ji.
 
-## Output
+## Daily Output
 
 Every daily astrology report should include:
 
@@ -54,37 +97,12 @@ Every daily astrology report should include:
 6. Practical strategy for overall state, wealth / stocks, work / rental, relationships, family, health, what to do, what to avoid.
 7. Concrete action instructions.
 
-## Visible Report Format
-
-The visible astrology report should start with the calendar-date astrology content, not repo engineering status.
-
-Recommended opening order:
-
-1. Title with the requested calendar date.
-2. One-sentence overall conclusion for the day.
-3. Fixed chart verification.
-4. Today's Ba Zi.
-5. Today's Zi Wei.
-6. What is different from recent days.
-7. Combined interpretation and practical actions.
-
-Do not create a leading section titled "資料日期與流程狀態" for astrology reports. If a data note is necessary, place it as a short note inside the wealth / stock paragraph or at the very end under "資料補充".
-
-Forbidden opening headings for astrology reports:
-
-- 資料狀態
-- 資料日期與流程狀態
-- repo 入口讀取狀態
-- READ_ME_FIRST 讀取狀態
-
-If the model has already written one of these headings, it should rewrite the report before finalizing.
-
 ## Stock And Wealth Paragraph
 
 When discussing stocks:
 
 - Use real repo stock data if available.
-- If repo data is stale, say the available `main_price_date`.
+- If repo data is stale, mention the available `main_price_date` only in this paragraph or a final data note.
 - If repo data is missing, do not invent market facts.
 - Astrology can only remind about behavior risk such as chasing, overconfidence, over-leverage, or forcing trades.
 - Astrology cannot replace price, TDCC, fundamentals, market regime, or backtest data.
