@@ -16,6 +16,8 @@ SUMMARY_CSV = LATEST_DIR / "weekly_20pct_surge_volume_hit_rate_latest.csv"
 SUMMARY_MD = LATEST_DIR / "weekly_20pct_surge_volume_hit_rate_latest.md"
 TARGET_COMPARISON_CSV = LATEST_DIR / "weekly_10pct_vs_20pct_surge_volume_comparison_latest.csv"
 TARGET_COMPARISON_MD = LATEST_DIR / "weekly_10pct_vs_20pct_surge_volume_comparison_latest.md"
+WEEKLY_VOLUME_COMPARISON_CSV = LATEST_DIR / "weekly_surge_5d_avg_volume_comparison_latest.csv"
+WEEKLY_VOLUME_COMPARISON_MD = LATEST_DIR / "weekly_surge_5d_avg_volume_comparison_latest.md"
 HISTORY_EVENTS_CSV = HISTORY_DIR / "weekly_20pct_surge_volume_events.csv"
 
 FORWARD_DAYS = 5
@@ -65,6 +67,8 @@ def build_stock_day_frame() -> pd.DataFrame:
         df["volume_ma20_prev"] = df["volume"].shift(1).rolling(VOL_AVG_DAYS, min_periods=VOL_AVG_DAYS).mean()
         df["start_day_volume_ratio_vs_prev20"] = df["volume"] / df["volume_ma20_prev"]
         df["prev_day_volume_ratio_vs_prev20"] = df["volume"].shift(1) / df["volume"].shift(2).rolling(VOL_AVG_DAYS, min_periods=VOL_AVG_DAYS).mean()
+        df["start_5d_avg_volume_ratio_vs_prev20"] = df["volume"].rolling(5, min_periods=5).mean() / df["volume_ma20_prev"]
+        df["prev_5d_avg_volume_ratio_vs_prev20"] = df["volume"].shift(1).rolling(5, min_periods=5).mean() / df["volume_ma20_prev"]
 
         # Future high over the start day and the next 5 trading days.
         future_high = pd.concat([df["high"].shift(-i) for i in range(FORWARD_DAYS + 1)], axis=1).max(axis=1)
@@ -87,7 +91,15 @@ def build_stock_day_frame() -> pd.DataFrame:
         df["weekly_10pct_surge_hit"] = df["future_5d_high_from_start_low_pct"] >= 10.0
         df["signal_day_close_return_pct"] = (df["close"] / df["open"] - 1.0) * 100.0
         df["signal_day_high_from_low_pct"] = (df["high"] / df["low"] - 1.0) * 100.0
-        df = df.dropna(subset=["start_day_volume_ratio_vs_prev20", "prev_day_volume_ratio_vs_prev20", "future_5d_high_from_start_low_pct"])
+        df = df.dropna(
+            subset=[
+                "start_day_volume_ratio_vs_prev20",
+                "prev_day_volume_ratio_vs_prev20",
+                "start_5d_avg_volume_ratio_vs_prev20",
+                "prev_5d_avg_volume_ratio_vs_prev20",
+                "future_5d_high_from_start_low_pct",
+            ]
+        )
         if not df.empty:
             frames.append(df)
     if not frames:
@@ -264,6 +276,35 @@ def build_target_comparison_markdown(df: pd.DataFrame, comparison: pd.DataFrame)
     return "\n".join(lines)
 
 
+def build_weekly_volume_markdown(df: pd.DataFrame, comparison: pd.DataFrame) -> str:
+    lines: list[str] = []
+    lines.append("# Weekly Surge 5D Average Volume Comparison")
+    lines.append("")
+    lines.append(f"- generated_at: {now_text()}")
+    lines.append(f"- return definition: max high from D0 through D+{FORWARD_DAYS} divided by D0 low.")
+    lines.append(f"- start_5d_avg_volume_ratio: average volume from D-4 through D0 divided by the previous {VOL_AVG_DAYS}-day average volume before D0.")
+    lines.append(f"- prev_5d_avg_volume_ratio: average volume from D-5 through D-1 divided by the previous {VOL_AVG_DAYS}-day average volume before D0.")
+    lines.append("- both volume filters are available by D0 close or earlier; no future volume is used.")
+    lines.append("- focus: hit_rate_pct.")
+    lines.append("")
+    keep_cols = [
+        "target_return_pct",
+        "threshold",
+        "selected_stock_days",
+        "hit_stock_days",
+        "hit_rate_pct",
+        "coverage_of_all_hits_pct",
+        "base_hit_rate_pct",
+    ]
+    for metric_label in ["start_5d_avg_volume_ratio", "prev_5d_avg_volume_ratio"]:
+        part = comparison[comparison["filter_metric"] == metric_label]
+        lines.append(f"## {metric_label}")
+        lines.append("")
+        lines.append(part[keep_cols].to_markdown(index=False))
+        lines.append("")
+    return "\n".join(lines)
+
+
 def main() -> int:
     LATEST_DIR.mkdir(parents=True, exist_ok=True)
     HISTORY_DIR.mkdir(parents=True, exist_ok=True)
@@ -318,11 +359,25 @@ def main() -> int:
     target_comparison.to_csv(TARGET_COMPARISON_CSV, index=False, encoding="utf-8", lineterminator="\n")
     TARGET_COMPARISON_MD.write_text(build_target_comparison_markdown(df, target_comparison), encoding="utf-8")
 
+    weekly_volume_comparison = pd.concat(
+        [
+            summarize_thresholds_for_target(df, "start_5d_avg_volume_ratio_vs_prev20", "start_5d_avg_volume_ratio", "weekly_20pct_surge_hit", 20.0),
+            summarize_thresholds_for_target(df, "prev_5d_avg_volume_ratio_vs_prev20", "prev_5d_avg_volume_ratio", "weekly_20pct_surge_hit", 20.0),
+            summarize_thresholds_for_target(df, "start_5d_avg_volume_ratio_vs_prev20", "start_5d_avg_volume_ratio", "weekly_10pct_surge_hit", 10.0),
+            summarize_thresholds_for_target(df, "prev_5d_avg_volume_ratio_vs_prev20", "prev_5d_avg_volume_ratio", "weekly_10pct_surge_hit", 10.0),
+        ],
+        ignore_index=True,
+    )
+    weekly_volume_comparison.to_csv(WEEKLY_VOLUME_COMPARISON_CSV, index=False, encoding="utf-8", lineterminator="\n")
+    WEEKLY_VOLUME_COMPARISON_MD.write_text(build_weekly_volume_markdown(df, weekly_volume_comparison), encoding="utf-8")
+
     print(f"Saved: {EVENTS_CSV} rows={len(events)}")
     print(f"Saved: {SUMMARY_CSV} rows={len(summary)}")
     print(f"Saved: {SUMMARY_MD}")
     print(f"Saved: {TARGET_COMPARISON_CSV} rows={len(target_comparison)}")
     print(f"Saved: {TARGET_COMPARISON_MD}")
+    print(f"Saved: {WEEKLY_VOLUME_COMPARISON_CSV} rows={len(weekly_volume_comparison)}")
+    print(f"Saved: {WEEKLY_VOLUME_COMPARISON_MD}")
     return 0
 
 

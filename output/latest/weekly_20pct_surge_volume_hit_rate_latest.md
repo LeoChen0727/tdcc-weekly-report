@@ -1,6 +1,6 @@
 # Weekly 20pct Surge Volume Research
 
-- generated_at: 2026-05-28 12:02:08 Asia/Taipei
+- generated_at: 2026-05-28 12:09:52 Asia/Taipei
 - definition: start date is any stock trading day; hit if max high from D0 through D+5 divided by D0 low is >= 20%.
 - volume baseline: previous 20 completed trading days, excluding the measured day.
 - counting: stock-day level; one stock can appear on multiple start dates.

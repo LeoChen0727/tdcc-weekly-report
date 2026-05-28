@@ -1,6 +1,6 @@
 # Weekly Surge Volume Target Comparison
 
-- generated_at: 2026-05-28 12:02:11 Asia/Taipei
+- generated_at: 2026-05-28 12:09:55 Asia/Taipei
 - definition: start date is any stock trading day; future return uses max high from D0 through D+5 divided by D0 low.
 - volume baseline: previous 20 completed trading days, excluding the measured day.
 - purpose: compare the same volume filters under 20% and 10% weekly high-from-low targets.
