@@ -1,6 +1,6 @@
 CHATGPT DAILY MARKET REPORT RULES
 
-generated_at=2026-05-28 15:44:39 Asia/Taipei
+generated_at=2026-05-28 16:22:46 Asia/Taipei
 rules_version=2026-05-28-daily-candidate-pdf-contract-v2
 
 PURPOSE
@@ -15,9 +15,9 @@ ASTROLOGY HARD EXCLUSION
 - Do not start astrology reports with `main_price_date`, `report_ready`, repo status, raw status, Pages status, or GitHub API status.
 
 SCOPE RULES
-- This report is for full-market candidate stocks only.
-- This report is not an astrology / Zi Wei / Ba Zi report.
-- This report is not a current-holdings report, not a single-stock full report, not a TDCC weekly report, not a backtest monthly/quarterly report, and not a market-opening prep report.
+- This project is dedicated to the daily Taiwan full-market candidate report and its four ChatGPT-side PDF deliverables.
+- It must not be mixed with holdings management, single-stock full reports, TDCC weekly reports, standalone market-opening reports, backtest periodic reports, or astrology tasks.
+- This boundary is only a task router. It does not override the required deliverables, program-side fields, specialty sections, or PDF quality contract below.
 - Do not analyze the user's personal holdings.
 - Do not mention personal cost basis, unrealized P/L, margin balance, financing risk, position sizing, or personal portfolio decisions.
 - If any current holding appears naturally in the full-market candidate list, analyze it only as a general market candidate.

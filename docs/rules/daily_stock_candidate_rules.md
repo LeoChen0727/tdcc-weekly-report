@@ -2,7 +2,9 @@
 
 Last updated: 2026-05-28
 
-This task is the daily Taiwan full-market candidate report. It is not a holdings report, single-stock report, backtest report, or pure repo-status check.
+This task is dedicated to the daily Taiwan full-market candidate report and its four ChatGPT-side PDF deliverables. It must not be mixed with holdings management, single-stock full reports, TDCC weekly reports, standalone market-opening reports, backtest periodic reports, or astrology tasks.
+
+This boundary is only a task router. It does not override the required deliverables, program-side fields, specialty sections, or PDF quality contract below.
 
 ## Required Deliverable
 
