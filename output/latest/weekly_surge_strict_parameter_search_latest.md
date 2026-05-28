@@ -1,13 +1,14 @@
 # Next-Open +10pct Touch Strict Parameter Search
 
-- generated_at: `2026-05-29 01:24:59 Asia/Taipei`
+- generated_at: `2026-05-29 01:59:02 Asia/Taipei`
 - legacy_file_prefix: `weekly_surge` is kept only for backward compatibility.
-- display_name_zh: `隔日開盤買進後 D+1 至 D+10、D+20 盤中觸及 +10% 研究`.
+- display_name_zh: `短線動能條件參數搜尋：隔日開盤進場，D+1 到 D+10 / D+20 高點觸及 +10%`.
 - not_weekly_candle: `True`.
 - entry_basis: D+1 open, because the signal is only known after the signal-day close.
 - target: D+1 open to D+1 / ... / D+10 / D+20 max high >= 10%.
 - win_rate_definition: selected stock-days whose post-entry intraperiod high touches +10%; this is not D+N close-to-close win rate.
 - close_exit_definition: D+1 open entry to D+N close exit; close-exit win rate uses return > 0.
+- complete_rules_csv: `output/latest/weekly_surge_strict_parameter_search_latest.csv` and `output/latest/weekly_surge_strict_parameter_search_all_rules_latest.csv` contain every tested rule with win rate and return metrics.
 - strictness: no latest theme labels are used. Features are price/volume/technical, TDCC as-of data, and market regime derived from historical index data.
 - use: parameter discovery only; do not change core model weights from this table.
 
@@ -26,6 +27,33 @@
 | D+9 | 48675 | 22.17% |
 | D+10 | 52345 | 23.84% |
 | D+20 | 77588 | 35.34% |
+
+## Rule Count By Window And Sample Bucket
+
+| target_window   | sample_status       |   rule_count |   median_selected_stock_days |   median_high_touch_rate_pct |   median_close_exit_return_pct |
+|:----------------|:--------------------|-------------:|-----------------------------:|-----------------------------:|-------------------------------:|
+| D+1             | insufficient_sample |          545 |                           55 |                         4.08 |                          -0.56 |
+| D+1             | ok_initial_sample   |         1825 |                          461 |                         2.01 |                          -0.51 |
+| D+10            | insufficient_sample |          545 |                           55 |                        39.68 |                           2    |
+| D+10            | ok_initial_sample   |         1825 |                          461 |                        36.7  |                           3.37 |
+| D+2             | insufficient_sample |          545 |                           55 |                        12.36 |                          -0.81 |
+| D+2             | ok_initial_sample   |         1825 |                          461 |                        11.9  |                          -0.34 |
+| D+20            | insufficient_sample |          545 |                           55 |                        41.86 |                          -3.04 |
+| D+20            | ok_initial_sample   |         1825 |                          461 |                        44.08 |                          -0.76 |
+| D+3             | insufficient_sample |          545 |                           55 |                        16.13 |                          -0.65 |
+| D+3             | ok_initial_sample   |         1825 |                          461 |                        18.05 |                          -0.1  |
+| D+4             | insufficient_sample |          545 |                           55 |                        20.59 |                           0.1  |
+| D+4             | ok_initial_sample   |         1825 |                          461 |                        22.55 |                           0.51 |
+| D+5             | insufficient_sample |          545 |                           55 |                        25.4  |                           0.79 |
+| D+5             | ok_initial_sample   |         1825 |                          461 |                        26.02 |                           1.03 |
+| D+6             | insufficient_sample |          545 |                           55 |                        29.79 |                           1.03 |
+| D+6             | ok_initial_sample   |         1825 |                          461 |                        28.77 |                           1.34 |
+| D+7             | insufficient_sample |          545 |                           55 |                        33.87 |                           1.48 |
+| D+7             | ok_initial_sample   |         1825 |                          461 |                        31.03 |                           1.75 |
+| D+8             | insufficient_sample |          545 |                           55 |                        36.84 |                           2.65 |
+| D+8             | ok_initial_sample   |         1825 |                          461 |                        32.98 |                           2.33 |
+| D+9             | insufficient_sample |          545 |                           55 |                        39.36 |                           2.79 |
+| D+9             | ok_initial_sample   |         1825 |                          461 |                        35.21 |                           2.96 |
 
 ## Best D+1 Rules - Large Enough
 
@@ -82,6 +110,10 @@
 | price_position+tdcc+volume                  | vol5_avg_ge_3 + tdcc_high_streak2 + return_5d_10_30                                        |                    35 |           8.57 |                       0.25 |                                  2.14 |                             37.14 |                               -0.46 |                                  -1.21 |                                   -0.41 |                       100 | insufficient_sample |
 | price_position+tdcc+volume                  | vol5_avg_ge_3 + tdcc_high_streak2 + return_10d_10_40                                       |                    35 |           8.57 |                       0.25 |                                  2    |                             34.29 |                               -0.68 |                                  -1.48 |                                   -0.46 |                       100 | insufficient_sample |
 
+## D+1 Full Rule Table
+
+完整 D+1 規則已列在 `output/latest/weekly_surge_strict_parameter_search_latest.csv` / `output/latest/weekly_surge_strict_parameter_search_all_rules_latest.csv`。 Markdown 只列前段，避免 ChatGPT-friendly 報告過大；CSV 保留全部條件、勝率與報酬。
+
 ## Best D+2 Rules - Large Enough
 
 | rule_family                                 | rule_name                                                                                 |   selected_stock_days |   hit_rate_pct |   coverage_of_all_hits_pct |   median_next_open_to_high_return_pct |   win_rate_next_open_to_close_pct |   avg_next_open_to_close_return_pct |   median_next_open_to_close_return_pct |   avg_signal_close_to_next_open_gap_pct |   tdcc_available_rate_pct | sample_status     |
@@ -136,6 +168,10 @@
 | market+price_position+tdcc+technical+volume | vol5_avg_ge_1_5 + market_bull + tdcc_high_up + bb_width_not_extreme + return_10d_20_50        |                    45 |          22.22 |                       0.1  |                                  6.67 |                             45.24 |                                1.69 |                                  -0.75 |                                    0.64 |                       100 | insufficient_sample |
 | market+price_position+tdcc+technical+volume | vol5_avg_ge_1_5 + market_strong_bull + tdcc_high_up + bb_width_not_extreme + return_10d_20_50 |                    45 |          22.22 |                       0.1  |                                  6.67 |                             45.24 |                                1.69 |                                  -0.75 |                                    0.64 |                       100 | insufficient_sample |
 | market+price_position+tdcc+technical+volume | vol5_avg_ge_2 + market_strong_bull + tdcc_all_up + rsi_50_75 + return_10d_20_50               |                    55 |          21.82 |                       0.12 |                                  3.68 |                             45.28 |                                0.03 |                                  -1.45 |                                    0.77 |                       100 | insufficient_sample |
+
+## D+2 Full Rule Table
+
+完整 D+2 規則已列在 `output/latest/weekly_surge_strict_parameter_search_latest.csv` / `output/latest/weekly_surge_strict_parameter_search_all_rules_latest.csv`。 Markdown 只列前段，避免 ChatGPT-friendly 報告過大；CSV 保留全部條件、勝率與報酬。
 
 ## Best D+3 Rules - Large Enough
 
@@ -192,6 +228,10 @@
 | price_position+tdcc+technical+volume        | vol5_avg_ge_2 + tdcc_all_up + macd_hist_pos + kd_bullish_not_overheated + return_10d_20_50    |                    45 |          31.11 |                       0.08 |                                  6.06 |                             54.76 |                                2.16 |                                   0.93 |                                    0.85 |                    100    | insufficient_sample |
 | price_position+tdcc+technical+volume        | vol5_avg_ge_1_5 + tdcc_high_up + bb_width_not_extreme + return_10d_20_50                      |                    49 |          30.61 |                       0.08 |                                  7.36 |                             55.81 |                                2.09 |                                   0.88 |                                    0.83 |                    100    | insufficient_sample |
 
+## D+3 Full Rule Table
+
+完整 D+3 規則已列在 `output/latest/weekly_surge_strict_parameter_search_latest.csv` / `output/latest/weekly_surge_strict_parameter_search_all_rules_latest.csv`。 Markdown 只列前段，避免 ChatGPT-friendly 報告過大；CSV 保留全部條件、勝率與報酬。
+
 ## Best D+4 Rules - Large Enough
 
 | rule_family                                 | rule_name                                                                                     |   selected_stock_days |   hit_rate_pct |   coverage_of_all_hits_pct |   median_next_open_to_high_return_pct |   win_rate_next_open_to_close_pct |   avg_next_open_to_close_return_pct |   median_next_open_to_close_return_pct |   avg_signal_close_to_next_open_gap_pct |   tdcc_available_rate_pct | sample_status     |
@@ -246,6 +286,10 @@
 | price_position+tdcc+technical+volume        | day_vol_ge_2 + tdcc_high_up + macd_hist_pos + kd_bullish_not_overheated + return_10d_20_50         |                    75 |          38.67 |                       0.12 |                                  7.83 |                             49.25 |                                1.95 |                                   0    |                                    1.09 |                       100 | insufficient_sample |
 | market+price_position+tdcc+technical+volume | day_vol_ge_2 + market_bull + tdcc_high_up + kd_bullish_not_overheated + return_10d_20_50           |                    63 |          38.1  |                       0.1  |                                  7.71 |                             50.91 |                                2.01 |                                   3.18 |                                    1.23 |                       100 | insufficient_sample |
 | price_position+tdcc+technical+volume        | vol5_avg_ge_2 + tdcc_all_up + rsi_50_75 + return_10d_20_50                                         |                    66 |          37.88 |                       0.1  |                                  7.91 |                             63.33 |                                4.56 |                                   3.9  |                                    0.99 |                       100 | insufficient_sample |
+
+## D+4 Full Rule Table
+
+完整 D+4 規則已列在 `output/latest/weekly_surge_strict_parameter_search_latest.csv` / `output/latest/weekly_surge_strict_parameter_search_all_rules_latest.csv`。 Markdown 只列前段，避免 ChatGPT-friendly 報告過大；CSV 保留全部條件、勝率與報酬。
 
 ## Best D+5 Rules - Large Enough
 
@@ -302,6 +346,10 @@
 | price_position+tdcc+technical+volume        | vol5_avg_ge_1_5 + tdcc_high_up + bb_width_not_extreme + return_10d_20_50                           |                    49 |          42.86 |                       0.07 |                                  8.17 |                             57.14 |                                4.04 |                                   2.49 |                                    0.83 |                    100    | insufficient_sample |
 | market+price_position+tdcc+technical+volume | vol5_avg_ge_1_5 + market_strong_bull + tdcc_high_up + kd_bullish_not_overheated + return_10d_20_50 |                    80 |          42.5  |                       0.11 |                                  8.32 |                             63.08 |                                4.5  |                                   3.08 |                                    0.89 |                    100    | insufficient_sample |
 
+## D+5 Full Rule Table
+
+完整 D+5 規則已列在 `output/latest/weekly_surge_strict_parameter_search_latest.csv` / `output/latest/weekly_surge_strict_parameter_search_all_rules_latest.csv`。 Markdown 只列前段，避免 ChatGPT-friendly 報告過大；CSV 保留全部條件、勝率與報酬。
+
 ## Best D+6 Rules - Large Enough
 
 | rule_family                                 | rule_name                                                                                     |   selected_stock_days |   hit_rate_pct |   coverage_of_all_hits_pct |   median_next_open_to_high_return_pct |   win_rate_next_open_to_close_pct |   avg_next_open_to_close_return_pct |   median_next_open_to_close_return_pct |   avg_signal_close_to_next_open_gap_pct |   tdcc_available_rate_pct | sample_status     |
@@ -356,6 +404,10 @@
 | market+price_position+tdcc+technical+volume | vol5_avg_ge_1_5 + market_bull + tdcc_all_up + kd_bullish_not_overheated + return_10d_20_50         |                    69 |          47.83 |                       0.09 |                                  8.82 |                             67.39 |                                7.44 |                                   3.87 |                                    1.04 |                    100    | insufficient_sample |
 | price_position+tdcc+technical+volume        | day_vol_ge_2 + tdcc_high_up + rsi_50_75 + return_10d_20_50                                         |                    88 |          47.73 |                       0.12 |                                  9.28 |                             60.87 |                                5.3  |                                   2.31 |                                    1.15 |                    100    | insufficient_sample |
 | market+price_position+tdcc+technical+volume | day_vol_ge_2 + market_bull + tdcc_high_up + bb_width_not_extreme + return_10d_20_50                |                    40 |          47.5  |                       0.05 |                                  8.91 |                             61.29 |                                4.59 |                                   2.15 |                                    0.54 |                    100    | insufficient_sample |
+
+## D+6 Full Rule Table
+
+完整 D+6 規則已列在 `output/latest/weekly_surge_strict_parameter_search_latest.csv` / `output/latest/weekly_surge_strict_parameter_search_all_rules_latest.csv`。 Markdown 只列前段，避免 ChatGPT-friendly 報告過大；CSV 保留全部條件、勝率與報酬。
 
 ## Best D+7 Rules - Large Enough
 
@@ -412,6 +464,10 @@
 | market+price_position+tdcc+technical+volume | vol5_avg_ge_1_5 + market_bull + tdcc_high_up + kd_bullish_not_overheated + return_10d_20_50        |                    86 |          51.16 |                       0.11 |                                 11.49 |                             72.13 |                                7.74 |                                   4.33 |                                    0.93 |                    100    | insufficient_sample |
 | price_position+tdcc+technical+volume        | day_vol_ge_2 + tdcc_high_up + bb_width_not_extreme + return_10d_20_50                              |                    43 |          51.16 |                       0.05 |                                 10.08 |                             66.67 |                                6.23 |                                   4.33 |                                    0.54 |                    100    | insufficient_sample |
 
+## D+7 Full Rule Table
+
+完整 D+7 規則已列在 `output/latest/weekly_surge_strict_parameter_search_latest.csv` / `output/latest/weekly_surge_strict_parameter_search_all_rules_latest.csv`。 Markdown 只列前段，避免 ChatGPT-friendly 報告過大；CSV 保留全部條件、勝率與報酬。
+
 ## Best D+8 Rules - Large Enough
 
 | rule_family                                 | rule_name                                                                                     |   selected_stock_days |   hit_rate_pct |   coverage_of_all_hits_pct |   median_next_open_to_high_return_pct |   win_rate_next_open_to_close_pct |   avg_next_open_to_close_return_pct |   median_next_open_to_close_return_pct |   avg_signal_close_to_next_open_gap_pct |   tdcc_available_rate_pct | sample_status     |
@@ -466,6 +522,10 @@
 | price_position+tdcc+technical+volume        | vol5_avg_ge_1_5 + tdcc_all_up + kd_bullish_not_overheated + return_10d_20_50                  |                    85 |          56.47 |                       0.11 |                                 13.74 |                             72.55 |                               11.1  |                                   6.91 |                                    1.3  |                    100    | insufficient_sample |
 | price_position+tdcc+technical+volume        | vol5_avg_ge_1_5 + tdcc_all_up + macd_hist_pos + kd_bullish_not_overheated + return_10d_20_50  |                    85 |          56.47 |                       0.11 |                                 13.74 |                             72.55 |                               11.1  |                                   6.91 |                                    1.3  |                    100    | insufficient_sample |
 | market+price_position+tdcc+technical+volume | vol5_avg_ge_2 + market_bull + tdcc_high_up + rsi_50_75 + return_10d_20_50                     |                    70 |          55.71 |                       0.09 |                                 13.05 |                             77.19 |                               13.78 |                                   8.71 |                                    0.56 |                    100    | insufficient_sample |
+
+## D+8 Full Rule Table
+
+完整 D+8 規則已列在 `output/latest/weekly_surge_strict_parameter_search_latest.csv` / `output/latest/weekly_surge_strict_parameter_search_all_rules_latest.csv`。 Markdown 只列前段，避免 ChatGPT-friendly 報告過大；CSV 保留全部條件、勝率與報酬。
 
 ## Best D+9 Rules - Large Enough
 
@@ -522,6 +582,10 @@
 | price_position+tdcc+technical+volume        | vol5_avg_ge_1_5 + tdcc_all_up + kd_bullish_not_overheated + return_10d_20_50                  |                    85 |          60    |                       0.1  |                                 14.11 |                             74.42 |                               13.48 |                                   7.42 |                                    1.3  |                       100 | insufficient_sample |
 | price_position+tdcc+technical+volume        | vol5_avg_ge_1_5 + tdcc_all_up + macd_hist_pos + kd_bullish_not_overheated + return_10d_20_50  |                    85 |          60    |                       0.1  |                                 14.11 |                             74.42 |                               13.48 |                                   7.42 |                                    1.3  |                       100 | insufficient_sample |
 
+## D+9 Full Rule Table
+
+完整 D+9 規則已列在 `output/latest/weekly_surge_strict_parameter_search_latest.csv` / `output/latest/weekly_surge_strict_parameter_search_all_rules_latest.csv`。 Markdown 只列前段，避免 ChatGPT-friendly 報告過大；CSV 保留全部條件、勝率與報酬。
+
 ## Best D+10 Rules - Large Enough
 
 | rule_family                                 | rule_name                                                                                     |   selected_stock_days |   hit_rate_pct |   coverage_of_all_hits_pct |   median_next_open_to_high_return_pct |   win_rate_next_open_to_close_pct |   avg_next_open_to_close_return_pct |   median_next_open_to_close_return_pct |   avg_signal_close_to_next_open_gap_pct |   tdcc_available_rate_pct | sample_status     |
@@ -577,6 +641,10 @@
 | price_position+tdcc+technical+volume        | day_vol_ge_2 + tdcc_all_up + bb_width_not_extreme + return_10d_20_50                               |                    31 |          61.29 |                       0.04 |                                 14.11 |                             89.47 |                               21.52 |                                  16.26 |                                    1.24 |                       100 | insufficient_sample |
 | market+price_position+tdcc+technical+volume | vol5_avg_ge_1_5 + market_strong_bull + tdcc_high_up + kd_bullish_not_overheated + return_10d_20_50 |                    80 |          61.25 |                       0.09 |                                 14.51 |                             79.55 |                               16.56 |                                  10.89 |                                    0.89 |                       100 | insufficient_sample |
 
+## D+10 Full Rule Table
+
+完整 D+10 規則已列在 `output/latest/weekly_surge_strict_parameter_search_latest.csv` / `output/latest/weekly_surge_strict_parameter_search_all_rules_latest.csv`。 Markdown 只列前段，避免 ChatGPT-friendly 報告過大；CSV 保留全部條件、勝率與報酬。
+
 ## Best D+20 Rules - Large Enough
 
 | rule_family                                 | rule_name                                                                                                  |   selected_stock_days |   hit_rate_pct |   coverage_of_all_hits_pct |   median_next_open_to_high_return_pct |   win_rate_next_open_to_close_pct |   avg_next_open_to_close_return_pct |   median_next_open_to_close_return_pct |   avg_signal_close_to_next_open_gap_pct |   tdcc_available_rate_pct | sample_status     |
@@ -631,4 +699,8 @@
 | market+price_position+technical+volume      | vol5_avg_ge_3 + market_strong_bull + kd_bullish_not_overheated + bb_width_not_extreme + return_10d_10_40 |                    78 |          65.38 |                       0.07 |                                 14.75 |                             61.4  |                               10.06 |                                   5.47 |                                    1.16 |                     30.77 | insufficient_sample |
 | price_position+tdcc+technical+volume        | vol5_avg_ge_2 + tdcc_all_up + rsi_50_75 + return_10d_20_50                                               |                    66 |          65.15 |                       0.06 |                                 17.89 |                             50    |                                1.96 |                                  -0.67 |                                    0.99 |                    100    | insufficient_sample |
 | market+price_position+technical+volume      | vol5_avg_ge_2 + market_bull + kd_bullish_not_overheated + bb_width_not_extreme + return_10d_20_50        |                    88 |          64.77 |                       0.07 |                                 17.57 |                             52.46 |                                9.44 |                                   1.84 |                                    1.51 |                     31.82 | insufficient_sample |
+
+## D+20 Full Rule Table
+
+完整 D+20 規則已列在 `output/latest/weekly_surge_strict_parameter_search_latest.csv` / `output/latest/weekly_surge_strict_parameter_search_all_rules_latest.csv`。 Markdown 只列前段，避免 ChatGPT-friendly 報告過大；CSV 保留全部條件、勝率與報酬。
 
