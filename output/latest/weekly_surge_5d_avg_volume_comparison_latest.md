@@ -1,6 +1,6 @@
 # Five-Trading-Day Surge 5D Average Volume Comparison
 
-- generated_at: 2026-05-28 23:15:59 Asia/Taipei
+- generated_at: 2026-05-29 00:48:23 Asia/Taipei
 - not_weekly_candle: True. This compares rolling five-trading-day high-low event volume filters.
 - return definition: max high from D0 through D+5 divided by D0 low.
 - start_5d_avg_volume_ratio: average volume from D-4 through D0 divided by the previous 20-day average volume before D0.

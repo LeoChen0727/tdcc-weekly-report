@@ -1,6 +1,6 @@
 # Five-Trading-Day 20pct High-Low Surge Event Volume Research
 
-- generated_at: 2026-05-28 23:15:52 Asia/Taipei
+- generated_at: 2026-05-29 00:48:15 Asia/Taipei
 - not_weekly_candle: True. This scans rolling five-trading-day windows at stock-day level.
 - definition: start date is any stock trading day; hit if max high from D0 through D+5 divided by D0 low is >= 20%.
 - volume baseline: previous 20 completed trading days, excluding the measured day.

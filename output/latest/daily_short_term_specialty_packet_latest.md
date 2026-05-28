@@ -1,7 +1,7 @@
 # DAILY SHORT-TERM SPECIALTY PACKET
 
 ## Metadata
-- generated_at: `2026-05-28 23:24:39 台北標準時間`
+- generated_at: `2026-05-29 01:03:55 台北標準時間`
 - main_price_date: `20260528`
 - purpose: Force daily reports to include short-term specialty sections that are not part of the fixed six candidate categories.
 
@@ -63,49 +63,64 @@
 ## Next-Open +10pct Touch Strict Parameter Research
 
 - legacy_file_prefix: `weekly_surge` is kept only for backward compatibility.
-- display_name_zh: `隔日開盤買進後 D+5 / D+10 / D+20 盤中觸及 +10% 研究`
+- display_name_zh: `隔日開盤買進後 D+1 至 D+10、D+20 盤中觸及 +10% 研究`
 - forbidden_label_zh: `周線急漲`
 - not_weekly_candle: `True`
 - section_required_in_daily_pdf: `True`
 - section_type: `short_term_specialty_not_six_category`
 - entry_basis: `D+1 open`; the signal is only knowable after the signal-day close.
 - hit_definition: `D+1 open to D+N high reaches +10%`
-- win_rate_definition: touch-rate of +10% intraperiod high after next-open entry; not D+N close-to-close return.
+- close_exit_definition: `D+1 open to D+N close`; close-exit win rate uses return > 0.
+- win_rate_definition: keep +10% high touch-rate and close-exit win rate separate.
 - model_effect_allowed: `False`
 - allowed_use: `research_watchlist_and_reporting_priority_only`
-- rule: show `D+5` and `D+10` tables separately.
+- rule: show a compact `D+1` to `D+10` summary, plus separate `D+5` and `D+10` tables.
+
+### D+1 to D+10 Horizon Summary
+| horizon | samples | close_win_rate | avg_close_ret | median_close_ret | +10pct_touch_rate | avg_gap | best_rule |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| D+1 | 100 | 47.0 | 0.16 | 0.0 | 4.0 | 0.69 | vol5_avg_ge_2 + tdcc_high_up + bb_width_not_extreme + near_60d_high_10pct |
+| D+2 | 124 | 55.65 | 1.96 | 1.82 | 20.97 | 1.21 | vol5_avg_ge_1_5 + tdcc_all_up + rsi_50_75 + return_10d_20_50 |
+| D+3 | 106 | 53.77 | 3.17 | 1.83 | 34.91 | 1.14 | vol5_avg_ge_1_5 + tdcc_high_up + kd_bullish_not_overheated + return_10d_20_50 |
+| D+4 | 124 | 54.03 | 4.98 | 4.03 | 38.71 | 1.21 | vol5_avg_ge_1_5 + tdcc_all_up + rsi_50_75 + return_10d_20_50 |
+| D+5 | 106 | 53.77 | 4.98 | 4.24 | 46.23 | 1.14 | vol5_avg_ge_1_5 + tdcc_high_up + kd_bullish_not_overheated + return_10d_20_50 |
+| D+6 | 154 | 52.6 | 7.65 | 3.91 | 48.05 | 1.09 | vol5_avg_ge_1_5 + tdcc_high_up + rsi_50_75 + return_10d_20_50 |
+| D+7 | 162 | 59.88 | 7.72 | 5.3 | 48.15 | 0.88 | vol5_avg_ge_2 + market_strong_bull + tdcc_high_up + return_10d_20_50 |
+| D+8 | 129 | 64.34 | 15.92 | 10.44 | 55.81 | 0.85 | vol5_avg_ge_1_5 + market_strong_bull + tdcc_high_up + rsi_50_75 + return_10d_20_50 |
+| D+9 | 129 | 61.24 | 19.75 | 13.8 | 61.24 | 0.85 | vol5_avg_ge_1_5 + market_strong_bull + tdcc_high_up + rsi_50_75 + return_10d_20_50 |
+| D+10 | 129 | 54.26 | 22.27 | 14.48 | 63.57 | 0.85 | vol5_avg_ge_1_5 + market_strong_bull + tdcc_high_up + rsi_50_75 + return_10d_20_50 |
 
 ### D+5 Parameter Table
-| rule_name | target_window | selected_stock_days | hit_rate_pct | median_next_open_to_high_return_pct | avg_next_open_to_high_return_pct | avg_signal_close_to_next_open_gap_pct | sample_status |
+| rule_name | target_window | selected_stock_days | win_rate_next_open_to_close_pct | avg_next_open_to_close_return_pct | median_next_open_to_close_return_pct | hit_rate_pct | median_next_open_to_high_return_pct |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| vol5_avg_ge_1_5 + tdcc_all_up + kd_bullish_not_overheated + return_10d_20_50 | D+5 | 85 | 47.06 | 9.29 | 13.02 | 1.3 | insufficient_sample |
-| vol5_avg_ge_1_5 + tdcc_all_up + macd_hist_pos + kd_bullish_not_overheated + return_10d_20_50 | D+5 | 85 | 47.06 | 9.29 | 13.02 | 1.3 | insufficient_sample |
-| vol5_avg_ge_2 + tdcc_all_up + rsi_50_75 + return_10d_20_50 | D+5 | 66 | 46.97 | 8.99 | 12.64 | 0.99 | insufficient_sample |
-| vol5_avg_ge_1_5 + market_bull + tdcc_high_up + bb_width_not_extreme + return_10d_20_50 | D+5 | 45 | 46.67 | 9.0 | 11.75 | 0.64 | insufficient_sample |
-| vol5_avg_ge_1_5 + market_strong_bull + tdcc_high_up + bb_width_not_extreme + return_10d_20_50 | D+5 | 45 | 46.67 | 9.0 | 11.75 | 0.64 | insufficient_sample |
-| vol5_avg_ge_1_5 + tdcc_high_up + macd_hist_pos + kd_bullish_not_overheated + return_10d_20_50 | D+5 | 106 | 46.23 | 9.01 | 12.67 | 1.14 | ok_initial_sample |
-| vol5_avg_ge_1_5 + tdcc_high_up + kd_bullish_not_overheated + return_10d_20_50 | D+5 | 106 | 46.23 | 9.01 | 12.67 | 1.14 | ok_initial_sample |
-| vol5_avg_ge_3 + market_strong_bull + bb_width_not_extreme + return_10d_20_50 | D+5 | 35 | 45.71 | 7.52 | 10.71 | 1.31 | insufficient_sample |
-| vol5_avg_ge_3 + bb_width_not_extreme + return_10d_20_50 | D+5 | 35 | 45.71 | 7.52 | 10.71 | 1.31 | insufficient_sample |
-| vol5_avg_ge_3 + market_bull + bb_width_not_extreme + return_10d_20_50 | D+5 | 35 | 45.71 | 7.52 | 10.71 | 1.31 | insufficient_sample |
-| day_vol_ge_2 + tdcc_high_up + rsi_50_75 + return_10d_20_50 | D+5 | 88 | 45.45 | 8.77 | 11.17 | 1.15 | insufficient_sample |
-| vol5_avg_ge_1_5 + tdcc_all_up + rsi_50_75 + return_10d_20_50 | D+5 | 124 | 45.16 | 9.44 | 12.49 | 1.21 | ok_initial_sample |
+| vol5_avg_ge_1_5 + tdcc_all_up + kd_bullish_not_overheated + return_10d_20_50 | D+5 | 85 | 51.76 | 5.78 | 4.35 | 47.06 | 9.29 |
+| vol5_avg_ge_1_5 + tdcc_all_up + macd_hist_pos + kd_bullish_not_overheated + return_10d_20_50 | D+5 | 85 | 51.76 | 5.78 | 4.35 | 47.06 | 9.29 |
+| vol5_avg_ge_2 + tdcc_all_up + rsi_50_75 + return_10d_20_50 | D+5 | 66 | 56.06 | 5.37 | 2.77 | 46.97 | 8.99 |
+| vol5_avg_ge_1_5 + market_bull + tdcc_high_up + bb_width_not_extreme + return_10d_20_50 | D+5 | 45 | 53.33 | 5.09 | 3.33 | 46.67 | 9.0 |
+| vol5_avg_ge_1_5 + market_strong_bull + tdcc_high_up + bb_width_not_extreme + return_10d_20_50 | D+5 | 45 | 53.33 | 5.09 | 3.33 | 46.67 | 9.0 |
+| vol5_avg_ge_1_5 + tdcc_high_up + macd_hist_pos + kd_bullish_not_overheated + return_10d_20_50 | D+5 | 106 | 53.77 | 4.98 | 4.24 | 46.23 | 9.01 |
+| vol5_avg_ge_1_5 + tdcc_high_up + kd_bullish_not_overheated + return_10d_20_50 | D+5 | 106 | 53.77 | 4.98 | 4.24 | 46.23 | 9.01 |
+| vol5_avg_ge_3 + market_strong_bull + bb_width_not_extreme + return_10d_20_50 | D+5 | 35 | 48.57 | 1.22 | 0.0 | 45.71 | 7.52 |
+| vol5_avg_ge_3 + bb_width_not_extreme + return_10d_20_50 | D+5 | 35 | 48.57 | 1.22 | 0.0 | 45.71 | 7.52 |
+| vol5_avg_ge_3 + market_bull + bb_width_not_extreme + return_10d_20_50 | D+5 | 35 | 48.57 | 1.22 | 0.0 | 45.71 | 7.52 |
+| day_vol_ge_2 + tdcc_high_up + rsi_50_75 + return_10d_20_50 | D+5 | 88 | 45.45 | 2.82 | 1.62 | 45.45 | 8.77 |
+| vol5_avg_ge_1_5 + tdcc_all_up + rsi_50_75 + return_10d_20_50 | D+5 | 124 | 51.61 | 5.97 | 3.77 | 45.16 | 9.44 |
 
 ### D+10 Parameter Table
-| rule_name | target_window | selected_stock_days | hit_rate_pct | median_next_open_to_high_return_pct | avg_next_open_to_high_return_pct | avg_signal_close_to_next_open_gap_pct | sample_status |
+| rule_name | target_window | selected_stock_days | win_rate_next_open_to_close_pct | avg_next_open_to_close_return_pct | median_next_open_to_close_return_pct | hit_rate_pct | median_next_open_to_high_return_pct |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| vol5_avg_ge_1_5 + market_bull + tdcc_high_up + bb_width_not_extreme + return_10d_20_50 | D+10 | 45 | 73.33 | 20.0 | 24.89 | 0.64 | insufficient_sample |
-| vol5_avg_ge_1_5 + market_strong_bull + tdcc_high_up + bb_width_not_extreme + return_10d_20_50 | D+10 | 45 | 73.33 | 20.0 | 24.89 | 0.64 | insufficient_sample |
-| day_vol_ge_2 + market_bull + tdcc_high_up + bb_width_not_extreme + return_10d_20_50 | D+10 | 40 | 72.5 | 17.46 | 22.44 | 0.54 | insufficient_sample |
-| day_vol_ge_2 + market_strong_bull + tdcc_high_up + bb_width_not_extreme + return_10d_20_50 | D+10 | 40 | 72.5 | 17.46 | 22.44 | 0.54 | insufficient_sample |
-| day_vol_ge_2 + tdcc_high_up + bb_width_not_extreme + return_10d_20_50 | D+10 | 43 | 69.77 | 16.03 | 21.42 | 0.54 | insufficient_sample |
-| vol5_avg_ge_1_5 + tdcc_high_up + bb_width_not_extreme + return_10d_20_50 | D+10 | 49 | 67.35 | 17.49 | 23.35 | 0.83 | insufficient_sample |
-| vol5_avg_ge_2 + tdcc_all_up + rsi_50_75 + return_10d_20_50 | D+10 | 66 | 65.15 | 17.5 | 21.82 | 0.99 | insufficient_sample |
-| vol5_avg_ge_2 + market_strong_bull + tdcc_high_up + rsi_50_75 + return_10d_20_50 | D+10 | 65 | 64.62 | 17.44 | 22.23 | 0.62 | insufficient_sample |
-| vol5_avg_ge_2 + tdcc_high_up + rsi_50_75 + return_10d_20_50 | D+10 | 79 | 64.56 | 17.49 | 21.48 | 0.82 | insufficient_sample |
-| vol5_avg_ge_1_5 + tdcc_high_up + rsi_50_75 + return_10d_20_50 | D+10 | 154 | 64.29 | 17.01 | 22.23 | 1.09 | ok_initial_sample |
-| vol5_avg_ge_1_5 + market_strong_bull + tdcc_high_up + rsi_50_75 + return_10d_20_50 | D+10 | 129 | 63.57 | 17.44 | 23.32 | 0.85 | ok_initial_sample |
-| vol5_avg_ge_2 + market_bull + tdcc_all_up + rsi_50_75 + return_10d_20_50 | D+10 | 57 | 63.16 | 16.88 | 21.82 | 0.7 | insufficient_sample |
+| vol5_avg_ge_1_5 + market_bull + tdcc_high_up + bb_width_not_extreme + return_10d_20_50 | D+10 | 45 | 64.44 | 24.88 | 24.71 | 73.33 | 20.0 |
+| vol5_avg_ge_1_5 + market_strong_bull + tdcc_high_up + bb_width_not_extreme + return_10d_20_50 | D+10 | 45 | 64.44 | 24.88 | 24.71 | 73.33 | 20.0 |
+| day_vol_ge_2 + market_bull + tdcc_high_up + bb_width_not_extreme + return_10d_20_50 | D+10 | 40 | 57.5 | 21.3 | 19.76 | 72.5 | 17.46 |
+| day_vol_ge_2 + market_strong_bull + tdcc_high_up + bb_width_not_extreme + return_10d_20_50 | D+10 | 40 | 57.5 | 21.3 | 19.76 | 72.5 | 17.46 |
+| day_vol_ge_2 + tdcc_high_up + bb_width_not_extreme + return_10d_20_50 | D+10 | 43 | 53.49 | 21.3 | 19.76 | 69.77 | 16.03 |
+| vol5_avg_ge_1_5 + tdcc_high_up + bb_width_not_extreme + return_10d_20_50 | D+10 | 49 | 59.18 | 24.88 | 24.71 | 67.35 | 17.49 |
+| vol5_avg_ge_2 + tdcc_all_up + rsi_50_75 + return_10d_20_50 | D+10 | 66 | 48.48 | 17.96 | 13.75 | 65.15 | 17.5 |
+| vol5_avg_ge_2 + market_strong_bull + tdcc_high_up + rsi_50_75 + return_10d_20_50 | D+10 | 65 | 58.46 | 19.36 | 14.44 | 64.62 | 17.44 |
+| vol5_avg_ge_2 + tdcc_high_up + rsi_50_75 + return_10d_20_50 | D+10 | 79 | 53.16 | 17.3 | 13.75 | 64.56 | 17.49 |
+| vol5_avg_ge_1_5 + tdcc_high_up + rsi_50_75 + return_10d_20_50 | D+10 | 154 | 49.35 | 19.89 | 13.14 | 64.29 | 17.01 |
+| vol5_avg_ge_1_5 + market_strong_bull + tdcc_high_up + rsi_50_75 + return_10d_20_50 | D+10 | 129 | 54.26 | 22.27 | 14.48 | 63.57 | 17.44 |
+| vol5_avg_ge_2 + market_bull + tdcc_all_up + rsi_50_75 + return_10d_20_50 | D+10 | 57 | 52.63 | 19.36 | 14.39 | 63.16 | 16.88 |
 
 ### Current Strict Research Candidates
 | research_priority | stock_id | stock_name | matched_rules | best_d5_hit_rate_pct | best_d10_hit_rate_pct | best_d10_rule | research_caveat |

@@ -1,12 +1,12 @@
 # Next-Open +10pct Strict Parameter Candidates
 
-- generated_at: `2026-05-28 23:24:38 Asia/Taipei`
+- generated_at: `2026-05-29 01:00:48 Asia/Taipei`
 - use: strict research watchlist only; no latest theme label is used.
 - legacy_file_prefix: `weekly_surge` is kept only for backward compatibility.
-- display_name_zh: `隔日開盤買進後 D+5 / D+10 / D+20 盤中觸及 +10% 候選`.
+- display_name_zh: `隔日開盤買進後 D+1 至 D+10、D+20 盤中觸及 +10% 候選`.
 - not_weekly_candle: `True`.
 - entry_basis: D+1 open, because the signal is only known after the signal-day close.
-- target: next-open to D+5 / D+10 / D+20 high >= 10%.
+- target: next-open to D+1 / ... / D+10 / D+20 high >= 10%.
 - win_rate_definition: touch-rate of +10% intraperiod high after next-open entry; not close-to-close return.
 - caveat: research only; do not mix into daily candidate core ranking.
 

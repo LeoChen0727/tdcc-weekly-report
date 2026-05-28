@@ -1,8 +1,8 @@
 # Five-Trading-Day Surge Theme Segment Next-Open Research
 
-- generated_at: `2026-05-28 23:22:34 Asia/Taipei`
+- generated_at: `2026-05-29 00:44:02 Asia/Taipei`
 - entry_basis: D+1 open, because the signal is only known after D0 close.
-- target: max high from D+1 through D+5 / D+10 / D+20 reaches at least 10% above D+1 open.
+- target: max high from D+1 through D+1 / ... / D+10 / D+20 reaches at least 10% above D+1 open.
 - strict_no_lookahead_history: joins `daily_theme_status_history.csv` on signal_date + stock_id.
 - provisional_latest_stock_label: exploratory only; joins the latest stock-level theme label backward and may contain look-ahead bias.
 - purpose: test whether mainstream/non-mainstream labels improve practical hit rate beyond volume filters.
@@ -11,7 +11,15 @@
 
 | Window | Hit Count | Base Hit Rate |
 |---|---:|---:|
+| D+1 | 1205 | 0.55% |
+| D+2 | 9954 | 4.53% |
+| D+3 | 17784 | 8.10% |
+| D+4 | 24455 | 11.14% |
 | D+5 | 30306 | 13.80% |
+| D+6 | 35561 | 16.20% |
+| D+7 | 40333 | 18.37% |
+| D+8 | 44601 | 20.32% |
+| D+9 | 48675 | 22.17% |
 | D+10 | 52345 | 23.84% |
 | D+20 | 77588 | 35.34% |
 
@@ -19,26 +27,26 @@
 
 | target_window | theme_status_group | filter_metric | threshold | selected_stock_days | hit_rate_pct | median_next_open_to_high_return_pct | avg_signal_close_to_next_open_gap_pct | sample_status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| D+1 | mainstream_supported | start_5d_avg_volume_ratio | 2.0 | 32 | 6.25 | 2.76 | 0.41 | ok |
 | D+10 | mainstream_supported | start_5d_avg_volume_ratio | 2.0 | 32 | 6.25 | 2.76 | 0.41 | ok |
+| D+2 | mainstream_supported | start_5d_avg_volume_ratio | 2.0 | 32 | 6.25 | 2.76 | 0.41 | ok |
 | D+20 | mainstream_supported | start_5d_avg_volume_ratio | 2.0 | 32 | 6.25 | 2.76 | 0.41 | ok |
+| D+3 | mainstream_supported | start_5d_avg_volume_ratio | 2.0 | 32 | 6.25 | 2.76 | 0.41 | ok |
+| D+4 | mainstream_supported | start_5d_avg_volume_ratio | 2.0 | 32 | 6.25 | 2.76 | 0.41 | ok |
 | D+5 | mainstream_supported | start_5d_avg_volume_ratio | 2.0 | 32 | 6.25 | 2.76 | 0.41 | ok |
+| D+6 | mainstream_supported | start_5d_avg_volume_ratio | 2.0 | 32 | 6.25 | 2.76 | 0.41 | ok |
+| D+7 | mainstream_supported | start_5d_avg_volume_ratio | 2.0 | 32 | 6.25 | 2.76 | 0.41 | ok |
+| D+8 | mainstream_supported | start_5d_avg_volume_ratio | 2.0 | 32 | 6.25 | 2.76 | 0.41 | ok |
+| D+9 | mainstream_supported | start_5d_avg_volume_ratio | 2.0 | 32 | 6.25 | 2.76 | 0.41 | ok |
+| D+1 | mainstream_overheated | prev_5d_avg_volume_ratio | 1.5 | 34 | 5.88 | 2.85 | 0.83 | ok |
 | D+10 | mainstream_overheated | prev_5d_avg_volume_ratio | 1.5 | 34 | 5.88 | 2.85 | 0.83 | ok |
+| D+2 | mainstream_overheated | prev_5d_avg_volume_ratio | 1.5 | 34 | 5.88 | 2.85 | 0.83 | ok |
 | D+20 | mainstream_overheated | prev_5d_avg_volume_ratio | 1.5 | 34 | 5.88 | 2.85 | 0.83 | ok |
+| D+3 | mainstream_overheated | prev_5d_avg_volume_ratio | 1.5 | 34 | 5.88 | 2.85 | 0.83 | ok |
+| D+4 | mainstream_overheated | prev_5d_avg_volume_ratio | 1.5 | 34 | 5.88 | 2.85 | 0.83 | ok |
 | D+5 | mainstream_overheated | prev_5d_avg_volume_ratio | 1.5 | 34 | 5.88 | 2.85 | 0.83 | ok |
-| D+10 | mainstream_overheated | start_day_volume_ratio | 2.0 | 54 | 5.56 | 3.48 | 0.68 | ok |
-| D+20 | mainstream_overheated | start_day_volume_ratio | 2.0 | 54 | 5.56 | 3.48 | 0.68 | ok |
-| D+5 | mainstream_overheated | start_day_volume_ratio | 2.0 | 54 | 5.56 | 3.48 | 0.68 | ok |
-| D+10 | mainstream_overheated | start_day_volume_ratio | 1.5 | 77 | 3.9 | 2.98 | 0.61 | ok |
-| D+20 | mainstream_overheated | start_day_volume_ratio | 1.5 | 77 | 3.9 | 2.98 | 0.61 | ok |
-| D+5 | mainstream_overheated | start_day_volume_ratio | 1.5 | 77 | 3.9 | 2.98 | 0.61 | ok |
-| D+10 | mainstream_overheated | start_5d_avg_volume_ratio | 1.5 | 52 | 3.85 | 2.8 | 1.08 | ok |
-| D+10 | mainstream_supported | prev_5d_avg_volume_ratio | 1.5 | 52 | 3.85 | 2.76 | 0.5 | ok |
-| D+20 | mainstream_overheated | start_5d_avg_volume_ratio | 1.5 | 52 | 3.85 | 2.8 | 1.08 | ok |
-| D+20 | mainstream_supported | prev_5d_avg_volume_ratio | 1.5 | 52 | 3.85 | 2.76 | 0.5 | ok |
-| D+5 | mainstream_overheated | start_5d_avg_volume_ratio | 1.5 | 52 | 3.85 | 2.8 | 1.08 | ok |
-| D+5 | mainstream_supported | prev_5d_avg_volume_ratio | 1.5 | 52 | 3.85 | 2.76 | 0.5 | ok |
-| D+10 | mainstream_overheated | start_5d_avg_volume_ratio | 1.2 | 85 | 3.53 | 2.86 | 0.88 | ok |
-| D+20 | mainstream_overheated | start_5d_avg_volume_ratio | 1.2 | 85 | 3.53 | 2.86 | 0.88 | ok |
+| D+6 | mainstream_overheated | prev_5d_avg_volume_ratio | 1.5 | 34 | 5.88 | 2.85 | 0.83 | ok |
+| D+7 | mainstream_overheated | prev_5d_avg_volume_ratio | 1.5 | 34 | 5.88 | 2.85 | 0.83 | ok |
 
 ## Provisional Exploration - Best D+10 Rows
 
@@ -94,16 +102,48 @@
 
 | target_window | theme_status_group | selected_stock_days | hit_rate_pct | group_base_hit_rate_pct | sample_status |
 | --- | --- | --- | --- | --- | --- |
+| D+1 | mainstream_overheated | 18150 | 1.01 | 0.85 | provisional_latest_label_only |
+| D+1 | mainstream_supported | 5885 | 0.44 | 0.29 | provisional_latest_label_only |
+| D+1 | non_mainstream | 5099 | 0.43 | 0.33 | provisional_latest_label_only |
+| D+1 | unlabeled | 69322 | 0.64 | 0.51 | provisional_latest_label_only |
 | D+10 | mainstream_overheated | 18150 | 42.17 | 40.89 | provisional_latest_label_only |
 | D+10 | mainstream_supported | 5885 | 21.58 | 20.43 | provisional_latest_label_only |
 | D+10 | non_mainstream | 5099 | 15.12 | 14.43 | provisional_latest_label_only |
 | D+10 | unlabeled | 69322 | 21.63 | 20.49 | provisional_latest_label_only |
+| D+2 | mainstream_overheated | 18150 | 9.1 | 8.07 | provisional_latest_label_only |
+| D+2 | mainstream_supported | 5885 | 3.52 | 2.82 | provisional_latest_label_only |
+| D+2 | non_mainstream | 5099 | 3.14 | 2.36 | provisional_latest_label_only |
+| D+2 | unlabeled | 69322 | 4.69 | 3.94 | provisional_latest_label_only |
 | D+20 | mainstream_overheated | 18150 | 59.38 | 58.37 | provisional_latest_label_only |
 | D+20 | mainstream_supported | 5885 | 35.21 | 34.6 | provisional_latest_label_only |
 | D+20 | non_mainstream | 5099 | 23.16 | 23.33 | provisional_latest_label_only |
 | D+20 | unlabeled | 69322 | 31.45 | 30.44 | provisional_latest_label_only |
+| D+3 | mainstream_overheated | 18150 | 15.43 | 14.32 | provisional_latest_label_only |
+| D+3 | mainstream_supported | 5885 | 6.24 | 5.34 | provisional_latest_label_only |
+| D+3 | non_mainstream | 5099 | 5.41 | 4.31 | provisional_latest_label_only |
+| D+3 | unlabeled | 69322 | 8.12 | 7.03 | provisional_latest_label_only |
+| D+4 | mainstream_overheated | 18150 | 20.82 | 19.62 | provisional_latest_label_only |
+| D+4 | mainstream_supported | 5885 | 8.67 | 7.83 | provisional_latest_label_only |
+| D+4 | non_mainstream | 5099 | 7.39 | 6.09 | provisional_latest_label_only |
+| D+4 | unlabeled | 69322 | 10.81 | 9.63 | provisional_latest_label_only |
 | D+5 | mainstream_overheated | 18150 | 25.31 | 24.19 | provisional_latest_label_only |
 | D+5 | mainstream_supported | 5885 | 11.05 | 10.12 | provisional_latest_label_only |
 | D+5 | non_mainstream | 5099 | 9.1 | 7.74 | provisional_latest_label_only |
 | D+5 | unlabeled | 69322 | 13.1 | 11.92 | provisional_latest_label_only |
+| D+6 | mainstream_overheated | 18150 | 29.25 | 28.27 | provisional_latest_label_only |
+| D+6 | mainstream_supported | 5885 | 13.49 | 12.41 | provisional_latest_label_only |
+| D+6 | non_mainstream | 5099 | 10.26 | 9.17 | provisional_latest_label_only |
+| D+6 | unlabeled | 69322 | 15.13 | 13.96 | provisional_latest_label_only |
+| D+7 | mainstream_overheated | 18150 | 32.85 | 31.9 | provisional_latest_label_only |
+| D+7 | mainstream_supported | 5885 | 15.72 | 14.51 | provisional_latest_label_only |
+| D+7 | non_mainstream | 5099 | 11.61 | 10.65 | provisional_latest_label_only |
+| D+7 | unlabeled | 69322 | 17.01 | 15.82 | provisional_latest_label_only |
+| D+8 | mainstream_overheated | 18150 | 36.15 | 35.06 | provisional_latest_label_only |
+| D+8 | mainstream_supported | 5885 | 17.64 | 16.44 | provisional_latest_label_only |
+| D+8 | non_mainstream | 5099 | 12.83 | 11.95 | provisional_latest_label_only |
+| D+8 | unlabeled | 69322 | 18.7 | 17.5 | provisional_latest_label_only |
+| D+9 | mainstream_overheated | 18150 | 39.31 | 38.17 | provisional_latest_label_only |
+| D+9 | mainstream_supported | 5885 | 19.73 | 18.57 | provisional_latest_label_only |
+| D+9 | non_mainstream | 5099 | 14.06 | 13.29 | provisional_latest_label_only |
+| D+9 | unlabeled | 69322 | 20.23 | 19.06 | provisional_latest_label_only |
 

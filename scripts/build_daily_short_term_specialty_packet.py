@@ -81,6 +81,10 @@ def sort_numeric(df: pd.DataFrame, column: str, ascending: bool = False) -> pd.D
     return safe.drop(columns=["_sort_value"])
 
 
+def d1_to_d10_labels() -> list[str]:
+    return [f"D+{value}" for value in range(1, 11)]
+
+
 def build_tdcc_edge_section(lines: list[str]) -> None:
     stats = read_csv(TDCC_EDGE_STATS)
     candidates = read_csv(TDCC_EDGE_CANDIDATES)
@@ -155,20 +159,24 @@ def build_weekly_surge_section(lines: list[str]) -> None:
     lines.append("## Next-Open +10pct Touch Strict Parameter Research")
     lines.append("")
     lines.append("- legacy_file_prefix: `weekly_surge` is kept only for backward compatibility.")
-    lines.append("- display_name_zh: `隔日開盤買進後 D+5 / D+10 / D+20 盤中觸及 +10% 研究`")
+    lines.append("- display_name_zh: `隔日開盤買進後 D+1 至 D+10、D+20 盤中觸及 +10% 研究`")
     lines.append("- forbidden_label_zh: `周線急漲`")
     lines.append("- not_weekly_candle: `True`")
     lines.append("- section_required_in_daily_pdf: `True`")
     lines.append("- section_type: `short_term_specialty_not_six_category`")
     lines.append("- entry_basis: `D+1 open`; the signal is only knowable after the signal-day close.")
     lines.append("- hit_definition: `D+1 open to D+N high reaches +10%`")
-    lines.append("- win_rate_definition: touch-rate of +10% intraperiod high after next-open entry; not D+N close-to-close return.")
+    lines.append("- close_exit_definition: `D+1 open to D+N close`; close-exit win rate uses return > 0.")
+    lines.append("- win_rate_definition: keep +10% high touch-rate and close-exit win rate separate.")
     lines.append("- model_effect_allowed: `False`")
     lines.append("- allowed_use: `research_watchlist_and_reporting_priority_only`")
-    lines.append("- rule: show `D+5` and `D+10` tables separately.")
+    lines.append("- rule: show a compact `D+1` to `D+10` summary, plus separate `D+5` and `D+10` tables.")
     lines.append("")
 
     if stats.empty:
+        lines.append("### D+1 to D+10 Horizon Summary")
+        lines.extend(md_table(["status", "note"], [["missing", WEEKLY_SURGE_STRICT_SEARCH.as_posix()]]))
+        lines.append("")
         lines.append("### D+5 Parameter Table")
         lines.extend(md_table(["status", "note"], [["missing", WEEKLY_SURGE_STRICT_SEARCH.as_posix()]]))
         lines.append("")
@@ -176,12 +184,51 @@ def build_weekly_surge_section(lines: list[str]) -> None:
         lines.extend(md_table(["status", "note"], [["missing", WEEKLY_SURGE_STRICT_SEARCH.as_posix()]]))
         lines.append("")
     else:
+        summary_rows = []
+        for horizon in d1_to_d10_labels():
+            sub = stats[stats.get("target_window", pd.Series(dtype=str)).astype(str).str.upper().eq(horizon.upper())].copy()
+            if sub.empty:
+                summary_rows.append([horizon, "missing", "", "", "", ""])
+                continue
+            for col in [
+                "selected_stock_days",
+                "hit_rate_pct",
+                "median_next_open_to_high_return_pct",
+                "win_rate_next_open_to_close_pct",
+                "avg_next_open_to_close_return_pct",
+                "median_next_open_to_close_return_pct",
+                "avg_signal_close_to_next_open_gap_pct",
+            ]:
+                sub[col] = pd.to_numeric(sub.get(col), errors="coerce")
+            sub = sub[sub["selected_stock_days"] >= 100].sort_values(["win_rate_next_open_to_close_pct", "avg_next_open_to_close_return_pct", "selected_stock_days"], ascending=[False, False, False])
+            if sub.empty:
+                summary_rows.append([horizon, "no sample>=100", "", "", "", ""])
+                continue
+            row = sub.iloc[0]
+            summary_rows.append(
+                [
+                    horizon,
+                    row.get("selected_stock_days", ""),
+                    row.get("win_rate_next_open_to_close_pct", ""),
+                    row.get("avg_next_open_to_close_return_pct", ""),
+                    row.get("median_next_open_to_close_return_pct", ""),
+                    row.get("hit_rate_pct", ""),
+                    row.get("avg_signal_close_to_next_open_gap_pct", ""),
+                    row.get("rule_name", ""),
+                ]
+            )
+        lines.append("### D+1 to D+10 Horizon Summary")
+        lines.extend(md_table(["horizon", "samples", "close_win_rate", "avg_close_ret", "median_close_ret", "+10pct_touch_rate", "avg_gap", "best_rule"], summary_rows))
+        lines.append("")
         cols = pick_columns(
             stats,
             [
                 "rule_name",
                 "target_window",
                 "selected_stock_days",
+                "win_rate_next_open_to_close_pct",
+                "avg_next_open_to_close_return_pct",
+                "median_next_open_to_close_return_pct",
                 "hit_rate_pct",
                 "median_next_open_to_high_return_pct",
                 "avg_next_open_to_high_return_pct",

@@ -208,10 +208,11 @@ If `tdcc_overheated_short_term_edge_latest.md/csv` exists, the daily report must
 
 If `weekly_surge_strict_parameter_search_latest.md/csv` exists, the daily report must also include it as a standalone next-open +10% touch research subsection:
 
-- Show separate D+5 and D+10 tables.
+- Show a compact D+1 through D+10 horizon summary, and also show separate D+5 and D+10 detail tables.
 - Use the definition `entry = D+1 open` and `hit = D+1 open to D+N high reaches +10%`.
+- For sell-point analysis, use `D+1 open` as the entry and `D+N close` as the exit. Report D+1 through D+10 close-exit win rate and average/median return separately from the +10% intraperiod high touch-rate.
 - This is not weekly candlestick analysis. The file prefix `weekly_surge` is legacy/backward-compatible only.
-- Display title in Chinese: `隔日開盤買進後 D+5 / D+10 盤中觸及 +10% 研究`.
+- Display title in Chinese: `隔日開盤買進後 D+1 至 D+10 盤中觸及 +10% 研究`.
 - Do not write `周線急漲嚴格參數`.
 - The win rate is a next-open entry touch-rate, not close-to-close return or D+N close win rate.
 - Show current candidates from `weekly_surge_strict_parameter_candidates_latest.md/csv` when available.

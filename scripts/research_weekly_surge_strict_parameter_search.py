@@ -18,7 +18,7 @@ OUT_CSV = LATEST_DIR / "weekly_surge_strict_parameter_search_latest.csv"
 OUT_MD = LATEST_DIR / "weekly_surge_strict_parameter_search_latest.md"
 HISTORY_CSV = HISTORY_DIR / "weekly_surge_strict_parameter_search.csv"
 
-WINDOWS = [5, 10, 20]
+WINDOWS = list(range(1, 11)) + [20]
 TARGET_PCT = 10.0
 MIN_SELECTED = 100
 
@@ -129,12 +129,20 @@ def build_combinations(masks: dict[str, pd.Series]) -> list[tuple[str, pd.Series
     return combos
 
 
-def summarize(df: pd.DataFrame, rule_name: str, rule_family: str, mask: pd.Series, window: int) -> dict[str, object]:
-    picked = df[mask]
+def summarize_picked(
+    df: pd.DataFrame,
+    picked: pd.DataFrame,
+    rule_name: str,
+    rule_family: str,
+    window: int,
+    total_hits: int,
+) -> dict[str, object]:
     hit_col = f"next_open_to_d{window}_high_10pct_hit"
     ret_col = f"next_open_to_d{window}_high_return_pct"
+    close_win_col = f"next_open_to_d{window}_close_win"
+    close_ret_col = f"next_open_to_d{window}_close_return_pct"
     hits = picked[picked[hit_col]]
-    total_hits = int(df[hit_col].sum())
+    close_wins = picked[picked[close_win_col]] if close_win_col in picked.columns else picked.iloc[0:0]
     sample = "ok_initial_sample" if len(picked) >= MIN_SELECTED else "insufficient_sample"
     return {
         "rule_name": rule_name,
@@ -150,11 +158,19 @@ def summarize(df: pd.DataFrame, rule_name: str, rule_family: str, mask: pd.Serie
         "hit_unique_stocks": hits["stock_id"].nunique(),
         "median_next_open_to_high_return_pct": round(picked[ret_col].median(), 2) if len(picked) else 0,
         "avg_next_open_to_high_return_pct": round(picked[ret_col].mean(), 2) if len(picked) else 0,
+        "win_rate_next_open_to_close_pct": round(len(close_wins) / len(picked) * 100, 2) if len(picked) else 0,
+        "avg_next_open_to_close_return_pct": round(picked[close_ret_col].mean(), 2) if len(picked) and close_ret_col in picked.columns else 0,
+        "median_next_open_to_close_return_pct": round(picked[close_ret_col].median(), 2) if len(picked) and close_ret_col in picked.columns else 0,
         "avg_signal_close_to_next_open_gap_pct": round(picked["signal_close_to_next_open_gap_pct"].mean(), 2) if len(picked) else 0,
         "tdcc_available_rate_pct": round(picked["tdcc_available"].mean() * 100, 2) if len(picked) else 0,
         "top_market_regime_counts": top_counts(picked, "derived_market_regime"),
         "sample_status": sample,
     }
+
+
+def summarize(df: pd.DataFrame, rule_name: str, rule_family: str, mask: pd.Series, window: int) -> dict[str, object]:
+    hit_col = f"next_open_to_d{window}_high_10pct_hit"
+    return summarize_picked(df, df[mask], rule_name, rule_family, window, int(df[hit_col].sum()))
 
 
 def top_counts(df: pd.DataFrame, col: str, limit: int = 4) -> str:
@@ -170,17 +186,22 @@ def df_to_md(df: pd.DataFrame, limit: int = 30) -> str:
     return df.head(limit).to_markdown(index=False)
 
 
+def window_labels() -> list[str]:
+    return [f"D+{window}" for window in WINDOWS]
+
+
 def build_markdown(summary: pd.DataFrame, df: pd.DataFrame) -> str:
     lines: list[str] = []
     lines.append("# Next-Open +10pct Touch Strict Parameter Search")
     lines.append("")
     lines.append(f"- generated_at: `{now_text()}`")
     lines.append("- legacy_file_prefix: `weekly_surge` is kept only for backward compatibility.")
-    lines.append("- display_name_zh: `隔日開盤買進後 D+5 / D+10 / D+20 盤中觸及 +10% 研究`.")
+    lines.append("- display_name_zh: `隔日開盤買進後 D+1 至 D+10、D+20 盤中觸及 +10% 研究`.")
     lines.append("- not_weekly_candle: `True`.")
     lines.append("- entry_basis: D+1 open, because the signal is only known after the signal-day close.")
-    lines.append("- target: D+1 open to D+5 / D+10 / D+20 max high >= 10%.")
+    lines.append("- target: D+1 open to D+1 / ... / D+10 / D+20 max high >= 10%.")
     lines.append("- win_rate_definition: selected stock-days whose post-entry intraperiod high touches +10%; this is not D+N close-to-close win rate.")
+    lines.append("- close_exit_definition: D+1 open entry to D+N close exit; close-exit win rate uses return > 0.")
     lines.append("- strictness: no latest theme labels are used. Features are price/volume/technical, TDCC as-of data, and market regime derived from historical index data.")
     lines.append("- use: parameter discovery only; do not change core model weights from this table.")
     lines.append("")
@@ -202,11 +223,14 @@ def build_markdown(summary: pd.DataFrame, df: pd.DataFrame) -> str:
         "hit_rate_pct",
         "coverage_of_all_hits_pct",
         "median_next_open_to_high_return_pct",
+        "win_rate_next_open_to_close_pct",
+        "avg_next_open_to_close_return_pct",
+        "median_next_open_to_close_return_pct",
         "avg_signal_close_to_next_open_gap_pct",
         "tdcc_available_rate_pct",
         "sample_status",
     ]
-    for window in ["D+5", "D+10", "D+20"]:
+    for window in window_labels():
         lines.append(f"## Best {window} Rules - Large Enough")
         lines.append("")
         part = summary[(summary["target_window"] == window) & (summary["selected_stock_days"] >= MIN_SELECTED)]
@@ -233,12 +257,17 @@ def main() -> int:
     df = attach_market_context(df)
     masks = build_parameter_masks(df)
     rows: list[dict[str, object]] = []
+    total_hits_by_window = {
+        window: int(df[f"next_open_to_d{window}_high_10pct_hit"].sum())
+        for window in WINDOWS
+    }
     for rule_name, mask, family in build_combinations(masks):
         selected = int(mask.sum())
         if selected < 30:
             continue
+        picked = df[mask]
         for window in WINDOWS:
-            rows.append(summarize(df, rule_name, family, mask, window))
+            rows.append(summarize_picked(df, picked, rule_name, family, window, total_hits_by_window[window]))
     summary = pd.DataFrame(rows)
     if not summary.empty:
         summary = summary.sort_values(

@@ -26,7 +26,7 @@ FORWARD_DAYS = 5
 SURGE_THRESHOLD_PCT = 20.0
 VOL_AVG_DAYS = 20
 NEXT_OPEN_TARGET_PCT = 10.0
-NEXT_OPEN_WINDOWS = [5, 10, 20]
+NEXT_OPEN_WINDOWS = list(range(1, 11)) + [20]
 
 THRESHOLDS = [0.5, 0.8, 1.0, 1.2, 1.5, 2.0, 3.0, 5.0]
 BINS = [0, 0.5, 0.8, 1.0, 1.2, 1.5, 2.0, 3.0, 5.0, float("inf")]
@@ -99,19 +99,29 @@ def build_stock_day_frame() -> pd.DataFrame:
         next_opens = df["next_open"].to_list()
         for window in NEXT_OPEN_WINDOWS:
             next_open_future_high: list[float | None] = []
+            next_open_future_close: list[float | None] = []
             for idx, next_open in enumerate(next_opens):
                 if pd.isna(next_open) or next_open <= 0:
                     next_open_future_high.append(None)
+                    next_open_future_close.append(None)
                     continue
                 # Practical entry is D+1 open. Measure the highest tradable price from D+1 through D+window.
                 future_window = highs[idx + 1 : idx + window + 1]
+                close_idx = idx + window
                 next_open_future_high.append(max(future_window) if future_window else None)
+                next_open_future_close.append(float(df["close"].iloc[close_idx]) if close_idx < len(df) else None)
             high_col = f"next_open_to_d{window}_high"
             ret_col = f"next_open_to_d{window}_high_return_pct"
             hit_col = f"next_open_to_d{window}_high_10pct_hit"
+            close_col = f"next_open_to_d{window}_close"
+            close_ret_col = f"next_open_to_d{window}_close_return_pct"
+            close_win_col = f"next_open_to_d{window}_close_win"
             df[high_col] = next_open_future_high
             df[ret_col] = (df[high_col] / df["next_open"] - 1.0) * 100.0
             df[hit_col] = df[ret_col] >= NEXT_OPEN_TARGET_PCT
+            df[close_col] = next_open_future_close
+            df[close_ret_col] = (df[close_col] / df["next_open"] - 1.0) * 100.0
+            df[close_win_col] = df[close_ret_col] > 0
         df["signal_day_close_return_pct"] = (df["close"] / df["open"] - 1.0) * 100.0
         df["signal_day_high_from_low_pct"] = (df["high"] / df["low"] - 1.0) * 100.0
         df = df.dropna(
