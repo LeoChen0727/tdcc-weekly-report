@@ -1,6 +1,6 @@
-# Weekly Surge Multifactor Filter Grid
+# Next-Open +10pct Multifactor Filter Grid
 
-- generated_at: `2026-05-28 20:08:13 Asia/Taipei`
+- generated_at: `2026-05-28 23:22:42 Asia/Taipei`
 - entry_basis: D+1 open.
 - target: D+1 open to D+5 / D+10 / D+20 max high >= 10%.
 - strict parts: market regime is derived from historical index data; TDCC uses latest available weekly holder ratio as of each stock date.

@@ -243,9 +243,10 @@ def summarize_bins(df: pd.DataFrame, metric: str, label: str) -> pd.DataFrame:
 
 def build_markdown(df: pd.DataFrame, summary: pd.DataFrame, events: pd.DataFrame) -> str:
     lines: list[str] = []
-    lines.append("# Weekly 20pct Surge Volume Research")
+    lines.append("# Five-Trading-Day 20pct High-Low Surge Event Volume Research")
     lines.append("")
     lines.append(f"- generated_at: {now_text()}")
+    lines.append("- not_weekly_candle: True. This scans rolling five-trading-day windows at stock-day level.")
     lines.append(f"- definition: start date is any stock trading day; hit if max high from D0 through D+{FORWARD_DAYS} divided by D0 low is >= {SURGE_THRESHOLD_PCT:.0f}%.")
     lines.append(f"- volume baseline: previous {VOL_AVG_DAYS} completed trading days, excluding the measured day.")
     lines.append("- counting: stock-day level; one stock can appear on multiple start dates.")
@@ -295,9 +296,10 @@ def build_markdown(df: pd.DataFrame, summary: pd.DataFrame, events: pd.DataFrame
 
 def build_target_comparison_markdown(df: pd.DataFrame, comparison: pd.DataFrame) -> str:
     lines: list[str] = []
-    lines.append("# Weekly Surge Volume Target Comparison")
+    lines.append("# Five-Trading-Day Surge Volume Target Comparison")
     lines.append("")
     lines.append(f"- generated_at: {now_text()}")
+    lines.append("- not_weekly_candle: True. This compares rolling five-trading-day high-low event targets.")
     lines.append(f"- definition: start date is any stock trading day; future return uses max high from D0 through D+{FORWARD_DAYS} divided by D0 low.")
     lines.append(f"- volume baseline: previous {VOL_AVG_DAYS} completed trading days, excluding the measured day.")
     lines.append("- purpose: compare the same volume filters under 20% and 10% weekly high-from-low targets.")
@@ -335,9 +337,10 @@ def build_target_comparison_markdown(df: pd.DataFrame, comparison: pd.DataFrame)
 
 def build_weekly_volume_markdown(df: pd.DataFrame, comparison: pd.DataFrame) -> str:
     lines: list[str] = []
-    lines.append("# Weekly Surge 5D Average Volume Comparison")
+    lines.append("# Five-Trading-Day Surge 5D Average Volume Comparison")
     lines.append("")
     lines.append(f"- generated_at: {now_text()}")
+    lines.append("- not_weekly_candle: True. This compares rolling five-trading-day high-low event volume filters.")
     lines.append(f"- return definition: max high from D0 through D+{FORWARD_DAYS} divided by D0 low.")
     lines.append(f"- start_5d_avg_volume_ratio: average volume from D-4 through D0 divided by the previous {VOL_AVG_DAYS}-day average volume before D0.")
     lines.append(f"- prev_5d_avg_volume_ratio: average volume from D-5 through D-1 divided by the previous {VOL_AVG_DAYS}-day average volume before D0.")
@@ -364,11 +367,12 @@ def build_weekly_volume_markdown(df: pd.DataFrame, comparison: pd.DataFrame) -> 
 
 def build_next_open_markdown(df: pd.DataFrame, comparison: pd.DataFrame) -> str:
     lines: list[str] = []
-    lines.append("# Weekly Surge Next-Open Practical Hit Rate")
+    lines.append("# Next-Open Practical Hit Rate After Five-Trading-Day Surge Signals")
     lines.append("")
     lines.append(f"- generated_at: {now_text()}")
     lines.append("- entry_basis: D+1 open, because the signal is only known after D0 close.")
     lines.append(f"- target: max high from D+1 through the target window is at least {NEXT_OPEN_TARGET_PCT:.0f}% above D+1 open.")
+    lines.append("- win_rate_definition: next-open entry touch-rate; not close-to-close return and not weekly candlestick analysis.")
     lines.append("- volume filters are known by D0 close or earlier; no future volume is used.")
     lines.append("- focus: hit_rate_pct and signal_close_to_next_open_gap_pct.")
     lines.append("")

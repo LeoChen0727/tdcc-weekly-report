@@ -1326,14 +1326,14 @@ def weekly_surge_strict_stats_rows(stats: pd.DataFrame, horizon: str, limit: int
     rows = [[
         "rule",
         "samples",
-        "hit",
+        "+10% touch",
         "median max ret",
         "avg gap",
         "coverage",
         "status",
     ]]
     if stats.empty:
-        rows.append(["n/a", "", "", "", "", "", "weekly_surge_strict_parameter_search_latest.csv missing"])
+        rows.append(["n/a", "", "", "", "", "", "next-open +10% touch research missing"])
         return rows
     part = stats[stats.get("target_window", pd.Series(dtype=str)).astype(str).eq(horizon)].copy()
     if part.empty:
@@ -1379,7 +1379,7 @@ def weekly_surge_strict_candidate_rows(candidates: pd.DataFrame, limit: int = 15
         "best D+10 rule",
     ]]
     if candidates.empty:
-        rows.append(["n/a", "", "", "", "", "", "", "No current strict weekly-surge candidates."])
+        rows.append(["n/a", "", "", "", "", "", "", "No current next-open +10% touch candidates."])
         return rows
     view = candidates.copy()
     for col in ["best_d10_hit_rate_pct", "best_d5_hit_rate_pct", "start_5d_avg_volume_ratio_vs_prev20"]:
@@ -1409,10 +1409,10 @@ def append_weekly_surge_strict_section(
 ) -> None:
     stats = load_weekly_surge_strict_search()
     candidates = load_weekly_surge_strict_candidates()
-    story.append(para("Weekly Surge Strict Parameter Specialty (D+5 / D+10)", style_map["h1"]))
+    story.append(para("Next-Open +10% Touch Specialty (D+5 / D+10)", style_map["h1"]))
     story.append(
         para(
-            "Research-only section. Entry basis is next trading day open after the signal day. A hit means the high from next open to D+N reaches +10%. This table uses no latest theme label and must not be mixed into the core six-category ranking.",
+            "Research-only section. This is not a weekly candlestick signal. Entry basis is next trading day open after the signal-day close. A hit means the high from next open to D+N reaches +10%; it is a touch-rate, not D+N close-to-close win rate. This table uses no latest theme label and must not be mixed into the core six-category ranking.",
             style_map["normal"],
         )
     )

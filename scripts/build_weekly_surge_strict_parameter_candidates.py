@@ -157,12 +157,16 @@ def df_to_md(df: pd.DataFrame, limit: int = 30) -> str:
 
 def build_markdown(candidates: pd.DataFrame) -> str:
     lines: list[str] = []
-    lines.append("# Weekly Surge Strict Parameter Candidates")
+    lines.append("# Next-Open +10pct Strict Parameter Candidates")
     lines.append("")
     lines.append(f"- generated_at: `{now_text()}`")
     lines.append("- use: strict research watchlist only; no latest theme label is used.")
-    lines.append("- entry_basis: D+1 open.")
+    lines.append("- legacy_file_prefix: `weekly_surge` is kept only for backward compatibility.")
+    lines.append("- display_name_zh: `隔日開盤買進後 D+5 / D+10 / D+20 盤中觸及 +10% 候選`.")
+    lines.append("- not_weekly_candle: `True`.")
+    lines.append("- entry_basis: D+1 open, because the signal is only known after the signal-day close.")
     lines.append("- target: next-open to D+5 / D+10 / D+20 high >= 10%.")
+    lines.append("- win_rate_definition: touch-rate of +10% intraperiod high after next-open entry; not close-to-close return.")
     lines.append("- caveat: research only; do not mix into daily candidate core ranking.")
     lines.append("")
     if candidates.empty:

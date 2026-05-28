@@ -1,6 +1,6 @@
-# Weekly Surge Technical Filter Grid
+# Next-Open +10pct Technical Filter Grid
 
-- generated_at: `2026-05-28 20:07:22 Asia/Taipei`
+- generated_at: `2026-05-28 23:22:21 Asia/Taipei`
 - entry_basis: D+1 open.
 - target: D+1 open to D+5 / D+10 / D+20 max high >= 10%.
 - label caveat: this version uses latest stock-level theme labels for exploration only, so mainstream/non-mainstream fields can contain look-ahead bias.

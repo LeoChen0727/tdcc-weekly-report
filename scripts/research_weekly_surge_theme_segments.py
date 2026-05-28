@@ -259,7 +259,7 @@ def build_summary(df: pd.DataFrame) -> pd.DataFrame:
 
 def build_markdown(summary: pd.DataFrame, df: pd.DataFrame) -> str:
     lines: list[str] = []
-    lines.append("# Weekly Surge Theme Segment Next-Open Research")
+    lines.append("# Five-Trading-Day Surge Theme Segment Next-Open Research")
     lines.append("")
     lines.append(f"- generated_at: `{now_text()}`")
     lines.append("- entry_basis: D+1 open, because the signal is only known after D0 close.")

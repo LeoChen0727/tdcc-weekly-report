@@ -172,11 +172,15 @@ def df_to_md(df: pd.DataFrame, limit: int = 30) -> str:
 
 def build_markdown(summary: pd.DataFrame, df: pd.DataFrame) -> str:
     lines: list[str] = []
-    lines.append("# Weekly Surge Strict Parameter Search")
+    lines.append("# Next-Open +10pct Touch Strict Parameter Search")
     lines.append("")
     lines.append(f"- generated_at: `{now_text()}`")
-    lines.append("- entry_basis: D+1 open.")
+    lines.append("- legacy_file_prefix: `weekly_surge` is kept only for backward compatibility.")
+    lines.append("- display_name_zh: `隔日開盤買進後 D+5 / D+10 / D+20 盤中觸及 +10% 研究`.")
+    lines.append("- not_weekly_candle: `True`.")
+    lines.append("- entry_basis: D+1 open, because the signal is only known after the signal-day close.")
     lines.append("- target: D+1 open to D+5 / D+10 / D+20 max high >= 10%.")
+    lines.append("- win_rate_definition: selected stock-days whose post-entry intraperiod high touches +10%; this is not D+N close-to-close win rate.")
     lines.append("- strictness: no latest theme labels are used. Features are price/volume/technical, TDCC as-of data, and market regime derived from historical index data.")
     lines.append("- use: parameter discovery only; do not change core model weights from this table.")
     lines.append("")

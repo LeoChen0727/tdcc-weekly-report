@@ -282,7 +282,7 @@ def df_to_md(df: pd.DataFrame, limit: int = 30) -> str:
 
 def build_markdown(summary: pd.DataFrame, df: pd.DataFrame) -> str:
     lines: list[str] = []
-    lines.append("# Weekly Surge Multifactor Filter Grid")
+    lines.append("# Next-Open +10pct Multifactor Filter Grid")
     lines.append("")
     lines.append(f"- generated_at: `{now_text()}`")
     lines.append("- entry_basis: D+1 open.")
