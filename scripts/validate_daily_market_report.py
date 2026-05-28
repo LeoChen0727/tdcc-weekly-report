@@ -211,7 +211,15 @@ def check_category_order(label: str, text: str, errors: list[str]) -> None:
 
 def check_no_total_ranking(label: str, text: str, errors: list[str]) -> None:
     compact = normalize_for_search(text)
-    bad_phrases = ["總排名", "全部分類排名", "跨分類排名", "總分排名"]
+    bad_phrases = [
+        "total ranking",
+        "overall ranking",
+        "overall rank",
+        "single total ranking",
+        "總排名",
+        "綜合總排名",
+        "全部候選股總排名",
+    ]
     for phrase in bad_phrases:
         if normalize_for_search(phrase) in compact:
             errors.append(f"{label}: appears to mix categories into a total ranking: {phrase}")

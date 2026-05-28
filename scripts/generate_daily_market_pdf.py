@@ -47,6 +47,8 @@ THEME_LEADERSHIP_CSV = LATEST_DIR / "daily_theme_leadership_latest.csv"
 TWO_LINE_VIEW_CSV = LATEST_DIR / "daily_candidate_two_line_view_latest.csv"
 TDCC_OVERHEATED_EDGE_CSV = LATEST_DIR / "tdcc_overheated_short_term_edge_latest.csv"
 TDCC_OVERHEATED_EDGE_CANDIDATES_CSV = LATEST_DIR / "tdcc_overheated_short_term_edge_candidates_latest.csv"
+WEEKLY_SURGE_STRICT_SEARCH_CSV = LATEST_DIR / "weekly_surge_strict_parameter_search_latest.csv"
+WEEKLY_SURGE_STRICT_CANDIDATES_CSV = LATEST_DIR / "weekly_surge_strict_parameter_candidates_latest.csv"
 
 CURATED_PDF = LATEST_DIR / "daily_market_curated_report_latest.pdf"
 FULL_TABLE_PDF = LATEST_DIR / "daily_market_full_table_report_latest.pdf"
@@ -1150,7 +1152,7 @@ def append_tdcc_overheated_edge_section(
     story.append(para("TDCC 過熱短線勝率專項（D+5 / D+10）", style_map["h1"]))
     story.append(
         para(
-            "此段是獨立 reporting-only 專項，不混入六大分類總排名，也不調整 TDCC/ABM 核心權重。勝率以 mature_dN=True 後，訊號日收盤到 D+N 收盤報酬 > 0 計算；next-open 欄位另以隔日開盤到 D+N 收盤計算。",
+            "此段是獨立 reporting-only 專項，不混入六大分類核心排序，也不調整 TDCC/ABM 核心權重。勝率以 mature_dN=True 後，訊號日收盤到 D+N 收盤報酬 > 0 計算；next-open 欄位另以隔日開盤到 D+N 收盤計算。",
             style_map["normal"],
         )
     )
@@ -1180,6 +1182,150 @@ def append_tdcc_overheated_edge_section(
             tdcc_edge_stats_rows(stats, "D+10"),
             style_map,
             [4.3 * cm, 0.9 * cm, 1.1 * cm, 1.0 * cm, 1.1 * cm, 1.0 * cm, 1.3 * cm, 1.5 * cm, 1.5 * cm],
+            header_bg="#5B9BD5",
+        )
+    )
+    story.append(Spacer(1, 0.35 * cm))
+
+
+def load_weekly_surge_strict_search() -> pd.DataFrame:
+    if not WEEKLY_SURGE_STRICT_SEARCH_CSV.exists():
+        return pd.DataFrame()
+    try:
+        return pd.read_csv(WEEKLY_SURGE_STRICT_SEARCH_CSV, dtype=str, keep_default_na=False)
+    except Exception:
+        return pd.DataFrame()
+
+
+def load_weekly_surge_strict_candidates() -> pd.DataFrame:
+    if not WEEKLY_SURGE_STRICT_CANDIDATES_CSV.exists():
+        return pd.DataFrame()
+    try:
+        return pd.read_csv(WEEKLY_SURGE_STRICT_CANDIDATES_CSV, dtype=str, keep_default_na=False)
+    except Exception:
+        return pd.DataFrame()
+
+
+def weekly_surge_strict_stats_rows(stats: pd.DataFrame, horizon: str, limit: int = 10) -> list[list[Any]]:
+    rows = [[
+        "rule",
+        "samples",
+        "hit",
+        "median max ret",
+        "avg gap",
+        "coverage",
+        "status",
+    ]]
+    if stats.empty:
+        rows.append(["n/a", "", "", "", "", "", "weekly_surge_strict_parameter_search_latest.csv missing"])
+        return rows
+    part = stats[stats.get("target_window", pd.Series(dtype=str)).astype(str).eq(horizon)].copy()
+    if part.empty:
+        rows.append(["n/a", "", "", "", "", "", f"{horizon} rows missing"])
+        return rows
+    for col in [
+        "selected_stock_days",
+        "hit_rate_pct",
+        "median_next_open_to_high_return_pct",
+        "avg_signal_close_to_next_open_gap_pct",
+        "coverage_of_all_hits_pct",
+    ]:
+        part[col] = pd.to_numeric(part.get(col), errors="coerce")
+    part = part[part["selected_stock_days"] >= 100]
+    part = part.sort_values(["hit_rate_pct", "selected_stock_days"], ascending=[False, False]).head(limit)
+    if part.empty:
+        rows.append(["n/a", "", "", "", "", "", "no rule has selected_stock_days >= 100"])
+        return rows
+    for _, row in part.iterrows():
+        rows.append(
+            [
+                clean_text(row.get("rule_name", ""), 52),
+                safe_str(row.get("selected_stock_days", "")),
+                pct_text(row.get("hit_rate_pct", "")),
+                pct_text(row.get("median_next_open_to_high_return_pct", "")),
+                pct_text(row.get("avg_signal_close_to_next_open_gap_pct", "")),
+                pct_text(row.get("coverage_of_all_hits_pct", "")),
+                clean_text(row.get("sample_status", ""), 20),
+            ]
+        )
+    return rows
+
+
+def weekly_surge_strict_candidate_rows(candidates: pd.DataFrame, limit: int = 15) -> list[list[Any]]:
+    rows = [[
+        "stock",
+        "priority",
+        "vol5x",
+        "10d ret",
+        "TDCC high",
+        "D+5 hit",
+        "D+10 hit",
+        "best D+10 rule",
+    ]]
+    if candidates.empty:
+        rows.append(["n/a", "", "", "", "", "", "", "No current strict weekly-surge candidates."])
+        return rows
+    view = candidates.copy()
+    for col in ["best_d10_hit_rate_pct", "best_d5_hit_rate_pct", "start_5d_avg_volume_ratio_vs_prev20"]:
+        if col in view.columns:
+            view[col] = pd.to_numeric(view[col], errors="coerce").fillna(0)
+    view = view.sort_values(["research_priority", "best_d10_hit_rate_pct", "best_d5_hit_rate_pct"], ascending=[True, False, False]).head(limit)
+    for _, row in view.iterrows():
+        rows.append(
+            [
+                f"{safe_str(row.get('stock_id', ''))} {clean_text(row.get('stock_name', ''), 10)}",
+                clean_text(row.get("research_priority", ""), 24),
+                num_text(row.get("start_5d_avg_volume_ratio_vs_prev20", ""), 2),
+                pct_text(row.get("return_10d_pct", "")),
+                clean_text(row.get("tdcc_high_thresholds_up", ""), 8),
+                pct_text(row.get("best_d5_hit_rate_pct", "")),
+                pct_text(row.get("best_d10_hit_rate_pct", "")),
+                clean_text(row.get("best_d10_rule", ""), 52),
+            ]
+        )
+    return rows
+
+
+def append_weekly_surge_strict_section(
+    story: list[Any],
+    style_map: dict[str, ParagraphStyle],
+    compact: bool = True,
+) -> None:
+    stats = load_weekly_surge_strict_search()
+    candidates = load_weekly_surge_strict_candidates()
+    story.append(para("Weekly Surge Strict Parameter Specialty (D+5 / D+10)", style_map["h1"]))
+    story.append(
+        para(
+            "Research-only section. Entry basis is next trading day open after the signal day. A hit means the high from next open to D+N reaches +10%. This table uses no latest theme label and must not be mixed into the core six-category ranking.",
+            style_map["normal"],
+        )
+    )
+    story.append(para("Current Strict Research Candidates", style_map["h2"]))
+    story.append(
+        make_table(
+            weekly_surge_strict_candidate_rows(candidates, limit=8 if compact else 25),
+            style_map,
+            [2.1 * cm, 2.4 * cm, 0.9 * cm, 1.0 * cm, 0.9 * cm, 1.0 * cm, 1.1 * cm, 5.2 * cm],
+            header_bg="#1F4E79",
+        )
+    )
+    story.append(Spacer(1, 0.22 * cm))
+    story.append(para("D+5 Hit-Rate Table", style_map["h2"]))
+    story.append(
+        make_table(
+            weekly_surge_strict_stats_rows(stats, "D+5", limit=6 if compact else 12),
+            style_map,
+            [5.4 * cm, 1.0 * cm, 0.9 * cm, 1.3 * cm, 1.0 * cm, 1.0 * cm, 1.6 * cm],
+            header_bg="#375623",
+        )
+    )
+    story.append(Spacer(1, 0.22 * cm))
+    story.append(para("D+10 Hit-Rate Table", style_map["h2"]))
+    story.append(
+        make_table(
+            weekly_surge_strict_stats_rows(stats, "D+10", limit=6 if compact else 12),
+            style_map,
+            [5.4 * cm, 1.0 * cm, 0.9 * cm, 1.3 * cm, 1.0 * cm, 1.0 * cm, 1.6 * cm],
             header_bg="#5B9BD5",
         )
     )
@@ -1355,6 +1501,7 @@ def build_curated_pdf(df: pd.DataFrame, freshness: dict[str, Any], main_date: st
     append_catalyst_section(story, style_map, df)
     append_theme_leadership_sections(story, style_map, compact=True)
     append_tdcc_overheated_edge_section(story, style_map, compact=True)
+    append_weekly_surge_strict_section(story, style_map, compact=True)
 
     story.append(PageBreak())
 
@@ -1562,6 +1709,7 @@ def build_full_table_pdf(df: pd.DataFrame, freshness: dict[str, Any], main_date:
     append_context_sections(story, style_map, freshness, [5.0 * cm, 21.5 * cm])
     append_theme_leadership_sections(story, style_map, compact=False)
     append_tdcc_overheated_edge_section(story, style_map, compact=False)
+    append_weekly_surge_strict_section(story, style_map, compact=False)
 
     volume_watch = load_volume_breakout_watch()
     story.append(Spacer(1, 0.25 * cm))
