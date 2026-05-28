@@ -23,6 +23,14 @@ on:
         description: "Run daily signal performance reports"
         required: false
         default: "true"
+      run_volume_breakout:
+        description: "Run volume breakout watch backtest"
+        required: false
+        default: "true"
+      run_catalyst_performance:
+        description: "Run catalyst performance tracking"
+        required: false
+        default: "true"
 
 permissions:
   contents: write
@@ -84,6 +92,12 @@ jobs:
         run: |
           python scripts/build_daily_short_term_specialty_packet.py
 
+      - name: Build volume breakout watch backtest
+        if: ${{ github.event.inputs.run_volume_breakout == 'true' }}
+        run: |
+          python scripts/build_volume_breakout_watch.py
+          python scripts/validate_volume_breakout_watch.py
+
       - name: Build surge precondition model
         if: ${{ github.event.inputs.run_surge_model == 'true' }}
         run: |
@@ -96,6 +110,11 @@ jobs:
           python scripts/update_daily_candidate_signal_performance.py
           python scripts/generate_daily_signal_performance_report.py
           python scripts/validate_daily_signal_performance.py
+
+      - name: Update catalyst performance tracking
+        if: ${{ github.event.inputs.run_catalyst_performance == 'true' }}
+        run: |
+          python scripts/update_catalyst_performance.py
 
       - name: Rebuild ChatGPT route files
         run: |
@@ -114,6 +133,7 @@ jobs:
           git add output/history/surge_model/ || true
           git add output/history/market_timing/ || true
           git add output/history/daily_signals/ || true
+          git add output/history/catalyst_performance/ || true
 
           git add output/latest/weekly_surge_*.csv output/latest/weekly_surge_*.md || true
           git add output/latest/explosive_volume_up_*.csv output/latest/explosive_volume_up_*.md || true
@@ -122,6 +142,8 @@ jobs:
           git add output/latest/tdcc_overheated_short_term_edge_latest.md || true
           git add output/latest/tdcc_overheated_short_term_edge_candidates_latest.csv || true
           git add output/latest/daily_short_term_specialty_packet_latest.md || true
+          git add output/history/volume_breakout/ || true
+          git add output/latest/volume_breakout_*.csv output/latest/volume_breakout_*.md || true
 
           git add output/latest/surge_model_*.csv output/latest/surge_model_*.md output/latest/surge_precondition_candidates_latest.csv output/latest/surge_precondition_candidates_latest.md || true
           git add output/latest/market_timing_*.csv output/latest/market_timing_*.md || true
@@ -138,6 +160,8 @@ jobs:
           git add scripts/build_market_timing_technical_backtest.py || true
           git add scripts/build_tdcc_overheated_short_term_edge.py || true
           git add scripts/build_daily_short_term_specialty_packet.py || true
+          git add scripts/build_volume_breakout_watch.py || true
+          git add scripts/validate_volume_breakout_watch.py || true
           git add scripts/research_weekly_surge_technical_grid.py || true
           git add scripts/research_weekly_surge_multifactor_grid.py || true
           git add scripts/build_weekly_surge_multifactor_candidates.py || true
@@ -149,6 +173,7 @@ jobs:
           git add scripts/update_daily_candidate_signal_performance.py || true
           git add scripts/generate_daily_signal_performance_report.py || true
           git add scripts/validate_daily_signal_performance.py || true
+          git add scripts/update_catalyst_performance.py || true
           git add .github/workflows/research_backtest_pipeline.yml || true
 
           git status --short

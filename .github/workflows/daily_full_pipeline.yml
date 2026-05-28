@@ -87,15 +87,11 @@ jobs:
         run: |
           python build_revenue_breakout_low_response.py
 
-      - name: Run current holdings pattern analysis
-        run: |
-          python current_holdings_pattern.py
-
       - name: Build data freshness status after stock monitor
         run: |
           python build_data_freshness_latest.py
 
-      - name: Commit daily stock monitor and current holdings output
+      - name: Commit daily stock monitor output
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
@@ -126,16 +122,12 @@ jobs:
           git add output/latest/revenue_breakout_low_response_latest.csv || true
           git add output/latest/revenue_breakout_low_response_latest.md || true
 
-          git add output/latest/current_holdings_pattern_latest.csv || true
-          git add output/latest/current_holdings_pattern_latest.md || true
-          git add output/latest/charts/current_holdings/ || true
-
           git add output/latest/data_freshness_latest.md || true
           git add output/latest/data_freshness_latest.csv || true
           git add scripts/build_stock_price_history.py || true
 
           git status --short
-          git commit -m "Update daily stock monitor and current holdings report" || echo "No changes to commit"
+          git commit -m "Update daily stock monitor report" || echo "No changes to commit"
 
           bash scripts/ci_push_with_retry.sh "$TARGET_BRANCH" 5
 
@@ -272,10 +264,10 @@ jobs:
           python scripts/build_daily_theme_leadership_layer.py
           python scripts/validate_daily_theme_leadership_layer.py
 
-      - name: Build volume breakout watch and backtest
+      - name: Build volume breakout watch
         run: |
-          python scripts/build_volume_breakout_watch.py
-          python scripts/validate_volume_breakout_watch.py
+          python scripts/build_volume_breakout_watch.py --latest-only
+          python scripts/validate_volume_breakout_watch.py --latest-only
 
       - name: Build volume attack theme layer
         run: |
@@ -290,10 +282,6 @@ jobs:
         run: |
           python scripts/update_daily_theme_status_history.py
 
-      - name: Update catalyst performance tracking
-        run: |
-          python scripts/update_catalyst_performance.py
-
       - name: Build data freshness status
         run: |
           python build_data_freshness_latest.py
@@ -307,10 +295,6 @@ jobs:
           python scripts/fetch_futures_options_indicators.py
           python scripts/build_market_regime_dashboard.py
           python scripts/validate_market_regime_dashboard.py
-
-      - name: Build TDCC overheated short-term edge
-        run: |
-          python scripts/build_tdcc_overheated_short_term_edge.py
 
       - name: Build daily short-term specialty packet
         run: |
@@ -363,8 +347,6 @@ jobs:
           cp output/latest/daily_market_curated_report_latest.pdf docs/latest/daily_market_curated_report_latest.pdf || true
           cp output/latest/daily_market_full_table_report_latest.pdf docs/latest/daily_market_full_table_report_latest.pdf || true
           cp output/latest/daily_market_report_validation_latest.md docs/latest/daily_market_report_validation_latest.md || true
-          cp output/latest/daily_signal_performance_weekly_latest.pdf docs/latest/daily_signal_performance_weekly_latest.pdf || true
-          cp output/latest/daily_signal_performance_monthly_latest.pdf docs/latest/daily_signal_performance_monthly_latest.pdf || true
           cp output/latest/warrant_market_report_latest.pdf docs/latest/warrant_market_report_latest.pdf || true
           cp output/latest/catalyst_summary_latest.md docs/latest/catalyst_summary_latest.md || true
           cp output/latest/catalyst_layer_validation_latest.md docs/latest/catalyst_layer_validation_latest.md || true
@@ -375,16 +357,6 @@ jobs:
           cp output/latest/catalyst_needs_review_latest.md docs/latest/catalyst_needs_review_latest.md || true
           cp output/latest/daily_theme_status_history_latest.csv docs/latest/daily_theme_status_history_latest.csv || true
           cp output/latest/daily_theme_status_history_latest.md docs/latest/daily_theme_status_history_latest.md || true
-          cp output/latest/weekly_surge_technical_filter_grid_latest.csv docs/latest/weekly_surge_technical_filter_grid_latest.csv || true
-          cp output/latest/weekly_surge_technical_filter_grid_latest.md docs/latest/weekly_surge_technical_filter_grid_latest.md || true
-          cp output/latest/weekly_surge_multifactor_filter_grid_latest.csv docs/latest/weekly_surge_multifactor_filter_grid_latest.csv || true
-          cp output/latest/weekly_surge_multifactor_filter_grid_latest.md docs/latest/weekly_surge_multifactor_filter_grid_latest.md || true
-          cp output/latest/weekly_surge_multifactor_candidates_latest.csv docs/latest/weekly_surge_multifactor_candidates_latest.csv || true
-          cp output/latest/weekly_surge_multifactor_candidates_latest.md docs/latest/weekly_surge_multifactor_candidates_latest.md || true
-          cp output/latest/weekly_surge_strict_parameter_search_latest.csv docs/latest/weekly_surge_strict_parameter_search_latest.csv || true
-          cp output/latest/weekly_surge_strict_parameter_search_latest.md docs/latest/weekly_surge_strict_parameter_search_latest.md || true
-          cp output/latest/weekly_surge_strict_parameter_candidates_latest.csv docs/latest/weekly_surge_strict_parameter_candidates_latest.csv || true
-          cp output/latest/weekly_surge_strict_parameter_candidates_latest.md docs/latest/weekly_surge_strict_parameter_candidates_latest.md || true
           cp output/latest/daily_short_term_specialty_packet_latest.md docs/latest/daily_short_term_specialty_packet_latest.md || true
           cp output/latest/non_revenue_momentum_watch_latest.csv docs/latest/non_revenue_momentum_watch_latest.csv || true
           cp output/latest/non_revenue_momentum_watch_latest.md docs/latest/non_revenue_momentum_watch_latest.md || true
@@ -404,295 +376,26 @@ jobs:
 
           git pull --rebase --autostash origin "$TARGET_BRANCH" || true
 
-          git add output/latest/chart_manifest.csv || true
-          git add output/latest/contact_sheet_manifest.csv || true
-          git add output/latest/charts/ || true
-          git add output/latest/contact_sheets/ || true
-          git add data/institutional_investor_flow/ || true
-          git add output/latest/institutional_investor_flow_latest.csv || true
-          git add output/latest/all_candidates_latest.csv || true
-          git add output/latest/all_candidates_latest.xlsx || true
-          git add output/latest/all_candidates_latest.md || true
-
-          git add output/latest/stock_monitor_latest.md || true
-          git add output/latest/breakout_latest.csv || true
-          git add output/latest/range_rebound_watch_latest.csv || true
-          git add output/latest/daily_pattern_watch_latest.csv || true
-          git add output/latest/daily_candidate_regression_2484_latest.csv || true
-          git add output/latest/daily_candidate_regression_2484_latest.md || true
-          git add output/latest/daily_candidate_regression_2484_latest.json || true
-          git add output/latest/daily_candidate_regression_8069_latest.csv || true
-          git add output/latest/daily_candidate_regression_8069_latest.md || true
-          git add output/latest/daily_candidate_regression_8069_latest.json || true
-          git add output/latest/revenue_pullback_latest.csv || true
-          git add output/latest/pullback_rebound_latest.csv || true
-
-          git add output/latest/revenue_breakout_low_response_latest.csv || true
-          git add output/latest/revenue_breakout_low_response_latest.md || true
-
-          git add output/latest/current_holdings_pattern_latest.csv || true
-          git add output/latest/current_holdings_pattern_latest.md || true
-          git add output/latest/charts/current_holdings/ || true
-
-          git add output/latest/warrant_daily_raw_latest.csv || true
-          git add output/latest/warrant_daily_fetch_latest.md || true
-          git add output/latest/warrant_flow_latest.csv || true
-          git add output/latest/warrant_flow_latest.md || true
-          git add output/latest/warrant_flow_merge_latest.md || true
-
-          git add output/debug/warrant_fetch_debug_latest.md || true
-          git add output/debug/warrant_fetch_debug_latest.csv || true
-          git add output/history/warrant_daily/ || true
-          git add output/history/warrant_flow/ || true
-
-          git add output/latest/data_freshness_latest.md || true
-          git add output/latest/data_freshness_latest.csv || true
-          git add output/latest/revenue_industry_applicability_latest.md || true
-          git add output/latest/fundamental_catalyst_layer_latest.md || true
-          git add data/theme_events/ || true
-          git add data/company_calendar/ || true
-          git add data/macro_events/ || true
-          git add data/fundamental_catalysts/ || true
-          git add data/event_catalysts/ || true
-          git add output/history/catalyst_performance/ || true
-          git add output/latest/catalyst_data_source_status_latest.md || true
-          git add output/latest/catalyst_data_source_status_latest.json || true
-          git add output/latest/catalyst_summary_latest.csv || true
-          git add output/latest/catalyst_summary_latest.md || true
-          git add output/latest/catalyst_layer_validation_latest.md || true
-          git add output/latest/catalyst_layer_validation_latest.json || true
-          git add output/latest/upcoming_catalyst_calendar_latest.csv || true
-          git add output/latest/upcoming_catalyst_calendar_latest.md || true
-          git add output/latest/upcoming_macro_event_calendar_latest.csv || true
-          git add output/latest/upcoming_macro_event_calendar_latest.md || true
-          git add output/latest/calendar_data_source_status_latest.md || true
-          git add output/latest/calendar_data_source_status_latest.json || true
-          git add output/latest/catalyst_needs_review_latest.csv || true
-          git add output/latest/catalyst_needs_review_latest.md || true
-          git add output/latest/event_calendar_validation_latest.md || true
-          git add output/latest/event_calendar_validation_latest.json || true
-
-          git add output/latest/report_manifest_latest.md || true
-          git add output/latest/report_manifest_latest.json || true
-          git add output/latest/pdf_kline_chart_status_latest.csv || true
-          git add output/latest/pdf_kline_chart_status_latest.json || true
-          git add output/latest/pdf_kline_chart_status_latest.md || true
-          git add output/latest/daily_market_curated_report_latest.pdf || true
-          git add output/latest/daily_market_full_table_report_latest.pdf || true
-          git add output/latest/daily_market_pdf_report_manifest_latest.json || true
-          git add output/latest/daily_market_pdf_report_manifest_latest.md || true
-          git add output/latest/daily_market_report_validation_latest.json || true
-          git add output/latest/daily_market_report_validation_latest.md || true
-          git add output/latest/daily_signal_performance_summary_latest.csv || true
-          git add output/latest/daily_signal_performance_summary_latest.md || true
-          git add output/latest/daily_signal_performance_weekly_latest.md || true
-          git add output/latest/daily_signal_performance_weekly_latest.pdf || true
-          git add output/latest/daily_signal_performance_monthly_latest.md || true
-          git add output/latest/daily_signal_performance_monthly_latest.pdf || true
-          git add output/latest/daily_signal_performance_validation_latest.md || true
-          git add output/latest/candidate_repeat_appearance_latest.csv || true
-          git add output/latest/candidate_repeat_appearance_latest.md || true
-          git add output/latest/candidate_repeat_appearance_validation_latest.json || true
-          git add output/latest/candidate_repeat_appearance_validation_latest.md || true
-          git add output/latest/daily_candidate_decision_latest.csv || true
-          git add output/latest/daily_candidate_decision_latest.md || true
-          git add output/latest/daily_candidate_decision_chatgpt_packet_latest.md || true
-          git add output/latest/daily_candidate_decision_validation_latest.json || true
-          git add output/latest/daily_candidate_decision_validation_latest.md || true
-          git add output/latest/daily_theme_leadership_latest.csv || true
-          git add output/latest/daily_theme_leadership_latest.md || true
-          git add output/latest/daily_candidate_two_line_view_latest.csv || true
-          git add output/latest/daily_candidate_two_line_view_latest.md || true
-          git add output/latest/daily_theme_leadership_validation_latest.json || true
-          git add output/latest/daily_theme_leadership_validation_latest.md || true
-          git add output/latest/volume_breakout_watch_latest.csv || true
-          git add output/latest/volume_breakout_watch_latest.md || true
-          git add output/latest/volume_breakout_backtest_latest.csv || true
-          git add output/latest/volume_breakout_backtest_latest.md || true
-          git add output/latest/volume_breakout_chatgpt_packet_latest.md || true
-          git add output/latest/volume_attack_theme_layer_latest.csv || true
-          git add output/latest/volume_attack_theme_layer_latest.md || true
-          git add output/latest/volume_attack_theme_stocks_latest.csv || true
-          git add output/latest/volume_attack_theme_stocks_latest.md || true
-          git add output/latest/volume_attack_theme_layer_validation_latest.json || true
-          git add output/latest/volume_attack_theme_layer_validation_latest.md || true
-          git add output/latest/daily_theme_status_history_latest.csv || true
-          git add output/latest/daily_theme_status_history_latest.md || true
-          git add output/history/volume_breakout/ || true
+          # Daily pipeline only stages daily report outputs and source data.
+          # Heavy research/backtest outputs are maintained by research_backtest_pipeline.yml.
+          git add output/latest/ docs/latest/ || true
+          git add data/institutional_investor_flow/ data/warrant_daily/ data/warrant_flow_by_stock/ data/futures_options/ || true
+          git add data/theme_events/ data/company_calendar/ data/macro_events/ data/fundamental_catalysts/ data/event_catalysts/ || true
+          git add data/market_index_history.csv data/market_index_ohlc_history.csv || true
+          git add output/history/reports/ output/history/warrant_daily/ output/history/warrant_flow/ || true
+          git add output/history/daily_signals/daily_candidate_signal_log.csv || true
           git add output/history/daily_signals/daily_theme_status_history.csv || true
           git add output/history/daily_candidates/daily_theme_status_history.csv || true
-          git add output/latest/chatgpt_indicator_usage_guide_latest.md || true
-          git add output/latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt || true
-          git add docs/latest/chatgpt_indicator_usage_guide_latest.md || true
-          git add docs/latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt || true
-          git add output/history/daily_signals/ || true
-          git add output/history/daily_candidates/ || true
-          git add output/history/surge_model/ || true
-          git add output/latest/surge_model_feature_importance_latest.csv || true
-          git add output/latest/surge_model_feature_importance_latest.md || true
-          git add output/latest/surge_model_score_latest.csv || true
-          git add output/latest/surge_model_score_latest.md || true
-          git add output/latest/surge_precondition_candidates_latest.csv || true
-          git add output/latest/surge_precondition_candidates_latest.md || true
-          git add output/latest/surge_model_backtest_latest.csv || true
-          git add output/latest/surge_model_backtest_latest.md || true
-          git add output/latest/surge_model_chatgpt_packet_latest.md || true
-          git add output/latest/surge_model_validation_latest.json || true
-          git add output/latest/surge_model_validation_latest.md || true
-          git add data/market_index_history.csv || true
-          git add data/market_index_ohlc_history.csv || true
-          git add output/latest/market_benchmark_latest.csv || true
-          git add output/history/market_timing/ || true
-          git add output/latest/market_timing_backtest_latest.csv || true
-          git add output/latest/market_timing_backtest_latest.md || true
-          git add output/latest/market_timing_composite_backtest_latest.csv || true
-          git add output/latest/market_timing_composite_backtest_latest.md || true
-          git add output/latest/market_timing_regime_effectiveness_latest.csv || true
-          git add output/latest/market_timing_regime_effectiveness_latest.md || true
-          git add output/latest/market_timing_chatgpt_packet_latest.md || true
-          git add output/latest/tdcc_overheated_short_term_edge_latest.csv || true
-          git add output/latest/tdcc_overheated_short_term_edge_latest.md || true
-          git add output/latest/tdcc_overheated_short_term_edge_candidates_latest.csv || true
-          git add output/latest/weekly_surge_technical_filter_grid_latest.csv || true
-          git add output/latest/weekly_surge_technical_filter_grid_latest.md || true
-          git add output/history/research/weekly_surge_technical_filter_grid.csv || true
-          git add output/latest/weekly_surge_multifactor_filter_grid_latest.csv || true
-          git add output/latest/weekly_surge_multifactor_filter_grid_latest.md || true
-          git add output/history/research/weekly_surge_multifactor_filter_grid.csv || true
-          git add output/latest/weekly_surge_multifactor_candidates_latest.csv || true
-          git add output/latest/weekly_surge_multifactor_candidates_latest.md || true
-          git add output/history/research/weekly_surge_multifactor_candidates.csv || true
-          git add output/latest/weekly_surge_strict_parameter_search_latest.csv || true
-          git add output/latest/weekly_surge_strict_parameter_search_latest.md || true
-          git add output/history/research/weekly_surge_strict_parameter_search.csv || true
-          git add output/latest/weekly_surge_strict_parameter_candidates_latest.csv || true
-          git add output/latest/weekly_surge_strict_parameter_candidates_latest.md || true
-          git add output/history/research/weekly_surge_strict_parameter_candidates.csv || true
-          git add output/latest/daily_short_term_specialty_packet_latest.md || true
-          git add output/latest/non_revenue_momentum_watch_latest.csv || true
-          git add output/latest/non_revenue_momentum_watch_latest.md || true
-          git add data/warrant_daily/ || true
-          git add data/warrant_flow_by_stock/ || true
-          git add output/latest/warrant_market_report_latest.md || true
-          git add output/latest/warrant_market_report_latest.pdf || true
-          git add output/latest/warrant_flow_by_stock_latest.csv || true
-          git add output/latest/warrant_sector_heat_latest.csv || true
-          git add output/latest/warrant_signal_performance_latest.md || true
-
-          git add output/latest/每日全市場候選股監測報告_精華版.md || true
-          git add output/latest/每日全市場候選股監測報告_精華版.pdf || true
-          git add output/latest/完整候選股清單_完整版.md || true
-          git add output/latest/完整候選股清單_完整版表格.pdf || true
-
-          git add output/latest/daily_market_summary_latest.md || true
-          git add output/latest/daily_market_summary_latest.pdf || true
-          git add output/latest/daily_market_full_latest.md || true
-          git add output/latest/daily_market_full_latest.pdf || true
-
-          git add output/latest/chatgpt_daily_report_packet_latest.txt || true
-          git add output/latest/CHATGPT_DAILY_REPORT_PACKET.txt || true
-          git add output/latest/chatgpt_daily_report_packet_manifest.json || true
-
-          git add output/latest/CHATGPT_DAILY_REPORT_RULES.txt || true
-          git add docs/latest/CHATGPT_DAILY_REPORT_RULES.txt || true
-
-          git add output/history/reports/ || true
-
-          git add docs/latest/chatgpt_daily_report_packet_latest.txt || true
-          git add docs/latest/READ_ME_FIRST_DAILY_REPORT.txt || true
-          git add docs/latest/pdf_kline_chart_status_latest.md || true
-          git add docs/latest/daily_market_curated_report_latest.pdf || true
-          git add docs/latest/daily_market_full_table_report_latest.pdf || true
-          git add docs/latest/daily_market_report_validation_latest.md || true
-          git add docs/latest/daily_theme_leadership_latest.csv || true
-          git add docs/latest/daily_theme_leadership_latest.md || true
-          git add docs/latest/daily_candidate_two_line_view_latest.csv || true
-          git add docs/latest/daily_candidate_two_line_view_latest.md || true
-          git add docs/latest/tdcc_overheated_short_term_edge_latest.csv || true
-          git add docs/latest/tdcc_overheated_short_term_edge_latest.md || true
-          git add docs/latest/tdcc_overheated_short_term_edge_candidates_latest.csv || true
-          git add docs/latest/weekly_surge_technical_filter_grid_latest.csv || true
-          git add docs/latest/weekly_surge_technical_filter_grid_latest.md || true
-          git add docs/latest/weekly_surge_multifactor_filter_grid_latest.csv || true
-          git add docs/latest/weekly_surge_multifactor_filter_grid_latest.md || true
-          git add docs/latest/weekly_surge_multifactor_candidates_latest.csv || true
-          git add docs/latest/weekly_surge_multifactor_candidates_latest.md || true
-          git add docs/latest/weekly_surge_strict_parameter_search_latest.csv || true
-          git add docs/latest/weekly_surge_strict_parameter_search_latest.md || true
-          git add docs/latest/weekly_surge_strict_parameter_candidates_latest.csv || true
-          git add docs/latest/weekly_surge_strict_parameter_candidates_latest.md || true
-          git add docs/latest/daily_short_term_specialty_packet_latest.md || true
-          git add docs/latest/non_revenue_momentum_watch_latest.csv || true
-          git add docs/latest/non_revenue_momentum_watch_latest.md || true
-          git add docs/latest/volume_attack_theme_layer_latest.csv || true
-          git add docs/latest/volume_attack_theme_layer_latest.md || true
-          git add docs/latest/volume_attack_theme_stocks_latest.csv || true
-          git add docs/latest/volume_attack_theme_stocks_latest.md || true
-          git add docs/latest/daily_theme_status_history_latest.csv || true
-          git add docs/latest/daily_theme_status_history_latest.md || true
-          git add docs/latest/daily_signal_performance_weekly_latest.pdf || true
-          git add docs/latest/daily_signal_performance_monthly_latest.pdf || true
-          git add docs/latest/warrant_market_report_latest.pdf || true
-          git add docs/latest/upcoming_catalyst_calendar_latest.md || true
-          git add docs/latest/upcoming_macro_event_calendar_latest.md || true
-          git add docs/latest/calendar_data_source_status_latest.md || true
-          git add docs/latest/event_calendar_validation_latest.md || true
-          git add docs/latest/catalyst_needs_review_latest.md || true
-
-          git add build_data_freshness_latest.py || true
-          git add build_daily_market_report_artifacts.py || true
-          git add ensure_report_aliases.py || true
-          git add build_chatgpt_daily_report_packet.py || true
-          git add build_chatgpt_daily_report_rules.py || true
-          git add current_holdings_pattern.py || true
-          git add config/current_holdings.json || true
-          git add scripts/fetch_official_warrant_daily.py || true
-          git add scripts/tracking_utils.py || true
-          git add scripts/apply_revenue_industry_applicability.py || true
-          git add scripts/apply_fundamental_catalyst_layer.py || true
-          git add scripts/update_event_calendar_data.py || true
-          git add scripts/validate_event_calendar_data.py || true
-          git add docs/fundamental_catalyst_layer.md || true
-          git add docs/event_calendar_data_layer.md || true
-          git add scripts/update_market_index_history.py || true
-          git add scripts/build_market_timing_technical_backtest.py || true
-          git add scripts/build_tdcc_overheated_short_term_edge.py || true
-          git add scripts/build_daily_short_term_specialty_packet.py || true
-          git add scripts/update_daily_candidate_signal_log.py || true
-          git add scripts/build_candidate_repeat_appearance.py || true
-          git add scripts/validate_candidate_repeat_appearance.py || true
-          git add scripts/build_daily_candidate_decision_layer.py || true
-          git add scripts/validate_daily_candidate_decision_layer.py || true
-          git add scripts/build_daily_theme_leadership_layer.py || true
-          git add scripts/validate_daily_theme_leadership_layer.py || true
-          git add scripts/build_volume_breakout_watch.py || true
-          git add scripts/validate_volume_breakout_watch.py || true
-          git add scripts/build_volume_attack_theme_layer.py || true
-          git add scripts/validate_volume_attack_theme_layer.py || true
-          git add scripts/update_daily_theme_status_history.py || true
-          git add scripts/update_daily_candidate_signal_performance.py || true
-          git add scripts/generate_daily_signal_performance_report.py || true
-          git add scripts/validate_daily_signal_performance.py || true
-          git add scripts/build_surge_precondition_model.py || true
-          git add scripts/validate_surge_precondition_model.py || true
-          git add scripts/build_warrant_market_report.py || true
-          git add build_warrant_flow_latest.py || true
-          git add merge_warrant_flow_into_candidates.py || true
-          git add build_all_candidates_latest.py || true
-          git add fetch_official_daily_price.py || true
-          git add stock_daily_monitor.py || true
-          git add scripts/generate_daily_market_pdf.py || true
-          git add scripts/validate_daily_market_report.py || true
+          git add docs/data/stock_price_history/ docs/data/tdcc_stock_history/ || true
 
           git status --short
-          git commit -m "Update report artifacts, ChatGPT packet, and rules" || echo "No changes to commit"
+          git commit -m "Update daily report artifacts and packets" || echo "No changes to commit"
 
           bash scripts/ci_push_with_retry.sh "$TARGET_BRANCH" 5
 
           ARTIFACT_COMMIT_SHA=$(git rev-parse HEAD)
           echo "ARTIFACT_COMMIT_SHA=$ARTIFACT_COMMIT_SHA" >> "$GITHUB_ENV"
           echo "Artifact commit sha: $ARTIFACT_COMMIT_SHA"
-
       - name: Wait briefly for GitHub Pages and raw propagation
         run: |
           sleep 30
@@ -724,277 +427,22 @@ jobs:
 
           git pull --rebase --autostash origin "$TARGET_BRANCH" || true
 
-          git add output/latest/READ_ME_FIRST_DAILY_REPORT.txt || true
-          git add output/latest/READ_ME_FIRST_DAILY_REPORT_*.txt || true
-          git add output/latest/READ_ME_FIRST_DAILY_REPORT_INDEX.txt || true
-          git add output/latest/READ_ME_FIRST_DAILY_REPORT_INDEX.json || true
-          git add output/latest/report_publish_check_latest.md || true
-          git add output/latest/report_publish_check_latest.json || true
-
-          git add docs/latest/READ_ME_FIRST_DAILY_REPORT.txt || true
-          git add docs/latest/READ_ME_FIRST_DAILY_REPORT_*.txt || true
-          git add docs/latest/READ_ME_FIRST_DAILY_REPORT_INDEX.txt || true
-          git add docs/latest/READ_ME_FIRST_DAILY_REPORT_INDEX.json || true
-          git add docs/latest/chatgpt_daily_report_packet_latest.txt || true
-          git add docs/latest/CHATGPT_DAILY_REPORT_RULES.txt || true
-          git add docs/latest/pdf_kline_chart_status_latest.md || true
-          git add docs/latest/daily_market_curated_report_latest.pdf || true
-          git add docs/latest/daily_market_full_table_report_latest.pdf || true
-          git add docs/latest/daily_market_report_validation_latest.md || true
-          git add docs/latest/daily_theme_leadership_latest.csv || true
-          git add docs/latest/daily_theme_leadership_latest.md || true
-          git add docs/latest/daily_candidate_two_line_view_latest.csv || true
-          git add docs/latest/daily_candidate_two_line_view_latest.md || true
-          git add docs/latest/volume_attack_theme_layer_latest.csv || true
-          git add docs/latest/volume_attack_theme_layer_latest.md || true
-          git add docs/latest/volume_attack_theme_stocks_latest.csv || true
-          git add docs/latest/volume_attack_theme_stocks_latest.md || true
-          git add docs/latest/daily_theme_status_history_latest.csv || true
-          git add docs/latest/daily_theme_status_history_latest.md || true
-          git add docs/latest/daily_signal_performance_weekly_latest.pdf || true
-          git add docs/latest/daily_signal_performance_monthly_latest.pdf || true
-          git add docs/latest/warrant_market_report_latest.pdf || true
-          git add docs/latest/upcoming_catalyst_calendar_latest.md || true
-          git add docs/latest/upcoming_macro_event_calendar_latest.md || true
-          git add docs/latest/calendar_data_source_status_latest.md || true
-          git add docs/latest/event_calendar_validation_latest.md || true
-          git add docs/latest/catalyst_needs_review_latest.md || true
-          git add docs/latest/raw_data_fetch_status_latest.csv || true
-          git add docs/latest/raw_data_fetch_status_latest.md || true
-          git add docs/latest/individual_stock_available_raw_data_index.csv || true
-          git add docs/latest/individual_stock_available_raw_data_index.md || true
-          git add docs/latest/individual_stock_available_raw_data_index_slim.csv || true
-          git add docs/latest/individual_stock_available_raw_data_index_slim.md || true
-          git add docs/latest/individual_stock_read_protocol_latest.md || true
-          git add docs/latest/individual_stock_reports_index.csv || true
-          git add docs/latest/individual_stock_reports_index.md || true
-          git add docs/latest/individual_stock_chatgpt_packet_index.csv || true
-          git add docs/latest/individual_stock_chatgpt_packet_index.md || true
-          git add docs/latest/individual_stock_chatgpt_packets/ || true
-          git add docs/latest/individual_stock_price_windows/ || true
-          git add docs/latest/individual_stock_tdcc_windows/ || true
-
+          # Publish step only commits readme, URL checks, ChatGPT entry files, and individual-stock mirrors.
+          git add output/latest/READ_ME_FIRST_DAILY_REPORT*.txt || true
+          git add output/latest/READ_ME_FIRST_DAILY_REPORT_INDEX.* || true
+          git add output/latest/report_publish_check_latest.* || true
+          git add output/latest/raw_data_fetch_status_latest.* || true
+          git add output/latest/individual_stock_* || true
+          git add output/latest/pdf_kline_chart_status_latest.* || true
+          git add output/latest/chatgpt_daily_report_packet_latest.txt || true
+          git add output/latest/CHATGPT_DAILY_REPORT_PACKET.txt || true
           git add output/latest/CHATGPT_DAILY_REPORT_RULES.txt || true
-          git add output/latest/pdf_kline_chart_status_latest.csv || true
-          git add output/latest/pdf_kline_chart_status_latest.json || true
-          git add output/latest/pdf_kline_chart_status_latest.md || true
-          git add output/latest/daily_market_curated_report_latest.pdf || true
-          git add output/latest/daily_market_full_table_report_latest.pdf || true
-          git add output/latest/daily_market_pdf_report_manifest_latest.json || true
-          git add output/latest/daily_market_pdf_report_manifest_latest.md || true
-          git add output/latest/daily_market_report_validation_latest.json || true
-          git add output/latest/daily_market_report_validation_latest.md || true
-          git add output/latest/daily_signal_performance_summary_latest.csv || true
-          git add output/latest/daily_signal_performance_summary_latest.md || true
-          git add output/latest/daily_signal_performance_weekly_latest.md || true
-          git add output/latest/daily_signal_performance_weekly_latest.pdf || true
-          git add output/latest/daily_signal_performance_monthly_latest.md || true
-          git add output/latest/daily_signal_performance_monthly_latest.pdf || true
-          git add output/latest/daily_signal_performance_validation_latest.md || true
-          git add output/latest/raw_data_fetch_status_latest.csv || true
-          git add output/latest/raw_data_fetch_status_latest.md || true
-          git add output/latest/individual_stock_available_raw_data_index.csv || true
-          git add output/latest/individual_stock_available_raw_data_index.md || true
-          git add output/latest/individual_stock_available_raw_data_index_slim.csv || true
-          git add output/latest/individual_stock_available_raw_data_index_slim.md || true
-          git add output/latest/individual_stock_read_protocol_latest.md || true
-          git add output/latest/individual_stock_reports_index.csv || true
-          git add output/latest/individual_stock_reports_index.md || true
-          git add output/latest/individual_stock_chatgpt_packet_index.csv || true
-          git add output/latest/individual_stock_chatgpt_packet_index.md || true
-          git add output/latest/individual_stock_chatgpt_packets/ || true
-          git add output/latest/individual_stock_price_windows/ || true
-          git add output/latest/individual_stock_tdcc_windows/ || true
-          git add output/latest/candidate_repeat_appearance_latest.csv || true
-          git add output/latest/candidate_repeat_appearance_latest.md || true
-          git add output/latest/candidate_repeat_appearance_validation_latest.json || true
-          git add output/latest/candidate_repeat_appearance_validation_latest.md || true
-          git add output/latest/daily_candidate_decision_latest.csv || true
-          git add output/latest/daily_candidate_decision_latest.md || true
-          git add output/latest/daily_candidate_decision_chatgpt_packet_latest.md || true
-          git add output/latest/daily_candidate_decision_validation_latest.json || true
-          git add output/latest/daily_candidate_decision_validation_latest.md || true
-          git add output/latest/daily_theme_leadership_latest.csv || true
-          git add output/latest/daily_theme_leadership_latest.md || true
-          git add output/latest/daily_candidate_two_line_view_latest.csv || true
-          git add output/latest/daily_candidate_two_line_view_latest.md || true
-          git add output/latest/daily_theme_leadership_validation_latest.json || true
-          git add output/latest/daily_theme_leadership_validation_latest.md || true
-          git add output/latest/volume_attack_theme_layer_latest.csv || true
-          git add output/latest/volume_attack_theme_layer_latest.md || true
-          git add output/latest/volume_attack_theme_stocks_latest.csv || true
-          git add output/latest/volume_attack_theme_stocks_latest.md || true
-          git add output/latest/volume_attack_theme_layer_validation_latest.json || true
-          git add output/latest/volume_attack_theme_layer_validation_latest.md || true
-          git add output/latest/daily_theme_status_history_latest.csv || true
-          git add output/latest/daily_theme_status_history_latest.md || true
-          git add output/history/daily_signals/daily_theme_status_history.csv || true
-          git add output/history/daily_candidates/daily_theme_status_history.csv || true
-          git add output/latest/tdcc_overheated_short_term_edge_latest.csv || true
-          git add output/latest/tdcc_overheated_short_term_edge_latest.md || true
-          git add output/latest/tdcc_overheated_short_term_edge_candidates_latest.csv || true
-          git add output/latest/weekly_surge_technical_filter_grid_latest.csv || true
-          git add output/latest/weekly_surge_technical_filter_grid_latest.md || true
-          git add output/history/research/weekly_surge_technical_filter_grid.csv || true
-          git add output/latest/weekly_surge_multifactor_filter_grid_latest.csv || true
-          git add output/latest/weekly_surge_multifactor_filter_grid_latest.md || true
-          git add output/history/research/weekly_surge_multifactor_filter_grid.csv || true
-          git add output/latest/weekly_surge_multifactor_candidates_latest.csv || true
-          git add output/latest/weekly_surge_multifactor_candidates_latest.md || true
-          git add output/history/research/weekly_surge_multifactor_candidates.csv || true
-          git add output/latest/weekly_surge_strict_parameter_search_latest.csv || true
-          git add output/latest/weekly_surge_strict_parameter_search_latest.md || true
-          git add output/history/research/weekly_surge_strict_parameter_search.csv || true
-          git add output/latest/weekly_surge_strict_parameter_candidates_latest.csv || true
-          git add output/latest/weekly_surge_strict_parameter_candidates_latest.md || true
-          git add output/history/research/weekly_surge_strict_parameter_candidates.csv || true
-          git add output/latest/daily_short_term_specialty_packet_latest.md || true
-          git add output/latest/non_revenue_momentum_watch_latest.csv || true
-          git add output/latest/non_revenue_momentum_watch_latest.md || true
-          git add docs/latest/tdcc_overheated_short_term_edge_latest.csv || true
-          git add docs/latest/tdcc_overheated_short_term_edge_latest.md || true
-          git add docs/latest/tdcc_overheated_short_term_edge_candidates_latest.csv || true
-          git add docs/latest/weekly_surge_technical_filter_grid_latest.csv || true
-          git add docs/latest/weekly_surge_technical_filter_grid_latest.md || true
-          git add docs/latest/weekly_surge_multifactor_filter_grid_latest.csv || true
-          git add docs/latest/weekly_surge_multifactor_filter_grid_latest.md || true
-          git add docs/latest/weekly_surge_multifactor_candidates_latest.csv || true
-          git add docs/latest/weekly_surge_multifactor_candidates_latest.md || true
-          git add docs/latest/weekly_surge_strict_parameter_search_latest.csv || true
-          git add docs/latest/weekly_surge_strict_parameter_search_latest.md || true
-          git add docs/latest/weekly_surge_strict_parameter_candidates_latest.csv || true
-          git add docs/latest/weekly_surge_strict_parameter_candidates_latest.md || true
-          git add docs/latest/daily_short_term_specialty_packet_latest.md || true
-          git add docs/latest/non_revenue_momentum_watch_latest.csv || true
-          git add docs/latest/non_revenue_momentum_watch_latest.md || true
           git add output/latest/chatgpt_indicator_usage_guide_latest.md || true
           git add output/latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt || true
-          git add docs/latest/chatgpt_indicator_usage_guide_latest.md || true
-          git add docs/latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt || true
-          git add output/history/daily_signals/ || true
-          git add output/history/daily_candidates/ || true
-          git add output/history/surge_model/ || true
-          git add output/latest/surge_model_feature_importance_latest.csv || true
-          git add output/latest/surge_model_feature_importance_latest.md || true
-          git add output/latest/surge_model_score_latest.csv || true
-          git add output/latest/surge_model_score_latest.md || true
-          git add output/latest/surge_precondition_candidates_latest.csv || true
-          git add output/latest/surge_precondition_candidates_latest.md || true
-          git add output/latest/surge_model_backtest_latest.csv || true
-          git add output/latest/surge_model_backtest_latest.md || true
-          git add output/latest/surge_model_chatgpt_packet_latest.md || true
-          git add output/latest/surge_model_validation_latest.json || true
-          git add output/latest/surge_model_validation_latest.md || true
-          git add data/market_index_history.csv || true
-          git add data/market_index_ohlc_history.csv || true
-          git add output/latest/market_benchmark_latest.csv || true
-          git add output/history/market_timing/ || true
-          git add output/latest/market_timing_backtest_latest.csv || true
-          git add output/latest/market_timing_backtest_latest.md || true
-          git add output/latest/market_timing_composite_backtest_latest.csv || true
-          git add output/latest/market_timing_composite_backtest_latest.md || true
-          git add output/latest/market_timing_regime_effectiveness_latest.csv || true
-          git add output/latest/market_timing_regime_effectiveness_latest.md || true
-          git add output/latest/market_timing_chatgpt_packet_latest.md || true
-          git add data/futures_options/ || true
-          git add output/latest/futures_options_indicators_latest.csv || true
-          git add output/latest/futures_options_institutional_fo_latest.csv || true
-          git add output/latest/futures_options_contracts_latest.csv || true
-          git add output/latest/futures_options_call_put_latest.csv || true
-          git add output/latest/futures_options_put_call_ratio_latest.csv || true
-          git add output/latest/futures_options_source_status_latest.json || true
-          git add output/latest/futures_options_source_status_latest.md || true
-          git add output/latest/taiwan_vix_latest.csv || true
-          git add output/latest/market_regime_latest.csv || true
-          git add output/latest/market_risk_dashboard_latest.md || true
-          git add output/latest/market_risk_dashboard_latest.pdf || true
-          git add output/latest/charts/market_regime/ || true
-          git add output/latest/market_risk_dashboard_manifest_latest.json || true
-          git add docs/latest/market_risk_dashboard_latest.pdf || true
-          git add output/latest/institutional_investor_flow_latest.csv || true
-          git add data/institutional_investor_flow/ || true
-          git add output/latest/warrant_market_report_latest.md || true
-          git add output/latest/warrant_market_report_latest.pdf || true
-          git add output/latest/warrant_flow_by_stock_latest.csv || true
-          git add output/latest/warrant_sector_heat_latest.csv || true
-          git add output/latest/warrant_signal_performance_latest.md || true
-          git add data/warrant_daily/ || true
-          git add data/warrant_flow_by_stock/ || true
-          git add output/latest/fundamental_catalyst_layer_latest.md || true
-          git add data/theme_events/ || true
-          git add data/company_calendar/ || true
-          git add data/macro_events/ || true
-          git add data/fundamental_catalysts/ || true
-          git add data/event_catalysts/ || true
-          git add docs/data/stock_price_history/ || true
-          git add docs/data/tdcc_stock_history/ || true
-          git add output/history/catalyst_performance/ || true
-          git add output/latest/catalyst_data_source_status_latest.md || true
-          git add output/latest/catalyst_data_source_status_latest.json || true
-          git add output/latest/catalyst_summary_latest.csv || true
-          git add output/latest/catalyst_summary_latest.md || true
-          git add output/latest/catalyst_layer_validation_latest.md || true
-          git add output/latest/catalyst_layer_validation_latest.json || true
-          git add output/latest/upcoming_catalyst_calendar_latest.csv || true
-          git add output/latest/upcoming_catalyst_calendar_latest.md || true
-          git add output/latest/upcoming_macro_event_calendar_latest.csv || true
-          git add output/latest/upcoming_macro_event_calendar_latest.md || true
-          git add output/latest/calendar_data_source_status_latest.md || true
-          git add output/latest/calendar_data_source_status_latest.json || true
-          git add output/latest/catalyst_needs_review_latest.csv || true
-          git add output/latest/catalyst_needs_review_latest.md || true
-          git add output/latest/event_calendar_validation_latest.md || true
-          git add output/latest/event_calendar_validation_latest.json || true
-          git add output/history/reports/ || true
-          git add docs/history/reports/ || true
-
-          git add publish_chatgpt_report_readme_and_check.py || true
-          git add scripts/generate_daily_market_pdf.py || true
-          git add scripts/validate_daily_market_report.py || true
-          git add scripts/tracking_utils.py || true
-          git add scripts/apply_fundamental_catalyst_layer.py || true
-          git add scripts/update_event_calendar_data.py || true
-          git add scripts/validate_event_calendar_data.py || true
-          git add scripts/update_event_catalyst_data.py || true
-          git add scripts/update_catalyst_performance.py || true
-          git add scripts/validate_catalyst_layer.py || true
-          git add docs/fundamental_catalyst_layer.md || true
-          git add docs/event_calendar_data_layer.md || true
-          git add scripts/fetch_futures_options_indicators.py || true
-          git add scripts/build_market_regime_dashboard.py || true
-          git add scripts/validate_market_regime_dashboard.py || true
-          git add docs/market_regime_data_source_plan.md || true
-          git add scripts/update_market_index_history.py || true
-          git add scripts/build_market_timing_technical_backtest.py || true
-          git add scripts/build_tdcc_overheated_short_term_edge.py || true
-          git add scripts/research_weekly_surge_technical_grid.py || true
-          git add scripts/research_weekly_surge_multifactor_grid.py || true
-          git add scripts/build_weekly_surge_multifactor_candidates.py || true
-          git add scripts/research_weekly_surge_strict_parameter_search.py || true
-          git add scripts/build_weekly_surge_strict_parameter_candidates.py || true
-          git add scripts/build_daily_short_term_specialty_packet.py || true
-          git add scripts/build_non_revenue_momentum_watch.py || true
-          git add scripts/update_daily_candidate_signal_log.py || true
-          git add scripts/build_candidate_repeat_appearance.py || true
-          git add scripts/validate_candidate_repeat_appearance.py || true
-          git add scripts/build_daily_candidate_decision_layer.py || true
-          git add scripts/validate_daily_candidate_decision_layer.py || true
-          git add scripts/build_daily_theme_leadership_layer.py || true
-          git add scripts/validate_daily_theme_leadership_layer.py || true
-          git add scripts/build_volume_attack_theme_layer.py || true
-          git add scripts/validate_volume_attack_theme_layer.py || true
-          git add scripts/update_daily_theme_status_history.py || true
-          git add scripts/build_chatgpt_indicator_usage_guide.py || true
-          git add scripts/update_daily_candidate_signal_performance.py || true
-          git add scripts/generate_daily_signal_performance_report.py || true
-          git add scripts/validate_daily_signal_performance.py || true
-          git add scripts/build_surge_precondition_model.py || true
-          git add scripts/validate_surge_precondition_model.py || true
-          git add scripts/build_individual_stock_raw_data_index.py || true
-          git add scripts/build_individual_stock_chatgpt_packets.py || true
-          git add scripts/check_raw_data_health.py || true
+          git add docs/latest/ || true
+          git add docs/data/stock_price_history/ docs/data/tdcc_stock_history/ || true
 
           git status --short
-          git commit -m "Publish ChatGPT daily report readme, rules, and multi-entry checks" || echo "No changes to commit"
+          git commit -m "Publish daily report readme and ChatGPT entries" || echo "No changes to commit"
 
           bash scripts/ci_push_with_retry.sh "$TARGET_BRANCH" 5

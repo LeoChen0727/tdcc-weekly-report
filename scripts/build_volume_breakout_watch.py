@@ -5,6 +5,7 @@ from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 from concurrent.futures import ThreadPoolExecutor
+import argparse
 import math
 import os
 from typing import Any
@@ -1207,10 +1208,47 @@ def write_packet(watch: pd.DataFrame, summary: pd.DataFrame, main_date: str) -> 
     PACKET_MD.write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
 
 
+def latest_only_summary() -> pd.DataFrame:
+    if BACKTEST_CSV.exists():
+        return read_csv(BACKTEST_CSV)
+    return pd.DataFrame()
+
+
+def build_arg_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(description="Build daily volume breakout watch outputs and optional research backtest outputs.")
+    parser.add_argument(
+        "--latest-only",
+        action="store_true",
+        help="Only refresh latest watch/packet outputs. Do not rewrite event log or backtest files.",
+    )
+    return parser
+
+
 def main() -> int:
+    args = build_arg_parser().parse_args()
     LATEST_DIR.mkdir(parents=True, exist_ok=True)
     HISTORY_DIR.mkdir(parents=True, exist_ok=True)
     main_date = latest_main_date()
+
+    if args.latest_only:
+        latest = build_latest_frame_fast()
+        if main_date and not latest.empty:
+            latest = latest[latest["signal_date"] == main_date].copy()
+        watch = merge_context(latest)
+        summary = latest_only_summary()
+
+        write_csv(watch, WATCH_CSV)
+        write_watch_md(watch, main_date)
+        write_packet(watch, summary, main_date)
+
+        print(f"Saved: {WATCH_CSV} rows={len(watch)}")
+        print(f"Saved: {WATCH_MD}")
+        print(f"Saved: {PACKET_MD}")
+        if summary.empty:
+            print("Skipped backtest refresh: --latest-only and no existing backtest summary found")
+        else:
+            print(f"Loaded existing backtest summary rows={len(summary)}")
+        return 0
 
     full_rebuild = os.environ.get("VOLUME_BREAKOUT_FULL_REBUILD", "").strip().lower() in {"1", "true", "yes"}
     if EVENT_LOG_CSV.exists() and not full_rebuild:
