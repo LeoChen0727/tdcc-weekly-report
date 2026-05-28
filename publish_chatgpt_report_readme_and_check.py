@@ -164,6 +164,8 @@ WEEKLY_SURGE_TECHNICAL_GRID_CSV = LATEST_DIR / "weekly_surge_technical_filter_gr
 WEEKLY_SURGE_TECHNICAL_GRID_MD = LATEST_DIR / "weekly_surge_technical_filter_grid_latest.md"
 WEEKLY_SURGE_MULTIFACTOR_GRID_CSV = LATEST_DIR / "weekly_surge_multifactor_filter_grid_latest.csv"
 WEEKLY_SURGE_MULTIFACTOR_GRID_MD = LATEST_DIR / "weekly_surge_multifactor_filter_grid_latest.md"
+WEEKLY_SURGE_MULTIFACTOR_CANDIDATES_CSV = LATEST_DIR / "weekly_surge_multifactor_candidates_latest.csv"
+WEEKLY_SURGE_MULTIFACTOR_CANDIDATES_MD = LATEST_DIR / "weekly_surge_multifactor_candidates_latest.md"
 TDCC_OVERHEATED_EDGE_MD = LATEST_DIR / "tdcc_overheated_short_term_edge_latest.md"
 TDCC_OVERHEATED_EDGE_CSV = LATEST_DIR / "tdcc_overheated_short_term_edge_latest.csv"
 TDCC_OVERHEATED_EDGE_CANDIDATES_CSV = LATEST_DIR / "tdcc_overheated_short_term_edge_candidates_latest.csv"
@@ -631,6 +633,8 @@ def build_readme(
         f"weekly_surge_technical_filter_grid_md_raw_url={raw_url('main', WEEKLY_SURGE_TECHNICAL_GRID_MD)}",
         f"weekly_surge_multifactor_filter_grid_csv_raw_url={raw_url('main', WEEKLY_SURGE_MULTIFACTOR_GRID_CSV)}",
         f"weekly_surge_multifactor_filter_grid_md_raw_url={raw_url('main', WEEKLY_SURGE_MULTIFACTOR_GRID_MD)}",
+        f"weekly_surge_multifactor_candidates_csv_raw_url={raw_url('main', WEEKLY_SURGE_MULTIFACTOR_CANDIDATES_CSV)}",
+        f"weekly_surge_multifactor_candidates_md_raw_url={raw_url('main', WEEKLY_SURGE_MULTIFACTOR_CANDIDATES_MD)}",
         f"chatgpt_indicator_usage_guide_md_raw_url={raw_url('main', INDICATOR_USAGE_GUIDE_MD)}",
         f"chatgpt_indicator_usage_guide_txt_raw_url={raw_url('main', INDICATOR_USAGE_GUIDE_TXT)}",
         f"chatgpt_indicator_usage_guide_pages_url={pages_url('latest/chatgpt_indicator_usage_guide_latest.md')}",
@@ -1437,6 +1441,8 @@ def main() -> int:
         "weekly_surge_technical_filter_grid_md_raw_url": raw_url("main", WEEKLY_SURGE_TECHNICAL_GRID_MD),
         "weekly_surge_multifactor_filter_grid_csv_raw_url": raw_url("main", WEEKLY_SURGE_MULTIFACTOR_GRID_CSV),
         "weekly_surge_multifactor_filter_grid_md_raw_url": raw_url("main", WEEKLY_SURGE_MULTIFACTOR_GRID_MD),
+        "weekly_surge_multifactor_candidates_csv_raw_url": raw_url("main", WEEKLY_SURGE_MULTIFACTOR_CANDIDATES_CSV),
+        "weekly_surge_multifactor_candidates_md_raw_url": raw_url("main", WEEKLY_SURGE_MULTIFACTOR_CANDIDATES_MD),
         "tdcc_overheated_short_term_edge_md_raw_url": raw_url("main", TDCC_OVERHEATED_EDGE_MD),
         "tdcc_overheated_short_term_edge_csv_raw_url": raw_url("main", TDCC_OVERHEATED_EDGE_CSV),
         "tdcc_overheated_short_term_edge_candidates_csv_raw_url": raw_url("main", TDCC_OVERHEATED_EDGE_CANDIDATES_CSV),

@@ -119,6 +119,7 @@ def build_guide() -> str:
     weekly_surge_theme_segment = read_csv(LATEST_DIR / "weekly_surge_theme_segment_next_open_latest.csv")
     weekly_surge_technical_grid = read_csv(LATEST_DIR / "weekly_surge_technical_filter_grid_latest.csv")
     weekly_surge_multifactor_grid = read_csv(LATEST_DIR / "weekly_surge_multifactor_filter_grid_latest.csv")
+    weekly_surge_multifactor_candidates = read_csv(LATEST_DIR / "weekly_surge_multifactor_candidates_latest.csv")
 
     main_price_date = ""
     readme = LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt"
@@ -282,6 +283,13 @@ def build_guide() -> str:
             "rule_family, rule_name, source_type, target_window, hit_rate_pct, tdcc_available_rate_pct, sample_status",
             f"{count_values(weekly_surge_multifactor_grid, 'sample_status')} / rows={len(weekly_surge_multifactor_grid)}",
             "Parameter discovery across volume, technicals, TDCC as-of data, and market regime. Small-sample high-hit rows are watchlist hypotheses only.",
+        ],
+        [
+            "Weekly surge multifactor current candidates",
+            "output/latest/weekly_surge_multifactor_candidates_latest.csv",
+            "research_priority, stock_id, matched_rules, best_d5_hit_rate_pct, best_d10_hit_rate_pct, research_caveat",
+            f"{count_values(weekly_surge_multifactor_candidates, 'research_priority')} / rows={len(weekly_surge_multifactor_candidates)}",
+            "Current research watchlist for the weekly-surge hypotheses. Use as a separate research section only; do not mix into core candidate ranking.",
         ],
         [
             "Individual stock raw availability",
