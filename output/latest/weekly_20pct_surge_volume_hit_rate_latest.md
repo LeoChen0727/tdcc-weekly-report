@@ -1,70 +1,71 @@
-# Weekly 20pct Surge Volume Research
+# Five-Trading-Day 20pct High-Low Surge Event Volume Research
 
-- generated_at: 2026-05-28 12:28:15 Asia/Taipei
+- generated_at: 2026-05-28 23:15:52 Asia/Taipei
+- not_weekly_candle: True. This scans rolling five-trading-day windows at stock-day level.
 - definition: start date is any stock trading day; hit if max high from D0 through D+5 divided by D0 low is >= 20%.
 - volume baseline: previous 20 completed trading days, excluding the measured day.
 - counting: stock-day level; one stock can appear on multiple start dates.
 
 ## Overall
 
-- stock_day_count: 217570
-- hit_stock_day_count: 15083
-- base_hit_rate: 6.93%
-- hit_unique_stocks: 1140
+- stock_day_count: 219530
+- hit_stock_day_count: 15243
+- base_hit_rate: 6.94%
+- hit_unique_stocks: 1149
 
 ## Threshold Hit Rate - start_day_volume_ratio
 
 | summary_type   | filter_metric          | filter_rule                           |   threshold |   selected_stock_days |   hit_stock_days |   hit_rate_pct |   selected_unique_stocks |   hit_unique_stocks |   coverage_of_all_hits_pct |   base_hit_rate_pct |
 |:---------------|:-----------------------|:--------------------------------------|------------:|----------------------:|-----------------:|---------------:|-------------------------:|--------------------:|---------------------------:|--------------------:|
-| threshold_ge   | start_day_volume_ratio | start_day_volume_ratio_vs_prev20>=0.5 |         0.5 |                164107 |            11907 |           7.26 |                     1966 |                1127 |                      78.94 |                6.93 |
-| threshold_ge   | start_day_volume_ratio | start_day_volume_ratio_vs_prev20>=0.8 |         0.8 |                110212 |             9267 |           8.41 |                     1965 |                1101 |                      61.44 |                6.93 |
-| threshold_ge   | start_day_volume_ratio | start_day_volume_ratio_vs_prev20>=1   |         1   |                 82852 |             7759 |           9.36 |                     1965 |                1071 |                      51.44 |                6.93 |
-| threshold_ge   | start_day_volume_ratio | start_day_volume_ratio_vs_prev20>=1.2 |         1.2 |                 62800 |             6539 |          10.41 |                     1964 |                1045 |                      43.35 |                6.93 |
-| threshold_ge   | start_day_volume_ratio | start_day_volume_ratio_vs_prev20>=1.5 |         1.5 |                 43323 |             5222 |          12.05 |                     1963 |                1009 |                      34.62 |                6.93 |
-| threshold_ge   | start_day_volume_ratio | start_day_volume_ratio_vs_prev20>=2   |         2   |                 25919 |             3687 |          14.23 |                     1962 |                 926 |                      24.44 |                6.93 |
-| threshold_ge   | start_day_volume_ratio | start_day_volume_ratio_vs_prev20>=3   |         3   |                 12157 |             2095 |          17.23 |                     1894 |                 755 |                      13.89 |                6.93 |
-| threshold_ge   | start_day_volume_ratio | start_day_volume_ratio_vs_prev20>=5   |         5   |                  4677 |              908 |          19.41 |                     1483 |                 499 |                       6.02 |                6.93 |
+| threshold_ge   | start_day_volume_ratio | start_day_volume_ratio_vs_prev20>=0.5 |         0.5 |                165411 |            12012 |           7.26 |                     1967 |                1137 |                      78.8  |                6.94 |
+| threshold_ge   | start_day_volume_ratio | start_day_volume_ratio_vs_prev20>=0.8 |         0.8 |                111237 |             9344 |           8.4  |                     1967 |                1110 |                      61.3  |                6.94 |
+| threshold_ge   | start_day_volume_ratio | start_day_volume_ratio_vs_prev20>=1   |         1   |                 83643 |             7821 |           9.35 |                     1966 |                1078 |                      51.31 |                6.94 |
+| threshold_ge   | start_day_volume_ratio | start_day_volume_ratio_vs_prev20>=1.2 |         1.2 |                 63394 |             6591 |          10.4  |                     1965 |                1053 |                      43.24 |                6.94 |
+| threshold_ge   | start_day_volume_ratio | start_day_volume_ratio_vs_prev20>=1.5 |         1.5 |                 43739 |             5263 |          12.03 |                     1964 |                1016 |                      34.53 |                6.94 |
+| threshold_ge   | start_day_volume_ratio | start_day_volume_ratio_vs_prev20>=2   |         2   |                 26162 |             3714 |          14.2  |                     1963 |                 931 |                      24.37 |                6.94 |
+| threshold_ge   | start_day_volume_ratio | start_day_volume_ratio_vs_prev20>=3   |         3   |                 12258 |             2108 |          17.2  |                     1896 |                 757 |                      13.83 |                6.94 |
+| threshold_ge   | start_day_volume_ratio | start_day_volume_ratio_vs_prev20>=5   |         5   |                  4706 |              912 |          19.38 |                     1485 |                 500 |                       5.98 |                6.94 |
 
 ## Threshold Hit Rate - previous_day_volume_ratio
 
 | summary_type   | filter_metric             | filter_rule                          |   threshold |   selected_stock_days |   hit_stock_days |   hit_rate_pct |   selected_unique_stocks |   hit_unique_stocks |   coverage_of_all_hits_pct |   base_hit_rate_pct |
 |:---------------|:--------------------------|:-------------------------------------|------------:|----------------------:|-----------------:|---------------:|-------------------------:|--------------------:|---------------------------:|--------------------:|
-| threshold_ge   | previous_day_volume_ratio | prev_day_volume_ratio_vs_prev20>=0.5 |         0.5 |                163974 |            11489 |           7.01 |                     1966 |                1112 |                      76.17 |                6.93 |
-| threshold_ge   | previous_day_volume_ratio | prev_day_volume_ratio_vs_prev20>=0.8 |         0.8 |                109915 |             8487 |           7.72 |                     1965 |                1067 |                      56.27 |                6.93 |
-| threshold_ge   | previous_day_volume_ratio | prev_day_volume_ratio_vs_prev20>=1   |         1   |                 82592 |             6831 |           8.27 |                     1965 |                1010 |                      45.29 |                6.93 |
-| threshold_ge   | previous_day_volume_ratio | prev_day_volume_ratio_vs_prev20>=1.2 |         1.2 |                 62610 |             5570 |           8.9  |                     1964 |                 957 |                      36.93 |                6.93 |
-| threshold_ge   | previous_day_volume_ratio | prev_day_volume_ratio_vs_prev20>=1.5 |         1.5 |                 43159 |             4264 |           9.88 |                     1963 |                 895 |                      28.27 |                6.93 |
-| threshold_ge   | previous_day_volume_ratio | prev_day_volume_ratio_vs_prev20>=2   |         2   |                 25820 |             2820 |          10.92 |                     1962 |                 759 |                      18.7  |                6.93 |
-| threshold_ge   | previous_day_volume_ratio | prev_day_volume_ratio_vs_prev20>=3   |         3   |                 12122 |             1515 |          12.5  |                     1894 |                 575 |                      10.04 |                6.93 |
-| threshold_ge   | previous_day_volume_ratio | prev_day_volume_ratio_vs_prev20>=5   |         5   |                  4678 |              622 |          13.3  |                     1486 |                 340 |                       4.12 |                6.93 |
+| threshold_ge   | previous_day_volume_ratio | prev_day_volume_ratio_vs_prev20>=0.5 |         0.5 |                165237 |            11588 |           7.01 |                     1967 |                1119 |                      76.02 |                6.94 |
+| threshold_ge   | previous_day_volume_ratio | prev_day_volume_ratio_vs_prev20>=0.8 |         0.8 |                110824 |             8562 |           7.73 |                     1966 |                1074 |                      56.17 |                6.94 |
+| threshold_ge   | previous_day_volume_ratio | prev_day_volume_ratio_vs_prev20>=1   |         1   |                 83287 |             6892 |           8.28 |                     1966 |                1019 |                      45.21 |                6.94 |
+| threshold_ge   | previous_day_volume_ratio | prev_day_volume_ratio_vs_prev20>=1.2 |         1.2 |                 63138 |             5614 |           8.89 |                     1965 |                 964 |                      36.83 |                6.94 |
+| threshold_ge   | previous_day_volume_ratio | prev_day_volume_ratio_vs_prev20>=1.5 |         1.5 |                 43541 |             4296 |           9.87 |                     1964 |                 899 |                      28.18 |                6.94 |
+| threshold_ge   | previous_day_volume_ratio | prev_day_volume_ratio_vs_prev20>=2   |         2   |                 26059 |             2843 |          10.91 |                     1963 |                 764 |                      18.65 |                6.94 |
+| threshold_ge   | previous_day_volume_ratio | prev_day_volume_ratio_vs_prev20>=3   |         3   |                 12230 |             1527 |          12.49 |                     1895 |                 577 |                      10.02 |                6.94 |
+| threshold_ge   | previous_day_volume_ratio | prev_day_volume_ratio_vs_prev20>=5   |         5   |                  4713 |              627 |          13.3  |                     1488 |                 341 |                       4.11 |                6.94 |
 
 ## Bin Hit Rate - start_day_volume_ratio
 
 | summary_type   | filter_metric          | filter_rule                                  | threshold   |   selected_stock_days |   hit_stock_days |   hit_rate_pct |   selected_unique_stocks |   hit_unique_stocks | coverage_of_all_hits_pct   | base_hit_rate_pct   |
 |:---------------|:-----------------------|:---------------------------------------------|:------------|----------------------:|-----------------:|---------------:|-------------------------:|--------------------:|:---------------------------|:--------------------|
-| bin            | start_day_volume_ratio | start_day_volume_ratio_vs_prev20 in <0.5x    | <0.5x       |                 53463 |             3176 |           5.94 |                     1964 |                 715 |                            |                     |
-| bin            | start_day_volume_ratio | start_day_volume_ratio_vs_prev20 in 0.5-0.8x | 0.5-0.8x    |                 53895 |             2640 |           4.9  |                     1966 |                 829 |                            |                     |
-| bin            | start_day_volume_ratio | start_day_volume_ratio_vs_prev20 in 0.8-1.0x | 0.8-1.0x    |                 27360 |             1508 |           5.51 |                     1960 |                 709 |                            |                     |
-| bin            | start_day_volume_ratio | start_day_volume_ratio_vs_prev20 in 1.0-1.2x | 1.0-1.2x    |                 20052 |             1220 |           6.08 |                     1961 |                 611 |                            |                     |
-| bin            | start_day_volume_ratio | start_day_volume_ratio_vs_prev20 in 1.2-1.5x | 1.2-1.5x    |                 19477 |             1317 |           6.76 |                     1959 |                 620 |                            |                     |
-| bin            | start_day_volume_ratio | start_day_volume_ratio_vs_prev20 in 1.5-2.0x | 1.5-2.0x    |                 17404 |             1535 |           8.82 |                     1958 |                 681 |                            |                     |
-| bin            | start_day_volume_ratio | start_day_volume_ratio_vs_prev20 in 2.0-3.0x | 2.0-3.0x    |                 13762 |             1592 |          11.57 |                     1955 |                 693 |                            |                     |
-| bin            | start_day_volume_ratio | start_day_volume_ratio_vs_prev20 in 3.0-5.0x | 3.0-5.0x    |                  7480 |             1187 |          15.87 |                     1850 |                 593 |                            |                     |
-| bin            | start_day_volume_ratio | start_day_volume_ratio_vs_prev20 in >=5.0x   | >=5.0x      |                  4677 |              908 |          19.41 |                     1483 |                 499 |                            |                     |
+| bin            | start_day_volume_ratio | start_day_volume_ratio_vs_prev20 in <0.5x    | <0.5x       |                 54119 |             3231 |           5.97 |                     1964 |                 721 |                            |                     |
+| bin            | start_day_volume_ratio | start_day_volume_ratio_vs_prev20 in 0.5-0.8x | 0.5-0.8x    |                 54174 |             2668 |           4.92 |                     1966 |                 839 |                            |                     |
+| bin            | start_day_volume_ratio | start_day_volume_ratio_vs_prev20 in 0.8-1.0x | 0.8-1.0x    |                 27594 |             1523 |           5.52 |                     1961 |                 717 |                            |                     |
+| bin            | start_day_volume_ratio | start_day_volume_ratio_vs_prev20 in 1.0-1.2x | 1.0-1.2x    |                 20249 |             1230 |           6.07 |                     1961 |                 614 |                            |                     |
+| bin            | start_day_volume_ratio | start_day_volume_ratio_vs_prev20 in 1.2-1.5x | 1.2-1.5x    |                 19655 |             1328 |           6.76 |                     1959 |                 626 |                            |                     |
+| bin            | start_day_volume_ratio | start_day_volume_ratio_vs_prev20 in 1.5-2.0x | 1.5-2.0x    |                 17577 |             1549 |           8.81 |                     1958 |                 686 |                            |                     |
+| bin            | start_day_volume_ratio | start_day_volume_ratio_vs_prev20 in 2.0-3.0x | 2.0-3.0x    |                 13904 |             1606 |          11.55 |                     1956 |                 699 |                            |                     |
+| bin            | start_day_volume_ratio | start_day_volume_ratio_vs_prev20 in 3.0-5.0x | 3.0-5.0x    |                  7552 |             1196 |          15.84 |                     1853 |                 596 |                            |                     |
+| bin            | start_day_volume_ratio | start_day_volume_ratio_vs_prev20 in >=5.0x   | >=5.0x      |                  4706 |              912 |          19.38 |                     1485 |                 500 |                            |                     |
 
 ## Bin Hit Rate - previous_day_volume_ratio
 
 | summary_type   | filter_metric             | filter_rule                                 | threshold   |   selected_stock_days |   hit_stock_days |   hit_rate_pct |   selected_unique_stocks |   hit_unique_stocks | coverage_of_all_hits_pct   | base_hit_rate_pct   |
 |:---------------|:--------------------------|:--------------------------------------------|:------------|----------------------:|-----------------:|---------------:|-------------------------:|--------------------:|:---------------------------|:--------------------|
-| bin            | previous_day_volume_ratio | prev_day_volume_ratio_vs_prev20 in <0.5x    | <0.5x       |                 53596 |             3594 |           6.71 |                     1964 |                 744 |                            |                     |
-| bin            | previous_day_volume_ratio | prev_day_volume_ratio_vs_prev20 in 0.5-0.8x | 0.5-0.8x    |                 54059 |             3002 |           5.55 |                     1966 |                 880 |                            |                     |
-| bin            | previous_day_volume_ratio | prev_day_volume_ratio_vs_prev20 in 0.8-1.0x | 0.8-1.0x    |                 27323 |             1656 |           6.06 |                     1960 |                 744 |                            |                     |
-| bin            | previous_day_volume_ratio | prev_day_volume_ratio_vs_prev20 in 1.0-1.2x | 1.0-1.2x    |                 19982 |             1261 |           6.31 |                     1961 |                 643 |                            |                     |
-| bin            | previous_day_volume_ratio | prev_day_volume_ratio_vs_prev20 in 1.2-1.5x | 1.2-1.5x    |                 19451 |             1306 |           6.71 |                     1959 |                 635 |                            |                     |
-| bin            | previous_day_volume_ratio | prev_day_volume_ratio_vs_prev20 in 1.5-2.0x | 1.5-2.0x    |                 17339 |             1444 |           8.33 |                     1958 |                 662 |                            |                     |
-| bin            | previous_day_volume_ratio | prev_day_volume_ratio_vs_prev20 in 2.0-3.0x | 2.0-3.0x    |                 13698 |             1305 |           9.53 |                     1956 |                 594 |                            |                     |
-| bin            | previous_day_volume_ratio | prev_day_volume_ratio_vs_prev20 in 3.0-5.0x | 3.0-5.0x    |                  7444 |              893 |          12    |                     1850 |                 480 |                            |                     |
-| bin            | previous_day_volume_ratio | prev_day_volume_ratio_vs_prev20 in >=5.0x   | >=5.0x      |                  4678 |              622 |          13.3  |                     1486 |                 340 |                            |                     |
+| bin            | previous_day_volume_ratio | prev_day_volume_ratio_vs_prev20 in <0.5x    | <0.5x       |                 54293 |             3655 |           6.73 |                     1965 |                 756 |                            |                     |
+| bin            | previous_day_volume_ratio | prev_day_volume_ratio_vs_prev20 in 0.5-0.8x | 0.5-0.8x    |                 54413 |             3026 |           5.56 |                     1966 |                 888 |                            |                     |
+| bin            | previous_day_volume_ratio | prev_day_volume_ratio_vs_prev20 in 0.8-1.0x | 0.8-1.0x    |                 27537 |             1670 |           6.06 |                     1960 |                 749 |                            |                     |
+| bin            | previous_day_volume_ratio | prev_day_volume_ratio_vs_prev20 in 1.0-1.2x | 1.0-1.2x    |                 20149 |             1278 |           6.34 |                     1961 |                 649 |                            |                     |
+| bin            | previous_day_volume_ratio | prev_day_volume_ratio_vs_prev20 in 1.2-1.5x | 1.2-1.5x    |                 19597 |             1318 |           6.73 |                     1959 |                 640 |                            |                     |
+| bin            | previous_day_volume_ratio | prev_day_volume_ratio_vs_prev20 in 1.5-2.0x | 1.5-2.0x    |                 17482 |             1453 |           8.31 |                     1958 |                 663 |                            |                     |
+| bin            | previous_day_volume_ratio | prev_day_volume_ratio_vs_prev20 in 2.0-3.0x | 2.0-3.0x    |                 13829 |             1316 |           9.52 |                     1957 |                 601 |                            |                     |
+| bin            | previous_day_volume_ratio | prev_day_volume_ratio_vs_prev20 in 3.0-5.0x | 3.0-5.0x    |                  7517 |              900 |          11.97 |                     1851 |                 482 |                            |                     |
+| bin            | previous_day_volume_ratio | prev_day_volume_ratio_vs_prev20 in >=5.0x   | >=5.0x      |                  4713 |              627 |          13.3  |                     1488 |                 341 |                            |                     |
 
 ## Top Hit Events
 

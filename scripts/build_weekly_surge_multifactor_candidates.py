@@ -198,7 +198,7 @@ def df_to_md(df: pd.DataFrame, limit: int = 30) -> str:
 
 def build_markdown(candidates: pd.DataFrame) -> str:
     lines: list[str] = []
-    lines.append("# Weekly Surge Multifactor Candidates")
+    lines.append("# Next-Open +10pct Multifactor Candidates")
     lines.append("")
     lines.append(f"- generated_at: `{now_text()}`")
     lines.append("- use: research watchlist only; do not mix into daily candidate core ranking.")

@@ -1,8 +1,12 @@
-# Weekly Surge Strict Parameter Search
+# Next-Open +10pct Touch Strict Parameter Search
 
-- generated_at: `2026-05-28 20:10:17 Asia/Taipei`
-- entry_basis: D+1 open.
+- generated_at: `2026-05-28 23:18:39 Asia/Taipei`
+- legacy_file_prefix: `weekly_surge` is kept only for backward compatibility.
+- display_name_zh: `隔日開盤買進後 D+5 / D+10 / D+20 盤中觸及 +10% 研究`.
+- not_weekly_candle: `True`.
+- entry_basis: D+1 open, because the signal is only known after the signal-day close.
 - target: D+1 open to D+5 / D+10 / D+20 max high >= 10%.
+- win_rate_definition: selected stock-days whose post-entry intraperiod high touches +10%; this is not D+N close-to-close win rate.
 - strictness: no latest theme labels are used. Features are price/volume/technical, TDCC as-of data, and market regime derived from historical index data.
 - use: parameter discovery only; do not change core model weights from this table.
 

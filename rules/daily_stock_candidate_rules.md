@@ -98,7 +98,7 @@ Required specialty sections when data exists:
 
 - `daily_short_term_specialty_packet_latest.md`: standalone D+5 / D+10 short-term specialty.
 - `tdcc_overheated_short_term_edge_latest.md/csv`: standalone TDCC overheated short-term edge.
-- `weekly_surge_strict_parameter_search_latest.md/csv`: standalone strict weekly-surge parameter research.
+- `weekly_surge_strict_parameter_search_latest.md/csv`: legacy filename for standalone next-open +10% touch parameter research. Do not translate this as `周線急漲`.
 - `explosive_volume_up_backtest_latest.md/csv`, `explosive_volume_up_position_backtest_latest.csv`, and `explosive_volume_up_events_latest.csv`: standalone explosive-volume-up research. This is a research/watch section only. It uses D+1 open as the entry basis and separates close-return win rate from intraperiod high-hit rate.
 - Explosive-volume-up interpretation must first split price position: bottom/low-zone volume reversal, low-to-mid reclaim, near-high attack, and high-zone extension/chase. Do not mix bottom reversal with high-zone distribution/chase. Theme/mainstream status is the second filter, not a replacement for price-position filtering.
 - Explosive-volume-up signal timing is after the signal-day close. Entry statistics use next trading day open. `high_hit_rate` means the post-entry holding-window high reached the target; it is not an intraday entry rule.
@@ -194,7 +194,7 @@ If `daily_short_term_specialty_packet_latest.md` exists, it is the mandatory sou
 Do not confuse `回檔後短線轉強` with the short-term specialty layer:
 
 - `回檔後短線轉強` is one of the fixed six daily candidate categories.
-- The short-term specialty layer is a standalone research/reporting section that currently includes TDCC overheated continuation and strict weekly-surge parameter research.
+- The short-term specialty layer is a standalone research/reporting section that currently includes TDCC overheated continuation and next-open +10% touch parameter research.
 
 If `tdcc_overheated_short_term_edge_latest.md/csv` exists, the daily report must include it as a standalone specialty subsection:
 
@@ -206,10 +206,14 @@ If `tdcc_overheated_short_term_edge_latest.md/csv` exists, the daily report must
 - Do not use it to change TDCC / ABM / daily candidate core model weights.
 - If the current candidate CSV has matching stocks, show them as a separate TDCC overheated short-term watch list with confirmation and risk notes.
 
-If `weekly_surge_strict_parameter_search_latest.md/csv` exists, the daily report must also include it as a standalone strict weekly-surge research subsection:
+If `weekly_surge_strict_parameter_search_latest.md/csv` exists, the daily report must also include it as a standalone next-open +10% touch research subsection:
 
 - Show separate D+5 and D+10 tables.
 - Use the definition `entry = D+1 open` and `hit = D+1 open to D+N high reaches +10%`.
+- This is not weekly candlestick analysis. The file prefix `weekly_surge` is legacy/backward-compatible only.
+- Display title in Chinese: `隔日開盤買進後 D+5 / D+10 盤中觸及 +10% 研究`.
+- Do not write `周線急漲嚴格參數`.
+- The win rate is a next-open entry touch-rate, not close-to-close return or D+N close win rate.
 - Show current candidates from `weekly_surge_strict_parameter_candidates_latest.md/csv` when available.
 - Treat it as `research_watchlist_and_reporting_priority_only` until more regime samples are available.
 
