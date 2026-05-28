@@ -172,6 +172,7 @@ WEEKLY_SURGE_STRICT_PARAMETER_CANDIDATES_CSV = LATEST_DIR / "weekly_surge_strict
 WEEKLY_SURGE_STRICT_PARAMETER_CANDIDATES_MD = LATEST_DIR / "weekly_surge_strict_parameter_candidates_latest.md"
 EXPLOSIVE_VOLUME_UP_EVENTS_CSV = LATEST_DIR / "explosive_volume_up_events_latest.csv"
 EXPLOSIVE_VOLUME_UP_BACKTEST_CSV = LATEST_DIR / "explosive_volume_up_backtest_latest.csv"
+EXPLOSIVE_VOLUME_UP_POSITION_BACKTEST_CSV = LATEST_DIR / "explosive_volume_up_position_backtest_latest.csv"
 EXPLOSIVE_VOLUME_UP_BACKTEST_MD = LATEST_DIR / "explosive_volume_up_backtest_latest.md"
 TDCC_OVERHEATED_EDGE_MD = LATEST_DIR / "tdcc_overheated_short_term_edge_latest.md"
 TDCC_OVERHEATED_EDGE_CSV = LATEST_DIR / "tdcc_overheated_short_term_edge_latest.csv"
@@ -651,6 +652,8 @@ def build_readme(
         f"weekly_surge_strict_parameter_candidates_md_raw_url={raw_url('main', WEEKLY_SURGE_STRICT_PARAMETER_CANDIDATES_MD)}",
         f"explosive_volume_up_events_csv_raw_url={raw_url('main', EXPLOSIVE_VOLUME_UP_EVENTS_CSV)}",
         f"explosive_volume_up_backtest_csv_raw_url={raw_url('main', EXPLOSIVE_VOLUME_UP_BACKTEST_CSV)}",
+        f"explosive_volume_up_position_backtest_csv_raw_url={raw_url('main', EXPLOSIVE_VOLUME_UP_POSITION_BACKTEST_CSV)}",
+        f"explosive_volume_up_position_backtest_csv_pages_url={pages_url('latest/explosive_volume_up_position_backtest_latest.csv')}",
         f"explosive_volume_up_backtest_md_raw_url={raw_url('main', EXPLOSIVE_VOLUME_UP_BACKTEST_MD)}",
         f"explosive_volume_up_backtest_md_pages_url={pages_url('latest/explosive_volume_up_backtest_latest.md')}",
         f"daily_short_term_specialty_packet_raw_url={raw_url('main', DAILY_SHORT_TERM_SPECIALTY_PACKET_MD)}",
@@ -1489,6 +1492,8 @@ def main() -> int:
         "weekly_surge_strict_parameter_candidates_md_raw_url": raw_url("main", WEEKLY_SURGE_STRICT_PARAMETER_CANDIDATES_MD),
         "explosive_volume_up_events_csv_raw_url": raw_url("main", EXPLOSIVE_VOLUME_UP_EVENTS_CSV),
         "explosive_volume_up_backtest_csv_raw_url": raw_url("main", EXPLOSIVE_VOLUME_UP_BACKTEST_CSV),
+        "explosive_volume_up_position_backtest_csv_raw_url": raw_url("main", EXPLOSIVE_VOLUME_UP_POSITION_BACKTEST_CSV),
+        "explosive_volume_up_position_backtest_csv_pages_url": pages_url("latest/explosive_volume_up_position_backtest_latest.csv"),
         "explosive_volume_up_backtest_md_raw_url": raw_url("main", EXPLOSIVE_VOLUME_UP_BACKTEST_MD),
         "explosive_volume_up_backtest_md_pages_url": pages_url("latest/explosive_volume_up_backtest_latest.md"),
         "daily_short_term_specialty_packet_raw_url": raw_url("main", DAILY_SHORT_TERM_SPECIALTY_PACKET_MD),
