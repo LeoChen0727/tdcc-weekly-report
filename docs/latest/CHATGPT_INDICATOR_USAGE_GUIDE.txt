@@ -1,6 +1,6 @@
 # ChatGPT Indicator Usage Guide
 
-- generated_at: `2026-05-28 12:54:07 台北標準時間`
+- generated_at: `2026-05-28 13:27:07 台北標準時間`
 - main_price_date: `20260527`
 - purpose: Use program-side classifications first. ChatGPT should explain and synthesize, not re-rank from memory.
 - rule: If memory, PDF, or ad-hoc interpretation conflicts with program-side fields, use the structured program-side fields.
@@ -40,6 +40,7 @@
 | Volume breakout watch | output/latest/volume_breakout_watch_latest.csv | volume_breakout_type, volume_watch_scope, volume_breakout_priority, selection_status, not_selected_reason, risk_flags, next_volume_breakout_confirmation | D_risk_downgrade=130; B_confirm_needed=33; C_watch_only=23; A_valid_breakout_watch=10 / volume_expansion_watch=62; loose_platform_volume_watch=33; neckline_volume_breakout=27; strict_60d_volume_breakout=25; right_side_volume_attack=17; loose_ma_reclaim_volume_watch=14; platform_volume_breakout=8; abnormal_volume_up=5; loose_right_side_volume_watch=5 | Use when asked about 帶量突破 / 放量突破 / 放量攻擊. Strict breakout is only one subset. |
 | Volume attack theme layer | output/latest/volume_attack_theme_layer_latest.csv | theme_final_status, theme_volume_attack_status, leader_stock, range/strict/watch counts, interpretation | overheated_volume_theme=13; watch_volume_theme=8; single_stock_volume_attack=2; confirmed_volume_theme=1; theme_status_missing=1 / stocks=196 | Authoritative mainstream/non-mainstream split for volume-attack sections. Do not show only the theme name. |
 | Daily theme status history | output/history/daily_signals/daily_theme_status_history.csv | signal_date, stock_id, theme_final_status, theme_status_group, theme_volume_attack_status, candidate_source_type | mainstream_overheated=240; mainstream_supported=211; non_mainstream=94 / rows=545 | Use for no-lookahead mainstream/non-mainstream backtests; do not use today's theme label for older signal dates. |
+| Weekly surge theme segment research | output/latest/weekly_surge_theme_segment_next_open_latest.csv | label_type, target_window, theme_status_group, filter_metric, threshold, hit_rate_pct, sample_status | provisional_latest_label_only=180 / rows=180 | Research only. `provisional_latest_label_only` is exploratory; require strict history before treating as verified. |
 | Individual stock raw availability | output/latest/individual_stock_available_raw_data_index_slim.csv | data_quality_status, report_status, price/TDCC row counts | partial=2044; ok=81; insufficient_data=25 | Check before single-stock analysis. |
 | Catalyst layer | output/latest/fundamental_catalyst_layer_latest.md | catalyst_quality, catalyst_tags, price_reaction_level, needs_eps_confirmation | needs_review_rows=4 | Currently source-limited; do not upgrade without confirmed source rows. |
 | Chip-flow positive streak | output/latest/chip_flow_positive_streak_latest.csv | positive_streak_days and category if source data exists | rows=0 | If empty/unavailable, do not mention as active signal. |

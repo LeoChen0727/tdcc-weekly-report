@@ -116,6 +116,7 @@ def build_guide() -> str:
     volume_attack_theme = read_csv(LATEST_DIR / "volume_attack_theme_layer_latest.csv")
     volume_attack_stocks = read_csv(LATEST_DIR / "volume_attack_theme_stocks_latest.csv")
     daily_theme_status_history = read_csv(LATEST_DIR / "daily_theme_status_history_latest.csv")
+    weekly_surge_theme_segment = read_csv(LATEST_DIR / "weekly_surge_theme_segment_next_open_latest.csv")
 
     main_price_date = ""
     readme = LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt"
@@ -258,6 +259,13 @@ def build_guide() -> str:
             "signal_date, stock_id, theme_final_status, theme_status_group, theme_volume_attack_status, candidate_source_type",
             f"{count_values(daily_theme_status_history, 'theme_status_group')} / rows={len(daily_theme_status_history)}",
             "Use for no-lookahead mainstream/non-mainstream backtests; do not use today's theme label for older signal dates.",
+        ],
+        [
+            "Weekly surge theme segment research",
+            "output/latest/weekly_surge_theme_segment_next_open_latest.csv",
+            "label_type, target_window, theme_status_group, filter_metric, threshold, hit_rate_pct, sample_status",
+            f"{count_values(weekly_surge_theme_segment, 'sample_status')} / rows={len(weekly_surge_theme_segment)}",
+            "Research only. `provisional_latest_label_only` is exploratory; require strict history before treating as verified.",
         ],
         [
             "Individual stock raw availability",
