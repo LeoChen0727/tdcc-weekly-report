@@ -1,9 +1,9 @@
 # 產業營收適用性檢查
 
-- generated_at: `2026-05-28 19:15:31 Asia/Taipei`
+- generated_at: `2026-05-28 20:03:47 Asia/Taipei`
 - source: `output/latest/all_candidates_latest.csv`
-- construction_like_rows: `30`
-- revenue_category_construction_rows: `17`
+- construction_like_rows: `22`
+- revenue_category_construction_rows: `10`
 
 ## 規則
 
@@ -14,13 +14,6 @@
 
 | date | stock_id | stock_name | industry | category | revaluation_priority | recognition_type | revenue_applicability_note |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2542 | 興富發 | 建材營造 | revenue_breakout_low_response | B_可觀察 | 營建認列型 | 營建認列型；月營收 YoY 屬認列型訊號，需 EPS、毛利率、合約負債、在建工程或交屋進度確認；不得只因單月 YoY 暴增列為最優先。 |
-| 20260528 | 5522 | 遠雄 | 建材營造 | revenue_breakout_low_response | B_可觀察 | 營建認列型 | 營建認列型；月營收 YoY 屬認列型訊號，需 EPS、毛利率、合約負債、在建工程或交屋進度確認；不得只因單月 YoY 暴增列為最優先。 |
-| 20260528 | 1808 | 潤隆 | 建材營造 | revenue_breakout_low_response | B_可觀察 | 營建認列型 | 營建認列型；月營收 YoY 屬認列型訊號，需 EPS、毛利率、合約負債、在建工程或交屋進度確認；不得只因單月 YoY 暴增列為最優先。 |
-| 20260528 | 2548 | 華固 | 建材營造 | revenue_breakout_low_response | D_降級_TDCC轉弱 | 營建認列型 | 營建認列型；月營收 YoY 屬認列型訊號，需 EPS、毛利率、合約負債、在建工程或交屋進度確認；不得只因單月 YoY 暴增列為最優先。 |
-| 20260528 | 2442 | 新美齊 | 建材營造 | revenue_breakout_low_response | D_降級_TDCC轉弱 | 營建認列型 | 營建認列型；月營收 YoY 屬認列型訊號，需 EPS、毛利率、合約負債、在建工程或交屋進度確認；不得只因單月 YoY 暴增列為最優先。 |
-| 20260528 | 2515 | 中工 | 建材營造 | revenue_breakout_low_response | B_可觀察 | 營建認列型 | 營建認列型；月營收 YoY 屬認列型訊號，需 EPS、毛利率、合約負債、在建工程或交屋進度確認；不得只因單月 YoY 暴增列為最優先。 |
-| 20260528 | 6177 | 達麗 | 建材營造 | revenue_breakout_low_response | D_降級_TDCC轉弱 | 營建認列型 | 營建認列型；月營收 YoY 屬認列型訊號，需 EPS、毛利率、合約負債、在建工程或交屋進度確認；不得只因單月 YoY 暴增列為最優先。 |
 | 20260528 | 2542 | 興富發 | 建材營造 | revenue_pullback | C_僅觀察_營建認列型需基本面確認 | 營建認列型 | 營建認列型；月營收 YoY 屬認列型訊號，需 EPS、毛利率、合約負債、在建工程或交屋進度確認；不得只因單月 YoY 暴增列為最優先。 |
 | 20260528 | 6177 | 達麗 | 建材營造 | revenue_pullback | C_僅觀察_營建認列型需基本面確認 | 營建認列型 | 營建認列型；月營收 YoY 屬認列型訊號，需 EPS、毛利率、合約負債、在建工程或交屋進度確認；不得只因單月 YoY 暴增列為最優先。 |
 | 20260528 | 1808 | 潤隆 | 建材營造 | revenue_pullback | C_僅觀察_營建認列型需基本面確認 | 營建認列型 | 營建認列型；月營收 YoY 屬認列型訊號，需 EPS、毛利率、合約負債、在建工程或交屋進度確認；不得只因單月 YoY 暴增列為最優先。 |

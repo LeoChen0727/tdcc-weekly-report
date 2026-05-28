@@ -1,6 +1,6 @@
 # 全市場權證資料分析與追蹤
 
-- generated_at: `2026-05-28 19:23:19 Asia/Taipei`
+- generated_at: `2026-05-28 20:10:55 Asia/Taipei`
 - data_date: `20260528`
 - raw_rows: `30082`
 - stock_level_rows: `456`
@@ -40,7 +40,7 @@
 | 0063 | 元大滬深300正2 | 73464910.0 | 651 |  |  |  |
 | 3017 | 奇鋐 | 67950130.0 | 417 | pattern,revenue_pullback |  |  |
 | 2313 | 華通 | 66107720.0 | 333 |  |  |  |
-| 2404 | 漢唐 | 58423450.0 | 241 | pattern,revenue_breakout_low_response,revenue_pullback |  |  |
+| 2404 | 漢唐 | 58423450.0 | 241 | pattern,revenue_pullback |  |  |
 | 6285 | 啟碁 | 54778480.0 | 218 |  |  |  |
 | 2409 | 友達 | 53495110.0 | 190 | pattern |  |  |
 
@@ -80,12 +80,12 @@
 | 6531 | 愛普* | 21989.28 | 29685530.0 | 1350.0 | pullback_rebound,range_rebound,revenue_pullback |  |
 | 2486 | 一詮 | 18462.21 | 3507820.0 | 190.0 | revenue_pullback |  |
 | 2353 | 宏碁 | 15259.17 | 18311010.0 | 1200.0 | pattern,range_rebound |  |
-| 6805 | 富世達 | 15131.06 | 25722800.0 | 1700.0 | pullback_rebound,revenue_breakout_low_response,revenue_pullback |  |
+| 6805 | 富世達 | 15131.06 | 25722800.0 | 1700.0 | pullback_rebound,revenue_pullback |  |
 | 2360 | 致茂 | 3099.22 | 4028980.0 | 1300.0 | range_rebound,revenue_pullback |  |
 | 5284 | jpp-KY | 3065.48 | 11710130.0 | 3820.0 |  |  |
 | 1503 | 士電 | 2901.52 | 30059780.0 | 10360.0 | range_rebound |  |
 | 2474 | 可成 | 2673.0 | 12857150.0 | 4810.0 |  |  |
-| 8112 | 至上 | 2595.9 | 53112180.0 | 20460.0 | pattern,range_rebound,revenue_breakout_low_response,revenue_pullback |  |
+| 8112 | 至上 | 2595.9 | 53112180.0 | 20460.0 | pattern,range_rebound,revenue_pullback |  |
 | 3305 | 昇貿 | 2387.07 | 21841730.0 | 9150.0 |  |  |
 | 6213 | 聯茂 | 2305.91 | 42497890.0 | 18430.0 | pattern |  |
 | 6139 | 亞翔 | 2235.01 | 37101190.0 | 16600.0 | pattern,revenue_pullback |  |
@@ -106,7 +106,7 @@
 | --- | --- | --- | --- | --- | --- | --- |
 | 2409 | 友達 | pattern |  | 53495110.0 | 188680.0 |  |
 | 2345 | 智邦 | revenue_pullback |  | 53228480.0 | 393280.0 |  |
-| 8112 | 至上 | pattern,range_rebound,revenue_breakout_low_response,revenue_pullback |  | 53112180.0 | 20460.0 |  |
+| 8112 | 至上 | pattern,range_rebound,revenue_pullback |  | 53112180.0 | 20460.0 |  |
 | 6213 | 聯茂 | pattern |  | 42497890.0 | 18430.0 |  |
 | 2356 | 英業達 | pattern,range_rebound |  | 34651920.0 | 45890.0 |  |
 | 8028 | 昇陽半導體 | range_rebound |  | 31914050.0 | 162530.0 |  |
@@ -140,7 +140,7 @@
 | 3605 | 宏致 | pattern |  | 6333020.0 | 0.0 |  |
 | 2891 | 中信金 | pattern,pullback_rebound,range_rebound,revenue_pullback |  | 6207670.0 | 0.0 |  |
 | 8070 | 長華* | pattern,range_rebound |  | 5829760.0 | 0.0 |  |
-| 5388 | 中磊 | pattern,revenue_breakout_low_response,revenue_pullback |  | 4813910.0 | 0.0 |  |
+| 5388 | 中磊 | pattern,revenue_pullback |  | 4813910.0 | 0.0 |  |
 | 1711 | 永光 | pattern |  | 4422040.0 | 0.0 |  |
 | 2419 | 仲琦 | pattern,range_rebound |  | 4120150.0 | 0.0 |  |
 | 1476 | 儒鴻 | range_rebound |  | 3952930.0 | 0.0 |  |
@@ -151,10 +151,10 @@
 | 2049 | 上銀 | pattern |  | 39992940.0 | 149330.0 |  |
 | 6139 | 亞翔 | pattern,revenue_pullback |  | 37101190.0 | 16600.0 |  |
 | 1717 | 長興 | pattern |  | 34411680.0 | 1380.0 |  |
-| 3231 | 緯創 | pattern,revenue_breakout_low_response,revenue_pullback |  | 30245720.0 | 203680.0 |  |
+| 3231 | 緯創 | pattern,revenue_pullback |  | 30245720.0 | 203680.0 |  |
 | 3583 | 辛耘 | pattern |  | 28960800.0 | 170390.0 |  |
 | 3533 | 嘉澤 | pattern |  | 28167880.0 | 95800.0 |  |
-| 6805 | 富世達 | pullback_rebound,revenue_breakout_low_response,revenue_pullback |  | 25722800.0 | 1700.0 |  |
+| 6805 | 富世達 | pullback_rebound,revenue_pullback |  | 25722800.0 | 1700.0 |  |
 | 2472 | 立隆電 | true_breakout |  | 24512880.0 | 0.0 |  |
 | 3044 | 健鼎 | pattern,revenue_pullback |  | 23041740.0 | 11700.0 |  |
 | 1513 | 中興電 | pattern |  | 22088090.0 | 40450.0 |  |
@@ -192,6 +192,6 @@
 | 0063 | 元大滬深300正2 | 73464910.0 | 651 |  |  |
 | 3017 | 奇鋐 | 67950130.0 | 417 | pattern,revenue_pullback |  |
 | 2313 | 華通 | 66107720.0 | 333 |  |  |
-| 2404 | 漢唐 | 58423450.0 | 241 | pattern,revenue_breakout_low_response,revenue_pullback |  |
+| 2404 | 漢唐 | 58423450.0 | 241 | pattern,revenue_pullback |  |
 | 6285 | 啟碁 | 54778480.0 | 218 |  |  |
 | 2409 | 友達 | 53495110.0 | 190 | pattern |  |

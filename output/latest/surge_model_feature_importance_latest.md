@@ -1,6 +1,6 @@
 # Surge Model Feature Importance Latest
 
-generated_at: 2026-05-28 19:30:16 Asia/Taipei
+generated_at: 2026-05-28 20:17:12 Asia/Taipei
 
 使用可解釋條件統計，比較 mature surge samples 與非暴漲對照母體。樣本不足時不得下正式結論。
 

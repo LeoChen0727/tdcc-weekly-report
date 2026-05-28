@@ -1,6 +1,6 @@
 # Weekly Surge Strict Parameter Search
 
-- generated_at: `2026-05-28 19:22:39 Asia/Taipei`
+- generated_at: `2026-05-28 20:10:17 Asia/Taipei`
 - entry_basis: D+1 open.
 - target: D+1 open to D+5 / D+10 / D+20 max high >= 10%.
 - strictness: no latest theme labels are used. Features are price/volume/technical, TDCC as-of data, and market regime derived from historical index data.

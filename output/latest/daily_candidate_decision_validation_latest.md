@@ -1,10 +1,10 @@
 # Daily Candidate Decision Layer Validation
 
 - status: `pass`
-- main_price_date: `20260527`
-- decision_rows: `929`
-- decision_md_lines: `289`
-- decision_packet_lines: `210`
+- main_price_date: `20260528`
+- decision_rows: `676`
+- decision_md_lines: `260`
+- decision_packet_lines: `200`
 - regression_2484_status: `pass`
 
 ## Errors
@@ -13,4 +13,4 @@
 
 ## Warnings
 
-- main_price_date=20260527 not in decision signal_date values=['20260528']
+- none

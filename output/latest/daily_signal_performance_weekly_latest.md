@@ -1,6 +1,6 @@
 # 每日候選股訊號績效週報
 
-- generated_at: `2026-05-28 19:25:34 Asia/Taipei`
+- generated_at: `2026-05-28 20:13:02 Asia/Taipei`
 - latest_signal_date: `20260528`
 - signal_count: `3893`
 - period: latest 14 calendar days
