@@ -1,6 +1,6 @@
 # ChatGPT Indicator Usage Guide
 
-- generated_at: `2026-05-28 13:57:58 台北標準時間`
+- generated_at: `2026-05-28 14:21:21 台北標準時間`
 - main_price_date: `20260527`
 - purpose: Use program-side classifications first. ChatGPT should explain and synthesize, not re-rank from memory.
 - rule: If memory, PDF, or ad-hoc interpretation conflicts with program-side fields, use the structured program-side fields.
@@ -44,6 +44,8 @@
 | Weekly surge technical filter grid | output/latest/weekly_surge_technical_filter_grid_latest.csv | rule_family, rule_name, target_window, hit_rate_pct, median_next_open_to_high_return_pct, sample_status | provisional_latest_label_only=75; insufficient_sample=6 / rows=81 | Parameter discovery only. Use to discuss candidate filters; do not change core weights until strict-history validation matures. |
 | Weekly surge multifactor filter grid | output/latest/weekly_surge_multifactor_filter_grid_latest.csv | rule_family, rule_name, source_type, target_window, hit_rate_pct, tdcc_available_rate_pct, sample_status | insufficient_sample=27; provisional_latest_theme_label=21; ok_initial_sample=15 / rows=63 | Parameter discovery across volume, technicals, TDCC as-of data, and market regime. Small-sample high-hit rows are watchlist hypotheses only. |
 | Weekly surge multifactor current candidates | output/latest/weekly_surge_multifactor_candidates_latest.csv | research_priority, stock_id, matched_rules, best_d5_hit_rate_pct, best_d10_hit_rate_pct, research_caveat | D_background_only=90; C_short_term_watch=29; A_research_watch=15; B_research_confirm=8 / rows=142 | Current research watchlist for the weekly-surge hypotheses. Use as a separate research section only; do not mix into core candidate ranking. |
+| Weekly surge strict parameter search | output/latest/weekly_surge_strict_parameter_search_latest.csv | rule_name, target_window, entry_basis, target_return_pct, selected_stock_days, hit_rate_pct, median_next_open_to_high_return_pct, sample_status | ok_initial_sample=5355; insufficient_sample=1644 / rows=6999 | No latest-theme labels are used. Entry is D+1 open; hit means next-open to D+N high reaches +10%. Research only. |
+| Weekly surge strict parameter current candidates | output/latest/weekly_surge_strict_parameter_candidates_latest.csv | research_priority, stock_id, matched_rules, best_d5_hit_rate_pct, best_d10_hit_rate_pct, best_d10_rule, research_caveat | B_strict_research_confirm=88; A_strict_research_watch=13; D_background_only=7; C_strict_short_term_watch=2 / rows=110 | Current strict research watchlist using no latest-theme label. Keep as a standalone D+5/D+10 research table, not core ranking. |
 | Individual stock raw availability | output/latest/individual_stock_available_raw_data_index_slim.csv | data_quality_status, report_status, price/TDCC row counts | partial=2044; ok=81; insufficient_data=25 | Check before single-stock analysis. |
 | Catalyst layer | output/latest/fundamental_catalyst_layer_latest.md | catalyst_quality, catalyst_tags, price_reaction_level, needs_eps_confirmation | needs_review_rows=4 | Currently source-limited; do not upgrade without confirmed source rows. |
 | Chip-flow positive streak | output/latest/chip_flow_positive_streak_latest.csv | positive_streak_days and category if source data exists | rows=0 | If empty/unavailable, do not mention as active signal. |

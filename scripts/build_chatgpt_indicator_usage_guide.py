@@ -120,6 +120,8 @@ def build_guide() -> str:
     weekly_surge_technical_grid = read_csv(LATEST_DIR / "weekly_surge_technical_filter_grid_latest.csv")
     weekly_surge_multifactor_grid = read_csv(LATEST_DIR / "weekly_surge_multifactor_filter_grid_latest.csv")
     weekly_surge_multifactor_candidates = read_csv(LATEST_DIR / "weekly_surge_multifactor_candidates_latest.csv")
+    weekly_surge_strict_search = read_csv(LATEST_DIR / "weekly_surge_strict_parameter_search_latest.csv")
+    weekly_surge_strict_candidates = read_csv(LATEST_DIR / "weekly_surge_strict_parameter_candidates_latest.csv")
 
     main_price_date = ""
     readme = LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt"
@@ -290,6 +292,20 @@ def build_guide() -> str:
             "research_priority, stock_id, matched_rules, best_d5_hit_rate_pct, best_d10_hit_rate_pct, research_caveat",
             f"{count_values(weekly_surge_multifactor_candidates, 'research_priority')} / rows={len(weekly_surge_multifactor_candidates)}",
             "Current research watchlist for the weekly-surge hypotheses. Use as a separate research section only; do not mix into core candidate ranking.",
+        ],
+        [
+            "Weekly surge strict parameter search",
+            "output/latest/weekly_surge_strict_parameter_search_latest.csv",
+            "rule_name, target_window, entry_basis, target_return_pct, selected_stock_days, hit_rate_pct, median_next_open_to_high_return_pct, sample_status",
+            f"{count_values(weekly_surge_strict_search, 'sample_status')} / rows={len(weekly_surge_strict_search)}",
+            "No latest-theme labels are used. Entry is D+1 open; hit means next-open to D+N high reaches +10%. Research only.",
+        ],
+        [
+            "Weekly surge strict parameter current candidates",
+            "output/latest/weekly_surge_strict_parameter_candidates_latest.csv",
+            "research_priority, stock_id, matched_rules, best_d5_hit_rate_pct, best_d10_hit_rate_pct, best_d10_rule, research_caveat",
+            f"{count_values(weekly_surge_strict_candidates, 'research_priority')} / rows={len(weekly_surge_strict_candidates)}",
+            "Current strict research watchlist using no latest-theme label. Keep as a standalone D+5/D+10 research table, not core ranking.",
         ],
         [
             "Individual stock raw availability",
