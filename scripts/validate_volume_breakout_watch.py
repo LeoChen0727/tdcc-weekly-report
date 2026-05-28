@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 from pathlib import Path
 import sys
 
@@ -16,6 +17,12 @@ REQUIRED_FILES = [
     LATEST_DIR / "volume_breakout_backtest_latest.md",
     LATEST_DIR / "volume_breakout_chatgpt_packet_latest.md",
     HISTORY_DIR / "volume_breakout_event_log.csv",
+]
+
+LATEST_ONLY_REQUIRED_FILES = [
+    LATEST_DIR / "volume_breakout_watch_latest.csv",
+    LATEST_DIR / "volume_breakout_watch_latest.md",
+    LATEST_DIR / "volume_breakout_chatgpt_packet_latest.md",
 ]
 
 WATCH_REQUIRED_COLUMNS = [
@@ -69,16 +76,36 @@ def check_csv(path: Path, required_columns: list[str], allow_empty: bool = False
     return df
 
 
+def build_arg_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(description="Validate volume breakout watch and optional backtest outputs.")
+    parser.add_argument(
+        "--latest-only",
+        action="store_true",
+        help="Validate only latest daily watch outputs. Backtest files are checked only if present.",
+    )
+    return parser
+
+
 def main() -> int:
-    for path in REQUIRED_FILES:
+    args = build_arg_parser().parse_args()
+    required_files = LATEST_ONLY_REQUIRED_FILES if args.latest_only else REQUIRED_FILES
+
+    for path in required_files:
         if not path.exists():
             fail(f"missing required file: {path}")
         if path.suffix.lower() == ".md":
             check_multiline_markdown(path)
 
     watch = check_csv(LATEST_DIR / "volume_breakout_watch_latest.csv", WATCH_REQUIRED_COLUMNS, allow_empty=True)
-    backtest = check_csv(LATEST_DIR / "volume_breakout_backtest_latest.csv", BACKTEST_REQUIRED_COLUMNS, allow_empty=False)
-    events = check_csv(HISTORY_DIR / "volume_breakout_event_log.csv", ["event_date", "stock_id", "volume_breakout_type", "mature_d5"], allow_empty=False)
+    backtest = pd.DataFrame()
+    events = pd.DataFrame()
+    should_check_backtest = not args.latest_only or (
+        (LATEST_DIR / "volume_breakout_backtest_latest.csv").exists()
+        and (HISTORY_DIR / "volume_breakout_event_log.csv").exists()
+    )
+    if should_check_backtest:
+        backtest = check_csv(LATEST_DIR / "volume_breakout_backtest_latest.csv", BACKTEST_REQUIRED_COLUMNS, allow_empty=False)
+        events = check_csv(HISTORY_DIR / "volume_breakout_event_log.csv", ["event_date", "stock_id", "volume_breakout_type", "mature_d5"], allow_empty=False)
 
     if not watch.empty:
         valid_priorities = {"A_valid_breakout_watch", "B_confirm_needed", "C_watch_only", "D_risk_downgrade"}
@@ -86,7 +113,7 @@ def main() -> int:
         if bad:
             fail(f"invalid volume_breakout_priority values: {bad}")
 
-    if "sample_status" in backtest.columns:
+    if not backtest.empty and "sample_status" in backtest.columns:
         bad_status = sorted(set(backtest["sample_status"]) - {"ok", "insufficient_sample", "pending_only", "data_missing", ""})
         if bad_status:
             fail(f"invalid sample_status values: {bad_status}")
