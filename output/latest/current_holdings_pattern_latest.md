@@ -1,6 +1,6 @@
 # 目前持股 180 日型態分析
 
-- 產生時間：`2026-05-28 19:09:53 Asia/Taipei`
+- 產生時間：`2026-05-28 19:58:34 Asia/Taipei`
 - CSV：`output/latest/current_holdings_pattern_latest.csv`
 - 圖表資料夾：`output/latest/charts/current_holdings`
 
@@ -10,7 +10,7 @@
 
 | 股票 | 收盤 | 成本 | 張數 | 損益 | 損益率% | 型態狀態 | 型態訊號 | 圖 |
 |---|---:|---:|---:|---:|---:|---|---|---|
-| 1815 富喬 | 103.5 | 112.1 | 20.0 | -172000.0 | -7.67 | failed_breakout_risk | 爆量長上影，疑似突破失敗或高檔換手 | [圖](output/latest/charts/current_holdings/1815_pattern.png) |
+| 1815 富喬 | 103.5 | 112.1 | 20.0 | -172000.0 | -7.67 | inside_platform | 平台整理中 | [圖](output/latest/charts/current_holdings/1815_pattern.png) |
 | 2377 微星 | 123.5 | 110.0 | 1.0 | 13500.0 | 12.27 | inside_platform | 平台整理中 | [圖](output/latest/charts/current_holdings/2377_pattern.png) |
 | 8039 台虹 | 153.5 | 131.81 | 13.0 | 281970.0 | 16.46 | inside_platform | 平台整理中 | [圖](output/latest/charts/current_holdings/8039_pattern.png) |
 
@@ -34,22 +34,21 @@
 - 是否突破前高：`False`
 - 是否跌破平台：`False`
 - 是否假跌破：`False`
-- 是否爆量長上影：`True`
+- 是否爆量長上影：`False`
 - 是否爆量跌破：`False`
 
 ### 型態判斷
 
-- pattern_state：`failed_breakout_risk`
-- pattern_signal：爆量長上影，疑似突破失敗或高檔換手
+- pattern_state：`inside_platform`
+- pattern_signal：平台整理中
 
 ### 交易觸發條件
 
-- 若隔日收復長上影高點，可解除部分疑慮
-- 若跌回平台內且放量跌破平台，轉弱
+- 上緣突破站穩才轉強
+- 下緣跌破後 3 日站不回才轉弱
 
 ### 風險註記
 
-- 長上影後不追價加碼
 - 收盤低於 20MA 與 23EMA，短線結構偏弱
 - 收盤低於 60MA，中期結構偏弱
 - 目前可用交易日數 138 日，未達 180 日
