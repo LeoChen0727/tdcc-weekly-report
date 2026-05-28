@@ -56,9 +56,11 @@ RULES_DIR = Path("rules")
 DOCS_RULES_DIR = Path("docs/rules")
 MASTER_PRIORITY_RULES = RULES_DIR / "master_priority_rules.md"
 DAILY_STOCK_CANDIDATE_RULES = RULES_DIR / "daily_stock_candidate_rules.md"
+ASTROLOGY_RULES = RULES_DIR / "astrology_rules.md"
 RULES_INDEX = RULES_DIR / "rules_index_latest.md"
 DOCS_MASTER_PRIORITY_RULES = DOCS_RULES_DIR / "master_priority_rules.md"
 DOCS_DAILY_STOCK_CANDIDATE_RULES = DOCS_RULES_DIR / "daily_stock_candidate_rules.md"
+DOCS_ASTROLOGY_RULES = DOCS_RULES_DIR / "astrology_rules.md"
 DOCS_RULES_INDEX = DOCS_RULES_DIR / "rules_index_latest.md"
 
 LATEST_SUMMARY_MD = LATEST_DIR / "daily_market_summary_latest.md"
@@ -525,6 +527,8 @@ def build_readme(
         f"rules_master_priority_pages_url={pages_url('rules/master_priority_rules.md')}",
         f"rules_daily_stock_candidate_raw_url={raw_url('main', DAILY_STOCK_CANDIDATE_RULES)}",
         f"rules_daily_stock_candidate_pages_url={pages_url('rules/daily_stock_candidate_rules.md')}",
+        f"rules_astrology_raw_url={raw_url('main', ASTROLOGY_RULES)}",
+        f"rules_astrology_pages_url={pages_url('rules/astrology_rules.md')}",
         "chatgpt_delivery_contract=repo_artifacts_are_sources_not_final_chatgpt_deliverables",
         "repo_pdf_artifact_role=source_validation_shareable_reference_only",
         "report_ready_meaning=repo_data_packet_and_repo_artifacts_available_not_chatgpt_task_done",
@@ -735,7 +739,8 @@ def build_readme(
         "1d. report_ready=True and fixed_pdf_validation_status=pass mean repo artifacts are available/validated; they do not mean ChatGPT has delivered the requested PDFs.",
         "2. Read rules_master_priority_pages_url or rules_master_priority_raw_url before any generated task rules.",
         "2a. Read rules_daily_stock_candidate_pages_url or rules_daily_stock_candidate_raw_url for the daily full-market candidate task.",
-        "2b. Read rules_pages_url or rules_raw_url only after the master and task-specific rule files.",
+        "2b. Read rules_astrology_pages_url or rules_astrology_raw_url for Zi Wei / Ba Zi calendar-date tasks; main_price_date is only auxiliary market-data status for those tasks.",
+        "2c. Read rules_pages_url or rules_raw_url only after the master and task-specific rule files.",
         "3. Read preferred_chatgpt_url for the packet.",
         "4. If preferred_chatgpt_url fails, follow read_order.",
         "5. If the URL is packet_github_api_url, decode the JSON content field from base64 before reading the packet.",

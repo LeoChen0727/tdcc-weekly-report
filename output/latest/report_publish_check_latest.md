@@ -1,9 +1,9 @@
 # Report Publish Check
 
-- generated_at: `2026-05-27 23:25:08 Asia/Taipei`
+- generated_at: `2026-05-28 10:43:51 Asia/Taipei`
 - main_price_date: `20260527`
 - report_ready: `True`
-- artifact_commit_sha: `521534002e814fed74b9ba2f02ac93e9346d72f6`
+- artifact_commit_sha: `ba60696453e138fd0d2dc4d0de70147c49e452e4`
 - preferred_chatgpt_url: `https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt`
 - rules_pages_url: `https://LeoChen0727.github.io/tdcc-weekly-report/latest/CHATGPT_DAILY_REPORT_RULES.txt`
 - rules_raw_url: `https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/CHATGPT_DAILY_REPORT_RULES.txt`
@@ -42,30 +42,31 @@ Connection: keep-alive
 Content-Length: 464372
 Server: GitHub.com
 Content-Type: text/plain; charset=utf-8
-Last-Modified: Wed, 27 May 2026 15:01:27 GMT
+Last-Modified: Wed, 27 May 2026 22:29:02 GMT
 Access-Control-Allow-Origin: *
 Strict-Transport-Security: max-age=31556952
-ETag: "6a170747-715f4"
-expires: Wed, 27 May 2026 15:35:03 GMT
+ETag: "6a17702e-715f4"
+expires: Thu, 28 May 2026 02:53:47 GMT
 Cache-Control: max-age=600
 x-proxy-cache: MISS
-X-GitHub-Request-Id: 2A70:3D1094:276310:29DA7D:6A170CCF
+X-GitHub-Request-Id: 4A26:A4B5A:A936B:B43F1:6A17ABE3
 Accept-Ranges: bytes
 Age: 0
-Date: Wed, 27 May 2026 15:25:03 GMT
+Date: Thu, 28 May 2026 02:43:47 GMT
 Via: 1.1 varnish
-X-Served-By: cache-sin-wsat1880060-SIN
+X-Served-By: cache-sin-wsss1830091-SIN
 X-Cache: MISS
 X-Cache-Hits: 0
-X-Timer: S1779895504.527809,VS0,VE448
+X-Timer: S1779936228.693352,VS0,VE274
 Vary: Accept-Encoding
-X-Fastly-Request-ID: 8eba8c3d13a48323223362e8251c8eab37225692
+X-Fastly-Request-ID: ed1318c1f8513090a9cf0866f1b00cd78ad2de3e
 
 
 STDERR:
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
   0  453k    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
 
@@ -130,8 +131,8 @@ STDERR:
                                  Dload  Upload   Total   Spent    Left  Speed
 
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-  1  453k    1  6855    0     0  30106      0  0:00:15 --:--:--  0:00:15 30331
-100  453k  100  453k    0     0  1086k      0 --:--:-- --:--:-- --:--:-- 1090k
+ 28  453k   28  128k    0     0   340k      0  0:00:01 --:--:--  0:00:01  343k
+100  453k  100  453k    0     0   874k      0 --:--:-- --:--:-- --:--:--  880k
 
 ```
 
@@ -139,12 +140,12 @@ STDERR:
 
 - ok: `True`
 - type: `plain`
-- url: `https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/521534002e814fed74b9ba2f02ac93e9346d72f6/output/history/reports/20260527_CHATGPT_DAILY_REPORT_PACKET.txt`
+- url: `https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/ba60696453e138fd0d2dc4d0de70147c49e452e4/output/history/reports/20260527_CHATGPT_DAILY_REPORT_PACKET.txt`
 
 ### curl -I
 
 ```text
-curl -I -L --max-time 30 https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/521534002e814fed74b9ba2f02ac93e9346d72f6/output/history/reports/20260527_CHATGPT_DAILY_REPORT_PACKET.txt
+curl -I -L --max-time 30 https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/ba60696453e138fd0d2dc4d0de70147c49e452e4/output/history/reports/20260527_CHATGPT_DAILY_REPORT_PACKET.txt
 HTTP/1.1 200 OK
 Connection: keep-alive
 Content-Length: 464372
@@ -156,20 +157,20 @@ Strict-Transport-Security: max-age=31536000
 X-Content-Type-Options: nosniff
 X-Frame-Options: deny
 X-XSS-Protection: 1; mode=block
-X-GitHub-Request-Id: DFCA:334048:2446E1:27B451:6A170CD0
+X-GitHub-Request-Id: 5B3A:4E6E3:617CD:DD1B9:6A17ABE4
 Accept-Ranges: bytes
-Date: Wed, 27 May 2026 15:25:05 GMT
+Date: Thu, 28 May 2026 02:43:49 GMT
 Via: 1.1 varnish
-X-Served-By: cache-sin-wsat1880095-SIN
+X-Served-By: cache-sin-wsss1830039-SIN
 X-Cache: MISS
 X-Cache-Hits: 0
-X-Timer: S1779895505.740878,VS0,VE1185
+X-Timer: S1779936229.807496,VS0,VE307
 Vary: Authorization,Accept-Encoding
 Access-Control-Allow-Origin: *
 Cross-Origin-Resource-Policy: cross-origin
-X-Fastly-Request-ID: 69e1a492f622961b795ccbd28c179b0ec89e8b9b
-Expires: Wed, 27 May 2026 15:30:05 GMT
-Source-Age: 1
+X-Fastly-Request-ID: 8649b3cf1f45243eb11dc45b3dfb94a82384b861
+Expires: Thu, 28 May 2026 02:48:49 GMT
+Source-Age: 0
 
 
 STDERR:
@@ -177,15 +178,14 @@ STDERR:
                                  Dload  Upload   Total   Spent    Left  Speed
 
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
-  0  453k    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
+  0  453k    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
 
 ```
 
 ### curl -L | head -50
 
 ```text
-curl -L --max-time 30 https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/521534002e814fed74b9ba2f02ac93e9346d72f6/output/history/reports/20260527_CHATGPT_DAILY_REPORT_PACKET.txt
+curl -L --max-time 30 https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/ba60696453e138fd0d2dc4d0de70147c49e452e4/output/history/reports/20260527_CHATGPT_DAILY_REPORT_PACKET.txt
 CHATGPT DAILY REPORT PACKET
 
 generated_at: 2026-05-27 22:00:53 Asia/Taipei
@@ -241,8 +241,8 @@ STDERR:
                                  Dload  Upload   Total   Spent    Left  Speed
 
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-  6  453k    6 31845    0     0   114k      0  0:00:03 --:--:--  0:00:03  115k
-100  453k  100  453k    0     0   926k      0 --:--:-- --:--:-- --:--:--  929k
+  1  453k    1  6855    0     0  25973      0  0:00:17 --:--:--  0:00:17 26164
+100  453k  100  453k    0     0   872k      0 --:--:-- --:--:-- --:--:--  875k
 
 ```
 
@@ -267,19 +267,19 @@ Strict-Transport-Security: max-age=31536000
 X-Content-Type-Options: nosniff
 X-Frame-Options: deny
 X-XSS-Protection: 1; mode=block
-X-GitHub-Request-Id: 309E:133F03:2208BF:3F55A8:6A170443
+X-GitHub-Request-Id: 5C60:1DE334:5F3E6:DA7F7:6A17ABE2
 Accept-Ranges: bytes
-Date: Wed, 27 May 2026 15:25:07 GMT
+Date: Thu, 28 May 2026 02:43:50 GMT
 Via: 1.1 varnish
-X-Served-By: cache-sin-wsat1880055-SIN
-X-Cache: HIT
+X-Served-By: cache-sin-wsss1830020-SIN
+X-Cache: MISS
 X-Cache-Hits: 0
-X-Timer: S1779895507.708537,VS0,VE347
+X-Timer: S1779936230.946884,VS0,VE309
 Vary: Authorization,Accept-Encoding
 Access-Control-Allow-Origin: *
 Cross-Origin-Resource-Policy: cross-origin
-X-Fastly-Request-ID: a4da1476c3bd28e5cb5716d769bb9259f2dbb267
-Expires: Wed, 27 May 2026 15:30:07 GMT
+X-Fastly-Request-ID: c02efc2a54ad55cfb47a81ddd74624a635e16923
+Expires: Thu, 28 May 2026 02:48:50 GMT
 Source-Age: 0
 
 
@@ -352,7 +352,7 @@ STDERR:
 
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100  453k  100  453k    0     0  1140k      0 --:--:-- --:--:-- --:--:-- 1145k
+100  453k  100  453k    0     0   918k      0 --:--:-- --:--:-- --:--:--  921k
 
 ```
 
@@ -373,9 +373,9 @@ Cache-Control: public, max-age=60, s-maxage=60
 Content-Length: 641016
 Content-Security-Policy: default-src 'none'
 Content-Type: application/json; charset=utf-8
-Date: Wed, 27 May 2026 15:25:07 GMT
+Date: Thu, 28 May 2026 02:43:51 GMT
 ETag: "97a679e2a08d22efd981a3cd0bf3c264abc33d04"
-Last-Modified: Wed, 27 May 2026 14:59:11 GMT
+Last-Modified: Wed, 27 May 2026 22:27:10 GMT
 Referrer-Policy: origin-when-cross-origin, strict-origin-when-cross-origin
 Vary: Accept, Accept-Encoding, Accept, X-Requested-With
 X-Content-Type-Options: nosniff
@@ -389,8 +389,8 @@ X-RateLimit-Limit: 60
 X-RateLimit-Remaining: 59
 X-RateLimit-Used: 1
 X-RateLimit-Resource: core
-X-RateLimit-Reset: 1779899107
-X-GitHub-Request-Id: EFFE:0BCB:113757A:1303FD1:6A170CD3
+X-RateLimit-Reset: 1779939831
+X-GitHub-Request-Id: C3FB:28EBB2:494B80:52497C:6A17ABE6
 
 
 STDERR:
@@ -481,7 +481,7 @@ STDERR:
                                  Dload  Upload   Total   Spent    Left  Speed
 
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-  1  625k    1 12449    0     0  71792      0  0:00:08 --:--:--  0:00:08 72801
-100  625k  100  625k    0     0  1399k      0 --:--:-- --:--:-- --:--:-- 1406k
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100  625k  100  625k    0     0  1631k      0 --:--:-- --:--:-- --:--:-- 1638k
 
 ```

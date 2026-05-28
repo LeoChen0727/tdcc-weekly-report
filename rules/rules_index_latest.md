@@ -16,6 +16,7 @@ Last updated: 2026-05-27
 |---|---|---:|
 | `rules/master_priority_rules.md` | all tdcc-weekly-report tasks | 1 |
 | `rules/daily_stock_candidate_rules.md` | daily full-market candidate report | 2 |
+| `rules/astrology_rules.md` | Zi Wei / Ba Zi calendar-date strategy report | 2 |
 
 ## Conflict Handling
 
@@ -27,4 +28,3 @@ If rules conflict:
 4. Task-specific rule files win over generic generated task text.
 
 If a required rule file is missing, state `rules_missing` and continue with `output/latest/CHATGPT_DAILY_REPORT_RULES.txt`, but do not pretend the master rule file was read.
-

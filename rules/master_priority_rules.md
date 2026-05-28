@@ -27,6 +27,18 @@ For every repo-related task:
 
 Do not use old-date data as a new-date report. If `main_price_date` differs from the requested date, state the available repo date clearly.
 
+## Calendar-Date Tasks Versus Trading-Date Data
+
+Some tasks are calendar-date tasks, not trading-date tasks. Astrology / Zi Wei / Ba Zi reports must use the user's requested calendar date as the report date and chart calculation date.
+
+For astrology tasks:
+
+- `main_price_date` and `report_ready` are only stock-market data status fields.
+- A stale or previous-trading-day `main_price_date` must not block the astrology report.
+- Repo market data may be used only as an auxiliary reality check for the wealth / stock behavior-risk paragraph.
+- If repo market data is stale or unreadable, write the available market-data date and continue the astrology report from the calendar date.
+- Do not say the astrology report cannot be produced just because the stock repo date differs from the calendar date.
+
 ## Raw Data And Fetch Failures
 
 Structured repo data wins over PDF prose:
@@ -83,4 +95,3 @@ Do not force conclusions from insufficient data. `pending` is not success or fai
 Repo pipeline artifacts are source artifacts. A repo artifact being present does not mean ChatGPT has completed a requested final report.
 
 If the user asks to perform a task or produce a report, ChatGPT must produce the requested deliverable after reading repo structured data. Do not stop at repo PDF links unless the user asked only for repo artifact status or links.
-
