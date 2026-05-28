@@ -1,6 +1,6 @@
 # TDCC Weekly Report Master Priority Rules
 
-Last updated: 2026-05-27
+Last updated: 2026-05-28
 
 This file is the highest-priority rule header for all ChatGPT tasks that use the `tdcc-weekly-report` repo.
 
@@ -84,6 +84,17 @@ Do not mix task types:
 - astrology
 
 Daily candidate reports are not holdings management. Holdings reports are not full-market ranking reports. Market reports are not stock recommendation lists.
+
+## Pipeline Runtime Separation
+
+Daily report generation and research/backfill jobs must remain separated.
+
+- `daily_full_pipeline.yml` is for daily report-critical data, packets, rule files, and PDF artifacts.
+- Heavy research, long backtests, parameter grids, raw URL health sweeps, and TDCC historical backfill must not be required for a normal daily run.
+- Research/backtest refreshes belong in `research_backtest_pipeline.yml` or a dedicated manual workflow.
+- TDCC history backfill belongs in `tdcc_history_backfill.yml` and must use bounded request and rebuild windows unless explicitly running a full research rebuild.
+- Daily reports may consume the latest available research outputs as specialty sections, but stale or missing research outputs must not block daily report generation.
+- If a daily report uses a research output, it must preserve `sample_status`, `tuning_status`, and `reporting_priority_only` limits.
 
 ## Data Sufficiency
 

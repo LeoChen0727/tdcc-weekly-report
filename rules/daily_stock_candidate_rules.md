@@ -99,6 +99,7 @@ Required specialty sections when data exists:
 - `daily_short_term_specialty_packet_latest.md`: standalone D+5 / D+10 short-term specialty.
 - `tdcc_overheated_short_term_edge_latest.md/csv`: standalone TDCC overheated short-term edge.
 - `weekly_surge_strict_parameter_search_latest.md/csv`: standalone strict weekly-surge parameter research.
+- `explosive_volume_up_backtest_latest.md/csv` and `explosive_volume_up_events_latest.csv`: standalone explosive-volume-up research. This is a research/watch section only. It uses D+1 open as the entry basis and separates close-return win rate from intraperiod high-hit rate.
 - `volume_attack_theme_layer_latest.md/csv` and `volume_attack_theme_stocks_latest.md/csv`: standalone volume attack x theme early-mainstream section.
 - `non_revenue_momentum_watch_latest.md/csv`, if present: standalone non-revenue momentum / theme-fund-first section.
 

@@ -18,6 +18,8 @@ TDCC_EDGE_STATS = LATEST_DIR / "tdcc_overheated_short_term_edge_latest.csv"
 TDCC_EDGE_CANDIDATES = LATEST_DIR / "tdcc_overheated_short_term_edge_candidates_latest.csv"
 WEEKLY_SURGE_STRICT_SEARCH = LATEST_DIR / "weekly_surge_strict_parameter_search_latest.csv"
 WEEKLY_SURGE_STRICT_CANDIDATES = LATEST_DIR / "weekly_surge_strict_parameter_candidates_latest.csv"
+EXPLOSIVE_VOLUME_SUMMARY = LATEST_DIR / "explosive_volume_up_backtest_latest.csv"
+EXPLOSIVE_VOLUME_EVENTS = LATEST_DIR / "explosive_volume_up_events_latest.csv"
 
 
 def now_text() -> str:
@@ -210,6 +212,76 @@ def build_weekly_surge_section(lines: list[str]) -> None:
     lines.append("")
 
 
+def build_explosive_volume_section(lines: list[str]) -> None:
+    summary = read_csv(EXPLOSIVE_VOLUME_SUMMARY)
+    events = read_csv(EXPLOSIVE_VOLUME_EVENTS)
+
+    lines.append("## Explosive Volume Up Research")
+    lines.append("")
+    lines.append("- section_required_in_daily_pdf: `True`")
+    lines.append("- section_type: `short_term_specialty_not_six_category`")
+    lines.append("- signal_definition: signal day volume divided by previous 20 trading day average volume, with signal day close-to-close return >= threshold.")
+    lines.append("- entry_basis: `D+1 open`")
+    lines.append("- close_win_rate: D+1 open to D+N close return > 0.")
+    lines.append("- high_hit_rate: D+1 open to highest high within D+N reaches +10% or +20%.")
+    lines.append("- model_effect_allowed: `False`")
+    lines.append("- allowed_use: `research_watchlist_and_reporting_priority_only`")
+    lines.append("- rule: volume alone is not a core buy signal; combine with theme/mainstream status, TDCC phase, market regime, and technical position.")
+    lines.append("")
+
+    if summary.empty:
+        lines.append("### D+10 / D+20 Parameter Tables")
+        lines.extend(md_table(["status", "note"], [["missing", EXPLOSIVE_VOLUME_SUMMARY.as_posix()]]))
+        lines.append("")
+        return
+
+    cols = pick_columns(
+        summary,
+        [
+            "rule_name",
+            "horizon",
+            "selected_stock_days",
+            "mature_count",
+            "close_win_rate_pct",
+            "avg_close_return_pct",
+            "median_close_return_pct",
+            "hit_rate_high_ge_10pct",
+            "hit_rate_high_ge_20pct",
+            "sample_status",
+        ],
+    )
+    for horizon in ["D+5", "D+10", "D+20"]:
+        lines.append(f"### {horizon} Explosive Volume Table")
+        sub = summary[summary["horizon"].astype(str).str.upper().eq(horizon)]
+        sub = sort_numeric(sub, "hit_rate_high_ge_10pct")
+        lines.extend(md_table(cols[:10] if cols else ["status"], top_rows(sub, cols[:10], 15)))
+        lines.append("")
+
+    lines.append("### Latest Explosive Volume Events")
+    event_cols = pick_columns(
+        events,
+        [
+            "date",
+            "stock_id",
+            "stock_name",
+            "market",
+            "close",
+            "volume_ratio_vs_prev20",
+            "signal_return_1d_pct",
+            "next_open_to_d10_max_high_return_pct",
+            "next_open_to_d20_max_high_return_pct",
+        ],
+    )
+    if event_cols:
+        safe = events.copy()
+        safe["date_sort"] = safe["date"].astype(str)
+        safe = safe.sort_values(["date_sort", "volume_ratio_vs_prev20"], ascending=[False, False])
+        lines.extend(md_table(event_cols, top_rows(safe, event_cols, 20)))
+    else:
+        lines.extend(md_table(["status"], [["missing_columns"]]))
+    lines.append("")
+
+
 def build_packet() -> str:
     lines: list[str] = []
     lines.append("# DAILY SHORT-TERM SPECIALTY PACKET")
@@ -229,6 +301,7 @@ def build_packet() -> str:
     lines.append("")
     build_tdcc_edge_section(lines)
     build_weekly_surge_section(lines)
+    build_explosive_volume_section(lines)
     lines.append("## PDF Placement")
     lines.append("- Place after the three-line candidate split and before or near category interpretation.")
     lines.append("- Do not merge this packet into the six-category ranking table.")

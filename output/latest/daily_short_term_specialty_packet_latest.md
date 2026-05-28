@@ -1,7 +1,7 @@
 # DAILY SHORT-TERM SPECIALTY PACKET
 
 ## Metadata
-- generated_at: `2026-05-28 12:10:53 UTC`
+- generated_at: `2026-05-28 21:23:15 台北標準時間`
 - main_price_date: `20260528`
 - purpose: Force daily reports to include short-term specialty sections that are not part of the fixed six candidate categories.
 
@@ -78,11 +78,11 @@
 | vol5_avg_ge_2 + tdcc_all_up + rsi_50_75 + return_10d_20_50 | D+5 | 66 | 46.97 | 8.99 | 12.64 | 0.99 | insufficient_sample |
 | vol5_avg_ge_1_5 + market_bull + tdcc_high_up + bb_width_not_extreme + return_10d_20_50 | D+5 | 45 | 46.67 | 9.0 | 11.75 | 0.64 | insufficient_sample |
 | vol5_avg_ge_1_5 + market_strong_bull + tdcc_high_up + bb_width_not_extreme + return_10d_20_50 | D+5 | 45 | 46.67 | 9.0 | 11.75 | 0.64 | insufficient_sample |
-| vol5_avg_ge_1_5 + tdcc_high_up + kd_bullish_not_overheated + return_10d_20_50 | D+5 | 106 | 46.23 | 9.01 | 12.67 | 1.14 | ok_initial_sample |
 | vol5_avg_ge_1_5 + tdcc_high_up + macd_hist_pos + kd_bullish_not_overheated + return_10d_20_50 | D+5 | 106 | 46.23 | 9.01 | 12.67 | 1.14 | ok_initial_sample |
+| vol5_avg_ge_1_5 + tdcc_high_up + kd_bullish_not_overheated + return_10d_20_50 | D+5 | 106 | 46.23 | 9.01 | 12.67 | 1.14 | ok_initial_sample |
+| vol5_avg_ge_3 + market_strong_bull + bb_width_not_extreme + return_10d_20_50 | D+5 | 35 | 45.71 | 7.52 | 10.71 | 1.31 | insufficient_sample |
 | vol5_avg_ge_3 + bb_width_not_extreme + return_10d_20_50 | D+5 | 35 | 45.71 | 7.52 | 10.71 | 1.31 | insufficient_sample |
 | vol5_avg_ge_3 + market_bull + bb_width_not_extreme + return_10d_20_50 | D+5 | 35 | 45.71 | 7.52 | 10.71 | 1.31 | insufficient_sample |
-| vol5_avg_ge_3 + market_strong_bull + bb_width_not_extreme + return_10d_20_50 | D+5 | 35 | 45.71 | 7.52 | 10.71 | 1.31 | insufficient_sample |
 | day_vol_ge_2 + tdcc_high_up + rsi_50_75 + return_10d_20_50 | D+5 | 88 | 45.45 | 8.77 | 11.17 | 1.15 | insufficient_sample |
 | vol5_avg_ge_1_5 + tdcc_all_up + rsi_50_75 + return_10d_20_50 | D+5 | 124 | 45.16 | 9.44 | 12.49 | 1.21 | ok_initial_sample |
 
@@ -130,6 +130,99 @@
 | B_strict_research_confirm | 8150 | 南茂 | vol5_avg_ge_1_5 + bb_width_not_extreme + return_10d_20_50; vol5_avg_ge_1_5 + market_bull + bb_width_not_extreme + return_10d_20_50; vol5_avg_ge_1_5 + market_strong_bull + bb_width_not_extreme + return_10d_20_50; day_vol_ge_2 + bb_width_not_extreme + return_10d_20_50; day_vol_ge_2 + market_bull + bb_width_not_extreme + return_10d_20_50; day_vol_ge_2 + market_strong_bull + bb_width_not_extreme + return_10d_20_50; day_vol_ge_2 + kd_bullish_not_overheated + bb_width_not_extreme + return_10d_20_50; vol5_avg_ge_1_5 + kd_bullish_not_overheated + bb_width_not_extreme + return_10d_20_50 | 42.68 | 57.96 | vol5_avg_ge_1_5 + bb_width_not_extreme + return_10d_20_50 | strict_no_latest_theme_label; research_only; entry_basis_D+1_open; target_next_open_to_high_10pct |
 | B_strict_research_confirm | 6155 | 鈞寶 | vol5_avg_ge_1_5 + bb_width_not_extreme + return_10d_20_50; vol5_avg_ge_1_5 + market_bull + bb_width_not_extreme + return_10d_20_50; vol5_avg_ge_1_5 + market_strong_bull + bb_width_not_extreme + return_10d_20_50; vol5_avg_ge_1_5 + kd_bullish_not_overheated + bb_width_not_extreme + return_10d_20_50; vol5_avg_ge_1_5 + market_bull + kd_bullish_not_overheated + bb_width_not_extreme + return_10d_20_50; vol5_avg_ge_1_5 + market_strong_bull + kd_bullish_not_overheated + bb_width_not_extreme + return_10d_20_50; vol5_avg_ge_1_5 + rsi_50_75 + return_10d_20_50; vol5_avg_ge_1_5 + market_bull + rsi_50_75 + return_10d_20_50 | 42.68 | 57.96 | vol5_avg_ge_1_5 + bb_width_not_extreme + return_10d_20_50 | strict_no_latest_theme_label; research_only; entry_basis_D+1_open; target_next_open_to_high_10pct |
 | B_strict_research_confirm | 2426 | 鼎元 | day_vol_ge_2 + bb_width_not_extreme + return_10d_20_50; day_vol_ge_2 + market_bull + bb_width_not_extreme + return_10d_20_50; day_vol_ge_2 + market_strong_bull + bb_width_not_extreme + return_10d_20_50; day_vol_ge_2 + kd_bullish_not_overheated + bb_width_not_extreme + return_10d_20_50; day_vol_ge_2 + market_bull + kd_bullish_not_overheated + bb_width_not_extreme + return_10d_20_50; day_vol_ge_2 + market_strong_bull + kd_bullish_not_overheated + bb_width_not_extreme + return_10d_20_50; day_vol_ge_2 + rsi_50_75 + return_10d_20_50; day_vol_ge_2 + market_bull + rsi_50_75 + return_10d_20_50 | 40.58 | 57.07 | day_vol_ge_2 + bb_width_not_extreme + return_10d_20_50 | strict_no_latest_theme_label; research_only; entry_basis_D+1_open; target_next_open_to_high_10pct |
+
+## Explosive Volume Up Research
+
+- section_required_in_daily_pdf: `True`
+- section_type: `short_term_specialty_not_six_category`
+- signal_definition: signal day volume divided by previous 20 trading day average volume, with signal day close-to-close return >= threshold.
+- entry_basis: `D+1 open`
+- close_win_rate: D+1 open to D+N close return > 0.
+- high_hit_rate: D+1 open to highest high within D+N reaches +10% or +20%.
+- model_effect_allowed: `False`
+- allowed_use: `research_watchlist_and_reporting_priority_only`
+- rule: volume alone is not a core buy signal; combine with theme/mainstream status, TDCC phase, market regime, and technical position.
+
+### D+5 Explosive Volume Table
+| rule_name | horizon | selected_stock_days | mature_count | close_win_rate_pct | avg_close_return_pct | median_close_return_pct | hit_rate_high_ge_10pct | hit_rate_high_ge_20pct | sample_status |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| volume_ratio_prev20_ge_2x_signal_return_ge_7pct | D+5 | 4631 | 4505 | 41.4 | 0.05 | -2.0 | 34.38 | 12.7 | ok |
+| volume_ratio_prev20_ge_3x_signal_return_ge_7pct | D+5 | 3195 | 3125 | 40.35 | -0.11 | -2.19 | 32.9 | 12.03 | ok |
+| volume_ratio_prev20_ge_4x_signal_return_ge_7pct | D+5 | 2283 | 2241 | 39.8 | -0.26 | -2.31 | 32.22 | 11.33 | ok |
+| volume_ratio_prev20_ge_2x_signal_return_ge_5pct | D+5 | 6573 | 6377 | 41.6 | 0.07 | -1.76 | 31.66 | 11.42 | ok |
+| volume_ratio_prev20_ge_5x_signal_return_ge_7pct | D+5 | 1680 | 1658 | 38.42 | -0.64 | -2.71 | 31.54 | 10.74 | ok |
+| volume_ratio_prev20_ge_3x_signal_return_ge_5pct | D+5 | 4396 | 4293 | 40.6 | -0.07 | -1.93 | 30.54 | 10.88 | ok |
+| volume_ratio_prev20_ge_6x_signal_return_ge_7pct | D+5 | 1261 | 1248 | 37.34 | -0.81 | -2.74 | 30.21 | 10.1 | ok |
+| volume_ratio_prev20_ge_5x_signal_return_ge_5pct | D+5 | 2169 | 2136 | 39.09 | -0.48 | -2.28 | 30.15 | 10.02 | ok |
+| volume_ratio_prev20_ge_4x_signal_return_ge_5pct | D+5 | 3042 | 2980 | 40.27 | -0.16 | -2.07 | 30.13 | 10.23 | ok |
+| volume_ratio_prev20_ge_8x_signal_return_ge_7pct | D+5 | 737 | 732 | 35.11 | -1.09 | -2.9 | 29.78 | 9.84 | ok |
+| volume_ratio_prev20_ge_6x_signal_return_ge_5pct | D+5 | 1624 | 1607 | 37.9 | -0.67 | -2.4 | 29.06 | 9.52 | ok |
+| volume_ratio_prev20_ge_2x_signal_return_ge_3pct | D+5 | 9777 | 9483 | 41.16 | 0.12 | -1.51 | 27.97 | 9.85 | ok |
+| volume_ratio_prev20_ge_4x_signal_return_ge_3pct | D+5 | 4007 | 3923 | 39.59 | -0.23 | -1.96 | 27.96 | 9.25 | ok |
+| volume_ratio_prev20_ge_8x_signal_return_ge_5pct | D+5 | 928 | 922 | 35.03 | -1.17 | -2.86 | 27.87 | 9.0 | ok |
+| volume_ratio_prev20_ge_5x_signal_return_ge_3pct | D+5 | 2806 | 2757 | 38.19 | -0.55 | -2.16 | 27.86 | 9.18 | ok |
+
+### D+10 Explosive Volume Table
+| rule_name | horizon | selected_stock_days | mature_count | close_win_rate_pct | avg_close_return_pct | median_close_return_pct | hit_rate_high_ge_10pct | hit_rate_high_ge_20pct | sample_status |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| volume_ratio_prev20_ge_2x_signal_return_ge_7pct | D+10 | 4631 | 4322 | 45.16 | 2.29 | -1.34 | 46.07 | 23.92 | ok |
+| volume_ratio_prev20_ge_3x_signal_return_ge_7pct | D+10 | 3195 | 3007 | 43.33 | 1.97 | -1.85 | 44.23 | 22.98 | ok |
+| volume_ratio_prev20_ge_2x_signal_return_ge_5pct | D+10 | 6573 | 6122 | 44.71 | 2.03 | -1.33 | 43.65 | 22.02 | ok |
+| volume_ratio_prev20_ge_4x_signal_return_ge_7pct | D+10 | 2283 | 2165 | 42.73 | 1.64 | -2.01 | 43.33 | 21.89 | ok |
+| volume_ratio_prev20_ge_3x_signal_return_ge_5pct | D+10 | 4396 | 4134 | 43.23 | 1.82 | -1.75 | 42.33 | 21.19 | ok |
+| volume_ratio_prev20_ge_5x_signal_return_ge_7pct | D+10 | 1680 | 1614 | 40.77 | 0.75 | -2.42 | 42.19 | 20.2 | ok |
+| volume_ratio_prev20_ge_4x_signal_return_ge_5pct | D+10 | 3042 | 2877 | 42.61 | 1.5 | -1.89 | 41.64 | 20.23 | ok |
+| volume_ratio_prev20_ge_5x_signal_return_ge_5pct | D+10 | 2169 | 2071 | 41.14 | 0.89 | -2.31 | 41.28 | 19.31 | ok |
+| volume_ratio_prev20_ge_6x_signal_return_ge_7pct | D+10 | 1261 | 1226 | 39.97 | 0.53 | -2.49 | 41.27 | 19.41 | ok |
+| volume_ratio_prev20_ge_8x_signal_return_ge_7pct | D+10 | 737 | 720 | 38.89 | 0.21 | -2.83 | 41.25 | 20.14 | ok |
+| volume_ratio_prev20_ge_6x_signal_return_ge_5pct | D+10 | 1624 | 1569 | 40.41 | 0.71 | -2.33 | 40.47 | 18.67 | ok |
+| volume_ratio_prev20_ge_2x_signal_return_ge_3pct | D+10 | 9777 | 9123 | 44.12 | 1.76 | -1.27 | 39.73 | 19.48 | ok |
+| volume_ratio_prev20_ge_8x_signal_return_ge_5pct | D+10 | 928 | 904 | 38.61 | 0.04 | -2.85 | 39.6 | 18.25 | ok |
+| volume_ratio_prev20_ge_4x_signal_return_ge_3pct | D+10 | 4007 | 3796 | 42.33 | 1.33 | -1.84 | 39.41 | 18.68 | ok |
+| volume_ratio_prev20_ge_3x_signal_return_ge_3pct | D+10 | 6051 | 5698 | 42.77 | 1.58 | -1.7 | 39.36 | 19.15 | ok |
+
+### D+20 Explosive Volume Table
+| rule_name | horizon | selected_stock_days | mature_count | close_win_rate_pct | avg_close_return_pct | median_close_return_pct | hit_rate_high_ge_10pct | hit_rate_high_ge_20pct | sample_status |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| volume_ratio_prev20_ge_2x_signal_return_ge_7pct | D+20 | 4631 | 3861 | 46.0 | 5.19 | -1.61 | 57.21 | 36.44 | ok |
+| volume_ratio_prev20_ge_2x_signal_return_ge_5pct | D+20 | 6573 | 5452 | 45.95 | 4.75 | -1.46 | 55.32 | 34.56 | ok |
+| volume_ratio_prev20_ge_3x_signal_return_ge_7pct | D+20 | 3195 | 2726 | 43.62 | 4.0 | -2.46 | 54.73 | 34.01 | ok |
+| volume_ratio_prev20_ge_3x_signal_return_ge_5pct | D+20 | 4396 | 3728 | 44.02 | 3.72 | -2.21 | 53.46 | 32.27 | ok |
+| volume_ratio_prev20_ge_4x_signal_return_ge_7pct | D+20 | 2283 | 1980 | 42.17 | 3.07 | -3.07 | 53.08 | 31.92 | ok |
+| volume_ratio_prev20_ge_4x_signal_return_ge_5pct | D+20 | 3042 | 2625 | 42.55 | 2.91 | -2.74 | 52.0 | 30.32 | ok |
+| volume_ratio_prev20_ge_2x_signal_return_ge_3pct | D+20 | 9777 | 8171 | 45.91 | 4.15 | -1.26 | 51.94 | 31.15 | ok |
+| volume_ratio_prev20_ge_5x_signal_return_ge_7pct | D+20 | 1680 | 1490 | 40.74 | 2.1 | -3.3 | 51.88 | 30.6 | ok |
+| volume_ratio_prev20_ge_3x_signal_return_ge_3pct | D+20 | 6051 | 5168 | 44.49 | 3.41 | -1.73 | 51.28 | 29.72 | ok |
+| volume_ratio_prev20_ge_5x_signal_return_ge_5pct | D+20 | 2169 | 1915 | 40.94 | 2.12 | -3.12 | 51.07 | 29.5 | ok |
+| volume_ratio_prev20_ge_8x_signal_return_ge_7pct | D+20 | 737 | 674 | 39.17 | 1.43 | -3.69 | 50.89 | 29.38 | ok |
+| volume_ratio_prev20_ge_6x_signal_return_ge_7pct | D+20 | 1261 | 1134 | 39.51 | 1.71 | -3.55 | 50.62 | 29.81 | ok |
+| volume_ratio_prev20_ge_6x_signal_return_ge_5pct | D+20 | 1624 | 1454 | 40.1 | 1.71 | -3.34 | 50.28 | 28.75 | ok |
+| volume_ratio_prev20_ge_4x_signal_return_ge_3pct | D+20 | 4007 | 3476 | 42.61 | 2.71 | -2.42 | 50.17 | 28.45 | ok |
+| volume_ratio_prev20_ge_8x_signal_return_ge_5pct | D+20 | 928 | 843 | 38.2 | 0.8 | -3.76 | 48.99 | 26.81 | ok |
+
+### Latest Explosive Volume Events
+| date | stock_id | stock_name | market | close | volume_ratio_vs_prev20 | signal_return_1d_pct | next_open_to_d10_max_high_return_pct | next_open_to_d20_max_high_return_pct |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260527 | 2438 | 翔耀 | TWSE | 25.3 | 8.75722595822178 | 10.000000000000009 |  |  |
+| 20260527 | 3257 | 虹冠電 | TWSE | 61.1 | 7.001378217160242 | 2.1739130434782705 |  |  |
+| 20260527 | 1503 | 士電 | TWSE | 221.0 | 6.868487902795599 | 8.866995073891616 |  |  |
+| 20260527 | 1409 | 新纖 | TWSE | 18.9 | 6.849635149489252 | 7.082152974504252 |  |  |
+| 20260527 | 1340 | 勝悅-KY | TWSE | 5.52 | 6.545780749096642 | 4.150943396226414 |  |  |
+| 20260527 | 5520 | 力泰 | TPEx | 82.2 | 6.456692913385827 | 0.0 |  |  |
+| 20260527 | 5274 | 信驊 | TPEx | 18230.0 | 6.252972600379114 | 5.742459396751731 |  |  |
+| 20260527 | 2516 | 新建 | TWSE | 13.6 | 5.878352200842433 | 5.836575875486383 |  |  |
+| 20260527 | 1810 | 和成 | TWSE | 19.9 | 5.875820173954962 | 6.133333333333324 |  |  |
+| 20260527 | 8466 | 美吉吉-KY | TWSE | 16.5 | 5.736801413939451 | 3.4482758620689724 |  |  |
+| 20260527 | 2434 | 統懋 | TWSE | 33.2 | 5.484083899646082 | 9.933774834437092 |  |  |
+| 20260527 | 2369 | 菱生 | TWSE | 40.15 | 5.462941649142042 | 6.49867374005304 |  |  |
+| 20260527 | 4952 | 凌通 | TWSE | 55.8 | 5.303264298143161 | 1.4545454545454417 |  |  |
+| 20260527 | 6698 | 旭暉應材 | TWSE | 36.55 | 5.10578429266005 | 6.095791001451367 |  |  |
+| 20260527 | 1315 | 達新 | TWSE | 62.0 | 5.046365574723784 | 2.1416803953871355 |  |  |
+| 20260527 | 3321 | 同泰 | TWSE | 19.05 | 4.986091460100324 | 4.670329670329676 |  |  |
+| 20260527 | 7734 | 印能科技 | TPEx | 3840.0 | 4.8166539343009935 | 6.371191135734078 |  |  |
+| 20260527 | 2321 | 東訊 | TWSE | 15.0 | 4.795674336186437 | 4.895104895104896 |  |  |
+| 20260527 | 6855 | 數泓科 | TPEx | 111.0 | 4.720496894409938 | 0.0 |  |  |
+| 20260527 | 8110 | 華東 | TWSE | 60.6 | 4.621045813402994 | 9.981851179673317 |  |  |
 
 ## PDF Placement
 - Place after the three-line candidate split and before or near category interpretation.
