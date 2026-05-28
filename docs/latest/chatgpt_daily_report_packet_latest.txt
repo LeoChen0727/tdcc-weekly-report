@@ -1,6 +1,6 @@
 CHATGPT DAILY REPORT PACKET
 
-generated_at: 2026-05-28 14:56:25 Asia/Taipei
+generated_at: 2026-05-28 17:10:11 Asia/Taipei
 repo: LeoChen0727/tdcc-weekly-report
 main_price_date: 20260527
 report_ready: True
@@ -41,14 +41,14 @@ CURATED PDF REPORT
 pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_market_curated_report_latest.pdf
 raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_curated_report_latest.pdf
 file_path: output/latest/daily_market_curated_report_latest.pdf
-generated_at: 2026-05-28 14:45:27 Asia/Taipei
+generated_at: 2026-05-28 14:57:10 Asia/Taipei
 status: generated
 
 FULL TABLE PDF REPORT
 pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_market_full_table_report_latest.pdf
 raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_full_table_report_latest.pdf
 file_path: output/latest/daily_market_full_table_report_latest.pdf
-generated_at: 2026-05-28 14:45:27 Asia/Taipei
+generated_at: 2026-05-28 14:57:10 Asia/Taipei
 status: generated
 
 FIXED PDF VALIDATION
@@ -262,7 +262,7 @@ performance_csv_path: output/history/daily_signals/daily_candidate_signal_perfor
 summary_latest_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_signal_performance_summary_latest.md
 weekly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_weekly_latest.pdf
 monthly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_monthly_latest.pdf
-last_updated_at: 2026-05-28 14:56:25 Asia/Taipei
+last_updated_at: 2026-05-28 17:10:11 Asia/Taipei
 status: generated
 
 CANDIDATE REPEAT APPEARANCE
@@ -304,6 +304,13 @@ volume_breakout_chatgpt_packet_raw_url: https://raw.githubusercontent.com/LeoChe
 status: generated
 fields: volume_breakout_type,volume_watch_scope,volume_breakout_priority,selection_status,not_selected_reason,risk_flags,next_volume_breakout_confirmation
 note: Strict breakout is not the same as all volume-confirmed attacks. Use this packet when asked about 帶量突破 / 放量突破 / 放量攻擊.
+
+NON-REVENUE MOMENTUM WATCH
+non_revenue_momentum_watch_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/non_revenue_momentum_watch_latest.md
+non_revenue_momentum_watch_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/non_revenue_momentum_watch_latest.csv
+status: generated
+fields: non_revenue_momentum_type,revenue_confirmation_status,theme_final_status,theme_volume_attack_status,volume_breakout_type,tdcc_status,warrant_flow_signal,next_confirmation
+note: Standalone specialty overlay for stocks where price/theme/fund flow moves before revenue/EPS confirmation. It is not a seventh core category and must not change core weights.
 
 WARRANT MARKET ANALYSIS
 market_report_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/warrant_market_report_latest.md

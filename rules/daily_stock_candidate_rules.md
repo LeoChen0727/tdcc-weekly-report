@@ -169,6 +169,33 @@ If `weekly_surge_strict_parameter_search_latest.md/csv` exists, the daily report
 - Show current candidates from `weekly_surge_strict_parameter_candidates_latest.md/csv` when available.
 - Treat it as `research_watchlist_and_reporting_priority_only` until more regime samples are available.
 
+## Non-Revenue Momentum Specialty
+
+If `non_revenue_momentum_watch_latest.md/csv` exists, the daily report must include a standalone section named `非營收驅動強勢股 / 題材資金先行`.
+
+This section is for stocks where price, volume, theme, TDCC, or warrant flow is moving before revenue, EPS, or gross margin confirmation. It is not a seventh core category and must not change core model weights.
+
+Required fields to show when available:
+
+- `non_revenue_momentum_type`
+- `revenue_confirmation_status`
+- `theme_final_status`
+- `theme_volume_attack_status`
+- `volume_breakout_type`
+- `volume_ratio`
+- `tdcc_status`
+- `warrant_flow_signal`
+- `next_confirmation`
+
+Interpretation:
+
+- `A_fund_flow_confirmed_revenue_unconfirmed`: funds/price/theme are already confirming, but EPS/gross margin/revenue confirmation is still required.
+- `B_turnaround_theme_watch`: theme or fund flow is improving, but price confirmation is incomplete.
+- `C_hot_money_watch`: short-term hot money or technical movement exists, but fundamentals are not confirmed.
+- `D_overheated_or_failed_risk`: overheated, failed breakout, TDCC distribution, or other risk warning exists; do not promote to main attack list.
+
+Rows in this section must use conditional language: wait for EPS/gross margin/revenue confirmation, confirmed volume follow-through, or price holding above the breakout/support area. Do not present these rows as clean revenue-backed growth stocks.
+
 ## Required Quality Bar
 
 The final report must not be a thin packet summary. It must include:

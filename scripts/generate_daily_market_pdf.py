@@ -49,6 +49,7 @@ TDCC_OVERHEATED_EDGE_CSV = LATEST_DIR / "tdcc_overheated_short_term_edge_latest.
 TDCC_OVERHEATED_EDGE_CANDIDATES_CSV = LATEST_DIR / "tdcc_overheated_short_term_edge_candidates_latest.csv"
 WEEKLY_SURGE_STRICT_SEARCH_CSV = LATEST_DIR / "weekly_surge_strict_parameter_search_latest.csv"
 WEEKLY_SURGE_STRICT_CANDIDATES_CSV = LATEST_DIR / "weekly_surge_strict_parameter_candidates_latest.csv"
+NON_REVENUE_MOMENTUM_CSV = LATEST_DIR / "non_revenue_momentum_watch_latest.csv"
 
 CURATED_PDF = LATEST_DIR / "daily_market_curated_report_latest.pdf"
 FULL_TABLE_PDF = LATEST_DIR / "daily_market_full_table_report_latest.pdf"
@@ -1443,6 +1444,82 @@ def append_weekly_surge_strict_section(
     story.append(Spacer(1, 0.35 * cm))
 
 
+def load_non_revenue_momentum() -> pd.DataFrame:
+    if not NON_REVENUE_MOMENTUM_CSV.exists():
+        return pd.DataFrame()
+    try:
+        return pd.read_csv(NON_REVENUE_MOMENTUM_CSV, dtype=str, keep_default_na=False)
+    except Exception:
+        return pd.DataFrame()
+
+
+def non_revenue_momentum_rows(df: pd.DataFrame, limit: int = 12) -> list[list[Any]]:
+    rows = [[
+        "stock",
+        "type",
+        "theme",
+        "revenue",
+        "theme status",
+        "volume",
+        "TDCC/warrant",
+        "next confirmation",
+    ]]
+    if df.empty:
+        rows.append(["n/a", "", "", "", "", "", "", "non_revenue_momentum_watch_latest.csv missing or empty"])
+        return rows
+    view = df.copy()
+    for col in ["non_revenue_momentum_type", "decision_score"]:
+        if col not in view.columns:
+            view[col] = ""
+    order = {
+        "A_fund_flow_confirmed_revenue_unconfirmed": 1,
+        "B_turnaround_theme_watch": 2,
+        "C_hot_money_watch": 3,
+        "D_overheated_or_failed_risk": 4,
+    }
+    view["_order"] = view["non_revenue_momentum_type"].map(order).fillna(99)
+    view["_score"] = pd.to_numeric(view["decision_score"], errors="coerce").fillna(-999)
+    view = view.sort_values(["_order", "_score"], ascending=[True, False]).head(limit)
+    for _, row in view.iterrows():
+        rows.append(
+            [
+                f"{safe_str(row.get('stock_id', ''))} {clean_text(row.get('stock_name', ''), 10)}",
+                clean_text(row.get("non_revenue_momentum_type", ""), 28),
+                clean_text(row.get("theme_name", ""), 14),
+                clean_text(row.get("revenue_confirmation_status", ""), 22),
+                clean_text(safe_str(row.get("theme_final_status", "")) or safe_str(row.get("theme_volume_attack_status", "")), 24),
+                f"{clean_text(row.get('volume_breakout_type', ''), 24)} / {num_text(row.get('volume_ratio', ''), 1)}x",
+                f"{clean_text(row.get('tdcc_status', ''), 18)} / {clean_text(row.get('warrant_flow_signal', ''), 18)}",
+                clean_text(row.get("next_confirmation", ""), 68),
+            ]
+        )
+    return rows
+
+
+def append_non_revenue_momentum_section(
+    story: list[Any],
+    style_map: dict[str, ParagraphStyle],
+    compact: bool = True,
+) -> None:
+    df = load_non_revenue_momentum()
+    story.append(para("非營收驅動強勢股 / 題材資金先行", style_map["h1"]))
+    story.append(
+        para(
+            "This is a standalone specialty overlay for stocks where price, theme, volume, TDCC, or warrant flow moves before revenue/EPS confirmation. It is not a seventh core category and must not change core model weights.",
+            style_map["normal"],
+        )
+    )
+    story.append(
+        make_table(
+            non_revenue_momentum_rows(df, limit=8 if compact else 30),
+            style_map,
+            [1.8 * cm, 3.0 * cm, 1.5 * cm, 2.0 * cm, 2.1 * cm, 2.1 * cm, 2.0 * cm, 4.4 * cm],
+            header_bg="#7F6000",
+        )
+    )
+    story.append(Spacer(1, 0.35 * cm))
+
+
 def downgrade_reason(row: pd.Series) -> str:
     decision_risk = clean_text(row.get("why_downgraded", ""), 110)
     if decision_risk:
@@ -1667,6 +1744,7 @@ def build_curated_pdf(df: pd.DataFrame, freshness: dict[str, Any], main_date: st
     append_theme_leadership_sections(story, style_map, compact=True)
     append_tdcc_overheated_edge_section(story, style_map, compact=True)
     append_weekly_surge_strict_section(story, style_map, compact=True)
+    append_non_revenue_momentum_section(story, style_map, compact=True)
 
     story.append(PageBreak())
 
@@ -1875,6 +1953,7 @@ def build_full_table_pdf(df: pd.DataFrame, freshness: dict[str, Any], main_date:
     append_theme_leadership_sections(story, style_map, compact=False)
     append_tdcc_overheated_edge_section(story, style_map, compact=False)
     append_weekly_surge_strict_section(story, style_map, compact=False)
+    append_non_revenue_momentum_section(story, style_map, compact=False)
 
     volume_watch = load_volume_breakout_watch()
     story.append(Spacer(1, 0.25 * cm))

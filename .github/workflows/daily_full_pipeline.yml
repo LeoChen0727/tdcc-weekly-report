@@ -270,6 +270,10 @@ jobs:
           python scripts/build_volume_attack_theme_layer.py
           python scripts/validate_volume_attack_theme_layer.py
 
+      - name: Build non-revenue momentum watch
+        run: |
+          python scripts/build_non_revenue_momentum_watch.py
+
       - name: Update daily theme status history
         run: |
           python scripts/update_daily_theme_status_history.py
@@ -391,6 +395,8 @@ jobs:
           cp output/latest/weekly_surge_strict_parameter_candidates_latest.csv docs/latest/weekly_surge_strict_parameter_candidates_latest.csv || true
           cp output/latest/weekly_surge_strict_parameter_candidates_latest.md docs/latest/weekly_surge_strict_parameter_candidates_latest.md || true
           cp output/latest/daily_short_term_specialty_packet_latest.md docs/latest/daily_short_term_specialty_packet_latest.md || true
+          cp output/latest/non_revenue_momentum_watch_latest.csv docs/latest/non_revenue_momentum_watch_latest.csv || true
+          cp output/latest/non_revenue_momentum_watch_latest.md docs/latest/non_revenue_momentum_watch_latest.md || true
 
           {
             echo "main_price_date=pending"
@@ -572,6 +578,8 @@ jobs:
           git add output/latest/weekly_surge_strict_parameter_candidates_latest.md || true
           git add output/history/research/weekly_surge_strict_parameter_candidates.csv || true
           git add output/latest/daily_short_term_specialty_packet_latest.md || true
+          git add output/latest/non_revenue_momentum_watch_latest.csv || true
+          git add output/latest/non_revenue_momentum_watch_latest.md || true
           git add data/warrant_daily/ || true
           git add data/warrant_flow_by_stock/ || true
           git add output/latest/warrant_market_report_latest.md || true
@@ -623,6 +631,8 @@ jobs:
           git add docs/latest/weekly_surge_strict_parameter_candidates_latest.csv || true
           git add docs/latest/weekly_surge_strict_parameter_candidates_latest.md || true
           git add docs/latest/daily_short_term_specialty_packet_latest.md || true
+          git add docs/latest/non_revenue_momentum_watch_latest.csv || true
+          git add docs/latest/non_revenue_momentum_watch_latest.md || true
           git add docs/latest/volume_attack_theme_layer_latest.csv || true
           git add docs/latest/volume_attack_theme_layer_latest.md || true
           git add docs/latest/volume_attack_theme_stocks_latest.csv || true
@@ -842,6 +852,8 @@ jobs:
           git add output/latest/weekly_surge_strict_parameter_candidates_latest.md || true
           git add output/history/research/weekly_surge_strict_parameter_candidates.csv || true
           git add output/latest/daily_short_term_specialty_packet_latest.md || true
+          git add output/latest/non_revenue_momentum_watch_latest.csv || true
+          git add output/latest/non_revenue_momentum_watch_latest.md || true
           git add docs/latest/tdcc_overheated_short_term_edge_latest.csv || true
           git add docs/latest/tdcc_overheated_short_term_edge_latest.md || true
           git add docs/latest/tdcc_overheated_short_term_edge_candidates_latest.csv || true
@@ -856,6 +868,8 @@ jobs:
           git add docs/latest/weekly_surge_strict_parameter_candidates_latest.csv || true
           git add docs/latest/weekly_surge_strict_parameter_candidates_latest.md || true
           git add docs/latest/daily_short_term_specialty_packet_latest.md || true
+          git add docs/latest/non_revenue_momentum_watch_latest.csv || true
+          git add docs/latest/non_revenue_momentum_watch_latest.md || true
           git add output/latest/chatgpt_indicator_usage_guide_latest.md || true
           git add output/latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt || true
           git add docs/latest/chatgpt_indicator_usage_guide_latest.md || true
@@ -962,6 +976,7 @@ jobs:
           git add scripts/research_weekly_surge_strict_parameter_search.py || true
           git add scripts/build_weekly_surge_strict_parameter_candidates.py || true
           git add scripts/build_daily_short_term_specialty_packet.py || true
+          git add scripts/build_non_revenue_momentum_watch.py || true
           git add scripts/update_daily_candidate_signal_log.py || true
           git add scripts/build_candidate_repeat_appearance.py || true
           git add scripts/validate_candidate_repeat_appearance.py || true

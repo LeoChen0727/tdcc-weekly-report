@@ -20,6 +20,7 @@ DATA_FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
 ALL_CANDIDATES_CSV = LATEST_DIR / "all_candidates_latest.csv"
 REPEAT_APPEARANCE_CSV = LATEST_DIR / "candidate_repeat_appearance_latest.csv"
 REPEAT_APPEARANCE_MD = LATEST_DIR / "candidate_repeat_appearance_latest.md"
+NON_REVENUE_MOMENTUM_CSV = LATEST_DIR / "non_revenue_momentum_watch_latest.csv"
 PDF_MANIFEST_JSON = LATEST_DIR / "daily_market_pdf_report_manifest_latest.json"
 
 CURATED_PDF = LATEST_DIR / "daily_market_curated_report_latest.pdf"
@@ -335,6 +336,38 @@ def check_repeat_appearance_in_pdf(label: str, text: str, errors: list[str]) -> 
             errors.append(f"{label}: missing repeat appearance wording: {phrase}")
 
 
+def check_non_revenue_momentum_section(curated_text: str, full_text: str, errors: list[str]) -> None:
+    if not NON_REVENUE_MOMENTUM_CSV.exists():
+        return
+    try:
+        df = pd.read_csv(NON_REVENUE_MOMENTUM_CSV, dtype=str, keep_default_na=False)
+    except Exception as exc:
+        errors.append(f"failed to inspect non-revenue momentum CSV: {exc}")
+        return
+    required = {
+        "non_revenue_momentum_type",
+        "revenue_confirmation_status",
+        "theme_final_status",
+        "theme_volume_attack_status",
+        "volume_breakout_type",
+        "next_confirmation",
+    }
+    missing = required - set(df.columns)
+    if missing:
+        errors.append(f"non-revenue momentum missing columns: {sorted(missing)}")
+        return
+    if df.empty:
+        return
+    combined = normalize_for_search(curated_text + "\n" + full_text)
+    required_any = [
+        "非營收驅動強勢股",
+        "Non-Revenue Momentum",
+        "non_revenue_momentum",
+    ]
+    if not any(normalize_for_search(term) in combined for term in required_any):
+        errors.append("PDF missing non-revenue momentum specialty section")
+
+
 def check_decision_layer_watchlist(errors: list[str]) -> None:
     try:
         import importlib.util
@@ -399,6 +432,7 @@ def validate() -> tuple[dict[str, Any], list[str], list[str]]:
     check_repeat_appearance_columns(errors)
     check_repeat_appearance_in_pdf("curated", curated["text"], errors)
     check_repeat_appearance_in_pdf("full_table", full["text"], errors)
+    check_non_revenue_momentum_section(curated["text"], full["text"], errors)
     check_decision_layer_watchlist(errors)
 
     result = {

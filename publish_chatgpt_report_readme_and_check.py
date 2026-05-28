@@ -174,6 +174,8 @@ TDCC_OVERHEATED_EDGE_MD = LATEST_DIR / "tdcc_overheated_short_term_edge_latest.m
 TDCC_OVERHEATED_EDGE_CSV = LATEST_DIR / "tdcc_overheated_short_term_edge_latest.csv"
 TDCC_OVERHEATED_EDGE_CANDIDATES_CSV = LATEST_DIR / "tdcc_overheated_short_term_edge_candidates_latest.csv"
 DAILY_SHORT_TERM_SPECIALTY_PACKET_MD = LATEST_DIR / "daily_short_term_specialty_packet_latest.md"
+NON_REVENUE_MOMENTUM_MD = LATEST_DIR / "non_revenue_momentum_watch_latest.md"
+NON_REVENUE_MOMENTUM_CSV = LATEST_DIR / "non_revenue_momentum_watch_latest.csv"
 RAW_DATA_FETCH_STATUS_CSV = LATEST_DIR / "raw_data_fetch_status_latest.csv"
 RAW_DATA_FETCH_STATUS_MD = LATEST_DIR / "raw_data_fetch_status_latest.md"
 INDIVIDUAL_STOCK_AVAILABLE_RAW_DATA_INDEX_CSV = LATEST_DIR / "individual_stock_available_raw_data_index.csv"
@@ -646,6 +648,10 @@ def build_readme(
         f"weekly_surge_strict_parameter_candidates_md_raw_url={raw_url('main', WEEKLY_SURGE_STRICT_PARAMETER_CANDIDATES_MD)}",
         f"daily_short_term_specialty_packet_raw_url={raw_url('main', DAILY_SHORT_TERM_SPECIALTY_PACKET_MD)}",
         f"daily_short_term_specialty_packet_pages_url={pages_url('latest/daily_short_term_specialty_packet_latest.md')}",
+        f"non_revenue_momentum_watch_md_raw_url={raw_url('main', NON_REVENUE_MOMENTUM_MD)}",
+        f"non_revenue_momentum_watch_csv_raw_url={raw_url('main', NON_REVENUE_MOMENTUM_CSV)}",
+        f"non_revenue_momentum_watch_md_pages_url={pages_url('latest/non_revenue_momentum_watch_latest.md')}",
+        f"non_revenue_momentum_watch_csv_pages_url={pages_url('latest/non_revenue_momentum_watch_latest.csv')}",
         f"chatgpt_indicator_usage_guide_md_raw_url={raw_url('main', INDICATOR_USAGE_GUIDE_MD)}",
         f"chatgpt_indicator_usage_guide_txt_raw_url={raw_url('main', INDICATOR_USAGE_GUIDE_TXT)}",
         f"chatgpt_indicator_usage_guide_pages_url={pages_url('latest/chatgpt_indicator_usage_guide_latest.md')}",
@@ -1060,6 +1066,16 @@ def sync_docs_files() -> None:
             DAILY_SHORT_TERM_SPECIALTY_PACKET_MD.read_text(encoding="utf-8", errors="replace"),
             encoding="utf-8",
         )
+    if NON_REVENUE_MOMENTUM_MD.exists():
+        (DOCS_LATEST_DIR / NON_REVENUE_MOMENTUM_MD.name).write_text(
+            NON_REVENUE_MOMENTUM_MD.read_text(encoding="utf-8", errors="replace"),
+            encoding="utf-8",
+        )
+    if NON_REVENUE_MOMENTUM_CSV.exists():
+        (DOCS_LATEST_DIR / NON_REVENUE_MOMENTUM_CSV.name).write_text(
+            NON_REVENUE_MOMENTUM_CSV.read_text(encoding="utf-8", errors="replace"),
+            encoding="utf-8",
+        )
 
     if CURATED_REPORT_PDF.exists():
         DOCS_CURATED_REPORT_PDF.write_bytes(CURATED_REPORT_PDF.read_bytes())
@@ -1466,6 +1482,10 @@ def main() -> int:
         "weekly_surge_strict_parameter_candidates_md_raw_url": raw_url("main", WEEKLY_SURGE_STRICT_PARAMETER_CANDIDATES_MD),
         "daily_short_term_specialty_packet_raw_url": raw_url("main", DAILY_SHORT_TERM_SPECIALTY_PACKET_MD),
         "daily_short_term_specialty_packet_pages_url": pages_url("latest/daily_short_term_specialty_packet_latest.md"),
+        "non_revenue_momentum_watch_md_raw_url": raw_url("main", NON_REVENUE_MOMENTUM_MD),
+        "non_revenue_momentum_watch_csv_raw_url": raw_url("main", NON_REVENUE_MOMENTUM_CSV),
+        "non_revenue_momentum_watch_md_pages_url": pages_url("latest/non_revenue_momentum_watch_latest.md"),
+        "non_revenue_momentum_watch_csv_pages_url": pages_url("latest/non_revenue_momentum_watch_latest.csv"),
         "tdcc_overheated_short_term_edge_md_raw_url": raw_url("main", TDCC_OVERHEATED_EDGE_MD),
         "tdcc_overheated_short_term_edge_csv_raw_url": raw_url("main", TDCC_OVERHEATED_EDGE_CSV),
         "tdcc_overheated_short_term_edge_candidates_csv_raw_url": raw_url("main", TDCC_OVERHEATED_EDGE_CANDIDATES_CSV),

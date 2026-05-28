@@ -39,6 +39,8 @@ DAILY_CANDIDATE_TWO_LINE_VIEW_MD = LATEST_DIR / "daily_candidate_two_line_view_l
 INDICATOR_USAGE_GUIDE_MD = LATEST_DIR / "chatgpt_indicator_usage_guide_latest.md"
 INDICATOR_USAGE_GUIDE_TXT = LATEST_DIR / "CHATGPT_INDICATOR_USAGE_GUIDE.txt"
 SHORT_TERM_SPECIALTY_PACKET_MD = LATEST_DIR / "daily_short_term_specialty_packet_latest.md"
+NON_REVENUE_MOMENTUM_MD = LATEST_DIR / "non_revenue_momentum_watch_latest.md"
+NON_REVENUE_MOMENTUM_CSV = LATEST_DIR / "non_revenue_momentum_watch_latest.csv"
 DAILY_SIGNAL_WEEKLY_PDF = LATEST_DIR / "daily_signal_performance_weekly_latest.pdf"
 DAILY_SIGNAL_MONTHLY_PDF = LATEST_DIR / "daily_signal_performance_monthly_latest.pdf"
 FUNDAMENTAL_CATALYST_MD = LATEST_DIR / "fundamental_catalyst_layer_latest.md"
@@ -482,6 +484,13 @@ def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path],
     lines.append("fields: volume_breakout_type,volume_watch_scope,volume_breakout_priority,selection_status,not_selected_reason,risk_flags,next_volume_breakout_confirmation")
     lines.append("note: Strict breakout is not the same as all volume-confirmed attacks. Use this packet when asked about 帶量突破 / 放量突破 / 放量攻擊.")
     lines.append("")
+    lines.append("NON-REVENUE MOMENTUM WATCH")
+    lines.append(f"non_revenue_momentum_watch_md_raw_url: {raw_url(NON_REVENUE_MOMENTUM_MD)}")
+    lines.append(f"non_revenue_momentum_watch_csv_raw_url: {raw_url(NON_REVENUE_MOMENTUM_CSV)}")
+    lines.append(f"status: {'generated' if NON_REVENUE_MOMENTUM_MD.exists() and NON_REVENUE_MOMENTUM_CSV.exists() else 'missing'}")
+    lines.append("fields: non_revenue_momentum_type,revenue_confirmation_status,theme_final_status,theme_volume_attack_status,volume_breakout_type,tdcc_status,warrant_flow_signal,next_confirmation")
+    lines.append("note: Standalone specialty overlay for stocks where price/theme/fund flow moves before revenue/EPS confirmation. It is not a seventh core category and must not change core weights.")
+    lines.append("")
     lines.append("WARRANT MARKET ANALYSIS")
     lines.append(f"market_report_md_raw_url: {raw_url(WARRANT_MARKET_MD)}")
     lines.append(f"market_report_pdf_pages_url: {pages_url(Path('docs/latest/warrant_market_report_latest.pdf'))}")
@@ -630,6 +639,9 @@ def write_packet_manifest(main_date: str, report_ready: str, paths: dict[str, Pa
         "chatgpt_indicator_usage_guide_status": "generated" if INDICATOR_USAGE_GUIDE_MD.exists() and INDICATOR_USAGE_GUIDE_TXT.exists() else "missing",
         "daily_short_term_specialty_packet_raw_url": raw_url(SHORT_TERM_SPECIALTY_PACKET_MD),
         "daily_short_term_specialty_packet_status": "generated" if SHORT_TERM_SPECIALTY_PACKET_MD.exists() else "missing",
+        "non_revenue_momentum_watch_md_raw_url": raw_url(NON_REVENUE_MOMENTUM_MD),
+        "non_revenue_momentum_watch_csv_raw_url": raw_url(NON_REVENUE_MOMENTUM_CSV),
+        "non_revenue_momentum_watch_status": "generated" if NON_REVENUE_MOMENTUM_MD.exists() and NON_REVENUE_MOMENTUM_CSV.exists() else "missing",
         "surge_model_chatgpt_packet_raw_url": raw_url(SURGE_MODEL_PACKET_MD),
         "surge_precondition_candidates_md_raw_url": raw_url(SURGE_PRECONDITION_CANDIDATES_MD),
         "surge_precondition_candidates_csv_raw_url": raw_url(SURGE_PRECONDITION_CANDIDATES_CSV),

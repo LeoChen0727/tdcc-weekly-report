@@ -212,6 +212,17 @@ SPECIALTY SECTION RULES
 - D+5 and D+10 tables from short-term specialty files must be shown separately.
 - Specialty signals are reporting/research priority only unless the backtest system later marks them mature and ready for review.
 
+NON-REVENUE MOMENTUM SPECIALTY
+- If non_revenue_momentum_watch_latest.md/csv exists, include a standalone section named `非營收驅動強勢股 / 題材資金先行`.
+- This section is for stocks where price, volume, theme, TDCC, or warrant flow moves before revenue, EPS, or gross margin confirmation.
+- It is not a seventh core category and must not change core model weights.
+- Show non_revenue_momentum_type, revenue_confirmation_status, theme_final_status, theme_volume_attack_status, volume_breakout_type, volume_ratio, tdcc_status, warrant_flow_signal, and next_confirmation when available.
+- A_fund_flow_confirmed_revenue_unconfirmed means funds/price/theme are already confirming, but EPS/gross margin/revenue confirmation is still required.
+- B_turnaround_theme_watch means theme or fund flow is improving, but price confirmation is incomplete.
+- C_hot_money_watch means short-term hot money or technical movement exists, but fundamentals are not confirmed.
+- D_overheated_or_failed_risk means overheated, failed breakout, TDCC distribution, or other risk warning exists; do not promote to the main attack list.
+- Use conditional language: wait for EPS/gross margin/revenue confirmation, confirmed volume follow-through, or price holding above breakout/support. Do not present these as clean revenue-backed growth stocks.
+
 TDCC RULES
 - TDCC is weekly background confirmation, not a hard filter.
 - Large-holder increase supports the signal.
