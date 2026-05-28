@@ -11,6 +11,14 @@ on:
         description: "Maximum stocks to backfill from the selected universe"
         required: false
         default: "80"
+      max_requests:
+        description: "Maximum TDCC HTTP requests for this run"
+        required: false
+        default: "500"
+      rebuild_max_dates:
+        description: "Latest TDCC weekly snapshots to rebuild after fetch; use 0 only for full research rebuild"
+        required: false
+        default: "4"
       universe:
         description: "Stock universe: chatgpt-top, candidates, signals, all-known, explicit"
         required: false
@@ -45,12 +53,13 @@ jobs:
             --universe "${{ github.event.inputs.universe }}" \
             --weeks "${{ github.event.inputs.weeks }}" \
             --max-stocks "${{ github.event.inputs.max_stocks }}" \
+            --max-requests "${{ github.event.inputs.max_requests }}" \
             --sleep 0.15
 
       - name: Rebuild TDCC derived outputs
         run: |
           python scripts/build_tdcc_stock_history.py
-          python scripts/build_tdcc_signal_structures.py
+          python scripts/build_tdcc_signal_structures.py --max-dates "${{ github.event.inputs.rebuild_max_dates }}"
           python scripts/build_tdcc_pre_move_accumulation.py
           python scripts/update_tdcc_normalized_signal_performance.py
           python scripts/build_tdcc_signal_effectiveness_report.py
