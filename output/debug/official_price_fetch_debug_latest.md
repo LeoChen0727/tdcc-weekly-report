@@ -1,6 +1,6 @@
 # 官方每日價格資料抓取狀態
 
-- 產生時間：`2026-05-28 19:07:30 Asia/Taipei`
+- 產生時間：`2026-05-28 19:56:13 Asia/Taipei`
 - target_date：`20260528`
 - saved_price_date：`20260528`
 - is_target_date：`True`
@@ -25,7 +25,7 @@
 
 - Start official daily price fetch target_date=20260528
 - ===== Fetch price for date 20260528 =====
-- Loaded universe rows=6961
+- Loaded universe rows=6981
 - Trying TWSE batch source=TWSE_RWD_JSON_MI_INDEX date=20260528
 - GET https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260528&type=ALLBUT0999&response=json -> status=200, chars=232575
 - TWSE_RWD_JSON_MI_INDEX: parsed TWSE rows=1239
@@ -37,11 +37,7 @@
 - GET https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/05/28&type=EW&response=csv -> status=200, chars=11371
 - TPEX_NEW_AFTERTRADING_CSV: parsed TPEx CSV rows=0
 - Trying TPEx batch source=TPEX_OLD_DAILY_JSON date=20260528
-- GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=json&d=115/05/28&s=0,asc,0 failed: ChunkedEncodingError: Response ended prematurely
-- Trying TPEx batch source=TPEX_OLD_DAILY_CSV date=20260528
-- GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=csv&d=115/05/28&s=0,asc,0 failed: ChunkedEncodingError: Response ended prematurely
-- Trying TPEx batch source=TPEX_OPENAPI_MAINBOARD_DAILY_CLOSE_QUOTES date=20260528
-- GET https://www.tpex.org.tw/openapi/v1/tpex_mainboard_daily_close_quotes -> status=200, chars=4020346
-- TPEX_OPENAPI_MAINBOARD_DAILY_CLOSE_QUOTES: parsed TPEx JSON rows=5742
-- TPEx batch selected source=TPEX_OPENAPI_MAINBOARD_DAILY_CLOSE_QUOTES, rows=5742
+- GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=json&d=115/05/28&s=0,asc,0 -> status=200, chars=1490063
+- TPEX_OLD_DAILY_JSON: parsed TPEx JSON rows=5742
+- TPEx batch selected source=TPEX_OLD_DAILY_JSON, rows=5742
 - date=20260528 twse_rows=1239 tpex_rows=5742 total_rows=6981 full_market_ok=True
