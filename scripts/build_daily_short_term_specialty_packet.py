@@ -19,6 +19,7 @@ TDCC_EDGE_CANDIDATES = LATEST_DIR / "tdcc_overheated_short_term_edge_candidates_
 WEEKLY_SURGE_STRICT_SEARCH = LATEST_DIR / "weekly_surge_strict_parameter_search_latest.csv"
 WEEKLY_SURGE_STRICT_CANDIDATES = LATEST_DIR / "weekly_surge_strict_parameter_candidates_latest.csv"
 EXPLOSIVE_VOLUME_SUMMARY = LATEST_DIR / "explosive_volume_up_backtest_latest.csv"
+EXPLOSIVE_VOLUME_POSITION_SUMMARY = LATEST_DIR / "explosive_volume_up_position_backtest_latest.csv"
 EXPLOSIVE_VOLUME_EVENTS = LATEST_DIR / "explosive_volume_up_events_latest.csv"
 
 
@@ -214,6 +215,7 @@ def build_weekly_surge_section(lines: list[str]) -> None:
 
 def build_explosive_volume_section(lines: list[str]) -> None:
     summary = read_csv(EXPLOSIVE_VOLUME_SUMMARY)
+    position_summary = read_csv(EXPLOSIVE_VOLUME_POSITION_SUMMARY)
     events = read_csv(EXPLOSIVE_VOLUME_EVENTS)
 
     lines.append("## Explosive Volume Up Research")
@@ -223,10 +225,13 @@ def build_explosive_volume_section(lines: list[str]) -> None:
     lines.append("- signal_definition: signal day volume divided by previous 20 trading day average volume, with signal day close-to-close return >= threshold.")
     lines.append("- entry_basis: `D+1 open`")
     lines.append("- close_win_rate: D+1 open to D+N close return > 0.")
-    lines.append("- high_hit_rate: D+1 open to highest high within D+N reaches +10% or +20%.")
+    lines.append("- high_hit_rate: after D+1 open entry, highest high during the holding window reaches +10% or +20%; this is performance labeling, not intraday signal entry.")
+    lines.append("- strict_candle_quality: red candle, real body >= 40% of intraday range, upper shadow <= 25%, close location >= 75%.")
+    lines.append("- relaxed_candle_quality: red candle, real body >= 25% of intraday range, upper shadow <= 35%, close location >= 65%.")
     lines.append("- model_effect_allowed: `False`")
     lines.append("- allowed_use: `research_watchlist_and_reporting_priority_only`")
     lines.append("- rule: volume alone is not a core buy signal; combine with theme/mainstream status, TDCC phase, market regime, and technical position.")
+    lines.append("- position_rule: split bottom/low-zone volume reversal, low-to-mid reclaim, near-high attack, and high-zone extension before interpreting win rate.")
     lines.append("")
 
     if summary.empty:
@@ -257,6 +262,43 @@ def build_explosive_volume_section(lines: list[str]) -> None:
         lines.extend(md_table(cols[:10] if cols else ["status"], top_rows(sub, cols[:10], 15)))
         lines.append("")
 
+    if not position_summary.empty:
+        position_cols = pick_columns(
+            position_summary,
+            [
+                "signal_quality_bucket",
+                "price_position_bucket",
+                "market_theme_group",
+                "theme_group_source",
+                "theme_structural_status",
+                "structural_theme_bucket",
+                "theme_mainstream_label",
+                "theme_status_group",
+                "horizon",
+                "volume_ratio_threshold",
+                "min_signal_return_pct",
+                "mature_count",
+                "close_win_rate_pct",
+                "avg_close_return_pct",
+                "median_close_return_pct",
+                "hit_rate_high_ge_10pct",
+                "hit_rate_high_ge_20pct",
+                "avg_mfe_pct",
+                "avg_mae_pct",
+                "sample_status",
+            ],
+        )
+        for horizon in ["D+5", "D+10", "D+20"]:
+            lines.append(f"### {horizon} Explosive Volume By Price Position")
+            sub = position_summary[position_summary["horizon"].astype(str).str.upper().eq(horizon)]
+            sub = sort_numeric(sub, "close_win_rate_pct")
+            lines.extend(md_table(position_cols[:13] if position_cols else ["status"], top_rows(sub, position_cols[:13], 20)))
+            lines.append("")
+    else:
+        lines.append("### Explosive Volume By Price Position")
+        lines.extend(md_table(["status", "note"], [["missing", EXPLOSIVE_VOLUME_POSITION_SUMMARY.as_posix()]]))
+        lines.append("")
+
     lines.append("### Latest Explosive Volume Events")
     event_cols = pick_columns(
         events,
@@ -264,10 +306,18 @@ def build_explosive_volume_section(lines: list[str]) -> None:
             "date",
             "stock_id",
             "stock_name",
+            "industry",
             "market",
             "close",
             "volume_ratio_vs_prev20",
             "signal_return_1d_pct",
+            "signal_quality_bucket",
+            "price_position_bucket",
+            "market_theme_group",
+            "theme_group_source",
+            "theme_structural_status",
+            "structural_theme_bucket",
+            "theme_mainstream_label",
             "next_open_to_d10_max_high_return_pct",
             "next_open_to_d20_max_high_return_pct",
         ],

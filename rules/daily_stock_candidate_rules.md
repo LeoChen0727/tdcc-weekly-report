@@ -99,7 +99,10 @@ Required specialty sections when data exists:
 - `daily_short_term_specialty_packet_latest.md`: standalone D+5 / D+10 short-term specialty.
 - `tdcc_overheated_short_term_edge_latest.md/csv`: standalone TDCC overheated short-term edge.
 - `weekly_surge_strict_parameter_search_latest.md/csv`: standalone strict weekly-surge parameter research.
-- `explosive_volume_up_backtest_latest.md/csv` and `explosive_volume_up_events_latest.csv`: standalone explosive-volume-up research. This is a research/watch section only. It uses D+1 open as the entry basis and separates close-return win rate from intraperiod high-hit rate.
+- `explosive_volume_up_backtest_latest.md/csv`, `explosive_volume_up_position_backtest_latest.csv`, and `explosive_volume_up_events_latest.csv`: standalone explosive-volume-up research. This is a research/watch section only. It uses D+1 open as the entry basis and separates close-return win rate from intraperiod high-hit rate.
+- Explosive-volume-up interpretation must first split price position: bottom/low-zone volume reversal, low-to-mid reclaim, near-high attack, and high-zone extension/chase. Do not mix bottom reversal with high-zone distribution/chase. Theme/mainstream status is the second filter, not a replacement for price-position filtering.
+- Explosive-volume-up signal timing is after the signal-day close. Entry statistics use next trading day open. `high_hit_rate` means the post-entry holding-window high reached the target; it is not an intraday entry rule.
+- Stricter explosive-volume-up quality requires a red candle with meaningful real body and limited upper shadow. Prefer `strict_red_close_near_high` first, then `relaxed_red_small_upper_shadow`; long-upper-shadow or failed-close rows are lower quality even if volume is large.
 - `volume_attack_theme_layer_latest.md/csv` and `volume_attack_theme_stocks_latest.md/csv`: standalone volume attack x theme early-mainstream section.
 - `non_revenue_momentum_watch_latest.md/csv`, if present: standalone non-revenue momentum / theme-fund-first section.
 
@@ -120,6 +123,8 @@ Every mainstream / volume-attack / early-mainstream table must include:
 - `theme_final_status`
 - `theme_market_flow_status`
 - `theme_structural_status`
+- `market_theme_group`
+- `theme_group_source`
 - `theme_mainstream_label`
 - `theme_volume_attack_status`
 
@@ -127,14 +132,26 @@ Use `volume_attack_theme_layer_latest.md/csv` and `volume_attack_theme_stocks_la
 
 Do not infer mainstream/non-mainstream from memory.
 
-Mainstream / non-mainstream is split into two separate concepts:
+Mainstream / non-mainstream is split into separate concepts:
 
 - `theme_final_status` / `theme_market_flow_status`: today's flow and breadth state.
-- `theme_structural_status`: structural industry bucket.
+- `theme_structural_status`: broad structural bucket, such as core_mainstream_theme or non_mainstream_theme.
+- `structural_theme_bucket`: fine market theme bucket. This may cross industry classifications.
+- `market_theme_group`: the primary analysis grouping. It must prefer `structural_theme_bucket`, then `theme_name`, then `industry`.
+- `theme_group_source`: records which field supplied `market_theme_group`.
 
 Only `theme_structural_status=core_mainstream_theme` may enter the mainstream capital line.
 
-Core mainstream themes include consumer electronics, semiconductors, passive components, PC/NB, AI server, PCB/CCL, networking/optical, power, thermal and connectors.
+Industry and market theme are not the same thing. A stock can keep its industry while also belonging to a cross-industry theme bucket.
+
+For report grouping and backtest segmentation, use `market_theme_group` before raw industry. Industry is secondary context only. Do not group AI-era stocks only by their legacy exchange industry when a program-side structural theme bucket exists.
+
+Examples:
+
+- 華通 remains PCB, 啟碁 remains networking/communications, but both can belong to `low_earth_orbit_satellite_theme`.
+- 南亞 remains plastics, 台玻 remains glass/ceramics, but both can belong to `glass_fiber_ccl_theme`.
+
+Core mainstream theme buckets include low-earth-orbit satellite, glass fiber / CCL, PCB/CCL, CPO / silicon photonics, optical communication, networking, advanced packaging, semiconductor equipment, semiconductor materials, semiconductors, passive components, memory/HBM, AI server, power/thermal, connectors/cables, consumer electronics, robotics/automation.
 
 Textile, financial, steel, shipping, construction, chemical, plastic and similar cyclical/traditional groups are `non_mainstream_theme` even when daily flow is strong.
 

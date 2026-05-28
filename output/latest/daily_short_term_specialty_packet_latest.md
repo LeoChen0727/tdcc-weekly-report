@@ -1,7 +1,7 @@
 # DAILY SHORT-TERM SPECIALTY PACKET
 
 ## Metadata
-- generated_at: `2026-05-28 21:23:15 台北標準時間`
+- generated_at: `2026-05-28 22:24:27 台北標準時間`
 - main_price_date: `20260528`
 - purpose: Force daily reports to include short-term specialty sections that are not part of the fixed six candidate categories.
 
@@ -138,10 +138,13 @@
 - signal_definition: signal day volume divided by previous 20 trading day average volume, with signal day close-to-close return >= threshold.
 - entry_basis: `D+1 open`
 - close_win_rate: D+1 open to D+N close return > 0.
-- high_hit_rate: D+1 open to highest high within D+N reaches +10% or +20%.
+- high_hit_rate: after D+1 open entry, highest high during the holding window reaches +10% or +20%; this is performance labeling, not intraday signal entry.
+- strict_candle_quality: red candle, real body >= 40% of intraday range, upper shadow <= 25%, close location >= 75%.
+- relaxed_candle_quality: red candle, real body >= 25% of intraday range, upper shadow <= 35%, close location >= 65%.
 - model_effect_allowed: `False`
 - allowed_use: `research_watchlist_and_reporting_priority_only`
 - rule: volume alone is not a core buy signal; combine with theme/mainstream status, TDCC phase, market regime, and technical position.
+- position_rule: split bottom/low-zone volume reversal, low-to-mid reclaim, near-high attack, and high-zone extension before interpreting win rate.
 
 ### D+5 Explosive Volume Table
 | rule_name | horizon | selected_stock_days | mature_count | close_win_rate_pct | avg_close_return_pct | median_close_return_pct | hit_rate_high_ge_10pct | hit_rate_high_ge_20pct | sample_status |
@@ -200,29 +203,101 @@
 | volume_ratio_prev20_ge_4x_signal_return_ge_3pct | D+20 | 4007 | 3476 | 42.61 | 2.71 | -2.42 | 50.17 | 28.45 | ok |
 | volume_ratio_prev20_ge_8x_signal_return_ge_5pct | D+20 | 928 | 843 | 38.2 | 0.8 | -3.76 | 48.99 | 26.81 | ok |
 
+### D+5 Explosive Volume By Price Position
+| signal_quality_bucket | price_position_bucket | market_theme_group | theme_group_source | theme_structural_status | structural_theme_bucket | theme_mainstream_label | theme_status_group | horizon | volume_ratio_threshold | min_signal_return_pct | mature_count | close_win_rate_pct |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| red_candle_but_not_strong_close | high_zone_extension_or_chase | semiconductor_equipment_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_equipment_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 2 | 3 | 1 | 100.0 |
+| red_candle_but_not_strong_close | near_high_volume_attack | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 3 | 3 | 2 | 100.0 |
+| red_candle_but_not_strong_close | bottom_or_low_zone_volume_reversal | theme_context_unavailable | unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable | D+5 | 6 | 7 | 1 | 100.0 |
+| red_candle_but_not_strong_close | near_high_volume_attack | semiconductor_equipment_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_equipment_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 3 | 0 | 2 | 100.0 |
+| red_candle_but_not_strong_close | low_to_mid_reclaim_volume_attack | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 2 | 5 | 1 | 100.0 |
+| red_candle_but_not_strong_close | bottom_or_low_zone_volume_reversal | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 2 | 0 | 2 | 100.0 |
+| red_candle_but_not_strong_close | bottom_or_low_zone_volume_reversal | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 2 | 3 | 2 | 100.0 |
+| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 4 | 3 | 2 | 100.0 |
+| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 4 | 5 | 2 | 100.0 |
+| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 3 | 0 | 2 | 100.0 |
+| red_candle_but_not_strong_close | low_to_mid_reclaim_volume_attack | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 2 | 3 | 2 | 100.0 |
+| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 3 | 3 | 2 | 100.0 |
+| red_candle_but_not_strong_close | near_high_volume_attack | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 4 | 3 | 2 | 100.0 |
+| relaxed_red_small_upper_shadow | insufficient_position_history | ai_server_theme | structural_theme_bucket | core_mainstream_theme | ai_server_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 2 | 0 | 1 | 100.0 |
+| red_candle_but_not_strong_close | near_high_volume_attack | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 4 | 0 | 2 | 100.0 |
+| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 3 | 5 | 2 | 100.0 |
+| strict_red_close_near_high | insufficient_position_history | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 6 | 0 | 1 | 100.0 |
+| not_red_or_failed_close | high_zone_extension_or_chase | low_earth_orbit_satellite_theme | structural_theme_bucket | core_mainstream_theme | low_earth_orbit_satellite_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 2 | 3 | 3 | 100.0 |
+| strict_red_close_near_high | insufficient_position_history | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 6 | 3 | 1 | 100.0 |
+| strict_red_close_near_high | insufficient_position_history | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | D+5 | 6 | 5 | 1 | 100.0 |
+
+### D+10 Explosive Volume By Price Position
+| signal_quality_bucket | price_position_bucket | market_theme_group | theme_group_source | theme_structural_status | structural_theme_bucket | theme_mainstream_label | theme_status_group | horizon | volume_ratio_threshold | min_signal_return_pct | mature_count | close_win_rate_pct |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| invalid_intraday_range | bottom_or_low_zone_volume_reversal | theme_context_unavailable | unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable | D+10 | 4 | 3 | 2 | 100.0 |
+| red_candle_but_not_strong_close | near_high_volume_attack | low_earth_orbit_satellite_theme | structural_theme_bucket | core_mainstream_theme | low_earth_orbit_satellite_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 3 | 0 | 1 | 100.0 |
+| red_candle_but_not_strong_close | near_high_volume_attack | network_communication_theme | structural_theme_bucket | core_mainstream_theme | network_communication_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 2 | 7 | 1 | 100.0 |
+| red_candle_but_not_strong_close | near_high_volume_attack | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 2 | 5 | 1 | 100.0 |
+| red_candle_but_not_strong_close | near_high_volume_attack | semiconductor_equipment_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_equipment_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 2 | 5 | 1 | 100.0 |
+| red_candle_but_not_strong_close | near_high_volume_attack | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 6 | 5 | 1 | 100.0 |
+| red_candle_but_not_strong_close | near_high_volume_attack | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 5 | 5 | 1 | 100.0 |
+| red_candle_but_not_strong_close | near_high_volume_attack | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 4 | 5 | 1 | 100.0 |
+| red_candle_but_not_strong_close | near_high_volume_attack | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 3 | 5 | 1 | 100.0 |
+| red_candle_but_not_strong_close | near_high_volume_attack | low_earth_orbit_satellite_theme | structural_theme_bucket | core_mainstream_theme | low_earth_orbit_satellite_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 2 | 0 | 2 | 100.0 |
+| red_candle_but_not_strong_close | near_high_volume_attack | low_earth_orbit_satellite_theme | structural_theme_bucket | core_mainstream_theme | low_earth_orbit_satellite_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 4 | 0 | 1 | 100.0 |
+| relaxed_red_small_upper_shadow | bottom_or_low_zone_volume_reversal | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 2 | 0 | 2 | 100.0 |
+| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 4 | 5 | 2 | 100.0 |
+| relaxed_red_small_upper_shadow | bottom_or_low_zone_volume_reversal | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+10 | 2 | 3 | 2 | 100.0 |
+| relaxed_red_small_upper_shadow | bottom_or_low_zone_volume_reversal | theme_context_unavailable | unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable | D+10 | 10 | 3 | 2 | 100.0 |
+| relaxed_red_small_upper_shadow | bottom_or_low_zone_volume_reversal | theme_context_unavailable | unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable | D+10 | 10 | 5 | 1 | 100.0 |
+| relaxed_red_small_upper_shadow | bottom_or_low_zone_volume_reversal | theme_context_unavailable | unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable | D+10 | 10 | 7 | 1 | 100.0 |
+| relaxed_red_small_upper_shadow | bottom_or_low_zone_volume_reversal | theme_context_unavailable | unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable | D+10 | 8 | 7 | 1 | 100.0 |
+| relaxed_red_small_upper_shadow | bottom_or_low_zone_volume_reversal | theme_context_unavailable | unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable | D+10 | 6 | 7 | 1 | 100.0 |
+| relaxed_red_small_upper_shadow | bottom_or_low_zone_volume_reversal | theme_context_unavailable | unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable | D+10 | 5 | 7 | 1 | 100.0 |
+
+### D+20 Explosive Volume By Price Position
+| signal_quality_bucket | price_position_bucket | market_theme_group | theme_group_source | theme_structural_status | structural_theme_bucket | theme_mainstream_label | theme_status_group | horizon | volume_ratio_threshold | min_signal_return_pct | mature_count | close_win_rate_pct |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| not_red_or_failed_close | near_high_volume_attack | low_earth_orbit_satellite_theme | structural_theme_bucket | core_mainstream_theme | low_earth_orbit_satellite_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 2 | 7 | 1 | 100.0 |
+| not_red_or_failed_close | mid_range_volume_attack | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 2 | 0 | 1 | 100.0 |
+| not_red_or_failed_close | mid_range_volume_attack | low_earth_orbit_satellite_theme | structural_theme_bucket | core_mainstream_theme | low_earth_orbit_satellite_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 3 | 3 | 1 | 100.0 |
+| not_red_or_failed_close | mid_range_volume_attack | glass_fiber_ccl_theme | structural_theme_bucket | core_mainstream_theme | glass_fiber_ccl_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 2 | 0 | 1 | 100.0 |
+| not_red_or_failed_close | mid_range_volume_attack | glass_fiber_ccl_theme | structural_theme_bucket | core_mainstream_theme | glass_fiber_ccl_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 3 | 0 | 1 | 100.0 |
+| not_red_or_failed_close | mid_range_volume_attack | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 2 | 0 | 2 | 100.0 |
+| strict_red_close_near_high | insufficient_position_history | low_earth_orbit_satellite_theme | structural_theme_bucket | core_mainstream_theme | low_earth_orbit_satellite_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 4 | 7 | 1 | 100.0 |
+| strict_red_close_near_high | insufficient_position_history | low_earth_orbit_satellite_theme | structural_theme_bucket | core_mainstream_theme | low_earth_orbit_satellite_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 3 | 0 | 1 | 100.0 |
+| strict_red_close_near_high | insufficient_position_history | low_earth_orbit_satellite_theme | structural_theme_bucket | core_mainstream_theme | low_earth_orbit_satellite_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 3 | 3 | 1 | 100.0 |
+| strict_red_close_near_high | insufficient_position_history | low_earth_orbit_satellite_theme | structural_theme_bucket | core_mainstream_theme | low_earth_orbit_satellite_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 3 | 5 | 1 | 100.0 |
+| strict_red_close_near_high | insufficient_position_history | low_earth_orbit_satellite_theme | structural_theme_bucket | core_mainstream_theme | low_earth_orbit_satellite_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 3 | 7 | 1 | 100.0 |
+| strict_red_close_near_high | insufficient_position_history | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 3 | 0 | 1 | 100.0 |
+| strict_red_close_near_high | insufficient_position_history | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 3 | 3 | 1 | 100.0 |
+| strict_red_close_near_high | insufficient_position_history | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 3 | 5 | 1 | 100.0 |
+| strict_red_close_near_high | insufficient_position_history | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 3 | 7 | 1 | 100.0 |
+| relaxed_red_small_upper_shadow | mid_range_volume_attack | semiconductor_equipment_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_equipment_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 2 | 0 | 1 | 100.0 |
+| relaxed_red_small_upper_shadow | mid_range_volume_attack | semiconductor_equipment_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_equipment_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 3 | 0 | 1 | 100.0 |
+| relaxed_red_small_upper_shadow | mid_range_volume_attack | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 3 | 5 | 1 | 100.0 |
+| relaxed_red_small_upper_shadow | mid_range_volume_attack | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 3 | 3 | 1 | 100.0 |
+| strict_red_close_near_high | insufficient_position_history | glass_fiber_ccl_theme | structural_theme_bucket | core_mainstream_theme | glass_fiber_ccl_theme | mainstream_growth_theme | theme_context_unavailable | D+20 | 3 | 0 | 4 | 100.0 |
+
 ### Latest Explosive Volume Events
-| date | stock_id | stock_name | market | close | volume_ratio_vs_prev20 | signal_return_1d_pct | next_open_to_d10_max_high_return_pct | next_open_to_d20_max_high_return_pct |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2438 | 翔耀 | TWSE | 25.3 | 8.75722595822178 | 10.000000000000009 |  |  |
-| 20260527 | 3257 | 虹冠電 | TWSE | 61.1 | 7.001378217160242 | 2.1739130434782705 |  |  |
-| 20260527 | 1503 | 士電 | TWSE | 221.0 | 6.868487902795599 | 8.866995073891616 |  |  |
-| 20260527 | 1409 | 新纖 | TWSE | 18.9 | 6.849635149489252 | 7.082152974504252 |  |  |
-| 20260527 | 1340 | 勝悅-KY | TWSE | 5.52 | 6.545780749096642 | 4.150943396226414 |  |  |
-| 20260527 | 5520 | 力泰 | TPEx | 82.2 | 6.456692913385827 | 0.0 |  |  |
-| 20260527 | 5274 | 信驊 | TPEx | 18230.0 | 6.252972600379114 | 5.742459396751731 |  |  |
-| 20260527 | 2516 | 新建 | TWSE | 13.6 | 5.878352200842433 | 5.836575875486383 |  |  |
-| 20260527 | 1810 | 和成 | TWSE | 19.9 | 5.875820173954962 | 6.133333333333324 |  |  |
-| 20260527 | 8466 | 美吉吉-KY | TWSE | 16.5 | 5.736801413939451 | 3.4482758620689724 |  |  |
-| 20260527 | 2434 | 統懋 | TWSE | 33.2 | 5.484083899646082 | 9.933774834437092 |  |  |
-| 20260527 | 2369 | 菱生 | TWSE | 40.15 | 5.462941649142042 | 6.49867374005304 |  |  |
-| 20260527 | 4952 | 凌通 | TWSE | 55.8 | 5.303264298143161 | 1.4545454545454417 |  |  |
-| 20260527 | 6698 | 旭暉應材 | TWSE | 36.55 | 5.10578429266005 | 6.095791001451367 |  |  |
-| 20260527 | 1315 | 達新 | TWSE | 62.0 | 5.046365574723784 | 2.1416803953871355 |  |  |
-| 20260527 | 3321 | 同泰 | TWSE | 19.05 | 4.986091460100324 | 4.670329670329676 |  |  |
-| 20260527 | 7734 | 印能科技 | TPEx | 3840.0 | 4.8166539343009935 | 6.371191135734078 |  |  |
-| 20260527 | 2321 | 東訊 | TWSE | 15.0 | 4.795674336186437 | 4.895104895104896 |  |  |
-| 20260527 | 6855 | 數泓科 | TPEx | 111.0 | 4.720496894409938 | 0.0 |  |  |
-| 20260527 | 8110 | 華東 | TWSE | 60.6 | 4.621045813402994 | 9.981851179673317 |  |  |
+| date | stock_id | stock_name | industry | market | close | volume_ratio_vs_prev20 | signal_return_1d_pct | signal_quality_bucket | price_position_bucket | market_theme_group | theme_group_source | theme_structural_status | structural_theme_bucket | theme_mainstream_label | next_open_to_d10_max_high_return_pct | next_open_to_d20_max_high_return_pct |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260527 | 2438 | 翔耀 |  | TWSE | 25.3 | 8.75722595822178 | 10.000000000000009 | strict_red_close_near_high | near_high_volume_attack | theme_context_unavailable | unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable |  |  |
+| 20260527 | 3257 | 虹冠電 |  | TWSE | 61.1 | 7.001378217160242 | 2.1739130434782705 | not_red_or_failed_close | near_high_volume_attack | theme_context_unavailable | unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable |  |  |
+| 20260527 | 1503 | 士電 |  | TWSE | 221.0 | 6.868487902795599 | 8.866995073891616 | strict_red_close_near_high | mid_range_volume_attack | theme_context_unavailable | unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable |  |  |
+| 20260527 | 1409 | 新纖 |  | TWSE | 18.9 | 6.849635149489252 | 7.082152974504252 | red_candle_but_not_strong_close | near_high_volume_attack | theme_context_unavailable | unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable |  |  |
+| 20260527 | 1340 | 勝悅-KY |  | TWSE | 5.52 | 6.545780749096642 | 4.150943396226414 | strict_red_close_near_high | bottom_or_low_zone_volume_reversal | theme_context_unavailable | unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable |  |  |
+| 20260527 | 5520 | 力泰 |  | TPEx | 82.2 | 6.456692913385827 | 0.0 | not_red_or_failed_close | bottom_or_low_zone_volume_reversal | theme_context_unavailable | unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable |  |  |
+| 20260527 | 5274 | 信驊 |  | TPEx | 18230.0 | 6.252972600379114 | 5.742459396751731 | red_candle_but_not_strong_close | near_high_volume_attack | theme_context_unavailable | unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable |  |  |
+| 20260527 | 2516 | 新建 |  | TWSE | 13.6 | 5.878352200842433 | 5.836575875486383 | red_candle_but_not_strong_close | mid_range_volume_attack | theme_context_unavailable | unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable |  |  |
+| 20260527 | 1810 | 和成 |  | TWSE | 19.9 | 5.875820173954962 | 6.133333333333324 | strict_red_close_near_high | near_high_volume_attack | theme_context_unavailable | unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable |  |  |
+| 20260527 | 8466 | 美吉吉-KY |  | TWSE | 16.5 | 5.736801413939451 | 3.4482758620689724 | not_red_or_failed_close | low_to_mid_reclaim_volume_attack | theme_context_unavailable | unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable |  |  |
+| 20260527 | 2434 | 統懋 |  | TWSE | 33.2 | 5.484083899646082 | 9.933774834437092 | strict_red_close_near_high | near_high_volume_attack | theme_context_unavailable | unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable |  |  |
+| 20260527 | 2369 | 菱生 |  | TWSE | 40.15 | 5.462941649142042 | 6.49867374005304 | relaxed_red_small_upper_shadow | high_zone_extension_or_chase | theme_context_unavailable | unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable |  |  |
+| 20260527 | 4952 | 凌通 |  | TWSE | 55.8 | 5.303264298143161 | 1.4545454545454417 | not_red_or_failed_close | near_high_volume_attack | theme_context_unavailable | unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable |  |  |
+| 20260527 | 6698 | 旭暉應材 |  | TWSE | 36.55 | 5.10578429266005 | 6.095791001451367 | relaxed_red_small_upper_shadow | near_high_volume_attack | theme_context_unavailable | unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable |  |  |
+| 20260527 | 1315 | 達新 |  | TWSE | 62.0 | 5.046365574723784 | 2.1416803953871355 | strict_red_close_near_high | bottom_or_low_zone_volume_reversal | theme_context_unavailable | unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable |  |  |
+| 20260527 | 3321 | 同泰 |  | TWSE | 19.05 | 4.986091460100324 | 4.670329670329676 | strict_red_close_near_high | near_high_volume_attack | theme_context_unavailable | unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable |  |  |
+| 20260527 | 7734 | 印能科技 |  | TPEx | 3840.0 | 4.8166539343009935 | 6.371191135734078 | red_candle_but_not_strong_close | near_high_volume_attack | theme_context_unavailable | unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable |  |  |
+| 20260527 | 2321 | 東訊 |  | TWSE | 15.0 | 4.795674336186437 | 4.895104895104896 | red_candle_but_not_strong_close | mid_range_volume_attack | theme_context_unavailable | unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable |  |  |
+| 20260527 | 6855 | 數泓科 |  | TPEx | 111.0 | 4.720496894409938 | 0.0 | red_candle_but_not_strong_close | low_to_mid_reclaim_volume_attack | theme_context_unavailable | unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable |  |  |
+| 20260527 | 8110 | 華東 |  | TWSE | 60.6 | 4.621045813402994 | 9.981851179673317 | red_candle_but_not_strong_close | near_high_volume_attack | theme_context_unavailable | unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable |  |  |
 
 ## PDF Placement
 - Place after the three-line candidate split and before or near category interpretation.

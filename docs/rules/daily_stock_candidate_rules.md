@@ -99,7 +99,10 @@ Required specialty sections when data exists:
 - `daily_short_term_specialty_packet_latest.md`: standalone D+5 / D+10 short-term specialty.
 - `tdcc_overheated_short_term_edge_latest.md/csv`: standalone TDCC overheated short-term edge.
 - `weekly_surge_strict_parameter_search_latest.md/csv`: standalone strict weekly-surge parameter research.
-- `explosive_volume_up_backtest_latest.md/csv` and `explosive_volume_up_events_latest.csv`: standalone explosive-volume-up research. This is a research/watch section only. It uses D+1 open as the entry basis and separates close-return win rate from intraperiod high-hit rate.
+- `explosive_volume_up_backtest_latest.md/csv`, `explosive_volume_up_position_backtest_latest.csv`, and `explosive_volume_up_events_latest.csv`: standalone explosive-volume-up research. This is a research/watch section only. It uses D+1 open as the entry basis and separates close-return win rate from intraperiod high-hit rate.
+- Explosive-volume-up interpretation must first split price position: bottom/low-zone volume reversal, low-to-mid reclaim, near-high attack, and high-zone extension/chase. Do not mix bottom reversal with high-zone distribution/chase. Theme/mainstream status is the second filter, not a replacement for price-position filtering.
+- Explosive-volume-up signal timing is after the signal-day close. Entry statistics use next trading day open. `high_hit_rate` means the post-entry holding-window high reached the target; it is not an intraday entry rule.
+- Stricter explosive-volume-up quality requires a red candle with meaningful real body and limited upper shadow. Prefer `strict_red_close_near_high` first, then `relaxed_red_small_upper_shadow`; long-upper-shadow or failed-close rows are lower quality even if volume is large.
 - `volume_attack_theme_layer_latest.md/csv` and `volume_attack_theme_stocks_latest.md/csv`: standalone volume attack x theme early-mainstream section.
 - `non_revenue_momentum_watch_latest.md/csv`, if present: standalone non-revenue momentum / theme-fund-first section.
 
