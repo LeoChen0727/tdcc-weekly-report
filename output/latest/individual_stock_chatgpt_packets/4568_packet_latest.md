@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4568 科際精密
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:45 Asia/Taipei
+- generated_at: 2026-05-28 20:19:31 Asia/Taipei
 - stock_id: 4568
 - stock_name: 科際精密
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 40.15
 - low: 40.1
 - close: 40.1
-- volume: 2000
+- volume: 40000
 - ma5: 40.24
 - ema23_primary: 40.72
 - distance_to_ema23_pct: -1.52
@@ -69,7 +69,7 @@
 - ma120: 41.99
 - return_5d: -0.62
 - return_20d: -7.6
-- volume_ratio: 0.1
+- volume_ratio: 1.8
 - distance_to_ma20_pct_auxiliary: -1.02
 - distance_to_high_60_pct: -8.45
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,39.2,39.95,39.2,39.8,40000,40.83,-2.53,40.95,41.72,2.13
 20260526,39.7,40.65,39.7,40.4,40000,40.8,-0.97,40.84,41.68,2.18
 20260527,40.4,40.55,40.4,40.55,40000,40.78,-0.56,40.68,41.67,1.97
-20260528,40.15,40.15,40.1,40.1,2000,40.72,-1.52,40.51,41.65,0.1
+20260528,40.15,40.15,40.1,40.1,40000,40.72,-1.52,40.51,41.65,1.8
 ```
 
 ## Latest TDCC Snapshot

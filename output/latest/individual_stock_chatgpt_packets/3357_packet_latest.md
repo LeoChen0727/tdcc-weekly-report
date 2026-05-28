@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3357 臺慶科
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:24 Asia/Taipei
+- generated_at: 2026-05-28 20:19:10 Asia/Taipei
 - stock_id: 3357
 - stock_name: 臺慶科
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 298
 - low: 270
 - close: 283
-- volume: 9932955
+- volume: 288000
 - ma5: 278.2
 - ema23_primary: 226.2
 - distance_to_ema23_pct: 25.11
@@ -69,7 +69,7 @@
 - ma120: 169.16
 - return_5d: 11.42
 - return_20d: 68.96
-- volume_ratio: 1.7
+- volume_ratio: 0.05
 - distance_to_ma20_pct_auxiliary: 28.87
 - distance_to_high_60_pct: -5.03
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,288,298,270.5,274,287000,210.23,30.33,202.9,175.73,0.05
 20260526,271,277,251,269.5,264000,215.17,25.25,208.03,177.44,0.05
 20260527,278.5,296,276.5,285.5,287000,221.03,29.17,213.82,179.14,0.05
-20260528,290,298,270,283,9932955,226.2,25.11,219.6,180.5,1.7
+20260528,290,298,270,283,288000,226.2,25.11,219.6,180.5,0.05
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3357 | 臺慶科 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

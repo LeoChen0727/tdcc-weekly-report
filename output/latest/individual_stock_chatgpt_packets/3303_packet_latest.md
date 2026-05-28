@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3303 岱稜
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:22 Asia/Taipei
+- generated_at: 2026-05-28 20:19:09 Asia/Taipei
 - stock_id: 3303
 - stock_name: 岱稜
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 49.6
 - low: 48.35
 - close: 49
-- volume: 469786
+- volume: 49000
 - ma5: 49.14
 - ema23_primary: 49.05
 - distance_to_ema23_pct: -0.11
@@ -69,7 +69,7 @@
 - ma120: 46.75
 - return_5d: 0.2
 - return_20d: 0.51
-- volume_ratio: 0.91
+- volume_ratio: 0.1
 - distance_to_ma20_pct_auxiliary: -1.83
 - distance_to_high_60_pct: -10.26
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,49.65,50.6,49.45,49.8,50000,49.11,1.4,49.86,47.73,0.09
 20260526,49.8,50,49,49.2,49000,49.12,0.16,49.91,47.74,0.09
 20260527,49.6,49.7,48.1,48.35,49000,49.06,-1.44,49.9,47.74,0.09
-20260528,48.35,49.6,48.35,49,469786,49.05,-0.11,49.91,47.77,0.91
+20260528,48.35,49.6,48.35,49,49000,49.05,-0.11,49.91,47.77,0.1
 ```
 
 ## Latest TDCC Snapshot

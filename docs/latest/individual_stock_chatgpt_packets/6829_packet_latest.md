@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6829 千附精密
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:32 Asia/Taipei
+- generated_at: 2026-05-28 20:20:19 Asia/Taipei
 - stock_id: 6829
 - stock_name: 千附精密
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 220
 - low: 207
 - close: 216
-- volume: 328111
+- volume: 216000
 - ma5: 216.3
 - ema23_primary: 209.91
 - distance_to_ema23_pct: 2.9
@@ -69,7 +69,7 @@
 - ma120: 140.76
 - return_5d: 12.21
 - return_20d: -10
-- volume_ratio: 0.32
+- volume_ratio: 0.21
 - distance_to_ma20_pct_auxiliary: -3.19
 - distance_to_high_60_pct: -24.87
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,218,226,213,225.5,219000,208.46,8.18,226.7,165.69,0.2
 20260526,226.5,229,217.5,217.5,225000,209.21,3.96,225.78,167.46,0.21
 20260527,225,225,211,211,216000,209.36,0.78,224.32,169.12,0.21
-20260528,218,220,207,216,328111,209.91,2.9,223.12,170.86,0.32
+20260528,218,220,207,216,216000,209.91,2.9,223.12,170.86,0.21
 ```
 
 ## Latest TDCC Snapshot

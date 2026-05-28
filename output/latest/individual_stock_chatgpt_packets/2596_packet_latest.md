@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2596 綠意
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:03 Asia/Taipei
+- generated_at: 2026-05-28 20:18:48 Asia/Taipei
 - stock_id: 2596
 - stock_name: 綠意
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 27.35
 - low: 26.5
 - close: 27.2
-- volume: 352026
+- volume: 27000
 - ma5: 27.41
 - ema23_primary: 28.78
 - distance_to_ema23_pct: -5.49
@@ -69,7 +69,7 @@
 - ma120: 32.96
 - return_5d: -6.04
 - return_20d: -6.85
-- volume_ratio: 3.85
+- volume_ratio: 0.36
 - distance_to_ma20_pct_auxiliary: -4.79
 - distance_to_high_60_pct: -21.39
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,28.45,28.5,26.95,27.35,27000,29.3,-6.66,28.88,31.21,0.24
 20260526,27.35,27.5,27.15,27.4,27000,29.14,-5.98,28.79,31.11,0.28
 20260527,27.85,27.85,26.3,26.5,27000,28.92,-8.38,28.67,31,0.33
-20260528,26.5,27.35,26.5,27.2,352026,28.78,-5.49,28.57,30.9,3.85
+20260528,26.5,27.35,26.5,27.2,27000,28.78,-5.49,28.57,30.9,0.36
 ```
 
 ## Latest TDCC Snapshot

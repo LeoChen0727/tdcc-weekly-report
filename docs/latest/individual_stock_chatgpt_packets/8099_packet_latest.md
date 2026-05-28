@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8099 大世科
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:46 Asia/Taipei
+- generated_at: 2026-05-28 20:20:33 Asia/Taipei
 - stock_id: 8099
 - stock_name: 大世科
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 60.7
 - low: 59.7
 - close: 60.5
-- volume: 93358
+- volume: 60000
 - ma5: 59.7
 - ema23_primary: 61.39
 - distance_to_ema23_pct: -1.44
@@ -69,7 +69,7 @@
 - ma120: 67.22
 - return_5d: 0.67
 - return_20d: -7.21
-- volume_ratio: 0.71
+- volume_ratio: 0.46
 - distance_to_ma20_pct_auxiliary: -0.75
 - distance_to_high_60_pct: -16.9
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,59.5,61.9,59.2,60.1,61000,61.89,-2.9,61.73,62.87,0.42
 20260526,60.1,60.5,58.5,58.9,59000,61.64,-4.45,61.46,62.74,0.41
 20260527,58.6,60.9,58.6,59.5,59000,61.47,-3.2,61.2,62.67,0.45
-20260528,60,60.7,59.7,60.5,93358,61.39,-1.44,60.96,62.62,0.71
+20260528,60,60.7,59.7,60.5,60000,61.39,-1.44,60.96,62.62,0.46
 ```
 
 ## Latest TDCC Snapshot

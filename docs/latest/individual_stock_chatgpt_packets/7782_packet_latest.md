@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7782 光速火箭
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:41 Asia/Taipei
+- generated_at: 2026-05-28 20:20:28 Asia/Taipei
 - stock_id: 7782
 - stock_name: 光速火箭
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 26.35
 - low: 25.25
 - close: 26.15
-- volume: 24245
+- volume: 26000
 - ma5: 25.91
 - ema23_primary: 26.79
 - distance_to_ema23_pct: -2.38
@@ -69,7 +69,7 @@
 - ma120: 28.11
 - return_5d: -2.24
 - return_20d: -2.24
-- volume_ratio: 1.06
+- volume_ratio: 1.13
 - distance_to_ma20_pct_auxiliary: -2.26
 - distance_to_high_60_pct: -16.72
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,26.2,26.25,25.65,25.95,26000,27.09,-4.21,26.92,27.48,1.01
 20260526,25.65,25.65,25.4,25.6,26000,26.97,-5.07,26.85,27.42,1.15
 20260527,25.6,25.6,25.25,25.5,25000,26.84,-5.01,26.79,27.38,1.12
-20260528,25.4,26.35,25.25,26.15,24245,26.79,-2.38,26.75,27.34,1.06
+20260528,25.4,26.35,25.25,26.15,26000,26.79,-2.38,26.75,27.34,1.13
 ```
 
 ## Latest TDCC Snapshot

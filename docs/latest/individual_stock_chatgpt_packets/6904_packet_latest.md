@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6904 伯鑫
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:34 Asia/Taipei
+- generated_at: 2026-05-28 20:20:22 Asia/Taipei
 - stock_id: 6904
 - stock_name: 伯鑫
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 118
 - low: 114
 - close: 116
-- volume: 4030
+- volume: 116000
 - ma5: 115.5
 - ema23_primary: 116.54
 - distance_to_ema23_pct: -0.46
@@ -69,7 +69,7 @@
 - ma120: 121.33
 - return_5d: 2.65
 - return_20d: -4.13
-- volume_ratio: 0.26
+- volume_ratio: 5.55
 - distance_to_ma20_pct_auxiliary: 0.22
 - distance_to_high_60_pct: -11.45
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260521,113,115,113,115,3000,116.6,-1.37,116.2,121.78,0.65
 20260525,113,116,113,116,114000,116.55,-0.47,116.08,121.58,11.69
 20260526,117,117,117,117,117000,116.59,0.36,116,121.35,7.6
-20260528,118,118,114,116,4030,116.54,-0.46,115.75,121.08,0.26
+20260528,118,118,114,116,116000,116.54,-0.46,115.75,121.08,5.55
 ```
 
 ## Latest TDCC Snapshot

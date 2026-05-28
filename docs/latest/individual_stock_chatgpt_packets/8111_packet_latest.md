@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8111 立碁
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:46 Asia/Taipei
+- generated_at: 2026-05-28 20:20:34 Asia/Taipei
 - stock_id: 8111
 - stock_name: 立碁
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 68.6
 - low: 64.4
 - close: 64.4
-- volume: 2468717
+- volume: 66000
 - ma5: 67.12
 - ema23_primary: 66.26
 - distance_to_ema23_pct: -2.81
@@ -69,7 +69,7 @@
 - ma120: 67.67
 - return_5d: 3.04
 - return_20d: -8.39
-- volume_ratio: 1.3
+- volume_ratio: 0.04
 - distance_to_ma20_pct_auxiliary: -2.51
 - distance_to_high_60_pct: -23.42
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,67.5,69.8,67.5,68,68000,66.1,2.87,66.43,66.52,0.03
 20260526,68.8,69.3,66.3,68.8,68000,66.33,3.73,66.53,66.48,0.03
 20260527,69.6,69.6,66.8,67.6,68000,66.43,1.76,66.36,66.44,0.03
-20260528,68,68.6,64.4,64.4,2468717,66.26,-2.81,66.06,66.33,1.3
+20260528,68,68.6,64.4,64.4,66000,66.26,-2.81,66.06,66.33,0.04
 ```
 
 ## Latest TDCC Snapshot

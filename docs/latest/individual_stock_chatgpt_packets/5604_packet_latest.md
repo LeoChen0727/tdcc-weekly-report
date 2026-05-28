@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5604 中連
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:02 Asia/Taipei
+- generated_at: 2026-05-28 20:19:49 Asia/Taipei
 - stock_id: 5604
 - stock_name: 中連
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 31.9
 - low: 31
 - close: 31
-- volume: 33353
+- volume: 31000
 - ma5: 31.25
 - ema23_primary: 31.94
 - distance_to_ema23_pct: -2.96
@@ -69,7 +69,7 @@
 - ma120: 35.63
 - return_5d: -1.59
 - return_20d: -4.47
-- volume_ratio: 1.14
+- volume_ratio: 1.06
 - distance_to_ma20_pct_auxiliary: -1.91
 - distance_to_high_60_pct: -13.89
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,31.2,31.5,31.05,31.35,31000,32.17,-2.54,31.82,33.83,1.04
 20260526,31.25,31.5,31.2,31.2,31000,32.09,-2.77,31.74,33.75,1.09
 20260527,31.2,31.5,31.1,31.4,31000,32.03,-1.97,31.68,33.67,1.08
-20260528,31.4,31.9,31,31,33353,31.94,-2.96,31.6,33.59,1.14
+20260528,31.4,31.9,31,31,31000,31.94,-2.96,31.6,33.59,1.06
 ```
 
 ## Latest TDCC Snapshot

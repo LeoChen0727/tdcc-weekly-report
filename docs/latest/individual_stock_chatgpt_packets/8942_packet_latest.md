@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8942 森鉅
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:55 Asia/Taipei
+- generated_at: 2026-05-28 20:20:42 Asia/Taipei
 - stock_id: 8942
 - stock_name: 森鉅
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 42.2
 - low: 40.5
 - close: 41.45
-- volume: 775716
+- volume: 41000
 - ma5: 40.93
 - ema23_primary: 41.86
 - distance_to_ema23_pct: -0.98
@@ -69,7 +69,7 @@
 - ma120: 38.7
 - return_5d: -0.96
 - return_20d: -1.89
-- volume_ratio: 1.37
+- volume_ratio: 0.08
 - distance_to_ma20_pct_auxiliary: -2.49
 - distance_to_high_60_pct: -14.27
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,41.45,41.45,40,41.1,41000,42.14,-2.46,42.65,39.99,0.07
 20260526,41.7,41.75,40.7,41,41000,42.04,-2.48,42.66,40.05,0.07
 20260527,41.55,41.55,40.2,40.3,41000,41.9,-3.81,42.55,40.1,0.08
-20260528,40.5,42.2,40.5,41.45,775716,41.86,-0.98,42.51,40.17,1.37
+20260528,40.5,42.2,40.5,41.45,41000,41.86,-0.98,42.51,40.17,0.08
 ```
 
 ## Latest TDCC Snapshot

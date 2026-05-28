@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4163 鐿鈦
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:39 Asia/Taipei
+- generated_at: 2026-05-28 20:19:25 Asia/Taipei
 - stock_id: 4163
 - stock_name: 鐿鈦
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 122.5
 - low: 113
 - close: 118
-- volume: 359139
+- volume: 118000
 - ma5: 111.1
 - ema23_primary: 108.04
 - distance_to_ema23_pct: 9.22
@@ -69,7 +69,7 @@
 - ma120: 100.34
 - return_5d: 7.27
 - return_20d: 18
-- volume_ratio: 2.64
+- volume_ratio: 0.95
 - distance_to_ma20_pct_auxiliary: 11.8
 - distance_to_high_60_pct: -5.6
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,110.5,110.5,105,105.5,107000,106.4,-0.85,103.87,105.36,0.97
 20260526,104.5,106,104,105.5,105000,106.33,-0.78,103.92,105.42,0.92
 20260527,105,116,102.5,116,112000,107.13,8.28,104.64,105.53,0.94
-20260528,115.5,122.5,113,118,359139,108.04,9.22,105.55,105.7,2.64
+20260528,115.5,122.5,113,118,118000,108.04,9.22,105.55,105.7,0.95
 ```
 
 ## Latest TDCC Snapshot

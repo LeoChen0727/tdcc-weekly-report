@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2726 雅茗-KY
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:06 Asia/Taipei
+- generated_at: 2026-05-28 20:18:52 Asia/Taipei
 - stock_id: 2726
 - stock_name: 雅茗-KY
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 10
 - low: 9.39
 - close: 9.83
-- volume: 77583
+- volume: 10000
 - ma5: 9.9
 - ema23_primary: 9.91
 - distance_to_ema23_pct: -0.78
@@ -69,7 +69,7 @@
 - ma120: 11.59
 - return_5d: -1.7
 - return_20d: -6.82
-- volume_ratio: 1.27
+- volume_ratio: 0.17
 - distance_to_ma20_pct_auxiliary: -1.03
 - distance_to_high_60_pct: -15.98
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,9.92,9.93,9.45,9.93,10000,9.92,0.11,10.03,10.1,0.08
 20260526,9.93,9.97,9.72,9.91,10000,9.92,-0.08,10,10.08,0.15
 20260527,9.82,9.9,9.8,9.88,10000,9.91,-0.35,9.97,10.06,0.17
-20260528,9.9,10,9.39,9.83,77583,9.91,-0.78,9.93,10.05,1.27
+20260528,9.9,10,9.39,9.83,10000,9.91,-0.78,9.93,10.05,0.17
 ```
 
 ## Latest TDCC Snapshot

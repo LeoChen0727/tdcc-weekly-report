@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3360 尚立
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:24 Asia/Taipei
+- generated_at: 2026-05-28 20:19:10 Asia/Taipei
 - stock_id: 3360
 - stock_name: 尚立
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 14.8
 - low: 14.1
 - close: 14.1
-- volume: 658327
+- volume: 14000
 - ma5: 14.47
 - ema23_primary: 14.47
 - distance_to_ema23_pct: -2.57
@@ -69,7 +69,7 @@
 - ma120: 14.44
 - return_5d: -3.75
 - return_20d: 4.06
-- volume_ratio: 0.61
+- volume_ratio: 0.01
 - distance_to_ma20_pct_auxiliary: -2.44
 - distance_to_high_60_pct: -17.54
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,15.2,15.2,14.5,14.65,15000,14.54,0.75,14.34,14.77,0.01
 20260526,14.65,14.65,14.3,14.4,14000,14.53,-0.89,14.39,14.72,0.01
 20260527,14.45,14.6,14.2,14.25,14000,14.51,-1.76,14.43,14.67,0.01
-20260528,14.35,14.8,14.1,14.1,658327,14.47,-2.57,14.45,14.63,0.61
+20260528,14.35,14.8,14.1,14.1,14000,14.47,-2.57,14.45,14.63,0.01
 ```
 
 ## Latest TDCC Snapshot

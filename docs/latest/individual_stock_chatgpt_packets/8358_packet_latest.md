@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8358 金居
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:49 Asia/Taipei
+- generated_at: 2026-05-28 20:20:37 Asia/Taipei
 - stock_id: 8358
 - stock_name: 金居
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 578
 - low: 550
 - close: 553
-- volume: 4870798
+- volume: 559000
 - ma5: 542.6
 - ema23_primary: 459.16
 - distance_to_ema23_pct: 20.44
@@ -69,7 +69,7 @@
 - ma120: 302.1
 - return_5d: 11.04
 - return_20d: 49.66
-- volume_ratio: 0.43
+- volume_ratio: 0.05
 - distance_to_ma20_pct_auxiliary: 18.35
 - distance_to_high_60_pct: -4.33
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,558,558,541,545,550000,432.29,26.07,438.32,330.72,0.04
 20260526,546,546,517,533,525000,440.69,20.95,448.2,334.73,0.04
 20260527,540,566,540,560,553000,450.63,24.27,458.1,339.23,0.05
-20260528,555,578,550,553,4870798,459.16,20.44,467.27,343.68,0.43
+20260528,555,578,550,553,559000,459.16,20.44,467.27,343.68,0.05
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3205 佰研
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:19 Asia/Taipei
+- generated_at: 2026-05-28 20:19:05 Asia/Taipei
 - stock_id: 3205
 - stock_name: 佰研
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 54.6
 - low: 52.7
 - close: 54.2
-- volume: 127228
+- volume: 54000
 - ma5: 53.64
 - ema23_primary: 54.86
 - distance_to_ema23_pct: -1.21
@@ -69,7 +69,7 @@
 - ma120: 52.44
 - return_5d: -1.45
 - return_20d: -3.73
-- volume_ratio: 0.8
+- volume_ratio: 0.35
 - distance_to_ma20_pct_auxiliary: -0.76
 - distance_to_high_60_pct: -19.1
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,54.2,54.8,53.2,53.3,54000,55.27,-3.57,55.2,55.35,0.29
 20260526,53.3,54.2,53.2,53.3,54000,55.11,-3.28,54.98,55.37,0.32
 20260527,53.4,53.4,52.7,52.9,53000,54.92,-3.68,54.72,55.39,0.32
-20260528,52.7,54.6,52.7,54.2,127228,54.86,-1.21,54.62,55.44,0.8
+20260528,52.7,54.6,52.7,54.2,54000,54.86,-1.21,54.62,55.44,0.35
 ```
 
 ## Latest TDCC Snapshot

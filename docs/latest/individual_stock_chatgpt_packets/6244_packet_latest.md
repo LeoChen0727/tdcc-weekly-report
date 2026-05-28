@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6244 茂迪
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:14 Asia/Taipei
+- generated_at: 2026-05-28 20:20:01 Asia/Taipei
 - stock_id: 6244
 - stock_name: 茂迪
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 31.2
 - low: 29.35
 - close: 30.1
-- volume: 15455407
+- volume: 30000
 - ma5: 29.84
 - ema23_primary: 28.9
 - distance_to_ema23_pct: 4.16
@@ -69,7 +69,7 @@
 - ma120: 25.65
 - return_5d: 6.17
 - return_20d: 13.58
-- volume_ratio: 2.14
+- volume_ratio: 0
 - distance_to_ma20_pct_auxiliary: 4.2
 - distance_to_high_60_pct: -23.02
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,29.75,31.2,29.25,30.65,30000,28.65,6.98,28.45,29.34,0
 20260526,30.7,32,29.55,29.7,31000,28.74,3.35,28.57,29.29,0
 20260527,30.1,30.25,28.9,29.35,30000,28.79,1.95,28.71,29.22,0
-20260528,29.4,31.2,29.35,30.1,15455407,28.9,4.16,28.89,29.12,2.14
+20260528,29.4,31.2,29.35,30.1,30000,28.9,4.16,28.89,29.12,0
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6244 | 茂迪 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

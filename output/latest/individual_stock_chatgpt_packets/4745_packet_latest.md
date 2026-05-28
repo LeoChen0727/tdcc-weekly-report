@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4745 合富-KY
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:47 Asia/Taipei
+- generated_at: 2026-05-28 20:19:34 Asia/Taipei
 - stock_id: 4745
 - stock_name: 合富-KY
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 16.15
 - low: 15.55
 - close: 15.55
-- volume: 186182
+- volume: 16000
 - ma5: 16.22
 - ema23_primary: 17.84
 - distance_to_ema23_pct: -12.84
@@ -69,7 +69,7 @@
 - ma120: 21.28
 - return_5d: -6.33
 - return_20d: -18.8
-- volume_ratio: 0.63
+- volume_ratio: 0.06
 - distance_to_ma20_pct_auxiliary: -15.49
 - distance_to_high_60_pct: -30.11
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,16.55,16.65,16,16.5,16000,18.39,-10.29,18.73,19.21,0.05
 20260526,16.55,16.55,16.25,16.4,16000,18.23,-10.02,18.66,19.13,0.05
 20260527,16.5,16.6,16.05,16.1,16000,18.05,-10.8,18.58,19.04,0.05
-20260528,16.1,16.15,15.55,15.55,186182,17.84,-12.84,18.4,18.95,0.63
+20260528,16.1,16.15,15.55,15.55,16000,17.84,-12.84,18.4,18.95,0.06
 ```
 
 ## Latest TDCC Snapshot

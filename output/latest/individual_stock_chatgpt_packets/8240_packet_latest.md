@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8240 華宏
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:48 Asia/Taipei
+- generated_at: 2026-05-28 20:20:36 Asia/Taipei
 - stock_id: 8240
 - stock_name: 華宏
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 68.6
 - low: 63.5
 - close: 63.8
-- volume: 1653405
+- volume: 66000
 - ma5: 66.84
 - ema23_primary: 65.48
 - distance_to_ema23_pct: -2.57
@@ -69,7 +69,7 @@
 - ma120: 48.66
 - return_5d: 1.11
 - return_20d: -7
-- volume_ratio: 0.79
+- volume_ratio: 0.03
 - distance_to_ma20_pct_auxiliary: -3.93
 - distance_to_high_60_pct: -22
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,68.3,68.4,66.5,67,67000,65.04,3.01,67.16,57.98,0.02
 20260526,68,70.9,65.7,69.4,69000,65.4,6.11,66.89,58.46,0.02
 20260527,71,71.3,66.7,68.2,69000,65.64,3.9,66.65,58.91,0.03
-20260528,68.3,68.6,63.5,63.8,1653405,65.48,-2.57,66.41,59.3,0.79
+20260528,68.3,68.6,63.5,63.8,66000,65.48,-2.57,66.41,59.3,0.03
 ```
 
 ## Latest TDCC Snapshot

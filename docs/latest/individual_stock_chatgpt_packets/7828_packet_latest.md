@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7828 創新服務
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:42 Asia/Taipei
+- generated_at: 2026-05-28 20:20:29 Asia/Taipei
 - stock_id: 7828
 - stock_name: 創新服務
 - packet_status: partial_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 1525
 - low: 1385
 - close: 1400
-- volume: 588284
+- volume: 1443000
 - ma5: 1351
 - ema23_primary: 1295.3
 - distance_to_ema23_pct: 8.08
@@ -69,7 +69,7 @@
 - ma120: 1259.23
 - return_5d: 32.08
 - return_20d: 9.8
-- volume_ratio: 1.1
+- volume_ratio: 2.5
 - distance_to_ma20_pct_auxiliary: 12.61
 - distance_to_high_60_pct: -15.66
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,1225,1280,1195,1280,1251000,1253.21,2.14,1211.5,1236.09,2.78
 20260526,1320,1405,1320,1405,1380000,1265.86,10.99,1221.75,1243.12,2.83
 20260527,1450,1540,1435,1505,1501000,1285.79,17.05,1237,1253.6,2.78
-20260528,1485,1525,1385,1400,588284,1295.3,8.08,1243.25,1259.23,1.1
+20260528,1485,1525,1385,1400,1443000,1295.3,8.08,1243.25,1259.23,2.5
 ```
 
 ## Latest TDCC Snapshot

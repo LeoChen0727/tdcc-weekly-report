@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5464 霖宏
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:59 Asia/Taipei
+- generated_at: 2026-05-28 20:19:46 Asia/Taipei
 - stock_id: 5464
 - stock_name: 霖宏
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 78.2
 - low: 69
 - close: 75.5
-- volume: 4526696
+- volume: 77000
 - ma5: 72.56
 - ema23_primary: 58.15
 - distance_to_ema23_pct: 29.84
@@ -69,7 +69,7 @@
 - ma120: 32.35
 - return_5d: 5.59
 - return_20d: 137.42
-- volume_ratio: 2.36
+- volume_ratio: 0.05
 - distance_to_ma20_pct_auxiliary: 28.75
 - distance_to_high_60_pct: -3.45
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,71.5,75,71.5,73,73000,53.71,35.92,52.43,36.51,0.04
 20260526,73,73,69.8,72.2,71000,55.25,30.68,54.49,37.26,0.04
 20260527,73.1,73.1,71.1,71.1,72000,56.57,25.68,56.46,37.98,0.04
-20260528,70,78.2,69,75.5,4526696,58.15,29.84,58.64,38.78,2.36
+20260528,70,78.2,69,75.5,77000,58.15,29.84,58.64,38.78,0.05
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 5464 | 霖宏 | true_breakout | 嚴格突破 | 99.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

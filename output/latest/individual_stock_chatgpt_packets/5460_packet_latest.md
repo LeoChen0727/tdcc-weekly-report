@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5460 同協
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:59 Asia/Taipei
+- generated_at: 2026-05-28 20:19:46 Asia/Taipei
 - stock_id: 5460
 - stock_name: 同協
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 15.05
 - low: 14.9
 - close: 15
-- volume: 67074
+- volume: 15000
 - ma5: 15.24
 - ema23_primary: 15.12
 - distance_to_ema23_pct: -0.8
@@ -69,7 +69,7 @@
 - ma120: 15.17
 - return_5d: -3.23
 - return_20d: 0
-- volume_ratio: 1.35
+- volume_ratio: 0.32
 - distance_to_ma20_pct_auxiliary: -0.7
 - distance_to_high_60_pct: -6.25
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,15.45,15.8,15.3,15.4,15000,15.13,1.75,15.1,14.91,0.3
 20260526,15.7,15.7,15.15,15.2,15000,15.14,0.4,15.11,14.91,0.31
 20260527,15.2,15.55,15,15.05,15000,15.13,-0.55,15.11,14.9,0.31
-20260528,15,15.05,14.9,15,67074,15.12,-0.8,15.11,14.89,1.35
+20260528,15,15.05,14.9,15,15000,15.12,-0.8,15.11,14.89,0.32
 ```
 
 ## Latest TDCC Snapshot

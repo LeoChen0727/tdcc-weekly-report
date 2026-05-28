@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5211 蒙恬
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:54 Asia/Taipei
+- generated_at: 2026-05-28 20:19:40 Asia/Taipei
 - stock_id: 5211
 - stock_name: 蒙恬
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 18
 - low: 17.7
 - close: 17.7
-- volume: 74299
+- volume: 18000
 - ma5: 17.85
 - ema23_primary: 19.33
 - distance_to_ema23_pct: -8.41
@@ -69,7 +69,7 @@
 - ma120: 23.77
 - return_5d: 0.28
 - return_20d: -13.66
-- volume_ratio: 0.52
+- volume_ratio: 0.13
 - distance_to_ma20_pct_auxiliary: -8.22
 - distance_to_high_60_pct: -28.19
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,17.8,18.25,17.2,18.2,18000,19.78,-7.98,19.7,21.55,0.11
 20260526,18.3,18.3,18,18,18000,19.63,-8.31,19.59,21.46,0.12
 20260527,18.1,18.2,17.75,17.75,18000,19.47,-8.85,19.43,21.36,0.12
-20260528,17.8,18,17.7,17.7,74299,19.33,-8.41,19.29,21.27,0.52
+20260528,17.8,18,17.7,17.7,18000,19.33,-8.41,19.29,21.27,0.13
 ```
 
 ## Latest TDCC Snapshot

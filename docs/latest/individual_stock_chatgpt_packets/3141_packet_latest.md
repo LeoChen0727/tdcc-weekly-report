@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3141 晶宏
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:18 Asia/Taipei
+- generated_at: 2026-05-28 20:19:04 Asia/Taipei
 - stock_id: 3141
 - stock_name: 晶宏
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 82.9
 - low: 79.4
 - close: 82
-- volume: 9435089
+- volume: 82000
 - ma5: 79.36
 - ema23_primary: 65
 - distance_to_ema23_pct: 26.15
@@ -69,7 +69,7 @@
 - ma120: 50.31
 - return_5d: 15.01
 - return_20d: 76.34
-- volume_ratio: 3.17
+- volume_ratio: 0.03
 - distance_to_ma20_pct_auxiliary: 27.84
 - distance_to_high_60_pct: -1.09
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,78.5,80.4,77,78.5,78000,60.41,29.94,59.11,49.69,0.03
 20260526,78.7,82,75.8,79.2,79000,61.98,27.79,60.7,50.16,0.03
 20260527,80.1,81.6,77.6,79.7,79000,63.45,25.6,62.37,50.64,0.03
-20260528,79.9,82.9,79.4,82,9435089,65,26.15,64.14,51.16,3.17
+20260528,79.9,82.9,79.4,82,82000,65,26.15,64.14,51.16,0.03
 ```
 
 ## Latest TDCC Snapshot

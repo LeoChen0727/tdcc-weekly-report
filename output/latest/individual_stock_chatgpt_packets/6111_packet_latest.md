@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6111 光聚晶電
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:05 Asia/Taipei
+- generated_at: 2026-05-28 20:19:52 Asia/Taipei
 - stock_id: 6111
 - stock_name: 光聚晶電
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 46
 - low: 44.3
 - close: 44.3
-- volume: 453720
+- volume: 45000
 - ma5: 45.71
 - ema23_primary: 46.43
 - distance_to_ema23_pct: -4.58
@@ -69,7 +69,7 @@
 - ma120: 45.7
 - return_5d: -6.54
 - return_20d: -1.23
-- volume_ratio: 1.21
+- volume_ratio: 0.13
 - distance_to_ma20_pct_auxiliary: -5.44
 - distance_to_high_60_pct: -12.28
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,47.7,47.85,45.75,45.85,46000,46.85,-2.14,46.95,45.11,0.11
 20260526,45.85,46.05,44.85,45.4,45000,46.73,-2.85,46.89,45.14,0.12
 20260527,45.05,46.05,45,45.4,45000,46.62,-2.62,46.88,45.15,0.12
-20260528,45.1,46,44.3,44.3,453720,46.43,-4.58,46.85,45.15,1.21
+20260528,45.1,46,44.3,44.3,45000,46.43,-4.58,46.85,45.15,0.13
 ```
 
 ## Latest TDCC Snapshot

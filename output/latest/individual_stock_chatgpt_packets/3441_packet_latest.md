@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3441 聯一光
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:26 Asia/Taipei
+- generated_at: 2026-05-28 20:19:12 Asia/Taipei
 - stock_id: 3441
 - stock_name: 聯一光
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 53.9
 - low: 49.6
 - close: 50.2
-- volume: 2132200
+- volume: 51000
 - ma5: 53.48
 - ema23_primary: 44.88
 - distance_to_ema23_pct: 11.85
@@ -69,7 +69,7 @@
 - ma120: 36.77
 - return_5d: -5.1
 - return_20d: 49.85
-- volume_ratio: 0.82
+- volume_ratio: 0.02
 - distance_to_ma20_pct_auxiliary: 13.02
 - distance_to_high_60_pct: -14.63
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,54.5,57.4,54.3,57.4,56000,42.63,34.66,41.54,35.5,0.02
 20260526,56.9,58.8,54.2,55.9,56000,43.73,27.82,42.66,35.82,0.02
 20260527,56.4,56.4,51,51.7,53000,44.4,16.45,43.58,36.07,0.02
-20260528,51,53.9,49.6,50.2,2132200,44.88,11.85,44.41,36.31,0.82
+20260528,51,53.9,49.6,50.2,51000,44.88,11.85,44.41,36.31,0.02
 ```
 
 ## Latest TDCC Snapshot

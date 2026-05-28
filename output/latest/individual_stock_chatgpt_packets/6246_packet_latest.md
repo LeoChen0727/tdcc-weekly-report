@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6246 臺龍
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:14 Asia/Taipei
+- generated_at: 2026-05-28 20:20:01 Asia/Taipei
 - stock_id: 6246
 - stock_name: 臺龍
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 16.05
 - low: 15.5
 - close: 15.5
-- volume: 72088
+- volume: 16000
 - ma5: 15.85
 - ema23_primary: 15.84
 - distance_to_ema23_pct: -2.16
@@ -69,7 +69,7 @@
 - ma120: 14.73
 - return_5d: 0.32
 - return_20d: 3.68
-- volume_ratio: 0.36
+- volume_ratio: 0.08
 - distance_to_ma20_pct_auxiliary: -3.8
 - distance_to_high_60_pct: -17.99
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,16.9,16.9,15.85,16.1,16000,15.88,1.36,16.01,15.75,0.08
 20260526,15.8,16.2,15.75,15.9,16000,15.88,0.09,16.04,15.8,0.08
 20260527,15.9,16.05,15.45,15.75,16000,15.87,-0.78,16.09,15.85,0.08
-20260528,15.75,16.05,15.5,15.5,72088,15.84,-2.16,16.11,15.89,0.36
+20260528,15.75,16.05,15.5,15.5,16000,15.84,-2.16,16.11,15.89,0.08
 ```
 
 ## Latest TDCC Snapshot

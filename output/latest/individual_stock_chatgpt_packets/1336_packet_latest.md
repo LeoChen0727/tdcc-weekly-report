@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1336 台翰
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:29 Asia/Taipei
+- generated_at: 2026-05-28 20:18:14 Asia/Taipei
 - stock_id: 1336
 - stock_name: 台翰
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 13.3
 - low: 13.1
 - close: 13.1
-- volume: 68395
+- volume: 13000
 - ma5: 13.11
 - ema23_primary: 13.45
 - distance_to_ema23_pct: -2.61
@@ -69,7 +69,7 @@
 - ma120: 15.04
 - return_5d: 0.38
 - return_20d: -5.42
-- volume_ratio: 0.84
+- volume_ratio: 0.17
 - distance_to_ma20_pct_auxiliary: -2.6
 - distance_to_high_60_pct: -16.03
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,13.15,13.2,13.05,13.15,13000,13.56,-2.99,13.56,14.19,0.14
 20260526,13.25,13.25,13.05,13.05,13000,13.51,-3.43,13.52,14.14,0.15
 20260527,13.1,13.25,13.05,13.15,13000,13.48,-2.47,13.49,14.09,0.16
-20260528,13.3,13.3,13.1,13.1,68395,13.45,-2.61,13.45,14.05,0.84
+20260528,13.3,13.3,13.1,13.1,13000,13.45,-2.61,13.45,14.05,0.17
 ```
 
 ## Latest TDCC Snapshot

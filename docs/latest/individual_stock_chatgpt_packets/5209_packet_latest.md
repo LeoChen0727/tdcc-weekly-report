@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5209 新鼎
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:53 Asia/Taipei
+- generated_at: 2026-05-28 20:19:40 Asia/Taipei
 - stock_id: 5209
 - stock_name: 新鼎
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 170.5
 - low: 168.5
 - close: 169
-- volume: 55480
+- volume: 170000
 - ma5: 168.6
 - ema23_primary: 166.37
 - distance_to_ema23_pct: 1.58
@@ -69,7 +69,7 @@
 - ma120: 168.56
 - return_5d: 1.81
 - return_20d: 2.74
-- volume_ratio: 0.76
+- volume_ratio: 2.16
 - distance_to_ma20_pct_auxiliary: 1.98
 - distance_to_high_60_pct: -2.03
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,166.5,169.5,166.5,169.5,168000,165.59,2.36,164.97,166.36,2.96
 20260526,169,170,168.5,169,169000,165.87,1.89,165.28,166.37,2.69
 20260527,170.5,170.5,168,169,169000,166.13,1.73,165.5,166.38,2.4
-20260528,169,170.5,168.5,169,55480,166.37,1.58,165.72,166.38,0.76
+20260528,169,170.5,168.5,169,170000,166.37,1.58,165.72,166.38,2.16
 ```
 
 ## Latest TDCC Snapshot

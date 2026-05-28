@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6609 瀧澤科
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:24 Asia/Taipei
+- generated_at: 2026-05-28 20:20:11 Asia/Taipei
 - stock_id: 6609
 - stock_name: 瀧澤科
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 47.65
 - low: 44.15
 - close: 44.85
-- volume: 966910
+- volume: 46000
 - ma5: 46.97
 - ema23_primary: 42.91
 - distance_to_ema23_pct: 4.52
@@ -69,7 +69,7 @@
 - ma120: 38.93
 - return_5d: 6.41
 - return_20d: 15.74
-- volume_ratio: 1.41
+- volume_ratio: 0.07
 - distance_to_ma20_pct_auxiliary: 4.05
 - distance_to_high_60_pct: -10.3
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,46.75,49.45,46.6,49.4,48000,41.9,17.89,41.73,38.76,0.07
 20260526,50,50,46.25,47.85,48000,42.4,12.86,42.3,38.91,0.07
 20260527,47.8,47.8,44.85,46.4,46000,42.73,8.58,42.8,39.02,0.07
-20260528,46.85,47.65,44.15,44.85,966910,42.91,4.52,43.1,39.12,1.41
+20260528,46.85,47.65,44.15,44.85,46000,42.91,4.52,43.1,39.12,0.07
 ```
 
 ## Latest TDCC Snapshot

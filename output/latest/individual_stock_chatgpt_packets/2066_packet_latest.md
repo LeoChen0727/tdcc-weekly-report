@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2066 世德
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:46 Asia/Taipei
+- generated_at: 2026-05-28 20:18:31 Asia/Taipei
 - stock_id: 2066
 - stock_name: 世德
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 58.7
 - low: 56.6
 - close: 57.8
-- volume: 213985
+- volume: 58000
 - ma5: 57.34
 - ema23_primary: 53.31
 - distance_to_ema23_pct: 8.42
@@ -69,7 +69,7 @@
 - ma120: 50.85
 - return_5d: 2.48
 - return_20d: 24.97
-- volume_ratio: 1.39
+- volume_ratio: 0.4
 - distance_to_ma20_pct_auxiliary: 10.65
 - distance_to_high_60_pct: -5.4
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,58.3,59.8,57,57.6,58000,52.19,10.36,50.6,50.04,0.4
 20260526,57.9,59,57.7,57.7,58000,52.65,9.59,51.18,50.13,0.41
 20260527,57.7,57.7,55,55.7,56000,52.9,5.28,51.66,50.18,0.39
-20260528,56.6,58.7,56.6,57.8,213985,53.31,8.42,52.23,50.24,1.39
+20260528,56.6,58.7,56.6,57.8,58000,53.31,8.42,52.23,50.24,0.4
 ```
 
 ## Latest TDCC Snapshot

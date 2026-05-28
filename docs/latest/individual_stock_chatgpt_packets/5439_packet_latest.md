@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5439 高技
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:59 Asia/Taipei
+- generated_at: 2026-05-28 20:19:46 Asia/Taipei
 - stock_id: 5439
 - stock_name: 高技
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 389
 - low: 368
 - close: 370
-- volume: 2755952
+- volume: 377000
 - ma5: 383.8
 - ema23_primary: 380.49
 - distance_to_ema23_pct: -2.76
@@ -69,7 +69,7 @@
 - ma120: 328.71
 - return_5d: -1.73
 - return_20d: -4.27
-- volume_ratio: 0.6
+- volume_ratio: 0.08
 - distance_to_ma20_pct_auxiliary: -4.48
 - distance_to_high_60_pct: -20.17
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,396,401.5,380,385,393000,380.17,1.27,388.12,336.96,0.07
 20260526,391,392,381,391,388000,381.07,2.6,388.95,338.57,0.08
 20260527,398.5,401,380,385.5,390000,381.44,1.06,388.18,340.12,0.08
-20260528,388.5,389,368,370,2755952,380.49,-2.76,387.35,341.52,0.6
+20260528,388.5,389,368,370,377000,380.49,-2.76,387.35,341.52,0.08
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 5439 | 高技 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

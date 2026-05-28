@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4767 誠泰科技
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:48 Asia/Taipei
+- generated_at: 2026-05-28 20:19:35 Asia/Taipei
 - stock_id: 4767
 - stock_name: 誠泰科技
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 26.9
 - low: 26.65
 - close: 26.9
-- volume: 17301
+- volume: 27000
 - ma5: 26.77
 - ema23_primary: 26.61
 - distance_to_ema23_pct: 1.11
@@ -69,7 +69,7 @@
 - ma120: 26.24
 - return_5d: 1.51
 - return_20d: 1.32
-- volume_ratio: 0.91
+- volume_ratio: 1.38
 - distance_to_ma20_pct_auxiliary: 1.04
 - distance_to_high_60_pct: -3.58
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,26.6,26.9,26.6,26.85,27000,26.56,1.09,26.61,26,1.53
 20260526,27.45,27.45,26.65,26.65,27000,26.57,0.31,26.61,26.02,1.48
 20260527,26.85,26.85,26.1,26.7,27000,26.58,0.46,26.61,26.05,1.43
-20260528,26.65,26.9,26.65,26.9,17301,26.61,1.11,26.62,26.08,0.91
+20260528,26.65,26.9,26.65,26.9,27000,26.61,1.11,26.62,26.08,1.38
 ```
 
 ## Latest TDCC Snapshot

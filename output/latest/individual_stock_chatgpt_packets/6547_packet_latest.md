@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6547 高端疫苗
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:22 Asia/Taipei
+- generated_at: 2026-05-28 20:20:09 Asia/Taipei
 - stock_id: 6547
 - stock_name: 高端疫苗
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 46.25
 - low: 44.2
 - close: 44.2
-- volume: 2876984
+- volume: 45000
 - ma5: 46.05
 - ema23_primary: 47.84
 - distance_to_ema23_pct: -7.6
@@ -69,7 +69,7 @@
 - ma120: 42.98
 - return_5d: -9.24
 - return_20d: -7.92
-- volume_ratio: 1.89
+- volume_ratio: 0.03
 - distance_to_ma20_pct_auxiliary: -8.02
 - distance_to_high_60_pct: -27.78
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,47.65,47.95,46.65,46.7,47000,48.64,-3.99,48.48,47.57,0.03
 20260526,46.8,46.95,45.7,46,46000,48.42,-5,48.35,47.75,0.03
 20260527,46.2,46.4,45.4,45.4,46000,48.17,-5.75,48.24,47.91,0.03
-20260528,45.5,46.25,44.2,44.2,2876984,47.84,-7.6,48.05,48.05,1.89
+20260528,45.5,46.25,44.2,44.2,45000,47.84,-7.6,48.05,48.05,0.03
 ```
 
 ## Latest TDCC Snapshot

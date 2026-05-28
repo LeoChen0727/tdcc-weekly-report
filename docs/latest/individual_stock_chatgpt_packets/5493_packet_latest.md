@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5493 三聯
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:00 Asia/Taipei
+- generated_at: 2026-05-28 20:19:47 Asia/Taipei
 - stock_id: 5493
 - stock_name: 三聯
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 92.8
 - low: 88
 - close: 88.6
-- volume: 286764
+- volume: 90000
 - ma5: 91.12
 - ema23_primary: 89.85
 - distance_to_ema23_pct: -1.4
@@ -69,7 +69,7 @@
 - ma120: 87.14
 - return_5d: -4.42
 - return_20d: -1.56
-- volume_ratio: 0.6
+- volume_ratio: 0.19
 - distance_to_ma20_pct_auxiliary: -2.21
 - distance_to_high_60_pct: -9.22
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,93.4,94.2,91.4,92.2,92000,89.83,2.64,90.23,85.48,0.19
 20260526,92.7,93,89.5,91.2,91000,89.95,1.39,90.47,85.44,0.19
 20260527,91.7,91.8,88.7,90.2,90000,89.97,0.26,90.67,85.42,0.19
-20260528,90.2,92.8,88,88.6,286764,89.85,-1.4,90.61,85.42,0.6
+20260528,90.2,92.8,88,88.6,90000,89.85,-1.4,90.61,85.42,0.19
 ```
 
 ## Latest TDCC Snapshot

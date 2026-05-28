@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3630 新鉅科
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:33 Asia/Taipei
+- generated_at: 2026-05-28 20:19:19 Asia/Taipei
 - stock_id: 3630
 - stock_name: 新鉅科
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 26.6
 - low: 25.4
 - close: 25.65
-- volume: 675123
+- volume: 26000
 - ma5: 26.69
 - ema23_primary: 26.98
 - distance_to_ema23_pct: -4.94
@@ -69,7 +69,7 @@
 - ma120: 29.54
 - return_5d: -6.04
 - return_20d: -6.73
-- volume_ratio: 0.85
+- volume_ratio: 0.03
 - distance_to_ma20_pct_auxiliary: -3.93
 - distance_to_high_60_pct: -26.29
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,27.8,27.85,27,27.05,27000,27.21,-0.58,26.91,28.86,0.03
 20260526,27.05,27.5,26.45,27,27000,27.19,-0.7,26.86,28.75,0.03
 20260527,27.35,27.35,26,26.15,26000,27.1,-3.52,26.79,28.59,0.03
-20260528,26.2,26.6,25.4,25.65,675123,26.98,-4.94,26.7,28.44,0.85
+20260528,26.2,26.6,25.4,25.65,26000,26.98,-4.94,26.7,28.44,0.03
 ```
 
 ## Latest TDCC Snapshot

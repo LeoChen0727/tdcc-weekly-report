@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6169 昱泉
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:09 Asia/Taipei
+- generated_at: 2026-05-28 20:19:56 Asia/Taipei
 - stock_id: 6169
 - stock_name: 昱泉
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 14.2
 - low: 13.75
 - close: 13.85
-- volume: 27505
+- volume: 14000
 - ma5: 14.15
 - ema23_primary: 15.21
 - distance_to_ema23_pct: -8.91
@@ -69,7 +69,7 @@
 - ma120: 17.69
 - return_5d: -3.82
 - return_20d: -18.53
-- volume_ratio: 0.77
+- volume_ratio: 0.4
 - distance_to_ma20_pct_auxiliary: -9.9
 - distance_to_high_60_pct: -23.48
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,14.75,14.75,14.2,14.3,14000,15.6,-8.32,15.8,16.49,0.4
 20260526,14.3,14.3,13.8,14.15,14000,15.48,-8.57,15.68,16.44,0.39
 20260527,14.35,14.35,13.6,13.7,14000,15.33,-10.62,15.53,16.38,0.4
-20260528,14.15,14.2,13.75,13.85,27505,15.21,-8.91,15.37,16.32,0.77
+20260528,14.15,14.2,13.75,13.85,14000,15.21,-8.91,15.37,16.32,0.4
 ```
 
 ## Latest TDCC Snapshot

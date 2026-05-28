@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4168 醣聯
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:39 Asia/Taipei
+- generated_at: 2026-05-28 20:19:26 Asia/Taipei
 - stock_id: 4168
 - stock_name: 醣聯
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 28.3
 - low: 27.5
 - close: 27.5
-- volume: 499014
+- volume: 28000
 - ma5: 27.51
 - ema23_primary: 25.19
 - distance_to_ema23_pct: 9.18
@@ -69,7 +69,7 @@
 - ma120: 24.81
 - return_5d: 7
 - return_20d: 17.02
-- volume_ratio: 1.62
+- volume_ratio: 0.1
 - distance_to_ma20_pct_auxiliary: 11.51
 - distance_to_high_60_pct: -5.17
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,27.95,27.95,26.15,26.6,27000,24.35,9.24,23.92,24,0.09
 20260526,26.3,28.8,26.2,28.3,27000,24.68,14.67,24.2,24.03,0.09
 20260527,28.45,29,27.6,28.25,28000,24.98,13.1,24.46,24.07,0.1
-20260528,28.25,28.3,27.5,27.5,499014,25.19,9.18,24.66,24.1,1.62
+20260528,28.25,28.3,27.5,27.5,28000,25.19,9.18,24.66,24.1,0.1
 ```
 
 ## Latest TDCC Snapshot

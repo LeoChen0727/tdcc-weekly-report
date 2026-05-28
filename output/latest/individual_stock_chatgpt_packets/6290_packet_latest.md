@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6290 良維
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:16 Asia/Taipei
+- generated_at: 2026-05-28 20:20:03 Asia/Taipei
 - stock_id: 6290
 - stock_name: 良維
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 361
 - low: 330.5
 - close: 336
-- volume: 13623334
+- volume: 347000
 - ma5: 315.3
 - ema23_primary: 284.98
 - distance_to_ema23_pct: 17.9
@@ -69,7 +69,7 @@
 - ma120: 213.2
 - return_5d: 23.3
 - return_20d: 17.28
-- volume_ratio: 3.08
+- volume_ratio: 0.09
 - distance_to_ma20_pct_auxiliary: 17.64
 - distance_to_high_60_pct: -6.93
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,286,305.5,282,302,297000,270.87,11.49,278.68,243.03,0.06
 20260526,327,332,311.5,332,324000,275.96,20.31,281,245.03,0.07
 20260527,338,339,323,328.5,331000,280.34,17.18,283.15,246.72,0.08
-20260528,335,361,330.5,336,13623334,284.98,17.9,285.62,248.77,3.08
+20260528,335,361,330.5,336,347000,284.98,17.9,285.62,248.77,0.09
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6290 | 良維 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

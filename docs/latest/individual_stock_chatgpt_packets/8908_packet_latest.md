@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8908 欣雄
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:53 Asia/Taipei
+- generated_at: 2026-05-28 20:20:41 Asia/Taipei
 - stock_id: 8908
 - stock_name: 欣雄
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 40.8
 - low: 40.3
 - close: 40.8
-- volume: 334040
+- volume: 41000
 - ma5: 40.67
 - ema23_primary: 40.32
 - distance_to_ema23_pct: 1.18
@@ -69,7 +69,7 @@
 - ma120: 42.21
 - return_5d: 0.25
 - return_20d: 2.64
-- volume_ratio: 2.09
+- volume_ratio: 0.28
 - distance_to_ma20_pct_auxiliary: 2.14
 - distance_to_high_60_pct: -18.56
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,40.3,40.6,40,40.6,40000,40.21,0.98,39.81,41.17,0.26
 20260526,40.55,40.65,40.3,40.65,41000,40.24,1.01,39.85,41.16,0.28
 20260527,40.6,40.75,40.4,40.7,41000,40.28,1.04,39.89,41.15,0.28
-20260528,40.8,40.8,40.3,40.8,334040,40.32,1.18,39.95,41.15,2.09
+20260528,40.8,40.8,40.3,40.8,41000,40.32,1.18,39.95,41.15,0.28
 ```
 
 ## Latest TDCC Snapshot

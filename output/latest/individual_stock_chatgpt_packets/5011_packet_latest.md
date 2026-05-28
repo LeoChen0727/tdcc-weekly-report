@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5011 久陽
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:53 Asia/Taipei
+- generated_at: 2026-05-28 20:19:39 Asia/Taipei
 - stock_id: 5011
 - stock_name: 久陽
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 18.9
 - low: 18
 - close: 18.1
-- volume: 2129060
+- volume: 18000
 - ma5: 18.01
 - ema23_primary: 15.98
 - distance_to_ema23_pct: 13.24
@@ -69,7 +69,7 @@
 - ma120: 13.02
 - return_5d: 14.92
 - return_20d: 28.37
-- volume_ratio: 4.45
+- volume_ratio: 0.05
 - distance_to_ma20_pct_auxiliary: 14.18
 - distance_to_high_60_pct: -9.5
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,16.1,17.7,15.85,17.7,17000,15.17,16.68,15.1,14.4,0.04
 20260526,18.1,19.45,17.9,19.45,19000,15.53,25.27,15.4,14.53,0.05
 20260527,19.65,20,18.6,18.7,19000,15.79,18.42,15.65,14.62,0.05
-20260528,18.7,18.9,18,18.1,2129060,15.98,13.24,15.85,14.7,4.45
+20260528,18.7,18.9,18,18.1,18000,15.98,13.24,15.85,14.7,0.05
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 5011 | 久陽 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

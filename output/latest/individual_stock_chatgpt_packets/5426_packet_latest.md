@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5426 振發
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:58 Asia/Taipei
+- generated_at: 2026-05-28 20:19:45 Asia/Taipei
 - stock_id: 5426
 - stock_name: 振發
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 18.9
 - low: 18.45
 - close: 18.65
-- volume: 351781
+- volume: 19000
 - ma5: 18.84
 - ema23_primary: 18.47
 - distance_to_ema23_pct: 0.98
@@ -69,7 +69,7 @@
 - ma120: 19.49
 - return_5d: 1.36
 - return_20d: 4.78
-- volume_ratio: 1.22
+- volume_ratio: 0.07
 - distance_to_ma20_pct_auxiliary: 2.36
 - distance_to_high_60_pct: -11.4
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,19.35,19.65,19.05,19.1,19000,18.42,3.69,18.1,19.09,0.06
 20260526,19.7,19.8,18.7,18.85,19000,18.46,2.13,18.15,19.06,0.07
 20260527,19,19,18.35,18.4,19000,18.45,-0.28,18.18,19.02,0.07
-20260528,18.5,18.9,18.45,18.65,351781,18.47,0.98,18.22,18.98,1.22
+20260528,18.5,18.9,18.45,18.65,19000,18.47,0.98,18.22,18.98,0.07
 ```
 
 ## Latest TDCC Snapshot

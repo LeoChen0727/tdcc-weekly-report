@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4530 宏易
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:42 Asia/Taipei
+- generated_at: 2026-05-28 20:19:29 Asia/Taipei
 - stock_id: 4530
 - stock_name: 宏易
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 24.85
 - low: 23.1
 - close: 24.85
-- volume: 18369
+- volume: 24000
 - ma5: 25.28
 - ema23_primary: 25.89
 - distance_to_ema23_pct: -4.03
@@ -69,7 +69,7 @@
 - ma120: 24.3
 - return_5d: -1.39
 - return_20d: -8.97
-- volume_ratio: 0.76
+- volume_ratio: 0.98
 - distance_to_ma20_pct_auxiliary: -2.5
 - distance_to_high_60_pct: -21.36
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,25.5,26,25.1,25.1,25000,26.13,-3.94,25.84,27.72,1.08
 20260526,24.5,25.5,24.3,25.5,25000,26.08,-2.21,25.73,27.68,1.05
 20260527,25,25,25,25,25000,25.99,-3.8,25.61,27.62,1.04
-20260528,24.55,24.85,23.1,24.85,18369,25.89,-4.03,25.49,27.56,0.76
+20260528,24.55,24.85,23.1,24.85,24000,25.89,-4.03,25.49,27.56,0.98
 ```
 
 ## Latest TDCC Snapshot

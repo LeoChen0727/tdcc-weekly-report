@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6532 瑞耘
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:21 Asia/Taipei
+- generated_at: 2026-05-28 20:20:08 Asia/Taipei
 - stock_id: 6532
 - stock_name: 瑞耘
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 101
 - low: 95.6
 - close: 96.2
-- volume: 970375
+- volume: 98000
 - ma5: 99.64
 - ema23_primary: 99.18
 - distance_to_ema23_pct: -3
@@ -69,7 +69,7 @@
 - ma120: 70.48
 - return_5d: -2.33
 - return_20d: 1.26
-- volume_ratio: 0.53
+- volume_ratio: 0.05
 - distance_to_ma20_pct_auxiliary: -6.28
 - distance_to_high_60_pct: -21.47
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,103,105,101,102.5,103000,99.6,2.91,102.42,83.11,0.04
 20260526,103,103.5,99.5,100.5,100000,99.67,0.83,102.47,83.86,0.05
 20260527,102,103,95,97,98000,99.45,-2.46,102.58,84.52,0.05
-20260528,96.1,101,95.6,96.2,970375,99.18,-3,102.64,85.17,0.53
+20260528,96.1,101,95.6,96.2,98000,99.18,-3,102.64,85.17,0.05
 ```
 
 ## Latest TDCC Snapshot

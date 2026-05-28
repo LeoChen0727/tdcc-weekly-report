@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4979 華星光
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:52 Asia/Taipei
+- generated_at: 2026-05-28 20:19:39 Asia/Taipei
 - stock_id: 4979
 - stock_name: 華星光
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 654
 - low: 594
 - close: 604
-- volume: 9770450
+- volume: 625000
 - ma5: 639.4
 - ema23_primary: 602.15
 - distance_to_ema23_pct: 0.31
@@ -69,7 +69,7 @@
 - ma120: 402.48
 - return_5d: 1.85
 - return_20d: 7.86
-- volume_ratio: 1.81
+- volume_ratio: 0.13
 - distance_to_ma20_pct_auxiliary: -3.64
 - distance_to_high_60_pct: -20.73
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,647,658,635,655,645000,592.3,10.59,614.55,502.77,0.13
 20260526,665,682,630,680,665000,599.61,13.41,621.25,507.36,0.13
 20260527,690,715,620,628,672000,601.98,4.32,624.6,510.8,0.14
-20260528,645,654,594,604,9770450,602.15,0.31,626.8,513.16,1.81
+20260528,645,654,594,604,625000,602.15,0.31,626.8,513.16,0.13
 ```
 
 ## Latest TDCC Snapshot

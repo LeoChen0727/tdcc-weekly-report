@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6763 綠界科技*
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:30 Asia/Taipei
+- generated_at: 2026-05-28 20:20:17 Asia/Taipei
 - stock_id: 6763
 - stock_name: 綠界科技*
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 43.4
 - low: 42.6
 - close: 42.75
-- volume: 652677
+- volume: 43000
 - ma5: 43.92
 - ema23_primary: 45.65
 - distance_to_ema23_pct: -6.34
@@ -69,7 +69,7 @@
 - ma120: 51.83
 - return_5d: -6.25
 - return_20d: -9.04
-- volume_ratio: 2.17
+- volume_ratio: 0.16
 - distance_to_ma20_pct_auxiliary: -6.88
 - distance_to_high_60_pct: -19.19
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,45.6,45.7,44.2,44.4,44000,46.35,-4.22,46.47,48.12,0.15
 20260526,44.55,44.9,43.75,43.85,44000,46.15,-4.98,46.33,47.98,0.15
 20260527,43.95,44.1,42.85,43.3,43000,45.91,-5.68,46.12,47.82,0.16
-20260528,43.3,43.4,42.6,42.75,652677,45.65,-6.34,45.91,47.66,2.17
+20260528,43.3,43.4,42.6,42.75,43000,45.65,-6.34,45.91,47.66,0.16
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3362 先進光
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:24 Asia/Taipei
+- generated_at: 2026-05-28 20:19:10 Asia/Taipei
 - stock_id: 3362
 - stock_name: 先進光
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 115
 - low: 109.5
 - close: 110.5
-- volume: 928353
+- volume: 112000
 - ma5: 115
 - ema23_primary: 111.56
 - distance_to_ema23_pct: -0.95
@@ -69,7 +69,7 @@
 - ma120: 102.27
 - return_5d: -8.68
 - return_20d: 3.76
-- volume_ratio: 0.55
+- volume_ratio: 0.07
 - distance_to_ma20_pct_auxiliary: -0.45
 - distance_to_high_60_pct: -12.65
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,121,121.5,116,117,118000,111.27,5.15,110.3,104.59,0.07
 20260526,117,117.5,115,115,116000,111.58,3.06,110.58,104.68,0.07
 20260527,116,117.5,111.5,112.5,114000,111.66,0.75,110.8,104.73,0.07
-20260528,112.5,115,109.5,110.5,928353,111.56,-0.95,111,104.8,0.55
+20260528,112.5,115,109.5,110.5,112000,111.56,-0.95,111,104.8,0.07
 ```
 
 ## Latest TDCC Snapshot

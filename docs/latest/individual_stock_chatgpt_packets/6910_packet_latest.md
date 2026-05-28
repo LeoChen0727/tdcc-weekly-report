@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6910 德鴻
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:35 Asia/Taipei
+- generated_at: 2026-05-28 20:20:22 Asia/Taipei
 - stock_id: 6910
 - stock_name: 德鴻
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 28
 - low: 27.05
 - close: 27.35
-- volume: 35422
+- volume: 28000
 - ma5: 27.91
 - ema23_primary: 28.15
 - distance_to_ema23_pct: -2.83
@@ -69,7 +69,7 @@
 - ma120: 32.29
 - return_5d: -2.32
 - return_20d: -7.13
-- volume_ratio: 0.66
+- volume_ratio: 0.53
 - distance_to_ma20_pct_auxiliary: -2.45
 - distance_to_high_60_pct: -18.6
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,29,29,28.2,28.3,28000,28.34,-0.16,28.32,29.82,0.47
 20260526,28.05,28.05,27.55,27.55,28000,28.28,-2.58,28.23,29.72,0.5
 20260527,27.6,28.1,27.5,27.55,28000,28.22,-2.37,28.14,29.6,0.51
-20260528,28,28,27.05,27.35,35422,28.15,-2.83,28.04,29.5,0.66
+20260528,28,28,27.05,27.35,28000,28.15,-2.83,28.04,29.5,0.53
 ```
 
 ## Latest TDCC Snapshot

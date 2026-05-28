@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009814 富邦標普500
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:25 Asia/Taipei
+- generated_at: 2026-05-28 20:18:10 Asia/Taipei
 - stock_id: 009814
 - stock_name: 富邦標普500
 - packet_status: partial_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 11
 - low: 10.95
 - close: 10.96
-- volume: 1015417
+- volume: 11000
 - ma5: 10.99
 - ema23_primary: 10.97
 - distance_to_ema23_pct: -0.1
@@ -69,7 +69,7 @@
 - ma120: 10.99
 - return_5d: 
 - return_20d: 
-- volume_ratio: 4.79
+- volume_ratio: 1
 - distance_to_ma20_pct_auxiliary: -0.29
 - distance_to_high_60_pct: -0.63
 
@@ -81,7 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,11,11.03,11,11.02,11000,,,,,
 20260526,11.02,11.02,10.99,11.02,11000,,,,,
 20260527,11.02,11.02,10.98,11,11000,,,,,
-20260528,11,11,10.95,10.96,1015417,10.97,-0.1,10.99,10.99,4.79
+20260528,11,11,10.95,10.96,11000,10.97,-0.1,10.99,10.99,1
 ```
 
 ## Latest TDCC Snapshot

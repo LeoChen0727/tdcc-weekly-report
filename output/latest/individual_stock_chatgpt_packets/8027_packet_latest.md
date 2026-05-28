@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8027 鈦昇
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:42 Asia/Taipei
+- generated_at: 2026-05-28 20:20:30 Asia/Taipei
 - stock_id: 8027
 - stock_name: 鈦昇
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 253.5
 - low: 242
 - close: 245.5
-- volume: 1336434
+- volume: 248000
 - ma5: 249.3
 - ema23_primary: 225.69
 - distance_to_ema23_pct: 8.78
@@ -69,7 +69,7 @@
 - ma120: 135.02
 - return_5d: 1.66
 - return_20d: 39.49
-- volume_ratio: 0.2
+- volume_ratio: 0.04
 - distance_to_ma20_pct_auxiliary: 4.67
 - distance_to_high_60_pct: -15.34
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,250.5,253,247.5,250.5,251000,218.38,14.71,221.88,157.12,0.02
 20260526,257,257,248,256.5,254000,221.56,15.77,226.75,159.84,0.03
 20260527,264.5,264.5,248,249.5,253000,223.88,11.44,231.07,162.4,0.03
-20260528,250,253.5,242,245.5,1336434,225.69,8.78,234.55,164.78,0.2
+20260528,250,253.5,242,245.5,248000,225.69,8.78,234.55,164.78,0.04
 ```
 
 ## Latest TDCC Snapshot
@@ -123,10 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 8027 | 鈦昇 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260528 | 8027 | 鈦昇 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

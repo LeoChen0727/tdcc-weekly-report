@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5245 智晶
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:55 Asia/Taipei
+- generated_at: 2026-05-28 20:19:42 Asia/Taipei
 - stock_id: 5245
 - stock_name: 智晶
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 28.35
 - low: 26.15
 - close: 26.8
-- volume: 530462
+- volume: 28000
 - ma5: 26.45
 - ema23_primary: 25.71
 - distance_to_ema23_pct: 4.24
@@ -69,7 +69,7 @@
 - ma120: 25.2
 - return_5d: 1.9
 - return_20d: 9.16
-- volume_ratio: 3.19
+- volume_ratio: 0.2
 - distance_to_ma20_pct_auxiliary: 4.88
 - distance_to_high_60_pct: -10.67
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,26.4,28.6,26.25,27.1,27000,25.53,6.15,25.29,25.45,0.19
 20260526,27.1,27.1,26.2,26.3,26000,25.59,2.76,25.39,25.38,0.18
 20260527,26.85,26.85,25.8,25.8,26000,25.61,0.74,25.44,25.3,0.19
-20260528,26.15,28.35,26.15,26.8,530462,25.71,4.24,25.55,25.26,3.19
+20260528,26.15,28.35,26.15,26.8,28000,25.71,4.24,25.55,25.26,0.2
 ```
 
 ## Latest TDCC Snapshot

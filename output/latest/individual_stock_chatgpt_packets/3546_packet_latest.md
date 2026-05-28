@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3546 宇峻
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:30 Asia/Taipei
+- generated_at: 2026-05-28 20:19:16 Asia/Taipei
 - stock_id: 3546
 - stock_name: 宇峻
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 81.9
 - low: 80.8
 - close: 80.8
-- volume: 359859
+- volume: 81000
 - ma5: 81.08
 - ema23_primary: 76.03
 - distance_to_ema23_pct: 6.27
@@ -69,7 +69,7 @@
 - ma120: 74.54
 - return_5d: 0.25
 - return_20d: 13.64
-- volume_ratio: 0.83
+- volume_ratio: 0.19
 - distance_to_ma20_pct_auxiliary: 8.13
 - distance_to_high_60_pct: -3
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,81.3,82.5,80,81.4,81000,74.58,9.15,73.22,70.94,0.19
 20260526,81.3,81.3,80.5,80.6,81000,75.08,7.36,73.72,71.14,0.19
 20260527,81,81.8,79.6,81.3,81000,75.6,7.55,74.24,71.36,0.19
-20260528,81.3,81.9,80.8,80.8,359859,76.03,6.27,74.72,71.58,0.83
+20260528,81.3,81.9,80.8,80.8,81000,76.03,6.27,74.72,71.58,0.19
 ```
 
 ## Latest TDCC Snapshot

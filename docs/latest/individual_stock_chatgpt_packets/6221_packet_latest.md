@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6221 晉泰
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:12 Asia/Taipei
+- generated_at: 2026-05-28 20:19:59 Asia/Taipei
 - stock_id: 6221
 - stock_name: 晉泰
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 23.2
 - low: 22.7
 - close: 23.1
-- volume: 167260
+- volume: 23000
 - ma5: 23.11
 - ema23_primary: 24.09
 - distance_to_ema23_pct: -4.1
@@ -69,7 +69,7 @@
 - ma120: 28.43
 - return_5d: 0.43
 - return_20d: -11.83
-- volume_ratio: 0.61
+- volume_ratio: 0.09
 - distance_to_ma20_pct_auxiliary: -3.66
 - distance_to_high_60_pct: -21.56
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,23.5,23.5,22.75,23.05,23000,24.38,-5.47,24.43,26.26,0.08
 20260526,23.55,23.55,22.8,23.3,23000,24.29,-4.09,24.32,26.17,0.08
 20260527,23.45,23.6,22.75,22.9,23000,24.18,-5.28,24.13,26.06,0.09
-20260528,22.9,23.2,22.7,23.1,167260,24.09,-4.1,23.98,25.96,0.61
+20260528,22.9,23.2,22.7,23.1,23000,24.09,-4.1,23.98,25.96,0.09
 ```
 
 ## Latest TDCC Snapshot

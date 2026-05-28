@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6154 順發
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:08 Asia/Taipei
+- generated_at: 2026-05-28 20:19:55 Asia/Taipei
 - stock_id: 6154
 - stock_name: 順發
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 13.45
 - low: 13.25
 - close: 13.45
-- volume: 41523
+- volume: 13000
 - ma5: 13.48
 - ema23_primary: 13.27
 - distance_to_ema23_pct: 1.35
@@ -69,7 +69,7 @@
 - ma120: 13.43
 - return_5d: 1.13
 - return_20d: 2.28
-- volume_ratio: 0.54
+- volume_ratio: 0.17
 - distance_to_ma20_pct_auxiliary: 2.16
 - distance_to_high_60_pct: -2.89
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,13.75,13.85,13.35,13.55,14000,13.23,2.44,13.13,13.34,0.17
 20260526,13.45,13.45,13.4,13.45,13000,13.25,1.54,13.14,13.34,0.17
 20260527,13.45,13.45,13.35,13.35,13000,13.25,0.72,13.15,13.34,0.17
-20260528,13.35,13.45,13.25,13.45,41523,13.27,1.35,13.16,13.33,0.54
+20260528,13.35,13.45,13.25,13.45,13000,13.27,1.35,13.16,13.33,0.17
 ```
 
 ## Latest TDCC Snapshot

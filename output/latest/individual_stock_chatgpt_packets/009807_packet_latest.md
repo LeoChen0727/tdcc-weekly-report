@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009807 台新標普科技精選
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:25 Asia/Taipei
+- generated_at: 2026-05-28 20:18:10 Asia/Taipei
 - stock_id: 009807
 - stock_name: 台新標普科技精選
 - packet_status: partial_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 16.51
 - low: 16.24
 - close: 16.24
-- volume: 58790
+- volume: 16000
 - ma5: 16.24
 - ema23_primary: 16.11
 - distance_to_ema23_pct: 0.83
@@ -69,7 +69,7 @@
 - ma120: 16.24
 - return_5d: 
 - return_20d: 
-- volume_ratio: 2.39
+- volume_ratio: 1
 - distance_to_ma20_pct_auxiliary: 0.02
 - distance_to_high_60_pct: -1.69
 
@@ -81,7 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,16.22,16.25,16.2,16.25,16000,,,,,
 20260526,16.18,16.18,16.16,16.18,16000,,,,,
 20260527,16.43,16.52,16.43,16.48,16000,,,,,
-20260528,16.51,16.51,16.24,16.24,58790,16.11,0.83,16.24,16.24,2.39
+20260528,16.51,16.51,16.24,16.24,16000,16.11,0.83,16.24,16.24,1
 ```
 
 ## Latest TDCC Snapshot

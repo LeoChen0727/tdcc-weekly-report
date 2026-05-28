@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3479 安勤
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:27 Asia/Taipei
+- generated_at: 2026-05-28 20:19:13 Asia/Taipei
 - stock_id: 3479
 - stock_name: 安勤
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 145
 - low: 134
 - close: 137.5
-- volume: 3385385
+- volume: 139000
 - ma5: 132.7
 - ema23_primary: 110.99
 - distance_to_ema23_pct: 23.88
@@ -69,7 +69,7 @@
 - ma120: 94.05
 - return_5d: 17.02
 - return_20d: 51.6
-- volume_ratio: 3.19
+- volume_ratio: 0.15
 - distance_to_ma20_pct_auxiliary: 27.28
 - distance_to_high_60_pct: -5.17
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,129,132,127,129.5,129000,103.46,25.17,101.3,93.17,0.14
 20260526,129.5,134,127.5,134,130000,106,26.41,103.44,93.9,0.14
 20260527,137,139,134.5,137,136000,108.58,26.17,105.69,94.67,0.15
-20260528,135.5,145,134,137.5,3385385,110.99,23.88,108.03,95.43,3.19
+20260528,135.5,145,134,137.5,139000,110.99,23.88,108.03,95.43,0.15
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3479 | 安勤 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

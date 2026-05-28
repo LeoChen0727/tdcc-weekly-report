@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6512 啟發電
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:20 Asia/Taipei
+- generated_at: 2026-05-28 20:20:07 Asia/Taipei
 - stock_id: 6512
 - stock_name: 啟發電
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 19.2
 - low: 19.2
 - close: 19.2
-- volume: 8157
+- volume: 19000
 - ma5: 19.38
 - ema23_primary: 19.29
 - distance_to_ema23_pct: -0.48
@@ -69,7 +69,7 @@
 - ma120: 20.1
 - return_5d: 1.32
 - return_20d: 0.26
-- volume_ratio: 0.78
+- volume_ratio: 1.74
 - distance_to_ma20_pct_auxiliary: 0.09
 - distance_to_high_60_pct: -7.69
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,18.95,19.85,18.95,19.75,20000,19.27,2.5,19.14,19.62,2.11
 20260526,19.75,19.75,19.65,19.65,20000,19.3,1.81,19.17,19.61,2.05
 20260527,19.55,19.7,19.3,19.3,20000,19.3,-0,19.18,19.59,1.97
-20260528,19.2,19.2,19.2,19.2,8157,19.29,-0.48,19.18,19.57,0.78
+20260528,19.2,19.2,19.2,19.2,19000,19.29,-0.48,19.18,19.57,1.74
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8109 博大
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:46 Asia/Taipei
+- generated_at: 2026-05-28 20:20:34 Asia/Taipei
 - stock_id: 8109
 - stock_name: 博大
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 129
 - low: 121.5
 - close: 126
-- volume: 722940
+- volume: 126000
 - ma5: 123.9
 - ema23_primary: 119.54
 - distance_to_ema23_pct: 5.4
@@ -69,7 +69,7 @@
 - ma120: 107.71
 - return_5d: -1.18
 - return_20d: 5.88
-- volume_ratio: 2.12
+- volume_ratio: 0.4
 - distance_to_ma20_pct_auxiliary: 4.78
 - distance_to_high_60_pct: -6.32
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,125.5,126,123.5,124,124000,118.33,4.79,119.9,110.48,0.33
 20260526,124,124.5,121,123,123000,118.72,3.6,119.97,110.73,0.36
 20260527,124,124,120.5,121.5,122000,118.95,2.14,119.9,110.93,0.37
-20260528,122.5,129,121.5,126,722940,119.54,5.4,120.25,111.21,2.12
+20260528,122.5,129,121.5,126,126000,119.54,5.4,120.25,111.21,0.4
 ```
 
 ## Latest TDCC Snapshot

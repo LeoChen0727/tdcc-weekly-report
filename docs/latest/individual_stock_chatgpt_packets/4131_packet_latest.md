@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4131 浩泰
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:38 Asia/Taipei
+- generated_at: 2026-05-28 20:19:24 Asia/Taipei
 - stock_id: 4131
 - stock_name: 浩泰
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 33.9
 - low: 33.1
 - close: 33.9
-- volume: 19789
+- volume: 33000
 - ma5: 33.87
 - ema23_primary: 34.86
 - distance_to_ema23_pct: -2.75
@@ -69,7 +69,7 @@
 - ma120: 37.37
 - return_5d: -3.69
 - return_20d: -3.97
-- volume_ratio: 0.4
+- volume_ratio: 0.66
 - distance_to_ma20_pct_auxiliary: -3.08
 - distance_to_high_60_pct: -12.85
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,34.9,34.95,33.5,34,34000,35.18,-3.36,35.23,35.89,0.63
 20260526,33.35,34.4,33.3,34.4,34000,35.12,-2.04,35.17,35.81,0.65
 20260527,33.35,34.1,33,33.05,33000,34.95,-5.42,35.05,35.72,0.65
-20260528,33.5,33.9,33.1,33.9,19789,34.86,-2.75,34.98,35.65,0.4
+20260528,33.5,33.9,33.1,33.9,33000,34.86,-2.75,34.98,35.65,0.66
 ```
 
 ## Latest TDCC Snapshot

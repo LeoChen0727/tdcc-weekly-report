@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6716 應廣
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:28 Asia/Taipei
+- generated_at: 2026-05-28 20:20:15 Asia/Taipei
 - stock_id: 6716
 - stock_name: 應廣
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 117.5
 - low: 107
 - close: 117.5
-- volume: 1188253
+- volume: 115000
 - ma5: 107.6
 - ema23_primary: 96.03
 - distance_to_ema23_pct: 22.36
@@ -69,7 +69,7 @@
 - ma120: 68.53
 - return_5d: 17.74
 - return_20d: 40.89
-- volume_ratio: 1.67
+- volume_ratio: 0.18
 - distance_to_ma20_pct_auxiliary: 22.27
 - distance_to_high_60_pct: 0
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,103.5,106.5,101.5,105,104000,91.62,14.61,92.07,82.4,0.14
 20260526,106.5,115.5,105,107,112000,92.9,15.18,93.25,82.64,0.16
 20260527,108.5,114.5,107,107,110000,94.07,13.74,94.39,82.83,0.17
-20260528,107,117.5,107,117.5,1188253,96.03,22.36,96.1,83.15,1.67
+20260528,107,117.5,107,117.5,115000,96.03,22.36,96.1,83.15,0.18
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6716 | 應廣 | true_breakout | 嚴格突破 | 92.0 |  |  | breakout_confirmed |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

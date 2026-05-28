@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8074 鉅橡
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:44 Asia/Taipei
+- generated_at: 2026-05-28 20:20:32 Asia/Taipei
 - stock_id: 8074
 - stock_name: 鉅橡
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 79.5
 - low: 75
 - close: 75.5
-- volume: 1726957
+- volume: 77000
 - ma5: 78.66
 - ema23_primary: 77.02
 - distance_to_ema23_pct: -1.97
@@ -69,7 +69,7 @@
 - ma120: 60.95
 - return_5d: 1.34
 - return_20d: 3.42
-- volume_ratio: 0.43
+- volume_ratio: 0.02
 - distance_to_ma20_pct_auxiliary: -5.65
 - distance_to_high_60_pct: -21.6
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,81.4,84.3,80.1,80.9,82000,76.8,5.34,79.12,69.11,0.02
 20260526,81.6,82.7,78.5,80,80000,77.07,3.81,79.6,69.33,0.02
 20260527,81.2,81.2,77.1,78.1,79000,77.15,1.23,79.9,69.47,0.02
-20260528,78,79.5,75,75.5,1726957,77.02,-1.97,80.03,69.58,0.43
+20260528,78,79.5,75,75.5,77000,77.02,-1.97,80.03,69.58,0.02
 ```
 
 ## Latest TDCC Snapshot
@@ -125,8 +125,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 8074 | 鉅橡 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260528 | 8074 | 鉅橡 | revenue_pullback | 營收成長股價回檔 | 60.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260521 | 8074 | 鉅橡 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

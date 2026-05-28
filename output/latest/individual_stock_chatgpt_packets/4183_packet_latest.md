@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4183 福永生技
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:40 Asia/Taipei
+- generated_at: 2026-05-28 20:19:26 Asia/Taipei
 - stock_id: 4183
 - stock_name: 福永生技
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 13.05
 - low: 12.5
 - close: 13.05
-- volume: 18200
+- volume: 13000
 - ma5: 12.94
 - ema23_primary: 13.54
 - distance_to_ema23_pct: -3.6
@@ -69,7 +69,7 @@
 - ma120: 15.92
 - return_5d: 4.4
 - return_20d: -8.1
-- volume_ratio: 1.22
+- volume_ratio: 0.88
 - distance_to_ma20_pct_auxiliary: -2.47
 - distance_to_high_60_pct: -20.91
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,12,13,11.6,13,12000,13.67,-4.93,13.59,15.12,0.73
 20260526,12.4,13.1,12.35,13.1,13000,13.63,-3.86,13.49,15.07,0.76
 20260527,13.2,13.2,13.1,13.1,13000,13.58,-3.55,13.44,15.02,0.84
-20260528,12.5,13.05,12.5,13.05,18200,13.54,-3.6,13.38,14.96,1.22
+20260528,12.5,13.05,12.5,13.05,13000,13.54,-3.6,13.38,14.96,0.88
 ```
 
 ## Latest TDCC Snapshot

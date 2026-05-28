@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8472 夠麻吉
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:52 Asia/Taipei
+- generated_at: 2026-05-28 20:20:40 Asia/Taipei
 - stock_id: 8472
 - stock_name: 夠麻吉
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 73
 - low: 68.3
 - close: 71
-- volume: 48520
+- volume: 70000
 - ma5: 69.8
 - ema23_primary: 70.85
 - distance_to_ema23_pct: 0.22
@@ -69,7 +69,7 @@
 - ma120: 70.05
 - return_5d: -2.61
 - return_20d: 3.2
-- volume_ratio: 1.68
+- volume_ratio: 2.34
 - distance_to_ma20_pct_auxiliary: 0.98
 - distance_to_high_60_pct: -16.96
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,69.4,69.5,67.6,68.6,69000,70.99,-3.36,70.28,71.74,3.28
 20260526,68.6,69.5,68.6,69.5,69000,70.86,-1.92,70.22,71.95,2.88
 20260527,72.4,72.4,69.5,70.5,71000,70.83,-0.47,70.2,72.17,2.64
-20260528,70.5,73,68.3,71,48520,70.85,0.22,70.31,72.36,1.68
+20260528,70.5,73,68.3,71,70000,70.85,0.22,70.31,72.36,2.34
 ```
 
 ## Latest TDCC Snapshot

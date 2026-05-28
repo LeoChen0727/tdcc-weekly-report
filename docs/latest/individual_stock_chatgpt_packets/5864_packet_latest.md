@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5864 致和證
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:03 Asia/Taipei
+- generated_at: 2026-05-28 20:19:50 Asia/Taipei
 - stock_id: 5864
 - stock_name: 致和證
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 40.7
 - low: 37.7
 - close: 39.85
-- volume: 21291552
+- volume: 39000
 - ma5: 36.1
 - ema23_primary: 32.34
 - distance_to_ema23_pct: 23.22
@@ -69,7 +69,7 @@
 - ma120: 22.96
 - return_5d: 23.37
 - return_20d: 45.17
-- volume_ratio: 3.75
+- volume_ratio: 0.01
 - distance_to_ma20_pct_auxiliary: 20.96
 - distance_to_high_60_pct: -2.09
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,33.8,34.8,33.7,33.75,34000,30.66,10.09,31.36,26.95,0.01
 20260526,34,35.45,33.45,35.1,35000,31.03,13.13,31.77,27.09,0.01
 20260527,36,38.6,35.8,38.6,38000,31.66,21.93,32.33,27.28,0.01
-20260528,38.95,40.7,37.7,39.85,21291552,32.34,23.22,32.95,27.5,3.75
+20260528,38.95,40.7,37.7,39.85,39000,32.34,23.22,32.95,27.5,0.01
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 5864 | 致和證 | true_breakout | 嚴格突破 | 86.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5324 士開
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:57 Asia/Taipei
+- generated_at: 2026-05-28 20:19:44 Asia/Taipei
 - stock_id: 5324
 - stock_name: 士開
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 11.95
 - low: 11.7
 - close: 11.8
-- volume: 86925
+- volume: 12000
 - ma5: 11.91
 - ema23_primary: 11.53
 - distance_to_ema23_pct: 2.3
@@ -69,7 +69,7 @@
 - ma120: 10.95
 - return_5d: -0.84
 - return_20d: 10.28
-- volume_ratio: 0.54
+- volume_ratio: 0.08
 - distance_to_ma20_pct_auxiliary: 4.26
 - distance_to_high_60_pct: -3.28
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,11.85,12,11.8,11.9,12000,11.43,4.14,11.14,11.19,0.07
 20260526,11.95,11.95,11.85,11.95,12000,11.47,4.18,11.2,11.21,0.07
 20260527,11.9,11.95,11.85,11.95,12000,11.51,3.82,11.26,11.24,0.07
-20260528,11.85,11.95,11.7,11.8,86925,11.53,2.3,11.32,11.27,0.54
+20260528,11.85,11.95,11.7,11.8,12000,11.53,2.3,11.32,11.27,0.08
 ```
 
 ## Latest TDCC Snapshot

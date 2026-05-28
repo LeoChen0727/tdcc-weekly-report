@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4162 智擎
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:39 Asia/Taipei
+- generated_at: 2026-05-28 20:19:25 Asia/Taipei
 - stock_id: 4162
 - stock_name: 智擎
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 54.1
 - low: 53
 - close: 53
-- volume: 618749
+- volume: 53000
 - ma5: 54.86
 - ema23_primary: 55.77
 - distance_to_ema23_pct: -4.97
@@ -69,7 +69,7 @@
 - ma120: 63.6
 - return_5d: -7.18
 - return_20d: -3.11
-- volume_ratio: 1.81
+- volume_ratio: 0.17
 - distance_to_ma20_pct_auxiliary: -5.01
 - distance_to_high_60_pct: -17.57
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,57.3,57.3,55.2,56,56000,56.32,-0.58,55.88,57.81,0.15
 20260526,56.2,56.3,54.5,54.8,55000,56.2,-2.49,55.93,57.62,0.16
 20260527,55,55.3,54,54.1,54000,56.02,-3.43,55.88,57.44,0.17
-20260528,53.9,54.1,53,53,618749,55.77,-4.97,55.8,57.26,1.81
+20260528,53.9,54.1,53,53,53000,55.77,-4.97,55.8,57.26,0.17
 ```
 
 ## Latest TDCC Snapshot

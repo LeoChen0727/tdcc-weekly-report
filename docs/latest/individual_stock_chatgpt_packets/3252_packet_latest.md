@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3252 海灣
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:21 Asia/Taipei
+- generated_at: 2026-05-28 20:19:07 Asia/Taipei
 - stock_id: 3252
 - stock_name: 海灣
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 18.55
 - low: 17.9
 - close: 17.9
-- volume: 7010
+- volume: 18000
 - ma5: 18.15
 - ema23_primary: 18.56
 - distance_to_ema23_pct: -3.55
@@ -69,7 +69,7 @@
 - ma120: 19.28
 - return_5d: -1.65
 - return_20d: -7.49
-- volume_ratio: 0.55
+- volume_ratio: 1.36
 - distance_to_ma20_pct_auxiliary: -3.05
 - distance_to_high_60_pct: -18.08
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,18,18.55,18,18.45,18000,18.7,-1.35,18.65,19.57,1.37
 20260526,18.4,18.4,18.25,18.25,18000,18.67,-2.23,18.59,19.54,1.33
 20260527,18.7,18.7,18.05,18.1,18000,18.62,-2.78,18.54,19.52,1.29
-20260528,18.55,18.55,17.9,17.9,7010,18.56,-3.55,18.46,19.48,0.55
+20260528,18.55,18.55,17.9,17.9,18000,18.56,-3.55,18.46,19.48,1.36
 ```
 
 ## Latest TDCC Snapshot

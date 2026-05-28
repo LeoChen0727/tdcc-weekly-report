@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8436 大江
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:51 Asia/Taipei
+- generated_at: 2026-05-28 20:20:39 Asia/Taipei
 - stock_id: 8436
 - stock_name: 大江
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 120
 - low: 116.5
 - close: 120
-- volume: 732840
+- volume: 119000
 - ma5: 119.1
 - ema23_primary: 119.9
 - distance_to_ema23_pct: 0.09
@@ -69,7 +69,7 @@
 - ma120: 124.43
 - return_5d: 0
 - return_20d: 0.84
-- volume_ratio: 1.81
+- volume_ratio: 0.32
 - distance_to_ma20_pct_auxiliary: 0.4
 - distance_to_high_60_pct: -8.75
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,120.5,121,118.5,119.5,119000,120.3,-0.67,119.53,122.73,0.28
 20260526,119.5,120,117,119,118000,120.19,-0.99,119.6,122.47,0.3
 20260527,119.5,119.5,116,116.5,117000,119.89,-2.83,119.47,122.23,0.31
-20260528,117,120,116.5,120,732840,119.9,0.09,119.53,122.05,1.81
+20260528,117,120,116.5,120,119000,119.9,0.09,119.53,122.05,0.32
 ```
 
 ## Latest TDCC Snapshot

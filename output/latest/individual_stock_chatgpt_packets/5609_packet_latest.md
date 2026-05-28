@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5609 中菲行
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:03 Asia/Taipei
+- generated_at: 2026-05-28 20:19:50 Asia/Taipei
 - stock_id: 5609
 - stock_name: 中菲行
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 81.1
 - low: 80.2
 - close: 80.4
-- volume: 228903
+- volume: 81000
 - ma5: 80.36
 - ema23_primary: 79.72
 - distance_to_ema23_pct: 0.85
@@ -69,7 +69,7 @@
 - ma120: 79.33
 - return_5d: -0.49
 - return_20d: 3.21
-- volume_ratio: 1.28
+- volume_ratio: 0.47
 - distance_to_ma20_pct_auxiliary: 1.04
 - distance_to_high_60_pct: -0.99
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,80.4,80.5,79.9,80.3,80000,79.54,0.95,79.22,79.12,0.41
 20260526,80.3,81.1,80.2,80.4,81000,79.61,0.99,79.33,79.16,0.44
 20260527,80.4,80.9,80.2,80.2,80000,79.66,0.67,79.44,79.19,0.45
-20260528,80.8,81.1,80.2,80.4,228903,79.72,0.85,79.57,79.21,1.28
+20260528,80.8,81.1,80.2,80.4,81000,79.72,0.85,79.57,79.21,0.47
 ```
 
 ## Latest TDCC Snapshot

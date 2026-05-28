@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8935 邦泰
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:54 Asia/Taipei
+- generated_at: 2026-05-28 20:20:42 Asia/Taipei
 - stock_id: 8935
 - stock_name: 邦泰
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 20.4
 - low: 19.75
 - close: 19.85
-- volume: 700750
+- volume: 20000
 - ma5: 19.96
 - ema23_primary: 19.46
 - distance_to_ema23_pct: 1.99
@@ -69,7 +69,7 @@
 - ma120: 19.34
 - return_5d: -1.98
 - return_20d: 8.47
-- volume_ratio: 1.3
+- volume_ratio: 0.04
 - distance_to_ma20_pct_auxiliary: 2.74
 - distance_to_high_60_pct: -5.7
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,20.35,20.6,19.9,20.2,20000,19.34,4.44,19.09,19.09,0.04
 20260526,20.3,20.4,19.9,19.95,20000,19.39,2.87,19.18,19.07,0.04
 20260527,19.95,20.1,19.65,19.8,20000,19.43,1.92,19.24,19.05,0.04
-20260528,19.75,20.4,19.75,19.85,700750,19.46,1.99,19.32,19.04,1.3
+20260528,19.75,20.4,19.75,19.85,20000,19.46,1.99,19.32,19.04,0.04
 ```
 
 ## Latest TDCC Snapshot

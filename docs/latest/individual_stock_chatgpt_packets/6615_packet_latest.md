@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6615 慧智
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:24 Asia/Taipei
+- generated_at: 2026-05-28 20:20:12 Asia/Taipei
 - stock_id: 6615
 - stock_name: 慧智
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 33.2
 - low: 32.7
 - close: 33.15
-- volume: 22599
+- volume: 33000
 - ma5: 32.93
 - ema23_primary: 32.97
 - distance_to_ema23_pct: 0.56
@@ -69,7 +69,7 @@
 - ma120: 32.41
 - return_5d: 1.38
 - return_20d: 0.15
-- volume_ratio: 1.04
+- volume_ratio: 1.48
 - distance_to_ma20_pct_auxiliary: 1.07
 - distance_to_high_60_pct: -10.16
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,32.75,32.9,32.7,32.9,33000,32.99,-0.26,32.81,33.89,1.63
 20260526,32.75,32.8,32.65,32.65,33000,32.96,-0.93,32.8,33.82,1.58
 20260527,32.65,32.85,32.65,32.85,33000,32.95,-0.3,32.8,33.77,1.52
-20260528,32.7,33.2,32.7,33.15,22599,32.97,0.56,32.8,33.73,1.04
+20260528,32.7,33.2,32.7,33.15,33000,32.97,0.56,32.8,33.73,1.48
 ```
 
 ## Latest TDCC Snapshot

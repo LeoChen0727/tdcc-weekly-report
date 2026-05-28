@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4166 友霖
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:39 Asia/Taipei
+- generated_at: 2026-05-28 20:19:25 Asia/Taipei
 - stock_id: 4166
 - stock_name: 友霖
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 23.8
 - low: 23.2
 - close: 23.3
-- volume: 816868
+- volume: 23000
 - ma5: 23.73
 - ema23_primary: 25.02
 - distance_to_ema23_pct: -6.86
@@ -69,7 +69,7 @@
 - ma120: 25.66
 - return_5d: -4.51
 - return_20d: -12.08
-- volume_ratio: 2.78
+- volume_ratio: 0.09
 - distance_to_ma20_pct_auxiliary: -8.03
 - distance_to_high_60_pct: -21.28
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,24.1,24.1,23.65,23.7,24000,25.46,-6.92,25.75,25.42,0.09
 20260526,23.7,24.05,23.6,23.75,24000,25.32,-6.2,25.64,25.38,0.09
 20260527,23.9,24,23.45,23.55,24000,25.17,-6.44,25.5,25.34,0.09
-20260528,23.6,23.8,23.2,23.3,816868,25.02,-6.86,25.34,25.3,2.78
+20260528,23.6,23.8,23.2,23.3,23000,25.02,-6.86,25.34,25.3,0.09
 ```
 
 ## Latest TDCC Snapshot

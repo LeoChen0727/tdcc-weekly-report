@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3632 研勤
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:33 Asia/Taipei
+- generated_at: 2026-05-28 20:19:19 Asia/Taipei
 - stock_id: 3632
 - stock_name: 研勤
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 9.6
 - low: 9.3
 - close: 9.3
-- volume: 248925
+- volume: 9000
 - ma5: 8.12
 - ema23_primary: 8.33
 - distance_to_ema23_pct: 11.58
@@ -69,7 +69,7 @@
 - ma120: 9.23
 - return_5d: 26.36
 - return_20d: 5.56
-- volume_ratio: 5.7
+- volume_ratio: 0.28
 - distance_to_ma20_pct_auxiliary: 12.88
 - distance_to_high_60_pct: -12.26
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,7.22,7.3,7.22,7.28,7000,8.22,-11.49,8.27,9.07,0.22
 20260526,7.29,7.95,7.29,7.95,8000,8.2,-3.07,8.22,9.05,0.25
 20260527,8.58,8.74,8.58,8.74,9000,8.25,5.98,8.21,9.05,0.29
-20260528,9.3,9.6,9.3,9.3,248925,8.33,11.58,8.24,9.03,5.7
+20260528,9.3,9.6,9.3,9.3,9000,8.33,11.58,8.24,9.03,0.28
 ```
 
 ## Latest TDCC Snapshot

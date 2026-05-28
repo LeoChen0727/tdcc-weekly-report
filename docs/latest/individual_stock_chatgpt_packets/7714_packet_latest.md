@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7714 創泓科技
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:39 Asia/Taipei
+- generated_at: 2026-05-28 20:20:26 Asia/Taipei
 - stock_id: 7714
 - stock_name: 創泓科技
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 117
 - low: 114
 - close: 114.5
-- volume: 107007
+- volume: 115000
 - ma5: 119.8
 - ema23_primary: 125.23
 - distance_to_ema23_pct: -8.57
@@ -69,7 +69,7 @@
 - ma120: 142.7
 - return_5d: -8.4
 - return_20d: -9.84
-- volume_ratio: 1.3
+- volume_ratio: 1.39
 - distance_to_ma20_pct_auxiliary: -9.22
 - distance_to_high_60_pct: -23.67
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,125,125,121,121.5,122000,127.35,-4.6,127.5,132.04,1.69
 20260526,122,123,120.5,122,121000,126.91,-3.87,127.25,131.65,1.61
 20260527,124,124,117,118.5,119000,126.21,-6.11,126.75,131.1,1.51
-20260528,117,117,114,114.5,107007,125.23,-8.57,126.12,130.52,1.3
+20260528,117,117,114,114.5,115000,125.23,-8.57,126.12,130.52,1.39
 ```
 
 ## Latest TDCC Snapshot

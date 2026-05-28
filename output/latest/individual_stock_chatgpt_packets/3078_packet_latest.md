@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3078 僑威
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:16 Asia/Taipei
+- generated_at: 2026-05-28 20:19:02 Asia/Taipei
 - stock_id: 3078
 - stock_name: 僑威
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 57.8
 - low: 55.9
 - close: 56.1
-- volume: 1255566
+- volume: 57000
 - ma5: 57.02
 - ema23_primary: 56.01
 - distance_to_ema23_pct: 0.16
@@ -69,7 +69,7 @@
 - ma120: 61.98
 - return_5d: 1.63
 - return_20d: 0.9
-- volume_ratio: 1.39
+- volume_ratio: 0.07
 - distance_to_ma20_pct_auxiliary: 0.52
 - distance_to_high_60_pct: -11.37
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,57.4,58.2,56.6,57.5,57000,55.74,3.15,55.63,57.3,0.06
 20260526,58,58.1,56.9,58,58000,55.93,3.7,55.72,57.27,0.06
 20260527,58,58.4,56.5,56.8,57000,56,1.42,55.78,57.22,0.07
-20260528,57,57.8,55.9,56.1,1255566,56.01,0.16,55.81,57.1,1.39
+20260528,57,57.8,55.9,56.1,57000,56.01,0.16,55.81,57.1,0.07
 ```
 
 ## Latest TDCC Snapshot

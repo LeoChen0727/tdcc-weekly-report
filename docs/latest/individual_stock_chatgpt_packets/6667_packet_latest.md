@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6667 信紘科
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:26 Asia/Taipei
+- generated_at: 2026-05-28 20:20:13 Asia/Taipei
 - stock_id: 6667
 - stock_name: 信紘科
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 282
 - low: 260.5
 - close: 268
-- volume: 2403126
+- volume: 272000
 - ma5: 262.8
 - ema23_primary: 260.04
 - distance_to_ema23_pct: 3.06
@@ -69,7 +69,7 @@
 - ma120: 257.78
 - return_5d: 5.51
 - return_20d: 2.49
-- volume_ratio: 4.29
+- volume_ratio: 0.6
 - distance_to_ma20_pct_auxiliary: 3.33
 - distance_to_high_60_pct: -11.4
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,258.5,258.5,255,258.5,257000,258.1,0.16,258.9,257.93,0.52
 20260526,264.5,269,262.5,267,266000,258.84,3.15,259.07,258.08,0.57
 20260527,271,274,262,264.5,269000,259.31,2,259.05,257.99,0.59
-20260528,266.5,282,260.5,268,2403126,260.04,3.06,259.38,257.98,4.29
+20260528,266.5,282,260.5,268,272000,260.04,3.06,259.38,257.98,0.6
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6667 | 信紘科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

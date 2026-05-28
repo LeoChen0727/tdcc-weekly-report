@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5212 凌網
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:54 Asia/Taipei
+- generated_at: 2026-05-28 20:19:40 Asia/Taipei
 - stock_id: 5212
 - stock_name: 凌網
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 46.8
 - low: 45.1
 - close: 46.6
-- volume: 44757
+- volume: 46000
 - ma5: 46.27
 - ema23_primary: 47.22
 - distance_to_ema23_pct: -1.31
@@ -69,7 +69,7 @@
 - ma120: 51.4
 - return_5d: 0.22
 - return_20d: -1.69
-- volume_ratio: 2.26
+- volume_ratio: 2.31
 - distance_to_ma20_pct_auxiliary: -0.63
 - distance_to_high_60_pct: -19.24
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,46.5,46.5,46,46.2,46000,47.51,-2.75,47.05,50.3,2.95
 20260526,46.2,46.3,46.15,46.15,46000,47.39,-2.62,47.02,50.21,2.61
 20260527,46.2,46.5,44.55,46,46000,47.28,-2.7,46.94,50.11,2.56
-20260528,45.2,46.8,45.1,46.6,44757,47.22,-1.31,46.9,50.03,2.26
+20260528,45.2,46.8,45.1,46.6,46000,47.22,-1.31,46.9,50.03,2.31
 ```
 
 ## Latest TDCC Snapshot

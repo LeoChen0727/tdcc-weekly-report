@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6739 竹陞科技
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:29 Asia/Taipei
+- generated_at: 2026-05-28 20:20:16 Asia/Taipei
 - stock_id: 6739
 - stock_name: 竹陞科技
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 1350
 - low: 1250
 - close: 1255
-- volume: 270495
+- volume: 1295000
 - ma5: 1309
 - ema23_primary: 1334.11
 - distance_to_ema23_pct: -5.93
@@ -69,7 +69,7 @@
 - ma120: 1042.96
 - return_5d: 0.4
 - return_20d: -15.77
-- volume_ratio: 0.43
+- volume_ratio: 1.9
 - distance_to_ma20_pct_auxiliary: -5.76
 - distance_to_high_60_pct: -28.69
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,1310,1385,1310,1355,1349000,1344.19,0.8,1361.75,1296.23,2.38
 20260526,1390,1405,1340,1360,1370000,1345.51,1.08,1354.5,1302.25,2.33
 20260527,1400,1400,1280,1295,1343000,1341.3,-3.45,1343.5,1305.58,2.11
-20260528,1305,1350,1250,1255,270495,1334.11,-5.93,1331.75,1309.42,0.43
+20260528,1305,1350,1250,1255,1295000,1334.11,-5.93,1331.75,1309.42,1.9
 ```
 
 ## Latest TDCC Snapshot

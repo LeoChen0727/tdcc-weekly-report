@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8433 弘帆
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:51 Asia/Taipei
+- generated_at: 2026-05-28 20:20:38 Asia/Taipei
 - stock_id: 8433
 - stock_name: 弘帆
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 52.9
 - low: 51.7
 - close: 51.7
-- volume: 54347
+- volume: 52000
 - ma5: 52.82
 - ema23_primary: 53.99
 - distance_to_ema23_pct: -4.24
@@ -69,7 +69,7 @@
 - ma120: 55.21
 - return_5d: -2.82
 - return_20d: -6.68
-- volume_ratio: 1.16
+- volume_ratio: 1.11
 - distance_to_ma20_pct_auxiliary: -3.21
 - distance_to_high_60_pct: -19.47
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,54.2,54.2,53.2,53.3,54000,54.47,-2.14,53.77,57.22,1.09
 20260526,53.2,53.3,53.1,53.3,53000,54.37,-1.97,53.71,57.2,1.07
 20260527,53.1,53.1,52.2,52.3,53000,54.2,-3.5,53.6,57.16,1.05
-20260528,52.6,52.9,51.7,51.7,54347,53.99,-4.24,53.41,57.12,1.16
+20260528,52.6,52.9,51.7,51.7,52000,53.99,-4.24,53.41,57.12,1.11
 ```
 
 ## Latest TDCC Snapshot

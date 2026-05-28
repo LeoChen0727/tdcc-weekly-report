@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3465 進泰電子
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:26 Asia/Taipei
+- generated_at: 2026-05-28 20:19:13 Asia/Taipei
 - stock_id: 3465
 - stock_name: 進泰電子
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 27.95
 - low: 27.45
 - close: 27.8
-- volume: 10101
+- volume: 28000
 - ma5: 27.59
 - ema23_primary: 29.13
 - distance_to_ema23_pct: -4.56
@@ -69,7 +69,7 @@
 - ma120: 40.94
 - return_5d: 3.35
 - return_20d: -16.52
-- volume_ratio: 0.23
+- volume_ratio: 0.62
 - distance_to_ma20_pct_auxiliary: -1.03
 - distance_to_high_60_pct: -41.04
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,28.45,28.45,27.45,27.5,28000,29.59,-7.06,28.95,35.92,0.64
 20260526,27.35,27.5,27.3,27.4,27000,29.41,-6.82,28.63,35.62,0.62
 20260527,27.15,27.5,27.15,27.5,27000,29.25,-5.98,28.36,35.36,0.61
-20260528,27.5,27.95,27.45,27.8,10101,29.13,-4.56,28.09,35.12,0.23
+20260528,27.5,27.95,27.45,27.8,28000,29.13,-4.56,28.09,35.12,0.62
 ```
 
 ## Latest TDCC Snapshot

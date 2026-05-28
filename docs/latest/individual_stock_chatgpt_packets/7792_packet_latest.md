@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7792 安葆
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:41 Asia/Taipei
+- generated_at: 2026-05-28 20:20:29 Asia/Taipei
 - stock_id: 7792
 - stock_name: 安葆
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 273.5
 - low: 255.5
 - close: 256
-- volume: 153067
+- volume: 263000
 - ma5: 267.9
 - ema23_primary: 295.71
 - distance_to_ema23_pct: -13.43
@@ -69,7 +69,7 @@
 - ma120: 328.2
 - return_5d: -4.12
 - return_20d: -31.73
-- volume_ratio: 0.5
+- volume_ratio: 0.85
 - distance_to_ma20_pct_auxiliary: -14.24
 - distance_to_high_60_pct: -33.51
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,279,281.5,273,273,276000,305.12,-10.53,311.93,328.13,0.78
 20260526,277,278,267.5,268.5,271000,302.07,-11.11,308.35,326.91,0.76
 20260527,271.5,277,265,269,272000,299.31,-10.13,304.45,325.31,0.77
-20260528,269,273.5,255.5,256,153067,295.71,-13.43,298.5,323.42,0.5
+20260528,269,273.5,255.5,256,263000,295.71,-13.43,298.5,323.42,0.85
 ```
 
 ## Latest TDCC Snapshot

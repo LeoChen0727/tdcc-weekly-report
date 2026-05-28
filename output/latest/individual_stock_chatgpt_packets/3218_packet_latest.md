@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3218 大學光
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:20 Asia/Taipei
+- generated_at: 2026-05-28 20:19:06 Asia/Taipei
 - stock_id: 3218
 - stock_name: 大學光
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 131
 - low: 128
 - close: 130.5
-- volume: 318075
+- volume: 130000
 - ma5: 129.8
 - ema23_primary: 130.72
 - distance_to_ema23_pct: -0.17
@@ -69,7 +69,7 @@
 - ma120: 139.46
 - return_5d: 0.38
 - return_20d: -6.12
-- volume_ratio: 1
+- volume_ratio: 0.42
 - distance_to_ma20_pct_auxiliary: -0.82
 - distance_to_high_60_pct: -10.62
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,131.5,131.5,127.5,129,129000,131.02,-1.54,131.57,133.89,0.35
 20260526,129,129.5,128,128.5,128000,130.81,-1.76,131.82,133.77,0.36
 20260527,129.5,131.5,129,130,130000,130.74,-0.57,132,133.66,0.38
-20260528,130.5,131,128,130.5,318075,130.72,-0.17,131.57,133.56,1
+20260528,130.5,131,128,130.5,130000,130.72,-0.17,131.57,133.56,0.42
 ```
 
 ## Latest TDCC Snapshot

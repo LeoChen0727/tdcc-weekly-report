@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6207 雷科
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:11 Asia/Taipei
+- generated_at: 2026-05-28 20:19:58 Asia/Taipei
 - stock_id: 6207
 - stock_name: 雷科
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 109.5
 - low: 102
 - close: 105
-- volume: 19450211
+- volume: 106000
 - ma5: 101.14
 - ema23_primary: 81.18
 - distance_to_ema23_pct: 29.34
@@ -69,7 +69,7 @@
 - ma120: 56.96
 - return_5d: 18.38
 - return_20d: 78.57
-- volume_ratio: 1.44
+- volume_ratio: 0.01
 - distance_to_ma20_pct_auxiliary: 31.74
 - distance_to_high_60_pct: -6.67
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,93,98.8,93,98.8,98000,73.91,33.68,72.54,60.22,0.01
 20260526,105.5,108.5,104.5,108.5,108000,76.79,41.29,75.17,61.15,0.01
 20260527,112,112.5,101,103.5,105000,79.02,30.98,77.39,61.96,0.01
-20260528,104,109.5,102,105,19450211,81.18,29.34,79.7,62.76,1.44
+20260528,104,109.5,102,105,106000,81.18,29.34,79.7,62.76,0.01
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6207 | 雷科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

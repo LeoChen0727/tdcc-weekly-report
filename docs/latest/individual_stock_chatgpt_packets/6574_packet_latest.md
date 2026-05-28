@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6574 霈方
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:23 Asia/Taipei
+- generated_at: 2026-05-28 20:20:10 Asia/Taipei
 - stock_id: 6574
 - stock_name: 霈方
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 117
 - low: 113
 - close: 115.5
-- volume: 79477
+- volume: 114000
 - ma5: 116.1
 - ema23_primary: 112.91
 - distance_to_ema23_pct: 2.29
@@ -69,7 +69,7 @@
 - ma120: 88.12
 - return_5d: -1.7
 - return_20d: 14.36
-- volume_ratio: 0.62
+- volume_ratio: 0.87
 - distance_to_ma20_pct_auxiliary: 0.94
 - distance_to_high_60_pct: -21.16
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,114,124,112,119,120000,112.04,6.21,112.22,103.78,0.99
 20260526,119,119,113,115,115000,112.29,2.42,112.83,104.4,0.94
 20260527,115,117.5,115,117,116000,112.68,3.83,113.7,105.07,0.92
-20260528,117,117,113,115.5,79477,112.91,2.29,114.42,105.73,0.62
+20260528,117,117,113,115.5,114000,112.91,2.29,114.42,105.73,0.87
 ```
 
 ## Latest TDCC Snapshot

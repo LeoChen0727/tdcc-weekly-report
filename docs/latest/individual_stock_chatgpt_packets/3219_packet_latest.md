@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3219 倚強科
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:20 Asia/Taipei
+- generated_at: 2026-05-28 20:19:06 Asia/Taipei
 - stock_id: 3219
 - stock_name: 倚強科
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 87.9
 - low: 81.6
 - close: 82.4
-- volume: 635957
+- volume: 84000
 - ma5: 88.38
 - ema23_primary: 80.05
 - distance_to_ema23_pct: 2.94
@@ -69,7 +69,7 @@
 - ma120: 66.77
 - return_5d: -2.49
 - return_20d: 26.38
-- volume_ratio: 0.64
+- volume_ratio: 0.09
 - distance_to_ma20_pct_auxiliary: 3.03
 - distance_to_high_60_pct: -17.1
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,94.7,99.4,91.3,91.3,95000,78.36,16.51,76.62,68.85,0.09
 20260526,92.4,92.4,87.8,89.6,89000,79.3,12.99,78.04,69.2,0.09
 20260527,89.6,89.6,85.6,85.7,87000,79.83,7.35,79.11,69.48,0.09
-20260528,85.9,87.9,81.6,82.4,635957,80.05,2.94,79.97,69.75,0.64
+20260528,85.9,87.9,81.6,82.4,84000,80.05,2.94,79.97,69.75,0.09
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5603 陸海
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:02 Asia/Taipei
+- generated_at: 2026-05-28 20:19:49 Asia/Taipei
 - stock_id: 5603
 - stock_name: 陸海
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 15.15
 - low: 15
 - close: 15.15
-- volume: 278483
+- volume: 15000
 - ma5: 15.3
 - ema23_primary: 15.85
 - distance_to_ema23_pct: -4.42
@@ -69,7 +69,7 @@
 - ma120: 17.62
 - return_5d: -4.42
 - return_20d: -8.18
-- volume_ratio: 1.96
+- volume_ratio: 0.12
 - distance_to_ma20_pct_auxiliary: -4.05
 - distance_to_high_60_pct: -18.55
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,15.5,15.5,15.3,15.35,15000,16.04,-4.28,15.98,16.83,0.1
 20260526,15.3,15.6,15.2,15.4,15000,15.98,-3.65,15.93,16.8,0.1
 20260527,15.45,15.45,15.1,15.15,15000,15.91,-4.8,15.86,16.76,0.11
-20260528,15.15,15.15,15,15.15,278483,15.85,-4.42,15.79,16.71,1.96
+20260528,15.15,15.15,15,15.15,15000,15.85,-4.42,15.79,16.71,0.12
 ```
 
 ## Latest TDCC Snapshot

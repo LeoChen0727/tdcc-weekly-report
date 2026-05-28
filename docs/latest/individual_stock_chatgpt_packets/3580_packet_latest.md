@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3580 友威科
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:31 Asia/Taipei
+- generated_at: 2026-05-28 20:19:17 Asia/Taipei
 - stock_id: 3580
 - stock_name: 友威科
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 110
 - low: 99.9
 - close: 101
-- volume: 2808760
+- volume: 104000
 - ma5: 107.2
 - ema23_primary: 98.35
 - distance_to_ema23_pct: 2.69
@@ -69,7 +69,7 @@
 - ma120: 73.96
 - return_5d: 1
 - return_20d: 20.53
-- volume_ratio: 0.74
+- volume_ratio: 0.03
 - distance_to_ma20_pct_auxiliary: 1.03
 - distance_to_high_60_pct: -11.79
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,108,114,107.5,111,112000,95.87,15.78,96.14,81.22,0.03
 20260526,113,113.5,106.5,113,110000,97.3,16.13,97.83,81.94,0.03
 20260527,113.5,114.5,105,107,110000,98.11,9.06,99.11,82.56,0.03
-20260528,108.5,110,99.9,101,2808760,98.35,2.69,99.97,83.1,0.74
+20260528,108.5,110,99.9,101,104000,98.35,2.69,99.97,83.1,0.03
 ```
 
 ## Latest TDCC Snapshot
@@ -125,7 +125,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3580 | 友威科 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 3580 | 友威科 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

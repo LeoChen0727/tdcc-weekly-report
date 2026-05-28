@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6603 富強鑫
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:24 Asia/Taipei
+- generated_at: 2026-05-28 20:20:11 Asia/Taipei
 - stock_id: 6603
 - stock_name: 富強鑫
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 24.55
 - low: 22.4
 - close: 24.55
-- volume: 3017178
+- volume: 24000
 - ma5: 22.9
 - ema23_primary: 23.25
 - distance_to_ema23_pct: 5.6
@@ -69,7 +69,7 @@
 - ma120: 24.97
 - return_5d: 9.84
 - return_20d: -3.35
-- volume_ratio: 2.59
+- volume_ratio: 0.02
 - distance_to_ma20_pct_auxiliary: 5.26
 - distance_to_high_60_pct: -18.3
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,22.85,22.95,22.2,22.3,22000,23.23,-4,23.74,23.31,0.02
 20260526,23,23.3,22.1,22.9,23000,23.2,-1.3,23.55,23.28,0.02
 20260527,23.2,23.4,22.2,22.35,23000,23.13,-3.37,23.36,23.24,0.02
-20260528,22.4,24.55,22.4,24.55,3017178,23.25,5.6,23.32,23.23,2.59
+20260528,22.4,24.55,22.4,24.55,24000,23.25,5.6,23.32,23.23,0.02
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6603 | 富強鑫 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

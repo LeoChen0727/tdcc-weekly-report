@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5289 宜鼎
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:56 Asia/Taipei
+- generated_at: 2026-05-28 20:19:43 Asia/Taipei
 - stock_id: 5289
 - stock_name: 宜鼎
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 1760
 - low: 1655
 - close: 1700
-- volume: 3905335
+- volume: 1718000
 - ma5: 1700
 - ema23_primary: 1588.18
 - distance_to_ema23_pct: 7.04
@@ -69,7 +69,7 @@
 - ma120: 935.38
 - return_5d: -0.58
 - return_20d: 29.28
-- volume_ratio: 0.88
+- volume_ratio: 0.4
 - distance_to_ma20_pct_auxiliary: 2.92
 - distance_to_high_60_pct: -12.14
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,1700,1730,1615,1685,1685000,1555.74,8.31,1587.75,1202,0.33
 20260526,1715,1760,1685,1690,1710000,1566.93,7.85,1612.75,1217.02,0.35
 20260527,1790,1830,1675,1700,1744000,1578.02,7.73,1632.5,1232.37,0.38
-20260528,1685,1760,1655,1700,3905335,1588.18,7.04,1651.75,1246.43,0.88
+20260528,1685,1760,1655,1700,1718000,1588.18,7.04,1651.75,1246.43,0.4
 ```
 
 ## Latest TDCC Snapshot
@@ -123,10 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 5289 | 宜鼎 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260528 | 5289 | 宜鼎 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

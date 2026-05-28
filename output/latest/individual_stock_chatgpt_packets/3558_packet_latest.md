@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3558 神準
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:30 Asia/Taipei
+- generated_at: 2026-05-28 20:19:17 Asia/Taipei
 - stock_id: 3558
 - stock_name: 神準
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 141.5
 - low: 130
 - close: 141.5
-- volume: 2254114
+- volume: 140000
 - ma5: 134.1
 - ema23_primary: 121.62
 - distance_to_ema23_pct: 16.34
@@ -69,7 +69,7 @@
 - ma120: 126.33
 - return_5d: 17.92
 - return_20d: 29.82
-- volume_ratio: 5.69
+- volume_ratio: 0.48
 - distance_to_ma20_pct_auxiliary: 19.18
 - distance_to_high_60_pct: 0
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,131.5,139,130,138,135000,117.52,17.42,114.83,118.82,0.47
 20260526,139,139,131.5,135,134000,118.98,13.46,116.1,118.63,0.47
 20260527,135.5,136,128,129,131000,119.82,7.67,117.1,118.4,0.45
-20260528,131,141.5,130,141.5,2254114,121.62,16.34,118.72,118.43,5.69
+20260528,131,141.5,130,141.5,140000,121.62,16.34,118.72,118.43,0.48
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3558 | 神準 | true_breakout | 嚴格突破 | 114.0 |  |  | breakout_confirmed |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

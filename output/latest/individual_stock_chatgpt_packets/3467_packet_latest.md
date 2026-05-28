@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3467 台灣精材
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:27 Asia/Taipei
+- generated_at: 2026-05-28 20:19:13 Asia/Taipei
 - stock_id: 3467
 - stock_name: 台灣精材
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 78.5
 - low: 74.1
 - close: 74.1
-- volume: 852947
+- volume: 76000
 - ma5: 71.08
 - ema23_primary: 65.24
 - distance_to_ema23_pct: 13.58
@@ -69,7 +69,7 @@
 - ma120: 47.68
 - return_5d: 19.52
 - return_20d: 25.59
-- volume_ratio: 1.9
+- volume_ratio: 0.19
 - distance_to_ma20_pct_auxiliary: 10.27
 - distance_to_high_60_pct: -8.06
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,66.2,67.9,64.8,66.7,66000,62.33,7,64.57,51.11,0.16
 20260526,67.2,73.3,67.1,73.3,72000,63.25,15.89,65.44,51.65,0.17
 20260527,76,80.6,75.9,77.5,79000,64.44,20.28,66.44,52.26,0.19
-20260528,77,78.5,74.1,74.1,852947,65.24,13.58,67.2,52.8,1.9
+20260528,77,78.5,74.1,74.1,76000,65.24,13.58,67.2,52.8,0.19
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6186 新潤
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:10 Asia/Taipei
+- generated_at: 2026-05-28 20:19:57 Asia/Taipei
 - stock_id: 6186
 - stock_name: 新潤
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 39.7
 - low: 39.1
 - close: 39.15
-- volume: 597819
+- volume: 39000
 - ma5: 39.57
 - ema23_primary: 39.84
 - distance_to_ema23_pct: -1.74
@@ -69,7 +69,7 @@
 - ma120: 46.02
 - return_5d: -2.37
 - return_20d: -2.49
-- volume_ratio: 0.71
+- volume_ratio: 0.05
 - distance_to_ma20_pct_auxiliary: -1.31
 - distance_to_high_60_pct: -11.53
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,40,40,39,39.3,39000,39.95,-1.62,39.76,40.77,0.04
 20260526,39.35,40.1,39.3,40.05,40000,39.96,0.23,39.76,40.68,0.05
 20260527,40.05,40.05,39.3,39.35,39000,39.91,-1.39,39.72,40.6,0.05
-20260528,39.7,39.7,39.1,39.15,597819,39.84,-1.74,39.67,40.53,0.71
+20260528,39.7,39.7,39.1,39.15,39000,39.84,-1.74,39.67,40.53,0.05
 ```
 
 ## Latest TDCC Snapshot

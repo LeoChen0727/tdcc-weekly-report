@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8077 洛碁
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:45 Asia/Taipei
+- generated_at: 2026-05-28 20:20:32 Asia/Taipei
 - stock_id: 8077
 - stock_name: 洛碁
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 46.95
 - low: 44.65
 - close: 46.75
-- volume: 9721
+- volume: 46000
 - ma5: 45.44
 - ema23_primary: 43.69
 - distance_to_ema23_pct: 7.01
@@ -69,7 +69,7 @@
 - ma120: 44.03
 - return_5d: 4.35
 - return_20d: 5.17
-- volume_ratio: 0.71
+- volume_ratio: 2.97
 - distance_to_ma20_pct_auxiliary: 8.19
 - distance_to_high_60_pct: -0.43
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,45.6,45.6,45.6,45.6,45000,43.18,5.61,42.91,43.85,4.97
 20260526,45.3,45.3,45.3,45.3,45000,43.35,4.49,43.1,43.86,4
 20260527,44,44,44,44,44000,43.41,1.36,43.09,43.83,3.32
-20260528,44.65,46.95,44.65,46.75,9721,43.69,7.01,43.21,43.85,0.71
+20260528,44.65,46.95,44.65,46.75,46000,43.69,7.01,43.21,43.85,2.97
 ```
 
 ## Latest TDCC Snapshot

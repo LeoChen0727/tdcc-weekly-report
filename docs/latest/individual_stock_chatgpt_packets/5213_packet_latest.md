@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5213 亞昕
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:54 Asia/Taipei
+- generated_at: 2026-05-28 20:19:41 Asia/Taipei
 - stock_id: 5213
 - stock_name: 亞昕
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 26.35
 - low: 26.1
 - close: 26.15
-- volume: 754029
+- volume: 26000
 - ma5: 26.32
 - ema23_primary: 26.19
 - distance_to_ema23_pct: -0.15
@@ -69,7 +69,7 @@
 - ma120: 25.42
 - return_5d: -2.79
 - return_20d: 0.38
-- volume_ratio: 1.29
+- volume_ratio: 0.05
 - distance_to_ma20_pct_auxiliary: 0.43
 - distance_to_high_60_pct: -7.6
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,26.75,26.75,26.2,26.2,26000,26.18,0.08,25.98,26.39,0.04
 20260526,26.2,26.35,26.05,26.15,26000,26.18,-0.1,26.01,26.42,0.05
 20260527,26.25,26.45,26.25,26.35,26000,26.19,0.6,26.03,26.45,0.05
-20260528,26.35,26.35,26.1,26.15,754029,26.19,-0.15,26.04,26.46,1.29
+20260528,26.35,26.35,26.1,26.15,26000,26.19,-0.15,26.04,26.46,0.05
 ```
 
 ## Latest TDCC Snapshot

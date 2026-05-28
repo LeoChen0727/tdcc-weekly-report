@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8410 森田
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:50 Asia/Taipei
+- generated_at: 2026-05-28 20:20:37 Asia/Taipei
 - stock_id: 8410
 - stock_name: 森田
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 34.15
 - low: 33
 - close: 33.35
-- volume: 212603
+- volume: 33000
 - ma5: 34.38
 - ema23_primary: 35.45
 - distance_to_ema23_pct: -5.92
@@ -69,7 +69,7 @@
 - ma120: 36.69
 - return_5d: -5.12
 - return_20d: -9.74
-- volume_ratio: 4.54
+- volume_ratio: 0.87
 - distance_to_ma20_pct_auxiliary: -6.4
 - distance_to_high_60_pct: -12.92
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,34.5,35,34.35,34.75,35000,35.83,-3.02,36,36.48,0.95
 20260526,35,35.35,34.4,35.05,35000,35.77,-2,35.93,36.44,0.97
 20260527,34.7,34.8,33.75,34.25,34000,35.64,-3.9,35.81,36.38,0.92
-20260528,33.85,34.15,33,33.35,212603,35.45,-5.92,35.63,36.32,4.54
+20260528,33.85,34.15,33,33.35,33000,35.45,-5.92,35.63,36.32,0.87
 ```
 
 ## Latest TDCC Snapshot

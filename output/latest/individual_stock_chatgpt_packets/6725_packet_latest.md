@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6725 矽科宏晟
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:28 Asia/Taipei
+- generated_at: 2026-05-28 20:20:16 Asia/Taipei
 - stock_id: 6725
 - stock_name: 矽科宏晟
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 345
 - low: 322
 - close: 323
-- volume: 490384
+- volume: 332000
 - ma5: 332.6
 - ema23_primary: 322.05
 - distance_to_ema23_pct: 0.3
@@ -69,7 +69,7 @@
 - ma120: 284.74
 - return_5d: 10.24
 - return_20d: -5.14
-- volume_ratio: 1.23
+- volume_ratio: 0.85
 - distance_to_ma20_pct_auxiliary: 0.35
 - distance_to_high_60_pct: -23.82
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,328.5,339.5,325,331.5,332000,317.94,4.27,323.15,295.27,0.78
 20260526,333,348,323,346,339000,320.28,8.03,323.02,296.79,0.86
 20260527,353,360.5,334,340.5,347000,321.96,5.76,322.75,298.18,0.89
-20260528,340.5,345,322,323,490384,322.05,0.3,321.88,299.45,1.23
+20260528,340.5,345,322,323,332000,322.05,0.3,321.88,299.45,0.85
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6498 久禾光
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:20 Asia/Taipei
+- generated_at: 2026-05-28 20:20:07 Asia/Taipei
 - stock_id: 6498
 - stock_name: 久禾光
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 106
 - low: 101.5
 - close: 101.5
-- volume: 187052
+- volume: 103000
 - ma5: 104.7
 - ema23_primary: 100.87
 - distance_to_ema23_pct: 0.62
@@ -69,7 +69,7 @@
 - ma120: 91.56
 - return_5d: -4.69
 - return_20d: 12.78
-- volume_ratio: 0.45
+- volume_ratio: 0.25
 - distance_to_ma20_pct_auxiliary: 0.31
 - distance_to_high_60_pct: -12.12
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,108,108.5,105.5,107,107000,100.17,6.82,99,92.79,0.26
 20260526,108,108.5,103,105,105000,100.57,4.4,99.83,93.06,0.26
 20260527,106,106.5,102,103.5,104000,100.82,2.66,100.61,93.29,0.25
-20260528,105,106,101.5,101.5,187052,100.87,0.62,101.19,93.5,0.45
+20260528,105,106,101.5,101.5,103000,100.87,0.62,101.19,93.5,0.25
 ```
 
 ## Latest TDCC Snapshot

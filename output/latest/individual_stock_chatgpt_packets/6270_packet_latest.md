@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6270 倍微
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:15 Asia/Taipei
+- generated_at: 2026-05-28 20:20:02 Asia/Taipei
 - stock_id: 6270
 - stock_name: 倍微
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 27.85
 - low: 26.65
 - close: 27.05
-- volume: 631482
+- volume: 27000
 - ma5: 27.18
 - ema23_primary: 26.74
 - distance_to_ema23_pct: 1.16
@@ -69,7 +69,7 @@
 - ma120: 24.78
 - return_5d: 0.93
 - return_20d: 0.37
-- volume_ratio: 1.4
+- volume_ratio: 0.06
 - distance_to_ma20_pct_auxiliary: 0.9
 - distance_to_high_60_pct: -15.2
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,28.35,28.35,27.3,27.45,28000,26.68,2.88,26.8,25.7,0.05
 20260526,27.5,27.55,26.5,26.85,27000,26.69,0.58,26.82,25.71,0.06
 20260527,27.4,27.4,26.55,26.9,27000,26.71,0.7,26.8,25.72,0.06
-20260528,27.25,27.85,26.65,27.05,631482,26.74,1.16,26.81,25.75,1.4
+20260528,27.25,27.85,26.65,27.05,27000,26.74,1.16,26.81,25.75,0.06
 ```
 
 ## Latest TDCC Snapshot

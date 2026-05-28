@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8929 富堡
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:54 Asia/Taipei
+- generated_at: 2026-05-28 20:20:41 Asia/Taipei
 - stock_id: 8929
 - stock_name: 富堡
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 13.75
 - low: 13.45
 - close: 13.55
-- volume: 107571
+- volume: 14000
 - ma5: 13.89
 - ema23_primary: 14.48
 - distance_to_ema23_pct: -6.44
@@ -69,7 +69,7 @@
 - ma120: 16
 - return_5d: -5.24
 - return_20d: -9.67
-- volume_ratio: 2.7
+- volume_ratio: 0.4
 - distance_to_ma20_pct_auxiliary: -6.03
 - distance_to_high_60_pct: -19.58
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,14.2,14.3,13.85,14.1,14000,14.71,-4.17,14.62,15.5,0.36
 20260526,14,14,13.8,13.85,14000,14.64,-5.41,14.56,15.45,0.39
 20260527,13.8,13.8,13.7,13.75,14000,14.57,-5.61,14.49,15.4,0.39
-20260528,13.75,13.75,13.45,13.55,107571,14.48,-6.44,14.42,15.36,2.7
+20260528,13.75,13.75,13.45,13.55,14000,14.48,-6.44,14.42,15.36,0.4
 ```
 
 ## Latest TDCC Snapshot

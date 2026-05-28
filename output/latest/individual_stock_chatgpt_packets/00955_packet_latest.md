@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00955 中信日本商社
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:24 Asia/Taipei
+- generated_at: 2026-05-28 20:18:09 Asia/Taipei
 - stock_id: 00955
 - stock_name: 中信日本商社
 - packet_status: partial_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 15.19
 - low: 15.04
 - close: 15.1
-- volume: 10477732
+- volume: 15000
 - ma5: 15.4
 - ema23_primary: 15.53
 - distance_to_ema23_pct: -2.79
@@ -69,7 +69,7 @@
 - ma120: 15.4
 - return_5d: 
 - return_20d: 
-- volume_ratio: 4.97
+- volume_ratio: 0.97
 - distance_to_ma20_pct_auxiliary: -1.92
 - distance_to_high_60_pct: -3.94
 
@@ -81,7 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,15.67,15.72,15.5,15.55,16000,,,,,
 20260526,15.55,15.55,15.45,15.46,15000,,,,,
 20260527,15.38,15.39,15.23,15.25,15000,,,,,
-20260528,15.16,15.19,15.04,15.1,10477732,15.53,-2.79,15.4,15.4,4.97
+20260528,15.16,15.19,15.04,15.1,15000,15.53,-2.79,15.4,15.4,0.97
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3122 笙泉
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:17 Asia/Taipei
+- generated_at: 2026-05-28 20:19:03 Asia/Taipei
 - stock_id: 3122
 - stock_name: 笙泉
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 34.15
 - low: 32.5
 - close: 32.5
-- volume: 565787
+- volume: 33000
 - ma5: 34.4
 - ema23_primary: 34.31
 - distance_to_ema23_pct: -5.27
@@ -69,7 +69,7 @@
 - ma120: 26.51
 - return_5d: -8.71
 - return_20d: -3.42
-- volume_ratio: 0.62
+- volume_ratio: 0.04
 - distance_to_ma20_pct_auxiliary: -9.45
 - distance_to_high_60_pct: -23.17
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,36.25,36.8,35.75,35.8,36000,34.58,3.52,36,29.61,0.03
 20260526,36,36,33.85,34.5,34000,34.57,-0.22,35.92,29.74,0.03
 20260527,34.7,35.6,33.2,33.35,34000,34.47,-3.26,35.95,29.86,0.04
-20260528,33.15,34.15,32.5,32.5,565787,34.31,-5.27,35.89,29.93,0.62
+20260528,33.15,34.15,32.5,32.5,33000,34.31,-5.27,35.89,29.93,0.04
 ```
 
 ## Latest TDCC Snapshot

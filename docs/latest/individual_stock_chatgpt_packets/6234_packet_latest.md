@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6234 高僑
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:13 Asia/Taipei
+- generated_at: 2026-05-28 20:20:00 Asia/Taipei
 - stock_id: 6234
 - stock_name: 高僑
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 54.9
 - low: 50
 - close: 51.2
-- volume: 4497715
+- volume: 52000
 - ma5: 52
 - ema23_primary: 49.6
 - distance_to_ema23_pct: 3.23
@@ -69,7 +69,7 @@
 - ma120: 32.39
 - return_5d: 9.4
 - return_20d: 6.56
-- volume_ratio: 1.77
+- volume_ratio: 0.02
 - distance_to_ma20_pct_auxiliary: -4.69
 - distance_to_high_60_pct: -19.12
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,49.65,53.3,48.4,50.3,51000,48.45,3.82,52.52,37.36,0.01
 20260526,51.6,55.3,50.5,55.3,54000,49.02,12.81,53.04,37.81,0.02
 20260527,59.6,59.6,53.1,54.2,56000,49.45,9.61,53.56,38.25,0.02
-20260528,54.1,54.9,50,51.2,4497715,49.6,3.23,53.72,38.64,1.77
+20260528,54.1,54.9,50,51.2,52000,49.6,3.23,53.72,38.64,0.02
 ```
 
 ## Latest TDCC Snapshot

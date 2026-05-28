@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2924 宏太-KY
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:10 Asia/Taipei
+- generated_at: 2026-05-28 20:18:57 Asia/Taipei
 - stock_id: 2924
 - stock_name: 宏太-KY
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 15.55
 - low: 15.55
 - close: 15.55
-- volume: 1067
+- volume: 16000
 - ma5: 15.52
 - ema23_primary: 17.27
 - distance_to_ema23_pct: -9.95
@@ -69,7 +69,7 @@
 - ma120: 19.69
 - return_5d: -1.89
 - return_20d: -16.4
-- volume_ratio: 0.15
+- volume_ratio: 2.03
 - distance_to_ma20_pct_auxiliary: -13.08
 - distance_to_high_60_pct: -30.73
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,16.9,16.9,14.75,15.2,15000,17.84,-14.79,18.24,18.94,2.56
 20260526,15.1,15.45,14.8,15.2,15000,17.62,-13.72,18.15,18.88,2.29
 20260527,15.7,15.7,14.85,15.3,15000,17.42,-12.19,18.04,18.8,2.08
-20260528,15.55,15.55,15.55,15.55,1067,17.27,-9.95,17.89,18.74,0.15
+20260528,15.55,15.55,15.55,15.55,16000,17.27,-9.95,17.89,18.74,2.03
 ```
 
 ## Latest TDCC Snapshot

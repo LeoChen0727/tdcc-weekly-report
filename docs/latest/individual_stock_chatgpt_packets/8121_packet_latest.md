@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8121 越峰
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:47 Asia/Taipei
+- generated_at: 2026-05-28 20:20:34 Asia/Taipei
 - stock_id: 8121
 - stock_name: 越峰
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 42.3
 - low: 39.7
 - close: 40
-- volume: 2736853
+- volume: 41000
 - ma5: 41.11
 - ema23_primary: 35
 - distance_to_ema23_pct: 14.28
@@ -69,7 +69,7 @@
 - ma120: 28.53
 - return_5d: 7.09
 - return_20d: 45.72
-- volume_ratio: 1.19
+- volume_ratio: 0.02
 - distance_to_ma20_pct_auxiliary: 13.94
 - distance_to_high_60_pct: -8.05
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,40.3,43.5,37.6,43.5,41000,33.28,30.73,33.06,27.98,0.02
 20260526,43.5,43.5,39.2,41.5,41000,33.96,22.2,33.78,28.21,0.02
 20260527,40.8,43.2,40.2,41,41000,34.55,18.68,34.48,28.42,0.02
-20260528,41.2,42.3,39.7,40,2736853,35,14.28,35.11,28.63,1.19
+20260528,41.2,42.3,39.7,40,41000,35,14.28,35.11,28.63,0.02
 ```
 
 ## Latest TDCC Snapshot

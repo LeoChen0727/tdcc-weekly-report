@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6643 M31
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:25 Asia/Taipei
+- generated_at: 2026-05-28 20:20:12 Asia/Taipei
 - stock_id: 6643
 - stock_name: M31
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 611
 - low: 557
 - close: 563
-- volume: 1177543
+- volume: 581000
 - ma5: 596.8
 - ema23_primary: 591.65
 - distance_to_ema23_pct: -4.84
@@ -69,7 +69,7 @@
 - ma120: 478.74
 - return_5d: -4.25
 - return_20d: 3.87
-- volume_ratio: 1.13
+- volume_ratio: 0.57
 - distance_to_ma20_pct_auxiliary: -8.53
 - distance_to_high_60_pct: -22.88
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,609,622,605,606,613000,591.91,2.38,607.1,524.06,0.61
 20260526,619,630,596,616,611000,593.92,3.72,610.75,526.94,0.61
 20260527,630,632,589,598,608000,594.26,0.63,614.45,529.38,0.6
-20260528,598,611,557,563,1177543,591.65,-4.84,615.5,531.17,1.13
+20260528,598,611,557,563,581000,591.65,-4.84,615.5,531.17,0.57
 ```
 
 ## Latest TDCC Snapshot

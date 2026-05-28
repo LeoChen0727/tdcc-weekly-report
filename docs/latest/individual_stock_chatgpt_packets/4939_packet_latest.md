@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4939 亞電
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:50 Asia/Taipei
+- generated_at: 2026-05-28 20:19:37 Asia/Taipei
 - stock_id: 4939
 - stock_name: 亞電
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 47
 - low: 43.4
 - close: 45.95
-- volume: 19954390
+- volume: 45000
 - ma5: 42.38
 - ema23_primary: 40.34
 - distance_to_ema23_pct: 13.89
@@ -69,7 +69,7 @@
 - ma120: 36.74
 - return_5d: 20.76
 - return_20d: 4.31
-- volume_ratio: 6.8
+- volume_ratio: 0.02
 - distance_to_ma20_pct_auxiliary: 12.44
 - distance_to_high_60_pct: -4.37
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,40.45,41,38.8,39.65,40000,39.16,1.24,40.61,35.7,0.02
 20260526,40.4,43.6,39.3,43.6,43000,39.53,10.29,40.79,35.84,0.02
 20260527,43.75,47.95,42.3,43.15,45000,39.84,8.32,40.77,35.96,0.02
-20260528,44.75,47,43.4,45.95,19954390,40.34,13.89,40.87,36.13,6.8
+20260528,44.75,47,43.4,45.95,45000,40.34,13.89,40.87,36.13,0.02
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4939 | 亞電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

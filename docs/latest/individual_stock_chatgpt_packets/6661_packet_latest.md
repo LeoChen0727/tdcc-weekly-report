@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6661 威健生技
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:26 Asia/Taipei
+- generated_at: 2026-05-28 20:20:13 Asia/Taipei
 - stock_id: 6661
 - stock_name: 威健生技
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 17.15
 - low: 17
 - close: 17
-- volume: 10322
+- volume: 17000
 - ma5: 17.45
 - ema23_primary: 17.69
 - distance_to_ema23_pct: -3.9
@@ -69,7 +69,7 @@
 - ma120: 18.56
 - return_5d: -2.86
 - return_20d: -6.34
-- volume_ratio: 1.03
+- volume_ratio: 1.63
 - distance_to_ma20_pct_auxiliary: -3.53
 - distance_to_high_60_pct: -15.42
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,17.95,17.95,17.1,17.65,17000,17.83,-0.99,17.77,18.36,1.89
 20260526,17.65,17.65,17.6,17.6,18000,17.81,-1.17,17.74,18.34,1.87
 20260527,17.15,17.15,17.15,17.15,17000,17.75,-3.4,17.68,18.32,1.66
-20260528,17.15,17.15,17,17,10322,17.69,-3.9,17.62,18.29,1.03
+20260528,17.15,17.15,17,17,17000,17.69,-3.9,17.62,18.29,1.63
 ```
 
 ## Latest TDCC Snapshot

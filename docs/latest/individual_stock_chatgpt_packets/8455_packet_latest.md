@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8455 大拓-KY
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:52 Asia/Taipei
+- generated_at: 2026-05-28 20:20:39 Asia/Taipei
 - stock_id: 8455
 - stock_name: 大拓-KY
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 43.7
 - low: 40.05
 - close: 43.7
-- volume: 127965
+- volume: 43000
 - ma5: 40.92
 - ema23_primary: 33.75
 - distance_to_ema23_pct: 29.48
@@ -69,7 +69,7 @@
 - ma120: 23.57
 - return_5d: 2.1
 - return_20d: 80.95
-- volume_ratio: 1.63
+- volume_ratio: 0.58
 - distance_to_ma20_pct_auxiliary: 32.28
 - distance_to_high_60_pct: -6.62
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,41.6,41.6,40.1,41.05,41000,31.51,30.27,30.44,24.36,0.52
 20260526,40.85,40.85,39.55,40,40000,32.22,24.15,31.21,24.66,0.52
 20260527,40.3,40.7,39.55,39.75,40000,32.85,21.01,32.06,24.95,0.54
-20260528,40.6,43.7,40.05,43.7,127965,33.75,29.48,33.03,25.32,1.63
+20260528,40.6,43.7,40.05,43.7,43000,33.75,29.48,33.03,25.32,0.58
 ```
 
 ## Latest TDCC Snapshot

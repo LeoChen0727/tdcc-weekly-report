@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3581 博磊
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:31 Asia/Taipei
+- generated_at: 2026-05-28 20:19:17 Asia/Taipei
 - stock_id: 3581
 - stock_name: 博磊
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 254
 - low: 236.5
 - close: 240
-- volume: 1739932
+- volume: 243000
 - ma5: 258.5
 - ema23_primary: 214.97
 - distance_to_ema23_pct: 11.64
@@ -69,7 +69,7 @@
 - ma120: 103.18
 - return_5d: 6.43
 - return_20d: 46.79
-- volume_ratio: 4.16
+- volume_ratio: 0.71
 - distance_to_ma20_pct_auxiliary: 4.99
 - distance_to_high_60_pct: -19.87
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,272.5,272.5,272.5,272.5,272000,202.68,34.45,213.28,127.25,0.68
 20260526,299.5,299.5,267,280,289000,209.12,33.89,219.62,130.72,0.78
 20260527,279.5,279.5,252,252,258000,212.69,18.48,224.78,133.66,0.72
-20260528,244.5,254,236.5,240,1739932,214.97,11.64,228.6,136.43,4.16
+20260528,244.5,254,236.5,240,243000,214.97,11.64,228.6,136.43,0.71
 ```
 
 ## Latest TDCC Snapshot
@@ -123,10 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3581 | 博磊 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260528 | 3581 | 博磊 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

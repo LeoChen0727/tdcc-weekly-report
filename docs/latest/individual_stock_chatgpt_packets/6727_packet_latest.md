@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6727 亞泰金屬
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:28 Asia/Taipei
+- generated_at: 2026-05-28 20:20:16 Asia/Taipei
 - stock_id: 6727
 - stock_name: 亞泰金屬
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 645
 - low: 570
 - close: 578
-- volume: 4679505
+- volume: 606000
 - ma5: 623.6
 - ema23_primary: 520.4
 - distance_to_ema23_pct: 11.07
@@ -69,7 +69,7 @@
 - ma120: 283.51
 - return_5d: 5.86
 - return_20d: 47.64
-- volume_ratio: 1.62
+- volume_ratio: 0.23
 - distance_to_ma20_pct_auxiliary: 11.63
 - distance_to_high_60_pct: -17.07
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,660,660,660,660,660000,491.53,34.27,484.43,366.33,0.23
 20260526,697,697,620,651,659000,504.82,28.96,496.52,373.64,0.24
 20260527,677,684,624,629,643000,515.17,22.1,508.48,380.64,0.24
-20260528,630,645,570,578,4679505,520.4,11.07,517.8,386.62,1.62
+20260528,630,645,570,578,606000,520.4,11.07,517.8,386.62,0.23
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6727 | 亞泰金屬 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

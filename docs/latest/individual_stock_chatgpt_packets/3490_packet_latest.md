@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3490 單井
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:27 Asia/Taipei
+- generated_at: 2026-05-28 20:19:13 Asia/Taipei
 - stock_id: 3490
 - stock_name: 單井
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 40.8
 - low: 38.05
 - close: 38.45
-- volume: 2865355
+- volume: 39000
 - ma5: 41
 - ema23_primary: 35.73
 - distance_to_ema23_pct: 7.62
@@ -69,7 +69,7 @@
 - ma120: 27.29
 - return_5d: -5.53
 - return_20d: 27.74
-- volume_ratio: 0.94
+- volume_ratio: 0.01
 - distance_to_ma20_pct_auxiliary: 9.03
 - distance_to_high_60_pct: -14.08
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,43,43.3,41.5,41.95,42000,34.53,21.5,33.73,28.89,0.01
 20260526,42.05,42.45,39.95,41.7,41000,35.12,18.72,34.38,29.16,0.01
 20260527,42.5,42.5,39,39.4,40000,35.48,11.05,34.85,29.4,0.01
-20260528,39.4,40.8,38.05,38.45,2865355,35.73,7.62,35.27,29.62,0.94
+20260528,39.4,40.8,38.05,38.45,39000,35.73,7.62,35.27,29.62,0.01
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3490 | 單井 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

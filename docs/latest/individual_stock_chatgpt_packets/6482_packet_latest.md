@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6482 弘煜科
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:19 Asia/Taipei
+- generated_at: 2026-05-28 20:20:06 Asia/Taipei
 - stock_id: 6482
 - stock_name: 弘煜科
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 29.1
 - low: 28
 - close: 28.25
-- volume: 18027
+- volume: 28000
 - ma5: 28.91
 - ema23_primary: 29.43
 - distance_to_ema23_pct: -4.01
@@ -69,7 +69,7 @@
 - ma120: 34.45
 - return_5d: -4.88
 - return_20d: -5.99
-- volume_ratio: 1.03
+- volume_ratio: 1.56
 - distance_to_ma20_pct_auxiliary: -3.21
 - distance_to_high_60_pct: -24.67
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,29.7,30.3,29.2,29.2,29000,29.73,-1.78,29.42,31.17,1.88
 20260526,29.15,29.9,28.8,28.8,29000,29.65,-2.87,29.36,31.1,1.82
 20260527,28.8,28.8,28.3,28.3,28000,29.54,-4.19,29.28,31.01,1.67
-20260528,28.3,29.1,28,28.25,18027,29.43,-4.01,29.19,30.91,1.03
+20260528,28.3,29.1,28,28.25,28000,29.43,-4.01,29.19,30.91,1.56
 ```
 
 ## Latest TDCC Snapshot

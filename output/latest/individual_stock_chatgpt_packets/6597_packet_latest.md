@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6597 立誠
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:24 Asia/Taipei
+- generated_at: 2026-05-28 20:20:11 Asia/Taipei
 - stock_id: 6597
 - stock_name: 立誠
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 76.4
 - low: 72.6
 - close: 72.7
-- volume: 11523
+- volume: 73000
 - ma5: 72.8
 - ema23_primary: 70.98
 - distance_to_ema23_pct: 2.43
@@ -69,7 +69,7 @@
 - ma120: 62.83
 - return_5d: -0.41
 - return_20d: 21.78
-- volume_ratio: 0.17
+- volume_ratio: 1.04
 - distance_to_ma20_pct_auxiliary: -0.62
 - distance_to_high_60_pct: -12.2
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,77,77,73,74.1,74000,70.43,5.21,71.19,63.79,1.2
 20260526,74.3,74.3,72.7,72.9,73000,70.64,3.2,71.84,64.06,1.14
 20260527,73.3,73.3,70.6,72.8,73000,70.82,2.8,72.5,64.3,1.09
-20260528,76.4,76.4,72.6,72.7,11523,70.98,2.43,73.16,64.53,0.17
+20260528,76.4,76.4,72.6,72.7,73000,70.98,2.43,73.16,64.53,1.04
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6708 天擎
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:28 Asia/Taipei
+- generated_at: 2026-05-28 20:20:15 Asia/Taipei
 - stock_id: 6708
 - stock_name: 天擎
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 42.5
 - low: 40.8
 - close: 40.8
-- volume: 67498
+- volume: 42000
 - ma5: 40.52
 - ema23_primary: 40.93
 - distance_to_ema23_pct: -0.32
@@ -69,7 +69,7 @@
 - ma120: 40.51
 - return_5d: 1.24
 - return_20d: -1.69
-- volume_ratio: 1.51
+- volume_ratio: 0.97
 - distance_to_ma20_pct_auxiliary: -1.22
 - distance_to_high_60_pct: -11.3
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,40.6,41.8,40.4,40.7,41000,41.02,-0.78,41.38,40.53,0.92
 20260526,40.95,40.95,40.5,40.5,41000,40.98,-1.16,41.36,40.48,0.95
 20260527,42.25,42.25,40.6,40.6,41000,40.94,-0.84,41.34,40.44,0.95
-20260528,41.5,42.5,40.8,40.8,67498,40.93,-0.32,41.3,40.43,1.51
+20260528,41.5,42.5,40.8,40.8,42000,40.93,-0.32,41.3,40.43,0.97
 ```
 
 ## Latest TDCC Snapshot

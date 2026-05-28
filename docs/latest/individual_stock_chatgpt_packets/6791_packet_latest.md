@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6791 虎門科技
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:31 Asia/Taipei
+- generated_at: 2026-05-28 20:20:18 Asia/Taipei
 - stock_id: 6791
 - stock_name: 虎門科技
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 114
 - low: 110
 - close: 111
-- volume: 76639
+- volume: 112000
 - ma5: 112.8
 - ema23_primary: 115.57
 - distance_to_ema23_pct: -3.95
@@ -69,7 +69,7 @@
 - ma120: 108.63
 - return_5d: 0.91
 - return_20d: -8.26
-- volume_ratio: 0.93
+- volume_ratio: 1.34
 - distance_to_ma20_pct_auxiliary: -5.09
 - distance_to_high_60_pct: -23.45
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,115.5,115.5,112.5,113,113000,116.64,-3.12,118.12,110.83,1.48
 20260526,112,113.5,111.5,112,112000,116.26,-3.66,117.92,110.98,1.43
 20260527,112,114,110,113,112000,115.99,-2.57,117.45,111.13,1.4
-20260528,113,114,110,111,76639,115.57,-3.95,116.95,111.22,0.93
+20260528,113,114,110,111,112000,115.57,-3.95,116.95,111.22,1.34
 ```
 
 ## Latest TDCC Snapshot

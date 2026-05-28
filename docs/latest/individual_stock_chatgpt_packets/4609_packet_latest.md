@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4609 唐鋒
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:46 Asia/Taipei
+- generated_at: 2026-05-28 20:19:32 Asia/Taipei
 - stock_id: 4609
 - stock_name: 唐鋒
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 5.72
 - low: 5.28
 - close: 5.72
-- volume: 52000
+- volume: 6000
 - ma5: 5.44
 - ema23_primary: 5.21
 - distance_to_ema23_pct: 9.85
@@ -69,7 +69,7 @@
 - ma120: 5.5
 - return_5d: 4
 - return_20d: 32.41
-- volume_ratio: 2.29
+- volume_ratio: 0.29
 - distance_to_ma20_pct_auxiliary: 9.93
 - distance_to_high_60_pct: -4.51
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,5.2,5.38,5.2,5.38,5000,5.1,5.43,5.04,5.04,0.22
 20260526,5.38,5.78,5.38,5.75,6000,5.16,11.5,5.1,5.05,0.27
 20260527,5.73,5.73,5.2,5.2,5000,5.16,0.77,5.13,5.04,0.23
-20260528,5.28,5.72,5.28,5.72,52000,5.21,9.85,5.2,5.04,2.29
+20260528,5.28,5.72,5.28,5.72,6000,5.21,9.85,5.2,5.04,0.29
 ```
 
 ## Latest TDCC Snapshot

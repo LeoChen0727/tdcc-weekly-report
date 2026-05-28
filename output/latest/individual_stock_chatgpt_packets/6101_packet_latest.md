@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6101 寬魚國際
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:05 Asia/Taipei
+- generated_at: 2026-05-28 20:19:52 Asia/Taipei
 - stock_id: 6101
 - stock_name: 寬魚國際
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 40.6
 - low: 38.8
 - close: 39.6
-- volume: 156534
+- volume: 40000
 - ma5: 40.32
 - ema23_primary: 39.42
 - distance_to_ema23_pct: 0.47
@@ -69,7 +69,7 @@
 - ma120: 38.19
 - return_5d: 3.12
 - return_20d: 2.06
-- volume_ratio: 1.79
+- volume_ratio: 0.49
 - distance_to_ma20_pct_auxiliary: 0.48
 - distance_to_high_60_pct: -5.38
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,38.1,41.85,37.55,41.85,41000,39.09,7.06,39.13,38.65,0.48
 20260526,39.55,41.85,38.8,41.5,40000,39.29,5.63,39.28,38.7,0.48
 20260527,41.45,41.5,39.8,40.6,40000,39.4,3.05,39.37,38.74,0.49
-20260528,40.6,40.6,38.8,39.6,156534,39.42,0.47,39.41,38.77,1.79
+20260528,40.6,40.6,38.8,39.6,40000,39.42,0.47,39.41,38.77,0.49
 ```
 
 ## Latest TDCC Snapshot

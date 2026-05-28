@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3163 波若威
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:18 Asia/Taipei
+- generated_at: 2026-05-28 20:19:05 Asia/Taipei
 - stock_id: 3163
 - stock_name: 波若威
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 1085
 - low: 1025
 - close: 1050
-- volume: 3845612
+- volume: 1058000
 - ma5: 1145
 - ema23_primary: 1072.57
 - distance_to_ema23_pct: -2.1
@@ -69,7 +69,7 @@
 - ma120: 711.58
 - return_5d: 0.48
 - return_20d: 0.48
-- volume_ratio: 1.92
+- volume_ratio: 0.57
 - distance_to_ma20_pct_auxiliary: -2.24
 - distance_to_high_60_pct: -20.15
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,1245,1255,1145,1210,1206000,1058.89,14.27,1063.35,989.92,0.49
 20260526,1215,1250,1150,1220,1206000,1072.32,13.77,1072.35,997.22,0.52
 20260527,1225,1230,1100,1100,1151000,1074.63,2.36,1073.85,1002.62,0.59
-20260528,1080,1085,1025,1050,3845612,1072.57,-2.1,1074.1,1006.65,1.92
+20260528,1080,1085,1025,1050,1058000,1072.57,-2.1,1074.1,1006.65,0.57
 ```
 
 ## Latest TDCC Snapshot

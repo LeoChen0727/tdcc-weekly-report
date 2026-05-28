@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5530 龍巖
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:02 Asia/Taipei
+- generated_at: 2026-05-28 20:19:49 Asia/Taipei
 - stock_id: 5530
 - stock_name: 龍巖
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 46.85
 - low: 45.95
 - close: 46
-- volume: 559744
+- volume: 46000
 - ma5: 46.86
 - ema23_primary: 46.6
 - distance_to_ema23_pct: -1.29
@@ -69,7 +69,7 @@
 - ma120: 48.39
 - return_5d: -1.29
 - return_20d: 3.14
-- volume_ratio: 0.84
+- volume_ratio: 0.07
 - distance_to_ma20_pct_auxiliary: -1.09
 - distance_to_high_60_pct: -14.18
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,46.9,48.85,46.9,48.45,48000,46.65,3.85,46.31,47.19,0.06
 20260526,48.55,49.5,46.9,47,48000,46.68,0.68,46.37,47.08,0.07
 20260527,47.15,47.4,46.2,46.4,47000,46.66,-0.55,46.44,46.98,0.07
-20260528,46.75,46.85,45.95,46,559744,46.6,-1.29,46.51,46.86,0.84
+20260528,46.75,46.85,45.95,46,46000,46.6,-1.29,46.51,46.86,0.07
 ```
 
 ## Latest TDCC Snapshot

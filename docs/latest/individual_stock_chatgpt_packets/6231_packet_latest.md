@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6231 系微
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:13 Asia/Taipei
+- generated_at: 2026-05-28 20:20:00 Asia/Taipei
 - stock_id: 6231
 - stock_name: 系微
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 306
 - low: 287.5
 - close: 290
-- volume: 868748
+- volume: 297000
 - ma5: 296.1
 - ema23_primary: 294.67
 - distance_to_ema23_pct: -1.59
@@ -69,7 +69,7 @@
 - ma120: 240.82
 - return_5d: 1.93
 - return_20d: -6.9
-- volume_ratio: 0.79
+- volume_ratio: 0.28
 - distance_to_ma20_pct_auxiliary: -3.5
 - distance_to_high_60_pct: -22.25
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,297,302.5,294.5,297.5,299000,294.24,1.11,303.57,266.89,0.22
 20260526,302.5,303.5,289.5,302.5,297000,294.93,2.57,302.75,268.73,0.24
 20260527,303.5,304,292,297,298000,295.1,0.64,301.6,270.43,0.26
-20260528,296.5,306,287.5,290,868748,294.67,-1.59,300.52,271.95,0.79
+20260528,296.5,306,287.5,290,297000,294.67,-1.59,300.52,271.95,0.28
 ```
 
 ## Latest TDCC Snapshot

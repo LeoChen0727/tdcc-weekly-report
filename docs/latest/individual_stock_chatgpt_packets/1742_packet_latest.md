@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1742 台蠟
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:41 Asia/Taipei
+- generated_at: 2026-05-28 20:18:26 Asia/Taipei
 - stock_id: 1742
 - stock_name: 台蠟
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 15.15
 - low: 14.9
 - close: 15.15
-- volume: 21709
+- volume: 15000
 - ma5: 15.04
 - ema23_primary: 15.38
 - distance_to_ema23_pct: -1.53
@@ -69,7 +69,7 @@
 - ma120: 15.56
 - return_5d: 1
 - return_20d: -5.31
-- volume_ratio: 0.98
+- volume_ratio: 0.69
 - distance_to_ma20_pct_auxiliary: -1.27
 - distance_to_high_60_pct: -15.83
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,15,15.25,14.8,15.2,15000,15.5,-1.92,15.49,16.23,0.7
 20260526,15.2,15.4,14.85,15,15000,15.46,-2.95,15.45,16.2,0.69
 20260527,15,15.1,14.85,14.85,15000,15.41,-3.61,15.39,16.16,0.7
-20260528,15.15,15.15,14.9,15.15,21709,15.38,-1.53,15.35,16.12,0.98
+20260528,15.15,15.15,14.9,15.15,15000,15.38,-1.53,15.35,16.12,0.69
 ```
 
 ## Latest TDCC Snapshot

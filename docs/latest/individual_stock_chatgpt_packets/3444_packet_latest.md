@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3444 利機
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:26 Asia/Taipei
+- generated_at: 2026-05-28 20:19:12 Asia/Taipei
 - stock_id: 3444
 - stock_name: 利機
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 124
 - low: 114
 - close: 115.5
-- volume: 3862629
+- volume: 118000
 - ma5: 108.6
 - ema23_primary: 96.1
 - distance_to_ema23_pct: 20.19
@@ -69,7 +69,7 @@
 - ma120: 71.55
 - return_5d: 21.45
 - return_20d: 35.25
-- volume_ratio: 5.65
+- volume_ratio: 0.24
 - distance_to_ma20_pct_auxiliary: 20.43
 - distance_to_high_60_pct: -6.85
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,99.9,106.5,99.9,106,105000,90.89,16.63,91.66,76.49,0.18
 20260526,107.5,109.5,104,107,107000,92.23,16.01,92.74,77.11,0.2
 20260527,111,117.5,107.5,117.5,114000,94.34,24.56,94.41,77.93,0.22
-20260528,118,124,114,115.5,3862629,96.1,20.19,95.91,78.73,5.65
+20260528,118,124,114,115.5,118000,96.1,20.19,95.91,78.73,0.24
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3444 | 利機 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

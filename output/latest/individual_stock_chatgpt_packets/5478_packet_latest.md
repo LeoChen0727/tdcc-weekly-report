@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5478 智冠
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:00 Asia/Taipei
+- generated_at: 2026-05-28 20:19:47 Asia/Taipei
 - stock_id: 5478
 - stock_name: 智冠
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 99.8
 - low: 97
 - close: 99.8
-- volume: 170680
+- volume: 98000
 - ma5: 98.46
 - ema23_primary: 98.41
 - distance_to_ema23_pct: 1.41
@@ -69,7 +69,7 @@
 - ma120: 100.82
 - return_5d: 0.5
 - return_20d: 2.04
-- volume_ratio: 1.17
+- volume_ratio: 0.69
 - distance_to_ma20_pct_auxiliary: 2.16
 - distance_to_high_60_pct: -13.97
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,99.1,99.2,98.2,98.3,99000,98.43,-0.14,97.55,101.57,0.7
 20260526,98.5,98.5,97.7,98.1,98000,98.41,-0.31,97.61,101.5,0.71
 20260527,98.4,98.4,97,97,98000,98.29,-1.31,97.59,101.41,0.7
-20260528,97.4,99.8,97,99.8,170680,98.41,1.41,97.69,101.37,1.17
+20260528,97.4,99.8,97,99.8,98000,98.41,1.41,97.69,101.37,0.69
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6229 研通
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:13 Asia/Taipei
+- generated_at: 2026-05-28 20:20:00 Asia/Taipei
 - stock_id: 6229
 - stock_name: 研通
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 27.3
 - low: 26.3
 - close: 26.5
-- volume: 164425
+- volume: 27000
 - ma5: 27.15
 - ema23_primary: 26.78
 - distance_to_ema23_pct: -1.05
@@ -69,7 +69,7 @@
 - ma120: 23.47
 - return_5d: -2.03
 - return_20d: 4.54
-- volume_ratio: 0.25
+- volume_ratio: 0.04
 - distance_to_ma20_pct_auxiliary: -3.84
 - distance_to_high_60_pct: -15.2
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,27.7,28.05,27.15,27.6,28000,26.76,3.12,27.33,24.1,0.04
 20260526,27.6,27.9,27.2,27.6,28000,26.83,2.86,27.44,24.18,0.04
 20260527,28.15,28.15,26.4,26.5,27000,26.81,-1.14,27.5,24.24,0.04
-20260528,26.95,27.3,26.3,26.5,164425,26.78,-1.05,27.56,24.3,0.25
+20260528,26.95,27.3,26.3,26.5,27000,26.78,-1.05,27.56,24.3,0.04
 ```
 
 ## Latest TDCC Snapshot

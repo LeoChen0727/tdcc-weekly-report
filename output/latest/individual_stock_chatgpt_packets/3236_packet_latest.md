@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3236 千如
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:21 Asia/Taipei
+- generated_at: 2026-05-28 20:19:07 Asia/Taipei
 - stock_id: 3236
 - stock_name: 千如
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 58
 - low: 53
 - close: 53.5
-- volume: 3984706
+- volume: 56000
 - ma5: 55.98
 - ema23_primary: 43.52
 - distance_to_ema23_pct: 22.92
@@ -69,7 +69,7 @@
 - ma120: 32.31
 - return_5d: 10.88
 - return_20d: 74.55
-- volume_ratio: 0.41
+- volume_ratio: 0.01
 - distance_to_ma20_pct_auxiliary: 28.72
 - distance_to_high_60_pct: -14.26
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,58.3,58.3,58.3,58.3,58000,39.78,46.54,37.67,33.3,0.01
 20260526,62.3,62.4,54.2,58.2,58000,41.32,40.86,39.11,33.73,0.01
 20260527,61.4,62,55.8,56.9,58000,42.62,33.52,40.42,34.13,0.01
-20260528,55,58,53,53.5,3984706,43.52,22.92,41.56,34.47,0.41
+20260528,55,58,53,53.5,56000,43.52,22.92,41.56,34.47,0.01
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4126 太醫
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:37 Asia/Taipei
+- generated_at: 2026-05-28 20:19:24 Asia/Taipei
 - stock_id: 4126
 - stock_name: 太醫
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 79.3
 - low: 78.7
 - close: 79.1
-- volume: 21959
+- volume: 79000
 - ma5: 79.04
 - ema23_primary: 79.54
 - distance_to_ema23_pct: -0.56
@@ -69,7 +69,7 @@
 - ma120: 82.02
 - return_5d: -0.88
 - return_20d: 0.13
-- volume_ratio: 0.55
+- volume_ratio: 1.85
 - distance_to_ma20_pct_auxiliary: -0.58
 - distance_to_high_60_pct: -4.7
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,79.3,79.5,78.7,78.8,79000,79.68,-1.11,79.5,80.2,2.04
 20260526,79,79.3,78.9,79,79000,79.63,-0.79,79.53,80.18,2.12
 20260527,79,79.3,78.8,79.1,79000,79.58,-0.61,79.56,80.15,2
-20260528,79.1,79.3,78.7,79.1,21959,79.54,-0.56,79.56,80.12,0.55
+20260528,79.1,79.3,78.7,79.1,79000,79.54,-0.56,79.56,80.12,1.85
 ```
 
 ## Latest TDCC Snapshot

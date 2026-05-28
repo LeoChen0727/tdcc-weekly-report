@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5523 豐謙
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:01 Asia/Taipei
+- generated_at: 2026-05-28 20:19:48 Asia/Taipei
 - stock_id: 5523
 - stock_name: 豐謙
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 30.5
 - low: 30.25
 - close: 30.45
-- volume: 46794
+- volume: 30000
 - ma5: 30.44
 - ema23_primary: 30.33
 - distance_to_ema23_pct: 0.41
@@ -69,7 +69,7 @@
 - ma120: 30.22
 - return_5d: 0.83
 - return_20d: 0.33
-- volume_ratio: 0.42
+- volume_ratio: 0.27
 - distance_to_ma20_pct_auxiliary: 0.38
 - distance_to_high_60_pct: -7.87
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,30.2,30.5,30.15,30.45,30000,30.29,0.53,30.32,30.19,0.27
 20260526,30.2,30.45,30.15,30.45,30000,30.3,0.49,30.33,30.19,0.27
 20260527,30.2,30.45,30.15,30.45,30000,30.32,0.44,30.33,30.19,0.27
-20260528,30.35,30.5,30.25,30.45,46794,30.33,0.41,30.34,30.19,0.42
+20260528,30.35,30.5,30.25,30.45,30000,30.33,0.41,30.34,30.19,0.27
 ```
 
 ## Latest TDCC Snapshot

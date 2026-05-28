@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6730 常廣
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:29 Asia/Taipei
+- generated_at: 2026-05-28 20:20:16 Asia/Taipei
 - stock_id: 6730
 - stock_name: 常廣
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 35.55
 - low: 34
 - close: 35.5
-- volume: 195517
+- volume: 35000
 - ma5: 36.43
 - ema23_primary: 37.31
 - distance_to_ema23_pct: -4.85
@@ -69,7 +69,7 @@
 - ma120: 36.95
 - return_5d: -6.08
 - return_20d: -8.74
-- volume_ratio: 4.24
+- volume_ratio: 0.92
 - distance_to_ma20_pct_auxiliary: -5.37
 - distance_to_high_60_pct: -9.44
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,37,37,36.7,36.75,37000,37.74,-2.62,37.96,37.33,0.97
 20260526,36.5,36.95,35.95,36.2,36000,37.61,-3.75,37.84,37.31,0.91
 20260527,36,36,35.6,36,36000,37.48,-3.94,37.69,37.3,0.92
-20260528,35.5,35.55,34,35.5,195517,37.31,-4.85,37.52,37.27,4.24
+20260528,35.5,35.55,34,35.5,35000,37.31,-4.85,37.52,37.27,0.92
 ```
 
 ## Latest TDCC Snapshot

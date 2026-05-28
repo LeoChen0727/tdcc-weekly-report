@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4198 欣大健康
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:40 Asia/Taipei
+- generated_at: 2026-05-28 20:19:26 Asia/Taipei
 - stock_id: 4198
 - stock_name: 欣大健康
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 38.9
 - low: 37
 - close: 37
-- volume: 12001
+- volume: 37000
 - ma5: 39.05
 - ema23_primary: 38.59
 - distance_to_ema23_pct: -4.12
@@ -69,7 +69,7 @@
 - ma120: 36.85
 - return_5d: -3.39
 - return_20d: -5.13
-- volume_ratio: 0.93
+- volume_ratio: 2.61
 - distance_to_ma20_pct_auxiliary: -3.75
 - distance_to_high_60_pct: -11.27
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,37.7,39.6,37.7,39.6,38000,38.52,2.8,38.39,38.73,4.2
 20260526,39.9,39.9,39.9,39.9,39000,38.64,3.27,38.47,38.8,3.56
 20260527,39.6,39.8,39.6,39.8,40000,38.73,2.75,38.54,38.84,3.12
-20260528,37.1,38.9,37,37,12001,38.59,-4.12,38.44,38.83,0.93
+20260528,37.1,38.9,37,37,37000,38.59,-4.12,38.44,38.83,2.61
 ```
 
 ## Latest TDCC Snapshot

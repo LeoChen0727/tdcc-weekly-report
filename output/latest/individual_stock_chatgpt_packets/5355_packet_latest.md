@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5355 佳總
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:57 Asia/Taipei
+- generated_at: 2026-05-28 20:19:44 Asia/Taipei
 - stock_id: 5355
 - stock_name: 佳總
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 6.46
 - low: 6
 - close: 6.42
-- volume: 181082
+- volume: 6000
 - ma5: 6.44
 - ema23_primary: 6.59
 - distance_to_ema23_pct: -2.55
@@ -69,7 +69,7 @@
 - ma120: 6.81
 - return_5d: -0.47
 - return_20d: -5.45
-- volume_ratio: 2.64
+- volume_ratio: 0.1
 - distance_to_ma20_pct_auxiliary: -3.31
 - distance_to_high_60_pct: -21.13
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,6.45,6.45,6.26,6.45,6000,6.62,-2.56,6.68,6.88,0.09
 20260526,6.32,6.66,6.31,6.55,6000,6.61,-0.96,6.68,6.86,0.09
 20260527,6.55,6.55,6.21,6.49,6000,6.6,-1.72,6.66,6.84,0.1
-20260528,6.3,6.46,6,6.42,181082,6.59,-2.55,6.64,6.82,2.64
+20260528,6.3,6.46,6,6.42,6000,6.59,-2.55,6.64,6.82,0.1
 ```
 
 ## Latest TDCC Snapshot

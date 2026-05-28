@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6233 旺玖
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:13 Asia/Taipei
+- generated_at: 2026-05-28 20:20:00 Asia/Taipei
 - stock_id: 6233
 - stock_name: 旺玖
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 26
 - low: 25
 - close: 25
-- volume: 369013
+- volume: 25000
 - ma5: 25.93
 - ema23_primary: 26.2
 - distance_to_ema23_pct: -4.57
@@ -69,7 +69,7 @@
 - ma120: 24.87
 - return_5d: -4.03
 - return_20d: -10.23
-- volume_ratio: 0.66
+- volume_ratio: 0.05
 - distance_to_ma20_pct_auxiliary: -5.19
 - distance_to_high_60_pct: -19.35
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,26.8,27,26.35,26.6,27000,26.42,0.7,26.71,26.75,0.04
 20260526,26.95,27.15,25.9,26.1,26000,26.39,-1.1,26.62,26.73,0.04
 20260527,26.2,26.4,25.4,25.4,26000,26.31,-3.45,26.51,26.7,0.05
-20260528,25.5,26,25,25,369013,26.2,-4.57,26.37,26.67,0.66
+20260528,25.5,26,25,25,25000,26.2,-4.57,26.37,26.67,0.05
 ```
 
 ## Latest TDCC Snapshot

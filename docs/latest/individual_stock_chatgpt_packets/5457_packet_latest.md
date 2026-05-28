@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5457 宣德
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:59 Asia/Taipei
+- generated_at: 2026-05-28 20:19:46 Asia/Taipei
 - stock_id: 5457
 - stock_name: 宣德
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 30.2
 - low: 29
 - close: 29.3
-- volume: 698720
+- volume: 30000
 - ma5: 29.85
 - ema23_primary: 32.5
 - distance_to_ema23_pct: -9.86
@@ -69,7 +69,7 @@
 - ma120: 37.23
 - return_5d: 2.81
 - return_20d: -20.16
-- volume_ratio: 0.97
+- volume_ratio: 0.04
 - distance_to_ma20_pct_auxiliary: -10.91
 - distance_to_high_60_pct: -30.24
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,30,30.25,29.2,30.2,30000,33.27,-9.22,33.98,35.16,0.04
 20260526,32.25,33.2,31.1,31.25,32000,33.1,-5.59,33.66,35.07,0.04
 20260527,30.35,30.55,29.25,29.45,30000,32.79,-10.2,33.26,34.95,0.04
-20260528,29.75,30.2,29,29.3,698720,32.5,-9.86,32.89,34.84,0.97
+20260528,29.75,30.2,29,29.3,30000,32.5,-9.86,32.89,34.84,0.04
 ```
 
 ## Latest TDCC Snapshot

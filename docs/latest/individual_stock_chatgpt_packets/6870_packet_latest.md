@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6870 騰雲
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:33 Asia/Taipei
+- generated_at: 2026-05-28 20:20:20 Asia/Taipei
 - stock_id: 6870
 - stock_name: 騰雲
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 263
 - low: 232
 - close: 263
-- volume: 528595
+- volume: 252000
 - ma5: 240.7
 - ema23_primary: 209.05
 - distance_to_ema23_pct: 25.81
@@ -69,7 +69,7 @@
 - ma120: 201.45
 - return_5d: 17.41
 - return_20d: 46.93
-- volume_ratio: 3.22
+- volume_ratio: 1.68
 - distance_to_ma20_pct_auxiliary: 29.65
 - distance_to_high_60_pct: 0
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,235.5,237,222.5,233,230000,198.02,17.67,192.43,190.09,1.73
 20260526,234,239,225,233,229000,200.93,15.96,195.45,190.82,1.73
 20260527,233,239.5,227.5,239.5,234000,204.15,17.32,198.65,191.57,1.66
-20260528,245,263,232,263,528595,209.05,25.81,202.85,192.83,3.22
+20260528,245,263,232,263,252000,209.05,25.81,202.85,192.83,1.68
 ```
 
 ## Latest TDCC Snapshot

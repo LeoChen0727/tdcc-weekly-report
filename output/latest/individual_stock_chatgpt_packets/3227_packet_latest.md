@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3227 原相
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:20 Asia/Taipei
+- generated_at: 2026-05-28 20:19:06 Asia/Taipei
 - stock_id: 3227
 - stock_name: 原相
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 240.5
 - low: 223
 - close: 225.5
-- volume: 4785313
+- volume: 232000
 - ma5: 230.7
 - ema23_primary: 221.15
 - distance_to_ema23_pct: 1.97
@@ -69,7 +69,7 @@
 - ma120: 204.33
 - return_5d: -1.53
 - return_20d: 9.2
-- volume_ratio: 2.22
+- volume_ratio: 0.12
 - distance_to_ma20_pct_auxiliary: 1
 - distance_to_high_60_pct: -6.24
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,235.5,236,231.5,232.5,234000,218.79,6.26,219.93,202.89,0.11
 20260526,235.5,237,230.5,236,234000,220.23,7.16,221.45,203.39,0.12
 20260527,238,238.5,224,226.5,231000,220.75,2.6,222.32,203.73,0.12
-20260528,230,240.5,223,225.5,4785313,221.15,1.97,223.28,204.11,2.22
+20260528,230,240.5,223,225.5,232000,221.15,1.97,223.28,204.11,0.12
 ```
 
 ## Latest TDCC Snapshot
@@ -133,7 +133,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3227 | 原相 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 3227 | 原相 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

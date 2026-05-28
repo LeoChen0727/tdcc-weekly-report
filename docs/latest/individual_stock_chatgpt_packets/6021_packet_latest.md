@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6021 美好證
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:04 Asia/Taipei
+- generated_at: 2026-05-28 20:19:51 Asia/Taipei
 - stock_id: 6021
 - stock_name: 美好證
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 35.85
 - low: 34.25
 - close: 35.35
-- volume: 761100
+- volume: 35000
 - ma5: 33.39
 - ema23_primary: 32.62
 - distance_to_ema23_pct: 8.38
@@ -69,7 +69,7 @@
 - ma120: 29.8
 - return_5d: 10.47
 - return_20d: 6.96
-- volume_ratio: 2.49
+- volume_ratio: 0.13
 - distance_to_ma20_pct_auxiliary: 6.69
 - distance_to_high_60_pct: -3.15
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,32.5,32.9,32.05,32.2,32000,32.13,0.22,32.94,31.65,0.1
 20260526,32.45,32.5,31.8,32.25,32000,32.14,0.34,32.92,31.63,0.1
 20260527,32.6,34.95,32.4,34.9,34000,32.37,7.82,33.02,31.62,0.12
-20260528,35.4,35.85,34.25,35.35,761100,32.62,8.38,33.13,31.64,2.49
+20260528,35.4,35.85,34.25,35.35,35000,32.62,8.38,33.13,31.64,0.13
 ```
 
 ## Latest TDCC Snapshot

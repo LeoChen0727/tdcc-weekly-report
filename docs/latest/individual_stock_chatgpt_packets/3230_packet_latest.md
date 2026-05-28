@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3230 錦明
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:20 Asia/Taipei
+- generated_at: 2026-05-28 20:19:07 Asia/Taipei
 - stock_id: 3230
 - stock_name: 錦明
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 31.85
 - low: 30.2
 - close: 30.4
-- volume: 626542
+- volume: 31000
 - ma5: 31.43
 - ema23_primary: 33.41
 - distance_to_ema23_pct: -9.01
@@ -69,7 +69,7 @@
 - ma120: 37.42
 - return_5d: -6.32
 - return_20d: -13.64
-- volume_ratio: 1.37
+- volume_ratio: 0.07
 - distance_to_ma20_pct_auxiliary: -7.59
 - distance_to_high_60_pct: -35.66
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,32.45,33.3,31.85,32.5,33000,34.21,-4.99,33.67,38.24,0.07
 20260526,32.85,32.95,30.9,31.45,32000,33.98,-7.44,33.42,38.09,0.07
 20260527,31.35,31.55,29.95,30.45,30000,33.68,-9.6,33.14,37.88,0.07
-20260528,30.9,31.85,30.2,30.4,626542,33.41,-9.01,32.9,37.63,1.37
+20260528,30.9,31.85,30.2,30.4,31000,33.41,-9.01,32.9,37.63,0.07
 ```
 
 ## Latest TDCC Snapshot

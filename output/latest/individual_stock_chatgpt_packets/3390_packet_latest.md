@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3390 旭軟
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:25 Asia/Taipei
+- generated_at: 2026-05-28 20:19:11 Asia/Taipei
 - stock_id: 3390
 - stock_name: 旭軟
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 30.05
 - low: 28.05
 - close: 28.5
-- volume: 2271046
+- volume: 29000
 - ma5: 28.82
 - ema23_primary: 27.25
 - distance_to_ema23_pct: 4.59
@@ -69,7 +69,7 @@
 - ma120: 24
 - return_5d: 0.53
 - return_20d: 10.89
-- volume_ratio: 1.22
+- volume_ratio: 0.02
 - distance_to_ma20_pct_auxiliary: 3.99
 - distance_to_high_60_pct: -7.77
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,29,29.3,28.15,28.4,29000,26.72,6.27,27.02,24.43,0.01
 20260526,28.25,28.8,27.7,28.75,28000,26.89,6.9,27.06,24.5,0.01
 20260527,28.9,30.9,28.6,29.8,30000,27.14,9.82,27.27,24.58,0.02
-20260528,29.8,30.05,28.05,28.5,2271046,27.25,4.59,27.41,24.64,1.22
+20260528,29.8,30.05,28.05,28.5,29000,27.25,4.59,27.41,24.64,0.02
 ```
 
 ## Latest TDCC Snapshot
@@ -125,8 +125,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3390 | 旭軟 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260528 | 3390 | 旭軟 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260521 | 3390 | 旭軟 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

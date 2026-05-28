@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8096 擎亞
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:46 Asia/Taipei
+- generated_at: 2026-05-28 20:20:33 Asia/Taipei
 - stock_id: 8096
 - stock_name: 擎亞
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 129
 - low: 120
 - close: 121
-- volume: 14092125
+- volume: 124000
 - ma5: 120.9
 - ema23_primary: 105.8
 - distance_to_ema23_pct: 14.37
@@ -69,7 +69,7 @@
 - ma120: 73.81
 - return_5d: 12.04
 - return_20d: 31.24
-- volume_ratio: 0.91
+- volume_ratio: 0.01
 - distance_to_ma20_pct_auxiliary: 16.32
 - distance_to_high_60_pct: -6.2
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,121,126.5,117.5,124.5,122000,101.4,22.78,99.7,89.53,0.01
 20260526,124.5,125,117,119.5,120000,102.91,16.12,101.09,90.28,0.01
 20260527,123,125,117.5,121,120000,104.42,15.88,102.58,91.1,0.01
-20260528,121.5,129,120,121,14092125,105.8,14.37,104.03,91.94,0.91
+20260528,121.5,129,120,121,124000,105.8,14.37,104.03,91.94,0.01
 ```
 
 ## Latest TDCC Snapshot

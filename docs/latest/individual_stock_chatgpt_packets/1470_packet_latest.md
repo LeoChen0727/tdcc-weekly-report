@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1470 大統新創
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:33 Asia/Taipei
+- generated_at: 2026-05-28 20:18:18 Asia/Taipei
 - stock_id: 1470
 - stock_name: 大統新創
 - packet_status: standard_rawdata_packet

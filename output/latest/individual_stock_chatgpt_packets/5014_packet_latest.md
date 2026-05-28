@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5014 建錩
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:53 Asia/Taipei
+- generated_at: 2026-05-28 20:19:40 Asia/Taipei
 - stock_id: 5014
 - stock_name: 建錩
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 11.05
 - low: 10.9
 - close: 10.9
-- volume: 372032
+- volume: 11000
 - ma5: 10.91
 - ema23_primary: 10.38
 - distance_to_ema23_pct: 5
@@ -69,7 +69,7 @@
 - ma120: 10.53
 - return_5d: 6.34
 - return_20d: 10.77
-- volume_ratio: 1.13
+- volume_ratio: 0.04
 - distance_to_ma20_pct_auxiliary: 6.88
 - distance_to_high_60_pct: -4.8
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,10.5,11.45,10.5,11.3,11000,10.22,10.6,10.04,10.32,0.03
 20260526,11.3,11.35,10.85,10.95,11000,10.28,6.54,10.09,10.32,0.03
 20260527,11.05,11.1,10.9,10.95,11000,10.33,5.96,10.15,10.32,0.03
-20260528,11.05,11.05,10.9,10.9,372032,10.38,5,10.2,10.31,1.13
+20260528,11.05,11.05,10.9,10.9,11000,10.38,5,10.2,10.31,0.04
 ```
 
 ## Latest TDCC Snapshot

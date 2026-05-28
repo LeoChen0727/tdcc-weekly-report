@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9949 琉園
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:58 Asia/Taipei
+- generated_at: 2026-05-28 20:20:45 Asia/Taipei
 - stock_id: 9949
 - stock_name: 琉園
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 22.85
 - low: 22.55
 - close: 22.6
-- volume: 39622
+- volume: 23000
 - ma5: 22.89
 - ema23_primary: 24.94
 - distance_to_ema23_pct: -9.38
@@ -69,7 +69,7 @@
 - ma120: 27.28
 - return_5d: -4.03
 - return_20d: -9.6
-- volume_ratio: 1.11
+- volume_ratio: 0.66
 - distance_to_ma20_pct_auxiliary: -5.3
 - distance_to_high_60_pct: -39.73
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,23.5,23.5,22.45,22.85,23000,25.6,-10.75,24.54,28.54,0.36
 20260526,22.5,22.8,22.4,22.8,23000,25.37,-10.13,24.19,28.46,0.37
 20260527,22.75,22.75,22.4,22.75,23000,25.15,-9.55,23.98,28.36,0.39
-20260528,22.75,22.85,22.55,22.6,39622,24.94,-9.38,23.86,28.27,1.11
+20260528,22.75,22.85,22.55,22.6,23000,24.94,-9.38,23.86,28.27,0.66
 ```
 
 ## Latest TDCC Snapshot

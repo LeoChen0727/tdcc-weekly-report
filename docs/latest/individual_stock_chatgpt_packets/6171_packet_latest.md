@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6171 大城地產
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:09 Asia/Taipei
+- generated_at: 2026-05-28 20:19:56 Asia/Taipei
 - stock_id: 6171
 - stock_name: 大城地產
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 23.65
 - low: 23.3
 - close: 23.4
-- volume: 124795
+- volume: 24000
 - ma5: 23.52
 - ema23_primary: 24.37
 - distance_to_ema23_pct: -3.99
@@ -69,7 +69,7 @@
 - ma120: 27.02
 - return_5d: -2.3
 - return_20d: -8.24
-- volume_ratio: 3.81
+- volume_ratio: 0.86
 - distance_to_ma20_pct_auxiliary: -3.44
 - distance_to_high_60_pct: -17.46
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,24.35,24.35,23.1,23.35,24000,24.66,-5.31,24.56,26.21,0.81
 20260526,23.9,23.9,23.35,23.5,23000,24.56,-4.32,24.45,26.14,0.77
 20260527,23.65,23.65,23.2,23.35,23000,24.46,-4.54,24.34,26.06,0.77
-20260528,23.65,23.65,23.3,23.4,124795,24.37,-3.99,24.23,25.99,3.81
+20260528,23.65,23.65,23.3,23.4,24000,24.37,-3.99,24.23,25.99,0.86
 ```
 
 ## Latest TDCC Snapshot

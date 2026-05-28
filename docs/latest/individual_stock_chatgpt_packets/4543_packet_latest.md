@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4543 萬在
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:43 Asia/Taipei
+- generated_at: 2026-05-28 20:19:30 Asia/Taipei
 - stock_id: 4543
 - stock_name: 萬在
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 40.4
 - low: 38.3
 - close: 38.7
-- volume: 651338
+- volume: 39000
 - ma5: 38.82
 - ema23_primary: 38.23
 - distance_to_ema23_pct: 1.22
@@ -69,7 +69,7 @@
 - ma120: 32.53
 - return_5d: -1.65
 - return_20d: 2.11
-- volume_ratio: 1.19
+- volume_ratio: 0.08
 - distance_to_ma20_pct_auxiliary: -0.64
 - distance_to_high_60_pct: -12.05
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,39.3,40.15,38.6,39.1,39000,38.1,2.63,38.84,34.98,0.07
 20260526,39.6,39.6,38.5,39.2,39000,38.19,2.65,38.89,35.11,0.07
 20260527,39.8,39.8,38.1,38.2,39000,38.19,0.03,38.91,35.23,0.07
-20260528,38.9,40.4,38.3,38.7,651338,38.23,1.22,38.95,35.36,1.19
+20260528,38.9,40.4,38.3,38.7,39000,38.23,1.22,38.95,35.36,0.08
 ```
 
 ## Latest TDCC Snapshot

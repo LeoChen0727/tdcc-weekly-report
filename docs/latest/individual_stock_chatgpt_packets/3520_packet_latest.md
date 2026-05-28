@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3520 華盈
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:28 Asia/Taipei
+- generated_at: 2026-05-28 20:19:14 Asia/Taipei
 - stock_id: 3520
 - stock_name: 華盈
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 15
 - low: 14.35
 - close: 14.5
-- volume: 373364
+- volume: 15000
 - ma5: 14.8
 - ema23_primary: 14.91
 - distance_to_ema23_pct: -2.77
@@ -69,7 +69,7 @@
 - ma120: 15.48
 - return_5d: -3.97
 - return_20d: -3.33
-- volume_ratio: 1.47
+- volume_ratio: 0.06
 - distance_to_ma20_pct_auxiliary: -3.62
 - distance_to_high_60_pct: -9.94
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,15.15,15.25,14.9,15.1,15000,15.01,0.6,15.08,14.69,0.06
 20260526,15.1,15.1,14.8,14.95,15000,15,-0.36,15.09,14.7,0.06
 20260527,15,15,14.3,14.35,15000,14.95,-4.01,15.07,14.68,0.06
-20260528,14.35,15,14.35,14.5,373364,14.91,-2.77,15.04,14.67,1.47
+20260528,14.35,15,14.35,14.5,15000,14.91,-2.77,15.04,14.67,0.06
 ```
 
 ## Latest TDCC Snapshot

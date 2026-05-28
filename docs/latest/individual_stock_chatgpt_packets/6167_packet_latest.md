@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6167 久正
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:09 Asia/Taipei
+- generated_at: 2026-05-28 20:19:56 Asia/Taipei
 - stock_id: 6167
 - stock_name: 久正
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 12.1
 - low: 11.5
 - close: 11.5
-- volume: 968234
+- volume: 12000
 - ma5: 12.07
 - ema23_primary: 12.1
 - distance_to_ema23_pct: -4.96
@@ -69,7 +69,7 @@
 - ma120: 12.44
 - return_5d: 0.88
 - return_20d: -6.88
-- volume_ratio: 2.12
+- volume_ratio: 0.03
 - distance_to_ma20_pct_auxiliary: -3.24
 - distance_to_high_60_pct: -34.29
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,12.65,12.95,12.65,12.95,13000,12.18,6.35,11.95,12.98,0.03
 20260526,13,13.1,12.05,12.2,12000,12.18,0.18,11.95,12.97,0.03
 20260527,12.25,12.25,11.9,11.9,12000,12.16,-2.1,11.93,12.96,0.03
-20260528,11.9,12.1,11.5,11.5,968234,12.1,-4.96,11.88,12.94,2.12
+20260528,11.9,12.1,11.5,11.5,12000,12.1,-4.96,11.88,12.94,0.03
 ```
 
 ## Latest TDCC Snapshot

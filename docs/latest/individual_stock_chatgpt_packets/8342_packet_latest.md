@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8342 益張
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:49 Asia/Taipei
+- generated_at: 2026-05-28 20:20:37 Asia/Taipei
 - stock_id: 8342
 - stock_name: 益張
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 91.2
 - low: 91.1
 - close: 91.2
-- volume: 4005
+- volume: 91000
 - ma5: 91.08
 - ema23_primary: 90.22
 - distance_to_ema23_pct: 1.08
@@ -69,7 +69,7 @@
 - ma120: 86.49
 - return_5d: -0.87
 - return_20d: -2.04
-- volume_ratio: 0.23
+- volume_ratio: 4.15
 - distance_to_ma20_pct_auxiliary: 0.77
 - distance_to_high_60_pct: -4
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,91.8,92,91.8,92,92000,89.98,2.25,90.86,87.56,8.44
 20260525,90.4,90.4,90.4,90.4,90000,90.01,0.43,90.67,87.65,6.59
 20260526,91.4,91.5,91.4,91.5,91000,90.14,1.51,90.6,87.75,5.13
-20260528,91.1,91.2,91.1,91.2,4005,90.22,1.08,90.5,87.86,0.23
+20260528,91.1,91.2,91.1,91.2,91000,90.22,1.08,90.5,87.86,4.15
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5344 立衛
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:57 Asia/Taipei
+- generated_at: 2026-05-28 20:19:44 Asia/Taipei
 - stock_id: 5344
 - stock_name: 立衛
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 15.7
 - low: 15.25
 - close: 15.3
-- volume: 108174
+- volume: 15000
 - ma5: 15.78
 - ema23_primary: 15.92
 - distance_to_ema23_pct: -3.87
@@ -69,7 +69,7 @@
 - ma120: 15
 - return_5d: -6.42
 - return_20d: -10.26
-- volume_ratio: 0.96
+- volume_ratio: 0.14
 - distance_to_ma20_pct_auxiliary: -5.12
 - distance_to_high_60_pct: -19.47
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,16.25,16.3,16.1,16.1,16000,16.03,0.43,16.38,15.07,0.11
 20260526,16.15,16.15,15.6,15.6,16000,16,-2.47,16.28,15.09,0.13
 20260527,15.6,15.95,15.55,15.7,16000,15.97,-1.7,16.21,15.1,0.14
-20260528,15.7,15.7,15.25,15.3,108174,15.92,-3.87,16.12,15.12,0.96
+20260528,15.7,15.7,15.25,15.3,15000,15.92,-3.87,16.12,15.12,0.14
 ```
 
 ## Latest TDCC Snapshot

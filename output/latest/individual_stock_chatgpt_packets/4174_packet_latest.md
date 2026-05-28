@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4174 浩鼎
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:39 Asia/Taipei
+- generated_at: 2026-05-28 20:19:26 Asia/Taipei
 - stock_id: 4174
 - stock_name: 浩鼎
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 28.85
 - low: 28.05
 - close: 28.2
-- volume: 557651
+- volume: 28000
 - ma5: 29.66
 - ema23_primary: 32.23
 - distance_to_ema23_pct: -12.5
@@ -69,7 +69,7 @@
 - ma120: 33.38
 - return_5d: -12.96
 - return_20d: -11.32
-- volume_ratio: 1.32
+- volume_ratio: 0.07
 - distance_to_ma20_pct_auxiliary: -12.54
 - distance_to_high_60_pct: -31.14
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,31.95,31.95,30.35,30.35,31000,33.27,-8.79,32.72,36.42,0.06
 20260526,30.45,30.7,29.3,29.45,30000,32.96,-10.64,32.59,36.21,0.07
 20260527,29.3,29.45,28.6,28.65,29000,32.6,-12.11,32.42,35.99,0.07
-20260528,28.7,28.85,28.05,28.2,557651,32.23,-12.5,32.24,35.79,1.32
+20260528,28.7,28.85,28.05,28.2,28000,32.23,-12.5,32.24,35.79,0.07
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6508 惠光
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:20 Asia/Taipei
+- generated_at: 2026-05-28 20:20:07 Asia/Taipei
 - stock_id: 6508
 - stock_name: 惠光
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 23.45
 - low: 23
 - close: 23.25
-- volume: 96852
+- volume: 23000
 - ma5: 23.63
 - ema23_primary: 24.33
 - distance_to_ema23_pct: -4.46
@@ -69,7 +69,7 @@
 - ma120: 24.92
 - return_5d: -1.9
 - return_20d: -9.88
-- volume_ratio: 1.63
+- volume_ratio: 0.41
 - distance_to_ma20_pct_auxiliary: -3.92
 - distance_to_high_60_pct: -23.27
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,23.85,23.9,23.5,23.9,24000,24.62,-2.93,24.52,26.13,0.38
 20260526,23.9,23.9,23.5,23.5,24000,24.53,-4.19,24.43,26.13,0.41
 20260527,23.5,23.5,23.15,23.4,23000,24.43,-4.23,24.32,26.12,0.41
-20260528,23.45,23.45,23,23.25,96852,24.33,-4.46,24.2,26.12,1.63
+20260528,23.45,23.45,23,23.25,23000,24.33,-4.46,24.2,26.12,0.41
 ```
 
 ## Latest TDCC Snapshot

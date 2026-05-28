@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6922 宸曜
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:35 Asia/Taipei
+- generated_at: 2026-05-28 20:20:23 Asia/Taipei
 - stock_id: 6922
 - stock_name: 宸曜
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 203
 - low: 187
 - close: 191
-- volume: 654001
+- volume: 195000
 - ma5: 190
 - ema23_primary: 182.43
 - distance_to_ema23_pct: 4.7
@@ -69,7 +69,7 @@
 - ma120: 168.53
 - return_5d: 4.95
 - return_20d: 13.69
-- volume_ratio: 2.23
+- volume_ratio: 0.72
 - distance_to_ma20_pct_auxiliary: 3.22
 - distance_to_high_60_pct: -5.91
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,189,193.5,189,191,191000,180.04,6.09,181.62,167.79,0.75
 20260526,192,195,189,193.5,192000,181.16,6.81,183.05,168.22,0.74
 20260527,196,196,186,187,190000,181.65,2.95,183.9,168.55,0.72
-20260528,187.5,203,187,191,654001,182.43,4.7,185.05,168.97,2.23
+20260528,187.5,203,187,191,195000,182.43,4.7,185.05,168.97,0.72
 ```
 
 ## Latest TDCC Snapshot

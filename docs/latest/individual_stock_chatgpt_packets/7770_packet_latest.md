@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7770 君曜
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:41 Asia/Taipei
+- generated_at: 2026-05-28 20:20:28 Asia/Taipei
 - stock_id: 7770
 - stock_name: 君曜
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 48.95
 - low: 45
 - close: 45.2
-- volume: 89300
+- volume: 46000
 - ma5: 43.58
 - ema23_primary: 45.33
 - distance_to_ema23_pct: -0.29
@@ -69,7 +69,7 @@
 - ma120: 51.86
 - return_5d: 7.62
 - return_20d: -5.04
-- volume_ratio: 3.8
+- volume_ratio: 2.15
 - distance_to_ma20_pct_auxiliary: -0.35
 - distance_to_high_60_pct: -15.99
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,42.95,43,42.05,42.55,43000,45.6,-6.69,46.01,48.05,2.25
 20260526,42.65,42.65,41.3,41.8,42000,45.29,-7.7,45.59,47.91,2.27
 20260527,41.9,45.95,41.9,45.95,45000,45.34,1.34,45.48,47.84,2.24
-20260528,45,48.95,45,45.2,89300,45.33,-0.29,45.36,47.77,3.8
+20260528,45,48.95,45,45.2,46000,45.33,-0.29,45.36,47.77,2.15
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6684 安格
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:27 Asia/Taipei
+- generated_at: 2026-05-28 20:20:14 Asia/Taipei
 - stock_id: 6684
 - stock_name: 安格
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 46.8
 - low: 44
 - close: 44.25
-- volume: 198214
+- volume: 45000
 - ma5: 46.66
 - ema23_primary: 46.47
 - distance_to_ema23_pct: -4.78
@@ -69,7 +69,7 @@
 - ma120: 48.07
 - return_5d: -4.43
 - return_20d: -7.62
-- volume_ratio: 0.95
+- volume_ratio: 0.22
 - distance_to_ma20_pct_auxiliary: -5.59
 - distance_to_high_60_pct: -19.25
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,47.8,49.35,47.05,48.15,48000,46.7,3.12,47.04,45.88,0.2
 20260526,48.8,49.65,46.9,47.3,48000,46.75,1.19,47.08,45.88,0.21
 20260527,48.35,48.4,45.3,45.85,46000,46.67,-1.76,47.05,45.84,0.21
-20260528,46.8,46.8,44,44.25,198214,46.47,-4.78,46.87,45.77,0.95
+20260528,46.8,46.8,44,44.25,45000,46.47,-4.78,46.87,45.77,0.22
 ```
 
 ## Latest TDCC Snapshot

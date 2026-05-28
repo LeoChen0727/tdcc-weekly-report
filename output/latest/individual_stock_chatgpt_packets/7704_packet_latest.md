@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7704 明遠精密
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:38 Asia/Taipei
+- generated_at: 2026-05-28 20:20:25 Asia/Taipei
 - stock_id: 7704
 - stock_name: 明遠精密
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 62.9
 - low: 59.6
 - close: 60.2
-- volume: 303585
+- volume: 61000
 - ma5: 64.74
 - ema23_primary: 62.79
 - distance_to_ema23_pct: -4.12
@@ -69,7 +69,7 @@
 - ma120: 50.46
 - return_5d: -4.14
 - return_20d: -7.95
-- volume_ratio: 1.18
+- volume_ratio: 0.25
 - distance_to_ma20_pct_auxiliary: -5.15
 - distance_to_high_60_pct: -20.37
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,67,69,67,68.1,68000,62.69,8.63,63.72,54.64,0.25
 20260526,70.9,71.4,67.4,67.7,69000,63.1,7.28,63.95,55,0.26
 20260527,68,68,61.8,62.1,64000,63.02,-1.46,63.73,55.27,0.26
-20260528,61.9,62.9,59.6,60.2,303585,62.79,-4.12,63.47,55.53,1.18
+20260528,61.9,62.9,59.6,60.2,61000,62.79,-4.12,63.47,55.53,0.25
 ```
 
 ## Latest TDCC Snapshot

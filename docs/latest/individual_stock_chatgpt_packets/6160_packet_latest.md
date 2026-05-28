@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6160 欣技
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:08 Asia/Taipei
+- generated_at: 2026-05-28 20:19:55 Asia/Taipei
 - stock_id: 6160
 - stock_name: 欣技
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 16.8
 - low: 16
 - close: 16.15
-- volume: 229980
+- volume: 16000
 - ma5: 16.24
 - ema23_primary: 16.17
 - distance_to_ema23_pct: -0.1
@@ -69,7 +69,7 @@
 - ma120: 16.79
 - return_5d: -0.31
 - return_20d: 1.89
-- volume_ratio: 1.68
+- volume_ratio: 0.13
 - distance_to_ma20_pct_auxiliary: 0.06
 - distance_to_high_60_pct: -8.76
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,16.35,16.65,16.2,16.3,16000,16.16,0.85,16.09,16.13,0.12
 20260526,16.5,16.5,15.95,16.25,16000,16.17,0.5,16.13,16.12,0.12
 20260527,16.45,16.5,16.05,16.15,16000,16.17,-0.11,16.12,16.1,0.12
-20260528,16.25,16.8,16,16.15,229980,16.17,-0.1,16.14,16.09,1.68
+20260528,16.25,16.8,16,16.15,16000,16.17,-0.1,16.14,16.09,0.13
 ```
 
 ## Latest TDCC Snapshot

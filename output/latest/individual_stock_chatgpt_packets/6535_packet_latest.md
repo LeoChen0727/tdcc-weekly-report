@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6535 順藥
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:21 Asia/Taipei
+- generated_at: 2026-05-28 20:20:08 Asia/Taipei
 - stock_id: 6535
 - stock_name: 順藥
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 126
 - low: 121.5
 - close: 121.5
-- volume: 239427
+- volume: 123000
 - ma5: 125
 - ema23_primary: 130.17
 - distance_to_ema23_pct: -6.66
@@ -69,7 +69,7 @@
 - ma120: 162.16
 - return_5d: -5.81
 - return_20d: -12.27
-- volume_ratio: 1.28
+- volume_ratio: 0.68
 - distance_to_ma20_pct_auxiliary: -7.64
 - distance_to_high_60_pct: -28.11
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,126.5,128,125,127,126000,132.18,-3.92,132.55,141.72,0.64
 20260526,127,127.5,124,125,125000,131.59,-5,132.5,140.86,0.65
 20260527,127,129.5,122.5,124,125000,130.95,-5.31,132.4,140.04,0.65
-20260528,124,126,121.5,121.5,239427,130.17,-6.66,131.55,139.25,1.28
+20260528,124,126,121.5,121.5,123000,130.17,-6.66,131.55,139.25,0.68
 ```
 
 ## Latest TDCC Snapshot

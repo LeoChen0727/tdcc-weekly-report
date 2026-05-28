@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5340 建榮
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:57 Asia/Taipei
+- generated_at: 2026-05-28 20:19:44 Asia/Taipei
 - stock_id: 5340
 - stock_name: 建榮
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 105
 - low: 99.9
 - close: 100
-- volume: 3500596
+- volume: 102000
 - ma5: 105.2
 - ema23_primary: 107.36
 - distance_to_ema23_pct: -6.85
@@ -69,7 +69,7 @@
 - ma120: 95.23
 - return_5d: -0.5
 - return_20d: -11.5
-- volume_ratio: 1.43
+- volume_ratio: 0.04
 - distance_to_ma20_pct_auxiliary: -8.01
 - distance_to_high_60_pct: -27.01
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,110,111,106.5,107.5,108000,108.52,-0.94,109.69,111.06,0.05
 20260526,110,114,107,108,110000,108.48,-0.44,109.78,111.06,0.05
 20260527,110,110.5,102.5,103,105000,108.02,-4.65,109.36,110.95,0.05
-20260528,103,105,99.9,100,3500596,107.36,-6.85,108.71,110.7,1.43
+20260528,103,105,99.9,100,102000,107.36,-6.85,108.71,110.7,0.04
 ```
 
 ## Latest TDCC Snapshot

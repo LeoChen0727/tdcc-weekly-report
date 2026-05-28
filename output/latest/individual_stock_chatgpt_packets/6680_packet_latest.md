@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6680 鑫創電子
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:27 Asia/Taipei
+- generated_at: 2026-05-28 20:20:14 Asia/Taipei
 - stock_id: 6680
 - stock_name: 鑫創電子
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 57.9
 - low: 57.9
 - close: 57.9
-- volume: 1332
+- volume: 58000
 - ma5: 57.26
 - ema23_primary: 55.58
 - distance_to_ema23_pct: 4.17
@@ -69,7 +69,7 @@
 - ma120: 61.51
 - return_5d: 8.22
 - return_20d: 9.45
-- volume_ratio: 0.07
+- volume_ratio: 2.76
 - distance_to_ma20_pct_auxiliary: 5.87
 - distance_to_high_60_pct: -16.45
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,56.5,58,56.5,57,57000,54.92,3.79,54.26,57.55,3.99
 20260526,57,57.6,55.6,57.6,57000,55.14,4.45,54.27,57.43,3.37
 20260527,57.9,57.9,57.9,57.9,58000,55.37,4.56,54.44,57.32,3.04
-20260528,57.9,57.9,57.9,57.9,1332,55.58,4.17,54.69,57.21,0.07
+20260528,57.9,57.9,57.9,57.9,58000,55.58,4.17,54.69,57.21,2.76
 ```
 
 ## Latest TDCC Snapshot

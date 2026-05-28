@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4550 長佳
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:43 Asia/Taipei
+- generated_at: 2026-05-28 20:19:30 Asia/Taipei
 - stock_id: 4550
 - stock_name: 長佳
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 25.3
 - low: 24.9
 - close: 24.95
-- volume: 42213
+- volume: 25000
 - ma5: 24.9
 - ema23_primary: 24.72
 - distance_to_ema23_pct: 0.93
@@ -69,7 +69,7 @@
 - ma120: 25.23
 - return_5d: 0.2
 - return_20d: 3.96
-- volume_ratio: 1.42
+- volume_ratio: 0.87
 - distance_to_ma20_pct_auxiliary: 1.28
 - distance_to_high_60_pct: -6.38
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,25,25,24.8,24.85,25000,24.67,0.74,24.52,24.89,0.78
 20260526,24.85,24.85,24.7,24.7,25000,24.67,0.12,24.54,24.86,0.79
 20260527,25.1,25.1,24.8,25,25000,24.7,1.22,24.59,24.83,0.89
-20260528,25.3,25.3,24.9,24.95,42213,24.72,0.93,24.64,24.8,1.42
+20260528,25.3,25.3,24.9,24.95,25000,24.72,0.93,24.64,24.8,0.87
 ```
 
 ## Latest TDCC Snapshot

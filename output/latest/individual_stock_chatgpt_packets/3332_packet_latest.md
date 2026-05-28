@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3332 幸康
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:23 Asia/Taipei
+- generated_at: 2026-05-28 20:19:10 Asia/Taipei
 - stock_id: 3332
 - stock_name: 幸康
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 69.7
 - low: 64.6
 - close: 65.1
-- volume: 115357
+- volume: 67000
 - ma5: 64.12
 - ema23_primary: 63.97
 - distance_to_ema23_pct: 1.77
@@ -69,7 +69,7 @@
 - ma120: 58.99
 - return_5d: 1.09
 - return_20d: 3.17
-- volume_ratio: 2.86
+- volume_ratio: 1.77
 - distance_to_ma20_pct_auxiliary: 0.62
 - distance_to_high_60_pct: -6.6
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,64.1,65.1,64.1,64.9,65000,63.97,1.45,64.64,60.66,2.02
 20260526,65.1,65.1,63.1,63.2,64000,63.91,-1.1,64.58,60.72,1.97
 20260527,63.3,63.6,63.1,63.4,63000,63.86,-0.73,64.6,60.75,1.81
-20260528,64.6,69.7,64.6,65.1,115357,63.97,1.77,64.7,60.82,2.86
+20260528,64.6,69.7,64.6,65.1,67000,63.97,1.77,64.7,60.82,1.77
 ```
 
 ## Latest TDCC Snapshot

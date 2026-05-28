@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6020 大展證
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:04 Asia/Taipei
+- generated_at: 2026-05-28 20:19:51 Asia/Taipei
 - stock_id: 6020
 - stock_name: 大展證
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 24.2
 - low: 23
 - close: 23.35
-- volume: 146869
+- volume: 24000
 - ma5: 22.52
 - ema23_primary: 21.33
 - distance_to_ema23_pct: 9.47
@@ -69,7 +69,7 @@
 - ma120: 19.5
 - return_5d: 9.11
 - return_20d: 21.61
-- volume_ratio: 1.01
+- volume_ratio: 0.17
 - distance_to_ma20_pct_auxiliary: 9.59
 - distance_to_high_60_pct: -6.79
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,21.5,22.4,21.5,22.3,22000,20.82,7.13,20.73,19.77,0.16
 20260526,22.25,22.4,22,22.2,22000,20.93,6.06,20.89,19.82,0.16
 20260527,22.4,24.1,22.4,23.5,24000,21.15,11.13,21.1,19.89,0.17
-20260528,23.8,24.2,23,23.35,146869,21.33,9.47,21.31,19.95,1.01
+20260528,23.8,24.2,23,23.35,24000,21.33,9.47,21.31,19.95,0.17
 ```
 
 ## Latest TDCC Snapshot

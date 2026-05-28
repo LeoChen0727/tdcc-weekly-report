@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8284 三竹
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:49 Asia/Taipei
+- generated_at: 2026-05-28 20:20:36 Asia/Taipei
 - stock_id: 8284
 - stock_name: 三竹
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 63.6
 - low: 63
 - close: 63.1
-- volume: 19002
+- volume: 63000
 - ma5: 63.22
 - ema23_primary: 63.49
 - distance_to_ema23_pct: -0.62
@@ -69,7 +69,7 @@
 - ma120: 63.25
 - return_5d: -0.94
 - return_20d: -0.79
-- volume_ratio: 0.63
+- volume_ratio: 1.94
 - distance_to_ma20_pct_auxiliary: -0.76
 - distance_to_high_60_pct: -2.92
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,63.5,63.5,62.6,63.1,63000,63.59,-0.77,63.68,63.41,2.68
 20260526,63.1,63.5,63,63.3,63000,63.57,-0.42,63.63,63.42,2.38
 20260527,63.6,63.6,63.1,63.1,63000,63.53,-0.68,63.61,63.43,2.14
-20260528,63.1,63.6,63,63.1,19002,63.49,-0.62,63.59,63.44,0.63
+20260528,63.1,63.6,63,63.1,63000,63.49,-0.62,63.59,63.44,1.94
 ```
 
 ## Latest TDCC Snapshot

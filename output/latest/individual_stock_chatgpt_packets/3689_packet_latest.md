@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3689 湧德
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:34 Asia/Taipei
+- generated_at: 2026-05-28 20:19:21 Asia/Taipei
 - stock_id: 3689
 - stock_name: 湧德
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 139.5
 - low: 130.5
 - close: 132
-- volume: 12682716
+- volume: 135000
 - ma5: 127.1
 - ema23_primary: 125.83
 - distance_to_ema23_pct: 4.9
@@ -69,7 +69,7 @@
 - ma120: 116.96
 - return_5d: 9.09
 - return_20d: 0.38
-- volume_ratio: 3.17
+- volume_ratio: 0.04
 - distance_to_ma20_pct_auxiliary: 4.45
 - distance_to_high_60_pct: -9.59
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,125,126.5,123,125,125000,124.83,0.14,126.78,121.3,0.03
 20260526,127,127.5,123.5,124.5,125000,124.8,-0.24,126.42,121.41,0.04
 20260527,126.5,132.5,123.5,130.5,129000,125.27,4.17,126.35,121.61,0.04
-20260528,134,139.5,130.5,132,12682716,125.83,4.9,126.38,121.89,3.17
+20260528,134,139.5,130.5,132,135000,125.83,4.9,126.38,121.89,0.04
 ```
 
 ## Latest TDCC Snapshot
@@ -125,7 +125,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3689 | 湧德 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260521 | 3689 | 湧德 | pattern | 型態觀察 |  |  |  | 預備發動型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

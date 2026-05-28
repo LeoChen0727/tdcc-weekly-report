@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8054 安國
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:44 Asia/Taipei
+- generated_at: 2026-05-28 20:20:31 Asia/Taipei
 - stock_id: 8054
 - stock_name: 安國
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 109.5
 - low: 102
 - close: 103.5
-- volume: 2322531
+- volume: 105000
 - ma5: 110.1
 - ema23_primary: 106.77
 - distance_to_ema23_pct: -3.06
@@ -69,7 +69,7 @@
 - ma120: 117.93
 - return_5d: -5.48
 - return_20d: -3.72
-- volume_ratio: 1.04
+- volume_ratio: 0.05
 - distance_to_ma20_pct_auxiliary: -2.93
 - distance_to_high_60_pct: -20.38
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,112.5,119.5,111,116,115000,106.57,8.85,106.62,104.08,0.05
 20260526,117,117.5,110,112,113000,107.03,4.65,106.92,103.93,0.05
 20260527,113,115,106.5,107.5,110000,107.07,0.41,106.83,103.71,0.05
-20260528,107.5,109.5,102,103.5,2322531,106.77,-3.06,106.62,103.48,1.04
+20260528,107.5,109.5,102,103.5,105000,106.77,-3.06,106.62,103.48,0.05
 ```
 
 ## Latest TDCC Snapshot
@@ -125,7 +125,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 8054 | 安國 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260521 | 8054 | 安國 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

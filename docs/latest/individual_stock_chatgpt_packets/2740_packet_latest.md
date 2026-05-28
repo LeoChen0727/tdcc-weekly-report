@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2740 華軒
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:06 Asia/Taipei
+- generated_at: 2026-05-28 20:18:52 Asia/Taipei
 - stock_id: 2740
 - stock_name: 華軒
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 36.2
 - low: 32.8
 - close: 35.5
-- volume: 11280
+- volume: 34000
 - ma5: 35.78
 - ema23_primary: 37.56
 - distance_to_ema23_pct: -5.48
@@ -69,7 +69,7 @@
 - ma120: 35.54
 - return_5d: -2.61
 - return_20d: -10.01
-- volume_ratio: 0.87
+- volume_ratio: 2.42
 - distance_to_ma20_pct_auxiliary: -6.74
 - distance_to_high_60_pct: -20.67
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,36.95,37.75,35.9,35.9,37000,38.12,-5.83,39.01,39.36,3.78
 20260526,36.8,36.8,35.85,35.85,36000,37.93,-5.49,38.63,39.24,3.14
 20260527,36.45,36.45,33.3,35.7,35000,37.75,-5.42,38.26,39.12,2.68
-20260528,36.2,36.2,32.8,35.5,11280,37.56,-5.48,38.06,39.01,0.87
+20260528,36.2,36.2,32.8,35.5,34000,37.56,-5.48,38.06,39.01,2.42
 ```
 
 ## Latest TDCC Snapshot

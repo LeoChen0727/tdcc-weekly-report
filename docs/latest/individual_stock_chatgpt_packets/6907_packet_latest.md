@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6907 雅特力-KY
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:35 Asia/Taipei
+- generated_at: 2026-05-28 20:20:22 Asia/Taipei
 - stock_id: 6907
 - stock_name: 雅特力-KY
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 123.5
 - low: 115.5
 - close: 117.5
-- volume: 872080
+- volume: 119000
 - ma5: 120.1
 - ema23_primary: 120.3
 - distance_to_ema23_pct: -2.33
@@ -69,7 +69,7 @@
 - ma120: 108.54
 - return_5d: 3.07
 - return_20d: -2.89
-- volume_ratio: 0.71
+- volume_ratio: 0.1
 - distance_to_ma20_pct_auxiliary: -3.21
 - distance_to_high_60_pct: -32.86
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,123.5,126.5,119,123,123000,120.82,1.8,121.65,119.49,0.09
 20260526,124.5,126,119,121.5,121000,120.88,0.51,121.72,120.22,0.09
 20260527,123,125.5,116,117,121000,120.56,-2.95,121.58,120.74,0.1
-20260528,119.5,123.5,115.5,117.5,872080,120.3,-2.33,121.4,121.13,0.71
+20260528,119.5,123.5,115.5,117.5,119000,120.3,-2.33,121.4,121.13,0.1
 ```
 
 ## Latest TDCC Snapshot

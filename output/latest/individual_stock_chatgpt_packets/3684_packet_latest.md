@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3684 榮昌
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:34 Asia/Taipei
+- generated_at: 2026-05-28 20:19:20 Asia/Taipei
 - stock_id: 3684
 - stock_name: 榮昌
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 60
 - low: 57.5
 - close: 58.3
-- volume: 69743
+- volume: 59000
 - ma5: 60.26
 - ema23_primary: 59.58
 - distance_to_ema23_pct: -2.15
@@ -69,7 +69,7 @@
 - ma120: 58.18
 - return_5d: -3.64
 - return_20d: -0.51
-- volume_ratio: 0.74
+- volume_ratio: 0.63
 - distance_to_ma20_pct_auxiliary: -2.14
 - distance_to_high_60_pct: -19.81
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,62.8,63.1,61.5,62.4,62000,59.73,4.46,59.36,60.2,0.65
 20260526,63,63,59,60.1,60000,59.76,0.56,59.49,60.1,0.63
 20260527,60.2,60.2,58.4,59,59000,59.7,-1.17,59.59,59.96,0.61
-20260528,59.3,60,57.5,58.3,69743,59.58,-2.15,59.58,59.77,0.74
+20260528,59.3,60,57.5,58.3,59000,59.58,-2.15,59.58,59.77,0.63
 ```
 
 ## Latest TDCC Snapshot

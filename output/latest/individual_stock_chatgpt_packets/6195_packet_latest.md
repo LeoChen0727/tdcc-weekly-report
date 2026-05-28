@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6195 詩肯
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:10 Asia/Taipei
+- generated_at: 2026-05-28 20:19:58 Asia/Taipei
 - stock_id: 6195
 - stock_name: 詩肯
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 26.5
 - low: 26
 - close: 26.1
-- volume: 30070
+- volume: 26000
 - ma5: 26.11
 - ema23_primary: 25.54
 - distance_to_ema23_pct: 2.2
@@ -69,7 +69,7 @@
 - ma120: 25.22
 - return_5d: -1.14
 - return_20d: 10.36
-- volume_ratio: 0.39
+- volume_ratio: 0.34
 - distance_to_ma20_pct_auxiliary: 2.82
 - distance_to_high_60_pct: -8.1
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,26.5,26.5,25.5,25.75,26000,25.38,1.46,25.07,24.89,0.32
 20260526,25.75,26,25.65,26,26000,25.43,2.24,25.16,24.9,0.32
 20260527,26,26.1,25.85,26.1,26000,25.49,2.4,25.26,24.92,0.32
-20260528,26,26.5,26,26.1,30070,25.54,2.2,25.39,24.93,0.39
+20260528,26,26.5,26,26.1,26000,25.54,2.2,25.39,24.93,0.34
 ```
 
 ## Latest TDCC Snapshot

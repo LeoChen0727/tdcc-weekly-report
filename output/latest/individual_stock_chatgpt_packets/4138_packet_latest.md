@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4138 曜亞
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:38 Asia/Taipei
+- generated_at: 2026-05-28 20:19:24 Asia/Taipei
 - stock_id: 4138
 - stock_name: 曜亞
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 51.3
 - low: 50.6
 - close: 50.7
-- volume: 32276
+- volume: 51000
 - ma5: 51.12
 - ema23_primary: 53.53
 - distance_to_ema23_pct: -5.28
@@ -69,7 +69,7 @@
 - ma120: 59.68
 - return_5d: -2.69
 - return_20d: -9.46
-- volume_ratio: 0.53
+- volume_ratio: 0.82
 - distance_to_ma20_pct_auxiliary: -3.89
 - distance_to_high_60_pct: -22.95
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,51.5,51.6,50,51.6,51000,54.36,-5.08,53.54,58.74,0.78
 20260526,50.7,51.7,50.3,50.6,51000,54.05,-6.38,53.28,58.6,0.86
 20260527,50.6,51.2,50.6,50.9,51000,53.78,-5.36,53.02,58.48,0.85
-20260528,51.3,51.3,50.6,50.7,32276,53.53,-5.28,52.75,58.34,0.53
+20260528,51.3,51.3,50.6,50.7,51000,53.53,-5.28,52.75,58.34,0.82
 ```
 
 ## Latest TDCC Snapshot

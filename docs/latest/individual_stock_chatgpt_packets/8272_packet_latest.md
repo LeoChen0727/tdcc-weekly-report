@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8272 全景軟體
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:49 Asia/Taipei
+- generated_at: 2026-05-28 20:20:36 Asia/Taipei
 - stock_id: 8272
 - stock_name: 全景軟體
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 71.5
 - low: 69.6
 - close: 69.6
-- volume: 8550
+- volume: 70000
 - ma5: 70.2
 - ema23_primary: 71.53
 - distance_to_ema23_pct: -2.7
@@ -69,7 +69,7 @@
 - ma120: 76.18
 - return_5d: -0.85
 - return_20d: -0.29
-- volume_ratio: 0.26
+- volume_ratio: 1.94
 - distance_to_ma20_pct_auxiliary: -3.11
 - distance_to_high_60_pct: -12.78
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,70.3,71.9,70.2,70.3,71000,71.95,-2.29,71.83,73.07,2.47
 20260526,71.8,71.8,70.1,70.2,70000,71.8,-2.23,71.84,72.95,2.23
 20260527,70.3,71.9,70,70.6,70000,71.7,-1.54,71.84,72.81,2.05
-20260528,71.5,71.5,69.6,69.6,8550,71.53,-2.7,71.83,72.68,0.26
+20260528,71.5,71.5,69.6,69.6,70000,71.53,-2.7,71.83,72.68,1.94
 ```
 
 ## Latest TDCC Snapshot

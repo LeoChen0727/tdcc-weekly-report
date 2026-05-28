@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5016 松和
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:53 Asia/Taipei
+- generated_at: 2026-05-28 20:19:40 Asia/Taipei
 - stock_id: 5016
 - stock_name: 松和
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 26.1
 - low: 25.4
 - close: 25.65
-- volume: 89000
+- volume: 26000
 - ma5: 26.21
 - ema23_primary: 26.02
 - distance_to_ema23_pct: -1.42
@@ -69,7 +69,7 @@
 - ma120: 25.85
 - return_5d: 3.01
 - return_20d: -2.47
-- volume_ratio: 1.65
+- volume_ratio: 0.51
 - distance_to_ma20_pct_auxiliary: 0.37
 - distance_to_high_60_pct: -25.44
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,25.4,27.35,25,27.35,26000,25.98,5.29,25.53,26.59,0.37
 20260526,28.15,28.95,26.65,26.85,28000,26.05,3.08,25.59,26.62,0.46
 20260527,26.85,26.85,25.8,26.1,26000,26.05,0.18,25.59,26.64,0.47
-20260528,25.85,26.1,25.4,25.65,89000,26.02,-1.42,25.55,26.65,1.65
+20260528,25.85,26.1,25.4,25.65,26000,26.02,-1.42,25.55,26.65,0.51
 ```
 
 ## Latest TDCC Snapshot

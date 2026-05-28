@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6240 松崗
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:14 Asia/Taipei
+- generated_at: 2026-05-28 20:20:01 Asia/Taipei
 - stock_id: 6240
 - stock_name: 松崗
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 18.35
 - low: 17.75
 - close: 17.85
-- volume: 34000
+- volume: 18000
 - ma5: 17.79
 - ema23_primary: 18.12
 - distance_to_ema23_pct: -1.47
@@ -69,7 +69,7 @@
 - ma120: 18.67
 - return_5d: 0.28
 - return_20d: -6.54
-- volume_ratio: 1.81
+- volume_ratio: 1
 - distance_to_ma20_pct_auxiliary: -1.61
 - distance_to_high_60_pct: -13.56
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,17.6,18,16.9,17.55,18000,18.17,-3.43,18.3,18.45,1.08
 20260526,17.45,18,17.4,17.75,18000,18.14,-2.14,18.24,18.44,1.08
 20260527,18.2,18.95,17.9,18.15,18000,18.14,0.06,18.2,18.43,1.04
-20260528,18.15,18.35,17.75,17.85,34000,18.12,-1.47,18.14,18.42,1.81
+20260528,18.15,18.35,17.75,17.85,18000,18.12,-1.47,18.14,18.42,1
 ```
 
 ## Latest TDCC Snapshot

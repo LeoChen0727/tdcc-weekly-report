@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5274 信驊
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:55 Asia/Taipei
+- generated_at: 2026-05-28 20:19:42 Asia/Taipei
 - stock_id: 5274
 - stock_name: 信驊
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 19000
 - low: 17500
 - close: 17835
-- volume: 266268
+- volume: 18137000
 - ma5: 17762
 - ema23_primary: 16744.22
 - distance_to_ema23_pct: 6.51
@@ -69,7 +69,7 @@
 - ma120: 10914.42
 - return_5d: 8.49
 - return_20d: 7.73
-- volume_ratio: 0.07
+- volume_ratio: 3.87
 - distance_to_ma20_pct_auxiliary: 2.83
 - distance_to_high_60_pct: -7.09
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,17990,18380,17665,17725,17990000,16433.79,7.86,17112,13534.67,8.79
 20260526,17905,18060,17190,17240,17527000,16500.98,4.48,17174,13660.08,6.04
 20260527,18065,18450,17510,18230,18143000,16645.06,9.52,17280.75,13801.75,4.78
-20260528,17825,19000,17500,17835,266268,16744.22,6.51,17344.75,13940.67,0.07
+20260528,17825,19000,17500,17835,18137000,16744.22,6.51,17344.75,13940.67,3.87
 ```
 
 ## Latest TDCC Snapshot

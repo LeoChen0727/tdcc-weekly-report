@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4171 瑞基
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:39 Asia/Taipei
+- generated_at: 2026-05-28 20:19:26 Asia/Taipei
 - stock_id: 4171
 - stock_name: 瑞基
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 17.95
 - low: 17.6
 - close: 17.8
-- volume: 112494
+- volume: 18000
 - ma5: 17.99
 - ema23_primary: 18.39
 - distance_to_ema23_pct: -3.19
@@ -69,7 +69,7 @@
 - ma120: 19.52
 - return_5d: -2.2
 - return_20d: -7.77
-- volume_ratio: 1.01
+- volume_ratio: 0.17
 - distance_to_ma20_pct_auxiliary: -2.76
 - distance_to_high_60_pct: -16.04
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,18.1,18.85,18.1,18.2,18000,18.54,-1.81,18.55,18.96,0.14
 20260526,18.2,18.4,18,18.15,18000,18.5,-1.91,18.48,18.92,0.15
 20260527,18.15,18.15,17.75,17.75,18000,18.44,-3.75,18.38,18.88,0.16
-20260528,17.7,17.95,17.6,17.8,112494,18.39,-3.19,18.3,18.84,1.01
+20260528,17.7,17.95,17.6,17.8,18000,18.39,-3.19,18.3,18.84,0.17
 ```
 
 ## Latest TDCC Snapshot

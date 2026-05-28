@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6294 智基
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:16 Asia/Taipei
+- generated_at: 2026-05-28 20:20:03 Asia/Taipei
 - stock_id: 6294
 - stock_name: 智基
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 27.7
 - low: 27
 - close: 27.5
-- volume: 41038
+- volume: 27000
 - ma5: 28.09
 - ema23_primary: 30.45
 - distance_to_ema23_pct: -9.7
@@ -69,7 +69,7 @@
 - ma120: 40.67
 - return_5d: 1.1
 - return_20d: -20.06
-- volume_ratio: 0.59
+- volume_ratio: 0.39
 - distance_to_ma20_pct_auxiliary: -7.08
 - distance_to_high_60_pct: -34.6
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,28.3,28.9,27.4,28.3,28000,31.21,-9.31,30.62,37.3,0.38
 20260526,28,28.4,27.8,28.4,28000,30.97,-8.31,30.29,37.04,0.39
 20260527,28.2,28.2,27.95,27.95,28000,30.72,-9.02,29.94,36.79,0.4
-20260528,27.7,27.7,27,27.5,41038,30.45,-9.7,29.59,36.54,0.59
+20260528,27.7,27.7,27,27.5,27000,30.45,-9.7,29.59,36.54,0.39
 ```
 
 ## Latest TDCC Snapshot

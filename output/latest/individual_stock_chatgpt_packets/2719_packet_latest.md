@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2719 燦星旅
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:05 Asia/Taipei
+- generated_at: 2026-05-28 20:18:51 Asia/Taipei
 - stock_id: 2719
 - stock_name: 燦星旅
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 25.15
 - low: 25.15
 - close: 25.15
-- volume: 4141
+- volume: 25000
 - ma5: 25.66
 - ema23_primary: 26.28
 - distance_to_ema23_pct: -4.32
@@ -69,7 +69,7 @@
 - ma120: 28.53
 - return_5d: -2.14
 - return_20d: -9.21
-- volume_ratio: 0.29
+- volume_ratio: 1.61
 - distance_to_ma20_pct_auxiliary: -3.73
 - distance_to_high_60_pct: -22.02
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,25.8,26,25.6,26,26000,26.53,-2,26.48,27.06,1.86
 20260526,26,26.2,25.8,26.1,26000,26.5,-1.49,26.37,27.02,1.73
 20260527,25.7,25.75,24.95,25.2,25000,26.39,-4.5,26.25,26.98,1.68
-20260528,25.15,25.15,25.15,25.15,4141,26.28,-4.32,26.12,26.93,0.29
+20260528,25.15,25.15,25.15,25.15,25000,26.28,-4.32,26.12,26.93,1.61
 ```
 
 ## Latest TDCC Snapshot

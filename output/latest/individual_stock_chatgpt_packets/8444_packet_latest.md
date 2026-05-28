@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8444 綠河-KY
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:52 Asia/Taipei
+- generated_at: 2026-05-28 20:20:39 Asia/Taipei
 - stock_id: 8444
 - stock_name: 綠河-KY
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 6
 - low: 5.6
 - close: 5.6
-- volume: 41217
+- volume: 6000
 - ma5: 6.21
 - ema23_primary: 6.72
 - distance_to_ema23_pct: -16.72
@@ -69,7 +69,7 @@
 - ma120: 9.16
 - return_5d: -15.92
 - return_20d: -1.58
-- volume_ratio: 0.8
+- volume_ratio: 0.12
 - distance_to_ma20_pct_auxiliary: -19.06
 - distance_to_high_60_pct: -42.92
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,6.67,6.67,6.5,6.5,7000,6.96,-6.55,6.82,7.49,0.13
 20260526,6.2,6.35,6.15,6.15,6000,6.89,-10.72,6.88,7.43,0.11
 20260527,6.5,6.5,6.15,6.15,6000,6.83,-9.92,6.92,7.38,0.11
-20260528,5.64,6,5.6,5.6,41217,6.72,-16.72,6.92,7.31,0.8
+20260528,5.64,6,5.6,5.6,6000,6.72,-16.72,6.92,7.31,0.12
 ```
 
 ## Latest TDCC Snapshot

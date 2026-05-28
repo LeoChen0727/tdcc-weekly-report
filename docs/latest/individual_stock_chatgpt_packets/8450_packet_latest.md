@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8450 霹靂
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:52 Asia/Taipei
+- generated_at: 2026-05-28 20:20:39 Asia/Taipei
 - stock_id: 8450
 - stock_name: 霹靂
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 15.6
 - low: 15.3
 - close: 15.5
-- volume: 73081
+- volume: 15000
 - ma5: 15.78
 - ema23_primary: 16.1
 - distance_to_ema23_pct: -3.73
@@ -69,7 +69,7 @@
 - ma120: 16.97
 - return_5d: -2.52
 - return_20d: -7.46
-- volume_ratio: 1.27
+- volume_ratio: 0.27
 - distance_to_ma20_pct_auxiliary: -3.03
 - distance_to_high_60_pct: -17.11
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,15.6,16.15,15.5,15.85,16000,16.23,-2.33,16.14,16.88,0.29
 20260526,15.45,15.95,15.4,15.8,16000,16.19,-2.42,16.1,16.86,0.29
 20260527,16,16.25,15.4,15.75,16000,16.15,-2.51,16.05,16.84,0.29
-20260528,15.6,15.6,15.3,15.5,73081,16.1,-3.73,15.98,16.81,1.27
+20260528,15.6,15.6,15.3,15.5,15000,16.1,-3.73,15.98,16.81,0.27
 ```
 
 ## Latest TDCC Snapshot

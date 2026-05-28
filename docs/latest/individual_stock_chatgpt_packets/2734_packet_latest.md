@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2734 易飛網
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:06 Asia/Taipei
+- generated_at: 2026-05-28 20:18:52 Asia/Taipei
 - stock_id: 2734
 - stock_name: 易飛網
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 15.1
 - low: 14.8
 - close: 14.9
-- volume: 198464
+- volume: 15000
 - ma5: 15.2
 - ema23_primary: 15.66
 - distance_to_ema23_pct: -4.84
@@ -69,7 +69,7 @@
 - ma120: 17.28
 - return_5d: -4.18
 - return_20d: -9.7
-- volume_ratio: 2.33
+- volume_ratio: 0.2
 - distance_to_ma20_pct_auxiliary: -4.46
 - distance_to_high_60_pct: -23.59
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,15.4,15.4,15.2,15.35,15000,15.84,-3.1,15.82,16.32,0.16
 20260526,15.5,15.5,15.15,15.2,15000,15.79,-3.72,15.76,16.28,0.18
 20260527,15.2,15.2,15,15.05,15000,15.73,-4.3,15.68,16.25,0.19
-20260528,15.1,15.1,14.8,14.9,198464,15.66,-4.84,15.6,16.21,2.33
+20260528,15.1,15.1,14.8,14.9,15000,15.66,-4.84,15.6,16.21,0.2
 ```
 
 ## Latest TDCC Snapshot

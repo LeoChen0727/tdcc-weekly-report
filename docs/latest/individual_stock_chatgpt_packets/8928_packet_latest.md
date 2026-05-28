@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8928 鉅明
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:54 Asia/Taipei
+- generated_at: 2026-05-28 20:20:41 Asia/Taipei
 - stock_id: 8928
 - stock_name: 鉅明
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 21.25
 - low: 20.9
 - close: 20.9
-- volume: 81628
+- volume: 21000
 - ma5: 21.21
 - ema23_primary: 21.59
 - distance_to_ema23_pct: -3.19
@@ -69,7 +69,7 @@
 - ma120: 24.12
 - return_5d: -3.02
 - return_20d: -4.57
-- volume_ratio: 2.02
+- volume_ratio: 0.56
 - distance_to_ma20_pct_auxiliary: -2
 - distance_to_high_60_pct: -18.2
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,21.65,21.65,21.1,21.4,21000,21.75,-1.62,21.44,22.94,0.56
 20260526,21.5,21.5,21.15,21.15,21000,21.7,-2.54,21.41,22.87,0.57
 20260527,21.15,21.3,21,21.1,21000,21.65,-2.55,21.38,22.8,0.56
-20260528,21.1,21.25,20.9,20.9,81628,21.59,-3.19,21.33,22.72,2.02
+20260528,21.1,21.25,20.9,20.9,21000,21.59,-3.19,21.33,22.72,0.56
 ```
 
 ## Latest TDCC Snapshot

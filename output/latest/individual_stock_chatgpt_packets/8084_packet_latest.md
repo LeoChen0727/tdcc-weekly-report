@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8084 巨虹
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:45 Asia/Taipei
+- generated_at: 2026-05-28 20:20:32 Asia/Taipei
 - stock_id: 8084
 - stock_name: 巨虹
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 47.5
 - low: 45
 - close: 46.35
-- volume: 151939
+- volume: 46000
 - ma5: 44.61
 - ema23_primary: 44.53
 - distance_to_ema23_pct: 4.1
@@ -69,7 +69,7 @@
 - ma120: 51.44
 - return_5d: 7.54
 - return_20d: 5.46
-- volume_ratio: 1.84
+- volume_ratio: 0.6
 - distance_to_ma20_pct_auxiliary: 4.53
 - distance_to_high_60_pct: -16.79
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,42.6,44.9,42.5,44.2,44000,44.22,-0.04,43.94,46.54,0.54
 20260526,44.2,45.5,43.5,45,45000,44.28,1.62,44.08,46.37,0.56
 20260527,45,45.9,45,45.2,45000,44.36,1.89,44.22,46.22,0.56
-20260528,45.5,47.5,45,46.35,151939,44.53,4.1,44.34,46.09,1.84
+20260528,45.5,47.5,45,46.35,46000,44.53,4.1,44.34,46.09,0.6
 ```
 
 ## Latest TDCC Snapshot

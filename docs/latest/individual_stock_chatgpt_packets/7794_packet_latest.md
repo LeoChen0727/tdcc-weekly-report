@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7794 宏碁智新
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:41 Asia/Taipei
+- generated_at: 2026-05-28 20:20:29 Asia/Taipei
 - stock_id: 7794
 - stock_name: 宏碁智新
 - packet_status: partial_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 28.9
 - low: 28.6
 - close: 28.7
-- volume: 28000
+- volume: 29000
 - ma5: 28.88
 - ema23_primary: 31.54
 - distance_to_ema23_pct: -9.02
@@ -69,7 +69,7 @@
 - ma120: 32.23
 - return_5d: -0.52
 - return_20d: -16.57
-- volume_ratio: 0.43
+- volume_ratio: 0.44
 - distance_to_ma20_pct_auxiliary: -5.38
 - distance_to_high_60_pct: -36.08
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,29.3,29.35,29.1,29.3,29000,32.4,-9.57,31.2,32.66,0.36
 20260526,29.3,29.3,28.65,28.7,29000,32.09,-10.57,30.95,32.51,0.38
 20260527,28.7,28.7,28.5,28.6,29000,31.8,-10.07,30.62,32.36,0.42
-20260528,28.6,28.9,28.6,28.7,28000,31.54,-9.02,30.33,32.23,0.43
+20260528,28.6,28.9,28.6,28.7,29000,31.54,-9.02,30.33,32.23,0.44
 ```
 
 ## Latest TDCC Snapshot

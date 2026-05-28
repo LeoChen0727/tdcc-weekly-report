@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6227 茂綸
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:13 Asia/Taipei
+- generated_at: 2026-05-28 20:20:00 Asia/Taipei
 - stock_id: 6227
 - stock_name: 茂綸
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 136
 - low: 127
 - close: 130.5
-- volume: 4802935
+- volume: 132000
 - ma5: 128
 - ema23_primary: 112.9
 - distance_to_ema23_pct: 15.59
@@ -69,7 +69,7 @@
 - ma120: 90.63
 - return_5d: 12.02
 - return_20d: 39.27
-- volume_ratio: 3.29
+- volume_ratio: 0.11
 - distance_to_ma20_pct_auxiliary: 16.75
 - distance_to_high_60_pct: -4.04
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,132,135.5,126.5,131,130000,108.64,20.58,106.78,94.03,0.1
 20260526,131,131,123,125.5,126000,110.05,14.04,108.44,94.7,0.1
 20260527,129.5,131.5,122,125,126000,111.3,12.31,109.94,95.35,0.1
-20260528,128,136,127,130.5,4802935,112.9,15.59,111.78,96.12,3.29
+20260528,128,136,127,130.5,132000,112.9,15.59,111.78,96.12,0.11
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6227 | 茂綸 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

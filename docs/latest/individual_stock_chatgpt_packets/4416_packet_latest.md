@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4416 三圓
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:41 Asia/Taipei
+- generated_at: 2026-05-28 20:19:27 Asia/Taipei
 - stock_id: 4416
 - stock_name: 三圓
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 11.25
 - low: 10.8
 - close: 10.8
-- volume: 306441
+- volume: 11000
 - ma5: 11.23
 - ema23_primary: 12.1
 - distance_to_ema23_pct: -10.76
@@ -69,7 +69,7 @@
 - ma120: 22.22
 - return_5d: -6.49
 - return_20d: -15.95
-- volume_ratio: 2.33
+- volume_ratio: 0.09
 - distance_to_ma20_pct_auxiliary: -9.53
 - distance_to_high_60_pct: -55.92
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,11.8,12.3,11.8,12.3,12000,12.47,-1.34,12.24,14.33,0.06
 20260526,12.15,12.15,11.1,11.1,11000,12.35,-10.15,12.15,14.1,0.07
 20260527,10.55,11.05,10.15,10.75,11000,12.22,-12.03,12.04,13.87,0.08
-20260528,10.8,11.25,10.8,10.8,306441,12.1,-10.76,11.94,13.65,2.33
+20260528,10.8,11.25,10.8,10.8,11000,12.1,-10.76,11.94,13.65,0.09
 ```
 
 ## Latest TDCC Snapshot

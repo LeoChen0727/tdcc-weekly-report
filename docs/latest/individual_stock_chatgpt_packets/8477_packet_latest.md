@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8477 創業家
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:53 Asia/Taipei
+- generated_at: 2026-05-28 20:20:40 Asia/Taipei
 - stock_id: 8477
 - stock_name: 創業家
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 22.75
 - low: 19.7
 - close: 20
-- volume: 829133
+- volume: 21000
 - ma5: 18.5
 - ema23_primary: 16.33
 - distance_to_ema23_pct: 22.45
@@ -69,7 +69,7 @@
 - ma120: 13.39
 - return_5d: 22.32
 - return_20d: 47.06
-- volume_ratio: 5.16
+- volume_ratio: 0.17
 - distance_to_ma20_pct_auxiliary: 24.46
 - distance_to_high_60_pct: -12.09
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,15.8,17.2,15.7,17.2,17000,15.26,12.68,15.13,14.06,0.14
 20260526,18,18.9,18,18.9,19000,15.57,21.41,15.39,14.15,0.16
 20260527,20.75,20.75,20.75,20.75,21000,16,29.69,15.75,14.27,0.17
-20260528,22.75,22.75,19.7,20,829133,16.33,22.45,16.07,14.38,5.16
+20260528,22.75,22.75,19.7,20,21000,16.33,22.45,16.07,14.38,0.17
 ```
 
 ## Latest TDCC Snapshot

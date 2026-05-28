@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0068 元大美債20正2
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:22 Asia/Taipei
+- generated_at: 2026-05-28 20:18:07 Asia/Taipei
 - stock_id: 0068
 - stock_name: 元大美債20正2
 - packet_status: insufficient_price_data

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7738 東聯互動
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:40 Asia/Taipei
+- generated_at: 2026-05-28 20:20:27 Asia/Taipei
 - stock_id: 7738
 - stock_name: 東聯互動
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 167.5
 - low: 165.5
 - close: 166
-- volume: 55589
+- volume: 166000
 - ma5: 166.3
 - ema23_primary: 171.99
 - distance_to_ema23_pct: -3.48
@@ -69,7 +69,7 @@
 - ma120: 181.53
 - return_5d: 0.3
 - return_20d: -8.54
-- volume_ratio: 0.67
+- volume_ratio: 1.88
 - distance_to_ma20_pct_auxiliary: -3.56
 - distance_to_high_60_pct: -19.61
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,168.5,168.5,163.5,164.5,165000,173.64,-5.27,174.47,180.03,2.47
 20260526,165,168,165,167.5,166000,173.13,-3.25,173.8,180.05,2.27
 20260527,167.5,167.5,165.5,166,166000,172.54,-3.79,172.9,180,2.06
-20260528,166,167.5,165.5,166,55589,171.99,-3.48,172.12,179.89,0.67
+20260528,166,167.5,165.5,166,166000,171.99,-3.48,172.12,179.89,1.88
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5227 立凱-KY
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:54 Asia/Taipei
+- generated_at: 2026-05-28 20:19:41 Asia/Taipei
 - stock_id: 5227
 - stock_name: 立凱-KY
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 25.2
 - low: 24.3
 - close: 24.35
-- volume: 159600
+- volume: 25000
 - ma5: 25.1
 - ema23_primary: 23.55
 - distance_to_ema23_pct: 3.41
@@ -69,7 +69,7 @@
 - ma120: 24.72
 - return_5d: -5.44
 - return_20d: 8.71
-- volume_ratio: 0.64
+- volume_ratio: 0.1
 - distance_to_ma20_pct_auxiliary: 5.74
 - distance_to_high_60_pct: -10.97
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,26.4,26.4,25,25.5,26000,23.25,9.66,22.51,23.36,0.1
 20260526,25.9,25.9,24.6,24.6,25000,23.37,5.28,22.72,23.35,0.1
 20260527,24.65,25.6,24.3,24.65,25000,23.47,5.01,22.93,23.35,0.1
-20260528,24.65,25.2,24.3,24.35,159600,23.55,3.41,23.03,23.33,0.64
+20260528,24.65,25.2,24.3,24.35,25000,23.55,3.41,23.03,23.33,0.1
 ```
 
 ## Latest TDCC Snapshot

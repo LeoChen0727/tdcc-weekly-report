@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3178 公準
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:19 Asia/Taipei
+- generated_at: 2026-05-28 20:19:05 Asia/Taipei
 - stock_id: 3178
 - stock_name: 公準
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 76.7
 - low: 71
 - close: 71
-- volume: 378500
+- volume: 74000
 - ma5: 71.8
 - ema23_primary: 69.34
 - distance_to_ema23_pct: 2.39
@@ -69,7 +69,7 @@
 - ma120: 60.02
 - return_5d: 5.34
 - return_20d: 0.71
-- volume_ratio: 2.3
+- volume_ratio: 0.5
 - distance_to_ma20_pct_auxiliary: 1.99
 - distance_to_high_60_pct: -9.78
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,73,74.9,72.2,73.3,73000,68.52,6.98,69.36,63.69,0.46
 20260526,75.5,75.5,71.1,74.3,74000,69,7.68,69.61,63.98,0.47
 20260527,74.3,74.8,70.8,71.3,72000,69.19,3.05,69.59,64.2,0.47
-20260528,73.1,76.7,71,71,378500,69.34,2.39,69.61,64.38,2.3
+20260528,73.1,76.7,71,71,74000,69.34,2.39,69.61,64.38,0.5
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3594 磐儀
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:32 Asia/Taipei
+- generated_at: 2026-05-28 20:19:18 Asia/Taipei
 - stock_id: 3594
 - stock_name: 磐儀
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 53.9
 - low: 50.8
 - close: 50.8
-- volume: 615213
+- volume: 52000
 - ma5: 52.24
 - ema23_primary: 51.23
 - distance_to_ema23_pct: -0.84
@@ -69,7 +69,7 @@
 - ma120: 42.31
 - return_5d: 0
 - return_20d: -2.68
-- volume_ratio: 0.63
+- volume_ratio: 0.05
 - distance_to_ma20_pct_auxiliary: -3.39
 - distance_to_high_60_pct: -14.77
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,51.4,52.8,51.4,52,52000,50.9,2.16,52.52,46,0.05
 20260526,53.1,53.4,51.5,52.9,53000,51.07,3.59,52.66,46.24,0.05
 20260527,53.1,53.8,51.7,53.5,53000,51.27,4.35,52.65,46.48,0.05
-20260528,53.5,53.9,50.8,50.8,615213,51.23,-0.84,52.58,46.62,0.63
+20260528,53.5,53.9,50.8,50.8,52000,51.23,-0.84,52.58,46.62,0.05
 ```
 
 ## Latest TDCC Snapshot

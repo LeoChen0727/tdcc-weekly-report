@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3217 優群
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:20 Asia/Taipei
+- generated_at: 2026-05-28 20:19:06 Asia/Taipei
 - stock_id: 3217
 - stock_name: 優群
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 200
 - low: 186.5
 - close: 188.5
-- volume: 3315658
+- volume: 191000
 - ma5: 197.2
 - ema23_primary: 184.88
 - distance_to_ema23_pct: 1.96
@@ -69,7 +69,7 @@
 - ma120: 164.3
 - return_5d: -5.28
 - return_20d: 11.87
-- volume_ratio: 1.84
+- volume_ratio: 0.12
 - distance_to_ma20_pct_auxiliary: 1.95
 - distance_to_high_60_pct: -11.08
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,212,212,197,200,201000,182.5,9.59,181.47,165.96,0.11
 20260526,197.5,198,190,193,193000,183.38,5.25,182.65,166.56,0.11
 20260527,195,202,193.5,197.5,198000,184.56,7.01,183.9,167.25,0.12
-20260528,199.5,200,186.5,188.5,3315658,184.88,1.96,184.9,167.78,1.84
+20260528,199.5,200,186.5,188.5,191000,184.88,1.96,184.9,167.78,0.12
 ```
 
 ## Latest TDCC Snapshot
@@ -125,7 +125,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3217 | 優群 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 3217 | 優群 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

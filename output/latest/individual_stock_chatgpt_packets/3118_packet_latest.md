@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3118 進階
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:17 Asia/Taipei
+- generated_at: 2026-05-28 20:19:03 Asia/Taipei
 - stock_id: 3118
 - stock_name: 進階
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 33.75
 - low: 33.25
 - close: 33.3
-- volume: 36994
+- volume: 33000
 - ma5: 33.39
 - ema23_primary: 33.5
 - distance_to_ema23_pct: -0.6
@@ -69,7 +69,7 @@
 - ma120: 33.25
 - return_5d: -0.6
 - return_20d: -1.33
-- volume_ratio: 1.58
+- volume_ratio: 1.43
 - distance_to_ma20_pct_auxiliary: -0.77
 - distance_to_high_60_pct: -4.03
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,33.4,33.4,33.3,33.3,33000,33.53,-0.69,33.59,33.46,1.47
 20260526,33.3,33.7,33.1,33.65,33000,33.54,0.33,33.59,33.47,1.45
 20260527,33.55,33.7,33.3,33.3,33000,33.52,-0.66,33.58,33.48,1.43
-20260528,33.3,33.75,33.25,33.3,36994,33.5,-0.6,33.56,33.47,1.58
+20260528,33.3,33.75,33.25,33.3,33000,33.5,-0.6,33.56,33.47,1.43
 ```
 
 ## Latest TDCC Snapshot

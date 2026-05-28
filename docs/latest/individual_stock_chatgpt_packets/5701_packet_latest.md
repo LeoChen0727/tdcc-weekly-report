@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5701 劍湖山
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:03 Asia/Taipei
+- generated_at: 2026-05-28 20:19:50 Asia/Taipei
 - stock_id: 5701
 - stock_name: 劍湖山
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 3.64
 - low: 3.27
 - close: 3.64
-- volume: 363038
+- volume: 4000
 - ma5: 3.4
 - ema23_primary: 3.43
 - distance_to_ema23_pct: 6.26
@@ -69,7 +69,7 @@
 - ma120: 3.76
 - return_5d: 6.74
 - return_20d: 4.3
-- volume_ratio: 5.42
+- volume_ratio: 0.08
 - distance_to_ma20_pct_auxiliary: 7.04
 - distance_to_high_60_pct: -6.19
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,3.49,3.49,3.35,3.37,3000,3.42,-1.51,3.4,3.55,0.05
 20260526,3.39,3.5,3.34,3.34,3000,3.41,-2.19,3.4,3.55,0.05
 20260527,3.36,3.4,3.3,3.31,3000,3.41,-2.82,3.39,3.54,0.06
-20260528,3.27,3.64,3.27,3.64,363038,3.43,6.26,3.4,3.53,5.42
+20260528,3.27,3.64,3.27,3.64,4000,3.43,6.26,3.4,3.53,0.08
 ```
 
 ## Latest TDCC Snapshot

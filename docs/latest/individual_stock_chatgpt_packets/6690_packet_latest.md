@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6690 安碁資訊
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:27 Asia/Taipei
+- generated_at: 2026-05-28 20:20:14 Asia/Taipei
 - stock_id: 6690
 - stock_name: 安碁資訊
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 170
 - low: 167.5
 - close: 169.5
-- volume: 87816
+- volume: 169000
 - ma5: 170.2
 - ema23_primary: 168.76
 - distance_to_ema23_pct: 0.44
@@ -69,7 +69,7 @@
 - ma120: 168.03
 - return_5d: 0.59
 - return_20d: 2.11
-- volume_ratio: 1.04
+- volume_ratio: 1.9
 - distance_to_ma20_pct_auxiliary: 0.5
 - distance_to_high_60_pct: -3.97
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,172.5,172.5,169,171,170000,168.49,1.49,168.32,167.73,2.35
 20260526,171.5,172,168.5,170,170000,168.62,0.82,168.4,167.92,2.2
 20260527,170,170,168,169.5,169000,168.69,0.48,168.47,167.99,2.02
-20260528,169.5,170,167.5,169.5,87816,168.76,0.44,168.65,167.99,1.04
+20260528,169.5,170,167.5,169.5,169000,168.76,0.44,168.65,167.99,1.9
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2221 大甲
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:48 Asia/Taipei
+- generated_at: 2026-05-28 20:18:33 Asia/Taipei
 - stock_id: 2221
 - stock_name: 大甲
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 42.6
 - low: 40.85
 - close: 41.3
-- volume: 370555
+- volume: 42000
 - ma5: 43.08
 - ema23_primary: 40.68
 - distance_to_ema23_pct: 1.51
@@ -69,7 +69,7 @@
 - ma120: 32.49
 - return_5d: -4.62
 - return_20d: 11.92
-- volume_ratio: 0.37
+- volume_ratio: 0.04
 - distance_to_ma20_pct_auxiliary: 1.02
 - distance_to_high_60_pct: -15.71
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,45,45.8,43.7,44.35,44000,40.25,10.2,40.05,34.75,0.04
 20260526,45,45,42.8,43.4,43000,40.51,7.14,40.37,34.96,0.04
 20260527,43.7,43.7,41.5,41.95,42000,40.63,3.25,40.66,35.14,0.04
-20260528,42.25,42.6,40.85,41.3,370555,40.68,1.51,40.88,35.3,0.37
+20260528,42.25,42.6,40.85,41.3,42000,40.68,1.51,40.88,35.3,0.04
 ```
 
 ## Latest TDCC Snapshot

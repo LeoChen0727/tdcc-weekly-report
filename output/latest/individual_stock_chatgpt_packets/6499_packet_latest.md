@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6499 益安
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:20 Asia/Taipei
+- generated_at: 2026-05-28 20:20:07 Asia/Taipei
 - stock_id: 6499
 - stock_name: 益安
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 89.2
 - low: 85.9
 - close: 86.3
-- volume: 391875
+- volume: 87000
 - ma5: 89.26
 - ema23_primary: 87.53
 - distance_to_ema23_pct: -1.4
@@ -69,7 +69,7 @@
 - ma120: 91.71
 - return_5d: -9.06
 - return_20d: 5.5
-- volume_ratio: 0.66
+- volume_ratio: 0.15
 - distance_to_ma20_pct_auxiliary: -0.03
 - distance_to_high_60_pct: -35.6
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,94.6,94.9,90.8,90.9,93000,87.63,3.73,85.57,89.42,0.15
 20260526,90.9,91,87,87.8,89000,87.64,0.18,85.83,89.33,0.15
 20260527,89.2,89.2,87,87.6,88000,87.64,-0.05,86.11,89.27,0.15
-20260528,88.4,89.2,85.9,86.3,391875,87.53,-1.4,86.33,89.21,0.66
+20260528,88.4,89.2,85.9,86.3,87000,87.53,-1.4,86.33,89.21,0.15
 ```
 
 ## Latest TDCC Snapshot

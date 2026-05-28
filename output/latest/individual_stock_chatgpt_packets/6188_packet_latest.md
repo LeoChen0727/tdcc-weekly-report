@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6188 廣明
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:10 Asia/Taipei
+- generated_at: 2026-05-28 20:19:57 Asia/Taipei
 - stock_id: 6188
 - stock_name: 廣明
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 85.2
 - low: 81.5
 - close: 81.8
-- volume: 2503071
+- volume: 83000
 - ma5: 84.78
 - ema23_primary: 84.71
 - distance_to_ema23_pct: -3.44
@@ -69,7 +69,7 @@
 - ma120: 96.8
 - return_5d: -2.04
 - return_20d: -1.92
-- volume_ratio: 1.13
+- volume_ratio: 0.04
 - distance_to_ma20_pct_auxiliary: -3.18
 - distance_to_high_60_pct: -19.8
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,87.5,87.5,85.8,86.3,86000,85.03,1.49,84.22,89.11,0.03
 20260526,87,88.5,84.6,85.5,86000,85.07,0.5,84.44,88.88,0.03
 20260527,86.4,86.6,83,83.9,85000,84.97,-1.26,84.57,88.6,0.04
-20260528,84,85.2,81.5,81.8,2503071,84.71,-3.44,84.49,88.31,1.13
+20260528,84,85.2,81.5,81.8,83000,84.71,-3.44,84.49,88.31,0.04
 ```
 
 ## Latest TDCC Snapshot

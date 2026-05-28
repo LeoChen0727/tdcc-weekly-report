@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4768 晶呈科技
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:48 Asia/Taipei
+- generated_at: 2026-05-28 20:19:35 Asia/Taipei
 - stock_id: 4768
 - stock_name: 晶呈科技
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 518
 - low: 482
 - close: 491
-- volume: 2083252
+- volume: 500000
 - ma5: 481.7
 - ema23_primary: 473.39
 - distance_to_ema23_pct: 3.72
@@ -69,7 +69,7 @@
 - ma120: 412.02
 - return_5d: 10.09
 - return_20d: -0.61
-- volume_ratio: 2.57
+- volume_ratio: 0.69
 - distance_to_ma20_pct_auxiliary: 3.18
 - distance_to_high_60_pct: -16.07
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,464,477,453.5,462,464000,466.35,-0.93,474.95,472.07,0.64
 20260526,488,505,463,496.5,489000,468.87,5.89,475.43,473.3,0.68
 20260527,511,541,499,504,519000,471.79,6.83,476.02,473.95,0.72
-20260528,508,518,482,491,2083252,473.39,3.72,475.88,473.62,2.57
+20260528,508,518,482,491,500000,473.39,3.72,475.88,473.62,0.69
 ```
 
 ## Latest TDCC Snapshot
@@ -123,10 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4768 | 晶呈科技 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260528 | 4768 | 晶呈科技 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

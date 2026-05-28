@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6248 沛波
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:14 Asia/Taipei
+- generated_at: 2026-05-28 20:20:01 Asia/Taipei
 - stock_id: 6248
 - stock_name: 沛波
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 18.5
 - low: 18.3
 - close: 18.35
-- volume: 109503
+- volume: 18000
 - ma5: 18.6
 - ema23_primary: 18.92
 - distance_to_ema23_pct: -3.03
@@ -69,7 +69,7 @@
 - ma120: 20.08
 - return_5d: 0.55
 - return_20d: -6.38
-- volume_ratio: 1.39
+- volume_ratio: 0.24
 - distance_to_ma20_pct_auxiliary: -2.76
 - distance_to_high_60_pct: -14.85
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,18.35,19.2,18.35,19.2,19000,19.05,0.79,19.04,19.86,0.21
 20260526,19.5,19.5,18.8,18.8,19000,19.03,-1.2,19,19.81,0.23
 20260527,18.65,18.65,18.4,18.4,18000,18.98,-3.03,18.93,19.75,0.24
-20260528,18.4,18.5,18.3,18.35,109503,18.92,-3.03,18.87,19.7,1.39
+20260528,18.4,18.5,18.3,18.35,18000,18.92,-3.03,18.87,19.7,0.24
 ```
 
 ## Latest TDCC Snapshot

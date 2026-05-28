@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6855 數泓科
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:33 Asia/Taipei
+- generated_at: 2026-05-28 20:20:20 Asia/Taipei
 - stock_id: 6855
 - stock_name: 數泓科
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 108
 - low: 106
 - close: 108
-- volume: 15597
+- volume: 107000
 - ma5: 107.2
 - ema23_primary: 106.03
 - distance_to_ema23_pct: 1.86
@@ -69,7 +69,7 @@
 - ma120: 111
 - return_5d: 5.37
 - return_20d: 2.37
-- volume_ratio: 0.52
+- volume_ratio: 3.12
 - distance_to_ma20_pct_auxiliary: 2.93
 - distance_to_high_60_pct: -12.2
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,104,104,101,102,103000,104.87,-2.73,104.15,109.86,5.31
 20260526,103,112,103,111,109000,105.38,5.34,104.45,109.72,4.51
 20260527,107.5,119.5,107.5,111,114000,105.85,4.87,104.8,109.62,3.84
-20260528,108,108,106,108,15597,106.03,1.86,104.92,109.45,0.52
+20260528,108,108,106,108,107000,106.03,1.86,104.92,109.45,3.12
 ```
 
 ## Latest TDCC Snapshot

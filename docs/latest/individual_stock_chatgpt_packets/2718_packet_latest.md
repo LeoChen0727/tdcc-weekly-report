@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2718 全心投控
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:05 Asia/Taipei
+- generated_at: 2026-05-28 20:18:51 Asia/Taipei
 - stock_id: 2718
 - stock_name: 全心投控
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 45.6
 - low: 44.75
 - close: 45.4
-- volume: 86840
+- volume: 45000
 - ma5: 45.31
 - ema23_primary: 45.24
 - distance_to_ema23_pct: 0.34
@@ -69,7 +69,7 @@
 - ma120: 49.17
 - return_5d: -1.73
 - return_20d: 4.13
-- volume_ratio: 1.1
+- volume_ratio: 0.58
 - distance_to_ma20_pct_auxiliary: 1.97
 - distance_to_high_60_pct: -10.81
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,46.1,46.1,44.6,45.15,45000,45.29,-0.3,44.29,46.66,0.56
 20260526,45.1,45.25,44.8,45.1,45000,45.27,-0.38,44.36,46.59,0.58
 20260527,44.9,45.05,44.6,44.8,45000,45.23,-0.95,44.44,46.5,0.59
-20260528,44.75,45.6,44.75,45.4,86840,45.24,0.34,44.52,46.42,1.1
+20260528,44.75,45.6,44.75,45.4,45000,45.24,0.34,44.52,46.42,0.58
 ```
 
 ## Latest TDCC Snapshot

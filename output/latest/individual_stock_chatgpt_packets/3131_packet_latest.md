@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3131 弘塑
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:17 Asia/Taipei
+- generated_at: 2026-05-28 20:19:04 Asia/Taipei
 - stock_id: 3131
 - stock_name: 弘塑
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 3765
 - low: 3510
 - close: 3635
-- volume: 1910175
+- volume: 3690000
 - ma5: 3183
 - ema23_primary: 3011.05
 - distance_to_ema23_pct: 20.72
@@ -69,7 +69,7 @@
 - ma120: 2189
 - return_5d: 34.63
 - return_20d: 26.66
-- volume_ratio: 1.57
+- volume_ratio: 2.83
 - distance_to_ma20_pct_auxiliary: 21.58
 - distance_to_high_60_pct: -3.45
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,2910,2985,2875,2920,2945000,2893.04,0.93,2911.75,2691.83,3.18
 20260526,3045,3205,3000,3115,3139000,2911.54,6.99,2923.75,2716.25,3.09
 20260527,3425,3425,3425,3425,3425000,2954.32,15.93,2951.5,2743.67,2.99
-20260528,3650,3765,3510,3635,1910175,3011.05,20.72,2989.75,2775.42,1.57
+20260528,3650,3765,3510,3635,3690000,3011.05,20.72,2989.75,2775.42,2.83
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3131 | 弘塑 | true_breakout | 嚴格突破 | 87.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

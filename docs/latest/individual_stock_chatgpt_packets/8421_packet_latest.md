@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8421 旭源
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:50 Asia/Taipei
+- generated_at: 2026-05-28 20:20:38 Asia/Taipei
 - stock_id: 8421
 - stock_name: 旭源
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 13.6
 - low: 13.35
 - close: 13.35
-- volume: 5685
+- volume: 13000
 - ma5: 13.48
 - ema23_primary: 13.57
 - distance_to_ema23_pct: -1.64
@@ -69,7 +69,7 @@
 - ma120: 13.36
 - return_5d: -1.84
 - return_20d: -1.84
-- volume_ratio: 0.14
+- volume_ratio: 0.31
 - distance_to_ma20_pct_auxiliary: -1.95
 - distance_to_high_60_pct: -6.64
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,13.6,13.6,13.35,13.6,14000,13.62,-0.18,13.64,13.58,0.3
 20260526,13.6,13.6,13.35,13.5,13000,13.61,-0.84,13.64,13.58,0.28
 20260527,13.5,13.5,13.15,13.35,13000,13.59,-1.78,13.63,13.58,0.3
-20260528,13.6,13.6,13.35,13.35,5685,13.57,-1.64,13.62,13.58,0.14
+20260528,13.6,13.6,13.35,13.35,13000,13.57,-1.64,13.62,13.58,0.31
 ```
 
 ## Latest TDCC Snapshot

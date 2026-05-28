@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3294 英濟
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:22 Asia/Taipei
+- generated_at: 2026-05-28 20:19:08 Asia/Taipei
 - stock_id: 3294
 - stock_name: 英濟
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 40.9
 - low: 38.5
 - close: 39.35
-- volume: 2211408
+- volume: 40000
 - ma5: 40.61
 - ema23_primary: 36.49
 - distance_to_ema23_pct: 7.85
@@ -69,7 +69,7 @@
 - ma120: 37.03
 - return_5d: -3.2
 - return_20d: 28.81
-- volume_ratio: 0.86
+- volume_ratio: 0.02
 - distance_to_ma20_pct_auxiliary: 11.37
 - distance_to_high_60_pct: -12.46
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,41.2,44.95,40.45,42.3,43000,35.48,19.21,33.95,34.46,0.02
 20260526,42.5,43,39.75,40.5,41000,35.9,12.81,34.44,34.49,0.02
 20260527,40.9,41.15,39.5,39.8,40000,36.23,9.87,34.89,34.5,0.02
-20260528,40.05,40.9,38.5,39.35,2211408,36.49,7.85,35.33,34.48,0.86
+20260528,40.05,40.9,38.5,39.35,40000,36.49,7.85,35.33,34.48,0.02
 ```
 
 ## Latest TDCC Snapshot

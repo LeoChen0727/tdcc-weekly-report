@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6170 統振
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:09 Asia/Taipei
+- generated_at: 2026-05-28 20:19:56 Asia/Taipei
 - stock_id: 6170
 - stock_name: 統振
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 50.9
 - low: 50.1
 - close: 50.5
-- volume: 273668
+- volume: 50000
 - ma5: 50.32
 - ema23_primary: 50.74
 - distance_to_ema23_pct: -0.47
@@ -69,7 +69,7 @@
 - ma120: 50.26
 - return_5d: -0.2
 - return_20d: -2.13
-- volume_ratio: 1.09
+- volume_ratio: 0.21
 - distance_to_ma20_pct_auxiliary: -0.85
 - distance_to_high_60_pct: -6.13
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,50.4,50.4,50,50.2,50000,50.85,-1.29,51.14,50.73,0.18
 20260526,50.2,50.7,50,50.2,50000,50.8,-1.18,51.06,50.76,0.2
 20260527,50.2,50.6,50,50.3,50000,50.76,-0.9,50.99,50.78,0.2
-20260528,50.2,50.9,50.1,50.5,273668,50.74,-0.47,50.94,50.81,1.09
+20260528,50.2,50.9,50.1,50.5,50000,50.74,-0.47,50.94,50.81,0.21
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8043 蜜望實
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:43 Asia/Taipei
+- generated_at: 2026-05-28 20:20:30 Asia/Taipei
 - stock_id: 8043
 - stock_name: 蜜望實
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 144
 - low: 126.5
 - close: 128.5
-- volume: 31487431
+- volume: 136000
 - ma5: 128
 - ema23_primary: 109.27
 - distance_to_ema23_pct: 17.6
@@ -69,7 +69,7 @@
 - ma120: 85.15
 - return_5d: 2.39
 - return_20d: 48.73
-- volume_ratio: 2.22
+- volume_ratio: 0.01
 - distance_to_ma20_pct_auxiliary: 19.23
 - distance_to_high_60_pct: -10.76
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,133.5,138.5,127.5,128,131000,103.87,23.23,101.58,84.14,0.01
 20260526,126,126.5,117,121,121000,105.3,14.92,103.44,84.84,0.01
 20260527,122.5,132.5,120,132,127000,107.52,22.77,105.67,85.73,0.01
-20260528,130.5,144,126.5,128.5,31487431,109.27,17.6,107.78,86.62,2.22
+20260528,130.5,144,126.5,128.5,136000,109.27,17.6,107.78,86.62,0.01
 ```
 
 ## Latest TDCC Snapshot

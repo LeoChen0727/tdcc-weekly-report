@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6156 松上
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:08 Asia/Taipei
+- generated_at: 2026-05-28 20:19:55 Asia/Taipei
 - stock_id: 6156
 - stock_name: 松上
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 18.85
 - low: 18.2
 - close: 18.2
-- volume: 729899
+- volume: 18000
 - ma5: 18.93
 - ema23_primary: 19.25
 - distance_to_ema23_pct: -5.44
@@ -69,7 +69,7 @@
 - ma120: 20.76
 - return_5d: -1.62
 - return_20d: -9.45
-- volume_ratio: 1.49
+- volume_ratio: 0.04
 - distance_to_ma20_pct_auxiliary: -5.88
 - distance_to_high_60_pct: -18.02
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,19.4,19.7,19.2,19.65,20000,19.45,1.01,19.55,19.89,0.04
 20260526,19.7,19.7,18.75,18.95,19000,19.41,-2.37,19.5,19.85,0.04
 20260527,19,19,18.45,18.6,19000,19.34,-3.84,19.43,19.8,0.04
-20260528,18.65,18.85,18.2,18.2,729899,19.25,-5.44,19.34,19.74,1.49
+20260528,18.65,18.85,18.2,18.2,18000,19.25,-5.44,19.34,19.74,0.04
 ```
 
 ## Latest TDCC Snapshot

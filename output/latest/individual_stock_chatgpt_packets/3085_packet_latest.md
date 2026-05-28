@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3085 新零售
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:16 Asia/Taipei
+- generated_at: 2026-05-28 20:19:03 Asia/Taipei
 - stock_id: 3085
 - stock_name: 新零售
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 13.7
 - low: 12.45
 - close: 12.45
-- volume: 59421
+- volume: 13000
 - ma5: 12.42
 - ema23_primary: 12.34
 - distance_to_ema23_pct: 0.89
@@ -69,7 +69,7 @@
 - ma120: 13.16
 - return_5d: 5.06
 - return_20d: 7.33
-- volume_ratio: 2.76
+- volume_ratio: 0.68
 - distance_to_ma20_pct_auxiliary: 1.08
 - distance_to_high_60_pct: -12.32
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,11.6,12.3,11.6,12.3,12000,12.22,0.68,12.14,12.28,0.67
 20260526,12.3,12.3,12.3,12.3,12000,12.22,0.62,12.17,12.27,0.66
 20260527,12.2,13.5,12.2,13.5,13000,12.33,9.49,12.28,12.28,0.7
-20260528,12.85,13.7,12.45,12.45,59421,12.34,0.89,12.32,12.28,2.76
+20260528,12.85,13.7,12.45,12.45,13000,12.34,0.89,12.32,12.28,0.68
 ```
 
 ## Latest TDCC Snapshot

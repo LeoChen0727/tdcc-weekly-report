@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6266 泰詠
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:15 Asia/Taipei
+- generated_at: 2026-05-28 20:20:02 Asia/Taipei
 - stock_id: 6266
 - stock_name: 泰詠
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 28.8
 - low: 27.35
 - close: 28.15
-- volume: 1005115
+- volume: 28000
 - ma5: 27.49
 - ema23_primary: 27.42
 - distance_to_ema23_pct: 2.65
@@ -69,7 +69,7 @@
 - ma120: 28.52
 - return_5d: 4.07
 - return_20d: 1.08
-- volume_ratio: 3.66
+- volume_ratio: 0.12
 - distance_to_ma20_pct_auxiliary: 3.08
 - distance_to_high_60_pct: -4.41
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,27.25,27.7,27.05,27.45,27000,27.35,0.36,27.32,28.08,0.1
 20260526,27.75,27.75,27.3,27.65,27000,27.38,1,27.32,28.06,0.11
 20260527,27.65,27.7,27.15,27.15,27000,27.36,-0.76,27.3,28.03,0.11
-20260528,27.45,28.8,27.35,28.15,1005115,27.42,2.65,27.31,28.01,3.66
+20260528,27.45,28.8,27.35,28.15,28000,27.42,2.65,27.31,28.01,0.12
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6266 | 泰詠 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4116 明基醫
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:37 Asia/Taipei
+- generated_at: 2026-05-28 20:19:23 Asia/Taipei
 - stock_id: 4116
 - stock_name: 明基醫
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 37.55
 - low: 37
 - close: 37.1
-- volume: 77992
+- volume: 37000
 - ma5: 37.64
 - ema23_primary: 38.39
 - distance_to_ema23_pct: -3.35
@@ -69,7 +69,7 @@
 - ma120: 41.74
 - return_5d: -1.07
 - return_20d: -5.84
-- volume_ratio: 1.73
+- volume_ratio: 0.86
 - distance_to_ma20_pct_auxiliary: -3.47
 - distance_to_high_60_pct: -11.98
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,37.8,38.05,37.65,37.8,38000,38.65,-2.2,38.72,39.69,0.9
 20260526,38.3,38.3,38,38.05,38000,38.6,-1.42,38.66,39.61,0.92
 20260527,37.8,38.05,37.4,37.45,38000,38.5,-2.74,38.55,39.52,0.9
-20260528,37.55,37.55,37,37.1,77992,38.39,-3.35,38.44,39.42,1.73
+20260528,37.55,37.55,37,37.1,37000,38.39,-3.35,38.44,39.42,0.86
 ```
 
 ## Latest TDCC Snapshot

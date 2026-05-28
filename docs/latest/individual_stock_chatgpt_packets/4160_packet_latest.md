@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4160 訊聯基因
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:39 Asia/Taipei
+- generated_at: 2026-05-28 20:19:25 Asia/Taipei
 - stock_id: 4160
 - stock_name: 訊聯基因
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 41.05
 - low: 39.95
 - close: 40
-- volume: 104768
+- volume: 40000
 - ma5: 40.76
 - ema23_primary: 42.21
 - distance_to_ema23_pct: -5.24
@@ -69,7 +69,7 @@
 - ma120: 47.88
 - return_5d: -3.26
 - return_20d: -8.05
-- volume_ratio: 1.6
+- volume_ratio: 0.64
 - distance_to_ma20_pct_auxiliary: -5.22
 - distance_to_high_60_pct: -19.92
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,41.3,41.4,40.65,40.75,41000,42.7,-4.57,42.62,44.93,0.67
 20260526,40.75,40.75,40.5,40.7,41000,42.54,-4.31,42.48,44.78,0.67
 20260527,40.7,42.3,40.15,41.05,41000,42.41,-3.21,42.38,44.64,0.66
-20260528,41.05,41.05,39.95,40,104768,42.21,-5.24,42.2,44.5,1.6
+20260528,41.05,41.05,39.95,40,40000,42.21,-5.24,42.2,44.5,0.64
 ```
 
 ## Latest TDCC Snapshot

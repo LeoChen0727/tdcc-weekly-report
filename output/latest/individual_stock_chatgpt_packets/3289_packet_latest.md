@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3289 宜特
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:22 Asia/Taipei
+- generated_at: 2026-05-28 20:19:08 Asia/Taipei
 - stock_id: 3289
 - stock_name: 宜特
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 174.5
 - low: 163.5
 - close: 165.5
-- volume: 2585718
+- volume: 168000
 - ma5: 169.8
 - ema23_primary: 171.33
 - distance_to_ema23_pct: -3.4
@@ -69,7 +69,7 @@
 - ma120: 138.47
 - return_5d: 1.22
 - return_20d: -14.25
-- volume_ratio: 0.75
+- volume_ratio: 0.05
 - distance_to_ma20_pct_auxiliary: -5.25
 - distance_to_high_60_pct: -24.43
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,172.5,174.5,170.5,172.5,172000,172.04,0.27,177.28,157.65,0.05
 20260526,175,175,168.5,172.5,171000,172.07,0.25,177.1,158.31,0.05
 20260527,173,175,168,169.5,171000,171.86,-1.37,176.05,158.93,0.05
-20260528,171.5,174.5,163.5,165.5,2585718,171.33,-3.4,174.68,159.44,0.75
+20260528,171.5,174.5,163.5,165.5,168000,171.33,-3.4,174.68,159.44,0.05
 ```
 
 ## Latest TDCC Snapshot

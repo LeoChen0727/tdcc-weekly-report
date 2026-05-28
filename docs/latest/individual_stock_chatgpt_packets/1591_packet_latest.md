@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1591 駿吉-KY
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:37 Asia/Taipei
+- generated_at: 2026-05-28 20:18:22 Asia/Taipei
 - stock_id: 1591
 - stock_name: 駿吉-KY
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 44.6
 - low: 42
 - close: 42.1
-- volume: 199020
+- volume: 43000
 - ma5: 42.63
 - ema23_primary: 49.35
 - distance_to_ema23_pct: -14.7
@@ -69,7 +69,7 @@
 - ma120: 49.98
 - return_5d: 22.38
 - return_20d: -32.96
-- volume_ratio: 0.19
+- volume_ratio: 0.04
 - distance_to_ma20_pct_auxiliary: -19.68
 - distance_to_high_60_pct: -39.6
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,40,41.55,40,41.55,40000,50.8,-18.21,55.08,50.67,0.03
 20260526,45.7,45.7,45.7,45.7,46000,50.38,-9.28,54.23,50.61,0.04
 20260527,50.2,50.2,42.95,46,48000,50.01,-8.02,53.45,50.56,0.04
-20260528,44.6,44.6,42,42.1,199020,49.35,-14.7,52.41,50.45,0.19
+20260528,44.6,44.6,42,42.1,43000,49.35,-14.7,52.41,50.45,0.04
 ```
 
 ## Latest TDCC Snapshot

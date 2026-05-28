@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4147 中裕
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:38 Asia/Taipei
+- generated_at: 2026-05-28 20:19:25 Asia/Taipei
 - stock_id: 4147
 - stock_name: 中裕
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 48.1
 - low: 47
 - close: 47.1
-- volume: 1413449
+- volume: 47000
 - ma5: 48.72
 - ema23_primary: 49.67
 - distance_to_ema23_pct: -5.17
@@ -69,7 +69,7 @@
 - ma120: 56.07
 - return_5d: -3.88
 - return_20d: -4.66
-- volume_ratio: 1.58
+- volume_ratio: 0.06
 - distance_to_ma20_pct_auxiliary: -4.81
 - distance_to_high_60_pct: -19.62
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,51,51,49.3,49.4,50000,50.21,-1.61,49.58,51.5,0.05
 20260526,49.45,50.2,48.65,48.75,49000,50.09,-2.67,49.6,51.46,0.06
 20260527,48.7,48.7,47.85,47.85,48000,49.9,-4.11,49.59,51.4,0.06
-20260528,47.75,48.1,47,47.1,1413449,49.67,-5.17,49.48,51.31,1.58
+20260528,47.75,48.1,47,47.1,47000,49.67,-5.17,49.48,51.31,0.06
 ```
 
 ## Latest TDCC Snapshot

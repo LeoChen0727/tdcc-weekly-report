@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6728 上洋
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:29 Asia/Taipei
+- generated_at: 2026-05-28 20:20:16 Asia/Taipei
 - stock_id: 6728
 - stock_name: 上洋
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 109.5
 - low: 109
 - close: 109.5
-- volume: 19578
+- volume: 109000
 - ma5: 109.3
 - ema23_primary: 112.67
 - distance_to_ema23_pct: -2.81
@@ -69,7 +69,7 @@
 - ma120: 127.07
 - return_5d: -2.23
 - return_20d: -6.81
-- volume_ratio: 0.37
+- volume_ratio: 1.9
 - distance_to_ma20_pct_auxiliary: -2.58
 - distance_to_high_60_pct: -19.49
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,110.5,110.5,109,109.5,109000,113.85,-3.82,113.72,120.17,2.47
 20260526,108.5,109,108,108.5,108000,113.41,-4.33,113.28,119.72,2.22
 20260527,108.5,110,108,108,109000,112.96,-4.39,112.8,119.29,2.08
-20260528,109,109.5,109,109.5,19578,112.67,-2.81,112.4,118.84,0.37
+20260528,109,109.5,109,109.5,109000,112.67,-2.81,112.4,118.84,1.9
 ```
 
 ## Latest TDCC Snapshot

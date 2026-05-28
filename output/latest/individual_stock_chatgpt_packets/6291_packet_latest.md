@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6291 沛亨
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:16 Asia/Taipei
+- generated_at: 2026-05-28 20:20:03 Asia/Taipei
 - stock_id: 6291
 - stock_name: 沛亨
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 697
 - low: 621
 - close: 654
-- volume: 7232308
+- volume: 657000
 - ma5: 592.2
 - ema23_primary: 507.19
 - distance_to_ema23_pct: 28.95
@@ -69,7 +69,7 @@
 - ma120: 307.08
 - return_5d: 32.93
 - return_20d: 52.09
-- volume_ratio: 3.72
+- volume_ratio: 0.41
 - distance_to_ma20_pct_auxiliary: 30.42
 - distance_to_high_60_pct: -6.17
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,553,568,529,534,547000,470.39,13.52,472.15,394.01,0.32
 20260526,549,587,526,587,558000,480.11,22.26,480.05,399.28,0.33
 20260527,645,645,625,645,642000,493.85,30.61,490.27,405.42,0.39
-20260528,650,697,621,654,7232308,507.19,28.95,501.48,411.38,3.72
+20260528,650,697,621,654,657000,507.19,28.95,501.48,411.38,0.41
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6291 | 沛亨 | true_breakout | 嚴格突破 | 84.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

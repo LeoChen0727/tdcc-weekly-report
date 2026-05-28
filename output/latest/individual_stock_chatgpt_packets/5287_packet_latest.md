@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5287 數字
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:56 Asia/Taipei
+- generated_at: 2026-05-28 20:19:43 Asia/Taipei
 - stock_id: 5287
 - stock_name: 數字
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 150.5
 - low: 148
 - close: 148.5
-- volume: 103840
+- volume: 149000
 - ma5: 150.4
 - ema23_primary: 152.44
 - distance_to_ema23_pct: -2.58
@@ -69,7 +69,7 @@
 - ma120: 164.15
 - return_5d: -1.33
 - return_20d: -4.5
-- volume_ratio: 1.11
+- volume_ratio: 1.56
 - distance_to_ma20_pct_auxiliary: -1.62
 - distance_to_high_60_pct: -14.16
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,156.5,156.5,150,150.5,152000,153.42,-1.9,151.9,160.32,1.84
 20260526,151,152,149,149.5,150000,153.1,-2.35,151.57,160.08,1.77
 20260527,150,150.5,149,149.5,149000,152.8,-2.16,151.3,159.86,1.67
-20260528,150.5,150.5,148,148.5,103840,152.44,-2.58,150.95,159.61,1.11
+20260528,150.5,150.5,148,148.5,149000,152.44,-2.58,150.95,159.61,1.56
 ```
 
 ## Latest TDCC Snapshot

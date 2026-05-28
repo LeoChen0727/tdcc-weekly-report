@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4154 樂威科-KY
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:38 Asia/Taipei
+- generated_at: 2026-05-28 20:19:25 Asia/Taipei
 - stock_id: 4154
 - stock_name: 樂威科-KY
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 13.5
 - low: 12.6
 - close: 13.1
-- volume: 34071
+- volume: 13000
 - ma5: 13.49
 - ema23_primary: 13.49
 - distance_to_ema23_pct: -2.92
@@ -69,7 +69,7 @@
 - ma120: 14.07
 - return_5d: -9.03
 - return_20d: -1.13
-- volume_ratio: 0.94
+- volume_ratio: 0.37
 - distance_to_ma20_pct_auxiliary: -0.87
 - distance_to_high_60_pct: -15.48
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,14.1,14.1,13.4,13.65,14000,13.56,0.69,13.27,12.96,0.34
 20260526,13.15,13.6,13,13.6,13000,13.56,0.3,13.29,12.97,0.32
 20260527,13.55,13.55,13,13.2,13000,13.53,-2.44,13.22,12.96,0.36
-20260528,13,13.5,12.6,13.1,34071,13.49,-2.92,13.21,12.97,0.94
+20260528,13,13.5,12.6,13.1,13000,13.49,-2.92,13.21,12.97,0.37
 ```
 
 ## Latest TDCC Snapshot

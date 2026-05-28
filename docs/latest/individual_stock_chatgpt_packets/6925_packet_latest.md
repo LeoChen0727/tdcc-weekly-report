@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6925 意藍
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:36 Asia/Taipei
+- generated_at: 2026-05-28 20:20:23 Asia/Taipei
 - stock_id: 6925
 - stock_name: 意藍
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 58.5
 - low: 56.8
 - close: 57.8
-- volume: 87486
+- volume: 57000
 - ma5: 57.82
 - ema23_primary: 62.09
 - distance_to_ema23_pct: -6.9
@@ -69,7 +69,7 @@
 - ma120: 79.23
 - return_5d: -3.18
 - return_20d: -13.08
-- volume_ratio: 1.57
+- volume_ratio: 1.05
 - distance_to_ma20_pct_auxiliary: -6.47
 - distance_to_high_60_pct: -28.64
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,59.3,59.3,57.2,58,58000,63.52,-8.7,63.25,69.47,1.09
 20260526,60.5,60.5,57.7,57.7,58000,63.04,-8.47,62.8,69.15,1.1
 20260527,57.8,57.8,56.3,56.3,57000,62.48,-9.89,62.23,68.84,1.06
-20260528,58.5,58.5,56.8,57.8,87486,62.09,-6.9,61.8,68.56,1.57
+20260528,58.5,58.5,56.8,57.8,57000,62.09,-6.9,61.8,68.56,1.05
 ```
 
 ## Latest TDCC Snapshot

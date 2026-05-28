@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5425 台半
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:58 Asia/Taipei
+- generated_at: 2026-05-28 20:19:45 Asia/Taipei
 - stock_id: 5425
 - stock_name: 台半
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 114.5
 - low: 102.5
 - close: 114.5
-- volume: 67465164
+- volume: 112000
 - ma5: 99.64
 - ema23_primary: 82.73
 - distance_to_ema23_pct: 38.4
@@ -69,7 +69,7 @@
 - ma120: 62.62
 - return_5d: 26.66
 - return_20d: 77.24
-- volume_ratio: 2.83
+- volume_ratio: 0.01
 - distance_to_ma20_pct_auxiliary: 41.01
 - distance_to_high_60_pct: 0
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,91,94.8,89.7,91.6,93000,75.52,21.29,74.38,63.92,0
 20260526,95,100.5,94.7,100.5,98000,77.6,29.51,76.42,64.57,0
 20260527,108.5,110.5,98.4,104.5,105000,79.84,30.88,78.7,65.28,0
-20260528,104.5,114.5,102.5,114.5,67465164,82.73,38.4,81.2,66.17,2.83
+20260528,104.5,114.5,102.5,114.5,112000,82.73,38.4,81.2,66.17,0.01
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 5425 | 台半 | true_breakout | 嚴格突破 | 91.0 |  |  | breakout_confirmed |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

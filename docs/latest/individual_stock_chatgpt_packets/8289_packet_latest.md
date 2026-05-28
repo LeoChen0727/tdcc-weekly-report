@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8289 泰藝
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:49 Asia/Taipei
+- generated_at: 2026-05-28 20:20:36 Asia/Taipei
 - stock_id: 8289
 - stock_name: 泰藝
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 75.7
 - low: 69.1
 - close: 75.7
-- volume: 13622851
+- volume: 75000
 - ma5: 69.76
 - ema23_primary: 57.59
 - distance_to_ema23_pct: 31.44
@@ -69,7 +69,7 @@
 - ma120: 34.36
 - return_5d: 24.51
 - return_20d: 67.29
-- volume_ratio: 3.24
+- volume_ratio: 0.02
 - distance_to_ma20_pct_auxiliary: 33.79
 - distance_to_high_60_pct: 0
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,71.2,73.4,66.7,67.9,70000,53.43,27.08,52.55,43.6,0.02
 20260526,67.9,69.9,64,69.5,67000,54.77,26.9,53.91,44.23,0.02
 20260527,70.2,70.9,67.1,68.9,69000,55.95,23.15,55.06,44.79,0.02
-20260528,69.1,75.7,69.1,75.7,13622851,57.59,31.44,56.58,45.4,3.24
+20260528,69.1,75.7,69.1,75.7,75000,57.59,31.44,56.58,45.4,0.02
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 8289 | 泰藝 | true_breakout | 嚴格突破 | 106.0 |  |  | breakout_confirmed |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

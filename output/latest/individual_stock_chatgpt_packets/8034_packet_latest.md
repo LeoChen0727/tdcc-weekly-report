@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8034 榮群
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:43 Asia/Taipei
+- generated_at: 2026-05-28 20:20:30 Asia/Taipei
 - stock_id: 8034
 - stock_name: 榮群
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 24.15
 - low: 23.6
 - close: 23.75
-- volume: 397850
+- volume: 24000
 - ma5: 24.17
 - ema23_primary: 24.23
 - distance_to_ema23_pct: -1.96
@@ -69,7 +69,7 @@
 - ma120: 25.21
 - return_5d: -1.45
 - return_20d: -0.42
-- volume_ratio: 0.81
+- volume_ratio: 0.05
 - distance_to_ma20_pct_auxiliary: -1.75
 - distance_to_high_60_pct: -19.22
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,24.5,24.8,24.3,24.4,24000,24.31,0.36,24.16,24.81,0.05
 20260526,24.55,24.55,24.05,24.2,24000,24.3,-0.42,24.18,24.75,0.05
 20260527,24.25,24.25,23.8,23.9,24000,24.27,-1.52,24.18,24.68,0.05
-20260528,23.7,24.15,23.6,23.75,397850,24.23,-1.96,24.17,24.61,0.81
+20260528,23.7,24.15,23.6,23.75,24000,24.23,-1.96,24.17,24.61,0.05
 ```
 
 ## Latest TDCC Snapshot

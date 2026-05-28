@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2065 世豐
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:46 Asia/Taipei
+- generated_at: 2026-05-28 20:18:31 Asia/Taipei
 - stock_id: 2065
 - stock_name: 世豐
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 35.6
 - low: 35.5
 - close: 35.5
-- volume: 99779
+- volume: 36000
 - ma5: 35.44
 - ema23_primary: 33.01
 - distance_to_ema23_pct: 7.54
@@ -69,7 +69,7 @@
 - ma120: 30.95
 - return_5d: 2.9
 - return_20d: 21.16
-- volume_ratio: 0.67
+- volume_ratio: 0.25
 - distance_to_ma20_pct_auxiliary: 9.41
 - distance_to_high_60_pct: -0.56
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,34.65,35.55,34.55,35.5,35000,32.26,10.03,31.5,31.03,0.24
 20260526,35.5,35.7,33.95,35.5,35000,32.53,9.12,31.82,31.11,0.24
 20260527,35.5,35.6,35.45,35.55,36000,32.78,8.43,32.14,31.18,0.25
-20260528,35.55,35.6,35.5,35.5,99779,33.01,7.54,32.45,31.26,0.67
+20260528,35.55,35.6,35.5,35.5,36000,33.01,7.54,32.45,31.26,0.25
 ```
 
 ## Latest TDCC Snapshot

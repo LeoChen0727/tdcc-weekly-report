@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6735 美達科技
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:29 Asia/Taipei
+- generated_at: 2026-05-28 20:20:16 Asia/Taipei
 - stock_id: 6735
 - stock_name: 美達科技
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 114
 - low: 108
 - close: 108.5
-- volume: 640055
+- volume: 111000
 - ma5: 111.5
 - ema23_primary: 112.81
 - distance_to_ema23_pct: -3.82
@@ -69,7 +69,7 @@
 - ma120: 73.85
 - return_5d: 0
 - return_20d: -17.8
-- volume_ratio: 0.82
+- volume_ratio: 0.15
 - distance_to_ma20_pct_auxiliary: -10.46
 - distance_to_high_60_pct: -27.42
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,116,116,110,110.5,112000,113.31,-2.48,125,85.2,0.1
 20260526,112,116,109,115,113000,113.45,1.37,124.08,86.14,0.12
 20260527,118.5,120,109,110.5,113000,113.2,-2.39,122.35,86.94,0.14
-20260528,110,114,108,108.5,640055,112.81,-3.82,121.17,87.7,0.82
+20260528,110,114,108,108.5,111000,112.81,-3.82,121.17,87.7,0.15
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1259 安心
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:27 Asia/Taipei
+- generated_at: 2026-05-28 20:18:12 Asia/Taipei
 - stock_id: 1259
 - stock_name: 安心
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 57.9
 - low: 57.9
 - close: 57.9
-- volume: 2016
+- volume: 58000
 - ma5: 57.34
 - ema23_primary: 57.84
 - distance_to_ema23_pct: 0.1
@@ -69,7 +69,7 @@
 - ma120: 60.48
 - return_5d: 2.84
 - return_20d: -2.36
-- volume_ratio: 0.09
+- volume_ratio: 2.41
 - distance_to_ma20_pct_auxiliary: 0.56
 - distance_to_high_60_pct: -12.27
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,56.3,57,56.2,57,57000,57.9,-1.55,57.77,59.47,3.18
 20260526,57,57,57,57,57000,57.82,-1.42,57.72,59.41,2.76
 20260527,57.2,58,57.2,58,58000,57.84,0.28,57.65,59.36,2.7
-20260528,57.9,57.9,57.9,57.9,2016,57.84,0.1,57.58,59.3,0.09
+20260528,57.9,57.9,57.9,57.9,58000,57.84,0.1,57.58,59.3,2.41
 ```
 
 ## Latest TDCC Snapshot

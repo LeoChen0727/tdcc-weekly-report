@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3587 閎康
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:31 Asia/Taipei
+- generated_at: 2026-05-28 20:19:17 Asia/Taipei
 - stock_id: 3587
 - stock_name: 閎康
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 340
 - low: 325.5
 - close: 329.5
-- volume: 1456529
+- volume: 332000
 - ma5: 336.9
 - ema23_primary: 333.31
 - distance_to_ema23_pct: -1.14
@@ -69,7 +69,7 @@
 - ma120: 242.21
 - return_5d: 1.38
 - return_20d: 2.49
-- volume_ratio: 0.55
+- volume_ratio: 0.13
 - distance_to_ma20_pct_auxiliary: -3.48
 - distance_to_high_60_pct: -17.42
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,360.5,360.5,342,344,348000,333.53,3.14,339.55,279.77,0.12
 20260526,344,344.5,332,338,337000,333.9,1.23,340.8,281.79,0.12
 20260527,343,348.5,328,331,338000,333.66,-0.8,340.98,283.67,0.13
-20260528,334,340,325.5,329.5,1456529,333.31,-1.14,341.38,285.5,0.55
+20260528,334,340,325.5,329.5,332000,333.31,-1.14,341.38,285.5,0.13
 ```
 
 ## Latest TDCC Snapshot
@@ -123,10 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3587 | 閎康 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260528 | 3587 | 閎康 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

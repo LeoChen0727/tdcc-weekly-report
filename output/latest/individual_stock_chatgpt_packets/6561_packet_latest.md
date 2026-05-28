@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6561 是方
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:22 Asia/Taipei
+- generated_at: 2026-05-28 20:20:09 Asia/Taipei
 - stock_id: 6561
 - stock_name: 是方
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 354
 - low: 346
 - close: 350
-- volume: 179852
+- volume: 349000
 - ma5: 355.2
 - ema23_primary: 350.78
 - distance_to_ema23_pct: -0.22
@@ -69,7 +69,7 @@
 - ma120: 352.32
 - return_5d: -1.41
 - return_20d: 0.43
-- volume_ratio: 0.88
+- volume_ratio: 1.64
 - distance_to_ma20_pct_auxiliary: 1.29
 - distance_to_high_60_pct: -9.09
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,361.5,362,354.5,359.5,358000,350.54,2.56,345.9,355.31,1.96
 20260526,360,362.5,353,353.5,356000,350.79,0.77,345.8,355.23,1.83
 20260527,353.5,354.5,349.5,351.5,351000,350.85,0.19,345.48,354.84,1.71
-20260528,351.5,354,346,350,179852,350.78,-0.22,345.55,354.6,0.88
+20260528,351.5,354,346,350,349000,350.78,-0.22,345.55,354.6,1.64
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6692 進能服
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:27 Asia/Taipei
+- generated_at: 2026-05-28 20:20:14 Asia/Taipei
 - stock_id: 6692
 - stock_name: 進能服
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 27.35
 - low: 27
 - close: 27
-- volume: 50796
+- volume: 27000
 - ma5: 27.8
 - ema23_primary: 29.48
 - distance_to_ema23_pct: -8.41
@@ -69,7 +69,7 @@
 - ma120: 30.78
 - return_5d: -5.92
 - return_20d: -15.89
-- volume_ratio: 1.2
+- volume_ratio: 0.66
 - distance_to_ma20_pct_auxiliary: -9.06
 - distance_to_high_60_pct: -19.4
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,28.5,28.5,27.5,28.05,28000,30.11,-6.85,30.41,31,0.63
 20260526,27.75,27.85,27.55,27.55,28000,29.9,-7.86,30.17,30.94,0.66
 20260527,27.55,27.55,27.4,27.55,28000,29.7,-7.25,29.95,30.87,0.67
-20260528,27.35,27.35,27,27,50796,29.48,-8.41,29.69,30.82,1.2
+20260528,27.35,27.35,27,27,27000,29.48,-8.41,29.69,30.82,0.66
 ```
 
 ## Latest TDCC Snapshot

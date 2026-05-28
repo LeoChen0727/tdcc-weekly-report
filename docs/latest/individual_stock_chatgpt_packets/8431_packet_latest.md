@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8431 匯鑽科
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:51 Asia/Taipei
+- generated_at: 2026-05-28 20:20:38 Asia/Taipei
 - stock_id: 8431
 - stock_name: 匯鑽科
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 58.1
 - low: 55.6
 - close: 55.9
-- volume: 811082
+- volume: 57000
 - ma5: 58.6
 - ema23_primary: 60.12
 - distance_to_ema23_pct: -7.03
@@ -69,7 +69,7 @@
 - ma120: 63.04
 - return_5d: -2.95
 - return_20d: -13.33
-- volume_ratio: 1.16
+- volume_ratio: 0.09
 - distance_to_ma20_pct_auxiliary: -6.43
 - distance_to_high_60_pct: -27.96
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,61.2,61.9,59.1,59.8,60000,60.94,-1.88,60.63,64.34,0.07
 20260526,60,60.5,58.5,59.2,59000,60.8,-2.63,60.45,64.15,0.07
 20260527,59.6,59.8,57.1,57.3,58000,60.51,-5.3,60.17,63.92,0.07
-20260528,57.3,58.1,55.6,55.9,811082,60.12,-7.03,59.74,63.68,1.16
+20260528,57.3,58.1,55.6,55.9,57000,60.12,-7.03,59.74,63.68,0.09
 ```
 
 ## Latest TDCC Snapshot

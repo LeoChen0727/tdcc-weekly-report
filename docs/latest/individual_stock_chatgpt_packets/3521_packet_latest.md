@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3521 台鋼建設
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:28 Asia/Taipei
+- generated_at: 2026-05-28 20:19:15 Asia/Taipei
 - stock_id: 3521
 - stock_name: 台鋼建設
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 12.5
 - low: 12.2
 - close: 12.2
-- volume: 97545
+- volume: 12000
 - ma5: 12.56
 - ema23_primary: 13.17
 - distance_to_ema23_pct: -7.38
@@ -69,7 +69,7 @@
 - ma120: 14.27
 - return_5d: -6.15
 - return_20d: -13.78
-- volume_ratio: 1.28
+- volume_ratio: 0.17
 - distance_to_ma20_pct_auxiliary: -7.89
 - distance_to_high_60_pct: -20.78
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,13,13.05,12.75,12.8,13000,13.43,-4.7,13.53,13.91,0.14
 20260526,12.7,12.9,12.5,12.55,13000,13.36,-6.05,13.46,13.86,0.15
 20260527,12.55,12.55,12.2,12.2,12000,13.26,-8,13.34,13.81,0.16
-20260528,12.5,12.5,12.2,12.2,97545,13.17,-7.38,13.24,13.77,1.28
+20260528,12.5,12.5,12.2,12.2,12000,13.17,-7.38,13.24,13.77,0.17
 ```
 
 ## Latest TDCC Snapshot

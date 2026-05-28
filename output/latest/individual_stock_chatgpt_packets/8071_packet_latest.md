@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8071 能率網通
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:44 Asia/Taipei
+- generated_at: 2026-05-28 20:20:32 Asia/Taipei
 - stock_id: 8071
 - stock_name: 能率網通
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 20.15
 - low: 19.2
 - close: 19.85
-- volume: 845551
+- volume: 20000
 - ma5: 20.19
 - ema23_primary: 18.67
 - distance_to_ema23_pct: 6.33
@@ -69,7 +69,7 @@
 - ma120: 17.48
 - return_5d: -0.25
 - return_20d: 22.53
-- volume_ratio: 0.56
+- volume_ratio: 0.01
 - distance_to_ma20_pct_auxiliary: 7.05
 - distance_to_high_60_pct: -9.36
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,20.05,21.6,19.7,21.45,20000,18.33,17.04,17.93,16.97,0.01
 20260526,21.25,21.25,20,20.1,20000,18.47,8.8,18.16,17.02,0.01
 20260527,20.15,20.25,19.5,19.5,20000,18.56,5.06,18.36,17.06,0.01
-20260528,19.5,20.15,19.2,19.85,845551,18.67,6.33,18.54,17.1,0.56
+20260528,19.5,20.15,19.2,19.85,20000,18.67,6.33,18.54,17.1,0.01
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5455 昇益
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:59 Asia/Taipei
+- generated_at: 2026-05-28 20:19:46 Asia/Taipei
 - stock_id: 5455
 - stock_name: 昇益
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 23.4
 - low: 22.55
 - close: 23.4
-- volume: 5633
+- volume: 23000
 - ma5: 23.08
 - ema23_primary: 24.26
 - distance_to_ema23_pct: -3.56
@@ -69,7 +69,7 @@
 - ma120: 26.58
 - return_5d: -3.31
 - return_20d: -7.33
-- volume_ratio: 0.12
+- volume_ratio: 0.47
 - distance_to_ma20_pct_auxiliary: -4.49
 - distance_to_high_60_pct: -22
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,23.2,23.8,22.4,22.9,23000,24.68,-7.23,24.87,25.62,0.46
 20260526,22,22.9,22,22.55,22000,24.51,-7.98,24.74,25.52,0.44
 20260527,22.55,22.55,22.5,22.55,22000,24.34,-7.37,24.59,25.4,0.45
-20260528,22.55,23.4,22.55,23.4,5633,24.26,-3.56,24.5,25.3,0.12
+20260528,22.55,23.4,22.55,23.4,23000,24.26,-3.56,24.5,25.3,0.47
 ```
 
 ## Latest TDCC Snapshot

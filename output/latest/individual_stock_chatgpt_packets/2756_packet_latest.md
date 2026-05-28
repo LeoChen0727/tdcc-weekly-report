@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2756 聯發國際
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:07 Asia/Taipei
+- generated_at: 2026-05-28 20:18:53 Asia/Taipei
 - stock_id: 2756
 - stock_name: 聯發國際
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 60.1
 - low: 59.5
 - close: 60
-- volume: 17470
+- volume: 60000
 - ma5: 60.62
 - ema23_primary: 63.03
 - distance_to_ema23_pct: -4.81
@@ -69,7 +69,7 @@
 - ma120: 76.17
 - return_5d: -2.12
 - return_20d: -10.04
-- volume_ratio: 0.46
+- volume_ratio: 1.49
 - distance_to_ma20_pct_auxiliary: -4.1
 - distance_to_high_60_pct: -25.47
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,59.5,63.2,59.5,60.6,60000,63.83,-5.06,63.59,70.08,1.75
 20260526,60.6,60.6,60,60.6,60000,63.56,-4.66,63.23,69.75,1.64
 20260527,59.9,60.5,59.8,60.5,60000,63.31,-4.43,62.9,69.42,1.58
-20260528,60.1,60.1,59.5,60,17470,63.03,-4.81,62.56,69.1,0.46
+20260528,60.1,60.1,59.5,60,60000,63.03,-4.81,62.56,69.1,1.49
 ```
 
 ## Latest TDCC Snapshot

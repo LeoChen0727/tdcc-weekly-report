@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5302 太欣
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:56 Asia/Taipei
+- generated_at: 2026-05-28 20:19:43 Asia/Taipei
 - stock_id: 5302
 - stock_name: 太欣
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 10.95
 - low: 10
 - close: 10.95
-- volume: 1351040
+- volume: 11000
 - ma5: 10.24
 - ema23_primary: 10.61
 - distance_to_ema23_pct: 3.25
@@ -69,7 +69,7 @@
 - ma120: 10.78
 - return_5d: 7.88
 - return_20d: -1.79
-- volume_ratio: 2.14
+- volume_ratio: 0.02
 - distance_to_ma20_pct_auxiliary: 2.53
 - distance_to_high_60_pct: -17.98
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,10,10.3,9.92,10,10000,10.67,-6.27,10.83,11.21,0.01
 20260526,10.05,10.5,10.05,10.2,10000,10.63,-4.04,10.76,11.17,0.02
 20260527,10.35,10.35,9.96,9.96,10000,10.57,-5.8,10.69,11.13,0.02
-20260528,10.05,10.95,10,10.95,1351040,10.61,3.25,10.68,11.1,2.14
+20260528,10.05,10.95,10,10.95,11000,10.61,3.25,10.68,11.1,0.02
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 5302 | 太欣 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

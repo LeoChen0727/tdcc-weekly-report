@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3508 位速
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:28 Asia/Taipei
+- generated_at: 2026-05-28 20:19:14 Asia/Taipei
 - stock_id: 3508
 - stock_name: 位速
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 21.55
 - low: 19.75
 - close: 20.2
-- volume: 419154
+- volume: 21000
 - ma5: 20.38
 - ema23_primary: 22.03
 - distance_to_ema23_pct: -8.29
@@ -69,7 +69,7 @@
 - ma120: 27.74
 - return_5d: 2.28
 - return_20d: -17.21
-- volume_ratio: 1.04
+- volume_ratio: 0.05
 - distance_to_ma20_pct_auxiliary: -3.15
 - distance_to_high_60_pct: -63.86
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,19.7,20.1,19.15,19.45,20000,22.41,-13.19,21.46,30.84,0.05
 20260526,19.95,21.35,19.95,21.35,21000,22.32,-4.34,21.29,30.59,0.05
 20260527,21.6,22.2,20.55,20.8,21000,22.19,-6.27,21.07,30.32,0.05
-20260528,20.95,21.55,19.75,20.2,419154,22.03,-8.29,20.86,29.98,1.04
+20260528,20.95,21.55,19.75,20.2,21000,22.03,-8.29,20.86,29.98,0.05
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5403 中菲
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:58 Asia/Taipei
+- generated_at: 2026-05-28 20:19:45 Asia/Taipei
 - stock_id: 5403
 - stock_name: 中菲
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 85.1
 - low: 84.5
 - close: 85
-- volume: 138177
+- volume: 85000
 - ma5: 85.16
 - ema23_primary: 89.07
 - distance_to_ema23_pct: -4.57
@@ -69,7 +69,7 @@
 - ma120: 105.9
 - return_5d: -1.39
 - return_20d: -9.29
-- volume_ratio: 0.87
+- volume_ratio: 0.54
 - distance_to_ma20_pct_auxiliary: -4.7
 - distance_to_high_60_pct: -23.77
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,85.9,86.5,85.5,85.5,86000,90.35,-5.36,90.4,98.91,0.5
 20260526,85.5,85.5,84.5,84.9,85000,89.89,-5.55,90.03,98.51,0.53
 20260527,85,85.1,84.3,84.5,85000,89.44,-5.53,89.62,98.08,0.54
-20260528,84.6,85.1,84.5,85,138177,89.07,-4.57,89.19,97.65,0.87
+20260528,84.6,85.1,84.5,85,85000,89.07,-4.57,89.19,97.65,0.54
 ```
 
 ## Latest TDCC Snapshot

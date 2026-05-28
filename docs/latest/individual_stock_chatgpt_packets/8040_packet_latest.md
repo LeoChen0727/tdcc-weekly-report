@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8040 九暘
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:43 Asia/Taipei
+- generated_at: 2026-05-28 20:20:30 Asia/Taipei
 - stock_id: 8040
 - stock_name: 九暘
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 120
 - low: 107
 - close: 109.5
-- volume: 3727853
+- volume: 112000
 - ma5: 116.4
 - ema23_primary: 92.88
 - distance_to_ema23_pct: 17.89
@@ -69,7 +69,7 @@
 - ma120: 57.94
 - return_5d: 0.92
 - return_20d: 56.88
-- volume_ratio: 1.06
+- volume_ratio: 0.03
 - distance_to_ma20_pct_auxiliary: 18.47
 - distance_to_high_60_pct: -16.09
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,130.5,130.5,120.5,122.5,127000,86.8,41.12,86.11,63.66,0.03
 20260526,124,126.5,115,118,120000,89.4,31.99,88.41,64.82,0.03
 20260527,120,126.5,112.5,113,118000,91.37,23.67,90.44,65.86,0.03
-20260528,113.5,120,107,109.5,3727853,92.88,17.89,92.42,66.82,1.06
+20260528,113.5,120,107,109.5,112000,92.88,17.89,92.42,66.82,0.03
 ```
 
 ## Latest TDCC Snapshot

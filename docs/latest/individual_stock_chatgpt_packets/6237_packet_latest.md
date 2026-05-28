@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6237 驊訊
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:14 Asia/Taipei
+- generated_at: 2026-05-28 20:20:01 Asia/Taipei
 - stock_id: 6237
 - stock_name: 驊訊
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 53
 - low: 50.4
 - close: 52
-- volume: 1733693
+- volume: 52000
 - ma5: 53.22
 - ema23_primary: 46.92
 - distance_to_ema23_pct: 10.82
@@ -69,7 +69,7 @@
 - ma120: 40.52
 - return_5d: -2.62
 - return_20d: 34.54
-- volume_ratio: 0.85
+- volume_ratio: 0.03
 - distance_to_ma20_pct_auxiliary: 11.92
 - distance_to_high_60_pct: -11.11
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,54.8,58.5,53.2,54.6,56000,45.35,20.38,44.45,39.87,0.03
 20260526,54.5,55,52.2,53.6,53000,46.04,16.42,45.2,40.11,0.03
 20260527,53.8,54.4,50.8,51.1,52000,46.46,9.98,45.79,40.3,0.03
-20260528,51.1,53,50.4,52,1733693,46.92,10.82,46.46,40.5,0.85
+20260528,51.1,53,50.4,52,52000,46.92,10.82,46.46,40.5,0.03
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6237 | 驊訊 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

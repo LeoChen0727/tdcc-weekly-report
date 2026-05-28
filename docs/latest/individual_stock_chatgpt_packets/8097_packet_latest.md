@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8097 常珵
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:46 Asia/Taipei
+- generated_at: 2026-05-28 20:20:33 Asia/Taipei
 - stock_id: 8097
 - stock_name: 常珵
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 58.5
 - low: 57.2
 - close: 57.8
-- volume: 62767
+- volume: 58000
 - ma5: 57.68
 - ema23_primary: 55.17
 - distance_to_ema23_pct: 4.77
@@ -69,7 +69,7 @@
 - ma120: 57.08
 - return_5d: 1.4
 - return_20d: 11.58
-- volume_ratio: 0.8
+- volume_ratio: 0.75
 - distance_to_ma20_pct_auxiliary: 6.41
 - distance_to_high_60_pct: -4.62
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,57.2,58.8,57.2,58,58000,54.41,6.59,53.4,54.56,0.75
 20260526,57.4,58.2,57.3,57.6,58000,54.68,5.34,53.73,54.62,0.76
 20260527,57.5,58.2,57.2,57.7,58000,54.93,5.04,54.02,54.67,0.76
-20260528,57.2,58.5,57.2,57.8,62767,55.17,4.77,54.32,54.73,0.8
+20260528,57.2,58.5,57.2,57.8,58000,55.17,4.77,54.32,54.73,0.75
 ```
 
 ## Latest TDCC Snapshot

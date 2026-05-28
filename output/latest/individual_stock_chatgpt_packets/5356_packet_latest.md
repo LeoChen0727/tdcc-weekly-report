@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5356 協益
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:58 Asia/Taipei
+- generated_at: 2026-05-28 20:19:44 Asia/Taipei
 - stock_id: 5356
 - stock_name: 協益
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 27
 - low: 26.9
 - close: 27
-- volume: 69414
+- volume: 27000
 - ma5: 26.98
 - ema23_primary: 26.63
 - distance_to_ema23_pct: 1.39
@@ -69,7 +69,7 @@
 - ma120: 25.62
 - return_5d: 1.5
 - return_20d: 0
-- volume_ratio: 0.83
+- volume_ratio: 0.33
 - distance_to_ma20_pct_auxiliary: 1.03
 - distance_to_high_60_pct: -2.88
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,26.8,27.35,26.8,27.1,27000,26.51,2.23,26.7,25.73,0.29
 20260526,27.15,27.2,27,27.1,27000,26.56,2.04,26.71,25.76,0.31
 20260527,27.1,27.2,27,27,27000,26.6,1.52,26.73,25.79,0.32
-20260528,27,27,26.9,27,69414,26.63,1.39,26.73,25.81,0.83
+20260528,27,27,26.9,27,27000,26.63,1.39,26.73,25.81,0.33
 ```
 
 ## Latest TDCC Snapshot

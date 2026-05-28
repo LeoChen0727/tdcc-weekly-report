@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6983 華洋精機
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:37 Asia/Taipei
+- generated_at: 2026-05-28 20:20:25 Asia/Taipei
 - stock_id: 6983
 - stock_name: 華洋精機
 - packet_status: partial_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 430
 - low: 380
 - close: 385
-- volume: 413263
+- volume: 395000
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -80,7 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,349.5,388,326,385,351000,,,,,
 20260526,385.5,520,385.5,472,453000,,,,,
 20260527,497.5,498,428,430,452000,,,,,
-20260528,430,430,380,385,413263,,,,,
+20260528,430,430,380,385,395000,,,,,
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3211 順達
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:19 Asia/Taipei
+- generated_at: 2026-05-28 20:19:06 Asia/Taipei
 - stock_id: 3211
 - stock_name: 順達
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 490
 - low: 439
 - close: 442.5
-- volume: 15014889
+- volume: 461000
 - ma5: 438
 - ema23_primary: 393.41
 - distance_to_ema23_pct: 12.48
@@ -69,7 +69,7 @@
 - ma120: 328.25
 - return_5d: 25.35
 - return_20d: 22.07
-- volume_ratio: 2.03
+- volume_ratio: 0.07
 - distance_to_ma20_pct_auxiliary: 13.92
 - distance_to_high_60_pct: -10.15
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,417.5,426.5,417,426.5,425000,374.23,13.97,375.82,349.98,0.05
 20260526,450.5,469,448,469,462000,382.13,22.73,380,353.01,0.06
 20260527,470,492.5,455,464,471000,388.95,19.3,384.43,355.58,0.07
-20260528,472,490,439,442.5,15014889,393.41,12.48,388.43,357.76,2.03
+20260528,472,490,439,442.5,461000,393.41,12.48,388.43,357.76,0.07
 ```
 
 ## Latest TDCC Snapshot
@@ -125,7 +125,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3211 | 順達 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 3211 | 順達 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

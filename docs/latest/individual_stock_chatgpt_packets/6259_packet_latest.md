@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6259 百徽
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:14 Asia/Taipei
+- generated_at: 2026-05-28 20:20:01 Asia/Taipei
 - stock_id: 6259
 - stock_name: 百徽
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 28.8
 - low: 26.65
 - close: 27
-- volume: 1458150
+- volume: 28000
 - ma5: 26.43
 - ema23_primary: 23.87
 - distance_to_ema23_pct: 13.12
@@ -69,7 +69,7 @@
 - ma120: 18.96
 - return_5d: 9.31
 - return_20d: 21.62
-- volume_ratio: 1.96
+- volume_ratio: 0.04
 - distance_to_ma20_pct_auxiliary: 13.58
 - distance_to_high_60_pct: -6.41
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,26.9,27.65,26,27.05,27000,23.03,17.44,22.95,20.07,0.04
 20260526,27.05,27.5,25.5,25.85,26000,23.27,11.09,23.26,20.2,0.04
 20260527,26.15,28.1,26.15,27.05,27000,23.58,14.7,23.53,20.36,0.04
-20260528,26.65,28.8,26.65,27,1458150,23.87,13.12,23.77,20.5,1.96
+20260528,26.65,28.8,26.65,27,28000,23.87,13.12,23.77,20.5,0.04
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6259 | 百徽 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

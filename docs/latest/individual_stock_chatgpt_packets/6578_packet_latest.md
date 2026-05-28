@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6578 達邦蛋白
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:23 Asia/Taipei
+- generated_at: 2026-05-28 20:20:10 Asia/Taipei
 - stock_id: 6578
 - stock_name: 達邦蛋白
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 16.7
 - low: 16
 - close: 16.4
-- volume: 89443
+- volume: 16000
 - ma5: 16.95
 - ema23_primary: 16.51
 - distance_to_ema23_pct: -0.66
@@ -69,7 +69,7 @@
 - ma120: 18.23
 - return_5d: -4.65
 - return_20d: 4.13
-- volume_ratio: 0.44
+- volume_ratio: 0.08
 - distance_to_ma20_pct_auxiliary: 2.2
 - distance_to_high_60_pct: -13.68
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,17.35,17.35,17,17.05,17000,16.43,3.78,15.9,17.19,0.07
 20260526,16.95,17.7,16.95,17.35,17000,16.51,5.11,15.97,17.17,0.08
 20260527,17.15,17.15,16.65,16.65,17000,16.52,0.8,16.02,17.13,0.08
-20260528,16.65,16.7,16,16.4,89443,16.51,-0.66,16.05,17.09,0.44
+20260528,16.65,16.7,16,16.4,16000,16.51,-0.66,16.05,17.09,0.08
 ```
 
 ## Latest TDCC Snapshot

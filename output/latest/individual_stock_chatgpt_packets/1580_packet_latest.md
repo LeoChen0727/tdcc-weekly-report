@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1580 新麥
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:36 Asia/Taipei
+- generated_at: 2026-05-28 20:18:22 Asia/Taipei
 - stock_id: 1580
 - stock_name: 新麥
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 122
 - low: 121
 - close: 121.5
-- volume: 57773
+- volume: 122000
 - ma5: 122
 - ema23_primary: 123.04
 - distance_to_ema23_pct: -1.25
@@ -69,7 +69,7 @@
 - ma120: 129.97
 - return_5d: -0.82
 - return_20d: -0.41
-- volume_ratio: 0.81
+- volume_ratio: 1.64
 - distance_to_ma20_pct_auxiliary: -0.98
 - distance_to_high_60_pct: -8.3
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,122.5,122.5,121.5,122,122000,123.4,-1.14,122.67,126.84,1.7
 20260526,121.5,122,121,122,122000,123.29,-1.04,122.72,126.67,1.77
 20260527,122,122,120.5,122,121000,123.18,-0.96,122.72,126.51,1.71
-20260528,122,122,121,121.5,57773,123.04,-1.25,122.7,126.35,0.81
+20260528,122,122,121,121.5,122000,123.04,-1.25,122.7,126.35,1.64
 ```
 
 ## Latest TDCC Snapshot

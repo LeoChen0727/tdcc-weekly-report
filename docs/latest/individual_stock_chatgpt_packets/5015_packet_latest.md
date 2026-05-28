@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5015 華祺
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:53 Asia/Taipei
+- generated_at: 2026-05-28 20:19:40 Asia/Taipei
 - stock_id: 5015
 - stock_name: 華祺
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 24.95
 - low: 24
 - close: 24.05
-- volume: 25579
+- volume: 24000
 - ma5: 23.8
 - ema23_primary: 23.34
 - distance_to_ema23_pct: 3.06
@@ -69,7 +69,7 @@
 - ma120: 26.5
 - return_5d: 9.32
 - return_20d: 1.05
-- volume_ratio: 0.59
+- volume_ratio: 0.56
 - distance_to_ma20_pct_auxiliary: 5.02
 - distance_to_high_60_pct: -15.17
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,22.05,24.2,22.05,24.2,23000,23.06,4.93,22.84,24.93,0.53
 20260526,26.6,26.6,24.75,24.75,26000,23.2,6.66,22.88,24.88,0.61
 20260527,24.95,24.95,23.7,24,24000,23.27,3.13,22.89,24.81,0.56
-20260528,24.6,24.95,24,24.05,25579,23.34,3.06,22.9,24.75,0.59
+20260528,24.6,24.95,24,24.05,24000,23.34,3.06,22.9,24.75,0.56
 ```
 
 ## Latest TDCC Snapshot

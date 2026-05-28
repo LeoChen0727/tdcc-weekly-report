@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2949 欣新網
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:11 Asia/Taipei
+- generated_at: 2026-05-28 20:18:57 Asia/Taipei
 - stock_id: 2949
 - stock_name: 欣新網
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 63
 - low: 63
 - close: 63
-- volume: 1653
+- volume: 63000
 - ma5: 62.74
 - ema23_primary: 59.57
 - distance_to_ema23_pct: 5.76
@@ -69,7 +69,7 @@
 - ma120: 63.38
 - return_5d: 4.13
 - return_20d: 13.31
-- volume_ratio: 0.07
+- volume_ratio: 2.36
 - distance_to_ma20_pct_auxiliary: 8.68
 - distance_to_high_60_pct: -5.83
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,61.9,62.9,61.9,62.9,62000,58.55,7.42,57.03,60.06,3.36
 20260526,62.1,62.9,62,62.9,62000,58.92,6.76,57.25,60.02,2.89
 20260527,62.2,63,62.2,63,63000,59.26,6.32,57.6,59.98,2.58
-20260528,63,63,63,63,1653,59.57,5.76,57.97,59.95,0.07
+20260528,63,63,63,63,63000,59.57,5.76,57.97,59.95,2.36
 ```
 
 ## Latest TDCC Snapshot

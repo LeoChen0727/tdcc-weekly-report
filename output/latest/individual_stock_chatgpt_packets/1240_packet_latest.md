@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1240 茂生農經
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:27 Asia/Taipei
+- generated_at: 2026-05-28 20:18:12 Asia/Taipei
 - stock_id: 1240
 - stock_name: 茂生農經
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 57.6
 - low: 57
 - close: 57.3
-- volume: 48521
+- volume: 57000
 - ma5: 57.64
 - ema23_primary: 58.29
 - distance_to_ema23_pct: -1.7
@@ -69,7 +69,7 @@
 - ma120: 59.17
 - return_5d: -1.38
 - return_20d: -3.37
-- volume_ratio: 1.44
+- volume_ratio: 1.67
 - distance_to_ma20_pct_auxiliary: -1.8
 - distance_to_high_60_pct: -5.6
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,57.5,57.8,57.5,57.7,58000,58.5,-1.37,58.54,59.03,2.13
 20260526,57.5,57.7,57.5,57.7,58000,58.43,-1.25,58.49,59.01,1.99
 20260527,58.3,58.5,57.8,57.8,58000,58.38,-0.99,58.45,58.98,1.82
-20260528,57.5,57.6,57,57.3,48521,58.29,-1.7,58.35,58.95,1.44
+20260528,57.5,57.6,57,57.3,57000,58.29,-1.7,58.35,58.95,1.67
 ```
 
 ## Latest TDCC Snapshot

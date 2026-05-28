@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2736 富野
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:06 Asia/Taipei
+- generated_at: 2026-05-28 20:18:52 Asia/Taipei
 - stock_id: 2736
 - stock_name: 富野
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 12.25
 - low: 12.05
 - close: 12.05
-- volume: 90817
+- volume: 12000
 - ma5: 12.2
 - ema23_primary: 12.4
 - distance_to_ema23_pct: -2.85
@@ -69,7 +69,7 @@
 - ma120: 13.67
 - return_5d: 0.42
 - return_20d: -5.86
-- volume_ratio: 1.71
+- volume_ratio: 0.24
 - distance_to_ma20_pct_auxiliary: -2.41
 - distance_to_high_60_pct: -20.72
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,12.3,12.65,12.2,12.2,12000,12.48,-2.21,12.46,12.86,0.21
 20260526,12.35,12.35,12.15,12.2,12000,12.45,-2.03,12.42,12.84,0.23
 20260527,12.1,12.7,12.1,12.25,12000,12.44,-1.49,12.38,12.81,0.24
-20260528,12.25,12.25,12.05,12.05,90817,12.4,-2.85,12.35,12.79,1.71
+20260528,12.25,12.25,12.05,12.05,12000,12.4,-2.85,12.35,12.79,0.24
 ```
 
 ## Latest TDCC Snapshot

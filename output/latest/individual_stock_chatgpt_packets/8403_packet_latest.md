@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8403 盛弘
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:50 Asia/Taipei
+- generated_at: 2026-05-28 20:20:37 Asia/Taipei
 - stock_id: 8403
 - stock_name: 盛弘
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 19.35
 - low: 19.1
 - close: 19.3
-- volume: 264673
+- volume: 19000
 - ma5: 19.56
 - ema23_primary: 20.38
 - distance_to_ema23_pct: -5.3
@@ -69,7 +69,7 @@
 - ma120: 22.68
 - return_5d: -3.74
 - return_20d: -10.44
-- volume_ratio: 1.1
+- volume_ratio: 0.08
 - distance_to_ma20_pct_auxiliary: -4.89
 - distance_to_high_60_pct: -18.05
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,19.85,19.85,19.45,19.65,20000,20.67,-4.96,20.64,21.93,0.08
 20260526,19.7,19.8,19.6,19.65,20000,20.59,-4.56,20.53,21.87,0.08
 20260527,19.65,19.65,19.2,19.25,19000,20.48,-5.99,20.41,21.8,0.08
-20260528,19.25,19.35,19.1,19.3,264673,20.38,-5.3,20.29,21.73,1.1
+20260528,19.25,19.35,19.1,19.3,19000,20.38,-5.3,20.29,21.73,0.08
 ```
 
 ## Latest TDCC Snapshot

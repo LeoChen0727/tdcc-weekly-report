@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3666 光耀
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:34 Asia/Taipei
+- generated_at: 2026-05-28 20:19:20 Asia/Taipei
 - stock_id: 3666
 - stock_name: 光耀
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 28.8
 - low: 27.5
 - close: 28.2
-- volume: 154658
+- volume: 28000
 - ma5: 28.05
 - ema23_primary: 27.38
 - distance_to_ema23_pct: 2.98
@@ -69,7 +69,7 @@
 - ma120: 28.41
 - return_5d: 4.25
 - return_20d: 7.43
-- volume_ratio: 0.93
+- volume_ratio: 0.18
 - distance_to_ma20_pct_auxiliary: 2.29
 - distance_to_high_60_pct: -5.69
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,27.05,27.3,26.55,27.2,27000,27.03,0.64,27.21,26.45,0.13
 20260526,27.45,29.9,27.4,28.8,29000,27.17,5.98,27.34,26.48,0.17
 20260527,28.8,29.2,28.15,28.8,29000,27.31,5.45,27.47,26.48,0.18
-20260528,28.45,28.8,27.5,28.2,154658,27.38,2.98,27.57,26.49,0.93
+20260528,28.45,28.8,27.5,28.2,28000,27.38,2.98,27.57,26.49,0.18
 ```
 
 ## Latest TDCC Snapshot

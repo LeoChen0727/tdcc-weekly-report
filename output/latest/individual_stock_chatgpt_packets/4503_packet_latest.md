@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4503 金雨
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:42 Asia/Taipei
+- generated_at: 2026-05-28 20:19:28 Asia/Taipei
 - stock_id: 4503
 - stock_name: 金雨
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 39.55
 - low: 38.05
 - close: 38.5
-- volume: 261776
+- volume: 39000
 - ma5: 41.31
 - ema23_primary: 42.44
 - distance_to_ema23_pct: -9.27
@@ -69,7 +69,7 @@
 - ma120: 41.08
 - return_5d: -8.66
 - return_20d: -13.68
-- volume_ratio: 1
+- volume_ratio: 0.16
 - distance_to_ma20_pct_auxiliary: -11.01
 - distance_to_high_60_pct: -20.7
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,43.6,44.4,42.7,44,43000,43.25,1.72,43.97,40.74,0.15
 20260526,44,44.2,41.65,41.75,42000,43.13,-3.2,43.88,40.79,0.15
 20260527,41.9,42.25,38.9,39.1,40000,42.79,-8.63,43.57,40.81,0.15
-20260528,39.1,39.55,38.05,38.5,261776,42.44,-9.27,43.27,40.8,1
+20260528,39.1,39.55,38.05,38.5,39000,42.44,-9.27,43.27,40.8,0.16
 ```
 
 ## Latest TDCC Snapshot

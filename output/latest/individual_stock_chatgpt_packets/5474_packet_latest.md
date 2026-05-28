@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5474 聰泰
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:00 Asia/Taipei
+- generated_at: 2026-05-28 20:19:47 Asia/Taipei
 - stock_id: 5474
 - stock_name: 聰泰
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 167.5
 - low: 159
 - close: 164
-- volume: 286082
+- volume: 162000
 - ma5: 168
 - ema23_primary: 161.95
 - distance_to_ema23_pct: 1.27
@@ -69,7 +69,7 @@
 - ma120: 153.5
 - return_5d: -2.96
 - return_20d: 17.14
-- volume_ratio: 0.36
+- volume_ratio: 0.2
 - distance_to_ma20_pct_auxiliary: -1.56
 - distance_to_high_60_pct: -11.35
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,172.5,173,169.5,169.5,171000,160.78,5.42,162.5,147.12,0.22
 20260526,170,174.5,168.5,169,172000,161.47,4.66,164.05,147.46,0.22
 20260527,171,172,163.5,165,167000,161.76,2,165.4,147.68,0.21
-20260528,165,167.5,159,164,286082,161.95,1.27,166.6,147.92,0.36
+20260528,165,167.5,159,164,162000,161.95,1.27,166.6,147.92,0.2
 ```
 
 ## Latest TDCC Snapshot

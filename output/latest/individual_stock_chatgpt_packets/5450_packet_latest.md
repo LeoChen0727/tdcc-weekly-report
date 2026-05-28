@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5450 南良
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:59 Asia/Taipei
+- generated_at: 2026-05-28 20:19:46 Asia/Taipei
 - stock_id: 5450
 - stock_name: 南良
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 12.7
 - low: 12.5
 - close: 12.6
-- volume: 46154
+- volume: 13000
 - ma5: 12.75
 - ema23_primary: 12.96
 - distance_to_ema23_pct: -2.81
@@ -69,7 +69,7 @@
 - ma120: 13.93
 - return_5d: -1.56
 - return_20d: -3.08
-- volume_ratio: 1.16
+- volume_ratio: 0.34
 - distance_to_ma20_pct_auxiliary: -1.52
 - distance_to_high_60_pct: -17.11
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,13.05,13.05,12.8,12.85,13000,13.06,-1.64,12.88,13.9,0.29
 20260526,12.9,12.9,12.5,12.8,13000,13.04,-1.86,12.85,13.87,0.3
 20260527,12.6,12.65,12.5,12.5,13000,13,-3.83,12.81,13.85,0.33
-20260528,12.65,12.7,12.5,12.6,46154,12.96,-2.81,12.79,13.81,1.16
+20260528,12.65,12.7,12.5,12.6,13000,12.96,-2.81,12.79,13.81,0.34
 ```
 
 ## Latest TDCC Snapshot

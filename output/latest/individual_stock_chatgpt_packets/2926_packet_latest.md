@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2926 誠品生活
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:11 Asia/Taipei
+- generated_at: 2026-05-28 20:18:57 Asia/Taipei
 - stock_id: 2926
 - stock_name: 誠品生活
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 36.2
 - low: 34.65
 - close: 35
-- volume: 98221
+- volume: 35000
 - ma5: 35.95
 - ema23_primary: 36.5
 - distance_to_ema23_pct: -4.12
@@ -69,7 +69,7 @@
 - ma120: 38.15
 - return_5d: -3.98
 - return_20d: -6.67
-- volume_ratio: 3.37
+- volume_ratio: 1.35
 - distance_to_ma20_pct_auxiliary: -4.45
 - distance_to_high_60_pct: -13.9
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,36,36.15,36,36.05,36000,36.77,-1.96,36.84,37.13,1.49
 20260526,36.05,36.05,35.8,35.9,36000,36.7,-2.18,36.8,37.09,1.52
 20260527,36.05,36.1,35.75,36,36000,36.64,-1.75,36.76,37.07,1.46
-20260528,35.35,36.2,34.65,35,98221,36.5,-4.12,36.63,37.03,3.37
+20260528,35.35,36.2,34.65,35,35000,36.5,-4.12,36.63,37.03,1.35
 ```
 
 ## Latest TDCC Snapshot

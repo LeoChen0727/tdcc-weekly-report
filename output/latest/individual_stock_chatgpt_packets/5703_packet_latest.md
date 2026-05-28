@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5703 亞都
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:03 Asia/Taipei
+- generated_at: 2026-05-28 20:19:50 Asia/Taipei
 - stock_id: 5703
 - stock_name: 亞都
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 14.1
 - low: 13.25
 - close: 13.7
-- volume: 13003
+- volume: 14000
 - ma5: 13.63
 - ema23_primary: 13.95
 - distance_to_ema23_pct: -1.82
@@ -69,7 +69,7 @@
 - ma120: 14.53
 - return_5d: -2.14
 - return_20d: -7.43
-- volume_ratio: 1.17
+- volume_ratio: 1.25
 - distance_to_ma20_pct_auxiliary: -2.33
 - distance_to_high_60_pct: -16.97
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,13.7,13.7,13.65,13.65,14000,14.05,-2.88,14.2,14.26,1.27
 20260525,13.65,13.65,13.15,13.65,14000,14.02,-2.64,14.15,14.25,1.26
 20260526,13.5,13.5,13.5,13.5,14000,13.98,-3.42,14.08,14.22,1.25
-20260528,14.1,14.1,13.25,13.7,13003,13.95,-1.82,14.03,14.21,1.17
+20260528,14.1,14.1,13.25,13.7,14000,13.95,-1.82,14.03,14.21,1.25
 ```
 
 ## Latest TDCC Snapshot

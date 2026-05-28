@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6469 大樹
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:19 Asia/Taipei
+- generated_at: 2026-05-28 20:20:06 Asia/Taipei
 - stock_id: 6469
 - stock_name: 大樹
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 70.7
 - low: 69.2
 - close: 70.1
-- volume: 616780
+- volume: 70000
 - ma5: 70.36
 - ema23_primary: 73.37
 - distance_to_ema23_pct: -4.46
@@ -69,7 +69,7 @@
 - ma120: 86.69
 - return_5d: -2.23
 - return_20d: -9.9
-- volume_ratio: 1.03
+- volume_ratio: 0.12
 - distance_to_ma20_pct_auxiliary: -4.02
 - distance_to_high_60_pct: -23.39
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,71.8,71.8,70,70.1,70000,74.36,-5.73,74.24,79.59,0.11
 20260526,71.1,71.1,70.2,70.5,71000,74.04,-4.78,73.86,79.34,0.12
 20260527,70.4,70.5,69.4,69.6,70000,73.67,-5.52,73.42,79.05,0.12
-20260528,69.9,70.7,69.2,70.1,616780,73.37,-4.46,73.03,78.7,1.03
+20260528,69.9,70.7,69.2,70.1,70000,73.37,-4.46,73.03,78.7,0.12
 ```
 
 ## Latest TDCC Snapshot

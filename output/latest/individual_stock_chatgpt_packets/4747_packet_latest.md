@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4747 強生
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:47 Asia/Taipei
+- generated_at: 2026-05-28 20:19:34 Asia/Taipei
 - stock_id: 4747
 - stock_name: 強生
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 57.2
 - low: 55.1
 - close: 56.5
-- volume: 49478
+- volume: 56000
 - ma5: 56.22
 - ema23_primary: 55.94
 - distance_to_ema23_pct: 1.01
@@ -69,7 +69,7 @@
 - ma120: 57.2
 - return_5d: -2.59
 - return_20d: 3.1
-- volume_ratio: 0.85
+- volume_ratio: 0.95
 - distance_to_ma20_pct_auxiliary: 0.86
 - distance_to_high_60_pct: -5.68
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,56.1,56.2,54.5,54.5,55000,55.74,-2.23,55.64,55.14,0.94
 20260526,54.5,58.1,54.5,56.8,57000,55.83,1.74,55.8,55.14,0.98
 20260527,57.7,58,55.5,56.5,56000,55.89,1.1,55.94,55.14,0.96
-20260528,56.3,57.2,55.1,56.5,49478,55.94,1.01,56.02,55.13,0.85
+20260528,56.3,57.2,55.1,56.5,56000,55.94,1.01,56.02,55.13,0.95
 ```
 
 ## Latest TDCC Snapshot

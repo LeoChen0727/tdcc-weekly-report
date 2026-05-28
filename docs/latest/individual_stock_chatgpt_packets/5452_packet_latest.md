@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5452 佶優
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:59 Asia/Taipei
+- generated_at: 2026-05-28 20:19:46 Asia/Taipei
 - stock_id: 5452
 - stock_name: 佶優
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 34
 - low: 32
 - close: 32.35
-- volume: 1952407
+- volume: 33000
 - ma5: 33.63
 - ema23_primary: 33.02
 - distance_to_ema23_pct: -2.02
@@ -69,7 +69,7 @@
 - ma120: 30.54
 - return_5d: -1.37
 - return_20d: -0.46
-- volume_ratio: 1.28
+- volume_ratio: 0.02
 - distance_to_ma20_pct_auxiliary: -1.59
 - distance_to_high_60_pct: -20.81
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,35.45,35.5,34.65,34.85,35000,33.06,5.41,32.76,33.35,0.02
 20260526,35,35.55,33.2,33.5,34000,33.1,1.21,32.82,33.4,0.02
 20260527,33.8,33.85,32.7,32.85,33000,33.08,-0.69,32.88,33.42,0.02
-20260528,32.85,34,32,32.35,1952407,33.02,-2.02,32.87,33.38,1.28
+20260528,32.85,34,32,32.35,33000,33.02,-2.02,32.87,33.38,0.02
 ```
 
 ## Latest TDCC Snapshot

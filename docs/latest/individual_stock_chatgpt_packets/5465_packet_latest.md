@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5465 富驊
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:59 Asia/Taipei
+- generated_at: 2026-05-28 20:19:46 Asia/Taipei
 - stock_id: 5465
 - stock_name: 富驊
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 27.75
 - low: 25.85
 - close: 26
-- volume: 476612
+- volume: 27000
 - ma5: 25.76
 - ema23_primary: 25.31
 - distance_to_ema23_pct: 2.72
@@ -69,7 +69,7 @@
 - ma120: 27.68
 - return_5d: 6.78
 - return_20d: 3.59
-- volume_ratio: 3.88
+- volume_ratio: 0.27
 - distance_to_ma20_pct_auxiliary: 3.87
 - distance_to_high_60_pct: -11.26
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,25.4,25.4,24.8,25.1,25000,25.06,0.15,24.89,26.04,0.21
 20260526,25,25.6,25,25.6,25000,25.11,1.96,24.91,25.96,0.23
 20260527,25.7,26.8,25.35,26.8,26000,25.25,6.14,24.99,25.92,0.25
-20260528,27.1,27.75,25.85,26,476612,25.31,2.72,25.03,25.86,3.88
+20260528,27.1,27.75,25.85,26,27000,25.31,2.72,25.03,25.86,0.27
 ```
 
 ## Latest TDCC Snapshot

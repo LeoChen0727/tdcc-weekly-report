@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8183 精星
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:47 Asia/Taipei
+- generated_at: 2026-05-28 20:20:35 Asia/Taipei
 - stock_id: 8183
 - stock_name: 精星
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 33.3
 - low: 31.8
 - close: 32.15
-- volume: 889631
+- volume: 33000
 - ma5: 32.07
 - ema23_primary: 32.34
 - distance_to_ema23_pct: -0.58
@@ -69,7 +69,7 @@
 - ma120: 33.81
 - return_5d: 4.38
 - return_20d: -5.3
-- volume_ratio: 1.88
+- volume_ratio: 0.08
 - distance_to_ma20_pct_auxiliary: 0.78
 - distance_to_high_60_pct: -20.12
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,32,32.25,31.7,32,32000,32.37,-1.13,32.47,34.48,0.06
 20260526,32.4,32.8,31.65,32,32000,32.34,-1.04,32.22,34.39,0.06
 20260527,32.1,32.95,32.1,32.55,33000,32.35,0.61,31.99,34.25,0.07
-20260528,32.75,33.3,31.8,32.15,889631,32.34,-0.58,31.9,34.15,1.88
+20260528,32.75,33.3,31.8,32.15,33000,32.34,-0.58,31.9,34.15,0.08
 ```
 
 ## Latest TDCC Snapshot

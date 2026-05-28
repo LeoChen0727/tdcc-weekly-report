@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3285 微端
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:22 Asia/Taipei
+- generated_at: 2026-05-28 20:19:08 Asia/Taipei
 - stock_id: 3285
 - stock_name: 微端
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 34
 - low: 31.25
 - close: 31.25
-- volume: 222755
+- volume: 33000
 - ma5: 30.07
 - ema23_primary: 29.15
 - distance_to_ema23_pct: 7.2
@@ -69,7 +69,7 @@
 - ma120: 28.58
 - return_5d: 9.46
 - return_20d: 11.41
-- volume_ratio: 6.12
+- volume_ratio: 1.23
 - distance_to_ma20_pct_auxiliary: 7.55
 - distance_to_high_60_pct: -8.09
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,29,29.15,28.8,29.15,29000,28.64,1.77,28.64,28.54,1.1
 20260526,29.3,29.45,29.15,29.35,29000,28.7,2.26,28.71,28.54,1.14
 20260527,29.85,32.25,29.75,31.8,31000,28.96,9.81,28.9,28.58,1.21
-20260528,32.45,34,31.25,31.25,222755,29.15,7.2,29.06,28.6,6.12
+20260528,32.45,34,31.25,31.25,33000,29.15,7.2,29.06,28.6,1.23
 ```
 
 ## Latest TDCC Snapshot

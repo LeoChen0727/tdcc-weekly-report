@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3680 家登
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:34 Asia/Taipei
+- generated_at: 2026-05-28 20:19:20 Asia/Taipei
 - stock_id: 3680
 - stock_name: 家登
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 568
 - low: 530
 - close: 535
-- volume: 2318721
+- volume: 548000
 - ma5: 568.8
 - ema23_primary: 540.91
 - distance_to_ema23_pct: -1.09
@@ -69,7 +69,7 @@
 - ma120: 422.64
 - return_5d: -1.65
 - return_20d: 6.79
-- volume_ratio: 0.67
+- volume_ratio: 0.16
 - distance_to_ma20_pct_auxiliary: -5.44
 - distance_to_high_60_pct: -14.13
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,590,615,580,595,601000,535.58,11.09,553.62,455.61,0.15
 20260526,603,610,583,589,594000,540.04,9.07,560.62,458.38,0.16
 20260527,600,601,548,557,568000,541.45,2.87,564.05,460.57,0.16
-20260528,562,568,530,535,2318721,540.91,-1.09,565.75,462.57,0.67
+20260528,562,568,530,535,548000,540.91,-1.09,565.75,462.57,0.16
 ```
 
 ## Latest TDCC Snapshot
@@ -125,14 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3680 | 家登 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260528 | 3680 | 家登 | revenue_pullback | 營收成長股價回檔 | 56.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260521 | 3680 | 家登 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 3680 | 家登 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3680 | 家登 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260528 | 3680 | 家登 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

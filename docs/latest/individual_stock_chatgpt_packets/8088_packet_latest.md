@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8088 品安
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:45 Asia/Taipei
+- generated_at: 2026-05-28 20:20:33 Asia/Taipei
 - stock_id: 8088
 - stock_name: 品安
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 62.7
 - low: 59.4
 - close: 60.4
-- volume: 8879311
+- volume: 61000
 - ma5: 59.7
 - ema23_primary: 55.56
 - distance_to_ema23_pct: 8.7
@@ -69,7 +69,7 @@
 - ma120: 51.74
 - return_5d: 11.65
 - return_20d: 17.97
-- volume_ratio: 2.22
+- volume_ratio: 0.02
 - distance_to_ma20_pct_auxiliary: 9.5
 - distance_to_high_60_pct: -9.04
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,57.5,60.7,56.1,59.8,60000,54.06,10.61,53.87,52.75,0.01
 20260526,59.6,61.5,58.2,60.4,60000,54.59,10.64,54.29,52.87,0.02
 20260527,65.9,66.4,60.4,61,64000,55.13,10.66,54.7,53,0.02
-20260528,61.2,62.7,59.4,60.4,8879311,55.56,8.7,55.16,53.13,2.22
+20260528,61.2,62.7,59.4,60.4,61000,55.56,8.7,55.16,53.13,0.02
 ```
 
 ## Latest TDCC Snapshot
@@ -125,7 +125,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 8088 | 品安 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 8088 | 品安 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8409 商之器
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:50 Asia/Taipei
+- generated_at: 2026-05-28 20:20:37 Asia/Taipei
 - stock_id: 8409
 - stock_name: 商之器
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 19.1
 - low: 19.05
 - close: 19.05
-- volume: 18296
+- volume: 19000
 - ma5: 19.38
 - ema23_primary: 19.54
 - distance_to_ema23_pct: -2.49
@@ -69,7 +69,7 @@
 - ma120: 20.73
 - return_5d: -2.06
 - return_20d: -5.22
-- volume_ratio: 0.94
+- volume_ratio: 0.98
 - distance_to_ma20_pct_auxiliary: -2.04
 - distance_to_high_60_pct: -9.72
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,19.2,19.7,19.2,19.6,19000,19.66,-0.32,19.55,20.26,1.02
 20260526,19.5,19.5,19.2,19.2,19000,19.62,-2.16,19.53,20.23,1.04
 20260527,19.2,19.2,19.05,19.1,19000,19.58,-2.45,19.5,20.2,1
-20260528,19.1,19.1,19.05,19.05,18296,19.54,-2.49,19.45,20.17,0.94
+20260528,19.1,19.1,19.05,19.05,19000,19.54,-2.49,19.45,20.17,0.98
 ```
 
 ## Latest TDCC Snapshot

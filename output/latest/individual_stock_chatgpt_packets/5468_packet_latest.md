@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5468 凱鈺
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:59 Asia/Taipei
+- generated_at: 2026-05-28 20:19:46 Asia/Taipei
 - stock_id: 5468
 - stock_name: 凱鈺
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 17.4
 - low: 17.2
 - close: 17.3
-- volume: 37320
+- volume: 17000
 - ma5: 17.6
 - ema23_primary: 17.73
 - distance_to_ema23_pct: -2.4
@@ -69,7 +69,7 @@
 - ma120: 18.41
 - return_5d: -2.26
 - return_20d: -5.72
-- volume_ratio: 0.74
+- volume_ratio: 0.35
 - distance_to_ma20_pct_auxiliary: -2.49
 - distance_to_high_60_pct: -15.82
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,17.9,17.9,17.45,17.8,18000,17.82,-0.09,17.85,17.74,0.34
 20260526,17.8,17.8,17.65,17.7,18000,17.81,-0.6,17.83,17.74,0.35
 20260527,17.95,17.95,17.15,17.3,17000,17.76,-2.61,17.8,17.74,0.34
-20260528,17.3,17.4,17.2,17.3,37320,17.73,-2.4,17.74,17.75,0.74
+20260528,17.3,17.4,17.2,17.3,17000,17.73,-2.4,17.74,17.75,0.35
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3527 聚積
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:29 Asia/Taipei
+- generated_at: 2026-05-28 20:19:15 Asia/Taipei
 - stock_id: 3527
 - stock_name: 聚積
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 59.7
 - low: 57.4
 - close: 58.3
-- volume: 148170
+- volume: 59000
 - ma5: 59.46
 - ema23_primary: 58.98
 - distance_to_ema23_pct: -1.16
@@ -69,7 +69,7 @@
 - ma120: 56.88
 - return_5d: 0.34
 - return_20d: -1.85
-- volume_ratio: 0.55
+- volume_ratio: 0.22
 - distance_to_ma20_pct_auxiliary: -2.36
 - distance_to_high_60_pct: -14.01
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,61.9,62.1,59.3,59.9,60000,59.08,1.39,59.71,56.84,0.2
 20260526,61.1,61.1,58.7,59.4,59000,59.1,0.5,59.74,56.85,0.21
 20260527,59.3,60.5,58.3,58.4,59000,59.05,-1.09,59.77,56.83,0.22
-20260528,58.5,59.7,57.4,58.3,148170,58.98,-1.16,59.71,56.79,0.55
+20260528,58.5,59.7,57.4,58.3,59000,58.98,-1.16,59.71,56.79,0.22
 ```
 
 ## Latest TDCC Snapshot

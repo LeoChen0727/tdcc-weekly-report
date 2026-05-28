@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5009 榮剛
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:53 Asia/Taipei
+- generated_at: 2026-05-28 20:19:39 Asia/Taipei
 - stock_id: 5009
 - stock_name: 榮剛
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 36.45
 - low: 35.25
 - close: 35.5
-- volume: 3794465
+- volume: 36000
 - ma5: 35.76
 - ema23_primary: 35.35
 - distance_to_ema23_pct: 0.42
@@ -69,7 +69,7 @@
 - ma120: 33.36
 - return_5d: -0.14
 - return_20d: 6.45
-- volume_ratio: 0.67
+- volume_ratio: 0.01
 - distance_to_ma20_pct_auxiliary: -1.31
 - distance_to_high_60_pct: -13.31
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,35.8,37.2,35.8,36.75,37000,35.31,4.07,35.43,33.91,0.01
 20260526,37.2,37.2,35.35,35.8,36000,35.35,1.26,35.68,33.92,0.01
 20260527,36.1,36.1,35,35.15,35000,35.34,-0.53,35.87,33.93,0.01
-20260528,35.75,36.45,35.25,35.5,3794465,35.35,0.42,35.97,33.94,0.67
+20260528,35.75,36.45,35.25,35.5,36000,35.35,0.42,35.97,33.94,0.01
 ```
 
 ## Latest TDCC Snapshot

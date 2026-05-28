@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3623 富晶通
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:32 Asia/Taipei
+- generated_at: 2026-05-28 20:19:19 Asia/Taipei
 - stock_id: 3623
 - stock_name: 富晶通
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 23.4
 - low: 22.5
 - close: 22.95
-- volume: 52933
+- volume: 23000
 - ma5: 23.55
 - ema23_primary: 23.2
 - distance_to_ema23_pct: -1.07
@@ -69,7 +69,7 @@
 - ma120: 24.11
 - return_5d: -1.71
 - return_20d: -1.92
-- volume_ratio: 0.66
+- volume_ratio: 0.29
 - distance_to_ma20_pct_auxiliary: -0.78
 - distance_to_high_60_pct: -19.47
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,24.6,24.6,23.95,24,24000,23.22,3.37,23.12,23.67,0.29
 20260526,24.05,24.05,23.5,23.5,24000,23.24,1.11,23.15,23.63,0.3
 20260527,23.5,23.5,22.85,23,23000,23.22,-0.95,23.15,23.58,0.29
-20260528,23.3,23.4,22.5,22.95,52933,23.2,-1.07,23.13,23.52,0.66
+20260528,23.3,23.4,22.5,22.95,23000,23.2,-1.07,23.13,23.52,0.29
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4538 大詠城
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:43 Asia/Taipei
+- generated_at: 2026-05-28 20:19:29 Asia/Taipei
 - stock_id: 4538
 - stock_name: 大詠城
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 17.9
 - low: 17.1
 - close: 17.45
-- volume: 123326
+- volume: 17000
 - ma5: 18.34
 - ema23_primary: 18.41
 - distance_to_ema23_pct: -5.21
@@ -69,7 +69,7 @@
 - ma120: 18.02
 - return_5d: -5.42
 - return_20d: -4.64
-- volume_ratio: 3.92
+- volume_ratio: 0.65
 - distance_to_ma20_pct_auxiliary: -5.07
 - distance_to_high_60_pct: -10.05
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,18.5,18.7,18.5,18.55,19000,18.46,0.48,18.4,18.71,0.72
 20260526,18.75,18.85,18.5,18.65,19000,18.48,0.94,18.41,18.7,0.72
 20260527,18.65,18.7,18.45,18.7,19000,18.5,1.11,18.43,18.69,0.72
-20260528,17.9,17.9,17.1,17.45,123326,18.41,-5.21,18.38,18.67,3.92
+20260528,17.9,17.9,17.1,17.45,17000,18.41,-5.21,18.38,18.67,0.65
 ```
 
 ## Latest TDCC Snapshot

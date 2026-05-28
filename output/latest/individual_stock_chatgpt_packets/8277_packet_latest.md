@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8277 商丞
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:49 Asia/Taipei
+- generated_at: 2026-05-28 20:20:36 Asia/Taipei
 - stock_id: 8277
 - stock_name: 商丞
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 7.83
 - low: 7.2
 - close: 7.83
-- volume: 434042
+- volume: 8000
 - ma5: 7.23
 - ema23_primary: 7.18
 - distance_to_ema23_pct: 9.09
@@ -69,7 +69,7 @@
 - ma120: 8.48
 - return_5d: 12.18
 - return_20d: 7.85
-- volume_ratio: 2.28
+- volume_ratio: 0.05
 - distance_to_ma20_pct_auxiliary: 9.93
 - distance_to_high_60_pct: -15.72
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,6.99,7.14,6.99,7.1,7000,7.12,-0.3,7.04,7.77,0.03
 20260526,7.1,7.14,7,7.08,7000,7.12,-0.54,7.07,7.74,0.04
 20260527,7.1,7.15,7.08,7.12,7000,7.12,0.02,7.09,7.7,0.04
-20260528,7.2,7.83,7.2,7.83,434042,7.18,9.09,7.12,7.69,2.28
+20260528,7.2,7.83,7.2,7.83,8000,7.18,9.09,7.12,7.69,0.05
 ```
 
 ## Latest TDCC Snapshot

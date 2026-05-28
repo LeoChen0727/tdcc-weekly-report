@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6894 衛司特
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:34 Asia/Taipei
+- generated_at: 2026-05-28 20:20:21 Asia/Taipei
 - stock_id: 6894
 - stock_name: 衛司特
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 374
 - low: 360
 - close: 360
-- volume: 156093
+- volume: 367000
 - ma5: 367.8
 - ema23_primary: 351.89
 - distance_to_ema23_pct: 2.31
@@ -69,7 +69,7 @@
 - ma120: 282.81
 - return_5d: 1.55
 - return_20d: 8.43
-- volume_ratio: 0.8
+- volume_ratio: 1.78
 - distance_to_ma20_pct_auxiliary: 3.03
 - distance_to_high_60_pct: -13.88
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,362,387,362,374.5,377000,347.02,7.92,344.15,338.88,2.29
 20260526,375,386.5,368,376,376000,349.44,7.6,346.3,340.89,2.14
 20260527,382,388,367,370,375000,351.15,5.37,348,342.38,1.96
-20260528,370.5,374,360,360,156093,351.89,2.31,349.4,343.39,0.8
+20260528,370.5,374,360,360,367000,351.89,2.31,349.4,343.39,1.78
 ```
 
 ## Latest TDCC Snapshot

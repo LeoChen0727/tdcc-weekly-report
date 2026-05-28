@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4304 勝昱
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:40 Asia/Taipei
+- generated_at: 2026-05-28 20:19:27 Asia/Taipei
 - stock_id: 4304
 - stock_name: 勝昱
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 27.15
 - low: 27
 - close: 27.15
-- volume: 38003
+- volume: 27000
 - ma5: 27.69
 - ema23_primary: 28.7
 - distance_to_ema23_pct: -5.4
@@ -69,7 +69,7 @@
 - ma120: 29.64
 - return_5d: -4.23
 - return_20d: -12.28
-- volume_ratio: 1.03
+- volume_ratio: 0.74
 - distance_to_ma20_pct_auxiliary: -6.95
 - distance_to_high_60_pct: -16.85
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,29.55,29.55,28.5,28.5,29000,29.16,-2.27,29.76,28.89,0.73
 20260526,29,29,27.15,27.15,28000,28.99,-6.36,29.58,28.82,0.77
 20260527,27.15,27.2,27.15,27.15,27000,28.84,-5.86,29.37,28.77,0.75
-20260528,27.15,27.15,27,27.15,38003,28.7,-5.4,29.18,28.71,1.03
+20260528,27.15,27.15,27,27.15,27000,28.7,-5.4,29.18,28.71,0.74
 ```
 
 ## Latest TDCC Snapshot

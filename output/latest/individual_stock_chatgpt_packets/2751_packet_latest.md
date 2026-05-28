@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2751 王座
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:07 Asia/Taipei
+- generated_at: 2026-05-28 20:18:53 Asia/Taipei
 - stock_id: 2751
 - stock_name: 王座
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 52
 - low: 51
 - close: 51.8
-- volume: 17020
+- volume: 51000
 - ma5: 51.82
 - ema23_primary: 53.47
 - distance_to_ema23_pct: -3.13
@@ -69,7 +69,7 @@
 - ma120: 59.44
 - return_5d: 0
 - return_20d: -5.3
-- volume_ratio: 0.64
+- volume_ratio: 1.81
 - distance_to_ma20_pct_auxiliary: -2.79
 - distance_to_high_60_pct: -16.45
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,51.8,51.8,51.6,51.8,52000,54,-4.08,53.76,56.88,2.24
 20260526,51.6,51.9,51.1,51.8,52000,53.82,-3.75,53.6,56.8,2.07
 20260527,51,51.7,51,51.5,51000,53.62,-3.96,53.43,56.71,1.98
-20260528,51,52,51,51.8,17020,53.47,-3.13,53.28,56.63,0.64
+20260528,51,52,51,51.8,51000,53.47,-3.13,53.28,56.63,1.81
 ```
 
 ## Latest TDCC Snapshot

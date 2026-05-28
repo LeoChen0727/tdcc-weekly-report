@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7810 捷創科技
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:42 Asia/Taipei
+- generated_at: 2026-05-28 20:20:29 Asia/Taipei
 - stock_id: 7810
 - stock_name: 捷創科技
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 241
 - low: 225
 - close: 226
-- volume: 244966
+- volume: 233000
 - ma5: 231.3
 - ema23_primary: 231.87
 - distance_to_ema23_pct: -2.53
@@ -69,7 +69,7 @@
 - ma120: 237.31
 - return_5d: 0
 - return_20d: 3.2
-- volume_ratio: 1.13
+- volume_ratio: 1.07
 - distance_to_ma20_pct_auxiliary: -1.69
 - distance_to_high_60_pct: -20.98
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,232.5,239.5,228,238,234000,232.56,2.34,228.53,228.37,1.18
 20260526,241.5,243.5,234,236.5,237000,232.89,1.55,229.28,228.53,1.17
 20260527,237,240.5,227,227,234000,232.4,-2.32,229.53,228.53,1.12
-20260528,235,241,225,226,244966,231.87,-2.53,229.88,228.72,1.13
+20260528,235,241,225,226,233000,231.87,-2.53,229.88,228.72,1.07
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5315 光聯
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:57 Asia/Taipei
+- generated_at: 2026-05-28 20:19:44 Asia/Taipei
 - stock_id: 5315
 - stock_name: 光聯
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 22.15
 - low: 21.9
 - close: 21.9
-- volume: 521687
+- volume: 22000
 - ma5: 22.04
 - ema23_primary: 22.15
 - distance_to_ema23_pct: -1.11
@@ -69,7 +69,7 @@
 - ma120: 23.51
 - return_5d: -0.23
 - return_20d: -1.79
-- volume_ratio: 1.61
+- volume_ratio: 0.07
 - distance_to_ma20_pct_auxiliary: -0.75
 - distance_to_high_60_pct: -8.94
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,22.2,22.3,21.8,22.25,22000,22.2,0.22,22.12,22.73,0.06
 20260526,22.25,22.25,22.05,22.1,22000,22.19,-0.41,22.11,22.69,0.07
 20260527,22.15,22.2,21.8,21.9,22000,22.17,-1.21,22.09,22.64,0.07
-20260528,21.95,22.15,21.9,21.9,521687,22.15,-1.11,22.07,22.61,1.61
+20260528,21.95,22.15,21.9,21.9,22000,22.15,-1.11,22.07,22.61,0.07
 ```
 
 ## Latest TDCC Snapshot

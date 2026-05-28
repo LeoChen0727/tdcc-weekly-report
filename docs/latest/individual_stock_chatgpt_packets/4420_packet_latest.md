@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4420 光明
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:41 Asia/Taipei
+- generated_at: 2026-05-28 20:19:27 Asia/Taipei
 - stock_id: 4420
 - stock_name: 光明
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 38.1
 - low: 37.85
 - close: 37.95
-- volume: 93710
+- volume: 38000
 - ma5: 38.6
 - ema23_primary: 40.48
 - distance_to_ema23_pct: -6.26
@@ -69,7 +69,7 @@
 - ma120: 47.44
 - return_5d: -4.17
 - return_20d: -7.66
-- volume_ratio: 1.6
+- volume_ratio: 0.68
 - distance_to_ma20_pct_auxiliary: -5.85
 - distance_to_high_60_pct: -26.45
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,39.25,39.25,38.65,38.75,39000,41.14,-5.81,40.73,44.94,0.68
 20260526,39,39.1,38.6,38.8,39000,40.95,-5.24,40.61,44.74,0.7
 20260527,38.8,38.8,38,38.15,38000,40.71,-6.29,40.47,44.52,0.68
-20260528,38.1,38.1,37.85,37.95,93710,40.48,-6.26,40.31,44.29,1.6
+20260528,38.1,38.1,37.85,37.95,38000,40.48,-6.26,40.31,44.29,0.68
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2035 唐榮
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:45 Asia/Taipei
+- generated_at: 2026-05-28 20:18:31 Asia/Taipei
 - stock_id: 2035
 - stock_name: 唐榮
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 28.25
 - low: 28.25
 - close: 28.25
-- volume: 1007
+- volume: 28000
 - ma5: 28.28
 - ema23_primary: 28.18
 - distance_to_ema23_pct: 0.23
@@ -69,7 +69,7 @@
 - ma120: 28.32
 - return_5d: -0.7
 - return_20d: 1.25
-- volume_ratio: 0.04
+- volume_ratio: 1.11
 - distance_to_ma20_pct_auxiliary: 0.29
 - distance_to_high_60_pct: -4.88
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,28.35,28.35,28.35,28.35,28000,28.17,0.64,28.08,28.27,1.24
 20260526,27.65,28.15,27.65,28.15,28000,28.17,-0.06,28.11,28.27,1.18
 20260527,27.6,28.3,27.45,28.3,28000,28.18,0.43,28.15,28.26,1.12
-20260528,28.25,28.25,28.25,28.25,1007,28.18,0.23,28.17,28.25,0.04
+20260528,28.25,28.25,28.25,28.25,28000,28.18,0.23,28.17,28.25,1.11
 ```
 
 ## Latest TDCC Snapshot

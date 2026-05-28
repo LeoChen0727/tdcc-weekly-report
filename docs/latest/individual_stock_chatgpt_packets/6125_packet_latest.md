@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6125 廣運
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:06 Asia/Taipei
+- generated_at: 2026-05-28 20:19:53 Asia/Taipei
 - stock_id: 6125
 - stock_name: 廣運
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 69.5
 - low: 64.9
 - close: 65.6
-- volume: 4065828
+- volume: 67000
 - ma5: 64.94
 - ema23_primary: 60.11
 - distance_to_ema23_pct: 9.13
@@ -69,7 +69,7 @@
 - ma120: 62.83
 - return_5d: 16.11
 - return_20d: 20.37
-- volume_ratio: 2.1
+- volume_ratio: 0.04
 - distance_to_ma20_pct_auxiliary: 9.6
 - distance_to_high_60_pct: -8.38
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,60.5,65.4,60.1,65.4,64000,58.2,12.37,58.02,57.85,0.03
 20260526,68.5,69,66.5,68.4,68000,59.05,15.83,58.74,57.94,0.04
 20260527,69.5,71.6,65.5,65.8,68000,59.61,10.38,59.3,57.97,0.04
-20260528,67,69.5,64.9,65.6,4065828,60.11,9.13,59.85,58,2.1
+20260528,67,69.5,64.9,65.6,67000,60.11,9.13,59.85,58,0.04
 ```
 
 ## Latest TDCC Snapshot
@@ -125,8 +125,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6125 | 廣運 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260528 | 6125 | 廣運 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 6125 | 廣運 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

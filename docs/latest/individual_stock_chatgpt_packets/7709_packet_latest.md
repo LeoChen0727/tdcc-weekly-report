@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7709 榮田
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:38 Asia/Taipei
+- generated_at: 2026-05-28 20:20:26 Asia/Taipei
 - stock_id: 7709
 - stock_name: 榮田
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 100.5
 - low: 94.5
 - close: 100.5
-- volume: 832737
+- volume: 99000
 - ma5: 93.14
 - ema23_primary: 84.96
 - distance_to_ema23_pct: 18.29
@@ -69,7 +69,7 @@
 - ma120: 58.5
 - return_5d: 8.18
 - return_20d: 45.65
-- volume_ratio: 1.18
+- volume_ratio: 0.15
 - distance_to_ma20_pct_auxiliary: 18.05
 - distance_to_high_60_pct: -0.49
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,92,93.1,90.6,91.1,92000,81.99,11.11,81.43,70.12,0.13
 20260526,91.3,93.7,90.3,91.7,92000,82.8,10.75,82.53,70.61,0.14
 20260527,93.3,93.3,90.8,91.8,91000,83.55,9.88,83.56,71.11,0.14
-20260528,94.5,100.5,94.5,100.5,832737,84.96,18.29,85.13,71.77,1.18
+20260528,94.5,100.5,94.5,100.5,99000,84.96,18.29,85.13,71.77,0.15
 ```
 
 ## Latest TDCC Snapshot

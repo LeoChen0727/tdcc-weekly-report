@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6163 華電網
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:08 Asia/Taipei
+- generated_at: 2026-05-28 20:19:55 Asia/Taipei
 - stock_id: 6163
 - stock_name: 華電網
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 50.9
 - low: 48
 - close: 48.2
-- volume: 3422266
+- volume: 49000
 - ma5: 50.88
 - ema23_primary: 55.04
 - distance_to_ema23_pct: -12.42
@@ -69,7 +69,7 @@
 - ma120: 56.16
 - return_5d: -9.4
 - return_20d: -15.44
-- volume_ratio: 1.18
+- volume_ratio: 0.02
 - distance_to_ma20_pct_auxiliary: -12.52
 - distance_to_high_60_pct: -35.48
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,53.5,54.5,51.7,51.8,53000,56.62,-8.51,56.27,58.23,0.02
 20260526,51.5,52.3,50.4,51,51000,56.15,-9.18,55.92,58.21,0.02
 20260527,51,51,49.5,50.2,50000,55.66,-9.8,55.54,58.15,0.02
-20260528,50.2,50.9,48,48.2,3422266,55.04,-12.42,55.1,58.03,1.18
+20260528,50.2,50.9,48,48.2,49000,55.04,-12.42,55.1,58.03,0.02
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3526 凡甲
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:28 Asia/Taipei
+- generated_at: 2026-05-28 20:19:15 Asia/Taipei
 - stock_id: 3526
 - stock_name: 凡甲
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 381.5
 - low: 360
 - close: 370
-- volume: 1472035
+- volume: 372000
 - ma5: 371.7
 - ema23_primary: 356.18
 - distance_to_ema23_pct: 3.88
@@ -69,7 +69,7 @@
 - ma120: 282.96
 - return_5d: 0
 - return_20d: 12.8
-- volume_ratio: 1.2
+- volume_ratio: 0.32
 - distance_to_ma20_pct_auxiliary: 0.01
 - distance_to_high_60_pct: -8.19
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,373,378,362.5,373,368000,351.22,6.2,360.3,310.08,0.25
 20260526,378,381,361.5,377,372000,353.37,6.69,364.4,311.27,0.27
 20260527,378.5,378.5,368,372,372000,354.92,4.81,367.85,312.54,0.29
-20260528,370,381.5,360,370,1472035,356.18,3.88,369.95,313.83,1.2
+20260528,370,381.5,360,370,372000,356.18,3.88,369.95,313.83,0.32
 ```
 
 ## Latest TDCC Snapshot
@@ -123,10 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3526 | 凡甲 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260528 | 3526 | 凡甲 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | early_entry_watch |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

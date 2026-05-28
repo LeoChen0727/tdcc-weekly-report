@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6150 撼訊
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:07 Asia/Taipei
+- generated_at: 2026-05-28 20:19:54 Asia/Taipei
 - stock_id: 6150
 - stock_name: 撼訊
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 69.1
 - low: 67
 - close: 68
-- volume: 713341
+- volume: 68000
 - ma5: 68.74
 - ema23_primary: 65.74
 - distance_to_ema23_pct: 3.43
@@ -69,7 +69,7 @@
 - ma120: 62.07
 - return_5d: 0.15
 - return_20d: 24.09
-- volume_ratio: 0.64
+- volume_ratio: 0.06
 - distance_to_ma20_pct_auxiliary: 1.65
 - distance_to_high_60_pct: -12.82
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,70.1,70.9,68.4,68.8,69000,65.01,5.84,64.98,59.62,0.06
 20260526,69.7,70.4,67.6,70,69000,65.42,7,65.67,59.78,0.06
 20260527,70.1,70.9,66.8,66.8,68000,65.54,1.93,66.23,59.9,0.06
-20260528,67,69.1,67,68,713341,65.74,3.43,66.89,60.05,0.64
+20260528,67,69.1,67,68,68000,65.74,3.43,66.89,60.05,0.06
 ```
 
 ## Latest TDCC Snapshot

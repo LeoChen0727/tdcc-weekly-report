@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6693 廣閎科
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:27 Asia/Taipei
+- generated_at: 2026-05-28 20:20:14 Asia/Taipei
 - stock_id: 6693
 - stock_name: 廣閎科
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 157.5
 - low: 148.5
 - close: 150
-- volume: 1537960
+- volume: 154000
 - ma5: 150.5
 - ema23_primary: 145.11
 - distance_to_ema23_pct: 3.37
@@ -69,7 +69,7 @@
 - ma120: 105.1
 - return_5d: 5.63
 - return_20d: 6.01
-- volume_ratio: 1.45
+- volume_ratio: 0.16
 - distance_to_ma20_pct_auxiliary: 1.73
 - distance_to_high_60_pct: -10.71
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,146.5,152,145,148,148000,142.87,3.59,145.28,123.84,0.14
 20260526,148,157.5,146,157.5,152000,144.09,9.31,146.32,124.97,0.15
 20260527,161.5,161.5,148,151,155000,144.67,4.38,147.03,125.98,0.15
-20260528,152.5,157.5,148.5,150,1537960,145.11,3.37,147.45,127,1.45
+20260528,152.5,157.5,148.5,150,154000,145.11,3.37,147.45,127,0.16
 ```
 
 ## Latest TDCC Snapshot
@@ -123,10 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6693 | 廣閎科 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260528 | 6693 | 廣閎科 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

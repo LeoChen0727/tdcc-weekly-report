@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8091 翔名
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:45 Asia/Taipei
+- generated_at: 2026-05-28 20:20:33 Asia/Taipei
 - stock_id: 8091
 - stock_name: 翔名
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 269
 - low: 255
 - close: 258
-- volume: 457614
+- volume: 262000
 - ma5: 267.4
 - ema23_primary: 229.86
 - distance_to_ema23_pct: 12.24
@@ -69,7 +69,7 @@
 - ma120: 152.79
 - return_5d: 4.88
 - return_20d: 42.94
-- volume_ratio: 0.31
+- volume_ratio: 0.18
 - distance_to_ma20_pct_auxiliary: 13.42
 - distance_to_high_60_pct: -7.86
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,275,278,267,273.5,273000,219.34,24.69,214.57,174.88,0.18
 20260526,273.5,273.5,266,269.5,269000,223.52,20.57,219.1,177,0.18
 20260527,280,280,264,269,272000,227.31,18.34,223.6,179.07,0.18
-20260528,266,269,255,258,457614,229.86,12.24,227.47,181.05,0.31
+20260528,266,269,255,258,262000,229.86,12.24,227.47,181.05,0.18
 ```
 
 ## Latest TDCC Snapshot

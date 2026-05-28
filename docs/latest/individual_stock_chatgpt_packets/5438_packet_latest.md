@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5438 東友
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:59 Asia/Taipei
+- generated_at: 2026-05-28 20:19:46 Asia/Taipei
 - stock_id: 5438
 - stock_name: 東友
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 19.65
 - low: 19.05
 - close: 19.05
-- volume: 110487
+- volume: 19000
 - ma5: 19.15
 - ema23_primary: 19.08
 - distance_to_ema23_pct: -0.15
@@ -69,7 +69,7 @@
 - ma120: 20.84
 - return_5d: 1.87
 - return_20d: -1.04
-- volume_ratio: 1.27
+- volume_ratio: 0.23
 - distance_to_ma20_pct_auxiliary: -0.1
 - distance_to_high_60_pct: -15.89
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,18.8,19.05,18.7,18.75,19000,19,-1.34,19.02,19.67,0.21
 20260526,18.9,19.95,18.55,19.7,19000,19.06,3.35,19.07,19.64,0.22
 20260527,19.7,21,19.3,19.3,20000,19.08,1.14,19.08,19.59,0.24
-20260528,19.35,19.65,19.05,19.05,110487,19.08,-0.15,19.07,19.54,1.27
+20260528,19.35,19.65,19.05,19.05,19000,19.08,-0.15,19.07,19.54,0.23
 ```
 
 ## Latest TDCC Snapshot

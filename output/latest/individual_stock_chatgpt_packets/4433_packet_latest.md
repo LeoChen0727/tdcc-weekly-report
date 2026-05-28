@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4433 興采
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:41 Asia/Taipei
+- generated_at: 2026-05-28 20:19:28 Asia/Taipei
 - stock_id: 4433
 - stock_name: 興采
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 21.9
 - low: 21.45
 - close: 21.55
-- volume: 91582
+- volume: 22000
 - ma5: 21.04
 - ema23_primary: 20.68
 - distance_to_ema23_pct: 4.22
@@ -69,7 +69,7 @@
 - ma120: 21.11
 - return_5d: 5.12
 - return_20d: 7.75
-- volume_ratio: 2.13
+- volume_ratio: 0.56
 - distance_to_ma20_pct_auxiliary: 5.12
 - distance_to_high_60_pct: -6.1
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,20.55,21,20.55,20.8,21000,20.49,1.51,20.3,20.65,0.52
 20260526,21.15,21.15,20.7,20.8,21000,20.52,1.39,20.34,20.64,0.54
 20260527,21.5,22.35,21.4,21.5,22000,20.6,4.38,20.42,20.65,0.56
-20260528,21.9,21.9,21.45,21.55,91582,20.68,4.22,20.5,20.66,2.13
+20260528,21.9,21.9,21.45,21.55,22000,20.68,4.22,20.5,20.66,0.56
 ```
 
 ## Latest TDCC Snapshot

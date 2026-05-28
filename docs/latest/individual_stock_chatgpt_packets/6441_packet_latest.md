@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6441 廣錠
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:18 Asia/Taipei
+- generated_at: 2026-05-28 20:20:05 Asia/Taipei
 - stock_id: 6441
 - stock_name: 廣錠
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 25.45
 - low: 24.05
 - close: 24.55
-- volume: 518919
+- volume: 25000
 - ma5: 24.96
 - ema23_primary: 25.05
 - distance_to_ema23_pct: -1.99
@@ -69,7 +69,7 @@
 - ma120: 22.63
 - return_5d: 0.41
 - return_20d: -23.52
-- volume_ratio: 1.13
+- volume_ratio: 0.06
 - distance_to_ma20_pct_auxiliary: -5.71
 - distance_to_high_60_pct: -26.39
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,24.8,25.2,23.5,24,24000,24.94,-3.77,26.72,22.66,0.03
 20260526,24.15,26.4,23.45,26.4,25000,25.06,5.34,26.66,22.72,0.04
 20260527,27.5,27.75,25,25.45,26000,25.09,1.42,26.41,22.77,0.04
-20260528,25.45,25.45,24.05,24.55,518919,25.05,-1.99,26.04,22.8,1.13
+20260528,25.45,25.45,24.05,24.55,25000,25.05,-1.99,26.04,22.8,0.06
 ```
 
 ## Latest TDCC Snapshot

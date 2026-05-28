@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4430 耀億
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:41 Asia/Taipei
+- generated_at: 2026-05-28 20:19:28 Asia/Taipei
 - stock_id: 4430
 - stock_name: 耀億
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 17.35
 - low: 16.8
 - close: 17.25
-- volume: 119881
+- volume: 17000
 - ma5: 16.97
 - ema23_primary: 17.11
 - distance_to_ema23_pct: 0.81
@@ -69,7 +69,7 @@
 - ma120: 17.81
 - return_5d: 2.07
 - return_20d: -0.29
-- volume_ratio: 4.03
+- volume_ratio: 0.69
 - distance_to_ma20_pct_auxiliary: 1.23
 - distance_to_high_60_pct: -11.08
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,16.9,17.1,16.7,16.8,17000,17.13,-1.91,17.09,17.78,0.7
 20260526,16.6,16.8,16.55,16.8,17000,17.1,-1.75,17.06,17.75,0.69
 20260527,16.8,17.2,16.55,17.1,17000,17.1,0,17.04,17.72,0.7
-20260528,17.05,17.35,16.8,17.25,119881,17.11,0.81,17.04,17.7,4.03
+20260528,17.05,17.35,16.8,17.25,17000,17.11,0.81,17.04,17.7,0.69
 ```
 
 ## Latest TDCC Snapshot

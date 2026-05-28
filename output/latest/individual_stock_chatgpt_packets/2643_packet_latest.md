@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2643 捷迅
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:05 Asia/Taipei
+- generated_at: 2026-05-28 20:18:50 Asia/Taipei
 - stock_id: 2643
 - stock_name: 捷迅
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 66.1
 - low: 65.5
 - close: 66
-- volume: 57413
+- volume: 66000
 - ma5: 66.36
 - ema23_primary: 67
 - distance_to_ema23_pct: -1.5
@@ -69,7 +69,7 @@
 - ma120: 70.87
 - return_5d: -1.35
 - return_20d: -1.35
-- volume_ratio: 1.52
+- volume_ratio: 1.73
 - distance_to_ma20_pct_auxiliary: -1.18
 - distance_to_high_60_pct: -9.84
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,67,67,66.2,66.8,67000,67.3,-0.74,66.86,69.07,1.95
 20260526,66.8,66.8,65.5,66.3,66000,67.21,-1.36,66.86,68.97,1.9
 20260527,66.1,66.1,65,65.8,66000,67.1,-1.93,66.83,68.85,1.77
-20260528,65.5,66.1,65.5,66,57413,67,-1.5,66.79,68.74,1.52
+20260528,65.5,66.1,65.5,66,66000,67,-1.5,66.79,68.74,1.73
 ```
 
 ## Latest TDCC Snapshot

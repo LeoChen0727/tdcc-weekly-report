@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3685 元創精密
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:34 Asia/Taipei
+- generated_at: 2026-05-28 20:19:21 Asia/Taipei
 - stock_id: 3685
 - stock_name: 元創精密
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 29.75
 - low: 28.05
 - close: 28.45
-- volume: 214399
+- volume: 29000
 - ma5: 29.12
 - ema23_primary: 29.23
 - distance_to_ema23_pct: -2.67
@@ -69,7 +69,7 @@
 - ma120: 34.5
 - return_5d: 3.27
 - return_20d: -9.11
-- volume_ratio: 1.02
+- volume_ratio: 0.14
 - distance_to_ma20_pct_auxiliary: -1.96
 - distance_to_high_60_pct: -21.41
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,30,30.4,28,29.75,29000,29.41,1.14,29.45,30.89,0.13
 20260526,29.7,29.7,28,28.5,29000,29.34,-2.86,29.32,30.76,0.13
 20260527,28.5,29.2,28.5,28.9,29000,29.3,-1.37,29.16,30.63,0.14
-20260528,28.9,29.75,28.05,28.45,214399,29.23,-2.67,29.02,30.5,1.02
+20260528,28.9,29.75,28.05,28.45,29000,29.23,-2.67,29.02,30.5,0.14
 ```
 
 ## Latest TDCC Snapshot

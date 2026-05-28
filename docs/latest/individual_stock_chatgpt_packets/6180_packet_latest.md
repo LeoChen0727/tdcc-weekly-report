@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6180 橘子
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:09 Asia/Taipei
+- generated_at: 2026-05-28 20:19:57 Asia/Taipei
 - stock_id: 6180
 - stock_name: 橘子
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 39.9
 - low: 39.1
 - close: 39.35
-- volume: 647145
+- volume: 39000
 - ma5: 39.69
 - ema23_primary: 39.78
 - distance_to_ema23_pct: -1.08
@@ -69,7 +69,7 @@
 - ma120: 47.26
 - return_5d: -0.76
 - return_20d: -2.72
-- volume_ratio: 1.71
+- volume_ratio: 0.11
 - distance_to_ma20_pct_auxiliary: 0.49
 - distance_to_high_60_pct: -24.33
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,39.6,40.2,38.55,39.05,39000,39.73,-1.71,39.11,42.86,0.1
 20260526,39.5,40.7,38.5,40.65,40000,39.81,2.12,39.18,42.65,0.11
 20260527,40.15,40.45,39.75,39.95,40000,39.82,0.33,39.21,42.43,0.11
-20260528,39.9,39.9,39.1,39.35,647145,39.78,-1.08,39.16,42.21,1.71
+20260528,39.9,39.9,39.1,39.35,39000,39.78,-1.08,39.16,42.21,0.11
 ```
 
 ## Latest TDCC Snapshot

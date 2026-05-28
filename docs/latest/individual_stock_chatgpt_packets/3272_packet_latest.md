@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3272 東碩
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:21 Asia/Taipei
+- generated_at: 2026-05-28 20:19:08 Asia/Taipei
 - stock_id: 3272
 - stock_name: 東碩
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 16.55
 - low: 16.1
 - close: 16.3
-- volume: 67175
+- volume: 16000
 - ma5: 16.75
 - ema23_primary: 17.38
 - distance_to_ema23_pct: -6.24
@@ -69,7 +69,7 @@
 - ma120: 18.45
 - return_5d: -6.32
 - return_20d: -7.91
-- volume_ratio: 0.58
+- volume_ratio: 0.14
 - distance_to_ma20_pct_auxiliary: -7.84
 - distance_to_high_60_pct: -28.35
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,17.25,17.25,16.8,16.8,17000,17.64,-4.77,17.89,17.33,0.13
 20260526,16.9,17.15,16.75,16.75,17000,17.57,-4.65,17.83,17.29,0.14
 20260527,16.7,16.75,16.55,16.55,17000,17.48,-5.34,17.76,17.25,0.15
-20260528,16.3,16.55,16.1,16.3,67175,17.38,-6.24,17.69,17.21,0.58
+20260528,16.3,16.55,16.1,16.3,16000,17.38,-6.24,17.69,17.21,0.14
 ```
 
 ## Latest TDCC Snapshot

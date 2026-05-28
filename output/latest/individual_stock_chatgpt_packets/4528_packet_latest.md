@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4528 江興鍛
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:42 Asia/Taipei
+- generated_at: 2026-05-28 20:19:29 Asia/Taipei
 - stock_id: 4528
 - stock_name: 江興鍛
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 15.7
 - low: 15.1
 - close: 15.3
-- volume: 121936
+- volume: 15000
 - ma5: 15.54
 - ema23_primary: 15.83
 - distance_to_ema23_pct: -3.37
@@ -69,7 +69,7 @@
 - ma120: 17.46
 - return_5d: -1.92
 - return_20d: -2.55
-- volume_ratio: 3.56
+- volume_ratio: 0.52
 - distance_to_ma20_pct_auxiliary: -2.56
 - distance_to_high_60_pct: -20.1
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,15.4,16.25,15.4,15.8,16000,15.97,-1.07,15.77,17.1,0.51
 20260526,15.8,15.8,15.4,15.5,16000,15.93,-2.71,15.74,17.03,0.52
 20260527,15.35,15.45,15.25,15.35,15000,15.88,-3.35,15.72,16.97,0.49
-20260528,15.35,15.7,15.1,15.3,121936,15.83,-3.37,15.7,16.91,3.56
+20260528,15.35,15.7,15.1,15.3,15000,15.83,-3.37,15.7,16.91,0.52
 ```
 
 ## Latest TDCC Snapshot

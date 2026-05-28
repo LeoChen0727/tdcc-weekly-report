@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5381 光譜
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:58 Asia/Taipei
+- generated_at: 2026-05-28 20:19:45 Asia/Taipei
 - stock_id: 5381
 - stock_name: 光譜
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 26.6
 - low: 25.2
 - close: 25.2
-- volume: 1515809
+- volume: 26000
 - ma5: 26.03
 - ema23_primary: 25.19
 - distance_to_ema23_pct: 0.03
@@ -69,7 +69,7 @@
 - ma120: 25.36
 - return_5d: -0.4
 - return_20d: 6.78
-- volume_ratio: 1.51
+- volume_ratio: 0.03
 - distance_to_ma20_pct_auxiliary: 0.58
 - distance_to_high_60_pct: -13.1
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,26,26.8,25.6,26.55,26000,24.95,6.41,24.63,24.94,0.02
 20260526,27.2,27.25,26.2,26.75,27000,25.1,6.57,24.83,24.96,0.03
 20260527,27.2,27.3,26.2,26.2,27000,25.19,4,24.98,24.98,0.03
-20260528,26.25,26.6,25.2,25.2,1515809,25.19,0.03,25.05,24.99,1.51
+20260528,26.25,26.6,25.2,25.2,26000,25.19,0.03,25.05,24.99,0.03
 ```
 
 ## Latest TDCC Snapshot

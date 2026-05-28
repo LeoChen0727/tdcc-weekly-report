@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4121 優盛
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:37 Asia/Taipei
+- generated_at: 2026-05-28 20:19:24 Asia/Taipei
 - stock_id: 4121
 - stock_name: 優盛
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 14.25
 - low: 13.95
 - close: 14.15
-- volume: 145295
+- volume: 14000
 - ma5: 14.34
 - ema23_primary: 14.47
 - distance_to_ema23_pct: -2.2
@@ -69,7 +69,7 @@
 - ma120: 16.12
 - return_5d: -0.7
 - return_20d: -5.35
-- volume_ratio: 1.36
+- volume_ratio: 0.14
 - distance_to_ma20_pct_auxiliary: -1
 - distance_to_high_60_pct: -31.64
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,14.4,15.5,14.2,14.7,15000,14.55,1.03,14.36,16.25,0.12
 20260526,14.7,14.75,14.4,14.4,15000,14.54,-0.95,14.36,16.16,0.13
 20260527,14.5,14.5,14,14.05,14000,14.5,-3.08,14.33,16.06,0.13
-20260528,14.05,14.25,13.95,14.15,145295,14.47,-2.2,14.29,15.96,1.36
+20260528,14.05,14.25,13.95,14.15,14000,14.47,-2.2,14.29,15.96,0.14
 ```
 
 ## Latest TDCC Snapshot

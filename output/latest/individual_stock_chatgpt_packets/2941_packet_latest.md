@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2941 米斯特
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:11 Asia/Taipei
+- generated_at: 2026-05-28 20:18:57 Asia/Taipei
 - stock_id: 2941
 - stock_name: 米斯特
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 30.95
 - low: 29.75
 - close: 30.95
-- volume: 10048
+- volume: 30000
 - ma5: 31.23
 - ema23_primary: 32.01
 - distance_to_ema23_pct: -3.3
@@ -69,7 +69,7 @@
 - ma120: 39.07
 - return_5d: -2.52
 - return_20d: 0
-- volume_ratio: 0.8
+- volume_ratio: 2.22
 - distance_to_ma20_pct_auxiliary: 0.19
 - distance_to_high_60_pct: -29.01
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,30.95,31.95,30.5,31.15,31000,32.21,-3.3,30.97,36.4,2.26
 20260526,31.8,31.8,31.8,31.8,32000,32.18,-1.18,30.91,36.24,2.3
 20260527,31.15,32,31.15,31.25,32000,32.1,-2.65,30.89,36.11,2.39
-20260528,29.75,30.95,29.75,30.95,10048,32.01,-3.3,30.89,35.95,0.8
+20260528,29.75,30.95,29.75,30.95,30000,32.01,-3.3,30.89,35.95,2.22
 ```
 
 ## Latest TDCC Snapshot

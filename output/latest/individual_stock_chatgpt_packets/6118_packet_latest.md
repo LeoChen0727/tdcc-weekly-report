@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6118 建達
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:05 Asia/Taipei
+- generated_at: 2026-05-28 20:19:53 Asia/Taipei
 - stock_id: 6118
 - stock_name: 建達
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 18.15
 - low: 17.4
 - close: 17.45
-- volume: 463800
+- volume: 18000
 - ma5: 18.42
 - ema23_primary: 17.83
 - distance_to_ema23_pct: -2.15
@@ -69,7 +69,7 @@
 - ma120: 18.5
 - return_5d: -0.57
 - return_20d: -0.29
-- volume_ratio: 0.66
+- volume_ratio: 0.03
 - distance_to_ma20_pct_auxiliary: -1.8
 - distance_to_high_60_pct: -14.04
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,19.4,19.4,18.75,18.9,19000,17.8,6.16,17.72,17.82,0.03
 20260526,19,19.05,18.2,18.5,19000,17.86,3.58,17.75,17.81,0.03
 20260527,18.6,18.6,17.9,17.95,18000,17.87,0.46,17.77,17.78,0.03
-20260528,18,18.15,17.4,17.45,463800,17.83,-2.15,17.77,17.76,0.66
+20260528,18,18.15,17.4,17.45,18000,17.83,-2.15,17.77,17.76,0.03
 ```
 
 ## Latest TDCC Snapshot

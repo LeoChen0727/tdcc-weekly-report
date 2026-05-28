@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3672 康聯訊
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:34 Asia/Taipei
+- generated_at: 2026-05-28 20:19:20 Asia/Taipei
 - stock_id: 3672
 - stock_name: 康聯訊
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 11.5
 - low: 10.6
 - close: 10.6
-- volume: 99081
+- volume: 11000
 - ma5: 11.03
 - ema23_primary: 11.27
 - distance_to_ema23_pct: -5.95
@@ -69,7 +69,7 @@
 - ma120: 11.97
 - return_5d: -6.61
 - return_20d: -2.75
-- volume_ratio: 0.87
+- volume_ratio: 0.1
 - distance_to_ma20_pct_auxiliary: -7.58
 - distance_to_high_60_pct: -26.39
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,12.15,12.15,10.9,10.9,11000,11.37,-4.13,11.49,11.48,0.1
 20260526,10.9,11.6,10.35,11,11000,11.34,-2.99,11.48,11.46,0.1
 20260527,11,11.25,11,11.25,11000,11.33,-0.72,11.48,11.43,0.1
-20260528,10.65,11.5,10.6,10.6,99081,11.27,-5.95,11.47,11.4,0.87
+20260528,10.65,11.5,10.6,10.6,11000,11.27,-5.95,11.47,11.4,0.1
 ```
 
 ## Latest TDCC Snapshot

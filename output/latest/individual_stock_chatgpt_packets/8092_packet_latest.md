@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8092 建暐
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:45 Asia/Taipei
+- generated_at: 2026-05-28 20:20:33 Asia/Taipei
 - stock_id: 8092
 - stock_name: 建暐
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 18.55
 - low: 17.35
 - close: 17.6
-- volume: 169392
+- volume: 18000
 - ma5: 17.87
 - ema23_primary: 17.08
 - distance_to_ema23_pct: 3.06
@@ -69,7 +69,7 @@
 - ma120: 14.67
 - return_5d: -3.3
 - return_20d: 7.98
-- volume_ratio: 0.97
+- volume_ratio: 0.11
 - distance_to_ma20_pct_auxiliary: 1.28
 - distance_to_high_60_pct: -15.99
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,18.35,18.35,17.9,18.05,18000,16.9,6.78,17.16,14.69,0.1
 20260526,18.05,18.65,17.9,17.9,18000,16.99,5.38,17.25,14.76,0.1
 20260527,18.2,18.2,17.25,17.5,17000,17.03,2.77,17.31,14.82,0.1
-20260528,17.85,18.55,17.35,17.6,169392,17.08,3.06,17.38,14.88,0.97
+20260528,17.85,18.55,17.35,17.6,18000,17.08,3.06,17.38,14.88,0.11
 ```
 
 ## Latest TDCC Snapshot

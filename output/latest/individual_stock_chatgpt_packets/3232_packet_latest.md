@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3232 昱捷
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:20 Asia/Taipei
+- generated_at: 2026-05-28 20:19:07 Asia/Taipei
 - stock_id: 3232
 - stock_name: 昱捷
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 22.9
 - low: 20.75
 - close: 22.9
-- volume: 336052
+- volume: 22000
 - ma5: 21.85
 - ema23_primary: 21.52
 - distance_to_ema23_pct: 6.43
@@ -69,7 +69,7 @@
 - ma120: 22.77
 - return_5d: 2.69
 - return_20d: 5.77
-- volume_ratio: 4.37
+- volume_ratio: 0.36
 - distance_to_ma20_pct_auxiliary: 7.9
 - distance_to_high_60_pct: -3.17
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,22.3,22.55,21.8,22,22000,21.46,2.5,21.22,22.13,0.32
 20260526,22.2,22.2,21.1,21.2,22000,21.44,-1.12,21.2,22.09,0.34
 20260527,21.2,21.2,20.85,20.85,21000,21.39,-2.53,21.16,22.05,0.33
-20260528,20.75,22.9,20.75,22.9,336052,21.52,6.43,21.22,22.04,4.37
+20260528,20.75,22.9,20.75,22.9,22000,21.52,6.43,21.22,22.04,0.36
 ```
 
 ## Latest TDCC Snapshot

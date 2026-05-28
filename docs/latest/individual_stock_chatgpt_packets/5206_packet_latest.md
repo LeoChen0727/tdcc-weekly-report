@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5206 坤悅
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:53 Asia/Taipei
+- generated_at: 2026-05-28 20:19:40 Asia/Taipei
 - stock_id: 5206
 - stock_name: 坤悅
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 21.9
 - low: 21.65
 - close: 21.7
-- volume: 60919
+- volume: 22000
 - ma5: 22.07
 - ema23_primary: 23.33
 - distance_to_ema23_pct: -6.98
@@ -69,7 +69,7 @@
 - ma120: 28.59
 - return_5d: -4.82
 - return_20d: -6.26
-- volume_ratio: 0.6
+- volume_ratio: 0.22
 - distance_to_ma20_pct_auxiliary: -6.3
 - distance_to_high_60_pct: -27.55
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,22.7,22.7,21.75,22.25,22000,23.79,-6.46,23.32,26.4,0.18
 20260526,21.85,22,21.7,21.95,22000,23.63,-7.12,23.3,26.27,0.21
 20260527,22,22,21.5,21.75,22000,23.48,-7.36,23.23,26.13,0.22
-20260528,21.75,21.9,21.65,21.7,60919,23.33,-6.98,23.16,26,0.6
+20260528,21.75,21.9,21.65,21.7,22000,23.33,-6.98,23.16,26,0.22
 ```
 
 ## Latest TDCC Snapshot

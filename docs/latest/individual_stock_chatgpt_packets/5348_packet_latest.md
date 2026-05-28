@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5348 正能量智能
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:57 Asia/Taipei
+- generated_at: 2026-05-28 20:19:44 Asia/Taipei
 - stock_id: 5348
 - stock_name: 正能量智能
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 15.3
 - low: 15.25
 - close: 15.3
-- volume: 39866
+- volume: 15000
 - ma5: 16.26
 - ema23_primary: 16.07
 - distance_to_ema23_pct: -4.81
@@ -69,7 +69,7 @@
 - ma120: 16.98
 - return_5d: -8.93
 - return_20d: -10
-- volume_ratio: 2.78
+- volume_ratio: 1.15
 - distance_to_ma20_pct_auxiliary: -3.49
 - distance_to_high_60_pct: -14.29
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,16.15,17.1,16.15,17.1,17000,16.25,5.22,16.1,16.8,1.38
 20260526,15.5,16,15.5,16,16000,16.23,-1.42,16.05,16.77,1.29
 20260527,15.15,15.3,15.15,15.2,15000,16.14,-5.85,15.94,16.73,1.16
-20260528,15.3,15.3,15.25,15.3,39866,16.07,-4.81,15.85,16.7,2.78
+20260528,15.3,15.3,15.25,15.3,15000,16.07,-4.81,15.85,16.7,1.15
 ```
 
 ## Latest TDCC Snapshot

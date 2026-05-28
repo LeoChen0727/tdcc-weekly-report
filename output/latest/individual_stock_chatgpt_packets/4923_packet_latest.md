@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4923 力士
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:49 Asia/Taipei
+- generated_at: 2026-05-28 20:19:36 Asia/Taipei
 - stock_id: 4923
 - stock_name: 力士
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 51.1
 - low: 46.35
 - close: 48.85
-- volume: 5909662
+- volume: 49000
 - ma5: 44.98
 - ema23_primary: 39.6
 - distance_to_ema23_pct: 23.34
@@ -69,7 +69,7 @@
 - ma120: 33.19
 - return_5d: 26.23
 - return_20d: 47.58
-- volume_ratio: 8.67
+- volume_ratio: 0.13
 - distance_to_ma20_pct_auxiliary: 25.31
 - distance_to_high_60_pct: -4.4
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,41,42.35,39.3,41.05,41000,37.1,10.64,36.78,35.08,0.1
 20260526,41.3,45.15,39.2,45.15,43000,37.77,19.53,37.37,35.29,0.11
 20260527,49.65,49.65,49.65,49.65,50000,38.76,28.08,38.2,35.57,0.13
-20260528,49.15,51.1,46.35,48.85,5909662,39.6,23.34,38.98,35.84,8.67
+20260528,49.15,51.1,46.35,48.85,49000,39.6,23.34,38.98,35.84,0.13
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4923 | 力士 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

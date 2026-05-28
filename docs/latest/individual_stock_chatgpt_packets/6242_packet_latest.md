@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6242 立康
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:14 Asia/Taipei
+- generated_at: 2026-05-28 20:20:01 Asia/Taipei
 - stock_id: 6242
 - stock_name: 立康
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 38.4
 - low: 38.15
 - close: 38.15
-- volume: 25441
+- volume: 38000
 - ma5: 38.04
 - ema23_primary: 37.87
 - distance_to_ema23_pct: 0.73
@@ -69,7 +69,7 @@
 - ma120: 38.36
 - return_5d: 1.73
 - return_20d: 0.39
-- volume_ratio: 1.53
+- volume_ratio: 2.2
 - distance_to_ma20_pct_auxiliary: 0.71
 - distance_to_high_60_pct: -1.8
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,38,38.6,37.6,38.4,38000,37.8,1.57,37.91,37.8,2.93
 20260526,38.4,38.4,37.85,38.1,38000,37.83,0.72,37.89,37.8,2.69
 20260527,38.3,38.3,37.55,38.05,38000,37.85,0.53,37.87,37.8,2.45
-20260528,38.2,38.4,38.15,38.15,25441,37.87,0.73,37.88,37.8,1.53
+20260528,38.2,38.4,38.15,38.15,38000,37.87,0.73,37.88,37.8,2.2
 ```
 
 ## Latest TDCC Snapshot

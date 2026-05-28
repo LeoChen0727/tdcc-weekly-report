@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7767 仁大資訊
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:40 Asia/Taipei
+- generated_at: 2026-05-28 20:20:28 Asia/Taipei
 - stock_id: 7767
 - stock_name: 仁大資訊
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 43.4
 - low: 42.9
 - close: 42.9
-- volume: 33071
+- volume: 43000
 - ma5: 43.31
 - ema23_primary: 43.88
 - distance_to_ema23_pct: -2.24
@@ -69,7 +69,7 @@
 - ma120: 46.33
 - return_5d: -1.61
 - return_20d: -2.94
-- volume_ratio: 1.27
+- volume_ratio: 1.62
 - distance_to_ma20_pct_auxiliary: -2.41
 - distance_to_high_60_pct: -11.73
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,43.65,43.65,43.35,43.35,44000,44.1,-1.7,44.16,44.79,1.99
 20260526,43.4,43.4,43.25,43.4,43000,44.04,-1.45,44.1,44.72,1.83
 20260527,43.4,43.4,43,43.25,43000,43.97,-1.65,44.02,44.66,1.69
-20260528,43.4,43.4,42.9,42.9,33071,43.88,-2.24,43.96,44.59,1.27
+20260528,43.4,43.4,42.9,42.9,43000,43.88,-2.24,43.96,44.59,1.62
 ```
 
 ## Latest TDCC Snapshot

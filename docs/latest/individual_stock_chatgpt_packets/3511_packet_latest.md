@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3511 矽瑪
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:28 Asia/Taipei
+- generated_at: 2026-05-28 20:19:14 Asia/Taipei
 - stock_id: 3511
 - stock_name: 矽瑪
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 20.8
 - low: 20
 - close: 20.1
-- volume: 281612
+- volume: 20000
 - ma5: 20.7
 - ema23_primary: 20.67
 - distance_to_ema23_pct: -2.75
@@ -69,7 +69,7 @@
 - ma120: 20.34
 - return_5d: 0.75
 - return_20d: -13.36
-- volume_ratio: 0.57
+- volume_ratio: 0.04
 - distance_to_ma20_pct_auxiliary: -4.75
 - distance_to_high_60_pct: -16.08
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,21.75,21.85,21.05,21.1,21000,20.78,1.54,21.34,20.1,0.03
 20260526,21.55,21.55,20.6,20.75,21000,20.78,-0.13,21.31,20.11,0.03
 20260527,20.55,21,20,20.1,20000,20.72,-3,21.26,20.1,0.03
-20260528,20.3,20.8,20,20.1,281612,20.67,-2.75,21.1,20.09,0.57
+20260528,20.3,20.8,20,20.1,20000,20.67,-2.75,21.1,20.09,0.04
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6140 訊達
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:07 Asia/Taipei
+- generated_at: 2026-05-28 20:19:54 Asia/Taipei
 - stock_id: 6140
 - stock_name: 訊達
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 19.7
 - low: 19
 - close: 19
-- volume: 184406
+- volume: 19000
 - ma5: 19.69
 - ema23_primary: 19.81
 - distance_to_ema23_pct: -4.11
@@ -69,7 +69,7 @@
 - ma120: 23.04
 - return_5d: -3.8
 - return_20d: -0.52
-- volume_ratio: 1.02
+- volume_ratio: 0.11
 - distance_to_ma20_pct_auxiliary: -5.48
 - distance_to_high_60_pct: -23.23
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,20.1,20.15,19.65,19.9,20000,19.94,-0.21,20.05,20.12,0.11
 20260526,19.9,20,19.55,19.65,20000,19.92,-1.35,20.08,20.06,0.11
 20260527,19.7,20,19.55,19.55,20000,19.89,-1.7,20.11,20,0.11
-20260528,19.55,19.7,19,19,184406,19.81,-4.11,20.1,19.93,1.02
+20260528,19.55,19.7,19,19,19000,19.81,-4.11,20.1,19.93,0.11
 ```
 
 ## Latest TDCC Snapshot

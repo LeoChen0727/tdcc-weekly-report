@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6997 博弘
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:38 Asia/Taipei
+- generated_at: 2026-05-28 20:20:25 Asia/Taipei
 - stock_id: 6997
 - stock_name: 博弘
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 68.5
 - low: 68
 - close: 68.5
-- volume: 3118
+- volume: 68000
 - ma5: 68.96
 - ema23_primary: 72.59
 - distance_to_ema23_pct: -5.63
@@ -69,7 +69,7 @@
 - ma120: 86.04
 - return_5d: 0
 - return_20d: -13.29
-- volume_ratio: 0.12
+- volume_ratio: 2.27
 - distance_to_ma20_pct_auxiliary: -4.7
 - distance_to_high_60_pct: -24.31
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,71.1,71.1,71,71,71000,74.06,-4.13,73.81,81.25,3.33
 20260526,70.8,70.8,66.4,66.4,69000,73.42,-9.56,73.06,80.89,2.84
 20260527,68.1,68.1,67.5,67.9,68000,72.96,-6.94,72.41,80.55,2.48
-20260528,68,68.5,68,68.5,3118,72.59,-5.63,71.88,80.22,0.12
+20260528,68,68.5,68,68.5,68000,72.59,-5.63,71.88,80.22,2.27
 ```
 
 ## Latest TDCC Snapshot

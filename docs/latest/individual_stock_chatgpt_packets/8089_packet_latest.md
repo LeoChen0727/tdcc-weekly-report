@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8089 康全電訊
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:45 Asia/Taipei
+- generated_at: 2026-05-28 20:20:33 Asia/Taipei
 - stock_id: 8089
 - stock_name: 康全電訊
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 20.15
 - low: 19.55
 - close: 19.75
-- volume: 266835
+- volume: 20000
 - ma5: 20.07
 - ema23_primary: 20.58
 - distance_to_ema23_pct: -4.05
@@ -69,7 +69,7 @@
 - ma120: 25.22
 - return_5d: -2.95
 - return_20d: -3.19
-- volume_ratio: 1.04
+- volume_ratio: 0.08
 - distance_to_ma20_pct_auxiliary: -3.26
 - distance_to_high_60_pct: -25.75
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,21,21.2,19.8,20,20000,20.8,-3.84,20.54,22.45,0.07
 20260526,20.15,20.45,19.8,20,20000,20.73,-3.53,20.5,22.34,0.08
 20260527,20,20.15,19.8,19.85,20000,20.66,-3.91,20.45,22.24,0.08
-20260528,20,20.15,19.55,19.75,266835,20.58,-4.05,20.41,22.15,1.04
+20260528,20,20.15,19.55,19.75,20000,20.58,-4.05,20.41,22.15,0.08
 ```
 
 ## Latest TDCC Snapshot

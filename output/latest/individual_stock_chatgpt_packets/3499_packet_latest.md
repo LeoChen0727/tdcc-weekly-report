@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3499 環天科
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:27 Asia/Taipei
+- generated_at: 2026-05-28 20:19:14 Asia/Taipei
 - stock_id: 3499
 - stock_name: 環天科
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 14.7
 - low: 14.2
 - close: 14.7
-- volume: 156940
+- volume: 14000
 - ma5: 14.76
 - ema23_primary: 15.23
 - distance_to_ema23_pct: -3.46
@@ -69,7 +69,7 @@
 - ma120: 16.82
 - return_5d: -1.34
 - return_20d: -5.16
-- volume_ratio: 1.75
+- volume_ratio: 0.17
 - distance_to_ma20_pct_auxiliary: -1.95
 - distance_to_high_60_pct: -25
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,15.6,15.6,14.7,14.8,15000,15.37,-3.68,15.12,16.8,0.15
 20260526,14.9,15.25,14.85,14.9,15000,15.33,-2.79,15.08,16.77,0.16
 20260527,15.1,15.1,14,14.7,15000,15.27,-3.76,15.03,16.73,0.17
-20260528,14.7,14.7,14.2,14.7,156940,15.23,-3.46,14.99,16.7,1.75
+20260528,14.7,14.7,14.2,14.7,14000,15.23,-3.46,14.99,16.7,0.17
 ```
 
 ## Latest TDCC Snapshot

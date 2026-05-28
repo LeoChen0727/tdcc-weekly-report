@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6462 神盾
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:18 Asia/Taipei
+- generated_at: 2026-05-28 20:20:05 Asia/Taipei
 - stock_id: 6462
 - stock_name: 神盾
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 134.5
 - low: 123.5
 - close: 125
-- volume: 4054374
+- volume: 128000
 - ma5: 140.8
 - ema23_primary: 131.9
 - distance_to_ema23_pct: -5.23
@@ -69,7 +69,7 @@
 - ma120: 118.43
 - return_5d: -11.03
 - return_20d: 3.31
-- volume_ratio: 1.68
+- volume_ratio: 0.06
 - distance_to_ma20_pct_auxiliary: -6.07
 - distance_to_high_60_pct: -22.12
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,147,157.5,143.5,155,151000,131.21,18.13,130.82,115.95,0.06
 20260526,158.5,160.5,141.5,146.5,148000,132.48,10.58,132.15,116.36,0.06
 20260527,152,153,132,133,141000,132.53,0.36,132.88,116.58,0.06
-20260528,134,134.5,123.5,125,4054374,131.9,-5.23,133.07,116.73,1.68
+20260528,134,134.5,123.5,125,128000,131.9,-5.23,133.07,116.73,0.06
 ```
 
 ## Latest TDCC Snapshot

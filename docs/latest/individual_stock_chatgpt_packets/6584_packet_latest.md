@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6584 南俊國際
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:23 Asia/Taipei
+- generated_at: 2026-05-28 20:20:10 Asia/Taipei
 - stock_id: 6584
 - stock_name: 南俊國際
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 720
 - low: 672
 - close: 690
-- volume: 1378396
+- volume: 698000
 - ma5: 687.2
 - ema23_primary: 673.37
 - distance_to_ema23_pct: 2.47
@@ -69,7 +69,7 @@
 - ma120: 470.44
 - return_5d: 1.47
 - return_20d: -2.4
-- volume_ratio: 1.22
+- volume_ratio: 0.64
 - distance_to_ma20_pct_auxiliary: 1.73
 - distance_to_high_60_pct: -19.3
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,694,701,684,687,692000,668.6,2.75,680,586.3,0.58
 20260526,697,703,683,690,690000,670.39,2.93,680,590.57,0.59
 20260527,699,709,685,688,695000,671.85,2.4,679.1,594.95,0.62
-20260528,704,720,672,690,1378396,673.37,2.47,678.25,599.37,1.22
+20260528,704,720,672,690,698000,673.37,2.47,678.25,599.37,0.64
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6584 | 南俊國際 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

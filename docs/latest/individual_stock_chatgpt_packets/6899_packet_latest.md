@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6899 創為精密
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:34 Asia/Taipei
+- generated_at: 2026-05-28 20:20:21 Asia/Taipei
 - stock_id: 6899
 - stock_name: 創為精密
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 67.8
 - low: 62.6
 - close: 64.7
-- volume: 659802
+- volume: 66000
 - ma5: 62.88
 - ema23_primary: 59.16
 - distance_to_ema23_pct: 9.36
@@ -69,7 +69,7 @@
 - ma120: 53.78
 - return_5d: 6.24
 - return_20d: 21.16
-- volume_ratio: 2.7
+- volume_ratio: 0.31
 - distance_to_ma20_pct_auxiliary: 10.03
 - distance_to_high_60_pct: -8.62
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,62.8,66,61.5,63.1,64000,58.01,8.78,57.4,54.01,0.31
 20260526,64.1,64.6,61.1,61.3,62000,58.28,5.18,57.78,54.18,0.3
 20260527,61.9,67.2,61.5,62.8,65000,58.66,7.06,58.23,54.37,0.31
-20260528,62.8,67.8,62.6,64.7,659802,59.16,9.36,58.8,54.6,2.7
+20260528,62.8,67.8,62.6,64.7,66000,59.16,9.36,58.8,54.6,0.31
 ```
 
 ## Latest TDCC Snapshot

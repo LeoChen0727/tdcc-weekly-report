@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8085 福華
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:45 Asia/Taipei
+- generated_at: 2026-05-28 20:20:32 Asia/Taipei
 - stock_id: 8085
 - stock_name: 福華
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 11.3
 - low: 10.9
 - close: 11
-- volume: 640461
+- volume: 11000
 - ma5: 11.37
 - ema23_primary: 12.17
 - distance_to_ema23_pct: -9.6
@@ -69,7 +69,7 @@
 - ma120: 15.73
 - return_5d: -4.76
 - return_20d: -14.73
-- volume_ratio: 1.67
+- volume_ratio: 0.03
 - distance_to_ma20_pct_auxiliary: -7.39
 - distance_to_high_60_pct: -40.86
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,11.65,12.1,11.45,11.75,12000,12.47,-5.81,12.14,14.75,0.03
 20260526,11.75,11.9,11.25,11.4,11000,12.39,-7.96,12.06,14.64,0.03
 20260527,11.3,11.3,11,11.05,11000,12.27,-9.97,11.97,14.52,0.03
-20260528,11.1,11.3,10.9,11,640461,12.17,-9.6,11.88,14.39,1.67
+20260528,11.1,11.3,10.9,11,11000,12.17,-9.6,11.88,14.39,0.03
 ```
 
 ## Latest TDCC Snapshot

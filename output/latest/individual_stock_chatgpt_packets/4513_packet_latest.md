@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4513 福裕
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:42 Asia/Taipei
+- generated_at: 2026-05-28 20:19:29 Asia/Taipei
 - stock_id: 4513
 - stock_name: 福裕
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 14.3
 - low: 13.95
 - close: 14.1
-- volume: 394014
+- volume: 14000
 - ma5: 14.35
 - ema23_primary: 14.85
 - distance_to_ema23_pct: -5.02
@@ -69,7 +69,7 @@
 - ma120: 17.29
 - return_5d: -5.69
 - return_20d: -4.73
-- volume_ratio: 1.41
+- volume_ratio: 0.05
 - distance_to_ma20_pct_auxiliary: -4.07
 - distance_to_high_60_pct: -31.22
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,15.15,15.25,14.2,14.45,15000,15.07,-4.14,14.81,16.37,0.05
 20260526,14.7,14.8,14.2,14.2,14000,15,-5.34,14.78,16.29,0.05
 20260527,14.25,14.3,13.95,13.95,14000,14.91,-6.46,14.73,16.21,0.05
-20260528,13.95,14.3,13.95,14.1,394014,14.85,-5.02,14.7,16.15,1.41
+20260528,13.95,14.3,13.95,14.1,14000,14.85,-5.02,14.7,16.15,0.05
 ```
 
 ## Latest TDCC Snapshot

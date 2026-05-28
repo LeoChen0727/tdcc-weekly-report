@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3115 富榮綱
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:17 Asia/Taipei
+- generated_at: 2026-05-28 20:19:03 Asia/Taipei
 - stock_id: 3115
 - stock_name: 富榮綱
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 8.1
 - low: 7.55
 - close: 8
-- volume: 36048
+- volume: 8000
 - ma5: 7.96
 - ema23_primary: 8.96
 - distance_to_ema23_pct: -10.76
@@ -69,7 +69,7 @@
 - ma120: 10.04
 - return_5d: -7.3
 - return_20d: -20
-- volume_ratio: 1.53
+- volume_ratio: 0.36
 - distance_to_ma20_pct_auxiliary: -12.06
 - distance_to_high_60_pct: -28.57
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,8.15,8.17,7.9,7.94,8000,9.28,-14.43,9.44,9.71,0.36
 20260526,8,8,7.8,7.92,8000,9.17,-13.59,9.32,9.68,0.36
 20260527,7.75,7.92,7.6,7.8,8000,9.05,-13.83,9.2,9.64,0.36
-20260528,7.55,8.1,7.55,8,36048,8.96,-10.76,9.1,9.6,1.53
+20260528,7.55,8.1,7.55,8,8000,8.96,-10.76,9.1,9.6,0.36
 ```
 
 ## Latest TDCC Snapshot

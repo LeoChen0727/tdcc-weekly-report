@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3288 點晶
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:22 Asia/Taipei
+- generated_at: 2026-05-28 20:19:08 Asia/Taipei
 - stock_id: 3288
 - stock_name: 點晶
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 15.4
 - low: 14.95
 - close: 15.1
-- volume: 28009
+- volume: 15000
 - ma5: 14.96
 - ema23_primary: 15.08
 - distance_to_ema23_pct: 0.12
@@ -69,7 +69,7 @@
 - ma120: 15.81
 - return_5d: 1
 - return_20d: -2.27
-- volume_ratio: 2.15
+- volume_ratio: 1.21
 - distance_to_ma20_pct_auxiliary: 0.48
 - distance_to_high_60_pct: -7.65
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,14.9,14.95,14.35,14.9,15000,15.11,-1.39,15.07,15.2,1.2
 20260526,14.65,14.9,14.65,14.9,15000,15.09,-1.28,15.09,15.19,1.2
 20260527,15,15,14.95,14.95,15000,15.08,-0.87,15.04,15.17,1.23
-20260528,14.95,15.4,14.95,15.1,28009,15.08,0.12,15.03,15.16,2.15
+20260528,14.95,15.4,14.95,15.1,15000,15.08,0.12,15.03,15.16,1.21
 ```
 
 ## Latest TDCC Snapshot

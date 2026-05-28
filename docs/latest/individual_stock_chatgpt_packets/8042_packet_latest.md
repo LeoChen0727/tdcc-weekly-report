@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8042 金山電
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:43 Asia/Taipei
+- generated_at: 2026-05-28 20:20:30 Asia/Taipei
 - stock_id: 8042
 - stock_name: 金山電
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 158.5
 - low: 137
 - close: 151.5
-- volume: 1077789
+- volume: 151000
 - ma5: 141.4
 - ema23_primary: 107.78
 - distance_to_ema23_pct: 40.57
@@ -69,7 +69,7 @@
 - ma120: 65.94
 - return_5d: 21.2
 - return_20d: 155.91
-- volume_ratio: 0.24
+- volume_ratio: 0.03
 - distance_to_ma20_pct_auxiliary: 43.98
 - distance_to_high_60_pct: -4.72
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,129,135,129,135,134000,95.24,41.74,91.48,68.56,0.03
 20260526,133,148.5,121.5,147,131000,99.56,47.66,96.02,70.02,0.03
 20260527,147.5,159,147.5,150.5,155000,103.8,44.99,100.61,71.5,0.03
-20260528,137,158.5,137,151.5,1077789,107.78,40.57,105.22,73.03,0.24
+20260528,137,158.5,137,151.5,151000,107.78,40.57,105.22,73.03,0.03
 ```
 
 ## Latest TDCC Snapshot

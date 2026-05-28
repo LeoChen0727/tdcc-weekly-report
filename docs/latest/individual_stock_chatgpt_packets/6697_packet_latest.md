@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6697 東捷資訊
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:27 Asia/Taipei
+- generated_at: 2026-05-28 20:20:15 Asia/Taipei
 - stock_id: 6697
 - stock_name: 東捷資訊
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 41.4
 - low: 40.55
 - close: 40.65
-- volume: 58758
+- volume: 41000
 - ma5: 41.37
 - ema23_primary: 41.49
 - distance_to_ema23_pct: -2.02
@@ -69,7 +69,7 @@
 - ma120: 44.82
 - return_5d: -1.09
 - return_20d: -3.1
-- volume_ratio: 1.13
+- volume_ratio: 0.8
 - distance_to_ma20_pct_auxiliary: -1.36
 - distance_to_high_60_pct: -16.79
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,41.75,43,41.55,42,42000,41.55,1.09,41.55,42.68,0.7
 20260526,43.1,43.1,41.75,41.95,42000,41.58,0.89,41.4,42.63,0.79
 20260527,42.85,42.9,41.15,41.35,42000,41.56,-0.51,41.27,42.57,0.8
-20260528,41.35,41.4,40.55,40.65,58758,41.49,-2.02,41.21,42.49,1.13
+20260528,41.35,41.4,40.55,40.65,41000,41.49,-2.02,41.21,42.49,0.8
 ```
 
 ## Latest TDCC Snapshot

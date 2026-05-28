@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4129 聯合
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:38 Asia/Taipei
+- generated_at: 2026-05-28 20:19:24 Asia/Taipei
 - stock_id: 4129
 - stock_name: 聯合
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 90.3
 - low: 89.2
 - close: 90
-- volume: 544428
+- volume: 90000
 - ma5: 90.32
 - ema23_primary: 94.29
 - distance_to_ema23_pct: -4.55
@@ -69,7 +69,7 @@
 - ma120: 107.14
 - return_5d: -0.88
 - return_20d: -9.09
-- volume_ratio: 1.61
+- volume_ratio: 0.29
 - distance_to_ma20_pct_auxiliary: -4.29
 - distance_to_high_60_pct: -24.05
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,91.5,91.5,90,90.1,90000,95.55,-5.7,95.49,101.82,0.26
 20260526,90.1,90.7,90,90.3,90000,95.11,-5.06,95.01,101.51,0.28
 20260527,90.3,90.8,90,90,90000,94.68,-4.95,94.48,101.2,0.28
-20260528,90.1,90.3,89.2,90,544428,94.29,-4.55,94.03,100.9,1.61
+20260528,90.1,90.3,89.2,90,90000,94.29,-4.55,94.03,100.9,0.29
 ```
 
 ## Latest TDCC Snapshot

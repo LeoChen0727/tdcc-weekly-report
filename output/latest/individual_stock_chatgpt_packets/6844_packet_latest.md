@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6844 諾貝兒
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:32 Asia/Taipei
+- generated_at: 2026-05-28 20:20:20 Asia/Taipei
 - stock_id: 6844
 - stock_name: 諾貝兒
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 65
 - low: 63.5
 - close: 65
-- volume: 43416
+- volume: 64000
 - ma5: 65.96
 - ema23_primary: 64.98
 - distance_to_ema23_pct: 0.03
@@ -69,7 +69,7 @@
 - ma120: 68.4
 - return_5d: -2.4
 - return_20d: 0.46
-- volume_ratio: 1.39
+- volume_ratio: 1.98
 - distance_to_ma20_pct_auxiliary: 0.09
 - distance_to_high_60_pct: -2.69
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,66.6,66.6,65,66.6,66000,64.84,2.71,64.59,64.05,2.81
 20260526,65.4,66,65,66,66000,64.94,1.63,64.77,64.06,2.47
 20260527,65.1,65.4,64.2,65.4,65000,64.98,0.65,64.92,64.07,2.19
-20260528,64.6,65,63.5,65,43416,64.98,0.03,64.94,64.11,1.39
+20260528,64.6,65,63.5,65,64000,64.98,0.03,64.94,64.11,1.98
 ```
 
 ## Latest TDCC Snapshot

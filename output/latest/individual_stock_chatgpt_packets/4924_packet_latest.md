@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4924 欣厚-KY
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:50 Asia/Taipei
+- generated_at: 2026-05-28 20:19:36 Asia/Taipei
 - stock_id: 4924
 - stock_name: 欣厚-KY
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 11.9
 - low: 11.35
 - close: 11.35
-- volume: 116088
+- volume: 12000
 - ma5: 12.07
 - ema23_primary: 11.21
 - distance_to_ema23_pct: 1.29
@@ -69,7 +69,7 @@
 - ma120: 11.01
 - return_5d: -1.73
 - return_20d: 7.08
-- volume_ratio: 0.79
+- volume_ratio: 0.08
 - distance_to_ma20_pct_auxiliary: 2.62
 - distance_to_high_60_pct: -12.36
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,12.75,12.95,12.35,12.75,13000,11.06,15.27,10.92,10.59,0.07
 20260526,12.75,12.75,12.15,12.3,12000,11.16,10.18,10.99,10.61,0.08
 20260527,12.1,12.1,11.4,11.5,12000,11.19,2.75,11.02,10.61,0.08
-20260528,11.65,11.9,11.35,11.35,116088,11.21,1.29,11.06,10.62,0.79
+20260528,11.65,11.9,11.35,11.35,12000,11.21,1.29,11.06,10.62,0.08
 ```
 
 ## Latest TDCC Snapshot

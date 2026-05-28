@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3297 杭特
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:22 Asia/Taipei
+- generated_at: 2026-05-28 20:19:08 Asia/Taipei
 - stock_id: 3297
 - stock_name: 杭特
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 30.1
 - low: 29.55
 - close: 29.7
-- volume: 67982
+- volume: 30000
 - ma5: 30.12
 - ema23_primary: 31.42
 - distance_to_ema23_pct: -5.46
@@ -69,7 +69,7 @@
 - ma120: 37.45
 - return_5d: -3.73
 - return_20d: -6.6
-- volume_ratio: 0.98
+- volume_ratio: 0.44
 - distance_to_ma20_pct_auxiliary: -4.59
 - distance_to_high_60_pct: -24.62
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,30.75,30.75,29.9,30.25,30000,31.88,-5.11,31.43,34.39,0.41
 20260526,30.2,30.35,29.9,30.1,30000,31.73,-5.14,31.34,34.27,0.43
 20260527,30.05,30.05,29.55,29.8,30000,31.57,-5.61,31.23,34.13,0.44
-20260528,29.95,30.1,29.55,29.7,67982,31.42,-5.46,31.13,34,0.98
+20260528,29.95,30.1,29.55,29.7,30000,31.42,-5.46,31.13,34,0.44
 ```
 
 ## Latest TDCC Snapshot

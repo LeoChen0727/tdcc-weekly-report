@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5310 天剛
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:56 Asia/Taipei
+- generated_at: 2026-05-28 20:19:43 Asia/Taipei
 - stock_id: 5310
 - stock_name: 天剛
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 24.15
 - low: 23
 - close: 23
-- volume: 34201
+- volume: 23000
 - ma5: 23.56
 - ema23_primary: 24.26
 - distance_to_ema23_pct: -5.18
@@ -69,7 +69,7 @@
 - ma120: 27.3
 - return_5d: -5.74
 - return_20d: -4.96
-- volume_ratio: 1.61
+- volume_ratio: 1.11
 - distance_to_ma20_pct_auxiliary: -3.57
 - distance_to_high_60_pct: -23.21
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,24,24,22.6,23.45,24000,24.5,-4.3,24.05,25.63,1.22
 20260526,22.8,23.6,22.55,23.6,23000,24.43,-3.39,23.98,25.6,1.15
 20260527,23.5,23.75,22.5,23.75,23000,24.37,-2.55,23.91,25.58,1.14
-20260528,23.25,24.15,23,23,34201,24.26,-5.18,23.85,25.56,1.61
+20260528,23.25,24.15,23,23,23000,24.26,-5.18,23.85,25.56,1.11
 ```
 
 ## Latest TDCC Snapshot

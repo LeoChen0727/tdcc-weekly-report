@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5223 安力-KY
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:54 Asia/Taipei
+- generated_at: 2026-05-28 20:19:41 Asia/Taipei
 - stock_id: 5223
 - stock_name: 安力-KY
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 25.5
 - low: 24.7
 - close: 24.7
-- volume: 50106
+- volume: 25000
 - ma5: 25.29
 - ema23_primary: 25.06
 - distance_to_ema23_pct: -1.42
@@ -69,7 +69,7 @@
 - ma120: 27.41
 - return_5d: 3.13
 - return_20d: -1.79
-- volume_ratio: 1.68
+- volume_ratio: 0.88
 - distance_to_ma20_pct_auxiliary: -0.34
 - distance_to_high_60_pct: -21.59
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,24.05,26.45,23.5,26.15,25000,24.96,4.76,24.75,26.7,0.86
 20260526,26.2,27.1,25.7,26.05,26000,25.05,3.98,24.79,26.64,0.9
 20260527,26.35,26.45,25.5,25.5,26000,25.09,1.64,24.81,26.56,0.94
-20260528,25.45,25.5,24.7,24.7,50106,25.06,-1.42,24.79,26.47,1.68
+20260528,25.45,25.5,24.7,24.7,25000,25.06,-1.42,24.79,26.47,0.88
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8349 恒耀
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:49 Asia/Taipei
+- generated_at: 2026-05-28 20:20:37 Asia/Taipei
 - stock_id: 8349
 - stock_name: 恒耀
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 41.55
 - low: 40.35
 - close: 40.8
-- volume: 293405
+- volume: 41000
 - ma5: 40.98
 - ema23_primary: 42.16
 - distance_to_ema23_pct: -3.23
@@ -69,7 +69,7 @@
 - ma120: 43.21
 - return_5d: -1.69
 - return_20d: -11.01
-- volume_ratio: 1.63
+- volume_ratio: 0.24
 - distance_to_ma20_pct_auxiliary: -3.76
 - distance_to_high_60_pct: -13.83
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,41.5,41.5,40.65,40.95,41000,42.57,-3.8,43.18,42.49,0.19
 20260526,41.3,41.35,40.5,40.85,41000,42.42,-3.71,42.89,42.5,0.22
 20260527,41,41,40.35,40.8,41000,42.29,-3.52,42.65,42.5,0.23
-20260528,41,41.55,40.35,40.8,293405,42.16,-3.23,42.39,42.51,1.63
+20260528,41,41.55,40.35,40.8,41000,42.16,-3.23,42.39,42.51,0.24
 ```
 
 ## Latest TDCC Snapshot

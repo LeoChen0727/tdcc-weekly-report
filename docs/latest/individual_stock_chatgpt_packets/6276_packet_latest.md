@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6276 安鈦克
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:15 Asia/Taipei
+- generated_at: 2026-05-28 20:20:02 Asia/Taipei
 - stock_id: 6276
 - stock_name: 安鈦克
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 27.5
 - low: 26.55
 - close: 26.95
-- volume: 122226
+- volume: 27000
 - ma5: 27.7
 - ema23_primary: 29.28
 - distance_to_ema23_pct: -7.97
@@ -69,7 +69,7 @@
 - ma120: 34.79
 - return_5d: -7.39
 - return_20d: -15.25
-- volume_ratio: 1.76
+- volume_ratio: 0.42
 - distance_to_ma20_pct_auxiliary: -7.95
 - distance_to_high_60_pct: -30.63
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,29.4,29.4,27.15,27.15,28000,29.87,-9.09,29.95,31.82,0.44
 20260526,27.5,28,27.3,27.6,28000,29.68,-7,29.73,31.69,0.44
 20260527,28,28,26.9,27.5,27000,29.5,-6.76,29.52,31.55,0.42
-20260528,26.75,27.5,26.55,26.95,122226,29.28,-7.97,29.28,31.41,1.76
+20260528,26.75,27.5,26.55,26.95,27000,29.28,-7.97,29.28,31.41,0.42
 ```
 
 ## Latest TDCC Snapshot

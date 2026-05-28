@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8921 沈氏
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:53 Asia/Taipei
+- generated_at: 2026-05-28 20:20:41 Asia/Taipei
 - stock_id: 8921
 - stock_name: 沈氏
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 18.55
 - low: 17.8
 - close: 18.5
-- volume: 3113
+- volume: 18000
 - ma5: 18.39
 - ema23_primary: 18.14
 - distance_to_ema23_pct: 2.01
@@ -69,7 +69,7 @@
 - ma120: 17.8
 - return_5d: 0
 - return_20d: 3.64
-- volume_ratio: 0.3
+- volume_ratio: 1.6
 - distance_to_ma20_pct_auxiliary: 1.34
 - distance_to_high_60_pct: -5.61
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,18.45,18.45,18.45,18.45,18000,18.05,2.2,18.11,17.98,1.79
 20260525,17.5,18.35,17.5,18.2,18000,18.07,0.74,18.15,17.97,1.82
 20260526,18.5,18.5,18.5,18.5,18000,18.1,2.2,18.22,17.98,1.73
-20260528,18.55,18.55,17.8,18.5,3113,18.14,2.01,18.25,17.98,0.3
+20260528,18.55,18.55,17.8,18.5,18000,18.14,2.01,18.25,17.98,1.6
 ```
 
 ## Latest TDCC Snapshot

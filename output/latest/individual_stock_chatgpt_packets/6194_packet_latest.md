@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6194 育富
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:10 Asia/Taipei
+- generated_at: 2026-05-28 20:19:57 Asia/Taipei
 - stock_id: 6194
 - stock_name: 育富
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 34.85
 - low: 34.3
 - close: 34.55
-- volume: 98709
+- volume: 35000
 - ma5: 34.67
 - ema23_primary: 33.23
 - distance_to_ema23_pct: 3.98
@@ -69,7 +69,7 @@
 - ma120: 33.63
 - return_5d: 6.64
 - return_20d: 5.98
-- volume_ratio: 1.4
+- volume_ratio: 0.52
 - distance_to_ma20_pct_auxiliary: 4.94
 - distance_to_high_60_pct: -4.03
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,33.8,36,33.8,35.05,35000,32.77,6.96,32.59,32.48,0.46
 20260526,35.45,35.55,34.65,35.3,32000,32.98,7.03,32.72,32.53,0.44
 20260527,35.3,35.3,34.5,34.5,35000,33.11,4.21,32.83,32.56,0.51
-20260528,34.5,34.85,34.3,34.55,98709,33.23,3.98,32.92,32.6,1.4
+20260528,34.5,34.85,34.3,34.55,35000,33.23,3.98,32.92,32.6,0.52
 ```
 
 ## Latest TDCC Snapshot

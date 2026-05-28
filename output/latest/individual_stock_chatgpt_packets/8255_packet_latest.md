@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8255 朋程
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:48 Asia/Taipei
+- generated_at: 2026-05-28 20:20:36 Asia/Taipei
 - stock_id: 8255
 - stock_name: 朋程
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 200
 - low: 179.5
 - close: 184.5
-- volume: 6535597
+- volume: 190000
 - ma5: 176.8
 - ema23_primary: 155.09
 - distance_to_ema23_pct: 18.96
@@ -69,7 +69,7 @@
 - ma120: 129.67
 - return_5d: 19.42
 - return_20d: 37.17
-- volume_ratio: 4.16
+- volume_ratio: 0.15
 - distance_to_ma20_pct_auxiliary: 19.79
 - distance_to_high_60_pct: -10
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,161,172,153,170,164000,145.99,16.45,146.18,132.74,0.12
 20260526,171.5,187,169,187,182000,149.41,25.16,148.8,133.69,0.14
 20260527,198.5,205,184.5,185.5,193000,152.42,21.71,151.53,134.59,0.15
-20260528,186,200,179.5,184.5,6535597,155.09,18.96,154.03,135.52,4.16
+20260528,186,200,179.5,184.5,190000,155.09,18.96,154.03,135.52,0.15
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 8255 | 朋程 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

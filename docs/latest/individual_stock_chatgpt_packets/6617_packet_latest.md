@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6617 共信-KY
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:25 Asia/Taipei
+- generated_at: 2026-05-28 20:20:12 Asia/Taipei
 - stock_id: 6617
 - stock_name: 共信-KY
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 80.3
 - low: 70.6
 - close: 71.8
-- volume: 822295
+- volume: 75000
 - ma5: 68.32
 - ema23_primary: 66.98
 - distance_to_ema23_pct: 7.2
@@ -69,7 +69,7 @@
 - ma120: 74.89
 - return_5d: 9.62
 - return_20d: -4.77
-- volume_ratio: 3.74
+- volume_ratio: 0.41
 - distance_to_ma20_pct_auxiliary: 8.43
 - distance_to_high_60_pct: -12.01
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,64.4,65.8,63.7,65.4,65000,65.77,-0.57,66.78,69.53,0.22
 20260526,65.4,68,64.3,67.1,66000,65.88,1.85,66.57,69.36,0.25
 20260527,67.7,73.8,67.7,73.8,73000,66.54,10.91,66.39,69.25,0.35
-20260528,78,80.3,70.6,71.8,822295,66.98,7.2,66.22,69.1,3.74
+20260528,78,80.3,70.6,71.8,75000,66.98,7.2,66.22,69.1,0.41
 ```
 
 ## Latest TDCC Snapshot

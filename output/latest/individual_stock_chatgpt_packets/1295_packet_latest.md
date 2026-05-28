@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1295 生合
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:27 Asia/Taipei
+- generated_at: 2026-05-28 20:18:13 Asia/Taipei
 - stock_id: 1295
 - stock_name: 生合
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 51.3
 - low: 49.5
 - close: 50.9
-- volume: 114048
+- volume: 50000
 - ma5: 50.96
 - ema23_primary: 53.42
 - distance_to_ema23_pct: -4.71
@@ -69,7 +69,7 @@
 - ma120: 73.5
 - return_5d: -0.2
 - return_20d: -11.01
-- volume_ratio: 1.24
+- volume_ratio: 0.56
 - distance_to_ma20_pct_auxiliary: -2.83
 - distance_to_high_60_pct: -34.15
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,52.1,52.1,50.2,50.3,51000,54.18,-7.16,53.33,62.45,0.59
 20260526,51.7,51.7,50.9,51.4,51000,53.95,-4.72,53.05,62.01,0.59
 20260527,51.4,51.4,50.1,50.3,51000,53.64,-6.23,52.7,61.53,0.58
-20260528,50.8,51.3,49.5,50.9,114048,53.42,-4.71,52.38,61.09,1.24
+20260528,50.8,51.3,49.5,50.9,50000,53.42,-4.71,52.38,61.09,0.56
 ```
 
 ## Latest TDCC Snapshot

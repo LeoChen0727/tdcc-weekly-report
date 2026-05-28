@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6785 昱展新藥
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:30 Asia/Taipei
+- generated_at: 2026-05-28 20:20:18 Asia/Taipei
 - stock_id: 6785
 - stock_name: 昱展新藥
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 124.5
 - low: 122
 - close: 122.5
-- volume: 136448
+- volume: 123000
 - ma5: 125.8
 - ema23_primary: 135.54
 - distance_to_ema23_pct: -9.62
@@ -69,7 +69,7 @@
 - ma120: 215.56
 - return_5d: -2.78
 - return_20d: -18.87
-- volume_ratio: 1.01
+- volume_ratio: 0.91
 - distance_to_ma20_pct_auxiliary: -6.91
 - distance_to_high_60_pct: -40.24
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,129,129,126,127.5,128000,138.91,-8.21,135.75,163.82,0.98
 20260526,127.5,129.5,125.5,126,127000,137.84,-8.59,134.43,162.18,0.95
 20260527,125,128,124,124.5,125000,136.72,-8.94,133.03,160.57,0.95
-20260528,124.5,124.5,122,122.5,136448,135.54,-9.62,131.6,159.31,1.01
+20260528,124.5,124.5,122,122.5,123000,135.54,-9.62,131.6,159.31,0.91
 ```
 
 ## Latest TDCC Snapshot

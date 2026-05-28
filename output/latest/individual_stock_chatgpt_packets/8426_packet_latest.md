@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8426 紅木-KY
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:51 Asia/Taipei
+- generated_at: 2026-05-28 20:20:38 Asia/Taipei
 - stock_id: 8426
 - stock_name: 紅木-KY
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 22.65
 - low: 21.6
 - close: 21.6
-- volume: 14802
+- volume: 22000
 - ma5: 21.97
 - ema23_primary: 22.64
 - distance_to_ema23_pct: -4.57
@@ -69,7 +69,7 @@
 - ma120: 26.12
 - return_5d: -3.57
 - return_20d: -9.43
-- volume_ratio: 0.21
+- volume_ratio: 0.32
 - distance_to_ma20_pct_auxiliary: -3.63
 - distance_to_high_60_pct: -25.39
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,21.7,22.3,21.15,21.65,22000,22.83,-5.16,22.69,24.57,0.32
 20260526,21.65,22.95,21.55,22.55,22000,22.8,-1.12,22.62,24.49,0.32
 20260527,22.55,22.6,21.9,21.9,22000,22.73,-3.65,22.52,24.39,0.32
-20260528,22.65,22.65,21.6,21.6,14802,22.64,-4.57,22.41,24.3,0.21
+20260528,22.65,22.65,21.6,21.6,22000,22.64,-4.57,22.41,24.3,0.32
 ```
 
 ## Latest TDCC Snapshot

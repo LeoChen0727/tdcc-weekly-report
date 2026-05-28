@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4535 至興
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:43 Asia/Taipei
+- generated_at: 2026-05-28 20:19:29 Asia/Taipei
 - stock_id: 4535
 - stock_name: 至興
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 27.35
 - low: 27.35
 - close: 27.35
-- volume: 16001
+- volume: 27000
 - ma5: 27.27
 - ema23_primary: 27.52
 - distance_to_ema23_pct: -0.61
@@ -69,7 +69,7 @@
 - ma120: 28.33
 - return_5d: 0.18
 - return_20d: -2.32
-- volume_ratio: 1.26
+- volume_ratio: 2.04
 - distance_to_ma20_pct_auxiliary: -0.33
 - distance_to_high_60_pct: -9.14
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,27.35,27.35,27.2,27.25,27000,27.61,-1.29,27.53,27.95,2.66
 20260526,27,27.3,27,27.3,27000,27.58,-1.02,27.49,27.9,2.36
 20260527,27.35,27.35,27,27,27000,27.53,-1.93,27.47,27.86,2.25
-20260528,27.35,27.35,27.35,27.35,16001,27.52,-0.61,27.44,27.83,1.26
+20260528,27.35,27.35,27.35,27.35,27000,27.52,-0.61,27.44,27.83,2.04
 ```
 
 ## Latest TDCC Snapshot

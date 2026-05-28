@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4806 桂田文創
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:48 Asia/Taipei
+- generated_at: 2026-05-28 20:19:35 Asia/Taipei
 - stock_id: 4806
 - stock_name: 桂田文創
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 9.95
 - low: 9.94
 - close: 9.95
-- volume: 6287
+- volume: 10000
 - ma5: 10.06
 - ema23_primary: 10.24
 - distance_to_ema23_pct: -2.87
@@ -69,7 +69,7 @@
 - ma120: 10.72
 - return_5d: -0.1
 - return_20d: -3.86
-- volume_ratio: 0.48
+- volume_ratio: 0.75
 - distance_to_ma20_pct_auxiliary: -3.05
 - distance_to_high_60_pct: -28.16
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,10,10,9.97,10,10000,10.33,-3.17,10.32,10.95,0.71
 20260526,9.95,9.98,9.7,9.98,10000,10.3,-3.09,10.3,10.93,0.72
 20260527,9.85,9.96,9.83,9.96,10000,10.27,-3.02,10.28,10.91,0.77
-20260528,9.94,9.95,9.94,9.95,6287,10.24,-2.87,10.26,10.86,0.48
+20260528,9.94,9.95,9.94,9.95,10000,10.24,-2.87,10.26,10.86,0.75
 ```
 
 ## Latest TDCC Snapshot

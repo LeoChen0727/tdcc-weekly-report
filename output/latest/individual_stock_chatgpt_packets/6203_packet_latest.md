@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6203 海韻電
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:11 Asia/Taipei
+- generated_at: 2026-05-28 20:19:58 Asia/Taipei
 - stock_id: 6203
 - stock_name: 海韻電
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 72.1
 - low: 70.1
 - close: 70.4
-- volume: 359732
+- volume: 71000
 - ma5: 71.62
 - ema23_primary: 69.77
 - distance_to_ema23_pct: 0.91
@@ -69,7 +69,7 @@
 - ma120: 68.93
 - return_5d: -0.42
 - return_20d: 10
-- volume_ratio: 0.52
+- volume_ratio: 0.1
 - distance_to_ma20_pct_auxiliary: -0.41
 - distance_to_high_60_pct: -9.86
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,72.5,73.5,72.1,72.6,73000,69.39,4.62,69.6,67.09,0.11
 20260526,73,73.2,71.7,72,72000,69.61,3.43,70.01,67.14,0.11
 20260527,72.2,72.2,70.5,70.8,71000,69.71,1.56,70.37,67.17,0.1
-20260528,71.2,72.1,70.1,70.4,359732,69.77,0.91,70.69,67.21,0.52
+20260528,71.2,72.1,70.1,70.4,71000,69.77,0.91,70.69,67.21,0.1
 ```
 
 ## Latest TDCC Snapshot

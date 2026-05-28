@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4580 捷流閥業
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:45 Asia/Taipei
+- generated_at: 2026-05-28 20:19:32 Asia/Taipei
 - stock_id: 4580
 - stock_name: 捷流閥業
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 82.7
 - low: 81.6
 - close: 81.6
-- volume: 58868
+- volume: 82000
 - ma5: 82.42
 - ema23_primary: 81.66
 - distance_to_ema23_pct: -0.08
@@ -69,7 +69,7 @@
 - ma120: 81.18
 - return_5d: -0.49
 - return_20d: 2.51
-- volume_ratio: 0.78
+- volume_ratio: 1.07
 - distance_to_ma20_pct_auxiliary: -0.34
 - distance_to_high_60_pct: -2.63
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,83.4,83.4,82.4,82.9,83000,81.48,1.74,81.45,80.68,1.19
 20260526,82.9,83,82.4,82.9,83000,81.6,1.59,81.64,80.69,1.17
 20260527,82.9,82.9,82,82.4,82000,81.67,0.9,81.78,80.69,1.12
-20260528,82.5,82.7,81.6,81.6,58868,81.66,-0.08,81.88,80.69,0.78
+20260528,82.5,82.7,81.6,81.6,82000,81.66,-0.08,81.88,80.69,1.07
 ```
 
 ## Latest TDCC Snapshot

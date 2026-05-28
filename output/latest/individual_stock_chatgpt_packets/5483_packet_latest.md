@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5483 中美晶
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:00 Asia/Taipei
+- generated_at: 2026-05-28 20:19:47 Asia/Taipei
 - stock_id: 5483
 - stock_name: 中美晶
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 170
 - low: 159
 - close: 160.5
-- volume: 31245894
+- volume: 165000
 - ma5: 157.7
 - ema23_primary: 145.83
 - distance_to_ema23_pct: 10.06
@@ -69,7 +69,7 @@
 - ma120: 120.06
 - return_5d: 12.63
 - return_20d: 22.52
-- volume_ratio: 1.85
+- volume_ratio: 0.01
 - distance_to_ma20_pct_auxiliary: 8.35
 - distance_to_high_60_pct: -5.59
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,151.5,159,148.5,154.5,155000,140.98,9.59,144.22,126.23,0.01
 20260526,162.5,168,158,164,163000,142.9,14.76,145.28,127.01,0.01
 20260527,168,168.5,160.5,162,164000,144.49,12.12,146.65,127.74,0.01
-20260528,161,170,159,160.5,31245894,145.83,10.06,148.12,128.48,1.85
+20260528,161,170,159,160.5,165000,145.83,10.06,148.12,128.48,0.01
 ```
 
 ## Latest TDCC Snapshot
@@ -125,7 +125,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 5483 | 中美晶 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 5483 | 中美晶 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

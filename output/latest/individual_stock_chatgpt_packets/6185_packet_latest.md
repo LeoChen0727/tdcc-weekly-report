@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6185 幃翔
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:10 Asia/Taipei
+- generated_at: 2026-05-28 20:19:57 Asia/Taipei
 - stock_id: 6185
 - stock_name: 幃翔
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 13.9
 - low: 13.65
 - close: 13.65
-- volume: 200630
+- volume: 14000
 - ma5: 13.93
 - ema23_primary: 13.96
 - distance_to_ema23_pct: -2.21
@@ -69,7 +69,7 @@
 - ma120: 14.6
 - return_5d: -3.19
 - return_20d: -2.5
-- volume_ratio: 1.09
+- volume_ratio: 0.08
 - distance_to_ma20_pct_auxiliary: -2.1
 - distance_to_high_60_pct: -7.77
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,14.15,14.3,14,14.1,14000,14.01,0.66,13.98,14.08,0.06
 20260526,14.2,14.2,13.9,13.95,14000,14,-0.38,13.97,14.06,0.07
 20260527,13.85,13.9,13.75,13.8,14000,13.99,-1.33,13.96,14.05,0.08
-20260528,13.9,13.9,13.65,13.65,200630,13.96,-2.21,13.94,14.03,1.09
+20260528,13.9,13.9,13.65,13.65,14000,13.96,-2.21,13.94,14.03,0.08
 ```
 
 ## Latest TDCC Snapshot

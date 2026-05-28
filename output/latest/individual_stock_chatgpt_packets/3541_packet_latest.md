@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3541 西柏
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:29 Asia/Taipei
+- generated_at: 2026-05-28 20:19:16 Asia/Taipei
 - stock_id: 3541
 - stock_name: 西柏
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 22.4
 - low: 22.3
 - close: 22.4
-- volume: 37338
+- volume: 22000
 - ma5: 22.47
 - ema23_primary: 22.97
 - distance_to_ema23_pct: -2.5
@@ -69,7 +69,7 @@
 - ma120: 24.22
 - return_5d: -2.18
 - return_20d: -4.68
-- volume_ratio: 0.61
+- volume_ratio: 0.37
 - distance_to_ma20_pct_auxiliary: -2.33
 - distance_to_high_60_pct: -13.01
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,22.5,22.55,22.3,22.3,22000,23.15,-3.67,23.12,23.71,0.32
 20260526,22.3,22.5,22.3,22.35,22000,23.08,-3.18,23.05,23.65,0.33
 20260527,22.35,22.4,22.3,22.4,22000,23.03,-2.72,22.99,23.6,0.35
-20260528,22.3,22.4,22.3,22.4,37338,22.97,-2.5,22.93,23.56,0.61
+20260528,22.3,22.4,22.3,22.4,22000,22.97,-2.5,22.93,23.56,0.37
 ```
 
 ## Latest TDCC Snapshot

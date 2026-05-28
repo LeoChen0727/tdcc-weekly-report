@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8440 綠電
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:51 Asia/Taipei
+- generated_at: 2026-05-28 20:20:39 Asia/Taipei
 - stock_id: 8440
 - stock_name: 綠電
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 25.9
 - low: 23.35
 - close: 23.4
-- volume: 1792306
+- volume: 25000
 - ma5: 22.81
 - ema23_primary: 22.47
 - distance_to_ema23_pct: 4.15
@@ -69,7 +69,7 @@
 - ma120: 24.3
 - return_5d: 3.08
 - return_20d: 8.84
-- volume_ratio: 4.74
+- volume_ratio: 0.09
 - distance_to_ma20_pct_auxiliary: 5.83
 - distance_to_high_60_pct: -9.65
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,22.5,22.5,21.25,21.9,22000,22.24,-1.52,21.84,22.98,0.07
 20260526,22.1,22.1,21.6,22,22000,22.22,-0.98,21.87,22.92,0.07
 20260527,22.5,24.2,22.45,24.2,24000,22.38,8.11,22.02,22.89,0.08
-20260528,25,25.9,23.35,23.4,1792306,22.47,4.15,22.11,22.85,4.74
+20260528,25,25.9,23.35,23.4,25000,22.47,4.15,22.11,22.85,0.09
 ```
 
 ## Latest TDCC Snapshot

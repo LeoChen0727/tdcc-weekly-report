@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8107 大億金茂
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:46 Asia/Taipei
+- generated_at: 2026-05-28 20:20:34 Asia/Taipei
 - stock_id: 8107
 - stock_name: 大億金茂
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 12.3
 - low: 11.45
 - close: 12.3
-- volume: 556922
+- volume: 12000
 - ma5: 11.62
 - ema23_primary: 11.99
 - distance_to_ema23_pct: 2.62
@@ -69,7 +69,7 @@
 - ma120: 13.7
 - return_5d: 6.03
 - return_20d: -4.28
-- volume_ratio: 4.46
+- volume_ratio: 0.12
 - distance_to_ma20_pct_auxiliary: 3.51
 - distance_to_high_60_pct: -15.75
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,11.65,11.65,11.4,11.5,12000,12.08,-4.79,12.07,12.92,0.11
 20260526,11.5,11.5,11.3,11.45,11000,12.03,-4.79,11.99,12.87,0.11
 20260527,11.4,11.4,11.2,11.2,11000,11.96,-6.34,11.91,12.81,0.11
-20260528,11.5,12.3,11.45,12.3,556922,11.99,2.62,11.88,12.78,4.46
+20260528,11.5,12.3,11.45,12.3,12000,11.99,2.62,11.88,12.78,0.12
 ```
 
 ## Latest TDCC Snapshot

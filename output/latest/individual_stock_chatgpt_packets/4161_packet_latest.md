@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4161 聿新科
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:39 Asia/Taipei
+- generated_at: 2026-05-28 20:19:25 Asia/Taipei
 - stock_id: 4161
 - stock_name: 聿新科
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 23.45
 - low: 22.85
 - close: 22.9
-- volume: 106204
+- volume: 23000
 - ma5: 23.21
 - ema23_primary: 23.4
 - distance_to_ema23_pct: -2.15
@@ -69,7 +69,7 @@
 - ma120: 25.02
 - return_5d: -2.76
 - return_20d: -1.93
-- volume_ratio: 1.53
+- volume_ratio: 0.35
 - distance_to_ma20_pct_auxiliary: -1.48
 - distance_to_high_60_pct: -15.5
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,23.55,23.6,23.3,23.3,23000,23.51,-0.9,23.29,24.36,0.31
 20260526,23.3,23.4,23.05,23.2,23000,23.49,-1.22,23.29,24.3,0.33
 20260527,23.5,23.55,22.9,23.05,23000,23.45,-1.71,23.27,24.24,0.34
-20260528,23.25,23.45,22.85,22.9,106204,23.4,-2.15,23.25,24.17,1.53
+20260528,23.25,23.45,22.85,22.9,23000,23.4,-2.15,23.25,24.17,0.35
 ```
 
 ## Latest TDCC Snapshot

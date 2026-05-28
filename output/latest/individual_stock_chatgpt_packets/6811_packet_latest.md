@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6811 宏碁資訊
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:32 Asia/Taipei
+- generated_at: 2026-05-28 20:20:19 Asia/Taipei
 - stock_id: 6811
 - stock_name: 宏碁資訊
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 212
 - low: 207
 - close: 209
-- volume: 185169
+- volume: 210000
 - ma5: 213.8
 - ema23_primary: 206.92
 - distance_to_ema23_pct: 1.01
@@ -69,7 +69,7 @@
 - ma120: 202.88
 - return_5d: 0
 - return_20d: 8.01
-- volume_ratio: 1.18
+- volume_ratio: 1.33
 - distance_to_ma20_pct_auxiliary: 0.06
 - distance_to_high_60_pct: -5.86
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,219,222,215,218.5,218000,205.7,6.22,206.2,196.93,1.59
 20260526,220,220,214.5,214.5,217000,206.43,3.91,207.3,197.18,1.53
 20260527,215.5,216,208,210,211000,206.73,1.58,208.1,197.25,1.4
-20260528,210.5,212,207,209,185169,206.92,1.01,208.88,197.34,1.18
+20260528,210.5,212,207,209,210000,206.92,1.01,208.88,197.34,1.33
 ```
 
 ## Latest TDCC Snapshot

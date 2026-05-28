@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3491 昇達科
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:27 Asia/Taipei
+- generated_at: 2026-05-28 20:19:13 Asia/Taipei
 - stock_id: 3491
 - stock_name: 昇達科
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 2180
 - low: 1995
 - close: 2000
-- volume: 1093239
+- volume: 2098000
 - ma5: 2035
 - ema23_primary: 1818.99
 - distance_to_ema23_pct: 9.95
@@ -69,7 +69,7 @@
 - ma120: 1249.15
 - return_5d: 8.11
 - return_20d: 28.62
-- volume_ratio: 0.49
+- volume_ratio: 0.91
 - distance_to_ma20_pct_auxiliary: 11.53
 - distance_to_high_60_pct: -8.26
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,2035,2120,1995,2090,2083000,1750.24,19.41,1724.5,1596.75,0.91
 20260526,2060,2075,2005,2075,2034000,1777.31,16.75,1748,1606,0.89
 20260527,2120,2130,2025,2080,2087000,1802.53,15.39,1771,1614,0.9
-20260528,2125,2180,1995,2000,1093239,1818.99,9.95,1793.25,1618.58,0.49
+20260528,2125,2180,1995,2000,2098000,1818.99,9.95,1793.25,1618.58,0.91
 ```
 
 ## Latest TDCC Snapshot
@@ -125,7 +125,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3491 | 昇達科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260521 | 3491 | 昇達科 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

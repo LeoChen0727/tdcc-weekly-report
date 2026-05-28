@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5498 凱崴
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:01 Asia/Taipei
+- generated_at: 2026-05-28 20:19:48 Asia/Taipei
 - stock_id: 5498
 - stock_name: 凱崴
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 69.2
 - low: 65.6
 - close: 65.7
-- volume: 5947581
+- volume: 67000
 - ma5: 68
 - ema23_primary: 68.64
 - distance_to_ema23_pct: -4.28
@@ -69,7 +69,7 @@
 - ma120: 57.07
 - return_5d: 4.78
 - return_20d: -9.38
-- volume_ratio: 0.9
+- volume_ratio: 0.01
 - distance_to_ma20_pct_auxiliary: -6.53
 - distance_to_high_60_pct: -24.66
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,68.6,70.9,68.1,68.4,69000,68.79,-0.56,70.42,65.28,0.01
 20260526,70.4,72.8,69.1,70.3,71000,68.91,2.01,70.64,65.39,0.01
 20260527,72,72.2,67.1,68.8,69000,68.9,-0.15,70.63,65.47,0.01
-20260528,69.2,69.2,65.6,65.7,5947581,68.64,-4.28,70.29,65.48,0.9
+20260528,69.2,69.2,65.6,65.7,67000,68.64,-4.28,70.29,65.48,0.01
 ```
 
 ## Latest TDCC Snapshot
@@ -125,8 +125,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 5498 | 凱崴 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260528 | 5498 | 凱崴 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260521 | 5498 | 凱崴 | pattern | 型態觀察 |  |  |  | 預備發動型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

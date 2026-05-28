@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5514 三豐
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:01 Asia/Taipei
+- generated_at: 2026-05-28 20:19:48 Asia/Taipei
 - stock_id: 5514
 - stock_name: 三豐
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 15.2
 - low: 14.2
 - close: 14.45
-- volume: 192370
+- volume: 15000
 - ma5: 14.92
 - ema23_primary: 15.34
 - distance_to_ema23_pct: -5.81
@@ -69,7 +69,7 @@
 - ma120: 16.09
 - return_5d: -5.25
 - return_20d: -8.25
-- volume_ratio: 11.4
+- volume_ratio: 1.88
 - distance_to_ma20_pct_auxiliary: -5.88
 - distance_to_high_60_pct: -13.99
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,15.2,16.1,14.7,15.2,16000,15.53,-2.14,15.53,15.79,2.08
 20260526,14.8,15.7,14.8,15,15000,15.49,-3.15,15.48,15.78,1.86
 20260527,15,15.5,14.6,14.7,15000,15.42,-4.69,15.42,15.76,1.78
-20260528,14.55,15.2,14.2,14.45,192370,15.34,-5.81,15.35,15.73,11.4
+20260528,14.55,15.2,14.2,14.45,15000,15.34,-5.81,15.35,15.73,1.88
 ```
 
 ## Latest TDCC Snapshot

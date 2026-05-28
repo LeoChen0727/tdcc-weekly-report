@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00858 永豐美國500大
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:23 Asia/Taipei
+- generated_at: 2026-05-28 20:18:08 Asia/Taipei
 - stock_id: 00858
 - stock_name: 永豐美國500大
 - packet_status: partial_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 35.93
 - low: 35.7
 - close: 35.7
-- volume: 747747
+- volume: 36000
 - ma5: 35.85
 - ema23_primary: 35.82
 - distance_to_ema23_pct: -0.33
@@ -69,7 +69,7 @@
 - ma120: 35.85
 - return_5d: 
 - return_20d: 
-- volume_ratio: 4.19
+- volume_ratio: 1
 - distance_to_ma20_pct_auxiliary: -0.43
 - distance_to_high_60_pct: -0.75
 
@@ -81,7 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,35.9,35.97,35.88,35.94,36000,,,,,
 20260526,35.95,35.96,35.84,35.92,36000,,,,,
 20260527,35.92,35.95,35.89,35.91,36000,,,,,
-20260528,35.92,35.93,35.7,35.7,747747,35.82,-0.33,35.85,35.85,4.19
+20260528,35.92,35.93,35.7,35.7,36000,35.82,-0.33,35.85,35.85,1
 ```
 
 ## Latest TDCC Snapshot

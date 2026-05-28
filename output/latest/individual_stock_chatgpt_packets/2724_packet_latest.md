@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2724 藝舍-KY
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:06 Asia/Taipei
+- generated_at: 2026-05-28 20:18:52 Asia/Taipei
 - stock_id: 2724
 - stock_name: 藝舍-KY
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 13.8
 - low: 12.5
 - close: 13.8
-- volume: 10100
+- volume: 13000
 - ma5: 13.91
 - ema23_primary: 14.9
 - distance_to_ema23_pct: -7.4
@@ -69,7 +69,7 @@
 - ma120: 18.36
 - return_5d: -1.43
 - return_20d: -16.36
-- volume_ratio: 0.49
+- volume_ratio: 0.62
 - distance_to_ma20_pct_auxiliary: -4.89
 - distance_to_high_60_pct: -33.01
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,13.85,13.95,13.85,13.95,14000,15.2,-8.25,14.96,17.62,0.65
 20260525,13,14.1,12.65,14.1,13000,15.11,-6.7,14.8,17.56,0.61
 20260527,13.3,13.8,13.3,13.8,14000,15,-8.02,14.64,17.47,0.65
-20260528,12.75,13.8,12.5,13.8,10100,14.9,-7.4,14.51,17.37,0.49
+20260528,12.75,13.8,12.5,13.8,13000,14.9,-7.4,14.51,17.37,0.62
 ```
 
 ## Latest TDCC Snapshot

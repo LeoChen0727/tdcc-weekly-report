@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2947 振宇五金
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:11 Asia/Taipei
+- generated_at: 2026-05-28 20:18:57 Asia/Taipei
 - stock_id: 2947
 - stock_name: 振宇五金
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 77.7
 - low: 77.7
 - close: 77.7
-- volume: 18917
+- volume: 78000
 - ma5: 77.74
 - ema23_primary: 78.07
 - distance_to_ema23_pct: -0.48
@@ -69,7 +69,7 @@
 - ma120: 80.28
 - return_5d: -0.26
 - return_20d: 0.65
-- volume_ratio: 0.69
+- volume_ratio: 2.58
 - distance_to_ma20_pct_auxiliary: -0.64
 - distance_to_high_60_pct: -5.93
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,77.8,77.9,77.8,77.8,78000,78.19,-0.49,78.14,78.46,3.84
 20260526,77,77.8,77,77.7,78000,78.15,-0.57,78.14,78.41,3.29
 20260527,77.7,77.7,77.7,77.7,78000,78.11,-0.52,78.17,78.37,2.93
-20260528,77.7,77.7,77.7,77.7,18917,78.07,-0.48,78.2,78.32,0.69
+20260528,77.7,77.7,77.7,77.7,78000,78.07,-0.48,78.2,78.32,2.58
 ```
 
 ## Latest TDCC Snapshot

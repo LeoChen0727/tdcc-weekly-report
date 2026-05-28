@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4506 崇友
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:42 Asia/Taipei
+- generated_at: 2026-05-28 20:19:28 Asia/Taipei
 - stock_id: 4506
 - stock_name: 崇友
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 117.5
 - low: 116
 - close: 117
-- volume: 144481
+- volume: 117000
 - ma5: 118
 - ema23_primary: 118.27
 - distance_to_ema23_pct: -1.07
@@ -69,7 +69,7 @@
 - ma120: 117.9
 - return_5d: -1.27
 - return_20d: 0
-- volume_ratio: 1.75
+- volume_ratio: 1.44
 - distance_to_ma20_pct_auxiliary: -1.1
 - distance_to_high_60_pct: -4.49
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,118.5,119,118,118.5,118000,118.51,-0.01,118.25,117.97,1.6
 20260526,118.5,118.5,117.5,118,118000,118.47,-0.39,118.28,118.01,1.59
 20260527,118,118.5,117,117.5,117000,118.39,-0.75,118.3,118.04,1.51
-20260528,117.5,117.5,116,117,144481,118.27,-1.07,118.3,118.03,1.75
+20260528,117.5,117.5,116,117,117000,118.27,-1.07,118.3,118.03,1.44
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3064 泰偉
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:16 Asia/Taipei
+- generated_at: 2026-05-28 20:19:02 Asia/Taipei
 - stock_id: 3064
 - stock_name: 泰偉
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 19.5
 - low: 18.5
 - close: 19
-- volume: 9612
+- volume: 19000
 - ma5: 18.33
 - ema23_primary: 20.5
 - distance_to_ema23_pct: -7.31
@@ -69,7 +69,7 @@
 - ma120: 38.09
 - return_5d: 0.26
 - return_20d: 2.7
-- volume_ratio: 1.15
+- volume_ratio: 2.16
 - distance_to_ma20_pct_auxiliary: -3.12
 - distance_to_high_60_pct: -61.03
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,18.15,18.15,18,18,18000,21.07,-14.58,19.76,30.37,2.45
 20260526,18.75,18.75,18,18.35,18000,20.85,-11.97,19.65,29.88,2.2
 20260527,18.4,18.4,18,18.3,18000,20.63,-11.31,19.59,29.43,2.18
-20260528,18.5,19.5,18.5,19,9612,20.5,-7.31,19.61,29,1.15
+20260528,18.5,19.5,18.5,19,19000,20.5,-7.31,19.61,29,2.16
 ```
 
 ## Latest TDCC Snapshot

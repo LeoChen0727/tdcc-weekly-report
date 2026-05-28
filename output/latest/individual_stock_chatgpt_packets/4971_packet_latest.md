@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4971 IET-KY
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:51 Asia/Taipei
+- generated_at: 2026-05-28 20:19:38 Asia/Taipei
 - stock_id: 4971
 - stock_name: IET-KY
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 740
 - low: 695
 - close: 711
-- volume: 303565
+- volume: 713000
 - ma5: 739.6
 - ema23_primary: 728.19
 - distance_to_ema23_pct: -2.36
@@ -69,7 +69,7 @@
 - ma120: 479.01
 - return_5d: -0.97
 - return_20d: -6.08
-- volume_ratio: 0.28
+- volume_ratio: 0.64
 - distance_to_ma20_pct_auxiliary: -4.53
 - distance_to_high_60_pct: -25.86
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,766,766,745,745,756000,725.14,2.74,743.7,628.62,0.7
 20260526,750,765,716,765,744000,728.46,5.02,747.6,633.87,0.69
 20260527,779,782,699,744,739000,729.75,1.95,747.05,638.1,0.67
-20260528,740,740,695,711,303565,728.19,-2.36,744.75,641,0.28
+20260528,740,740,695,711,713000,728.19,-2.36,744.75,641,0.64
 ```
 
 ## Latest TDCC Snapshot

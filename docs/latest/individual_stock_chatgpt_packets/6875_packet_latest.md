@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6875 國邑*
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:34 Asia/Taipei
+- generated_at: 2026-05-28 20:20:21 Asia/Taipei
 - stock_id: 6875
 - stock_name: 國邑*
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 38
 - low: 35.45
 - close: 35.45
-- volume: 175017
+- volume: 36000
 - ma5: 37.2
 - ema23_primary: 37.32
 - distance_to_ema23_pct: -5.01
@@ -69,7 +69,7 @@
 - ma120: 43.59
 - return_5d: -6.96
 - return_20d: -6.71
-- volume_ratio: 1.03
+- volume_ratio: 0.22
 - distance_to_ma20_pct_auxiliary: -4.32
 - distance_to_high_60_pct: -17.56
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,38.5,39,37.65,37.65,38000,37.5,0.39,37.25,38.37,0.22
 20260526,38.5,38.5,37.2,38.05,38000,37.55,1.34,37.26,38.33,0.23
 20260527,39,39,36.8,36.85,37000,37.49,-1.71,37.18,38.27,0.23
-20260528,38,38,35.45,35.45,175017,37.32,-5.01,37.05,38.2,1.03
+20260528,38,38,35.45,35.45,36000,37.32,-5.01,37.05,38.2,0.22
 ```
 
 ## Latest TDCC Snapshot

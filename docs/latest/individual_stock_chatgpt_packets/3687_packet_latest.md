@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3687 歐買尬
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:34 Asia/Taipei
+- generated_at: 2026-05-28 20:19:21 Asia/Taipei
 - stock_id: 3687
 - stock_name: 歐買尬
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 72.7
 - low: 66.9
 - close: 71.5
-- volume: 561694
+- volume: 71000
 - ma5: 68.84
 - ema23_primary: 67.45
 - distance_to_ema23_pct: 6.01
@@ -69,7 +69,7 @@
 - ma120: 73.71
 - return_5d: 1.42
 - return_20d: 8.66
-- volume_ratio: 3.26
+- volume_ratio: 0.48
 - distance_to_ma20_pct_auxiliary: 7.48
 - distance_to_high_60_pct: -3.64
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,69.8,69.8,68.1,68.3,69000,67.02,1.9,66.06,68.18,0.46
 20260526,68.2,68.2,67,67.2,67000,67.04,0.24,66.14,68.03,0.46
 20260527,67.2,68,66.6,67.5,67000,67.08,0.63,66.24,67.92,0.46
-20260528,67.5,72.7,66.9,71.5,561694,67.45,6.01,66.53,67.9,3.26
+20260528,67.5,72.7,66.9,71.5,71000,67.45,6.01,66.53,67.9,0.48
 ```
 
 ## Latest TDCC Snapshot

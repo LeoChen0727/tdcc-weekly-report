@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3624 光頡
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:32 Asia/Taipei
+- generated_at: 2026-05-28 20:19:19 Asia/Taipei
 - stock_id: 3624
 - stock_name: 光頡
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 103
 - low: 95
 - close: 100
-- volume: 6982428
+- volume: 100000
 - ma5: 94.6
 - ema23_primary: 77.55
 - distance_to_ema23_pct: 28.95
@@ -69,7 +69,7 @@
 - ma120: 57.95
 - return_5d: 9.29
 - return_20d: 91.2
-- volume_ratio: 0.59
+- volume_ratio: 0.01
 - distance_to_ma20_pct_auxiliary: 32.88
 - distance_to_high_60_pct: -2.91
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,95,95,92,94,94000,72.04,30.49,68.63,57.74,0.01
 20260526,94,94,84.6,93.5,88000,73.83,26.65,70.81,58.22,0.01
 20260527,94.5,97.4,89,94,94000,75.51,24.49,72.87,58.73,0.01
-20260528,95,103,95,100,6982428,77.55,28.95,75.25,59.37,0.59
+20260528,95,103,95,100,100000,77.55,28.95,75.25,59.37,0.01
 ```
 
 ## Latest TDCC Snapshot

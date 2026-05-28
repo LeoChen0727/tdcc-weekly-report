@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1294 漢田生技
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:27 Asia/Taipei
+- generated_at: 2026-05-28 20:18:13 Asia/Taipei
 - stock_id: 1294
 - stock_name: 漢田生技
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 78
 - low: 76.6
 - close: 77.3
-- volume: 24486
+- volume: 77000
 - ma5: 77.22
 - ema23_primary: 78.35
 - distance_to_ema23_pct: -1.34
@@ -69,7 +69,7 @@
 - ma120: 79.43
 - return_5d: -0.51
 - return_20d: -2.64
-- volume_ratio: 0.68
+- volume_ratio: 2.01
 - distance_to_ma20_pct_auxiliary: -1.07
 - distance_to_high_60_pct: -18.89
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,77.6,77.6,77,77,77000,78.72,-2.19,78.48,81.23,2.64
 20260526,77,77,76,77,77000,78.58,-2.01,78.37,81.2,2.37
 20260527,76.7,77,76.7,77,77000,78.45,-1.85,78.25,81.17,2.19
-20260528,76.7,78,76.6,77.3,24486,78.35,-1.34,78.14,81.15,0.68
+20260528,76.7,78,76.6,77.3,77000,78.35,-1.34,78.14,81.15,2.01
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5236 凌陽創新
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:54 Asia/Taipei
+- generated_at: 2026-05-28 20:19:41 Asia/Taipei
 - stock_id: 5236
 - stock_name: 凌陽創新
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 194
 - low: 181
 - close: 181.5
-- volume: 875344
+- volume: 187000
 - ma5: 184.1
 - ema23_primary: 170
 - distance_to_ema23_pct: 6.76
@@ -69,7 +69,7 @@
 - ma120: 133.8
 - return_5d: 2.54
 - return_20d: 15.61
-- volume_ratio: 1.43
+- volume_ratio: 0.32
 - distance_to_ma20_pct_auxiliary: 6.31
 - distance_to_high_60_pct: -6.44
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,190,190,182,186.5,185000,165.76,12.51,166.95,145.95,0.3
 20260526,187,187,182,185.5,185000,167.41,10.81,168.3,146.93,0.31
 20260527,187.5,188,181,186,185000,168.95,10.09,169.5,147.88,0.31
-20260528,187,194,181,181.5,875344,170,6.76,170.72,148.72,1.43
+20260528,187,194,181,181.5,187000,170,6.76,170.72,148.72,0.32
 ```
 
 ## Latest TDCC Snapshot

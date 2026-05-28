@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6542 隆中
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:22 Asia/Taipei
+- generated_at: 2026-05-28 20:20:09 Asia/Taipei
 - stock_id: 6542
 - stock_name: 隆中
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 47.7
 - low: 45
 - close: 47.25
-- volume: 12478
+- volume: 46000
 - ma5: 47.07
 - ema23_primary: 47.97
 - distance_to_ema23_pct: -1.5
@@ -69,7 +69,7 @@
 - ma120: 49.84
 - return_5d: 1.94
 - return_20d: -4.45
-- volume_ratio: 0.6
+- volume_ratio: 2.04
 - distance_to_ma20_pct_auxiliary: -0.56
 - distance_to_high_60_pct: -19.23
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,47,47.7,46.5,47.5,47000,48.27,-1.6,47.86,50.97,2.39
 20260526,45.25,47.5,45.25,47.5,46000,48.21,-1.47,47.77,50.87,2.4
 20260527,46.15,46.15,46.1,46.1,46000,48.03,-4.02,47.62,50.75,2.22
-20260528,46.1,47.7,45,47.25,12478,47.97,-1.5,47.52,50.66,0.6
+20260528,46.1,47.7,45,47.25,46000,47.97,-1.5,47.52,50.66,2.04
 ```
 
 ## Latest TDCC Snapshot

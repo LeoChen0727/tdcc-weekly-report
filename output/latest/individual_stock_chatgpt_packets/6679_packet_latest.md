@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6679 鈺太
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:27 Asia/Taipei
+- generated_at: 2026-05-28 20:20:14 Asia/Taipei
 - stock_id: 6679
 - stock_name: 鈺太
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 338
 - low: 310
 - close: 316.5
-- volume: 648848
+- volume: 321000
 - ma5: 334.1
 - ema23_primary: 312.29
 - distance_to_ema23_pct: 1.35
@@ -69,7 +69,7 @@
 - ma120: 229.79
 - return_5d: -5.52
 - return_20d: 11.64
-- volume_ratio: 0.94
+- volume_ratio: 0.48
 - distance_to_ma20_pct_auxiliary: -0.13
 - distance_to_high_60_pct: -10.21
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,338.5,350,337,345.5,344000,307.28,12.44,309.8,269.27,0.5
 20260526,348,352.5,334.5,343,342000,310.26,10.55,313.2,271.47,0.5
 20260527,342,345,327,330,336000,311.9,5.8,315.25,273.18,0.5
-20260528,331,338,310,316.5,648848,312.29,1.35,316.9,274.65,0.94
+20260528,331,338,310,316.5,321000,312.29,1.35,316.9,274.65,0.48
 ```
 
 ## Latest TDCC Snapshot

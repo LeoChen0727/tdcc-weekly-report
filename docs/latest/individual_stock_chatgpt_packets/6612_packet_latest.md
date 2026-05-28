@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6612 奈米醫材
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:24 Asia/Taipei
+- generated_at: 2026-05-28 20:20:11 Asia/Taipei
 - stock_id: 6612
 - stock_name: 奈米醫材
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 76.6
 - low: 72
 - close: 72.4
-- volume: 38545
+- volume: 73000
 - ma5: 72.84
 - ema23_primary: 70.5
 - distance_to_ema23_pct: 2.7
@@ -69,7 +69,7 @@
 - ma120: 73.83
 - return_5d: -5.97
 - return_20d: 6
-- volume_ratio: 0.66
+- volume_ratio: 1.22
 - distance_to_ma20_pct_auxiliary: 3.88
 - distance_to_high_60_pct: -6.94
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,73.3,73.3,71.4,71.4,72000,69.78,2.32,68.97,69.23,1.43
 20260526,71.5,75,70.2,73.9,73000,70.13,5.38,69.27,69.36,1.37
 20260527,74.8,74.8,71.8,72.5,73000,70.32,3.09,69.49,69.44,1.29
-20260528,76.6,76.6,72,72.4,38545,70.5,2.7,69.69,69.5,0.66
+20260528,76.6,76.6,72,72.4,73000,70.5,2.7,69.69,69.5,1.22
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3158 嘉實
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:18 Asia/Taipei
+- generated_at: 2026-05-28 20:19:04 Asia/Taipei
 - stock_id: 3158
 - stock_name: 嘉實
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 86.5
 - low: 85.5
 - close: 85.5
-- volume: 5840
+- volume: 86000
 - ma5: 85.66
 - ema23_primary: 87.44
 - distance_to_ema23_pct: -2.21
@@ -69,7 +69,7 @@
 - ma120: 91.17
 - return_5d: -1.27
 - return_20d: -5
-- volume_ratio: 0.19
+- volume_ratio: 2.5
 - distance_to_ma20_pct_auxiliary: -2.24
 - distance_to_high_60_pct: -14.07
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,85.6,89.1,85.6,85.6,86000,87.97,-2.7,88.14,90.17,3.74
 20260526,85.6,85.6,85.2,85.4,86000,87.76,-2.69,87.86,90.09,3.18
 20260527,87,87,85.4,86,86000,87.61,-1.84,87.69,90.03,2.81
-20260528,86.5,86.5,85.5,85.5,5840,87.44,-2.21,87.46,89.95,0.19
+20260528,86.5,86.5,85.5,85.5,86000,87.44,-2.21,87.46,89.95,2.5
 ```
 
 ## Latest TDCC Snapshot

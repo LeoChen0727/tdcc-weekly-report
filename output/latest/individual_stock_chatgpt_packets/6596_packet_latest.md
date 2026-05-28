@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6596 寬宏藝術
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:24 Asia/Taipei
+- generated_at: 2026-05-28 20:20:11 Asia/Taipei
 - stock_id: 6596
 - stock_name: 寬宏藝術
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 97.1
 - low: 95.6
 - close: 96
-- volume: 329114
+- volume: 96000
 - ma5: 97.2
 - ema23_primary: 99.71
 - distance_to_ema23_pct: -3.72
@@ -69,7 +69,7 @@
 - ma120: 127.73
 - return_5d: -1.94
 - return_20d: -4.95
-- volume_ratio: 1.34
+- volume_ratio: 0.41
 - distance_to_ma20_pct_auxiliary: -2.57
 - distance_to_high_60_pct: -38.06
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,98.2,98.5,97.5,97.7,98000,100.6,-2.88,99.25,116.3,0.37
 20260526,98,99.4,97.5,97.7,98000,100.36,-2.65,99.03,115.54,0.4
 20260527,97.5,97.5,96.6,96.6,97000,100.05,-3.44,98.78,114.75,0.41
-20260528,96.6,97.1,95.6,96,329114,99.71,-3.72,98.53,113.9,1.34
+20260528,96.6,97.1,95.6,96,96000,99.71,-3.72,98.53,113.9,0.41
 ```
 
 ## Latest TDCC Snapshot

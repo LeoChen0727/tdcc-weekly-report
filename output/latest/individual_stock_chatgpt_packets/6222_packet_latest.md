@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6222 立軒
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:12 Asia/Taipei
+- generated_at: 2026-05-28 20:20:00 Asia/Taipei
 - stock_id: 6222
 - stock_name: 立軒
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 20.7
 - low: 20.6
 - close: 20.7
-- volume: 12167
+- volume: 21000
 - ma5: 20.85
 - ema23_primary: 21.22
 - distance_to_ema23_pct: -2.45
@@ -69,7 +69,7 @@
 - ma120: 19.97
 - return_5d: -0.24
 - return_20d: -4.61
-- volume_ratio: 0.56
+- volume_ratio: 0.95
 - distance_to_ma20_pct_auxiliary: -4.43
 - distance_to_high_60_pct: -12.29
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,20.9,22.65,19.8,21.5,21000,21.37,0.6,21.76,20.74,0.83
 20260526,21.5,21.5,20.45,20.75,21000,21.32,-2.67,21.75,20.78,0.86
 20260527,20.9,21,20.7,20.7,21000,21.27,-2.67,21.71,20.8,0.87
-20260528,20.7,20.7,20.6,20.7,12167,21.22,-2.45,21.66,20.82,0.56
+20260528,20.7,20.7,20.6,20.7,21000,21.22,-2.45,21.66,20.82,0.95
 ```
 
 ## Latest TDCC Snapshot

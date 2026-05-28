@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3083 網龍
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:16 Asia/Taipei
+- generated_at: 2026-05-28 20:19:02 Asia/Taipei
 - stock_id: 3083
 - stock_name: 網龍
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 27.3
 - low: 26.6
 - close: 27.2
-- volume: 186259
+- volume: 27000
 - ma5: 27.15
 - ema23_primary: 27.19
 - distance_to_ema23_pct: 0.04
@@ -69,7 +69,7 @@
 - ma120: 30.84
 - return_5d: -2.33
 - return_20d: 0.18
-- volume_ratio: 1.3
+- volume_ratio: 0.2
 - distance_to_ma20_pct_auxiliary: 0.48
 - distance_to_high_60_pct: -9.93
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,28.25,28.25,26.85,27.15,27000,27.25,-0.38,27.08,27.72,0.19
 20260526,27.2,27.2,26.65,26.95,27000,27.23,-1.02,27.08,27.67,0.19
 20260527,27,27,26.6,26.75,27000,27.19,-1.61,27.07,27.6,0.2
-20260528,26.7,27.3,26.6,27.2,186259,27.19,0.04,27.07,27.55,1.3
+20260528,26.7,27.3,26.6,27.2,27000,27.19,0.04,27.07,27.55,0.2
 ```
 
 ## Latest TDCC Snapshot

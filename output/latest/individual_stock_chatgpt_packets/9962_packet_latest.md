@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9962 有益
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:58 Asia/Taipei
+- generated_at: 2026-05-28 20:20:46 Asia/Taipei
 - stock_id: 9962
 - stock_name: 有益
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 9.62
 - low: 9.5
 - close: 9.61
-- volume: 31657
+- volume: 10000
 - ma5: 9.63
 - ema23_primary: 9.7
 - distance_to_ema23_pct: -0.88
@@ -69,7 +69,7 @@
 - ma120: 10.58
 - return_5d: 1.69
 - return_20d: -1.94
-- volume_ratio: 0.49
+- volume_ratio: 0.16
 - distance_to_ma20_pct_auxiliary: 0.5
 - distance_to_high_60_pct: -17.16
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,9.4,9.77,9.38,9.7,10000,9.7,-0.02,9.59,10.41,0.13
 20260526,9.75,9.98,9.67,9.67,10000,9.7,-0.3,9.58,10.38,0.15
 20260527,9.71,9.82,9.64,9.75,10000,9.7,0.48,9.57,10.35,0.15
-20260528,9.62,9.62,9.5,9.61,31657,9.7,-0.88,9.56,10.32,0.49
+20260528,9.62,9.62,9.5,9.61,10000,9.7,-0.88,9.56,10.32,0.16
 ```
 
 ## Latest TDCC Snapshot

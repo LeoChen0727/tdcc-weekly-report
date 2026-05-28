@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3522 御嵿
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:28 Asia/Taipei
+- generated_at: 2026-05-28 20:19:15 Asia/Taipei
 - stock_id: 3522
 - stock_name: 御嵿
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 11.95
 - low: 11.65
 - close: 11.75
-- volume: 170093
+- volume: 12000
 - ma5: 12.1
 - ema23_primary: 12.46
 - distance_to_ema23_pct: -5.7
@@ -69,7 +69,7 @@
 - ma120: 14.79
 - return_5d: -5.24
 - return_20d: -6.37
-- volume_ratio: 1.7
+- volume_ratio: 0.13
 - distance_to_ma20_pct_auxiliary: -5.6
 - distance_to_high_60_pct: -22.44
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,12.5,12.5,12.15,12.2,12000,12.61,-3.25,12.53,13.13,0.12
 20260526,12.1,12.2,12.05,12.15,12000,12.57,-3.36,12.52,13.09,0.12
 20260527,12.4,12.5,11.9,12,12000,12.52,-4.19,12.49,13.03,0.13
-20260528,11.8,11.95,11.65,11.75,170093,12.46,-5.7,12.45,12.98,1.7
+20260528,11.8,11.95,11.65,11.75,12000,12.46,-5.7,12.45,12.98,0.13
 ```
 
 ## Latest TDCC Snapshot

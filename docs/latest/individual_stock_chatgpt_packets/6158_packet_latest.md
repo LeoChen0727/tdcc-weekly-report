@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6158 禾昌
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:08 Asia/Taipei
+- generated_at: 2026-05-28 20:19:55 Asia/Taipei
 - stock_id: 6158
 - stock_name: 禾昌
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 17.9
 - low: 17.6
 - close: 17.6
-- volume: 68136
+- volume: 18000
 - ma5: 17.95
 - ema23_primary: 18.25
 - distance_to_ema23_pct: -3.59
@@ -69,7 +69,7 @@
 - ma120: 20.05
 - return_5d: -2.76
 - return_20d: -9.28
-- volume_ratio: 1.09
+- volume_ratio: 0.3
 - distance_to_ma20_pct_auxiliary: -3.63
 - distance_to_high_60_pct: -19.08
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,18.05,18.05,17.85,18.05,18000,18.37,-1.74,18.52,18.72,0.23
 20260526,18.05,18.05,17.9,18.05,18000,18.34,-1.6,18.44,18.68,0.24
 20260527,18.05,18.05,17.6,18,18000,18.31,-1.72,18.35,18.64,0.26
-20260528,17.85,17.9,17.6,17.6,68136,18.25,-3.59,18.26,18.59,1.09
+20260528,17.85,17.9,17.6,17.6,18000,18.25,-3.59,18.26,18.59,0.3
 ```
 
 ## Latest TDCC Snapshot

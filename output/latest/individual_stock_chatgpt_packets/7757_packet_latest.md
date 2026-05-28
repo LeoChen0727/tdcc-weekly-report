@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7757 金色三麥
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:40 Asia/Taipei
+- generated_at: 2026-05-28 20:20:28 Asia/Taipei
 - stock_id: 7757
 - stock_name: 金色三麥
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 104.5
 - low: 103.5
 - close: 104
-- volume: 28285
+- volume: 104000
 - ma5: 103.8
 - ema23_primary: 104.88
 - distance_to_ema23_pct: -0.83
@@ -69,7 +69,7 @@
 - ma120: 111.42
 - return_5d: -0.48
 - return_20d: -3.7
-- volume_ratio: 0.71
+- volume_ratio: 2.4
 - distance_to_ma20_pct_auxiliary: -0.41
 - distance_to_high_60_pct: -7.14
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,104,104,103,103.5,104000,105.19,-1.6,104.85,107.16,3.38
 20260526,103,104,103,104,104000,105.09,-1.03,104.78,107.12,2.98
 20260527,104,105,103,103.5,104000,104.95,-1.39,104.62,107.07,2.67
-20260528,104.5,104.5,103.5,104,28285,104.88,-0.83,104.42,107,0.71
+20260528,104.5,104.5,103.5,104,104000,104.88,-0.83,104.42,107,2.4
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6642 富致
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:25 Asia/Taipei
+- generated_at: 2026-05-28 20:20:12 Asia/Taipei
 - stock_id: 6642
 - stock_name: 富致
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 91.9
 - low: 82.7
 - close: 91.9
-- volume: 2230069
+- volume: 91000
 - ma5: 88.04
 - ema23_primary: 74.81
 - distance_to_ema23_pct: 22.84
@@ -69,7 +69,7 @@
 - ma120: 57.67
 - return_5d: 5.39
 - return_20d: 59
-- volume_ratio: 2.27
+- volume_ratio: 0.1
 - distance_to_ma20_pct_auxiliary: 25.28
 - distance_to_high_60_pct: -2.34
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,91,94.1,88.6,90.3,90000,71.08,27.03,68.89,60.18,0.1
 20260526,90.3,90.3,84.5,85.9,86000,72.32,18.78,70.34,60.66,0.1
 20260527,86.5,87.6,83,83.6,85000,73.26,14.12,71.65,61.09,0.1
-20260528,82.9,91.9,82.7,91.9,2230069,74.81,22.84,73.36,61.65,2.27
+20260528,82.9,91.9,82.7,91.9,91000,74.81,22.84,73.36,61.65,0.1
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6642 | 富致 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

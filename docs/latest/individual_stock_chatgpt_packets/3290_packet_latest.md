@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3290 東浦
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:22 Asia/Taipei
+- generated_at: 2026-05-28 20:19:08 Asia/Taipei
 - stock_id: 3290
 - stock_name: 東浦
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 48.55
 - low: 47.35
 - close: 47.95
-- volume: 935942
+- volume: 48000
 - ma5: 47.89
 - ema23_primary: 47.39
 - distance_to_ema23_pct: 1.19
@@ -69,7 +69,7 @@
 - ma120: 45.71
 - return_5d: 1.48
 - return_20d: 1.16
-- volume_ratio: 1.34
+- volume_ratio: 0.07
 - distance_to_ma20_pct_auxiliary: 1.34
 - distance_to_high_60_pct: -12.98
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,48.55,48.85,47.1,47.15,48000,47.2,-0.11,47.3,46.4,0.06
 20260526,47.45,48.9,46.95,48.45,48000,47.31,2.41,47.28,46.39,0.06
 20260527,49.3,49.7,47.2,47.65,48000,47.34,0.66,47.29,46.35,0.07
-20260528,47.85,48.55,47.35,47.95,935942,47.39,1.19,47.31,46.32,1.34
+20260528,47.85,48.55,47.35,47.95,48000,47.39,1.19,47.31,46.32,0.07
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7772 耀穎
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:41 Asia/Taipei
+- generated_at: 2026-05-28 20:20:28 Asia/Taipei
 - stock_id: 7772
 - stock_name: 耀穎
 - packet_status: partial_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 156
 - low: 147.5
 - close: 151.5
-- volume: 257098
+- volume: 152000
 - ma5: 161.3
 - ema23_primary: 170.68
 - distance_to_ema23_pct: -11.24
@@ -69,7 +69,7 @@
 - ma120: 163.77
 - return_5d: 0.66
 - return_20d: 
-- volume_ratio: 0.56
+- volume_ratio: 0.34
 - distance_to_ma20_pct_auxiliary: -7.49
 - distance_to_high_60_pct: -27.51
 
@@ -91,7 +91,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,175,178.5,168,170.5,173000,174.91,-2.52,165.5,165.5,0.33
 20260526,170,171.5,160,164,163000,174,-5.75,165.38,165.38,0.33
 20260527,165,165,154,155,158000,172.42,-10.1,164.64,164.64,0.33
-20260528,151.5,156,147.5,151.5,257098,170.68,-11.24,163.77,163.77,0.56
+20260528,151.5,156,147.5,151.5,152000,170.68,-11.24,163.77,163.77,0.34
 ```
 
 ## Latest TDCC Snapshot

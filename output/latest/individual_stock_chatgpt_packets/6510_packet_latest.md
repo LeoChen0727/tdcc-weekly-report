@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6510 精測
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:20 Asia/Taipei
+- generated_at: 2026-05-28 20:20:07 Asia/Taipei
 - stock_id: 6510
 - stock_name: 精測
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 3365
 - low: 3210
 - close: 3280
-- volume: 913096
+- volume: 3293000
 - ma5: 3350
 - ema23_primary: 3538.33
 - distance_to_ema23_pct: -7.3
@@ -69,7 +69,7 @@
 - ma120: 3110.25
 - return_5d: -2.09
 - return_20d: -9.64
-- volume_ratio: 0.66
+- volume_ratio: 2.19
 - distance_to_ma20_pct_auxiliary: -8.84
 - distance_to_high_60_pct: -26.7
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,3470,3575,3435,3455,3498000,3611.54,-4.33,3649,3590.08,3.1
 20260526,3530,3530,3370,3415,3423000,3595.16,-5.01,3641.25,3581.75,2.73
 20260527,3480,3560,3185,3195,3332000,3561.82,-10.3,3615.75,3572.5,2.4
-20260528,3250,3365,3210,3280,913096,3538.33,-7.3,3598.25,3566.67,0.66
+20260528,3250,3365,3210,3280,3293000,3538.33,-7.3,3598.25,3566.67,2.19
 ```
 
 ## Latest TDCC Snapshot

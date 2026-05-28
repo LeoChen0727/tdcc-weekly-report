@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4974 亞泰
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:52 Asia/Taipei
+- generated_at: 2026-05-28 20:19:39 Asia/Taipei
 - stock_id: 4974
 - stock_name: 亞泰
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 80
 - low: 76.9
 - close: 77.8
-- volume: 1048463
+- volume: 78000
 - ma5: 76.46
 - ema23_primary: 74.44
 - distance_to_ema23_pct: 4.52
@@ -69,7 +69,7 @@
 - ma120: 72.35
 - return_5d: 3.6
 - return_20d: 7.46
-- volume_ratio: 4.48
+- volume_ratio: 0.42
 - distance_to_ma20_pct_auxiliary: 4.56
 - distance_to_high_60_pct: -2.75
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,76.9,77.5,75.7,76,76000,73.75,3.05,73.85,72.41,0.36
 20260526,77,77.2,75.5,76.5,76000,73.98,3.4,73.98,72.4,0.4
 20260527,76.8,77.2,75.2,75.8,77000,74.13,2.25,74.14,72.38,0.42
-20260528,76.9,80,76.9,77.8,1048463,74.44,4.52,74.41,72.41,4.48
+20260528,76.9,80,76.9,77.8,78000,74.44,4.52,74.41,72.41,0.42
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4974 | 亞泰 | true_breakout | 嚴格突破 | 150.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

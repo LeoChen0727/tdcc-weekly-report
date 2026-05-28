@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4714 永捷
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:46 Asia/Taipei
+- generated_at: 2026-05-28 20:19:33 Asia/Taipei
 - stock_id: 4714
 - stock_name: 永捷
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 13.85
 - low: 13.35
 - close: 13.45
-- volume: 948893
+- volume: 14000
 - ma5: 13.64
 - ema23_primary: 14.04
 - distance_to_ema23_pct: -4.22
@@ -69,7 +69,7 @@
 - ma120: 15.78
 - return_5d: 0.37
 - return_20d: -10.63
-- volume_ratio: 1.2
+- volume_ratio: 0.02
 - distance_to_ma20_pct_auxiliary: -4.25
 - distance_to_high_60_pct: -22.92
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,13.3,13.65,13.05,13.5,13000,14.12,-4.41,14.22,14.85,0.01
 20260526,14.55,14.85,14.3,14.3,15000,14.14,1.15,14.2,14.8,0.02
 20260527,13.55,13.95,13.55,13.65,14000,14.1,-3.17,14.13,14.75,0.02
-20260528,13.65,13.85,13.35,13.45,948893,14.04,-4.22,14.05,14.7,1.2
+20260528,13.65,13.85,13.35,13.45,14000,14.04,-4.22,14.05,14.7,0.02
 ```
 
 ## Latest TDCC Snapshot

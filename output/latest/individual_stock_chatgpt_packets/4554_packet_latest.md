@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4554 橙的
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:44 Asia/Taipei
+- generated_at: 2026-05-28 20:19:30 Asia/Taipei
 - stock_id: 4554
 - stock_name: 橙的
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 30.95
 - low: 30.35
 - close: 30.35
-- volume: 103048
+- volume: 31000
 - ma5: 31.04
 - ema23_primary: 30.65
 - distance_to_ema23_pct: -0.97
@@ -69,7 +69,7 @@
 - ma120: 28.31
 - return_5d: -3.8
 - return_20d: 1.5
-- volume_ratio: 0.72
+- volume_ratio: 0.22
 - distance_to_ma20_pct_auxiliary: -1.49
 - distance_to_high_60_pct: -11.39
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,32,32,31.1,31.3,32000,30.64,2.17,30.7,29.04,0.23
 20260526,31.65,31.65,30.9,30.9,31000,30.66,0.79,30.75,29.11,0.22
 20260527,31.85,31.85,30.8,30.85,31000,30.67,0.57,30.79,29.18,0.22
-20260528,30.9,30.95,30.35,30.35,103048,30.65,-0.97,30.81,29.23,0.72
+20260528,30.9,30.95,30.35,30.35,31000,30.65,-0.97,30.81,29.23,0.22
 ```
 
 ## Latest TDCC Snapshot

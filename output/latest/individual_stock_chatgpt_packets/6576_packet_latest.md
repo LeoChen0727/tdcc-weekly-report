@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6576 逸達
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:23 Asia/Taipei
+- generated_at: 2026-05-28 20:20:10 Asia/Taipei
 - stock_id: 6576
 - stock_name: 逸達
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 77.9
 - low: 76.9
 - close: 77.6
-- volume: 91254
+- volume: 77000
 - ma5: 78.62
 - ema23_primary: 79.5
 - distance_to_ema23_pct: -2.39
@@ -69,7 +69,7 @@
 - ma120: 80.03
 - return_5d: -5.13
 - return_20d: -3.84
-- volume_ratio: 0.69
+- volume_ratio: 0.58
 - distance_to_ma20_pct_auxiliary: -2.66
 - distance_to_high_60_pct: -7.29
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,80.9,80.9,78.4,78.4,79000,79.94,-1.92,80.17,79.39,0.56
 20260526,78.3,79,77.8,78.5,78000,79.82,-1.65,80.03,79.31,0.59
 20260527,78.3,78.7,77.5,78.1,78000,79.67,-1.97,79.88,79.22,0.59
-20260528,77.6,77.9,76.9,77.6,91254,79.5,-2.39,79.72,79.12,0.69
+20260528,77.6,77.9,76.9,77.6,77000,79.5,-2.39,79.72,79.12,0.58
 ```
 
 ## Latest TDCC Snapshot

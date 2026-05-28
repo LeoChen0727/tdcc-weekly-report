@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4109 加捷生醫
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:37 Asia/Taipei
+- generated_at: 2026-05-28 20:19:23 Asia/Taipei
 - stock_id: 4109
 - stock_name: 加捷生醫
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 11.3
 - low: 11.1
 - close: 11.15
-- volume: 214959
+- volume: 11000
 - ma5: 11.27
 - ema23_primary: 11.54
 - distance_to_ema23_pct: -3.36
@@ -69,7 +69,7 @@
 - ma120: 13.56
 - return_5d: -3.88
 - return_20d: -4.29
-- volume_ratio: 1.32
+- volume_ratio: 0.07
 - distance_to_ma20_pct_auxiliary: -2.34
 - distance_to_high_60_pct: -19.78
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,11.5,11.5,11.15,11.25,11000,11.64,-3.34,11.47,12.42,0.06
 20260526,11.25,11.5,11.1,11.25,11000,11.61,-3.07,11.46,12.38,0.07
 20260527,11.35,11.5,11.2,11.2,11000,11.57,-3.22,11.44,12.33,0.07
-20260528,11.2,11.3,11.1,11.15,214959,11.54,-3.36,11.42,12.29,1.32
+20260528,11.2,11.3,11.1,11.15,11000,11.54,-3.36,11.42,12.29,0.07
 ```
 
 ## Latest TDCC Snapshot

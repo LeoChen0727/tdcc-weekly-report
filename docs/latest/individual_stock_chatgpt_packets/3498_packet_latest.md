@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3498 陽程
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:27 Asia/Taipei
+- generated_at: 2026-05-28 20:19:14 Asia/Taipei
 - stock_id: 3498
 - stock_name: 陽程
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 156
 - low: 143
 - close: 145
-- volume: 1091163
+- volume: 150000
 - ma5: 154.9
 - ema23_primary: 127.4
 - distance_to_ema23_pct: 13.82
@@ -69,7 +69,7 @@
 - ma120: 71.48
 - return_5d: -1.02
 - return_20d: 81.7
-- volume_ratio: 0.32
+- volume_ratio: 0.04
 - distance_to_ma20_pct_auxiliary: 14.03
 - distance_to_high_60_pct: -11.85
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,162.5,164.5,156,159,160000,120.2,32.28,116.25,87.36,0.04
 20260526,160,160,151.5,155,153000,123.1,25.92,120.16,89.12,0.04
 20260527,155,156,149,155.5,152000,125.8,23.61,123.91,90.87,0.04
-20260528,155.5,156,143,145,1091163,127.4,13.82,127.17,92.37,0.32
+20260528,155.5,156,143,145,150000,127.4,13.82,127.17,92.37,0.04
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3498 | 陽程 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

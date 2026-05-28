@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5314 世紀*
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:57 Asia/Taipei
+- generated_at: 2026-05-28 20:19:43 Asia/Taipei
 - stock_id: 5314
 - stock_name: 世紀*
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 63
 - low: 61.2
 - close: 61.2
-- volume: 3103699
+- volume: 62000
 - ma5: 63.64
 - ema23_primary: 68.77
 - distance_to_ema23_pct: -11
@@ -69,7 +69,7 @@
 - ma120: 86.9
 - return_5d: -12.32
 - return_20d: -17.52
-- volume_ratio: 0.81
+- volume_ratio: 0.02
 - distance_to_ma20_pct_auxiliary: -10.98
 - distance_to_high_60_pct: -34.19
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,67.3,67.3,64.5,64.7,65000,70.75,-8.55,70.72,76.16,0.01
 20260526,64.9,65.3,63,63,63000,70.1,-10.13,70,75.62,0.02
 20260527,63.4,64,61.7,62.3,62000,69.45,-10.3,69.4,75.14,0.02
-20260528,62.9,63,61.2,61.2,3103699,68.77,-11,68.75,74.64,0.81
+20260528,62.9,63,61.2,61.2,62000,68.77,-11,68.75,74.64,0.02
 ```
 
 ## Latest TDCC Snapshot

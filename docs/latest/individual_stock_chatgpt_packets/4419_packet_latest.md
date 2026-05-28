@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4419 皇家美食
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:41 Asia/Taipei
+- generated_at: 2026-05-28 20:19:27 Asia/Taipei
 - stock_id: 4419
 - stock_name: 皇家美食
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 46.5
 - low: 45.5
 - close: 46.05
-- volume: 20638
+- volume: 46000
 - ma5: 45.39
 - ema23_primary: 45.95
 - distance_to_ema23_pct: 0.22
@@ -69,7 +69,7 @@
 - ma120: 46.42
 - return_5d: -0.11
 - return_20d: 0
-- volume_ratio: 1.47
+- volume_ratio: 3.01
 - distance_to_ma20_pct_auxiliary: 0.12
 - distance_to_high_60_pct: -16.27
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,45.9,46.5,45.25,45.25,46000,46.07,-1.77,46.06,46.35,5.29
 20260526,45.5,45.65,45.25,45.25,45000,46,-1.63,46.03,46.35,4.13
 20260527,45.9,45.9,45.25,45.3,45000,45.94,-1.4,45.99,46.36,3.45
-20260528,45.5,46.5,45.5,46.05,20638,45.95,0.22,45.99,46.38,1.47
+20260528,45.5,46.5,45.5,46.05,46000,45.95,0.22,45.99,46.38,3.01
 ```
 
 ## Latest TDCC Snapshot

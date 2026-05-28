@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6538 倉和
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:21 Asia/Taipei
+- generated_at: 2026-05-28 20:20:08 Asia/Taipei
 - stock_id: 6538
 - stock_name: 倉和
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 129
 - low: 111
 - close: 112.5
-- volume: 1507868
+- volume: 118000
 - ma5: 124.5
 - ema23_primary: 99.04
 - distance_to_ema23_pct: 13.59
@@ -69,7 +69,7 @@
 - ma120: 72.71
 - return_5d: -3.85
 - return_20d: 55.82
-- volume_ratio: 2.34
+- volume_ratio: 0.21
 - distance_to_ma20_pct_auxiliary: 16.66
 - distance_to_high_60_pct: -16.36
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,129,134.5,123.5,131.5,129000,92.58,42.05,88.95,75.92,0.22
 20260526,130.5,131.5,125,128,127000,95.53,33.99,91.86,76.93,0.22
 20260527,130,130,122.5,123,125000,97.82,25.74,94.42,77.83,0.22
-20260528,123,129,111,112.5,1507868,99.04,13.59,96.43,78.55,2.34
+20260528,123,129,111,112.5,118000,99.04,13.59,96.43,78.55,0.21
 ```
 
 ## Latest TDCC Snapshot

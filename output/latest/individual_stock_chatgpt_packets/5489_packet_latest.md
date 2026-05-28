@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5489 彩富
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:00 Asia/Taipei
+- generated_at: 2026-05-28 20:19:47 Asia/Taipei
 - stock_id: 5489
 - stock_name: 彩富
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 39.4
 - low: 39
 - close: 39
-- volume: 75159
+- volume: 39000
 - ma5: 39.5
 - ema23_primary: 39.98
 - distance_to_ema23_pct: -2.45
@@ -69,7 +69,7 @@
 - ma120: 40.49
 - return_5d: -2.5
 - return_20d: -4.29
-- volume_ratio: 1.49
+- volume_ratio: 0.8
 - distance_to_ma20_pct_auxiliary: -2.65
 - distance_to_high_60_pct: -7.69
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,39.8,39.85,39.3,39.7,40000,40.21,-1.28,40.3,40.23,0.8
 20260526,39.45,39.7,39.4,39.5,40000,40.15,-1.63,40.23,40.21,0.82
 20260527,39.5,39.5,39.1,39.15,39000,40.07,-2.3,40.15,40.18,0.8
-20260528,39.4,39.4,39,39,75159,39.98,-2.45,40.06,40.16,1.49
+20260528,39.4,39.4,39,39,39000,39.98,-2.45,40.06,40.16,0.8
 ```
 
 ## Latest TDCC Snapshot

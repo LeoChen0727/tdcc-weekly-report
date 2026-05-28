@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5371 中光電
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:58 Asia/Taipei
+- generated_at: 2026-05-28 20:19:45 Asia/Taipei
 - stock_id: 5371
 - stock_name: 中光電
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 73.4
 - low: 70
 - close: 70.1
-- volume: 4063430
+- volume: 72000
 - ma5: 71.9
 - ema23_primary: 71.86
 - distance_to_ema23_pct: -2.45
@@ -69,7 +69,7 @@
 - ma120: 82.39
 - return_5d: -2.5
 - return_20d: 3.85
-- volume_ratio: 1.02
+- volume_ratio: 0.02
 - distance_to_ma20_pct_auxiliary: -1.22
 - distance_to_high_60_pct: -21.59
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,73,73.8,71.4,73,73000,72,1.39,70.83,75.77,0.01
 20260526,73.7,74.9,71.8,72.8,73000,72.07,1.02,70.75,75.49,0.02
 20260527,72.5,73.2,71,71.5,72000,72.02,-0.72,70.83,75.19,0.02
-20260528,72,73.4,70,70.1,4063430,71.86,-2.45,70.97,74.89,1.02
+20260528,72,73.4,70,70.1,72000,71.86,-2.45,70.97,74.89,0.02
 ```
 
 ## Latest TDCC Snapshot

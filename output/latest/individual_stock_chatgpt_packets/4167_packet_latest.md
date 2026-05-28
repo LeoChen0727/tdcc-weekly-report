@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4167 松瑞藥
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:39 Asia/Taipei
+- generated_at: 2026-05-28 20:19:25 Asia/Taipei
 - stock_id: 4167
 - stock_name: 松瑞藥
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 19.5
 - low: 18.95
 - close: 19.2
-- volume: 1610660
+- volume: 19000
 - ma5: 19.05
 - ema23_primary: 19.15
 - distance_to_ema23_pct: 0.26
@@ -69,7 +69,7 @@
 - ma120: 19.36
 - return_5d: -0.78
 - return_20d: 0.52
-- volume_ratio: 2.33
+- volume_ratio: 0.03
 - distance_to_ma20_pct_auxiliary: 1.25
 - distance_to_high_60_pct: -12.73
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,19.2,19.25,18.85,19.15,19000,19.19,-0.22,18.99,19.83,0.03
 20260526,19.15,19.15,18.8,18.85,19000,19.16,-1.64,18.96,19.83,0.03
 20260527,18.85,19,18.75,18.95,19000,19.15,-1.02,18.96,19.83,0.03
-20260528,18.95,19.5,18.95,19.2,1610660,19.15,0.26,18.96,19.83,2.33
+20260528,18.95,19.5,18.95,19.2,19000,19.15,0.26,18.96,19.83,0.03
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4167 | 松瑞藥 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2067 嘉鋼
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:46 Asia/Taipei
+- generated_at: 2026-05-28 20:18:31 Asia/Taipei
 - stock_id: 2067
 - stock_name: 嘉鋼
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 6.84
 - low: 6.52
 - close: 6.6
-- volume: 24670
+- volume: 7000
 - ma5: 6.73
 - ema23_primary: 6.98
 - distance_to_ema23_pct: -5.38
@@ -69,7 +69,7 @@
 - ma120: 8.9
 - return_5d: -3.93
 - return_20d: -17.81
-- volume_ratio: 0.51
+- volume_ratio: 0.15
 - distance_to_ma20_pct_auxiliary: -4.91
 - distance_to_high_60_pct: -34.33
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,6.75,6.9,6.53,6.73,7000,7.07,-4.81,7.04,7.75,0.1
 20260526,6.73,6.78,6.55,6.7,7000,7.04,-4.82,7.04,7.69,0.1
 20260527,6.7,6.7,6.5,6.68,7000,7.01,-4.7,7.01,7.63,0.11
-20260528,6.84,6.84,6.52,6.6,24670,6.98,-5.38,6.94,7.57,0.51
+20260528,6.84,6.84,6.52,6.6,7000,6.98,-5.38,6.94,7.57,0.15
 ```
 
 ## Latest TDCC Snapshot

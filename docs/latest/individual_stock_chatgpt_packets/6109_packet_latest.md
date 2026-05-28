@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6109 亞元
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:05 Asia/Taipei
+- generated_at: 2026-05-28 20:19:52 Asia/Taipei
 - stock_id: 6109
 - stock_name: 亞元
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 10.9
 - low: 10.6
 - close: 10.7
-- volume: 302178
+- volume: 11000
 - ma5: 10.73
 - ema23_primary: 11.29
 - distance_to_ema23_pct: -5.19
@@ -69,7 +69,7 @@
 - ma120: 11.97
 - return_5d: -2.28
 - return_20d: -11.57
-- volume_ratio: 0.93
+- volume_ratio: 0.04
 - distance_to_ma20_pct_auxiliary: -6.43
 - distance_to_high_60_pct: -17.69
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,10.85,10.85,10.5,10.7,11000,11.47,-6.72,11.64,11.9,0.03
 20260526,10.75,10.9,10.55,10.65,11000,11.4,-6.59,11.58,11.87,0.03
 20260527,10.75,10.75,10.5,10.65,11000,11.34,-6.08,11.51,11.85,0.03
-20260528,10.65,10.9,10.6,10.7,302178,11.29,-5.19,11.44,11.81,0.93
+20260528,10.65,10.9,10.6,10.7,11000,11.29,-5.19,11.44,11.81,0.04
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5278 尚凡*
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:55 Asia/Taipei
+- generated_at: 2026-05-28 20:19:42 Asia/Taipei
 - stock_id: 5278
 - stock_name: 尚凡*
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 22.55
 - low: 22.05
 - close: 22.05
-- volume: 294594
+- volume: 22000
 - ma5: 23.15
 - ema23_primary: 23.55
 - distance_to_ema23_pct: -6.38
@@ -69,7 +69,7 @@
 - ma120: 27.14
 - return_5d: -10.37
 - return_20d: -6.96
-- volume_ratio: 0.55
+- volume_ratio: 0.04
 - distance_to_ma20_pct_auxiliary: -6.29
 - distance_to_high_60_pct: -26.38
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,24.65,24.65,23.6,23.8,24000,23.89,-0.37,23.7,24.62,0.04
 20260526,23.7,23.7,22.8,22.85,23000,23.8,-4,23.67,24.53,0.04
 20260527,23,23,22.45,22.45,23000,23.69,-5.23,23.61,24.42,0.04
-20260528,22.45,22.55,22.05,22.05,294594,23.55,-6.38,23.53,24.3,0.55
+20260528,22.45,22.55,22.05,22.05,22000,23.55,-6.38,23.53,24.3,0.04
 ```
 
 ## Latest TDCC Snapshot

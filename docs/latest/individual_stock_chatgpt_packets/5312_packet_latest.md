@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5312 寶島科
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:56 Asia/Taipei
+- generated_at: 2026-05-28 20:19:43 Asia/Taipei
 - stock_id: 5312
 - stock_name: 寶島科
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 94
 - low: 93.5
 - close: 93.8
-- volume: 57177
+- volume: 94000
 - ma5: 93.8
 - ema23_primary: 95.34
 - distance_to_ema23_pct: -1.62
@@ -69,7 +69,7 @@
 - ma120: 98.32
 - return_5d: 0.32
 - return_20d: -3.6
-- volume_ratio: 0.83
+- volume_ratio: 1.33
 - distance_to_ma20_pct_auxiliary: -1.7
 - distance_to_high_60_pct: -8.04
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,93.6,93.6,92.6,93.3,93000,95.74,-2.55,95.89,97.41,1.51
 20260526,93.2,95.2,93.2,94.6,94000,95.65,-1.09,95.77,97.35,1.47
 20260527,95.6,95.6,93.6,93.7,94000,95.48,-1.87,95.59,97.25,1.39
-20260528,94,94,93.5,93.8,57177,95.34,-1.62,95.42,97.15,0.83
+20260528,94,94,93.5,93.8,94000,95.34,-1.62,95.42,97.15,1.33
 ```
 
 ## Latest TDCC Snapshot

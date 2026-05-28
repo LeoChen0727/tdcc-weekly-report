@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6417 韋僑
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:17 Asia/Taipei
+- generated_at: 2026-05-28 20:20:04 Asia/Taipei
 - stock_id: 6417
 - stock_name: 韋僑
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 152.5
 - low: 141.5
 - close: 146
-- volume: 470559
+- volume: 148000
 - ma5: 142.9
 - ema23_primary: 131.33
 - distance_to_ema23_pct: 11.17
@@ -69,7 +69,7 @@
 - ma120: 111.7
 - return_5d: 12.31
 - return_20d: 23.73
-- volume_ratio: 1.31
+- volume_ratio: 0.43
 - distance_to_ma20_pct_auxiliary: 10.69
 - distance_to_high_60_pct: -4.26
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,137.5,145,137.5,145,143000,127.05,14.13,127.3,114.77,0.43
 20260526,145.5,147.5,141.5,146.5,145000,128.67,13.85,129.07,115.39,0.43
 20260527,147,147,141,144.5,143000,129.99,11.16,130.5,115.98,0.42
-20260528,145.5,152.5,141.5,146,470559,131.33,11.17,131.9,116.61,1.31
+20260528,145.5,152.5,141.5,146,148000,131.33,11.17,131.9,116.61,0.43
 ```
 
 ## Latest TDCC Snapshot

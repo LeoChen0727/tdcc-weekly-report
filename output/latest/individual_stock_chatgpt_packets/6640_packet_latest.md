@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6640 均華
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:25 Asia/Taipei
+- generated_at: 2026-05-28 20:20:12 Asia/Taipei
 - stock_id: 6640
 - stock_name: 均華
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 1475
 - low: 1330
 - close: 1340
-- volume: 410195
+- volume: 1389000
 - ma5: 1411
 - ema23_primary: 1400.34
 - distance_to_ema23_pct: -4.31
@@ -69,7 +69,7 @@
 - ma120: 1003.61
 - return_5d: -2.55
 - return_20d: -9.46
-- volume_ratio: 0.67
+- volume_ratio: 2.12
 - distance_to_ma20_pct_auxiliary: -4.49
 - distance_to_high_60_pct: -27.96
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,1425,1495,1410,1470,1456000,1399,5.07,1404.25,1290.55,2.75
 20260526,1500,1510,1430,1460,1464000,1404.09,3.98,1409.5,1301.67,2.59
 20260527,1505,1505,1415,1425,1442000,1405.83,1.36,1410,1311.98,2.37
-20260528,1440,1475,1330,1340,410195,1400.34,-4.31,1403,1320.77,0.67
+20260528,1440,1475,1330,1340,1389000,1400.34,-4.31,1403,1320.77,2.12
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5905 南仁湖
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:04 Asia/Taipei
+- generated_at: 2026-05-28 20:19:51 Asia/Taipei
 - stock_id: 5905
 - stock_name: 南仁湖
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 8
 - low: 7.77
 - close: 7.8
-- volume: 618076
+- volume: 8000
 - ma5: 7.93
 - ema23_primary: 8.08
 - distance_to_ema23_pct: -3.46
@@ -69,7 +69,7 @@
 - ma120: 8.59
 - return_5d: -3.47
 - return_20d: -4.06
-- volume_ratio: 1.17
+- volume_ratio: 0.02
 - distance_to_ma20_pct_auxiliary: -3.82
 - distance_to_high_60_pct: -15.4
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,8.07,8.08,7.86,8.01,8000,8.15,-1.67,8.13,8.18,0.01
 20260526,8.01,8.01,7.89,7.95,8000,8.13,-2.21,8.14,8.17,0.01
 20260527,7.88,8,7.82,7.83,8000,8.1,-3.39,8.13,8.15,0.02
-20260528,7.83,8,7.77,7.8,618076,8.08,-3.46,8.11,8.14,1.17
+20260528,7.83,8,7.77,7.8,8000,8.08,-3.46,8.11,8.14,0.02
 ```
 
 ## Latest TDCC Snapshot

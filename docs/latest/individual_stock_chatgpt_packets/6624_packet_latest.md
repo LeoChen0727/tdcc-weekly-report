@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6624 萬年清
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:25 Asia/Taipei
+- generated_at: 2026-05-28 20:20:12 Asia/Taipei
 - stock_id: 6624
 - stock_name: 萬年清
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 40
 - low: 39.05
 - close: 39.9
-- volume: 12554
+- volume: 40000
 - ma5: 41.33
 - ema23_primary: 46.99
 - distance_to_ema23_pct: -15.09
@@ -69,7 +69,7 @@
 - ma120: 57.99
 - return_5d: -15.64
 - return_20d: -20.36
-- volume_ratio: 0.28
+- volume_ratio: 0.85
 - distance_to_ma20_pct_auxiliary: -14.4
 - distance_to_high_60_pct: -40.54
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,42.8,42.8,40.9,42.7,41000,48.95,-12.77,48.24,55.55,0.9
 20260526,41.3,42.2,40.7,40.75,41000,48.27,-15.57,47.66,55.1,0.87
 20260527,40.7,41.95,40.7,40.7,41000,47.64,-14.56,47.12,54.64,0.89
-20260528,39.55,40,39.05,39.9,12554,46.99,-15.09,46.61,54.19,0.28
+20260528,39.55,40,39.05,39.9,40000,46.99,-15.09,46.61,54.19,0.85
 ```
 
 ## Latest TDCC Snapshot

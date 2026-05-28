@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6788 華景電
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:31 Asia/Taipei
+- generated_at: 2026-05-28 20:20:18 Asia/Taipei
 - stock_id: 6788
 - stock_name: 華景電
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 425
 - low: 416
 - close: 417.5
-- volume: 637516
+- volume: 420000
 - ma5: 422.2
 - ema23_primary: 424.5
 - distance_to_ema23_pct: -1.65
@@ -69,7 +69,7 @@
 - ma120: 353.95
 - return_5d: 2.45
 - return_20d: -4.79
-- volume_ratio: 0.59
+- volume_ratio: 0.4
 - distance_to_ma20_pct_auxiliary: -3.29
 - distance_to_high_60_pct: -23.95
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,430.5,434,423.5,424,429000,425.57,-0.37,433.95,396.43,0.34
 20260526,429.5,434.5,422.5,427,427000,425.69,0.31,433.55,398.07,0.37
 20260527,436,438,414.5,419,423000,425.13,-1.44,432.75,399.18,0.38
-20260528,420,425,416,417.5,637516,424.5,-1.65,431.7,400.5,0.59
+20260528,420,425,416,417.5,420000,424.5,-1.65,431.7,400.5,0.4
 ```
 
 ## Latest TDCC Snapshot

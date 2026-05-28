@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8024 佑華
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:42 Asia/Taipei
+- generated_at: 2026-05-28 20:20:30 Asia/Taipei
 - stock_id: 8024
 - stock_name: 佑華
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 12.85
 - low: 12.45
 - close: 12.65
-- volume: 61056
+- volume: 13000
 - ma5: 12.77
 - ema23_primary: 12.57
 - distance_to_ema23_pct: 0.67
@@ -69,7 +69,7 @@
 - ma120: 12.74
 - return_5d: 2.43
 - return_20d: 1.2
-- volume_ratio: 0.87
+- volume_ratio: 0.19
 - distance_to_ma20_pct_auxiliary: 1.36
 - distance_to_high_60_pct: -8.99
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,12.95,13.2,12.65,12.85,13000,12.53,2.58,12.46,12.75,0.19
 20260526,12.85,12.95,12.6,12.75,13000,12.55,1.63,12.47,12.75,0.19
 20260527,12.75,12.9,12.5,12.7,13000,12.56,1.13,12.47,12.74,0.19
-20260528,12.7,12.85,12.45,12.65,61056,12.57,0.67,12.48,12.74,0.87
+20260528,12.7,12.85,12.45,12.65,13000,12.57,0.67,12.48,12.74,0.19
 ```
 
 ## Latest TDCC Snapshot

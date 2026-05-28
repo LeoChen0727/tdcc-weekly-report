@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6741 91APP*-KY
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:29 Asia/Taipei
+- generated_at: 2026-05-28 20:20:16 Asia/Taipei
 - stock_id: 6741
 - stock_name: 91APP*-KY
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 64.3
 - low: 62
 - close: 62.9
-- volume: 463359
+- volume: 63000
 - ma5: 63.04
 - ema23_primary: 63.4
 - distance_to_ema23_pct: -0.79
@@ -69,7 +69,7 @@
 - ma120: 66.41
 - return_5d: 0
 - return_20d: -4.12
-- volume_ratio: 1.42
+- volume_ratio: 0.21
 - distance_to_ma20_pct_auxiliary: -1.84
 - distance_to_high_60_pct: -6.12
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,63.1,63.8,60.9,61.6,62000,63.37,-2.79,64.01,62.59,0.17
 20260526,62,63.7,61.5,63.7,63000,63.4,0.48,64.11,62.6,0.18
 20260527,63.6,64.5,62.2,64,63000,63.45,0.87,64.22,62.62,0.19
-20260528,63.3,64.3,62,62.9,463359,63.4,-0.79,64.08,62.63,1.42
+20260528,63.3,64.3,62,62.9,63000,63.4,-0.79,64.08,62.63,0.21
 ```
 
 ## Latest TDCC Snapshot

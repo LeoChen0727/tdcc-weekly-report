@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5220 萬達光電
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:54 Asia/Taipei
+- generated_at: 2026-05-28 20:19:41 Asia/Taipei
 - stock_id: 5220
 - stock_name: 萬達光電
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 23.4
 - low: 23
 - close: 23
-- volume: 87691
+- volume: 23000
 - ma5: 23.41
 - ema23_primary: 21.94
 - distance_to_ema23_pct: 4.85
@@ -69,7 +69,7 @@
 - ma120: 19.2
 - return_5d: 2.68
 - return_20d: 13.3
-- volume_ratio: 1.08
+- volume_ratio: 0.3
 - distance_to_ma20_pct_auxiliary: 5.64
 - distance_to_high_60_pct: -10.85
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,24,24.75,23.95,24.75,25000,21.54,14.88,21.33,20.22,0.31
 20260526,25.5,25.8,23.5,23.5,25000,21.71,8.26,21.49,20.28,0.32
 20260527,23.5,23.6,22.75,23.3,23000,21.84,6.68,21.64,20.34,0.3
-20260528,23.3,23.4,23,23,87691,21.94,4.85,21.77,20.4,1.08
+20260528,23.3,23.4,23,23,23000,21.94,4.85,21.77,20.4,0.3
 ```
 
 ## Latest TDCC Snapshot

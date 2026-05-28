@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3228 金麗科
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:20 Asia/Taipei
+- generated_at: 2026-05-28 20:19:06 Asia/Taipei
 - stock_id: 3228
 - stock_name: 金麗科
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 215
 - low: 200
 - close: 201
-- volume: 1183967
+- volume: 205000
 - ma5: 214.6
 - ema23_primary: 204.18
 - distance_to_ema23_pct: -1.56
@@ -69,7 +69,7 @@
 - ma120: 148.76
 - return_5d: -4.29
 - return_20d: 1.52
-- volume_ratio: 1.22
+- volume_ratio: 0.22
 - distance_to_ma20_pct_auxiliary: -6.59
 - distance_to_high_60_pct: -23.28
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,213,232,213,230,224000,202.46,13.6,215.22,163.42,0.21
 20260526,236,236,219.5,220,224000,203.92,7.88,215.32,164.98,0.22
 20260527,226,227.5,208,210.5,216000,204.47,2.95,215.03,166.35,0.22
-20260528,211,215,200,201,1183967,204.18,-1.56,215.18,167.35,1.22
+20260528,211,215,200,201,205000,204.18,-1.56,215.18,167.35,0.22
 ```
 
 ## Latest TDCC Snapshot

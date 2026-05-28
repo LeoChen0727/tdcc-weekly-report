@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3466 德晉
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:26 Asia/Taipei
+- generated_at: 2026-05-28 20:19:13 Asia/Taipei
 - stock_id: 3466
 - stock_name: 德晉
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 34.55
 - low: 32.65
 - close: 32.75
-- volume: 702428
+- volume: 34000
 - ma5: 33.38
 - ema23_primary: 36.25
 - distance_to_ema23_pct: -9.66
@@ -69,7 +69,7 @@
 - ma120: 39.09
 - return_5d: -6.7
 - return_20d: -14.82
-- volume_ratio: 1.09
+- volume_ratio: 0.06
 - distance_to_ma20_pct_auxiliary: -11.41
 - distance_to_high_60_pct: -28.49
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,33.45,34,32.85,32.95,33000,37.12,-11.22,37.78,37.06,0.05
 20260526,32.95,33.95,32.45,33.65,33000,36.83,-8.63,37.49,37.03,0.05
 20260527,34,35.45,33.65,33.75,34000,36.57,-7.71,37.25,36.98,0.05
-20260528,33.75,34.55,32.65,32.75,702428,36.25,-9.66,36.97,36.91,1.09
+20260528,33.75,34.55,32.65,32.75,34000,36.25,-9.66,36.97,36.91,0.06
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7718 友鋮
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:39 Asia/Taipei
+- generated_at: 2026-05-28 20:20:26 Asia/Taipei
 - stock_id: 7718
 - stock_name: 友鋮
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 49.65
 - low: 48.35
 - close: 48.5
-- volume: 81344
+- volume: 49000
 - ma5: 49.11
 - ema23_primary: 48.65
 - distance_to_ema23_pct: -0.3
@@ -69,7 +69,7 @@
 - ma120: 46.37
 - return_5d: -3
 - return_20d: 3.19
-- volume_ratio: 2.53
+- volume_ratio: 1.61
 - distance_to_ma20_pct_auxiliary: -0.5
 - distance_to_high_60_pct: -13.85
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,49.9,49.9,48.15,49.65,49000,48.64,2.07,48.48,47.69,1.95
 20260526,49.9,49.9,48.9,48.9,49000,48.66,0.49,48.58,47.76,1.85
 20260527,49.9,49.9,48.6,48.6,49000,48.66,-0.12,48.67,47.82,1.72
-20260528,48.35,49.65,48.35,48.5,81344,48.65,-0.3,48.74,47.88,2.53
+20260528,48.35,49.65,48.35,48.5,49000,48.65,-0.3,48.74,47.88,1.61
 ```
 
 ## Latest TDCC Snapshot

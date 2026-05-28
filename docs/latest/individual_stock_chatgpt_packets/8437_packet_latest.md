@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8437 大地-KY
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:51 Asia/Taipei
+- generated_at: 2026-05-28 20:20:39 Asia/Taipei
 - stock_id: 8437
 - stock_name: 大地-KY
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 11.95
 - low: 11.55
 - close: 11.55
-- volume: 39750
+- volume: 12000
 - ma5: 11.79
 - ema23_primary: 11.87
 - distance_to_ema23_pct: -2.72
@@ -69,7 +69,7 @@
 - ma120: 14.59
 - return_5d: -4.15
 - return_20d: -7.97
-- volume_ratio: 0.73
+- volume_ratio: 0.23
 - distance_to_ma20_pct_auxiliary: -1.13
 - distance_to_high_60_pct: -23
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,12.15,12.5,11.65,11.65,12000,11.94,-2.44,11.85,12.78,0.19
 20260526,11.4,11.9,11.4,11.75,12000,11.93,-1.47,11.79,12.72,0.2
 20260527,11.8,11.8,11.6,11.65,12000,11.9,-2.12,11.73,12.66,0.21
-20260528,11.8,11.95,11.55,11.55,39750,11.87,-2.72,11.68,12.6,0.73
+20260528,11.8,11.95,11.55,11.55,12000,11.87,-2.72,11.68,12.6,0.23
 ```
 
 ## Latest TDCC Snapshot

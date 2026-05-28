@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6275 元山
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:15 Asia/Taipei
+- generated_at: 2026-05-28 20:20:02 Asia/Taipei
 - stock_id: 6275
 - stock_name: 元山
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 48.5
 - low: 47.65
 - close: 47.95
-- volume: 540448
+- volume: 48000
 - ma5: 48.06
 - ema23_primary: 49.12
 - distance_to_ema23_pct: -2.37
@@ -69,7 +69,7 @@
 - ma120: 50.87
 - return_5d: 0.74
 - return_20d: -8.14
-- volume_ratio: 0.97
+- volume_ratio: 0.09
 - distance_to_ma20_pct_auxiliary: -2.99
 - distance_to_high_60_pct: -20.74
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,48.8,49,47.75,48.1,48000,49.49,-2.8,50.11,50.08,0.07
 20260526,48.5,48.5,47.5,47.85,48000,49.35,-3.04,49.88,49.97,0.08
 20260527,48.2,48.2,47.35,47.8,48000,49.22,-2.89,49.64,49.88,0.09
-20260528,47.85,48.5,47.65,47.95,540448,49.12,-2.37,49.43,49.8,0.97
+20260528,47.85,48.5,47.65,47.95,48000,49.12,-2.37,49.43,49.8,0.09
 ```
 
 ## Latest TDCC Snapshot

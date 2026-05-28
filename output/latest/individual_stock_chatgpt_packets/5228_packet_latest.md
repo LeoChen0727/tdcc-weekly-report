@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5228 鈺鎧
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:54 Asia/Taipei
+- generated_at: 2026-05-28 20:19:41 Asia/Taipei
 - stock_id: 5228
 - stock_name: 鈺鎧
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 63.2
 - low: 60
 - close: 63.2
-- volume: 600608
+- volume: 62000
 - ma5: 56.42
 - ema23_primary: 46.5
 - distance_to_ema23_pct: 35.9
@@ -69,7 +69,7 @@
 - ma120: 27.4
 - return_5d: 20.38
 - return_20d: 86.16
-- volume_ratio: 0.4
+- volume_ratio: 0.04
 - distance_to_ma20_pct_auxiliary: 37.09
 - distance_to_high_60_pct: 0
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,56,56,53.5,54.9,55000,42.84,28.14,42.13,31.44,0.04
 20260526,53.3,55,53.1,54.9,54000,43.85,25.2,43.37,31.95,0.04
 20260527,56.5,57.5,55,57.5,56000,44.99,27.82,44.64,32.5,0.04
-20260528,60,63.2,60,63.2,600608,46.5,35.9,46.1,33.14,0.4
+20260528,60,63.2,60,63.2,62000,46.5,35.9,46.1,33.14,0.04
 ```
 
 ## Latest TDCC Snapshot

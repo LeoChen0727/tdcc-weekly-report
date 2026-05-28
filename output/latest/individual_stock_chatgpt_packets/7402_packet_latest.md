@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7402 邑錡
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:38 Asia/Taipei
+- generated_at: 2026-05-28 20:20:25 Asia/Taipei
 - stock_id: 7402
 - stock_name: 邑錡
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 100.5
 - low: 96.3
 - close: 98
-- volume: 288807
+- volume: 99000
 - ma5: 98.12
 - ema23_primary: 106.05
 - distance_to_ema23_pct: -7.59
@@ -69,7 +69,7 @@
 - ma120: 124.26
 - return_5d: 3.38
 - return_20d: -17.3
-- volume_ratio: 0.59
+- volume_ratio: 0.21
 - distance_to_ma20_pct_auxiliary: -8.52
 - distance_to_high_60_pct: -30
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,97.2,101.5,93.2,99.6,97000,108.43,-8.14,110.19,118.79,0.19
 20260526,99.8,103.5,98.4,98.6,100000,107.61,-8.37,109.17,118.11,0.2
 20260527,101,101,97.7,97.7,99000,106.78,-8.51,108.15,117.41,0.2
-20260528,97.5,100.5,96.3,98,288807,106.05,-7.59,107.12,116.78,0.59
+20260528,97.5,100.5,96.3,98,99000,106.05,-7.59,107.12,116.78,0.21
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6651 全宇昕
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:25 Asia/Taipei
+- generated_at: 2026-05-28 20:20:13 Asia/Taipei
 - stock_id: 6651
 - stock_name: 全宇昕
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 155
 - low: 144
 - close: 145.5
-- volume: 519336
+- volume: 149000
 - ma5: 147.8
 - ema23_primary: 125.83
 - distance_to_ema23_pct: 15.63
@@ -69,7 +69,7 @@
 - ma120: 94.42
 - return_5d: 16.4
 - return_20d: 30.49
-- volume_ratio: 0.84
+- volume_ratio: 0.25
 - distance_to_ma20_pct_auxiliary: 15.75
 - distance_to_high_60_pct: -10.19
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,151,151,144,147.5,149000,118.33,24.65,119.33,101.92,0.19
 20260526,147,162,144.5,157.5,155000,121.6,29.53,122.05,102.88,0.21
 20260527,158.5,159.5,145.5,151,152000,124.05,21.73,124,103.72,0.23
-20260528,151,155,144,145.5,519336,125.83,15.63,125.7,104.47,0.84
+20260528,151,155,144,145.5,149000,125.83,15.63,125.7,104.47,0.25
 ```
 
 ## Latest TDCC Snapshot

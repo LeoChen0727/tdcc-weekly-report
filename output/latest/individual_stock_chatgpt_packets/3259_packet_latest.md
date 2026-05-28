@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3259 鑫創
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:21 Asia/Taipei
+- generated_at: 2026-05-28 20:19:07 Asia/Taipei
 - stock_id: 3259
 - stock_name: 鑫創
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 17.25
 - low: 16.2
 - close: 16.8
-- volume: 111240
+- volume: 17000
 - ma5: 16.17
 - ema23_primary: 16.7
 - distance_to_ema23_pct: 0.58
@@ -69,7 +69,7 @@
 - ma120: 18.88
 - return_5d: 5.66
 - return_20d: -1.18
-- volume_ratio: 2.27
+- volume_ratio: 0.38
 - distance_to_ma20_pct_auxiliary: 0.1
 - distance_to_high_60_pct: -23.98
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,16.35,16.35,15.2,15.7,16000,16.83,-6.7,16.91,17.23,0.35
 20260526,15.75,16.1,15.45,16,16000,16.76,-4.52,16.84,17.22,0.35
 20260527,16,16,15.6,16,16000,16.7,-4.16,16.79,17.2,0.36
-20260528,16.2,17.25,16.2,16.8,111240,16.7,0.58,16.78,17.2,2.27
+20260528,16.2,17.25,16.2,16.8,17000,16.7,0.58,16.78,17.2,0.38
 ```
 
 ## Latest TDCC Snapshot

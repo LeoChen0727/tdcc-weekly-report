@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8938 明安
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:55 Asia/Taipei
+- generated_at: 2026-05-28 20:20:42 Asia/Taipei
 - stock_id: 8938
 - stock_name: 明安
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 53
 - low: 52.3
 - close: 52.6
-- volume: 245636
+- volume: 53000
 - ma5: 53.48
 - ema23_primary: 55.91
 - distance_to_ema23_pct: -5.91
@@ -69,7 +69,7 @@
 - ma120: 65.77
 - return_5d: -2.77
 - return_20d: -11.74
-- volume_ratio: 0.91
+- volume_ratio: 0.2
 - distance_to_ma20_pct_auxiliary: -4.87
 - distance_to_high_60_pct: -24.75
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,54.6,54.6,53.7,54.2,54000,56.8,-4.58,56.2,62.18,0.18
 20260526,54.2,54.2,53.2,53.5,54000,56.53,-5.35,55.95,61.95,0.2
 20260527,53.3,53.3,52.3,52.7,53000,56.21,-6.24,55.65,61.68,0.2
-20260528,52.7,53,52.3,52.6,245636,55.91,-5.91,55.3,61.42,0.91
+20260528,52.7,53,52.3,52.6,53000,55.91,-5.91,55.3,61.42,0.2
 ```
 
 ## Latest TDCC Snapshot

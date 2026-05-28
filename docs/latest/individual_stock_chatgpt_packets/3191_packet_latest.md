@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3191 雲嘉南
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:19 Asia/Taipei
+- generated_at: 2026-05-28 20:19:05 Asia/Taipei
 - stock_id: 3191
 - stock_name: 雲嘉南
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 24.05
 - low: 24.05
 - close: 24.05
-- volume: 861966
+- volume: 24000
 - ma5: 20.11
 - ema23_primary: 16.4
 - distance_to_ema23_pct: 46.65
@@ -69,7 +69,7 @@
 - ma120: 16.03
 - return_5d: 55.16
 - return_20d: 69.37
-- volume_ratio: 10.3
+- volume_ratio: 0.57
 - distance_to_ma20_pct_auxiliary: 53.67
 - distance_to_high_60_pct: 0
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,16.5,18.15,16.5,18.15,18000,14.7,23.44,14.43,14.19,0.44
 20260526,19.95,19.95,19.95,19.95,20000,15.14,31.76,14.74,14.28,0.48
 20260527,21.9,21.9,21.9,21.9,22000,15.7,39.45,15.16,14.39,0.53
-20260528,24.05,24.05,24.05,24.05,861966,16.4,46.65,15.65,14.55,10.3
+20260528,24.05,24.05,24.05,24.05,24000,16.4,46.65,15.65,14.55,0.57
 ```
 
 ## Latest TDCC Snapshot

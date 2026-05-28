@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3615 安可
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:32 Asia/Taipei
+- generated_at: 2026-05-28 20:19:18 Asia/Taipei
 - stock_id: 3615
 - stock_name: 安可
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 51.4
 - low: 46.7
 - close: 48.7
-- volume: 9017319
+- volume: 49000
 - ma5: 49.37
 - ema23_primary: 40.91
 - distance_to_ema23_pct: 19.05
@@ -69,7 +69,7 @@
 - ma120: 30.19
 - return_5d: 12.6
 - return_20d: 48.48
-- volume_ratio: 1.48
+- volume_ratio: 0.01
 - distance_to_ma20_pct_auxiliary: 22.69
 - distance_to_high_60_pct: -7.59
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,50,52.3,47.65,52.3,50000,38.51,35.8,36.97,34.08,0.01
 20260526,52.3,52.7,49.6,51,51000,39.55,28.94,38.02,34.43,0.01
 20260527,51.5,52,46.1,47.3,48000,40.2,17.67,38.9,34.73,0.01
-20260528,48.1,51.4,46.7,48.7,9017319,40.91,19.05,39.69,35,1.48
+20260528,48.1,51.4,46.7,48.7,49000,40.91,19.05,39.69,35,0.01
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3615 | 安可 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

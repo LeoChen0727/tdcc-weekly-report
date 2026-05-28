@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6492 生華科
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:19 Asia/Taipei
+- generated_at: 2026-05-28 20:20:06 Asia/Taipei
 - stock_id: 6492
 - stock_name: 生華科
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 44.5
 - low: 43.65
 - close: 44
-- volume: 255821
+- volume: 44000
 - ma5: 44.87
 - ema23_primary: 47.64
 - distance_to_ema23_pct: -7.64
@@ -69,7 +69,7 @@
 - ma120: 48.82
 - return_5d: -5.07
 - return_20d: -12.7
-- volume_ratio: 1.08
+- volume_ratio: 0.19
 - distance_to_ma20_pct_auxiliary: -8.04
 - distance_to_high_60_pct: -25.93
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,46.35,46.4,45,45.1,45000,48.64,-7.28,48.73,50.92,0.16
 20260526,45.1,45.2,44.5,44.6,45000,48.3,-7.67,48.45,50.83,0.17
 20260527,44.6,44.75,43.5,44.3,44000,47.97,-7.65,48.16,50.73,0.18
-20260528,44.4,44.5,43.65,44,255821,47.64,-7.64,47.84,50.62,1.08
+20260528,44.4,44.5,43.65,44,44000,47.64,-7.64,47.84,50.62,0.19
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4120 友華
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:37 Asia/Taipei
+- generated_at: 2026-05-28 20:19:23 Asia/Taipei
 - stock_id: 4120
 - stock_name: 友華
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 44.5
 - low: 44.15
 - close: 44.35
-- volume: 52548
+- volume: 44000
 - ma5: 45.02
 - ema23_primary: 45.96
 - distance_to_ema23_pct: -3.51
@@ -69,7 +69,7 @@
 - ma120: 45.39
 - return_5d: -4
 - return_20d: -4
-- volume_ratio: 1.01
+- volume_ratio: 0.85
 - distance_to_ma20_pct_auxiliary: -3.97
 - distance_to_high_60_pct: -9.49
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,45.9,45.9,45.55,45.55,46000,46.4,-1.83,46.45,46.27,0.97
 20260526,45.3,45.3,44.75,44.8,45000,46.27,-3.17,46.37,46.29,0.93
 20260527,45,45,44.35,44.4,44000,46.11,-3.71,46.28,46.3,0.88
-20260528,44.2,44.5,44.15,44.35,52548,45.96,-3.51,46.19,46.3,1.01
+20260528,44.2,44.5,44.15,44.35,44000,45.96,-3.51,46.19,46.3,0.85
 ```
 
 ## Latest TDCC Snapshot

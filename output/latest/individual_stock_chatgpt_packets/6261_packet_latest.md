@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6261 久元
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:15 Asia/Taipei
+- generated_at: 2026-05-28 20:20:02 Asia/Taipei
 - stock_id: 6261
 - stock_name: 久元
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 123
 - low: 117.5
 - close: 118
-- volume: 4039012
+- volume: 120000
 - ma5: 120.8
 - ema23_primary: 112.07
 - distance_to_ema23_pct: 5.29
@@ -69,7 +69,7 @@
 - ma120: 79.56
 - return_5d: 4.42
 - return_20d: 24.21
-- volume_ratio: 0.72
+- volume_ratio: 0.02
 - distance_to_ma20_pct_auxiliary: 1.05
 - distance_to_high_60_pct: -13.24
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,128,129,119.5,121,123000,109.85,10.15,112.86,87.94,0.02
 20260526,122,124.5,115.5,123,121000,110.94,10.87,114.47,88.73,0.02
 20260527,125,125,117.5,118,120000,111.53,5.8,115.62,89.45,0.02
-20260528,119,123,117.5,118,4039012,112.07,5.29,116.78,90.17,0.72
+20260528,119,123,117.5,118,120000,112.07,5.29,116.78,90.17,0.02
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6261 | 久元 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

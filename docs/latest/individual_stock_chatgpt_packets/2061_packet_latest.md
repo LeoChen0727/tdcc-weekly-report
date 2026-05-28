@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2061 風青
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:45 Asia/Taipei
+- generated_at: 2026-05-28 20:18:31 Asia/Taipei
 - stock_id: 2061
 - stock_name: 風青
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 33.9
 - low: 32.7
 - close: 33
-- volume: 1240720
+- volume: 33000
 - ma5: 30.95
 - ema23_primary: 24.26
 - distance_to_ema23_pct: 36.05
@@ -69,7 +69,7 @@
 - ma120: 18.79
 - return_5d: 34.69
 - return_20d: 71.88
-- volume_ratio: 0.97
+- volume_ratio: 0.03
 - distance_to_ma20_pct_auxiliary: 39.11
 - distance_to_high_60_pct: -4.62
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,27.4,29.3,27.4,29.3,29000,21.66,35.26,21.64,18.49,0.02
 20260526,30.95,32.2,30,32.2,32000,22.54,42.86,22.32,18.73,0.02
 20260527,31.55,34.6,31.55,33.6,33000,23.46,43.21,23.03,18.99,0.03
-20260528,32.9,33.9,32.7,33,1240720,24.26,36.05,23.72,19.24,0.97
+20260528,32.9,33.9,32.7,33,33000,24.26,36.05,23.72,19.24,0.03
 ```
 
 ## Latest TDCC Snapshot
@@ -125,13 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2061 | 風青 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 55.0 |  |  | neckline_challenge |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 2061 | 風青 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 2061 | 風青 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2061 | 風青 | 6 | 6 | 5 | 6 | 6 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260528 | 2061 | 風青 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

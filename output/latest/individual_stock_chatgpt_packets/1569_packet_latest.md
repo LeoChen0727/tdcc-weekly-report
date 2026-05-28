@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1569 濱川
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:36 Asia/Taipei
+- generated_at: 2026-05-28 20:18:22 Asia/Taipei
 - stock_id: 1569
 - stock_name: 濱川
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 52.4
 - low: 50.3
 - close: 50.6
-- volume: 1087788
+- volume: 51000
 - ma5: 52.06
 - ema23_primary: 53.51
 - distance_to_ema23_pct: -5.44
@@ -69,7 +69,7 @@
 - ma120: 53.73
 - return_5d: -0.59
 - return_20d: -15.95
-- volume_ratio: 0.65
+- volume_ratio: 0.03
 - distance_to_ma20_pct_auxiliary: -7.19
 - distance_to_high_60_pct: -24.7
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,53.2,54.1,52.5,52.9,53000,54.1,-2.23,55.89,53.69,0.02
 20260526,52.9,53.4,51.7,52,52000,53.93,-3.58,55.45,53.63,0.03
 20260527,52.5,53.2,51.5,52.1,52000,53.78,-3.12,55,53.55,0.03
-20260528,52.1,52.4,50.3,50.6,1087788,53.51,-5.44,54.52,53.44,0.65
+20260528,52.1,52.4,50.3,50.6,51000,53.51,-5.44,54.52,53.44,0.03
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4523 永彰
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:42 Asia/Taipei
+- generated_at: 2026-05-28 20:19:29 Asia/Taipei
 - stock_id: 4523
 - stock_name: 永彰
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 29.8
 - low: 28.95
 - close: 29
-- volume: 469670
+- volume: 29000
 - ma5: 28.78
 - ema23_primary: 29.29
 - distance_to_ema23_pct: -0.99
@@ -69,7 +69,7 @@
 - ma120: 30.17
 - return_5d: 2.29
 - return_20d: -6
-- volume_ratio: 2.55
+- volume_ratio: 0.18
 - distance_to_ma20_pct_auxiliary: -1.36
 - distance_to_high_60_pct: -17.85
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,29,29.5,28.35,28.9,29000,29.43,-1.81,29.69,30.74,0.16
 20260526,29,29,28.45,28.7,29000,29.37,-2.28,29.59,30.65,0.17
 20260527,28.8,28.95,28.4,28.7,29000,29.32,-2.1,29.49,30.55,0.17
-20260528,28.95,29.8,28.95,29,469670,29.29,-0.99,29.4,30.45,2.55
+20260528,28.95,29.8,28.95,29,29000,29.29,-0.99,29.4,30.45,0.18
 ```
 
 ## Latest TDCC Snapshot

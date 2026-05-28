@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5202 力新
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:53 Asia/Taipei
+- generated_at: 2026-05-28 20:19:40 Asia/Taipei
 - stock_id: 5202
 - stock_name: 力新
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 12.45
 - low: 11.45
 - close: 12.45
-- volume: 1114885
+- volume: 12000
 - ma5: 11.82
 - ema23_primary: 12.41
 - distance_to_ema23_pct: 0.31
@@ -69,7 +69,7 @@
 - ma120: 14.7
 - return_5d: 2.89
 - return_20d: -5.68
-- volume_ratio: 5.64
+- volume_ratio: 0.08
 - distance_to_ma20_pct_auxiliary: 0.34
 - distance_to_high_60_pct: -18.09
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,12,12,11.7,11.75,12000,12.58,-6.61,12.61,13.41,0.07
 20260526,11.8,11.8,11.55,11.65,12000,12.5,-6.83,12.53,13.37,0.08
 20260527,11.75,11.75,11.35,11.35,12000,12.41,-8.53,12.45,13.31,0.08
-20260528,11.45,12.45,11.45,12.45,1114885,12.41,0.31,12.41,13.27,5.64
+20260528,11.45,12.45,11.45,12.45,12000,12.41,0.31,12.41,13.27,0.08
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 5202 | 力新 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

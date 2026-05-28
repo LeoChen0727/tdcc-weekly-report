@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6859 伯特光
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:33 Asia/Taipei
+- generated_at: 2026-05-28 20:20:20 Asia/Taipei
 - stock_id: 6859
 - stock_name: 伯特光
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 129.5
 - low: 122.5
 - close: 125
-- volume: 326587
+- volume: 126000
 - ma5: 121.9
 - ema23_primary: 120.18
 - distance_to_ema23_pct: 4.01
@@ -69,7 +69,7 @@
 - ma120: 115.63
 - return_5d: 5.04
 - return_20d: 4.6
-- volume_ratio: 2.69
+- volume_ratio: 1.13
 - distance_to_ma20_pct_auxiliary: 3.76
 - distance_to_high_60_pct: -7.06
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,120.5,121,119,119,120000,119.22,-0.18,119.92,119.69,1.22
 20260526,119,123.5,117,123.5,120000,119.58,3.28,120.08,119.84,1.17
 20260527,125,125,120,121.5,122000,119.74,1.47,120.2,119.9,1.15
-20260528,122.5,129.5,122.5,125,326587,120.18,4.01,120.47,120.06,2.69
+20260528,122.5,129.5,122.5,125,126000,120.18,4.01,120.47,120.06,1.13
 ```
 
 ## Latest TDCC Snapshot

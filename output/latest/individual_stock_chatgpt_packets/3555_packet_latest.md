@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3555 博士旺
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:30 Asia/Taipei
+- generated_at: 2026-05-28 20:19:16 Asia/Taipei
 - stock_id: 3555
 - stock_name: 博士旺
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 232.5
 - low: 211
 - close: 212
-- volume: 267692
+- volume: 218000
 - ma5: 229.3
 - ema23_primary: 221.41
 - distance_to_ema23_pct: -4.25
@@ -69,7 +69,7 @@
 - ma120: 145.37
 - return_5d: -1.17
 - return_20d: -13.65
-- volume_ratio: 0.99
+- volume_ratio: 0.81
 - distance_to_ma20_pct_auxiliary: -6.65
 - distance_to_high_60_pct: -24.69
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,240,259,232,233.5,243000,220.36,5.96,229.3,194.43,0.99
 20260526,236,245,229,242.5,237000,222.2,9.13,229.43,196.31,0.93
 20260527,242.5,249,223,223,233000,222.27,0.33,228.78,197.67,0.89
-20260528,228.5,232.5,211,212,267692,221.41,-4.25,227.1,199.07,0.99
+20260528,228.5,232.5,211,212,218000,221.41,-4.25,227.1,199.07,0.81
 ```
 
 ## Latest TDCC Snapshot

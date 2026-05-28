@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6560 欣普羅
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:22 Asia/Taipei
+- generated_at: 2026-05-28 20:20:09 Asia/Taipei
 - stock_id: 6560
 - stock_name: 欣普羅
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 39.1
 - low: 38
 - close: 38.05
-- volume: 118316
+- volume: 39000
 - ma5: 38.62
 - ema23_primary: 38.48
 - distance_to_ema23_pct: -1.11
@@ -69,7 +69,7 @@
 - ma120: 40.28
 - return_5d: -0.39
 - return_20d: -0.65
-- volume_ratio: 1.65
+- volume_ratio: 0.58
 - distance_to_ma20_pct_auxiliary: -0.83
 - distance_to_high_60_pct: -18.52
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,38.15,39.2,38.05,38.75,39000,38.4,0.92,38.26,39.75,0.57
 20260526,39.7,39.7,38.4,39.15,39000,38.46,1.79,38.33,39.69,0.58
 20260527,39,39.25,38.95,39.1,39000,38.51,1.52,38.38,39.6,0.58
-20260528,39.1,39.1,38,38.05,118316,38.48,-1.11,38.37,39.49,1.65
+20260528,39.1,39.1,38,38.05,39000,38.48,-1.11,38.37,39.49,0.58
 ```
 
 ## Latest TDCC Snapshot

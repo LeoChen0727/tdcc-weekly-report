@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8182 加高
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:47 Asia/Taipei
+- generated_at: 2026-05-28 20:20:35 Asia/Taipei
 - stock_id: 8182
 - stock_name: 加高
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 48.5
 - low: 44.35
 - close: 47.5
-- volume: 11345837
+- volume: 48000
 - ma5: 44.81
 - ema23_primary: 39.42
 - distance_to_ema23_pct: 20.5
@@ -69,7 +69,7 @@
 - ma120: 30.17
 - return_5d: 26.33
 - return_20d: 27.18
-- volume_ratio: 6.25
+- volume_ratio: 0.04
 - distance_to_ma20_pct_auxiliary: 20.7
 - distance_to_high_60_pct: -2.06
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,45.45,45.45,43.75,45.45,45000,37.52,21.15,37.95,32.65,0.03
 20260526,45.45,45.9,42.2,45.65,44000,38.19,19.52,38.49,32.94,0.03
 20260527,47.2,47.2,43.1,44.1,44000,38.69,14,38.85,33.21,0.03
-20260528,44.65,48.5,44.35,47.5,11345837,39.42,20.5,39.35,33.53,6.25
+20260528,44.65,48.5,44.35,47.5,48000,39.42,20.5,39.35,33.53,0.04
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 8182 | 加高 | true_breakout | 嚴格突破 | 102.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

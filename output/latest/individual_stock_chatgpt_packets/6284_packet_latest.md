@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6284 佳邦
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:16 Asia/Taipei
+- generated_at: 2026-05-28 20:20:03 Asia/Taipei
 - stock_id: 6284
 - stock_name: 佳邦
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 124
 - low: 122
 - close: 124
-- volume: 5469375
+- volume: 124000
 - ma5: 113.9
 - ema23_primary: 94.72
 - distance_to_ema23_pct: 30.92
@@ -69,7 +69,7 @@
 - ma120: 83.58
 - return_5d: 32.76
 - return_20d: 58.97
-- volume_ratio: 2.36
+- volume_ratio: 0.06
 - distance_to_ma20_pct_auxiliary: 36.88
 - distance_to_high_60_pct: 0
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,112.5,112.5,112.5,112.5,112000,87.66,28.33,84.55,82.9,0.05
 20260526,123,123,111,117.5,117000,90.15,30.34,86.58,83.43,0.06
 20260527,120,120,110,113,115000,92.05,22.75,88.29,83.86,0.06
-20260528,122,124,122,124,5469375,94.72,30.92,90.59,84.5,2.36
+20260528,122,124,122,124,124000,94.72,30.92,90.59,84.5,0.06
 ```
 
 ## Latest TDCC Snapshot
@@ -125,13 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6284 | 佳邦 | true_breakout | 嚴格突破 | 89.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 6284 | 佳邦 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 6284 | 佳邦 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6284 | 佳邦 | 6 | 6 | 5 | 6 | 6 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260528 | 6284 | 佳邦 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

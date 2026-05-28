@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3713 新晶投控
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:36 Asia/Taipei
+- generated_at: 2026-05-28 20:19:22 Asia/Taipei
 - stock_id: 3713
 - stock_name: 新晶投控
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 16.7
 - low: 14.05
 - close: 15.7
-- volume: 915396
+- volume: 15000
 - ma5: 14.28
 - ema23_primary: 14.3
 - distance_to_ema23_pct: 9.77
@@ -69,7 +69,7 @@
 - ma120: 18.52
 - return_5d: 20.77
 - return_20d: 5.37
-- volume_ratio: 6.46
+- volume_ratio: 0.15
 - distance_to_ma20_pct_auxiliary: 12.28
 - distance_to_high_60_pct: -19.49
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,12.95,13,12.75,12.95,13000,14.03,-7.71,13.93,15.86,0.13
 20260526,12.95,14.2,12.95,14.2,14000,14.05,1.1,13.9,15.76,0.14
 20260527,14.6,15.6,14.6,15.6,15000,14.18,10.05,13.94,15.7,0.15
-20260528,14.05,16.7,14.05,15.7,915396,14.3,9.77,13.98,15.64,6.46
+20260528,14.05,16.7,14.05,15.7,15000,14.3,9.77,13.98,15.64,0.15
 ```
 
 ## Latest TDCC Snapshot

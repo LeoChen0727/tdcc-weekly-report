@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8066 來思達
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:44 Asia/Taipei
+- generated_at: 2026-05-28 20:20:31 Asia/Taipei
 - stock_id: 8066
 - stock_name: 來思達
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 16
 - low: 15.3
 - close: 15.9
-- volume: 151457
+- volume: 16000
 - ma5: 16.19
 - ema23_primary: 16.82
 - distance_to_ema23_pct: -5.48
@@ -69,7 +69,7 @@
 - ma120: 19.07
 - return_5d: -8.36
 - return_20d: -11.42
-- volume_ratio: 2.2
+- volume_ratio: 0.26
 - distance_to_ma20_pct_auxiliary: -4.76
 - distance_to_high_60_pct: -20.5
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,16.5,16.5,16.4,16.5,17000,17.1,-3.53,17.01,18.34,0.27
 20260526,16.3,16.3,15.95,16.15,16000,17.02,-5.13,16.91,18.27,0.26
 20260527,16.2,16.2,15.55,15.6,16000,16.91,-7.72,16.8,18.2,0.26
-20260528,15.5,16,15.3,15.9,151457,16.82,-5.48,16.7,18.13,2.2
+20260528,15.5,16,15.3,15.9,16000,16.82,-5.48,16.7,18.13,0.26
 ```
 
 ## Latest TDCC Snapshot

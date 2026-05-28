@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4188 安克
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:40 Asia/Taipei
+- generated_at: 2026-05-28 20:19:26 Asia/Taipei
 - stock_id: 4188
 - stock_name: 安克
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 11.4
 - low: 11.1
 - close: 11.25
-- volume: 72587
+- volume: 11000
 - ma5: 11.28
 - ema23_primary: 11.57
 - distance_to_ema23_pct: -2.72
@@ -69,7 +69,7 @@
 - ma120: 13.44
 - return_5d: 0.45
 - return_20d: -6.25
-- volume_ratio: 2.03
+- volume_ratio: 0.34
 - distance_to_ma20_pct_auxiliary: -2.3
 - distance_to_high_60_pct: -18.77
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,11.95,11.95,11.3,11.4,11000,11.66,-2.26,11.63,12.35,0.32
 20260526,11.3,11.4,11.2,11.2,11000,11.62,-3.66,11.59,12.3,0.33
 20260527,11.2,11.3,11.1,11.25,11000,11.59,-2.96,11.55,12.26,0.33
-20260528,11.15,11.4,11.1,11.25,72587,11.57,-2.72,11.52,12.22,2.03
+20260528,11.15,11.4,11.1,11.25,11000,11.57,-2.72,11.52,12.22,0.34
 ```
 
 ## Latest TDCC Snapshot

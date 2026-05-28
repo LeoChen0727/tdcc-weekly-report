@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4991 環宇-KY
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:52 Asia/Taipei
+- generated_at: 2026-05-28 20:19:39 Asia/Taipei
 - stock_id: 4991
 - stock_name: 環宇-KY
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 766
 - low: 705
 - close: 705
-- volume: 6947415
+- volume: 721000
 - ma5: 802.4
 - ema23_primary: 708.94
 - distance_to_ema23_pct: -0.56
@@ -69,7 +69,7 @@
 - ma120: 386.56
 - return_5d: -4.73
 - return_20d: 14.63
-- volume_ratio: 2.22
+- volume_ratio: 0.26
 - distance_to_ma20_pct_auxiliary: -2.42
 - distance_to_high_60_pct: -21.23
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,865,895,840,840,873000,687.38,22.2,695.15,534.27,0.27
 20260526,850,877,791,870,843000,702.59,23.83,710.15,543.38,0.26
 20260527,880,881,783,783,815000,709.3,10.39,717.95,550.67,0.25
-20260528,765,766,705,705,6947415,708.94,-0.56,722.45,556.23,2.22
+20260528,765,766,705,705,721000,708.94,-0.56,722.45,556.23,0.26
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4991 | 環宇-KY | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

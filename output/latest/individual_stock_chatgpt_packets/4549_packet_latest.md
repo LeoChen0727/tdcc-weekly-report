@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4549 桓達
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:43 Asia/Taipei
+- generated_at: 2026-05-28 20:19:30 Asia/Taipei
 - stock_id: 4549
 - stock_name: 桓達
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 113.5
 - low: 106.5
 - close: 113.5
-- volume: 1860278
+- volume: 112000
 - ma5: 106.8
 - ema23_primary: 102.18
 - distance_to_ema23_pct: 11.08
@@ -69,7 +69,7 @@
 - ma120: 102.54
 - return_5d: 11.27
 - return_20d: 15.58
-- volume_ratio: 5.84
+- volume_ratio: 0.48
 - distance_to_ma20_pct_auxiliary: 11.15
 - distance_to_high_60_pct: -0.44
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,106,109.5,105,105.5,108000,100.38,5.1,100.72,97.74,0.46
 20260526,106.5,109,104,107,107000,100.93,6.01,101.09,97.84,0.47
 20260527,108,108,103.5,103.5,105000,101.15,2.33,101.34,97.82,0.46
-20260528,106.5,113.5,106.5,113.5,1860278,102.18,11.08,102.11,97.97,5.84
+20260528,106.5,113.5,106.5,113.5,112000,102.18,11.08,102.11,97.97,0.48
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4549 | 桓達 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

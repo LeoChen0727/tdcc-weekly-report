@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5547 久舜
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:02 Asia/Taipei
+- generated_at: 2026-05-28 20:19:49 Asia/Taipei
 - stock_id: 5547
 - stock_name: 久舜
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 21.8
 - low: 21.65
 - close: 21.75
-- volume: 12202
+- volume: 22000
 - ma5: 21.62
 - ema23_primary: 21.61
 - distance_to_ema23_pct: 0.64
@@ -69,7 +69,7 @@
 - ma120: 22.14
 - return_5d: 1.64
 - return_20d: 3.33
-- volume_ratio: 0.4
+- volume_ratio: 0.7
 - distance_to_ma20_pct_auxiliary: 0.76
 - distance_to_high_60_pct: -6.45
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,21.6,21.65,21.5,21.6,22000,21.6,-0.02,21.48,22.06,0.63
 20260526,21.6,21.8,21.6,21.6,22000,21.6,-0.02,21.52,22.05,0.69
 20260527,21.6,21.6,21.5,21.55,22000,21.6,-0.23,21.55,22.04,0.71
-20260528,21.75,21.8,21.65,21.75,12202,21.61,0.64,21.59,22.02,0.4
+20260528,21.75,21.8,21.65,21.75,22000,21.61,0.64,21.59,22.02,0.7
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8076 伍豐
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:44 Asia/Taipei
+- generated_at: 2026-05-28 20:20:32 Asia/Taipei
 - stock_id: 8076
 - stock_name: 伍豐
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 24.3
 - low: 23.5
 - close: 23.6
-- volume: 1518657
+- volume: 24000
 - ma5: 23.77
 - ema23_primary: 23.69
 - distance_to_ema23_pct: -0.36
@@ -69,7 +69,7 @@
 - ma120: 23.63
 - return_5d: -1.87
 - return_20d: 4.42
-- volume_ratio: 1.33
+- volume_ratio: 0.02
 - distance_to_ma20_pct_auxiliary: -0.27
 - distance_to_high_60_pct: -14.49
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,24.3,24.5,23.85,23.85,24000,23.7,0.64,23.5,23.8,0.02
 20260526,24,24.2,23.6,23.85,24000,23.71,0.59,23.57,23.82,0.02
 20260527,24.15,24.2,23.3,23.5,24000,23.69,-0.82,23.61,23.82,0.02
-20260528,23.8,24.3,23.5,23.6,1518657,23.69,-0.36,23.66,23.83,1.33
+20260528,23.8,24.3,23.5,23.6,24000,23.69,-0.36,23.66,23.83,0.02
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 8076 | 伍豐 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

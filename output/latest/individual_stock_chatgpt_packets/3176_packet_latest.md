@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3176 基亞
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:19 Asia/Taipei
+- generated_at: 2026-05-28 20:19:05 Asia/Taipei
 - stock_id: 3176
 - stock_name: 基亞
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 35
 - low: 32.85
 - close: 33.1
-- volume: 676306
+- volume: 34000
 - ma5: 35.41
 - ema23_primary: 34.32
 - distance_to_ema23_pct: -3.57
@@ -69,7 +69,7 @@
 - ma120: 32.08
 - return_5d: -16.62
 - return_20d: -1.63
-- volume_ratio: 0.95
+- volume_ratio: 0.05
 - distance_to_ma20_pct_auxiliary: -3.43
 - distance_to_high_60_pct: -24.08
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,38,38,35.35,35.9,36000,34.26,4.79,34.17,32.21,0.04
 20260526,36.5,36.6,35.35,36.15,36000,34.42,5.04,34.23,32.31,0.04
 20260527,36.15,36.3,34.25,34.65,35000,34.44,0.62,34.3,32.39,0.05
-20260528,34.35,35,32.85,33.1,676306,34.32,-3.57,34.27,32.44,0.95
+20260528,34.35,35,32.85,33.1,34000,34.32,-3.57,34.27,32.44,0.05
 ```
 
 ## Latest TDCC Snapshot

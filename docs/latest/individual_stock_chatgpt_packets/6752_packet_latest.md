@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6752 叡揚
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:29 Asia/Taipei
+- generated_at: 2026-05-28 20:20:16 Asia/Taipei
 - stock_id: 6752
 - stock_name: 叡揚
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 99
 - low: 97.1
 - close: 98.7
-- volume: 21509
+- volume: 98000
 - ma5: 98.98
 - ema23_primary: 101.59
 - distance_to_ema23_pct: -2.85
@@ -69,7 +69,7 @@
 - ma120: 114.68
 - return_5d: -2.28
 - return_20d: -5.1
-- volume_ratio: 0.31
+- volume_ratio: 1.35
 - distance_to_ma20_pct_auxiliary: -2.78
 - distance_to_high_60_pct: -21.67
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,100.5,100.5,98.6,98.7,99000,102.49,-3.7,102.31,108.75,1.56
 20260526,97,99.8,97,99,98000,102.2,-3.13,102.14,108.46,1.49
 20260527,98.3,99.5,98,98,99000,101.85,-3.78,101.79,108.02,1.42
-20260528,99,99,97.1,98.7,21509,101.59,-2.85,101.53,107.58,0.31
+20260528,99,99,97.1,98.7,98000,101.59,-2.85,101.53,107.58,1.35
 ```
 
 ## Latest TDCC Snapshot

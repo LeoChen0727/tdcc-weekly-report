@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6123 上奇
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:06 Asia/Taipei
+- generated_at: 2026-05-28 20:19:53 Asia/Taipei
 - stock_id: 6123
 - stock_name: 上奇
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 43.3
 - low: 42.6
 - close: 43.1
-- volume: 93693
+- volume: 43000
 - ma5: 43.76
 - ema23_primary: 43.96
 - distance_to_ema23_pct: -1.96
@@ -69,7 +69,7 @@
 - ma120: 45.21
 - return_5d: -3.9
 - return_20d: 0.12
-- volume_ratio: 1.16
+- volume_ratio: 0.55
 - distance_to_ma20_pct_auxiliary: -3
 - distance_to_high_60_pct: -6.3
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,44.6,44.75,44.25,44.25,45000,44.15,0.22,44.38,43.41,0.54
 20260526,44.7,44.7,43.9,43.9,44000,44.13,-0.53,44.42,43.4,0.55
 20260527,43.9,43.9,43.05,43.05,43000,44.04,-2.25,44.43,43.38,0.55
-20260528,42.85,43.3,42.6,43.1,93693,43.96,-1.96,44.43,43.38,1.16
+20260528,42.85,43.3,42.6,43.1,43000,43.96,-1.96,44.43,43.38,0.55
 ```
 
 ## Latest TDCC Snapshot

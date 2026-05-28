@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6762 達亞
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:30 Asia/Taipei
+- generated_at: 2026-05-28 20:20:17 Asia/Taipei
 - stock_id: 6762
 - stock_name: 達亞
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 172
 - low: 164
 - close: 172
-- volume: 18200
+- volume: 167000
 - ma5: 180
 - ema23_primary: 170.13
 - distance_to_ema23_pct: 1.1
@@ -69,7 +69,7 @@
 - ma120: 174.85
 - return_5d: -8.51
 - return_20d: 10.97
-- volume_ratio: 0.39
+- volume_ratio: 3.1
 - distance_to_ma20_pct_auxiliary: 4.64
 - distance_to_high_60_pct: -13.13
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,189,190,188,188,189000,168.84,11.35,161.93,165.13,6.63
 20260526,189,189,180,180,182000,169.77,6.03,162.93,165.27,4.89
 20260527,180,180,172,172,175000,169.96,1.2,163.53,165.28,3.82
-20260528,172,172,164,172,18200,170.13,1.1,164.38,165.32,0.39
+20260528,172,172,164,172,167000,170.13,1.1,164.38,165.32,3.1
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3388 崇越電
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:25 Asia/Taipei
+- generated_at: 2026-05-28 20:19:11 Asia/Taipei
 - stock_id: 3388
 - stock_name: 崇越電
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 111
 - low: 102
 - close: 111
-- volume: 4906553
+- volume: 109000
 - ma5: 103.9
 - ema23_primary: 102.45
 - distance_to_ema23_pct: 8.35
@@ -69,7 +69,7 @@
 - ma120: 74.36
 - return_5d: 14.55
 - return_20d: -3.06
-- volume_ratio: 2.37
+- volume_ratio: 0.06
 - distance_to_ma20_pct_auxiliary: 3.87
 - distance_to_high_60_pct: -15.59
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,103.5,105.5,100.5,105,103000,101.84,3.1,107.34,84.66,0.05
 20260526,107,107,99.9,100.5,102000,101.73,-1.21,107.22,85.29,0.05
 20260527,101.5,102,99,101,100000,101.67,-0.66,107.04,85.93,0.05
-20260528,102.5,111,102,111,4906553,102.45,8.35,106.86,86.74,2.37
+20260528,102.5,111,102,111,109000,102.45,8.35,106.86,86.74,0.06
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3388 | 崇越電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

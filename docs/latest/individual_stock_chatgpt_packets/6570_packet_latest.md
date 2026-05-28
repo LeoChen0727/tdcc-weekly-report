@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6570 維田
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:22 Asia/Taipei
+- generated_at: 2026-05-28 20:20:10 Asia/Taipei
 - stock_id: 6570
 - stock_name: 維田
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 61.4
 - low: 57.2
 - close: 59.3
-- volume: 694144
+- volume: 60000
 - ma5: 59.56
 - ema23_primary: 48.7
 - distance_to_ema23_pct: 21.76
@@ -69,7 +69,7 @@
 - ma120: 40.47
 - return_5d: 20.16
 - return_20d: 50.89
-- volume_ratio: 2.88
+- volume_ratio: 0.29
 - distance_to_ma20_pct_auxiliary: 25.12
 - distance_to_high_60_pct: -9.47
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,59.6,59.6,59.6,59.6,60000,44.99,32.48,44.06,40.59,0.29
 20260526,65.5,65.5,65.5,65.5,66000,46.7,40.27,45.39,41.02,0.32
 20260527,65.4,65.4,59,59.2,61000,47.74,24.01,46.4,41.34,0.29
-20260528,58,61.4,57.2,59.3,694144,48.7,21.76,47.4,41.67,2.88
+20260528,58,61.4,57.2,59.3,60000,48.7,21.76,47.4,41.67,0.29
 ```
 
 ## Latest TDCC Snapshot

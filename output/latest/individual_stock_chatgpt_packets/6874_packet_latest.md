@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6874 倍力
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:33 Asia/Taipei
+- generated_at: 2026-05-28 20:20:21 Asia/Taipei
 - stock_id: 6874
 - stock_name: 倍力
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 79.9
 - low: 77.5
 - close: 77.5
-- volume: 49173
+- volume: 78000
 - ma5: 79.38
 - ema23_primary: 82.68
 - distance_to_ema23_pct: -6.26
@@ -69,7 +69,7 @@
 - ma120: 76.45
 - return_5d: -2.88
 - return_20d: -14.08
-- volume_ratio: 0.67
+- volume_ratio: 1.04
 - distance_to_ma20_pct_auxiliary: -7.06
 - distance_to_high_60_pct: -20.35
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,82,82,79.5,79.9,80000,83.89,-4.75,85.06,84.32,1.13
 20260526,81.1,81.1,78.8,79.5,80000,83.52,-4.82,84.67,84.51,1.09
 20260527,79.3,80.1,78.8,79,79000,83.15,-4.99,84.03,84.66,1.07
-20260528,79.3,79.9,77.5,77.5,49173,82.68,-6.26,83.39,84.81,0.67
+20260528,79.3,79.9,77.5,77.5,78000,82.68,-6.26,83.39,84.81,1.04
 ```
 
 ## Latest TDCC Snapshot

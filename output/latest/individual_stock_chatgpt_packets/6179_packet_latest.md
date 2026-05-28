@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6179 亞通
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:09 Asia/Taipei
+- generated_at: 2026-05-28 20:19:56 Asia/Taipei
 - stock_id: 6179
 - stock_name: 亞通
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 24.15
 - low: 23.5
 - close: 23.65
-- volume: 1462460
+- volume: 24000
 - ma5: 24.47
 - ema23_primary: 24.46
 - distance_to_ema23_pct: -3.31
@@ -69,7 +69,7 @@
 - ma120: 27.18
 - return_5d: -8.86
 - return_20d: -1.25
-- volume_ratio: 1.02
+- volume_ratio: 0.02
 - distance_to_ma20_pct_auxiliary: -2.74
 - distance_to_high_60_pct: -19.42
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,25.65,25.65,24.4,24.85,25000,24.63,0.9,24.33,25.12,0.02
 20260526,25.4,25.4,24.05,24.3,24000,24.6,-1.23,24.35,25.1,0.02
 20260527,24.35,24.5,23.7,23.8,24000,24.53,-2.99,24.33,25.08,0.02
-20260528,23.8,24.15,23.5,23.65,1462460,24.46,-3.31,24.32,25.01,1.02
+20260528,23.8,24.15,23.5,23.65,24000,24.46,-3.31,24.32,25.01,0.02
 ```
 
 ## Latest TDCC Snapshot
@@ -125,8 +125,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6179 | 亞通 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260528 | 6179 | 亞通 | revenue_breakout_low_response | 營收爆發低反應股 | 15.0 | 18.0 | B_可觀察 |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260521 | 6179 | 亞通 | pattern | 型態觀察 |  |  |  | 預備發動型 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

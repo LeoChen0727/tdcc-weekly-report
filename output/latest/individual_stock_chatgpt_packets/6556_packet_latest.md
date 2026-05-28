@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6556 勝品
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:22 Asia/Taipei
+- generated_at: 2026-05-28 20:20:09 Asia/Taipei
 - stock_id: 6556
 - stock_name: 勝品
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 69.8
 - low: 69.7
 - close: 69.7
-- volume: 5395
+- volume: 70000
 - ma5: 70.18
 - ema23_primary: 69.69
 - distance_to_ema23_pct: 0.01
@@ -69,7 +69,7 @@
 - ma120: 68.88
 - return_5d: -0.29
 - return_20d: 0.43
-- volume_ratio: 0.24
+- volume_ratio: 2.75
 - distance_to_ma20_pct_auxiliary: -0.42
 - distance_to_high_60_pct: -3.86
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,71.7,71.7,70.7,70.9,71000,69.68,1.76,69.92,68.21,4.28
 20260526,71.5,71.5,70,70,71000,69.7,0.43,69.92,68.23,3.59
 20260527,69.8,70,69.6,69.6,70000,69.69,-0.14,69.98,68.25,3.04
-20260528,69.7,69.8,69.7,69.7,5395,69.69,0.01,70,68.29,0.24
+20260528,69.7,69.8,69.7,69.7,70000,69.69,0.01,70,68.29,2.75
 ```
 
 ## Latest TDCC Snapshot

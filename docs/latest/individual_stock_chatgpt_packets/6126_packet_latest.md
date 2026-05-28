@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6126 信音
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:06 Asia/Taipei
+- generated_at: 2026-05-28 20:19:53 Asia/Taipei
 - stock_id: 6126
 - stock_name: 信音
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 36.45
 - low: 35.2
 - close: 35.35
-- volume: 2169954
+- volume: 36000
 - ma5: 35.82
 - ema23_primary: 33.99
 - distance_to_ema23_pct: 3.99
@@ -69,7 +69,7 @@
 - ma120: 33.14
 - return_5d: -0.98
 - return_20d: 11.16
-- volume_ratio: 1.55
+- volume_ratio: 0.03
 - distance_to_ma20_pct_auxiliary: 4.41
 - distance_to_high_60_pct: -4.72
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,36.75,37.1,35.9,36.2,36000,33.51,8.01,33.2,32.61,0.03
 20260526,36.7,36.7,35.15,36.45,36000,33.76,7.97,33.47,32.57,0.03
 20260527,36.6,36.6,34.6,35.1,35000,33.87,3.63,33.68,32.51,0.03
-20260528,35.4,36.45,35.2,35.35,2169954,33.99,3.99,33.86,32.49,1.55
+20260528,35.4,36.45,35.2,35.35,36000,33.99,3.99,33.86,32.49,0.03
 ```
 
 ## Latest TDCC Snapshot
@@ -125,8 +125,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6126 | 信音 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260528 | 6126 | 信音 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 6126 | 信音 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

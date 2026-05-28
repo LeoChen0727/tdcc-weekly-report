@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4105 東洋
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:36 Asia/Taipei
+- generated_at: 2026-05-28 20:19:23 Asia/Taipei
 - stock_id: 4105
 - stock_name: 東洋
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 73.8
 - low: 72.8
 - close: 73
-- volume: 520186
+- volume: 73000
 - ma5: 73.54
 - ema23_primary: 74.23
 - distance_to_ema23_pct: -1.66
@@ -69,7 +69,7 @@
 - ma120: 79.7
 - return_5d: -1.62
 - return_20d: -1.22
-- volume_ratio: 0.88
+- volume_ratio: 0.13
 - distance_to_ma20_pct_auxiliary: -1.84
 - distance_to_high_60_pct: -14.62
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,74.2,74.4,73.5,73.5,74000,74.49,-1.34,74.31,76.65,0.11
 20260526,73.6,74.1,73.5,73.9,74000,74.45,-0.73,74.41,76.48,0.12
 20260527,73.9,73.9,73,73.2,73000,74.34,-1.54,74.41,76.29,0.12
-20260528,73.6,73.8,72.8,73,520186,74.23,-1.66,74.36,76.09,0.88
+20260528,73.6,73.8,72.8,73,73000,74.23,-1.66,74.36,76.09,0.13
 ```
 
 ## Latest TDCC Snapshot

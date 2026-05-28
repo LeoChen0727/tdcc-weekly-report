@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2745 五福
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:06 Asia/Taipei
+- generated_at: 2026-05-28 20:18:52 Asia/Taipei
 - stock_id: 2745
 - stock_name: 五福
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 103
 - low: 101.5
 - close: 101.5
-- volume: 139178
+- volume: 102000
 - ma5: 102.1
 - ema23_primary: 102.12
 - distance_to_ema23_pct: -0.6
@@ -69,7 +69,7 @@
 - ma120: 105.3
 - return_5d: 0
 - return_20d: 0
-- volume_ratio: 0.79
+- volume_ratio: 0.59
 - distance_to_ma20_pct_auxiliary: -0.39
 - distance_to_high_60_pct: -12.5
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,102,102,101.5,101.5,102000,102.02,-0.51,101.83,103.3,0.56
 20260526,102,103.5,102,103.5,103000,102.14,1.33,101.9,103.25,0.6
 20260527,103.5,104,102.5,102.5,103000,102.17,0.32,101.9,103.18,0.59
-20260528,102.5,103,101.5,101.5,139178,102.12,-0.6,101.9,103.11,0.79
+20260528,102.5,103,101.5,101.5,102000,102.12,-0.6,101.9,103.11,0.59
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5878 台名
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:03 Asia/Taipei
+- generated_at: 2026-05-28 20:19:50 Asia/Taipei
 - stock_id: 5878
 - stock_name: 台名
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 41.2
 - low: 41
 - close: 41.2
-- volume: 13168
+- volume: 41000
 - ma5: 40.91
 - ema23_primary: 40.84
 - distance_to_ema23_pct: 0.89
@@ -69,7 +69,7 @@
 - ma120: 41.23
 - return_5d: 1.35
 - return_20d: 0.73
-- volume_ratio: 0.89
+- volume_ratio: 2.54
 - distance_to_ma20_pct_auxiliary: 1.11
 - distance_to_high_60_pct: -2.94
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,41,41.3,40.8,40.8,41000,40.81,-0.02,40.76,41.17,3.83
 20260526,41.35,41.5,40.65,40.85,41000,40.81,0.09,40.75,41.16,3.35
 20260527,40.8,41.2,40.7,40.7,41000,40.8,-0.25,40.73,41.15,2.89
-20260528,41.1,41.2,41,41.2,13168,40.84,0.89,40.75,41.14,0.89
+20260528,41.1,41.2,41,41.2,41000,40.84,0.89,40.75,41.14,2.54
 ```
 
 ## Latest TDCC Snapshot

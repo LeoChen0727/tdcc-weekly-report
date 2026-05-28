@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8941 關中
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:55 Asia/Taipei
+- generated_at: 2026-05-28 20:20:42 Asia/Taipei
 - stock_id: 8941
 - stock_name: 關中
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 44.2
 - low: 43.45
 - close: 43.8
-- volume: 17828
+- volume: 44000
 - ma5: 44.14
 - ema23_primary: 44.43
 - distance_to_ema23_pct: -1.42
@@ -69,7 +69,7 @@
 - ma120: 45.06
 - return_5d: -1.24
 - return_20d: -1.24
-- volume_ratio: 1.13
+- volume_ratio: 2.57
 - distance_to_ma20_pct_auxiliary: -1.15
 - distance_to_high_60_pct: -6.71
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,43.65,44.25,43.65,44.25,44000,44.55,-0.67,44.35,45.28,3.68
 20260526,44.2,44.2,43.3,44.05,44000,44.51,-1.02,44.34,45.23,3.26
 20260527,44.05,44.45,44.05,44.3,44000,44.49,-0.42,44.34,45.2,2.89
-20260528,43.7,44.2,43.45,43.8,17828,44.43,-1.42,44.31,45.15,1.13
+20260528,43.7,44.2,43.45,43.8,44000,44.43,-1.42,44.31,45.15,2.57
 ```
 
 ## Latest TDCC Snapshot

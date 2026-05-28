@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7703 銳澤
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:38 Asia/Taipei
+- generated_at: 2026-05-28 20:20:25 Asia/Taipei
 - stock_id: 7703
 - stock_name: 銳澤
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 215
 - low: 204
 - close: 206.5
-- volume: 241402
+- volume: 209000
 - ma5: 212.3
 - ema23_primary: 212.63
 - distance_to_ema23_pct: -2.88
@@ -69,7 +69,7 @@
 - ma120: 216.34
 - return_5d: -0.96
 - return_20d: -1.2
-- volume_ratio: 1.44
+- volume_ratio: 1.26
 - distance_to_ma20_pct_auxiliary: -2.29
 - distance_to_high_60_pct: -16.73
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,210,214.5,210,214.5,212000,212.7,0.84,210.68,213.6,1.32
 20260526,217.5,220,214.5,217,217000,213.06,1.85,211.15,213.62,1.37
 20260527,217,218.5,213,214.5,216000,213.18,0.62,211.47,213.57,1.35
-20260528,214.5,215,204,206.5,241402,212.63,-2.88,211.35,213.49,1.44
+20260528,214.5,215,204,206.5,209000,212.63,-2.88,211.35,213.49,1.26
 ```
 
 ## Latest TDCC Snapshot

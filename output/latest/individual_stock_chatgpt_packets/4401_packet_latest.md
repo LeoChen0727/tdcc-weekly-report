@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4401 東隆興
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:40 Asia/Taipei
+- generated_at: 2026-05-28 20:19:27 Asia/Taipei
 - stock_id: 4401
 - stock_name: 東隆興
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 13.8
 - low: 13.5
 - close: 13.6
-- volume: 88610
+- volume: 14000
 - ma5: 13.77
 - ema23_primary: 14.18
 - distance_to_ema23_pct: -4.09
@@ -69,7 +69,7 @@
 - ma120: 15.73
 - return_5d: -2.51
 - return_20d: -6.85
-- volume_ratio: 0.87
+- volume_ratio: 0.14
 - distance_to_ma20_pct_auxiliary: -3.55
 - distance_to_high_60_pct: -15.79
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,13.8,14.1,13.7,13.85,14000,14.33,-3.34,14.25,14.78,0.13
 20260526,13.85,13.85,13.7,13.75,14000,14.28,-3.72,14.2,14.75,0.13
 20260527,13.8,13.8,13.65,13.7,14000,14.23,-3.74,14.15,14.71,0.14
-20260528,13.5,13.8,13.5,13.6,88610,14.18,-4.09,14.1,14.68,0.87
+20260528,13.5,13.8,13.5,13.6,14000,14.18,-4.09,14.1,14.68,0.14
 ```
 
 ## Latest TDCC Snapshot

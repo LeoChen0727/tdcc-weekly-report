@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8930 青鋼
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:54 Asia/Taipei
+- generated_at: 2026-05-28 20:20:41 Asia/Taipei
 - stock_id: 8930
 - stock_name: 青鋼
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 28.7
 - low: 28.35
 - close: 28.45
-- volume: 58304
+- volume: 28000
 - ma5: 28.58
 - ema23_primary: 29.02
 - distance_to_ema23_pct: -1.96
@@ -69,7 +69,7 @@
 - ma120: 30.88
 - return_5d: 0.18
 - return_20d: -5.95
-- volume_ratio: 1.02
+- volume_ratio: 0.5
 - distance_to_ma20_pct_auxiliary: -1.79
 - distance_to_high_60_pct: -14.56
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,28.75,28.75,28.45,28.7,29000,29.17,-1.62,29.16,30.42,0.44
 20260526,28.7,28.85,28.5,28.5,29000,29.12,-2.12,29.11,30.37,0.48
 20260527,28.6,28.6,28.5,28.55,29000,29.07,-1.79,29.06,30.32,0.49
-20260528,28.7,28.7,28.35,28.45,58304,29.02,-1.96,28.97,30.28,1.02
+20260528,28.7,28.7,28.35,28.45,28000,29.02,-1.96,28.97,30.28,0.5
 ```
 
 ## Latest TDCC Snapshot

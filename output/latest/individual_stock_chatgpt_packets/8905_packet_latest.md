@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8905 裕國
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:53 Asia/Taipei
+- generated_at: 2026-05-28 20:20:41 Asia/Taipei
 - stock_id: 8905
 - stock_name: 裕國
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 30
 - low: 29.35
 - close: 30
-- volume: 9108
+- volume: 30000
 - ma5: 30.11
 - ema23_primary: 33.04
 - distance_to_ema23_pct: -9.21
@@ -69,7 +69,7 @@
 - ma120: 34.96
 - return_5d: 1.69
 - return_20d: -23.18
-- volume_ratio: 0.44
+- volume_ratio: 1.37
 - distance_to_ma20_pct_auxiliary: -9.67
 - distance_to_high_60_pct: -27.88
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,29.15,30.3,29.15,30.3,30000,33.89,-10.59,34.55,37.87,1.55
 20260525,30.3,31,30.1,31,31000,33.65,-7.87,34.13,37.73,1.49
 20260527,30.15,31.2,29.6,29.7,30000,33.32,-10.86,33.66,37.56,1.41
-20260528,29.8,30,29.35,30,9108,33.04,-9.21,33.21,37.4,0.44
+20260528,29.8,30,29.35,30,30000,33.04,-9.21,33.21,37.4,1.37
 ```
 
 ## Latest TDCC Snapshot

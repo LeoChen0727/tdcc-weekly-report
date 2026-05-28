@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3095 及成
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:17 Asia/Taipei
+- generated_at: 2026-05-28 20:19:03 Asia/Taipei
 - stock_id: 3095
 - stock_name: 及成
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 45.65
 - low: 43.6
 - close: 44.45
-- volume: 34566
+- volume: 44000
 - ma5: 45.26
 - ema23_primary: 43.53
 - distance_to_ema23_pct: 2.11
@@ -69,7 +69,7 @@
 - ma120: 33.38
 - return_5d: -6.12
 - return_20d: 7.76
-- volume_ratio: 0.63
+- volume_ratio: 0.8
 - distance_to_ma20_pct_auxiliary: -0.2
 - distance_to_high_60_pct: -10.11
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,47,47,45.3,45.55,45000,43.22,5.4,44.04,36.64,0.84
 20260526,45.55,45.55,44.05,45.2,45000,43.38,4.19,44.23,36.87,0.84
 20260527,44.45,47.1,44.15,44.2,45000,43.45,1.73,44.38,37.06,0.84
-20260528,45.65,45.65,43.6,44.45,34566,43.53,2.11,44.54,37.27,0.63
+20260528,45.65,45.65,43.6,44.45,44000,43.53,2.11,44.54,37.27,0.8
 ```
 
 ## Latest TDCC Snapshot

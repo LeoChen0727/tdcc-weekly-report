@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2752 豆府
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:07 Asia/Taipei
+- generated_at: 2026-05-28 20:18:53 Asia/Taipei
 - stock_id: 2752
 - stock_name: 豆府
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 173
 - low: 172
 - close: 172.5
-- volume: 13413
+- volume: 173000
 - ma5: 173.6
 - ema23_primary: 180.5
 - distance_to_ema23_pct: -4.43
@@ -69,7 +69,7 @@
 - ma120: 202.15
 - return_5d: -2.54
 - return_20d: -7.01
-- volume_ratio: 0.21
+- volume_ratio: 2.45
 - distance_to_ma20_pct_auxiliary: -3.82
 - distance_to_high_60_pct: -22.65
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,175,175,171.5,172.5,173000,182.8,-5.63,181.38,197.12,3.55
 20260526,172,173,172,173,173000,181.98,-4.93,180.65,196.53,3.07
 20260527,172.5,173,172,173,172000,181.23,-4.54,180,195.92,2.73
-20260528,173,173,172,172.5,13413,180.5,-4.43,179.35,195.31,0.21
+20260528,173,173,172,172.5,173000,180.5,-4.43,179.35,195.31,2.45
 ```
 
 ## Latest TDCC Snapshot

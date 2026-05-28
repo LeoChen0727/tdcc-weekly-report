@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6210 慶生
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:12 Asia/Taipei
+- generated_at: 2026-05-28 20:19:59 Asia/Taipei
 - stock_id: 6210
 - stock_name: 慶生
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 21.3
 - low: 20.55
 - close: 21.05
-- volume: 74967
+- volume: 21000
 - ma5: 21.23
 - ema23_primary: 20.93
 - distance_to_ema23_pct: 0.59
@@ -69,7 +69,7 @@
 - ma120: 20.36
 - return_5d: 0
 - return_20d: 2.93
-- volume_ratio: 0.97
+- volume_ratio: 0.28
 - distance_to_ma20_pct_auxiliary: 0.56
 - distance_to_high_60_pct: -7.06
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,21.05,21.5,20.75,21.45,21000,20.84,2.91,20.8,20.42,0.28
 20260526,21.2,21.4,21.1,21.4,21000,20.89,2.44,20.86,20.43,0.29
 20260527,21.2,21.4,20.6,21.2,21000,20.92,1.36,20.9,20.43,0.28
-20260528,20.65,21.3,20.55,21.05,74967,20.93,0.59,20.93,20.43,0.97
+20260528,20.65,21.3,20.55,21.05,21000,20.93,0.59,20.93,20.43,0.28
 ```
 
 ## Latest TDCC Snapshot

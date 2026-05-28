@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3631 晟楠
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:33 Asia/Taipei
+- generated_at: 2026-05-28 20:19:19 Asia/Taipei
 - stock_id: 3631
 - stock_name: 晟楠
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 37.75
 - low: 36.4
 - close: 36.45
-- volume: 189063
+- volume: 37000
 - ma5: 37.31
 - ema23_primary: 37.24
 - distance_to_ema23_pct: -2.12
@@ -69,7 +69,7 @@
 - ma120: 29.18
 - return_5d: -4.71
 - return_20d: -3.83
-- volume_ratio: 1.11
+- volume_ratio: 0.23
 - distance_to_ma20_pct_auxiliary: -5.64
 - distance_to_high_60_pct: -14.84
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,37.8,38.25,37.35,37.75,38000,37.32,1.16,38.79,32.24,0.21
 20260526,38.1,38.1,37,37.15,37000,37.3,-0.41,38.77,32.37,0.22
 20260527,36.6,37.65,36.35,37.4,37000,37.31,0.24,38.7,32.5,0.22
-20260528,37.5,37.75,36.4,36.45,189063,37.24,-2.12,38.63,32.62,1.11
+20260528,37.5,37.75,36.4,36.45,37000,37.24,-2.12,38.63,32.62,0.23
 ```
 
 ## Latest TDCC Snapshot

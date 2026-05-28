@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8906 花王
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:53 Asia/Taipei
+- generated_at: 2026-05-28 20:20:41 Asia/Taipei
 - stock_id: 8906
 - stock_name: 花王
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 24.8
 - low: 24.5
 - close: 24.5
-- volume: 33222
+- volume: 25000
 - ma5: 24.9
 - ema23_primary: 25.51
 - distance_to_ema23_pct: -3.97
@@ -69,7 +69,7 @@
 - ma120: 31.26
 - return_5d: -5.04
 - return_20d: 0.2
-- volume_ratio: 0.54
+- volume_ratio: 0.41
 - distance_to_ma20_pct_auxiliary: -2.12
 - distance_to_high_60_pct: -27.08
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,25.65,25.7,25,25,25000,25.73,-2.82,25.09,28.33,0.31
 20260526,25,25.05,24.55,25,25000,25.67,-2.59,25.04,28.18,0.35
 20260527,25,25,24.8,24.95,25000,25.61,-2.56,25.03,28.03,0.38
-20260528,24.8,24.8,24.5,24.5,33222,25.51,-3.97,25.03,27.88,0.54
+20260528,24.8,24.8,24.5,24.5,25000,25.51,-3.97,25.03,27.88,0.41
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5488 松普
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:00 Asia/Taipei
+- generated_at: 2026-05-28 20:19:47 Asia/Taipei
 - stock_id: 5488
 - stock_name: 松普
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 12
 - low: 11.5
 - close: 11.5
-- volume: 465027
+- volume: 12000
 - ma5: 11.73
 - ema23_primary: 10.9
 - distance_to_ema23_pct: 5.53
@@ -69,7 +69,7 @@
 - ma120: 10.02
 - return_5d: -2.54
 - return_20d: 16.87
-- volume_ratio: 0.72
+- volume_ratio: 0.02
 - distance_to_ma20_pct_auxiliary: 7.06
 - distance_to_high_60_pct: -7.26
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,11.8,12.3,11.75,11.9,12000,10.65,11.72,10.45,10.18,0.02
 20260526,12.1,12.25,11.75,11.85,12000,10.75,10.22,10.56,10.21,0.02
 20260527,12.2,12.25,11.5,11.85,12000,10.84,9.29,10.66,10.24,0.02
-20260528,12,12,11.5,11.5,465027,10.9,5.53,10.74,10.26,0.72
+20260528,12,12,11.5,11.5,12000,10.9,5.53,10.74,10.26,0.02
 ```
 
 ## Latest TDCC Snapshot

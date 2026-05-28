@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9951 皇田
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:58 Asia/Taipei
+- generated_at: 2026-05-28 20:20:46 Asia/Taipei
 - stock_id: 9951
 - stock_name: 皇田
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 53
 - low: 52.2
 - close: 52.6
-- volume: 174505
+- volume: 53000
 - ma5: 52.48
 - ema23_primary: 53.23
 - distance_to_ema23_pct: -1.17
@@ -69,7 +69,7 @@
 - ma120: 54.87
 - return_5d: -0.94
 - return_20d: -1.87
-- volume_ratio: 1.72
+- volume_ratio: 0.56
 - distance_to_ma20_pct_auxiliary: -1.3
 - distance_to_high_60_pct: -5.4
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,53.1,53.1,52.5,52.8,53000,53.54,-1.38,53.51,54,0.54
 20260526,53,53,51.7,52.2,52000,53.43,-2.29,53.44,53.94,0.54
 20260527,52.3,52.3,51.5,51.7,52000,53.28,-2.97,53.34,53.89,0.55
-20260528,52.5,53,52.2,52.6,174505,53.23,-1.17,53.3,53.84,1.72
+20260528,52.5,53,52.2,52.6,53000,53.23,-1.17,53.3,53.84,0.56
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3147 大綜
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:18 Asia/Taipei
+- generated_at: 2026-05-28 20:19:04 Asia/Taipei
 - stock_id: 3147
 - stock_name: 大綜
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 184.5
 - low: 177.5
 - close: 178
-- volume: 335239
+- volume: 181000
 - ma5: 184.1
 - ema23_primary: 178.01
 - distance_to_ema23_pct: -0
@@ -69,7 +69,7 @@
 - ma120: 170.62
 - return_5d: -1.66
 - return_20d: 4.71
-- volume_ratio: 1.16
+- volume_ratio: 0.64
 - distance_to_ma20_pct_auxiliary: -0.28
 - distance_to_high_60_pct: -12.32
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,192,194,185.5,188,189000,176.82,6.32,176.82,172.93,0.65
 20260526,191,191,182.5,184,185000,177.42,3.71,177.4,173.24,0.66
 20260527,188,188,181,184.5,183000,178.01,3.65,178.1,173.29,0.66
-20260528,184.5,184.5,177.5,178,335239,178.01,-0,178.5,173.03,1.16
+20260528,184.5,184.5,177.5,178,181000,178.01,-0,178.5,173.03,0.64
 ```
 
 ## Latest TDCC Snapshot

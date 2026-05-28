@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3551 世禾
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:30 Asia/Taipei
+- generated_at: 2026-05-28 20:19:16 Asia/Taipei
 - stock_id: 3551
 - stock_name: 世禾
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 227
 - low: 210
 - close: 217.5
-- volume: 6307666
+- volume: 220000
 - ma5: 206.5
 - ema23_primary: 203.83
 - distance_to_ema23_pct: 6.71
@@ -69,7 +69,7 @@
 - ma120: 190.68
 - return_5d: 10.41
 - return_20d: 11.25
-- volume_ratio: 3.13
+- volume_ratio: 0.13
 - distance_to_ma20_pct_auxiliary: 5.45
 - distance_to_high_60_pct: -4.18
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,206,207.5,201.5,202.5,204000,202.11,0.19,204.55,190.88,0.11
 20260526,204.5,205,200.5,202.5,203000,202.14,0.18,204.6,191.07,0.11
 20260527,207,213,206,207.5,209000,202.59,2.43,205.15,191.31,0.12
-20260528,210,227,210,217.5,6307666,203.83,6.71,206.25,191.83,3.13
+20260528,210,227,210,217.5,220000,203.83,6.71,206.25,191.83,0.13
 ```
 
 ## Latest TDCC Snapshot
@@ -125,7 +125,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3551 | 世禾 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 3551 | 世禾 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4529 淳紳
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:42 Asia/Taipei
+- generated_at: 2026-05-28 20:19:29 Asia/Taipei
 - stock_id: 4529
 - stock_name: 淳紳
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 5.15
 - low: 4.82
 - close: 4.84
-- volume: 212647
+- volume: 5000
 - ma5: 5.25
 - ema23_primary: 5.06
 - distance_to_ema23_pct: -4.34
@@ -69,7 +69,7 @@
 - ma120: 3.84
 - return_5d: -17.69
 - return_20d: -15.09
-- volume_ratio: 1.35
+- volume_ratio: 0.03
 - distance_to_ma20_pct_auxiliary: -6.57
 - distance_to_high_60_pct: -26.44
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,5.6,5.87,5.4,5.41,6000,5.07,6.62,5.29,4.02,0.03
 20260526,5.18,5.38,4.96,5.08,5000,5.07,0.1,5.27,4.05,0.03
 20260527,5.13,5.5,5.03,5.13,5000,5.08,1,5.22,4.08,0.03
-20260528,5.15,5.15,4.82,4.84,212647,5.06,-4.34,5.18,4.1,1.35
+20260528,5.15,5.15,4.82,4.84,5000,5.06,-4.34,5.18,4.1,0.03
 ```
 
 ## Latest TDCC Snapshot

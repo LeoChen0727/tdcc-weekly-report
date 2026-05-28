@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8933 愛地雅
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:54 Asia/Taipei
+- generated_at: 2026-05-28 20:20:42 Asia/Taipei
 - stock_id: 8933
 - stock_name: 愛地雅
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 4.73
 - low: 4.26
 - close: 4.73
-- volume: 618163
+- volume: 5000
 - ma5: 4.45
 - ema23_primary: 5.23
 - distance_to_ema23_pct: -9.5
@@ -69,7 +69,7 @@
 - ma120: 6.33
 - return_5d: 6.29
 - return_20d: -21.82
-- volume_ratio: 1.11
+- volume_ratio: 0.01
 - distance_to_ma20_pct_auxiliary: -10.1
 - distance_to_high_60_pct: -35.91
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,4.5,4.51,4.33,4.4,4000,5.45,-19.22,5.5,6.27,0.01
 20260526,4.44,4.44,4.35,4.4,4000,5.36,-17.91,5.42,6.23,0.01
 20260527,4.35,4.36,4.28,4.3,4000,5.27,-18.43,5.33,6.19,0.01
-20260528,4.3,4.73,4.26,4.73,618163,5.23,-9.5,5.26,6.16,1.11
+20260528,4.3,4.73,4.26,4.73,5000,5.23,-9.5,5.26,6.16,0.01
 ```
 
 ## Latest TDCC Snapshot

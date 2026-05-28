@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8050 廣積
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:44 Asia/Taipei
+- generated_at: 2026-05-28 20:20:31 Asia/Taipei
 - stock_id: 8050
 - stock_name: 廣積
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 60.5
 - low: 57.1
 - close: 58.2
-- volume: 4821874
+- volume: 59000
 - ma5: 56.94
 - ema23_primary: 49.98
 - distance_to_ema23_pct: 16.44
@@ -69,7 +69,7 @@
 - ma120: 43.6
 - return_5d: 13.45
 - return_20d: 39.07
-- volume_ratio: 3.92
+- volume_ratio: 0.06
 - distance_to_ma20_pct_auxiliary: 17.95
 - distance_to_high_60_pct: -11.95
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,55.2,56.6,53.9,54.7,55000,47.39,15.43,46.78,43.05,0.05
 20260526,54.9,60.1,53.9,60.1,57000,48.45,24.06,47.72,43.35,0.06
 20260527,66,66.1,56.8,57.9,62000,49.23,17.6,48.53,43.61,0.06
-20260528,57.9,60.5,57.1,58.2,4821874,49.98,16.44,49.34,43.87,3.92
+20260528,57.9,60.5,57.1,58.2,59000,49.98,16.44,49.34,43.87,0.06
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 8050 | 廣積 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

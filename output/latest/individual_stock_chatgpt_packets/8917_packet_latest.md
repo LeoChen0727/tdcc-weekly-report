@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8917 欣泰
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:53 Asia/Taipei
+- generated_at: 2026-05-28 20:20:41 Asia/Taipei
 - stock_id: 8917
 - stock_name: 欣泰
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 53.5
 - low: 53.1
 - close: 53.3
-- volume: 18585
+- volume: 53000
 - ma5: 52.82
 - ema23_primary: 52.92
 - distance_to_ema23_pct: 0.72
@@ -69,7 +69,7 @@
 - ma120: 56
 - return_5d: 0.57
 - return_20d: 2.5
-- volume_ratio: 0.6
+- volume_ratio: 1.63
 - distance_to_ma20_pct_auxiliary: 0.89
 - distance_to_high_60_pct: -23.09
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,52.3,53.3,52.3,52.5,53000,52.94,-0.82,52.73,54.62,1.77
 20260526,52.1,53,52.1,52.1,53000,52.87,-1.45,52.76,54.54,1.69
 20260527,52.8,53.3,52.8,53.1,53000,52.89,0.4,52.77,54.48,1.68
-20260528,53.1,53.5,53.1,53.3,18585,52.92,0.72,52.83,54.45,0.6
+20260528,53.1,53.5,53.1,53.3,53000,52.92,0.72,52.83,54.45,1.63
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4533 協易機
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:43 Asia/Taipei
+- generated_at: 2026-05-28 20:19:29 Asia/Taipei
 - stock_id: 4533
 - stock_name: 協易機
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 33.1
 - low: 31.7
 - close: 32
-- volume: 2917268
+- volume: 32000
 - ma5: 33.08
 - ema23_primary: 32.03
 - distance_to_ema23_pct: -0.09
@@ -69,7 +69,7 @@
 - ma120: 29.48
 - return_5d: -2.14
 - return_20d: 7.2
-- volume_ratio: 1.17
+- volume_ratio: 0.01
 - distance_to_ma20_pct_auxiliary: 0.13
 - distance_to_high_60_pct: -21.76
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,34,35,32.85,33.75,34000,31.83,6.02,31.5,31.99,0.01
 20260526,34.5,35.25,33.15,34.25,34000,32.03,6.91,31.75,32.01,0.01
 20260527,34.9,35.05,31.95,32,33000,32.03,-0.1,31.85,31.99,0.01
-20260528,32.2,33.1,31.7,32,2917268,32.03,-0.09,31.96,31.99,1.17
+20260528,32.2,33.1,31.7,32,32000,32.03,-0.09,31.96,31.99,0.01
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6470 宇智
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:19 Asia/Taipei
+- generated_at: 2026-05-28 20:20:06 Asia/Taipei
 - stock_id: 6470
 - stock_name: 宇智
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 49
 - low: 48.15
 - close: 48.45
-- volume: 183771
+- volume: 49000
 - ma5: 47.91
 - ema23_primary: 47.65
 - distance_to_ema23_pct: 1.69
@@ -69,7 +69,7 @@
 - ma120: 47.57
 - return_5d: 0.52
 - return_20d: 1.57
-- volume_ratio: 2.72
+- volume_ratio: 0.8
 - distance_to_ma20_pct_auxiliary: 1.95
 - distance_to_high_60_pct: -10.11
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,48.4,48.4,47.4,48,48000,47.56,0.92,47.45,49.02,0.74
 20260526,47.6,47.8,47.35,47.8,48000,47.58,0.46,47.49,48.92,0.78
 20260527,47.5,47.8,47.05,47.5,48000,47.57,-0.16,47.49,48.82,0.77
-20260528,48.25,49,48.15,48.45,183771,47.65,1.69,47.52,48.73,2.72
+20260528,48.25,49,48.15,48.45,49000,47.65,1.69,47.52,48.73,0.8
 ```
 
 ## Latest TDCC Snapshot

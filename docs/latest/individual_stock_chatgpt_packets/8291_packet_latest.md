@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8291 尚茂
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:49 Asia/Taipei
+- generated_at: 2026-05-28 20:20:36 Asia/Taipei
 - stock_id: 8291
 - stock_name: 尚茂
 - packet_status: partial_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 133
 - low: 133
 - close: 133
-- volume: 67868
+- volume: 133000
 - ma5: 111.02
 - ema23_primary: 67.6
 - distance_to_ema23_pct: 96.74
@@ -69,7 +69,7 @@
 - ma120: 33.76
 - return_5d: 60.43
 - return_20d: 563.34
-- volume_ratio: 0.52
+- volume_ratio: 0.99
 - distance_to_ma20_pct_auxiliary: 112.56
 - distance_to_high_60_pct: 0
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,100,100,100,100,100000,51.38,94.63,47.12,28.16,0.84
 20260526,110,110,110,110,110000,56.26,95.51,51.78,29.87,0.89
 20260527,121,121,121,121,121000,61.66,96.24,56.92,31.73,0.95
-20260528,133,133,133,133,67868,67.6,96.74,62.57,33.76,0.52
+20260528,133,133,133,133,133000,67.6,96.74,62.57,33.76,0.99
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6884 海柏特
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:34 Asia/Taipei
+- generated_at: 2026-05-28 20:20:21 Asia/Taipei
 - stock_id: 6884
 - stock_name: 海柏特
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 33.4
 - low: 32.85
 - close: 32.85
-- volume: 10001
+- volume: 33000
 - ma5: 33.09
 - ema23_primary: 33.74
 - distance_to_ema23_pct: -2.64
@@ -69,7 +69,7 @@
 - ma120: 35.47
 - return_5d: -1.5
 - return_20d: -7.33
-- volume_ratio: 0.55
+- volume_ratio: 1.71
 - distance_to_ma20_pct_auxiliary: -2.67
 - distance_to_high_60_pct: -10.73
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,33.35,33.35,33.1,33.1,33000,33.91,-2.4,34.07,34.53,1.92
 20260526,33.1,33.35,33.1,33.35,33000,33.87,-1.52,33.98,34.5,1.83
 20260527,33.4,33.4,33.3,33.35,33000,33.82,-1.4,33.88,34.46,1.82
-20260528,33.4,33.4,32.85,32.85,10001,33.74,-2.64,33.75,34.4,0.55
+20260528,33.4,33.4,32.85,32.85,33000,33.74,-2.64,33.75,34.4,1.71
 ```
 
 ## Latest TDCC Snapshot

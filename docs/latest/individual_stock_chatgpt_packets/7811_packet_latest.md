@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7811 民盛
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:42 Asia/Taipei
+- generated_at: 2026-05-28 20:20:29 Asia/Taipei
 - stock_id: 7811
 - stock_name: 民盛
 - packet_status: partial_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 81.6
 - low: 75.8
 - close: 80.3
-- volume: 152105
+- volume: 80000
 - ma5: 78.84
 - ema23_primary: 81
 - distance_to_ema23_pct: -0.86
@@ -69,7 +69,7 @@
 - ma120: 84.41
 - return_5d: 3.35
 - return_20d: -6.63
-- volume_ratio: 2.43
+- volume_ratio: 1.36
 - distance_to_ma20_pct_auxiliary: -0.07
 - distance_to_high_60_pct: -14.03
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,77.3,77.5,77,77.5,77000,81.33,-4.71,81.08,84.74,1.32
 20260526,78,81.5,78,80.5,80000,81.26,-0.93,80.87,84.64,1.31
 20260527,81.5,81.5,78.9,78.9,80000,81.06,-2.67,80.64,84.51,1.32
-20260528,78.9,81.6,75.8,80.3,152105,81,-0.86,80.36,84.41,2.43
+20260528,78.9,81.6,75.8,80.3,80000,81,-0.86,80.36,84.41,1.36
 ```
 
 ## Latest TDCC Snapshot

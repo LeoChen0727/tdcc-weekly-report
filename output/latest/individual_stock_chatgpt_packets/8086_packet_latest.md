@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8086 宏捷科
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:45 Asia/Taipei
+- generated_at: 2026-05-28 20:20:32 Asia/Taipei
 - stock_id: 8086
 - stock_name: 宏捷科
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 175.5
 - low: 161
 - close: 165.5
-- volume: 9736370
+- volume: 168000
 - ma5: 168.1
 - ema23_primary: 154.95
 - distance_to_ema23_pct: 6.81
@@ -69,7 +69,7 @@
 - ma120: 126.35
 - return_5d: 11.07
 - return_20d: 16.55
-- volume_ratio: 1.35
+- volume_ratio: 0.03
 - distance_to_ma20_pct_auxiliary: 5.99
 - distance_to_high_60_pct: -9.56
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,166,171.5,161,163,166000,149.79,8.82,151.22,138.98,0.02
 20260526,166,179,158.5,179,170000,152.22,17.59,153.47,139.96,0.02
 20260527,182.5,183,170.5,173.5,175000,153.99,12.67,154.97,140.8,0.03
-20260528,174.5,175.5,161,165.5,9736370,154.95,6.81,156.15,141.46,1.35
+20260528,174.5,175.5,161,165.5,168000,154.95,6.81,156.15,141.46,0.03
 ```
 
 ## Latest TDCC Snapshot
@@ -125,8 +125,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 8086 | 宏捷科 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260528 | 8086 | 宏捷科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260521 | 8086 | 宏捷科 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

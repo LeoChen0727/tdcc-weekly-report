@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6913 鴻呈
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:35 Asia/Taipei
+- generated_at: 2026-05-28 20:20:22 Asia/Taipei
 - stock_id: 6913
 - stock_name: 鴻呈
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 146.5
 - low: 139
 - close: 142
-- volume: 626608
+- volume: 143000
 - ma5: 143.2
 - ema23_primary: 135.73
 - distance_to_ema23_pct: 4.62
@@ -69,7 +69,7 @@
 - ma120: 121.05
 - return_5d: 3.65
 - return_20d: 6.77
-- volume_ratio: 1.3
+- volume_ratio: 0.31
 - distance_to_ma20_pct_auxiliary: 4.86
 - distance_to_high_60_pct: -6.58
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,142,146,137.5,141,142000,133.03,5.99,134.75,122.88,0.21
 20260526,144,152,144,149,148000,134.36,10.9,134.82,123.37,0.26
 20260527,150,150,142.5,144,146000,135.16,6.54,134.97,123.78,0.29
-20260528,144.5,146.5,139,142,626608,135.73,4.62,135.43,124.21,1.3
+20260528,144.5,146.5,139,142,143000,135.73,4.62,135.43,124.21,0.31
 ```
 
 ## Latest TDCC Snapshot

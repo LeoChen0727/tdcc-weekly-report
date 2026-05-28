@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6228 全譜
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:13 Asia/Taipei
+- generated_at: 2026-05-28 20:20:00 Asia/Taipei
 - stock_id: 6228
 - stock_name: 全譜
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 21.6
 - low: 21
 - close: 21
-- volume: 12297
+- volume: 21000
 - ma5: 21.18
 - ema23_primary: 22.29
 - distance_to_ema23_pct: -5.77
@@ -69,7 +69,7 @@
 - ma120: 24.64
 - return_5d: -7.08
 - return_20d: -13.58
-- volume_ratio: 0.63
+- volume_ratio: 1.05
 - distance_to_ma20_pct_auxiliary: -5.43
 - distance_to_high_60_pct: -19.08
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,21.1,21.15,21,21.05,21000,22.67,-7.15,22.68,23.78,1.21
 20260526,21.3,21.3,21.05,21.05,21000,22.54,-6.59,22.51,23.7,1.14
 20260527,21.05,21.05,20.95,20.95,21000,22.4,-6.49,22.37,23.63,1.09
-20260528,21.6,21.6,21,21,12297,22.29,-5.77,22.2,23.57,0.63
+20260528,21.6,21.6,21,21,21000,22.29,-5.77,22.2,23.57,1.05
 ```
 
 ## Latest TDCC Snapshot

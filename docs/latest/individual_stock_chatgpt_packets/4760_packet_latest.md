@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4760 勤凱
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:48 Asia/Taipei
+- generated_at: 2026-05-28 20:19:34 Asia/Taipei
 - stock_id: 4760
 - stock_name: 勤凱
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 425.5
 - low: 390.5
 - close: 425.5
-- volume: 2915674
+- volume: 414000
 - ma5: 384.8
 - ema23_primary: 314.74
 - distance_to_ema23_pct: 35.19
@@ -69,7 +69,7 @@
 - ma120: 213.73
 - return_5d: 37.26
 - return_20d: 78.78
-- volume_ratio: 1.68
+- volume_ratio: 0.26
 - distance_to_ma20_pct_auxiliary: 37.98
 - distance_to_high_60_pct: 0
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,370,375,367,375,374000,288.25,30.1,282.75,234.16,0.22
 20260526,412.5,412.5,350,395.5,386000,297.19,33.08,291.38,237.41,0.23
 20260527,400,414,376,387,391000,304.67,27.02,299,240.57,0.24
-20260528,390.5,425.5,390.5,425.5,2915674,314.74,35.19,308.38,244.47,1.68
+20260528,390.5,425.5,390.5,425.5,414000,314.74,35.19,308.38,244.47,0.26
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4760 | 勤凱 | true_breakout | 嚴格突破 | 84.0 |  |  | breakout_confirmed |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4127 天良
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:37 Asia/Taipei
+- generated_at: 2026-05-28 20:19:24 Asia/Taipei
 - stock_id: 4127
 - stock_name: 天良
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 69.2
 - low: 65.3
 - close: 65.8
-- volume: 362581
+- volume: 67000
 - ma5: 66.52
 - ema23_primary: 51.12
 - distance_to_ema23_pct: 28.72
@@ -69,7 +69,7 @@
 - ma120: 36.77
 - return_5d: 15.04
 - return_20d: 69.81
-- volume_ratio: 0.65
+- volume_ratio: 0.12
 - distance_to_ma20_pct_auxiliary: 34.67
 - distance_to_high_60_pct: -12.03
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,69.1,69.1,63,69.1,67000,46.44,48.79,44.62,38.99,0.12
 20260526,69,74.8,65,68.1,69000,48.25,41.15,46.11,39.52,0.13
 20260527,70.5,71.9,65.7,66.7,68000,49.78,33.98,47.51,40.03,0.12
-20260528,65.3,69.2,65.3,65.8,362581,51.12,28.72,48.86,40.51,0.65
+20260528,65.3,69.2,65.3,65.8,67000,51.12,28.72,48.86,40.51,0.12
 ```
 
 ## Latest TDCC Snapshot

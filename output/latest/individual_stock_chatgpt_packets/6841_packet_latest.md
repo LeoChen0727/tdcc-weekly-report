@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6841 長佳智能
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:32 Asia/Taipei
+- generated_at: 2026-05-28 20:20:19 Asia/Taipei
 - stock_id: 6841
 - stock_name: 長佳智能
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 57.8
 - low: 55.3
 - close: 55.6
-- volume: 656733
+- volume: 56000
 - ma5: 57.42
 - ema23_primary: 58.93
 - distance_to_ema23_pct: -5.65
@@ -69,7 +69,7 @@
 - ma120: 63.64
 - return_5d: -7.64
 - return_20d: -4.79
-- volume_ratio: 3.14
+- volume_ratio: 0.31
 - distance_to_ma20_pct_auxiliary: -6.46
 - distance_to_high_60_pct: -18.24
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,59.2,59.5,57.6,57.9,58000,59.63,-2.9,59.73,60.07,0.29
 20260526,58.2,58.3,57.3,57.5,58000,59.45,-3.28,59.66,59.95,0.3
 20260527,57.3,57.5,56.7,56.8,57000,59.23,-4.1,59.58,59.83,0.31
-20260528,56.5,57.8,55.3,55.6,656733,58.93,-5.65,59.44,59.68,3.14
+20260528,56.5,57.8,55.3,55.6,56000,58.93,-5.65,59.44,59.68,0.31
 ```
 
 ## Latest TDCC Snapshot

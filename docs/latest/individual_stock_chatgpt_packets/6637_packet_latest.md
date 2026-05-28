@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6637 醫影
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:25 Asia/Taipei
+- generated_at: 2026-05-28 20:20:12 Asia/Taipei
 - stock_id: 6637
 - stock_name: 醫影
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 67.9
 - low: 66
 - close: 66
-- volume: 16652
+- volume: 66000
 - ma5: 66.4
 - ema23_primary: 68.18
 - distance_to_ema23_pct: -3.2
@@ -69,7 +69,7 @@
 - ma120: 74.76
 - return_5d: 0.46
 - return_20d: -7.69
-- volume_ratio: 0.29
+- volume_ratio: 1.11
 - distance_to_ma20_pct_auxiliary: -3.36
 - distance_to_high_60_pct: -16.46
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,65.9,66,65.5,65.7,66000,68.63,-4.27,69.02,71.69,1.25
 20260526,65.7,67.3,65.7,67,67000,68.49,-2.18,68.78,71.59,1.22
 20260527,67,67.4,67,67.1,67000,68.38,-1.87,68.57,71.47,1.18
-20260528,67.1,67.9,66,66,16652,68.18,-3.2,68.3,71.34,0.29
+20260528,67.1,67.9,66,66,66000,68.18,-3.2,68.3,71.34,1.11
 ```
 
 ## Latest TDCC Snapshot

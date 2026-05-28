@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5301 寶得利
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:56 Asia/Taipei
+- generated_at: 2026-05-28 20:19:43 Asia/Taipei
 - stock_id: 5301
 - stock_name: 寶得利
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 6.92
 - low: 6.71
 - close: 6.9
-- volume: 9218
+- volume: 7000
 - ma5: 6.8
 - ema23_primary: 7.57
 - distance_to_ema23_pct: -8.8
@@ -69,7 +69,7 @@
 - ma120: 10.07
 - return_5d: 1.47
 - return_20d: -21.59
-- volume_ratio: 0.41
+- volume_ratio: 0.31
 - distance_to_ma20_pct_auxiliary: -7.2
 - distance_to_high_60_pct: -43.44
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,6.96,6.99,6.7,6.7,7000,7.8,-14.09,7.76,9.31,0.32
 20260526,6.7,6.78,6.7,6.73,7000,7.71,-12.71,7.64,9.23,0.32
 20260527,6.71,6.71,6.6,6.71,7000,7.63,-12.01,7.53,9.14,0.32
-20260528,6.71,6.92,6.71,6.9,9218,7.57,-8.8,7.44,9.06,0.41
+20260528,6.71,6.92,6.71,6.9,7000,7.57,-8.8,7.44,9.06,0.31
 ```
 
 ## Latest TDCC Snapshot

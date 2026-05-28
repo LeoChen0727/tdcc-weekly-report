@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3234 光環
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:21 Asia/Taipei
+- generated_at: 2026-05-28 20:19:07 Asia/Taipei
 - stock_id: 3234
 - stock_name: 光環
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 104.5
 - low: 98
 - close: 98.6
-- volume: 1728090
+- volume: 101000
 - ma5: 104.72
 - ema23_primary: 102.22
 - distance_to_ema23_pct: -3.54
@@ -69,7 +69,7 @@
 - ma120: 75.88
 - return_5d: 0.1
 - return_20d: -7.42
-- volume_ratio: 0.9
+- volume_ratio: 0.05
 - distance_to_ma20_pct_auxiliary: -3.35
 - distance_to_high_60_pct: -21.43
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,108,111,106,107,108000,101.73,5.18,102.33,98.18,0.05
 20260526,106,110.5,100.5,110.5,105000,102.46,7.85,102.78,98.46,0.05
 20260527,111.5,111.5,102.5,103.5,106000,102.54,0.93,102.41,98.59,0.06
-20260528,103.5,104.5,98,98.6,1728090,102.22,-3.54,102.02,98.48,0.9
+20260528,103.5,104.5,98,98.6,101000,102.22,-3.54,102.02,98.48,0.05
 ```
 
 ## Latest TDCC Snapshot

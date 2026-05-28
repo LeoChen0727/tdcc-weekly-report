@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3709 鑫聯大投控
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:35 Asia/Taipei
+- generated_at: 2026-05-28 20:19:22 Asia/Taipei
 - stock_id: 3709
 - stock_name: 鑫聯大投控
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 89.3
 - low: 85.1
 - close: 87.3
-- volume: 2216314
+- volume: 87000
 - ma5: 88.28
 - ema23_primary: 83.5
 - distance_to_ema23_pct: 4.55
@@ -69,7 +69,7 @@
 - ma120: 66.81
 - return_5d: 0.34
 - return_20d: 10.23
-- volume_ratio: 0.6
+- volume_ratio: 0.02
 - distance_to_ma20_pct_auxiliary: 2.68
 - distance_to_high_60_pct: -6.03
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,89.4,91.7,85.2,90.2,89000,82.28,9.63,84.02,74.68,0.02
 20260526,90.5,91,88.1,89.4,89000,82.87,7.88,84.41,75.01,0.02
 20260527,91.5,91.8,86.3,86.3,88000,83.16,3.78,84.62,75.18,0.02
-20260528,86,89.3,85.1,87.3,2216314,83.5,4.55,85.03,75.36,0.6
+20260528,86,89.3,85.1,87.3,87000,83.5,4.55,85.03,75.36,0.02
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3709 | 鑫聯大投控 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5345 馥鴻
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:57 Asia/Taipei
+- generated_at: 2026-05-28 20:19:44 Asia/Taipei
 - stock_id: 5345
 - stock_name: 馥鴻
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 20.45
 - low: 19.1
 - close: 20.45
-- volume: 107177
+- volume: 20000
 - ma5: 19.23
 - ema23_primary: 20.89
 - distance_to_ema23_pct: -2.09
@@ -69,7 +69,7 @@
 - ma120: 23.31
 - return_5d: 1.24
 - return_20d: -8.91
-- volume_ratio: 5.49
+- volume_ratio: 1.32
 - distance_to_ma20_pct_auxiliary: -2.22
 - distance_to_high_60_pct: -14.79
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,19.95,19.95,18.75,18.75,19000,21.34,-12.12,21.41,22.55,1.31
 20260526,18.8,19.5,18.25,18.95,19000,21.14,-10.35,21.22,22.47,1.24
 20260527,18.95,18.95,18.6,18.6,19000,20.93,-11.12,21.02,22.39,1.19
-20260528,19.1,20.45,19.1,20.45,107177,20.89,-2.09,20.91,22.35,5.49
+20260528,19.1,20.45,19.1,20.45,20000,20.89,-2.09,20.91,22.35,1.32
 ```
 
 ## Latest TDCC Snapshot

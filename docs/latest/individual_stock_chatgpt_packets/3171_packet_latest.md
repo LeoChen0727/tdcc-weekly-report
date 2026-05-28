@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3171 炎洲流通
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:19 Asia/Taipei
+- generated_at: 2026-05-28 20:19:05 Asia/Taipei
 - stock_id: 3171
 - stock_name: 炎洲流通
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 71.5
 - low: 68.8
 - close: 68.8
-- volume: 26016
+- volume: 70000
 - ma5: 69.7
 - ema23_primary: 68.18
 - distance_to_ema23_pct: 0.91
@@ -69,7 +69,7 @@
 - ma120: 56.3
 - return_5d: 2.84
 - return_20d: -0.29
-- volume_ratio: 0.4
+- volume_ratio: 1.05
 - distance_to_ma20_pct_auxiliary: 0.79
 - distance_to_high_60_pct: -6.78
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,71.6,73.7,70,70.9,72000,67.7,4.73,68.13,63.73,1.02
 20260526,70.8,71,70,70.5,70000,67.93,3.78,68.25,64.08,1.03
 20260527,71.8,72.9,70,70.2,71000,68.12,3.05,68.27,64.41,1.06
-20260528,71.4,71.5,68.8,68.8,26016,68.18,0.91,68.26,64.7,0.4
+20260528,71.4,71.5,68.8,68.8,70000,68.18,0.91,68.26,64.7,1.05
 ```
 
 ## Latest TDCC Snapshot

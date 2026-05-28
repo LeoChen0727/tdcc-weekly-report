@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3625 西勝
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:32 Asia/Taipei
+- generated_at: 2026-05-28 20:19:19 Asia/Taipei
 - stock_id: 3625
 - stock_name: 西勝
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 14.7
 - low: 14.2
 - close: 14.3
-- volume: 313332
+- volume: 14000
 - ma5: 14.57
 - ema23_primary: 15.12
 - distance_to_ema23_pct: -5.41
@@ -69,7 +69,7 @@
 - ma120: 18.18
 - return_5d: -2.05
 - return_20d: -16.37
-- volume_ratio: 0.58
+- volume_ratio: 0.03
 - distance_to_ma20_pct_auxiliary: -4.06
 - distance_to_high_60_pct: -26.29
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,14.85,15.2,14.8,14.85,15000,15.33,-3.16,15.32,16.59,0.03
 20260526,15.05,15.05,14.3,14.5,14000,15.27,-5.01,15.18,16.52,0.03
 20260527,14.3,14.55,14.1,14.4,14000,15.19,-5.22,15.04,16.44,0.03
-20260528,14.2,14.7,14.2,14.3,313332,15.12,-5.41,14.9,16.36,0.58
+20260528,14.2,14.7,14.2,14.3,14000,15.12,-5.41,14.9,16.36,0.03
 ```
 
 ## Latest TDCC Snapshot

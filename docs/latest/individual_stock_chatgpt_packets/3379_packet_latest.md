@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3379 彬台
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:25 Asia/Taipei
+- generated_at: 2026-05-28 20:19:11 Asia/Taipei
 - stock_id: 3379
 - stock_name: 彬台
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 41.75
 - low: 39.2
 - close: 39.45
-- volume: 420825
+- volume: 40000
 - ma5: 41.24
 - ema23_primary: 39.32
 - distance_to_ema23_pct: 0.33
@@ -69,7 +69,7 @@
 - ma120: 43.87
 - return_5d: -4.94
 - return_20d: -0.75
-- volume_ratio: 0.39
+- volume_ratio: 0.04
 - distance_to_ma20_pct_auxiliary: 0.77
 - distance_to_high_60_pct: -9.31
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,43.35,43.5,41.8,42,42000,38.99,7.72,38.52,38.35,0.04
 20260526,42,43.2,40.7,41.25,42000,39.18,5.28,38.94,38.35,0.04
 20260527,41.3,42.15,40.25,40.7,41000,39.31,3.55,39.16,38.34,0.04
-20260528,41,41.75,39.2,39.45,420825,39.32,0.33,39.15,38.31,0.39
+20260528,41,41.75,39.2,39.45,40000,39.32,0.33,39.15,38.31,0.04
 ```
 
 ## Latest TDCC Snapshot

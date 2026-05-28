@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3339 泰谷
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:24 Asia/Taipei
+- generated_at: 2026-05-28 20:19:10 Asia/Taipei
 - stock_id: 3339
 - stock_name: 泰谷
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 49.4
 - low: 44.4
 - close: 45.8
-- volume: 2955618
+- volume: 47000
 - ma5: 48.9
 - ema23_primary: 50.46
 - distance_to_ema23_pct: -9.23
@@ -69,7 +69,7 @@
 - ma120: 36.32
 - return_5d: -1.72
 - return_20d: -16.58
-- volume_ratio: 1.27
+- volume_ratio: 0.02
 - distance_to_ma20_pct_auxiliary: -11.83
 - distance_to_high_60_pct: -37
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,51.5,52,49.15,49.3,50000,51.13,-3.58,52.58,44.91,0.02
 20260526,49.65,53.4,49.1,50.8,51000,51.1,-0.6,52.6,45.29,0.02
 20260527,51.8,52.5,48.15,48.4,50000,50.88,-4.87,52.4,45.63,0.02
-20260528,48.15,49.4,44.4,45.8,2955618,50.46,-9.23,51.94,45.91,1.27
+20260528,48.15,49.4,44.4,45.8,47000,50.46,-9.23,51.94,45.91,0.02
 ```
 
 ## Latest TDCC Snapshot

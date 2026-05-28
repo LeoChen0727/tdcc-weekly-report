@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5299 杰力
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:56 Asia/Taipei
+- generated_at: 2026-05-28 20:19:43 Asia/Taipei
 - stock_id: 5299
 - stock_name: 杰力
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 122.5
 - low: 115.5
 - close: 119
-- volume: 1496180
+- volume: 120000
 - ma5: 117.7
 - ema23_primary: 102.78
 - distance_to_ema23_pct: 15.78
@@ -69,7 +69,7 @@
 - ma120: 80.03
 - return_5d: 13.33
 - return_20d: 35.38
-- volume_ratio: 2.39
+- volume_ratio: 0.22
 - distance_to_ma20_pct_auxiliary: 16.38
 - distance_to_high_60_pct: -15
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,109,117.5,109,116,115000,97.17,19.38,97.2,84.66,0.19
 20260526,115,127.5,114,127.5,122000,99.69,27.89,99.14,85.47,0.21
 20260527,130,140,118,119,129000,101.3,17.47,100.69,86.15,0.23
-20260528,118,122.5,115.5,119,1496180,102.78,15.78,102.25,86.84,2.39
+20260528,118,122.5,115.5,119,120000,102.78,15.78,102.25,86.84,0.22
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3548 兆利
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:30 Asia/Taipei
+- generated_at: 2026-05-28 20:19:16 Asia/Taipei
 - stock_id: 3548
 - stock_name: 兆利
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 100
 - low: 94.6
 - close: 95.3
-- volume: 704672
+- volume: 97000
 - ma5: 97.96
 - ema23_primary: 97.77
 - distance_to_ema23_pct: -2.53
@@ -69,7 +69,7 @@
 - ma120: 90.78
 - return_5d: -1.24
 - return_20d: -7.48
-- volume_ratio: 1.28
+- volume_ratio: 0.19
 - distance_to_ma20_pct_auxiliary: -3.25
 - distance_to_high_60_pct: -23.15
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,100.5,102,97,99.6,99000,98,1.63,99.48,92.03,0.17
 20260526,100,100.5,97.1,99.6,99000,98.13,1.5,99.19,92.29,0.17
 20260527,101,102,96,96.5,98000,98,-1.53,98.89,92.45,0.18
-20260528,97.2,100,94.6,95.3,704672,97.77,-2.53,98.5,92.63,1.28
+20260528,97.2,100,94.6,95.3,97000,97.77,-2.53,98.5,92.63,0.19
 ```
 
 ## Latest TDCC Snapshot

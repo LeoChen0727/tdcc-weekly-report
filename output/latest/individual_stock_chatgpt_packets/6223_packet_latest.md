@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6223 旺矽
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:13 Asia/Taipei
+- generated_at: 2026-05-28 20:20:00 Asia/Taipei
 - stock_id: 6223
 - stock_name: 旺矽
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 6450
 - low: 5855
 - close: 5915
-- volume: 1128312
+- volume: 6125000
 - ma5: 6156
 - ema23_primary: 5584.9
 - distance_to_ema23_pct: 5.91
@@ -69,7 +69,7 @@
 - ma120: 3466.96
 - return_5d: 4.69
 - return_20d: 19.62
-- volume_ratio: 0.48
+- volume_ratio: 2.35
 - distance_to_ma20_pct_auxiliary: 5.21
 - distance_to_high_60_pct: -11.25
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,6240,6465,6115,6200,6314000,5409.78,14.61,5430,4364.83,3.45
 20260526,6425,6425,6120,6240,6268000,5478.97,13.89,5498,4424.17,3.02
 20260527,6400,6645,6280,6390,6434000,5554.89,15.03,5573.5,4481.58,2.75
-20260528,6390,6450,5855,5915,1128312,5584.9,5.91,5622,4533.5,0.48
+20260528,6390,6450,5855,5915,6125000,5584.9,5.91,5622,4533.5,2.35
 ```
 
 ## Latest TDCC Snapshot
@@ -125,8 +125,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6223 | 旺矽 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260528 | 6223 | 旺矽 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260521 | 6223 | 旺矽 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

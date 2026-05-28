@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6733 博晟生醫
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:29 Asia/Taipei
+- generated_at: 2026-05-28 20:20:16 Asia/Taipei
 - stock_id: 6733
 - stock_name: 博晟生醫
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 26.4
 - low: 25.55
 - close: 25.75
-- volume: 409063
+- volume: 26000
 - ma5: 26.74
 - ema23_primary: 28.13
 - distance_to_ema23_pct: -8.48
@@ -69,7 +69,7 @@
 - ma120: 34.62
 - return_5d: -7.37
 - return_20d: -10.9
-- volume_ratio: 1.98
+- volume_ratio: 0.14
 - distance_to_ma20_pct_auxiliary: -7.66
 - distance_to_high_60_pct: -30.03
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,28,28.4,27.05,27.25,28000,28.71,-5.07,28.29,31.83,0.13
 20260526,27.3,27.35,26.8,26.85,27000,28.55,-5.96,28.18,31.67,0.13
 20260527,26.85,26.85,25.7,26.15,26000,28.35,-7.76,28.04,31.49,0.13
-20260528,26.15,26.4,25.55,25.75,409063,28.13,-8.48,27.89,31.32,1.98
+20260528,26.15,26.4,25.55,25.75,26000,28.13,-8.48,27.89,31.32,0.14
 ```
 
 ## Latest TDCC Snapshot

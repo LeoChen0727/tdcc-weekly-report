@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4413 飛寶企業
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:41 Asia/Taipei
+- generated_at: 2026-05-28 20:19:27 Asia/Taipei
 - stock_id: 4413
 - stock_name: 飛寶企業
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 17.15
 - low: 16.7
 - close: 16.7
-- volume: 11759
+- volume: 17000
 - ma5: 17.1
 - ema23_primary: 17.94
 - distance_to_ema23_pct: -6.93
@@ -69,7 +69,7 @@
 - ma120: 18.12
 - return_5d: -7.22
 - return_20d: -11.41
-- volume_ratio: 0.76
+- volume_ratio: 1.08
 - distance_to_ma20_pct_auxiliary: -8.54
 - distance_to_high_60_pct: -17.12
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,17.2,17.2,16.3,17.2,17000,18.27,-5.85,18.58,18.15,0.87
 20260526,16.55,17.4,16.4,17,17000,18.16,-6.4,18.46,18.13,0.97
 20260527,17.15,17.15,16.9,16.9,17000,18.06,-6.41,18.37,18.12,1.13
-20260528,17.15,17.15,16.7,16.7,11759,17.94,-6.93,18.26,18.1,0.76
+20260528,17.15,17.15,16.7,16.7,17000,17.94,-6.93,18.26,18.1,1.08
 ```
 
 ## Latest TDCC Snapshot

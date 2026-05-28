@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6419 京晨科
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:17 Asia/Taipei
+- generated_at: 2026-05-28 20:20:04 Asia/Taipei
 - stock_id: 6419
 - stock_name: 京晨科
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 147.5
 - low: 140
 - close: 140
-- volume: 627558
+- volume: 144000
 - ma5: 150.3
 - ema23_primary: 147.64
 - distance_to_ema23_pct: -5.17
@@ -69,7 +69,7 @@
 - ma120: 95.05
 - return_5d: -3.45
 - return_20d: -4.76
-- volume_ratio: 0.79
+- volume_ratio: 0.19
 - distance_to_ma20_pct_auxiliary: -8.71
 - distance_to_high_60_pct: -28.02
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,155,158,147.5,152,153000,148.05,2.67,152.8,114.58,0.2
 20260526,154.5,159.5,151,154,155000,148.54,3.67,153.7,115.86,0.2
 20260527,155,155,143,146,148000,148.33,-1.57,153.7,117.03,0.19
-20260528,146,147.5,140,140,627558,147.64,-5.17,153.35,118.13,0.79
+20260528,146,147.5,140,140,144000,147.64,-5.17,153.35,118.13,0.19
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3268 海德威
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:21 Asia/Taipei
+- generated_at: 2026-05-28 20:19:08 Asia/Taipei
 - stock_id: 3268
 - stock_name: 海德威
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 18.2
 - low: 17.35
 - close: 17.4
-- volume: 132302
+- volume: 18000
 - ma5: 17.61
 - ema23_primary: 17.42
 - distance_to_ema23_pct: -0.09
@@ -69,7 +69,7 @@
 - ma120: 16.89
 - return_5d: -0.57
 - return_20d: -0.57
-- volume_ratio: 0.64
+- volume_ratio: 0.09
 - distance_to_ma20_pct_auxiliary: -1.26
 - distance_to_high_60_pct: -11.22
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,17.7,18.7,17.7,18,18000,17.4,3.45,17.62,16.43,0.09
 20260526,18.05,18.1,17.3,17.7,18000,17.42,1.58,17.63,16.45,0.09
 20260527,17.8,17.85,17.35,17.35,18000,17.42,-0.39,17.63,16.47,0.09
-20260528,17.6,18.2,17.35,17.4,132302,17.42,-0.09,17.62,16.5,0.64
+20260528,17.6,18.2,17.35,17.4,18000,17.42,-0.09,17.62,16.5,0.09
 ```
 
 ## Latest TDCC Snapshot

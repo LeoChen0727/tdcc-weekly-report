@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6881 潤德
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:34 Asia/Taipei
+- generated_at: 2026-05-28 20:20:21 Asia/Taipei
 - stock_id: 6881
 - stock_name: 潤德
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 271.5
 - low: 269.5
 - close: 271.5
-- volume: 14087
+- volume: 271000
 - ma5: 270.2
 - ema23_primary: 265.53
 - distance_to_ema23_pct: 2.25
@@ -69,7 +69,7 @@
 - ma120: 238.41
 - return_5d: -0.18
 - return_20d: 7.31
-- volume_ratio: 0.23
+- volume_ratio: 3.61
 - distance_to_ma20_pct_auxiliary: 0.88
 - distance_to_high_60_pct: -4.4
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,273,273,272,272,272000,264.56,2.81,266.7,246.07,7.44
 20260526,268,268,268,268,268000,264.85,1.19,267.52,246.76,5.38
 20260527,268.5,268.5,266.5,266.5,267000,264.99,0.57,268.2,247.42,4.29
-20260528,269.5,271.5,269.5,271.5,14087,265.53,2.25,269.12,248.11,0.23
+20260528,269.5,271.5,269.5,271.5,271000,265.53,2.25,269.12,248.11,3.61
 ```
 
 ## Latest TDCC Snapshot

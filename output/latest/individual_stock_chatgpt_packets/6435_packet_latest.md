@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6435 大中
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:18 Asia/Taipei
+- generated_at: 2026-05-28 20:20:05 Asia/Taipei
 - stock_id: 6435
 - stock_name: 大中
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 295.5
 - low: 274.5
 - close: 278
-- volume: 1936234
+- volume: 284000
 - ma5: 266.4
 - ema23_primary: 232.23
 - distance_to_ema23_pct: 19.71
@@ -69,7 +69,7 @@
 - ma120: 156.4
 - return_5d: 20.61
 - return_20d: 46.32
-- volume_ratio: 1.84
+- volume_ratio: 0.29
 - distance_to_ma20_pct_auxiliary: 18.56
 - distance_to_high_60_pct: -9.3
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,236.5,254,236.5,254,252000,217.29,16.89,221.3,181.16,0.21
 20260526,271.5,279,269.5,279,277000,222.44,25.43,225.22,183.41,0.26
 20260527,294,306.5,285,290,298000,228.07,27.16,230.07,185.81,0.3
-20260528,288,295.5,274.5,278,1936234,232.23,19.71,234.47,187.99,1.84
+20260528,288,295.5,274.5,278,284000,232.23,19.71,234.47,187.99,0.29
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6435 | 大中 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

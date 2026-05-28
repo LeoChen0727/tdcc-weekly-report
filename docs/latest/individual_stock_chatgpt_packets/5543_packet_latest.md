@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5543 桓鼎-KY
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:02 Asia/Taipei
+- generated_at: 2026-05-28 20:19:49 Asia/Taipei
 - stock_id: 5543
 - stock_name: 桓鼎-KY
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 30.95
 - low: 29.65
 - close: 30.15
-- volume: 19704
+- volume: 30000
 - ma5: 30.14
 - ema23_primary: 29.4
 - distance_to_ema23_pct: 2.54
@@ -69,7 +69,7 @@
 - ma120: 28.91
 - return_5d: 0.84
 - return_20d: 0.17
-- volume_ratio: 0.55
+- volume_ratio: 0.82
 - distance_to_ma20_pct_auxiliary: 1.84
 - distance_to_high_60_pct: -3.37
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,30,31,29.3,30.3,30000,29.17,3.86,29.47,27.81,0.81
 20260526,29.65,30.25,29.4,29.95,30000,29.24,2.43,29.52,27.88,0.8
 20260527,31,31,29.8,30.4,31000,29.34,3.63,29.6,27.95,0.81
-20260528,30.95,30.95,29.65,30.15,19704,29.4,2.54,29.61,28.01,0.55
+20260528,30.95,30.95,29.65,30.15,30000,29.4,2.54,29.61,28.01,0.82
 ```
 
 ## Latest TDCC Snapshot

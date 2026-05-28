@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6488 環球晶
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:19 Asia/Taipei
+- generated_at: 2026-05-28 20:20:06 Asia/Taipei
 - stock_id: 6488
 - stock_name: 環球晶
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 1020
 - low: 914
 - close: 927
-- volume: 21729406
+- volume: 962000
 - ma5: 845.6
 - ema23_primary: 731.24
 - distance_to_ema23_pct: 26.77
@@ -69,7 +69,7 @@
 - ma120: 502.4
 - return_5d: 32.24
 - return_20d: 72.95
-- volume_ratio: 2.73
+- volume_ratio: 0.14
 - distance_to_ma20_pct_auxiliary: 23.88
 - distance_to_high_60_pct: -9.12
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,773,788,773,788,785000,678.1,16.21,698.95,546.98,0.09
 20260526,866,866,866,866,866000,693.76,24.83,711.25,553.88,0.11
 20260527,883,949,854,930,908000,713.44,30.35,728.75,561.79,0.12
-20260528,935,1020,914,927,21729406,731.24,26.77,748.3,569.91,2.73
+20260528,935,1020,914,927,962000,731.24,26.77,748.3,569.91,0.14
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6488 | 環球晶 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

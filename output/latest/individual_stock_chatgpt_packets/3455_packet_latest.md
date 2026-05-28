@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3455 由田
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:26 Asia/Taipei
+- generated_at: 2026-05-28 20:19:13 Asia/Taipei
 - stock_id: 3455
 - stock_name: 由田
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 255.5
 - low: 237
 - close: 241.5
-- volume: 3976837
+- volume: 246000
 - ma5: 267.4
 - ema23_primary: 259.61
 - distance_to_ema23_pct: -6.98
@@ -69,7 +69,7 @@
 - ma120: 151.02
 - return_5d: -22.1
 - return_20d: 1.05
-- volume_ratio: 1.98
+- volume_ratio: 0.14
 - distance_to_ma20_pct_auxiliary: -12.82
 - distance_to_high_60_pct: -25.12
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,293.5,294,268,275.5,277000,260.9,5.6,271.3,188.97,0.13
 20260526,276.5,285,270,271.5,277000,261.78,3.71,274.98,191.57,0.13
 20260527,274,274,255,255.5,261000,261.26,-2.2,276.88,193.86,0.13
-20260528,249.5,255.5,237,241.5,3976837,259.61,-6.98,277,195.93,1.98
+20260528,249.5,255.5,237,241.5,246000,259.61,-6.98,277,195.93,0.14
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3531 先益
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:29 Asia/Taipei
+- generated_at: 2026-05-28 20:19:15 Asia/Taipei
 - stock_id: 3531
 - stock_name: 先益
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 23.25
 - low: 23
 - close: 23.25
-- volume: 16449
+- volume: 23000
 - ma5: 23.2
 - ema23_primary: 23.03
 - distance_to_ema23_pct: 0.94
@@ -69,7 +69,7 @@
 - ma120: 21.87
 - return_5d: -0.64
 - return_20d: 0.65
-- volume_ratio: 1.59
+- volume_ratio: 2.15
 - distance_to_ma20_pct_auxiliary: 0.46
 - distance_to_high_60_pct: -6.44
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,23.4,23.5,23.35,23.5,23000,23.03,2.06,23.18,22,2.13
 20260526,23.05,23.75,22.75,22.75,23000,23,-1.1,23.15,22.03,2.25
 20260527,22.8,23.4,22.8,23.15,23000,23.01,0.59,23.14,22.06,2.11
-20260528,23,23.25,23,23.25,16449,23.03,0.94,23.14,22.1,1.59
+20260528,23,23.25,23,23.25,23000,23.03,0.94,23.14,22.1,2.15
 ```
 
 ## Latest TDCC Snapshot

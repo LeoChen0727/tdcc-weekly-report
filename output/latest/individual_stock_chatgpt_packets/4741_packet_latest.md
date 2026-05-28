@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4741 泓瀚
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:47 Asia/Taipei
+- generated_at: 2026-05-28 20:19:34 Asia/Taipei
 - stock_id: 4741
 - stock_name: 泓瀚
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 64.4
 - low: 61.2
 - close: 61.9
-- volume: 941263
+- volume: 63000
 - ma5: 62.9
 - ema23_primary: 58.66
 - distance_to_ema23_pct: 5.53
@@ -69,7 +69,7 @@
 - ma120: 33.67
 - return_5d: 5.27
 - return_20d: 13.58
-- volume_ratio: 0.65
+- volume_ratio: 0.04
 - distance_to_ma20_pct_auxiliary: 2.83
 - distance_to_high_60_pct: -10.16
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,63.5,66.6,63,63.7,64000,57.47,10.83,58.76,43.66,0.04
 20260526,63.7,64.7,61.8,63.5,63000,57.98,9.53,59.44,44.34,0.04
 20260527,63.5,63.5,61,62.6,62000,58.36,7.26,59.83,45.01,0.04
-20260528,62.6,64.4,61.2,61.9,941263,58.66,5.53,60.2,45.65,0.65
+20260528,62.6,64.4,61.2,61.9,63000,58.66,5.53,60.2,45.65,0.04
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4111 濟生
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:37 Asia/Taipei
+- generated_at: 2026-05-28 20:19:23 Asia/Taipei
 - stock_id: 4111
 - stock_name: 濟生
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 30.2
 - low: 29.7
 - close: 29.9
-- volume: 57665
+- volume: 30000
 - ma5: 29.95
 - ema23_primary: 29.91
 - distance_to_ema23_pct: -0.03
@@ -69,7 +69,7 @@
 - ma120: 29.63
 - return_5d: -0.66
 - return_20d: 1.87
-- volume_ratio: 0.46
+- volume_ratio: 0.24
 - distance_to_ma20_pct_auxiliary: -0.28
 - distance_to_high_60_pct: -3.24
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,30,30.05,29.8,30.05,30000,29.91,0.47,29.9,29.61,0.22
 20260526,29.75,30,29.75,29.8,30000,29.9,-0.33,29.92,29.61,0.23
 20260527,29.9,30,29.75,30,30000,29.91,0.31,29.96,29.61,0.24
-20260528,30,30.2,29.7,29.9,57665,29.91,-0.03,29.98,29.61,0.46
+20260528,30,30.2,29.7,29.9,30000,29.91,-0.03,29.98,29.61,0.24
 ```
 
 ## Latest TDCC Snapshot

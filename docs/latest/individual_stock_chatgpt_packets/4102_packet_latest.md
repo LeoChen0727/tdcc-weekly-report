@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4102 永日
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:36 Asia/Taipei
+- generated_at: 2026-05-28 20:19:23 Asia/Taipei
 - stock_id: 4102
 - stock_name: 永日
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 17.1
 - low: 16.75
 - close: 17
-- volume: 60156
+- volume: 17000
 - ma5: 17.23
 - ema23_primary: 17.62
 - distance_to_ema23_pct: -3.52
@@ -69,7 +69,7 @@
 - ma120: 19.44
 - return_5d: -0.87
 - return_20d: -8.36
-- volume_ratio: 0.82
+- volume_ratio: 0.24
 - distance_to_ma20_pct_auxiliary: -2.51
 - distance_to_high_60_pct: -17.27
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,17.55,17.55,17.2,17.45,17000,17.79,-1.92,17.7,18.83,0.22
 20260526,17.1,17.4,16.9,17.15,17000,17.74,-3.31,17.61,18.78,0.23
 20260527,16.95,17.25,16.9,17,17000,17.68,-3.83,17.52,18.73,0.23
-20260528,17,17.1,16.75,17,60156,17.62,-3.52,17.44,18.68,0.82
+20260528,17,17.1,16.75,17,17000,17.62,-3.52,17.44,18.68,0.24
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2640 大車隊
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:04 Asia/Taipei
+- generated_at: 2026-05-28 20:18:50 Asia/Taipei
 - stock_id: 2640
 - stock_name: 大車隊
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 161.5
 - low: 160.5
 - close: 161
-- volume: 10813
+- volume: 161000
 - ma5: 162.5
 - ema23_primary: 166.2
 - distance_to_ema23_pct: -3.13
@@ -69,7 +69,7 @@
 - ma120: 146.3
 - return_5d: -2.42
 - return_20d: -7.2
-- volume_ratio: 0.18
+- volume_ratio: 2.34
 - distance_to_ma20_pct_auxiliary: -3.52
 - distance_to_high_60_pct: -19.1
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,164,165,161,162.5,163000,167.47,-2.96,168.62,162.21,3.21
 20260526,166,166,162,162.5,163000,167.05,-2.72,168.03,162.88,2.98
 20260527,162,163.5,160,162.5,162000,166.67,-2.5,167.5,163.49,2.63
-20260528,160.5,161.5,160.5,161,10813,166.2,-3.13,166.88,164.12,0.18
+20260528,160.5,161.5,160.5,161,161000,166.2,-3.13,166.88,164.12,2.34
 ```
 
 ## Latest TDCC Snapshot

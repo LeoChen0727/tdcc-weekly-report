@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7716 昱臺國際
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:39 Asia/Taipei
+- generated_at: 2026-05-28 20:20:26 Asia/Taipei
 - stock_id: 7716
 - stock_name: 昱臺國際
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 25.6
 - low: 25.35
 - close: 25.4
-- volume: 5049
+- volume: 25000
 - ma5: 25.21
 - ema23_primary: 25.16
 - distance_to_ema23_pct: 0.95
@@ -69,7 +69,7 @@
 - ma120: 25.71
 - return_5d: 2.83
 - return_20d: -0.78
-- volume_ratio: 0.41
+- volume_ratio: 1.87
 - distance_to_ma20_pct_auxiliary: 1.33
 - distance_to_high_60_pct: -5.22
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,25,25.3,24.25,25.2,25000,25.12,0.31,25.08,25.54,2.48
 20260526,24.5,25.15,24.5,25.15,25000,25.12,0.1,25.08,25.53,2.22
 20260527,24.2,25.3,24.2,25.3,25000,25.14,0.64,25.08,25.53,2.02
-20260528,25.6,25.6,25.35,25.4,5049,25.16,0.95,25.07,25.52,0.41
+20260528,25.6,25.6,25.35,25.4,25000,25.16,0.95,25.07,25.52,1.87
 ```
 
 ## Latest TDCC Snapshot

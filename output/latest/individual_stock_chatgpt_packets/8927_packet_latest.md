@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8927 北基
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:54 Asia/Taipei
+- generated_at: 2026-05-28 20:20:41 Asia/Taipei
 - stock_id: 8927
 - stock_name: 北基
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 18.4
 - low: 18.1
 - close: 18.15
-- volume: 432460
+- volume: 18000
 - ma5: 18.58
 - ema23_primary: 20
 - distance_to_ema23_pct: -9.26
@@ -69,7 +69,7 @@
 - ma120: 23.57
 - return_5d: -6.92
 - return_20d: -17.69
-- volume_ratio: 0.55
+- volume_ratio: 0.02
 - distance_to_ma20_pct_auxiliary: -8.09
 - distance_to_high_60_pct: -33.76
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,19.45,19.45,18.75,18.9,19000,20.52,-7.88,20.41,22.65,0.02
 20260526,18.9,18.9,18.4,18.4,19000,20.34,-9.54,20.18,22.56,0.02
 20260527,18.4,18.4,17.9,18.3,18000,20.17,-9.28,19.94,22.46,0.02
-20260528,18.25,18.4,18.1,18.15,432460,20,-9.26,19.75,22.34,0.55
+20260528,18.25,18.4,18.1,18.15,18000,20,-9.26,19.75,22.34,0.02
 ```
 
 ## Latest TDCC Snapshot

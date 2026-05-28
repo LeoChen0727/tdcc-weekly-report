@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6929 佑全
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:36 Asia/Taipei
+- generated_at: 2026-05-28 20:20:23 Asia/Taipei
 - stock_id: 6929
 - stock_name: 佑全
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 22
 - low: 21.4
 - close: 21.55
-- volume: 16475
+- volume: 22000
 - ma5: 22.15
 - ema23_primary: 24.27
 - distance_to_ema23_pct: -11.2
@@ -69,7 +69,7 @@
 - ma120: 30.66
 - return_5d: -6.3
 - return_20d: -20.48
-- volume_ratio: 0.87
+- volume_ratio: 1.15
 - distance_to_ma20_pct_auxiliary: -9.42
 - distance_to_high_60_pct: -38.07
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,21.8,22.8,21.8,22.8,22000,25.05,-9,24.59,28.93,1.24
 20260526,22.5,22.5,21.7,22,22000,24.8,-11.29,24.35,28.74,1.25
 20260527,21.6,21.6,21.4,21.4,22000,24.52,-12.71,24.07,28.56,1.2
-20260528,21.4,22,21.4,21.55,16475,24.27,-11.2,23.79,28.39,0.87
+20260528,21.4,22,21.4,21.55,22000,24.27,-11.2,23.79,28.39,1.15
 ```
 
 ## Latest TDCC Snapshot

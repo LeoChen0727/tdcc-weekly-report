@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8937 合騏*
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:54 Asia/Taipei
+- generated_at: 2026-05-28 20:20:42 Asia/Taipei
 - stock_id: 8937
 - stock_name: 合騏*
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 30.4
 - low: 27.4
 - close: 28.2
-- volume: 594008
+- volume: 29000
 - ma5: 30.44
 - ema23_primary: 39.04
 - distance_to_ema23_pct: -27.77
@@ -69,7 +69,7 @@
 - ma120: 117.56
 - return_5d: -11.88
 - return_20d: -26.47
-- volume_ratio: 1.13
+- volume_ratio: 0.06
 - distance_to_ma20_pct_auxiliary: -14.25
 - distance_to_high_60_pct: -83.31
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,30.9,32.4,30.3,31.75,31000,41.84,-24.12,34.02,92.14,0.05
 20260526,30.9,30.9,30.4,30.6,31000,40.91,-25.19,33.8,90.5,0.05
 20260527,30.45,30.75,30,30.35,30000,40.03,-24.17,33.4,88.76,0.05
-20260528,30.1,30.4,27.4,28.2,594008,39.04,-27.77,32.89,86.87,1.13
+20260528,30.1,30.4,27.4,28.2,29000,39.04,-27.77,32.89,86.87,0.06
 ```
 
 ## Latest TDCC Snapshot

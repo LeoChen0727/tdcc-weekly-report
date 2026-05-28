@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8147 正淩
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:47 Asia/Taipei
+- generated_at: 2026-05-28 20:20:34 Asia/Taipei
 - stock_id: 8147
 - stock_name: 正淩
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 179.5
 - low: 169
 - close: 170
-- volume: 883518
+- volume: 173000
 - ma5: 175.5
 - ema23_primary: 171.66
 - distance_to_ema23_pct: -0.97
@@ -69,7 +69,7 @@
 - ma120: 130.59
 - return_5d: -2.86
 - return_20d: 0.59
-- volume_ratio: 0.62
+- volume_ratio: 0.13
 - distance_to_ma20_pct_auxiliary: -2.27
 - distance_to_high_60_pct: -13.92
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,178,181.5,172,173.5,175000,170.43,1.8,172.35,151.38,0.11
 20260526,175.5,184.5,169,183,177000,171.48,6.72,173.43,152.14,0.12
 20260527,192,192,173,175.5,181000,171.82,2.14,173.9,152.77,0.12
-20260528,175,179.5,169,170,883518,171.66,-0.97,173.95,153.38,0.62
+20260528,175,179.5,169,170,173000,171.66,-0.97,173.95,153.38,0.13
 ```
 
 ## Latest TDCC Snapshot

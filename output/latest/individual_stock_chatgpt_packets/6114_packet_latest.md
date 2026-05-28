@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6114 久威
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:05 Asia/Taipei
+- generated_at: 2026-05-28 20:19:52 Asia/Taipei
 - stock_id: 6114
 - stock_name: 久威
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 31.9
 - low: 30
 - close: 30.3
-- volume: 112509
+- volume: 31000
 - ma5: 30.48
 - ema23_primary: 30.47
 - distance_to_ema23_pct: -0.55
@@ -69,7 +69,7 @@
 - ma120: 30.97
 - return_5d: 1.17
 - return_20d: 0.17
-- volume_ratio: 2.15
+- volume_ratio: 0.64
 - distance_to_ma20_pct_auxiliary: -0.92
 - distance_to_high_60_pct: -8.18
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,32.3,32.3,31,31.25,31000,30.55,2.29,30.65,30.39,0.62
 20260526,31.4,31.4,30.5,30.5,31000,30.55,-0.15,30.61,30.38,0.61
 20260527,30.55,30.6,29.8,29.8,30000,30.48,-2.24,30.58,30.34,0.62
-20260528,31.9,31.9,30,30.3,112509,30.47,-0.55,30.58,30.33,2.15
+20260528,31.9,31.9,30,30.3,31000,30.47,-0.55,30.58,30.33,0.64
 ```
 
 ## Latest TDCC Snapshot

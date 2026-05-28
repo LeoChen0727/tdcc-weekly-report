@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8049 晶采
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:43 Asia/Taipei
+- generated_at: 2026-05-28 20:20:31 Asia/Taipei
 - stock_id: 8049
 - stock_name: 晶采
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 27.2
 - low: 26.85
 - close: 27.05
-- volume: 344691
+- volume: 27000
 - ma5: 26.93
 - ema23_primary: 26.13
 - distance_to_ema23_pct: 3.53
@@ -69,7 +69,7 @@
 - ma120: 25.79
 - return_5d: 2.27
 - return_20d: 6.92
-- volume_ratio: 1.51
+- volume_ratio: 0.13
 - distance_to_ma20_pct_auxiliary: 4.09
 - distance_to_high_60_pct: -1.28
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,27,27.4,26.95,27.15,27000,25.9,4.84,25.74,25.59,0.12
 20260526,27.4,27.4,26.9,27,27000,25.99,3.89,25.83,25.6,0.12
 20260527,27.15,27.15,26.5,26.65,27000,26.04,2.33,25.9,25.6,0.13
-20260528,27.05,27.2,26.85,27.05,344691,26.13,3.53,25.99,25.61,1.51
+20260528,27.05,27.2,26.85,27.05,27000,26.13,3.53,25.99,25.61,0.13
 ```
 
 ## Latest TDCC Snapshot

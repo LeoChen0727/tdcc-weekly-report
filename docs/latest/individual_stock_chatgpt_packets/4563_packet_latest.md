@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4563 百德
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:44 Asia/Taipei
+- generated_at: 2026-05-28 20:19:31 Asia/Taipei
 - stock_id: 4563
 - stock_name: 百德
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 50.3
 - low: 47.05
 - close: 48.1
-- volume: 225881
+- volume: 49000
 - ma5: 49.6
 - ema23_primary: 47.93
 - distance_to_ema23_pct: 0.35
@@ -69,7 +69,7 @@
 - ma120: 47.9
 - return_5d: 0.63
 - return_20d: 4.57
-- volume_ratio: 0.56
+- volume_ratio: 0.13
 - distance_to_ma20_pct_auxiliary: -2.11
 - distance_to_high_60_pct: -13.49
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,50.8,51.2,49.8,50.6,50000,47.64,6.22,48.31,45.32,0.12
 20260526,50.2,52.1,49.65,50.2,51000,47.85,4.91,48.69,45.31,0.12
 20260527,50.3,50.6,48.6,48.6,49000,47.91,1.43,49.03,45.26,0.12
-20260528,49.35,50.3,47.05,48.1,225881,47.93,0.35,49.13,45.2,0.56
+20260528,49.35,50.3,47.05,48.1,49000,47.93,0.35,49.13,45.2,0.13
 ```
 
 ## Latest TDCC Snapshot

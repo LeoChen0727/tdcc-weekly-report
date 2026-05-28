@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6148 驊宏資
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:07 Asia/Taipei
+- generated_at: 2026-05-28 20:19:54 Asia/Taipei
 - stock_id: 6148
 - stock_name: 驊宏資
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 29.45
 - low: 28.5
 - close: 28.6
-- volume: 349772
+- volume: 29000
 - ma5: 28.78
 - ema23_primary: 29.85
 - distance_to_ema23_pct: -4.19
@@ -69,7 +69,7 @@
 - ma120: 35.57
 - return_5d: -0.69
 - return_20d: -7.89
-- volume_ratio: 1.61
+- volume_ratio: 0.14
 - distance_to_ma20_pct_auxiliary: -3.78
 - distance_to_high_60_pct: -31.9
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,29.7,29.7,28.6,28.95,29000,30.22,-4.19,30.08,32.75,0.13
 20260526,29.1,29.35,28.6,28.8,29000,30.1,-4.32,29.99,32.67,0.14
 20260527,29.4,29.4,28.25,28.5,29000,29.97,-4.89,29.84,32.56,0.14
-20260528,28.8,29.45,28.5,28.6,349772,29.85,-4.19,29.72,32.47,1.61
+20260528,28.8,29.45,28.5,28.6,29000,29.85,-4.19,29.72,32.47,0.14
 ```
 
 ## Latest TDCC Snapshot

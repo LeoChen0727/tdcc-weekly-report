@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7708 全家餐飲
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:38 Asia/Taipei
+- generated_at: 2026-05-28 20:20:26 Asia/Taipei
 - stock_id: 7708
 - stock_name: 全家餐飲
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 92.4
 - low: 92
 - close: 92.2
-- volume: 10042
+- volume: 92000
 - ma5: 91.98
 - ema23_primary: 92.07
 - distance_to_ema23_pct: 0.14
@@ -69,7 +69,7 @@
 - ma120: 93.81
 - return_5d: 0.22
 - return_20d: 0.44
-- volume_ratio: 0.34
+- volume_ratio: 2.72
 - distance_to_ma20_pct_auxiliary: 0.25
 - distance_to_high_60_pct: -2.85
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,91.3,91.6,91,91.5,91000,92.04,-0.58,91.9,92.17,4.28
 20260526,91.5,92.4,91.5,92.4,92000,92.07,0.36,91.94,92.18,3.59
 20260527,92.4,92.4,92,92,92000,92.06,-0.07,91.95,92.19,3.15
-20260528,92,92.4,92,92.2,10042,92.07,0.14,91.97,92.2,0.34
+20260528,92,92.4,92,92.2,92000,92.07,0.14,91.97,92.2,2.72
 ```
 
 ## Latest TDCC Snapshot

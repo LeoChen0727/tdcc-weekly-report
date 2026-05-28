@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4130 健亞
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:38 Asia/Taipei
+- generated_at: 2026-05-28 20:19:24 Asia/Taipei
 - stock_id: 4130
 - stock_name: 健亞
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 27.05
 - low: 25.8
 - close: 25.85
-- volume: 208528
+- volume: 26000
 - ma5: 26.36
 - ema23_primary: 27.79
 - distance_to_ema23_pct: -6.97
@@ -69,7 +69,7 @@
 - ma120: 29.75
 - return_5d: -6.34
 - return_20d: -7.01
-- volume_ratio: 1.61
+- volume_ratio: 0.22
 - distance_to_ma20_pct_auxiliary: -5.22
 - distance_to_high_60_pct: -28.19
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,27.35,27.4,26.3,26.4,27000,28.33,-6.81,27.56,30.89,0.16
 20260526,26.2,26.4,25.45,25.8,26000,28.12,-8.25,27.45,30.8,0.19
 20260527,25.8,26.3,25.8,26.25,26000,27.96,-6.13,27.37,30.71,0.2
-20260528,26.25,27.05,25.8,25.85,208528,27.79,-6.97,27.27,30.61,1.61
+20260528,26.25,27.05,25.8,25.85,26000,27.79,-6.97,27.27,30.61,0.22
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2937 集雅社
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:11 Asia/Taipei
+- generated_at: 2026-05-28 20:18:57 Asia/Taipei
 - stock_id: 2937
 - stock_name: 集雅社
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 48.9
 - low: 47.75
 - close: 48.55
-- volume: 9807
+- volume: 48000
 - ma5: 47.83
 - ema23_primary: 46.01
 - distance_to_ema23_pct: 5.52
@@ -69,7 +69,7 @@
 - ma120: 44.59
 - return_5d: 4.52
 - return_20d: 10.84
-- volume_ratio: 0.65
+- volume_ratio: 2.82
 - distance_to_ma20_pct_auxiliary: 6.97
 - distance_to_high_60_pct: -2.31
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,47.5,47.55,47.5,47.5,48000,45.4,4.64,44.83,45.14,4.59
 20260526,47.5,47.75,47.15,47.75,47000,45.59,4.74,44.98,45.2,3.69
 20260527,48.95,48.95,47.8,47.85,48000,45.78,4.52,45.15,45.27,3.21
-20260528,47.95,48.9,47.75,48.55,9807,46.01,5.52,45.38,45.33,0.65
+20260528,47.95,48.9,47.75,48.55,48000,46.01,5.52,45.38,45.33,2.82
 ```
 
 ## Latest TDCC Snapshot

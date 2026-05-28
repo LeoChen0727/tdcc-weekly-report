@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4192 杏國
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:40 Asia/Taipei
+- generated_at: 2026-05-28 20:19:26 Asia/Taipei
 - stock_id: 4192
 - stock_name: 杏國
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 19.5
 - low: 19.5
 - close: 19.5
-- volume: 8703
+- volume: 19000
 - ma5: 19.84
 - ema23_primary: 20.15
 - distance_to_ema23_pct: -3.22
@@ -69,7 +69,7 @@
 - ma120: 22.88
 - return_5d: -2.5
 - return_20d: -4.65
-- volume_ratio: 0.53
+- volume_ratio: 1.12
 - distance_to_ma20_pct_auxiliary: -2.68
 - distance_to_high_60_pct: -16.31
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,19.4,20.1,19.4,19.8,20000,20.26,-2.26,20.14,20.89,1.3
 20260525,19.8,20,19.8,19.95,20000,20.23,-1.39,20.11,20.82,1.24
 20260527,19.75,19.95,19.15,19.95,19000,20.21,-1.28,20.09,20.76,1.12
-20260528,19.5,19.5,19.5,19.5,8703,20.15,-3.22,20.04,20.69,0.53
+20260528,19.5,19.5,19.5,19.5,19000,20.15,-3.22,20.04,20.69,1.12
 ```
 
 ## Latest TDCC Snapshot

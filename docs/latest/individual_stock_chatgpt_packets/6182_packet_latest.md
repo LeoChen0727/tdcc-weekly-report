@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6182 合晶
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:09 Asia/Taipei
+- generated_at: 2026-05-28 20:19:57 Asia/Taipei
 - stock_id: 6182
 - stock_name: 合晶
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 99.2
 - low: 89.5
 - close: 90.7
-- volume: 17287731
+- volume: 94000
 - ma5: 82.4
 - ema23_primary: 62.27
 - distance_to_ema23_pct: 45.66
@@ -69,7 +69,7 @@
 - ma120: 38.72
 - return_5d: 42.61
 - return_20d: 132.56
-- volume_ratio: 0.44
+- volume_ratio: 0
 - distance_to_ma20_pct_auxiliary: 48.37
 - distance_to_high_60_pct: -8.57
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,75.9,76.8,75.9,76.8,77000,54.41,41.14,53.83,41.42,0
 20260526,84.4,84.4,84.4,84.4,84000,56.91,48.3,56.03,42.25,0
 20260527,85.4,92.8,79.3,90.2,88000,59.69,51.12,58.55,43.15,0
-20260528,90.2,99.2,89.5,90.7,17287731,62.27,45.66,61.13,44.07,0.44
+20260528,90.2,99.2,89.5,90.7,94000,62.27,45.66,61.13,44.07,0
 ```
 
 ## Latest TDCC Snapshot

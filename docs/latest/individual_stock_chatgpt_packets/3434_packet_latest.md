@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3434 哲固
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:26 Asia/Taipei
+- generated_at: 2026-05-28 20:19:12 Asia/Taipei
 - stock_id: 3434
 - stock_name: 哲固
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 29.8
 - low: 28.95
 - close: 29.35
-- volume: 72191
+- volume: 29000
 - ma5: 29.15
 - ema23_primary: 28.97
 - distance_to_ema23_pct: 1.32
@@ -69,7 +69,7 @@
 - ma120: 30.27
 - return_5d: 2.98
 - return_20d: 0.86
-- volume_ratio: 1.18
+- volume_ratio: 0.49
 - distance_to_ma20_pct_auxiliary: 2.01
 - distance_to_high_60_pct: -10.79
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,29,29.5,28.8,29.2,29000,28.9,1.04,28.77,29.16,0.45
 20260526,29.5,31,29.2,29.2,30000,28.93,0.95,28.77,29.15,0.5
 20260527,29.2,29.2,28.8,29,29000,28.93,0.24,28.76,29.13,0.48
-20260528,29,29.8,28.95,29.35,72191,28.97,1.32,28.77,29.11,1.18
+20260528,29,29.8,28.95,29.35,29000,28.97,1.32,28.77,29.11,0.49
 ```
 
 ## Latest TDCC Snapshot

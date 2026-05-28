@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5487 通泰
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:00 Asia/Taipei
+- generated_at: 2026-05-28 20:19:47 Asia/Taipei
 - stock_id: 5487
 - stock_name: 通泰
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 27.8
 - low: 27.05
 - close: 27.05
-- volume: 72061
+- volume: 27000
 - ma5: 27.28
 - ema23_primary: 27.77
 - distance_to_ema23_pct: -2.61
@@ -69,7 +69,7 @@
 - ma120: 28.68
 - return_5d: -0.55
 - return_20d: -6.56
-- volume_ratio: 1.05
+- volume_ratio: 0.41
 - distance_to_ma20_pct_auxiliary: -3.05
 - distance_to_high_60_pct: -12.32
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,27.65,28.25,27.05,27.5,27000,27.98,-1.71,28.16,28.14,0.43
 20260526,27.5,28,26.9,26.9,27000,27.89,-3.54,28.07,28.12,0.42
 20260527,26.9,27.5,26.9,27.3,27000,27.84,-1.94,28,28.07,0.42
-20260528,27.45,27.8,27.05,27.05,72061,27.77,-2.61,27.9,28.05,1.05
+20260528,27.45,27.8,27.05,27.05,27000,27.77,-2.61,27.9,28.05,0.41
 ```
 
 ## Latest TDCC Snapshot

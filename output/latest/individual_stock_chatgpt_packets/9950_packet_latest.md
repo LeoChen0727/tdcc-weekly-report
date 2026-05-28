@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9950 萬國通
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:58 Asia/Taipei
+- generated_at: 2026-05-28 20:20:46 Asia/Taipei
 - stock_id: 9950
 - stock_name: 萬國通
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 11
 - low: 10.6
 - close: 10.85
-- volume: 73150
+- volume: 11000
 - ma5: 10.86
 - ema23_primary: 10.98
 - distance_to_ema23_pct: -1.16
@@ -69,7 +69,7 @@
 - ma120: 10.75
 - return_5d: -4.41
 - return_20d: 1.4
-- volume_ratio: 0.75
+- volume_ratio: 0.12
 - distance_to_ma20_pct_auxiliary: -0.18
 - distance_to_high_60_pct: -22.78
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,11,11.15,10.8,10.8,11000,11.02,-2,10.85,10.93,0.1
 20260526,10.8,10.9,10.55,10.85,11000,11.01,-1.42,10.86,10.93,0.11
 20260527,11.25,11.25,10.65,10.8,11000,10.99,-1.72,10.86,10.93,0.11
-20260528,10.8,11,10.6,10.85,73150,10.98,-1.16,10.87,10.94,0.75
+20260528,10.8,11,10.6,10.85,11000,10.98,-1.16,10.87,10.94,0.12
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3293 鈊象
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:22 Asia/Taipei
+- generated_at: 2026-05-28 20:19:08 Asia/Taipei
 - stock_id: 3293
 - stock_name: 鈊象
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 767
 - low: 749
 - close: 749
-- volume: 2880224
+- volume: 756000
 - ma5: 745.8
 - ema23_primary: 740.6
 - distance_to_ema23_pct: 1.13
@@ -69,7 +69,7 @@
 - ma120: 731.27
 - return_5d: 1.22
 - return_20d: -0.93
-- volume_ratio: 2.03
+- volume_ratio: 0.57
 - distance_to_ma20_pct_auxiliary: 1.95
 - distance_to_high_60_pct: -6.96
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,757,757,741,741,746000,738.67,0.32,735.65,740,0.53
 20260526,741,746,734,735,738000,738.37,-0.46,735,740.47,0.54
 20260527,741,763,734,756,753000,739.84,2.18,735.05,741.48,0.57
-20260528,765,767,749,749,2880224,740.6,1.13,734.7,742.38,2.03
+20260528,765,767,749,749,756000,740.6,1.13,734.7,742.38,0.57
 ```
 
 ## Latest TDCC Snapshot

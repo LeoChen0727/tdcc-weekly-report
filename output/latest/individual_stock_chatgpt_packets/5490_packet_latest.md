@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5490 同亨
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:00 Asia/Taipei
+- generated_at: 2026-05-28 20:19:47 Asia/Taipei
 - stock_id: 5490
 - stock_name: 同亨
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 29.45
 - low: 28.7
 - close: 28.95
-- volume: 450274
+- volume: 29000
 - ma5: 29.27
 - ema23_primary: 28.32
 - distance_to_ema23_pct: 2.22
@@ -69,7 +69,7 @@
 - ma120: 27.11
 - return_5d: 0.87
 - return_20d: 7.22
-- volume_ratio: 0.92
+- volume_ratio: 0.06
 - distance_to_ma20_pct_auxiliary: 1.88
 - distance_to_high_60_pct: -7.06
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,30.95,31.15,29.6,29.7,30000,28.13,5.58,28.09,27.25,0.06
 20260526,29.7,29.9,28.9,29.2,29000,28.22,3.47,28.22,27.31,0.06
 20260527,29.25,29.45,28.75,28.75,29000,28.26,1.72,28.32,27.36,0.06
-20260528,28.9,29.45,28.7,28.95,450274,28.32,2.22,28.41,27.41,0.92
+20260528,28.9,29.45,28.7,28.95,29000,28.32,2.22,28.41,27.41,0.06
 ```
 
 ## Latest TDCC Snapshot

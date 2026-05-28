@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5210 寶碩
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:53 Asia/Taipei
+- generated_at: 2026-05-28 20:19:40 Asia/Taipei
 - stock_id: 5210
 - stock_name: 寶碩
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 29.8
 - low: 27.2
 - close: 28.85
-- volume: 2009796
+- volume: 29000
 - ma5: 27.22
 - ema23_primary: 26.09
 - distance_to_ema23_pct: 10.56
@@ -69,7 +69,7 @@
 - ma120: 22.92
 - return_5d: 6.85
 - return_20d: 26.26
-- volume_ratio: 4.04
+- volume_ratio: 0.07
 - distance_to_ma20_pct_auxiliary: 8.24
 - distance_to_high_60_pct: -3.19
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,27.2,27.6,26.55,26.6,27000,25.63,3.79,25.94,23.32,0.07
 20260526,26.6,26.65,25.8,26.65,26000,25.71,3.64,26.13,23.4,0.06
 20260527,26.95,27.45,26.7,27.25,27000,25.84,5.45,26.35,23.49,0.07
-20260528,27.3,29.8,27.2,28.85,2009796,26.09,10.56,26.65,23.61,4.04
+20260528,27.3,29.8,27.2,28.85,29000,26.09,10.56,26.65,23.61,0.07
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 5210 | 寶碩 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4953 緯軟
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:51 Asia/Taipei
+- generated_at: 2026-05-28 20:19:38 Asia/Taipei
 - stock_id: 4953
 - stock_name: 緯軟
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 123.5
 - low: 120
 - close: 120
-- volume: 447163
+- volume: 121000
 - ma5: 121.4
 - ema23_primary: 119.72
 - distance_to_ema23_pct: 0.24
@@ -69,7 +69,7 @@
 - ma120: 121.76
 - return_5d: 0
 - return_20d: 1.27
-- volume_ratio: 1.37
+- volume_ratio: 0.39
 - distance_to_ma20_pct_auxiliary: 0.06
 - distance_to_high_60_pct: -5.14
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,123,124,121,123.5,123000,119.5,3.35,119.8,117.03,0.38
 20260526,123.5,124,121,122,122000,119.71,1.91,119.92,117.16,0.38
 20260527,122,122.5,119.5,119.5,121000,119.69,-0.16,119.85,117.19,0.38
-20260528,120,123.5,120,120,447163,119.72,0.24,119.92,117.29,1.37
+20260528,120,123.5,120,120,121000,119.72,0.24,119.92,117.29,0.39
 ```
 
 ## Latest TDCC Snapshot

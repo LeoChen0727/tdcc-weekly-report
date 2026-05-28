@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3609 三一東林
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:32 Asia/Taipei
+- generated_at: 2026-05-28 20:19:18 Asia/Taipei
 - stock_id: 3609
 - stock_name: 三一東林
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 29.8
 - low: 26.35
 - close: 28.2
-- volume: 625795
+- volume: 29000
 - ma5: 28.57
 - ema23_primary: 26.85
 - distance_to_ema23_pct: 5.02
@@ -69,7 +69,7 @@
 - ma120: 33.44
 - return_5d: 0.71
 - return_20d: 21.55
-- volume_ratio: 2.42
+- volume_ratio: 0.13
 - distance_to_ma20_pct_auxiliary: 8.91
 - distance_to_high_60_pct: -19.2
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,28.35,31.15,28.35,29.6,30000,26.43,11.99,25.2,27.32,0.13
 20260526,29.6,29.9,28.9,29.6,29000,26.7,10.88,25.5,27.24,0.12
 20260527,29.6,29.6,27.1,27.1,28000,26.73,1.39,25.64,27.11,0.12
-20260528,27.05,29.8,26.35,28.2,625795,26.85,5.02,25.89,27,2.42
+20260528,27.05,29.8,26.35,28.2,29000,26.85,5.02,25.89,27,0.13
 ```
 
 ## Latest TDCC Snapshot

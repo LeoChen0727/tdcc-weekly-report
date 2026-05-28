@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8032 光菱
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:42 Asia/Taipei
+- generated_at: 2026-05-28 20:20:30 Asia/Taipei
 - stock_id: 8032
 - stock_name: 光菱
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 46.5
 - low: 44
 - close: 44
-- volume: 379972
+- volume: 45000
 - ma5: 45.04
 - ema23_primary: 42
 - distance_to_ema23_pct: 4.77
@@ -69,7 +69,7 @@
 - ma120: 37.89
 - return_5d: 4.27
 - return_20d: 9.18
-- volume_ratio: 1.47
+- volume_ratio: 0.19
 - distance_to_ma20_pct_auxiliary: 3.35
 - distance_to_high_60_pct: -6.58
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,43,46.75,42.3,45.85,44000,40.97,11.9,41.41,37.58,0.16
 20260526,46.3,46.95,44.4,46.55,46000,41.44,12.33,41.92,37.73,0.17
 20260527,47,47.1,44.55,45.95,46000,41.81,9.89,42.39,37.87,0.17
-20260528,46.5,46.5,44,44,379972,42,4.77,42.58,37.98,1.47
+20260528,46.5,46.5,44,44,45000,42,4.77,42.58,37.98,0.19
 ```
 
 ## Latest TDCC Snapshot

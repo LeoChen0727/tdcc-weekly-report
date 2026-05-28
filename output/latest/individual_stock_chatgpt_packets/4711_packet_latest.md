@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4711 永純
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:46 Asia/Taipei
+- generated_at: 2026-05-28 20:19:33 Asia/Taipei
 - stock_id: 4711
 - stock_name: 永純
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 17.65
 - low: 16.9
 - close: 16.9
-- volume: 317789
+- volume: 17000
 - ma5: 16.82
 - ema23_primary: 16.46
 - distance_to_ema23_pct: 2.65
@@ -69,7 +69,7 @@
 - ma120: 15.58
 - return_5d: 1.5
 - return_20d: 4.97
-- volume_ratio: 2.32
+- volume_ratio: 0.14
 - distance_to_ma20_pct_auxiliary: 3.13
 - distance_to_high_60_pct: -13.11
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,16.55,16.8,16.45,16.65,17000,16.31,2.09,16.27,15.89,0.11
 20260526,16.8,17.7,16.7,16.95,17000,16.36,3.59,16.32,15.92,0.13
 20260527,17.15,17.8,16.8,17.1,17000,16.42,4.11,16.35,15.95,0.13
-20260528,17.65,17.65,16.9,16.9,317789,16.46,2.65,16.39,15.98,2.32
+20260528,17.65,17.65,16.9,16.9,17000,16.46,2.65,16.39,15.98,0.14
 ```
 
 ## Latest TDCC Snapshot

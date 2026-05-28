@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2754 亞洲藏壽司
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:07 Asia/Taipei
+- generated_at: 2026-05-28 20:18:53 Asia/Taipei
 - stock_id: 2754
 - stock_name: 亞洲藏壽司
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 69
 - low: 67
 - close: 67.8
-- volume: 113040
+- volume: 68000
 - ma5: 70.38
 - ema23_primary: 70.34
 - distance_to_ema23_pct: -3.61
@@ -69,7 +69,7 @@
 - ma120: 76.31
 - return_5d: -9.24
 - return_20d: 1.8
-- volume_ratio: 0.9
+- volume_ratio: 0.55
 - distance_to_ma20_pct_auxiliary: -3.57
 - distance_to_high_60_pct: -16.09
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,73.1,76,70.6,72.6,73000,70.8,2.54,69.97,70.91,0.61
 20260526,73.8,73.8,70.1,70.3,71000,70.76,-0.65,70.19,70.8,0.59
 20260527,70.4,71.1,68.5,68.5,69000,70.57,-2.94,70.25,70.67,0.57
-20260528,68.9,69,67,67.8,113040,70.34,-3.61,70.31,70.54,0.9
+20260528,68.9,69,67,67.8,68000,70.34,-3.61,70.31,70.54,0.55
 ```
 
 ## Latest TDCC Snapshot

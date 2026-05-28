@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5364 力麗店
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:58 Asia/Taipei
+- generated_at: 2026-05-28 20:19:45 Asia/Taipei
 - stock_id: 5364
 - stock_name: 力麗店
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 8.87
 - low: 8.66
 - close: 8.74
-- volume: 136133
+- volume: 9000
 - ma5: 8.8
 - ema23_primary: 9.51
 - distance_to_ema23_pct: -8.06
@@ -69,7 +69,7 @@
 - ma120: 12.55
 - return_5d: -3.32
 - return_20d: -13.03
-- volume_ratio: 2.18
+- volume_ratio: 0.16
 - distance_to_ma20_pct_auxiliary: -6.75
 - distance_to_high_60_pct: -33.54
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,9.1,9.11,8.62,8.86,9000,9.75,-9.12,9.62,11.06,0.1
 20260526,8.85,8.85,8.63,8.69,9000,9.66,-10.05,9.52,10.98,0.11
 20260527,8.64,8.96,8.45,8.65,9000,9.58,-9.67,9.44,10.91,0.14
-20260528,8.69,8.87,8.66,8.74,136133,9.51,-8.06,9.37,10.84,2.18
+20260528,8.69,8.87,8.66,8.74,9000,9.51,-8.06,9.37,10.84,0.16
 ```
 
 ## Latest TDCC Snapshot

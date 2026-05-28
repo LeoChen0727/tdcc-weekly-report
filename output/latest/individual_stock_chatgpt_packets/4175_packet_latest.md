@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4175 杏一
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:39 Asia/Taipei
+- generated_at: 2026-05-28 20:19:26 Asia/Taipei
 - stock_id: 4175
 - stock_name: 杏一
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 54.1
 - low: 53.7
 - close: 53.7
-- volume: 43090
+- volume: 54000
 - ma5: 53.34
 - ema23_primary: 53.76
 - distance_to_ema23_pct: -0.11
@@ -69,7 +69,7 @@
 - ma120: 56.34
 - return_5d: 0.56
 - return_20d: -2.36
-- volume_ratio: 1.43
+- volume_ratio: 1.76
 - distance_to_ma20_pct_auxiliary: 0.3
 - distance_to_high_60_pct: -6.45
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,52.8,52.8,52.6,52.7,53000,53.78,-2.02,53.74,54.58,2.12
 20260526,52.9,56,52.7,53.3,54000,53.74,-0.83,53.63,54.51,2.01
 20260527,55.5,55.7,53.5,54,54000,53.76,0.44,53.6,54.45,1.89
-20260528,54.1,54.1,53.7,53.7,43090,53.76,-0.11,53.54,54.4,1.43
+20260528,54.1,54.1,53.7,53.7,54000,53.76,-0.11,53.54,54.4,1.76
 ```
 
 ## Latest TDCC Snapshot

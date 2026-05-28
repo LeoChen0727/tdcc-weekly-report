@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1796 金穎生技
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:42 Asia/Taipei
+- generated_at: 2026-05-28 20:18:27 Asia/Taipei
 - stock_id: 1796
 - stock_name: 金穎生技
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 36
 - low: 35.9
 - close: 35.9
-- volume: 18012
+- volume: 36000
 - ma5: 36.74
 - ema23_primary: 37.12
 - distance_to_ema23_pct: -3.28
@@ -69,7 +69,7 @@
 - ma120: 42.17
 - return_5d: 0.56
 - return_20d: -5.77
-- volume_ratio: 0.53
+- volume_ratio: 1.04
 - distance_to_ma20_pct_auxiliary: -2.68
 - distance_to_high_60_pct: -19.33
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,38.5,38.5,37,37.25,38000,37.46,-0.56,37.21,38.7,1.22
 20260526,37.1,37.1,36.5,36.5,37000,37.38,-2.35,37.13,38.59,1.16
 20260527,36.1,36.1,35.55,35.55,36000,37.23,-4.51,37,38.46,1.09
-20260528,35.9,36,35.9,35.9,18012,37.12,-3.28,36.89,38.34,0.53
+20260528,35.9,36,35.9,35.9,36000,37.12,-3.28,36.89,38.34,1.04
 ```
 
 ## Latest TDCC Snapshot

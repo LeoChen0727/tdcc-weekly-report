@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6703 軒郁
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:28 Asia/Taipei
+- generated_at: 2026-05-28 20:20:15 Asia/Taipei
 - stock_id: 6703
 - stock_name: 軒郁
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 109.5
 - low: 108.5
 - close: 108.5
-- volume: 68721
+- volume: 109000
 - ma5: 110.2
 - ema23_primary: 112.73
 - distance_to_ema23_pct: -3.76
@@ -69,7 +69,7 @@
 - ma120: 110.88
 - return_5d: -5.65
 - return_20d: -3.12
-- volume_ratio: 0.78
+- volume_ratio: 1.21
 - distance_to_ma20_pct_auxiliary: -4.09
 - distance_to_high_60_pct: -12.15
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,112.5,112.5,109.5,110.5,110000,113.72,-2.83,113.47,114.35,1.3
 20260526,110.5,110.5,109.5,110.5,110000,113.45,-2.6,113.5,114.45,1.29
 20260527,111,111,109,109.5,110000,113.12,-3.2,113.3,114.48,1.27
-20260528,109,109.5,108.5,108.5,68721,112.73,-3.76,113.12,114.48,0.78
+20260528,109,109.5,108.5,108.5,109000,112.73,-3.76,113.12,114.48,1.21
 ```
 
 ## Latest TDCC Snapshot

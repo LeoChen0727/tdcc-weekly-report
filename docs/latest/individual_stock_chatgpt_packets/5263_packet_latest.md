@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5263 智崴
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:55 Asia/Taipei
+- generated_at: 2026-05-28 20:19:42 Asia/Taipei
 - stock_id: 5263
 - stock_name: 智崴
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 107.5
 - low: 103
 - close: 105
-- volume: 253492
+- volume: 105000
 - ma5: 108.6
 - ema23_primary: 104.27
 - distance_to_ema23_pct: 0.7
@@ -69,7 +69,7 @@
 - ma120: 100.53
 - return_5d: -6.25
 - return_20d: 13.64
-- volume_ratio: 0.9
+- volume_ratio: 0.38
 - distance_to_ma20_pct_auxiliary: 0.14
 - distance_to_high_60_pct: -8.7
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,114.5,115,108.5,109.5,110000,103.59,5.71,102.65,98.27,0.4
 20260526,109,109.5,106.5,108,108000,103.95,3.89,103.49,98.41,0.39
 20260527,108,109,104,107,106000,104.21,2.68,104.22,98.53,0.39
-20260528,107.5,107.5,103,105,253492,104.27,0.7,104.86,98.51,0.9
+20260528,107.5,107.5,103,105,105000,104.27,0.7,104.86,98.51,0.38
 ```
 
 ## Latest TDCC Snapshot

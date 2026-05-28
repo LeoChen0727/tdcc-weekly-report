@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6219 富旺
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:12 Asia/Taipei
+- generated_at: 2026-05-28 20:19:59 Asia/Taipei
 - stock_id: 6219
 - stock_name: 富旺
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 11.95
 - low: 11.55
 - close: 11.75
-- volume: 390029
+- volume: 12000
 - ma5: 11.9
 - ema23_primary: 12.49
 - distance_to_ema23_pct: -5.92
@@ -69,7 +69,7 @@
 - ma120: 16.08
 - return_5d: -4.47
 - return_20d: -10.65
-- volume_ratio: 1.15
+- volume_ratio: 0.04
 - distance_to_ma20_pct_auxiliary: -5.05
 - distance_to_high_60_pct: -30.06
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,12.05,12.15,11.4,11.7,12000,12.68,-7.7,12.51,13.99,0.03
 20260526,11.7,12.2,11.55,11.9,12000,12.61,-5.64,12.49,13.9,0.03
 20260527,11.85,11.95,11.7,11.95,12000,12.56,-4.83,12.45,13.82,0.03
-20260528,11.9,11.95,11.55,11.75,390029,12.49,-5.92,12.38,13.75,1.15
+20260528,11.9,11.95,11.55,11.75,12000,12.49,-5.92,12.38,13.75,0.04
 ```
 
 ## Latest TDCC Snapshot

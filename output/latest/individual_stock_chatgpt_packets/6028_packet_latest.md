@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6028 公勝保經
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:04 Asia/Taipei
+- generated_at: 2026-05-28 20:19:52 Asia/Taipei
 - stock_id: 6028
 - stock_name: 公勝保經
 - packet_status: partial_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 79.5
 - low: 78.6
 - close: 79.1
-- volume: 27671
+- volume: 79000
 - ma5: 79.4
 - ema23_primary: 80.4
 - distance_to_ema23_pct: -1.61
@@ -69,7 +69,7 @@
 - ma120: 81.6
 - return_5d: -1.25
 - return_20d: -0.38
-- volume_ratio: 0.74
+- volume_ratio: 1.98
 - distance_to_ma20_pct_auxiliary: -1.11
 - distance_to_high_60_pct: -14.02
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,79.6,80,79,80,79000,80.78,-0.96,80.02,81.8,2.56
 20260526,79.7,79.7,79.7,79.7,80000,80.69,-1.22,80.08,81.74,2.38
 20260527,79.5,79.5,78.5,78.6,79000,80.51,-2.38,80,81.67,2.18
-20260528,78.6,79.5,78.6,79.1,27671,80.4,-1.61,79.99,81.6,0.74
+20260528,78.6,79.5,78.6,79.1,79000,80.4,-1.61,79.99,81.6,1.98
 ```
 
 ## Latest TDCC Snapshot

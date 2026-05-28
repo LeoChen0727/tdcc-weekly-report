@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7713 威力德生醫
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:39 Asia/Taipei
+- generated_at: 2026-05-28 20:20:26 Asia/Taipei
 - stock_id: 7713
 - stock_name: 威力德生醫
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 67.5
 - low: 66.9
 - close: 67.1
-- volume: 7054
+- volume: 67000
 - ma5: 67.2
 - ema23_primary: 67.67
 - distance_to_ema23_pct: -0.84
@@ -69,7 +69,7 @@
 - ma120: 70.73
 - return_5d: -0.59
 - return_20d: -0.59
-- volume_ratio: 0.27
+- volume_ratio: 2.33
 - distance_to_ma20_pct_auxiliary: -0.89
 - distance_to_high_60_pct: -9.2
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,67.2,67.2,66.5,67,67000,67.85,-1.26,67.77,68.94,3.38
 20260526,66.9,67.5,66.3,66.8,67000,67.77,-1.42,67.72,68.87,2.98
 20260527,66.8,67.8,66.6,67.2,67000,67.72,-0.76,67.72,68.82,2.63
-20260528,66.9,67.5,66.9,67.1,7054,67.67,-0.84,67.7,68.78,0.27
+20260528,66.9,67.5,66.9,67.1,67000,67.67,-0.84,67.7,68.78,2.33
 ```
 
 ## Latest TDCC Snapshot

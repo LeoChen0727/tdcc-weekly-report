@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4114 健喬
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:37 Asia/Taipei
+- generated_at: 2026-05-28 20:19:23 Asia/Taipei
 - stock_id: 4114
 - stock_name: 健喬
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 30.3
 - low: 30.05
 - close: 30.05
-- volume: 1417221
+- volume: 30000
 - ma5: 30.4
 - ema23_primary: 30.75
 - distance_to_ema23_pct: -2.26
@@ -69,7 +69,7 @@
 - ma120: 31.7
 - return_5d: -2.75
 - return_20d: -2.75
-- volume_ratio: 1.94
+- volume_ratio: 0.05
 - distance_to_ma20_pct_auxiliary: -2.21
 - distance_to_high_60_pct: -6.68
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,30.8,30.8,30.45,30.55,31000,30.91,-1.15,30.84,31.17,0.04
 20260526,30.6,30.6,30.3,30.35,30000,30.86,-1.65,30.8,31.14,0.04
 20260527,30.35,30.4,30.2,30.25,30000,30.81,-1.81,30.77,31.11,0.04
-20260528,30.3,30.3,30.05,30.05,1417221,30.75,-2.26,30.73,31.07,1.94
+20260528,30.3,30.3,30.05,30.05,30000,30.75,-2.26,30.73,31.07,0.05
 ```
 
 ## Latest TDCC Snapshot

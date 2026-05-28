@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7547 碩網
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:38 Asia/Taipei
+- generated_at: 2026-05-28 20:20:25 Asia/Taipei
 - stock_id: 7547
 - stock_name: 碩網
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 61.5
 - low: 60.5
 - close: 61
-- volume: 136878
+- volume: 61000
 - ma5: 65.06
 - ema23_primary: 68.42
 - distance_to_ema23_pct: -10.84
@@ -69,7 +69,7 @@
 - ma120: 64.47
 - return_5d: -10.69
 - return_20d: -13.72
-- volume_ratio: 0.34
+- volume_ratio: 0.15
 - distance_to_ma20_pct_auxiliary: -11.94
 - distance_to_high_60_pct: -35.24
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,69.8,69.8,68,68.9,68000,70.14,-1.77,70.28,68.16,0.16
 20260526,68,68.1,62.1,64.6,64000,69.68,-7.29,70.06,68.33,0.16
 20260527,64.8,64.8,62.1,62.6,63000,69.09,-9.4,69.75,68.45,0.16
-20260528,60.9,61.5,60.5,61,136878,68.42,-10.84,69.27,68.55,0.34
+20260528,60.9,61.5,60.5,61,61000,68.42,-10.84,69.27,68.55,0.15
 ```
 
 ## Latest TDCC Snapshot

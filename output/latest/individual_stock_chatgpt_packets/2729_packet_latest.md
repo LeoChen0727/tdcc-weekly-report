@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2729 瓦城
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:06 Asia/Taipei
+- generated_at: 2026-05-28 20:18:52 Asia/Taipei
 - stock_id: 2729
 - stock_name: 瓦城
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 162
 - low: 159
 - close: 159
-- volume: 62580
+- volume: 160000
 - ma5: 160
 - ema23_primary: 163.41
 - distance_to_ema23_pct: -2.7
@@ -69,7 +69,7 @@
 - ma120: 171.48
 - return_5d: -1.24
 - return_20d: -4.5
-- volume_ratio: 1
+- volume_ratio: 2.38
 - distance_to_ma20_pct_auxiliary: -2.33
 - distance_to_high_60_pct: -11.67
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,160,160.5,159,160,160000,164.44,-2.7,163.97,168.28,3.28
 20260526,160,160,159.5,160,160000,164.07,-2.48,163.55,168.13,2.94
 20260527,160,161,159.5,161,160000,163.81,-1.72,163.18,167.99,2.64
-20260528,162,162,159,159,62580,163.41,-2.7,162.8,167.82,1
+20260528,162,162,159,159,160000,163.41,-2.7,162.8,167.82,2.38
 ```
 
 ## Latest TDCC Snapshot

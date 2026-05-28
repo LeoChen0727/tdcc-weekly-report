@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4432 銘旺實
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:41 Asia/Taipei
+- generated_at: 2026-05-28 20:19:28 Asia/Taipei
 - stock_id: 4432
 - stock_name: 銘旺實
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 16.7
 - low: 16.5
 - close: 16.6
-- volume: 34367
+- volume: 17000
 - ma5: 16.95
 - ema23_primary: 16.08
 - distance_to_ema23_pct: 3.22
@@ -69,7 +69,7 @@
 - ma120: 15.94
 - return_5d: -2.35
 - return_20d: 15.28
-- volume_ratio: 0.35
+- volume_ratio: 0.17
 - distance_to_ma20_pct_auxiliary: 5.06
 - distance_to_high_60_pct: -8.79
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,17,17.1,16.7,17.1,17000,15.86,7.8,15.44,15.34,0.17
 20260526,16.9,17.1,16.7,17.1,17000,15.97,7.1,15.57,15.36,0.17
 20260527,16.85,16.9,16.7,16.8,17000,16.04,4.77,15.69,15.37,0.17
-20260528,16.7,16.7,16.5,16.6,34367,16.08,3.22,15.8,15.39,0.35
+20260528,16.7,16.7,16.5,16.6,17000,16.08,3.22,15.8,15.39,0.17
 ```
 
 ## Latest TDCC Snapshot

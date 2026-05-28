@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6732 昇佳電子
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:29 Asia/Taipei
+- generated_at: 2026-05-28 20:20:16 Asia/Taipei
 - stock_id: 6732
 - stock_name: 昇佳電子
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 179.5
 - low: 168.5
 - close: 170
-- volume: 519649
+- volume: 174000
 - ma5: 179.8
 - ema23_primary: 168.4
 - distance_to_ema23_pct: 0.95
@@ -69,7 +69,7 @@
 - ma120: 168.7
 - return_5d: -2.86
 - return_20d: 12.21
-- volume_ratio: 1.99
+- volume_ratio: 0.71
 - distance_to_ma20_pct_auxiliary: 1.57
 - distance_to_high_60_pct: -9.33
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,183.5,184,179,181.5,181000,165.41,9.73,163.4,160.07,0.72
 20260526,182.5,185.5,179.5,183.5,183000,166.92,9.94,164.85,160.27,0.74
 20260527,187,187.5,180.5,183,184000,168.26,8.76,166.45,160.41,0.76
-20260528,177,179.5,168.5,170,519649,168.4,0.95,167.38,160.28,1.99
+20260528,177,179.5,168.5,170,174000,168.4,0.95,167.38,160.28,0.71
 ```
 
 ## Latest TDCC Snapshot

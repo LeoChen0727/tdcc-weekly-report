@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6856 鑫傳
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:33 Asia/Taipei
+- generated_at: 2026-05-28 20:20:20 Asia/Taipei
 - stock_id: 6856
 - stock_name: 鑫傳
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 50.4
 - low: 49.3
 - close: 50.4
-- volume: 2000
+- volume: 50000
 - ma5: 52.04
 - ema23_primary: 51.2
 - distance_to_ema23_pct: -1.56
@@ -69,7 +69,7 @@
 - ma120: 54.52
 - return_5d: -1.56
 - return_20d: -0.2
-- volume_ratio: 0.14
+- volume_ratio: 2.93
 - distance_to_ma20_pct_auxiliary: -0.73
 - distance_to_high_60_pct: -12.8
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,51.5,52.5,51.4,52.5,52000,51.1,2.73,50.66,52.92,5.17
 20260525,53.4,53.4,53.4,53.4,53000,51.3,4.1,50.75,52.88,4.26
 20260527,53.2,53.2,50,51,51000,51.27,-0.53,50.78,52.8,3.48
-20260528,49.3,50.4,49.3,50.4,2000,51.2,-1.56,50.77,52.72,0.14
+20260528,49.3,50.4,49.3,50.4,50000,51.2,-1.56,50.77,52.72,2.93
 ```
 
 ## Latest TDCC Snapshot

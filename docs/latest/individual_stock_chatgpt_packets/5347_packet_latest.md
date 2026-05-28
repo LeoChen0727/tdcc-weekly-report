@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5347 世界
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:57 Asia/Taipei
+- generated_at: 2026-05-28 20:19:44 Asia/Taipei
 - stock_id: 5347
 - stock_name: 世界
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 170.5
 - low: 160
 - close: 161.5
-- volume: 31394495
+- volume: 165000
 - ma5: 164.6
 - ema23_primary: 159.3
 - distance_to_ema23_pct: 1.38
@@ -69,7 +69,7 @@
 - ma120: 125.46
 - return_5d: -1.22
 - return_20d: 12.15
-- volume_ratio: 0.91
+- volume_ratio: 0.01
 - distance_to_ma20_pct_auxiliary: -2.08
 - distance_to_high_60_pct: -12.94
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,162.5,172.5,160,168.5,168000,157.88,6.73,161.72,135.96,0
 20260526,170,172.5,164,165,167000,158.47,4.12,163.05,136.46,0
 20260527,169.5,171.5,165.5,166,169000,159.1,4.34,164.05,137,0
-20260528,167.5,170.5,160,161.5,31394495,159.3,1.38,164.93,137.53,0.91
+20260528,167.5,170.5,160,161.5,165000,159.3,1.38,164.93,137.53,0.01
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 5347 | 世界 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

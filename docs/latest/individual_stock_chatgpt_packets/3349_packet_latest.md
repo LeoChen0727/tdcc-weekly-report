@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3349 寶德
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:24 Asia/Taipei
+- generated_at: 2026-05-28 20:19:10 Asia/Taipei
 - stock_id: 3349
 - stock_name: 寶德
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 18.3
 - low: 17.5
 - close: 17.9
-- volume: 225032
+- volume: 18000
 - ma5: 18.39
 - ema23_primary: 21.05
 - distance_to_ema23_pct: -14.96
@@ -69,7 +69,7 @@
 - ma120: 27.45
 - return_5d: -5.79
 - return_20d: -32.07
-- volume_ratio: 1.33
+- volume_ratio: 0.11
 - distance_to_ma20_pct_auxiliary: -13.81
 - distance_to_high_60_pct: -45.18
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,18.75,18.9,18.2,18.9,19000,21.95,-13.88,22.09,25.9,0.11
 20260526,18.7,18.8,18.1,18.1,18000,21.63,-16.3,21.62,25.7,0.11
 20260527,18.45,18.45,17.55,18.15,18000,21.34,-14.93,21.19,25.49,0.11
-20260528,18.25,18.3,17.5,17.9,225032,21.05,-14.96,20.77,25.26,1.33
+20260528,18.25,18.3,17.5,17.9,18000,21.05,-14.96,20.77,25.26,0.11
 ```
 
 ## Latest TDCC Snapshot

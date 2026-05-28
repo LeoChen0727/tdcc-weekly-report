@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7642 昶瑞機電
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:38 Asia/Taipei
+- generated_at: 2026-05-28 20:20:25 Asia/Taipei
 - stock_id: 7642
 - stock_name: 昶瑞機電
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 68.4
 - low: 65.6
 - close: 66
-- volume: 22343
+- volume: 67000
 - ma5: 67.82
 - ema23_primary: 69.07
 - distance_to_ema23_pct: -4.44
@@ -69,7 +69,7 @@
 - ma120: 77.19
 - return_5d: -5.31
 - return_20d: 1.23
-- volume_ratio: 0.47
+- volume_ratio: 1.34
 - distance_to_ma20_pct_auxiliary: -4.08
 - distance_to_high_60_pct: -16.46
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,69.7,69.9,68.5,68.8,69000,69.74,-1.35,68.64,72.28,1.52
 20260526,68.3,68.3,66.5,68,67000,69.6,-2.3,68.69,72.1,1.43
 20260527,66.8,67,66,66.6,67000,69.35,-3.96,68.77,71.88,1.39
-20260528,68.4,68.4,65.6,66,22343,69.07,-4.44,68.81,71.66,0.47
+20260528,68.4,68.4,65.6,66,67000,69.07,-4.44,68.81,71.66,1.34
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5704 老爺知
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:03 Asia/Taipei
+- generated_at: 2026-05-28 20:19:50 Asia/Taipei
 - stock_id: 5704
 - stock_name: 老爺知
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 21.5
 - low: 21
 - close: 21.35
-- volume: 42088
+- volume: 21000
 - ma5: 21.24
 - ema23_primary: 21.44
 - distance_to_ema23_pct: -0.44
@@ -69,7 +69,7 @@
 - ma120: 23.61
 - return_5d: -0.23
 - return_20d: -1.16
-- volume_ratio: 1.7
+- volume_ratio: 0.88
 - distance_to_ma20_pct_auxiliary: -0.3
 - distance_to_high_60_pct: -9.73
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,21.3,21.3,21.2,21.25,21000,21.51,-1.2,21.47,21.76,0.93
 20260526,21.25,21.25,21.1,21.15,21000,21.48,-1.53,21.45,21.75,0.9
 20260527,21.2,21.4,21.05,21.15,21000,21.45,-1.41,21.43,21.73,0.89
-20260528,21.5,21.5,21,21.35,42088,21.44,-0.44,21.41,21.72,1.7
+20260528,21.5,21.5,21,21.35,21000,21.44,-0.44,21.41,21.72,0.88
 ```
 
 ## Latest TDCC Snapshot

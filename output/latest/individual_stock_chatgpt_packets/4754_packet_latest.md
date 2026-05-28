@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4754 國碳科
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:47 Asia/Taipei
+- generated_at: 2026-05-28 20:19:34 Asia/Taipei
 - stock_id: 4754
 - stock_name: 國碳科
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 38.1
 - low: 37.65
 - close: 37.7
-- volume: 28853
+- volume: 38000
 - ma5: 38.05
 - ema23_primary: 37.84
 - distance_to_ema23_pct: -0.37
@@ -69,7 +69,7 @@
 - ma120: 38.24
 - return_5d: -0.79
 - return_20d: 1.34
-- volume_ratio: 0.76
+- volume_ratio: 0.99
 - distance_to_ma20_pct_auxiliary: -0.26
 - distance_to_high_60_pct: -4.56
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,38.85,38.85,37.8,37.85,38000,37.82,0.09,37.69,37.73,1.04
 20260526,37.85,38,37.85,38,38000,37.83,0.44,37.74,37.72,1.04
 20260527,38.1,38.4,38.1,38.1,38000,37.85,0.65,37.77,37.71,1.02
-20260528,37.9,38.1,37.65,37.7,28853,37.84,-0.37,37.8,37.7,0.76
+20260528,37.9,38.1,37.65,37.7,38000,37.84,-0.37,37.8,37.7,0.99
 ```
 
 ## Latest TDCC Snapshot

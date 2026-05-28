@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6517 保勝光學
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:21 Asia/Taipei
+- generated_at: 2026-05-28 20:20:08 Asia/Taipei
 - stock_id: 6517
 - stock_name: 保勝光學
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 59.9
 - low: 57.3
 - close: 57.6
-- volume: 290735
+- volume: 58000
 - ma5: 60.32
 - ema23_primary: 59.46
 - distance_to_ema23_pct: -3.13
@@ -69,7 +69,7 @@
 - ma120: 61.95
 - return_5d: -6.8
 - return_20d: -0.17
-- volume_ratio: 1.06
+- volume_ratio: 0.22
 - distance_to_ma20_pct_auxiliary: -2.88
 - distance_to_high_60_pct: -10
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,63.1,64,61.7,61.8,63000,59.58,3.73,59.06,58.49,0.23
 20260526,62,62.4,60.5,60.8,61000,59.68,1.88,59.25,58.49,0.23
 20260527,61.2,61.2,59,59.1,60000,59.63,-0.89,59.31,58.46,0.23
-20260528,59,59.9,57.3,57.6,290735,59.46,-3.13,59.31,58.4,1.06
+20260528,59,59.9,57.3,57.6,58000,59.46,-3.13,59.31,58.4,0.22
 ```
 
 ## Latest TDCC Snapshot

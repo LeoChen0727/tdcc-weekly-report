@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4157 太景*-KY
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:38 Asia/Taipei
+- generated_at: 2026-05-28 20:19:25 Asia/Taipei
 - stock_id: 4157
 - stock_name: 太景*-KY
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 9.1
 - low: 8.98
 - close: 9.01
-- volume: 1294322
+- volume: 9000
 - ma5: 9.11
 - ema23_primary: 9.49
 - distance_to_ema23_pct: -5.01
@@ -69,7 +69,7 @@
 - ma120: 11.64
 - return_5d: -2.17
 - return_20d: -11.23
-- volume_ratio: 1.22
+- volume_ratio: 0.01
 - distance_to_ma20_pct_auxiliary: -3.68
 - distance_to_high_60_pct: -27.04
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,9.22,9.32,9.07,9.22,9000,9.62,-4.2,9.52,10.65,0.01
 20260526,9.22,9.22,9.03,9.03,9000,9.57,-5.69,9.46,10.59,0.01
 20260527,9.1,9.17,8.99,9.02,9000,9.53,-5.33,9.41,10.54,0.01
-20260528,9.1,9.1,8.98,9.01,1294322,9.49,-5.01,9.35,10.49,1.22
+20260528,9.1,9.1,8.98,9.01,9000,9.49,-5.01,9.35,10.49,0.01
 ```
 
 ## Latest TDCC Snapshot

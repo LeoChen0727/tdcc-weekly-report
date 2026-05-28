@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7728 光焱科技
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:39 Asia/Taipei
+- generated_at: 2026-05-28 20:20:27 Asia/Taipei
 - stock_id: 7728
 - stock_name: 光焱科技
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 788
 - low: 727
 - close: 778
-- volume: 233431
+- volume: 764000
 - ma5: 752.2
 - ema23_primary: 744.19
 - distance_to_ema23_pct: 4.54
@@ -69,7 +69,7 @@
 - ma120: 671.28
 - return_5d: 8.36
 - return_20d: 10.98
-- volume_ratio: 0.69
+- volume_ratio: 2.09
 - distance_to_ma20_pct_auxiliary: 4.67
 - distance_to_high_60_pct: -20.61
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,735,770,718,764,745000,739.63,3.3,733.4,760.33,2.6
 20260526,770,775,736,762,758000,741.49,2.77,737.85,759.07,2.45
 20260527,775,794,736,737,770000,741.12,-0.56,739.45,757.35,2.29
-20260528,748,788,727,778,233431,744.19,4.54,743.3,755.8,0.69
+20260528,748,788,727,778,764000,744.19,4.54,743.3,755.8,2.09
 ```
 
 ## Latest TDCC Snapshot

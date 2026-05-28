@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4113 聯上
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:37 Asia/Taipei
+- generated_at: 2026-05-28 20:19:23 Asia/Taipei
 - stock_id: 4113
 - stock_name: 聯上
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 14.45
 - low: 14.15
 - close: 14.25
-- volume: 195145
+- volume: 14000
 - ma5: 14.76
 - ema23_primary: 15.07
 - distance_to_ema23_pct: -5.45
@@ -69,7 +69,7 @@
 - ma120: 19.25
 - return_5d: -8.06
 - return_20d: 0.35
-- volume_ratio: 0.66
+- volume_ratio: 0.05
 - distance_to_ma20_pct_auxiliary: -4.75
 - distance_to_high_60_pct: -29.28
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,15.25,15.25,14.6,14.95,15000,15.26,-2.01,14.94,16.69,0.04
 20260526,14.65,14.7,14.35,14.65,15000,15.21,-3.65,14.95,16.6,0.05
 20260527,14.7,14.7,14.4,14.5,14000,15.15,-4.27,14.96,16.5,0.05
-20260528,14.4,14.45,14.15,14.25,195145,15.07,-5.45,14.96,16.41,0.66
+20260528,14.4,14.45,14.15,14.25,14000,15.07,-5.45,14.96,16.41,0.05
 ```
 
 ## Latest TDCC Snapshot

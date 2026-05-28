@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3086 華義*
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:16 Asia/Taipei
+- generated_at: 2026-05-28 20:19:03 Asia/Taipei
 - stock_id: 3086
 - stock_name: 華義*
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 31.6
 - low: 29.6
 - close: 30.45
-- volume: 1227736
+- volume: 30000
 - ma5: 33.96
 - ema23_primary: 58.19
 - distance_to_ema23_pct: -47.67
@@ -69,7 +69,7 @@
 - ma120: 190.1
 - return_5d: -17.37
 - return_20d: -21.92
-- volume_ratio: 1.78
+- volume_ratio: 0.05
 - distance_to_ma20_pct_auxiliary: -19.49
 - distance_to_high_60_pct: -90.98
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,37.95,37.95,35.8,35.8,36000,65.93,-45.7,38.99,166.81,0.05
 20260526,36,36.25,35,35.05,35000,63.36,-44.68,38.69,163.66,0.05
 20260527,34.6,34.9,31.55,31.6,32000,60.71,-47.95,38.25,160.44,0.05
-20260528,31.6,31.6,29.6,30.45,1227736,58.19,-47.67,37.82,157.17,1.78
+20260528,31.6,31.6,29.6,30.45,30000,58.19,-47.67,37.82,157.17,0.05
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4173 久裕
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:39 Asia/Taipei
+- generated_at: 2026-05-28 20:19:26 Asia/Taipei
 - stock_id: 4173
 - stock_name: 久裕
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 18.05
 - low: 17.9
 - close: 18
-- volume: 125749
+- volume: 18000
 - ma5: 18.16
 - ema23_primary: 18.59
 - distance_to_ema23_pct: -3.18
@@ -69,7 +69,7 @@
 - ma120: 20.56
 - return_5d: -1.64
 - return_20d: -5.51
-- volume_ratio: 1.23
+- volume_ratio: 0.19
 - distance_to_ma20_pct_auxiliary: -2.39
 - distance_to_high_60_pct: -18.74
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,18.35,18.35,18.1,18.2,18000,18.75,-2.91,18.58,19.9,0.17
 20260526,18.15,18.3,18.15,18.25,18000,18.7,-2.43,18.54,19.84,0.18
 20260527,18.2,18.2,18,18,18000,18.65,-3.46,18.49,19.77,0.18
-20260528,18.05,18.05,17.9,18,125749,18.59,-3.18,18.44,19.71,1.23
+20260528,18.05,18.05,17.9,18,18000,18.59,-3.18,18.44,19.71,0.19
 ```
 
 ## Latest TDCC Snapshot

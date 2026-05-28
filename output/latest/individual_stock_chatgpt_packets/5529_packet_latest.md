@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5529 鉅陞
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:01 Asia/Taipei
+- generated_at: 2026-05-28 20:19:49 Asia/Taipei
 - stock_id: 5529
 - stock_name: 鉅陞
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 22.75
 - low: 21.75
 - close: 21.95
-- volume: 197958
+- volume: 22000
 - ma5: 23.33
 - ema23_primary: 23.15
 - distance_to_ema23_pct: -5.2
@@ -69,7 +69,7 @@
 - ma120: 25.64
 - return_5d: -13.58
 - return_20d: 0
-- volume_ratio: 1.57
+- volume_ratio: 0.19
 - distance_to_ma20_pct_auxiliary: -3.21
 - distance_to_high_60_pct: -21.61
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,24.2,24.4,23.35,23.9,24000,23.26,2.77,22.55,24.52,0.2
 20260526,24,24.2,23.7,23.85,24000,23.31,2.34,22.64,24.45,0.2
 20260527,23.6,23.85,22.8,22.8,23000,23.26,-1.99,22.68,24.38,0.2
-20260528,22.7,22.75,21.75,21.95,197958,23.15,-5.2,22.68,24.3,1.57
+20260528,22.7,22.75,21.75,21.95,22000,23.15,-5.2,22.68,24.3,0.19
 ```
 
 ## Latest TDCC Snapshot

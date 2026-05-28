@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6122 擎邦
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:06 Asia/Taipei
+- generated_at: 2026-05-28 20:19:53 Asia/Taipei
 - stock_id: 6122
 - stock_name: 擎邦
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 47.2
 - low: 46.35
 - close: 46.35
-- volume: 310650
+- volume: 47000
 - ma5: 47.12
 - ema23_primary: 48.05
 - distance_to_ema23_pct: -3.54
@@ -69,7 +69,7 @@
 - ma120: 50.32
 - return_5d: -2.63
 - return_20d: -5.5
-- volume_ratio: 1.18
+- volume_ratio: 0.19
 - distance_to_ma20_pct_auxiliary: -3.49
 - distance_to_high_60_pct: -14.48
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,48,48,47.35,47.5,48000,48.42,-1.9,48.33,50.11,0.17
 20260526,47.65,47.85,47.35,47.35,48000,48.33,-2.03,48.27,50.01,0.19
 20260527,47.4,47.4,46.6,46.85,47000,48.21,-2.81,48.16,49.91,0.18
-20260528,47,47.2,46.35,46.35,310650,48.05,-3.54,48.03,49.82,1.18
+20260528,47,47.2,46.35,46.35,47000,48.05,-3.54,48.03,49.82,0.19
 ```
 
 ## Latest TDCC Snapshot

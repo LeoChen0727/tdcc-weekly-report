@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4442 竣邦-KY
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:42 Asia/Taipei
+- generated_at: 2026-05-28 20:19:28 Asia/Taipei
 - stock_id: 4442
 - stock_name: 竣邦-KY
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 51
 - low: 49.6
 - close: 50.1
-- volume: 70732
+- volume: 50000
 - ma5: 50.74
 - ema23_primary: 53.14
 - distance_to_ema23_pct: -5.72
@@ -69,7 +69,7 @@
 - ma120: 57.5
 - return_5d: -3.28
 - return_20d: -8.91
-- volume_ratio: 1.38
+- volume_ratio: 0.99
 - distance_to_ma20_pct_auxiliary: -5.48
 - distance_to_high_60_pct: -22.8
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,51,51.9,50,51,51000,53.9,-5.39,53.72,57.28,1.08
 20260526,51.4,52,51,51,51000,53.66,-4.96,53.47,57.21,1.05
 20260527,51.8,51.8,50.7,50.7,51000,53.41,-5.08,53.25,57.13,1.04
-20260528,51,51,49.6,50.1,70732,53.14,-5.72,53.01,57.04,1.38
+20260528,51,51,49.6,50.1,50000,53.14,-5.72,53.01,57.04,0.99
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6613 朋億*
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:24 Asia/Taipei
+- generated_at: 2026-05-28 20:20:11 Asia/Taipei
 - stock_id: 6613
 - stock_name: 朋億*
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 282
 - low: 262
 - close: 265.5
-- volume: 442505
+- volume: 271000
 - ma5: 270.5
 - ema23_primary: 251.08
 - distance_to_ema23_pct: 5.74
@@ -69,7 +69,7 @@
 - ma120: 208.97
 - return_5d: 2.91
 - return_20d: 16.96
-- volume_ratio: 1.04
+- volume_ratio: 0.65
 - distance_to_ma20_pct_auxiliary: 6.09
 - distance_to_high_60_pct: -6.84
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,264,276,260,272.5,269000,244.25,11.56,243.5,221.13,0.66
 20260526,275.5,283.5,274.5,277.5,278000,247.02,12.34,245.78,222.33,0.68
 20260527,281,285,276,280,281000,249.77,12.1,248.32,223.59,0.68
-20260528,282,282,262,265.5,442505,251.08,5.74,250.25,224.77,1.04
+20260528,282,282,262,265.5,271000,251.08,5.74,250.25,224.77,0.65
 ```
 
 ## Latest TDCC Snapshot

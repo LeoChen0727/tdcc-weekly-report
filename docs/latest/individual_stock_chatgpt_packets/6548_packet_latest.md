@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6548 長科*
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:22 Asia/Taipei
+- generated_at: 2026-05-28 20:20:09 Asia/Taipei
 - stock_id: 6548
 - stock_name: 長科*
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 67.2
 - low: 61.4
 - close: 66.4
-- volume: 30645908
+- volume: 66000
 - ma5: 58.92
 - ema23_primary: 54.06
 - distance_to_ema23_pct: 22.84
@@ -69,7 +69,7 @@
 - ma120: 48.82
 - return_5d: 29.18
 - return_20d: 22.96
-- volume_ratio: 5.48
+- volume_ratio: 0.02
 - distance_to_ma20_pct_auxiliary: 25.18
 - distance_to_high_60_pct: -1.19
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,53,55,52.5,54.9,54000,51.45,6.7,51.61,49.91,0.01
 20260526,56.5,60.3,55.8,60.3,59000,52.19,15.54,52.01,50.12,0.01
 20260527,60.8,63.5,59.6,61.1,62000,52.93,15.43,52.42,50.31,0.01
-20260528,62,67.2,61.4,66.4,30645908,54.06,22.84,53.05,50.62,5.48
+20260528,62,67.2,61.4,66.4,66000,54.06,22.84,53.05,50.62,0.02
 ```
 
 ## Latest TDCC Snapshot
@@ -125,13 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6548 | 長科* | true_breakout | 嚴格突破 | 98.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 6548 | 長科* | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 6548 | 長科* | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6548 | 長科* | 6 | 6 | 5 | 6 | 6 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260528 | 6548 | 長科* | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

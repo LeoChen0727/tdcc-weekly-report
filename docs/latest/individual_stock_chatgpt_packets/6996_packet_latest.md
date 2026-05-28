@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6996 力領科技
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:37 Asia/Taipei
+- generated_at: 2026-05-28 20:20:25 Asia/Taipei
 - stock_id: 6996
 - stock_name: 力領科技
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 193
 - low: 186
 - close: 189
-- volume: 180755
+- volume: 190000
 - ma5: 190.7
 - ema23_primary: 185.96
 - distance_to_ema23_pct: 1.63
@@ -69,7 +69,7 @@
 - ma120: 166.55
 - return_5d: -4.55
 - return_20d: 6.78
-- volume_ratio: 0.89
+- volume_ratio: 0.93
 - distance_to_ma20_pct_auxiliary: 1.37
 - distance_to_high_60_pct: -7.35
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,194,197,187,187.5,190000,184.58,1.58,183.88,175.94,0.98
 20260526,190,192.5,188,191.5,190000,185.16,3.42,184.93,176.34,0.98
 20260527,192,194.5,189,191.5,192000,185.69,3.13,185.85,176.74,0.95
-20260528,191.5,193,186,189,180755,185.96,1.63,186.45,177.07,0.89
+20260528,191.5,193,186,189,190000,185.96,1.63,186.45,177.07,0.93
 ```
 
 ## Latest TDCC Snapshot

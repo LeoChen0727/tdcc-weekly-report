@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6263 普萊德
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:15 Asia/Taipei
+- generated_at: 2026-05-28 20:20:02 Asia/Taipei
 - stock_id: 6263
 - stock_name: 普萊德
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 185
 - low: 177
 - close: 177
-- volume: 310997
+- volume: 181000
 - ma5: 182.4
 - ema23_primary: 166.61
 - distance_to_ema23_pct: 6.24
@@ -69,7 +69,7 @@
 - ma120: 134.67
 - return_5d: 0
 - return_20d: 28.26
-- volume_ratio: 0.58
+- volume_ratio: 0.34
 - distance_to_ma20_pct_auxiliary: 5.92
 - distance_to_high_60_pct: -9.23
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,185,185,183,184,184000,162.08,13.52,160.75,138.43,0.35
 20260526,186.5,186.5,183.5,185,185000,163.99,12.81,162.93,139.5,0.35
 20260527,185.5,186.5,182,184,183000,165.66,11.07,165.15,140.55,0.35
-20260528,183.5,185,177,177,310997,166.61,6.24,167.1,141.4,0.58
+20260528,183.5,185,177,177,181000,166.61,6.24,167.1,141.4,0.34
 ```
 
 ## Latest TDCC Snapshot

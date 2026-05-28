@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1268 漢來美食
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:27 Asia/Taipei
+- generated_at: 2026-05-28 20:18:13 Asia/Taipei
 - stock_id: 1268
 - stock_name: 漢來美食
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 168.5
 - low: 166.5
 - close: 168
-- volume: 21511
+- volume: 168000
 - ma5: 169.2
 - ema23_primary: 162.68
 - distance_to_ema23_pct: 3.27
@@ -69,7 +69,7 @@
 - ma120: 159.37
 - return_5d: 0.3
 - return_20d: 8.74
-- volume_ratio: 0.18
+- volume_ratio: 1.34
 - distance_to_ma20_pct_auxiliary: 4.09
 - distance_to_high_60_pct: -3.72
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,172,172,167,169.5,170000,161,5.28,159.35,158.5,1.64
 20260526,170.5,171,167.5,168.5,169000,161.62,4.26,160.03,158.64,1.52
 20260527,168.5,168.5,166,168.5,167000,162.19,3.89,160.72,158.78,1.41
-20260528,167.5,168.5,166.5,168,21511,162.68,3.27,161.4,158.9,0.18
+20260528,167.5,168.5,166.5,168,168000,162.68,3.27,161.4,158.9,1.34
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6961 旅天下
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:37 Asia/Taipei
+- generated_at: 2026-05-28 20:20:24 Asia/Taipei
 - stock_id: 6961
 - stock_name: 旅天下
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 60
 - low: 58.6
 - close: 59.9
-- volume: 147323
+- volume: 60000
 - ma5: 58.68
 - ema23_primary: 58.68
 - distance_to_ema23_pct: 2.07
@@ -69,7 +69,7 @@
 - ma120: 58.27
 - return_5d: 2.39
 - return_20d: 3.28
-- volume_ratio: 2.24
+- volume_ratio: 0.98
 - distance_to_ma20_pct_auxiliary: 1.57
 - distance_to_high_60_pct: -2.44
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,58.8,58.8,58.2,58.2,58000,58.6,-0.68,58.83,58.12,1
 20260526,58.5,58.5,58.3,58.5,58000,58.59,-0.15,58.86,58.15,0.98
 20260527,59.9,59.9,58.4,58.4,59000,58.57,-0.3,58.88,58.18,0.99
-20260528,58.7,60,58.6,59.9,147323,58.68,2.07,58.98,58.23,2.24
+20260528,58.7,60,58.6,59.9,60000,58.68,2.07,58.98,58.23,0.98
 ```
 
 ## Latest TDCC Snapshot

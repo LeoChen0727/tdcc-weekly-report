@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4946 辣椒
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:50 Asia/Taipei
+- generated_at: 2026-05-28 20:19:37 Asia/Taipei
 - stock_id: 4946
 - stock_name: 辣椒
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 102.5
 - low: 100
 - close: 101
-- volume: 86955
+- volume: 101000
 - ma5: 103.8
 - ema23_primary: 107.02
 - distance_to_ema23_pct: -5.63
@@ -69,7 +69,7 @@
 - ma120: 114.34
 - return_5d: -6.05
 - return_20d: -10.62
-- volume_ratio: 1.44
+- volume_ratio: 1.65
 - distance_to_ma20_pct_auxiliary: -5.03
 - distance_to_high_60_pct: -38.79
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,109,109,104.5,105,106000,108.63,-3.35,108.05,121.12,2.15
 20260526,105,105,102.5,103,103000,108.16,-4.77,107.55,120.41,1.95
 20260527,102.5,104,101,101,102000,107.57,-6.11,106.95,119.42,1.8
-20260528,100.5,102.5,100,101,86955,107.02,-5.63,106.35,118.49,1.44
+20260528,100.5,102.5,100,101,101000,107.02,-5.63,106.35,118.49,1.65
 ```
 
 ## Latest TDCC Snapshot

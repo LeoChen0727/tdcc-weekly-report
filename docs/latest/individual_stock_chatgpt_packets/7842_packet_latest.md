@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7842 天能綠電
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:42 Asia/Taipei
+- generated_at: 2026-05-28 20:20:29 Asia/Taipei
 - stock_id: 7842
 - stock_name: 天能綠電
 - packet_status: partial_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 115.5
 - low: 110
 - close: 110.5
-- volume: 118650
+- volume: 112000
 - ma5: 111.7
 - ema23_primary: 114.59
 - distance_to_ema23_pct: -3.57
@@ -69,7 +69,7 @@
 - ma120: 110.39
 - return_5d: 8.33
 - return_20d: 
-- volume_ratio: 0.76
+- volume_ratio: 0.72
 - distance_to_ma20_pct_auxiliary: 0.1
 - distance_to_high_60_pct: -13.33
 
@@ -90,7 +90,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,102,111,101,111,106000,114.41,-2.98,109,109,0.63
 20260526,111,122,110.5,121,116000,114.96,5.25,110,110,0.71
 20260527,119.5,119.5,114,115,115000,114.96,0.03,110.38,110.38,0.72
-20260528,115,115.5,110,110.5,118650,114.59,-3.57,110.39,110.39,0.76
+20260528,115,115.5,110,110.5,112000,114.59,-3.57,110.39,110.39,0.72
 ```
 
 ## Latest TDCC Snapshot

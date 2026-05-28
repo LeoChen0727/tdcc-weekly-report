@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6751 智聯服務
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:29 Asia/Taipei
+- generated_at: 2026-05-28 20:20:16 Asia/Taipei
 - stock_id: 6751
 - stock_name: 智聯服務
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 48.05
 - low: 47
 - close: 47.05
-- volume: 25329
+- volume: 48000
 - ma5: 47.45
 - ema23_primary: 48.67
 - distance_to_ema23_pct: -3.33
@@ -69,7 +69,7 @@
 - ma120: 53.86
 - return_5d: -1.36
 - return_20d: -9.34
-- volume_ratio: 0.68
+- volume_ratio: 1.25
 - distance_to_ma20_pct_auxiliary: -3.35
 - distance_to_high_60_pct: -18.6
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,46.95,47.8,46.95,47.55,47000,49.06,-3.07,49.38,51.52,1.37
 20260526,47.55,47.85,47.45,47.5,48000,48.93,-2.91,49.15,51.39,1.36
 20260527,47.8,48,47.6,47.65,48000,48.82,-2.39,48.92,51.23,1.3
-20260528,47.75,48.05,47,47.05,25329,48.67,-3.33,48.68,51.06,0.68
+20260528,47.75,48.05,47,47.05,48000,48.67,-3.33,48.68,51.06,1.25
 ```
 
 ## Latest TDCC Snapshot

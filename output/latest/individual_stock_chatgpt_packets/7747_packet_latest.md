@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7747 昕奇雲端
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:40 Asia/Taipei
+- generated_at: 2026-05-28 20:20:27 Asia/Taipei
 - stock_id: 7747
 - stock_name: 昕奇雲端
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 127.5
 - low: 127.5
 - close: 127.5
-- volume: 1013
+- volume: 127000
 - ma5: 127.1
 - ema23_primary: 127.99
 - distance_to_ema23_pct: -0.38
@@ -69,7 +69,7 @@
 - ma120: 122.58
 - return_5d: 0
 - return_20d: -2.3
-- volume_ratio: 0.03
+- volume_ratio: 3.43
 - distance_to_ma20_pct_auxiliary: -1.56
 - distance_to_high_60_pct: -7.61
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,124.5,125,124.5,125,125000,127.86,-2.23,129.88,123.17,6.79
 20260526,126.5,130,125.5,130,129000,128.04,1.53,129.82,123.36,5.21
 20260527,128,128,128,128,128000,128.03,-0.03,129.68,123.51,4.13
-20260528,127.5,127.5,127.5,127.5,1013,127.99,-0.38,129.53,123.66,0.03
+20260528,127.5,127.5,127.5,127.5,127000,127.99,-0.38,129.53,123.66,3.43
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3066 李洲
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:16 Asia/Taipei
+- generated_at: 2026-05-28 20:19:02 Asia/Taipei
 - stock_id: 3066
 - stock_name: 李洲
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 22
 - low: 20.9
 - close: 21.05
-- volume: 917944
+- volume: 21000
 - ma5: 20.91
 - ema23_primary: 19.78
 - distance_to_ema23_pct: 6.44
@@ -69,7 +69,7 @@
 - ma120: 16.76
 - return_5d: 1.69
 - return_20d: 11.67
-- volume_ratio: 2.15
+- volume_ratio: 0.05
 - distance_to_ma20_pct_auxiliary: 8.62
 - distance_to_high_60_pct: -16.47
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,20.8,21.2,20.55,21.2,21000,19.45,8.98,19.02,18.88,0.05
 20260526,21.4,21.4,20.7,20.85,21000,19.57,6.54,19.16,18.98,0.05
 20260527,21,21.2,20.55,20.65,21000,19.66,5.04,19.27,19.09,0.05
-20260528,20.9,22,20.9,21.05,917944,19.78,6.44,19.38,19.19,2.15
+20260528,20.9,22,20.9,21.05,21000,19.78,6.44,19.38,19.19,0.05
 ```
 
 ## Latest TDCC Snapshot

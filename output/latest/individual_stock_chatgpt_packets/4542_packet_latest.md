@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4542 科嶠
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:43 Asia/Taipei
+- generated_at: 2026-05-28 20:19:30 Asia/Taipei
 - stock_id: 4542
 - stock_name: 科嶠
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 271
 - low: 255
 - close: 261.5
-- volume: 921861
+- volume: 263000
 - ma5: 270.3
 - ema23_primary: 229.65
 - distance_to_ema23_pct: 13.87
@@ -69,7 +69,7 @@
 - ma120: 142.75
 - return_5d: 0.77
 - return_20d: 33.42
-- volume_ratio: 1.39
+- volume_ratio: 0.42
 - distance_to_ma20_pct_auxiliary: 13.23
 - distance_to_high_60_pct: -12.25
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,277.5,298,262,265,280000,217.84,21.65,218.07,185.57,0.34
 20260526,260,278,251,276,266000,222.69,23.94,223.03,187.55,0.33
 20260527,298,298,265,271.5,277000,226.75,19.73,227.68,189.39,0.37
-20260528,268.5,271,255,261.5,921861,229.65,13.87,230.95,191.07,1.39
+20260528,268.5,271,255,261.5,263000,229.65,13.87,230.95,191.07,0.42
 ```
 
 ## Latest TDCC Snapshot

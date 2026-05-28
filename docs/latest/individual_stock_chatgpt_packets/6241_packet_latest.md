@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6241 鑫永洋
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:14 Asia/Taipei
+- generated_at: 2026-05-28 20:20:01 Asia/Taipei
 - stock_id: 6241
 - stock_name: 鑫永洋
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 10.2
 - low: 10
 - close: 10
-- volume: 180106
+- volume: 10000
 - ma5: 10.34
 - ema23_primary: 10.28
 - distance_to_ema23_pct: -2.69
@@ -69,7 +69,7 @@
 - ma120: 11.63
 - return_5d: -7.41
 - return_20d: -1.96
-- volume_ratio: 0.91
+- volume_ratio: 0.05
 - distance_to_ma20_pct_auxiliary: -0.57
 - distance_to_high_60_pct: -20.63
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,10.65,10.65,10.35,10.6,10000,10.32,2.75,10.06,10.92,0.05
 20260526,10.65,10.65,10.35,10.35,10000,10.32,0.3,10.07,10.88,0.05
 20260527,10.4,10.55,10.05,10.1,10000,10.3,-1.95,10.07,10.85,0.05
-20260528,10.1,10.2,10,10,180106,10.28,-2.69,10.06,10.81,0.91
+20260528,10.1,10.2,10,10,10000,10.28,-2.69,10.06,10.81,0.05
 ```
 
 ## Latest TDCC Snapshot

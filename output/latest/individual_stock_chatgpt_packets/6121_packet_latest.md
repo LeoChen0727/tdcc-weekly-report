@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6121 新普
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:06 Asia/Taipei
+- generated_at: 2026-05-28 20:19:53 Asia/Taipei
 - stock_id: 6121
 - stock_name: 新普
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 400
 - low: 387
 - close: 387.5
-- volume: 983217
+- volume: 392000
 - ma5: 388.7
 - ema23_primary: 376.22
 - distance_to_ema23_pct: 3
@@ -69,7 +69,7 @@
 - ma120: 354.42
 - return_5d: 1.57
 - return_20d: 6.46
-- volume_ratio: 1.23
+- volume_ratio: 0.51
 - distance_to_ma20_pct_auxiliary: 2.81
 - distance_to_high_60_pct: -3.12
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,381.5,388,381.5,385,386000,371.33,3.68,372.55,353.84,0.5
 20260526,386,397.5,385.5,394.5,392000,373.26,5.69,373.9,354.77,0.51
 20260527,398.5,398.5,390.5,396.5,395000,375.2,5.68,375.75,355.82,0.52
-20260528,398,400,387,387.5,983217,376.22,3,376.93,356.75,1.23
+20260528,398,400,387,387.5,392000,376.22,3,376.93,356.75,0.51
 ```
 
 ## Latest TDCC Snapshot

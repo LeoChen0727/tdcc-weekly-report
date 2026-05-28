@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6474 華豫寧
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:19 Asia/Taipei
+- generated_at: 2026-05-28 20:20:06 Asia/Taipei
 - stock_id: 6474
 - stock_name: 華豫寧
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 38.45
 - low: 37.8
 - close: 37.8
-- volume: 242317
+- volume: 38000
 - ma5: 38.26
 - ema23_primary: 38.07
 - distance_to_ema23_pct: -0.71
@@ -69,7 +69,7 @@
 - ma120: 36.32
 - return_5d: 0.13
 - return_20d: 1.61
-- volume_ratio: 2.12
+- volume_ratio: 0.36
 - distance_to_ma20_pct_auxiliary: -2.27
 - distance_to_high_60_pct: -8.36
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,38.4,38.75,38.15,38.55,38000,38.05,1.32,38.45,36.84,0.36
 20260526,38.55,38.65,38.4,38.55,39000,38.09,1.21,38.57,36.88,0.38
 20260527,38.15,38.8,38,38.15,38000,38.1,0.14,38.65,36.9,0.36
-20260528,38.15,38.45,37.8,37.8,242317,38.07,-0.71,38.68,36.92,2.12
+20260528,38.15,38.45,37.8,37.8,38000,38.07,-0.71,38.68,36.92,0.36
 ```
 
 ## Latest TDCC Snapshot

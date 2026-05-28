@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5013 強新
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:53 Asia/Taipei
+- generated_at: 2026-05-28 20:19:40 Asia/Taipei
 - stock_id: 5013
 - stock_name: 強新
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 28.4
 - low: 27.5
 - close: 28
-- volume: 14122
+- volume: 28000
 - ma5: 28.06
 - ema23_primary: 28.14
 - distance_to_ema23_pct: -0.48
@@ -69,7 +69,7 @@
 - ma120: 29.19
 - return_5d: 5.26
 - return_20d: -4.44
-- volume_ratio: 0.79
+- volume_ratio: 1.5
 - distance_to_ma20_pct_auxiliary: 0.37
 - distance_to_high_60_pct: -10.97
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,27.25,27.5,27.15,27.2,27000,28,-2.85,27.99,29.19,1.73
 20260525,27.3,29.45,27.3,29.45,28000,28.12,4.73,27.99,29.18,1.69
 20260526,29.45,29.45,28.45,28.45,29000,28.15,1.08,27.96,29.16,1.64
-20260528,27.5,28.4,27.5,28,14122,28.14,-0.48,27.9,29.13,0.79
+20260528,27.5,28.4,27.5,28,28000,28.14,-0.48,27.9,29.13,1.5
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3073 天方能源
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:16 Asia/Taipei
+- generated_at: 2026-05-28 20:19:02 Asia/Taipei
 - stock_id: 3073
 - stock_name: 天方能源
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 20.45
 - low: 19.8
 - close: 20.3
-- volume: 140244
+- volume: 20000
 - ma5: 20.27
 - ema23_primary: 21.74
 - distance_to_ema23_pct: -6.61
@@ -69,7 +69,7 @@
 - ma120: 28.62
 - return_5d: -0.98
 - return_20d: -10.38
-- volume_ratio: 1.12
+- volume_ratio: 0.17
 - distance_to_ma20_pct_auxiliary: -4.63
 - distance_to_high_60_pct: -38.86
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,20.6,20.65,20.1,20.25,20000,22.19,-8.74,21.67,25.93,0.15
 20260526,20.45,20.45,19.8,20.2,20000,22.02,-8.28,21.54,25.74,0.16
 20260527,20.4,20.5,20,20.15,20000,21.87,-7.86,21.4,25.55,0.16
-20260528,20.3,20.45,19.8,20.3,140244,21.74,-6.61,21.29,25.37,1.12
+20260528,20.3,20.45,19.8,20.3,20000,21.74,-6.61,21.29,25.37,0.17
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3128 昇銳
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:17 Asia/Taipei
+- generated_at: 2026-05-28 20:19:04 Asia/Taipei
 - stock_id: 3128
 - stock_name: 昇銳
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 23.5
 - low: 22.75
 - close: 22.8
-- volume: 227516
+- volume: 23000
 - ma5: 23.73
 - ema23_primary: 23.59
 - distance_to_ema23_pct: -3.34
@@ -69,7 +69,7 @@
 - ma120: 26.02
 - return_5d: -4
 - return_20d: -3.8
-- volume_ratio: 1.71
+- volume_ratio: 0.19
 - distance_to_ma20_pct_auxiliary: -2.66
 - distance_to_high_60_pct: -15.56
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,24.7,24.75,24.1,24.5,24000,23.68,3.46,23.5,24.57,0.18
 20260526,24.75,24.75,23.8,23.85,24000,23.7,0.65,23.5,24.51,0.19
 20260527,23.9,23.9,23.05,23.25,23000,23.66,-1.73,23.47,24.45,0.18
-20260528,23.25,23.5,22.75,22.8,227516,23.59,-3.34,23.42,24.38,1.71
+20260528,23.25,23.5,22.75,22.8,23000,23.59,-3.34,23.42,24.38,0.19
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2743 山富
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:06 Asia/Taipei
+- generated_at: 2026-05-28 20:18:52 Asia/Taipei
 - stock_id: 2743
 - stock_name: 山富
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 68.6
 - low: 67
 - close: 67.8
-- volume: 113328
+- volume: 67000
 - ma5: 67.34
 - ema23_primary: 68.85
 - distance_to_ema23_pct: -1.52
@@ -69,7 +69,7 @@
 - ma120: 75.79
 - return_5d: 0.15
 - return_20d: -3.97
-- volume_ratio: 1.23
+- volume_ratio: 0.75
 - distance_to_ma20_pct_auxiliary: -1.32
 - distance_to_high_60_pct: -14.5
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,67.9,67.9,66.4,66.8,67000,69.24,-3.52,69.12,71.72,0.7
 20260526,66.8,68.4,66.8,67.7,67000,69.11,-2.04,69,71.56,0.74
 20260527,68.3,68.7,67.1,67.1,68000,68.94,-2.67,68.85,71.39,0.76
-20260528,68.5,68.6,67,67.8,113328,68.85,-1.52,68.71,71.26,1.23
+20260528,68.5,68.6,67,67.8,67000,68.85,-1.52,68.71,71.26,0.75
 ```
 
 ## Latest TDCC Snapshot

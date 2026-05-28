@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6804 明係
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:31 Asia/Taipei
+- generated_at: 2026-05-28 20:20:18 Asia/Taipei
 - stock_id: 6804
 - stock_name: 明係
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 16.4
 - low: 15.9
 - close: 16.05
-- volume: 43172
+- volume: 16000
 - ma5: 16.15
 - ema23_primary: 15.76
 - distance_to_ema23_pct: 1.82
@@ -69,7 +69,7 @@
 - ma120: 17.02
 - return_5d: 4.22
 - return_20d: 2.88
-- volume_ratio: 0.77
+- volume_ratio: 0.29
 - distance_to_ma20_pct_auxiliary: 3.75
 - distance_to_high_60_pct: -6.96
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,15.85,16.35,15.85,16.3,16000,15.62,4.35,15.36,16.25,0.26
 20260526,16.65,16.65,16.45,16.5,16000,15.69,5.14,15.42,16.24,0.29
 20260527,16.85,16.85,16.2,16.2,16000,15.74,2.95,15.45,16.23,0.29
-20260528,16.2,16.4,15.9,16.05,43172,15.76,1.82,15.47,16.22,0.77
+20260528,16.2,16.4,15.9,16.05,16000,15.76,1.82,15.47,16.22,0.29
 ```
 
 ## Latest TDCC Snapshot

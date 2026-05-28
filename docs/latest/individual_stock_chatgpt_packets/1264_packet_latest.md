@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1264 德麥
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:27 Asia/Taipei
+- generated_at: 2026-05-28 20:18:12 Asia/Taipei
 - stock_id: 1264
 - stock_name: 德麥
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 271.5
 - low: 270.5
 - close: 270.5
-- volume: 35886
+- volume: 271000
 - ma5: 271.6
 - ema23_primary: 272.76
 - distance_to_ema23_pct: -0.83
@@ -69,7 +69,7 @@
 - ma120: 279.52
 - return_5d: -0.92
 - return_20d: -1.46
-- volume_ratio: 0.44
+- volume_ratio: 2.92
 - distance_to_ma20_pct_auxiliary: -0.55
 - distance_to_high_60_pct: -4.92
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,272.5,272.5,271,272,272000,273.29,-0.47,272.4,276.99,4.86
 20260526,272,272,271,271,272000,273.1,-0.77,272.32,276.78,4.06
 20260527,271.5,272,271,271.5,272000,272.97,-0.54,272.2,276.6,3.4
-20260528,270.5,271.5,270.5,270.5,35886,272.76,-0.83,272,276.38,0.44
+20260528,270.5,271.5,270.5,270.5,271000,272.76,-0.83,272,276.38,2.92
 ```
 
 ## Latest TDCC Snapshot

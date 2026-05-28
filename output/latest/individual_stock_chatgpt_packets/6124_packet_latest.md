@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6124 業強
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:06 Asia/Taipei
+- generated_at: 2026-05-28 20:19:53 Asia/Taipei
 - stock_id: 6124
 - stock_name: 業強
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 30.1
 - low: 28.8
 - close: 28.8
-- volume: 129620
+- volume: 30000
 - ma5: 29.56
 - ema23_primary: 29.82
 - distance_to_ema23_pct: -3.41
@@ -69,7 +69,7 @@
 - ma120: 29.33
 - return_5d: -0.69
 - return_20d: -7.1
-- volume_ratio: 1.54
+- volume_ratio: 0.38
 - distance_to_ma20_pct_auxiliary: -3.33
 - distance_to_high_60_pct: -30.77
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,29.9,30.4,29.55,29.8,30000,29.93,-0.44,29.99,31.49,0.34
 20260526,30.55,30.55,29.15,29.85,30000,29.92,-0.25,29.95,31.47,0.36
 20260527,29.85,29.9,29.4,29.75,30000,29.91,-0.53,29.9,31.44,0.37
-20260528,29.75,30.1,28.8,28.8,129620,29.82,-3.41,29.79,31.34,1.54
+20260528,29.75,30.1,28.8,28.8,30000,29.82,-3.41,29.79,31.34,0.38
 ```
 
 ## Latest TDCC Snapshot

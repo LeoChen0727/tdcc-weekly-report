@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6143 振曜
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:07 Asia/Taipei
+- generated_at: 2026-05-28 20:19:54 Asia/Taipei
 - stock_id: 6143
 - stock_name: 振曜
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 104
 - low: 99.7
 - close: 101.5
-- volume: 2729492
+- volume: 102000
 - ma5: 99.7
 - ema23_primary: 96.48
 - distance_to_ema23_pct: 5.21
@@ -69,7 +69,7 @@
 - ma120: 106.29
 - return_5d: 5.62
 - return_20d: 16.53
-- volume_ratio: 2.04
+- volume_ratio: 0.08
 - distance_to_ma20_pct_auxiliary: 6.02
 - distance_to_high_60_pct: -8.56
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,97.8,99.8,97.5,99.3,99000,95.3,4.2,93.81,96.64,0.08
 20260526,100,101,97.8,99.6,99000,95.66,4.12,94.41,96.53,0.08
 20260527,99.7,101,98.3,100,100000,96.02,4.14,95.02,96.42,0.08
-20260528,101,104,99.7,101.5,2729492,96.48,5.21,95.73,96.33,2.04
+20260528,101,104,99.7,101.5,102000,96.48,5.21,95.73,96.33,0.08
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6143 | 振曜 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

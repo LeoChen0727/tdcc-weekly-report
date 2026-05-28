@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4749 新應材
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:47 Asia/Taipei
+- generated_at: 2026-05-28 20:19:34 Asia/Taipei
 - stock_id: 4749
 - stock_name: 新應材
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 1180
 - low: 1080
 - close: 1090
-- volume: 2780074
+- volume: 1127000
 - ma5: 1134
 - ema23_primary: 1060.36
 - distance_to_ema23_pct: 2.8
@@ -69,7 +69,7 @@
 - ma120: 906.84
 - return_5d: 0
 - return_20d: 7.92
-- volume_ratio: 0.88
+- volume_ratio: 0.37
 - distance_to_ma20_pct_auxiliary: 1.6
 - distance_to_high_60_pct: -9.92
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,1200,1210,1150,1155,1180000,1044.49,10.58,1054,957.58,0.37
 20260526,1155,1190,1130,1140,1155000,1052.45,8.32,1062.7,961.67,0.37
 20260527,1160,1165,1105,1115,1126000,1057.66,5.42,1068.85,965.07,0.36
-20260528,1135,1180,1080,1090,2780074,1060.36,2.8,1072.85,968.03,0.88
+20260528,1135,1180,1080,1090,1127000,1060.36,2.8,1072.85,968.03,0.37
 ```
 
 ## Latest TDCC Snapshot
@@ -125,7 +125,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4749 | 新應材 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 4749 | 新應材 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

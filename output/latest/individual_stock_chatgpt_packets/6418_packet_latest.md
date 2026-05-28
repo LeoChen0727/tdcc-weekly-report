@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6418 詠昇
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:17 Asia/Taipei
+- generated_at: 2026-05-28 20:20:04 Asia/Taipei
 - stock_id: 6418
 - stock_name: 詠昇
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 30.25
 - low: 29.75
 - close: 30.2
-- volume: 132692
+- volume: 30000
 - ma5: 30.31
 - ema23_primary: 31.01
 - distance_to_ema23_pct: -2.61
@@ -69,7 +69,7 @@
 - ma120: 36.27
 - return_5d: -3.67
 - return_20d: -11.7
-- volume_ratio: 0.63
+- volume_ratio: 0.14
 - distance_to_ma20_pct_auxiliary: -3.63
 - distance_to_high_60_pct: -24.22
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,31,31.2,30.35,30.35,30000,31.33,-3.11,32.32,31.23,0.08
 20260526,30.35,30.35,29.8,29.85,30000,31.2,-4.34,31.83,31.15,0.09
 20260527,30.35,31,29.75,29.75,30000,31.08,-4.28,31.54,31.08,0.12
-20260528,29.75,30.25,29.75,30.2,132692,31.01,-2.61,31.34,31.03,0.63
+20260528,29.75,30.25,29.75,30.2,30000,31.01,-2.61,31.34,31.03,0.14
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8059 凱碩
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:44 Asia/Taipei
+- generated_at: 2026-05-28 20:20:31 Asia/Taipei
 - stock_id: 8059
 - stock_name: 凱碩
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 19.9
 - low: 18.95
 - close: 19.05
-- volume: 537493
+- volume: 19000
 - ma5: 19.56
 - ema23_primary: 19.59
 - distance_to_ema23_pct: -2.76
@@ -69,7 +69,7 @@
 - ma120: 19.67
 - return_5d: 3.25
 - return_20d: -7.52
-- volume_ratio: 1.55
+- volume_ratio: 0.06
 - distance_to_ma20_pct_auxiliary: -3.7
 - distance_to_high_60_pct: -22.56
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,20.1,20.5,19.2,20.25,20000,19.66,3,19.98,19.16,0.05
 20260526,20.35,20.35,19.5,19.8,20000,19.67,0.65,19.94,19.17,0.06
 20260527,19.9,20,19.2,19.3,20000,19.64,-1.73,19.86,19.18,0.06
-20260528,19.8,19.9,18.95,19.05,537493,19.59,-2.76,19.78,19.18,1.55
+20260528,19.8,19.9,18.95,19.05,19000,19.59,-2.76,19.78,19.18,0.06
 ```
 
 ## Latest TDCC Snapshot

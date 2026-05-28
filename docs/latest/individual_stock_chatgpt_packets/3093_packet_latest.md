@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3093 港建*
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:17 Asia/Taipei
+- generated_at: 2026-05-28 20:19:03 Asia/Taipei
 - stock_id: 3093
 - stock_name: 港建*
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 55.6
 - low: 51.7
 - close: 52.3
-- volume: 1254673
+- volume: 54000
 - ma5: 54.7
 - ema23_primary: 55.07
 - distance_to_ema23_pct: -5.03
@@ -69,7 +69,7 @@
 - ma120: 39
 - return_5d: 7.95
 - return_20d: -16.19
-- volume_ratio: 0.67
+- volume_ratio: 0.03
 - distance_to_ma20_pct_auxiliary: -5.71
 - distance_to_high_60_pct: -32.52
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,52.1,56.6,50.9,56,54000,55.1,1.62,56.16,51.12,0.02
 20260526,56,59.6,53.9,58.4,57000,55.38,5.45,56.3,51.65,0.03
 20260527,57.9,59.2,54.3,54.7,57000,55.32,-1.13,55.98,52.08,0.03
-20260528,54.5,55.6,51.7,52.3,1254673,55.07,-5.03,55.47,52.45,0.67
+20260528,54.5,55.6,51.7,52.3,54000,55.07,-5.03,55.47,52.45,0.03
 ```
 
 ## Latest TDCC Snapshot

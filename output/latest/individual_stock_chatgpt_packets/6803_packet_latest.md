@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6803 崑鼎
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:31 Asia/Taipei
+- generated_at: 2026-05-28 20:20:18 Asia/Taipei
 - stock_id: 6803
 - stock_name: 崑鼎
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 287
 - low: 285.5
 - close: 285.5
-- volume: 110128
+- volume: 286000
 - ma5: 286.6
 - ema23_primary: 287.87
 - distance_to_ema23_pct: -0.82
@@ -69,7 +69,7 @@
 - ma120: 294.68
 - return_5d: -0.87
 - return_20d: -1.21
-- volume_ratio: 0.95
+- volume_ratio: 2.29
 - distance_to_ma20_pct_auxiliary: -0.81
 - distance_to_high_60_pct: -4.52
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,287.5,287.5,286,287,287000,288.43,-0.5,288.32,291.12,3.16
 20260526,286.5,287,286,286,286000,288.23,-0.77,288.23,290.93,2.85
 20260527,286,286.5,285,286.5,286000,288.08,-0.55,288,290.71,2.55
-20260528,286.5,287,285.5,285.5,110128,287.87,-0.82,287.82,290.49,0.95
+20260528,286.5,287,285.5,285.5,286000,287.87,-0.82,287.82,290.49,2.29
 ```
 
 ## Latest TDCC Snapshot

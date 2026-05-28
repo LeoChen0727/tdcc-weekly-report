@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8048 德勝
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:43 Asia/Taipei
+- generated_at: 2026-05-28 20:20:31 Asia/Taipei
 - stock_id: 8048
 - stock_name: 德勝
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 65.2
 - low: 61
 - close: 61.4
-- volume: 518516
+- volume: 63000
 - ma5: 62.98
 - ema23_primary: 62.2
 - distance_to_ema23_pct: -1.29
@@ -69,7 +69,7 @@
 - ma120: 59.02
 - return_5d: 0.66
 - return_20d: -1.29
-- volume_ratio: 1.54
+- volume_ratio: 0.2
 - distance_to_ma20_pct_auxiliary: -1.25
 - distance_to_high_60_pct: -20.05
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,63.6,64.9,63.2,64.4,64000,62.09,3.71,62.08,60.93,0.17
 20260526,64.9,65.2,62.2,62.8,63000,62.15,1.04,62.12,61.03,0.18
 20260527,64,64.3,62.5,63.6,63000,62.27,2.13,62.22,61.06,0.19
-20260528,63.9,65.2,61,61.4,518516,62.2,-1.29,62.17,60.98,1.54
+20260528,63.9,65.2,61,61.4,63000,62.2,-1.29,62.17,60.98,0.2
 ```
 
 ## Latest TDCC Snapshot

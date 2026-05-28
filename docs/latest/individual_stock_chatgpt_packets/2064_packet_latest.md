@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2064 晉椿
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:46 Asia/Taipei
+- generated_at: 2026-05-28 20:18:31 Asia/Taipei
 - stock_id: 2064
 - stock_name: 晉椿
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 13.75
 - low: 13.55
 - close: 13.75
-- volume: 29097
+- volume: 14000
 - ma5: 13.39
 - ema23_primary: 12.81
 - distance_to_ema23_pct: 7.37
@@ -69,7 +69,7 @@
 - ma120: 11.97
 - return_5d: 3.77
 - return_20d: 18.53
-- volume_ratio: 0.89
+- volume_ratio: 0.44
 - distance_to_ma20_pct_auxiliary: 7.38
 - distance_to_high_60_pct: 0
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,13.1,13.3,12.85,13.3,13000,12.59,5.66,12.51,12.1,0.41
 20260526,13.15,13.4,13.15,13.4,13000,12.65,5.89,12.6,12.13,0.41
 20260527,13.55,13.55,13.4,13.45,13000,12.72,5.73,12.7,12.15,0.41
-20260528,13.6,13.75,13.55,13.75,29097,12.81,7.37,12.8,12.17,0.89
+20260528,13.6,13.75,13.55,13.75,14000,12.81,7.37,12.8,12.17,0.44
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8489 三貝德
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:53 Asia/Taipei
+- generated_at: 2026-05-28 20:20:40 Asia/Taipei
 - stock_id: 8489
 - stock_name: 三貝德
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 23.05
 - low: 22.45
 - close: 22.7
-- volume: 132607
+- volume: 23000
 - ma5: 23.31
 - ema23_primary: 24.83
 - distance_to_ema23_pct: -8.59
@@ -69,7 +69,7 @@
 - ma120: 32.51
 - return_5d: -6.97
 - return_20d: -16.54
-- volume_ratio: 1.28
+- volume_ratio: 0.23
 - distance_to_ma20_pct_auxiliary: -8.31
 - distance_to_high_60_pct: -27.94
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,23.9,23.9,23.45,23.55,24000,25.38,-7.2,25.39,26.04,0.23
 20260526,23.5,23.75,23.25,23.45,24000,25.22,-7.01,25.2,25.86,0.23
 20260527,23.8,23.8,22.95,22.95,23000,25.03,-8.3,24.98,25.69,0.23
-20260528,22.75,23.05,22.45,22.7,132607,24.83,-8.59,24.76,25.54,1.28
+20260528,22.75,23.05,22.45,22.7,23000,24.83,-8.59,24.76,25.54,0.23
 ```
 
 ## Latest TDCC Snapshot

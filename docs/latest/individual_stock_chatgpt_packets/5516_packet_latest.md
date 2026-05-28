@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5516 雙喜
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:01 Asia/Taipei
+- generated_at: 2026-05-28 20:19:48 Asia/Taipei
 - stock_id: 5516
 - stock_name: 雙喜
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 10.55
 - low: 10.15
 - close: 10.25
-- volume: 15150
+- volume: 10000
 - ma5: 10.34
 - ema23_primary: 11
 - distance_to_ema23_pct: -6.82
@@ -69,7 +69,7 @@
 - ma120: 13.3
 - return_5d: -6.82
 - return_20d: -10.09
-- volume_ratio: 0.34
+- volume_ratio: 0.23
 - distance_to_ma20_pct_auxiliary: -5.73
 - distance_to_high_60_pct: -30.27
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,10.65,10.65,10.2,10.25,10000,11.22,-8.68,11.06,12.36,0.18
 20260526,10.25,10.25,10.05,10.25,10000,11.14,-8.01,10.99,12.3,0.21
 20260527,10.25,10.25,10.15,10.25,10000,11.07,-7.4,10.93,12.23,0.23
-20260528,10.55,10.55,10.15,10.25,15150,11,-6.82,10.87,12.17,0.34
+20260528,10.55,10.55,10.15,10.25,10000,11,-6.82,10.87,12.17,0.23
 ```
 
 ## Latest TDCC Snapshot

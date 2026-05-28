@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3564 其陽
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:30 Asia/Taipei
+- generated_at: 2026-05-28 20:19:17 Asia/Taipei
 - stock_id: 3564
 - stock_name: 其陽
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 50.6
 - low: 46.1
 - close: 48.15
-- volume: 834384
+- volume: 49000
 - ma5: 46.37
 - ema23_primary: 43.08
 - distance_to_ema23_pct: 11.78
@@ -69,7 +69,7 @@
 - ma120: 45.28
 - return_5d: 14.64
 - return_20d: 18.74
-- volume_ratio: 4.81
+- volume_ratio: 0.36
 - distance_to_ma20_pct_auxiliary: 13.75
 - distance_to_high_60_pct: -6.5
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,45.85,47.1,45.45,45.6,46000,41.9,8.83,41.34,42.53,0.32
 20260526,46.1,46.8,44.95,46.8,46000,42.31,10.62,41.67,42.54,0.34
 20260527,49.6,49.6,45.95,46,47000,42.61,7.94,41.95,42.52,0.35
-20260528,46.15,50.6,46.1,48.15,834384,43.08,11.78,42.33,42.47,4.81
+20260528,46.15,50.6,46.1,48.15,49000,43.08,11.78,42.33,42.47,0.36
 ```
 
 ## Latest TDCC Snapshot

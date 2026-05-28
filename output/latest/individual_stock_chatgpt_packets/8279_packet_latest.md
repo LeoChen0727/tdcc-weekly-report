@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8279 生展
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:49 Asia/Taipei
+- generated_at: 2026-05-28 20:20:36 Asia/Taipei
 - stock_id: 8279
 - stock_name: 生展
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 97.3
 - low: 96.1
 - close: 96.3
-- volume: 12387
+- volume: 96000
 - ma5: 96.86
 - ema23_primary: 98.64
 - distance_to_ema23_pct: -2.37
@@ -69,7 +69,7 @@
 - ma120: 114.36
 - return_5d: -1.23
 - return_20d: -2.33
-- volume_ratio: 0.34
+- volume_ratio: 2.37
 - distance_to_ma20_pct_auxiliary: -0.91
 - distance_to_high_60_pct: -18.73
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,98.1,98.5,98,98,98000,99.35,-1.36,97.8,105.81,2.8
 20260526,98,98,96.1,96.3,97000,99.09,-2.82,97.48,105.44,2.49
 20260527,96.8,97,96.1,96.2,96000,98.85,-2.68,97.3,105.04,2.44
-20260528,97.2,97.3,96.1,96.3,12387,98.64,-2.37,97.18,104.66,0.34
+20260528,97.2,97.3,96.1,96.3,96000,98.64,-2.37,97.18,104.66,2.37
 ```
 
 ## Latest TDCC Snapshot

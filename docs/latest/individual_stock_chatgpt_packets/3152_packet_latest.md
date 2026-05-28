@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3152 璟德
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:18 Asia/Taipei
+- generated_at: 2026-05-28 20:19:04 Asia/Taipei
 - stock_id: 3152
 - stock_name: 璟德
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 213
 - low: 194
 - close: 197
-- volume: 3449520
+- volume: 204000
 - ma5: 195.8
 - ema23_primary: 177.74
 - distance_to_ema23_pct: 10.84
@@ -69,7 +69,7 @@
 - ma120: 151.57
 - return_5d: 14.53
 - return_20d: 9.44
-- volume_ratio: 2.12
+- volume_ratio: 0.14
 - distance_to_ma20_pct_auxiliary: 11.27
 - distance_to_high_60_pct: -7.51
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,190,199.5,190,199.5,198000,171.34,16.43,172.4,157.62,0.12
 20260526,204,207.5,194,202.5,202000,173.94,16.42,174.47,158.38,0.12
 20260527,205,207,197,198.5,202000,175.99,12.79,176.2,159.05,0.12
-20260528,202,213,194,197,3449520,177.74,10.84,177.05,159.74,2.12
+20260528,202,213,194,197,204000,177.74,10.84,177.05,159.74,0.14
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3152 | 璟德 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

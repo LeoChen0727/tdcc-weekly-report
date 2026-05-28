@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6212 理銘
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:12 Asia/Taipei
+- generated_at: 2026-05-28 20:19:59 Asia/Taipei
 - stock_id: 6212
 - stock_name: 理銘
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 28.15
 - low: 27.15
 - close: 27.9
-- volume: 15020
+- volume: 27000
 - ma5: 27.64
 - ema23_primary: 28.2
 - distance_to_ema23_pct: -1.08
@@ -69,7 +69,7 @@
 - ma120: 34.9
 - return_5d: 2.2
 - return_20d: -1.41
-- volume_ratio: 1.58
+- volume_ratio: 2.67
 - distance_to_ma20_pct_auxiliary: -1.1
 - distance_to_high_60_pct: -28.37
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,27.5,28.3,27.5,27.6,28000,28.35,-2.65,28.32,30.71,4.15
 20260526,27.6,27.6,27.3,27.6,28000,28.29,-2.44,28.27,30.54,3.71
 20260527,27.6,27.6,27.6,27.6,27000,28.23,-2.24,28.23,30.37,3.07
-20260528,27.15,28.15,27.15,27.9,15020,28.2,-1.08,28.21,30.18,1.58
+20260528,27.15,28.15,27.15,27.9,27000,28.2,-1.08,28.21,30.18,2.67
 ```
 
 ## Latest TDCC Snapshot

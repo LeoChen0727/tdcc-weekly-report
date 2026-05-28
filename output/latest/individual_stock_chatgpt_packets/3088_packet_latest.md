@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3088 艾訊
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:16 Asia/Taipei
+- generated_at: 2026-05-28 20:19:03 Asia/Taipei
 - stock_id: 3088
 - stock_name: 艾訊
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 149
 - low: 137.5
 - close: 140
-- volume: 2832976
+- volume: 143000
 - ma5: 141.9
 - ema23_primary: 127.23
 - distance_to_ema23_pct: 10.04
@@ -69,7 +69,7 @@
 - ma120: 90.68
 - return_5d: 1.82
 - return_20d: 37.93
-- volume_ratio: 1.39
+- volume_ratio: 0.08
 - distance_to_ma20_pct_auxiliary: 7.63
 - distance_to_high_60_pct: -7.89
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,145,146.5,140,141,143000,122.79,14.83,123.73,98.61,0.07
 20260526,140.5,142.5,136,142,139000,124.4,14.15,125.97,99.6,0.07
 20260527,146.5,152,143,144.5,147000,126.07,14.62,128.15,100.65,0.08
-20260528,146,149,137.5,140,2832976,127.23,10.04,130.07,101.64,1.39
+20260528,146,149,137.5,140,143000,127.23,10.04,130.07,101.64,0.08
 ```
 
 ## Latest TDCC Snapshot
@@ -123,10 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3088 | 艾訊 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260528 | 3088 | 艾訊 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

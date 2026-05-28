@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5508 永信建
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:01 Asia/Taipei
+- generated_at: 2026-05-28 20:19:48 Asia/Taipei
 - stock_id: 5508
 - stock_name: 永信建
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 46.85
 - low: 46
 - close: 46.05
-- volume: 877928
+- volume: 46000
 - ma5: 47.07
 - ema23_primary: 48.51
 - distance_to_ema23_pct: -5.07
@@ -69,7 +69,7 @@
 - ma120: 57.68
 - return_5d: -5.25
 - return_20d: -5.05
-- volume_ratio: 2.81
+- volume_ratio: 0.17
 - distance_to_ma20_pct_auxiliary: -4.95
 - distance_to_high_60_pct: -21.82
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,48.15,48.3,47.1,47.25,47000,49.07,-3.72,48.84,51.04,0.12
 20260526,47.4,47.45,47,47.1,47000,48.91,-3.7,48.71,50.91,0.14
 20260527,47.55,47.8,46.8,46.8,47000,48.73,-3.97,48.57,50.78,0.15
-20260528,46.8,46.85,46,46.05,877928,48.51,-5.07,48.45,50.62,2.81
+20260528,46.8,46.85,46,46.05,46000,48.51,-5.07,48.45,50.62,0.17
 ```
 
 ## Latest TDCC Snapshot

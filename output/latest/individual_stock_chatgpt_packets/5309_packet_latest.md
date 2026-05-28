@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5309 系統電
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:56 Asia/Taipei
+- generated_at: 2026-05-28 20:19:43 Asia/Taipei
 - stock_id: 5309
 - stock_name: 系統電
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 70.8
 - low: 66.7
 - close: 67.1
-- volume: 9927011
+- volume: 69000
 - ma5: 68.56
 - ema23_primary: 65.46
 - distance_to_ema23_pct: 2.51
@@ -69,7 +69,7 @@
 - ma120: 63.76
 - return_5d: -0.59
 - return_20d: 10.91
-- volume_ratio: 1.26
+- volume_ratio: 0.01
 - distance_to_ma20_pct_auxiliary: 2.28
 - distance_to_high_60_pct: -7.96
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,70.5,72.9,69.3,69.9,71000,64.74,7.96,64.7,61.55,0.01
 20260526,70.5,72.5,67.8,68,69000,65.02,4.59,64.99,61.56,0.01
 20260527,69,71.9,67.9,68.5,70000,65.31,4.89,65.28,61.53,0.01
-20260528,68.6,70.8,66.7,67.1,9927011,65.46,2.51,65.61,61.52,1.26
+20260528,68.6,70.8,66.7,67.1,69000,65.46,2.51,65.61,61.52,0.01
 ```
 
 ## Latest TDCC Snapshot
@@ -125,7 +125,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 5309 | 系統電 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 5309 | 系統電 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

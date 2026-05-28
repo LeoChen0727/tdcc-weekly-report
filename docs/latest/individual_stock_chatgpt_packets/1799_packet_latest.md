@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1799 易威
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:42 Asia/Taipei
+- generated_at: 2026-05-28 20:18:27 Asia/Taipei
 - stock_id: 1799
 - stock_name: 易威
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 34
 - low: 33
 - close: 33.2
-- volume: 126547
+- volume: 33000
 - ma5: 33.73
 - ema23_primary: 35.81
 - distance_to_ema23_pct: -7.29
@@ -69,7 +69,7 @@
 - ma120: 35.3
 - return_5d: -3.35
 - return_20d: -12.75
-- volume_ratio: 1.05
+- volume_ratio: 0.28
 - distance_to_ma20_pct_auxiliary: -6.87
 - distance_to_high_60_pct: -26.06
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,34.6,34.6,33.3,33.7,34000,36.48,-7.61,36.37,36.84,0.25
 20260526,33.65,35,33.25,33.8,34000,36.25,-6.76,36.1,36.87,0.27
 20260527,33.55,33.8,33.35,33.8,33000,36.05,-6.24,35.89,36.9,0.28
-20260528,33.8,34,33,33.2,126547,35.81,-7.29,35.65,36.92,1.05
+20260528,33.8,34,33,33.2,33000,35.81,-7.29,35.65,36.92,0.28
 ```
 
 ## Latest TDCC Snapshot

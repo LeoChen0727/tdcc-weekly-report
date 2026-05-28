@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8923 時報
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:54 Asia/Taipei
+- generated_at: 2026-05-28 20:20:41 Asia/Taipei
 - stock_id: 8923
 - stock_name: 時報
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 19.95
 - low: 19.95
 - close: 19.95
-- volume: 1002
+- volume: 20000
 - ma5: 19.7
 - ema23_primary: 19.66
 - distance_to_ema23_pct: 1.48
@@ -69,7 +69,7 @@
 - ma120: 19.81
 - return_5d: 3.37
 - return_20d: -0.99
-- volume_ratio: 0.09
+- volume_ratio: 1.7
 - distance_to_ma20_pct_auxiliary: 1.63
 - distance_to_high_60_pct: -2.68
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260521,19.6,19.6,19.6,19.6,3000,19.57,0.17,19.62,19.73,0.33
 20260522,19.5,19.85,19.5,19.85,20000,19.59,1.33,19.63,19.73,2.01
 20260525,20.1,20.1,20.1,20.1,20000,19.63,2.38,19.64,19.73,1.85
-20260528,19.95,19.95,19.95,19.95,1002,19.66,1.48,19.63,19.72,0.09
+20260528,19.95,19.95,19.95,19.95,20000,19.66,1.48,19.63,19.72,1.7
 ```
 
 ## Latest TDCC Snapshot

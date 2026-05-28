@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6662 樂斯科
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:26 Asia/Taipei
+- generated_at: 2026-05-28 20:20:13 Asia/Taipei
 - stock_id: 6662
 - stock_name: 樂斯科
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 28.55
 - low: 28.5
 - close: 28.55
-- volume: 43182
+- volume: 29000
 - ma5: 28.89
 - ema23_primary: 29.36
 - distance_to_ema23_pct: -2.77
@@ -69,7 +69,7 @@
 - ma120: 30.11
 - return_5d: -1.55
 - return_20d: -1.89
-- volume_ratio: 3.05
+- volume_ratio: 2.16
 - distance_to_ma20_pct_auxiliary: -3.26
 - distance_to_high_60_pct: -11.88
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,29.1,29.1,28.75,28.75,29000,29.51,-2.59,29.57,29.59,2.48
 20260526,29.2,29.2,28.5,28.8,29000,29.45,-2.22,29.53,29.57,2.24
 20260527,29.8,29.8,28,29.25,29000,29.44,-0.64,29.54,29.55,2.15
-20260528,28.55,28.55,28.5,28.55,43182,29.36,-2.77,29.51,29.54,3.05
+20260528,28.55,28.55,28.5,28.55,29000,29.36,-2.77,29.51,29.54,2.16
 ```
 
 ## Latest TDCC Snapshot

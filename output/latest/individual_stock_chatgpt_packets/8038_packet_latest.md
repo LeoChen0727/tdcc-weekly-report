@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8038 長園科
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:43 Asia/Taipei
+- generated_at: 2026-05-28 20:20:30 Asia/Taipei
 - stock_id: 8038
 - stock_name: 長園科
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 41.2
 - low: 39.85
 - close: 39.9
-- volume: 539602
+- volume: 40000
 - ma5: 40.97
 - ema23_primary: 41.75
 - distance_to_ema23_pct: -4.43
@@ -69,7 +69,7 @@
 - ma120: 44.72
 - return_5d: -2.44
 - return_20d: -5.45
-- volume_ratio: 1.8
+- volume_ratio: 0.15
 - distance_to_ma20_pct_auxiliary: -5.12
 - distance_to_high_60_pct: -20.2
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,41.5,42.5,41,41.3,41000,42.1,-1.9,42.34,42.25,0.13
 20260526,41.3,41.75,40.55,41.25,41000,42.03,-1.85,42.27,42.2,0.14
 20260527,41.35,41.65,40.6,40.7,41000,41.92,-2.91,42.17,42.13,0.14
-20260528,40.7,41.2,39.85,39.9,539602,41.75,-4.43,42.05,42.06,1.8
+20260528,40.7,41.2,39.85,39.9,40000,41.75,-4.43,42.05,42.06,0.15
 ```
 
 ## Latest TDCC Snapshot

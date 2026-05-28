@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3276 宇環
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:21 Asia/Taipei
+- generated_at: 2026-05-28 20:19:08 Asia/Taipei
 - stock_id: 3276
 - stock_name: 宇環
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 14.4
 - low: 13.85
 - close: 14
-- volume: 226829
+- volume: 14000
 - ma5: 14.12
 - ema23_primary: 14.54
 - distance_to_ema23_pct: -3.74
@@ -69,7 +69,7 @@
 - ma120: 14.67
 - return_5d: -1.06
 - return_20d: -6.04
-- volume_ratio: 0.35
+- volume_ratio: 0.02
 - distance_to_ma20_pct_auxiliary: -5.55
 - distance_to_high_60_pct: -20
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,14.4,14.45,14.2,14.25,14000,14.71,-3.11,14.96,14.43,0.02
 20260526,14.25,14.25,13.95,14,14000,14.65,-4.42,14.92,14.42,0.02
 20260527,14,14.25,13.9,14,14000,14.59,-4.07,14.87,14.41,0.02
-20260528,14,14.4,13.85,14,226829,14.54,-3.74,14.82,14.41,0.35
+20260528,14,14.4,13.85,14,14000,14.54,-3.74,14.82,14.41,0.02
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8047 星雲
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:43 Asia/Taipei
+- generated_at: 2026-05-28 20:20:31 Asia/Taipei
 - stock_id: 8047
 - stock_name: 星雲
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 44.7
 - low: 42.8
 - close: 43.45
-- volume: 50535
+- volume: 44000
 - ma5: 43.81
 - ema23_primary: 48.88
 - distance_to_ema23_pct: -11.11
@@ -69,7 +69,7 @@
 - ma120: 51.17
 - return_5d: -5.23
 - return_20d: -22.55
-- volume_ratio: 0.51
+- volume_ratio: 0.44
 - distance_to_ma20_pct_auxiliary: -13.16
 - distance_to_high_60_pct: -27.58
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,45,45,42,44.6,43000,50.58,-11.82,51.84,52.62,0.36
 20260526,44.45,44.45,42.7,42.7,43000,49.92,-14.47,51.12,52.55,0.39
 20260527,42,44,42,43.3,43000,49.37,-12.3,50.66,52.5,0.41
-20260528,44.1,44.7,42.8,43.45,50535,48.88,-11.11,50.03,52.48,0.51
+20260528,44.1,44.7,42.8,43.45,44000,48.88,-11.11,50.03,52.48,0.44
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4706 大恭
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:46 Asia/Taipei
+- generated_at: 2026-05-28 20:19:32 Asia/Taipei
 - stock_id: 4706
 - stock_name: 大恭
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 32
 - low: 31.25
 - close: 32
-- volume: 50607
+- volume: 32000
 - ma5: 31.26
 - ema23_primary: 31.55
 - distance_to_ema23_pct: 1.44
@@ -69,7 +69,7 @@
 - ma120: 30.37
 - return_5d: 3.23
 - return_20d: -1.54
-- volume_ratio: 2.45
+- volume_ratio: 1.62
 - distance_to_ma20_pct_auxiliary: 1.03
 - distance_to_high_60_pct: -7.38
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,31.75,31.75,30.2,31.1,31000,31.58,-1.52,31.82,31.02,1.66
 20260526,31,31,31,31,31000,31.53,-1.69,31.72,31.04,1.73
 20260527,31.5,31.5,31,31.2,31000,31.5,-0.97,31.7,31.05,1.64
-20260528,31.5,32,31.25,32,50607,31.55,1.44,31.67,31.09,2.45
+20260528,31.5,32,31.25,32,32000,31.55,1.44,31.67,31.09,1.62
 ```
 
 ## Latest TDCC Snapshot

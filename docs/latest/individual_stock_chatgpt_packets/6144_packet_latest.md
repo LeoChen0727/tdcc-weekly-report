@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6144 得利影
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:07 Asia/Taipei
+- generated_at: 2026-05-28 20:19:54 Asia/Taipei
 - stock_id: 6144
 - stock_name: 得利影
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 14.85
 - low: 14.2
 - close: 14.5
-- volume: 4228
+- volume: 14000
 - ma5: 14.68
 - ema23_primary: 15.02
 - distance_to_ema23_pct: -3.46
@@ -69,7 +69,7 @@
 - ma120: 17.58
 - return_5d: -3.01
 - return_20d: -4.92
-- volume_ratio: 0.13
+- volume_ratio: 0.41
 - distance_to_ma20_pct_auxiliary: -2.11
 - distance_to_high_60_pct: -17.61
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,15.4,15.4,14.65,14.85,15000,15.16,-2.05,14.93,16.08,0.43
 20260526,15.1,15.1,14.3,14.6,15000,15.11,-3.4,14.89,16.03,0.43
 20260527,15.15,15.15,14.3,14.55,15000,15.07,-3.43,14.85,15.98,0.43
-20260528,14.55,14.85,14.2,14.5,4228,15.02,-3.46,14.81,15.93,0.13
+20260528,14.55,14.85,14.2,14.5,14000,15.02,-3.46,14.81,15.93,0.41
 ```
 
 ## Latest TDCC Snapshot

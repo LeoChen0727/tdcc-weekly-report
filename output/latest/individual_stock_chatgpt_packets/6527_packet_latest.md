@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6527 明達醫
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:21 Asia/Taipei
+- generated_at: 2026-05-28 20:20:08 Asia/Taipei
 - stock_id: 6527
 - stock_name: 明達醫
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 70.3
 - low: 69.1
 - close: 69.1
-- volume: 49200
+- volume: 70000
 - ma5: 69.9
 - ema23_primary: 69.97
 - distance_to_ema23_pct: -1.25
@@ -69,7 +69,7 @@
 - ma120: 74.09
 - return_5d: -1.29
 - return_20d: 2.98
-- volume_ratio: 0.97
+- volume_ratio: 1.35
 - distance_to_ma20_pct_auxiliary: -1
 - distance_to_high_60_pct: -10.26
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,69,70.3,69,70,70000,70.04,-0.06,69.45,71.41,1.46
 20260526,69.6,70,69.6,69.8,70000,70.02,-0.32,69.53,71.33,1.44
 20260527,71,71,70,70.4,71000,70.05,0.5,69.69,71.24,1.44
-20260528,70.3,70.3,69.1,69.1,49200,69.97,-1.25,69.8,71.15,0.97
+20260528,70.3,70.3,69.1,69.1,70000,69.97,-1.25,69.8,71.15,1.35
 ```
 
 ## Latest TDCC Snapshot

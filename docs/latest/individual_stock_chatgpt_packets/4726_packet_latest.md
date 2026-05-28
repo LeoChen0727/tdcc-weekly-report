@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4726 永昕
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:46 Asia/Taipei
+- generated_at: 2026-05-28 20:19:33 Asia/Taipei
 - stock_id: 4726
 - stock_name: 永昕
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 27.55
 - low: 27
 - close: 27.3
-- volume: 298675
+- volume: 27000
 - ma5: 27.71
 - ema23_primary: 28.6
 - distance_to_ema23_pct: -4.53
@@ -69,7 +69,7 @@
 - ma120: 31.59
 - return_5d: -4.38
 - return_20d: -6.67
-- volume_ratio: 1.28
+- volume_ratio: 0.12
 - distance_to_ma20_pct_auxiliary: -4.26
 - distance_to_high_60_pct: -19.35
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,28.4,28.65,27.75,27.95,28000,28.97,-3.54,28.77,30.48,0.11
 20260526,27.95,28,27.4,27.45,28000,28.85,-4.84,28.7,30.4,0.12
 20260527,27.7,27.8,27.25,27.25,27000,28.71,-5.1,28.61,30.31,0.12
-20260528,27.5,27.55,27,27.3,298675,28.6,-4.53,28.52,30.22,1.28
+20260528,27.5,27.55,27,27.3,27000,28.6,-4.53,28.52,30.22,0.12
 ```
 
 ## Latest TDCC Snapshot

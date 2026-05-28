@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3213 茂訊
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:19 Asia/Taipei
+- generated_at: 2026-05-28 20:19:06 Asia/Taipei
 - stock_id: 3213
 - stock_name: 茂訊
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 123
 - low: 118
 - close: 119.5
-- volume: 675315
+- volume: 120000
 - ma5: 120.6
 - ema23_primary: 114.57
 - distance_to_ema23_pct: 4.3
@@ -69,7 +69,7 @@
 - ma120: 104.05
 - return_5d: 1.7
 - return_20d: 13.27
-- volume_ratio: 1.24
+- volume_ratio: 0.23
 - distance_to_ma20_pct_auxiliary: 4
 - distance_to_high_60_pct: -4.02
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,121.5,124.5,119,122.5,122000,112.87,8.53,112.78,105.92,0.23
 20260526,122,122,119.5,121,120000,113.55,6.56,113.5,106.27,0.23
 20260527,122.5,122.5,119,120.5,120000,114.13,5.58,114.2,106.58,0.23
-20260528,121,123,118,119.5,675315,114.57,4.3,114.9,106.87,1.24
+20260528,121,123,118,119.5,120000,114.57,4.3,114.9,106.87,0.23
 ```
 
 ## Latest TDCC Snapshot

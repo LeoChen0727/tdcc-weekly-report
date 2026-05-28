@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8435 鉅邁
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:51 Asia/Taipei
+- generated_at: 2026-05-28 20:20:38 Asia/Taipei
 - stock_id: 8435
 - stock_name: 鉅邁
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 55.2
 - low: 54.6
 - close: 54.7
-- volume: 34140
+- volume: 55000
 - ma5: 54.88
 - ema23_primary: 55.65
 - distance_to_ema23_pct: -1.71
@@ -69,7 +69,7 @@
 - ma120: 55.19
 - return_5d: -1.97
 - return_20d: -1.62
-- volume_ratio: 1.3
+- volume_ratio: 2.02
 - distance_to_ma20_pct_auxiliary: -1.71
 - distance_to_high_60_pct: -8.68
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,55.3,55.3,54.8,54.8,55000,55.94,-2.03,55.79,56.69,2.36
 20260526,54.8,55,54.7,54.7,55000,55.83,-2.03,55.74,56.65,2.35
 20260527,54.7,54.8,54.7,54.7,55000,55.74,-1.86,55.7,56.56,2.17
-20260528,54.8,55.2,54.6,54.7,34140,55.65,-1.71,55.65,56.47,1.3
+20260528,54.8,55.2,54.6,54.7,55000,55.65,-1.71,55.65,56.47,2.02
 ```
 
 ## Latest TDCC Snapshot

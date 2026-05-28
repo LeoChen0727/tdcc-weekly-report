@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6577 勁豐
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:23 Asia/Taipei
+- generated_at: 2026-05-28 20:20:10 Asia/Taipei
 - stock_id: 6577
 - stock_name: 勁豐
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 80.5
 - low: 79.4
 - close: 79.6
-- volume: 44659
+- volume: 80000
 - ma5: 80.3
 - ema23_primary: 79.41
 - distance_to_ema23_pct: 0.24
@@ -69,7 +69,7 @@
 - ma120: 74.05
 - return_5d: -0.13
 - return_20d: 0.25
-- volume_ratio: 0.96
+- volume_ratio: 1.65
 - distance_to_ma20_pct_auxiliary: -0.25
 - distance_to_high_60_pct: -4.78
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,81,81.1,80.6,80.7,81000,79.26,1.81,79.72,77.64,2.12
 20260526,80.7,81,80.3,80.3,81000,79.35,1.2,79.79,77.76,1.96
 20260527,80.5,80.5,79.9,79.9,80000,79.4,0.64,79.79,77.84,1.79
-20260528,80,80.5,79.4,79.6,44659,79.41,0.24,79.8,77.89,0.96
+20260528,80,80.5,79.4,79.6,80000,79.41,0.24,79.8,77.89,1.65
 ```
 
 ## Latest TDCC Snapshot

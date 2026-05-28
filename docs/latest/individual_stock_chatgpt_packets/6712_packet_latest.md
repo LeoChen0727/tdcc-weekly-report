@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6712 長聖
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:28 Asia/Taipei
+- generated_at: 2026-05-28 20:20:15 Asia/Taipei
 - stock_id: 6712
 - stock_name: 長聖
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 132.5
 - low: 130.5
 - close: 131.5
-- volume: 247348
+- volume: 131000
 - ma5: 132
 - ema23_primary: 134.17
 - distance_to_ema23_pct: -1.99
@@ -69,7 +69,7 @@
 - ma120: 149.97
 - return_5d: -2.95
 - return_20d: 1.94
-- volume_ratio: 1
+- volume_ratio: 0.54
 - distance_to_ma20_pct_auxiliary: -1.99
 - distance_to_high_60_pct: -12.62
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,133.5,134.5,131.5,132.5,132000,135.01,-1.86,133.9,139.22,0.49
 20260526,133,133,130.5,131.5,131000,134.72,-2.39,133.95,138.84,0.5
 20260527,132.5,132.5,130.5,131,131000,134.41,-2.54,134.05,138.46,0.53
-20260528,132,132.5,130.5,131.5,247348,134.17,-1.99,134.18,138.15,1
+20260528,132,132.5,130.5,131.5,131000,134.17,-1.99,134.18,138.15,0.54
 ```
 
 ## Latest TDCC Snapshot

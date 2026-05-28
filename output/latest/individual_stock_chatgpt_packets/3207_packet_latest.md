@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3207 耀勝
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:19 Asia/Taipei
+- generated_at: 2026-05-28 20:19:06 Asia/Taipei
 - stock_id: 3207
 - stock_name: 耀勝
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 65.5
 - low: 63.5
 - close: 65
-- volume: 900626
+- volume: 65000
 - ma5: 62
 - ema23_primary: 61.84
 - distance_to_ema23_pct: 5.11
@@ -69,7 +69,7 @@
 - ma120: 68.73
 - return_5d: 12.85
 - return_20d: 2.36
-- volume_ratio: 2.66
+- volume_ratio: 0.22
 - distance_to_ma20_pct_auxiliary: 7.42
 - distance_to_high_60_pct: -24.42
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,57,62.2,57,60.7,61000,61.11,-0.67,60.45,67.19,0.18
 20260526,62.1,64.7,61.8,63,63000,61.27,2.83,60.43,66.88,0.2
 20260527,63.7,66.5,63.6,64.7,65000,61.55,5.11,60.44,66.59,0.22
-20260528,64.6,65.5,63.5,65,900626,61.84,5.11,60.51,66.29,2.66
+20260528,64.6,65.5,63.5,65,65000,61.84,5.11,60.51,66.29,0.22
 ```
 
 ## Latest TDCC Snapshot

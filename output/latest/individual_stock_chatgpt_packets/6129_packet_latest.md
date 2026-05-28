@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6129 普誠
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:06 Asia/Taipei
+- generated_at: 2026-05-28 20:19:53 Asia/Taipei
 - stock_id: 6129
 - stock_name: 普誠
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 15.9
 - low: 15
 - close: 15.1
-- volume: 833459
+- volume: 15000
 - ma5: 15.53
 - ema23_primary: 15.8
 - distance_to_ema23_pct: -4.42
@@ -69,7 +69,7 @@
 - ma120: 15.34
 - return_5d: -2.89
 - return_20d: -9.85
-- volume_ratio: 1.1
+- volume_ratio: 0.02
 - distance_to_ma20_pct_auxiliary: -5.52
 - distance_to_high_60_pct: -19.68
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,16.05,16.25,15.8,15.8,16000,15.95,-0.91,16.2,15.85,0.02
 20260526,15.8,15.9,15.45,15.6,16000,15.92,-1.99,16.14,15.84,0.02
 20260527,15.6,15.65,15.2,15.25,15000,15.86,-3.85,16.07,15.83,0.02
-20260528,15.35,15.9,15,15.1,833459,15.8,-4.42,15.98,15.82,1.1
+20260528,15.35,15.9,15,15.1,15000,15.8,-4.42,15.98,15.82,0.02
 ```
 
 ## Latest TDCC Snapshot

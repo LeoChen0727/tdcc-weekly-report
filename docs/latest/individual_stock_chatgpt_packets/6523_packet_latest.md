@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6523 達爾膚
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:21 Asia/Taipei
+- generated_at: 2026-05-28 20:20:08 Asia/Taipei
 - stock_id: 6523
 - stock_name: 達爾膚
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 98.5
 - low: 98
 - close: 98.2
-- volume: 48932
+- volume: 98000
 - ma5: 98.84
 - ema23_primary: 100.51
 - distance_to_ema23_pct: -2.29
@@ -69,7 +69,7 @@
 - ma120: 113.74
 - return_5d: -1.6
 - return_20d: -2.29
-- volume_ratio: 0.91
+- volume_ratio: 1.74
 - distance_to_ma20_pct_auxiliary: -0.9
 - distance_to_high_60_pct: -17.13
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,99.5,99.5,98.5,99.2,99000,101.06,-1.84,99.34,109.22,1.95
 20260526,99.1,99.2,98.2,99.2,99000,100.91,-1.69,99.31,108.92,2.02
 20260527,99.2,99.2,98.2,98.6,99000,100.72,-2.1,99.21,108.61,1.89
-20260528,98.1,98.5,98,98.2,48932,100.51,-2.29,99.09,108.28,0.91
+20260528,98.1,98.5,98,98.2,98000,100.51,-2.29,99.09,108.28,1.74
 ```
 
 ## Latest TDCC Snapshot

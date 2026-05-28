@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4907 富宇
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:49 Asia/Taipei
+- generated_at: 2026-05-28 20:19:36 Asia/Taipei
 - stock_id: 4907
 - stock_name: 富宇
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 35.75
 - low: 35.5
 - close: 35.6
-- volume: 137500
+- volume: 36000
 - ma5: 36.82
 - ema23_primary: 38.06
 - distance_to_ema23_pct: -6.46
@@ -69,7 +69,7 @@
 - ma120: 41.5
 - return_5d: -7.53
 - return_20d: -5.07
-- volume_ratio: 2.99
+- volume_ratio: 0.88
 - distance_to_ma20_pct_auxiliary: -6.27
 - distance_to_high_60_pct: -15.24
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,38.25,38.25,37.2,37.35,38000,38.65,-3.36,38.24,39.71,0.93
 20260526,37.15,37.35,35.95,37,36000,38.51,-3.92,38.18,39.64,0.87
 20260527,36.6,37,35.5,35.75,36000,38.28,-6.61,38.08,39.55,0.88
-20260528,35.75,35.75,35.5,35.6,137500,38.06,-6.46,37.98,39.45,2.99
+20260528,35.75,35.75,35.5,35.6,36000,38.06,-6.46,37.98,39.45,0.88
 ```
 
 ## Latest TDCC Snapshot

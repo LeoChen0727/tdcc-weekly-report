@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1777 生泰
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:41 Asia/Taipei
+- generated_at: 2026-05-28 20:18:27 Asia/Taipei
 - stock_id: 1777
 - stock_name: 生泰
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 71.6
 - low: 71.3
 - close: 71.5
-- volume: 8261
+- volume: 71000
 - ma5: 71.44
 - ema23_primary: 71.28
 - distance_to_ema23_pct: 0.31
@@ -69,7 +69,7 @@
 - ma120: 72.56
 - return_5d: 0.14
 - return_20d: 0.85
-- volume_ratio: 0.26
+- volume_ratio: 2.02
 - distance_to_ma20_pct_auxiliary: 0.45
 - distance_to_high_60_pct: -2.72
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,71.5,71.7,71.2,71.5,72000,71.24,0.36,71.09,71.55,2.58
 20260526,71.5,71.5,71.1,71.3,71000,71.25,0.08,71.12,71.51,2.39
 20260527,71.1,72,71,71.4,71000,71.26,0.2,71.15,71.48,2.21
-20260528,71.4,71.6,71.3,71.5,8261,71.28,0.31,71.18,71.47,0.26
+20260528,71.4,71.6,71.3,71.5,71000,71.28,0.31,71.18,71.47,2.02
 ```
 
 ## Latest TDCC Snapshot

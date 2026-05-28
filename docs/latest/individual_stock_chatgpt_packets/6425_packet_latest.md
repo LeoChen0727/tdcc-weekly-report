@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6425 易發
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:17 Asia/Taipei
+- generated_at: 2026-05-28 20:20:04 Asia/Taipei
 - stock_id: 6425
 - stock_name: 易發
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 101
 - low: 93.5
 - close: 95
-- volume: 5940126
+- volume: 97000
 - ma5: 96.4
 - ema23_primary: 88.95
 - distance_to_ema23_pct: 6.8
@@ -69,7 +69,7 @@
 - ma120: 78.57
 - return_5d: 5.32
 - return_20d: 18.45
-- volume_ratio: 1.89
+- volume_ratio: 0.03
 - distance_to_ma20_pct_auxiliary: 7.24
 - distance_to_high_60_pct: -12.84
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,91.3,92.7,90.1,92.6,92000,85.81,7.91,86.04,75.97,0.03
 20260526,98.3,101.5,98.3,101.5,101000,87.12,16.5,86.88,76.54,0.03
 20260527,108.5,109,100,102.5,104000,88.4,15.95,87.85,77.08,0.04
-20260528,100,101,93.5,95,5940126,88.95,6.8,88.59,77.39,1.89
+20260528,100,101,93.5,95,97000,88.95,6.8,88.59,77.39,0.03
 ```
 
 ## Latest TDCC Snapshot
@@ -125,8 +125,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6425 | 易發 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260528 | 6425 | 易發 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260521 | 6425 | 易發 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

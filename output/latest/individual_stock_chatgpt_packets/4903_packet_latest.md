@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4903 聯光通
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:49 Asia/Taipei
+- generated_at: 2026-05-28 20:19:35 Asia/Taipei
 - stock_id: 4903
 - stock_name: 聯光通
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 45.45
 - low: 43.6
 - close: 43.7
-- volume: 3696905
+- volume: 45000
 - ma5: 45.99
 - ema23_primary: 46.03
 - distance_to_ema23_pct: -5.05
@@ -69,7 +69,7 @@
 - ma120: 43.8
 - return_5d: -3.53
 - return_20d: -2.78
-- volume_ratio: 1.16
+- volume_ratio: 0.01
 - distance_to_ma20_pct_auxiliary: -4.53
 - distance_to_high_60_pct: -21.96
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,48.8,48.8,47,47.05,48000,46.32,1.57,45.73,45.61,0.01
 20260526,47.3,47.6,45.75,46.75,47000,46.36,0.84,45.82,45.7,0.01
 20260527,47.15,47.35,44.7,44.9,46000,46.24,-2.89,45.84,45.71,0.01
-20260528,45.05,45.45,43.6,43.7,3696905,46.03,-5.05,45.77,45.71,1.16
+20260528,45.05,45.45,43.6,43.7,45000,46.03,-5.05,45.77,45.71,0.01
 ```
 
 ## Latest TDCC Snapshot
@@ -125,7 +125,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4903 | 聯光通 | revenue_pullback | 營收成長股價回檔 | 76.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260521 | 4903 | 聯光通 | pattern | 型態觀察 |  |  |  | 預備發動型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

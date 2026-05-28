@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6423 億而得
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:17 Asia/Taipei
+- generated_at: 2026-05-28 20:20:04 Asia/Taipei
 - stock_id: 6423
 - stock_name: 億而得
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 101.5
 - low: 93.9
 - close: 94.6
-- volume: 192762
+- volume: 97000
 - ma5: 99.34
 - ema23_primary: 102.91
 - distance_to_ema23_pct: -8.07
@@ -69,7 +69,7 @@
 - ma120: 90.39
 - return_5d: -4.35
 - return_20d: -11.59
-- volume_ratio: 0.8
+- volume_ratio: 0.41
 - distance_to_ma20_pct_auxiliary: -11.56
 - distance_to_high_60_pct: -30.44
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,102,104.5,100,103,102000,104.45,-1.39,108.2,97.12,0.41
 20260526,105,105,100,101,101000,104.17,-3.04,108.13,97.44,0.42
 20260527,103.5,103.5,97.5,98.1,100000,103.66,-5.36,107.58,97.56,0.42
-20260528,99.5,101.5,93.9,94.6,192762,102.91,-8.07,106.97,97.57,0.8
+20260528,99.5,101.5,93.9,94.6,97000,102.91,-8.07,106.97,97.57,0.41
 ```
 
 ## Latest TDCC Snapshot

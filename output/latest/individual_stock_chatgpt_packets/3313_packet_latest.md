@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3313 斐成
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:23 Asia/Taipei
+- generated_at: 2026-05-28 20:19:09 Asia/Taipei
 - stock_id: 3313
 - stock_name: 斐成
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 11.2
 - low: 10.9
 - close: 11
-- volume: 3668420
+- volume: 10000
 - ma5: 11.35
 - ema23_primary: 11.65
 - distance_to_ema23_pct: -5.6
@@ -69,7 +69,7 @@
 - ma120: 13.33
 - return_5d: -7.17
 - return_20d: -7.56
-- volume_ratio: 11.72
+- volume_ratio: 0.08
 - distance_to_ma20_pct_auxiliary: -4.82
 - distance_to_high_60_pct: -21.15
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,11.9,11.9,11.5,11.6,12000,11.81,-1.81,11.68,12.39,0.08
 20260526,11.6,11.6,11.2,11.2,11000,11.76,-4.78,11.64,12.36,0.08
 20260527,11.25,11.3,11.05,11.15,11000,11.71,-4.79,11.6,12.33,0.08
-20260528,11.1,11.2,10.9,11,3668420,11.65,-5.6,11.56,12.3,11.72
+20260528,11.1,11.2,10.9,11,10000,11.65,-5.6,11.56,12.3,0.08
 ```
 
 ## Latest TDCC Snapshot
@@ -131,10 +131,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3313 | 斐成 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260528 | 3313 | 斐成 | revenue_breakout_low_response | 營收爆發低反應股 | 17.0 | 15.0 | B_可觀察 |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8423 保綠-KY
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:50 Asia/Taipei
+- generated_at: 2026-05-28 20:20:38 Asia/Taipei
 - stock_id: 8423
 - stock_name: 保綠-KY
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 18
 - low: 17.4
 - close: 17.4
-- volume: 21571
+- volume: 18000
 - ma5: 17.63
 - ema23_primary: 17.84
 - distance_to_ema23_pct: -2.47
@@ -69,7 +69,7 @@
 - ma120: 18.2
 - return_5d: -2.52
 - return_20d: -1.97
-- volume_ratio: 0.99
+- volume_ratio: 0.83
 - distance_to_ma20_pct_auxiliary: -2.33
 - distance_to_high_60_pct: -12.12
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,17.8,17.8,17.65,17.7,18000,17.93,-1.28,17.88,18.31,0.75
 20260526,17.7,17.75,17.65,17.7,18000,17.91,-1.17,17.85,18.29,0.76
 20260527,17.55,17.9,17.55,17.55,18000,17.88,-1.85,17.83,18.27,0.81
-20260528,17.8,18,17.4,17.4,21571,17.84,-2.47,17.82,18.24,0.99
+20260528,17.8,18,17.4,17.4,18000,17.84,-2.47,17.82,18.24,0.83
 ```
 
 ## Latest TDCC Snapshot

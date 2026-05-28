@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4908 前鼎
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:49 Asia/Taipei
+- generated_at: 2026-05-28 20:19:36 Asia/Taipei
 - stock_id: 4908
 - stock_name: 前鼎
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 260.5
 - low: 234.5
 - close: 239
-- volume: 4934614
+- volume: 246000
 - ma5: 269.1
 - ema23_primary: 233.34
 - distance_to_ema23_pct: 2.43
@@ -69,7 +69,7 @@
 - ma120: 121.79
 - return_5d: -1.65
 - return_20d: 22.25
-- volume_ratio: 3.31
+- volume_ratio: 0.2
 - distance_to_ma20_pct_auxiliary: -2.39
 - distance_to_high_60_pct: -23.52
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,293.5,293.5,285,293.5,293000,225.3,30.27,232.57,157.29,0.21
 20260526,311,312.5,270,286.5,283000,230.4,24.35,238.7,160.63,0.21
 20260527,290,291,258,259.5,270000,232.83,11.46,242.68,163.51,0.21
-20260528,260.5,260.5,234.5,239,4934614,233.34,2.43,244.85,165.9,3.31
+20260528,260.5,260.5,234.5,239,246000,233.34,2.43,244.85,165.9,0.2
 ```
 
 ## Latest TDCC Snapshot

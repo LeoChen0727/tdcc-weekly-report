@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 006201 元大富櫃50
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:21 Asia/Taipei
+- generated_at: 2026-05-28 20:18:07 Asia/Taipei
 - stock_id: 006201
 - stock_name: 元大富櫃50
 - packet_status: partial_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 50.75
 - low: 48.4
 - close: 48.4
-- volume: 372327
+- volume: 50000
 - ma5: 48.92
 - ema23_primary: 48.01
 - distance_to_ema23_pct: 0.8
@@ -69,7 +69,7 @@
 - ma120: 48.92
 - return_5d: 
 - return_20d: 
-- volume_ratio: 3.28
+- volume_ratio: 1.02
 - distance_to_ma20_pct_auxiliary: -1.06
 - distance_to_high_60_pct: -5.47
 
@@ -81,7 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,49.13,49.4,48.66,49.28,49000,,,,,
 20260526,50.3,50.3,48.85,49.54,50000,,,,,
 20260527,50,51.2,49.2,49.88,50000,,,,,
-20260528,50.25,50.75,48.4,48.4,372327,48.01,0.8,48.92,48.92,3.28
+20260528,50.25,50.75,48.4,48.4,50000,48.01,0.8,48.92,48.92,1.02
 ```
 
 ## Latest TDCC Snapshot

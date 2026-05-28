@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8415 大國鋼
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:50 Asia/Taipei
+- generated_at: 2026-05-28 20:20:38 Asia/Taipei
 - stock_id: 8415
 - stock_name: 大國鋼
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 34.85
 - low: 34.3
 - close: 34.5
-- volume: 624233
+- volume: 35000
 - ma5: 35.23
 - ema23_primary: 34.89
 - distance_to_ema23_pct: -1.13
@@ -69,7 +69,7 @@
 - ma120: 34.09
 - return_5d: -4.83
 - return_20d: 1.32
-- volume_ratio: 0.86
+- volume_ratio: 0.05
 - distance_to_ma20_pct_auxiliary: -1.07
 - distance_to_high_60_pct: -5.61
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,36.05,36.3,35.8,36.1,36000,34.94,3.32,34.74,34.16,0.05
 20260526,36.25,36.3,34.9,34.9,35000,34.94,-0.11,34.8,34.17,0.05
 20260527,35,35,34.55,34.85,35000,34.93,-0.23,34.85,34.19,0.05
-20260528,34.8,34.85,34.3,34.5,624233,34.89,-1.13,34.87,34.19,0.86
+20260528,34.8,34.85,34.3,34.5,35000,34.89,-1.13,34.87,34.19,0.05
 ```
 
 ## Latest TDCC Snapshot

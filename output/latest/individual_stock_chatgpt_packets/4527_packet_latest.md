@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4527 方土霖
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:42 Asia/Taipei
+- generated_at: 2026-05-28 20:19:29 Asia/Taipei
 - stock_id: 4527
 - stock_name: 方土霖
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 45.3
 - low: 44.85
 - close: 45.1
-- volume: 132588
+- volume: 45000
 - ma5: 44.47
 - ema23_primary: 43.66
 - distance_to_ema23_pct: 3.31
@@ -69,7 +69,7 @@
 - ma120: 41.51
 - return_5d: 3.32
 - return_20d: 5.87
-- volume_ratio: 3.49
+- volume_ratio: 1.34
 - distance_to_ma20_pct_auxiliary: 3.58
 - distance_to_high_60_pct: -0.44
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,43.9,45.05,43.9,44.65,45000,43.37,2.96,43.2,42.66,1.44
 20260526,45,45,44.2,44.2,44000,43.43,1.76,43.3,42.7,1.39
 20260527,44.2,44.6,44.2,44.5,44000,43.52,2.24,43.41,42.75,1.38
-20260528,44.95,45.3,44.85,45.1,132588,43.66,3.31,43.54,42.81,3.49
+20260528,44.95,45.3,44.85,45.1,45000,43.66,3.31,43.54,42.81,1.34
 ```
 
 ## Latest TDCC Snapshot

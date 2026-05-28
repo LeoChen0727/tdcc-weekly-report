@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6895 宏碩系統
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:34 Asia/Taipei
+- generated_at: 2026-05-28 20:20:21 Asia/Taipei
 - stock_id: 6895
 - stock_name: 宏碩系統
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 153
 - low: 150
 - close: 151.5
-- volume: 83164
+- volume: 151000
 - ma5: 152.4
 - ema23_primary: 158.82
 - distance_to_ema23_pct: -4.61
@@ -69,7 +69,7 @@
 - ma120: 179.57
 - return_5d: -0.33
 - return_20d: -13.18
-- volume_ratio: 0.86
+- volume_ratio: 1.51
 - distance_to_ma20_pct_auxiliary: -4.61
 - distance_to_high_60_pct: -21.71
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,153,157,153,154.5,155000,161.01,-4.04,162.15,166.28,1.76
 20260526,155.5,155.5,152.5,152.5,153000,160.3,-4.86,161.18,165.82,1.66
 20260527,152.5,153,150.5,150.5,151000,159.48,-5.63,159.97,165.41,1.55
-20260528,150.5,153,150,151.5,83164,158.82,-4.61,158.82,164.95,0.86
+20260528,150.5,153,150,151.5,151000,158.82,-4.61,158.82,164.95,1.51
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5904 寶雅
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:04 Asia/Taipei
+- generated_at: 2026-05-28 20:19:51 Asia/Taipei
 - stock_id: 5904
 - stock_name: 寶雅
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 563
 - low: 552
 - close: 557
-- volume: 206494
+- volume: 559000
 - ma5: 558.6
 - ema23_primary: 553.5
 - distance_to_ema23_pct: 0.63
@@ -69,7 +69,7 @@
 - ma120: 482.18
 - return_5d: -0.54
 - return_20d: 0
-- volume_ratio: 0.48
+- volume_ratio: 1.24
 - distance_to_ma20_pct_auxiliary: -1.34
 - distance_to_high_60_pct: -7.48
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,568,571,553,559,558000,552.91,1.1,562.4,526.42,1.13
 20260526,559,559,552,552,555000,552.84,-0.15,563.9,527.22,1.11
 20260527,552,563,540,557,556000,553.18,0.69,564.55,528.07,1.22
-20260528,555,563,552,557,206494,553.5,0.63,564.55,529,0.48
+20260528,555,563,552,557,559000,553.5,0.63,564.55,529,1.24
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2755 揚秦
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:07 Asia/Taipei
+- generated_at: 2026-05-28 20:18:53 Asia/Taipei
 - stock_id: 2755
 - stock_name: 揚秦
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 133
 - low: 131.5
 - close: 131.5
-- volume: 13171
+- volume: 132000
 - ma5: 132.1
 - ema23_primary: 133.46
 - distance_to_ema23_pct: -1.47
@@ -69,7 +69,7 @@
 - ma120: 128.92
 - return_5d: -0.75
 - return_20d: -2.23
-- volume_ratio: 0.21
+- volume_ratio: 1.89
 - distance_to_ma20_pct_auxiliary: -1.35
 - distance_to_high_60_pct: -14.05
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,132,132,130,132,131000,133.9,-1.42,133.55,138.04,2.33
 20260526,130,132,130,132,131000,133.74,-1.3,133.53,138.18,2.23
 20260527,132.5,133.5,131,132.5,132000,133.63,-0.85,133.45,138.12,2.05
-20260528,133,133,131.5,131.5,13171,133.46,-1.47,133.3,138.04,0.21
+20260528,133,133,131.5,131.5,132000,133.46,-1.47,133.3,138.04,1.89
 ```
 
 ## Latest TDCC Snapshot

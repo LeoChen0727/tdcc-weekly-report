@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6279 胡連
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:16 Asia/Taipei
+- generated_at: 2026-05-28 20:20:03 Asia/Taipei
 - stock_id: 6279
 - stock_name: 胡連
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 127.5
 - low: 119
 - close: 122.5
-- volume: 3133185
+- volume: 124000
 - ma5: 119
 - ema23_primary: 115.93
 - distance_to_ema23_pct: 5.67
@@ -69,7 +69,7 @@
 - ma120: 117.64
 - return_5d: 2.51
 - return_20d: 15.57
-- volume_ratio: 2.75
+- volume_ratio: 0.13
 - distance_to_ma20_pct_auxiliary: 4.86
 - distance_to_high_60_pct: -3.92
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,121,121,118,119,119000,115.07,3.42,114.83,111.99,0.12
 20260526,119,119.5,116,117,117000,115.23,1.54,115.4,112.09,0.12
 20260527,117,119,116,116.5,117000,115.33,1.01,116,112.08,0.12
-20260528,119,127.5,119,122.5,3133185,115.93,5.67,116.83,112.17,2.75
+20260528,119,127.5,119,122.5,124000,115.93,5.67,116.83,112.17,0.13
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6279 | 胡連 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

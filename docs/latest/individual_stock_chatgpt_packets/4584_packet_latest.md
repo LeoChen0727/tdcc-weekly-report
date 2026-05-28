@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4584 君帆
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:45 Asia/Taipei
+- generated_at: 2026-05-28 20:19:32 Asia/Taipei
 - stock_id: 4584
 - stock_name: 君帆
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 43.2
 - low: 43.1
 - close: 43.2
-- volume: 15163
+- volume: 43000
 - ma5: 44.66
 - ema23_primary: 42.89
 - distance_to_ema23_pct: 0.71
@@ -69,7 +69,7 @@
 - ma120: 45.38
 - return_5d: -5.88
 - return_20d: 3.72
-- volume_ratio: 0.81
+- volume_ratio: 2.15
 - distance_to_ma20_pct_auxiliary: 1.95
 - distance_to_high_60_pct: -9.05
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,46.8,46.8,44.4,46,46000,42.72,7.67,42.07,43.1,2.95
 20260525,44.5,44.5,44.2,44.2,44000,42.85,3.16,42.23,43.04,2.61
 20260526,44.3,44.3,42.6,43.1,43000,42.87,0.54,42.3,42.99,2.38
-20260528,43.1,43.2,43.1,43.2,15163,42.89,0.71,42.38,42.94,0.81
+20260528,43.1,43.2,43.1,43.2,43000,42.89,0.71,42.38,42.94,2.15
 ```
 
 ## Latest TDCC Snapshot

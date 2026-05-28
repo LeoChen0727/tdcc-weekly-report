@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3373 熱映
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:24 Asia/Taipei
+- generated_at: 2026-05-28 20:19:11 Asia/Taipei
 - stock_id: 3373
 - stock_name: 熱映
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 16.8
 - low: 16.6
 - close: 16.65
-- volume: 77969
+- volume: 17000
 - ma5: 16.77
 - ema23_primary: 16.88
 - distance_to_ema23_pct: -1.38
@@ -69,7 +69,7 @@
 - ma120: 17.47
 - return_5d: -2.06
 - return_20d: -2.63
-- volume_ratio: 1.17
+- volume_ratio: 0.27
 - distance_to_ma20_pct_auxiliary: -1.27
 - distance_to_high_60_pct: -6.46
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,17.05,17.05,16.8,16.85,17000,16.94,-0.53,16.9,17.05,0.24
 20260526,16.9,16.9,16.75,16.75,17000,16.92,-1.02,16.9,17.04,0.25
 20260527,17,17.05,16.7,16.7,17000,16.9,-1.21,16.89,17.02,0.25
-20260528,16.7,16.8,16.6,16.65,77969,16.88,-1.38,16.86,17,1.17
+20260528,16.7,16.8,16.6,16.65,17000,16.88,-1.38,16.86,17,0.27
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3484 崧騰
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:27 Asia/Taipei
+- generated_at: 2026-05-28 20:19:13 Asia/Taipei
 - stock_id: 3484
 - stock_name: 崧騰
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 43.9
 - low: 42.9
 - close: 43.1
-- volume: 281911
+- volume: 43000
 - ma5: 43.57
 - ema23_primary: 44
 - distance_to_ema23_pct: -2.04
@@ -69,7 +69,7 @@
 - ma120: 47.09
 - return_5d: -2.38
 - return_20d: -3.79
-- volume_ratio: 1.16
+- volume_ratio: 0.19
 - distance_to_ma20_pct_auxiliary: -1.78
 - distance_to_high_60_pct: -11.32
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,44.25,44.55,43.6,43.75,44000,44.2,-1.03,44.05,45.4,0.16
 20260526,44,44,43.4,43.65,44000,44.16,-1.15,44.02,45.31,0.17
 20260527,43.6,44.05,43.2,43.2,44000,44.08,-1.99,43.97,45.21,0.18
-20260528,43.9,43.9,42.9,43.1,281911,44,-2.04,43.88,45.12,1.16
+20260528,43.9,43.9,42.9,43.1,43000,44,-2.04,43.88,45.12,0.19
 ```
 
 ## Latest TDCC Snapshot

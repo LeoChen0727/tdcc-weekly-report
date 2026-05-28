@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4139 馬光-KY
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:38 Asia/Taipei
+- generated_at: 2026-05-28 20:19:24 Asia/Taipei
 - stock_id: 4139
 - stock_name: 馬光-KY
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 24.9
 - low: 22.95
 - close: 22.95
-- volume: 15302
+- volume: 23000
 - ma5: 23.35
 - ema23_primary: 23.67
 - distance_to_ema23_pct: -3.06
@@ -69,7 +69,7 @@
 - ma120: 24.15
 - return_5d: -0.43
 - return_20d: -3.16
-- volume_ratio: 1.11
+- volume_ratio: 1.62
 - distance_to_ma20_pct_auxiliary: -2.85
 - distance_to_high_60_pct: -9.65
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,23.1,23.1,23,23.1,23000,23.79,-2.92,23.68,24.13,1.67
 20260526,23.1,23.9,23,23.9,23000,23.8,0.41,23.7,24.13,1.67
 20260527,23.05,23.05,23,23.05,23000,23.74,-2.91,23.66,24.12,1.67
-20260528,24.9,24.9,22.95,22.95,15302,23.67,-3.06,23.62,24.1,1.11
+20260528,24.9,24.9,22.95,22.95,23000,23.67,-3.06,23.62,24.1,1.62
 ```
 
 ## Latest TDCC Snapshot

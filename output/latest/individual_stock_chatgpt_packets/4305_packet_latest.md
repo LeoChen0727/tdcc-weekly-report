@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4305 世坤
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:40 Asia/Taipei
+- generated_at: 2026-05-28 20:19:27 Asia/Taipei
 - stock_id: 4305
 - stock_name: 世坤
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 44.2
 - low: 44
 - close: 44
-- volume: 4000
+- volume: 44000
 - ma5: 44.05
 - ema23_primary: 43.97
 - distance_to_ema23_pct: 0.06
@@ -69,7 +69,7 @@
 - ma120: 42.92
 - return_5d: -1.12
 - return_20d: 1.5
-- volume_ratio: 0.32
+- volume_ratio: 3.04
 - distance_to_ma20_pct_auxiliary: 0.1
 - distance_to_high_60_pct: -4.56
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,43.9,43.9,43.9,43.9,44000,43.95,-0.12,43.89,43.57,5.18
 20260526,43.85,44,43.85,44,44000,43.96,0.1,43.89,43.61,4.25
 20260527,44.15,44.25,44.1,44.1,44000,43.97,0.3,43.92,43.64,3.56
-20260528,44.2,44.2,44,44,4000,43.97,0.06,43.95,43.66,0.32
+20260528,44.2,44.2,44,44,44000,43.97,0.06,43.95,43.66,3.04
 ```
 
 ## Latest TDCC Snapshot

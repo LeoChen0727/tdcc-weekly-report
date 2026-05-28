@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3374 精材
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:24 Asia/Taipei
+- generated_at: 2026-05-28 20:19:11 Asia/Taipei
 - stock_id: 3374
 - stock_name: 精材
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 275.5
 - low: 248.5
 - close: 255
-- volume: 37470443
+- volume: 265000
 - ma5: 254.4
 - ema23_primary: 234.34
 - distance_to_ema23_pct: 8.82
@@ -69,7 +69,7 @@
 - ma120: 176.38
 - return_5d: 4.29
 - return_20d: 25.62
-- volume_ratio: 2.3
+- volume_ratio: 0.02
 - distance_to_ma20_pct_auxiliary: 7.41
 - distance_to_high_60_pct: -10.53
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,255,267,246,258,259000,228.58,12.87,231.05,192.48,0.01
 20260526,263.5,263.5,248,255.5,254000,230.82,10.69,232.93,193.68,0.02
 20260527,259,262.5,248,250.5,254000,232.46,7.76,234.8,194.62,0.02
-20260528,259.5,275.5,248.5,255,37470443,234.34,8.82,237.4,195.7,2.3
+20260528,259.5,275.5,248.5,255,265000,234.34,8.82,237.4,195.7,0.02
 ```
 
 ## Latest TDCC Snapshot

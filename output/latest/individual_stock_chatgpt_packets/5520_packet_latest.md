@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5520 力泰
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:01 Asia/Taipei
+- generated_at: 2026-05-28 20:19:48 Asia/Taipei
 - stock_id: 5520
 - stock_name: 力泰
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 82.5
 - low: 82.2
 - close: 82.4
-- volume: 3020
+- volume: 82000
 - ma5: 82.24
 - ema23_primary: 81.91
 - distance_to_ema23_pct: 0.6
@@ -69,7 +69,7 @@
 - ma120: 87.56
 - return_5d: 0.49
 - return_20d: 4.3
-- volume_ratio: 0.19
+- volume_ratio: 4.09
 - distance_to_ma20_pct_auxiliary: 1.54
 - distance_to_high_60_pct: -10.34
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,82.2,82.2,82.1,82.2,82000,81.8,0.49,80.8,85.11,9.21
 20260526,82.1,82.2,82.1,82.2,82000,81.83,0.45,80.89,85.01,6.46
 20260527,82.2,82.8,82.2,82.2,82000,81.86,0.41,80.98,84.92,4.9
-20260528,82.5,82.5,82.2,82.4,3020,81.91,0.6,81.15,84.82,0.19
+20260528,82.5,82.5,82.2,82.4,82000,81.91,0.6,81.15,84.82,4.09
 ```
 
 ## Latest TDCC Snapshot

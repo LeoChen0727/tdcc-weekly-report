@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2063 世鎧
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:46 Asia/Taipei
+- generated_at: 2026-05-28 20:18:31 Asia/Taipei
 - stock_id: 2063
 - stock_name: 世鎧
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 25.05
 - low: 24.65
 - close: 24.9
-- volume: 20631
+- volume: 25000
 - ma5: 25.2
 - ema23_primary: 25.54
 - distance_to_ema23_pct: -2.49
@@ -69,7 +69,7 @@
 - ma120: 26.12
 - return_5d: -0.8
 - return_20d: -4.05
-- volume_ratio: 0.7
+- volume_ratio: 0.85
 - distance_to_ma20_pct_auxiliary: -1.95
 - distance_to_high_60_pct: -9.78
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,25.3,25.3,25,25.15,25000,25.65,-1.94,25.49,26.47,0.85
 20260526,25.15,25.4,25.15,25.4,25000,25.63,-0.88,25.48,26.45,0.87
 20260527,25.2,25.25,25.2,25.25,25000,25.59,-1.35,25.45,26.41,0.86
-20260528,25.05,25.05,24.65,24.9,20631,25.54,-2.49,25.39,26.37,0.7
+20260528,25.05,25.05,24.65,24.9,25000,25.54,-2.49,25.39,26.37,0.85
 ```
 
 ## Latest TDCC Snapshot

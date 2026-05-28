@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8424 惠普
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:51 Asia/Taipei
+- generated_at: 2026-05-28 20:20:38 Asia/Taipei
 - stock_id: 8424
 - stock_name: 惠普
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 73
 - low: 72.6
 - close: 73
-- volume: 29064
+- volume: 73000
 - ma5: 72.92
 - ema23_primary: 73.47
 - distance_to_ema23_pct: -0.64
@@ -69,7 +69,7 @@
 - ma120: 73.88
 - return_5d: 0
 - return_20d: -1.88
-- volume_ratio: 0.9
+- volume_ratio: 2.11
 - distance_to_ma20_pct_auxiliary: -0.69
 - distance_to_high_60_pct: -4.7
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,73,73,72.8,73,73000,73.65,-0.88,73.73,74.36,2.87
 20260526,72.5,73,72,72.6,73000,73.56,-1.31,73.65,74.35,2.6
 20260527,73,73,72.9,73,73000,73.51,-0.7,73.58,74.34,2.31
-20260528,73,73,72.6,73,29064,73.47,-0.64,73.51,74.32,0.9
+20260528,73,73,72.6,73,73000,73.47,-0.64,73.51,74.32,2.11
 ```
 
 ## Latest TDCC Snapshot

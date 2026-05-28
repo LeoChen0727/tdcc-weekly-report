@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5548 安倉
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:02 Asia/Taipei
+- generated_at: 2026-05-28 20:19:49 Asia/Taipei
 - stock_id: 5548
 - stock_name: 安倉
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 23.35
 - low: 23.25
 - close: 23.25
-- volume: 49601
+- volume: 23000
 - ma5: 23.36
 - ema23_primary: 23.58
 - distance_to_ema23_pct: -1.39
@@ -69,7 +69,7 @@
 - ma120: 23.74
 - return_5d: -1.69
 - return_20d: -1.48
-- volume_ratio: 1.32
+- volume_ratio: 0.64
 - distance_to_ma20_pct_auxiliary: -1.03
 - distance_to_high_60_pct: -11.6
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,23.55,23.55,23.4,23.4,23000,23.67,-1.14,23.53,23.89,0.57
 20260526,23.5,23.5,23.2,23.25,23000,23.63,-1.63,23.52,23.89,0.61
 20260527,23.25,23.5,23.25,23.3,23000,23.61,-1.3,23.51,23.89,0.64
-20260528,23.3,23.35,23.25,23.25,49601,23.58,-1.39,23.49,23.89,1.32
+20260528,23.3,23.35,23.25,23.25,23000,23.58,-1.39,23.49,23.89,0.64
 ```
 
 ## Latest TDCC Snapshot

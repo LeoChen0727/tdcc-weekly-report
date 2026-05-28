@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5903 全家
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:03 Asia/Taipei
+- generated_at: 2026-05-28 20:19:51 Asia/Taipei
 - stock_id: 5903
 - stock_name: 全家
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 187.5
 - low: 186.5
 - close: 186.5
-- volume: 47029
+- volume: 187000
 - ma5: 187.5
 - ema23_primary: 188.69
 - distance_to_ema23_pct: -1.16
@@ -69,7 +69,7 @@
 - ma120: 191.04
 - return_5d: -0.53
 - return_20d: -1.58
-- volume_ratio: 0.75
+- volume_ratio: 2.69
 - distance_to_ma20_pct_auxiliary: -1.21
 - distance_to_high_60_pct: -4.85
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,187.5,188,187.5,188,188000,189.15,-0.61,189.15,190.56,4.21
 20260526,187.5,188,187.5,187.5,188000,189.02,-0.8,189.03,190.42,3.6
 20260527,187,187.5,187,187.5,187000,188.89,-0.74,188.93,190.28,3.07
-20260528,187.5,187.5,186.5,186.5,47029,188.69,-1.16,188.78,190.12,0.75
+20260528,187.5,187.5,186.5,186.5,187000,188.69,-1.16,188.78,190.12,2.69
 ```
 
 ## Latest TDCC Snapshot

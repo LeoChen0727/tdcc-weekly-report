@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8102 傑霖科技
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:46 Asia/Taipei
+- generated_at: 2026-05-28 20:20:33 Asia/Taipei
 - stock_id: 8102
 - stock_name: 傑霖科技
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 63
 - low: 62
 - close: 62
-- volume: 15050
+- volume: 62000
 - ma5: 63.86
 - ema23_primary: 64.44
 - distance_to_ema23_pct: -3.78
@@ -69,7 +69,7 @@
 - ma120: 59.64
 - return_5d: -4.91
 - return_20d: -10.01
-- volume_ratio: 0.32
+- volume_ratio: 1.27
 - distance_to_ma20_pct_auxiliary: -5.03
 - distance_to_high_60_pct: -24.3
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,64.8,64.8,63.1,63.9,64000,64.74,-1.3,66.25,60.02,1.42
 20260526,63.1,64.9,62.8,64.9,64000,64.75,0.22,65.94,60.17,1.4
 20260527,64.9,65,62.1,63.6,63000,64.66,-1.64,65.63,60.32,1.34
-20260528,62.6,63,62,62,15050,64.44,-3.78,65.28,60.45,0.32
+20260528,62.6,63,62,62,62000,64.44,-3.78,65.28,60.45,1.27
 ```
 
 ## Latest TDCC Snapshot

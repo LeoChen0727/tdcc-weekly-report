@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1599 宏佳騰
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:37 Asia/Taipei
+- generated_at: 2026-05-28 20:18:23 Asia/Taipei
 - stock_id: 1599
 - stock_name: 宏佳騰
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 23.2
 - low: 23
 - close: 23.1
-- volume: 58433
+- volume: 23000
 - ma5: 23.29
 - ema23_primary: 24.04
 - distance_to_ema23_pct: -3.92
@@ -69,7 +69,7 @@
 - ma120: 26.15
 - return_5d: -2.12
 - return_20d: -8.51
-- volume_ratio: 1.38
+- volume_ratio: 0.57
 - distance_to_ma20_pct_auxiliary: -3.92
 - distance_to_high_60_pct: -18.09
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,23.35,23.45,23.1,23.35,23000,24.3,-3.9,24.34,25.45,0.56
 20260526,23.1,23.5,23.1,23.5,23000,24.23,-3.02,24.26,25.36,0.57
 20260527,23.2,23.75,23,23,23000,24.13,-4.68,24.15,25.27,0.57
-20260528,23.1,23.2,23,23.1,58433,24.04,-3.92,24.04,25.19,1.38
+20260528,23.1,23.2,23,23.1,23000,24.04,-3.92,24.04,25.19,0.57
 ```
 
 ## Latest TDCC Snapshot

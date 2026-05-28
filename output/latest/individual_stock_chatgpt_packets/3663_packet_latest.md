@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3663 鑫科
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:33 Asia/Taipei
+- generated_at: 2026-05-28 20:19:20 Asia/Taipei
 - stock_id: 3663
 - stock_name: 鑫科
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 91.9
 - low: 85
 - close: 85.7
-- volume: 6249501
+- volume: 89000
 - ma5: 89.12
 - ema23_primary: 78.69
 - distance_to_ema23_pct: 8.91
@@ -69,7 +69,7 @@
 - ma120: 63.59
 - return_5d: 2.39
 - return_20d: 29.26
-- volume_ratio: 1.4
+- volume_ratio: 0.02
 - distance_to_ma20_pct_auxiliary: 11.36
 - distance_to_high_60_pct: -8.44
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,87.9,93.6,87.9,91.7,91000,75.66,21.19,73.62,70.44,0.02
 20260526,91.4,91.9,87.8,91.4,90000,76.98,18.74,74.86,70.92,0.02
 20260527,92.1,92.1,87.7,89.9,90000,78.05,15.18,75.98,71.33,0.02
-20260528,90,91.9,85,85.7,6249501,78.69,8.91,76.95,71.73,1.4
+20260528,90,91.9,85,85.7,89000,78.69,8.91,76.95,71.73,0.02
 ```
 
 ## Latest TDCC Snapshot

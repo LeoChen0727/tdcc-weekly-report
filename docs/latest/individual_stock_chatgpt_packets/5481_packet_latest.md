@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5481 新華
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:00 Asia/Taipei
+- generated_at: 2026-05-28 20:19:47 Asia/Taipei
 - stock_id: 5481
 - stock_name: 新華
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 19.15
 - low: 18
 - close: 18.3
-- volume: 164715
+- volume: 19000
 - ma5: 19.23
 - ema23_primary: 20.1
 - distance_to_ema23_pct: -8.97
@@ -69,7 +69,7 @@
 - ma120: 21.91
 - return_5d: -7.58
 - return_20d: -11.81
-- volume_ratio: 1.75
+- volume_ratio: 0.22
 - distance_to_ma20_pct_auxiliary: -8.88
 - distance_to_high_60_pct: -21.63
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,19.5,19.6,18.95,19.6,19000,20.46,-4.19,20.38,21.43,0.17
 20260526,19.85,19.85,19,19.4,19000,20.37,-4.76,20.3,21.4,0.19
 20260527,19.3,19.8,18.95,19.15,19000,20.27,-5.51,20.2,21.35,0.21
-20260528,19.1,19.15,18,18.3,164715,20.1,-8.97,20.08,21.28,1.75
+20260528,19.1,19.15,18,18.3,19000,20.1,-8.97,20.08,21.28,0.22
 ```
 
 ## Latest TDCC Snapshot

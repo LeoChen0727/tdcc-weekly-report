@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5392 能率
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:58 Asia/Taipei
+- generated_at: 2026-05-28 20:19:45 Asia/Taipei
 - stock_id: 5392
 - stock_name: 能率
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 42.7
 - low: 40
 - close: 40.5
-- volume: 3868995
+- volume: 41000
 - ma5: 42.56
 - ema23_primary: 41.4
 - distance_to_ema23_pct: -2.16
@@ -69,7 +69,7 @@
 - ma120: 43.2
 - return_5d: -2.53
 - return_20d: -0.49
-- volume_ratio: 0.92
+- volume_ratio: 0.01
 - distance_to_ma20_pct_auxiliary: -3.56
 - distance_to_high_60_pct: -10.6
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,44.05,44.65,42.9,43.9,44000,41.35,6.16,41.52,39.78,0.01
 20260526,44.9,44.9,42.6,43,43000,41.49,3.64,41.88,39.75,0.01
 20260527,43.2,43.4,41.3,41.35,42000,41.48,-0.31,42.01,39.69,0.01
-20260528,41.4,42.7,40,40.5,3868995,41.4,-2.16,41.99,39.62,0.92
+20260528,41.4,42.7,40,40.5,41000,41.4,-2.16,41.99,39.62,0.01
 ```
 
 ## Latest TDCC Snapshot

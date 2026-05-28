@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6506 雙邦
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:20 Asia/Taipei
+- generated_at: 2026-05-28 20:20:07 Asia/Taipei
 - stock_id: 6506
 - stock_name: 雙邦
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 19.1
 - low: 18.7
 - close: 18.8
-- volume: 250561
+- volume: 19000
 - ma5: 19.14
 - ema23_primary: 18.55
 - distance_to_ema23_pct: 1.36
@@ -69,7 +69,7 @@
 - ma120: 16.48
 - return_5d: -1.05
 - return_20d: 6.21
-- volume_ratio: 0.97
+- volume_ratio: 0.08
 - distance_to_ma20_pct_auxiliary: 1.02
 - distance_to_high_60_pct: -6
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,19.55,19.65,19.15,19.25,19000,18.39,4.66,18.36,17.15,0.07
 20260526,19.35,19.35,19.1,19.35,19000,18.47,4.75,18.47,17.21,0.07
 20260527,19.4,19.5,19.05,19.1,19000,18.52,3.11,18.55,17.26,0.08
-20260528,19.1,19.1,18.7,18.8,250561,18.55,1.36,18.61,17.3,0.97
+20260528,19.1,19.1,18.7,18.8,19000,18.55,1.36,18.61,17.3,0.08
 ```
 
 ## Latest TDCC Snapshot

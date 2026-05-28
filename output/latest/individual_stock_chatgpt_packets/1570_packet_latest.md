@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1570 力肯
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:36 Asia/Taipei
+- generated_at: 2026-05-28 20:18:22 Asia/Taipei
 - stock_id: 1570
 - stock_name: 力肯
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 53.6
 - low: 51.2
 - close: 52.3
-- volume: 1017086
+- volume: 52000
 - ma5: 48.47
 - ema23_primary: 41.7
 - distance_to_ema23_pct: 25.43
@@ -69,7 +69,7 @@
 - ma120: 33.38
 - return_5d: 32.07
 - return_20d: 37.63
-- volume_ratio: 3.63
+- volume_ratio: 0.22
 - distance_to_ma20_pct_auxiliary: 27.35
 - distance_to_high_60_pct: -4.04
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,43.2,46,43,45.75,45000,38.75,18.06,39.06,34.58,0.15
 20260526,45.5,50,45.3,50,48000,39.69,25.98,39.66,34.9,0.18
 20260527,52.5,54.5,50.2,52.2,52000,40.73,28.16,40.35,35.24,0.22
-20260528,52.2,53.6,51.2,52.3,1017086,41.7,25.43,41.07,35.6,3.63
+20260528,52.2,53.6,51.2,52.3,52000,41.7,25.43,41.07,35.6,0.22
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1570 | 力肯 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

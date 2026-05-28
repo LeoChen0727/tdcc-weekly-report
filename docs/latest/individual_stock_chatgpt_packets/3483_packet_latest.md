@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3483 力致
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:27 Asia/Taipei
+- generated_at: 2026-05-28 20:19:13 Asia/Taipei
 - stock_id: 3483
 - stock_name: 力致
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 98.5
 - low: 93.5
 - close: 93.8
-- volume: 990616
+- volume: 96000
 - ma5: 96.46
 - ema23_primary: 92
 - distance_to_ema23_pct: 1.96
@@ -69,7 +69,7 @@
 - ma120: 88.76
 - return_5d: 1.96
 - return_20d: 0.11
-- volume_ratio: 1.39
+- volume_ratio: 0.14
 - distance_to_ma20_pct_auxiliary: 1.93
 - distance_to_high_60_pct: -11.51
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,95.9,100.5,95.6,99.2,98000,90.79,9.26,91.84,87.17,0.11
 20260526,101,102,96.6,98.4,99000,91.43,7.63,91.91,87.29,0.13
 20260527,100,100,95.5,96.3,98000,91.83,4.86,92.02,87.36,0.14
-20260528,97.5,98.5,93.5,93.8,990616,92,1.96,92.02,87.36,1.39
+20260528,97.5,98.5,93.5,93.8,96000,92,1.96,92.02,87.36,0.14
 ```
 
 ## Latest TDCC Snapshot

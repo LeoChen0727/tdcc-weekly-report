@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3489 森寶
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:27 Asia/Taipei
+- generated_at: 2026-05-28 20:19:13 Asia/Taipei
 - stock_id: 3489
 - stock_name: 森寶
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 21.85
 - low: 21.65
 - close: 21.65
-- volume: 47850
+- volume: 22000
 - ma5: 21.83
 - ema23_primary: 22.07
 - distance_to_ema23_pct: -1.91
@@ -69,7 +69,7 @@
 - ma120: 21.85
 - return_5d: -1.59
 - return_20d: -2.91
-- volume_ratio: 0.56
+- volume_ratio: 0.26
 - distance_to_ma20_pct_auxiliary: -1.43
 - distance_to_high_60_pct: -11.63
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,21.9,21.9,21.8,21.85,22000,22.16,-1.41,22.02,22.18,0.22
 20260526,21.85,21.95,21.75,21.9,22000,22.14,-1.09,22.02,22.21,0.24
 20260527,22,22,21.55,21.75,22000,22.11,-1.62,22,22.23,0.26
-20260528,21.75,21.85,21.65,21.65,47850,22.07,-1.91,21.96,22.26,0.56
+20260528,21.75,21.85,21.65,21.65,22000,22.07,-1.91,21.96,22.26,0.26
 ```
 
 ## Latest TDCC Snapshot

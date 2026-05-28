@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3523 迎輝
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:28 Asia/Taipei
+- generated_at: 2026-05-28 20:19:15 Asia/Taipei
 - stock_id: 3523
 - stock_name: 迎輝
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 14.5
 - low: 14.5
 - close: 14.5
-- volume: 49082
+- volume: 14000
 - ma5: 12.13
 - ema23_primary: 12.07
 - distance_to_ema23_pct: 20.09
@@ -69,7 +69,7 @@
 - ma120: 15.8
 - return_5d: 45
 - return_20d: 13.28
-- volume_ratio: 1.97
+- volume_ratio: 0.6
 - distance_to_ma20_pct_auxiliary: 23.02
 - distance_to_high_60_pct: -21.2
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,10,10.95,9.97,10.95,11000,11.71,-6.47,11.77,13.88,0.5
 20260526,12,12,12,12,12000,11.73,2.29,11.71,13.78,0.54
 20260527,13.2,13.2,13.2,13.2,13000,11.85,11.36,11.7,13.7,0.57
-20260528,14.5,14.5,14.5,14.5,49082,12.07,20.09,11.79,13.65,1.97
+20260528,14.5,14.5,14.5,14.5,14000,12.07,20.09,11.79,13.65,0.6
 ```
 
 ## Latest TDCC Snapshot

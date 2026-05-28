@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6264 富裔
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:15 Asia/Taipei
+- generated_at: 2026-05-28 20:20:02 Asia/Taipei
 - stock_id: 6264
 - stock_name: 富裔
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 6.12
 - low: 5.93
 - close: 6.09
-- volume: 35200
+- volume: 6000
 - ma5: 6.06
 - ema23_primary: 6.13
 - distance_to_ema23_pct: -0.67
@@ -69,7 +69,7 @@
 - ma120: 6.73
 - return_5d: -1.3
 - return_20d: 1.16
-- volume_ratio: 0.57
+- volume_ratio: 0.1
 - distance_to_ma20_pct_auxiliary: -0.13
 - distance_to_high_60_pct: -14.35
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,6.02,6.04,5.83,6.04,6000,6.15,-1.76,6.12,6.36,0.08
 20260526,6.04,6.24,5.9,6.05,6000,6.14,-1.47,6.11,6.34,0.08
 20260527,5.97,6.15,5.9,6.08,6000,6.13,-0.9,6.09,6.33,0.09
-20260528,6.08,6.12,5.93,6.09,35200,6.13,-0.67,6.1,6.32,0.57
+20260528,6.08,6.12,5.93,6.09,6000,6.13,-0.67,6.1,6.32,0.1
 ```
 
 ## Latest TDCC Snapshot

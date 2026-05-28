@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6113 亞矽
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:05 Asia/Taipei
+- generated_at: 2026-05-28 20:19:52 Asia/Taipei
 - stock_id: 6113
 - stock_name: 亞矽
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 27.9
 - low: 26.2
 - close: 26.2
-- volume: 583873
+- volume: 27000
 - ma5: 26.9
 - ema23_primary: 24.77
 - distance_to_ema23_pct: 5.77
@@ -69,7 +69,7 @@
 - ma120: 21.8
 - return_5d: 3.35
 - return_20d: 16.19
-- volume_ratio: 1.06
+- volume_ratio: 0.05
 - distance_to_ma20_pct_auxiliary: 5.85
 - distance_to_high_60_pct: -6.93
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,28.15,28.15,26.95,27.2,27000,24.24,12.21,24.16,22.21,0.05
 20260526,27.4,27.5,26,26.6,26000,24.44,8.85,24.36,22.28,0.05
 20260527,26.9,27.75,26.8,26.9,27000,24.64,9.16,24.57,22.36,0.05
-20260528,27,27.9,26.2,26.2,583873,24.77,5.77,24.75,22.43,1.06
+20260528,27,27.9,26.2,26.2,27000,24.77,5.77,24.75,22.43,0.05
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7820 立盈
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:42 Asia/Taipei
+- generated_at: 2026-05-28 20:20:29 Asia/Taipei
 - stock_id: 7820
 - stock_name: 立盈
 - packet_status: partial_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 130.5
 - low: 126
 - close: 126.5
-- volume: 100144
+- volume: 127000
 - ma5: 132.1
 - ema23_primary: 137.5
 - distance_to_ema23_pct: -8
@@ -69,7 +69,7 @@
 - ma120: 139.39
 - return_5d: -6.3
 - return_20d: -9.64
-- volume_ratio: 0.68
+- volume_ratio: 0.86
 - distance_to_ma20_pct_auxiliary: -8.89
 - distance_to_high_60_pct: -20.94
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,134,139.5,134,136,137000,139.75,-2.68,140.78,140.78,0.63
 20260526,140,140,133.5,133.5,135000,139.23,-4.11,140.25,140.43,0.79
 20260527,136,136,130,130.5,131000,138.5,-5.78,139.53,139.98,0.87
-20260528,130.5,130.5,126,126.5,100144,137.5,-8,138.85,139.39,0.68
+20260528,130.5,130.5,126,126.5,127000,137.5,-8,138.85,139.39,0.86
 ```
 
 ## Latest TDCC Snapshot

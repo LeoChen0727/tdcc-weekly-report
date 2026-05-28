@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4950 金耘國際
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:51 Asia/Taipei
+- generated_at: 2026-05-28 20:19:37 Asia/Taipei
 - stock_id: 4950
 - stock_name: 金耘國際
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 16.6
 - low: 16.3
 - close: 16.3
-- volume: 20777
+- volume: 16000
 - ma5: 16.71
 - ema23_primary: 16.81
 - distance_to_ema23_pct: -3.02
@@ -69,7 +69,7 @@
 - ma120: 17.38
 - return_5d: -4.4
 - return_20d: -0.31
-- volume_ratio: 0.29
+- volume_ratio: 0.22
 - distance_to_ma20_pct_auxiliary: -5.07
 - distance_to_high_60_pct: -17.26
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,17.35,17.35,16.5,16.7,17000,16.9,-1.16,17.14,16.21,0.23
 20260526,16.5,17.3,16.35,17,17000,16.9,0.57,17.18,16.23,0.24
 20260527,16.75,17,16.3,16.3,17000,16.85,-3.29,17.17,16.23,0.23
-20260528,16.45,16.6,16.3,16.3,20777,16.81,-3.02,17.17,16.24,0.29
+20260528,16.45,16.6,16.3,16.3,16000,16.81,-3.02,17.17,16.24,0.22
 ```
 
 ## Latest TDCC Snapshot

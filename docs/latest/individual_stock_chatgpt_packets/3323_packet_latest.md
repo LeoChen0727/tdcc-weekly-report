@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3323 加百裕
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:23 Asia/Taipei
+- generated_at: 2026-05-28 20:19:09 Asia/Taipei
 - stock_id: 3323
 - stock_name: 加百裕
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 39.5
 - low: 36.8
 - close: 37
-- volume: 4271250
+- volume: 38000
 - ma5: 37.29
 - ema23_primary: 35.65
 - distance_to_ema23_pct: 3.79
@@ -69,7 +69,7 @@
 - ma120: 37.23
 - return_5d: 4.52
 - return_20d: 7.25
-- volume_ratio: 3.01
+- volume_ratio: 0.03
 - distance_to_ma20_pct_auxiliary: 4.16
 - distance_to_high_60_pct: -6.33
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,37.1,38.5,36.6,37.15,37000,35.09,5.88,35.11,34.73,0.03
 20260526,37.75,38.8,36.3,37.1,37000,35.26,5.23,35.2,34.71,0.03
 20260527,37.4,39,36.75,38.5,38000,35.53,8.37,35.4,34.71,0.03
-20260528,38.5,39.5,36.8,37,4271250,35.65,3.79,35.52,34.69,3.01
+20260528,38.5,39.5,36.8,37,38000,35.65,3.79,35.52,34.69,0.03
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3323 | 加百裕 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

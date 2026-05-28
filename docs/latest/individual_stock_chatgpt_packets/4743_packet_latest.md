@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4743 合一
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:47 Asia/Taipei
+- generated_at: 2026-05-28 20:19:34 Asia/Taipei
 - stock_id: 4743
 - stock_name: 合一
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 50.9
 - low: 49.7
 - close: 49.7
-- volume: 2845749
+- volume: 50000
 - ma5: 51.24
 - ema23_primary: 51.71
 - distance_to_ema23_pct: -3.89
@@ -69,7 +69,7 @@
 - ma120: 58.06
 - return_5d: -7.79
 - return_20d: -4.05
-- volume_ratio: 1.38
+- volume_ratio: 0.03
 - distance_to_ma20_pct_auxiliary: -4.2
 - distance_to_high_60_pct: -15.76
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,53.7,53.7,51.3,52,52000,52.11,-0.21,52.13,53.21,0.02
 20260526,52.2,52.3,50.4,50.7,51000,51.99,-2.49,52.05,53.06,0.02
 20260527,50.7,51.1,50.1,50.8,51000,51.89,-2.11,51.98,52.91,0.03
-20260528,50.8,50.9,49.7,49.7,2845749,51.71,-3.89,51.88,52.77,1.38
+20260528,50.8,50.9,49.7,49.7,50000,51.71,-3.89,51.88,52.77,0.03
 ```
 
 ## Latest TDCC Snapshot
@@ -125,13 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4743 | 合一 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260521 | 4743 | 合一 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 4743 | 合一 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4743 | 合一 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260528 | 4743 | 合一 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

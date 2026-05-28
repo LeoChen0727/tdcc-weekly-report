@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6982 大井泵浦
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:37 Asia/Taipei
+- generated_at: 2026-05-28 20:20:25 Asia/Taipei
 - stock_id: 6982
 - stock_name: 大井泵浦
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 57
 - low: 53.8
 - close: 55.3
-- volume: 84432
+- volume: 55000
 - ma5: 56.32
 - ema23_primary: 54.14
 - distance_to_ema23_pct: 2.15
@@ -69,7 +69,7 @@
 - ma120: 58.36
 - return_5d: 6.35
 - return_20d: 3.75
-- volume_ratio: 1.58
+- volume_ratio: 1.06
 - distance_to_ma20_pct_auxiliary: 3.35
 - distance_to_high_60_pct: -9.34
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,59.1,59.1,56.9,56.9,58000,53.65,6.07,53.02,54.02,1.17
 20260526,56.9,59.8,55.8,57,58000,53.92,5.7,53.3,53.97,1.18
 20260527,57.1,57.1,55.2,55.2,56000,54.03,2.16,53.41,53.92,1.1
-20260528,53.8,57,53.8,55.3,84432,54.14,2.15,53.51,53.87,1.58
+20260528,53.8,57,53.8,55.3,55000,54.14,2.15,53.51,53.87,1.06
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6530 創威
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:21 Asia/Taipei
+- generated_at: 2026-05-28 20:20:08 Asia/Taipei
 - stock_id: 6530
 - stock_name: 創威
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 113.5
 - low: 105
 - close: 105
-- volume: 1514869
+- volume: 109000
 - ma5: 112.2
 - ema23_primary: 109.94
 - distance_to_ema23_pct: -4.5
@@ -69,7 +69,7 @@
 - ma120: 81.7
 - return_5d: 0
 - return_20d: -2.78
-- volume_ratio: 0.65
+- volume_ratio: 0.05
 - distance_to_ma20_pct_auxiliary: -6.4
 - distance_to_high_60_pct: -24.46
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,114.5,115.5,112.5,114,114000,109.49,4.12,111.38,98.57,0.04
 20260526,115,119,109.5,117.5,115000,110.16,6.67,112.1,99.31,0.05
 20260527,118.5,118.5,109.5,113,114000,110.39,2.36,112.33,99.97,0.05
-20260528,112.5,113.5,105,105,1514869,109.94,-4.5,112.17,100.46,0.65
+20260528,112.5,113.5,105,105,109000,109.94,-4.5,112.17,100.46,0.05
 ```
 
 ## Latest TDCC Snapshot

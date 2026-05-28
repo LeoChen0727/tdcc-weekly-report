@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6138 茂達
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:07 Asia/Taipei
+- generated_at: 2026-05-28 20:19:54 Asia/Taipei
 - stock_id: 6138
 - stock_name: 茂達
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 365.5
 - low: 331
 - close: 343
-- volume: 1981661
+- volume: 350000
 - ma5: 347.3
 - ema23_primary: 297.44
 - distance_to_ema23_pct: 15.32
@@ -69,7 +69,7 @@
 - ma120: 239.6
 - return_5d: 13.58
 - return_20d: 43.51
-- volume_ratio: 1.24
+- volume_ratio: 0.23
 - distance_to_ma20_pct_auxiliary: 16.63
 - distance_to_high_60_pct: -10.56
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,332,350,325,350,340000,280.2,24.91,277.18,242.82,0.22
 20260526,383.5,383.5,354,369.5,368000,287.65,28.46,283.3,245.04,0.24
 20260527,376,377,354,355.5,362000,293.3,21.21,288.9,247.01,0.24
-20260528,361,365.5,331,343,1981661,297.44,15.32,294.1,248.82,1.24
+20260528,361,365.5,331,343,350000,297.44,15.32,294.1,248.82,0.23
 ```
 
 ## Latest TDCC Snapshot

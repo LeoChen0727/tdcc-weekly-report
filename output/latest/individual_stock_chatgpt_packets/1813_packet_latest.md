@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1813 寶利徠
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:43 Asia/Taipei
+- generated_at: 2026-05-28 20:18:28 Asia/Taipei
 - stock_id: 1813
 - stock_name: 寶利徠
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 11.95
 - low: 11.8
 - close: 11.95
-- volume: 75648
+- volume: 12000
 - ma5: 12.06
 - ema23_primary: 12.32
 - distance_to_ema23_pct: -2.99
@@ -69,7 +69,7 @@
 - ma120: 13.05
 - return_5d: -1.65
 - return_20d: -2.85
-- volume_ratio: 2.69
+- volume_ratio: 0.48
 - distance_to_ma20_pct_auxiliary: -2.25
 - distance_to_high_60_pct: -12.45
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,12.15,12.5,12.05,12.15,12000,12.41,-2.12,12.26,12.99,0.38
 20260526,12.15,12.15,12.05,12.05,12000,12.38,-2.69,12.25,12.97,0.43
 20260527,12.15,12.15,11.9,12,12000,12.35,-2.84,12.24,12.95,0.46
-20260528,11.95,11.95,11.8,11.95,75648,12.32,-2.99,12.22,12.92,2.69
+20260528,11.95,11.95,11.8,11.95,12000,12.32,-2.99,12.22,12.92,0.48
 ```
 
 ## Latest TDCC Snapshot

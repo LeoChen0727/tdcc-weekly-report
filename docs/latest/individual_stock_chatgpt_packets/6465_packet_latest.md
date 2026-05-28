@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6465 威潤
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:19 Asia/Taipei
+- generated_at: 2026-05-28 20:20:06 Asia/Taipei
 - stock_id: 6465
 - stock_name: 威潤
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 51.5
 - low: 48.8
 - close: 48.8
-- volume: 319090
+- volume: 50000
 - ma5: 50.9
 - ema23_primary: 48.37
 - distance_to_ema23_pct: 0.89
@@ -69,7 +69,7 @@
 - ma120: 39.18
 - return_5d: -7.05
 - return_20d: 5.97
-- volume_ratio: 0.94
+- volume_ratio: 0.15
 - distance_to_ma20_pct_auxiliary: 1.76
 - distance_to_high_60_pct: -14.08
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,53,53.7,50.8,51.3,52000,47.86,7.19,47.28,43.8,0.14
 20260526,50.9,52.3,50,50.7,51000,48.1,5.42,47.55,44.08,0.15
 20260527,51.4,51.5,48.8,50.9,50000,48.33,5.32,47.82,44.37,0.15
-20260528,51.4,51.5,48.8,48.8,319090,48.37,0.89,47.95,44.62,0.94
+20260528,51.4,51.5,48.8,48.8,50000,48.37,0.89,47.95,44.62,0.15
 ```
 
 ## Latest TDCC Snapshot

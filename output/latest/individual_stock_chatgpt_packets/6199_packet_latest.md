@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6199 天品
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:11 Asia/Taipei
+- generated_at: 2026-05-28 20:19:58 Asia/Taipei
 - stock_id: 6199
 - stock_name: 天品
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 96.3
 - low: 92.4
 - close: 92.4
-- volume: 516131
+- volume: 95000
 - ma5: 95.76
 - ema23_primary: 98.32
 - distance_to_ema23_pct: -6.02
@@ -69,7 +69,7 @@
 - ma120: 101.39
 - return_5d: -8.06
 - return_20d: 1.54
-- volume_ratio: 1.01
+- volume_ratio: 0.19
 - distance_to_ma20_pct_auxiliary: -5.1
 - distance_to_high_60_pct: -27.53
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,99.5,99.9,97.9,98.6,99000,99.74,-1.14,96.89,101.2,0.18
 20260526,98.5,98.8,93.5,94.1,95000,99.27,-5.2,97.09,101.15,0.19
 20260527,96.4,97.7,92.6,94.4,95000,98.86,-4.51,97.3,101.09,0.19
-20260528,94.5,96.3,92.4,92.4,516131,98.32,-6.02,97.37,101,1.01
+20260528,94.5,96.3,92.4,92.4,95000,98.32,-6.02,97.37,101,0.19
 ```
 
 ## Latest TDCC Snapshot

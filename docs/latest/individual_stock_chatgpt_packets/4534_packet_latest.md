@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4534 慶騰
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:43 Asia/Taipei
+- generated_at: 2026-05-28 20:19:29 Asia/Taipei
 - stock_id: 4534
 - stock_name: 慶騰
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 27.4
 - low: 25.25
 - close: 25.65
-- volume: 1228526
+- volume: 26000
 - ma5: 25.78
 - ema23_primary: 24.4
 - distance_to_ema23_pct: 5.13
@@ -69,7 +69,7 @@
 - ma120: 21.9
 - return_5d: 16.33
 - return_20d: 0.59
-- volume_ratio: 2.37
+- volume_ratio: 0.06
 - distance_to_ma20_pct_auxiliary: 7.47
 - distance_to_high_60_pct: -16.18
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,25.6,26.65,24.7,26.65,26000,23.93,11.38,23.64,25.74,0.04
 20260526,27.9,27.9,25.45,26.6,26000,24.15,10.14,23.79,25.7,0.05
 20260527,26.75,27,25.25,25.75,26000,24.28,6.04,23.86,25.64,0.05
-20260528,25.8,27.4,25.25,25.65,1228526,24.4,5.13,23.87,25.55,2.37
+20260528,25.8,27.4,25.25,25.65,26000,24.4,5.13,23.87,25.55,0.06
 ```
 
 ## Latest TDCC Snapshot
@@ -123,10 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4534 | 慶騰 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260528 | 4534 | 慶騰 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

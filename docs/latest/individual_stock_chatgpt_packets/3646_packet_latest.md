@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3646 艾恩特
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:33 Asia/Taipei
+- generated_at: 2026-05-28 20:19:19 Asia/Taipei
 - stock_id: 3646
 - stock_name: 艾恩特
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 25
 - low: 23.45
 - close: 23.95
-- volume: 57432
+- volume: 24000
 - ma5: 23.56
 - ema23_primary: 23.52
 - distance_to_ema23_pct: 1.83
@@ -69,7 +69,7 @@
 - ma120: 24.63
 - return_5d: 1.91
 - return_20d: 2.79
-- volume_ratio: 1.62
+- volume_ratio: 0.71
 - distance_to_ma20_pct_auxiliary: 2.22
 - distance_to_high_60_pct: -7.88
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,23.25,23.35,23.2,23.2,23000,23.45,-1.07,23.36,23.93,0.71
 20260526,23.2,23.85,23.2,23.4,23000,23.45,-0.2,23.37,23.91,0.72
 20260527,23.4,23.85,23.25,23.85,24000,23.48,1.57,23.4,23.89,0.74
-20260528,23.45,25,23.45,23.95,57432,23.52,1.83,23.43,23.87,1.62
+20260528,23.45,25,23.45,23.95,24000,23.52,1.83,23.43,23.87,0.71
 ```
 
 ## Latest TDCC Snapshot

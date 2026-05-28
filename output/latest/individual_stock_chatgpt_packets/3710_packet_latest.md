@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3710 連展投控
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:36 Asia/Taipei
+- generated_at: 2026-05-28 20:19:22 Asia/Taipei
 - stock_id: 3710
 - stock_name: 連展投控
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 6.4
 - low: 6.1
 - close: 6.23
-- volume: 331438
+- volume: 6000
 - ma5: 6.26
 - ema23_primary: 6.41
 - distance_to_ema23_pct: -2.88
@@ -69,7 +69,7 @@
 - ma120: 6.37
 - return_5d: -1.11
 - return_20d: -11.51
-- volume_ratio: 0.82
+- volume_ratio: 0.02
 - distance_to_ma20_pct_auxiliary: -2.28
 - distance_to_high_60_pct: -31.16
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,6.31,6.52,6.22,6.35,6000,6.48,-2,6.5,6.53,0.01
 20260526,6.35,6.35,6.1,6.1,6000,6.45,-5.4,6.46,6.52,0.01
 20260527,6.12,6.25,6.11,6.25,6000,6.43,-2.82,6.42,6.52,0.01
-20260528,6.4,6.4,6.1,6.23,331438,6.41,-2.88,6.38,6.52,0.82
+20260528,6.4,6.4,6.1,6.23,6000,6.41,-2.88,6.38,6.52,0.02
 ```
 
 ## Latest TDCC Snapshot

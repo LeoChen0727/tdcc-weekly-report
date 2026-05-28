@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7717 萊德光電-KY
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:39 Asia/Taipei
+- generated_at: 2026-05-28 20:20:26 Asia/Taipei
 - stock_id: 7717
 - stock_name: 萊德光電-KY
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 673
 - low: 628
 - close: 628
-- volume: 390220
+- volume: 651000
 - ma5: 677.2
 - ema23_primary: 689.82
 - distance_to_ema23_pct: -8.96
@@ -69,7 +69,7 @@
 - ma120: 577.67
 - return_5d: -8.59
 - return_20d: -8.72
-- volume_ratio: 0.71
+- volume_ratio: 1.16
 - distance_to_ma20_pct_auxiliary: -7.02
 - distance_to_high_60_pct: -34.52
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,722,757,711,726,733000,700.91,3.58,682.9,726.15,1.32
 20260526,730,733,685,686,698000,699.66,-1.95,682.45,724.75,1.29
 20260527,702,702,645,649,666000,695.44,-6.68,678.4,721.75,1.22
-20260528,654,673,628,628,390220,689.82,-8.96,675.4,717.47,0.71
+20260528,654,673,628,628,651000,689.82,-8.96,675.4,717.47,1.16
 ```
 
 ## Latest TDCC Snapshot

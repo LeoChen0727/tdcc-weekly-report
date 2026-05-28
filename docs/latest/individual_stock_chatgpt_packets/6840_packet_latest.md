@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6840 東研信超
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:32 Asia/Taipei
+- generated_at: 2026-05-28 20:20:19 Asia/Taipei
 - stock_id: 6840
 - stock_name: 東研信超
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 65.8
 - low: 62
 - close: 63.4
-- volume: 174883
+- volume: 63000
 - ma5: 62.98
 - ema23_primary: 64.47
 - distance_to_ema23_pct: -1.66
@@ -69,7 +69,7 @@
 - ma120: 64.13
 - return_5d: 0
 - return_20d: -9.43
-- volume_ratio: 1.43
+- volume_ratio: 0.54
 - distance_to_ma20_pct_auxiliary: -1.62
 - distance_to_high_60_pct: -17.23
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,63.8,63.9,61.9,63,63000,64.86,-2.87,65.52,64.49,0.52
 20260526,62.9,63.2,62.2,63.1,63000,64.72,-2.5,65.22,64.47,0.54
 20260527,63.5,63.8,62.2,62.9,63000,64.56,-2.58,64.78,64.39,0.54
-20260528,62.5,65.8,62,63.4,174883,64.47,-1.66,64.44,64.37,1.43
+20260528,62.5,65.8,62,63.4,63000,64.47,-1.66,64.44,64.37,0.54
 ```
 
 ## Latest TDCC Snapshot

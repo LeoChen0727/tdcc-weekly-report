@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3556 禾瑞亞
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:30 Asia/Taipei
+- generated_at: 2026-05-28 20:19:16 Asia/Taipei
 - stock_id: 3556
 - stock_name: 禾瑞亞
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 61.7
 - low: 56.8
 - close: 61.1
-- volume: 3771644
+- volume: 61000
 - ma5: 57
 - ema23_primary: 53.55
 - distance_to_ema23_pct: 14.11
@@ -69,7 +69,7 @@
 - ma120: 43.89
 - return_5d: 13.15
 - return_20d: 18.18
-- volume_ratio: 6.85
+- volume_ratio: 0.17
 - distance_to_ma20_pct_auxiliary: 14.08
 - distance_to_high_60_pct: -0.97
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,55.2,58.5,54.9,56.8,57000,52.23,8.76,52.51,47.72,0.13
 20260526,56.6,57.2,55,56.3,56000,52.57,7.1,52.81,47.92,0.14
 20260527,57,57.2,55.5,56.1,56000,52.86,6.13,53.09,48.12,0.14
-20260528,56.8,61.7,56.8,61.1,3771644,53.55,14.11,53.56,48.37,6.85
+20260528,56.8,61.7,56.8,61.1,61000,53.55,14.11,53.56,48.37,0.17
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3556 | 禾瑞亞 | true_breakout | 嚴格突破 | 118.0 |  |  | breakout_confirmed |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

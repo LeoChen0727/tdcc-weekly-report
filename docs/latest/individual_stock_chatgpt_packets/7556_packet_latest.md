@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7556 意德士
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:38 Asia/Taipei
+- generated_at: 2026-05-28 20:20:25 Asia/Taipei
 - stock_id: 7556
 - stock_name: 意德士
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 291.5
 - low: 272
 - close: 272.5
-- volume: 193483
+- volume: 280000
 - ma5: 283.9
 - ema23_primary: 272.3
 - distance_to_ema23_pct: 0.07
@@ -69,7 +69,7 @@
 - ma120: 199.72
 - return_5d: 1.3
 - return_20d: -12.38
-- volume_ratio: 0.73
+- volume_ratio: 1.04
 - distance_to_ma20_pct_auxiliary: -1.65
 - distance_to_high_60_pct: -19.38
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,282,296,280,288,289000,268.64,7.21,279.02,227.22,1.15
 20260526,295,301.5,286,293,291000,270.67,8.25,279.1,229.17,1.14
 20260527,296,296,287,290,290000,272.28,6.51,279,231.04,1.09
-20260528,290,291.5,272,272.5,193483,272.3,0.07,277.07,232.6,0.73
+20260528,290,291.5,272,272.5,280000,272.3,0.07,277.07,232.6,1.04
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8069 元太
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:44 Asia/Taipei
+- generated_at: 2026-05-28 20:20:31 Asia/Taipei
 - stock_id: 8069
 - stock_name: 元太
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 251
 - low: 228.5
 - close: 233
-- volume: 6102775
+- volume: 240000
 - ma5: 235.2
 - ema23_primary: 203.19
 - distance_to_ema23_pct: 14.67
@@ -69,7 +69,7 @@
 - ma120: 174.95
 - return_5d: 1.08
 - return_20d: 67.03
-- volume_ratio: 0.45
+- volume_ratio: 0.02
 - distance_to_ma20_pct_auxiliary: 17.1
 - distance_to_high_60_pct: -7.17
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,229,235.5,222,235,230000,192.53,22.06,184.15,163.53,0.02
 20260526,237,237,229.5,235,234000,196.07,19.86,188.85,164.28,0.02
 20260527,242,251,240,249,246000,200.48,24.2,194.3,165.32,0.02
-20260528,245,251,228.5,233,6102775,203.19,14.67,198.97,166.13,0.45
+20260528,245,251,228.5,233,240000,203.19,14.67,198.97,166.13,0.02
 ```
 
 ## Latest TDCC Snapshot

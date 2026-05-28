@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6823 濾能
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:32 Asia/Taipei
+- generated_at: 2026-05-28 20:20:19 Asia/Taipei
 - stock_id: 6823
 - stock_name: 濾能
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 75.9
 - low: 72.5
 - close: 72.7
-- volume: 438515
+- volume: 74000
 - ma5: 78.52
 - ema23_primary: 81.19
 - distance_to_ema23_pct: -10.46
@@ -69,7 +69,7 @@
 - ma120: 72.75
 - return_5d: -7.62
 - return_20d: -20.98
-- volume_ratio: 0.68
+- volume_ratio: 0.12
 - distance_to_ma20_pct_auxiliary: -15.71
 - distance_to_high_60_pct: -35.95
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,83.1,83.1,80.7,81.4,81000,82.7,-1.58,87.52,73.44,0.11
 20260526,80.8,82.3,80.2,80.6,81000,82.53,-2.34,87.68,73.76,0.11
 20260527,83.2,83.2,74.1,75.7,77000,81.96,-7.64,87.21,74,0.11
-20260528,75.9,75.9,72.5,72.7,438515,81.19,-10.46,86.25,74.17,0.68
+20260528,75.9,75.9,72.5,72.7,74000,81.19,-10.46,86.25,74.17,0.12
 ```
 
 ## Latest TDCC Snapshot

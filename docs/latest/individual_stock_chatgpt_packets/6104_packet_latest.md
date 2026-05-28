@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6104 創惟
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:05 Asia/Taipei
+- generated_at: 2026-05-28 20:19:52 Asia/Taipei
 - stock_id: 6104
 - stock_name: 創惟
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 102
 - low: 96.8
 - close: 97.7
-- volume: 1665344
+- volume: 99000
 - ma5: 100.84
 - ema23_primary: 98.71
 - distance_to_ema23_pct: -1.02
@@ -69,7 +69,7 @@
 - ma120: 96.55
 - return_5d: -3.74
 - return_20d: -1.01
-- volume_ratio: 0.99
+- volume_ratio: 0.06
 - distance_to_ma20_pct_auxiliary: -1.74
 - distance_to_high_60_pct: -10.78
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,104.5,104.5,102.5,103,103000,98.53,4.54,99.27,95.8,0.05
 20260526,104,104.5,101,101.5,102000,98.78,2.75,99.5,95.82,0.06
 20260527,103,103,98.2,99,100000,98.8,0.21,99.48,95.78,0.06
-20260528,99,102,96.8,97.7,1665344,98.71,-1.02,99.44,95.74,0.99
+20260528,99,102,96.8,97.7,99000,98.71,-1.02,99.44,95.74,0.06
 ```
 
 ## Latest TDCC Snapshot

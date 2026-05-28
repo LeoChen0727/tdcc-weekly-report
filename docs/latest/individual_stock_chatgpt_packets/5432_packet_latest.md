@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5432 新門
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:58 Asia/Taipei
+- generated_at: 2026-05-28 20:19:45 Asia/Taipei
 - stock_id: 5432
 - stock_name: 新門
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 140.5
 - low: 134
 - close: 134.5
-- volume: 85419
+- volume: 137000
 - ma5: 139.6
 - ema23_primary: 141.38
 - distance_to_ema23_pct: -4.87
@@ -69,7 +69,7 @@
 - ma120: 150.85
 - return_5d: -6.6
 - return_20d: -3.58
-- volume_ratio: 0.52
+- volume_ratio: 0.82
 - distance_to_ma20_pct_auxiliary: -5.58
 - distance_to_high_60_pct: -16.72
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,144,145.5,142.5,142.5,143000,142.69,-0.13,143.4,141.15,0.82
 20260526,143.5,143.5,140,140,141000,142.47,-1.73,143.07,140.98,0.82
 20260527,141.5,141.5,136.5,137,138000,142.01,-3.53,142.7,140.75,0.84
-20260528,137,140.5,134,134.5,85419,141.38,-4.87,142.45,140.43,0.52
+20260528,137,140.5,134,134.5,137000,141.38,-4.87,142.45,140.43,0.82
 ```
 
 ## Latest TDCC Snapshot

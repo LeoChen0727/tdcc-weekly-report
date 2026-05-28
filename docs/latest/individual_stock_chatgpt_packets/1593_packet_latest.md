@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1593 祺驊
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:37 Asia/Taipei
+- generated_at: 2026-05-28 20:18:22 Asia/Taipei
 - stock_id: 1593
 - stock_name: 祺驊
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 30.95
 - low: 30.8
 - close: 30.85
-- volume: 15238
+- volume: 31000
 - ma5: 31.11
 - ema23_primary: 31.59
 - distance_to_ema23_pct: -2.35
@@ -69,7 +69,7 @@
 - ma120: 31.17
 - return_5d: -1.75
 - return_20d: -2.22
-- volume_ratio: 0.4
+- volume_ratio: 0.8
 - distance_to_ma20_pct_auxiliary: -1.71
 - distance_to_high_60_pct: -12.85
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,31.4,31.4,31.05,31.25,31000,31.78,-1.67,31.51,32.9,0.8
 20260526,31.35,31.35,31.15,31.15,31000,31.73,-1.82,31.46,32.86,0.8
 20260527,30.95,31.05,30.8,30.9,31000,31.66,-2.4,31.42,32.81,0.79
-20260528,30.95,30.95,30.8,30.85,15238,31.59,-2.35,31.39,32.78,0.4
+20260528,30.95,30.95,30.8,30.85,31000,31.59,-2.35,31.39,32.78,0.8
 ```
 
 ## Latest TDCC Snapshot

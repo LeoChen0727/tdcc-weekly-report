@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4417 金洲
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:41 Asia/Taipei
+- generated_at: 2026-05-28 20:19:27 Asia/Taipei
 - stock_id: 4417
 - stock_name: 金洲
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 46.65
 - low: 45.7
 - close: 45.95
-- volume: 167728
+- volume: 46000
 - ma5: 45.08
 - ema23_primary: 46.01
 - distance_to_ema23_pct: -0.13
@@ -69,7 +69,7 @@
 - ma120: 51.04
 - return_5d: 2.11
 - return_20d: -3.47
-- volume_ratio: 1.15
+- volume_ratio: 0.33
 - distance_to_ma20_pct_auxiliary: 0.53
 - distance_to_high_60_pct: -14.11
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,44.85,44.85,44.2,44.35,44000,46.16,-3.93,45.98,49.11,0.29
 20260526,44.55,45,44.4,44.9,45000,46.06,-2.52,45.87,48.97,0.32
 20260527,45.05,45.75,45.05,45.55,45000,46.02,-1.01,45.79,48.85,0.32
-20260528,45.7,46.65,45.7,45.95,167728,46.01,-0.13,45.71,48.73,1.15
+20260528,45.7,46.65,45.7,45.95,46000,46.01,-0.13,45.71,48.73,0.33
 ```
 
 ## Latest TDCC Snapshot

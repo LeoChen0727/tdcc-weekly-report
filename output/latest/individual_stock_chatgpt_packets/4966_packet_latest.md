@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4966 譜瑞-KY
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:51 Asia/Taipei
+- generated_at: 2026-05-28 20:19:38 Asia/Taipei
 - stock_id: 4966
 - stock_name: 譜瑞-KY
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 922
 - low: 830
 - close: 845
-- volume: 3209542
+- volume: 881000
 - ma5: 827
 - ema23_primary: 732.91
 - distance_to_ema23_pct: 15.29
@@ -69,7 +69,7 @@
 - ma120: 587.61
 - return_5d: 7.1
 - return_20d: 48.77
-- volume_ratio: 0.91
+- volume_ratio: 0.26
 - distance_to_ma20_pct_auxiliary: 15.33
 - distance_to_high_60_pct: -8.35
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,794,820,784,818,808000,700.45,16.78,695.15,579.13,0.22
 20260526,824,824,798,807,808000,709.33,13.77,704.75,583.53,0.23
 20260527,852,870,824,870,851000,722.72,20.38,718.85,588.95,0.25
-20260528,897,922,830,845,3209542,732.91,15.29,732.7,594.12,0.91
+20260528,897,922,830,845,881000,732.91,15.29,732.7,594.12,0.26
 ```
 
 ## Latest TDCC Snapshot

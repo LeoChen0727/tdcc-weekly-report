@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8068 全達
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:44 Asia/Taipei
+- generated_at: 2026-05-28 20:20:31 Asia/Taipei
 - stock_id: 8068
 - stock_name: 全達
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 20.4
 - low: 19.5
 - close: 19.55
-- volume: 489872
+- volume: 20000
 - ma5: 20.09
 - ema23_primary: 21.36
 - distance_to_ema23_pct: -8.49
@@ -69,7 +69,7 @@
 - ma120: 22.52
 - return_5d: -4.87
 - return_20d: -16.63
-- volume_ratio: 1.41
+- volume_ratio: 0.06
 - distance_to_ma20_pct_auxiliary: -10.36
 - distance_to_high_60_pct: -24.08
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,21.2,21.2,20.1,20.4,20000,21.84,-6.59,22.27,22.27,0.05
 20260526,20.4,20.45,19.85,20,20000,21.69,-7.78,22.14,22.2,0.06
 20260527,20.1,20.3,19.65,19.8,20000,21.53,-8.03,22,22.13,0.06
-20260528,19.8,20.4,19.5,19.55,489872,21.36,-8.49,21.81,22.07,1.41
+20260528,19.8,20.4,19.5,19.55,20000,21.36,-8.49,21.81,22.07,0.06
 ```
 
 ## Latest TDCC Snapshot

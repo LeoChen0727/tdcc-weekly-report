@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1595 川寶
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:37 Asia/Taipei
+- generated_at: 2026-05-28 20:18:22 Asia/Taipei
 - stock_id: 1595
 - stock_name: 川寶
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 94.4
 - low: 86.2
 - close: 87.3
-- volume: 2469909
+- volume: 90000
 - ma5: 94.7
 - ema23_primary: 85.06
 - distance_to_ema23_pct: 2.63
@@ -69,7 +69,7 @@
 - ma120: 50.09
 - return_5d: -10.46
 - return_20d: 31.87
-- volume_ratio: 0.98
+- volume_ratio: 0.04
 - distance_to_ma20_pct_auxiliary: -3.61
 - distance_to_high_60_pct: -18.41
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,97,107,93.8,96,100000,82.77,15.98,86.45,58.47,0.03
 20260526,97,101.5,89.6,100.5,95000,84.25,19.29,88.19,59.44,0.03
 20260527,100.5,105,91.4,91.6,98000,84.86,7.94,89.51,60.28,0.04
-20260528,92.3,94.4,86.2,87.3,2469909,85.06,2.63,90.56,61.05,0.98
+20260528,92.3,94.4,86.2,87.3,90000,85.06,2.63,90.56,61.05,0.04
 ```
 
 ## Latest TDCC Snapshot

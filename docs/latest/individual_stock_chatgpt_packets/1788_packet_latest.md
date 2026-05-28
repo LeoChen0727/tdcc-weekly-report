@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1788 杏昌
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:42 Asia/Taipei
+- generated_at: 2026-05-28 20:18:27 Asia/Taipei
 - stock_id: 1788
 - stock_name: 杏昌
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 134.5
 - low: 133.5
 - close: 134
-- volume: 91058
+- volume: 134000
 - ma5: 134.7
 - ema23_primary: 135.26
 - distance_to_ema23_pct: -0.93
@@ -69,7 +69,7 @@
 - ma120: 136.39
 - return_5d: -1.11
 - return_20d: -1.11
-- volume_ratio: 1.7
+- volume_ratio: 2.41
 - distance_to_ma20_pct_auxiliary: -0.87
 - distance_to_high_60_pct: -2.9
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,135,135,134.5,134.5,135000,135.5,-0.74,135.35,136.2,3.41
 20260526,135,135,134.5,135,135000,135.46,-0.34,135.32,136.18,2.99
 20260527,135,135,134.5,134.5,135000,135.38,-0.65,135.25,136.14,2.65
-20260528,134.5,134.5,133.5,134,91058,135.26,-0.93,135.18,136.09,1.7
+20260528,134.5,134.5,133.5,134,134000,135.26,-0.93,135.18,136.09,2.41
 ```
 
 ## Latest TDCC Snapshot

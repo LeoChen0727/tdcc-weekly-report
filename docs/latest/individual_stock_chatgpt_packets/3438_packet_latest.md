@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3438 類比科
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:26 Asia/Taipei
+- generated_at: 2026-05-28 20:19:12 Asia/Taipei
 - stock_id: 3438
 - stock_name: 類比科
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 74.5
 - low: 71.5
 - close: 72.1
-- volume: 1352661
+- volume: 73000
 - ma5: 71.72
 - ema23_primary: 64.49
 - distance_to_ema23_pct: 11.8
@@ -69,7 +69,7 @@
 - ma120: 52.64
 - return_5d: 6.34
 - return_20d: 28.06
-- volume_ratio: 2.03
+- volume_ratio: 0.12
 - distance_to_ma20_pct_auxiliary: 9.78
 - distance_to_high_60_pct: -3.87
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,74.8,75,71.6,72.1,73000,62.31,15.71,63.43,51.92,0.09
 20260526,71.2,72.2,68.5,69,70000,62.87,9.75,64,52.3,0.09
 20260527,68.7,74.3,68.6,74,73000,63.8,15.99,64.89,52.75,0.11
-20260528,73.5,74.5,71.5,72.1,1352661,64.49,11.8,65.67,53.17,2.03
+20260528,73.5,74.5,71.5,72.1,73000,64.49,11.8,65.67,53.17,0.12
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3438 | 類比科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

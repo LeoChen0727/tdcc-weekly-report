@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6486 互動
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:19 Asia/Taipei
+- generated_at: 2026-05-28 20:20:06 Asia/Taipei
 - stock_id: 6486
 - stock_name: 互動
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 81.5
 - low: 80.3
 - close: 81
-- volume: 83965
+- volume: 81000
 - ma5: 81.42
 - ema23_primary: 82.85
 - distance_to_ema23_pct: -2.24
@@ -69,7 +69,7 @@
 - ma120: 83.31
 - return_5d: -0.74
 - return_20d: -4.93
-- volume_ratio: 0.6
+- volume_ratio: 0.58
 - distance_to_ma20_pct_auxiliary: -1.94
 - distance_to_high_60_pct: -10.79
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,82.1,82.2,81.3,81.9,82000,83.4,-1.8,83.31,85.18,0.42
 20260526,81.6,81.7,81,81.3,81000,83.22,-2.31,83.06,85.13,0.55
 20260527,81.4,81.4,80.6,80.8,81000,83.02,-2.68,82.81,85.06,0.57
-20260528,80.8,81.5,80.3,81,83965,82.85,-2.24,82.61,84.97,0.6
+20260528,80.8,81.5,80.3,81,81000,82.85,-2.24,82.61,84.97,0.58
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3567 逸昌
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:30 Asia/Taipei
+- generated_at: 2026-05-28 20:19:17 Asia/Taipei
 - stock_id: 3567
 - stock_name: 逸昌
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 30.25
 - low: 29.1
 - close: 29.25
-- volume: 299191
+- volume: 30000
 - ma5: 29.27
 - ema23_primary: 28.58
 - distance_to_ema23_pct: 2.36
@@ -69,7 +69,7 @@
 - ma120: 26.98
 - return_5d: 1.04
 - return_20d: 4.46
-- volume_ratio: 1.09
+- volume_ratio: 0.11
 - distance_to_ma20_pct_auxiliary: 0.68
 - distance_to_high_60_pct: -8.59
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,29.25,30.7,28.8,29.7,30000,28.38,4.66,28.76,27.16,0.1
 20260526,29.7,29.7,29.1,29.5,29000,28.47,3.61,28.89,27.2,0.1
 20260527,30.05,30.05,28.8,29,29000,28.52,1.7,28.99,27.22,0.1
-20260528,29.1,30.25,29.1,29.25,299191,28.58,2.36,29.05,27.25,1.09
+20260528,29.1,30.25,29.1,29.25,30000,28.58,2.36,29.05,27.25,0.11
 ```
 
 ## Latest TDCC Snapshot

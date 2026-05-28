@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1781 合世
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:41 Asia/Taipei
+- generated_at: 2026-05-28 20:18:27 Asia/Taipei
 - stock_id: 1781
 - stock_name: 合世
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 10.6
 - low: 10.4
 - close: 10.4
-- volume: 93184
+- volume: 10000
 - ma5: 10.75
 - ema23_primary: 10.79
 - distance_to_ema23_pct: -3.64
@@ -69,7 +69,7 @@
 - ma120: 11.67
 - return_5d: -1.42
 - return_20d: -5.45
-- volume_ratio: 2.38
+- volume_ratio: 0.29
 - distance_to_ma20_pct_auxiliary: -2.44
 - distance_to_high_60_pct: -17.79
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,11,11,10.9,10.9,11000,10.85,0.47,10.72,11.6,0.27
 20260526,10.9,10.9,10.65,10.85,11000,10.85,0.01,10.71,11.57,0.29
 20260527,11,11,10.55,10.6,11000,10.83,-2.11,10.69,11.54,0.3
-20260528,10.5,10.6,10.4,10.4,93184,10.79,-3.64,10.66,11.51,2.38
+20260528,10.5,10.6,10.4,10.4,10000,10.79,-3.64,10.66,11.51,0.29
 ```
 
 ## Latest TDCC Snapshot

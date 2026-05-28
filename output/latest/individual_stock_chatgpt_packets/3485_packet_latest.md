@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3485 敘豐
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:27 Asia/Taipei
+- generated_at: 2026-05-28 20:19:13 Asia/Taipei
 - stock_id: 3485
 - stock_name: 敘豐
 - packet_status: partial_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 348
 - low: 308
 - close: 340
-- volume: 1498412
+- volume: 329000
 - ma5: 307.8
 - ema23_primary: 293.49
 - distance_to_ema23_pct: 15.85
@@ -69,7 +69,7 @@
 - ma120: 286.79
 - return_5d: 41.08
 - return_20d: 
-- volume_ratio: 2.44
+- volume_ratio: 0.6
 - distance_to_ma20_pct_auxiliary: 18.55
 - distance_to_high_60_pct: -2.3
 
@@ -93,7 +93,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,291.5,291.5,291.5,291.5,292000,283.17,2.94,278.07,278.07,0.49
 20260526,317,320.5,300.5,320.5,313000,286.28,11.95,280.9,280.9,0.54
 20260527,342.5,343.5,304,322,319000,289.26,11.32,283.47,283.47,0.57
-20260528,322.5,348,308,340,1498412,293.49,15.85,286.79,286.79,2.44
+20260528,322.5,348,308,340,329000,293.49,15.85,286.79,286.79,0.6
 ```
 
 ## Latest TDCC Snapshot

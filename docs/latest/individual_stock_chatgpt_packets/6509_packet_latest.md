@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6509 聚和
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:20 Asia/Taipei
+- generated_at: 2026-05-28 20:20:07 Asia/Taipei
 - stock_id: 6509
 - stock_name: 聚和
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 51.3
 - low: 49.55
 - close: 50
-- volume: 4104612
+- volume: 50000
 - ma5: 50.98
 - ema23_primary: 47.08
 - distance_to_ema23_pct: 6.21
@@ -69,7 +69,7 @@
 - ma120: 39.53
 - return_5d: 1.73
 - return_20d: 19.62
-- volume_ratio: 1.14
+- volume_ratio: 0.01
 - distance_to_ma20_pct_auxiliary: 8.43
 - distance_to_high_60_pct: -5.3
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,50.9,52.8,50.1,51.8,52000,45.92,12.8,44.72,43.74,0.01
 20260526,52.2,52.4,50.3,51.8,51000,46.41,11.61,45.24,43.96,0.01
 20260527,52.8,52.8,50.9,51.2,52000,46.81,9.38,45.7,44.15,0.02
-20260528,51.3,51.3,49.55,50,4104612,47.08,6.21,46.11,44.3,1.14
+20260528,51.3,51.3,49.55,50,50000,47.08,6.21,46.11,44.3,0.01
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6509 | 聚和 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

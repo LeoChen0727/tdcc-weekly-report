@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3260 威剛
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:21 Asia/Taipei
+- generated_at: 2026-05-28 20:19:07 Asia/Taipei
 - stock_id: 3260
 - stock_name: 威剛
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 421
 - low: 403
 - close: 404.5
-- volume: 14016906
+- volume: 413000
 - ma5: 410.4
 - ema23_primary: 416.95
 - distance_to_ema23_pct: -2.99
@@ -69,7 +69,7 @@
 - ma120: 326.61
 - return_5d: -2.06
 - return_20d: -11.1
-- volume_ratio: 0.73
+- volume_ratio: 0.02
 - distance_to_ma20_pct_auxiliary: -5.75
 - distance_to_high_60_pct: -22.95
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,421.5,421.5,405,407.5,411000,419.37,-2.83,436.77,389.77,0.02
 20260526,410.5,416,406.5,410,411000,418.58,-2.05,435.27,391.64,0.02
 20260527,430,437.5,410.5,412.5,423000,418.08,-1.33,431.7,393.76,0.02
-20260528,414.5,421,403,404.5,14016906,416.95,-2.99,429.18,395.64,0.73
+20260528,414.5,421,403,404.5,413000,416.95,-2.99,429.18,395.64,0.02
 ```
 
 ## Latest TDCC Snapshot
@@ -123,10 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3260 | 威剛 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260528 | 3260 | 威剛 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

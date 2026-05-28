@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5276 達輝-KY
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:55 Asia/Taipei
+- generated_at: 2026-05-28 20:19:42 Asia/Taipei
 - stock_id: 5276
 - stock_name: 達輝-KY
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 19.4
 - low: 19.1
 - close: 19.4
-- volume: 10821
+- volume: 19000
 - ma5: 19.53
 - ema23_primary: 19.25
 - distance_to_ema23_pct: 0.77
@@ -69,7 +69,7 @@
 - ma120: 16.3
 - return_5d: -0.77
 - return_20d: -1.02
-- volume_ratio: 0.18
+- volume_ratio: 0.32
 - distance_to_ma20_pct_auxiliary: -2.23
 - distance_to_high_60_pct: -12.61
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,18.7,19.8,18.7,19.8,19000,19.14,3.47,19.98,17.14,0.16
 20260526,19.8,19.8,19.35,19.65,19000,19.18,2.46,19.86,17.21,0.25
 20260527,19.8,20.65,19.65,19.9,20000,19.24,3.44,19.85,17.27,0.3
-20260528,19.3,19.4,19.1,19.4,10821,19.25,0.77,19.84,17.33,0.18
+20260528,19.3,19.4,19.1,19.4,19000,19.25,0.77,19.84,17.33,0.32
 ```
 
 ## Latest TDCC Snapshot

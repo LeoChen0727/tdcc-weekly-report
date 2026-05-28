@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3322 建舜電
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:23 Asia/Taipei
+- generated_at: 2026-05-28 20:19:09 Asia/Taipei
 - stock_id: 3322
 - stock_name: 建舜電
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 13.55
 - low: 12.9
 - close: 12.9
-- volume: 790736
+- volume: 13000
 - ma5: 13.05
 - ema23_primary: 13.15
 - distance_to_ema23_pct: -1.92
@@ -69,7 +69,7 @@
 - ma120: 14.37
 - return_5d: 0.78
 - return_20d: -5.84
-- volume_ratio: 0.8
+- volume_ratio: 0.01
 - distance_to_ma20_pct_auxiliary: -1.49
 - distance_to_high_60_pct: -23.21
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,13.75,13.75,12.8,12.95,13000,13.21,-1.99,13.21,13.63,0.01
 20260526,13.1,13.1,12.65,12.75,13000,13.17,-3.22,13.16,13.59,0.01
 20260527,13.05,13.5,12.9,13.2,13000,13.18,0.18,13.13,13.54,0.01
-20260528,13.4,13.55,12.9,12.9,790736,13.15,-1.92,13.1,13.48,0.8
+20260528,13.4,13.55,12.9,12.9,13000,13.15,-1.92,13.1,13.48,0.01
 ```
 
 ## Latest TDCC Snapshot

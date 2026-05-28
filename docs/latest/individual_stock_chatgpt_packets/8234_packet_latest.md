@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8234 新漢
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:48 Asia/Taipei
+- generated_at: 2026-05-28 20:20:35 Asia/Taipei
 - stock_id: 8234
 - stock_name: 新漢
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 72.6
 - low: 68
 - close: 68.2
-- volume: 1050572
+- volume: 70000
 - ma5: 71.52
 - ema23_primary: 68.94
 - distance_to_ema23_pct: -1.07
@@ -69,7 +69,7 @@
 - ma120: 69.19
 - return_5d: 0.89
 - return_20d: 6.73
-- volume_ratio: 0.72
+- volume_ratio: 0.05
 - distance_to_ma20_pct_auxiliary: -3.01
 - distance_to_high_60_pct: -13.01
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,72,76.3,72,74.7,74000,68.4,9.22,69.19,65.5,0.05
 20260526,75.4,76.5,71.1,73.2,74000,68.8,6.4,69.8,65.57,0.05
 20260527,73.7,73.9,70.4,71.3,72000,69.01,3.33,70.11,65.58,0.05
-20260528,71.3,72.6,68,68.2,1050572,68.94,-1.07,70.32,65.54,0.72
+20260528,71.3,72.6,68,68.2,70000,68.94,-1.07,70.32,65.54,0.05
 ```
 
 ## Latest TDCC Snapshot

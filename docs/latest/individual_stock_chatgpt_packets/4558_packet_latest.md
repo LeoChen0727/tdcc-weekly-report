@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4558 寶緯
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:44 Asia/Taipei
+- generated_at: 2026-05-28 20:19:31 Asia/Taipei
 - stock_id: 4558
 - stock_name: 寶緯
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 19.85
 - low: 19.35
 - close: 19.65
-- volume: 99000
+- volume: 20000
 - ma5: 19.82
 - ema23_primary: 19.73
 - distance_to_ema23_pct: -0.39
@@ -69,7 +69,7 @@
 - ma120: 19.46
 - return_5d: -1.75
 - return_20d: 2.08
-- volume_ratio: 1.39
+- volume_ratio: 0.3
 - distance_to_ma20_pct_auxiliary: -0.25
 - distance_to_high_60_pct: -13.82
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,19.7,19.95,19.5,19.75,20000,19.68,0.34,19.58,19.42,0.29
 20260526,19.7,20.1,19.7,20,20000,19.71,1.47,19.63,19.43,0.29
 20260527,20,20,19.6,20,20000,19.73,1.35,19.68,19.45,0.29
-20260528,19.7,19.85,19.35,19.65,99000,19.73,-0.39,19.7,19.46,1.39
+20260528,19.7,19.85,19.35,19.65,20000,19.73,-0.39,19.7,19.46,0.3
 ```
 
 ## Latest TDCC Snapshot

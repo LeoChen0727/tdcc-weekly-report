@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8354 冠好
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:49 Asia/Taipei
+- generated_at: 2026-05-28 20:20:37 Asia/Taipei
 - stock_id: 8354
 - stock_name: 冠好
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 17.3
 - low: 16.75
 - close: 17.1
-- volume: 293006
+- volume: 17000
 - ma5: 16.76
 - ema23_primary: 16.48
 - distance_to_ema23_pct: 3.77
@@ -69,7 +69,7 @@
 - ma120: 15.87
 - return_5d: 3.95
 - return_20d: 7.55
-- volume_ratio: 2.46
+- volume_ratio: 0.16
 - distance_to_ma20_pct_auxiliary: 4.64
 - distance_to_high_60_pct: -12.31
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,16.85,16.85,16,16.5,16000,16.35,0.89,16.2,15.83,0.12
 20260526,16.7,16.9,16.5,16.7,17000,16.38,1.93,16.23,15.85,0.15
 20260527,16.95,17.15,16.75,16.85,17000,16.42,2.61,16.28,15.88,0.16
-20260528,17,17.3,16.75,17.1,293006,16.48,3.77,16.34,15.91,2.46
+20260528,17,17.3,16.75,17.1,17000,16.48,3.77,16.34,15.91,0.16
 ```
 
 ## Latest TDCC Snapshot

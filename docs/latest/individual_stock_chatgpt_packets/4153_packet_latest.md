@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4153 鈺緯
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:38 Asia/Taipei
+- generated_at: 2026-05-28 20:19:25 Asia/Taipei
 - stock_id: 4153
 - stock_name: 鈺緯
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 32.55
 - low: 31
 - close: 31.6
-- volume: 43622
+- volume: 32000
 - ma5: 30.91
 - ema23_primary: 30.92
 - distance_to_ema23_pct: 2.2
@@ -69,7 +69,7 @@
 - ma120: 33.16
 - return_5d: 3.44
 - return_20d: 3.44
-- volume_ratio: 1.42
+- volume_ratio: 1.06
 - distance_to_ma20_pct_auxiliary: 3.42
 - distance_to_high_60_pct: -11.61
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,31,31.2,30.45,30.65,31000,30.9,-0.8,30.51,32.24,1.06
 20260526,30.2,30.9,30.15,30.6,31000,30.87,-0.88,30.49,32.19,1.05
 20260527,30.7,31,30.65,30.7,31000,30.86,-0.51,30.5,32.13,1.07
-20260528,31.5,32.55,31,31.6,43622,30.92,2.2,30.55,32.09,1.42
+20260528,31.5,32.55,31,31.6,32000,30.92,2.2,30.55,32.09,1.06
 ```
 
 ## Latest TDCC Snapshot

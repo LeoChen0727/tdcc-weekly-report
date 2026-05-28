@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8083 瑞穎
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:45 Asia/Taipei
+- generated_at: 2026-05-28 20:20:32 Asia/Taipei
 - stock_id: 8083
 - stock_name: 瑞穎
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 168.5
 - low: 166
 - close: 167
-- volume: 59291
+- volume: 167000
 - ma5: 167.9
 - ema23_primary: 170.89
 - distance_to_ema23_pct: -2.28
@@ -69,7 +69,7 @@
 - ma120: 166.9
 - return_5d: -2.05
 - return_20d: -4.84
-- volume_ratio: 0.68
+- volume_ratio: 1.8
 - distance_to_ma20_pct_auxiliary: -2.96
 - distance_to_high_60_pct: -6.7
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,168.5,170.5,167,168.5,168000,171.91,-1.98,173.32,171.62,2.25
 20260526,168.5,170,167.5,167.5,168000,171.54,-2.35,172.9,171.43,2.12
 20260527,169,169,167,168,168000,171.24,-1.89,172.53,171.26,1.96
-20260528,168,168.5,166,167,59291,170.89,-2.28,172.1,171.09,0.68
+20260528,168,168.5,166,167,167000,170.89,-2.28,172.1,171.09,1.8
 ```
 
 ## Latest TDCC Snapshot

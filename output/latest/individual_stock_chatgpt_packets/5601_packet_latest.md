@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5601 台聯櫃
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:02 Asia/Taipei
+- generated_at: 2026-05-28 20:19:49 Asia/Taipei
 - stock_id: 5601
 - stock_name: 台聯櫃
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 33.5
 - low: 31.95
 - close: 32
-- volume: 45061
+- volume: 32000
 - ma5: 33.86
 - ema23_primary: 34.97
 - distance_to_ema23_pct: -8.5
@@ -69,7 +69,7 @@
 - ma120: 36.47
 - return_5d: -8.83
 - return_20d: -9.48
-- volume_ratio: 3.02
+- volume_ratio: 2.25
 - distance_to_ma20_pct_auxiliary: -8.73
 - distance_to_high_60_pct: -15.79
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,34.7,34.7,34.7,34.7,35000,35.5,-2.25,35.4,36.25,3.11
 20260526,34.75,34.75,34.7,34.75,35000,35.44,-1.93,35.35,36.22,2.77
 20260527,34.5,34.5,33,33.1,34000,35.24,-6.08,35.23,36.15,2.45
-20260528,33.5,33.5,31.95,32,45061,34.97,-8.5,35.06,36.07,3.02
+20260528,33.5,33.5,31.95,32,32000,34.97,-8.5,35.06,36.07,2.25
 ```
 
 ## Latest TDCC Snapshot

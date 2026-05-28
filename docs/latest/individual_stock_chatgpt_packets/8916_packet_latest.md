@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8916 光隆
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:53 Asia/Taipei
+- generated_at: 2026-05-28 20:20:41 Asia/Taipei
 - stock_id: 8916
 - stock_name: 光隆
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 45.55
 - low: 44.8
 - close: 45.15
-- volume: 141461
+- volume: 45000
 - ma5: 45.56
 - ema23_primary: 46.5
 - distance_to_ema23_pct: -2.9
@@ -69,7 +69,7 @@
 - ma120: 48.19
 - return_5d: -2.9
 - return_20d: -4.44
-- volume_ratio: 1.39
+- volume_ratio: 0.46
 - distance_to_ma20_pct_auxiliary: -3.02
 - distance_to_high_60_pct: -7.29
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,46.85,46.85,45.5,45.5,46000,46.87,-2.93,46.9,47.25,0.46
 20260526,45.5,45.75,45.25,45.5,45000,46.76,-2.69,46.78,47.22,0.45
 20260527,45.4,45.5,45.05,45.15,45000,46.62,-3.16,46.66,47.18,0.45
-20260528,45.3,45.55,44.8,45.15,141461,46.5,-2.9,46.56,47.15,1.39
+20260528,45.3,45.55,44.8,45.15,45000,46.5,-2.9,46.56,47.15,0.46
 ```
 
 ## Latest TDCC Snapshot

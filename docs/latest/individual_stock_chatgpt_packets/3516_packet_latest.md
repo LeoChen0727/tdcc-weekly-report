@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3516 亞帝歐
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:28 Asia/Taipei
+- generated_at: 2026-05-28 20:19:14 Asia/Taipei
 - stock_id: 3516
 - stock_name: 亞帝歐
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 23.65
 - low: 23.2
 - close: 23.2
-- volume: 58272
+- volume: 23000
 - ma5: 23.47
 - ema23_primary: 22.35
 - distance_to_ema23_pct: 3.8
@@ -69,7 +69,7 @@
 - ma120: 20.13
 - return_5d: -1.9
 - return_20d: 14.29
-- volume_ratio: 0.22
+- volume_ratio: 0.09
 - distance_to_ma20_pct_auxiliary: 3.99
 - distance_to_high_60_pct: -9.55
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,23.55,24.05,23.15,23.6,24000,22,7.27,21.85,20.21,0.09
 20260526,23.45,25.65,23.45,23.95,25000,22.16,8.06,22.02,20.28,0.09
 20260527,24.05,24.45,23.1,23.5,24000,22.27,5.5,22.16,20.34,0.09
-20260528,23.55,23.65,23.2,23.2,58272,22.35,3.8,22.31,20.4,0.22
+20260528,23.55,23.65,23.2,23.2,23000,22.35,3.8,22.31,20.4,0.09
 ```
 
 ## Latest TDCC Snapshot

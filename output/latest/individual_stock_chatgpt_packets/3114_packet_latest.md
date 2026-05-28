@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3114 好德
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:17 Asia/Taipei
+- generated_at: 2026-05-28 20:19:03 Asia/Taipei
 - stock_id: 3114
 - stock_name: 好德
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 29.4
 - low: 28.2
 - close: 28.45
-- volume: 349236
+- volume: 29000
 - ma5: 28.45
 - ema23_primary: 27.2
 - distance_to_ema23_pct: 4.61
@@ -69,7 +69,7 @@
 - ma120: 26.08
 - return_5d: 2.89
 - return_20d: 10.7
-- volume_ratio: 2.07
+- volume_ratio: 0.19
 - distance_to_ma20_pct_auxiliary: 5.68
 - distance_to_high_60_pct: -3.4
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,28.45,29,28.15,29,29000,26.85,8,26.55,26.28,0.18
 20260526,29.1,29.45,27.9,27.9,28000,26.94,3.57,26.65,26.31,0.18
 20260527,28.1,29.4,27.95,28.65,29000,27.08,5.79,26.78,26.35,0.19
-20260528,28.75,29.4,28.2,28.45,349236,27.2,4.61,26.92,26.39,2.07
+20260528,28.75,29.4,28.2,28.45,29000,27.2,4.61,26.92,26.39,0.19
 ```
 
 ## Latest TDCC Snapshot

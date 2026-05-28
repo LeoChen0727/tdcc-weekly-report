@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8924 大田
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:54 Asia/Taipei
+- generated_at: 2026-05-28 20:20:41 Asia/Taipei
 - stock_id: 8924
 - stock_name: 大田
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 64.1
 - low: 63.4
 - close: 63.6
-- volume: 253940
+- volume: 64000
 - ma5: 63.84
 - ema23_primary: 65.03
 - distance_to_ema23_pct: -2.2
@@ -69,7 +69,7 @@
 - ma120: 69.62
 - return_5d: -0.93
 - return_20d: -7.42
-- volume_ratio: 1.3
+- volume_ratio: 0.35
 - distance_to_ma20_pct_auxiliary: -1.83
 - distance_to_high_60_pct: -9.79
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,64.3,64.4,63.7,63.9,64000,65.43,-2.33,65.5,67.4,0.34
 20260526,64.2,64.3,63.9,64,64000,65.31,-2,65.3,67.31,0.35
 20260527,64,64,63.4,63.5,64000,65.16,-2.54,65.04,67.21,0.35
-20260528,63.5,64.1,63.4,63.6,253940,65.03,-2.2,64.78,67.11,1.3
+20260528,63.5,64.1,63.4,63.6,64000,65.03,-2.2,64.78,67.11,0.35
 ```
 
 ## Latest TDCC Snapshot

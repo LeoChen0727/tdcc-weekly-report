@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3426 台興
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:25 Asia/Taipei
+- generated_at: 2026-05-28 20:19:12 Asia/Taipei
 - stock_id: 3426
 - stock_name: 台興
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 47.8
 - low: 47.75
 - close: 47.75
-- volume: 9006
+- volume: 48000
 - ma5: 47.75
 - ema23_primary: 47.68
 - distance_to_ema23_pct: 0.14
@@ -69,7 +69,7 @@
 - ma120: 44.7
 - return_5d: 0.1
 - return_20d: 0.21
-- volume_ratio: 0.31
+- volume_ratio: 1.53
 - distance_to_ma20_pct_auxiliary: 0.09
 - distance_to_high_60_pct: -0.1
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,47.7,47.7,47.7,47.7,48000,47.66,0.08,47.69,47.51,1.41
 20260526,47.7,47.75,47.7,47.75,48000,47.67,0.17,47.7,47.52,1.62
 20260527,47.75,47.75,47.75,47.75,48000,47.68,0.15,47.7,47.53,1.64
-20260528,47.75,47.8,47.75,47.75,9006,47.68,0.14,47.71,47.54,0.31
+20260528,47.75,47.8,47.75,47.75,48000,47.68,0.14,47.71,47.54,1.53
 ```
 
 ## Latest TDCC Snapshot

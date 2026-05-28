@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6218 豪勉
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:12 Asia/Taipei
+- generated_at: 2026-05-28 20:19:59 Asia/Taipei
 - stock_id: 6218
 - stock_name: 豪勉
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 43.9
 - low: 39.5
 - close: 39.5
-- volume: 7148002
+- volume: 42000
 - ma5: 40.46
 - ema23_primary: 38.9
 - distance_to_ema23_pct: 1.54
@@ -69,7 +69,7 @@
 - ma120: 27.81
 - return_5d: -0.13
 - return_20d: 0.51
-- volume_ratio: 1.9
+- volume_ratio: 0.01
 - distance_to_ma20_pct_auxiliary: -1.33
 - distance_to_high_60_pct: -15.24
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,40.5,42,39.9,40.3,41000,38.37,5.02,39.31,31.79,0.01
 20260526,40.65,40.7,39,39.3,40000,38.45,2.21,39.65,32.04,0.01
 20260527,39.6,43.2,38.3,43.2,42000,38.85,11.21,40.02,32.34,0.01
-20260528,42.5,43.9,39.5,39.5,7148002,38.9,1.54,40.03,32.59,1.9
+20260528,42.5,43.9,39.5,39.5,42000,38.9,1.54,40.03,32.59,0.01
 ```
 
 ## Latest TDCC Snapshot
@@ -125,8 +125,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6218 | 豪勉 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260528 | 6218 | 豪勉 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260521 | 6218 | 豪勉 | pattern | 型態觀察 |  |  |  | 預備發動型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3226 龍鋒
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:20 Asia/Taipei
+- generated_at: 2026-05-28 20:19:06 Asia/Taipei
 - stock_id: 3226
 - stock_name: 龍鋒
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 43.6
 - low: 42.5
 - close: 42.5
-- volume: 12531
+- volume: 43000
 - ma5: 40.75
 - ema23_primary: 41.16
 - distance_to_ema23_pct: 3.27
@@ -69,7 +69,7 @@
 - ma120: 46.33
 - return_5d: 6.25
 - return_20d: 7.19
-- volume_ratio: 0.88
+- volume_ratio: 2.73
 - distance_to_ma20_pct_auxiliary: 4.01
 - distance_to_high_60_pct: -21.88
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,40,40,39,39.75,40000,41.08,-3.24,40.6,45.1,3.94
 20260526,39.5,40,39.5,40,40000,40.99,-2.42,40.62,44.9,3.33
 20260527,39,41.5,39,41.5,40000,41.03,1.14,40.72,44.73,2.88
-20260528,43.5,43.6,42.5,42.5,12531,41.16,3.27,40.86,44.56,0.88
+20260528,43.5,43.6,42.5,42.5,43000,41.16,3.27,40.86,44.56,2.73
 ```
 
 ## Latest TDCC Snapshot

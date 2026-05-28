@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2948 寶陞
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:11 Asia/Taipei
+- generated_at: 2026-05-28 20:18:57 Asia/Taipei
 - stock_id: 2948
 - stock_name: 寶陞
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 38.95
 - low: 38
 - close: 38
-- volume: 5001
+- volume: 39000
 - ma5: 36.97
 - ema23_primary: 37.73
 - distance_to_ema23_pct: 0.7
@@ -69,7 +69,7 @@
 - ma120: 38.65
 - return_5d: 0.53
 - return_20d: -0.13
-- volume_ratio: 0.37
+- volume_ratio: 2.59
 - distance_to_ma20_pct_auxiliary: 0.88
 - distance_to_high_60_pct: -8.65
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,35.2,37,35.2,37,37000,37.95,-2.51,37.89,38.85,3.49
 20260526,35.6,36,35.6,36,36000,37.79,-4.73,37.79,38.8,3
 20260527,34.75,36.85,34.75,36.85,36000,37.71,-2.28,37.67,38.78,2.69
-20260528,38.95,38.95,38,38,5001,37.73,0.7,37.67,38.75,0.37
+20260528,38.95,38.95,38,38,39000,37.73,0.7,37.67,38.75,2.59
 ```
 
 ## Latest TDCC Snapshot

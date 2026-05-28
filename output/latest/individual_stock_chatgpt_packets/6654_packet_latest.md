@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6654 天正國際
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:26 Asia/Taipei
+- generated_at: 2026-05-28 20:20:13 Asia/Taipei
 - stock_id: 6654
 - stock_name: 天正國際
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 140
 - low: 128
 - close: 140
-- volume: 524995
+- volume: 136000
 - ma5: 117.02
 - ema23_primary: 102.15
 - distance_to_ema23_pct: 37.05
@@ -69,7 +69,7 @@
 - ma120: 91.5
 - return_5d: 44.33
 - return_20d: 56.95
-- volume_ratio: 5.87
+- volume_ratio: 1.94
 - distance_to_ma20_pct_auxiliary: 41.06
 - distance_to_high_60_pct: 0
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,97.1,105.5,97.1,105.5,104000,94.29,11.89,93.67,91.72,1.85
 20260526,110,116,110,116,115000,96.1,20.71,94.91,92.06,1.95
 20260527,127.5,127.5,118,127.5,125000,98.71,29.16,96.7,92.59,1.94
-20260528,129.5,140,128,140,524995,102.15,37.05,99.25,93.33,5.87
+20260528,129.5,140,128,140,136000,102.15,37.05,99.25,93.33,1.94
 ```
 
 ## Latest TDCC Snapshot

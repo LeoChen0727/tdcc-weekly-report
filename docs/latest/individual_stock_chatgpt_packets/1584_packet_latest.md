@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1584 精剛
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:37 Asia/Taipei
+- generated_at: 2026-05-28 20:18:22 Asia/Taipei
 - stock_id: 1584
 - stock_name: 精剛
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 19.85
 - low: 19.5
 - close: 19.8
-- volume: 1138207
+- volume: 20000
 - ma5: 19.77
 - ema23_primary: 20.05
 - distance_to_ema23_pct: -1.23
@@ -69,7 +69,7 @@
 - ma120: 22.13
 - return_5d: 0.76
 - return_20d: -0.5
-- volume_ratio: 1.79
+- volume_ratio: 0.03
 - distance_to_ma20_pct_auxiliary: -0.4
 - distance_to_high_60_pct: -16.98
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,19.75,20.45,19.7,20.2,20000,20.16,0.21,19.89,21.39,0.03
 20260526,20.35,20.35,19.75,19.75,20000,20.12,-1.86,19.9,21.32,0.03
 20260527,19.75,19.85,19.25,19.45,19000,20.07,-3.08,19.89,21.25,0.03
-20260528,19.5,19.85,19.5,19.8,1138207,20.05,-1.23,19.88,21.19,1.79
+20260528,19.5,19.85,19.5,19.8,20000,20.05,-1.23,19.88,21.19,0.03
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6767 台微醫
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:30 Asia/Taipei
+- generated_at: 2026-05-28 20:20:17 Asia/Taipei
 - stock_id: 6767
 - stock_name: 台微醫
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 26.3
 - low: 26.25
 - close: 26.3
-- volume: 11020
+- volume: 26000
 - ma5: 26.46
 - ema23_primary: 27.04
 - distance_to_ema23_pct: -2.72
@@ -69,7 +69,7 @@
 - ma120: 28.15
 - return_5d: -2.59
 - return_20d: -4.54
-- volume_ratio: 0.67
+- volume_ratio: 1.51
 - distance_to_ma20_pct_auxiliary: -2.72
 - distance_to_high_60_pct: -12.33
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,26.25,27,26.25,26.8,27000,27.21,-1.51,27.19,28.08,1.87
 20260526,26.35,26.8,26.35,26.8,26000,27.18,-1.39,27.16,28.03,1.71
 20260527,26.8,26.8,26.3,26.3,27000,27.1,-2.96,27.1,27.97,1.68
-20260528,26.3,26.3,26.25,26.3,11020,27.04,-2.72,27.04,27.91,0.67
+20260528,26.3,26.3,26.25,26.3,26000,27.04,-2.72,27.04,27.91,1.51
 ```
 
 ## Latest TDCC Snapshot

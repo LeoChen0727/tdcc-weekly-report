@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7743 金利食安
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:40 Asia/Taipei
+- generated_at: 2026-05-28 20:20:27 Asia/Taipei
 - stock_id: 7743
 - stock_name: 金利食安
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 18.95
 - low: 18.5
 - close: 18.5
-- volume: 31000
+- volume: 19000
 - ma5: 18.94
 - ema23_primary: 19.55
 - distance_to_ema23_pct: -5.38
@@ -69,7 +69,7 @@
 - ma120: 20.68
 - return_5d: -4.15
 - return_20d: -7.5
-- volume_ratio: 2.5
+- volume_ratio: 1.61
 - distance_to_ma20_pct_auxiliary: -5.76
 - distance_to_high_60_pct: -14.15
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,19.2,19.2,19,19,19000,19.77,-3.89,19.81,20.17,1.83
 20260526,19.05,19.2,19,19,19000,19.71,-3.58,19.77,20.14,1.79
 20260527,19,19,18.75,19,19000,19.65,-3.29,19.7,20.12,1.74
-20260528,18.95,18.95,18.5,18.5,31000,19.55,-5.38,19.63,20.09,2.5
+20260528,18.95,18.95,18.5,18.5,19000,19.55,-5.38,19.63,20.09,1.61
 ```
 
 ## Latest TDCC Snapshot

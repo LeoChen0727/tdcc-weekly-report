@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4909 新復興
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:49 Asia/Taipei
+- generated_at: 2026-05-28 20:19:36 Asia/Taipei
 - stock_id: 4909
 - stock_name: 新復興
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 55.7
 - low: 51.6
 - close: 52.1
-- volume: 1058248
+- volume: 54000
 - ma5: 54.34
 - ema23_primary: 54.41
 - distance_to_ema23_pct: -4.25
@@ -69,7 +69,7 @@
 - ma120: 56
 - return_5d: 1.17
 - return_20d: -4.93
-- volume_ratio: 1.16
+- volume_ratio: 0.06
 - distance_to_ma20_pct_auxiliary: -2.86
 - distance_to_high_60_pct: -30.07
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,55.1,58,54.2,57.1,57000,54.64,4.5,53.86,58.56,0.06
 20260526,57.3,57.3,54.9,55.4,56000,54.7,1.27,53.85,58.48,0.06
 20260527,56.2,56.2,53.3,53.7,54000,54.62,-1.68,53.77,58.32,0.06
-20260528,54.2,55.7,51.6,52.1,1058248,54.41,-4.25,53.63,58.02,1.16
+20260528,54.2,55.7,51.6,52.1,54000,54.41,-4.25,53.63,58.02,0.06
 ```
 
 ## Latest TDCC Snapshot

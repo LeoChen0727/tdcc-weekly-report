@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6568 宏觀
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:22 Asia/Taipei
+- generated_at: 2026-05-28 20:20:09 Asia/Taipei
 - stock_id: 6568
 - stock_name: 宏觀
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 234
 - low: 224.5
 - close: 230
-- volume: 427229
+- volume: 229000
 - ma5: 230.1
 - ema23_primary: 226.94
 - distance_to_ema23_pct: 1.35
@@ -69,7 +69,7 @@
 - ma120: 173.58
 - return_5d: 5.99
 - return_20d: -6.88
-- volume_ratio: 0.66
+- volume_ratio: 0.36
 - distance_to_ma20_pct_auxiliary: 0.72
 - distance_to_high_60_pct: -18.73
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,221,232,220.5,230.5,226000,224.86,2.51,230.53,214.49,0.3
 20260526,232,249,221,246,238000,226.63,8.55,230.35,216,0.36
 20260527,250,250,226,227,234000,226.66,0.15,229.2,217.14,0.36
-20260528,228,234,224.5,230,427229,226.94,1.35,228.35,218.07,0.66
+20260528,228,234,224.5,230,229000,226.94,1.35,228.35,218.07,0.36
 ```
 
 ## Latest TDCC Snapshot

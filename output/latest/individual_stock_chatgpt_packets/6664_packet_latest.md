@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6664 群翊
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:26 Asia/Taipei
+- generated_at: 2026-05-28 20:20:13 Asia/Taipei
 - stock_id: 6664
 - stock_name: 群翊
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 468
 - low: 436
 - close: 441
-- volume: 1338952
+- volume: 452000
 - ma5: 447.7
 - ema23_primary: 431.45
 - distance_to_ema23_pct: 2.21
@@ -69,7 +69,7 @@
 - ma120: 330.49
 - return_5d: 8.62
 - return_20d: -3.71
-- volume_ratio: 0.74
+- volume_ratio: 0.26
 - distance_to_ma20_pct_auxiliary: -0.64
 - distance_to_high_60_pct: -11.36
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,447,454.5,439,444,449000,424.94,4.49,440.82,365.27,0.22
 20260526,449.5,472,443,466.5,460000,428.4,8.89,443.18,368.12,0.23
 20260527,475,475,449.5,454.5,460000,430.58,5.56,444.7,370.64,0.23
-20260528,456,468,436,441,1338952,431.45,2.21,443.85,373.1,0.74
+20260528,456,468,436,441,452000,431.45,2.21,443.85,373.1,0.26
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6664 | 群翊 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

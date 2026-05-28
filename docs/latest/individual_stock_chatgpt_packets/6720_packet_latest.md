@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6720 久昌
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:28 Asia/Taipei
+- generated_at: 2026-05-28 20:20:15 Asia/Taipei
 - stock_id: 6720
 - stock_name: 久昌
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 150
 - low: 135.5
 - close: 147
-- volume: 257762
+- volume: 144000
 - ma5: 151.3
 - ema23_primary: 157.63
 - distance_to_ema23_pct: -6.75
@@ -69,7 +69,7 @@
 - ma120: 150.6
 - return_5d: -6.96
 - return_20d: -10.37
-- volume_ratio: 2
+- volume_ratio: 1.17
 - distance_to_ma20_pct_auxiliary: -7.17
 - distance_to_high_60_pct: -17.88
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,157.5,159,152.5,154.5,154000,160.34,-3.64,160.62,164.7,1.38
 20260526,158.5,158.5,151,151,153000,159.56,-5.37,159.95,164.37,1.33
 20260527,151,152,147.5,148,149000,158.6,-6.68,159.2,163.94,1.25
-20260528,148.5,150,135.5,147,257762,157.63,-6.75,158.35,163.45,2
+20260528,148.5,150,135.5,147,144000,157.63,-6.75,158.35,163.45,1.17
 ```
 
 ## Latest TDCC Snapshot

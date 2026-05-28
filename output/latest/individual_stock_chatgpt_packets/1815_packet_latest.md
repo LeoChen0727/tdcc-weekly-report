@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1815 富喬
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:43 Asia/Taipei
+- generated_at: 2026-05-28 20:18:28 Asia/Taipei
 - stock_id: 1815
 - stock_name: 富喬
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 110
 - low: 102.5
 - close: 103.5
-- volume: 39713204
+- volume: 106000
 - ma5: 106.2
 - ema23_primary: 106.57
 - distance_to_ema23_pct: -2.88
@@ -69,7 +69,7 @@
 - ma120: 99.44
 - return_5d: 1.97
 - return_20d: -6.33
-- volume_ratio: 1.36
+- volume_ratio: 0
 - distance_to_ma20_pct_auxiliary: -3.02
 - distance_to_high_60_pct: -20.08
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,109,111,107,109,109000,107.08,1.8,107.58,108.04,0
 20260526,110,114,108,108,111000,107.15,0.79,107.58,107.96,0
 20260527,109.5,110,103,103.5,106000,106.85,-3.14,107.08,107.84,0
-20260528,103.5,110,102.5,103.5,39713204,106.57,-2.88,106.72,107.78,1.36
+20260528,103.5,110,102.5,103.5,106000,106.57,-2.88,106.72,107.78,0
 ```
 
 ## Latest TDCC Snapshot
@@ -125,7 +125,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1815 | 富喬 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260521 | 1815 | 富喬 | pattern | 型態觀察 |  |  |  | 預備發動型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

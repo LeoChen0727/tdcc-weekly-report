@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3628 盈正
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:33 Asia/Taipei
+- generated_at: 2026-05-28 20:19:19 Asia/Taipei
 - stock_id: 3628
 - stock_name: 盈正
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 69
 - low: 66.7
 - close: 66.8
-- volume: 276693
+- volume: 68000
 - ma5: 65.86
 - ema23_primary: 65.95
 - distance_to_ema23_pct: 1.29
@@ -69,7 +69,7 @@
 - ma120: 68.66
 - return_5d: 5.03
 - return_20d: -0.89
-- volume_ratio: 1.83
+- volume_ratio: 0.48
 - distance_to_ma20_pct_auxiliary: 1.38
 - distance_to_high_60_pct: -10.7
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,65.1,66.5,64.4,66,65000,65.84,0.24,66.06,66.8,0.42
 20260526,66.4,66.8,65.5,66.1,66000,65.86,0.36,65.99,66.78,0.46
 20260527,67.7,67.7,66,66,66000,65.87,0.19,65.92,66.7,0.47
-20260528,66.8,69,66.7,66.8,276693,65.95,1.29,65.89,66.66,1.83
+20260528,66.8,69,66.7,66.8,68000,65.95,1.29,65.89,66.66,0.48
 ```
 
 ## Latest TDCC Snapshot

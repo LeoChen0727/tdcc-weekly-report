@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6971 惠民實業
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:37 Asia/Taipei
+- generated_at: 2026-05-28 20:20:24 Asia/Taipei
 - stock_id: 6971
 - stock_name: 惠民實業
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 27.6
 - low: 27
 - close: 27.3
-- volume: 38175
+- volume: 27000
 - ma5: 27.52
 - ema23_primary: 27.96
 - distance_to_ema23_pct: -2.35
@@ -69,7 +69,7 @@
 - ma120: 29.85
 - return_5d: -0.36
 - return_20d: -6.19
-- volume_ratio: 0.6
+- volume_ratio: 0.43
 - distance_to_ma20_pct_auxiliary: -2.06
 - distance_to_high_60_pct: -11.22
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,27.45,28.05,27.45,27.6,28000,28.14,-1.91,28.16,29.21,0.42
 20260526,27.5,27.85,27.05,27.5,27000,28.08,-2.08,28.07,29.16,0.41
 20260527,27.5,27.75,27.3,27.3,27000,28.02,-2.56,27.96,29.12,0.42
-20260528,27,27.6,27,27.3,38175,27.96,-2.35,27.88,29.07,0.6
+20260528,27,27.6,27,27.3,27000,27.96,-2.35,27.88,29.07,0.43
 ```
 
 ## Latest TDCC Snapshot

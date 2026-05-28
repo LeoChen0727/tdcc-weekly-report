@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4744 皇將
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:47 Asia/Taipei
+- generated_at: 2026-05-28 20:19:34 Asia/Taipei
 - stock_id: 4744
 - stock_name: 皇將
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 35.2
 - low: 34.05
 - close: 34.45
-- volume: 294930
+- volume: 35000
 - ma5: 34.17
 - ema23_primary: 33.54
 - distance_to_ema23_pct: 2.71
@@ -69,7 +69,7 @@
 - ma120: 31.85
 - return_5d: 2.07
 - return_20d: 4.87
-- volume_ratio: 1.2
+- volume_ratio: 0.15
 - distance_to_ma20_pct_auxiliary: 3.26
 - distance_to_high_60_pct: -14.09
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,33.5,35.65,33.15,34.25,34000,33.3,2.86,33.02,33.52,0.13
 20260526,35.05,35.05,34,34.5,34000,33.4,3.3,33.19,33.53,0.13
 20260527,34.7,34.9,34.05,34.15,34000,33.46,2.06,33.28,33.56,0.14
-20260528,34.15,35.2,34.05,34.45,294930,33.54,2.71,33.36,33.6,1.2
+20260528,34.15,35.2,34.05,34.45,35000,33.54,2.71,33.36,33.6,0.15
 ```
 
 ## Latest TDCC Snapshot

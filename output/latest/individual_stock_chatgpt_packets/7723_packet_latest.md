@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7723 築間
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:39 Asia/Taipei
+- generated_at: 2026-05-28 20:20:27 Asia/Taipei
 - stock_id: 7723
 - stock_name: 築間
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 23.45
 - low: 22.6
 - close: 22.7
-- volume: 113586
+- volume: 23000
 - ma5: 23.63
 - ema23_primary: 26.61
 - distance_to_ema23_pct: -14.68
@@ -69,7 +69,7 @@
 - ma120: 31.77
 - return_5d: -8.65
 - return_20d: -25.45
-- volume_ratio: 0.78
+- volume_ratio: 0.16
 - distance_to_ma20_pct_auxiliary: -13.19
 - distance_to_high_60_pct: -36.06
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,24.75,24.75,23.75,23.8,24000,27.63,-13.86,27.32,31.21,0.15
 20260526,23.45,23.7,23.2,23.7,23000,27.3,-13.2,26.91,31.07,0.15
 20260527,23.65,23.7,23.15,23.2,23000,26.96,-13.95,26.54,30.93,0.15
-20260528,23.2,23.45,22.6,22.7,113586,26.61,-14.68,26.15,30.78,0.78
+20260528,23.2,23.45,22.6,22.7,23000,26.61,-14.68,26.15,30.78,0.16
 ```
 
 ## Latest TDCC Snapshot

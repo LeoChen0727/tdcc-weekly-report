@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2235 謚源
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:48 Asia/Taipei
+- generated_at: 2026-05-28 20:18:34 Asia/Taipei
 - stock_id: 2235
 - stock_name: 謚源
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 31.95
 - low: 30.5
 - close: 31.95
-- volume: 15024
+- volume: 31000
 - ma5: 30.55
 - ema23_primary: 31.02
 - distance_to_ema23_pct: 3.01
@@ -69,7 +69,7 @@
 - ma120: 33.35
 - return_5d: 8.67
 - return_20d: -2.59
-- volume_ratio: 1.13
+- volume_ratio: 2.19
 - distance_to_ma20_pct_auxiliary: 3.67
 - distance_to_high_60_pct: -15.03
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,31.45,31.45,30.1,30.1,30000,31.05,-3.06,31.04,33.17,2.9
 20260525,30.1,30.1,30.1,30.1,30000,30.97,-2.81,30.94,33.09,2.61
 20260527,29.25,30.5,29.25,30.5,30000,30.93,-1.4,30.86,33.02,2.36
-20260528,30.5,31.95,30.5,31.95,15024,31.02,3.01,30.82,32.97,1.13
+20260528,30.5,31.95,30.5,31.95,31000,31.02,3.01,30.82,32.97,2.19
 ```
 
 ## Latest TDCC Snapshot

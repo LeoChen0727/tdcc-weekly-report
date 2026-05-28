@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8432 東生華
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:51 Asia/Taipei
+- generated_at: 2026-05-28 20:20:38 Asia/Taipei
 - stock_id: 8432
 - stock_name: 東生華
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 50.1
 - low: 49.8
 - close: 50
-- volume: 21066
+- volume: 50000
 - ma5: 50.86
 - ema23_primary: 50.61
 - distance_to_ema23_pct: -1.2
@@ -69,7 +69,7 @@
 - ma120: 53.73
 - return_5d: -1.96
 - return_20d: -1.38
-- volume_ratio: 0.4
+- volume_ratio: 0.92
 - distance_to_ma20_pct_auxiliary: -0.62
 - distance_to_high_60_pct: -8.76
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,51.1,51.8,51.1,51.7,52000,50.65,2.07,50.38,51.32,0.96
 20260526,51.9,51.9,51.2,51.2,51000,50.7,0.99,50.38,51.25,0.92
 20260527,50.4,51.4,50,50.3,50000,50.66,-0.72,50.34,51.17,0.88
-20260528,49.8,50.1,49.8,50,21066,50.61,-1.2,50.31,51.09,0.4
+20260528,49.8,50.1,49.8,50,50000,50.61,-1.2,50.31,51.09,0.92
 ```
 
 ## Latest TDCC Snapshot

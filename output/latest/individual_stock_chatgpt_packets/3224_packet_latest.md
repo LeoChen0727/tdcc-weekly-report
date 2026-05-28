@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3224 三顧
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:20 Asia/Taipei
+- generated_at: 2026-05-28 20:19:06 Asia/Taipei
 - stock_id: 3224
 - stock_name: 三顧
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 40.3
 - low: 39.65
 - close: 39.95
-- volume: 65732
+- volume: 40000
 - ma5: 40.44
 - ema23_primary: 42.37
 - distance_to_ema23_pct: -5.7
@@ -69,7 +69,7 @@
 - ma120: 44.2
 - return_5d: -2.68
 - return_20d: -23.9
-- volume_ratio: 0.23
+- volume_ratio: 0.14
 - distance_to_ma20_pct_auxiliary: -7.39
 - distance_to_high_60_pct: -24.62
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,40.75,41.8,40,41.05,41000,43.03,-4.61,44.3,43.27,0.09
 20260526,41.05,41.55,40.5,40.85,41000,42.85,-4.67,44.17,43.23,0.09
 20260527,40.9,41,39.3,39.65,40000,42.59,-6.89,43.77,43.18,0.1
-20260528,39.65,40.3,39.65,39.95,65732,42.37,-5.7,43.14,43.13,0.23
+20260528,39.65,40.3,39.65,39.95,40000,42.37,-5.7,43.14,43.13,0.14
 ```
 
 ## Latest TDCC Snapshot

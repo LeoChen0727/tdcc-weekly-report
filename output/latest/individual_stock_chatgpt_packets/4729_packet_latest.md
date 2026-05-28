@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4729 熒茂
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:46 Asia/Taipei
+- generated_at: 2026-05-28 20:19:33 Asia/Taipei
 - stock_id: 4729
 - stock_name: 熒茂
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 25.35
 - low: 23.95
 - close: 24.7
-- volume: 1298685
+- volume: 25000
 - ma5: 24.69
 - ema23_primary: 22.47
 - distance_to_ema23_pct: 9.9
@@ -69,7 +69,7 @@
 - ma120: 21.65
 - return_5d: 2.7
 - return_20d: 24.43
-- volume_ratio: 1.16
+- volume_ratio: 0.02
 - distance_to_ma20_pct_auxiliary: 12.11
 - distance_to_high_60_pct: -6.62
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,25.5,25.85,24.55,25.2,25000,21.95,14.81,21.37,20.81,0.02
 20260526,25.2,25.2,23.9,23.95,24000,22.12,8.3,21.58,20.84,0.02
 20260527,24.25,25.1,23.65,24,24000,22.27,7.76,21.79,20.86,0.02
-20260528,23.95,25.35,23.95,24.7,1298685,22.47,9.9,22.03,20.89,1.16
+20260528,23.95,25.35,23.95,24.7,25000,22.47,9.9,22.03,20.89,0.02
 ```
 
 ## Latest TDCC Snapshot

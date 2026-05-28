@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8067 志旭
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:44 Asia/Taipei
+- generated_at: 2026-05-28 20:20:31 Asia/Taipei
 - stock_id: 8067
 - stock_name: 志旭
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 13.55
 - low: 12.85
 - close: 13.55
-- volume: 14812
+- volume: 13000
 - ma5: 13.59
 - ema23_primary: 13.41
 - distance_to_ema23_pct: 1.02
@@ -69,7 +69,7 @@
 - ma120: 14.36
 - return_5d: -8.75
 - return_20d: 8.84
-- volume_ratio: 1.47
+- volume_ratio: 1.3
 - distance_to_ma20_pct_auxiliary: 2.75
 - distance_to_high_60_pct: -15.31
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,13.8,13.8,13.6,13.6,14000,13.37,1.74,13.09,13.98,1.65
 20260526,12.5,13.6,12.5,13.6,13000,13.39,1.59,13.1,13.98,1.44
 20260527,14.6,14.6,13.1,13.55,14000,13.4,1.12,13.13,13.98,1.44
-20260528,12.85,13.55,12.85,13.55,14812,13.41,1.02,13.19,13.98,1.47
+20260528,12.85,13.55,12.85,13.55,13000,13.41,1.02,13.19,13.98,1.3
 ```
 
 ## Latest TDCC Snapshot

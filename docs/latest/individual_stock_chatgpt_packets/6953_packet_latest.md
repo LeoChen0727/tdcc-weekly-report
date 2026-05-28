@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6953 家碩
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:36 Asia/Taipei
+- generated_at: 2026-05-28 20:20:24 Asia/Taipei
 - stock_id: 6953
 - stock_name: 家碩
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 256
 - low: 239
 - close: 239.5
-- volume: 137209
+- volume: 247000
 - ma5: 256.2
 - ema23_primary: 256.09
 - distance_to_ema23_pct: -6.48
@@ -69,7 +69,7 @@
 - ma120: 229.96
 - return_5d: -6.26
 - return_20d: -8.59
-- volume_ratio: 0.46
+- volume_ratio: 0.81
 - distance_to_ma20_pct_auxiliary: -9.79
 - distance_to_high_60_pct: -19.9
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,281.5,281.5,265,267.5,273000,257.86,3.74,266.6,238.34,0.92
 20260526,269.5,269.5,262.5,262.5,265000,258.25,1.65,267,238.87,0.89
 20260527,260,260,245.5,250.5,252000,257.6,-2.76,266.62,239.12,0.84
-20260528,252.5,256,239,239.5,137209,256.09,-6.48,265.5,239.19,0.46
+20260528,252.5,256,239,239.5,247000,256.09,-6.48,265.5,239.19,0.81
 ```
 
 ## Latest TDCC Snapshot

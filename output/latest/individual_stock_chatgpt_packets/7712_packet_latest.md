@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7712 博盛半導體
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:39 Asia/Taipei
+- generated_at: 2026-05-28 20:20:26 Asia/Taipei
 - stock_id: 7712
 - stock_name: 博盛半導體
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 176.5
 - low: 160
 - close: 162.5
-- volume: 1381846
+- volume: 168000
 - ma5: 170.2
 - ema23_primary: 150.55
 - distance_to_ema23_pct: 7.94
@@ -69,7 +69,7 @@
 - ma120: 106.48
 - return_5d: -1.81
 - return_20d: 44.44
-- volume_ratio: 1.22
+- volume_ratio: 0.16
 - distance_to_ma20_pct_auxiliary: 8.44
 - distance_to_high_60_pct: -18.14
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,168.5,178,163,167.5,171000,144.34,16.05,141,122.75,0.16
 20260526,168.5,184,166.5,184,177000,147.65,24.62,144.57,124.16,0.16
 20260527,195,198.5,168,169.5,180000,149.47,13.4,147.35,125.17,0.17
-20260528,173,176.5,160,162.5,1381846,150.55,7.94,149.85,126.14,1.22
+20260528,173,176.5,160,162.5,168000,150.55,7.94,149.85,126.14,0.16
 ```
 
 ## Latest TDCC Snapshot

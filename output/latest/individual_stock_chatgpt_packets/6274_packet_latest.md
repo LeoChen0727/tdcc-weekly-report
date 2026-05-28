@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6274 台燿
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:15 Asia/Taipei
+- generated_at: 2026-05-28 20:20:02 Asia/Taipei
 - stock_id: 6274
 - stock_name: 台燿
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 1695
 - low: 1525
 - close: 1540
-- volume: 8948625
+- volume: 1586000
 - ma5: 1561
 - ema23_primary: 1320.38
 - distance_to_ema23_pct: 16.63
@@ -69,7 +69,7 @@
 - ma120: 697.63
 - return_5d: 16.23
 - return_20d: 57.95
-- volume_ratio: 2
+- volume_ratio: 0.39
 - distance_to_ma20_pct_auxiliary: 12.41
 - distance_to_high_60_pct: -11.24
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,1600,1600,1590,1600,1600000,1242.31,28.79,1279.05,867.18,0.37
 20260526,1640,1700,1560,1580,1630000,1270.45,24.37,1308.55,883.9,0.39
 20260527,1640,1735,1575,1630,1654000,1300.41,25.35,1341.75,901.98,0.4
-20260528,1615,1695,1525,1540,8948625,1320.38,16.63,1370,918.65,2
+20260528,1615,1695,1525,1540,1586000,1320.38,16.63,1370,918.65,0.39
 ```
 
 ## Latest TDCC Snapshot
@@ -123,10 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6274 | 台燿 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260528 | 6274 | 台燿 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

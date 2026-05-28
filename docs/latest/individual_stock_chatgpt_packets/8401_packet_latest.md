@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8401 白紗科
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:50 Asia/Taipei
+- generated_at: 2026-05-28 20:20:37 Asia/Taipei
 - stock_id: 8401
 - stock_name: 白紗科
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 24
 - low: 23.15
 - close: 23.2
-- volume: 79154
+- volume: 23000
 - ma5: 22.97
 - ema23_primary: 23.72
 - distance_to_ema23_pct: -2.2
@@ -69,7 +69,7 @@
 - ma120: 27.07
 - return_5d: 0.87
 - return_20d: -5.31
-- volume_ratio: 1.25
+- volume_ratio: 0.38
 - distance_to_ma20_pct_auxiliary: -2.23
 - distance_to_high_60_pct: -20.41
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,23.15,23.45,23,23.05,23000,23.95,-3.74,23.94,25.51,0.35
 20260526,22.95,23,22.85,22.95,23000,23.86,-3.82,23.87,25.41,0.38
 20260527,22.9,22.9,22.7,22.75,23000,23.77,-4.29,23.8,25.3,0.38
-20260528,24,24,23.15,23.2,79154,23.72,-2.2,23.73,25.2,1.25
+20260528,24,24,23.15,23.2,23000,23.72,-2.2,23.73,25.2,0.38
 ```
 
 ## Latest TDCC Snapshot

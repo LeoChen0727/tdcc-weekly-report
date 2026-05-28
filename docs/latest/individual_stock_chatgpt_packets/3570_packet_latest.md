@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3570 大塚
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:31 Asia/Taipei
+- generated_at: 2026-05-28 20:19:17 Asia/Taipei
 - stock_id: 3570
 - stock_name: 大塚
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 177.5
 - low: 172
 - close: 172.5
-- volume: 110957
+- volume: 175000
 - ma5: 172
 - ema23_primary: 170.01
 - distance_to_ema23_pct: 1.47
@@ -69,7 +69,7 @@
 - ma120: 169.94
 - return_5d: 0.88
 - return_20d: 5.5
-- volume_ratio: 1.27
+- volume_ratio: 1.93
 - distance_to_ma20_pct_auxiliary: 1.5
 - distance_to_high_60_pct: -7.75
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,174,174,172,172,173000,169.46,1.5,168.62,168.95,2.51
 20260526,172,172,170.5,172,171000,169.67,1.37,169.1,168.73,2.25
 20260527,173,173.5,171,171,172000,169.78,0.72,169.5,168.47,2.08
-20260528,172,177.5,172,172.5,110957,170.01,1.47,169.95,168.27,1.27
+20260528,172,177.5,172,172.5,175000,170.01,1.47,169.95,168.27,1.93
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4707 磐亞
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:46 Asia/Taipei
+- generated_at: 2026-05-28 20:19:32 Asia/Taipei
 - stock_id: 4707
 - stock_name: 磐亞
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 15.2
 - low: 14.6
 - close: 14.85
-- volume: 1359385
+- volume: 15000
 - ma5: 14.82
 - ema23_primary: 14.72
 - distance_to_ema23_pct: 0.88
@@ -69,7 +69,7 @@
 - ma120: 11.57
 - return_5d: 0.34
 - return_20d: -1.66
-- volume_ratio: 0.59
+- volume_ratio: 0.01
 - distance_to_ma20_pct_auxiliary: -1.33
 - distance_to_high_60_pct: -13.66
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,15.3,15.35,14.3,14.35,15000,14.69,-2.28,15.05,12.88,0.01
 20260526,14.55,14.75,14.3,14.65,15000,14.68,-0.22,15.05,12.95,0.01
 20260527,14.8,15.2,14.55,15,15000,14.71,1.98,15.06,13.03,0.01
-20260528,15.05,15.2,14.6,14.85,1359385,14.72,0.88,15.05,13.11,0.59
+20260528,15.05,15.2,14.6,14.85,15000,14.72,0.88,15.05,13.11,0.01
 ```
 
 ## Latest TDCC Snapshot

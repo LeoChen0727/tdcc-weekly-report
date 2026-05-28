@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3325 旭品
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:23 Asia/Taipei
+- generated_at: 2026-05-28 20:19:10 Asia/Taipei
 - stock_id: 3325
 - stock_name: 旭品
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 12.05
 - low: 11.65
 - close: 11.75
-- volume: 313010
+- volume: 12000
 - ma5: 12.02
 - ema23_primary: 12.36
 - distance_to_ema23_pct: -4.9
@@ -69,7 +69,7 @@
 - ma120: 14.82
 - return_5d: -1.67
 - return_20d: -10.65
-- volume_ratio: 1.24
+- volume_ratio: 0.05
 - distance_to_ma20_pct_auxiliary: -4.53
 - distance_to_high_60_pct: -26.56
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,12,12.4,11.8,12.4,12000,12.49,-0.71,12.5,13.19,0.04
 20260526,12.4,12.4,12,12.15,12000,12.46,-2.49,12.46,13.14,0.05
 20260527,12.05,12.1,11.8,11.85,12000,12.41,-4.51,12.38,13.09,0.05
-20260528,11.65,12.05,11.65,11.75,313010,12.36,-4.9,12.31,13.03,1.24
+20260528,11.65,12.05,11.65,11.75,12000,12.36,-4.9,12.31,13.03,0.05
 ```
 
 ## Latest TDCC Snapshot

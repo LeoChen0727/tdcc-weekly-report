@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6496 科懋
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:20 Asia/Taipei
+- generated_at: 2026-05-28 20:20:07 Asia/Taipei
 - stock_id: 6496
 - stock_name: 科懋
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 23.15
 - low: 22.9
 - close: 23.1
-- volume: 19993
+- volume: 23000
 - ma5: 23.66
 - ema23_primary: 24.37
 - distance_to_ema23_pct: -5.19
@@ -69,7 +69,7 @@
 - ma120: 27.25
 - return_5d: -6.48
 - return_20d: -9.23
-- volume_ratio: 0.88
+- volume_ratio: 1
 - distance_to_ma20_pct_auxiliary: -4.49
 - distance_to_high_60_pct: -18.66
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,24,24.2,23.5,23.95,24000,24.68,-2.95,24.5,25.89,1.22
 20260526,23.6,23.7,23.55,23.7,24000,24.6,-3.65,24.42,25.85,1.16
 20260527,23.55,23.65,23.2,23.2,23000,24.48,-5.23,24.3,25.79,1.05
-20260528,23.15,23.15,22.9,23.1,19993,24.37,-5.19,24.18,25.71,0.88
+20260528,23.15,23.15,22.9,23.1,23000,24.37,-5.19,24.18,25.71,1
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5511 德昌
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:01 Asia/Taipei
+- generated_at: 2026-05-28 20:19:48 Asia/Taipei
 - stock_id: 5511
 - stock_name: 德昌
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 71.8
 - low: 71.3
 - close: 71.3
-- volume: 96260
+- volume: 72000
 - ma5: 71.44
 - ema23_primary: 71.47
 - distance_to_ema23_pct: -0.24
@@ -69,7 +69,7 @@
 - ma120: 69.14
 - return_5d: -0.97
 - return_20d: 0.85
-- volume_ratio: 0.72
+- volume_ratio: 0.55
 - distance_to_ma20_pct_auxiliary: -0.06
 - distance_to_high_60_pct: -5.94
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,71.6,71.6,70.3,70.8,71000,71.46,-0.93,71.16,71.39,0.53
 20260526,70.8,71.6,70.8,71.2,71000,71.44,-0.34,71.22,71.45,0.54
 20260527,71.1,72,71.1,72,71000,71.49,0.71,71.31,71.53,0.54
-20260528,71.7,71.8,71.3,71.3,96260,71.47,-0.24,71.34,71.61,0.72
+20260528,71.7,71.8,71.3,71.3,72000,71.47,-0.24,71.34,71.61,0.55
 ```
 
 ## Latest TDCC Snapshot

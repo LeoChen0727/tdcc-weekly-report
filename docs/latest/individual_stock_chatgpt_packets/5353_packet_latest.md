@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5353 台林
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:57 Asia/Taipei
+- generated_at: 2026-05-28 20:19:44 Asia/Taipei
 - stock_id: 5353
 - stock_name: 台林
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 27.25
 - low: 26.75
 - close: 26.95
-- volume: 111024
+- volume: 27000
 - ma5: 26.7
 - ema23_primary: 26.22
 - distance_to_ema23_pct: 2.77
@@ -69,7 +69,7 @@
 - ma120: 25.6
 - return_5d: 3.45
 - return_20d: 1.89
-- volume_ratio: 1.24
+- volume_ratio: 0.32
 - distance_to_ma20_pct_auxiliary: 2.35
 - distance_to_high_60_pct: -5.27
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,27.2,27.35,26.4,26.65,27000,26.04,2.34,26.26,25.29,0.27
 20260526,26.95,26.95,26.3,26.5,27000,26.08,1.61,26.27,25.3,0.29
 20260527,26.6,27.2,26.6,27,27000,26.16,3.23,26.31,25.33,0.31
-20260528,27.2,27.25,26.75,26.95,111024,26.22,2.77,26.33,25.36,1.24
+20260528,27.2,27.25,26.75,26.95,27000,26.22,2.77,26.33,25.36,0.32
 ```
 
 ## Latest TDCC Snapshot

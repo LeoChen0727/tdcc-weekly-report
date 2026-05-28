@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3675 德微
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:34 Asia/Taipei
+- generated_at: 2026-05-28 20:19:20 Asia/Taipei
 - stock_id: 3675
 - stock_name: 德微
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 401.5
 - low: 367
 - close: 384
-- volume: 2023658
+- volume: 395000
 - ma5: 347.3
 - ema23_primary: 282.91
 - distance_to_ema23_pct: 35.73
@@ -69,7 +69,7 @@
 - ma120: 183.71
 - return_5d: 21.33
 - return_20d: 78.19
-- volume_ratio: 1.02
+- volume_ratio: 0.21
 - distance_to_ma20_pct_auxiliary: 39.98
 - distance_to_high_60_pct: -4.36
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,316.5,336,310,334,324000,259.19,28.87,253.15,215.28,0.16
 20260526,340,341,320,334,335000,265.42,25.84,258.5,217.78,0.17
 20260527,367,367,353.5,365,365000,273.72,33.35,265.9,220.82,0.19
-20260528,369.5,401.5,367,384,2023658,282.91,35.73,274.32,224.22,1.02
+20260528,369.5,401.5,367,384,395000,282.91,35.73,274.32,224.22,0.21
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3675 | 德微 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

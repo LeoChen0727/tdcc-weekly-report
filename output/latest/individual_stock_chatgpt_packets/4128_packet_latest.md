@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4128 中天
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:37 Asia/Taipei
+- generated_at: 2026-05-28 20:19:24 Asia/Taipei
 - stock_id: 4128
 - stock_name: 中天
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 14.55
 - low: 14.2
 - close: 14.35
-- volume: 1575418
+- volume: 14000
 - ma5: 14.8
 - ema23_primary: 15.22
 - distance_to_ema23_pct: -5.74
@@ -69,7 +69,7 @@
 - ma120: 18.04
 - return_5d: -10.59
 - return_20d: -8.01
-- volume_ratio: 1.31
+- volume_ratio: 0.01
 - distance_to_ma20_pct_auxiliary: -4.68
 - distance_to_high_60_pct: -22.22
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,15.7,15.75,14.85,15.1,15000,15.48,-2.43,15.24,16.52,0.01
 20260526,15.15,15.15,14.5,14.5,15000,15.4,-5.82,15.18,16.45,0.01
 20260527,14.6,14.6,14.3,14.3,14000,15.3,-6.56,15.12,16.37,0.01
-20260528,14.35,14.55,14.2,14.35,1575418,15.22,-5.74,15.05,16.31,1.31
+20260528,14.35,14.55,14.2,14.35,14000,15.22,-5.74,15.05,16.31,0.01
 ```
 
 ## Latest TDCC Snapshot

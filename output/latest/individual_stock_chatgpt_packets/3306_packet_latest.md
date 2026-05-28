@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3306 鼎天
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:22 Asia/Taipei
+- generated_at: 2026-05-28 20:19:09 Asia/Taipei
 - stock_id: 3306
 - stock_name: 鼎天
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 47.55
 - low: 46.2
 - close: 46.6
-- volume: 295866
+- volume: 47000
 - ma5: 46.7
 - ema23_primary: 46.42
 - distance_to_ema23_pct: 0.38
@@ -69,7 +69,7 @@
 - ma120: 48.18
 - return_5d: 1.97
 - return_20d: -0.43
-- volume_ratio: 1.73
+- volume_ratio: 0.3
 - distance_to_ma20_pct_auxiliary: 0.77
 - distance_to_high_60_pct: -13.7
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,46.85,47.5,46.2,46.85,47000,46.37,1.04,46.29,46.99,0.28
 20260526,47.4,47.4,46.35,46.55,47000,46.38,0.36,46.27,46.96,0.29
 20260527,46.7,47.15,46.35,46.65,47000,46.41,0.53,46.26,46.92,0.29
-20260528,46.7,47.55,46.2,46.6,295866,46.42,0.38,46.24,46.88,1.73
+20260528,46.7,47.55,46.2,46.6,47000,46.42,0.38,46.24,46.88,0.3
 ```
 
 ## Latest TDCC Snapshot

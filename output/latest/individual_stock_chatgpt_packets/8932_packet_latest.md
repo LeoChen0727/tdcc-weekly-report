@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8932 智通*
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:54 Asia/Taipei
+- generated_at: 2026-05-28 20:20:42 Asia/Taipei
 - stock_id: 8932
 - stock_name: 智通*
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 102
 - low: 96.2
 - close: 97
-- volume: 5066317
+- volume: 98000
 - ma5: 101
 - ema23_primary: 97.56
 - distance_to_ema23_pct: -0.58
@@ -69,7 +69,7 @@
 - ma120: 137.11
 - return_5d: -3
 - return_20d: 7.54
-- volume_ratio: 1.87
+- volume_ratio: 0.04
 - distance_to_ma20_pct_auxiliary: 0.37
 - distance_to_high_60_pct: -51.5
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,103,107,100.5,105.5,104000,97.03,8.73,95.09,101.96,0.04
 20260526,105.5,108,100,101.5,103000,97.4,4.21,95.69,100.43,0.04
 20260527,102.5,103,99.5,100,100000,97.62,2.44,96.3,98.9,0.04
-20260528,101,102,96.2,97,5066317,97.56,-0.58,96.64,97.37,1.87
+20260528,101,102,96.2,97,98000,97.56,-0.58,96.64,97.37,0.04
 ```
 
 ## Latest TDCC Snapshot
@@ -125,7 +125,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 8932 | 智通* | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260521 | 8932 | 智通* | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context

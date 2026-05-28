@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3529 力旺
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:29 Asia/Taipei
+- generated_at: 2026-05-28 20:19:15 Asia/Taipei
 - stock_id: 3529
 - stock_name: 力旺
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 3520
 - low: 3370
 - close: 3470
-- volume: 1248387
+- volume: 3440000
 - ma5: 3517
 - ema23_primary: 3678.24
 - distance_to_ema23_pct: -5.66
@@ -69,7 +69,7 @@
 - ma120: 2576.96
 - return_5d: -2.39
 - return_20d: -11.03
-- volume_ratio: 0.81
+- volume_ratio: 2.08
 - distance_to_ma20_pct_auxiliary: -10.44
 - distance_to_high_60_pct: -27.48
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,3700,3790,3675,3710,3729000,3756.34,-1.23,3958.5,3263.92,3.06
 20260526,3800,3800,3445,3485,3525000,3733.73,-6.66,3930.5,3280.58,2.59
 20260527,3480,3555,3270,3295,3402000,3697.17,-10.88,3896,3293.33,2.26
-20260528,3420,3520,3370,3470,1248387,3678.24,-5.66,3874.5,3308.75,0.81
+20260528,3420,3520,3370,3470,3440000,3678.24,-5.66,3874.5,3308.75,2.08
 ```
 
 ## Latest TDCC Snapshot

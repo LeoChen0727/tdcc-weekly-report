@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8446 華研
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:52 Asia/Taipei
+- generated_at: 2026-05-28 20:20:39 Asia/Taipei
 - stock_id: 8446
 - stock_name: 華研
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 86.7
 - low: 85.2
 - close: 85.6
-- volume: 185777
+- volume: 86000
 - ma5: 85.02
 - ema23_primary: 85.89
 - distance_to_ema23_pct: -0.33
@@ -69,7 +69,7 @@
 - ma120: 93.42
 - return_5d: 0.12
 - return_20d: -0.35
-- volume_ratio: 1.42
+- volume_ratio: 0.68
 - distance_to_ma20_pct_auxiliary: 1.36
 - distance_to_high_60_pct: -14.4
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,85.2,85.2,84.3,84.5,85000,86.07,-1.82,84.51,92,0.63
 20260526,84.3,84.9,84,84.7,84000,85.95,-1.46,84.53,91.84,0.64
 20260527,84.7,85.5,84.7,85.5,85000,85.91,-0.48,84.47,91.69,0.68
-20260528,85.5,86.7,85.2,85.6,185777,85.89,-0.33,84.45,91.53,1.42
+20260528,85.5,86.7,85.2,85.6,86000,85.89,-0.33,84.45,91.53,0.68
 ```
 
 ## Latest TDCC Snapshot

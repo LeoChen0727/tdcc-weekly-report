@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3081 聯亞
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:16 Asia/Taipei
+- generated_at: 2026-05-28 20:19:02 Asia/Taipei
 - stock_id: 3081
 - stock_name: 聯亞
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 2890
 - low: 2600
 - close: 2650
-- volume: 3052512
+- volume: 2715000
 - ma5: 2866
 - ema23_primary: 2691.65
 - distance_to_ema23_pct: -1.55
@@ -69,7 +69,7 @@
 - ma120: 1481.08
 - return_5d: 3.72
 - return_20d: 8.38
-- volume_ratio: 1.07
+- volume_ratio: 0.96
 - distance_to_ma20_pct_auxiliary: -3.76
 - distance_to_high_60_pct: -19.82
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,2790,2980,2730,2925,2900000,2634.41,11.03,2693.25,2130.33,0.99
 20260526,2960,3180,2825,3160,3001000,2678.21,17.99,2724.25,2161.92,1.05
 20260527,3170,3215,2855,2885,3025000,2695.44,7.03,2743.25,2189.17,1.07
-20260528,2890,2890,2600,2650,3052512,2691.65,-1.55,2753.5,2210.42,1.07
+20260528,2890,2890,2600,2650,2715000,2691.65,-1.55,2753.5,2210.42,0.96
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3081 | 聯亞 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

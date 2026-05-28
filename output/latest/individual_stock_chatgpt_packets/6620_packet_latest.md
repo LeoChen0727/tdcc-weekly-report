@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6620 漢達
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:25 Asia/Taipei
+- generated_at: 2026-05-28 20:20:12 Asia/Taipei
 - stock_id: 6620
 - stock_name: 漢達
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 73.5
 - low: 71.7
 - close: 71.7
-- volume: 282010
+- volume: 72000
 - ma5: 73
 - ema23_primary: 73.18
 - distance_to_ema23_pct: -2.02
@@ -69,7 +69,7 @@
 - ma120: 77.83
 - return_5d: -4.78
 - return_20d: -5.16
-- volume_ratio: 0.74
+- volume_ratio: 0.19
 - distance_to_ma20_pct_auxiliary: -1.14
 - distance_to_high_60_pct: -11.92
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,75.2,75.5,72.1,72.2,73000,73.4,-1.64,73.05,73.92,0.17
 20260526,72.3,73.2,70.7,72.8,72000,73.35,-0.76,72.88,73.79,0.18
 20260527,72.3,73.4,71.5,72.9,72000,73.32,-0.57,72.72,73.67,0.19
-20260528,72.9,73.5,71.7,71.7,282010,73.18,-2.02,72.53,73.56,0.74
+20260528,72.9,73.5,71.7,71.7,72000,73.18,-2.02,72.53,73.56,0.19
 ```
 
 ## Latest TDCC Snapshot

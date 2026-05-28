@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1586 和勤
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:37 Asia/Taipei
+- generated_at: 2026-05-28 20:18:22 Asia/Taipei
 - stock_id: 1586
 - stock_name: 和勤
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 22.4
 - low: 21.9
 - close: 22.15
-- volume: 258511
+- volume: 22000
 - ma5: 22.45
 - ema23_primary: 22.32
 - distance_to_ema23_pct: -0.75
@@ -69,7 +69,7 @@
 - ma120: 24.42
 - return_5d: -3.9
 - return_20d: 1.61
-- volume_ratio: 1.09
+- volume_ratio: 0.1
 - distance_to_ma20_pct_auxiliary: 0.19
 - distance_to_high_60_pct: -10.69
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,23.35,23.45,22.15,22.15,23000,22.35,-0.89,22.05,22.72,0.09
 20260526,22.1,22.4,21.75,22.3,22000,22.35,-0.2,22.07,22.68,0.09
 20260527,22.3,22.5,22,22.2,22000,22.33,-0.6,22.09,22.64,0.09
-20260528,22.35,22.4,21.9,22.15,258511,22.32,-0.75,22.11,22.6,1.09
+20260528,22.35,22.4,21.9,22.15,22000,22.32,-0.75,22.11,22.6,0.1
 ```
 
 ## Latest TDCC Snapshot

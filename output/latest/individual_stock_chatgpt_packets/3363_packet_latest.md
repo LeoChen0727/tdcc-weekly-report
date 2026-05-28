@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3363 上詮
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:24 Asia/Taipei
+- generated_at: 2026-05-28 20:19:10 Asia/Taipei
 - stock_id: 3363
 - stock_name: 上詮
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 851
 - low: 802
 - close: 815
-- volume: 2754815
+- volume: 825000
 - ma5: 849
 - ema23_primary: 825.29
 - distance_to_ema23_pct: -1.25
@@ -69,7 +69,7 @@
 - ma120: 588.33
 - return_5d: -0.37
 - return_20d: 8.09
-- volume_ratio: 1.33
+- volume_ratio: 0.42
 - distance_to_ma20_pct_auxiliary: -2.44
 - distance_to_high_60_pct: -23.47
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,887,890,842,846,859000,818.83,3.32,819.9,734.87,0.43
 20260526,850,887,831,885,864000,824.34,7.36,827.2,739.7,0.44
 20260527,890,900,836,847,871000,826.23,2.51,832.3,743.78,0.44
-20260528,851,851,802,815,2754815,825.29,-1.25,835.35,746.9,1.33
+20260528,851,851,802,815,825000,825.29,-1.25,835.35,746.9,0.42
 ```
 
 ## Latest TDCC Snapshot

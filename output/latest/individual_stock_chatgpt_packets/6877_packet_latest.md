@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6877 鏵友益
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:34 Asia/Taipei
+- generated_at: 2026-05-28 20:20:21 Asia/Taipei
 - stock_id: 6877
 - stock_name: 鏵友益
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 173
 - low: 162.5
 - close: 165
-- volume: 346343
+- volume: 168000
 - ma5: 165.4
 - ema23_primary: 160.24
 - distance_to_ema23_pct: 2.97
@@ -69,7 +69,7 @@
 - ma120: 113.71
 - return_5d: 8.55
 - return_20d: -5.44
-- volume_ratio: 0.65
+- volume_ratio: 0.32
 - distance_to_ma20_pct_auxiliary: 0.75
 - distance_to_high_60_pct: -16.67
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,156,163,153,160.5,159000,157.03,2.21,164.65,136.89,0.23
 20260526,160,176.5,156.5,176.5,171000,158.65,11.25,164.8,138.36,0.29
 20260527,180,183,165.5,172.5,175000,159.8,7.94,164.25,139.63,0.32
-20260528,172,173,162.5,165,346343,160.24,2.97,163.78,140.62,0.65
+20260528,172,173,162.5,165,168000,160.24,2.97,163.78,140.62,0.32
 ```
 
 ## Latest TDCC Snapshot

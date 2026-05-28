@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5230 雷笛克光學
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:54 Asia/Taipei
+- generated_at: 2026-05-28 20:19:41 Asia/Taipei
 - stock_id: 5230
 - stock_name: 雷笛克光學
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 17.15
 - low: 16.65
 - close: 16.85
-- volume: 125597
+- volume: 17000
 - ma5: 16.9
 - ema23_primary: 16.97
 - distance_to_ema23_pct: -0.72
@@ -69,7 +69,7 @@
 - ma120: 17.46
 - return_5d: -2.03
 - return_20d: -3.16
-- volume_ratio: 0.95
+- volume_ratio: 0.13
 - distance_to_ma20_pct_auxiliary: -0.43
 - distance_to_high_60_pct: -13.14
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,17.35,17.35,16.9,16.95,17000,17.04,-0.53,17.02,16.91,0.12
 20260526,17,17,16.5,16.9,17000,17.03,-0.75,17,16.9,0.13
 20260527,17.2,17.2,16.4,16.5,17000,16.98,-2.85,16.95,16.88,0.13
-20260528,17,17.15,16.65,16.85,125597,16.97,-0.72,16.92,16.87,0.95
+20260528,17,17.15,16.65,16.85,17000,16.97,-0.72,16.92,16.87,0.13
 ```
 
 ## Latest TDCC Snapshot

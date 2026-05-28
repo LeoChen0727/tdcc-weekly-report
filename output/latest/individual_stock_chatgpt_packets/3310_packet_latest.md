@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3310 佳穎
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:23 Asia/Taipei
+- generated_at: 2026-05-28 20:19:09 Asia/Taipei
 - stock_id: 3310
 - stock_name: 佳穎
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 78
 - low: 72.6
 - close: 72.6
-- volume: 1085708
+- volume: 76000
 - ma5: 74.4
 - ema23_primary: 71.38
 - distance_to_ema23_pct: 1.71
@@ -69,7 +69,7 @@
 - ma120: 74.15
 - return_5d: 3.57
 - return_20d: 3.71
-- volume_ratio: 10.25
+- volume_ratio: 1.37
 - distance_to_ma20_pct_auxiliary: 2.95
 - distance_to_high_60_pct: -13.47
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,76.8,76.9,72.4,73.2,74000,70.61,3.67,69.86,72.42,1.3
 20260526,73.2,73.3,72.2,72.7,73000,70.78,2.71,70.05,72.41,1.33
 20260527,72.7,77,72.1,76.6,73000,71.27,7.48,70.39,72.39,1.34
-20260528,76.6,78,72.6,72.6,1085708,71.38,1.71,70.52,72.3,10.25
+20260528,76.6,78,72.6,72.6,76000,71.38,1.71,70.52,72.3,1.37
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3310 | 佳穎 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

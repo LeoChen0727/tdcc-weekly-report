@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8080 泰霖
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:45 Asia/Taipei
+- generated_at: 2026-05-28 20:20:32 Asia/Taipei
 - stock_id: 8080
 - stock_name: 泰霖
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 27.85
 - low: 27.15
 - close: 27.15
-- volume: 42344
+- volume: 28000
 - ma5: 27.57
 - ema23_primary: 28.07
 - distance_to_ema23_pct: -3.28
@@ -69,7 +69,7 @@
 - ma120: 30.51
 - return_5d: -3.04
 - return_20d: -4.23
-- volume_ratio: 0.92
+- volume_ratio: 0.61
 - distance_to_ma20_pct_auxiliary: -3.55
 - distance_to_high_60_pct: -15.94
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,27.7,28.4,27.6,27.65,28000,28.25,-2.13,28.27,29.24,0.61
 20260526,27.7,27.85,27.7,27.8,28000,28.21,-1.46,28.25,29.17,0.62
 20260527,27.7,27.7,27.5,27.5,28000,28.15,-2.32,28.21,29.11,0.62
-20260528,27.85,27.85,27.15,27.15,42344,28.07,-3.28,28.15,29.03,0.92
+20260528,27.85,27.85,27.15,27.15,28000,28.07,-3.28,28.15,29.03,0.61
 ```
 
 ## Latest TDCC Snapshot

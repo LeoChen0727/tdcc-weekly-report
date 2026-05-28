@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6629 泰金-KY
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:25 Asia/Taipei
+- generated_at: 2026-05-28 20:20:12 Asia/Taipei
 - stock_id: 6629
 - stock_name: 泰金-KY
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 123
 - low: 117.5
 - close: 117.5
-- volume: 83311
+- volume: 120000
 - ma5: 118.7
 - ema23_primary: 120.11
 - distance_to_ema23_pct: -2.18
@@ -69,7 +69,7 @@
 - ma120: 119.47
 - return_5d: -4.08
 - return_20d: 0
-- volume_ratio: 1.07
+- volume_ratio: 1.51
 - distance_to_ma20_pct_auxiliary: -2.99
 - distance_to_high_60_pct: -14.23
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,119.5,120,116,118.5,117000,120.7,-1.82,121.03,113.79,1.76
 20260526,117,120.5,116,118,117000,120.47,-2.05,121.05,113.94,1.64
 20260527,119,119.5,117,119,118000,120.35,-1.12,121.12,114.12,1.59
-20260528,118,123,117.5,117.5,83311,120.11,-2.18,121.12,114.32,1.07
+20260528,118,123,117.5,117.5,120000,120.11,-2.18,121.12,114.32,1.51
 ```
 
 ## Latest TDCC Snapshot

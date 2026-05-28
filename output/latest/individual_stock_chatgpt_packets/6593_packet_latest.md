@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6593 台灣銘板
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:24 Asia/Taipei
+- generated_at: 2026-05-28 20:20:11 Asia/Taipei
 - stock_id: 6593
 - stock_name: 台灣銘板
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 35.15
 - low: 34.65
 - close: 35
-- volume: 88079
+- volume: 35000
 - ma5: 35.17
 - ema23_primary: 35.6
 - distance_to_ema23_pct: -1.68
@@ -69,7 +69,7 @@
 - ma120: 37.77
 - return_5d: -0.28
 - return_20d: -2.78
-- volume_ratio: 1.13
+- volume_ratio: 0.46
 - distance_to_ma20_pct_auxiliary: -0.83
 - distance_to_high_60_pct: -14.11
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,35.5,36,35.05,35.55,35000,35.77,-0.61,35.5,37.34,0.45
 20260526,35.25,35.25,34.5,35.1,35000,35.71,-1.72,35.42,37.26,0.46
 20260527,34.95,35,34.65,35,35000,35.65,-1.83,35.34,37.17,0.45
-20260528,34.65,35.15,34.65,35,88079,35.6,-1.68,35.29,37.08,1.13
+20260528,34.65,35.15,34.65,35,35000,35.6,-1.68,35.29,37.08,0.46
 ```
 
 ## Latest TDCC Snapshot

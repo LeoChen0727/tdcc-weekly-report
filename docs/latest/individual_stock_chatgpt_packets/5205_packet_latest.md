@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5205 中茂
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:53 Asia/Taipei
+- generated_at: 2026-05-28 20:19:40 Asia/Taipei
 - stock_id: 5205
 - stock_name: 中茂
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 23.8
 - low: 21.6
 - close: 23.45
-- volume: 11022
+- volume: 23000
 - ma5: 23.7
 - ema23_primary: 23.48
 - distance_to_ema23_pct: -0.12
@@ -69,7 +69,7 @@
 - ma120: 27.8
 - return_5d: 3.3
 - return_20d: 2.85
-- volume_ratio: 1.1
+- volume_ratio: 2.17
 - distance_to_ma20_pct_auxiliary: 3.84
 - distance_to_high_60_pct: -24.11
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,23.7,23.7,23.7,23.7,24000,23.41,1.23,22.53,26.25,3.14
 20260526,23.85,23.85,23.85,23.85,24000,23.45,1.72,22.53,26.18,2.74
 20260527,23.85,23.85,23.85,23.85,24000,23.48,1.57,22.55,26.12,2.49
-20260528,23.8,23.8,21.6,23.45,11022,23.48,-0.12,22.58,26.05,1.1
+20260528,23.8,23.8,21.6,23.45,23000,23.48,-0.12,22.58,26.05,2.17
 ```
 
 ## Latest TDCC Snapshot

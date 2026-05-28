@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4205 中華食
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:40 Asia/Taipei
+- generated_at: 2026-05-28 20:19:26 Asia/Taipei
 - stock_id: 4205
 - stock_name: 中華食
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 72.8
 - low: 72.3
 - close: 72.4
-- volume: 52576
+- volume: 72000
 - ma5: 72.74
 - ema23_primary: 73.7
 - distance_to_ema23_pct: -1.76
@@ -69,7 +69,7 @@
 - ma120: 78.1
 - return_5d: -0.96
 - return_20d: -3.47
-- volume_ratio: 1.22
+- volume_ratio: 1.63
 - distance_to_ma20_pct_auxiliary: -1.31
 - distance_to_high_60_pct: -9.84
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,73.2,73.2,72.7,72.8,73000,74.04,-1.67,73.67,75.92,1.79
 20260526,72.7,72.8,72.6,72.6,73000,73.92,-1.78,73.58,75.83,1.77
 20260527,72.8,72.8,72.6,72.7,73000,73.82,-1.51,73.49,75.75,1.76
-20260528,72.8,72.8,72.3,72.4,52576,73.7,-1.76,73.36,75.67,1.22
+20260528,72.8,72.8,72.3,72.4,72000,73.7,-1.76,73.36,75.67,1.63
 ```
 
 ## Latest TDCC Snapshot

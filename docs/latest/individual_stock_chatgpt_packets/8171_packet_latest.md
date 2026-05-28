@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8171 天宇
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:47 Asia/Taipei
+- generated_at: 2026-05-28 20:20:35 Asia/Taipei
 - stock_id: 8171
 - stock_name: 天宇
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 23.7
 - low: 22.85
 - close: 22.95
-- volume: 236891
+- volume: 23000
 - ma5: 23.18
 - ema23_primary: 23.41
 - distance_to_ema23_pct: -1.98
@@ -69,7 +69,7 @@
 - ma120: 25.52
 - return_5d: -1.71
 - return_20d: 0.22
-- volume_ratio: 1.13
+- volume_ratio: 0.12
 - distance_to_ma20_pct_auxiliary: -1.24
 - distance_to_high_60_pct: -17.59
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,23.7,23.75,23.25,23.3,23000,23.55,-1.05,23.22,24.67,0.11
 20260526,23.7,23.7,23,23.05,23000,23.51,-1.94,23.23,24.58,0.11
 20260527,23.45,23.45,22.9,22.9,23000,23.46,-2.37,23.23,24.49,0.12
-20260528,23.3,23.7,22.85,22.95,236891,23.41,-1.98,23.24,24.41,1.13
+20260528,23.3,23.7,22.85,22.95,23000,23.41,-1.98,23.24,24.41,0.12
 ```
 
 ## Latest TDCC Snapshot

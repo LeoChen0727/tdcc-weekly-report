@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6023 元大期
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:04 Asia/Taipei
+- generated_at: 2026-05-28 20:19:51 Asia/Taipei
 - stock_id: 6023
 - stock_name: 元大期
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 99.8
 - low: 98.6
 - close: 99.1
-- volume: 156678
+- volume: 99000
 - ma5: 98.5
 - ema23_primary: 98.66
 - distance_to_ema23_pct: 0.45
@@ -69,7 +69,7 @@
 - ma120: 96.33
 - return_5d: 1.02
 - return_20d: 0
-- volume_ratio: 0.92
+- volume_ratio: 0.59
 - distance_to_ma20_pct_auxiliary: 0.02
 - distance_to_high_60_pct: -3.32
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,98.9,98.9,97.4,97.9,98000,98.64,-0.75,99.08,97.31,0.6
 20260526,98.4,98.7,97.7,98.2,98000,98.6,-0.41,99.07,97.36,0.6
 20260527,98.2,99.7,98,98.8,99000,98.62,0.18,99.08,97.43,0.6
-20260528,99.4,99.8,98.6,99.1,156678,98.66,0.45,99.08,97.51,0.92
+20260528,99.4,99.8,98.6,99.1,99000,98.66,0.45,99.08,97.51,0.59
 ```
 
 ## Latest TDCC Snapshot

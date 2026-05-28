@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4303 信立
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:40 Asia/Taipei
+- generated_at: 2026-05-28 20:19:27 Asia/Taipei
 - stock_id: 4303
 - stock_name: 信立
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 48
 - low: 46.55
 - close: 47.1
-- volume: 673710
+- volume: 47000
 - ma5: 48.24
 - ema23_primary: 50
 - distance_to_ema23_pct: -5.81
@@ -69,7 +69,7 @@
 - ma120: 57.17
 - return_5d: -3.38
 - return_20d: -13.26
-- volume_ratio: 0.99
+- volume_ratio: 0.07
 - distance_to_ma20_pct_auxiliary: -5.61
 - distance_to_high_60_pct: -23.79
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,49.3,49.95,48.1,49.3,49000,50.64,-2.64,50.77,53.85,0.06
 20260526,49.9,50.3,49.3,49.4,50000,50.53,-2.24,50.55,53.71,0.06
 20260527,49.45,49.45,47.3,47.35,48000,50.27,-5.81,50.26,53.55,0.07
-20260528,47.4,48,46.55,47.1,673710,50,-5.81,49.9,53.4,0.99
+20260528,47.4,48,46.55,47.1,47000,50,-5.81,49.9,53.4,0.07
 ```
 
 ## Latest TDCC Snapshot

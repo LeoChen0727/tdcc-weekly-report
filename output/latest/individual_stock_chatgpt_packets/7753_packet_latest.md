@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7753 星亞
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:40 Asia/Taipei
+- generated_at: 2026-05-28 20:20:28 Asia/Taipei
 - stock_id: 7753
 - stock_name: 星亞
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 45.2
 - low: 42.15
 - close: 42.4
-- volume: 72206
+- volume: 44000
 - ma5: 43.16
 - ema23_primary: 42.4
 - distance_to_ema23_pct: 0.01
@@ -69,7 +69,7 @@
 - ma120: 42.03
 - return_5d: 2.66
 - return_20d: -3.42
-- volume_ratio: 1.69
+- volume_ratio: 1.06
 - distance_to_ma20_pct_auxiliary: 0.01
 - distance_to_high_60_pct: -19.24
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,42.95,43.8,42.15,42.9,43000,42.13,1.82,42.48,41.41,0.92
 20260526,42.9,43.7,42.55,43.05,43000,42.21,1.99,42.44,41.41,1.03
 20260527,43.3,45,43.25,44.45,44000,42.4,4.85,42.47,41.44,1.05
-20260528,45.2,45.2,42.15,42.4,72206,42.4,0.01,42.4,41.43,1.69
+20260528,45.2,45.2,42.15,42.4,44000,42.4,0.01,42.4,41.43,1.06
 ```
 
 ## Latest TDCC Snapshot

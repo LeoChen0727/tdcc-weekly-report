@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3577 泓格
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:31 Asia/Taipei
+- generated_at: 2026-05-28 20:19:17 Asia/Taipei
 - stock_id: 3577
 - stock_name: 泓格
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 161
 - low: 145
 - close: 161
-- volume: 2526105
+- volume: 158000
 - ma5: 153.3
 - ema23_primary: 119.11
 - distance_to_ema23_pct: 35.17
@@ -69,7 +69,7 @@
 - ma120: 74.3
 - return_5d: 21.51
 - return_20d: 95.63
-- volume_ratio: 2.18
+- volume_ratio: 0.15
 - distance_to_ma20_pct_auxiliary: 39.44
 - distance_to_high_60_pct: -3.01
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,155,160,151.5,160,158000,108.73,47.15,104.76,81.14,0.15
 20260526,160,166,153.5,153.5,159000,112.46,36.49,108.28,82.67,0.15
 20260527,158.5,159,141.5,146.5,150000,115.3,27.06,111.53,84.08,0.14
-20260528,146.5,161,145,161,2526105,119.11,35.17,115.46,85.73,2.18
+20260528,146.5,161,145,161,158000,119.11,35.17,115.46,85.73,0.15
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3577 | 泓格 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

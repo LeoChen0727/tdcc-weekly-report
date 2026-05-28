@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5902 德記
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:03 Asia/Taipei
+- generated_at: 2026-05-28 20:19:50 Asia/Taipei
 - stock_id: 5902
 - stock_name: 德記
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 36.55
 - low: 34
 - close: 35
-- volume: 569086
+- volume: 35000
 - ma5: 36.8
 - ema23_primary: 37.54
 - distance_to_ema23_pct: -6.78
@@ -69,7 +69,7 @@
 - ma120: 40.61
 - return_5d: -6.67
 - return_20d: -6.91
-- volume_ratio: 6.84
+- volume_ratio: 0.62
 - distance_to_ma20_pct_auxiliary: -6.94
 - distance_to_high_60_pct: -14.11
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,37.6,37.6,36.9,37.5,37000,37.93,-1.13,37.9,38.55,0.66
 20260526,36.85,37.4,36.25,37.15,37000,37.86,-1.89,37.83,38.5,0.66
 20260527,37.4,37.5,35,36.8,36000,37.78,-2.58,37.74,38.45,0.64
-20260528,36.55,36.55,34,35,569086,37.54,-6.78,37.61,38.38,6.84
+20260528,36.55,36.55,34,35,35000,37.54,-6.78,37.61,38.38,0.62
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8931 大汽電
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:54 Asia/Taipei
+- generated_at: 2026-05-28 20:20:42 Asia/Taipei
 - stock_id: 8931
 - stock_name: 大汽電
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 43.5
 - low: 42.15
 - close: 42.15
-- volume: 72365
+- volume: 43000
 - ma5: 42.52
 - ema23_primary: 42.27
 - distance_to_ema23_pct: -0.28
@@ -69,7 +69,7 @@
 - ma120: 44.59
 - return_5d: 0.36
 - return_20d: 0.84
-- volume_ratio: 1.05
+- volume_ratio: 0.64
 - distance_to_ma20_pct_auxiliary: 0.31
 - distance_to_high_60_pct: -18.31
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,42.45,42.45,41.55,42,42000,42.12,-0.29,41.85,43.58,0.67
 20260526,42.25,42.7,41.55,42.7,42000,42.17,1.26,41.91,43.52,0.65
 20260527,44.8,44.8,42.7,43.5,44000,42.28,2.89,42,43.48,0.66
-20260528,43.1,43.5,42.15,42.15,72365,42.27,-0.28,42.02,43.41,1.05
+20260528,43.1,43.5,42.15,42.15,43000,42.27,-0.28,42.02,43.41,0.64
 ```
 
 ## Latest TDCC Snapshot

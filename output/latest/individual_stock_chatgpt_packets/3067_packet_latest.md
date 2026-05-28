@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3067 全域
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:16 Asia/Taipei
+- generated_at: 2026-05-28 20:19:02 Asia/Taipei
 - stock_id: 3067
 - stock_name: 全域
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 19.4
 - low: 18.8
 - close: 18.8
-- volume: 17389
+- volume: 19000
 - ma5: 18.23
 - ema23_primary: 17.92
 - distance_to_ema23_pct: 4.89
@@ -69,7 +69,7 @@
 - ma120: 18.36
 - return_5d: 7.43
 - return_20d: 7.43
-- volume_ratio: 1.84
+- volume_ratio: 1.99
 - distance_to_ma20_pct_auxiliary: 6.08
 - distance_to_high_60_pct: -10.9
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,17.35,18.45,17.25,18.45,17000,17.75,3.94,17.66,18.07,2.27
 20260526,18.3,18.3,18.15,18.15,18000,17.78,2.06,17.65,18.06,2.18
 20260527,18.45,18.5,18.45,18.5,18000,17.84,3.68,17.66,18.06,1.99
-20260528,18.85,19.4,18.8,18.8,17389,17.92,4.89,17.72,18.06,1.84
+20260528,18.85,19.4,18.8,18.8,19000,17.92,4.89,17.72,18.06,1.99
 ```
 
 ## Latest TDCC Snapshot

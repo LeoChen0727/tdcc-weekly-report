@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3664 安瑞-KY
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:33 Asia/Taipei
+- generated_at: 2026-05-28 20:19:20 Asia/Taipei
 - stock_id: 3664
 - stock_name: 安瑞-KY
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 7.68
 - low: 7.67
 - close: 7.67
-- volume: 45998
+- volume: 8000
 - ma5: 8.19
 - ema23_primary: 8.23
 - distance_to_ema23_pct: -6.83
@@ -69,7 +69,7 @@
 - ma120: 12.81
 - return_5d: -13.63
 - return_20d: 46.37
-- volume_ratio: 0.35
+- volume_ratio: 0.06
 - distance_to_ma20_pct_auxiliary: -3.66
 - distance_to_high_60_pct: -50.52
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,8.25,8.27,8.24,8.24,8000,8.35,-1.29,7.66,9.98,0.05
 20260526,7.72,8.24,7.72,8.24,8000,8.34,-1.19,7.75,9.89,0.05
 20260527,8.24,8.24,7.62,7.67,8000,8.28,-7.4,7.84,9.78,0.06
-20260528,7.67,7.68,7.67,7.67,45998,8.23,-6.83,7.96,9.68,0.35
+20260528,7.67,7.68,7.67,7.67,8000,8.23,-6.83,7.96,9.68,0.06
 ```
 
 ## Latest TDCC Snapshot

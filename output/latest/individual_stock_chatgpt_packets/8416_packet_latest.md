@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8416 實威
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:50 Asia/Taipei
+- generated_at: 2026-05-28 20:20:38 Asia/Taipei
 - stock_id: 8416
 - stock_name: 實威
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 189
 - low: 189
 - close: 189
-- volume: 121603
+- volume: 189000
 - ma5: 175.7
 - ema23_primary: 173.73
 - distance_to_ema23_pct: 8.79
@@ -69,7 +69,7 @@
 - ma120: 174.8
 - return_5d: 8.62
 - return_20d: 11.83
-- volume_ratio: 2.62
+- volume_ratio: 3.8
 - distance_to_ma20_pct_auxiliary: 9.04
 - distance_to_high_60_pct: 0
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,173,173,172,172,172000,172.36,-0.21,172.35,170.6,6.52
 20260526,172,172.5,170,172.5,171000,172.37,0.07,172.35,170.59,5.06
 20260527,172.5,172.5,171.5,172,172000,172.34,-0.2,172.32,170.62,4.13
-20260528,189,189,189,189,121603,173.73,8.79,173.32,170.94,2.62
+20260528,189,189,189,189,189000,173.73,8.79,173.32,170.94,3.8
 ```
 
 ## Latest TDCC Snapshot

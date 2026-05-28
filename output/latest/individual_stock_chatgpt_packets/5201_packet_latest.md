@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5201 凱衛
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:53 Asia/Taipei
+- generated_at: 2026-05-28 20:19:40 Asia/Taipei
 - stock_id: 5201
 - stock_name: 凱衛
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 28.3
 - low: 27.15
 - close: 28.3
-- volume: 182242
+- volume: 28000
 - ma5: 28.54
 - ema23_primary: 30.32
 - distance_to_ema23_pct: -6.65
@@ -69,7 +69,7 @@
 - ma120: 39.72
 - return_5d: -3.74
 - return_20d: -6.91
-- volume_ratio: 2.82
+- volume_ratio: 0.49
 - distance_to_ma20_pct_auxiliary: -4.46
 - distance_to_high_60_pct: -32.62
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,28.95,29,28.45,28.75,29000,30.91,-6.98,29.91,35.72,0.46
 20260526,29.75,29.75,28.4,28.4,29000,30.7,-7.49,29.82,35.52,0.48
 20260527,28.6,28.75,27.95,28.3,28000,30.5,-7.21,29.73,35.33,0.47
-20260528,28.3,28.3,27.15,28.3,182242,30.32,-6.65,29.62,35.1,2.82
+20260528,28.3,28.3,27.15,28.3,28000,30.32,-6.65,29.62,35.1,0.49
 ```
 
 ## Latest TDCC Snapshot

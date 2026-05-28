@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3354 律勝
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:24 Asia/Taipei
+- generated_at: 2026-05-28 20:19:10 Asia/Taipei
 - stock_id: 3354
 - stock_name: 律勝
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 34.4
 - low: 30.95
 - close: 31.35
-- volume: 1503055
+- volume: 32000
 - ma5: 33.31
 - ema23_primary: 31.82
 - distance_to_ema23_pct: -1.49
@@ -69,7 +69,7 @@
 - ma120: 26.87
 - return_5d: -2.49
 - return_20d: 18.3
-- volume_ratio: 0.73
+- volume_ratio: 0.02
 - distance_to_ma20_pct_auxiliary: -3.52
 - distance_to_high_60_pct: -16.62
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,35.15,35.9,33.4,33.75,34000,31.59,6.83,31.53,28.75,0.02
 20260526,34,36.7,33.05,34.2,35000,31.81,7.51,31.95,28.91,0.02
 20260527,34.45,35.1,32.3,32.5,33000,31.87,1.98,32.25,29.01,0.02
-20260528,32.85,34.4,30.95,31.35,1503055,31.82,-1.49,32.49,29.05,0.73
+20260528,32.85,34.4,30.95,31.35,32000,31.82,-1.49,32.49,29.05,0.02
 ```
 
 ## Latest TDCC Snapshot
@@ -123,10 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3354 | 律勝 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260528 | 3354 | 律勝 | revenue_pullback | 營收成長股價回檔 | 56.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7715 裕山
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:39 Asia/Taipei
+- generated_at: 2026-05-28 20:20:26 Asia/Taipei
 - stock_id: 7715
 - stock_name: 裕山
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 28
 - low: 27.5
 - close: 28
-- volume: 69258
+- volume: 28000
 - ma5: 28.73
 - ema23_primary: 28.74
 - distance_to_ema23_pct: -2.56
@@ -69,7 +69,7 @@
 - ma120: 30.43
 - return_5d: -5.41
 - return_20d: -0.36
-- volume_ratio: 1.27
+- volume_ratio: 0.53
 - distance_to_ma20_pct_auxiliary: -2.29
 - distance_to_high_60_pct: -15.15
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,29.6,29.6,28.1,28.35,29000,28.96,-2.12,28.7,29.37,0.54
 20260526,28.35,28.4,28,28.05,28000,28.89,-2.9,28.68,29.3,0.53
 20260527,28.2,28.95,27.85,27.85,28000,28.8,-3.31,28.66,29.23,0.53
-20260528,27.9,28,27.5,28,69258,28.74,-2.56,28.66,29.17,1.27
+20260528,27.9,28,27.5,28,28000,28.74,-2.56,28.66,29.17,0.53
 ```
 
 ## Latest TDCC Snapshot

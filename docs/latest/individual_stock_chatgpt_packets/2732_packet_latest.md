@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2732 六角
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:06 Asia/Taipei
+- generated_at: 2026-05-28 20:18:52 Asia/Taipei
 - stock_id: 2732
 - stock_name: 六角
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 63.2
 - low: 62.5
 - close: 63
-- volume: 58090
+- volume: 63000
 - ma5: 64
 - ema23_primary: 65.04
 - distance_to_ema23_pct: -3.13
@@ -69,7 +69,7 @@
 - ma120: 67.72
 - return_5d: -3.08
 - return_20d: -3.82
-- volume_ratio: 1.07
+- volume_ratio: 1.15
 - distance_to_ma20_pct_auxiliary: -3.13
 - distance_to_high_60_pct: -10.13
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,65.4,65.4,64.4,64.5,65000,65.55,-1.6,65.4,65.99,1.34
 20260526,64.3,64.3,63.7,64,64000,65.42,-2.17,65.31,65.96,1.28
 20260527,64,64,62.5,63.1,63000,65.22,-3.26,65.16,65.92,1.2
-20260528,63.1,63.2,62.5,63,58090,65.04,-3.13,65.03,65.88,1.07
+20260528,63.1,63.2,62.5,63,63000,65.04,-3.13,65.03,65.88,1.15
 ```
 
 ## Latest TDCC Snapshot

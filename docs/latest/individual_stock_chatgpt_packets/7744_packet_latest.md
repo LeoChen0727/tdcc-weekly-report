@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7744 崴寶
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:40 Asia/Taipei
+- generated_at: 2026-05-28 20:20:27 Asia/Taipei
 - stock_id: 7744
 - stock_name: 崴寶
 - packet_status: standard_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 505
 - low: 478
 - close: 478
-- volume: 279713
+- volume: 493000
 - ma5: 500.2
 - ema23_primary: 518.52
 - distance_to_ema23_pct: -7.82
@@ -69,7 +69,7 @@
 - ma120: 411.92
 - return_5d: -5.16
 - return_20d: -5.16
-- volume_ratio: 1.08
+- volume_ratio: 1.82
 - distance_to_ma20_pct_auxiliary: -10.67
 - distance_to_high_60_pct: -22.65
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,516,527,513,520,521000,526.27,-1.19,537.75,496.28,2.42
 20260526,520,521,499,505,506000,524.5,-3.72,537.3,496.84,2.22
 20260527,508,508,495,497,502000,522.21,-4.83,536.4,496.61,2.01
-20260528,498.5,505,478,478,279713,518.52,-7.82,535.1,495.76,1.08
+20260528,498.5,505,478,478,493000,518.52,-7.82,535.1,495.76,1.82
 ```
 
 ## Latest TDCC Snapshot

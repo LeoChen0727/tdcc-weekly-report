@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3512 皇龍
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:28 Asia/Taipei
+- generated_at: 2026-05-28 20:19:14 Asia/Taipei
 - stock_id: 3512
 - stock_name: 皇龍
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 20.8
 - low: 20.5
 - close: 20.55
-- volume: 99191
+- volume: 21000
 - ma5: 20.43
 - ema23_primary: 20.62
 - distance_to_ema23_pct: -0.32
@@ -69,7 +69,7 @@
 - ma120: 21.07
 - return_5d: 0.98
 - return_20d: -4.86
-- volume_ratio: 1.38
+- volume_ratio: 0.31
 - distance_to_ma20_pct_auxiliary: 0.42
 - distance_to_high_60_pct: -6.59
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,20.35,20.35,20.2,20.35,20000,20.65,-1.47,20.63,20.99,0.27
 20260526,20.35,20.45,20.2,20.45,20000,20.64,-0.91,20.57,21,0.28
 20260527,20.5,20.5,20.3,20.45,20000,20.62,-0.83,20.52,21,0.29
-20260528,20.5,20.8,20.5,20.55,99191,20.62,-0.32,20.46,20.99,1.38
+20260528,20.5,20.8,20.5,20.55,21000,20.62,-0.32,20.46,20.99,0.31
 ```
 
 ## Latest TDCC Snapshot

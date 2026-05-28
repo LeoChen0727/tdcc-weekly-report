@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00928 中信上櫃ESG 30
 
 ## Metadata
-- generated_at: 2026-05-28 19:31:24 Asia/Taipei
+- generated_at: 2026-05-28 20:18:09 Asia/Taipei
 - stock_id: 00928
 - stock_name: 中信上櫃ESG 30
 - packet_status: partial_rawdata_packet
@@ -60,7 +60,7 @@
 - high: 39.88
 - low: 37.84
 - close: 38.16
-- volume: 1816902
+- volume: 39000
 - ma5: 38.27
 - ema23_primary: 37.22
 - distance_to_ema23_pct: 2.52
@@ -69,7 +69,7 @@
 - ma120: 38.27
 - return_5d: 
 - return_20d: 
-- volume_ratio: 4.61
+- volume_ratio: 1.01
 - distance_to_ma20_pct_auxiliary: -0.28
 - distance_to_high_60_pct: -4.72
 
@@ -81,7 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,37.32,38.5,37.32,38.5,38000,,,,,
 20260526,39.1,39.67,38.23,38.73,39000,,,,,
 20260527,39.77,40.05,38.87,39.33,40000,,,,,
-20260528,39.79,39.88,37.84,38.16,1816902,37.22,2.52,38.27,38.27,4.61
+20260528,39.79,39.88,37.84,38.16,39000,37.22,2.52,38.27,38.27,1.01
 ```
 
 ## Latest TDCC Snapshot

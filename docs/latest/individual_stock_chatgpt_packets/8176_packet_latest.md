@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8176 智捷
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:47 Asia/Taipei
+- generated_at: 2026-05-28 20:20:35 Asia/Taipei
 - stock_id: 8176
 - stock_name: 智捷
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 10.25
 - low: 9.97
 - close: 10
-- volume: 276187
+- volume: 10000
 - ma5: 10.04
 - ema23_primary: 10.25
 - distance_to_ema23_pct: -2.4
@@ -69,7 +69,7 @@
 - ma120: 10.86
 - return_5d: 0.2
 - return_20d: -4.31
-- volume_ratio: 1.7
+- volume_ratio: 0.07
 - distance_to_ma20_pct_auxiliary: -1.63
 - distance_to_high_60_pct: -30.56
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,10.05,10.15,9.98,10,10000,10.31,-2.97,10.23,10.9,0.06
 20260526,10.15,10.2,10.05,10.15,10000,10.29,-1.39,10.21,10.89,0.07
 20260527,10.15,10.15,9.96,9.99,10000,10.27,-2.71,10.19,10.87,0.07
-20260528,9.97,10.25,9.97,10,276187,10.25,-2.4,10.17,10.85,1.7
+20260528,9.97,10.25,9.97,10,10000,10.25,-2.4,10.17,10.85,0.07
 ```
 
 ## Latest TDCC Snapshot

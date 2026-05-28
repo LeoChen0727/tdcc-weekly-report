@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6590 普鴻
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:23 Asia/Taipei
+- generated_at: 2026-05-28 20:20:11 Asia/Taipei
 - stock_id: 6590
 - stock_name: 普鴻
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 65.8
 - low: 65.3
 - close: 65.3
-- volume: 11423
+- volume: 66000
 - ma5: 66.04
 - ema23_primary: 67.8
 - distance_to_ema23_pct: -3.69
@@ -69,7 +69,7 @@
 - ma120: 72.21
 - return_5d: -2.39
 - return_20d: -7.11
-- volume_ratio: 0.49
+- volume_ratio: 2.51
 - distance_to_ma20_pct_auxiliary: -3.94
 - distance_to_high_60_pct: -16.71
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,66.2,67.5,66.2,66.7,67000,68.49,-2.62,68.64,70.49,3.86
 20260526,66.5,66.5,66,66.1,66000,68.29,-3.21,68.44,70.41,3.21
 20260527,66,66,65,65.1,65000,68.03,-4.3,68.22,70.31,2.76
-20260528,65.8,65.8,65.3,65.3,11423,67.8,-3.69,67.97,70.22,0.49
+20260528,65.8,65.8,65.3,65.3,66000,67.8,-3.69,67.97,70.22,2.51
 ```
 
 ## Latest TDCC Snapshot

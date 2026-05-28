@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3317 尼克森
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:23 Asia/Taipei
+- generated_at: 2026-05-28 20:19:09 Asia/Taipei
 - stock_id: 3317
 - stock_name: 尼克森
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 86
 - low: 80.7
 - close: 82.8
-- volume: 6340746
+- volume: 84000
 - ma5: 81.72
 - ema23_primary: 71.33
 - distance_to_ema23_pct: 16.08
@@ -69,7 +69,7 @@
 - ma120: 52.3
 - return_5d: 9.38
 - return_20d: 48.65
-- volume_ratio: 0.95
+- volume_ratio: 0.01
 - distance_to_ma20_pct_auxiliary: 15.55
 - distance_to_high_60_pct: -5.59
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,76.8,83.7,76.5,83.7,82000,67.88,23.31,67.73,55.45,0.01
 20260526,84.2,87.7,81,83.7,84000,69.19,20.96,69.05,56.03,0.01
 20260527,85.7,87.5,81.5,82.3,84000,70.29,17.09,70.3,56.56,0.01
-20260528,82.9,86,80.7,82.8,6340746,71.33,16.08,71.66,57.1,0.95
+20260528,82.9,86,80.7,82.8,84000,71.33,16.08,71.66,57.1,0.01
 ```
 
 ## Latest TDCC Snapshot

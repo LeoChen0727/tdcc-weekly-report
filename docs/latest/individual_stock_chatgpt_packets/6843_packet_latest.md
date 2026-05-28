@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6843 進典
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:32 Asia/Taipei
+- generated_at: 2026-05-28 20:20:20 Asia/Taipei
 - stock_id: 6843
 - stock_name: 進典
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 43.6
 - low: 41.65
 - close: 42.4
-- volume: 29000
+- volume: 42000
 - ma5: 42.78
 - ema23_primary: 44.25
 - distance_to_ema23_pct: -4.17
@@ -69,7 +69,7 @@
 - ma120: 49.82
 - return_5d: -0.93
 - return_20d: -8.82
-- volume_ratio: 1.33
+- volume_ratio: 1.87
 - distance_to_ma20_pct_auxiliary: -4.75
 - distance_to_high_60_pct: -16.37
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,46.1,46.1,43.2,43.5,44000,44.82,-2.94,45.12,46.41,2.32
 20260526,42.15,45,42.15,42.7,43000,44.64,-4.35,44.95,46.31,2.19
 20260527,44.15,44.15,41.65,41.9,42000,44.41,-5.66,44.72,46.22,2.02
-20260528,43.35,43.6,41.65,42.4,29000,44.25,-4.17,44.51,46.12,1.33
+20260528,43.35,43.6,41.65,42.4,42000,44.25,-4.17,44.51,46.12,1.87
 ```
 
 ## Latest TDCC Snapshot

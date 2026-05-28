@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6516 勤崴國際
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:20 Asia/Taipei
+- generated_at: 2026-05-28 20:20:07 Asia/Taipei
 - stock_id: 6516
 - stock_name: 勤崴國際
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 56
 - low: 54.6
 - close: 55.4
-- volume: 156093
+- volume: 55000
 - ma5: 55.7
 - ema23_primary: 57.61
 - distance_to_ema23_pct: -3.84
@@ -69,7 +69,7 @@
 - ma120: 61.59
 - return_5d: -2.98
 - return_20d: -9.33
-- volume_ratio: 1.56
+- volume_ratio: 0.58
 - distance_to_ma20_pct_auxiliary: -3.73
 - distance_to_high_60_pct: -14.77
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,56.8,56.8,55,55.6,55000,58.28,-4.6,58.41,60.68,0.59
 20260526,56.1,56.1,55.1,55.3,55000,58.03,-4.71,58.11,60.53,0.58
 20260527,55.4,55.8,55,55.4,55000,57.81,-4.17,57.83,60.37,0.58
-20260528,55.4,56,54.6,55.4,156093,57.61,-3.84,57.55,60.22,1.56
+20260528,55.4,56,54.6,55.4,55000,57.61,-3.84,57.55,60.22,0.58
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6130 上亞科技
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:06 Asia/Taipei
+- generated_at: 2026-05-28 20:19:53 Asia/Taipei
 - stock_id: 6130
 - stock_name: 上亞科技
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 22.65
 - low: 21.95
 - close: 22.05
-- volume: 141465
+- volume: 22000
 - ma5: 22.26
 - ema23_primary: 23.36
 - distance_to_ema23_pct: -5.61
@@ -69,7 +69,7 @@
 - ma120: 34.67
 - return_5d: -0.45
 - return_20d: -11.27
-- volume_ratio: 1.3
+- volume_ratio: 0.21
 - distance_to_ma20_pct_auxiliary: -3.9
 - distance_to_high_60_pct: -43.1
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,22,22.6,21.65,22.25,22000,23.67,-6,23.3,27.65,0.19
 20260526,22.75,23.6,21.9,22.95,23000,23.61,-2.8,23.22,27.38,0.22
 20260527,23.6,23.6,22.05,22.05,23000,23.48,-6.09,23.09,27.11,0.22
-20260528,22.1,22.65,21.95,22.05,141465,23.36,-5.61,22.95,26.84,1.3
+20260528,22.1,22.65,21.95,22.05,22000,23.36,-5.61,22.95,26.84,0.21
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7584 樂意
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:38 Asia/Taipei
+- generated_at: 2026-05-28 20:20:25 Asia/Taipei
 - stock_id: 7584
 - stock_name: 樂意
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 23.75
 - low: 22.2
 - close: 23.75
-- volume: 55003
+- volume: 23000
 - ma5: 25.32
 - ema23_primary: 28.78
 - distance_to_ema23_pct: -17.47
@@ -69,7 +69,7 @@
 - ma120: 35.99
 - return_5d: -13.79
 - return_20d: -29.73
-- volume_ratio: 2.14
+- volume_ratio: 0.95
 - distance_to_ma20_pct_auxiliary: -19
 - distance_to_high_60_pct: -40.62
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,27.1,27.55,26.5,26.9,27000,30.21,-10.96,30.62,33,1.17
 20260526,27.25,27.25,24.65,24.9,25000,29.77,-16.36,30.24,32.8,1.04
 20260527,24,24.4,23.35,23.35,24000,29.23,-20.13,29.82,32.57,0.98
-20260528,22.55,23.75,22.2,23.75,55003,28.78,-17.47,29.32,32.34,2.14
+20260528,22.55,23.75,22.2,23.75,23000,28.78,-17.47,29.32,32.34,0.95
 ```
 
 ## Latest TDCC Snapshot

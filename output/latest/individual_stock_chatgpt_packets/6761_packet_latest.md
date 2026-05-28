@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6761 穩得
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:30 Asia/Taipei
+- generated_at: 2026-05-28 20:20:17 Asia/Taipei
 - stock_id: 6761
 - stock_name: 穩得
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 229.5
 - low: 219
 - close: 223
-- volume: 1294089
+- volume: 225000
 - ma5: 217.5
 - ema23_primary: 202.13
 - distance_to_ema23_pct: 10.33
@@ -69,7 +69,7 @@
 - ma120: 161.72
 - return_5d: 14.07
 - return_20d: 7.47
-- volume_ratio: 1.39
+- volume_ratio: 0.26
 - distance_to_ma20_pct_auxiliary: 9.92
 - distance_to_high_60_pct: -6.69
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,206,216.5,205,209.5,212000,195.22,7.32,198.88,182.52,0.21
 20260526,221,230,218.5,230,226000,198.11,16.09,200.57,183.81,0.24
 20260527,235.5,239,220.5,223.5,230000,200.23,11.62,202.1,184.89,0.25
-20260528,225.5,229.5,219,223,1294089,202.13,10.33,202.88,185.88,1.39
+20260528,225.5,229.5,219,223,225000,202.13,10.33,202.88,185.88,0.26
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6761 | 穩得 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

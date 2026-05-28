@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6546 正基
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:22 Asia/Taipei
+- generated_at: 2026-05-28 20:20:09 Asia/Taipei
 - stock_id: 6546
 - stock_name: 正基
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 83.6
 - low: 79.5
 - close: 80.8
-- volume: 1740167
+- volume: 82000
 - ma5: 80
 - ema23_primary: 72.87
 - distance_to_ema23_pct: 10.88
@@ -69,7 +69,7 @@
 - ma120: 67.75
 - return_5d: 6.88
 - return_20d: 28.66
-- volume_ratio: 2.61
+- volume_ratio: 0.14
 - distance_to_ma20_pct_auxiliary: 13.67
 - distance_to_high_60_pct: -10.22
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,81,82.8,79,81.5,81000,70.76,15.17,68.58,71.86,0.13
 20260526,81.6,82,76.1,78.1,78000,71.37,9.42,69.32,72,0.13
 20260527,81.5,83.4,79.5,80.7,81000,72.15,11.85,70.19,72.06,0.14
-20260528,82,83.6,79.5,80.8,1740167,72.87,10.88,71.08,72.04,2.61
+20260528,82,83.6,79.5,80.8,82000,72.87,10.88,71.08,72.04,0.14
 ```
 
 ## Latest TDCC Snapshot

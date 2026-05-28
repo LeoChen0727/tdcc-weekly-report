@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6151 晉倫
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:08 Asia/Taipei
+- generated_at: 2026-05-28 20:19:55 Asia/Taipei
 - stock_id: 6151
 - stock_name: 晉倫
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 46.5
 - low: 43
 - close: 43.1
-- volume: 2016606
+- volume: 45000
 - ma5: 46.57
 - ema23_primary: 41.71
 - distance_to_ema23_pct: 3.33
@@ -69,7 +69,7 @@
 - ma120: 32.6
 - return_5d: -7.41
 - return_20d: 18.41
-- volume_ratio: 2.11
+- volume_ratio: 0.05
 - distance_to_ma20_pct_auxiliary: 3.97
 - distance_to_high_60_pct: -15.49
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,51,51,48.7,48.8,49000,40.83,19.51,40.1,34.77,0.05
 20260526,49,49.15,46.25,46.45,48000,41.3,12.46,40.65,35.03,0.05
 20260527,46.45,47.5,44.3,44.7,46000,41.58,7.49,41.12,35.26,0.05
-20260528,44.7,46.5,43,43.1,2016606,41.71,3.33,41.45,35.47,2.11
+20260528,44.7,46.5,43,43.1,45000,41.71,3.33,41.45,35.47,0.05
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6151 | 晉倫 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

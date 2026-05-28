@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5272 笙科
 
 ## Metadata
-- generated_at: 2026-05-28 19:32:55 Asia/Taipei
+- generated_at: 2026-05-28 20:19:42 Asia/Taipei
 - stock_id: 5272
 - stock_name: 笙科
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 23.1
 - low: 22
 - close: 22
-- volume: 332554
+- volume: 22000
 - ma5: 22.77
 - ema23_primary: 23.08
 - distance_to_ema23_pct: -4.69
@@ -69,7 +69,7 @@
 - ma120: 21.66
 - return_5d: -4.97
 - return_20d: -9.46
-- volume_ratio: 1.09
+- volume_ratio: 0.08
 - distance_to_ma20_pct_auxiliary: -5.45
 - distance_to_high_60_pct: -21.85
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,23.3,23.8,22.7,23.3,23000,23.28,0.1,23.57,23,0.07
 20260526,23.3,23.5,22.3,22.55,23000,23.22,-2.87,23.47,23.03,0.07
 20260527,22.6,23.2,22.15,22.8,23000,23.18,-1.65,23.38,23.07,0.08
-20260528,22.85,23.1,22,22,332554,23.08,-4.69,23.27,23.05,1.09
+20260528,22.85,23.1,22,22,22000,23.08,-4.69,23.27,23.05,0.08
 ```
 
 ## Latest TDCC Snapshot

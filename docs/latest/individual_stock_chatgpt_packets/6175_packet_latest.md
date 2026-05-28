@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6175 立敦
 
 ## Metadata
-- generated_at: 2026-05-28 19:33:09 Asia/Taipei
+- generated_at: 2026-05-28 20:19:56 Asia/Taipei
 - stock_id: 6175
 - stock_name: 立敦
 - packet_status: standard_180d_window_packet
@@ -60,7 +60,7 @@
 - high: 107
 - low: 96.1
 - close: 107
-- volume: 16962536
+- volume: 105000
 - ma5: 95.92
 - ema23_primary: 78.54
 - distance_to_ema23_pct: 36.23
@@ -69,7 +69,7 @@
 - ma120: 55.5
 - return_5d: 25.59
 - return_20d: 68.5
-- volume_ratio: 2.06
+- volume_ratio: 0.01
 - distance_to_ma20_pct_auxiliary: 39.41
 - distance_to_high_60_pct: 0
 
@@ -96,7 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,92.8,97.1,90.5,94.2,95000,72.3,30.28,71.25,57.73,0.01
 20260526,93.5,94,87.1,92.7,91000,74,25.26,72.84,58.48,0.01
 20260527,94.8,98.5,92.7,97.4,96000,75.95,28.24,74.58,59.3,0.01
-20260528,96.2,107,96.1,107,16962536,78.54,36.23,76.75,60.3,2.06
+20260528,96.2,107,96.1,107,105000,78.54,36.23,76.75,60.3,0.01
 ```
 
 ## Latest TDCC Snapshot
@@ -123,9 +123,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6175 | 立敦 | true_breakout | 嚴格突破 | 94.0 |  |  | breakout_confirmed |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
