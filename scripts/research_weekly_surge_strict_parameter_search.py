@@ -16,6 +16,7 @@ HISTORY_DIR = Path("output/history/research")
 
 OUT_CSV = LATEST_DIR / "weekly_surge_strict_parameter_search_latest.csv"
 OUT_MD = LATEST_DIR / "weekly_surge_strict_parameter_search_latest.md"
+ALL_RULES_CSV = LATEST_DIR / "weekly_surge_strict_parameter_search_all_rules_latest.csv"
 HISTORY_CSV = HISTORY_DIR / "weekly_surge_strict_parameter_search.csv"
 
 WINDOWS = list(range(1, 11)) + [20]
@@ -151,6 +152,8 @@ def summarize_picked(
         "target_window": f"D+{window}",
         "entry_basis": "D+1_open",
         "target_return_pct": TARGET_PCT,
+        "high_touch_win_definition": f"D+1 open entry; D+1 to D+{window} intraperiod high return >= {TARGET_PCT}%",
+        "close_exit_win_definition": f"D+1 open entry; D+{window} close return > 0%",
         "selected_stock_days": len(picked),
         "hit_stock_days": len(hits),
         "hit_rate_pct": round(len(hits) / len(picked) * 100, 2) if len(picked) else 0,
@@ -200,12 +203,13 @@ def build_markdown(summary: pd.DataFrame, df: pd.DataFrame) -> str:
     lines.append("")
     lines.append(f"- generated_at: `{now_text()}`")
     lines.append("- legacy_file_prefix: `weekly_surge` is kept only for backward compatibility.")
-    lines.append("- display_name_zh: `隔日開盤買進後 D+1 至 D+10、D+20 盤中觸及 +10% 研究`.")
+    lines.append("- display_name_zh: `短線動能條件參數搜尋：隔日開盤進場，D+1 到 D+10 / D+20 高點觸及 +10%`.")
     lines.append("- not_weekly_candle: `True`.")
     lines.append("- entry_basis: D+1 open, because the signal is only known after the signal-day close.")
     lines.append("- target: D+1 open to D+1 / ... / D+10 / D+20 max high >= 10%.")
     lines.append("- win_rate_definition: selected stock-days whose post-entry intraperiod high touches +10%; this is not D+N close-to-close win rate.")
     lines.append("- close_exit_definition: D+1 open entry to D+N close exit; close-exit win rate uses return > 0.")
+    lines.append(f"- complete_rules_csv: `{OUT_CSV.as_posix()}` and `{ALL_RULES_CSV.as_posix()}` contain every tested rule with win rate and return metrics.")
     lines.append("- strictness: no latest theme labels are used. Features are price/volume/technical, TDCC as-of data, and market regime derived from historical index data.")
     lines.append("- use: parameter discovery only; do not change core model weights from this table.")
     lines.append("")
@@ -219,6 +223,22 @@ def build_markdown(summary: pd.DataFrame, df: pd.DataFrame) -> str:
         hits = int(df[hit_col].sum())
         lines.append(f"| D+{window} | {hits} | {hits / total * 100:.2f}% |")
     lines.append("")
+
+    if not summary.empty:
+        lines.append("## Rule Count By Window And Sample Bucket")
+        lines.append("")
+        bucket = (
+            summary.groupby(["target_window", "sample_status"], dropna=False)
+            .agg(
+                rule_count=("rule_name", "count"),
+                median_selected_stock_days=("selected_stock_days", "median"),
+                median_high_touch_rate_pct=("hit_rate_pct", "median"),
+                median_close_exit_return_pct=("avg_next_open_to_close_return_pct", "median"),
+            )
+            .reset_index()
+        )
+        lines.append(df_to_md(bucket, limit=80))
+        lines.append("")
 
     keep = [
         "rule_family",
@@ -249,6 +269,13 @@ def build_markdown(summary: pd.DataFrame, df: pd.DataFrame) -> str:
         ]
         lines.append(df_to_md(small[keep], limit=15))
         lines.append("")
+        lines.append(f"## {window} Full Rule Table")
+        lines.append("")
+        lines.append(
+            f"完整 {window} 規則已列在 `{OUT_CSV.as_posix()}` / `{ALL_RULES_CSV.as_posix()}`。"
+            " Markdown 只列前段，避免 ChatGPT-friendly 報告過大；CSV 保留全部條件、勝率與報酬。"
+        )
+        lines.append("")
     return "\n".join(lines) + "\n"
 
 
@@ -274,14 +301,22 @@ def main() -> int:
             rows.append(summarize_picked(df, picked, rule_name, family, window, total_hits_by_window[window]))
     summary = pd.DataFrame(rows)
     if not summary.empty:
+        summary["rank_by_high_touch_in_window"] = (
+            summary.groupby("target_window")["hit_rate_pct"].rank(method="first", ascending=False).astype(int)
+        )
+        summary["rank_by_close_return_in_window"] = (
+            summary.groupby("target_window")["avg_next_open_to_close_return_pct"].rank(method="first", ascending=False).astype(int)
+        )
         summary = summary.sort_values(
             ["target_window", "sample_status", "hit_rate_pct", "selected_stock_days"],
             ascending=[True, True, False, False],
         ).reset_index(drop=True)
     write_csv(summary, OUT_CSV)
+    write_csv(summary, ALL_RULES_CSV)
     write_csv(summary, HISTORY_CSV)
     OUT_MD.write_text(build_markdown(summary, df), encoding="utf-8", newline="\n")
     print(f"Saved: {OUT_CSV} rows={len(summary)}")
+    print(f"Saved: {ALL_RULES_CSV} rows={len(summary)}")
     print(f"Saved: {OUT_MD}")
     print(f"Saved: {HISTORY_CSV} rows={len(summary)}")
     return 0
