@@ -65,18 +65,30 @@ The front priority table in the daily recommendation PDF must be selected by the
 
 Example: a revenue low-response stock with strong revenue, repeated-but-no-breakout, no warrant confirmation, and EPS/gross-margin unconfirmed is a confirmation-needed or latent-watch row. It is not a mainstream priority stock only because raw score or rank is high.
 
-## Six Categories Remain Fixed
+## Core Categories And Specialty Sections
 
-Do not add a seventh major category:
+The core daily candidate categories are controlled by the program-side output. ChatGPT must not invent, delete, rename, or merge core categories by memory.
+
+When the program-side output still uses the six-category model, keep these six core categories for historical tracking and backtest comparability:
 
 1. Strict breakout.
 2. Range strengthening / prior-high challenge watch.
-3. Revenue breakout low response.
+3. Revenue breakout, price not yet reacted. If a program field still says `revenue_breakout_low_response`, the user-facing report label should be `營收爆發股價尚未反應股`.
 4. Revenue growth pullback.
 5. Pullback then short-term strengthening.
 6. Pattern watch.
 
-Theme status, volume-attack status, catalyst tags, TDCC tags, and warrant tags are cross-category labels, not new major categories.
+Theme status, volume-attack status, catalyst tags, TDCC tags, warrant tags, short-term edge rows, non-revenue momentum rows, and backtest research rows are cross-category labels or specialty sections, not new core categories unless the program-side model explicitly changes the core category schema.
+
+Specialty sections are allowed and required when their program-side files or fields exist. They must be shown outside the core category ranking and must not change core model weights unless the backtest system later marks the signal mature and ready for review.
+
+Required specialty sections when data exists:
+
+- `daily_short_term_specialty_packet_latest.md`: standalone D+5 / D+10 short-term specialty.
+- `tdcc_overheated_short_term_edge_latest.md/csv`: standalone TDCC overheated short-term edge.
+- `weekly_surge_strict_parameter_search_latest.md/csv`: standalone strict weekly-surge parameter research.
+- `volume_attack_theme_layer_latest.md/csv` and `volume_attack_theme_stocks_latest.md/csv`: standalone volume attack x theme early-mainstream section.
+- `non_revenue_momentum_watch_latest.md/csv`, if present: standalone non-revenue momentum / theme-fund-first section.
 
 ## Required Three Lines
 
@@ -171,3 +183,64 @@ The final report must not be a thin packet summary. It must include:
 - next confirmations
 
 If data depth is insufficient, say `資料不足 / 僅能觀察` rather than filling the PDF with generic text.
+
+## Daily Recommendation ChatGPT-Side PDF Contract
+
+This task delivers four ChatGPT-side PDFs when the user asks to run the daily recommendation task:
+
+1. `每日推薦分析 PDF`
+2. `完整候選清單補充 PDF`
+3. `權證市場輔助分析 PDF`
+4. `市場風險與大盤期權背景 PDF`
+
+Repo pipeline PDFs are validation/reference artifacts. They cannot be presented as the newly generated ChatGPT-side PDFs unless the user asks only for repo artifact links or status.
+
+The curated recommendation PDF title must be:
+
+`YYYY/M/D 台股推薦標的`
+
+The curated PDF body must not contain repo read flow, internal rule explanations, debug/fallback labels, ChatGPT apologies, version labels such as `v3`, or phrases such as `流程重跑版`. Keep source/date notes minimal and outside the main investment content.
+
+The first page must be a compact table, not a long bullet list. It must show 1-2 representative stocks per program-side core category with these columns:
+
+- category
+- stock
+- rating / `decision_priority`
+- score / `decision_score`
+- selected reason from `why_selected`
+- risk / next confirmation from `why_downgraded`, `risk_tags`, `downgrade_flags`, and `next_confirmation`
+
+Each core category must then include 3-5 representative stocks when available. If fewer exist, say that program-side qualified rows are insufficient.
+
+Each representative stock must be rendered as an operation card/page, not only a row in a table. Each card must include:
+
+- stock id / name
+- category
+- mainstream or non-mainstream status from program-side fields
+- rating / score / rank
+- TDCC and warrant status
+- selected reason from `why_selected`
+- downgrade/risk disclosure from `why_downgraded`, `risk_tags`, `downgrade_flags`, `must_not_overstate`, `repeated_but_no_breakout`, `needs_eps_confirmation`, and `revenue_good_eps_unconfirmed`
+- technical state: latest close, 23EMA, MA20, MA60, prior high, platform, support, resistance, volume, volume ratio, breakout/pullback/failure status
+- conditional buy trigger
+- take-profit / reduce / exit trigger
+- no-buy condition
+- next confirmation with `trigger + action`
+- K-line chart on the same page or directly adjacent page
+
+K-line charts for representative stocks must use repo price data / 180-day windows when available. The chart must include price, volume, 23EMA as the primary line, MA20/MA60 as supporting lines, prior high/platform/support/resistance, breakout zone, and failure line when applicable. The chart is not decoration; it must match the buy/exit text.
+
+The curated PDF must include a `降級 / 鈍化 / 風險清單` near the back. This is a risk summary, not a recommendation table. It should include only stock, original category, risk reason, and handling action.
+
+Wide tables must be split into readable tables or operation cards. Do not put long `why_selected`, `why_downgraded`, or `next_confirmation` text into a narrow table cell.
+
+Before delivering the curated PDF, check:
+
+- title is `YYYY/M/D 台股推薦標的`
+- no repo/debug/read-flow text appears in the body
+- first page has category representative table
+- each representative stock has rating, score, reason, risk, next confirmation, technical state, buy trigger, exit trigger, no-buy condition, and K-line chart
+- mainstream / non-mainstream split is visible
+- required specialty sections with D+5 / D+10 data are present when files exist
+- risk list exists
+- tables are readable and not clipped
