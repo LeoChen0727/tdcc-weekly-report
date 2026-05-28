@@ -1,12 +1,12 @@
 # Calendar Data Source Status
 
-- generated_at: `2026-05-27 21:16:43 Asia/Taipei`
+- generated_at: `2026-05-28 19:15:33 Asia/Taipei`
 - policy: Official/known-calendar sources are stored. Missing or blocked sources remain pending instead of being fabricated.
 
 | source | status | rows | url | note |
 |---|---|---:|---|---|
-| twse_ex_right_ex_dividend | ok | 83 | https://www.twse.com.tw/rwd/zh/exRight/TWT48U?response=json |  |
-| monthly_revenue_expected_window | rule_based_expected_window | 474 | https://mops.twse.com.tw/mops/web/t05st10_ifrs | Expected monthly revenue publication window generated for tracked stocks; not a confirmed company catalyst. |
+| twse_ex_right_ex_dividend | ok | 102 | https://www.twse.com.tw/rwd/zh/exRight/TWT48U?response=json |  |
+| monthly_revenue_expected_window | rule_based_expected_window | 609 | https://mops.twse.com.tw/mops/web/t05st10_ifrs | Expected monthly revenue publication window generated for tracked stocks; not a confirmed company catalyst. |
 | federal_reserve_fomc | ok | 13 | https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm |  |
 | bea_release_schedule | ok | 26 | https://www.bea.gov/news/schedule |  |
 | bls_cpi_release_schedule | reachable_not_parsed | 0 | https://www.bls.gov/schedule/news_release/cpi.htm | BLS CPI release schedule was reachable, but this pipeline has not found a stable parser/output format yet. No rows were stored. |

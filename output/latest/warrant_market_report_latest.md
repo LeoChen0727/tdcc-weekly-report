@@ -1,8 +1,8 @@
 # 全市場權證資料分析與追蹤
 
-- generated_at: `2026-05-27 21:18:58 Asia/Taipei`
-- data_date: `20260527`
-- raw_rows: `29951`
+- generated_at: `2026-05-28 19:23:19 Asia/Taipei`
+- data_date: `20260528`
+- raw_rows: `30082`
 - stock_level_rows: `456`
 - turnover_ready: `True`
 - 權證只作輔助訊號，不可單獨作為買進理由。
@@ -14,156 +14,156 @@
 
 ## 二、全市場認購/認售成交金額總覽
 
-- call_turnover_total: `5382827110.0`
-- put_turnover_total: `98540020.0`
-- call_warrant_count_total: `27294.0`
-- put_warrant_count_total: `2657.0`
+- call_turnover_total: `5262566870.0`
+- put_turnover_total: `128883960.0`
+- call_warrant_count_total: `27421.0`
+- put_warrant_count_total: `2661.0`
 
 ## 三、認購成交金額前20名標的
 
 | stock_id | stock_name | call_turnover | call_warrant_count | candidate_category | tdcc_status | sub_theme |
 | --- | --- | --- | --- | --- | --- | --- |
-| 2330 | 台積電 | 212305080.0 | 936 |  |  |  |
-| 3481 | 群創 | 204881100.0 | 150 | range_rebound |  |  |
-| 2408 | 南亞科 | 146125650.0 | 173 | pattern,revenue_pullback |  |  |
-| 3017 | 奇鋐 | 143384430.0 | 413 | revenue_pullback |  |  |
-| 2454 | 聯發科 | 128870600.0 | 504 | pattern |  |  |
-| 2317 | 鴻海 | 114689780.0 | 535 | pattern |  |  |
-| 6239 | 力成 | 113600840.0 | 204 | pattern,range_rebound |  |  |
-| 2344 | 華邦電 | 107261460.0 | 159 | pattern,true_breakout |  |  |
-| 3661 | 世芯-KY | 104154590.0 | 461 | pattern |  |  |
-| 0001 | 臺股指數 | 87694000.0 | 439 |  |  |  |
-| 2449 | 京元電子 | 81875790.0 | 230 | pattern,revenue_pullback |  |  |
-| 6770 | 力積電 | 81030090.0 | 191 | pattern,range_rebound |  |  |
-| 2303 | 聯電 | 79279070.0 | 275 | true_breakout |  |  |
-| 4958 | 臻鼎-KY | 78397720.0 | 260 |  |  |  |
-| 2327 | 國巨* | 70982990.0 | 301 |  |  |  |
-| 0050 | 元大台灣50 | 69690670.0 | 234 | pattern |  |  |
-| 2308 | 台達電 | 66362720.0 | 299 | pattern |  |  |
-| 2404 | 漢唐 | 65019950.0 | 237 | pattern |  |  |
-| 1303 | 南亞 | 63041530.0 | 254 | range_rebound |  |  |
-| 2313 | 華通 | 61193500.0 | 323 | pattern |  |  |
+| 2330 | 台積電 | 235176570.0 | 940 |  |  |  |
+| 2408 | 南亞科 | 208818110.0 | 177 | pattern,pullback_rebound,range_rebound,revenue_pullback |  |  |
+| 6770 | 力積電 | 141591590.0 | 195 | pattern,true_breakout |  |  |
+| 2303 | 聯電 | 139300740.0 | 276 | range_rebound |  |  |
+| 2317 | 鴻海 | 125346980.0 | 534 | pattern,revenue_pullback |  |  |
+| 3481 | 群創 | 115301330.0 | 150 | pattern |  |  |
+| 6239 | 力成 | 109949040.0 | 207 | pattern,true_breakout |  |  |
+| 0050 | 元大台灣50 | 108729650.0 | 234 | range_rebound |  |  |
+| 2454 | 聯發科 | 103013210.0 | 503 |  |  |  |
+| 3006 | 晶豪科 | 91367120.0 | 124 | revenue_pullback |  |  |
+| 2344 | 華邦電 | 88785990.0 | 161 | pattern |  |  |
+| 0001 | 臺股指數 | 86653840.0 | 441 |  |  |  |
+| 2327 | 國巨* | 82098910.0 | 300 |  |  |  |
+| 3661 | 世芯-KY | 73821420.0 | 461 | pattern |  |  |
+| 0063 | 元大滬深300正2 | 73464910.0 | 651 |  |  |  |
+| 3017 | 奇鋐 | 67950130.0 | 417 | pattern,revenue_pullback |  |  |
+| 2313 | 華通 | 66107720.0 | 333 |  |  |  |
+| 2404 | 漢唐 | 58423450.0 | 241 | pattern,revenue_breakout_low_response,revenue_pullback |  |  |
+| 6285 | 啟碁 | 54778480.0 | 218 |  |  |  |
+| 2409 | 友達 | 53495110.0 | 190 | pattern |  |  |
 
 ## 四、認售成交金額前20名標的
 
 | stock_id | stock_name | put_turnover | put_warrant_count | candidate_category | tdcc_status | sub_theme |
 | --- | --- | --- | --- | --- | --- | --- |
-| 0001 | 臺股指數 | 27697400.0 | 443 |  |  |  |
-| 0050 | 元大台灣50 | 10575430.0 | 197 | pattern |  |  |
-| 0063 | 元大滬深300正2 | 5864480.0 | 188 |  |  |  |
-| 2330 | 台積電 | 4904980.0 | 209 |  |  |  |
-| 3481 | 群創 | 3856460.0 | 18 | range_rebound |  |  |
-| 0083 | 國泰費城半導體 | 2943280.0 | 11 |  |  |  |
-| 2454 | 聯發科 | 2916160.0 | 48 | pattern |  |  |
-| 3008 | 大立光 | 2688750.0 | 12 |  |  |  |
-| 2344 | 華邦電 | 2675870.0 | 20 | pattern,true_breakout |  |  |
-| 2408 | 南亞科 | 2512890.0 | 15 | pattern,revenue_pullback |  |  |
-| 3661 | 世芯-KY | 1811600.0 | 24 | pattern |  |  |
-| 6770 | 力積電 | 1535230.0 | 49 | pattern,range_rebound |  |  |
-| 2317 | 鴻海 | 1501090.0 | 48 | pattern |  |  |
-| 0098 | 主動統一台股增長 | 1340620.0 | 5 |  |  |  |
-| 1802 | 台玻 | 1330060.0 | 20 | pattern |  |  |
-| 2327 | 國巨* | 1310020.0 | 43 |  |  |  |
-| 2308 | 台達電 | 1303790.0 | 60 | pattern |  |  |
-| 2303 | 聯電 | 1237810.0 | 23 | true_breakout |  |  |
-| 4958 | 臻鼎-KY | 1236450.0 | 16 |  |  |  |
-| 2367 | 燿華 | 1202390.0 | 3 | pattern |  |  |
+| 0001 | 臺股指數 | 37915320.0 | 444 |  |  |  |
+| 0050 | 元大台灣50 | 11947730.0 | 198 | range_rebound |  |  |
+| 0063 | 元大滬深300正2 | 10609010.0 | 187 |  |  |  |
+| 0098 | 主動統一台股增長 | 8459700.0 | 5 |  |  |  |
+| 2330 | 台積電 | 5709090.0 | 207 |  |  |  |
+| 3481 | 群創 | 4508670.0 | 18 | pattern |  |  |
+| 2454 | 聯發科 | 3379570.0 | 48 |  |  |  |
+| 6770 | 力積電 | 3344580.0 | 49 | pattern,true_breakout |  |  |
+| 3661 | 世芯-KY | 3144720.0 | 24 | pattern |  |  |
+| 2408 | 南亞科 | 2410480.0 | 15 | pattern,pullback_rebound,range_rebound,revenue_pullback |  |  |
+| 2313 | 華通 | 2220880.0 | 48 |  |  |  |
+| 2344 | 華邦電 | 2184160.0 | 20 | pattern |  |  |
+| 2317 | 鴻海 | 2048020.0 | 48 | pattern,revenue_pullback |  |  |
+| 4958 | 臻鼎-KY | 1943320.0 | 17 |  |  |  |
+| 2303 | 聯電 | 1749540.0 | 23 | range_rebound |  |  |
+| 2368 | 金像電 | 1568720.0 | 29 | pattern,revenue_pullback |  |  |
+| 6239 | 力成 | 1449380.0 | 6 | pattern,true_breakout |  |  |
+| 3006 | 晶豪科 | 1435110.0 | 15 | revenue_pullback |  |  |
+| 1802 | 台玻 | 1431980.0 | 21 | pattern |  |  |
+| 6669 | 緯穎 | 1312270.0 | 42 | pattern,revenue_pullback |  |  |
 
 ## 五、Call/Put 比異常標的
 
 | stock_id | stock_name | call_put_turnover_ratio | call_turnover | put_turnover | candidate_category | sub_theme |
 | --- | --- | --- | --- | --- | --- | --- |
-| 4967 | 十銓 | 33257.24 | 11307460.0 | 340.0 | pattern,revenue_pullback |  |
-| 6139 | 亞翔 | 22572.56 | 38373360.0 | 1700.0 | pattern,revenue_pullback |  |
-| 6805 | 富世達 | 18035.99 | 32464780.0 | 1800.0 | revenue_breakout_low_response,revenue_pullback |  |
-| 2353 | 宏碁 | 6309.41 | 9464110.0 | 1500.0 | pattern,revenue_breakout_low_response |  |
-| 3533 | 嘉澤 | 5494.55 | 35934350.0 | 6540.0 | pattern |  |
-| 1605 | 華新 | 5443.86 | 11595420.0 | 2130.0 | pattern |  |
-| 2324 | 仁寶 | 4337.95 | 8198720.0 | 1890.0 | pattern |  |
-| 8112 | 至上 | 3047.59 | 26056930.0 | 8550.0 | pattern,pullback_rebound,range_rebound,revenue_breakout_low_response,revenue_pullback |  |
-| 5284 | jpp-KY | 2650.13 | 4717240.0 | 1780.0 | true_breakout |  |
-| 3044 | 健鼎 | 2643.4 | 37166210.0 | 14060.0 | pattern |  |
-| 6213 | 聯茂 | 2201.28 | 53204960.0 | 24170.0 |  |  |
-| 4977 | 眾達-KY | 2121.82 | 11754910.0 | 5540.0 |  |  |
-| 1503 | 士電 | 1818.68 | 26552720.0 | 14600.0 | range_rebound |  |
-| 1582 | 信錦 | 1726.27 | 9736190.0 | 5640.0 |  |  |
-| 8210 | 勤誠 | 1593.13 | 23339300.0 | 14650.0 | pattern |  |
-| 5243 | 乙盛-KY | 1553.31 | 4970590.0 | 3200.0 |  |  |
-| 3443 | 創意 | 1528.84 | 5610850.0 | 3670.0 | pattern,revenue_pullback |  |
-| 1717 | 長興 | 1411.15 | 36224150.0 | 25670.0 | range_rebound |  |
-| 2882 | 國泰金 | 1249.05 | 11741110.0 | 9400.0 | pattern,pullback_rebound,revenue_pullback,true_breakout |  |
-| 1303 | 南亞 | 1200.11 | 63041530.0 | 52530.0 | range_rebound |  |
+| 4967 | 十銓 | 584916.33 | 17547490.0 | 30.0 | pattern,revenue_pullback |  |
+| 2481 | 強茂 | 91824.7 | 51421830.0 | 560.0 | range_rebound |  |
+| 1717 | 長興 | 24936.0 | 34411680.0 | 1380.0 | pattern |  |
+| 6191 | 精成科 | 24601.85 | 9840740.0 | 400.0 | pattern |  |
+| 6531 | 愛普* | 21989.28 | 29685530.0 | 1350.0 | pullback_rebound,range_rebound,revenue_pullback |  |
+| 2486 | 一詮 | 18462.21 | 3507820.0 | 190.0 | revenue_pullback |  |
+| 2353 | 宏碁 | 15259.17 | 18311010.0 | 1200.0 | pattern,range_rebound |  |
+| 6805 | 富世達 | 15131.06 | 25722800.0 | 1700.0 | pullback_rebound,revenue_breakout_low_response,revenue_pullback |  |
+| 2360 | 致茂 | 3099.22 | 4028980.0 | 1300.0 | range_rebound,revenue_pullback |  |
+| 5284 | jpp-KY | 3065.48 | 11710130.0 | 3820.0 |  |  |
+| 1503 | 士電 | 2901.52 | 30059780.0 | 10360.0 | range_rebound |  |
+| 2474 | 可成 | 2673.0 | 12857150.0 | 4810.0 |  |  |
+| 8112 | 至上 | 2595.9 | 53112180.0 | 20460.0 | pattern,range_rebound,revenue_breakout_low_response,revenue_pullback |  |
+| 3305 | 昇貿 | 2387.07 | 21841730.0 | 9150.0 |  |  |
+| 6213 | 聯茂 | 2305.91 | 42497890.0 | 18430.0 | pattern |  |
+| 6139 | 亞翔 | 2235.01 | 37101190.0 | 16600.0 | pattern,revenue_pullback |  |
+| 3044 | 健鼎 | 1969.38 | 23041740.0 | 11700.0 | pattern,revenue_pullback |  |
+| 1514 | 亞力 | 1524.08 | 15271280.0 | 10020.0 | pattern,revenue_pullback |  |
+| 6781 | AES-KY | 1228.62 | 23835280.0 | 19400.0 | pattern |  |
+| 5243 | 乙盛-KY | 976.48 | 4823820.0 | 4940.0 | pattern |  |
 
 ## 六、族群權證熱度
 
 | sector_or_theme | stock_count | call_turnover | put_turnover | call_put_turnover_ratio | representative_codes |
 | --- | --- | --- | --- | --- | --- |
-| unknown | 456 | 5382827110.0 | 98540020.0 | 54.625796808240956 | 3017,6239,1303,2301,3006,6213,8039,1519,3450,3044 |
+| unknown | 456 | 5262566870.0 | 128883960.0 | 40.831821663456026 | 2409,2345,8112,6213,2356,6415,8028,1503,6531,2312 |
 
 ## 七、與每日候選分類、股價型態、TDCC、法人/主力資料交叉比對
 
 | stock_id | stock_name | candidate_category | tdcc_status | call_turnover | put_turnover | sub_theme |
 | --- | --- | --- | --- | --- | --- | --- |
-| 3017 | 奇鋐 | revenue_pullback |  | 143384430.0 | 272650.0 |  |
-| 6239 | 力成 | pattern,range_rebound |  | 113600840.0 | 325020.0 |  |
-| 1303 | 南亞 | range_rebound |  | 63041530.0 | 52530.0 |  |
-| 2301 | 光寶科 | pattern |  | 57899560.0 | 150490.0 |  |
-| 3006 | 晶豪科 | revenue_pullback |  | 55744200.0 | 393220.0 |  |
-| 8039 | 台虹 | pattern,range_rebound |  | 46640970.0 | 76930.0 |  |
-| 1519 | 華城 | range_rebound |  | 46327870.0 | 107940.0 |  |
-| 3044 | 健鼎 | pattern |  | 37166210.0 | 14060.0 |  |
-| 1717 | 長興 | range_rebound |  | 36224150.0 | 25670.0 |  |
-| 3533 | 嘉澤 | pattern |  | 35934350.0 | 6540.0 |  |
-| 6805 | 富世達 | revenue_breakout_low_response,revenue_pullback |  | 32464780.0 | 1800.0 |  |
-| 6706 | 惠特 | true_breakout |  | 30648480.0 | 371490.0 |  |
-| 6415 | 矽力*-KY | pattern |  | 30258420.0 | 29740.0 |  |
-| 1503 | 士電 | range_rebound |  | 26552720.0 | 14600.0 |  |
-| 8112 | 至上 | pattern,pullback_rebound,range_rebound,revenue_breakout_low_response,revenue_pullback |  | 26056930.0 | 8550.0 |  |
-| 1513 | 中興電 | pattern,range_rebound |  | 21116610.0 | 18330.0 |  |
-| 6830 | 汎銓 | revenue_pullback |  | 21065250.0 | 24090.0 |  |
-| 1514 | 亞力 | pattern,range_rebound,revenue_pullback |  | 15884080.0 | 29930.0 |  |
-| 8110 | 華東 | range_rebound |  | 15231120.0 | 19040.0 |  |
-| 6116 | 彩晶 | true_breakout |  | 12058550.0 | 389230.0 |  |
-| 2882 | 國泰金 | pattern,pullback_rebound,revenue_pullback,true_breakout |  | 11741110.0 | 9400.0 |  |
-| 2337 | 旺宏 | pattern,revenue_pullback |  | 11191930.0 | 127390.0 |  |
-| 3653 | 健策 | revenue_pullback |  | 8833150.0 | 481300.0 |  |
-| 2609 | 陽明 | range_rebound |  | 5374020.0 | 316190.0 |  |
-| 2481 | 強茂 | true_breakout |  | 52058240.0 | 0.0 |  |
-| 3673 | TPK-KY | true_breakout |  | 31249520.0 | 0.0 |  |
-| 6456 | GIS-KY | pattern |  | 24568230.0 | 0.0 |  |
-| 3042 | 晶技 | pattern |  | 23162440.0 | 0.0 |  |
-| 2351 | 順德 | pattern |  | 20297650.0 | 0.0 |  |
-| 2369 | 菱生 | pattern,true_breakout |  | 18922650.0 | 0.0 |  |
-| 2474 | 可成 | range_rebound |  | 17990780.0 | 0.0 |  |
-| 2881 | 富邦金 | pattern,true_breakout |  | 17400920.0 | 0.0 |  |
-| 2379 | 瑞昱 | pattern,range_rebound |  | 16781360.0 | 0.0 |  |
-| 2359 | 所羅門 | pattern,range_rebound |  | 15739630.0 | 0.0 |  |
-| 6719 | 力智 | pattern |  | 15662360.0 | 0.0 |  |
-| 8016 | 矽創 | true_breakout |  | 14346480.0 | 0.0 |  |
-| 6209 | 今國光 | pattern,revenue_pullback |  | 13087480.0 | 0.0 |  |
-| 6691 | 洋基工程 | pullback_rebound,range_rebound,revenue_breakout_low_response,revenue_pullback |  | 12880230.0 | 0.0 |  |
-| 2606 | 裕民 | pattern,true_breakout |  | 10257690.0 | 0.0 |  |
-| 9105 | 泰金寶-DR | pattern,true_breakout |  | 9790340.0 | 0.0 |  |
-| 2428 | 興勤 | pattern |  | 9708280.0 | 0.0 |  |
-| 6191 | 精成科 | pattern,range_rebound |  | 7845950.0 | 0.0 |  |
-| 2891 | 中信金 | pattern,revenue_pullback |  | 7326890.0 | 0.0 |  |
-| 3532 | 台勝科 | range_rebound |  | 6883320.0 | 0.0 |  |
-| 2883 | 凱基金 | pattern,pullback_rebound,range_rebound,revenue_pullback |  | 6853900.0 | 0.0 |  |
-| 3708 | 上緯投控 | range_rebound |  | 6585660.0 | 0.0 |  |
-| 8070 | 長華* | pattern,range_rebound |  | 6517230.0 | 0.0 |  |
-| 4770 | 上品 | range_rebound |  | 5807510.0 | 0.0 |  |
-| 8131 | 福懋科 | pattern,revenue_pullback |  | 5791370.0 | 0.0 |  |
-| 1409 | 新纖 | pattern,true_breakout |  | 5015420.0 | 0.0 |  |
-| 2439 | 美律 | range_rebound |  | 4628110.0 | 0.0 |  |
-| 3055 | 蔚華科 | revenue_pullback |  | 3670660.0 | 0.0 |  |
-| 5469 | 瀚宇博 | range_rebound |  | 3630990.0 | 0.0 |  |
-| 2885 | 元大金 | pattern,revenue_pullback |  | 3186200.0 | 0.0 |  |
-| 6442 | 光聖 | pattern |  | 3122950.0 | 0.0 |  |
-| 6770 | 力積電 | pattern,range_rebound |  | 81030090.0 | 1535230.0 |  |
-| 2449 | 京元電子 | pattern,revenue_pullback |  | 81875790.0 | 513340.0 |  |
-| 8150 | 南茂 | range_rebound |  | 40532980.0 | 0.0 |  |
-| 2345 | 智邦 | pattern,revenue_pullback |  | 39624930.0 | 354930.0 |  |
-| 6271 | 同欣電 | range_rebound |  | 32428280.0 | 0.0 |  |
+| 2409 | 友達 | pattern |  | 53495110.0 | 188680.0 |  |
+| 2345 | 智邦 | revenue_pullback |  | 53228480.0 | 393280.0 |  |
+| 8112 | 至上 | pattern,range_rebound,revenue_breakout_low_response,revenue_pullback |  | 53112180.0 | 20460.0 |  |
+| 6213 | 聯茂 | pattern |  | 42497890.0 | 18430.0 |  |
+| 2356 | 英業達 | pattern,range_rebound |  | 34651920.0 | 45890.0 |  |
+| 8028 | 昇陽半導體 | range_rebound |  | 31914050.0 | 162530.0 |  |
+| 1503 | 士電 | range_rebound |  | 30059780.0 | 10360.0 |  |
+| 6531 | 愛普* | pullback_rebound,range_rebound,revenue_pullback |  | 29685530.0 | 1350.0 |  |
+| 2312 | 金寶 | pattern |  | 26066960.0 | 513910.0 |  |
+| 8110 | 華東 | range_rebound |  | 23667650.0 | 233660.0 |  |
+| 2451 | 創見 | pattern,revenue_pullback |  | 20857500.0 | 357970.0 |  |
+| 2329 | 華泰 | pattern,range_rebound |  | 20695010.0 | 111900.0 |  |
+| 2353 | 宏碁 | pattern,range_rebound |  | 18311010.0 | 1200.0 |  |
+| 6116 | 彩晶 | true_breakout |  | 17705290.0 | 47110.0 |  |
+| 4967 | 十銓 | pattern,revenue_pullback |  | 17547490.0 | 30.0 |  |
+| 1514 | 亞力 | pattern,revenue_pullback |  | 15271280.0 | 10020.0 |  |
+| 2337 | 旺宏 | pattern,pullback_rebound,revenue_pullback |  | 14937490.0 | 34960.0 |  |
+| 6191 | 精成科 | pattern |  | 9840740.0 | 400.0 |  |
+| 6862 | 三集瑞-KY | pattern,range_rebound |  | 8448170.0 | 50500.0 |  |
+| 8271 | 宇瞻 | pullback_rebound,range_rebound,revenue_pullback |  | 8272160.0 | 28550.0 |  |
+| 2609 | 陽明 | pattern |  | 6291900.0 | 175490.0 |  |
+| 3030 | 德律 | pattern,revenue_pullback |  | 42633200.0 | 0.0 |  |
+| 7769 | 鴻勁 | range_rebound,revenue_pullback |  | 23785290.0 | 0.0 |  |
+| 4906 | 正文 | pattern,true_breakout |  | 22599050.0 | 0.0 |  |
+| 1582 | 信錦 | range_rebound |  | 15372730.0 | 0.0 |  |
+| 4938 | 和碩 | pattern,range_rebound |  | 14682910.0 | 0.0 |  |
+| 6526 | 達發 | pattern |  | 10368620.0 | 0.0 |  |
+| 1409 | 新纖 | pattern,true_breakout |  | 9746870.0 | 0.0 |  |
+| 9105 | 泰金寶-DR | pattern |  | 7961390.0 | 0.0 |  |
+| 2883 | 凱基金 | pattern,revenue_pullback |  | 7945060.0 | 0.0 |  |
+| 2637 | 慧洋-KY | pullback_rebound,range_rebound,revenue_pullback |  | 7793530.0 | 0.0 |  |
+| 3702 | 大聯大 | pattern,revenue_pullback |  | 6431780.0 | 0.0 |  |
+| 8131 | 福懋科 | pattern,revenue_pullback |  | 6377480.0 | 0.0 |  |
+| 3605 | 宏致 | pattern |  | 6333020.0 | 0.0 |  |
+| 2891 | 中信金 | pattern,pullback_rebound,range_rebound,revenue_pullback |  | 6207670.0 | 0.0 |  |
+| 8070 | 長華* | pattern,range_rebound |  | 5829760.0 | 0.0 |  |
+| 5388 | 中磊 | pattern,revenue_breakout_low_response,revenue_pullback |  | 4813910.0 | 0.0 |  |
+| 1711 | 永光 | pattern |  | 4422040.0 | 0.0 |  |
+| 2419 | 仲琦 | pattern,range_rebound |  | 4120150.0 | 0.0 |  |
+| 1476 | 儒鴻 | range_rebound |  | 3952930.0 | 0.0 |  |
+| 5469 | 瀚宇博 | pattern |  | 3318760.0 | 0.0 |  |
+| 6438 | 迅得 | pullback_rebound,range_rebound,revenue_pullback |  | 3116360.0 | 0.0 |  |
+| 2481 | 強茂 | range_rebound |  | 51421830.0 | 560.0 |  |
+| 1303 | 南亞 | pattern |  | 44530380.0 | 249730.0 |  |
+| 2049 | 上銀 | pattern |  | 39992940.0 | 149330.0 |  |
+| 6139 | 亞翔 | pattern,revenue_pullback |  | 37101190.0 | 16600.0 |  |
+| 1717 | 長興 | pattern |  | 34411680.0 | 1380.0 |  |
+| 3231 | 緯創 | pattern,revenue_breakout_low_response,revenue_pullback |  | 30245720.0 | 203680.0 |  |
+| 3583 | 辛耘 | pattern |  | 28960800.0 | 170390.0 |  |
+| 3533 | 嘉澤 | pattern |  | 28167880.0 | 95800.0 |  |
+| 6805 | 富世達 | pullback_rebound,revenue_breakout_low_response,revenue_pullback |  | 25722800.0 | 1700.0 |  |
+| 2472 | 立隆電 | true_breakout |  | 24512880.0 | 0.0 |  |
+| 3044 | 健鼎 | pattern,revenue_pullback |  | 23041740.0 | 11700.0 |  |
+| 1513 | 中興電 | pattern |  | 22088090.0 | 40450.0 |  |
+| 2375 | 凱美 | true_breakout |  | 16504400.0 | 0.0 |  |
+| 2328 | 廣宇 | pattern |  | 15349040.0 | 0.0 |  |
+| 3413 | 京鼎 | pattern |  | 14502990.0 | 0.0 |  |
+| 3019 | 亞光 | pattern,revenue_pullback |  | 13870370.0 | 0.0 |  |
+| 2379 | 瑞昱 | pattern |  | 13769570.0 | 0.0 |  |
+| 2369 | 菱生 | pattern,range_rebound |  | 13586800.0 | 0.0 |  |
 
 ## 八、過熱與反指標風險
 
@@ -175,23 +175,23 @@
 
 | stock_id | stock_name | call_turnover | call_warrant_count | candidate_category | sub_theme |
 | --- | --- | --- | --- | --- | --- |
-| 2330 | 台積電 | 212305080.0 | 936 |  |  |
-| 3481 | 群創 | 204881100.0 | 150 | range_rebound |  |
-| 2408 | 南亞科 | 146125650.0 | 173 | pattern,revenue_pullback |  |
-| 3017 | 奇鋐 | 143384430.0 | 413 | revenue_pullback |  |
-| 2454 | 聯發科 | 128870600.0 | 504 | pattern |  |
-| 2317 | 鴻海 | 114689780.0 | 535 | pattern |  |
-| 6239 | 力成 | 113600840.0 | 204 | pattern,range_rebound |  |
-| 2344 | 華邦電 | 107261460.0 | 159 | pattern,true_breakout |  |
-| 3661 | 世芯-KY | 104154590.0 | 461 | pattern |  |
-| 0001 | 臺股指數 | 87694000.0 | 439 |  |  |
-| 2449 | 京元電子 | 81875790.0 | 230 | pattern,revenue_pullback |  |
-| 6770 | 力積電 | 81030090.0 | 191 | pattern,range_rebound |  |
-| 2303 | 聯電 | 79279070.0 | 275 | true_breakout |  |
-| 4958 | 臻鼎-KY | 78397720.0 | 260 |  |  |
-| 2327 | 國巨* | 70982990.0 | 301 |  |  |
-| 0050 | 元大台灣50 | 69690670.0 | 234 | pattern |  |
-| 2308 | 台達電 | 66362720.0 | 299 | pattern |  |
-| 2404 | 漢唐 | 65019950.0 | 237 | pattern |  |
-| 1303 | 南亞 | 63041530.0 | 254 | range_rebound |  |
-| 2313 | 華通 | 61193500.0 | 323 | pattern |  |
+| 2330 | 台積電 | 235176570.0 | 940 |  |  |
+| 2408 | 南亞科 | 208818110.0 | 177 | pattern,pullback_rebound,range_rebound,revenue_pullback |  |
+| 6770 | 力積電 | 141591590.0 | 195 | pattern,true_breakout |  |
+| 2303 | 聯電 | 139300740.0 | 276 | range_rebound |  |
+| 2317 | 鴻海 | 125346980.0 | 534 | pattern,revenue_pullback |  |
+| 3481 | 群創 | 115301330.0 | 150 | pattern |  |
+| 6239 | 力成 | 109949040.0 | 207 | pattern,true_breakout |  |
+| 0050 | 元大台灣50 | 108729650.0 | 234 | range_rebound |  |
+| 2454 | 聯發科 | 103013210.0 | 503 |  |  |
+| 3006 | 晶豪科 | 91367120.0 | 124 | revenue_pullback |  |
+| 2344 | 華邦電 | 88785990.0 | 161 | pattern |  |
+| 0001 | 臺股指數 | 86653840.0 | 441 |  |  |
+| 2327 | 國巨* | 82098910.0 | 300 |  |  |
+| 3661 | 世芯-KY | 73821420.0 | 461 | pattern |  |
+| 0063 | 元大滬深300正2 | 73464910.0 | 651 |  |  |
+| 3017 | 奇鋐 | 67950130.0 | 417 | pattern,revenue_pullback |  |
+| 2313 | 華通 | 66107720.0 | 333 |  |  |
+| 2404 | 漢唐 | 58423450.0 | 241 | pattern,revenue_breakout_low_response,revenue_pullback |  |
+| 6285 | 啟碁 | 54778480.0 | 218 |  |  |
+| 2409 | 友達 | 53495110.0 | 190 | pattern |  |
