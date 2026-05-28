@@ -67,6 +67,8 @@ jobs:
       - name: Build weekly surge parameter research
         if: ${{ github.event.inputs.run_weekly_surge == 'true' }}
         run: |
+          python scripts/research_weekly_20pct_surge_volume.py
+          python scripts/research_weekly_surge_theme_segments.py
           python scripts/research_weekly_surge_technical_grid.py
           python scripts/research_weekly_surge_multifactor_grid.py
           python scripts/build_weekly_surge_multifactor_candidates.py

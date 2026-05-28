@@ -1326,9 +1326,10 @@ def weekly_surge_strict_stats_rows(stats: pd.DataFrame, horizon: str, limit: int
     rows = [[
         "rule",
         "samples",
+        "close win",
+        "avg close ret",
         "+10% touch",
         "median max ret",
-        "avg gap",
         "coverage",
         "status",
     ]]
@@ -1342,6 +1343,8 @@ def weekly_surge_strict_stats_rows(stats: pd.DataFrame, horizon: str, limit: int
     for col in [
         "selected_stock_days",
         "hit_rate_pct",
+        "win_rate_next_open_to_close_pct",
+        "avg_next_open_to_close_return_pct",
         "median_next_open_to_high_return_pct",
         "avg_signal_close_to_next_open_gap_pct",
         "coverage_of_all_hits_pct",
@@ -1357,11 +1360,55 @@ def weekly_surge_strict_stats_rows(stats: pd.DataFrame, horizon: str, limit: int
             [
                 clean_text(row.get("rule_name", ""), 52),
                 safe_str(row.get("selected_stock_days", "")),
+                pct_text(row.get("win_rate_next_open_to_close_pct", "")),
+                pct_text(row.get("avg_next_open_to_close_return_pct", "")),
                 pct_text(row.get("hit_rate_pct", "")),
                 pct_text(row.get("median_next_open_to_high_return_pct", "")),
-                pct_text(row.get("avg_signal_close_to_next_open_gap_pct", "")),
                 pct_text(row.get("coverage_of_all_hits_pct", "")),
                 clean_text(row.get("sample_status", ""), 20),
+            ]
+        )
+    return rows
+
+
+def weekly_surge_horizon_summary_rows(stats: pd.DataFrame) -> list[list[Any]]:
+    rows = [["horizon", "samples", "close win", "avg close ret", "median close ret", "+10% touch", "best rule"]]
+    if stats.empty:
+        rows.append(["n/a", "", "", "", "", "next-open +10% touch research missing"])
+        return rows
+    for day in range(1, 11):
+        horizon = f"D+{day}"
+        part = stats[stats.get("target_window", pd.Series(dtype=str)).astype(str).eq(horizon)].copy()
+        if part.empty:
+            rows.append([horizon, "", "", "", "", "rows missing"])
+            continue
+        for col in [
+            "selected_stock_days",
+            "hit_rate_pct",
+            "median_next_open_to_high_return_pct",
+            "win_rate_next_open_to_close_pct",
+            "avg_next_open_to_close_return_pct",
+            "median_next_open_to_close_return_pct",
+            "avg_signal_close_to_next_open_gap_pct",
+        ]:
+            part[col] = pd.to_numeric(part.get(col), errors="coerce")
+        part = part[part["selected_stock_days"] >= 100].sort_values(
+            ["win_rate_next_open_to_close_pct", "avg_next_open_to_close_return_pct", "selected_stock_days"],
+            ascending=[False, False, False],
+        )
+        if part.empty:
+            rows.append([horizon, "", "", "", "", "no rule has selected_stock_days >= 100"])
+            continue
+        row = part.iloc[0]
+        rows.append(
+            [
+                horizon,
+                safe_str(row.get("selected_stock_days", "")),
+                pct_text(row.get("win_rate_next_open_to_close_pct", "")),
+                pct_text(row.get("avg_next_open_to_close_return_pct", "")),
+                pct_text(row.get("median_next_open_to_close_return_pct", "")),
+                pct_text(row.get("hit_rate_pct", "")),
+                clean_text(row.get("rule_name", ""), 52),
             ]
         )
     return rows
@@ -1409,7 +1456,7 @@ def append_weekly_surge_strict_section(
 ) -> None:
     stats = load_weekly_surge_strict_search()
     candidates = load_weekly_surge_strict_candidates()
-    story.append(para("Next-Open +10% Touch Specialty (D+5 / D+10)", style_map["h1"]))
+    story.append(para("Next-Open +10% Touch Specialty (D+1-D+10)", style_map["h1"]))
     story.append(
         para(
             "Research-only section. This is not a weekly candlestick signal. Entry basis is next trading day open after the signal-day close. A hit means the high from next open to D+N reaches +10%; it is a touch-rate, not D+N close-to-close win rate. This table uses no latest theme label and must not be mixed into the core six-category ranking.",
@@ -1426,22 +1473,32 @@ def append_weekly_surge_strict_section(
         )
     )
     story.append(Spacer(1, 0.22 * cm))
-    story.append(para("D+5 Hit-Rate Table", style_map["h2"]))
+    story.append(para("D+1 to D+10 Horizon Summary", style_map["h2"]))
+    story.append(
+        make_table(
+            weekly_surge_horizon_summary_rows(stats),
+            style_map,
+            [1.0 * cm, 1.0 * cm, 1.1 * cm, 1.2 * cm, 1.2 * cm, 1.1 * cm, 7.8 * cm],
+            header_bg="#7030A0",
+        )
+    )
+    story.append(Spacer(1, 0.22 * cm))
+    story.append(para("D+5 Close-Exit / High-Touch Detail", style_map["h2"]))
     story.append(
         make_table(
             weekly_surge_strict_stats_rows(stats, "D+5", limit=6 if compact else 12),
             style_map,
-            [5.4 * cm, 1.0 * cm, 0.9 * cm, 1.3 * cm, 1.0 * cm, 1.0 * cm, 1.6 * cm],
+            [4.8 * cm, 0.9 * cm, 1.0 * cm, 1.2 * cm, 1.0 * cm, 1.2 * cm, 1.0 * cm, 1.4 * cm],
             header_bg="#375623",
         )
     )
     story.append(Spacer(1, 0.22 * cm))
-    story.append(para("D+10 Hit-Rate Table", style_map["h2"]))
+    story.append(para("D+10 Close-Exit / High-Touch Detail", style_map["h2"]))
     story.append(
         make_table(
             weekly_surge_strict_stats_rows(stats, "D+10", limit=6 if compact else 12),
             style_map,
-            [5.4 * cm, 1.0 * cm, 0.9 * cm, 1.3 * cm, 1.0 * cm, 1.0 * cm, 1.6 * cm],
+            [4.8 * cm, 0.9 * cm, 1.0 * cm, 1.2 * cm, 1.0 * cm, 1.2 * cm, 1.0 * cm, 1.4 * cm],
             header_bg="#5B9BD5",
         )
     )

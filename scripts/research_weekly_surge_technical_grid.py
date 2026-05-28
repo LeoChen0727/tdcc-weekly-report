@@ -17,7 +17,7 @@ OUT_CSV = LATEST_DIR / "weekly_surge_technical_filter_grid_latest.csv"
 OUT_MD = LATEST_DIR / "weekly_surge_technical_filter_grid_latest.md"
 HISTORY_CSV = HISTORY_DIR / "weekly_surge_technical_filter_grid.csv"
 
-WINDOWS = [5, 10, 20]
+WINDOWS = list(range(1, 11)) + [20]
 TARGET_PCT = 10.0
 MIN_SELECTED = 100
 
@@ -197,7 +197,7 @@ def build_markdown(summary: pd.DataFrame, df: pd.DataFrame) -> str:
     lines.append("")
     lines.append(f"- generated_at: `{now_text()}`")
     lines.append("- entry_basis: D+1 open.")
-    lines.append("- target: D+1 open to D+5 / D+10 / D+20 max high >= 10%.")
+    lines.append("- target: D+1 open to D+1 / ... / D+10 / D+20 max high >= 10%.")
     lines.append("- label caveat: this version uses latest stock-level theme labels for exploration only, so mainstream/non-mainstream fields can contain look-ahead bias.")
     lines.append("- use: parameter discovery only; do not change core model weights from this table.")
     lines.append("")
@@ -222,7 +222,7 @@ def build_markdown(summary: pd.DataFrame, df: pd.DataFrame) -> str:
         "coverage_of_all_hits_pct",
         "sample_status",
     ]
-    for window in ["D+5", "D+10", "D+20"]:
+    for window in [f"D+{value}" for value in WINDOWS]:
         part = summary[(summary["target_window"] == window) & (summary["selected_stock_days"] >= MIN_SELECTED)]
         lines.append(f"## Best {window} Rules")
         lines.append("")

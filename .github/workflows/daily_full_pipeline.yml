@@ -7,10 +7,6 @@ on:
         description: "Run pattern_scan and pattern_chart_generator child workflows"
         required: false
         default: "false"
-      run_heavy_research:
-        description: "Run market timing backtest, weekly surge research, surge model, and performance PDFs"
-        required: false
-        default: "false"
       run_raw_health_check:
         description: "Run full raw/pages/api health check for all core files"
         required: false
@@ -312,27 +308,11 @@ jobs:
           python scripts/build_market_regime_dashboard.py
           python scripts/validate_market_regime_dashboard.py
 
-      - name: Build market timing technical backtest
-        if: ${{ github.event.inputs.run_heavy_research == 'true' }}
-        run: |
-          python scripts/build_market_timing_technical_backtest.py
-
       - name: Build TDCC overheated short-term edge
         run: |
           python scripts/build_tdcc_overheated_short_term_edge.py
 
-      - name: Build weekly surge technical filter research
-        if: ${{ github.event.inputs.run_heavy_research == 'true' }}
-        run: |
-          python scripts/research_weekly_surge_technical_grid.py
-          python scripts/research_weekly_surge_multifactor_grid.py
-          python scripts/build_weekly_surge_multifactor_candidates.py
-          python scripts/research_weekly_surge_strict_parameter_search.py
-          python scripts/build_weekly_surge_strict_parameter_candidates.py
-          python scripts/build_daily_short_term_specialty_packet.py
-
       - name: Build daily short-term specialty packet
-        if: ${{ github.event.inputs.run_heavy_research != 'true' }}
         run: |
           python scripts/build_daily_short_term_specialty_packet.py
 
@@ -355,20 +335,6 @@ jobs:
       - name: Validate fixed daily market PDF reports
         run: |
           python scripts/validate_daily_market_report.py
-
-      - name: Update daily candidate signal tracking
-        if: ${{ github.event.inputs.run_heavy_research == 'true' }}
-        run: |
-          python scripts/update_daily_candidate_signal_performance.py
-          python scripts/generate_daily_signal_performance_report.py
-          python scripts/validate_daily_signal_performance.py
-          python scripts/validate_candidate_repeat_appearance.py
-
-      - name: Build surge precondition model
-        if: ${{ github.event.inputs.run_heavy_research == 'true' }}
-        run: |
-          python scripts/build_surge_precondition_model.py
-          python scripts/validate_surge_precondition_model.py
 
       - name: Build ChatGPT indicator usage guide
         run: |

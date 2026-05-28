@@ -19,7 +19,7 @@ OUT_CSV = LATEST_DIR / "weekly_surge_theme_segment_next_open_latest.csv"
 OUT_MD = LATEST_DIR / "weekly_surge_theme_segment_next_open_latest.md"
 HISTORY_CSV = HISTORY_DIR / "weekly_surge_theme_segment_next_open.csv"
 
-WINDOWS = [5, 10, 20]
+WINDOWS = list(range(1, 11)) + [20]
 TARGET_PCT = 10.0
 THRESHOLDS = [1.0, 1.2, 1.5, 2.0, 3.0]
 METRICS = [
@@ -263,7 +263,7 @@ def build_markdown(summary: pd.DataFrame, df: pd.DataFrame) -> str:
     lines.append("")
     lines.append(f"- generated_at: `{now_text()}`")
     lines.append("- entry_basis: D+1 open, because the signal is only known after D0 close.")
-    lines.append("- target: max high from D+1 through D+5 / D+10 / D+20 reaches at least 10% above D+1 open.")
+    lines.append("- target: max high from D+1 through D+1 / ... / D+10 / D+20 reaches at least 10% above D+1 open.")
     lines.append("- strict_no_lookahead_history: joins `daily_theme_status_history.csv` on signal_date + stock_id.")
     lines.append("- provisional_latest_stock_label: exploratory only; joins the latest stock-level theme label backward and may contain look-ahead bias.")
     lines.append("- purpose: test whether mainstream/non-mainstream labels improve practical hit rate beyond volume filters.")
@@ -309,7 +309,7 @@ def build_markdown(summary: pd.DataFrame, df: pd.DataFrame) -> str:
         provisional_rows[
             (provisional_rows["filter_metric"] == "start_5d_avg_volume_ratio")
             & (provisional_rows["threshold"] == 1.0)
-            & (provisional_rows["target_window"].isin(["D+5", "D+10", "D+20"]))
+            & (provisional_rows["target_window"].isin([f"D+{value}" for value in WINDOWS]))
         ][
             [
                 "target_window",

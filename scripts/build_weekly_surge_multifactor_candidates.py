@@ -203,7 +203,7 @@ def build_markdown(candidates: pd.DataFrame) -> str:
     lines.append(f"- generated_at: `{now_text()}`")
     lines.append("- use: research watchlist only; do not mix into daily candidate core ranking.")
     lines.append("- entry_basis: D+1 open.")
-    lines.append("- target: next-open to D+5 / D+10 / D+20 high >= 10%.")
+    lines.append("- target: next-open to D+1 / ... / D+10 / D+20 high >= 10%.")
     lines.append("- caveat: latest theme labels are provisional until strict daily theme history accumulates.")
     lines.append("")
     if candidates.empty:

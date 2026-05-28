@@ -1,6 +1,6 @@
 # Five-Trading-Day Surge Volume Target Comparison
 
-- generated_at: 2026-05-28 23:15:55 Asia/Taipei
+- generated_at: 2026-05-29 00:48:19 Asia/Taipei
 - not_weekly_candle: True. This compares rolling five-trading-day high-low event targets.
 - definition: start date is any stock trading day; future return uses max high from D0 through D+5 divided by D0 low.
 - volume baseline: previous 20 completed trading days, excluding the measured day.

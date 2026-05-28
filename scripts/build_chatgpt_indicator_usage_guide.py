@@ -159,7 +159,7 @@ def build_guide() -> str:
             [
                 ["1", "READ_ME_FIRST_DAILY_REPORT.txt", "Confirm date/report_ready and collect raw URLs."],
                 ["2", "chatgpt_indicator_usage_guide_latest.md", "Understand which indicator layer is authoritative for each task."],
-                ["3", "daily_short_term_specialty_packet_latest.md", "Mandatory for daily stock reports; contains standalone D+5/D+10 short-term specialty sections."],
+                ["3", "daily_short_term_specialty_packet_latest.md", "Mandatory for daily stock reports; contains standalone D+1-D+10 short-term specialty summary plus D+5/D+10 detail sections."],
                 ["4", "Task-specific packet/top-list CSV", "Use packet/top-list fields before PDF text."],
                 ["5", "PDF / Markdown reports", "Use as readable summaries and presentation artifacts."],
                 ["6", "External sources", "Only supplement news/events/targets; never replace repo price or TDCC raw data."],
@@ -353,7 +353,7 @@ def build_guide() -> str:
     lines.append("")
     lines.append("### Daily candidate report")
     lines.append("- Start from `daily_candidate_decision_chatgpt_packet_latest.md` or `daily_candidate_decision_latest.csv`.")
-    lines.append("- Also read `daily_short_term_specialty_packet_latest.md`; it is the mandatory source for standalone D+5/D+10 short-term specialty sections.")
+    lines.append("- Also read `daily_short_term_specialty_packet_latest.md`; it is the mandatory source for standalone D+1-D+10 short-term specialty summary plus D+5/D+10 detail sections.")
     lines.append("- Use `decision_priority` as the primary reporting priority: `A_priority_watch`, `B_confirm_needed`, `C_watch_only`, `D_risk_downgrade`.")
     lines.append("- Use `why_selected`, `why_downgraded`, and `next_confirmation` directly. Do not invent a different reason when these fields exist.")
     lines.append("- `must_not_overstate=True` means do not call the stock a top pick, even if the chart looks attractive.")
