@@ -1,0 +1,142 @@
+name: Research Backtest Pipeline
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_market_timing:
+        description: "Run market technical timing backtest"
+        required: false
+        default: "true"
+      run_weekly_surge:
+        description: "Run weekly surge parameter research"
+        required: false
+        default: "true"
+      run_surge_model:
+        description: "Run surge precondition model"
+        required: false
+        default: "true"
+      run_signal_performance:
+        description: "Run daily signal performance reports"
+        required: false
+        default: "true"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: research-backtest-pipeline-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  research-backtest-pipeline:
+    runs-on: ubuntu-latest
+
+    env:
+      TARGET_BRANCH: ${{ github.ref_name }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.ref_name }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas requests tabulate matplotlib pillow openpyxl lxml html5lib beautifulsoup4 reportlab pypdf
+
+      - name: Build market timing technical backtest
+        if: ${{ github.event.inputs.run_market_timing == 'true' }}
+        run: |
+          python scripts/update_market_index_history.py
+          python scripts/build_market_timing_technical_backtest.py
+
+      - name: Build TDCC overheated short-term edge
+        run: |
+          python scripts/build_tdcc_overheated_short_term_edge.py
+
+      - name: Build weekly surge parameter research
+        if: ${{ github.event.inputs.run_weekly_surge == 'true' }}
+        run: |
+          python scripts/research_weekly_surge_technical_grid.py
+          python scripts/research_weekly_surge_multifactor_grid.py
+          python scripts/build_weekly_surge_multifactor_candidates.py
+          python scripts/research_weekly_surge_strict_parameter_search.py
+          python scripts/build_weekly_surge_strict_parameter_candidates.py
+
+      - name: Build short-term specialty packet
+        run: |
+          python scripts/build_daily_short_term_specialty_packet.py
+
+      - name: Build surge precondition model
+        if: ${{ github.event.inputs.run_surge_model == 'true' }}
+        run: |
+          python scripts/build_surge_precondition_model.py
+          python scripts/validate_surge_precondition_model.py
+
+      - name: Update daily candidate signal performance
+        if: ${{ github.event.inputs.run_signal_performance == 'true' }}
+        run: |
+          python scripts/update_daily_candidate_signal_performance.py
+          python scripts/generate_daily_signal_performance_report.py
+          python scripts/validate_daily_signal_performance.py
+
+      - name: Rebuild ChatGPT route files
+        run: |
+          python scripts/build_chatgpt_indicator_usage_guide.py
+          python build_chatgpt_daily_report_packet.py
+          python build_chatgpt_daily_report_rules.py
+          python publish_chatgpt_report_readme_and_check.py
+
+      - name: Commit research and backtest outputs
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git pull --rebase --autostash origin "$TARGET_BRANCH" || true
+
+          git add output/history/research/ || true
+          git add output/history/surge_model/ || true
+          git add output/history/market_timing/ || true
+          git add output/history/daily_signals/ || true
+
+          git add output/latest/weekly_surge_*.csv output/latest/weekly_surge_*.md || true
+          git add output/latest/tdcc_overheated_short_term_edge_latest.csv || true
+          git add output/latest/tdcc_overheated_short_term_edge_latest.md || true
+          git add output/latest/tdcc_overheated_short_term_edge_candidates_latest.csv || true
+          git add output/latest/daily_short_term_specialty_packet_latest.md || true
+
+          git add output/latest/surge_model_*.csv output/latest/surge_model_*.md output/latest/surge_precondition_candidates_latest.csv output/latest/surge_precondition_candidates_latest.md || true
+          git add output/latest/market_timing_*.csv output/latest/market_timing_*.md || true
+          git add output/latest/daily_signal_performance_*.csv output/latest/daily_signal_performance_*.md output/latest/daily_signal_performance_*.pdf || true
+
+          git add output/latest/chatgpt_indicator_usage_guide_latest.md || true
+          git add output/latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt || true
+          git add output/latest/chatgpt_daily_report_packet_latest.txt || true
+          git add output/latest/CHATGPT_DAILY_REPORT_PACKET.txt || true
+          git add output/latest/CHATGPT_DAILY_REPORT_RULES.txt || true
+          git add output/latest/READ_ME_FIRST_DAILY_REPORT*.txt || true
+
+          git add docs/latest/ || true
+          git add scripts/build_market_timing_technical_backtest.py || true
+          git add scripts/build_tdcc_overheated_short_term_edge.py || true
+          git add scripts/build_daily_short_term_specialty_packet.py || true
+          git add scripts/research_weekly_surge_technical_grid.py || true
+          git add scripts/research_weekly_surge_multifactor_grid.py || true
+          git add scripts/build_weekly_surge_multifactor_candidates.py || true
+          git add scripts/research_weekly_surge_strict_parameter_search.py || true
+          git add scripts/build_weekly_surge_strict_parameter_candidates.py || true
+          git add scripts/build_surge_precondition_model.py || true
+          git add scripts/validate_surge_precondition_model.py || true
+          git add scripts/update_daily_candidate_signal_performance.py || true
+          git add scripts/generate_daily_signal_performance_report.py || true
+          git add scripts/validate_daily_signal_performance.py || true
+          git add .github/workflows/research_backtest_pipeline.yml || true
+
+          git status --short
+          git commit -m "Update research backtest outputs" || echo "No changes to commit"
+          bash scripts/ci_push_with_retry.sh "$TARGET_BRANCH" 5

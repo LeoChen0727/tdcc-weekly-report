@@ -1,6 +1,6 @@
 # TDCC Weekly Report Rules Index
 
-Last updated: 2026-05-27
+Last updated: 2026-05-28
 
 ## Priority
 
@@ -17,6 +17,14 @@ Last updated: 2026-05-27
 | `rules/master_priority_rules.md` | all tdcc-weekly-report tasks | 1 |
 | `rules/daily_stock_candidate_rules.md` | daily full-market candidate report | 2 |
 | `rules/astrology_rules.md` | Zi Wei / Ba Zi calendar-date strategy report | 2 |
+
+## Workflow Split
+
+| workflow | purpose | normal trigger |
+|---|---|---|
+| `.github/workflows/daily_full_pipeline.yml` | daily report-critical artifacts, packets, rules, and PDFs | manual daily run; heavy options default off |
+| `.github/workflows/research_backtest_pipeline.yml` | long backtests, weekly surge parameter research, surge model, signal performance reports | manual research refresh |
+| `.github/workflows/tdcc_history_backfill.yml` | TDCC historical data backfill and bounded derived-output rebuild | manual backfill |
 
 ## Conflict Handling
 

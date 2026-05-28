@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import math
 import sys
 from pathlib import Path
@@ -47,7 +48,7 @@ def load_theme_map() -> dict[str, dict[str, str]]:
     return {row["code"]: row.to_dict() for _, row in df.iterrows()}
 
 
-def load_tdcc_snapshots() -> list[tuple[str, pd.DataFrame]]:
+def load_tdcc_snapshots(max_dates: int | None = 26) -> list[tuple[str, pd.DataFrame]]:
     paths = sorted((HISTORY_DIR / "tdcc").glob("tdcc_holder_ratio_*.csv"))
     if LATEST_TDCC.exists():
         paths.append(LATEST_TDCC)
@@ -59,8 +60,11 @@ def load_tdcc_snapshots() -> list[tuple[str, pd.DataFrame]]:
         date = normalize_date(df["date"].dropna().astype(str).max())
         if date:
             unique[date] = path
+    dated_paths = sorted(unique.items())
+    if max_dates and max_dates > 0:
+        dated_paths = dated_paths[-max_dates:]
     out: list[tuple[str, pd.DataFrame]] = []
-    for date, path in sorted(unique.items()):
+    for date, path in dated_paths:
         df = read_csv(path, dtype=str)
         df["date"] = df["date"].map(normalize_date)
         df["code"] = df["code"].map(normalize_code)
@@ -353,8 +357,8 @@ def build_snapshot_rows_for_date(
     return rows
 
 
-def build_snapshot() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
-    snapshots = load_tdcc_snapshots()
+def build_snapshot(max_dates: int | None = 26) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    snapshots = load_tdcc_snapshots(max_dates=max_dates)
     if not snapshots:
         raise FileNotFoundError("Missing TDCC holder ratio snapshots")
     theme_map = load_theme_map()
@@ -516,9 +520,27 @@ def build_theme_breadth(snapshot: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(rows).sort_values(["breadth_score", "total_signal_count"], ascending=[False, False]).reset_index(drop=True)
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Build normalized TDCC signal structures.")
+    parser.add_argument(
+        "--max-dates",
+        type=int,
+        default=26,
+        help="Maximum latest TDCC weekly snapshots to process. Use 0 with --full-history for all dates.",
+    )
+    parser.add_argument(
+        "--full-history",
+        action="store_true",
+        help="Process all available TDCC snapshots. Use only in backfill/research jobs.",
+    )
+    return parser.parse_args()
+
+
 def main() -> int:
+    args = parse_args()
+    max_dates = None if args.full_history or args.max_dates <= 0 else args.max_dates
     TDCC_SIGNALS_DIR.mkdir(parents=True, exist_ok=True)
-    snapshot, normalized, breadth = build_snapshot()
+    snapshot, normalized, breadth = build_snapshot(max_dates=max_dates)
     if not snapshot.empty:
         snapshot = append_update_csv(snapshot, SNAPSHOT_CSV, ["signal_id"], ["signal_date", "code"])
         normalized = append_update_csv(normalized, NORMALIZED_LOG, ["signal_id"], ["signal_date", "code"])
@@ -543,13 +565,21 @@ def main() -> int:
         "# TDCC Normalized Signal Structures",
         "",
         f"- generated_at: `{now_text()}`",
+        f"- processed_snapshot_window: `{'full_history' if max_dates is None else f'latest_{max_dates}_dates'}`",
         f"- snapshot_rows: `{len(snapshot)}`",
         f"- normalized_rows: `{len(normalized)}`",
         f"- theme_breadth_rows: `{len(breadth)}`",
         "",
         "## Latest Theme Breadth",
         "",
-        markdown_table(breadth.tail(50).sort_values("breadth_score", ascending=False), ["signal_date", "primary_theme", "total_signal_count", "all_threshold_count", "consecutive_2w_count", "breadth_score", "sync_status", "theme_priority", "theme_breadth_level", "representative_codes"], 50),
+        markdown_table(
+            breadth.assign(_breadth_score=pd.to_numeric(breadth.get("breadth_score", 0), errors="coerce").fillna(0))
+            .tail(50)
+            .sort_values("_breadth_score", ascending=False)
+            .drop(columns=["_breadth_score"], errors="ignore"),
+            ["signal_date", "primary_theme", "total_signal_count", "all_threshold_count", "consecutive_2w_count", "breadth_score", "sync_status", "theme_priority", "theme_breadth_level", "representative_codes"],
+            50,
+        ),
         "",
         "## TDCC Price Phase Distribution",
         "",

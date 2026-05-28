@@ -34,6 +34,16 @@ Read in this order:
 
 If a CSV shows `Total lines: 1`, continue via packet / GitHub API / index fallback. Do not use a thin summary as a complete report.
 
+## Daily Versus Research Pipeline
+
+The normal daily pipeline must be able to finish without long research jobs.
+
+- The daily report may use the latest available research/backtest outputs, but it must not wait for a full market-timing backtest, weekly surge grid search, surge precondition model rebuild, all-source raw health sweep, or TDCC historical backfill.
+- `daily_short_term_specialty_packet_latest.md` is the daily-facing packet for short-term research sections. If deeper research files are stale or missing, report the section as research output unavailable instead of blocking the four daily PDFs.
+- Long research outputs are refreshed by `research_backtest_pipeline.yml`.
+- TDCC historical data is backfilled by `tdcc_history_backfill.yml`.
+- Daily report logic must keep these research sections separate from the six core candidate categories and must not alter core weights unless the backtest rules later mark them mature.
+
 ## Program-Side Fields Are Binding
 
 Use program-side fields first:
