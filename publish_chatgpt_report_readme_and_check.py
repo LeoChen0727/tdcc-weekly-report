@@ -62,6 +62,8 @@ DOCS_MASTER_PRIORITY_RULES = DOCS_RULES_DIR / "master_priority_rules.md"
 DOCS_DAILY_STOCK_CANDIDATE_RULES = DOCS_RULES_DIR / "daily_stock_candidate_rules.md"
 DOCS_ASTROLOGY_RULES = DOCS_RULES_DIR / "astrology_rules.md"
 DOCS_RULES_INDEX = DOCS_RULES_DIR / "rules_index_latest.md"
+ASTROLOGY_PROTOCOL = LATEST_DIR / "astrology_read_protocol_latest.md"
+DOCS_ASTROLOGY_PROTOCOL = DOCS_LATEST_DIR / "astrology_read_protocol_latest.md"
 
 LATEST_SUMMARY_MD = LATEST_DIR / "daily_market_summary_latest.md"
 LATEST_FULL_MD = LATEST_DIR / "daily_market_full_latest.md"
@@ -506,6 +508,8 @@ def build_readme(
     status_map = {item["label"]: item.get("ok") for item in checks}
 
     lines = [
+        f"astrology_read_protocol_raw_url={raw_url('main', ASTROLOGY_PROTOCOL)}",
+        f"astrology_read_protocol_pages_url={pages_url('latest/astrology_read_protocol_latest.md')}",
         "astrology_high_priority_guard=for_astrology_zi_wei_ba_zi_tasks_do_not_start_with_data_status_or_repo_status",
         "astrology_first_visible_heading_rule=first_visible_heading_must_be_fixed_chart_or_today_bazi_not_data_status",
         "astrology_forbidden_opening_heading_keys=data_status,flow_status,repo_entry_status,readme_status",
@@ -889,8 +893,12 @@ def build_readme_index(
         "date_stamped_readme_github_api_url": readme_date_stamped_github_api_url,
         "history_readme_pages_url": readme_history_pages_url,
         "history_readme_raw_url": readme_history_raw_url,
+        "astrology_read_protocol_pages_url": pages_url("latest/astrology_read_protocol_latest.md"),
+        "astrology_read_protocol_raw_url": raw_url("main", ASTROLOGY_PROTOCOL),
         "preferred_chatgpt_url": preferred_chatgpt_url,
         "recommended_read_order": [
+            "astrology_read_protocol_pages_url only for Zi Wei / Ba Zi / astrology tasks",
+            "astrology_read_protocol_raw_url only for Zi Wei / Ba Zi / astrology tasks",
             "date_stamped_readme_pages_url",
             "date_stamped_readme_raw_url",
             "date_stamped_readme_github_api_url",
@@ -925,6 +933,62 @@ def build_readme_index_text(index: dict[str, Any]) -> str:
     return "\n".join(lines)
 
 
+def build_astrology_protocol() -> str:
+    return "\n".join(
+        [
+            "# Astrology Read Protocol",
+            "",
+            "This file is the first protocol for Zi Wei / Ba Zi / astrology calendar-date tasks.",
+            "",
+            "## Stop Rule",
+            "",
+            "If the task is astrology / Zi Wei / Ba Zi, do not use the daily stock candidate report structure.",
+            "Do not start with data status, repo status, READ_ME_FIRST status, raw status, Pages status, GitHub API status, main_price_date, or report_ready.",
+            "",
+            "## Required Visible Opening",
+            "",
+            "Start the visible report with astrology content. The first visible section after the title must be one of:",
+            "",
+            "- Fixed chart verification",
+            "- Today's Ba Zi",
+            "- Today's Zi Wei",
+            "- What is different today",
+            "",
+            "A market-data note may appear only inside the wealth / stock paragraph or at the final data note.",
+            "",
+            "## Forbidden Opening Patterns",
+            "",
+            "Rewrite the report before finalizing if the first 300 visible characters contain any of these before astrology content:",
+            "",
+            "- data status",
+            "- repo status",
+            "- READ_ME_FIRST",
+            "- raw_fetch",
+            "- pages",
+            "- cache",
+            "- GitHub API",
+            "- main_price_date",
+            "- report_ready",
+            "",
+            "## Correct First Section Template",
+            "",
+            "Title: YYYY-MM-DD Daily Zi Wei / Ba Zi Strategy",
+            "",
+            "First paragraph: one sentence about today's astrology rhythm and action focus.",
+            "",
+            "First section: Fixed chart verification.",
+            "",
+            "Then continue with Today's Ba Zi, Today's Zi Wei, recent-day difference, combined interpretation, practical actions, and action instructions.",
+            "",
+            "## Market Data Role",
+            "",
+            "Stock-market repo data is only auxiliary for wealth / trading behavior-risk reminders.",
+            "A stale stock-market data date does not block an astrology report.",
+            "Do not turn an astrology report into a repo diagnostic report.",
+        ]
+    )
+
+
 def sync_docs_files() -> None:
     DOCS_LATEST_DIR.mkdir(parents=True, exist_ok=True)
     DOCS_RULES_DIR.mkdir(parents=True, exist_ok=True)
@@ -944,6 +1008,7 @@ def sync_docs_files() -> None:
     for src, dst in [
         (MASTER_PRIORITY_RULES, DOCS_MASTER_PRIORITY_RULES),
         (DAILY_STOCK_CANDIDATE_RULES, DOCS_DAILY_STOCK_CANDIDATE_RULES),
+        (ASTROLOGY_RULES, DOCS_ASTROLOGY_RULES),
         (RULES_INDEX, DOCS_RULES_INDEX),
     ]:
         if src.exists():
@@ -1184,7 +1249,10 @@ def main() -> int:
         preferred_chatgpt_url=preferred,
     )
     readme_index_text = build_readme_index_text(readme_index)
+    astrology_protocol = build_astrology_protocol()
 
+    ASTROLOGY_PROTOCOL.write_text(astrology_protocol, encoding="utf-8")
+    DOCS_ASTROLOGY_PROTOCOL.write_text(astrology_protocol, encoding="utf-8")
     README_TXT.write_text(readme, encoding="utf-8")
     DOCS_README_TXT.write_text(readme, encoding="utf-8")
     README_INDEX_TXT.write_text(readme_index_text, encoding="utf-8")

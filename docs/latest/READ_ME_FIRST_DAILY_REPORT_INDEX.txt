@@ -1,7 +1,7 @@
-generated_at=2026-05-28 11:11:54 Asia/Taipei
+generated_at=2026-05-28 11:20:22 Asia/Taipei
 main_price_date=20260527
 report_ready=True
-commit_sha=017e9bf982a5928ad63102616a86a045de78e610
+commit_sha=0187abfd8553f81d604e238dcecc55884e6d841c
 latest_readme_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT.txt
 latest_readme_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/READ_ME_FIRST_DAILY_REPORT.txt
 latest_readme_github_api_url=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/READ_ME_FIRST_DAILY_REPORT.txt?ref=main
@@ -10,8 +10,10 @@ date_stamped_readme_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-w
 date_stamped_readme_github_api_url=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/READ_ME_FIRST_DAILY_REPORT_20260527.txt?ref=main
 history_readme_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/history/reports/20260527_READ_ME_FIRST_DAILY_REPORT.txt
 history_readme_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260527_READ_ME_FIRST_DAILY_REPORT.txt
+astrology_read_protocol_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/astrology_read_protocol_latest.md
+astrology_read_protocol_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/astrology_read_protocol_latest.md
 preferred_chatgpt_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt
-recommended_read_order=date_stamped_readme_pages_url,date_stamped_readme_raw_url,date_stamped_readme_github_api_url,history_readme_pages_url,history_readme_raw_url,latest_readme_pages_url,latest_readme_raw_url,latest_readme_github_api_url
+recommended_read_order=astrology_read_protocol_pages_url only for Zi Wei / Ba Zi / astrology tasks,astrology_read_protocol_raw_url only for Zi Wei / Ba Zi / astrology tasks,date_stamped_readme_pages_url,date_stamped_readme_raw_url,date_stamped_readme_github_api_url,history_readme_pages_url,history_readme_raw_url,latest_readme_pages_url,latest_readme_raw_url,latest_readme_github_api_url
 daily_task_fallback_rule=If latest_readme_* returns an older main_price_date, do not stop. Try the date-stamped README for the expected Taiwan trading date. If that fails, try the previous 7 calendar dates through raw and GitHub API. Use only a report_ready=True entry and state the actual main_price_date used.
 
 RULES:
