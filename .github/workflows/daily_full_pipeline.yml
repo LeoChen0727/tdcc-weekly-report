@@ -270,6 +270,10 @@ jobs:
           python scripts/build_volume_attack_theme_layer.py
           python scripts/validate_volume_attack_theme_layer.py
 
+      - name: Update daily theme status history
+        run: |
+          python scripts/update_daily_theme_status_history.py
+
       - name: Update catalyst performance tracking
         run: |
           python scripts/update_catalyst_performance.py
@@ -365,6 +369,8 @@ jobs:
           cp output/latest/calendar_data_source_status_latest.md docs/latest/calendar_data_source_status_latest.md || true
           cp output/latest/event_calendar_validation_latest.md docs/latest/event_calendar_validation_latest.md || true
           cp output/latest/catalyst_needs_review_latest.md docs/latest/catalyst_needs_review_latest.md || true
+          cp output/latest/daily_theme_status_history_latest.csv docs/latest/daily_theme_status_history_latest.csv || true
+          cp output/latest/daily_theme_status_history_latest.md docs/latest/daily_theme_status_history_latest.md || true
 
           {
             echo "main_price_date=pending"
@@ -493,7 +499,11 @@ jobs:
           git add output/latest/volume_attack_theme_stocks_latest.md || true
           git add output/latest/volume_attack_theme_layer_validation_latest.json || true
           git add output/latest/volume_attack_theme_layer_validation_latest.md || true
+          git add output/latest/daily_theme_status_history_latest.csv || true
+          git add output/latest/daily_theme_status_history_latest.md || true
           git add output/history/volume_breakout/ || true
+          git add output/history/daily_signals/daily_theme_status_history.csv || true
+          git add output/history/daily_candidates/daily_theme_status_history.csv || true
           git add output/latest/chatgpt_indicator_usage_guide_latest.md || true
           git add output/latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt || true
           git add docs/latest/chatgpt_indicator_usage_guide_latest.md || true
@@ -570,6 +580,8 @@ jobs:
           git add docs/latest/volume_attack_theme_layer_latest.md || true
           git add docs/latest/volume_attack_theme_stocks_latest.csv || true
           git add docs/latest/volume_attack_theme_stocks_latest.md || true
+          git add docs/latest/daily_theme_status_history_latest.csv || true
+          git add docs/latest/daily_theme_status_history_latest.md || true
           git add docs/latest/daily_signal_performance_weekly_latest.pdf || true
           git add docs/latest/daily_signal_performance_monthly_latest.pdf || true
           git add docs/latest/warrant_market_report_latest.pdf || true
@@ -608,6 +620,7 @@ jobs:
           git add scripts/validate_volume_breakout_watch.py || true
           git add scripts/build_volume_attack_theme_layer.py || true
           git add scripts/validate_volume_attack_theme_layer.py || true
+          git add scripts/update_daily_theme_status_history.py || true
           git add scripts/update_daily_candidate_signal_performance.py || true
           git add scripts/generate_daily_signal_performance_report.py || true
           git add scripts/validate_daily_signal_performance.py || true
@@ -681,6 +694,8 @@ jobs:
           git add docs/latest/volume_attack_theme_layer_latest.md || true
           git add docs/latest/volume_attack_theme_stocks_latest.csv || true
           git add docs/latest/volume_attack_theme_stocks_latest.md || true
+          git add docs/latest/daily_theme_status_history_latest.csv || true
+          git add docs/latest/daily_theme_status_history_latest.md || true
           git add docs/latest/daily_signal_performance_weekly_latest.pdf || true
           git add docs/latest/daily_signal_performance_monthly_latest.pdf || true
           git add docs/latest/warrant_market_report_latest.pdf || true
@@ -756,6 +771,10 @@ jobs:
           git add output/latest/volume_attack_theme_stocks_latest.md || true
           git add output/latest/volume_attack_theme_layer_validation_latest.json || true
           git add output/latest/volume_attack_theme_layer_validation_latest.md || true
+          git add output/latest/daily_theme_status_history_latest.csv || true
+          git add output/latest/daily_theme_status_history_latest.md || true
+          git add output/history/daily_signals/daily_theme_status_history.csv || true
+          git add output/history/daily_candidates/daily_theme_status_history.csv || true
           git add output/latest/tdcc_overheated_short_term_edge_latest.csv || true
           git add output/latest/tdcc_overheated_short_term_edge_latest.md || true
           git add output/latest/tdcc_overheated_short_term_edge_candidates_latest.csv || true
@@ -871,6 +890,7 @@ jobs:
           git add scripts/validate_daily_theme_leadership_layer.py || true
           git add scripts/build_volume_attack_theme_layer.py || true
           git add scripts/validate_volume_attack_theme_layer.py || true
+          git add scripts/update_daily_theme_status_history.py || true
           git add scripts/build_chatgpt_indicator_usage_guide.py || true
           git add scripts/update_daily_candidate_signal_performance.py || true
           git add scripts/generate_daily_signal_performance_report.py || true

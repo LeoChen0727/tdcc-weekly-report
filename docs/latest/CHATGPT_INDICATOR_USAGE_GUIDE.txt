@@ -1,6 +1,6 @@
 # ChatGPT Indicator Usage Guide
 
-- generated_at: `2026-05-27 23:24:54 台北標準時間`
+- generated_at: `2026-05-28 12:54:07 台北標準時間`
 - main_price_date: `20260527`
 - purpose: Use program-side classifications first. ChatGPT should explain and synthesize, not re-rank from memory.
 - rule: If memory, PDF, or ad-hoc interpretation conflicts with program-side fields, use the structured program-side fields.
@@ -39,6 +39,7 @@
 | Signal performance | output/latest/daily_signal_performance_summary_latest.csv | category/TDCC/warrant/sector/revenue/catalyst groups with D+N and relative benchmark returns | pattern=2; pullback_rebound=2; range_rebound=2; revenue_breakout_low_response=2; revenue_pullback=2; true_breakout=2 | Use for review/backtest, not for one-day parameter changes. |
 | Volume breakout watch | output/latest/volume_breakout_watch_latest.csv | volume_breakout_type, volume_watch_scope, volume_breakout_priority, selection_status, not_selected_reason, risk_flags, next_volume_breakout_confirmation | D_risk_downgrade=130; B_confirm_needed=33; C_watch_only=23; A_valid_breakout_watch=10 / volume_expansion_watch=62; loose_platform_volume_watch=33; neckline_volume_breakout=27; strict_60d_volume_breakout=25; right_side_volume_attack=17; loose_ma_reclaim_volume_watch=14; platform_volume_breakout=8; abnormal_volume_up=5; loose_right_side_volume_watch=5 | Use when asked about 帶量突破 / 放量突破 / 放量攻擊. Strict breakout is only one subset. |
 | Volume attack theme layer | output/latest/volume_attack_theme_layer_latest.csv | theme_final_status, theme_volume_attack_status, leader_stock, range/strict/watch counts, interpretation | overheated_volume_theme=13; watch_volume_theme=8; single_stock_volume_attack=2; confirmed_volume_theme=1; theme_status_missing=1 / stocks=196 | Authoritative mainstream/non-mainstream split for volume-attack sections. Do not show only the theme name. |
+| Daily theme status history | output/history/daily_signals/daily_theme_status_history.csv | signal_date, stock_id, theme_final_status, theme_status_group, theme_volume_attack_status, candidate_source_type | mainstream_overheated=240; mainstream_supported=211; non_mainstream=94 / rows=545 | Use for no-lookahead mainstream/non-mainstream backtests; do not use today's theme label for older signal dates. |
 | Individual stock raw availability | output/latest/individual_stock_available_raw_data_index_slim.csv | data_quality_status, report_status, price/TDCC row counts | partial=2044; ok=81; insufficient_data=25 | Check before single-stock analysis. |
 | Catalyst layer | output/latest/fundamental_catalyst_layer_latest.md | catalyst_quality, catalyst_tags, price_reaction_level, needs_eps_confirmation | needs_review_rows=4 | Currently source-limited; do not upgrade without confirmed source rows. |
 | Chip-flow positive streak | output/latest/chip_flow_positive_streak_latest.csv | positive_streak_days and category if source data exists | rows=0 | If empty/unavailable, do not mention as active signal. |
@@ -52,6 +53,7 @@
 - `must_not_overstate=True` means do not call the stock a top pick, even if the chart looks attractive.
 - For volume breakout questions, read `volume_breakout_chatgpt_packet_latest.md`, `volume_attack_theme_layer_latest.md/csv`, `volume_attack_theme_stocks_latest.md/csv`, and then `volume_breakout_watch_latest.csv` for detail fields.
 - Every volume-attack / early-theme table must include explicit `theme_final_status` and `theme_volume_attack_status`; never show only a generic theme name.
+- For any mainstream/non-mainstream backtest, use `daily_theme_status_history.csv` by `signal_date + stock_id`. Do not join today's `theme_final_status` backward onto historical signals.
 - `theme_volume_attack_status=confirmed_volume_theme` or `early_mainstream_candidate` can be shown in the volume-attack theme line; `single_stock_volume_attack`, `non_mainstream_volume_watch`, `weak_or_non_mainstream_volume_watch`, `overheated_volume_theme`, and `failed_volume_theme` must not be mixed into the mainstream-funding front section.
 - If `tdcc_overheated_short_term_edge_latest.md/csv` exists, include its standalone D+5 and D+10 tables as a TDCC overheated short-term edge specialty; use it for reporting priority only, not core model weights.
 

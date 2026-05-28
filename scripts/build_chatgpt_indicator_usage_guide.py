@@ -115,6 +115,7 @@ def build_guide() -> str:
     volume_breakout = read_csv(LATEST_DIR / "volume_breakout_watch_latest.csv")
     volume_attack_theme = read_csv(LATEST_DIR / "volume_attack_theme_layer_latest.csv")
     volume_attack_stocks = read_csv(LATEST_DIR / "volume_attack_theme_stocks_latest.csv")
+    daily_theme_status_history = read_csv(LATEST_DIR / "daily_theme_status_history_latest.csv")
 
     main_price_date = ""
     readme = LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt"
@@ -252,6 +253,13 @@ def build_guide() -> str:
             "Authoritative mainstream/non-mainstream split for volume-attack sections. Do not show only the theme name.",
         ],
         [
+            "Daily theme status history",
+            "output/history/daily_signals/daily_theme_status_history.csv",
+            "signal_date, stock_id, theme_final_status, theme_status_group, theme_volume_attack_status, candidate_source_type",
+            f"{count_values(daily_theme_status_history, 'theme_status_group')} / rows={len(daily_theme_status_history)}",
+            "Use for no-lookahead mainstream/non-mainstream backtests; do not use today's theme label for older signal dates.",
+        ],
+        [
             "Individual stock raw availability",
             "output/latest/individual_stock_available_raw_data_index_slim.csv",
             "data_quality_status, report_status, price/TDCC row counts",
@@ -285,6 +293,7 @@ def build_guide() -> str:
     lines.append("- `must_not_overstate=True` means do not call the stock a top pick, even if the chart looks attractive.")
     lines.append("- For volume breakout questions, read `volume_breakout_chatgpt_packet_latest.md`, `volume_attack_theme_layer_latest.md/csv`, `volume_attack_theme_stocks_latest.md/csv`, and then `volume_breakout_watch_latest.csv` for detail fields.")
     lines.append("- Every volume-attack / early-theme table must include explicit `theme_final_status` and `theme_volume_attack_status`; never show only a generic theme name.")
+    lines.append("- For any mainstream/non-mainstream backtest, use `daily_theme_status_history.csv` by `signal_date + stock_id`. Do not join today's `theme_final_status` backward onto historical signals.")
     lines.append("- `theme_volume_attack_status=confirmed_volume_theme` or `early_mainstream_candidate` can be shown in the volume-attack theme line; `single_stock_volume_attack`, `non_mainstream_volume_watch`, `weak_or_non_mainstream_volume_watch`, `overheated_volume_theme`, and `failed_volume_theme` must not be mixed into the mainstream-funding front section.")
     lines.append("- If `tdcc_overheated_short_term_edge_latest.md/csv` exists, include its standalone D+5 and D+10 tables as a TDCC overheated short-term edge specialty; use it for reporting priority only, not core model weights.")
     lines.append("")

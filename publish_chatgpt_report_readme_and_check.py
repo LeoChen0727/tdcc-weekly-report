@@ -155,6 +155,9 @@ VOLUME_ATTACK_THEME_LAYER_CSV = LATEST_DIR / "volume_attack_theme_layer_latest.c
 VOLUME_ATTACK_THEME_LAYER_MD = LATEST_DIR / "volume_attack_theme_layer_latest.md"
 VOLUME_ATTACK_THEME_STOCKS_CSV = LATEST_DIR / "volume_attack_theme_stocks_latest.csv"
 VOLUME_ATTACK_THEME_STOCKS_MD = LATEST_DIR / "volume_attack_theme_stocks_latest.md"
+DAILY_THEME_STATUS_HISTORY_LATEST_CSV = LATEST_DIR / "daily_theme_status_history_latest.csv"
+DAILY_THEME_STATUS_HISTORY_LATEST_MD = LATEST_DIR / "daily_theme_status_history_latest.md"
+DAILY_THEME_STATUS_HISTORY_CSV = Path("output/history/daily_signals/daily_theme_status_history.csv")
 TDCC_OVERHEATED_EDGE_MD = LATEST_DIR / "tdcc_overheated_short_term_edge_latest.md"
 TDCC_OVERHEATED_EDGE_CSV = LATEST_DIR / "tdcc_overheated_short_term_edge_latest.csv"
 TDCC_OVERHEATED_EDGE_CANDIDATES_CSV = LATEST_DIR / "tdcc_overheated_short_term_edge_candidates_latest.csv"
@@ -611,6 +614,11 @@ def build_readme(
         f"daily_candidate_two_line_view_raw_url={raw_url('main', DAILY_CANDIDATE_TWO_LINE_VIEW_CSV)}",
         f"daily_candidate_two_line_view_md_pages_url={pages_url('latest/daily_candidate_two_line_view_latest.md')}",
         f"daily_candidate_two_line_view_md_raw_url={raw_url('main', DAILY_CANDIDATE_TWO_LINE_VIEW_MD)}",
+        f"daily_theme_status_history_raw_url={raw_url('main', DAILY_THEME_STATUS_HISTORY_CSV)}",
+        f"daily_theme_status_history_latest_raw_url={raw_url('main', DAILY_THEME_STATUS_HISTORY_LATEST_CSV)}",
+        f"daily_theme_status_history_md_raw_url={raw_url('main', DAILY_THEME_STATUS_HISTORY_LATEST_MD)}",
+        f"daily_theme_status_history_latest_pages_url={pages_url('latest/daily_theme_status_history_latest.csv')}",
+        f"daily_theme_status_history_md_pages_url={pages_url('latest/daily_theme_status_history_latest.md')}",
         f"chatgpt_indicator_usage_guide_md_raw_url={raw_url('main', INDICATOR_USAGE_GUIDE_MD)}",
         f"chatgpt_indicator_usage_guide_txt_raw_url={raw_url('main', INDICATOR_USAGE_GUIDE_TXT)}",
         f"chatgpt_indicator_usage_guide_pages_url={pages_url('latest/chatgpt_indicator_usage_guide_latest.md')}",
@@ -1406,6 +1414,11 @@ def main() -> int:
         "volume_attack_theme_stocks_csv_raw_url": raw_url("main", VOLUME_ATTACK_THEME_STOCKS_CSV),
         "volume_attack_theme_stocks_md_pages_url": pages_url("latest/volume_attack_theme_stocks_latest.md"),
         "volume_attack_theme_stocks_csv_pages_url": pages_url("latest/volume_attack_theme_stocks_latest.csv"),
+        "daily_theme_status_history_raw_url": raw_url("main", DAILY_THEME_STATUS_HISTORY_CSV),
+        "daily_theme_status_history_latest_raw_url": raw_url("main", DAILY_THEME_STATUS_HISTORY_LATEST_CSV),
+        "daily_theme_status_history_md_raw_url": raw_url("main", DAILY_THEME_STATUS_HISTORY_LATEST_MD),
+        "daily_theme_status_history_latest_pages_url": pages_url("latest/daily_theme_status_history_latest.csv"),
+        "daily_theme_status_history_md_pages_url": pages_url("latest/daily_theme_status_history_latest.md"),
         "tdcc_overheated_short_term_edge_md_raw_url": raw_url("main", TDCC_OVERHEATED_EDGE_MD),
         "tdcc_overheated_short_term_edge_csv_raw_url": raw_url("main", TDCC_OVERHEATED_EDGE_CSV),
         "tdcc_overheated_short_term_edge_candidates_csv_raw_url": raw_url("main", TDCC_OVERHEATED_EDGE_CANDIDATES_CSV),
