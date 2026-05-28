@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6785 昱展新藥
 
 ## Metadata
-- generated_at: 2026-05-27 21:28:13 Asia/Taipei
+- generated_at: 2026-05-28 19:33:30 Asia/Taipei
 - stock_id: 6785
 - stock_name: 昱展新藥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 125
-- high: 128
-- low: 124
-- close: 124.5
-- volume: 125000
-- ma5: 126.5
-- ema23_primary: 136.72
-- distance_to_ema23_pct: -8.94
-- ma20: 133.03
-- ma60: 160.57
-- ma120: 216.44
-- return_5d: 0
-- return_20d: -18.36
-- volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: -6.41
-- distance_to_high_60_pct: -42.63
+- date: 20260528
+- open: 124.5
+- high: 124.5
+- low: 122
+- close: 122.5
+- volume: 136448
+- ma5: 125.8
+- ema23_primary: 135.54
+- distance_to_ema23_pct: -9.62
+- ma20: 131.6
+- ma60: 159.31
+- ma120: 215.56
+- return_5d: -2.78
+- return_20d: -18.87
+- volume_ratio: 1.01
+- distance_to_ma20_pct_auxiliary: -6.91
+- distance_to_high_60_pct: -40.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,155,155.5,149.5,151,74000,166.98,-9.57,165.18,200.78,0.56
 20260430,150.5,151,145.5,146.5,179000,165.28,-11.36,164.2,198.8,1.31
 20260504,137.5,139,132,138.5,528000,163.04,-15.05,162.53,196.64,3.28
 20260505,139.5,139.5,136,139,139000,161.04,-13.69,161.12,194.47,0.84
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,129,129,126,127.5,128000,138.91,-8.21,135.75,163.82,0.98
 20260526,127.5,129.5,125.5,126,127000,137.84,-8.59,134.43,162.18,0.95
 20260527,125,128,124,124.5,125000,136.72,-8.94,133.03,160.57,0.95
+20260528,124.5,124.5,122,122.5,136448,135.54,-9.62,131.6,159.31,1.01
 ```
 
 ## Latest TDCC Snapshot

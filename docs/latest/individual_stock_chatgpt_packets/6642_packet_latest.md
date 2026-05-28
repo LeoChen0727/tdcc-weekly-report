@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6642 富致
 
 ## Metadata
-- generated_at: 2026-05-27 21:28:07 Asia/Taipei
+- generated_at: 2026-05-28 19:33:25 Asia/Taipei
 - stock_id: 6642
 - stock_name: 富致
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 86.5
-- high: 87.6
-- low: 83
-- close: 83.6
-- volume: 85000
-- ma5: 87.1
-- ema23_primary: 73.26
-- distance_to_ema23_pct: 14.12
-- ma20: 71.65
-- ma60: 61.09
-- ma120: 57.34
-- return_5d: -0.12
-- return_20d: 45.64
-- volume_ratio: 0.1
-- distance_to_ma20_pct_auxiliary: 16.68
-- distance_to_high_60_pct: -11.16
+- date: 20260528
+- open: 82.9
+- high: 91.9
+- low: 82.7
+- close: 91.9
+- volume: 2230069
+- ma5: 88.04
+- ema23_primary: 74.81
+- distance_to_ema23_pct: 22.84
+- ma20: 73.36
+- ma60: 61.65
+- ma120: 57.67
+- return_5d: 5.39
+- return_20d: 59
+- volume_ratio: 2.27
+- distance_to_ma20_pct_auxiliary: 25.28
+- distance_to_high_60_pct: -2.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,57.3,58.3,56.7,57.8,289000,56.49,2.32,56.1,55.87,1.69
 20260430,58.2,58.5,56.2,57.2,204000,56.55,1.15,56.3,55.92,1.14
 20260504,57,57.9,56.9,57.2,126000,56.6,1.05,56.48,55.97,0.71
 20260505,56.9,62.9,56.9,62.9,764000,57.13,10.1,56.97,56.1,3.56
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,91,94.1,88.6,90.3,90000,71.08,27.03,68.89,60.18,0.1
 20260526,90.3,90.3,84.5,85.9,86000,72.32,18.78,70.34,60.66,0.1
 20260527,86.5,87.6,83,83.6,85000,73.26,14.12,71.65,61.09,0.1
+20260528,82.9,91.9,82.7,91.9,2230069,74.81,22.84,73.36,61.65,2.27
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 6642 | 富致 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 6642 | 富致 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
 
 ## Warrant Context
 | status |

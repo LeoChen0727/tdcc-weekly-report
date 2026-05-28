@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3645 達邁
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:13 Asia/Taipei
+- generated_at: 2026-05-28 19:32:33 Asia/Taipei
 - stock_id: 3645
 - stock_name: 達邁
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 118.5
-- high: 120
-- low: 108.5
-- close: 110
-- volume: 13159979
-- ma5: 112.7
-- ema23_primary: 105.32
-- distance_to_ema23_pct: 4.44
-- ma20: 105.56
-- ma60: 90.75
-- ma120: 73.86
-- return_5d: 6.8
-- return_20d: 8.91
-- volume_ratio: 1.04
-- distance_to_ma20_pct_auxiliary: 4.21
-- distance_to_high_60_pct: -9.46
+- date: 20260528
+- open: 110
+- high: 112
+- low: 103
+- close: 104
+- volume: 8231349
+- ma5: 111.6
+- ema23_primary: 105.21
+- distance_to_ema23_pct: -1.15
+- ma20: 105.66
+- ma60: 91.35
+- ma120: 74.3
+- return_5d: -5.02
+- return_20d: 1.96
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: -1.57
+- distance_to_high_60_pct: -14.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,99.5,106,99.5,102,8180733,93.94,8.59,92.59,76.99,0.47
 20260430,102,107,100.5,104,7814633,94.77,9.73,94.18,77.61,0.45
 20260504,105.5,105.5,96.5,97.8,9622025,95.03,2.92,95.42,78.14,0.54
 20260505,98.3,102.5,97,101,9031431,95.52,5.73,96.81,78.61,0.51
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,110.5,119,108,117.5,19496730,103.75,13.25,104.22,89.02,1.65
 20260526,117.5,121.5,114,117.5,18452799,104.89,12.02,105.11,89.99,1.5
 20260527,118.5,120,108.5,110,13159979,105.32,4.44,105.56,90.75,1.04
+20260528,110,112,103,104,8231349,105.21,-1.15,105.66,91.35,0.65
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3645 | 達邁 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 3645 | 達邁 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3645 | 達邁 | 3 | 1 | 3 | 3 | 3 | continued_2_3d | 連續 3 個交易日上榜，訊號延續但仍需確認。 |
+| 20260528 | 3645 | 達邁 | 4 | 2 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3645 | 達邁 | 28 | 1 | 15513330.0 | 0.0 |  | no_signal | 0 |  |
+| 20260528 | 3645 | 達邁 | 28 | 1 | 10008130.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

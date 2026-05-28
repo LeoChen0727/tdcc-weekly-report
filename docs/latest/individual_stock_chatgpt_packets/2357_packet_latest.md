@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2357 華碩
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:31 Asia/Taipei
+- generated_at: 2026-05-28 19:31:52 Asia/Taipei
 - stock_id: 2357
 - stock_name: 華碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 700
-- high: 709
-- low: 694
-- close: 701
-- volume: 4222844
-- ma5: 689.4
-- ema23_primary: 648.53
-- distance_to_ema23_pct: 8.09
-- ma20: 648.7
-- ma60: 595.75
-- ma120: 570.93
-- return_5d: 9.53
-- return_20d: 19.22
+- date: 20260528
+- open: 703
+- high: 711
+- low: 690
+- close: 692
+- volume: 4308608
+- ma5: 696.6
+- ema23_primary: 652.15
+- distance_to_ema23_pct: 6.11
+- ma20: 653.9
+- ma60: 598.45
+- ma120: 571.82
+- return_5d: 5.49
+- return_20d: 17.69
 - volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: 8.06
-- distance_to_high_60_pct: -2.23
+- distance_to_ma20_pct_auxiliary: 5.83
+- distance_to_high_60_pct: -3.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,590,595,585,588,2430601,581.8,1.07,580.95,550.88,0.64
 20260430,585,590,581,581,3074874,581.73,-0.13,582.55,552.04,0.82
 20260504,588,597,582,591,3911466,582.5,1.46,583.75,553.31,1.03
 20260505,590,594,588,590,2560325,583.13,1.18,585.5,554.73,0.68
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,692,717,690,709,6899791,638.74,11,637.5,590.03,1.24
 20260526,711,717,694,699,4568619,643.76,8.58,643.05,592.93,0.81
 20260527,700,709,694,701,4222844,648.53,8.09,648.7,595.75,0.74
+20260528,703,711,690,692,4308608,652.15,6.11,653.9,598.45,0.74
 ```
 
 ## Latest TDCC Snapshot
@@ -125,19 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2357 | 華碩 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260527 | 2357 | 華碩 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260528 | 2357 | 華碩 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260521 | 2357 | 華碩 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2357 | 華碩 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260528 | 2357 | 華碩 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2357 | 華碩 | 68 | 1 | 11389810.0 | 0.0 |  | no_signal | 0 |  |
+| 20260528 | 2357 | 華碩 | 70 | 1 | 12877430.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

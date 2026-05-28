@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5356 協益
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:39 Asia/Taipei
+- generated_at: 2026-05-28 19:32:58 Asia/Taipei
 - stock_id: 5356
 - stock_name: 協益
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,21 +55,21 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 27.1
-- high: 27.2
-- low: 27
+- date: 20260528
+- open: 27
+- high: 27
+- low: 26.9
 - close: 27
-- volume: 27000
-- ma5: 26.9
-- ema23_primary: 26.6
-- distance_to_ema23_pct: 1.52
+- volume: 69414
+- ma5: 26.98
+- ema23_primary: 26.63
+- distance_to_ema23_pct: 1.39
 - ma20: 26.73
-- ma60: 25.79
-- ma120: 25.61
-- return_5d: 2.27
-- return_20d: 0.75
-- volume_ratio: 0.32
+- ma60: 25.81
+- ma120: 25.62
+- return_5d: 1.5
+- return_20d: 0
+- volume_ratio: 0.83
 - distance_to_ma20_pct_auxiliary: 1.03
 - distance_to_high_60_pct: -2.88
 
@@ -77,7 +77,6 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,26.8,27.1,26.8,27,91000,26.08,3.53,25.95,25.57,0.47
 20260430,27.1,27.3,26.8,26.85,75000,26.14,2.7,26.07,25.56,0.39
 20260504,26.6,27,26.55,26.6,208000,26.18,1.59,26.17,25.54,1.03
 20260505,26.6,27,26.55,26.85,78000,26.24,2.33,26.28,25.53,0.46
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,26.8,27.35,26.8,27.1,27000,26.51,2.23,26.7,25.73,0.29
 20260526,27.15,27.2,27,27.1,27000,26.56,2.04,26.71,25.76,0.31
 20260527,27.1,27.2,27,27,27000,26.6,1.52,26.73,25.79,0.32
+20260528,27,27,26.9,27,69414,26.63,1.39,26.73,25.81,0.83
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4939 亞電
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:31 Asia/Taipei
+- generated_at: 2026-05-28 19:32:50 Asia/Taipei
 - stock_id: 4939
 - stock_name: 亞電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 43.75
-- high: 47.95
-- low: 42.3
-- close: 43.15
-- volume: 45000
-- ma5: 40.8
-- ema23_primary: 39.84
-- distance_to_ema23_pct: 8.32
-- ma20: 40.77
-- ma60: 35.96
-- ma120: 36.59
-- return_5d: 14.91
-- return_20d: -0.8
-- volume_ratio: 0.02
-- distance_to_ma20_pct_auxiliary: 5.84
-- distance_to_high_60_pct: -10.2
+- date: 20260528
+- open: 44.75
+- high: 47
+- low: 43.4
+- close: 45.95
+- volume: 19954390
+- ma5: 42.38
+- ema23_primary: 40.34
+- distance_to_ema23_pct: 13.89
+- ma20: 40.87
+- ma60: 36.13
+- ma120: 36.74
+- return_5d: 20.76
+- return_20d: 4.31
+- volume_ratio: 6.8
+- distance_to_ma20_pct_auxiliary: 12.44
+- distance_to_high_60_pct: -4.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,43.5,44.75,42.8,44.05,1961000,37.86,16.35,36.37,34.97,0.32
 20260430,45.95,45.95,43.65,43.9,1208000,38.36,14.43,37.2,34.85,0.19
 20260504,44.1,44.65,43.5,44,1082000,38.83,13.3,37.98,34.81,0.17
 20260505,44,44,43.65,43.9,1227000,39.26,11.83,38.8,34.82,0.2
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,40.45,41,38.8,39.65,40000,39.16,1.24,40.61,35.7,0.02
 20260526,40.4,43.6,39.3,43.6,43000,39.53,10.29,40.79,35.84,0.02
 20260527,43.75,47.95,42.3,43.15,45000,39.84,8.32,40.77,35.96,0.02
+20260528,44.75,47,43.4,45.95,19954390,40.34,13.89,40.87,36.13,6.8
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 4939 | 亞電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 4939 | 亞電 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | status |

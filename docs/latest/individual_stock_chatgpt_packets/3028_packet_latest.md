@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3028 增你強
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:53 Asia/Taipei
+- generated_at: 2026-05-28 19:32:13 Asia/Taipei
 - stock_id: 3028
 - stock_name: 增你強
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 84.2
-- high: 85.4
-- low: 80.3
-- close: 81.4
-- volume: 4861113
-- ma5: 81.98
-- ema23_primary: 76
-- distance_to_ema23_pct: 7.11
-- ma20: 77.43
-- ma60: 63.32
-- ma120: 52.16
-- return_5d: -3.55
-- return_20d: 14.97
-- volume_ratio: 0.67
-- distance_to_ma20_pct_auxiliary: 5.13
-- distance_to_high_60_pct: -7.81
+- date: 20260528
+- open: 82.1
+- high: 84.1
+- low: 80.8
+- close: 81.2
+- volume: 4307286
+- ma5: 81.56
+- ema23_primary: 76.43
+- distance_to_ema23_pct: 6.24
+- ma20: 77.96
+- ma60: 63.8
+- ma120: 52.54
+- return_5d: -2.52
+- return_20d: 15.01
+- volume_ratio: 0.64
+- distance_to_ma20_pct_auxiliary: 4.16
+- distance_to_high_60_pct: -8.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,69.7,76.5,68.5,70.6,14446081,61.1,15.54,60.42,53.39,2.22
 20260430,70.6,71.6,68.1,68.3,5772057,61.7,10.69,61.41,53.85,0.87
 20260504,68.3,69.5,66.3,69.4,4122153,62.34,11.32,62.36,54.33,0.61
 20260505,69.4,71.3,69,69.6,2798934,62.95,10.57,63.33,54.81,0.42
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,83,83.4,79.7,81.3,5431367,74.95,8.47,76.25,62.44,0.64
 20260526,81.5,83.3,80.9,81.6,3110682,75.51,8.07,76.9,62.89,0.38
 20260527,84.2,85.4,80.3,81.4,4861113,76,7.11,77.43,63.32,0.67
+20260528,82.1,84.1,80.8,81.2,4307286,76.43,6.24,77.96,63.8,0.64
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3028 | 增你強 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260528 | 3028 | 增你強 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 3028 | 增你強 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3028 | 增你強 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260528 | 3028 | 增你強 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3028 | 增你強 | 25 | 0 | 1353000.0 | 0.0 |  | no_signal | 0 |  |
+| 20260528 | 3028 | 增你強 | 25 | 0 | 2934810.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

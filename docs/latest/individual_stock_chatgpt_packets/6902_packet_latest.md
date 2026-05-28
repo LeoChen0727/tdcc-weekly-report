@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6902 GOGOLOOK
 
 ## Metadata
-- generated_at: 2026-05-27 21:28:17 Asia/Taipei
+- generated_at: 2026-05-28 19:33:34 Asia/Taipei
 - stock_id: 6902
 - stock_name: GOGOLOOK
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 141.5
-- high: 143
-- low: 135
-- close: 135.5
-- volume: 454912
-- ma5: 134.9
-- ema23_primary: 116.28
-- distance_to_ema23_pct: 16.53
-- ma20: 114.62
-- ma60: 93.75
-- ma120: 85.79
-- return_5d: 5.86
-- return_20d: 23.74
-- volume_ratio: 1.16
-- distance_to_ma20_pct_auxiliary: 18.21
-- distance_to_high_60_pct: -8.75
+- date: 20260528
+- open: 136
+- high: 142
+- low: 132
+- close: 134.5
+- volume: 411284
+- ma5: 135.7
+- ema23_primary: 117.8
+- distance_to_ema23_pct: 14.18
+- ma20: 115.78
+- ma60: 94.74
+- ma120: 86.25
+- return_5d: 3.07
+- return_20d: 20.63
+- volume_ratio: 1.03
+- distance_to_ma20_pct_auxiliary: 16.17
+- distance_to_high_60_pct: -9.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,108,114.5,108,111.5,225958,95.33,16.96,91.89,82.32,0.48
 20260430,111,111,101.5,102.5,599327,95.93,6.85,93.32,82.72,1.19
 20260504,104.5,104.5,99.9,100.5,243348,96.31,4.35,94.61,83.06,0.47
 20260505,101,107.5,101,102.5,226177,96.83,5.86,96.03,83.45,0.43
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,130.5,142,129.5,138,604961,112.12,23.08,111.88,91.68,1.53
 20260526,137.5,148.5,137,141,546933,114.53,23.11,113.33,92.75,1.4
 20260527,141.5,143,135,135.5,454912,116.28,16.53,114.62,93.75,1.16
+20260528,136,142,132,134.5,411284,117.8,14.18,115.78,94.74,1.03
 ```
 
 ## Latest TDCC Snapshot

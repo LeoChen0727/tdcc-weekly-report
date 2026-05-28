@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3051 力特
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:55 Asia/Taipei
+- generated_at: 2026-05-28 19:32:15 Asia/Taipei
 - stock_id: 3051
 - stock_name: 力特
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 27.95
-- high: 28.1
-- low: 26.8
-- close: 27.25
-- volume: 3692973
-- ma5: 28.02
-- ema23_primary: 26.18
-- distance_to_ema23_pct: 4.07
-- ma20: 27.01
-- ma60: 23.26
-- ma120: 22.17
-- return_5d: 9.66
-- return_20d: 2.83
-- volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: 0.89
-- distance_to_high_60_pct: -12.1
+- date: 20260528
+- open: 27.25
+- high: 28.3
+- low: 26.65
+- close: 27.1
+- volume: 3540629
+- ma5: 28.31
+- ema23_primary: 26.26
+- distance_to_ema23_pct: 3.2
+- ma20: 26.99
+- ma60: 23.33
+- ma120: 22.25
+- return_5d: 5.65
+- return_20d: -1.27
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: 0.4
+- distance_to_high_60_pct: -12.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,28.1,29,27.4,27.45,20346708,22.77,20.55,22.03,22.45,6.57
 20260430,27.5,28.8,27.05,28.35,11137534,23.24,22.01,22.46,22.47,3.07
 20260504,29.5,29.9,28.7,29.4,23694104,23.75,23.79,22.93,22.5,4.95
 20260505,29.9,30.75,29.1,29.85,21067306,24.26,23.05,23.43,22.54,3.61
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,31,31,30,30.8,18063694,25.9,18.94,26.77,23.11,2.55
 20260526,30.15,30.45,28.05,28.2,7703066,26.09,8.1,26.97,23.2,1.04
 20260527,27.95,28.1,26.8,27.25,3692973,26.18,4.07,27.01,23.26,0.52
+20260528,27.25,28.3,26.65,27.1,3540629,26.26,3.2,26.99,23.33,0.57
 ```
 
 ## Latest TDCC Snapshot
@@ -125,13 +125,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3051 | 力特 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 3051 | 力特 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 3051 | 力特 | pattern | 型態觀察 |  |  |  | 預備發動型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3051 | 力特 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260528 | 3051 | 力特 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9136 巨騰-DR
 
 ## Metadata
-- generated_at: 2026-05-27 21:28:38 Asia/Taipei
+- generated_at: 2026-05-28 19:33:55 Asia/Taipei
 - stock_id: 9136
 - stock_name: 巨騰-DR
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260527
-- price_rows: 118
+- latest_price_date: 20260528
+- price_rows: 119
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 11
-- high: 11.65
+- date: 20260528
+- open: 11.55
+- high: 11.6
 - low: 10.9
-- close: 11.45
-- volume: 1741000
-- ma5: 11.06
-- ema23_primary: 10.39
-- distance_to_ema23_pct: 10.22
-- ma20: 10.18
-- ma60: 9.14
-- ma120: 8.33
-- return_5d: 4.09
-- return_20d: 31.61
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: 12.48
-- distance_to_high_60_pct: -18.51
+- close: 11.15
+- volume: 1047546
+- ma5: 11.15
+- ema23_primary: 10.45
+- distance_to_ema23_pct: 6.68
+- ma20: 10.3
+- ma60: 9.19
+- ma120: 8.35
+- return_5d: 4.21
+- return_20d: 28.16
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: 8.23
+- distance_to_high_60_pct: -20.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260402,8.88,8.88,8.61,8.7,1086271,9.27,-6.16,9.58,8.5,0.27
 20260407,8.81,8.85,8.72,8.84,643156,9.23,-4.28,9.61,8.51,0.16
 20260408,8.98,9.72,8.78,9.57,1460381,9.26,3.32,9.67,8.54,0.36
 20260409,9.88,9.88,8.65,8.7,1865743,9.22,-5.6,9.64,8.54,0.5
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,11.25,11.5,11.2,11.3,1117988,10.24,10.39,9.92,9.04,0.44
 20260526,11.5,11.5,10.8,10.9,1336325,10.29,5.91,10.04,9.08,0.55
 20260527,11,11.65,10.9,11.45,1741000,10.39,10.22,10.18,9.14,0.71
+20260528,11.55,11.6,10.9,11.15,1047546,10.45,6.68,10.3,9.19,0.43
 ```
 
 ## Latest TDCC Snapshot
@@ -130,7 +130,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 9136 | 巨騰-DR | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260528 | 9136 | 巨騰-DR | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

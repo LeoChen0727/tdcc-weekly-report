@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8481 政伸
 
 ## Metadata
-- generated_at: 2026-05-27 21:28:35 Asia/Taipei
+- generated_at: 2026-05-28 19:33:53 Asia/Taipei
 - stock_id: 8481
 - stock_name: 政伸
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 40.55
-- high: 40.9
-- low: 40.5
-- close: 40.8
-- volume: 47066
-- ma5: 40.49
-- ema23_primary: 40.63
-- distance_to_ema23_pct: 0.43
-- ma20: 40.49
-- ma60: 41.37
-- ma120: 41.33
-- return_5d: 1.37
-- return_20d: -0.49
-- volume_ratio: 1.34
-- distance_to_ma20_pct_auxiliary: 0.77
-- distance_to_high_60_pct: -5.01
+- date: 20260528
+- open: 40.8
+- high: 41.1
+- low: 40.7
+- close: 41.1
+- volume: 22125
+- ma5: 40.65
+- ema23_primary: 40.67
+- distance_to_ema23_pct: 1.07
+- ma20: 40.47
+- ma60: 41.34
+- ma120: 41.34
+- return_5d: 1.99
+- return_20d: -0.96
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: 1.56
+- distance_to_high_60_pct: -2.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,41.8,41.8,41.2,41.5,12170,41.68,-0.43,41.76,41.88,0.46
 20260430,41.7,41.7,40.9,40.9,29244,41.61,-1.72,41.71,41.85,1.06
 20260504,40.95,41,40.85,40.85,37724,41.55,-1.69,41.66,41.82,1.31
 20260505,41.25,41.25,40.85,40.9,18080,41.5,-1.44,41.6,41.8,0.62
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,40.1,40.8,40.1,40.2,27319,40.62,-1.02,40.52,41.41,0.77
 20260526,40.55,40.55,40.5,40.55,8626,40.61,-0.15,40.5,41.38,0.25
 20260527,40.55,40.9,40.5,40.8,47066,40.63,0.43,40.49,41.37,1.34
+20260528,40.8,41.1,40.7,41.1,22125,40.67,1.07,40.47,41.34,0.62
 ```
 
 ## Latest TDCC Snapshot

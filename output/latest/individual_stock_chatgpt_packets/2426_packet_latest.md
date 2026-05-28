@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2426 鼎元
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:35 Asia/Taipei
+- generated_at: 2026-05-28 19:31:56 Asia/Taipei
 - stock_id: 2426
 - stock_name: 鼎元
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 79.9
-- high: 81.4
-- low: 73.5
-- close: 77.8
-- volume: 19382889
-- ma5: 78.64
-- ema23_primary: 67.17
-- distance_to_ema23_pct: 15.82
-- ma20: 69.54
-- ma60: 48.59
-- ma120: 33.15
-- return_5d: 12.92
-- return_20d: 43.81
-- volume_ratio: 1.07
-- distance_to_ma20_pct_auxiliary: 11.88
-- distance_to_high_60_pct: -12.39
+- date: 20260528
+- open: 78.9
+- high: 85.5
+- low: 78.5
+- close: 80.9
+- volume: 37925253
+- ma5: 79.68
+- ema23_primary: 68.32
+- distance_to_ema23_pct: 18.42
+- ma20: 70.61
+- ma60: 49.61
+- ma120: 33.7
+- return_5d: 6.87
+- return_20d: 35.97
+- volume_ratio: 2.09
+- distance_to_ma20_pct_auxiliary: 14.57
+- distance_to_high_60_pct: -8.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,50.8,59.5,50.3,59.5,36419814,46.79,27.17,47.6,32.43,2.22
 20260430,62.6,64.7,56,57.3,64170249,47.66,20.22,48.88,33.07,3.29
 20260504,58.9,63,55.2,63,25246011,48.94,28.73,50.29,33.8,1.22
 20260505,69.3,69.3,68.8,69.3,6019353,50.64,36.86,51.84,34.64,0.29
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,83.2,88.8,78,78.2,38478288,65.11,20.11,66.9,46.64,2.29
 20260526,80.6,82.3,77.1,78.3,15596653,66.21,18.26,68.36,47.62,0.89
 20260527,79.9,81.4,73.5,77.8,19382889,67.17,15.82,69.54,48.59,1.07
+20260528,78.9,85.5,78.5,80.9,37925253,68.32,18.42,70.61,49.61,2.09
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 2426 | 鼎元 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 2426 | 鼎元 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
 
 ## Warrant Context
 | status |

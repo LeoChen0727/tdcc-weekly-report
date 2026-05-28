@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5880 合庫金
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:45 Asia/Taipei
+- generated_at: 2026-05-28 19:33:03 Asia/Taipei
 - stock_id: 5880
 - stock_name: 合庫金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 22.7
+- date: 20260528
+- open: 22.75
 - high: 22.8
-- low: 22.65
-- close: 22.75
-- volume: 16022020
+- low: 22.6
+- close: 22.7
+- volume: 21036566
 - ma5: 22.7
-- ema23_primary: 22.9
-- distance_to_ema23_pct: -0.66
-- ma20: 22.84
-- ma60: 23.22
-- ma120: 23.64
-- return_5d: 0.22
-- return_20d: -0.87
-- volume_ratio: 0.96
-- distance_to_ma20_pct_auxiliary: -0.4
-- distance_to_high_60_pct: -5.6
+- ema23_primary: 22.89
+- distance_to_ema23_pct: -0.81
+- ma20: 22.82
+- ma60: 23.2
+- ma120: 23.63
+- return_5d: 0
+- return_20d: -1.94
+- volume_ratio: 1.25
+- distance_to_ma20_pct_auxiliary: -0.53
+- distance_to_high_60_pct: -5.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,23.05,23.15,23,23.15,17278400,23.41,-1.12,23.58,23.52,1.1
 20260430,22.95,23.1,22.95,22.95,16648364,23.37,-1.82,23.55,23.51,1.08
 20260504,23,23.05,22.9,22.9,17451810,23.34,-1.86,23.51,23.49,1.14
 20260505,22.95,22.95,22.85,22.9,10633599,23.3,-1.71,23.47,23.48,0.69
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,22.7,22.7,22.6,22.65,17695942,22.94,-1.25,22.86,23.26,1.03
 20260526,22.65,22.8,22.65,22.7,14984565,22.92,-0.94,22.85,23.24,0.9
 20260527,22.7,22.8,22.65,22.75,16022020,22.9,-0.66,22.84,23.22,0.96
+20260528,22.75,22.8,22.6,22.7,21036566,22.89,-0.81,22.82,23.2,1.25
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 5880 | 合庫金 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 5880 | 合庫金 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 5880 | 合庫金 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260528 | 5880 | 合庫金 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2542 興富發
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:42 Asia/Taipei
+- generated_at: 2026-05-28 19:32:02 Asia/Taipei
 - stock_id: 2542
 - stock_name: 興富發
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 42.15
-- high: 43.4
-- low: 42.1
-- close: 43.1
-- volume: 15190373
-- ma5: 42.95
-- ema23_primary: 41.43
-- distance_to_ema23_pct: 4.02
-- ma20: 41.92
-- ma60: 38.11
-- ma120: 38.24
-- return_5d: -1.37
-- return_20d: 10.23
-- volume_ratio: 1.16
-- distance_to_ma20_pct_auxiliary: 2.8
-- distance_to_high_60_pct: -3.79
+- date: 20260528
+- open: 43.05
+- high: 43.45
+- low: 42
+- close: 42
+- volume: 13535015
+- ma5: 42.62
+- ema23_primary: 41.48
+- distance_to_ema23_pct: 1.25
+- ma20: 41.99
+- ma60: 38.18
+- ma120: 38.28
+- return_5d: -3.78
+- return_20d: 3.45
+- volume_ratio: 1.07
+- distance_to_ma20_pct_auxiliary: 0.01
+- distance_to_high_60_pct: -6.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,39.25,41,39.25,40.6,22260279,36.79,10.34,36.27,36.8,2.24
 20260430,40.2,40.5,39.95,40.15,12764554,37.07,8.3,36.54,36.83,1.24
 20260504,40.2,40.45,39.8,39.95,8701719,37.31,7.07,36.77,36.86,0.82
 20260505,39.85,40.1,39.4,39.7,8321767,37.51,5.83,37,36.89,0.77
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,43.05,43.1,42.1,42.4,14109404,41.18,2.96,41.55,37.94,1.05
 20260526,42.5,42.8,42.05,42.4,7146669,41.28,2.71,41.73,38.02,0.55
 20260527,42.15,43.4,42.1,43.1,15190373,41.43,4.02,41.92,38.11,1.16
+20260528,43.05,43.45,42,42,13535015,41.48,1.25,41.99,38.18,1.07
 ```
 
 ## Latest TDCC Snapshot
@@ -125,21 +125,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2542 | 興富發 | pullback_rebound | 回檔後短線轉強 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260527 | 2542 | 興富發 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260527 | 2542 | 興富發 | revenue_breakout_low_response | 營收爆發低反應股 | 22.0 | 10.0 | B_可觀察 |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260527 | 2542 | 興富發 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 2542 | 興富發 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 2542 | 興富發 | revenue_pullback | 營收成長股價回檔 | 84.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260528 | 2542 | 興富發 | revenue_breakout_low_response | 營收爆發低反應股 | 22.0 | 10.0 | B_可觀察 |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 | 20260521 | 2542 | 興富發 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2542 | 興富發 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260528 | 2542 | 興富發 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2542 | 興富發 | 6 | 0 | 555760.0 | 0.0 |  | no_signal | 0 |  |
+| 20260528 | 2542 | 興富發 | 6 | 0 | 408820.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4545 銘鈺
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:24 Asia/Taipei
+- generated_at: 2026-05-28 19:32:43 Asia/Taipei
 - stock_id: 4545
 - stock_name: 銘鈺
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 33.35
-- high: 36.5
-- low: 33.35
-- close: 36.5
-- volume: 720514
-- ma5: 33.5
-- ema23_primary: 31.51
-- distance_to_ema23_pct: 15.85
-- ma20: 31.01
-- ma60: 31.38
-- ma120: 33.73
-- return_5d: 21.26
-- return_20d: 21.87
-- volume_ratio: 2.7
-- distance_to_ma20_pct_auxiliary: 17.7
-- distance_to_high_60_pct: 0
+- date: 20260528
+- open: 37.6
+- high: 40.1
+- low: 37.1
+- close: 38.65
+- volume: 1908918
+- ma5: 34.88
+- ema23_primary: 32.1
+- distance_to_ema23_pct: 20.39
+- ma20: 31.39
+- ma60: 31.44
+- ma120: 33.78
+- return_5d: 21.73
+- return_20d: 24.68
+- volume_ratio: 5.63
+- distance_to_ma20_pct_auxiliary: 23.12
+- distance_to_high_60_pct: -3.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,30.9,32.75,30.85,31,470209,30.9,0.31,30.64,32.74,2.97
 20260430,31.15,31.15,30.1,30.2,152789,30.85,-2.09,30.66,32.62,0.97
 20260504,30.35,31.15,30.15,30.25,105434,30.8,-1.77,30.63,32.52,0.66
 20260505,30.3,30.75,30.3,30.65,63047,30.78,-0.44,30.66,32.41,0.4
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,34.2,34.2,32.8,32.85,320091,30.86,6.45,30.5,31.4,1.37
 20260526,33,33.2,32.5,33.2,225711,31.05,6.91,30.68,31.36,0.96
 20260527,33.35,36.5,33.35,36.5,720514,31.51,15.85,31.01,31.38,2.7
+20260528,37.6,40.1,37.1,38.65,1908918,32.1,20.39,31.39,31.44,5.63
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 4545 | 銘鈺 | true_breakout | 嚴格突破 | 107.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 4545 | 銘鈺 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5439 高技
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:40 Asia/Taipei
+- generated_at: 2026-05-28 19:32:59 Asia/Taipei
 - stock_id: 5439
 - stock_name: 高技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 398.5
-- high: 401
-- low: 380
-- close: 385.5
-- volume: 390000
-- ma5: 385.1
-- ema23_primary: 381.44
-- distance_to_ema23_pct: 1.06
-- ma20: 388.18
-- ma60: 340.12
-- ma120: 328.17
-- return_5d: 5.76
-- return_20d: -3.87
-- volume_ratio: 0.08
-- distance_to_ma20_pct_auxiliary: -0.69
-- distance_to_high_60_pct: -16.83
+- date: 20260528
+- open: 388.5
+- high: 389
+- low: 368
+- close: 370
+- volume: 2755952
+- ma5: 383.8
+- ema23_primary: 380.49
+- distance_to_ema23_pct: -2.76
+- ma20: 387.35
+- ma60: 341.52
+- ma120: 328.71
+- return_5d: -1.73
+- return_20d: -4.27
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: -4.48
+- distance_to_high_60_pct: -20.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,400,409,383,386.5,6214000,360.94,7.08,359.23,312.81,0.7
 20260430,387,397.5,372,382.5,6175000,362.74,5.45,364.95,314.21,0.7
 20260504,385.5,401,373.5,392.5,5094000,365.22,7.47,370.45,315.82,0.57
 20260505,392.5,405,388,403,4148000,368.36,9.4,376.77,317.36,0.46
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,396,401.5,380,385,393000,380.17,1.27,388.12,336.96,0.07
 20260526,391,392,381,391,388000,381.07,2.6,388.95,338.57,0.08
 20260527,398.5,401,380,385.5,390000,381.44,1.06,388.18,340.12,0.08
+20260528,388.5,389,368,370,2755952,380.49,-2.76,387.35,341.52,0.6
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 5439 | 高技 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 5439 | 高技 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6438 迅得
 
 ## Metadata
-- generated_at: 2026-05-27 21:28:00 Asia/Taipei
+- generated_at: 2026-05-28 19:33:18 Asia/Taipei
 - stock_id: 6438
 - stock_name: 迅得
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 176
-- high: 176.5
-- low: 170.5
-- close: 171.5
-- volume: 998540
-- ma5: 170.5
-- ema23_primary: 170.43
-- distance_to_ema23_pct: 0.63
-- ma20: 170.75
-- ma60: 168.27
-- ma120: 155.38
-- return_5d: 6.85
-- return_20d: -3.92
-- volume_ratio: 0.69
-- distance_to_ma20_pct_auxiliary: 0.44
-- distance_to_high_60_pct: -11.14
+- date: 20260528
+- open: 174.5
+- high: 180.5
+- low: 168
+- close: 174.5
+- volume: 2546675
+- ma5: 172.6
+- ema23_primary: 170.77
+- distance_to_ema23_pct: 2.19
+- ma20: 170.78
+- ma60: 168.66
+- ma120: 155.83
+- return_5d: 6.4
+- return_20d: 0.29
+- volume_ratio: 1.7
+- distance_to_ma20_pct_auxiliary: 2.18
+- distance_to_high_60_pct: -9.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,177.5,177.5,173,174,1516190,173.96,0.02,176.38,161.63,0.44
 20260430,174.5,177.5,171,176,2018191,174.13,1.07,176.82,162.07,0.6
 20260504,178,180.5,177,177,1777081,174.37,1.51,177.05,162.53,0.53
 20260505,176,181,174.5,181,2875070,174.92,3.47,177.6,162.9,0.87
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,172.5,176.5,170,174,1816239,170,2.36,170.95,167.57,1.15
 20260526,176,176,171.5,174,1268857,170.33,2.15,171.1,167.93,0.82
 20260527,176,176.5,170.5,171.5,998540,170.43,0.63,170.75,168.27,0.69
+20260528,174.5,180.5,168,174.5,2546675,170.77,2.19,170.78,168.66,1.7
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,21 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 6438 | 迅得 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 6438 | 迅得 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260528 | 6438 | 迅得 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 6438 | 迅得 | 1 | 1 | 4 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 6438 | 迅得 | 42 | 0 | 1516030.0 | 0.0 |  | no_signal | 0 |  |
+| 20260528 | 6438 | 迅得 | 42 | 0 | 3116360.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

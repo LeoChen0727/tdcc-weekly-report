@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6937 天虹
 
 ## Metadata
-- generated_at: 2026-05-27 21:28:18 Asia/Taipei
+- generated_at: 2026-05-28 19:33:36 Asia/Taipei
 - stock_id: 6937
 - stock_name: 天虹
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 347
-- high: 347
-- low: 317.5
-- close: 319
-- volume: 1090906
-- ma5: 325.2
-- ema23_primary: 307.57
-- distance_to_ema23_pct: 3.72
-- ma20: 310.65
-- ma60: 285.91
-- ma120: 254.54
-- return_5d: 14.13
-- return_20d: 5.98
-- volume_ratio: 0.9
-- distance_to_ma20_pct_auxiliary: 2.69
-- distance_to_high_60_pct: -11.02
+- date: 20260528
+- open: 321
+- high: 326.5
+- low: 302
+- close: 308
+- volume: 858592
+- ma5: 327.9
+- ema23_primary: 307.61
+- distance_to_ema23_pct: 0.13
+- ma20: 311
+- ma60: 286.92
+- ma120: 255.37
+- return_5d: 4.58
+- return_20d: 2.33
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: -0.96
+- distance_to_high_60_pct: -14.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,300.5,303.5,294.5,301,473551,291.02,3.43,290.88,256.98,0.42
 20260430,306,331,304,331,2855856,294.35,12.45,295.5,258.87,2.29
 20260504,345,353,331,335,3444999,297.74,12.51,299.98,260.83,2.46
 20260505,334,343.5,321,337,2001374,301.01,11.96,304.8,262.86,1.35
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,330,352,330,351.5,2500871,303.72,15.73,307.65,282.56,2.15
 20260526,355,355,337.5,337.5,1480605,306.53,10.1,309.75,284.46,1.23
 20260527,347,347,317.5,319,1090906,307.57,3.72,310.65,285.91,0.9
+20260528,321,326.5,302,308,858592,307.61,0.13,311,286.92,0.69
 ```
 
 ## Latest TDCC Snapshot
@@ -123,20 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 6937 | 天虹 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260527 | 6937 | 天虹 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 6937 | 天虹 | 3 | 2 | 3 | 3 | 3 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 6937 | 天虹 | 45 | 1 | 3662980.0 | 90460.0 | 40.49 | no_signal | 0 |  |
+| 20260528 | 6937 | 天虹 | 47 | 1 | 3541250.0 | 25550.0 | 138.6 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

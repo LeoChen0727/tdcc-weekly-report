@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6432 今展科
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:59 Asia/Taipei
+- generated_at: 2026-05-28 19:33:18 Asia/Taipei
 - stock_id: 6432
 - stock_name: 今展科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 63.4
-- high: 65.2
-- low: 62.6
-- close: 65.2
-- volume: 65000
-- ma5: 58.84
-- ema23_primary: 49.98
-- distance_to_ema23_pct: 30.45
-- ma20: 49.17
-- ma60: 40.66
-- ma120: 37.38
-- return_5d: 23.72
-- return_20d: 70.46
-- volume_ratio: 0.03
-- distance_to_ma20_pct_auxiliary: 32.59
-- distance_to_high_60_pct: 0
+- date: 20260528
+- open: 67.3
+- high: 71.7
+- low: 66.6
+- close: 70
+- volume: 10252202
+- ma5: 61.46
+- ema23_primary: 51.65
+- distance_to_ema23_pct: 35.53
+- ma20: 50.7
+- ma60: 41.2
+- ma120: 37.68
+- return_5d: 23.02
+- return_20d: 77.22
+- volume_ratio: 3.34
+- distance_to_ma20_pct_auxiliary: 38.07
+- distance_to_high_60_pct: -2.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,38,40.2,37.45,39.5,851000,38.03,3.87,37.67,35.44,0.88
 20260430,40,40.2,38.65,38.85,1161000,38.1,1.97,37.97,35.47,1.14
 20260504,39.25,39.85,38.7,38.8,479000,38.16,1.69,38.25,35.5,0.46
 20260505,38.9,42.65,38.55,42.65,1948000,38.53,10.69,38.78,35.61,1.73
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,55.8,59.9,55.7,57.1,57000,47.63,19.89,46.72,39.69,0.02
 20260526,58.3,59.4,55.1,59.3,57000,48.6,22.02,47.83,40.13,0.02
 20260527,63.4,65.2,62.6,65.2,65000,49.98,30.45,49.17,40.66,0.03
+20260528,67.3,71.7,66.6,70,10252202,51.65,35.53,50.7,41.2,3.34
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 6432 | 今展科 | true_breakout | 嚴格突破 | 89.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 6432 | 今展科 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
 
 ## Warrant Context
 | status |

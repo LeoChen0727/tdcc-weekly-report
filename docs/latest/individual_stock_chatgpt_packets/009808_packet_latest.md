@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009808 華南永昌優選50
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:03 Asia/Taipei
+- generated_at: 2026-05-28 19:31:25 Asia/Taipei
 - stock_id: 009808
 - stock_name: 華南永昌優選50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260527
-- price_rows: 4
+- latest_price_date: 20260528
+- price_rows: 5
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 29.37
-- high: 30.38
-- low: 29.37
-- close: 30.06
-- volume: 1581065
-- ma5: 
-- ema23_primary: 
-- distance_to_ema23_pct: 
-- ma20: 
-- ma60: 
-- ma120: 
+- date: 20260528
+- open: 30.26
+- high: 30.42
+- low: 29.36
+- close: 29.48
+- volume: 1529094
+- ma5: 29.35
+- ema23_primary: 28.81
+- distance_to_ema23_pct: 2.33
+- ma20: 29.35
+- ma60: 29.35
+- ma120: 29.35
 - return_5d: 
 - return_20d: 
-- volume_ratio: 
-- distance_to_ma20_pct_auxiliary: 
-- distance_to_high_60_pct: 
+- volume_ratio: 1.23
+- distance_to_ma20_pct_auxiliary: 0.44
+- distance_to_high_60_pct: -3.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -81,6 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,29.19,29.5,29.17,29.4,1954276,,,,,
 20260526,29.38,29.59,29.2,29.32,566915,,,,,
 20260527,29.37,30.38,29.37,30.06,1581065,,,,,
+20260528,30.26,30.42,29.36,29.48,1529094,28.81,2.33,29.35,29.35,1.23
 ```
 
 ## Latest TDCC Snapshot

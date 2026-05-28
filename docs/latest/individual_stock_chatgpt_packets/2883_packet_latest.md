@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2883 凱基金
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:48 Asia/Taipei
+- generated_at: 2026-05-28 19:32:09 Asia/Taipei
 - stock_id: 2883
 - stock_name: 凱基金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 21.7
-- high: 22.8
-- low: 21.55
-- close: 22.3
-- volume: 108756887
-- ma5: 21.72
-- ema23_primary: 21.61
-- distance_to_ema23_pct: 3.2
-- ma20: 21.87
-- ma60: 20.9
-- ma120: 19.25
-- return_5d: 3.24
-- return_20d: 4.69
-- volume_ratio: 1.72
-- distance_to_ma20_pct_auxiliary: 1.95
-- distance_to_high_60_pct: -3.46
+- date: 20260528
+- open: 22.4
+- high: 22.85
+- low: 22
+- close: 22.15
+- volume: 88869113
+- ma5: 21.87
+- ema23_primary: 21.65
+- distance_to_ema23_pct: 2.29
+- ma20: 21.89
+- ma60: 20.91
+- ma120: 19.3
+- return_5d: 3.5
+- return_20d: 2.07
+- volume_ratio: 1.37
+- distance_to_ma20_pct_auxiliary: 1.16
+- distance_to_high_60_pct: -4.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,21.4,21.7,21.3,21.7,62206130,20.66,5.05,20.72,19.95,1.42
 20260430,21.5,21.6,21.3,21.5,56240224,20.73,3.73,20.83,20.01,1.27
 20260504,21.4,21.75,21.3,21.4,81104455,20.78,2.97,20.91,20.07,1.75
 20260505,21.5,21.8,21.35,21.8,58189842,20.87,4.47,21,20.13,1.21
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,21.8,21.8,21.4,21.65,53325245,21.54,0.49,21.77,20.88,0.88
 20260526,21.6,21.9,21.5,21.55,69290986,21.55,0.02,21.82,20.89,1.12
 20260527,21.7,22.8,21.55,22.3,108756887,21.61,3.2,21.87,20.9,1.72
+20260528,22.4,22.85,22,22.15,88869113,21.65,2.29,21.89,20.91,1.37
 ```
 
 ## Latest TDCC Snapshot
@@ -125,20 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2883 | 凱基金 | pullback_rebound | 回檔後短線轉強 | 70.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260527 | 2883 | 凱基金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260527 | 2883 | 凱基金 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 2883 | 凱基金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 2883 | 凱基金 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2883 | 凱基金 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260528 | 2883 | 凱基金 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2883 | 凱基金 | 13 | 0 | 6853900.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260528 | 2883 | 凱基金 | 13 | 0 | 7945060.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

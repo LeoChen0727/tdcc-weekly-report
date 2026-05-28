@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2367 燿華
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:31 Asia/Taipei
+- generated_at: 2026-05-28 19:31:52 Asia/Taipei
 - stock_id: 2367
 - stock_name: 燿華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 67.6
-- high: 67.6
-- low: 64.9
-- close: 67.1
-- volume: 40194516
-- ma5: 66.96
-- ema23_primary: 64.92
-- distance_to_ema23_pct: 3.36
-- ma20: 63.06
-- ma60: 68.13
-- ma120: 52.19
-- return_5d: 4.84
-- return_20d: 12.4
-- volume_ratio: 0.79
-- distance_to_ma20_pct_auxiliary: 6.4
-- distance_to_high_60_pct: -18.67
+- date: 20260528
+- open: 68
+- high: 70
+- low: 64.2
+- close: 65.8
+- volume: 61519432
+- ma5: 67.3
+- ema23_primary: 65
+- distance_to_ema23_pct: 1.24
+- ma20: 63.48
+- ma60: 68.05
+- ma120: 52.55
+- return_5d: 2.65
+- return_20d: 14.43
+- volume_ratio: 1.17
+- distance_to_ma20_pct_auxiliary: 3.65
+- distance_to_high_60_pct: -20.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,59,59.4,56.8,57.5,22642973,66.55,-13.6,68.71,64.84,0.29
 20260430,57.1,60.3,56,57.7,46158597,65.81,-12.33,67.92,65.14,0.64
 20260504,58.2,62,56.5,59.1,58899270,65.26,-9.43,67.15,65.39,0.84
 20260505,59.1,61.5,58.6,61.2,36088814,64.92,-5.73,66.64,65.6,0.55
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,69.8,72.5,68.2,70.1,94757587,64.54,8.61,62.35,67.95,1.84
 20260526,70.1,70.2,66.1,66.7,50999709,64.72,3.05,62.7,68.09,1.01
 20260527,67.6,67.6,64.9,67.1,40194516,64.92,3.36,63.06,68.13,0.79
+20260528,68,70,64.2,65.8,61519432,65,1.24,63.48,68.05,1.17
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2367 | 燿華 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  | put_inflow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 2367 | 燿華 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2367 | 燿華 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260528 | 2367 | 燿華 | 3 | 3 | 3 | 3 | 3 | continued_2_3d | 連續 3 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2367 | 燿華 | 93 | 3 | 9211910.0 | 1202390.0 | 7.66 | put_inflow | -1 | 認售權證資金升溫，偏空或避險訊號 |
+| 20260528 | 2367 | 燿華 | 94 | 3 | 13219070.0 | 78660.0 | 168.05 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

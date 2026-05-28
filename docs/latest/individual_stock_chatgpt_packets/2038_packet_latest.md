@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2038 海光
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:24 Asia/Taipei
+- generated_at: 2026-05-28 19:31:45 Asia/Taipei
 - stock_id: 2038
 - stock_name: 海光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 14.05
-- high: 14.1
+- date: 20260528
+- open: 13.75
+- high: 14.15
 - low: 13.65
-- close: 13.75
-- volume: 1092167
-- ma5: 13.78
-- ema23_primary: 13.94
-- distance_to_ema23_pct: -1.38
-- ma20: 13.77
-- ma60: 14.69
-- ma120: 14.71
-- return_5d: 3
-- return_20d: -3.85
-- volume_ratio: 1.59
-- distance_to_ma20_pct_auxiliary: -0.15
-- distance_to_high_60_pct: -20.29
+- close: 13.65
+- volume: 634910
+- ma5: 13.83
+- ema23_primary: 13.92
+- distance_to_ema23_pct: -1.92
+- ma20: 13.74
+- ma60: 14.66
+- ma120: 14.72
+- return_5d: 1.87
+- return_20d: -4.21
+- volume_ratio: 0.9
+- distance_to_ma20_pct_auxiliary: -0.66
+- distance_to_high_60_pct: -20.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,14.45,14.55,14.2,14.25,342245,14.93,-4.58,15.07,15.22,0.8
 20260430,14.4,14.55,14,14.1,398196,14.86,-5.14,15.01,15.21,0.99
 20260504,14.1,14.1,13.9,14,457461,14.79,-5.36,14.94,15.2,1.13
 20260505,14,14.05,13.85,13.9,370884,14.72,-5.56,14.86,15.18,0.92
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,13.55,14.5,13.45,14.5,1812216,13.95,3.93,13.79,14.73,3.91
 20260526,15.2,15.2,14,14.05,4073739,13.96,0.65,13.8,14.71,6.32
 20260527,14.05,14.1,13.65,13.75,1092167,13.94,-1.38,13.77,14.69,1.59
+20260528,13.75,14.15,13.65,13.65,634910,13.92,-1.92,13.74,14.66,0.9
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2038 | 海光 | pattern | 型態觀察 | 51.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2038 | 海光 | 3 | 1 | 3 | 3 | 3 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

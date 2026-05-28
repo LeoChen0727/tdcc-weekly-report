@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6151 晉倫
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:49 Asia/Taipei
+- generated_at: 2026-05-28 19:33:08 Asia/Taipei
 - stock_id: 6151
 - stock_name: 晉倫
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 46.45
-- high: 47.5
-- low: 44.3
-- close: 44.7
-- volume: 46000
-- ma5: 47.26
-- ema23_primary: 41.58
-- distance_to_ema23_pct: 7.49
-- ma20: 41.12
-- ma60: 35.26
-- ma120: 32.46
-- return_5d: 5.55
-- return_20d: 26.63
-- volume_ratio: 0.05
-- distance_to_ma20_pct_auxiliary: 8.71
-- distance_to_high_60_pct: -12.35
+- date: 20260528
+- open: 44.7
+- high: 46.5
+- low: 43
+- close: 43.1
+- volume: 2016606
+- ma5: 46.57
+- ema23_primary: 41.71
+- distance_to_ema23_pct: 3.33
+- ma20: 41.45
+- ma60: 35.47
+- ma120: 32.6
+- return_5d: -7.41
+- return_20d: 18.41
+- volume_ratio: 2.11
+- distance_to_ma20_pct_auxiliary: 3.97
+- distance_to_high_60_pct: -15.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,34.95,36.8,34.5,36.4,483000,34.49,5.53,34.86,31.74,0.68
 20260430,37,37,35.65,35.65,223000,34.59,3.07,35.12,31.82,0.32
 20260504,35.65,36.35,35.45,35.6,298000,34.67,2.67,35.22,31.9,0.45
 20260505,35.45,36.35,35.3,35.65,274000,34.76,2.58,35.37,31.98,0.48
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,51,51,48.7,48.8,49000,40.83,19.51,40.1,34.77,0.05
 20260526,49,49.15,46.25,46.45,48000,41.3,12.46,40.65,35.03,0.05
 20260527,46.45,47.5,44.3,44.7,46000,41.58,7.49,41.12,35.26,0.05
+20260528,44.7,46.5,43,43.1,2016606,41.71,3.33,41.45,35.47,2.11
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 6151 | 晉倫 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 6151 | 晉倫 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
 
 ## Warrant Context
 | status |

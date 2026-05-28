@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6698 旭暉應材
 
 ## Metadata
-- generated_at: 2026-05-27 21:28:10 Asia/Taipei
+- generated_at: 2026-05-28 19:33:28 Asia/Taipei
 - stock_id: 6698
 - stock_name: 旭暉應材
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 34.3
-- high: 37.8
-- low: 33.6
-- close: 36.55
-- volume: 2472486
-- ma5: 34.36
-- ema23_primary: 32.31
-- distance_to_ema23_pct: 13.13
-- ma20: 31.9
-- ma60: 31.41
-- ma120: 31.82
-- return_5d: 16.59
-- return_20d: 20.43
-- volume_ratio: 4.1
-- distance_to_ma20_pct_auxiliary: 14.57
-- distance_to_high_60_pct: -3.31
+- date: 20260528
+- open: 36.45
+- high: 37.3
+- low: 34.75
+- close: 36.2
+- volume: 2447157
+- ma5: 35.24
+- ema23_primary: 32.63
+- distance_to_ema23_pct: 10.93
+- ma20: 32.18
+- ma60: 31.43
+- ma120: 31.88
+- return_5d: 13.84
+- return_20d: 18.3
+- volume_ratio: 3.41
+- distance_to_ma20_pct_auxiliary: 12.48
+- distance_to_high_60_pct: -4.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,30.4,30.8,30.1,30.6,140236,31.01,-1.31,30.7,32.19,0.64
 20260430,30.9,31.1,30.7,30.85,166627,30.99,-0.47,30.79,32.09,0.77
 20260504,30.9,31.2,30.4,30.7,183837,30.97,-0.87,30.84,31.99,0.84
 20260505,30.7,31.4,30.6,31.3,179398,31,0.98,30.91,31.91,0.8
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,35,35.3,33.85,34.8,942454,31.69,9.81,31.38,31.39,2
 20260526,34.8,34.8,33.2,34.45,450603,31.92,7.92,31.59,31.38,0.93
 20260527,34.3,37.8,33.6,36.55,2472486,32.31,13.13,31.9,31.41,4.1
+20260528,36.45,37.3,34.75,36.2,2447157,32.63,10.93,32.18,31.43,3.41
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 6698 | 旭暉應材 | true_breakout | 嚴格突破 | 121.0 |  |  | platform_breakout |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 6698 | 旭暉應材 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 6698 | 旭暉應材 | 2 | 1 | 4 | 4 | 4 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260528 | 6698 | 旭暉應材 | 3 | 1 | 4 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6584 南俊國際
 
 ## Metadata
-- generated_at: 2026-05-27 21:28:05 Asia/Taipei
+- generated_at: 2026-05-28 19:33:23 Asia/Taipei
 - stock_id: 6584
 - stock_name: 南俊國際
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 699
-- high: 709
-- low: 685
-- close: 688
-- volume: 695000
-- ma5: 685.2
-- ema23_primary: 671.85
-- distance_to_ema23_pct: 2.4
-- ma20: 679.1
-- ma60: 594.95
-- ma120: 467.59
-- return_5d: 9.55
-- return_20d: -2.55
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: 1.31
-- distance_to_high_60_pct: -19.53
+- date: 20260528
+- open: 704
+- high: 720
+- low: 672
+- close: 690
+- volume: 1378396
+- ma5: 687.2
+- ema23_primary: 673.37
+- distance_to_ema23_pct: 2.47
+- ma20: 678.25
+- ma60: 599.37
+- ma120: 470.44
+- return_5d: 1.47
+- return_20d: -2.4
+- volume_ratio: 1.22
+- distance_to_ma20_pct_auxiliary: 1.73
+- distance_to_high_60_pct: -19.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,685,731,685,707,1149000,655.46,7.86,671.9,491.38,1.2
 20260430,714,722,675,678,1741000,657.34,3.14,678,497.57,1.69
 20260504,678,690,634,672,1791000,658.56,2.04,681.1,503.76,1.61
 20260505,685,725,672,714,1320000,663.18,7.66,688.3,510.74,1.13
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,694,701,684,687,692000,668.6,2.75,680,586.3,0.58
 20260526,697,703,683,690,690000,670.39,2.93,680,590.57,0.59
 20260527,699,709,685,688,695000,671.85,2.4,679.1,594.95,0.62
+20260528,704,720,672,690,1378396,673.37,2.47,678.25,599.37,1.22
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 6584 | 南俊國際 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 6584 | 南俊國際 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | status |

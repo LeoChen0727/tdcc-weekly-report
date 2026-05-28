@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5469 瀚宇博
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:41 Asia/Taipei
+- generated_at: 2026-05-28 19:32:59 Asia/Taipei
 - stock_id: 5469
 - stock_name: 瀚宇博
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 83.8
-- high: 89.9
-- low: 83.4
-- close: 87
-- volume: 12693990
-- ma5: 83.62
-- ema23_primary: 83.8
-- distance_to_ema23_pct: 3.82
+- date: 20260528
+- open: 88
+- high: 88.5
+- low: 83.5
+- close: 84
+- volume: 7004048
+- ma5: 84.1
+- ema23_primary: 83.81
+- distance_to_ema23_pct: 0.22
 - ma20: 82.47
-- ma60: 85.93
-- ma120: 91.73
-- return_5d: 10.13
-- return_20d: -4.92
-- volume_ratio: 3.1
-- distance_to_ma20_pct_auxiliary: 5.49
-- distance_to_high_60_pct: -13
+- ma60: 85.76
+- ma120: 91.68
+- return_5d: 2.94
+- return_20d: -0.24
+- volume_ratio: 1.81
+- distance_to_ma20_pct_auxiliary: 1.86
+- distance_to_high_60_pct: -16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,88.1,88.1,83.5,84.2,11423541,89.64,-6.07,88.8,91.17,2.26
 20260430,84.2,84.2,81.5,82.3,5032657,89.03,-7.56,88.93,90.81,0.97
 20260504,82.5,84.1,82,83.5,2765102,88.57,-5.72,89.02,90.42,0.53
 20260505,83.5,85.4,83.5,84.7,2813047,88.25,-4.02,89.28,90.1,0.53
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,83.8,84.3,83.2,83.5,3048237,83.54,-0.05,83.08,86.23,0.85
 20260526,84,84.4,82.5,83.1,2412688,83.5,-0.48,82.7,86.04,0.68
 20260527,83.8,89.9,83.4,87,12693990,83.8,3.82,82.47,85.93,3.1
+20260528,88,88.5,83.5,84,7004048,83.81,0.22,82.47,85.76,1.81
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 5469 | 瀚宇博 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | call_strong_inflow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 5469 | 瀚宇博 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 5469 | 瀚宇博 | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260528 | 5469 | 瀚宇博 | 3 | 1 | 3 | 3 | 3 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 5469 | 瀚宇博 | 51 | 0 | 3630990.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260528 | 5469 | 瀚宇博 | 51 | 0 | 3318760.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

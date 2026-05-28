@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6680 鑫創電子
 
 ## Metadata
-- generated_at: 2026-05-27 21:28:09 Asia/Taipei
+- generated_at: 2026-05-28 19:33:27 Asia/Taipei
 - stock_id: 6680
 - stock_name: 鑫創電子
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 124
+- latest_price_date: 20260528
+- price_rows: 125
 - latest_tdcc_date: 20260522
 - tdcc_rows: 26
 - tdcc_history_status: tdcc_history_ready
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
+- date: 20260528
 - open: 57.9
 - high: 57.9
 - low: 57.9
 - close: 57.9
-- volume: 58000
-- ma5: 56.38
-- ema23_primary: 55.37
-- distance_to_ema23_pct: 4.56
-- ma20: 54.44
-- ma60: 57.32
-- ma120: 61.63
-- return_5d: 8.83
-- return_20d: 6.24
-- volume_ratio: 3.04
-- distance_to_ma20_pct_auxiliary: 6.36
+- volume: 1332
+- ma5: 57.26
+- ema23_primary: 55.58
+- distance_to_ema23_pct: 4.17
+- ma20: 54.69
+- ma60: 57.21
+- ma120: 61.51
+- return_5d: 8.22
+- return_20d: 9.45
+- volume_ratio: 0.07
+- distance_to_ma20_pct_auxiliary: 5.87
 - distance_to_high_60_pct: -16.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260427,54.5,54.5,52.9,52.9,18000,56.56,-6.46,55.88,61.24,1.84
 20260428,52.8,53,52.7,53,3000,56.26,-5.79,55.69,61.07,0.3
 20260429,52,52.9,51.8,52.9,7000,55.98,-5.5,55.52,60.88,0.71
 20260430,52.9,52.9,52.7,52.7,7000,55.71,-5.4,55.32,60.66,0.69
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,56.5,58,56.5,57,57000,54.92,3.79,54.26,57.55,3.99
 20260526,57,57.6,55.6,57.6,57000,55.14,4.45,54.27,57.43,3.37
 20260527,57.9,57.9,57.9,57.9,58000,55.37,4.56,54.44,57.32,3.04
+20260528,57.9,57.9,57.9,57.9,1332,55.58,4.17,54.69,57.21,0.07
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00947 台新臺灣IC設計
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:03 Asia/Taipei
+- generated_at: 2026-05-28 19:31:24 Asia/Taipei
 - stock_id: 00947
 - stock_name: 台新臺灣IC設計
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260527
-- price_rows: 4
+- latest_price_date: 20260528
+- price_rows: 5
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 39.23
-- high: 40.23
-- low: 38.43
-- close: 38.74
-- volume: 14727164
-- ma5: 
-- ema23_primary: 
-- distance_to_ema23_pct: 
-- ma20: 
-- ma60: 
-- ma120: 
+- date: 20260528
+- open: 38.83
+- high: 39.38
+- low: 37.02
+- close: 37.3
+- volume: 9106003
+- ma5: 37.57
+- ema23_primary: 36.82
+- distance_to_ema23_pct: 1.3
+- ma20: 37.57
+- ma60: 37.57
+- ma120: 37.57
 - return_5d: 
 - return_20d: 
-- volume_ratio: 
-- distance_to_ma20_pct_auxiliary: 
-- distance_to_high_60_pct: 
+- volume_ratio: 0.87
+- distance_to_ma20_pct_auxiliary: -0.71
+- distance_to_high_60_pct: -7.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -81,6 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,37.09,37.89,36.9,37.61,10552097,,,,,
 20260526,38.19,38.25,37.5,37.79,8432554,,,,,
 20260527,39.23,40.23,38.43,38.74,14727164,,,,,
+20260528,38.83,39.38,37.02,37.3,9106003,36.82,1.3,37.57,37.57,0.87
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6272 驊陞
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:57 Asia/Taipei
+- generated_at: 2026-05-28 19:33:15 Asia/Taipei
 - stock_id: 6272
 - stock_name: 驊陞
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260527
-- price_rows: 100
+- latest_price_date: 20260528
+- price_rows: 101
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 33.5
-- high: 34.2
-- low: 33.3
+- date: 20260528
+- open: 34.2
+- high: 35
+- low: 34.05
 - close: 34.2
-- volume: 342409
-- ma5: 33.24
-- ema23_primary: 32.36
-- distance_to_ema23_pct: 5.69
-- ma20: 31.98
-- ma60: 33.1
-- ma120: 37.12
-- return_5d: 8.23
+- volume: 488756
+- ma5: 33.67
+- ema23_primary: 32.51
+- distance_to_ema23_pct: 5.19
+- ma20: 32.1
+- ma60: 33.03
+- ma120: 37.09
+- return_5d: 6.71
 - return_20d: 7.38
-- volume_ratio: 0.86
-- distance_to_ma20_pct_auxiliary: 6.94
+- volume_ratio: 1.18
+- distance_to_ma20_pct_auxiliary: 6.55
 - distance_to_high_60_pct: -13.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,31.85,32.75,31.1,31.85,234766,32.69,-2.56,32.02,35.96,0.73
 20260430,32.5,32.95,32.05,32.05,228686,32.64,-1.79,32.08,35.8,0.71
 20260504,32.15,33,32.05,32.1,250102,32.59,-1.5,32.08,35.64,0.77
 20260505,32.1,32.55,31.8,32.4,294591,32.57,-0.54,32.13,35.49,0.89
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,34.3,34.3,32.7,33,496052,32.09,2.84,31.78,33.3,1.26
 20260526,33.1,33.45,32.85,33.3,259032,32.19,3.45,31.86,33.19,0.66
 20260527,33.5,34.2,33.3,34.2,342409,32.36,5.69,31.98,33.1,0.86
+20260528,34.2,35,34.05,34.2,488756,32.51,5.19,32.1,33.03,1.18
 ```
 
 ## Latest TDCC Snapshot

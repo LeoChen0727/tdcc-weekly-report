@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6415 矽力*-KY
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:59 Asia/Taipei
+- generated_at: 2026-05-28 19:33:17 Asia/Taipei
 - stock_id: 6415
 - stock_name: 矽力*-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 640
-- high: 693
-- low: 636
-- close: 665
-- volume: 10171412
-- ma5: 606.4
-- ema23_primary: 496.41
-- distance_to_ema23_pct: 33.96
-- ma20: 494.15
-- ma60: 364.23
-- ma120: 297.1
-- return_5d: 31.16
-- return_20d: 61.02
-- volume_ratio: 1.39
-- distance_to_ma20_pct_auxiliary: 34.57
-- distance_to_high_60_pct: -4.04
+- date: 20260528
+- open: 667
+- high: 680
+- low: 600
+- close: 620
+- volume: 11838877
+- ma5: 619
+- ema23_primary: 506.7
+- distance_to_ema23_pct: 22.36
+- ma20: 505.5
+- ma60: 370.02
+- ma120: 300.77
+- return_5d: 11.31
+- return_20d: 57.76
+- volume_ratio: 1.53
+- distance_to_ma20_pct_auxiliary: 22.65
+- distance_to_high_60_pct: -10.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,406.5,406.5,391,393,2587470,345.68,13.69,333.6,294.4,0.32
 20260430,401.5,427,397,427,3525728,352.46,21.15,340.9,297.21,0.45
 20260504,442,445.5,422,435,2978822,359.34,21.06,348.52,300.04,0.39
 20260505,430,456,426.5,436,2645041,365.72,19.22,356.62,302.95,0.34
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,609,618,577,618,7094823,467.54,32.18,471.05,351.98,1.04
 20260526,646,651,612,630,9435070,481.08,30.96,481.55,357.83,1.35
 20260527,640,693,636,665,10171412,496.41,33.96,494.15,364.23,1.39
+20260528,667,680,600,620,11838877,506.7,22.36,505.5,370.02,1.53
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 6415 | 矽力*-KY | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | call_put_bullish | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 6415 | 矽力*-KY | 5 | 2 | 5 | 5 | 5 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 6415 | 矽力*-KY | 119 | 1 | 30258420.0 | 29740.0 | 1017.43 | call_put_bullish | 3 |  |
+| 20260528 | 6415 | 矽力*-KY | 119 | 1 | 33785100.0 | 100230.0 | 337.08 | call_put_bullish | 3 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

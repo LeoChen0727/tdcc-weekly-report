@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00762 元大全球AI
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:01 Asia/Taipei
+- generated_at: 2026-05-28 19:31:22 Asia/Taipei
 - stock_id: 00762
 - stock_name: 元大全球AI
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260527
-- price_rows: 4
+- latest_price_date: 20260528
+- price_rows: 5
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
+- date: 20260528
 - open: 114.25
-- high: 114.75
-- low: 114.25
-- close: 114.25
-- volume: 155241
-- ma5: 
-- ema23_primary: 
-- distance_to_ema23_pct: 
-- ma20: 
-- ma60: 
-- ma120: 
+- high: 114.8
+- low: 113
+- close: 113.55
+- volume: 186024
+- ma5: 113.27
+- ema23_primary: 112.15
+- distance_to_ema23_pct: 1.25
+- ma20: 113.27
+- ma60: 113.27
+- ma120: 113.27
 - return_5d: 
 - return_20d: 
-- volume_ratio: 
-- distance_to_ma20_pct_auxiliary: 
-- distance_to_high_60_pct: 
+- volume_ratio: 1.11
+- distance_to_ma20_pct_auxiliary: 0.25
+- distance_to_high_60_pct: -1.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -81,6 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,112.45,113.8,112.45,113.8,185437,,,,,
 20260526,114,114,112.85,113.25,175430,,,,,
 20260527,114.25,114.75,114.25,114.25,155241,,,,,
+20260528,114.25,114.8,113,113.55,186024,112.15,1.25,113.27,113.27,1.11
 ```
 
 ## Latest TDCC Snapshot

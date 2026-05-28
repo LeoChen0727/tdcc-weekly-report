@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8210 勤誠
 
 ## Metadata
-- generated_at: 2026-05-27 21:28:30 Asia/Taipei
+- generated_at: 2026-05-28 19:33:48 Asia/Taipei
 - stock_id: 8210
 - stock_name: 勤誠
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 1470
-- high: 1470
-- low: 1385
-- close: 1395
-- volume: 1433207
-- ma5: 1390
-- ema23_primary: 1314.12
-- distance_to_ema23_pct: 6.15
-- ma20: 1356.5
-- ma60: 1078.58
-- ma120: 1006.69
-- return_5d: 8.56
-- return_20d: 19.23
-- volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: 2.84
-- distance_to_high_60_pct: -12.26
+- date: 20260528
+- open: 1400
+- high: 1420
+- low: 1315
+- close: 1325
+- volume: 1726727
+- ma5: 1388
+- ema23_primary: 1315.03
+- distance_to_ema23_pct: 0.76
+- ma20: 1366.75
+- ma60: 1085.1
+- ma120: 1010.4
+- return_5d: -0.75
+- return_20d: 18.3
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: -3.05
+- distance_to_high_60_pct: -16.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,1160,1160,1115,1120,2555253,1019.77,9.83,992.4,945.23,0.7
 20260430,1150,1155,1110,1130,2256259,1028.96,9.82,1005.55,948.4,0.63
 20260504,1150,1170,1130,1150,1496800,1039.05,10.68,1018.1,951.42,0.42
 20260505,1165,1265,1155,1265,2446851,1057.87,19.58,1039.3,956.32,0.72
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,1400,1455,1380,1435,1653950,1294.66,10.84,1331.5,1061.78,0.54
 20260526,1470,1470,1410,1440,1471408,1306.77,10.2,1345.25,1070.63,0.52
 20260527,1470,1470,1385,1395,1433207,1314.12,6.15,1356.5,1078.58,0.52
+20260528,1400,1420,1315,1325,1726727,1315.03,0.76,1366.75,1085.1,0.63
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 8210 | 勤誠 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 8210 | 勤誠 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 8210 | 勤誠 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260528 | 8210 | 勤誠 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 8210 | 勤誠 | 204 | 6 | 23339300.0 | 14650.0 | 1593.13 | no_signal | 0 |  |
+| 20260528 | 8210 | 勤誠 | 204 | 6 | 19336590.0 | 205780.0 | 93.97 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

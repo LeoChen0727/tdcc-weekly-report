@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6442 光聖
 
 ## Metadata
-- generated_at: 2026-05-27 21:28:00 Asia/Taipei
+- generated_at: 2026-05-28 19:33:18 Asia/Taipei
 - stock_id: 6442
 - stock_name: 光聖
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 2280
-- high: 2305
-- low: 2040
-- close: 2040
-- volume: 6267822
-- ma5: 2005
-- ema23_primary: 1961.34
-- distance_to_ema23_pct: 4.01
-- ma20: 1949.25
-- ma60: 1991.67
-- ma120: 1709.96
-- return_5d: 15.25
-- return_20d: 7.09
-- volume_ratio: 2.06
-- distance_to_ma20_pct_auxiliary: 4.66
-- distance_to_high_60_pct: -19.68
+- date: 20260528
+- open: 2025
+- high: 2025
+- low: 1890
+- close: 1895
+- volume: 4531486
+- ma5: 2027
+- ema23_primary: 1955.82
+- distance_to_ema23_pct: -3.11
+- ma20: 1943.75
+- ma60: 1984
+- ma120: 1715.5
+- return_5d: 6.16
+- return_20d: -5.49
+- volume_ratio: 1.41
+- distance_to_ma20_pct_auxiliary: -2.51
+- distance_to_high_60_pct: -25.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,1870,2015,1870,2005,1379743,2041.76,-1.8,2089.5,1931.75,0.43
 20260430,2050,2115,2050,2110,1415842,2047.45,3.06,2100,1945.33,0.45
 20260504,2220,2220,2060,2085,1221680,2050.58,1.68,2102.75,1957.5,0.4
 20260505,2115,2115,2020,2060,909535,2051.36,0.42,2105.75,1970.17,0.31
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,1900,2060,1830,2060,5251707,1925.94,6.96,1918,1990.33,2.02
 20260526,2115,2265,1990,2265,7118572,1954.19,15.9,1942.5,1993.42,2.53
 20260527,2280,2305,2040,2040,6267822,1961.34,4.01,1949.25,1991.67,2.06
+20260528,2025,2025,1890,1895,4531486,1955.82,-3.11,1943.75,1984,1.41
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 6442 | 光聖 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_strong_inflow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 6442 | 光聖 | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 6442 | 光聖 | 4 | 0 | 3122950.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260528 | 6442 | 光聖 | 4 | 0 | 1582000.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6405 悅城
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:58 Asia/Taipei
+- generated_at: 2026-05-28 19:33:16 Asia/Taipei
 - stock_id: 6405
 - stock_name: 悅城
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 83.3
-- high: 83.4
-- low: 78
-- close: 81
-- volume: 6789536
-- ma5: 69.16
-- ema23_primary: 57.8
-- distance_to_ema23_pct: 40.14
-- ma20: 59.78
-- ma60: 42.33
-- ma120: 35.5
-- return_5d: 51.4
-- return_20d: 92.4
-- volume_ratio: 2.73
-- distance_to_ma20_pct_auxiliary: 35.5
-- distance_to_high_60_pct: -2.88
+- date: 20260528
+- open: 79.6
+- high: 89.1
+- low: 76
+- close: 76.9
+- volume: 8799844
+- ma5: 73.12
+- ema23_primary: 59.39
+- distance_to_ema23_pct: 29.48
+- ma20: 61.31
+- ma60: 43.05
+- ma120: 35.94
+- return_5d: 34.68
+- return_20d: 66.09
+- volume_ratio: 3.15
+- distance_to_ma20_pct_auxiliary: 25.43
+- distance_to_high_60_pct: -13.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,44.4,46.3,44.2,46.3,2779936,36.67,26.26,36.89,33,1.32
 20260430,50.9,50.9,50.9,50.9,1948821,37.86,34.45,37.9,33.32,0.91
 20260504,55.9,55.9,55.9,55.9,1135212,39.36,42.02,39,33.74,0.54
 20260505,61.4,61.4,56.1,61.4,12493774,41.2,49.04,40.21,34.24,4.67
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,69,69,69,69,1676904,53.86,28.12,55.95,40.89,0.76
 20260526,75.9,75.9,69,75.9,7479993,55.69,36.28,57.84,41.57,3
 20260527,83.3,83.4,78,81,6789536,57.8,40.14,59.78,42.33,2.73
+20260528,79.6,89.1,76,76.9,8799844,59.39,29.48,61.31,43.05,3.15
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 6405 | 悅城 | true_breakout | 嚴格突破 | 79.0 |  |  | platform_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 6405 | 悅城 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 6405 | 悅城 | 2 | 2 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260528 | 6405 | 悅城 | 3 | 1 | 3 | 3 | 3 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | status |

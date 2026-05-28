@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2421 建準
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:35 Asia/Taipei
+- generated_at: 2026-05-28 19:31:56 Asia/Taipei
 - stock_id: 2421
 - stock_name: 建準
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 166
-- high: 166
-- low: 159
-- close: 162
-- volume: 7155448
-- ma5: 160
-- ema23_primary: 150.14
-- distance_to_ema23_pct: 7.9
-- ma20: 149.9
-- ma60: 142.88
-- ma120: 149.21
-- return_5d: 13.29
-- return_20d: 13.29
-- volume_ratio: 1
-- distance_to_ma20_pct_auxiliary: 8.07
-- distance_to_high_60_pct: -2.7
+- date: 20260528
+- open: 162.5
+- high: 164.5
+- low: 152
+- close: 156.5
+- volume: 7620238
+- ma5: 160.9
+- ema23_primary: 150.67
+- distance_to_ema23_pct: 3.87
+- ma20: 150.4
+- ma60: 142.91
+- ma120: 149.1
+- return_5d: 2.96
+- return_20d: 6.83
+- volume_ratio: 1.03
+- distance_to_ma20_pct_auxiliary: 4.06
+- distance_to_high_60_pct: -6.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,143,147.5,142.5,146.5,3590698,141.69,3.39,139.07,142.53,0.74
 20260430,149,149,145,145,3501196,141.97,2.14,140.18,142.36,0.74
 20260504,148,151,145,150,5254260,142.64,5.16,141.28,142.31,1.07
 20260505,152,152.5,148.5,149.5,7904093,143.21,4.39,142.62,142.26,1.55
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,163,166,158.5,162.5,15535109,147.62,10.08,147.82,142.49,2.39
 20260526,164,166.5,160,165,11117950,149.07,10.69,148.95,142.72,1.61
 20260527,166,166,159,162,7155448,150.14,7.9,149.9,142.88,1
+20260528,162.5,164.5,152,156.5,7620238,150.67,3.87,150.4,142.91,1.03
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2421 | 建準 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 2421 | 建準 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2421 | 建準 | 5 | 1 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260528 | 2421 | 建準 | 6 | 2 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2421 | 建準 | 94 | 4 | 15107070.0 | 0.0 |  | no_signal | 0 |  |
+| 20260528 | 2421 | 建準 | 95 | 4 | 11313300.0 | 20150.0 | 561.45 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

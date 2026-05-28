@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1215 卜蜂
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:04 Asia/Taipei
+- generated_at: 2026-05-28 19:31:26 Asia/Taipei
 - stock_id: 1215
 - stock_name: 卜蜂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 132
-- high: 132
-- low: 125
-- close: 129.5
-- volume: 6872033
-- ma5: 140.3
-- ema23_primary: 139.83
-- distance_to_ema23_pct: -7.39
-- ma20: 138.97
-- ma60: 144.2
-- ma120: 143.96
-- return_5d: -8.8
-- return_20d: -6.83
-- volume_ratio: 3.42
-- distance_to_ma20_pct_auxiliary: -6.82
-- distance_to_high_60_pct: -20.8
+- date: 20260528
+- open: 130.5
+- high: 130.5
+- low: 126
+- close: 127.5
+- volume: 3162444
+- ma5: 137
+- ema23_primary: 138.8
+- distance_to_ema23_pct: -8.14
+- ma20: 138.35
+- ma60: 143.73
+- ma120: 143.89
+- return_5d: -11.46
+- return_20d: -8.93
+- volume_ratio: 1.49
+- distance_to_ma20_pct_auxiliary: -7.84
+- distance_to_high_60_pct: -22.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,139,141.5,139,140,911033,142.43,-1.71,141.12,147.65,0.77
 20260430,140,141.5,138.5,138.5,1251910,142.1,-2.54,141.3,147.43,1.07
 20260504,139,141,138.5,140,787334,141.93,-1.36,141.38,147.27,0.69
 20260505,140,143,140,141,989528,141.85,-0.6,141.47,147.09,0.87
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,143.5,144,139,142.5,1753582,140.61,1.34,139.28,144.72,1.05
 20260526,142.5,144.5,142,142.5,2725256,140.77,1.23,139.45,144.58,1.58
 20260527,132,132,125,129.5,6872033,139.83,-7.39,138.97,144.2,3.42
+20260528,130.5,130.5,126,127.5,3162444,138.8,-8.14,138.35,143.73,1.49
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 1215 | 卜蜂 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | stale_signal | calendar event: ex_dividend on 20260527; status=confirmed; proximity=within_3d |
+| 20260521 | 1215 | 卜蜂 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 1215 | 卜蜂 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260528 | 1215 | 卜蜂 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 1215 | 卜蜂 | 6 | 0 | 446090.0 | 0.0 |  | no_signal | 0 |  |
+| 20260528 | 1215 | 卜蜂 | 6 | 0 | 311840.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

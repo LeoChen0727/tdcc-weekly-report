@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3430 奇鈦科
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:06 Asia/Taipei
+- generated_at: 2026-05-28 19:32:25 Asia/Taipei
 - stock_id: 3430
 - stock_name: 奇鈦科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 170
-- high: 171
-- low: 162
-- close: 162.5
-- volume: 165000
-- ma5: 173.3
-- ema23_primary: 152.51
-- distance_to_ema23_pct: 6.55
-- ma20: 160.1
-- ma60: 107.08
-- ma120: 86.53
-- return_5d: 2.52
-- return_20d: 34.85
-- volume_ratio: 0.06
-- distance_to_ma20_pct_auxiliary: 1.5
-- distance_to_high_60_pct: -14.02
+- date: 20260528
+- open: 163
+- high: 178.5
+- low: 163
+- close: 171
+- volume: 4485525
+- ma5: 172.7
+- ema23_primary: 154.05
+- distance_to_ema23_pct: 11
+- ma20: 162.6
+- ma60: 108.64
+- ma120: 87.5
+- return_5d: -1.72
+- return_20d: 41.32
+- volume_ratio: 1.48
+- distance_to_ma20_pct_auxiliary: 5.17
+- distance_to_high_60_pct: -9.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,117,125.5,114.5,121,1800000,93.93,28.83,89.06,77.71,0.81
 20260430,122,125.5,120.5,122,1562000,96.27,26.73,91.73,78.53,0.69
 20260504,126,134,126,134,1139000,99.41,34.8,94.88,79.54,0.49
 20260505,140,147,140,147,644000,103.38,42.2,98.78,80.81,0.27
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,184.5,184.5,175,177.5,178000,150.02,18.32,155.05,104.17,0.06
 20260526,178.5,179,168,169,171000,151.6,11.48,158,105.73,0.06
 20260527,170,171,162,162.5,165000,152.51,6.55,160.1,107.08,0.06
+20260528,163,178.5,163,171,4485525,154.05,11,162.6,108.64,1.48
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 3430 | 奇鈦科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | early_entry_watch |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 3430 | 奇鈦科 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
 
 ## Warrant Context
 | status |

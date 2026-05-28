@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2355 敬鵬
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:31 Asia/Taipei
+- generated_at: 2026-05-28 19:31:52 Asia/Taipei
 - stock_id: 2355
 - stock_name: 敬鵬
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 65.8
-- high: 65.9
-- low: 61.8
-- close: 62.6
-- volume: 29431687
-- ma5: 64.98
-- ema23_primary: 57.61
-- distance_to_ema23_pct: 8.66
-- ma20: 56.44
-- ma60: 50.95
-- ma120: 42.68
-- return_5d: 5.92
-- return_20d: 18.34
-- volume_ratio: 1.01
-- distance_to_ma20_pct_auxiliary: 10.91
-- distance_to_high_60_pct: -11.83
+- date: 20260528
+- open: 62.6
+- high: 66.1
+- low: 60.3
+- close: 61.7
+- volume: 23172318
+- ma5: 64.32
+- ema23_primary: 57.95
+- distance_to_ema23_pct: 6.47
+- ma20: 56.98
+- ma60: 51.26
+- ma120: 42.94
+- return_5d: -5.08
+- return_20d: 21.46
+- volume_ratio: 0.78
+- distance_to_ma20_pct_auxiliary: 8.27
+- distance_to_high_60_pct: -13.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,52.5,52.8,50.8,50.8,11217039,50.95,-0.29,52.22,45.33,0.38
 20260430,50.5,52.8,50.4,51.2,11581503,50.97,0.45,52.23,45.59,0.43
 20260504,51.9,53.3,50.9,51.4,15013413,51.01,0.77,52.16,45.79,0.62
 20260505,51.4,52.6,51.3,52,8276918,51.09,1.78,52.17,46,0.37
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,68,71,66.5,67,53636677,56.43,18.73,55.39,50.2,1.89
 20260526,67.5,67.5,64.5,65.1,22789635,57.16,13.9,55.95,50.6,0.81
 20260527,65.8,65.9,61.8,62.6,29431687,57.61,8.66,56.44,50.95,1.01
+20260528,62.6,66.1,60.3,61.7,23172318,57.95,6.47,56.98,51.26,0.78
 ```
 
 ## Latest TDCC Snapshot
@@ -135,7 +135,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2355 | 敬鵬 | 77 | 0 | 20404570.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260528 | 2355 | 敬鵬 | 77 | 0 | 11311370.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

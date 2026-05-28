@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6664 群翊
 
 ## Metadata
-- generated_at: 2026-05-27 21:28:08 Asia/Taipei
+- generated_at: 2026-05-28 19:33:26 Asia/Taipei
 - stock_id: 6664
 - stock_name: 群翊
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 475
-- high: 475
-- low: 449.5
-- close: 454.5
-- volume: 460000
-- ma5: 440.7
-- ema23_primary: 430.58
-- distance_to_ema23_pct: 5.56
-- ma20: 444.7
-- ma60: 370.64
-- ma120: 328.85
-- return_5d: 15.8
-- return_20d: 7.19
-- volume_ratio: 0.23
-- distance_to_ma20_pct_auxiliary: 2.2
-- distance_to_high_60_pct: -8.64
+- date: 20260528
+- open: 456
+- high: 468
+- low: 436
+- close: 441
+- volume: 1338952
+- ma5: 447.7
+- ema23_primary: 431.45
+- distance_to_ema23_pct: 2.21
+- ma20: 443.85
+- ma60: 373.1
+- ma120: 330.49
+- return_5d: 8.62
+- return_20d: -3.71
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: -0.64
+- distance_to_high_60_pct: -11.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,425.5,466,416.5,458,5201000,389.56,17.57,397.6,320.83,1.78
 20260430,455,497.5,447,464.5,4983000,395.8,17.36,406.15,323.83,1.63
 20260504,464.5,469,436,462.5,3278000,401.36,15.23,413.15,326.8,1.06
 20260505,458.5,484,453,462.5,2218000,406.46,13.79,418.55,329.82,0.72
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,447,454.5,439,444,449000,424.94,4.49,440.82,365.27,0.22
 20260526,449.5,472,443,466.5,460000,428.4,8.89,443.18,368.12,0.23
 20260527,475,475,449.5,454.5,460000,430.58,5.56,444.7,370.64,0.23
+20260528,456,468,436,441,1338952,431.45,2.21,443.85,373.1,0.74
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 6664 | 群翊 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 6664 | 群翊 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | status |

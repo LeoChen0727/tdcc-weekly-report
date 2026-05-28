@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2409 友達
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:34 Asia/Taipei
+- generated_at: 2026-05-28 19:31:55 Asia/Taipei
 - stock_id: 2409
 - stock_name: 友達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 22.15
-- high: 22.2
-- low: 20.5
-- close: 21.8
-- volume: 566175271
-- ma5: 22.12
-- ema23_primary: 19.8
-- distance_to_ema23_pct: 10.08
-- ma20: 19.48
-- ma60: 17.66
-- ma120: 15.58
-- return_5d: 16.27
-- return_20d: 26.74
-- volume_ratio: 1.78
-- distance_to_ma20_pct_auxiliary: 11.9
-- distance_to_high_60_pct: -15.5
+- date: 20260528
+- open: 21.9
+- high: 23.4
+- low: 21.2
+- close: 21.2
+- volume: 538705306
+- ma5: 22.32
+- ema23_primary: 19.92
+- distance_to_ema23_pct: 6.42
+- ma20: 19.68
+- ma60: 17.73
+- ma120: 15.66
+- return_5d: 4.95
+- return_20d: 22.54
+- volume_ratio: 1.59
+- distance_to_ma20_pct_auxiliary: 7.74
+- distance_to_high_60_pct: -17.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,17.2,17.75,17.1,17.3,124810952,17.59,-1.63,17.97,16.21,0.34
 20260430,17.5,17.6,16.95,17.2,107364483,17.55,-2.02,18.11,16.24,0.29
 20260504,16.9,17.25,16.6,16.95,185186551,17.5,-3.17,18.16,16.27,0.5
 20260505,17.25,18,17.2,17.85,283447210,17.53,1.81,18.2,16.32,0.81
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,24.35,24.4,24.15,24.4,82302936,19.41,25.73,19.02,17.47,0.31
 20260526,25.5,25.8,22,22,818361725,19.62,12.12,19.25,17.57,2.77
 20260527,22.15,22.2,20.5,21.8,566175271,19.8,10.08,19.48,17.66,1.78
+20260528,21.9,23.4,21.2,21.2,538705306,19.92,6.42,19.68,17.73,1.59
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 2409 | 友達 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_put_bullish | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 2409 | 友達 | 1 | 1 | 3 | 3 | 3 | repeated_but_no_breakout | 近 10 日上榜 3 日、近 20 日上榜 3 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2409 | 友達 | 188 | 11 | 41758360.0 | 330910.0 | 126.19 | call_inflow | 1 |  |
+| 20260528 | 2409 | 友達 | 190 | 11 | 53495110.0 | 188680.0 | 283.52 | call_put_bullish | 3 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

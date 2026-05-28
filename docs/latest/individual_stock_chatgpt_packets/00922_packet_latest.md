@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00922 國泰台灣領袖50
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:02 Asia/Taipei
+- generated_at: 2026-05-28 19:31:24 Asia/Taipei
 - stock_id: 00922
 - stock_name: 國泰台灣領袖50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260527
-- price_rows: 4
+- latest_price_date: 20260528
+- price_rows: 5
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 39
-- high: 39.79
-- low: 39
-- close: 39.27
-- volume: 11517534
-- ma5: 
-- ema23_primary: 
-- distance_to_ema23_pct: 
-- ma20: 
-- ma60: 
-- ma120: 
+- date: 20260528
+- open: 39.69
+- high: 39.76
+- low: 38.18
+- close: 38.33
+- volume: 18640081
+- ma5: 38.27
+- ema23_primary: 37.38
+- distance_to_ema23_pct: 2.55
+- ma20: 38.27
+- ma60: 38.27
+- ma120: 38.27
 - return_5d: 
 - return_20d: 
-- volume_ratio: 
-- distance_to_ma20_pct_auxiliary: 
-- distance_to_high_60_pct: 
+- volume_ratio: 1.22
+- distance_to_ma20_pct_auxiliary: 0.17
+- distance_to_high_60_pct: -3.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -81,6 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,37.82,38.52,37.82,38.49,26107165,,,,,
 20260526,38.81,38.84,38.25,38.38,10500297,,,,,
 20260527,39,39.79,39,39.27,11517534,,,,,
+20260528,39.69,39.76,38.18,38.33,18640081,37.38,2.55,38.27,38.27,1.22
 ```
 
 ## Latest TDCC Snapshot

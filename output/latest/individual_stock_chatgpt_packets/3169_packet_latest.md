@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3169 亞信
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:59 Asia/Taipei
+- generated_at: 2026-05-28 19:32:19 Asia/Taipei
 - stock_id: 3169
 - stock_name: 亞信
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 121
-- high: 127.5
-- low: 118
-- close: 119
-- volume: 123000
-- ma5: 120.1
-- ema23_primary: 111.95
-- distance_to_ema23_pct: 6.3
-- ma20: 112.5
-- ma60: 102.56
-- ma120: 98.91
-- return_5d: 4.85
-- return_20d: 10.19
-- volume_ratio: 0.17
-- distance_to_ma20_pct_auxiliary: 5.78
-- distance_to_high_60_pct: -6.67
+- date: 20260528
+- open: 120
+- high: 127
+- low: 119.5
+- close: 121.5
+- volume: 1260859
+- ma5: 120.8
+- ema23_primary: 112.74
+- distance_to_ema23_pct: 7.77
+- ma20: 113.28
+- ma60: 102.91
+- ma120: 99.21
+- return_5d: 2.97
+- return_20d: 14.62
+- volume_ratio: 1.62
+- distance_to_ma20_pct_auxiliary: 7.26
+- distance_to_high_60_pct: -4.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,109,109,103.5,106,564000,100.52,5.45,97.58,97.59,0.82
 20260430,106.5,106.5,103,103,285000,100.73,2.26,98.25,97.73,0.41
 20260504,109,113,106,107.5,1574000,101.29,6.13,99.09,97.85,2.06
 20260505,107.5,112.5,107.5,109.5,1077000,101.98,7.38,100.1,97.99,1.33
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,126,126,120.5,121.5,123000,110.52,9.94,111.28,101.86,0.15
 20260526,123,125.5,118,120,121000,111.31,7.81,111.95,102.28,0.15
 20260527,121,127.5,118,119,123000,111.95,6.3,112.5,102.56,0.17
+20260528,120,127,119.5,121.5,1260859,112.74,7.77,113.28,102.91,1.62
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 3169 | 亞信 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 3169 | 亞信 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3169 | 亞信 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260528 | 3169 | 亞信 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

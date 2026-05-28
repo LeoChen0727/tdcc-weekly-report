@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7805 威聯通
 
 ## Metadata
-- generated_at: 2026-05-27 21:28:24 Asia/Taipei
+- generated_at: 2026-05-28 19:33:41 Asia/Taipei
 - stock_id: 7805
 - stock_name: 威聯通
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260527
-- price_rows: 100
+- latest_price_date: 20260528
+- price_rows: 101
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 807
-- high: 807
-- low: 771
-- close: 776
-- volume: 779000
-- ma5: 765.2
-- ema23_primary: 727.25
-- distance_to_ema23_pct: 6.7
-- ma20: 724.9
-- ma60: 687.05
-- ma120: 665.72
-- return_5d: 10.86
-- return_20d: 12.3
-- volume_ratio: 3.15
-- distance_to_ma20_pct_auxiliary: 7.05
-- distance_to_high_60_pct: -3.84
+- date: 20260528
+- open: 778
+- high: 815
+- low: 777
+- close: 785
+- volume: 249052
+- ma5: 778.6
+- ema23_primary: 732.06
+- distance_to_ema23_pct: 7.23
+- ma20: 730.25
+- ma60: 689.68
+- ma120: 666.9
+- return_5d: 9.33
+- return_20d: 15.78
+- volume_ratio: 0.97
+- distance_to_ma20_pct_auxiliary: 7.5
+- distance_to_high_60_pct: -3.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,687,687,676,678,82000,686.37,-1.22,689.25,645.53,0.52
 20260430,678,691,674,688,65000,686.51,0.22,690.45,647.22,0.41
 20260504,701,728,696,711,194000,688.55,3.26,691.5,649.53,1.19
 20260505,708,732,708,724,161000,691.5,4.7,694,651.75,0.96
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,787,806,775,784,788000,717.25,9.31,716.1,683.03,4.41
 20260526,784,795,764,784,781000,722.81,8.46,720.65,684.92,3.7
 20260527,807,807,771,776,779000,727.25,6.7,724.9,687.05,3.15
+20260528,778,815,777,785,249052,732.06,7.23,730.25,689.68,0.97
 ```
 
 ## Latest TDCC Snapshot

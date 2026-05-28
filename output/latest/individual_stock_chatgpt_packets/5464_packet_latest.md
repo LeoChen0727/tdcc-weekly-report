@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5464 霖宏
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:41 Asia/Taipei
+- generated_at: 2026-05-28 19:32:59 Asia/Taipei
 - stock_id: 5464
 - stock_name: 霖宏
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 73.1
-- high: 73.1
-- low: 71.1
-- close: 71.1
-- volume: 72000
-- ma5: 71.76
-- ema23_primary: 56.57
-- distance_to_ema23_pct: 25.68
-- ma20: 56.46
-- ma60: 37.98
-- ma120: 31.95
-- return_5d: 5.33
-- return_20d: 123.58
-- volume_ratio: 0.04
-- distance_to_ma20_pct_auxiliary: 25.94
-- distance_to_high_60_pct: -5.2
+- date: 20260528
+- open: 70
+- high: 78.2
+- low: 69
+- close: 75.5
+- volume: 4526696
+- ma5: 72.56
+- ema23_primary: 58.15
+- distance_to_ema23_pct: 29.84
+- ma20: 58.64
+- ma60: 38.78
+- ma120: 32.35
+- return_5d: 5.59
+- return_20d: 137.42
+- volume_ratio: 2.36
+- distance_to_ma20_pct_auxiliary: 28.75
+- distance_to_high_60_pct: -3.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,31.35,31.95,31.2,31.8,301000,30.16,5.45,30.09,27.95,0.88
 20260430,31.85,33.2,31.5,33,863000,30.39,8.58,30.33,28.07,2.29
 20260504,33.7,36.3,33.65,35.9,3684000,30.85,16.36,30.71,28.24,6.76
 20260505,37,39.45,37,39.45,5772000,31.57,24.97,31.28,28.46,6.98
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,71.5,75,71.5,73,73000,53.71,35.92,52.43,36.51,0.04
 20260526,73,73,69.8,72.2,71000,55.25,30.68,54.49,37.26,0.04
 20260527,73.1,73.1,71.1,71.1,72000,56.57,25.68,56.46,37.98,0.04
+20260528,70,78.2,69,75.5,4526696,58.15,29.84,58.64,38.78,2.36
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 5464 | 霖宏 | true_breakout | 嚴格突破 | 99.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 5464 | 霖宏 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | status |

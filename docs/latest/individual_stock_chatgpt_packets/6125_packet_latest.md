@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6125 廣運
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:48 Asia/Taipei
+- generated_at: 2026-05-28 19:33:06 Asia/Taipei
 - stock_id: 6125
 - stock_name: 廣運
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 69.5
-- high: 71.6
-- low: 65.5
-- close: 65.8
-- volume: 68000
-- ma5: 63.12
-- ema23_primary: 59.61
-- distance_to_ema23_pct: 10.38
-- ma20: 59.3
-- ma60: 57.97
-- ma120: 62.8
-- return_5d: 20.29
-- return_20d: 20.51
-- volume_ratio: 0.04
-- distance_to_ma20_pct_auxiliary: 10.96
-- distance_to_high_60_pct: -8.1
+- date: 20260528
+- open: 67
+- high: 69.5
+- low: 64.9
+- close: 65.6
+- volume: 4065828
+- ma5: 64.94
+- ema23_primary: 60.11
+- distance_to_ema23_pct: 9.13
+- ma20: 59.85
+- ma60: 58
+- ma120: 62.83
+- return_5d: 16.11
+- return_20d: 20.37
+- volume_ratio: 2.1
+- distance_to_ma20_pct_auxiliary: 9.6
+- distance_to_high_60_pct: -8.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,54.7,55.5,54.4,54.5,871000,55.94,-2.57,54.7,60.44,0.64
 20260430,54.5,56.9,54.1,55.8,2037000,55.92,-0.22,54.81,60.23,1.45
 20260504,56.3,59.4,56.2,58.1,3180000,56.11,3.55,55,60.05,2.09
 20260505,58.4,58.8,57.7,58.8,1473000,56.33,4.38,55.27,59.78,0.95
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,60.5,65.4,60.1,65.4,64000,58.2,12.37,58.02,57.85,0.03
 20260526,68.5,69,66.5,68.4,68000,59.05,15.83,58.74,57.94,0.04
 20260527,69.5,71.6,65.5,65.8,68000,59.61,10.38,59.3,57.97,0.04
+20260528,67,69.5,64.9,65.6,4065828,60.11,9.13,59.85,58,2.1
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 6125 | 廣運 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260528 | 6125 | 廣運 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 6125 | 廣運 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 6125 | 廣運 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260528 | 6125 | 廣運 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

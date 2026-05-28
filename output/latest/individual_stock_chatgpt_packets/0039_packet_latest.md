@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0039 金融類
 
 ## Metadata
-- generated_at: 2026-05-27 21:25:59 Asia/Taipei
+- generated_at: 2026-05-28 19:31:21 Asia/Taipei
 - stock_id: 0039
 - stock_name: 金融類
 - packet_status: insufficient_price_data
@@ -113,7 +113,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 0039 | 金融類 | 5 | 3 | 278060.0 | 13230.0 | 21.02 | no_signal | 0 |  |
+| 20260528 | 0039 | 金融類 | 5 | 3 | 193720.0 | 13700.0 | 14.14 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

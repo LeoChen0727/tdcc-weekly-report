@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5269 祥碩
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:36 Asia/Taipei
+- generated_at: 2026-05-28 19:32:55 Asia/Taipei
 - stock_id: 5269
 - stock_name: 祥碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 1565
-- high: 1575
-- low: 1485
-- close: 1495
-- volume: 2429032
-- ma5: 1493
-- ema23_primary: 1406.04
-- distance_to_ema23_pct: 6.33
-- ma20: 1420.75
-- ma60: 1275.08
-- ma120: 1265.38
-- return_5d: 7.94
-- return_20d: 16.8
-- volume_ratio: 0.91
-- distance_to_ma20_pct_auxiliary: 5.23
-- distance_to_high_60_pct: -5.08
+- date: 20260528
+- open: 1510
+- high: 1510
+- low: 1435
+- close: 1440
+- volume: 1717011
+- ma5: 1499
+- ema23_primary: 1408.87
+- distance_to_ema23_pct: 2.21
+- ma20: 1427.5
+- ma60: 1277.67
+- ma120: 1267.58
+- return_5d: 2.13
+- return_20d: 10.34
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: 0.88
+- distance_to_high_60_pct: -8.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,1280,1310,1260,1305,917252,1234.25,5.73,1199,1233.92,0.64
 20260430,1310,1400,1305,1365,3282918,1245.14,9.63,1214,1236.17,2.1
 20260504,1405,1435,1375,1390,2045503,1257.21,10.56,1228.75,1236.83,1.25
 20260505,1395,1410,1335,1350,1763040,1264.95,6.72,1243.25,1236.42,1.04
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,1535,1550,1515,1535,2155035,1384.59,10.86,1397.25,1268.25,0.84
 20260526,1560,1575,1520,1545,2555750,1397.95,10.52,1410,1272.08,0.98
 20260527,1565,1575,1485,1495,2429032,1406.04,6.33,1420.75,1275.08,0.91
+20260528,1510,1510,1435,1440,1717011,1408.87,2.21,1427.5,1277.67,0.63
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 5269 | 祥碩 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 5269 | 祥碩 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 5269 | 祥碩 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 5269 | 祥碩 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260528 | 5269 | 祥碩 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 5269 | 祥碩 | 159 | 0 | 27737640.0 | 0.0 |  | no_signal | 0 |  |
+| 20260528 | 5269 | 祥碩 | 159 | 0 | 20092590.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

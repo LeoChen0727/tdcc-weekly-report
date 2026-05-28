@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3019 亞光
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:52 Asia/Taipei
+- generated_at: 2026-05-28 19:32:12 Asia/Taipei
 - stock_id: 3019
 - stock_name: 亞光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 155
-- high: 155
-- low: 148
+- date: 20260528
+- open: 152
+- high: 156.5
+- low: 149
 - close: 149.5
-- volume: 7889881
-- ma5: 152.9
-- ema23_primary: 145.79
-- distance_to_ema23_pct: 2.55
-- ma20: 146.68
-- ma60: 135.82
-- ma120: 139.65
-- return_5d: -2.61
-- return_20d: 4.55
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: 1.93
+- volume: 11103904
+- ma5: 152.5
+- ema23_primary: 146.1
+- distance_to_ema23_pct: 2.33
+- ma20: 147.05
+- ma60: 135.78
+- ma120: 139.8
+- return_5d: -1.32
+- return_20d: 5.28
+- volume_ratio: 1.25
+- distance_to_ma20_pct_auxiliary: 1.67
 - distance_to_high_60_pct: -6.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,142.5,147.5,142,142,12545676,132.78,6.94,129.55,137.49,2.15
 20260430,141,143,138.5,138.5,6744292,133.26,3.93,130.43,137.3,1.12
 20260504,139.5,143,138,143,5747765,134.07,6.66,131.43,137.2,0.92
 20260505,143,145,142,143,4973975,134.82,6.07,132.55,137.01,0.77
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,157.5,159,153.5,156.5,10965077,144.72,8.14,145.85,135.82,1.09
 20260526,158,159.5,150.5,153.5,8234437,145.45,5.53,146.35,135.87,0.91
 20260527,155,155,148,149.5,7889881,145.79,2.55,146.68,135.82,0.88
+20260528,152,156.5,149,149.5,11103904,146.1,2.33,147.05,135.78,1.25
 ```
 
 ## Latest TDCC Snapshot
@@ -125,19 +125,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3019 | 亞光 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260527 | 3019 | 亞光 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260521 | 3019 | 亞光 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 3019 | 亞光 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 3019 | 亞光 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260521 | 3019 | 亞光 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3019 | 亞光 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260528 | 3019 | 亞光 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3019 | 亞光 | 105 | 0 | 9605510.0 | 0.0 |  | no_signal | 0 |  |
+| 20260528 | 3019 | 亞光 | 106 | 0 | 13870370.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

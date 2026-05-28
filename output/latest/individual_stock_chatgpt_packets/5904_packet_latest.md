@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5904 寶雅
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:45 Asia/Taipei
+- generated_at: 2026-05-28 19:33:04 Asia/Taipei
 - stock_id: 5904
 - stock_name: 寶雅
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,21 +55,21 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 552
+- date: 20260528
+- open: 555
 - high: 563
-- low: 540
+- low: 552
 - close: 557
-- volume: 556000
-- ma5: 559.2
-- ema23_primary: 553.18
-- distance_to_ema23_pct: 0.69
+- volume: 206494
+- ma5: 558.6
+- ema23_primary: 553.5
+- distance_to_ema23_pct: 0.63
 - ma20: 564.55
-- ma60: 528.07
-- ma120: 481.21
-- return_5d: 0
-- return_20d: 2.39
-- volume_ratio: 1.22
+- ma60: 529
+- ma120: 482.18
+- return_5d: -0.54
+- return_20d: 0
+- volume_ratio: 0.48
 - distance_to_ma20_pct_auxiliary: -1.34
 - distance_to_high_60_pct: -7.48
 
@@ -77,7 +77,6 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,544,560,541,557,626000,520.34,7.05,517.2,485.18,1.53
 20260430,557,590,552,575,771000,524.89,9.55,521.27,488.07,1.83
 20260504,575,584,563,574,429000,528.99,8.51,524.73,490.96,1.03
 20260505,574,578,564,570,454000,532.4,7.06,528.35,493.84,1.06
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,568,571,553,559,558000,552.91,1.1,562.4,526.42,1.13
 20260526,559,559,552,552,555000,552.84,-0.15,563.9,527.22,1.11
 20260527,552,563,540,557,556000,553.18,0.69,564.55,528.07,1.22
+20260528,555,563,552,557,206494,553.5,0.63,564.55,529,0.48
 ```
 
 ## Latest TDCC Snapshot

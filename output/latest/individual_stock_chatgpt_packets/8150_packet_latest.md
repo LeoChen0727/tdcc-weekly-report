@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8150 南茂
 
 ## Metadata
-- generated_at: 2026-05-27 21:28:29 Asia/Taipei
+- generated_at: 2026-05-28 19:33:47 Asia/Taipei
 - stock_id: 8150
 - stock_name: 南茂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 89.7
-- high: 93.9
-- low: 86
-- close: 93.9
-- volume: 90891826
-- ma5: 84.22
-- ema23_primary: 80.55
-- distance_to_ema23_pct: 16.58
-- ma20: 83.06
-- ma60: 69.64
-- ma120: 61.34
-- return_5d: 26.21
-- return_20d: 37.48
-- volume_ratio: 2.19
-- distance_to_ma20_pct_auxiliary: 13.06
-- distance_to_high_60_pct: -8.84
+- date: 20260528
+- open: 98.8
+- high: 103
+- low: 98.5
+- close: 103
+- volume: 112421888
+- ma5: 89.64
+- ema23_primary: 82.42
+- distance_to_ema23_pct: 24.97
+- ma20: 84.86
+- ma60: 70.22
+- ma120: 61.83
+- return_5d: 35.7
+- return_20d: 53.73
+- volume_ratio: 2.41
+- distance_to_ma20_pct_auxiliary: 21.38
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,66.8,67.9,66,67,9777458,66.18,1.24,65.28,62.05,0.32
 20260430,67.3,73.5,67.2,69.8,32774904,66.48,4.99,66.08,62.12,1.05
 20260504,71.2,76.7,70.7,76.5,43860152,67.32,13.64,67.14,62.3,1.32
 20260505,79.9,84.1,79.8,84.1,20021669,68.71,22.39,68.5,62.59,0.59
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,80.5,87,79.1,86.8,51440041,78.78,10.18,80.89,68.92,1.41
 20260526,86.8,88.1,83.8,85.4,44236285,79.33,7.65,81.78,69.26,1.18
 20260527,89.7,93.9,86,93.9,90891826,80.55,16.58,83.06,69.64,2.19
+20260528,98.8,103,98.5,103,112421888,82.42,24.97,84.86,70.22,2.41
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 8150 | 南茂 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 8150 | 南茂 | 2 | 2 | 4 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 8150 | 南茂 | 150 | 3 | 40532980.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260528 | 8150 | 南茂 | 150 | 3 | 33805050.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

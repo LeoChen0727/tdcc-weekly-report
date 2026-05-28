@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4956 光鋐
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:32 Asia/Taipei
+- generated_at: 2026-05-28 19:32:51 Asia/Taipei
 - stock_id: 4956
 - stock_name: 光鋐
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 50.3
-- high: 50.4
-- low: 47.15
-- close: 47.75
-- volume: 4799417
-- ma5: 48.09
-- ema23_primary: 45.82
-- distance_to_ema23_pct: 4.22
-- ma20: 46.66
-- ma60: 39.6
-- ma120: 30.68
-- return_5d: 11.05
-- return_20d: -1.14
-- volume_ratio: 0.84
-- distance_to_ma20_pct_auxiliary: 2.35
-- distance_to_high_60_pct: -20.55
+- date: 20260528
+- open: 47.85
+- high: 49.65
+- low: 44.65
+- close: 45.2
+- volume: 5054617
+- ma5: 48.3
+- ema23_primary: 45.77
+- distance_to_ema23_pct: -1.24
+- ma20: 46.46
+- ma60: 39.93
+- ma120: 30.91
+- return_5d: 2.38
+- return_20d: -7.85
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: -2.72
+- distance_to_high_60_pct: -24.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,48.5,50.3,46.5,49.05,1622031,43.22,13.5,43.09,32.43,0.16
 20260430,50.5,50.5,47.15,47.25,1867555,43.55,8.49,43.87,32.87,0.19
 20260504,48,50,46.8,49,2081263,44.01,11.35,44.7,33.34,0.21
 20260505,50.4,50.4,48.9,49.6,1592386,44.47,11.53,45.53,33.82,0.17
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,49.2,52.5,48.25,50.4,10917029,45.25,11.38,46.48,38.84,2.13
 20260526,53,53.8,48.45,49.95,10609516,45.64,9.44,46.68,39.24,1.91
 20260527,50.3,50.4,47.15,47.75,4799417,45.82,4.22,46.66,39.6,0.84
+20260528,47.85,49.65,44.65,45.2,5054617,45.77,-1.24,46.46,39.93,0.86
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 4956 | 光鋐 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 4956 | 光鋐 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 4956 | 光鋐 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260528 | 4956 | 光鋐 | 3 | 3 | 3 | 3 | 3 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

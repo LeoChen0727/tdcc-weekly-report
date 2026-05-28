@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6409 旭隼
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:58 Asia/Taipei
+- generated_at: 2026-05-28 19:33:17 Asia/Taipei
 - stock_id: 6409
 - stock_name: 旭隼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 703
-- high: 732
-- low: 699
-- close: 707
-- volume: 1335763
-- ma5: 691.6
-- ema23_primary: 728.34
-- distance_to_ema23_pct: -2.93
-- ma20: 737.65
-- ma60: 762.68
-- ma120: 874.52
-- return_5d: 5.84
-- return_20d: -5.98
-- volume_ratio: 1.23
-- distance_to_ma20_pct_auxiliary: -4.16
-- distance_to_high_60_pct: -23.07
+- date: 20260528
+- open: 718
+- high: 731
+- low: 692
+- close: 699
+- volume: 1345694
+- ma5: 698.8
+- ema23_primary: 725.9
+- distance_to_ema23_pct: -3.71
+- ma20: 734.25
+- ma60: 759.5
+- ma120: 872.15
+- return_5d: 5.43
+- return_20d: -8.87
+- volume_ratio: 1.19
+- distance_to_ma20_pct_auxiliary: -4.8
+- distance_to_high_60_pct: -21.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,757,768,749,767,432761,769.42,-0.31,756.85,819.82,0.52
 20260430,776,795,770,772,797864,769.63,0.31,759.25,817.07,0.95
 20260504,789,803,778,791,731216,771.42,2.54,759.9,814.63,0.88
 20260505,804,806,777,784,1094929,772.46,1.49,762.15,812.35,1.29
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,689,722,683,715,992414,733.4,-2.51,743.85,770.07,0.96
 20260526,721,724,695,696,1084996,730.28,-4.69,739.9,766.33,1.03
 20260527,703,732,699,707,1335763,728.34,-2.93,737.65,762.68,1.23
+20260528,718,731,692,699,1345694,725.9,-3.71,734.25,759.5,1.19
 ```
 
 ## Latest TDCC Snapshot
@@ -135,7 +135,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 6409 | 旭隼 | 64 | 2 | 7755940.0 | 34200.0 | 226.78 | call_put_bullish | 3 |  |
+| 20260528 | 6409 | 旭隼 | 65 | 2 | 7688820.0 | 61410.0 | 125.2 | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

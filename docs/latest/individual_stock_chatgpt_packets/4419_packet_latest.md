@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4419 皇家美食
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:22 Asia/Taipei
+- generated_at: 2026-05-28 19:32:41 Asia/Taipei
 - stock_id: 4419
 - stock_name: 皇家美食
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 131
+- latest_price_date: 20260528
+- price_rows: 132
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 45.9
-- high: 45.9
-- low: 45.25
-- close: 45.3
-- volume: 45000
-- ma5: 45.4
-- ema23_primary: 45.94
-- distance_to_ema23_pct: -1.4
+- date: 20260528
+- open: 45.5
+- high: 46.5
+- low: 45.5
+- close: 46.05
+- volume: 20638
+- ma5: 45.39
+- ema23_primary: 45.95
+- distance_to_ema23_pct: 0.22
 - ma20: 45.99
-- ma60: 46.36
-- ma120: 46.4
-- return_5d: -1.52
-- return_20d: -1.52
-- volume_ratio: 3.45
-- distance_to_ma20_pct_auxiliary: -1.51
-- distance_to_high_60_pct: -17.64
+- ma60: 46.38
+- ma120: 46.42
+- return_5d: -0.11
+- return_20d: 0
+- volume_ratio: 1.47
+- distance_to_ma20_pct_auxiliary: 0.12
+- distance_to_high_60_pct: -16.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,46.05,46.05,46.05,46.05,1000,46.47,-0.91,47.43,46.7,0.04
 20260430,46.9,46.9,46.9,46.9,1000,46.51,0.84,47.23,46.66,0.04
 20260504,46,46,46,46,1000,46.47,-1,46.78,46.61,0.29
 20260505,46.05,46.05,46.05,46.05,2000,46.43,-0.82,46.33,46.62,0.62
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,45.9,46.5,45.25,45.25,46000,46.07,-1.77,46.06,46.35,5.29
 20260526,45.5,45.65,45.25,45.25,45000,46,-1.63,46.03,46.35,4.13
 20260527,45.9,45.9,45.25,45.3,45000,45.94,-1.4,45.99,46.36,3.45
+20260528,45.5,46.5,45.5,46.05,20638,45.95,0.22,45.99,46.38,1.47
 ```
 
 ## Latest TDCC Snapshot

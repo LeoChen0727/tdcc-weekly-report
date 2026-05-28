@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6695 芯鼎
 
 ## Metadata
-- generated_at: 2026-05-27 21:28:10 Asia/Taipei
+- generated_at: 2026-05-28 19:33:27 Asia/Taipei
 - stock_id: 6695
 - stock_name: 芯鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 65.1
-- high: 65.3
-- low: 60.2
-- close: 60.9
-- volume: 4852967
-- ma5: 59.04
-- ema23_primary: 52.03
-- distance_to_ema23_pct: 17.06
-- ma20: 52.41
-- ma60: 44.42
-- ma120: 44.23
-- return_5d: 20.36
-- return_20d: 47.1
-- volume_ratio: 1.13
-- distance_to_ma20_pct_auxiliary: 16.21
-- distance_to_high_60_pct: -10.96
+- date: 20260528
+- open: 61
+- high: 61.8
+- low: 55.7
+- close: 57.8
+- volume: 3463337
+- ma5: 60.3
+- ema23_primary: 52.51
+- distance_to_ema23_pct: 10.08
+- ma20: 53.02
+- ma60: 44.67
+- ma120: 44.36
+- return_5d: 12.23
+- return_20d: 27.03
+- volume_ratio: 0.82
+- distance_to_ma20_pct_auxiliary: 9.02
+- distance_to_high_60_pct: -15.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,45.5,45.5,44.2,45.5,4783478,41.48,9.7,40.61,41.35,4.1
 20260430,46.3,49.95,46,46.5,6236826,41.9,10.99,41.05,41.41,4.26
 20260504,46.1,51.1,45.25,50.3,6943133,42.6,18.09,41.6,41.5,3.87
 20260505,49.35,51.5,48.8,50.6,3940624,43.26,16.96,42.22,41.59,1.99
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,62.2,62.2,62.2,62.2,2024209,50.06,24.26,50.34,43.77,0.58
 20260526,66.8,68.4,63.5,64,12381547,51.22,24.95,51.43,44.13,3.03
 20260527,65.1,65.3,60.2,60.9,4852967,52.03,17.06,52.41,44.42,1.13
+20260528,61,61.8,55.7,57.8,3463337,52.51,10.08,53.02,44.67,0.82
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 6695 | 芯鼎 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 6695 | 芯鼎 | 1 | 1 | 3 | 3 | 3 | repeated_but_no_breakout | 近 10 日上榜 3 日、近 20 日上榜 3 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

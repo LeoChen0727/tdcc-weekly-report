@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7768 頌勝科技
 
 ## Metadata
-- generated_at: 2026-05-27 21:28:23 Asia/Taipei
+- generated_at: 2026-05-28 19:33:41 Asia/Taipei
 - stock_id: 7768
 - stock_name: 頌勝科技
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260527
-- price_rows: 15
+- latest_price_date: 20260528
+- price_rows: 16
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 385
-- high: 388.5
-- low: 370
-- close: 381.5
-- volume: 351493
-- ma5: 382.5
-- ema23_primary: 374.21
-- distance_to_ema23_pct: 1.95
-- ma20: 366.37
-- ma60: 366.37
-- ma120: 366.37
-- return_5d: 3.39
+- date: 20260528
+- open: 381.5
+- high: 381.5
+- low: 365.5
+- close: 365.5
+- volume: 216139
+- ma5: 380.8
+- ema23_primary: 373.48
+- distance_to_ema23_pct: -2.14
+- ma20: 366.31
+- ma60: 366.31
+- ma120: 366.31
+- return_5d: -2.27
 - return_20d: 
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: 4.13
-- distance_to_high_60_pct: -6.5
+- volume_ratio: 0.42
+- distance_to_ma20_pct_auxiliary: -0.22
+- distance_to_high_60_pct: -10.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -92,6 +92,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,382,394.5,378,394,521001,372.5,5.77,363.77,363.77,0.93
 20260526,393.5,393.5,380,385,387014,373.54,3.07,365.29,365.29,0.7
 20260527,385,388.5,370,381.5,351493,374.21,1.95,366.37,366.37,0.65
+20260528,381.5,381.5,365.5,365.5,216139,373.48,-2.14,366.31,366.31,0.42
 ```
 
 ## Latest TDCC Snapshot

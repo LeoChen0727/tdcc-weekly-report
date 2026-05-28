@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1722 台肥
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:18 Asia/Taipei
+- generated_at: 2026-05-28 19:31:40 Asia/Taipei
 - stock_id: 1722
 - stock_name: 台肥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 45.85
-- high: 45.95
-- low: 45.35
-- close: 45.65
-- volume: 3501779
-- ma5: 45.92
+- date: 20260528
+- open: 46.5
+- high: 46.8
+- low: 46
+- close: 46.1
+- volume: 4019190
+- ma5: 45.89
 - ema23_primary: 46.17
-- distance_to_ema23_pct: -1.13
-- ma20: 46.74
-- ma60: 46.33
-- ma120: 46.65
-- return_5d: -0.22
-- return_20d: 3.05
-- volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: -2.33
-- distance_to_high_60_pct: -12.21
+- distance_to_ema23_pct: -0.14
+- ma20: 46.61
+- ma60: 46.31
+- ma120: 46.64
+- return_5d: -0.32
+- return_20d: -5.34
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: -1.09
+- distance_to_high_60_pct: -11.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,47.1,48.7,46.15,48.7,20006046,45.74,6.46,45.7,46.32,5.84
 20260430,51,52,49,50.7,41863198,46.16,9.84,45.95,46.39,7.8
 20260504,49.9,49.9,48.2,48.25,10146910,46.33,4.14,46.06,46.41,1.76
 20260505,48,48,46.85,47,6882825,46.39,1.32,46.13,46.39,1.14
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,46.15,46.2,45.7,45.85,3051413,46.26,-0.88,46.59,46.38,0.46
 20260526,45.85,46.35,45.8,45.8,2014801,46.22,-0.91,46.67,46.35,0.31
 20260527,45.85,45.95,45.35,45.65,3501779,46.17,-1.13,46.74,46.33,0.52
+20260528,46.5,46.8,46,46.1,4019190,46.17,-0.14,46.61,46.31,0.68
 ```
 
 ## Latest TDCC Snapshot
@@ -130,7 +130,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 1722 | 台肥 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260528 | 1722 | 台肥 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

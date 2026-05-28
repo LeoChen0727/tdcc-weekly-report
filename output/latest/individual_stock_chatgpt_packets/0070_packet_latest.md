@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0070 期元大S&P黃金正2(原名：元大S&P黃金正2)
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:01 Asia/Taipei
+- generated_at: 2026-05-28 19:31:22 Asia/Taipei
 - stock_id: 0070
 - stock_name: 期元大S&P黃金正2(原名：元大S&P黃金正2)
 - packet_status: insufficient_price_data
@@ -113,7 +113,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 0070 | 期元大S&P黃金正2(原名：元大S&P黃金正2) | 207 | 27 | 3107070.0 | 4890.0 | 635.39 | call_inflow | 1 |  |
+| 20260528 | 0070 | 期元大S&P黃金正2(原名：元大S&P黃金正2) | 206 | 27 | 4887100.0 | 136940.0 | 35.69 | call_put_bullish | 3 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

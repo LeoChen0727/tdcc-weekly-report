@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3265 台星科
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:01 Asia/Taipei
+- generated_at: 2026-05-28 19:32:21 Asia/Taipei
 - stock_id: 3265
 - stock_name: 台星科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 194.5
-- high: 194.5
-- low: 187
-- close: 189.5
-- volume: 190000
-- ma5: 186.8
-- ema23_primary: 178.75
-- distance_to_ema23_pct: 6.01
-- ma20: 181.03
-- ma60: 159.86
-- ma120: 141.11
-- return_5d: 11.14
-- return_20d: 13.13
-- volume_ratio: 0.08
-- distance_to_ma20_pct_auxiliary: 4.68
-- distance_to_high_60_pct: -2.82
+- date: 20260528
+- open: 190
+- high: 204.5
+- low: 188
+- close: 189
+- volume: 3872417
+- ma5: 189.1
+- ema23_primary: 179.61
+- distance_to_ema23_pct: 5.23
+- ma20: 182.25
+- ma60: 160.64
+- ma120: 141.95
+- return_5d: 6.48
+- return_20d: 14.89
+- volume_ratio: 1.54
+- distance_to_ma20_pct_auxiliary: 3.7
+- distance_to_high_60_pct: -7.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,165.5,166.5,163.5,164.5,1026000,161.6,1.79,163.7,146.88,0.24
 20260430,164.5,173.5,163,168,1683000,162.13,3.62,164.97,147.34,0.41
 20260504,171.5,184.5,171.5,184.5,3832000,164,12.5,166.88,148.05,0.93
 20260505,185,193,181,190,9932000,166.17,14.34,169.2,148.72,2.25
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,190.5,195,187.5,189.5,191000,176.53,7.35,178.57,158.43,0.07
 20260526,192,193,186,191.5,190000,177.78,7.72,179.93,159.2,0.08
 20260527,194.5,194.5,187,189.5,190000,178.75,6.01,181.03,159.86,0.08
+20260528,190,204.5,188,189,3872417,179.61,5.23,182.25,160.64,1.54
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,15 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 3265 | 台星科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260528 | 3265 | 台星科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 3265 | 台星科 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6163 華電網
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:50 Asia/Taipei
+- generated_at: 2026-05-28 19:33:08 Asia/Taipei
 - stock_id: 6163
 - stock_name: 華電網
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 51
-- high: 51
-- low: 49.5
-- close: 50.2
-- volume: 50000
-- ma5: 51.88
-- ema23_primary: 55.66
-- distance_to_ema23_pct: -9.8
-- ma20: 55.54
-- ma60: 58.15
-- ma120: 56.03
-- return_5d: 0.8
-- return_20d: -13.15
-- volume_ratio: 0.02
-- distance_to_ma20_pct_auxiliary: -9.61
-- distance_to_high_60_pct: -32.8
+- date: 20260528
+- open: 50.2
+- high: 50.9
+- low: 48
+- close: 48.2
+- volume: 3422266
+- ma5: 50.88
+- ema23_primary: 55.04
+- distance_to_ema23_pct: -12.42
+- ma20: 55.1
+- ma60: 58.03
+- ma120: 56.16
+- return_5d: -9.4
+- return_20d: -15.44
+- volume_ratio: 1.18
+- distance_to_ma20_pct_auxiliary: -12.52
+- distance_to_high_60_pct: -35.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,57.9,58.2,56.4,57,2171000,62.07,-8.16,62.95,59.17,0.24
 20260430,57.5,58,55.3,55.8,2366000,61.54,-9.33,62.9,58.95,0.27
 20260504,56.8,59.2,56.7,58.4,2750000,61.28,-4.7,62.71,58.78,0.32
 20260505,58.1,59.3,56.2,58.7,3220000,61.07,-3.88,62.67,58.63,0.38
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,53.5,54.5,51.7,51.8,53000,56.62,-8.51,56.27,58.23,0.02
 20260526,51.5,52.3,50.4,51,51000,56.15,-9.18,55.92,58.21,0.02
 20260527,51,51,49.5,50.2,50000,55.66,-9.8,55.54,58.15,0.02
+20260528,50.2,50.9,48,48.2,3422266,55.04,-12.42,55.1,58.03,1.18
 ```
 
 ## Latest TDCC Snapshot
@@ -130,7 +130,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 6163 | 華電網 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260528 | 6163 | 華電網 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

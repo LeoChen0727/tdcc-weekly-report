@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3587 閎康
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:12 Asia/Taipei
+- generated_at: 2026-05-28 19:32:31 Asia/Taipei
 - stock_id: 3587
 - stock_name: 閎康
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 343
-- high: 348.5
-- low: 328
-- close: 331
-- volume: 338000
-- ma5: 336
-- ema23_primary: 333.66
-- distance_to_ema23_pct: -0.8
-- ma20: 340.98
-- ma60: 283.67
-- ma120: 241
-- return_5d: 2.95
-- return_20d: 1.07
-- volume_ratio: 0.13
-- distance_to_ma20_pct_auxiliary: -2.93
-- distance_to_high_60_pct: -17.04
+- date: 20260528
+- open: 334
+- high: 340
+- low: 325.5
+- close: 329.5
+- volume: 1456529
+- ma5: 336.9
+- ema23_primary: 333.31
+- distance_to_ema23_pct: -1.14
+- ma20: 341.38
+- ma60: 285.5
+- ma120: 242.21
+- return_5d: 1.38
+- return_20d: 2.49
+- volume_ratio: 0.55
+- distance_to_ma20_pct_auxiliary: -3.48
+- distance_to_high_60_pct: -17.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,315,329,315,321.5,1496000,302.18,6.39,303.98,241.13,0.37
 20260430,325,342,323,331.5,3805000,304.62,8.82,309.8,243.43,0.92
 20260504,336,339.5,326,336,2802000,307.24,9.36,315.25,245.82,0.66
 20260505,336,337,328,331,1805000,309.22,7.04,320.45,248.05,0.42
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,360.5,360.5,342,344,348000,333.53,3.14,339.55,279.77,0.12
 20260526,344,344.5,332,338,337000,333.9,1.23,340.8,281.79,0.12
 20260527,343,348.5,328,331,338000,333.66,-0.8,340.98,283.67,0.13
+20260528,334,340,325.5,329.5,1456529,333.31,-1.14,341.38,285.5,0.55
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,15 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 3587 | 閎康 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 3587 | 閎康 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 3587 | 閎康 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
 
 ## Warrant Context
 | status |

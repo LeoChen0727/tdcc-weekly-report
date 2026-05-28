@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2316 楠梓電
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:28 Asia/Taipei
+- generated_at: 2026-05-28 19:31:50 Asia/Taipei
 - stock_id: 2316
 - stock_name: 楠梓電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 174
-- high: 188
-- low: 166
-- close: 168
-- volume: 11974745
-- ma5: 162.5
-- ema23_primary: 137.41
-- distance_to_ema23_pct: 22.27
-- ma20: 134.28
-- ma60: 114.44
-- ma120: 108.05
-- return_5d: 22.18
-- return_20d: 46.72
-- volume_ratio: 1.23
-- distance_to_ma20_pct_auxiliary: 25.12
-- distance_to_high_60_pct: -10.64
+- date: 20260528
+- open: 169.5
+- high: 172.5
+- low: 166.5
+- close: 168.5
+- volume: 5762749
+- ma5: 166
+- ema23_primary: 140
+- distance_to_ema23_pct: 20.36
+- ma20: 137
+- ma60: 115.47
+- ma120: 108.71
+- return_5d: 11.59
+- return_20d: 47.81
+- volume_ratio: 0.59
+- distance_to_ma20_pct_auxiliary: 22.99
+- distance_to_high_60_pct: -10.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,114.5,115.5,111.5,114,2956999,110.82,2.87,110.43,102.72,0.34
 20260430,114,115,112,112.5,2546862,110.96,1.38,111.19,102.94,0.29
 20260504,113.5,117.5,112.5,114.5,4168653,111.26,2.91,111.94,103.21,0.47
 20260505,115.5,119,112.5,118,4270823,111.82,5.53,112.86,103.54,0.48
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,158,168.5,158,168.5,5942563,131.27,28.36,128.93,112.36,0.64
 20260526,175,177,165,171.5,13759729,134.62,27.39,131.6,113.52,1.48
 20260527,174,188,166,168,11974745,137.41,22.27,134.28,114.44,1.23
+20260528,169.5,172.5,166.5,168.5,5762749,140,20.36,137,115.47,0.59
 ```
 
 ## Latest TDCC Snapshot
@@ -135,7 +135,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2316 | 楠梓電 | 89 | 5 | 12290920.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260528 | 2316 | 楠梓電 | 90 | 5 | 9716340.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

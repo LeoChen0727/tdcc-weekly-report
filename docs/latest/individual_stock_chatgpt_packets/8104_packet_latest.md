@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8104 錸寶
 
 ## Metadata
-- generated_at: 2026-05-27 21:28:29 Asia/Taipei
+- generated_at: 2026-05-28 19:33:46 Asia/Taipei
 - stock_id: 8104
 - stock_name: 錸寶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 35.3
-- high: 38.25
-- low: 34.35
-- close: 37.25
-- volume: 3914622
-- ma5: 35.6
-- ema23_primary: 34.83
-- distance_to_ema23_pct: 6.93
-- ma20: 34.51
-- ma60: 34.56
-- ma120: 34.25
-- return_5d: 10.86
-- return_20d: 10.37
-- volume_ratio: 3.69
-- distance_to_ma20_pct_auxiliary: 7.96
-- distance_to_high_60_pct: -9.04
+- date: 20260528
+- open: 40.95
+- high: 40.95
+- low: 40.6
+- close: 40.95
+- volume: 5254180
+- ma5: 36.89
+- ema23_primary: 35.34
+- distance_to_ema23_pct: 15.86
+- ma20: 34.87
+- ma60: 34.61
+- ma120: 34.35
+- return_5d: 18.7
+- return_20d: 21.69
+- volume_ratio: 4.09
+- distance_to_ma20_pct_auxiliary: 17.44
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,34.2,34.35,32.95,33.65,815919,34.96,-3.75,34.55,35.49,0.43
 20260430,34.3,34.3,33.05,33.25,862379,34.82,-4.5,34.59,35.41,0.46
 20260504,33.45,34.6,33.25,34.1,840124,34.76,-1.89,34.67,35.32,0.44
 20260505,34,35.5,33.8,35.1,1066503,34.79,0.9,34.82,35.27,0.55
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,36.25,36.35,35.15,35.9,1280986,34.58,3.8,34.29,34.64,1.44
 20260526,36.45,36.8,34.95,34.95,1161172,34.62,0.97,34.33,34.59,1.28
 20260527,35.3,38.25,34.35,37.25,3914622,34.83,6.93,34.51,34.56,3.69
+20260528,40.95,40.95,40.6,40.95,5254180,35.34,15.86,34.87,34.61,4.09
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 8104 | 錸寶 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 8104 | 錸寶 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

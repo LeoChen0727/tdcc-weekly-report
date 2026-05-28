@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2390 云辰
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:33 Asia/Taipei
+- generated_at: 2026-05-28 19:31:54 Asia/Taipei
 - stock_id: 2390
 - stock_name: 云辰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 10.55
-- high: 10.9
-- low: 10.45
-- close: 10.7
-- volume: 1466490
-- ma5: 10.51
-- ema23_primary: 10.09
-- distance_to_ema23_pct: 6.03
-- ma20: 9.91
-- ma60: 10.06
-- ma120: 10.06
-- return_5d: 7.21
-- return_20d: 6.47
-- volume_ratio: 1.57
-- distance_to_ma20_pct_auxiliary: 7.96
-- distance_to_high_60_pct: -9.32
+- date: 20260528
+- open: 10.9
+- high: 11.2
+- low: 10.65
+- close: 10.65
+- volume: 2016086
+- ma5: 10.59
+- ema23_primary: 10.14
+- distance_to_ema23_pct: 5.05
+- ma20: 9.95
+- ma60: 10.07
+- ma120: 10.07
+- return_5d: 3.9
+- return_20d: 7.25
+- volume_ratio: 1.98
+- distance_to_ma20_pct_auxiliary: 7.07
+- distance_to_high_60_pct: -9.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,10.05,10.1,9.88,9.93,342624,10.12,-1.91,10.1,10.25,0.68
 20260430,9.98,9.98,9.74,9.78,442742,10.09,-3.12,10.09,10.23,0.87
 20260504,9.78,9.86,9.69,9.69,586452,10.06,-3.69,10.07,10.21,1.14
 20260505,9.65,9.76,9.65,9.69,433979,10.03,-3.39,10.05,10.2,0.84
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,10.65,10.85,10.3,10.5,1251061,9.99,5.07,9.85,10.06,1.42
 20260526,10.65,10.7,10.35,10.5,913394,10.04,4.62,9.88,10.06,1.03
 20260527,10.55,10.9,10.45,10.7,1466490,10.09,6.03,9.91,10.06,1.57
+20260528,10.9,11.2,10.65,10.65,2016086,10.14,5.05,9.95,10.07,1.98
 ```
 
 ## Latest TDCC Snapshot
@@ -125,13 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2390 | 云辰 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 2390 | 云辰 | pattern | 型態觀察 |  |  |  | 預備發動型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2390 | 云辰 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260528 | 2390 | 云辰 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

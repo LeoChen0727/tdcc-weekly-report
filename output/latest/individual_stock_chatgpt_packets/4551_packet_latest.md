@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4551 智伸科
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:24 Asia/Taipei
+- generated_at: 2026-05-28 19:32:44 Asia/Taipei
 - stock_id: 4551
 - stock_name: 智伸科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 157
-- high: 157
-- low: 150.5
-- close: 151.5
-- volume: 749528
-- ma5: 155.7
-- ema23_primary: 146.96
-- distance_to_ema23_pct: 3.09
-- ma20: 146.6
-- ma60: 135.25
-- ma120: 126.68
-- return_5d: 2.02
-- return_20d: 13.91
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: 3.34
-- distance_to_high_60_pct: -6.48
+- date: 20260528
+- open: 155.5
+- high: 166
+- low: 153.5
+- close: 155
+- volume: 2137503
+- ma5: 155
+- ema23_primary: 147.63
+- distance_to_ema23_pct: 4.99
+- ma20: 147.75
+- ma60: 135.72
+- ma120: 127.05
+- return_5d: -2.21
+- return_20d: 17.42
+- volume_ratio: 2
+- distance_to_ma20_pct_auxiliary: 4.91
+- distance_to_high_60_pct: -6.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,133,133.5,130.5,132,320375,133.44,-1.08,135.03,126.97,0.64
 20260430,133,136.5,132.5,134,667849,133.49,0.38,135.28,127.15,1.3
 20260504,136.5,137,135,136.5,297937,133.74,2.07,135.53,127.33,0.58
 20260505,136.5,142.5,135.5,142.5,815402,134.47,5.97,136.07,127.65,1.51
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,157,158,155,157,755993,145.69,7.76,144.3,134.27,0.78
 20260526,158.5,159.5,154,156,654998,146.55,6.45,145.68,134.81,0.68
 20260527,157,157,150.5,151.5,749528,146.96,3.09,146.6,135.25,0.76
+20260528,155.5,166,153.5,155,2137503,147.63,4.99,147.75,135.72,2
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 4551 | 智伸科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 4551 | 智伸科 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 4551 | 智伸科 | 24 | 0 | 478580.0 | 0.0 |  | no_signal | 0 |  |
+| 20260528 | 4551 | 智伸科 | 24 | 0 | 1343400.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

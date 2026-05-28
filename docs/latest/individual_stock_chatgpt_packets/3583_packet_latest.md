@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3583 辛耘
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:11 Asia/Taipei
+- generated_at: 2026-05-28 19:32:31 Asia/Taipei
 - stock_id: 3583
 - stock_name: 辛耘
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 917
-- high: 917
-- low: 873
-- close: 876
-- volume: 2189557
-- ma5: 887.2
-- ema23_primary: 835.87
-- distance_to_ema23_pct: 4.8
-- ma20: 857.2
-- ma60: 642.73
-- ma120: 486.3
-- return_5d: 6.05
-- return_20d: 18.7
-- volume_ratio: 0.67
-- distance_to_ma20_pct_auxiliary: 2.19
-- distance_to_high_60_pct: -13.27
+- date: 20260528
+- open: 878
+- high: 947
+- low: 872
+- close: 877
+- volume: 4759940
+- ma5: 890.4
+- ema23_primary: 839.29
+- distance_to_ema23_pct: 4.49
+- ma20: 862.45
+- ma60: 651.22
+- ma120: 491.08
+- return_5d: 1.86
+- return_20d: 13.6
+- volume_ratio: 1.44
+- distance_to_ma20_pct_auxiliary: 1.69
+- distance_to_high_60_pct: -13.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,729,791,721,772,4088323,676.24,14.16,682.83,475.15,1.29
 20260430,788,827,781,792,5424450,685.88,15.47,699.75,482.83,1.67
 20260504,824,828,772,793,3625667,694.81,14.13,716.15,490.52,1.11
 20260505,793,826,778,794,2559336,703.08,12.93,732.8,498.3,0.78
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,891,957,888,916,2911488,825.33,10.99,841.7,625.18,0.85
 20260526,921,932,902,908,1727027,832.22,9.11,850.3,634.32,0.51
 20260527,917,917,873,876,2189557,835.87,4.8,857.2,642.73,0.67
+20260528,878,947,872,877,4759940,839.29,4.49,862.45,651.22,1.44
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3583 | 辛耘 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 3583 | 辛耘 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3583 | 辛耘 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260528 | 3583 | 辛耘 | 3 | 3 | 3 | 3 | 3 | continued_2_3d | 連續 3 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3583 | 辛耘 | 102 | 2 | 16982770.0 | 90250.0 | 188.17 | no_signal | 0 |  |
+| 20260528 | 3583 | 辛耘 | 102 | 2 | 28960800.0 | 170390.0 | 169.97 | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

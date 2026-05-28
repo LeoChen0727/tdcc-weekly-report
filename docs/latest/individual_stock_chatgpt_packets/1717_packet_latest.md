@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1717 長興
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:18 Asia/Taipei
+- generated_at: 2026-05-28 19:31:39 Asia/Taipei
 - stock_id: 1717
 - stock_name: 長興
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 84.7
-- high: 89.9
-- low: 83.5
-- close: 84.5
-- volume: 87021618
-- ma5: 82.48
-- ema23_primary: 78.83
-- distance_to_ema23_pct: 7.19
-- ma20: 79.59
-- ma60: 71.92
-- ma120: 61.33
-- return_5d: 16.23
-- return_20d: 10.75
-- volume_ratio: 1.77
-- distance_to_ma20_pct_auxiliary: 6.17
-- distance_to_high_60_pct: -6.01
+- date: 20260528
+- open: 85.6
+- high: 86.7
+- low: 81.7
+- close: 82.4
+- volume: 46789484
+- ma5: 83.02
+- ema23_primary: 79.13
+- distance_to_ema23_pct: 4.13
+- ma20: 79.62
+- ma60: 72.17
+- ma120: 61.7
+- return_5d: 3.39
+- return_20d: 0.86
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: 3.49
+- distance_to_high_60_pct: -8.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,76.1,82.6,75.2,81.7,78279992,74.35,9.89,74.66,65.96,1.01
 20260430,82,83,78.1,78.9,52724023,74.73,5.59,75.72,66.15,0.66
 20260504,79.4,81,78,79.6,29324204,75.13,5.95,76.7,66.42,0.36
 20260505,79.9,81.4,78.1,79,30937430,75.45,4.7,77.56,66.68,0.38
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,85,86,82.1,82.2,48994186,77.89,5.53,78.8,71.33,1.07
 20260526,83.5,85.3,81.4,83,32823154,78.32,5.98,79.18,71.66,0.71
 20260527,84.7,89.9,83.5,84.5,87021618,78.83,7.19,79.59,71.92,1.77
+20260528,85.6,86.7,81.7,82.4,46789484,79.13,4.13,79.62,72.17,0.98
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 1717 | 長興 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 1717 | 長興 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 1717 | 長興 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260528 | 1717 | 長興 | 3 | 1 | 3 | 3 | 3 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 1717 | 長興 | 113 | 2 | 36224150.0 | 25670.0 | 1411.15 | call_put_bullish | 3 |  |
+| 20260528 | 1717 | 長興 | 114 | 2 | 34411680.0 | 1380.0 | 24936.0 | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00932 兆豐永續高息等權
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:02 Asia/Taipei
+- generated_at: 2026-05-28 19:31:24 Asia/Taipei
 - stock_id: 00932
 - stock_name: 兆豐永續高息等權
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260527
-- price_rows: 4
+- latest_price_date: 20260528
+- price_rows: 5
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 16.72
-- high: 16.77
-- low: 16.65
-- close: 16.69
-- volume: 3403010
-- ma5: 
-- ema23_primary: 
-- distance_to_ema23_pct: 
-- ma20: 
-- ma60: 
-- ma120: 
+- date: 20260528
+- open: 16.77
+- high: 16.88
+- low: 16.61
+- close: 16.62
+- volume: 3292614
+- ma5: 16.63
+- ema23_primary: 16.59
+- distance_to_ema23_pct: 0.21
+- ma20: 16.63
+- ma60: 16.63
+- ma120: 16.63
 - return_5d: 
 - return_20d: 
-- volume_ratio: 
-- distance_to_ma20_pct_auxiliary: 
-- distance_to_high_60_pct: 
+- volume_ratio: 1.32
+- distance_to_ma20_pct_auxiliary: -0.06
+- distance_to_high_60_pct: -1.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -81,6 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,16.66,16.7,16.6,16.63,2499922,,,,,
 20260526,16.69,16.71,16.59,16.65,1543467,,,,,
 20260527,16.72,16.77,16.65,16.69,3403010,,,,,
+20260528,16.77,16.88,16.61,16.62,3292614,16.59,0.21,16.63,16.63,1.32
 ```
 
 ## Latest TDCC Snapshot

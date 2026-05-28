@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4923 力士
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:31 Asia/Taipei
+- generated_at: 2026-05-28 19:32:49 Asia/Taipei
 - stock_id: 4923
 - stock_name: 力士
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 49.65
-- high: 49.65
-- low: 49.65
-- close: 49.65
-- volume: 50000
-- ma5: 42.95
-- ema23_primary: 38.76
-- distance_to_ema23_pct: 28.08
-- ma20: 38.2
-- ma60: 35.57
-- ma120: 33.02
-- return_5d: 32.22
-- return_20d: 50
-- volume_ratio: 0.13
-- distance_to_ma20_pct_auxiliary: 29.99
-- distance_to_high_60_pct: 0
+- date: 20260528
+- open: 49.15
+- high: 51.1
+- low: 46.35
+- close: 48.85
+- volume: 5909662
+- ma5: 44.98
+- ema23_primary: 39.6
+- distance_to_ema23_pct: 23.34
+- ma20: 38.98
+- ma60: 35.84
+- ma120: 33.19
+- return_5d: 26.23
+- return_20d: 47.58
+- volume_ratio: 8.67
+- distance_to_ma20_pct_auxiliary: 25.31
+- distance_to_high_60_pct: -4.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,33,33.35,32.9,33.1,55000,34.43,-3.87,34.98,33.92,0.75
 20260430,33.1,33.8,33,33.3,38000,34.34,-3.03,34.91,33.83,0.52
 20260504,36.4,36.6,36.4,36.6,132000,34.53,6,35.02,33.81,1.68
 20260505,40.25,40.25,37,37.3,1098000,34.76,7.31,35.06,33.82,8.65
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,41,42.35,39.3,41.05,41000,37.1,10.64,36.78,35.08,0.1
 20260526,41.3,45.15,39.2,45.15,43000,37.77,19.53,37.37,35.29,0.11
 20260527,49.65,49.65,49.65,49.65,50000,38.76,28.08,38.2,35.57,0.13
+20260528,49.15,51.1,46.35,48.85,5909662,39.6,23.34,38.98,35.84,8.67
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 4923 | 力士 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 4923 | 力士 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
 
 ## Warrant Context
 | status |

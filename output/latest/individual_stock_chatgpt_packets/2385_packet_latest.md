@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2385 群光
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:33 Asia/Taipei
+- generated_at: 2026-05-28 19:31:54 Asia/Taipei
 - stock_id: 2385
 - stock_name: 群光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 133.5
-- high: 138
-- low: 132.5
-- close: 135.5
-- volume: 6098922
-- ma5: 132.1
-- ema23_primary: 128.92
-- distance_to_ema23_pct: 5.1
-- ma20: 129.43
-- ma60: 125.49
-- ma120: 121.59
-- return_5d: 5.45
-- return_20d: 11.07
-- volume_ratio: 1.47
-- distance_to_ma20_pct_auxiliary: 4.69
-- distance_to_high_60_pct: -1.81
+- date: 20260528
+- open: 137
+- high: 137.5
+- low: 132
+- close: 132
+- volume: 3385321
+- ma5: 132.5
+- ema23_primary: 129.18
+- distance_to_ema23_pct: 2.18
+- ma20: 129.8
+- ma60: 125.59
+- ma120: 121.71
+- return_5d: 1.54
+- return_20d: 6.02
+- volume_ratio: 0.81
+- distance_to_ma20_pct_auxiliary: 1.69
+- distance_to_high_60_pct: -4.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,122,124.5,121.5,124.5,3194932,123.67,0.67,123.6,122.28,0.82
 20260430,123,126,123,123.5,2563853,123.65,-0.12,123.8,122.35,0.67
 20260504,125,128.5,124,127.5,5271001,123.98,2.84,124.17,122.47,1.36
 20260505,128,132,127.5,130,5379493,124.48,4.44,124.62,122.66,1.35
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,133.5,134,130.5,130.5,2989029,127.9,2.03,128.22,125.16,0.73
 20260526,131,134,130.5,133,4123023,128.33,3.64,128.75,125.32,1.01
 20260527,133.5,138,132.5,135.5,6098922,128.92,5.1,129.43,125.49,1.47
+20260528,137,137.5,132,132,3385321,129.18,2.18,129.8,125.59,0.81
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2385 | 群光 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 2385 | 群光 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 2385 | 群光 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2385 | 群光 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260528 | 2385 | 群光 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2385 | 群光 | 12 | 0 | 1673870.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260528 | 2385 | 群光 | 12 | 0 | 1031840.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

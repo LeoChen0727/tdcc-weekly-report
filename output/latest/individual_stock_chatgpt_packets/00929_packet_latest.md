@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00929 復華台灣科技優息
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:02 Asia/Taipei
+- generated_at: 2026-05-28 19:31:24 Asia/Taipei
 - stock_id: 00929
 - stock_name: 復華台灣科技優息
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260527
-- price_rows: 4
+- latest_price_date: 20260528
+- price_rows: 5
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 29.8
-- high: 30.31
-- low: 29.78
-- close: 30.04
-- volume: 62434408
-- ma5: 
-- ema23_primary: 
-- distance_to_ema23_pct: 
-- ma20: 
-- ma60: 
-- ma120: 
+- date: 20260528
+- open: 30.15
+- high: 30.52
+- low: 29.12
+- close: 29.4
+- volume: 76275439
+- ma5: 28.91
+- ema23_primary: 27.76
+- distance_to_ema23_pct: 5.91
+- ma20: 28.91
+- ma60: 28.91
+- ma120: 28.91
 - return_5d: 
 - return_20d: 
-- volume_ratio: 
-- distance_to_ma20_pct_auxiliary: 
-- distance_to_high_60_pct: 
+- volume_ratio: 1.34
+- distance_to_ma20_pct_auxiliary: 1.71
+- distance_to_high_60_pct: -3.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -81,6 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,27.9,28.8,27.9,28.8,54630323,,,,,
 20260526,29.39,29.46,28.97,29.21,51281222,,,,,
 20260527,29.8,30.31,29.78,30.04,62434408,,,,,
+20260528,30.15,30.52,29.12,29.4,76275439,27.76,5.91,28.91,28.91,1.34
 ```
 
 ## Latest TDCC Snapshot

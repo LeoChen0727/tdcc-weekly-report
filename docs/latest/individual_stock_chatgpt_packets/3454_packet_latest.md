@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3454 晶睿
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:07 Asia/Taipei
+- generated_at: 2026-05-28 19:32:26 Asia/Taipei
 - stock_id: 3454
 - stock_name: 晶睿
 - packet_status: standard_rawdata_packet

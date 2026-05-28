@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6525 捷敏-KY
 
 ## Metadata
-- generated_at: 2026-05-27 21:28:03 Asia/Taipei
+- generated_at: 2026-05-28 19:33:21 Asia/Taipei
 - stock_id: 6525
 - stock_name: 捷敏-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 138
-- high: 138
-- low: 126
-- close: 129.5
-- volume: 5300193
-- ma5: 123.1
-- ema23_primary: 109.71
-- distance_to_ema23_pct: 18.04
-- ma20: 109.75
-- ma60: 92.91
-- ma120: 85
-- return_5d: 14.1
-- return_20d: 43.57
-- volume_ratio: 2.68
-- distance_to_ma20_pct_auxiliary: 18
-- distance_to_high_60_pct: -6.16
+- date: 20260528
+- open: 127.5
+- high: 131
+- low: 120.5
+- close: 122.5
+- volume: 2473415
+- ma5: 124.8
+- ema23_primary: 110.78
+- distance_to_ema23_pct: 10.58
+- ma20: 111.31
+- ma60: 93.56
+- ma120: 85.4
+- return_5d: 7.46
+- return_20d: 34.32
+- volume_ratio: 1.19
+- distance_to_ma20_pct_auxiliary: 10.05
+- distance_to_high_60_pct: -11.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,90.7,91.8,89.3,91.2,337726,87.89,3.77,87.26,83.16,0.67
 20260430,91.5,93.4,90,92.4,599511,88.27,4.68,87.89,83.35,1.15
 20260504,94.5,96.1,93.8,95.9,938444,88.9,7.87,88.66,83.61,1.66
 20260505,95.9,102.5,95.5,102.5,1864557,90.03,13.85,89.81,84,2.87
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,119,125,116.5,122,2471726,105.54,15.6,105.56,91.26,1.57
 20260526,125,134,124,134,4298446,107.91,24.18,107.78,92.14,2.48
 20260527,138,138,126,129.5,5300193,109.71,18.04,109.75,92.91,2.68
+20260528,127.5,131,120.5,122.5,2473415,110.78,10.58,111.31,93.56,1.19
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 6525 | 捷敏-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 6525 | 捷敏-KY | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 6525 | 捷敏-KY | 3 | 2 | 3 | 3 | 3 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260528 | 6525 | 捷敏-KY | 4 | 1 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

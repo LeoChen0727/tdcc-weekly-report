@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3622 洋華
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:13 Asia/Taipei
+- generated_at: 2026-05-28 19:32:32 Asia/Taipei
 - stock_id: 3622
 - stock_name: 洋華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 59
-- high: 59.6
-- low: 57.1
-- close: 57.1
-- volume: 849896
-- ma5: 56.54
-- ema23_primary: 55.91
-- distance_to_ema23_pct: 2.14
-- ma20: 55.69
-- ma60: 56.98
-- ma120: 60.84
-- return_5d: 6.33
-- return_20d: 3.63
-- volume_ratio: 1.75
-- distance_to_ma20_pct_auxiliary: 2.53
-- distance_to_high_60_pct: -9.08
+- date: 20260528
+- open: 57.4
+- high: 58
+- low: 55.9
+- close: 56.4
+- volume: 532825
+- ma5: 56.88
+- ema23_primary: 55.95
+- distance_to_ema23_pct: 0.81
+- ma20: 55.76
+- ma60: 56.92
+- ma120: 60.75
+- return_5d: 3.11
+- return_20d: 2.55
+- volume_ratio: 1.07
+- distance_to_ma20_pct_auxiliary: 1.15
+- distance_to_high_60_pct: -10.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,55.3,55.3,54,55,235005,56.36,-2.42,55.84,59.48,0.67
 20260430,55.3,56.3,54.8,55.7,358538,56.31,-1.08,55.82,59.23,1.02
 20260504,56.2,56.5,55.5,55.7,266463,56.26,-0.99,55.75,58.98,0.75
 20260505,55.5,56.1,55.3,56.1,281708,56.24,-0.26,55.73,58.77,0.78
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,56.4,57.1,56.1,56.5,562188,55.55,1.71,55.4,57.07,1.36
 20260526,56.6,58.6,56.6,58.5,1229568,55.8,4.84,55.59,57.04,2.69
 20260527,59,59.6,57.1,57.1,849896,55.91,2.14,55.69,56.98,1.75
+20260528,57.4,58,55.9,56.4,532825,55.95,0.81,55.76,56.92,1.07
 ```
 
 ## Latest TDCC Snapshot
@@ -135,7 +135,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3622 | 洋華 | 2 | 0 | 31790.0 | 0.0 |  | no_signal | 0 |  |
+| 20260528 | 3622 | 洋華 | 2 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

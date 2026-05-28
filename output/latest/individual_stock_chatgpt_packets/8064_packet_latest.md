@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8064 東捷
 
 ## Metadata
-- generated_at: 2026-05-27 21:28:26 Asia/Taipei
+- generated_at: 2026-05-28 19:33:44 Asia/Taipei
 - stock_id: 8064
 - stock_name: 東捷
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 153
-- high: 153.5
-- low: 140
-- close: 143
-- volume: 145000
-- ma5: 138.1
-- ema23_primary: 118.44
-- distance_to_ema23_pct: 20.74
-- ma20: 121.55
-- ma60: 85.49
-- ma120: 66.8
-- return_5d: 15.79
-- return_20d: 65.7
-- volume_ratio: 0.02
-- distance_to_ma20_pct_auxiliary: 17.65
-- distance_to_high_60_pct: -6.84
+- date: 20260528
+- open: 143
+- high: 146
+- low: 130
+- close: 133
+- volume: 12882131
+- ma5: 140.6
+- ema23_primary: 119.65
+- distance_to_ema23_pct: 11.15
+- ma20: 123.45
+- ma60: 86.89
+- ma120: 67.58
+- return_5d: 10.37
+- return_20d: 40.15
+- volume_ratio: 1.97
+- distance_to_ma20_pct_auxiliary: 7.74
+- distance_to_high_60_pct: -13.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,85.2,94.9,85.1,94.9,15537000,77.05,23.17,77.19,63.14,0.97
 20260430,100.5,104,100,104,4084000,79.3,31.15,79.22,63.93,0.25
 20260504,114,114,114,114,2678000,82.19,38.71,81.69,64.89,0.17
 20260505,119.5,125,114,125,13489000,85.76,45.76,84.64,66.02,0.84
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,141.5,145.5,139,145.5,144000,113.23,28.5,115.19,82.24,0.02
 20260526,151,152.5,137,149,146000,116.21,28.22,118.71,83.92,0.02
 20260527,153,153.5,140,143,145000,118.44,20.74,121.55,85.49,0.02
+20260528,143,146,130,133,12882131,119.65,11.15,123.45,86.89,1.97
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,15 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 8064 | 東捷 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 8064 | 東捷 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 8064 | 東捷 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
 
 ## Warrant Context
 | status |

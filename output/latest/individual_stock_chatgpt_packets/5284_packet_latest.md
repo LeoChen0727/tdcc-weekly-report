@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5284 jpp-KY
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:37 Asia/Taipei
+- generated_at: 2026-05-28 19:32:55 Asia/Taipei
 - stock_id: 5284
 - stock_name: jpp-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 420
-- high: 442
-- low: 415
-- close: 442
-- volume: 1626972
-- ma5: 410.7
-- ema23_primary: 375.13
-- distance_to_ema23_pct: 17.83
-- ma20: 377.38
-- ma60: 320.75
-- ma120: 300.66
-- return_5d: 21.76
-- return_20d: 34.14
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: 17.12
-- distance_to_high_60_pct: 0
+- date: 20260528
+- open: 478
+- high: 480
+- low: 453
+- close: 460
+- volume: 3032340
+- ma5: 424.5
+- ema23_primary: 382.2
+- distance_to_ema23_pct: 20.36
+- ma20: 383.52
+- ma60: 323.98
+- ma120: 302.23
+- return_5d: 17.65
+- return_20d: 36.5
+- volume_ratio: 1.41
+- distance_to_ma20_pct_auxiliary: 19.94
+- distance_to_high_60_pct: -4.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,325.5,346.5,321.5,337,2468641,317.27,6.22,315.98,284.78,1.05
 20260430,342,349.5,333.5,343,1889281,319.41,7.38,319.95,286.01,0.79
 20260504,347,358,336,344.5,1992633,321.5,7.15,323.43,287.21,0.81
 20260505,349.5,368,347.5,365.5,2416955,325.17,12.4,328.02,288.77,0.95
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,417.5,417.5,399,408.5,2101739,366.06,11.6,368.02,315.62,0.98
 20260526,408.5,415,399.5,402,1319648,369.05,8.93,371.75,317.86,0.63
 20260527,420,442,415,442,1626972,375.13,17.83,377.38,320.75,0.76
+20260528,478,480,453,460,3032340,382.2,20.36,383.52,323.98,1.41
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 5284 | jpp-KY | true_breakout | 嚴格突破 | 81.0 |  |  | base_building |  | no_signal | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 5284 | jpp-KY | 5 | 1 | 5 | 5 | 5 | continued_many_days | 連續 5 個交易日上榜，需判斷是持續醞釀或訊號鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 5284 | jpp-KY | 69 | 5 | 4717240.0 | 1780.0 | 2650.13 | no_signal | 0 |  |
+| 20260528 | 5284 | jpp-KY | 71 | 5 | 11710130.0 | 3820.0 | 3065.48 | call_put_bullish | 3 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

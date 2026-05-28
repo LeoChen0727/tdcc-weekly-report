@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3413 京鼎
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:06 Asia/Taipei
+- generated_at: 2026-05-28 19:32:25 Asia/Taipei
 - stock_id: 3413
 - stock_name: 京鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 26
 - tdcc_history_status: tdcc_history_ready
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 335
-- high: 335
-- low: 311.5
-- close: 314.5
-- volume: 9327032
-- ma5: 332.2
-- ema23_primary: 321.17
-- distance_to_ema23_pct: -2.08
-- ma20: 319.95
-- ma60: 312
-- ma120: 300.97
-- return_5d: 0.16
-- return_20d: 2.28
-- volume_ratio: 3.07
-- distance_to_ma20_pct_auxiliary: -1.7
-- distance_to_high_60_pct: -12.4
+- date: 20260528
+- open: 315
+- high: 326
+- low: 313
+- close: 318
+- volume: 6540669
+- ma5: 330.5
+- ema23_primary: 320.91
+- distance_to_ema23_pct: -0.91
+- ma20: 320.27
+- ma60: 312.14
+- ma120: 301.23
+- return_5d: -2.6
+- return_20d: 2.09
+- volume_ratio: 1.98
+- distance_to_ma20_pct_auxiliary: -0.71
+- distance_to_high_60_pct: -11.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,307.5,312,302,311.5,1144993,312.63,-0.36,311.65,303.44,0.53
 20260430,313,313.5,308,309.5,847638,312.37,-0.92,312.68,303.95,0.41
 20260504,312,324.5,310.5,324.5,2025475,313.38,3.55,314.15,304.67,0.96
 20260505,322,324.5,314.5,324.5,1802405,314.31,3.24,315.7,305.3,0.84
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,326.5,349.5,326.5,349,4721290,319.58,9.21,317.75,311.49,1.8
 20260526,358.5,359,345,346,3629812,321.78,7.53,319.6,312.02,1.37
 20260527,335,335,311.5,314.5,9327032,321.17,-2.08,319.95,312,3.07
+20260528,315,326,313,318,6540669,320.91,-0.91,320.27,312.14,1.98
 ```
 
 ## Latest TDCC Snapshot
@@ -133,17 +133,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 3413 | 京鼎 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_inflow | repeated_but_no_breakout | calendar event: ex_dividend on 20260527; status=confirmed; proximity=within_3d |
+| 20260521 | 3413 | 京鼎 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3413 | 京鼎 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260528 | 3413 | 京鼎 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3413 | 京鼎 | 47 | 0 | 10891990.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260528 | 3413 | 京鼎 | 47 | 0 | 14502990.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

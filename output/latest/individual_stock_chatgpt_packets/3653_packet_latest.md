@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3653 健策
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:14 Asia/Taipei
+- generated_at: 2026-05-28 19:32:33 Asia/Taipei
 - stock_id: 3653
 - stock_name: 健策
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 3795
-- high: 4015
-- low: 3650
-- close: 3670
-- volume: 3139136
-- ma5: 3620
-- ema23_primary: 3845.7
-- distance_to_ema23_pct: -4.57
-- ma20: 3926
-- ma60: 3974.5
-- ma120: 3375.58
-- return_5d: 21.12
-- return_20d: -25.86
-- volume_ratio: 2
-- distance_to_ma20_pct_auxiliary: -6.52
-- distance_to_high_60_pct: -35.44
+- date: 20260528
+- open: 3700
+- high: 3830
+- low: 3460
+- close: 3500
+- volume: 2199582
+- ma5: 3654
+- ema23_primary: 3816.9
+- distance_to_ema23_pct: -8.3
+- ma20: 3828.75
+- ma60: 3982.08
+- ma120: 3383.04
+- return_5d: 5.11
+- return_20d: -35.72
+- volume_ratio: 1.33
+- distance_to_ma20_pct_auxiliary: -8.59
+- distance_to_high_60_pct: -38.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,4980,5445,4980,5445,468659,4584.23,18.78,4528.5,3699.58,0.38
 20260430,5405,5435,5305,5380,417950,4650.55,15.69,4607.75,3746.58,0.36
 20260504,5265,5320,5210,5300,342059,4704.67,12.65,4675.25,3788.33,0.31
 20260505,5200,5200,4780,4780,1333464,4710.95,1.47,4728.75,3822.33,1.21
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,3750,3770,3700,3770,693208,3879.1,-2.81,4054.5,3956.33,0.48
 20260526,3830,3830,3670,3670,692286,3861.68,-4.96,3990,3965.33,0.48
 20260527,3795,4015,3650,3670,3139136,3845.7,-4.57,3926,3974.5,2
+20260528,3700,3830,3460,3500,2199582,3816.9,-8.3,3828.75,3982.08,1.33
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3653 | 健策 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  | call_put_bullish | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3653 | 健策 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3653 | 健策 | 33 | 7 | 8833150.0 | 481300.0 | 18.35 | call_put_bullish | 3 |  |
+| 20260528 | 3653 | 健策 | 33 | 7 | 5636390.0 | 895470.0 | 6.29 | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

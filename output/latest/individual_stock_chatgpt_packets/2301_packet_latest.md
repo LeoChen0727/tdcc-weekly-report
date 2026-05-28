@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2301 光寶科
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:28 Asia/Taipei
+- generated_at: 2026-05-28 19:31:49 Asia/Taipei
 - stock_id: 2301
 - stock_name: 光寶科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 250
-- high: 262
-- low: 242.5
-- close: 246
-- volume: 57628178
-- ma5: 224.9
-- ema23_primary: 204.23
-- distance_to_ema23_pct: 20.45
-- ma20: 204.85
-- ma60: 174.53
-- ma120: 169.72
-- return_5d: 20.59
-- return_20d: 42.61
-- volume_ratio: 1.26
-- distance_to_ma20_pct_auxiliary: 20.09
-- distance_to_high_60_pct: -6.11
+- date: 20260528
+- open: 242
+- high: 242
+- low: 227
+- close: 230.5
+- volume: 54634312
+- ma5: 230.1
+- ema23_primary: 206.42
+- distance_to_ema23_pct: 11.67
+- ma20: 207.78
+- ma60: 175.56
+- ma120: 170.35
+- return_5d: 12.71
+- return_20d: 34.01
+- volume_ratio: 1.15
+- distance_to_ma20_pct_auxiliary: 10.94
+- distance_to_high_60_pct: -12.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,171,174,168,172,21954424,163.85,4.97,160.22,164.07,0.84
 20260430,170,179.5,164.5,166,57280644,164.03,1.2,161.5,163.88,2.06
 20260504,168.5,175.5,168,171.5,36940897,164.65,4.16,162.7,163.88,1.27
 20260505,172,172.5,168.5,171,16969753,165.18,3.52,164,163.94,0.58
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,212,227.5,211.5,227.5,33551128,196.88,15.55,197.8,172.53,0.78
 20260526,234,241.5,224,239.5,63874418,200.43,19.49,201.18,173.32,1.45
 20260527,250,262,242.5,246,57628178,204.23,20.45,204.85,174.53,1.26
+20260528,242,242,227,230.5,54634312,206.42,11.67,207.78,175.56,1.15
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 2301 | 光寶科 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_put_bullish | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 2301 | 光寶科 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2301 | 光寶科 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260528 | 2301 | 光寶科 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2301 | 光寶科 | 208 | 5 | 57899560.0 | 150490.0 | 384.74 | call_put_bullish | 3 |  |
+| 20260528 | 2301 | 光寶科 | 209 | 5 | 40633390.0 | 261100.0 | 155.62 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

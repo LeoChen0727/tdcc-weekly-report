@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5386 青雲
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:39 Asia/Taipei
+- generated_at: 2026-05-28 19:32:58 Asia/Taipei
 - stock_id: 5386
 - stock_name: 青雲
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 588
-- high: 603
-- low: 564
-- close: 587
-- volume: 582000
-- ma5: 529.4
-- ema23_primary: 452.65
-- distance_to_ema23_pct: 29.68
-- ma20: 457.32
-- ma60: 367.03
-- ma120: 230.35
-- return_5d: 36.67
-- return_20d: 53.46
-- volume_ratio: 0.41
-- distance_to_ma20_pct_auxiliary: 28.36
-- distance_to_high_60_pct: -2.65
+- date: 20260528
+- open: 585
+- high: 628
+- low: 568
+- close: 575
+- volume: 4187338
+- ma5: 550.8
+- ema23_primary: 462.85
+- distance_to_ema23_pct: 24.23
+- ma20: 467.3
+- ma60: 373.24
+- ma120: 234.56
+- return_5d: 22.86
+- return_20d: 53.13
+- volume_ratio: 2.81
+- distance_to_ma20_pct_auxiliary: 23.05
+- distance_to_high_60_pct: -8.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,377.5,392.5,372,375.5,2978000,340.75,10.2,339.77,260.96,1.49
 20260430,388,396.5,378,379,3685000,343.94,10.19,345.6,265.85,1.73
 20260504,382.5,408,372,398,3105000,348.44,14.22,351.15,271.08,1.37
 20260505,398.5,437.5,396,437.5,3964000,355.87,22.94,359.23,276.96,1.62
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,504,546,481,546,515000,430.57,26.81,437.82,355.19,0.3
 20260526,557,595,546,549,565000,440.44,24.65,447.1,360.82,0.36
 20260527,588,603,564,587,582000,452.65,29.68,457.32,367.03,0.41
+20260528,585,628,568,575,4187338,462.85,24.23,467.3,373.24,2.81
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 5386 | 青雲 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 5386 | 青雲 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
 
 ## Warrant Context
 | status |

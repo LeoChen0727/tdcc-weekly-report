@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2412 中華電
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:34 Asia/Taipei
+- generated_at: 2026-05-28 19:31:55 Asia/Taipei
 - stock_id: 2412
 - stock_name: 中華電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 26
 - tdcc_history_status: tdcc_history_ready
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
+- date: 20260528
 - open: 137
 - high: 138
-- low: 136
-- close: 137
-- volume: 15609678
-- ma5: 136.8
-- ema23_primary: 136.92
-- distance_to_ema23_pct: 0.06
+- low: 136.5
+- close: 136.5
+- volume: 16998850
+- ma5: 136.6
+- ema23_primary: 136.89
+- distance_to_ema23_pct: -0.28
 - ma20: 136.93
-- ma60: 136.04
-- ma120: 134.05
-- return_5d: -1.44
+- ma60: 136.02
+- ma120: 134.09
+- return_5d: -0.73
 - return_20d: 0
-- volume_ratio: 1.12
-- distance_to_ma20_pct_auxiliary: 0.05
-- distance_to_high_60_pct: -4.86
+- volume_ratio: 1.19
+- distance_to_ma20_pct_auxiliary: -0.31
+- distance_to_high_60_pct: -5.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,137.5,137.5,135.5,136.5,9810472,135.83,0.49,135.55,134.97,0.95
 20260430,136,137,135.5,136,9821487,135.85,0.11,135.7,135.02,0.97
 20260504,137,137.5,135.5,135.5,7034370,135.82,-0.23,135.78,135.04,0.71
 20260505,135.5,136,135,136,5345021,135.83,0.12,135.88,135.07,0.54
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,137.5,137.5,136,136.5,11546082,137,-0.36,136.97,135.99,0.83
 20260526,136.5,138,136,136,17970478,136.91,-0.67,136.93,135.99,1.28
 20260527,137,138,136,137,15609678,136.92,0.06,136.93,136.04,1.12
+20260528,137,138,136.5,136.5,16998850,136.89,-0.28,136.93,136.02,1.19
 ```
 
 ## Latest TDCC Snapshot
@@ -143,7 +143,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2412 | 中華電 | 2 | 0 | 126130.0 | 0.0 |  | no_signal | 0 |  |
+| 20260528 | 2412 | 中華電 | 2 | 0 | 82420.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

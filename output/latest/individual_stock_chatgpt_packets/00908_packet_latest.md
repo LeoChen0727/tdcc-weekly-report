@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00908 富邦入息REITs+
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:02 Asia/Taipei
+- generated_at: 2026-05-28 19:31:23 Asia/Taipei
 - stock_id: 00908
 - stock_name: 富邦入息REITs+
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260527
-- price_rows: 4
+- latest_price_date: 20260528
+- price_rows: 5
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 14.42
-- high: 14.49
-- low: 14.42
-- close: 14.45
-- volume: 125438
-- ma5: 
-- ema23_primary: 
-- distance_to_ema23_pct: 
-- ma20: 
-- ma60: 
-- ma120: 
+- date: 20260528
+- open: 14.46
+- high: 14.46
+- low: 14.43
+- close: 14.43
+- volume: 332090
+- ma5: 14.4
+- ema23_primary: 14.39
+- distance_to_ema23_pct: 0.29
+- ma20: 14.4
+- ma60: 14.4
+- ma120: 14.4
 - return_5d: 
 - return_20d: 
-- volume_ratio: 
-- distance_to_ma20_pct_auxiliary: 
-- distance_to_high_60_pct: 
+- volume_ratio: 1.79
+- distance_to_ma20_pct_auxiliary: 0.19
+- distance_to_high_60_pct: -0.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -81,6 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,14.34,14.39,14.34,14.37,283371,,,,,
 20260526,14.38,14.39,14.37,14.38,122536,,,,,
 20260527,14.42,14.49,14.42,14.45,125438,,,,,
+20260528,14.46,14.46,14.43,14.43,332090,14.39,0.29,14.4,14.4,1.79
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00891 中信關鍵半導體
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:02 Asia/Taipei
+- generated_at: 2026-05-28 19:31:23 Asia/Taipei
 - stock_id: 00891
 - stock_name: 中信關鍵半導體
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260527
-- price_rows: 4
+- latest_price_date: 20260528
+- price_rows: 5
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 35.88
-- high: 36.84
-- low: 35.81
-- close: 36.26
-- volume: 60723858
-- ma5: 
-- ema23_primary: 
-- distance_to_ema23_pct: 
-- ma20: 
-- ma60: 
-- ma120: 
+- date: 20260528
+- open: 36.8
+- high: 36.81
+- low: 35
+- close: 35.36
+- volume: 47276382
+- ma5: 35.09
+- ema23_primary: 34.16
+- distance_to_ema23_pct: 3.52
+- ma20: 35.09
+- ma60: 35.09
+- ma120: 35.09
 - return_5d: 
 - return_20d: 
-- volume_ratio: 
-- distance_to_ma20_pct_auxiliary: 
-- distance_to_high_60_pct: 
+- volume_ratio: 0.87
+- distance_to_ma20_pct_auxiliary: 0.78
+- distance_to_high_60_pct: -4.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -81,6 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,34.35,35.27,34.25,35.09,81618832,,,,,
 20260526,35.55,35.56,34.92,35.11,51026763,,,,,
 20260527,35.88,36.84,35.81,36.26,60723858,,,,,
+20260528,36.8,36.81,35,35.36,47276382,34.16,3.52,35.09,35.09,0.87
 ```
 
 ## Latest TDCC Snapshot

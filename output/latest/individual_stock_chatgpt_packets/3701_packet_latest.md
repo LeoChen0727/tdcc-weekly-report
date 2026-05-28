@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3701 大眾控
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:15 Asia/Taipei
+- generated_at: 2026-05-28 19:32:35 Asia/Taipei
 - stock_id: 3701
 - stock_name: 大眾控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 58
-- high: 58
-- low: 55
-- close: 55.7
-- volume: 1781638
-- ma5: 56.44
-- ema23_primary: 59.03
-- distance_to_ema23_pct: -5.63
-- ma20: 59.85
-- ma60: 61.14
-- ma120: 53.76
-- return_5d: 8.37
-- return_20d: -17.11
-- volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: -6.94
-- distance_to_high_60_pct: -30.2
+- date: 20260528
+- open: 56.1
+- high: 56.7
+- low: 52.1
+- close: 52.6
+- volume: 2408151
+- ma5: 56
+- ema23_primary: 58.49
+- distance_to_ema23_pct: -10.07
+- ma20: 59.05
+- ma60: 60.94
+- ma120: 53.95
+- return_5d: -4.01
+- return_20d: -23.44
+- volume_ratio: 0.77
+- distance_to_ma20_pct_auxiliary: -10.92
+- distance_to_high_60_pct: -34.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,66.4,70.2,66.3,68.7,8022020,64.21,6.99,62.62,59.38,0.81
 20260430,68.7,68.7,65.5,65.8,5693564,64.34,2.27,63.13,59.54,0.57
 20260504,67.1,69.1,66.5,66.6,4664553,64.53,3.21,63.63,59.78,0.46
 20260505,66.8,68.4,65.8,67.3,3329302,64.76,3.92,64.33,60.03,0.33
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,57.7,58.8,57.1,57.6,2790856,59.53,-3.24,60.78,61.23,0.72
 20260526,58.6,58.7,56.3,57.1,1857268,59.33,-3.76,60.43,61.2,0.51
 20260527,58,58,55,55.7,1781638,59.03,-5.63,59.85,61.14,0.52
+20260528,56.1,56.7,52.1,52.6,2408151,58.49,-10.07,59.05,60.94,0.77
 ```
 
 ## Latest TDCC Snapshot
@@ -130,12 +130,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3701 | 大眾控 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260528 | 3701 | 大眾控 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3701 | 大眾控 | 2 | 0 | 63440.0 | 0.0 |  | no_signal | 0 |  |
+| 20260528 | 3701 | 大眾控 | 2 | 0 | 116400.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00878 國泰永續高股息
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:01 Asia/Taipei
+- generated_at: 2026-05-28 19:31:23 Asia/Taipei
 - stock_id: 00878
 - stock_name: 國泰永續高股息
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260527
-- price_rows: 4
+- latest_price_date: 20260528
+- price_rows: 5
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 30.28
-- high: 30.8
-- low: 30.28
-- close: 30.55
-- volume: 110473016
-- ma5: 
-- ema23_primary: 
-- distance_to_ema23_pct: 
-- ma20: 
-- ma60: 
-- ma120: 
+- date: 20260528
+- open: 30.55
+- high: 30.79
+- low: 29.84
+- close: 30
+- volume: 90876706
+- ma5: 29.58
+- ema23_primary: 28.76
+- distance_to_ema23_pct: 4.31
+- ma20: 29.58
+- ma60: 29.58
+- ma120: 29.58
 - return_5d: 
 - return_20d: 
-- volume_ratio: 
-- distance_to_ma20_pct_auxiliary: 
-- distance_to_high_60_pct: 
+- volume_ratio: 0.87
+- distance_to_ma20_pct_auxiliary: 1.41
+- distance_to_high_60_pct: -2.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -81,6 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,28.86,29.5,28.83,29.48,142122086,,,,,
 20260526,29.69,29.83,29.48,29.62,84260566,,,,,
 20260527,30.28,30.8,30.28,30.55,110473016,,,,,
+20260528,30.55,30.79,29.84,30,90876706,28.76,4.31,29.58,29.58,0.87
 ```
 
 ## Latest TDCC Snapshot

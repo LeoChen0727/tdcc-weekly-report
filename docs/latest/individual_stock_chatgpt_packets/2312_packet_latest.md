@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2312 金寶
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:28 Asia/Taipei
+- generated_at: 2026-05-28 19:31:49 Asia/Taipei
 - stock_id: 2312
 - stock_name: 金寶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 38.85
-- high: 38.85
-- low: 36
-- close: 37.35
-- volume: 165750495
-- ma5: 35.39
-- ema23_primary: 30.44
-- distance_to_ema23_pct: 22.72
-- ma20: 30.13
-- ma60: 25.96
-- ma120: 25.45
-- return_5d: 31.98
-- return_20d: 24.09
-- volume_ratio: 2.48
-- distance_to_ma20_pct_auxiliary: 23.95
-- distance_to_high_60_pct: -6.62
+- date: 20260528
+- open: 38
+- high: 41.05
+- low: 37.3
+- close: 37.7
+- volume: 161629606
+- ma5: 36.91
+- ema23_primary: 31.04
+- distance_to_ema23_pct: 21.45
+- ma20: 30.59
+- ma60: 26.17
+- ma120: 25.59
+- return_5d: 25.25
+- return_20d: 32.05
+- volume_ratio: 2.37
+- distance_to_ma20_pct_auxiliary: 23.24
+- distance_to_high_60_pct: -8.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,29.65,30.15,28.5,28.55,135221811,25.53,11.82,24.71,24.57,2.55
 20260430,28.55,29.05,27.55,27.65,52074412,25.71,7.55,25.02,24.53,0.95
 20260504,27.7,28.85,27.7,27.85,39818259,25.89,7.58,25.3,24.54,0.7
 20260505,27.85,28.4,27.6,28.1,27546181,26.07,7.78,25.62,24.55,0.48
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,36,36.4,35.5,36.4,66663284,28.88,26.04,29.14,25.52,1.17
 20260526,40,40,38.25,40,210267926,29.81,34.2,29.77,25.77,3.21
 20260527,38.85,38.85,36,37.35,165750495,30.44,22.72,30.13,25.96,2.48
+20260528,38,41.05,37.3,37.7,161629606,31.04,21.45,30.59,26.17,2.37
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2312 | 金寶 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 2312 | 金寶 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 2312 | 金寶 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_put_bullish | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 2312 | 金寶 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_put_bullish | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2312 | 金寶 | 5 | 5 | 5 | 5 | 5 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260528 | 2312 | 金寶 | 6 | 6 | 5 | 6 | 6 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2312 | 金寶 | 84 | 1 | 15709090.0 | 406560.0 | 38.64 | no_signal | 0 |  |
+| 20260528 | 2312 | 金寶 | 87 | 1 | 26066960.0 | 513910.0 | 50.72 | call_put_bullish | 3 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

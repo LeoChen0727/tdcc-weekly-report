@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00728 第一金工業30
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:01 Asia/Taipei
+- generated_at: 2026-05-28 19:31:22 Asia/Taipei
 - stock_id: 00728
 - stock_name: 第一金工業30
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260527
-- price_rows: 4
+- latest_price_date: 20260528
+- price_rows: 5
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 63
-- high: 63.95
-- low: 63
-- close: 63.45
-- volume: 347049
-- ma5: 
-- ema23_primary: 
-- distance_to_ema23_pct: 
-- ma20: 
-- ma60: 
-- ma120: 
+- date: 20260528
+- open: 63.5
+- high: 64.55
+- low: 61.55
+- close: 61.7
+- volume: 348669
+- ma5: 61.42
+- ema23_primary: 59.93
+- distance_to_ema23_pct: 2.95
+- ma20: 61.42
+- ma60: 61.42
+- ma120: 61.42
 - return_5d: 
 - return_20d: 
-- volume_ratio: 
-- distance_to_ma20_pct_auxiliary: 
-- distance_to_high_60_pct: 
+- volume_ratio: 1.23
+- distance_to_ma20_pct_auxiliary: 0.46
+- distance_to_high_60_pct: -4.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -81,6 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,59.35,61.45,59.35,61.2,238984,,,,,
 20260526,62.15,62.45,61.45,61.7,168125,,,,,
 20260527,63,63.95,63,63.45,347049,,,,,
+20260528,63.5,64.55,61.55,61.7,348669,59.93,2.95,61.42,61.42,1.23
 ```
 
 ## Latest TDCC Snapshot

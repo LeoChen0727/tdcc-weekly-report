@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6266 泰詠
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:57 Asia/Taipei
+- generated_at: 2026-05-28 19:33:15 Asia/Taipei
 - stock_id: 6266
 - stock_name: 泰詠
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 27.65
-- high: 27.7
-- low: 27.15
-- close: 27.15
-- volume: 27000
-- ma5: 27.27
-- ema23_primary: 27.36
-- distance_to_ema23_pct: -0.76
-- ma20: 27.3
-- ma60: 28.03
+- date: 20260528
+- open: 27.45
+- high: 28.8
+- low: 27.35
+- close: 28.15
+- volume: 1005115
+- ma5: 27.49
+- ema23_primary: 27.42
+- distance_to_ema23_pct: 2.65
+- ma20: 27.31
+- ma60: 28.01
 - ma120: 28.52
-- return_5d: 0.56
-- return_20d: -1.81
-- volume_ratio: 0.11
-- distance_to_ma20_pct_auxiliary: -0.53
-- distance_to_high_60_pct: -7.81
+- return_5d: 4.07
+- return_20d: 1.08
+- volume_ratio: 3.66
+- distance_to_ma20_pct_auxiliary: 3.08
+- distance_to_high_60_pct: -4.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,27.8,28.1,27.6,27.85,232000,28.15,-1.07,28.06,28.65,0.7
 20260430,27.85,27.85,27.65,27.85,194000,28.13,-0.99,28.03,28.6,0.72
 20260504,28.05,28.05,27.6,27.7,403000,28.09,-1.39,28,28.56,1.43
 20260505,27.7,27.95,27.6,27.95,287000,28.08,-0.46,27.99,28.53,1.01
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,27.25,27.7,27.05,27.45,27000,27.35,0.36,27.32,28.08,0.1
 20260526,27.75,27.75,27.3,27.65,27000,27.38,1,27.32,28.06,0.11
 20260527,27.65,27.7,27.15,27.15,27000,27.36,-0.76,27.3,28.03,0.11
+20260528,27.45,28.8,27.35,28.15,1005115,27.42,2.65,27.31,28.01,3.66
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 6266 | 泰詠 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 6266 | 泰詠 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | status |

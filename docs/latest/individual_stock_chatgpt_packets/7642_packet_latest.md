@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7642 昶瑞機電
 
 ## Metadata
-- generated_at: 2026-05-27 21:28:20 Asia/Taipei
+- generated_at: 2026-05-28 19:33:38 Asia/Taipei
 - stock_id: 7642
 - stock_name: 昶瑞機電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 66.8
-- high: 67
-- low: 66
-- close: 66.6
-- volume: 67000
-- ma5: 68.56
-- ema23_primary: 69.35
-- distance_to_ema23_pct: -3.96
-- ma20: 68.77
-- ma60: 71.88
-- ma120: 77.34
-- return_5d: -0.89
-- return_20d: 2.15
-- volume_ratio: 1.39
-- distance_to_ma20_pct_auxiliary: -3.15
-- distance_to_high_60_pct: -16.65
+- date: 20260528
+- open: 68.4
+- high: 68.4
+- low: 65.6
+- close: 66
+- volume: 22343
+- ma5: 67.82
+- ema23_primary: 69.07
+- distance_to_ema23_pct: -4.44
+- ma20: 68.81
+- ma60: 71.66
+- ma120: 77.19
+- return_5d: -5.31
+- return_20d: 1.23
+- volume_ratio: 0.47
+- distance_to_ma20_pct_auxiliary: -4.08
+- distance_to_high_60_pct: -16.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,65.3,66,65.1,65.2,31000,71.11,-8.31,71.47,75.86,1.05
 20260430,63.1,64.2,63.1,63.4,22000,70.47,-10.03,70.93,75.48,0.74
 20260504,63.4,63.7,63.3,63.7,22000,69.9,-8.88,70.31,75.13,0.74
 20260505,63.6,63.6,62.6,63.2,23000,69.35,-8.86,69.78,74.74,0.76
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,69.7,69.9,68.5,68.8,69000,69.74,-1.35,68.64,72.28,1.52
 20260526,68.3,68.3,66.5,68,67000,69.6,-2.3,68.69,72.1,1.43
 20260527,66.8,67,66,66.6,67000,69.35,-3.96,68.77,71.88,1.39
+20260528,68.4,68.4,65.6,66,22343,69.07,-4.44,68.81,71.66,0.47
 ```
 
 ## Latest TDCC Snapshot

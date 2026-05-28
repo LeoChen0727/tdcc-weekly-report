@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6147 頎邦
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:49 Asia/Taipei
+- generated_at: 2026-05-28 19:33:07 Asia/Taipei
 - stock_id: 6147
 - stock_name: 頎邦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 272
-- high: 281
-- low: 258
-- close: 265
-- volume: 270000
-- ma5: 240.1
-- ema23_primary: 196.85
-- distance_to_ema23_pct: 34.62
-- ma20: 202.22
-- ma60: 124.93
-- ma120: 89.66
-- return_5d: 22.97
-- return_20d: 84.03
-- volume_ratio: 0.01
-- distance_to_ma20_pct_auxiliary: 31.04
-- distance_to_high_60_pct: -5.69
+- date: 20260528
+- open: 267.5
+- high: 291.5
+- low: 261.5
+- close: 278
+- volume: 97570749
+- ma5: 251.2
+- ema23_primary: 203.62
+- distance_to_ema23_pct: 36.53
+- ma20: 208.22
+- ma60: 128.65
+- ma120: 91.55
+- return_5d: 24.94
+- return_20d: 75.95
+- volume_ratio: 1.83
+- distance_to_ma20_pct_auxiliary: 33.51
+- distance_to_high_60_pct: -4.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,141,158,133.5,158,56490000,115.15,37.21,115.05,77.74,1.55
 20260430,164.5,173,155,163,91719000,119.14,36.81,119.72,79.49,2.33
 20260504,179,179,176,179,20571000,124.13,44.2,124.85,81.51,0.53
 20260505,179,193.5,176,177.5,85708000,128.58,38.05,129.53,83.49,2.15
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,220,237,218,237,231000,184.31,28.59,189.7,118.04,0
 20260526,245,260.5,243,260.5,257000,190.66,36.63,196.18,121.46,0
 20260527,272,281,258,265,270000,196.85,34.62,202.22,124.93,0.01
+20260528,267.5,291.5,261.5,278,97570749,203.62,36.53,208.22,128.65,1.83
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 6147 | 頎邦 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 6147 | 頎邦 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | status |

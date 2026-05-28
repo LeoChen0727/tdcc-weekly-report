@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2201 裕隆
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:26 Asia/Taipei
+- generated_at: 2026-05-28 19:31:47 Asia/Taipei
 - stock_id: 2201
 - stock_name: 裕隆
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 27
-- high: 27
-- low: 26.45
-- close: 26.45
-- volume: 2793558
-- ma5: 26.87
-- ema23_primary: 27.08
-- distance_to_ema23_pct: -2.31
-- ma20: 27.1
-- ma60: 27.52
-- ma120: 30.16
-- return_5d: 0.38
-- return_20d: -2.4
-- volume_ratio: 0.97
-- distance_to_ma20_pct_auxiliary: -2.41
-- distance_to_high_60_pct: -13.42
+- date: 20260528
+- open: 26.85
+- high: 27.5
+- low: 26.85
+- close: 27.35
+- volume: 5240162
+- ma5: 26.98
+- ema23_primary: 27.1
+- distance_to_ema23_pct: 0.93
+- ma20: 27.11
+- ma60: 27.47
+- ma120: 30.09
+- return_5d: 2.05
+- return_20d: 0.55
+- volume_ratio: 1.72
+- distance_to_ma20_pct_auxiliary: 0.89
+- distance_to_high_60_pct: -9.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,27.3,27.3,26.95,27.2,1742167,27.42,-0.8,27.15,28.76,0.45
 20260430,27.25,27.4,26.9,27,2484654,27.38,-1.4,27.14,28.68,0.65
 20260504,27.2,27.2,26.8,26.85,2042754,27.34,-1.79,27.1,28.61,0.53
 20260505,26.9,27.1,26.75,27.1,2425543,27.32,-0.8,27.09,28.53,0.63
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,27.2,27.65,27.2,27.45,4185013,27.16,1.06,27.15,27.66,1.48
 20260526,27.4,27.75,26.8,26.8,2873072,27.13,-1.23,27.14,27.59,1.01
 20260527,27,27,26.45,26.45,2793558,27.08,-2.31,27.1,27.52,0.97
+20260528,26.85,27.5,26.85,27.35,5240162,27.1,0.93,27.11,27.47,1.72
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 2201 | 裕隆 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 2201 | 裕隆 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2201 | 裕隆 | 4 | 0 | 4420.0 | 0.0 |  | no_signal | 0 |  |
+| 20260528 | 2201 | 裕隆 | 4 | 0 | 122640.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

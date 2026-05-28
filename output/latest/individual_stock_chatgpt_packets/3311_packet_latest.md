@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3311 閎暉
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:03 Asia/Taipei
+- generated_at: 2026-05-28 19:32:23 Asia/Taipei
 - stock_id: 3311
 - stock_name: 閎暉
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 36.9
-- high: 37.25
-- low: 34.05
-- close: 34.9
-- volume: 1289529
-- ma5: 34.16
-- ema23_primary: 32.6
-- distance_to_ema23_pct: 7.05
-- ma20: 32.12
-- ma60: 32.27
-- ma120: 32.12
-- return_5d: 10.79
-- return_20d: 12.4
-- volume_ratio: 3.3
-- distance_to_ma20_pct_auxiliary: 8.64
-- distance_to_high_60_pct: -6.31
+- date: 20260528
+- open: 35
+- high: 38.35
+- low: 34.7
+- close: 36.45
+- volume: 4396543
+- ma5: 34.91
+- ema23_primary: 32.92
+- distance_to_ema23_pct: 10.71
+- ma20: 32.4
+- ma60: 32.31
+- ma120: 32.16
+- return_5d: 11.47
+- return_20d: 17.39
+- volume_ratio: 7.26
+- distance_to_ma20_pct_auxiliary: 12.52
+- distance_to_high_60_pct: -4.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,31.4,31.4,31,31.05,94895,32.12,-3.32,32.19,32.37,0.38
 20260430,31.05,31.05,30.55,30.65,265551,31.99,-4.2,32.15,32.31,1.05
 20260504,30.6,31,30.5,30.5,150051,31.87,-4.3,32.06,32.25,0.59
 20260505,30.5,30.9,30.5,30.75,99370,31.78,-3.23,32.03,32.2,0.39
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,34.05,34.65,33.6,33.85,472417,32.11,5.41,31.71,32.2,1.86
 20260526,34,35.65,33.85,35.5,1812556,32.39,9.59,31.93,32.26,5.48
 20260527,36.9,37.25,34.05,34.9,1289529,32.6,7.05,32.12,32.27,3.3
+20260528,35,38.35,34.7,36.45,4396543,32.92,10.71,32.4,32.31,7.26
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3311 | 閎暉 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 3311 | 閎暉 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3311 | 閎暉 | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260528 | 3311 | 閎暉 | 3 | 2 | 3 | 3 | 3 | continued_2_3d | 連續 3 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7747 昕奇雲端
 
 ## Metadata
-- generated_at: 2026-05-27 21:28:22 Asia/Taipei
+- generated_at: 2026-05-28 19:33:40 Asia/Taipei
 - stock_id: 7747
 - stock_name: 昕奇雲端
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 133
+- latest_price_date: 20260528
+- price_rows: 134
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 128
-- high: 128
-- low: 128
-- close: 128
-- volume: 128000
+- date: 20260528
+- open: 127.5
+- high: 127.5
+- low: 127.5
+- close: 127.5
+- volume: 1013
 - ma5: 127.1
-- ema23_primary: 128.03
-- distance_to_ema23_pct: -0.03
-- ma20: 129.68
-- ma60: 123.51
-- ma120: 122.59
-- return_5d: 1.59
-- return_20d: -2.29
-- volume_ratio: 4.13
-- distance_to_ma20_pct_auxiliary: -1.29
-- distance_to_high_60_pct: -7.25
+- ema23_primary: 127.99
+- distance_to_ema23_pct: -0.38
+- ma20: 129.53
+- ma60: 123.66
+- ma120: 122.58
+- return_5d: 0
+- return_20d: -2.3
+- volume_ratio: 0.03
+- distance_to_ma20_pct_auxiliary: -1.56
+- distance_to_high_60_pct: -7.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260427,130,130.5,126.5,130.5,7000,124.98,4.42,123.2,120.27,0.57
 20260428,127.5,131,127,131,12000,125.48,4.4,123.9,120.45,0.94
 20260429,130,131,130,130,4000,125.86,3.29,124.45,120.61,0.35
 20260430,131.5,132.5,131,132.5,7000,126.41,4.82,125.33,120.82,0.59
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,124.5,125,124.5,125,125000,127.86,-2.23,129.88,123.17,6.79
 20260526,126.5,130,125.5,130,129000,128.04,1.53,129.82,123.36,5.21
 20260527,128,128,128,128,128000,128.03,-0.03,129.68,123.51,4.13
+20260528,127.5,127.5,127.5,127.5,1013,127.99,-0.38,129.53,123.66,0.03
 ```
 
 ## Latest TDCC Snapshot

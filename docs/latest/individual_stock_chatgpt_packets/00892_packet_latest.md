@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00892 富邦台灣半導體
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:02 Asia/Taipei
+- generated_at: 2026-05-28 19:31:23 Asia/Taipei
 - stock_id: 00892
 - stock_name: 富邦台灣半導體
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260527
-- price_rows: 4
+- latest_price_date: 20260528
+- price_rows: 5
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 45.66
-- high: 45.99
-- low: 45
-- close: 45.23
-- volume: 4913567
-- ma5: 
-- ema23_primary: 
-- distance_to_ema23_pct: 
-- ma20: 
-- ma60: 
-- ma120: 
+- date: 20260528
+- open: 45.52
+- high: 46.07
+- low: 43.91
+- close: 44.28
+- volume: 4325782
+- ma5: 44.32
+- ema23_primary: 43.52
+- distance_to_ema23_pct: 1.75
+- ma20: 44.32
+- ma60: 44.32
+- ma120: 44.32
 - return_5d: 
 - return_20d: 
-- volume_ratio: 
-- distance_to_ma20_pct_auxiliary: 
-- distance_to_high_60_pct: 
+- volume_ratio: 0.97
+- distance_to_ma20_pct_auxiliary: -0.1
+- distance_to_high_60_pct: -3.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -81,6 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,44.51,45.06,44.4,44.62,6197531,,,,,
 20260526,44.9,44.93,44.1,44.44,2871636,,,,,
 20260527,45.66,45.99,45,45.23,4913567,,,,,
+20260528,45.52,46.07,43.91,44.28,4325782,43.52,1.75,44.32,44.32,0.97
 ```
 
 ## Latest TDCC Snapshot

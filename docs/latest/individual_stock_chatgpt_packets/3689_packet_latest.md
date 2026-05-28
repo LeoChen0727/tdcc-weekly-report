@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3689 湧德
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:15 Asia/Taipei
+- generated_at: 2026-05-28 19:32:34 Asia/Taipei
 - stock_id: 3689
 - stock_name: 湧德
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 126.5
-- high: 132.5
-- low: 123.5
-- close: 130.5
-- volume: 129000
-- ma5: 124.9
-- ema23_primary: 125.27
-- distance_to_ema23_pct: 4.17
-- ma20: 126.35
-- ma60: 121.61
-- ma120: 116.68
-- return_5d: 10.13
-- return_20d: -1.14
-- volume_ratio: 0.04
-- distance_to_ma20_pct_auxiliary: 3.28
-- distance_to_high_60_pct: -10.62
+- date: 20260528
+- open: 134
+- high: 139.5
+- low: 130.5
+- close: 132
+- volume: 12682716
+- ma5: 127.1
+- ema23_primary: 125.83
+- distance_to_ema23_pct: 4.9
+- ma20: 126.38
+- ma60: 121.89
+- ma120: 116.96
+- return_5d: 9.09
+- return_20d: 0.38
+- volume_ratio: 3.17
+- distance_to_ma20_pct_auxiliary: 4.45
+- distance_to_high_60_pct: -9.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,130.5,133,129.5,131.5,1662000,128.12,2.64,129.53,117.87,0.27
 20260430,132.5,137.5,132.5,134,6807000,128.61,4.19,130.93,118.03,1.07
 20260504,136.5,137.5,134,136.5,3809000,129.27,5.59,132.12,118.33,0.59
 20260505,136,141.5,135,139,6325000,130.08,6.86,133.43,118.74,0.96
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,125,126.5,123,125,125000,124.83,0.14,126.78,121.3,0.03
 20260526,127,127.5,123.5,124.5,125000,124.8,-0.24,126.42,121.41,0.04
 20260527,126.5,132.5,123.5,130.5,129000,125.27,4.17,126.35,121.61,0.04
+20260528,134,139.5,130.5,132,12682716,125.83,4.9,126.38,121.89,3.17
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 3689 | 湧德 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260521 | 3689 | 湧德 | pattern | 型態觀察 |  |  |  | 預備發動型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3689 | 湧德 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260528 | 3689 | 湧德 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

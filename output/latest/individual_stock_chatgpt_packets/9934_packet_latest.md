@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9934 成霖
 
 ## Metadata
-- generated_at: 2026-05-27 21:28:40 Asia/Taipei
+- generated_at: 2026-05-28 19:33:57 Asia/Taipei
 - stock_id: 9934
 - stock_name: 成霖
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 9.6
-- high: 9.6
-- low: 9.51
+- date: 20260528
+- open: 9.54
+- high: 9.64
+- low: 9.52
 - close: 9.54
-- volume: 377494
-- ma5: 9.67
-- ema23_primary: 9.57
-- distance_to_ema23_pct: -0.27
-- ma20: 9.5
+- volume: 443735
+- ma5: 9.61
+- ema23_primary: 9.56
+- distance_to_ema23_pct: -0.24
+- ma20: 9.51
 - ma60: 9.51
 - ma120: 9.78
-- return_5d: -1.75
+- return_5d: -2.85
 - return_20d: 2.03
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: 0.4
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: 0.3
 - distance_to_high_60_pct: -4.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,9.39,9.42,9.3,9.35,233699,9.49,-1.48,9.46,9.7,0.43
 20260430,9.35,9.35,9.27,9.27,562156,9.47,-2.14,9.46,9.68,1.06
 20260504,9.28,9.28,9.01,9.04,1762655,9.44,-4.2,9.44,9.66,2.92
 20260505,9.05,9.08,8.95,9.08,453990,9.41,-3.47,9.43,9.64,0.76
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,9.7,9.7,9.53,9.63,522305,9.56,0.71,9.48,9.53,0.71
 20260526,9.63,9.63,9.54,9.63,410758,9.57,0.65,9.49,9.52,0.58
 20260527,9.6,9.6,9.51,9.54,377494,9.57,-0.27,9.5,9.51,0.53
+20260528,9.54,9.64,9.52,9.54,443735,9.56,-0.24,9.51,9.51,0.61
 ```
 
 ## Latest TDCC Snapshot

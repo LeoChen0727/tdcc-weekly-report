@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1301 台塑
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:06 Asia/Taipei
+- generated_at: 2026-05-28 19:31:27 Asia/Taipei
 - stock_id: 1301
 - stock_name: 台塑
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 44.95
-- high: 46.1
-- low: 44.9
-- close: 45.45
-- volume: 21747971
-- ma5: 45.2
-- ema23_primary: 47.2
-- distance_to_ema23_pct: -3.7
-- ma20: 47.61
-- ma60: 48.29
-- ma120: 45.6
-- return_5d: 0.11
-- return_20d: -11.06
-- volume_ratio: 1.12
-- distance_to_ma20_pct_auxiliary: -4.54
-- distance_to_high_60_pct: -19.27
+- date: 20260528
+- open: 45.8
+- high: 45.85
+- low: 44.8
+- close: 45.05
+- volume: 16825189
+- ma5: 45.06
+- ema23_primary: 47.02
+- distance_to_ema23_pct: -4.18
+- ma20: 47.31
+- ma60: 48.2
+- ma120: 45.63
+- return_5d: -1.53
+- return_20d: -11.67
+- volume_ratio: 0.87
+- distance_to_ma20_pct_auxiliary: -4.79
+- distance_to_high_60_pct: -19.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,51.7,52.4,51,51,20097411,50.14,1.71,50.16,48.33,0.59
 20260430,51.2,52.1,50.6,51.5,20701677,50.26,2.48,50.45,48.47,0.64
 20260504,51.8,52.2,50.8,50.8,12753712,50.3,0.99,50.65,48.57,0.4
 20260505,50.8,51.9,50.5,51.3,17212268,50.38,1.82,50.92,48.61,0.54
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,45.45,45.5,44.2,44.8,21422060,47.59,-5.86,48.17,48.54,1.13
 20260526,44.7,45.7,44.2,44.75,22123420,47.35,-5.5,47.9,48.39,1.15
 20260527,44.95,46.1,44.9,45.45,21747971,47.2,-3.7,47.61,48.29,1.12
+20260528,45.8,45.85,44.8,45.05,16825189,47.02,-4.18,47.31,48.2,0.87
 ```
 
 ## Latest TDCC Snapshot
@@ -135,7 +135,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 1301 | 台塑 | 99 | 5 | 9665570.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260528 | 1301 | 台塑 | 98 | 5 | 7950990.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

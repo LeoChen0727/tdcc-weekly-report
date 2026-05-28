@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5443 均豪
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:40 Asia/Taipei
+- generated_at: 2026-05-28 19:32:59 Asia/Taipei
 - stock_id: 5443
 - stock_name: 均豪
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 130.5
-- high: 131
-- low: 125.5
-- close: 126.5
-- volume: 128000
-- ma5: 125.4
-- ema23_primary: 122.95
-- distance_to_ema23_pct: 2.89
+- date: 20260528
+- open: 127
+- high: 130.5
+- low: 121
+- close: 122
+- volume: 5557277
+- ma5: 126.3
+- ema23_primary: 122.87
+- distance_to_ema23_pct: -0.71
 - ma20: 126.3
-- ma60: 111.99
-- ma120: 100.69
-- return_5d: 8.58
-- return_20d: 11.45
-- volume_ratio: 0.02
-- distance_to_ma20_pct_auxiliary: 0.16
-- distance_to_high_60_pct: -10.92
+- ma60: 112.47
+- ma120: 101.03
+- return_5d: 3.83
+- return_20d: 0
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: -3.4
+- distance_to_high_60_pct: -14.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,111.5,124,110,122,10515000,111.43,9.48,112.32,100.21,1.07
 20260430,125.5,132.5,122,129.5,24940000,112.94,14.67,113.81,100.82,2.3
 20260504,133.5,142,128,137.5,27710000,114.98,19.58,115.64,101.58,2.3
 20260505,138,141,134.5,135,12375000,116.65,15.73,117.4,102.23,0.99
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,125,132,124,132,128000,122,8.2,124.5,110.72,0.01
 20260526,133.5,134.5,127.5,129.5,131000,122.63,5.61,125.65,111.41,0.02
 20260527,130.5,131,125.5,126.5,128000,122.95,2.89,126.3,111.99,0.02
+20260528,127,130.5,121,122,5557277,122.87,-0.71,126.3,112.47,0.74
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 5443 | 均豪 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 5443 | 均豪 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 5443 | 均豪 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260521 | 5443 | 均豪 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 5443 | 均豪 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260528 | 5443 | 均豪 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

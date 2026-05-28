@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2354 鴻準
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:31 Asia/Taipei
+- generated_at: 2026-05-28 19:31:52 Asia/Taipei
 - stock_id: 2354
 - stock_name: 鴻準
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 60.9
-- high: 61.3
-- low: 59.3
-- close: 59.7
-- volume: 11087533
-- ma5: 60.08
-- ema23_primary: 58.2
-- distance_to_ema23_pct: 2.58
-- ma20: 59.05
-- ma60: 54.83
-- ma120: 57.89
-- return_5d: 3.83
-- return_20d: 17.29
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: 1.11
-- distance_to_high_60_pct: -8.58
+- date: 20260528
+- open: 59.7
+- high: 60.5
+- low: 57.8
+- close: 58.3
+- volume: 10686194
+- ma5: 59.96
+- ema23_primary: 58.21
+- distance_to_ema23_pct: 0.16
+- ma20: 59.41
+- ma60: 54.82
+- ma120: 57.85
+- return_5d: -1.02
+- return_20d: 14.31
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: -1.87
+- distance_to_high_60_pct: -10.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,51,51.5,50.8,51,2945631,52.01,-1.95,51.46,54.5,0.47
 20260430,50.8,52.8,50.8,51.8,8679752,52,-0.38,51.52,54.37,1.36
 20260504,52,54,52,53.2,8872488,52.1,2.12,51.56,54.27,1.34
 20260505,56.5,58.5,55.7,58.5,36260363,52.63,11.15,51.91,54.24,4.36
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,61.5,61.6,60.1,61.1,13341786,57.84,5.63,58.13,54.82,0.67
 20260526,61.6,61.9,59.5,60.5,9924230,58.06,4.2,58.6,54.83,0.49
 20260527,60.9,61.3,59.3,59.7,11087533,58.2,2.58,59.05,54.83,0.54
+20260528,59.7,60.5,57.8,58.3,10686194,58.21,0.16,59.41,54.82,0.51
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2354 | 鴻準 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 2354 | 鴻準 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2354 | 鴻準 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260528 | 2354 | 鴻準 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2354 | 鴻準 | 41 | 3 | 848290.0 | 0.0 |  | no_signal | 0 |  |
+| 20260528 | 2354 | 鴻準 | 41 | 3 | 1164730.0 | 5730.0 | 203.27 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8110 華東
 
 ## Metadata
-- generated_at: 2026-05-27 21:28:29 Asia/Taipei
+- generated_at: 2026-05-28 19:33:46 Asia/Taipei
 - stock_id: 8110
 - stock_name: 華東
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 60
-- high: 60.6
-- low: 57.1
-- close: 60.6
-- volume: 68790601
-- ma5: 52.4
-- ema23_primary: 50.57
-- distance_to_ema23_pct: 19.82
-- ma20: 49.83
-- ma60: 51.49
-- ma120: 56.2
-- return_5d: 31.03
-- return_20d: 24.44
-- volume_ratio: 3.91
-- distance_to_ma20_pct_auxiliary: 21.61
-- distance_to_high_60_pct: -6.91
+- date: 20260528
+- open: 61.9
+- high: 66
+- low: 60.3
+- close: 62
+- volume: 114740214
+- ma5: 55.39
+- ema23_primary: 51.53
+- distance_to_ema23_pct: 20.33
+- ma20: 50.61
+- ma60: 51.47
+- ma120: 56.44
+- return_5d: 31.77
+- return_20d: 33.33
+- volume_ratio: 5.01
+- distance_to_ma20_pct_auxiliary: 22.51
+- distance_to_high_60_pct: -6.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,48,48.7,46.25,46.5,9052821,49.62,-6.3,48.45,57.64,0.85
 20260430,46.6,46.75,44.8,44.85,8145314,49.23,-8.89,48.3,57.09,0.79
 20260504,45.6,47.6,44.85,46.8,9895430,49.02,-4.54,48.09,56.61,0.97
 20260505,46.1,49.5,46.1,49.45,13954158,49.06,0.8,48.13,56.05,1.39
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,49.65,50.5,48.1,50.1,12879597,49.17,1.89,48.79,51.71,0.97
 20260526,50.5,55.1,50.1,55.1,43681777,49.66,10.95,49.24,51.57,2.93
 20260527,60,60.6,57.1,60.6,68790601,50.57,19.82,49.83,51.49,3.91
+20260528,61.9,66,60.3,62,114740214,51.53,20.33,50.61,51.47,5.01
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 8110 | 華東 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  | call_put_bullish | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 8110 | 華東 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | call_put_bullish | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 8110 | 華東 | 2 | 2 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260528 | 8110 | 華東 | 3 | 3 | 3 | 3 | 3 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 8110 | 華東 | 22 | 8 | 15231120.0 | 19040.0 | 799.95 | call_put_bullish | 3 |  |
+| 20260528 | 8110 | 華東 | 22 | 8 | 23667650.0 | 233660.0 | 101.29 | call_put_bullish | 3 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

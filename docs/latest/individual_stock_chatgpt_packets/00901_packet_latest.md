@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00901 永豐智能車供應鏈
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:02 Asia/Taipei
+- generated_at: 2026-05-28 19:31:23 Asia/Taipei
 - stock_id: 00901
 - stock_name: 永豐智能車供應鏈
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260527
-- price_rows: 4
+- latest_price_date: 20260528
+- price_rows: 5
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 46.56
-- high: 47.49
-- low: 46.49
-- close: 46.87
-- volume: 2521904
-- ma5: 
-- ema23_primary: 
-- distance_to_ema23_pct: 
-- ma20: 
-- ma60: 
-- ma120: 
+- date: 20260528
+- open: 46.9
+- high: 47.38
+- low: 45
+- close: 45.32
+- volume: 2600463
+- ma5: 45.09
+- ema23_primary: 43.66
+- distance_to_ema23_pct: 3.8
+- ma20: 45.09
+- ma60: 45.09
+- ma120: 45.09
 - return_5d: 
 - return_20d: 
-- volume_ratio: 
-- distance_to_ma20_pct_auxiliary: 
-- distance_to_high_60_pct: 
+- volume_ratio: 1.55
+- distance_to_ma20_pct_auxiliary: 0.51
+- distance_to_high_60_pct: -4.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -81,6 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,44.14,45.22,44.14,45.22,2398082,,,,,
 20260526,45.5,45.81,44.8,45.21,469426,,,,,
 20260527,46.56,47.49,46.49,46.87,2521904,,,,,
+20260528,46.9,47.38,45,45.32,2600463,43.66,3.8,45.09,45.09,1.55
 ```
 
 ## Latest TDCC Snapshot

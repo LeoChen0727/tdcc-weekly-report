@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3045 台灣大
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:55 Asia/Taipei
+- generated_at: 2026-05-28 19:32:14 Asia/Taipei
 - stock_id: 3045
 - stock_name: 台灣大
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 26
 - tdcc_history_status: tdcc_history_ready
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 111
-- high: 111.5
+- date: 20260528
+- open: 110
+- high: 112.5
 - low: 110
-- close: 110
-- volume: 15384142
-- ma5: 111.5
-- ema23_primary: 111.92
-- distance_to_ema23_pct: -1.72
-- ma20: 111.95
-- ma60: 110.34
-- ma120: 108.57
-- return_5d: -4.35
-- return_20d: -0.9
-- volume_ratio: 1.18
-- distance_to_ma20_pct_auxiliary: -1.74
-- distance_to_high_60_pct: -6.38
+- close: 111
+- volume: 20078822
+- ma5: 111
+- ema23_primary: 111.85
+- distance_to_ema23_pct: -0.76
+- ma20: 111.9
+- ma60: 110.38
+- ma120: 108.6
+- return_5d: -2.2
+- return_20d: -0.89
+- volume_ratio: 1.49
+- distance_to_ma20_pct_auxiliary: -0.8
+- distance_to_high_60_pct: -5.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,111,112,111,112,11327069,110.94,0.96,110.97,108.55,1.07
 20260430,111.5,112,111,111.5,7770207,110.99,0.46,111.1,108.62,0.74
 20260504,111.5,111.5,110.5,110.5,7422343,110.95,-0.4,111.15,108.67,0.69
 20260505,110.5,111,110,110.5,10665139,110.91,-0.37,111.2,108.72,0.98
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,112,112.5,111,111.5,14632270,112.24,-0.66,112.08,110.27,1.22
 20260526,111.5,112,110,110.5,22514045,112.1,-1.43,112,110.3,1.77
 20260527,111,111.5,110,110,15384142,111.92,-1.72,111.95,110.34,1.18
+20260528,110,112.5,110,111,20078822,111.85,-0.76,111.9,110.38,1.49
 ```
 
 ## Latest TDCC Snapshot
@@ -138,12 +138,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3045 | 台灣大 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260528 | 3045 | 台灣大 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3045 | 台灣大 | 1 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
+| 20260528 | 3045 | 台灣大 | 1 | 0 | 73720.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

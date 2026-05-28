@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1570 力肯
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:15 Asia/Taipei
+- generated_at: 2026-05-28 19:31:36 Asia/Taipei
 - stock_id: 1570
 - stock_name: 力肯
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 52.5
-- high: 54.5
-- low: 50.2
-- close: 52.2
-- volume: 52000
-- ma5: 45.93
-- ema23_primary: 40.73
-- distance_to_ema23_pct: 28.16
-- ma20: 40.35
-- ma60: 35.24
-- ma120: 33.19
-- return_5d: 37.55
-- return_20d: 35.76
-- volume_ratio: 0.22
-- distance_to_ma20_pct_auxiliary: 29.36
-- distance_to_high_60_pct: -4.22
+- date: 20260528
+- open: 52.2
+- high: 53.6
+- low: 51.2
+- close: 52.3
+- volume: 1017086
+- ma5: 48.47
+- ema23_primary: 41.7
+- distance_to_ema23_pct: 25.43
+- ma20: 41.07
+- ma60: 35.6
+- ma120: 33.38
+- return_5d: 32.07
+- return_20d: 37.63
+- volume_ratio: 3.63
+- distance_to_ma20_pct_auxiliary: 27.35
+- distance_to_high_60_pct: -4.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,37.85,38.4,37.8,38,219000,35.18,8.03,34.66,32.34,0.3
 20260430,37.8,39,37.6,37.65,249000,35.38,6.41,34.98,32.46,0.34
 20260504,38.3,38.3,37.5,38,195000,35.6,6.74,35.3,32.6,0.26
 20260505,38,38.3,37.2,37.65,271000,35.77,5.25,35.62,32.69,0.36
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,43.2,46,43,45.75,45000,38.75,18.06,39.06,34.58,0.15
 20260526,45.5,50,45.3,50,48000,39.69,25.98,39.66,34.9,0.18
 20260527,52.5,54.5,50.2,52.2,52000,40.73,28.16,40.35,35.24,0.22
+20260528,52.2,53.6,51.2,52.3,1017086,41.7,25.43,41.07,35.6,3.63
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 1570 | 力肯 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 1570 | 力肯 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | status |

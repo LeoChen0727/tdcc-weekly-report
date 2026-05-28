@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00735 國泰臺韓科技
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:01 Asia/Taipei
+- generated_at: 2026-05-28 19:31:22 Asia/Taipei
 - stock_id: 00735
 - stock_name: 國泰臺韓科技
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260527
-- price_rows: 4
+- latest_price_date: 20260528
+- price_rows: 5
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 111.1
-- high: 113.7
-- low: 111.1
-- close: 111.65
-- volume: 6198600
-- ma5: 
-- ema23_primary: 
-- distance_to_ema23_pct: 
-- ma20: 
-- ma60: 
-- ma120: 
+- date: 20260528
+- open: 112.1
+- high: 112.1
+- low: 106.2
+- close: 108.3
+- volume: 5159771
+- ma5: 106.56
+- ema23_primary: 103.22
+- distance_to_ema23_pct: 4.93
+- ma20: 106.56
+- ma60: 106.56
+- ma120: 106.56
 - return_5d: 
 - return_20d: 
-- volume_ratio: 
-- distance_to_ma20_pct_auxiliary: 
-- distance_to_high_60_pct: 
+- volume_ratio: 1.4
+- distance_to_ma20_pct_auxiliary: 1.63
+- distance_to_high_60_pct: -4.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -81,6 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,102.6,105,102.55,105,2739048,,,,,
 20260526,106.85,107.9,105.4,106.65,2423334,,,,,
 20260527,111.1,113.7,111.1,111.65,6198600,,,,,
+20260528,112.1,112.1,106.2,108.3,5159771,103.22,4.93,106.56,106.56,1.4
 ```
 
 ## Latest TDCC Snapshot

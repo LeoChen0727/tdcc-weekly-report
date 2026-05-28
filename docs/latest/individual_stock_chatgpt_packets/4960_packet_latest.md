@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4960 誠美材
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:32 Asia/Taipei
+- generated_at: 2026-05-28 19:32:51 Asia/Taipei
 - stock_id: 4960
 - stock_name: 誠美材
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 35
-- high: 35
-- low: 32.8
-- close: 33.15
-- volume: 9945718
-- ma5: 35.13
-- ema23_primary: 35.16
-- distance_to_ema23_pct: -5.7
-- ma20: 37.01
-- ma60: 29.57
-- ma120: 21.62
-- return_5d: 0
-- return_20d: -16.71
-- volume_ratio: 0.69
-- distance_to_ma20_pct_auxiliary: -10.44
-- distance_to_high_60_pct: -30.94
+- date: 20260528
+- open: 33.6
+- high: 34.25
+- low: 31.7
+- close: 31.95
+- volume: 9341790
+- ma5: 34.23
+- ema23_primary: 34.89
+- distance_to_ema23_pct: -8.42
+- ma20: 36.69
+- ma60: 29.86
+- ma120: 21.77
+- return_5d: -12.35
+- return_20d: -17.01
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: -12.91
+- distance_to_high_60_pct: -33.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,38.05,40,38.05,38.5,3106849,32.09,19.96,30.66,22.25,0.15
 20260430,39.8,39.8,38,39,3256872,32.67,19.38,31.39,22.67,0.17
 20260504,40.65,40.65,38.7,39.1,3922480,33.2,17.75,32.25,23.09,0.22
 20260505,39.1,43,39.1,42.6,5524938,33.99,25.34,33.36,23.57,0.32
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,37,38.55,36,36,16699898,35.44,1.59,37.5,28.91,1.21
 20260526,36.85,36.85,33.8,34.25,11138430,35.34,-3.08,37.34,29.25,0.78
 20260527,35,35,32.8,33.15,9945718,35.16,-5.7,37.01,29.57,0.69
+20260528,33.6,34.25,31.7,31.95,9341790,34.89,-8.42,36.69,29.86,0.63
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 4960 | 誠美材 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 4960 | 誠美材 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

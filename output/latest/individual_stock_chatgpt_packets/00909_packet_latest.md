@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00909 國泰數位支付服務
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:02 Asia/Taipei
+- generated_at: 2026-05-28 19:31:23 Asia/Taipei
 - stock_id: 00909
 - stock_name: 國泰數位支付服務
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260527
-- price_rows: 4
+- latest_price_date: 20260528
+- price_rows: 5
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 49.64
-- high: 49.71
-- low: 49.35
-- close: 49.38
-- volume: 2314536
-- ma5: 
-- ema23_primary: 
-- distance_to_ema23_pct: 
-- ma20: 
-- ma60: 
-- ma120: 
+- date: 20260528
+- open: 49.88
+- high: 50.55
+- low: 49.52
+- close: 49.57
+- volume: 4864541
+- ma5: 49.4
+- ema23_primary: 49.14
+- distance_to_ema23_pct: 0.87
+- ma20: 49.4
+- ma60: 49.4
+- ma120: 49.4
 - return_5d: 
 - return_20d: 
-- volume_ratio: 
-- distance_to_ma20_pct_auxiliary: 
-- distance_to_high_60_pct: 
+- volume_ratio: 1.43
+- distance_to_ma20_pct_auxiliary: 0.34
+- distance_to_high_60_pct: -1.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -81,6 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,49.08,49.78,49,49.78,4070297,,,,,
 20260526,49.65,49.65,48.98,49.3,1798298,,,,,
 20260527,49.64,49.71,49.35,49.38,2314536,,,,,
+20260528,49.88,50.55,49.52,49.57,4864541,49.14,0.87,49.4,49.4,1.43
 ```
 
 ## Latest TDCC Snapshot

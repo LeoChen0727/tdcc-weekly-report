@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8039 台虹
 
 ## Metadata
-- generated_at: 2026-05-27 21:28:25 Asia/Taipei
+- generated_at: 2026-05-28 19:33:43 Asia/Taipei
 - stock_id: 8039
 - stock_name: 台虹
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 158
-- high: 166.5
-- low: 153
-- close: 160
-- volume: 26875884
-- ma5: 151
-- ema23_primary: 141.54
-- distance_to_ema23_pct: 13.04
-- ma20: 140.72
-- ma60: 128.81
-- ma120: 107.75
-- return_5d: 26.48
-- return_20d: 15.94
-- volume_ratio: 1.82
-- distance_to_ma20_pct_auxiliary: 13.7
-- distance_to_high_60_pct: -6.16
+- date: 20260528
+- open: 162
+- high: 162
+- low: 150
+- close: 153.5
+- volume: 21144844
+- ma5: 153.9
+- ema23_primary: 142.53
+- distance_to_ema23_pct: 7.69
+- ma20: 141.43
+- ma60: 129.59
+- ma120: 108.52
+- return_5d: 10.43
+- return_20d: 10.04
+- volume_ratio: 1.38
+- distance_to_ma20_pct_auxiliary: 8.54
+- distance_to_high_60_pct: -9.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,138.5,145.5,136,139.5,9469919,133.25,4.69,134.68,112.11,0.46
 20260430,140,143.5,136,136.5,7980671,133.52,2.23,136.18,112.92,0.39
 20260504,138,144,133,134,12574538,133.56,0.33,137.32,113.58,0.61
 20260505,134.5,140,134,139,7458038,134.01,3.72,138.18,114.34,0.37
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,156.5,158,147,149.5,17938211,138.44,7.99,138.7,126.64,1.31
 20260526,151,156.5,148.5,155.5,13770558,139.86,11.18,139.62,127.76,1
 20260527,158,166.5,153,160,26875884,141.54,13.04,140.72,128.81,1.82
+20260528,162,162,150,153.5,21144844,142.53,7.69,141.43,129.59,1.38
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 8039 | 台虹 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 8039 | 台虹 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_put_bullish | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 8039 | 台虹 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 8039 | 台虹 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 8039 | 台虹 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260528 | 8039 | 台虹 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 8039 | 台虹 | 138 | 8 | 46640970.0 | 76930.0 | 606.28 | call_put_bullish | 3 |  |
+| 20260528 | 8039 | 台虹 | 138 | 8 | 29499030.0 | 56170.0 | 525.17 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00923 群益台ESG低碳50
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:02 Asia/Taipei
+- generated_at: 2026-05-28 19:31:24 Asia/Taipei
 - stock_id: 00923
 - stock_name: 群益台ESG低碳50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260527
-- price_rows: 4
+- latest_price_date: 20260528
+- price_rows: 5
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 41.85
+- date: 20260528
+- open: 40
 - high: 42.33
-- low: 41.6
-- close: 41.86
-- volume: 10475702
-- ma5: 
-- ema23_primary: 
-- distance_to_ema23_pct: 
-- ma20: 
-- ma60: 
-- ma120: 
+- low: 40
+- close: 40.77
+- volume: 13707800
+- ma5: 40.53
+- ema23_primary: 39.48
+- distance_to_ema23_pct: 3.26
+- ma20: 40.53
+- ma60: 40.53
+- ma120: 40.53
 - return_5d: 
 - return_20d: 
-- volume_ratio: 
-- distance_to_ma20_pct_auxiliary: 
-- distance_to_high_60_pct: 
+- volume_ratio: 1.8
+- distance_to_ma20_pct_auxiliary: 0.6
+- distance_to_high_60_pct: -3.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -81,6 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,39.52,40.63,39.52,40.53,4281584,,,,,
 20260526,40.87,41.02,40.42,40.6,4591668,,,,,
 20260527,41.85,42.33,41.6,41.86,10475702,,,,,
+20260528,40,42.33,40,40.77,13707800,39.48,3.26,40.53,40.53,1.8
 ```
 
 ## Latest TDCC Snapshot

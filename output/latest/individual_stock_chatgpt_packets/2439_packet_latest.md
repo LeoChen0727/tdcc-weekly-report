@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2439 美律
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:36 Asia/Taipei
+- generated_at: 2026-05-28 19:31:57 Asia/Taipei
 - stock_id: 2439
 - stock_name: 美律
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 93.1
-- high: 93.1
-- low: 90.2
-- close: 90.7
-- volume: 7069414
-- ma5: 89.06
-- ema23_primary: 87.28
-- distance_to_ema23_pct: 3.92
-- ma20: 86.88
+- date: 20260528
+- open: 90.4
+- high: 92
+- low: 89.7
+- close: 91.5
+- volume: 3882775
+- ma5: 90.2
+- ema23_primary: 87.63
+- distance_to_ema23_pct: 4.41
+- ma20: 87.03
 - ma60: 85.97
-- ma120: 93.3
-- return_5d: 6.33
-- return_20d: 3.3
-- volume_ratio: 2.41
-- distance_to_ma20_pct_auxiliary: 4.4
-- distance_to_high_60_pct: -2.79
+- ma120: 93.21
+- return_5d: 6.64
+- return_20d: 3.51
+- volume_ratio: 1.29
+- distance_to_ma20_pct_auxiliary: 5.14
+- distance_to_high_60_pct: -1.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,87.7,88.6,87.4,88.4,2622743,87.53,0.99,87.22,90.41,1.31
 20260430,87.9,88,85.4,86,3871849,87.4,-1.6,87.35,90.01,1.8
 20260504,86,89.4,85.7,88.6,3463464,87.5,1.25,87.52,89.72,1.51
 20260505,89.2,89.9,88.5,89.5,2069971,87.67,2.09,87.8,89.45,0.88
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,88.8,89.2,87.4,88.2,3059451,86.49,1.98,86.55,86.14,1.37
 20260526,88.5,93.1,88.2,92.3,10935804,86.97,6.13,86.73,86.03,4.11
 20260527,93.1,93.1,90.2,90.7,7069414,87.28,3.92,86.88,85.97,2.41
+20260528,90.4,92,89.7,91.5,3882775,87.63,4.41,87.03,85.97,1.29
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2439 | 美律 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 2439 | 美律 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2439 | 美律 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260528 | 2439 | 美律 | 3 | 3 | 3 | 3 | 3 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2439 | 美律 | 16 | 0 | 4628110.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260528 | 2439 | 美律 | 16 | 0 | 3873700.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

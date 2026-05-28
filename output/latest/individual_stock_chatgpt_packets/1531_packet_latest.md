@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1531 高林股
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:14 Asia/Taipei
+- generated_at: 2026-05-28 19:31:35 Asia/Taipei
 - stock_id: 1531
 - stock_name: 高林股
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 12.25
+- date: 20260528
+- open: 12.15
 - high: 12.3
-- low: 12
-- close: 12.05
-- volume: 395138
-- ma5: 12.27
-- ema23_primary: 12.57
-- distance_to_ema23_pct: -4.14
-- ma20: 12.62
+- low: 12.1
+- close: 12.3
+- volume: 87825
+- ma5: 12.22
+- ema23_primary: 12.55
+- distance_to_ema23_pct: -1.98
+- ma20: 12.59
 - ma60: 12.68
-- ma120: 12.38
-- return_5d: -2.03
-- return_20d: -6.95
-- volume_ratio: 1.93
-- distance_to_ma20_pct_auxiliary: -4.55
-- distance_to_high_60_pct: -11.07
+- ma120: 12.39
+- return_5d: -1.99
+- return_20d: -6.11
+- volume_ratio: 0.45
+- distance_to_ma20_pct_auxiliary: -2.26
+- distance_to_high_60_pct: -9.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,13,13.2,12.9,13.1,254221,13.02,0.65,13.14,12.6,1.3
 20260430,13.25,13.25,12.9,12.95,132715,13.01,-0.46,13.15,12.6,0.67
 20260504,12.95,12.95,12.75,12.9,207696,13,-0.77,13.13,12.61,1.12
 20260505,12.75,12.95,12.5,12.95,294437,13,-0.36,13.13,12.62,1.51
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,12.3,12.35,12.05,12.2,447617,12.66,-3.6,12.71,12.69,2.3
 20260526,12.2,12.4,12.1,12.2,310908,12.62,-3.31,12.67,12.69,1.58
 20260527,12.25,12.3,12,12.05,395138,12.57,-4.14,12.62,12.68,1.93
+20260528,12.15,12.3,12.1,12.3,87825,12.55,-1.98,12.59,12.68,0.45
 ```
 
 ## Latest TDCC Snapshot

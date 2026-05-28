@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2425 承啟
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:35 Asia/Taipei
+- generated_at: 2026-05-28 19:31:56 Asia/Taipei
 - stock_id: 2425
 - stock_name: 承啟
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 35.25
+- date: 20260528
+- open: 36.15
 - high: 37
-- low: 35
-- close: 36.5
-- volume: 1837841
-- ma5: 35.03
-- ema23_primary: 33.03
-- distance_to_ema23_pct: 10.49
-- ma20: 33.08
-- ma60: 30.22
-- ma120: 29.92
-- return_5d: 11.79
-- return_20d: 21.67
-- volume_ratio: 1.9
-- distance_to_ma20_pct_auxiliary: 10.34
-- distance_to_high_60_pct: -1.35
+- low: 34.5
+- close: 34.6
+- volume: 1599389
+- ma5: 35.14
+- ema23_primary: 33.16
+- distance_to_ema23_pct: 4.33
+- ma20: 33.32
+- ma60: 30.33
+- ma120: 29.98
+- return_5d: 1.62
+- return_20d: 15.91
+- volume_ratio: 1.54
+- distance_to_ma20_pct_auxiliary: 3.85
+- distance_to_high_60_pct: -6.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,30.35,30.35,29.75,29.85,138419,29.41,1.51,28.93,28.85,0.31
 20260430,30.3,31.1,30.15,30.3,642177,29.48,2.78,29.13,28.84,1.36
 20260504,30.65,31.3,30.45,30.85,617415,29.59,4.24,29.34,28.84,1.25
 20260505,31.2,32.35,31,32.25,870100,29.82,8.16,29.65,28.87,1.65
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,35,35.65,34.85,35,877321,32.52,7.62,32.48,29.96,1.01
 20260526,35.2,35.45,34.4,34.9,687851,32.72,6.67,32.76,30.08,0.78
 20260527,35.25,37,35,36.5,1837841,33.03,10.49,33.08,30.22,1.9
+20260528,36.15,37,34.5,34.6,1599389,33.16,4.33,33.32,30.33,1.54
 ```
 
 ## Latest TDCC Snapshot
@@ -125,15 +125,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2425 | 承啟 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260527 | 2425 | 承啟 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260527 | 2425 | 承啟 | revenue_breakout_low_response | 營收爆發低反應股 | 18.0 | 7.0 | A_優先追蹤 |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260527 | 2425 | 承啟 | true_breakout | 嚴格突破 | 92.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 2425 | 承啟 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 2425 | 承啟 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260528 | 2425 | 承啟 | revenue_breakout_low_response | 營收爆發低反應股 | 18.0 | 14.0 | B_可觀察 |  |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2425 | 承啟 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260528 | 2425 | 承啟 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | status |

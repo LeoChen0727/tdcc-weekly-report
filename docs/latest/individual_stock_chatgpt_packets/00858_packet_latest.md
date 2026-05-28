@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00858 永豐美國500大
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:01 Asia/Taipei
+- generated_at: 2026-05-28 19:31:23 Asia/Taipei
 - stock_id: 00858
 - stock_name: 永豐美國500大
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260527
-- price_rows: 4
+- latest_price_date: 20260528
+- price_rows: 5
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
+- date: 20260528
 - open: 35.92
-- high: 35.95
-- low: 35.89
-- close: 35.91
-- volume: 36000
-- ma5: 
-- ema23_primary: 
-- distance_to_ema23_pct: 
-- ma20: 
-- ma60: 
-- ma120: 
+- high: 35.93
+- low: 35.7
+- close: 35.7
+- volume: 747747
+- ma5: 35.85
+- ema23_primary: 35.82
+- distance_to_ema23_pct: -0.33
+- ma20: 35.85
+- ma60: 35.85
+- ma120: 35.85
 - return_5d: 
 - return_20d: 
-- volume_ratio: 
-- distance_to_ma20_pct_auxiliary: 
-- distance_to_high_60_pct: 
+- volume_ratio: 4.19
+- distance_to_ma20_pct_auxiliary: -0.43
+- distance_to_high_60_pct: -0.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -81,6 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,35.9,35.97,35.88,35.94,36000,,,,,
 20260526,35.95,35.96,35.84,35.92,36000,,,,,
 20260527,35.92,35.95,35.89,35.91,36000,,,,,
+20260528,35.92,35.93,35.7,35.7,747747,35.82,-0.33,35.85,35.85,4.19
 ```
 
 ## Latest TDCC Snapshot

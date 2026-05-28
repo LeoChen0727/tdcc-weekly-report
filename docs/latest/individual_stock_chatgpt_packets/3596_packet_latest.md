@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3596 智易
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:12 Asia/Taipei
+- generated_at: 2026-05-28 19:32:32 Asia/Taipei
 - stock_id: 3596
 - stock_name: 智易
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 194
-- high: 195
-- low: 187
-- close: 188.5
-- volume: 1900059
+- date: 20260528
+- open: 190
+- high: 191
+- low: 183
+- close: 184
+- volume: 1572264
 - ma5: 188.4
-- ema23_primary: 180.39
-- distance_to_ema23_pct: 4.49
-- ma20: 178
-- ma60: 180.51
-- ma120: 180.65
-- return_5d: 3.86
-- return_20d: 15.29
-- volume_ratio: 0.96
-- distance_to_ma20_pct_auxiliary: 5.9
-- distance_to_high_60_pct: -11.92
+- ema23_primary: 180.69
+- distance_to_ema23_pct: 1.83
+- ma20: 179.15
+- ma60: 180.32
+- ma120: 180.66
+- return_5d: 0
+- return_20d: 14.29
+- volume_ratio: 0.78
+- distance_to_ma20_pct_auxiliary: 2.71
+- distance_to_high_60_pct: -14.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,164,164,160.5,161,830463,171.72,-6.24,169.25,181.7,0.46
 20260430,161.5,162,159,159,773762,170.66,-6.83,169.6,181.28,0.45
 20260504,160,166.5,160,164.5,735479,170.14,-3.32,169.47,180.97,0.51
 20260505,164.5,166,162.5,165,533366,169.71,-2.78,169.47,180.71,0.42
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,192,193,186.5,189,3150555,178.58,5.84,175.28,180.57,1.68
 20260526,190.5,192.5,188.5,191.5,1792286,179.66,6.59,176.75,180.65,0.93
 20260527,194,195,187,188.5,1900059,180.39,4.49,178,180.51,0.96
+20260528,190,191,183,184,1572264,180.69,1.83,179.15,180.32,0.78
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3596 | 智易 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 3596 | 智易 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 3596 | 智易 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 3596 | 智易 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3596 | 智易 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260528 | 3596 | 智易 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3596 | 智易 | 11 | 0 | 1253560.0 | 0.0 |  | no_signal | 0 |  |
+| 20260528 | 3596 | 智易 | 11 | 0 | 648930.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

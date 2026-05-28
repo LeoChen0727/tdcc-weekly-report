@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5434 崇越
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:40 Asia/Taipei
+- generated_at: 2026-05-28 19:32:59 Asia/Taipei
 - stock_id: 5434
 - stock_name: 崇越
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 481
-- high: 481
-- low: 468
-- close: 473.5
-- volume: 1116667
-- ma5: 461.6
-- ema23_primary: 425.29
-- distance_to_ema23_pct: 11.34
-- ma20: 424.52
-- ma60: 379.1
-- ma120: 345.74
-- return_5d: 19.27
-- return_20d: 14.51
-- volume_ratio: 1.3
-- distance_to_ma20_pct_auxiliary: 11.54
-- distance_to_high_60_pct: -4.15
+- date: 20260528
+- open: 472.5
+- high: 472.5
+- low: 446.5
+- close: 450.5
+- volume: 1192985
+- ma5: 467.9
+- ema23_primary: 427.39
+- distance_to_ema23_pct: 5.41
+- ma20: 426.65
+- ma60: 381.03
+- ma120: 347.05
+- return_5d: 7.52
+- return_20d: 10.42
+- volume_ratio: 1.34
+- distance_to_ma20_pct_auxiliary: 5.59
+- distance_to_high_60_pct: -8.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,416,416,406,408,556312,390.42,4.5,392.05,349.02,0.49
 20260430,410,411,404,406,795780,391.72,3.65,397.12,350.31,0.7
 20260504,410,418,410,416,365952,393.74,5.65,401.8,351.77,0.32
 20260505,415.5,415.5,408.5,411.5,359108,395.22,4.12,405.8,353.14,0.33
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,479.5,494,470.5,485,1301701,415.45,16.74,417.82,374.8,1.6
 20260526,485,485,475,481,1217719,420.91,14.28,421.52,377.02,1.47
 20260527,481,481,468,473.5,1116667,425.29,11.34,424.52,379.1,1.3
+20260528,472.5,472.5,446.5,450.5,1192985,427.39,5.41,426.65,381.03,1.34
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 5434 | 崇越 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 5434 | 崇越 | 1 | 1 | 3 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 5434 | 崇越 | 16 | 0 | 1117960.0 | 0.0 |  | no_signal | 0 |  |
+| 20260528 | 5434 | 崇越 | 16 | 0 | 2510850.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

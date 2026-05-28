@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6412 群電
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:59 Asia/Taipei
+- generated_at: 2026-05-28 19:33:17 Asia/Taipei
 - stock_id: 6412
 - stock_name: 群電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 102
-- high: 105
-- low: 99.2
-- close: 100
-- volume: 2578450
-- ma5: 100.72
-- ema23_primary: 91.96
-- distance_to_ema23_pct: 8.75
-- ma20: 92.13
-- ma60: 84.12
-- ma120: 86.23
-- return_5d: 5.82
-- return_20d: 30.55
+- date: 20260528
+- open: 100.5
+- high: 103
+- low: 98.2
+- close: 98.8
+- volume: 2605511
+- ma5: 101.06
+- ema23_primary: 92.53
+- distance_to_ema23_pct: 6.78
+- ma20: 93.19
+- ma60: 84.19
+- ma120: 86.3
+- return_5d: 1.75
+- return_20d: 27.16
 - volume_ratio: 0.61
-- distance_to_ma20_pct_auxiliary: 8.54
-- distance_to_high_60_pct: -6.54
+- distance_to_ma20_pct_auxiliary: 6.03
+- distance_to_high_60_pct: -7.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,76.7,79.5,76.6,77.7,1988123,78.36,-0.85,77.42,82.51,1.71
 20260430,79.5,83.4,78.8,81,5158751,78.58,3.07,77.85,82.46,3.79
 20260504,85.6,89.1,85.6,89.1,9097397,79.46,12.13,78.66,82.54,5.11
 20260505,87.9,95.3,87.1,90.4,8741657,80.37,12.48,79.53,82.66,4
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,103,107,100.5,104,4384371,90.25,15.24,89.72,83.81,1.08
 20260526,105,106.5,100.5,102,3535885,91.23,11.81,90.96,83.97,0.85
 20260527,102,105,99.2,100,2578450,91.96,8.75,92.13,84.12,0.61
+20260528,100.5,103,98.2,98.8,2605511,92.53,6.78,93.19,84.19,0.61
 ```
 
 ## Latest TDCC Snapshot
@@ -130,12 +130,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 6412 | 群電 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260528 | 6412 | 群電 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 6412 | 群電 | 20 | 0 | 4312580.0 | 0.0 |  | no_signal | 0 |  |
+| 20260528 | 6412 | 群電 | 20 | 0 | 1914480.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

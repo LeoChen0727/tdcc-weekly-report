@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2404 漢唐
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:34 Asia/Taipei
+- generated_at: 2026-05-28 19:31:55 Asia/Taipei
 - stock_id: 2404
 - stock_name: 漢唐
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 1285
-- high: 1300
-- low: 1225
-- close: 1235
-- volume: 5007289
-- ma5: 1200
-- ema23_primary: 1068.75
-- distance_to_ema23_pct: 15.56
-- ma20: 1050.65
-- ma60: 989.72
-- ma120: 964.09
-- return_5d: 20.49
-- return_20d: 27.45
-- volume_ratio: 0.99
-- distance_to_ma20_pct_auxiliary: 17.55
-- distance_to_high_60_pct: -8.18
+- date: 20260528
+- open: 1240
+- high: 1255
+- low: 1150
+- close: 1160
+- volume: 4494834
+- ma5: 1212
+- ema23_primary: 1076.35
+- distance_to_ema23_pct: 7.77
+- ma20: 1060.7
+- ma60: 991.13
+- ma120: 967.34
+- return_5d: 5.45
+- return_20d: 20.96
+- volume_ratio: 0.87
+- distance_to_ma20_pct_auxiliary: 9.36
+- distance_to_high_60_pct: -13.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,973,975,951,959,2670147,954.99,0.42,933.95,957.73,0.59
 20260430,960,963,945,950,3019950,954.57,-0.48,940.4,957.07,0.68
 20260504,968,993,966,978,3350547,956.53,2.24,947.6,956.95,0.74
 20260505,987,992,972,977,2895452,958.23,1.96,955,957.38,0.64
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,1185,1270,1165,1245,5552089,1034.42,20.36,1022.55,984.13,1.17
 20260526,1285,1345,1250,1265,8007559,1053.63,20.06,1037.35,987.97,1.62
 20260527,1285,1300,1225,1235,5007289,1068.75,15.56,1050.65,989.72,0.99
+20260528,1240,1255,1150,1160,4494834,1076.35,7.77,1060.7,991.13,0.87
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 2404 | 漢唐 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 2404 | 漢唐 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260528 | 2404 | 漢唐 | revenue_breakout_low_response | 營收爆發低反應股 | 20.0 | 6.0 | A_優先追蹤 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260521 | 2404 | 漢唐 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2404 | 漢唐 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260528 | 2404 | 漢唐 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2404 | 漢唐 | 237 | 12 | 65019950.0 | 649940.0 | 100.04 | no_signal | 0 |  |
+| 20260528 | 2404 | 漢唐 | 241 | 12 | 58423450.0 | 413200.0 | 141.39 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

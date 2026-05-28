@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1802 台玻
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:21 Asia/Taipei
+- generated_at: 2026-05-28 19:31:42 Asia/Taipei
 - stock_id: 1802
 - stock_name: 台玻
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 73
-- high: 74.4
-- low: 70.2
-- close: 72.8
-- volume: 154134122
-- ma5: 70.9
-- ema23_primary: 68.12
-- distance_to_ema23_pct: 6.87
-- ma20: 68.62
-- ma60: 63.29
-- ma120: 52.17
-- return_5d: 13.93
-- return_20d: 3.12
-- volume_ratio: 1.29
-- distance_to_ma20_pct_auxiliary: 6.08
-- distance_to_high_60_pct: -10.34
+- date: 20260528
+- open: 73.4
+- high: 76
+- low: 69.1
+- close: 70.4
+- volume: 152764187
+- ma5: 71.96
+- ema23_primary: 68.31
+- distance_to_ema23_pct: 3.06
+- ma20: 68.83
+- ma60: 63.34
+- ma120: 52.48
+- return_5d: 8.14
+- return_20d: 6.34
+- volume_ratio: 1.27
+- distance_to_ma20_pct_auxiliary: 2.27
+- distance_to_high_60_pct: -13.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,68.9,69.4,66.1,66.2,136201336,64.32,2.92,64.05,57.64,0.88
 20260430,66.3,69.3,65.3,67,126951852,64.54,3.8,64.81,57.91,0.8
 20260504,68,68.9,66.1,66.2,79575936,64.68,2.35,65.42,58.18,0.5
 20260505,66.3,72.8,66.1,72.8,141172570,65.36,11.38,66.45,58.53,0.86
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,73,76.8,71.9,73.9,185285181,67.29,9.83,68.11,62.91,1.75
 20260526,75,81.2,72,72.2,337055872,67.7,6.65,68.52,63.09,2.86
 20260527,73,74.4,70.2,72.8,154134122,68.12,6.87,68.62,63.29,1.29
+20260528,73.4,76,69.1,70.4,152764187,68.31,3.06,68.83,63.34,1.27
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 1802 | 台玻 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | put_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 1802 | 台玻 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | put_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 1802 | 台玻 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | put_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 1802 | 台玻 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260528 | 1802 | 台玻 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 1802 | 台玻 | 132 | 20 | 35711810.0 | 1330060.0 | 26.85 | put_inflow | -1 | 認售權證資金升溫，偏空或避險訊號 |
+| 20260528 | 1802 | 台玻 | 134 | 21 | 42329490.0 | 1431980.0 | 29.56 | put_inflow | -1 | 認售權證資金升溫，偏空或避險訊號 |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4510 高鋒
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:23 Asia/Taipei
+- generated_at: 2026-05-28 19:32:42 Asia/Taipei
 - stock_id: 4510
 - stock_name: 高鋒
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 52.2
-- high: 52.2
-- low: 47.85
-- close: 48.45
-- volume: 50000
-- ma5: 49.51
+- date: 20260528
+- open: 48.9
+- high: 51.6
+- low: 47.5
+- close: 47.8
+- volume: 4147547
+- ma5: 49.55
 - ema23_primary: 47.83
-- distance_to_ema23_pct: 1.29
-- ma20: 48.16
-- ma60: 45.18
-- ma120: 44.35
-- return_5d: 4.31
-- return_20d: 2
-- volume_ratio: 0.01
-- distance_to_ma20_pct_auxiliary: 0.61
-- distance_to_high_60_pct: -8.41
+- distance_to_ema23_pct: -0.06
+- ma20: 48.19
+- ma60: 45.21
+- ma120: 44.45
+- return_5d: 0.42
+- return_20d: 1.49
+- volume_ratio: 1.26
+- distance_to_ma20_pct_auxiliary: -0.81
+- distance_to_high_60_pct: -9.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,46.3,49.45,46.25,47.1,6528000,45.06,4.52,44.67,45.18,2.34
 20260430,47.45,49.4,47,47,5178000,45.22,3.93,44.83,45.14,1.74
 20260504,47.25,51.7,47.25,51.7,8327000,45.76,12.97,45.21,45.16,2.51
 20260505,51,51.9,48.4,48.4,12950000,45.98,5.26,45.54,45.13,3.3
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,50.7,50.8,49.25,50,50000,47.4,5.48,47.81,45.02,0.01
 20260526,50.3,52.9,48.6,51.9,52000,47.78,8.63,48.11,45.13,0.01
 20260527,52.2,52.2,47.85,48.45,50000,47.83,1.29,48.16,45.18,0.01
+20260528,48.9,51.6,47.5,47.8,4147547,47.83,-0.06,48.19,45.21,1.26
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 4510 | 高鋒 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 4510 | 高鋒 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260521 | 4510 | 高鋒 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 4510 | 高鋒 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260528 | 4510 | 高鋒 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8054 安國
 
 ## Metadata
-- generated_at: 2026-05-27 21:28:26 Asia/Taipei
+- generated_at: 2026-05-28 19:33:44 Asia/Taipei
 - stock_id: 8054
 - stock_name: 安國
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 113
-- high: 115
-- low: 106.5
-- close: 107.5
-- volume: 110000
-- ma5: 111.3
-- ema23_primary: 107.07
-- distance_to_ema23_pct: 0.41
-- ma20: 106.83
-- ma60: 103.71
-- ma120: 118.09
-- return_5d: 0.94
-- return_20d: -1.83
-- volume_ratio: 0.05
-- distance_to_ma20_pct_auxiliary: 0.63
-- distance_to_high_60_pct: -17.31
+- date: 20260528
+- open: 107.5
+- high: 109.5
+- low: 102
+- close: 103.5
+- volume: 2322531
+- ma5: 110.1
+- ema23_primary: 106.77
+- distance_to_ema23_pct: -3.06
+- ma20: 106.62
+- ma60: 103.48
+- ma120: 117.93
+- return_5d: -5.48
+- return_20d: -3.72
+- volume_ratio: 1.04
+- distance_to_ma20_pct_auxiliary: -2.93
+- distance_to_high_60_pct: -20.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,107.5,110.5,106.5,107.5,2161000,105.25,2.14,102.44,109.67,0.66
 20260430,108,111,106,106,2672000,105.31,0.65,103.2,109.43,0.8
 20260504,107.5,107.5,103,106,1994000,105.37,0.6,103.78,109.17,0.59
 20260505,106.5,112,106.5,112,2872000,105.92,5.74,104.78,108.92,0.83
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,112.5,119.5,111,116,115000,106.57,8.85,106.62,104.08,0.05
 20260526,117,117.5,110,112,113000,107.03,4.65,106.92,103.93,0.05
 20260527,113,115,106.5,107.5,110000,107.07,0.41,106.83,103.71,0.05
+20260528,107.5,109.5,102,103.5,2322531,106.77,-3.06,106.62,103.48,1.04
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 8054 | 安國 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260521 | 8054 | 安國 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 8054 | 安國 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260528 | 8054 | 安國 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

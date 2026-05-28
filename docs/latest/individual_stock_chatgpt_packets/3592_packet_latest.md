@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3592 瑞鼎
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:12 Asia/Taipei
+- generated_at: 2026-05-28 19:32:31 Asia/Taipei
 - stock_id: 3592
 - stock_name: 瑞鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 285
-- high: 286
-- low: 279.5
-- close: 281
-- volume: 1315646
-- ma5: 276.3
-- ema23_primary: 257.11
-- distance_to_ema23_pct: 9.29
-- ma20: 256.02
-- ma60: 235.15
-- ma120: 229.8
-- return_5d: 9.77
-- return_20d: 17.33
-- volume_ratio: 0.99
-- distance_to_ma20_pct_auxiliary: 9.75
-- distance_to_high_60_pct: -1.75
+- date: 20260528
+- open: 281
+- high: 284
+- low: 270.5
+- close: 274
+- volume: 1171334
+- ma5: 277.9
+- ema23_primary: 258.52
+- distance_to_ema23_pct: 5.99
+- ma20: 257.93
+- ma60: 235.9
+- ma120: 230.35
+- return_5d: 3.01
+- return_20d: 16.1
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: 6.23
+- distance_to_high_60_pct: -4.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,239.5,239.5,235,236,385727,232.5,1.51,232.07,226.93,0.55
 20260430,237.5,239,234.5,235,436647,232.71,0.98,232.88,226.94,0.62
 20260504,238,241.5,236,239,674427,233.23,2.47,233.57,226.91,0.94
 20260505,239,244,237,241,979059,233.88,3.04,234.72,226.96,1.31
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,268.5,285,264,284.5,2901652,252.25,12.78,251.53,233.56,2.34
 20260526,285,285,278.5,284.5,1687048,254.94,11.6,253.95,234.35,1.3
 20260527,285,286,279.5,281,1315646,257.11,9.29,256.02,235.15,0.99
+20260528,281,284,270.5,274,1171334,258.52,5.99,257.93,235.9,0.86
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 3592 | 瑞鼎 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 3592 | 瑞鼎 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 3592 | 瑞鼎 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3592 | 瑞鼎 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260528 | 3592 | 瑞鼎 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3592 | 瑞鼎 | 9 | 0 | 890440.0 | 0.0 |  | no_signal | 0 |  |
+| 20260528 | 3592 | 瑞鼎 | 10 | 0 | 2439420.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6994 富威電力
 
 ## Metadata
-- generated_at: 2026-05-27 21:28:20 Asia/Taipei
+- generated_at: 2026-05-28 19:33:37 Asia/Taipei
 - stock_id: 6994
 - stock_name: 富威電力
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 57.4
-- high: 62
-- low: 57
-- close: 60.4
-- volume: 1166298
-- ma5: 56.26
-- ema23_primary: 59.96
-- distance_to_ema23_pct: 0.73
-- ma20: 59.46
-- ma60: 69.92
-- ma120: 81.19
-- return_5d: 16.15
-- return_20d: -4.73
-- volume_ratio: 1.7
-- distance_to_ma20_pct_auxiliary: 1.58
-- distance_to_high_60_pct: -42.48
+- date: 20260528
+- open: 60.9
+- high: 64
+- low: 60.3
+- close: 61.6
+- volume: 983591
+- ma5: 57.9
+- ema23_primary: 60.1
+- distance_to_ema23_pct: 2.5
+- ma20: 59.37
+- ma60: 69.45
+- ma120: 80.98
+- return_5d: 15.36
+- return_20d: -2.99
+- volume_ratio: 1.37
+- distance_to_ma20_pct_auxiliary: 3.76
+- distance_to_high_60_pct: -41.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,63.4,63.9,62.4,63.5,287624,69.57,-8.72,67.88,79.27,0.37
 20260430,63.5,64.4,63.5,63.9,210802,69.09,-7.52,67.47,78.77,0.28
 20260504,64,65,64,64.5,230635,68.71,-6.13,67.06,78.26,0.3
 20260505,64.6,65.2,64,64.3,236733,68.34,-5.92,66.99,77.71,0.36
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,57.4,57.4,55,55.1,397426,60.24,-8.54,59.96,70.82,0.61
 20260526,55.3,56.6,54.9,56.4,506729,59.92,-5.88,59.61,70.39,0.78
 20260527,57.4,62,57,60.4,1166298,59.96,0.73,59.46,69.92,1.7
+20260528,60.9,64,60.3,61.6,983591,60.1,2.5,59.37,69.45,1.37
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 6994 | 富威電力 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 6994 | 富威電力 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 6994 | 富威電力 | 2 | 0 | 41920.0 | 0.0 |  | no_signal | 0 |  |
+| 20260528 | 6994 | 富威電力 | 2 | 0 | 44630.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

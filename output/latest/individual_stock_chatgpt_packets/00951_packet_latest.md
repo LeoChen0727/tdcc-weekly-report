@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00951 台新日本半導體
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:03 Asia/Taipei
+- generated_at: 2026-05-28 19:31:24 Asia/Taipei
 - stock_id: 00951
 - stock_name: 台新日本半導體
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260527
-- price_rows: 4
+- latest_price_date: 20260528
+- price_rows: 5
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 17.44
-- high: 17.52
-- low: 17.13
-- close: 17.16
-- volume: 4285733
-- ma5: 
-- ema23_primary: 
-- distance_to_ema23_pct: 
-- ma20: 
-- ma60: 
-- ma120: 
+- date: 20260528
+- open: 17.04
+- high: 17.05
+- low: 16.6
+- close: 16.77
+- volume: 4941743
+- ma5: 16.96
+- ema23_primary: 16.66
+- distance_to_ema23_pct: 0.67
+- ma20: 16.96
+- ma60: 16.96
+- ma120: 16.96
 - return_5d: 
 - return_20d: 
-- volume_ratio: 
-- distance_to_ma20_pct_auxiliary: 
-- distance_to_high_60_pct: 
+- volume_ratio: 1.39
+- distance_to_ma20_pct_auxiliary: -1.13
+- distance_to_high_60_pct: -4.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -81,6 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,17.21,17.32,17.21,17.32,4068122,,,,,
 20260526,17.14,17.14,16.95,17.07,2426816,,,,,
 20260527,17.44,17.52,17.13,17.16,4285733,,,,,
+20260528,17.04,17.05,16.6,16.77,4941743,16.66,0.67,16.96,16.96,1.39
 ```
 
 ## Latest TDCC Snapshot

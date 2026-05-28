@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2609 陽明
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:43 Asia/Taipei
+- generated_at: 2026-05-28 19:32:03 Asia/Taipei
 - stock_id: 2609
 - stock_name: 陽明
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 51.7
-- high: 53.8
-- low: 51.2
-- close: 52.6
-- volume: 32824282
-- ma5: 52.1
-- ema23_primary: 50.83
-- distance_to_ema23_pct: 3.49
-- ma20: 50.27
-- ma60: 53.21
+- date: 20260528
+- open: 52.9
+- high: 53.5
+- low: 52
+- close: 52.3
+- volume: 16197736
+- ma5: 52.34
+- ema23_primary: 50.95
+- distance_to_ema23_pct: 2.65
+- ma20: 50.42
+- ma60: 53.08
 - ma120: 53.45
-- return_5d: 4.57
-- return_20d: 6.26
-- volume_ratio: 1.67
-- distance_to_ma20_pct_auxiliary: 4.63
-- distance_to_high_60_pct: -24.75
+- return_5d: 2.35
+- return_20d: 5.98
+- volume_ratio: 0.81
+- distance_to_ma20_pct_auxiliary: 3.73
+- distance_to_high_60_pct: -25.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,49.5,49.95,49.2,49.35,10895125,51.39,-3.98,50.84,54.39,0.67
 20260430,49.4,49.7,49.1,49.15,11508316,51.21,-4.02,50.69,54.28,0.72
 20260504,49.2,50.4,49.2,49.95,18782956,51.1,-2.25,50.55,54.21,1.15
 20260505,49.85,50.9,49.35,50.1,15055914,51.02,-1.8,50.45,54.14,0.91
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,53,53.1,51,51.8,29869029,50.54,2.49,49.98,53.36,1.57
 20260526,51.8,53,51.6,52,14910096,50.66,2.64,50.12,53.29,0.79
 20260527,51.7,53.8,51.2,52.6,32824282,50.83,3.49,50.27,53.21,1.67
+20260528,52.9,53.5,52,52.3,16197736,50.95,2.65,50.42,53.08,0.81
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2609 | 陽明 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 2609 | 陽明 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2609 | 陽明 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260528 | 2609 | 陽明 | 3 | 1 | 3 | 3 | 3 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2609 | 陽明 | 59 | 5 | 5374020.0 | 316190.0 | 17.0 | call_put_bullish | 3 |  |
+| 20260528 | 2609 | 陽明 | 59 | 5 | 6291900.0 | 175490.0 | 35.85 | call_put_bullish | 3 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

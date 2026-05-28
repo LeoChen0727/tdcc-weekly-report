@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6176 瑞儀
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:51 Asia/Taipei
+- generated_at: 2026-05-28 19:33:09 Asia/Taipei
 - stock_id: 6176
 - stock_name: 瑞儀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 105
-- high: 105.5
+- date: 20260528
+- open: 102
+- high: 105
 - low: 101.5
-- close: 101.5
-- volume: 6731004
-- ma5: 105.3
-- ema23_primary: 102.15
-- distance_to_ema23_pct: -0.63
-- ma20: 102.78
-- ma60: 97.81
-- ma120: 110.01
-- return_5d: -2.87
-- return_20d: 6.28
-- volume_ratio: 0.94
-- distance_to_ma20_pct_auxiliary: -1.25
-- distance_to_high_60_pct: -12.88
+- close: 102
+- volume: 5255764
+- ma5: 104.7
+- ema23_primary: 102.14
+- distance_to_ema23_pct: -0.13
+- ma20: 102.86
+- ma60: 97.68
+- ma120: 109.89
+- return_5d: -2.86
+- return_20d: 1.49
+- volume_ratio: 0.77
+- distance_to_ma20_pct_auxiliary: -0.84
+- distance_to_high_60_pct: -12.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,96.3,102.5,95.7,100.5,12102761,96.83,3.79,94.26,104.93,1.26
 20260430,100.5,102,98.5,99.7,12574651,97.07,2.71,94.67,104.5,1.24
 20260504,101,103,100,101,6823033,97.39,3.7,95.05,104.06,0.66
 20260505,101.5,103.5,100.5,102.5,5679601,97.82,4.78,95.58,103.68,0.54
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,109,109.5,106.5,107.5,6949932,101.95,5.44,102.19,98.66,0.85
 20260526,108,108,104,105,6571468,102.21,2.73,102.48,98.16,0.89
 20260527,105,105.5,101.5,101.5,6731004,102.15,-0.63,102.78,97.81,0.94
+20260528,102,105,101.5,102,5255764,102.14,-0.13,102.86,97.68,0.77
 ```
 
 ## Latest TDCC Snapshot
@@ -135,7 +135,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 6176 | 瑞儀 | 21 | 1 | 2030580.0 | 0.0 |  | no_signal | 0 |  |
+| 20260528 | 6176 | 瑞儀 | 21 | 1 | 1130640.0 | 33400.0 | 33.85 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

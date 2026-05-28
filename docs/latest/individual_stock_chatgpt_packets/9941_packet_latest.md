@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9941 裕融
 
 ## Metadata
-- generated_at: 2026-05-27 21:28:40 Asia/Taipei
+- generated_at: 2026-05-28 19:33:58 Asia/Taipei
 - stock_id: 9941
 - stock_name: 裕融
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 72.8
-- high: 73.1
-- low: 72
-- close: 72
-- volume: 2498987
-- ma5: 72.98
-- ema23_primary: 74.55
-- distance_to_ema23_pct: -3.42
-- ma20: 74.58
-- ma60: 76.01
-- ma120: 80.44
-- return_5d: -2.31
-- return_20d: -9.77
-- volume_ratio: 1.41
-- distance_to_ma20_pct_auxiliary: -3.45
-- distance_to_high_60_pct: -10.56
+- date: 20260528
+- open: 72.7
+- high: 73.4
+- low: 72.4
+- close: 72.8
+- volume: 1517506
+- ma5: 72.8
+- ema23_primary: 74.41
+- distance_to_ema23_pct: -2.16
+- ma20: 74.28
+- ma60: 75.99
+- ma120: 80.26
+- return_5d: -1.22
+- return_20d: -7.61
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: -1.99
+- distance_to_high_60_pct: -9.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,79.8,80.5,78.6,78.8,1560476,77.77,1.33,77.34,76.98,1.04
 20260430,78.9,78.9,77.1,77.1,1917957,77.71,-0.79,77.35,76.95,1.29
 20260504,77.2,77.2,75.9,76.1,2301796,77.58,-1.9,77.31,76.89,1.51
 20260505,76.1,76.2,75.1,75.7,2431043,77.42,-2.22,77.3,76.83,1.54
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,73.7,74,72.6,72.9,1980189,74.97,-2.76,75.26,76.05,1.12
 20260526,73,73.5,72.6,72.8,1374770,74.78,-2.65,74.97,76.04,0.78
 20260527,72.8,73.1,72,72,2498987,74.55,-3.42,74.58,76.01,1.41
+20260528,72.7,73.4,72.4,72.8,1517506,74.41,-2.16,74.28,75.99,0.86
 ```
 
 ## Latest TDCC Snapshot

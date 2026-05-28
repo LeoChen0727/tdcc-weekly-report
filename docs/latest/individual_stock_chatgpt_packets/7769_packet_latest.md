@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7769 鴻勁
 
 ## Metadata
-- generated_at: 2026-05-27 21:28:23 Asia/Taipei
+- generated_at: 2026-05-28 19:33:41 Asia/Taipei
 - stock_id: 7769
 - stock_name: 鴻勁
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260527
-- price_rows: 117
+- latest_price_date: 20260528
+- price_rows: 118
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 7855
-- high: 7980
-- low: 7800
-- close: 7800
-- volume: 328372
-- ma5: 7750
-- ema23_primary: 6573.4
-- distance_to_ema23_pct: 18.66
-- ma20: 6630.75
-- ma60: 5009.42
-- ma120: 4275.64
-- return_5d: 11.75
-- return_20d: 52.94
-- volume_ratio: 0.32
-- distance_to_ma20_pct_auxiliary: 17.63
-- distance_to_high_60_pct: -3.05
+- date: 20260528
+- open: 7945
+- high: 8435
+- low: 7605
+- close: 7700
+- volume: 1512972
+- ma5: 7755
+- ema23_primary: 6667.28
+- distance_to_ema23_pct: 15.49
+- ma20: 6754.75
+- ma60: 5064.83
+- ma120: 4304.66
+- return_5d: 0.33
+- return_20d: 47.51
+- volume_ratio: 1.48
+- distance_to_ma20_pct_auxiliary: 13.99
+- distance_to_high_60_pct: -8.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,5105,5245,5060,5220,1310824,4484.81,16.39,4386.75,4152.33,1.02
 20260430,5270,5285,4945,4945,1413854,4523.16,9.33,4458.75,4173.08,1.1
 20260504,5140,5420,5030,5380,1639624,4594.56,17.09,4535,4200.58,1.25
 20260505,5420,5635,5370,5600,1451459,4678.35,19.7,4623.25,4230.67,1.1
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,7640,7785,7535,7645,374274,6331.15,20.75,6349.25,4909,0.33
 20260526,7560,8045,7560,7900,296861,6461.89,22.26,6495.75,4960.42,0.28
 20260527,7855,7980,7800,7800,328372,6573.4,18.66,6630.75,5009.42,0.32
+20260528,7945,8435,7605,7700,1512972,6667.28,15.49,6754.75,5064.83,1.48
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 7769 | 鴻勁 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260528 | 7769 | 鴻勁 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 68.0 |  |  | neckline_challenge |  | call_strong_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 7769 | 鴻勁 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 7769 | 鴻勁 | 24 | 0 | 9194350.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260528 | 7769 | 鴻勁 | 24 | 0 | 23785290.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

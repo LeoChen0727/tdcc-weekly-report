@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3402 漢科
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:05 Asia/Taipei
+- generated_at: 2026-05-28 19:32:25 Asia/Taipei
 - stock_id: 3402
 - stock_name: 漢科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 160.5
-- high: 160.5
-- low: 152
-- close: 154
-- volume: 156000
-- ma5: 145.5
-- ema23_primary: 138.89
-- distance_to_ema23_pct: 10.88
-- ma20: 139.53
-- ma60: 131.48
-- ma120: 130.17
-- return_5d: 17.11
-- return_20d: 16.67
-- volume_ratio: 0.13
-- distance_to_ma20_pct_auxiliary: 10.37
-- distance_to_high_60_pct: -4.05
+- date: 20260528
+- open: 154
+- high: 154
+- low: 145
+- close: 146
+- volume: 2248148
+- ma5: 147.3
+- ema23_primary: 139.48
+- distance_to_ema23_pct: 4.67
+- ma20: 140.25
+- ma60: 131.66
+- ma120: 130.47
+- return_5d: 6.57
+- return_20d: 11.03
+- volume_ratio: 1.71
+- distance_to_ma20_pct_auxiliary: 4.1
+- distance_to_high_60_pct: -9.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,129.5,131.5,128.5,131.5,386000,129.42,1.61,126.92,128.63,0.39
 20260430,131.5,131.5,129,129,559000,129.39,-0.3,127.7,128.47,0.57
 20260504,131,139,130,138,1687000,130.1,6.07,128.82,128.47,1.62
 20260505,143,151.5,142,145.5,8967000,131.39,10.74,130.35,128.66,6.07
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,140,143.5,140,143,142000,136.02,5.13,137.28,130.94,0.11
 20260526,144,156,143,154,151000,137.52,11.98,138.43,131.24,0.12
 20260527,160.5,160.5,152,154,156000,138.89,10.88,139.53,131.48,0.13
+20260528,154,154,145,146,2248148,139.48,4.67,140.25,131.66,1.71
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,15 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 3402 | 漢科 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 3402 | 漢科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 3402 | 漢科 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | status |

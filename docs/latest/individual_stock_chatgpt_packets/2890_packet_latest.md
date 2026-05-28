@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2890 永豐金
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:49 Asia/Taipei
+- generated_at: 2026-05-28 19:32:09 Asia/Taipei
 - stock_id: 2890
 - stock_name: 永豐金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 29.8
-- high: 29.95
-- low: 29.3
-- close: 29.65
-- volume: 28925478
-- ma5: 29.39
-- ema23_primary: 30.36
-- distance_to_ema23_pct: -2.34
-- ma20: 30.31
-- ma60: 31.41
-- ma120: 30.14
-- return_5d: -0.5
-- return_20d: -7.05
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: -2.18
-- distance_to_high_60_pct: -11.89
+- date: 20260528
+- open: 29.65
+- high: 29.85
+- low: 29.5
+- close: 29.5
+- volume: 28864438
+- ma5: 29.35
+- ema23_primary: 30.29
+- distance_to_ema23_pct: -2.61
+- ma20: 30.19
+- ma60: 31.36
+- ma120: 30.16
+- return_5d: -0.67
+- return_20d: -7.52
+- volume_ratio: 0.81
+- distance_to_ma20_pct_auxiliary: -2.29
+- distance_to_high_60_pct: -12.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,32.15,32.15,31.45,31.9,19996608,32.02,-0.37,32.23,31.36,0.82
 20260430,31.85,31.9,30.95,30.95,38025170,31.93,-3.07,32.24,31.4,1.52
 20260504,31.4,31.45,30.55,30.55,35246394,31.81,-3.97,32.19,31.42,1.39
 20260505,30.55,31.15,30.1,30.65,22979019,31.72,-3.36,32.13,31.45,0.9
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,29.1,29.15,28.65,28.95,50297031,30.51,-5.1,30.53,31.53,1.45
 20260526,28.95,29.85,28.95,29.55,36720651,30.43,-2.88,30.42,31.47,1.06
 20260527,29.8,29.95,29.3,29.65,28925478,30.36,-2.34,30.31,31.41,0.82
+20260528,29.65,29.85,29.5,29.5,28864438,30.29,-2.61,30.19,31.36,0.81
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2890 | 永豐金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 2890 | 永豐金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2890 | 永豐金 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260528 | 2890 | 永豐金 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2890 | 永豐金 | 16 | 0 | 698490.0 | 0.0 |  | no_signal | 0 |  |
+| 20260528 | 2890 | 永豐金 | 16 | 0 | 792880.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

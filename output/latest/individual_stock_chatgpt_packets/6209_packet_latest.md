@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6209 今國光
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:53 Asia/Taipei
+- generated_at: 2026-05-28 19:33:11 Asia/Taipei
 - stock_id: 6209
 - stock_name: 今國光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 81.5
-- high: 82.6
-- low: 78
-- close: 81.9
-- volume: 14859096
-- ma5: 84.32
-- ema23_primary: 72.48
-- distance_to_ema23_pct: 13
-- ma20: 71.61
-- ma60: 61.62
-- ma120: 61.72
-- return_5d: 3.8
-- return_20d: 27.37
-- volume_ratio: 0.9
-- distance_to_ma20_pct_auxiliary: 14.36
-- distance_to_high_60_pct: -9.9
+- date: 20260528
+- open: 82.5
+- high: 84.4
+- low: 79.4
+- close: 80.7
+- volume: 13577210
+- ma5: 83.12
+- ema23_primary: 73.16
+- distance_to_ema23_pct: 10.3
+- ma20: 72.5
+- ma60: 61.94
+- ma120: 61.9
+- return_5d: -6.92
+- return_20d: 28.3
+- volume_ratio: 0.8
+- distance_to_ma20_pct_auxiliary: 11.3
+- distance_to_high_60_pct: -11.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,64.8,65,62.9,62.9,4386067,60.33,4.26,59.26,59.07,0.68
 20260430,63.9,64.5,62,62.3,4023722,60.5,2.98,59.93,59.05,0.61
 20260504,62.9,63.7,62.1,62.5,3083311,60.66,3.03,60.54,58.97,0.46
 20260505,62.5,68.7,62,68.7,10567936,61.33,12.01,61.46,58.9,1.49
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,87.9,90.9,86,86.2,24327776,70.77,21.81,69.98,61.05,1.5
 20260526,86.2,86.2,80.3,81,17326289,71.62,13.1,70.73,61.32,1.07
 20260527,81.5,82.6,78,81.9,14859096,72.48,13,71.61,61.62,0.9
+20260528,82.5,84.4,79.4,80.7,13577210,73.16,10.3,72.5,61.94,0.8
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 6209 | 今國光 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260521 | 6209 | 今國光 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 6209 | 今國光 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260521 | 6209 | 今國光 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 6209 | 今國光 | 5 | 5 | 5 | 5 | 5 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260528 | 6209 | 今國光 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 6209 | 今國光 | 45 | 0 | 13087480.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260528 | 6209 | 今國光 | 45 | 0 | 11981210.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

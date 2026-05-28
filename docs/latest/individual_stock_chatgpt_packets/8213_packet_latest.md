@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8213 志超
 
 ## Metadata
-- generated_at: 2026-05-27 21:28:30 Asia/Taipei
+- generated_at: 2026-05-28 19:33:48 Asia/Taipei
 - stock_id: 8213
 - stock_name: 志超
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 39.4
-- high: 41.85
-- low: 39.4
-- close: 40.65
-- volume: 3044794
-- ma5: 39.14
-- ema23_primary: 38.04
-- distance_to_ema23_pct: 6.87
-- ma20: 38.17
-- ma60: 36.14
-- ma120: 35.19
-- return_5d: 10.76
-- return_20d: 9.86
-- volume_ratio: 1.74
-- distance_to_ma20_pct_auxiliary: 6.5
-- distance_to_high_60_pct: -7.19
+- date: 20260528
+- open: 40.6
+- high: 41.2
+- low: 38.7
+- close: 38.9
+- volume: 1626156
+- ma5: 39.38
+- ema23_primary: 38.11
+- distance_to_ema23_pct: 2.07
+- ma20: 38.28
+- ma60: 36.15
+- ma120: 35.24
+- return_5d: 3.18
+- return_20d: 5.99
+- volume_ratio: 0.9
+- distance_to_ma20_pct_auxiliary: 1.62
+- distance_to_high_60_pct: -11.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,37.25,37.25,36.2,36.7,359072,36.09,1.68,35.68,35.49,0.33
 20260430,37,37,36.1,36.25,536355,36.11,0.4,35.89,35.5,0.49
 20260504,36.45,37.25,36.4,36.55,433128,36.14,1.13,36.04,35.51,0.41
 20260505,36.5,37.2,36.5,37.1,442150,36.22,2.42,36.23,35.53,0.42
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,39,39.9,38.5,39.55,1638323,37.67,5,37.89,36.09,1.01
 20260526,39.55,39.65,38.8,39.25,838540,37.8,3.84,37.99,36.11,0.51
 20260527,39.4,41.85,39.4,40.65,3044794,38.04,6.87,38.17,36.14,1.74
+20260528,40.6,41.2,38.7,38.9,1626156,38.11,2.07,38.28,36.15,0.9
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 8213 | 志超 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 8213 | 志超 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 8213 | 志超 | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260528 | 8213 | 志超 | 3 | 1 | 3 | 3 | 3 | continued_2_3d | 連續 3 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 8213 | 志超 | 2 | 0 | 121420.0 | 0.0 |  | no_signal | 0 |  |
+| 20260528 | 8213 | 志超 | 2 | 0 | 116800.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

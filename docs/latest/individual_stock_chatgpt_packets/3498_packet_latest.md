@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3498 陽程
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:08 Asia/Taipei
+- generated_at: 2026-05-28 19:32:27 Asia/Taipei
 - stock_id: 3498
 - stock_name: 陽程
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 155
+- date: 20260528
+- open: 155.5
 - high: 156
-- low: 149
-- close: 155.5
-- volume: 152000
-- ma5: 155.2
-- ema23_primary: 125.8
-- distance_to_ema23_pct: 23.61
-- ma20: 123.91
-- ma60: 90.87
-- ma120: 70.68
-- return_5d: 8.36
-- return_20d: 93.17
-- volume_ratio: 0.04
-- distance_to_ma20_pct_auxiliary: 25.5
-- distance_to_high_60_pct: -5.47
+- low: 143
+- close: 145
+- volume: 1091163
+- ma5: 154.9
+- ema23_primary: 127.4
+- distance_to_ema23_pct: 13.82
+- ma20: 127.17
+- ma60: 92.37
+- ma120: 71.48
+- return_5d: -1.02
+- return_20d: 81.7
+- volume_ratio: 0.32
+- distance_to_ma20_pct_auxiliary: 14.03
+- distance_to_high_60_pct: -11.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,80.5,81.5,79.2,79.8,1000000,78.75,1.33,80.18,66.66,0.26
 20260430,82,87.7,81.3,87.7,6149000,79.5,10.32,81.12,67.29,1.52
 20260504,92,96.4,89,96.4,7659000,80.91,19.15,82.3,68.06,1.79
 20260505,98.5,105.5,98.1,101,7855000,82.58,22.3,83.71,68.89,1.73
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,162.5,164.5,156,159,160000,120.2,32.28,116.25,87.36,0.04
 20260526,160,160,151.5,155,153000,123.1,25.92,120.16,89.12,0.04
 20260527,155,156,149,155.5,152000,125.8,23.61,123.91,90.87,0.04
+20260528,155.5,156,143,145,1091163,127.4,13.82,127.17,92.37,0.32
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 3498 | 陽程 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 3498 | 陽程 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | status |

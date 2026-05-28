@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2637 慧洋-KY
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:44 Asia/Taipei
+- generated_at: 2026-05-28 19:32:04 Asia/Taipei
 - stock_id: 2637
 - stock_name: 慧洋-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 74.9
-- high: 76.9
-- low: 73.5
-- close: 75.9
-- volume: 5520396
-- ma5: 73.78
-- ema23_primary: 73.27
-- distance_to_ema23_pct: 3.6
-- ma20: 73.56
-- ma60: 71.7
-- ma120: 70.49
-- return_5d: 5.71
-- return_20d: 6.15
-- volume_ratio: 2.03
-- distance_to_ma20_pct_auxiliary: 3.18
-- distance_to_high_60_pct: -2.19
+- date: 20260528
+- open: 76.4
+- high: 78.4
+- low: 76
+- close: 76.7
+- volume: 6114298
+- ma5: 74.74
+- ema23_primary: 73.55
+- distance_to_ema23_pct: 4.28
+- ma20: 73.81
+- ma60: 71.75
+- ma120: 70.59
+- return_5d: 6.68
+- return_20d: 7.12
+- volume_ratio: 2.06
+- distance_to_ma20_pct_auxiliary: 3.91
+- distance_to_high_60_pct: -2.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,71.9,72.2,71,71.6,1181179,71.74,-0.19,71.45,70.83,0.48
 20260430,71.3,72,71.1,71.7,1249050,71.74,-0.05,71.69,70.81,0.51
 20260504,72,73.6,71.7,73.1,2106942,71.85,1.74,71.89,70.84,0.86
 20260505,73.4,74.6,72.2,74,2129308,72.03,2.74,72.19,70.88,0.85
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,72,75.5,71.2,75.1,5448995,72.87,3.07,73.2,71.61,2.18
 20260526,74.9,75.6,74.2,74.8,1978507,73.03,2.43,73.34,71.65,0.79
 20260527,74.9,76.9,73.5,75.9,5520396,73.27,3.6,73.56,71.7,2.03
+20260528,76.4,78.4,76,76.7,6114298,73.55,4.28,73.81,71.75,2.06
 ```
 
 ## Latest TDCC Snapshot
@@ -125,19 +125,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2637 | 慧洋-KY | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260527 | 2637 | 慧洋-KY | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260527 | 2637 | 慧洋-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 2637 | 慧洋-KY | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 2637 | 慧洋-KY | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260528 | 2637 | 慧洋-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2637 | 慧洋-KY | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260528 | 2637 | 慧洋-KY | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2637 | 慧洋-KY | 40 | 0 | 4390870.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260528 | 2637 | 慧洋-KY | 40 | 0 | 7793530.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6112 邁達特
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:47 Asia/Taipei
+- generated_at: 2026-05-28 19:33:05 Asia/Taipei
 - stock_id: 6112
 - stock_name: 邁達特
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 42.4
+- date: 20260528
+- open: 42.2
 - high: 42.8
-- low: 42
-- close: 42.2
-- volume: 506178
-- ma5: 42.57
-- ema23_primary: 43.63
-- distance_to_ema23_pct: -3.27
-- ma20: 43.76
-- ma60: 45.33
-- ma120: 45.9
-- return_5d: 0.48
-- return_20d: -7.86
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: -3.55
-- distance_to_high_60_pct: -16.6
+- low: 41.6
+- close: 41.9
+- volume: 622548
+- ma5: 42.47
+- ema23_primary: 43.48
+- distance_to_ema23_pct: -3.64
+- ma20: 43.56
+- ma60: 45.22
+- ma120: 45.86
+- return_5d: -1.18
+- return_20d: -8.32
+- volume_ratio: 1.05
+- distance_to_ma20_pct_auxiliary: -3.82
+- distance_to_high_60_pct: -17.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,46.35,46.8,45.4,45.7,259001,46.14,-0.96,46.03,45.85,0.48
 20260430,45.65,46.6,45.45,45.7,345898,46.11,-0.88,46.2,45.83,0.65
 20260504,45.7,47.1,45.7,46.75,394633,46.16,1.28,46.37,45.8,0.73
 20260505,46.75,47.8,46.7,47.55,377088,46.28,2.75,46.6,45.79,0.69
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,43.25,44.05,42.75,42.9,645143,43.89,-2.26,44.04,45.46,1.12
 20260526,43,43.15,42.1,42.3,375634,43.76,-3.33,43.94,45.43,0.66
 20260527,42.4,42.8,42,42.2,506178,43.63,-3.27,43.76,45.33,0.88
+20260528,42.2,42.8,41.6,41.9,622548,43.48,-3.64,43.56,45.22,1.05
 ```
 
 ## Latest TDCC Snapshot
@@ -135,7 +135,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 6112 | 邁達特 | 4 | 0 | 24100.0 | 0.0 |  | no_signal | 0 |  |
+| 20260528 | 6112 | 邁達特 | 4 | 0 | 20660.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

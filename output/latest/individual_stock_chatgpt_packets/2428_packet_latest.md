@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2428 興勤
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:35 Asia/Taipei
+- generated_at: 2026-05-28 19:31:56 Asia/Taipei
 - stock_id: 2428
 - stock_name: 興勤
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 260
-- high: 267.5
-- low: 255.5
-- close: 266
-- volume: 2437937
-- ma5: 247.5
-- ema23_primary: 213.23
-- distance_to_ema23_pct: 24.75
-- ma20: 209.28
-- ma60: 181.09
-- ma120: 179.2
-- return_5d: 19.28
-- return_20d: 51.14
-- volume_ratio: 1.12
-- distance_to_ma20_pct_auxiliary: 27.11
-- distance_to_high_60_pct: -0.56
+- date: 20260528
+- open: 292.5
+- high: 292.5
+- low: 287.5
+- close: 292.5
+- volume: 2874111
+- ma5: 260
+- ema23_primary: 219.84
+- distance_to_ema23_pct: 33.05
+- ma20: 214.97
+- ma60: 182.84
+- ma120: 180.08
+- return_5d: 27.17
+- return_20d: 63.87
+- volume_ratio: 1.26
+- distance_to_ma20_pct_auxiliary: 36.06
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,177,180,172.5,178.5,771229,172.92,3.22,171.4,169.57,0.54
 20260430,180,180.5,174,174,956202,173.01,0.57,172.62,169.5,0.65
 20260504,177.5,183,176,182,1115492,173.76,4.74,173.95,169.58,0.74
 20260505,181,189,181,185.5,1594457,174.74,6.16,175.72,169.78,1.02
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,252,253.5,240,243,2635774,204.11,19.05,200.62,178.71,1.35
 20260526,243.5,257.5,233,256,3145186,208.44,22.82,204.78,179.82,1.52
 20260527,260,267.5,255.5,266,2437937,213.23,24.75,209.28,181.09,1.12
+20260528,292.5,292.5,287.5,292.5,2874111,219.84,33.05,214.97,182.84,1.26
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2428 | 興勤 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 2428 | 興勤 | true_breakout | 嚴格突破 | 59.0 |  |  | platform_right_side |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2428 | 興勤 | 2 | 2 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260528 | 2428 | 興勤 | 3 | 1 | 3 | 3 | 3 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2428 | 興勤 | 18 | 0 | 9708280.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260528 | 2428 | 興勤 | 18 | 0 | 5309850.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

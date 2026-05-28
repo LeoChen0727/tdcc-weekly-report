@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00913 兆豐台灣晶圓製造
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:02 Asia/Taipei
+- generated_at: 2026-05-28 19:31:23 Asia/Taipei
 - stock_id: 00913
 - stock_name: 兆豐台灣晶圓製造
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260527
-- price_rows: 4
+- latest_price_date: 20260528
+- price_rows: 5
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 51.1
-- high: 52.1
-- low: 50.75
-- close: 51.45
-- volume: 4567854
-- ma5: 
-- ema23_primary: 
-- distance_to_ema23_pct: 
-- ma20: 
-- ma60: 
-- ma120: 
+- date: 20260528
+- open: 52.2
+- high: 52.45
+- low: 49.33
+- close: 50.4
+- volume: 3307080
+- ma5: 48.78
+- ema23_primary: 46.55
+- distance_to_ema23_pct: 8.28
+- ma20: 48.78
+- ma60: 48.78
+- ma120: 48.78
 - return_5d: 
 - return_20d: 
-- volume_ratio: 
-- distance_to_ma20_pct_auxiliary: 
-- distance_to_high_60_pct: 
+- volume_ratio: 1.43
+- distance_to_ma20_pct_auxiliary: 3.32
+- distance_to_high_60_pct: -3.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -81,6 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,45.96,47.98,45.96,47.97,1080481,,,,,
 20260526,48.84,49.24,48.21,48.89,1161443,,,,,
 20260527,51.1,52.1,50.75,51.45,4567854,,,,,
+20260528,52.2,52.45,49.33,50.4,3307080,46.55,8.28,48.78,48.78,1.43
 ```
 
 ## Latest TDCC Snapshot

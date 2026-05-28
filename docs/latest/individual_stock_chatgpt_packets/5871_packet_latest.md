@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5871 中租-KY
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:45 Asia/Taipei
+- generated_at: 2026-05-28 19:33:03 Asia/Taipei
 - stock_id: 5871
 - stock_name: 中租-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 108
-- high: 109.5
+- date: 20260528
+- open: 108.5
+- high: 110.5
 - low: 107
 - close: 107
-- volume: 10109750
-- ma5: 109.2
-- ema23_primary: 110.87
-- distance_to_ema23_pct: -3.49
-- ma20: 111.35
-- ma60: 109.87
-- ma120: 107.33
-- return_5d: -3.6
-- return_20d: -9.32
-- volume_ratio: 1.23
-- distance_to_ma20_pct_auxiliary: -3.91
+- volume: 13675932
+- ma5: 108.2
+- ema23_primary: 110.55
+- distance_to_ema23_pct: -3.21
+- ma20: 110.78
+- ma60: 109.94
+- ma120: 107.35
+- return_5d: -4.46
+- return_20d: -9.7
+- volume_ratio: 1.6
+- distance_to_ma20_pct_auxiliary: -3.41
 - distance_to_high_60_pct: -13.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,116.5,119,116,118.5,6859683,114.52,3.47,114.35,108.12,0.81
 20260430,117.5,118.5,115,115.5,4947482,114.6,0.78,114.65,108.29,0.61
 20260504,116.5,116.5,113.5,115,6192597,114.64,0.32,114.95,108.44,0.75
 20260505,115.5,115.5,114,115,4124985,114.67,0.29,115.33,108.58,0.5
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,111.5,111.5,109,109,9984863,111.61,-2.34,112.35,109.79,1.29
 20260526,108.5,110,107,107,10385536,111.23,-3.8,111.9,109.82,1.32
 20260527,108,109.5,107,107,10109750,110.87,-3.49,111.35,109.87,1.23
+20260528,108.5,110.5,107,107,13675932,110.55,-3.21,110.78,109.94,1.6
 ```
 
 ## Latest TDCC Snapshot
@@ -130,12 +130,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 5871 | 中租-KY | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260528 | 5871 | 中租-KY | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 5871 | 中租-KY | 10 | 0 | 399400.0 | 0.0 |  | no_signal | 0 |  |
+| 20260528 | 5871 | 中租-KY | 10 | 0 | 517990.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

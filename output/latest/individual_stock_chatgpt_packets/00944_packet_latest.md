@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00944 野村趨勢動能高息
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:03 Asia/Taipei
+- generated_at: 2026-05-28 19:31:24 Asia/Taipei
 - stock_id: 00944
 - stock_name: 野村趨勢動能高息
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260527
-- price_rows: 4
+- latest_price_date: 20260528
+- price_rows: 5
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 19.91
-- high: 20.15
-- low: 19.91
-- close: 20.05
-- volume: 1734015
-- ma5: 
-- ema23_primary: 
-- distance_to_ema23_pct: 
-- ma20: 
-- ma60: 
-- ma120: 
+- date: 20260528
+- open: 20.05
+- high: 20.29
+- low: 19.81
+- close: 19.88
+- volume: 1233532
+- ma5: 19.61
+- ema23_primary: 19.26
+- distance_to_ema23_pct: 3.24
+- ma20: 19.61
+- ma60: 19.61
+- ma120: 19.61
 - return_5d: 
 - return_20d: 
-- volume_ratio: 
-- distance_to_ma20_pct_auxiliary: 
-- distance_to_high_60_pct: 
+- volume_ratio: 1.06
+- distance_to_ma20_pct_auxiliary: 1.36
+- distance_to_high_60_pct: -2.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -81,6 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,19.29,19.52,19.29,19.46,1801160,,,,,
 20260526,19.6,19.68,19.5,19.64,556428,,,,,
 20260527,19.91,20.15,19.91,20.05,1734015,,,,,
+20260528,20.05,20.29,19.81,19.88,1233532,19.26,3.24,19.61,19.61,1.06
 ```
 
 ## Latest TDCC Snapshot

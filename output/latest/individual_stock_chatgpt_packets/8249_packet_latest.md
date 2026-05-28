@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8249 菱光
 
 ## Metadata
-- generated_at: 2026-05-27 21:28:31 Asia/Taipei
+- generated_at: 2026-05-28 19:33:48 Asia/Taipei
 - stock_id: 8249
 - stock_name: 菱光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 58.8
-- high: 58.8
-- low: 55.7
-- close: 56.5
-- volume: 6028188
-- ma5: 54.56
-- ema23_primary: 51.78
-- distance_to_ema23_pct: 9.12
-- ma20: 51.22
-- ma60: 50.79
-- ma120: 52.73
-- return_5d: 10.78
-- return_20d: 17.22
-- volume_ratio: 2.96
-- distance_to_ma20_pct_auxiliary: 10.3
-- distance_to_high_60_pct: -5.99
+- date: 20260528
+- open: 56.5
+- high: 57.4
+- low: 54.6
+- close: 54.8
+- volume: 1592426
+- ma5: 55.08
+- ema23_primary: 52.03
+- distance_to_ema23_pct: 5.33
+- ma20: 51.52
+- ma60: 50.72
+- ma120: 52.77
+- return_5d: 4.98
+- return_20d: 11.95
+- volume_ratio: 0.76
+- distance_to_ma20_pct_auxiliary: 6.38
+- distance_to_high_60_pct: -7.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,48.2,49.35,48.2,48.95,615981,49.58,-1.26,48.85,53.66,1.28
 20260430,49.75,50.8,49.35,49.45,755111,49.56,-0.23,48.99,53.47,1.55
 20260504,49.8,51.4,49.5,50.5,1016505,49.64,1.73,49.12,53.32,1.98
 20260505,50.8,51.6,50.4,50.8,623576,49.74,2.13,49.31,53.18,1.17
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,53.1,53.5,52.2,53,1886588,50.71,4.51,50.28,50.89,1.42
 20260526,53.5,58.3,51.5,58.3,9046165,51.35,13.54,50.81,50.86,5.15
 20260527,58.8,58.8,55.7,56.5,6028188,51.78,9.12,51.22,50.79,2.96
+20260528,56.5,57.4,54.6,54.8,1592426,52.03,5.33,51.52,50.72,0.76
 ```
 
 ## Latest TDCC Snapshot
@@ -130,12 +130,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 8249 | 菱光 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260528 | 8249 | 菱光 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 8249 | 菱光 | 3 | 0 | 536700.0 | 0.0 |  | no_signal | 0 |  |
+| 20260528 | 8249 | 菱光 | 3 | 0 | 22680.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

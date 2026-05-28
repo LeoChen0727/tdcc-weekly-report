@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5547 久舜
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:44 Asia/Taipei
+- generated_at: 2026-05-28 19:33:02 Asia/Taipei
 - stock_id: 5547
 - stock_name: 久舜
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260527
-- price_rows: 71
+- latest_price_date: 20260528
+- price_rows: 72
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 21.6
-- high: 21.6
-- low: 21.5
-- close: 21.55
-- volume: 22000
-- ma5: 21.55
-- ema23_primary: 21.6
-- distance_to_ema23_pct: -0.23
-- ma20: 21.55
-- ma60: 22.04
-- ma120: 22.15
-- return_5d: 0.23
-- return_20d: 3.11
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: 0
-- distance_to_high_60_pct: -7.31
+- date: 20260528
+- open: 21.75
+- high: 21.8
+- low: 21.65
+- close: 21.75
+- volume: 12202
+- ma5: 21.62
+- ema23_primary: 21.61
+- distance_to_ema23_pct: 0.64
+- ma20: 21.59
+- ma60: 22.02
+- ma120: 22.14
+- return_5d: 1.64
+- return_20d: 3.33
+- volume_ratio: 0.4
+- distance_to_ma20_pct_auxiliary: 0.76
+- distance_to_high_60_pct: -6.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,20.9,21.05,20.9,21.05,16000,21.8,-3.44,21.85,22.36,0.28
 20260430,21.05,22,20.95,21.9,39000,21.81,0.42,21.83,22.35,0.72
 20260504,21.9,21.9,21.1,21.2,35000,21.76,-2.56,21.77,22.33,0.66
 20260505,21.8,21.9,21.6,21.6,30000,21.74,-0.67,21.74,22.31,0.56
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,21.6,21.65,21.5,21.6,22000,21.6,-0.02,21.48,22.06,0.63
 20260526,21.6,21.8,21.6,21.6,22000,21.6,-0.02,21.52,22.05,0.69
 20260527,21.6,21.6,21.5,21.55,22000,21.6,-0.23,21.55,22.04,0.71
+20260528,21.75,21.8,21.65,21.75,12202,21.61,0.64,21.59,22.02,0.4
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8277 商丞
 
 ## Metadata
-- generated_at: 2026-05-27 21:28:31 Asia/Taipei
+- generated_at: 2026-05-28 19:33:49 Asia/Taipei
 - stock_id: 8277
 - stock_name: 商丞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 7.1
-- high: 7.15
-- low: 7.08
-- close: 7.12
-- volume: 7000
-- ma5: 7.06
-- ema23_primary: 7.12
-- distance_to_ema23_pct: 0.02
-- ma20: 7.09
-- ma60: 7.7
-- ma120: 8.49
-- return_5d: 4.25
-- return_20d: 7.88
-- volume_ratio: 0.04
-- distance_to_ma20_pct_auxiliary: 0.37
-- distance_to_high_60_pct: -23.36
+- date: 20260528
+- open: 7.2
+- high: 7.83
+- low: 7.2
+- close: 7.83
+- volume: 434042
+- ma5: 7.23
+- ema23_primary: 7.18
+- distance_to_ema23_pct: 9.09
+- ma20: 7.12
+- ma60: 7.69
+- ma120: 8.48
+- return_5d: 12.18
+- return_20d: 7.85
+- volume_ratio: 2.28
+- distance_to_ma20_pct_auxiliary: 9.93
+- distance_to_high_60_pct: -15.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,6.66,7.26,6.66,7.26,347000,7.52,-3.42,7.45,8.56,1.38
 20260430,7.71,7.98,7.5,7.98,584000,7.56,5.62,7.46,8.5,2.17
 20260504,7.25,7.79,7.25,7.5,460000,7.55,-0.67,7.43,8.44,1.61
 20260505,7.7,7.7,7.09,7.41,161000,7.54,-1.71,7.41,8.39,0.59
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,6.99,7.14,6.99,7.1,7000,7.12,-0.3,7.04,7.77,0.03
 20260526,7.1,7.14,7,7.08,7000,7.12,-0.54,7.07,7.74,0.04
 20260527,7.1,7.15,7.08,7.12,7000,7.12,0.02,7.09,7.7,0.04
+20260528,7.2,7.83,7.2,7.83,434042,7.18,9.09,7.12,7.69,2.28
 ```
 
 ## Latest TDCC Snapshot

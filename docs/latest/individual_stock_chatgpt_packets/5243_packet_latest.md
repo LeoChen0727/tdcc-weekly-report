@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5243 乙盛-KY
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:36 Asia/Taipei
+- generated_at: 2026-05-28 19:32:55 Asia/Taipei
 - stock_id: 5243
 - stock_name: 乙盛-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 134.5
-- high: 142
-- low: 124
-- close: 127
-- volume: 9949135
-- ma5: 125.8
-- ema23_primary: 113.14
-- distance_to_ema23_pct: 12.25
-- ma20: 110.6
-- ma60: 98.07
-- ma120: 90.15
-- return_5d: 21.53
-- return_20d: 27.25
-- volume_ratio: 1.34
-- distance_to_ma20_pct_auxiliary: 14.83
-- distance_to_high_60_pct: -11.5
+- date: 20260528
+- open: 128
+- high: 133.5
+- low: 118.5
+- close: 120.5
+- volume: 10693165
+- ma5: 127.5
+- ema23_primary: 113.75
+- distance_to_ema23_pct: 5.93
+- ma20: 111.45
+- ma60: 98.69
+- ma120: 90.46
+- return_5d: 7.59
+- return_20d: 16.43
+- volume_ratio: 1.44
+- distance_to_ma20_pct_auxiliary: 8.12
+- distance_to_high_60_pct: -16.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,100,109,99.6,103.5,10625734,106.38,-2.71,111.2,89.86,1.46
 20260430,105,109,103,105.5,7559104,106.31,-0.76,112.35,90.25,1.13
 20260504,110,111.5,103.5,106,9102253,106.28,-0.27,113.2,90.64,1.39
 20260505,106,113.5,105,109,5971826,106.51,2.34,113.97,90.98,1.01
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,131.5,135,131.5,135,2714104,110.05,22.68,108.02,96.64,0.38
 20260526,143,143.5,126.5,132,16026902,111.88,17.99,109.24,97.38,2.1
 20260527,134.5,142,124,127,9949135,113.14,12.25,110.6,98.07,1.34
+20260528,128,133.5,118.5,120.5,10693165,113.75,5.93,111.45,98.69,1.44
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 5243 | 乙盛-KY | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 5243 | 乙盛-KY | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 5243 | 乙盛-KY | 40 | 1 | 4970590.0 | 3200.0 | 1553.31 | no_signal | 0 |  |
+| 20260528 | 5243 | 乙盛-KY | 46 | 1 | 4823820.0 | 4940.0 | 976.48 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

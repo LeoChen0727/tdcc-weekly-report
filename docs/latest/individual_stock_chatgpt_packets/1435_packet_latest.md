@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1435 中福
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:09 Asia/Taipei
+- generated_at: 2026-05-28 19:31:31 Asia/Taipei
 - stock_id: 1435
 - stock_name: 中福
 - packet_status: standard_rawdata_packet

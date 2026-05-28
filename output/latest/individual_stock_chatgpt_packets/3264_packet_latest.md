@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3264 欣銓
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:01 Asia/Taipei
+- generated_at: 2026-05-28 19:32:21 Asia/Taipei
 - stock_id: 3264
 - stock_name: 欣銓
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 238.5
-- high: 239
-- low: 226.5
-- close: 229.5
-- volume: 232000
-- ma5: 225
-- ema23_primary: 216.58
-- distance_to_ema23_pct: 5.96
-- ma20: 222.9
-- ma60: 184.71
-- ma120: 153.84
-- return_5d: 11.14
-- return_20d: 15.62
-- volume_ratio: 0.02
-- distance_to_ma20_pct_auxiliary: 2.96
-- distance_to_high_60_pct: -7.83
+- date: 20260528
+- open: 231
+- high: 249
+- low: 227.5
+- close: 235.5
+- volume: 16614457
+- ma5: 228.3
+- ema23_primary: 218.16
+- distance_to_ema23_pct: 7.95
+- ma20: 224.7
+- ma60: 186.13
+- ma120: 155.09
+- return_5d: 7.53
+- return_20d: 18.05
+- volume_ratio: 1.58
+- distance_to_ma20_pct_auxiliary: 4.81
+- distance_to_high_60_pct: -5.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,195.5,200.5,194,199.5,7257000,183.85,8.51,184.4,162.82,0.37
 20260430,197.5,202.5,192,195,10284000,184.78,5.53,186.38,163.54,0.55
 20260504,197,214.5,197,214.5,12305000,187.26,14.55,188.8,164.6,0.66
 20260505,220,235.5,218,235.5,18479000,191.28,23.12,192.53,165.85,1
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,226,232,223,224,227000,213.99,4.68,219.5,182.26,0.02
 20260526,228,233.5,221,231,229000,215.41,7.24,221.35,183.51,0.02
 20260527,238.5,239,226.5,229.5,232000,216.58,5.96,222.9,184.71,0.02
+20260528,231,249,227.5,235.5,16614457,218.16,7.95,224.7,186.13,1.58
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,16 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 3264 | 欣銓 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 3264 | 欣銓 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260528 | 3264 | 欣銓 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 3264 | 欣銓 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
 
 ## Warrant Context
 | status |

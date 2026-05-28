@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009809 富邦淨零ESG50
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:03 Asia/Taipei
+- generated_at: 2026-05-28 19:31:25 Asia/Taipei
 - stock_id: 009809
 - stock_name: 富邦淨零ESG50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260527
-- price_rows: 4
+- latest_price_date: 20260528
+- price_rows: 5
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
+- date: 20260528
 - open: 16.95
-- high: 17.07
-- low: 16.83
-- close: 16.9
-- volume: 957880
-- ma5: 
-- ema23_primary: 
-- distance_to_ema23_pct: 
-- ma20: 
-- ma60: 
-- ma120: 
+- high: 17.18
+- low: 16.5
+- close: 16.55
+- volume: 2016783
+- ma5: 16.35
+- ema23_primary: 15.9
+- distance_to_ema23_pct: 4.06
+- ma20: 16.35
+- ma60: 16.35
+- ma120: 16.35
 - return_5d: 
 - return_20d: 
-- volume_ratio: 
-- distance_to_ma20_pct_auxiliary: 
-- distance_to_high_60_pct: 
+- volume_ratio: 1.52
+- distance_to_ma20_pct_auxiliary: 1.22
+- distance_to_high_60_pct: -3.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -81,6 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,16.05,16.31,16,16.28,1466191,,,,,
 20260526,16.5,16.6,16.29,16.38,1180670,,,,,
 20260527,16.95,17.07,16.83,16.9,957880,,,,,
+20260528,16.95,17.18,16.5,16.55,2016783,15.9,4.06,16.35,16.35,1.52
 ```
 
 ## Latest TDCC Snapshot

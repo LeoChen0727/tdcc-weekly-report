@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3528 安馳
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:09 Asia/Taipei
+- generated_at: 2026-05-28 19:32:29 Asia/Taipei
 - stock_id: 3528
 - stock_name: 安馳
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 97.8
-- high: 103.5
-- low: 96.4
-- close: 103.5
-- volume: 3687835
-- ma5: 93.72
-- ema23_primary: 85.05
-- distance_to_ema23_pct: 21.7
-- ma20: 85.8
-- ma60: 73.55
-- ma120: 71.03
-- return_5d: 24.85
-- return_20d: 31.51
-- volume_ratio: 3.33
-- distance_to_ma20_pct_auxiliary: 20.63
+- date: 20260528
+- open: 112.5
+- high: 113.5
+- low: 111
+- close: 113.5
+- volume: 1151640
+- ma5: 99.36
+- ema23_primary: 87.42
+- distance_to_ema23_pct: 29.84
+- ma20: 87.47
+- ma60: 74.26
+- ma120: 71.43
+- return_5d: 33.06
+- return_20d: 41.88
+- volume_ratio: 1.01
+- distance_to_ma20_pct_auxiliary: 29.75
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,79,81.2,78.2,80,564809,71.86,11.33,71,68.38,1.55
 20260430,80,80.4,78.9,79.9,350233,72.53,10.17,71.89,68.56,0.94
 20260504,80.2,81.8,79.3,80.3,401739,73.17,9.74,72.69,68.75,1.04
 20260505,81,83,80.3,82.9,478709,73.98,12.05,73.64,68.98,1.19
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,97.2,98.4,91.3,91.6,1848246,82.37,11.21,83.67,72.64,1.98
 20260526,92.5,95,89.1,94.4,852229,83.37,13.23,84.56,73.01,0.89
 20260527,97.8,103.5,96.4,103.5,3687835,85.05,21.7,85.8,73.55,3.33
+20260528,112.5,113.5,111,113.5,1151640,87.42,29.84,87.47,74.26,1.01
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3528 | 安馳 | true_breakout | 嚴格突破 | 124.0 |  |  | breakout_confirmed |  |  | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 3528 | 安馳 | true_breakout | 嚴格突破 | 61.0 |  |  |  |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3528 | 安馳 | 5 | 1 | 5 | 5 | 5 | continued_many_days | 連續 5 個交易日上榜，需判斷是持續醞釀或訊號鈍化。 |
+| 20260528 | 3528 | 安馳 | 6 | 2 | 5 | 6 | 6 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | status |

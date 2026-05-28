@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6931 青松健康
 
 ## Metadata
-- generated_at: 2026-05-27 21:28:18 Asia/Taipei
+- generated_at: 2026-05-28 19:33:36 Asia/Taipei
 - stock_id: 6931
 - stock_name: 青松健康
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 39.85
-- high: 40.35
-- low: 39.6
-- close: 39.95
-- volume: 106432
-- ma5: 40.41
-- ema23_primary: 43.16
-- distance_to_ema23_pct: -7.43
-- ma20: 42.52
-- ma60: 48.19
-- ma120: 54.41
-- return_5d: -1.48
-- return_20d: -19.21
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: -6.05
-- distance_to_high_60_pct: -26.97
+- date: 20260528
+- open: 39.7
+- high: 40
+- low: 39.5
+- close: 39.8
+- volume: 110603
+- ma5: 40.14
+- ema23_primary: 42.88
+- distance_to_ema23_pct: -7.18
+- ma20: 42.09
+- ma60: 47.94
+- ma120: 54.23
+- return_5d: -3.28
+- return_20d: -17.68
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: -5.45
+- distance_to_high_60_pct: -27.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,49.4,49.4,47.9,48.35,863611,50.34,-3.96,50.19,52.35,5.09
 20260430,48.05,48.05,46.45,46.8,326025,50.05,-6.49,49.99,52.2,1.84
 20260504,46.8,47,44.5,45.7,350956,49.68,-8.02,49.73,52.03,1.83
 20260505,44.85,45.65,44.35,44.5,255875,49.25,-9.65,49.43,51.83,1.27
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,40.6,40.9,39.95,40,177634,43.76,-8.6,43.48,48.67,0.79
 20260526,40,40.15,39.7,40,89608,43.45,-7.94,43,48.43,0.41
 20260527,39.85,40.35,39.6,39.95,106432,43.16,-7.43,42.52,48.19,0.5
+20260528,39.7,40,39.5,39.8,110603,42.88,-7.18,42.09,47.94,0.62
 ```
 
 ## Latest TDCC Snapshot

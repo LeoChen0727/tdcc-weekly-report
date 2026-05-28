@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009813 貝萊德標普卓越50
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:03 Asia/Taipei
+- generated_at: 2026-05-28 19:31:25 Asia/Taipei
 - stock_id: 009813
 - stock_name: 貝萊德標普卓越50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260527
-- price_rows: 4
+- latest_price_date: 20260528
+- price_rows: 5
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 11.35
-- high: 11.35
-- low: 11.29
-- close: 11.3
-- volume: 2765153
-- ma5: 
-- ema23_primary: 
-- distance_to_ema23_pct: 
-- ma20: 
-- ma60: 
-- ma120: 
+- date: 20260528
+- open: 11.32
+- high: 11.33
+- low: 11.25
+- close: 11.26
+- volume: 5379808
+- ma5: 11.33
+- ema23_primary: 11.35
+- distance_to_ema23_pct: -0.78
+- ma20: 11.33
+- ma60: 11.33
+- ma120: 11.33
 - return_5d: 
 - return_20d: 
-- volume_ratio: 
-- distance_to_ma20_pct_auxiliary: 
-- distance_to_high_60_pct: 
+- volume_ratio: 1.5
+- distance_to_ma20_pct_auxiliary: -0.64
+- distance_to_high_60_pct: -1.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -81,6 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,11.4,11.41,11.36,11.37,4508463,,,,,
 20260526,11.37,11.38,11.35,11.37,3374493,,,,,
 20260527,11.35,11.35,11.29,11.3,2765153,,,,,
+20260528,11.32,11.33,11.25,11.26,5379808,11.35,-0.78,11.33,11.33,1.5
 ```
 
 ## Latest TDCC Snapshot

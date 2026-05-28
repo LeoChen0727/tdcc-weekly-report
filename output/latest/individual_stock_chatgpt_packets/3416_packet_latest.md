@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3416 融程電
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:06 Asia/Taipei
+- generated_at: 2026-05-28 19:32:25 Asia/Taipei
 - stock_id: 3416
 - stock_name: 融程電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 190
-- high: 193
-- low: 184.5
-- close: 185
-- volume: 878096
-- ma5: 184
-- ema23_primary: 170.36
-- distance_to_ema23_pct: 8.6
-- ma20: 169.9
-- ma60: 156.97
-- ma120: 152.81
-- return_5d: 11.11
-- return_20d: 19.35
-- volume_ratio: 1.02
-- distance_to_ma20_pct_auxiliary: 8.89
-- distance_to_high_60_pct: -5.61
+- date: 20260528
+- open: 187
+- high: 187
+- low: 178
+- close: 179
+- volume: 842353
+- ma5: 185.1
+- ema23_primary: 171.08
+- distance_to_ema23_pct: 4.63
+- ma20: 171.07
+- ma60: 157.45
+- ma120: 153.12
+- return_5d: 3.17
+- return_20d: 15.11
+- volume_ratio: 0.95
+- distance_to_ma20_pct_auxiliary: 4.63
+- distance_to_high_60_pct: -8.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,156,156,154.5,155.5,157780,153.82,1.09,153.38,149.72,0.41
 20260430,156.5,161,156,157.5,407614,154.12,2.19,154.1,149.68,1.05
 20260504,161.5,162.5,159.5,160.5,605148,154.65,3.78,154.93,149.78,1.46
 20260505,159,159,156,157.5,464411,154.89,1.68,155.62,149.85,1.07
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,195,196,188.5,190.5,2495650,167.3,13.87,166.62,155.82,3.15
 20260526,191.5,191.5,185,188,922907,169.03,11.23,168.4,156.41,1.12
 20260527,190,193,184.5,185,878096,170.36,8.6,169.9,156.97,1.02
+20260528,187,187,178,179,842353,171.08,4.63,171.07,157.45,0.95
 ```
 
 ## Latest TDCC Snapshot
@@ -135,7 +135,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3416 | 融程電 | 13 | 0 | 5905780.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260528 | 3416 | 融程電 | 13 | 0 | 957040.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

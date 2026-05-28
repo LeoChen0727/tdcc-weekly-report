@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00701 國泰股利精選30
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:01 Asia/Taipei
+- generated_at: 2026-05-28 19:31:22 Asia/Taipei
 - stock_id: 00701
 - stock_name: 國泰股利精選30
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260527
-- price_rows: 4
+- latest_price_date: 20260528
+- price_rows: 5
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 33
-- high: 33.94
-- low: 33
-- close: 33.89
-- volume: 1496045
-- ma5: 
-- ema23_primary: 
-- distance_to_ema23_pct: 
-- ma20: 
-- ma60: 
-- ma120: 
+- date: 20260528
+- open: 33.94
+- high: 34.21
+- low: 33.46
+- close: 33.53
+- volume: 2448168
+- ma5: 32.97
+- ema23_primary: 32.42
+- distance_to_ema23_pct: 3.43
+- ma20: 32.97
+- ma60: 32.97
+- ma120: 32.97
 - return_5d: 
 - return_20d: 
-- volume_ratio: 
-- distance_to_ma20_pct_auxiliary: 
-- distance_to_high_60_pct: 
+- volume_ratio: 1.5
+- distance_to_ma20_pct_auxiliary: 1.71
+- distance_to_high_60_pct: -1.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -81,6 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,32.08,32.7,32,32.44,2021910,,,,,
 20260526,32.71,33.06,32.71,32.89,1571227,,,,,
 20260527,33,33.94,33,33.89,1496045,,,,,
+20260528,33.94,34.21,33.46,33.53,2448168,32.42,3.43,32.97,32.97,1.5
 ```
 
 ## Latest TDCC Snapshot

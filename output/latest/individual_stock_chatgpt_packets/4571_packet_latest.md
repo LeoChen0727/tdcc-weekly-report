@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4571 鈞興-KY
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:26 Asia/Taipei
+- generated_at: 2026-05-28 19:32:45 Asia/Taipei
 - stock_id: 4571
 - stock_name: 鈞興-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 224
-- high: 227
-- low: 215.5
-- close: 218
-- volume: 1705799
-- ma5: 222.9
-- ema23_primary: 203.48
-- distance_to_ema23_pct: 7.14
-- ma20: 205.5
-- ma60: 176.64
-- ma120: 173
-- return_5d: 3.56
-- return_20d: 28.24
-- volume_ratio: 0.97
-- distance_to_ma20_pct_auxiliary: 6.08
-- distance_to_high_60_pct: -9.73
+- date: 20260528
+- open: 218.5
+- high: 226
+- low: 206
+- close: 212
+- volume: 1353039
+- ma5: 222.1
+- ema23_primary: 204.19
+- distance_to_ema23_pct: 3.83
+- ma20: 207.25
+- ma60: 176.98
+- ma120: 173.43
+- return_5d: -1.85
+- return_20d: 19.77
+- volume_ratio: 0.75
+- distance_to_ma20_pct_auxiliary: 2.29
+- distance_to_high_60_pct: -12.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,171,180,168.5,177,638595,163.56,8.22,159.4,167.97,1.51
 20260430,179,182.5,175.5,178.5,837105,164.8,8.31,160.9,168.13,1.86
 20260504,187.5,196,187,194,3317474,167.23,16,163.07,168.53,5.47
 20260505,196,202.5,196,199.5,2893808,169.92,17.41,165.62,168.86,3.91
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,232,237.5,226,227,1498329,200.17,13.4,200.05,175.25,0.89
 20260526,227,230.5,221,224,919615,202.15,10.81,203.1,176.06,0.54
 20260527,224,227,215.5,218,1705799,203.48,7.14,205.5,176.64,0.97
+20260528,218.5,226,206,212,1353039,204.19,3.83,207.25,176.98,0.75
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 4571 | 鈞興-KY | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 4571 | 鈞興-KY | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 4571 | 鈞興-KY | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 4571 | 鈞興-KY | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 4571 | 鈞興-KY | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260528 | 4571 | 鈞興-KY | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 4571 | 鈞興-KY | 11 | 1 | 719360.0 | 0.0 |  | no_signal | 0 |  |
+| 20260528 | 4571 | 鈞興-KY | 12 | 1 | 1869730.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

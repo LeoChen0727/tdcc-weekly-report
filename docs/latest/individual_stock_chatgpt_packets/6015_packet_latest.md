@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6015 宏遠證
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:46 Asia/Taipei
+- generated_at: 2026-05-28 19:33:04 Asia/Taipei
 - stock_id: 6015
 - stock_name: 宏遠證
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 16.65
-- high: 17.95
-- low: 16.65
-- close: 17.95
-- volume: 18000
-- ma5: 16.27
-- ema23_primary: 15.28
-- distance_to_ema23_pct: 17.44
-- ma20: 15.43
-- ma60: 14.14
-- ma120: 13.05
-- return_5d: 23.79
-- return_20d: 27.3
-- volume_ratio: 0.01
-- distance_to_ma20_pct_auxiliary: 16.33
-- distance_to_high_60_pct: 0
+- date: 20260528
+- open: 18.3
+- high: 18.5
+- low: 17.6
+- close: 18
+- volume: 13255732
+- ma5: 16.79
+- ema23_primary: 15.51
+- distance_to_ema23_pct: 16.05
+- ma20: 15.63
+- ma60: 14.2
+- ma120: 13.12
+- return_5d: 16.88
+- return_20d: 28.11
+- volume_ratio: 3.32
+- distance_to_ma20_pct_auxiliary: 15.18
+- distance_to_high_60_pct: -2.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,14.1,14.15,13.95,14.05,1230000,13.54,3.79,13.43,13.52,0.69
 20260430,14.2,14.4,14.15,14.2,2363000,13.59,4.47,13.49,13.54,1.27
 20260504,14.5,14.8,14.45,14.65,3930000,13.68,7.09,13.55,13.57,1.95
 20260505,14.7,14.95,14.65,14.75,2078000,13.77,7.12,13.62,13.6,1
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,15.95,16.25,15.7,16,16000,14.92,7.22,15.12,14.07,0
 20260526,16.1,16.5,15.75,16.35,16000,15.04,8.7,15.24,14.1,0
 20260527,16.65,17.95,16.65,17.95,18000,15.28,17.44,15.43,14.14,0.01
+20260528,18.3,18.5,17.6,18,13255732,15.51,16.05,15.63,14.2,3.32
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 6015 | 宏遠證 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 6015 | 宏遠證 | true_breakout | 嚴格突破 | 96.0 |  |  | neckline_challenge |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 6015 | 宏遠證 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 6015 | 宏遠證 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260528 | 6015 | 宏遠證 | 6 | 6 | 5 | 6 | 6 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | status |

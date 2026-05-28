@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2891 中信金
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:49 Asia/Taipei
+- generated_at: 2026-05-28 19:32:09 Asia/Taipei
 - stock_id: 2891
 - stock_name: 中信金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 58.5
-- high: 60.2
-- low: 57.6
-- close: 59.2
-- volume: 65196446
-- ma5: 57.84
-- ema23_primary: 55.71
-- distance_to_ema23_pct: 6.27
-- ma20: 55.48
-- ma60: 53.66
-- ma120: 51.38
-- return_5d: 2.42
-- return_20d: 11.07
-- volume_ratio: 1.13
-- distance_to_ma20_pct_auxiliary: 6.71
-- distance_to_high_60_pct: -1.66
+- date: 20260528
+- open: 58.6
+- high: 60.8
+- low: 58.6
+- close: 59.3
+- volume: 69083306
+- ma5: 58.2
+- ema23_primary: 56.01
+- distance_to_ema23_pct: 5.88
+- ma20: 55.79
+- ma60: 53.76
+- ma120: 51.5
+- return_5d: 3.13
+- return_20d: 11.68
+- volume_ratio: 1.18
+- distance_to_ma20_pct_auxiliary: 6.29
+- distance_to_high_60_pct: -2.47
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,53.6,53.9,52.7,53.1,46618085,53.11,-0.02,53.53,52.5,0.94
 20260430,52.7,53.1,52.3,52.3,52055563,53.04,-1.4,53.58,52.52,1.04
 20260504,53,53.3,52.6,52.9,45601590,53.03,-0.24,53.54,52.56,0.93
 20260505,53.3,54.4,52.8,53.5,56231261,53.07,0.81,53.49,52.61,1.14
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,58.2,58.2,57,57.3,46056452,55.19,3.83,54.94,53.54,0.82
 20260526,57.3,58.7,57.3,57.6,51792760,55.39,3.99,55.19,53.61,0.91
 20260527,58.5,60.2,57.6,59.2,65196446,55.71,6.27,55.48,53.66,1.13
+20260528,58.6,60.8,58.6,59.3,69083306,56.01,5.88,55.79,53.76,1.18
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2891 | 中信金 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 2891 | 中信金 | pullback_rebound | 回檔後短線轉強 | 63.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 2891 | 中信金 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 2891 | 中信金 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 2891 | 中信金 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2891 | 中信金 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260528 | 2891 | 中信金 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2891 | 中信金 | 21 | 0 | 7326890.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260528 | 2891 | 中信金 | 21 | 0 | 6207670.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9914 美利達
 
 ## Metadata
-- generated_at: 2026-05-27 21:28:39 Asia/Taipei
+- generated_at: 2026-05-28 19:33:56 Asia/Taipei
 - stock_id: 9914
 - stock_name: 美利達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 67.4
-- high: 67.4
-- low: 64.7
-- close: 64.9
-- volume: 2068266
-- ma5: 67.64
-- ema23_primary: 64.39
-- distance_to_ema23_pct: 0.79
-- ma20: 62.88
-- ma60: 64.42
-- ma120: 75.29
-- return_5d: -5.26
-- return_20d: 14.66
-- volume_ratio: 0.84
-- distance_to_ma20_pct_auxiliary: 3.22
-- distance_to_high_60_pct: -12.53
+- date: 20260528
+- open: 65.2
+- high: 66
+- low: 63.8
+- close: 66
+- volume: 1319080
+- ma5: 66.84
+- ema23_primary: 64.53
+- distance_to_ema23_pct: 2.28
+- ma20: 63.28
+- ma60: 64.29
+- ma120: 75.09
+- return_5d: -5.71
+- return_20d: 13.99
+- volume_ratio: 0.53
+- distance_to_ma20_pct_auxiliary: 4.3
+- distance_to_high_60_pct: -10.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,56.8,57.9,56.7,57.9,731558,61.75,-6.24,60.8,71.05,0.34
 20260430,57.7,59,57.5,57.9,1026952,61.43,-5.75,60.45,70.52,0.5
 20260504,58,59.3,57.6,57.9,901335,61.14,-5.29,60.06,70.01,0.44
 20260505,57.9,58.7,57.6,58.2,619505,60.89,-4.42,59.74,69.52,0.32
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,68.5,68.9,67.3,68.2,1424014,64.08,6.43,61.95,64.74,0.59
 20260526,68.2,68.2,66.1,67.3,1786005,64.35,4.59,62.46,64.59,0.74
 20260527,67.4,67.4,64.7,64.9,2068266,64.39,0.79,62.88,64.42,0.84
+20260528,65.2,66,63.8,66,1319080,64.53,2.28,63.28,64.29,0.53
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 9914 | 美利達 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 9914 | 美利達 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 9914 | 美利達 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 9914 | 美利達 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260528 | 9914 | 美利達 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 9914 | 美利達 | 9 | 0 | 244530.0 | 0.0 |  | no_signal | 0 |  |
+| 20260528 | 9914 | 美利達 | 9 | 0 | 160280.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

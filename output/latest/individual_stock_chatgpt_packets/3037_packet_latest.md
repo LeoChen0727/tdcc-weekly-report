@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3037 欣興
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:54 Asia/Taipei
+- generated_at: 2026-05-28 19:32:14 Asia/Taipei
 - stock_id: 3037
 - stock_name: 欣興
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 1105
-- high: 1110
-- low: 1045
-- close: 1080
-- volume: 27365393
-- ma5: 1006
-- ema23_primary: 873.67
-- distance_to_ema23_pct: 23.62
-- ma20: 894.45
-- ma60: 674.76
-- ma120: 473.61
-- return_5d: 31.23
-- return_20d: 30.91
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: 20.74
-- distance_to_high_60_pct: -2.7
+- date: 20260528
+- open: 1125
+- high: 1130
+- low: 1000
+- close: 1025
+- volume: 25166670
+- ma5: 1030
+- ema23_primary: 886.28
+- distance_to_ema23_pct: 15.65
+- ma20: 905.55
+- ma60: 683.83
+- ma120: 480.79
+- return_5d: 13.26
+- return_20d: 27.65
+- volume_ratio: 0.82
+- distance_to_ma20_pct_auxiliary: 13.19
+- distance_to_high_60_pct: -9.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,805,832,782,803,33105424,664.76,20.79,655.85,509.43,1.54
 20260430,828,883,815,883,34452546,682.95,29.29,677.77,518.7,1.52
 20260504,912,920,862,911,43775340,701.95,29.78,698.9,528.23,1.79
 20260505,899,948,893,903,28445776,718.71,25.64,718.1,537.73,1.21
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,1020,1030,978,990,24465071,833.99,18.71,869.4,654.34,0.8
 20260526,992,1085,989,1085,34270461,854.91,26.91,881.7,664.78,1.08
 20260527,1105,1110,1045,1080,27365393,873.67,23.62,894.45,674.76,0.88
+20260528,1125,1130,1000,1025,25166670,886.28,15.65,905.55,683.83,0.82
 ```
 
 ## Latest TDCC Snapshot
@@ -135,7 +135,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3037 | 欣興 | 232 | 40 | 24140230.0 | 210390.0 | 114.74 | no_signal | 0 |  |
+| 20260528 | 3037 | 欣興 | 230 | 40 | 20692890.0 | 260290.0 | 79.5 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

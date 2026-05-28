@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3545 敦泰
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:10 Asia/Taipei
+- generated_at: 2026-05-28 19:32:30 Asia/Taipei
 - stock_id: 3545
 - stock_name: 敦泰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 134
+- latest_price_date: 20260528
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 61.9
-- high: 61.9
-- low: 58.9
-- close: 59.3
-- volume: 2660029
-- ma5: 60.92
-- ema23_primary: 56.46
-- distance_to_ema23_pct: 5.03
-- ma20: 56.43
-- ma60: 50.49
-- ma120: 51.51
-- return_5d: 3.31
-- return_20d: 18.36
-- volume_ratio: 0.87
-- distance_to_ma20_pct_auxiliary: 5.09
-- distance_to_high_60_pct: -6.47
+- date: 20260528
+- open: 60
+- high: 60.3
+- low: 57.2
+- close: 58.2
+- volume: 2260645
+- ma5: 60.32
+- ema23_primary: 56.6
+- distance_to_ema23_pct: 2.82
+- ma20: 56.78
+- ma60: 50.59
+- ma120: 51.59
+- return_5d: -4.9
+- return_20d: 13.89
+- volume_ratio: 0.73
+- distance_to_ma20_pct_auxiliary: 2.49
+- distance_to_high_60_pct: -8.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,50.1,52.3,49.85,51.1,1596743,49.94,2.33,50.1,49.58,0.66
 20260430,51.8,51.9,50.1,50.1,1005402,49.95,0.3,50.24,49.48,0.45
 20260504,51.1,52.3,50.8,51.2,1198840,50.05,2.29,50.37,49.4,0.56
 20260505,51.9,53.2,51.5,53,1387677,50.3,5.37,50.63,49.36,0.65
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,62.7,63.4,61.1,61.6,3811644,55.77,10.44,55.47,50.23,1.31
 20260526,63.2,63.2,60.3,60.9,2757053,56.2,8.36,55.97,50.38,0.93
 20260527,61.9,61.9,58.9,59.3,2660029,56.46,5.03,56.43,50.49,0.87
+20260528,60,60.3,57.2,58.2,2260645,56.6,2.82,56.78,50.59,0.73
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 3545 | 敦泰 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 3545 | 敦泰 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 3545 | 敦泰 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3545 | 敦泰 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260528 | 3545 | 敦泰 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3545 | 敦泰 | 15 | 0 | 565620.0 | 0.0 |  | no_signal | 0 |  |
+| 20260528 | 3545 | 敦泰 | 15 | 0 | 424640.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

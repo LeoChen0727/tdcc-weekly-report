@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3081 聯亞
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:56 Asia/Taipei
+- generated_at: 2026-05-28 19:32:16 Asia/Taipei
 - stock_id: 3081
 - stock_name: 聯亞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 3170
-- high: 3215
-- low: 2855
-- close: 2885
-- volume: 3025000
-- ma5: 2847
-- ema23_primary: 2695.44
-- distance_to_ema23_pct: 7.03
-- ma20: 2743.25
-- ma60: 2189.17
-- ma120: 1462.69
-- return_5d: 11.82
-- return_20d: 15.17
+- date: 20260528
+- open: 2890
+- high: 2890
+- low: 2600
+- close: 2650
+- volume: 3052512
+- ma5: 2866
+- ema23_primary: 2691.65
+- distance_to_ema23_pct: -1.55
+- ma20: 2753.5
+- ma60: 2210.42
+- ma120: 1481.08
+- return_5d: 3.72
+- return_20d: 8.38
 - volume_ratio: 1.07
-- distance_to_ma20_pct_auxiliary: 5.17
-- distance_to_high_60_pct: -12.71
+- distance_to_ma20_pct_auxiliary: -3.76
+- distance_to_high_60_pct: -19.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,2480,2590,2430,2445,2443000,2331.74,4.86,2375,1642.27,0.71
 20260430,2610,2685,2605,2640,3415000,2357.43,11.99,2428.25,1673.35,1.01
 20260504,2795,2865,2615,2745,3328000,2389.72,14.87,2479,1706.07,0.97
 20260505,2780,2885,2710,2815,2670000,2425.16,16.07,2528.5,1739.38,0.79
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,2790,2980,2730,2925,2900000,2634.41,11.03,2693.25,2130.33,0.99
 20260526,2960,3180,2825,3160,3001000,2678.21,17.99,2724.25,2161.92,1.05
 20260527,3170,3215,2855,2885,3025000,2695.44,7.03,2743.25,2189.17,1.07
+20260528,2890,2890,2600,2650,3052512,2691.65,-1.55,2753.5,2210.42,1.07
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 3081 | 聯亞 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 3081 | 聯亞 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
 
 ## Warrant Context
 | status |

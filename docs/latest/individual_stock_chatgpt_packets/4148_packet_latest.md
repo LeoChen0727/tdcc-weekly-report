@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4148 全宇生技-KY
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:19 Asia/Taipei
+- generated_at: 2026-05-28 19:32:38 Asia/Taipei
 - stock_id: 4148
 - stock_name: 全宇生技-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 134
+- latest_price_date: 20260528
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 32.05
-- high: 32.35
-- low: 31.7
-- close: 31.8
-- volume: 45219
-- ma5: 32.97
-- ema23_primary: 35.27
-- distance_to_ema23_pct: -9.84
-- ma20: 35.22
-- ma60: 38.24
-- ma120: 38.45
-- return_5d: -6.47
-- return_20d: -15.54
-- volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: -9.71
-- distance_to_high_60_pct: -29.18
+- date: 20260528
+- open: 31.8
+- high: 31.85
+- low: 30.8
+- close: 30.9
+- volume: 90019
+- ma5: 32.29
+- ema23_primary: 34.9
+- distance_to_ema23_pct: -11.47
+- ma20: 34.93
+- ma60: 38.15
+- ma120: 38.37
+- return_5d: -9.91
+- return_20d: -15.92
+- volume_ratio: 1.08
+- distance_to_ma20_pct_auxiliary: -11.53
+- distance_to_high_60_pct: -31.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,38.3,38.3,36.75,36.75,169860,38.95,-5.65,39.62,39.03,1.84
 20260430,37.3,37.3,36.5,36.8,47122,38.77,-5.08,39.29,39,0.54
 20260504,36.65,36.65,35.5,35.85,77484,38.53,-6.95,38.9,38.95,0.91
 20260505,35.95,36.3,35.55,36,33106,38.32,-6.05,38.54,38.91,0.4
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,34.55,34.55,32.35,32.45,152302,35.91,-9.62,35.79,38.41,1.77
 20260526,32.85,32.85,32,32.05,49459,35.58,-9.93,35.51,38.33,0.57
 20260527,32.05,32.35,31.7,31.8,45219,35.27,-9.84,35.22,38.24,0.52
+20260528,31.8,31.85,30.8,30.9,90019,34.9,-11.47,34.93,38.15,1.08
 ```
 
 ## Latest TDCC Snapshot

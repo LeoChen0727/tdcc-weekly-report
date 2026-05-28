@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3693 營邦
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:15 Asia/Taipei
+- generated_at: 2026-05-28 19:32:35 Asia/Taipei
 - stock_id: 3693
 - stock_name: 營邦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 625
-- high: 625
-- low: 583
-- close: 587
-- volume: 598000
-- ma5: 587.2
-- ema23_primary: 586.09
-- distance_to_ema23_pct: 0.16
-- ma20: 595.4
-- ma60: 552.73
-- ma120: 439.88
-- return_5d: 16.47
-- return_20d: -5.63
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: -1.41
-- distance_to_high_60_pct: -22.25
+- date: 20260528
+- open: 590
+- high: 599
+- low: 557
+- close: 560
+- volume: 1234539
+- ma5: 592
+- ema23_primary: 583.91
+- distance_to_ema23_pct: -4.1
+- ma20: 592.45
+- ma60: 554.42
+- ma120: 442.1
+- return_5d: 4.48
+- return_20d: -9.53
+- volume_ratio: 0.77
+- distance_to_ma20_pct_auxiliary: -5.48
+- distance_to_high_60_pct: -25.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,616,632,603,619,882000,598.24,3.47,602.83,485.93,0.34
 20260430,621,680,612,668,2792000,604.06,10.59,612.58,491.35,1.03
 20260504,685,686,644,654,1966000,608.22,7.53,619.92,496.52,0.71
 20260505,648,671,643,659,1600000,612.45,7.6,629.1,501.72,0.57
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,647,647,620,621,635000,584.46,6.25,598,547.34,0.37
 20260526,623,627,588,603,605000,586,2.9,597.15,550.51,0.37
 20260527,625,625,583,587,598000,586.09,0.16,595.4,552.73,0.38
+20260528,590,599,557,560,1234539,583.91,-4.1,592.45,554.42,0.77
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 3693 | 營邦 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 3693 | 營邦 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | status |

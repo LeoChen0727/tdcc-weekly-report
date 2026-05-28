@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3379 彬台
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:05 Asia/Taipei
+- generated_at: 2026-05-28 19:32:25 Asia/Taipei
 - stock_id: 3379
 - stock_name: 彬台
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 41.3
-- high: 42.15
-- low: 40.25
-- close: 40.7
-- volume: 41000
-- ma5: 41.65
-- ema23_primary: 39.31
-- distance_to_ema23_pct: 3.55
-- ma20: 39.16
-- ma60: 38.34
-- ma120: 43.96
-- return_5d: 0.37
-- return_20d: 12.59
-- volume_ratio: 0.04
-- distance_to_ma20_pct_auxiliary: 3.93
-- distance_to_high_60_pct: -6.44
+- date: 20260528
+- open: 41
+- high: 41.75
+- low: 39.2
+- close: 39.45
+- volume: 420825
+- ma5: 41.24
+- ema23_primary: 39.32
+- distance_to_ema23_pct: 0.33
+- ma20: 39.15
+- ma60: 38.31
+- ma120: 43.87
+- return_5d: -4.94
+- return_20d: -0.75
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: 0.77
+- distance_to_high_60_pct: -9.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,39.75,39.75,39.25,39.75,918000,37.16,6.96,36.63,40.63,3.42
 20260430,40.5,41.8,38.8,38.8,3450000,37.3,4.02,36.75,40.44,7.92
 20260504,39.45,40.6,38.05,39,1010000,37.44,4.16,36.85,40.22,2.12
 20260505,39,41.65,38.75,40.15,1016000,37.67,6.59,37.04,40.02,1.95
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,43.35,43.5,41.8,42,42000,38.99,7.72,38.52,38.35,0.04
 20260526,42,43.2,40.7,41.25,42000,39.18,5.28,38.94,38.35,0.04
 20260527,41.3,42.15,40.25,40.7,41000,39.31,3.55,39.16,38.34,0.04
+20260528,41,41.75,39.2,39.45,420825,39.32,0.33,39.15,38.31,0.39
 ```
 
 ## Latest TDCC Snapshot
@@ -130,7 +130,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3379 | 彬台 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260528 | 3379 | 彬台 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4729 熒茂
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:27 Asia/Taipei
+- generated_at: 2026-05-28 19:32:46 Asia/Taipei
 - stock_id: 4729
 - stock_name: 熒茂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 24.25
-- high: 25.1
-- low: 23.65
-- close: 24
-- volume: 24000
-- ma5: 24.56
-- ema23_primary: 22.27
-- distance_to_ema23_pct: 7.76
-- ma20: 21.79
-- ma60: 20.86
-- ma120: 21.61
-- return_5d: 1.69
-- return_20d: 21.21
-- volume_ratio: 0.02
-- distance_to_ma20_pct_auxiliary: 10.14
-- distance_to_high_60_pct: -9.26
+- date: 20260528
+- open: 23.95
+- high: 25.35
+- low: 23.95
+- close: 24.7
+- volume: 1298685
+- ma5: 24.69
+- ema23_primary: 22.47
+- distance_to_ema23_pct: 9.9
+- ma20: 22.03
+- ma60: 20.89
+- ma120: 21.65
+- return_5d: 2.7
+- return_20d: 24.43
+- volume_ratio: 1.16
+- distance_to_ma20_pct_auxiliary: 12.11
+- distance_to_high_60_pct: -6.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,19.95,20,19.75,19.85,59000,20.14,-1.45,19.91,20.89,0.24
 20260430,19.85,20,19.7,19.7,84000,20.11,-2.02,19.92,20.83,0.34
 20260504,19.75,19.75,19.35,19.5,316000,20.06,-2.77,19.92,20.77,1.25
 20260505,19.6,19.7,19.4,19.7,156000,20.03,-1.63,19.94,20.72,0.62
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,25.5,25.85,24.55,25.2,25000,21.95,14.81,21.37,20.81,0.02
 20260526,25.2,25.2,23.9,23.95,24000,22.12,8.3,21.58,20.84,0.02
 20260527,24.25,25.1,23.65,24,24000,22.27,7.76,21.79,20.86,0.02
+20260528,23.95,25.35,23.95,24.7,1298685,22.47,9.9,22.03,20.89,1.16
 ```
 
 ## Latest TDCC Snapshot
@@ -130,7 +130,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 4729 | 熒茂 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260528 | 4729 | 熒茂 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

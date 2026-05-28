@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6175 立敦
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:51 Asia/Taipei
+- generated_at: 2026-05-28 19:33:09 Asia/Taipei
 - stock_id: 6175
 - stock_name: 立敦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 94.8
-- high: 98.5
-- low: 92.7
-- close: 97.4
-- volume: 96000
-- ma5: 91.56
-- ema23_primary: 75.95
-- distance_to_ema23_pct: 28.24
-- ma20: 74.58
-- ma60: 59.3
-- ma120: 55
-- return_5d: 19.51
-- return_20d: 55.1
-- volume_ratio: 0.01
-- distance_to_ma20_pct_auxiliary: 30.61
-- distance_to_high_60_pct: -1.12
+- date: 20260528
+- open: 96.2
+- high: 107
+- low: 96.1
+- close: 107
+- volume: 16962536
+- ma5: 95.92
+- ema23_primary: 78.54
+- distance_to_ema23_pct: 36.23
+- ma20: 76.75
+- ma60: 60.3
+- ma120: 55.5
+- return_5d: 25.59
+- return_20d: 68.5
+- volume_ratio: 2.06
+- distance_to_ma20_pct_auxiliary: 39.41
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,63.3,64.5,61.7,63.5,3069000,58.21,9.09,57.98,50.73,0.41
 20260430,65.4,66.5,62,62.4,5005000,58.56,6.56,58.71,50.87,0.74
 20260504,63,64,61.6,63.1,3820000,58.94,7.06,59.46,51.05,0.56
 20260505,63.1,65.1,63,65,4027000,59.44,9.35,60.4,51.27,0.58
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,92.8,97.1,90.5,94.2,95000,72.3,30.28,71.25,57.73,0.01
 20260526,93.5,94,87.1,92.7,91000,74,25.26,72.84,58.48,0.01
 20260527,94.8,98.5,92.7,97.4,96000,75.95,28.24,74.58,59.3,0.01
+20260528,96.2,107,96.1,107,16962536,78.54,36.23,76.75,60.3,2.06
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 6175 | 立敦 | true_breakout | 嚴格突破 | 94.0 |  |  | breakout_confirmed |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 6175 | 立敦 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
 
 ## Warrant Context
 | status |

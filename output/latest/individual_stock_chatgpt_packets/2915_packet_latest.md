@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2915 潤泰全
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:50 Asia/Taipei
+- generated_at: 2026-05-28 19:32:10 Asia/Taipei
 - stock_id: 2915
 - stock_name: 潤泰全
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 44.2
-- high: 44.2
-- low: 43.05
-- close: 43.55
-- volume: 3419013
-- ma5: 43.54
-- ema23_primary: 44.09
-- distance_to_ema23_pct: -1.23
-- ma20: 43.68
-- ma60: 46.61
-- ma120: 50
-- return_5d: -0.8
-- return_20d: -2.35
-- volume_ratio: 1.26
-- distance_to_ma20_pct_auxiliary: -0.29
-- distance_to_high_60_pct: -19.65
+- date: 20260528
+- open: 43.9
+- high: 44.45
+- low: 43.7
+- close: 44
+- volume: 3204397
+- ma5: 43.53
+- ema23_primary: 44.08
+- distance_to_ema23_pct: -0.19
+- ma20: 43.64
+- ma60: 46.44
+- ma120: 49.91
+- return_5d: -0.11
+- return_20d: -1.57
+- volume_ratio: 1.16
+- distance_to_ma20_pct_auxiliary: 0.82
+- distance_to_high_60_pct: -18.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,44.6,44.9,44.45,44.7,2260983,46.05,-2.93,45.92,49.16,0.97
 20260430,44.85,44.9,44.6,44.65,1862059,45.93,-2.79,45.81,49.05,0.79
 20260504,44.7,44.95,43.5,43.55,4104230,45.73,-4.78,45.58,48.92,1.69
 20260505,43.55,43.65,43.2,43.25,2410537,45.53,-5,45.34,48.78,0.97
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,43.5,43.5,42.5,42.6,4472905,44.14,-3.48,43.71,46.92,1.76
 20260526,42.55,44.25,42.55,44.2,4129032,44.14,0.13,43.73,46.77,1.56
 20260527,44.2,44.2,43.05,43.55,3419013,44.09,-1.23,43.68,46.61,1.26
+20260528,43.9,44.45,43.7,44,3204397,44.08,-0.19,43.64,46.44,1.16
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 2915 | 潤泰全 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 2915 | 潤泰全 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
 
 ## Warrant Context
 | status |

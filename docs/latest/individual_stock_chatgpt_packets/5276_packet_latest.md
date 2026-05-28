@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5276 達輝-KY
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:37 Asia/Taipei
+- generated_at: 2026-05-28 19:32:55 Asia/Taipei
 - stock_id: 5276
 - stock_name: 達輝-KY
-- packet_status: standard_rawdata_packet
-- latest_price_date: 20260527
-- price_rows: 119
+- packet_status: standard_180d_window_packet
+- latest_price_date: 20260528
+- price_rows: 120
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: price history shorter than 120 rows; K-line context is partial; TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
+- notes: TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
 
 ## Stable Read URLs
 - packet_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_chatgpt_packets/5276_packet_latest.md
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 19.8
-- high: 20.65
-- low: 19.65
-- close: 19.9
-- volume: 20000
-- ma5: 19.56
-- ema23_primary: 19.24
-- distance_to_ema23_pct: 3.44
-- ma20: 19.85
-- ma60: 17.27
-- ma120: 16.28
-- return_5d: 6.7
-- return_20d: -0.5
-- volume_ratio: 0.3
-- distance_to_ma20_pct_auxiliary: 0.24
-- distance_to_high_60_pct: -10.36
+- date: 20260528
+- open: 19.3
+- high: 19.4
+- low: 19.1
+- close: 19.4
+- volume: 10821
+- ma5: 19.53
+- ema23_primary: 19.25
+- distance_to_ema23_pct: 0.77
+- ma20: 19.84
+- ma60: 17.33
+- ma120: 16.3
+- return_5d: -0.77
+- return_20d: -1.02
+- volume_ratio: 0.18
+- distance_to_ma20_pct_auxiliary: -2.23
+- distance_to_high_60_pct: -12.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,18,20.15,18,19.6,141000,17.14,14.33,16.64,16,1.57
 20260430,18.85,19.35,18.4,18.4,81000,17.25,6.68,16.8,16.03,0.88
 20260504,18.4,20.2,18.4,20.2,155000,17.49,15.47,17.06,16.1,1.57
 20260505,20.2,22.2,20.2,22.2,202000,17.89,24.12,17.4,16.2,1.85
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,18.7,19.8,18.7,19.8,19000,19.14,3.47,19.98,17.14,0.16
 20260526,19.8,19.8,19.35,19.65,19000,19.18,2.46,19.86,17.21,0.25
 20260527,19.8,20.65,19.65,19.9,20000,19.24,3.44,19.85,17.27,0.3
+20260528,19.3,19.4,19.1,19.4,10821,19.25,0.77,19.84,17.33,0.18
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6658 聯策
 
 ## Metadata
-- generated_at: 2026-05-27 21:28:08 Asia/Taipei
+- generated_at: 2026-05-28 19:33:26 Asia/Taipei
 - stock_id: 6658
 - stock_name: 聯策
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 245
-- high: 247
-- low: 223
-- close: 230.5
-- volume: 2655885
-- ma5: 208.8
-- ema23_primary: 174.43
-- distance_to_ema23_pct: 32.14
-- ma20: 182.3
-- ma60: 110.53
-- ma120: 82
-- return_5d: 35.59
-- return_20d: 72.66
-- volume_ratio: 1.72
-- distance_to_ma20_pct_auxiliary: 26.44
-- distance_to_high_60_pct: -6.68
+- date: 20260528
+- open: 228
+- high: 245
+- low: 215
+- close: 216.5
+- volume: 2031251
+- ma5: 217
+- ema23_primary: 177.94
+- distance_to_ema23_pct: 21.67
+- ma20: 185.8
+- ma60: 113.15
+- ma120: 83.42
+- return_5d: 23.36
+- return_20d: 47.78
+- volume_ratio: 1.38
+- distance_to_ma20_pct_auxiliary: 16.52
+- distance_to_high_60_pct: -12.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,143.5,146.5,133.5,146.5,3452917,92.96,57.6,89.42,69.56,1.25
 20260430,150,154,142,149.5,2429658,97.67,53.06,93.31,71.12,0.9
 20260504,154.5,154.5,143.5,143.5,2563138,101.49,41.39,96.78,72.58,0.94
 20260505,146,157.5,145,157,901822,106.12,47.95,100.98,74.24,0.34
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,212,212,211.5,212,628069,163.55,29.62,171.88,104.73,0.43
 20260526,224.5,233,214,233,2221421,169.34,37.6,177.45,107.66,1.54
 20260527,245,247,223,230.5,2655885,174.43,32.14,182.3,110.53,1.72
+20260528,228,245,215,216.5,2031251,177.94,21.67,185.8,113.15,1.38
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 6658 | 聯策 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 6658 | 聯策 | 2 | 1 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

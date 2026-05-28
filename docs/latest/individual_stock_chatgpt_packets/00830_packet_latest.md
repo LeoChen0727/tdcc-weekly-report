@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00830 國泰費城半導體
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:01 Asia/Taipei
+- generated_at: 2026-05-28 19:31:22 Asia/Taipei
 - stock_id: 00830
 - stock_name: 國泰費城半導體
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260527
-- price_rows: 4
+- latest_price_date: 20260528
+- price_rows: 5
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 90.85
-- high: 90.85
-- low: 90.4
-- close: 90.6
-- volume: 9665813
-- ma5: 
-- ema23_primary: 
-- distance_to_ema23_pct: 
-- ma20: 
-- ma60: 
-- ma120: 
+- date: 20260528
+- open: 88.75
+- high: 89.1
+- low: 86.95
+- close: 87.5
+- volume: 19318705
+- ma5: 87.45
+- ema23_primary: 85.43
+- distance_to_ema23_pct: 2.42
+- ma20: 87.45
+- ma60: 87.45
+- ma120: 87.45
 - return_5d: 
 - return_20d: 
-- volume_ratio: 
-- distance_to_ma20_pct_auxiliary: 
-- distance_to_high_60_pct: 
+- volume_ratio: 1.83
+- distance_to_ma20_pct_auxiliary: 0.06
+- distance_to_high_60_pct: -3.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -81,6 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,87,87.85,86.85,87.8,10878767,,,,,
 20260526,87.65,87.65,86.6,87.1,6352731,,,,,
 20260527,90.85,90.85,90.4,90.6,9665813,,,,,
+20260528,88.75,89.1,86.95,87.5,19318705,85.43,2.42,87.45,87.45,1.83
 ```
 
 ## Latest TDCC Snapshot

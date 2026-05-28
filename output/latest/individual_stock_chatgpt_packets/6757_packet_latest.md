@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6757 台灣虎航
 
 ## Metadata
-- generated_at: 2026-05-27 21:28:12 Asia/Taipei
+- generated_at: 2026-05-28 19:33:30 Asia/Taipei
 - stock_id: 6757
 - stock_name: 台灣虎航
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 55.1
-- high: 55.5
-- low: 54.4
-- close: 54.5
-- volume: 1195151
-- ma5: 54.48
-- ema23_primary: 52.84
-- distance_to_ema23_pct: 3.14
-- ma20: 52.91
-- ma60: 52.16
-- ma120: 59.47
-- return_5d: 4.01
-- return_20d: 12.72
-- volume_ratio: 0.72
-- distance_to_ma20_pct_auxiliary: 3.01
-- distance_to_high_60_pct: -14.17
+- date: 20260528
+- open: 54.5
+- high: 55.9
+- low: 54.5
+- close: 54.8
+- volume: 2170904
+- ma5: 54.6
+- ema23_primary: 53
+- distance_to_ema23_pct: 3.39
+- ma20: 53.17
+- ma60: 52.02
+- ma120: 59.38
+- return_5d: 1.11
+- return_20d: 10.48
+- volume_ratio: 1.26
+- distance_to_ma20_pct_auxiliary: 3.07
+- distance_to_high_60_pct: -13.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,48.5,49.65,48.25,49.6,972542,50.17,-1.14,49.25,56.37,0.99
 20260430,49.6,49.85,49.1,49.65,798930,50.13,-0.96,49.28,56,0.84
 20260504,50,51.8,49.8,50.9,1513695,50.19,1.41,49.29,55.69,1.55
 20260505,50.6,50.6,49.6,50.3,1048993,50.2,0.19,49.36,55.37,1.11
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,54.7,55.4,54.3,54.4,1204213,52.46,3.7,52.26,52.46,0.75
 20260526,54.8,55.4,54.1,55.2,1664649,52.69,4.77,52.6,52.32,1.02
 20260527,55.1,55.5,54.4,54.5,1195151,52.84,3.14,52.91,52.16,0.72
+20260528,54.5,55.9,54.5,54.8,2170904,53,3.39,53.17,52.02,1.26
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 6757 | 台灣虎航 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260528 | 6757 | 台灣虎航 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 6757 | 台灣虎航 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260528 | 6757 | 台灣虎航 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 6757 | 台灣虎航 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260528 | 6757 | 台灣虎航 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 6757 | 台灣虎航 | 5 | 0 | 82060.0 | 0.0 |  | no_signal | 0 |  |
+| 20260528 | 6757 | 台灣虎航 | 5 | 0 | 164930.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

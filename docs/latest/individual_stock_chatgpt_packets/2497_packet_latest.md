@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2497 怡利電
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:40 Asia/Taipei
+- generated_at: 2026-05-28 19:32:00 Asia/Taipei
 - stock_id: 2497
 - stock_name: 怡利電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 134
+- latest_price_date: 20260528
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 59.5
-- high: 59.5
-- low: 57.9
-- close: 57.9
-- volume: 358455
-- ma5: 57.94
-- ema23_primary: 56.79
-- distance_to_ema23_pct: 1.95
-- ma20: 57.16
-- ma60: 51.49
-- ma120: 49.84
-- return_5d: 3.21
-- return_20d: 1.94
-- volume_ratio: 0.46
-- distance_to_ma20_pct_auxiliary: 1.29
-- distance_to_high_60_pct: -7.66
+- date: 20260528
+- open: 58.6
+- high: 63.6
+- low: 58.6
+- close: 60.8
+- volume: 3508178
+- ma5: 58.74
+- ema23_primary: 57.13
+- distance_to_ema23_pct: 6.43
+- ma20: 57.45
+- ma60: 51.75
+- ma120: 50.01
+- return_5d: 7.04
+- return_20d: 10.34
+- volume_ratio: 3.81
+- distance_to_ma20_pct_auxiliary: 5.83
+- distance_to_high_60_pct: -4.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,56.8,56.8,55,55.1,588041,53.91,2.21,54.57,48.77,0.51
 20260430,56.3,56.5,55,55.1,515191,54.01,2.02,54.98,48.8,0.49
 20260504,56,56,52.6,53.8,1207494,53.99,-0.35,55.16,48.81,1.13
 20260505,54.3,56,53.6,55.2,579240,54.09,2.05,55.31,48.84,0.57
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,59,59.7,57.1,59,906067,56.48,4.46,57.05,51.05,1.14
 20260526,59.2,60.1,57.6,59,443778,56.69,4.07,57.11,51.28,0.57
 20260527,59.5,59.5,57.9,57.9,358455,56.79,1.95,57.16,51.49,0.46
+20260528,58.6,63.6,58.6,60.8,3508178,57.13,6.43,57.45,51.75,3.81
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 2497 | 怡利電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 2497 | 怡利電 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2497 | 怡利電 | 2 | 0 | 140.0 | 0.0 |  | no_signal | 0 |  |
+| 20260528 | 2497 | 怡利電 | 2 | 0 | 104500.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

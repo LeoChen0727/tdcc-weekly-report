@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2885 元大金
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:49 Asia/Taipei
+- generated_at: 2026-05-28 19:32:09 Asia/Taipei
 - stock_id: 2885
 - stock_name: 元大金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 59.6
-- high: 59.8
-- low: 57.5
-- close: 59.5
-- volume: 40035150
-- ma5: 56.54
-- ema23_primary: 54.53
-- distance_to_ema23_pct: 9.1
-- ma20: 55.29
-- ma60: 49.67
-- ma120: 45.11
-- return_5d: 7.99
-- return_20d: 13.98
-- volume_ratio: 1.44
-- distance_to_ma20_pct_auxiliary: 7.61
-- distance_to_high_60_pct: -0.5
+- date: 20260528
+- open: 59.5
+- high: 60.2
+- low: 58.4
+- close: 59.1
+- volume: 37726655
+- ma5: 57.42
+- ema23_primary: 54.92
+- distance_to_ema23_pct: 7.62
+- ma20: 55.63
+- ma60: 49.87
+- ma120: 45.3
+- return_5d: 8.04
+- return_20d: 13
+- volume_ratio: 1.32
+- distance_to_ma20_pct_auxiliary: 6.24
+- distance_to_high_60_pct: -1.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,52.8,52.8,51.5,52.3,23560300,49.1,6.51,49.15,45.98,0.87
 20260430,51.3,53,51.3,52.2,33966640,49.36,5.75,49.52,46.16,1.26
 20260504,52.8,53.2,52,53.1,28751523,49.67,6.9,49.82,46.35,1.08
 20260505,52.8,55.7,52.7,55.4,30594571,50.15,10.47,50.3,46.57,1.14
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,55.1,56.1,54.9,56.1,28737220,53.79,4.29,54.6,49.33,1.07
 20260526,56.7,57.4,56.3,57.3,37682542,54.08,5.95,54.92,49.5,1.39
 20260527,59.6,59.8,57.5,59.5,40035150,54.53,9.1,55.29,49.67,1.44
+20260528,59.5,60.2,58.4,59.1,37726655,54.92,7.62,55.63,49.87,1.32
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2885 | 元大金 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_strong_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260527 | 2885 | 元大金 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | call_strong_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 2885 | 元大金 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2885 | 元大金 | 5 | 5 | 5 | 5 | 5 | continued_many_days | 連續 5 個交易日上榜，需判斷是持續醞釀或訊號鈍化。 |
+| 20260528 | 2885 | 元大金 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2885 | 元大金 | 16 | 0 | 3186200.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260528 | 2885 | 元大金 | 16 | 0 | 2659730.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

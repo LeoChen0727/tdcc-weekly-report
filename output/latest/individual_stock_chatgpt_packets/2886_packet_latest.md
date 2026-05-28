@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2886 兆豐金
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:49 Asia/Taipei
+- generated_at: 2026-05-28 19:32:09 Asia/Taipei
 - stock_id: 2886
 - stock_name: 兆豐金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 39.6
-- high: 39.95
-- low: 39.4
-- close: 39.45
-- volume: 29286253
-- ma5: 39.69
-- ema23_primary: 39.67
-- distance_to_ema23_pct: -0.55
-- ma20: 39.66
-- ma60: 39.43
+- date: 20260528
+- open: 39.8
+- high: 40.25
+- low: 39.5
+- close: 39.8
+- volume: 36810439
+- ma5: 39.61
+- ema23_primary: 39.68
+- distance_to_ema23_pct: 0.3
+- ma20: 39.65
+- ma60: 39.42
 - ma120: 39.83
-- return_5d: -2.11
-- return_20d: -1.74
-- volume_ratio: 1.15
-- distance_to_ma20_pct_auxiliary: -0.53
-- distance_to_high_60_pct: -4.71
+- return_5d: -0.99
+- return_20d: -0.75
+- volume_ratio: 1.4
+- distance_to_ma20_pct_auxiliary: 0.39
+- distance_to_high_60_pct: -3.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,40.45,40.45,39.8,40.1,19705116,39.58,1.31,39.53,39.45,0.74
 20260430,39.35,39.95,39.1,39.1,32116300,39.54,-1.11,39.57,39.44,1.22
 20260504,39.6,39.6,39,39,22230771,39.49,-1.25,39.57,39.43,0.85
 20260505,39,39.3,38.7,39.1,11363742,39.46,-0.92,39.56,39.42,0.44
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,39.9,39.9,39.5,39.5,34301485,39.72,-0.54,39.72,39.46,1.32
 20260526,39.5,40.05,39.4,39.4,31557374,39.69,-0.73,39.7,39.44,1.23
 20260527,39.6,39.95,39.4,39.45,29286253,39.67,-0.55,39.66,39.43,1.15
+20260528,39.8,40.25,39.5,39.8,36810439,39.68,0.3,39.65,39.42,1.4
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2886 | 兆豐金 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 2886 | 兆豐金 | pullback_rebound | 回檔後短線轉強 | 63.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 2886 | 兆豐金 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 2886 | 兆豐金 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2886 | 兆豐金 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260528 | 2886 | 兆豐金 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2886 | 兆豐金 | 2 | 0 | 1083440.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260528 | 2886 | 兆豐金 | 2 | 0 | 227150.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

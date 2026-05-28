@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2884 玉山金
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:49 Asia/Taipei
+- generated_at: 2026-05-28 19:32:09 Asia/Taipei
 - stock_id: 2884
 - stock_name: 玉山金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 134
+- latest_price_date: 20260528
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
+- date: 20260528
 - open: 31.15
-- high: 31.25
-- low: 30.95
-- close: 31.15
-- volume: 52347427
-- ma5: 31.21
-- ema23_primary: 31.78
-- distance_to_ema23_pct: -1.98
-- ma20: 31.74
-- ma60: 32.37
+- high: 31.15
+- low: 30.65
+- close: 30.7
+- volume: 68131486
+- ma5: 31.04
+- ema23_primary: 31.69
+- distance_to_ema23_pct: -3.12
+- ma20: 31.66
+- ma60: 32.3
 - ma120: 32.65
-- return_5d: -1.74
-- return_20d: -4.01
-- volume_ratio: 1.33
-- distance_to_ma20_pct_auxiliary: -1.86
-- distance_to_high_60_pct: -11.25
+- return_5d: -2.69
+- return_20d: -5.25
+- volume_ratio: 1.66
+- distance_to_ma20_pct_auxiliary: -3.02
+- distance_to_high_60_pct: -12.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,32.85,32.85,32.1,32.4,34842777,32.59,-0.59,32.53,33.07,1.13
 20260430,32.1,32.4,31.8,31.85,48508781,32.53,-2.1,32.53,33.04,1.53
 20260504,32.15,32.15,31.3,31.3,59013659,32.43,-3.48,32.48,33.01,1.75
 20260505,31.3,31.55,31.1,31.55,35874248,32.36,-2.49,32.45,32.97,1.04
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,31.3,31.35,30.9,30.9,47765179,31.9,-3.13,31.88,32.5,1.26
 20260526,30.9,31.5,30.9,31.15,48567179,31.84,-2.15,31.8,32.44,1.26
 20260527,31.15,31.25,30.95,31.15,52347427,31.78,-1.98,31.74,32.37,1.33
+20260528,31.15,31.15,30.65,30.7,68131486,31.69,-3.12,31.66,32.3,1.66
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2884 | 玉山金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 2884 | 玉山金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2884 | 玉山金 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260528 | 2884 | 玉山金 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2884 | 玉山金 | 18 | 0 | 348080.0 | 0.0 |  | no_signal | 0 |  |
+| 20260528 | 2884 | 玉山金 | 18 | 0 | 405090.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2382 廣達
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:33 Asia/Taipei
+- generated_at: 2026-05-28 19:31:53 Asia/Taipei
 - stock_id: 2382
 - stock_name: 廣達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 322
-- high: 323.5
-- low: 312
-- close: 312
-- volume: 43591575
-- ma5: 313.8
-- ema23_primary: 316.3
-- distance_to_ema23_pct: -1.36
-- ma20: 320.9
-- ma60: 307.01
-- ma120: 293.68
-- return_5d: 7.59
-- return_20d: -2.8
-- volume_ratio: 1.46
-- distance_to_ma20_pct_auxiliary: -2.77
-- distance_to_high_60_pct: -11.49
+- date: 20260528
+- open: 312.5
+- high: 319
+- low: 308.5
+- close: 308.5
+- volume: 43210473
+- ma5: 313.9
+- ema23_primary: 315.65
+- distance_to_ema23_pct: -2.27
+- ma20: 320.23
+- ma60: 307.13
+- ma120: 293.99
+- return_5d: 0.16
+- return_20d: -4.19
+- volume_ratio: 1.38
+- distance_to_ma20_pct_auxiliary: -3.66
+- distance_to_high_60_pct: -12.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,322,322,317,322,11774226,313.95,2.57,314.7,295.06,0.51
 20260430,320,321,312,312.5,18917525,313.83,-0.42,316.4,295.55,0.82
 20260504,317.5,321.5,315,318,17713587,314.17,1.22,317.77,296.18,0.77
 20260505,317,323.5,315,321,12463306,314.74,1.99,319.6,296.75,0.54
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,322,325,316.5,316.5,46775832,316.71,-0.07,321.8,306.35,1.73
 20260526,322,327,316.5,316.5,46085483,316.69,-0.06,321.35,306.67,1.62
 20260527,322,323.5,312,312,43591575,316.3,-1.36,320.9,307.01,1.46
+20260528,312.5,319,308.5,308.5,43210473,315.65,-2.27,320.23,307.13,1.38
 ```
 
 ## Latest TDCC Snapshot
@@ -125,14 +125,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2382 | 廣達 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260527 | 2382 | 廣達 | revenue_breakout_low_response | 營收爆發低反應股 | 16.0 | 18.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260528 | 2382 | 廣達 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260528 | 2382 | 廣達 | revenue_breakout_low_response | 營收爆發低反應股 | 16.0 | 21.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260521 | 2382 | 廣達 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 2382 | 廣達 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260528 | 2382 | 廣達 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

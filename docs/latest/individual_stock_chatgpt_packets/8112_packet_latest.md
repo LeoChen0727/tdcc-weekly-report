@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8112 至上
 
 ## Metadata
-- generated_at: 2026-05-27 21:28:29 Asia/Taipei
+- generated_at: 2026-05-28 19:33:46 Asia/Taipei
 - stock_id: 8112
 - stock_name: 至上
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 85.4
-- high: 86.7
-- low: 84.3
+- date: 20260528
+- open: 86
+- high: 89.3
+- low: 85.1
 - close: 86
-- volume: 37232718
-- ma5: 84.88
-- ema23_primary: 84.31
-- distance_to_ema23_pct: 2.01
-- ma20: 84.48
-- ma60: 82.51
-- ma120: 78.36
-- return_5d: 2.38
-- return_20d: -0.12
-- volume_ratio: 1.65
-- distance_to_ma20_pct_auxiliary: 1.79
+- volume: 47052789
+- ma5: 84.98
+- ema23_primary: 84.45
+- distance_to_ema23_pct: 1.84
+- ma20: 84.55
+- ma60: 82.73
+- ma120: 78.52
+- return_5d: 0.58
+- return_20d: 1.53
+- volume_ratio: 1.94
+- distance_to_ma20_pct_auxiliary: 1.72
 - distance_to_high_60_pct: -12.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,85.5,87.4,84.5,84.7,12866317,83.63,1.28,82.84,79.53,0.7
 20260430,85.4,85.8,81.4,81.7,15012313,83.47,-2.12,83.24,79.64,0.81
 20260504,81.8,83.2,81.8,82.5,8555086,83.39,-1.07,83.53,79.77,0.46
 20260505,83,85.4,82.9,84.8,11661308,83.51,1.55,84.03,79.88,0.62
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,86.8,86.8,82.7,83.4,31907659,84.23,-0.99,84.78,82.14,1.36
 20260526,83.8,84.7,83.1,83.3,12085666,84.16,-1.02,84.49,82.3,0.54
 20260527,85.4,86.7,84.3,86,37232718,84.31,2.01,84.48,82.51,1.65
+20260528,86,89.3,85.1,86,47052789,84.45,1.84,84.55,82.73,1.94
 ```
 
 ## Latest TDCC Snapshot
@@ -125,21 +125,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 8112 | 至上 | pullback_rebound | 回檔後短線轉強 | 70.0 |  |  |  |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260527 | 8112 | 至上 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260527 | 8112 | 至上 | revenue_breakout_low_response | 營收爆發低反應股 | 13.0 | 23.0 | D_降級_TDCC轉弱 |  |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260527 | 8112 | 至上 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 8112 | 至上 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260528 | 8112 | 至上 | revenue_breakout_low_response | 營收爆發低反應股 | 13.0 | 28.0 | D_降級_TDCC轉弱 |  |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260528 | 8112 | 至上 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 8112 | 至上 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 8112 | 至上 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260528 | 8112 | 至上 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 8112 | 至上 | 162 | 7 | 26056930.0 | 8550.0 | 3047.59 | call_put_bullish | 3 |  |
+| 20260528 | 8112 | 至上 | 159 | 7 | 53112180.0 | 20460.0 | 2595.9 | call_put_bullish | 3 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

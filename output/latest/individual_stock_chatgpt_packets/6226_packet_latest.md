@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6226 光鼎
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:55 Asia/Taipei
+- generated_at: 2026-05-28 19:33:13 Asia/Taipei
 - stock_id: 6226
 - stock_name: 光鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 13.45
-- high: 13.7
-- low: 13.1
-- close: 13.4
-- volume: 2148848
-- ma5: 13.27
-- ema23_primary: 12.73
-- distance_to_ema23_pct: 5.27
-- ma20: 12.59
-- ma60: 12.2
-- ma120: 10.08
-- return_5d: 8.94
-- return_20d: 6.77
-- volume_ratio: 1.2
-- distance_to_ma20_pct_auxiliary: 6.41
-- distance_to_high_60_pct: -16.77
+- date: 20260528
+- open: 13.3
+- high: 14.05
+- low: 12.95
+- close: 13.05
+- volume: 2577189
+- ma5: 13.38
+- ema23_primary: 12.76
+- distance_to_ema23_pct: 2.31
+- ma20: 12.58
+- ma60: 12.27
+- ma120: 10.13
+- return_5d: 4.4
+- return_20d: -1.88
+- volume_ratio: 1.43
+- distance_to_ma20_pct_auxiliary: 3.74
+- distance_to_high_60_pct: -18.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,12.55,13.75,12.35,13.3,2356377,12.86,3.45,13.1,11.09,0.69
 20260430,13.3,13.3,12.35,12.55,2065192,12.83,-2.19,13.09,11.14,0.6
 20260504,12.65,12.85,12.3,12.55,1436896,12.81,-2.01,13.07,11.19,0.42
 20260505,12.55,13.05,12.4,12.8,1434972,12.81,-0.05,13.12,11.24,0.42
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,14.1,14.3,13.25,14,6722758,12.61,11.02,12.49,12.06,3.9
 20260526,13.85,13.9,13.2,13.3,2498371,12.67,4.99,12.55,12.13,1.42
 20260527,13.45,13.7,13.1,13.4,2148848,12.73,5.27,12.59,12.2,1.2
+20260528,13.3,14.05,12.95,13.05,2577189,12.76,2.31,12.58,12.27,1.43
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 6226 | 光鼎 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 6226 | 光鼎 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 6226 | 光鼎 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260528 | 6226 | 光鼎 | 3 | 3 | 3 | 3 | 3 | continued_2_3d | 連續 3 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | status |

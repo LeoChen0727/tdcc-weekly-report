@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4994 傳奇
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:34 Asia/Taipei
+- generated_at: 2026-05-28 19:32:52 Asia/Taipei
 - stock_id: 4994
 - stock_name: 傳奇
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 91.9
-- high: 92.4
-- low: 89.1
-- close: 89.5
-- volume: 19676
-- ma5: 91.2
-- ema23_primary: 93.98
-- distance_to_ema23_pct: -4.76
-- ma20: 94.19
-- ma60: 96.77
-- ma120: 97.98
-- return_5d: -0.56
-- return_20d: -9.5
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: -4.98
-- distance_to_high_60_pct: -18.64
+- date: 20260528
+- open: 89.5
+- high: 91.7
+- low: 88
+- close: 90.1
+- volume: 23171
+- ma5: 91.22
+- ema23_primary: 93.65
+- distance_to_ema23_pct: -3.8
+- ma20: 93.69
+- ma60: 96.55
+- ma120: 97.94
+- return_5d: 0.11
+- return_20d: -9.9
+- volume_ratio: 1.04
+- distance_to_ma20_pct_auxiliary: -3.84
+- distance_to_high_60_pct: -18.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,99.4,100,98.7,100,23066,98.88,1.13,99.3,99.54,0.95
 20260430,100.5,100.5,95.6,95.9,24616,98.63,-2.77,99.26,99.41,1.01
 20260504,96,97.5,94.8,94.8,31420,98.31,-3.57,99.06,99.31,1.27
 20260505,95,99.8,94.8,95.7,20256,98.1,-2.44,98.94,99.17,0.81
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,89.4,95.2,89,95.2,34432,94.61,0.62,95.05,97.18,1.49
 20260526,95.4,95.4,90,91.9,38153,94.38,-2.63,94.66,97,1.55
 20260527,91.9,92.4,89.1,89.5,19676,93.98,-4.76,94.19,96.77,0.88
+20260528,89.5,91.7,88,90.1,23171,93.65,-3.8,93.69,96.55,1.04
 ```
 
 ## Latest TDCC Snapshot

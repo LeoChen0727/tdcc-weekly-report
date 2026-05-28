@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00736 國泰新興市場
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:01 Asia/Taipei
+- generated_at: 2026-05-28 19:31:22 Asia/Taipei
 - stock_id: 00736
 - stock_name: 國泰新興市場
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260527
-- price_rows: 4
+- latest_price_date: 20260528
+- price_rows: 5
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 31.03
-- high: 31.03
-- low: 30.96
-- close: 30.96
-- volume: 221224
-- ma5: 
-- ema23_primary: 
-- distance_to_ema23_pct: 
-- ma20: 
-- ma60: 
-- ma120: 
+- date: 20260528
+- open: 30.96
+- high: 30.96
+- low: 30.38
+- close: 30.62
+- volume: 114508
+- ma5: 30.59
+- ema23_primary: 30.36
+- distance_to_ema23_pct: 0.84
+- ma20: 30.59
+- ma60: 30.59
+- ma120: 30.59
 - return_5d: 
 - return_20d: 
-- volume_ratio: 
-- distance_to_ma20_pct_auxiliary: 
-- distance_to_high_60_pct: 
+- volume_ratio: 0.87
+- distance_to_ma20_pct_auxiliary: 0.09
+- distance_to_high_60_pct: -1.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -81,6 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,30.38,30.52,30.38,30.52,108966,,,,,
 20260526,30.67,30.67,30.57,30.63,109133,,,,,
 20260527,31.03,31.03,30.96,30.96,221224,,,,,
+20260528,30.96,30.96,30.38,30.62,114508,30.36,0.84,30.59,30.59,0.87
 ```
 
 ## Latest TDCC Snapshot

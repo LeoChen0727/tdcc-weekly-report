@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6968 萬達寵物
 
 ## Metadata
-- generated_at: 2026-05-27 21:28:19 Asia/Taipei
+- generated_at: 2026-05-28 19:33:37 Asia/Taipei
 - stock_id: 6968
 - stock_name: 萬達寵物
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 43.8
-- high: 43.85
-- low: 42.8
-- close: 42.95
-- volume: 43000
-- ma5: 43.93
-- ema23_primary: 43.93
-- distance_to_ema23_pct: -2.24
-- ma20: 43.47
-- ma60: 45.42
-- ma120: 49.28
-- return_5d: -2.39
-- return_20d: -1.15
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: -1.18
-- distance_to_high_60_pct: -12.88
+- date: 20260528
+- open: 42.95
+- high: 43
+- low: 42.65
+- close: 42.65
+- volume: 63287
+- ma5: 43.46
+- ema23_primary: 43.83
+- distance_to_ema23_pct: -2.69
+- ma20: 43.42
+- ma60: 45.33
+- ma120: 49.19
+- return_5d: -5.22
+- return_20d: -2.07
+- volume_ratio: 1.08
+- distance_to_ma20_pct_auxiliary: -1.77
+- distance_to_high_60_pct: -13.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,43,43.6,42.95,43.55,61000,45.51,-4.3,45.41,47.41,0.96
 20260430,43.25,43.55,43.25,43.55,3000,45.35,-3.96,45.3,47.26,0.05
 20260504,43.3,43.5,42.6,42.9,90000,45.14,-4.97,45.17,47.09,1.36
 20260505,42.9,43.2,42.75,42.8,36000,44.95,-4.78,45.07,46.96,0.56
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,44.3,44.5,43.7,43.8,44000,44.13,-0.74,43.54,45.63,0.74
 20260526,43.6,43.6,42.85,42.9,43000,44.02,-2.55,43.49,45.52,0.74
 20260527,43.8,43.85,42.8,42.95,43000,43.93,-2.24,43.47,45.42,0.73
+20260528,42.95,43,42.65,42.65,63287,43.83,-2.69,43.42,45.33,1.08
 ```
 
 ## Latest TDCC Snapshot

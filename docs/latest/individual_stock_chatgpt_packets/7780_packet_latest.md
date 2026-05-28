@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7780 大研生醫*
 
 ## Metadata
-- generated_at: 2026-05-27 21:28:23 Asia/Taipei
+- generated_at: 2026-05-28 19:33:41 Asia/Taipei
 - stock_id: 7780
 - stock_name: 大研生醫*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 129
+- latest_price_date: 20260528
+- price_rows: 130
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 17.9
-- high: 18.05
-- low: 17.65
-- close: 17.75
-- volume: 1859753
-- ma5: 18.16
-- ema23_primary: 18.72
-- distance_to_ema23_pct: -5.17
-- ma20: 18.37
-- ma60: 19.64
-- ma120: 70.61
-- return_5d: -4.05
-- return_20d: -5.59
-- volume_ratio: 0.94
-- distance_to_ma20_pct_auxiliary: -3.38
-- distance_to_high_60_pct: -27.25
+- date: 20260528
+- open: 17.75
+- high: 17.75
+- low: 17.5
+- close: 17.6
+- volume: 2705503
+- ma5: 17.98
+- ema23_primary: 18.62
+- distance_to_ema23_pct: -5.5
+- ma20: 18.32
+- ma60: 19.53
+- ma120: 69.23
+- return_5d: -4.86
+- return_20d: -5.88
+- volume_ratio: 1.32
+- distance_to_ma20_pct_auxiliary: -3.9
+- distance_to_high_60_pct: -27.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,18.85,19.1,18.65,18.7,1398916,20.62,-9.32,20.23,22.1,0.38
 20260430,19,19,18.5,18.5,1622028,20.45,-9.52,20.15,21.96,0.45
 20260504,18.5,18.7,18.45,18.5,1407030,20.28,-8.79,20.06,21.79,0.39
 20260505,18.65,19.15,18.55,18.9,1812745,20.17,-6.29,19.89,21.64,0.55
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,18.5,18.55,18.05,18.15,2684953,18.89,-3.9,18.46,19.87,1.37
 20260526,18.05,18.05,17.7,17.9,2760349,18.8,-4.81,18.42,19.75,1.39
 20260527,17.9,18.05,17.65,17.75,1859753,18.72,-5.17,18.37,19.64,0.94
+20260528,17.75,17.75,17.5,17.6,2705503,18.62,-5.5,18.32,19.53,1.32
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 7780 | 大研生醫* | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260528 | 7780 | 大研生醫* | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 7780 | 大研生醫* | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260528 | 7780 | 大研生醫* | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 7780 | 大研生醫* | 6 | 0 | 78450.0 | 0.0 |  | no_signal | 0 |  |
+| 20260528 | 7780 | 大研生醫* | 6 | 0 | 5500.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

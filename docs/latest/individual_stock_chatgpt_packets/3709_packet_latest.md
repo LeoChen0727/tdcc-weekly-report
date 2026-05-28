@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3709 鑫聯大投控
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:16 Asia/Taipei
+- generated_at: 2026-05-28 19:32:35 Asia/Taipei
 - stock_id: 3709
 - stock_name: 鑫聯大投控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 91.5
-- high: 91.8
-- low: 86.3
-- close: 86.3
-- volume: 88000
-- ma5: 88.22
-- ema23_primary: 83.16
-- distance_to_ema23_pct: 3.78
-- ma20: 84.62
-- ma60: 75.18
-- ma120: 66.53
-- return_5d: 3.48
-- return_20d: 5.24
-- volume_ratio: 0.02
-- distance_to_ma20_pct_auxiliary: 1.99
-- distance_to_high_60_pct: -7.1
+- date: 20260528
+- open: 86
+- high: 89.3
+- low: 85.1
+- close: 87.3
+- volume: 2216314
+- ma5: 88.28
+- ema23_primary: 83.5
+- distance_to_ema23_pct: 4.55
+- ma20: 85.03
+- ma60: 75.36
+- ma120: 66.81
+- return_5d: 0.34
+- return_20d: 10.23
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: 2.68
+- distance_to_high_60_pct: -6.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,81.5,81.5,79,79.2,2482000,73.75,7.39,72.23,68.39,0.56
 20260430,78.6,84.4,78.6,82.5,4634000,74.48,10.77,73.22,68.75,1.03
 20260504,84.4,86.4,80.6,85.2,5062000,75.37,13.04,74.22,69.14,1.07
 20260505,85,85.4,82.8,85,2672000,76.17,11.59,75.3,69.53,0.56
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,89.4,91.7,85.2,90.2,89000,82.28,9.63,84.02,74.68,0.02
 20260526,90.5,91,88.1,89.4,89000,82.87,7.88,84.41,75.01,0.02
 20260527,91.5,91.8,86.3,86.3,88000,83.16,3.78,84.62,75.18,0.02
+20260528,86,89.3,85.1,87.3,2216314,83.5,4.55,85.03,75.36,0.6
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 3709 | 鑫聯大投控 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 3709 | 鑫聯大投控 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | status |

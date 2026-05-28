@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3217 優群
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:00 Asia/Taipei
+- generated_at: 2026-05-28 19:32:20 Asia/Taipei
 - stock_id: 3217
 - stock_name: 優群
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 195
-- high: 202
-- low: 193.5
-- close: 197.5
-- volume: 198000
-- ma5: 199.3
-- ema23_primary: 184.56
-- distance_to_ema23_pct: 7.01
-- ma20: 183.9
-- ma60: 167.25
-- ma120: 164.09
-- return_5d: 4.77
-- return_20d: 14.49
-- volume_ratio: 0.12
-- distance_to_ma20_pct_auxiliary: 7.4
-- distance_to_high_60_pct: -6.84
+- date: 20260528
+- open: 199.5
+- high: 200
+- low: 186.5
+- close: 188.5
+- volume: 3315658
+- ma5: 197.2
+- ema23_primary: 184.88
+- distance_to_ema23_pct: 1.96
+- ma20: 184.9
+- ma60: 167.78
+- ma120: 164.3
+- return_5d: -5.28
+- return_20d: 11.87
+- volume_ratio: 1.84
+- distance_to_ma20_pct_auxiliary: 1.95
+- distance_to_high_60_pct: -11.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,170,171,168.5,168.5,812000,164.84,2.22,162.82,158.52,0.52
 20260430,168.5,170,166,166.5,893000,164.98,0.92,163.57,158.61,0.57
 20260504,168,172,168,170,910000,165.39,2.78,164.4,158.78,0.57
 20260505,170,174,169,174,723000,166.11,4.75,165.57,158.95,0.45
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,212,212,197,200,201000,182.5,9.59,181.47,165.96,0.11
 20260526,197.5,198,190,193,193000,183.38,5.25,182.65,166.56,0.11
 20260527,195,202,193.5,197.5,198000,184.56,7.01,183.9,167.25,0.12
+20260528,199.5,200,186.5,188.5,3315658,184.88,1.96,184.9,167.78,1.84
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | 3217 | 優群 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 | 20260521 | 3217 | 優群 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 3217 | 優群 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260528 | 3217 | 優群 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

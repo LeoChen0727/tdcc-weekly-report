@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6205 詮欣
 
 ## Metadata
-- generated_at: 2026-05-27 21:27:53 Asia/Taipei
+- generated_at: 2026-05-28 19:33:11 Asia/Taipei
 - stock_id: 6205
 - stock_name: 詮欣
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 84.3
-- high: 84.4
-- low: 79.4
-- close: 81
-- volume: 2445391
-- ma5: 82.52
-- ema23_primary: 80.17
-- distance_to_ema23_pct: 1.04
-- ma20: 84.21
-- ma60: 69.05
-- ma120: 59.02
-- return_5d: 11.72
-- return_20d: -2.88
-- volume_ratio: 0.35
-- distance_to_ma20_pct_auxiliary: -3.81
-- distance_to_high_60_pct: -22.49
+- date: 20260528
+- open: 81.5
+- high: 81.7
+- low: 76.4
+- close: 77
+- volume: 1834167
+- ma5: 82.48
+- ema23_primary: 79.9
+- distance_to_ema23_pct: -3.63
+- ma20: 83.47
+- ma60: 69.48
+- ma120: 59.35
+- return_5d: -0.26
+- return_20d: -16.03
+- volume_ratio: 0.3
+- distance_to_ma20_pct_auxiliary: -7.76
+- distance_to_high_60_pct: -26.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,83.4,91.7,82.7,91.7,17534864,71.8,27.71,69.36,58.92,3.13
 20260430,91.7,99.6,84.8,86.5,25282851,73.03,18.45,71.15,59.4,3.72
 20260504,86.1,95,83.8,94.5,11444091,74.82,26.31,73.19,60.04,1.56
 20260505,93.2,103,92.7,98.2,17694339,76.76,27.92,75.52,60.75,2.16
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,85.5,88.5,83.2,86.5,6668759,79.83,8.36,84.12,67.98,0.92
 20260526,86.5,86.5,81.6,83,2959434,80.09,3.63,84.33,68.54,0.42
 20260527,84.3,84.4,79.4,81,2445391,80.17,1.04,84.21,69.05,0.35
+20260528,81.5,81.7,76.4,77,1834167,79.9,-3.63,83.47,69.48,0.3
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 6205 | 詮欣 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260528 | 6205 | 詮欣 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260527 | 6205 | 詮欣 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260528 | 6205 | 詮欣 | 3 | 3 | 3 | 3 | 3 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

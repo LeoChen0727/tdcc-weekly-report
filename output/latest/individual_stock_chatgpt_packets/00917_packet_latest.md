@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00917 中信特選金融
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:02 Asia/Taipei
+- generated_at: 2026-05-28 19:31:23 Asia/Taipei
 - stock_id: 00917
 - stock_name: 中信特選金融
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260527
-- price_rows: 4
+- latest_price_date: 20260528
+- price_rows: 5
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
-- open: 21.86
-- high: 21.86
-- low: 21.75
-- close: 21.76
-- volume: 570826
-- ma5: 
-- ema23_primary: 
-- distance_to_ema23_pct: 
-- ma20: 
-- ma60: 
-- ma120: 
+- date: 20260528
+- open: 21.76
+- high: 21.76
+- low: 21.57
+- close: 21.58
+- volume: 899593
+- ma5: 21.74
+- ema23_primary: 21.73
+- distance_to_ema23_pct: -0.67
+- ma20: 21.74
+- ma60: 21.74
+- ma120: 21.74
 - return_5d: 
 - return_20d: 
-- volume_ratio: 
-- distance_to_ma20_pct_auxiliary: 
-- distance_to_high_60_pct: 
+- volume_ratio: 1.02
+- distance_to_ma20_pct_auxiliary: -0.75
+- distance_to_high_60_pct: -1.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -81,6 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,21.73,21.83,21.72,21.79,877484,,,,,
 20260526,21.8,21.88,21.8,21.86,571493,,,,,
 20260527,21.86,21.86,21.75,21.76,570826,,,,,
+20260528,21.76,21.76,21.57,21.58,899593,21.73,-0.67,21.74,21.74,1.02
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2433 互盛電
 
 ## Metadata
-- generated_at: 2026-05-27 21:26:36 Asia/Taipei
+- generated_at: 2026-05-28 19:31:56 Asia/Taipei
 - stock_id: 2433
 - stock_name: 互盛電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260527
-- price_rows: 135
+- latest_price_date: 20260528
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
+- date: 20260528
 - open: 43.85
 - high: 43.85
-- low: 43.35
-- close: 43.4
-- volume: 111660
-- ma5: 44.05
-- ema23_primary: 44.89
-- distance_to_ema23_pct: -3.32
-- ma20: 45
-- ma60: 45.65
-- ma120: 46.46
-- return_5d: -2.69
-- return_20d: -4.3
-- volume_ratio: 1.82
-- distance_to_ma20_pct_auxiliary: -3.56
-- distance_to_high_60_pct: -8.25
+- low: 42.8
+- close: 42.95
+- volume: 128448
+- ma5: 43.74
+- ema23_primary: 44.73
+- distance_to_ema23_pct: -3.97
+- ma20: 44.85
+- ma60: 45.59
+- ma120: 46.42
+- return_5d: -3.48
+- return_20d: -6.43
+- volume_ratio: 1.93
+- distance_to_ma20_pct_auxiliary: -4.24
+- distance_to_high_60_pct: -9.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,45.6,45.9,45.45,45.9,23782,45.79,0.23,45.72,46.23,0.64
 20260430,45.35,45.45,45.3,45.35,37103,45.76,-0.89,45.7,46.2,0.99
 20260504,45.35,45.35,45.2,45.25,40463,45.71,-1.02,45.68,46.17,1.13
 20260505,45.1,45.25,45.1,45.2,29881,45.67,-1.03,45.66,46.15,0.82
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,44.2,45,44.05,44.1,182103,45.14,-2.3,45.17,45.77,3.49
 20260526,44.1,44.1,43.7,43.8,147211,45.02,-2.72,45.1,45.72,2.59
 20260527,43.85,43.85,43.35,43.4,111660,44.89,-3.32,45,45.65,1.82
+20260528,43.85,43.85,42.8,42.95,128448,44.73,-3.97,44.85,45.59,1.93
 ```
 
 ## Latest TDCC Snapshot
