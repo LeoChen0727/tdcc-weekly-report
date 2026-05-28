@@ -11,6 +11,10 @@ on:
         description: "Run weekly surge parameter research"
         required: false
         default: "true"
+      run_explosive_volume:
+        description: "Run explosive volume up research"
+        required: false
+        default: "true"
       run_surge_model:
         description: "Run surge precondition model"
         required: false
@@ -69,6 +73,11 @@ jobs:
           python scripts/research_weekly_surge_strict_parameter_search.py
           python scripts/build_weekly_surge_strict_parameter_candidates.py
 
+      - name: Build explosive volume up research
+        if: ${{ github.event.inputs.run_explosive_volume == 'true' }}
+        run: |
+          python scripts/research_explosive_volume_up.py
+
       - name: Build short-term specialty packet
         run: |
           python scripts/build_daily_short_term_specialty_packet.py
@@ -105,6 +114,8 @@ jobs:
           git add output/history/daily_signals/ || true
 
           git add output/latest/weekly_surge_*.csv output/latest/weekly_surge_*.md || true
+          git add output/latest/explosive_volume_up_*.csv output/latest/explosive_volume_up_*.md || true
+          git add output/history/research/explosive_volume_up_*.csv || true
           git add output/latest/tdcc_overheated_short_term_edge_latest.csv || true
           git add output/latest/tdcc_overheated_short_term_edge_latest.md || true
           git add output/latest/tdcc_overheated_short_term_edge_candidates_latest.csv || true
@@ -130,6 +141,7 @@ jobs:
           git add scripts/build_weekly_surge_multifactor_candidates.py || true
           git add scripts/research_weekly_surge_strict_parameter_search.py || true
           git add scripts/build_weekly_surge_strict_parameter_candidates.py || true
+          git add scripts/research_explosive_volume_up.py || true
           git add scripts/build_surge_precondition_model.py || true
           git add scripts/validate_surge_precondition_model.py || true
           git add scripts/update_daily_candidate_signal_performance.py || true
