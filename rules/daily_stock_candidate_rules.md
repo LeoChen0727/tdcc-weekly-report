@@ -1,6 +1,6 @@
 # Daily Stock Candidate Rules
 
-Last updated: 2026-05-27
+Last updated: 2026-05-28
 
 This task is the daily Taiwan full-market candidate report. It is not a holdings report, single-stock report, backtest report, or pure repo-status check.
 
@@ -51,6 +51,18 @@ Use program-side fields first:
 - `tuning_status`
 
 Do not reorder or upgrade stocks by memory when these fields exist.
+
+## PDF Selection Contract
+
+The front priority table in the daily recommendation PDF must be selected by the program-side decision layer, not by raw `score`, raw `rank`, or category score.
+
+- `score` and `rank` are secondary ordering fields only inside the same decision bucket.
+- A stock with `decision_priority` below `A_priority_watch` must not be shown as a front priority stock.
+- A stock with `why_downgraded`, `downgrade_flags`, `risk_tags`, `must_not_overstate=True`, `revenue_good_eps_unconfirmed_flag=True`, `repeat_appear_label` in stale/repeated/overheated states, `tdcc_distribution_warning`, `mainstream_overheated`, `weak_theme`, `failed_volume_theme`, or `overheated_volume_theme` must not be promoted into the front priority table even if its score or rank is high.
+- These rows may remain in the correct line, such as individual latent watch, revenue low-response watch, risk list, or confirmation-needed list.
+- PDF tables must surface `why_downgraded` and `next_confirmation` so warning rows are not presented as clean bullish candidates.
+
+Example: a revenue low-response stock with strong revenue, repeated-but-no-breakout, no warrant confirmation, and EPS/gross-margin unconfirmed is a confirmation-needed or latent-watch row. It is not a mainstream priority stock only because raw score or rank is high.
 
 ## Six Categories Remain Fixed
 

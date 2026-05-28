@@ -335,6 +335,41 @@ def check_repeat_appearance_in_pdf(label: str, text: str, errors: list[str]) -> 
             errors.append(f"{label}: missing repeat appearance wording: {phrase}")
 
 
+def check_decision_layer_watchlist(errors: list[str]) -> None:
+    try:
+        import importlib.util
+
+        module_path = Path("scripts/generate_daily_market_pdf.py")
+        spec = importlib.util.spec_from_file_location("generate_daily_market_pdf_validation", module_path)
+        if spec is None or spec.loader is None:
+            errors.append("failed to load daily PDF generator for decision-layer validation")
+            return
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        df = module.load_candidates()
+        selected = module.selected_by_category(df)
+        watch = module.top_watchlist(selected)
+    except Exception as exc:
+        errors.append(f"failed decision-layer watchlist validation: {exc}")
+        return
+
+    if watch.empty:
+        return
+    if "decision_priority" in watch.columns:
+        bad_priority = watch[watch["decision_priority"].astype(str).ne("A_priority_watch")]
+        if not bad_priority.empty:
+            ids = bad_priority["stock_id"].astype(str).head(10).tolist()
+            errors.append(f"front watchlist contains non-A decision_priority rows: {ids}")
+    bad_warning_rows = []
+    for _, row in watch.iterrows():
+        if module.has_decision_warning(row):
+            bad_warning_rows.append(str(row.get("stock_id", "")))
+    if bad_warning_rows:
+        errors.append(f"front watchlist contains decision-warning rows: {bad_warning_rows[:10]}")
+    if "stock_id" in watch.columns and watch["stock_id"].astype(str).eq("2347").any():
+        errors.append("2347 appears in front watchlist despite stale/no-confirmation warning")
+
+
 def validate() -> tuple[dict[str, Any], list[str], list[str]]:
     errors: list[str] = []
     warnings: list[str] = []
@@ -364,6 +399,7 @@ def validate() -> tuple[dict[str, Any], list[str], list[str]]:
     check_repeat_appearance_columns(errors)
     check_repeat_appearance_in_pdf("curated", curated["text"], errors)
     check_repeat_appearance_in_pdf("full_table", full["text"], errors)
+    check_decision_layer_watchlist(errors)
 
     result = {
         "generated_at": now_text(),

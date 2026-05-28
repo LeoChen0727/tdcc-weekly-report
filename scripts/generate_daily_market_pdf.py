@@ -610,6 +610,101 @@ def sort_score(row: pd.Series) -> float:
     return priority_bonus + tdcc_bonus + score + rank_bonus + volume_bonus
 
 
+DECISION_PRIORITY_ORDER = {
+    "A_priority_watch": 1,
+    "B_confirm_needed": 2,
+    "C_watch_only": 3,
+    "D_risk_downgrade": 4,
+}
+
+
+WARNING_FLAG_COLUMNS = [
+    "why_downgraded",
+    "downgrade_flags",
+    "risk_tags",
+]
+
+
+WARNING_BOOLEAN_COLUMNS = [
+    "must_not_overstate",
+    "revenue_good_eps_unconfirmed_flag",
+    "continued_overheated",
+    "false_breakout_risk",
+]
+
+
+WARNING_TOKENS = [
+    "repeated_but_no_breakout",
+    "stale_signal",
+    "stale_no_warrant_no_breakout",
+    "needs_eps_confirmation",
+    "revenue_good_eps_unconfirmed",
+    "revenue_eps_unconfirmed_no_attack",
+    "revenue_no_warrant_stale_no_breakout",
+    "tdcc_distribution_warning",
+    "distribution_warning",
+    "continued_overheated",
+    "overheated",
+    "false_breakout_risk",
+    "must_not_overstate",
+]
+
+
+def decision_priority_order(row: pd.Series) -> int:
+    return DECISION_PRIORITY_ORDER.get(clean_text(row.get("decision_priority", "")), 9)
+
+
+def has_decision_warning(row: pd.Series) -> bool:
+    theme_status = clean_text(row.get("theme_final_status", "")).lower()
+    theme_mainstream_status = clean_text(row.get("theme_mainstream_status", "")).lower()
+    risky_theme_statuses = {
+        "mainstream_overheated",
+        "weak_theme",
+        "failed_volume_theme",
+        "overheated_volume_theme",
+    }
+    if theme_status in risky_theme_statuses or theme_mainstream_status in risky_theme_statuses:
+        return True
+    for col in WARNING_BOOLEAN_COLUMNS:
+        if is_truthy(row.get(col, "")):
+            return True
+    joined = "|".join(clean_text(row.get(col, ""), 300).lower() for col in WARNING_FLAG_COLUMNS)
+    if any(token.lower() in joined for token in WARNING_TOKENS):
+        return True
+    repeat_label = clean_text(row.get("repeat_appear_label", "")).lower()
+    if repeat_label in {"stale_signal", "repeated_but_no_breakout", "continued_overheated"}:
+        return True
+    if tdcc_signal(row) == "distribution_warning":
+        return True
+    if overheated(row):
+        return True
+    return False
+
+
+def front_priority_eligible(row: pd.Series) -> bool:
+    if clean_text(row.get("decision_priority", "")) != "A_priority_watch":
+        return False
+    if has_decision_warning(row):
+        return False
+    line_group = clean_text(row.get("candidate_line_group", ""))
+    if line_group == "risk":
+        return False
+    return True
+
+
+def decision_sort(part: pd.DataFrame) -> pd.DataFrame:
+    if part.empty:
+        return part
+    work = part.copy()
+    work["_decision_order"] = work.apply(decision_priority_order, axis=1)
+    work["_has_warning"] = work.apply(has_decision_warning, axis=1).astype(int)
+    work["_decision_score"] = pd.to_numeric(work.get("decision_score", ""), errors="coerce").fillna(0)
+    return work.sort_values(
+        ["_decision_order", "_has_warning", "_decision_score", "sort_score"],
+        ascending=[True, True, False, False],
+    ).drop(columns=["_decision_order", "_has_warning", "_decision_score"], errors="ignore")
+
+
 def score_rank_text(row: pd.Series) -> str:
     parts: list[str] = []
     decision_score = num_text(row.get("decision_score"), 1)
@@ -734,6 +829,22 @@ def risk_text(row: pd.Series, warrant_flow_date: str) -> str:
     if not risks:
         risks.append("需等量能與價格續強確認")
     return clean_text("；".join(risks), 120)
+
+
+def warning_confirmation_text(row: pd.Series, limit: int = 120) -> str:
+    risk = clean_text(row.get("why_downgraded", ""), limit)
+    flags = clean_text(row.get("downgrade_flags", ""), limit)
+    confirm = clean_text(row.get("next_confirmation", ""), limit)
+    parts: list[str] = []
+    if risk:
+        parts.append(f"Warning: {risk}")
+    elif flags:
+        parts.append(f"Warning flags: {flags}")
+    if confirm:
+        parts.append(f"Next: {confirm}")
+    if not parts and has_decision_warning(row):
+        parts.append("Warning: decision-layer risk flag present; do not overstate as top priority.")
+    return clean_text(" / ".join(parts), limit)
 
 
 def confirm_text(row: pd.Series) -> str:
@@ -948,12 +1059,12 @@ def two_line_rows(two_line: pd.DataFrame, groups: set[str], limit: int = 12) -> 
     if part.empty:
         rows.append(["n/a", "", "", "", "", "", "", "", "", "no rows"])
         return rows
-    part["_priority_order"] = part["decision_priority"].map(
-        {"A_priority_watch": 1, "B_confirm_needed": 2, "C_watch_only": 3, "D_risk_downgrade": 4}
-    ).fillna(9)
+    part["_priority_order"] = part["decision_priority"].map(DECISION_PRIORITY_ORDER).fillna(9)
+    part["_has_warning"] = part.apply(has_decision_warning, axis=1).astype(int)
     part["_score"] = pd.to_numeric(part.get("decision_score", ""), errors="coerce").fillna(0)
-    part = part.sort_values(["_priority_order", "_score"], ascending=[True, False]).head(limit)
+    part = part.sort_values(["_priority_order", "_has_warning", "_score"], ascending=[True, True, False]).head(limit)
     for _, row in part.iterrows():
+        note = warning_confirmation_text(row, 85) or clean_text(row.get("theme_leadership_note", ""), 85)
         rows.append(
             [
                 f"{safe_str(row.get('stock_id', ''))} {clean_text(row.get('stock_name', ''), 10)}",
@@ -965,7 +1076,7 @@ def two_line_rows(two_line: pd.DataFrame, groups: set[str], limit: int = 12) -> 
                 clean_text(row.get("tdcc_status", ""), 20),
                 clean_text(row.get("warrant_flow_signal", ""), 18),
                 clean_text(row.get("repeat_appear_label", ""), 18),
-                clean_text(row.get("theme_leadership_note", ""), 65),
+                note,
             ]
         )
     return rows
@@ -1333,6 +1444,12 @@ def append_weekly_surge_strict_section(
 
 
 def downgrade_reason(row: pd.Series) -> str:
+    decision_risk = clean_text(row.get("why_downgraded", ""), 110)
+    if decision_risk:
+        return decision_risk
+    flags = clean_text(row.get("downgrade_flags", ""), 80)
+    if flags:
+        return flags
     items: list[str] = []
     if tdcc_signal(row) == "distribution_warning":
         items.append("TDCC 轉弱")
@@ -1350,7 +1467,7 @@ def category_groups(df: pd.DataFrame) -> list[tuple[str, pd.DataFrame]]:
     groups: list[tuple[str, pd.DataFrame]] = []
     for cat in CATEGORY_ORDER:
         part = df[df["category_key"] == cat].copy()
-        part = part.sort_values(["sort_score"], ascending=False)
+        part = decision_sort(part)
         groups.append((cat, part))
     return groups
 
@@ -1410,6 +1527,54 @@ def market_conclusion(df: pd.DataFrame) -> str:
         f"今日候選集中在 {top_groups}，主要訊號為 {main_cat_text}；優先看有 TDCC 支持、未過熱且明日價量能確認的標的。",
         120,
     )
+
+
+def selected_by_category(df: pd.DataFrame, limit_default: int = 5) -> dict[str, pd.DataFrame]:
+    """Select category rows by decision layer first; score only sorts inside the layer."""
+    limits = {
+        "true_breakout": 6,
+        "range_rebound": 5,
+        "revenue_breakout_low_response": 6,
+        "revenue_pullback": 5,
+        "pullback_rebound": 5,
+        "pattern": 5,
+    }
+    result: dict[str, pd.DataFrame] = {}
+    for cat, part in category_groups(df):
+        if part.empty:
+            result[cat] = part
+            continue
+        if cat == "revenue_breakout_low_response":
+            preferred = part[
+                (part["decision_priority"].isin(["A_priority_watch", "B_confirm_needed"]))
+                & (~part.apply(has_decision_warning, axis=1))
+                & (part.apply(tdcc_signal, axis=1).isin(["strong_accumulation", "mild_accumulation"]))
+            ].copy()
+            if preferred.empty:
+                preferred = part[part["decision_priority"] != "D_risk_downgrade"].copy()
+            part = preferred if not preferred.empty else part
+        else:
+            usable = part[part["decision_priority"] != "D_risk_downgrade"].copy()
+            if not usable.empty:
+                part = usable
+        result[cat] = decision_sort(part).head(limits.get(cat, limit_default)).copy()
+    return result
+
+
+def top_watchlist(selected: dict[str, pd.DataFrame]) -> pd.DataFrame:
+    """Front priority list must not promote B/C or warning-capped rows by raw score."""
+    pieces = []
+    for cat in CATEGORY_ORDER:
+        part = selected.get(cat, pd.DataFrame()).copy()
+        if part.empty:
+            continue
+        part = part[part.apply(front_priority_eligible, axis=1)].copy()
+        if not part.empty:
+            pieces.append(part.head(2))
+    if not pieces:
+        return pd.DataFrame()
+    out = pd.concat(pieces, ignore_index=True)
+    return decision_sort(out).head(10)
 
 
 def make_table(rows: list[list[Any]], style_map: dict[str, ParagraphStyle], widths: list[float], header_bg: str = "#1D3557") -> Table:
