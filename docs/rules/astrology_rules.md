@@ -21,7 +21,10 @@ Repo market data may only support the wealth / stock behavior-risk paragraph.
 - It can remind the user about current market risk, trading discipline, and data availability.
 - It cannot replace the fixed chart data.
 - It cannot be treated as the primary source for astrology timing.
-- If repo market data is unreadable, write `market_data_unavailable_for_auxiliary_stock_context` and continue.
+- If repo market data is unreadable, write one short human sentence in the wealth / stock paragraph only, then continue.
+- Do not put repo fetch/debug status in the opening section unless the user explicitly asks about data-reading status.
+- Do not show raw technical statuses such as `raw_fetch_failed`, `pages_safe_open_failed`, `cache_miss`, `internal_fetch_error`, or `content_not_expanded` in the visible astrology report body.
+- If market data is stale or unreadable, the visible wording should be concise, for example: "股票市場資料目前僅作輔助，命理分析仍依 2026-05-28 日曆日期進行。"
 
 ## Fixed Chart Data
 
@@ -51,6 +54,22 @@ Every daily astrology report should include:
 6. Practical strategy for overall state, wealth / stocks, work / rental, relationships, family, health, what to do, what to avoid.
 7. Concrete action instructions.
 
+## Visible Report Format
+
+The visible astrology report should start with the calendar-date astrology content, not repo engineering status.
+
+Recommended opening order:
+
+1. Title with the requested calendar date.
+2. One-sentence overall conclusion for the day.
+3. Fixed chart verification.
+4. Today's Ba Zi.
+5. Today's Zi Wei.
+6. What is different from recent days.
+7. Combined interpretation and practical actions.
+
+Do not create a leading section titled "資料日期與流程狀態" for astrology reports. If a data note is necessary, place it as a short note inside the wealth / stock paragraph or at the very end under "資料補充".
+
 ## Stock And Wealth Paragraph
 
 When discussing stocks:
@@ -60,10 +79,12 @@ When discussing stocks:
 - If repo data is missing, do not invent market facts.
 - Astrology can only remind about behavior risk such as chasing, overconfidence, over-leverage, or forcing trades.
 - Astrology cannot replace price, TDCC, fundamentals, market regime, or backtest data.
+- The stock paragraph must not become a repo status report. Keep market-data availability to one sentence unless the user asks for debugging.
 
 ## Prohibitions
 
 - Do not refuse an astrology report because READ_ME_FIRST is stale.
+- Do not start an astrology report with repo fetch status, raw URL status, Pages status, or GitHub API status.
 - Do not use old stock-market data as if it were today's stock report.
 - Do not make astrology a stock buy/sell signal.
 - Do not mix Ba Zi solar-term months with Zi Wei Dou Jun lunar-month palace names.

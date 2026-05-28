@@ -36,7 +36,8 @@ For astrology tasks:
 - `main_price_date` and `report_ready` are only stock-market data status fields.
 - A stale or previous-trading-day `main_price_date` must not block the astrology report.
 - Repo market data may be used only as an auxiliary reality check for the wealth / stock behavior-risk paragraph.
-- If repo market data is stale or unreadable, write the available market-data date and continue the astrology report from the calendar date.
+- If repo market data is stale or unreadable, mention it only briefly in the wealth / stock paragraph or a final data note, then continue the astrology report from the calendar date.
+- Do not put raw fetch status, Pages status, GitHub API status, `cache_miss`, `internal_fetch_error`, or similar debug labels in the visible opening of an astrology report unless the user explicitly asks for data-reading diagnostics.
 - Do not say the astrology report cannot be produced just because the stock repo date differs from the calendar date.
 
 ## Raw Data And Fetch Failures
