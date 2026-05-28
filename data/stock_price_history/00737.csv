@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20260525,00737,國泰AI機器人,TWSE,38.6,38.88,38.57,38.88,295840,11451291.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,2.4506,,,,,,,,,,,,,,,,,,,,,
 20260526,00737,國泰AI機器人,TWSE,38.88,38.94,38.86,38.92,138292,5379636.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260526.csv,,,,,,0.1029,,,,,,,,,,,,,,,,,,,,,
 20260527,00737,國泰AI機器人,TWSE,38.93,39.04,38.89,38.89,156325,6091769.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260527.csv,,,,,,-0.0771,,,,,,,,,,,,,,,,,,,,,
+20260528,00737,國泰AI機器人,TWSE,38.89,38.89,38.26,38.35,247919,9543889.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260528.csv,38.598,38.598,38.598,38.598,38.1828,-1.3885,,,,,240432.6,1.0311,39.04,39.04,39.04,37.5,37.5,37.5,-0.6425,-0.6425,-0.6425,0.438,-1.7674,-1.7674,-1.7674,2.2667,2.2667

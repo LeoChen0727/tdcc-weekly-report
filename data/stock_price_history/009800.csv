@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20260525,009800,中信NASDAQ,TWSE,13.06,13.06,13.01,13.06,1947408,25387484.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,1.1619,,,,,,,,,,,,,,,,,,,,,
 20260526,009800,中信NASDAQ,TWSE,13.0,13.03,12.97,13.01,2053251,26687495.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260526.csv,,,,,,-0.3828,,,,,,,,,,,,,,,,,,,,,
 20260527,009800,中信NASDAQ,TWSE,13.1,13.15,13.1,13.13,2872739,37726015.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260527.csv,,,,,,0.9224,,,,,,,,,,,,,,,,,,,,,
+20260528,009800,中信NASDAQ,TWSE,13.13,13.13,12.98,13.0,3686255,48112196.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260528.csv,13.022,13.022,13.022,13.022,12.9509,-0.9901,,,,,2296668.0,1.605,13.15,13.15,13.15,12.88,12.88,12.88,-0.1689,-0.1689,-0.1689,0.3788,-1.1407,-1.1407,-1.1407,0.9317,0.9317

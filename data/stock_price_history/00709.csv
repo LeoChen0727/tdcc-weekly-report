@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20260525,00709,富邦歐洲,TWSE,38.28,38.95,38.28,38.95,87201,3386251.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,0.698,,,,,,,,,,,,,,,,,,,,,
 20260526,00709,富邦歐洲,TWSE,38.95,39.1,38.95,39.08,49083,1914320.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260526.csv,,,,,,0.3338,,,,,,,,,,,,,,,,,,,,,
 20260527,00709,富邦歐洲,TWSE,39.0,39.0,38.7,38.79,68540,2663665.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260527.csv,,,,,,-0.7421,,,,,,,,,,,,,,,,,,,,,
+20260528,00709,富邦歐洲,TWSE,38.81,38.82,38.38,38.44,39041,1511764.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260528.csv,38.788,38.788,38.788,38.788,38.7137,-0.9023,,,,,64449.2,0.6058,39.1,39.1,39.1,38.28,38.28,38.28,-0.8972,-0.8972,-0.8972,-0.7071,-1.688,-1.688,-1.688,0.418,0.418

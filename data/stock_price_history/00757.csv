@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20260525,00757,統一FANG+,TWSE,129.3,129.55,129.05,129.5,3744483,483983001.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,0.2322,,,,,,,,,,,,,,,,,,,,,
 20260526,00757,統一FANG+,TWSE,128.9,129.05,128.55,129.05,1486642,191567392.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260526.csv,,,,,,-0.3475,,,,,,,,,,,,,,,,,,,,,
 20260527,00757,統一FANG+,TWSE,131.5,131.7,131.3,131.6,2570342,338114033.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260527.csv,,,,,,1.976,,,,,,,,,,,,,,,,,,,,,
+20260528,00757,統一FANG+,TWSE,131.75,132.0,130.3,130.55,3075129,403072402.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260528.csv,129.98,129.98,129.98,129.98,129.5046,-0.7979,,,,,2591997.6,1.1864,132.0,132.0,132.0,128.55,128.55,128.55,0.4385,0.4385,0.4385,0.8072,-1.0985,-1.0985,-1.0985,1.5558,1.5558

@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20260525,00717,富邦美國特別股,TWSE,14.93,14.96,14.89,14.95,862972,12874838.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,0.134,,,,,,,,,,,,,,,,,,,,,
 20260526,00717,富邦美國特別股,TWSE,14.94,15.0,14.93,14.96,338204,5064002.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260526.csv,,,,,,0.0669,,,,,,,,,,,,,,,,,,,,,
 20260527,00717,富邦美國特別股,TWSE,14.96,14.96,14.92,14.96,386845,5779373.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260527.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
+20260528,00717,富邦美國特別股,TWSE,14.96,15.0,14.94,14.95,140912,2107416.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260528.csv,14.95,14.95,14.95,14.95,14.9373,-0.0668,,,,,361446.6,0.3899,15.0,15.0,15.0,14.89,14.89,14.89,0.0,0.0,0.0,0.0847,-0.3333,-0.3333,-0.3333,0.403,0.403

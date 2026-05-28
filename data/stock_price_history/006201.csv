@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20260525,006201,元大富櫃50,TPEx,49.13,49.4,48.66,49.28,49000,417010.0,TPEX_OLD_DAILY_JSON,data/daily_price/daily_price_20260525.csv,,,,,,3.7474,,,,,,,,,,,,,,,,,,,,,
 20260526,006201,元大富櫃50,TPEx,50.3,50.3,48.85,49.54,50000,310803.0,TPEX_OLD_DAILY_JSON,data/daily_price/daily_price_20260526.csv,,,,,,0.5276,,,,,,,,,,,,,,,,,,,,,
 20260527,006201,元大富櫃50,TPEx,50.0,51.2,49.2,49.88,50000,526274.0,TPEX_OLD_DAILY_JSON,data/daily_price/daily_price_20260527.csv,,,,,,0.6863,,,,,,,,,,,,,,,,,,,,,
+20260528,006201,元大富櫃50,TPEx,50.25,50.75,48.4,48.4,372327,18428857.0,TPEX_OPENAPI_MAINBOARD_DAILY_CLOSE_QUOTES,data/daily_price/daily_price_20260528.csv,48.92,48.92,48.92,48.92,48.0139,-2.9671,,,,,113665.4,3.2756,51.2,51.2,51.2,46.0,46.0,46.0,-1.063,-1.063,-1.063,0.8041,-5.4688,-5.4688,-5.4688,5.2174,5.2174

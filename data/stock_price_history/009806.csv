@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20260525,009806,台新標普500,TPEx,13.16,13.19,13.14,13.19,13000,62749.0,TPEX_OLD_DAILY_JSON,data/daily_price/daily_price_20260525.csv,,,,,,0.457,,,,,,,,,,,,,,,,,,,,,
 20260526,009806,台新標普500,TPEx,13.13,13.16,13.12,13.16,13000,125707.0,TPEX_OLD_DAILY_JSON,data/daily_price/daily_price_20260526.csv,,,,,,-0.2274,,,,,,,,,,,,,,,,,,,,,
 20260527,009806,台新標普500,TPEx,13.16,13.16,13.13,13.13,13000,31800.0,TPEX_OLD_DAILY_JSON,data/daily_price/daily_price_20260527.csv,,,,,,-0.228,,,,,,,,,,,,,,,,,,,,,
+20260528,009806,台新標普500,TPEx,13.13,13.13,13.08,13.08,26906,352818.0,TPEX_OPENAPI_MAINBOARD_DAILY_CLOSE_QUOTES,data/daily_price/daily_price_20260528.csv,13.138,13.138,13.138,13.138,13.1318,-0.3808,,,,,15781.2,1.7049,13.19,13.19,13.19,13.08,13.08,13.08,-0.4415,-0.4415,-0.4415,-0.3944,-0.834,-0.834,-0.834,0.0,0.0

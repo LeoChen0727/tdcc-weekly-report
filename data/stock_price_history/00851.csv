@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20260525,00851,台新全球AI,TWSE,66.65,67.45,66.05,67.4,51313,3445135.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,2.8223,,,,,,,,,,,,,,,,,,,,,
 20260526,00851,台新全球AI,TWSE,67.3,67.3,66.8,67.05,22639,1517136.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260526.csv,,,,,,-0.5193,,,,,,,,,,,,,,,,,,,,,
 20260527,00851,台新全球AI,TWSE,68.3,69.05,68.3,69.0,58515,4029088.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260527.csv,,,,,,2.9083,,,,,,,,,,,,,,,,,,,,,
+20260528,00851,台新全球AI,TWSE,69.1,69.4,69.1,69.3,34683,2401858.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260528.csv,67.66,67.66,67.66,67.66,66.3498,0.4348,,,,,37258.2,0.9309,69.4,69.4,69.4,65.5,65.5,65.5,2.4239,2.4239,2.4239,4.4464,-0.1441,-0.1441,-0.1441,5.8015,5.8015

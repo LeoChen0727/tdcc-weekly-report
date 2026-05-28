@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20260525,00660,元大歐洲50,TWSE,43.8,44.0,43.77,43.99,12864,564479.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,0.6636,,,,,,,,,,,,,,,,,,,,,
 20260526,00660,元大歐洲50,TWSE,44.0,44.32,44.0,44.29,14313,631884.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260526.csv,,,,,,0.682,,,,,,,,,,,,,,,,,,,,,
 20260527,00660,元大歐洲50,TWSE,44.14,44.26,44.0,44.26,16930,745687.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260527.csv,,,,,,-0.0677,,,,,,,,,,,,,,,,,,,,,
+20260528,00660,元大歐洲50,TWSE,44.41,44.41,43.65,43.8,15522,682929.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260528.csv,44.008,44.008,44.008,44.008,43.811,-1.0393,,,,,15757.0,0.9851,44.41,44.41,44.41,43.4,43.4,43.4,-0.4726,-0.4726,-0.4726,-0.0252,-1.3736,-1.3736,-1.3736,0.9217,0.9217

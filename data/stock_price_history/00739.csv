@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20260525,00739,元大MSCI A股,TWSE,28.98,28.98,28.58,28.83,186816,5372930.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,1.0515,,,,,,,,,,,,,,,,,,,,,
 20260526,00739,元大MSCI A股,TWSE,28.84,29.15,28.84,29.15,79609,2309692.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260526.csv,,,,,,1.11,,,,,,,,,,,,,,,,,,,,,
 20260527,00739,元大MSCI A股,TWSE,29.16,29.23,28.96,28.96,71503,2085448.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260527.csv,,,,,,-0.6518,,,,,,,,,,,,,,,,,,,,,
+20260528,00739,元大MSCI A股,TWSE,28.96,29.08,28.6,28.79,71503,2052896.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260528.csv,28.852,28.852,28.852,28.852,28.6472,-0.587,,,,,89830.2,0.796,29.23,29.23,29.23,28.4,28.4,28.4,-0.2149,-0.2149,-0.2149,0.4985,-1.5053,-1.5053,-1.5053,1.3732,1.3732

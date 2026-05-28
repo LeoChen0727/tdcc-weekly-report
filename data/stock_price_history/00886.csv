@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20260525,00886,永豐美國科技,TPEx,43.89,44.0,43.89,43.98,44000,19679.0,TPEX_OLD_DAILY_JSON,data/daily_price/daily_price_20260525.csv,,,,,,1.6879,,,,,,,,,,,,,,,,,,,,,
 20260526,00886,永豐美國科技,TPEx,43.89,43.89,43.78,43.89,44000,22548.0,TPEX_OLD_DAILY_JSON,data/daily_price/daily_price_20260526.csv,,,,,,-0.2046,,,,,,,,,,,,,,,,,,,,,
 20260527,00886,永豐美國科技,TPEx,44.26,44.3,44.09,44.09,44000,123742.0,TPEX_OLD_DAILY_JSON,data/daily_price/daily_price_20260527.csv,,,,,,0.4557,,,,,,,,,,,,,,,,,,,,,
+20260528,00886,永豐美國科技,TPEx,43.8,43.8,43.55,43.57,82289,3591746.0,TPEX_OPENAPI_MAINBOARD_DAILY_CLOSE_QUOTES,data/daily_price/daily_price_20260528.csv,43.756,43.756,43.756,43.756,43.4325,-1.1794,,,,,51457.8,1.5992,44.3,44.3,44.3,43.11,43.11,43.11,-0.4251,-0.4251,-0.4251,0.3166,-1.6479,-1.6479,-1.6479,1.067,1.067

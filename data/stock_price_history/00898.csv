@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20260525,00898,國泰基因免疫革命,TWSE,8.07,8.16,8.07,8.16,1285545,10445802.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,1.6189,,,,,,,,,,,,,,,,,,,,,
 20260526,00898,國泰基因免疫革命,TWSE,8.16,8.18,8.14,8.16,478269,3901634.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260526.csv,,,,,,0.0,,,,,,,,,,,,,,,,,,,,,
 20260527,00898,國泰基因免疫革命,TWSE,8.16,8.16,8.1,8.11,712065,5774160.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260527.csv,,,,,,-0.6127,,,,,,,,,,,,,,,,,,,,,
+20260528,00898,國泰基因免疫革命,TWSE,8.18,8.22,8.13,8.15,1398876,11456491.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260528.csv,8.122,8.122,8.122,8.122,8.0636,0.4932,,,,,824326.2,1.697,8.22,8.22,8.22,8.02,8.02,8.02,0.3447,0.3447,0.3447,1.072,-0.8516,-0.8516,-0.8516,1.6209,1.6209

@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20260525,00645,富邦日本,TWSE,55.4,55.6,55.3,55.45,238431,13224631.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260525.csv,,,,,,1.0939,,,,,,,,,,,,,,,,,,,,,
 20260526,00645,富邦日本,TWSE,55.45,55.55,55.35,55.5,177931,9869786.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260526.csv,,,,,,0.0902,,,,,,,,,,,,,,,,,,,,,
 20260527,00645,富邦日本,TWSE,55.5,55.5,55.15,55.15,327227,18107280.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260527.csv,,,,,,-0.6306,,,,,,,,,,,,,,,,,,,,,
+20260528,00645,富邦日本,TWSE,55.1,55.1,54.4,54.55,199514,10909091.0,TWSE_RWD_JSON_MI_INDEX,data/daily_price/daily_price_20260528.csv,55.1,55.1,55.1,55.1,54.9319,-1.0879,,,,,224516.8,0.8886,55.6,55.6,55.6,54.4,54.4,54.4,-0.9982,-0.9982,-0.9982,-0.6953,-1.8885,-1.8885,-1.8885,0.2757,0.2757
