@@ -286,6 +286,7 @@ D. 市場風險與大盤期權背景 PDF
 CURATED DAILY RECOMMENDATION PDF CONTRACT
 - Title must be `YYYY/M/D 台股推薦標的`.
 - The body must not contain repo read flow, internal rule explanations, fallback/debug labels, ChatGPT apologies, version labels such as `v3`, `流程重跑版`, or similar non-investment wording.
+- PDF font rule: do not use decorative, special, rare, or novelty fonts. Use common, stable, readable fonts with reliable Chinese support. If font choice is uncertain, prefer the default system sans-serif / CJK font and prioritize readability over style.
 - The first page must be a compact table with 1-2 representative stocks from each program-side core category.
 - First-page table columns must include: category, stock, rating/decision_priority, score/decision_score, selected reason from why_selected, and risk/next confirmation from why_downgraded/risk_tags/downgrade_flags/next_confirmation.
 - After the first page, each core category must include 3-5 representative stocks when available.

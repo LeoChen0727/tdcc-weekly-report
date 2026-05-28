@@ -203,6 +203,8 @@ The curated recommendation PDF title must be:
 
 The curated PDF body must not contain repo read flow, internal rule explanations, debug/fallback labels, ChatGPT apologies, version labels such as `v3`, or phrases such as `流程重跑版`. Keep source/date notes minimal and outside the main investment content.
 
+PDF font rule: do not use decorative, special, rare, or novelty fonts. Use common, stable, readable fonts with reliable Chinese support. If font choice is uncertain, prefer the default system sans-serif / CJK font and prioritize readability over style.
+
 The first page must be a compact table, not a long bullet list. It must show 1-2 representative stocks per program-side core category with these columns:
 
 - category
