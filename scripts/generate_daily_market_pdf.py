@@ -1372,7 +1372,7 @@ def weekly_surge_strict_stats_rows(stats: pd.DataFrame, horizon: str, limit: int
 
 
 def weekly_surge_horizon_summary_rows(stats: pd.DataFrame) -> list[list[Any]]:
-    rows = [["horizon", "samples", "close win", "avg close ret", "median close ret", "+10% touch", "best rule"]]
+    rows = [["horizon", "selected", "mature", "close win", "avg close ret", "median close ret", "+10% touch", "best rule"]]
     if stats.empty:
         rows.append(["n/a", "", "", "", "", "next-open +10% touch research missing"])
         return rows
@@ -1404,6 +1404,7 @@ def weekly_surge_horizon_summary_rows(stats: pd.DataFrame) -> list[list[Any]]:
             [
                 horizon,
                 safe_str(row.get("selected_stock_days", "")),
+                safe_str(row.get("close_exit_mature_count", "")),
                 pct_text(row.get("win_rate_next_open_to_close_pct", "")),
                 pct_text(row.get("avg_next_open_to_close_return_pct", "")),
                 pct_text(row.get("median_next_open_to_close_return_pct", "")),
@@ -1478,7 +1479,7 @@ def append_weekly_surge_strict_section(
         make_table(
             weekly_surge_horizon_summary_rows(stats),
             style_map,
-            [1.0 * cm, 1.0 * cm, 1.1 * cm, 1.2 * cm, 1.2 * cm, 1.1 * cm, 7.8 * cm],
+            [0.9 * cm, 0.9 * cm, 0.9 * cm, 1.0 * cm, 1.1 * cm, 1.1 * cm, 1.0 * cm, 7.4 * cm],
             header_bg="#7030A0",
         )
     )

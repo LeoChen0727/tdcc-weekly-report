@@ -209,6 +209,7 @@ def build_weekly_surge_section(lines: list[str]) -> None:
                 [
                     horizon,
                     row.get("selected_stock_days", ""),
+                    row.get("close_exit_mature_count", ""),
                     row.get("win_rate_next_open_to_close_pct", ""),
                     row.get("avg_next_open_to_close_return_pct", ""),
                     row.get("median_next_open_to_close_return_pct", ""),
@@ -218,7 +219,7 @@ def build_weekly_surge_section(lines: list[str]) -> None:
                 ]
             )
         lines.append("### D+1 to D+10 Horizon Summary")
-        lines.extend(md_table(["horizon", "samples", "close_win_rate", "avg_close_ret", "median_close_ret", "+10pct_touch_rate", "avg_gap", "best_rule"], summary_rows))
+        lines.extend(md_table(["horizon", "selected", "close_mature", "close_win_rate", "avg_close_ret", "median_close_ret", "+10pct_touch_rate", "avg_gap", "best_rule"], summary_rows))
         lines.append("")
         cols = pick_columns(
             stats,

@@ -211,6 +211,7 @@ If `weekly_surge_strict_parameter_search_latest.md/csv` exists, the daily report
 - Show a compact D+1 through D+10 horizon summary, and also show separate D+5 and D+10 detail tables.
 - Use the definition `entry = D+1 open` and `hit = D+1 open to D+N high reaches +10%`.
 - For sell-point analysis, use `D+1 open` as the entry and `D+N close` as the exit. Report D+1 through D+10 close-exit win rate and average/median return separately from the +10% intraperiod high touch-rate.
+- Close-exit win rate must use only rows with a mature `D+N close` as the denominator. Do not count pending rows without D+N close as losses.
 - This is not weekly candlestick analysis. The file prefix `weekly_surge` is legacy/backward-compatible only.
 - Display title in Chinese: `隔日開盤買進後 D+1 至 D+10 盤中觸及 +10% 研究`.
 - Do not write `周線急漲嚴格參數`.

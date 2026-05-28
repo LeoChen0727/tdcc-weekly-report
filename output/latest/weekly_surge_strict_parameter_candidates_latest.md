@@ -1,6 +1,6 @@
 # Next-Open +10pct Strict Parameter Candidates
 
-- generated_at: `2026-05-29 01:00:48 Asia/Taipei`
+- generated_at: `2026-05-29 01:25:50 Asia/Taipei`
 - use: strict research watchlist only; no latest theme label is used.
 - legacy_file_prefix: `weekly_surge` is kept only for backward compatibility.
 - display_name_zh: `隔日開盤買進後 D+1 至 D+10、D+20 盤中觸及 +10% 候選`.

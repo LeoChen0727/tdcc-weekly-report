@@ -142,7 +142,8 @@ def summarize_picked(
     close_win_col = f"next_open_to_d{window}_close_win"
     close_ret_col = f"next_open_to_d{window}_close_return_pct"
     hits = picked[picked[hit_col]]
-    close_wins = picked[picked[close_win_col]] if close_win_col in picked.columns else picked.iloc[0:0]
+    close_mature = picked.dropna(subset=[close_ret_col]) if close_ret_col in picked.columns else picked.iloc[0:0]
+    close_wins = close_mature[close_mature[close_win_col]] if close_win_col in close_mature.columns else close_mature.iloc[0:0]
     sample = "ok_initial_sample" if len(picked) >= MIN_SELECTED else "insufficient_sample"
     return {
         "rule_name": rule_name,
@@ -158,9 +159,12 @@ def summarize_picked(
         "hit_unique_stocks": hits["stock_id"].nunique(),
         "median_next_open_to_high_return_pct": round(picked[ret_col].median(), 2) if len(picked) else 0,
         "avg_next_open_to_high_return_pct": round(picked[ret_col].mean(), 2) if len(picked) else 0,
-        "win_rate_next_open_to_close_pct": round(len(close_wins) / len(picked) * 100, 2) if len(picked) else 0,
-        "avg_next_open_to_close_return_pct": round(picked[close_ret_col].mean(), 2) if len(picked) and close_ret_col in picked.columns else 0,
-        "median_next_open_to_close_return_pct": round(picked[close_ret_col].median(), 2) if len(picked) and close_ret_col in picked.columns else 0,
+        "close_exit_mature_count": len(close_mature),
+        "close_exit_win_count": len(close_wins),
+        "close_exit_loss_count": len(close_mature) - len(close_wins),
+        "win_rate_next_open_to_close_pct": round(len(close_wins) / len(close_mature) * 100, 2) if len(close_mature) else 0,
+        "avg_next_open_to_close_return_pct": round(close_mature[close_ret_col].mean(), 2) if len(close_mature) else 0,
+        "median_next_open_to_close_return_pct": round(close_mature[close_ret_col].median(), 2) if len(close_mature) else 0,
         "avg_signal_close_to_next_open_gap_pct": round(picked["signal_close_to_next_open_gap_pct"].mean(), 2) if len(picked) else 0,
         "tdcc_available_rate_pct": round(picked["tdcc_available"].mean() * 100, 2) if len(picked) else 0,
         "top_market_regime_counts": top_counts(picked, "derived_market_regime"),
