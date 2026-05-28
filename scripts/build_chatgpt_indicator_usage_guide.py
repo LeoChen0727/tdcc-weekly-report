@@ -118,6 +118,7 @@ def build_guide() -> str:
     daily_theme_status_history = read_csv(LATEST_DIR / "daily_theme_status_history_latest.csv")
     weekly_surge_theme_segment = read_csv(LATEST_DIR / "weekly_surge_theme_segment_next_open_latest.csv")
     weekly_surge_technical_grid = read_csv(LATEST_DIR / "weekly_surge_technical_filter_grid_latest.csv")
+    weekly_surge_multifactor_grid = read_csv(LATEST_DIR / "weekly_surge_multifactor_filter_grid_latest.csv")
 
     main_price_date = ""
     readme = LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt"
@@ -274,6 +275,13 @@ def build_guide() -> str:
             "rule_family, rule_name, target_window, hit_rate_pct, median_next_open_to_high_return_pct, sample_status",
             f"{count_values(weekly_surge_technical_grid, 'sample_status')} / rows={len(weekly_surge_technical_grid)}",
             "Parameter discovery only. Use to discuss candidate filters; do not change core weights until strict-history validation matures.",
+        ],
+        [
+            "Weekly surge multifactor filter grid",
+            "output/latest/weekly_surge_multifactor_filter_grid_latest.csv",
+            "rule_family, rule_name, source_type, target_window, hit_rate_pct, tdcc_available_rate_pct, sample_status",
+            f"{count_values(weekly_surge_multifactor_grid, 'sample_status')} / rows={len(weekly_surge_multifactor_grid)}",
+            "Parameter discovery across volume, technicals, TDCC as-of data, and market regime. Small-sample high-hit rows are watchlist hypotheses only.",
         ],
         [
             "Individual stock raw availability",

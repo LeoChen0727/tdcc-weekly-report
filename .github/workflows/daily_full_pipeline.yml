@@ -303,6 +303,7 @@ jobs:
       - name: Build weekly surge technical filter research
         run: |
           python scripts/research_weekly_surge_technical_grid.py
+          python scripts/research_weekly_surge_multifactor_grid.py
 
       - name: Build warrant market report
         run: |
@@ -377,6 +378,8 @@ jobs:
           cp output/latest/daily_theme_status_history_latest.md docs/latest/daily_theme_status_history_latest.md || true
           cp output/latest/weekly_surge_technical_filter_grid_latest.csv docs/latest/weekly_surge_technical_filter_grid_latest.csv || true
           cp output/latest/weekly_surge_technical_filter_grid_latest.md docs/latest/weekly_surge_technical_filter_grid_latest.md || true
+          cp output/latest/weekly_surge_multifactor_filter_grid_latest.csv docs/latest/weekly_surge_multifactor_filter_grid_latest.csv || true
+          cp output/latest/weekly_surge_multifactor_filter_grid_latest.md docs/latest/weekly_surge_multifactor_filter_grid_latest.md || true
 
           {
             echo "main_price_date=pending"
@@ -545,6 +548,9 @@ jobs:
           git add output/latest/weekly_surge_technical_filter_grid_latest.csv || true
           git add output/latest/weekly_surge_technical_filter_grid_latest.md || true
           git add output/history/research/weekly_surge_technical_filter_grid.csv || true
+          git add output/latest/weekly_surge_multifactor_filter_grid_latest.csv || true
+          git add output/latest/weekly_surge_multifactor_filter_grid_latest.md || true
+          git add output/history/research/weekly_surge_multifactor_filter_grid.csv || true
           git add data/warrant_daily/ || true
           git add data/warrant_flow_by_stock/ || true
           git add output/latest/warrant_market_report_latest.md || true
@@ -587,6 +593,8 @@ jobs:
           git add docs/latest/tdcc_overheated_short_term_edge_candidates_latest.csv || true
           git add docs/latest/weekly_surge_technical_filter_grid_latest.csv || true
           git add docs/latest/weekly_surge_technical_filter_grid_latest.md || true
+          git add docs/latest/weekly_surge_multifactor_filter_grid_latest.csv || true
+          git add docs/latest/weekly_surge_multifactor_filter_grid_latest.md || true
           git add docs/latest/volume_attack_theme_layer_latest.csv || true
           git add docs/latest/volume_attack_theme_layer_latest.md || true
           git add docs/latest/volume_attack_theme_stocks_latest.csv || true
@@ -792,11 +800,16 @@ jobs:
           git add output/latest/weekly_surge_technical_filter_grid_latest.csv || true
           git add output/latest/weekly_surge_technical_filter_grid_latest.md || true
           git add output/history/research/weekly_surge_technical_filter_grid.csv || true
+          git add output/latest/weekly_surge_multifactor_filter_grid_latest.csv || true
+          git add output/latest/weekly_surge_multifactor_filter_grid_latest.md || true
+          git add output/history/research/weekly_surge_multifactor_filter_grid.csv || true
           git add docs/latest/tdcc_overheated_short_term_edge_latest.csv || true
           git add docs/latest/tdcc_overheated_short_term_edge_latest.md || true
           git add docs/latest/tdcc_overheated_short_term_edge_candidates_latest.csv || true
           git add docs/latest/weekly_surge_technical_filter_grid_latest.csv || true
           git add docs/latest/weekly_surge_technical_filter_grid_latest.md || true
+          git add docs/latest/weekly_surge_multifactor_filter_grid_latest.csv || true
+          git add docs/latest/weekly_surge_multifactor_filter_grid_latest.md || true
           git add output/latest/chatgpt_indicator_usage_guide_latest.md || true
           git add output/latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt || true
           git add docs/latest/chatgpt_indicator_usage_guide_latest.md || true
@@ -898,6 +911,7 @@ jobs:
           git add scripts/build_market_timing_technical_backtest.py || true
           git add scripts/build_tdcc_overheated_short_term_edge.py || true
           git add scripts/research_weekly_surge_technical_grid.py || true
+          git add scripts/research_weekly_surge_multifactor_grid.py || true
           git add scripts/update_daily_candidate_signal_log.py || true
           git add scripts/build_candidate_repeat_appearance.py || true
           git add scripts/validate_candidate_repeat_appearance.py || true
