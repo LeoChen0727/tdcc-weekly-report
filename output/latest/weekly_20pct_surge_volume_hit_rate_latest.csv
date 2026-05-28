@@ -1,35 +1,35 @@
 summary_type,filter_metric,filter_rule,threshold,selected_stock_days,hit_stock_days,hit_rate_pct,selected_unique_stocks,hit_unique_stocks,coverage_of_all_hits_pct,base_hit_rate_pct
-threshold_ge,start_day_volume_ratio,start_day_volume_ratio_vs_prev20>=0.5,0.5,165416,11907,7.2,1966,1127,78.94,6.87
-threshold_ge,start_day_volume_ratio,start_day_volume_ratio_vs_prev20>=0.8,0.8,111240,9267,8.33,1966,1101,61.44,6.87
-threshold_ge,start_day_volume_ratio,start_day_volume_ratio_vs_prev20>=1,1.0,83645,7759,9.28,1965,1071,51.44,6.87
-threshold_ge,start_day_volume_ratio,start_day_volume_ratio_vs_prev20>=1.2,1.2,63396,6539,10.31,1964,1045,43.35,6.87
-threshold_ge,start_day_volume_ratio,start_day_volume_ratio_vs_prev20>=1.5,1.5,43741,5222,11.94,1963,1009,34.62,6.87
-threshold_ge,start_day_volume_ratio,start_day_volume_ratio_vs_prev20>=2,2.0,26163,3687,14.09,1962,926,24.44,6.87
-threshold_ge,start_day_volume_ratio,start_day_volume_ratio_vs_prev20>=3,3.0,12260,2095,17.09,1895,755,13.89,6.87
-threshold_ge,start_day_volume_ratio,start_day_volume_ratio_vs_prev20>=5,5.0,4707,908,19.29,1485,499,6.02,6.87
-threshold_ge,previous_day_volume_ratio,prev_day_volume_ratio_vs_prev20>=0.5,0.5,165243,11489,6.95,1966,1112,76.17,6.87
-threshold_ge,previous_day_volume_ratio,prev_day_volume_ratio_vs_prev20>=0.8,0.8,110828,8487,7.66,1965,1067,56.27,6.87
-threshold_ge,previous_day_volume_ratio,prev_day_volume_ratio_vs_prev20>=1,1.0,83291,6831,8.2,1965,1010,45.29,6.87
-threshold_ge,previous_day_volume_ratio,prev_day_volume_ratio_vs_prev20>=1.2,1.2,63141,5570,8.82,1964,957,36.93,6.87
-threshold_ge,previous_day_volume_ratio,prev_day_volume_ratio_vs_prev20>=1.5,1.5,43544,4264,9.79,1963,895,28.27,6.87
-threshold_ge,previous_day_volume_ratio,prev_day_volume_ratio_vs_prev20>=2,2.0,26059,2820,10.82,1962,759,18.7,6.87
-threshold_ge,previous_day_volume_ratio,prev_day_volume_ratio_vs_prev20>=3,3.0,12231,1515,12.39,1894,575,10.04,6.87
-threshold_ge,previous_day_volume_ratio,prev_day_volume_ratio_vs_prev20>=5,5.0,4714,622,13.19,1488,340,4.12,6.87
-bin,start_day_volume_ratio,start_day_volume_ratio_vs_prev20 in <0.5x,<0.5x,54121,3176,5.87,1964,715,,
-bin,start_day_volume_ratio,start_day_volume_ratio_vs_prev20 in 0.5-0.8x,0.5-0.8x,54176,2640,4.87,1966,829,,
-bin,start_day_volume_ratio,start_day_volume_ratio_vs_prev20 in 0.8-1.0x,0.8-1.0x,27595,1508,5.46,1961,709,,
-bin,start_day_volume_ratio,start_day_volume_ratio_vs_prev20 in 1.0-1.2x,1.0-1.2x,20249,1220,6.02,1961,611,,
-bin,start_day_volume_ratio,start_day_volume_ratio_vs_prev20 in 1.2-1.5x,1.2-1.5x,19655,1317,6.7,1959,620,,
-bin,start_day_volume_ratio,start_day_volume_ratio_vs_prev20 in 1.5-2.0x,1.5-2.0x,17578,1535,8.73,1958,681,,
-bin,start_day_volume_ratio,start_day_volume_ratio_vs_prev20 in 2.0-3.0x,2.0-3.0x,13903,1592,11.45,1955,693,,
-bin,start_day_volume_ratio,start_day_volume_ratio_vs_prev20 in 3.0-5.0x,3.0-5.0x,7553,1187,15.72,1852,593,,
-bin,start_day_volume_ratio,start_day_volume_ratio_vs_prev20 in >=5.0x,>=5.0x,4707,908,19.29,1485,499,,
-bin,previous_day_volume_ratio,prev_day_volume_ratio_vs_prev20 in <0.5x,<0.5x,54294,3594,6.62,1964,744,,
-bin,previous_day_volume_ratio,prev_day_volume_ratio_vs_prev20 in 0.5-0.8x,0.5-0.8x,54415,3002,5.52,1966,880,,
-bin,previous_day_volume_ratio,prev_day_volume_ratio_vs_prev20 in 0.8-1.0x,0.8-1.0x,27537,1656,6.01,1960,744,,
-bin,previous_day_volume_ratio,prev_day_volume_ratio_vs_prev20 in 1.0-1.2x,1.0-1.2x,20150,1261,6.26,1961,643,,
-bin,previous_day_volume_ratio,prev_day_volume_ratio_vs_prev20 in 1.2-1.5x,1.2-1.5x,19597,1306,6.66,1959,635,,
-bin,previous_day_volume_ratio,prev_day_volume_ratio_vs_prev20 in 1.5-2.0x,1.5-2.0x,17485,1444,8.26,1958,662,,
-bin,previous_day_volume_ratio,prev_day_volume_ratio_vs_prev20 in 2.0-3.0x,2.0-3.0x,13828,1305,9.44,1956,594,,
-bin,previous_day_volume_ratio,prev_day_volume_ratio_vs_prev20 in 3.0-5.0x,3.0-5.0x,7517,893,11.88,1850,480,,
-bin,previous_day_volume_ratio,prev_day_volume_ratio_vs_prev20 in >=5.0x,>=5.0x,4714,622,13.19,1488,340,,
+threshold_ge,start_day_volume_ratio,start_day_volume_ratio_vs_prev20>=0.5,0.5,164107,11907,7.26,1966,1127,78.94,6.93
+threshold_ge,start_day_volume_ratio,start_day_volume_ratio_vs_prev20>=0.8,0.8,110212,9267,8.41,1965,1101,61.44,6.93
+threshold_ge,start_day_volume_ratio,start_day_volume_ratio_vs_prev20>=1,1.0,82852,7759,9.36,1965,1071,51.44,6.93
+threshold_ge,start_day_volume_ratio,start_day_volume_ratio_vs_prev20>=1.2,1.2,62800,6539,10.41,1964,1045,43.35,6.93
+threshold_ge,start_day_volume_ratio,start_day_volume_ratio_vs_prev20>=1.5,1.5,43323,5222,12.05,1963,1009,34.62,6.93
+threshold_ge,start_day_volume_ratio,start_day_volume_ratio_vs_prev20>=2,2.0,25919,3687,14.23,1962,926,24.44,6.93
+threshold_ge,start_day_volume_ratio,start_day_volume_ratio_vs_prev20>=3,3.0,12157,2095,17.23,1894,755,13.89,6.93
+threshold_ge,start_day_volume_ratio,start_day_volume_ratio_vs_prev20>=5,5.0,4677,908,19.41,1483,499,6.02,6.93
+threshold_ge,previous_day_volume_ratio,prev_day_volume_ratio_vs_prev20>=0.5,0.5,163974,11489,7.01,1966,1112,76.17,6.93
+threshold_ge,previous_day_volume_ratio,prev_day_volume_ratio_vs_prev20>=0.8,0.8,109915,8487,7.72,1965,1067,56.27,6.93
+threshold_ge,previous_day_volume_ratio,prev_day_volume_ratio_vs_prev20>=1,1.0,82592,6831,8.27,1965,1010,45.29,6.93
+threshold_ge,previous_day_volume_ratio,prev_day_volume_ratio_vs_prev20>=1.2,1.2,62610,5570,8.9,1964,957,36.93,6.93
+threshold_ge,previous_day_volume_ratio,prev_day_volume_ratio_vs_prev20>=1.5,1.5,43159,4264,9.88,1963,895,28.27,6.93
+threshold_ge,previous_day_volume_ratio,prev_day_volume_ratio_vs_prev20>=2,2.0,25820,2820,10.92,1962,759,18.7,6.93
+threshold_ge,previous_day_volume_ratio,prev_day_volume_ratio_vs_prev20>=3,3.0,12122,1515,12.5,1894,575,10.04,6.93
+threshold_ge,previous_day_volume_ratio,prev_day_volume_ratio_vs_prev20>=5,5.0,4678,622,13.3,1486,340,4.12,6.93
+bin,start_day_volume_ratio,start_day_volume_ratio_vs_prev20 in <0.5x,<0.5x,53463,3176,5.94,1964,715,,
+bin,start_day_volume_ratio,start_day_volume_ratio_vs_prev20 in 0.5-0.8x,0.5-0.8x,53895,2640,4.9,1966,829,,
+bin,start_day_volume_ratio,start_day_volume_ratio_vs_prev20 in 0.8-1.0x,0.8-1.0x,27360,1508,5.51,1960,709,,
+bin,start_day_volume_ratio,start_day_volume_ratio_vs_prev20 in 1.0-1.2x,1.0-1.2x,20052,1220,6.08,1961,611,,
+bin,start_day_volume_ratio,start_day_volume_ratio_vs_prev20 in 1.2-1.5x,1.2-1.5x,19477,1317,6.76,1959,620,,
+bin,start_day_volume_ratio,start_day_volume_ratio_vs_prev20 in 1.5-2.0x,1.5-2.0x,17404,1535,8.82,1958,681,,
+bin,start_day_volume_ratio,start_day_volume_ratio_vs_prev20 in 2.0-3.0x,2.0-3.0x,13762,1592,11.57,1955,693,,
+bin,start_day_volume_ratio,start_day_volume_ratio_vs_prev20 in 3.0-5.0x,3.0-5.0x,7480,1187,15.87,1850,593,,
+bin,start_day_volume_ratio,start_day_volume_ratio_vs_prev20 in >=5.0x,>=5.0x,4677,908,19.41,1483,499,,
+bin,previous_day_volume_ratio,prev_day_volume_ratio_vs_prev20 in <0.5x,<0.5x,53596,3594,6.71,1964,744,,
+bin,previous_day_volume_ratio,prev_day_volume_ratio_vs_prev20 in 0.5-0.8x,0.5-0.8x,54059,3002,5.55,1966,880,,
+bin,previous_day_volume_ratio,prev_day_volume_ratio_vs_prev20 in 0.8-1.0x,0.8-1.0x,27323,1656,6.06,1960,744,,
+bin,previous_day_volume_ratio,prev_day_volume_ratio_vs_prev20 in 1.0-1.2x,1.0-1.2x,19982,1261,6.31,1961,643,,
+bin,previous_day_volume_ratio,prev_day_volume_ratio_vs_prev20 in 1.2-1.5x,1.2-1.5x,19451,1306,6.71,1959,635,,
+bin,previous_day_volume_ratio,prev_day_volume_ratio_vs_prev20 in 1.5-2.0x,1.5-2.0x,17339,1444,8.33,1958,662,,
+bin,previous_day_volume_ratio,prev_day_volume_ratio_vs_prev20 in 2.0-3.0x,2.0-3.0x,13698,1305,9.53,1956,594,,
+bin,previous_day_volume_ratio,prev_day_volume_ratio_vs_prev20 in 3.0-5.0x,3.0-5.0x,7444,893,12.0,1850,480,,
+bin,previous_day_volume_ratio,prev_day_volume_ratio_vs_prev20 in >=5.0x,>=5.0x,4678,622,13.3,1486,340,,

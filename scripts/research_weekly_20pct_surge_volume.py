@@ -18,11 +18,15 @@ TARGET_COMPARISON_CSV = LATEST_DIR / "weekly_10pct_vs_20pct_surge_volume_compari
 TARGET_COMPARISON_MD = LATEST_DIR / "weekly_10pct_vs_20pct_surge_volume_comparison_latest.md"
 WEEKLY_VOLUME_COMPARISON_CSV = LATEST_DIR / "weekly_surge_5d_avg_volume_comparison_latest.csv"
 WEEKLY_VOLUME_COMPARISON_MD = LATEST_DIR / "weekly_surge_5d_avg_volume_comparison_latest.md"
+NEXT_OPEN_COMPARISON_CSV = LATEST_DIR / "weekly_surge_next_open_hit_rate_latest.csv"
+NEXT_OPEN_COMPARISON_MD = LATEST_DIR / "weekly_surge_next_open_hit_rate_latest.md"
 HISTORY_EVENTS_CSV = HISTORY_DIR / "weekly_20pct_surge_volume_events.csv"
 
 FORWARD_DAYS = 5
 SURGE_THRESHOLD_PCT = 20.0
 VOL_AVG_DAYS = 20
+NEXT_OPEN_TARGET_PCT = 10.0
+NEXT_OPEN_WINDOWS = [5, 10, 20]
 
 THRESHOLDS = [0.5, 0.8, 1.0, 1.2, 1.5, 2.0, 3.0, 5.0]
 BINS = [0, 0.5, 0.8, 1.0, 1.2, 1.5, 2.0, 3.0, 5.0, float("inf")]
@@ -89,6 +93,25 @@ def build_stock_day_frame() -> pd.DataFrame:
         df["future_5d_high_from_start_low_pct"] = (df["future_5d_high"] / df["low"] - 1.0) * 100.0
         df["weekly_20pct_surge_hit"] = df["future_5d_high_from_start_low_pct"] >= SURGE_THRESHOLD_PCT
         df["weekly_10pct_surge_hit"] = df["future_5d_high_from_start_low_pct"] >= 10.0
+        df["next_open"] = df["open"].shift(-1)
+        df["signal_close_to_next_open_gap_pct"] = (df["next_open"] / df["close"] - 1.0) * 100.0
+        highs = df["high"].to_list()
+        next_opens = df["next_open"].to_list()
+        for window in NEXT_OPEN_WINDOWS:
+            next_open_future_high: list[float | None] = []
+            for idx, next_open in enumerate(next_opens):
+                if pd.isna(next_open) or next_open <= 0:
+                    next_open_future_high.append(None)
+                    continue
+                # Practical entry is D+1 open. Measure the highest tradable price from D+1 through D+window.
+                future_window = highs[idx + 1 : idx + window + 1]
+                next_open_future_high.append(max(future_window) if future_window else None)
+            high_col = f"next_open_to_d{window}_high"
+            ret_col = f"next_open_to_d{window}_high_return_pct"
+            hit_col = f"next_open_to_d{window}_high_10pct_hit"
+            df[high_col] = next_open_future_high
+            df[ret_col] = (df[high_col] / df["next_open"] - 1.0) * 100.0
+            df[hit_col] = df[ret_col] >= NEXT_OPEN_TARGET_PCT
         df["signal_day_close_return_pct"] = (df["close"] / df["open"] - 1.0) * 100.0
         df["signal_day_high_from_low_pct"] = (df["high"] / df["low"] - 1.0) * 100.0
         df = df.dropna(
@@ -98,6 +121,8 @@ def build_stock_day_frame() -> pd.DataFrame:
                 "start_5d_avg_volume_ratio_vs_prev20",
                 "prev_5d_avg_volume_ratio_vs_prev20",
                 "future_5d_high_from_start_low_pct",
+                "next_open",
+                "signal_close_to_next_open_gap_pct",
             ]
         )
         if not df.empty:
@@ -153,6 +178,38 @@ def summarize_thresholds_for_target(df: pd.DataFrame, metric: str, label: str, h
                 "coverage_of_all_hits_pct": round(len(hit) / total_hits * 100, 2) if total_hits else 0,
                 "base_hit_rate_pct": round(total_hits / total_days * 100, 2) if total_days else 0,
                 "total_hit_stock_days": total_hits,
+            }
+        )
+    return pd.DataFrame(rows)
+
+
+def summarize_next_open_thresholds(df: pd.DataFrame, metric: str, label: str, window: int) -> pd.DataFrame:
+    rows = []
+    hit_col = f"next_open_to_d{window}_high_10pct_hit"
+    ret_col = f"next_open_to_d{window}_high_return_pct"
+    total_hits = int(df[hit_col].sum())
+    total_days = len(df)
+    for threshold in THRESHOLDS:
+        picked = df[df[metric] >= threshold]
+        hit = picked[picked[hit_col]]
+        rows.append(
+            {
+                "entry_basis": "D+1_open",
+                "target_window": f"D+{window}",
+                "target_return_pct": NEXT_OPEN_TARGET_PCT,
+                "filter_metric": label,
+                "filter_rule": f"{metric}>={threshold:g}",
+                "threshold": threshold,
+                "selected_stock_days": len(picked),
+                "hit_stock_days": len(hit),
+                "hit_rate_pct": round(len(hit) / len(picked) * 100, 2) if len(picked) else 0,
+                "median_next_open_to_high_return_pct": round(picked[ret_col].median(), 2) if len(picked) else 0,
+                "avg_signal_close_to_next_open_gap_pct": round(picked["signal_close_to_next_open_gap_pct"].mean(), 2) if len(picked) else 0,
+                "median_signal_close_to_next_open_gap_pct": round(picked["signal_close_to_next_open_gap_pct"].median(), 2) if len(picked) else 0,
+                "selected_unique_stocks": picked["stock_id"].nunique(),
+                "hit_unique_stocks": hit["stock_id"].nunique(),
+                "coverage_of_all_hits_pct": round(len(hit) / total_hits * 100, 2) if total_hits else 0,
+                "base_hit_rate_pct": round(total_hits / total_days * 100, 2) if total_days else 0,
             }
         )
     return pd.DataFrame(rows)
@@ -305,6 +362,48 @@ def build_weekly_volume_markdown(df: pd.DataFrame, comparison: pd.DataFrame) -> 
     return "\n".join(lines)
 
 
+def build_next_open_markdown(df: pd.DataFrame, comparison: pd.DataFrame) -> str:
+    lines: list[str] = []
+    lines.append("# Weekly Surge Next-Open Practical Hit Rate")
+    lines.append("")
+    lines.append(f"- generated_at: {now_text()}")
+    lines.append("- entry_basis: D+1 open, because the signal is only known after D0 close.")
+    lines.append(f"- target: max high from D+1 through the target window is at least {NEXT_OPEN_TARGET_PCT:.0f}% above D+1 open.")
+    lines.append("- volume filters are known by D0 close or earlier; no future volume is used.")
+    lines.append("- focus: hit_rate_pct and signal_close_to_next_open_gap_pct.")
+    lines.append("")
+    total = len(df)
+    lines.append("## Overall Base Hit Rates")
+    lines.append("")
+    lines.append("| Entry | Window | Hit Count | Base Hit Rate |")
+    lines.append("|---|---:|---:|---:|")
+    for window in NEXT_OPEN_WINDOWS:
+        hit_col = f"next_open_to_d{window}_high_10pct_hit"
+        hits = int(df[hit_col].sum())
+        lines.append(f"| D+1 open | D+{window} | {hits} | {hits / total * 100:.2f}% |")
+    lines.append("")
+
+    keep_cols = [
+        "target_window",
+        "threshold",
+        "selected_stock_days",
+        "hit_stock_days",
+        "hit_rate_pct",
+        "median_next_open_to_high_return_pct",
+        "avg_signal_close_to_next_open_gap_pct",
+        "median_signal_close_to_next_open_gap_pct",
+        "coverage_of_all_hits_pct",
+        "base_hit_rate_pct",
+    ]
+    for metric_label in ["start_day_volume_ratio", "start_5d_avg_volume_ratio", "prev_5d_avg_volume_ratio"]:
+        part = comparison[comparison["filter_metric"] == metric_label]
+        lines.append(f"## {metric_label}")
+        lines.append("")
+        lines.append(part[keep_cols].to_markdown(index=False))
+        lines.append("")
+    return "\n".join(lines)
+
+
 def main() -> int:
     LATEST_DIR.mkdir(parents=True, exist_ok=True)
     HISTORY_DIR.mkdir(parents=True, exist_ok=True)
@@ -329,6 +428,11 @@ def main() -> int:
         "future_5d_high",
         "future_5d_high_day_offset",
         "future_5d_high_from_start_low_pct",
+        "next_open",
+        "signal_close_to_next_open_gap_pct",
+        "next_open_to_d5_high_return_pct",
+        "next_open_to_d10_high_return_pct",
+        "next_open_to_d20_high_return_pct",
         "signal_day_close_return_pct",
         "signal_day_high_from_low_pct",
     ]
@@ -371,6 +475,19 @@ def main() -> int:
     weekly_volume_comparison.to_csv(WEEKLY_VOLUME_COMPARISON_CSV, index=False, encoding="utf-8", lineterminator="\n")
     WEEKLY_VOLUME_COMPARISON_MD.write_text(build_weekly_volume_markdown(df, weekly_volume_comparison), encoding="utf-8")
 
+    next_open_parts = []
+    for window in NEXT_OPEN_WINDOWS:
+        next_open_parts.extend(
+            [
+                summarize_next_open_thresholds(df, "start_day_volume_ratio_vs_prev20", "start_day_volume_ratio", window),
+                summarize_next_open_thresholds(df, "start_5d_avg_volume_ratio_vs_prev20", "start_5d_avg_volume_ratio", window),
+                summarize_next_open_thresholds(df, "prev_5d_avg_volume_ratio_vs_prev20", "prev_5d_avg_volume_ratio", window),
+            ]
+        )
+    next_open_comparison = pd.concat(next_open_parts, ignore_index=True)
+    next_open_comparison.to_csv(NEXT_OPEN_COMPARISON_CSV, index=False, encoding="utf-8", lineterminator="\n")
+    NEXT_OPEN_COMPARISON_MD.write_text(build_next_open_markdown(df, next_open_comparison), encoding="utf-8")
+
     print(f"Saved: {EVENTS_CSV} rows={len(events)}")
     print(f"Saved: {SUMMARY_CSV} rows={len(summary)}")
     print(f"Saved: {SUMMARY_MD}")
@@ -378,6 +495,8 @@ def main() -> int:
     print(f"Saved: {TARGET_COMPARISON_MD}")
     print(f"Saved: {WEEKLY_VOLUME_COMPARISON_CSV} rows={len(weekly_volume_comparison)}")
     print(f"Saved: {WEEKLY_VOLUME_COMPARISON_MD}")
+    print(f"Saved: {NEXT_OPEN_COMPARISON_CSV} rows={len(next_open_comparison)}")
+    print(f"Saved: {NEXT_OPEN_COMPARISON_MD}")
     return 0
 
 
