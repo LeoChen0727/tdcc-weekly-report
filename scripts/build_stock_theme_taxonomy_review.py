@@ -211,21 +211,59 @@ def build_review() -> pd.DataFrame:
 
 
 def build_markdown(df: pd.DataFrame) -> str:
+    def display(value: object, fallback: str = "待補") -> str:
+        text = safe_str(value).strip()
+        return text if text else fallback
+
+    def compact_reason(row: pd.Series) -> str:
+        bits = []
+        for col, label in [
+            ("category", "分類"),
+            ("decision_priority", "評級"),
+            ("risk_handling_bucket", "風險桶"),
+            ("volume_ratio", "量比"),
+        ]:
+            value = safe_str(row.get(col, "")).strip()
+            if value:
+                bits.append(f"{label}={value}")
+        return "；".join(bits) if bits else "無候選訊號補充"
+
+    def row_card(row: pd.Series) -> str:
+        theme = display(row.get("effective_primary_theme", ""))
+        bucket = display(row.get("effective_structural_theme_bucket", ""))
+        confidence = display(row.get("effective_confidence", ""), "未標示")
+        notes = safe_str(row.get("effective_notes", "")).strip()
+        line = (
+            f"- `{display(row.get('stock_id', ''), '')}` {display(row.get('stock_name', ''), '')}"
+            f"｜產業={display(row.get('industry', ''), '未知')}"
+            f"｜市場族群={theme}"
+            f"｜bucket={bucket}"
+            f"｜信心={confidence}"
+            f"｜{compact_reason(row)}"
+        )
+        if notes:
+            line += f"｜註記={notes}"
+        return line
+
     lines = [
-        "# Stock Theme Taxonomy Review",
+        "# Stock Theme Taxonomy Review / 族群分類校對清單",
         "",
         f"- generated_at: {now_text()}",
         f"- source_candidates: {ALL_CANDIDATES.as_posix()}",
         f"- source_taxonomy: {TAXONOMY.as_posix()}",
         "",
-        "## Usage",
+        "## How To Read",
         "",
-        "- `needs_market_theme_mapping`: today has a signal but no usable market-theme taxonomy. Do not route to the main attack list until reviewed.",
-        "- `industry_core_needs_market_theme`: official industry is electronic/semiconductor-like, but market theme is still missing. This is not enough for mainstream routing.",
-        "- `core_ai_related_theme`: explicitly mapped to AI/electronics/robotics/passive/PCB/LEO/optical/semiconductor theme buckets.",
-        "- `industry_non_mainstream_only`: official industry is non-mainstream and no market-theme override exists.",
-        "- `non_mainstream_theme`: explicitly mapped to a non-core/non-AI market theme.",
-        "- `mapped_needs_review`: mapped but low confidence or outside the core bucket list.",
+        "- `市場族群=待補`：目前只有官方產業，還沒有市場所謂題材族群。這類股票不可直接進主流資金線。",
+        "- `industry_core_needs_market_theme`：官方產業像電子 / 半導體 / 通訊，但仍缺市場族群，例如低軌衛星、光通訊、機器人、被動元件、PCB/CCL。",
+        "- `core_ai_related_theme`：已明確對應到 AI / 電子 / 機器人 / 被動元件 / PCB / 低軌衛星 / 光通訊 / 半導體等核心族群。",
+        "- `industry_non_mainstream_only`：目前只看得到非主流產業，且沒有核心題材覆蓋。",
+        "- `non_mainstream_theme`：已明確標示為非主流市場族群。",
+        "- `mapped_needs_review`：已有映射，但信心較低或需要人工複查。",
+        "",
+        "## Why Some Rows Are Blank",
+        "",
+        "空白不是程式壞掉，而是代表 `data/theme_events/stock_theme_taxonomy.csv` 還沒有這檔股票的人工市場族群映射。已分類的股票來自這份 taxonomy 主檔；未分類股票只能暫時依官方產業與當日訊號列入待校對。",
         "",
     ]
     if df.empty:
@@ -235,17 +273,6 @@ def build_markdown(df: pd.DataFrame) -> str:
     summary = df.groupby("taxonomy_review_status").size().reset_index(name="count")
     lines.extend(["## Summary", "", summary.to_markdown(index=False), ""])
 
-    view_cols = [
-        "stock_id",
-        "stock_name",
-        "industry",
-        "category",
-        "decision_priority",
-        "risk_handling_bucket",
-        "effective_primary_theme",
-        "effective_structural_theme_bucket",
-        "effective_confidence",
-    ]
     for status, title, limit in [
         ("needs_market_theme_mapping", "Needs Market Theme Mapping", 120),
         ("industry_core_needs_market_theme", "Industry Core But Market Theme Missing", 120),
@@ -259,7 +286,9 @@ def build_markdown(df: pd.DataFrame) -> str:
         if part.empty:
             lines.append("_No rows._")
         else:
-            lines.append(part[view_cols].head(limit).to_markdown(index=False))
+            lines.append(f"_rows shown: {min(len(part), limit)} / {len(part)}_")
+            lines.append("")
+            lines.extend(row_card(row) for _, row in part.head(limit).iterrows())
     return "\n".join(lines) + "\n"
 
 
