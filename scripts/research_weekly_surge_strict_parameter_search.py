@@ -140,11 +140,13 @@ def summarize_picked(
 ) -> dict[str, object]:
     hit_col = f"next_open_to_d{window}_high_10pct_hit"
     ret_col = f"next_open_to_d{window}_high_return_pct"
+    low_ret_col = f"next_open_to_d{window}_low_return_pct"
     close_win_col = f"next_open_to_d{window}_close_win"
     close_ret_col = f"next_open_to_d{window}_close_return_pct"
     hits = picked[picked[hit_col]]
     close_mature = picked.dropna(subset=[close_ret_col]) if close_ret_col in picked.columns else picked.iloc[0:0]
     close_wins = close_mature[close_mature[close_win_col]] if close_win_col in close_mature.columns else close_mature.iloc[0:0]
+    close_losses = close_mature[~close_mature[close_win_col]] if close_win_col in close_mature.columns else close_mature.iloc[0:0]
     sample = "ok_initial_sample" if len(picked) >= MIN_SELECTED else "insufficient_sample"
     return {
         "rule_name": rule_name,
@@ -168,9 +170,17 @@ def summarize_picked(
         "win_rate_next_open_to_close_pct": round(len(close_wins) / len(close_mature) * 100, 2) if len(close_mature) else 0,
         "avg_next_open_to_close_return_pct": round(close_mature[close_ret_col].mean(), 2) if len(close_mature) else 0,
         "median_next_open_to_close_return_pct": round(close_mature[close_ret_col].median(), 2) if len(close_mature) else 0,
+        "avg_win_next_open_to_close_return_pct": round(close_wins[close_ret_col].mean(), 2) if len(close_wins) else 0,
+        "avg_loss_next_open_to_close_return_pct": round(close_losses[close_ret_col].mean(), 2) if len(close_losses) else 0,
+        "worst_loss_next_open_to_close_return_pct": round(close_mature[close_ret_col].min(), 2) if len(close_mature) else 0,
+        "avg_next_open_to_low_return_pct": round(picked[low_ret_col].mean(), 2) if low_ret_col in picked.columns and len(picked) else 0,
+        "median_next_open_to_low_return_pct": round(picked[low_ret_col].median(), 2) if low_ret_col in picked.columns and len(picked) else 0,
+        "worst_next_open_to_low_return_pct": round(picked[low_ret_col].min(), 2) if low_ret_col in picked.columns and len(picked) else 0,
         "avg_signal_close_to_next_open_gap_pct": round(picked["signal_close_to_next_open_gap_pct"].mean(), 2) if len(picked) else 0,
         "tdcc_available_rate_pct": round(picked["tdcc_available"].mean() * 100, 2) if len(picked) else 0,
         "top_market_regime_counts": top_counts(picked, "derived_market_regime"),
+        "top_stock_counts": top_counts(picked, "stock_id"),
+        "top_stock_concentration_pct": top_concentration_pct(picked, "stock_id"),
         "sample_status": sample,
     }
 
@@ -185,6 +195,15 @@ def top_counts(df: pd.DataFrame, col: str, limit: int = 4) -> str:
         return ""
     counts = df[col].fillna("").astype(str).replace({"": "blank"}).value_counts().head(limit)
     return "; ".join(f"{k}={v}" for k, v in counts.items())
+
+
+def top_concentration_pct(df: pd.DataFrame, col: str) -> float:
+    if df.empty or col not in df.columns:
+        return 0.0
+    counts = df[col].fillna("").astype(str).replace({"": "blank"}).value_counts()
+    if counts.empty:
+        return 0.0
+    return round(float(counts.iloc[0]) / len(df) * 100.0, 2)
 
 
 def df_to_md(df: pd.DataFrame, limit: int = 30) -> str:
@@ -234,6 +253,7 @@ def build_markdown(summary: pd.DataFrame, df: pd.DataFrame) -> str:
                 median_selected_stock_days=("selected_stock_days", "median"),
                 median_high_touch_rate_pct=("hit_rate_pct", "median"),
                 median_close_exit_return_pct=("avg_next_open_to_close_return_pct", "median"),
+                median_intraperiod_low_return_pct=("median_next_open_to_low_return_pct", "median"),
             )
             .reset_index()
         )
@@ -250,7 +270,12 @@ def build_markdown(summary: pd.DataFrame, df: pd.DataFrame) -> str:
         "win_rate_next_open_to_close_pct",
         "avg_next_open_to_close_return_pct",
         "median_next_open_to_close_return_pct",
+        "avg_loss_next_open_to_close_return_pct",
+        "worst_loss_next_open_to_close_return_pct",
+        "median_next_open_to_low_return_pct",
+        "worst_next_open_to_low_return_pct",
         "avg_signal_close_to_next_open_gap_pct",
+        "top_stock_concentration_pct",
         "tdcc_available_rate_pct",
         "sample_status",
     ]
