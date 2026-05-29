@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-05-29 19:22:02 Asia/Taipei",
-  "target_date": "20260529",
-  "saved_price_date": "20260529",
+  "generated_at": "2026-05-30 05:29:33 Asia/Taipei",
+  "target_date": "20260530",
+  "saved_price_date": "20260530",
   "is_target_date": true,
   "result": "success_target_full_market",
   "reason": "成功取得目標日 TWSE + TPEx 官方日線資料。",
@@ -11,19 +11,19 @@
   "full_market_ok": true,
   "attempts": [
     {
-      "date": "20260529",
+      "date": "20260530",
       "twse_rows": 1239,
       "tpex_rows": 5582,
       "total_rows": 6821,
       "twse_ok": true,
       "tpex_ok": true,
       "full_market_ok": true,
-      "universe_rows": 6981
+      "universe_rows": 6821
     }
   ],
   "paths": {
-    "dated_csv": "data/daily_price/20260529.csv",
-    "dated_alt_csv": "data/daily_price/daily_price_20260529.csv",
+    "dated_csv": "data/daily_price/20260530.csv",
+    "dated_alt_csv": "data/daily_price/daily_price_20260530.csv",
     "latest_csv": "output/latest/official_daily_price_latest.csv"
   }
 }
