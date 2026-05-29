@@ -115,6 +115,7 @@ def build_guide() -> str:
     volume_breakout = read_csv(LATEST_DIR / "volume_breakout_watch_latest.csv")
     volume_attack_theme = read_csv(LATEST_DIR / "volume_attack_theme_layer_latest.csv")
     volume_attack_stocks = read_csv(LATEST_DIR / "volume_attack_theme_stocks_latest.csv")
+    stock_theme_taxonomy = read_csv(LATEST_DIR / "stock_theme_taxonomy_latest.csv")
     daily_theme_status_history = read_csv(LATEST_DIR / "daily_theme_status_history_latest.csv")
     weekly_surge_theme_segment = read_csv(LATEST_DIR / "weekly_surge_theme_segment_next_open_latest.csv")
     weekly_surge_technical_grid = read_csv(LATEST_DIR / "weekly_surge_technical_filter_grid_latest.csv")
@@ -161,9 +162,10 @@ def build_guide() -> str:
                 ["1", "READ_ME_FIRST_DAILY_REPORT.txt", "Confirm date/report_ready and collect raw URLs."],
                 ["2", "chatgpt_indicator_usage_guide_latest.md", "Understand which indicator layer is authoritative for each task."],
                 ["3", "daily_short_term_specialty_packet_latest.md", "Mandatory for daily stock reports; contains standalone D+1-D+10 short-term specialty summary plus D+5/D+10 detail sections."],
-                ["4", "Task-specific packet/top-list CSV", "Use packet/top-list fields before PDF text."],
-                ["5", "PDF / Markdown reports", "Use as readable summaries and presentation artifacts."],
-                ["6", "External sources", "Only supplement news/events/targets; never replace repo price or TDCC raw data."],
+                ["4", "stock_theme_taxonomy_latest.csv/md + stock_theme_taxonomy_review_latest.csv/md", "Use program-side market-theme taxonomy before raw industry; review file marks missing/industry-only mappings that cannot enter mainstream routing."],
+                ["5", "Task-specific packet/top-list CSV", "Use packet/top-list fields before PDF text."],
+                ["6", "PDF / Markdown reports", "Use as readable summaries and presentation artifacts."],
+                ["7", "External sources", "Only supplement news/events/targets; never replace repo price or TDCC raw data."],
             ],
         )
     )
@@ -277,11 +279,25 @@ def build_guide() -> str:
             "Use when asked about 帶量突破 / 放量突破 / 放量攻擊. Strict breakout is only one subset.",
         ],
         [
+            "Stock theme taxonomy",
+            "output/latest/stock_theme_taxonomy_latest.csv",
+            "primary_theme, secondary_themes, structural_theme_bucket, theme_structural_status, theme_mainstream_label, concept_tags",
+            f"rows={len(stock_theme_taxonomy)} / {count_values(stock_theme_taxonomy, 'structural_theme_bucket')}",
+            "Authoritative program-side theme/concept mapping. Use before raw industry; e.g. robotics, low-earth-orbit satellite, glass fiber/CCL can cross exchange industries.",
+        ],
+        [
+            "Stock theme taxonomy review",
+            "output/latest/stock_theme_taxonomy_review_latest.csv",
+            "taxonomy_review_status, review_priority, effective_primary_theme, effective_structural_theme_bucket",
+            "Use this to find stocks with signals but missing market-theme mapping.",
+            "Rows marked industry_core_needs_market_theme are not eligible for the mainstream attack list until mapped to an explicit core structural_theme_bucket.",
+        ],
+        [
             "Volume attack theme layer",
             "output/latest/volume_attack_theme_layer_latest.csv",
-            "theme_final_status, theme_volume_attack_status, leader_stock, range/strict/watch counts, interpretation",
+            "market_theme_group, theme_group_source, structural_theme_bucket, theme_final_status, theme_volume_attack_status, theme_spread_decision, leader_stock_id, second_stock_id, third_stock_id, range/strict/watch counts, interpretation",
             f"{count_values(volume_attack_theme, 'theme_volume_attack_status')} / stocks={len(volume_attack_stocks)}",
-            "Authoritative mainstream/non-mainstream split for volume-attack sections. Do not show only the theme name.",
+            "Authoritative volume-attack theme spread table. Leader/second/third are program fields; do not invent runner-up stocks from memory.",
         ],
         [
             "Daily theme status history",
@@ -314,7 +330,7 @@ def build_guide() -> str:
         [
             "Next-open +10pct multifactor current candidates",
             "output/latest/weekly_surge_multifactor_candidates_latest.csv",
-            "research_priority, stock_id, matched_rules, best_d5_hit_rate_pct, best_d10_hit_rate_pct, research_caveat",
+            "research_priority, stock_id, matched_rules, best_d5_touch_rate_pct, best_d10_touch_rate_pct, research_caveat",
             f"{count_values(weekly_surge_multifactor_candidates, 'research_priority')} / rows={len(weekly_surge_multifactor_candidates)}",
             "Current research watchlist for next-open +10pct touch hypotheses. Use as a separate research section only; do not mix into core candidate ranking.",
         ],
@@ -328,7 +344,7 @@ def build_guide() -> str:
         [
             "Next-open +10pct strict parameter current candidates",
             "output/latest/weekly_surge_strict_parameter_candidates_latest.csv",
-            "research_priority, stock_id, matched_rules, best_d5_hit_rate_pct, best_d10_hit_rate_pct, best_d10_rule, research_caveat",
+            "research_priority, stock_id, matched_rules, best_d5_touch_rate_pct, best_d10_touch_rate_pct, best_d10_rule, research_caveat",
             f"{count_values(weekly_surge_strict_candidates, 'research_priority')} / rows={len(weekly_surge_strict_candidates)}",
             "Current strict research watchlist using no latest-theme label. Keep as a standalone D+5/D+10 research table, not core ranking.",
         ],
@@ -367,12 +383,17 @@ def build_guide() -> str:
     lines.append("- `must_not_overstate=True` means do not call the stock a top pick, even if the chart looks attractive.")
     lines.append("- For volume breakout questions, read `volume_breakout_chatgpt_packet_latest.md`, `volume_attack_theme_layer_latest.md/csv`, `volume_attack_theme_stocks_latest.md/csv`, and then `volume_breakout_watch_latest.csv` for detail fields.")
     lines.append("- Every volume-attack / early-theme table must include explicit `theme_final_status`, `theme_structural_status`, `theme_mainstream_label`, and `theme_volume_attack_status`; never show only a generic theme name.")
+    lines.append("- For 族群出量 / volume spread tables, use only `theme_spread_decision`, `leader_stock_id`, `second_stock_id`, and `third_stock_id` from `volume_attack_theme_layer_latest.csv`; never infer 龍頭/老二/老三 manually.")
+    lines.append("- For mainstream/non-mainstream grouping, read `stock_theme_taxonomy_latest.csv/md` and `stock_theme_taxonomy_review_latest.csv/md`. A stock needs an explicit core `structural_theme_bucket` to enter the mainstream capital line; official industry alone is not enough.")
+    lines.append("- Market theme is not the same as official industry: 上銀/大銀微系統 are robotics/precision motion; 華通/啟碁 can be low-earth-orbit satellite; 南亞/台玻 can be glass fiber/CCL.")
     lines.append("- `theme_final_status` is daily flow/breadth. `theme_structural_status=core_mainstream_theme` is required before a stock can enter the mainstream capital line.")
     lines.append("- Textile, financial, steel, shipping, construction, chemical, plastic and similar cyclical/traditional groups are non-mainstream rotation even when daily flow is strong.")
+    lines.append("- Mainstream/non-mainstream is a display section and comparison group, not a score penalty or buy veto. Use `theme_group`, `display_section`, and `section_rank`; do not downgrade solely because a stock is non-mainstream.")
     lines.append("- For any mainstream/non-mainstream backtest, use `daily_theme_status_history.csv` by `signal_date + stock_id`. Do not join today's `theme_final_status` backward onto historical signals.")
     lines.append("- `theme_volume_attack_status=confirmed_volume_theme` or `early_mainstream_candidate` can be shown in the volume-attack theme line; `single_stock_volume_attack`, `non_mainstream_volume_watch`, `weak_or_non_mainstream_volume_watch`, `overheated_volume_theme`, and `failed_volume_theme` must not be mixed into the mainstream-funding front section.")
     lines.append("- If `tdcc_overheated_short_term_edge_latest.md/csv` exists, include its standalone D+5 and D+10 tables as a TDCC overheated short-term edge specialty; use it for reporting priority only, not core model weights.")
     lines.append("- If `non_revenue_momentum_watch_latest.md/csv` exists, include a standalone `非營收驅動強勢股 / 題材資金先行` section. Do not merge it into the six fixed categories.")
+    lines.append("- `A_theme_first_momentum_revenue_not_primary` / `B_theme_first_watch_revenue_not_primary` are for core themes where monthly revenue is not the first screening layer. Use order/spec upgrade, theme breadth, price-volume, TDCC, and warrant confirmation instead of forcing a revenue interpretation.")
     lines.append("- Do not confuse the fixed category `回檔後短線轉強` with the short-term specialty layer; they are different sections.")
     lines.append("")
 

@@ -133,16 +133,27 @@ Every mainstream / volume-attack / early-mainstream table must include:
 Use `volume_attack_theme_layer_latest.md/csv` and `volume_attack_theme_stocks_latest.md/csv`.
 
 Do not infer mainstream/non-mainstream from memory.
+Do not infer 族群出量 / volume-spread leaders manually. The only valid source for the spread table is `volume_attack_theme_layer_latest.csv`, especially `theme_spread_decision`, `leader_stock_id`, `second_stock_id`, and `third_stock_id`.
+
+Before using raw industry for grouping, read the program-side taxonomy:
+
+- `output/latest/stock_theme_taxonomy_latest.csv`
+- `output/latest/stock_theme_taxonomy_latest.md`
+- `output/latest/stock_theme_taxonomy_review_latest.csv`
+- `output/latest/stock_theme_taxonomy_review_latest.md`
+- `data/theme_events/stock_theme_taxonomy.csv`
+
+The taxonomy fields `primary_theme`, `secondary_themes`, `structural_theme_bucket`, `theme_structural_status`, `theme_mainstream_label`, and `concept_tags` are the authoritative source for cross-industry market themes. They override legacy exchange industry for mainstream / non-mainstream routing.
 
 Mainstream / non-mainstream is split into separate concepts:
 
 - `theme_final_status` / `theme_market_flow_status`: today's flow and breadth state.
-- `theme_structural_status`: broad structural bucket, such as core_mainstream_theme or non_mainstream_theme.
+- `theme_structural_status`: broad structural bucket, such as `core_mainstream_theme` or `non_mainstream_theme`.
 - `structural_theme_bucket`: fine market theme bucket. This may cross industry classifications.
 - `market_theme_group`: the primary analysis grouping. It must prefer `structural_theme_bucket`, then `theme_name`, then `industry`.
 - `theme_group_source`: records which field supplied `market_theme_group`.
 
-Only `theme_structural_status=core_mainstream_theme` may enter the mainstream capital line.
+Only stocks with an explicit `structural_theme_bucket` in the core AI/electronics/robotics/semiconductor theme list may enter the mainstream capital line. Official exchange industry alone is not enough. If `stock_theme_taxonomy_review_latest.csv` marks a stock as `industry_core_needs_market_theme`, it must be treated as taxonomy incomplete and cannot enter the mainstream attack list until mapped.
 
 Industry and market theme are not the same thing. A stock can keep its industry while also belonging to a cross-industry theme bucket.
 
@@ -152,12 +163,17 @@ Examples:
 
 - 華通 remains PCB, 啟碁 remains networking/communications, but both can belong to `low_earth_orbit_satellite_theme`.
 - 南亞 remains plastics, 台玻 remains glass/ceramics, but both can belong to `glass_fiber_ccl_theme`.
+- 大銀微系統、上銀、亞德客-KY should be treated as robotics / precision motion or robotics automation when mapped, not merely as generic machinery.
+- 佳能 and 亞光 should be treated as robotics / optical sensing or machine-vision camera-module names when mapped, not merely as generic optoelectronics.
+- 三集瑞-KY, 國巨 and 凱美 should be grouped under passive components when mapped, even if their exchange industries differ.
 
 Core mainstream theme buckets include low-earth-orbit satellite, glass fiber / CCL, PCB/CCL, CPO / silicon photonics, optical communication, networking, advanced packaging, semiconductor equipment, semiconductor materials, semiconductors, passive components, memory/HBM, AI server, power/thermal, connectors/cables, consumer electronics, robotics/automation.
 
 Textile, financial, steel, shipping, construction, chemical, plastic and similar cyclical/traditional groups are `non_mainstream_theme` even when daily flow is strong.
 
 Non-mainstream groups with strong daily flow should be shown as non-mainstream rotation, short-term theme, or risk/watch sections; do not call them mainstream leaders.
+
+Mainstream / non-mainstream is a report-section field, not a score penalty and not a buy veto. The decision layer must keep `decision_score` and `decision_priority` based on the stock condition, risk flags, TDCC, volume, price pattern, warrant support, and confirmation state. Use `theme_group`, `display_section`, and `section_rank` to compare core-mainstream, non-mainstream, and unknown-theme names inside their own sections. Do not downgrade a stock only because it is non-mainstream; apply downgrades only for actual risk fields such as TDCC distribution, stale signal, overheat, false breakout, missing confirmation, or execution-risk flags.
 
 Allowed volume-attack theme statuses:
 
@@ -203,6 +219,8 @@ If `tdcc_overheated_short_term_edge_latest.md/csv` exists, the daily report must
 - Show separate D+5 and D+10 tables.
 - Keep close-to-close metrics separate from next-open-to-close metrics.
 - Use only `mature_dN=True` samples for win rate and return statistics.
+- Current matching-stock rows must not be presented as stock-specific guaranteed win-rate rows. If several stocks match the same historical rule, show the rule-level D+5/D+10 performance table separately from the current candidate list.
+- Preferred current candidate wording: `D+5 next-open win / avg return` and `D+10 next-open win / avg return`. Avoid ambiguous wording such as `歷史勝率 / 相對報酬`.
 - Treat the signal as `reporting_priority_only` while sample/regime coverage is still limited.
 - Do not mix this specialty into the fixed six-category ranking.
 - Do not use it to change TDCC / ABM / daily candidate core model weights.
@@ -216,8 +234,9 @@ If `weekly_surge_strict_parameter_search_latest.md/csv` exists, the daily report
 - Close-exit win rate must use only rows with a mature `D+N close` as the denominator. Do not count pending rows without D+N close as losses.
 - This is not weekly candlestick analysis. The file prefix `weekly_surge` is legacy/backward-compatible only.
 - Display title in Chinese: `隔日開盤買進後 D+1 至 D+10 盤中觸及 +10% 研究`.
-- Do not write `周線急漲嚴格參數`.
-- The win rate is a next-open entry touch-rate, not close-to-close return or D+N close win rate.
+- Do not write `週線急漲`, `周線急漲嚴格參數`, `最佳歷史D+5勝率`, or `最佳歷史D+10勝率`.
+- The `best_dN_touch_rate_pct` field is a next-open entry high-touch rate, not close-to-close return or D+N close win rate.
+- If legacy fields named `best_d5_hit_rate_pct` or `best_d10_hit_rate_pct` still appear, interpret them as `+10% intraperiod high touch rate`, not a close-exit win rate.
 - Show current candidates from `weekly_surge_strict_parameter_candidates_latest.md/csv` when available.
 - Treat it as `research_watchlist_and_reporting_priority_only` until more regime samples are available.
 - If `market_abnormal_status_latest.md/csv` marks a stock as disposition, attention, attention accumulation, periodic trading, altered trading, managed stock, or suspension, show it as an execution-risk overlay. Do not describe it as a clean breakout or clean short-term edge.
