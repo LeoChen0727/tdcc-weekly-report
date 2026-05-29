@@ -31,6 +31,10 @@ on:
         description: "Run catalyst performance tracking"
         required: false
         default: "true"
+      run_msci_rebalance:
+        description: "Run MSCI Taiwan rebalance event backtest"
+        required: false
+        default: "true"
 
 permissions:
   contents: write
@@ -116,6 +120,11 @@ jobs:
         run: |
           python scripts/update_catalyst_performance.py
 
+      - name: Build MSCI Taiwan rebalance event backtest
+        if: ${{ github.event.inputs.run_msci_rebalance == 'true' }}
+        run: |
+          python scripts/build_msci_taiwan_rebalance_backtest.py
+
       - name: Rebuild ChatGPT route files
         run: |
           python scripts/build_chatgpt_indicator_usage_guide.py
@@ -134,6 +143,8 @@ jobs:
           git add output/history/market_timing/ || true
           git add output/history/daily_signals/ || true
           git add output/history/catalyst_performance/ || true
+          git add output/history/msci_index_reviews/ || true
+          git add data/msci_index_reviews/ || true
 
           git add output/latest/weekly_surge_*.csv output/latest/weekly_surge_*.md || true
           git add output/latest/explosive_volume_up_*.csv output/latest/explosive_volume_up_*.md || true
@@ -148,6 +159,7 @@ jobs:
           git add output/latest/surge_model_*.csv output/latest/surge_model_*.md output/latest/surge_precondition_candidates_latest.csv output/latest/surge_precondition_candidates_latest.md || true
           git add output/latest/market_timing_*.csv output/latest/market_timing_*.md || true
           git add output/latest/daily_signal_performance_*.csv output/latest/daily_signal_performance_*.md output/latest/daily_signal_performance_*.pdf || true
+          git add output/latest/msci_taiwan_rebalance_*.csv output/latest/msci_taiwan_rebalance_*.md || true
 
           git add output/latest/chatgpt_indicator_usage_guide_latest.md || true
           git add output/latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt || true
@@ -174,6 +186,7 @@ jobs:
           git add scripts/generate_daily_signal_performance_report.py || true
           git add scripts/validate_daily_signal_performance.py || true
           git add scripts/update_catalyst_performance.py || true
+          git add scripts/build_msci_taiwan_rebalance_backtest.py || true
           git add .github/workflows/research_backtest_pipeline.yml || true
 
           git status --short

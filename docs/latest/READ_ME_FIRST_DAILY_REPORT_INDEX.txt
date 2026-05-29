@@ -1,7 +1,7 @@
-generated_at=2026-05-29 10:44:28 Asia/Taipei
+generated_at=2026-05-29 13:39:15 Asia/Taipei
 main_price_date=20260528
 report_ready=True
-commit_sha=3193c5c8eb3c63263a1a05eb214956e914d6a69f
+commit_sha=d8d04aea05e99405de54b31688c1d65dde25d6e1
 latest_readme_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT.txt
 latest_readme_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/READ_ME_FIRST_DAILY_REPORT.txt
 latest_readme_github_api_url=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/READ_ME_FIRST_DAILY_REPORT.txt?ref=main

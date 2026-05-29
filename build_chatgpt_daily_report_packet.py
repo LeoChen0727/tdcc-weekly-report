@@ -43,6 +43,9 @@ NON_REVENUE_MOMENTUM_MD = LATEST_DIR / "non_revenue_momentum_watch_latest.md"
 NON_REVENUE_MOMENTUM_CSV = LATEST_DIR / "non_revenue_momentum_watch_latest.csv"
 MARKET_ABNORMAL_STATUS_MD = LATEST_DIR / "market_abnormal_status_latest.md"
 MARKET_ABNORMAL_STATUS_CSV = LATEST_DIR / "market_abnormal_status_latest.csv"
+MSCI_REBALANCE_BACKTEST_MD = LATEST_DIR / "msci_taiwan_rebalance_backtest_latest.md"
+MSCI_REBALANCE_BACKTEST_CSV = LATEST_DIR / "msci_taiwan_rebalance_backtest_latest.csv"
+MSCI_REBALANCE_EVENTS_CSV = LATEST_DIR / "msci_taiwan_rebalance_events_latest.csv"
 DAILY_SIGNAL_WEEKLY_PDF = LATEST_DIR / "daily_signal_performance_weekly_latest.pdf"
 DAILY_SIGNAL_MONTHLY_PDF = LATEST_DIR / "daily_signal_performance_monthly_latest.pdf"
 FUNDAMENTAL_CATALYST_MD = LATEST_DIR / "fundamental_catalyst_layer_latest.md"
@@ -494,6 +497,10 @@ def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path],
     lines.append(f"market_abnormal_status_md_raw_url: {raw_url(MARKET_ABNORMAL_STATUS_MD)}")
     lines.append(f"market_abnormal_status_csv_raw_url: {raw_url(MARKET_ABNORMAL_STATUS_CSV)}")
     lines.append("market_abnormal_usage: disposition/attention/periodic-trading flags are execution-risk overlays; do not treat as core buy/sell signals. Historical backtests must mark disposition filtering as not_backfilled until snapshots accumulate.")
+    lines.append(f"msci_taiwan_rebalance_backtest_md_raw_url: {raw_url(MSCI_REBALANCE_BACKTEST_MD)}")
+    lines.append(f"msci_taiwan_rebalance_backtest_csv_raw_url: {raw_url(MSCI_REBALANCE_BACKTEST_CSV)}")
+    lines.append(f"msci_taiwan_rebalance_events_csv_raw_url: {raw_url(MSCI_REBALANCE_EVENTS_CSV)}")
+    lines.append("msci_rebalance_usage: MSCI addition/deletion is an event tag and research layer. Entry-backtest uses the first trading day after effective date open to D+5/D+10/D+15/D+20 close; do not treat it as a standalone buy/sell signal.")
     lines.append(f"status: {'generated' if NON_REVENUE_MOMENTUM_MD.exists() and NON_REVENUE_MOMENTUM_CSV.exists() else 'missing'}")
     lines.append("fields: non_revenue_momentum_type,revenue_confirmation_status,theme_final_status,theme_volume_attack_status,volume_breakout_type,tdcc_status,warrant_flow_signal,next_confirmation")
     lines.append("note: Standalone specialty overlay for stocks where price/theme/fund flow moves before revenue/EPS confirmation. It is not a seventh core category and must not change core weights.")
@@ -649,6 +656,10 @@ def write_packet_manifest(main_date: str, report_ready: str, paths: dict[str, Pa
         "non_revenue_momentum_watch_md_raw_url": raw_url(NON_REVENUE_MOMENTUM_MD),
         "non_revenue_momentum_watch_csv_raw_url": raw_url(NON_REVENUE_MOMENTUM_CSV),
         "non_revenue_momentum_watch_status": "generated" if NON_REVENUE_MOMENTUM_MD.exists() and NON_REVENUE_MOMENTUM_CSV.exists() else "missing",
+        "msci_taiwan_rebalance_events_csv_raw_url": raw_url(MSCI_REBALANCE_EVENTS_CSV),
+        "msci_taiwan_rebalance_backtest_md_raw_url": raw_url(MSCI_REBALANCE_BACKTEST_MD),
+        "msci_taiwan_rebalance_backtest_csv_raw_url": raw_url(MSCI_REBALANCE_BACKTEST_CSV),
+        "msci_taiwan_rebalance_status": "generated" if MSCI_REBALANCE_BACKTEST_MD.exists() and MSCI_REBALANCE_BACKTEST_CSV.exists() else "missing",
         "surge_model_chatgpt_packet_raw_url": raw_url(SURGE_MODEL_PACKET_MD),
         "surge_precondition_candidates_md_raw_url": raw_url(SURGE_PRECONDITION_CANDIDATES_MD),
         "surge_precondition_candidates_csv_raw_url": raw_url(SURGE_PRECONDITION_CANDIDATES_CSV),
