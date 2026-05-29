@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8027 鈦昇
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:30 Asia/Taipei
+- generated_at: 2026-05-29 19:33:52 Asia/Taipei
 - stock_id: 8027
 - stock_name: 鈦昇
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 250
-- high: 253.5
-- low: 242
-- close: 245.5
-- volume: 248000
-- ma5: 249.3
-- ema23_primary: 225.69
-- distance_to_ema23_pct: 8.78
-- ma20: 234.55
-- ma60: 164.78
-- ma120: 135.02
-- return_5d: 1.66
-- return_20d: 39.49
+- date: 20260529
+- open: 255
+- high: 259.5
+- low: 252.5
+- close: 258.5
+- volume: 256000
+- ma5: 252.1
+- ema23_primary: 228.42
+- distance_to_ema23_pct: 13.17
+- ma20: 237.8
+- ma60: 167.46
+- ma120: 136.44
+- return_5d: 5.73
+- return_20d: 33.59
 - volume_ratio: 0.04
-- distance_to_ma20_pct_auxiliary: 4.67
-- distance_to_high_60_pct: -15.34
+- distance_to_ma20_pct_auxiliary: 8.7
+- distance_to_high_60_pct: -10.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,181.5,193.5,181,193.5,13594000,150.45,28.61,153.65,122.99,1
 20260504,205,207.5,186.5,202,31158000,154.75,30.53,156.15,124.54,2.08
 20260505,198.5,215,197.5,202,16918000,158.69,27.29,158.53,126.03,1.14
 20260506,200,203.5,193,195.5,4113000,161.76,20.86,160.72,127.41,0.29
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,257,257,248,256.5,254000,221.56,15.77,226.75,159.84,0.03
 20260527,264.5,264.5,248,249.5,253000,223.88,11.44,231.07,162.4,0.03
 20260528,250,253.5,242,245.5,248000,225.69,8.78,234.55,164.78,0.04
+20260529,255,259.5,252.5,258.5,256000,228.42,13.17,237.8,167.46,0.04
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 8027 | 鈦昇 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

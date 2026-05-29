@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1721 三晃
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:25 Asia/Taipei
+- generated_at: 2026-05-29 19:31:47 Asia/Taipei
 - stock_id: 1721
 - stock_name: 三晃
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 30.5
-- high: 30.6
-- low: 28.3
-- close: 28.5
-- volume: 5581311
-- ma5: 29.05
+- date: 20260529
+- open: 28.65
+- high: 28.8
+- low: 28.05
+- close: 28.25
+- volume: 2729624
+- ma5: 28.9
 - ema23_primary: 28.25
-- distance_to_ema23_pct: 0.89
-- ma20: 29.39
-- ma60: 22.96
-- ma120: 19.2
-- return_5d: -4.68
-- return_20d: 13.55
-- volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: -3.01
-- distance_to_high_60_pct: -20.83
+- distance_to_ema23_pct: 0
+- ma20: 29.59
+- ma60: 23.13
+- ma120: 19.35
+- return_5d: -2.59
+- return_20d: 16.74
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: -4.52
+- distance_to_high_60_pct: -21.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,25.1,25.1,24,24.2,3069232,22.39,8.07,21.63,19.33,0.53
 20260504,24.55,25.05,24.15,24.3,2114095,22.55,7.75,21.98,19.42,0.36
 20260505,24.5,26.7,24.3,26.7,3607637,22.9,16.61,22.45,19.54,0.6
 20260506,29.35,29.35,26.7,28.4,7475302,23.36,21.6,23.04,19.69,1.18
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,28.5,30.1,27.6,29.45,5562530,28.05,4.99,29.01,22.59,0.78
 20260527,29.9,31,29.1,30.15,7613323,28.23,6.82,29.21,22.78,1.03
 20260528,30.5,30.6,28.3,28.5,5581311,28.25,0.89,29.39,22.96,0.74
+20260529,28.65,28.8,28.05,28.25,2729624,28.25,0,29.59,23.13,0.36
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1721 | 三晃 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 1721 | 三晃 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1721 | 三晃 | 3 | 3 | 3 | 3 | 3 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260529 | 1721 | 三晃 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

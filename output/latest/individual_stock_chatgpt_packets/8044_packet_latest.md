@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8044 網家
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:30 Asia/Taipei
+- generated_at: 2026-05-29 19:33:53 Asia/Taipei
 - stock_id: 8044
 - stock_name: 網家
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 28.05
-- high: 29.1
-- low: 27.85
-- close: 28.85
+- date: 20260529
+- open: 28.9
+- high: 29.8
+- low: 28.65
+- close: 29
 - volume: 29000
-- ma5: 28.24
-- ema23_primary: 25.93
-- distance_to_ema23_pct: 11.25
-- ma20: 25.3
-- ma60: 24.23
-- ma120: 26.74
-- return_5d: 0.17
-- return_20d: 26.54
+- ma5: 28.26
+- ema23_primary: 26.19
+- distance_to_ema23_pct: 10.73
+- ma20: 25.62
+- ma60: 24.26
+- ma120: 26.73
+- return_5d: 0.35
+- return_20d: 28.04
 - volume_ratio: 0.03
-- distance_to_ma20_pct_auxiliary: 14.03
-- distance_to_high_60_pct: -3.51
+- distance_to_ma20_pct_auxiliary: 13.2
+- distance_to_high_60_pct: -3.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,23,23,22.6,22.65,251000,23.59,-3.96,23.31,25.12,0.43
 20260504,22.55,22.75,22.35,22.4,291000,23.49,-4.63,23.3,25.01,0.5
 20260505,22.4,22.7,22.3,22.5,291000,23.4,-3.86,23.3,24.9,0.49
 20260506,22.55,22.7,22.15,22.55,369000,23.33,-3.36,23.32,24.8,0.63
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,28.2,28.45,27,27.05,27000,25.43,6.37,24.73,24.22,0.02
 20260527,27.15,29.2,26.6,28.3,28000,25.67,10.25,25,24.21,0.03
 20260528,28.05,29.1,27.85,28.85,29000,25.93,11.25,25.3,24.23,0.03
+20260529,28.9,29.8,28.65,29,29000,26.19,10.73,25.62,24.26,0.03
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 8044 | 網家 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

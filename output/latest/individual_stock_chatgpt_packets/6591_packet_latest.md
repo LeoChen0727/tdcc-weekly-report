@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6591 動力-KY
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:11 Asia/Taipei
+- generated_at: 2026-05-29 19:33:33 Asia/Taipei
 - stock_id: 6591
 - stock_name: 動力-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 55.5
-- high: 56
-- low: 53.8
-- close: 54.4
-- volume: 343565
-- ma5: 54.54
-- ema23_primary: 55.2
-- distance_to_ema23_pct: -1.45
-- ma20: 54.9
-- ma60: 58.95
-- ma120: 65.97
-- return_5d: 2.26
-- return_20d: -5.72
-- volume_ratio: 0.91
-- distance_to_ma20_pct_auxiliary: -0.91
-- distance_to_high_60_pct: -20
+- date: 20260529
+- open: 55.6
+- high: 58.8
+- low: 55.6
+- close: 57.2
+- volume: 1232174
+- ma5: 55.28
+- ema23_primary: 55.37
+- distance_to_ema23_pct: 3.31
+- ma20: 54.91
+- ma60: 58.8
+- ma120: 65.81
+- return_5d: 6.92
+- return_20d: 0.35
+- volume_ratio: 2.86
+- distance_to_ma20_pct_auxiliary: 4.17
+- distance_to_high_60_pct: -13.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,57.5,58.2,57,57,177445,58.99,-3.37,58.27,62.88,0.54
 20260504,57,59.5,57,58.5,376969,58.95,-0.76,58.2,62.66,1.12
 20260505,58.4,58.7,57.5,57.8,331295,58.85,-1.79,58.1,62.44,0.97
 20260506,57.6,58.3,56.5,57.1,494625,58.71,-2.74,58.02,62.23,1.4
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,54.9,55,54,54.8,296242,55.26,-0.84,55.19,59.38,0.85
 20260527,55.4,57.1,54.8,55.4,581718,55.28,0.23,55.06,59.17,1.59
 20260528,55.5,56,53.8,54.4,343565,55.2,-1.45,54.9,58.95,0.91
+20260529,55.6,58.8,55.6,57.2,1232174,55.37,3.31,54.91,58.8,2.86
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 6591 | 動力-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 6591 | 動力-KY | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | status |

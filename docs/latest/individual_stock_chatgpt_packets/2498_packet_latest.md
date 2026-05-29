@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2498 宏達電
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:46 Asia/Taipei
+- generated_at: 2026-05-29 19:32:08 Asia/Taipei
 - stock_id: 2498
 - stock_name: 宏達電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 45
-- high: 45.5
-- low: 43.8
-- close: 43.9
-- volume: 9042819
-- ma5: 45.1
-- ema23_primary: 43.29
-- distance_to_ema23_pct: 1.41
-- ma20: 42.97
-- ma60: 41.62
-- ma120: 44.63
-- return_5d: -3.41
-- return_20d: 10.3
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: 2.16
-- distance_to_high_60_pct: -8.16
+- date: 20260529
+- open: 44.85
+- high: 45.8
+- low: 44.45
+- close: 45.25
+- volume: 11262791
+- ma5: 44.87
+- ema23_primary: 43.45
+- distance_to_ema23_pct: 4.14
+- ma20: 43.23
+- ma60: 41.66
+- ma120: 44.61
+- return_5d: -2.48
+- return_20d: 12.7
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: 4.68
+- distance_to_high_60_pct: -5.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,39.85,40.9,39.85,40.15,6917634,40.57,-1.03,40.3,42.3,1.07
 20260504,40.6,41.45,40.4,41.1,6734932,40.61,1.2,40.35,42.21,1.02
 20260505,41.3,41.45,40.75,41,4660647,40.65,0.87,40.43,42.1,0.7
 20260506,41.55,41.55,40,40.1,8182552,40.6,-1.23,40.48,41.99,1.19
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,46.5,46.95,44.35,44.35,15432709,43.11,2.89,42.52,41.64,0.9
 20260527,44.55,45.8,44,44.65,13857095,43.23,3.27,42.77,41.63,0.78
 20260528,45,45.5,43.8,43.9,9042819,43.29,1.41,42.97,41.62,0.5
+20260529,44.85,45.8,44.45,45.25,11262791,43.45,4.14,43.23,41.66,0.62
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2498 | 宏達電 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 2498 | 宏達電 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 2498 | 宏達電 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260521 | 2498 | 宏達電 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2498 | 宏達電 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260529 | 2498 | 宏達電 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2498 | 宏達電 | 93 | 10 | 6071670.0 | 21400.0 | 283.72 | no_signal | 0 |  |
+| 20260529 | 2498 | 宏達電 | 93 | 10 | 6175720.0 | 207100.0 | 29.82 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

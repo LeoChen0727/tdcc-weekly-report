@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1476 儒鴻
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:19 Asia/Taipei
+- generated_at: 2026-05-29 19:31:41 Asia/Taipei
 - stock_id: 1476
 - stock_name: 儒鴻
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 335
-- high: 344
-- low: 332.5
-- close: 340.5
-- volume: 1801537
+- date: 20260529
+- open: 345
+- high: 346
+- low: 337.5
+- close: 342.5
+- volume: 1411037
 - ma5: 336.7
-- ema23_primary: 337.76
-- distance_to_ema23_pct: 0.81
-- ma20: 337.32
-- ma60: 347.54
-- ma120: 377.39
-- return_5d: -0.73
-- return_20d: 1.34
-- volume_ratio: 1.21
-- distance_to_ma20_pct_auxiliary: 0.94
-- distance_to_high_60_pct: -18.35
+- ema23_primary: 338.16
+- distance_to_ema23_pct: 1.28
+- ma20: 337.73
+- ma60: 346.5
+- ma120: 376.75
+- return_5d: 0
+- return_20d: 2.39
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: 1.41
+- distance_to_high_60_pct: -14.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,332.5,341,332.5,334.5,1328985,341.72,-2.11,335.02,372.05,0.91
 20260504,334.5,343,334,338.5,863362,341.45,-0.86,335.4,370.9,0.63
 20260505,338.5,339.5,334.5,336.5,643112,341.04,-1.33,336.1,369.62,0.49
 20260506,336.5,342.5,332,333,771954,340.37,-2.16,336.85,368.32,0.6
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,339.5,339.5,330.5,334.5,2021842,338.1,-1.07,337.25,350.31,1.49
 20260527,337,340,324.5,331,3134796,337.51,-1.93,337.1,348.77,2.17
 20260528,335,344,332.5,340.5,1801537,337.76,0.81,337.32,347.54,1.21
+20260529,345,346,337.5,342.5,1411037,338.16,1.28,337.73,346.5,0.94
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1476 | 儒鴻 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 1476 | 儒鴻 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | call_strong_inflow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1476 | 儒鴻 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260529 | 1476 | 儒鴻 | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1476 | 儒鴻 | 15 | 0 | 3952930.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260529 | 1476 | 儒鴻 | 15 | 0 | 6773230.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

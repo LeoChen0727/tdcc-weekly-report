@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6683 雍智科技
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:14 Asia/Taipei
+- generated_at: 2026-05-29 19:33:36 Asia/Taipei
 - stock_id: 6683
 - stock_name: 雍智科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 1780
-- high: 1840
-- low: 1650
-- close: 1700
-- volume: 1725000
-- ma5: 1749
-- ema23_primary: 1851.15
-- distance_to_ema23_pct: -8.17
-- ma20: 2004
-- ma60: 1615.05
-- ma120: 1060.77
-- return_5d: 0.89
-- return_20d: -12.14
-- volume_ratio: 1.72
-- distance_to_ma20_pct_auxiliary: -15.17
-- distance_to_high_60_pct: -33.72
+- date: 20260529
+- open: 1760
+- high: 1760
+- low: 1610
+- close: 1665
+- volume: 1651000
+- ma5: 1752
+- ema23_primary: 1835.64
+- distance_to_ema23_pct: -9.3
+- ma20: 1981
+- ma60: 1628.92
+- ma120: 1071.4
+- return_5d: 0.91
+- return_20d: -21.65
+- volume_ratio: 1.55
+- distance_to_ma20_pct_auxiliary: -15.95
+- distance_to_high_60_pct: -35.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,2125,2125,2125,2125,423000,1710.04,24.27,1771.75,1200.21,0.39
 20260504,2335,2335,2335,2335,115000,1762.12,32.51,1813.25,1231.7,0.12
 20260505,2565,2565,2480,2565,1105000,1829.03,40.24,1869,1266.73,1.17
 20260506,2420,2530,2310,2395,2548000,1876.19,27.65,1914.75,1298.58,2.55
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,1890,1925,1780,1800,1840000,1872.61,-3.88,2019,1586.82,1.83
 20260527,1850,1910,1725,1780,1808000,1864.89,-4.55,2015.75,1601.23,1.81
 20260528,1780,1840,1650,1700,1725000,1851.15,-8.17,2004,1615.05,1.72
+20260529,1760,1760,1610,1665,1651000,1835.64,-9.3,1981,1628.92,1.55
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6683 | 雍智科技 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

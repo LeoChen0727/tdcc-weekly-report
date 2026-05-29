@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4755 三福化
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:34 Asia/Taipei
+- generated_at: 2026-05-29 19:32:56 Asia/Taipei
 - stock_id: 4755
 - stock_name: 三福化
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 160.5
-- high: 160.5
-- low: 148.5
-- close: 150.5
-- volume: 1771974
-- ma5: 153.6
-- ema23_primary: 146.72
-- distance_to_ema23_pct: 2.58
+- date: 20260529
+- open: 153.5
+- high: 155
+- low: 147
+- close: 149
+- volume: 503301
+- ma5: 154.1
+- ema23_primary: 146.91
+- distance_to_ema23_pct: 1.42
 - ma20: 143.95
-- ma60: 147.22
-- ma120: 131.28
-- return_5d: 7.12
-- return_20d: -3.53
-- volume_ratio: 2.16
-- distance_to_ma20_pct_auxiliary: 4.55
-- distance_to_high_60_pct: -16.39
+- ma60: 147.3
+- ma120: 131.69
+- return_5d: 1.71
+- return_20d: 0
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: 3.51
+- distance_to_high_60_pct: -17.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,155.5,155.5,148.5,149,961808,152.08,-2.03,150.47,143.03,0.7
 20260504,150,151,148.5,149,563732,151.82,-1.86,150.88,143.42,0.41
 20260505,150,150,145,148,622661,151.51,-2.31,151.38,143.81,0.45
 20260506,149,149.5,142,147,809483,151.13,-2.73,151.85,144.18,0.57
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,154.5,159,152,155.5,1259870,144.91,7.31,143.82,146.93,1.77
 20260527,156.5,165,156,162.5,2150031,146.37,11.02,144.22,147.17,2.81
 20260528,160.5,160.5,148.5,150.5,1771974,146.72,2.58,143.95,147.22,2.16
+20260529,153.5,155,147,149,503301,146.91,1.42,143.95,147.3,0.63
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4755 | 三福化 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4755 | 三福化 | 3 | 1 | 3 | 3 | 3 | continued_2_3d | 連續 3 個交易日上榜，訊號延續但仍需確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4755 | 三福化 | 3 | 0 | 964420.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 4755 | 三福化 | 3 | 0 | 193180.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

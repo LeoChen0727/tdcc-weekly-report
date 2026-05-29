@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4934 太極
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:37 Asia/Taipei
+- generated_at: 2026-05-29 19:32:59 Asia/Taipei
 - stock_id: 4934
 - stock_name: 太極
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 17.4
-- high: 17.95
-- low: 16.7
-- close: 16.9
-- volume: 1460782
-- ma5: 17.44
-- ema23_primary: 17.22
-- distance_to_ema23_pct: -1.87
-- ma20: 17.41
-- ma60: 17.48
-- ma120: 16.21
-- return_5d: -0.29
-- return_20d: 7.99
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: -2.96
-- distance_to_high_60_pct: -25.55
+- date: 20260529
+- open: 16.95
+- high: 17.25
+- low: 16.8
+- close: 17.25
+- volume: 1334504
+- ma5: 17.41
+- ema23_primary: 17.23
+- distance_to_ema23_pct: 0.14
+- ma20: 17.48
+- ma60: 17.43
+- ma120: 16.26
+- return_5d: -0.86
+- return_20d: 8.49
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: -1.33
+- distance_to_high_60_pct: -17.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,15.8,16,15.35,15.9,749463,16.54,-3.88,16.28,17.34,0.69
 20260504,16.1,16.4,15.9,16.05,818959,16.5,-2.73,16.25,17.34,0.75
 20260505,16.2,17.65,16.15,17.65,2681995,16.6,6.35,16.34,17.33,2.3
 20260506,18.3,19.4,18.1,18.45,6953254,16.75,10.15,16.46,17.36,4.66
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,18.2,18.7,17.6,17.65,2331708,17.24,2.39,17.26,17.57,1.26
 20260527,17.9,17.9,17.3,17.4,1183141,17.25,0.86,17.35,17.54,0.63
 20260528,17.4,17.95,16.7,16.9,1460782,17.22,-1.87,17.41,17.48,0.76
+20260529,16.95,17.25,16.8,17.25,1334504,17.23,0.14,17.48,17.43,0.68
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4934 | 太極 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260529 | 4934 | 太極 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260529 | 4934 | 太極 | revenue_breakout_low_response | 營收爆發低反應股 | 19.0 | 6.0 | A_優先追蹤 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4934 | 太極 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260529 | 4934 | 太極 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

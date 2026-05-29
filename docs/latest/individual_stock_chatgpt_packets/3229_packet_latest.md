@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3229 晟鈦
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:06 Asia/Taipei
+- generated_at: 2026-05-29 19:32:29 Asia/Taipei
 - stock_id: 3229
 - stock_name: 晟鈦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 45.8
-- high: 48.35
-- low: 44.5
-- close: 45
-- volume: 844912
-- ma5: 44.39
-- ema23_primary: 39.98
-- distance_to_ema23_pct: 12.54
-- ma20: 41.92
-- ma60: 30.01
-- ma120: 26.5
-- return_5d: 19.52
-- return_20d: 20.16
-- volume_ratio: 0.92
-- distance_to_ma20_pct_auxiliary: 7.35
-- distance_to_high_60_pct: -10.71
+- date: 20260529
+- open: 46.5
+- high: 49.5
+- low: 44.75
+- close: 49.5
+- volume: 1166361
+- ma5: 46.37
+- ema23_primary: 40.78
+- distance_to_ema23_pct: 21.39
+- ma20: 42.39
+- ma60: 30.48
+- ma120: 26.78
+- return_5d: 25
+- return_20d: 23.6
+- volume_ratio: 1.24
+- distance_to_ma20_pct_auxiliary: 16.77
+- distance_to_high_60_pct: -1.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,38.8,40.6,38,40.05,772058,30.77,30.14,29.3,23.74,0.99
 20260504,44.05,44.05,41.9,43.55,617544,31.84,36.78,30.5,24.08,0.76
 20260505,43,43,41.9,42.95,325259,32.77,31.08,31.72,24.4,0.4
 20260506,44.95,44.95,42.5,42.7,222010,33.59,27.11,32.92,24.73,0.27
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,47,47.9,46.5,47.9,743063,38.95,22.98,41.14,29.22,0.93
 20260527,49.2,50.4,45.7,45.9,2101745,39.53,16.12,41.54,29.62,2.37
 20260528,45.8,48.35,44.5,45,844912,39.98,12.54,41.92,30.01,0.92
+20260529,46.5,49.5,44.75,49.5,1166361,40.78,21.39,42.39,30.48,1.24
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 3229 | 晟鈦 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 3229 | 晟鈦 | 1 | 1 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

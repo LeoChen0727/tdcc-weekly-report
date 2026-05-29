@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8421 旭源
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:38 Asia/Taipei
+- generated_at: 2026-05-29 19:34:00 Asia/Taipei
 - stock_id: 8421
 - stock_name: 旭源
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 13.6
-- high: 13.6
-- low: 13.35
+- date: 20260529
+- open: 13.85
+- high: 13.85
+- low: 13
 - close: 13.35
 - volume: 13000
-- ma5: 13.48
-- ema23_primary: 13.57
-- distance_to_ema23_pct: -1.64
-- ma20: 13.62
-- ma60: 13.58
-- ma120: 13.36
+- ma5: 13.43
+- ema23_primary: 13.55
+- distance_to_ema23_pct: -1.5
+- ma20: 13.6
+- ma60: 13.59
+- ma120: 13.37
 - return_5d: -1.84
 - return_20d: -1.84
 - volume_ratio: 0.31
-- distance_to_ma20_pct_auxiliary: -1.95
+- distance_to_ma20_pct_auxiliary: -1.86
 - distance_to_high_60_pct: -6.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,13.6,13.65,13.5,13.6,30000,13.57,0.19,13.58,13.46,0.61
 20260504,13.6,13.7,13.4,13.6,70000,13.58,0.18,13.58,13.46,1.39
 20260505,13.7,13.8,13.5,13.75,59000,13.59,1.17,13.59,13.47,1.15
 20260506,13.75,14,13.65,13.65,69000,13.6,0.4,13.59,13.47,1.28
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,13.6,13.6,13.35,13.5,13000,13.61,-0.84,13.64,13.58,0.28
 20260527,13.5,13.5,13.15,13.35,13000,13.59,-1.78,13.63,13.58,0.3
 20260528,13.6,13.6,13.35,13.35,13000,13.57,-1.64,13.62,13.58,0.31
+20260529,13.85,13.85,13,13.35,13000,13.55,-1.5,13.6,13.59,0.31
 ```
 
 ## Latest TDCC Snapshot

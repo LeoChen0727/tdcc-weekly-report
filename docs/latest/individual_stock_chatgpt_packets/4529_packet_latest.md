@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4529 淳紳
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:29 Asia/Taipei
+- generated_at: 2026-05-29 19:32:51 Asia/Taipei
 - stock_id: 4529
 - stock_name: 淳紳
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 5.15
-- high: 5.15
-- low: 4.82
-- close: 4.84
+- date: 20260529
+- open: 5.18
+- high: 5.18
+- low: 4.85
+- close: 4.85
 - volume: 5000
-- ma5: 5.25
-- ema23_primary: 5.06
-- distance_to_ema23_pct: -4.34
-- ma20: 5.18
-- ma60: 4.1
-- ma120: 3.84
-- return_5d: -17.69
-- return_20d: -15.09
-- volume_ratio: 0.03
-- distance_to_ma20_pct_auxiliary: -6.57
-- distance_to_high_60_pct: -26.44
+- ma5: 5.06
+- ema23_primary: 5.04
+- distance_to_ema23_pct: -3.81
+- ma20: 5.16
+- ma60: 4.13
+- ma120: 3.85
+- return_5d: -16.09
+- return_20d: -6.73
+- volume_ratio: 0.04
+- distance_to_ma20_pct_auxiliary: -6.06
+- distance_to_high_60_pct: -26.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,5.2,5.38,5.13,5.2,359000,4.15,25.24,3.87,3.52,2.01
 20260504,5.05,5.05,4.68,4.68,246000,4.2,11.54,3.94,3.54,1.3
 20260505,4.68,5.13,4.68,5.02,191000,4.26,17.71,4.03,3.57,0.98
 20260506,5.01,5.01,4.7,4.9,90000,4.32,13.49,4.12,3.6,0.46
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,5.18,5.38,4.96,5.08,5000,5.07,0.1,5.27,4.05,0.03
 20260527,5.13,5.5,5.03,5.13,5000,5.08,1,5.22,4.08,0.03
 20260528,5.15,5.15,4.82,4.84,5000,5.06,-4.34,5.18,4.1,0.03
+20260529,5.18,5.18,4.85,4.85,5000,5.04,-3.81,5.16,4.13,0.04
 ```
 
 ## Latest TDCC Snapshot

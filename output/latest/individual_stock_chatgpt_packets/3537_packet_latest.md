@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3537 堡達
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:16 Asia/Taipei
+- generated_at: 2026-05-29 19:32:38 Asia/Taipei
 - stock_id: 3537
 - stock_name: 堡達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 69.3
-- high: 73.9
-- low: 69.1
-- close: 73.9
-- volume: 72000
-- ma5: 71.34
-- ema23_primary: 57.31
-- distance_to_ema23_pct: 28.95
-- ma20: 55.01
-- ma60: 47.67
-- ma120: 48.77
-- return_5d: 16.38
-- return_20d: 71.06
+- date: 20260529
+- open: 77.5
+- high: 77.8
+- low: 71.1
+- close: 77
+- volume: 75000
+- ma5: 72.78
+- ema23_primary: 58.95
+- distance_to_ema23_pct: 30.62
+- ma20: 56.71
+- ma60: 48.19
+- ma120: 49.02
+- return_5d: 10.32
+- return_20d: 79.7
 - volume_ratio: 0.06
-- distance_to_ma20_pct_auxiliary: 34.35
-- distance_to_high_60_pct: -3.65
+- distance_to_ma20_pct_auxiliary: 35.77
+- distance_to_high_60_pct: -1.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,43.2,43.35,42.8,42.85,98000,44.19,-3.03,44.29,45.05,0.62
 20260504,42.5,43.2,42.5,42.8,156000,44.07,-2.89,44.3,44.91,0.98
 20260505,43.15,43.75,43,43.6,143000,44.03,-0.98,44.39,44.8,0.91
 20260506,43.65,43.9,42.8,43.4,191000,43.98,-1.32,44.45,44.69,1.16
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,76.1,76.1,69.1,69.1,71000,54.76,26.18,52.29,46.89,0.05
 20260527,69.5,72.9,65.4,67.2,69000,55.8,20.43,53.47,47.22,0.05
 20260528,69.3,73.9,69.1,73.9,72000,57.31,28.95,55.01,47.67,0.06
+20260529,77.5,77.8,71.1,77,75000,58.95,30.62,56.71,48.19,0.06
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3537 | 堡達 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

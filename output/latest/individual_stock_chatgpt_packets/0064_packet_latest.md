@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0064 期元大S&P石油(原名：元大S&P石油)
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:07 Asia/Taipei
+- generated_at: 2026-05-29 19:31:29 Asia/Taipei
 - stock_id: 0064
 - stock_name: 期元大S&P石油(原名：元大S&P石油)
 - packet_status: insufficient_price_data
@@ -113,7 +113,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 0064 | 期元大S&P石油(原名：元大S&P石油) | 98 | 35 | 2209020.0 | 434370.0 | 5.09 | no_signal | 0 |  |
+| 20260529 | 0064 | 期元大S&P石油(原名：元大S&P石油) | 98 | 35 | 2255310.0 | 728140.0 | 3.1 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

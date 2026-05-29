@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4566 時碩工業
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:31 Asia/Taipei
+- generated_at: 2026-05-29 19:32:53 Asia/Taipei
 - stock_id: 4566
 - stock_name: 時碩工業
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 62
-- high: 67.2
-- low: 62
-- close: 67.2
-- volume: 4646886
-- ma5: 63.92
-- ema23_primary: 64.33
-- distance_to_ema23_pct: 4.46
-- ma20: 65.06
-- ma60: 62.71
-- ma120: 60.02
-- return_5d: 8.39
-- return_20d: 4.02
-- volume_ratio: 2.87
-- distance_to_ma20_pct_auxiliary: 3.28
-- distance_to_high_60_pct: -12.61
+- date: 20260529
+- open: 68
+- high: 73
+- low: 66.5
+- close: 70.2
+- volume: 7407180
+- ma5: 65.32
+- ema23_primary: 64.82
+- distance_to_ema23_pct: 8.3
+- ma20: 65.22
+- ma60: 62.93
+- ma120: 60.16
+- return_5d: 11.08
+- return_20d: 4.46
+- volume_ratio: 3.93
+- distance_to_ma20_pct_auxiliary: 7.64
+- distance_to_high_60_pct: -8.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,65.1,68.9,64.2,67.2,2119070,65.37,2.8,65.92,60.83,0.91
 20260504,67.5,73.9,67.3,71.9,5984923,65.91,9.08,66.62,61.02,2.3
 20260505,71.8,73,70.2,70.8,2542093,66.32,6.75,67.34,61.17,0.94
 20260506,71.2,71.3,66.9,67.8,2129228,66.44,2.04,67.96,61.27,0.76
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,65.1,65.1,63,63.5,596290,64.34,-1.31,65.16,62.53,0.42
 20260527,63.6,63.9,61,61.1,972687,64.07,-4.64,64.94,62.56,0.69
 20260528,62,67.2,62,67.2,4646886,64.33,4.46,65.06,62.71,2.87
+20260529,68,73,66.5,70.2,7407180,64.82,8.3,65.22,62.93,3.93
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4566 | 時碩工業 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 4566 | 時碩工業 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4566 | 時碩工業 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260529 | 4566 | 時碩工業 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | status |

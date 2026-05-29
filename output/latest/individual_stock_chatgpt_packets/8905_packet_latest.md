@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8905 裕國
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:41 Asia/Taipei
+- generated_at: 2026-05-29 19:34:03 Asia/Taipei
 - stock_id: 8905
 - stock_name: 裕國
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 128
+- latest_price_date: 20260529
+- price_rows: 129
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 29.8
-- high: 30
-- low: 29.35
-- close: 30
+- date: 20260529
+- open: 29.1
+- high: 29.6
+- low: 29.1
+- close: 29.5
 - volume: 30000
-- ma5: 30.11
-- ema23_primary: 33.04
-- distance_to_ema23_pct: -9.21
-- ma20: 33.21
-- ma60: 37.4
-- ma120: 34.96
-- return_5d: 1.69
-- return_20d: -23.18
-- volume_ratio: 1.37
-- distance_to_ma20_pct_auxiliary: -9.67
-- distance_to_high_60_pct: -27.88
+- ma5: 30.1
+- ema23_primary: 32.75
+- distance_to_ema23_pct: -9.91
+- ma20: 32.7
+- ma60: 37.25
+- ma120: 34.95
+- return_5d: -0.17
+- return_20d: -25.79
+- volume_ratio: 1.32
+- distance_to_ma20_pct_auxiliary: -9.79
+- distance_to_high_60_pct: -29.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,40,40,38.65,39.75,13000,39.66,0.23,39.94,38.46,0.63
 20260430,41.1,41.1,40.75,40.75,2000,39.75,2.52,39.96,38.6,0.11
 20260504,40.05,40.05,39.35,39.35,33000,39.72,-0.92,39.93,38.71,1.83
 20260505,38.95,38.95,38.3,38.3,14000,39.6,-3.28,39.82,38.81,0.77
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,30.3,31,30.1,31,31000,33.65,-7.87,34.13,37.73,1.49
 20260527,30.15,31.2,29.6,29.7,30000,33.32,-10.86,33.66,37.56,1.41
 20260528,29.8,30,29.35,30,30000,33.04,-9.21,33.21,37.4,1.37
+20260529,29.1,29.6,29.1,29.5,30000,32.75,-9.91,32.7,37.25,1.32
 ```
 
 ## Latest TDCC Snapshot

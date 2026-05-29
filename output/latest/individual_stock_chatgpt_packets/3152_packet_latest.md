@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3152 璟德
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:04 Asia/Taipei
+- generated_at: 2026-05-29 19:32:27 Asia/Taipei
 - stock_id: 3152
 - stock_name: 璟德
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 202
-- high: 213
-- low: 194
-- close: 197
-- volume: 204000
-- ma5: 195.8
-- ema23_primary: 177.74
-- distance_to_ema23_pct: 10.84
-- ma20: 177.05
-- ma60: 159.74
-- ma120: 151.57
-- return_5d: 14.53
-- return_20d: 9.44
-- volume_ratio: 0.14
-- distance_to_ma20_pct_auxiliary: 11.27
-- distance_to_high_60_pct: -7.51
+- date: 20260529
+- open: 204.5
+- high: 204.5
+- low: 195.5
+- close: 200
+- volume: 199000
+- ma5: 199.5
+- ema23_primary: 179.59
+- distance_to_ema23_pct: 11.36
+- ma20: 178.5
+- ma60: 160.53
+- ma120: 152.31
+- return_5d: 10.19
+- return_20d: 16.96
+- volume_ratio: 0.19
+- distance_to_ma20_pct_auxiliary: 12.04
+- distance_to_high_60_pct: -6.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,185,196,170,171,7992000,161.72,5.74,163.75,152.68,3.58
 20260504,168,176,166.5,170,1954000,162.41,4.67,165.15,152.83,0.86
 20260505,169,177,168.5,173.5,1109000,163.34,6.22,166.03,153.04,0.51
 20260506,174.5,174.5,165,170.5,1367000,163.93,4.01,166.6,153.16,0.67
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,204,207.5,194,202.5,202000,173.94,16.42,174.47,158.38,0.12
 20260527,205,207,197,198.5,202000,175.99,12.79,176.2,159.05,0.12
 20260528,202,213,194,197,204000,177.74,10.84,177.05,159.74,0.14
+20260529,204.5,204.5,195.5,200,199000,179.59,11.36,178.5,160.53,0.19
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3152 | 璟德 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6224 聚鼎
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:00 Asia/Taipei
+- generated_at: 2026-05-29 19:33:22 Asia/Taipei
 - stock_id: 6224
 - stock_name: 聚鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 85.1
-- high: 88.7
-- low: 85.1
-- close: 88.7
-- volume: 4860812
-- ma5: 84.44
-- ema23_primary: 75.7
-- distance_to_ema23_pct: 17.17
-- ma20: 79.27
-- ma60: 57.54
-- ma120: 49.94
-- return_5d: 6.35
-- return_20d: 32.78
-- volume_ratio: 1.79
-- distance_to_ma20_pct_auxiliary: 11.9
-- distance_to_high_60_pct: -8.08
+- date: 20260529
+- open: 97.5
+- high: 97.5
+- low: 93.3
+- close: 95
+- volume: 8094865
+- ma5: 86.22
+- ema23_primary: 77.31
+- distance_to_ema23_pct: 22.88
+- ma20: 80.35
+- ma60: 58.41
+- ma120: 50.39
+- return_5d: 10.34
+- return_20d: 29.6
+- volume_ratio: 2.66
+- distance_to_ma20_pct_auxiliary: 18.23
+- distance_to_high_60_pct: -2.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,73,73.3,69.9,73.3,1428557,55.32,32.49,54.09,45.58,1.15
 20260504,75.1,75.1,70.9,73,990222,56.8,28.53,55.73,46.09,0.77
 20260505,76.6,80.3,76.6,80.3,1795133,58.76,36.67,57.76,46.72,1.31
 20260506,88.3,88.3,80,88.3,4669463,61.22,44.24,60.19,47.49,2.91
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,83.4,83.4,80.2,82.1,1867668,73.96,11.01,77.17,56.17,0.75
 20260527,82.7,82.7,80.1,80.7,1052009,74.52,8.29,78.17,56.78,0.42
 20260528,85.1,88.7,85.1,88.7,4860812,75.7,17.17,79.27,57.54,1.79
+20260529,97.5,97.5,93.3,95,8094865,77.31,22.88,80.35,58.41,2.66
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6224 | 聚鼎 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 6224 | 聚鼎 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6224 | 聚鼎 | 3 | 1 | 3 | 3 | 3 | continued_2_3d | 連續 3 個交易日上榜，訊號延續但仍需確認。 |
+| 20260529 | 6224 | 聚鼎 | 4 | 2 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2323 中環
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:35 Asia/Taipei
+- generated_at: 2026-05-29 19:31:58 Asia/Taipei
 - stock_id: 2323
 - stock_name: 中環
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 10.35
-- high: 10.5
-- low: 10.05
-- close: 10.15
-- volume: 6790774
-- ma5: 10.31
-- ema23_primary: 10.25
-- distance_to_ema23_pct: -0.97
-- ma20: 10.21
-- ma60: 10.71
-- ma120: 10.61
-- return_5d: 2.94
-- return_20d: -0.98
-- volume_ratio: 0.84
-- distance_to_ma20_pct_auxiliary: -0.57
-- distance_to_high_60_pct: -22.52
+- date: 20260529
+- open: 10.25
+- high: 10.4
+- low: 10.25
+- close: 10.35
+- volume: 4530960
+- ma5: 10.34
+- ema23_primary: 10.26
+- distance_to_ema23_pct: 0.9
+- ma20: 10.22
+- ma60: 10.7
+- ma120: 10.62
+- return_5d: 1.47
+- return_20d: 1.97
+- volume_ratio: 0.56
+- distance_to_ma20_pct_auxiliary: 1.29
+- distance_to_high_60_pct: -20.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,10.3,10.4,10.15,10.15,4129671,10.66,-4.79,10.68,10.84,0.79
 20260504,10.25,10.4,10.2,10.4,4629262,10.64,-2.25,10.64,10.83,0.91
 20260505,10.35,10.5,10.35,10.45,3735975,10.62,-1.63,10.62,10.82,0.73
 20260506,10.55,10.75,10.45,10.6,6662334,10.62,-0.2,10.61,10.82,1.27
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,10.9,10.95,10.15,10.2,11963562,10.25,-0.53,10.21,10.74,1.57
 20260527,10.35,10.45,10.15,10.3,8330352,10.26,0.41,10.21,10.72,1.06
 20260528,10.35,10.5,10.05,10.15,6790774,10.25,-0.97,10.21,10.71,0.84
+20260529,10.25,10.4,10.25,10.35,4530960,10.26,0.9,10.22,10.7,0.56
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 2323 | 中環 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 2323 | 中環 | 1 | 1 | 3 | 3 | 3 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2323 | 中環 | 10 | 0 | 1084810.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 2323 | 中環 | 10 | 0 | 163890.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

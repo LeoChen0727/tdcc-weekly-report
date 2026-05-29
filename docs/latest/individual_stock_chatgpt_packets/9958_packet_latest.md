@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9958 世紀鋼
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:46 Asia/Taipei
+- generated_at: 2026-05-29 19:34:08 Asia/Taipei
 - stock_id: 9958
 - stock_name: 世紀鋼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 102
+- date: 20260529
+- open: 103.5
 - high: 104.5
-- low: 101
-- close: 103
-- volume: 2508609
-- ma5: 103.2
-- ema23_primary: 104.5
-- distance_to_ema23_pct: -1.44
-- ma20: 103.55
-- ma60: 111.43
-- ma120: 124.4
-- return_5d: 0
-- return_20d: 0
-- volume_ratio: 1.18
-- distance_to_ma20_pct_auxiliary: -0.53
-- distance_to_high_60_pct: -23.7
+- low: 102
+- close: 103.5
+- volume: 2199506
+- ma5: 103.6
+- ema23_primary: 104.42
+- distance_to_ema23_pct: -0.88
+- ma20: 103.67
+- ma60: 111.08
+- ma120: 124.11
+- return_5d: 1.97
+- return_20d: 2.48
+- volume_ratio: 1.01
+- distance_to_ma20_pct_auxiliary: -0.17
+- distance_to_high_60_pct: -23.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,102.5,104,101,101,1220032,108.18,-6.64,105.7,120.31,0.7
 20260504,102.5,103,101,102,1214384,107.66,-5.26,105.17,119.69,0.7
 20260505,102.5,102.5,101.5,101.5,1020837,107.15,-5.27,105.1,119.09,0.67
 20260506,102.5,103.5,100.5,101.5,1444797,106.68,-4.86,104.8,118.54,0.98
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,106.5,108,104,105,2504890,104.88,0.12,103.6,112.28,1.28
 20260527,106,106,101,102,2412247,104.64,-2.52,103.55,111.86,1.19
 20260528,102,104.5,101,103,2508609,104.5,-1.44,103.55,111.43,1.18
+20260529,103.5,104.5,102,103.5,2199506,104.42,-0.88,103.67,111.08,1.01
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 9958 | 世紀鋼 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260529 | 9958 | 世紀鋼 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 9958 | 世紀鋼 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260529 | 9958 | 世紀鋼 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 9958 | 世紀鋼 | 37 | 0 | 1390130.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260529 | 9958 | 世紀鋼 | 36 | 0 | 1527300.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

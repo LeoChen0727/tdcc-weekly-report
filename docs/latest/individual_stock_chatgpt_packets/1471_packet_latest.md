@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1471 首利
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:18 Asia/Taipei
+- generated_at: 2026-05-29 19:31:41 Asia/Taipei
 - stock_id: 1471
 - stock_name: 首利
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 26
 - tdcc_history_status: tdcc_history_ready
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 10.35
-- high: 10.55
-- low: 10.15
-- close: 10.15
-- volume: 672373
-- ma5: 10.49
-- ema23_primary: 10.86
-- distance_to_ema23_pct: -6.5
-- ma20: 10.73
-- ma60: 11.89
-- ma120: 11.07
-- return_5d: -3.33
-- return_20d: -13.62
-- volume_ratio: 1.04
-- distance_to_ma20_pct_auxiliary: -5.43
-- distance_to_high_60_pct: -30
+- date: 20260529
+- open: 10.15
+- high: 11.15
+- low: 10.1
+- close: 11.15
+- volume: 1897505
+- ma5: 10.55
+- ema23_primary: 10.88
+- distance_to_ema23_pct: 2.48
+- ma20: 10.72
+- ma60: 11.86
+- ma120: 11.09
+- return_5d: 2.77
+- return_20d: -1.33
+- volume_ratio: 2.68
+- distance_to_ma20_pct_auxiliary: 3.96
+- distance_to_high_60_pct: -23.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,11.75,11.75,11.3,11.3,701159,12.1,-6.59,12.04,12.51,0.82
 20260504,11.3,11.65,11.3,11.3,446228,12.03,-6.07,11.99,12.49,0.52
 20260505,11.3,11.55,11.2,11.45,467466,11.98,-4.44,11.96,12.46,0.56
 20260506,11.5,11.5,11,11.2,779847,11.92,-6.01,11.93,12.4,0.92
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,10.65,10.75,10.35,10.35,616558,10.97,-5.67,10.88,12.01,1.03
 20260527,10.55,10.55,10.1,10.35,797536,10.92,-5.22,10.81,11.96,1.28
 20260528,10.35,10.55,10.15,10.15,672373,10.86,-6.5,10.73,11.89,1.04
+20260529,10.15,11.15,10.1,11.15,1897505,10.88,2.48,10.72,11.86,2.68
 ```
 
 ## Latest TDCC Snapshot
@@ -131,14 +131,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 1471 | 首利 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 1471 | 首利 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | status |

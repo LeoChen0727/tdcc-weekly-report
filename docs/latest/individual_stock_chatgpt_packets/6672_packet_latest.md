@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6672 騰輝電子-KY
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:14 Asia/Taipei
+- generated_at: 2026-05-29 19:33:36 Asia/Taipei
 - stock_id: 6672
 - stock_name: 騰輝電子-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 212
-- high: 219.5
-- low: 211
-- close: 215
-- volume: 9662565
-- ma5: 208.7
-- ema23_primary: 195.54
-- distance_to_ema23_pct: 9.95
-- ma20: 202.93
-- ma60: 159.62
-- ma120: 126.55
-- return_5d: 20.45
-- return_20d: 3.37
-- volume_ratio: 1.5
-- distance_to_ma20_pct_auxiliary: 5.95
-- distance_to_high_60_pct: -9.66
+- date: 20260529
+- open: 220.5
+- high: 224
+- low: 219
+- close: 222.5
+- volume: 6842632
+- ma5: 214.6
+- ema23_primary: 197.79
+- distance_to_ema23_pct: 12.49
+- ma20: 203.1
+- ma60: 161.69
+- ma120: 127.68
+- return_5d: 15.29
+- return_20d: 1.6
+- volume_ratio: 1.11
+- distance_to_ma20_pct_auxiliary: 9.55
+- distance_to_high_60_pct: -6.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,208,227,206,219,12796191,173.55,26.19,172.47,126.38,1.38
 20260504,222.5,238,220,223,10613593,177.67,25.51,177.12,128.44,1.11
 20260505,219.5,225,217,220.5,5230448,181.24,21.66,181.68,130.44,0.55
 20260506,223.5,223.5,205.5,214.5,7917147,184.01,16.57,185.95,132.38,0.81
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,211,214,205.5,214,8369900,192.16,11.37,202.38,155.87,1.3
 20260527,218,218,210,211.5,7443315,193.77,9.15,202.57,157.69,1.18
 20260528,212,219.5,211,215,9662565,195.54,9.95,202.93,159.62,1.5
+20260529,220.5,224,219,222.5,6842632,197.79,12.49,203.1,161.69,1.11
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6672 | 騰輝電子-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 6672 | 騰輝電子-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 60.0 |  |  | neckline_challenge |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6672 | 騰輝電子-KY | 1 | 1 | 4 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260529 | 6672 | 騰輝電子-KY | 2 | 2 | 4 | 6 | 6 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6672 | 騰輝電子-KY | 10 | 0 | 7775380.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260529 | 6672 | 騰輝電子-KY | 11 | 0 | 8207580.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

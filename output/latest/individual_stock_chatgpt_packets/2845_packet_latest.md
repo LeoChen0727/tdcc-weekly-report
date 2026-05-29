@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2845 遠東銀
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:54 Asia/Taipei
+- generated_at: 2026-05-29 19:32:16 Asia/Taipei
 - stock_id: 2845
 - stock_name: 遠東銀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 11.9
-- high: 11.95
+- date: 20260529
+- open: 11.95
+- high: 12
 - low: 11.85
-- close: 11.9
-- volume: 11646604
-- ma5: 11.99
-- ema23_primary: 12.12
-- distance_to_ema23_pct: -1.8
-- ma20: 12.09
-- ma60: 12.34
-- ma120: 12.52
-- return_5d: -0.83
-- return_20d: -3.25
-- volume_ratio: 1.1
-- distance_to_ma20_pct_auxiliary: -1.57
-- distance_to_high_60_pct: -6.67
+- close: 11.85
+- volume: 11510053
+- ma5: 11.94
+- ema23_primary: 12.1
+- distance_to_ema23_pct: -2.03
+- ma20: 12.07
+- ma60: 12.33
+- ma120: 12.51
+- return_5d: -2.07
+- return_20d: -3.27
+- volume_ratio: 1.08
+- distance_to_ma20_pct_auxiliary: -1.82
+- distance_to_high_60_pct: -7.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,12.3,12.35,12.25,12.25,9140319,12.46,-1.66,12.52,12.5,1.42
 20260504,12.25,12.3,12.2,12.2,11213821,12.43,-1.89,12.5,12.49,1.67
 20260505,12.2,12.25,12.2,12.2,6408470,12.42,-1.73,12.48,12.48,0.93
 20260506,12.3,12.3,12.2,12.25,7696815,12.4,-1.22,12.47,12.48,1.08
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,12.05,12.1,12,12,11456166,12.16,-1.31,12.13,12.37,1.18
 20260527,12,12,11.9,11.9,15116223,12.14,-1.96,12.11,12.35,1.47
 20260528,11.9,11.95,11.85,11.9,11646604,12.12,-1.8,12.09,12.34,1.1
+20260529,11.95,12,11.85,11.85,11510053,12.1,-2.03,12.07,12.33,1.08
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2845 | 遠東銀 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 2845 | 遠東銀 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2845 | 遠東銀 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260529 | 2845 | 遠東銀 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2845 | 遠東銀 | 1 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 2845 | 遠東銀 | 1 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

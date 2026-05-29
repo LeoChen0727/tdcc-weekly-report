@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4532 瑞智
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:29 Asia/Taipei
+- generated_at: 2026-05-29 19:32:51 Asia/Taipei
 - stock_id: 4532
 - stock_name: 瑞智
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 23.75
-- high: 23.8
-- low: 23.2
-- close: 23.2
-- volume: 1240931
-- ma5: 23.56
-- ema23_primary: 23.54
-- distance_to_ema23_pct: -1.46
-- ma20: 23.23
-- ma60: 24.69
-- ma120: 24.75
-- return_5d: -0.85
-- return_20d: 0.43
-- volume_ratio: 1.22
-- distance_to_ma20_pct_auxiliary: -0.14
-- distance_to_high_60_pct: -15.48
+- date: 20260529
+- open: 23.4
+- high: 24.1
+- low: 23.4
+- close: 23.75
+- volume: 1177941
+- ma5: 23.63
+- ema23_primary: 23.56
+- distance_to_ema23_pct: 0.8
+- ma20: 23.27
+- ma60: 24.66
+- ma120: 24.76
+- return_5d: 1.5
+- return_20d: 3.71
+- volume_ratio: 1.14
+- distance_to_ma20_pct_auxiliary: 2.04
+- distance_to_high_60_pct: -13.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,23.15,23.3,22.9,22.9,815108,24.38,-6.08,24.42,25.48,0.6
 20260504,22.95,23.2,22.8,23,973082,24.27,-5.22,24.27,25.43,0.73
 20260505,23.15,23.15,22.85,22.95,709367,24.16,-5,24.11,25.38,0.54
 20260506,23.25,23.25,22.8,22.85,792169,24.05,-4.98,23.97,25.33,0.62
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,24.15,24.25,23.6,23.65,1046888,23.57,0.32,23.19,24.77,1.02
 20260527,23.75,24,23.4,23.6,1362043,23.58,0.1,23.23,24.73,1.38
 20260528,23.75,23.8,23.2,23.2,1240931,23.54,-1.46,23.23,24.69,1.22
+20260529,23.4,24.1,23.4,23.75,1177941,23.56,0.8,23.27,24.66,1.14
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 4532 | 瑞智 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 4532 | 瑞智 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4532 | 瑞智 | 6 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 4532 | 瑞智 | 6 | 0 | 7000.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

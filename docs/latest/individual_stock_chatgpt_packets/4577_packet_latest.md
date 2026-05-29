@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4577 達航科技
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:32 Asia/Taipei
+- generated_at: 2026-05-29 19:32:54 Asia/Taipei
 - stock_id: 4577
 - stock_name: 達航科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 128.5
-- high: 129
-- low: 116
-- close: 116.5
-- volume: 121000
-- ma5: 131
-- ema23_primary: 135.14
-- distance_to_ema23_pct: -13.8
-- ma20: 139.22
-- ma60: 124.57
-- ma120: 91.26
-- return_5d: -4.51
-- return_20d: -35.64
-- volume_ratio: 0.12
-- distance_to_ma20_pct_auxiliary: -16.32
-- distance_to_high_60_pct: -38.68
+- date: 20260529
+- open: 119
+- high: 121
+- low: 109.5
+- close: 111.5
+- volume: 113000
+- ma5: 126.5
+- ema23_primary: 133.17
+- distance_to_ema23_pct: -16.28
+- ma20: 136.55
+- ma60: 124.93
+- ma120: 91.76
+- return_5d: -16.79
+- return_20d: -32.42
+- volume_ratio: 0.13
+- distance_to_ma20_pct_auxiliary: -18.34
+- distance_to_high_60_pct: -41.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,185,185.5,165,165,3264000,143.83,14.72,143.88,100.78,1.34
 20260504,162.5,169,154,162,2401000,145.34,11.46,146.9,102.47,1.01
 20260505,159,168.5,156.5,166,1260000,147.06,12.88,149.85,104.27,0.58
 20260506,169,170,157,160,1613000,148.14,8,152.55,105.97,0.8
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,140.5,144.5,135,136.5,140000,137.6,-0.8,144.78,123.51,0.13
 20260527,136.5,136.5,128,128.5,131000,136.84,-6.09,142.45,124.21,0.12
 20260528,128.5,129,116,116.5,121000,135.14,-13.8,139.22,124.57,0.12
+20260529,119,121,109.5,111.5,113000,133.17,-16.28,136.55,124.93,0.13
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4577 | 達航科技 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

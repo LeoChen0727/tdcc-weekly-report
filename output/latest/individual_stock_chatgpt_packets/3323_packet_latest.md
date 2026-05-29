@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3323 加百裕
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:09 Asia/Taipei
+- generated_at: 2026-05-29 19:32:32 Asia/Taipei
 - stock_id: 3323
 - stock_name: 加百裕
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 38.5
-- high: 39.5
-- low: 36.8
-- close: 37
+- date: 20260529
+- open: 37.6
+- high: 38.25
+- low: 37.05
+- close: 37.9
 - volume: 38000
-- ma5: 37.29
-- ema23_primary: 35.65
-- distance_to_ema23_pct: 3.79
-- ma20: 35.52
-- ma60: 34.69
-- ma120: 37.23
-- return_5d: 4.52
-- return_20d: 7.25
+- ma5: 37.53
+- ema23_primary: 35.84
+- distance_to_ema23_pct: 5.76
+- ma20: 35.73
+- ma60: 34.71
+- ma120: 37.24
+- return_5d: 3.27
+- return_20d: 12.63
 - volume_ratio: 0.03
-- distance_to_ma20_pct_auxiliary: 4.16
-- distance_to_high_60_pct: -6.33
+- distance_to_ma20_pct_auxiliary: 6.06
+- distance_to_high_60_pct: -4.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,34.5,35.1,33.65,33.65,920000,34.16,-1.51,33.45,35.82,0.69
 20260504,33.7,34.65,33.7,34.25,603000,34.17,0.23,33.51,35.69,0.45
 20260505,34.7,35.1,34.25,35.05,982000,34.24,2.35,33.67,35.6,0.73
 20260506,35.3,35.3,33.9,34.95,1394000,34.3,1.88,33.8,35.51,1.01
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,37.75,38.8,36.3,37.1,37000,35.26,5.23,35.2,34.71,0.03
 20260527,37.4,39,36.75,38.5,38000,35.53,8.37,35.4,34.71,0.03
 20260528,38.5,39.5,36.8,37,38000,35.65,3.79,35.52,34.69,0.03
+20260529,37.6,38.25,37.05,37.9,38000,35.84,5.76,35.73,34.71,0.03
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3323 | 加百裕 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

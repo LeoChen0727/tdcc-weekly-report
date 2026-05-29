@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2328 廣宇
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:36 Asia/Taipei
+- generated_at: 2026-05-29 19:31:58 Asia/Taipei
 - stock_id: 2328
 - stock_name: 廣宇
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 54
-- high: 55.8
-- low: 52.7
-- close: 53
-- volume: 9669234
-- ma5: 54.52
-- ema23_primary: 51.79
-- distance_to_ema23_pct: 2.33
-- ma20: 52.96
-- ma60: 47.99
-- ma120: 48.63
-- return_5d: 1.73
-- return_20d: 12.29
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: 0.07
-- distance_to_high_60_pct: -7.5
+- date: 20260529
+- open: 54.1
+- high: 56.4
+- low: 53.6
+- close: 55.5
+- volume: 15829377
+- ma5: 54.66
+- ema23_primary: 52.1
+- distance_to_ema23_pct: 6.52
+- ma20: 53.26
+- ma60: 48.09
+- ma120: 48.71
+- return_5d: 1.28
+- return_20d: 12.01
+- volume_ratio: 1.06
+- distance_to_ma20_pct_auxiliary: 4.21
+- distance_to_high_60_pct: -3.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,48.3,50.7,47.6,49.55,24100442,45.92,7.9,45.45,47.39,4.92
 20260504,50.1,54.5,49.35,54.4,35581833,46.63,16.66,45.92,47.41,5.43
 20260505,54.5,56.1,53.6,55.1,47394881,47.34,16.4,46.46,47.44,5.44
 20260506,56,56.3,52.8,54.2,26908106,47.91,13.13,46.98,47.47,2.7
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,57.3,57.3,54.4,54.5,12126480,51.49,5.84,52.28,47.92,0.8
 20260527,55.2,55.2,52.8,53.8,9423952,51.68,4.09,52.67,47.96,0.61
 20260528,54,55.8,52.7,53,9669234,51.79,2.33,52.96,47.99,0.63
+20260529,54.1,56.4,53.6,55.5,15829377,52.1,6.52,53.26,48.09,1.06
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2328 | 廣宇 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 2328 | 廣宇 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 2328 | 廣宇 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260521 | 2328 | 廣宇 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2328 | 廣宇 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260529 | 2328 | 廣宇 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2328 | 廣宇 | 57 | 0 | 15349040.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260529 | 2328 | 廣宇 | 55 | 0 | 18255760.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

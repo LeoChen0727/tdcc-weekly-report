@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4763 材料*-KY
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:34 Asia/Taipei
+- generated_at: 2026-05-29 19:32:56 Asia/Taipei
 - stock_id: 4763
 - stock_name: 材料*-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 41.45
-- high: 41.6
-- low: 40.2
-- close: 40.3
-- volume: 9691646
-- ma5: 42.07
-- ema23_primary: 42.28
-- distance_to_ema23_pct: -4.69
-- ma20: 42.06
-- ma60: 43.32
-- ma120: 47.54
-- return_5d: -4.73
-- return_20d: -6.06
-- volume_ratio: 1.52
-- distance_to_ma20_pct_auxiliary: -4.18
-- distance_to_high_60_pct: -17.08
+- date: 20260529
+- open: 40.7
+- high: 41.2
+- low: 40.55
+- close: 40.9
+- volume: 4558687
+- ma5: 41.51
+- ema23_primary: 42.17
+- distance_to_ema23_pct: -3.01
+- ma20: 41.99
+- ma60: 43.26
+- ma120: 47.42
+- return_5d: -6.41
+- return_20d: -3.31
+- volume_ratio: 0.72
+- distance_to_ma20_pct_auxiliary: -2.59
+- distance_to_high_60_pct: -15.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,43.1,43.3,42.2,42.3,6100032,43.84,-3.51,43.55,45.73,0.73
 20260504,42.5,43,42.3,42.8,3818251,43.75,-2.18,43.54,45.61,0.45
 20260505,42.9,43.6,42.7,43.4,5542875,43.72,-0.74,43.6,45.49,0.64
 20260506,43.85,43.85,42.55,42.75,5509393,43.64,-2.04,43.65,45.37,0.63
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,43.05,43.1,41.85,41.9,7007900,42.56,-1.56,42.24,43.52,1.14
 20260527,42.2,42.2,41.3,41.4,6289956,42.47,-2.51,42.19,43.43,1.02
 20260528,41.45,41.6,40.2,40.3,9691646,42.28,-4.69,42.06,43.32,1.52
+20260529,40.7,41.2,40.55,40.9,4558687,42.17,-3.01,41.99,43.26,0.72
 ```
 
 ## Latest TDCC Snapshot
@@ -135,7 +135,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4763 | 材料*-KY | 65 | 3 | 779050.0 | 19680.0 | 39.59 | no_signal | 0 |  |
+| 20260529 | 4763 | 材料*-KY | 65 | 3 | 1097640.0 | 19920.0 | 55.1 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

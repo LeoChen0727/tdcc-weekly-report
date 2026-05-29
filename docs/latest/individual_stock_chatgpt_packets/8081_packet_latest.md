@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8081 致新
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:32 Asia/Taipei
+- generated_at: 2026-05-29 19:33:55 Asia/Taipei
 - stock_id: 8081
 - stock_name: 致新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
+- date: 20260529
 - open: 289
-- high: 290
-- low: 278.5
-- close: 286.5
-- volume: 1756166
-- ma5: 286.6
-- ema23_primary: 267.92
-- distance_to_ema23_pct: 6.94
-- ma20: 268.12
-- ma60: 247.99
-- ma120: 233.85
-- return_5d: 4.56
-- return_20d: 14.6
-- volume_ratio: 1.04
-- distance_to_ma20_pct_auxiliary: 6.85
-- distance_to_high_60_pct: -4.98
+- high: 289
+- low: 281.5
+- close: 283
+- volume: 1127628
+- ma5: 287.3
+- ema23_primary: 269.17
+- distance_to_ema23_pct: 5.14
+- ma20: 269.7
+- ma60: 248.72
+- ma120: 234.52
+- return_5d: 1.25
+- return_20d: 12.52
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: 4.93
+- distance_to_high_60_pct: -6.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,250,258,248,251.5,806920,242.58,3.68,240.18,238.47,1.11
 20260504,256.5,259.5,252.5,259,993636,243.95,6.17,241.53,238.91,1.3
 20260505,257.5,272,256.5,266,1627349,245.78,8.22,243.3,239.47,1.96
 20260506,268,271,262.5,265,1185759,247.39,7.12,245.07,239.72,1.34
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,292.5,297,288,291,1900810,264.25,10.12,264.38,246.6,1.21
 20260527,295,301.5,284,288,2001593,266.23,8.18,266.3,247.26,1.23
 20260528,289,290,278.5,286.5,1756166,267.92,6.94,268.12,247.99,1.04
+20260529,289,289,281.5,283,1127628,269.17,5.14,269.7,248.72,0.66
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 8081 | 致新 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 8081 | 致新 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 8081 | 致新 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260529 | 8081 | 致新 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 8081 | 致新 | 10 | 0 | 2759740.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 8081 | 致新 | 10 | 0 | 1327170.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

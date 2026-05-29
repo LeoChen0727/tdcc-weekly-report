@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2207 和泰車
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:33 Asia/Taipei
+- generated_at: 2026-05-29 19:31:55 Asia/Taipei
 - stock_id: 2207
 - stock_name: 和泰車
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 135
+- latest_price_date: 20260529
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 462
-- high: 462.5
-- low: 456
-- close: 456
-- volume: 952409
-- ma5: 461.4
-- ema23_primary: 472.79
-- distance_to_ema23_pct: -3.55
-- ma20: 470
-- ma60: 490.82
-- ma120: 525.99
-- return_5d: -2.15
-- return_20d: -5
-- volume_ratio: 2.07
-- distance_to_ma20_pct_auxiliary: -2.98
-- distance_to_high_60_pct: -19.01
+- date: 20260529
+- open: 458
+- high: 483
+- low: 458
+- close: 483
+- volume: 4080767
+- ma5: 465.6
+- ema23_primary: 473.64
+- distance_to_ema23_pct: 1.98
+- ma20: 470.32
+- ma60: 489.7
+- ma120: 524.87
+- return_5d: 4.55
+- return_20d: 1.36
+- volume_ratio: 6.39
+- distance_to_ma20_pct_auxiliary: 2.69
+- distance_to_high_60_pct: -11.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,478.5,480,475,476.5,499389,498.57,-4.43,499.1,513.62,1.41
 20260504,482,482,472,473,331303,496.44,-4.72,498.18,512.73,0.95
 20260505,474,478,470,478,269610,494.9,-3.42,497.8,511.79,0.77
 20260506,484.5,484.5,473,474,385983,493.16,-3.89,497.32,510.66,1.08
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,460,465.5,459.5,462,392372,475.02,-2.74,472.1,494.77,0.91
 20260527,462.5,466.5,458,466.5,502085,474.31,-1.65,471.2,492.8,1.15
 20260528,462,462.5,456,456,952409,472.79,-3.55,470,490.82,2.07
+20260529,458,483,458,483,4080767,473.64,1.98,470.32,489.7,6.39
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 2207 | 和泰車 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 2207 | 和泰車 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | status |

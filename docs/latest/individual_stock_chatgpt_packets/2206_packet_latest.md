@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2206 三陽工業
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:33 Asia/Taipei
+- generated_at: 2026-05-29 19:31:55 Asia/Taipei
 - stock_id: 2206
 - stock_name: 三陽工業
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 59.8
-- high: 60.2
+- date: 20260529
+- open: 60
+- high: 60.6
 - low: 59.8
-- close: 60
-- volume: 2131259
-- ma5: 59.82
-- ema23_primary: 58.78
-- distance_to_ema23_pct: 2.08
-- ma20: 58.5
-- ma60: 58.52
+- close: 60.6
+- volume: 2894506
+- ma5: 59.92
+- ema23_primary: 58.93
+- distance_to_ema23_pct: 2.83
+- ma20: 58.76
+- ma60: 58.51
 - ma120: 59.52
-- return_5d: 0.33
-- return_20d: 5.26
-- volume_ratio: 1.62
-- distance_to_ma20_pct_auxiliary: 2.56
-- distance_to_high_60_pct: -1.96
+- return_5d: 0.83
+- return_20d: 9.19
+- volume_ratio: 2.09
+- distance_to_ma20_pct_auxiliary: 3.14
+- distance_to_high_60_pct: -0.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,56.8,56.8,55.1,55.5,1620208,57.68,-3.78,58.05,58.98,1.3
 20260504,56.2,56.8,56,56.7,1439429,57.6,-1.56,57.91,58.95,1.13
 20260505,56.9,57.5,56.7,57.3,763063,57.57,-0.48,57.78,58.92,0.61
 20260506,57.5,58,57.2,57.8,1379898,57.59,0.36,57.7,58.89,1.08
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,59.6,59.6,59,59.4,1108458,58.57,1.42,58.21,58.53,0.9
 20260527,59.5,59.8,59,59.8,1898401,58.67,1.93,58.35,58.53,1.5
 20260528,59.8,60.2,59.8,60,2131259,58.78,2.08,58.5,58.52,1.62
+20260529,60,60.6,59.8,60.6,2894506,58.93,2.83,58.76,58.51,2.09
 ```
 
 ## Latest TDCC Snapshot
@@ -125,13 +125,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2206 | 三陽工業 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 2206 | 三陽工業 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 2206 | 三陽工業 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260521 | 2206 | 三陽工業 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2206 | 三陽工業 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260529 | 2206 | 三陽工業 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

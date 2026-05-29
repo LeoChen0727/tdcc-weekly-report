@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6806 森崴能源
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:19 Asia/Taipei
+- generated_at: 2026-05-29 19:33:41 Asia/Taipei
 - stock_id: 6806
 - stock_name: 森崴能源
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 134
+- latest_price_date: 20260529
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 6.1
-- high: 6.1
-- low: 6.1
-- close: 6.1
-- volume: 369938
-- ma5: 7.6
-- ema23_primary: 15.35
-- distance_to_ema23_pct: -60.27
-- ma20: 15.42
-- ma60: 27.75
-- ma120: 35.24
-- return_5d: -40.78
-- return_20d: -71.82
-- volume_ratio: 0.48
-- distance_to_ma20_pct_auxiliary: -60.44
-- distance_to_high_60_pct: -86.44
+- date: 20260529
+- open: 5.49
+- high: 6.71
+- low: 5.49
+- close: 6.71
+- volume: 17317026
+- ma5: 7.09
+- ema23_primary: 14.63
+- distance_to_ema23_pct: -54.14
+- ma20: 14.57
+- ma60: 27.15
+- ma120: 34.98
+- return_5d: -27.62
+- return_20d: -71.81
+- volume_ratio: 10.75
+- distance_to_ma20_pct_auxiliary: -53.93
+- distance_to_high_60_pct: -85.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,21.65,23.8,21.65,23.8,511217,27.69,-14.04,26.19,38.18,0.33
 20260430,23.7,23.95,22.5,22.65,453775,27.27,-16.94,25.45,37.69,0.3
 20260504,23,23,21.1,21.2,808934,26.76,-20.79,24.58,37.11,0.54
 20260505,21,21.1,20.3,20.8,501941,26.27,-20.81,23.89,36.56,0.34
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,7.52,7.52,7.52,7.52,301842,17.05,-55.9,16.93,29.05,0.39
 20260527,6.77,6.77,6.77,6.77,497239,16.19,-58.2,16.2,28.39,0.64
 20260528,6.1,6.1,6.1,6.1,369938,15.35,-60.27,15.42,27.75,0.48
+20260529,5.49,6.71,5.49,6.71,17317026,14.63,-54.14,14.57,27.15,10.75
 ```
 
 ## Latest TDCC Snapshot

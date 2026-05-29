@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3376 新日興
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:11 Asia/Taipei
+- generated_at: 2026-05-29 19:32:33 Asia/Taipei
 - stock_id: 3376
 - stock_name: 新日興
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 214.5
-- high: 216.5
-- low: 204
-- close: 205
-- volume: 4332441
-- ma5: 213.3
-- ema23_primary: 207.54
-- distance_to_ema23_pct: -1.23
-- ma20: 206.45
-- ma60: 205.9
-- ma120: 207.53
-- return_5d: -2.15
-- return_20d: 0
-- volume_ratio: 0.81
-- distance_to_ma20_pct_auxiliary: -0.7
-- distance_to_high_60_pct: -12.39
+- date: 20260529
+- open: 206.5
+- high: 208
+- low: 201.5
+- close: 202.5
+- volume: 6564203
+- ma5: 211.8
+- ema23_primary: 207.12
+- distance_to_ema23_pct: -2.23
+- ma20: 206.38
+- ma60: 205.76
+- ma120: 207.71
+- return_5d: -3.57
+- return_20d: -0.74
+- volume_ratio: 1.2
+- distance_to_ma20_pct_auxiliary: -1.88
+- distance_to_high_60_pct: -13.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,208,208,202,204,3801517,206.56,-1.24,204.7,206.22,0.56
 20260504,206.5,213.5,206.5,209,4070537,206.77,1.08,205.35,205.93,0.61
 20260505,209,209,204,205.5,2942772,206.66,-0.56,206.25,205.6,0.44
 20260506,207.5,208,199,205,4446743,206.52,-0.74,206.2,205.31,0.69
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,221.5,224.5,217.5,219,4721671,207.39,5.6,206.1,205.99,0.91
 20260527,220,220.5,211.5,212,5506865,207.77,2.03,206.45,206.07,1.04
 20260528,214.5,216.5,204,205,4332441,207.54,-1.23,206.45,205.9,0.81
+20260529,206.5,208,201.5,202.5,6564203,207.12,-2.23,206.38,205.76,1.2
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 3376 | 新日興 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 3376 | 新日興 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3376 | 新日興 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260529 | 3376 | 新日興 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3376 | 新日興 | 96 | 5 | 13128440.0 | 237200.0 | 55.35 | no_signal | 0 |  |
+| 20260529 | 3376 | 新日興 | 93 | 5 | 6950380.0 | 255390.0 | 27.21 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

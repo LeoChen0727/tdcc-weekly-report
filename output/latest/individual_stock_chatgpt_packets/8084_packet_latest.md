@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8084 巨虹
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:32 Asia/Taipei
+- generated_at: 2026-05-29 19:33:55 Asia/Taipei
 - stock_id: 8084
 - stock_name: 巨虹
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 135
+- latest_price_date: 20260529
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 45.5
-- high: 47.5
-- low: 45
-- close: 46.35
-- volume: 46000
-- ma5: 44.61
-- ema23_primary: 44.53
-- distance_to_ema23_pct: 4.1
-- ma20: 44.34
-- ma60: 46.09
-- ma120: 51.44
-- return_5d: 7.54
-- return_20d: 5.46
-- volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: 4.53
-- distance_to_high_60_pct: -16.79
+- date: 20260529
+- open: 50
+- high: 50
+- low: 46.05
+- close: 47.4
+- volume: 47000
+- ma5: 45.63
+- ema23_primary: 44.77
+- distance_to_ema23_pct: 5.89
+- ma20: 44.5
+- ma60: 45.97
+- ma120: 51.42
+- return_5d: 12.06
+- return_20d: 7.36
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: 6.51
+- distance_to_high_60_pct: -14.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,44,44.25,43.2,44.15,42000,45.36,-2.67,45.88,49.36,0.47
 20260504,44.75,46.5,44.75,45,128000,45.33,-0.73,45.85,49.13,1.37
 20260505,45.2,45.5,44.9,44.95,323000,45.3,-0.77,45.65,48.93,3.23
 20260506,45,45.3,44.85,45.3,93000,45.3,-0,45.48,48.73,0.95
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,44.2,45.5,43.5,45,45000,44.28,1.62,44.08,46.37,0.56
 20260527,45,45.9,45,45.2,45000,44.36,1.89,44.22,46.22,0.56
 20260528,45.5,47.5,45,46.35,46000,44.53,4.1,44.34,46.09,0.6
+20260529,50,50,46.05,47.4,47000,44.77,5.89,44.5,45.97,0.61
 ```
 
 ## Latest TDCC Snapshot

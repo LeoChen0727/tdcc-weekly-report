@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3479 安勤
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:13 Asia/Taipei
+- generated_at: 2026-05-29 19:32:35 Asia/Taipei
 - stock_id: 3479
 - stock_name: 安勤
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 135.5
-- high: 145
-- low: 134
-- close: 137.5
-- volume: 139000
-- ma5: 132.7
-- ema23_primary: 110.99
-- distance_to_ema23_pct: 23.88
-- ma20: 108.03
-- ma60: 95.43
-- ma120: 94.05
-- return_5d: 17.02
-- return_20d: 51.6
+- date: 20260529
+- open: 138.5
+- high: 139
+- low: 133
+- close: 135
+- volume: 135000
+- ma5: 134.6
+- ema23_primary: 112.99
+- distance_to_ema23_pct: 19.48
+- ma20: 110.25
+- ma60: 96.16
+- ma120: 94.37
+- return_5d: 7.57
+- return_20d: 48.84
 - volume_ratio: 0.15
-- distance_to_ma20_pct_auxiliary: 27.28
-- distance_to_high_60_pct: -5.17
+- distance_to_ma20_pct_auxiliary: 22.45
+- distance_to_high_60_pct: -6.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,91,91.4,90.5,90.7,195000,90.5,0.22,90.27,89.61,0.5
 20260504,92.5,95.7,92,93.9,809000,90.78,3.43,90.7,89.62,1.92
 20260505,94,96.4,93.6,96.1,690000,91.23,5.34,91.23,89.66,1.55
 20260506,97.3,97.7,95.5,96.5,706000,91.67,5.27,91.78,89.72,1.49
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,129.5,134,127.5,134,130000,106,26.41,103.44,93.9,0.14
 20260527,137,139,134.5,137,136000,108.58,26.17,105.69,94.67,0.15
 20260528,135.5,145,134,137.5,139000,110.99,23.88,108.03,95.43,0.15
+20260529,138.5,139,133,135,135000,112.99,19.48,110.25,96.16,0.15
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3479 | 安勤 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

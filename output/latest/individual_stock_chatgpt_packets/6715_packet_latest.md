@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6715 嘉基
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:15 Asia/Taipei
+- generated_at: 2026-05-29 19:33:37 Asia/Taipei
 - stock_id: 6715
 - stock_name: 嘉基
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 455
-- high: 458
-- low: 425.5
-- close: 429.5
-- volume: 789210
-- ma5: 459.4
-- ema23_primary: 451.48
-- distance_to_ema23_pct: -4.87
-- ma20: 464.3
-- ma60: 380.83
-- ma120: 246.75
-- return_5d: -9.96
-- return_20d: 15.77
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: -7.5
-- distance_to_high_60_pct: -23.03
+- date: 20260529
+- open: 429.5
+- high: 453.5
+- low: 426
+- close: 436
+- volume: 311079
+- ma5: 454.3
+- ema23_primary: 450.19
+- distance_to_ema23_pct: -3.15
+- ma20: 466.07
+- ma60: 384.96
+- ma120: 249.67
+- return_5d: -5.53
+- return_20d: 8.86
+- volume_ratio: 0.26
+- distance_to_ma20_pct_auxiliary: -6.45
+- distance_to_high_60_pct: -21.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,387,407,379,400.5,1572137,379.57,5.52,398.2,277.65,0.79
 20260504,416,431,412.5,426,1633675,383.44,11.1,403.02,282.84,0.8
 20260505,425,450.5,415,444,1589759,388.48,14.29,409.62,288.37,0.78
 20260506,480,484.5,419.5,435,2231462,392.36,10.87,414.23,293.8,1.12
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,454.5,481.5,450,479.5,557124,452.25,6.03,456.7,371.93,0.44
 20260527,485,485,463,467,464653,453.48,2.98,461.38,376.81,0.37
 20260528,455,458,425.5,429.5,789210,451.48,-4.87,464.3,380.83,0.62
+20260529,429.5,453.5,426,436,311079,450.19,-3.15,466.07,384.96,0.26
 ```
 
 ## Latest TDCC Snapshot
@@ -135,7 +135,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6715 | 嘉基 | 10 | 0 | 738210.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 6715 | 嘉基 | 10 | 0 | 250750.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

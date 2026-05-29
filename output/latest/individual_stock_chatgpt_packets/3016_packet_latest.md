@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3016 嘉晶
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:58 Asia/Taipei
+- generated_at: 2026-05-29 19:32:21 Asia/Taipei
 - stock_id: 3016
 - stock_name: 嘉晶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 126
-- high: 138.5
-- low: 125
-- close: 134.5
-- volume: 17126606
-- ma5: 128.1
-- ema23_primary: 109.99
-- distance_to_ema23_pct: 22.28
-- ma20: 116.29
-- ma60: 79.38
-- ma120: 67.99
-- return_5d: 16.45
-- return_20d: 64.83
-- volume_ratio: 2.94
-- distance_to_ma20_pct_auxiliary: 15.66
-- distance_to_high_60_pct: -7.56
+- date: 20260529
+- open: 146.5
+- high: 147.5
+- low: 133.5
+- close: 138
+- volume: 23100390
+- ma5: 131.5
+- ema23_primary: 112.33
+- distance_to_ema23_pct: 22.85
+- ma20: 118.7
+- ma60: 80.7
+- ma120: 68.74
+- return_5d: 14.05
+- return_20d: 53.85
+- volume_ratio: 3.38
+- distance_to_ma20_pct_auxiliary: 16.25
+- distance_to_high_60_pct: -6.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,89.7,89.7,89.7,89.7,3049701,67.35,33.19,64.38,61.59,0.61
 20260504,98.6,98.6,98.6,98.6,2218752,69.95,40.95,66.67,62.11,0.44
 20260505,103,108,103,108,5891852,73.12,47.7,69.52,62.72,1.12
 20260506,118.5,118.5,112.5,114.5,22662580,76.57,49.53,72.67,63.43,3.56
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,140,145.5,123,126,21713325,106.11,18.75,111.06,77.09,3.98
 20260527,131,138,122,126,15299263,107.77,16.92,113.64,78.14,2.56
 20260528,126,138.5,125,134.5,17126606,109.99,22.28,116.29,79.38,2.94
+20260529,146.5,147.5,133.5,138,23100390,112.33,22.85,118.7,80.7,3.38
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3016 | 嘉晶 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 3016 | 嘉晶 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3016 | 嘉晶 | 4 | 1 | 4 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260529 | 3016 | 嘉晶 | 5 | 2 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3016 | 嘉晶 | 48 | 3 | 10231970.0 | 15410.0 | 663.98 | call_inflow | 1 |  |
+| 20260529 | 3016 | 嘉晶 | 47 | 3 | 7902870.0 | 69760.0 | 113.29 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

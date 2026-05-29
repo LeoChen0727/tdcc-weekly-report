@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6949 沛爾生醫-創
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:23 Asia/Taipei
+- generated_at: 2026-05-29 19:33:46 Asia/Taipei
 - stock_id: 6949
 - stock_name: 沛爾生醫-創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 704
-- high: 757
-- low: 668
-- close: 668
-- volume: 320980
-- ma5: 675
-- ema23_primary: 693.25
-- distance_to_ema23_pct: -3.64
-- ma20: 695.45
-- ma60: 664.48
-- ma120: 554.55
-- return_5d: -0.89
-- return_20d: -15.12
-- volume_ratio: 1.39
-- distance_to_ma20_pct_auxiliary: -3.95
-- distance_to_high_60_pct: -28.09
+- date: 20260529
+- open: 675
+- high: 675
+- low: 643
+- close: 645
+- volume: 235781
+- ma5: 670.2
+- ema23_primary: 689.23
+- distance_to_ema23_pct: -6.42
+- ma20: 689.15
+- ma60: 664.6
+- ma120: 556.9
+- return_5d: -3.59
+- return_20d: -16.34
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: -6.41
+- distance_to_high_60_pct: -30.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,778,792,771,771,74557,731.28,5.43,733.15,641.75,0.37
 20260504,764,805,731,758,368017,733.5,3.34,742.55,647.22,1.73
 20260505,790,810,684,779,836279,737.29,5.66,753.4,652.32,3.36
 20260506,856,856,702,702,753474,734.35,-4.41,758.9,655.47,2.72
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,657,670,649,668,65765,693.87,-3.73,704,664.53,0.31
 20260527,704,717,680,714,248961,695.55,2.65,701.4,664.85,1.13
 20260528,704,757,668,668,320980,693.25,-3.64,695.45,664.48,1.39
+20260529,675,675,643,645,235781,689.23,-6.42,689.15,664.6,0.98
 ```
 
 ## Latest TDCC Snapshot

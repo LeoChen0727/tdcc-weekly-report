@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2002 中鋼
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:29 Asia/Taipei
+- generated_at: 2026-05-29 19:31:51 Asia/Taipei
 - stock_id: 2002
 - stock_name: 中鋼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 19.1
-- high: 19.35
-- low: 18.8
-- close: 18.85
-- volume: 85146738
-- ma5: 19.11
-- ema23_primary: 18.83
-- distance_to_ema23_pct: 0.09
-- ma20: 18.63
-- ma60: 19.19
-- ma120: 19.26
-- return_5d: 3.57
-- return_20d: -0.79
-- volume_ratio: 1.3
-- distance_to_ma20_pct_auxiliary: 1.19
-- distance_to_high_60_pct: -10.24
+- date: 20260529
+- open: 19.05
+- high: 19.4
+- low: 19
+- close: 19.1
+- volume: 79358213
+- ma5: 19.3
+- ema23_primary: 18.86
+- distance_to_ema23_pct: 1.3
+- ma20: 18.64
+- ma60: 19.18
+- ma120: 19.27
+- return_5d: 5.23
+- return_20d: 1.87
+- volume_ratio: 1.18
+- distance_to_ma20_pct_auxiliary: 2.44
+- distance_to_high_60_pct: -9.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,18.9,18.95,18.7,18.75,40997251,19.41,-3.41,19.61,19.77,0.97
 20260504,18.8,18.85,18.6,18.6,46067008,19.34,-3.85,19.56,19.76,1.09
 20260505,18.6,18.7,18.45,18.6,35494297,19.28,-3.54,19.52,19.74,0.83
 20260506,18.6,18.95,18.5,18.8,58218566,19.24,-2.3,19.48,19.73,1.32
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,21,21,19.4,19.5,281826216,18.81,3.68,18.62,19.24,4.6
 20260527,19.65,19.7,19,19.1,97154137,18.83,1.42,18.64,19.22,1.53
 20260528,19.1,19.35,18.8,18.85,85146738,18.83,0.09,18.63,19.19,1.3
+20260529,19.05,19.4,19,19.1,79358213,18.86,1.3,18.64,19.18,1.18
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2002 | 中鋼 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 2002 | 中鋼 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2002 | 中鋼 | 4 | 2 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260529 | 2002 | 中鋼 | 5 | 3 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2002 | 中鋼 | 48 | 0 | 2480620.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 2002 | 中鋼 | 47 | 0 | 2145460.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

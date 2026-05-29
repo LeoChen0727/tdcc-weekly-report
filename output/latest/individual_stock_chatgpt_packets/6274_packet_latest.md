@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6274 台燿
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:02 Asia/Taipei
+- generated_at: 2026-05-29 19:33:24 Asia/Taipei
 - stock_id: 6274
 - stock_name: 台燿
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
+- date: 20260529
 - open: 1615
-- high: 1695
-- low: 1525
-- close: 1540
-- volume: 1586000
-- ma5: 1561
-- ema23_primary: 1320.38
-- distance_to_ema23_pct: 16.63
-- ma20: 1370
-- ma60: 918.65
-- ma120: 697.63
-- return_5d: 16.23
-- return_20d: 57.95
-- volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: 12.41
-- distance_to_high_60_pct: -11.24
+- high: 1690
+- low: 1610
+- close: 1690
+- volume: 1677000
+- ma5: 1608
+- ema23_primary: 1351.18
+- distance_to_ema23_pct: 25.08
+- ma20: 1404
+- ma60: 937.85
+- ma120: 708.23
+- return_5d: 16.15
+- return_20d: 67.33
+- volume_ratio: 0.42
+- distance_to_ma20_pct_auxiliary: 20.37
+- distance_to_high_60_pct: -2.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,993,1015,968,1010,3550000,862.84,17.06,879.6,645.97,0.44
 20260504,1085,1110,1060,1110,6980000,883.44,25.65,903.95,656.07,0.89
 20260505,1140,1220,1125,1220,13248000,911.48,33.85,933.9,667.87,1.73
 20260506,1275,1340,1160,1315,16311000,945.11,39.14,965.5,680.95,2.05
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,1640,1700,1560,1580,1630000,1270.45,24.37,1308.55,883.9,0.39
 20260527,1640,1735,1575,1630,1654000,1300.41,25.35,1341.75,901.98,0.4
 20260528,1615,1695,1525,1540,1586000,1320.38,16.63,1370,918.65,0.39
+20260529,1615,1690,1610,1690,1677000,1351.18,25.08,1404,937.85,0.42
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6274 | 台燿 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

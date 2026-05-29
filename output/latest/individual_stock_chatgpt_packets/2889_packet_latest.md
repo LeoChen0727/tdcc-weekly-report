@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2889 國票金
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:55 Asia/Taipei
+- generated_at: 2026-05-29 19:32:17 Asia/Taipei
 - stock_id: 2889
 - stock_name: 國票金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
+- date: 20260529
 - open: 14.6
 - high: 14.7
-- low: 14.5
-- close: 14.6
-- volume: 3705911
-- ma5: 14.59
+- low: 14.55
+- close: 14.7
+- volume: 2933836
+- ma5: 14.6
 - ema23_primary: 14.72
-- distance_to_ema23_pct: -0.82
+- distance_to_ema23_pct: -0.13
 - ma20: 14.62
-- ma60: 15.31
-- ma120: 15.96
-- return_5d: -1.02
-- return_20d: -1.02
-- volume_ratio: 1.31
-- distance_to_ma20_pct_auxiliary: -0.1
-- distance_to_high_60_pct: -16.09
+- ma60: 15.28
+- ma120: 15.94
+- return_5d: 0.34
+- return_20d: 1.38
+- volume_ratio: 1.07
+- distance_to_ma20_pct_auxiliary: 0.51
+- distance_to_high_60_pct: -15.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,14.75,14.75,14.5,14.5,4341405,15.15,-4.26,15.03,15.98,1.37
 20260504,14.5,14.6,14.4,14.6,3062550,15.1,-3.31,15.01,15.95,0.96
 20260505,14.6,14.6,14.45,14.5,2627294,15.05,-3.65,14.99,15.91,0.82
 20260506,14.6,14.65,14.45,14.55,2488526,15.01,-3.05,14.96,15.88,0.77
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,14.55,14.7,14.5,14.6,2233519,14.75,-1,14.63,15.38,0.82
 20260527,14.6,14.7,14.5,14.55,3074575,14.73,-1.23,14.62,15.34,1.12
 20260528,14.6,14.7,14.5,14.6,3705911,14.72,-0.82,14.62,15.31,1.31
+20260529,14.6,14.7,14.55,14.7,2933836,14.72,-0.13,14.62,15.28,1.07
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2889 | 國票金 | pullback_rebound | 回檔後短線轉強 | 70.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260528 | 2889 | 國票金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 2889 | 國票金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260529 | 2889 | 國票金 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 62.0 |  |  | neckline_challenge |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2889 | 國票金 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260529 | 2889 | 國票金 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2889 | 國票金 | 3 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 2889 | 國票金 | 3 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4767 誠泰科技
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:35 Asia/Taipei
+- generated_at: 2026-05-29 19:32:57 Asia/Taipei
 - stock_id: 4767
 - stock_name: 誠泰科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 129
+- latest_price_date: 20260529
+- price_rows: 130
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 26.65
-- high: 26.9
+- date: 20260529
+- open: 27
+- high: 27.05
 - low: 26.65
-- close: 26.9
+- close: 27
 - volume: 27000
-- ma5: 26.77
-- ema23_primary: 26.61
-- distance_to_ema23_pct: 1.11
-- ma20: 26.62
-- ma60: 26.08
+- ma5: 26.82
+- ema23_primary: 26.64
+- distance_to_ema23_pct: 1.36
+- ma20: 26.64
+- ma60: 26.12
 - ma120: 26.24
-- return_5d: 1.51
-- return_20d: 1.32
-- volume_ratio: 1.38
-- distance_to_ma20_pct_auxiliary: 1.04
-- distance_to_high_60_pct: -3.58
+- return_5d: 0.93
+- return_20d: 1.12
+- volume_ratio: 1.35
+- distance_to_ma20_pct_auxiliary: 1.36
+- distance_to_high_60_pct: -3.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,26.4,26.7,26.3,26.7,17000,26.44,1,26.47,25.67,0.79
 20260504,26.4,26.4,26.25,26.4,16000,26.43,-0.13,26.53,25.67,0.76
 20260505,26.3,26.5,26.1,26.45,14000,26.43,0.06,26.6,25.68,0.67
 20260506,26.4,27.3,26.3,26.45,13000,26.44,0.05,26.64,25.7,0.61
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,27.45,27.45,26.65,26.65,27000,26.57,0.31,26.61,26.02,1.48
 20260527,26.85,26.85,26.1,26.7,27000,26.58,0.46,26.61,26.05,1.43
 20260528,26.65,26.9,26.65,26.9,27000,26.61,1.11,26.62,26.08,1.38
+20260529,27,27.05,26.65,27,27000,26.64,1.36,26.64,26.12,1.35
 ```
 
 ## Latest TDCC Snapshot

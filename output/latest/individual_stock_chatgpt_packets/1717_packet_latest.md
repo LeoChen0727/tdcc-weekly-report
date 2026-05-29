@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1717 長興
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:25 Asia/Taipei
+- generated_at: 2026-05-29 19:31:47 Asia/Taipei
 - stock_id: 1717
 - stock_name: 長興
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 85.6
-- high: 86.7
-- low: 81.7
-- close: 82.4
-- volume: 46789484
-- ma5: 83.02
-- ema23_primary: 79.13
-- distance_to_ema23_pct: 4.13
-- ma20: 79.62
-- ma60: 72.17
-- ma120: 61.7
-- return_5d: 3.39
-- return_20d: 0.86
-- volume_ratio: 0.98
-- distance_to_ma20_pct_auxiliary: 3.49
-- distance_to_high_60_pct: -8.34
+- date: 20260529
+- open: 83.3
+- high: 84.9
+- low: 81.2
+- close: 81.2
+- volume: 31906302
+- ma5: 82.66
+- ema23_primary: 79.3
+- distance_to_ema23_pct: 2.39
+- ma20: 79.74
+- ma60: 72.43
+- ma120: 62.05
+- return_5d: -2.17
+- return_20d: 2.92
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: 1.83
+- distance_to_high_60_pct: -9.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,82,83,78.1,78.9,52724023,74.73,5.59,75.72,66.15,0.66
 20260504,79.4,81,78,79.6,29324204,75.13,5.95,76.7,66.42,0.36
 20260505,79.9,81.4,78.1,79,30937430,75.45,4.7,77.56,66.68,0.38
 20260506,79.7,81.2,76.9,79.4,42518797,75.78,4.77,78.47,66.99,0.52
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,83.5,85.3,81.4,83,32823154,78.32,5.98,79.18,71.66,0.71
 20260527,84.7,89.9,83.5,84.5,87021618,78.83,7.19,79.59,71.92,1.77
 20260528,85.6,86.7,81.7,82.4,46789484,79.13,4.13,79.62,72.17,0.98
+20260529,83.3,84.9,81.2,81.2,31906302,79.3,2.39,79.74,72.43,0.69
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1717 | 長興 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 1717 | 長興 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1717 | 長興 | 3 | 1 | 3 | 3 | 3 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260529 | 1717 | 長興 | 4 | 2 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1717 | 長興 | 114 | 2 | 34411680.0 | 1380.0 | 24936.0 | call_inflow | 1 |  |
+| 20260529 | 1717 | 長興 | 114 | 2 | 21036420.0 | 32450.0 | 648.27 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

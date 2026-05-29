@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1711 永光
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:24 Asia/Taipei
+- generated_at: 2026-05-29 19:31:47 Asia/Taipei
 - stock_id: 1711
 - stock_name: 永光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 51.2
-- high: 51.4
-- low: 48.25
-- close: 48.95
-- volume: 14431847
-- ma5: 50.57
-- ema23_primary: 50.75
-- distance_to_ema23_pct: -3.55
-- ma20: 53.17
-- ma60: 44.33
-- ma120: 32.66
-- return_5d: -1.51
-- return_20d: -14.42
-- volume_ratio: 0.93
-- distance_to_ma20_pct_auxiliary: -7.94
-- distance_to_high_60_pct: -23.87
+- date: 20260529
+- open: 49
+- high: 49.9
+- low: 48.35
+- close: 49.1
+- volume: 10533672
+- ma5: 50.17
+- ema23_primary: 50.61
+- distance_to_ema23_pct: -2.99
+- ma20: 52.8
+- ma60: 44.66
+- ma120: 32.92
+- return_5d: -3.91
+- return_20d: -13.1
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: -7.01
+- distance_to_high_60_pct: -23.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,56.9,56.9,55.6,56.5,5779202,47.49,18.98,46.69,34.98,0.14
 20260504,57.7,58.1,57,58.1,4828222,48.37,20.11,47.65,35.59,0.11
 20260505,58.1,60.9,58.1,60.9,6186722,49.42,23.24,48.82,36.23,0.15
 20260506,63,63,58.9,60.9,4591119,50.37,20.9,50.17,36.88,0.11
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,51.5,52.5,49.65,50.7,15614114,50.91,-0.41,53.85,43.57,1.08
 20260527,51.3,53.3,50,51,18293080,50.91,0.17,53.59,43.97,1.21
 20260528,51.2,51.4,48.25,48.95,14431847,50.75,-3.55,53.17,44.33,0.93
+20260529,49,49.9,48.35,49.1,10533672,50.61,-2.99,52.8,44.66,0.67
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1711 | 永光 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 1711 | 永光 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1711 | 永光 | 3 | 3 | 3 | 3 | 3 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260529 | 1711 | 永光 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1711 | 永光 | 45 | 0 | 4422040.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260529 | 1711 | 永光 | 43 | 0 | 2223600.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

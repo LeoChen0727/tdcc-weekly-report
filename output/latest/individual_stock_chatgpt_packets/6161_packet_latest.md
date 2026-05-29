@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6161 捷波
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:55 Asia/Taipei
+- generated_at: 2026-05-29 19:33:17 Asia/Taipei
 - stock_id: 6161
 - stock_name: 捷波
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 60.6
-- high: 62.5
-- low: 58.8
-- close: 60.2
-- volume: 61000
-- ma5: 59.64
-- ema23_primary: 50.6
-- distance_to_ema23_pct: 18.98
-- ma20: 49.35
-- ma60: 44.05
-- ma120: 44.36
-- return_5d: 18.04
-- return_20d: 45.76
+- date: 20260529
+- open: 60.5
+- high: 61.8
+- low: 59
+- close: 59.1
+- volume: 60000
+- ma5: 60.7
+- ema23_primary: 51.31
+- distance_to_ema23_pct: 15.19
+- ma20: 50.23
+- ma60: 44.31
+- ma120: 44.48
+- return_5d: 9.85
+- return_20d: 42.58
 - volume_ratio: 0.14
-- distance_to_ma20_pct_auxiliary: 21.99
-- distance_to_high_60_pct: -7.38
+- distance_to_ma20_pct_auxiliary: 17.65
+- distance_to_high_60_pct: -9.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,41.4,41.6,41.15,41.45,59000,41.51,-0.14,41.28,42.05,0.74
 20260504,42,42,41.5,41.65,102000,41.52,0.32,41.36,42,1.27
 20260505,42,45.6,41.9,45,366000,41.81,7.63,41.63,42.01,3.85
 20260506,45.6,45.6,43.7,44,276000,41.99,4.78,41.86,42,2.57
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,65,65,63,65,65000,48.78,33.25,47.48,43.5,0.15
 20260527,63.8,64.3,59.6,60.1,62000,49.72,20.87,48.41,43.77,0.14
 20260528,60.6,62.5,58.8,60.2,61000,50.6,18.98,49.35,44.05,0.14
+20260529,60.5,61.8,59,59.1,60000,51.31,15.19,50.23,44.31,0.14
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6161 | 捷波 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

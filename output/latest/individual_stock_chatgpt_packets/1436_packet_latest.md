@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1436 華友聯
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:16 Asia/Taipei
+- generated_at: 2026-05-29 19:31:38 Asia/Taipei
 - stock_id: 1436
 - stock_name: 華友聯
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 44.15
-- high: 44.3
-- low: 43.85
+- date: 20260529
+- open: 44.25
+- high: 44.25
+- low: 43.95
 - close: 44.25
-- volume: 349012
-- ma5: 44.62
-- ema23_primary: 47.28
-- distance_to_ema23_pct: -6.41
-- ma20: 47.14
-- ma60: 51.23
-- ma120: 56.63
-- return_5d: -2.75
-- return_20d: -12.55
-- volume_ratio: 1.04
-- distance_to_ma20_pct_auxiliary: -6.13
+- volume: 167382
+- ma5: 44.38
+- ema23_primary: 47.03
+- distance_to_ema23_pct: -5.91
+- ma20: 46.85
+- ma60: 51.06
+- ma120: 56.48
+- return_5d: -2.64
+- return_20d: -11.41
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: -5.55
 - distance_to_high_60_pct: -24.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,50.8,51.2,49.65,49.95,205488,52.16,-4.24,52.16,55.18,0.9
 20260504,49.95,49.95,49.45,49.65,274613,51.95,-4.44,51.95,54.96,1.17
 20260505,49.6,50.2,49.6,49.9,116178,51.78,-3.64,51.77,54.75,0.5
 20260506,50,50,49.05,49.3,259683,51.58,-4.41,51.55,54.54,1.07
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,44.6,44.8,44.05,44.75,215833,47.88,-6.53,47.77,51.63,0.66
 20260527,44.75,44.9,44.05,44.05,219854,47.56,-7.38,47.45,51.42,0.67
 20260528,44.15,44.3,43.85,44.25,349012,47.28,-6.41,47.14,51.23,1.04
+20260529,44.25,44.25,43.95,44.25,167382,47.03,-5.91,46.85,51.06,0.5
 ```
 
 ## Latest TDCC Snapshot
@@ -133,9 +133,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1436 | 華友聯 | 1 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

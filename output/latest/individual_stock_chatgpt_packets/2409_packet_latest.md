@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2409 友達
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:41 Asia/Taipei
+- generated_at: 2026-05-29 19:32:03 Asia/Taipei
 - stock_id: 2409
 - stock_name: 友達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 21.9
-- high: 23.4
-- low: 21.2
-- close: 21.2
-- volume: 538705306
-- ma5: 22.32
-- ema23_primary: 19.92
-- distance_to_ema23_pct: 6.42
-- ma20: 19.68
-- ma60: 17.73
-- ma120: 15.66
-- return_5d: 4.95
-- return_20d: 22.54
-- volume_ratio: 1.59
-- distance_to_ma20_pct_auxiliary: 7.74
-- distance_to_high_60_pct: -17.83
+- date: 20260529
+- open: 22.35
+- high: 23.2
+- low: 21.9
+- close: 23
+- volume: 481574851
+- ma5: 22.48
+- ema23_primary: 20.18
+- distance_to_ema23_pct: 13.99
+- ma20: 19.97
+- ma60: 17.85
+- ma120: 15.76
+- return_5d: 3.6
+- return_20d: 33.72
+- volume_ratio: 1.35
+- distance_to_ma20_pct_auxiliary: 15.19
+- distance_to_high_60_pct: -10.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,17.5,17.6,16.95,17.2,107364483,17.55,-2.02,18.11,16.24,0.29
 20260504,16.9,17.25,16.6,16.95,185186551,17.5,-3.17,18.16,16.27,0.5
 20260505,17.25,18,17.2,17.85,283447210,17.53,1.81,18.2,16.32,0.81
 20260506,18.15,18.4,17.5,18.05,247854591,17.58,2.7,18.3,16.38,0.72
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,25.5,25.8,22,22,818361725,19.62,12.12,19.25,17.57,2.77
 20260527,22.15,22.2,20.5,21.8,566175271,19.8,10.08,19.48,17.66,1.78
 20260528,21.9,23.4,21.2,21.2,538705306,19.92,6.42,19.68,17.73,1.59
+20260529,22.35,23.2,21.9,23,481574851,20.18,13.99,19.97,17.85,1.35
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2409 | 友達 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_put_bullish | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 2409 | 友達 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 60.0 |  |  |  |  | call_inflow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2409 | 友達 | 1 | 1 | 3 | 3 | 3 | repeated_but_no_breakout | 近 10 日上榜 3 日、近 20 日上榜 3 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260529 | 2409 | 友達 | 2 | 1 | 4 | 4 | 4 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2409 | 友達 | 190 | 11 | 53495110.0 | 188680.0 | 283.52 | call_put_bullish | 3 |  |
+| 20260529 | 2409 | 友達 | 187 | 11 | 53018940.0 | 215340.0 | 246.21 | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

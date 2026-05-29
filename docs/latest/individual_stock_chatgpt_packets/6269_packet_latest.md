@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6269 台郡
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:02 Asia/Taipei
+- generated_at: 2026-05-29 19:33:24 Asia/Taipei
 - stock_id: 6269
 - stock_name: 台郡
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 63
-- high: 64
-- low: 60.5
-- close: 60.8
-- volume: 3752094
-- ma5: 62.98
-- ema23_primary: 61.54
-- distance_to_ema23_pct: -1.2
-- ma20: 61.58
-- ma60: 61.13
-- ma120: 59.88
-- return_5d: 3.58
-- return_20d: -4.55
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: -1.26
-- distance_to_high_60_pct: -16.71
+- date: 20260529
+- open: 62.3
+- high: 63
+- low: 61.7
+- close: 62.9
+- volume: 2807130
+- ma5: 63.08
+- ema23_primary: 61.65
+- distance_to_ema23_pct: 2.02
+- ma20: 61.43
+- ma60: 61.16
+- ma120: 59.98
+- return_5d: 0.8
+- return_20d: -4.41
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: 2.39
+- distance_to_high_60_pct: -13.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,64.4,66,63,65.8,3144465,63.82,3.11,64.1,61.05,0.77
 20260504,66.3,70.4,66.3,67.9,7332266,64.16,5.83,64.57,61.17,1.68
 20260505,68.1,68.9,67.3,68.5,3702842,64.52,6.17,65.03,61.3,0.82
 20260506,69.5,69.5,65.3,68.1,5339595,64.82,5.06,65.36,61.42,1.16
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,64.9,64.9,63.1,64.2,3010657,61.5,4.39,61.8,61.19,0.72
 20260527,64.3,65,62.2,62.8,3455027,61.61,1.94,61.72,61.16,0.82
 20260528,63,64,60.5,60.8,3752094,61.54,-1.2,61.58,61.13,0.88
+20260529,62.3,63,61.7,62.9,2807130,61.65,2.02,61.43,61.16,0.66
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 6269 | 台郡 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 6269 | 台郡 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260521 | 6269 | 台郡 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6269 | 台郡 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260529 | 6269 | 台郡 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6269 | 台郡 | 26 | 0 | 2499020.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 6269 | 台郡 | 26 | 0 | 1114170.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

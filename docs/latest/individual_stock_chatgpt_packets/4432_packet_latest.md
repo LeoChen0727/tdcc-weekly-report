@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4432 銘旺實
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:28 Asia/Taipei
+- generated_at: 2026-05-29 19:32:50 Asia/Taipei
 - stock_id: 4432
 - stock_name: 銘旺實
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 16.7
-- high: 16.7
+- date: 20260529
+- open: 16.6
+- high: 17.3
 - low: 16.5
-- close: 16.6
+- close: 17.05
 - volume: 17000
-- ma5: 16.95
-- ema23_primary: 16.08
-- distance_to_ema23_pct: 3.22
-- ma20: 15.8
-- ma60: 15.39
+- ma5: 16.93
+- ema23_primary: 16.16
+- distance_to_ema23_pct: 5.49
+- ma20: 15.94
+- ma60: 15.41
 - ma120: 15.94
-- return_5d: -2.35
-- return_20d: 15.28
+- return_5d: -0.58
+- return_20d: 19.23
 - volume_ratio: 0.17
-- distance_to_ma20_pct_auxiliary: 5.06
-- distance_to_high_60_pct: -8.79
+- distance_to_ma20_pct_auxiliary: 6.98
+- distance_to_high_60_pct: -6.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,14.4,14.4,14.3,14.3,23000,14.95,-4.36,15.03,15.55,0.66
 20260504,14.35,14.35,14.2,14.25,13000,14.89,-4.32,14.96,15.51,0.37
 20260505,14.2,14.2,14.15,14.15,78000,14.83,-4.6,14.89,15.46,2.02
 20260506,14.2,14.35,14,14.35,120000,14.79,-2.98,14.84,15.41,2.72
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,16.9,17.1,16.7,17.1,17000,15.97,7.1,15.57,15.36,0.17
 20260527,16.85,16.9,16.7,16.8,17000,16.04,4.77,15.69,15.37,0.17
 20260528,16.7,16.7,16.5,16.6,17000,16.08,3.22,15.8,15.39,0.17
+20260529,16.6,17.3,16.5,17.05,17000,16.16,5.49,15.94,15.41,0.17
 ```
 
 ## Latest TDCC Snapshot

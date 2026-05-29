@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0083 國泰費城半導體
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:08 Asia/Taipei
+- generated_at: 2026-05-29 19:31:30 Asia/Taipei
 - stock_id: 0083
 - stock_name: 國泰費城半導體
 - packet_status: insufficient_price_data
@@ -113,7 +113,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 0083 | 國泰費城半導體 | 18 | 10 | 7688460.0 | 877890.0 | 8.76 | call_put_bullish | 3 |  |
+| 20260529 | 0083 | 國泰費城半導體 | 20 | 10 | 3606180.0 | 272020.0 | 13.26 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

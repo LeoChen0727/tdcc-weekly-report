@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6174 安碁
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:56 Asia/Taipei
+- generated_at: 2026-05-29 19:33:18 Asia/Taipei
 - stock_id: 6174
 - stock_name: 安碁
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 46.65
-- high: 51.2
-- low: 46
-- close: 46.55
-- volume: 49000
-- ma5: 46.93
-- ema23_primary: 40.13
-- distance_to_ema23_pct: 16.01
-- ma20: 41.14
-- ma60: 29.84
-- ma120: 25.81
-- return_5d: 9.53
-- return_20d: 42.35
+- date: 20260529
+- open: 47.2
+- high: 48
+- low: 45.6
+- close: 46.65
+- volume: 47000
+- ma5: 46.91
+- ema23_primary: 40.67
+- distance_to_ema23_pct: 14.71
+- ma20: 41.92
+- ma60: 30.24
+- ma120: 26.02
+- return_5d: -0.21
+- return_20d: 50.24
 - volume_ratio: 0.02
-- distance_to_ma20_pct_auxiliary: 13.15
-- distance_to_high_60_pct: -9.44
+- distance_to_ma20_pct_auxiliary: 11.28
+- distance_to_high_60_pct: -9.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,32.35,32.35,30.6,31.05,838000,27.4,13.3,27.04,23.7,0.52
 20260504,31.7,34.15,30.55,34.15,2529000,27.97,22.11,27.62,23.9,1.47
 20260505,37.55,37.55,37.55,37.55,1925000,28.76,30.54,28.39,24.15,1.06
 20260506,41.3,41.3,39.8,41.3,4457000,29.81,38.55,29.36,24.47,2.19
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,47.5,48.25,44.2,47.2,47000,38.9,21.35,39.61,29.04,0.02
 20260527,47.8,47.9,44.5,46.65,46000,39.54,17.98,40.45,29.44,0.02
 20260528,46.65,51.2,46,46.55,49000,40.13,16.01,41.14,29.84,0.02
+20260529,47.2,48,45.6,46.65,47000,40.67,14.71,41.92,30.24,0.02
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6174 | 安碁 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

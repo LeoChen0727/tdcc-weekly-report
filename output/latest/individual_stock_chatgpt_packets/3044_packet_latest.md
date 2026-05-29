@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3044 健鼎
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:00 Asia/Taipei
+- generated_at: 2026-05-29 19:32:23 Asia/Taipei
 - stock_id: 3044
 - stock_name: 健鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 533
-- high: 533
-- low: 490
-- close: 493.5
-- volume: 5510237
-- ma5: 502.4
-- ema23_primary: 478.16
-- distance_to_ema23_pct: 3.21
-- ma20: 487.52
-- ma60: 418.93
-- ma120: 377.15
-- return_5d: 1.13
-- return_20d: 8.7
-- volume_ratio: 1.02
-- distance_to_ma20_pct_auxiliary: 1.23
-- distance_to_high_60_pct: -8.95
+- date: 20260529
+- open: 507
+- high: 532
+- low: 505
+- close: 521
+- volume: 4781839
+- ma5: 508.5
+- ema23_primary: 481.73
+- distance_to_ema23_pct: 8.15
+- ma20: 491.15
+- ma60: 421.32
+- ma120: 378.94
+- return_5d: 6.22
+- return_20d: 16.16
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: 6.08
+- distance_to_high_60_pct: -3.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,450,457.5,446,448.5,3725592,419.35,6.95,413.05,386.48,0.66
 20260504,460,470,453.5,465.5,3858880,423.2,10,418.57,388.23,0.68
 20260505,465,491,463.5,484.5,4280394,428.3,13.12,425.48,390.15,0.75
 20260506,495,506,477.5,488,8234680,433.28,12.63,432.02,391.88,1.37
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,501,515,497,510,4580380,472.47,7.94,482,414.93,0.85
 20260527,520,536,511,524,5547855,476.76,9.91,485.55,417.17,1.04
 20260528,533,533,490,493.5,5510237,478.16,3.21,487.52,418.93,1.02
+20260529,507,532,505,521,4781839,481.73,8.15,491.15,421.32,0.88
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3044 | 健鼎 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260528 | 3044 | 健鼎 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260529 | 3044 | 健鼎 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3044 | 健鼎 | 6 | 3 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260529 | 3044 | 健鼎 | 7 | 4 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3044 | 健鼎 | 73 | 4 | 23041740.0 | 11700.0 | 1969.38 | call_inflow | 1 |  |
+| 20260529 | 3044 | 健鼎 | 73 | 4 | 18734660.0 | 19300.0 | 970.71 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

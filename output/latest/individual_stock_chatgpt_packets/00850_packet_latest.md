@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00850 元大臺灣ESG永續
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:08 Asia/Taipei
+- generated_at: 2026-05-29 19:31:30 Asia/Taipei
 - stock_id: 00850
 - stock_name: 元大臺灣ESG永續
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260528
-- price_rows: 5
+- latest_price_date: 20260529
+- price_rows: 6
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 89.1
-- high: 89.7
-- low: 86.15
-- close: 86.7
-- volume: 1073179
-- ma5: 86.33
-- ema23_primary: 84.14
-- distance_to_ema23_pct: 3.05
-- ma20: 86.33
-- ma60: 86.33
-- ma120: 86.33
-- return_5d: 
+- date: 20260529
+- open: 88.15
+- high: 89.4
+- low: 88.1
+- close: 89.15
+- volume: 685514
+- ma5: 87.59
+- ema23_primary: 84.55
+- distance_to_ema23_pct: 5.43
+- ma20: 86.8
+- ma60: 86.8
+- ma120: 86.8
+- return_5d: 7.6
 - return_20d: 
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: 0.43
-- distance_to_high_60_pct: -3.67
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: 2.71
+- distance_to_high_60_pct: -0.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -82,6 +82,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,86.9,87.45,86,86.7,903650,,,,,
 20260527,87.75,90,87.75,88.9,945782,,,,,
 20260528,89.1,89.7,86.15,86.7,1073179,84.14,3.05,86.33,86.33,0.62
+20260529,88.15,89.4,88.1,89.15,685514,84.55,5.43,86.8,86.8,0.44
 ```
 
 ## Latest TDCC Snapshot

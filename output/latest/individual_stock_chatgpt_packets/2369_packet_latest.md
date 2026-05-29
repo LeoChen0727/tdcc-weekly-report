@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2369 菱生
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:38 Asia/Taipei
+- generated_at: 2026-05-29 19:32:01 Asia/Taipei
 - stock_id: 2369
 - stock_name: 菱生
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 40
-- high: 42
-- low: 38.75
-- close: 39.75
-- volume: 54879227
-- ma5: 36.79
-- ema23_primary: 32.73
-- distance_to_ema23_pct: 21.46
-- ma20: 32.14
-- ma60: 30.7
-- ma120: 27.77
-- return_5d: 32.5
-- return_20d: 31.62
-- volume_ratio: 2.41
-- distance_to_ma20_pct_auxiliary: 23.67
-- distance_to_high_60_pct: -5.36
+- date: 20260529
+- open: 40.05
+- high: 41.45
+- low: 39.2
+- close: 40.3
+- volume: 48804998
+- ma5: 38.44
+- ema23_primary: 33.36
+- distance_to_ema23_pct: 20.81
+- ma20: 32.68
+- ma60: 30.91
+- ma120: 27.94
+- return_5d: 25.74
+- return_20d: 36.38
+- volume_ratio: 1.96
+- distance_to_ma20_pct_auxiliary: 23.32
+- distance_to_high_60_pct: -4.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,30.4,30.8,29.55,29.55,6553599,30.38,-2.72,30.55,28.99,0.42
 20260504,29.7,31.8,29.6,31.15,14772236,30.44,2.33,30.6,29.05,0.98
 20260505,31.9,33.45,31.7,33.2,33947083,30.67,8.24,30.81,29.12,2.14
 20260506,34.25,34.25,31.6,31.9,29516138,30.77,3.66,31,29.18,1.75
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,37.1,37.7,36.65,37.7,58300950,31.36,20.23,31.2,30.32,3.5
 20260527,38.85,41,36.95,40.15,90986427,32.09,25.12,31.66,30.51,4.46
 20260528,40,42,38.75,39.75,54879227,32.73,21.46,32.14,30.7,2.41
+20260529,40.05,41.45,39.2,40.3,48804998,33.36,20.81,32.68,30.91,1.96
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2369 | 菱生 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 2369 | 菱生 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 2369 | 菱生 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260521 | 2369 | 菱生 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2369 | 菱生 | 6 | 6 | 5 | 6 | 6 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260529 | 2369 | 菱生 | 7 | 7 | 5 | 7 | 7 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2369 | 菱生 | 37 | 0 | 13586800.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260529 | 2369 | 菱生 | 40 | 0 | 10160150.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

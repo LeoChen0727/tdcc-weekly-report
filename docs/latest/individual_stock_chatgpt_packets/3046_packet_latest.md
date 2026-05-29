@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3046 建碁
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:01 Asia/Taipei
+- generated_at: 2026-05-29 19:32:23 Asia/Taipei
 - stock_id: 3046
 - stock_name: 建碁
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 54.6
-- high: 55.6
-- low: 53.9
-- close: 54.4
-- volume: 760286
-- ma5: 53.9
-- ema23_primary: 51.47
-- distance_to_ema23_pct: 5.7
-- ma20: 51.42
-- ma60: 48.86
-- ma120: 50.15
-- return_5d: 4.41
-- return_20d: 12.75
-- volume_ratio: 2.07
-- distance_to_ma20_pct_auxiliary: 5.79
-- distance_to_high_60_pct: -2.16
+- date: 20260529
+- open: 55.4
+- high: 59.8
+- low: 54.8
+- close: 58.2
+- volume: 3453533
+- ma5: 54.86
+- ema23_primary: 52.03
+- distance_to_ema23_pct: 11.87
+- ma20: 51.91
+- ma60: 49.02
+- ma120: 50.24
+- return_5d: 8.99
+- return_20d: 20
+- volume_ratio: 6.5
+- distance_to_ma20_pct_auxiliary: 12.12
+- distance_to_high_60_pct: -2.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,48.25,49,48.25,48.5,181625,48.11,0.81,48.07,48.74,1.16
 20260504,48.65,49.1,48.55,48.75,195773,48.16,1.22,48.18,48.64,1.2
 20260505,48.75,49.3,48.55,49.25,189794,48.25,2.07,48.33,48.57,1.12
 20260506,49.95,50,49.2,49.65,220948,48.37,2.65,48.49,48.5,1.25
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,54.6,54.6,53.1,53.8,402729,50.95,5.59,50.79,48.7,1.24
 20260527,54.1,54.2,53.3,53.9,323879,51.2,5.28,51.12,48.77,0.96
 20260528,54.6,55.6,53.9,54.4,760286,51.47,5.7,51.42,48.86,2.07
+20260529,55.4,59.8,54.8,58.2,3453533,52.03,11.87,51.91,49.02,6.5
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 3046 | 建碁 | true_breakout | 嚴格突破 | 121.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 3046 | 建碁 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | status |

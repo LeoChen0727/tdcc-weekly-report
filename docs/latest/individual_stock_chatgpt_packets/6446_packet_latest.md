@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6446 藥華藥
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:05 Asia/Taipei
+- generated_at: 2026-05-29 19:33:27 Asia/Taipei
 - stock_id: 6446
 - stock_name: 藥華藥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 886
-- high: 896
-- low: 852
-- close: 862
-- volume: 3014839
-- ma5: 853.4
-- ema23_primary: 769.79
-- distance_to_ema23_pct: 11.98
-- ma20: 762.7
-- ma60: 685.47
-- ma120: 632.52
-- return_5d: 8.02
-- return_20d: 33.23
-- volume_ratio: 0.86
-- distance_to_ma20_pct_auxiliary: 13.02
-- distance_to_high_60_pct: -5.9
+- date: 20260529
+- open: 870
+- high: 934
+- low: 868
+- close: 930
+- volume: 5399400
+- ma5: 877.4
+- ema23_primary: 783.14
+- distance_to_ema23_pct: 18.75
+- ma20: 776.15
+- ma60: 689.47
+- ma120: 636.21
+- return_5d: 14.81
+- return_20d: 40.7
+- volume_ratio: 1.48
+- distance_to_ma20_pct_auxiliary: 19.82
+- distance_to_high_60_pct: -0.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,648,668,644,661,2252285,641.86,2.98,641.15,671.05,1.35
 20260504,662,662,642,645,1684750,642.12,0.45,641.65,671.8,1.01
 20260505,646,659,642,647,1448833,642.53,0.7,642.4,671.58,0.85
 20260506,661,664,651,655,1728074,643.57,1.78,643.25,670.47,1.03
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,854,883,852,878,3667145,750.9,16.93,739.25,680.03,1.09
 20260527,891,916,874,877,3144955,761.41,15.18,751.95,682.58,0.91
 20260528,886,896,852,862,3014839,769.79,11.98,762.7,685.47,0.86
+20260529,870,934,868,930,5399400,783.14,18.75,776.15,689.47,1.48
 ```
 
 ## Latest TDCC Snapshot
@@ -125,13 +125,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6446 | 藥華藥 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260521 | 6446 | 藥華藥 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 6446 | 藥華藥 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260521 | 6446 | 藥華藥 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6446 | 藥華藥 | 6 | 6 | 5 | 6 | 6 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260529 | 6446 | 藥華藥 | 7 | 7 | 5 | 7 | 7 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | status |

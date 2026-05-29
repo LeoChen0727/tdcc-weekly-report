@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2338 光罩
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:36 Asia/Taipei
+- generated_at: 2026-05-29 19:31:59 Asia/Taipei
 - stock_id: 2338
 - stock_name: 光罩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 56.9
-- high: 61.4
-- low: 55.1
-- close: 55.9
-- volume: 15689455
-- ma5: 55.8
-- ema23_primary: 51.54
-- distance_to_ema23_pct: 8.47
-- ma20: 51.28
-- ma60: 49.13
-- ma120: 43.44
-- return_5d: 5.87
-- return_20d: 18.06
-- volume_ratio: 1.79
-- distance_to_ma20_pct_auxiliary: 9.01
-- distance_to_high_60_pct: -8.96
+- date: 20260529
+- open: 57.9
+- high: 59.4
+- low: 56.9
+- close: 57.9
+- volume: 10061343
+- ma5: 56.5
+- ema23_primary: 52.07
+- distance_to_ema23_pct: 11.2
+- ma20: 51.82
+- ma60: 49.2
+- ma120: 43.64
+- return_5d: 6.43
+- return_20d: 23.19
+- volume_ratio: 1.1
+- distance_to_ma20_pct_auxiliary: 11.73
+- distance_to_high_60_pct: -5.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,47.8,48.75,46.6,47,3001276,47.36,-0.75,46.81,45.44,0.46
 20260504,48.05,48.4,47.1,47.75,2207069,47.39,0.76,47.02,45.57,0.34
 20260505,48.1,51.5,47.85,50.5,7808193,47.65,5.99,47.39,45.74,1.17
 20260506,50.8,51,48.5,49.4,5421276,47.79,3.36,47.68,45.87,0.79
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,59.1,60.3,55.1,55.4,15723414,50.68,9.31,50.42,48.98,2.01
 20260527,56.9,57.4,54.8,56.2,8529843,51.14,9.89,50.85,49.1,1.05
 20260528,56.9,61.4,55.1,55.9,15689455,51.54,8.47,51.28,49.13,1.79
+20260529,57.9,59.4,56.9,57.9,10061343,52.07,11.2,51.82,49.2,1.1
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2338 | 光罩 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 2338 | 光罩 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 2338 | 光罩 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2338 | 光罩 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260529 | 2338 | 光罩 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2338 | 光罩 | 15 | 1 | 5746950.0 | 289760.0 | 19.83 | no_signal | 0 |  |
+| 20260529 | 2338 | 光罩 | 15 | 1 | 5349650.0 | 254280.0 | 21.04 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

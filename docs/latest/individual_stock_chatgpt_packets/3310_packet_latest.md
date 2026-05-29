@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3310 佳穎
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:09 Asia/Taipei
+- generated_at: 2026-05-29 19:32:31 Asia/Taipei
 - stock_id: 3310
 - stock_name: 佳穎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 76.6
-- high: 78
-- low: 72.6
-- close: 72.6
-- volume: 76000
-- ma5: 74.4
-- ema23_primary: 71.38
-- distance_to_ema23_pct: 1.71
-- ma20: 70.52
-- ma60: 72.3
-- ma120: 74.15
-- return_5d: 3.57
-- return_20d: 3.71
-- volume_ratio: 1.37
-- distance_to_ma20_pct_auxiliary: 2.95
-- distance_to_high_60_pct: -13.47
+- date: 20260529
+- open: 72.7
+- high: 74.5
+- low: 72.3
+- close: 72.3
+- volume: 74000
+- ma5: 73.48
+- ema23_primary: 71.46
+- distance_to_ema23_pct: 1.18
+- ma20: 70.64
+- ma60: 72.2
+- ma120: 74.2
+- return_5d: -5.98
+- return_20d: 3.43
+- volume_ratio: 1.3
+- distance_to_ma20_pct_auxiliary: 2.35
+- distance_to_high_60_pct: -13.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,70,70.3,69.2,69.9,40000,71.05,-1.62,70.47,73.16,0.33
 20260504,68.3,69,67.2,67.5,51000,70.76,-4.6,70.22,73.03,0.42
 20260505,68,69,66.5,69,54000,70.61,-2.28,70.12,72.94,0.44
 20260506,69,70.7,69,70.7,22000,70.62,0.12,70.15,72.89,0.22
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,73.2,73.3,72.2,72.7,73000,70.78,2.71,70.05,72.41,1.33
 20260527,72.7,77,72.1,76.6,73000,71.27,7.48,70.39,72.39,1.34
 20260528,76.6,78,72.6,72.6,76000,71.38,1.71,70.52,72.3,1.37
+20260529,72.7,74.5,72.3,72.3,74000,71.46,1.18,70.64,72.2,1.3
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3310 | 佳穎 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

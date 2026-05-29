@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0063 元大滬深300正2
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:07 Asia/Taipei
+- generated_at: 2026-05-29 19:31:29 Asia/Taipei
 - stock_id: 0063
 - stock_name: 元大滬深300正2
 - packet_status: insufficient_price_data
@@ -113,7 +113,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 0063 | 元大滬深300正2 | 651 | 187 | 73464910.0 | 10609010.0 | 6.92 | mixed_flow | 0 | 認購權證成交量與成交金額同步偏大，短線資金關注度高 |
+| 20260529 | 0063 | 元大滬深300正2 | 647 | 186 | 72849110.0 | 9864750.0 | 7.38 | mixed_flow | 0 | 認購權證成交量與成交金額同步偏大，短線資金關注度高 |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

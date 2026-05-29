@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9136 巨騰-DR
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:43 Asia/Taipei
+- generated_at: 2026-05-29 19:34:05 Asia/Taipei
 - stock_id: 9136
 - stock_name: 巨騰-DR
-- packet_status: standard_rawdata_packet
-- latest_price_date: 20260528
-- price_rows: 119
+- packet_status: standard_180d_window_packet
+- latest_price_date: 20260529
+- price_rows: 120
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: price history shorter than 120 rows; K-line context is partial; TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
+- notes: TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
 
 ## Stable Read URLs
 - packet_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_chatgpt_packets/9136_packet_latest.md
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 11.55
-- high: 11.6
-- low: 10.9
-- close: 11.15
-- volume: 1047546
-- ma5: 11.15
-- ema23_primary: 10.45
-- distance_to_ema23_pct: 6.68
-- ma20: 10.3
-- ma60: 9.19
-- ma120: 8.35
-- return_5d: 4.21
-- return_20d: 28.16
-- volume_ratio: 0.43
-- distance_to_ma20_pct_auxiliary: 8.23
-- distance_to_high_60_pct: -20.64
+- date: 20260529
+- open: 11.2
+- high: 11.25
+- low: 11.05
+- close: 11.1
+- volume: 728201
+- ma5: 11.18
+- ema23_primary: 10.51
+- distance_to_ema23_pct: 5.66
+- ma20: 10.41
+- ma60: 9.24
+- ma120: 8.38
+- return_5d: 1.37
+- return_20d: 25.57
+- volume_ratio: 0.3
+- distance_to_ma20_pct_auxiliary: 6.58
+- distance_to_high_60_pct: -21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260407,8.81,8.85,8.72,8.84,643156,9.23,-4.28,9.61,8.51,0.16
 20260408,8.98,9.72,8.78,9.57,1460381,9.26,3.32,9.67,8.54,0.36
 20260409,9.88,9.88,8.65,8.7,1865743,9.22,-5.6,9.64,8.54,0.5
 20260410,8.74,8.74,8.33,8.59,1091228,9.16,-6.26,9.62,8.55,0.35
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,11.5,11.5,10.8,10.9,1336325,10.29,5.91,10.04,9.08,0.55
 20260527,11,11.65,10.9,11.45,1741000,10.39,10.22,10.18,9.14,0.71
 20260528,11.55,11.6,10.9,11.15,1047546,10.45,6.68,10.3,9.19,0.43
+20260529,11.2,11.25,11.05,11.1,728201,10.51,5.66,10.41,9.24,0.3
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 9136 | 巨騰-DR | pattern | 型態觀察 |  |  |  | 預備發動型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 9136 | 巨騰-DR | pattern | 型態觀察 |  |  |  | 預備發動型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 9136 | 巨騰-DR | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260529 | 9136 | 巨騰-DR | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

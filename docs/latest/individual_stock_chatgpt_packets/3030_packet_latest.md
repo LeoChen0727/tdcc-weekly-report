@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3030 德律
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:59 Asia/Taipei
+- generated_at: 2026-05-29 19:32:22 Asia/Taipei
 - stock_id: 3030
 - stock_name: 德律
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 410
-- high: 433.5
-- low: 405.5
-- close: 409
-- volume: 7057925
-- ma5: 411.1
-- ema23_primary: 380.79
-- distance_to_ema23_pct: 7.41
-- ma20: 395.07
-- ma60: 317.38
-- ma120: 248.52
-- return_5d: 7.21
-- return_20d: 18.72
-- volume_ratio: 1.54
-- distance_to_ma20_pct_auxiliary: 3.52
-- distance_to_high_60_pct: -10.6
+- date: 20260529
+- open: 428
+- high: 428
+- low: 405
+- close: 405
+- volume: 4977039
+- ma5: 408.2
+- ema23_primary: 382.81
+- distance_to_ema23_pct: 5.8
+- ma20: 398.2
+- ma60: 320.18
+- ma120: 250.66
+- return_5d: -3.46
+- return_20d: 18.25
+- volume_ratio: 1.11
+- distance_to_ma20_pct_auxiliary: 1.71
+- distance_to_high_60_pct: -11.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,356,358,339.5,342.5,6994340,307.4,11.42,309.18,252.17,0.86
 20260504,347,376.5,345,376.5,9600169,313.16,20.23,315.18,255.42,1.15
 20260505,398,414,398,414,5957365,321.56,28.75,323.5,259.26,0.71
 20260506,426,435.5,400,413,13359475,329.18,25.46,331.45,263.01,1.53
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,424,426,405,409.5,4162702,376.29,8.83,388.25,311.72,0.91
 20260527,415.5,420,395,399.5,5881676,378.22,5.63,391.85,314.65,1.29
 20260528,410,433.5,405.5,409,7057925,380.79,7.41,395.07,317.38,1.54
+20260529,428,428,405,405,4977039,382.81,5.8,398.2,320.18,1.11
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3030 | 德律 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260528 | 3030 | 德律 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260529 | 3030 | 德律 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260529 | 3030 | 德律 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3030 | 德律 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260529 | 3030 | 德律 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3030 | 德律 | 172 | 7 | 42633200.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260529 | 3030 | 德律 | 170 | 7 | 47359570.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1305 華夏
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:13 Asia/Taipei
+- generated_at: 2026-05-29 19:31:35 Asia/Taipei
 - stock_id: 1305
 - stock_name: 華夏
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 26
 - tdcc_history_status: tdcc_history_ready
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 12.15
-- high: 12.65
-- low: 12.05
-- close: 12.6
-- volume: 7743103
-- ma5: 12.29
-- ema23_primary: 13.11
-- distance_to_ema23_pct: -3.91
-- ma20: 12.89
-- ma60: 14.54
-- ma120: 13.06
-- return_5d: 0.8
-- return_20d: -10.95
-- volume_ratio: 1.77
-- distance_to_ma20_pct_auxiliary: -2.29
-- distance_to_high_60_pct: -37.31
+- date: 20260529
+- open: 12.25
+- high: 12.55
+- low: 12.1
+- close: 12.3
+- volume: 4061364
+- ma5: 12.27
+- ema23_primary: 13.04
+- distance_to_ema23_pct: -5.71
+- ma20: 12.77
+- ma60: 14.53
+- ma120: 13.08
+- return_5d: -0.81
+- return_20d: -17.17
+- volume_ratio: 0.99
+- distance_to_ma20_pct_auxiliary: -3.66
+- distance_to_high_60_pct: -38.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,14.75,15.05,14.35,14.85,9282896,15.26,-2.7,15.78,14.33,0.66
 20260504,14.3,14.3,13.5,13.7,8545905,15.13,-9.47,15.62,14.35,0.65
 20260505,14,14.25,13.8,14,3843200,15.04,-6.9,15.43,14.38,0.35
 20260506,13.8,13.9,13.1,13.3,6421705,14.89,-10.7,15.21,14.39,0.63
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,12.4,12.5,11.9,12,3720302,13.26,-9.47,13.08,14.54,0.9
 20260527,12.1,12.25,11.9,12.1,3549398,13.16,-8.05,12.97,14.54,0.85
 20260528,12.15,12.65,12.05,12.6,7743103,13.11,-3.91,12.89,14.54,1.77
+20260529,12.25,12.55,12.1,12.3,4061364,13.04,-5.71,12.77,14.53,0.99
 ```
 
 ## Latest TDCC Snapshot
@@ -133,17 +133,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 1305 | 華夏 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 1305 | 華夏 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1305 | 華夏 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260529 | 1305 | 華夏 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1305 | 華夏 | 7 | 0 | 725750.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 1305 | 華夏 | 7 | 0 | 836220.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

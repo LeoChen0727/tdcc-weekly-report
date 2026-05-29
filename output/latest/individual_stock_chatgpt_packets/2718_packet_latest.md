@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2718 全心投控
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:51 Asia/Taipei
+- generated_at: 2026-05-29 19:32:14 Asia/Taipei
 - stock_id: 2718
 - stock_name: 全心投控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 44.75
-- high: 45.6
-- low: 44.75
-- close: 45.4
-- volume: 45000
-- ma5: 45.31
-- ema23_primary: 45.24
-- distance_to_ema23_pct: 0.34
-- ma20: 44.52
-- ma60: 46.42
-- ma120: 49.17
-- return_5d: -1.73
-- return_20d: 4.13
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: 1.97
-- distance_to_high_60_pct: -10.81
+- date: 20260529
+- open: 45.6
+- high: 46.75
+- low: 45.4
+- close: 46.45
+- volume: 46000
+- ma5: 45.38
+- ema23_primary: 45.35
+- distance_to_ema23_pct: 2.44
+- ma20: 44.66
+- ma60: 46.37
+- ma120: 49.1
+- return_5d: 0.76
+- return_20d: 6.29
+- volume_ratio: 0.59
+- distance_to_ma20_pct_auxiliary: 4
+- distance_to_high_60_pct: -7.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,44.2,44.55,43.7,43.7,28000,46.13,-5.27,46.22,47.92,0.78
 20260504,43.95,43.95,43.1,43.25,74000,45.89,-5.76,46.03,47.79,1.93
 20260505,43.1,43.1,42.65,42.75,84000,45.63,-6.31,45.84,47.65,2.02
 20260506,43,43.1,42.7,43,45000,45.41,-5.31,45.67,47.52,1.04
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,45.1,45.25,44.8,45.1,45000,45.27,-0.38,44.36,46.59,0.58
 20260527,44.9,45.05,44.6,44.8,45000,45.23,-0.95,44.44,46.5,0.59
 20260528,44.75,45.6,44.75,45.4,45000,45.24,0.34,44.52,46.42,0.58
+20260529,45.6,46.75,45.4,46.45,46000,45.35,2.44,44.66,46.37,0.59
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4540 全球傳動
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:30 Asia/Taipei
+- generated_at: 2026-05-29 19:32:52 Asia/Taipei
 - stock_id: 4540
 - stock_name: 全球傳動
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 67.3
-- high: 68.8
-- low: 65
-- close: 65.6
-- volume: 5889865
-- ma5: 69.98
-- ema23_primary: 66.54
-- distance_to_ema23_pct: -1.41
+- date: 20260529
+- open: 66.8
+- high: 69.1
+- low: 66
+- close: 68.6
+- volume: 5876432
+- ma5: 69.18
+- ema23_primary: 66.71
+- distance_to_ema23_pct: 2.83
 - ma20: 69.47
-- ma60: 55.6
-- ma120: 48.06
-- return_5d: -5.61
-- return_20d: 3.31
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: -5.56
-- distance_to_high_60_pct: -17.48
+- ma60: 55.91
+- ma120: 48.34
+- return_5d: -5.51
+- return_20d: 0.15
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: -1.25
+- distance_to_high_60_pct: -13.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,64.6,69.8,63.8,68.5,27139619,54.17,26.46,52.61,49.04,3.32
 20260504,69.6,71,66,68.4,24016104,55.35,23.57,53.93,49.35,2.57
 20260505,68.7,73,68,69.3,18641059,56.52,22.62,55.36,49.66,1.82
 20260506,69.7,70.6,65.5,68.9,13811761,57.55,19.73,56.7,49.99,1.27
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,72.4,74.5,70,71.8,9989921,66.57,7.85,69.04,55.09,0.65
 20260527,72.8,72.8,66.3,67.2,11779254,66.62,0.87,69.36,55.35,0.77
 20260528,67.3,68.8,65,65.6,5889865,66.54,-1.41,69.47,55.6,0.4
+20260529,66.8,69.1,66,68.6,5876432,66.71,2.83,69.47,55.91,0.43
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4540 | 全球傳動 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260529 | 4540 | 全球傳動 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260529 | 4540 | 全球傳動 | revenue_pullback | 營收成長股價回檔 | 76.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4540 | 全球傳動 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260529 | 4540 | 全球傳動 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

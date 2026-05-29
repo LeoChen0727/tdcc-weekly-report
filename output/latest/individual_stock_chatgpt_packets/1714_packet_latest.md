@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1714 和桐
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:25 Asia/Taipei
+- generated_at: 2026-05-29 19:31:47 Asia/Taipei
 - stock_id: 1714
 - stock_name: 和桐
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 9.46
-- high: 9.48
-- low: 9.3
-- close: 9.37
-- volume: 2555091
-- ma5: 9.52
-- ema23_primary: 9.62
-- distance_to_ema23_pct: -2.57
-- ma20: 9.58
+- date: 20260529
+- open: 9.45
+- high: 9.54
+- low: 9.39
+- close: 9.5
+- volume: 2480828
+- ma5: 9.49
+- ema23_primary: 9.61
+- distance_to_ema23_pct: -1.12
+- ma20: 9.59
 - ma60: 9.66
-- ma120: 9.2
-- return_5d: -4.39
-- return_20d: -2.4
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: -2.19
-- distance_to_high_60_pct: -12.02
+- ma120: 9.21
+- return_5d: -1.76
+- return_20d: 1.06
+- volume_ratio: 0.53
+- distance_to_ma20_pct_auxiliary: -0.89
+- distance_to_high_60_pct: -10.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,9.63,9.67,9.39,9.4,3757127,9.69,-3.02,9.74,9.58,0.68
 20260504,9.46,9.46,9.25,9.26,3646697,9.66,-4.11,9.72,9.58,0.67
 20260505,9.26,9.31,9.24,9.26,1874518,9.62,-3.78,9.71,9.58,0.35
 20260506,9.26,9.32,9.12,9.18,3545725,9.59,-4.24,9.69,9.58,0.65
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,9.65,9.7,9.51,9.51,2555825,9.66,-1.57,9.6,9.68,0.56
 20260527,9.6,9.62,9.37,9.4,4285104,9.64,-2.49,9.59,9.67,0.92
 20260528,9.46,9.48,9.3,9.37,2555091,9.62,-2.57,9.58,9.66,0.54
+20260529,9.45,9.54,9.39,9.5,2480828,9.61,-1.12,9.59,9.66,0.53
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1714 | 和桐 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260521 | 1714 | 和桐 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 1714 | 和桐 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260529 | 1714 | 和桐 | revenue_breakout_low_response | 營收爆發低反應股 | 17.0 | 11.0 | B_可觀察 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260521 | 1714 | 和桐 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1714 | 和桐 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260529 | 1714 | 和桐 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1714 | 和桐 | 2 | 0 | 5690.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 1714 | 和桐 | 2 | 0 | 17390.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

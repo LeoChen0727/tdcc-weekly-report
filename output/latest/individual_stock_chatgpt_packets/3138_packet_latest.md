@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3138 耀登
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:04 Asia/Taipei
+- generated_at: 2026-05-29 19:32:26 Asia/Taipei
 - stock_id: 3138
 - stock_name: 耀登
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 168
-- high: 174
-- low: 160
-- close: 160.5
-- volume: 1533742
-- ma5: 168.9
-- ema23_primary: 164.67
-- distance_to_ema23_pct: -2.53
-- ma20: 160.47
-- ma60: 172.08
-- ma120: 152.81
-- return_5d: -3.02
-- return_20d: 4.9
-- volume_ratio: 0.8
-- distance_to_ma20_pct_auxiliary: 0.02
-- distance_to_high_60_pct: -32.85
+- date: 20260529
+- open: 165
+- high: 172
+- low: 162.5
+- close: 169
+- volume: 1345570
+- ma5: 168.8
+- ema23_primary: 165.03
+- distance_to_ema23_pct: 2.41
+- ma20: 161.32
+- ma60: 171.28
+- ma120: 153.5
+- return_5d: -0.29
+- return_20d: 11.18
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: 4.76
+- distance_to_high_60_pct: -21.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,154,159,151.5,152,1394143,171.2,-11.21,172.93,178.12,0.36
 20260504,154.5,162,153,155,1698029,169.85,-8.74,172.15,177.82,0.44
 20260505,156.5,160,155,160,1388324,169.03,-5.34,172.15,177.44,0.37
 20260506,161.5,162,151,154.5,1726524,167.82,-7.94,171.5,177.04,0.46
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,177,178,168,172.5,1796765,165,4.54,159.7,173.57,0.95
 20260527,175.5,176,164.5,165.5,1509067,165.05,0.28,160.1,173.03,0.79
 20260528,168,174,160,160.5,1533742,164.67,-2.53,160.47,172.08,0.8
+20260529,165,172,162.5,169,1345570,165.03,2.41,161.32,171.28,0.7
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 3138 | 耀登 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 3138 | 耀登 | 1 | 1 | 3 | 3 | 3 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3138 | 耀登 | 4 | 0 | 2698050.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 3138 | 耀登 | 4 | 0 | 1972820.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

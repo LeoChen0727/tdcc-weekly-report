@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3265 台星科
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:07 Asia/Taipei
+- generated_at: 2026-05-29 19:32:30 Asia/Taipei
 - stock_id: 3265
 - stock_name: 台星科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 190
-- high: 204.5
-- low: 188
-- close: 189
-- volume: 196000
-- ma5: 189.1
-- ema23_primary: 179.61
-- distance_to_ema23_pct: 5.23
-- ma20: 182.25
-- ma60: 160.64
-- ma120: 141.95
-- return_5d: 6.48
-- return_20d: 14.89
+- date: 20260529
+- open: 196
+- high: 197.5
+- low: 186.5
+- close: 190.5
+- volume: 191000
+- ma5: 190
+- ema23_primary: 180.51
+- distance_to_ema23_pct: 5.53
+- ma20: 183.38
+- ma60: 161.47
+- ma120: 142.78
+- return_5d: 2.42
+- return_20d: 13.39
 - volume_ratio: 0.08
-- distance_to_ma20_pct_auxiliary: 3.7
-- distance_to_high_60_pct: -7.58
+- distance_to_ma20_pct_auxiliary: 3.89
+- distance_to_high_60_pct: -6.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,164.5,173.5,163,168,1683000,162.13,3.62,164.97,147.34,0.41
 20260504,171.5,184.5,171.5,184.5,3832000,164,12.5,166.88,148.05,0.93
 20260505,185,193,181,190,9932000,166.17,14.34,169.2,148.72,2.25
 20260506,192,193,181.5,186,4555000,167.82,10.83,171.3,149.39,1
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,192,193,186,191.5,190000,177.78,7.72,179.93,159.2,0.08
 20260527,194.5,194.5,187,189.5,190000,178.75,6.01,181.03,159.86,0.08
 20260528,190,204.5,188,189,196000,179.61,5.23,182.25,160.64,0.08
+20260529,196,197.5,186.5,190.5,191000,180.51,5.53,183.38,161.47,0.08
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3265 | 台星科 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

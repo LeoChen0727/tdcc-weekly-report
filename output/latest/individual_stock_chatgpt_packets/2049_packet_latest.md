@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2049 上銀
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:31 Asia/Taipei
+- generated_at: 2026-05-29 19:31:53 Asia/Taipei
 - stock_id: 2049
 - stock_name: 上銀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 418
-- high: 418
-- low: 383
-- close: 388
-- volume: 9726639
-- ma5: 395.6
-- ema23_primary: 356.92
-- distance_to_ema23_pct: 8.71
-- ma20: 361.02
-- ma60: 289.02
-- ma120: 250.85
-- return_5d: 3.88
-- return_20d: 25.77
-- volume_ratio: 1.11
-- distance_to_ma20_pct_auxiliary: 7.47
-- distance_to_high_60_pct: -8.92
+- date: 20260529
+- open: 402.5
+- high: 406
+- low: 384
+- close: 389
+- volume: 7950787
+- ma5: 398.1
+- ema23_primary: 359.59
+- distance_to_ema23_pct: 8.18
+- ma20: 364.85
+- ma60: 291.38
+- ma120: 252.56
+- return_5d: 3.32
+- return_20d: 24.48
+- volume_ratio: 0.91
+- distance_to_ma20_pct_auxiliary: 6.62
+- distance_to_high_60_pct: -8.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,312.5,321.5,308,312.5,9788451,278.63,12.15,276.02,249.32,1.03
 20260504,320,335,310.5,318.5,12388820,281.96,12.96,280.27,250.78,1.25
 20260505,320,326.5,317.5,321,4862204,285.21,12.55,284.93,252.03,0.49
 20260506,322.5,328,308,315.5,7480615,287.73,9.65,289,253.01,0.73
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,413,426,393.5,409.5,9959725,349.1,17.3,351.65,283.78,1.14
 20260527,415,425,402.5,409,7797803,354.09,15.51,357.05,286.77,0.88
 20260528,418,418,383,388,9726639,356.92,8.71,361.02,289.02,1.11
+20260529,402.5,406,384,389,7950787,359.59,8.18,364.85,291.38,0.91
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2049 | 上銀 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 2049 | 上銀 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260529 | 2049 | 上銀 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2049 | 上銀 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260529 | 2049 | 上銀 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2049 | 上銀 | 125 | 6 | 39992940.0 | 149330.0 | 267.82 | call_inflow | 1 |  |
+| 20260529 | 2049 | 上銀 | 123 | 6 | 18970850.0 | 45870.0 | 413.58 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6509 聚和
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:07 Asia/Taipei
+- generated_at: 2026-05-29 19:33:29 Asia/Taipei
 - stock_id: 6509
 - stock_name: 聚和
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 51.3
-- high: 51.3
-- low: 49.55
-- close: 50
+- date: 20260529
+- open: 50.5
+- high: 50.8
+- low: 49.7
+- close: 49.9
 - volume: 50000
-- ma5: 50.98
-- ema23_primary: 47.08
-- distance_to_ema23_pct: 6.21
-- ma20: 46.11
-- ma60: 44.3
-- ma120: 39.53
-- return_5d: 1.73
-- return_20d: 19.62
-- volume_ratio: 0.01
-- distance_to_ma20_pct_auxiliary: 8.43
-- distance_to_high_60_pct: -5.3
+- ma5: 50.94
+- ema23_primary: 47.31
+- distance_to_ema23_pct: 5.47
+- ma20: 46.61
+- ma60: 44.46
+- ma120: 39.66
+- return_5d: -0.4
+- return_20d: 25.06
+- volume_ratio: 0.02
+- distance_to_ma20_pct_auxiliary: 7.05
+- distance_to_high_60_pct: -5.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,42.3,42.3,39.9,39.9,2428000,43.05,-7.33,43.9,41.09,0.55
 20260504,40.4,40.4,39.7,39.9,1834000,42.79,-6.76,43.59,41.17,0.46
 20260505,40.3,40.9,40.15,40.9,1124000,42.63,-4.07,43.4,41.26,0.3
 20260506,40.9,41,39.9,40.2,1412000,42.43,-5.26,43.26,41.34,0.4
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,52.2,52.4,50.3,51.8,51000,46.41,11.61,45.24,43.96,0.01
 20260527,52.8,52.8,50.9,51.2,52000,46.81,9.38,45.7,44.15,0.02
 20260528,51.3,51.3,49.55,50,50000,47.08,6.21,46.11,44.3,0.01
+20260529,50.5,50.8,49.7,49.9,50000,47.31,5.47,46.61,44.46,0.02
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6509 | 聚和 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

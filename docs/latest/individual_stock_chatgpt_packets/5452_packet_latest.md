@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5452 佶優
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:46 Asia/Taipei
+- generated_at: 2026-05-29 19:33:08 Asia/Taipei
 - stock_id: 5452
 - stock_name: 佶優
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 32.85
-- high: 34
-- low: 32
-- close: 32.35
-- volume: 33000
-- ma5: 33.63
-- ema23_primary: 33.02
-- distance_to_ema23_pct: -2.02
-- ma20: 32.87
-- ma60: 33.38
-- ma120: 30.54
-- return_5d: -1.37
-- return_20d: -0.46
-- volume_ratio: 0.02
-- distance_to_ma20_pct_auxiliary: -1.59
-- distance_to_high_60_pct: -20.81
+- date: 20260529
+- open: 32.5
+- high: 35.5
+- low: 32.05
+- close: 34.95
+- volume: 34000
+- ma5: 33.7
+- ema23_primary: 33.18
+- distance_to_ema23_pct: 5.34
+- ma20: 33.05
+- ma60: 33.4
+- ma120: 30.66
+- return_5d: 1.01
+- return_20d: 11.13
+- volume_ratio: 0.03
+- distance_to_ma20_pct_auxiliary: 5.76
+- distance_to_high_60_pct: -14.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,32.5,32.55,31.25,31.45,1529000,33.1,-5,33.14,32.76,0.56
 20260504,32,33.3,31.55,32.15,1837000,33.03,-2.65,33.08,32.76,0.67
 20260505,32.75,33.5,32.3,33.5,1971000,33.06,1.32,33.18,32.73,0.73
 20260506,33.85,34.5,32.45,33.6,3143000,33.11,1.48,33.25,32.75,1.14
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,35,35.55,33.2,33.5,34000,33.1,1.21,32.82,33.4,0.02
 20260527,33.8,33.85,32.7,32.85,33000,33.08,-0.69,32.88,33.42,0.02
 20260528,32.85,34,32,32.35,33000,33.02,-2.02,32.87,33.38,0.02
+20260529,32.5,35.5,32.05,34.95,34000,33.18,5.34,33.05,33.4,0.03
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 5452 | 佶優 | pattern | 型態觀察 |  |  |  | 預備發動型 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 5452 | 佶優 | pattern | 型態觀察 |  |  |  | 預備發動型 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 5452 | 佶優 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260529 | 5452 | 佶優 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

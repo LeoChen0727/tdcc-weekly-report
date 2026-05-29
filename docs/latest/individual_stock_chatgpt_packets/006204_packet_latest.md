@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 006204 永豐臺灣加權
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:07 Asia/Taipei
+- generated_at: 2026-05-29 19:31:29 Asia/Taipei
 - stock_id: 006204
 - stock_name: 永豐臺灣加權
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260528
-- price_rows: 5
+- latest_price_date: 20260529
+- price_rows: 6
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 217.1
-- high: 217.1
-- low: 216.65
-- close: 216.65
-- volume: 3868
-- ma5: 217.25
-- ema23_primary: 213.7
-- distance_to_ema23_pct: 1.38
-- ma20: 217.25
-- ma60: 217.25
-- ma120: 217.25
-- return_5d: 
+- date: 20260529
+- open: 222.95
+- high: 224.45
+- low: 222.95
+- close: 224.45
+- volume: 63464
+- ma5: 219.81
+- ema23_primary: 214.6
+- distance_to_ema23_pct: 4.59
+- ma20: 218.45
+- ma60: 218.45
+- ma120: 218.45
+- return_5d: 6.05
 - return_20d: 
-- volume_ratio: 0.16
-- distance_to_ma20_pct_auxiliary: -0.28
-- distance_to_high_60_pct: -2.17
+- volume_ratio: 2.06
+- distance_to_ma20_pct_auxiliary: 2.75
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -82,6 +82,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,218.65,218.65,218.6,218.6,23336,,,,,
 20260527,221.4,221.45,220.35,221.35,25815,,,,,
 20260528,217.1,217.1,216.65,216.65,3868,213.7,1.38,217.25,217.25,0.16
+20260529,222.95,224.45,222.95,224.45,63464,214.6,4.59,218.45,218.45,2.06
 ```
 
 ## Latest TDCC Snapshot
@@ -110,9 +111,9 @@ no_rows,True
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6204 | 艾華 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

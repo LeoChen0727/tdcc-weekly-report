@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7777 能率亞洲
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:28 Asia/Taipei
+- generated_at: 2026-05-29 19:33:51 Asia/Taipei
 - stock_id: 7777
 - stock_name: 能率亞洲
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260528
-- price_rows: 101
+- latest_price_date: 20260529
+- price_rows: 102
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 35.85
-- high: 38.5
-- low: 35.45
-- close: 37.9
-- volume: 37000
-- ma5: 35.68
-- ema23_primary: 32.35
-- distance_to_ema23_pct: 17.15
-- ma20: 32.18
-- ma60: 28.7
-- ma120: 29.42
-- return_5d: 15.37
-- return_20d: 37.82
+- date: 20260529
+- open: 41.65
+- high: 41.65
+- low: 41.65
+- close: 41.65
+- volume: 42000
+- ma5: 37.12
+- ema23_primary: 33.13
+- distance_to_ema23_pct: 25.73
+- ma20: 32.88
+- ma60: 28.9
+- ma120: 29.54
+- return_5d: 20.9
+- return_20d: 51.18
 - volume_ratio: 0.01
-- distance_to_ma20_pct_auxiliary: 17.78
-- distance_to_high_60_pct: -1.56
+- distance_to_ma20_pct_auxiliary: 26.66
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,27.85,29.1,27.35,27.55,1217000,26.86,2.57,26.14,29.64,1.29
 20260504,27.7,29.3,27.1,27.35,2159000,26.9,1.67,26.23,29.57,2.09
 20260505,28.5,30.05,28,30.05,3980000,27.16,10.63,26.49,29.54,3.29
 20260506,31.2,31.3,28.7,29.05,3989000,27.32,6.33,26.7,29.43,2.85
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,35.5,36,33.9,36,35000,31.55,14.11,31.3,28.57,0.01
 20260527,36,36.25,34.9,35.15,36000,31.85,10.37,31.66,28.6,0.01
 20260528,35.85,38.5,35.45,37.9,37000,32.35,17.15,32.18,28.7,0.01
+20260529,41.65,41.65,41.65,41.65,42000,33.13,25.73,32.88,28.9,0.01
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 7777 | 能率亞洲 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 7777 | 能率亞洲 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 7777 | 能率亞洲 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260529 | 7777 | 能率亞洲 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

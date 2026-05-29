@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5536 聖暉*
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:49 Asia/Taipei
+- generated_at: 2026-05-29 19:33:11 Asia/Taipei
 - stock_id: 5536
 - stock_name: 聖暉*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 1110
-- high: 1110
-- low: 1030
-- close: 1035
-- volume: 1060000
-- ma5: 1011.2
-- ema23_primary: 940.27
-- distance_to_ema23_pct: 10.07
-- ma20: 936.65
-- ma60: 815.2
-- ma120: 769.59
-- return_5d: 11.41
-- return_20d: 20.21
-- volume_ratio: 0.61
-- distance_to_ma20_pct_auxiliary: 10.5
-- distance_to_high_60_pct: -8.41
+- date: 20260529
+- open: 1050
+- high: 1060
+- low: 993
+- close: 993
+- volume: 1016000
+- ma5: 1024.4
+- ema23_primary: 944.67
+- distance_to_ema23_pct: 5.12
+- ma20: 945.05
+- ma60: 820.28
+- ma120: 772.33
+- return_5d: 7.12
+- return_20d: 20.36
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: 5.07
+- distance_to_high_60_pct: -12.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,862,863,825,825,1408000,822.5,0.3,813.2,724.78,0.6
 20260504,836,863,831,854,1276000,825.13,3.5,820,727.62,0.54
 20260505,856,863,828,860,1185000,828.03,3.86,828.05,730.95,0.5
 20260506,870,885,841,877,1668000,832.12,5.39,837.5,734.65,0.7
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,967,1040,966,1035,1018000,915.45,13.06,916.5,803.17,0.58
 20260527,1050,1130,1005,1110,1089000,931.66,19.14,927.95,809.62,0.63
 20260528,1110,1110,1030,1035,1060000,940.27,10.07,936.65,815.2,0.61
+20260529,1050,1060,993,993,1016000,944.67,5.12,945.05,820.28,0.6
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 5536 | 聖暉* | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3071 協禧
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:02 Asia/Taipei
+- generated_at: 2026-05-29 19:32:24 Asia/Taipei
 - stock_id: 3071
 - stock_name: 協禧
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 33.1
-- high: 33.8
-- low: 31.25
-- close: 31.65
-- volume: 33000
-- ma5: 32.09
-- ema23_primary: 30.61
-- distance_to_ema23_pct: 3.4
-- ma20: 30.5
-- ma60: 28.83
-- ma120: 26
-- return_5d: 6.57
-- return_20d: 4.28
+- date: 20260529
+- open: 32.5
+- high: 32.5
+- low: 31.55
+- close: 32.2
+- volume: 32000
+- ma5: 32.41
+- ema23_primary: 30.74
+- distance_to_ema23_pct: 4.74
+- ma20: 30.59
+- ma60: 28.96
+- ma120: 26.1
+- return_5d: 5.23
+- return_20d: 6.1
 - volume_ratio: 0.07
-- distance_to_ma20_pct_auxiliary: 3.78
-- distance_to_high_60_pct: -10.85
+- distance_to_ma20_pct_auxiliary: 5.26
+- distance_to_high_60_pct: -9.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,30.5,31,29.95,30.35,534000,29.71,2.16,29.8,26.74,0.33
 20260504,30.8,30.9,30.1,30.2,606000,29.75,1.52,29.91,26.83,0.38
 20260505,30.35,31.3,30.05,31.25,914000,29.87,4.61,30.12,26.93,0.56
 20260506,31.2,31.2,29.6,30.35,1094000,29.91,1.46,30.29,27.02,0.66
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,32.2,33.55,31.35,33.55,33000,30.28,10.79,30.28,28.58,0.06
 20260527,33.55,34.25,32.4,33.1,33000,30.52,8.47,30.43,28.72,0.07
 20260528,33.1,33.8,31.25,31.65,33000,30.61,3.4,30.5,28.83,0.07
+20260529,32.5,32.5,31.55,32.2,32000,30.74,4.74,30.59,28.96,0.07
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3071 | 協禧 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

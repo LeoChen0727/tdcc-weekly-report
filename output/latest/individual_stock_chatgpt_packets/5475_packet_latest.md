@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5475 德宏
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:47 Asia/Taipei
+- generated_at: 2026-05-29 19:33:09 Asia/Taipei
 - stock_id: 5475
 - stock_name: 德宏
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 285
-- high: 286
-- low: 262.5
-- close: 266.5
-- volume: 276000
-- ma5: 288.5
-- ema23_primary: 304.08
-- distance_to_ema23_pct: -12.36
-- ma20: 316.43
-- ma60: 277.96
-- ma120: 190.5
-- return_5d: -7.14
-- return_20d: -25.14
-- volume_ratio: 0.15
-- distance_to_ma20_pct_auxiliary: -15.78
-- distance_to_high_60_pct: -34.12
+- date: 20260529
+- open: 265
+- high: 270
+- low: 246
+- close: 270
+- volume: 254000
+- ma5: 283.1
+- ema23_primary: 301.24
+- distance_to_ema23_pct: -10.37
+- ma20: 312.02
+- ma60: 279.26
+- ma120: 192.27
+- return_5d: -9.09
+- return_20d: -24.58
+- volume_ratio: 0.14
+- distance_to_ma20_pct_auxiliary: -13.47
+- distance_to_high_60_pct: -33.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,370,370,351,358,1040000,312.97,14.39,322.85,224.15,0.25
 20260504,370,370,350.5,356,1185000,316.56,12.46,329.43,228.37,0.3
 20260505,351,388,345.5,388,1576000,322.51,20.31,336.5,233.12,0.44
 20260506,388,390.5,360,378.5,1428000,327.18,15.69,341.88,237.62,0.45
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,288,306,280,305,297000,309.4,-1.42,323.52,275.82,0.15
 20260527,311,311.5,284.5,286.5,291000,307.49,-6.83,320.9,277.05,0.15
 20260528,285,286,262.5,266.5,276000,304.08,-12.36,316.43,277.96,0.15
+20260529,265,270,246,270,254000,301.24,-10.37,312.02,279.26,0.14
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 5475 | 德宏 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

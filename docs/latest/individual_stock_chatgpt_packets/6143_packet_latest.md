@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6143 振曜
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:54 Asia/Taipei
+- generated_at: 2026-05-29 19:33:16 Asia/Taipei
 - stock_id: 6143
 - stock_name: 振曜
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 101
-- high: 104
-- low: 99.7
-- close: 101.5
-- volume: 102000
-- ma5: 99.7
-- ema23_primary: 96.48
-- distance_to_ema23_pct: 5.21
-- ma20: 95.73
-- ma60: 96.33
-- ma120: 106.29
-- return_5d: 5.62
-- return_20d: 16.53
-- volume_ratio: 0.08
-- distance_to_ma20_pct_auxiliary: 6.02
-- distance_to_high_60_pct: -8.56
+- date: 20260529
+- open: 103
+- high: 103
+- low: 99.8
+- close: 99.8
+- volume: 101000
+- ma5: 100.04
+- ema23_primary: 96.75
+- distance_to_ema23_pct: 3.15
+- ma20: 96.37
+- ma60: 96.22
+- ma120: 106.04
+- return_5d: 1.73
+- return_20d: 14.58
+- volume_ratio: 0.09
+- distance_to_ma20_pct_auxiliary: 3.56
+- distance_to_high_60_pct: -7.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,87.1,88.4,86.6,87.1,441000,92.79,-6.13,92.61,99.39,0.46
 20260504,87.3,89.6,87.3,89,492000,92.47,-3.76,92.26,99.03,0.52
 20260505,89.8,91.2,89.1,91.2,671000,92.37,-1.26,92.06,98.7,0.71
 20260506,91.4,91.4,89.2,90.6,618000,92.22,-1.76,91.81,98.38,0.65
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,100,101,97.8,99.6,99000,95.66,4.12,94.41,96.53,0.08
 20260527,99.7,101,98.3,100,100000,96.02,4.14,95.02,96.42,0.08
 20260528,101,104,99.7,101.5,102000,96.48,5.21,95.73,96.33,0.08
+20260529,103,103,99.8,99.8,101000,96.75,3.15,96.37,96.22,0.09
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6143 | 振曜 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

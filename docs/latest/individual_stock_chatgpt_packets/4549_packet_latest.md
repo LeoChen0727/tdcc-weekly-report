@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4549 桓達
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:30 Asia/Taipei
+- generated_at: 2026-05-29 19:32:52 Asia/Taipei
 - stock_id: 4549
 - stock_name: 桓達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 106.5
-- high: 113.5
-- low: 106.5
-- close: 113.5
-- volume: 112000
-- ma5: 106.8
-- ema23_primary: 102.18
-- distance_to_ema23_pct: 11.08
-- ma20: 102.11
-- ma60: 97.97
-- ma120: 102.54
-- return_5d: 11.27
-- return_20d: 15.58
-- volume_ratio: 0.48
-- distance_to_ma20_pct_auxiliary: 11.15
-- distance_to_high_60_pct: -0.44
+- date: 20260529
+- open: 124.5
+- high: 124.5
+- low: 121
+- close: 124.5
+- volume: 124000
+- ma5: 110.8
+- ema23_primary: 104.04
+- distance_to_ema23_pct: 19.67
+- ma20: 103.36
+- ma60: 98.35
+- ma120: 102.62
+- return_5d: 19.14
+- return_20d: 25.13
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: 20.45
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,98.2,100.5,98.2,99.5,114000,98.59,0.92,99.38,98.39,0.41
 20260504,102,103,100,100,206000,98.71,1.31,99.97,98.33,0.74
 20260505,100,104,100,103.5,245000,99.11,4.43,100.3,98.31,1
 20260506,104,109,101.5,108.5,443000,99.89,8.62,100.39,98.38,1.8
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,106.5,109,104,107,107000,100.93,6.01,101.09,97.84,0.47
 20260527,108,108,103.5,103.5,105000,101.15,2.33,101.34,97.82,0.46
 20260528,106.5,113.5,106.5,113.5,112000,102.18,11.08,102.11,97.97,0.48
+20260529,124.5,124.5,121,124.5,124000,104.04,19.67,103.36,98.35,0.54
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4549 | 桓達 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6257 矽格
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:01 Asia/Taipei
+- generated_at: 2026-05-29 19:33:23 Asia/Taipei
 - stock_id: 6257
 - stock_name: 矽格
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 233.5
-- high: 240.5
-- low: 228
-- close: 229
-- volume: 12607598
-- ma5: 230.6
-- ema23_primary: 210.24
-- distance_to_ema23_pct: 8.92
-- ma20: 213.12
-- ma60: 173.36
-- ma120: 144.71
-- return_5d: 5.77
-- return_20d: 29.01
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: 7.45
-- distance_to_high_60_pct: -5.37
+- date: 20260529
+- open: 234
+- high: 236.5
+- low: 224.5
+- close: 227.5
+- volume: 13335409
+- ma5: 231.7
+- ema23_primary: 211.68
+- distance_to_ema23_pct: 7.47
+- ma20: 215.5
+- ma60: 174.88
+- ma120: 145.81
+- return_5d: 2.48
+- return_20d: 26.39
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: 5.57
+- distance_to_high_60_pct: -5.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,178,183,177,180,8903022,170.95,5.3,175.62,146.78,0.5
 20260504,183.5,193.5,183,190.5,17801362,172.58,10.39,177.35,147.73,1.02
 20260505,194,200,191,197,24183715,174.61,12.82,179.65,148.75,1.36
 20260506,202.5,204.5,191,203.5,24188552,177.02,14.96,182.07,149.91,1.35
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,236,239.5,227,237,14407436,206.27,14.9,207.9,170.44,0.97
 20260527,242,242,230.5,233.5,12315942,208.54,11.97,210.55,171.82,0.82
 20260528,233.5,240.5,228,229,12607598,210.24,8.92,213.12,173.36,0.82
+20260529,234,236.5,224.5,227.5,13335409,211.68,7.47,215.5,174.88,0.86
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6257 | 矽格 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 6257 | 矽格 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260529 | 6257 | 矽格 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6257 | 矽格 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| 20260529 | 6257 | 矽格 | 2 | 2 | 3 | 3 | 3 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6257 | 矽格 | 117 | 8 | 20031670.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 6257 | 矽格 | 115 | 8 | 13095140.0 | 57820.0 | 226.48 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00733 富邦臺灣中小
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:08 Asia/Taipei
+- generated_at: 2026-05-29 19:31:30 Asia/Taipei
 - stock_id: 00733
 - stock_name: 富邦臺灣中小
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260528
-- price_rows: 5
+- latest_price_date: 20260529
+- price_rows: 6
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 77.35
-- high: 77.75
-- low: 73.4
-- close: 74.2
-- volume: 1455291
-- ma5: 75.21
-- ema23_primary: 73.39
-- distance_to_ema23_pct: 1.11
-- ma20: 75.21
-- ma60: 75.21
-- ma120: 75.21
-- return_5d: 
+- date: 20260529
+- open: 75.95
+- high: 75.95
+- low: 75
+- close: 75.6
+- volume: 532023
+- ma5: 75.86
+- ema23_primary: 73.57
+- distance_to_ema23_pct: 2.75
+- ma20: 75.28
+- ma60: 75.28
+- ma120: 75.28
+- return_5d: 4.49
 - return_20d: 
-- volume_ratio: 1.29
-- distance_to_ma20_pct_auxiliary: -1.34
-- distance_to_high_60_pct: -6.84
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: 0.43
+- distance_to_high_60_pct: -5.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -82,6 +82,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,75.75,76.55,74.65,76.55,991208,,,,,
 20260527,78.55,79.65,76.6,77.35,824181,,,,,
 20260528,77.35,77.75,73.4,74.2,1455291,73.39,1.11,75.21,75.21,1.29
+20260529,75.95,75.95,75,75.6,532023,73.57,2.75,75.28,75.28,0.52
 ```
 
 ## Latest TDCC Snapshot

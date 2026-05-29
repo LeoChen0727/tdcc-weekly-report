@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4916 事欣科
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:36 Asia/Taipei
+- generated_at: 2026-05-29 19:32:58 Asia/Taipei
 - stock_id: 4916
 - stock_name: 事欣科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 102
-- high: 104.5
-- low: 99.8
-- close: 102.5
-- volume: 5999683
-- ma5: 100.44
-- ema23_primary: 81.39
-- distance_to_ema23_pct: 25.93
-- ma20: 78.03
-- ma60: 66.45
-- ma120: 62.42
-- return_5d: 3.74
-- return_20d: 64
-- volume_ratio: 0.46
-- distance_to_ma20_pct_auxiliary: 31.35
-- distance_to_high_60_pct: -2.38
+- date: 20260529
+- open: 108
+- high: 112.5
+- low: 104
+- close: 112.5
+- volume: 6667076
+- ma5: 103.28
+- ema23_primary: 83.98
+- distance_to_ema23_pct: 33.95
+- ma20: 80.58
+- ma60: 67.33
+- ma120: 62.98
+- return_5d: 14.45
+- return_20d: 82.63
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: 39.61
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,62.5,62.9,61.6,61.6,2561314,62.37,-1.23,61.54,61.8,0.35
 20260504,62,64.5,61.9,63.3,3795247,62.45,1.37,61.84,61.78,0.52
 20260505,63.3,65.1,62.4,65.1,3908514,62.67,3.88,62.36,61.71,0.53
 20260506,66,66,62.6,63.3,4187329,62.72,0.93,62.81,61.61,0.56
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,100,101,95,100.5,5515128,77.66,29.41,74.17,65.21,0.43
 20260527,102.5,102.5,98,99.4,3292175,79.47,25.07,76.03,65.8,0.26
 20260528,102,104.5,99.8,102.5,5999683,81.39,25.93,78.03,66.45,0.46
+20260529,108,112.5,104,112.5,6667076,83.98,33.95,80.58,67.33,0.51
 ```
 
 ## Latest TDCC Snapshot
@@ -125,19 +125,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 4916 | 事欣科 | true_breakout | 嚴格突破 | 71.0 |  |  |  |  | call_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 4916 | 事欣科 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4916 | 事欣科 | 36 | 1 | 3273420.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 4916 | 事欣科 | 34 | 1 | 4988020.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6552 易華電
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:09 Asia/Taipei
+- generated_at: 2026-05-29 19:33:31 Asia/Taipei
 - stock_id: 6552
 - stock_name: 易華電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 36.2
-- high: 37.45
-- low: 34
-- close: 34.1
-- volume: 1144021
-- ma5: 34.76
-- ema23_primary: 31.22
-- distance_to_ema23_pct: 9.22
-- ma20: 31.14
-- ma60: 28.73
-- ma120: 27.84
-- return_5d: 18.82
-- return_20d: 3.81
-- volume_ratio: 1.5
-- distance_to_ma20_pct_auxiliary: 9.52
-- distance_to_high_60_pct: -10.26
+- date: 20260529
+- open: 34.85
+- high: 35.3
+- low: 33.7
+- close: 34.75
+- volume: 707118
+- ma5: 35.4
+- ema23_primary: 31.52
+- distance_to_ema23_pct: 10.26
+- ma20: 31.26
+- ma60: 28.83
+- ma120: 27.93
+- return_5d: 10.14
+- return_20d: 7.92
+- volume_ratio: 1.05
+- distance_to_ma20_pct_auxiliary: 11.16
+- distance_to_high_60_pct: -8.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,33.1,35.6,31.7,32.2,2515450,29.03,10.92,28.32,28.5,5.36
 20260504,31.8,33.85,30.8,32.65,947720,29.33,11.31,28.66,28.6,1.85
 20260505,32.65,32.7,32.05,32.2,257274,29.57,8.89,28.98,28.69,0.49
 20260506,32.4,32.6,31,31.1,371029,29.7,4.72,29.26,28.75,0.69
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,34.8,37.7,33.8,36.9,2647471,30.45,21.17,30.74,28.55,3.95
 20260527,36.9,38,36.1,36.55,1527547,30.96,18.05,31.07,28.66,2.07
 20260528,36.2,37.45,34,34.1,1144021,31.22,9.22,31.14,28.73,1.5
+20260529,34.85,35.3,33.7,34.75,707118,31.52,10.26,31.26,28.83,1.05
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6552 | 易華電 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6552 | 易華電 | 4 | 1 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

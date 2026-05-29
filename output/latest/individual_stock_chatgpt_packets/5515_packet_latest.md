@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5515 建國
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:48 Asia/Taipei
+- generated_at: 2026-05-29 19:33:10 Asia/Taipei
 - stock_id: 5515
 - stock_name: 建國
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 41.2
-- high: 41.2
-- low: 40.15
-- close: 40.6
-- volume: 419643
-- ma5: 40.47
-- ema23_primary: 39.97
-- distance_to_ema23_pct: 1.57
+- date: 20260529
+- open: 40.7
+- high: 41.6
+- low: 40.4
+- close: 40.75
+- volume: 627932
+- ma5: 40.58
+- ema23_primary: 40.04
+- distance_to_ema23_pct: 1.78
 - ma20: 39.89
-- ma60: 38.44
-- ma120: 36.19
-- return_5d: 1.25
-- return_20d: 0.62
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: 1.78
-- distance_to_high_60_pct: -8.35
+- ma60: 38.58
+- ma120: 36.26
+- return_5d: 1.37
+- return_20d: 0.12
+- volume_ratio: 0.79
+- distance_to_ma20_pct_auxiliary: 2.15
+- distance_to_high_60_pct: -8.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,40.35,40.9,40.15,40.7,231278,39.69,2.54,40.19,36.19,0.26
 20260504,40.75,40.75,39.5,39.6,1015393,39.69,-0.22,40.35,36.28,1.1
 20260505,39.65,40.05,39.5,39.5,477512,39.67,-0.43,40.52,36.38,0.52
 20260506,39.85,40.1,39.3,39.8,343947,39.68,0.3,40.64,36.5,0.38
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,40.45,40.9,40.2,40.25,295251,39.85,1,39.89,38.19,0.38
 20260527,40.6,41.05,40.3,40.6,509873,39.91,1.72,39.88,38.31,0.65
 20260528,41.2,41.2,40.15,40.6,419643,39.97,1.57,39.89,38.44,0.54
+20260529,40.7,41.6,40.4,40.75,627932,40.04,1.78,39.89,38.58,0.79
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 5515 | 建國 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 5515 | 建國 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 5515 | 建國 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260529 | 5515 | 建國 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 5515 | 建國 | 3 | 0 | 718600.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 5515 | 建國 | 3 | 0 | 1516970.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

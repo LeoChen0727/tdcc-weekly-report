@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0050 元大台灣50
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:06 Asia/Taipei
+- generated_at: 2026-05-29 19:31:28 Asia/Taipei
 - stock_id: 0050
 - stock_name: 元大台灣50
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 104
-- high: 104.25
-- low: 100.1
-- close: 100.5
-- volume: 152915695
-- ma5: 100.25
-- ema23_primary: 95.01
-- distance_to_ema23_pct: 5.78
-- ma20: 96.42
-- ma60: 85.17
-- ma120: 76.94
-- return_5d: 4.85
-- return_20d: 10.74
-- volume_ratio: 1.45
-- distance_to_ma20_pct_auxiliary: 4.23
-- distance_to_high_60_pct: -3.6
+- date: 20260529
+- open: 103.2
+- high: 105.4
+- low: 102.7
+- close: 105.4
+- volume: 102355526
+- ma5: 101.87
+- ema23_primary: 95.88
+- distance_to_ema23_pct: 9.93
+- ma20: 97.17
+- ma60: 85.61
+- ma120: 77.32
+- return_5d: 8.32
+- return_20d: 16.46
+- volume_ratio: 0.96
+- distance_to_ma20_pct_auxiliary: 8.47
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,91.25,91.9,90.3,90.5,89209769,84.53,7.06,84.01,78.29,0.76
 20260504,92.5,94.65,92.4,94.6,125270935,85.37,10.81,84.97,78.67,1.07
 20260505,94.4,94.75,94,94.6,82851869,86.14,9.82,86,79.04,0.72
 20260506,96.05,96.9,94.7,95.75,111759164,86.94,10.13,87.03,79.42,0.95
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,101.6,101.8,100.1,100.1,93560313,93.78,6.74,95.41,84.48,0.89
 20260527,102.4,103.9,102,102.55,94959812,94.51,8.5,95.94,84.83,0.92
 20260528,104,104.25,100.1,100.5,152915695,95.01,5.78,96.42,85.17,1.45
+20260529,103.2,105.4,102.7,105.4,102355526,95.88,9.93,97.17,85.61,0.96
 ```
 
 ## Latest TDCC Snapshot
@@ -122,17 +122,17 @@ no_rows,True
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 0050 | 元大台灣50 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | mixed_flow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 0050 | 元大台灣50 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | call_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 0050 | 元大台灣50 | 3 | 1 | 3 | 3 | 3 | continued_2_3d | 連續 3 個交易日上榜，訊號延續但仍需確認。 |
+| 20260529 | 0050 | 元大台灣50 | 4 | 1 | 4 | 4 | 4 | continued_many_days | 連續 4 個交易日上榜，需判斷是持續醞釀或訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 0050 | 元大台灣50 | 234 | 198 | 108729650.0 | 11947730.0 | 9.1 | mixed_flow | 0 |  |
+| 20260529 | 0050 | 元大台灣50 | 232 | 195 | 102926860.0 | 9137670.0 | 11.26 | call_inflow | 1 | 認購權證成交金額很大且認購/認售比偏高，需檢查標的是否高位追價或獲利結清 |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

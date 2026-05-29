@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1294 漢田生技
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:13 Asia/Taipei
+- generated_at: 2026-05-29 19:31:35 Asia/Taipei
 - stock_id: 1294
 - stock_name: 漢田生技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 135
+- latest_price_date: 20260529
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 76.7
-- high: 78
-- low: 76.6
-- close: 77.3
-- volume: 77000
-- ma5: 77.22
-- ema23_primary: 78.35
-- distance_to_ema23_pct: -1.34
-- ma20: 78.14
-- ma60: 81.15
-- ma120: 79.43
-- return_5d: -0.51
-- return_20d: -2.64
-- volume_ratio: 2.01
-- distance_to_ma20_pct_auxiliary: -1.07
-- distance_to_high_60_pct: -18.89
+- date: 20260529
+- open: 77.3
+- high: 77.9
+- low: 77.2
+- close: 77.9
+- volume: 78000
+- ma5: 77.24
+- ema23_primary: 78.32
+- distance_to_ema23_pct: -0.53
+- ma20: 78.06
+- ma60: 81.14
+- ma120: 79.45
+- return_5d: 0.13
+- return_20d: -2.14
+- volume_ratio: 1.92
+- distance_to_ma20_pct_auxiliary: -0.2
+- distance_to_high_60_pct: -18.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,80,80.1,79.6,79.6,33000,80.95,-1.67,80.92,81.25,1.14
 20260504,79.6,80.5,79.6,79.7,21000,80.84,-1.42,80.85,81.3,0.74
 20260505,79.6,79.6,79.5,79.5,15000,80.73,-1.53,80.75,81.33,0.55
 20260506,79.2,79.2,79,79,16000,80.59,-1.97,80.65,81.36,0.6
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,77,77,76,77,77000,78.58,-2.01,78.37,81.2,2.37
 20260527,76.7,77,76.7,77,77000,78.45,-1.85,78.25,81.17,2.19
 20260528,76.7,78,76.6,77.3,77000,78.35,-1.34,78.14,81.15,2.01
+20260529,77.3,77.9,77.2,77.9,78000,78.32,-0.53,78.06,81.14,1.92
 ```
 
 ## Latest TDCC Snapshot

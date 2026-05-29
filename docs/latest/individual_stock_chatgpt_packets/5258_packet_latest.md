@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5258 虹堡
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:42 Asia/Taipei
+- generated_at: 2026-05-29 19:33:04 Asia/Taipei
 - stock_id: 5258
 - stock_name: 虹堡
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 52.3
-- high: 53.4
-- low: 50.3
-- close: 51
-- volume: 1357276
-- ma5: 55.18
-- ema23_primary: 53.73
-- distance_to_ema23_pct: -5.09
-- ma20: 53.87
+- date: 20260529
+- open: 51.7
+- high: 51.8
+- low: 49.95
+- close: 50
+- volume: 1960853
+- ma5: 53.66
+- ema23_primary: 53.42
+- distance_to_ema23_pct: -6.41
+- ma20: 53.98
 - ma60: 49.72
-- ma120: 56.99
-- return_5d: -10.84
-- return_20d: 7.14
-- volume_ratio: 0.61
-- distance_to_ma20_pct_auxiliary: -5.32
-- distance_to_high_60_pct: -19.05
+- ma120: 56.88
+- return_5d: -13.19
+- return_20d: 4.93
+- volume_ratio: 0.85
+- distance_to_ma20_pct_auxiliary: -7.38
+- distance_to_high_60_pct: -20.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,48.5,48.9,47.45,47.65,359697,48.56,-1.87,48.41,50.25,0.71
 20260504,47.65,48.05,46.9,47.5,611889,48.47,-2,48.39,50.02,1.18
 20260505,47.8,48.75,47.35,48.75,500108,48.49,0.53,48.48,49.81,0.94
 20260506,49.9,49.9,48.05,48.45,565150,48.49,-0.08,48.65,49.61,1.07
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,59,59,56.2,57,1423020,54.16,5.24,53.48,49.74,0.72
 20260527,57.3,57.8,51.6,52,3663026,53.98,-3.67,53.7,49.73,1.7
 20260528,52.3,53.4,50.3,51,1357276,53.73,-5.09,53.87,49.72,0.61
+20260529,51.7,51.8,49.95,50,1960853,53.42,-6.41,53.98,49.72,0.85
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 5258 | 虹堡 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 5258 | 虹堡 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 5258 | 虹堡 | 1 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 5258 | 虹堡 | 1 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

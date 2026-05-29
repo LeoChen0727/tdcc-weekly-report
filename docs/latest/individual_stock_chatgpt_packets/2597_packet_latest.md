@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2597 潤弘
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:48 Asia/Taipei
+- generated_at: 2026-05-29 19:32:11 Asia/Taipei
 - stock_id: 2597
 - stock_name: 潤弘
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 158
-- high: 159.5
-- low: 155
-- close: 157
-- volume: 509683
-- ma5: 159.3
-- ema23_primary: 158.71
-- distance_to_ema23_pct: -1.08
-- ma20: 158.95
-- ma60: 157.8
-- ma120: 164.01
-- return_5d: -3.38
-- return_20d: 1.62
-- volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: -1.23
-- distance_to_high_60_pct: -9.77
+- date: 20260529
+- open: 158.5
+- high: 166
+- low: 157
+- close: 166
+- volume: 1330536
+- ma5: 159.8
+- ema23_primary: 159.32
+- distance_to_ema23_pct: 4.19
+- ma20: 159.4
+- ma60: 157.72
+- ma120: 164
+- return_5d: 1.53
+- return_20d: 5.73
+- volume_ratio: 1.77
+- distance_to_ma20_pct_auxiliary: 4.14
+- distance_to_high_60_pct: -4.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,156.5,157,152,157,809202,155.24,1.14,154.1,161.47,1.11
 20260504,154.5,154.5,152,153.5,797789,155.09,-1.03,154.18,161.13,1.08
 20260505,153.5,154.5,152,152.5,521081,154.87,-1.53,154.18,160.82,0.69
 20260506,153,157,152.5,155.5,1265895,154.93,0.37,154.4,160.55,1.58
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,161,161,156.5,157.5,836017,158.99,-0.94,158.57,158.35,1.02
 20260527,157.5,160,156.5,157.5,614710,158.87,-0.86,158.82,158.07,0.76
 20260528,158,159.5,155,157,509683,158.71,-1.08,158.95,157.8,0.7
+20260529,158.5,166,157,166,1330536,159.32,4.19,159.4,157.72,1.77
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 2597 | 潤弘 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 2597 | 潤弘 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | status |

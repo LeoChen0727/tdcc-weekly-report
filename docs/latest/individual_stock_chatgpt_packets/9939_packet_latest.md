@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9939 宏全
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:45 Asia/Taipei
+- generated_at: 2026-05-29 19:34:08 Asia/Taipei
 - stock_id: 9939
 - stock_name: 宏全
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 124
+- date: 20260529
+- open: 123
 - high: 124
-- low: 121.5
-- close: 123
-- volume: 1144565
-- ma5: 123.9
-- ema23_primary: 120.59
-- distance_to_ema23_pct: 2
-- ma20: 119.67
+- low: 122
+- close: 123.5
+- volume: 1240640
+- ma5: 123.2
+- ema23_primary: 120.83
+- distance_to_ema23_pct: 2.21
+- ma20: 120.28
 - ma60: 118.12
-- ma120: 119.35
-- return_5d: -2.38
-- return_20d: 9.33
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: 2.78
-- distance_to_high_60_pct: -4.28
+- ma120: 119.34
+- return_5d: -2.76
+- return_20d: 10.76
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: 2.68
+- distance_to_high_60_pct: -3.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,112.5,113,111.5,111.5,1142368,114.93,-2.99,114.33,118.35,0.75
 20260504,112,113.5,111.5,112.5,767459,114.73,-1.94,114.1,118.22,0.5
 20260505,113,113,111,111.5,1284169,114.46,-2.59,113.88,118.03,0.81
 20260506,112.5,112.5,111,111,891846,114.17,-2.78,113.6,117.87,0.55
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,124.5,125,122.5,122.5,840719,120.17,1.94,118.67,118.12,0.49
 20260527,122.5,124,122,122.5,845565,120.37,1.77,119.15,118.13,0.49
 20260528,124,124,121.5,123,1144565,120.59,2,119.67,118.12,0.65
+20260529,123,124,122,123.5,1240640,120.83,2.21,120.28,118.12,0.71
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 9939 | 宏全 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 9939 | 宏全 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 9939 | 宏全 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260521 | 9939 | 宏全 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 9939 | 宏全 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260529 | 9939 | 宏全 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 9939 | 宏全 | 7 | 0 | 445980.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 9939 | 宏全 | 6 | 0 | 168350.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

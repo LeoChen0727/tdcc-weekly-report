@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6237 驊訊
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:01 Asia/Taipei
+- generated_at: 2026-05-29 19:33:23 Asia/Taipei
 - stock_id: 6237
 - stock_name: 驊訊
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 51.1
-- high: 53
-- low: 50.4
-- close: 52
-- volume: 52000
-- ma5: 53.22
-- ema23_primary: 46.92
-- distance_to_ema23_pct: 10.82
-- ma20: 46.46
-- ma60: 40.5
-- ma120: 40.52
-- return_5d: -2.62
-- return_20d: 34.54
+- date: 20260529
+- open: 52.1
+- high: 52.6
+- low: 50.3
+- close: 50.3
+- volume: 51000
+- ma5: 52.32
+- ema23_primary: 47.21
+- distance_to_ema23_pct: 6.55
+- ma20: 46.99
+- ma60: 40.69
+- ma120: 40.62
+- return_5d: -8.21
+- return_20d: 27.02
 - volume_ratio: 0.03
-- distance_to_ma20_pct_auxiliary: 11.92
-- distance_to_high_60_pct: -11.11
+- distance_to_ma20_pct_auxiliary: 7.03
+- distance_to_high_60_pct: -14.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,38.8,40.8,38.8,39.6,357000,38.33,3.32,37.86,38.22,1.12
 20260504,40.95,40.95,39.5,39.75,347000,38.45,3.39,38.07,38.21,1.05
 20260505,39.7,40.7,39.55,40,330000,38.58,3.69,38.32,38.16,0.97
 20260506,40.9,40.9,38.85,39.1,385000,38.62,1.24,38.53,38.12,1.09
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,54.5,55,52.2,53.6,53000,46.04,16.42,45.2,40.11,0.03
 20260527,53.8,54.4,50.8,51.1,52000,46.46,9.98,45.79,40.3,0.03
 20260528,51.1,53,50.4,52,52000,46.92,10.82,46.46,40.5,0.03
+20260529,52.1,52.6,50.3,50.3,51000,47.21,6.55,46.99,40.69,0.03
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6237 | 驊訊 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

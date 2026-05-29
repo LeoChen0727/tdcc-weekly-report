@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1789 神隆
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:27 Asia/Taipei
+- generated_at: 2026-05-29 19:31:50 Asia/Taipei
 - stock_id: 1789
 - stock_name: 神隆
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 19
-- high: 19.3
-- low: 18.95
-- close: 19.2
-- volume: 1045049
-- ma5: 19.13
-- ema23_primary: 19.61
-- distance_to_ema23_pct: -2.1
-- ma20: 19.45
-- ma60: 20.62
-- ma120: 20.74
-- return_5d: -0.78
-- return_20d: -7.25
-- volume_ratio: 1.28
-- distance_to_ma20_pct_auxiliary: -1.31
-- distance_to_high_60_pct: -16.16
+- date: 20260529
+- open: 19.35
+- high: 19.8
+- low: 19.25
+- close: 19.75
+- volume: 1127191
+- ma5: 19.21
+- ema23_primary: 19.62
+- distance_to_ema23_pct: 0.65
+- ma20: 19.43
+- ma60: 20.6
+- ma120: 20.76
+- return_5d: 2.07
+- return_20d: -2.71
+- volume_ratio: 1.34
+- distance_to_ma20_pct_auxiliary: 1.66
+- distance_to_high_60_pct: -13.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,20.6,20.75,20.25,20.3,614239,21.05,-3.57,21.2,21.95,0.54
 20260504,20.2,20.3,20,20.15,926440,20.98,-3.94,21.13,21.86,0.82
 20260505,20.2,20.7,20.2,20.45,517615,20.93,-2.31,21.02,21.75,0.52
 20260506,20.55,20.55,20.35,20.35,738753,20.88,-2.56,20.94,21.63,0.81
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,19.15,19.15,18.9,19.05,587843,19.71,-3.34,19.61,20.7,0.75
 20260527,19.05,19.15,18.85,19,563038,19.65,-3.3,19.53,20.66,0.72
 20260528,19,19.3,18.95,19.2,1045049,19.61,-2.1,19.45,20.62,1.28
+20260529,19.35,19.8,19.25,19.75,1127191,19.62,0.65,19.43,20.6,1.34
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 1789 | 神隆 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 60.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 1789 | 神隆 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | status |

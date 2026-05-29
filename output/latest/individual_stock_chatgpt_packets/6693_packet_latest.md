@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6693 廣閎科
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:14 Asia/Taipei
+- generated_at: 2026-05-29 19:33:37 Asia/Taipei
 - stock_id: 6693
 - stock_name: 廣閎科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 152.5
-- high: 157.5
-- low: 148.5
-- close: 150
-- volume: 154000
-- ma5: 150.5
-- ema23_primary: 145.11
-- distance_to_ema23_pct: 3.37
-- ma20: 147.45
-- ma60: 127
-- ma120: 105.1
-- return_5d: 5.63
-- return_20d: 6.01
+- date: 20260529
+- open: 153.5
+- high: 153.5
+- low: 147
+- close: 148.5
+- volume: 150000
+- ma5: 151
+- ema23_primary: 145.39
+- distance_to_ema23_pct: 2.14
+- ma20: 147.9
+- ma60: 128.02
+- ma120: 105.72
+- return_5d: 1.71
+- return_20d: 6.45
 - volume_ratio: 0.16
-- distance_to_ma20_pct_auxiliary: 1.73
-- distance_to_high_60_pct: -10.71
+- distance_to_ma20_pct_auxiliary: 0.41
+- distance_to_high_60_pct: -11.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,141,141,137,139.5,579000,134.16,3.98,138.97,107.8,0.4
 20260504,140,147,139.5,142,848000,134.81,5.33,140.78,108.68,0.6
 20260505,143,153,141.5,153,1441000,136.33,12.23,143.03,109.74,0.99
 20260506,153.5,153.5,146.5,150.5,990000,137.51,9.45,144.62,110.76,0.69
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,148,157.5,146,157.5,152000,144.09,9.31,146.32,124.97,0.15
 20260527,161.5,161.5,148,151,155000,144.67,4.38,147.03,125.98,0.15
 20260528,152.5,157.5,148.5,150,154000,145.11,3.37,147.45,127,0.16
+20260529,153.5,153.5,147,148.5,150000,145.39,2.14,147.9,128.02,0.16
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6693 | 廣閎科 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

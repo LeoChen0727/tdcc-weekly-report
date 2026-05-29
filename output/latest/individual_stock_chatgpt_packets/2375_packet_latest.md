@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2375 凱美
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:39 Asia/Taipei
+- generated_at: 2026-05-29 19:32:01 Asia/Taipei
 - stock_id: 2375
 - stock_name: 凱美
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 148
-- high: 161.5
-- low: 145
-- close: 161.5
-- volume: 30081252
-- ma5: 143
-- ema23_primary: 112.81
-- distance_to_ema23_pct: 43.17
-- ma20: 108.46
-- ma60: 90.56
-- ma120: 91.91
-- return_5d: 31.84
-- return_20d: 84.36
-- volume_ratio: 2.05
-- distance_to_ma20_pct_auxiliary: 48.9
-- distance_to_high_60_pct: 0
+- date: 20260529
+- open: 171.5
+- high: 176.5
+- low: 158.5
+- close: 166.5
+- volume: 47401162
+- ma5: 149.4
+- ema23_primary: 117.28
+- distance_to_ema23_pct: 41.97
+- ma20: 112.53
+- ma60: 91.84
+- ma120: 92.53
+- return_5d: 23.79
+- return_20d: 95.88
+- volume_ratio: 2.81
+- distance_to_ma20_pct_auxiliary: 47.95
+- distance_to_high_60_pct: -5.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,88.2,89.9,85,85,3765002,83.47,1.83,82.66,84.71,0.91
 20260504,86.4,89.9,85.1,87.6,3342542,83.82,4.51,83.23,84.47,0.78
 20260505,88.3,90.4,87.6,90,5116377,84.33,6.72,84.1,84.27,1.14
 20260506,91,92.5,86.3,88.7,4797352,84.7,4.73,84.83,84.08,1.02
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,134,135.5,126,134,17340152,104.87,27.78,101.83,88.54,1.41
 20260527,137,147,133,147,33132173,108.38,35.63,104.77,89.41,2.44
 20260528,148,161.5,145,161.5,30081252,112.81,43.17,108.46,90.56,2.05
+20260529,171.5,176.5,158.5,166.5,47401162,117.28,41.97,112.53,91.84,2.81
 ```
 
 ## Latest TDCC Snapshot
@@ -127,17 +127,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2375 | 凱美 | true_breakout | 嚴格突破 | 87.0 |  |  | breakout_confirmed |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 2375 | 凱美 | true_breakout | 嚴格突破 | 76.0 |  |  | platform_breakout |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2375 | 凱美 | 4 | 2 | 4 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260529 | 2375 | 凱美 | 5 | 3 | 5 | 5 | 5 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2375 | 凱美 | 33 | 1 | 16504400.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260529 | 2375 | 凱美 | 33 | 1 | 18751020.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

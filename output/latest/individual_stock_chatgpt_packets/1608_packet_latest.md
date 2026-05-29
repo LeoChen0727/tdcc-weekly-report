@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1608 華榮
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:23 Asia/Taipei
+- generated_at: 2026-05-29 19:31:45 Asia/Taipei
 - stock_id: 1608
 - stock_name: 華榮
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 33.95
-- high: 34.45
-- low: 33.4
-- close: 33.45
-- volume: 8820319
-- ma5: 33.58
-- ema23_primary: 33.09
-- distance_to_ema23_pct: 1.09
-- ma20: 33.12
-- ma60: 33.02
+- date: 20260529
+- open: 33.8
+- high: 34.75
+- low: 33.8
+- close: 34.5
+- volume: 7478284
+- ma5: 33.82
+- ema23_primary: 33.21
+- distance_to_ema23_pct: 3.89
+- ma20: 33.2
+- ma60: 33.01
 - ma120: 35
-- return_5d: 1.98
-- return_20d: 2.29
-- volume_ratio: 2.29
-- distance_to_ma20_pct_auxiliary: 1.01
-- distance_to_high_60_pct: -8.23
+- return_5d: 3.6
+- return_20d: 5.5
+- volume_ratio: 1.82
+- distance_to_ma20_pct_auxiliary: 3.9
+- distance_to_high_60_pct: -3.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,32.85,33.1,32.45,32.7,2291333,33.03,-1,32.81,33.99,0.73
 20260504,33.2,34.3,33.2,33.6,5281551,33.08,1.58,32.91,33.91,1.58
 20260505,33.1,33.3,32.75,33.05,5418542,33.07,-0.07,33,33.82,1.53
 20260506,33.35,33.35,32.85,33.05,2811078,33.07,-0.07,33.09,33.71,0.77
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,34.3,34.65,33.3,33.45,3441679,33,1.36,33.03,33.11,1.02
 20260527,33.6,34.25,33.3,33.65,3219851,33.06,1.8,33.08,33.06,0.93
 20260528,33.95,34.45,33.4,33.45,8820319,33.09,1.09,33.12,33.02,2.29
+20260529,33.8,34.75,33.8,34.5,7478284,33.21,3.89,33.2,33.01,1.82
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 1608 | 華榮 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 1608 | 華榮 | 1 | 1 | 3 | 3 | 3 | repeated_but_no_breakout | 近 10 日上榜 3 日、近 20 日上榜 3 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1608 | 華榮 | 20 | 0 | 289720.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 1608 | 華榮 | 20 | 0 | 285600.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

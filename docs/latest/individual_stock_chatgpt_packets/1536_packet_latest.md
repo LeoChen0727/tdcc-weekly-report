@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1536 和大
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:21 Asia/Taipei
+- generated_at: 2026-05-29 19:31:43 Asia/Taipei
 - stock_id: 1536
 - stock_name: 和大
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 51
+- date: 20260529
+- open: 52
 - high: 53.7
-- low: 50.3
-- close: 51.3
-- volume: 6853116
-- ma5: 51.18
-- ema23_primary: 51.37
-- distance_to_ema23_pct: -0.14
-- ma20: 52.14
-- ma60: 51.61
-- ma120: 55.52
-- return_5d: 2.19
-- return_20d: -0.39
-- volume_ratio: 2.01
-- distance_to_ma20_pct_auxiliary: -1.62
-- distance_to_high_60_pct: -17.39
+- low: 51.4
+- close: 52.8
+- volume: 11270685
+- ma5: 51.42
+- ema23_primary: 51.49
+- distance_to_ema23_pct: 2.55
+- ma20: 52.21
+- ma60: 51.51
+- ma120: 55.48
+- return_5d: 2.33
+- return_20d: 2.52
+- volume_ratio: 2.95
+- distance_to_ma20_pct_auxiliary: 1.13
+- distance_to_high_60_pct: -8.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,51.6,53.3,51.5,51.5,2814239,50.94,1.1,50.07,54.73,1.72
 20260504,52.5,56.6,51.8,55,7206086,51.28,7.26,50.35,54.57,3.72
 20260505,56,57.3,55.4,56.5,5071463,51.71,9.25,50.77,54.42,2.43
 20260506,57,57.1,54.3,54.6,3066297,51.95,5.09,51.15,54.25,1.41
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,52.5,52.9,50.2,51,2928821,51.53,-1.03,52.19,51.98,0.95
 20260527,51,51.1,49.3,49.7,3088907,51.38,-3.26,52.15,51.79,0.97
 20260528,51,53.7,50.3,51.3,6853116,51.37,-0.14,52.14,51.61,2.01
+20260529,52,53.7,51.4,52.8,11270685,51.49,2.55,52.21,51.51,2.95
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 1536 | 和大 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 1536 | 和大 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260521 | 1536 | 和大 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1536 | 和大 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260529 | 1536 | 和大 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1536 | 和大 | 21 | 0 | 1212840.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260529 | 1536 | 和大 | 21 | 0 | 1863740.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

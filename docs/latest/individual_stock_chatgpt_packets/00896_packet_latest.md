@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00896 中信綠能及電動車
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:08 Asia/Taipei
+- generated_at: 2026-05-29 19:31:31 Asia/Taipei
 - stock_id: 00896
 - stock_name: 中信綠能及電動車
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260528
-- price_rows: 5
+- latest_price_date: 20260529
+- price_rows: 6
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 28.56
-- high: 28.66
-- low: 27.63
-- close: 27.9
-- volume: 6398681
-- ma5: 27.81
-- ema23_primary: 27.17
-- distance_to_ema23_pct: 2.67
-- ma20: 27.81
-- ma60: 27.81
-- ma120: 27.81
-- return_5d: 
+- date: 20260529
+- open: 28.39
+- high: 28.94
+- low: 28.39
+- close: 28.8
+- volume: 4489166
+- ma5: 28.21
+- ema23_primary: 27.31
+- distance_to_ema23_pct: 5.46
+- ma20: 27.98
+- ma60: 27.98
+- ma120: 27.98
+- return_5d: 7.46
 - return_20d: 
-- volume_ratio: 1.9
-- distance_to_ma20_pct_auxiliary: 0.31
-- distance_to_high_60_pct: -3.49
+- volume_ratio: 1.26
+- distance_to_ma20_pct_auxiliary: 2.94
+- distance_to_high_60_pct: -0.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -82,6 +82,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,27.95,28.17,27.72,27.97,2249071,,,,,
 20260527,28.28,28.91,28.28,28.56,3218631,,,,,
 20260528,28.56,28.66,27.63,27.9,6398681,27.17,2.67,27.81,27.81,1.9
+20260529,28.39,28.94,28.39,28.8,4489166,27.31,5.46,27.98,27.98,1.26
 ```
 
 ## Latest TDCC Snapshot

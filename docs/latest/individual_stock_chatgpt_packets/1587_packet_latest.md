@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1587 吉茂
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:22 Asia/Taipei
+- generated_at: 2026-05-29 19:31:45 Asia/Taipei
 - stock_id: 1587
 - stock_name: 吉茂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 29.95
-- high: 32.1
-- low: 29.5
-- close: 32.1
-- volume: 1815261
-- ma5: 29.28
-- ema23_primary: 30.51
-- distance_to_ema23_pct: 5.2
-- ma20: 30.05
-- ma60: 33.97
-- ma120: 40.95
-- return_5d: 13.43
-- return_20d: -0.62
-- volume_ratio: 3.6
-- distance_to_ma20_pct_auxiliary: 6.8
-- distance_to_high_60_pct: -26.29
+- date: 20260529
+- open: 32.2
+- high: 32.35
+- low: 29.85
+- close: 32
+- volume: 4398331
+- ma5: 29.97
+- ema23_primary: 30.64
+- distance_to_ema23_pct: 4.45
+- ma20: 30.07
+- ma60: 33.81
+- ma120: 40.87
+- return_5d: 12.08
+- return_20d: 0.95
+- volume_ratio: 6.25
+- distance_to_ma20_pct_auxiliary: 6.42
+- distance_to_high_60_pct: -21.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,32.3,32.3,31.6,31.7,393697,34.63,-8.45,34.68,39.05,0.8
 20260504,31.7,32.4,31.65,32.3,401726,34.43,-6.19,34.47,38.74,0.84
 20260505,32.05,33.2,32.05,32.8,314331,34.3,-4.36,34.3,38.43,0.68
 20260506,33.2,33.5,32.7,33,486727,34.19,-3.48,34.09,38.15,1.03
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,28.85,29.4,28.05,28.25,295318,30.48,-7.3,30.21,34.4,0.75
 20260527,28.25,30.15,28,29.2,821642,30.37,-3.85,30.07,34.16,1.93
 20260528,29.95,32.1,29.5,32.1,1815261,30.51,5.2,30.05,33.97,3.6
+20260529,32.2,32.35,29.85,32,4398331,30.64,4.45,30.07,33.81,6.25
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1587 | 吉茂 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 1587 | 吉茂 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1587 | 吉茂 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260529 | 1587 | 吉茂 | 2 | 2 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | status |

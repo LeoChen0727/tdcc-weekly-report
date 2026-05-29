@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 006205 富邦上証
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:07 Asia/Taipei
+- generated_at: 2026-05-29 19:31:29 Asia/Taipei
 - stock_id: 006205
 - stock_name: 富邦上証
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260528
-- price_rows: 5
+- latest_price_date: 20260529
+- price_rows: 6
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 40.75
-- high: 40.77
-- low: 40.43
-- close: 40.63
-- volume: 1358206
-- ma5: 40.95
-- ema23_primary: 40.8
-- distance_to_ema23_pct: -0.42
-- ma20: 40.95
-- ma60: 40.95
-- ma120: 40.95
-- return_5d: 
+- date: 20260529
+- open: 40.65
+- high: 41.15
+- low: 40.65
+- close: 41.09
+- volume: 1416118
+- ma5: 41.03
+- ema23_primary: 40.82
+- distance_to_ema23_pct: 0.65
+- ma20: 40.98
+- ma60: 40.98
+- ma120: 40.98
+- return_5d: 0.91
 - return_20d: 
-- volume_ratio: 1.38
-- distance_to_ma20_pct_auxiliary: -0.79
-- distance_to_high_60_pct: -2.5
+- volume_ratio: 1.34
+- distance_to_ma20_pct_auxiliary: 0.28
+- distance_to_high_60_pct: -1.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -82,6 +82,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,41.23,41.47,41.06,41.24,630961,,,,,
 20260527,41.31,41.67,41,41.11,1144165,,,,,
 20260528,40.75,40.77,40.43,40.63,1358206,40.8,-0.42,40.95,40.95,1.38
+20260529,40.65,41.15,40.65,41.09,1416118,40.82,0.65,40.98,40.98,1.34
 ```
 
 ## Latest TDCC Snapshot
@@ -105,14 +106,14 @@ no_rows,True
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6205 | 詮欣 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6205 | 詮欣 | 3 | 3 | 3 | 3 | 3 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3357 臺慶科
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:10 Asia/Taipei
+- generated_at: 2026-05-29 19:32:32 Asia/Taipei
 - stock_id: 3357
 - stock_name: 臺慶科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 290
-- high: 298
-- low: 270
-- close: 283
-- volume: 288000
-- ma5: 278.2
-- ema23_primary: 226.2
-- distance_to_ema23_pct: 25.11
-- ma20: 219.6
-- ma60: 180.5
-- ma120: 169.16
-- return_5d: 11.42
-- return_20d: 68.96
-- volume_ratio: 0.05
-- distance_to_ma20_pct_auxiliary: 28.87
-- distance_to_high_60_pct: -5.03
+- date: 20260529
+- open: 300
+- high: 308
+- low: 280
+- close: 287
+- volume: 290000
+- ma5: 279.8
+- ema23_primary: 231.26
+- distance_to_ema23_pct: 24.1
+- ma20: 225.7
+- ma60: 182.26
+- ma120: 170.25
+- return_5d: 2.87
+- return_20d: 73.94
+- volume_ratio: 0.06
+- distance_to_ma20_pct_auxiliary: 27.16
+- distance_to_high_60_pct: -6.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,168.5,174,163.5,165,2548000,166.29,-0.78,164.97,160.92,0.82
 20260504,167,173.5,164,168,1829000,166.43,0.94,166.1,160.88,0.58
 20260505,168,177,167.5,174,2660000,167.06,4.15,167.75,161.01,0.82
 20260506,175.5,175.5,166.5,170,3017000,167.31,1.61,169.1,161.01,0.9
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,271,277,251,269.5,264000,215.17,25.25,208.03,177.44,0.05
 20260527,278.5,296,276.5,285.5,287000,221.03,29.17,213.82,179.14,0.05
 20260528,290,298,270,283,288000,226.2,25.11,219.6,180.5,0.05
+20260529,300,308,280,287,290000,231.26,24.1,225.7,182.26,0.06
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3357 | 臺慶科 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

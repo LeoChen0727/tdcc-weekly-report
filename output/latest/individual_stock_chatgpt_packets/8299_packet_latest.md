@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8299 群聯
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:36 Asia/Taipei
+- generated_at: 2026-05-29 19:33:59 Asia/Taipei
 - stock_id: 8299
 - stock_name: 群聯
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 2475
-- high: 2535
-- low: 2410
-- close: 2450
-- volume: 2488000
-- ma5: 2469
-- ema23_primary: 2347.53
-- distance_to_ema23_pct: 4.36
-- ma20: 2443
-- ma60: 1975.33
-- ma120: 1778.79
-- return_5d: 4.93
-- return_20d: 18.36
-- volume_ratio: 0.31
-- distance_to_ma20_pct_auxiliary: 0.29
-- distance_to_high_60_pct: -14.93
+- date: 20260529
+- open: 2530
+- high: 2620
+- low: 2525
+- close: 2575
+- volume: 2570000
+- ma5: 2498
+- ema23_primary: 2366.49
+- distance_to_ema23_pct: 8.81
+- ma20: 2476.75
+- ma60: 1989
+- ma120: 1791.08
+- return_5d: 5.97
+- return_20d: 35.53
+- volume_ratio: 0.35
+- distance_to_ma20_pct_auxiliary: 3.97
+- distance_to_high_60_pct: -10.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,2175,2175,1900,1900,14442000,1770.27,7.33,1718.75,1836.08,1.64
 20260504,1975,2040,1920,2010,7753000,1790.24,12.28,1736.75,1836.25,0.87
 20260505,2035,2130,2000,2115,8736000,1817.31,16.38,1764.75,1836.92,0.98
 20260506,2300,2325,2235,2325,12286000,1859.61,25.03,1802.5,1840.33,1.32
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,2510,2590,2440,2505,2515000,2325.33,7.73,2398.5,1956.67,0.28
 20260527,2700,2730,2455,2480,2572000,2338.22,6.06,2424,1966.5,0.3
 20260528,2475,2535,2410,2450,2488000,2347.53,4.36,2443,1975.33,0.31
+20260529,2530,2620,2525,2575,2570000,2366.49,8.81,2476.75,1989,0.35
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 8299 | 群聯 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

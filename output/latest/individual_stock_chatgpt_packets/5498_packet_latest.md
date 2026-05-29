@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5498 凱崴
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:48 Asia/Taipei
+- generated_at: 2026-05-29 19:33:09 Asia/Taipei
 - stock_id: 5498
 - stock_name: 凱崴
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 69.2
-- high: 69.2
-- low: 65.6
-- close: 65.7
-- volume: 67000
-- ma5: 68
-- ema23_primary: 68.64
-- distance_to_ema23_pct: -4.28
-- ma20: 70.29
-- ma60: 65.48
-- ma120: 57.07
-- return_5d: 4.78
-- return_20d: -9.38
+- date: 20260529
+- open: 66.8
+- high: 67.8
+- low: 65.4
+- close: 65.8
+- volume: 66000
+- ma5: 67.8
+- ema23_primary: 68.4
+- distance_to_ema23_pct: -3.8
+- ma20: 69.89
+- ma60: 65.5
+- ma120: 57.38
+- return_5d: -1.5
+- return_20d: -10.96
 - volume_ratio: 0.01
-- distance_to_ma20_pct_auxiliary: -6.53
-- distance_to_high_60_pct: -24.66
+- distance_to_ma20_pct_auxiliary: -5.85
+- distance_to_high_60_pct: -24.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,74.5,74.5,72.3,73.9,2528000,68.09,8.53,67.54,62.5,0.12
 20260504,75.4,75.4,73.9,74,2759000,68.59,7.9,68.47,62.69,0.13
 20260505,75,79,75,79,3247000,69.45,13.75,69.75,62.99,0.16
 20260506,82.1,82.1,72,74.9,3796000,69.91,7.14,70.77,63.12,0.18
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,70.4,72.8,69.1,70.3,71000,68.91,2.01,70.64,65.39,0.01
 20260527,72,72.2,67.1,68.8,69000,68.9,-0.15,70.63,65.47,0.01
 20260528,69.2,69.2,65.6,65.7,67000,68.64,-4.28,70.29,65.48,0.01
+20260529,66.8,67.8,65.4,65.8,66000,68.4,-3.8,69.89,65.5,0.01
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 5498 | 凱崴 | pattern | 型態觀察 |  |  |  | 預備發動型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 5498 | 凱崴 | pattern | 型態觀察 |  |  |  | 預備發動型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 5498 | 凱崴 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260529 | 5498 | 凱崴 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

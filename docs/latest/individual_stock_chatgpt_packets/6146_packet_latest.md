@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6146 耕興
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:54 Asia/Taipei
+- generated_at: 2026-05-29 19:33:16 Asia/Taipei
 - stock_id: 6146
 - stock_name: 耕興
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 226
-- high: 235
-- low: 224
-- close: 227.5
+- date: 20260529
+- open: 220
+- high: 234.5
+- low: 220
+- close: 233
 - volume: 229000
-- ma5: 222.2
-- ema23_primary: 218.39
-- distance_to_ema23_pct: 4.17
-- ma20: 220.05
-- ma60: 209.04
-- ma120: 188.67
-- return_5d: 3.17
-- return_20d: 4.84
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: 3.39
-- distance_to_high_60_pct: -5.01
+- ma5: 225.1
+- ema23_primary: 219.61
+- distance_to_ema23_pct: 6.1
+- ma20: 220.65
+- ma60: 209.74
+- ma120: 189.28
+- return_5d: 6.64
+- return_20d: 5.43
+- volume_ratio: 0.46
+- distance_to_ma20_pct_auxiliary: 5.6
+- distance_to_high_60_pct: -2.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,218,221,215.5,221,345000,211.82,4.33,210.95,196.87,0.63
 20260504,225,239.5,222,238.5,1403000,214.05,11.42,213.18,197.97,2.32
 20260505,232.5,235,224,225.5,1124000,215,4.88,214.95,198.75,1.74
 20260506,230,230,218,221,758000,215.5,2.55,216.38,199.49,1.12
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,222,227,219.5,221,222000,217.07,1.81,219.4,207.93,0.44
 20260527,225,230.5,222,223,226000,217.56,2.5,219.53,208.42,0.45
 20260528,226,235,224,227.5,229000,218.39,4.17,220.05,209.04,0.45
+20260529,220,234.5,220,233,229000,219.61,6.1,220.65,209.74,0.46
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6146 | 耕興 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

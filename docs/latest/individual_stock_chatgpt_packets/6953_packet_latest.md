@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6953 家碩
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:24 Asia/Taipei
+- generated_at: 2026-05-29 19:33:46 Asia/Taipei
 - stock_id: 6953
 - stock_name: 家碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 135
+- latest_price_date: 20260529
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 252.5
-- high: 256
-- low: 239
-- close: 239.5
-- volume: 247000
-- ma5: 256.2
-- ema23_primary: 256.09
-- distance_to_ema23_pct: -6.48
-- ma20: 265.5
-- ma60: 239.19
-- ma120: 229.96
-- return_5d: -6.26
-- return_20d: -8.59
-- volume_ratio: 0.81
-- distance_to_ma20_pct_auxiliary: -9.79
-- distance_to_high_60_pct: -19.9
+- date: 20260529
+- open: 240
+- high: 243
+- low: 238
+- close: 242
+- volume: 241000
+- ma5: 252.4
+- ema23_primary: 254.92
+- distance_to_ema23_pct: -5.07
+- ma20: 263.73
+- ma60: 239.51
+- ma120: 230.5
+- return_5d: -7.28
+- return_20d: -12.79
+- volume_ratio: 0.91
+- distance_to_ma20_pct_auxiliary: -8.24
+- distance_to_high_60_pct: -19.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,264,288,264,277.5,1041000,242,14.67,236.03,229.28,4.06
 20260504,281.5,298.5,280,285,748000,245.58,16.05,239.62,229.87,2.55
 20260505,286,299,280.5,292.5,472000,249.49,17.24,243.85,230.51,1.49
 20260506,295,297,281,287.5,445000,252.66,13.79,247.5,231.11,1.32
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,269.5,269.5,262.5,262.5,265000,258.25,1.65,267,238.87,0.89
 20260527,260,260,245.5,250.5,252000,257.6,-2.76,266.62,239.12,0.84
 20260528,252.5,256,239,239.5,247000,256.09,-6.48,265.5,239.19,0.81
+20260529,240,243,238,242,241000,254.92,-5.07,263.73,239.51,0.91
 ```
 
 ## Latest TDCC Snapshot

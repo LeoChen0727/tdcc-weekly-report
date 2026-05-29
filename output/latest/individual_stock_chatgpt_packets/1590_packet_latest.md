@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1590 亞德客-KY
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:22 Asia/Taipei
+- generated_at: 2026-05-29 19:31:45 Asia/Taipei
 - stock_id: 1590
 - stock_name: 亞德客-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 1435
-- high: 1445
-- low: 1360
-- close: 1390
-- volume: 1607554
-- ma5: 1430
-- ema23_primary: 1409.25
-- distance_to_ema23_pct: -1.37
-- ma20: 1457.25
-- ma60: 1226.92
-- ma120: 1119.86
-- return_5d: -2.11
-- return_20d: -6.71
-- volume_ratio: 1.36
-- distance_to_ma20_pct_auxiliary: -4.61
-- distance_to_high_60_pct: -13.12
+- date: 20260529
+- open: 1420
+- high: 1420
+- low: 1345
+- close: 1400
+- volume: 1562350
+- ma5: 1428
+- ema23_primary: 1408.48
+- distance_to_ema23_pct: -0.6
+- ma20: 1454.5
+- ma60: 1230.5
+- ma120: 1124.02
+- return_5d: -0.71
+- return_20d: -3.78
+- volume_ratio: 1.39
+- distance_to_ma20_pct_auxiliary: -3.75
+- distance_to_high_60_pct: -12.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,1565,1580,1455,1455,2744949,1252.03,16.21,1227.8,1130.33,1.67
 20260504,1455,1495,1440,1470,1428289,1270.19,15.73,1250.05,1137.83,0.85
 20260505,1455,1460,1415,1440,1158509,1284.34,12.12,1272.25,1145.08,0.68
 20260506,1435,1475,1405,1435,1062492,1296.9,10.65,1292.5,1151.92,0.62
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,1450,1490,1430,1465,643290,1408.82,3.99,1460.75,1220.67,0.49
 20260527,1495,1500,1430,1435,612964,1411,1.7,1462.25,1224.5,0.5
 20260528,1435,1445,1360,1390,1607554,1409.25,-1.37,1457.25,1226.92,1.36
+20260529,1420,1420,1345,1400,1562350,1408.48,-0.6,1454.5,1230.5,1.39
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1590 | 亞德客-KY | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260529 | 1590 | 亞德客-KY | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1590 | 亞德客-KY | 1 | 1 | 3 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260529 | 1590 | 亞德客-KY | 2 | 2 | 3 | 5 | 5 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1590 | 亞德客-KY | 45 | 0 | 4787850.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 1590 | 亞德客-KY | 44 | 0 | 3931070.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

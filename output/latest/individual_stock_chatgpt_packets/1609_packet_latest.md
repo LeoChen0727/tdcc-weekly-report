@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1609 大亞
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:23 Asia/Taipei
+- generated_at: 2026-05-29 19:31:46 Asia/Taipei
 - stock_id: 1609
 - stock_name: 大亞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 37
-- high: 38.1
-- low: 35.7
-- close: 35.9
-- volume: 13182790
-- ma5: 36.04
-- ema23_primary: 34.75
-- distance_to_ema23_pct: 3.32
-- ma20: 34.6
-- ma60: 34.34
+- date: 20260529
+- open: 38
+- high: 39.45
+- low: 38
+- close: 39.25
+- volume: 40746891
+- ma5: 36.79
+- ema23_primary: 35.12
+- distance_to_ema23_pct: 11.75
+- ma20: 34.95
+- ma60: 34.33
 - ma120: 36.99
-- return_5d: 2.43
-- return_20d: 11.32
-- volume_ratio: 1.93
-- distance_to_ma20_pct_auxiliary: 3.75
-- distance_to_high_60_pct: -13.81
+- return_5d: 10.56
+- return_20d: 21.89
+- volume_ratio: 4.66
+- distance_to_ma20_pct_auxiliary: 12.29
+- distance_to_high_60_pct: -0.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,32.4,32.8,32.1,32.2,2657496,33.38,-3.55,33.16,36.2,0.99
 20260504,32.45,34.15,32.45,33.2,5162433,33.37,-0.5,33.2,36.03,1.81
 20260505,33.4,33.4,32.85,33,2398254,33.34,-1.01,33.23,35.87,0.85
 20260506,33.35,33.45,32.75,32.9,3014664,33.3,-1.2,33.27,35.7,1.04
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,36.65,37,36,36.05,7401608,34.45,4.64,34.19,34.49,1.27
 20260527,36.4,37.35,36.3,36.75,10689675,34.64,6.08,34.42,34.43,1.7
 20260528,37,38.1,35.7,35.9,13182790,34.75,3.32,34.6,34.34,1.93
+20260529,38,39.45,38,39.25,40746891,35.12,11.75,34.95,34.33,4.66
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 1609 | 大亞 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 1609 | 大亞 | true_breakout | 嚴格突破 | 131.0 |  |  | breakout_confirmed |  | call_strong_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260521 | 1609 | 大亞 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_strong_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1609 | 大亞 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260529 | 1609 | 大亞 | 7 | 7 | 5 | 7 | 7 | continued_many_days | 連續 7 個交易日上榜，需判斷是持續醞釀或訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1609 | 大亞 | 25 | 2 | 1029030.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 1609 | 大亞 | 25 | 1 | 3371960.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

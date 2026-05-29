@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6291 沛亨
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:03 Asia/Taipei
+- generated_at: 2026-05-29 19:33:25 Asia/Taipei
 - stock_id: 6291
 - stock_name: 沛亨
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 650
-- high: 697
-- low: 621
-- close: 654
-- volume: 657000
-- ma5: 592.2
-- ema23_primary: 507.19
-- distance_to_ema23_pct: 28.95
-- ma20: 501.48
-- ma60: 411.38
-- ma120: 307.08
-- return_5d: 32.93
-- return_20d: 52.09
-- volume_ratio: 0.41
-- distance_to_ma20_pct_auxiliary: 30.42
-- distance_to_high_60_pct: -6.17
+- date: 20260529
+- open: 695
+- high: 718
+- low: 666
+- close: 679
+- volume: 690000
+- ma5: 619.8
+- ema23_primary: 521.51
+- distance_to_ema23_pct: 30.2
+- ma20: 514.33
+- ma60: 417.97
+- ma120: 311.27
+- return_5d: 25.51
+- return_20d: 60.9
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: 32.02
+- distance_to_high_60_pct: -5.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,435,442.5,421.5,422,1039000,409.04,3.17,417,328.04,0.48
 20260504,430,448,422.5,437,1270000,411.37,6.23,420.32,332.18,0.59
 20260505,437.5,480.5,437,449.5,3100000,414.55,8.43,425.15,336.38,1.4
 20260506,454,460,420,438.5,1782000,416.55,5.27,428.27,340.32,0.81
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,549,587,526,587,558000,480.11,22.26,480.05,399.28,0.33
 20260527,645,645,625,645,642000,493.85,30.61,490.27,405.42,0.39
 20260528,650,697,621,654,657000,507.19,28.95,501.48,411.38,0.41
+20260529,695,718,666,679,690000,521.51,30.2,514.33,417.97,0.43
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6291 | 沛亨 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8064 東捷
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:31 Asia/Taipei
+- generated_at: 2026-05-29 19:33:54 Asia/Taipei
 - stock_id: 8064
 - stock_name: 東捷
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 143
-- high: 146
-- low: 130
-- close: 133
-- volume: 137000
-- ma5: 140.6
-- ema23_primary: 119.65
-- distance_to_ema23_pct: 11.15
-- ma20: 123.45
-- ma60: 86.89
-- ma120: 67.58
-- return_5d: 10.37
-- return_20d: 40.15
+- date: 20260529
+- open: 140
+- high: 145
+- low: 135.5
+- close: 143
+- volume: 141000
+- ma5: 142.7
+- ema23_primary: 121.6
+- distance_to_ema23_pct: 17.6
+- ma20: 125.4
+- ma60: 88.48
+- ma120: 68.43
+- return_5d: 7.92
+- return_20d: 37.5
 - volume_ratio: 0.02
-- distance_to_ma20_pct_auxiliary: 7.74
-- distance_to_high_60_pct: -13.36
+- distance_to_ma20_pct_auxiliary: 14.04
+- distance_to_high_60_pct: -6.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,100.5,104,100,104,4084000,79.3,31.15,79.22,63.93,0.25
 20260504,114,114,114,114,2678000,82.19,38.71,81.69,64.89,0.17
 20260505,119.5,125,114,125,13489000,85.76,45.76,84.64,66.02,0.84
 20260506,127.5,127.5,112.5,112.5,29577000,87.98,27.86,87.03,66.95,1.71
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,151,152.5,137,149,146000,116.21,28.22,118.71,83.92,0.02
 20260527,153,153.5,140,143,145000,118.44,20.74,121.55,85.49,0.02
 20260528,143,146,130,133,137000,119.65,11.15,123.45,86.89,0.02
+20260529,140,145,135.5,143,141000,121.6,17.6,125.4,88.48,0.02
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 8064 | 東捷 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6282 康舒
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:03 Asia/Taipei
+- generated_at: 2026-05-29 19:33:25 Asia/Taipei
 - stock_id: 6282
 - stock_name: 康舒
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 59.8
-- high: 61.4
-- low: 56.8
-- close: 57.7
-- volume: 52796324
-- ma5: 60
-- ema23_primary: 53.81
-- distance_to_ema23_pct: 7.22
-- ma20: 53.32
-- ma60: 49.42
-- ma120: 47.95
-- return_5d: 7.65
-- return_20d: 20.21
-- volume_ratio: 1.1
-- distance_to_ma20_pct_auxiliary: 8.21
-- distance_to_high_60_pct: -11.37
+- date: 20260529
+- open: 59.4
+- high: 60.5
+- low: 57
+- close: 59.9
+- volume: 46988603
+- ma5: 60.5
+- ema23_primary: 54.32
+- distance_to_ema23_pct: 10.27
+- ma20: 53.95
+- ma60: 49.6
+- ma120: 48.13
+- return_5d: 4.36
+- return_20d: 26.5
+- volume_ratio: 0.96
+- distance_to_ma20_pct_auxiliary: 11.03
+- distance_to_high_60_pct: -7.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,50.3,50.5,47.2,47.35,27008580,48.05,-1.46,47.7,48.69,1.01
 20260504,47.85,50.2,47.7,48.95,17798305,48.13,1.71,47.88,48.51,0.66
 20260505,49,50.2,48.6,49.8,13427749,48.27,3.18,48.17,48.36,0.5
 20260506,50.2,50.6,48.05,50.1,24896623,48.42,3.47,48.54,48.3,0.9
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,63.6,63.7,60,62.4,95828980,52.92,17.91,52.25,49.2,2.26
 20260527,64.8,65.1,58.5,59.4,83823820,53.46,11.11,52.84,49.32,1.81
 20260528,59.8,61.4,56.8,57.7,52796324,53.81,7.22,53.32,49.42,1.1
+20260529,59.4,60.5,57,59.9,46988603,54.32,10.27,53.95,49.6,0.96
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6282 | 康舒 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 6282 | 康舒 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 6282 | 康舒 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6282 | 康舒 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260529 | 6282 | 康舒 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6282 | 康舒 | 136 | 7 | 29317070.0 | 100280.0 | 292.35 | no_signal | 0 |  |
+| 20260529 | 6282 | 康舒 | 135 | 7 | 38025820.0 | 220530.0 | 172.43 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

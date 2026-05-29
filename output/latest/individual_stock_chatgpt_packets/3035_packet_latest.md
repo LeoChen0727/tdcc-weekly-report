@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3035 智原
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:00 Asia/Taipei
+- generated_at: 2026-05-29 19:32:22 Asia/Taipei
 - stock_id: 3035
 - stock_name: 智原
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 203
-- high: 210.5
-- low: 201.5
-- close: 208.5
-- volume: 16061701
-- ma5: 209.7
-- ema23_primary: 192.85
-- distance_to_ema23_pct: 8.11
-- ma20: 193.43
-- ma60: 169.24
-- ma120: 169.07
-- return_5d: 0.24
-- return_20d: 23.74
-- volume_ratio: 0.89
-- distance_to_ma20_pct_auxiliary: 7.79
-- distance_to_high_60_pct: -9.74
+- date: 20260529
+- open: 213.5
+- high: 215.5
+- low: 206
+- close: 207
+- volume: 13700926
+- ma5: 208.9
+- ema23_primary: 194.03
+- distance_to_ema23_pct: 6.68
+- ma20: 195.38
+- ma60: 169.95
+- ma120: 169.4
+- return_5d: -1.9
+- return_20d: 23.21
+- volume_ratio: 0.75
+- distance_to_ma20_pct_auxiliary: 5.95
+- distance_to_high_60_pct: -10.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,170,172.5,167,168,9878768,164.92,1.87,161.45,160.43,0.84
 20260504,171.5,172.5,168.5,169,6162119,165.26,2.26,162.68,160.36,0.51
 20260505,169.5,181.5,169,177,13265624,166.24,6.47,164.57,160.4,1.05
 20260506,180,186,175,181.5,18503277,167.51,8.35,166.65,160.45,1.37
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,219.5,219.5,207,208,20600438,190.42,9.23,190.12,167.97,1.13
 20260527,213.5,216,201,202.5,16772502,191.43,5.78,191.43,168.54,0.93
 20260528,203,210.5,201.5,208.5,16061701,192.85,8.11,193.43,169.24,0.89
+20260529,213.5,215.5,206,207,13700926,194.03,6.68,195.38,169.95,0.75
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 3035 | 智原 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 3035 | 智原 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3035 | 智原 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260529 | 3035 | 智原 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3035 | 智原 | 132 | 1 | 26473020.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 3035 | 智原 | 132 | 1 | 21106210.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

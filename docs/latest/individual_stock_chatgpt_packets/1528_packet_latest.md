@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1528 恩德
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:20 Asia/Taipei
+- generated_at: 2026-05-29 19:31:43 Asia/Taipei
 - stock_id: 1528
 - stock_name: 恩德
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 25.1
-- high: 25.5
-- low: 24.2
-- close: 24.35
-- volume: 5003713
-- ma5: 25.73
-- ema23_primary: 26.13
-- distance_to_ema23_pct: -6.8
-- ma20: 26.47
-- ma60: 25.51
-- ma120: 23.59
-- return_5d: -5.44
-- return_20d: -12.25
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: -8
-- distance_to_high_60_pct: -23.31
+- date: 20260529
+- open: 24.5
+- high: 25.4
+- low: 24.5
+- close: 24.9
+- volume: 3641214
+- ma5: 25.45
+- ema23_primary: 26.03
+- distance_to_ema23_pct: -4.32
+- ma20: 26.27
+- ma60: 25.54
+- ma120: 23.67
+- return_5d: -5.32
+- return_20d: -13.54
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: -5.22
+- distance_to_high_60_pct: -21.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,28,29.2,27.4,28.8,29672988,26.82,7.38,27.5,25.38,0.99
 20260504,28.5,29.85,27.75,28.35,20370530,26.95,5.21,27.61,25.37,0.8
 20260505,28.6,30.25,28.15,29.2,17227686,27.13,7.61,27.8,25.38,0.7
 20260506,29.4,29.65,27.8,28.05,11597185,27.21,3.08,27.86,25.38,0.5
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,27.25,27.4,25.8,25.95,5737929,26.4,-1.71,26.68,25.47,0.61
 20260527,26.2,26.2,24.7,25.05,5564813,26.29,-4.71,26.64,25.49,0.6
 20260528,25.1,25.5,24.2,24.35,5003713,26.13,-6.8,26.47,25.51,0.59
+20260529,24.5,25.4,24.5,24.9,3641214,26.03,-4.32,26.27,25.54,0.51
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 1528 | 恩德 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 1528 | 恩德 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1528 | 恩德 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260529 | 1528 | 恩德 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

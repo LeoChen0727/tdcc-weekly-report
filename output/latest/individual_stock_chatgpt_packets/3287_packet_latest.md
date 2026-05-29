@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3287 廣寰科
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:08 Asia/Taipei
+- generated_at: 2026-05-29 19:32:30 Asia/Taipei
 - stock_id: 3287
 - stock_name: 廣寰科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 37.5
-- high: 39.9
-- low: 37
-- close: 38.1
-- volume: 39000
-- ma5: 34.37
-- ema23_primary: 31.65
-- distance_to_ema23_pct: 20.37
-- ma20: 31.08
-- ma60: 29.59
-- ma120: 29.65
-- return_5d: 21.14
-- return_20d: 35.35
+- date: 20260529
+- open: 38.1
+- high: 39.4
+- low: 37.25
+- close: 38
+- volume: 38000
+- ma5: 35.6
+- ema23_primary: 32.18
+- distance_to_ema23_pct: 18.08
+- ma20: 31.58
+- ma60: 29.73
+- ma120: 29.71
+- return_5d: 19.31
+- return_20d: 35.47
 - volume_ratio: 0.12
-- distance_to_ma20_pct_auxiliary: 22.59
-- distance_to_high_60_pct: -4.51
+- distance_to_ma20_pct_auxiliary: 20.34
+- distance_to_high_60_pct: -4.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,28.3,28.3,28,28.05,28000,28.69,-2.23,28.67,29.27,0.61
 20260504,28.65,28.65,28.1,28.15,33000,28.64,-1.73,28.67,29.22,0.71
 20260505,28.1,28.65,28.1,28.5,46000,28.63,-0.46,28.7,29.18,0.96
 20260506,28.5,28.5,28.1,28.1,81000,28.59,-1.71,28.7,29.15,1.6
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,32.6,33.15,32.25,33,33000,30.59,7.88,30.19,29.36,0.1
 20260527,33.1,36.3,33.1,36.3,36000,31.07,16.85,30.58,29.46,0.11
 20260528,37.5,39.9,37,38.1,39000,31.65,20.37,31.08,29.59,0.12
+20260529,38.1,39.4,37.25,38,38000,32.18,18.08,31.58,29.73,0.12
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3287 | 廣寰科 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

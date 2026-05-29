@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8089 康全電訊
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:33 Asia/Taipei
+- generated_at: 2026-05-29 19:33:55 Asia/Taipei
 - stock_id: 8089
 - stock_name: 康全電訊
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 20
-- high: 20.15
-- low: 19.55
-- close: 19.75
+- date: 20260529
+- open: 19.9
+- high: 20
+- low: 19.6
+- close: 19.9
 - volume: 20000
-- ma5: 20.07
-- ema23_primary: 20.58
-- distance_to_ema23_pct: -4.05
+- ma5: 19.9
+- ema23_primary: 20.53
+- distance_to_ema23_pct: -3.05
 - ma20: 20.41
-- ma60: 22.15
-- ma120: 25.22
-- return_5d: -2.95
-- return_20d: -3.19
-- volume_ratio: 0.08
-- distance_to_ma20_pct_auxiliary: -3.26
-- distance_to_high_60_pct: -25.75
+- ma60: 22.05
+- ma120: 25.15
+- return_5d: -4.1
+- return_20d: -0.75
+- volume_ratio: 0.09
+- distance_to_ma20_pct_auxiliary: -2.49
+- distance_to_high_60_pct: -25.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,20.4,20.55,20,20.05,304000,21.92,-8.51,21.72,24.29,1.19
 20260504,20.2,20.45,19.9,20.15,349000,21.77,-7.43,21.54,24.14,1.31
 20260505,20.15,22.15,20.15,21.15,881000,21.72,-2.61,21.46,24,2.93
 20260506,21.65,21.65,20.35,20.5,336000,21.62,-5.16,21.39,23.86,1.1
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,20.15,20.45,19.8,20,20000,20.73,-3.53,20.5,22.34,0.08
 20260527,20,20.15,19.8,19.85,20000,20.66,-3.91,20.45,22.24,0.08
 20260528,20,20.15,19.55,19.75,20000,20.58,-4.05,20.41,22.15,0.08
+20260529,19.9,20,19.6,19.9,20000,20.53,-3.05,20.41,22.05,0.09
 ```
 
 ## Latest TDCC Snapshot

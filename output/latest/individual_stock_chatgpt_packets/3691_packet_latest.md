@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3691 碩禾
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:21 Asia/Taipei
+- generated_at: 2026-05-29 19:32:43 Asia/Taipei
 - stock_id: 3691
 - stock_name: 碩禾
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 158
-- high: 161.5
-- low: 147.5
-- close: 151
-- volume: 155000
-- ma5: 150.3
-- ema23_primary: 140.53
-- distance_to_ema23_pct: 7.45
-- ma20: 143.03
-- ma60: 124.22
-- ma120: 109.12
-- return_5d: 5.96
-- return_20d: 33.63
+- date: 20260529
+- open: 155
+- high: 163
+- low: 149
+- close: 162
+- volume: 156000
+- ma5: 154
+- ema23_primary: 142.32
+- distance_to_ema23_pct: 13.83
+- ma20: 145.22
+- ma60: 124.72
+- ma120: 109.89
+- return_5d: 12.89
+- return_20d: 37.29
 - volume_ratio: 0.07
-- distance_to_ma20_pct_auxiliary: 5.58
-- distance_to_high_60_pct: -10.12
+- distance_to_ma20_pct_auxiliary: 11.55
+- distance_to_high_60_pct: -3.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,113.5,120,113.5,118,915000,114.32,3.22,114.05,115.72,0.88
 20260504,123.5,129.5,121.5,129.5,2421000,115.59,12.04,115.25,115.88,2.12
 20260505,129,139,129,135,2563000,117.2,15.18,116.9,115.97,2.05
 20260506,136.5,139.5,134,136,1886000,118.77,14.51,118.42,116.03,1.42
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,145,158.5,139,157,152000,138.14,13.66,138.82,123.52,0.06
 20260527,165,168,153,155.5,161000,139.58,11.4,141.12,123.96,0.07
 20260528,158,161.5,147.5,151,155000,140.53,7.45,143.03,124.22,0.07
+20260529,155,163,149,162,156000,142.32,13.83,145.22,124.72,0.07
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3691 | 碩禾 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

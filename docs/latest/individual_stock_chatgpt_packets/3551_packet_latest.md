@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3551 世禾
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:16 Asia/Taipei
+- generated_at: 2026-05-29 19:32:38 Asia/Taipei
 - stock_id: 3551
 - stock_name: 世禾
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 210
-- high: 227
-- low: 210
-- close: 217.5
-- volume: 220000
-- ma5: 206.5
-- ema23_primary: 203.83
-- distance_to_ema23_pct: 6.71
-- ma20: 206.25
-- ma60: 191.83
-- ma120: 190.68
-- return_5d: 10.41
-- return_20d: 11.25
+- date: 20260529
+- open: 228.5
+- high: 234.5
+- low: 220.5
+- close: 225
+- volume: 227000
+- ma5: 211
+- ema23_primary: 205.59
+- distance_to_ema23_pct: 9.44
+- ma20: 207.75
+- ma60: 192.49
+- ma120: 191.26
+- return_5d: 11.11
+- return_20d: 15.38
 - volume_ratio: 0.13
-- distance_to_ma20_pct_auxiliary: 5.45
-- distance_to_high_60_pct: -4.18
+- distance_to_ma20_pct_auxiliary: 8.3
+- distance_to_high_60_pct: -4.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,195.5,198,194,195,620000,193.35,0.86,191.85,184.6,0.32
 20260504,196.5,198.5,195,195.5,724000,193.53,1.02,193.15,184.58,0.36
 20260505,195.5,208.5,194,207.5,2537000,194.69,6.58,195.25,184.82,1.21
 20260506,209.5,212.5,199.5,208.5,3405000,195.84,6.46,197.1,185.12,1.52
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,204.5,205,200.5,202.5,203000,202.14,0.18,204.6,191.07,0.11
 20260527,207,213,206,207.5,209000,202.59,2.43,205.15,191.31,0.12
 20260528,210,227,210,217.5,220000,203.83,6.71,206.25,191.83,0.13
+20260529,228.5,234.5,220.5,225,227000,205.59,9.44,207.75,192.49,0.13
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 3551 | 世禾 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 3551 | 世禾 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3551 | 世禾 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260529 | 3551 | 世禾 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

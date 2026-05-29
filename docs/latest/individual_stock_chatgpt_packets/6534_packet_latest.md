@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6534 正瀚-創
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:08 Asia/Taipei
+- generated_at: 2026-05-29 19:33:30 Asia/Taipei
 - stock_id: 6534
 - stock_name: 正瀚-創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 26
 - tdcc_history_status: tdcc_history_ready
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 94
-- high: 96.5
-- low: 93.9
+- date: 20260529
+- open: 95
+- high: 97.1
+- low: 94.9
 - close: 96
-- volume: 277468
-- ma5: 96.16
-- ema23_primary: 95.64
-- distance_to_ema23_pct: 0.38
-- ma20: 95.57
-- ma60: 92.11
-- ma120: 90.21
-- return_5d: -0.93
-- return_20d: 2.78
-- volume_ratio: 1.76
-- distance_to_ma20_pct_auxiliary: 0.45
+- volume: 378786
+- ma5: 95.96
+- ema23_primary: 95.67
+- distance_to_ema23_pct: 0.34
+- ma20: 95.75
+- ma60: 92.39
+- ma120: 90.26
+- return_5d: -1.03
+- return_20d: 3.78
+- volume_ratio: 2.18
+- distance_to_ma20_pct_auxiliary: 0.27
 - distance_to_high_60_pct: -7.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,93.6,94,92.5,92.5,51652,94.71,-2.33,96.51,88.58,0.18
 20260504,92.2,94,90.4,93.4,216588,94.6,-1.27,96.58,88.7,0.8
 20260505,93.4,93.4,92,92.9,26621,94.46,-1.65,96.67,88.81,0.11
 20260506,95.8,95.9,94.1,94.4,84501,94.45,-0.06,96.69,88.94,0.36
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,95.5,96,93.8,95.9,311872,95.67,0.24,95.49,91.63,2.07
 20260527,94,94.9,93.3,94.9,202804,95.61,-0.74,95.44,91.87,1.36
 20260528,94,96.5,93.9,96,277468,95.64,0.38,95.57,92.11,1.76
+20260529,95,97.1,94.9,96,378786,95.67,0.34,95.75,92.39,2.18
 ```
 
 ## Latest TDCC Snapshot

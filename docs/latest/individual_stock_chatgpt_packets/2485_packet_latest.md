@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2485 兆赫
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:45 Asia/Taipei
+- generated_at: 2026-05-29 19:32:08 Asia/Taipei
 - stock_id: 2485
 - stock_name: 兆赫
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 74.8
-- high: 77.6
-- low: 70.3
-- close: 71.8
-- volume: 38949087
-- ma5: 74.04
-- ema23_primary: 70.77
-- distance_to_ema23_pct: 1.45
-- ma20: 69.63
-- ma60: 69.7
-- ma120: 50.76
-- return_5d: 2.57
-- return_20d: 17.9
-- volume_ratio: 0.91
-- distance_to_ma20_pct_auxiliary: 3.12
-- distance_to_high_60_pct: -17.38
+- date: 20260529
+- open: 72.5
+- high: 74.9
+- low: 71.3
+- close: 74.2
+- volume: 26575995
+- ma5: 74.28
+- ema23_primary: 71.06
+- distance_to_ema23_pct: 4.42
+- ma20: 70.41
+- ma60: 70.03
+- ma120: 51.22
+- return_5d: 1.64
+- return_20d: 26.41
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: 5.39
+- distance_to_high_60_pct: -14.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,60.7,63.1,58.5,58.7,33268714,68.19,-13.91,71.41,60.44,0.86
 20260504,59.5,64.5,58.1,64.5,23947369,67.88,-4.98,70.56,60.92,0.6
 20260505,65.8,69.5,65,68.7,70379093,67.95,1.1,70.06,61.44,1.64
 20260506,69,69.4,64.7,66.7,33852530,67.85,-1.69,69.75,61.92,0.81
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,77.6,77.8,73.6,74.6,30717706,70.37,6.02,68.5,68.84,0.75
 20260527,75.8,76.2,73,74.1,25057758,70.68,4.84,69.08,69.33,0.61
 20260528,74.8,77.6,70.3,71.8,38949087,70.77,1.45,69.63,69.7,0.91
+20260529,72.5,74.9,71.3,74.2,26575995,71.06,4.42,70.41,70.03,0.63
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2485 | 兆赫 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260528 | 2485 | 兆赫 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260529 | 2485 | 兆赫 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260529 | 2485 | 兆赫 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2485 | 兆赫 | 3 | 3 | 4 | 5 | 5 | continued_2_3d | 連續 3 個交易日上榜，訊號延續但仍需確認。 |
+| 20260529 | 2485 | 兆赫 | 4 | 4 | 4 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2485 | 兆赫 | 40 | 2 | 6641760.0 | 23850.0 | 278.48 | no_signal | 0 |  |
+| 20260529 | 2485 | 兆赫 | 40 | 2 | 7687690.0 | 13300.0 | 578.02 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3675 德微
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:20 Asia/Taipei
+- generated_at: 2026-05-29 19:32:42 Asia/Taipei
 - stock_id: 3675
 - stock_name: 德微
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 369.5
-- high: 401.5
-- low: 367
-- close: 384
-- volume: 395000
-- ma5: 347.3
-- ema23_primary: 282.91
-- distance_to_ema23_pct: 35.73
-- ma20: 274.32
-- ma60: 224.22
-- ma120: 183.71
-- return_5d: 21.33
-- return_20d: 78.19
+- date: 20260529
+- open: 399.5
+- high: 413
+- low: 391.5
+- close: 413
+- volume: 404000
+- ma5: 366
+- ema23_primary: 293.75
+- distance_to_ema23_pct: 40.6
+- ma20: 284.12
+- ma60: 228.12
+- ma120: 186.05
+- return_5d: 29.26
+- return_20d: 90.32
 - volume_ratio: 0.21
-- distance_to_ma20_pct_auxiliary: 39.98
-- distance_to_high_60_pct: -4.36
+- distance_to_ma20_pct_auxiliary: 45.36
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,220,223,210,217,736000,208.21,4.22,205.9,185.97,0.69
 20260504,216.5,221,209,210.5,933000,208.4,1.01,207.22,187.04,0.85
 20260505,212,227.5,211.5,225.5,1462000,209.82,7.47,209.47,188.36,1.27
 20260506,228,229.5,216.5,220,1089000,210.67,4.43,210.97,189.57,0.92
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,340,341,320,334,335000,265.42,25.84,258.5,217.78,0.17
 20260527,367,367,353.5,365,365000,273.72,33.35,265.9,220.82,0.19
 20260528,369.5,401.5,367,384,395000,282.91,35.73,274.32,224.22,0.21
+20260529,399.5,413,391.5,413,404000,293.75,40.6,284.12,228.12,0.21
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3675 | 德微 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

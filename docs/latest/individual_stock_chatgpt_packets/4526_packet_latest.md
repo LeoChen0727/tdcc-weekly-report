@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4526 東台
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:29 Asia/Taipei
+- generated_at: 2026-05-29 19:32:51 Asia/Taipei
 - stock_id: 4526
 - stock_name: 東台
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 39.95
-- high: 40.6
-- low: 38.1
-- close: 38.45
-- volume: 11292937
-- ma5: 40.51
-- ema23_primary: 37.66
-- distance_to_ema23_pct: 2.11
-- ma20: 37.81
-- ma60: 34.88
-- ma120: 33.81
-- return_5d: 1.05
-- return_20d: 12.1
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: 1.68
-- distance_to_high_60_pct: -16.05
+- date: 20260529
+- open: 39
+- high: 40.3
+- low: 38.8
+- close: 38.95
+- volume: 7405636
+- ma5: 40.41
+- ema23_primary: 37.76
+- distance_to_ema23_pct: 3.14
+- ma20: 37.92
+- ma60: 34.98
+- ma120: 33.88
+- return_5d: -1.27
+- return_20d: 5.99
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: 2.7
+- distance_to_high_60_pct: -14.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,34.55,37.4,34.55,36.75,23375944,34.1,7.78,34.23,33.9,3.96
 20260504,37,39.5,36.2,37.5,23657392,34.38,9.07,34.38,33.9,3.48
 20260505,37.1,40.8,37.1,40.3,27541998,34.87,15.56,34.74,33.96,3.43
 20260506,40,40,36.8,37,15596300,35.05,5.56,34.95,33.98,1.78
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,41.3,44.35,40.45,44.35,27008283,37.37,18.68,37.36,34.7,2.24
 20260527,45.8,45.8,39.95,39.95,26830922,37.58,6.3,37.61,34.81,2.09
 20260528,39.95,40.6,38.1,38.45,11292937,37.66,2.11,37.81,34.88,0.88
+20260529,39,40.3,38.8,38.95,7405636,37.76,3.14,37.92,34.98,0.61
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4526 | 東台 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 4526 | 東台 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 4526 | 東台 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260521 | 4526 | 東台 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4526 | 東台 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260529 | 4526 | 東台 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4526 | 東台 | 7 | 0 | 3453570.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 4526 | 東台 | 7 | 0 | 1156770.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

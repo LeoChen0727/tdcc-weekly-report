@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8103 瀚荃
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:33 Asia/Taipei
+- generated_at: 2026-05-29 19:33:56 Asia/Taipei
 - stock_id: 8103
 - stock_name: 瀚荃
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 129
+- latest_price_date: 20260529
+- price_rows: 130
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 108
-- high: 108.5
-- low: 100
-- close: 101.5
-- volume: 2143816
-- ma5: 105.5
-- ema23_primary: 106.77
-- distance_to_ema23_pct: -4.94
-- ma20: 111.38
-- ma60: 97.74
-- ma120: 93.7
-- return_5d: -1.93
-- return_20d: -18.47
-- volume_ratio: 0.81
-- distance_to_ma20_pct_auxiliary: -8.87
-- distance_to_high_60_pct: -25.64
+- date: 20260529
+- open: 104
+- high: 111.5
+- low: 103
+- close: 111.5
+- volume: 3333458
+- ma5: 106.7
+- ema23_primary: 107.17
+- distance_to_ema23_pct: 4.04
+- ma20: 110.7
+- ma60: 98
+- ma120: 94
+- return_5d: 5.69
+- return_20d: -10.8
+- volume_ratio: 1.34
+- distance_to_ma20_pct_auxiliary: 0.72
+- distance_to_high_60_pct: -18.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,132,136.5,124,125,6612778,101.59,23.04,97.81,92.77,1.84
 20260504,121.5,126,113.5,123,4602176,103.38,18.98,99.93,93.22,1.21
 20260505,121.5,125,118.5,122.5,2568242,104.97,16.7,102.09,93.66,0.66
 20260506,123,125,113,117,3788282,105.97,10.4,103.98,94.01,0.93
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,108.5,108.5,105.5,107,1896033,107.37,-0.34,113.62,97.62,0.57
 20260527,109.5,111,106,106,2118989,107.25,-1.17,112.53,97.72,0.73
 20260528,108,108.5,100,101.5,2143816,106.77,-4.94,111.38,97.74,0.81
+20260529,104,111.5,103,111.5,3333458,107.17,4.04,110.7,98,1.34
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 8103 | 瀚荃 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260529 | 8103 | 瀚荃 | pullback_rebound | 回檔後短線轉強 | 67.0 |  |  |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260529 | 8103 | 瀚荃 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260529 | 8103 | 瀚荃 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 8103 | 瀚荃 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260529 | 8103 | 瀚荃 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 8103 | 瀚荃 | 17 | 0 | 775280.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 8103 | 瀚荃 | 17 | 0 | 2703670.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

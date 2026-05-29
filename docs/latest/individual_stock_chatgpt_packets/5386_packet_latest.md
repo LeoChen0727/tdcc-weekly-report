@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5386 青雲
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:45 Asia/Taipei
+- generated_at: 2026-05-29 19:33:07 Asia/Taipei
 - stock_id: 5386
 - stock_name: 青雲
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 585
-- high: 628
-- low: 568
-- close: 575
-- volume: 599000
-- ma5: 550.8
-- ema23_primary: 462.85
-- distance_to_ema23_pct: 24.23
-- ma20: 467.3
-- ma60: 373.24
-- ma120: 234.56
-- return_5d: 22.86
-- return_20d: 53.13
-- volume_ratio: 0.46
-- distance_to_ma20_pct_auxiliary: 23.05
-- distance_to_high_60_pct: -8.44
+- date: 20260529
+- open: 584
+- high: 597
+- low: 576
+- close: 593
+- volume: 587000
+- ma5: 570
+- ema23_primary: 473.69
+- distance_to_ema23_pct: 25.19
+- ma20: 478
+- ma60: 379.79
+- ma120: 238.92
+- return_5d: 19.32
+- return_20d: 56.46
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: 24.06
+- distance_to_high_60_pct: -5.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,388,396.5,378,379,3685000,343.94,10.19,345.6,265.85,1.73
 20260504,382.5,408,372,398,3105000,348.44,14.22,351.15,271.08,1.37
 20260505,398.5,437.5,396,437.5,3964000,355.87,22.94,359.23,276.96,1.62
 20260506,472.5,481,446,475,5565000,365.79,29.85,367.8,283.46,2.07
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,557,595,546,549,565000,440.44,24.65,447.1,360.82,0.36
 20260527,588,603,564,587,582000,452.65,29.68,457.32,367.03,0.41
 20260528,585,628,568,575,599000,462.85,24.23,467.3,373.24,0.46
+20260529,584,597,576,593,587000,473.69,25.19,478,379.79,0.51
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 5386 | 青雲 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1568 倉佑
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:21 Asia/Taipei
+- generated_at: 2026-05-29 19:31:44 Asia/Taipei
 - stock_id: 1568
 - stock_name: 倉佑
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 41.25
-- high: 41.25
-- low: 41.25
-- close: 41.25
-- volume: 1658522
-- ma5: 34.97
-- ema23_primary: 30.55
-- distance_to_ema23_pct: 35.01
-- ma20: 30.3
-- ma60: 26.01
-- ma120: 24.42
-- return_5d: 44.99
-- return_20d: 44.99
-- volume_ratio: 2.38
-- distance_to_ma20_pct_auxiliary: 36.12
+- date: 20260529
+- open: 45.35
+- high: 45.35
+- low: 43.85
+- close: 45.35
+- volume: 13595230
+- ma5: 38.23
+- ema23_primary: 31.79
+- distance_to_ema23_pct: 42.67
+- ma20: 31.15
+- ma60: 26.39
+- ma120: 24.63
+- return_5d: 56.11
+- return_20d: 59.12
+- volume_ratio: 9.97
+- distance_to_ma20_pct_auxiliary: 45.6
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,28.25,28.6,28,28.5,257852,26.15,8.98,25.86,23.8,0.45
 20260504,28.5,31,28.5,30.2,1657016,26.49,14.01,26.25,23.88,2.55
 20260505,30.4,30.6,29.15,29.55,639229,26.74,10.49,26.59,23.97,0.94
 20260506,29.95,29.95,28.8,29.05,381122,26.94,7.85,26.91,24.05,0.55
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,35.1,35.1,35.1,35.1,1870870,28.86,21.62,29.24,25.45,3.22
 20260527,37.5,37.5,37.5,37.5,1409682,29.58,26.77,29.66,25.7,2.24
 20260528,41.25,41.25,41.25,41.25,1658522,30.55,35.01,30.3,26.01,2.38
+20260529,45.35,45.35,43.85,45.35,13595230,31.79,42.67,31.15,26.39,9.97
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1568 | 倉佑 | true_breakout | 嚴格突破 | 89.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 1568 | 倉佑 | true_breakout | 嚴格突破 | 94.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1568 | 倉佑 | 4 | 4 | 4 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260529 | 1568 | 倉佑 | 5 | 5 | 5 | 5 | 5 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | status |

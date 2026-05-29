@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4541 晟田
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:30 Asia/Taipei
+- generated_at: 2026-05-29 19:32:52 Asia/Taipei
 - stock_id: 4541
 - stock_name: 晟田
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 45.1
-- high: 45.25
-- low: 43.5
-- close: 44.8
-- volume: 45000
-- ma5: 44.23
-- ema23_primary: 45.02
-- distance_to_ema23_pct: -0.5
-- ma20: 45.58
+- date: 20260529
+- open: 45.7
+- high: 46.5
+- low: 44.9
+- close: 45.25
+- volume: 46000
+- ma5: 44.42
+- ema23_primary: 45.04
+- distance_to_ema23_pct: 0.46
+- ma20: 45.52
 - ma60: 44.39
-- ma120: 44.17
-- return_5d: 1.59
-- return_20d: -3.24
+- ma120: 44.18
+- return_5d: 2.14
+- return_20d: -2.37
 - volume_ratio: 0.05
-- distance_to_ma20_pct_auxiliary: -1.7
-- distance_to_high_60_pct: -13.51
+- distance_to_ma20_pct_auxiliary: -0.59
+- distance_to_high_60_pct: -12.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,46.7,47.15,46.1,46.35,492000,45.91,0.97,45.96,44.21,0.38
 20260504,46.55,48.45,46.55,47.85,858000,46.07,3.87,46.27,44.21,0.66
 20260505,47.85,51.8,47.3,51.7,2950000,46.54,11.09,46.81,44.27,2.05
 20260506,51.7,51.7,48.1,48.7,2592000,46.72,4.24,47.21,44.3,1.67
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,44.35,44.6,43.45,43.75,44000,45.12,-3.04,45.79,44.45,0.04
 20260527,44,44.2,43.3,44.2,44000,45.04,-1.87,45.65,44.4,0.04
 20260528,45.1,45.25,43.5,44.8,45000,45.02,-0.5,45.58,44.39,0.05
+20260529,45.7,46.5,44.9,45.25,46000,45.04,0.46,45.52,44.39,0.05
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4541 | 晟田 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

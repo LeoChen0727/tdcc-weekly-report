@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4977 眾達-KY
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:39 Asia/Taipei
+- generated_at: 2026-05-29 19:33:01 Asia/Taipei
 - stock_id: 4977
 - stock_name: 眾達-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 135
+- latest_price_date: 20260529
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,21 +55,21 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 221.5
-- high: 222
-- low: 206
+- date: 20260529
+- open: 211
+- high: 216.5
+- low: 208.5
 - close: 210.5
-- volume: 4731180
-- ma5: 223.4
-- ema23_primary: 219.69
-- distance_to_ema23_pct: -4.18
+- volume: 3363536
+- ma5: 221.6
+- ema23_primary: 218.92
+- distance_to_ema23_pct: -3.85
 - ma20: 224.35
-- ma60: 202.8
-- ma120: 166.95
-- return_5d: 2.93
-- return_20d: -1.17
-- volume_ratio: 0.53
+- ma60: 203.41
+- ma120: 167.85
+- return_5d: -4.1
+- return_20d: 0
+- volume_ratio: 0.39
 - distance_to_ma20_pct_auxiliary: -6.17
 - distance_to_high_60_pct: -22.89
 
@@ -77,7 +77,6 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,209.5,221,209.5,210.5,7604989,206.9,1.74,206.82,174.16,0.65
 20260430,214,224,213,217.5,12904404,207.78,4.68,208.85,175.76,1.08
 20260504,222.5,225.5,215.5,219.5,8413985,208.76,5.14,210.7,177.37,0.7
 20260505,217,232,215.5,232,9668395,210.7,10.11,213.4,179.22,0.79
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,232,237,224,235.5,6071324,220.48,6.81,223.68,201.12,0.66
 20260527,243,243.5,218.5,221,6461765,220.52,0.22,224.47,202.18,0.71
 20260528,221.5,222,206,210.5,4731180,219.69,-4.18,224.35,202.8,0.53
+20260529,211,216.5,208.5,210.5,3363536,218.92,-3.85,224.35,203.41,0.39
 ```
 
 ## Latest TDCC Snapshot
@@ -135,7 +135,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4977 | 眾達-KY | 106 | 9 | 5559290.0 | 48780.0 | 113.97 | no_signal | 0 |  |
+| 20260529 | 4977 | 眾達-KY | 106 | 9 | 6884580.0 | 25900.0 | 265.81 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2376 技嘉
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:39 Asia/Taipei
+- generated_at: 2026-05-29 19:32:01 Asia/Taipei
 - stock_id: 2376
 - stock_name: 技嘉
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 336
-- high: 350
-- low: 331
-- close: 337.5
-- volume: 17174957
-- ma5: 333
-- ema23_primary: 311.28
-- distance_to_ema23_pct: 8.42
-- ma20: 314.5
-- ma60: 270.06
-- ma120: 254.43
-- return_5d: 6.64
-- return_20d: 23.85
-- volume_ratio: 1.01
-- distance_to_ma20_pct_auxiliary: 7.31
-- distance_to_high_60_pct: -3.85
+- date: 20260529
+- open: 350.5
+- high: 371
+- low: 350
+- close: 370
+- volume: 33434927
+- ma5: 342.5
+- ema23_primary: 316.17
+- distance_to_ema23_pct: 17.03
+- ma20: 319.35
+- ma60: 272.41
+- ma120: 255.5
+- return_5d: 14.73
+- return_20d: 35.53
+- volume_ratio: 1.82
+- distance_to_ma20_pct_auxiliary: 15.86
+- distance_to_high_60_pct: -0.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,273,280,271,273,5636066,265.8,2.71,266.35,243.38,0.58
 20260504,278,282,270.5,279,6508646,266.9,4.53,268.7,244.06,0.66
 20260505,279,281,275.5,279.5,4539828,267.95,4.31,271.27,244.68,0.46
 20260506,283,304.5,283,301,24158935,270.7,11.19,275.2,245.68,2.2
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,340,340.5,330,336,11025246,306.75,9.54,308.7,266.82,0.67
 20260527,341,341,331,332.5,9035273,308.89,7.64,311.25,268.38,0.55
 20260528,336,350,331,337.5,17174957,311.28,8.42,314.5,270.06,1.01
+20260529,350.5,371,350,370,33434927,316.17,17.03,319.35,272.41,1.82
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2376 | 技嘉 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260528 | 2376 | 技嘉 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260529 | 2376 | 技嘉 | true_breakout | 嚴格突破 | 97.0 |  |  | breakout_confirmed |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2376 | 技嘉 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260529 | 2376 | 技嘉 | 7 | 1 | 5 | 7 | 7 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2376 | 技嘉 | 102 | 2 | 22826610.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 2376 | 技嘉 | 99 | 2 | 34410450.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

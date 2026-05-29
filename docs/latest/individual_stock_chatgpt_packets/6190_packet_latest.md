@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6190 萬泰科
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:57 Asia/Taipei
+- generated_at: 2026-05-29 19:33:19 Asia/Taipei
 - stock_id: 6190
 - stock_name: 萬泰科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 82
-- high: 88
-- low: 81.5
-- close: 85.9
-- volume: 85000
-- ma5: 80.82
-- ema23_primary: 76.38
-- distance_to_ema23_pct: 12.46
-- ma20: 77.9
-- ma60: 64.28
-- ma120: 55.4
-- return_5d: 8.73
-- return_20d: 21.16
+- date: 20260529
+- open: 87.6
+- high: 92.1
+- low: 85
+- close: 92
+- volume: 88000
+- ma5: 83.22
+- ema23_primary: 77.69
+- distance_to_ema23_pct: 18.43
+- ma20: 79.01
+- ma60: 64.97
+- ma120: 55.84
+- return_5d: 15
+- return_20d: 31.81
 - volume_ratio: 0.01
-- distance_to_ma20_pct_auxiliary: 10.27
-- distance_to_high_60_pct: -2.39
+- distance_to_ma20_pct_auxiliary: 16.44
+- distance_to_high_60_pct: -0.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,71.1,71.9,69.3,69.8,9409000,64.26,8.63,64.53,55.34,0.57
 20260504,70.3,72.9,69.8,72,8027000,64.9,10.94,65.37,55.67,0.51
 20260505,72,74.2,71.2,73.6,8201000,65.63,12.15,66.39,55.95,0.52
 20260506,74.3,76.5,72.2,75,12997000,66.41,12.94,67.36,56.33,0.81
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,80.9,81,77.6,78,79000,75.08,3.9,76.73,63.24,0.01
 20260527,78.9,80.5,77,80.4,79000,75.52,6.46,77.15,63.73,0.01
 20260528,82,88,81.5,85.9,85000,76.38,12.46,77.9,64.28,0.01
+20260529,87.6,92.1,85,92,88000,77.69,18.43,79.01,64.97,0.01
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6190 | 萬泰科 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

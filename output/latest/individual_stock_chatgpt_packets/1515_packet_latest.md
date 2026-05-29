@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1515 力山
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:19 Asia/Taipei
+- generated_at: 2026-05-29 19:31:42 Asia/Taipei
 - stock_id: 1515
 - stock_name: 力山
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 22.25
-- high: 22.45
-- low: 21.6
-- close: 21.95
-- volume: 590876
-- ma5: 22.44
-- ema23_primary: 22.49
-- distance_to_ema23_pct: -2.4
-- ma20: 22.32
-- ma60: 23.42
-- ma120: 25.47
-- return_5d: -0.9
-- return_20d: 0.23
-- volume_ratio: 1.13
-- distance_to_ma20_pct_auxiliary: -1.65
-- distance_to_high_60_pct: -18.4
+- date: 20260529
+- open: 21.85
+- high: 22.15
+- low: 21.15
+- close: 21.8
+- volume: 2330650
+- ma5: 22.27
+- ema23_primary: 22.43
+- distance_to_ema23_pct: -2.82
+- ma20: 22.31
+- ma60: 23.35
+- ma120: 25.42
+- return_5d: -3.75
+- return_20d: -0.46
+- volume_ratio: 3.7
+- distance_to_ma20_pct_auxiliary: -2.3
+- distance_to_high_60_pct: -16.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,21.9,21.9,21.7,21.9,221189,23.12,-5.28,23,24.82,0.74
 20260504,21.8,22.1,21.75,21.75,275862,23.01,-5.46,22.9,24.71,0.9
 20260505,21.5,22,21.45,22,272890,22.92,-4.03,22.82,24.61,0.87
 20260506,22.25,22.25,21.8,21.95,420408,22.84,-3.9,22.73,24.52,1.29
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,22.9,23.55,22.75,22.75,465983,22.59,0.7,22.32,23.58,1.01
 20260527,23,23,21.85,21.95,1064204,22.54,-2.61,22.32,23.51,2.12
 20260528,22.25,22.45,21.6,21.95,590876,22.49,-2.4,22.32,23.42,1.13
+20260529,21.85,22.15,21.15,21.8,2330650,22.43,-2.82,22.31,23.35,3.7
 ```
 
 ## Latest TDCC Snapshot

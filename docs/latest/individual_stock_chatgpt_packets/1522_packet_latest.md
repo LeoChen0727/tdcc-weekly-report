@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1522 堤維西
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:20 Asia/Taipei
+- generated_at: 2026-05-29 19:31:42 Asia/Taipei
 - stock_id: 1522
 - stock_name: 堤維西
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 31.35
-- high: 31.45
-- low: 31.35
-- close: 31.45
-- volume: 3536658
-- ma5: 29.56
-- ema23_primary: 30.56
-- distance_to_ema23_pct: 2.9
-- ma20: 30.48
-- ma60: 33.04
-- ma120: 40.34
-- return_5d: 6.07
-- return_20d: 0.64
-- volume_ratio: 2.28
-- distance_to_ma20_pct_auxiliary: 3.17
-- distance_to_high_60_pct: -28.85
+- date: 20260529
+- open: 34.5
+- high: 34.55
+- low: 33.2
+- close: 34.55
+- volume: 13169308
+- ma5: 30.58
+- ema23_primary: 30.9
+- distance_to_ema23_pct: 11.83
+- ma20: 30.66
+- ma60: 32.91
+- ma120: 40.23
+- return_5d: 17.32
+- return_20d: 11.63
+- volume_ratio: 6.1
+- distance_to_ma20_pct_auxiliary: 12.67
+- distance_to_high_60_pct: -18.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,31.55,31.6,30.8,30.95,1013932,32.64,-5.18,31.94,38.44,1.29
 20260504,30.95,31.4,30.8,31,815461,32.5,-4.63,31.88,38.11,1.03
 20260505,31.15,31.85,31,31.7,1063622,32.44,-2.27,31.89,37.79,1.3
 20260506,31.7,31.9,31.05,31.05,1080544,32.32,-3.93,31.88,37.45,1.29
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,29.2,29.5,29,29.1,775512,30.65,-5.07,30.62,33.5,0.57
 20260527,29.1,29.1,28.55,28.6,1649272,30.48,-6.18,30.48,33.24,1.17
 20260528,31.35,31.45,31.35,31.45,3536658,30.56,2.9,30.48,33.04,2.28
+20260529,34.5,34.55,33.2,34.55,13169308,30.9,11.83,30.66,32.91,6.1
 ```
 
 ## Latest TDCC Snapshot
@@ -125,19 +125,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1522 | 堤維西 | pullback_rebound | 回檔後短線轉強 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260528 | 1522 | 堤維西 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260528 | 1522 | 堤維西 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 1522 | 堤維西 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260529 | 1522 | 堤維西 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260529 | 1522 | 堤維西 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1522 | 堤維西 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260529 | 1522 | 堤維西 | 5 | 2 | 5 | 5 | 5 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1522 | 堤維西 | 3 | 0 | 37830.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 1522 | 堤維西 | 2 | 0 | 782080.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

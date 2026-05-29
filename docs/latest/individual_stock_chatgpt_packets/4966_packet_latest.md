@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4966 譜瑞-KY
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:38 Asia/Taipei
+- generated_at: 2026-05-29 19:33:00 Asia/Taipei
 - stock_id: 4966
 - stock_name: 譜瑞-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 897
-- high: 922
-- low: 830
-- close: 845
-- volume: 881000
-- ma5: 827
-- ema23_primary: 732.91
-- distance_to_ema23_pct: 15.29
-- ma20: 732.7
-- ma60: 594.12
-- ma120: 587.61
-- return_5d: 7.1
-- return_20d: 48.77
+- date: 20260529
+- open: 866
+- high: 929
+- low: 810
+- close: 834
+- volume: 873000
+- ma5: 834.8
+- ema23_primary: 741.33
+- distance_to_ema23_pct: 12.5
+- ma20: 745.65
+- ma60: 599.28
+- ma120: 589.13
+- return_5d: 4.91
+- return_20d: 45.04
 - volume_ratio: 0.26
-- distance_to_ma20_pct_auxiliary: 15.33
-- distance_to_high_60_pct: -8.35
+- distance_to_ma20_pct_auxiliary: 11.85
+- distance_to_high_60_pct: -10.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,578,584,569,575,1326000,553.59,3.87,543.83,529.82,0.64
 20260504,583,591,569,575,1503000,555.37,3.53,548.48,529.92,0.72
 20260505,570,573,561,562,1344000,555.92,1.09,553.4,529.68,0.63
 20260506,569,576,553,574,1401000,557.43,2.97,558.35,529.48,0.64
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,824,824,798,807,808000,709.33,13.77,704.75,583.53,0.23
 20260527,852,870,824,870,851000,722.72,20.38,718.85,588.95,0.25
 20260528,897,922,830,845,881000,732.91,15.29,732.7,594.12,0.26
+20260529,866,929,810,834,873000,741.33,12.5,745.65,599.28,0.26
 ```
 
 ## Latest TDCC Snapshot

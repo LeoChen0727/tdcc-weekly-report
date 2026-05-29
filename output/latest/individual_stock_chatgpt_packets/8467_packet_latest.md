@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8467 波力-KY
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:40 Asia/Taipei
+- generated_at: 2026-05-29 19:34:02 Asia/Taipei
 - stock_id: 8467
 - stock_name: 波力-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 129
+- date: 20260529
+- open: 126.5
 - high: 129
 - low: 126.5
-- close: 126.5
-- volume: 19200
-- ma5: 128.2
-- ema23_primary: 134.22
-- distance_to_ema23_pct: -5.75
-- ma20: 132.45
-- ma60: 146.56
-- ma120: 158.79
-- return_5d: 0
-- return_20d: -14.81
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: -4.49
-- distance_to_high_60_pct: -27.09
+- close: 128
+- volume: 36528
+- ma5: 128.6
+- ema23_primary: 133.7
+- distance_to_ema23_pct: -4.27
+- ma20: 131.53
+- ma60: 145.93
+- ma120: 158.62
+- return_5d: 1.59
+- return_20d: -12.63
+- volume_ratio: 0.99
+- distance_to_ma20_pct_auxiliary: -2.68
+- distance_to_high_60_pct: -22.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,148.5,148.5,146,146.5,15468,151.99,-3.61,151.22,162.52,0.52
 20260504,147,147,144,144.5,51535,151.37,-4.54,151.1,161.78,1.63
 20260505,144.5,144.5,142,142.5,31993,150.63,-5.4,150.82,161.03,0.98
 20260506,142.5,144.5,136,139.5,88200,149.7,-6.81,150.3,160.22,2.45
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,128,134,128,131,41601,135.33,-3.2,134.38,148.02,1.2
 20260527,131.5,131.5,130,130.5,24349,134.93,-3.28,133.55,147.34,0.69
 20260528,129,129,126.5,126.5,19200,134.22,-5.75,132.45,146.56,0.54
+20260529,126.5,129,126.5,128,36528,133.7,-4.27,131.53,145.93,0.99
 ```
 
 ## Latest TDCC Snapshot
@@ -135,7 +135,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 8467 | 波力-KY | 1 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 8467 | 波力-KY | 1 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

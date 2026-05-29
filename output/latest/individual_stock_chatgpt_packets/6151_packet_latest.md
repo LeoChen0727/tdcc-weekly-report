@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6151 晉倫
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:55 Asia/Taipei
+- generated_at: 2026-05-29 19:33:17 Asia/Taipei
 - stock_id: 6151
 - stock_name: 晉倫
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 44.7
-- high: 46.5
-- low: 43
-- close: 43.1
-- volume: 45000
-- ma5: 46.57
-- ema23_primary: 41.71
-- distance_to_ema23_pct: 3.33
-- ma20: 41.45
-- ma60: 35.47
-- ma120: 32.6
-- return_5d: -7.41
-- return_20d: 18.41
+- date: 20260529
+- open: 44.65
+- high: 44.65
+- low: 42.75
+- close: 43.05
+- volume: 43000
+- ma5: 45.22
+- ema23_primary: 41.82
+- distance_to_ema23_pct: 2.93
+- ma20: 41.82
+- ma60: 35.67
+- ma120: 32.73
+- return_5d: -13.55
+- return_20d: 20.76
 - volume_ratio: 0.05
-- distance_to_ma20_pct_auxiliary: 3.97
-- distance_to_high_60_pct: -15.49
+- distance_to_ma20_pct_auxiliary: 2.94
+- distance_to_high_60_pct: -15.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,37,37,35.65,35.65,223000,34.59,3.07,35.12,31.82,0.32
 20260504,35.65,36.35,35.45,35.6,298000,34.67,2.67,35.22,31.9,0.45
 20260505,35.45,36.35,35.3,35.65,274000,34.76,2.58,35.37,31.98,0.48
 20260506,35.7,35.8,34.65,35.65,489000,34.83,2.36,35.52,32.07,0.85
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,49,49.15,46.25,46.45,48000,41.3,12.46,40.65,35.03,0.05
 20260527,46.45,47.5,44.3,44.7,46000,41.58,7.49,41.12,35.26,0.05
 20260528,44.7,46.5,43,43.1,45000,41.71,3.33,41.45,35.47,0.05
+20260529,44.65,44.65,42.75,43.05,43000,41.82,2.93,41.82,35.67,0.05
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6151 | 晉倫 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

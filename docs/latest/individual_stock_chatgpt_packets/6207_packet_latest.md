@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6207 雷科
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:58 Asia/Taipei
+- generated_at: 2026-05-29 19:33:20 Asia/Taipei
 - stock_id: 6207
 - stock_name: 雷科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 104
-- high: 109.5
-- low: 102
-- close: 105
-- volume: 106000
-- ma5: 101.14
-- ema23_primary: 81.18
-- distance_to_ema23_pct: 29.34
-- ma20: 79.7
-- ma60: 62.76
-- ma120: 56.96
-- return_5d: 18.38
-- return_20d: 78.57
+- date: 20260529
+- open: 108
+- high: 115.5
+- low: 107
+- close: 111.5
+- volume: 112000
+- ma5: 105.46
+- ema23_primary: 83.71
+- distance_to_ema23_pct: 33.2
+- ma20: 82.05
+- ma60: 63.64
+- ma120: 57.5
+- return_5d: 24.03
+- return_20d: 72.87
 - volume_ratio: 0.01
-- distance_to_ma20_pct_auxiliary: 31.74
-- distance_to_high_60_pct: -6.67
+- distance_to_ma20_pct_auxiliary: 35.89
+- distance_to_high_60_pct: -3.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,59.2,64.6,58.7,64.5,14788000,56.51,14.15,55.82,54.42,4.62
 20260504,65.8,66.5,62.2,63.4,14673000,57.08,11.07,56.46,54.57,3.76
 20260505,63.4,69.7,63,68.1,17843000,58,17.42,57.36,54.81,3.74
 20260506,68.3,69.5,63.8,68.7,14000000,58.89,16.66,58.32,55.01,2.57
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,105.5,108.5,104.5,108.5,108000,76.79,41.29,75.17,61.15,0.01
 20260527,112,112.5,101,103.5,105000,79.02,30.98,77.39,61.96,0.01
 20260528,104,109.5,102,105,106000,81.18,29.34,79.7,62.76,0.01
+20260529,108,115.5,107,111.5,112000,83.71,33.2,82.05,63.64,0.01
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6207 | 雷科 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

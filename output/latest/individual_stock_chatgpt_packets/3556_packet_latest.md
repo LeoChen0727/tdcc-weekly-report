@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3556 禾瑞亞
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:16 Asia/Taipei
+- generated_at: 2026-05-29 19:32:39 Asia/Taipei
 - stock_id: 3556
 - stock_name: 禾瑞亞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 56.8
-- high: 61.7
-- low: 56.8
-- close: 61.1
-- volume: 61000
-- ma5: 57
-- ema23_primary: 53.55
-- distance_to_ema23_pct: 14.11
-- ma20: 53.56
-- ma60: 48.37
-- ma120: 43.89
-- return_5d: 13.15
-- return_20d: 18.18
-- volume_ratio: 0.17
-- distance_to_ma20_pct_auxiliary: 14.08
-- distance_to_high_60_pct: -0.97
+- date: 20260529
+- open: 63.2
+- high: 67.2
+- low: 63
+- close: 67.2
+- volume: 66000
+- ma5: 59.5
+- ema23_primary: 54.68
+- distance_to_ema23_pct: 22.89
+- ma20: 54.4
+- ma60: 48.76
+- ma120: 44.14
+- return_5d: 22.85
+- return_20d: 33.33
+- volume_ratio: 0.19
+- distance_to_ma20_pct_auxiliary: 23.53
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,52,52,50.2,50.4,312000,49.26,2.32,49.34,45.23,0.4
 20260504,50.8,51.4,50.5,51.3,320000,49.43,3.79,49.77,45.39,0.4
 20260505,51.3,52.9,51.1,52.9,296000,49.72,6.41,50.22,45.58,0.37
 20260506,53.6,53.7,51.1,52.6,508000,49.96,5.29,50.56,45.77,0.63
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,56.6,57.2,55,56.3,56000,52.57,7.1,52.81,47.92,0.14
 20260527,57,57.2,55.5,56.1,56000,52.86,6.13,53.09,48.12,0.14
 20260528,56.8,61.7,56.8,61.1,61000,53.55,14.11,53.56,48.37,0.17
+20260529,63.2,67.2,63,67.2,66000,54.68,22.89,54.4,48.76,0.19
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3556 | 禾瑞亞 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

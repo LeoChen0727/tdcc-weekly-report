@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4562 穎漢
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:31 Asia/Taipei
+- generated_at: 2026-05-29 19:32:53 Asia/Taipei
 - stock_id: 4562
 - stock_name: 穎漢
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 41.5
-- high: 42.8
-- low: 39.4
-- close: 40.3
-- volume: 1414346
-- ma5: 41.89
-- ema23_primary: 38.99
-- distance_to_ema23_pct: 3.35
-- ma20: 39.35
-- ma60: 34.93
-- ma120: 36.25
-- return_5d: -1.23
-- return_20d: 8.19
-- volume_ratio: 0.51
-- distance_to_ma20_pct_auxiliary: 2.42
-- distance_to_high_60_pct: -8.72
+- date: 20260529
+- open: 40.7
+- high: 43.7
+- low: 40.5
+- close: 41.45
+- volume: 2366870
+- ma5: 41.62
+- ema23_primary: 39.2
+- distance_to_ema23_pct: 5.74
+- ma20: 39.63
+- ma60: 35.03
+- ma120: 36.3
+- return_5d: -3.15
+- return_20d: 15.62
+- volume_ratio: 0.9
+- distance_to_ma20_pct_auxiliary: 4.6
+- distance_to_high_60_pct: -6.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,37.5,38.7,35.85,35.85,4959845,33.6,6.69,33.12,34.59,4.24
 20260504,36.6,38.55,36.05,36.7,1554120,33.86,8.38,33.45,34.51,1.25
 20260505,37.05,40.35,36.8,40.35,4531419,34.4,17.29,33.97,34.47,3.11
 20260506,40.35,40.5,37.65,38.1,3033568,34.71,9.77,34.39,34.43,1.9
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,42.5,44,41.55,42.9,3439087,38.66,10.96,38.83,34.82,1.21
 20260527,43.3,43.3,40.6,41.2,1586403,38.88,5.98,39.2,34.88,0.55
 20260528,41.5,42.8,39.4,40.3,1414346,38.99,3.35,39.35,34.93,0.51
+20260529,40.7,43.7,40.5,41.45,2366870,39.2,5.74,39.63,35.03,0.9
 ```
 
 ## Latest TDCC Snapshot
@@ -125,13 +125,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4562 | 穎漢 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 4562 | 穎漢 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 4562 | 穎漢 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260521 | 4562 | 穎漢 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4562 | 穎漢 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260529 | 4562 | 穎漢 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

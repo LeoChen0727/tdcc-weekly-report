@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4938 和碩
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:37 Asia/Taipei
+- generated_at: 2026-05-29 19:32:59 Asia/Taipei
 - stock_id: 4938
 - stock_name: 和碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 82.5
-- high: 84.4
-- low: 82.5
-- close: 83.4
-- volume: 16399172
-- ma5: 81.76
-- ema23_primary: 80.62
-- distance_to_ema23_pct: 3.44
-- ma20: 80.78
-- ma60: 78.87
-- ma120: 74.58
-- return_5d: 5.44
-- return_20d: 1.71
-- volume_ratio: 1.27
-- distance_to_ma20_pct_auxiliary: 3.24
-- distance_to_high_60_pct: -3.02
+- date: 20260529
+- open: 85.5
+- high: 89.4
+- low: 85.3
+- close: 88.5
+- volume: 38620432
+- ma5: 83.32
+- ema23_primary: 81.28
+- distance_to_ema23_pct: 8.88
+- ma20: 81.09
+- ma60: 79.16
+- ma120: 74.74
+- return_5d: 9.67
+- return_20d: 7.53
+- volume_ratio: 2.67
+- distance_to_ma20_pct_auxiliary: 9.13
+- distance_to_high_60_pct: -1.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,81.5,83.3,81.5,82.3,7456670,80.85,1.8,81.13,75.69,0.62
 20260504,83.4,83.4,81.2,81.3,11709483,80.88,0.51,81.28,75.88,0.95
 20260505,81.5,81.7,80.9,81.5,8402325,80.94,0.7,81.46,76.06,0.68
 20260506,82.3,83.6,81.7,83.6,11744739,81.16,3.01,81.75,76.28,0.92
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,81.8,82.5,80.7,81.4,8234361,80.21,1.48,80.75,78.53,0.68
 20260527,81.8,83.3,81.4,82.1,13465420,80.37,2.15,80.72,78.68,1.08
 20260528,82.5,84.4,82.5,83.4,16399172,80.62,3.44,80.78,78.87,1.27
+20260529,85.5,89.4,85.3,88.5,38620432,81.28,8.88,81.09,79.16,2.67
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4938 | 和碩 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 4938 | 和碩 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 4938 | 和碩 | true_breakout | 嚴格突破 | 126.0 |  |  | platform_breakout |  | call_strong_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260521 | 4938 | 和碩 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_strong_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4938 | 和碩 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260529 | 4938 | 和碩 | 7 | 7 | 5 | 7 | 7 | continued_many_days | 連續 7 個交易日上榜，需判斷是持續醞釀或訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4938 | 和碩 | 18 | 0 | 14682910.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260529 | 4938 | 和碩 | 17 | 0 | 15729980.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

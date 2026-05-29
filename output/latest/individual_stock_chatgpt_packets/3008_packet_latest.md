@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3008 大立光
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:58 Asia/Taipei
+- generated_at: 2026-05-29 19:32:20 Asia/Taipei
 - stock_id: 3008
 - stock_name: 大立光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 3505
-- high: 3630
-- low: 3420
-- close: 3425
-- volume: 1352548
-- ma5: 3596
-- ema23_primary: 3126.94
-- distance_to_ema23_pct: 9.53
-- ma20: 3068.25
-- ma60: 2621.08
-- ma120: 2472.12
-- return_5d: -1.01
-- return_20d: 31.98
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: 11.63
-- distance_to_high_60_pct: -11.61
+- date: 20260529
+- open: 3515
+- high: 3600
+- low: 3450
+- close: 3515
+- volume: 1477877
+- ma5: 3591
+- ema23_primary: 3159.28
+- distance_to_ema23_pct: 11.26
+- ma20: 3118.25
+- ma60: 2638.83
+- ma120: 2483.38
+- return_5d: -0.71
+- return_20d: 39.76
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: 12.72
+- distance_to_high_60_pct: -9.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,2580,2580,2515,2515,1185538,2501.89,0.52,2498.25,2397.17,0.65
 20260504,2540,2580,2515,2575,1338198,2507.99,2.67,2517.5,2399.08,0.71
 20260505,2575,2585,2520,2545,781570,2511.07,1.35,2537.75,2400.67,0.41
 20260506,2550,2550,2490,2520,1403899,2511.82,0.33,2555.25,2402.08,0.72
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,3875,3875,3665,3665,1129814,3063.01,19.65,2980.5,2588.5,0.52
 20260527,3690,3720,3500,3505,1354119,3099.84,13.07,3026.75,2604.92,0.63
 20260528,3505,3630,3420,3425,1352548,3126.94,9.53,3068.25,2621.08,0.63
+20260529,3515,3600,3450,3515,1477877,3159.28,11.26,3118.25,2638.83,0.68
 ```
 
 ## Latest TDCC Snapshot
@@ -135,7 +135,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3008 | 大立光 | 241 | 12 | 30834940.0 | 393370.0 | 78.39 | no_signal | 0 |  |
+| 20260529 | 3008 | 大立光 | 239 | 12 | 26869750.0 | 571280.0 | 47.03 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

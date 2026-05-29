@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4807 日成-KY
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:35 Asia/Taipei
+- generated_at: 2026-05-29 19:32:57 Asia/Taipei
 - stock_id: 4807
 - stock_name: 日成-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 134
+- latest_price_date: 20260529
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
+- date: 20260529
 - open: 25.7
-- high: 26.25
-- low: 24.5
-- close: 25.4
-- volume: 751063
-- ma5: 24.12
-- ema23_primary: 22.26
-- distance_to_ema23_pct: 14.08
-- ma20: 23.24
-- ma60: 18.3
-- ma120: 18.13
-- return_5d: 10.92
-- return_20d: 34.39
-- volume_ratio: 1.62
-- distance_to_ma20_pct_auxiliary: 9.29
-- distance_to_high_60_pct: -7.8
+- high: 27.9
+- low: 25.5
+- close: 27.9
+- volume: 1076122
+- ma5: 25.11
+- ema23_primary: 22.73
+- distance_to_ema23_pct: 22.72
+- ma20: 23.6
+- ma60: 18.47
+- ma120: 18.22
+- return_5d: 21.57
+- return_20d: 34.46
+- volume_ratio: 2.27
+- distance_to_ma20_pct_auxiliary: 18.23
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,19.1,20.75,18.8,20.75,873708,16.32,27.13,15.64,16.57,5.19
 20260504,20.95,22.8,20.9,22.8,974367,16.86,35.22,16.06,16.64,4.6
 20260505,23,23.8,21.45,21.45,789586,17.24,24.39,16.42,16.7,3.18
 20260506,21.55,23.1,20.6,21.35,450342,17.59,21.4,16.77,16.76,1.68
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,24.45,25.65,23.05,23.35,608809,21.7,7.6,22.52,18.06,1.45
 20260527,24,25.65,23.35,25.05,715904,21.98,13.97,22.91,18.18,1.6
 20260528,25.7,26.25,24.5,25.4,751063,22.26,14.08,23.24,18.3,1.62
+20260529,25.7,27.9,25.5,27.9,1076122,22.73,22.72,23.6,18.47,2.27
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 4807 | 日成-KY | true_breakout | 嚴格突破 | 89.0 |  |  | breakout_confirmed |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 4807 | 日成-KY | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | status |

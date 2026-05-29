@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6208 日揚
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:58 Asia/Taipei
+- generated_at: 2026-05-29 19:33:20 Asia/Taipei
 - stock_id: 6208
 - stock_name: 日揚
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 93.7
-- high: 96.2
-- low: 91.7
-- close: 93.1
-- volume: 94000
-- ma5: 96.58
-- ema23_primary: 89.31
-- distance_to_ema23_pct: 4.25
-- ma20: 90.56
-- ma60: 68.46
-- ma120: 56.5
-- return_5d: -8.73
-- return_20d: 18.75
+- date: 20260529
+- open: 95.8
+- high: 97.6
+- low: 93.8
+- close: 95.1
+- volume: 96000
+- ma5: 95.8
+- ema23_primary: 89.79
+- distance_to_ema23_pct: 5.91
+- ma20: 91.31
+- ma60: 69.28
+- ma120: 56.94
+- return_5d: -3.94
+- return_20d: 18.88
 - volume_ratio: 0.05
-- distance_to_ma20_pct_auxiliary: 2.81
-- distance_to_high_60_pct: -14.19
+- distance_to_ma20_pct_auxiliary: 4.15
+- distance_to_high_60_pct: -12.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,81,83,78,80,506000,69.81,14.6,69.49,53.78,0.37
 20260504,81.6,83.9,81.3,82.3,604000,70.85,16.17,71.22,54.43,0.44
 20260505,83,83.6,80.8,83.3,543000,71.88,15.88,72.77,55.09,0.4
 20260506,83.3,84.6,75,75.2,1990000,72.16,4.21,73.64,55.62,1.49
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,103,103,96.6,97.8,98000,88.59,10.39,89.27,66.89,0.05
 20260527,99.1,99.1,93,93,95000,88.96,4.54,89.82,67.68,0.05
 20260528,93.7,96.2,91.7,93.1,94000,89.31,4.25,90.56,68.46,0.05
+20260529,95.8,97.6,93.8,95.1,96000,89.79,5.91,91.31,69.28,0.05
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6208 | 日揚 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

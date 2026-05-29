@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6517 保勝光學
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:08 Asia/Taipei
+- generated_at: 2026-05-29 19:33:30 Asia/Taipei
 - stock_id: 6517
 - stock_name: 保勝光學
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 59
-- high: 59.9
-- low: 57.3
-- close: 57.6
-- volume: 58000
-- ma5: 60.32
-- ema23_primary: 59.46
-- distance_to_ema23_pct: -3.13
-- ma20: 59.31
-- ma60: 58.4
-- ma120: 61.95
-- return_5d: -6.8
-- return_20d: -0.17
-- volume_ratio: 0.22
-- distance_to_ma20_pct_auxiliary: -2.88
-- distance_to_high_60_pct: -10
+- date: 20260529
+- open: 57.8
+- high: 59.8
+- low: 57.8
+- close: 59
+- volume: 59000
+- ma5: 59.66
+- ema23_primary: 59.42
+- distance_to_ema23_pct: -0.71
+- ma20: 59.38
+- ma60: 58.39
+- ma120: 61.97
+- return_5d: -5.3
+- return_20d: 2.25
+- volume_ratio: 0.23
+- distance_to_ma20_pct_auxiliary: -0.63
+- distance_to_high_60_pct: -7.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,57.7,59.5,57.6,57.7,117000,58.49,-1.36,58.27,60.56,0.56
 20260504,58.1,60.8,58,59.8,259000,58.6,2.04,58.43,60.32,1.19
 20260505,60.4,61.3,59.7,59.8,194000,58.7,1.87,58.6,60.07,0.87
 20260506,60.3,60.4,58.3,59,211000,58.73,0.46,58.78,59.83,0.93
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,62,62.4,60.5,60.8,61000,59.68,1.88,59.25,58.49,0.23
 20260527,61.2,61.2,59,59.1,60000,59.63,-0.89,59.31,58.46,0.23
 20260528,59,59.9,57.3,57.6,58000,59.46,-3.13,59.31,58.4,0.22
+20260529,57.8,59.8,57.8,59,59000,59.42,-0.71,59.38,58.39,0.23
 ```
 
 ## Latest TDCC Snapshot

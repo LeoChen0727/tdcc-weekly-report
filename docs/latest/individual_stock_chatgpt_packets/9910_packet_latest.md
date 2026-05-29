@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9910 豐泰
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:43 Asia/Taipei
+- generated_at: 2026-05-29 19:34:06 Asia/Taipei
 - stock_id: 9910
 - stock_name: 豐泰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 67.3
-- high: 68.4
-- low: 66.8
-- close: 68
-- volume: 2558891
-- ma5: 67.84
-- ema23_primary: 70.84
-- distance_to_ema23_pct: -4
-- ma20: 70.07
-- ma60: 77.37
-- ma120: 93.15
-- return_5d: -1.73
-- return_20d: -3.95
-- volume_ratio: 1.04
-- distance_to_ma20_pct_auxiliary: -2.95
-- distance_to_high_60_pct: -30.11
+- date: 20260529
+- open: 69
+- high: 70.2
+- low: 68
+- close: 70.2
+- volume: 4100850
+- ma5: 68.14
+- ema23_primary: 70.78
+- distance_to_ema23_pct: -0.82
+- ma20: 70.08
+- ma60: 77
+- ma120: 92.68
+- return_5d: 2.18
+- return_20d: 0.14
+- volume_ratio: 1.58
+- distance_to_ma20_pct_auxiliary: 0.18
+- distance_to_high_60_pct: -27.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,70.5,71.4,70.1,70.1,1422803,76.72,-8.63,76.42,84.98,0.67
 20260504,70.2,72.4,69.2,70.7,2606124,76.22,-7.24,75.86,84.51,1.19
 20260505,70.7,70.7,69,69.3,2851762,75.64,-8.39,75.38,84.07,1.28
 20260506,69.3,69.3,67.7,68.8,2913085,75.07,-8.36,74.88,83.6,1.26
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,67.7,68,66.8,67.5,2485835,71.45,-5.53,70.44,78.23,1.05
 20260527,67.5,67.8,66.4,67.2,3259714,71.09,-5.48,70.21,77.78,1.35
 20260528,67.3,68.4,66.8,68,2558891,70.84,-4,70.07,77.37,1.04
+20260529,69,70.2,68,70.2,4100850,70.78,-0.82,70.08,77,1.58
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 9910 | 豐泰 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 9910 | 豐泰 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8033 雷虎
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:30 Asia/Taipei
+- generated_at: 2026-05-29 19:33:52 Asia/Taipei
 - stock_id: 8033
 - stock_name: 雷虎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 135
-- high: 138
-- low: 134.5
-- close: 135
-- volume: 2879913
-- ma5: 136.6
-- ema23_primary: 140.31
-- distance_to_ema23_pct: -3.79
-- ma20: 141.85
-- ma60: 143.53
-- ma120: 144.82
-- return_5d: -0.37
-- return_20d: -5.59
-- volume_ratio: 0.68
-- distance_to_ma20_pct_auxiliary: -4.83
-- distance_to_high_60_pct: -17.93
+- date: 20260529
+- open: 139
+- high: 145.5
+- low: 139
+- close: 143
+- volume: 7357597
+- ma5: 137.6
+- ema23_primary: 140.54
+- distance_to_ema23_pct: 1.75
+- ma20: 141.8
+- ma60: 143.32
+- ma120: 144.93
+- return_5d: 3.62
+- return_20d: -0.69
+- volume_ratio: 1.61
+- distance_to_ma20_pct_auxiliary: 0.85
+- distance_to_high_60_pct: -13.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,143,144.5,142.5,144,1443532,145.66,-1.14,143,145.86,0.32
 20260504,144.5,155,144.5,153,5129837,146.27,4.6,143.7,145.88,1.1
 20260505,153,157,151,154,3822461,146.92,4.82,144.7,145.85,0.81
 20260506,155,155,149,150.5,3075263,147.21,2.23,145.53,145.78,0.64
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,139.5,140.5,135.5,136.5,2278011,141.32,-3.41,142.72,144.35,0.52
 20260527,137.5,138,134.5,135,2951461,140.8,-4.12,142.25,143.92,0.69
 20260528,135,138,134.5,135,2879913,140.31,-3.79,141.85,143.53,0.68
+20260529,139,145.5,139,143,7357597,140.54,1.75,141.8,143.32,1.61
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 8033 | 雷虎 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 8033 | 雷虎 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 8033 | 雷虎 | 4 | 0 | 62780.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 8033 | 雷虎 | 4 | 0 | 110150.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

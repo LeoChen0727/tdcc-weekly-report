@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0090 富邦特選高股息30
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:09 Asia/Taipei
+- generated_at: 2026-05-29 19:31:31 Asia/Taipei
 - stock_id: 0090
 - stock_name: 富邦特選高股息30
 - packet_status: insufficient_price_data
@@ -113,7 +113,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 0090 | 富邦特選高股息30 | 1 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 0090 | 富邦特選高股息30 | 1 | 0 | 171850.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

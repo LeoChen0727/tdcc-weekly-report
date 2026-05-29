@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2464 盟立
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:44 Asia/Taipei
+- generated_at: 2026-05-29 19:32:06 Asia/Taipei
 - stock_id: 2464
 - stock_name: 盟立
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 177
-- high: 177
-- low: 163.5
-- close: 168
-- volume: 17695107
-- ma5: 164.1
-- ema23_primary: 131.38
-- distance_to_ema23_pct: 27.88
-- ma20: 131.68
-- ma60: 94.59
-- ma120: 79.92
-- return_5d: 23.53
-- return_20d: 46.72
-- volume_ratio: 0.67
-- distance_to_ma20_pct_auxiliary: 27.59
-- distance_to_high_60_pct: -8.7
+- date: 20260529
+- open: 175
+- high: 184.5
+- low: 173
+- close: 184.5
+- volume: 14603817
+- ma5: 172.2
+- ema23_primary: 135.8
+- distance_to_ema23_pct: 35.86
+- ma20: 135.22
+- ma60: 96.47
+- ma120: 80.97
+- return_5d: 28.12
+- return_20d: 62.56
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: 36.44
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,112,118,111.5,113.5,30874543,86.77,30.8,82.58,75.03,1.91
 20260504,116,120,113,116,25160104,89.21,30.03,84.98,75.81,1.45
 20260505,118,121.5,111.5,113,18018922,91.19,23.92,87.31,76.52,0.99
 20260506,113,115,105,111,18892967,92.84,19.56,89.56,77.22,1
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,163.5,173.5,163.5,173.5,17717493,123.6,40.38,125.47,91.32,0.63
 20260527,177,184,173,177,32535439,128.05,38.23,129,93.03,1.16
 20260528,177,177,163.5,168,17695107,131.38,27.88,131.68,94.59,0.67
+20260529,175,184.5,173,184.5,14603817,135.8,35.86,135.22,96.47,0.57
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 2464 | 盟立 | true_breakout | 嚴格突破 | 56.0 |  |  |  |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 2464 | 盟立 | 1 | 1 | 3 | 3 | 3 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2464 | 盟立 | 110 | 3 | 16721800.0 | 841590.0 | 19.87 | no_signal | 0 |  |
+| 20260529 | 2464 | 盟立 | 109 | 3 | 12318240.0 | 243870.0 | 50.51 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6588 東典光電
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:10 Asia/Taipei
+- generated_at: 2026-05-29 19:33:32 Asia/Taipei
 - stock_id: 6588
 - stock_name: 東典光電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 129
-- high: 130.5
-- low: 115.5
-- close: 115.5
-- volume: 119000
-- ma5: 127.7
-- ema23_primary: 132.07
-- distance_to_ema23_pct: -12.55
-- ma20: 136.65
-- ma60: 123.22
-- ma120: 89.29
-- return_5d: -8.33
-- return_20d: -15.69
-- volume_ratio: 0.07
-- distance_to_ma20_pct_auxiliary: -15.48
-- distance_to_high_60_pct: -30.63
+- date: 20260529
+- open: 118
+- high: 118
+- low: 111.5
+- close: 112.5
+- volume: 114000
+- ma5: 124.1
+- ema23_primary: 130.44
+- distance_to_ema23_pct: -13.75
+- ma20: 135.25
+- ma60: 123.37
+- ma120: 90
+- return_5d: -13.79
+- return_20d: -19.93
+- volume_ratio: 0.08
+- distance_to_ma20_pct_auxiliary: -16.82
+- distance_to_high_60_pct: -32.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,138,150,138,140.5,3826000,131.99,6.45,139.28,104.65,0.78
 20260504,145.5,154.5,141.5,154.5,3126000,133.87,15.41,140.38,106.43,0.63
 20260505,156.5,162,152.5,159.5,5550000,136,17.28,141.8,108.3,1.16
 20260506,161.5,165.5,151,151.5,4614000,137.3,10.35,142.88,109.98,0.96
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,133,135,127.5,134,131000,134.08,-0.06,138,122.98,0.07
 20260527,137,137,127.5,128,131000,133.58,-4.17,137.72,123.21,0.07
 20260528,129,130.5,115.5,115.5,119000,132.07,-12.55,136.65,123.22,0.07
+20260529,118,118,111.5,112.5,114000,130.44,-13.75,135.25,123.37,0.08
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6588 | 東典光電 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

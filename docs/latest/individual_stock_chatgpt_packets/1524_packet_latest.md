@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1524 耿鼎
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:20 Asia/Taipei
+- generated_at: 2026-05-29 19:31:42 Asia/Taipei
 - stock_id: 1524
 - stock_name: 耿鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 31.9
-- high: 31.9
-- low: 31.9
-- close: 31.9
-- volume: 5399702
-- ma5: 29.84
-- ema23_primary: 29.26
-- distance_to_ema23_pct: 9.02
-- ma20: 29.07
-- ma60: 29.19
-- ma120: 29.84
-- return_5d: 8.69
-- return_20d: 12.32
-- volume_ratio: 4.08
-- distance_to_ma20_pct_auxiliary: 9.72
-- distance_to_high_60_pct: 0
+- date: 20260529
+- open: 33.8
+- high: 35.05
+- low: 32.9
+- close: 33.45
+- volume: 20615227
+- ma5: 30.62
+- ema23_primary: 29.61
+- distance_to_ema23_pct: 12.97
+- ma20: 29.34
+- ma60: 29.26
+- ma120: 29.88
+- return_5d: 13.2
+- return_20d: 18.83
+- volume_ratio: 8.83
+- distance_to_ma20_pct_auxiliary: 14.01
+- distance_to_high_60_pct: -4.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,28.9,28.9,28.05,28.15,399450,28.93,-2.71,29.22,30.27,0.46
 20260504,28.45,28.45,27.8,28,499446,28.86,-2.97,29.09,30.17,0.59
 20260505,28.1,28.5,28,28.2,578265,28.8,-2.09,29,30.06,0.7
 20260506,28.7,28.8,28.2,28.4,740670,28.77,-1.28,28.92,29.94,0.88
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,29.7,29.75,29,29.05,946377,29.02,0.1,28.84,29.18,0.9
 20260527,29.3,29.3,28.7,29,987770,29.02,-0.07,28.9,29.15,0.91
 20260528,31.9,31.9,31.9,31.9,5399702,29.26,9.02,29.07,29.19,4.08
+20260529,33.8,35.05,32.9,33.45,20615227,29.61,12.97,29.34,29.26,8.83
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1524 | 耿鼎 | true_breakout | 嚴格突破 | 146.0 |  |  | breakout_confirmed |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 1524 | 耿鼎 | true_breakout | 嚴格突破 | 124.0 |  |  | platform_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1524 | 耿鼎 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| 20260529 | 1524 | 耿鼎 | 2 | 2 | 3 | 3 | 3 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3707 漢磊
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:22 Asia/Taipei
+- generated_at: 2026-05-29 19:32:44 Asia/Taipei
 - stock_id: 3707
 - stock_name: 漢磊
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 88.6
-- high: 96.9
-- low: 86.2
-- close: 87.1
-- volume: 91000
-- ma5: 85.7
-- ema23_primary: 75.78
-- distance_to_ema23_pct: 14.94
-- ma20: 77.38
-- ma60: 62.92
-- ma120: 58.74
-- return_5d: 8.88
-- return_20d: 44.68
+- date: 20260529
+- open: 91.4
+- high: 93.1
+- low: 87.2
+- close: 89.3
+- volume: 89000
+- ma5: 86.86
+- ema23_primary: 76.91
+- distance_to_ema23_pct: 16.12
+- ma20: 78.53
+- ma60: 63.45
+- ma120: 59.08
+- return_5d: 6.95
+- return_20d: 34.89
 - volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 12.57
-- distance_to_high_60_pct: -10.11
+- distance_to_ma20_pct_auxiliary: 13.71
+- distance_to_high_60_pct: -7.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,61.8,66.2,61.8,66.2,33012000,57.38,15.38,55.48,56.68,3.82
 20260504,67.2,72.8,65.6,68.7,52700000,58.32,17.8,56.43,56.76,4.72
 20260505,69.7,75.5,69.6,75.5,29436000,59.75,26.35,57.79,56.92,2.35
 20260506,77.6,80.3,72.6,73.1,65819000,60.86,20.1,58.99,57.04,4.18
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,89.8,93.4,81.7,82.9,85000,73.43,12.9,74.67,61.99,0
 20260527,85,90.5,82.4,89.3,88000,74.75,19.46,76.03,62.46,0
 20260528,88.6,96.9,86.2,87.1,91000,75.78,14.94,77.38,62.92,0
+20260529,91.4,93.1,87.2,89.3,89000,76.91,16.12,78.53,63.45,0
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3707 | 漢磊 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

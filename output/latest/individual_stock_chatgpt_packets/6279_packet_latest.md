@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6279 胡連
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:03 Asia/Taipei
+- generated_at: 2026-05-29 19:33:25 Asia/Taipei
 - stock_id: 6279
 - stock_name: 胡連
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 119
-- high: 127.5
-- low: 119
+- date: 20260529
+- open: 125
+- high: 126
+- low: 122
 - close: 122.5
-- volume: 124000
-- ma5: 119
-- ema23_primary: 115.93
-- distance_to_ema23_pct: 5.67
-- ma20: 116.83
-- ma60: 112.17
-- ma120: 117.64
-- return_5d: 2.51
-- return_20d: 15.57
+- volume: 123000
+- ma5: 119.5
+- ema23_primary: 116.48
+- distance_to_ema23_pct: 5.17
+- ma20: 117.58
+- ma60: 112.32
+- ma120: 117.62
+- return_5d: 2.08
+- return_20d: 13.95
 - volume_ratio: 0.13
-- distance_to_ma20_pct_auxiliary: 4.86
+- distance_to_ma20_pct_auxiliary: 4.19
 - distance_to_high_60_pct: -3.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,105,108,105,107.5,391000,107.72,-0.2,106.4,111.65,0.9
 20260504,108.5,108.5,105,106,481000,107.58,-1.47,106.25,111.33,1.07
 20260505,106.5,109.5,106,109,578000,107.7,1.21,106.3,111.07,1.24
 20260506,110.5,116.5,108.5,116,2465000,108.39,7.02,106.78,110.94,4.36
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,119,119.5,116,117,117000,115.23,1.54,115.4,112.09,0.12
 20260527,117,119,116,116.5,117000,115.33,1.01,116,112.08,0.12
 20260528,119,127.5,119,122.5,124000,115.93,5.67,116.83,112.17,0.13
+20260529,125,126,122,122.5,123000,116.48,5.17,117.58,112.32,0.13
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6279 | 胡連 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

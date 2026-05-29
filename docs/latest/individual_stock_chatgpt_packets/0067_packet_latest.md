@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0067 期元大S&P黃金反1(原名：元大S&P黃金反1)
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:07 Asia/Taipei
+- generated_at: 2026-05-29 19:31:29 Asia/Taipei
 - stock_id: 0067
 - stock_name: 期元大S&P黃金反1(原名：元大S&P黃金反1)
 - packet_status: insufficient_price_data
@@ -113,7 +113,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 0067 | 期元大S&P黃金反1(原名：元大S&P黃金反1) | 64 | 14 | 2860240.0 | 821610.0 | 3.48 | call_inflow | 1 |  |
+| 20260529 | 0067 | 期元大S&P黃金反1(原名：元大S&P黃金反1) | 63 | 14 | 3865900.0 | 107810.0 | 35.86 | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

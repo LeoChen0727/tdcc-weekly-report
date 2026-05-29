@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2492 華新科
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:46 Asia/Taipei
+- generated_at: 2026-05-29 19:32:08 Asia/Taipei
 - stock_id: 2492
 - stock_name: 華新科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 355
-- high: 397
-- low: 355
-- close: 390
-- volume: 5997371
-- ma5: 338.7
-- ema23_primary: 239.83
-- distance_to_ema23_pct: 62.62
-- ma20: 225.32
-- ma60: 162.94
-- ma120: 145.52
-- return_5d: 46.62
-- return_20d: 189.96
-- volume_ratio: 0.31
-- distance_to_ma20_pct_auxiliary: 73.08
-- distance_to_high_60_pct: -1.76
+- date: 20260529
+- open: 410
+- high: 411.5
+- low: 384
+- close: 394
+- volume: 4526922
+- ma5: 359
+- ema23_primary: 252.67
+- distance_to_ema23_pct: 55.93
+- ma20: 238.45
+- ma60: 167.18
+- ma120: 147.82
+- return_5d: 34.7
+- return_20d: 199.62
+- volume_ratio: 0.24
+- distance_to_ma20_pct_auxiliary: 65.23
+- distance_to_high_60_pct: -4.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,134.5,136.5,131,131.5,9215847,134.68,-2.36,133.82,133.79,0.79
 20260504,134,143.5,131.5,138.5,11128256,135,2.59,134.85,133.54,0.93
 20260505,138,149.5,137,148.5,18326906,136.13,9.09,136.57,133.53,1.46
 20260506,153,155,144.5,147,19365445,137.03,7.27,138.22,133.43,1.46
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,303,330,289.5,328.5,14055050,213.92,53.56,201.6,155.49,0.71
 20260527,345,361,345,361,5324682,226.17,59.61,212.55,158.91,0.27
 20260528,355,397,355,390,5997371,239.83,62.62,225.32,162.94,0.31
+20260529,410,411.5,384,394,4526922,252.67,55.93,238.45,167.18,0.24
 ```
 
 ## Latest TDCC Snapshot
@@ -135,7 +135,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2492 | 華新科 | 118 | 1 | 19699490.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 2492 | 華新科 | 118 | 1 | 13367520.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

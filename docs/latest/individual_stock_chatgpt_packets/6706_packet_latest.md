@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6706 惠特
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:15 Asia/Taipei
+- generated_at: 2026-05-29 19:33:37 Asia/Taipei
 - stock_id: 6706
 - stock_name: 惠特
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 215
-- high: 222
-- low: 195
-- close: 202.5
-- volume: 15494494
-- ma5: 196.1
-- ema23_primary: 172.14
-- distance_to_ema23_pct: 17.64
-- ma20: 174.8
-- ma60: 143.89
-- ma120: 130.18
-- return_5d: 20.18
-- return_20d: 37.76
-- volume_ratio: 1.47
-- distance_to_ma20_pct_auxiliary: 15.85
-- distance_to_high_60_pct: -8.78
+- date: 20260529
+- open: 209.5
+- high: 213
+- low: 200.5
+- close: 205.5
+- volume: 12521258
+- ma5: 200.2
+- ema23_primary: 174.92
+- distance_to_ema23_pct: 17.48
+- ma20: 177.5
+- ma60: 145.06
+- ma120: 131.18
+- return_5d: 11.08
+- return_20d: 35.64
+- volume_ratio: 1.24
+- distance_to_ma20_pct_auxiliary: 15.77
+- distance_to_high_60_pct: -7.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,151.5,160,150.5,151.5,21234654,135.33,11.95,136.03,125.33,2.2
 20260504,166,166.5,165.5,166.5,2877992,137.93,20.72,138.6,126.22,0.3
 20260505,173.5,183,172.5,183,6173721,141.68,29.16,141.78,127.41,0.64
 20260506,186,187.5,165,168,16199358,143.88,16.77,144.38,128.37,1.58
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,182,197,179.5,197,14579655,165.1,19.32,167.9,141.34,1.5
 20260527,204.5,216.5,204.5,216.5,12845565,169.38,27.82,172.03,142.72,1.26
 20260528,215,222,195,202.5,15494494,172.14,17.64,174.8,143.89,1.47
+20260529,209.5,213,200.5,205.5,12521258,174.92,17.48,177.5,145.06,1.24
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6706 | 惠特 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6706 | 惠特 | 3 | 1 | 3 | 3 | 3 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6706 | 惠特 | 87 | 6 | 16482450.0 | 53130.0 | 310.23 | no_signal | 0 |  |
+| 20260529 | 6706 | 惠特 | 87 | 6 | 21749570.0 | 20410.0 | 1065.63 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

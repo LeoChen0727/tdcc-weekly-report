@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00930 永豐ESG低碳高息
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:09 Asia/Taipei
+- generated_at: 2026-05-29 19:31:31 Asia/Taipei
 - stock_id: 00930
 - stock_name: 永豐ESG低碳高息
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260528
-- price_rows: 5
+- latest_price_date: 20260529
+- price_rows: 6
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 24.06
-- high: 24.4
-- low: 23.58
-- close: 23.66
-- volume: 3817645
-- ma5: 23.33
-- ema23_primary: 22.76
-- distance_to_ema23_pct: 3.98
-- ma20: 23.33
-- ma60: 23.33
-- ma120: 23.33
-- return_5d: 
+- date: 20260529
+- open: 24.14
+- high: 24.68
+- low: 24.12
+- close: 24.65
+- volume: 2559581
+- ma5: 23.78
+- ema23_primary: 22.91
+- distance_to_ema23_pct: 7.58
+- ma20: 23.55
+- ma60: 23.55
+- ma120: 23.55
+- return_5d: 10
 - return_20d: 
-- volume_ratio: 0.78
-- distance_to_ma20_pct_auxiliary: 1.4
-- distance_to_high_60_pct: -3.03
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: 4.66
+- distance_to_high_60_pct: -0.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -82,6 +82,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,23.13,23.29,23.08,23.24,6202677,,,,,
 20260527,23.81,24.12,23.81,24.06,5103087,,,,,
 20260528,24.06,24.4,23.58,23.66,3817645,22.76,3.98,23.33,23.33,0.78
+20260529,24.14,24.68,24.12,24.65,2559581,22.91,7.58,23.55,23.55,0.57
 ```
 
 ## Latest TDCC Snapshot

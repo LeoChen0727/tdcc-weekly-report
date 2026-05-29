@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2493 揚博
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:46 Asia/Taipei
+- generated_at: 2026-05-29 19:32:08 Asia/Taipei
 - stock_id: 2493
 - stock_name: 揚博
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 162.5
-- high: 173.5
-- low: 162
-- close: 163
-- volume: 9554309
-- ma5: 154.2
-- ema23_primary: 139.08
-- distance_to_ema23_pct: 17.2
-- ma20: 137.82
-- ma60: 123.4
-- ma120: 116.87
-- return_5d: 20.3
-- return_20d: 30.92
-- volume_ratio: 2.11
-- distance_to_ma20_pct_auxiliary: 18.27
-- distance_to_high_60_pct: -6.05
+- date: 20260529
+- open: 163.5
+- high: 166
+- low: 158
+- close: 160
+- volume: 4547361
+- ma5: 158.7
+- ema23_primary: 140.83
+- distance_to_ema23_pct: 13.62
+- ma20: 139.68
+- ma60: 124.27
+- ma120: 117.44
+- return_5d: 16.36
+- return_20d: 30.08
+- volume_ratio: 0.97
+- distance_to_ma20_pct_auxiliary: 14.55
+- distance_to_high_60_pct: -7.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,125.5,126.5,123,123,1228380,123.72,-0.58,125.7,114.61,0.33
 20260504,123.5,127,120,124,1640358,123.75,0.21,126.45,114.76,0.43
 20260505,125,136,125,136,4686113,124.77,9,128.07,115.18,1.18
 20260506,136.5,142,127,139,6839587,125.95,10.36,129.78,115.64,1.59
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,155.5,163.5,153,163.5,13254705,134.99,21.12,134.32,122.01,3.5
 20260527,171,171.5,151,158,10164240,136.91,15.41,135.9,122.57,2.43
 20260528,162.5,173.5,162,163,9554309,139.08,17.2,137.82,123.4,2.11
+20260529,163.5,166,158,160,4547361,140.83,13.62,139.68,124.27,0.97
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2493 | 揚博 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2493 | 揚博 | 4 | 4 | 4 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2493 | 揚博 | 56 | 1 | 12946670.0 | 25100.0 | 515.8 | no_signal | 0 |  |
+| 20260529 | 2493 | 揚博 | 56 | 1 | 8896590.0 | 18900.0 | 470.72 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

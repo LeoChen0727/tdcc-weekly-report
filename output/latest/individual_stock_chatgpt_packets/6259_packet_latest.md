@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6259 百徽
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:01 Asia/Taipei
+- generated_at: 2026-05-29 19:33:23 Asia/Taipei
 - stock_id: 6259
 - stock_name: 百徽
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 135
+- latest_price_date: 20260529
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 26.65
-- high: 28.8
-- low: 26.65
+- date: 20260529
+- open: 27.55
+- high: 28
+- low: 26.6
 - close: 27
-- volume: 28000
-- ma5: 26.43
-- ema23_primary: 23.87
-- distance_to_ema23_pct: 13.12
-- ma20: 23.77
-- ma60: 20.5
-- ma120: 18.96
-- return_5d: 9.31
-- return_20d: 21.62
+- volume: 27000
+- ma5: 26.79
+- ema23_primary: 24.13
+- distance_to_ema23_pct: 11.9
+- ma20: 24.07
+- ma60: 20.66
+- ma120: 19.05
+- return_5d: 7.14
+- return_20d: 28.57
 - volume_ratio: 0.04
-- distance_to_ma20_pct_auxiliary: 13.58
+- distance_to_ma20_pct_auxiliary: 12.16
 - distance_to_high_60_pct: -6.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,22.3,22.5,20.85,21,515000,20.34,3.25,20.42,18.46,0.67
 20260504,21.1,22.6,21,21.25,339000,20.42,4.09,20.62,18.52,0.43
 20260505,21.5,21.65,21.1,21.1,186000,20.47,3.07,20.82,18.58,0.24
 20260506,21.65,21.65,20.5,20.5,257000,20.47,0.12,21,18.62,0.32
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,27.05,27.5,25.5,25.85,26000,23.27,11.09,23.26,20.2,0.04
 20260527,26.15,28.1,26.15,27.05,27000,23.58,14.7,23.53,20.36,0.04
 20260528,26.65,28.8,26.65,27,28000,23.87,13.12,23.77,20.5,0.04
+20260529,27.55,28,26.6,27,27000,24.13,11.9,24.07,20.66,0.04
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6259 | 百徽 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2606 裕民
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:49 Asia/Taipei
+- generated_at: 2026-05-29 19:32:11 Asia/Taipei
 - stock_id: 2606
 - stock_name: 裕民
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 26
 - tdcc_history_status: tdcc_history_ready
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 72
-- high: 72.7
-- low: 70.9
-- close: 70.9
-- volume: 7539007
-- ma5: 69.34
-- ema23_primary: 65.49
-- distance_to_ema23_pct: 8.26
-- ma20: 65.2
+- date: 20260529
+- open: 72.1
+- high: 72.1
+- low: 68.6
+- close: 69
+- volume: 5406350
+- ma5: 70.06
+- ema23_primary: 65.78
+- distance_to_ema23_pct: 4.89
+- ma20: 65.62
 - ma60: 62.47
-- ma120: 62.29
-- return_5d: 9.08
-- return_20d: 17.19
-- volume_ratio: 1.05
-- distance_to_ma20_pct_auxiliary: 8.73
-- distance_to_high_60_pct: -2.74
+- ma120: 62.37
+- return_5d: 5.5
+- return_20d: 13.86
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: 5.14
+- distance_to_high_60_pct: -5.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,60.4,61.2,60.1,60.6,2507234,61.2,-0.98,61.31,61.73,0.68
 20260504,61,62.9,61,62.4,3767543,61.3,1.79,61.46,61.74,1.03
 20260505,62.6,63.3,61.8,62.8,2895086,61.43,2.24,61.67,61.73,0.79
 20260506,64.6,65.5,64,64.2,6072604,61.66,4.12,61.9,61.75,1.56
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,68,70.2,67.5,70,12487791,64.32,8.83,64.08,62.32,1.97
 20260527,70.2,72.9,68.3,72.5,13383558,65,11.54,64.69,62.42,1.94
 20260528,72,72.7,70.9,70.9,7539007,65.49,8.26,65.2,62.47,1.05
+20260529,72.1,72.1,68.6,69,5406350,65.78,4.89,65.62,62.47,0.74
 ```
 
 ## Latest TDCC Snapshot
@@ -133,17 +133,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 2606 | 裕民 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 2606 | 裕民 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260529 | 2606 | 裕民 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260521 | 2606 | 裕民 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2606 | 裕民 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260529 | 2606 | 裕民 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2606 | 裕民 | 48 | 1 | 5466350.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 2606 | 裕民 | 45 | 1 | 1067560.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

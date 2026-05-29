@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4583 台灣精銳
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:32 Asia/Taipei
+- generated_at: 2026-05-29 19:32:54 Asia/Taipei
 - stock_id: 4583
 - stock_name: 台灣精銳
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 715
-- high: 722
-- low: 683
-- close: 692
-- volume: 225847
-- ma5: 718
-- ema23_primary: 728.07
-- distance_to_ema23_pct: -4.95
-- ma20: 743.7
-- ma60: 696.05
-- ma120: 691.77
-- return_5d: -2.12
-- return_20d: -5.34
-- volume_ratio: 0.94
-- distance_to_ma20_pct_auxiliary: -6.95
-- distance_to_high_60_pct: -15.61
+- date: 20260529
+- open: 704
+- high: 719
+- low: 700
+- close: 719
+- volume: 290890
+- ma5: 716
+- ema23_primary: 727.32
+- distance_to_ema23_pct: -1.14
+- ma20: 741.45
+- ma60: 696.88
+- ma120: 692.64
+- return_5d: -1.37
+- return_20d: -5.89
+- volume_ratio: 1.29
+- distance_to_ma20_pct_auxiliary: -3.03
+- distance_to_high_60_pct: -12.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,751,789,746,764,606202,710.81,7.48,707.6,692.08,2.26
 20260504,769,796,766,774,320211,716.08,8.09,714.2,692.33,1.15
 20260505,780,782,759,765,190826,720.16,6.23,720.85,691.65,0.67
 20260506,769,770,721,745,285730,722.23,3.15,725.65,690.52,0.97
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,731,755,719,725,179845,733.02,-1.09,746.1,695.83,0.76
 20260527,730,732,700,713,200878,731.35,-2.51,745.65,696.12,0.83
 20260528,715,722,683,692,225847,728.07,-4.95,743.7,696.05,0.94
+20260529,704,719,700,719,290890,727.32,-1.14,741.45,696.88,1.29
 ```
 
 ## Latest TDCC Snapshot
@@ -135,7 +135,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4583 | 台灣精銳 | 30 | 0 | 393380.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 4583 | 台灣精銳 | 29 | 0 | 1003430.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

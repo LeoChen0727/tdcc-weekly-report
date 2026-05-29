@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2377 微星
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:39 Asia/Taipei
+- generated_at: 2026-05-29 19:32:01 Asia/Taipei
 - stock_id: 2377
 - stock_name: 微星
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 127.5
-- high: 129
-- low: 122
-- close: 123.5
-- volume: 27848742
-- ma5: 125.4
-- ema23_primary: 111.75
-- distance_to_ema23_pct: 10.51
-- ma20: 111.03
-- ma60: 98.75
-- ma120: 98.29
-- return_5d: 9.29
-- return_20d: 23.5
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: 11.24
-- distance_to_high_60_pct: -9.19
+- date: 20260529
+- open: 126
+- high: 133
+- low: 126
+- close: 131
+- volume: 41284924
+- ma5: 126.8
+- ema23_primary: 113.36
+- distance_to_ema23_pct: 15.56
+- ma20: 112.69
+- ma60: 99.33
+- ma120: 98.48
+- return_5d: 5.65
+- return_20d: 34.08
+- volume_ratio: 1.08
+- distance_to_ma20_pct_auxiliary: 16.25
+- distance_to_high_60_pct: -3.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,100.5,101,97.1,97.7,15980140,93.86,4.09,92.68,92.81,1.53
 20260504,97.7,98.1,95,95.1,11398692,93.96,1.21,93.03,92.72,1.05
 20260505,95.3,96,94.5,95.7,4606247,94.11,1.69,93.45,92.66,0.42
 20260506,96.4,100.5,95.5,100,18547668,94.6,5.71,94,92.71,1.59
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,128,128.5,123.5,126,29116711,109.25,15.33,108.39,97.8,0.81
 20260527,127.5,132,125.5,126.5,31363755,110.69,14.29,109.85,98.33,0.86
 20260528,127.5,129,122,123.5,27848742,111.75,10.51,111.03,98.75,0.75
+20260529,126,133,126,131,41284924,113.36,15.56,112.69,99.33,1.08
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 2377 | 微星 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 2377 | 微星 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260521 | 2377 | 微星 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2377 | 微星 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260529 | 2377 | 微星 | 7 | 7 | 5 | 7 | 7 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2377 | 微星 | 60 | 2 | 17622800.0 | 120700.0 | 146.0 | no_signal | 0 |  |
+| 20260529 | 2377 | 微星 | 61 | 2 | 27771630.0 | 86000.0 | 322.93 | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

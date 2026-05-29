@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3712 永崴投控
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:22 Asia/Taipei
+- generated_at: 2026-05-29 19:32:44 Asia/Taipei
 - stock_id: 3712
 - stock_name: 永崴投控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 134
+- latest_price_date: 20260529
+- price_rows: 135
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 16.3
-- high: 17.15
-- low: 16.3
-- close: 16.6
-- volume: 1453812
-- ma5: 16.19
-- ema23_primary: 17.74
-- distance_to_ema23_pct: -6.41
-- ma20: 17.96
-- ma60: 20.32
-- ma120: 23.05
-- return_5d: 5.73
-- return_20d: -17.82
-- volume_ratio: 0.97
-- distance_to_ma20_pct_auxiliary: -7.57
-- distance_to_high_60_pct: -34.65
+- date: 20260529
+- open: 16.6
+- high: 18.25
+- low: 16.5
+- close: 18.25
+- volume: 2025386
+- ma5: 16.61
+- ema23_primary: 17.78
+- distance_to_ema23_pct: 2.64
+- ma20: 17.84
+- ma60: 20.21
+- ma120: 22.99
+- return_5d: 13
+- return_20d: -11.62
+- volume_ratio: 1.29
+- distance_to_ma20_pct_auxiliary: 2.3
+- distance_to_high_60_pct: -28.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,20.2,20.7,20,20.65,675808,20.58,0.33,19.62,22.91,0.49
 20260430,20.6,20.6,19.7,19.85,753814,20.52,-3.27,19.53,22.78,0.54
 20260504,20.05,20.1,19.6,19.7,2453014,20.45,-3.68,19.43,22.64,1.64
 20260505,19.8,20.3,19.8,20.05,518232,20.42,-1.8,19.44,22.51,0.36
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,16.1,16.5,15.8,16.15,940586,18,-10.3,18.36,20.61,0.61
 20260527,16.3,16.5,15.85,16.05,1027593,17.84,-10.04,18.14,20.46,0.7
 20260528,16.3,17.15,16.3,16.6,1453812,17.74,-6.41,17.96,20.32,0.97
+20260529,16.6,18.25,16.5,18.25,2025386,17.78,2.64,17.84,20.21,1.29
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 3712 | 永崴投控 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 3712 | 永崴投控 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3712 | 永崴投控 | 2 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 3712 | 永崴投控 | 2 | 0 | 2240.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

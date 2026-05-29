@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00882 中信中國高股息
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:08 Asia/Taipei
+- generated_at: 2026-05-29 19:31:30 Asia/Taipei
 - stock_id: 00882
 - stock_name: 中信中國高股息
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260528
-- price_rows: 5
+- latest_price_date: 20260529
+- price_rows: 6
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 15.6
-- high: 15.6
-- low: 15.32
-- close: 15.34
-- volume: 15335237
-- ma5: 15.64
-- ema23_primary: 15.73
-- distance_to_ema23_pct: -2.47
+- date: 20260529
+- open: 15.35
+- high: 15.68
+- low: 15.35
+- close: 15.67
+- volume: 13491228
+- ma5: 15.61
+- ema23_primary: 15.72
+- distance_to_ema23_pct: -0.35
 - ma20: 15.64
 - ma60: 15.64
 - ma120: 15.64
-- return_5d: 
+- return_5d: -0.76
 - return_20d: 
-- volume_ratio: 1.49
-- distance_to_ma20_pct_auxiliary: -1.89
-- distance_to_high_60_pct: -3.58
+- volume_ratio: 1.25
+- distance_to_ma20_pct_auxiliary: 0.18
+- distance_to_high_60_pct: -1.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -82,6 +82,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,15.72,15.79,15.61,15.73,9351953,,,,,
 20260527,15.78,15.78,15.55,15.6,10613224,,,,,
 20260528,15.6,15.6,15.32,15.34,15335237,15.73,-2.47,15.64,15.64,1.49
+20260529,15.35,15.68,15.35,15.67,13491228,15.72,-0.35,15.64,15.64,1.25
 ```
 
 ## Latest TDCC Snapshot

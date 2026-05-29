@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2395 研華
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:40 Asia/Taipei
+- generated_at: 2026-05-29 19:32:02 Asia/Taipei
 - stock_id: 2395
 - stock_name: 研華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 509
-- high: 523
-- low: 488.5
-- close: 490.5
-- volume: 4642973
-- ma5: 495.4
-- ema23_primary: 450.96
-- distance_to_ema23_pct: 8.77
-- ma20: 458.38
-- ma60: 382.52
-- ma120: 336.55
-- return_5d: 5.83
-- return_20d: 34.02
-- volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: 7.01
-- distance_to_high_60_pct: -7.45
+- date: 20260529
+- open: 496
+- high: 515
+- low: 492
+- close: 495
+- volume: 10573832
+- ma5: 500.6
+- ema23_primary: 454.63
+- distance_to_ema23_pct: 8.88
+- ma20: 465.15
+- ma60: 385.27
+- ma120: 338.3
+- return_5d: 5.54
+- return_20d: 37.69
+- volume_ratio: 1.81
+- distance_to_ma20_pct_auxiliary: 6.42
+- distance_to_high_60_pct: -6.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,367,369.5,357.5,359.5,3072034,351.89,2.16,351.5,331.59,1.09
 20260504,369,395,364.5,395,8477702,355.49,11.12,354.7,333.38,2.7
 20260505,391,403.5,388,396.5,5246646,358.9,10.48,358.35,335.18,1.59
 20260506,400.5,415,399,409.5,7142460,363.12,12.77,362.7,337.16,1.99
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,498.5,511,485.5,510,4127639,441.77,15.45,445.05,377.07,0.78
 20260527,507,530,503,509,4521072,447.37,13.78,452.15,379.95,0.85
 20260528,509,523,488.5,490.5,4642973,450.96,8.77,458.38,382.52,0.85
+20260529,496,515,492,495,10573832,454.63,8.88,465.15,385.27,1.81
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2395 | 研華 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260528 | 2395 | 研華 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260529 | 2395 | 研華 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260529 | 2395 | 研華 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2395 | 研華 | 1 | 1 | 3 | 3 | 3 | repeated_but_no_breakout | 近 10 日上榜 3 日、近 20 日上榜 3 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260529 | 2395 | 研華 | 2 | 2 | 3 | 4 | 4 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2395 | 研華 | 47 | 0 | 15681110.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 2395 | 研華 | 47 | 0 | 19479670.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

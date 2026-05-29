@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3036 文曄
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:00 Asia/Taipei
+- generated_at: 2026-05-29 19:32:22 Asia/Taipei
 - stock_id: 3036
 - stock_name: 文曄
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 299.5
-- high: 299.5
-- low: 289
-- close: 289.5
-- volume: 6314889
-- ma5: 293.9
-- ema23_primary: 264.3
-- distance_to_ema23_pct: 9.54
-- ma20: 261.55
-- ma60: 236.56
-- ma120: 194.14
-- return_5d: -0.69
-- return_20d: 42.61
-- volume_ratio: 0.43
-- distance_to_ma20_pct_auxiliary: 10.69
-- distance_to_high_60_pct: -6.01
+- date: 20260529
+- open: 291
+- high: 292
+- low: 286.5
+- close: 288.5
+- volume: 7821185
+- ma5: 293.8
+- ema23_primary: 266.32
+- distance_to_ema23_pct: 8.33
+- ma20: 265.77
+- ma60: 238.4
+- ma120: 195.43
+- return_5d: -0.17
+- return_20d: 41.42
+- volume_ratio: 0.53
+- distance_to_ma20_pct_auxiliary: 8.55
+- distance_to_high_60_pct: -6.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,203,207.5,202.5,204,4991122,215.22,-5.21,218.88,204.77,0.67
 20260504,206,213.5,206,210.5,10172435,214.83,-2.01,218.15,205.83,1.37
 20260505,209.5,212,208,209,6083395,214.34,-2.49,217.4,206.86,0.83
 20260506,214.5,219,211.5,214,13521901,214.31,-0.15,216.72,207.8,1.75
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,299,303.5,291.5,293.5,8573585,258.92,13.36,252.78,232.95,0.59
 20260527,300,304.5,292.5,296,9274773,262.01,12.97,257.23,234.82,0.63
 20260528,299.5,299.5,289,289.5,6314889,264.3,9.54,261.55,236.56,0.43
+20260529,291,292,286.5,288.5,7821185,266.32,8.33,265.77,238.4,0.53
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3036 | 文曄 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260529 | 3036 | 文曄 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3036 | 文曄 | 3 | 3 | 3 | 3 | 3 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260529 | 3036 | 文曄 | 4 | 4 | 4 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3036 | 文曄 | 76 | 1 | 9466170.0 | 394400.0 | 24.0 | no_signal | 0 |  |
+| 20260529 | 3036 | 文曄 | 77 | 1 | 4533260.0 | 18600.0 | 243.72 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3088 艾訊
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:03 Asia/Taipei
+- generated_at: 2026-05-29 19:32:25 Asia/Taipei
 - stock_id: 3088
 - stock_name: 艾訊
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 146
-- high: 149
-- low: 137.5
-- close: 140
-- volume: 143000
-- ma5: 141.9
-- ema23_primary: 127.23
-- distance_to_ema23_pct: 10.04
-- ma20: 130.07
-- ma60: 101.64
-- ma120: 90.68
-- return_5d: 1.82
-- return_20d: 37.93
+- date: 20260529
+- open: 142.5
+- high: 142.5
+- low: 138
+- close: 141
+- volume: 140000
+- ma5: 141.7
+- ema23_primary: 128.38
+- distance_to_ema23_pct: 9.83
+- ma20: 131.72
+- ma60: 102.66
+- ma120: 91.24
+- return_5d: -0.7
+- return_20d: 30.56
 - volume_ratio: 0.08
-- distance_to_ma20_pct_auxiliary: 7.63
-- distance_to_high_60_pct: -7.89
+- distance_to_ma20_pct_auxiliary: 7.04
+- distance_to_high_60_pct: -7.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,105,109.5,104.5,108,3526000,94.83,13.88,94.24,86.27,2.04
 20260504,113,114.5,110.5,112,2950000,96.26,16.35,95.77,86.71,1.58
 20260505,111.5,118,111,116,2997000,97.91,18.48,97.53,87.23,1.49
 20260506,119.5,121.5,115.5,120.5,3377000,99.79,20.75,99.46,87.82,1.56
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,140.5,142.5,136,142,139000,124.4,14.15,125.97,99.6,0.07
 20260527,146.5,152,143,144.5,147000,126.07,14.62,128.15,100.65,0.08
 20260528,146,149,137.5,140,143000,127.23,10.04,130.07,101.64,0.08
+20260529,142.5,142.5,138,141,140000,128.38,9.83,131.72,102.66,0.08
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3088 | 艾訊 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

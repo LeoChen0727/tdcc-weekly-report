@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3581 博磊
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:17 Asia/Taipei
+- generated_at: 2026-05-29 19:32:39 Asia/Taipei
 - stock_id: 3581
 - stock_name: 博磊
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 244.5
-- high: 254
-- low: 236.5
-- close: 240
-- volume: 243000
-- ma5: 258.5
-- ema23_primary: 214.97
-- distance_to_ema23_pct: 11.64
-- ma20: 228.6
-- ma60: 136.43
-- ma120: 103.18
-- return_5d: 6.43
-- return_20d: 46.79
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: 4.99
-- distance_to_high_60_pct: -19.87
+- date: 20260529
+- open: 258
+- high: 258
+- low: 233.5
+- close: 236.5
+- volume: 239000
+- ma5: 256.2
+- ema23_primary: 216.76
+- distance_to_ema23_pct: 9.1
+- ma20: 231.45
+- ma60: 139.19
+- ma120: 104.57
+- return_5d: -4.64
+- return_20d: 31.75
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: 2.18
+- distance_to_high_60_pct: -21.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,170,179.5,170,179.5,685000,122.65,46.36,115.24,85.73,0.52
 20260504,197,197,197,197,320000,128.84,52.9,121.7,87.78,0.25
 20260505,216.5,216.5,216.5,216.5,243000,136.15,59.02,129.24,90.15,0.19
 20260506,238,238,220,234,908000,144.3,62.16,137.71,92.84,0.69
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,299.5,299.5,267,280,289000,209.12,33.89,219.62,130.72,0.78
 20260527,279.5,279.5,252,252,258000,212.69,18.48,224.78,133.66,0.72
 20260528,244.5,254,236.5,240,243000,214.97,11.64,228.6,136.43,0.71
+20260529,258,258,233.5,236.5,239000,216.76,9.1,231.45,139.19,0.74
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3581 | 博磊 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

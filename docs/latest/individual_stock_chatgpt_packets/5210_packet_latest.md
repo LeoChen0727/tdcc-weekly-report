@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5210 寶碩
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:40 Asia/Taipei
+- generated_at: 2026-05-29 19:33:02 Asia/Taipei
 - stock_id: 5210
 - stock_name: 寶碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 27.3
-- high: 29.8
-- low: 27.2
-- close: 28.85
+- date: 20260529
+- open: 29.2
+- high: 30.85
+- low: 28.5
+- close: 29
 - volume: 29000
-- ma5: 27.22
-- ema23_primary: 26.09
-- distance_to_ema23_pct: 10.56
-- ma20: 26.65
-- ma60: 23.61
-- ma120: 22.92
-- return_5d: 6.85
-- return_20d: 26.26
+- ma5: 27.67
+- ema23_primary: 26.34
+- distance_to_ema23_pct: 10.12
+- ma20: 26.96
+- ma60: 23.73
+- ma120: 22.99
+- return_5d: 8.41
+- return_20d: 27.47
 - volume_ratio: 0.07
-- distance_to_ma20_pct_auxiliary: 8.24
-- distance_to_high_60_pct: -3.19
+- distance_to_ma20_pct_auxiliary: 7.55
+- distance_to_high_60_pct: -6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,23.05,23.05,22.75,22.75,161000,22.52,1.01,22.53,21.9,1.07
 20260504,23,25,23,25,684000,22.73,9.99,22.66,21.95,3.83
 20260505,25,27.5,25,27.5,891000,23.13,18.91,22.94,22.05,4.04
 20260506,28.5,29.5,27.4,28.6,1787000,23.58,21.28,23.28,22.16,5.8
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,26.6,26.65,25.8,26.65,26000,25.71,3.64,26.13,23.4,0.06
 20260527,26.95,27.45,26.7,27.25,27000,25.84,5.45,26.35,23.49,0.07
 20260528,27.3,29.8,27.2,28.85,29000,26.09,10.56,26.65,23.61,0.07
+20260529,29.2,30.85,28.5,29,29000,26.34,10.12,26.96,23.73,0.07
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 5210 | 寶碩 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3490 單井
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:13 Asia/Taipei
+- generated_at: 2026-05-29 19:32:36 Asia/Taipei
 - stock_id: 3490
 - stock_name: 單井
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 39.4
-- high: 40.8
-- low: 38.05
+- date: 20260529
+- open: 39.2
+- high: 39.2
+- low: 38
 - close: 38.45
 - volume: 39000
-- ma5: 41
-- ema23_primary: 35.73
-- distance_to_ema23_pct: 7.62
-- ma20: 35.27
-- ma60: 29.62
-- ma120: 27.29
-- return_5d: -5.53
-- return_20d: 27.74
+- ma5: 39.99
+- ema23_primary: 35.96
+- distance_to_ema23_pct: 6.94
+- ma20: 35.66
+- ma60: 29.84
+- ma120: 27.42
+- return_5d: -11.61
+- return_20d: 26.07
 - volume_ratio: 0.01
-- distance_to_ma20_pct_auxiliary: 9.03
+- distance_to_ma20_pct_auxiliary: 7.82
 - distance_to_high_60_pct: -14.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,30.3,30.7,29.95,30.5,1085000,28.58,6.71,28.67,26.12,0.45
 20260504,30.9,30.9,28.45,28.55,1513000,28.58,-0.11,28.81,26.17,0.61
 20260505,28.45,29.65,28.45,29.3,827000,28.64,2.3,28.97,26.23,0.33
 20260506,29.7,29.7,28.8,29.3,769000,28.7,2.11,29.09,26.29,0.31
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,42.05,42.45,39.95,41.7,41000,35.12,18.72,34.38,29.16,0.01
 20260527,42.5,42.5,39,39.4,40000,35.48,11.05,34.85,29.4,0.01
 20260528,39.4,40.8,38.05,38.45,39000,35.73,7.62,35.27,29.62,0.01
+20260529,39.2,39.2,38,38.45,39000,35.96,6.94,35.66,29.84,0.01
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3490 | 單井 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

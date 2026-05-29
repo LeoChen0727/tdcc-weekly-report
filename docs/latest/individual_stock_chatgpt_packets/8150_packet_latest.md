@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8150 南茂
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:34 Asia/Taipei
+- generated_at: 2026-05-29 19:33:57 Asia/Taipei
 - stock_id: 8150
 - stock_name: 南茂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 98.8
-- high: 103
-- low: 98.5
-- close: 103
-- volume: 112421888
-- ma5: 89.64
-- ema23_primary: 82.42
-- distance_to_ema23_pct: 24.97
-- ma20: 84.86
-- ma60: 70.22
-- ma120: 61.83
-- return_5d: 35.7
-- return_20d: 53.73
-- volume_ratio: 2.41
-- distance_to_ma20_pct_auxiliary: 21.38
+- date: 20260529
+- open: 113
+- high: 113
+- low: 113
+- close: 113
+- volume: 13898178
+- ma5: 96.42
+- ema23_primary: 84.97
+- distance_to_ema23_pct: 32.99
+- ma20: 87.02
+- ma60: 71.07
+- ma120: 62.4
+- return_5d: 42.86
+- return_20d: 61.89
+- volume_ratio: 0.3
+- distance_to_ma20_pct_auxiliary: 29.86
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,67.3,73.5,67.2,69.8,32774904,66.48,4.99,66.08,62.12,1.05
 20260504,71.2,76.7,70.7,76.5,43860152,67.32,13.64,67.14,62.3,1.32
 20260505,79.9,84.1,79.8,84.1,20021669,68.71,22.39,68.5,62.59,0.59
 20260506,92.5,92.5,87.5,89.2,74820219,70.42,26.67,70.11,62.97,2.02
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,86.8,88.1,83.8,85.4,44236285,79.33,7.65,81.78,69.26,1.18
 20260527,89.7,93.9,86,93.9,90891826,80.55,16.58,83.06,69.64,2.19
 20260528,98.8,103,98.5,103,112421888,82.42,24.97,84.86,70.22,2.41
+20260529,113,113,113,113,13898178,84.97,32.99,87.02,71.07,0.3
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 8150 | 南茂 | true_breakout | 嚴格突破 | 56.0 |  |  |  |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 8150 | 南茂 | 1 | 1 | 3 | 5 | 5 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 8150 | 南茂 | 150 | 3 | 33805050.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 8150 | 南茂 | 145 | 2 | 4754460.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

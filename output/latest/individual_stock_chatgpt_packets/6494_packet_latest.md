@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6494 九齊
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:07 Asia/Taipei
+- generated_at: 2026-05-29 19:33:29 Asia/Taipei
 - stock_id: 6494
 - stock_name: 九齊
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 59.7
-- high: 62.5
-- low: 58.4
-- close: 59
-- volume: 61000
-- ma5: 58.16
-- ema23_primary: 55.23
-- distance_to_ema23_pct: 6.83
-- ma20: 55.41
-- ma60: 50.85
-- ma120: 44.3
-- return_5d: 5.17
-- return_20d: 11.11
+- date: 20260529
+- open: 59
+- high: 59.8
+- low: 57.6
+- close: 59.1
+- volume: 59000
+- ma5: 58.38
+- ema23_primary: 55.55
+- distance_to_ema23_pct: 6.39
+- ma20: 55.7
+- ma60: 51.05
+- ma120: 44.49
+- return_5d: 1.9
+- return_20d: 11.09
 - volume_ratio: 0.18
-- distance_to_ma20_pct_auxiliary: 6.48
-- distance_to_high_60_pct: -5.6
+- distance_to_ma20_pct_auxiliary: 6.09
+- distance_to_high_60_pct: -5.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,54.1,54.6,52.5,53.2,215000,51.52,3.26,51.62,46.33,0.5
 20260504,54.4,56.1,53.3,54,307000,51.73,4.39,52.09,46.6,0.7
 20260505,54,55.3,53.8,54.4,300000,51.95,4.71,52.66,46.87,0.67
 20260506,55.7,55.7,53.2,53.8,197000,52.11,3.25,53.13,47.13,0.43
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,58.2,59.3,56.5,57.8,58000,54.53,6,54.84,50.51,0.17
 20260527,58.5,58.8,57,58.8,58000,54.88,7.13,55.12,50.69,0.17
 20260528,59.7,62.5,58.4,59,61000,55.23,6.83,55.41,50.85,0.18
+20260529,59,59.8,57.6,59.1,59000,55.55,6.39,55.7,51.05,0.18
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6494 | 九齊 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

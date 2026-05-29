@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2897 王道銀行
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:55 Asia/Taipei
+- generated_at: 2026-05-29 19:32:18 Asia/Taipei
 - stock_id: 2897
 - stock_name: 王道銀行
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 10
-- high: 10.05
+- date: 20260529
+- open: 9.91
+- high: 9.98
 - low: 9.9
-- close: 9.94
-- volume: 3717300
-- ma5: 9.97
-- ema23_primary: 10.05
-- distance_to_ema23_pct: -1.08
-- ma20: 10.06
+- close: 9.9
+- volume: 3566262
+- ma5: 9.95
+- ema23_primary: 10.04
+- distance_to_ema23_pct: -1.36
+- ma20: 10.05
 - ma60: 10.03
-- ma120: 9.62
-- return_5d: -1.58
-- return_20d: -2.07
-- volume_ratio: 1.06
-- distance_to_ma20_pct_auxiliary: -1.23
-- distance_to_high_60_pct: -4.42
+- ma120: 9.63
+- return_5d: -1
+- return_20d: -1.98
+- volume_ratio: 1.03
+- distance_to_ma20_pct_auxiliary: -1.53
+- distance_to_high_60_pct: -4.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,10.15,10.15,10.05,10.1,4071973,10.11,-0.07,10.17,9.81,1.17
 20260504,10.1,10.15,10,10.05,3996966,10.1,-0.52,10.17,9.83,1.15
 20260505,10.05,10.1,10,10.05,1328656,10.1,-0.47,10.17,9.84,0.39
 20260506,10.1,10.15,10.05,10.15,2851913,10.1,0.47,10.18,9.86,0.84
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,9.95,9.99,9.94,9.98,1592966,10.06,-0.84,10.08,10.03,0.47
 20260527,10,10.05,9.93,10,3689643,10.06,-0.58,10.07,10.03,1.08
 20260528,10,10.05,9.9,9.94,3717300,10.05,-1.08,10.06,10.03,1.06
+20260529,9.91,9.98,9.9,9.9,3566262,10.04,-1.36,10.05,10.03,1.03
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2897 | 王道銀行 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 2897 | 王道銀行 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2897 | 王道銀行 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260529 | 2897 | 王道銀行 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

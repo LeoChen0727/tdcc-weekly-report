@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2882 國泰金
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:55 Asia/Taipei
+- generated_at: 2026-05-29 19:32:17 Asia/Taipei
 - stock_id: 2882
 - stock_name: 國泰金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 85.4
-- high: 86.2
-- low: 83.4
-- close: 84.8
-- volume: 61980458
-- ma5: 82.9
-- ema23_primary: 79.04
-- distance_to_ema23_pct: 7.28
-- ma20: 79.03
-- ma60: 75
-- ma120: 74.5
-- return_5d: 7.75
-- return_20d: 7.89
-- volume_ratio: 1.58
-- distance_to_ma20_pct_auxiliary: 7.29
-- distance_to_high_60_pct: -1.85
+- date: 20260529
+- open: 85.6
+- high: 85.8
+- low: 84
+- close: 85.7
+- volume: 71446779
+- ma5: 84.1
+- ema23_primary: 79.6
+- distance_to_ema23_pct: 7.67
+- ma20: 79.46
+- ma60: 75.14
+- ma120: 74.67
+- return_5d: 7.53
+- return_20d: 11.01
+- volume_ratio: 1.72
+- distance_to_ma20_pct_auxiliary: 7.85
+- distance_to_high_60_pct: -0.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,78,79.5,77.2,77.2,29476709,74.47,3.67,74.17,74.28,1.02
 20260504,77.8,78.8,76.2,76.2,35405947,74.61,2.13,74.39,74.27,1.2
 20260505,76.2,77.7,75.8,77.2,28364586,74.83,3.17,74.66,74.28,0.94
 20260506,77.7,79.2,77.6,78.7,31579706,75.15,4.72,75,74.32,1.02
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,80.6,83.1,80.6,83.1,54668752,77.9,6.68,78.19,74.79,1.46
 20260527,83.1,86.4,82.7,85.4,69944898,78.52,8.76,78.72,74.89,1.76
 20260528,85.4,86.2,83.4,84.8,61980458,79.04,7.28,79.03,75,1.58
+20260529,85.6,85.8,84,85.7,71446779,79.6,7.67,79.46,75.14,1.72
 ```
 
 ## Latest TDCC Snapshot
@@ -125,19 +125,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2882 | 國泰金 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260528 | 2882 | 國泰金 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 2882 | 國泰金 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 2882 | 國泰金 | pullback_rebound | 回檔後短線轉強 | 63.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260529 | 2882 | 國泰金 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260529 | 2882 | 國泰金 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260521 | 2882 | 國泰金 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2882 | 國泰金 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260529 | 2882 | 國泰金 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2882 | 國泰金 | 29 | 3 | 4795420.0 | 13820.0 | 346.99 | no_signal | 0 |  |
+| 20260529 | 2882 | 國泰金 | 29 | 3 | 5700290.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

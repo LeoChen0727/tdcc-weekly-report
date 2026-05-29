@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1785 光洋科
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:27 Asia/Taipei
+- generated_at: 2026-05-29 19:31:49 Asia/Taipei
 - stock_id: 1785
 - stock_name: 光洋科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 145
-- high: 157
-- low: 144
-- close: 146
-- volume: 152000
-- ma5: 146.4
-- ema23_primary: 147.09
-- distance_to_ema23_pct: -0.74
-- ma20: 154.43
-- ma60: 122.7
-- ma120: 92.57
-- return_5d: 2.46
-- return_20d: -16.09
+- date: 20260529
+- open: 156.5
+- high: 160.5
+- low: 151.5
+- close: 158.5
+- volume: 157000
+- ma5: 149.3
+- ema23_primary: 148.04
+- distance_to_ema23_pct: 7.07
+- ma20: 154.07
+- ma60: 124.32
+- ma120: 93.42
+- return_5d: 10.07
+- return_20d: -4.23
 - volume_ratio: 0.01
-- distance_to_ma20_pct_auxiliary: -5.46
-- distance_to_high_60_pct: -21.08
+- distance_to_ma20_pct_auxiliary: 2.87
+- distance_to_high_60_pct: -14.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,170,180,160.5,165.5,52666000,135.06,22.54,134.89,93.7,2.41
 20260504,166,174,151.5,170,48075000,137.97,23.21,138.79,95.45,2.14
 20260505,169.5,176.5,158.5,160,35855000,139.81,14.44,142.39,97.03,1.57
 20260506,162.5,172,160.5,168.5,42954000,142.2,18.5,146.32,98.75,1.78
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,155.5,156.5,147,148,151000,147.57,0.29,156.85,119.96,0.01
 20260527,148.5,149.5,142,143,145000,147.19,-2.84,155.82,121.31,0.01
 20260528,145,157,144,146,152000,147.09,-0.74,154.43,122.7,0.01
+20260529,156.5,160.5,151.5,158.5,157000,148.04,7.07,154.07,124.32,0.01
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1785 | 光洋科 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7772 耀穎
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:28 Asia/Taipei
+- generated_at: 2026-05-29 19:33:50 Asia/Taipei
 - stock_id: 7772
 - stock_name: 耀穎
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260528
-- price_rows: 15
+- latest_price_date: 20260529
+- price_rows: 16
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 151.5
-- high: 156
-- low: 147.5
-- close: 151.5
-- volume: 152000
-- ma5: 161.3
-- ema23_primary: 170.68
-- distance_to_ema23_pct: -11.24
-- ma20: 163.77
-- ma60: 163.77
-- ma120: 163.77
-- return_5d: 0.66
+- date: 20260529
+- open: 150
+- high: 152.5
+- low: 148
+- close: 148
+- volume: 150000
+- ma5: 157.8
+- ema23_primary: 168.79
+- distance_to_ema23_pct: -12.32
+- ma20: 162.78
+- ma60: 162.78
+- ma120: 162.78
+- return_5d: -10.57
 - return_20d: 
-- volume_ratio: 0.34
-- distance_to_ma20_pct_auxiliary: -7.49
-- distance_to_high_60_pct: -27.51
+- volume_ratio: 0.35
+- distance_to_ma20_pct_auxiliary: -9.08
+- distance_to_high_60_pct: -29.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -92,6 +92,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,170,171.5,160,164,163000,174,-5.75,165.38,165.38,0.33
 20260527,165,165,154,155,158000,172.42,-10.1,164.64,164.64,0.33
 20260528,151.5,156,147.5,151.5,152000,170.68,-11.24,163.77,163.77,0.34
+20260529,150,152.5,148,148,150000,168.79,-12.32,162.78,162.78,0.35
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6016 康和證
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:51 Asia/Taipei
+- generated_at: 2026-05-29 19:33:13 Asia/Taipei
 - stock_id: 6016
 - stock_name: 康和證
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 27.85
-- high: 27.85
-- low: 26.25
-- close: 26.95
-- volume: 27000
-- ma5: 24.87
-- ema23_primary: 22.35
-- distance_to_ema23_pct: 20.55
-- ma20: 22.58
-- ma60: 19.07
-- ma120: 16.84
-- return_5d: 20.04
-- return_20d: 39.28
+- date: 20260529
+- open: 27.75
+- high: 29.6
+- low: 27.5
+- close: 29.6
+- volume: 29000
+- ma5: 26.21
+- ema23_primary: 22.96
+- distance_to_ema23_pct: 28.93
+- ma20: 23.09
+- ma60: 19.28
+- ma120: 16.98
+- return_5d: 29.26
+- return_20d: 52.19
 - volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 19.35
-- distance_to_high_60_pct: -3.23
+- distance_to_ma20_pct_auxiliary: 28.21
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,19.4,19.7,19.35,19.45,7147000,17.93,8.49,17.66,17.1,1.11
 20260504,19.7,20.4,19.55,20.1,9461000,18.11,10.99,17.82,17.17,1.4
 20260505,20.1,20.3,19.85,20,7400000,18.27,9.49,18,17.23,1.07
 20260506,20.2,20.6,19.85,20.4,9155000,18.44,10.6,18.18,17.31,1.25
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,23.8,24.45,23.25,24.3,24000,21.5,13,21.83,18.77,0
 20260527,25.1,26.7,25.1,26.7,26000,21.94,21.71,22.2,18.91,0
 20260528,27.85,27.85,26.25,26.95,27000,22.35,20.55,22.58,19.07,0
+20260529,27.75,29.6,27.5,29.6,29000,22.96,28.93,23.09,19.28,0
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6016 | 康和證 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

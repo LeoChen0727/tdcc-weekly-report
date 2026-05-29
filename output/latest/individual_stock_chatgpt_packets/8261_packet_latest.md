@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8261 富鼎
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:36 Asia/Taipei
+- generated_at: 2026-05-29 19:33:58 Asia/Taipei
 - stock_id: 8261
 - stock_name: 富鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 190
-- high: 198
-- low: 183.5
-- close: 190
-- volume: 16676956
-- ma5: 182.9
-- ema23_primary: 148.82
-- distance_to_ema23_pct: 27.67
-- ma20: 144.72
-- ma60: 120.74
-- ma120: 106.19
-- return_5d: 26.67
-- return_20d: 59.66
-- volume_ratio: 1.8
-- distance_to_ma20_pct_auxiliary: 31.28
-- distance_to_high_60_pct: -10.59
+- date: 20260529
+- open: 193
+- high: 193
+- low: 173.5
+- close: 181
+- volume: 16747454
+- ma5: 187.1
+- ema23_primary: 151.5
+- distance_to_ema23_pct: 19.47
+- ma20: 147.85
+- ma60: 122.1
+- ma120: 106.95
+- return_5d: 13.12
+- return_20d: 52.74
+- volume_ratio: 1.68
+- distance_to_ma20_pct_auxiliary: 22.42
+- distance_to_high_60_pct: -14.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,119,121,117,118.5,1706622,114.61,3.39,114.61,104.06,0.41
 20260504,120.5,120.5,118.5,119.5,2002688,115.02,3.9,115.62,104.44,0.47
 20260505,120,125,120,124.5,4173275,115.81,7.51,116.83,104.91,0.96
 20260506,127,127,120.5,122,3324741,116.32,4.88,117.72,105.36,0.75
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,193.5,193.5,185.5,193.5,14430777,140.53,37.69,137.35,117.61,1.89
 20260527,212.5,212.5,188,195,19502762,145.07,34.42,141.18,119.22,2.29
 20260528,190,198,183.5,190,16676956,148.82,27.67,144.72,120.74,1.8
+20260529,193,193,173.5,181,16747454,151.5,19.47,147.85,122.1,1.68
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 8261 | 富鼎 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 8261 | 富鼎 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 8261 | 富鼎 | 4 | 1 | 4 | 5 | 5 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260529 | 8261 | 富鼎 | 5 | 2 | 5 | 6 | 6 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 8261 | 富鼎 | 50 | 0 | 10415080.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 8261 | 富鼎 | 58 | 0 | 13594840.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

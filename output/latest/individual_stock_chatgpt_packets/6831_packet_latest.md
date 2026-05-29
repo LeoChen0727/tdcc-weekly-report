@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6831 邁科
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:19 Asia/Taipei
+- generated_at: 2026-05-29 19:33:41 Asia/Taipei
 - stock_id: 6831
 - stock_name: 邁科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 120
+- latest_price_date: 20260529
+- price_rows: 121
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 830
-- high: 850
-- low: 779
-- close: 790
-- volume: 502238
-- ma5: 801.6
-- ema23_primary: 674.8
-- distance_to_ema23_pct: 17.07
-- ma20: 672.83
-- ma60: 484.66
-- ma120: 370.41
-- return_5d: 1.15
-- return_20d: 71.37
-- volume_ratio: 0.34
-- distance_to_ma20_pct_auxiliary: 17.42
-- distance_to_high_60_pct: -7.06
+- date: 20260529
+- open: 808
+- high: 809
+- low: 717
+- close: 742
+- volume: 2188736
+- ma5: 792.8
+- ema23_primary: 680.4
+- distance_to_ema23_pct: 9.05
+- ma20: 686.2
+- ma60: 492.03
+- ma120: 375.11
+- return_5d: -5.6
+- return_20d: 56.38
+- volume_ratio: 1.43
+- distance_to_ma20_pct_auxiliary: 8.13
+- distance_to_high_60_pct: -12.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,470,496.5,470,474.5,1545922,447.39,6.06,457.73,351.2,0.94
 20260504,474.5,486,468,473,1182404,449.53,5.22,461.02,355.1,0.73
 20260505,472,520,468,520,1668989,455.4,14.19,467.7,359.52,1.03
 20260506,535,569,490,561,3268307,464.2,20.85,476.1,364.72,1.89
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,795,821,790,820,411568,650.17,26.12,639.12,467.46,0.26
 20260527,850,850,797,820,610668,664.33,23.43,656.38,476.28,0.4
 20260528,830,850,779,790,502238,674.8,17.07,672.83,484.66,0.34
+20260529,808,809,717,742,2188736,680.4,9.05,686.2,492.03,1.43
 ```
 
 ## Latest TDCC Snapshot
@@ -135,7 +135,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6831 | 邁科 | 19 | 0 | 1189030.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 6831 | 邁科 | 19 | 0 | 6441470.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2103 台橡
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:32 Asia/Taipei
+- generated_at: 2026-05-29 19:31:54 Asia/Taipei
 - stock_id: 2103
 - stock_name: 台橡
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 18.8
-- high: 19.1
-- low: 18.65
-- close: 18.95
-- volume: 3295837
-- ma5: 19.26
-- ema23_primary: 19.86
-- distance_to_ema23_pct: -4.59
-- ma20: 20.12
-- ma60: 19.91
-- ma120: 17.86
-- return_5d: -7.33
-- return_20d: -3.32
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: -5.83
-- distance_to_high_60_pct: -16.52
+- date: 20260529
+- open: 18.95
+- high: 19.15
+- low: 18.9
+- close: 19.05
+- volume: 2606780
+- ma5: 19.11
+- ema23_primary: 19.79
+- distance_to_ema23_pct: -3.76
+- ma20: 20.09
+- ma60: 19.9
+- ma120: 17.9
+- return_5d: -3.79
+- return_20d: -3.05
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: -5.19
+- distance_to_high_60_pct: -16.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,19.6,19.95,19.4,19.65,3362384,19.39,1.34,19.32,18.76,0.68
 20260504,19.7,19.8,19,19.15,3406465,19.37,-1.13,19.3,18.83,0.68
 20260505,19.25,19.9,19.15,19.65,3060226,19.39,1.32,19.34,18.89,0.63
 20260506,19.85,20.65,19.75,19.95,6143797,19.44,2.63,19.35,18.97,1.23
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,19.7,19.75,19.2,19.25,3510625,20.05,-3.99,20.2,19.94,0.54
 20260527,19.4,19.4,18.7,18.8,7012270,19.95,-5.74,20.16,19.91,1.13
 20260528,18.8,19.1,18.65,18.95,3295837,19.86,-4.59,20.12,19.91,0.54
+20260529,18.95,19.15,18.9,19.05,2606780,19.79,-3.76,20.09,19.9,0.43
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 2103 | 台橡 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 2103 | 台橡 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2103 | 台橡 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260529 | 2103 | 台橡 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2103 | 台橡 | 5 | 0 | 216510.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 2103 | 台橡 | 5 | 0 | 353070.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

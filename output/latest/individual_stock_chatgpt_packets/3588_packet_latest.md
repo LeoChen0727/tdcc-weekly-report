@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3588 通嘉
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:17 Asia/Taipei
+- generated_at: 2026-05-29 19:32:40 Asia/Taipei
 - stock_id: 3588
 - stock_name: 通嘉
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 65.2
-- high: 65.9
-- low: 61.2
-- close: 61.7
-- volume: 1004745
-- ma5: 63.84
-- ema23_primary: 61.31
-- distance_to_ema23_pct: 0.63
-- ma20: 61.83
-- ma60: 55.63
-- ma120: 53.1
-- return_5d: -1.12
-- return_20d: 0.82
-- volume_ratio: 1.47
-- distance_to_ma20_pct_auxiliary: -0.2
-- distance_to_high_60_pct: -13.83
+- date: 20260529
+- open: 62.9
+- high: 63.4
+- low: 61.3
+- close: 61.8
+- volume: 621229
+- ma5: 63.58
+- ema23_primary: 61.35
+- distance_to_ema23_pct: 0.73
+- ma20: 61.85
+- ma60: 55.8
+- ma120: 53.24
+- return_5d: -2.06
+- return_20d: 0.98
+- volume_ratio: 0.9
+- distance_to_ma20_pct_auxiliary: -0.09
+- distance_to_high_60_pct: -13.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,61.4,61.8,60.4,61.2,549891,57.38,6.66,56.38,52.94,0.32
 20260504,61.6,62.8,60.9,61.1,621125,57.69,5.92,57.08,53.04,0.35
 20260505,61.1,63.3,61.1,62.5,821262,58.09,7.6,57.89,53.16,0.46
 20260506,63,63.5,60.5,61,835888,58.33,4.58,58.62,53.22,0.46
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,65.3,66.7,64,65.1,732396,60.99,6.75,61.74,55.26,1.09
 20260527,66,66.3,62.9,64.5,1030226,61.28,5.26,61.8,55.47,1.54
 20260528,65.2,65.9,61.2,61.7,1004745,61.31,0.63,61.83,55.63,1.47
+20260529,62.9,63.4,61.3,61.8,621229,61.35,0.73,61.85,55.8,0.9
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3588 | 通嘉 | pattern | 型態觀察 | 51.0 |  |  | early_entry_watch |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3588 | 通嘉 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

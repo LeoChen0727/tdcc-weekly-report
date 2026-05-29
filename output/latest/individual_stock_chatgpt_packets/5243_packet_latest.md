@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5243 乙盛-KY
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:41 Asia/Taipei
+- generated_at: 2026-05-29 19:33:03 Asia/Taipei
 - stock_id: 5243
 - stock_name: 乙盛-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 128
-- high: 133.5
-- low: 118.5
-- close: 120.5
-- volume: 10693165
-- ma5: 127.5
-- ema23_primary: 113.75
-- distance_to_ema23_pct: 5.93
-- ma20: 111.45
-- ma60: 98.69
-- ma120: 90.46
-- return_5d: 7.59
-- return_20d: 16.43
-- volume_ratio: 1.44
-- distance_to_ma20_pct_auxiliary: 8.12
-- distance_to_high_60_pct: -16.03
+- date: 20260529
+- open: 123.5
+- high: 129
+- low: 121
+- close: 126.5
+- volume: 8560150
+- ma5: 128.2
+- ema23_primary: 114.81
+- distance_to_ema23_pct: 10.18
+- ma20: 112.5
+- ma60: 99.48
+- ma120: 90.85
+- return_5d: 2.85
+- return_20d: 19.91
+- volume_ratio: 1.15
+- distance_to_ma20_pct_auxiliary: 12.44
+- distance_to_high_60_pct: -11.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,105,109,103,105.5,7559104,106.31,-0.76,112.35,90.25,1.13
 20260504,110,111.5,103.5,106,9102253,106.28,-0.27,113.2,90.64,1.39
 20260505,106,113.5,105,109,5971826,106.51,2.34,113.97,90.98,1.01
 20260506,110.5,110.5,101.5,104.5,6640275,106.34,-1.73,114.49,91.24,1.17
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,143,143.5,126.5,132,16026902,111.88,17.99,109.24,97.38,2.1
 20260527,134.5,142,124,127,9949135,113.14,12.25,110.6,98.07,1.34
 20260528,128,133.5,118.5,120.5,10693165,113.75,5.93,111.45,98.69,1.44
+20260529,123.5,129,121,126.5,8560150,114.81,10.18,112.5,99.48,1.15
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 5243 | 乙盛-KY | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 5243 | 乙盛-KY | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 5243 | 乙盛-KY | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| 20260529 | 5243 | 乙盛-KY | 2 | 2 | 3 | 3 | 3 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 5243 | 乙盛-KY | 46 | 1 | 4823820.0 | 4940.0 | 976.48 | no_signal | 0 |  |
+| 20260529 | 5243 | 乙盛-KY | 47 | 1 | 9886010.0 | 1730.0 | 5714.46 | call_put_bullish | 3 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3680 家登
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:20 Asia/Taipei
+- generated_at: 2026-05-29 19:32:42 Asia/Taipei
 - stock_id: 3680
 - stock_name: 家登
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 562
-- high: 568
-- low: 530
-- close: 535
-- volume: 548000
-- ma5: 568.8
-- ema23_primary: 540.91
-- distance_to_ema23_pct: -1.09
-- ma20: 565.75
-- ma60: 462.57
-- ma120: 422.64
-- return_5d: -1.65
-- return_20d: 6.79
-- volume_ratio: 0.16
-- distance_to_ma20_pct_auxiliary: -5.44
-- distance_to_high_60_pct: -14.13
+- date: 20260529
+- open: 548
+- high: 556
+- low: 533
+- close: 540
+- volume: 544000
+- ma5: 563.2
+- ema23_primary: 540.84
+- distance_to_ema23_pct: -0.15
+- ma20: 565.9
+- ma60: 464.83
+- ma120: 424.23
+- return_5d: -4.93
+- return_20d: 0.56
+- volume_ratio: 0.18
+- distance_to_ma20_pct_auxiliary: -4.58
+- distance_to_high_60_pct: -13.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,513,551,511,537,8010000,448.39,19.76,438.43,414.68,2.1
 20260504,549,582,545,564,7139000,458.03,23.14,447.77,416.73,1.74
 20260505,579,602,572,582,5181000,468.36,24.26,458.12,419.15,1.2
 20260506,587,604,554,581,5352000,477.74,21.61,468.32,421.47,1.18
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,603,610,583,589,594000,540.04,9.07,560.62,458.38,0.16
 20260527,600,601,548,557,568000,541.45,2.87,564.05,460.57,0.16
 20260528,562,568,530,535,548000,540.91,-1.09,565.75,462.57,0.16
+20260529,548,556,533,540,544000,540.84,-0.15,565.9,464.83,0.18
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 3680 | 家登 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 3680 | 家登 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3680 | 家登 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260529 | 3680 | 家登 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

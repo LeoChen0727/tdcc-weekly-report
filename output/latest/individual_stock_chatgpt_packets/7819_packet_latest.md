@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7819 精誠金融
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:29 Asia/Taipei
+- generated_at: 2026-05-29 19:33:51 Asia/Taipei
 - stock_id: 7819
 - stock_name: 精誠金融
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260528
-- price_rows: 2
+- latest_price_date: 20260529
+- price_rows: 3
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 46
-- high: 47.55
-- low: 45.85
-- close: 45.95
-- volume: 47000
+- date: 20260529
+- open: 46.3
+- high: 46.55
+- low: 45.15
+- close: 45.5
+- volume: 46000
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -79,6 +79,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260527,50.4,50.4,45.7,45.8,48000,,,,,
 20260528,46,47.55,45.85,45.95,47000,,,,,
+20260529,46.3,46.55,45.15,45.5,46000,,,,,
 ```
 
 ## Latest TDCC Snapshot

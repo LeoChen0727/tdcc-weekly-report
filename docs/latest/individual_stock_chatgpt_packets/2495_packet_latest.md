@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2495 普安
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:46 Asia/Taipei
+- generated_at: 2026-05-29 19:32:08 Asia/Taipei
 - stock_id: 2495
 - stock_name: 普安
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 49
-- high: 49.85
-- low: 46.55
-- close: 47.35
-- volume: 25814174
-- ma5: 46.87
-- ema23_primary: 41.34
-- distance_to_ema23_pct: 14.55
-- ma20: 40.36
-- ma60: 37.64
-- ma120: 34.31
-- return_5d: 16.48
-- return_20d: 15.63
-- volume_ratio: 2.48
-- distance_to_ma20_pct_auxiliary: 17.31
-- distance_to_high_60_pct: -6.42
+- date: 20260529
+- open: 50.5
+- high: 52
+- low: 49.5
+- close: 51.5
+- volume: 22833459
+- ma5: 48.33
+- ema23_primary: 42.18
+- distance_to_ema23_pct: 22.09
+- ma20: 40.93
+- ma60: 37.99
+- ma120: 34.52
+- return_5d: 16.52
+- return_20d: 28.11
+- volume_ratio: 2.03
+- distance_to_ma20_pct_auxiliary: 25.83
+- distance_to_high_60_pct: -0.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,40.8,41.35,39.7,40.2,5680635,39.46,1.89,39.62,35.27,0.44
 20260504,40.45,41.2,40.35,40.65,3304843,39.55,2.77,39.94,35.39,0.26
 20260505,40.9,42,40.6,41.65,5427193,39.73,4.83,40.42,35.49,0.42
 20260506,42.5,43.8,40.25,42.65,12520781,39.97,6.7,40.95,35.62,0.93
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,46.5,47.9,44.7,46.05,17553438,39.9,15.42,39.55,37.07,2.02
 20260527,47.7,50.6,47.5,50.6,27802643,40.79,24.05,40.04,37.38,2.83
 20260528,49,49.85,46.55,47.35,25814174,41.34,14.55,40.36,37.64,2.48
+20260529,50.5,52,49.5,51.5,22833459,42.18,22.09,40.93,37.99,2.03
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2495 | 普安 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 2495 | 普安 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 2495 | 普安 | true_breakout | 嚴格突破 | 94.0 |  |  | breakout_confirmed |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260521 | 2495 | 普安 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2495 | 普安 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260529 | 2495 | 普安 | 7 | 7 | 5 | 7 | 7 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2495 | 普安 | 22 | 0 | 6214490.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 2495 | 普安 | 22 | 0 | 6259140.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

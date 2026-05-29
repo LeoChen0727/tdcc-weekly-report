@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3131 弘塑
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:04 Asia/Taipei
+- generated_at: 2026-05-29 19:32:26 Asia/Taipei
 - stock_id: 3131
 - stock_name: 弘塑
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 3650
-- high: 3765
-- low: 3510
-- close: 3635
-- volume: 3690000
-- ma5: 3183
-- ema23_primary: 3011.05
-- distance_to_ema23_pct: 20.72
-- ma20: 2989.75
-- ma60: 2775.42
-- ma120: 2189
-- return_5d: 34.63
-- return_20d: 26.66
-- volume_ratio: 2.83
-- distance_to_ma20_pct_auxiliary: 21.58
-- distance_to_high_60_pct: -3.45
+- date: 20260529
+- open: 3820
+- high: 3865
+- low: 3450
+- close: 3450
+- volume: 3682000
+- ma5: 3309
+- ema23_primary: 3047.63
+- distance_to_ema23_pct: 13.2
+- ma20: 3014.75
+- ma60: 2804.75
+- ma120: 2205.75
+- return_5d: 22.34
+- return_20d: 16.95
+- volume_ratio: 2.55
+- distance_to_ma20_pct_auxiliary: 14.44
+- distance_to_high_60_pct: -10.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,2895,3045,2895,2950,859000,2967.42,-0.59,3159.25,2354.17,0.88
 20260504,3015,3100,2920,3065,779000,2975.55,3.01,3166,2376,0.83
 20260505,2930,2960,2810,2910,1583000,2970.09,-2.02,3157,2395.08,1.64
 20260506,2990,3200,2950,3200,1165000,2989.25,7.05,3159.5,2419,1.19
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,3045,3205,3000,3115,3139000,2911.54,6.99,2923.75,2716.25,3.09
 20260527,3425,3425,3425,3425,3425000,2954.32,15.93,2951.5,2743.67,2.99
 20260528,3650,3765,3510,3635,3690000,3011.05,20.72,2989.75,2775.42,2.83
+20260529,3820,3865,3450,3450,3682000,3047.63,13.2,3014.75,2804.75,2.55
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3131 | 弘塑 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

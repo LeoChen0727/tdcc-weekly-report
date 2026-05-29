@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2258 鴻華先進-創
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:34 Asia/Taipei
+- generated_at: 2026-05-29 19:31:57 Asia/Taipei
 - stock_id: 2258
 - stock_name: 鴻華先進-創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 29.15
-- high: 29.9
-- low: 28.8
-- close: 29.2
-- volume: 984712
-- ma5: 29.45
-- ema23_primary: 28.58
-- distance_to_ema23_pct: 2.17
-- ma20: 28.33
-- ma60: 29.57
-- ma120: 34.59
-- return_5d: 4.29
-- return_20d: 2.46
-- volume_ratio: 1.03
-- distance_to_ma20_pct_auxiliary: 3.08
-- distance_to_high_60_pct: -24.25
+- date: 20260529
+- open: 29.55
+- high: 30.3
+- low: 29.35
+- close: 30.15
+- volume: 1151321
+- ma5: 29.4
+- ema23_primary: 28.71
+- distance_to_ema23_pct: 5.01
+- ma20: 28.41
+- ma60: 29.45
+- ma120: 34.51
+- return_5d: -0.82
+- return_20d: 5.98
+- volume_ratio: 1.16
+- distance_to_ma20_pct_auxiliary: 6.12
+- distance_to_high_60_pct: -20.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,28.65,28.9,28.05,28.45,466884,29.07,-2.13,28.18,32.83,0.58
 20260504,29,29,28.15,28.35,406055,29.01,-2.27,28.23,32.66,0.52
 20260505,28.35,28.35,27.85,28,625210,28.93,-3.2,28.26,32.48,0.79
 20260506,28.6,28.6,27.3,28.35,842153,28.88,-1.83,28.34,32.31,1.07
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,29.85,30.15,29,29.05,975271,28.51,1.88,28.28,29.92,1.08
 20260527,29.05,29.2,28.4,28.65,863820,28.52,0.44,28.29,29.73,0.93
 20260528,29.15,29.9,28.8,29.2,984712,28.58,2.17,28.33,29.57,1.03
+20260529,29.55,30.3,29.35,30.15,1151321,28.71,5.01,28.41,29.45,1.16
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 2258 | 鴻華先進-創 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 2258 | 鴻華先進-創 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
 
 ## Warrant Context
 | status |

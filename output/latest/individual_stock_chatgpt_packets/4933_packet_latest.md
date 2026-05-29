@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4933 友輝
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:37 Asia/Taipei
+- generated_at: 2026-05-29 19:32:59 Asia/Taipei
 - stock_id: 4933
 - stock_name: 友輝
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 75.6
-- high: 77.2
-- low: 73.7
-- close: 74.5
-- volume: 75000
-- ma5: 74.24
-- ema23_primary: 70.46
-- distance_to_ema23_pct: 5.74
-- ma20: 71.42
-- ma60: 63.94
-- ma120: 61.26
-- return_5d: 1.36
-- return_20d: -1.97
-- volume_ratio: 0.09
-- distance_to_ma20_pct_auxiliary: 4.32
-- distance_to_high_60_pct: -5.7
+- date: 20260529
+- open: 75.8
+- high: 77.9
+- low: 75
+- close: 77.3
+- volume: 77000
+- ma5: 74.92
+- ema23_primary: 71.03
+- distance_to_ema23_pct: 8.83
+- ma20: 71.6
+- ma60: 64.25
+- ma120: 61.41
+- return_5d: 4.6
+- return_20d: 5.03
+- volume_ratio: 0.12
+- distance_to_ma20_pct_auxiliary: 7.96
+- distance_to_high_60_pct: -2.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,77.2,77.7,72.2,73.6,3559000,64.15,14.73,62.76,59.66,3.63
 20260504,73.6,73.6,70.2,71,1564000,64.72,9.7,63.42,59.86,1.49
 20260505,70.8,71.9,70.1,71.9,809000,65.32,10.08,64.19,60.08,0.75
 20260506,72.1,74.5,70.5,73.5,2048000,66,11.36,65.01,60.32,1.74
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,74.5,78.8,73.8,73.8,76000,69.67,5.92,71.38,63.44,0.07
 20260527,73.9,76.6,73.9,74.7,75000,70.09,6.57,71.49,63.69,0.07
 20260528,75.6,77.2,73.7,74.5,75000,70.46,5.74,71.42,63.94,0.09
+20260529,75.8,77.9,75,77.3,77000,71.03,8.83,71.6,64.25,0.12
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4933 | 友輝 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

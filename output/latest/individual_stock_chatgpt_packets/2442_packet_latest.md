@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2442 新美齊
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:43 Asia/Taipei
+- generated_at: 2026-05-29 19:32:05 Asia/Taipei
 - stock_id: 2442
 - stock_name: 新美齊
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 18.4
-- high: 18.8
-- low: 18.4
-- close: 18.7
-- volume: 2656069
-- ma5: 18.49
+- date: 20260529
+- open: 18.75
+- high: 18.75
+- low: 18.45
+- close: 18.65
+- volume: 2579878
+- ma5: 18.52
 - ema23_primary: 18.65
-- distance_to_ema23_pct: 0.28
-- ma20: 18.48
-- ma60: 19.36
-- ma120: 21.48
-- return_5d: 0
-- return_20d: 1.35
-- volume_ratio: 1.69
-- distance_to_ma20_pct_auxiliary: 1.2
-- distance_to_high_60_pct: -15.19
+- distance_to_ema23_pct: 0.01
+- ma20: 18.5
+- ma60: 19.35
+- ma120: 21.44
+- return_5d: 0.81
+- return_20d: 2.19
+- volume_ratio: 1.6
+- distance_to_ma20_pct_auxiliary: 0.82
+- distance_to_high_60_pct: -15.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,18.5,18.5,18.2,18.25,1669604,19.32,-5.54,19.48,20.16,0.62
 20260504,18.3,18.4,18.15,18.3,1572473,19.24,-4.86,19.36,20.09,0.58
 20260505,18.4,18.5,18.25,18.5,1010341,19.17,-3.52,19.25,20.02,0.37
 20260506,18.5,18.65,18.25,18.5,1684538,19.12,-3.23,19.16,19.96,0.62
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,18.45,18.6,18.35,18.5,1102985,18.67,-0.93,18.46,19.4,0.72
 20260527,18.6,18.6,18.25,18.3,1800493,18.64,-1.84,18.46,19.37,1.19
 20260528,18.4,18.8,18.4,18.7,2656069,18.65,0.28,18.48,19.36,1.69
+20260529,18.75,18.75,18.45,18.65,2579878,18.65,0.01,18.5,19.35,1.6
 ```
 
 ## Latest TDCC Snapshot
@@ -125,14 +125,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2442 | 新美齊 | pullback_rebound | 回檔後短線轉強 | 70.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260528 | 2442 | 新美齊 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260528 | 2442 | 新美齊 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 2442 | 新美齊 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260529 | 2442 | 新美齊 | revenue_breakout_low_response | 營收爆發低反應股 | 15.0 | 17.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2442 | 新美齊 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260529 | 2442 | 新美齊 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

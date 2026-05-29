@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4721 美琪瑪
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:33 Asia/Taipei
+- generated_at: 2026-05-29 19:32:55 Asia/Taipei
 - stock_id: 4721
 - stock_name: 美琪瑪
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 90.4
-- high: 91.7
-- low: 87
-- close: 87
-- volume: 89000
-- ma5: 90.16
-- ema23_primary: 88.56
-- distance_to_ema23_pct: -1.76
-- ma20: 90.36
-- ma60: 80.51
-- ma120: 74.03
-- return_5d: 0.81
-- return_20d: 1.87
+- date: 20260529
+- open: 89
+- high: 93.3
+- low: 88.2
+- close: 92.7
+- volume: 92000
+- ma5: 90.62
+- ema23_primary: 88.91
+- distance_to_ema23_pct: 4.27
+- ma20: 90.83
+- ma60: 80.94
+- ma120: 74.25
+- return_5d: 2.54
+- return_20d: 11.02
 - volume_ratio: 0.04
-- distance_to_ma20_pct_auxiliary: -3.72
-- distance_to_high_60_pct: -11.22
+- distance_to_ma20_pct_auxiliary: 2.06
+- distance_to_high_60_pct: -5.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,86.8,87.6,83.3,83.5,1077000,81.9,1.95,82.61,72.8,0.44
 20260504,83.1,87,81.5,86.5,1365000,82.28,5.12,83.33,73.09,0.54
 20260505,86,90.4,84.5,89,3062000,82.84,7.43,84.17,73.4,1.16
 20260506,90,94.9,88.5,93.3,7380000,83.72,11.45,85.27,73.8,2.47
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,91.4,93.2,90.4,92.1,92000,88.55,4.01,89.91,79.79,0.04
 20260527,93.5,93.5,90.1,90.4,91000,88.7,1.91,90.28,80.17,0.04
 20260528,90.4,91.7,87,87,89000,88.56,-1.76,90.36,80.51,0.04
+20260529,89,93.3,88.2,92.7,92000,88.91,4.27,90.83,80.94,0.04
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4721 | 美琪瑪 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

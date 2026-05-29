@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4768 晶呈科技
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:35 Asia/Taipei
+- generated_at: 2026-05-29 19:32:57 Asia/Taipei
 - stock_id: 4768
 - stock_name: 晶呈科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 508
-- high: 518
-- low: 482
-- close: 491
-- volume: 500000
-- ma5: 481.7
-- ema23_primary: 473.39
-- distance_to_ema23_pct: 3.72
-- ma20: 475.88
-- ma60: 473.62
-- ma120: 412.02
-- return_5d: 10.09
-- return_20d: -0.61
-- volume_ratio: 0.69
-- distance_to_ma20_pct_auxiliary: 3.18
-- distance_to_high_60_pct: -16.07
+- date: 20260529
+- open: 504
+- high: 504
+- low: 468
+- close: 469.5
+- volume: 478000
+- ma5: 484.6
+- ema23_primary: 473.07
+- distance_to_ema23_pct: -0.75
+- ma20: 474.5
+- ma60: 473.02
+- ma120: 414.25
+- return_5d: 3.19
+- return_20d: -5.53
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: -1.05
+- distance_to_high_60_pct: -19.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,503,504,494,497,319000,486.4,2.18,485,452.99,0.15
 20260504,501,509,496.5,498.5,351000,487.41,2.28,487.93,454.7,0.17
 20260505,504,525,496,525,501000,490.54,7.02,492.62,457.09,0.25
 20260506,537,539,505,521,495000,493.08,5.66,496.93,459.16,0.25
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,488,505,463,496.5,489000,468.87,5.89,475.43,473.3,0.68
 20260527,511,541,499,504,519000,471.79,6.83,476.02,473.95,0.72
 20260528,508,518,482,491,500000,473.39,3.72,475.88,473.62,0.69
+20260529,504,504,468,469.5,478000,473.07,-0.75,474.5,473.02,0.65
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4768 | 晶呈科技 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

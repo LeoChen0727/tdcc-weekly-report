@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6983 華洋精機
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:25 Asia/Taipei
+- generated_at: 2026-05-29 19:33:47 Asia/Taipei
 - stock_id: 6983
 - stock_name: 華洋精機
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260528
-- price_rows: 4
+- latest_price_date: 20260529
+- price_rows: 5
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 430
-- high: 430
-- low: 380
-- close: 385
-- volume: 395000
-- ma5: 
-- ema23_primary: 
-- distance_to_ema23_pct: 
-- ma20: 
-- ma60: 
-- ma120: 
+- date: 20260529
+- open: 391
+- high: 400
+- low: 372
+- close: 381.5
+- volume: 382000
+- ma5: 410.7
+- ema23_primary: 393.44
+- distance_to_ema23_pct: -3.04
+- ma20: 410.7
+- ma60: 410.7
+- ma120: 410.7
 - return_5d: 
 - return_20d: 
-- volume_ratio: 
-- distance_to_ma20_pct_auxiliary: 
-- distance_to_high_60_pct: 
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: -7.11
+- distance_to_high_60_pct: -26.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -81,6 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,385.5,520,385.5,472,453000,,,,,
 20260527,497.5,498,428,430,452000,,,,,
 20260528,430,430,380,385,395000,,,,,
+20260529,391,400,372,381.5,382000,393.44,-3.04,410.7,410.7,0.94
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2438 翔耀
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:42 Asia/Taipei
+- generated_at: 2026-05-29 19:32:05 Asia/Taipei
 - stock_id: 2438
 - stock_name: 翔耀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 27.7
-- high: 27.8
-- low: 26.8
-- close: 27.8
-- volume: 1892226
-- ma5: 24.12
-- ema23_primary: 22.83
-- distance_to_ema23_pct: 21.74
-- ma20: 22.59
-- ma60: 22.16
-- ma120: 22.37
-- return_5d: 26.36
-- return_20d: 23.83
-- volume_ratio: 4.94
-- distance_to_ma20_pct_auxiliary: 23.04
-- distance_to_high_60_pct: 0
+- date: 20260529
+- open: 29
+- high: 29.15
+- low: 25.5
+- close: 28.2
+- volume: 1800048
+- ma5: 25.36
+- ema23_primary: 23.28
+- distance_to_ema23_pct: 21.12
+- ma20: 22.88
+- ma60: 22.27
+- ma120: 22.4
+- return_5d: 28.18
+- return_20d: 25.33
+- volume_ratio: 3.87
+- distance_to_ma20_pct_auxiliary: 23.25
+- distance_to_high_60_pct: -3.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,22.4,23,22.3,22.5,161328,22.27,1.05,22.12,22.05,0.66
 20260504,22.5,23.2,22.4,22.8,319403,22.31,2.19,22.08,22.03,1.28
 20260505,23.2,23.5,22.9,23.4,330713,22.4,4.45,22.13,22.04,1.27
 20260506,23.8,24,23,23.35,287693,22.48,3.87,22.2,22.05,1.08
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,22.7,23.6,22.05,23,398784,22.12,3.99,22.18,22.02,1.91
 20260527,23.5,25.3,23.5,25.3,1833017,22.38,13.03,22.33,22.07,6.21
 20260528,27.7,27.8,26.8,27.8,1892226,22.83,21.74,22.59,22.16,4.94
+20260529,29,29.15,25.5,28.2,1800048,23.28,21.12,22.88,22.27,3.87
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2438 | 翔耀 | true_breakout | 嚴格突破 | 124.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 2438 | 翔耀 | true_breakout | 嚴格突破 | 87.0 |  |  | platform_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2438 | 翔耀 | 2 | 2 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260529 | 2438 | 翔耀 | 3 | 3 | 3 | 3 | 3 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | status |

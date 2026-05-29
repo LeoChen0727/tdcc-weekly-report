@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 006208 富邦台50
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:07 Asia/Taipei
+- generated_at: 2026-05-29 19:31:29 Asia/Taipei
 - stock_id: 006208
 - stock_name: 富邦台50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260528
-- price_rows: 5
+- latest_price_date: 20260529
+- price_rows: 6
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 239.9
-- high: 241.25
-- low: 231.9
-- close: 233.15
-- volume: 5183837
-- ma5: 232.3
-- ema23_primary: 227.73
-- distance_to_ema23_pct: 2.38
-- ma20: 232.3
-- ma60: 232.3
-- ma120: 232.3
-- return_5d: 
+- date: 20260529
+- open: 238.75
+- high: 241.4
+- low: 237.95
+- close: 241.25
+- volume: 4423176
+- ma5: 235.54
+- ema23_primary: 228.86
+- distance_to_ema23_pct: 5.42
+- ma20: 233.79
+- ma60: 233.79
+- ma120: 233.79
+- return_5d: 7.2
 - return_20d: 
-- volume_ratio: 1.1
-- distance_to_ma20_pct_auxiliary: 0.37
-- distance_to_high_60_pct: -3.36
+- volume_ratio: 0.95
+- distance_to_ma20_pct_auxiliary: 3.19
+- distance_to_high_60_pct: -0.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -82,6 +82,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,235,235.45,232.5,232.55,2549863,,,,,
 20260527,237.75,240.2,236.05,237.6,4846354,,,,,
 20260528,239.9,241.25,231.9,233.15,5183837,227.73,2.38,232.3,232.3,1.1
+20260529,238.75,241.4,237.95,241.25,4423176,228.86,5.42,233.79,233.79,0.95
 ```
 
 ## Latest TDCC Snapshot
@@ -110,9 +111,9 @@ no_rows,True
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6208 | 日揚 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

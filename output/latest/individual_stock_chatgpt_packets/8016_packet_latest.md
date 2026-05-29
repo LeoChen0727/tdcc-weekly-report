@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8016 矽創
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:29 Asia/Taipei
+- generated_at: 2026-05-29 19:33:52 Asia/Taipei
 - stock_id: 8016
 - stock_name: 矽創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 303.5
-- high: 305
-- low: 297
-- close: 300
-- volume: 3268787
-- ma5: 294.7
-- ema23_primary: 270.36
-- distance_to_ema23_pct: 10.97
-- ma20: 273.45
-- ma60: 226.99
-- ma120: 206.6
-- return_5d: 0.84
-- return_20d: 31.29
-- volume_ratio: 1.09
-- distance_to_ma20_pct_auxiliary: 9.71
-- distance_to_high_60_pct: -1.64
+- date: 20260529
+- open: 304
+- high: 306
+- low: 298
+- close: 306
+- volume: 4044659
+- ma5: 297.5
+- ema23_primary: 273.33
+- distance_to_ema23_pct: 11.95
+- ma20: 277.25
+- ma60: 228.88
+- ma120: 207.67
+- return_5d: 4.79
+- return_20d: 33.04
+- volume_ratio: 1.29
+- distance_to_ma20_pct_auxiliary: 10.37
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,229.5,233,227,230,1706576,214.9,7.03,213.12,200.91,1.2
 20260504,234,236.5,231,233.5,816967,216.45,7.88,215.07,201.6,0.57
 20260505,233.5,235.5,230.5,234.5,870315,217.96,7.59,217.25,202.32,0.59
 20260506,239,242.5,235,241.5,1703636,219.92,9.81,219.62,203.12,1.11
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,292.5,292.5,286.5,289.5,1111575,264.63,9.4,265.9,223.53,0.41
 20260527,292,305,290,301,4534481,267.66,12.46,269.88,225.23,1.55
 20260528,303.5,305,297,300,3268787,270.36,10.97,273.45,226.99,1.09
+20260529,304,306,298,306,4044659,273.33,11.95,277.25,228.88,1.29
 ```
 
 ## Latest TDCC Snapshot
@@ -135,7 +135,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 8016 | 矽創 | 27 | 0 | 14695560.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260529 | 8016 | 矽創 | 27 | 0 | 8273610.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

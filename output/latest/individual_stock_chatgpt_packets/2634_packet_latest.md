@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2634 漢翔
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:50 Asia/Taipei
+- generated_at: 2026-05-29 19:32:12 Asia/Taipei
 - stock_id: 2634
 - stock_name: 漢翔
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 45.9
-- high: 46.65
-- low: 45.65
-- close: 45.9
-- volume: 4439687
-- ma5: 46.04
+- date: 20260529
+- open: 46.6
+- high: 48
+- low: 46.5
+- close: 47
+- volume: 8138912
+- ma5: 46.14
 - ema23_primary: 46.97
-- distance_to_ema23_pct: -2.27
+- distance_to_ema23_pct: 0.07
 - ma20: 47.09
-- ma60: 48.72
-- ma120: 50.87
-- return_5d: -0.86
-- return_20d: -3.37
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: -2.52
-- distance_to_high_60_pct: -18.04
+- ma60: 48.59
+- ma120: 50.84
+- return_5d: 1.08
+- return_20d: 0.11
+- volume_ratio: 1.44
+- distance_to_ma20_pct_auxiliary: -0.19
+- distance_to_high_60_pct: -15.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,47.5,47.5,46.9,46.95,4046439,48.65,-3.49,48.04,51,0.84
 20260504,46.95,49.35,46.8,48.95,5705403,48.67,0.57,48.13,50.88,1.14
 20260505,49,50.5,48.65,50,6274193,48.78,2.49,48.3,50.75,1.22
 20260506,50.5,50.5,48.85,48.95,4608895,48.8,0.31,48.43,50.65,0.88
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,46.65,46.9,45.8,45.9,4624765,47.2,-2.76,47.27,49.02,0.87
 20260527,46,46.05,45.5,45.5,4552587,47.06,-3.32,47.16,48.86,0.85
 20260528,45.9,46.65,45.65,45.9,4439687,46.97,-2.27,47.09,48.72,0.82
+20260529,46.6,48,46.5,47,8138912,46.97,0.07,47.09,48.59,1.44
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 2634 | 漢翔 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 2634 | 漢翔 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2634 | 漢翔 | 52 | 0 | 138020.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 2634 | 漢翔 | 47 | 0 | 631920.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

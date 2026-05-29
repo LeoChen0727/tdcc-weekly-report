@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1710 東聯
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:24 Asia/Taipei
+- generated_at: 2026-05-29 19:31:47 Asia/Taipei
 - stock_id: 1710
 - stock_name: 東聯
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 13
-- high: 13.5
-- low: 12.85
-- close: 13.5
-- volume: 7280790
-- ma5: 13.05
-- ema23_primary: 12.81
-- distance_to_ema23_pct: 5.37
-- ma20: 12.5
-- ma60: 13.46
-- ma120: 13.03
-- return_5d: 3.05
-- return_20d: 2.27
-- volume_ratio: 1.71
-- distance_to_ma20_pct_auxiliary: 8.02
-- distance_to_high_60_pct: -19.88
+- date: 20260529
+- open: 13.45
+- high: 14.55
+- low: 13.4
+- close: 13.8
+- volume: 12493834
+- ma5: 13.22
+- ema23_primary: 12.89
+- distance_to_ema23_pct: 7.03
+- ma20: 12.54
+- ma60: 13.47
+- ma120: 13.05
+- return_5d: 6.56
+- return_20d: 6.15
+- volume_ratio: 2.68
+- distance_to_ma20_pct_auxiliary: 10.07
+- distance_to_high_60_pct: -18.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,13.3,13.4,12.9,13,4296489,13.65,-4.76,13.71,13.66,0.66
 20260504,13,13.05,12.7,12.75,2861347,13.58,-6.08,13.62,13.66,0.48
 20260505,12.75,12.9,12.5,12.6,2891728,13.49,-6.62,13.54,13.64,0.51
 20260506,12.65,12.65,12.3,12.35,2782070,13.4,-7.83,13.46,13.62,0.51
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,13.2,13.2,12.7,12.7,3111231,12.73,-0.24,12.49,13.45,0.79
 20260527,12.7,13.05,12.7,12.95,3206392,12.75,1.58,12.48,13.45,0.8
 20260528,13,13.5,12.85,13.5,7280790,12.81,5.37,12.5,13.46,1.71
+20260529,13.45,14.55,13.4,13.8,12493834,12.89,7.03,12.54,13.47,2.68
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1710 | 東聯 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 1710 | 東聯 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 1710 | 東聯 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260521 | 1710 | 東聯 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1710 | 東聯 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260529 | 1710 | 東聯 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1710 | 東聯 | 7 | 0 | 917170.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 1710 | 東聯 | 7 | 0 | 3612010.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

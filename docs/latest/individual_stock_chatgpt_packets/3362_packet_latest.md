@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3362 先進光
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:10 Asia/Taipei
+- generated_at: 2026-05-29 19:32:33 Asia/Taipei
 - stock_id: 3362
 - stock_name: 先進光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 112.5
-- high: 115
-- low: 109.5
-- close: 110.5
-- volume: 112000
-- ma5: 115
-- ema23_primary: 111.56
-- distance_to_ema23_pct: -0.95
-- ma20: 111
-- ma60: 104.8
-- ma120: 102.27
-- return_5d: -8.68
-- return_20d: 3.76
+- date: 20260529
+- open: 113
+- high: 113
+- low: 110
+- close: 110
+- volume: 111000
+- ma5: 113
+- ema23_primary: 111.43
+- distance_to_ema23_pct: -1.29
+- ma20: 111.1
+- ma60: 104.91
+- ma120: 102.44
+- return_5d: -8.33
+- return_20d: 1.85
 - volume_ratio: 0.07
-- distance_to_ma20_pct_auxiliary: -0.45
-- distance_to_high_60_pct: -12.65
+- distance_to_ma20_pct_auxiliary: -0.99
+- distance_to_high_60_pct: -13.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,106.5,109.5,106.5,108,483000,106.72,1.2,106.52,103.77,0.44
 20260504,107.5,110,107.5,108,672000,106.82,1.1,107.16,103.54,0.6
 20260505,108,112,108,109,585000,107,1.86,107.95,103.41,0.51
 20260506,111.5,111.5,106.5,107.5,689000,107.05,0.42,108.62,103.28,0.59
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,117,117.5,115,115,116000,111.58,3.06,110.58,104.68,0.07
 20260527,116,117.5,111.5,112.5,114000,111.66,0.75,110.8,104.73,0.07
 20260528,112.5,115,109.5,110.5,112000,111.56,-0.95,111,104.8,0.07
+20260529,113,113,110,110,111000,111.43,-1.29,111.1,104.91,0.07
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 3362 | 先進光 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 3362 | 先進光 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3362 | 先進光 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260529 | 3362 | 先進光 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

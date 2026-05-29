@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8163 達方
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:35 Asia/Taipei
+- generated_at: 2026-05-29 19:33:57 Asia/Taipei
 - stock_id: 8163
 - stock_name: 達方
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 36
-- high: 38.5
-- low: 36
-- close: 36.75
-- volume: 8111438
-- ma5: 36.14
-- ema23_primary: 32.47
-- distance_to_ema23_pct: 13.17
-- ma20: 31.91
-- ma60: 29.3
-- ma120: 30.17
-- return_5d: 3.38
-- return_20d: 37.38
-- volume_ratio: 1.62
-- distance_to_ma20_pct_auxiliary: 15.17
-- distance_to_high_60_pct: -4.55
+- date: 20260529
+- open: 37.1
+- high: 40
+- low: 37.1
+- close: 39.3
+- volume: 10405996
+- ma5: 36.87
+- ema23_primary: 33.04
+- distance_to_ema23_pct: 18.94
+- ma20: 32.54
+- ma60: 29.45
+- ma120: 30.24
+- return_5d: 10.24
+- return_20d: 47.47
+- volume_ratio: 1.9
+- distance_to_ma20_pct_auxiliary: 20.77
+- distance_to_high_60_pct: -1.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,26.8,27.05,26.6,26.65,862704,27.66,-3.67,27.51,29,1.02
 20260504,26.7,27.15,26.7,26.8,761625,27.59,-2.87,27.49,28.9,0.88
 20260505,26.9,27.4,26.85,27.4,1214323,27.58,-0.64,27.51,28.81,1.34
 20260506,27.8,28.4,27.55,28.3,1634146,27.64,2.4,27.59,28.75,1.73
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,36.55,38,36.1,36.75,6096700,31.73,15.83,30.96,29.11,1.36
 20260527,37.1,37.1,35.45,36,3551927,32.08,12.21,31.41,29.19,0.77
 20260528,36,38.5,36,36.75,8111438,32.47,13.17,31.91,29.3,1.62
+20260529,37.1,40,37.1,39.3,10405996,33.04,18.94,32.54,29.45,1.9
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 8163 | 達方 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 60.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 8163 | 達方 | true_breakout | 嚴格突破 | 94.0 |  |  | platform_breakout |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 8163 | 達方 | 1 | 1 | 3 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260529 | 8163 | 達方 | 2 | 1 | 3 | 5 | 5 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 8163 | 達方 | 3 | 0 | 958730.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 8163 | 達方 | 3 | 0 | 1221230.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

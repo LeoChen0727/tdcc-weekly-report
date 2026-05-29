@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5302 太欣
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:43 Asia/Taipei
+- generated_at: 2026-05-29 19:33:05 Asia/Taipei
 - stock_id: 5302
 - stock_name: 太欣
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 10.05
-- high: 10.95
-- low: 10
-- close: 10.95
+- date: 20260529
+- open: 11.7
+- high: 11.7
+- low: 10.55
+- close: 10.8
 - volume: 11000
-- ma5: 10.24
-- ema23_primary: 10.61
-- distance_to_ema23_pct: 3.25
-- ma20: 10.68
-- ma60: 11.1
-- ma120: 10.78
-- return_5d: 7.88
-- return_20d: -1.79
+- ma5: 10.38
+- ema23_primary: 10.62
+- distance_to_ema23_pct: 1.68
+- ma20: 10.66
+- ma60: 11.08
+- ma120: 10.8
+- return_5d: 6.93
+- return_20d: -2.7
 - volume_ratio: 0.02
-- distance_to_ma20_pct_auxiliary: 2.53
-- distance_to_high_60_pct: -17.98
+- distance_to_ma20_pct_auxiliary: 1.27
+- distance_to_high_60_pct: -19.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,11.15,11.45,11,11.1,425000,11.25,-1.34,11.1,11.47,0.59
 20260504,11.3,11.3,11.05,11.1,574000,11.24,-1.23,11.12,11.46,0.79
 20260505,11.15,11.4,11.15,11.4,408000,11.25,1.32,11.14,11.43,0.56
 20260506,11.55,11.85,11.4,11.5,816000,11.27,2.02,11.19,11.42,1.08
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,10.05,10.5,10.05,10.2,10000,10.63,-4.04,10.76,11.17,0.02
 20260527,10.35,10.35,9.96,9.96,10000,10.57,-5.8,10.69,11.13,0.02
 20260528,10.05,10.95,10,10.95,11000,10.61,3.25,10.68,11.1,0.02
+20260529,11.7,11.7,10.55,10.8,11000,10.62,1.68,10.66,11.08,0.02
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 5302 | 太欣 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

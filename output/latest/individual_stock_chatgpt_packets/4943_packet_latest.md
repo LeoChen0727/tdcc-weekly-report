@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4943 康控-KY
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:37 Asia/Taipei
+- generated_at: 2026-05-29 19:32:59 Asia/Taipei
 - stock_id: 4943
 - stock_name: 康控-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 135
+- latest_price_date: 20260529
+- price_rows: 136
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 8.99
-- high: 8.99
-- low: 8.87
-- close: 8.88
-- volume: 29153
-- ma5: 8.9
-- ema23_primary: 9.33
-- distance_to_ema23_pct: -4.85
-- ma20: 9.15
-- ma60: 10.51
-- ma120: 11.65
-- return_5d: -0.78
-- return_20d: -4.72
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: -2.95
-- distance_to_high_60_pct: -33.98
+- date: 20260529
+- open: 9
+- high: 9.2
+- low: 8.95
+- close: 9.2
+- volume: 153985
+- ma5: 8.95
+- ema23_primary: 9.32
+- distance_to_ema23_pct: -1.31
+- ma20: 9.13
+- ma60: 10.45
+- ma120: 11.6
+- return_5d: 2.91
+- return_20d: -3.66
+- volume_ratio: 3.09
+- distance_to_ma20_pct_auxiliary: 0.74
+- distance_to_high_60_pct: -31.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,9.83,9.83,9.35,9.55,50489,10.51,-9.14,10.49,11.33,1.38
 20260504,9.36,9.36,9.3,9.3,25697,10.41,-10.66,10.41,11.29,0.69
 20260505,9.11,9.25,9.1,9.15,43721,10.31,-11.21,10.34,11.24,1.14
 20260506,9.17,9.46,9.17,9.2,22692,10.21,-9.92,10.24,11.2,0.6
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,9,9.02,8.94,8.94,38023,9.42,-5.13,9.22,10.6,0.8
 20260527,9.19,9.19,8.83,8.83,30301,9.37,-5.8,9.17,10.56,0.65
 20260528,8.99,8.99,8.87,8.88,29153,9.33,-4.85,9.15,10.51,0.65
+20260529,9,9.2,8.95,9.2,153985,9.32,-1.31,9.13,10.45,3.09
 ```
 
 ## Latest TDCC Snapshot

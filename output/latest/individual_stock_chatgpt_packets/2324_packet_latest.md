@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2324 仁寶
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:35 Asia/Taipei
+- generated_at: 2026-05-29 19:31:58 Asia/Taipei
 - stock_id: 2324
 - stock_name: 仁寶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 33.5
-- high: 35.4
-- low: 33.05
-- close: 33.5
-- volume: 146821203
-- ma5: 33.33
-- ema23_primary: 30.87
-- distance_to_ema23_pct: 8.52
-- ma20: 30.37
-- ma60: 30.38
-- ma120: 30.55
-- return_5d: 10.38
-- return_20d: 12.79
-- volume_ratio: 1.56
-- distance_to_ma20_pct_auxiliary: 10.32
-- distance_to_high_60_pct: -6.82
+- date: 20260529
+- open: 35.25
+- high: 36.85
+- low: 35
+- close: 36.7
+- volume: 709500533
+- ma5: 34.37
+- ema23_primary: 31.35
+- distance_to_ema23_pct: 17.05
+- ma20: 30.75
+- ma60: 30.48
+- ma120: 30.6
+- return_5d: 16.51
+- return_20d: 26.55
+- volume_ratio: 5.52
+- distance_to_ma20_pct_auxiliary: 19.34
+- distance_to_high_60_pct: -0.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,29.45,29.55,29,29,24600246,29.99,-3.3,29.36,30.7,0.52
 20260504,29.3,29.45,28.85,29.2,15705561,29.92,-2.42,29.45,30.63,0.34
 20260505,29.25,29.45,29.1,29.3,15896162,29.87,-1.92,29.55,30.59,0.34
 20260506,29.5,29.5,28.75,29.2,42782855,29.82,-2.07,29.66,30.53,0.9
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,35.95,35.95,32.8,33.6,238724301,30.38,10.61,30,30.31,2.81
 20260527,33.9,34.15,32.55,33.4,116483415,30.63,9.04,30.18,30.34,1.32
 20260528,33.5,35.4,33.05,33.5,146821203,30.87,8.52,30.37,30.38,1.56
+20260529,35.25,36.85,35,36.7,709500533,31.35,17.05,30.75,30.48,5.52
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 2324 | 仁寶 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 2324 | 仁寶 | true_breakout | 嚴格突破 | 116.0 |  |  | breakout_confirmed |  | call_put_bullish | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260521 | 2324 | 仁寶 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_put_bullish | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2324 | 仁寶 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260529 | 2324 | 仁寶 | 7 | 7 | 5 | 7 | 7 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2324 | 仁寶 | 75 | 4 | 7744500.0 | 116200.0 | 66.65 | no_signal | 0 |  |
+| 20260529 | 2324 | 仁寶 | 74 | 4 | 22682700.0 | 204380.0 | 110.98 | call_put_bullish | 3 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

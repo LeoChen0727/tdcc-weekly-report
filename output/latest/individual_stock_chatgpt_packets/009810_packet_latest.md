@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009810 玉山全球藍籌100
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:10 Asia/Taipei
+- generated_at: 2026-05-29 19:31:32 Asia/Taipei
 - stock_id: 009810
 - stock_name: 玉山全球藍籌100
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260528
-- price_rows: 5
+- latest_price_date: 20260529
+- price_rows: 6
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
+- date: 20260529
 - open: 20.75
-- high: 20.75
-- low: 20.62
-- close: 20.63
-- volume: 411877
-- ma5: 20.78
+- high: 20.81
+- low: 20.75
+- close: 20.81
+- volume: 89713
+- ma5: 20.77
 - ema23_primary: 20.82
-- distance_to_ema23_pct: -0.89
-- ma20: 20.78
-- ma60: 20.78
-- ma120: 20.78
-- return_5d: 
+- distance_to_ema23_pct: -0.02
+- ma20: 20.79
+- ma60: 20.79
+- ma120: 20.79
+- return_5d: -0.14
 - return_20d: 
-- volume_ratio: 1.25
-- distance_to_ma20_pct_auxiliary: -0.72
-- distance_to_high_60_pct: -1.24
+- volume_ratio: 0.31
+- distance_to_ma20_pct_auxiliary: 0.12
+- distance_to_high_60_pct: -0.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -82,6 +82,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,20.82,20.89,20.82,20.89,370183,,,,,
 20260527,20.89,20.89,20.71,20.71,302175,,,,,
 20260528,20.75,20.75,20.62,20.63,411877,20.82,-0.89,20.78,20.78,1.25
+20260529,20.75,20.81,20.75,20.81,89713,20.82,-0.02,20.79,20.79,0.31
 ```
 
 ## Latest TDCC Snapshot

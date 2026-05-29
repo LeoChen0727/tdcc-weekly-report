@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3105 穩懋
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:03 Asia/Taipei
+- generated_at: 2026-05-29 19:32:25 Asia/Taipei
 - stock_id: 3105
 - stock_name: 穩懋
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 558
-- high: 582
-- low: 520
-- close: 528
-- volume: 553000
-- ma5: 544.8
-- ema23_primary: 504.3
-- distance_to_ema23_pct: 4.7
-- ma20: 507.18
-- ma60: 436.59
-- ma120: 321.1
-- return_5d: 9.32
-- return_20d: 5.18
+- date: 20260529
+- open: 542
+- high: 544
+- low: 516
+- close: 527
+- volume: 530000
+- ma5: 544
+- ema23_primary: 506.19
+- distance_to_ema23_pct: 4.11
+- ma20: 506.73
+- ma60: 439.94
+- ma120: 324.37
+- return_5d: -0.75
+- return_20d: -1.68
 - volume_ratio: 0.03
-- distance_to_ma20_pct_auxiliary: 4.11
-- distance_to_high_60_pct: -17.11
+- distance_to_ma20_pct_auxiliary: 4
+- distance_to_high_60_pct: -17.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,530,552,528,536,28218000,479.18,11.86,491.82,358.29,0.74
 20260504,553,557,510,524,41371000,482.92,8.51,499.2,363.18,1.09
 20260505,524,566,516,555,34778000,488.93,13.51,508.15,368.53,0.95
 20260506,555,556,499.5,500,42042000,489.85,2.07,512.8,372.85,1.14
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,551,562,517,562,540000,496.88,13.11,502.85,429.62,0.02
 20260527,571,588,545,560,566000,502.14,11.52,505.88,433.32,0.03
 20260528,558,582,520,528,553000,504.3,4.7,507.18,436.59,0.03
+20260529,542,544,516,527,530000,506.19,4.11,506.73,439.94,0.03
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3105 | 穩懋 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

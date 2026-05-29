@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6488 環球晶
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:06 Asia/Taipei
+- generated_at: 2026-05-29 19:33:28 Asia/Taipei
 - stock_id: 6488
 - stock_name: 環球晶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 935
-- high: 1020
-- low: 914
-- close: 927
-- volume: 962000
-- ma5: 845.6
-- ema23_primary: 731.24
-- distance_to_ema23_pct: 26.77
-- ma20: 748.3
-- ma60: 569.91
-- ma120: 502.4
-- return_5d: 32.24
-- return_20d: 72.95
-- volume_ratio: 0.14
-- distance_to_ma20_pct_auxiliary: 23.88
-- distance_to_high_60_pct: -9.12
+- date: 20260529
+- open: 1015
+- high: 1015
+- low: 990
+- close: 1015
+- volume: 1012000
+- ma5: 905.2
+- ema23_primary: 754.89
+- distance_to_ema23_pct: 34.46
+- ma20: 770.05
+- ma60: 579.6
+- ma120: 507.52
+- return_5d: 41.56
+- return_20d: 75
+- volume_ratio: 0.16
+- distance_to_ma20_pct_auxiliary: 31.81
+- distance_to_high_60_pct: -0.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,559,589,558,580,9179000,528.75,9.69,519.42,481.18,1.14
 20260504,605,628,597,606,9747000,535.19,13.23,529.05,482.48,1.17
 20260505,615,666,615,666,15867000,546.09,21.96,541.88,484.82,1.77
 20260506,660,732,629,721,27486000,560.66,28.6,557.33,488.32,2.69
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,866,866,866,866,866000,693.76,24.83,711.25,553.88,0.11
 20260527,883,949,854,930,908000,713.44,30.35,728.75,561.79,0.12
 20260528,935,1020,914,927,962000,731.24,26.77,748.3,569.91,0.14
+20260529,1015,1015,990,1015,1012000,754.89,34.46,770.05,579.6,0.16
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6488 | 環球晶 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

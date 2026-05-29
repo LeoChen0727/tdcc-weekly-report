@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2022 聚亨
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:30 Asia/Taipei
+- generated_at: 2026-05-29 19:31:52 Asia/Taipei
 - stock_id: 2022
 - stock_name: 聚亨
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 7.64
-- high: 7.72
+- date: 20260529
+- open: 7.67
+- high: 7.68
 - low: 7.53
-- close: 7.59
-- volume: 1049532
-- ma5: 7.77
-- ema23_primary: 7.96
-- distance_to_ema23_pct: -4.61
-- ma20: 7.88
-- ma60: 8.56
+- close: 7.68
+- volume: 756814
+- ma5: 7.79
+- ema23_primary: 7.93
+- distance_to_ema23_pct: -3.2
+- ma20: 7.86
+- ma60: 8.54
 - ma120: 8.55
-- return_5d: 0.4
-- return_20d: -7.89
-- volume_ratio: 0.92
-- distance_to_ma20_pct_auxiliary: -3.74
-- distance_to_high_60_pct: -23.72
+- return_5d: 1.19
+- return_20d: -5.42
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: -2.33
+- distance_to_high_60_pct: -22.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,8.3,8.3,8.08,8.12,685420,8.6,-5.62,8.67,8.89,0.75
 20260504,8.14,8.14,7.98,7.98,890087,8.55,-6.68,8.62,8.88,0.95
 20260505,8.03,8.03,7.95,8,527075,8.51,-5.94,8.58,8.86,0.56
 20260506,8.03,8.08,7.93,8.06,897395,8.47,-4.82,8.53,8.85,0.92
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,8.3,8.32,7.84,7.85,1915169,8.02,-2.16,7.94,8.61,1.78
 20260527,7.9,7.9,7.63,7.63,1294780,7.99,-4.51,7.92,8.59,1.16
 20260528,7.64,7.72,7.53,7.59,1049532,7.96,-4.61,7.88,8.56,0.92
+20260529,7.67,7.68,7.53,7.68,756814,7.93,-3.2,7.86,8.54,0.66
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2022 | 聚亨 | revenue_pullback | 營收成長股價回檔 | 50.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2022 | 聚亨 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

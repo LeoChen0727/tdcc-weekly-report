@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6271 同欣電
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:02 Asia/Taipei
+- generated_at: 2026-05-29 19:33:24 Asia/Taipei
 - stock_id: 6271
 - stock_name: 同欣電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 252.5
-- high: 256
-- low: 243.5
-- close: 244.5
-- volume: 5491586
-- ma5: 245.9
-- ema23_primary: 204.2
-- distance_to_ema23_pct: 19.73
-- ma20: 198.47
-- ma60: 174.45
-- ma120: 155.52
-- return_5d: 18.69
-- return_20d: 41.33
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: 23.19
-- distance_to_high_60_pct: -8.94
+- date: 20260529
+- open: 250
+- high: 250.5
+- low: 244.5
+- close: 247
+- volume: 2842670
+- ma5: 250
+- ema23_primary: 207.77
+- distance_to_ema23_pct: 18.88
+- ma20: 202.18
+- ma60: 175.77
+- ma120: 156.55
+- return_5d: 9.05
+- return_20d: 42.77
+- volume_ratio: 0.31
+- distance_to_ma20_pct_auxiliary: 22.17
+- distance_to_high_60_pct: -8.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,174.5,178,171.5,173,4262807,171.69,0.76,173.85,160.73,0.47
 20260504,174.5,181.5,173,178,4844154,172.21,3.36,175.3,161.15,0.53
 20260505,178,180.5,176,177.5,6770582,172.65,2.81,176.6,161.57,0.73
 20260506,179,182,175.5,179.5,7692381,173.22,3.62,177.88,161.95,0.82
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,247.5,260.5,242.5,260.5,24724716,195.63,33.16,190.95,171.93,2.9
 20260527,262,268.5,247.5,254.5,17972095,200.54,26.91,194.9,173.22,1.93
 20260528,252.5,256,243.5,244.5,5491586,204.2,19.73,198.47,174.45,0.59
+20260529,250,250.5,244.5,247,2842670,207.77,18.88,202.18,175.77,0.31
 ```
 
 ## Latest TDCC Snapshot
@@ -135,7 +135,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6271 | 同欣電 | 114 | 0 | 9326230.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 6271 | 同欣電 | 120 | 0 | 3216430.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

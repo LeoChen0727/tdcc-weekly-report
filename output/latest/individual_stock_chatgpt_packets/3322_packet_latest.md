@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3322 建舜電
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:09 Asia/Taipei
+- generated_at: 2026-05-29 19:32:32 Asia/Taipei
 - stock_id: 3322
 - stock_name: 建舜電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 13.4
-- high: 13.55
-- low: 12.9
-- close: 12.9
+- date: 20260529
+- open: 13.05
+- high: 13.15
+- low: 12.95
+- close: 13.1
 - volume: 13000
-- ma5: 13.05
+- ma5: 12.98
 - ema23_primary: 13.15
-- distance_to_ema23_pct: -1.92
-- ma20: 13.1
-- ma60: 13.48
+- distance_to_ema23_pct: -0.37
+- ma20: 13.07
+- ma60: 13.44
 - ma120: 14.37
-- return_5d: 0.78
-- return_20d: -5.84
+- return_5d: -2.6
+- return_20d: -2.96
 - volume_ratio: 0.01
-- distance_to_ma20_pct_auxiliary: -1.49
-- distance_to_high_60_pct: -23.21
+- distance_to_ma20_pct_auxiliary: 0.19
+- distance_to_high_60_pct: -15.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,13.7,13.9,13.3,13.5,1002000,13.76,-1.88,13.63,14.4,0.79
 20260504,13.6,13.9,13,13.05,1220000,13.7,-4.74,13.65,14.34,0.92
 20260505,13.3,13.6,13,13.25,696000,13.66,-3.01,13.65,14.27,0.52
 20260506,13.5,13.55,13,13.05,933000,13.61,-4.12,13.62,14.21,0.71
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,13.1,13.1,12.65,12.75,13000,13.17,-3.22,13.16,13.59,0.01
 20260527,13.05,13.5,12.9,13.2,13000,13.18,0.18,13.13,13.54,0.01
 20260528,13.4,13.55,12.9,12.9,13000,13.15,-1.92,13.1,13.48,0.01
+20260529,13.05,13.15,12.95,13.1,13000,13.15,-0.37,13.07,13.44,0.01
 ```
 
 ## Latest TDCC Snapshot

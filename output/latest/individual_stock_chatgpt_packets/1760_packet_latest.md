@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1760 寶齡富錦
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:26 Asia/Taipei
+- generated_at: 2026-05-29 19:31:49 Asia/Taipei
 - stock_id: 1760
 - stock_name: 寶齡富錦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 26
 - tdcc_history_status: tdcc_history_ready
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 60.1
-- high: 60.7
-- low: 59.3
-- close: 59.7
-- volume: 393690
-- ma5: 60.72
-- ema23_primary: 62.34
-- distance_to_ema23_pct: -4.24
-- ma20: 62.79
+- date: 20260529
+- open: 59.9
+- high: 61
+- low: 59.9
+- close: 60.3
+- volume: 211584
+- ma5: 60.42
+- ema23_primary: 62.17
+- distance_to_ema23_pct: -3.01
+- ma20: 62.4
 - ma60: 62.92
-- ma120: 63.71
-- return_5d: -3.4
-- return_20d: -12.72
-- volume_ratio: 1.42
-- distance_to_ma20_pct_auxiliary: -4.92
-- distance_to_high_60_pct: -21.86
+- ma120: 63.66
+- return_5d: -2.43
+- return_20d: -11.58
+- volume_ratio: 0.89
+- distance_to_ma20_pct_auxiliary: -3.36
+- distance_to_high_60_pct: -21.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,69,71.6,67.1,68.2,972460,64.9,5.08,64.92,63.35,2.33
 20260504,68.4,68.4,64.2,64.8,644560,64.89,-0.15,64.99,63.33,1.45
 20260505,64.5,67,64.2,66.7,381858,65.04,2.54,65.05,63.34,0.87
 20260506,66.8,67.1,65.1,65.2,264891,65.06,0.22,65.08,63.3,0.6
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,61.5,61.5,60.6,60.6,186369,62.77,-3.46,63.69,62.99,0.41
 20260527,61.1,61.2,60.5,60.5,185434,62.58,-3.33,63.23,62.95,0.43
 20260528,60.1,60.7,59.3,59.7,393690,62.34,-4.24,62.79,62.92,1.42
+20260529,59.9,61,59.9,60.3,211584,62.17,-3.01,62.4,62.92,0.89
 ```
 
 ## Latest TDCC Snapshot

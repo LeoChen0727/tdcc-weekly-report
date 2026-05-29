@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6727 亞泰金屬
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:16 Asia/Taipei
+- generated_at: 2026-05-29 19:33:38 Asia/Taipei
 - stock_id: 6727
 - stock_name: 亞泰金屬
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 630
-- high: 645
-- low: 570
-- close: 578
-- volume: 606000
-- ma5: 623.6
-- ema23_primary: 520.4
-- distance_to_ema23_pct: 11.07
-- ma20: 517.8
-- ma60: 386.62
-- ma120: 283.51
-- return_5d: 5.86
-- return_20d: 47.64
-- volume_ratio: 0.23
-- distance_to_ma20_pct_auxiliary: 11.63
-- distance_to_high_60_pct: -17.07
+- date: 20260529
+- open: 604
+- high: 605
+- low: 550
+- close: 586
+- volume: 578000
+- ma5: 620.8
+- ema23_primary: 525.87
+- distance_to_ema23_pct: 11.43
+- ma20: 528
+- ma60: 392.82
+- ma120: 287.1
+- return_5d: -2.33
+- return_20d: 53.4
+- volume_ratio: 0.22
+- distance_to_ma20_pct_auxiliary: 10.98
+- distance_to_high_60_pct: -15.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,392,403,377,382,1383000,373.43,2.29,391.45,279.7,1.13
 20260504,395.5,396.5,370,370,1287000,373.15,-0.84,393.68,282.72,1.05
 20260505,373,407,373,407,3388000,375.97,8.25,396.12,286.41,2.71
 20260506,447.5,447.5,401.5,417,4677000,379.39,9.91,399.25,290.24,3.76
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,697,697,620,651,659000,504.82,28.96,496.52,373.64,0.24
 20260527,677,684,624,629,643000,515.17,22.1,508.48,380.64,0.24
 20260528,630,645,570,578,606000,520.4,11.07,517.8,386.62,0.23
+20260529,604,605,550,586,578000,525.87,11.43,528,392.82,0.22
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6727 | 亞泰金屬 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

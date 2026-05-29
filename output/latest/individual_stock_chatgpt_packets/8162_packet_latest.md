@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8162 微矽電子-創
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:34 Asia/Taipei
+- generated_at: 2026-05-29 19:33:57 Asia/Taipei
 - stock_id: 8162
 - stock_name: 微矽電子-創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 72.1
-- high: 78
-- low: 69.6
-- close: 77
-- volume: 1621735
-- ma5: 69.8
-- ema23_primary: 58.19
-- distance_to_ema23_pct: 32.33
-- ma20: 57.73
-- ma60: 46.85
-- ma120: 41.54
-- return_5d: 39.24
-- return_20d: 43.93
-- volume_ratio: 1.82
-- distance_to_ma20_pct_auxiliary: 33.37
-- distance_to_high_60_pct: -1.28
+- date: 20260529
+- open: 75.4
+- high: 75.9
+- low: 71.8
+- close: 73.5
+- volume: 1161366
+- ma5: 72.34
+- ema23_primary: 59.47
+- distance_to_ema23_pct: 23.6
+- ma20: 58.88
+- ma60: 47.37
+- ma120: 41.87
+- return_5d: 20.89
+- return_20d: 44.97
+- volume_ratio: 1.32
+- distance_to_ma20_pct_auxiliary: 24.84
+- distance_to_high_60_pct: -5.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,53.5,53.7,50.4,50.7,1417562,45.39,11.71,44.72,40.44,1.39
 20260504,50.8,52.7,50.8,50.8,681968,45.84,10.83,45.32,40.63,0.65
 20260505,50.2,52.8,49.8,52,548974,46.35,12.19,46.01,40.85,0.51
 20260506,53,57.2,52.3,52.8,1274197,46.89,12.61,46.73,41.09,1.12
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,73.4,73.4,69.9,73.4,2166923,55.16,33.07,55.45,45.78,2.69
 20260527,75.3,76,70.5,71,1890926,56.48,25.71,56.56,46.3,2.18
 20260528,72.1,78,69.6,77,1621735,58.19,32.33,57.73,46.85,1.82
+20260529,75.4,75.9,71.8,73.5,1161366,59.47,23.6,58.88,47.37,1.32
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 8162 | 微矽電子-創 | true_breakout | 嚴格突破 | 74.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 8162 | 微矽電子-創 | 3 | 1 | 3 | 3 | 3 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

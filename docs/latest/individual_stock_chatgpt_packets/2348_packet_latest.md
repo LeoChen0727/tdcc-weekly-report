@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2348 海悅
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:37 Asia/Taipei
+- generated_at: 2026-05-29 19:31:59 Asia/Taipei
 - stock_id: 2348
 - stock_name: 海悅
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 68.2
-- high: 68.4
-- low: 67.4
-- close: 67.6
-- volume: 226248
-- ma5: 68.12
-- ema23_primary: 70.44
-- distance_to_ema23_pct: -4.03
-- ma20: 69.89
-- ma60: 74.14
-- ma120: 76.89
-- return_5d: -2.59
-- return_20d: -7.14
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: -3.27
-- distance_to_high_60_pct: -24.47
+- date: 20260529
+- open: 67.9
+- high: 68.3
+- low: 67.6
+- close: 68.1
+- volume: 188375
+- ma5: 67.94
+- ema23_primary: 70.24
+- distance_to_ema23_pct: -3.05
+- ma20: 69.73
+- ma60: 74.08
+- ma120: 76.79
+- return_5d: -1.3
+- return_20d: -4.22
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: -2.34
+- distance_to_high_60_pct: -23.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,72.8,72.8,71.1,71.1,349846,75.57,-5.92,76.54,76.04,1.04
 20260504,70.9,72.9,70.9,72,304523,75.27,-4.35,76.17,75.94,0.9
 20260505,72.2,72.4,71.2,72,228768,75,-4,75.78,75.84,0.7
 20260506,71.5,71.8,70.6,71.1,330010,74.68,-4.79,75.31,75.73,1.04
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,68.3,68.6,67.4,67.8,286170,70.95,-4.44,70.36,74.32,1.02
 20260527,68,68.4,67.8,67.9,432858,70.69,-3.95,70.14,74.23,1.48
 20260528,68.2,68.4,67.4,67.6,226248,70.44,-4.03,69.89,74.14,0.77
+20260529,67.9,68.3,67.6,68.1,188375,70.24,-3.05,69.73,74.08,0.66
 ```
 
 ## Latest TDCC Snapshot
@@ -135,7 +135,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2348 | 海悅 | 10 | 0 | 110.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 2348 | 海悅 | 9 | 0 | 10000.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

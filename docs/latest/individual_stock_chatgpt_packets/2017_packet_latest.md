@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2017 官田鋼
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:29 Asia/Taipei
+- generated_at: 2026-05-29 19:31:52 Asia/Taipei
 - stock_id: 2017
 - stock_name: 官田鋼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 8.91
-- high: 9.29
-- low: 8.91
+- date: 20260529
+- open: 8.95
+- high: 9.06
+- low: 8.92
 - close: 8.99
-- volume: 1124518
-- ma5: 8.89
-- ema23_primary: 8.86
-- distance_to_ema23_pct: 1.44
-- ma20: 8.75
-- ma60: 9.35
-- ma120: 9.05
-- return_5d: 5.15
-- return_20d: 1.93
-- volume_ratio: 1.3
-- distance_to_ma20_pct_auxiliary: 2.73
+- volume: 742839
+- ma5: 8.98
+- ema23_primary: 8.87
+- distance_to_ema23_pct: 1.32
+- ma20: 8.77
+- ma60: 9.34
+- ma120: 9.06
+- return_5d: 5.52
+- return_20d: 4.29
+- volume_ratio: 0.85
+- distance_to_ma20_pct_auxiliary: 2.51
 - distance_to_high_60_pct: -17.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,8.88,8.88,8.62,8.62,613914,9.24,-6.68,9.32,9.42,0.83
 20260504,8.74,8.79,8.6,8.63,643935,9.19,-6.05,9.25,9.42,0.86
 20260505,8.63,8.75,8.6,8.67,653438,9.14,-5.17,9.19,9.41,0.86
 20260506,8.7,8.73,8.63,8.7,783866,9.11,-4.46,9.14,9.41,1.03
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,9.26,9.26,8.81,8.83,1622986,8.85,-0.17,8.73,9.38,1.99
 20260527,8.91,8.95,8.77,8.91,814431,8.85,0.67,8.74,9.37,0.97
 20260528,8.91,9.29,8.91,8.99,1124518,8.86,1.44,8.75,9.35,1.3
+20260529,8.95,9.06,8.92,8.99,742839,8.87,1.32,8.77,9.34,0.85
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2017 | 官田鋼 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2017 | 官田鋼 | 1 | 1 | 3 | 3 | 3 | repeated_but_no_breakout | 近 10 日上榜 3 日、近 20 日上榜 3 日，尚未突破，需分辨醞釀或鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

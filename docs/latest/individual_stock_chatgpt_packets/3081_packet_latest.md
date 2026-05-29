@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3081 聯亞
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:02 Asia/Taipei
+- generated_at: 2026-05-29 19:32:25 Asia/Taipei
 - stock_id: 3081
 - stock_name: 聯亞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 2890
-- high: 2890
-- low: 2600
-- close: 2650
-- volume: 2715000
-- ma5: 2866
-- ema23_primary: 2691.65
-- distance_to_ema23_pct: -1.55
-- ma20: 2753.5
-- ma60: 2210.42
-- ma120: 1481.08
-- return_5d: 3.72
-- return_20d: 8.38
-- volume_ratio: 0.96
-- distance_to_ma20_pct_auxiliary: -3.76
-- distance_to_high_60_pct: -19.82
+- date: 20260529
+- open: 2680
+- high: 2715
+- low: 2590
+- close: 2615
+- volume: 2639000
+- ma5: 2847
+- ema23_primary: 2685.27
+- distance_to_ema23_pct: -2.62
+- ma20: 2752.25
+- ma60: 2229.42
+- ma120: 1498.87
+- return_5d: -3.51
+- return_20d: -0.95
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: -4.99
+- distance_to_high_60_pct: -20.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,2610,2685,2605,2640,3415000,2357.43,11.99,2428.25,1673.35,1.01
 20260504,2795,2865,2615,2745,3328000,2389.72,14.87,2479,1706.07,0.97
 20260505,2780,2885,2710,2815,2670000,2425.16,16.07,2528.5,1739.38,0.79
 20260506,2880,2905,2565,2655,4382000,2444.32,8.62,2561,1769.98,1.28
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,2960,3180,2825,3160,3001000,2678.21,17.99,2724.25,2161.92,1.05
 20260527,3170,3215,2855,2885,3025000,2695.44,7.03,2743.25,2189.17,1.07
 20260528,2890,2890,2600,2650,2715000,2691.65,-1.55,2753.5,2210.42,0.96
+20260529,2680,2715,2590,2615,2639000,2685.27,-2.62,2752.25,2229.42,0.94
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3081 | 聯亞 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

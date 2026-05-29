@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6213 聯茂
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:59 Asia/Taipei
+- generated_at: 2026-05-29 19:33:21 Asia/Taipei
 - stock_id: 6213
 - stock_name: 聯茂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 285
-- high: 297
-- low: 258
-- close: 261
-- volume: 32386135
-- ma5: 268.2
-- ema23_primary: 259.77
-- distance_to_ema23_pct: 0.47
-- ma20: 270.3
-- ma60: 213.87
-- ma120: 164.51
-- return_5d: 5.88
-- return_20d: 2.96
-- volume_ratio: 2.52
-- distance_to_ma20_pct_auxiliary: -3.44
-- distance_to_high_60_pct: -18.94
+- date: 20260529
+- open: 270
+- high: 280
+- low: 267.5
+- close: 268.5
+- volume: 20471464
+- ma5: 269.5
+- ema23_primary: 260.5
+- distance_to_ema23_pct: 3.07
+- ma20: 270.23
+- ma60: 216.11
+- ma120: 165.88
+- return_5d: 2.48
+- return_20d: -0.56
+- volume_ratio: 1.51
+- distance_to_ma20_pct_auxiliary: -0.64
+- distance_to_high_60_pct: -16.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,259,273.5,256.5,270,6759580,233.35,15.71,239.25,166.38,0.2
 20260504,280.5,292,275.5,290,7641269,238.07,21.81,245.6,169.22,0.24
 20260505,295,295,283,284,5359350,241.9,17.41,251.3,171.99,0.18
 20260506,291.5,291.5,272.5,285,6961979,245.49,16.1,256.2,174.72,0.24
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,269.5,278,260.5,274.5,20587613,258.13,6.34,268.77,209.47,1.89
 20260527,281,285.5,271,276.5,20941855,259.66,6.48,269.93,211.72,1.81
 20260528,285,297,258,261,32386135,259.77,0.47,270.3,213.87,2.52
+20260529,270,280,267.5,268.5,20471464,260.5,3.07,270.23,216.11,1.51
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6213 | 聯茂 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_put_bullish | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 6213 | 聯茂 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6213 | 聯茂 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| 20260529 | 6213 | 聯茂 | 2 | 2 | 3 | 3 | 3 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6213 | 聯茂 | 130 | 7 | 42497890.0 | 18430.0 | 2305.91 | call_put_bullish | 3 |  |
+| 20260529 | 6213 | 聯茂 | 126 | 7 | 14902200.0 | 39200.0 | 380.16 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

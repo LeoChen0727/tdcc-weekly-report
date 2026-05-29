@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3294 英濟
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:08 Asia/Taipei
+- generated_at: 2026-05-29 19:32:31 Asia/Taipei
 - stock_id: 3294
 - stock_name: 英濟
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 40.05
-- high: 40.9
-- low: 38.5
-- close: 39.35
+- date: 20260529
+- open: 40.35
+- high: 40.65
+- low: 39.35
+- close: 40.2
 - volume: 40000
-- ma5: 40.61
-- ema23_primary: 36.49
-- distance_to_ema23_pct: 7.85
-- ma20: 35.33
-- ma60: 34.48
-- ma120: 37.03
-- return_5d: -3.2
-- return_20d: 28.81
+- ma5: 40.43
+- ema23_primary: 36.8
+- distance_to_ema23_pct: 9.25
+- ma20: 35.82
+- ma60: 34.5
+- ma120: 37.04
+- return_5d: -2.19
+- return_20d: 31.8
 - volume_ratio: 0.02
-- distance_to_ma20_pct_auxiliary: 11.37
-- distance_to_high_60_pct: -12.46
+- distance_to_ma20_pct_auxiliary: 12.24
+- distance_to_high_60_pct: -10.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,30.8,31,30.45,30.5,317000,32.42,-5.93,32,35.43,0.56
 20260504,30.65,31.2,30.4,30.45,397000,32.26,-5.61,31.92,35.25,0.7
 20260505,30.45,30.95,30.35,30.95,362000,32.15,-3.73,31.91,35.04,0.64
 20260506,31.2,31.4,30.15,30.45,633000,32.01,-4.87,31.88,34.85,1.08
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,42.5,43,39.75,40.5,41000,35.9,12.81,34.44,34.49,0.02
 20260527,40.9,41.15,39.5,39.8,40000,36.23,9.87,34.89,34.5,0.02
 20260528,40.05,40.9,38.5,39.35,40000,36.49,7.85,35.33,34.48,0.02
+20260529,40.35,40.65,39.35,40.2,40000,36.8,9.25,35.82,34.5,0.02
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 3294 | 英濟 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 3294 | 英濟 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3294 | 英濟 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260529 | 3294 | 英濟 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

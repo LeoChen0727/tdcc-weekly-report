@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9950 萬國通
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:46 Asia/Taipei
+- generated_at: 2026-05-29 19:34:08 Asia/Taipei
 - stock_id: 9950
 - stock_name: 萬國通
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
+- date: 20260529
 - open: 10.8
-- high: 11
-- low: 10.6
+- high: 10.85
+- low: 10.7
 - close: 10.85
 - volume: 11000
-- ma5: 10.86
-- ema23_primary: 10.98
-- distance_to_ema23_pct: -1.16
-- ma20: 10.87
+- ma5: 10.83
+- ema23_primary: 10.97
+- distance_to_ema23_pct: -1.07
+- ma20: 10.88
 - ma60: 10.94
 - ma120: 10.75
-- return_5d: -4.41
-- return_20d: 1.4
+- return_5d: -1.36
+- return_20d: 2.36
 - volume_ratio: 0.12
-- distance_to_ma20_pct_auxiliary: -0.18
+- distance_to_ma20_pct_auxiliary: -0.3
 - distance_to_high_60_pct: -22.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,10.5,10.7,10.5,10.6,75000,11.12,-4.66,11.24,10.89,0.16
 20260504,10.6,10.65,10.5,10.65,63000,11.08,-3.87,11.23,10.89,0.14
 20260505,10.55,10.6,10.45,10.6,67000,11.04,-3.98,11.23,10.89,0.14
 20260506,10.65,10.65,10.5,10.5,51000,10.99,-4.49,11.22,10.89,0.11
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,10.8,10.9,10.55,10.85,11000,11.01,-1.42,10.86,10.93,0.11
 20260527,11.25,11.25,10.65,10.8,11000,10.99,-1.72,10.86,10.93,0.11
 20260528,10.8,11,10.6,10.85,11000,10.98,-1.16,10.87,10.94,0.12
+20260529,10.8,10.85,10.7,10.85,11000,10.97,-1.07,10.88,10.94,0.12
 ```
 
 ## Latest TDCC Snapshot

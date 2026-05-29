@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1225 福懋油
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:12 Asia/Taipei
+- generated_at: 2026-05-29 19:31:34 Asia/Taipei
 - stock_id: 1225
 - stock_name: 福懋油
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 29.45
-- high: 29.75
+- date: 20260529
+- open: 29.55
+- high: 29.55
 - low: 29.2
-- close: 29.2
-- volume: 165480
-- ma5: 29.58
-- ema23_primary: 30.49
-- distance_to_ema23_pct: -4.22
-- ma20: 30.62
-- ma60: 31.77
-- ma120: 30.48
-- return_5d: 0
-- return_20d: -11.11
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: -4.64
-- distance_to_high_60_pct: -18.89
+- close: 29.25
+- volume: 99119
+- ma5: 29.54
+- ema23_primary: 30.38
+- distance_to_ema23_pct: -3.73
+- ma20: 30.48
+- ma60: 31.72
+- ma120: 30.47
+- return_5d: -0.68
+- return_20d: -8.59
+- volume_ratio: 0.34
+- distance_to_ma20_pct_auxiliary: -4.04
+- distance_to_high_60_pct: -18.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,32.85,32.85,31.65,32,150724,32.38,-1.17,32.71,31.24,0.47
 20260504,32.25,32.4,31.6,32.05,179390,32.35,-0.93,32.73,31.3,0.56
 20260505,32,32.1,31.75,31.95,733866,32.32,-1.13,32.73,31.35,2.08
 20260506,32.05,33.15,31.9,33.15,462993,32.39,2.36,32.74,31.43,1.32
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,29.8,30.25,29.65,30.2,201424,30.73,-1.72,30.92,31.83,0.61
 20260527,29.85,29.85,29.2,29.25,203641,30.6,-4.42,30.8,31.83,0.68
 20260528,29.45,29.75,29.2,29.2,165480,30.49,-4.22,30.62,31.77,0.56
+20260529,29.55,29.55,29.2,29.25,99119,30.38,-3.73,30.48,31.72,0.34
 ```
 
 ## Latest TDCC Snapshot

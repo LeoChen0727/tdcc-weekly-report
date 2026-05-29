@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6227 茂綸
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:00 Asia/Taipei
+- generated_at: 2026-05-29 19:33:22 Asia/Taipei
 - stock_id: 6227
 - stock_name: 茂綸
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 128
-- high: 136
-- low: 127
-- close: 130.5
-- volume: 132000
-- ma5: 128
-- ema23_primary: 112.9
-- distance_to_ema23_pct: 15.59
-- ma20: 111.78
-- ma60: 96.12
-- ma120: 90.63
-- return_5d: 12.02
-- return_20d: 39.27
+- date: 20260529
+- open: 139
+- high: 143
+- low: 132
+- close: 134.5
+- volume: 137000
+- ma5: 129.3
+- ema23_primary: 114.7
+- distance_to_ema23_pct: 17.27
+- ma20: 113.94
+- ma60: 96.96
+- ma120: 91.06
+- return_5d: 5.08
+- return_20d: 47.32
 - volume_ratio: 0.11
-- distance_to_ma20_pct_auxiliary: 16.75
-- distance_to_high_60_pct: -4.04
+- distance_to_ma20_pct_auxiliary: 18.04
+- distance_to_high_60_pct: -5.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,94.7,94.9,91.3,91.3,399000,91.52,-0.24,92.75,87.49,0.46
 20260504,93.4,94.5,92,94.5,421000,91.77,2.98,92.81,87.56,0.55
 20260505,94.5,95.9,94.2,95.9,440000,92.11,4.11,93.01,87.68,0.61
 20260506,97.1,97.6,95.1,96.9,790000,92.51,4.75,93.38,87.82,1.08
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,131,131,123,125.5,126000,110.05,14.04,108.44,94.7,0.1
 20260527,129.5,131.5,122,125,126000,111.3,12.31,109.94,95.35,0.1
 20260528,128,136,127,130.5,132000,112.9,15.59,111.78,96.12,0.11
+20260529,139,143,132,134.5,137000,114.7,17.27,113.94,96.96,0.11
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6227 | 茂綸 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00770 國泰北美科技
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:08 Asia/Taipei
+- generated_at: 2026-05-29 19:31:30 Asia/Taipei
 - stock_id: 00770
 - stock_name: 國泰北美科技
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260528
-- price_rows: 5
+- latest_price_date: 20260529
+- price_rows: 6
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 67.5
-- high: 67.5
-- low: 66.05
-- close: 66.2
-- volume: 314318
-- ma5: 66.13
-- ema23_primary: 65.54
-- distance_to_ema23_pct: 1
-- ma20: 66.13
-- ma60: 66.13
-- ma120: 66.13
-- return_5d: 
+- date: 20260529
+- open: 67.3
+- high: 68.05
+- low: 67.3
+- close: 68
+- volume: 647607
+- ma5: 66.69
+- ema23_primary: 65.75
+- distance_to_ema23_pct: 3.42
+- ma20: 66.44
+- ma60: 66.44
+- ma120: 66.44
+- return_5d: 4.29
 - return_20d: 
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: 0.11
-- distance_to_high_60_pct: -1.93
+- volume_ratio: 1.52
+- distance_to_ma20_pct_auxiliary: 2.35
+- distance_to_high_60_pct: -0.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -82,6 +82,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,66.25,66.25,65.75,66,177633,,,,,
 20260527,67,67.3,66.95,67,289864,,,,,
 20260528,67.5,67.5,66.05,66.2,314318,65.54,1,66.13,66.13,0.82
+20260529,67.3,68.05,67.3,68,647607,65.75,3.42,66.44,66.44,1.52
 ```
 
 ## Latest TDCC Snapshot

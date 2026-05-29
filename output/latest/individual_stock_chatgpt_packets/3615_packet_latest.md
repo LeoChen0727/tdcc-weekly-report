@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3615 安可
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:18 Asia/Taipei
+- generated_at: 2026-05-29 19:32:40 Asia/Taipei
 - stock_id: 3615
 - stock_name: 安可
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 48.1
-- high: 51.4
-- low: 46.7
-- close: 48.7
+- date: 20260529
+- open: 49.6
+- high: 50.1
+- low: 47.3
+- close: 49.15
 - volume: 49000
-- ma5: 49.37
-- ema23_primary: 40.91
-- distance_to_ema23_pct: 19.05
-- ma20: 39.69
-- ma60: 35
-- ma120: 30.19
-- return_5d: 12.6
-- return_20d: 48.48
+- ma5: 49.69
+- ema23_primary: 41.59
+- distance_to_ema23_pct: 18.17
+- ma20: 40.56
+- ma60: 35.23
+- ma120: 30.41
+- return_5d: 3.36
+- return_20d: 54.32
 - volume_ratio: 0.01
-- distance_to_ma20_pct_auxiliary: 22.69
-- distance_to_high_60_pct: -7.59
+- distance_to_ma20_pct_auxiliary: 21.19
+- distance_to_high_60_pct: -6.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,33,36,31.75,31.85,8725000,32.07,-0.69,32.28,30.89,3.2
 20260504,32.05,33.65,30.8,32.9,2411000,32.14,2.37,32.31,31,0.86
 20260505,32.5,33.85,32.4,33.55,1330000,32.26,4.01,32.36,31.13,0.49
 20260506,34.2,35.3,33,33.45,3188000,32.36,3.38,32.44,31.26,1.14
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,52.3,52.7,49.6,51,51000,39.55,28.94,38.02,34.43,0.01
 20260527,51.5,52,46.1,47.3,48000,40.2,17.67,38.9,34.73,0.01
 20260528,48.1,51.4,46.7,48.7,49000,40.91,19.05,39.69,35,0.01
+20260529,49.6,50.1,47.3,49.15,49000,41.59,18.17,40.56,35.23,0.01
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3615 | 安可 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

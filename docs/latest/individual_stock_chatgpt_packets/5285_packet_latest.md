@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5285 界霖
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:42 Asia/Taipei
+- generated_at: 2026-05-29 19:33:04 Asia/Taipei
 - stock_id: 5285
 - stock_name: 界霖
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 88
-- high: 96
-- low: 87.8
+- date: 20260529
+- open: 92.5
+- high: 94
+- low: 89.1
 - close: 90.1
-- volume: 5980832
-- ma5: 86.06
-- ema23_primary: 73.37
-- distance_to_ema23_pct: 22.81
-- ma20: 72.47
-- ma60: 57.58
-- ma120: 54.46
-- return_5d: 9.88
-- return_20d: 65.62
-- volume_ratio: 1.62
-- distance_to_ma20_pct_auxiliary: 24.32
+- volume: 5421694
+- ma5: 88.26
+- ema23_primary: 74.76
+- distance_to_ema23_pct: 20.52
+- ma20: 74.23
+- ma60: 58.26
+- ma120: 54.79
+- return_5d: 13.91
+- return_20d: 63.82
+- volume_ratio: 1.37
+- distance_to_ma20_pct_auxiliary: 21.38
 - distance_to_high_60_pct: -6.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,54.4,55.5,54.2,55,196426,52.72,4.32,52.87,51.1,0.55
 20260504,55.7,56.5,55.3,56.3,344305,53.02,6.18,53.25,51.13,0.93
 20260505,56.3,56.6,55.5,56.1,168064,53.28,5.29,53.64,51.15,0.45
 20260506,56.5,56.7,55,55.9,354070,53.5,4.49,53.95,51.15,0.94
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,83,89.6,82.5,89.6,10380797,70.2,27.64,68.86,56.26,3.53
 20260527,92.6,92.7,87,90,9547782,71.85,25.27,70.69,56.91,2.8
 20260528,88,96,87.8,90.1,5980832,73.37,22.81,72.47,57.58,1.62
+20260529,92.5,94,89.1,90.1,5421694,74.76,20.52,74.23,58.26,1.37
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 5285 | 界霖 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 63.0 |  |  | neckline_challenge |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 5285 | 界霖 | 3 | 1 | 3 | 3 | 3 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

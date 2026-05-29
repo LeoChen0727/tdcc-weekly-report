@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5512 力麒
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:48 Asia/Taipei
+- generated_at: 2026-05-29 19:33:10 Asia/Taipei
 - stock_id: 5512
 - stock_name: 力麒
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 6.91
-- high: 7.1
-- low: 6.91
-- close: 6.98
+- date: 20260529
+- open: 6.98
+- high: 7.08
+- low: 6.93
+- close: 7.01
 - volume: 7000
-- ma5: 6.95
+- ma5: 6.96
 - ema23_primary: 7.07
-- distance_to_ema23_pct: -1.32
-- ma20: 6.95
-- ma60: 7.58
-- ma120: 7.77
-- return_5d: 1.01
-- return_20d: -5.8
+- distance_to_ema23_pct: -0.82
+- ma20: 6.93
+- ma60: 7.56
+- ma120: 7.76
+- return_5d: 1.3
+- return_20d: -4.63
 - volume_ratio: 0.01
-- distance_to_ma20_pct_auxiliary: 0.5
-- distance_to_high_60_pct: -16.41
+- distance_to_ma20_pct_auxiliary: 1.18
+- distance_to_high_60_pct: -16.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,7.4,7.4,7.34,7.35,960000,7.73,-4.94,7.75,7.9,1
 20260504,7.34,7.34,7.02,7.03,3822000,7.67,-8.39,7.71,7.88,3.36
 20260505,7,7.08,6.94,7.03,1052000,7.62,-7.74,7.66,7.87,0.9
 20260506,7.05,7.1,6.95,7.04,1711000,7.57,-7.02,7.62,7.85,1.4
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,6.84,7.05,6.82,7.02,7000,7.09,-1.03,7,7.61,0.01
 20260527,7.02,7.14,6.93,6.96,7000,7.08,-1.72,6.97,7.6,0.01
 20260528,6.91,7.1,6.91,6.98,7000,7.07,-1.32,6.95,7.58,0.01
+20260529,6.98,7.08,6.93,7.01,7000,7.07,-0.82,6.93,7.56,0.01
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 5512 | 力麒 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

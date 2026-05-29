@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1444 力麗
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:17 Asia/Taipei
+- generated_at: 2026-05-29 19:31:39 Asia/Taipei
 - stock_id: 1444
 - stock_name: 力麗
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 5.79
-- high: 6.02
-- low: 5.75
-- close: 6.01
-- volume: 2962558
-- ma5: 5.91
-- ema23_primary: 6
-- distance_to_ema23_pct: 0.16
-- ma20: 5.94
+- date: 20260529
+- open: 6.05
+- high: 6.35
+- low: 6
+- close: 6.25
+- volume: 3336213
+- ma5: 5.97
+- ema23_primary: 6.02
+- distance_to_ema23_pct: 3.8
+- ma20: 5.95
 - ma60: 6.17
 - ma120: 6.19
-- return_5d: 1.01
-- return_20d: -2.12
-- volume_ratio: 2.38
-- distance_to_ma20_pct_auxiliary: 1.1
-- distance_to_high_60_pct: -11.62
+- return_5d: 5.04
+- return_20d: 2.29
+- volume_ratio: 2.53
+- distance_to_ma20_pct_auxiliary: 5.02
+- distance_to_high_60_pct: -8.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,6.15,6.15,6.01,6.11,1848624,6.32,-3.34,6.37,6.33,1.75
 20260504,6.11,6.11,5.99,6,1354007,6.29,-4.68,6.36,6.33,1.23
 20260505,6,6,5.91,5.96,1627653,6.27,-4.89,6.34,6.32,1.4
 20260506,5.96,6.02,5.93,6.01,1128148,6.25,-3.76,6.33,6.3,0.95
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,5.93,5.94,5.85,5.85,852648,6.02,-2.8,5.97,6.19,0.76
 20260527,5.86,5.86,5.75,5.79,1167632,6,-3.49,5.95,6.18,1.01
 20260528,5.79,6.02,5.75,6.01,2962558,6,0.16,5.94,6.17,2.38
+20260529,6.05,6.35,6,6.25,3336213,6.02,3.8,5.95,6.17,2.53
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1444 | 力麗 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 1444 | 力麗 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1444 | 力麗 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260529 | 1444 | 力麗 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | status |

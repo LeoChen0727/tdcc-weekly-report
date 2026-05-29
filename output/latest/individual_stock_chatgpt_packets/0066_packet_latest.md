@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0066 國泰臺灣加權反1
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:07 Asia/Taipei
+- generated_at: 2026-05-29 19:31:29 Asia/Taipei
 - stock_id: 0066
 - stock_name: 國泰臺灣加權反1
 - packet_status: insufficient_price_data
@@ -113,7 +113,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 0066 | 國泰臺灣加權反1 | 111 | 22 | 21713170.0 | 1005870.0 | 21.59 | mixed_flow | 0 |  |
+| 20260529 | 0066 | 國泰臺灣加權反1 | 107 | 23 | 3919370.0 | 1111240.0 | 3.53 | put_inflow | -1 | 認售權證資金升溫，偏空或避險訊號 |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7788 松川精密
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:28 Asia/Taipei
+- generated_at: 2026-05-29 19:33:51 Asia/Taipei
 - stock_id: 7788
 - stock_name: 松川精密
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 190
-- high: 194.5
-- low: 180.5
-- close: 181
-- volume: 4004800
-- ma5: 189.2
-- ema23_primary: 183.77
-- distance_to_ema23_pct: -1.51
-- ma20: 186.05
-- ma60: 164.49
-- ma120: 155.29
-- return_5d: -2.16
-- return_20d: 4.62
-- volume_ratio: 2.95
-- distance_to_ma20_pct_auxiliary: -2.71
-- distance_to_high_60_pct: -19.91
+- date: 20260529
+- open: 187
+- high: 191.5
+- low: 185
+- close: 191
+- volume: 890467
+- ma5: 188.9
+- ema23_primary: 184.37
+- distance_to_ema23_pct: 3.6
+- ma20: 187.28
+- ma60: 164.81
+- ma120: 155.98
+- return_5d: -0.78
+- return_20d: 14.71
+- volume_ratio: 0.64
+- distance_to_ma20_pct_auxiliary: 1.99
+- distance_to_high_60_pct: -15.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,172.5,173,166,166.5,312957,159.48,4.4,155.12,162.12,0.67
 20260504,167,171,165.5,167,498097,160.11,4.3,156.6,162.05,1.03
 20260505,167,170,166.5,168,229576,160.77,4.5,158.4,161.88,0.47
 20260506,168,171.5,163,164,698523,161.04,1.84,159.97,161.59,1.36
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,194,194,187.5,190.5,671272,183.61,3.75,184.55,164.52,0.58
 20260527,196,197,185,188.5,743218,184.02,2.44,185.65,164.51,0.62
 20260528,190,194.5,180.5,181,4004800,183.77,-1.51,186.05,164.49,2.95
+20260529,187,191.5,185,191,890467,184.37,3.6,187.28,164.81,0.64
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 7788 | 松川精密 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 7788 | 松川精密 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 7788 | 松川精密 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260529 | 7788 | 松川精密 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 7788 | 松川精密 | 6 | 0 | 4472510.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260529 | 7788 | 松川精密 | 6 | 0 | 2639660.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

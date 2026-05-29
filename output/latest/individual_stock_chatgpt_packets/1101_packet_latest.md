@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1101 台泥
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:10 Asia/Taipei
+- generated_at: 2026-05-29 19:31:33 Asia/Taipei
 - stock_id: 1101
 - stock_name: 台泥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 23.85
-- high: 24
-- low: 23.65
-- close: 23.65
-- volume: 35826774
-- ma5: 23.97
-- ema23_primary: 24.31
-- distance_to_ema23_pct: -2.71
-- ma20: 24.44
-- ma60: 24.37
-- ma120: 24.28
-- return_5d: -2.27
-- return_20d: -3.47
-- volume_ratio: 1.22
-- distance_to_ma20_pct_auxiliary: -3.22
-- distance_to_high_60_pct: -10.42
+- date: 20260529
+- open: 24.1
+- high: 24.4
+- low: 23.9
+- close: 24.4
+- volume: 49699249
+- ma5: 24.03
+- ema23_primary: 24.32
+- distance_to_ema23_pct: 0.34
+- ma20: 24.43
+- ma60: 24.35
+- ma120: 24.3
+- return_5d: 1.24
+- return_20d: -0.41
+- volume_ratio: 1.62
+- distance_to_ma20_pct_auxiliary: -0.13
+- distance_to_high_60_pct: -7.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,24.5,24.75,24.45,24.5,21216965,24.51,-0.04,24.67,24.87,0.72
 20260504,24.55,24.8,24.3,24.45,30923171,24.51,-0.23,24.7,24.85,1.05
 20260505,24.45,24.5,24.05,24.1,28934916,24.47,-1.52,24.73,24.81,0.98
 20260506,24.25,25.4,24.1,25.05,44638336,24.52,2.16,24.78,24.8,1.48
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,24.3,24.6,23.95,23.95,31297642,24.42,-1.91,24.51,24.46,1.11
 20260527,23.95,24.05,23.8,23.85,29819864,24.37,-2.13,24.48,24.42,1.04
 20260528,23.85,24,23.65,23.65,35826774,24.31,-2.71,24.44,24.37,1.22
+20260529,24.1,24.4,23.9,24.4,49699249,24.32,0.34,24.43,24.35,1.62
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 1101 | 台泥 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  |  |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 1101 | 台泥 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1101 | 台泥 | 42 | 2 | 1111610.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 1101 | 台泥 | 39 | 2 | 797450.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

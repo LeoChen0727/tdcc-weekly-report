@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5291 邑昇
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:43 Asia/Taipei
+- generated_at: 2026-05-29 19:33:05 Asia/Taipei
 - stock_id: 5291
 - stock_name: 邑昇
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 76.2
-- high: 77.6
-- low: 68
-- close: 71
+- date: 20260529
+- open: 72.9
+- high: 73.6
+- low: 71
+- close: 71.8
 - volume: 72000
-- ma5: 74.52
-- ema23_primary: 71.01
-- distance_to_ema23_pct: -0.02
-- ma20: 70.87
-- ma60: 66.67
-- ma120: 50.29
-- return_5d: -9.9
-- return_20d: 24.78
+- ma5: 73.5
+- ema23_primary: 71.08
+- distance_to_ema23_pct: 1.01
+- ma20: 71.33
+- ma60: 66.95
+- ma120: 50.67
+- return_5d: -6.63
+- return_20d: 14.88
 - volume_ratio: 0.03
-- distance_to_ma20_pct_auxiliary: 0.18
-- distance_to_high_60_pct: -16.08
+- distance_to_ma20_pct_auxiliary: 0.65
+- distance_to_high_60_pct: -15.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,57.9,62.5,57.5,62.5,1081000,64.72,-3.43,67.91,57.01,0.52
 20260504,67,68.7,62.7,68.7,2513000,65.05,5.61,67.44,57.51,1.31
 20260505,66.9,70.9,66.8,69,3475000,65.38,5.53,67.3,57.96,1.81
 20260506,69.5,69.5,63.8,65,1401000,65.35,-0.54,67.21,58.36,0.76
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,77,77.5,73.9,74.7,75000,70.78,5.54,69.45,66.12,0.03
 20260527,75.5,75.7,72.5,73.6,74000,71.02,3.64,70.17,66.46,0.03
 20260528,76.2,77.6,68,71,72000,71.01,-0.02,70.87,66.67,0.03
+20260529,72.9,73.6,71,71.8,72000,71.08,1.01,71.33,66.95,0.03
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 5291 | 邑昇 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

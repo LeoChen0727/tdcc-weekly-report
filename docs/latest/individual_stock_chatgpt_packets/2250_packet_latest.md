@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2250 IKKA-KY
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:34 Asia/Taipei
+- generated_at: 2026-05-29 19:31:57 Asia/Taipei
 - stock_id: 2250
 - stock_name: IKKA-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 61.5
-- high: 62.7
-- low: 60.5
-- close: 60.9
-- volume: 129346
-- ma5: 61.54
-- ema23_primary: 62.48
-- distance_to_ema23_pct: -2.53
-- ma20: 62.85
-- ma60: 63.32
-- ma120: 68.22
-- return_5d: -2.25
-- return_20d: -3.79
-- volume_ratio: 1.39
-- distance_to_ma20_pct_auxiliary: -3.11
-- distance_to_high_60_pct: -14.59
+- date: 20260529
+- open: 61.3
+- high: 66.8
+- low: 61.3
+- close: 65
+- volume: 314920
+- ma5: 61.94
+- ema23_primary: 62.69
+- distance_to_ema23_pct: 3.69
+- ma20: 62.95
+- ma60: 63.28
+- ma120: 68.15
+- return_5d: 3.17
+- return_20d: 3.17
+- volume_ratio: 3.01
+- distance_to_ma20_pct_auxiliary: 3.25
+- distance_to_high_60_pct: -8.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,63.3,64.6,63,63,87803,63.26,-0.41,62.64,66.37,1.22
 20260504,64.4,65,63.8,64.7,83912,63.38,2.08,62.84,66.17,1.13
 20260505,65.8,68.1,65.3,66.6,255772,63.65,4.64,63.13,66.01,3.1
 20260506,66.7,66.7,64.2,64.5,115682,63.72,1.22,63.32,65.83,1.32
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,62.1,62.1,60.9,61,148498,62.8,-2.86,63,63.63,1.62
 20260527,61.8,61.8,60.7,60.7,119193,62.62,-3.07,62.98,63.47,1.3
 20260528,61.5,62.7,60.5,60.9,129346,62.48,-2.53,62.85,63.32,1.39
+20260529,61.3,66.8,61.3,65,314920,62.69,3.69,62.95,63.28,3.01
 ```
 
 ## Latest TDCC Snapshot

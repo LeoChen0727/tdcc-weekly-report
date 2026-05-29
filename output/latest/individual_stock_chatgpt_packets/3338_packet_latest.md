@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3338 泰碩
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:10 Asia/Taipei
+- generated_at: 2026-05-29 19:32:32 Asia/Taipei
 - stock_id: 3338
 - stock_name: 泰碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 75.7
-- high: 77.1
-- low: 71.9
-- close: 72.5
-- volume: 1540790
-- ma5: 75.98
-- ema23_primary: 73.25
-- distance_to_ema23_pct: -1.02
-- ma20: 73.78
-- ma60: 66.94
-- ma120: 58.9
-- return_5d: -0.41
-- return_20d: -5.35
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: -1.73
-- distance_to_high_60_pct: -19.18
+- date: 20260529
+- open: 73.5
+- high: 73.9
+- low: 72.8
+- close: 73.4
+- volume: 762343
+- ma5: 75.26
+- ema23_primary: 73.26
+- distance_to_ema23_pct: 0.19
+- ma20: 73.74
+- ma60: 67.21
+- ma120: 59.11
+- return_5d: -4.68
+- return_20d: -1.08
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: -0.46
+- distance_to_high_60_pct: -18.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,76.7,77,74.1,74.2,2338115,69.34,7.01,67.98,60.55,0.48
 20260504,74.9,75.5,73.2,74.3,1784678,69.75,6.52,68.7,60.8,0.36
 20260505,74.2,75.6,72.6,74,1858176,70.11,5.55,69.39,61.09,0.37
 20260506,74.5,76.3,73.1,74.9,2318503,70.51,6.23,70.22,61.46,0.45
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,76.5,78.4,73.8,78.4,2159762,73.11,7.24,73.98,66.41,0.92
 20260527,78.5,78.8,75.2,75.6,2512190,73.32,3.11,73.98,66.7,1.12
 20260528,75.7,77.1,71.9,72.5,1540790,73.25,-1.02,73.78,66.94,0.71
+20260529,73.5,73.9,72.8,73.4,762343,73.26,0.19,73.74,67.21,0.36
 ```
 
 ## Latest TDCC Snapshot
@@ -125,13 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3338 | 泰碩 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 3338 | 泰碩 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 3338 | 泰碩 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3338 | 泰碩 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260529 | 3338 | 泰碩 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

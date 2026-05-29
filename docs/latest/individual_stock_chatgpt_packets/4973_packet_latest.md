@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4973 廣穎
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:38 Asia/Taipei
+- generated_at: 2026-05-29 19:33:00 Asia/Taipei
 - stock_id: 4973
 - stock_name: 廣穎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 152.5
-- high: 152.5
-- low: 146.5
-- close: 152.5
-- volume: 152000
-- ma5: 130.2
-- ema23_primary: 111.34
-- distance_to_ema23_pct: 36.97
-- ma20: 111.15
-- ma60: 84.82
-- ma120: 63.56
-- return_5d: 41.2
-- return_20d: 74.69
+- date: 20260529
+- open: 165
+- high: 165
+- low: 151.5
+- close: 160
+- volume: 160000
+- ma5: 139.2
+- ema23_primary: 115.39
+- distance_to_ema23_pct: 38.66
+- ma20: 115
+- ma60: 86.76
+- ma120: 64.61
+- return_5d: 39.13
+- return_20d: 92.54
 - volume_ratio: 0.03
-- distance_to_ma20_pct_auxiliary: 37.2
-- distance_to_high_60_pct: 0
+- distance_to_ma20_pct_auxiliary: 39.14
+- distance_to_high_60_pct: -3.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,88.1,88.9,82.1,83.1,5283000,79.22,4.9,79.63,64.06,0.74
 20260504,84.8,86.5,83.3,85.4,3420000,79.73,7.11,80.5,64.65,0.47
 20260505,86.3,88.4,84.3,87.7,3571000,80.4,9.09,81.49,65.25,0.48
 20260506,92.5,96.4,91.7,91.7,12173000,81.34,12.74,82.61,65.96,1.58
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,119.5,129.5,117.5,126.5,125000,104.74,20.78,105.52,81.5,0.02
 20260527,139,139,138.5,139,139000,107.59,29.19,107.89,83.05,0.02
 20260528,152.5,152.5,146.5,152.5,152000,111.34,36.97,111.15,84.82,0.03
+20260529,165,165,151.5,160,160000,115.39,38.66,115,86.76,0.03
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4973 | 廣穎 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

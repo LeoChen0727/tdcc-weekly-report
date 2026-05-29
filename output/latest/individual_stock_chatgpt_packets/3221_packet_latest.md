@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3221 台嘉碩
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:06 Asia/Taipei
+- generated_at: 2026-05-29 19:32:28 Asia/Taipei
 - stock_id: 3221
 - stock_name: 台嘉碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 56.9
-- high: 62
-- low: 56.9
-- close: 60.2
+- date: 20260529
+- open: 62.3
+- high: 63.6
+- low: 59.5
+- close: 60
 - volume: 61000
-- ma5: 58.5
-- ema23_primary: 49.14
-- distance_to_ema23_pct: 22.52
-- ma20: 48.09
-- ma60: 40.45
-- ma120: 32.37
-- return_5d: 17.35
-- return_20d: 37.44
+- ma5: 59.22
+- ema23_primary: 50.04
+- distance_to_ema23_pct: 19.9
+- ma20: 48.95
+- ma60: 40.91
+- ma120: 32.7
+- return_5d: 6.38
+- return_20d: 40.02
 - volume_ratio: 0.01
-- distance_to_ma20_pct_auxiliary: 25.18
-- distance_to_high_60_pct: -2.9
+- distance_to_ma20_pct_auxiliary: 22.58
+- distance_to_high_60_pct: -5.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,44.5,44.5,42.75,42.85,1056000,41.31,3.74,41.88,34.25,0.1
 20260504,43.6,44,42.1,43.5,1519000,41.49,4.85,42.12,34.51,0.15
 20260505,43.7,44.4,42.7,44.4,1270000,41.73,6.39,42.56,34.79,0.13
 20260506,45.8,45.8,43.5,43.9,1579000,41.91,4.74,43.01,35.07,0.17
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,59.1,59.4,55.1,59.3,57000,47.38,25.16,46.62,39.6,0.01
 20260527,61.7,61.8,56,56.4,57000,48.13,17.18,47.27,40.01,0.01
 20260528,56.9,62,56.9,60.2,61000,49.14,22.52,48.09,40.45,0.01
+20260529,62.3,63.6,59.5,60,61000,50.04,19.9,48.95,40.91,0.01
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3221 | 台嘉碩 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

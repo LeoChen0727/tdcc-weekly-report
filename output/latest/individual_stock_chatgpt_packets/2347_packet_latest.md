@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2347 聯強
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:37 Asia/Taipei
+- generated_at: 2026-05-29 19:31:59 Asia/Taipei
 - stock_id: 2347
 - stock_name: 聯強
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 86.4
-- high: 88.2
-- low: 85.7
-- close: 85.7
-- volume: 5334945
-- ma5: 84.86
-- ema23_primary: 83.46
-- distance_to_ema23_pct: 2.68
-- ma20: 83.69
-- ma60: 79.83
-- ma120: 71.55
-- return_5d: 1.54
-- return_20d: 2.88
-- volume_ratio: 1.24
-- distance_to_ma20_pct_auxiliary: 2.4
-- distance_to_high_60_pct: -2.83
+- date: 20260529
+- open: 87.8
+- high: 87.8
+- low: 85.9
+- close: 85.9
+- volume: 3864739
+- ma5: 85.22
+- ema23_primary: 83.66
+- distance_to_ema23_pct: 2.67
+- ma20: 83.86
+- ma60: 80.11
+- ma120: 71.76
+- return_5d: 2.14
+- return_20d: 4.12
+- volume_ratio: 0.9
+- distance_to_ma20_pct_auxiliary: 2.43
+- distance_to_high_60_pct: -2.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,82.3,83.3,82.1,82.5,3801688,80.93,1.93,81.69,74.71,0.68
 20260504,82.8,83.5,81.3,81.7,3134933,81,0.87,81.9,74.95,0.57
 20260505,82.8,82.8,81.5,82.2,2124176,81.1,1.36,82.14,75.21,0.4
 20260506,83.5,85.5,82.5,84.5,5265806,81.38,3.83,82.42,75.5,0.99
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,84.5,85.1,84.2,84.4,2847379,83.02,1.67,83.4,79.34,0.66
 20260527,85,86.7,84.3,85.9,5081126,83.26,3.17,83.57,79.58,1.19
 20260528,86.4,88.2,85.7,85.7,5334945,83.46,2.68,83.69,79.83,1.24
+20260529,87.8,87.8,85.9,85.9,3864739,83.66,2.67,83.86,80.11,0.9
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2347 | 聯強 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260529 | 2347 | 聯強 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260529 | 2347 | 聯強 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260529 | 2347 | 聯強 | revenue_breakout_low_response | 營收爆發低反應股 | 22.0 | 1.0 | A_優先追蹤 |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2347 | 聯強 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260529 | 2347 | 聯強 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2347 | 聯強 | 6 | 0 | 1046970.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260529 | 2347 | 聯強 | 6 | 0 | 878110.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

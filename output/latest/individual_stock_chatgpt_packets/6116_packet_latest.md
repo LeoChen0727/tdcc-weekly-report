@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6116 彩晶
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:52 Asia/Taipei
+- generated_at: 2026-05-29 19:33:14 Asia/Taipei
 - stock_id: 6116
 - stock_name: 彩晶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 14.7
-- high: 15.95
-- low: 14.5
-- close: 15.55
-- volume: 326422854
-- ma5: 13.71
-- ema23_primary: 11.09
-- distance_to_ema23_pct: 40.19
-- ma20: 10.7
-- ma60: 9.3
-- ma120: 8.87
-- return_5d: 43.98
-- return_20d: 88.94
-- volume_ratio: 2.42
-- distance_to_ma20_pct_auxiliary: 45.31
-- distance_to_high_60_pct: -2.51
+- date: 20260529
+- open: 16.5
+- high: 17.1
+- low: 15.75
+- close: 17.1
+- volume: 289351189
+- ma5: 14.76
+- ema23_primary: 11.59
+- distance_to_ema23_pct: 47.5
+- ma20: 11.15
+- ma60: 9.43
+- ma120: 8.96
+- return_5d: 44.3
+- return_20d: 110.07
+- volume_ratio: 1.95
+- distance_to_ma20_pct_auxiliary: 53.37
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,8.28,8.28,8.13,8.14,11738663,8.53,-4.59,8.57,8.61,0.53
 20260504,8.32,8.39,8.22,8.27,13957425,8.51,-2.82,8.57,8.6,0.65
 20260505,8.32,8.58,8.32,8.51,20536401,8.51,0,8.58,8.59,0.95
 20260506,8.6,8.72,8.39,8.55,21453968,8.51,0.43,8.61,8.58,0.98
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,14.3,14.3,13.45,13.65,478320069,10.34,32.01,10.02,9.11,4.56
 20260527,13.9,14.85,12.9,14.5,293314056,10.69,35.68,10.34,9.19,2.46
 20260528,14.7,15.95,14.5,15.55,326422854,11.09,40.19,10.7,9.3,2.42
+20260529,16.5,17.1,15.75,17.1,289351189,11.59,47.5,11.15,9.43,1.95
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6116 | 彩晶 | true_breakout | 嚴格突破 | 81.0 |  |  | platform_breakout |  | call_put_bullish | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 6116 | 彩晶 | true_breakout | 嚴格突破 | 87.0 |  |  | breakout_confirmed |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6116 | 彩晶 | 4 | 4 | 4 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260529 | 6116 | 彩晶 | 5 | 5 | 5 | 5 | 5 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6116 | 彩晶 | 29 | 1 | 17705290.0 | 47110.0 | 375.83 | call_put_bullish | 3 |  |
+| 20260529 | 6116 | 彩晶 | 31 | 1 | 7055390.0 | 29790.0 | 236.84 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

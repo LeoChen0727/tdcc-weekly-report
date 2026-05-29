@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6903 巨漢
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:22 Asia/Taipei
+- generated_at: 2026-05-29 19:33:44 Asia/Taipei
 - stock_id: 6903
 - stock_name: 巨漢
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 420
-- high: 421.5
-- low: 396
-- close: 399.5
-- volume: 409000
-- ma5: 412.6
-- ema23_primary: 398.42
-- distance_to_ema23_pct: 0.27
-- ma20: 406.12
-- ma60: 357.36
-- ma120: 295.12
-- return_5d: 3.63
-- return_20d: 0.63
-- volume_ratio: 0.3
-- distance_to_ma20_pct_auxiliary: -1.63
-- distance_to_high_60_pct: -11.52
+- date: 20260529
+- open: 405
+- high: 406
+- low: 390.5
+- close: 397
+- volume: 396000
+- ma5: 413.5
+- ema23_primary: 398.3
+- distance_to_ema23_pct: -0.33
+- ma20: 405.35
+- ma60: 359.26
+- ma120: 297.03
+- return_5d: 1.15
+- return_20d: -3.76
+- volume_ratio: 0.31
+- distance_to_ma20_pct_auxiliary: -2.06
+- distance_to_high_60_pct: -12.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,400,425,387.5,412.5,2042000,370.81,11.24,373.23,313.8,1.3
 20260504,427,449,403.5,408,2365000,373.91,9.12,379.27,316.07,1.43
 20260505,411,416.5,400,410,1118000,376.92,8.78,385.82,318.53,0.66
 20260506,411,419,397.5,412,1799000,379.84,8.47,391.43,321.02,1.05
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,420,445.5,418.5,434,436000,396.21,9.54,406.18,353.87,0.3
 20260527,440,440,418.5,421.5,426000,398.32,5.82,406,355.63,0.3
 20260528,420,421.5,396,399.5,409000,398.42,0.27,406.12,357.36,0.3
+20260529,405,406,390.5,397,396000,398.3,-0.33,405.35,359.26,0.31
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6903 | 巨漢 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

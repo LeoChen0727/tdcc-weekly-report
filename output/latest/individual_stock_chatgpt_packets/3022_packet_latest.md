@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3022 威強電
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:59 Asia/Taipei
+- generated_at: 2026-05-29 19:32:21 Asia/Taipei
 - stock_id: 3022
 - stock_name: 威強電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 74.2
-- high: 75.9
-- low: 72.8
-- close: 73.1
-- volume: 1119377
-- ma5: 73.42
-- ema23_primary: 70.52
-- distance_to_ema23_pct: 3.66
-- ma20: 71.01
-- ma60: 66.51
-- ma120: 65.83
-- return_5d: 4.58
-- return_20d: 6.25
-- volume_ratio: 0.94
-- distance_to_ma20_pct_auxiliary: 2.94
-- distance_to_high_60_pct: -4.44
+- date: 20260529
+- open: 74.4
+- high: 75.7
+- low: 73.6
+- close: 74.8
+- volume: 1152615
+- ma5: 74.06
+- ema23_primary: 70.87
+- distance_to_ema23_pct: 5.54
+- ma20: 71.3
+- ma60: 66.77
+- ma120: 65.92
+- return_5d: 4.47
+- return_20d: 8.41
+- volume_ratio: 0.97
+- distance_to_ma20_pct_auxiliary: 4.91
+- distance_to_high_60_pct: -2.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,69,71.2,68.7,69,1190558,67.21,2.66,67.13,63.93,1.19
 20260504,70.1,71.3,69.7,71,940495,67.53,5.14,67.61,64,0.93
 20260505,71,75.7,70.8,75,2784107,68.15,10.05,68.25,64.14,2.52
 20260506,76.5,76.5,73.2,74,1679598,68.64,7.81,68.92,64.27,1.46
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,74.1,75.1,72.2,75,1434354,69.95,7.22,70.55,66.08,1.28
 20260527,75,76,73.3,73.9,1176124,70.28,5.15,70.8,66.31,1.01
 20260528,74.2,75.9,72.8,73.1,1119377,70.52,3.66,71.01,66.51,0.94
+20260529,74.4,75.7,73.6,74.8,1152615,70.87,5.54,71.3,66.77,0.97
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3022 | 威強電 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 3022 | 威強電 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 3022 | 威強電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260521 | 3022 | 威強電 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3022 | 威強電 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260529 | 3022 | 威強電 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3022 | 威強電 | 11 | 0 | 459050.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 3022 | 威強電 | 11 | 0 | 1208910.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6862 三集瑞-KY
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:20 Asia/Taipei
+- generated_at: 2026-05-29 19:33:42 Asia/Taipei
 - stock_id: 6862
 - stock_name: 三集瑞-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 183
-- high: 204.5
-- low: 183
-- close: 204.5
-- volume: 4190531
-- ma5: 189.3
-- ema23_primary: 178.77
-- distance_to_ema23_pct: 14.39
-- ma20: 175.05
-- ma60: 181.62
-- ma120: 178.65
-- return_5d: 12.05
-- return_20d: 18.9
-- volume_ratio: 3.39
-- distance_to_ma20_pct_auxiliary: 16.82
-- distance_to_high_60_pct: -10.31
+- date: 20260529
+- open: 224
+- high: 224.5
+- low: 220.5
+- close: 224.5
+- volume: 1577735
+- ma5: 196.4
+- ema23_primary: 182.58
+- distance_to_ema23_pct: 22.96
+- ma20: 177.78
+- ma60: 181.93
+- ma120: 179.2
+- return_5d: 18.78
+- return_20d: 32.06
+- volume_ratio: 1.21
+- distance_to_ma20_pct_auxiliary: 26.28
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,172,174,169.5,170,231968,180.05,-5.58,178.53,186.65,0.33
 20260504,171,175,169,172.5,352242,179.42,-3.85,179.07,186.38,0.51
 20260505,172,176,171.5,174.5,418397,179.01,-2.52,179.82,186.16,0.6
 20260506,176,176,165.5,167.5,571118,178.05,-5.92,180.22,185.62,0.79
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,188.5,188.5,173,181.5,1101741,175.56,3.38,172.85,182.57,1.09
 20260527,187.5,191.5,182.5,186,1115296,176.43,5.42,173.43,182.01,1.07
 20260528,183,204.5,183,204.5,4190531,178.77,14.39,175.05,181.62,3.39
+20260529,224,224.5,220.5,224.5,1577735,182.58,22.96,177.78,181.93,1.21
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6862 | 三集瑞-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  | call_put_bullish | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 6862 | 三集瑞-KY | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_put_bullish | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 6862 | 三集瑞-KY | true_breakout | 嚴格突破 | 71.0 |  |  | platform_right_side |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260521 | 6862 | 三集瑞-KY | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6862 | 三集瑞-KY | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260529 | 6862 | 三集瑞-KY | 7 | 7 | 5 | 7 | 7 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6862 | 三集瑞-KY | 20 | 1 | 8448170.0 | 50500.0 | 167.29 | call_put_bullish | 3 |  |
+| 20260529 | 6862 | 三集瑞-KY | 20 | 1 | 3975790.0 | 10500.0 | 378.65 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

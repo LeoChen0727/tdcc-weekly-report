@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2070 精湛
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:32 Asia/Taipei
+- generated_at: 2026-05-29 19:31:54 Asia/Taipei
 - stock_id: 2070
 - stock_name: 精湛
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 80
+- date: 20260529
+- open: 76.6
 - high: 81.5
-- low: 74.3
-- close: 75.9
+- low: 75
+- close: 77.6
 - volume: 78000
-- ma5: 73.82
-- ema23_primary: 65.51
-- distance_to_ema23_pct: 15.86
-- ma20: 67.84
-- ma60: 50.77
-- ma120: 46.2
-- return_5d: 17.67
-- return_20d: 31.09
-- volume_ratio: 0.06
-- distance_to_ma20_pct_auxiliary: 11.88
-- distance_to_high_60_pct: -8.44
+- ma5: 75.98
+- ema23_primary: 66.52
+- distance_to_ema23_pct: 16.66
+- ma20: 68.77
+- ma60: 51.39
+- ma120: 46.52
+- return_5d: 16.17
+- return_20d: 31.53
+- volume_ratio: 0.07
+- distance_to_ma20_pct_auxiliary: 12.84
+- distance_to_high_60_pct: -6.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,58.2,61.4,57.6,59,1795000,48.08,22.71,46.38,42.29,1.72
 20260504,62.5,64.9,61,63,2763000,49.32,27.73,47.59,42.56,2.35
 20260505,63,64.6,62.5,63.5,1117000,50.51,25.73,48.84,42.87,0.91
 20260506,64.2,66,61.4,66,1695000,51.8,27.42,50.23,43.23,1.3
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,69,75.4,69,75.4,75000,62.95,19.79,65.62,49.5,0.06
 20260527,79,82.9,77,82.4,80000,64.57,27.62,66.94,50.2,0.06
 20260528,80,81.5,74.3,75.9,78000,65.51,15.86,67.84,50.77,0.06
+20260529,76.6,81.5,75,77.6,78000,66.52,16.66,68.77,51.39,0.07
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2070 | 精湛 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

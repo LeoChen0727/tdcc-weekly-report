@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2360 致茂
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:38 Asia/Taipei
+- generated_at: 2026-05-29 19:32:00 Asia/Taipei
 - stock_id: 2360
 - stock_name: 致茂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 2560
-- high: 2795
-- low: 2530
-- close: 2570
-- volume: 4838102
-- ma5: 2485
-- ema23_primary: 2264.96
-- distance_to_ema23_pct: 13.47
-- ma20: 2313.5
-- ma60: 1894.33
-- ma120: 1407.16
-- return_5d: 13.22
-- return_20d: 25.06
-- volume_ratio: 1.3
-- distance_to_ma20_pct_auxiliary: 11.09
-- distance_to_high_60_pct: -8.05
+- date: 20260529
+- open: 2570
+- high: 2610
+- low: 2450
+- close: 2520
+- volume: 5371739
+- ma5: 2535
+- ema23_primary: 2286.22
+- distance_to_ema23_pct: 10.23
+- ma20: 2333.5
+- ma60: 1913.08
+- ma120: 1421.25
+- return_5d: 11.01
+- return_20d: 18.87
+- volume_ratio: 1.42
+- distance_to_ma20_pct_auxiliary: 7.99
+- distance_to_high_60_pct: -9.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,2115,2155,2085,2120,3995528,1882.8,12.6,1912,1504.12,0.85
 20260504,2265,2330,2145,2310,6653939,1918.4,20.41,1947,1525.53,1.38
 20260505,2310,2315,2150,2235,4076750,1944.78,14.92,1982,1545.87,0.86
 20260506,2350,2450,2270,2345,6415650,1978.13,18.55,2020.75,1567.7,1.31
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,2550,2590,2450,2500,2805851,2201.98,13.53,2259.75,1856,0.76
 20260527,2550,2680,2495,2625,2643485,2237.23,17.33,2287.75,1876.75,0.73
 20260528,2560,2795,2530,2570,4838102,2264.96,13.47,2313.5,1894.33,1.3
+20260529,2570,2610,2450,2520,5371739,2286.22,10.23,2333.5,1913.08,1.42
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2360 | 致茂 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260528 | 2360 | 致茂 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 55.0 |  |  | neckline_challenge |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 2360 | 致茂 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2360 | 致茂 | 6 | 1 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260529 | 2360 | 致茂 | 7 | 2 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2360 | 致茂 | 70 | 5 | 4028980.0 | 1300.0 | 3099.22 | no_signal | 0 |  |
+| 20260529 | 2360 | 致茂 | 70 | 5 | 3241560.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

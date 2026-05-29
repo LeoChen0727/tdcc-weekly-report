@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3027 盛達
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:59 Asia/Taipei
+- generated_at: 2026-05-29 19:32:21 Asia/Taipei
 - stock_id: 3027
 - stock_name: 盛達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 18.9
-- high: 20.35
-- low: 18.9
-- close: 19.25
-- volume: 1866838
-- ma5: 18.78
-- ema23_primary: 18.51
-- distance_to_ema23_pct: 3.99
-- ma20: 18.32
-- ma60: 19.52
-- ma120: 21.81
-- return_5d: 9.38
-- return_20d: 4.05
-- volume_ratio: 3.93
-- distance_to_ma20_pct_auxiliary: 5.08
-- distance_to_high_60_pct: -20.94
+- date: 20260529
+- open: 19.35
+- high: 19.8
+- low: 19.1
+- close: 19.45
+- volume: 687221
+- ma5: 19.04
+- ema23_primary: 18.59
+- distance_to_ema23_pct: 4.63
+- ma20: 18.36
+- ma60: 19.46
+- ma120: 21.78
+- return_5d: 7.16
+- return_20d: 4.57
+- volume_ratio: 1.38
+- distance_to_ma20_pct_auxiliary: 5.92
+- distance_to_high_60_pct: -15.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,18.5,18.7,18.35,18.6,261074,19.31,-3.65,19.09,21.43,0.67
 20260504,18.65,19.05,18.45,18.5,259367,19.24,-3.84,19.04,21.29,0.67
 20260505,18.25,19.2,18.25,19.1,449083,19.23,-0.66,19.04,21.17,1.12
 20260506,19.2,19.2,18.5,18.5,310473,19.17,-3.48,19,21.05,0.76
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,19.4,19.4,18.55,19,511217,18.43,3.07,18.25,19.68,1.31
 20260527,19,19.1,18.55,18.55,515619,18.44,0.58,18.28,19.6,1.29
 20260528,18.9,20.35,18.9,19.25,1866838,18.51,3.99,18.32,19.52,3.93
+20260529,19.35,19.8,19.1,19.45,687221,18.59,4.63,18.36,19.46,1.38
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3027 | 盛達 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3027 | 盛達 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

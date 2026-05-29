@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8088 品安
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:33 Asia/Taipei
+- generated_at: 2026-05-29 19:33:55 Asia/Taipei
 - stock_id: 8088
 - stock_name: 品安
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
+- date: 20260529
 - open: 61.2
-- high: 62.7
-- low: 59.4
-- close: 60.4
+- high: 62.2
+- low: 60.5
+- close: 60.6
 - volume: 61000
-- ma5: 59.7
-- ema23_primary: 55.56
-- distance_to_ema23_pct: 8.7
-- ma20: 55.16
-- ma60: 53.13
-- ma120: 51.74
-- return_5d: 11.65
-- return_20d: 17.97
+- ma5: 60.44
+- ema23_primary: 55.98
+- distance_to_ema23_pct: 8.24
+- ma20: 55.67
+- ma60: 53.33
+- ma120: 51.9
+- return_5d: 6.5
+- return_20d: 20.48
 - volume_ratio: 0.02
-- distance_to_ma20_pct_auxiliary: 9.5
-- distance_to_high_60_pct: -9.04
+- distance_to_ma20_pct_auxiliary: 8.85
+- distance_to_high_60_pct: -8.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,51.7,52.3,50.2,50.3,1496000,51.8,-2.9,51.09,53.59,0.56
 20260504,50.9,51.8,50.1,51,1780000,51.74,-1.42,51.09,53.43,0.67
 20260505,51.4,53.4,51.4,52.6,2055000,51.81,1.53,51.23,53.24,0.78
 20260506,55.2,56.4,53.8,54.2,6966000,52.01,4.21,51.51,53.12,2.39
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,59.6,61.5,58.2,60.4,60000,54.59,10.64,54.29,52.87,0.02
 20260527,65.9,66.4,60.4,61,64000,55.13,10.66,54.7,53,0.02
 20260528,61.2,62.7,59.4,60.4,61000,55.56,8.7,55.16,53.13,0.02
+20260529,61.2,62.2,60.5,60.6,61000,55.98,8.24,55.67,53.33,0.02
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 8088 | 品安 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 8088 | 品安 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 8088 | 品安 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260529 | 8088 | 品安 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

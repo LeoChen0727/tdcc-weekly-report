@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6515 穎崴
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:07 Asia/Taipei
+- generated_at: 2026-05-29 19:33:29 Asia/Taipei
 - stock_id: 6515
 - stock_name: 穎崴
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 10000
-- high: 10100
-- low: 8935
-- close: 9120
-- volume: 1108573
-- ma5: 9074
-- ema23_primary: 9454.52
-- distance_to_ema23_pct: -3.54
-- ma20: 9734.25
-- ma60: 8456.08
-- ma120: 5942.17
-- return_5d: -4.1
-- return_20d: -10.46
-- volume_ratio: 2.8
-- distance_to_ma20_pct_auxiliary: -6.31
-- distance_to_high_60_pct: -20.63
+- date: 20260529
+- open: 9205
+- high: 9390
+- low: 8665
+- close: 8665
+- volume: 685628
+- ma5: 9067
+- ema23_primary: 9388.73
+- distance_to_ema23_pct: -7.71
+- ma20: 9648.25
+- ma60: 8521.67
+- ma120: 5993.42
+- return_5d: -0.4
+- return_20d: -16.56
+- volume_ratio: 1.63
+- distance_to_ma20_pct_auxiliary: -10.19
+- distance_to_high_60_pct: -24.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,10300,10450,10120,10385,182992,9187.67,13.03,9213.25,6801.92,0.52
 20260504,10800,10825,10300,10700,205376,9313.69,14.88,9383.75,6915.17,0.59
 20260505,11040,11040,9765,10055,376752,9375.47,7.25,9556.25,7015,1.08
 20260506,10400,10410,9620,10130,490717,9438.35,7.33,9707.75,7112.58,1.36
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,8950,9075,8655,8905,318908,9456.75,-5.83,9804.5,8305.67,0.91
 20260527,9795,9795,9795,9795,232078,9484.93,3.27,9787.5,8383.67,0.66
 20260528,10000,10100,8935,9120,1108573,9454.52,-3.54,9734.25,8456.08,2.8
+20260529,9205,9390,8665,8665,685628,9388.73,-7.71,9648.25,8521.67,1.63
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6515 | 穎崴 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6515 | 穎崴 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6515 | 穎崴 | 18 | 1 | 327100.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 6515 | 穎崴 | 18 | 1 | 424200.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

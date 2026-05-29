@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6265 方土昶
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:02 Asia/Taipei
+- generated_at: 2026-05-29 19:33:24 Asia/Taipei
 - stock_id: 6265
 - stock_name: 方土昶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
+- date: 20260529
 - open: 55
-- high: 57.8
-- low: 52.8
-- close: 53.8
+- high: 56
+- low: 53
+- close: 55.2
 - volume: 55000
-- ma5: 52.54
-- ema23_primary: 46.19
-- distance_to_ema23_pct: 16.48
-- ma20: 45.88
-- ma60: 41.55
-- ma120: 37.3
-- return_5d: 22.97
-- return_20d: 23.82
+- ma5: 53.96
+- ema23_primary: 46.94
+- distance_to_ema23_pct: 17.6
+- ma20: 46.66
+- ma60: 41.87
+- ma120: 37.62
+- return_5d: 14.76
+- return_20d: 38.69
 - volume_ratio: 0.01
-- distance_to_ma20_pct_auxiliary: 17.25
-- distance_to_high_60_pct: -7.4
+- distance_to_ma20_pct_auxiliary: 18.32
+- distance_to_high_60_pct: -4.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,43.5,43.65,39.8,39.8,15465000,39.47,0.83,38.89,40.28,2.26
 20260504,40.4,43.25,39.55,42.3,10996000,39.71,6.53,39.14,40.18,1.51
 20260505,42.1,43.45,41.15,43.45,9466000,40.02,8.57,39.48,40.12,1.25
 20260506,45,46.75,42.9,44.1,23703000,40.36,9.27,39.88,40.11,2.76
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,53.4,54.4,51,52.9,53000,44.63,18.52,44.65,41.05,0
 20260527,57,58.1,53.9,55,56000,45.5,20.89,45.37,41.3,0.01
 20260528,55,57.8,52.8,53.8,55000,46.19,16.48,45.88,41.55,0.01
+20260529,55,56,53,55.2,55000,46.94,17.6,46.66,41.87,0.01
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 6265 | 方土昶 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 6265 | 方土昶 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6265 | 方土昶 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260529 | 6265 | 方土昶 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

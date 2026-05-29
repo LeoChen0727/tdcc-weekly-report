@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2332 友訊
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:36 Asia/Taipei
+- generated_at: 2026-05-29 19:31:58 Asia/Taipei
 - stock_id: 2332
 - stock_name: 友訊
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 15.9
-- high: 16.9
-- low: 15.7
-- close: 16
-- volume: 15163916
-- ma5: 15.65
-- ema23_primary: 14.73
-- distance_to_ema23_pct: 8.62
-- ma20: 14.39
-- ma60: 14.86
-- ma120: 15.32
-- return_5d: 9.59
-- return_20d: 15.11
-- volume_ratio: 3.05
-- distance_to_ma20_pct_auxiliary: 11.19
-- distance_to_high_60_pct: -5.33
+- date: 20260529
+- open: 16.8
+- high: 17.35
+- low: 16.25
+- close: 16.95
+- volume: 16845339
+- ma5: 15.95
+- ema23_primary: 14.92
+- distance_to_ema23_pct: 13.64
+- ma20: 14.54
+- ma60: 14.89
+- ma120: 15.33
+- return_5d: 9.71
+- return_20d: 22.38
+- volume_ratio: 2.94
+- distance_to_ma20_pct_auxiliary: 16.53
+- distance_to_high_60_pct: -2.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,13.95,14.05,13.8,13.85,1623601,14.76,-6.16,14.87,15.31,0.44
 20260504,13.95,14.05,13.85,13.85,2581767,14.68,-5.67,14.79,15.27,0.74
 20260505,13.9,14.15,13.9,14.15,3323051,14.64,-3.34,14.74,15.23,0.95
 20260506,14.25,14.25,13.7,14.1,4491732,14.59,-3.38,14.7,15.19,1.26
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,16.1,16.15,15.2,15.5,6702381,14.53,6.71,14.2,14.87,1.64
 20260527,15.7,15.8,15.3,15.6,6331872,14.62,6.74,14.29,14.86,1.47
 20260528,15.9,16.9,15.7,16,15163916,14.73,8.62,14.39,14.86,3.05
+20260529,16.8,17.35,16.25,16.95,16845339,14.92,13.64,14.54,14.89,2.94
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2332 | 友訊 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 2332 | 友訊 | true_breakout | 嚴格突破 | 98.0 |  |  | neckline_challenge |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2332 | 友訊 | 1 | 1 | 4 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260529 | 2332 | 友訊 | 2 | 1 | 4 | 6 | 6 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2332 | 友訊 | 4 | 0 | 400.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 2332 | 友訊 | 4 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

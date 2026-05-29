@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1434 福懋
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:16 Asia/Taipei
+- generated_at: 2026-05-29 19:31:38 Asia/Taipei
 - stock_id: 1434
 - stock_name: 福懋
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 15
-- high: 15.05
-- low: 14.8
-- close: 14.95
-- volume: 2804119
-- ma5: 15.05
+- date: 20260529
+- open: 14.95
+- high: 15.45
+- low: 14.95
+- close: 15.45
+- volume: 3946190
+- ma5: 15.1
 - ema23_primary: 15.49
-- distance_to_ema23_pct: -3.51
-- ma20: 15.47
-- ma60: 16.23
-- ma120: 16.37
-- return_5d: -2.29
-- return_20d: -6.85
-- volume_ratio: 1.44
-- distance_to_ma20_pct_auxiliary: -3.39
-- distance_to_high_60_pct: -18.08
+- distance_to_ema23_pct: -0.26
+- ma20: 15.45
+- ma60: 16.19
+- ma120: 16.36
+- return_5d: 1.64
+- return_20d: -2.83
+- volume_ratio: 1.88
+- distance_to_ma20_pct_auxiliary: -0.02
+- distance_to_high_60_pct: -12.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,16.1,16.15,15.85,15.9,894493,16.35,-2.76,16.4,16.86,0.5
 20260504,16,16.05,15.85,16,1707227,16.32,-1.97,16.36,16.86,0.95
 20260505,16,16.05,15.8,15.95,1333896,16.29,-2.09,16.34,16.83,0.73
 20260506,16.1,16.2,16,16.1,2127266,16.28,-1.08,16.32,16.81,1.12
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,15.05,15.15,14.95,15,1710024,15.59,-3.81,15.57,16.34,0.94
 20260527,15,15.15,14.9,15,2110131,15.54,-3.5,15.53,16.28,1.13
 20260528,15,15.05,14.8,14.95,2804119,15.49,-3.51,15.47,16.23,1.44
+20260529,14.95,15.45,14.95,15.45,3946190,15.49,-0.26,15.45,16.19,1.88
 ```
 
 ## Latest TDCC Snapshot
@@ -123,14 +123,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 1434 | 福懋 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 1434 | 福懋 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | status |

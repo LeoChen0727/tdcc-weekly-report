@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8109 博大
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:34 Asia/Taipei
+- generated_at: 2026-05-29 19:33:56 Asia/Taipei
 - stock_id: 8109
 - stock_name: 博大
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 26
 - tdcc_history_status: tdcc_history_ready
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 122.5
-- high: 129
-- low: 121.5
-- close: 126
+- date: 20260529
+- open: 126.5
+- high: 127
+- low: 124
+- close: 125.5
 - volume: 126000
-- ma5: 123.9
-- ema23_primary: 119.54
-- distance_to_ema23_pct: 5.4
-- ma20: 120.25
-- ma60: 111.21
-- ma120: 107.71
-- return_5d: -1.18
-- return_20d: 5.88
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: 4.78
-- distance_to_high_60_pct: -6.32
+- ma5: 124
+- ema23_primary: 120.04
+- distance_to_ema23_pct: 4.55
+- ma20: 120.62
+- ma60: 111.51
+- ma120: 107.91
+- return_5d: 0.4
+- return_20d: 6.36
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: 4.04
+- distance_to_high_60_pct: -6.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,119.5,119.5,117,118,232000,112.48,4.9,112.03,107.39,0.67
 20260504,118.5,124,118.5,123.5,348000,113.4,8.9,112.92,107.53,1
 20260505,123.5,123.5,119.5,121.5,228000,114.08,6.51,113.72,107.69,0.66
 20260506,123.5,123.5,118,121,378000,114.65,5.54,114.22,107.9,1.12
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,124,124.5,121,123,123000,118.72,3.6,119.97,110.73,0.36
 20260527,124,124,120.5,121.5,122000,118.95,2.14,119.9,110.93,0.37
 20260528,122.5,129,121.5,126,126000,119.54,5.4,120.25,111.21,0.4
+20260529,126.5,127,124,125.5,126000,120.04,4.55,120.62,111.51,0.41
 ```
 
 ## Latest TDCC Snapshot
@@ -133,12 +133,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 8109 | 博大 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 8109 | 博大 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 8109 | 博大 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260529 | 8109 | 博大 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2881 富邦金
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:54 Asia/Taipei
+- generated_at: 2026-05-29 19:32:17 Asia/Taipei
 - stock_id: 2881
 - stock_name: 富邦金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 110
-- high: 112
+- date: 20260529
+- open: 110.5
+- high: 111
 - low: 107
 - close: 110
-- volume: 83541343
-- ma5: 103.26
-- ema23_primary: 97
-- distance_to_ema23_pct: 13.4
-- ma20: 96.62
-- ma60: 91.11
-- ma120: 92.87
-- return_5d: 14.46
-- return_20d: 20.48
-- volume_ratio: 1.82
-- distance_to_ma20_pct_auxiliary: 13.85
+- volume: 139031768
+- ma5: 106.24
+- ema23_primary: 98.08
+- distance_to_ema23_pct: 12.15
+- ma20: 97.62
+- ma60: 91.39
+- ma120: 93.01
+- return_5d: 15.67
+- return_20d: 22.22
+- volume_ratio: 2.71
+- distance_to_ma20_pct_auxiliary: 12.68
 - distance_to_high_60_pct: -1.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,90.4,91.8,90,90,31101166,88.55,1.64,88.17,89.89,1.47
 20260504,91.8,94,91,91,49550204,88.75,2.53,88.33,89.84,2.16
 20260505,91.5,92.3,90.4,92.2,24852424,89.04,3.55,88.55,89.83,1.05
 20260506,93,94,92.4,92.8,24441556,89.35,3.86,88.81,89.83,1.01
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,97.8,103.5,97.8,103.5,103318900,94.53,9.49,94.61,90.56,2.59
 20260527,104.5,110,103,110,95547479,95.82,14.8,95.69,90.83,2.19
 20260528,110,112,107,110,83541343,97,13.4,96.62,91.11,1.82
+20260529,110.5,111,107,110,139031768,98.08,12.15,97.62,91.39,2.71
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 2881 | 富邦金 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 2881 | 富邦金 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260521 | 2881 | 富邦金 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2881 | 富邦金 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260529 | 2881 | 富邦金 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2881 | 富邦金 | 23 | 0 | 12310670.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260529 | 2881 | 富邦金 | 24 | 0 | 7572620.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

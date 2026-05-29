@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2329 華泰
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:36 Asia/Taipei
+- generated_at: 2026-05-29 19:31:58 Asia/Taipei
 - stock_id: 2329
 - stock_name: 華泰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 58.7
+- date: 20260529
+- open: 62.4
 - high: 63
-- low: 58.3
-- close: 59.9
-- volume: 46157178
-- ma5: 57.56
-- ema23_primary: 56.96
-- distance_to_ema23_pct: 5.16
-- ma20: 57.51
-- ma60: 55.92
-- ma120: 55.03
-- return_5d: 13.23
-- return_20d: 5.27
-- volume_ratio: 2.39
-- distance_to_ma20_pct_auxiliary: 4.16
-- distance_to_high_60_pct: -9.65
+- low: 59.9
+- close: 61.1
+- volume: 27262250
+- ma5: 58.86
+- ema23_primary: 57.31
+- distance_to_ema23_pct: 6.62
+- ma20: 57.81
+- ma60: 56.04
+- ma120: 55.14
+- return_5d: 11.9
+- return_20d: 11.29
+- volume_ratio: 1.36
+- distance_to_ma20_pct_auxiliary: 5.68
+- distance_to_high_60_pct: -7.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,56.9,57.5,54.8,54.9,13179875,56.7,-3.17,56.55,55.4,0.67
 20260504,55.8,60.3,55.3,60.3,25467443,57,5.79,57.04,55.37,1.24
 20260505,60.4,65,60,62.1,45158368,57.42,8.14,57.63,55.33,2.02
 20260506,63.3,64.4,60.6,62.4,36530807,57.84,7.89,58.28,55.32,1.54
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,57.2,58.4,55.8,58.4,18560714,56.53,3.3,57.38,55.86,1.05
 20260527,60.4,61,58.3,58.5,22890579,56.7,3.18,57.35,55.87,1.29
 20260528,58.7,63,58.3,59.9,46157178,56.96,5.16,57.51,55.92,2.39
+20260529,62.4,63,59.9,61.1,27262250,57.31,6.62,57.81,56.04,1.36
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2329 | 華泰 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 2329 | 華泰 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 2329 | 華泰 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260521 | 2329 | 華泰 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2329 | 華泰 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260529 | 2329 | 華泰 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 2329 | 華泰 | 142 | 4 | 20695010.0 | 111900.0 | 184.94 | call_put_bullish | 3 |  |
+| 20260529 | 2329 | 華泰 | 142 | 4 | 28010250.0 | 29770.0 | 940.89 | call_put_bullish | 3 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

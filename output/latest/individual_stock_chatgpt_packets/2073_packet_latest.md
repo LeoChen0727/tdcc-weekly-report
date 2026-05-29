@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2073 雄順
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:32 Asia/Taipei
+- generated_at: 2026-05-29 19:31:54 Asia/Taipei
 - stock_id: 2073
 - stock_name: 雄順
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260527
-- price_rows: 78
+- latest_price_date: 20260529
+- price_rows: 79
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260527
+- date: 20260529
 - open: 26
 - high: 26
 - low: 26
 - close: 26
 - volume: 26000
-- ma5: 25.94
-- ema23_primary: 26.23
-- distance_to_ema23_pct: -0.87
-- ma20: 26.27
-- ma60: 26.38
-- ma120: 26.51
-- return_5d: 1.56
-- return_20d: -1.7
-- volume_ratio: 2.75
-- distance_to_ma20_pct_auxiliary: -1.01
+- ma5: 25.96
+- ema23_primary: 26.21
+- distance_to_ema23_pct: -0.8
+- ma20: 26.23
+- ma60: 26.37
+- ma120: 26.5
+- return_5d: 0.39
+- return_20d: -2.26
+- volume_ratio: 2.46
+- distance_to_ma20_pct_auxiliary: -0.9
 - distance_to_high_60_pct: -8.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260414,26.75,26.75,26.6,26.6,4000,26.74,-0.52,26.87,26.59,0.65
 20260415,26.7,26.95,26.7,26.95,5000,26.76,0.72,26.92,26.6,1.03
 20260417,26.9,26.9,26.9,26.9,2000,26.77,0.49,26.99,26.58,0.41
 20260420,26.9,26.9,25.5,26.9,11000,26.78,0.45,27.03,26.59,2.1
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,25.9,25.9,25.9,25.9,26000,26.28,-1.45,26.32,26.37,3.69
 20260525,25.9,25.9,25.9,25.9,26000,26.25,-1.33,26.29,26.38,3.15
 20260527,26,26,26,26,26000,26.23,-0.87,26.27,26.38,2.75
+20260529,26,26,26,26,26000,26.21,-0.8,26.23,26.37,2.46
 ```
 
 ## Latest TDCC Snapshot

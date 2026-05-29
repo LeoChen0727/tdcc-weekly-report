@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00915 凱基優選高股息30
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:09 Asia/Taipei
+- generated_at: 2026-05-29 19:31:31 Asia/Taipei
 - stock_id: 00915
 - stock_name: 凱基優選高股息30
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260528
-- price_rows: 5
+- latest_price_date: 20260529
+- price_rows: 6
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 29.04
-- high: 29.37
-- low: 28.58
-- close: 28.67
-- volume: 10685913
-- ma5: 28.24
-- ema23_primary: 27.74
-- distance_to_ema23_pct: 3.36
-- ma20: 28.24
-- ma60: 28.24
-- ma120: 28.24
-- return_5d: 
+- date: 20260529
+- open: 28.94
+- high: 29.3
+- low: 28.72
+- close: 29.06
+- volume: 9547718
+- ma5: 28.56
+- ema23_primary: 27.85
+- distance_to_ema23_pct: 4.36
+- ma20: 28.38
+- ma60: 28.38
+- ma120: 28.38
+- return_5d: 5.94
 - return_20d: 
-- volume_ratio: 1.09
-- distance_to_ma20_pct_auxiliary: 1.53
-- distance_to_high_60_pct: -2.38
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: 2.41
+- distance_to_high_60_pct: -1.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -82,6 +82,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,28,28.32,28,28.22,9268083,,,,,
 20260527,28.35,29.16,28.35,29,13304381,,,,,
 20260528,29.04,29.37,28.58,28.67,10685913,27.74,3.36,28.24,28.24,1.09
+20260529,28.94,29.3,28.72,29.06,9547718,27.85,4.36,28.38,28.38,0.98
 ```
 
 ## Latest TDCC Snapshot

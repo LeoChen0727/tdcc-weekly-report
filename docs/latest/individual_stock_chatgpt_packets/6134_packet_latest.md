@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6134 萬旭
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:54 Asia/Taipei
+- generated_at: 2026-05-29 19:33:15 Asia/Taipei
 - stock_id: 6134
 - stock_name: 萬旭
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 34.2
-- high: 35.8
-- low: 32.85
-- close: 32.95
-- volume: 34000
-- ma5: 32.56
-- ema23_primary: 31.71
-- distance_to_ema23_pct: 3.92
-- ma20: 31.73
-- ma60: 31.14
-- ma120: 29.67
-- return_5d: 6.46
-- return_20d: 8.75
-- volume_ratio: 0.04
-- distance_to_ma20_pct_auxiliary: 3.83
-- distance_to_high_60_pct: -7.96
+- date: 20260529
+- open: 34
+- high: 36.2
+- low: 33.8
+- close: 36.2
+- volume: 36000
+- ma5: 33.43
+- ema23_primary: 32.08
+- distance_to_ema23_pct: 12.83
+- ma20: 32.03
+- ma60: 31.17
+- ma120: 29.79
+- return_5d: 13.66
+- return_20d: 19.87
+- volume_ratio: 0.05
+- distance_to_ma20_pct_auxiliary: 13
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,30.75,31.1,30.1,30.2,447000,30.81,-1.97,30.93,30.98,0.37
 20260504,30.45,30.95,30.15,30.6,435000,30.79,-0.62,31.02,30.98,0.36
 20260505,30.6,31.65,30.6,31.6,523000,30.86,2.41,31.2,30.93,0.43
 20260506,31.6,32.1,30.7,31.2,809000,30.89,1.02,31.38,30.92,0.66
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,32.4,32.65,31.4,32.65,32000,31.44,3.85,31.45,31.12,0.04
 20260527,33,33.5,31.9,33.3,33000,31.6,5.4,31.6,31.13,0.04
 20260528,34.2,35.8,32.85,32.95,34000,31.71,3.92,31.73,31.14,0.04
+20260529,34,36.2,33.8,36.2,36000,32.08,12.83,32.03,31.17,0.05
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6134 | 萬旭 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

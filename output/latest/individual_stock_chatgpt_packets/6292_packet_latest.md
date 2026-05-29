@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6292 迅德
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:03 Asia/Taipei
+- generated_at: 2026-05-29 19:33:25 Asia/Taipei
 - stock_id: 6292
 - stock_name: 迅德
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 68.7
-- high: 68.7
-- low: 67.1
-- close: 68.7
-- volume: 69000
-- ma5: 60.04
-- ema23_primary: 54.2
-- distance_to_ema23_pct: 26.75
-- ma20: 53.67
-- ma60: 48.04
-- ma120: 44.47
-- return_5d: 28.41
-- return_20d: 50.16
+- date: 20260529
+- open: 68.5
+- high: 74
+- low: 67
+- close: 69.9
+- volume: 70000
+- ma5: 63.18
+- ema23_primary: 55.51
+- distance_to_ema23_pct: 25.92
+- ma20: 54.91
+- ma60: 48.51
+- ma120: 44.72
+- return_5d: 28.97
+- return_20d: 54.99
 - volume_ratio: 0.2
-- distance_to_ma20_pct_auxiliary: 27.99
-- distance_to_high_60_pct: 0
+- distance_to_ma20_pct_auxiliary: 27.29
+- distance_to_high_60_pct: -5.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,45.75,46.05,45.1,45.1,83000,46.08,-2.13,46.5,43.88,0.49
 20260504,44.75,46.75,44.75,46.35,143000,46.1,0.53,46.49,43.96,0.84
 20260505,46.5,47.15,46.1,47,116000,46.18,1.78,46.57,44.05,0.67
 20260506,47.7,47.7,46,46.25,132000,46.19,0.14,46.65,44.12,0.77
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,57.8,57.8,54.8,56.9,56000,52.01,9.4,51.67,47.23,0.16
 20260527,57,62.5,57,62.5,62000,52.88,18.18,52.53,47.59,0.18
 20260528,68.7,68.7,67.1,68.7,69000,54.2,26.75,53.67,48.04,0.2
+20260529,68.5,74,67,69.9,70000,55.51,25.92,54.91,48.51,0.2
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6292 | 迅德 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

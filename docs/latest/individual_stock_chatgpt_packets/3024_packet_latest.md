@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3024 憶聲
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:59 Asia/Taipei
+- generated_at: 2026-05-29 19:32:21 Asia/Taipei
 - stock_id: 3024
 - stock_name: 憶聲
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 15.85
-- high: 15.95
-- low: 15.4
-- close: 15.55
-- volume: 2081309
-- ma5: 16.23
-- ema23_primary: 15.32
-- distance_to_ema23_pct: 1.51
-- ma20: 15.6
-- ma60: 12.46
-- ma120: 11.68
-- return_5d: -9.33
-- return_20d: 18.7
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: -0.32
-- distance_to_high_60_pct: -15.49
+- date: 20260529
+- open: 15.8
+- high: 15.8
+- low: 14.55
+- close: 14.8
+- volume: 3698605
+- ma5: 15.67
+- ema23_primary: 15.28
+- distance_to_ema23_pct: -3.12
+- ma20: 15.71
+- ma60: 12.54
+- ma120: 11.72
+- return_5d: -15.91
+- return_20d: 16.54
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: -5.76
+- distance_to_high_60_pct: -19.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,13.2,13.3,12.55,12.7,2469122,11.94,6.35,11.62,10.82,0.69
 20260504,12.9,13.3,12.75,13.3,2386210,12.06,10.33,11.79,10.86,0.65
 20260505,13.15,13.8,13.1,13.8,3183038,12.2,13.11,11.97,10.9,0.85
 20260506,14,14.1,13.6,13.85,3917309,12.34,12.26,12.15,10.95,1
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,16.05,16.25,15.5,16.1,3156954,15.25,5.59,15.36,12.29,0.6
 20260527,16.2,16.35,15.65,15.85,2034013,15.3,3.61,15.48,12.38,0.39
 20260528,15.85,15.95,15.4,15.55,2081309,15.32,1.51,15.6,12.46,0.4
+20260529,15.8,15.8,14.55,14.8,3698605,15.28,-3.12,15.71,12.54,0.71
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3024 | 憶聲 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 3024 | 憶聲 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3024 | 憶聲 | 3 | 3 | 3 | 3 | 3 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260529 | 3024 | 憶聲 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

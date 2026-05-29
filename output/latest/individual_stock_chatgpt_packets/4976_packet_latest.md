@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4976 佳凌
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:39 Asia/Taipei
+- generated_at: 2026-05-29 19:33:00 Asia/Taipei
 - stock_id: 4976
 - stock_name: 佳凌
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 31.3
-- high: 32.35
+- date: 20260529
+- open: 31.05
+- high: 31.55
 - low: 30.75
-- close: 30.75
-- volume: 977585
-- ma5: 31.85
-- ema23_primary: 30.72
-- distance_to_ema23_pct: 0.1
-- ma20: 30.52
-- ma60: 29.59
+- close: 31.5
+- volume: 788932
+- ma5: 31.57
+- ema23_primary: 30.78
+- distance_to_ema23_pct: 2.33
+- ma20: 30.64
+- ma60: 29.61
 - ma120: 30.29
-- return_5d: -6.68
-- return_20d: 4.59
-- volume_ratio: 0.91
-- distance_to_ma20_pct_auxiliary: 0.75
-- distance_to_high_60_pct: -8.89
+- return_5d: -4.26
+- return_20d: 8.62
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: 2.79
+- distance_to_high_60_pct: -6.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,29.55,29.55,28.75,29,218506,29.3,-1.03,29.08,29.83,0.38
 20260504,29.4,29.4,28.6,28.7,450728,29.25,-1.88,29.13,29.78,0.78
 20260505,28.7,29.55,28.7,29.45,419995,29.27,0.62,29.25,29.68,0.72
 20260506,29.65,29.65,28.45,28.7,560397,29.22,-1.78,29.31,29.62,0.94
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,32.9,33.75,32.15,32.2,1554231,30.7,4.89,30.35,29.61,1.54
 20260527,32.9,32.9,30.8,30.9,1200626,30.72,0.6,30.45,29.59,1.15
 20260528,31.3,32.35,30.75,30.75,977585,30.72,0.1,30.52,29.59,0.91
+20260529,31.05,31.55,30.75,31.5,788932,30.78,2.33,30.64,29.61,0.71
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 4976 | 佳凌 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 4976 | 佳凌 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4976 | 佳凌 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260529 | 4976 | 佳凌 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

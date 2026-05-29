@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00965 元大航太防衛科技
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:10 Asia/Taipei
+- generated_at: 2026-05-29 19:31:32 Asia/Taipei
 - stock_id: 00965
 - stock_name: 元大航太防衛科技
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260528
-- price_rows: 5
+- latest_price_date: 20260529
+- price_rows: 6
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 25.71
+- date: 20260529
+- open: 25.6
 - high: 25.71
-- low: 25.22
-- close: 25.35
-- volume: 2601796
-- ma5: 25.61
-- ema23_primary: 25.43
-- distance_to_ema23_pct: -0.33
-- ma20: 25.61
-- ma60: 25.61
-- ma120: 25.61
-- return_5d: 
+- low: 25.58
+- close: 25.71
+- volume: 4116211
+- ma5: 25.68
+- ema23_primary: 25.46
+- distance_to_ema23_pct: 0.99
+- ma20: 25.62
+- ma60: 25.62
+- ma120: 25.62
+- return_5d: 1.46
 - return_20d: 
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: -1
-- distance_to_high_60_pct: -2.5
+- volume_ratio: 1.02
+- distance_to_ma20_pct_auxiliary: 0.34
+- distance_to_high_60_pct: -1.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -82,6 +82,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,25.78,26,25.78,25.97,4616405,,,,,
 20260527,25.95,25.95,25.77,25.8,3024357,,,,,
 20260528,25.71,25.71,25.22,25.35,2601796,25.43,-0.33,25.61,25.61,0.65
+20260529,25.6,25.71,25.58,25.71,4116211,25.46,0.99,25.62,25.62,1.02
 ```
 
 ## Latest TDCC Snapshot

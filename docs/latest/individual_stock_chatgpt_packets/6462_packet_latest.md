@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6462 神盾
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:05 Asia/Taipei
+- generated_at: 2026-05-29 19:33:28 Asia/Taipei
 - stock_id: 6462
 - stock_name: 神盾
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 134
-- high: 134.5
-- low: 123.5
+- date: 20260529
+- open: 126
+- high: 126.5
+- low: 122
 - close: 125
-- volume: 128000
-- ma5: 140.8
-- ema23_primary: 131.9
-- distance_to_ema23_pct: -5.23
-- ma20: 133.07
-- ma60: 116.73
-- ma120: 118.43
-- return_5d: -11.03
-- return_20d: 3.31
+- volume: 124000
+- ma5: 136.9
+- ema23_primary: 131.32
+- distance_to_ema23_pct: -4.82
+- ma20: 133.22
+- ma60: 116.91
+- ma120: 118.46
+- return_5d: -13.49
+- return_20d: 2.46
 - volume_ratio: 0.06
-- distance_to_ma20_pct_auxiliary: -6.07
+- distance_to_ma20_pct_auxiliary: -6.17
 - distance_to_high_60_pct: -22.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,120,129,120,122,2555000,116.37,4.84,115.58,110.38,0.87
 20260504,124.5,126,122.5,123.5,1388000,116.96,5.59,116.38,110.51,0.47
 20260505,124.5,131,123.5,130,2545000,118.05,10.12,117.42,110.72,0.86
 20260506,131,134.5,125.5,129,2759000,118.96,8.44,118.83,110.94,0.91
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,158.5,160.5,141.5,146.5,148000,132.48,10.58,132.15,116.36,0.06
 20260527,152,153,132,133,141000,132.53,0.36,132.88,116.58,0.06
 20260528,134,134.5,123.5,125,128000,131.9,-5.23,133.07,116.73,0.06
+20260529,126,126.5,122,125,124000,131.32,-4.82,133.22,116.91,0.06
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 6462 | 神盾 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 6462 | 神盾 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6462 | 神盾 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260529 | 6462 | 神盾 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

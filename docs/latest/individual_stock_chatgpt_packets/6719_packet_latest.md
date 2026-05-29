@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6719 力智
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:15 Asia/Taipei
+- generated_at: 2026-05-29 19:33:37 Asia/Taipei
 - stock_id: 6719
 - stock_name: 力智
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 257
-- high: 263
-- low: 246.5
-- close: 248.5
-- volume: 3985497
-- ma5: 252.8
-- ema23_primary: 216.44
-- distance_to_ema23_pct: 14.81
-- ma20: 212.95
-- ma60: 183.53
-- ma120: 188.77
-- return_5d: 6.42
-- return_20d: 44.9
-- volume_ratio: 1.34
-- distance_to_ma20_pct_auxiliary: 16.69
-- distance_to_high_60_pct: -13.11
+- date: 20260529
+- open: 254.5
+- high: 255
+- low: 242.5
+- close: 247
+- volume: 2548395
+- ma5: 255.8
+- ema23_primary: 218.99
+- distance_to_ema23_pct: 12.79
+- ma20: 216.8
+- ma60: 184.59
+- ma120: 189.18
+- return_5d: 6.47
+- return_20d: 45.29
+- volume_ratio: 0.82
+- distance_to_ma20_pct_auxiliary: 13.93
+- distance_to_high_60_pct: -13.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,172.5,172.5,170,170,231499,170.48,-0.28,167.43,177.23,0.45
 20260504,171.5,183,171.5,179.5,719353,171.23,4.83,168.25,176.97,1.33
 20260505,184,192.5,183,190,1760911,172.79,9.96,169.78,176.8,2.87
 20260506,193,193,183,188,1374269,174.06,8.01,171.2,176.45,2.03
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,276.5,280,255,273.5,8205672,209.76,30.39,205.03,181.38,3.53
 20260527,281.5,286,250.5,255,9524835,213.53,19.42,209.1,182.55,3.42
 20260528,257,263,246.5,248.5,3985497,216.44,14.81,212.95,183.53,1.34
+20260529,254.5,255,242.5,247,2548395,218.99,12.79,216.8,184.59,0.82
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 6719 | 力智 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 6719 | 力智 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6719 | 力智 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260529 | 6719 | 力智 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6719 | 力智 | 19 | 1 | 5756670.0 | 33520.0 | 171.74 | no_signal | 0 |  |
+| 20260529 | 6719 | 力智 | 21 | 1 | 5070600.0 | 35260.0 | 143.81 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

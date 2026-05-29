@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 006206 元大上證50
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:07 Asia/Taipei
+- generated_at: 2026-05-29 19:31:29 Asia/Taipei
 - stock_id: 006206
 - stock_name: 元大上證50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260528
-- price_rows: 5
+- latest_price_date: 20260529
+- price_rows: 6
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 36.62
-- high: 36.62
-- low: 36.09
-- close: 36.09
-- volume: 60079
-- ma5: 36.56
-- ema23_primary: 36.56
-- distance_to_ema23_pct: -1.28
-- ma20: 36.56
-- ma60: 36.56
-- ma120: 36.56
-- return_5d: 
+- date: 20260529
+- open: 36.14
+- high: 36.68
+- low: 36.04
+- close: 36.68
+- volume: 263290
+- ma5: 36.58
+- ema23_primary: 36.57
+- distance_to_ema23_pct: 0.3
+- ma20: 36.58
+- ma60: 36.58
+- ma120: 36.58
+- return_5d: 0.3
 - return_20d: 
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: -1.29
-- distance_to_high_60_pct: -2.64
+- volume_ratio: 1.82
+- distance_to_ma20_pct_auxiliary: 0.27
+- distance_to_high_60_pct: -1.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -82,6 +82,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,36.7,36.97,36.56,36.81,187401,,,,,
 20260527,36.82,37,36.47,36.62,144142,,,,,
 20260528,36.62,36.62,36.09,36.09,60079,36.56,-1.28,36.56,36.56,0.5
+20260529,36.14,36.68,36.04,36.68,263290,36.57,0.3,36.58,36.58,1.82
 ```
 
 ## Latest TDCC Snapshot
@@ -107,18 +108,17 @@ no_rows,True
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6206 | 飛捷 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260528 | 6206 | 飛捷 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260529 | 6206 | 飛捷 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6206 | 飛捷 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| 20260529 | 6206 | 飛捷 | 2 | 2 | 3 | 3 | 3 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6206 | 飛捷 | 15 | 0 | 3680870.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260529 | 6206 | 飛捷 | 15 | 0 | 2526870.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

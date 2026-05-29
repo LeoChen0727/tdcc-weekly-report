@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4915 致伸
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:36 Asia/Taipei
+- generated_at: 2026-05-29 19:32:58 Asia/Taipei
 - stock_id: 4915
 - stock_name: 致伸
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 72.2
-- high: 72.6
-- low: 70.6
-- close: 70.7
-- volume: 4549150
-- ma5: 71.88
-- ema23_primary: 72.25
-- distance_to_ema23_pct: -2.15
-- ma20: 72.28
-- ma60: 72.7
-- ma120: 76.02
-- return_5d: -1.26
-- return_20d: -4.33
-- volume_ratio: 1.18
-- distance_to_ma20_pct_auxiliary: -2.19
-- distance_to_high_60_pct: -9.36
+- date: 20260529
+- open: 72.3
+- high: 75.4
+- low: 72.3
+- close: 73.9
+- volume: 8698020
+- ma5: 72.26
+- ema23_primary: 72.39
+- distance_to_ema23_pct: 2.08
+- ma20: 72.31
+- ma60: 72.67
+- ma120: 75.94
+- return_5d: 2.64
+- return_20d: 0.82
+- volume_ratio: 2.07
+- distance_to_ma20_pct_auxiliary: 2.19
+- distance_to_high_60_pct: -2.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,74,74,73.3,73.3,2040637,73.46,-0.22,73.36,75.1,0.87
 20260504,73.8,74.3,73.4,74.2,1868460,73.53,0.92,73.46,75.02,0.78
 20260505,74.2,74.7,73.7,74.3,2585990,73.59,0.96,73.62,74.94,1.05
 20260506,74.7,75,73.8,74.8,2783794,73.69,1.51,73.8,74.86,1.13
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,72.7,73.1,72.2,72.4,2566815,72.43,-0.04,72.48,72.97,0.71
 20260527,73,73,71.9,72,4327458,72.4,-0.55,72.44,72.81,1.16
 20260528,72.2,72.6,70.6,70.7,4549150,72.25,-2.15,72.28,72.7,1.18
+20260529,72.3,75.4,72.3,73.9,8698020,72.39,2.08,72.31,72.67,2.07
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 4915 | 致伸 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 4915 | 致伸 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4915 | 致伸 | 4 | 0 | 44510.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 4915 | 致伸 | 4 | 0 | 51350.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

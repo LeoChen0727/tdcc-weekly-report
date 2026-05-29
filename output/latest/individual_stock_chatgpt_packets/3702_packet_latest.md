@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3702 大聯大
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:21 Asia/Taipei
+- generated_at: 2026-05-29 19:32:43 Asia/Taipei
 - stock_id: 3702
 - stock_name: 大聯大
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 120.5
-- high: 125
-- low: 120
-- close: 121.5
-- volume: 10701493
-- ma5: 121
-- ema23_primary: 112.06
-- distance_to_ema23_pct: 8.42
-- ma20: 112.75
-- ma60: 96.86
-- ma120: 80.18
-- return_5d: -1.62
-- return_20d: 19.12
-- volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: 7.76
-- distance_to_high_60_pct: -4.71
+- date: 20260529
+- open: 123
+- high: 123
+- low: 116.5
+- close: 117.5
+- volume: 11002178
+- ma5: 120.9
+- ema23_primary: 112.52
+- distance_to_ema23_pct: 4.43
+- ma20: 113.58
+- ma60: 97.69
+- ma120: 80.62
+- return_5d: -0.42
+- return_20d: 16.34
+- volume_ratio: 0.76
+- distance_to_ma20_pct_auxiliary: 3.46
+- distance_to_high_60_pct: -7.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,101.5,102.5,100,101,9514150,95.27,6.01,96.25,81.54,0.56
 20260504,103,105,101.5,104.5,10018958,96.04,8.81,96.98,82.22,0.6
 20260505,104.5,104.5,102,102.5,3770069,96.58,6.13,97.7,82.88,0.23
 20260506,103.5,104.5,102,104,4524344,97.2,7,98.45,83.54,0.28
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,123.5,126.5,121,121.5,10041144,110.36,10.1,110.72,95.12,0.67
 20260527,123,124,120,120.5,9296856,111.2,8.36,111.78,95.96,0.63
 20260528,120.5,125,120,121.5,10701493,112.06,8.42,112.75,96.86,0.74
+20260529,123,123,116.5,117.5,11002178,112.52,4.43,113.58,97.69,0.76
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3702 | 大聯大 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260528 | 3702 | 大聯大 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260529 | 3702 | 大聯大 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260529 | 3702 | 大聯大 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3702 | 大聯大 | 3 | 3 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260529 | 3702 | 大聯大 | 4 | 4 | 4 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3702 | 大聯大 | 35 | 0 | 6431780.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260529 | 3702 | 大聯大 | 35 | 0 | 6799010.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

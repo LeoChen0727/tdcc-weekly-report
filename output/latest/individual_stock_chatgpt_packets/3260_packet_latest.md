@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3260 威剛
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:07 Asia/Taipei
+- generated_at: 2026-05-29 19:32:29 Asia/Taipei
 - stock_id: 3260
 - stock_name: 威剛
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 414.5
-- high: 421
-- low: 403
-- close: 404.5
-- volume: 413000
-- ma5: 410.4
-- ema23_primary: 416.95
-- distance_to_ema23_pct: -2.99
-- ma20: 429.18
-- ma60: 395.64
-- ma120: 326.61
-- return_5d: -2.06
-- return_20d: -11.1
-- volume_ratio: 0.02
-- distance_to_ma20_pct_auxiliary: -5.75
-- distance_to_high_60_pct: -22.95
+- date: 20260529
+- open: 413.5
+- high: 420
+- low: 411
+- close: 415
+- volume: 416000
+- ma5: 409.9
+- ema23_primary: 416.78
+- distance_to_ema23_pct: -0.43
+- ma20: 428.12
+- ma60: 398.04
+- ma120: 328.58
+- return_5d: -0.6
+- return_20d: -4.82
+- volume_ratio: 0.03
+- distance_to_ma20_pct_auxiliary: -3.07
+- distance_to_high_60_pct: -20.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,468,471,433,436,36918000,400.55,8.85,392.23,361.77,1.21
 20260504,446.5,451,432,441,27369000,403.92,9.18,395.85,363.88,0.86
 20260505,445,454.5,436.5,448,29764000,407.6,9.91,400.18,365.58,0.94
 20260506,473.5,487,455.5,461.5,47522000,412.09,11.99,405.1,367.34,1.44
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,410.5,416,406.5,410,411000,418.58,-2.05,435.27,391.64,0.02
 20260527,430,437.5,410.5,412.5,423000,418.08,-1.33,431.7,393.76,0.02
 20260528,414.5,421,403,404.5,413000,416.95,-2.99,429.18,395.64,0.02
+20260529,413.5,420,411,415,416000,416.78,-0.43,428.12,398.04,0.03
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3260 | 威剛 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

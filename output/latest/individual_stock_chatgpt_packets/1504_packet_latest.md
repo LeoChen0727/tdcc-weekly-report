@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1504 東元
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:19 Asia/Taipei
+- generated_at: 2026-05-29 19:31:41 Asia/Taipei
 - stock_id: 1504
 - stock_name: 東元
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 71.8
-- high: 73.9
-- low: 70.8
-- close: 70.9
-- volume: 21294048
-- ma5: 71.66
-- ema23_primary: 69.43
-- distance_to_ema23_pct: 2.12
-- ma20: 70.42
-- ma60: 66.88
-- ma120: 75.86
-- return_5d: -0.28
-- return_20d: 13.99
-- volume_ratio: 1.02
-- distance_to_ma20_pct_auxiliary: 0.69
-- distance_to_high_60_pct: -12.68
+- date: 20260529
+- open: 73
+- high: 77.5
+- low: 73
+- close: 75
+- volume: 176360584
+- ma5: 72.24
+- ema23_primary: 69.89
+- distance_to_ema23_pct: 7.31
+- ma20: 71.05
+- ma60: 66.86
+- ma120: 75.74
+- return_5d: 4.02
+- return_20d: 20.19
+- volume_ratio: 6.19
+- distance_to_ma20_pct_auxiliary: 5.57
+- distance_to_high_60_pct: -3.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,65.5,65.8,62.2,62.4,24879960,63.02,-0.99,61.47,70.58,2.62
 20260504,63.2,68.6,62.8,68.6,20779655,63.49,8.05,61.78,70.24,2.03
 20260505,70.3,71.9,68,68.5,55282925,63.91,7.19,62.17,69.93,4.32
 20260506,68.2,69.3,67.1,67.3,21955194,64.19,4.85,62.6,69.62,1.64
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,72.9,74.5,72.5,72.5,19404441,69.16,4.83,69.49,67.24,0.99
 20260527,73,74.9,70.8,70.8,24989267,69.3,2.17,69.98,67.04,1.23
 20260528,71.8,73.9,70.8,70.9,21294048,69.43,2.12,70.42,66.88,1.02
+20260529,73,77.5,73,75,176360584,69.89,7.31,71.05,66.86,6.19
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1504 | 東元 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 1504 | 東元 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 1504 | 東元 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260521 | 1504 | 東元 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1504 | 東元 | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260529 | 1504 | 東元 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1504 | 東元 | 88 | 4 | 9688690.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260529 | 1504 | 東元 | 88 | 5 | 20698960.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

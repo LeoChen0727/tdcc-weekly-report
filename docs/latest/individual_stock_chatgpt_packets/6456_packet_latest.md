@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6456 GIS-KY
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:05 Asia/Taipei
+- generated_at: 2026-05-29 19:33:27 Asia/Taipei
 - stock_id: 6456
 - stock_name: GIS-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 84
-- high: 84
-- low: 71.2
-- close: 71.6
-- volume: 36774170
-- ma5: 76.66
-- ema23_primary: 71.76
-- distance_to_ema23_pct: -0.22
-- ma20: 71.77
-- ma60: 66.47
-- ma120: 54.7
-- return_5d: 2.43
-- return_20d: -9.37
-- volume_ratio: 2.91
-- distance_to_ma20_pct_auxiliary: -0.24
-- distance_to_high_60_pct: -16.65
+- date: 20260529
+- open: 72
+- high: 77.4
+- low: 72
+- close: 76.5
+- volume: 18360080
+- ma5: 76.74
+- ema23_primary: 72.15
+- distance_to_ema23_pct: 6.03
+- ma20: 71.78
+- ma60: 66.78
+- ma120: 54.99
+- return_5d: 0.53
+- return_20d: 0.39
+- volume_ratio: 1.37
+- distance_to_ma20_pct_auxiliary: 6.57
+- distance_to_high_60_pct: -10.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,79.9,79.9,76.2,76.2,3496425,70.01,8.85,68.81,57.33,0.27
 20260504,78,78.4,76.2,77.9,1962065,70.66,10.24,69.99,57.92,0.15
 20260505,78.2,81.5,77.7,80.7,4509994,71.5,12.87,71.22,58.56,0.35
 20260506,78,79,72.7,72.9,18343677,71.62,1.79,72.12,59.08,1.34
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,76,82,73.2,82,23937751,71.11,15.31,72.12,65.63,2.51
 20260527,80.7,85.9,77.4,79,32121753,71.77,10.07,72.14,66.15,2.93
 20260528,84,84,71.2,71.6,36774170,71.76,-0.22,71.77,66.47,2.91
+20260529,72,77.4,72,76.5,18360080,72.15,6.03,71.78,66.78,1.37
 ```
 
 ## Latest TDCC Snapshot
@@ -125,17 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 6456 | GIS-KY | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 6456 | GIS-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260521 | 6456 | GIS-KY | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6456 | GIS-KY | 6 | 6 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260529 | 6456 | GIS-KY | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6456 | GIS-KY | 45 | 0 | 14698120.0 | 0.0 |  | no_signal | 0 |  |
+| 20260529 | 6456 | GIS-KY | 45 | 0 | 9876820.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

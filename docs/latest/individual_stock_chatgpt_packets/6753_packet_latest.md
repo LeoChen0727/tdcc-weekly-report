@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6753 龍德造船
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:17 Asia/Taipei
+- generated_at: 2026-05-29 19:33:39 Asia/Taipei
 - stock_id: 6753
 - stock_name: 龍德造船
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 124.5
-- high: 127
-- low: 123
-- close: 124
-- volume: 793301
-- ma5: 124.4
-- ema23_primary: 129.79
-- distance_to_ema23_pct: -4.46
-- ma20: 131.1
-- ma60: 133.18
-- ma120: 135.02
-- return_5d: -3.88
-- return_20d: -10.14
-- volume_ratio: 0.61
-- distance_to_ma20_pct_auxiliary: -5.42
-- distance_to_high_60_pct: -17.88
+- date: 20260529
+- open: 126.5
+- high: 132
+- low: 126.5
+- close: 128.5
+- volume: 2066885
+- ma5: 124.8
+- ema23_primary: 129.68
+- distance_to_ema23_pct: -0.91
+- ma20: 130.72
+- ma60: 132.93
+- ma120: 135.09
+- return_5d: 1.58
+- return_20d: -5.51
+- volume_ratio: 1.48
+- distance_to_ma20_pct_auxiliary: -1.7
+- distance_to_high_60_pct: -14.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,138.5,138.5,136,136,349670,136.75,-0.55,135.22,138.15,0.28
 20260504,136,142,135,138,852924,136.85,0.84,135.7,137.88,0.66
 20260505,137,145.5,137,144.5,1554071,137.49,5.1,136.62,137.69,1.15
 20260506,145,145,139,140.5,845876,137.74,2,137.35,137.56,0.61
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,124.5,125.5,122.5,123,1185180,130.89,-6.03,132.4,134.06,0.91
 20260527,123,127,122,124,988021,130.32,-4.85,131.8,133.57,0.76
 20260528,124.5,127,123,124,793301,129.79,-4.46,131.1,133.18,0.61
+20260529,126.5,132,126.5,128.5,2066885,129.68,-0.91,130.72,132.93,1.48
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 6753 | 龍德造船 | pullback_rebound | 回檔後短線轉強 | 67.0 |  |  |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260529 | 6753 | 龍德造船 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 6753 | 龍德造船 | 1 | 1 | 3 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6753 | 龍德造船 | 69 | 3 | 2366190.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260529 | 6753 | 龍德造船 | 66 | 3 | 1840110.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

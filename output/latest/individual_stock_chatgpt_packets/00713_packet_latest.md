@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00713 元大台灣高息低波
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:08 Asia/Taipei
+- generated_at: 2026-05-29 19:31:30 Asia/Taipei
 - stock_id: 00713
 - stock_name: 元大台灣高息低波
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260528
-- price_rows: 5
+- latest_price_date: 20260529
+- price_rows: 6
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,23 +55,23 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 56
-- high: 56.45
-- low: 55.6
-- close: 55.75
-- volume: 19020411
-- ma5: 55.9
-- ema23_primary: 55.77
-- distance_to_ema23_pct: -0.04
-- ma20: 55.9
-- ma60: 55.9
-- ma120: 55.9
-- return_5d: 
+- date: 20260529
+- open: 56.2
+- high: 56.7
+- low: 56.05
+- close: 56.55
+- volume: 14747633
+- ma5: 56.07
+- ema23_primary: 55.84
+- distance_to_ema23_pct: 1.28
+- ma20: 56.01
+- ma60: 56.01
+- ma120: 56.01
+- return_5d: 1.53
 - return_20d: 
-- volume_ratio: 1.22
-- distance_to_ma20_pct_auxiliary: -0.27
-- distance_to_high_60_pct: -1.24
+- volume_ratio: 0.95
+- distance_to_ma20_pct_auxiliary: 0.97
+- distance_to_high_60_pct: -0.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -82,6 +82,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,56.05,56.15,55.9,55.95,13397306,,,,,
 20260527,56,56.4,55.9,56.05,19972335,,,,,
 20260528,56,56.45,55.6,55.75,19020411,55.77,-0.04,55.9,55.9,1.22
+20260529,56.2,56.7,56.05,56.55,14747633,55.84,1.28,56.01,56.01,0.95
 ```
 
 ## Latest TDCC Snapshot

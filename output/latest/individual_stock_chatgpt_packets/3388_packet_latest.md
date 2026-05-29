@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3388 崇越電
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:11 Asia/Taipei
+- generated_at: 2026-05-29 19:32:33 Asia/Taipei
 - stock_id: 3388
 - stock_name: 崇越電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 102.5
-- high: 111
-- low: 102
-- close: 111
-- volume: 109000
-- ma5: 103.9
-- ema23_primary: 102.45
-- distance_to_ema23_pct: 8.35
-- ma20: 106.86
-- ma60: 86.74
-- ma120: 74.36
-- return_5d: 14.55
-- return_20d: -3.06
+- date: 20260529
+- open: 113
+- high: 116
+- low: 107
+- close: 110
+- volume: 111000
+- ma5: 105.5
+- ema23_primary: 103.08
+- distance_to_ema23_pct: 6.72
+- ma20: 106.64
+- ma60: 87.53
+- ma120: 74.76
+- return_5d: 7.84
+- return_20d: -3.93
 - volume_ratio: 0.06
-- distance_to_ma20_pct_auxiliary: 3.87
-- distance_to_high_60_pct: -15.59
+- distance_to_ma20_pct_auxiliary: 3.15
+- distance_to_high_60_pct: -16.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,117,119.5,113,114.5,934000,94.02,21.78,91.94,72.77,0.51
 20260504,115.5,117.5,113,115,819000,95.77,20.08,94.39,73.64,0.44
 20260505,114.5,121,114.5,119.5,1059000,97.74,22.26,97.06,74.58,0.56
 20260506,122,122,112,115,1246000,99.18,15.95,99.53,75.45,0.64
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,107,107,99.9,100.5,102000,101.73,-1.21,107.22,85.29,0.05
 20260527,101.5,102,99,101,100000,101.67,-0.66,107.04,85.93,0.05
 20260528,102.5,111,102,111,109000,102.45,8.35,106.86,86.74,0.06
+20260529,113,116,107,110,111000,103.08,6.72,106.64,87.53,0.06
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3388 | 崇越電 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

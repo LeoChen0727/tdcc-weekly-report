@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0001 臺股指數
 
 ## Metadata
-- generated_at: 2026-05-28 20:18:06 Asia/Taipei
+- generated_at: 2026-05-29 19:31:28 Asia/Taipei
 - stock_id: 0001
 - stock_name: 臺股指數
 - packet_status: insufficient_price_data
@@ -113,7 +113,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 0001 | 臺股指數 | 441 | 444 | 86653840.0 | 37915320.0 | 2.29 | mixed_flow | 0 | 認售權證成交金額偏大，需注意避險或偏空資金 |
+| 20260529 | 0001 | 臺股指數 | 434 | 443 | 6085678790.0 | 27180190.0 | 223.9 | call_put_bullish | 3 | 認購權證成交金額很大且認購/認售比偏高，需檢查標的是否高位追價或獲利結清；認購權證成交量與成交金額同步偏大，短線資金關注度高 |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

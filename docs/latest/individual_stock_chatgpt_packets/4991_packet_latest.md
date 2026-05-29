@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4991 環宇-KY
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:39 Asia/Taipei
+- generated_at: 2026-05-29 19:33:01 Asia/Taipei
 - stock_id: 4991
 - stock_name: 環宇-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 765
-- high: 766
-- low: 705
-- close: 705
-- volume: 721000
-- ma5: 802.4
-- ema23_primary: 708.94
-- distance_to_ema23_pct: -0.56
-- ma20: 722.45
-- ma60: 556.23
-- ma120: 386.56
-- return_5d: -4.73
-- return_20d: 14.63
-- volume_ratio: 0.26
-- distance_to_ma20_pct_auxiliary: -2.42
-- distance_to_high_60_pct: -21.23
+- date: 20260529
+- open: 698
+- high: 774
+- low: 685
+- close: 730
+- volume: 725000
+- ma5: 785.6
+- ema23_primary: 710.69
+- distance_to_ema23_pct: 2.72
+- ma20: 725.15
+- ma60: 562.22
+- ma120: 391.27
+- return_5d: -10.32
+- return_20d: 7.99
+- volume_ratio: 0.29
+- distance_to_ma20_pct_auxiliary: 0.67
+- distance_to_high_60_pct: -18.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,644,676,635,676,6628000,573.53,17.87,592.12,410.23,3.09
 20260504,731,731,665,677,7516000,582.15,16.29,604.98,418.11,3.01
 20260505,690,744,682,744,5473000,595.64,24.91,620.42,427.12,2.01
 20260506,752,771,685,725,11539000,606.42,19.55,633.15,435.67,3.56
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,850,877,791,870,843000,702.59,23.83,710.15,543.38,0.26
 20260527,880,881,783,783,815000,709.3,10.39,717.95,550.67,0.25
 20260528,765,766,705,705,721000,708.94,-0.56,722.45,556.23,0.26
+20260529,698,774,685,730,725000,710.69,2.72,725.15,562.22,0.29
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 4991 | 環宇-KY | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

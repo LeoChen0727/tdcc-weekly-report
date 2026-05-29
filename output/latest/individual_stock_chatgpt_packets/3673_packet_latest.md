@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3673 TPK-KY
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:20 Asia/Taipei
+- generated_at: 2026-05-29 19:32:42 Asia/Taipei
 - stock_id: 3673
 - stock_name: TPK-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 89.6
-- high: 90.3
-- low: 80
-- close: 81
-- volume: 41573738
-- ma5: 82.56
-- ema23_primary: 70.61
-- distance_to_ema23_pct: 14.71
-- ma20: 69.1
-- ma60: 56.38
-- ma120: 48.89
-- return_5d: 9.16
-- return_20d: 34.33
-- volume_ratio: 1.52
-- distance_to_ma20_pct_auxiliary: 17.22
-- distance_to_high_60_pct: -12.9
+- date: 20260529
+- open: 81.7
+- high: 88.5
+- low: 78.8
+- close: 86.3
+- volume: 41007388
+- ma5: 84.42
+- ema23_primary: 71.92
+- distance_to_ema23_pct: 19.99
+- ma20: 70.39
+- ma60: 57.12
+- ma120: 49.27
+- return_5d: 12.08
+- return_20d: 42.88
+- volume_ratio: 1.41
+- distance_to_ma20_pct_auxiliary: 22.59
+- distance_to_high_60_pct: -7.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,60.3,61.5,59.5,60.4,7159433,57.71,4.67,58.98,47.05,0.43
 20260504,60.9,62.4,60.3,61.4,7429980,58.01,5.84,59.88,47.37,0.44
 20260505,62.6,64.2,61.5,62.5,12242629,58.39,7.04,60.79,47.7,0.7
 20260506,63,63.2,58.1,59.5,13790548,58.48,1.74,61.33,47.99,0.79
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,85.2,87.4,85.2,87.4,26030149,68.01,28.51,66.67,54.97,1.13
 20260527,91.3,93,84.1,87.9,65003683,69.67,26.17,68.06,55.72,2.51
 20260528,89.6,90.3,80,81,41573738,70.61,14.71,69.1,56.38,1.52
+20260529,81.7,88.5,78.8,86.3,41007388,71.92,19.99,70.39,57.12,1.41
 ```
 
 ## Latest TDCC Snapshot
@@ -123,19 +123,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 3673 | TPK-KY | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260529 | 3673 | TPK-KY | 1 | 1 | 3 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3673 | TPK-KY | 50 | 0 | 23683430.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260529 | 3673 | TPK-KY | 51 | 0 | 17017320.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

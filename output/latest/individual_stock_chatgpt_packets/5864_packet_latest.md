@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5864 致和證
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:50 Asia/Taipei
+- generated_at: 2026-05-29 19:33:12 Asia/Taipei
 - stock_id: 5864
 - stock_name: 致和證
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 38.95
-- high: 40.7
-- low: 37.7
-- close: 39.85
-- volume: 39000
-- ma5: 36.1
-- ema23_primary: 32.34
-- distance_to_ema23_pct: 23.22
-- ma20: 32.95
-- ma60: 27.5
-- ma120: 22.96
-- return_5d: 23.37
-- return_20d: 45.17
+- date: 20260529
+- open: 41.2
+- high: 43.05
+- low: 40.5
+- close: 43.05
+- volume: 42000
+- ma5: 38.07
+- ema23_primary: 33.23
+- distance_to_ema23_pct: 29.54
+- ma20: 33.67
+- ma60: 27.79
+- ma120: 23.19
+- return_5d: 29.67
+- return_20d: 51.05
 - volume_ratio: 0.01
-- distance_to_ma20_pct_auxiliary: 20.96
-- distance_to_high_60_pct: -2.09
+- distance_to_ma20_pct_auxiliary: 27.85
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,27.65,28.75,27.4,28.5,5173000,25.61,11.31,25.21,24.53,1.68
 20260504,29.3,30.3,29,30,5397000,25.97,15.51,25.52,24.66,1.64
 20260505,29.95,30.8,29.8,30.4,3300000,26.34,15.41,25.86,24.79,0.97
 20260506,30.85,31.2,30.45,31.2,4081000,26.75,16.66,26.23,24.93,1.16
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,34,35.45,33.45,35.1,35000,31.03,13.13,31.77,27.09,0.01
 20260527,36,38.6,35.8,38.6,38000,31.66,21.93,32.33,27.28,0.01
 20260528,38.95,40.7,37.7,39.85,39000,32.34,23.22,32.95,27.5,0.01
+20260529,41.2,43.05,40.5,43.05,42000,33.23,29.54,33.67,27.79,0.01
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 5864 | 致和證 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

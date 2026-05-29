@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5009 榮剛
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:39 Asia/Taipei
+- generated_at: 2026-05-29 19:33:01 Asia/Taipei
 - stock_id: 5009
 - stock_name: 榮剛
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 35.75
-- high: 36.45
-- low: 35.25
-- close: 35.5
+- date: 20260529
+- open: 35.8
+- high: 36.75
+- low: 35.7
+- close: 36.05
 - volume: 36000
-- ma5: 35.76
-- ema23_primary: 35.35
-- distance_to_ema23_pct: 0.42
-- ma20: 35.97
-- ma60: 33.94
-- ma120: 33.36
-- return_5d: -0.14
-- return_20d: 6.45
+- ma5: 35.85
+- ema23_primary: 35.41
+- distance_to_ema23_pct: 1.81
+- ma20: 36.16
+- ma60: 33.95
+- ma120: 33.4
+- return_5d: 1.26
+- return_20d: 11.96
 - volume_ratio: 0.01
-- distance_to_ma20_pct_auxiliary: -1.31
-- distance_to_high_60_pct: -13.31
+- distance_to_ma20_pct_auxiliary: -0.32
+- distance_to_high_60_pct: -11.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,33.8,33.8,32.2,32.2,4071000,32.32,-0.36,32.02,33.31,1.7
 20260504,32.8,33.8,32.6,33.4,4752000,32.41,3.06,32.06,33.31,1.84
 20260505,33.55,35,33.4,34.8,6677000,32.61,6.73,32.2,33.32,2.34
 20260506,35,35.3,34.2,35.1,5737000,32.81,6.96,32.36,33.35,1.86
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,37.2,37.2,35.35,35.8,36000,35.35,1.26,35.68,33.92,0.01
 20260527,36.1,36.1,35,35.15,35000,35.34,-0.53,35.87,33.93,0.01
 20260528,35.75,36.45,35.25,35.5,36000,35.35,0.42,35.97,33.94,0.01
+20260529,35.8,36.75,35.7,36.05,36000,35.41,1.81,36.16,33.95,0.01
 ```
 
 ## Latest TDCC Snapshot
@@ -125,12 +125,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 5009 | 榮剛 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260521 | 5009 | 榮剛 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 5009 | 榮剛 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260529 | 5009 | 榮剛 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

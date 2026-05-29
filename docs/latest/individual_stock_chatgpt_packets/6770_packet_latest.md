@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6770 力積電
 
 ## Metadata
-- generated_at: 2026-05-28 20:20:17 Asia/Taipei
+- generated_at: 2026-05-29 19:33:39 Asia/Taipei
 - stock_id: 6770
 - stock_name: 力積電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 75.6
-- high: 82.2
-- low: 73.5
-- close: 80.7
-- volume: 742969935
-- ma5: 71.54
-- ema23_primary: 63.55
-- distance_to_ema23_pct: 26.98
-- ma20: 62.45
-- ma60: 60.69
-- ma120: 55.12
-- return_5d: 36.55
-- return_20d: 50.84
-- volume_ratio: 3.01
-- distance_to_ma20_pct_auxiliary: 29.22
-- distance_to_high_60_pct: -1.82
+- date: 20260529
+- open: 85.4
+- high: 88.7
+- low: 78.8
+- close: 88.7
+- volume: 829646406
+- ma5: 76.52
+- ema23_primary: 65.65
+- distance_to_ema23_pct: 35.12
+- ma20: 64.29
+- ma60: 61.03
+- ma120: 55.58
+- return_5d: 39.03
+- return_20d: 70.91
+- volume_ratio: 2.93
+- distance_to_ma20_pct_auxiliary: 37.97
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,53.9,54,51.8,51.9,94428431,55.65,-6.73,54.07,61.62,0.79
 20260504,52.7,53.5,51.6,53.1,97020345,55.43,-4.21,53.98,61.53,0.83
 20260505,53.4,55.5,52.9,55.4,106346121,55.43,-0.05,54.08,61.45,0.93
 20260506,58.8,59.8,56.3,58.1,255770836,55.65,4.4,54.28,61.42,2.08
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,69.9,73.6,68,70.8,354361201,60.83,16.39,60.1,60.62,1.8
 20260527,75.9,77,72.6,74.8,414941224,61.99,20.66,61.09,60.59,1.95
 20260528,75.6,82.2,73.5,80.7,742969935,63.55,26.98,62.45,60.69,3.01
+20260529,85.4,88.7,78.8,88.7,829646406,65.65,35.12,64.29,61.03,2.93
 ```
 
 ## Latest TDCC Snapshot
@@ -125,18 +125,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6770 | 力積電 | true_breakout | 嚴格突破 | 83.0 |  |  | breakout_confirmed |  | mixed_flow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
-| 20260521 | 6770 | 力積電 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | mixed_flow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_7d |
+| 20260529 | 6770 | 力積電 | true_breakout | 嚴格突破 | 94.0 |  |  | breakout_confirmed |  | mixed_flow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260521 | 6770 | 力積電 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | mixed_flow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6770 | 力積電 | 6 | 6 | 5 | 6 | 6 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260529 | 6770 | 力積電 | 7 | 7 | 5 | 7 | 7 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 6770 | 力積電 | 195 | 49 | 141591590.0 | 3344580.0 | 42.33 | mixed_flow | 0 | 認購權證成交金額很大且認購/認售比偏高，需檢查標的是否高位追價或獲利結清；認購權證成交量與成交金額同步偏大，短線資金關注度高 |
+| 20260529 | 6770 | 力積電 | 195 | 48 | 143311340.0 | 2989280.0 | 47.94 | mixed_flow | 0 | 認購權證成交金額很大且認購/認售比偏高，需檢查標的是否高位追價或獲利結清；認購權證成交量與成交金額同步偏大，短線資金關注度高 |
 
 ## Interpretation Guardrails
 - This packet supports analysis; it is not a buy/sell recommendation by itself.

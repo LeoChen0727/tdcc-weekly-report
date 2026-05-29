@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3264 欣銓
 
 ## Metadata
-- generated_at: 2026-05-28 20:19:07 Asia/Taipei
+- generated_at: 2026-05-29 19:32:30 Asia/Taipei
 - stock_id: 3264
 - stock_name: 欣銓
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260528
-- price_rows: 136
+- latest_price_date: 20260529
+- price_rows: 137
 - latest_tdcc_date: 20260522
 - tdcc_rows: 4
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,29 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Latest Price Snapshot
-- date: 20260528
-- open: 231
-- high: 249
-- low: 227.5
-- close: 235.5
-- volume: 237000
-- ma5: 228.3
-- ema23_primary: 218.16
-- distance_to_ema23_pct: 7.95
-- ma20: 224.7
-- ma60: 186.13
-- ma120: 155.09
-- return_5d: 7.53
-- return_20d: 18.05
-- volume_ratio: 0.02
-- distance_to_ma20_pct_auxiliary: 4.81
-- distance_to_high_60_pct: -5.42
+- date: 20260529
+- open: 254.5
+- high: 259
+- low: 241
+- close: 243.5
+- volume: 252000
+- ma5: 232.7
+- ema23_primary: 220.27
+- distance_to_ema23_pct: 10.54
+- ma20: 227.12
+- ma60: 187.82
+- ma120: 156.39
+- return_5d: 9.93
+- return_20d: 24.87
+- volume_ratio: 0.03
+- distance_to_ma20_pct_auxiliary: 7.21
+- distance_to_high_60_pct: -5.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,197.5,202.5,192,195,10284000,184.78,5.53,186.38,163.54,0.55
 20260504,197,214.5,197,214.5,12305000,187.26,14.55,188.8,164.6,0.66
 20260505,220,235.5,218,235.5,18479000,191.28,23.12,192.53,165.85,1
 20260506,244,249,218.5,226,26935000,194.17,16.39,196.03,166.91,1.39
@@ -97,6 +96,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,228,233.5,221,231,229000,215.41,7.24,221.35,183.51,0.02
 20260527,238.5,239,226.5,229.5,232000,216.58,5.96,222.9,184.71,0.02
 20260528,231,249,227.5,235.5,237000,218.16,7.95,224.7,186.13,0.02
+20260529,254.5,259,241,243.5,252000,220.27,10.54,227.12,187.82,0.03
 ```
 
 ## Latest TDCC Snapshot
@@ -128,9 +128,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 3264 | 欣銓 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |
