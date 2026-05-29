@@ -183,6 +183,9 @@ NON_REVENUE_MOMENTUM_CSV = LATEST_DIR / "non_revenue_momentum_watch_latest.csv"
 MARKET_ABNORMAL_STATUS_MD = LATEST_DIR / "market_abnormal_status_latest.md"
 MARKET_ABNORMAL_STATUS_CSV = LATEST_DIR / "market_abnormal_status_latest.csv"
 MARKET_ABNORMAL_STATUS_HISTORY_CSV = Path("output/history/market_abnormal_status/market_abnormal_status_history.csv")
+MSCI_REBALANCE_EVENTS_CSV = LATEST_DIR / "msci_taiwan_rebalance_events_latest.csv"
+MSCI_REBALANCE_BACKTEST_CSV = LATEST_DIR / "msci_taiwan_rebalance_backtest_latest.csv"
+MSCI_REBALANCE_BACKTEST_MD = LATEST_DIR / "msci_taiwan_rebalance_backtest_latest.md"
 RAW_DATA_FETCH_STATUS_CSV = LATEST_DIR / "raw_data_fetch_status_latest.csv"
 RAW_DATA_FETCH_STATUS_MD = LATEST_DIR / "raw_data_fetch_status_latest.md"
 INDIVIDUAL_STOCK_AVAILABLE_RAW_DATA_INDEX_CSV = LATEST_DIR / "individual_stock_available_raw_data_index.csv"
@@ -670,6 +673,11 @@ def build_readme(
         f"market_abnormal_status_history_csv_raw_url={raw_url('main', MARKET_ABNORMAL_STATUS_HISTORY_CSV)}",
         f"market_abnormal_status_md_pages_url={pages_url('latest/market_abnormal_status_latest.md')}",
         f"market_abnormal_status_csv_pages_url={pages_url('latest/market_abnormal_status_latest.csv')}",
+        f"msci_taiwan_rebalance_events_csv_raw_url={raw_url('main', MSCI_REBALANCE_EVENTS_CSV)}",
+        f"msci_taiwan_rebalance_backtest_csv_raw_url={raw_url('main', MSCI_REBALANCE_BACKTEST_CSV)}",
+        f"msci_taiwan_rebalance_backtest_md_raw_url={raw_url('main', MSCI_REBALANCE_BACKTEST_MD)}",
+        f"msci_taiwan_rebalance_backtest_csv_pages_url={pages_url('latest/msci_taiwan_rebalance_backtest_latest.csv')}",
+        f"msci_taiwan_rebalance_backtest_md_pages_url={pages_url('latest/msci_taiwan_rebalance_backtest_latest.md')}",
         f"chatgpt_indicator_usage_guide_md_raw_url={raw_url('main', INDICATOR_USAGE_GUIDE_MD)}",
         f"chatgpt_indicator_usage_guide_txt_raw_url={raw_url('main', INDICATOR_USAGE_GUIDE_TXT)}",
         f"chatgpt_indicator_usage_guide_pages_url={pages_url('latest/chatgpt_indicator_usage_guide_latest.md')}",
@@ -1515,6 +1523,11 @@ def main() -> int:
         "market_abnormal_status_history_csv_raw_url": raw_url("main", MARKET_ABNORMAL_STATUS_HISTORY_CSV),
         "market_abnormal_status_md_pages_url": pages_url("latest/market_abnormal_status_latest.md"),
         "market_abnormal_status_csv_pages_url": pages_url("latest/market_abnormal_status_latest.csv"),
+        "msci_taiwan_rebalance_events_csv_raw_url": raw_url("main", MSCI_REBALANCE_EVENTS_CSV),
+        "msci_taiwan_rebalance_backtest_csv_raw_url": raw_url("main", MSCI_REBALANCE_BACKTEST_CSV),
+        "msci_taiwan_rebalance_backtest_md_raw_url": raw_url("main", MSCI_REBALANCE_BACKTEST_MD),
+        "msci_taiwan_rebalance_backtest_csv_pages_url": pages_url("latest/msci_taiwan_rebalance_backtest_latest.csv"),
+        "msci_taiwan_rebalance_backtest_md_pages_url": pages_url("latest/msci_taiwan_rebalance_backtest_latest.md"),
         "tdcc_overheated_short_term_edge_md_raw_url": raw_url("main", TDCC_OVERHEATED_EDGE_MD),
         "tdcc_overheated_short_term_edge_csv_raw_url": raw_url("main", TDCC_OVERHEATED_EDGE_CSV),
         "tdcc_overheated_short_term_edge_candidates_csv_raw_url": raw_url("main", TDCC_OVERHEATED_EDGE_CANDIDATES_CSV),

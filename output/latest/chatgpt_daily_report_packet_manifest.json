@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-29 10:40:35 Asia/Taipei",
+  "generated_at": "2026-05-29 13:39:10 Asia/Taipei",
   "main_price_date": "20260528",
   "report_ready": "True",
   "repo_artifacts_are_sources_not_final_chatgpt_deliverables": true,
@@ -73,6 +73,10 @@
   "non_revenue_momentum_watch_md_raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/non_revenue_momentum_watch_latest.md",
   "non_revenue_momentum_watch_csv_raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/non_revenue_momentum_watch_latest.csv",
   "non_revenue_momentum_watch_status": "generated",
+  "msci_taiwan_rebalance_events_csv_raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/msci_taiwan_rebalance_events_latest.csv",
+  "msci_taiwan_rebalance_backtest_md_raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/msci_taiwan_rebalance_backtest_latest.md",
+  "msci_taiwan_rebalance_backtest_csv_raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/msci_taiwan_rebalance_backtest_latest.csv",
+  "msci_taiwan_rebalance_status": "generated",
   "surge_model_chatgpt_packet_raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/surge_model_chatgpt_packet_latest.md",
   "surge_precondition_candidates_md_raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/surge_precondition_candidates_latest.md",
   "surge_precondition_candidates_csv_raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/surge_precondition_candidates_latest.csv",

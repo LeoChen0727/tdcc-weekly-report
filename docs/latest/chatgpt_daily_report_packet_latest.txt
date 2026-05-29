@@ -1,6 +1,6 @@
 CHATGPT DAILY REPORT PACKET
 
-generated_at: 2026-05-29 10:40:35 Asia/Taipei
+generated_at: 2026-05-29 13:39:10 Asia/Taipei
 repo: LeoChen0727/tdcc-weekly-report
 main_price_date: 20260528
 report_ready: True
@@ -456,7 +456,7 @@ performance_csv_path: output/history/daily_signals/daily_candidate_signal_perfor
 summary_latest_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_signal_performance_summary_latest.md
 weekly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_weekly_latest.pdf
 monthly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_monthly_latest.pdf
-last_updated_at: 2026-05-29 10:40:35 Asia/Taipei
+last_updated_at: 2026-05-29 13:39:10 Asia/Taipei
 status: generated
 
 CANDIDATE REPEAT APPEARANCE
@@ -505,6 +505,10 @@ non_revenue_momentum_watch_csv_raw_url: https://raw.githubusercontent.com/LeoChe
 market_abnormal_status_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/market_abnormal_status_latest.md
 market_abnormal_status_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/market_abnormal_status_latest.csv
 market_abnormal_usage: disposition/attention/periodic-trading flags are execution-risk overlays; do not treat as core buy/sell signals. Historical backtests must mark disposition filtering as not_backfilled until snapshots accumulate.
+msci_taiwan_rebalance_backtest_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/msci_taiwan_rebalance_backtest_latest.md
+msci_taiwan_rebalance_backtest_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/msci_taiwan_rebalance_backtest_latest.csv
+msci_taiwan_rebalance_events_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/msci_taiwan_rebalance_events_latest.csv
+msci_rebalance_usage: MSCI addition/deletion is an event tag and research layer. Entry-backtest uses the first trading day after effective date open to D+5/D+10/D+15/D+20 close; do not treat it as a standalone buy/sell signal.
 status: generated
 fields: non_revenue_momentum_type,revenue_confirmation_status,theme_final_status,theme_volume_attack_status,volume_breakout_type,tdcc_status,warrant_flow_signal,next_confirmation
 note: Standalone specialty overlay for stocks where price/theme/fund flow moves before revenue/EPS confirmation. It is not a seventh core category and must not change core weights.

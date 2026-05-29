@@ -124,6 +124,7 @@ def build_guide() -> str:
     weekly_surge_strict_candidates = read_csv(LATEST_DIR / "weekly_surge_strict_parameter_candidates_latest.csv")
     short_term_specialty_packet = LATEST_DIR / "daily_short_term_specialty_packet_latest.md"
     non_revenue_momentum = read_csv(LATEST_DIR / "non_revenue_momentum_watch_latest.csv")
+    msci_rebalance = read_csv(LATEST_DIR / "msci_taiwan_rebalance_backtest_latest.csv")
 
     main_price_date = ""
     readme = LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt"
@@ -225,6 +226,13 @@ def build_guide() -> str:
             "non_revenue_momentum_type, revenue_confirmation_status, theme_final_status, theme_volume_attack_status, volume_breakout_type, next_confirmation",
             f"rows={len(non_revenue_momentum)} / {count_values(non_revenue_momentum, 'non_revenue_momentum_type')}",
             "Specialty overlay for stocks moving on price/theme/fund flow before revenue/EPS confirmation. It is not a seventh core category.",
+        ],
+        [
+            "MSCI Taiwan rebalance event tag",
+            "output/latest/msci_taiwan_rebalance_backtest_latest.csv",
+            "msci_index_segment, action, effective_date, entry_date, ret_d5_return, ret_d10_return, ret_d15_return, ret_d20_return, sample_status",
+            f"{count_values(msci_rebalance, 'action')} / {count_values(msci_rebalance, 'sample_status')}",
+            "Event tag and research layer only. Entry is first trading day after effective date open; exits are D+5/D+10/D+15/D+20 close. Do not treat MSCI addition/deletion as a standalone buy/sell signal.",
         ],
         [
             "Warrant flow",

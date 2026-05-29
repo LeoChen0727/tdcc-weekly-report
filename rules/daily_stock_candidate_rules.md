@@ -1,6 +1,6 @@
 # Daily Stock Candidate Rules
 
-Last updated: 2026-05-28
+Last updated: 2026-05-29
 
 This task is dedicated to the daily Taiwan full-market candidate report and its four ChatGPT-side PDF deliverables. It must not be mixed with holdings management, single-stock full reports, TDCC weekly reports, standalone market-opening reports, backtest periodic reports, or astrology tasks.
 
@@ -98,6 +98,7 @@ Required specialty sections when data exists:
 
 - `daily_short_term_specialty_packet_latest.md`: standalone D+5 / D+10 short-term specialty.
 - `market_abnormal_status_latest.md/csv`: official TWSE/TPEx disposition, attention, periodic-trading, altered-trading, managed-stock, and suspension flags.
+- `msci_taiwan_rebalance_backtest_latest.md/csv` and `msci_taiwan_rebalance_events_latest.csv`: MSCI Taiwan addition/deletion event-tag research. Use first trading day after effective date open as the entry basis and D+5/D+10/D+15/D+20 close as exits. Treat this like disposition/attention data: an event tag and research overlay, not a standalone buy/sell signal or core ranking category.
 - `tdcc_overheated_short_term_edge_latest.md/csv`: standalone TDCC overheated short-term edge.
 - `weekly_surge_strict_parameter_search_latest.md/csv`: legacy filename for standalone next-open +10% touch parameter research. Do not translate this as `周線急漲`.
 - `explosive_volume_up_backtest_latest.md/csv`, `explosive_volume_up_position_backtest_latest.csv`, and `explosive_volume_up_events_latest.csv`: standalone explosive-volume-up research. This is a research/watch section only. It uses D+1 open as the entry basis and separates close-return win rate from intraperiod high-hit rate.
