@@ -91,6 +91,10 @@ jobs:
         run: |
           python build_data_freshness_latest.py
 
+      - name: Fetch market abnormal status
+        run: |
+          python scripts/fetch_market_abnormal_status.py
+
       - name: Commit daily stock monitor output
         run: |
           git config user.name "github-actions"
@@ -124,6 +128,10 @@ jobs:
 
           git add output/latest/data_freshness_latest.md || true
           git add output/latest/data_freshness_latest.csv || true
+          git add output/latest/market_abnormal_status_latest.* || true
+          git add docs/latest/market_abnormal_status_latest.* || true
+          git add output/history/market_abnormal_status/ || true
+          git add data/market_abnormal_status/ || true
           git add scripts/build_stock_price_history.py || true
 
           git status --short
@@ -360,6 +368,8 @@ jobs:
           cp output/latest/daily_short_term_specialty_packet_latest.md docs/latest/daily_short_term_specialty_packet_latest.md || true
           cp output/latest/non_revenue_momentum_watch_latest.csv docs/latest/non_revenue_momentum_watch_latest.csv || true
           cp output/latest/non_revenue_momentum_watch_latest.md docs/latest/non_revenue_momentum_watch_latest.md || true
+          cp output/latest/market_abnormal_status_latest.csv docs/latest/market_abnormal_status_latest.csv || true
+          cp output/latest/market_abnormal_status_latest.md docs/latest/market_abnormal_status_latest.md || true
 
           {
             echo "main_price_date=pending"

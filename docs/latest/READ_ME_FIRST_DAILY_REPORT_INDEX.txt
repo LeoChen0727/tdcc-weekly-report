@@ -1,7 +1,7 @@
-generated_at=2026-05-28 21:23:18 Asia/Taipei
+generated_at=2026-05-29 10:44:28 Asia/Taipei
 main_price_date=20260528
 report_ready=True
-commit_sha=d391beaa1808253ac70356097fc2c647185e5041
+commit_sha=3193c5c8eb3c63263a1a05eb214956e914d6a69f
 latest_readme_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT.txt
 latest_readme_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/READ_ME_FIRST_DAILY_REPORT.txt
 latest_readme_github_api_url=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/READ_ME_FIRST_DAILY_REPORT.txt?ref=main
@@ -12,7 +12,7 @@ history_readme_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/histor
 history_readme_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260528_READ_ME_FIRST_DAILY_REPORT.txt
 astrology_read_protocol_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/astrology_read_protocol_latest.md
 astrology_read_protocol_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/astrology_read_protocol_latest.md
-preferred_chatgpt_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/d391beaa1808253ac70356097fc2c647185e5041/output/history/reports/20260528_CHATGPT_DAILY_REPORT_PACKET.txt
+preferred_chatgpt_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt
 recommended_read_order=astrology_read_protocol_pages_url only for Zi Wei / Ba Zi / astrology tasks,astrology_read_protocol_raw_url only for Zi Wei / Ba Zi / astrology tasks,date_stamped_readme_pages_url,date_stamped_readme_raw_url,date_stamped_readme_github_api_url,history_readme_pages_url,history_readme_raw_url,latest_readme_pages_url,latest_readme_raw_url,latest_readme_github_api_url
 daily_task_fallback_rule=If latest_readme_* returns an older main_price_date, do not stop. Try the date-stamped README for the expected Taiwan trading date. If that fails, try the previous 7 calendar dates through raw and GitHub API. Use only a report_ready=True entry and state the actual main_price_date used.
 

@@ -97,8 +97,9 @@ Specialty sections are allowed and required when their program-side files or fie
 Required specialty sections when data exists:
 
 - `daily_short_term_specialty_packet_latest.md`: standalone D+5 / D+10 short-term specialty.
+- `market_abnormal_status_latest.md/csv`: official TWSE/TPEx disposition, attention, periodic-trading, altered-trading, managed-stock, and suspension flags.
 - `tdcc_overheated_short_term_edge_latest.md/csv`: standalone TDCC overheated short-term edge.
-- `weekly_surge_strict_parameter_search_latest.md/csv`: standalone strict weekly-surge parameter research.
+- `weekly_surge_strict_parameter_search_latest.md/csv`: legacy filename for standalone next-open +10% touch parameter research. Do not translate this as `周線急漲`.
 - `explosive_volume_up_backtest_latest.md/csv`, `explosive_volume_up_position_backtest_latest.csv`, and `explosive_volume_up_events_latest.csv`: standalone explosive-volume-up research. This is a research/watch section only. It uses D+1 open as the entry basis and separates close-return win rate from intraperiod high-hit rate.
 - Explosive-volume-up interpretation must first split price position: bottom/low-zone volume reversal, low-to-mid reclaim, near-high attack, and high-zone extension/chase. Do not mix bottom reversal with high-zone distribution/chase. Theme/mainstream status is the second filter, not a replacement for price-position filtering.
 - Explosive-volume-up signal timing is after the signal-day close. Entry statistics use next trading day open. `high_hit_rate` means the post-entry holding-window high reached the target; it is not an intraday entry rule.
@@ -123,6 +124,8 @@ Every mainstream / volume-attack / early-mainstream table must include:
 - `theme_final_status`
 - `theme_market_flow_status`
 - `theme_structural_status`
+- `market_theme_group`
+- `theme_group_source`
 - `theme_mainstream_label`
 - `theme_volume_attack_status`
 
@@ -130,14 +133,26 @@ Use `volume_attack_theme_layer_latest.md/csv` and `volume_attack_theme_stocks_la
 
 Do not infer mainstream/non-mainstream from memory.
 
-Mainstream / non-mainstream is split into two separate concepts:
+Mainstream / non-mainstream is split into separate concepts:
 
 - `theme_final_status` / `theme_market_flow_status`: today's flow and breadth state.
-- `theme_structural_status`: structural industry bucket.
+- `theme_structural_status`: broad structural bucket, such as core_mainstream_theme or non_mainstream_theme.
+- `structural_theme_bucket`: fine market theme bucket. This may cross industry classifications.
+- `market_theme_group`: the primary analysis grouping. It must prefer `structural_theme_bucket`, then `theme_name`, then `industry`.
+- `theme_group_source`: records which field supplied `market_theme_group`.
 
 Only `theme_structural_status=core_mainstream_theme` may enter the mainstream capital line.
 
-Core mainstream themes include consumer electronics, semiconductors, passive components, PC/NB, AI server, PCB/CCL, networking/optical, power, thermal and connectors.
+Industry and market theme are not the same thing. A stock can keep its industry while also belonging to a cross-industry theme bucket.
+
+For report grouping and backtest segmentation, use `market_theme_group` before raw industry. Industry is secondary context only. Do not group AI-era stocks only by their legacy exchange industry when a program-side structural theme bucket exists.
+
+Examples:
+
+- 華通 remains PCB, 啟碁 remains networking/communications, but both can belong to `low_earth_orbit_satellite_theme`.
+- 南亞 remains plastics, 台玻 remains glass/ceramics, but both can belong to `glass_fiber_ccl_theme`.
+
+Core mainstream theme buckets include low-earth-orbit satellite, glass fiber / CCL, PCB/CCL, CPO / silicon photonics, optical communication, networking, advanced packaging, semiconductor equipment, semiconductor materials, semiconductors, passive components, memory/HBM, AI server, power/thermal, connectors/cables, consumer electronics, robotics/automation.
 
 Textile, financial, steel, shipping, construction, chemical, plastic and similar cyclical/traditional groups are `non_mainstream_theme` even when daily flow is strong.
 
@@ -180,7 +195,7 @@ If `daily_short_term_specialty_packet_latest.md` exists, it is the mandatory sou
 Do not confuse `回檔後短線轉強` with the short-term specialty layer:
 
 - `回檔後短線轉強` is one of the fixed six daily candidate categories.
-- The short-term specialty layer is a standalone research/reporting section that currently includes TDCC overheated continuation and strict weekly-surge parameter research.
+- The short-term specialty layer is a standalone research/reporting section that currently includes TDCC overheated continuation and next-open +10% touch parameter research.
 
 If `tdcc_overheated_short_term_edge_latest.md/csv` exists, the daily report must include it as a standalone specialty subsection:
 
@@ -192,12 +207,20 @@ If `tdcc_overheated_short_term_edge_latest.md/csv` exists, the daily report must
 - Do not use it to change TDCC / ABM / daily candidate core model weights.
 - If the current candidate CSV has matching stocks, show them as a separate TDCC overheated short-term watch list with confirmation and risk notes.
 
-If `weekly_surge_strict_parameter_search_latest.md/csv` exists, the daily report must also include it as a standalone strict weekly-surge research subsection:
+If `weekly_surge_strict_parameter_search_latest.md/csv` exists, the daily report must also include it as a standalone next-open +10% touch research subsection:
 
-- Show separate D+5 and D+10 tables.
+- Show a compact D+1 through D+10 horizon summary, and also show separate D+5 and D+10 detail tables.
 - Use the definition `entry = D+1 open` and `hit = D+1 open to D+N high reaches +10%`.
+- For sell-point analysis, use `D+1 open` as the entry and `D+N close` as the exit. Report D+1 through D+10 close-exit win rate and average/median return separately from the +10% intraperiod high touch-rate.
+- Close-exit win rate must use only rows with a mature `D+N close` as the denominator. Do not count pending rows without D+N close as losses.
+- This is not weekly candlestick analysis. The file prefix `weekly_surge` is legacy/backward-compatible only.
+- Display title in Chinese: `隔日開盤買進後 D+1 至 D+10 盤中觸及 +10% 研究`.
+- Do not write `周線急漲嚴格參數`.
+- The win rate is a next-open entry touch-rate, not close-to-close return or D+N close win rate.
 - Show current candidates from `weekly_surge_strict_parameter_candidates_latest.md/csv` when available.
 - Treat it as `research_watchlist_and_reporting_priority_only` until more regime samples are available.
+- If `market_abnormal_status_latest.md/csv` marks a stock as disposition, attention, attention accumulation, periodic trading, altered trading, managed stock, or suspension, show it as an execution-risk overlay. Do not describe it as a clean breakout or clean short-term edge.
+- Historical backtests must not apply today's abnormal-status list to past signals. Until verified historical snapshots are available, mark the disposition filter as `disposition_history_not_backfilled`.
 
 ## Non-Revenue Momentum Specialty
 
