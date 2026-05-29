@@ -205,6 +205,7 @@ SPECIALTY SECTION RULES
 - If a specialty packet/file exists, it must appear as its own section and must not be mixed into the six-category ranking.
 - Required specialty sections when data exists:
   - daily_short_term_specialty_packet_latest.md
+  - market_abnormal_status_latest.md/csv
   - tdcc_overheated_short_term_edge_latest.md/csv
   - weekly_surge_strict_parameter_search_latest.md/csv (legacy filename; display as next-open +10pct touch research, not weekly candlestick analysis)
   - explosive_volume_up_backtest_latest.md/csv, explosive_volume_up_position_backtest_latest.csv, and explosive_volume_up_events_latest.csv
@@ -217,6 +218,14 @@ SPECIALTY SECTION RULES
 - Explosive-volume-up signal timing is after the signal-day close. Entry statistics use next trading day open. `high_hit_rate` means the post-entry holding-window high reached the target; it is not an intraday entry rule.
 - Stricter explosive-volume-up quality requires a red candle with meaningful real body and limited upper shadow. Prefer `strict_red_close_near_high` first, then `relaxed_red_small_upper_shadow`; long-upper-shadow or failed-close rows are lower quality even if volume is large.
 - Specialty signals are reporting/research priority only unless the backtest system later marks them mature and ready for review.
+
+MARKET ABNORMAL STATUS / DISPOSITION RULES
+- Always read `market_abnormal_status_latest.md/csv` when available.
+- It contains official TWSE/TPEx disposition, attention, attention-accumulation, periodic-trading, altered-trading, managed-stock, and suspension flags.
+- These flags are execution-risk overlays, not standalone buy/sell signals.
+- If a candidate is under disposition, attention, or periodic trading, explicitly mark it as execution-risk in the PDF and do not overstate it as a clean breakout or clean short-term edge.
+- Short-term research/backtest tables must state `disposition_history_not_backfilled` until verified historical daily snapshots are available.
+- Do not apply today's disposition status backward to historical events.
 
 NON-REVENUE MOMENTUM SPECIALTY
 - If non_revenue_momentum_watch_latest.md/csv exists, include a standalone section named `非營收驅動強勢股 / 題材資金先行`.

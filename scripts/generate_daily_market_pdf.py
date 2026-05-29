@@ -50,6 +50,7 @@ TDCC_OVERHEATED_EDGE_CANDIDATES_CSV = LATEST_DIR / "tdcc_overheated_short_term_e
 WEEKLY_SURGE_STRICT_SEARCH_CSV = LATEST_DIR / "weekly_surge_strict_parameter_search_latest.csv"
 WEEKLY_SURGE_STRICT_CANDIDATES_CSV = LATEST_DIR / "weekly_surge_strict_parameter_candidates_latest.csv"
 NON_REVENUE_MOMENTUM_CSV = LATEST_DIR / "non_revenue_momentum_watch_latest.csv"
+MARKET_ABNORMAL_STATUS_CSV = LATEST_DIR / "market_abnormal_status_latest.csv"
 
 CURATED_PDF = LATEST_DIR / "daily_market_curated_report_latest.pdf"
 FULL_TABLE_PDF = LATEST_DIR / "daily_market_full_table_report_latest.pdf"
@@ -1430,10 +1431,10 @@ def weekly_surge_strict_candidate_rows(candidates: pd.DataFrame, limit: int = 15
         "priority",
         "vol5x",
         "10d ret",
-        "TDCC high",
+        "abnormal",
         "D+5 hit",
         "D+10 hit",
-        "best D+10 rule",
+        "rule / execution risk",
     ]]
     if candidates.empty:
         rows.append(["n/a", "", "", "", "", "", "", "No current next-open +10% touch candidates."])
@@ -1450,10 +1451,10 @@ def weekly_surge_strict_candidate_rows(candidates: pd.DataFrame, limit: int = 15
                 clean_text(row.get("research_priority", ""), 24),
                 num_text(row.get("start_5d_avg_volume_ratio_vs_prev20", ""), 2),
                 pct_text(row.get("return_10d_pct", "")),
-                clean_text(row.get("tdcc_high_thresholds_up", ""), 8),
+                clean_text(row.get("market_abnormal_status", "normal"), 20),
                 pct_text(row.get("best_d5_hit_rate_pct", "")),
                 pct_text(row.get("best_d10_hit_rate_pct", "")),
-                clean_text(row.get("best_d10_rule", ""), 52),
+                clean_text("; ".join(x for x in [safe_str(row.get("best_d10_rule", "")), safe_str(row.get("execution_risk_note", ""))] if x), 72),
             ]
         )
     return rows
@@ -1471,6 +1472,12 @@ def append_weekly_surge_strict_section(
         para(
             "Research-only section. This is not a weekly candlestick signal. Entry basis is next trading day open after the signal-day close. A hit means the high from next open to D+N reaches +10%; it is a touch-rate, not D+N close-to-close win rate. Close-return and intraperiod low columns are shown separately to avoid overstating this signal. This table uses no latest theme label and must not be mixed into the core six-category ranking.",
             style_map["normal"],
+        )
+    )
+    story.append(
+        para(
+            "Execution-risk note: disposition / attention / periodic-trading flags come from official TWSE/TPEx abnormal-status feeds. Historical backtest rows are not retroactively filtered until enough daily snapshots or verified historical sources are available.",
+            style_map["small"],
         )
     )
     story.append(para("Current Strict Research Candidates", style_map["h2"]))

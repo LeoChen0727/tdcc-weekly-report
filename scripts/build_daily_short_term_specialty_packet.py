@@ -21,6 +21,7 @@ WEEKLY_SURGE_STRICT_CANDIDATES = LATEST_DIR / "weekly_surge_strict_parameter_can
 EXPLOSIVE_VOLUME_SUMMARY = LATEST_DIR / "explosive_volume_up_backtest_latest.csv"
 EXPLOSIVE_VOLUME_POSITION_SUMMARY = LATEST_DIR / "explosive_volume_up_position_backtest_latest.csv"
 EXPLOSIVE_VOLUME_EVENTS = LATEST_DIR / "explosive_volume_up_events_latest.csv"
+MARKET_ABNORMAL_STATUS = LATEST_DIR / "market_abnormal_status_latest.csv"
 
 
 def now_text() -> str:
@@ -172,6 +173,7 @@ def build_weekly_surge_section(lines: list[str]) -> None:
     lines.append("- win_rate_definition: keep +10% high touch-rate and close-exit win rate separate.")
     lines.append("- model_effect_allowed: `False`")
     lines.append("- allowed_use: `research_watchlist_and_reporting_priority_only`")
+    lines.append("- market_abnormal_status: read `market_abnormal_status_latest.csv/md`; disposition/attention stocks must be flagged as execution-risk. Historical disposition filtering remains `disposition_history_not_backfilled` until daily snapshots or verified history are available.")
     lines.append("- rule: show a compact `D+1` to `D+10` summary, plus separate `D+5` and `D+10` tables with loss and intraperiod-low diagnostics.")
     lines.append("")
 
@@ -268,10 +270,13 @@ def build_weekly_surge_section(lines: list[str]) -> None:
             "best_d5_hit_rate_pct",
             "best_d10_hit_rate_pct",
             "best_d10_rule",
+            "market_abnormal_status",
+            "market_abnormal_risk_level",
+            "execution_risk_note",
             "research_caveat",
         ],
     )
-    lines.extend(md_table(candidate_cols[:9] if candidate_cols else ["status"], top_rows(candidates, candidate_cols[:9], 25)))
+    lines.extend(md_table(candidate_cols[:12] if candidate_cols else ["status"], top_rows(candidates, candidate_cols[:12], 25)))
     lines.append("")
 
 
@@ -402,6 +407,7 @@ def build_packet() -> str:
     lines.append(f"- generated_at: `{now_text()}`")
     lines.append(f"- main_price_date: `{read_main_price_date()}`")
     lines.append("- purpose: Force daily reports to include short-term specialty sections that are not part of the fixed six candidate categories.")
+    lines.append(f"- market_abnormal_status_path: `{MARKET_ABNORMAL_STATUS.as_posix()}`")
     lines.append("")
     lines.append("## Usage Contract")
     lines.append("- This packet is mandatory for daily stock candidate analysis.")

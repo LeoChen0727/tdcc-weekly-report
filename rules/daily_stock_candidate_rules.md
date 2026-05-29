@@ -97,6 +97,7 @@ Specialty sections are allowed and required when their program-side files or fie
 Required specialty sections when data exists:
 
 - `daily_short_term_specialty_packet_latest.md`: standalone D+5 / D+10 short-term specialty.
+- `market_abnormal_status_latest.md/csv`: official TWSE/TPEx disposition, attention, periodic-trading, altered-trading, managed-stock, and suspension flags.
 - `tdcc_overheated_short_term_edge_latest.md/csv`: standalone TDCC overheated short-term edge.
 - `weekly_surge_strict_parameter_search_latest.md/csv`: legacy filename for standalone next-open +10% touch parameter research. Do not translate this as `周線急漲`.
 - `explosive_volume_up_backtest_latest.md/csv`, `explosive_volume_up_position_backtest_latest.csv`, and `explosive_volume_up_events_latest.csv`: standalone explosive-volume-up research. This is a research/watch section only. It uses D+1 open as the entry basis and separates close-return win rate from intraperiod high-hit rate.
@@ -218,6 +219,8 @@ If `weekly_surge_strict_parameter_search_latest.md/csv` exists, the daily report
 - The win rate is a next-open entry touch-rate, not close-to-close return or D+N close win rate.
 - Show current candidates from `weekly_surge_strict_parameter_candidates_latest.md/csv` when available.
 - Treat it as `research_watchlist_and_reporting_priority_only` until more regime samples are available.
+- If `market_abnormal_status_latest.md/csv` marks a stock as disposition, attention, attention accumulation, periodic trading, altered trading, managed stock, or suspension, show it as an execution-risk overlay. Do not describe it as a clean breakout or clean short-term edge.
+- Historical backtests must not apply today's abnormal-status list to past signals. Until verified historical snapshots are available, mark the disposition filter as `disposition_history_not_backfilled`.
 
 ## Non-Revenue Momentum Specialty
 

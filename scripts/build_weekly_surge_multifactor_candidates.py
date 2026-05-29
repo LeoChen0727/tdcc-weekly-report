@@ -24,6 +24,7 @@ GRID_CSV = LATEST_DIR / "weekly_surge_multifactor_filter_grid_latest.csv"
 OUT_CSV = LATEST_DIR / "weekly_surge_multifactor_candidates_latest.csv"
 OUT_MD = LATEST_DIR / "weekly_surge_multifactor_candidates_latest.md"
 HISTORY_CSV = HISTORY_DIR / "weekly_surge_multifactor_candidates.csv"
+MARKET_ABNORMAL_STATUS_CSV = LATEST_DIR / "market_abnormal_status_latest.csv"
 
 
 def now_text() -> str:
@@ -73,6 +74,58 @@ def load_grid() -> pd.DataFrame:
     return grid
 
 
+def load_market_abnormal_status() -> pd.DataFrame:
+    if not MARKET_ABNORMAL_STATUS_CSV.exists():
+        return pd.DataFrame(columns=["stock_id"])
+    df = pd.read_csv(MARKET_ABNORMAL_STATUS_CSV, dtype=str, keep_default_na=False)
+    if "stock_id" not in df.columns:
+        return pd.DataFrame(columns=["stock_id"])
+    keep = [
+        col
+        for col in [
+            "stock_id",
+            "market_abnormal_status",
+            "market_abnormal_risk_level",
+            "is_disposition",
+            "is_attention",
+            "is_attention_accumulation",
+            "is_periodic_trading",
+            "disposition_period",
+            "execution_risk_note",
+        ]
+        if col in df.columns
+    ]
+    out = df[keep].copy()
+    out["stock_id"] = out["stock_id"].astype(str).str.extract(r"(\d{4})", expand=False).fillna("")
+    return out[out["stock_id"] != ""].drop_duplicates("stock_id", keep="last")
+
+
+def attach_market_abnormal_status(df: pd.DataFrame) -> pd.DataFrame:
+    if df.empty:
+        return df
+    out = df.copy()
+    out["stock_id"] = out["stock_id"].astype(str).str.extract(r"(\d{4})", expand=False).fillna(out["stock_id"].astype(str))
+    abnormal = load_market_abnormal_status()
+    if abnormal.empty:
+        out["market_abnormal_status"] = "not_checked"
+        out["market_abnormal_risk_level"] = "history_not_backfilled"
+        out["is_disposition"] = False
+        out["is_attention"] = False
+        out["is_attention_accumulation"] = False
+        out["is_periodic_trading"] = False
+        out["disposition_period"] = ""
+        out["execution_risk_note"] = "處置/注意歷史尚未回補；短線回測暫未分層。"
+        return out
+    out = out.merge(abnormal, on="stock_id", how="left")
+    out["market_abnormal_status"] = out["market_abnormal_status"].fillna("normal")
+    out["market_abnormal_risk_level"] = out["market_abnormal_risk_level"].fillna("A_normal")
+    for col in ["is_disposition", "is_attention", "is_attention_accumulation", "is_periodic_trading"]:
+        out[col] = out[col].fillna(False).astype(str).str.lower().isin(["true", "1", "yes"])
+    out["disposition_period"] = out["disposition_period"].fillna("")
+    out["execution_risk_note"] = out["execution_risk_note"].fillna("")
+    return out
+
+
 def compact_rule_metrics(grid: pd.DataFrame, rule_name: str) -> dict[str, object]:
     part = grid[grid["rule_name"] == rule_name]
     out: dict[str, object] = {}
@@ -105,6 +158,7 @@ def research_priority(row: pd.Series) -> str:
 def build_candidates(latest: pd.DataFrame, grid: pd.DataFrame) -> pd.DataFrame:
     if latest.empty or grid.empty:
         return pd.DataFrame()
+    latest = attach_market_abnormal_status(latest)
     rule_rows: list[pd.DataFrame] = []
     for rule_name, mask, family, source_type in build_rules(latest):
         picked = latest[mask].copy()
@@ -165,6 +219,13 @@ def build_candidates(latest: pd.DataFrame, grid: pd.DataFrame) -> pd.DataFrame:
                 "tdcc_high_up_streak": base.get("tdcc_high_up_streak", ""),
                 "tdcc_high_change_sum": round(float(base.get("tdcc_high_change_sum", 0)), 4),
                 "derived_market_regime": base.get("derived_market_regime", ""),
+                "market_abnormal_status": base.get("market_abnormal_status", ""),
+                "market_abnormal_risk_level": base.get("market_abnormal_risk_level", ""),
+                "is_disposition": base.get("is_disposition", False),
+                "is_attention": base.get("is_attention", False),
+                "is_periodic_trading": base.get("is_periodic_trading", False),
+                "disposition_period": base.get("disposition_period", ""),
+                "execution_risk_note": base.get("execution_risk_note", ""),
                 "matched_rules": matched_rules,
                 "best_d5_rule": best_d5.get("matched_rule", ""),
                 "best_d5_hit_rate_pct": best_d5.get("d5_hit_rate_pct", ""),
@@ -226,6 +287,7 @@ def build_markdown(candidates: pd.DataFrame) -> str:
         "latest_theme_status_group",
         "tdcc_all_thresholds_up",
         "derived_market_regime",
+        "market_abnormal_status",
         "best_d5_hit_rate_pct",
         "best_d10_hit_rate_pct",
         "best_d10_sample_status",
