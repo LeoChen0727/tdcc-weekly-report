@@ -159,7 +159,7 @@ def build_weekly_surge_section(lines: list[str]) -> None:
     lines.append("## Next-Open +10pct Touch Strict Parameter Research")
     lines.append("")
     lines.append("- legacy_file_prefix: `weekly_surge` is kept only for backward compatibility.")
-    lines.append("- display_name_zh: `隔日開盤買進後 D+1 至 D+10、D+20 盤中觸及 +10% 研究`")
+    lines.append("- display_name_zh: `隔日開盤買進後 D+1 至 D+10 / D+20 盤中觸及 +10% 研究`")
     lines.append("- forbidden_label_zh: `周線急漲`")
     lines.append("- not_weekly_candle: `True`")
     lines.append("- section_required_in_daily_pdf: `True`")
@@ -167,10 +167,12 @@ def build_weekly_surge_section(lines: list[str]) -> None:
     lines.append("- entry_basis: `D+1 open`; the signal is only knowable after the signal-day close.")
     lines.append("- hit_definition: `D+1 open to D+N high reaches +10%`")
     lines.append("- close_exit_definition: `D+1 open to D+N close`; close-exit win rate uses return > 0.")
+    lines.append("- intraperiod_low_definition: `D+1 open to D+N lowest low`; use this as adverse-move / pain-risk context.")
+    lines.append("- required_risk_columns: `avg_loss_next_open_to_close_return_pct`, `worst_loss_next_open_to_close_return_pct`, `median_next_open_to_low_return_pct`, `worst_next_open_to_low_return_pct`, `top_stock_concentration_pct`.")
     lines.append("- win_rate_definition: keep +10% high touch-rate and close-exit win rate separate.")
     lines.append("- model_effect_allowed: `False`")
     lines.append("- allowed_use: `research_watchlist_and_reporting_priority_only`")
-    lines.append("- rule: show a compact `D+1` to `D+10` summary, plus separate `D+5` and `D+10` tables.")
+    lines.append("- rule: show a compact `D+1` to `D+10` summary, plus separate `D+5` and `D+10` tables with loss and intraperiod-low diagnostics.")
     lines.append("")
 
     if stats.empty:
@@ -197,6 +199,7 @@ def build_weekly_surge_section(lines: list[str]) -> None:
                 "win_rate_next_open_to_close_pct",
                 "avg_next_open_to_close_return_pct",
                 "median_next_open_to_close_return_pct",
+                "median_next_open_to_low_return_pct",
                 "avg_signal_close_to_next_open_gap_pct",
             ]:
                 sub[col] = pd.to_numeric(sub.get(col), errors="coerce")
@@ -213,13 +216,14 @@ def build_weekly_surge_section(lines: list[str]) -> None:
                     row.get("win_rate_next_open_to_close_pct", ""),
                     row.get("avg_next_open_to_close_return_pct", ""),
                     row.get("median_next_open_to_close_return_pct", ""),
+                    row.get("median_next_open_to_low_return_pct", ""),
                     row.get("hit_rate_pct", ""),
                     row.get("avg_signal_close_to_next_open_gap_pct", ""),
                     row.get("rule_name", ""),
                 ]
             )
         lines.append("### D+1 to D+10 Horizon Summary")
-        lines.extend(md_table(["horizon", "selected", "close_mature", "close_win_rate", "avg_close_ret", "median_close_ret", "+10pct_touch_rate", "avg_gap", "best_rule"], summary_rows))
+        lines.extend(md_table(["horizon", "selected", "close_mature", "close_win_rate", "avg_close_ret", "median_close_ret", "median_low_ret", "+10pct_touch_rate", "avg_gap", "best_rule"], summary_rows))
         lines.append("")
         cols = pick_columns(
             stats,
@@ -230,10 +234,15 @@ def build_weekly_surge_section(lines: list[str]) -> None:
                 "win_rate_next_open_to_close_pct",
                 "avg_next_open_to_close_return_pct",
                 "median_next_open_to_close_return_pct",
+                "avg_loss_next_open_to_close_return_pct",
+                "worst_loss_next_open_to_close_return_pct",
                 "hit_rate_pct",
                 "median_next_open_to_high_return_pct",
+                "median_next_open_to_low_return_pct",
+                "worst_next_open_to_low_return_pct",
                 "avg_next_open_to_high_return_pct",
                 "avg_signal_close_to_next_open_gap_pct",
+                "top_stock_concentration_pct",
                 "sample_status",
             ],
         )
@@ -244,7 +253,7 @@ def build_weekly_surge_section(lines: list[str]) -> None:
             else:
                 sub = stats
             sub = sort_numeric(sub, "hit_rate_pct")
-            lines.extend(md_table(cols[:8] if cols else ["status"], top_rows(sub, cols[:8], 12)))
+            lines.extend(md_table(cols[:12] if cols else ["status"], top_rows(sub, cols[:12], 12)))
             lines.append("")
 
     lines.append("### Current Strict Research Candidates")
