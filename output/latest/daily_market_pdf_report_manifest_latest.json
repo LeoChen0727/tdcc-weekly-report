@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-29 10:40:25 Asia/Taipei",
-  "main_price_date": "20260528",
+  "generated_at": "2026-05-29 19:30:41 Asia/Taipei",
+  "main_price_date": "20260529",
   "report_ready": "True",
   "curated_pdf": {
     "status": "generated",
@@ -8,7 +8,7 @@
     "docs_path": "docs/latest/daily_market_curated_report_latest.pdf",
     "pages_url": "https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_market_curated_report_latest.pdf",
     "raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_curated_report_latest.pdf",
-    "history_path": "output/history/reports/20260528_daily_market_curated_report.pdf"
+    "history_path": "output/history/reports/20260529_daily_market_curated_report.pdf"
   },
   "full_table_pdf": {
     "status": "generated",
@@ -16,6 +16,6 @@
     "docs_path": "docs/latest/daily_market_full_table_report_latest.pdf",
     "pages_url": "https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_market_full_table_report_latest.pdf",
     "raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_full_table_report_latest.pdf",
-    "history_path": "output/history/reports/20260528_daily_market_full_table_report.pdf"
+    "history_path": "output/history/reports/20260529_daily_market_full_table_report.pdf"
   }
 }

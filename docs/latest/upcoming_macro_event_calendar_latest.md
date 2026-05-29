@@ -1,6 +1,6 @@
 # Upcoming Macro Event Calendar
 
-- generated_at: `2026-05-28 20:03:49 Asia/Taipei`
+- generated_at: `2026-05-29 19:27:39 Asia/Taipei`
 - rows: `14`
 - note: Macro events are market-risk reminders for the market dashboard. They are not individual stock catalysts by themselves.
 
@@ -8,17 +8,17 @@
 
 | event_date | event_name | event_type | region | importance | days_to_event | proximity_bucket | related_themes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | GDP (Second Estimate) and Corporate Profits, 1st Quarter 2026 | US_GDP | US | medium | 0 | within_3d | US_GDP;global_growth;global_risk |
-| 20260528 | Personal Income and Outlays, April 2026 | US_PCE_personal_income | US | high | 0 | within_3d | US_PCE;inflation;consumption;global_risk |
-| 20260609 | U.S. International Trade in Goods and Services, Annual Update | US_trade | US | medium | 12 | within_14d | US_trade;export_cycle;global_growth |
-| 20260609 | U.S. International Trade in Goods and Services, April 2026 | US_trade | US | medium | 12 | within_14d | US_trade;export_cycle;global_growth |
-| 20260617 | FOMC decision (June 16-17, 2026) | FOMC | US | high | 20 | within_30d | macro_liquidity;USD_rates;global_risk |
-| 20260625 | GDP (Third Estimate), Industries, Corporate Profits, State GDP, and State Person... | US_PCE_personal_income | US | high | 28 | within_30d | US_PCE;inflation;consumption;global_risk |
-| 20260625 | Personal Income and Outlays, May 2026 | US_PCE_personal_income | US | high | 28 | within_30d | US_PCE;inflation;consumption;global_risk |
-| 20260707 | U.S. International Trade in Goods and Services, May 2026 | US_trade | US | medium | 40 | within_60d | US_trade;export_cycle;global_growth |
-| 20260729 | FOMC decision (July 28-29, 2026) | FOMC | US | high | 62 | future | macro_liquidity;USD_rates;global_risk |
-| 20260730 | GDP (Advance Estimate), 2nd Quarter 2026 | US_GDP | US | medium | 63 | future | US_GDP;global_growth;global_risk |
-| 20260730 | Personal Income and Outlays, June 2026 | US_PCE_personal_income | US | high | 63 | future | US_PCE;inflation;consumption;global_risk |
-| 20260804 | U.S. International Trade in Goods and Services, June 2026 | US_trade | US | medium | 68 | future | US_trade;export_cycle;global_growth |
-| 20260826 | GDP (Second Estimate) and Corporate Profits, 2nd Quarter 2026 | US_GDP | US | medium | 90 | future | US_GDP;global_growth;global_risk |
-| 20260826 | Personal Income and Outlays, July 2026 | US_PCE_personal_income | US | high | 90 | future | US_PCE;inflation;consumption;global_risk |
+| 20260528 | GDP (Second Estimate) and Corporate Profits, 1st Quarter 2026 | US_GDP | US | medium | -1 | recent | US_GDP;global_growth;global_risk |
+| 20260528 | Personal Income and Outlays, April 2026 | US_PCE_personal_income | US | high | -1 | recent | US_PCE;inflation;consumption;global_risk |
+| 20260609 | U.S. International Trade in Goods and Services, Annual Update | US_trade | US | medium | 11 | within_14d | US_trade;export_cycle;global_growth |
+| 20260609 | U.S. International Trade in Goods and Services, April 2026 | US_trade | US | medium | 11 | within_14d | US_trade;export_cycle;global_growth |
+| 20260617 | FOMC decision (June 16-17, 2026) | FOMC | US | high | 19 | within_30d | macro_liquidity;USD_rates;global_risk |
+| 20260625 | GDP (Third Estimate), Industries, Corporate Profits, State GDP, and State Person... | US_PCE_personal_income | US | high | 27 | within_30d | US_PCE;inflation;consumption;global_risk |
+| 20260625 | Personal Income and Outlays, May 2026 | US_PCE_personal_income | US | high | 27 | within_30d | US_PCE;inflation;consumption;global_risk |
+| 20260707 | U.S. International Trade in Goods and Services, May 2026 | US_trade | US | medium | 39 | within_60d | US_trade;export_cycle;global_growth |
+| 20260729 | FOMC decision (July 28-29, 2026) | FOMC | US | high | 61 | future | macro_liquidity;USD_rates;global_risk |
+| 20260730 | GDP (Advance Estimate), 2nd Quarter 2026 | US_GDP | US | medium | 62 | future | US_GDP;global_growth;global_risk |
+| 20260730 | Personal Income and Outlays, June 2026 | US_PCE_personal_income | US | high | 62 | future | US_PCE;inflation;consumption;global_risk |
+| 20260804 | U.S. International Trade in Goods and Services, June 2026 | US_trade | US | medium | 67 | future | US_trade;export_cycle;global_growth |
+| 20260826 | GDP (Second Estimate) and Corporate Profits, 2nd Quarter 2026 | US_GDP | US | medium | 89 | future | US_GDP;global_growth;global_risk |
+| 20260826 | Personal Income and Outlays, July 2026 | US_PCE_personal_income | US | high | 89 | future | US_PCE;inflation;consumption;global_risk |
