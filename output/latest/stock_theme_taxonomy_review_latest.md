@@ -1,6 +1,6 @@
 # Stock Theme Taxonomy Review / 族群分類校對清單
 
-- generated_at: 2026-05-29 23:52:39 Asia/Taipei
+- generated_at: 2026-05-29 23:54:29 Asia/Taipei
 - source_candidates: output/latest/all_candidates_latest.csv
 - source_taxonomy: output/latest/stock_theme_taxonomy_latest.csv
 

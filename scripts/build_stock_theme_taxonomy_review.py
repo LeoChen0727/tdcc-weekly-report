@@ -18,8 +18,10 @@ TAXONOMY = LATEST_DIR / "stock_theme_taxonomy_latest.csv"
 
 REVIEW_CSV = LATEST_DIR / "stock_theme_taxonomy_review_latest.csv"
 REVIEW_MD = LATEST_DIR / "stock_theme_taxonomy_review_latest.md"
+REVIEW_XLSX = LATEST_DIR / "stock_theme_taxonomy_review_latest.xlsx"
 DOCS_REVIEW_CSV = DOCS_LATEST_DIR / "stock_theme_taxonomy_review_latest.csv"
 DOCS_REVIEW_MD = DOCS_LATEST_DIR / "stock_theme_taxonomy_review_latest.md"
+DOCS_REVIEW_XLSX = DOCS_LATEST_DIR / "stock_theme_taxonomy_review_latest.xlsx"
 
 
 CORE_STRUCTURAL_BUCKETS = {
@@ -292,6 +294,113 @@ def build_markdown(df: pd.DataFrame) -> str:
     return "\n".join(lines) + "\n"
 
 
+def build_excel(df: pd.DataFrame, path: Path) -> None:
+    fill_cols = [
+        "fill_primary_theme",
+        "fill_secondary_themes",
+        "fill_structural_theme_bucket",
+        "fill_theme_structural_status",
+        "fill_theme_mainstream_label",
+        "fill_confidence",
+        "fill_notes",
+    ]
+    review_cols = [
+        "review_priority",
+        "taxonomy_review_status",
+        "stock_id",
+        "stock_name",
+        "industry",
+        "category",
+        "decision_priority",
+        "decision_score",
+        "risk_handling_bucket",
+        "volume_ratio",
+        "return_5d",
+        "return_20d",
+        "effective_primary_theme",
+        "effective_secondary_themes",
+        "effective_structural_theme_bucket",
+        "effective_theme_structural_status",
+        "effective_theme_mainstream_label",
+        "effective_confidence",
+        "effective_notes",
+        "why_selected",
+        "downgrade_flags",
+    ]
+    export = df.copy()
+    for col in fill_cols + review_cols:
+        if col not in export.columns:
+            export[col] = ""
+    export = export[fill_cols + review_cols]
+
+    buckets = pd.DataFrame(
+        [
+            ["ai_server_ipc_theme", "AI server / IPC / server", "core_mainstream_theme"],
+            ["ai_pc_consumer_theme", "AI PC / consumer electronics", "core_mainstream_theme"],
+            ["memory_hbm_theme", "memory / HBM / DRAM / Flash", "core_mainstream_theme"],
+            ["semiconductor_theme", "semiconductor / IC design / foundry", "core_mainstream_theme"],
+            ["semiconductor_equipment_material_theme", "semiconductor equipment / materials", "core_mainstream_theme"],
+            ["advanced_packaging_cowos_theme", "advanced packaging / CoWoS", "core_mainstream_theme"],
+            ["abf_substrate_theme", "ABF / substrate", "core_mainstream_theme"],
+            ["pcb_ccl_theme", "PCB / CCL", "core_mainstream_theme"],
+            ["glass_fiber_ccl_theme", "glass fiber cloth / CCL upstream", "core_mainstream_theme"],
+            ["low_earth_orbit_satellite_theme", "low earth orbit satellite", "core_mainstream_theme"],
+            ["network_communication_theme", "networking / communication equipment", "core_mainstream_theme"],
+            ["optical_communication_cpo_theme", "optical communication / CPO", "core_mainstream_theme"],
+            ["high_speed_interconnect_theme", "high speed cable / connector", "core_mainstream_theme"],
+            ["passive_component_theme", "passive components / MLCC / inductor", "core_mainstream_theme"],
+            ["power_supply_theme", "power supply", "core_mainstream_theme"],
+            ["thermal_solution_theme", "thermal solution", "core_mainstream_theme"],
+            ["robotics_precision_motion_theme", "robotics / precision motion", "core_mainstream_theme"],
+            ["robotics_automation_theme", "robotics / automation", "core_mainstream_theme"],
+            ["robotics_optics_sensor_theme", "robotics / optical sensing / machine vision", "core_mainstream_theme"],
+            ["financial_theme", "financial", "non_mainstream_theme"],
+            ["shipping_theme", "shipping", "non_mainstream_theme"],
+            ["textile_theme", "textile", "non_mainstream_theme"],
+            ["construction_theme", "construction / real estate", "non_mainstream_theme"],
+            ["steel_theme", "steel", "non_mainstream_theme"],
+            ["chemical_theme", "chemical", "non_mainstream_theme"],
+            ["plastic_theme", "plastic", "non_mainstream_theme"],
+        ],
+        columns=["structural_theme_bucket", "meaning", "theme_structural_status"],
+    )
+
+    instructions = pd.DataFrame(
+        [
+            ["fill_primary_theme", "請填市場實際題材族群，例如：機器人/精密傳動、低軌衛星、玻纖布/CCL、被動元件。"],
+            ["fill_secondary_themes", "可填多個輔助題材，用分號分隔。"],
+            ["fill_structural_theme_bucket", "請盡量使用 bucket_reference sheet 內的值。"],
+            ["fill_theme_structural_status", "core_mainstream_theme 或 non_mainstream_theme。"],
+            ["fill_theme_mainstream_label", "mainstream_growth_theme、non_mainstream_theme、watch_theme 等。"],
+            ["fill_confidence", "high / medium / low。"],
+            ["fill_notes", "寫你判斷來源或需要我再查的點。"],
+        ],
+        columns=["column", "how_to_fill"],
+    )
+
+    groups = [
+        ("待補_核心產業", export[export["taxonomy_review_status"].eq("industry_core_needs_market_theme")]),
+        ("待補_無族群", export[export["taxonomy_review_status"].eq("needs_market_theme_mapping")]),
+        ("已分類_核心", export[export["taxonomy_review_status"].eq("core_ai_related_theme")]),
+        ("已分類待複查", export[export["taxonomy_review_status"].eq("mapped_needs_review")]),
+        ("非主流暫列", export[export["taxonomy_review_status"].isin(["industry_non_mainstream_only", "non_mainstream_theme"])]),
+        ("全部", export),
+    ]
+
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with pd.ExcelWriter(path, engine="openpyxl") as writer:
+        instructions.to_excel(writer, sheet_name="填寫說明", index=False)
+        buckets.to_excel(writer, sheet_name="bucket_reference", index=False)
+        for sheet, part in groups:
+            part.to_excel(writer, sheet_name=sheet[:31], index=False)
+
+        for sheet_name, worksheet in writer.sheets.items():
+            worksheet.freeze_panes = "A2"
+            for col_cells in worksheet.columns:
+                max_len = min(max(len(str(cell.value or "")) for cell in col_cells) + 2, 48)
+                worksheet.column_dimensions[col_cells[0].column_letter].width = max(12, max_len)
+
+
 def main() -> int:
     df = build_review()
     write_csv(df, REVIEW_CSV)
@@ -299,8 +408,11 @@ def main() -> int:
     md = build_markdown(df)
     REVIEW_MD.write_text(md, encoding="utf-8")
     DOCS_REVIEW_MD.write_text(md, encoding="utf-8")
+    build_excel(df, REVIEW_XLSX)
+    build_excel(df, DOCS_REVIEW_XLSX)
     print(f"Saved: {REVIEW_CSV} rows={len(df)}")
     print(f"Saved: {REVIEW_MD}")
+    print(f"Saved: {REVIEW_XLSX}")
     return 0
 
 
