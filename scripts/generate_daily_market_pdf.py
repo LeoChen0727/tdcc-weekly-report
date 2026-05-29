@@ -1328,9 +1328,11 @@ def weekly_surge_strict_stats_rows(stats: pd.DataFrame, horizon: str, limit: int
         "samples",
         "close win",
         "avg close ret",
+        "avg loss",
+        "worst close",
+        "median low",
+        "worst low",
         "+10% touch",
-        "median max ret",
-        "coverage",
         "status",
     ]]
     if stats.empty:
@@ -1346,6 +1348,10 @@ def weekly_surge_strict_stats_rows(stats: pd.DataFrame, horizon: str, limit: int
         "win_rate_next_open_to_close_pct",
         "avg_next_open_to_close_return_pct",
         "median_next_open_to_high_return_pct",
+        "avg_loss_next_open_to_close_return_pct",
+        "worst_loss_next_open_to_close_return_pct",
+        "median_next_open_to_low_return_pct",
+        "worst_next_open_to_low_return_pct",
         "avg_signal_close_to_next_open_gap_pct",
         "coverage_of_all_hits_pct",
     ]:
@@ -1362,9 +1368,11 @@ def weekly_surge_strict_stats_rows(stats: pd.DataFrame, horizon: str, limit: int
                 safe_str(row.get("selected_stock_days", "")),
                 pct_text(row.get("win_rate_next_open_to_close_pct", "")),
                 pct_text(row.get("avg_next_open_to_close_return_pct", "")),
+                pct_text(row.get("avg_loss_next_open_to_close_return_pct", "")),
+                pct_text(row.get("worst_loss_next_open_to_close_return_pct", "")),
+                pct_text(row.get("median_next_open_to_low_return_pct", "")),
+                pct_text(row.get("worst_next_open_to_low_return_pct", "")),
                 pct_text(row.get("hit_rate_pct", "")),
-                pct_text(row.get("median_next_open_to_high_return_pct", "")),
-                pct_text(row.get("coverage_of_all_hits_pct", "")),
                 clean_text(row.get("sample_status", ""), 20),
             ]
         )
@@ -1372,7 +1380,7 @@ def weekly_surge_strict_stats_rows(stats: pd.DataFrame, horizon: str, limit: int
 
 
 def weekly_surge_horizon_summary_rows(stats: pd.DataFrame) -> list[list[Any]]:
-    rows = [["horizon", "selected", "mature", "close win", "avg close ret", "median close ret", "+10% touch", "best rule"]]
+    rows = [["horizon", "selected", "close win", "avg close", "median close", "median low", "+10% touch", "best rule"]]
     if stats.empty:
         rows.append(["n/a", "", "", "", "", "next-open +10% touch research missing"])
         return rows
@@ -1389,6 +1397,7 @@ def weekly_surge_horizon_summary_rows(stats: pd.DataFrame) -> list[list[Any]]:
             "win_rate_next_open_to_close_pct",
             "avg_next_open_to_close_return_pct",
             "median_next_open_to_close_return_pct",
+            "median_next_open_to_low_return_pct",
             "avg_signal_close_to_next_open_gap_pct",
         ]:
             part[col] = pd.to_numeric(part.get(col), errors="coerce")
@@ -1404,10 +1413,10 @@ def weekly_surge_horizon_summary_rows(stats: pd.DataFrame) -> list[list[Any]]:
             [
                 horizon,
                 safe_str(row.get("selected_stock_days", "")),
-                safe_str(row.get("close_exit_mature_count", "")),
                 pct_text(row.get("win_rate_next_open_to_close_pct", "")),
                 pct_text(row.get("avg_next_open_to_close_return_pct", "")),
                 pct_text(row.get("median_next_open_to_close_return_pct", "")),
+                pct_text(row.get("median_next_open_to_low_return_pct", "")),
                 pct_text(row.get("hit_rate_pct", "")),
                 clean_text(row.get("rule_name", ""), 52),
             ]
@@ -1460,7 +1469,7 @@ def append_weekly_surge_strict_section(
     story.append(para("Next-Open +10% Touch Specialty (D+1-D+10)", style_map["h1"]))
     story.append(
         para(
-            "Research-only section. This is not a weekly candlestick signal. Entry basis is next trading day open after the signal-day close. A hit means the high from next open to D+N reaches +10%; it is a touch-rate, not D+N close-to-close win rate. This table uses no latest theme label and must not be mixed into the core six-category ranking.",
+            "Research-only section. This is not a weekly candlestick signal. Entry basis is next trading day open after the signal-day close. A hit means the high from next open to D+N reaches +10%; it is a touch-rate, not D+N close-to-close win rate. Close-return and intraperiod low columns are shown separately to avoid overstating this signal. This table uses no latest theme label and must not be mixed into the core six-category ranking.",
             style_map["normal"],
         )
     )
@@ -1479,7 +1488,7 @@ def append_weekly_surge_strict_section(
         make_table(
             weekly_surge_horizon_summary_rows(stats),
             style_map,
-            [0.9 * cm, 0.9 * cm, 0.9 * cm, 1.0 * cm, 1.1 * cm, 1.1 * cm, 1.0 * cm, 7.4 * cm],
+            [0.9 * cm, 0.9 * cm, 1.0 * cm, 1.1 * cm, 1.1 * cm, 1.1 * cm, 1.0 * cm, 6.3 * cm],
             header_bg="#7030A0",
         )
     )
@@ -1489,7 +1498,7 @@ def append_weekly_surge_strict_section(
         make_table(
             weekly_surge_strict_stats_rows(stats, "D+5", limit=6 if compact else 12),
             style_map,
-            [4.8 * cm, 0.9 * cm, 1.0 * cm, 1.2 * cm, 1.0 * cm, 1.2 * cm, 1.0 * cm, 1.4 * cm],
+            [3.5 * cm, 0.75 * cm, 0.9 * cm, 0.9 * cm, 0.9 * cm, 0.9 * cm, 0.9 * cm, 0.9 * cm, 0.9 * cm, 1.2 * cm],
             header_bg="#375623",
         )
     )
@@ -1499,7 +1508,7 @@ def append_weekly_surge_strict_section(
         make_table(
             weekly_surge_strict_stats_rows(stats, "D+10", limit=6 if compact else 12),
             style_map,
-            [4.8 * cm, 0.9 * cm, 1.0 * cm, 1.2 * cm, 1.0 * cm, 1.2 * cm, 1.0 * cm, 1.4 * cm],
+            [3.5 * cm, 0.75 * cm, 0.9 * cm, 0.9 * cm, 0.9 * cm, 0.9 * cm, 0.9 * cm, 0.9 * cm, 0.9 * cm, 1.2 * cm],
             header_bg="#5B9BD5",
         )
     )
