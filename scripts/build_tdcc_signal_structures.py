@@ -72,6 +72,7 @@ def load_tdcc_snapshots(max_dates: int | None = 26) -> list[tuple[str, pd.DataFr
             col = f"over_{th}_pct"
             if col in df.columns:
                 df[col] = pd.to_numeric(df[col], errors="coerce")
+        df = df.drop_duplicates("code", keep="last").set_index("code", drop=False)
         out.append((date, df))
     return out
 
@@ -80,9 +81,8 @@ def tdcc_series(snapshots: list[tuple[str, pd.DataFrame]], code: str, threshold:
     out: list[tuple[str, float]] = []
     col = f"over_{threshold}_pct"
     for date, df in snapshots:
-        row = df[df["code"] == code]
-        if not row.empty and col in row.columns:
-            out.append((date, to_number(row.iloc[0].get(col))))
+        if col in df.columns and code in df.index:
+            out.append((date, to_number(df.at[code, col])))
     return out
 
 
@@ -267,15 +267,46 @@ def price_metrics(code: str, signal_date: str, index_history: pd.DataFrame | Non
     return out
 
 
+def tdcc_price_metric_score(
+    snapshots: list[tuple[str, pd.DataFrame]],
+    current_snapshot: pd.DataFrame,
+) -> list[tuple[float, str]]:
+    scored: list[tuple[float, str]] = []
+    for _, row in current_snapshot.iterrows():
+        code = normalize_code(row.get("code", ""))
+        if not code:
+            continue
+        series_by_threshold = {th: tdcc_series(snapshots, code, th) for th in THRESHOLDS}
+        deltas = {th: latest_delta(series_by_threshold[th]) for th in THRESHOLDS}
+        positive = {th: (not math.isnan(deltas[th]) and deltas[th] > 0) for th in THRESHOLDS}
+        if not any(positive.values()):
+            continue
+        high_positive = int(positive[800]) + int(positive[1000])
+        threshold_count = sum(1 for value in positive.values() if value)
+        all_threshold_streak = min(streak_weeks(series_by_threshold[th]) for th in THRESHOLDS)
+        max_delta = max((deltas[th] for th in THRESHOLDS if not math.isnan(deltas[th])), default=0)
+        score = threshold_count * 100 + high_positive * 150 + max(0, all_threshold_streak) * 75 + max(0, max_delta)
+        scored.append((score, code))
+    scored.sort(key=lambda item: (item[0], item[1]), reverse=True)
+    return scored
+
+
 def build_snapshot_rows_for_date(
     snapshots: list[tuple[str, pd.DataFrame]],
     snapshot_idx: int,
     theme_map: dict[str, dict[str, str]],
     index_history: pd.DataFrame,
+    price_metrics_limit: int = 0,
 ) -> list[dict[str, Any]]:
     signal_date, current_snapshot = snapshots[snapshot_idx]
     available_snapshots = snapshots[: snapshot_idx + 1]
     rows: list[dict[str, Any]] = []
+    price_metric_codes: set[str] | None = None
+    if price_metrics_limit and price_metrics_limit > 0:
+        price_metric_codes = {
+            code
+            for _, code in tdcc_price_metric_score(available_snapshots, current_snapshot)[:price_metrics_limit]
+        }
 
     for _, row in current_snapshot.iterrows():
         code = normalize_code(row.get("code", ""))
@@ -290,7 +321,11 @@ def build_snapshot_rows_for_date(
         streaks = {th: streak_weeks(series_by_threshold[th]) for th in THRESHOLDS}
         all_streak = min(streaks.values()) if streaks else 0
         tdcc_consecutive_up = max(streaks.values()) if streaks else 0
-        metrics = price_metrics(code, signal_date, index_history)
+        metrics = (
+            price_metrics(code, signal_date, index_history)
+            if price_metric_codes is None or code in price_metric_codes
+            else {}
+        )
         primary = safe_str(theme.get("primary_theme", "")) or "other"
         item: dict[str, Any] = {
             "signal_id": f"{signal_date}_{code}_normalized",
@@ -357,7 +392,7 @@ def build_snapshot_rows_for_date(
     return rows
 
 
-def build_snapshot(max_dates: int | None = 26) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+def build_snapshot(max_dates: int | None = 26, price_metrics_limit: int = 0) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     snapshots = load_tdcc_snapshots(max_dates=max_dates)
     if not snapshots:
         raise FileNotFoundError("Missing TDCC holder ratio snapshots")
@@ -366,7 +401,7 @@ def build_snapshot(max_dates: int | None = 26) -> tuple[pd.DataFrame, pd.DataFra
     rows: list[dict[str, Any]] = []
 
     for snapshot_idx in range(1, len(snapshots)):
-        rows.extend(build_snapshot_rows_for_date(snapshots, snapshot_idx, theme_map, index_history))
+        rows.extend(build_snapshot_rows_for_date(snapshots, snapshot_idx, theme_map, index_history, price_metrics_limit))
 
     snapshot = pd.DataFrame(rows)
     if snapshot.empty:
@@ -533,6 +568,12 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Process all available TDCC snapshots. Use only in backfill/research jobs.",
     )
+    parser.add_argument(
+        "--price-metrics-limit",
+        type=int,
+        default=0,
+        help="Limit per-date price metric enrichment to the top N TDCC-moving stocks. Use 0 for all stocks.",
+    )
     return parser.parse_args()
 
 
@@ -540,7 +581,7 @@ def main() -> int:
     args = parse_args()
     max_dates = None if args.full_history or args.max_dates <= 0 else args.max_dates
     TDCC_SIGNALS_DIR.mkdir(parents=True, exist_ok=True)
-    snapshot, normalized, breadth = build_snapshot(max_dates=max_dates)
+    snapshot, normalized, breadth = build_snapshot(max_dates=max_dates, price_metrics_limit=args.price_metrics_limit)
     if not snapshot.empty:
         snapshot = append_update_csv(snapshot, SNAPSHOT_CSV, ["signal_id"], ["signal_date", "code"])
         normalized = append_update_csv(normalized, NORMALIZED_LOG, ["signal_id"], ["signal_date", "code"])
@@ -566,6 +607,7 @@ def main() -> int:
         "",
         f"- generated_at: `{now_text()}`",
         f"- processed_snapshot_window: `{'full_history' if max_dates is None else f'latest_{max_dates}_dates'}`",
+        f"- price_metrics_limit: `{args.price_metrics_limit or 'all'}`",
         f"- snapshot_rows: `{len(snapshot)}`",
         f"- normalized_rows: `{len(normalized)}`",
         f"- theme_breadth_rows: `{len(breadth)}`",

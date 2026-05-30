@@ -83,7 +83,7 @@ jobs:
       - name: Build TDCC normalized signal performance and effectiveness
         if: ${{ github.event.inputs.run_tdcc_signal_performance == 'true' }}
         run: |
-          python scripts/build_tdcc_signal_structures.py
+          python scripts/build_tdcc_signal_structures.py --full-history --price-metrics-limit 0
           python scripts/update_tdcc_normalized_signal_performance.py
           python scripts/build_tdcc_signal_effectiveness_report.py
           python scripts/build_tdcc_chatgpt_tracking_outputs.py
