@@ -1,7 +1,7 @@
 # DAILY SHORT-TERM SPECIALTY PACKET
 
 ## Metadata
-- generated_at: `2026-05-30 11:50:52 UTC`
+- generated_at: `2026-05-30 12:28:20 UTC`
 - main_price_date: `20260529`
 - purpose: Force daily reports to include short-term specialty sections that are not part of the fixed six candidate categories.
 - market_abnormal_status_path: `output/latest/market_abnormal_status_latest.csv`
@@ -26,16 +26,16 @@
 ### D+5 Stats
 | rule_name | mature_count | win_rate_close_to_close_pct | avg_relative_return_vs_benchmark_pct | win_rate_next_open_to_close_pct | avg_next_open_relative_return_vs_benchmark_pct | sample_status |
 | --- | --- | --- | --- | --- | --- | --- |
-| all_thresholds_overheated + 1w return 10~30 + MACD hist > 0 | 85 | 67.05882352941175 | 5.955812229739302 | 63.52941176470588 | 3.3923911892661627 | ok_initial_sample |
-| phase_overheated_after_tdcc + KD bullish K<90 + 1w return 10~30 + 2w return 20~50 | 90 | 65.55555555555556 | 4.010162027311086 | 63.33333333333333 | 2.237510484666586 | ok_initial_sample |
-| phase_overheated_after_tdcc + Bollinger width pct<=80 + 2w return 20~50 + TDCC 1w | 30 | 50.0 | 2.7695660629030887 | 50.0 | 1.5542550290426964 | ok_initial_sample |
+| all_thresholds_overheated + 1w return 10~30 + MACD hist > 0 | 85 | 67.05882352941175 | 5.955812229739302 | 63.52941176470588 | 3.3480484077750328 | ok_initial_sample |
+| phase_overheated_after_tdcc + KD bullish K<90 + 1w return 10~30 + 2w return 20~50 | 90 | 65.55555555555556 | 4.010162027311086 | 63.33333333333333 | 2.8523017858352246 | ok_initial_sample |
+| phase_overheated_after_tdcc + Bollinger width pct<=80 + 2w return 20~50 + TDCC 1w | 30 | 50.0 | 2.7695660629030887 | 50.0 | 2.0475777295946815 | ok_initial_sample |
 
 ### D+10 Stats
 | rule_name | mature_count | win_rate_close_to_close_pct | avg_relative_return_vs_benchmark_pct | win_rate_next_open_to_close_pct | avg_next_open_relative_return_vs_benchmark_pct | sample_status |
 | --- | --- | --- | --- | --- | --- | --- |
-| all_thresholds_overheated + 1w return 10~30 + MACD hist > 0 | 54 | 85.18518518518519 | 11.822408926074578 | 79.62962962962963 | 10.223037458959498 | ok_initial_sample |
-| phase_overheated_after_tdcc + Bollinger width pct<=80 + 2w return 20~50 + TDCC 1w | 24 | 75.0 | 11.50873688176531 | 79.16666666666666 | 11.198512065696633 | insufficient_sample |
-| phase_overheated_after_tdcc + KD bullish K<90 + 1w return 10~30 + 2w return 20~50 | 53 | 81.13207547169812 | 8.430231033566654 | 77.35849056603774 | 8.087895049690625 | ok_initial_sample |
+| all_thresholds_overheated + 1w return 10~30 + MACD hist > 0 | 54 | 85.18518518518519 | 11.822408926074578 | 79.62962962962963 | 9.47090071394271 | ok_initial_sample |
+| phase_overheated_after_tdcc + Bollinger width pct<=80 + 2w return 20~50 + TDCC 1w | 24 | 75.0 | 11.50873688176531 | 79.16666666666666 | 12.81803579795849 | insufficient_sample |
+| phase_overheated_after_tdcc + KD bullish K<90 + 1w return 10~30 + 2w return 20~50 | 53 | 81.13207547169812 | 8.430231033566654 | 77.35849056603774 | 7.8118880123922665 | ok_initial_sample |
 
 ### Current TDCC Edge Candidates
 | stock_id | stock_name | theme | tdcc_price_phase |

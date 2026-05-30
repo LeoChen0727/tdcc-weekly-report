@@ -1,6 +1,6 @@
 # TDCC Overheated Short-Term Edge
 
-- generated_at: `2026-05-30 19:14:14 Asia/Taipei`
+- generated_at: `2026-05-30 20:28:20 Asia/Taipei`
 - tuning_status: `not_ready`
 - allowed_changes: `reporting_priority_only`
 - forbidden_changes: `core_weight_change`
@@ -103,14 +103,14 @@
 
 | rule_name_zh | mature_count | win_rate_close_to_close_pct | avg_return_close_to_close_pct | median_return_close_to_close_pct | avg_relative_return_vs_benchmark_pct | next_open_mature_count | win_rate_next_open_to_close_pct | avg_next_open_to_close_return_pct | avg_next_open_relative_return_vs_benchmark_pct | sample_status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| TDCC 過熱 phase + 布林寬度未極端 + 2週漲20~50% + TDCC連續1週 | 30 | 50.00 | 4.33 | 0.23 | 2.77 | 30 | 50.00 | 2.84 | 1.55 | ok_initial_sample |
-| TDCC 過熱 phase + KD多方但未過熱 + 1週漲10~30% + 2週漲20~50% | 90 | 65.56 | 6.76 | 4.21 | 4.01 | 90 | 63.33 | 4.68 | 2.24 | ok_initial_sample |
-| 四級距同步過熱 + 1週漲10~30% + MACD histogram > 0 | 85 | 67.06 | 8.47 | 5.66 | 5.96 | 85 | 63.53 | 5.59 | 3.39 | ok_initial_sample |
+| TDCC 過熱 phase + 布林寬度未極端 + 2週漲20~50% + TDCC連續1週 | 30 | 50.00 | 4.33 | 0.23 | 2.77 | 30 | 50.00 | 2.84 | 2.05 | ok_initial_sample |
+| TDCC 過熱 phase + KD多方但未過熱 + 1週漲10~30% + 2週漲20~50% | 90 | 65.56 | 6.76 | 4.21 | 4.01 | 90 | 63.33 | 4.68 | 2.85 | ok_initial_sample |
+| 四級距同步過熱 + 1週漲10~30% + MACD histogram > 0 | 85 | 67.06 | 8.47 | 5.66 | 5.96 | 85 | 63.53 | 5.59 | 3.35 | ok_initial_sample |
 
 ## D+10 Table
 
 | rule_name_zh | mature_count | win_rate_close_to_close_pct | avg_return_close_to_close_pct | median_return_close_to_close_pct | avg_relative_return_vs_benchmark_pct | next_open_mature_count | win_rate_next_open_to_close_pct | avg_next_open_to_close_return_pct | avg_next_open_relative_return_vs_benchmark_pct | sample_status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| TDCC 過熱 phase + 布林寬度未極端 + 2週漲20~50% + TDCC連續1週 | 24 | 75.00 | 15.41 | 11.62 | 11.51 | 24 | 79.17 | 14.99 | 11.20 | insufficient_sample |
-| TDCC 過熱 phase + KD多方但未過熱 + 1週漲10~30% + 2週漲20~50% | 53 | 81.13 | 13.02 | 9.00 | 8.43 | 53 | 77.36 | 12.78 | 8.09 | ok_initial_sample |
-| 四級距同步過熱 + 1週漲10~30% + MACD histogram > 0 | 54 | 85.19 | 16.52 | 12.25 | 11.82 | 54 | 79.63 | 14.94 | 10.22 | ok_initial_sample |
+| TDCC 過熱 phase + 布林寬度未極端 + 2週漲20~50% + TDCC連續1週 | 24 | 75.00 | 15.41 | 11.62 | 11.51 | 24 | 79.17 | 14.99 | 12.82 | insufficient_sample |
+| TDCC 過熱 phase + KD多方但未過熱 + 1週漲10~30% + 2週漲20~50% | 53 | 81.13 | 13.02 | 9.00 | 8.43 | 53 | 77.36 | 12.78 | 7.81 | ok_initial_sample |
+| 四級距同步過熱 + 1週漲10~30% + MACD histogram > 0 | 54 | 85.19 | 16.52 | 12.25 | 11.82 | 54 | 79.63 | 14.94 | 9.47 | ok_initial_sample |
