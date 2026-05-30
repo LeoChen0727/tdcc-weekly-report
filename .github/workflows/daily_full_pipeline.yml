@@ -11,6 +11,10 @@ on:
         description: "Run full raw/pages/api health check for all core files"
         required: false
         default: "false"
+      run_individual_stock_outputs:
+        description: "Build per-stock ChatGPT packets, 180d windows, raw data indexes"
+        required: false
+        default: "false"
 
 permissions:
   contents: write
@@ -430,6 +434,7 @@ jobs:
           sleep 30
 
       - name: Build individual raw data indexes and raw health status
+        if: ${{ github.event.inputs.run_individual_stock_outputs == 'true' }}
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
