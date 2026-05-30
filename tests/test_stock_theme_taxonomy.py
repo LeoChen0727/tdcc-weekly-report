@@ -55,6 +55,20 @@ class StockThemeTaxonomyTests(unittest.TestCase):
         self.assertEqual(flag, "True")
         self.assertIn("report_routing=core_mainstream", note)
 
+    def test_report_membership_dual_and_single_route_cases(self) -> None:
+        dual = taxonomy.report_membership_fields("non_mainstream", "core_mainstream", "core_mainstream")
+        core = taxonomy.report_membership_fields("core_mainstream", "theme_unknown", "core_mainstream")
+        non = taxonomy.report_membership_fields("non_mainstream", "theme_unknown", "non_mainstream")
+        unknown = taxonomy.report_membership_fields("theme_unknown", "theme_unknown", "theme_unknown")
+
+        self.assertEqual(dual["report_line_memberships"], "mainstream|non_mainstream")
+        self.assertEqual(dual["mainstream_report_eligible"], "True")
+        self.assertEqual(dual["non_mainstream_report_eligible"], "True")
+        self.assertEqual(dual["dual_report_membership_flag"], "True")
+        self.assertEqual(core["report_line_memberships"], "mainstream")
+        self.assertEqual(non["report_line_memberships"], "non_mainstream")
+        self.assertEqual(unknown["report_line_memberships"], "theme_unknown")
+
     def test_blank_theme_keeps_default_theme(self) -> None:
         row = pd.Series(
             {

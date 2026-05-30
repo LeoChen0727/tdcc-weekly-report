@@ -20,7 +20,7 @@ PCB_CCL_ABF材料,14,0,1,0,0,1,2,8,0,0,8,6,1,1,0,1.25,0.0,8039,台虹,True,78,81
 半導體設備_CoWoS,7,0,1,0,0,0,0,4,1,0,5,2,0,0,0,0.59,0.0,2404,漢唐,True,32,37.6,24.0,mainstream_follow_through,mainstream_follow_through,core_mainstream_theme,core_mainstream_supported
 重電電網_電器電纜待細分,3,0,1,0,0,2,2,0,0,0,1,2,0,0,0,1.73,0.0,1608,華榮,True,42,32.9,24.0,mainstream_follow_through,mainstream_follow_through,core_mainstream_theme,core_mainstream_supported
 橡膠工業,6,0,0,0,0,0,1,2,1,2,0,4,0,0,0,1.09,0.0,2105,正新,True,29,32.7,48.0,mainstream_follow_through,mainstream_follow_through,non_mainstream_theme,non_mainstream_flow_active
-non_mainstream,4,0,0,0,0,0,3,0,0,0,0,0,2,0,0,0.96,0.0,0050,元大台灣50,True,31,27.1,0.0,mainstream_follow_through,mainstream_follow_through,core_mainstream_theme,core_mainstream_supported
+theme_unknown,6,0,0,0,0,0,3,0,0,0,0,2,2,0,0,0.87,0.0,0050,元大台灣50,True,39,31.5,24.0,mainstream_follow_through,mainstream_follow_through,non_mainstream_theme,non_mainstream_flow_active
 造紙工業,3,0,0,0,0,0,1,0,0,0,1,2,0,0,0,0.54,0.0,1904,正隆,True,17,13.4,24.0,mainstream_follow_through,mainstream_follow_through,non_mainstream_theme,non_mainstream_flow_active
 紡織纖維,12,2,2,2,2,5,7,5,0,0,9,3,2,0,1,1.67,0.0,1447,力鵬,True,100,100.0,46.0,mainstream_leader,mainstream_leader,non_mainstream_theme,non_mainstream_flow_active
 航運業,19,2,3,0,0,2,8,11,1,5,9,5,4,0,0,1.95,0.0,2618,長榮航,True,100,100.0,60.0,mainstream_leader,mainstream_leader,non_mainstream_theme,non_mainstream_flow_active
@@ -54,4 +54,3 @@ PCB/CCL,1,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0.65,0.0,2355,敬鵬,True,4,10.2,10.0,sing
 油電燃氣業,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0.0,0.0,6505,台塑化,True,4,7.2,12.0,single_name_signal,single_name_signal,non_mainstream_theme,non_mainstream_single_name
 memory,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0.0,0.0,5351,鈺創,False,4,2.2,12.0,single_name_signal,single_name_signal,core_mainstream_theme,core_mainstream_watch
 特化材料,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0.63,0.0,1717,長興,False,4,2.2,12.0,single_name_signal,single_name_signal,core_mainstream_theme,core_mainstream_watch
-theme_unknown,2,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0.58,0.0,9136,巨騰-DR,False,8,4.4,24.0,weak_theme,weak_theme,non_mainstream_theme,non_mainstream_weak

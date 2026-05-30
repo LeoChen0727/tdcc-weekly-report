@@ -1,12 +1,15 @@
 # Stock Theme Taxonomy
 
-- generated_at: 2026-05-30 22:39:20 Asia/Taipei
+- generated_at: 2026-05-30 22:59:57 Asia/Taipei
 - total_rows: 2369
 - mainstream_count: 400
 - non_mainstream_count: 116
 - effective_mainstream_count: 400
 - effective_non_mainstream_count: 116
 - mainstream_conflict_count: 4
+- dual_report_membership_count: 4
+- mainstream_report_eligible_count: 400
+- non_mainstream_report_eligible_count: 120
 - unknown_count: 1853
 - manual_override_count: 5
 - authorized_seed_count: 130
@@ -204,12 +207,12 @@
 |       1904 | 正隆         | 造紙工業   | 造紙工業        |                    | non_mainstream              | non_mainstream           | non_mainstream               |
 
 ## Dual Industry / Theme Identity
-|   stock_id | stock_name   | industry   | primary_theme   | industry_mainstream_label   | theme_mainstream_label   | effective_mainstream_label   | mainstream_conflict_note                                                     |
-|-----------:|:-------------|:-----------|:----------------|:----------------------------|:-------------------------|:-----------------------------|:-----------------------------------------------------------------------------|
-|       1303 | 南亞         | 塑膠工業   | 玻纖布          | non_mainstream              | core_mainstream          | core_mainstream              | industry=non_mainstream;theme=core_mainstream;report_routing=core_mainstream |
-|       1717 | 長興         | 化學工業   | 特化材料        | non_mainstream              | core_mainstream          | core_mainstream              | industry=non_mainstream;theme=core_mainstream;report_routing=core_mainstream |
-|       1802 | 台玻         | 玻璃陶瓷   | 玻纖布          | non_mainstream              | core_mainstream          | core_mainstream              | industry=non_mainstream;theme=core_mainstream;report_routing=core_mainstream |
-|       2634 | 漢翔         | 航運業     | 軍工無人機      | non_mainstream              | core_mainstream          | core_mainstream              | industry=non_mainstream;theme=core_mainstream;report_routing=core_mainstream |
+|   stock_id | stock_name   | industry   | primary_theme   | industry_mainstream_label   | theme_mainstream_label   | effective_mainstream_label   | report_line_memberships   | mainstream_report_eligible   | non_mainstream_report_eligible   | mainstream_conflict_note                                                     |
+|-----------:|:-------------|:-----------|:----------------|:----------------------------|:-------------------------|:-----------------------------|:--------------------------|:-----------------------------|:---------------------------------|:-----------------------------------------------------------------------------|
+|       1303 | 南亞         | 塑膠工業   | 玻纖布          | non_mainstream              | core_mainstream          | core_mainstream              | mainstream|non_mainstream | True                         | True                             | industry=non_mainstream;theme=core_mainstream;report_routing=core_mainstream |
+|       1717 | 長興         | 化學工業   | 特化材料        | non_mainstream              | core_mainstream          | core_mainstream              | mainstream|non_mainstream | True                         | True                             | industry=non_mainstream;theme=core_mainstream;report_routing=core_mainstream |
+|       1802 | 台玻         | 玻璃陶瓷   | 玻纖布          | non_mainstream              | core_mainstream          | core_mainstream              | mainstream|non_mainstream | True                         | True                             | industry=non_mainstream;theme=core_mainstream;report_routing=core_mainstream |
+|       2634 | 漢翔         | 航運業     | 軍工無人機      | non_mainstream              | core_mainstream          | core_mainstream              | mainstream|non_mainstream | True                         | True                             | industry=non_mainstream;theme=core_mainstream;report_routing=core_mainstream |
 
 ## Needs Review
 |   stock_id | stock_name       | industry   | primary_theme   | theme_mainstream_label   | taxonomy_source   |

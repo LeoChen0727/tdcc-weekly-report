@@ -342,6 +342,45 @@ def mainstream_conflict_note(industry_label: str, theme_label: str, effective_la
     return "False", ""
 
 
+def report_membership_fields(industry_label: str, theme_label: str, effective_label: str) -> dict[str, str]:
+    """Return report routing memberships without changing model scores.
+
+    A stock can have a mainstream theme and a non-mainstream official industry
+    at the same time.  For example, 南亞 is both glass-fiber/CCL related and
+    plastics by official industry.  It must be eligible for both report views.
+    """
+    labels = {
+        "industry": normalize_mainstream(industry_label),
+        "theme": normalize_mainstream(theme_label),
+        "effective": normalize_mainstream(effective_label),
+    }
+    memberships: list[str] = []
+    if "core_mainstream" in labels.values():
+        memberships.append("mainstream")
+    if "non_mainstream" in labels.values():
+        memberships.append("non_mainstream")
+    if not memberships:
+        memberships.append("theme_unknown")
+    memberships = list(dict.fromkeys(memberships))
+    mainstream = "mainstream" in memberships
+    non_mainstream = "non_mainstream" in memberships
+    if mainstream and non_mainstream:
+        note = "theme_mainstream_section+industry_non_mainstream_section"
+    elif mainstream:
+        note = "mainstream_section"
+    elif non_mainstream:
+        note = "non_mainstream_section"
+    else:
+        note = "theme_unknown_section"
+    return {
+        "report_line_memberships": "|".join(memberships),
+        "mainstream_report_eligible": "True" if mainstream else "False",
+        "non_mainstream_report_eligible": "True" if non_mainstream else "False",
+        "dual_report_membership_flag": "True" if mainstream and non_mainstream else "False",
+        "report_line_membership_note": note,
+    }
+
+
 def load_universe() -> pd.DataFrame:
     rows: dict[str, dict[str, str]] = {}
 
@@ -541,6 +580,7 @@ def build_taxonomy() -> pd.DataFrame:
         industry_mainstream = infer_industry_mainstream_label(industry)
         effective_mainstream = effective_mainstream_label(mainstream, industry_mainstream)
         conflict_flag, conflict_note = mainstream_conflict_note(industry_mainstream, mainstream, effective_mainstream)
+        membership = report_membership_fields(industry_mainstream, mainstream, effective_mainstream)
         if any(compact_text(row.get(col, "")) for col in ["manual_primary_theme", "manual_theme_mainstream_label", "manual_theme_2", "manual_theme_3"]):
             source = "manual_override"
         elif any(compact_text(row.get(col, "")) for col in ["authorized_primary_theme", "authorized_theme_mainstream_label", "authorized_structural_theme_bucket"]):
@@ -578,6 +618,7 @@ def build_taxonomy() -> pd.DataFrame:
                 "effective_mainstream_label": effective_mainstream,
                 "mainstream_conflict_flag": conflict_flag,
                 "mainstream_conflict_note": conflict_note,
+                **membership,
                 "taxonomy_source": source,
                 "confidence": confidence,
                 "concept_tags": concept_tags,
@@ -603,6 +644,9 @@ def build_template(taxonomy: pd.DataFrame, rows_per_sheet: int = 500) -> pd.Data
             "????": taxonomy["theme_mainstream_label"].map(label_map).fillna(""),
             "??????": taxonomy["effective_mainstream_label"].map(label_map).fillna(""),
             "????": taxonomy["mainstream_conflict_flag"].map({"True": "?", "False": ""}).fillna(""),
+            "report_line_memberships": taxonomy["report_line_memberships"],
+            "mainstream_report_eligible": taxonomy["mainstream_report_eligible"],
+            "non_mainstream_report_eligible": taxonomy["non_mainstream_report_eligible"],
             "??": taxonomy["notes"],
         }
     )
@@ -650,6 +694,9 @@ def validate(taxonomy: pd.DataFrame) -> dict[str, Any]:
         "effective_mainstream_count": int((taxonomy["effective_mainstream_label"] == "core_mainstream").sum()) if total else 0,
         "effective_non_mainstream_count": int((taxonomy["effective_mainstream_label"] == "non_mainstream").sum()) if total else 0,
         "mainstream_conflict_count": int((taxonomy["mainstream_conflict_flag"] == "True").sum()) if total else 0,
+        "dual_report_membership_count": int((taxonomy["dual_report_membership_flag"] == "True").sum()) if total else 0,
+        "mainstream_report_eligible_count": int((taxonomy["mainstream_report_eligible"] == "True").sum()) if total else 0,
+        "non_mainstream_report_eligible_count": int((taxonomy["non_mainstream_report_eligible"] == "True").sum()) if total else 0,
         "unknown_count": int((taxonomy["theme_mainstream_label"] == "theme_unknown").sum()) if total else 0,
         "manual_override_count": int((taxonomy["taxonomy_source"] == "manual_override").sum()) if total else 0,
         "authorized_seed_count": int((taxonomy["taxonomy_source"] == "authorized_seed").sum()) if total else 0,
@@ -683,6 +730,9 @@ def write_outputs(taxonomy: pd.DataFrame, template: pd.DataFrame) -> None:
         f"- effective_mainstream_count: {counts['effective_mainstream_count']}",
         f"- effective_non_mainstream_count: {counts['effective_non_mainstream_count']}",
         f"- mainstream_conflict_count: {counts['mainstream_conflict_count']}",
+        f"- dual_report_membership_count: {counts['dual_report_membership_count']}",
+        f"- mainstream_report_eligible_count: {counts['mainstream_report_eligible_count']}",
+        f"- non_mainstream_report_eligible_count: {counts['non_mainstream_report_eligible_count']}",
         f"- unknown_count: {counts['unknown_count']}",
         f"- manual_override_count: {counts['manual_override_count']}",
         f"- authorized_seed_count: {counts['authorized_seed_count']}",
@@ -697,7 +747,7 @@ def write_outputs(taxonomy: pd.DataFrame, template: pd.DataFrame) -> None:
         markdown_table(taxonomy[taxonomy["effective_mainstream_label"].eq("non_mainstream")], ["stock_id", "stock_name", "industry", "primary_theme", "secondary_themes", "industry_mainstream_label", "theme_mainstream_label", "effective_mainstream_label"], 30),
         "",
         "## Dual Industry / Theme Identity",
-        markdown_table(taxonomy[taxonomy["mainstream_conflict_flag"].eq("True")], ["stock_id", "stock_name", "industry", "primary_theme", "industry_mainstream_label", "theme_mainstream_label", "effective_mainstream_label", "mainstream_conflict_note"], 80),
+        markdown_table(taxonomy[taxonomy["dual_report_membership_flag"].eq("True")], ["stock_id", "stock_name", "industry", "primary_theme", "industry_mainstream_label", "theme_mainstream_label", "effective_mainstream_label", "report_line_memberships", "mainstream_report_eligible", "non_mainstream_report_eligible", "mainstream_conflict_note"], 80),
         "",
         "## Needs Review",
         markdown_table(review, ["stock_id", "stock_name", "industry", "primary_theme", "theme_mainstream_label", "taxonomy_source"], 60),
@@ -722,6 +772,9 @@ def write_outputs(taxonomy: pd.DataFrame, template: pd.DataFrame) -> None:
         f"- effective_mainstream_count: {counts['effective_mainstream_count']}",
         f"- effective_non_mainstream_count: {counts['effective_non_mainstream_count']}",
         f"- mainstream_conflict_count: {counts['mainstream_conflict_count']}",
+        f"- dual_report_membership_count: {counts['dual_report_membership_count']}",
+        f"- mainstream_report_eligible_count: {counts['mainstream_report_eligible_count']}",
+        f"- non_mainstream_report_eligible_count: {counts['non_mainstream_report_eligible_count']}",
         f"- unknown_count: {counts['unknown_count']}",
         f"- duplicate_stock_ids: {counts['duplicate_stock_ids']}",
         f"- missing_stock_name_count: {counts['missing_stock_name_count']}",
@@ -747,6 +800,11 @@ def write_outputs(taxonomy: pd.DataFrame, template: pd.DataFrame) -> None:
         "effective_mainstream_label",
         "mainstream_conflict_flag",
         "mainstream_conflict_note",
+        "report_line_memberships",
+        "mainstream_report_eligible",
+        "non_mainstream_report_eligible",
+        "dual_report_membership_flag",
+        "report_line_membership_note",
         "taxonomy_source",
         "concept_tags",
         "notes",
@@ -761,7 +819,7 @@ def write_outputs(taxonomy: pd.DataFrame, template: pd.DataFrame) -> None:
         f"- rows: {len(preview)}",
         "- purpose: user-authorized market theme seed integrated with existing manual/default taxonomy.",
         "",
-        markdown_table(preview, ["stock_id", "stock_name", "primary_theme", "secondary_themes", "structural_theme_bucket", "industry_mainstream_label", "theme_mainstream_label", "effective_mainstream_label", "mainstream_conflict_flag", "taxonomy_source"], 140),
+        markdown_table(preview, ["stock_id", "stock_name", "primary_theme", "secondary_themes", "structural_theme_bucket", "industry_mainstream_label", "theme_mainstream_label", "effective_mainstream_label", "report_line_memberships", "mainstream_report_eligible", "non_mainstream_report_eligible", "dual_report_membership_flag", "taxonomy_source"], 140),
         "",
     ]
     preview_text = "\n".join(preview_lines)

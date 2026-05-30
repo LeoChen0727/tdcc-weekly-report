@@ -19,6 +19,10 @@ REQUIRED_COLUMNS = {
     "structural_theme_bucket",
     "theme_structural_status",
     "theme_mainstream_label",
+    "report_line_memberships",
+    "mainstream_report_eligible",
+    "non_mainstream_report_eligible",
+    "dual_report_membership_flag",
     "taxonomy_source",
     "confidence",
 }
