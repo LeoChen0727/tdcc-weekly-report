@@ -1,6 +1,6 @@
 # TDCC 訊號績效追蹤報告
 
-- 產生時間：`2026-05-30 13:07:38 Asia/Taipei`
+- 產生時間：`2026-05-30 15:47:27 Asia/Taipei`
 - 最新 TDCC signal 批次日期：`20260529`
 - signal log：`output/history/tdcc_signals/tdcc_signal_log.csv`
 - performance csv：`output/history/tdcc_signals/tdcc_signal_performance.csv`
