@@ -1,6 +1,6 @@
 # MSCI Taiwan Rebalance Event Backtest
 
-- generated_at: 2026-05-29 13:39:08 Asia/Taipei
+- generated_at: 2026-05-30 18:09:14 Asia/Taipei
 - event_type: msci_index_rebalance
 - source: MSCI official Global Standard / Small Cap public list PDFs
 - entry rule: first trading day after MSCI effective date, entry at open
@@ -62,10 +62,10 @@
 |         20260529 | global_standard      | deletion |       1402 | nan          | nan           |        nan   |        nan      |         nan      |         nan      |         nan      | pending_no_next_trade |
 |         20260529 | global_standard      | deletion |       1102 | nan          | nan           |        nan   |        nan      |         nan      |         nan      |         nan      | pending_no_next_trade |
 |         20260529 | global_standard      | addition |       6223 | nan          | nan           |        nan   |        nan      |         nan      |         nan      |         nan      | pending_no_next_trade |
-|         20260227 | small_cap            | deletion |       8114 | 振樺電       |   2.02603e+07 |        175.5 |          2.2792 |           0      |           4.2735 |          -0.2849 | ok                    |
-|         20260227 | small_cap            | deletion |       6869 | 雲豹能源     |   2.02603e+07 |        107.5 |          0      |          -3.7209 |          -9.4884 |         -15.3488 | ok                    |
-|         20260227 | small_cap            | deletion |       6806 | 森崴能源     |   2.02603e+07 |         43.2 |         -2.3148 |          -7.5231 |          -5.9028 |          -8.4491 | ok                    |
-|         20260227 | small_cap            | deletion |       6533 | 晶心科       |   2.02603e+07 |        212.5 |         -5.6471 |          -9.6471 |         -10.1176 |         -16      | ok                    |
-|         20260227 | small_cap            | deletion |       6469 | 大樹         |   2.02603e+07 |         86.1 |         -2.439  |          -3.4843 |          -7.2009 |          -4.065  | ok                    |
+|         20260227 | small_cap            | deletion |       8114 | 振樺電          |   2.02603e+07 |        175.5 |          2.2792 |           0      |           4.2735 |          -0.2849 | ok                    |
+|         20260227 | small_cap            | deletion |       6869 | 雲豹能源         |   2.02603e+07 |        107.5 |          0      |          -3.7209 |          -9.4884 |         -15.3488 | ok                    |
+|         20260227 | small_cap            | deletion |       6806 | 森崴能源         |   2.02603e+07 |         43.2 |         -2.3148 |          -7.5231 |          -5.9028 |          -8.4491 | ok                    |
+|         20260227 | small_cap            | deletion |       6533 | 晶心科          |   2.02603e+07 |        212.5 |         -5.6471 |          -9.6471 |         -10.1176 |         -16      | ok                    |
+|         20260227 | small_cap            | deletion |       6469 | 大樹           |   2.02603e+07 |         86.1 |         -2.439  |          -3.4843 |          -7.2009 |          -4.065  | ok                    |
 |         20260227 | small_cap            | deletion |       6456 | GIS-KY       |   2.02603e+07 |         46.1 |         36.0087 |          36.6594 |          37.961  |          27.9826 | ok                    |
 

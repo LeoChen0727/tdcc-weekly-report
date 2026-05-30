@@ -1,39 +1,39 @@
 # Surge Model Score Latest
 
-generated_at: 2026-05-28 20:17:12 Asia/Taipei
-trade_date: 20260528
+generated_at: 2026-05-30 18:06:52 Asia/Taipei
+trade_date: 20260529
 
 初版為 rule-based score，等待 mature samples 足夠後才可調整權重。
 
 | trade_date | stock_id | stock_name | theme | surge_precondition_score | surge_watch_label | reason_summary | risk_flags |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260528 | 1808 | 潤隆 | other | 103.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20；量能溫和 |  |
-| 20260528 | 1455 | 集盛 | other | 100.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20 |  |
-| 20260528 | 1527 | 鑽全 | other | 100.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20；量能溫和 |  |
-| 20260528 | 2412 | 中華電 | other | 100.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20；量能溫和 |  |
-| 20260528 | 2603 | 長榮 | other | 100.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20；量能溫和 |  |
-| 20260528 | 2731 | 雄獅 | other | 100.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20；量能溫和 |  |
-| 20260528 | 3038 | 全台 | other | 100.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20；量能溫和 |  |
-| 20260528 | 3045 | 台灣大 | other | 100.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20；量能溫和 |  |
-| 20260528 | 3050 | 鈺德 | other | 100.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20；量能溫和 |  |
-| 20260528 | 5876 | 上海商銀 | other | 100.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20；量能溫和 |  |
-| 20260528 | 4527 | 方土霖 | other | 98.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20；量能溫和 |  |
-| 20260528 | 1737 | 臺鹽 | other | 92.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20 |  |
-| 20260528 | 2414 | 精技 | other | 92.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20 |  |
-| 20260528 | 2461 | 光群雷 | other | 92.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20 |  |
-| 20260528 | 2505 | 國揚 | other | 92.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20 |  |
-| 20260528 | 3705 | 永信 | other | 92.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20 |  |
-| 20260528 | 4535 | 至興 | other | 92.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20 |  |
-| 20260528 | 5209 | 新鼎 | other | 92.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20 |  |
-| 20260528 | 5306 | 桂盟 | other | 92.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20 |  |
-| 20260528 | 5523 | 豐謙 | other | 92.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20 |  |
-| 20260528 | 6180 | 橘子 | other | 92.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20 |  |
-| 20260528 | 6680 | 鑫創電子 | other | 92.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20 |  |
-| 20260528 | 8409 | 商之器 | other | 92.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20 |  |
-| 20260528 | 8941 | 關中 | other | 92.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20 |  |
-| 20260528 | 1233 | 天仁 | other | 90.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20；量能溫和 |  |
-| 20260528 | 6605 | 帝寶 | other | 90.0 | A_surge_watch | TDCC領先股價；quiet_accumulation |  |
-| 20260528 | 7718 | 友鋮 | other | 90.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20；量能溫和 |  |
-| 20260528 | 8341 | 日友 | other | 90.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20；量能溫和 |  |
-| 20260528 | 8908 | 欣雄 | other | 90.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20 |  |
-| 20260528 | 1319 | 東陽 | other | 88.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；量能溫和 |  |
+| 20260529 | 2816 | 旺旺保 | other | 108.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20；量能溫和 |  |
+| 20260529 | 1733 | 五鼎 | other | 100.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20；量能溫和 |  |
+| 20260529 | 2347 | 聯強 | other | 100.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20 |  |
+| 20260529 | 2603 | 長榮 | other | 100.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20；量能溫和 |  |
+| 20260529 | 2731 | 雄獅 | other | 100.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20；量能溫和 |  |
+| 20260529 | 3050 | 鈺德 | other | 100.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20；量能溫和 |  |
+| 20260529 | 6752 | 叡揚 | other | 100.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20；量能溫和 |  |
+| 20260529 | 4306 | 炎洲 | other | 98.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20；量能溫和 |  |
+| 20260529 | 4527 | 方土霖 | other | 98.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20；量能溫和 |  |
+| 20260529 | 2646 | 星宇航空 | other | 93.0 | A_surge_watch | TDCC領先股價；靠近MA20；量能溫和 |  |
+| 20260529 | 6214 | 精誠 | other | 93.0 | A_surge_watch | TDCC領先股價；靠近MA20；量能溫和 |  |
+| 20260529 | 1314 | 中石化 | other | 92.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20 |  |
+| 20260529 | 1723 | 中碳 | other | 92.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20 |  |
+| 20260529 | 2546 | 根基 | other | 92.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20 |  |
+| 20260529 | 3434 | 哲固 | other | 92.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20 |  |
+| 20260529 | 3484 | 崧騰 | other | 92.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20 |  |
+| 20260529 | 6121 | 新普 | other | 92.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20 |  |
+| 20260529 | 6189 | 豐藝 | other | 92.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20 |  |
+| 20260529 | 3310 | 佳穎 | other | 90.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20；量能溫和 |  |
+| 20260529 | 5371 | 中光電 | other | 87.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20；族群擴散 |  |
+| 20260529 | 1527 | 鑽全 | other | 85.0 | A_surge_watch | TDCC領先股價；靠近MA20；量能溫和 |  |
+| 20260529 | 1604 | 聲寶 | other | 85.0 | A_surge_watch | TDCC領先股價；靠近MA20；量能溫和 |  |
+| 20260529 | 1713 | 國化 | other | 85.0 | A_surge_watch | TDCC領先股價；靠近MA20；量能溫和 |  |
+| 20260529 | 1734 | 杏輝 | other | 85.0 | A_surge_watch | TDCC領先股價；靠近MA20；量能溫和 |  |
+| 20260529 | 1737 | 臺鹽 | other | 85.0 | A_surge_watch | TDCC領先股價；靠近MA20；量能溫和 |  |
+| 20260529 | 1752 | 南光 | other | 85.0 | A_surge_watch | TDCC領先股價；靠近MA20；量能溫和 |  |
+| 20260529 | 2008 | 高興昌 | other | 85.0 | A_surge_watch | TDCC領先股價；quiet_accumulation；靠近MA20；量能溫和；風險:failed_breakout | failed_breakout |
+| 20260529 | 2035 | 唐榮 | other | 85.0 | A_surge_watch | TDCC領先股價；靠近MA20；量能溫和 |  |
+| 20260529 | 2105 | 正新 | other | 85.0 | A_surge_watch | TDCC領先股價；靠近MA20；量能溫和 |  |
+| 20260529 | 2201 | 裕隆 | other | 85.0 | A_surge_watch | TDCC領先股價；靠近MA20；量能溫和 |  |

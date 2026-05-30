@@ -1,6 +1,6 @@
 # Daily Model Parameter Research - Horizon Detail
 
-- generated_at: `2026-05-30 17:26:57 Asia/Taipei`
+- generated_at: `2026-05-30 18:01:52 Asia/Taipei`
 - entry_basis: `signal_date_next_open`
 
 | model_id | parameter_set_id | horizon | mature_count | close_win_rate_pct | avg_close_return_pct | median_close_return_pct | avg_high_return_pct | high_5pct_hit_rate_pct |
