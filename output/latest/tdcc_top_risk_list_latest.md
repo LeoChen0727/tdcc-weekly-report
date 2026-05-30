@@ -1,6 +1,6 @@
 # TDCC Top Risk List
 
-- generated_at: 2026-05-30 17:37:24 Asia/Taipei
+- generated_at: 2026-05-30 19:19:25 Asia/Taipei
 - purpose: identify TDCC-strong names that are late, overheated, or divergent; do not treat these as pre-move accumulation.
 
 ## price_leading_tdcc Top 20

@@ -1,12 +1,12 @@
 # Volume Breakout Watch
 
-- generated_at: `2026-05-30 18:02:25 Asia/Taipei`
+- generated_at: `2026-05-30 19:55:55 Asia/Taipei`
 - main_price_date: `20260529`
-- total_watch_rows: `314`
-- priority_distribution: `{'D_risk_downgrade': 199, 'B_confirm_needed': 60, 'C_watch_only': 39, 'A_valid_breakout_watch': 16}`
-- type_distribution: `{'loose_platform_volume_watch': 72, 'volume_expansion_watch': 69, 'neckline_volume_breakout': 56, 'strict_60d_volume_breakout': 35, 'right_side_volume_attack': 33, 'platform_volume_breakout': 19, 'loose_ma_reclaim_volume_watch': 15, 'loose_right_side_volume_watch': 9, 'abnormal_volume_up': 6}`
-- scope_distribution: `{'volume_attack': 108, 'broad_watch': 96, 'confirmed_attack': 75, 'strict_breakout': 35}`
-- selection_status_distribution: `{'not_selected_by_candidate_model': 146, 'selected_but_routed_to_other_category': 128, 'selected_as_strict_breakout': 40}`
+- total_watch_rows: `315`
+- priority_distribution: `{'D_risk_downgrade': 200, 'B_confirm_needed': 60, 'C_watch_only': 39, 'A_valid_breakout_watch': 16}`
+- type_distribution: `{'loose_platform_volume_watch': 72, 'volume_expansion_watch': 70, 'neckline_volume_breakout': 56, 'strict_60d_volume_breakout': 35, 'right_side_volume_attack': 33, 'platform_volume_breakout': 19, 'loose_ma_reclaim_volume_watch': 15, 'loose_right_side_volume_watch': 9, 'abnormal_volume_up': 6}`
+- scope_distribution: `{'volume_attack': 109, 'broad_watch': 96, 'confirmed_attack': 75, 'strict_breakout': 35}`
+- selection_status_distribution: `{'not_selected_by_candidate_model': 147, 'selected_but_routed_to_other_category': 128, 'selected_as_strict_breakout': 40}`
 
 ## Interpretation
 

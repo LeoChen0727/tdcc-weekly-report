@@ -35899,3 +35899,5 @@ event_date,stock_id,stock_name,market,volume_breakout_type,volume_watch_scope,vo
 20260529,9925,新保,TWSE,neckline_volume_breakout,confirmed_attack,80,2.0439,0.8717,0.4963,0.5961251862891315,False,False,40.5,False,,,,False,,,,False,,,,False,,,,False,,,
 20260529,9935,慶豐富,TWSE,loose_platform_volume_watch,broad_watch,42,1.328,1.8817,3.8356,2.7517961230852706,True,False,18.95,False,,,,False,,,,False,,,,False,,,,False,,,
 20260529,9944,新麗,TWSE,loose_platform_volume_watch,broad_watch,50,1.1121,0.5882,4.2683,1.3783903957314436,False,False,17.1,False,,,,False,,,,False,,,,False,,,,False,,,
+20250711,2888,新光金,listed,neckline_volume_breakout,confirmed_attack,80,6.5454,4.8889,0.0,2.67565803785077,False,False,11.8,False,,,,False,,,,False,,,,False,,,,False,,,
+20260529,7828,創新服務,TPEx,volume_expansion_watch,volume_attack,54,2.2299,21.03,14.6341,12.5973248153324,True,False,1410.0,False,,,,False,,,,False,,,,False,,,,False,,,

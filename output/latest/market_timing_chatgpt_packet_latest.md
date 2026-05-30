@@ -1,7 +1,7 @@
 # MARKET TIMING CHATGPT PACKET
 
 ## Metadata
-- generated_at: 2026-05-30 17:32:29 Asia/Taipei
+- generated_at: 2026-05-30 19:14:01 Asia/Taipei
 - main_price_date: 20260529
 - index_list: TPEX, TWSE
 - data_range: 20241202 ~ 20260529
@@ -42,8 +42,8 @@
 ## Active Technical Events
 | event_date | index_id | event_name | event_group | close_on_event | market_regime | risk_level |
 | --- | --- | --- | --- | --- | --- | --- |
-| 20260525 | TWSE | ma20_slope_up_price_above_ma20_ma60 | trend_ma | 43644.4 | strong_bull | low_risk |
 | 20260525 | TWSE | adx_trend_plus_di_dominant | trend_ma | 43644.4 | strong_bull | low_risk |
+| 20260525 | TWSE | ma20_slope_up_price_above_ma20_ma60 | trend_ma | 43644.4 | strong_bull | low_risk |
 | 20260525 | TPEX | adx_trend_plus_di_dominant | trend_ma | 434.99 | strong_bull | low_risk |
 | 20260525 | TPEX | ma20_slope_up_price_above_ma20_ma60 | trend_ma | 434.99 | strong_bull | low_risk |
 | 20260526 | TPEX | ma20_slope_up_price_above_ma20_ma60 | trend_ma | 439.3 | strong_bull | low_risk |
@@ -51,17 +51,17 @@
 | 20260526 | TWSE | composite_bull_confirmation | composite_signal | 43525.37 | strong_bull | low_risk |
 | 20260526 | TWSE | ma20_slope_up_price_above_ma20_ma60 | trend_ma | 43525.37 | strong_bull | low_risk |
 | 20260526 | TWSE | macd_hist_turn_positive | momentum | 43525.37 | strong_bull | low_risk |
-| 20260527 | TWSE | bb_upper_breakout_long_upper_shadow | volatility_channel | 44256.8 | strong_bull | low_risk |
-| 20260527 | TWSE | composite_bull_confirmation | composite_signal | 44256.8 | strong_bull | low_risk |
-| 20260527 | TWSE | adx_trend_plus_di_dominant | trend_ma | 44256.8 | strong_bull | low_risk |
 | 20260527 | TWSE | ma20_slope_up_price_above_ma20_ma60 | trend_ma | 44256.8 | strong_bull | low_risk |
+| 20260527 | TWSE | composite_bull_confirmation | composite_signal | 44256.8 | strong_bull | low_risk |
+| 20260527 | TWSE | bb_upper_breakout_long_upper_shadow | volatility_channel | 44256.8 | strong_bull | low_risk |
+| 20260527 | TWSE | adx_trend_plus_di_dominant | trend_ma | 44256.8 | strong_bull | low_risk |
 | 20260527 | TPEX | ma20_slope_up_price_above_ma20_ma60 | trend_ma | 440.19 | strong_bull | low_risk |
 | 20260527 | TPEX | composite_bull_confirmation | composite_signal | 440.19 | strong_bull | low_risk |
 | 20260527 | TPEX | macd_hist_turn_positive | momentum | 440.19 | strong_bull | low_risk |
-| 20260528 | TWSE | adx_trend_plus_di_dominant | trend_ma | 43636.44 | strong_bull | low_risk |
-| 20260528 | TWSE | composite_bull_confirmation | composite_signal | 43636.44 | strong_bull | low_risk |
 | 20260528 | TPEX | composite_bull_confirmation | composite_signal | 432.48 | strong_bull | low_risk |
 | 20260528 | TPEX | ma20_slope_up_price_above_ma20_ma60 | trend_ma | 432.48 | strong_bull | low_risk |
+| 20260528 | TWSE | adx_trend_plus_di_dominant | trend_ma | 43636.44 | strong_bull | low_risk |
+| 20260528 | TWSE | composite_bull_confirmation | composite_signal | 43636.44 | strong_bull | low_risk |
 | 20260528 | TWSE | ma20_slope_up_price_above_ma20_ma60 | trend_ma | 43636.44 | strong_bull | low_risk |
 | 20260529 | TWSE | composite_bull_confirmation | composite_signal | 44732.94 | strong_bull | low_risk |
 | 20260529 | TWSE | adx_trend_plus_di_dominant | trend_ma | 44732.94 | strong_bull | low_risk |
@@ -82,8 +82,8 @@
 | kd_high_death_cross | TWSE | 29 | 29 | 0.70 | 58.62 | 29 | 2.14 | 68.97 | 28 | 3.66 | 82.14 | D+60 | D+1:insufficient_sample;D+3:insufficient_sample;D+5:insufficient_sample;D+10:insufficient_sample;D+20:insufficient_sample;D+40:ok;D+60:ok |
 | kd_low_golden_cross | TPEX | 6 | 6 | 2.06 | 83.33 | 6 | 2.75 | 83.33 | 6 | 4.26 | 83.33 | D+60 | D+1:insufficient_sample;D+3:insufficient_sample;D+5:insufficient_sample;D+10:insufficient_sample;D+20:insufficient_sample;D+40:insufficient_sample;D+60:insufficient_sample |
 | kd_low_golden_cross | TWSE | 4 | 4 | 1.15 | 75.00 | 4 | 0.54 | 75.00 | 4 | 0.86 | 75.00 | D+60 | D+1:insufficient_sample;D+3:insufficient_sample;D+5:insufficient_sample;D+10:insufficient_sample;D+20:insufficient_sample;D+40:insufficient_sample;D+60:insufficient_sample |
-| index_new_high_but_ma20_breadth_down | TPEX | 5 | 5 | -1.52 | 40.00 | 5 | 1.92 | 60.00 | 4 | 6.04 | 100.00 | D+60 | D+1:insufficient_sample;D+3:insufficient_sample;D+5:insufficient_sample;D+10:insufficient_sample;D+20:insufficient_sample;D+40:insufficient_sample;D+60:insufficient_sample |
-| index_new_high_but_ma20_breadth_down | TWSE | 10 | 10 | 1.99 | 80.00 | 10 | 2.73 | 80.00 | 9 | 5.97 | 88.89 | D+60 | D+1:insufficient_sample;D+3:insufficient_sample;D+5:insufficient_sample;D+10:insufficient_sample;D+20:insufficient_sample;D+40:insufficient_sample;D+60:insufficient_sample |
+| index_new_high_but_ma20_breadth_down | TPEX | 8 | 8 | -0.78 | 50.00 | 8 | 2.61 | 75.00 | 7 | 6.36 | 100.00 | D+60 | D+1:insufficient_sample;D+3:insufficient_sample;D+5:insufficient_sample;D+10:insufficient_sample;D+20:insufficient_sample;D+40:insufficient_sample;D+60:insufficient_sample |
+| index_new_high_but_ma20_breadth_down | TWSE | 15 | 15 | 1.06 | 66.67 | 15 | 2.21 | 80.00 | 14 | 4.17 | 78.57 | D+60 | D+1:insufficient_sample;D+3:insufficient_sample;D+5:insufficient_sample;D+10:insufficient_sample;D+20:insufficient_sample;D+40:insufficient_sample;D+60:insufficient_sample |
 | macd_dif_low_cross_signal | TPEX | 6 | 6 | 0.01 | 66.67 | 6 | 1.45 | 66.67 | 6 | 2.65 | 66.67 | D+20 | D+1:insufficient_sample;D+3:insufficient_sample;D+5:insufficient_sample;D+10:insufficient_sample;D+20:insufficient_sample;D+40:insufficient_sample;D+60:insufficient_sample |
 | macd_dif_low_cross_signal | TWSE | 2 | 2 | 0.20 | 50.00 | 2 | -3.64 | 50.00 | 2 | 0.06 | 50.00 | D+60 | D+1:insufficient_sample;D+3:insufficient_sample;D+5:insufficient_sample;D+10:insufficient_sample;D+20:insufficient_sample;D+40:insufficient_sample;D+60:insufficient_sample |
 | macd_hist_turn_positive | TPEX | 16 | 15 | 0.16 | 53.33 | 15 | 1.64 | 53.33 | 15 | 4.05 | 60.00 | D+40 | D+1:insufficient_sample;D+3:insufficient_sample;D+5:insufficient_sample;D+10:insufficient_sample;D+20:insufficient_sample;D+40:insufficient_sample;D+60:insufficient_sample |
@@ -139,8 +139,9 @@
 | high_put_call_ratio_index_holds_ma20 | TPEX | strong_bull | 1 | 0 |  |  | 0 |  | pending_only |
 | high_put_call_ratio_index_holds_ma20 | TWSE | strong_bull | 1 | 0 |  |  | 0 |  | pending_only |
 | high_volume_long_black_break_ma20_ema23 | TWSE | high_risk | 2 | 2 | 9.75 | 100.00 | 2 | 7.36 | insufficient_sample |
-| index_new_high_but_ma20_breadth_down | TPEX | strong_bull | 5 | 5 | -1.52 | 40.00 | 5 | 1.92 | insufficient_sample |
-| index_new_high_but_ma20_breadth_down | TWSE | strong_bull | 10 | 10 | 1.99 | 80.00 | 10 | 2.73 | insufficient_sample |
+| index_new_high_but_ma20_breadth_down | TPEX | mild_bull | 2 | 2 | 0.54 | 50.00 | 2 | 3.79 | insufficient_sample |
+| index_new_high_but_ma20_breadth_down | TPEX | strong_bull | 6 | 6 | -1.22 | 50.00 | 6 | 2.22 | insufficient_sample |
+| index_new_high_but_ma20_breadth_down | TWSE | strong_bull | 15 | 15 | 1.06 | 66.67 | 15 | 2.21 | insufficient_sample |
 | kd_high_death_cross | TPEX | mild_bull | 5 | 5 | 0.08 | 60.00 | 5 | -0.16 | insufficient_sample |
 | kd_high_death_cross | TPEX | range_bound | 2 | 2 | 1.66 | 100.00 | 2 | 0.42 | insufficient_sample |
 | kd_high_death_cross | TPEX | strong_bull | 10 | 10 | 2.43 | 90.00 | 10 | 5.05 | insufficient_sample |
@@ -172,7 +173,6 @@
 | reclaim_ma20_after_breakdown | TWSE | high_risk | 1 | 1 | 3.32 | 100.00 | 1 | 6.32 | insufficient_sample |
 | reclaim_ma20_after_breakdown | TWSE | mild_bull | 16 | 16 | 0.52 | 62.50 | 16 | 1.51 | insufficient_sample |
 | reclaim_ma20_after_breakdown | TWSE | strong_bull | 5 | 5 | 1.24 | 60.00 | 4 | -1.19 | insufficient_sample |
-| rsi14_overbought_70 | TPEX | high_risk | 1 | 1 | -1.33 | 0.00 | 1 | 4.03 | insufficient_sample |
 
 ## Time Effect Summary
 - D+1 / D+3: 適合檢查短線轉折、假突破、KD 高低檔交叉。
@@ -186,7 +186,7 @@
 - benchmark_available: TWSE/TPEX index history available=True
 - regime_available: True
 - breadth_available: True
-- mature_counts: {'mature_d1_count': 1227, 'mature_d3_count': 1215, 'mature_d5_count': 1206, 'mature_d10_count': 1188, 'mature_d20_count': 1118, 'mature_d40_count': 1016, 'mature_d60_count': 981}
+- mature_counts: {'mature_d1_count': 1235, 'mature_d3_count': 1223, 'mature_d5_count': 1214, 'mature_d10_count': 1196, 'mature_d20_count': 1126, 'mature_d40_count': 1024, 'mature_d60_count': 989}
 
 ## Model Tuning Recommendation
 - tuning_status = not_ready

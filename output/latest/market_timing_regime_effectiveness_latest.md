@@ -31,8 +31,9 @@
 | high_put_call_ratio_index_holds_ma20 | TPEX | strong_bull | 1 | 0 |  |  | 0 |  |  | pending_only |
 | high_put_call_ratio_index_holds_ma20 | TWSE | strong_bull | 1 | 0 |  |  | 0 |  |  | pending_only |
 | high_volume_long_black_break_ma20_ema23 | TWSE | high_risk | 2 | 2 | 9.75 | 100.00 | 2 | 7.36 | 100.00 | insufficient_sample |
-| index_new_high_but_ma20_breadth_down | TPEX | strong_bull | 5 | 5 | -1.52 | 40.00 | 5 | 1.92 | 60.00 | insufficient_sample |
-| index_new_high_but_ma20_breadth_down | TWSE | strong_bull | 10 | 10 | 1.99 | 80.00 | 10 | 2.73 | 80.00 | insufficient_sample |
+| index_new_high_but_ma20_breadth_down | TPEX | mild_bull | 2 | 2 | 0.54 | 50.00 | 2 | 3.79 | 100.00 | insufficient_sample |
+| index_new_high_but_ma20_breadth_down | TPEX | strong_bull | 6 | 6 | -1.22 | 50.00 | 6 | 2.22 | 66.67 | insufficient_sample |
+| index_new_high_but_ma20_breadth_down | TWSE | strong_bull | 15 | 15 | 1.06 | 66.67 | 15 | 2.21 | 80.00 | insufficient_sample |
 | kd_high_death_cross | TPEX | mild_bull | 5 | 5 | 0.08 | 60.00 | 5 | -0.16 | 60.00 | insufficient_sample |
 | kd_high_death_cross | TPEX | range_bound | 2 | 2 | 1.66 | 100.00 | 2 | 0.42 | 50.00 | insufficient_sample |
 | kd_high_death_cross | TPEX | strong_bull | 10 | 10 | 2.43 | 90.00 | 10 | 5.05 | 90.00 | insufficient_sample |

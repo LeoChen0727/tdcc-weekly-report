@@ -1,6 +1,6 @@
 # 每日候選股模型績效月報
 
-- generated_at: `2026-05-30 18:09:09 Asia/Taipei`
+- generated_at: `2026-05-30 20:05:00 Asia/Taipei`
 - latest_signal_date: `20260529`
 - signal_count: `4574`
 - period: latest signal month

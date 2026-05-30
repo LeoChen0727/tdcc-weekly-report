@@ -1,17 +1,17 @@
 # TDCC CHATGPT TRACKING PACKET
 
 ## Metadata
-- generated_at: 2026-05-30 17:37:24 Asia/Taipei
+- generated_at: 2026-05-30 19:19:26 Asia/Taipei
 - main_price_date: 20260529
 - latest_tdcc_signal_date: 20260529
 - source_files: tdcc_signal_snapshot.csv, tdcc_normalized_signal_log.csv, tdcc_signal_performance.csv, tdcc_pre_move_accumulation_latest.csv, tdcc_signal_effectiveness_latest.md
-- overall_mature_d5_count: 4779
-- phase_mature_d5_count: 4779
-- overall_mature_d10_count: 3567
-- phase_mature_d10_count: 3567
+- overall_mature_d5_count: 4781
+- phase_mature_d5_count: 4781
+- overall_mature_d10_count: 3568
+- phase_mature_d10_count: 3568
 - overall_mature_d20_count: 1292
 - phase_mature_d20_count: 1292
-- pending_count: 1233
+- pending_count: 1231
 - insufficient_sample_count: 490
 - ranking_quality: complete
 - phase_mature_join_quality: ok
@@ -49,13 +49,13 @@
 
 ## Mature Sample Status
 
-- overall_mature_d5_count: 4779
-- phase_mature_d5_count: 4779
-- overall_mature_d10_count: 3567
-- phase_mature_d10_count: 3567
+- overall_mature_d5_count: 4781
+- phase_mature_d5_count: 4781
+- overall_mature_d10_count: 3568
+- phase_mature_d10_count: 3568
 - overall_mature_d20_count: 1292
 - phase_mature_d20_count: 1292
-- pending_count: 1233
+- pending_count: 1231
 - insufficient_sample_count: 490
 - phase_mature_join_quality: ok
 - sample_status: phase_samples_available
@@ -495,7 +495,7 @@
 | tdcc_price_phase | mature_sample_d5 | avg_ret_d5 | avg_relative_ret_d5 | mature_sample_d10 | avg_ret_d10 | avg_relative_ret_d10 | mature_sample_d20 | avg_ret_d20 | avg_relative_ret_d20 | avg_mfe_d10 | avg_mae_d10 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | failed_after_tdcc | 17.0 | -0.66 | -5.30 | 12.0 | 1.81 | -7.72 | 8.0 | -2.46 | -18.51 | 6.76 | -5.32 |
-| insufficient_price_context | 2374.0 | 0.41 | -1.44 | 1894.0 | 2.51 | -1.52 | 483.0 | 0.85 | -8.59 | 8.11 | -5.03 |
+| insufficient_price_context | 2376.0 | 0.41 | -1.44 | 1895.0 | 2.51 | -1.52 | 483.0 | 0.85 | -8.59 | 8.11 | -5.03 |
 | overheated_after_tdcc | 218.0 | 6.64 | 3.91 | 133.0 | 14.24 | 9.22 | 5.0 | 1.16 | -8.88 | 22.58 | -8.53 |
 | price_leading_tdcc | 268.0 | 3.99 | 0.50 | 149.0 | 9.34 | 3.87 | 33.0 | -2.52 | -14.22 | 18.30 | -6.21 |
 | tdcc_leading_price | 726.0 | 0.85 | -2.21 | 565.0 | 1.84 | -3.73 | 365.0 | -0.29 | -9.27 | 6.30 | -3.61 |

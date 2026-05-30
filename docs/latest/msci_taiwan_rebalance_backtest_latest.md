@@ -1,6 +1,6 @@
 # MSCI Taiwan Rebalance Event Backtest
 
-- generated_at: 2026-05-30 18:09:14 Asia/Taipei
+- generated_at: 2026-05-30 20:05:06 Asia/Taipei
 - event_type: msci_index_rebalance
 - source: MSCI official Global Standard / Small Cap public list PDFs
 - entry rule: first trading day after MSCI effective date, entry at open
@@ -19,10 +19,10 @@
 
 | msci_index_segment   | action   |   sample_count |   ok_count |   ret_d5_mature_count |   ret_d5_win_rate |   ret_d5_avg_return |   ret_d10_mature_count |   ret_d10_win_rate |   ret_d10_avg_return |   ret_d20_mature_count |   ret_d20_win_rate |   ret_d20_avg_return |
 |:---------------------|:---------|---------------:|-----------:|----------------------:|------------------:|--------------------:|-----------------------:|-------------------:|---------------------:|-----------------------:|-------------------:|---------------------:|
-| global_standard      | addition |             11 |          7 |                     7 |             42.86 |               -0.45 |                      7 |              28.57 |                -1.85 |                      7 |              42.86 |                -2.37 |
-| global_standard      | deletion |             22 |         11 |                    11 |             45.45 |                1.95 |                     11 |              54.55 |                 0.08 |                     11 |              18.18 |                -4.02 |
-| small_cap            | addition |             48 |         20 |                    20 |             45    |                0.51 |                     20 |              50    |                 0.08 |                     20 |              40    |                -0.48 |
-| small_cap            | deletion |             37 |         18 |                    18 |             38.89 |                2.55 |                     18 |              33.33 |                 1.45 |                     18 |              27.78 |                -1.34 |
+| global_standard      | addition |             11 |          9 |                     9 |             44.44 |                1.01 |                      9 |              44.44 |                 1.87 |                      9 |              44.44 |                -1.68 |
+| global_standard      | deletion |             22 |         13 |                    13 |             46.15 |                1.62 |                     13 |              61.54 |                 0.62 |                     13 |              30.77 |                -3.28 |
+| small_cap            | addition |             48 |         25 |                    25 |             44    |                0.56 |                     25 |              52    |                 0.45 |                     25 |              44    |                -0.18 |
+| small_cap            | deletion |             37 |         23 |                    23 |             39.13 |                2.45 |                     23 |              39.13 |                 2.36 |                     23 |              39.13 |                -0.36 |
 
 ## Recent Backtest Rows
 

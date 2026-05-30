@@ -1,13 +1,13 @@
 # VOLUME BREAKOUT CHATGPT PACKET
 
 ## Metadata
-- generated_at: `2026-05-30 18:02:25 Asia/Taipei`
+- generated_at: `2026-05-30 19:55:55 Asia/Taipei`
 - main_price_date: `20260529`
-- watch_rows: `314`
+- watch_rows: `315`
 - strict_60d_volume_breakout_count: `35`
 - broad_recall_watch_count: `96`
 - selected_but_routed_to_other_category_count: `128`
-- not_selected_by_candidate_model_count: `146`
+- not_selected_by_candidate_model_count: `147`
 - watch_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/volume_breakout_watch_latest.csv
 - watch_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/volume_breakout_watch_latest.md
 - backtest_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/volume_breakout_backtest_latest.csv
@@ -108,18 +108,18 @@
 | volume_breakout_type | loose_ma_reclaim_volume_watch | 3101 | 2840 | 0.7042 | 43.2 | 2778 | 1.5072 | 44.1 | 2589 | 3.6445 | 49.21 | ok |
 | volume_breakout_type | loose_platform_volume_watch | 7596 | 6932 | 0.4971 | 42.34 | 6748 | 1.0325 | 43.52 | 6199 | 2.5354 | 46.14 | ok |
 | volume_breakout_type | loose_right_side_volume_watch | 1097 | 984 | 0.9715 | 45.63 | 961 | 2.1886 | 47.14 | 874 | 5.2139 | 48.17 | ok |
-| volume_breakout_type | neckline_volume_breakout | 3583 | 3118 | 0.8926 | 44.23 | 2930 | 2.706 | 47.27 | 2418 | 5.3213 | 49.88 | ok |
+| volume_breakout_type | neckline_volume_breakout | 3584 | 3118 | 0.8926 | 44.23 | 2930 | 2.706 | 47.27 | 2418 | 5.3213 | 49.88 | ok |
 | volume_breakout_type | platform_volume_breakout | 3552 | 3470 | 1.1457 | 44.9 | 3427 | 1.702 | 44.94 | 3251 | 3.6138 | 45.65 | ok |
 | volume_breakout_type | right_side_volume_attack | 3187 | 3025 | 2.1753 | 47.87 | 2908 | 3.4602 | 49.62 | 2619 | 8.0412 | 53.57 | ok |
 | volume_breakout_type | strict_60d_volume_breakout | 2408 | 2216 | 2.0624 | 48.06 | 2066 | 5.2615 | 52.27 | 1677 | 9.3684 | 53.73 | ok |
-| volume_breakout_type | volume_expansion_watch | 10383 | 9996 | 0.6773 | 43.17 | 9788 | 1.4422 | 44.44 | 9171 | 3.0713 | 46.52 | ok |
+| volume_breakout_type | volume_expansion_watch | 10384 | 9996 | 0.6773 | 43.17 | 9788 | 1.4422 | 44.44 | 9171 | 3.0713 | 46.52 | ok |
 | volume_watch_scope | broad_watch | 11794 | 10756 | 0.5952 | 42.87 | 10487 | 1.2642 | 44.01 | 9662 | 3.0749 | 47.14 | ok |
-| volume_watch_scope | confirmed_attack | 7135 | 6588 | 1.0259 | 44.58 | 6357 | 2.1648 | 46.01 | 5669 | 4.3421 | 47.45 | ok |
+| volume_watch_scope | confirmed_attack | 7136 | 6588 | 1.0259 | 44.58 | 6357 | 2.1648 | 46.01 | 5669 | 4.3421 | 47.45 | ok |
 | volume_watch_scope | strict_breakout | 2408 | 2216 | 2.0624 | 48.06 | 2066 | 5.2615 | 52.27 | 1677 | 9.3684 | 53.73 | ok |
-| volume_watch_scope | volume_attack | 14563 | 13985 | 0.9746 | 44.06 | 13640 | 1.8861 | 45.48 | 12683 | 4.1604 | 47.91 | ok |
-| false_breakout_risk | False | 21073 | 19760 | 0.9534 | 43.53 | 19228 | 2.0661 | 45.59 | 17594 | 4.2781 | 47.57 | ok |
-| false_breakout_risk | True | 14827 | 13785 | 0.9083 | 44.79 | 13322 | 1.7932 | 45.47 | 12097 | 3.9293 | 48.38 | ok |
-| overheated_breakout | False | 30975 | 29036 | 0.7945 | 43.44 | 28252 | 1.5851 | 44.56 | 26053 | 3.4597 | 47.23 | ok |
+| volume_watch_scope | volume_attack | 14564 | 13985 | 0.9746 | 44.06 | 13640 | 1.8861 | 45.48 | 12683 | 4.1604 | 47.91 | ok |
+| false_breakout_risk | False | 21074 | 19760 | 0.9534 | 43.53 | 19228 | 2.0661 | 45.59 | 17594 | 4.2781 | 47.57 | ok |
+| false_breakout_risk | True | 14828 | 13785 | 0.9083 | 44.79 | 13322 | 1.7932 | 45.47 | 12097 | 3.9293 | 48.38 | ok |
+| overheated_breakout | False | 30977 | 29036 | 0.7945 | 43.44 | 28252 | 1.5851 | 44.56 | 26053 | 3.4597 | 47.23 | ok |
 | overheated_breakout | True | 4925 | 4509 | 1.8388 | 47.97 | 4298 | 4.3818 | 51.98 | 3638 | 8.9793 | 52.67 | ok |
 
 ## Rules
