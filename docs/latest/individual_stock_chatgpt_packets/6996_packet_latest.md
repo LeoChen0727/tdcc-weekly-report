@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6996 力領科技
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:47 Asia/Taipei
+- generated_at: 2026-05-30 23:43:26 Asia/Taipei
 - stock_id: 6996
 - stock_name: 力領科技
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -62,7 +62,7 @@
 - close: 191.5
 - volume: 194000
 - ma5: 190.2
-- ema23_primary: 186.42
+- ema23_primary: 186.43
 - distance_to_ema23_pct: 2.72
 - ma20: 187.35
 - ma60: 177.5
@@ -85,10 +85,10 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260511,186.5,187.5,181.5,183,137000,178.7,2.4,180.55,172.03,0.63
 20260512,184,192.5,183.5,189,203000,179.56,5.26,181.43,172.49,0.91
 20260513,188,188.5,181.5,182.5,167000,179.81,1.5,181.57,172.8,0.76
-20260514,183,193,183,189.5,302000,180.61,4.92,181.72,173.21,1.4
+20260514,183,193,183,189.5,302000,180.62,4.92,181.72,173.21,1.4
 20260515,190,191.5,182,183,186000,180.81,1.21,181.75,173.47,0.88
 20260518,180.5,182.5,177,181.5,125000,180.87,0.35,181.57,173.78,0.6
-20260519,182,185,181,185,84000,181.21,2.09,181.53,174.07,0.42
+20260519,182,185,181,185,84000,181.22,2.09,181.53,174.07,0.42
 20260520,185,192.5,185,192,300000,182.11,5.43,181.8,174.53,1.46
 20260521,195,204,193,198,511000,183.44,7.94,182.12,175.09,2.49
 20260522,199.5,201,191,194,194000,184.32,5.25,183.25,175.6,0.99
@@ -96,21 +96,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,190,192.5,188,191.5,190000,185.16,3.42,184.93,176.34,0.98
 20260527,192,194.5,189,191.5,192000,185.69,3.13,185.85,176.74,0.95
 20260528,191.5,193,186,189,190000,185.96,1.63,186.45,177.07,0.93
-20260529,192,196.5,191.5,191.5,194000,186.42,2.72,187.35,177.5,0.93
+20260529,192,196.5,191.5,191.5,194000,186.43,2.72,187.35,177.5,0.93
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 59.59
-- over_600_ratio: 55.79
-- over_800_ratio: 55.79
-- over_1000_ratio: 55.79
+- over_600_ratio: 55.8
+- over_800_ratio: 55.8
+- over_1000_ratio: 55.8
 - over_400_change_1w: 0
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- over_800_change_1w: 0.01
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,59.59,0,55.79,0,55.79,0,0,False,False
 20260515,59.59,0,55.79,0,55.79,0,0,False,False
 20260522,59.59,0,55.79,0,55.79,0,0,False,False
+20260529,59.59,0,55.8,0.01,55.8,0.01,1,False,True
 ```
 
 ## Candidate Context

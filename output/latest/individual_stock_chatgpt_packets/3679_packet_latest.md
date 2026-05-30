@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3679 新至陞
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:42 Asia/Taipei
+- generated_at: 2026-05-30 23:42:12 Asia/Taipei
 - stock_id: 3679
 - stock_name: 新至陞
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -93,14 +93,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260521,117.5,119,117.5,118,39268,118.81,-0.68,119,119.08,0.63
 20260522,118.5,120,117.5,119.5,75132,118.87,0.53,118.92,119.09,1.26
 20260525,120,120.5,119,119.5,70029,118.92,0.49,118.95,119.1,1.18
-20260526,119.5,121.5,119.5,121,76171,119.1,1.6,119.1,119.13,1.32
+20260526,119.5,121.5,119.5,121,76171,119.09,1.6,119.1,119.13,1.32
 20260527,121.5,123,119.5,120,144700,119.17,0.7,119.15,119.14,2.29
 20260528,120,121.5,119.5,120.5,58267,119.28,1.02,119.08,119.17,0.92
 20260529,121,121,120,120.5,56466,119.38,0.94,119.1,119.2,0.88
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 65.87
 - over_600_ratio: 60.82
 - over_800_ratio: 54.01
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,65.87,-0.71,54.01,0,54.01,0,0,False,False
 20260515,65.87,0,54.01,0,54.01,0,0,False,False
 20260522,65.87,0,54.01,0,54.01,0,0,False,False
+20260529,65.87,0,54.01,0,54.01,0,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5348 正能量智能
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:06 Asia/Taipei
+- generated_at: 2026-05-30 23:42:39 Asia/Taipei
 - stock_id: 5348
 - stock_name: 正能量智能
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 131
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 267
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -89,10 +89,10 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260513,15,15,15,15,6000,16.08,-6.73,16.29,16.88,0.5
 20260514,15,15.95,15,15.95,12000,16.07,-0.76,16.23,16.86,1.02
 20260515,15.3,15.3,15.3,15.3,1000,16.01,-4.42,16.15,16.83,0.09
-20260518,15.3,15.5,15.3,15.5,7000,15.97,-2.92,16.07,16.8,0.61
-20260521,16.8,16.8,16.8,16.8,1000,16.04,4.77,16.06,16.8,0.09
+20260518,15.3,15.5,15.3,15.5,7000,15.97,-2.91,16.07,16.8,0.61
+20260521,16.8,16.8,16.8,16.8,1000,16.03,4.77,16.06,16.8,0.09
 20260522,15.55,17.7,15.55,17.7,17000,16.17,9.44,16.1,16.8,1.4
-20260525,16.15,17.1,16.15,17.1,17000,16.25,5.22,16.1,16.8,1.38
+20260525,16.15,17.1,16.15,17.1,17000,16.25,5.23,16.1,16.8,1.38
 20260526,15.5,16,15.5,16,16000,16.23,-1.42,16.05,16.77,1.29
 20260527,15.15,15.3,15.15,15.2,15000,16.14,-5.85,15.94,16.73,1.16
 20260528,15.3,15.3,15.25,15.3,15000,16.07,-4.81,15.85,16.7,1.15
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 56.06
+- as_of_date: 20260529
+- over_400_ratio: 56.26
 - over_600_ratio: 49.73
 - over_800_ratio: 40.79
 - over_1000_ratio: 40.79
-- over_400_change_1w: 0.03
+- over_400_change_1w: 0.2
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 2
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,53.12,0,40.79,0,40.79,0,0,False,False
 20260515,56.03,2.91,40.79,0,40.79,0,1,False,False
 20260522,56.06,0.03,40.79,0,40.79,0,2,False,False
+20260529,56.26,0.2,40.79,0,40.79,0,3,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6134 萬旭
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:15 Asia/Taipei
+- generated_at: 2026-05-30 23:42:50 Asia/Taipei
 - stock_id: 6134
 - stock_name: 萬旭
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -81,7 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260505,30.6,31.65,30.6,31.6,523000,30.86,2.41,31.2,30.93,0.43
 20260506,31.6,32.1,30.7,31.2,809000,30.89,1.02,31.38,30.92,0.66
 20260507,32.35,32.8,31.35,31.7,1021000,30.95,2.41,31.44,30.92,0.84
-20260508,32,34.2,31.7,33.25,3407000,31.14,6.76,31.45,30.96,2.93
+20260508,32,34.2,31.7,33.25,3407000,31.15,6.76,31.45,30.96,2.93
 20260511,34.15,34.5,31.85,33.55,2484000,31.35,7.03,31.47,31.04,2.31
 20260512,33.5,34.1,32.9,33.1,1165000,31.49,5.11,31.49,31.12,1.07
 20260513,32.9,32.9,31.7,32.05,935000,31.54,1.62,31.47,31.16,0.86
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 57.82
-- over_600_ratio: 54.38
-- over_800_ratio: 53.58
-- over_1000_ratio: 48.1
-- over_400_change_1w: -0.42
-- over_800_change_1w: -0.39
-- over_1000_change_1w: -1.54
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 59.44
+- over_600_ratio: 56.56
+- over_800_ratio: 54.87
+- over_1000_ratio: 52.68
+- over_400_change_1w: 1.62
+- over_800_change_1w: 1.29
+- over_1000_change_1w: 4.58
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,56.61,1.25,51.5,0.84,48.36,1.12,1,True,True
 20260515,58.24,1.63,53.97,2.47,49.64,1.28,2,True,True
 20260522,57.82,-0.42,53.58,-0.39,48.1,-1.54,0,False,False
+20260529,59.44,1.62,54.87,1.29,52.68,4.58,1,True,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6697 東捷資訊
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:37 Asia/Taipei
+- generated_at: 2026-05-30 23:43:14 Asia/Taipei
 - stock_id: 6697
 - stock_name: 東捷資訊
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 136
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 272
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -89,7 +89,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260515,40.4,41,40.3,40.5,33000,41.76,-3.01,42,42.98,0.35
 20260518,40.9,41.75,40.9,41.75,34000,41.76,-0.01,42.03,42.94,0.36
 20260519,41.75,42.55,41,41.1,74000,41.7,-1.44,42.07,42.9,0.78
-20260520,41.1,41.1,40.5,40.55,49000,41.6,-2.54,42.07,42.86,0.52
+20260520,41.1,41.1,40.5,40.55,49000,41.6,-2.53,42.07,42.86,0.52
 20260521,41,41.2,40.6,41.1,33000,41.56,-1.11,41.9,42.8,0.38
 20260522,41.2,41.2,40.7,40.9,41000,41.51,-1.46,41.7,42.72,0.64
 20260525,41.75,43,41.55,42,42000,41.55,1.09,41.55,42.68,0.7
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 66.77
 - over_600_ratio: 63.46
 - over_800_ratio: 61.11
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,66.77,0,61.11,0,61.11,0,0,False,False
 20260515,66.77,0,61.11,0,61.11,0,0,False,False
 20260522,66.77,0,61.11,0,61.11,0,0,False,False
+20260529,66.77,0,61.11,0,61.11,0,0,False,False
 ```
 
 ## Candidate Context

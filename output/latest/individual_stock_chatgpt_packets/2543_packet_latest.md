@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2543 皇昌
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:10 Asia/Taipei
+- generated_at: 2026-05-30 23:41:34 Asia/Taipei
 - stock_id: 2543
 - stock_name: 皇昌
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -81,7 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260505,45,45.15,44.2,44.25,2815278,52.63,-15.92,52.55,61.38,1.06
 20260506,44.5,44.9,43.6,43.65,2910294,51.88,-15.86,51.87,61.03,1.06
 20260507,43.65,44.45,43.3,43.55,1573023,51.18,-14.91,51.12,60.67,0.57
-20260508,43.6,44.2,42.2,42.2,2758729,50.43,-16.33,50.35,60.3,0.96
+20260508,43.6,44.2,42.2,42.2,2758729,50.44,-16.33,50.35,60.3,0.96
 20260511,43.3,45.35,42.8,43.25,3864182,49.84,-13.22,49.62,59.93,1.29
 20260512,43.7,43.7,42.5,42.5,1939438,49.22,-13.66,48.87,59.56,0.64
 20260513,42.5,43.1,42,42,1650857,48.62,-13.62,48.09,59.22,0.54
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 70.96
-- over_600_ratio: 69.46
-- over_800_ratio: 67.76
-- over_1000_ratio: 67.11
-- over_400_change_1w: -0.44
-- over_800_change_1w: 0.11
-- over_1000_change_1w: -0.21
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260529
+- over_400_ratio: 70.59
+- over_600_ratio: 69.33
+- over_800_ratio: 67.22
+- over_1000_ratio: 66.38
+- over_400_change_1w: -0.37
+- over_800_change_1w: -0.54
+- over_1000_change_1w: -0.73
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,17 +120,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,72,-0.55,68.68,-0.4,68.19,-0.37,0,False,False
 20260515,71.4,-0.6,67.65,-1.03,67.32,-0.87,0,False,False
 20260522,70.96,-0.44,67.76,0.11,67.11,-0.21,1,False,True
+20260529,70.59,-0.37,67.22,-0.54,66.38,-0.73,0,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260530 | 2543 | 皇昌 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260530 | 2543 | 皇昌 | 1 | 1 | 4 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

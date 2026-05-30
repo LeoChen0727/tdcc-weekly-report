@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6179 亞通
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:18 Asia/Taipei
+- generated_at: 2026-05-30 23:42:53 Asia/Taipei
 - stock_id: 6179
 - stock_name: 亞通
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -93,24 +93,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260521,24.9,26,24.55,25.95,2768000,24.5,5.9,24.18,25.14,1.69
 20260522,26,26.05,25.3,25.75,26000,24.61,4.64,24.28,25.13,0.02
 20260525,25.65,25.65,24.4,24.85,25000,24.63,0.9,24.33,25.12,0.02
-20260526,25.4,25.4,24.05,24.3,24000,24.6,-1.23,24.35,25.1,0.02
+20260526,25.4,25.4,24.05,24.3,24000,24.6,-1.22,24.35,25.1,0.02
 20260527,24.35,24.5,23.7,23.8,24000,24.53,-2.99,24.33,25.08,0.02
 20260528,23.8,24.15,23.5,23.65,24000,24.46,-3.31,24.32,25.01,0.02
 20260529,24,24,23.7,23.85,24000,24.41,-2.29,24.32,24.95,0.02
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 40.53
-- over_600_ratio: 35.94
-- over_800_ratio: 33.2
-- over_1000_ratio: 30.59
-- over_400_change_1w: 1.72
-- over_800_change_1w: 1.58
-- over_1000_change_1w: 1.04
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 39.28
+- over_600_ratio: 34.59
+- over_800_ratio: 32.22
+- over_1000_ratio: 29.54
+- over_400_change_1w: -1.25
+- over_800_change_1w: -0.98
+- over_1000_change_1w: -1.05
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,38.75,0.33,32.39,-0.17,29.29,-0.12,1,False,False
 20260515,38.81,0.06,31.62,-0.77,29.55,0.26,2,False,True
 20260522,40.53,1.72,33.2,1.58,30.59,1.04,3,True,True
+20260529,39.28,-1.25,32.22,-0.98,29.54,-1.05,0,False,False
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 6179 | 亞通 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 6179 | 亞通 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

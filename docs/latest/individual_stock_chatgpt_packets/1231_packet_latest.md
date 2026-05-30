@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1231 聯華食
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:34 Asia/Taipei
+- generated_at: 2026-05-30 23:40:52 Asia/Taipei
 - stock_id: 1231
 - stock_name: 聯華食
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -95,19 +95,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,85.5,85.5,84.1,84.8,673581,86.94,-2.46,86.48,88.23,1.9
 20260526,84.8,85.8,84.8,85.6,317762,86.83,-1.41,86.47,88.19,0.93
 20260527,85.3,86.1,85,85.6,488937,86.72,-1.3,86.4,88.18,1.39
-20260528,85.6,86.4,84.6,84.7,437541,86.55,-2.14,86.25,88.16,1.2
+20260528,85.6,86.4,84.6,84.7,437541,86.56,-2.14,86.25,88.16,1.2
 20260529,84.8,86,84.8,85.5,396387,86.47,-1.12,86.19,88.16,1.07
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 64.67
-- over_600_ratio: 63.6
-- over_800_ratio: 63.6
-- over_1000_ratio: 62.94
-- over_400_change_1w: -0.19
-- over_800_change_1w: -0.05
-- over_1000_change_1w: -0.05
+- as_of_date: 20260529
+- over_400_ratio: 64.64
+- over_600_ratio: 63.57
+- over_800_ratio: 63.57
+- over_1000_ratio: 62.91
+- over_400_change_1w: -0.03
+- over_800_change_1w: -0.03
+- over_1000_change_1w: -0.03
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,64.86,-0.03,63.59,-0.02,62.93,-0.02,0,False,False
 20260515,64.86,0,63.65,0.06,62.99,0.06,1,False,True
 20260522,64.67,-0.19,63.6,-0.05,62.94,-0.05,0,False,False
+20260529,64.64,-0.03,63.57,-0.03,62.91,-0.03,0,False,False
 ```
 
 ## Candidate Context

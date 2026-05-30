@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6642 富致
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:34 Asia/Taipei
+- generated_at: 2026-05-30 23:43:12 Asia/Taipei
 - stock_id: 6642
 - stock_name: 富致
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -81,12 +81,12 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260505,56.9,62.9,56.9,62.9,764000,57.13,10.1,56.97,56.1,3.56
 20260506,63.2,64.7,59,60.9,920000,57.44,6.02,57.33,56.19,3.54
 20260507,60.9,66.9,60.9,66.9,859000,58.23,14.89,57.98,56.38,2.91
-20260508,66.2,67.3,63.4,64.4,954000,58.74,9.63,58.48,56.53,2.81
+20260508,66.2,67.3,63.4,64.4,954000,58.75,9.63,58.48,56.53,2.81
 20260511,64.4,65.7,63.9,64.3,364000,59.21,8.6,58.95,56.7,1.03
 20260512,64.9,66.7,63.7,63.9,447000,59.6,7.22,59.3,56.86,1.24
 20260513,63.4,65.4,62.1,64,358000,59.97,6.73,59.67,57.02,0.98
 20260514,64,65.7,62.7,63.5,641000,60.26,5.38,59.98,57.16,1.69
-20260515,63.8,69.8,63.8,69.8,496000,61.05,14.32,60.59,57.39,1.25
+20260515,63.8,69.8,63.8,69.8,496000,61.06,14.32,60.59,57.39,1.25
 20260518,76.7,76.7,76.7,76.7,345000,62.36,23,61.52,57.73,0.85
 20260519,83.9,84.3,81.5,84.3,2834000,64.19,31.33,62.89,58.19,5.28
 20260520,84.8,88.3,82.7,83.7,4831000,65.81,27.18,64.19,58.64,6.3
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 61.07
-- over_600_ratio: 57.17
-- over_800_ratio: 51.14
-- over_1000_ratio: 46.24
-- over_400_change_1w: -2.31
-- over_800_change_1w: -4.73
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 63.49
+- over_600_ratio: 58.38
+- over_800_ratio: 54.44
+- over_1000_ratio: 49.54
+- over_400_change_1w: 2.42
+- over_800_change_1w: 3.3
+- over_1000_change_1w: 3.3
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,62.33,-2.66,55.91,-0.24,46.24,0,0,False,False
 20260515,63.38,1.05,55.87,-0.04,46.24,0,1,False,False
 20260522,61.07,-2.31,51.14,-4.73,46.24,0,0,False,False
+20260529,63.49,2.42,54.44,3.3,49.54,3.3,1,True,True
 ```
 
 ## Candidate Context

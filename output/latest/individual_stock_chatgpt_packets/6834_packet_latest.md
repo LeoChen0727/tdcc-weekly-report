@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6834 天二科技
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:41 Asia/Taipei
+- generated_at: 2026-05-30 23:43:19 Asia/Taipei
 - stock_id: 6834
 - stock_name: 天二科技
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 72.12
-- over_600_ratio: 65.36
-- over_800_ratio: 61.55
-- over_1000_ratio: 54.38
-- over_400_change_1w: 3.91
-- over_800_change_1w: 5.31
-- over_1000_change_1w: 4.3
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 70.62
+- over_600_ratio: 63.92
+- over_800_ratio: 57.74
+- over_1000_ratio: 51.66
+- over_400_change_1w: -1.5
+- over_800_change_1w: -3.81
+- over_1000_change_1w: -2.72
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,68.3,0.93,57.16,0.5,49.84,1.45,1,True,True
 20260515,68.21,-0.09,56.24,-0.92,50.08,0.24,2,False,True
 20260522,72.12,3.91,61.55,5.31,54.38,4.3,3,True,True
+20260529,70.62,-1.5,57.74,-3.81,51.66,-2.72,0,False,False
 ```
 
 ## Candidate Context

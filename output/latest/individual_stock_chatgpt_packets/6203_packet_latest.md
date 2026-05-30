@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6203 海韻電
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:20 Asia/Taipei
+- generated_at: 2026-05-30 23:42:55 Asia/Taipei
 - stock_id: 6203
 - stock_name: 海韻電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -82,7 +82,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260506,76.6,78.1,72.1,75.3,3331000,67.18,12.08,66.45,66.08,7.43
 20260507,75.1,77,70.2,71.1,2061000,67.51,5.32,66.62,66.15,3.79
 20260508,71,71,68.6,68.9,533000,67.63,1.88,66.69,66.19,0.94
-20260511,68.9,75.7,68.7,74.7,1830000,68.21,9.51,67.19,66.36,2.88
+20260511,68.9,75.7,68.7,74.7,1830000,68.22,9.51,67.19,66.36,2.88
 20260512,73.2,74.7,71.1,71.8,782000,68.51,4.8,67.56,66.48,1.18
 20260513,70.6,71.4,69.6,69.8,372000,68.62,1.72,67.85,66.56,0.55
 20260514,70.2,71.1,69.4,69.4,393000,68.69,1.04,68.12,66.63,0.58
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 58.92
-- over_600_ratio: 54.7
-- over_800_ratio: 52.13
-- over_1000_ratio: 52.13
-- over_400_change_1w: 0.64
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 59.08
+- over_600_ratio: 55.5
+- over_800_ratio: 52.15
+- over_1000_ratio: 52.15
+- over_400_change_1w: 0.16
+- over_800_change_1w: 0.02
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,58.28,-0.51,52.13,0,52.13,0,0,False,False
 20260515,58.28,0,52.13,0,52.13,0,0,False,False
 20260522,58.92,0.64,52.13,0,52.13,0,1,False,False
+20260529,59.08,0.16,52.15,0.02,52.15,0.02,2,True,True
 ```
 
 ## Candidate Context

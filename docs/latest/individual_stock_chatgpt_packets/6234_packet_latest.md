@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6234 高僑
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:22 Asia/Taipei
+- generated_at: 2026-05-30 23:42:58 Asia/Taipei
 - stock_id: 6234
 - stock_name: 高僑
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -94,21 +94,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,47.2,50.2,46.05,49,49000,48.28,1.49,52.2,36.98,0.01
 20260525,49.65,53.3,48.4,50.3,51000,48.45,3.82,52.52,37.36,0.01
 20260526,51.6,55.3,50.5,55.3,54000,49.02,12.81,53.04,37.81,0.02
-20260527,59.6,59.6,53.1,54.2,56000,49.45,9.61,53.56,38.25,0.02
+20260527,59.6,59.6,53.1,54.2,56000,49.45,9.6,53.56,38.25,0.02
 20260528,54.1,54.9,50,51.2,52000,49.6,3.23,53.72,38.64,0.02
 20260529,51.7,52.2,49.1,49.7,50000,49.6,0.19,53.56,39.03,0.02
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 58.05
-- over_600_ratio: 56.54
-- over_800_ratio: 53.84
-- over_1000_ratio: 52.1
-- over_400_change_1w: 0.09
-- over_800_change_1w: -1.83
-- over_1000_change_1w: -1.06
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 54.53
+- over_600_ratio: 52.07
+- over_800_ratio: 51.45
+- over_1000_ratio: 49.62
+- over_400_change_1w: -3.52
+- over_800_change_1w: -2.39
+- over_1000_change_1w: -2.48
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,58.21,-1.87,53.99,1.17,53.16,2.17,1,False,True
 20260515,57.96,-0.25,55.67,1.68,53.16,0,2,False,True
 20260522,58.05,0.09,53.84,-1.83,52.1,-1.06,3,False,False
+20260529,54.53,-3.52,51.45,-2.39,49.62,-2.48,0,False,False
 ```
 
 ## Candidate Context

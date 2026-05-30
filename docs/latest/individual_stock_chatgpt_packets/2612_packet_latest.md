@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2612 中航
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:12 Asia/Taipei
+- generated_at: 2026-05-30 23:41:36 Asia/Taipei
 - stock_id: 2612
 - stock_name: 中航
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 73.18
-- over_600_ratio: 72.4
-- over_800_ratio: 69.93
-- over_1000_ratio: 69.47
-- over_400_change_1w: -0.06
-- over_800_change_1w: -0.07
-- over_1000_change_1w: -0.07
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 73.59
+- over_600_ratio: 72.55
+- over_800_ratio: 70.41
+- over_1000_ratio: 69.5
+- over_400_change_1w: 0.41
+- over_800_change_1w: 0.48
+- over_1000_change_1w: 0.03
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,73.78,0.26,70.09,0.04,69.63,0.04,1,True,True
 20260515,73.24,-0.54,70,-0.09,69.54,-0.09,0,False,False
 20260522,73.18,-0.06,69.93,-0.07,69.47,-0.07,0,False,False
+20260529,73.59,0.41,70.41,0.48,69.5,0.03,1,True,True
 ```
 
 ## Candidate Context

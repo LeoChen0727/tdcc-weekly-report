@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2061 風青
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:53 Asia/Taipei
+- generated_at: 2026-05-30 23:41:14 Asia/Taipei
 - stock_id: 2061
 - stock_name: 風青
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -78,11 +78,11 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,19.65,19.9,19.25,19.6,888000,17.48,12.15,17.08,17.47,1.66
-20260505,19.75,20,19.6,19.9,672000,17.68,12.57,17.23,17.5,1.19
-20260506,20,21.65,19.9,20.65,2377000,17.93,15.2,17.42,17.56,3.5
-20260507,21.2,21.9,20.7,21.15,1370000,18.19,16.24,17.63,17.62,1.85
-20260508,21.2,21.3,20.35,20.6,956000,18.4,11.99,17.84,17.66,1.22
-20260511,20.7,22.65,20.7,22,3037000,18.7,17.68,18.11,17.69,3.27
+20260505,19.75,20,19.6,19.9,672000,17.68,12.56,17.23,17.5,1.19
+20260506,20,21.65,19.9,20.65,2377000,17.93,15.19,17.42,17.56,3.5
+20260507,21.2,21.9,20.7,21.15,1370000,18.2,16.24,17.63,17.62,1.85
+20260508,21.2,21.3,20.35,20.6,956000,18.4,11.98,17.84,17.66,1.22
+20260511,20.7,22.65,20.7,22,3037000,18.7,17.67,18.11,17.69,3.27
 20260512,22.75,23.25,21.15,21.5,1558000,18.93,13.58,18.37,17.73,1.56
 20260513,21.75,22.1,21.05,21.75,1131000,19.16,13.49,18.62,17.77,1.08
 20260514,21.8,21.95,20.5,21.8,1258000,19.38,12.46,18.9,17.82,1.15
@@ -95,20 +95,20 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,27.4,29.3,27.4,29.3,29000,21.66,35.26,21.64,18.49,0.02
 20260526,30.95,32.2,30,32.2,32000,22.54,42.86,22.32,18.73,0.02
 20260527,31.55,34.6,31.55,33.6,33000,23.46,43.21,23.03,18.99,0.03
-20260528,32.9,33.9,32.7,33,33000,24.26,36.05,23.72,19.24,0.03
+20260528,32.9,33.9,32.7,33,33000,24.26,36.04,23.72,19.24,0.03
 20260529,34.4,36.3,33.3,36.3,35000,25.26,43.7,24.57,19.55,0.03
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 56.08
-- over_600_ratio: 47.44
-- over_800_ratio: 37.02
-- over_1000_ratio: 35.55
-- over_400_change_1w: -3.06
-- over_800_change_1w: -2.33
-- over_1000_change_1w: -2.33
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260529
+- over_400_ratio: 57.33
+- over_600_ratio: 47.97
+- over_800_ratio: 36.72
+- over_1000_ratio: 35.25
+- over_400_change_1w: 1.25
+- over_800_change_1w: -0.3
+- over_1000_change_1w: -0.3
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,58.14,0.33,39.67,-0.39,36.65,-1.94,1,False,False
 20260515,59.14,1,39.35,-0.32,37.88,1.23,2,False,True
 20260522,56.08,-3.06,37.02,-2.33,35.55,-2.33,0,False,False
+20260529,57.33,1.25,36.72,-0.3,35.25,-0.3,1,False,False
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2061 | 風青 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 2061 | 風青 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

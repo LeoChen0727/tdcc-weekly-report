@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4930 燦星網
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:58 Asia/Taipei
+- generated_at: 2026-05-30 23:42:31 Asia/Taipei
 - stock_id: 4930
 - stock_name: 燦星網
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,16 +100,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 63.04
-- over_600_ratio: 62.53
-- over_800_ratio: 60.85
-- over_1000_ratio: 58.79
-- over_400_change_1w: -0.03
-- over_800_change_1w: 0.04
-- over_1000_change_1w: 0.04
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 63.07
+- over_600_ratio: 62.56
+- over_800_ratio: 60.88
+- over_1000_ratio: 58.82
+- over_400_change_1w: 0.03
+- over_800_change_1w: 0.03
+- over_1000_change_1w: 0.03
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,63.14,-0.01,60.83,-1.02,58.77,-0.01,0,False,False
 20260515,63.07,-0.07,60.81,-0.02,58.75,-0.02,0,False,False
 20260522,63.04,-0.03,60.85,0.04,58.79,0.04,1,False,True
+20260529,63.07,0.03,60.88,0.03,58.82,0.03,2,True,True
 ```
 
 ## Candidate Context

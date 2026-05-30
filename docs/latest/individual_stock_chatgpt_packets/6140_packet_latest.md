@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6140 訊達
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:16 Asia/Taipei
+- generated_at: 2026-05-30 23:42:50 Asia/Taipei
 - stock_id: 6140
 - stock_name: 訊達
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,16 +77,16 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,19.05,19.15,18.8,18.85,69000,19.21,-1.85,18.63,20.86,0.44
-20260505,18.85,18.85,18.6,18.65,75000,19.16,-2.66,18.63,20.75,0.48
+20260504,19.05,19.15,18.8,18.85,69000,19.2,-1.85,18.63,20.86,0.44
+20260505,18.85,18.85,18.6,18.65,75000,19.16,-2.65,18.63,20.75,0.48
 20260506,19,20.5,18.95,20.5,288000,19.27,6.38,18.76,20.66,1.87
 20260507,22.55,22.55,22.55,22.55,290000,19.54,15.38,18.99,20.62,1.83
 20260508,24.75,24.75,22.5,23.25,1192000,19.85,17.11,19.27,20.61,5.64
 20260511,22.55,22.6,21.55,21.6,413000,20,8.01,19.5,20.59,1.85
 20260512,22.1,22.1,20.5,21,244000,20.08,4.57,19.67,20.56,1.07
-20260513,20.55,20.6,20.05,20.05,142000,20.08,-0.15,19.79,20.5,0.62
+20260513,20.55,20.6,20.05,20.05,142000,20.08,-0.14,19.79,20.5,0.62
 20260514,20.15,20.55,19.9,20.1,95000,20.08,0.1,19.89,20.44,0.41
-20260515,20.4,20.4,19.6,19.85,155000,20.06,-1.06,19.93,20.39,0.69
+20260515,20.4,20.4,19.6,19.85,155000,20.06,-1.05,19.93,20.39,0.69
 20260518,19.3,20.8,19.3,19.45,134000,20.01,-2.8,19.96,20.35,0.6
 20260519,19.55,20.1,19.45,19.6,69000,19.98,-1.88,20,20.31,0.31
 20260520,19.45,19.55,19.35,19.35,64000,19.92,-2.88,20,20.27,0.29
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 45.77
+- as_of_date: 20260529
+- over_400_ratio: 45.81
 - over_600_ratio: 41.96
 - over_800_ratio: 39.37
 - over_1000_ratio: 34.47
-- over_400_change_1w: 0.16
+- over_400_change_1w: 0.04
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,45.75,-0.06,39.37,0,34.47,0,0,False,False
 20260515,45.61,-0.14,39.37,0,34.47,0,0,False,False
 20260522,45.77,0.16,39.37,0,34.47,0,1,False,False
+20260529,45.81,0.04,39.37,0,34.47,0,2,False,False
 ```
 
 ## Candidate Context

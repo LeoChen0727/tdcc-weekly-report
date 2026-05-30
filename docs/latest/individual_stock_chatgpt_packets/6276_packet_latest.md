@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6276 安鈦克
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:24 Asia/Taipei
+- generated_at: 2026-05-30 23:43:00 Asia/Taipei
 - stock_id: 6276
 - stock_name: 安鈦克
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -83,10 +83,10 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260507,30.35,30.4,29.85,29.9,183000,31.63,-5.46,31.38,33.09,2.85
 20260508,29.8,30.8,29.8,30.6,94000,31.54,-2.98,31.3,33.01,1.44
 20260511,31.3,31.3,30.15,30.5,49000,31.45,-3.03,31.24,32.93,0.76
-20260512,30.05,30.05,29.5,29.55,162000,31.29,-5.58,31.15,32.85,2.32
+20260512,30.05,30.05,29.5,29.55,162000,31.29,-5.57,31.15,32.85,2.32
 20260513,30.3,30.3,29.5,29.85,51000,31.17,-4.25,31.08,32.76,0.73
-20260514,29.9,30.7,29.5,29.5,68000,31.03,-4.95,30.99,32.63,0.97
-20260515,30.6,30.6,29,29.15,67000,30.88,-5.6,30.86,32.51,0.95
+20260514,29.9,30.7,29.5,29.5,68000,31.03,-4.94,30.99,32.63,0.97
+20260515,30.6,30.6,29,29.15,67000,30.88,-5.59,30.86,32.51,0.95
 20260518,29.15,29.15,28.45,28.45,79000,30.68,-7.25,30.71,32.39,1.1
 20260519,28.3,29.1,28.1,28.1,54000,30.46,-7.75,30.59,32.26,0.76
 20260520,28.1,28.95,27.5,28.35,64000,30.28,-6.39,30.44,32.15,0.95
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 52.25
-- over_600_ratio: 52.25
-- over_800_ratio: 48.65
-- over_1000_ratio: 44.15
-- over_400_change_1w: -0.2
-- over_800_change_1w: -0.2
-- over_1000_change_1w: -4.7
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 52.38
+- over_600_ratio: 52.38
+- over_800_ratio: 48.78
+- over_1000_ratio: 48.78
+- over_400_change_1w: 0.13
+- over_800_change_1w: 0.13
+- over_1000_change_1w: 4.63
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,52.46,-0.27,48.86,-0.27,48.86,-0.27,0,False,False
 20260515,52.45,-0.01,48.85,-0.01,48.85,-0.01,0,False,False
 20260522,52.25,-0.2,48.65,-0.2,44.15,-4.7,0,False,False
+20260529,52.38,0.13,48.78,0.13,48.78,4.63,1,True,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9906 欣巴巴
 
 ## Metadata
-- generated_at: 2026-05-29 19:34:06 Asia/Taipei
+- generated_at: 2026-05-30 23:44:03 Asia/Taipei
 - stock_id: 9906
 - stock_name: 欣巴巴
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -79,7 +79,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,38.25,38.25,37.55,37.55,100560,40.05,-6.25,40.33,42.01,0.96
 20260505,37.8,37.8,37.2,37.5,107895,39.84,-5.88,40.15,41.87,1
-20260506,37.6,37.8,37.45,37.6,92150,39.65,-5.18,39.97,41.73,0.83
+20260506,37.6,37.8,37.45,37.6,92150,39.66,-5.18,39.97,41.73,0.83
 20260507,37.75,37.9,37,37.1,230260,39.44,-5.94,39.7,41.59,1.96
 20260508,37,37.5,36.2,36.2,122391,39.17,-7.59,39.45,41.45,1.02
 20260511,36.5,36.5,35.85,36.2,169289,38.92,-7,39.17,41.32,1.38
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 77.99
-- over_600_ratio: 74.94
-- over_800_ratio: 73.44
-- over_1000_ratio: 72.34
-- over_400_change_1w: 0.08
-- over_800_change_1w: -0.03
-- over_1000_change_1w: -0.03
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 78.5
+- over_600_ratio: 76.06
+- over_800_ratio: 74.56
+- over_1000_ratio: 72.46
+- over_400_change_1w: 0.51
+- over_800_change_1w: 1.12
+- over_1000_change_1w: 0.12
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,77.51,0.15,74.4,0.16,71.47,0.16,1,True,True
 20260515,77.91,0.4,73.47,-0.93,72.37,0.9,2,False,True
 20260522,77.99,0.08,73.44,-0.03,72.34,-0.03,3,False,False
+20260529,78.5,0.51,74.56,1.12,72.46,0.12,4,True,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6417 韋僑
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:26 Asia/Taipei
+- generated_at: 2026-05-30 23:43:02 Asia/Taipei
 - stock_id: 6417
 - stock_name: 韋僑
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -78,8 +78,8 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,116.5,117,115,115.5,52000,113.71,1.57,113.53,109.13,0.27
-20260505,115,117.5,115,116.5,77000,113.94,2.24,114.22,109.25,0.4
-20260506,116,120,113.5,118.5,154000,114.32,3.65,115.03,109.4,1.04
+20260505,115,117.5,115,116.5,77000,113.95,2.24,114.22,109.25,0.4
+20260506,116,120,113.5,118.5,154000,114.33,3.65,115.03,109.4,1.04
 20260507,119,130,117,127.5,942000,115.42,10.46,116.28,109.71,4.85
 20260508,131,140,128.5,138,1348000,117.3,17.64,118.03,110.2,5.37
 20260511,140,146,134.5,138.5,826000,119.07,16.32,119.55,110.71,2.9
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 68.46
-- over_600_ratio: 62.36
-- over_800_ratio: 58.93
-- over_1000_ratio: 52.7
-- over_400_change_1w: -0.86
-- over_800_change_1w: 1.92
-- over_1000_change_1w: -0.01
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 68.19
+- over_600_ratio: 62.11
+- over_800_ratio: 58.64
+- over_1000_ratio: 52.4
+- over_400_change_1w: -0.27
+- over_800_change_1w: -0.29
+- over_1000_change_1w: -0.3
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,67.14,-0.11,56.23,-0.05,51.93,-0.05,1,False,False
 20260515,69.32,2.18,57.01,0.78,52.71,0.78,2,True,True
 20260522,68.46,-0.86,58.93,1.92,52.7,-0.01,3,False,True
+20260529,68.19,-0.27,58.64,-0.29,52.4,-0.3,0,False,False
 ```
 
 ## Candidate Context

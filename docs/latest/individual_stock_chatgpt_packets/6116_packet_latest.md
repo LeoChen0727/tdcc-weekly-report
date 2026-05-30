@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6116 彩晶
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:14 Asia/Taipei
+- generated_at: 2026-05-30 23:42:49 Asia/Taipei
 - stock_id: 6116
 - stock_name: 彩晶
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -85,7 +85,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260511,9.55,10.1,9.4,9.71,89842953,8.73,11.26,8.74,8.63,3.06
 20260512,9.73,10.65,9.69,10.65,134250146,8.89,19.83,8.84,8.67,3.78
 20260513,10.85,11.7,10.65,11.25,497020914,9.08,23.84,8.96,8.72,8.46
-20260514,11.25,11.3,10.3,10.4,191343134,9.19,13.12,9.04,8.75,2.86
+20260514,11.25,11.3,10.3,10.4,191343134,9.19,13.11,9.04,8.75,2.86
 20260515,10.5,11.2,10.15,10.25,104759367,9.28,10.43,9.09,8.78,1.51
 20260518,10.25,10.4,9.7,10.35,57701291,9.37,10.45,9.16,8.81,0.82
 20260519,10.35,10.5,10.05,10.15,39198848,9.44,7.57,9.21,8.84,0.55
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 48.07
-- over_600_ratio: 46.48
-- over_800_ratio: 45.52
-- over_1000_ratio: 44.47
-- over_400_change_1w: 0.55
-- over_800_change_1w: 0.53
-- over_1000_change_1w: 0.47
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 46.47
+- over_600_ratio: 44.94
+- over_800_ratio: 44.34
+- over_1000_ratio: 43.87
+- over_400_change_1w: -1.6
+- over_800_change_1w: -1.18
+- over_1000_change_1w: -0.6
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,17 +120,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,47.28,1.33,44.62,1.31,43.47,1.17,1,True,True
 20260515,47.52,0.24,44.99,0.37,44,0.53,2,True,True
 20260522,48.07,0.55,45.52,0.53,44.47,0.47,3,True,True
+20260529,46.47,-1.6,44.34,-1.18,43.87,-0.6,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 6116 | 彩晶 | true_breakout | 嚴格突破 | 87.0 |  |  | breakout_confirmed |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 6116 | 彩晶 | 5 | 5 | 5 | 5 | 5 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

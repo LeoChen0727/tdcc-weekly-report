@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4130 健亞
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:46 Asia/Taipei
+- generated_at: 2026-05-30 23:42:16 Asia/Taipei
 - stock_id: 4130
 - stock_name: 健亞
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 136
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 272
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,7 +88,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260514,28.35,28.35,27.9,28.2,135000,29.14,-3.22,28.92,31.4,0.23
 20260515,28.2,28.2,27.5,27.6,120000,29.01,-4.86,28.67,31.32,0.22
 20260518,27.1,27.75,27.1,27.7,28000,28.9,-4.16,28.43,31.25,0.05
-20260519,27.7,28.2,27.7,27.85,77000,28.81,-3.34,28.2,31.19,0.15
+20260519,27.7,28.2,27.7,27.85,77000,28.81,-3.35,28.2,31.19,0.15
 20260520,27.25,27.8,27.1,27.3,95000,28.69,-4.84,27.96,31.11,0.23
 20260521,27.3,27.85,27.3,27.6,121000,28.6,-3.49,27.84,31.03,0.46
 20260522,27.4,27.75,27.35,27.5,27000,28.51,-3.53,27.71,30.95,0.14
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 64.12
-- over_600_ratio: 62.37
-- over_800_ratio: 61.81
-- over_1000_ratio: 61.81
+- as_of_date: 20260529
+- over_400_ratio: 64.11
+- over_600_ratio: 62.88
+- over_800_ratio: 62.44
+- over_1000_ratio: 61.86
 - over_400_change_1w: -0.01
-- over_800_change_1w: 0.03
-- over_1000_change_1w: 0.03
-- tdcc_consecutive_up_weeks: 3
+- over_800_change_1w: 0.63
+- over_1000_change_1w: 0.05
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,64.04,0.45,61.69,0.07,61.69,0.07,1,True,True
 20260515,64.13,0.09,61.78,0.09,61.78,0.09,2,False,True
 20260522,64.12,-0.01,61.81,0.03,61.81,0.03,3,False,True
+20260529,64.11,-0.01,62.44,0.63,61.86,0.05,4,False,True
 ```
 
 ## Candidate Context

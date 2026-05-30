@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6209 今國光
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:21 Asia/Taipei
+- generated_at: 2026-05-30 23:42:56 Asia/Taipei
 - stock_id: 6209
 - stock_name: 今國光
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -84,7 +84,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260508,72.2,73.3,65.9,66,15090186,63.03,4.71,63.81,58.67,1.67
 20260511,68,68.3,64.5,65.8,7271001,63.26,4.01,64.36,58.67,0.78
 20260512,66.1,67.6,65.1,66,6418915,63.49,3.95,64.63,58.77,0.69
-20260513,66,66,61.9,62.1,5793582,63.38,-2.01,64.59,58.8,0.65
+20260513,66,66,61.9,62.1,5793582,63.37,-2.01,64.59,58.8,0.65
 20260514,62.8,68.3,62.8,68.3,12031271,63.79,7.08,64.94,58.94,1.31
 20260515,68.3,69.7,66.7,67,19369451,64.05,4.6,65.25,59.08,1.93
 20260518,67.4,68.5,65.9,68,7460283,64.38,5.62,65.55,59.21,0.74
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 52.14
-- over_600_ratio: 49.9
-- over_800_ratio: 44.76
-- over_1000_ratio: 42.39
-- over_400_change_1w: 3.34
-- over_800_change_1w: 1.74
-- over_1000_change_1w: 1.78
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 46.04
+- over_600_ratio: 44.41
+- over_800_ratio: 38.61
+- over_1000_ratio: 36.17
+- over_400_change_1w: -6.1
+- over_800_change_1w: -6.15
+- over_1000_change_1w: -6.22
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,18 +120,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,50.9,3.96,44.6,4.78,43.66,6.33,1,True,True
 20260515,48.8,-2.1,43.02,-1.58,40.61,-3.05,0,False,False
 20260522,52.14,3.34,44.76,1.74,42.39,1.78,1,True,True
+20260529,46.04,-6.1,38.61,-6.15,36.17,-6.22,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 6209 | 今國光 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260530 | 6209 | 今國光 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260521 | 6209 | 今國光 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 6209 | 今國光 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260530 | 6209 | 今國光 | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

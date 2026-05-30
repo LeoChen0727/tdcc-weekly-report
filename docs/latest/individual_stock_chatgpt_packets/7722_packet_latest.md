@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7722 LINEPAY
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:49 Asia/Taipei
+- generated_at: 2026-05-30 23:43:43 Asia/Taipei
 - stock_id: 7722
 - stock_name: LINEPAY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -78,7 +78,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,282,290,281.5,285,154552,303.79,-6.19,298.9,359.02,1.17
-20260505,284,284,277.5,278.5,149344,301.68,-7.68,297.82,355.46,1.13
+20260505,284,284,277.5,278.5,149344,301.69,-7.69,297.82,355.46,1.13
 20260506,283,283,276.5,281,120527,299.96,-6.32,296.82,352.19,0.88
 20260507,279.5,282,276.5,282,152503,298.46,-5.52,295.05,349.05,1.12
 20260508,282,287,280,280.5,113334,296.97,-5.55,293.73,345.85,0.83
@@ -95,17 +95,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,269.5,270.5,260,261.5,154551,275.41,-5.05,271.4,313.16,1
 20260526,262,267.5,260,261,116621,274.21,-4.82,270.35,310.58,0.78
 20260527,262.5,265.5,257.5,260.5,104783,273.07,-4.6,269.32,307.91,0.71
-20260528,260.5,260.5,256,258.5,95222,271.85,-4.91,268.15,305.45,0.65
+20260528,260.5,260.5,256,258.5,95222,271.86,-4.91,268.15,305.45,0.65
 20260529,258.5,265.5,258.5,262.5,130557,271.08,-3.16,267.2,303.06,0.89
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 85.45
+- as_of_date: 20260529
+- over_400_ratio: 85.37
 - over_600_ratio: 83.93
 - over_800_ratio: 83.93
 - over_1000_ratio: 83.93
-- over_400_change_1w: -0.15
+- over_400_change_1w: -0.08
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,85.66,0.09,83.93,0,83.93,0,1,False,False
 20260515,85.6,-0.06,83.93,0,83.93,0,0,False,False
 20260522,85.45,-0.15,83.93,0,83.93,0,0,False,False
+20260529,85.37,-0.08,83.93,0,83.93,0,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6706 惠特
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:37 Asia/Taipei
+- generated_at: 2026-05-30 23:43:14 Asia/Taipei
 - stock_id: 6706
 - stock_name: 惠特
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 36.07
-- over_600_ratio: 30.36
-- over_800_ratio: 26.92
-- over_1000_ratio: 22.34
-- over_400_change_1w: 2.57
-- over_800_change_1w: 2.91
-- over_1000_change_1w: 4.23
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260529
+- over_400_ratio: 41.31
+- over_600_ratio: 35.52
+- over_800_ratio: 31.83
+- over_1000_ratio: 27.07
+- over_400_change_1w: 5.24
+- over_800_change_1w: 4.91
+- over_1000_change_1w: 4.73
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,36.62,1.94,27.39,2.04,24.93,3.17,1,True,True
 20260515,33.5,-3.12,24.01,-3.38,18.11,-6.82,0,False,False
 20260522,36.07,2.57,26.92,2.91,22.34,4.23,1,True,True
+20260529,41.31,5.24,31.83,4.91,27.07,4.73,2,True,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2015 豐興
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:52 Asia/Taipei
+- generated_at: 2026-05-30 23:41:13 Asia/Taipei
 - stock_id: 2015
 - stock_name: 豐興
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 88.19
-- over_600_ratio: 84.81
-- over_800_ratio: 83.6
-- over_1000_ratio: 82.35
-- over_400_change_1w: 0.09
-- over_800_change_1w: -0.05
-- over_1000_change_1w: -0.04
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 88.25
+- over_600_ratio: 84.85
+- over_800_ratio: 83.64
+- over_1000_ratio: 82.23
+- over_400_change_1w: 0.06
+- over_800_change_1w: 0.04
+- over_1000_change_1w: -0.12
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,88.01,0,83.66,-0.1,82.41,0.06,1,False,True
 20260515,88.1,0.09,83.65,-0.01,82.39,-0.02,2,False,False
 20260522,88.19,0.09,83.6,-0.05,82.35,-0.04,3,False,False
+20260529,88.25,0.06,83.64,0.04,82.23,-0.12,4,False,True
 ```
 
 ## Candidate Context

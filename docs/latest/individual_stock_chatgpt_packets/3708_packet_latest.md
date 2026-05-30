@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3708 上緯投控
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:44 Asia/Taipei
+- generated_at: 2026-05-30 23:42:13 Asia/Taipei
 - stock_id: 3708
 - stock_name: 上緯投控
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,16 +100,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 55.16
-- over_600_ratio: 50.19
-- over_800_ratio: 47.16
-- over_1000_ratio: 43.76
-- over_400_change_1w: 1.16
-- over_800_change_1w: 1.61
-- over_1000_change_1w: 0.11
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 54.42
+- over_600_ratio: 49.33
+- over_800_ratio: 46.15
+- over_1000_ratio: 44.36
+- over_400_change_1w: -0.74
+- over_800_change_1w: -1.01
+- over_1000_change_1w: 0.6
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,53.63,0.51,44.26,1,43.37,1.13,1,False,True
 20260515,54,0.37,45.55,1.29,43.65,0.28,2,True,True
 20260522,55.16,1.16,47.16,1.61,43.76,0.11,3,True,True
+20260529,54.42,-0.74,46.15,-1.01,44.36,0.6,4,False,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7757 金色三麥
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:50 Asia/Taipei
+- generated_at: 2026-05-30 23:43:45 Asia/Taipei
 - stock_id: 7757
 - stock_name: 金色三麥
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,7 +77,7 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,105.5,106.5,105,105.5,37000,107.8,-2.13,108.38,108.77,1.62
+20260504,105.5,106.5,105,105.5,37000,107.79,-2.13,108.38,108.77,1.62
 20260505,105.5,106,105,105,38000,107.56,-2.38,108.15,108.59,1.61
 20260506,106,106,104.5,105,26000,107.35,-2.19,107.97,108.45,1.05
 20260507,105,105.5,105,105,13000,107.15,-2.01,107.75,108.31,0.52
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 57.38
 - over_600_ratio: 55.2
 - over_800_ratio: 55.2
 - over_1000_ratio: 47.55
-- over_400_change_1w: 0.01
-- over_800_change_1w: 0.01
+- over_400_change_1w: 0
+- over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,57.37,0.01,55.19,0.01,47.55,0,1,False,True
 20260515,57.37,0,55.19,0,47.55,0,0,False,False
 20260522,57.38,0.01,55.2,0.01,47.55,0,1,False,True
+20260529,57.38,0,55.2,0,47.55,0,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7713 威力德生醫
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:48 Asia/Taipei
+- generated_at: 2026-05-30 23:43:43 Asia/Taipei
 - stock_id: 7713
 - stock_name: 威力德生醫
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 125
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 261
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -84,7 +84,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260507,68,69,68,68.6,62000,67.91,1.01,67.38,69.43,3.99
 20260508,68.2,68.9,68.2,68.9,7000,68,1.33,67.52,69.41,0.45
 20260512,68,69,68,68.5,23000,68.04,0.68,67.61,69.38,1.69
-20260513,67.7,68,67.6,68,4000,68.04,-0.05,67.61,69.34,0.3
+20260513,67.7,68,67.6,68,4000,68.03,-0.05,67.61,69.34,0.3
 20260514,68,68.3,67.9,68,29000,68.03,-0.05,67.58,69.3,2.04
 20260515,67.4,68.2,67.4,68.1,13000,68.04,0.09,67.59,69.26,0.88
 20260518,67.1,68,67.1,68,17000,68.03,-0.05,67.64,69.22,1.12
@@ -93,22 +93,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260521,67.2,67.5,67.1,67.5,10000,67.93,-0.64,67.75,69.05,0.66
 20260522,67.3,67.9,67.3,67.9,68000,67.93,-0.04,67.76,69,3.94
 20260525,67.2,67.2,66.5,67,67000,67.85,-1.26,67.77,68.94,3.38
-20260526,66.9,67.5,66.3,66.8,67000,67.77,-1.42,67.72,68.87,2.98
+20260526,66.9,67.5,66.3,66.8,67000,67.76,-1.42,67.72,68.87,2.98
 20260527,66.8,67.8,66.6,67.2,67000,67.72,-0.76,67.72,68.82,2.63
 20260528,66.9,67.5,66.9,67.1,67000,67.67,-0.84,67.7,68.78,2.33
 20260529,66.9,67.7,66.9,67.2,67000,67.63,-0.63,67.69,68.74,2.1
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 83.97
-- over_600_ratio: 80.46
-- over_800_ratio: 77.47
-- over_1000_ratio: 77.47
-- over_400_change_1w: 0.01
-- over_800_change_1w: 0.02
-- over_1000_change_1w: 0.02
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260529
+- over_400_ratio: 84.08
+- over_600_ratio: 80.59
+- over_800_ratio: 77.57
+- over_1000_ratio: 77.57
+- over_400_change_1w: 0.11
+- over_800_change_1w: 0.1
+- over_1000_change_1w: 0.1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,83.96,-0.87,77.45,0.02,77.45,0.02,1,False,True
 20260515,83.96,0,77.45,0,77.45,0,0,False,False
 20260522,83.97,0.01,77.47,0.02,77.47,0.02,1,True,True
+20260529,84.08,0.11,77.57,0.1,77.57,0.1,2,True,True
 ```
 
 ## Candidate Context

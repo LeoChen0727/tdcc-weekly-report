@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6124 業強
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:15 Asia/Taipei
+- generated_at: 2026-05-30 23:42:49 Asia/Taipei
 - stock_id: 6124
 - stock_name: 業強
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 93.66
-- over_600_ratio: 93.17
-- over_800_ratio: 92.76
-- over_1000_ratio: 92.26
+- as_of_date: 20260529
+- over_400_ratio: 93.67
+- over_600_ratio: 93.18
+- over_800_ratio: 92.77
+- over_1000_ratio: 92.27
 - over_400_change_1w: 0.01
 - over_800_change_1w: 0.01
 - over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,93.65,0.01,92.75,0.01,92.25,0.01,1,True,True
 20260515,93.65,0,92.75,0,92.25,0,0,False,False
 20260522,93.66,0.01,92.76,0.01,92.26,0.01,1,True,True
+20260529,93.67,0.01,92.77,0.01,92.27,0.01,2,True,True
 ```
 
 ## Candidate Context

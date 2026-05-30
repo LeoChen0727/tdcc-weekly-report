@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3189 景碩
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:27 Asia/Taipei
+- generated_at: 2026-05-30 23:41:54 Asia/Taipei
 - stock_id: 3189
 - stock_name: 景碩
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 72.01
-- over_600_ratio: 69.95
-- over_800_ratio: 67.66
-- over_1000_ratio: 65.82
-- over_400_change_1w: 1.69
-- over_800_change_1w: 1.98
-- over_1000_change_1w: 2.14
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260529
+- over_400_ratio: 72.79
+- over_600_ratio: 70.8
+- over_800_ratio: 68.37
+- over_1000_ratio: 67.05
+- over_400_change_1w: 0.78
+- over_800_change_1w: 0.71
+- over_1000_change_1w: 1.23
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,68.25,-1.47,63.52,-1.89,61.87,-1,0,False,False
 20260515,70.32,2.07,65.68,2.16,63.68,1.81,1,True,True
 20260522,72.01,1.69,67.66,1.98,65.82,2.14,2,True,True
+20260529,72.79,0.78,68.37,0.71,67.05,1.23,3,True,True
 ```
 
 ## Candidate Context

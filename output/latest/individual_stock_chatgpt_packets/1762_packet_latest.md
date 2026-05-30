@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1762 中化生
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:49 Asia/Taipei
+- generated_at: 2026-05-30 23:41:09 Asia/Taipei
 - stock_id: 1762
 - stock_name: 中化生
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 44.82
-- over_600_ratio: 42.83
-- over_800_ratio: 40.02
-- over_1000_ratio: 37.68
-- over_400_change_1w: -0.07
-- over_800_change_1w: -0.07
-- over_1000_change_1w: -0.07
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 44.83
+- over_600_ratio: 42.84
+- over_800_ratio: 40.03
+- over_1000_ratio: 37.69
+- over_400_change_1w: 0.01
+- over_800_change_1w: 0.01
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,44.63,0.1,39.83,0.1,37.5,0.1,1,True,True
 20260515,44.89,0.26,40.09,0.26,37.75,0.25,2,True,True
 20260522,44.82,-0.07,40.02,-0.07,37.68,-0.07,0,False,False
+20260529,44.83,0.01,40.03,0.01,37.69,0.01,1,True,True
 ```
 
 ## Candidate Context

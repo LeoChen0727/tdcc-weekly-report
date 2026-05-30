@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3516 亞帝歐
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:36 Asia/Taipei
+- generated_at: 2026-05-30 23:42:05 Asia/Taipei
 - stock_id: 3516
 - stock_name: 亞帝歐
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -86,7 +86,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260512,20.95,21.5,20.6,21,166000,20.21,3.91,20.35,19.67,0.85
 20260513,23.1,23.1,23.1,23.1,509000,20.45,12.95,20.53,19.72,2.36
 20260514,25.4,25.4,25.4,25.4,566000,20.86,21.74,20.81,19.81,2.33
-20260515,25.5,25.5,22.9,22.9,2212000,21.03,8.88,20.95,19.86,6.26
+20260515,25.5,25.5,22.9,22.9,2212000,21.03,8.87,20.95,19.86,6.26
 20260518,22.75,23.7,22.7,23.7,477000,21.26,11.5,21.14,19.92,1.27
 20260519,23.85,24.05,23.05,23.45,190000,21.44,9.38,21.31,19.98,0.5
 20260520,23.45,23.5,23,23,119000,21.57,6.64,21.45,20.03,0.31
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 75.56
-- over_600_ratio: 72.34
-- over_800_ratio: 71.31
-- over_1000_ratio: 68.31
-- over_400_change_1w: -1.45
-- over_800_change_1w: 0.72
-- over_1000_change_1w: 0.72
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260529
+- over_400_ratio: 74.96
+- over_600_ratio: 72.61
+- over_800_ratio: 71.58
+- over_1000_ratio: 68.58
+- over_400_change_1w: -0.6
+- over_800_change_1w: 0.27
+- over_1000_change_1w: 0.27
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,75.95,0,70.6,0,67.6,0,0,False,False
 20260515,77.01,1.06,70.59,-0.01,67.59,-0.01,1,False,False
 20260522,75.56,-1.45,71.31,0.72,68.31,0.72,2,False,True
+20260529,74.96,-0.6,71.58,0.27,68.58,0.27,3,False,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8261 富鼎
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:58 Asia/Taipei
+- generated_at: 2026-05-30 23:43:54 Asia/Taipei
 - stock_id: 8261
 - stock_name: 富鼎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -80,7 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260504,120.5,120.5,118.5,119.5,2002688,115.02,3.9,115.62,104.44,0.47
 20260505,120,125,120,124.5,4173275,115.81,7.51,116.83,104.91,0.96
 20260506,127,127,120.5,122,3324741,116.32,4.88,117.72,105.36,0.75
-20260507,124.5,128.5,122.5,128,8069956,117.3,9.12,118.7,105.89,1.74
+20260507,124.5,128.5,122.5,128,8069956,117.3,9.13,118.7,105.89,1.74
 20260508,126.5,127.5,120.5,126,4695505,118.02,6.76,119.6,106.4,0.98
 20260511,127,137.5,124.5,135,12187966,119.44,13.03,120.97,107.11,2.3
 20260512,135,139.5,129.5,131,7254442,120.4,8.8,121.97,107.81,1.31
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 50.18
-- over_600_ratio: 47.8
-- over_800_ratio: 45.97
-- over_1000_ratio: 43.1
-- over_400_change_1w: 1.34
-- over_800_change_1w: 1.55
-- over_1000_change_1w: 0.08
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260529
+- over_400_ratio: 50.97
+- over_600_ratio: 49.22
+- over_800_ratio: 47.58
+- over_1000_ratio: 46.04
+- over_400_change_1w: 0.79
+- over_800_change_1w: 1.61
+- over_1000_change_1w: 2.94
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,17 +120,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,45.12,-0.35,40.55,-1.49,39.84,-0.04,0,False,False
 20260515,48.84,3.72,44.42,3.87,43.02,3.18,1,True,True
 20260522,50.18,1.34,45.97,1.55,43.1,0.08,2,True,True
+20260529,50.97,0.79,47.58,1.61,46.04,2.94,3,True,True
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 8261 | 富鼎 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 8261 | 富鼎 | 5 | 2 | 5 | 6 | 6 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

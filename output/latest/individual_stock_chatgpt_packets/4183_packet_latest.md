@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4183 福永生技
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:48 Asia/Taipei
+- generated_at: 2026-05-30 23:42:18 Asia/Taipei
 - stock_id: 4183
 - stock_name: 福永生技
-- packet_status: standard_rawdata_packet
+- packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 118
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 254
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: price history shorter than 120 rows; K-line context is partial; TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
+- notes: TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
 
 ## Stable Read URLs
 - packet_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_chatgpt_packets/4183_packet_latest.md
@@ -66,7 +66,7 @@
 - distance_to_ema23_pct: -3.65
 - ma20: 13.32
 - ma60: 14.91
-- ma120: 15.9
+- ma120: 15.85
 - return_5d: 4.42
 - return_20d: -7.8
 - volume_ratio: 0.87
@@ -79,19 +79,19 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260430,14.25,14.35,14.2,14.35,5000,15.16,-5.34,15.22,15.89,0.52
 20260504,14.35,14.35,14.3,14.3,7000,15.09,-5.22,15.17,15.85,0.73
-20260505,14,14.3,14,14.3,6000,15.02,-4.81,15.08,15.81,0.61
+20260505,14,14.3,14,14.3,6000,15.02,-4.8,15.08,15.81,0.61
 20260506,14.3,14.3,13.8,13.85,8000,14.92,-7.2,14.96,15.76,0.81
 20260507,13.6,13.7,13.45,13.45,26000,14.8,-9.13,14.86,15.71,2.34
-20260508,13.6,14,13.55,14,8000,14.74,-4.99,14.76,15.66,0.71
+20260508,13.6,14,13.55,14,8000,14.73,-4.98,14.76,15.66,0.71
 20260511,13.65,13.8,13.65,13.65,4000,14.64,-6.79,14.64,15.61,0.38
-20260512,13.8,13.8,13.7,13.7,12000,14.57,-5.95,14.55,15.56,1.11
+20260512,13.8,13.8,13.7,13.7,12000,14.57,-5.94,14.55,15.56,1.11
 20260514,13.5,13.5,13.5,13.5,1000,14.48,-6.75,14.46,15.51,0.1
-20260515,13.25,13.25,13.25,13.25,10000,14.37,-7.83,14.36,15.46,0.97
+20260515,13.25,13.25,13.25,13.25,10000,14.37,-7.82,14.36,15.46,0.97
 20260518,13.3,13.3,11.95,13.05,86000,14.26,-8.51,14.25,15.41,5.93
-20260519,12.25,12.5,12.25,12.45,26000,14.11,-11.79,14.11,15.35,1.66
+20260519,12.25,12.5,12.25,12.45,26000,14.11,-11.78,14.11,15.35,1.66
 20260520,12.45,12.45,12.45,12.45,12000,13.97,-10.91,13.97,15.29,0.75
 20260521,13,13,12.5,12.5,12000,13.85,-9.76,13.84,15.23,0.73
-20260522,12.45,12.45,12.45,12.45,12000,13.73,-9.36,13.7,15.17,0.74
+20260522,12.45,12.45,12.45,12.45,12000,13.73,-9.35,13.7,15.17,0.74
 20260525,12,13,11.6,13,12000,13.67,-4.93,13.59,15.12,0.73
 20260526,12.4,13.1,12.35,13.1,13000,13.63,-3.86,13.49,15.07,0.76
 20260527,13.2,13.2,13.1,13.1,13000,13.58,-3.55,13.44,15.02,0.84
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 61.98
-- over_600_ratio: 51.8
-- over_800_ratio: 46.12
-- over_1000_ratio: 42.6
-- over_400_change_1w: 0.08
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 62.2
+- over_600_ratio: 51.94
+- over_800_ratio: 46.26
+- over_1000_ratio: 42.74
+- over_400_change_1w: 0.22
+- over_800_change_1w: 0.14
+- over_1000_change_1w: 0.14
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,61.9,0,46.12,0,42.6,0,0,False,False
 20260515,61.9,0,46.12,0,42.6,0,0,False,False
 20260522,61.98,0.08,46.12,0,42.6,0,1,False,False
+20260529,62.2,0.22,46.26,0.14,42.74,0.14,2,True,True
 ```
 
 ## Candidate Context

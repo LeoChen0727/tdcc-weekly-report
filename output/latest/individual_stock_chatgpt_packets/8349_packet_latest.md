@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8349 恒耀
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:59 Asia/Taipei
+- generated_at: 2026-05-30 23:43:55 Asia/Taipei
 - stock_id: 8349
 - stock_name: 恒耀
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,16 +100,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 71.56
-- over_600_ratio: 69.24
-- over_800_ratio: 67.53
-- over_1000_ratio: 66.76
-- over_400_change_1w: 0.07
-- over_800_change_1w: 0.07
-- over_1000_change_1w: 0.07
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
+- over_600_ratio: 69.25
+- over_800_ratio: 67.56
+- over_1000_ratio: 66.79
+- over_400_change_1w: 0
+- over_800_change_1w: 0.03
+- over_1000_change_1w: 0.03
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,71.33,0.22,67.26,-0.49,66.49,0.37,1,False,True
 20260515,71.49,0.16,67.46,0.2,66.69,0.2,2,True,True
 20260522,71.56,0.07,67.53,0.07,66.76,0.07,3,True,True
+20260529,71.56,0,67.56,0.03,66.79,0.03,4,False,True
 ```
 
 ## Candidate Context

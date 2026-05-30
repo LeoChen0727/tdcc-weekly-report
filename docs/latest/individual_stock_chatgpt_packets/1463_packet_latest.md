@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1463 強盛新
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:40 Asia/Taipei
+- generated_at: 2026-05-30 23:40:59 Asia/Taipei
 - stock_id: 1463
 - stock_name: 強盛新
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 81.21
 - over_600_ratio: 77.19
 - over_800_ratio: 74.95
 - over_1000_ratio: 74.42
-- over_400_change_1w: 0.03
-- over_800_change_1w: 0.03
-- over_1000_change_1w: 0.03
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
-- high_thresholds_up: True
+- over_400_change_1w: 0
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,81.17,-0.01,74.91,-0.01,74.38,-0.01,0,False,False
 20260515,81.18,0.01,74.92,0.01,74.39,0.01,1,True,True
 20260522,81.21,0.03,74.95,0.03,74.42,0.03,2,True,True
+20260529,81.21,0,74.95,0,74.42,0,0,False,False
 ```
 
 ## Candidate Context

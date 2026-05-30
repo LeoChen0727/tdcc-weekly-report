@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4503 金雨
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:50 Asia/Taipei
+- generated_at: 2026-05-30 23:42:21 Asia/Taipei
 - stock_id: 4503
 - stock_name: 金雨
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -83,7 +83,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260507,44.25,44.25,42.8,42.95,160000,42.52,1.02,42.94,39.7,0.67
 20260508,42.5,45.45,42.25,45.15,539000,42.74,5.65,43.19,39.78,2.1
 20260511,46.5,48.55,44.85,47,793000,43.09,9.07,43.52,39.91,2.77
-20260512,47.6,48.35,46.5,46.5,781000,43.37,7.2,43.77,40.04,2.5
+20260512,47.6,48.35,46.5,46.5,781000,43.37,7.21,43.77,40.04,2.5
 20260513,46.5,46.85,45,45.05,366000,43.51,3.53,43.93,40.15,1.13
 20260514,45.4,45.6,43.85,44.1,326000,43.56,1.23,44.09,40.24,0.98
 20260515,44.45,44.8,43.4,43.4,270000,43.55,-0.34,44.23,40.32,0.8
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 65.86
+- as_of_date: 20260529
+- over_400_ratio: 65.8
 - over_600_ratio: 62.47
 - over_800_ratio: 59.79
 - over_1000_ratio: 59.79
-- over_400_change_1w: -0.51
-- over_800_change_1w: 0.02
-- over_1000_change_1w: 0.02
-- tdcc_consecutive_up_weeks: 3
+- over_400_change_1w: -0.06
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,66.23,-0.08,59.77,0.01,59.77,0.01,1,False,True
 20260515,66.37,0.14,59.77,0,59.77,0,2,False,False
 20260522,65.86,-0.51,59.79,0.02,59.79,0.02,3,False,True
+20260529,65.8,-0.06,59.79,0,59.79,0,0,False,False
 ```
 
 ## Candidate Context

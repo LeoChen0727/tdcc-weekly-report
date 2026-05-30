@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4931 新盛力
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:58 Asia/Taipei
+- generated_at: 2026-05-30 23:42:31 Asia/Taipei
 - stock_id: 4931
 - stock_name: 新盛力
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -80,16 +80,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260504,159,161,153,154,5838000,150.15,2.56,147.25,143.59,0.58
 20260505,153,157,152,156,3940000,150.64,3.56,148.53,143.57,0.39
 20260506,157,169,153,166.5,11670000,151.96,9.57,150.3,143.78,1.09
-20260507,166.5,171,164,164,12879000,152.96,7.22,151.82,143.88,1.17
-20260508,165,173,159.5,170,18368000,154.38,10.12,153.57,144.19,1.57
+20260507,166.5,171,164,164,12879000,152.97,7.21,151.82,143.88,1.17
+20260508,165,173,159.5,170,18368000,154.39,10.11,153.57,144.19,1.57
 20260511,174,187,172,187,15674000,157.1,19.03,156.15,144.87,1.27
-20260512,198,205.5,192,202.5,31748000,160.88,25.87,159.25,145.85,2.32
-20260513,200,216,196,197,27148000,163.89,20.2,162.12,146.65,1.83
+20260512,198,205.5,192,202.5,31748000,160.89,25.87,159.25,145.85,2.32
+20260513,200,216,196,197,27148000,163.9,20.2,162.12,146.65,1.83
 20260514,201.5,203.5,191,198.5,11696000,166.78,19.02,165.15,147.49,0.77
 20260515,199,213.5,182.5,183.5,24486000,168.17,9.11,167.3,148.1,1.51
-20260518,181.5,188.5,175.5,187.5,8313000,169.78,10.44,169.43,148.88,0.51
+20260518,181.5,188.5,175.5,187.5,8313000,169.78,10.43,169.43,148.88,0.51
 20260519,185,191,176.5,183,6494000,170.88,7.09,171.45,149.57,0.4
-20260520,182.5,190,180.5,189.5,5570000,172.43,9.9,173.68,150.39,0.34
+20260520,182.5,190,180.5,189.5,5570000,172.44,9.9,173.68,150.39,0.34
 20260521,193,202,191.5,193,9633000,174.15,10.82,175.35,151.29,0.6
 20260522,196.5,212,195.5,212,205000,177.3,19.57,177.68,152.43,0.02
 20260525,231.5,233,220,223.5,227000,181.15,23.38,180.72,153.68,0.02
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 31.48
-- over_600_ratio: 24.53
-- over_800_ratio: 18.21
-- over_1000_ratio: 15.44
-- over_400_change_1w: 0.32
-- over_800_change_1w: -3.07
-- over_1000_change_1w: -3.07
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 29.81
+- over_600_ratio: 24.91
+- over_800_ratio: 16.84
+- over_1000_ratio: 12.82
+- over_400_change_1w: -1.67
+- over_800_change_1w: -1.37
+- over_1000_change_1w: -2.62
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,24.34,-0.72,18.34,1.34,10.21,0.12,1,False,True
 20260515,31.16,6.82,21.28,2.94,18.51,8.3,2,True,True
 20260522,31.48,0.32,18.21,-3.07,15.44,-3.07,3,False,False
+20260529,29.81,-1.67,16.84,-1.37,12.82,-2.62,4,False,False
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 4931 | 新盛力 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 4931 | 新盛力 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

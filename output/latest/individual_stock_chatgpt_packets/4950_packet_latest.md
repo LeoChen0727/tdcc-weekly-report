@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4950 金耘國際
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:59 Asia/Taipei
+- generated_at: 2026-05-30 23:42:32 Asia/Taipei
 - stock_id: 4950
 - stock_name: 金耘國際
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 132
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 268
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 71.74
 - over_600_ratio: 70.9
-- over_800_ratio: 69.52
+- over_800_ratio: 70.9
 - over_1000_ratio: 68.13
-- over_400_change_1w: 0.01
-- over_800_change_1w: 0
+- over_400_change_1w: 0
+- over_800_change_1w: 1.38
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 3
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,71.68,0.01,69.52,0,68.13,0,1,False,False
 20260515,71.73,0.05,69.52,0,68.13,0,2,False,False
 20260522,71.74,0.01,69.52,0,68.13,0,3,False,False
+20260529,71.74,0,70.9,1.38,68.13,0,4,False,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6548 長科*
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:31 Asia/Taipei
+- generated_at: 2026-05-30 23:43:07 Asia/Taipei
 - stock_id: 6548
 - stock_name: 長科*
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -78,7 +78,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,51.7,52.5,51.4,52,5959000,52.11,-0.21,52.38,50.44,0.5
-20260505,52.6,53.3,51.1,52.9,4387000,52.17,1.39,52.73,50.3,0.36
+20260505,52.6,53.3,51.1,52.9,4387000,52.18,1.39,52.73,50.3,0.36
 20260506,53.4,53.4,49.6,51.8,8830000,52.14,-0.66,52.96,50.16,0.72
 20260507,51.8,52.6,51.6,52,3955000,52.13,-0.25,53.12,50.02,0.33
 20260508,52.5,53.9,51.6,52.6,9813000,52.17,0.82,53.2,49.89,0.84
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 85.79
-- over_600_ratio: 84.56
-- over_800_ratio: 83.68
-- over_1000_ratio: 83.24
-- over_400_change_1w: 0.2
-- over_800_change_1w: 0.23
-- over_1000_change_1w: 0.35
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260529
+- over_400_ratio: 88.1
+- over_600_ratio: 86.98
+- over_800_ratio: 86.27
+- over_1000_ratio: 85.82
+- over_400_change_1w: 2.31
+- over_800_change_1w: 2.59
+- over_1000_change_1w: 2.58
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,85.97,-0.18,83.82,-0.34,83.47,-0.35,0,False,False
 20260515,85.59,-0.38,83.45,-0.37,82.89,-0.58,0,False,False
 20260522,85.79,0.2,83.68,0.23,83.24,0.35,1,True,True
+20260529,88.1,2.31,86.27,2.59,85.82,2.58,2,True,True
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 6548 | 長科* | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260530 | 6548 | 長科* | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

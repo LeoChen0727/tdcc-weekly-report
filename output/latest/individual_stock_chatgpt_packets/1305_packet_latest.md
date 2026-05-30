@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1305 華夏
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:35 Asia/Taipei
+- generated_at: 2026-05-30 23:40:53 Asia/Taipei
 - stock_id: 1305
 - stock_name: 華夏
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 26
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 27
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,23 +100,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 51.18
-- over_600_ratio: 49.44
-- over_800_ratio: 48.14
-- over_1000_ratio: 47.82
-- over_400_change_1w: 0.35
-- over_800_change_1w: 0.3
-- over_1000_change_1w: 0.28
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 51.13
+- over_600_ratio: 49.65
+- over_800_ratio: 48.34
+- over_1000_ratio: 48.18
+- over_400_change_1w: -0.05
+- over_800_change_1w: 0.2
+- over_1000_change_1w: 0.36
+- tdcc_consecutive_up_weeks: 5
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260306,52.95,-1.05,50.48,-0.85,49.88,-0.53,0,False,False
 20260313,53.34,0.39,50.71,0.23,49.91,0.03,1,True,True
 20260320,54.01,0.67,51.3,0.59,50.67,0.76,2,True,True
 20260327,52.04,-1.97,49.75,-1.55,49.13,-1.54,0,False,False
@@ -128,6 +127,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,50.23,0.06,47.82,0.44,47.51,0.29,2,True,True
 20260515,50.83,0.6,47.84,0.02,47.54,0.03,3,True,True
 20260522,51.18,0.35,48.14,0.3,47.82,0.28,4,True,True
+20260529,51.13,-0.05,48.34,0.2,48.18,0.36,5,False,True
 ```
 
 ## Candidate Context
@@ -138,7 +138,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 1305 | 華夏 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 1305 | 華夏 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

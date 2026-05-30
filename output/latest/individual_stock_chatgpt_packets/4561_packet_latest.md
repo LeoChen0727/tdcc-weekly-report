@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4561 健椿
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:53 Asia/Taipei
+- generated_at: 2026-05-30 23:42:24 Asia/Taipei
 - stock_id: 4561
 - stock_name: 健椿
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,18 +77,18 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,41.9,41.9,41.9,41.9,516000,35.3,18.69,34.73,37.04,1.52
+20260504,41.9,41.9,41.9,41.9,516000,35.3,18.68,34.73,37.04,1.52
 20260505,43,45.45,42.5,44.5,3425000,36.07,23.37,35.33,36.99,6.74
 20260506,44.3,44.35,42.65,44.2,1145000,36.75,20.28,35.95,36.93,2.04
 20260507,45.2,47.5,44.3,47.25,2885000,37.62,25.59,36.67,36.91,4.12
-20260508,47.85,51.9,47.7,51.4,4823000,38.77,32.58,37.63,36.97,5.15
+20260508,47.85,51.9,47.7,51.4,4823000,38.77,32.57,37.63,36.97,5.15
 20260511,50.2,52.5,48.45,51.6,2271000,39.84,29.52,38.61,37.09,2.17
 20260512,51,51,49.3,50.2,625000,40.7,23.33,39.54,37.18,0.58
 20260513,49.8,49.8,47.25,47.5,513000,41.27,15.1,40.17,37.21,0.47
 20260514,47.1,49.4,47.1,48.45,397000,41.87,15.72,40.69,37.25,0.37
 20260515,49.2,49.4,47.6,48.1,359000,42.39,13.48,41.22,37.34,0.34
 20260518,48.1,49.85,48,49.85,474000,43.01,15.91,41.88,37.51,0.45
-20260519,49.3,49.85,48,48,269000,43.42,10.54,42.52,37.62,0.25
+20260519,49.3,49.85,48,48,269000,43.43,10.54,42.52,37.62,0.25
 20260520,48.5,48.8,47.45,47.7,156000,43.78,8.95,43.15,37.74,0.15
 20260521,48,50,48,49.1,332000,44.22,11.02,43.88,37.88,0.31
 20260522,50.2,51,49.2,51,50000,44.79,13.87,44.76,38.03,0.05
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 57.81
-- over_600_ratio: 57.81
-- over_800_ratio: 57.81
+- as_of_date: 20260529
+- over_400_ratio: 59.05
+- over_600_ratio: 57.66
+- over_800_ratio: 57.66
 - over_1000_ratio: 52.04
-- over_400_change_1w: -0.04
-- over_800_change_1w: -0.04
+- over_400_change_1w: 1.24
+- over_800_change_1w: -0.15
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,58.77,-0.08,57.92,0,53.78,0,0,False,False
 20260515,57.85,-0.92,57.85,-0.07,52.04,-1.74,0,False,False
 20260522,57.81,-0.04,57.81,-0.04,52.04,0,0,False,False
+20260529,59.05,1.24,57.66,-0.15,52.04,0,1,False,False
 ```
 
 ## Candidate Context

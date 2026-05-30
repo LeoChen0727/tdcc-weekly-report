@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3221 台嘉碩
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:28 Asia/Taipei
+- generated_at: 2026-05-30 23:41:55 Asia/Taipei
 - stock_id: 3221
 - stock_name: 台嘉碩
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,7 +77,7 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,43.6,44,42.1,43.5,1519000,41.49,4.85,42.12,34.51,0.15
+20260504,43.6,44,42.1,43.5,1519000,41.49,4.84,42.12,34.51,0.15
 20260505,43.7,44.4,42.7,44.4,1270000,41.73,6.39,42.56,34.79,0.13
 20260506,45.8,45.8,43.5,43.9,1579000,41.91,4.74,43.01,35.07,0.17
 20260507,44.2,48.2,43.9,48.2,3804000,42.44,13.58,43.61,35.43,0.41
@@ -85,9 +85,9 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260511,45.25,45.4,42,43.8,6538000,42.76,2.43,44.52,35.95,0.65
 20260512,43.9,44.95,41.5,43.8,5661000,42.85,2.22,44.72,36.22,0.59
 20260513,43.3,45.4,42.25,42.25,5348000,42.8,-1.28,44.95,36.45,0.6
-20260514,42.35,44.3,40.85,41.85,4897000,42.72,-2.03,44.96,36.62,0.58
-20260515,42.2,43.75,40,40.55,4501000,42.54,-4.67,44.7,36.78,0.59
-20260518,40,44.6,39,44.6,7385000,42.71,4.43,44.71,37.06,1.09
+20260514,42.35,44.3,40.85,41.85,4897000,42.72,-2.04,44.96,36.62,0.58
+20260515,42.2,43.75,40,40.55,4501000,42.54,-4.68,44.7,36.78,0.59
+20260518,40,44.6,39,44.6,7385000,42.71,4.42,44.71,37.06,1.09
 20260519,44.75,49,44.2,45.2,23336000,42.92,5.32,44.53,37.34,3.26
 20260520,45.05,49.4,45.05,47.9,17978000,43.33,10.54,44.25,37.7,2.54
 20260521,50.9,52.1,50,51.3,19727000,44,16.6,44.29,38.11,2.86
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 28.55
-- over_600_ratio: 21.51
-- over_800_ratio: 14.05
-- over_1000_ratio: 10.76
-- over_400_change_1w: -1.11
-- over_800_change_1w: -1.05
-- over_1000_change_1w: -0.11
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 33.63
+- over_600_ratio: 26.59
+- over_800_ratio: 19.36
+- over_1000_ratio: 16.07
+- over_400_change_1w: 5.08
+- over_800_change_1w: 5.31
+- over_1000_change_1w: 5.31
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,31.44,-0.35,15.61,-1.06,11.44,-1.17,0,False,False
 20260515,29.66,-1.78,15.1,-0.51,10.87,-0.57,0,False,False
 20260522,28.55,-1.11,14.05,-1.05,10.76,-0.11,0,False,False
+20260529,33.63,5.08,19.36,5.31,16.07,5.31,1,True,True
 ```
 
 ## Candidate Context

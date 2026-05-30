@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2706 第一店
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:13 Asia/Taipei
+- generated_at: 2026-05-30 23:41:38 Asia/Taipei
 - stock_id: 2706
 - stock_name: 第一店
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -80,7 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260504,12.4,12.55,12.35,12.45,171260,12.48,-0.2,12.49,12.61,1.27
 20260505,12.45,12.5,12.4,12.45,68042,12.47,-0.19,12.5,12.6,0.5
 20260506,12.5,12.6,12.4,12.5,206535,12.48,0.2,12.51,12.6,1.42
-20260507,12.55,12.55,12.4,12.4,141014,12.47,-0.55,12.51,12.59,0.98
+20260507,12.55,12.55,12.4,12.4,141014,12.47,-0.56,12.51,12.59,0.98
 20260508,12.5,12.55,12.4,12.5,119718,12.47,0.23,12.51,12.58,0.83
 20260511,12.5,12.5,12.35,12.35,110853,12.46,-0.9,12.5,12.57,0.75
 20260512,12.4,12.4,12.2,12.25,107378,12.44,-1.56,12.48,12.56,0.82
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 84.85
-- over_600_ratio: 83.45
-- over_800_ratio: 82.3
-- over_1000_ratio: 81.56
-- over_400_change_1w: 0.03
+- as_of_date: 20260529
+- over_400_ratio: 84.89
+- over_600_ratio: 83.46
+- over_800_ratio: 82.31
+- over_1000_ratio: 81.57
+- over_400_change_1w: 0.04
 - over_800_change_1w: 0.01
 - over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 3
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,84.88,0.08,82.28,0,81.54,0,1,False,False
 20260515,84.82,-0.06,82.29,0.01,81.55,0.01,2,False,True
 20260522,84.85,0.03,82.3,0.01,81.56,0.01,3,True,True
+20260529,84.89,0.04,82.31,0.01,81.57,0.01,4,True,True
 ```
 
 ## Candidate Context

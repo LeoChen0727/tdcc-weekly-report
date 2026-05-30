@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8107 大億金茂
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:56 Asia/Taipei
+- generated_at: 2026-05-30 23:43:52 Asia/Taipei
 - stock_id: 8107
 - stock_name: 大億金茂
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -85,7 +85,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260511,12,12,11.5,11.5,398000,12.75,-9.83,12.81,13.49,3.2
 20260512,11.75,11.75,11.5,11.6,116000,12.66,-8.35,12.76,13.43,0.91
 20260513,11.5,11.55,11.4,11.55,74000,12.56,-8.08,12.7,13.37,0.58
-20260514,11.55,11.75,11.5,11.55,160000,12.48,-7.46,12.64,13.3,1.22
+20260514,11.55,11.75,11.5,11.55,160000,12.48,-7.45,12.64,13.3,1.22
 20260515,11.65,11.65,11.45,11.5,63000,12.4,-7.25,12.58,13.24,0.48
 20260518,11.65,11.65,11.45,11.6,50000,12.33,-5.94,12.49,13.19,0.4
 20260519,11.45,11.6,11.45,11.6,40000,12.27,-5.47,12.4,13.13,0.35
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 53.59
 - over_600_ratio: 50.89
 - over_800_ratio: 48.05
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,53.49,0.06,48.05,0,46.97,0,1,False,False
 20260515,53.59,0.1,48.05,0,46.97,0,2,False,False
 20260522,53.59,0,48.05,0,46.97,0,0,False,False
+20260529,53.59,0,48.05,0,46.97,0,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5403 中菲
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:07 Asia/Taipei
+- generated_at: 2026-05-30 23:42:40 Asia/Taipei
 - stock_id: 5403
 - stock_name: 中菲
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -80,8 +80,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260504,93.8,93.8,93,93.8,111000,96.24,-2.53,94.86,104.3,0.72
 20260505,93.8,96.5,93.8,96.5,141000,96.26,0.25,94.78,104.03,0.89
 20260506,96.6,96.6,95.4,95.5,71000,96.2,-0.72,94.64,103.75,0.44
-20260507,95.3,95.3,94.1,94.4,69000,96.05,-1.72,94.39,103.45,0.43
-20260508,91.2,93.5,91.2,92.9,240000,95.79,-3.01,94.05,103.13,1.4
+20260507,95.3,95.3,94.1,94.4,69000,96.05,-1.71,94.39,103.45,0.43
+20260508,91.2,93.5,91.2,92.9,240000,95.78,-3.01,94.05,103.13,1.4
 20260511,92.9,93,92.4,92.6,162000,95.52,-3.06,93.72,102.83,0.91
 20260512,92.6,92.7,90.8,91,233000,95.14,-4.35,93.51,102.49,1.42
 20260513,90.7,91,90.6,90.8,105000,94.78,-4.2,93.45,102.17,0.73
@@ -90,7 +90,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260518,85.4,86.3,85.3,85.7,207000,92.86,-7.71,92.29,100.95,1.16
 20260519,85.8,86.1,85,85,110000,92.21,-7.82,91.89,100.53,0.62
 20260520,85.2,87,85.2,86,126000,91.69,-6.2,91.51,100.13,0.7
-20260521,87.4,87.4,85.9,86.2,87000,91.23,-5.52,91.14,99.72,0.49
+20260521,87.4,87.4,85.9,86.2,87000,91.23,-5.51,91.14,99.72,0.49
 20260522,86.2,86.2,85.5,85.9,86000,90.79,-5.38,90.78,99.32,0.49
 20260525,85.9,86.5,85.5,85.5,86000,90.35,-5.36,90.4,98.91,0.5
 20260526,85.5,85.5,84.5,84.9,85000,89.89,-5.55,90.03,98.51,0.53
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 45.76
-- over_600_ratio: 37.55
-- over_800_ratio: 33.16
-- over_1000_ratio: 29.77
-- over_400_change_1w: 0.22
-- over_800_change_1w: 0.12
+- as_of_date: 20260529
+- over_400_ratio: 46.53
+- over_600_ratio: 37.79
+- over_800_ratio: 34.35
+- over_1000_ratio: 29.89
+- over_400_change_1w: 0.77
+- over_800_change_1w: 1.19
 - over_1000_change_1w: 0.12
-- tdcc_consecutive_up_weeks: 3
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,45.18,0.19,31.74,-0.74,29.38,0.46,1,False,True
 20260515,45.54,0.36,33.04,1.3,29.65,0.27,2,True,True
 20260522,45.76,0.22,33.16,0.12,29.77,0.12,3,True,True
+20260529,46.53,0.77,34.35,1.19,29.89,0.12,4,True,True
 ```
 
 ## Candidate Context

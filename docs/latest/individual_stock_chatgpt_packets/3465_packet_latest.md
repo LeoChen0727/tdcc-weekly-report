@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3465 進泰電子
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:35 Asia/Taipei
+- generated_at: 2026-05-30 23:42:03 Asia/Taipei
 - stock_id: 3465
 - stock_name: 進泰電子
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -78,7 +78,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,32.15,32.15,30.5,31.2,64000,35.09,-11.09,34.51,40.65,1.93
-20260505,30.5,30.5,29.6,29.7,50000,34.64,-14.27,34.17,40.32,1.42
+20260505,30.5,30.5,29.6,29.7,50000,34.64,-14.26,34.17,40.32,1.42
 20260506,30.25,30.25,28.05,28.1,80000,34.1,-17.59,33.71,40,2.05
 20260507,28.15,29.6,26.7,27.2,156000,33.52,-18.86,33.17,39.66,3.49
 20260508,27.6,27.8,27.25,27.5,20000,33.02,-16.72,32.66,39.35,0.44
@@ -90,7 +90,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260518,27.3,27.85,27,27,43000,30.92,-12.66,30.57,37.54,1.16
 20260519,28.05,28.05,26.5,26.65,94000,30.56,-12.79,30.18,37.2,2.3
 20260520,27,27.1,26.6,26.75,38000,30.24,-11.55,29.82,36.86,0.92
-20260521,27.1,27.15,26.65,26.9,59000,29.96,-10.23,29.47,36.53,1.37
+20260521,27.1,27.15,26.65,26.9,59000,29.96,-10.22,29.47,36.53,1.37
 20260522,27.05,28.3,27.05,27.75,28000,29.78,-6.81,29.21,36.23,0.64
 20260525,28.45,28.45,27.45,27.5,28000,29.59,-7.06,28.95,35.92,0.64
 20260526,27.35,27.5,27.3,27.4,27000,29.41,-6.82,28.63,35.62,0.62
@@ -100,16 +100,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 68.33
-- over_600_ratio: 63.79
-- over_800_ratio: 63.79
-- over_1000_ratio: 58.98
-- over_400_change_1w: 0
-- over_800_change_1w: -1.55
-- over_1000_change_1w: 0.91
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 68.34
+- over_600_ratio: 63.8
+- over_800_ratio: 63.8
+- over_1000_ratio: 58.99
+- over_400_change_1w: 0.01
+- over_800_change_1w: 0.01
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,68.35,0.32,63.89,0,59.08,0,1,False,False
 20260515,68.33,-0.02,65.34,1.45,58.07,-1.01,2,False,True
 20260522,68.33,0,63.79,-1.55,58.98,0.91,3,False,True
+20260529,68.34,0.01,63.8,0.01,58.99,0.01,4,True,True
 ```
 
 ## Candidate Context

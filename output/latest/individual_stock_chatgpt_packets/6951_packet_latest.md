@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6951 青新-創
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:46 Asia/Taipei
+- generated_at: 2026-05-30 23:43:25 Asia/Taipei
 - stock_id: 6951
 - stock_name: 青新-創
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 66.2
-- over_600_ratio: 65.32
+- as_of_date: 20260529
+- over_400_ratio: 66.21
+- over_600_ratio: 65.33
 - over_800_ratio: 63.9
 - over_1000_ratio: 63.9
-- over_400_change_1w: 0
+- over_400_change_1w: 0.01
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,66.17,0,63.9,0,63.9,0,0,False,False
 20260515,66.2,0.03,63.9,0,63.9,0,1,False,False
 20260522,66.2,0,63.9,0,63.9,0,0,False,False
+20260529,66.21,0.01,63.9,0,63.9,0,1,False,False
 ```
 
 ## Candidate Context

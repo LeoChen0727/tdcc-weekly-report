@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5471 松翰
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:08 Asia/Taipei
+- generated_at: 2026-05-30 23:42:42 Asia/Taipei
 - stock_id: 5471
 - stock_name: 松翰
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -83,7 +83,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260507,44.5,45.3,43.4,44.1,1269025,42.39,4.02,42.41,40.98,0.75
 20260508,44.2,45.95,43.1,45.35,1866419,42.64,6.35,42.69,41.1,1.05
 20260511,46.1,49.85,45.5,49.85,6607148,43.24,15.28,43.2,41.33,3.17
-20260512,50.6,53.8,49.1,52.4,10914492,44,19.08,43.79,41.61,4.17
+20260512,50.6,53.8,49.1,52.4,10914492,44.01,19.08,43.79,41.61,4.17
 20260513,52.3,53.1,50.3,50.3,4613166,44.53,12.96,44.24,41.85,1.64
 20260514,50.7,52.3,50.6,51.3,3001817,45.09,13.76,44.74,42.1,1.02
 20260515,51.3,52.3,50,50.8,2063098,45.57,11.48,45.2,42.34,0.69
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 33.35
-- over_600_ratio: 28.38
-- over_800_ratio: 24.5
-- over_1000_ratio: 23.91
-- over_400_change_1w: 1.06
-- over_800_change_1w: -0.15
-- over_1000_change_1w: -0.22
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 31.39
+- over_600_ratio: 26.23
+- over_800_ratio: 23.03
+- over_1000_ratio: 22.56
+- over_400_change_1w: -1.96
+- over_800_change_1w: -1.47
+- over_1000_change_1w: -1.35
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,18 +120,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,31.38,0.15,24.7,0.68,24.21,1.84,1,False,True
 20260515,32.29,0.91,24.65,-0.05,24.13,-0.08,2,False,False
 20260522,33.35,1.06,24.5,-0.15,23.91,-0.22,3,False,False
+20260529,31.39,-1.96,23.03,-1.47,22.56,-1.35,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 5471 | 松翰 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260530 | 5471 | 松翰 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260530 | 5471 | 松翰 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260521 | 5471 | 松翰 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 5471 | 松翰 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 5471 | 松翰 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

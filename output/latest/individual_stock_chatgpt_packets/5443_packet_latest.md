@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5443 均豪
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:08 Asia/Taipei
+- generated_at: 2026-05-30 23:42:41 Asia/Taipei
 - stock_id: 5443
 - stock_name: 均豪
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -82,7 +82,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260506,136,137,125,129,10026000,117.68,9.62,118.8,102.8,0.78
 20260507,130,130.5,123.5,125,5773000,118.29,5.67,119.65,103.32,0.45
 20260508,124,127,118.5,121.5,5620000,118.56,2.48,119.92,103.83,0.47
-20260511,122.5,129.5,120.5,129.5,5662000,119.47,8.4,120.6,104.52,0.49
+20260511,122.5,129.5,120.5,129.5,5662000,119.47,8.39,120.6,104.52,0.49
 20260512,129.5,132,126.5,128,6282000,120.18,6.51,121.12,105.22,0.56
 20260513,128.5,129.5,123.5,125.5,3468000,120.62,4.04,121.55,105.81,0.33
 20260514,127,130.5,123.5,126,5152000,121.07,4.07,122.1,106.42,0.5
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 40.03
-- over_600_ratio: 37.27
-- over_800_ratio: 35.55
-- over_1000_ratio: 34.5
-- over_400_change_1w: -2.02
-- over_800_change_1w: -1.19
-- over_1000_change_1w: -1.09
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 41.23
+- over_600_ratio: 37.64
+- over_800_ratio: 36.28
+- over_1000_ratio: 34.59
+- over_400_change_1w: 1.2
+- over_800_change_1w: 0.73
+- over_1000_change_1w: 0.09
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,41.7,0.54,37.93,0.46,36.38,-0.61,1,False,True
 20260515,42.05,0.35,36.74,-1.19,35.59,-0.79,2,False,False
 20260522,40.03,-2.02,35.55,-1.19,34.5,-1.09,0,False,False
+20260529,41.23,1.2,36.28,0.73,34.59,0.09,1,True,True
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 5443 | 均豪 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 5443 | 均豪 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

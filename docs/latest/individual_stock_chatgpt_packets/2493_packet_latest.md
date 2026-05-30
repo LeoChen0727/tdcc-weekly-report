@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2493 揚博
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:08 Asia/Taipei
+- generated_at: 2026-05-30 23:41:31 Asia/Taipei
 - stock_id: 2493
 - stock_name: 揚博
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -81,7 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260505,125,136,125,136,4686113,124.77,9,128.07,115.18,1.18
 20260506,136.5,142,127,139,6839587,125.95,10.36,129.78,115.64,1.59
 20260507,142,145,140.5,141,6490247,127.21,10.84,131.05,116.11,1.43
-20260508,136.5,138,130,131.5,4012582,127.56,3.09,131.8,116.43,0.87
+20260508,136.5,138,130,131.5,4012582,127.56,3.08,131.8,116.43,0.87
 20260511,131.5,131.5,128.5,129.5,1602783,127.73,1.39,132.32,116.77,0.35
 20260512,131,132.5,125.5,127.5,1501307,127.71,-0.16,132.18,117.05,0.35
 20260513,127.5,128.5,124,127.5,1194021,127.69,-0.15,131.6,117.35,0.3
@@ -89,7 +89,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260515,140,145.5,133.5,136.5,6786806,129.36,5.52,130.45,118.34,1.85
 20260518,134.5,138.5,131.5,134.5,2602200,129.79,3.63,130.12,118.83,0.74
 20260519,133.5,135,130.5,131.5,1736459,129.93,1.2,129.88,119.22,0.5
-20260520,132,134,128,128.5,1545063,129.81,-1.01,129.53,119.59,0.47
+20260520,132,134,128,128.5,1545063,129.82,-1.01,129.53,119.59,0.47
 20260521,131.5,137,131,135.5,1709823,130.29,4,129.95,120.08,0.55
 20260522,137.5,140.5,136,137.5,2529238,130.89,5.05,130.82,120.56,0.82
 20260525,139.5,151,138.5,149,6981961,132.4,12.54,132.32,121.25,2.15
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 46.73
-- over_600_ratio: 44.44
-- over_800_ratio: 42.27
-- over_1000_ratio: 42.27
-- over_400_change_1w: -1.69
-- over_800_change_1w: -1.17
-- over_1000_change_1w: -1.17
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 51.08
+- over_600_ratio: 47.74
+- over_800_ratio: 46.05
+- over_1000_ratio: 46.05
+- over_400_change_1w: 4.35
+- over_800_change_1w: 3.78
+- over_1000_change_1w: 3.78
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,47.62,-0.25,42.69,0.41,42.04,-0.24,1,False,True
 20260515,48.42,0.8,43.44,0.75,43.44,1.4,2,True,True
 20260522,46.73,-1.69,42.27,-1.17,42.27,-1.17,0,False,False
+20260529,51.08,4.35,46.05,3.78,46.05,3.78,1,True,True
 ```
 
 ## Candidate Context

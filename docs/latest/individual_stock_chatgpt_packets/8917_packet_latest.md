@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8917 欣泰
 
 ## Metadata
-- generated_at: 2026-05-29 19:34:03 Asia/Taipei
+- generated_at: 2026-05-30 23:44:00 Asia/Taipei
 - stock_id: 8917
 - stock_name: 欣泰
-- packet_status: standard_rawdata_packet
+- packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 116
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 252
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: price history shorter than 120 rows; K-line context is partial; TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
+- notes: TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
 
 ## Stable Read URLs
 - packet_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_chatgpt_packets/8917_packet_latest.md
@@ -66,7 +66,7 @@
 - distance_to_ema23_pct: -0.56
 - ma20: 52.8
 - ma60: 54.4
-- ma120: 55.98
+- ma120: 55.86
 - return_5d: -0.94
 - return_20d: -1.31
 - volume_ratio: 1.54
@@ -81,7 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260504,51.9,54,51.6,52.8,62000,53.3,-0.94,52.76,55.61,1.9
 20260505,52.5,54,52.5,53.4,9000,53.31,0.17,52.69,55.55,0.28
 20260506,52.5,53.5,52.5,53.3,18000,53.31,-0.02,52.72,55.48,0.76
-20260507,53,54.1,52.3,52.3,21000,53.23,-1.74,52.7,55.4,0.87
+20260507,53,54.1,52.3,52.3,21000,53.22,-1.74,52.7,55.4,0.87
 20260508,53.3,54.3,53.3,53.6,18000,53.26,0.65,52.74,55.34,0.72
 20260511,53.6,53.6,52.6,52.7,3000,53.21,-0.96,52.73,55.26,0.12
 20260512,54.3,54.5,52.5,52.7,50000,53.17,-0.88,52.7,55.19,1.97
@@ -90,7 +90,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260518,53.2,53.4,51.6,52.6,33000,53.11,-0.96,52.66,55,1.42
 20260519,52.5,52.5,51.5,51.5,51000,52.98,-2.79,52.61,54.91,2.04
 20260520,52.6,52.9,51.6,52.8,42000,52.96,-0.31,52.61,54.85,1.59
-20260521,52.9,53,52.9,53,23000,52.97,0.07,52.63,54.78,0.87
+20260521,52.9,53,52.9,53,23000,52.96,0.07,52.63,54.78,0.87
 20260522,53.7,53.7,52.8,53.1,53000,52.98,0.23,52.7,54.7,1.89
 20260525,52.3,53.3,52.3,52.5,53000,52.94,-0.82,52.73,54.62,1.77
 20260526,52.1,53,52.1,52.1,53000,52.87,-1.45,52.76,54.54,1.69
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 83.02
 - over_600_ratio: 75.99
 - over_800_ratio: 70.22
 - over_1000_ratio: 66.79
 - over_400_change_1w: 0
 - over_800_change_1w: 0
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 3
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,83.01,0.03,70.21,0.03,66.77,0.03,1,True,True
 20260515,83.02,0.01,70.22,0.01,66.78,0.01,2,True,True
 20260522,83.02,0,70.22,0,66.79,0.01,3,False,True
+20260529,83.02,0,70.22,0,66.79,0,0,False,False
 ```
 
 ## Candidate Context

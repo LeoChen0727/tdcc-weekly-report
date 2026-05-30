@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3709 鑫聯大投控
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:44 Asia/Taipei
+- generated_at: 2026-05-30 23:42:14 Asia/Taipei
 - stock_id: 3709
 - stock_name: 鑫聯大投控
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -62,7 +62,7 @@
 - close: 88.8
 - volume: 89000
 - ma5: 88.4
-- ema23_primary: 83.94
+- ema23_primary: 83.95
 - distance_to_ema23_pct: 5.78
 - ma20: 85.34
 - ma60: 75.67
@@ -78,13 +78,13 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,84.4,86.4,80.6,85.2,5062000,75.37,13.04,74.22,69.14,1.07
-20260505,85,85.4,82.8,85,2672000,76.17,11.59,75.3,69.53,0.56
+20260505,85,85.4,82.8,85,2672000,76.18,11.58,75.3,69.53,0.56
 20260506,85.7,85.9,81.4,82.5,4230000,76.7,7.56,76.16,69.89,0.86
 20260507,83.7,90.5,82.7,84.5,7774000,77.35,9.24,76.93,70.27,1.49
 20260508,85.3,92.9,83.6,92.9,9341000,78.65,18.12,78.17,70.78,1.66
 20260511,91,91.1,84.6,89.1,8274000,79.52,12.05,79.22,71.24,1.39
 20260512,86,86.5,80.3,82,9174000,79.73,2.85,79.89,71.61,1.46
-20260513,82,83.5,80.6,81.9,2300000,79.91,2.5,80.24,71.89,0.4
+20260513,82,83.5,80.6,81.9,2300000,79.91,2.49,80.24,71.89,0.4
 20260514,83.4,85.6,81.6,81.8,3589000,80.06,2.17,80.82,72.14,0.63
 20260515,82.3,84.5,79.8,81.1,2660000,80.15,1.18,81.42,72.45,0.47
 20260518,80.5,82,78.1,81.3,2299000,80.25,1.31,81.92,72.77,0.4
@@ -96,19 +96,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,90.5,91,88.1,89.4,89000,82.87,7.88,84.41,75.01,0.02
 20260527,91.5,91.8,86.3,86.3,88000,83.16,3.78,84.62,75.18,0.02
 20260528,86,89.3,85.1,87.3,87000,83.5,4.55,85.03,75.36,0.02
-20260529,88.4,89.5,87.4,88.8,89000,83.94,5.78,85.34,75.67,0.03
+20260529,88.4,89.5,87.4,88.8,89000,83.95,5.78,85.34,75.67,0.03
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 74.87
-- over_600_ratio: 72.25
-- over_800_ratio: 68.34
-- over_1000_ratio: 66.3
-- over_400_change_1w: 2.71
-- over_800_change_1w: 1.16
-- over_1000_change_1w: 1.33
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 75.64
+- over_600_ratio: 74.05
+- over_800_ratio: 69.74
+- over_1000_ratio: 68.38
+- over_400_change_1w: 0.77
+- over_800_change_1w: 1.4
+- over_1000_change_1w: 2.08
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,73.01,-0.68,68.25,-0.02,63.99,0.77,1,False,True
 20260515,72.16,-0.85,67.18,-1.07,64.97,0.98,2,False,True
 20260522,74.87,2.71,68.34,1.16,66.3,1.33,3,True,True
+20260529,75.64,0.77,69.74,1.4,68.38,2.08,4,True,True
 ```
 
 ## Candidate Context

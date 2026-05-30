@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2404 漢唐
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:03 Asia/Taipei
+- generated_at: 2026-05-30 23:41:25 Asia/Taipei
 - stock_id: 2404
 - stock_name: 漢唐
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 51.12
-- over_600_ratio: 46.13
-- over_800_ratio: 40.53
-- over_1000_ratio: 37.25
-- over_400_change_1w: 2
-- over_800_change_1w: 2.1
-- over_1000_change_1w: 1.12
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260529
+- over_400_ratio: 53.82
+- over_600_ratio: 50.73
+- over_800_ratio: 43.84
+- over_1000_ratio: 39.69
+- over_400_change_1w: 2.7
+- over_800_change_1w: 3.31
+- over_1000_change_1w: 2.44
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,19 +120,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,48.57,-0.88,39.4,-1.12,35.8,-1.58,0,False,False
 20260515,49.12,0.55,38.43,-0.97,36.13,0.33,1,False,True
 20260522,51.12,2,40.53,2.1,37.25,1.12,2,True,True
+20260529,53.82,2.7,43.84,3.31,39.69,2.44,3,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2404 | 漢唐 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260529 | 2404 | 漢唐 | revenue_breakout_low_response | 營收爆發低反應股 | 20.0 | 4.0 | A_優先追蹤 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260530 | 2404 | 漢唐 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260530 | 2404 | 漢唐 | revenue_breakout_low_response | 營收爆發低反應股 | 21.0 | 3.0 | A_優先追蹤 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260521 | 2404 | 漢唐 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2404 | 漢唐 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260530 | 2404 | 漢唐 | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

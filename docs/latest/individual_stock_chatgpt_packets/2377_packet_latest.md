@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2377 微星
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:01 Asia/Taipei
+- generated_at: 2026-05-30 23:41:23 Asia/Taipei
 - stock_id: 2377
 - stock_name: 微星
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 58.08
-- over_600_ratio: 56.52
-- over_800_ratio: 55.33
-- over_1000_ratio: 53.61
-- over_400_change_1w: -2.11
-- over_800_change_1w: -2.4
-- over_1000_change_1w: -2.2
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260529
+- over_400_ratio: 58.38
+- over_600_ratio: 56.3
+- over_800_ratio: 55.51
+- over_1000_ratio: 53.5
+- over_400_change_1w: 0.3
+- over_800_change_1w: 0.18
+- over_1000_change_1w: -0.11
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,18 +120,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,61.45,-0.02,58.77,-0.1,56.71,-0.34,0,False,False
 20260515,60.19,-1.26,57.73,-1.04,55.81,-0.9,0,False,False
 20260522,58.08,-2.11,55.33,-2.4,53.61,-2.2,0,False,False
+20260529,58.38,0.3,55.51,0.18,53.5,-0.11,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2377 | 微星 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
-| 20260521 | 2377 | 微星 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260521 | 2377 | 微星 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2377 | 微星 | 7 | 7 | 5 | 7 | 7 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260530 | 2377 | 微星 | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

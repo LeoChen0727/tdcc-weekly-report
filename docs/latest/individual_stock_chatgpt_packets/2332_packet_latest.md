@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2332 友訊
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:58 Asia/Taipei
+- generated_at: 2026-05-30 23:41:20 Asia/Taipei
 - stock_id: 2332
 - stock_name: 友訊
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 44.14
-- over_600_ratio: 40.4
-- over_800_ratio: 38.71
-- over_1000_ratio: 37.97
-- over_400_change_1w: 0.67
-- over_800_change_1w: 0.73
-- over_1000_change_1w: 1.03
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260529
+- over_400_ratio: 45.09
+- over_600_ratio: 41.46
+- over_800_ratio: 39.77
+- over_1000_ratio: 38.71
+- over_400_change_1w: 0.95
+- over_800_change_1w: 1.06
+- over_1000_change_1w: 0.74
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,17 +120,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,43.79,0.4,38.23,0.35,37.33,0.34,1,True,True
 20260515,43.47,-0.32,37.98,-0.25,36.94,-0.39,0,False,False
 20260522,44.14,0.67,38.71,0.73,37.97,1.03,1,True,True
+20260529,45.09,0.95,39.77,1.06,38.71,0.74,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2332 | 友訊 | true_breakout | 嚴格突破 | 98.0 |  |  | neckline_challenge |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260530 | 2332 | 友訊 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2332 | 友訊 | 2 | 1 | 4 | 6 | 6 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260530 | 2332 | 友訊 | 3 | 1 | 4 | 7 | 7 | continued_2_3d | 連續 3 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

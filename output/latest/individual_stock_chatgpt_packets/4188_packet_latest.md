@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4188 安克
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:48 Asia/Taipei
+- generated_at: 2026-05-30 23:42:19 Asia/Taipei
 - stock_id: 4188
 - stock_name: 安克
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -79,12 +79,12 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,11.8,11.9,11.5,11.8,81000,12.23,-3.5,12.12,12.99,2.15
 20260505,12.1,12.1,12,12,9000,12.21,-1.71,12.1,12.95,0.24
-20260506,12,12.2,11.8,11.95,32000,12.19,-1.95,12.08,12.91,0.83
+20260506,12,12.2,11.8,11.95,32000,12.19,-1.94,12.08,12.91,0.83
 20260507,11.65,11.9,11.65,11.8,30000,12.15,-2.92,12.06,12.87,0.81
 20260508,11.8,11.9,11.7,11.85,16000,12.13,-2.3,12.05,12.82,0.43
 20260511,11.7,11.75,11.55,11.7,61000,12.09,-3.25,12.03,12.78,1.66
-20260512,11.6,11.7,11.35,11.35,69000,12.03,-5.67,11.99,12.74,1.75
-20260513,11.3,11.5,11.3,11.5,25000,11.99,-4.07,11.96,12.7,0.63
+20260512,11.6,11.7,11.35,11.35,69000,12.03,-5.66,11.99,12.74,1.75
+20260513,11.3,11.5,11.3,11.5,25000,11.99,-4.06,11.96,12.7,0.63
 20260514,11.8,11.8,11.35,11.5,37000,11.95,-3.74,11.93,12.65,0.97
 20260515,11.5,11.55,11.45,11.55,14000,11.91,-3.05,11.9,12.61,0.37
 20260518,11.3,11.5,11.3,11.5,12000,11.88,-3.19,11.87,12.57,0.32
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 54.36
+- as_of_date: 20260529
+- over_400_ratio: 54.39
 - over_600_ratio: 47.92
 - over_800_ratio: 47.92
 - over_1000_ratio: 47.92
-- over_400_change_1w: 0.01
+- over_400_change_1w: 0.03
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,54.35,0,47.92,0,47.92,0,0,False,False
 20260515,54.35,0,47.92,0,47.92,0,0,False,False
 20260522,54.36,0.01,47.92,0,47.92,0,1,False,False
+20260529,54.39,0.03,47.92,0,47.92,0,2,False,False
 ```
 
 ## Candidate Context

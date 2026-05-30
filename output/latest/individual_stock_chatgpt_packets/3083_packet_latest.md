@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3083 網龍
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:25 Asia/Taipei
+- generated_at: 2026-05-30 23:41:51 Asia/Taipei
 - stock_id: 3083
 - stock_name: 網龍
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -78,7 +78,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,27.25,27.25,26.65,26.9,157000,27.37,-1.7,27.1,29.2,1.25
-20260505,26.9,27,26.7,26.75,86000,27.31,-2.07,27.09,29.04,0.69
+20260505,26.9,27,26.7,26.75,86000,27.31,-2.06,27.09,29.04,0.69
 20260506,27.55,27.55,26.8,26.85,163000,27.28,-1.56,27.08,28.9,1.23
 20260507,27.05,27.05,26.8,26.95,93000,27.25,-1.09,27.07,28.77,0.69
 20260508,27.3,27.3,26.65,26.9,127000,27.22,-1.17,27.08,28.64,0.94
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 56.61
+- as_of_date: 20260529
+- over_400_ratio: 56.59
 - over_600_ratio: 55.08
 - over_800_ratio: 55.08
 - over_1000_ratio: 53.1
-- over_400_change_1w: 0.01
+- over_400_change_1w: -0.02
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 2
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,56.59,-0.05,55.08,0,53.1,0,0,False,False
 20260515,56.6,0.01,55.08,0,53.1,0,1,False,False
 20260522,56.61,0.01,55.08,0,53.1,0,2,False,False
+20260529,56.59,-0.02,55.08,0,53.1,0,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2344 華邦電
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:59 Asia/Taipei
+- generated_at: 2026-05-30 23:41:21 Asia/Taipei
 - stock_id: 2344
 - stock_name: 華邦電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -79,9 +79,9 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,91.9,98.4,91.1,95.4,198798052,93.75,1.76,91.38,103.9,1.27
 20260505,96.8,100.5,96.6,98.8,196655974,94.17,4.92,91.72,103.67,1.25
-20260506,108.5,108.5,104,108.5,241792428,95.36,13.77,92.68,103.55,1.51
+20260506,108.5,108.5,104,108.5,241792428,95.36,13.78,92.68,103.55,1.51
 20260507,113,117,106.5,114,338649833,96.92,17.63,93.6,103.33,2
-20260508,111,115,103.5,107,174129448,97.76,9.45,94.4,102.95,1.02
+20260508,111,115,103.5,107,174129448,97.76,9.46,94.4,102.95,1.02
 20260511,115,117.5,113,117.5,162759860,99.4,18.21,95.6,102.77,0.95
 20260512,118.5,123.5,116,121.5,317628648,101.24,20.01,96.95,102.86,1.75
 20260513,117,122,115,122,133243035,102.97,18.48,98.38,103.13,0.74
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 69.61
-- over_600_ratio: 68.33
-- over_800_ratio: 67.5
-- over_1000_ratio: 66.86
-- over_400_change_1w: -2.56
-- over_800_change_1w: -2.65
-- over_1000_change_1w: -2.56
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 74.03
+- over_600_ratio: 72.83
+- over_800_ratio: 71.87
+- over_1000_ratio: 71.13
+- over_400_change_1w: 4.42
+- over_800_change_1w: 4.37
+- over_1000_change_1w: 4.27
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,18 +120,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,68.33,3.05,66.31,3.12,65.61,3.14,1,True,True
 20260515,72.17,3.84,70.15,3.84,69.42,3.81,2,True,True
 20260522,69.61,-2.56,67.5,-2.65,66.86,-2.56,0,False,False
+20260529,74.03,4.42,71.87,4.37,71.13,4.27,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2344 | 華邦電 | true_breakout | 嚴格突破 | 59.0 |  |  | platform_right_side |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
-| 20260521 | 2344 | 華邦電 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260521 | 2344 | 華邦電 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2344 | 華邦電 | 7 | 7 | 5 | 7 | 7 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260530 | 2344 | 華邦電 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

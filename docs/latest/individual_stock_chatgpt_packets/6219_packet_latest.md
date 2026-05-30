@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6219 富旺
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:21 Asia/Taipei
+- generated_at: 2026-05-30 23:42:57 Asia/Taipei
 - stock_id: 6219
 - stock_name: 富旺
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -78,15 +78,15 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,12.9,13.15,12.7,12.9,268000,13.72,-5.96,13.73,14.82,0.66
-20260505,12.75,12.85,12.4,12.75,489000,13.64,-6.51,13.64,14.76,1.15
-20260506,12.55,12.8,12.45,12.75,287000,13.56,-6,13.55,14.7,0.66
+20260505,12.75,12.85,12.4,12.75,489000,13.64,-6.5,13.64,14.76,1.15
+20260506,12.55,12.8,12.45,12.75,287000,13.56,-5.99,13.55,14.7,0.66
 20260507,12.75,13,12.6,12.9,329000,13.51,-4.5,13.46,14.65,0.74
 20260508,12.85,13.05,12.75,13.05,222000,13.47,-3.12,13.4,14.61,0.5
 20260511,13,13,12.45,12.9,643000,13.42,-3.89,13.35,14.55,1.42
 20260512,12.9,12.9,12.4,12.4,971000,13.34,-7.03,13.26,14.5,2.01
 20260513,12.2,12.5,12.15,12.25,380000,13.25,-7.52,13.16,14.44,0.8
 20260514,12.25,12.3,11.95,12.2,446000,13.16,-7.29,13.06,14.38,0.92
-20260515,12.2,12.3,11.85,12,696000,13.06,-8.14,12.94,14.31,1.39
+20260515,12.2,12.3,11.85,12,696000,13.06,-8.13,12.94,14.31,1.39
 20260518,11.8,12.25,11.6,11.95,593000,12.97,-7.86,12.83,14.25,1.14
 20260519,12.2,12.3,11.95,12.2,283000,12.91,-5.47,12.74,14.21,0.55
 20260520,12.1,12.55,12.05,12.4,289000,12.86,-3.6,12.66,14.16,0.56
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 67.68
-- over_600_ratio: 65.35
-- over_800_ratio: 64.35
-- over_1000_ratio: 64.35
-- over_400_change_1w: 0.46
-- over_800_change_1w: 0.07
-- over_1000_change_1w: 0.07
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 68.41
+- over_600_ratio: 65.62
+- over_800_ratio: 64.63
+- over_1000_ratio: 64.63
+- over_400_change_1w: 0.73
+- over_800_change_1w: 0.28
+- over_1000_change_1w: 0.28
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,67.01,1.03,63.99,0.26,63.99,0.26,1,True,True
 20260515,67.22,0.21,64.28,0.29,64.28,0.29,2,False,True
 20260522,67.68,0.46,64.35,0.07,64.35,0.07,3,True,True
+20260529,68.41,0.73,64.63,0.28,64.63,0.28,4,True,True
 ```
 
 ## Candidate Context

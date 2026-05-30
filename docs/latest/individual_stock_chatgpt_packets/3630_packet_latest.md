@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3630 新鉅科
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:41 Asia/Taipei
+- generated_at: 2026-05-30 23:42:10 Asia/Taipei
 - stock_id: 3630
 - stock_name: 新鉅科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -78,7 +78,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,27.55,28,27.35,27.75,563000,28.75,-3.48,28.61,30.73,0.61
-20260505,27.75,28.5,27.75,28.4,637000,28.72,-1.12,28.65,30.56,0.69
+20260505,27.75,28.5,27.75,28.4,637000,28.72,-1.11,28.65,30.56,0.69
 20260506,28.95,28.95,27.55,27.65,1092000,28.63,-3.43,28.68,30.39,1.15
 20260507,27.65,27.7,27.25,27.6,917000,28.55,-3.31,28.64,30.23,0.96
 20260508,27.6,27.8,26.6,27,1077000,28.42,-4.98,28.58,30.11,1.08
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 53.89
-- over_600_ratio: 52.63
-- over_800_ratio: 51.53
-- over_1000_ratio: 51.09
-- over_400_change_1w: -0.2
-- over_800_change_1w: -0.43
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 54.1
+- over_600_ratio: 53.12
+- over_800_ratio: 52.05
+- over_1000_ratio: 51.61
+- over_400_change_1w: 0.21
+- over_800_change_1w: 0.52
+- over_1000_change_1w: 0.52
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,54.2,-0.2,51.94,-0.08,51.09,-0.49,0,False,False
 20260515,54.09,-0.11,51.96,0.02,51.09,0,1,False,True
 20260522,53.89,-0.2,51.53,-0.43,51.09,0,0,False,False
+20260529,54.1,0.21,52.05,0.52,51.61,0.52,1,True,True
 ```
 
 ## Candidate Context

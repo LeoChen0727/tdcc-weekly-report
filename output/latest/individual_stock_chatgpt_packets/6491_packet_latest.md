@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6491 晶碩
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:28 Asia/Taipei
+- generated_at: 2026-05-30 23:43:05 Asia/Taipei
 - stock_id: 6491
 - stock_name: 晶碩
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -89,7 +89,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260515,292,299,292,294.5,739347,285.58,3.12,284.98,284.98,1.78
 20260518,294.5,294.5,289.5,293,305106,286.2,2.38,284.95,285.05,0.75
 20260519,295.5,313,294.5,305.5,1998605,287.81,6.15,285.82,285.42,4.08
-20260520,305,305,301,303,636493,289.08,4.82,286.8,285.62,1.29
+20260520,305,305,301,303,636493,289.07,4.82,286.8,285.62,1.29
 20260521,302,307.5,300,307,616614,290.57,5.65,287.77,285.99,1.24
 20260522,307,309,305,308,440125,292.02,5.47,288.88,286.22,0.89
 20260525,309,309,304.5,307.5,703378,293.31,4.84,290.07,286.43,1.37
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 57.69
+- as_of_date: 20260529
+- over_400_ratio: 58.84
 - over_600_ratio: 54.91
 - over_800_ratio: 54.91
 - over_1000_ratio: 53.63
-- over_400_change_1w: 0.02
+- over_400_change_1w: 1.15
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 2
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,57.56,-0.4,54.91,-0.01,53.63,-0.01,0,False,False
 20260515,57.67,0.11,54.91,0,53.63,0,1,False,False
 20260522,57.69,0.02,54.91,0,53.63,0,2,False,False
+20260529,58.84,1.15,54.91,0,53.63,0,3,False,False
 ```
 
 ## Candidate Context

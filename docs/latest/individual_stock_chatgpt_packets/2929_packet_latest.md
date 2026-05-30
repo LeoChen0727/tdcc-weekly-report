@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2929 淘帝-KY
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:19 Asia/Taipei
+- generated_at: 2026-05-30 23:41:44 Asia/Taipei
 - stock_id: 2929
 - stock_name: 淘帝-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 30.94
-- over_600_ratio: 28.39
-- over_800_ratio: 26.47
-- over_1000_ratio: 24.8
-- over_400_change_1w: -0.26
-- over_800_change_1w: 0.83
-- over_1000_change_1w: -0.84
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 30.55
+- over_600_ratio: 28
+- over_800_ratio: 25.51
+- over_1000_ratio: 24.71
+- over_400_change_1w: -0.39
+- over_800_change_1w: -0.96
+- over_1000_change_1w: -0.09
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,30.59,1.26,25.2,0.31,25.2,1.2,1,True,True
 20260515,31.2,0.61,25.64,0.44,25.64,0.44,2,True,True
 20260522,30.94,-0.26,26.47,0.83,24.8,-0.84,3,False,True
+20260529,30.55,-0.39,25.51,-0.96,24.71,-0.09,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4706 大恭
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:54 Asia/Taipei
+- generated_at: 2026-05-30 23:42:26 Asia/Taipei
 - stock_id: 4706
 - stock_name: 大恭
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 125
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 261
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -81,7 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260504,34.55,34.55,32.15,32.3,16000,31.73,1.79,31.81,30.71,0.83
 20260505,32.3,32.3,31.8,31.8,6000,31.74,0.2,31.85,30.75,0.31
 20260506,31.5,31.5,30.3,30.85,8000,31.66,-2.57,31.84,30.76,0.42
-20260507,30.85,32,30.85,31.8,21000,31.67,0.4,31.9,30.79,1.06
+20260507,30.85,32,30.85,31.8,21000,31.68,0.39,31.9,30.79,1.06
 20260508,31.8,31.8,31.1,31.1,18000,31.63,-1.67,31.88,30.8,1.01
 20260511,31.1,31.1,30.3,30.9,18000,31.57,-2.11,31.88,30.8,0.99
 20260512,32.45,32.5,30.7,32.5,36000,31.64,2.7,31.97,30.84,1.89
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 82.3
-- over_600_ratio: 78.84
-- over_800_ratio: 77.96
-- over_1000_ratio: 76.79
+- as_of_date: 20260529
+- over_400_ratio: 82.37
+- over_600_ratio: 78.91
+- over_800_ratio: 78.03
+- over_1000_ratio: 76.86
 - over_400_change_1w: 0.07
 - over_800_change_1w: 0.07
 - over_1000_change_1w: 0.07
-- tdcc_consecutive_up_weeks: 3
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,82.17,0.02,77.83,0.02,76.66,0.02,1,True,True
 20260515,82.23,0.06,77.89,0.06,76.72,0.06,2,True,True
 20260522,82.3,0.07,77.96,0.07,76.79,0.07,3,True,True
+20260529,82.37,0.07,78.03,0.07,76.86,0.07,4,True,True
 ```
 
 ## Candidate Context

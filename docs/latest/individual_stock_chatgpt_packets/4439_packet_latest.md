@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4439 冠星-KY
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:50 Asia/Taipei
+- generated_at: 2026-05-30 23:42:21 Asia/Taipei
 - stock_id: 4439
 - stock_name: 冠星-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -81,13 +81,13 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260505,100,100,97.4,98,16088,96.94,1.09,97.92,95.21,0.35
 20260506,98,99.5,98,99.4,8492,97.15,2.32,98.59,95.17,0.19
 20260507,99.2,99.2,98,98.9,9000,97.29,1.65,99.05,95.11,0.2
-20260508,98,99,98,99,15000,97.44,1.61,99.2,95.04,0.38
+20260508,98,99,98,99,15000,97.44,1.6,99.2,95.04,0.38
 20260511,98.5,98.9,96.2,97.8,35176,97.47,0.34,99.2,95,1.04
 20260512,98.3,98.5,96.5,96.5,19543,97.39,-0.91,99.23,94.91,0.57
 20260513,97,97,94.3,95.3,27015,97.21,-1.97,99.12,94.79,0.79
 20260514,96.5,97.1,95.8,96.4,24355,97.14,-0.77,99.04,94.68,0.73
 20260515,96,96,92.6,96,27612,97.05,-1.08,98.92,94.56,0.8
-20260518,96.5,96.7,94,94,29148,96.79,-2.89,98.75,94.42,0.84
+20260518,96.5,96.7,94,94,29148,96.8,-2.89,98.75,94.42,0.84
 20260519,94.8,94.8,91.5,91.5,13166,96.35,-5.04,98.37,94.23,0.39
 20260520,91.8,93.7,90.3,91,37918,95.91,-5.12,97.77,94.04,1.42
 20260521,91,93,90,92,15119,95.58,-3.75,97.17,93.88,0.57
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 78.5
-- over_600_ratio: 74.79
-- over_800_ratio: 74.79
-- over_1000_ratio: 69.79
-- over_400_change_1w: 0.04
-- over_800_change_1w: 0.04
-- over_1000_change_1w: 0.04
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 78.51
+- over_600_ratio: 74.8
+- over_800_ratio: 74.8
+- over_1000_ratio: 69.8
+- over_400_change_1w: 0.01
+- over_800_change_1w: 0.01
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,78.45,0.05,74.76,0.02,69.76,0.02,1,True,True
 20260515,78.46,0.01,74.75,-0.01,69.75,-0.01,2,False,False
 20260522,78.5,0.04,74.79,0.04,69.79,0.04,3,True,True
+20260529,78.51,0.01,74.8,0.01,69.8,0.01,4,True,True
 ```
 
 ## Candidate Context

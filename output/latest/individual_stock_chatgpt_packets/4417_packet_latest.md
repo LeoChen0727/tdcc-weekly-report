@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4417 金洲
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:49 Asia/Taipei
+- generated_at: 2026-05-30 23:42:20 Asia/Taipei
 - stock_id: 4417
 - stock_name: 金洲
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -82,7 +82,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260506,46.7,46.7,46.05,46.3,198000,48.16,-3.87,47.94,50.53,1.12
 20260507,46.3,46.75,46.3,46.5,112000,48.02,-3.17,47.75,50.45,0.63
 20260508,46.3,46.55,45.85,46.1,309000,47.86,-3.68,47.54,50.35,1.62
-20260511,46.15,46.5,45.95,46.45,192000,47.75,-2.71,47.34,50.26,0.97
+20260511,46.15,46.5,45.95,46.45,192000,47.74,-2.71,47.34,50.26,0.97
 20260512,46.45,46.6,46,46.3,173000,47.62,-2.78,47.23,50.17,1.02
 20260513,46,46,45.55,45.9,335000,47.48,-3.33,47.14,50.07,2.01
 20260514,46,46.25,45.75,45.8,112000,47.34,-3.25,47.04,49.97,0.69
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 46.13
-- over_600_ratio: 41.49
-- over_800_ratio: 39.11
-- over_1000_ratio: 37.06
-- over_400_change_1w: 0
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 46.14
+- over_600_ratio: 41.5
+- over_800_ratio: 39.12
+- over_1000_ratio: 37.07
+- over_400_change_1w: 0.01
+- over_800_change_1w: 0.01
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,46.12,0,39.1,0,37.04,0.02,1,False,True
 20260515,46.13,0.01,39.11,0.01,37.06,0.02,2,True,True
 20260522,46.13,0,39.11,0,37.06,0,0,False,False
+20260529,46.14,0.01,39.12,0.01,37.07,0.01,1,True,True
 ```
 
 ## Candidate Context

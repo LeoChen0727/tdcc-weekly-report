@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3287 廣寰科
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:30 Asia/Taipei
+- generated_at: 2026-05-30 23:41:58 Asia/Taipei
 - stock_id: 3287
 - stock_name: 廣寰科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -84,7 +84,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260508,28.25,28.6,28.25,28.4,51000,28.57,-0.58,28.69,29.03,0.93
 20260511,27.7,28.3,27.7,28.05,132000,28.52,-1.66,28.66,28.98,2.2
 20260512,30.85,30.85,30.85,30.85,237000,28.72,7.43,28.77,29,3.38
-20260513,31.85,33.9,31.85,32.1,3421000,29,10.7,28.93,29.03,14.3
+20260513,31.85,33.9,31.85,32.1,3421000,29,10.69,28.93,29.03,14.3
 20260514,32.1,32.45,31.35,31.35,687000,29.19,7.38,29.04,29.05,2.54
 20260515,31.9,32.9,31.8,32,568000,29.43,8.74,29.17,29.08,1.92
 20260518,32.2,32.2,30.8,31.2,305000,29.58,5.49,29.27,29.12,0.99
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 58.17
-- over_600_ratio: 53.76
+- as_of_date: 20260529
+- over_400_ratio: 59.26
+- over_600_ratio: 52.39
 - over_800_ratio: 50.95
 - over_1000_ratio: 48.76
-- over_400_change_1w: -0.03
+- over_400_change_1w: 1.09
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,58.17,0,50.95,0,48.76,0,0,False,False
 20260515,58.2,0.03,50.95,0,48.76,0,1,False,False
 20260522,58.17,-0.03,50.95,0,48.76,0,0,False,False
+20260529,59.26,1.09,50.95,0,48.76,0,1,False,False
 ```
 
 ## Candidate Context

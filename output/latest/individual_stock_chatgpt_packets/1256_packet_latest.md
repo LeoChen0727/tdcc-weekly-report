@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1256 鮮活果汁-KY
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:35 Asia/Taipei
+- generated_at: 2026-05-30 23:40:53 Asia/Taipei
 - stock_id: 1256
 - stock_name: 鮮活果汁-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 61.19
+- as_of_date: 20260529
+- over_400_ratio: 61.27
 - over_600_ratio: 55.92
 - over_800_ratio: 52.35
 - over_1000_ratio: 47.12
-- over_400_change_1w: 0
+- over_400_change_1w: 0.08
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,61.26,-1.28,52.35,-0.22,47.12,-0.22,1,False,False
 20260515,61.19,-0.07,52.35,0,47.12,0,0,False,False
 20260522,61.19,0,52.35,0,47.12,0,0,False,False
+20260529,61.27,0.08,52.35,0,47.12,0,1,False,False
 ```
 
 ## Candidate Context

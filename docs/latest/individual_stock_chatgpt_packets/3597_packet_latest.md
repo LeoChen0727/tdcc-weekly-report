@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3597 映興
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:40 Asia/Taipei
+- generated_at: 2026-05-30 23:42:09 Asia/Taipei
 - stock_id: 3597
 - stock_name: 映興
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -86,7 +86,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260512,27.05,29,26.8,27.55,554000,25.3,8.9,25.28,24.34,3.86
 20260513,27.55,27.6,26.95,27.5,170000,25.48,7.92,25.45,24.39,1.12
 20260514,27.55,27.8,26.9,27.5,151000,25.65,7.22,25.59,24.44,0.97
-20260515,27.5,27.85,26.85,26.85,93000,25.75,4.27,25.69,24.48,0.58
+20260515,27.5,27.85,26.85,26.85,93000,25.75,4.28,25.69,24.48,0.58
 20260518,26.85,26.85,26.4,26.5,53000,25.81,2.67,25.78,24.51,0.33
 20260519,26.15,26.2,26.1,26.2,27000,25.84,1.38,25.86,24.52,0.17
 20260520,27.8,27.8,26.8,27.25,41000,25.96,4.96,25.97,24.55,0.26
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 64.28
-- over_600_ratio: 62.91
+- as_of_date: 20260529
+- over_400_ratio: 64.3
+- over_600_ratio: 62.93
 - over_800_ratio: 59.18
 - over_1000_ratio: 56.92
-- over_400_change_1w: 0
+- over_400_change_1w: 0.02
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,64.28,0,59.18,0,56.92,0,0,False,False
 20260515,64.28,0,59.18,0,56.92,0,0,False,False
 20260522,64.28,0,59.18,0,56.92,0,0,False,False
+20260529,64.3,0.02,59.18,0,56.92,0,1,False,False
 ```
 
 ## Candidate Context

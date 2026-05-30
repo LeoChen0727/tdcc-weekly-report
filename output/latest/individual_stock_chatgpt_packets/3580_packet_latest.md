@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3580 友威科
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:39 Asia/Taipei
+- generated_at: 2026-05-30 23:42:08 Asia/Taipei
 - stock_id: 3580
 - stock_name: 友威科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -79,16 +79,16 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,90,94.4,87.8,94.4,3025000,80.59,17.14,81.2,73.1,1.81
 20260505,94.9,102.5,92.3,99,7133000,82.12,20.55,82.66,73.58,3.56
-20260506,99.5,101,91.5,92,4044000,82.95,10.92,83.67,73.97,1.85
+20260506,99.5,101,91.5,92,4044000,82.95,10.91,83.67,73.97,1.85
 20260507,93.4,93.5,88,88.4,2306000,83.4,5.99,84.22,74.27,1.03
 20260508,88.5,90,84.6,88.8,1994000,83.85,5.9,84.72,74.62,0.89
 20260511,91.4,97.6,88.1,97,3807000,84.95,14.19,85.58,75.12,1.62
 20260512,97,103,94,102.5,4370000,86.41,18.62,86.41,75.75,1.84
 20260513,105,108,101.5,103,6366000,87.79,17.32,87.39,76.36,2.47
 20260514,100,101,95.2,95.5,3183000,88.43,7.99,88.09,76.81,1.19
-20260515,96,105,94.5,105,6348000,89.81,16.91,89.25,77.42,2.15
+20260515,96,105,94.5,105,6348000,89.82,16.91,89.25,77.42,2.15
 20260518,102,104,98.2,101,4117000,90.75,11.3,90.09,77.99,1.33
-20260519,107,111,107,111,5046000,92.43,20.09,91.47,78.73,1.59
+20260519,107,111,107,111,5046000,92.43,20.08,91.47,78.73,1.59
 20260520,113,114.5,99.9,99.9,10645000,93.06,7.35,92.34,79.3,2.92
 20260521,95.2,101.5,95.2,100,7681000,93.64,6.8,93.26,79.87,1.94
 20260522,100.5,109,99.2,104,104000,94.5,10.05,94.56,80.49,0.03
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 10.95
-- over_600_ratio: 7.1
-- over_800_ratio: 7.1
-- over_1000_ratio: 7.1
-- over_400_change_1w: -1.06
-- over_800_change_1w: -2.31
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 14.84
+- over_600_ratio: 9.64
+- over_800_ratio: 9.64
+- over_1000_ratio: 9.64
+- over_400_change_1w: 3.89
+- over_800_change_1w: 2.54
+- over_1000_change_1w: 2.54
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,14.61,-0.51,9.54,-0.38,7.1,-2.82,0,False,False
 20260515,12.01,-2.6,9.41,-0.13,7.1,0,0,False,False
 20260522,10.95,-1.06,7.1,-2.31,7.1,0,0,False,False
+20260529,14.84,3.89,9.64,2.54,9.64,2.54,1,True,True
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 3580 | 友威科 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260530 | 3580 | 友威科 | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

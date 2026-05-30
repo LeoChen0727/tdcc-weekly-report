@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2548 華固
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:11 Asia/Taipei
+- generated_at: 2026-05-30 23:41:34 Asia/Taipei
 - stock_id: 2548
 - stock_name: 華固
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -91,7 +91,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260519,125.5,126.5,124.5,124.5,1410055,125.57,-0.85,126.62,121.52,0.8
 20260520,124.5,125,123,123.5,1503000,125.4,-1.51,126.33,121.78,0.84
 20260521,124,125,123.5,123.5,1228852,125.24,-1.39,125.97,122.03,0.69
-20260522,123.5,123.5,122.5,123.5,1776182,125.1,-1.28,125.6,122.27,0.98
+20260522,123.5,123.5,122.5,123.5,1776182,125.09,-1.28,125.6,122.27,0.98
 20260525,123.5,123.5,121,122,2593664,124.84,-2.27,125.17,122.45,1.36
 20260526,122,122,119.5,121,3290082,124.52,-2.82,124.62,122.58,1.65
 20260527,121,123.5,120.5,121.5,2299237,124.27,-2.23,124.33,122.81,1.13
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 57.9
-- over_600_ratio: 53.61
-- over_800_ratio: 49.31
-- over_1000_ratio: 45.84
-- over_400_change_1w: -0.27
-- over_800_change_1w: 0.3
-- over_1000_change_1w: 0.86
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260529
+- over_400_ratio: 57.4
+- over_600_ratio: 52.74
+- over_800_ratio: 48.17
+- over_1000_ratio: 45.01
+- over_400_change_1w: -0.5
+- over_800_change_1w: -1.14
+- over_1000_change_1w: -0.83
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,19 +120,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,58.37,-0.33,49.09,-0.53,45.37,-0.81,1,False,False
 20260515,58.17,-0.2,49.01,-0.08,44.98,-0.39,0,False,False
 20260522,57.9,-0.27,49.31,0.3,45.84,0.86,1,False,True
+20260529,57.4,-0.5,48.17,-1.14,45.01,-0.83,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2548 | 華固 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260529 | 2548 | 華固 | revenue_breakout_low_response | 營收爆發低反應股 | 15.0 | 16.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260530 | 2548 | 華固 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260530 | 2548 | 華固 | revenue_breakout_low_response | 營收爆發低反應股 | 15.0 | 17.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 | 20260521 | 2548 | 華固 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2548 | 華固 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260530 | 2548 | 華固 | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3501 維熹
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:36 Asia/Taipei
+- generated_at: 2026-05-30 23:42:04 Asia/Taipei
 - stock_id: 3501
 - stock_name: 維熹
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 52.01
-- over_600_ratio: 49.38
-- over_800_ratio: 47.55
-- over_1000_ratio: 46.83
-- over_400_change_1w: -0.3
-- over_800_change_1w: -0.95
-- over_1000_change_1w: -0.95
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260529
+- over_400_ratio: 51.77
+- over_600_ratio: 48.7
+- over_800_ratio: 47.57
+- over_1000_ratio: 46.85
+- over_400_change_1w: -0.24
+- over_800_change_1w: 0.02
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,53.49,0.09,49.63,0,48.91,0,1,False,False
 20260515,52.31,-1.18,48.5,-1.13,47.78,-1.13,0,False,False
 20260522,52.01,-0.3,47.55,-0.95,46.83,-0.95,0,False,False
+20260529,51.77,-0.24,47.57,0.02,46.85,0.02,1,False,True
 ```
 
 ## Candidate Context

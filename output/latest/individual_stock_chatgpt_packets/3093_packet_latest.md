@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3093 港建*
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:25 Asia/Taipei
+- generated_at: 2026-05-30 23:41:52 Asia/Taipei
 - stock_id: 3093
 - stock_name: 港建*
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -86,7 +86,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260512,59.1,59.4,57,57.5,1464000,59.76,-3.79,64.2,47.35,0.32
 20260513,58.3,58.3,52.6,53.8,1931000,59.27,-9.22,63.45,47.82,0.43
 20260514,54,54.6,51.1,51.8,2037000,58.64,-11.67,62.26,48.25,0.47
-20260515,52.2,52.9,49.7,50.5,1470000,57.96,-12.88,61.12,48.66,0.38
+20260515,52.2,52.9,49.7,50.5,1470000,57.97,-12.88,61.12,48.66,0.38
 20260518,50,52,49,51,1158000,57.38,-11.13,60.02,49.08,0.31
 20260519,51.5,51.5,48.4,48.55,1564000,56.65,-14.3,58.78,49.45,0.44
 20260520,48.6,49.7,47.8,47.8,768000,55.91,-14.51,57.7,49.81,0.24
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 74.25
+- as_of_date: 20260529
+- over_400_ratio: 74.67
 - over_600_ratio: 72.57
-- over_800_ratio: 71.64
+- over_800_ratio: 71.67
 - over_1000_ratio: 69.84
-- over_400_change_1w: -0.74
-- over_800_change_1w: 0.01
+- over_400_change_1w: 0.42
+- over_800_change_1w: 0.03
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 3
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,74.91,0.98,72.72,1.09,69.84,0,1,False,True
 20260515,74.99,0.08,71.63,-1.09,69.84,0,2,False,False
 20260522,74.25,-0.74,71.64,0.01,69.84,0,3,False,True
+20260529,74.67,0.42,71.67,0.03,69.84,0,4,False,True
 ```
 
 ## Candidate Context

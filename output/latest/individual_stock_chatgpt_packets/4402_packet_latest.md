@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4402 郡都開發
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:49 Asia/Taipei
+- generated_at: 2026-05-30 23:42:20 Asia/Taipei
 - stock_id: 4402
 - stock_name: 郡都開發
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 64.71
-- over_600_ratio: 60.93
-- over_800_ratio: 60.93
-- over_1000_ratio: 59.74
-- over_400_change_1w: 0.08
-- over_800_change_1w: 0.07
-- over_1000_change_1w: 0.07
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 64.85
+- over_600_ratio: 61.07
+- over_800_ratio: 61.07
+- over_1000_ratio: 59.88
+- over_400_change_1w: 0.14
+- over_800_change_1w: 0.14
+- over_1000_change_1w: 0.14
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,64.55,0.38,60.78,-0.49,59.59,-0.49,1,False,False
 20260515,64.63,0.08,60.86,0.08,59.67,0.08,2,True,True
 20260522,64.71,0.08,60.93,0.07,59.74,0.07,3,True,True
+20260529,64.85,0.14,61.07,0.14,59.88,0.14,4,True,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1810 和成
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:50 Asia/Taipei
+- generated_at: 2026-05-30 23:41:11 Asia/Taipei
 - stock_id: 1810
 - stock_name: 和成
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 26
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 27
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,23 +100,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 67.85
-- over_600_ratio: 65.46
-- over_800_ratio: 64.14
-- over_1000_ratio: 62.14
-- over_400_change_1w: 0.69
-- over_800_change_1w: 0.8
-- over_1000_change_1w: 0.81
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 67.45
+- over_600_ratio: 64.93
+- over_800_ratio: 64.03
+- over_1000_ratio: 62.61
+- over_400_change_1w: -0.4
+- over_800_change_1w: -0.11
+- over_1000_change_1w: 0.47
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260306,67.11,0.2,63.44,0.39,61.12,-0.23,3,False,True
 20260313,66.94,-0.17,62.94,-0.5,61.2,0.08,4,False,True
 20260320,66.85,-0.09,62.92,-0.02,61.18,-0.02,0,False,False
 20260327,66.98,0.13,63.07,0.15,61.67,0.49,1,True,True
@@ -128,18 +127,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,67.26,0.32,63.2,0.31,61.25,0.04,1,True,True
 20260515,67.16,-0.1,63.34,0.14,61.33,0.08,2,False,True
 20260522,67.85,0.69,64.14,0.8,62.14,0.81,3,True,True
+20260529,67.45,-0.4,64.03,-0.11,62.61,0.47,4,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 1810 | 和成 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260530 | 1810 | 和成 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 | 20260521 | 1810 | 和成 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 1810 | 和成 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 1810 | 和成 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

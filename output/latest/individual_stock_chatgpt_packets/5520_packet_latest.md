@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5520 力泰
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:10 Asia/Taipei
+- generated_at: 2026-05-30 23:42:44 Asia/Taipei
 - stock_id: 5520
 - stock_name: 力泰
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 128
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 264
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -86,7 +86,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260504,82,82,82,82,1000,82.4,-0.48,81.27,86.26,0.15
 20260505,81.2,81.5,81.2,81.5,6000,82.32,-1,81.25,86.14,0.93
 20260506,81,81,79,79,2000,82.05,-3.71,81.05,85.97,0.32
-20260508,81.9,81.9,81.2,81.2,5000,81.98,-0.95,80.97,85.83,0.79
+20260508,81.9,81.9,81.2,81.2,5000,81.97,-0.94,80.97,85.83,0.79
 20260511,81.5,81.5,81.1,81.1,5000,81.9,-0.98,80.89,85.7,0.79
 20260512,81.2,81.2,80.2,80.2,5000,81.76,-1.91,80.81,85.55,0.82
 20260514,81,81,81,81,1000,81.7,-0.85,80.75,85.42,0.16
@@ -100,14 +100,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 83.76
-- over_600_ratio: 77.51
-- over_800_ratio: 75.17
-- over_1000_ratio: 73.59
-- over_400_change_1w: 0
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
+- as_of_date: 20260529
+- over_400_ratio: 83.75
+- over_600_ratio: 77.5
+- over_800_ratio: 75.16
+- over_1000_ratio: 73.58
+- over_400_change_1w: -0.01
+- over_800_change_1w: -0.01
+- over_1000_change_1w: -0.01
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,83.76,0,75.17,0,73.59,0,0,False,False
 20260515,83.76,0,75.17,0,73.59,0,0,False,False
 20260522,83.76,0,75.17,0,73.59,0,0,False,False
+20260529,83.75,-0.01,75.16,-0.01,73.58,-0.01,0,False,False
 ```
 
 ## Candidate Context

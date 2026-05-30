@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4528 江興鍛
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:51 Asia/Taipei
+- generated_at: 2026-05-30 23:42:22 Asia/Taipei
 - stock_id: 4528
 - stock_name: 江興鍛
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -91,7 +91,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260519,15.4,15.5,15.3,15.45,35000,16.1,-4.03,15.86,17.34,0.73
 20260520,15.3,15.45,15.3,15.45,10000,16.04,-3.7,15.84,17.28,0.27
 20260521,15.45,15.6,15.4,15.6,15000,16.01,-2.54,15.8,17.21,0.45
-20260522,15.5,15.9,15.5,15.75,16000,15.99,-1.48,15.78,17.15,0.49
+20260522,15.5,15.9,15.5,15.75,16000,15.99,-1.47,15.78,17.15,0.49
 20260525,15.4,16.25,15.4,15.8,16000,15.97,-1.07,15.77,17.1,0.51
 20260526,15.8,15.8,15.4,15.5,16000,15.93,-2.71,15.74,17.03,0.52
 20260527,15.35,15.45,15.25,15.35,15000,15.88,-3.35,15.72,16.97,0.49
@@ -100,12 +100,12 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 62.84
 - over_600_ratio: 61.08
 - over_800_ratio: 60.36
 - over_1000_ratio: 60.36
-- over_400_change_1w: -0.02
+- over_400_change_1w: 0
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,62.84,0,60.36,0,60.36,0,0,False,False
 20260515,62.86,0.02,60.36,0,60.36,0,1,False,False
 20260522,62.84,-0.02,60.36,0,60.36,0,0,False,False
+20260529,62.84,0,60.36,0,60.36,0,0,False,False
 ```
 
 ## Candidate Context

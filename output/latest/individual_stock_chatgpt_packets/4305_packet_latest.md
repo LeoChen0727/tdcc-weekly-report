@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4305 世坤
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:49 Asia/Taipei
+- generated_at: 2026-05-30 23:42:19 Asia/Taipei
 - stock_id: 4305
 - stock_name: 世坤
-- packet_status: standard_rawdata_packet
+- packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 109
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 245
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: price history shorter than 120 rows; K-line context is partial; TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
+- notes: TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
 
 ## Stable Read URLs
 - packet_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_chatgpt_packets/4305_packet_latest.md
@@ -66,7 +66,7 @@
 - distance_to_ema23_pct: 0.06
 - ma20: 43.98
 - ma60: 43.69
-- ma120: 42.93
+- ma120: 43.03
 - return_5d: -0.56
 - return_20d: 1.38
 - volume_ratio: 2.68
@@ -78,13 +78,13 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260428,43.4,43.45,43.4,43.4,4000,43.65,-0.58,43.85,43.07,0.88
-20260429,43.4,43.75,43.4,43.75,2000,43.66,0.21,43.84,43.1,0.48
+20260429,43.4,43.75,43.4,43.75,2000,43.66,0.2,43.84,43.1,0.48
 20260430,43.75,43.75,43.75,43.75,3000,43.67,0.19,43.84,43.13,0.7
-20260504,43.75,43.75,43.75,43.75,2000,43.67,0.17,43.84,43.16,0.49
+20260504,43.75,43.75,43.75,43.75,2000,43.68,0.17,43.84,43.16,0.49
 20260506,44,44,44,44,2000,43.7,0.68,43.81,43.2,0.52
 20260507,43.95,43.95,43.95,43.95,1000,43.72,0.52,43.78,43.23,0.27
 20260508,43.35,43.85,43.35,43.85,6000,43.73,0.27,43.77,43.26,1.52
-20260511,43.8,43.8,43.55,43.65,4000,43.73,-0.17,43.76,43.29,0.98
+20260511,43.8,43.8,43.55,43.65,4000,43.73,-0.18,43.76,43.29,0.98
 20260512,44.6,45,44.3,44.3,9000,43.77,1.2,43.77,43.33,2.09
 20260514,44.3,45,44.3,44.3,6000,43.82,1.1,43.8,43.36,1.33
 20260515,44.3,44.45,43.9,44,16000,43.83,0.38,43.81,43.4,3.14
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 84.73
 - over_600_ratio: 83.65
 - over_800_ratio: 78.27
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,84.73,0,78.27,0,74.81,0,0,False,False
 20260515,84.73,0,78.27,0,74.81,0,0,False,False
 20260522,84.73,0,78.27,0,74.81,0,0,False,False
+20260529,84.73,0,78.27,0,74.81,0,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1783 和康生
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:49 Asia/Taipei
+- generated_at: 2026-05-30 23:41:09 Asia/Taipei
 - stock_id: 1783
 - stock_name: 和康生
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,16 +100,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 63.58
-- over_600_ratio: 59.49
-- over_800_ratio: 57.1
-- over_1000_ratio: 55.13
-- over_400_change_1w: -0.05
-- over_800_change_1w: -0.04
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 63.59
+- over_600_ratio: 59.51
+- over_800_ratio: 57.12
+- over_1000_ratio: 55.15
+- over_400_change_1w: 0.01
+- over_800_change_1w: 0.02
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,64.04,-0.1,57.09,0.05,55.07,0.05,1,False,True
 20260515,63.63,-0.41,57.14,0.05,55.12,0.05,2,False,True
 20260522,63.58,-0.05,57.1,-0.04,55.13,0.01,3,False,True
+20260529,63.59,0.01,57.12,0.02,55.15,0.02,4,True,True
 ```
 
 ## Candidate Context

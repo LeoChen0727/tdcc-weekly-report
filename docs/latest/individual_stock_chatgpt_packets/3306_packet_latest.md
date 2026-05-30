@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3306 鼎天
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:31 Asia/Taipei
+- generated_at: 2026-05-30 23:41:58 Asia/Taipei
 - stock_id: 3306
 - stock_name: 鼎天
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -86,7 +86,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260512,46.25,46.3,45,45.4,265000,47.17,-3.76,47.39,47.24,1.19
 20260513,45.4,45.55,44.5,44.55,187000,46.95,-5.12,47.25,47.2,0.83
 20260514,44.6,45.25,44.5,44.95,144000,46.79,-3.93,47.12,47.15,0.64
-20260515,45,45.45,44.45,44.7,218000,46.61,-4.11,46.98,47.1,0.95
+20260515,45,45.45,44.45,44.7,218000,46.61,-4.1,46.98,47.1,0.95
 20260518,45.1,46.25,43.8,46.15,234000,46.57,-0.91,46.92,47.1,1
 20260519,46.15,47.1,45,45.25,200000,46.46,-2.61,46.79,47.09,0.88
 20260520,45.55,45.55,44.3,44.85,155000,46.33,-3.19,46.61,47.06,0.69
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 47.55
-- over_600_ratio: 45.94
+- as_of_date: 20260529
+- over_400_ratio: 47.67
+- over_600_ratio: 46.04
 - over_800_ratio: 43.14
 - over_1000_ratio: 43.14
-- over_400_change_1w: -0.13
+- over_400_change_1w: 0.12
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,47.69,-0.15,43.14,0,43.14,0,0,False,False
 20260515,47.68,-0.01,43.14,0,43.14,0,0,False,False
 20260522,47.55,-0.13,43.14,0,43.14,0,0,False,False
+20260529,47.67,0.12,43.14,0,43.14,0,1,False,False
 ```
 
 ## Candidate Context

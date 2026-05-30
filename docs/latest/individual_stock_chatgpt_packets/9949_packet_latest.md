@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9949 琉園
 
 ## Metadata
-- generated_at: 2026-05-29 19:34:08 Asia/Taipei
+- generated_at: 2026-05-30 23:44:05 Asia/Taipei
 - stock_id: 9949
 - stock_name: 琉園
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 136
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 272
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 74.14
-- over_600_ratio: 69.47
-- over_800_ratio: 66.43
-- over_1000_ratio: 58.4
-- over_400_change_1w: 0.01
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 74.48
+- over_600_ratio: 69.81
+- over_800_ratio: 66.77
+- over_1000_ratio: 58.74
+- over_400_change_1w: 0.34
+- over_800_change_1w: 0.34
+- over_1000_change_1w: 0.34
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,74.11,-0.92,66.43,-0.9,58.4,-0.72,0,False,False
 20260515,74.13,0.02,66.43,0,58.4,0,1,False,False
 20260522,74.14,0.01,66.43,0,58.4,0,2,False,False
+20260529,74.48,0.34,66.77,0.34,58.74,0.34,3,True,True
 ```
 
 ## Candidate Context

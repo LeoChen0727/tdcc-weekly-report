@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4977 眾達-KY
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:01 Asia/Taipei
+- generated_at: 2026-05-30 23:42:33 Asia/Taipei
 - stock_id: 4977
 - stock_name: 眾達-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 136
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 272
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -78,7 +78,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260430,214,224,213,217.5,12904404,207.78,4.68,208.85,175.76,1.08
-20260504,222.5,225.5,215.5,219.5,8413985,208.76,5.14,210.7,177.37,0.7
+20260504,222.5,225.5,215.5,219.5,8413985,208.76,5.15,210.7,177.37,0.7
 20260505,217,232,215.5,232,9668395,210.7,10.11,213.4,179.22,0.79
 20260506,235.5,235.5,216,223,10391758,211.72,5.33,215.18,180.85,0.83
 20260507,220,230,218,228,7009266,213.08,7,217.25,182.35,0.57
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 17.52
-- over_600_ratio: 14.66
+- as_of_date: 20260529
+- over_400_ratio: 16.81
+- over_600_ratio: 14.9
 - over_800_ratio: 8.7
 - over_1000_ratio: 8.7
-- over_400_change_1w: -2.41
-- over_800_change_1w: -1.59
-- over_1000_change_1w: -1.59
-- tdcc_consecutive_up_weeks: 0
+- over_400_change_1w: -0.71
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,20.08,3.21,12.23,0.27,8.7,0,1,False,True
 20260515,19.93,-0.15,10.29,-1.94,10.29,1.59,2,False,True
 20260522,17.52,-2.41,8.7,-1.59,8.7,-1.59,0,False,False
+20260529,16.81,-0.71,8.7,0,8.7,0,1,False,False
 ```
 
 ## Candidate Context

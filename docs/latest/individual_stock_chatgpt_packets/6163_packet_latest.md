@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6163 華電網
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:17 Asia/Taipei
+- generated_at: 2026-05-30 23:42:52 Asia/Taipei
 - stock_id: 6163
 - stock_name: 華電網
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -79,7 +79,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,56.8,59.2,56.7,58.4,2750000,61.28,-4.7,62.71,58.78,0.32
 20260505,58.1,59.3,56.2,58.7,3220000,61.07,-3.88,62.67,58.63,0.38
-20260506,59.5,59.8,56,57.3,2962000,60.75,-5.68,62.47,58.48,0.36
+20260506,59.5,59.8,56,57.3,2962000,60.75,-5.69,62.47,58.48,0.36
 20260507,57.5,59.4,56.6,58.6,3202000,60.57,-3.26,62.34,58.34,0.4
 20260508,59,60.2,56.9,57.2,3762000,60.29,-5.13,62.23,58.22,0.47
 20260511,57.9,61,56.1,60.4,3970000,60.3,0.16,62.02,58.23,0.5
@@ -100,14 +100,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 46.85
-- over_600_ratio: 43.22
-- over_800_ratio: 41.31
-- over_1000_ratio: 40.69
-- over_400_change_1w: -2.62
-- over_800_change_1w: -1.69
-- over_1000_change_1w: -1.64
+- as_of_date: 20260529
+- over_400_ratio: 44.47
+- over_600_ratio: 41.18
+- over_800_ratio: 39.73
+- over_1000_ratio: 39.73
+- over_400_change_1w: -2.38
+- over_800_change_1w: -1.58
+- over_1000_change_1w: -0.96
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,49.43,-1.62,43.38,-1.51,42.71,-1.51,0,False,False
 20260515,49.47,0.04,43,-0.38,42.33,-0.38,1,False,False
 20260522,46.85,-2.62,41.31,-1.69,40.69,-1.64,0,False,False
+20260529,44.47,-2.38,39.73,-1.58,39.73,-0.96,0,False,False
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 6163 | 華電網 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260530 | 6163 | 華電網 | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

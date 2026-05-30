@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4304 勝昱
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:49 Asia/Taipei
+- generated_at: 2026-05-30 23:42:19 Asia/Taipei
 - stock_id: 4304
 - stock_name: 勝昱
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -78,7 +78,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,31,32.65,31,31,181000,29.2,6.18,29.11,28.93,3.36
-20260505,31,31,30,30.5,59000,29.3,4.08,29.2,28.94,1.14
+20260505,31,31,30,30.5,59000,29.31,4.08,29.2,28.94,1.14
 20260506,30.5,30.7,30.1,30.1,56000,29.37,2.48,29.2,28.99,1.11
 20260507,30.3,30.5,29.5,30.2,36000,29.44,2.58,29.22,29.01,0.71
 20260508,31,31,30,30,13000,29.49,1.74,29.34,29.03,0.27
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 81.8
 - over_600_ratio: 76.63
 - over_800_ratio: 74.64
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,81.8,0,74.64,0,74.64,0,0,False,False
 20260515,81.8,0,74.64,0,74.64,0,0,False,False
 20260522,81.8,0,74.64,0,74.64,0,0,False,False
+20260529,81.8,0,74.64,0,74.64,0,0,False,False
 ```
 
 ## Candidate Context

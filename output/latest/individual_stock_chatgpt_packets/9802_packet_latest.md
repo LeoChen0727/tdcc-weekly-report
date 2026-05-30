@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9802 鈺齊-KY
 
 ## Metadata
-- generated_at: 2026-05-29 19:34:05 Asia/Taipei
+- generated_at: 2026-05-30 23:44:02 Asia/Taipei
 - stock_id: 9802
 - stock_name: 鈺齊-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 65.32
-- over_600_ratio: 60.43
-- over_800_ratio: 58.04
-- over_1000_ratio: 56.28
-- over_400_change_1w: -0.01
-- over_800_change_1w: -0.29
-- over_1000_change_1w: 0.53
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260529
+- over_400_ratio: 65.38
+- over_600_ratio: 60.96
+- over_800_ratio: 58.59
+- over_1000_ratio: 55.98
+- over_400_change_1w: 0.06
+- over_800_change_1w: 0.55
+- over_1000_change_1w: -0.3
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,65.56,0.45,59.14,1.15,56.06,1.25,1,True,True
 20260515,65.33,-0.23,58.33,-0.81,55.75,-0.31,0,False,False
 20260522,65.32,-0.01,58.04,-0.29,56.28,0.53,1,False,True
+20260529,65.38,0.06,58.59,0.55,55.98,-0.3,2,False,True
 ```
 
 ## Candidate Context

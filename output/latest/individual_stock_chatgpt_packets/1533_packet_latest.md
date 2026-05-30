@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1533 車王電
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:43 Asia/Taipei
+- generated_at: 2026-05-30 23:41:02 Asia/Taipei
 - stock_id: 1533
 - stock_name: 車王電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,12 +100,12 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 63.35
-- over_600_ratio: 59.83
-- over_800_ratio: 54.85
-- over_1000_ratio: 52.18
-- over_400_change_1w: -0.03
+- as_of_date: 20260529
+- over_400_ratio: 63.34
+- over_600_ratio: 59.82
+- over_800_ratio: 54.84
+- over_1000_ratio: 52.17
+- over_400_change_1w: -0.01
 - over_800_change_1w: -0.01
 - over_1000_change_1w: -0.01
 - tdcc_consecutive_up_weeks: 0
@@ -120,19 +120,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,63.4,-0.51,54.87,-0.02,52.2,-0.02,0,False,False
 20260515,63.38,-0.02,54.86,-0.01,52.19,-0.01,0,False,False
 20260522,63.35,-0.03,54.85,-0.01,52.18,-0.01,0,False,False
+20260529,63.34,-0.01,54.84,-0.01,52.17,-0.01,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 1533 | 車王電 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
-| 20260529 | 1533 | 車王電 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260529 | 1533 | 車王電 | revenue_breakout_low_response | 營收爆發低反應股 | 11.0 | 23.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260530 | 1533 | 車王電 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260530 | 1533 | 車王電 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260530 | 1533 | 車王電 | revenue_breakout_low_response | 營收爆發低反應股 | 11.0 | 23.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 1533 | 車王電 | 2 | 2 | 3 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260530 | 1533 | 車王電 | 3 | 3 | 4 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

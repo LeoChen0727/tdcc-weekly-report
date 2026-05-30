@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3504 揚明光
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:36 Asia/Taipei
+- generated_at: 2026-05-30 23:42:05 Asia/Taipei
 - stock_id: 3504
 - stock_name: 揚明光
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -86,7 +86,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260512,63.8,65.8,62.5,65.6,793484,63.41,3.45,65.62,59.53,0.42
 20260513,65,67.1,63.3,66.2,856456,63.64,4.02,65.89,59.73,0.47
 20260514,67,71.5,66,71.4,2703390,64.29,11.06,66.41,60.01,1.44
-20260515,71.9,78.5,70.4,77.3,10386781,65.37,18.24,67.21,60.39,4.38
+20260515,71.9,78.5,70.4,77.3,10386781,65.38,18.24,67.21,60.39,4.38
 20260518,75.2,82,73.8,75.3,4967930,66.2,13.74,67.61,60.76,1.99
 20260519,75.3,81.6,75.3,78.2,5997159,67.2,16.37,67.94,61.14,2.43
 20260520,81.5,86,81,82.3,10777606,68.46,20.22,68.34,61.6,4.11
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 62.06
+- as_of_date: 20260529
+- over_400_ratio: 62.54
 - over_600_ratio: 61.6
 - over_800_ratio: 60.47
 - over_1000_ratio: 59.76
-- over_400_change_1w: -1.14
-- over_800_change_1w: -0.77
+- over_400_change_1w: 0.48
+- over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,63.68,0.1,60.29,0.06,59.58,0.06,1,True,True
 20260515,63.2,-0.48,61.24,0.95,59.76,0.18,2,False,True
 20260522,62.06,-1.14,60.47,-0.77,59.76,0,0,False,False
+20260529,62.54,0.48,60.47,0,59.76,0,1,False,False
 ```
 
 ## Candidate Context

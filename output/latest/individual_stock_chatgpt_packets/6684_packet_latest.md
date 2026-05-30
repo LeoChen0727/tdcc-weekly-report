@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6684 安格
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:36 Asia/Taipei
+- generated_at: 2026-05-30 23:43:14 Asia/Taipei
 - stock_id: 6684
 - stock_name: 安格
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 34.52
-- over_600_ratio: 33.46
-- over_800_ratio: 33.46
+- as_of_date: 20260529
+- over_400_ratio: 34.47
+- over_600_ratio: 33.41
+- over_800_ratio: 33.41
 - over_1000_ratio: 31.51
-- over_400_change_1w: 0.01
-- over_800_change_1w: 0.01
+- over_400_change_1w: -0.05
+- over_800_change_1w: -0.05
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,34.67,0.03,33.61,0.03,31.51,0,1,False,True
 20260515,34.51,-0.16,33.45,-0.16,31.51,0,0,False,False
 20260522,34.52,0.01,33.46,0.01,31.51,0,1,False,True
+20260529,34.47,-0.05,33.41,-0.05,31.51,0,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4961 天鈺
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:00 Asia/Taipei
+- generated_at: 2026-05-30 23:42:32 Asia/Taipei
 - stock_id: 4961
 - stock_name: 天鈺
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 26
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 27
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,23 +100,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 43.63
-- over_600_ratio: 38.48
-- over_800_ratio: 35.67
-- over_1000_ratio: 33.39
-- over_400_change_1w: 1.18
-- over_800_change_1w: 0.01
-- over_1000_change_1w: 0.71
-- tdcc_consecutive_up_weeks: 5
-- all_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 43.23
+- over_600_ratio: 38.52
+- over_800_ratio: 35.71
+- over_1000_ratio: 33.43
+- over_400_change_1w: -0.4
+- over_800_change_1w: 0.04
+- over_1000_change_1w: 0.04
+- tdcc_consecutive_up_weeks: 6
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260306,40.43,-0.01,34.06,-0.02,30.99,0.8,7,False,True
 20260313,41.03,0.6,34.16,0.1,30.3,-0.69,8,False,True
 20260320,41.31,0.28,33.22,-0.94,29.46,-0.84,9,False,False
 20260327,41.39,0.08,35.29,2.07,32.47,3.01,10,True,True
@@ -128,6 +127,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,41.93,0.29,34.53,-0.21,32.25,-0.21,3,False,False
 20260515,42.45,0.52,35.66,1.13,32.68,0.43,4,True,True
 20260522,43.63,1.18,35.67,0.01,33.39,0.71,5,True,True
+20260529,43.23,-0.4,35.71,0.04,33.43,0.04,6,False,True
 ```
 
 ## Candidate Context
@@ -138,7 +138,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 4961 | 天鈺 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 4961 | 天鈺 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

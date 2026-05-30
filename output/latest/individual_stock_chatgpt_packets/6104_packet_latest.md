@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6104 創惟
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:14 Asia/Taipei
+- generated_at: 2026-05-30 23:42:48 Asia/Taipei
 - stock_id: 6104
 - stock_name: 創惟
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -86,7 +86,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260512,104,104,100.5,102,1782000,97.89,4.19,97.43,95.59,0.71
 20260513,101,105,100,100.5,2213000,98.11,2.43,98.04,95.6,0.86
 20260514,101.5,103,98.1,98.9,2178000,98.18,0.74,98.62,95.57,0.82
-20260515,99.2,103,96.4,96.6,2946000,98.05,-1.48,98.81,95.56,1.11
+20260515,99.2,103,96.4,96.6,2946000,98.05,-1.47,98.81,95.56,1.11
 20260518,95.6,95.6,92.4,95,1357000,97.79,-2.86,98.87,95.54,0.52
 20260519,95,97.5,92.9,93,1333000,97.39,-4.51,98.85,95.5,0.51
 20260520,93.6,97.5,92.3,96.7,1399000,97.34,-0.65,98.94,95.51,0.53
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 17.28
-- over_600_ratio: 15.14
-- over_800_ratio: 9.76
-- over_1000_ratio: 8.82
-- over_400_change_1w: 0.26
-- over_800_change_1w: -0.07
-- over_1000_change_1w: -0.07
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 18.43
+- over_600_ratio: 15.82
+- over_800_ratio: 13.61
+- over_1000_ratio: 8.9
+- over_400_change_1w: 1.15
+- over_800_change_1w: 3.85
+- over_1000_change_1w: 0.08
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,16.32,1.18,9.37,0.15,8.43,0.15,1,True,True
 20260515,17.02,0.7,9.83,0.46,8.89,0.46,2,True,True
 20260522,17.28,0.26,9.76,-0.07,8.82,-0.07,3,False,False
+20260529,18.43,1.15,13.61,3.85,8.9,0.08,4,True,True
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 6104 | 創惟 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 6104 | 創惟 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

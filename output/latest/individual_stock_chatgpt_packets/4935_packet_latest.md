@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4935 茂林-KY
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:59 Asia/Taipei
+- generated_at: 2026-05-30 23:42:31 Asia/Taipei
 - stock_id: 4935
 - stock_name: 茂林-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -95,22 +95,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,37.1,37.3,36.5,37.25,185370,36.94,0.85,37.03,37.1,2
 20260526,37.25,37.25,36.6,37.15,104585,36.95,0.53,36.97,37.06,1.1
 20260527,37.25,37.25,36.5,36.55,105590,36.92,-1,36.9,37.02,1.09
-20260528,36.55,38.15,36.55,37.2,257805,36.94,0.7,36.86,36.99,2.42
+20260528,36.55,38.15,36.55,37.2,257805,36.94,0.69,36.86,36.99,2.42
 20260529,37.75,40.9,37.65,40.9,493306,37.27,9.73,37.03,37.02,3.89
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 62.68
 - over_600_ratio: 60.41
 - over_800_ratio: 59.8
 - over_1000_ratio: 56.83
-- over_400_change_1w: 0.01
-- over_800_change_1w: 0.01
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- over_400_change_1w: 0
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,62.62,0.03,59.74,0.03,56.77,0.03,1,True,True
 20260515,62.67,0.05,59.79,0.05,56.82,0.05,2,True,True
 20260522,62.68,0.01,59.8,0.01,56.83,0.01,3,True,True
+20260529,62.68,0,59.8,0,56.83,0,0,False,False
 ```
 
 ## Candidate Context

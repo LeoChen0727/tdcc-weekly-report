@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6204 艾華
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:20 Asia/Taipei
+- generated_at: 2026-05-30 23:42:55 Asia/Taipei
 - stock_id: 6204
 - stock_name: 艾華
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -84,7 +84,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260508,72.3,74.6,71.1,73.4,153000,68.36,7.38,67.89,65.86,0.59
 20260511,75.9,75.9,72,73,185000,68.74,6.19,68.56,65.86,0.69
 20260512,73,77.8,71,77,618000,69.43,10.9,69.39,66.01,2.08
-20260513,77.2,82.1,77.1,79.9,972000,70.3,13.65,70.06,66.2,2.98
+20260513,77.2,82.1,77.1,79.9,972000,70.31,13.65,70.06,66.2,2.98
 20260514,79,84.8,79,83.8,923000,71.43,17.32,71,66.42,2.7
 20260515,85,88.6,82.6,82.7,1379000,72.37,14.28,71.9,66.65,3.41
 20260518,82,86.9,79.9,86.7,545000,73.56,17.86,72.81,66.99,1.32
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 29.71
 - over_600_ratio: 29.71
 - over_800_ratio: 29.71
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,29.71,0,29.71,0,25.64,0,0,False,False
 20260515,29.71,0,29.71,0,25.64,0,0,False,False
 20260522,29.71,0,29.71,0,25.64,0,0,False,False
+20260529,29.71,0,29.71,0,25.64,0,0,False,False
 ```
 
 ## Candidate Context

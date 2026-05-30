@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1541 錩泰
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:44 Asia/Taipei
+- generated_at: 2026-05-30 23:41:03 Asia/Taipei
 - stock_id: 1541
 - stock_name: 錩泰
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 270
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -91,7 +91,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260519,20.7,20.7,20.1,20.4,32044,22.98,-11.23,23.14,24.55,0.42
 20260520,20.3,20.45,19.65,20.4,63207,22.77,-10.39,22.92,24.48,0.8
 20260521,20.85,21.45,20.45,20.75,27286,22.6,-8.18,22.72,24.4,0.36
-20260522,20.9,20.9,20.4,20.7,21004,22.44,-7.75,22.54,24.32,0.28
+20260522,20.9,20.9,20.4,20.7,21004,22.44,-7.76,22.54,24.32,0.28
 20260525,21.45,21.45,20.1,20.2,68409,22.25,-9.23,22.32,24.23,0.89
 20260526,20.3,20.55,20.3,20.4,31855,22.1,-7.69,22.13,24.15,0.43
 20260527,20.5,21.15,20.2,20.55,37641,21.97,-6.46,21.94,24.07,0.51
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 83.75
 - over_600_ratio: 82.37
 - over_800_ratio: 80.71
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,83.75,-0.01,80.71,0,79.45,0,0,False,False
 20260515,83.75,0,80.71,0,79.45,0,0,False,False
 20260522,83.75,0,80.71,0,79.45,0,0,False,False
+20260529,83.75,0,80.71,0,79.45,0,0,False,False
 ```
 
 ## Candidate Context

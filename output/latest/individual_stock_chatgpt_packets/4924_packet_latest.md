@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4924 欣厚-KY
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:58 Asia/Taipei
+- generated_at: 2026-05-30 23:42:30 Asia/Taipei
 - stock_id: 4924
 - stock_name: 欣厚-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -79,7 +79,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,10.35,10.35,10.25,10.25,28000,10.41,-1.55,10.3,10.6,0.24
 20260505,10.05,10.5,10,10.5,83000,10.42,0.78,10.32,10.58,0.7
-20260506,10.45,10.85,10.45,10.45,27000,10.42,0.27,10.34,10.57,0.23
+20260506,10.45,10.85,10.45,10.45,27000,10.42,0.28,10.34,10.57,0.23
 20260507,10.45,10.45,10.45,10.45,4000,10.42,0.25,10.37,10.56,0.04
 20260508,10.25,10.25,10.2,10.25,8000,10.41,-1.53,10.37,10.54,0.07
 20260511,10.25,10.35,10.25,10.35,6000,10.4,-0.52,10.4,10.52,0.06
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 70.26
-- over_600_ratio: 64.86
-- over_800_ratio: 59.61
-- over_1000_ratio: 54.47
-- over_400_change_1w: 1.34
-- over_800_change_1w: -0.14
-- over_1000_change_1w: -0.14
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260529
+- over_400_ratio: 70.68
+- over_600_ratio: 66.76
+- over_800_ratio: 59.4
+- over_1000_ratio: 54.26
+- over_400_change_1w: 0.42
+- over_800_change_1w: -0.21
+- over_1000_change_1w: -0.21
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,70.18,-0.32,59.87,-0.05,54.73,-0.05,0,False,False
 20260515,68.92,-1.26,59.75,-0.12,54.61,-0.12,0,False,False
 20260522,70.26,1.34,59.61,-0.14,54.47,-0.14,1,False,False
+20260529,70.68,0.42,59.4,-0.21,54.26,-0.21,2,False,False
 ```
 
 ## Candidate Context

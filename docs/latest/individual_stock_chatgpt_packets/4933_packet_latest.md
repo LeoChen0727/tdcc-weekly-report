@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4933 友輝
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:59 Asia/Taipei
+- generated_at: 2026-05-30 23:42:31 Asia/Taipei
 - stock_id: 4933
 - stock_name: 友輝
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -84,9 +84,9 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260508,71.7,72.2,68.8,69.1,856000,66.73,3.55,66.22,60.75,0.69
 20260511,68.2,70.2,68.2,69.8,628000,66.99,4.2,66.69,60.98,0.5
 20260512,70,70.6,68.8,69.1,501000,67.16,2.88,67.11,61.21,0.39
-20260513,69,69.4,68,69.1,518000,67.32,2.64,67.56,61.42,0.4
+20260513,69,69.4,68,69.1,518000,67.33,2.64,67.56,61.42,0.4
 20260514,69.6,69.8,68.4,68.8,502000,67.45,2,68.03,61.63,0.39
-20260515,69.8,69.9,67.3,67.4,619000,67.44,-0.06,68.39,61.81,0.47
+20260515,69.8,69.9,67.3,67.4,619000,67.44,-0.07,68.39,61.81,0.47
 20260518,67.4,67.9,65.5,67.7,362000,67.47,0.35,68.75,62.01,0.27
 20260519,67.2,69.3,67.2,67.9,395000,67.5,0.59,69.12,62.19,0.29
 20260520,69.4,72.9,68.1,72.5,1707000,67.92,6.75,69.72,62.43,1.2
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 62.58
+- as_of_date: 20260529
+- over_400_ratio: 63.23
 - over_600_ratio: 60.75
 - over_800_ratio: 60.75
 - over_1000_ratio: 59.67
-- over_400_change_1w: 0.02
+- over_400_change_1w: 0.65
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,62.58,-0.02,60.75,0,59.67,0,0,False,False
 20260515,62.56,-0.02,60.75,0,59.67,0,0,False,False
 20260522,62.58,0.02,60.75,0,59.67,0,1,False,False
+20260529,63.23,0.65,60.75,0,59.67,0,2,False,False
 ```
 
 ## Candidate Context

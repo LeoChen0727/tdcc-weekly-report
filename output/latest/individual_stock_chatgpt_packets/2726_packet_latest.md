@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2726 雅茗-KY
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:14 Asia/Taipei
+- generated_at: 2026-05-30 23:41:38 Asia/Taipei
 - stock_id: 2726
 - stock_name: 雅茗-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -92,7 +92,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260520,9.65,9.65,9.33,9.36,31000,9.91,-5.52,10.04,10.2,0.22
 20260521,9.53,10.25,9.5,10,151000,9.91,0.86,10.06,10.16,1.04
 20260522,10,10,9.91,9.95,10000,9.92,0.33,10.07,10.13,0.07
-20260525,9.92,9.93,9.45,9.93,10000,9.92,0.11,10.03,10.1,0.08
+20260525,9.92,9.93,9.45,9.93,10000,9.92,0.12,10.03,10.1,0.08
 20260526,9.93,9.97,9.72,9.91,10000,9.92,-0.08,10,10.08,0.15
 20260527,9.82,9.9,9.8,9.88,10000,9.91,-0.35,9.97,10.06,0.17
 20260528,9.9,10,9.39,9.83,10000,9.91,-0.78,9.93,10.05,0.17
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 64.13
-- over_600_ratio: 56.15
+- as_of_date: 20260529
+- over_400_ratio: 64.7
+- over_600_ratio: 57.94
 - over_800_ratio: 51.94
 - over_1000_ratio: 49.31
-- over_400_change_1w: 0.16
+- over_400_change_1w: 0.57
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,64.23,0,51.94,0,49.31,0,0,False,False
 20260515,63.97,-0.26,51.94,0,49.31,0,0,False,False
 20260522,64.13,0.16,51.94,0,49.31,0,1,False,False
+20260529,64.7,0.57,51.94,0,49.31,0,2,False,False
 ```
 
 ## Candidate Context

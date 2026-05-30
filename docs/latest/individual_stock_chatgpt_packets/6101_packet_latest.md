@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6101 寬魚國際
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:13 Asia/Taipei
+- generated_at: 2026-05-30 23:42:48 Asia/Taipei
 - stock_id: 6101
 - stock_name: 寬魚國際
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,16 +100,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 90.02
-- over_600_ratio: 87.86
-- over_800_ratio: 84.72
-- over_1000_ratio: 79.68
-- over_400_change_1w: 0.04
-- over_800_change_1w: 0.04
-- over_1000_change_1w: 0.04
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 89.96
+- over_600_ratio: 88.16
+- over_800_ratio: 84.45
+- over_1000_ratio: 80.24
+- over_400_change_1w: -0.06
+- over_800_change_1w: -0.27
+- over_1000_change_1w: 0.56
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,89.92,-0.24,84.59,-0.23,78.81,-0.14,0,False,False
 20260515,89.98,0.06,84.68,0.09,79.64,0.83,1,True,True
 20260522,90.02,0.04,84.72,0.04,79.68,0.04,2,True,True
+20260529,89.96,-0.06,84.45,-0.27,80.24,0.56,3,False,True
 ```
 
 ## Candidate Context

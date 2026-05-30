@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5201 凱衛
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:02 Asia/Taipei
+- generated_at: 2026-05-30 23:42:34 Asia/Taipei
 - stock_id: 5201
 - stock_name: 凱衛
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -63,7 +63,7 @@
 - volume: 28000
 - ma5: 28.42
 - ema23_primary: 30.15
-- distance_to_ema23_pct: -5.98
+- distance_to_ema23_pct: -5.97
 - ma20: 29.51
 - ma60: 34.92
 - ma120: 39.61
@@ -83,7 +83,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260507,31.1,31.1,30.5,30.65,52000,33.65,-8.92,33.98,38.09,0.2
 20260508,30.65,30.7,30,30.4,49000,33.38,-8.93,33.55,37.85,0.19
 20260511,30.6,30.8,30.2,30.55,50000,33.15,-7.83,33.13,37.66,0.19
-20260512,30.6,30.65,30.15,30.5,39000,32.93,-7.37,32.72,37.48,0.15
+20260512,30.6,30.65,30.15,30.5,39000,32.92,-7.37,32.72,37.48,0.15
 20260513,30.5,30.5,29.4,29.55,120000,32.64,-9.48,32.23,37.26,0.45
 20260514,29,29.55,28.35,28.8,146000,32.32,-10.9,31.7,37.04,0.54
 20260515,30.05,30.05,28.9,29.4,58000,32.08,-8.35,31.2,36.85,0.21
@@ -96,21 +96,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,29.75,29.75,28.4,28.4,29000,30.7,-7.49,29.82,35.52,0.48
 20260527,28.6,28.75,27.95,28.3,28000,30.5,-7.21,29.73,35.33,0.47
 20260528,28.3,28.3,27.15,28.3,28000,30.32,-6.65,29.62,35.1,0.49
-20260529,28.7,28.7,27.85,28.35,28000,30.15,-5.98,29.51,34.92,0.51
+20260529,28.7,28.7,27.85,28.35,28000,30.15,-5.97,29.51,34.92,0.51
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 59.25
-- over_600_ratio: 52.1
-- over_800_ratio: 42.67
-- over_1000_ratio: 35.41
-- over_400_change_1w: 1.12
-- over_800_change_1w: 0.02
-- over_1000_change_1w: 0.02
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 57.76
+- over_600_ratio: 51.49
+- over_800_ratio: 42.27
+- over_1000_ratio: 32.94
+- over_400_change_1w: -1.49
+- over_800_change_1w: -0.4
+- over_1000_change_1w: -2.47
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,56.61,-0.61,42.37,0.43,35.11,0.43,1,False,True
 20260515,58.13,1.52,42.65,0.28,35.39,0.28,2,True,True
 20260522,59.25,1.12,42.67,0.02,35.41,0.02,3,True,True
+20260529,57.76,-1.49,42.27,-0.4,32.94,-2.47,0,False,False
 ```
 
 ## Candidate Context

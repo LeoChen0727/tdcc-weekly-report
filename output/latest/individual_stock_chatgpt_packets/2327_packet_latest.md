@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2327 國巨*
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:58 Asia/Taipei
+- generated_at: 2026-05-30 23:41:20 Asia/Taipei
 - stock_id: 2327
 - stock_name: 國巨*
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 266
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -87,11 +87,11 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260513,410,427.5,404,420,53261565,341.66,22.93,340.23,292.17,1.08
 20260514,462,462,462,462,17046742,351.69,31.37,347.23,295.42,0.37
 20260515,462,492.5,447.5,455.5,116741355,360.34,26.41,353.75,298.71,2.39
-20260518,475,501,467.5,501,92207451,372.06,34.65,362.98,302.92,1.81
+20260518,475,501,467.5,501,92207451,372.06,34.66,362.98,302.92,1.81
 20260519,501,516,485.5,497,89070238,382.47,29.94,371.85,307.03,1.66
 20260520,514,545,503,520,84883235,393.93,32,381.7,311.47,1.51
 20260521,561,572,560,572,24699193,408.77,39.93,394.52,316.73,0.44
-20260522,605,629,600,629,73991747,427.13,47.26,411.23,322.52,1.3
+20260522,605,629,600,629,73991747,427.12,47.26,411.23,322.52,1.3
 20260525,679,691,662,691,67663245,449.11,53.86,430.93,329.02,1.16
 20260526,674,678,631,661,29457930,466.77,41.61,448.73,335.04,0.5
 20260527,683,727,683,701,24969369,486.29,44.15,467.45,341.76,0.44
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 75.13
-- over_600_ratio: 73.27
-- over_800_ratio: 71.26
-- over_1000_ratio: 69.94
-- over_400_change_1w: 1.35
-- over_800_change_1w: 1.27
-- over_1000_change_1w: 1.31
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 74.78
+- over_600_ratio: 72.8
+- over_800_ratio: 71.15
+- over_1000_ratio: 69.6
+- over_400_change_1w: -0.35
+- over_800_change_1w: -0.11
+- over_1000_change_1w: -0.34
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,73.55,1.38,69.95,1.38,68.33,1.16,1,True,True
 20260515,73.78,0.23,69.99,0.04,68.63,0.3,2,True,True
 20260522,75.13,1.35,71.26,1.27,69.94,1.31,3,True,True
+20260529,74.78,-0.35,71.15,-0.11,69.6,-0.34,0,False,False
 ```
 
 ## Candidate Context

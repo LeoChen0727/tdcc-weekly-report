@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3447 展達
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:35 Asia/Taipei
+- generated_at: 2026-05-30 23:42:03 Asia/Taipei
 - stock_id: 3447
 - stock_name: 展達
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -89,7 +89,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260515,36.4,37.55,36.05,36.25,273830,38.28,-5.3,38.23,39.54,1.26
 20260518,36.05,36.2,35.5,36.1,183313,38.1,-5.25,38.06,39.44,0.84
 20260519,36.1,36.7,35.15,35.3,184826,37.87,-6.78,37.89,39.34,0.85
-20260520,35.65,36.55,35.65,36.3,150483,37.73,-3.8,37.73,39.27,0.7
+20260520,35.65,36.55,35.65,36.3,150483,37.74,-3.8,37.73,39.27,0.7
 20260521,36.5,38.2,36.3,37.9,296372,37.75,0.4,37.63,39.23,1.34
 20260522,38.05,38.5,37.4,38.05,254504,37.77,0.73,37.63,39.17,1.18
 20260525,38,38.6,37.6,38,332100,37.79,0.55,37.65,39.12,1.47
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 58.92
 - over_600_ratio: 55.3
 - over_800_ratio: 53.4
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,59.46,-0.03,53.4,0,51.2,0,0,False,False
 20260515,58.92,-0.54,53.4,0,51.2,0,0,False,False
 20260522,58.92,0,53.4,0,51.2,0,0,False,False
+20260529,58.92,0,53.4,0,51.2,0,0,False,False
 ```
 
 ## Candidate Context

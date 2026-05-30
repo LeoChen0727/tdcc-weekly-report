@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6492 生華科
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:29 Asia/Taipei
+- generated_at: 2026-05-30 23:43:05 Asia/Taipei
 - stock_id: 6492
 - stock_name: 生華科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 30.14
-- over_600_ratio: 26.77
-- over_800_ratio: 26.77
-- over_1000_ratio: 25.77
-- over_400_change_1w: 0.11
-- over_800_change_1w: 0.11
-- over_1000_change_1w: 0.11
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 30.28
+- over_600_ratio: 26.91
+- over_800_ratio: 26.91
+- over_1000_ratio: 25.91
+- over_400_change_1w: 0.14
+- over_800_change_1w: 0.14
+- over_1000_change_1w: 0.14
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,29.75,0.32,26.38,0.32,25.38,0.32,1,True,True
 20260515,30.03,0.28,26.66,0.28,25.66,0.28,2,True,True
 20260522,30.14,0.11,26.77,0.11,25.77,0.11,3,True,True
+20260529,30.28,0.14,26.91,0.14,25.91,0.14,4,True,True
 ```
 
 ## Candidate Context

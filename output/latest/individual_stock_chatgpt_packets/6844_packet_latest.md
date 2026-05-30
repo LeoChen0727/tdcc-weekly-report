@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6844 諾貝兒
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:42 Asia/Taipei
+- generated_at: 2026-05-30 23:43:20 Asia/Taipei
 - stock_id: 6844
 - stock_name: 諾貝兒
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 131
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 267
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -83,15 +83,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260507,63.9,63.9,63.3,63.4,5000,63.45,-0.07,63.19,64.53,0.47
 20260508,63.8,64,63.3,64,24000,63.49,0.8,63.19,64.44,2.02
 20260511,64.6,64.9,64.1,64.9,23000,63.61,2.03,63.24,64.37,1.8
-20260512,64.9,64.9,63.9,64.6,17000,63.69,1.42,63.28,64.29,1.26
+20260512,64.9,64.9,63.9,64.6,17000,63.69,1.43,63.28,64.29,1.26
 20260513,64.4,64.5,64.1,64.5,9000,63.76,1.16,63.33,64.21,0.65
 20260514,64,64.6,63.5,64.6,40000,63.83,1.21,63.4,64.15,2.63
 20260515,64.2,65,64,65,27000,63.93,1.68,63.51,64.11,1.66
-20260518,64.9,65.3,64.3,65.3,13000,64.04,1.96,63.62,64.05,0.82
+20260518,64.9,65.3,64.3,65.3,13000,64.04,1.97,63.62,64.05,0.82
 20260519,64.5,65.3,64,65.3,21000,64.15,1.8,63.74,64,1.27
 20260520,64.5,66,64.1,66,40000,64.3,2.64,63.95,63.96,2.34
 20260521,66.4,66.8,66,66.6,28000,64.49,3.27,64.16,63.97,1.54
-20260522,66.7,66.8,66.1,66.8,67000,64.69,3.27,64.39,64,3.23
+20260522,66.7,66.8,66.1,66.8,67000,64.68,3.27,64.39,64,3.23
 20260525,66.6,66.6,65,66.6,66000,64.84,2.71,64.59,64.05,2.81
 20260526,65.4,66,65,66,66000,64.94,1.63,64.77,64.06,2.47
 20260527,65.1,65.4,64.2,65.4,65000,64.98,0.65,64.92,64.07,2.19
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 63.44
 - over_600_ratio: 58.46
 - over_800_ratio: 58.46
 - over_1000_ratio: 55.98
-- over_400_change_1w: 0.02
+- over_400_change_1w: 0
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,63.42,0,58.46,0,55.98,0,0,False,False
 20260515,63.42,0,58.46,0,55.98,0,0,False,False
 20260522,63.44,0.02,58.46,0,55.98,0,1,False,False
+20260529,63.44,0,58.46,0,55.98,0,0,False,False
 ```
 
 ## Candidate Context

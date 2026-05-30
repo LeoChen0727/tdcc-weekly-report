@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3548 兆利
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:38 Asia/Taipei
+- generated_at: 2026-05-30 23:42:07 Asia/Taipei
 - stock_id: 3548
 - stock_name: 兆利
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 34.95
-- over_600_ratio: 28.77
-- over_800_ratio: 25.56
-- over_1000_ratio: 24.22
-- over_400_change_1w: 1.12
-- over_800_change_1w: -1.3
-- over_1000_change_1w: -0.01
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 34.31
+- over_600_ratio: 27.81
+- over_800_ratio: 25.74
+- over_1000_ratio: 24.4
+- over_400_change_1w: -0.64
+- over_800_change_1w: 0.18
+- over_1000_change_1w: 0.18
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,32.87,0.02,27,-0.06,24.21,-1.51,1,False,False
 20260515,33.83,0.96,26.86,-0.14,24.23,0.02,2,False,True
 20260522,34.95,1.12,25.56,-1.3,24.22,-0.01,3,False,False
+20260529,34.31,-0.64,25.74,0.18,24.4,0.18,4,False,True
 ```
 
 ## Candidate Context

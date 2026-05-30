@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3664 安瑞-KY
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:42 Asia/Taipei
+- generated_at: 2026-05-30 23:42:11 Asia/Taipei
 - stock_id: 3664
 - stock_name: 安瑞-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,14 +77,14 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,4.98,5.36,4.98,5.36,156000,7.88,-31.98,7.41,11.66,0.81
+20260504,4.98,5.36,4.98,5.36,156000,7.88,-31.97,7.41,11.66,0.81
 20260505,5.88,5.89,5.38,5.88,276000,7.71,-23.76,7.27,11.5,1.93
 20260506,5.77,6.46,5.77,6.46,111000,7.61,-15.09,7.17,11.34,0.82
 20260507,7.08,7.1,7.08,7.1,42000,7.57,-6.16,7.11,11.19,0.31
 20260508,7.81,7.81,7.81,7.81,14000,7.59,2.95,7.06,11.05,0.11
-20260511,8.4,8.59,8.4,8.59,173000,7.67,11.99,7.05,10.94,1.24
-20260512,9.44,9.44,9.44,9.44,147000,7.82,20.75,7.09,10.85,1.03
-20260513,10.2,10.35,10.2,10.35,317000,8.03,28.91,7.22,10.76,2.08
+20260511,8.4,8.59,8.4,8.59,173000,7.67,12,7.05,10.94,1.24
+20260512,9.44,9.44,9.44,9.44,147000,7.82,20.76,7.09,10.85,1.03
+20260513,10.2,10.35,10.2,10.35,317000,8.03,28.92,7.22,10.76,2.08
 20260514,11.35,11.35,10.25,10.25,479000,8.21,24.79,7.35,10.67,2.79
 20260515,9.23,9.23,9.23,9.23,90000,8.3,11.23,7.44,10.57,0.52
 20260518,8.31,8.31,8.31,8.31,77000,8.3,0.13,7.48,10.46,0.45
@@ -100,14 +100,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 67.02
 - over_600_ratio: 65.15
 - over_800_ratio: 65.15
 - over_1000_ratio: 65.15
-- over_400_change_1w: -0.01
-- over_800_change_1w: -0.01
-- over_1000_change_1w: -0.01
+- over_400_change_1w: 0
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,67.03,0,65.16,0,65.16,0,0,False,False
 20260515,67.03,0,65.16,0,65.16,0,0,False,False
 20260522,67.02,-0.01,65.15,-0.01,65.15,-0.01,0,False,False
+20260529,67.02,0,65.15,0,65.15,0,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6412 群電
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:26 Asia/Taipei
+- generated_at: 2026-05-30 23:43:02 Asia/Taipei
 - stock_id: 6412
 - stock_name: 群電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -82,7 +82,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260506,89.9,89.9,86.5,87.2,3935997,80.94,7.73,80.19,82.72,1.67
 20260507,87.8,87.8,85.7,87.1,1773801,81.45,6.93,80.63,82.77,0.75
 20260508,87,89,85.2,86,1717376,81.83,5.09,81.03,82.81,0.71
-20260511,87,94,87,93.6,5494413,82.81,13.03,81.72,83.03,2.09
+20260511,87,94,87,93.6,5494413,82.81,13.02,81.72,83.03,2.09
 20260512,94.3,97.4,93.6,96.5,9786569,83.95,14.94,82.46,83.29,3.26
 20260513,95.4,96.4,93.8,95.5,3005718,84.92,12.46,83.23,83.48,0.98
 20260514,95.5,96.2,91.6,91.7,3110362,85.48,7.27,83.92,83.47,0.99
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 82.83
-- over_600_ratio: 81.32
-- over_800_ratio: 79.61
-- over_1000_ratio: 78.25
-- over_400_change_1w: 0.48
-- over_800_change_1w: -0.55
-- over_1000_change_1w: -0.55
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 83.44
+- over_600_ratio: 81.78
+- over_800_ratio: 80.24
+- over_1000_ratio: 79.58
+- over_400_change_1w: 0.61
+- over_800_change_1w: 0.63
+- over_1000_change_1w: 1.33
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,82.24,0.37,79.65,0.48,78.76,0.48,1,True,True
 20260515,82.35,0.11,80.16,0.51,78.8,0.04,2,True,True
 20260522,82.83,0.48,79.61,-0.55,78.25,-0.55,3,False,False
+20260529,83.44,0.61,80.24,0.63,79.58,1.33,4,True,True
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 6412 | 群電 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 6412 | 群電 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

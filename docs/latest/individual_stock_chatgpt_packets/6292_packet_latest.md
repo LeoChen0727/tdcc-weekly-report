@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6292 迅德
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:25 Asia/Taipei
+- generated_at: 2026-05-30 23:43:01 Asia/Taipei
 - stock_id: 6292
 - stock_name: 迅德
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,7 +77,7 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,44.75,46.75,44.75,46.35,143000,46.1,0.53,46.49,43.96,0.84
+20260504,44.75,46.75,44.75,46.35,143000,46.11,0.53,46.49,43.96,0.84
 20260505,46.5,47.15,46.1,47,116000,46.18,1.78,46.57,44.05,0.67
 20260506,47.7,47.7,46,46.25,132000,46.19,0.14,46.65,44.12,0.77
 20260507,46.6,50.8,46.1,50.8,598000,46.57,9.08,46.94,44.27,3.05
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 44.64
 - over_600_ratio: 44.64
 - over_800_ratio: 41.72
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,44.64,0,41.72,0,39.7,0,0,False,False
 20260515,44.64,0,41.72,0,39.7,0,0,False,False
 20260522,44.64,0,41.72,0,39.7,0,0,False,False
+20260529,44.64,0,41.72,0,39.7,0,0,False,False
 ```
 
 ## Candidate Context

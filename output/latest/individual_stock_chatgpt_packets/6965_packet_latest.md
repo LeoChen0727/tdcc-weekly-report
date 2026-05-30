@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6965 中傑-KY
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:46 Asia/Taipei
+- generated_at: 2026-05-30 23:43:25 Asia/Taipei
 - stock_id: 6965
 - stock_name: 中傑-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -84,7 +84,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260508,86.9,86.9,84.3,84.7,47369,86.43,-2,87.33,84.64,0.93
 20260511,84.7,85.7,84.7,85.2,43905,86.33,-1.31,87.2,84.68,0.85
 20260512,83.8,84.1,82.5,82.7,42627,86.03,-3.87,86.89,84.69,0.85
-20260513,80.8,80.8,78.4,78.7,148326,85.41,-7.86,86.39,84.65,2.74
+20260513,80.8,80.8,78.4,78.7,148326,85.42,-7.86,86.39,84.65,2.74
 20260514,78.4,79,78.1,78.1,109436,84.81,-7.91,85.86,84.59,1.98
 20260515,78,79.5,77,77.6,143770,84.2,-7.84,85.27,84.51,2.38
 20260518,77,77,76.2,76.6,35293,83.57,-8.34,84.61,84.41,0.58
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 91.93
-- over_600_ratio: 91.32
-- over_800_ratio: 90.45
-- over_1000_ratio: 90.45
-- over_400_change_1w: 0.08
-- over_800_change_1w: 0.08
-- over_1000_change_1w: 0.08
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 91.97
+- over_600_ratio: 91.36
+- over_800_ratio: 90.49
+- over_1000_ratio: 90.49
+- over_400_change_1w: 0.04
+- over_800_change_1w: 0.04
+- over_1000_change_1w: 0.04
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,91.78,0.02,90.31,0.02,90.31,0.02,1,True,True
 20260515,91.85,0.07,90.37,0.06,90.37,0.06,2,True,True
 20260522,91.93,0.08,90.45,0.08,90.45,0.08,3,True,True
+20260529,91.97,0.04,90.49,0.04,90.49,0.04,4,True,True
 ```
 
 ## Candidate Context

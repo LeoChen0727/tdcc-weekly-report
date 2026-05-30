@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4577 達航科技
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:54 Asia/Taipei
+- generated_at: 2026-05-30 23:42:25 Asia/Taipei
 - stock_id: 4577
 - stock_name: 達航科技
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,8 +77,8 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,162.5,169,154,162,2401000,145.34,11.46,146.9,102.47,1.01
-20260505,159,168.5,156.5,166,1260000,147.06,12.88,149.85,104.27,0.58
+20260504,162.5,169,154,162,2401000,145.35,11.46,146.9,102.47,1.01
+20260505,159,168.5,156.5,166,1260000,147.07,12.87,149.85,104.27,0.58
 20260506,169,170,157,160,1613000,148.14,8,152.55,105.97,0.8
 20260507,160.5,167,155,156.5,1028000,148.84,5.15,154.55,107.65,0.54
 20260508,152,153,141,142,1825000,148.27,-4.23,155.85,109.12,1.08
@@ -95,20 +95,20 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,143,146.5,136.5,139.5,142000,137.7,1.31,146.25,122.55,0.13
 20260526,140.5,144.5,135,136.5,140000,137.6,-0.8,144.78,123.51,0.13
 20260527,136.5,136.5,128,128.5,131000,136.84,-6.09,142.45,124.21,0.12
-20260528,128.5,129,116,116.5,121000,135.14,-13.8,139.22,124.57,0.12
+20260528,128.5,129,116,116.5,121000,135.15,-13.8,139.22,124.57,0.12
 20260529,119,121,109.5,111.5,113000,133.17,-16.28,136.55,124.93,0.13
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 68.79
-- over_600_ratio: 63.78
-- over_800_ratio: 59.67
-- over_1000_ratio: 59.67
-- over_400_change_1w: 0.14
-- over_800_change_1w: -1.02
-- over_1000_change_1w: -1.02
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260529
+- over_400_ratio: 63.52
+- over_600_ratio: 61.49
+- over_800_ratio: 58.9
+- over_1000_ratio: 56.99
+- over_400_change_1w: -5.27
+- over_800_change_1w: -0.77
+- over_1000_change_1w: -2.68
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,68.81,-0.03,61.7,0,61.7,0,0,False,False
 20260515,68.65,-0.16,60.69,-1.01,60.69,-1.01,0,False,False
 20260522,68.79,0.14,59.67,-1.02,59.67,-1.02,1,False,False
+20260529,63.52,-5.27,58.9,-0.77,56.99,-2.68,0,False,False
 ```
 
 ## Candidate Context

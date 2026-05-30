@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9924 福興
 
 ## Metadata
-- generated_at: 2026-05-29 19:34:07 Asia/Taipei
+- generated_at: 2026-05-30 23:44:04 Asia/Taipei
 - stock_id: 9924
 - stock_name: 福興
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 267
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 62.35
-- over_600_ratio: 58.65
-- over_800_ratio: 57.31
-- over_1000_ratio: 54.3
-- over_400_change_1w: 0.06
-- over_800_change_1w: 0.06
-- over_1000_change_1w: 0.72
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 61.82
+- over_600_ratio: 58.48
+- over_800_ratio: 56.63
+- over_1000_ratio: 53.62
+- over_400_change_1w: -0.53
+- over_800_change_1w: -0.68
+- over_1000_change_1w: -0.68
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,62.24,0.02,57.2,0.02,53.61,0,1,False,True
 20260515,62.29,0.05,57.25,0.05,53.58,-0.03,2,False,True
 20260522,62.35,0.06,57.31,0.06,54.3,0.72,3,True,True
+20260529,61.82,-0.53,56.63,-0.68,53.62,-0.68,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4506 崇友
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:50 Asia/Taipei
+- generated_at: 2026-05-30 23:42:21 Asia/Taipei
 - stock_id: 4506
 - stock_name: 崇友
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -80,7 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260504,117,118,116.5,117.5,101000,118.23,-0.62,118.8,116.66,1.75
 20260505,117,119,116.5,119,71000,118.29,0.6,118.92,116.75,1.24
 20260506,119,119,117,118.5,93000,118.31,0.16,119,116.82,1.55
-20260507,118,120,117.5,119,86000,118.37,0.53,119.08,116.92,1.35
+20260507,118,120,117.5,119,86000,118.37,0.54,119.08,116.92,1.35
 20260508,119,119.5,118,118.5,32000,118.38,0.1,119.1,117.03,0.51
 20260511,119,119,116.5,117.5,102000,118.3,-0.68,118.95,117.14,1.61
 20260512,117,119,116.5,118,110000,118.28,-0.24,118.78,117.23,1.68
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 79.77
-- over_600_ratio: 77.58
-- over_800_ratio: 76.44
-- over_1000_ratio: 74.95
-- over_400_change_1w: 0
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260529
+- over_400_ratio: 79.96
+- over_600_ratio: 77.43
+- over_800_ratio: 76.29
+- over_1000_ratio: 74.8
+- over_400_change_1w: 0.19
+- over_800_change_1w: -0.15
+- over_1000_change_1w: -0.15
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,79.75,0.04,76.42,0.04,74.93,0.04,1,True,True
 20260515,79.77,0.02,76.44,0.02,74.95,0.02,2,True,True
 20260522,79.77,0,76.44,0,74.95,0,0,False,False
+20260529,79.96,0.19,76.29,-0.15,74.8,-0.15,1,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2912 統一超
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:18 Asia/Taipei
+- generated_at: 2026-05-30 23:41:44 Asia/Taipei
 - stock_id: 2912
 - stock_name: 統一超
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,14 +100,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 84.24
-- over_600_ratio: 82.37
-- over_800_ratio: 80.17
-- over_1000_ratio: 79.3
-- over_400_change_1w: -0.2
-- over_800_change_1w: -0.19
-- over_1000_change_1w: -0.29
+- as_of_date: 20260529
+- over_400_ratio: 83.1
+- over_600_ratio: 81.25
+- over_800_ratio: 79.11
+- over_1000_ratio: 78
+- over_400_change_1w: -1.14
+- over_800_change_1w: -1.06
+- over_1000_change_1w: -1.3
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,84.6,0,80.32,0.02,79.54,0.01,1,False,True
 20260515,84.44,-0.16,80.36,0.04,79.59,0.05,2,False,True
 20260522,84.24,-0.2,80.17,-0.19,79.3,-0.29,0,False,False
+20260529,83.1,-1.14,79.11,-1.06,78,-1.3,0,False,False
 ```
 
 ## Candidate Context

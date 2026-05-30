@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6496 科懋
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:29 Asia/Taipei
+- generated_at: 2026-05-30 23:43:05 Asia/Taipei
 - stock_id: 6496
 - stock_name: 科懋
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 134
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 270
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -78,7 +78,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,24.85,25.35,24.65,24.75,9000,25.92,-4.53,26.03,26.74,1.26
-20260505,24.6,25.15,24.05,24.25,13000,25.79,-5.95,25.89,26.66,1.76
+20260505,24.6,25.15,24.05,24.25,13000,25.78,-5.95,25.89,26.66,1.76
 20260506,25.2,25.2,24.35,24.75,4000,25.7,-3.69,25.77,26.59,0.53
 20260507,24.25,24.45,24.1,24.25,16000,25.58,-5.19,25.66,26.53,2
 20260508,24.25,24.45,24,24.45,14000,25.48,-4.06,25.53,26.47,1.64
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 65.8
-- over_600_ratio: 65.8
-- over_800_ratio: 64.12
+- as_of_date: 20260529
+- over_400_ratio: 66.03
+- over_600_ratio: 66.03
+- over_800_ratio: 64.35
 - over_1000_ratio: 62.39
-- over_400_change_1w: 0
-- over_800_change_1w: 0
+- over_400_change_1w: 0.23
+- over_800_change_1w: 0.23
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,65.8,0,64.12,0,62.39,0,0,False,False
 20260515,65.8,0,64.12,0,62.39,0,0,False,False
 20260522,65.8,0,64.12,0,62.39,0,0,False,False
+20260529,66.03,0.23,64.35,0.23,62.39,0,1,False,True
 ```
 
 ## Candidate Context

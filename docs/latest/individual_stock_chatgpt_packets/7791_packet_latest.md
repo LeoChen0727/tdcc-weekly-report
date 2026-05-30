@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7791 皇家可口
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:51 Asia/Taipei
+- generated_at: 2026-05-30 23:43:46 Asia/Taipei
 - stock_id: 7791
 - stock_name: 皇家可口
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 141
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,13 +100,13 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 81.48
-- over_600_ratio: 79.54
-- over_800_ratio: 76.76
+- as_of_date: 20260529
+- over_400_ratio: 81.37
+- over_600_ratio: 79.43
+- over_800_ratio: 75.68
 - over_1000_ratio: 70.07
-- over_400_change_1w: -0.08
-- over_800_change_1w: -0.08
+- over_400_change_1w: -0.11
+- over_800_change_1w: -1.08
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,81.6,-0.03,76.88,-0.03,70.07,0,0,False,False
 20260515,81.56,-0.04,76.84,-0.04,70.07,0,0,False,False
 20260522,81.48,-0.08,76.76,-0.08,70.07,0,0,False,False
+20260529,81.37,-0.11,75.68,-1.08,70.07,0,0,False,False
 ```
 
 ## Candidate Context

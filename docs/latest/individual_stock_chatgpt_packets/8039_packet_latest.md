@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8039 台虹
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:53 Asia/Taipei
+- generated_at: 2026-05-30 23:43:48 Asia/Taipei
 - stock_id: 8039
 - stock_name: 台虹
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -94,23 +94,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,141,152.5,141,151,21867086,137.43,9.87,138.12,125.61,1.57
 20260525,156.5,158,147,149.5,17938211,138.44,7.99,138.7,126.64,1.31
 20260526,151,156.5,148.5,155.5,13770558,139.86,11.18,139.62,127.76,1
-20260527,158,166.5,153,160,26875884,141.54,13.04,140.72,128.81,1.82
+20260527,158,166.5,153,160,26875884,141.54,13.05,140.72,128.81,1.82
 20260528,162,162,150,153.5,21144844,142.53,7.69,141.43,129.59,1.38
 20260529,161,168.5,156,162,41757020,144.16,12.38,142.7,130.42,2.45
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 56.16
-- over_600_ratio: 52.79
-- over_800_ratio: 49.53
-- over_1000_ratio: 48.48
-- over_400_change_1w: -1.76
-- over_800_change_1w: -2.24
-- over_1000_change_1w: -1.56
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 59.19
+- over_600_ratio: 55.55
+- over_800_ratio: 52.61
+- over_1000_ratio: 50.56
+- over_400_change_1w: 3.03
+- over_800_change_1w: 3.08
+- over_1000_change_1w: 2.08
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,18 +120,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,56.18,-0.81,50.34,-0.51,48.25,-0.97,0,False,False
 20260515,57.92,1.74,51.77,1.43,50.04,1.79,1,True,True
 20260522,56.16,-1.76,49.53,-2.24,48.48,-1.56,0,False,False
+20260529,59.19,3.03,52.61,3.08,50.56,2.08,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 8039 | 台虹 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260530 | 8039 | 台虹 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 | 20260521 | 8039 | 台虹 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 8039 | 台虹 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 8039 | 台虹 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8074 鉅橡
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:54 Asia/Taipei
+- generated_at: 2026-05-30 23:43:50 Asia/Taipei
 - stock_id: 8074
 - stock_name: 鉅橡
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -78,14 +78,14 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,88,88.3,83.2,88.3,10861000,71.66,23.22,71.16,65.16,1.15
-20260505,91.3,96.3,91,92.7,12995000,73.41,26.27,73.14,65.63,1.3
+20260505,91.3,96.3,91,92.7,12995000,73.42,26.27,73.14,65.63,1.3
 20260506,92.6,93.5,81.8,84.5,8455000,74.34,13.67,74.58,65.87,0.81
-20260507,84.5,85,81,81.2,3906000,74.91,8.4,75.58,66.08,0.37
+20260507,84.5,85,81,81.2,3906000,74.91,8.39,75.58,66.08,0.37
 20260508,81.5,84.7,78.5,82.1,4908000,75.51,8.73,76.47,66.33,0.48
 20260511,83.3,84.4,79.2,83,4557000,76.13,9.02,77.28,66.66,0.46
 20260512,83.3,87.4,82.3,83.5,6513000,76.75,8.8,78,67.06,0.67
 20260513,82.5,84.6,79.6,79.9,4957000,77.01,3.75,78.53,67.31,0.51
-20260514,80.9,83.4,79.5,79.5,3371000,77.22,2.96,79.07,67.55,0.35
+20260514,80.9,83.4,79.5,79.5,3371000,77.22,2.95,79.07,67.55,0.35
 20260515,80,80.1,73.8,75.6,4328000,77.08,-1.92,79.36,67.75,0.47
 20260518,75,75.5,70.2,75,1797000,76.91,-2.48,79.56,68,0.2
 20260519,75.3,76.5,72.7,74.3,1801000,76.69,-3.12,79.36,68.23,0.23
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 41.53
-- over_600_ratio: 37.38
-- over_800_ratio: 32.29
-- over_1000_ratio: 30.05
-- over_400_change_1w: 0.44
-- over_800_change_1w: 1.08
-- over_1000_change_1w: -0.11
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260529
+- over_400_ratio: 39.65
+- over_600_ratio: 36.14
+- over_800_ratio: 31.22
+- over_1000_ratio: 30.16
+- over_400_change_1w: -1.88
+- over_800_change_1w: -1.07
+- over_1000_change_1w: 0.11
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,42.78,-0.33,33.26,1.3,32.14,1.3,1,False,True
 20260515,41.09,-1.69,31.21,-2.05,30.16,-1.98,0,False,False
 20260522,41.53,0.44,32.29,1.08,30.05,-0.11,1,False,True
+20260529,39.65,-1.88,31.22,-1.07,30.16,0.11,2,False,True
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 8074 | 鉅橡 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260530 | 8074 | 鉅橡 | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

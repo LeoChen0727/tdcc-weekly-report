@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6139 亞翔
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:16 Asia/Taipei
+- generated_at: 2026-05-30 23:42:50 Asia/Taipei
 - stock_id: 6139
 - stock_name: 亞翔
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -84,13 +84,13 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260508,719,735,693,714,3093168,671.01,6.41,687,597.77,0.6
 20260511,719,719,655,679,6692308,671.68,1.09,689.15,599.5,1.34
 20260512,680,686,663,680,3644340,672.37,1.13,692.65,601.58,0.77
-20260513,680,718,675,686,6933635,673.51,1.85,695.2,603.68,1.46
+20260513,680,718,675,686,6933635,673.51,1.86,695.2,603.68,1.46
 20260514,698,736,692,720,6557822,677.38,6.29,699.75,606.42,1.37
 20260515,745,754,690,693,6688378,678.68,2.11,700.95,608.9,1.42
 20260518,693,722,668,721,3684232,682.21,5.69,700.85,612.1,0.83
 20260519,726,768,711,738,7855790,686.86,7.45,700.2,615.67,1.76
 20260520,738,754,708,720,7377298,689.62,4.41,699.95,618.93,1.63
-20260521,732,790,728,784,7819142,697.49,12.4,703.1,623.35,1.64
+20260521,732,790,728,784,7819142,697.48,12.4,703.1,623.35,1.64
 20260522,808,808,767,769,6471356,703.44,9.32,705.95,627.13,1.36
 20260525,783,825,777,807,5848431,712.07,13.33,711,631.53,1.2
 20260526,817,853,811,826,6001122,721.57,14.47,719,636.02,1.23
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 70.35
-- over_600_ratio: 65.55
-- over_800_ratio: 63.46
-- over_1000_ratio: 59.64
-- over_400_change_1w: 0.91
-- over_800_change_1w: 1.53
-- over_1000_change_1w: 0.43
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 69.63
+- over_600_ratio: 65.2
+- over_800_ratio: 62.57
+- over_1000_ratio: 59.41
+- over_400_change_1w: -0.72
+- over_800_change_1w: -0.89
+- over_1000_change_1w: -0.23
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,19 +120,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,69.68,-0.58,63.23,-0.7,60.44,-1.12,0,False,False
 20260515,69.44,-0.24,61.93,-1.3,59.21,-1.23,0,False,False
 20260522,70.35,0.91,63.46,1.53,59.64,0.43,1,True,True
+20260529,69.63,-0.72,62.57,-0.89,59.41,-0.23,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 6139 | 亞翔 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
-| 20260529 | 6139 | 亞翔 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260530 | 6139 | 亞翔 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260521 | 6139 | 亞翔 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 6139 | 亞翔 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260530 | 6139 | 亞翔 | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

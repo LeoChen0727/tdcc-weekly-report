@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8440 綠電
 
 ## Metadata
-- generated_at: 2026-05-29 19:34:01 Asia/Taipei
+- generated_at: 2026-05-30 23:43:58 Asia/Taipei
 - stock_id: 8440
 - stock_name: 綠電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,7 +88,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260514,24.3,24.85,24.15,24.85,881000,22,12.97,21.77,23.3,4.75
 20260515,25.2,25.35,23,23.05,1765000,22.09,4.37,21.79,23.26,6.53
 20260518,22.9,22.9,22.05,22.6,275000,22.13,2.13,21.78,23.21,0.98
-20260519,23.4,24.3,22.7,22.8,682000,22.18,2.77,21.81,23.17,2.24
+20260519,23.4,24.3,22.7,22.8,682000,22.18,2.78,21.81,23.17,2.24
 20260520,22.8,22.8,22.2,22.4,168000,22.2,0.89,21.8,23.12,0.55
 20260521,22.9,23.5,22.7,22.7,182000,22.24,2.05,21.8,23.09,0.58
 20260522,22.45,23,22.4,22.55,23000,22.27,1.26,21.84,23.04,0.08
@@ -100,12 +100,12 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 32.7
+- as_of_date: 20260529
+- over_400_ratio: 32.64
 - over_600_ratio: 30.96
 - over_800_ratio: 30.96
 - over_1000_ratio: 29.05
-- over_400_change_1w: -0.01
+- over_400_change_1w: -0.06
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,31.76,0,30.96,0,29.05,0,0,False,False
 20260515,32.71,0.95,30.96,0,29.05,0,1,False,False
 20260522,32.7,-0.01,30.96,0,29.05,0,0,False,False
+20260529,32.64,-0.06,30.96,0,29.05,0,0,False,False
 ```
 
 ## Candidate Context

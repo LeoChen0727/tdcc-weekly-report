@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6144 得利影
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:16 Asia/Taipei
+- generated_at: 2026-05-30 23:42:51 Asia/Taipei
 - stock_id: 6144
 - stock_name: 得利影
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -79,7 +79,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,14.95,14.95,14.6,14.95,23000,15.98,-6.47,16.04,17.07,1.29
 20260505,14.7,14.8,14.5,14.8,18000,15.89,-6.83,15.95,17,1.01
-20260506,14.55,14.9,14.5,14.8,6000,15.8,-6.3,15.86,16.93,0.34
+20260506,14.55,14.9,14.5,14.8,6000,15.79,-6.3,15.86,16.93,0.34
 20260507,14.55,14.65,14.15,14.6,28000,15.7,-6.98,15.76,16.84,1.46
 20260508,14.95,14.95,14.3,14.3,17000,15.58,-8.21,15.63,16.75,0.85
 20260511,14.7,15.35,14.6,15,17000,15.53,-3.42,15.54,16.66,0.88
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 89.55
 - over_600_ratio: 89.55
 - over_800_ratio: 89.55
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,89.55,0,89.55,0,89.55,0,0,False,False
 20260515,89.55,0,89.55,0,89.55,0,0,False,False
 20260522,89.55,0,89.55,0,89.55,0,0,False,False
+20260529,89.55,0,89.55,0,89.55,0,0,False,False
 ```
 
 ## Candidate Context

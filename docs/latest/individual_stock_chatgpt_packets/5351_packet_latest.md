@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5351 鈺創
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:06 Asia/Taipei
+- generated_at: 2026-05-30 23:42:39 Asia/Taipei
 - stock_id: 5351
 - stock_name: 鈺創
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -80,37 +80,37 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260504,71.3,71.8,68.8,71.6,17534000,68.32,4.8,68.27,64.58,0.87
 20260505,72,74.8,70.7,74.1,27332000,68.8,7.7,68.67,64.8,1.34
 20260506,81,81.5,78.3,78.5,43132000,69.61,12.77,69.36,65.14,1.97
-20260507,79,79.9,75.4,77.3,37255000,70.25,10.04,69.67,65.39,1.59
-20260508,78,81.3,73.5,75.1,29521000,70.65,6.29,69.8,65.63,1.27
+20260507,79,79.9,75.4,77.3,37255000,70.25,10.03,69.67,65.39,1.59
+20260508,78,81.3,73.5,75.1,29521000,70.66,6.29,69.8,65.63,1.27
 20260511,78.1,81.5,77.5,80.1,29497000,71.44,12.12,70.27,65.95,1.27
 20260512,82,86.9,78.8,83.8,54468000,72.47,15.63,71,66.42,2.15
-20260513,81.8,88,80.2,87,49220000,73.68,18.08,71.92,66.95,1.82
+20260513,81.8,88,80.2,87,49220000,73.68,18.07,71.92,66.95,1.82
 20260514,90,94,87,91.5,69650000,75.17,21.73,73.11,67.52,2.33
-20260515,89.7,90,85.5,87.5,39596000,76.19,14.84,74.16,68.05,1.26
+20260515,89.7,90,85.5,87.5,39596000,76.2,14.84,74.16,68.05,1.26
 20260518,85,87.2,82.1,85.3,19177000,76.95,10.85,75.05,68.59,0.6
 20260519,84,84,76.8,76.8,34454000,76.94,-0.18,75.58,68.92,1.05
-20260520,76.5,77,72.6,74.4,20446000,76.73,-3.03,75.88,69.23,0.62
+20260520,76.5,77,72.6,74.4,20446000,76.73,-3.04,75.88,69.23,0.62
 20260521,76.4,77.1,74.7,75.2,16156000,76.6,-1.83,76.06,69.56,0.49
 20260522,76.9,82.5,76.8,80.5,80000,76.93,4.65,76.78,69.95,0
 20260525,80.5,83.9,77.6,82.1,82000,77.36,6.13,77.83,70.31,0
 20260526,83.1,84.9,81.3,82.2,83000,77.76,5.71,78.73,70.71,0
-20260527,87,89.2,81.9,82.6,85000,78.16,5.68,79.33,71.11,0
+20260527,87,89.2,81.9,82.6,85000,78.16,5.67,79.33,71.11,0
 20260528,83.3,87.4,82.3,82.6,85000,78.53,5.18,79.9,71.52,0
 20260529,85.1,87.3,84.1,86.2,86000,79.17,8.88,80.72,72.07,0
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 31.49
-- over_600_ratio: 30.1
-- over_800_ratio: 28.2
-- over_1000_ratio: 26.59
-- over_400_change_1w: -4.03
-- over_800_change_1w: -3.39
-- over_1000_change_1w: -2.8
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 32.5
+- over_600_ratio: 30.95
+- over_800_ratio: 29.45
+- over_1000_ratio: 27.61
+- over_400_change_1w: 1.01
+- over_800_change_1w: 1.25
+- over_1000_change_1w: 1.02
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,32.37,3.37,28.65,3.37,26.26,3.88,1,True,True
 20260515,35.52,3.15,31.59,2.94,29.39,3.13,2,True,True
 20260522,31.49,-4.03,28.2,-3.39,26.59,-2.8,0,False,False
+20260529,32.5,1.01,29.45,1.25,27.61,1.02,1,True,True
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 5351 | 鈺創 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 5351 | 鈺創 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

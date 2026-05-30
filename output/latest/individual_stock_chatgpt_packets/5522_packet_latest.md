@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5522 遠雄
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:10 Asia/Taipei
+- generated_at: 2026-05-30 23:42:44 Asia/Taipei
 - stock_id: 5522
 - stock_name: 遠雄
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -79,7 +79,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,69,69.7,68.2,69.4,576177,69.84,-0.64,70.57,68.78,0.58
 20260505,69.4,69.4,68.7,69.1,385960,69.78,-0.98,70.39,68.82,0.4
-20260506,69.5,69.5,68.8,69.1,634649,69.72,-0.9,70.21,68.88,0.67
+20260506,69.5,69.5,68.8,69.1,634649,69.73,-0.9,70.21,68.88,0.67
 20260507,68.6,70,68.1,69.7,1112313,69.72,-0.03,70.02,68.94,1.17
 20260508,70,70.4,69.5,70,1202130,69.75,0.36,69.83,68.97,1.24
 20260511,70.2,72.7,70.2,72.7,1618880,69.99,3.87,69.8,69.08,1.61
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 89.06
-- over_600_ratio: 88.2
-- over_800_ratio: 87.39
-- over_1000_ratio: 86.72
-- over_400_change_1w: 0.04
-- over_800_change_1w: -0.02
-- over_1000_change_1w: 0.07
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260529
+- over_400_ratio: 89.04
+- over_600_ratio: 88.26
+- over_800_ratio: 87.75
+- over_1000_ratio: 86.75
+- over_400_change_1w: -0.02
+- over_800_change_1w: 0.36
+- over_1000_change_1w: 0.03
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -120,20 +120,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,89.02,0.12,87.65,-0.03,86.89,0.09,1,False,True
 20260515,89.02,0,87.41,-0.24,86.65,-0.24,0,False,False
 20260522,89.06,0.04,87.39,-0.02,86.72,0.07,1,False,True
+20260529,89.04,-0.02,87.75,0.36,86.75,0.03,2,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 5522 | 遠雄 | pullback_rebound | 回檔後短線轉強 | 70.0 |  |  |  |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
-| 20260529 | 5522 | 遠雄 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260529 | 5522 | 遠雄 | revenue_breakout_low_response | 營收爆發低反應股 | 21.0 | 9.0 | B_可觀察 |  |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260529 | 5522 | 遠雄 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260530 | 5522 | 遠雄 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260530 | 5522 | 遠雄 | revenue_breakout_low_response | 營收爆發低反應股 | 21.0 | 10.0 | B_可觀察 |  |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260530 | 5522 | 遠雄 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 5522 | 遠雄 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260530 | 5522 | 遠雄 | 3 | 3 | 3 | 3 | 3 | continued_2_3d | 連續 3 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | status |

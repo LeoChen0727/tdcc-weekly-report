@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6592 和潤企業
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:33 Asia/Taipei
+- generated_at: 2026-05-30 23:43:10 Asia/Taipei
 - stock_id: 6592
 - stock_name: 和潤企業
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -83,7 +83,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260507,61.5,62.4,61.3,62.4,520455,62.44,-0.06,62.75,62.12,1
 20260508,62.4,62.4,60.5,60.7,1309354,62.3,-2.56,62.65,62.11,2.32
 20260511,60.9,61.1,60.6,60.9,628828,62.18,-2.06,62.56,62.12,1.09
-20260512,60.8,60.8,60.2,60.2,724339,62.01,-2.92,62.44,62.12,1.21
+20260512,60.8,60.8,60.2,60.2,724339,62.01,-2.93,62.44,62.12,1.21
 20260513,60.2,60.4,59.8,59.9,773577,61.84,-3.13,62.23,62.1,1.29
 20260514,59.9,60.5,59.8,59.8,620136,61.67,-3.03,62,62.08,1.02
 20260515,60.4,60.4,59.5,59.6,613113,61.5,-3.08,61.74,62.05,0.99
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 79.47
-- over_600_ratio: 78.24
-- over_800_ratio: 76.9
-- over_1000_ratio: 75.89
-- over_400_change_1w: 0.19
-- over_800_change_1w: 0.17
-- over_1000_change_1w: 0.33
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 79.36
+- over_600_ratio: 78.11
+- over_800_ratio: 76.88
+- over_1000_ratio: 75.59
+- over_400_change_1w: -0.11
+- over_800_change_1w: -0.02
+- over_1000_change_1w: -0.3
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,79.57,0.12,77.08,0.33,75.63,-0.11,1,False,True
 20260515,79.28,-0.29,76.73,-0.35,75.56,-0.07,0,False,False
 20260522,79.47,0.19,76.9,0.17,75.89,0.33,1,True,True
+20260529,79.36,-0.11,76.88,-0.02,75.59,-0.3,0,False,False
 ```
 
 ## Candidate Context

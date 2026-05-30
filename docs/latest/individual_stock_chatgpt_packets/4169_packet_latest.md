@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4169 泰宗
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:48 Asia/Taipei
+- generated_at: 2026-05-30 23:42:18 Asia/Taipei
 - stock_id: 4169
 - stock_name: 泰宗
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260529
 - price_rows: 37
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 54.72
-- over_600_ratio: 49.58
-- over_800_ratio: 46.18
-- over_1000_ratio: 46.18
-- over_400_change_1w: 0.38
-- over_800_change_1w: -1.42
-- over_1000_change_1w: -0.09
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260529
+- over_400_ratio: 54.04
+- over_600_ratio: 49.51
+- over_800_ratio: 46.11
+- over_1000_ratio: 46.11
+- over_400_change_1w: -0.68
+- over_800_change_1w: -0.07
+- over_1000_change_1w: -0.07
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,54.49,-0.23,47.75,-0.23,46.29,-1.69,0,False,False
 20260515,54.34,-0.15,47.6,-0.15,46.27,-0.02,0,False,False
 20260522,54.72,0.38,46.18,-1.42,46.18,-0.09,1,False,False
+20260529,54.04,-0.68,46.11,-0.07,46.11,-0.07,0,False,False
 ```
 
 ## Candidate Context

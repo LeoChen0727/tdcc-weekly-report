@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6405 悅城
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:25 Asia/Taipei
+- generated_at: 2026-05-30 23:43:01 Asia/Taipei
 - stock_id: 6405
 - stock_name: 悅城
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 51.57
-- over_600_ratio: 46.82
-- over_800_ratio: 45.7
-- over_1000_ratio: 36.31
-- over_400_change_1w: -0.39
-- over_800_change_1w: -0.35
-- over_1000_change_1w: -1.9
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260529
+- over_400_ratio: 52.41
+- over_600_ratio: 47.75
+- over_800_ratio: 44.61
+- over_1000_ratio: 39.3
+- over_400_change_1w: 0.84
+- over_800_change_1w: -1.09
+- over_1000_change_1w: 2.99
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,52.52,-0.58,44.36,-2.2,37.53,-3.68,0,False,False
 20260515,51.96,-0.56,46.05,1.69,38.21,0.68,1,False,True
 20260522,51.57,-0.39,45.7,-0.35,36.31,-1.9,0,False,False
+20260529,52.41,0.84,44.61,-1.09,39.3,2.99,1,False,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8016 矽創
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:52 Asia/Taipei
+- generated_at: 2026-05-30 23:43:47 Asia/Taipei
 - stock_id: 8016
 - stock_name: 矽創
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 45.06
-- over_600_ratio: 38.36
-- over_800_ratio: 32.92
-- over_1000_ratio: 29.97
-- over_400_change_1w: -0.39
-- over_800_change_1w: -0.35
-- over_1000_change_1w: 1.82
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 44.8
+- over_600_ratio: 36.84
+- over_800_ratio: 32
+- over_1000_ratio: 28.3
+- over_400_change_1w: -0.26
+- over_800_change_1w: -0.92
+- over_1000_change_1w: -1.67
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,43.3,1.8,32.5,1.88,26.28,-0.62,1,False,True
 20260515,45.45,2.15,33.27,0.77,28.15,1.87,2,True,True
 20260522,45.06,-0.39,32.92,-0.35,29.97,1.82,3,False,True
+20260529,44.8,-0.26,32,-0.92,28.3,-1.67,0,False,False
 ```
 
 ## Candidate Context

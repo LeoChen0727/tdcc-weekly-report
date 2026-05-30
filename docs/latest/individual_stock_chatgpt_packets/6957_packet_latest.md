@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6957 裕慶-KY
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:46 Asia/Taipei
+- generated_at: 2026-05-30 23:43:25 Asia/Taipei
 - stock_id: 6957
 - stock_name: 裕慶-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -81,12 +81,12 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260505,165,165,160,160,66638,160.93,-0.58,159.65,167.64,0.7
 20260506,162,162,159,162,82387,161.02,0.61,160,167.28,0.84
 20260507,160,162,160,162,57734,161.1,0.56,160.4,166.88,0.63
-20260508,162,162,159,159.5,97800,160.97,-0.91,160.7,166.42,1.13
+20260508,162,162,159,159.5,97800,160.96,-0.91,160.7,166.42,1.13
 20260511,158,159,155,159,156707,160.8,-1.12,160.8,166.02,1.8
 20260512,156,159.5,156,159,49195,160.65,-1.03,160.7,165.63,0.58
 20260513,159.5,159.5,156.5,159,55387,160.51,-0.94,160.75,165.18,0.68
 20260514,156.5,159,153.5,159,206816,160.39,-0.86,160.78,164.64,2.38
-20260515,157,160,154.5,160,115810,160.36,-0.22,160.45,164.14,1.34
+20260515,157,160,154.5,160,115810,160.35,-0.22,160.45,164.14,1.34
 20260518,157,160.5,157,159.5,62851,160.28,-0.49,160.25,163.69,0.73
 20260519,158,163,157,160,136002,160.26,-0.16,160.12,163.33,1.52
 20260520,160,161,159,160,44101,160.24,-0.15,160.03,163,0.49
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 72.57
-- over_600_ratio: 67.62
-- over_800_ratio: 61.03
-- over_1000_ratio: 56.15
-- over_400_change_1w: -0.01
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 72.58
+- over_600_ratio: 67.63
+- over_800_ratio: 61.04
+- over_1000_ratio: 56.16
+- over_400_change_1w: 0.01
+- over_800_change_1w: 0.01
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,71.83,-0.76,61.02,0,56.14,0,0,False,False
 20260515,72.58,0.75,61.03,0.01,56.15,0.01,1,True,True
 20260522,72.57,-0.01,61.03,0,56.15,0,0,False,False
+20260529,72.58,0.01,61.04,0.01,56.16,0.01,1,True,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1615 大山
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:46 Asia/Taipei
+- generated_at: 2026-05-30 23:41:06 Asia/Taipei
 - stock_id: 1615
 - stock_name: 大山
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 80.43
-- over_600_ratio: 78.07
-- over_800_ratio: 77.37
-- over_1000_ratio: 76.93
-- over_400_change_1w: 0.02
-- over_800_change_1w: 0.02
-- over_1000_change_1w: 0.02
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 80.41
+- over_600_ratio: 78.06
+- over_800_ratio: 77.36
+- over_1000_ratio: 76.92
+- over_400_change_1w: -0.02
+- over_800_change_1w: -0.01
+- over_1000_change_1w: -0.01
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,80.57,-0.15,77.29,-0.03,76.85,-0.03,0,False,False
 20260515,80.41,-0.16,77.35,0.06,76.91,0.06,1,False,True
 20260522,80.43,0.02,77.37,0.02,76.93,0.02,2,True,True
+20260529,80.41,-0.02,77.36,-0.01,76.92,-0.01,0,False,False
 ```
 
 ## Candidate Context

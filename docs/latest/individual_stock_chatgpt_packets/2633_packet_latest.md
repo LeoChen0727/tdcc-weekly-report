@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2633 台灣高鐵
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:12 Asia/Taipei
+- generated_at: 2026-05-30 23:41:36 Asia/Taipei
 - stock_id: 2633
 - stock_name: 台灣高鐵
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,7 +77,7 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,26.55,26.55,26.3,26.4,4245041,26.58,-0.7,26.68,26.69,0.85
+20260504,26.55,26.55,26.3,26.4,4245041,26.59,-0.7,26.68,26.69,0.85
 20260505,26.4,26.45,26.35,26.4,4066789,26.57,-0.64,26.66,26.68,0.81
 20260506,26.6,26.6,26.4,26.4,4548833,26.56,-0.59,26.66,26.67,0.9
 20260507,26.3,26.6,26.25,26.35,7623777,26.54,-0.71,26.65,26.65,1.48
@@ -100,14 +100,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 86.81
-- over_600_ratio: 85.94
-- over_800_ratio: 85.35
-- over_1000_ratio: 84.74
-- over_400_change_1w: -0.08
-- over_800_change_1w: -0.04
-- over_1000_change_1w: -0.1
+- as_of_date: 20260529
+- over_400_ratio: 86.33
+- over_600_ratio: 85.43
+- over_800_ratio: 84.81
+- over_1000_ratio: 84.28
+- over_400_change_1w: -0.48
+- over_800_change_1w: -0.54
+- over_1000_change_1w: -0.46
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,86.88,0.1,85.47,0.07,84.84,0.09,1,True,True
 20260515,86.89,0.01,85.39,-0.08,84.84,0,2,False,False
 20260522,86.81,-0.08,85.35,-0.04,84.74,-0.1,0,False,False
+20260529,86.33,-0.48,84.81,-0.54,84.28,-0.46,0,False,False
 ```
 
 ## Candidate Context

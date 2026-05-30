@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3078 僑威
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:25 Asia/Taipei
+- generated_at: 2026-05-30 23:41:51 Asia/Taipei
 - stock_id: 3078
 - stock_name: 僑威
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -79,7 +79,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,56.3,56.5,55.6,56,708000,56.77,-1.36,56.42,59.04,0.64
 20260505,56,57,56,57,755000,56.79,0.37,56.44,58.91,0.68
-20260506,57.5,57.7,56.2,56.6,1027000,56.78,-0.31,56.41,58.78,0.9
+20260506,57.5,57.7,56.2,56.6,1027000,56.77,-0.31,56.41,58.78,0.9
 20260507,57,57.5,56.7,57.3,980000,56.82,0.85,56.38,58.66,0.85
 20260508,57.6,58.8,56.9,57.5,1518000,56.88,1.1,56.38,58.55,1.27
 20260511,57.7,57.7,56.5,57.2,972000,56.9,0.52,56.51,58.47,0.94
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 38.71
-- over_600_ratio: 35.39
-- over_800_ratio: 31.84
-- over_1000_ratio: 29.02
-- over_400_change_1w: 0.17
-- over_800_change_1w: -0.55
-- over_1000_change_1w: -0.5
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260529
+- over_400_ratio: 38.66
+- over_600_ratio: 34.85
+- over_800_ratio: 31.47
+- over_1000_ratio: 29.03
+- over_400_change_1w: -0.05
+- over_800_change_1w: -0.37
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,38.96,-0.07,32.53,-0.07,30.09,-0.06,1,False,False
 20260515,38.54,-0.42,32.39,-0.14,29.52,-0.57,0,False,False
 20260522,38.71,0.17,31.84,-0.55,29.02,-0.5,1,False,False
+20260529,38.66,-0.05,31.47,-0.37,29.03,0.01,2,False,True
 ```
 
 ## Candidate Context

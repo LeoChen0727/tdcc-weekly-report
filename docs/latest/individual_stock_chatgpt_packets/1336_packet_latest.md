@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1336 台翰
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:37 Asia/Taipei
+- generated_at: 2026-05-30 23:40:55 Asia/Taipei
 - stock_id: 1336
 - stock_name: 台翰
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -63,7 +63,7 @@
 - volume: 13000
 - ma5: 13.14
 - ema23_primary: 13.43
-- distance_to_ema23_pct: -1.38
+- distance_to_ema23_pct: -1.37
 - ma20: 13.42
 - ma60: 14.02
 - ma120: 15.02
@@ -96,21 +96,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,13.25,13.25,13.05,13.05,13000,13.51,-3.43,13.52,14.14,0.15
 20260527,13.1,13.25,13.05,13.15,13000,13.48,-2.47,13.49,14.09,0.16
 20260528,13.3,13.3,13.1,13.1,13000,13.45,-2.61,13.45,14.05,0.17
-20260529,13.2,13.35,13.15,13.25,13000,13.43,-1.38,13.42,14.02,0.17
+20260529,13.2,13.35,13.15,13.25,13000,13.43,-1.37,13.42,14.02,0.17
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 49.97
-- over_600_ratio: 44.11
+- as_of_date: 20260529
+- over_400_ratio: 50
+- over_600_ratio: 44.12
 - over_800_ratio: 41.58
 - over_1000_ratio: 38.24
-- over_400_change_1w: 0.08
-- over_800_change_1w: 0.01
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- over_400_change_1w: 0.03
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,50.5,0.68,41.57,0,38.23,0,1,False,False
 20260515,49.89,-0.61,41.57,0,38.23,0,0,False,False
 20260522,49.97,0.08,41.58,0.01,38.24,0.01,1,True,True
+20260529,50,0.03,41.58,0,38.24,0,2,False,False
 ```
 
 ## Candidate Context

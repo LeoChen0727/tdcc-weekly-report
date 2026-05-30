@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5245 智晶
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:03 Asia/Taipei
+- generated_at: 2026-05-30 23:42:36 Asia/Taipei
 - stock_id: 5245
 - stock_name: 智晶
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -85,7 +85,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260511,26.15,26.15,25.25,25.5,117000,24.91,2.36,24.81,26.05,0.82
 20260512,25.9,25.9,25,25.15,85000,24.93,0.88,24.91,25.9,0.6
 20260513,25.1,25.25,24.45,24.85,87000,24.92,-0.3,24.99,25.76,0.61
-20260514,25.3,25.3,24.65,24.7,76000,24.91,-0.82,24.95,25.64,0.55
+20260514,25.3,25.3,24.65,24.7,76000,24.91,-0.83,24.95,25.64,0.55
 20260515,25.1,27.15,25.1,25.15,590000,24.93,0.9,24.97,25.56,3.86
 20260518,25.1,26.1,24.5,25.75,163000,24.99,3.02,24.98,25.52,1.07
 20260519,25.75,26.45,25.45,26.45,128000,25.12,5.31,25.06,25.5,0.83
@@ -100,11 +100,11 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 57.85
-- over_600_ratio: 53.86
-- over_800_ratio: 50.79
-- over_1000_ratio: 40.76
+- as_of_date: 20260529
+- over_400_ratio: 57.84
+- over_600_ratio: 53.85
+- over_800_ratio: 50.78
+- over_1000_ratio: 40.75
 - over_400_change_1w: -0.01
 - over_800_change_1w: -0.01
 - over_1000_change_1w: -0.01
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,57.85,-0.02,50.8,-0.02,40.77,-0.02,0,False,False
 20260515,57.86,0.01,50.8,0,40.77,0,1,False,False
 20260522,57.85,-0.01,50.79,-0.01,40.76,-0.01,0,False,False
+20260529,57.84,-0.01,50.78,-0.01,40.75,-0.01,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3413 京鼎
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:34 Asia/Taipei
+- generated_at: 2026-05-30 23:42:02 Asia/Taipei
 - stock_id: 3413
 - stock_name: 京鼎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 26
+- price_rows: 272
+- latest_tdcc_date: 20260529
+- tdcc_rows: 27
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -79,19 +79,19 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,312,324.5,310.5,324.5,2025475,313.38,3.55,314.15,304.67,0.96
 20260505,322,324.5,314.5,324.5,1802405,314.31,3.24,315.7,305.3,0.84
-20260506,325.5,325.5,314,318,2743147,314.62,1.08,316.95,305.58,1.21
+20260506,325.5,325.5,314,318,2743147,314.61,1.08,316.95,305.58,1.21
 20260507,315,315,303.5,309,3802636,314.15,-1.64,317.3,305.68,1.61
 20260508,308,317.5,304.5,315.5,2846218,314.26,0.39,317.65,306.11,1.2
 20260511,309,313,296,308.5,3655573,313.78,-1.68,317.32,306.52,1.55
 20260512,308.5,315,306.5,308.5,2217693,313.34,-1.54,316.88,306.99,0.94
-20260513,307.5,313,306.5,311,1713108,313.15,-0.69,316.32,307.45,0.76
+20260513,307.5,313,306.5,311,1713108,313.14,-0.68,316.32,307.45,0.76
 20260514,315,326,315,321,4059236,313.8,2.29,316.62,307.93,1.72
 20260515,328,337.5,320.5,325.5,6508719,314.77,3.41,317.12,308.62,2.48
 20260518,321,322.5,315,322.5,2344582,315.42,2.25,317.52,309.31,0.88
 20260519,322,325.5,313.5,314.5,1886572,315.34,-0.27,316.88,309.64,0.73
 20260520,315,325,308,314,2187953,315.23,-0.39,316.2,310.02,0.83
 20260521,320,328,318.5,326.5,2140883,316.17,3.27,316.02,310.64,0.82
-20260522,327.5,328.5,324,325,1110602,316.91,2.55,316.5,310.85,0.44
+20260522,327.5,328.5,324,325,1110602,316.9,2.55,316.5,310.85,0.44
 20260525,326.5,349.5,326.5,349,4721290,319.58,9.21,317.75,311.49,1.8
 20260526,358.5,359,345,346,3629812,321.78,7.53,319.6,312.02,1.37
 20260527,335,335,311.5,314.5,9327032,321.17,-2.08,319.95,312,3.07
@@ -100,23 +100,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 47.41
-- over_600_ratio: 44.41
-- over_800_ratio: 42.03
-- over_1000_ratio: 39.47
-- over_400_change_1w: 2.87
-- over_800_change_1w: 3.62
-- over_1000_change_1w: 3.58
-- tdcc_consecutive_up_weeks: 7
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 44.33
+- over_600_ratio: 40.24
+- over_800_ratio: 38.31
+- over_1000_ratio: 37.56
+- over_400_change_1w: -3.08
+- over_800_change_1w: -3.72
+- over_1000_change_1w: -1.91
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260306,40.13,-0.35,32.86,0.06,32.86,0.06,3,False,True
 20260313,40.88,0.75,33.65,0.79,32.9,0.04,4,True,True
 20260320,40.94,0.06,34.44,0.79,32.86,-0.04,5,False,True
 20260327,42.34,1.4,35.47,1.03,33.92,1.06,6,True,True
@@ -128,6 +127,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,41.88,-0.57,36.22,-0.69,33.83,1.67,5,False,True
 20260515,44.54,2.66,38.41,2.19,35.89,2.06,6,True,True
 20260522,47.41,2.87,42.03,3.62,39.47,3.58,7,True,True
+20260529,44.33,-3.08,38.31,-3.72,37.56,-1.91,0,False,False
 ```
 
 ## Candidate Context
@@ -138,7 +138,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 3413 | 京鼎 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 3413 | 京鼎 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

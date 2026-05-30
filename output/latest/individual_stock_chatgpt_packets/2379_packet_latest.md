@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2379 瑞昱
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:01 Asia/Taipei
+- generated_at: 2026-05-30 23:41:24 Asia/Taipei
 - stock_id: 2379
 - stock_name: 瑞昱
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -80,7 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260504,535,548,524,528,5112509,528.01,-0,531.3,497.24,1.4
 20260505,528,534,526,533,2853367,528.42,0.87,533.55,497.51,0.78
 20260506,543,548,533,544,4251080,529.72,2.7,535.8,497.74,1.13
-20260507,550,551,535,539,3701667,530.49,1.6,537.5,497.98,0.97
+20260507,550,551,535,539,3701667,530.5,1.6,537.5,497.98,0.97
 20260508,555,592,551,592,9246415,535.62,10.53,541.5,499.32,2.25
 20260511,615,615,581,584,9832375,539.65,8.22,545.3,501,2.19
 20260512,581,583,555,555,6324608,540.93,2.6,546.8,502.33,1.37
@@ -94,23 +94,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,574,578,566,578,3741508,552.34,4.64,555.75,513.96,0.83
 20260525,584,594,578,583,4143796,554.9,5.06,557.95,515.76,0.92
 20260526,590,594,584,590,2963327,557.82,5.77,559.7,517.68,0.65
-20260527,595,624,595,605,6045678,561.75,7.7,561.9,519.74,1.28
+20260527,595,624,595,605,6045678,561.76,7.7,561.9,519.74,1.28
 20260528,605,616,593,594,4278904,564.44,5.24,564.05,521.68,0.89
 20260529,613,615,580,580,7108843,565.74,2.52,566.2,523.63,1.42
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 74.6
-- over_600_ratio: 68.47
-- over_800_ratio: 63.43
-- over_1000_ratio: 58.57
-- over_400_change_1w: 0.58
-- over_800_change_1w: -0.12
-- over_1000_change_1w: -0.14
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 74.93
+- over_600_ratio: 68.17
+- over_800_ratio: 63.62
+- over_1000_ratio: 59.28
+- over_400_change_1w: 0.33
+- over_800_change_1w: 0.19
+- over_1000_change_1w: 0.71
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,18 +120,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,73.94,-0.33,62.97,-0.21,59.01,0.66,1,False,True
 20260515,74.02,0.08,63.55,0.58,58.71,-0.3,2,False,True
 20260522,74.6,0.58,63.43,-0.12,58.57,-0.14,3,False,False
+20260529,74.93,0.33,63.62,0.19,59.28,0.71,4,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2379 | 瑞昱 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260530 | 2379 | 瑞昱 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 | 20260521 | 2379 | 瑞昱 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2379 | 瑞昱 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 2379 | 瑞昱 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

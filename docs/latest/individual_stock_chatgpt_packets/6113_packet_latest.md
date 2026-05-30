@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6113 亞矽
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:14 Asia/Taipei
+- generated_at: 2026-05-30 23:42:48 Asia/Taipei
 - stock_id: 6113
 - stock_name: 亞矽
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,16 +100,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 52.96
-- over_600_ratio: 50.21
-- over_800_ratio: 50.21
-- over_1000_ratio: 50.21
-- over_400_change_1w: 2.43
-- over_800_change_1w: 1.93
-- over_1000_change_1w: 1.93
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 52.88
+- over_600_ratio: 52.88
+- over_800_ratio: 51.56
+- over_1000_ratio: 51.56
+- over_400_change_1w: -0.08
+- over_800_change_1w: 1.35
+- over_1000_change_1w: 1.35
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,49.2,0.13,48.28,0,48.28,0,1,False,False
 20260515,50.53,1.33,48.28,0,48.28,0,2,False,False
 20260522,52.96,2.43,50.21,1.93,50.21,1.93,3,True,True
+20260529,52.88,-0.08,51.56,1.35,51.56,1.35,4,False,True
 ```
 
 ## Candidate Context

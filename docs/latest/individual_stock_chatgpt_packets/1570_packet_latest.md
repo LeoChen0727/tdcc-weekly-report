@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1570 力肯
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:44 Asia/Taipei
+- generated_at: 2026-05-30 23:41:04 Asia/Taipei
 - stock_id: 1570
 - stock_name: 力肯
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,10 +88,10 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260514,40.1,40.55,39.15,39.8,273000,37.28,6.77,37.91,33.6,0.37
 20260515,39.8,40,39.4,39.4,352000,37.45,5.2,38.22,33.72,0.48
 20260518,39.2,39.2,37.8,38.3,206000,37.52,2.07,38.49,33.84,0.28
-20260519,39.8,39.8,37.65,37.85,264000,37.55,0.8,38.63,33.94,0.38
+20260519,39.8,39.8,37.65,37.85,264000,37.55,0.79,38.63,33.94,0.38
 20260520,37.4,38.45,37.4,37.95,163000,37.58,0.97,38.61,34.04,0.26
 20260521,38.95,41.6,38.65,39.6,562000,37.75,4.89,38.47,34.17,1.09
-20260522,40.2,42.3,39.85,42.1,41000,38.11,10.46,38.63,34.35,0.11
+20260522,40.2,42.3,39.85,42.1,41000,38.12,10.46,38.63,34.35,0.11
 20260525,43.2,46,43,45.75,45000,38.75,18.06,39.06,34.58,0.15
 20260526,45.5,50,45.3,50,48000,39.69,25.98,39.66,34.9,0.18
 20260527,52.5,54.5,50.2,52.2,52000,40.73,28.16,40.35,35.24,0.22
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 54.92
-- over_600_ratio: 48.18
+- as_of_date: 20260529
+- over_400_ratio: 56.29
+- over_600_ratio: 48.17
 - over_800_ratio: 45.27
 - over_1000_ratio: 45.27
-- over_400_change_1w: 0.83
-- over_800_change_1w: -0.03
-- over_1000_change_1w: -0.03
-- tdcc_consecutive_up_weeks: 3
+- over_400_change_1w: 1.37
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,53.27,-0.88,45.27,0,45.27,0,1,False,False
 20260515,54.09,0.82,45.3,0.03,45.3,0.03,2,True,True
 20260522,54.92,0.83,45.27,-0.03,45.27,-0.03,3,False,False
+20260529,56.29,1.37,45.27,0,45.27,0,4,False,False
 ```
 
 ## Candidate Context

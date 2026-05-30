@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2211 長榮鋼
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:55 Asia/Taipei
+- generated_at: 2026-05-30 23:41:17 Asia/Taipei
 - stock_id: 2211
 - stock_name: 長榮鋼
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -78,7 +78,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,97.4,98.5,97.4,98.1,589502,99.5,-1.41,99.53,100.92,0.93
-20260505,98.2,98.8,98.1,98.7,459269,99.44,-0.74,99.52,100.88,0.73
+20260505,98.2,98.8,98.1,98.7,459269,99.43,-0.74,99.52,100.88,0.73
 20260506,99.4,99.4,98.4,98.7,513067,99.37,-0.68,99.48,100.84,0.83
 20260507,98.5,99.3,98.5,99.1,569278,99.35,-0.25,99.42,100.81,0.92
 20260508,99.6,99.6,98,98.5,613286,99.28,-0.79,99.34,100.73,0.97
@@ -86,7 +86,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260512,97.7,97.7,96.5,96.6,1228730,98.94,-2.36,99.07,100.57,1.81
 20260513,96.6,96.7,96.1,96.4,709690,98.72,-2.35,98.89,100.47,1.02
 20260514,96.1,96.8,96.1,96.8,507039,98.56,-1.79,98.73,100.38,0.73
-20260515,96.1,96.1,92.8,93.9,1705941,98.18,-4.36,98.4,100.22,2.27
+20260515,96.1,96.1,92.8,93.9,1705941,98.18,-4.35,98.4,100.22,2.27
 20260518,92.7,93.4,92.2,93.2,674101,97.76,-4.67,98.06,100.04,0.88
 20260519,93.2,93.6,92.2,92.8,717813,97.35,-4.67,97.67,99.85,0.93
 20260520,92.8,93.4,91,91.4,1001357,96.85,-5.63,97.19,99.64,1.24
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 82.91
-- over_600_ratio: 81.45
-- over_800_ratio: 80.19
-- over_1000_ratio: 78.74
-- over_400_change_1w: 0.04
-- over_800_change_1w: 0.02
-- over_1000_change_1w: -0.18
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 82.82
+- over_600_ratio: 81.51
+- over_800_ratio: 80.43
+- over_1000_ratio: 78.77
+- over_400_change_1w: -0.09
+- over_800_change_1w: 0.24
+- over_1000_change_1w: 0.03
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,83.24,0.58,80.02,-0.27,78.54,-0.27,1,False,False
 20260515,82.87,-0.37,80.17,0.15,78.92,0.38,2,False,True
 20260522,82.91,0.04,80.19,0.02,78.74,-0.18,3,False,True
+20260529,82.82,-0.09,80.43,0.24,78.77,0.03,4,False,True
 ```
 
 ## Candidate Context

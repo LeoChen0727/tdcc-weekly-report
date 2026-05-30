@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2362 藍天
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:00 Asia/Taipei
+- generated_at: 2026-05-30 23:41:22 Asia/Taipei
 - stock_id: 2362
 - stock_name: 藍天
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 80.43
-- over_600_ratio: 78.61
-- over_800_ratio: 77.38
-- over_1000_ratio: 76.52
-- over_400_change_1w: 0.12
-- over_800_change_1w: -0.04
-- over_1000_change_1w: -0.05
-- tdcc_consecutive_up_weeks: 3
+- over_600_ratio: 78.69
+- over_800_ratio: 77.21
+- over_1000_ratio: 76.34
+- over_400_change_1w: 0
+- over_800_change_1w: -0.17
+- over_1000_change_1w: -0.18
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,17 +120,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,80.3,0.17,77.37,0.22,76.51,0.08,1,False,True
 20260515,80.31,0.01,77.42,0.05,76.57,0.06,2,True,True
 20260522,80.43,0.12,77.38,-0.04,76.52,-0.05,3,False,False
+20260529,80.43,0,77.21,-0.17,76.34,-0.18,4,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2362 | 藍天 | true_breakout | 嚴格突破 | 143.0 |  |  | breakout_confirmed |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260530 | 2362 | 藍天 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2362 | 藍天 | 2 | 1 | 4 | 6 | 6 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260530 | 2362 | 藍天 | 3 | 1 | 4 | 7 | 7 | continued_2_3d | 連續 3 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

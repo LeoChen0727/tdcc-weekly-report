@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3570 大塚
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:39 Asia/Taipei
+- generated_at: 2026-05-30 23:42:08 Asia/Taipei
 - stock_id: 3570
 - stock_name: 大塚
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -83,7 +83,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260507,164.5,164.5,163,164.5,22000,164.57,-0.04,163.82,169.57,0.56
 20260508,164.5,167,164.5,166.5,54000,164.73,1.07,163.82,169.43,1.31
 20260511,170,183,169.5,175.5,267000,165.63,5.96,164.25,169.51,4.96
-20260512,180,180,169,173.5,272000,166.29,4.34,164.88,169.54,4.71
+20260512,180,180,169,173.5,272000,166.28,4.34,164.88,169.54,4.71
 20260513,173.5,173.5,171,172.5,44000,166.8,3.42,165.38,169.53,0.75
 20260514,174,176,173.5,175,42000,167.49,4.49,166,169.57,0.71
 20260515,174.5,174.5,171,171.5,40000,167.82,2.19,166.4,169.57,0.68
@@ -100,13 +100,13 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 53.92
-- over_600_ratio: 53.92
-- over_800_ratio: 50.36
+- as_of_date: 20260529
+- over_400_ratio: 53.87
+- over_600_ratio: 53.87
+- over_800_ratio: 50.31
 - over_1000_ratio: 45.21
-- over_400_change_1w: 0
-- over_800_change_1w: 0
+- over_400_change_1w: -0.05
+- over_800_change_1w: -0.05
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,53.9,0,50.34,0,45.21,0,0,False,False
 20260515,53.92,0.02,50.36,0.02,45.21,0,1,False,True
 20260522,53.92,0,50.36,0,45.21,0,0,False,False
+20260529,53.87,-0.05,50.31,-0.05,45.21,0,0,False,False
 ```
 
 ## Candidate Context

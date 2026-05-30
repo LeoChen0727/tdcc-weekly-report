@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6195 詩肯
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:19 Asia/Taipei
+- generated_at: 2026-05-30 23:42:55 Asia/Taipei
 - stock_id: 6195
 - stock_name: 詩肯
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 136
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 272
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 53.24
 - over_600_ratio: 52.4
 - over_800_ratio: 52.4
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,53.24,0,52.4,0,52.4,0,0,False,False
 20260515,53.24,0,52.4,0,52.4,0,0,False,False
 20260522,53.24,0,52.4,0,52.4,0,0,False,False
+20260529,53.24,0,52.4,0,52.4,0,0,False,False
 ```
 
 ## Candidate Context

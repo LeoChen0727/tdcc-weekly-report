@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6899 創為精密
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:44 Asia/Taipei
+- generated_at: 2026-05-30 23:43:22 Asia/Taipei
 - stock_id: 6899
 - stock_name: 創為精密
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 134
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 270
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,8 +77,8 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,53.5,53.5,53.3,53.3,10000,53.54,-0.45,54.22,52.41,0.25
-20260505,52.7,54.7,52.6,54.4,39000,53.61,1.46,54.38,52.44,0.94
+20260504,53.5,53.5,53.3,53.3,10000,53.54,-0.46,54.22,52.41,0.25
+20260505,52.7,54.7,52.6,54.4,39000,53.62,1.46,54.38,52.44,0.94
 20260506,54.4,54.4,52.8,53.8,15000,53.63,0.32,54.3,52.45,0.44
 20260507,53,53.8,53,53.6,13000,53.63,-0.05,54.25,52.47,0.44
 20260508,53.3,53.5,53,53.5,13000,53.62,-0.22,54.16,52.46,0.49
@@ -100,14 +100,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 80.36
-- over_600_ratio: 71.32
-- over_800_ratio: 68.29
-- over_1000_ratio: 66.09
-- over_400_change_1w: -0.05
-- over_800_change_1w: -0.04
-- over_1000_change_1w: -0.04
+- as_of_date: 20260529
+- over_400_ratio: 80.24
+- over_600_ratio: 71.25
+- over_800_ratio: 68.22
+- over_1000_ratio: 66.02
+- over_400_change_1w: -0.12
+- over_800_change_1w: -0.07
+- over_1000_change_1w: -0.07
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,80.57,0,68.37,0,66.17,0,0,False,False
 20260515,80.41,-0.16,68.33,-0.04,66.13,-0.04,0,False,False
 20260522,80.36,-0.05,68.29,-0.04,66.09,-0.04,0,False,False
+20260529,80.24,-0.12,68.22,-0.07,66.02,-0.07,0,False,False
 ```
 
 ## Candidate Context

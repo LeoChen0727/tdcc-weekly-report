@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6494 九齊
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:29 Asia/Taipei
+- generated_at: 2026-05-30 23:43:05 Asia/Taipei
 - stock_id: 6494
 - stock_name: 九齊
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -81,7 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260505,54,55.3,53.8,54.4,300000,51.95,4.71,52.66,46.87,0.67
 20260506,55.7,55.7,53.2,53.8,197000,52.11,3.25,53.13,47.13,0.43
 20260507,54.5,55.2,53.6,54.6,358000,52.31,4.37,53.43,47.37,0.78
-20260508,55,58.6,54.7,55.8,1116000,52.6,6.08,53.84,47.65,2.29
+20260508,55,58.6,54.7,55.8,1116000,52.6,6.07,53.84,47.65,2.29
 20260511,56.9,59.8,54.9,58.5,692000,53.1,10.18,54.31,47.98,1.4
 20260512,58.9,58.9,55.5,56.1,587000,53.35,5.16,54.5,48.3,1.23
 20260513,56.2,57,54.5,54.7,427000,53.46,2.32,54.57,48.58,0.91
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 19.29
+- as_of_date: 20260529
+- over_400_ratio: 19.61
 - over_600_ratio: 7.61
 - over_800_ratio: 5.22
 - over_1000_ratio: 5.22
-- over_400_change_1w: 1.34
+- over_400_change_1w: 0.32
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,19.02,1.34,5.22,0,5.22,0,1,False,False
 20260515,17.95,-1.07,5.22,0,5.22,0,0,False,False
 20260522,19.29,1.34,5.22,0,5.22,0,1,False,False
+20260529,19.61,0.32,5.22,0,5.22,0,2,False,False
 ```
 
 ## Candidate Context

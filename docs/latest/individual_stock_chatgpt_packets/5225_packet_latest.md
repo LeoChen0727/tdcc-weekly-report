@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5225 東科-KY
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:03 Asia/Taipei
+- generated_at: 2026-05-30 23:42:36 Asia/Taipei
 - stock_id: 5225
 - stock_name: 東科-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -84,7 +84,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260508,76.3,76.4,74.1,74.4,634930,78.55,-5.28,77.13,87.02,1.89
 20260511,74.3,74.6,73.2,73.4,566668,78.12,-6.04,76.85,86.61,1.62
 20260512,73.7,73.9,71.4,71.6,658169,77.57,-7.7,76.53,86.19,1.78
-20260513,71.5,72,70.5,71.5,309557,77.07,-7.22,76.22,85.78,0.84
+20260513,71.5,72,70.5,71.5,309557,77.07,-7.23,76.22,85.78,0.84
 20260514,71.8,71.8,70.8,70.8,223860,76.55,-7.51,75.89,85.33,0.61
 20260515,70.8,71.6,69.8,70.3,357403,76.03,-7.53,75.48,84.89,0.97
 20260518,70,71.3,69.4,70.8,279571,75.59,-6.34,75.11,84.49,0.76
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 46.16
-- over_600_ratio: 43.89
-- over_800_ratio: 42.91
-- over_1000_ratio: 40.58
-- over_400_change_1w: -0.44
-- over_800_change_1w: -0.02
-- over_1000_change_1w: 0.03
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260529
+- over_400_ratio: 46.8
+- over_600_ratio: 43.96
+- over_800_ratio: 43.96
+- over_1000_ratio: 40.57
+- over_400_change_1w: 0.64
+- over_800_change_1w: 1.05
+- over_1000_change_1w: -0.01
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,45.58,-0.18,42.97,-1.12,40.6,-0.03,0,False,False
 20260515,46.6,1.02,42.93,-0.04,40.55,-0.05,1,False,False
 20260522,46.16,-0.44,42.91,-0.02,40.58,0.03,2,False,True
+20260529,46.8,0.64,43.96,1.05,40.57,-0.01,3,False,True
 ```
 
 ## Candidate Context

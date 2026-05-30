@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3169 亞信
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:27 Asia/Taipei
+- generated_at: 2026-05-30 23:41:54 Asia/Taipei
 - stock_id: 3169
 - stock_name: 亞信
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -81,10 +81,10 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260505,107.5,112.5,107.5,109.5,1077000,101.98,7.38,100.1,97.99,1.33
 20260506,113,115.5,108,111.5,1504000,102.77,8.49,101.18,98.16,1.7
 20260507,113,113,108,109.5,669000,103.33,5.97,101.99,98.29,0.73
-20260508,109.5,119,109.5,112.5,1504000,104.09,8.07,103.14,98.53,1.55
+20260508,109.5,119,109.5,112.5,1504000,104.1,8.07,103.14,98.53,1.55
 20260511,114,118.5,111,116.5,1386000,105.13,10.82,104.53,98.88,1.35
 20260512,118.5,118.5,110.5,111.5,958000,105.66,5.53,105.55,99.15,0.9
-20260513,109.5,112,107.5,111,442000,106.1,4.61,106.53,99.38,0.41
+20260513,109.5,112,107.5,111,442000,106.11,4.61,106.53,99.38,0.41
 20260514,112,116,111,114.5,964000,106.8,7.21,107.66,99.69,0.87
 20260515,114.5,115.5,109,110.5,616000,107.11,3.16,108.41,99.93,0.55
 20260518,110,110,104.5,108,413000,107.19,0.76,109.03,100.14,0.36
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 36.69
-- over_600_ratio: 32.84
-- over_800_ratio: 31.62
-- over_1000_ratio: 28.69
-- over_400_change_1w: -0.04
-- over_800_change_1w: -0.04
-- over_1000_change_1w: -0.03
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260529
+- over_400_ratio: 37.45
+- over_600_ratio: 32.76
+- over_800_ratio: 31.53
+- over_1000_ratio: 28.67
+- over_400_change_1w: 0.76
+- over_800_change_1w: -0.09
+- over_1000_change_1w: -0.02
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,36.14,-0.77,32.96,-0.03,28.74,-0.02,0,False,False
 20260515,36.73,0.59,31.66,-1.3,28.72,-0.02,1,False,False
 20260522,36.69,-0.04,31.62,-0.04,28.69,-0.03,0,False,False
+20260529,37.45,0.76,31.53,-0.09,28.67,-0.02,1,False,False
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 3169 | 亞信 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260530 | 3169 | 亞信 | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

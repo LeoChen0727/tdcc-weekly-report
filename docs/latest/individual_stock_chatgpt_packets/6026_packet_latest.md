@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6026 福邦證
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:13 Asia/Taipei
+- generated_at: 2026-05-30 23:42:48 Asia/Taipei
 - stock_id: 6026
 - stock_name: 福邦證
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -81,12 +81,12 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260505,15.75,15.8,15.65,15.7,1997000,14.99,4.75,14.96,14.64,1.13
 20260506,15.85,15.95,15.75,15.9,3186000,15.06,5.55,15.01,14.66,1.69
 20260507,16.3,16.9,16.15,16.7,7627000,15.2,9.87,15.1,14.69,3.5
-20260508,16.9,17,16.6,16.8,4996000,15.33,9.57,15.2,14.71,2.1
+20260508,16.9,17,16.6,16.8,4996000,15.33,9.56,15.2,14.71,2.1
 20260511,16.7,16.8,16.25,16.6,8102000,15.44,7.52,15.29,14.74,3.02
 20260512,16.8,16.9,16.05,16.2,4054000,15.5,4.5,15.37,14.76,1.43
 20260513,16.2,16.2,15.8,15.85,2877000,15.53,2.05,15.42,14.78,0.99
 20260514,16,16.1,15.5,15.55,3932000,15.53,0.11,15.46,14.79,1.29
-20260515,15.5,15.9,15.35,15.4,3361000,15.52,-0.78,15.49,14.8,1.06
+20260515,15.5,15.9,15.35,15.4,3361000,15.52,-0.79,15.49,14.8,1.06
 20260518,15.3,15.3,14.95,15.15,2101000,15.49,-2.2,15.51,14.81,0.65
 20260519,15.1,15.25,14.95,15,2248000,15.45,-2.91,15.52,14.82,0.68
 20260520,15,15.2,14.9,15.05,1579000,15.42,-2.38,15.53,14.84,0.47
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 49.46
-- over_600_ratio: 45.25
-- over_800_ratio: 43.55
-- over_1000_ratio: 41.49
-- over_400_change_1w: -0.36
-- over_800_change_1w: -0.45
-- over_1000_change_1w: -0.47
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 50.04
+- over_600_ratio: 45.83
+- over_800_ratio: 44.13
+- over_1000_ratio: 41.64
+- over_400_change_1w: 0.58
+- over_800_change_1w: 0.58
+- over_1000_change_1w: 0.15
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,50.42,1.53,45.02,2.03,42.47,1.8,1,True,True
 20260515,49.82,-0.6,44,-1.02,41.96,-0.51,0,False,False
 20260522,49.46,-0.36,43.55,-0.45,41.49,-0.47,0,False,False
+20260529,50.04,0.58,44.13,0.58,41.64,0.15,1,True,True
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 6026 | 福邦證 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 6026 | 福邦證 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

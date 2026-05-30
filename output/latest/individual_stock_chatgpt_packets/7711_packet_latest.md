@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7711 永擎
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:48 Asia/Taipei
+- generated_at: 2026-05-30 23:43:43 Asia/Taipei
 - stock_id: 7711
 - stock_name: 永擎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
 - price_rows: 125
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 61.66
-- over_600_ratio: 60.97
-- over_800_ratio: 58.06
-- over_1000_ratio: 56.84
-- over_400_change_1w: -0.04
-- over_800_change_1w: -0.03
-- over_1000_change_1w: -0.03
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260529
+- over_400_ratio: 61.76
+- over_600_ratio: 61.09
+- over_800_ratio: 57.09
+- over_1000_ratio: 54.65
+- over_400_change_1w: 0.1
+- over_800_change_1w: -0.97
+- over_1000_change_1w: -2.19
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,17 +120,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,61.68,-0.01,58.09,0,56.87,0,0,False,False
 20260515,61.7,0.02,58.09,0,56.87,0,1,False,False
 20260522,61.66,-0.04,58.06,-0.03,56.84,-0.03,0,False,False
+20260529,61.76,0.1,57.09,-0.97,54.65,-2.19,1,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 7711 | 永擎 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260530 | 7711 | 永擎 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 7711 | 永擎 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260530 | 7711 | 永擎 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | status |

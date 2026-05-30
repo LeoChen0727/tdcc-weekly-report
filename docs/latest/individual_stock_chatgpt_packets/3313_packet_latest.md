@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3313 斐成
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:31 Asia/Taipei
+- generated_at: 2026-05-30 23:41:59 Asia/Taipei
 - stock_id: 3313
 - stock_name: 斐成
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 136
-- latest_tdcc_date: 20260522
-- tdcc_rows: 26
+- price_rows: 272
+- latest_tdcc_date: 20260529
+- tdcc_rows: 27
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -80,7 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260504,12,12.3,12,12.05,84000,12.45,-3.19,12.49,12.85,0.65
 20260505,12,12.05,11.95,12,96000,12.41,-3.31,12.46,12.81,0.74
 20260506,11.95,11.95,11.55,11.8,351000,12.36,-4.53,12.42,12.77,2.5
-20260507,11.75,11.85,11.7,11.8,103000,12.31,-4.17,12.38,12.73,0.73
+20260507,11.75,11.85,11.7,11.8,103000,12.31,-4.16,12.38,12.73,0.73
 20260508,11.8,11.8,11.65,11.7,157000,12.26,-4.58,12.34,12.7,1.08
 20260511,11.7,11.7,11.3,11.4,372000,12.19,-6.48,12.28,12.66,2.34
 20260512,11.4,11.5,11.3,11.45,175000,12.13,-5.59,12.21,12.63,1.08
@@ -95,20 +95,20 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,11.9,11.9,11.5,11.6,12000,11.81,-1.81,11.68,12.39,0.08
 20260526,11.6,11.6,11.2,11.2,11000,11.76,-4.78,11.64,12.36,0.08
 20260527,11.25,11.3,11.05,11.15,11000,11.71,-4.79,11.6,12.33,0.08
-20260528,11.1,11.2,10.9,11,10000,11.65,-5.6,11.56,12.3,0.08
+20260528,11.1,11.2,10.9,11,10000,11.65,-5.59,11.56,12.3,0.08
 20260529,11.15,11.2,11,11.1,11000,11.61,-4.36,11.51,12.27,0.09
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 76.14
-- over_600_ratio: 75.25
-- over_800_ratio: 73.7
-- over_1000_ratio: 73.7
-- over_400_change_1w: 0.07
-- over_800_change_1w: 0.08
-- over_1000_change_1w: 0.08
-- tdcc_consecutive_up_weeks: 10
+- as_of_date: 20260529
+- over_400_ratio: 76.32
+- over_600_ratio: 75.43
+- over_800_ratio: 73.88
+- over_1000_ratio: 73.88
+- over_400_change_1w: 0.18
+- over_800_change_1w: 0.18
+- over_1000_change_1w: 0.18
+- tdcc_consecutive_up_weeks: 11
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -116,7 +116,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260306,75.5,0.28,72.82,0.1,72.82,0.49,2,True,True
 20260313,75.36,-0.14,72.67,-0.15,72.23,-0.59,0,False,False
 20260320,75.27,-0.09,72.78,0.11,72.78,0.55,1,False,True
 20260327,75.4,0.13,72.91,0.13,72.91,0.13,2,True,True
@@ -128,6 +127,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,75.97,0.09,73.51,0.1,73.51,0.1,8,True,True
 20260515,76.07,0.1,73.62,0.11,73.62,0.11,9,True,True
 20260522,76.14,0.07,73.7,0.08,73.7,0.08,10,True,True
+20260529,76.32,0.18,73.88,0.18,73.88,0.18,11,True,True
 ```
 
 ## Candidate Context

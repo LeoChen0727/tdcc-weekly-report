@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1532 勤美
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:43 Asia/Taipei
+- generated_at: 2026-05-30 23:41:02 Asia/Taipei
 - stock_id: 1532
 - stock_name: 勤美
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 64.63
-- over_600_ratio: 60.76
-- over_800_ratio: 58.23
-- over_1000_ratio: 56.49
-- over_400_change_1w: -0.08
-- over_800_change_1w: 0.32
-- over_1000_change_1w: -0.08
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260529
+- over_400_ratio: 64.84
+- over_600_ratio: 60.83
+- over_800_ratio: 58.1
+- over_1000_ratio: 56.54
+- over_400_change_1w: 0.21
+- over_800_change_1w: -0.13
+- over_1000_change_1w: 0.05
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,64.59,-0.12,57.65,-0.46,56.13,-0.66,0,False,False
 20260515,64.71,0.12,57.91,0.26,56.57,0.44,1,True,True
 20260522,64.63,-0.08,58.23,0.32,56.49,-0.08,2,False,True
+20260529,64.84,0.21,58.1,-0.13,56.54,0.05,3,False,True
 ```
 
 ## Candidate Context

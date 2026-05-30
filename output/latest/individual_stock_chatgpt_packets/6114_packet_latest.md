@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6114 久威
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:14 Asia/Taipei
+- generated_at: 2026-05-30 23:42:49 Asia/Taipei
 - stock_id: 6114
 - stock_name: 久威
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -84,7 +84,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260508,31.45,31.45,31,31,33000,30.64,1.19,30.52,30.62,0.55
 20260511,30.1,32.55,30.1,31.6,80000,30.72,2.88,30.64,30.61,1.28
 20260512,31.6,31.6,30.5,30.5,45000,30.7,-0.65,30.7,30.6,0.7
-20260513,30.6,30.9,30.4,30.6,32000,30.69,-0.29,30.77,30.6,0.5
+20260513,30.6,30.9,30.4,30.6,32000,30.69,-0.3,30.77,30.6,0.5
 20260514,30.7,30.7,30.5,30.65,45000,30.69,-0.12,30.83,30.56,0.7
 20260515,30.4,31.7,30.3,30.4,50000,30.66,-0.86,30.88,30.53,0.75
 20260518,29.95,30.5,29.95,30.5,6000,30.65,-0.49,30.91,30.51,0.09
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 74.1
-- over_600_ratio: 72.11
+- over_600_ratio: 70.71
 - over_800_ratio: 67.58
 - over_1000_ratio: 65.48
-- over_400_change_1w: 0.04
+- over_400_change_1w: 0
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 3
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,74.04,0.11,67.58,0,65.48,0,1,False,False
 20260515,74.06,0.02,67.58,0,65.48,0,2,False,False
 20260522,74.1,0.04,67.58,0,65.48,0,3,False,False
+20260529,74.1,0,67.58,0,65.48,0,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4114 健喬
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:45 Asia/Taipei
+- generated_at: 2026-05-30 23:42:15 Asia/Taipei
 - stock_id: 4114
 - stock_name: 健喬
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -91,7 +91,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260519,30.6,30.95,30.6,30.65,950000,30.98,-1.07,30.97,31.29,1.02
 20260520,30.65,30.8,30.6,30.65,510000,30.95,-0.98,30.92,31.26,0.56
 20260521,30.95,30.95,30.7,30.9,541000,30.95,-0.16,30.89,31.24,0.6
-20260522,30.95,31.05,30.75,30.8,31000,30.94,-0.45,30.86,31.21,0.04
+20260522,30.95,31.05,30.75,30.8,31000,30.94,-0.44,30.86,31.21,0.04
 20260525,30.8,30.8,30.45,30.55,31000,30.91,-1.15,30.84,31.17,0.04
 20260526,30.6,30.6,30.3,30.35,30000,30.86,-1.65,30.8,31.14,0.04
 20260527,30.35,30.4,30.2,30.25,30000,30.81,-1.81,30.77,31.11,0.04
@@ -100,14 +100,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 43.64
-- over_600_ratio: 40.59
-- over_800_ratio: 38.44
-- over_1000_ratio: 36.9
-- over_400_change_1w: -0.09
-- over_800_change_1w: -0.15
-- over_1000_change_1w: -0.15
+- as_of_date: 20260529
+- over_400_ratio: 43.31
+- over_600_ratio: 40.24
+- over_800_ratio: 38.1
+- over_1000_ratio: 36.73
+- over_400_change_1w: -0.33
+- over_800_change_1w: -0.34
+- over_1000_change_1w: -0.17
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,43.6,-0.47,38.55,-0.64,36.98,-0.67,0,False,False
 20260515,43.73,0.13,38.59,0.04,37.05,0.07,1,True,True
 20260522,43.64,-0.09,38.44,-0.15,36.9,-0.15,0,False,False
+20260529,43.31,-0.33,38.1,-0.34,36.73,-0.17,0,False,False
 ```
 
 ## Candidate Context

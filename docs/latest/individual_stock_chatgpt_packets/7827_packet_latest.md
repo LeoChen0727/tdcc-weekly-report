@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7827 漢康-KY創
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:52 Asia/Taipei
+- generated_at: 2026-05-30 23:43:47 Asia/Taipei
 - stock_id: 7827
 - stock_name: 漢康-KY創
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260529
 - price_rows: 1
-- latest_tdcc_date: 
-- tdcc_rows: 0
-- tdcc_history_status: tdcc_missing
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
+- tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: price history shorter than 120 rows; K-line context is partial; TDCC history missing
+- notes: price history shorter than 120 rows; K-line context is partial; TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
 
 ## Stable Read URLs
 - packet_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_chatgpt_packets/7827_packet_latest.md
@@ -81,23 +81,27 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 
-- over_400_ratio: 
-- over_600_ratio: 
-- over_800_ratio: 
-- over_1000_ratio: 
-- over_400_change_1w: 
-- over_800_change_1w: 
-- over_1000_change_1w: 
-- tdcc_consecutive_up_weeks: 
-- all_thresholds_up: 
-- high_thresholds_up: 
+- as_of_date: 20260529
+- over_400_ratio: 73.81
+- over_600_ratio: 71.06
+- over_800_ratio: 68.09
+- over_1000_ratio: 67.45
+- over_400_change_1w: -2.91
+- over_800_change_1w: -5.05
+- over_1000_change_1w: -5
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
-status,no_rows
-no_rows,True
+as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
+20260430,76.53,,72.95,,72.26,,0,False,False
+20260508,76.7,0.17,73.12,0.17,72.43,0.17,1,True,True
+20260515,76.58,-0.12,73,-0.12,72.31,-0.12,0,False,False
+20260522,76.72,0.14,73.14,0.14,72.45,0.14,1,True,True
+20260529,73.81,-2.91,68.09,-5.05,67.45,-5,0,False,False
 ```
 
 ## Candidate Context

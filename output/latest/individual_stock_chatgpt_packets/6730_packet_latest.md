@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6730 常廣
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:38 Asia/Taipei
+- generated_at: 2026-05-30 23:43:15 Asia/Taipei
 - stock_id: 6730
 - stock_name: 常廣
-- packet_status: standard_rawdata_packet
+- packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 109
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 245
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: price history shorter than 120 rows; K-line context is partial; TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
+- notes: TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
 
 ## Stable Read URLs
 - packet_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_chatgpt_packets/6730_packet_latest.md
@@ -66,7 +66,7 @@
 - distance_to_ema23_pct: -4.47
 - ma20: 37.37
 - ma60: 37.26
-- ma120: 36.94
+- ma120: 36.81
 - return_5d: -5.84
 - return_20d: -7.79
 - volume_ratio: 0.87
@@ -78,7 +78,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,38.05,38.5,38,38.5,32000,38.12,0.99,38.23,37.26,0.62
-20260505,38.2,39,38,39,47000,38.2,2.11,38.4,37.28,0.91
+20260505,38.2,39,38,39,47000,38.19,2.11,38.4,37.28,0.91
 20260506,38.25,38.25,37.85,37.9,46000,38.17,-0.71,38.49,37.28,0.86
 20260507,38.05,38.05,37.7,37.7,30000,38.13,-1.13,38.54,37.28,0.57
 20260508,37.75,37.75,37.5,37.6,52000,38.09,-1.28,38.57,37.28,0.97
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 73.92
+- as_of_date: 20260529
+- over_400_ratio: 74.04
 - over_600_ratio: 68.49
 - over_800_ratio: 60.59
 - over_1000_ratio: 60.59
-- over_400_change_1w: -1.17
+- over_400_change_1w: 0.12
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,74.98,-0.05,60.59,0,60.59,0,0,False,False
 20260515,75.09,0.11,60.59,0,60.59,0,1,False,False
 20260522,73.92,-1.17,60.59,0,60.59,0,0,False,False
+20260529,74.04,0.12,60.59,0,60.59,0,1,False,False
 ```
 
 ## Candidate Context

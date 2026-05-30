@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1623 大東電
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:46 Asia/Taipei
+- generated_at: 2026-05-30 23:41:06 Asia/Taipei
 - stock_id: 1623
 - stock_name: 大東電
 - packet_status: standard_rawdata_packet
 - latest_price_date: 20260529
 - price_rows: 81
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,14 +100,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 78.69
-- over_600_ratio: 77.96
-- over_800_ratio: 74.84
-- over_1000_ratio: 74.84
-- over_400_change_1w: -0.09
-- over_800_change_1w: -0.09
-- over_1000_change_1w: -0.09
+- as_of_date: 20260529
+- over_400_ratio: 78.44
+- over_600_ratio: 77.71
+- over_800_ratio: 74.58
+- over_1000_ratio: 74.58
+- over_400_change_1w: -0.25
+- over_800_change_1w: -0.26
+- over_1000_change_1w: -0.26
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,78.8,-0.06,74.93,-0.06,74.93,-0.06,0,False,False
 20260515,78.78,-0.02,74.93,0,74.93,0,0,False,False
 20260522,78.69,-0.09,74.84,-0.09,74.84,-0.09,0,False,False
+20260529,78.44,-0.25,74.58,-0.26,74.58,-0.26,0,False,False
 ```
 
 ## Candidate Context

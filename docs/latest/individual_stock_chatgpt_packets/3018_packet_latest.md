@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3018 隆銘綠能
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:21 Asia/Taipei
+- generated_at: 2026-05-30 23:41:46 Asia/Taipei
 - stock_id: 3018
 - stock_name: 隆銘綠能
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 133
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 268
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -86,7 +86,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260512,10.6,10.6,10.6,10.6,7013,10.85,-2.31,10.7,11.76,0.18
 20260513,10,10.6,10,10.6,16908,10.83,-2.12,10.69,11.74,0.45
 20260514,10.15,10.15,10.15,10.15,8183,10.77,-5.78,10.65,11.72,0.23
-20260515,10.1,10.1,9.96,9.96,53882,10.7,-6.96,10.6,11.69,1.44
+20260515,10.1,10.1,9.96,9.96,53882,10.71,-6.96,10.6,11.69,1.44
 20260518,9.97,9.97,9.53,9.61,45294,10.61,-9.46,10.53,11.65,1.16
 20260519,9.61,9.61,9.25,9.3,49915,10.5,-11.46,10.45,11.6,1.54
 20260520,9.3,9.49,9.3,9.32,13927,10.41,-10.43,10.37,11.56,0.43
@@ -100,12 +100,12 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 64.28
 - over_600_ratio: 63.11
 - over_800_ratio: 62.19
 - over_1000_ratio: 62.19
-- over_400_change_1w: -0.02
+- over_400_change_1w: 0
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,64.3,0,62.19,0,62.19,0,0,False,False
 20260515,64.3,0,62.19,0,62.19,0,0,False,False
 20260522,64.28,-0.02,62.19,0,62.19,0,0,False,False
+20260529,64.28,0,62.19,0,62.19,0,0,False,False
 ```
 
 ## Candidate Context

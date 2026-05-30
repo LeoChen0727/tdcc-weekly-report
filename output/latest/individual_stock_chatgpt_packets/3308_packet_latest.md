@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3308 聯德
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:31 Asia/Taipei
+- generated_at: 2026-05-30 23:41:59 Asia/Taipei
 - stock_id: 3308
 - stock_name: 聯德
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -78,7 +78,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,20.65,21.2,20.45,20.45,175711,21.21,-3.58,21.03,22.15,0.83
-20260505,20.5,21.15,20.2,20.9,123470,21.18,-1.33,21.06,22.09,0.58
+20260505,20.5,21.15,20.2,20.9,123470,21.18,-1.34,21.06,22.09,0.58
 20260506,21.15,21.2,20.65,20.85,112529,21.16,-1.44,21.08,22.05,0.52
 20260507,20.8,21.7,20.8,21.35,193014,21.17,0.84,21.09,22.02,0.88
 20260508,21.95,22.35,20.8,21.25,256550,21.18,0.34,21.09,22,1.14
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 61.62
 - over_600_ratio: 61.62
 - over_800_ratio: 60.39
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,61.62,0,60.39,0,58.86,0,0,False,False
 20260515,61.62,0,60.39,0,58.86,0,0,False,False
 20260522,61.62,0,60.39,0,58.86,0,0,False,False
+20260529,61.62,0,60.39,0,58.86,0,0,False,False
 ```
 
 ## Candidate Context

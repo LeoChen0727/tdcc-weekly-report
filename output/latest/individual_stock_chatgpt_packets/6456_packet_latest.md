@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6456 GIS-KY
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:27 Asia/Taipei
+- generated_at: 2026-05-30 23:43:03 Asia/Taipei
 - stock_id: 6456
 - stock_name: GIS-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -87,7 +87,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260513,67.5,70.5,65,69.6,7553570,70.37,-1.1,74.92,61.43,0.5
 20260514,70.6,71.2,67.9,68.5,6393238,70.21,-2.44,74.84,61.87,0.48
 20260515,69.1,70.5,66,66.7,4765214,69.92,-4.61,74.34,62.3,0.43
-20260518,66.7,67.7,65.3,67.2,3998799,69.69,-3.58,73.82,62.72,0.44
+20260518,66.7,67.7,65.3,67.2,3998799,69.7,-3.58,73.82,62.72,0.44
 20260519,67.2,70.9,66.8,68.1,9334287,69.56,-2.1,73.03,63.15,1.32
 20260520,68.1,68.6,62.9,63.6,9669415,69.07,-7.91,72.22,63.48,1.37
 20260521,65,69.9,64.7,69.9,10396943,69.13,1.11,71.63,63.93,1.43
@@ -100,16 +100,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 50.28
-- over_600_ratio: 48.21
-- over_800_ratio: 46.78
-- over_1000_ratio: 45.49
-- over_400_change_1w: 1.07
-- over_800_change_1w: 0.92
-- over_1000_change_1w: 0.94
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 50.62
+- over_600_ratio: 48.71
+- over_800_ratio: 47.26
+- over_1000_ratio: 45.13
+- over_400_change_1w: 0.34
+- over_800_change_1w: 0.48
+- over_1000_change_1w: -0.36
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,18 +120,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,49.98,-2.3,46.08,-3.73,45.05,-3.7,0,False,False
 20260515,49.21,-0.77,45.86,-0.22,44.55,-0.5,0,False,False
 20260522,50.28,1.07,46.78,0.92,45.49,0.94,1,True,True
+20260529,50.62,0.34,47.26,0.48,45.13,-0.36,2,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 6456 | GIS-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260530 | 6456 | GIS-KY | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 | 20260521 | 6456 | GIS-KY | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 6456 | GIS-KY | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260530 | 6456 | GIS-KY | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

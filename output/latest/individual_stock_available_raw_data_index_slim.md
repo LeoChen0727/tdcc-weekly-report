@@ -1,9 +1,9 @@
 # Individual Stock Raw Data Index Slim
 
-- generated_at: 2026-05-29 19:34:48 Asia/Taipei
-- total_stocks: 2151
-- standard_rawdata_report: 1956
-- partial_rawdata_report: 170
+- generated_at: 2026-05-30 23:44:56 Asia/Taipei
+- total_stocks: 2393
+- standard_rawdata_report: 2210
+- partial_rawdata_report: 158
 - insufficient_data: 25
 - csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_available_raw_data_index_slim.csv
 - csv_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_available_raw_data_index_slim.csv
@@ -195,49 +195,49 @@
 | 009818 | 華南永昌NASDAQxT | 6 | 20260529 | 0 |  | tdcc_history_missing | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
 | 009819 | 中信數據及電力 | 6 | 20260529 | 0 |  | tdcc_history_missing | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
 | 009820 | 元大納斯達克精選 | 6 | 20260529 | 0 |  | tdcc_history_missing | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 1101 | 台泥 | 137 | 20260529 | 4 | 20260522 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
-| 1102 | 亞泥 | 137 | 20260529 | 4 | 20260522 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
-| 1103 | 嘉泥 | 137 | 20260529 | 4 | 20260522 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
-| 1104 | 環泥 | 137 | 20260529 | 4 | 20260522 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
-| 1108 | 幸福 | 137 | 20260529 | 4 | 20260522 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
-| 1109 | 信大 | 137 | 20260529 | 4 | 20260522 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
-| 1110 | 東泥 | 137 | 20260529 | 4 | 20260522 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
-| 1201 | 味全 | 137 | 20260529 | 4 | 20260522 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
-| 1203 | 味王 | 137 | 20260529 | 4 | 20260522 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
-| 1210 | 大成 | 137 | 20260529 | 4 | 20260522 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
-| 1213 | 大飲 | 131 | 20260529 | 4 | 20260522 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
-| 1215 | 卜蜂 | 137 | 20260529 | 4 | 20260522 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
-| 1216 | 統一 | 137 | 20260529 | 4 | 20260522 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
-| 1217 | 愛之味 | 137 | 20260529 | 26 | 20260522 | ok | False | standard_rawdata_report |  |
-| 1218 | 泰山 | 137 | 20260529 | 4 | 20260522 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
-| 1219 | 福壽 | 137 | 20260529 | 4 | 20260522 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
-| 1220 | 台榮 | 137 | 20260529 | 4 | 20260522 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
-| 1225 | 福懋油 | 137 | 20260529 | 4 | 20260522 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
-| 1227 | 佳格 | 137 | 20260529 | 4 | 20260522 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
-| 1229 | 聯華 | 137 | 20260529 | 4 | 20260522 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
-| 1231 | 聯華食 | 137 | 20260529 | 4 | 20260522 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
-| 1232 | 大統益 | 137 | 20260529 | 4 | 20260522 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
-| 1233 | 天仁 | 137 | 20260529 | 26 | 20260522 | ok | False | standard_rawdata_report |  |
-| 1234 | 黑松 | 137 | 20260529 | 4 | 20260522 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
-| 1235 | 興泰 | 136 | 20260529 | 4 | 20260522 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
-| 1236 | 宏亞 | 137 | 20260529 | 4 | 20260522 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
-| 1240 | 茂生農經 | 137 | 20260529 | 4 | 20260522 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
-| 1256 | 鮮活果汁-KY | 137 | 20260529 | 4 | 20260522 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
-| 1259 | 安心 | 117 | 20260529 | 4 | 20260522 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
-| 1264 | 德麥 | 137 | 20260529 | 4 | 20260522 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
-| 1268 | 漢來美食 | 137 | 20260529 | 4 | 20260522 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
-| 1294 | 漢田生技 | 136 | 20260529 | 4 | 20260522 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
-| 1295 | 生合 | 137 | 20260529 | 4 | 20260522 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
-| 1301 | 台塑 | 137 | 20260529 | 4 | 20260522 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
-| 1303 | 南亞 | 137 | 20260529 | 4 | 20260522 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
-| 1304 | 台聚 | 137 | 20260529 | 26 | 20260522 | ok | False | standard_rawdata_report |  |
-| 1305 | 華夏 | 137 | 20260529 | 26 | 20260522 | ok | False | standard_rawdata_report |  |
-| 1307 | 三芳 | 137 | 20260529 | 4 | 20260522 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
-| 1308 | 亞聚 | 137 | 20260529 | 26 | 20260522 | ok | False | standard_rawdata_report |  |
-| 1309 | 台達化 | 137 | 20260529 | 4 | 20260522 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
-| 1310 | 台苯 | 137 | 20260529 | 4 | 20260522 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
-| 1312 | 國喬 | 137 | 20260529 | 4 | 20260522 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
-| 1313 | 聯成 | 137 | 20260529 | 4 | 20260522 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
-| 1314 | 中石化 | 136 | 20260529 | 4 | 20260522 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
+| 0200 | 兆豐半導體氣候N | 136 | 20251031 | 0 |  | tdcc_history_missing | False | standard_rawdata_report | tdcc_history_missing |
+| 1101 | 台泥 | 272 | 20260529 | 5 | 20260529 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
+| 1102 | 亞泥 | 273 | 20260529 | 5 | 20260529 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
+| 1103 | 嘉泥 | 273 | 20260529 | 5 | 20260529 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
+| 1104 | 環泥 | 273 | 20260529 | 5 | 20260529 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
+| 1108 | 幸福 | 273 | 20260529 | 5 | 20260529 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
+| 1109 | 信大 | 273 | 20260529 | 5 | 20260529 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
+| 1110 | 東泥 | 273 | 20260529 | 5 | 20260529 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
+| 1201 | 味全 | 273 | 20260529 | 5 | 20260529 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
+| 1203 | 味王 | 272 | 20260529 | 5 | 20260529 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
+| 1210 | 大成 | 273 | 20260529 | 5 | 20260529 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
+| 1213 | 大飲 | 258 | 20260529 | 5 | 20260529 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
+| 1215 | 卜蜂 | 273 | 20260529 | 5 | 20260529 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
+| 1216 | 統一 | 273 | 20260529 | 5 | 20260529 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
+| 1217 | 愛之味 | 273 | 20260529 | 27 | 20260529 | ok | False | standard_rawdata_report |  |
+| 1218 | 泰山 | 273 | 20260529 | 5 | 20260529 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
+| 1219 | 福壽 | 273 | 20260529 | 5 | 20260529 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
+| 1220 | 台榮 | 273 | 20260529 | 5 | 20260529 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
+| 1225 | 福懋油 | 222 | 20260529 | 5 | 20260529 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
+| 1227 | 佳格 | 273 | 20260529 | 5 | 20260529 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
+| 1229 | 聯華 | 273 | 20260529 | 5 | 20260529 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
+| 1231 | 聯華食 | 273 | 20260529 | 5 | 20260529 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
+| 1232 | 大統益 | 273 | 20260529 | 5 | 20260529 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
+| 1233 | 天仁 | 273 | 20260529 | 27 | 20260529 | ok | False | standard_rawdata_report |  |
+| 1234 | 黑松 | 273 | 20260529 | 5 | 20260529 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
+| 1235 | 興泰 | 268 | 20260529 | 5 | 20260529 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
+| 1236 | 宏亞 | 270 | 20260529 | 5 | 20260529 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
+| 1240 | 茂生農經 | 273 | 20260529 | 5 | 20260529 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
+| 1256 | 鮮活果汁-KY | 273 | 20260529 | 5 | 20260529 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
+| 1259 | 安心 | 253 | 20260529 | 5 | 20260529 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
+| 1264 | 德麥 | 273 | 20260529 | 5 | 20260529 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
+| 1268 | 漢來美食 | 273 | 20260529 | 5 | 20260529 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
+| 1294 | 漢田生技 | 272 | 20260529 | 5 | 20260529 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
+| 1295 | 生合 | 273 | 20260529 | 5 | 20260529 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
+| 1301 | 台塑 | 273 | 20260529 | 5 | 20260529 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
+| 1303 | 南亞 | 273 | 20260529 | 5 | 20260529 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
+| 1304 | 台聚 | 273 | 20260529 | 27 | 20260529 | ok | False | standard_rawdata_report |  |
+| 1305 | 華夏 | 273 | 20260529 | 27 | 20260529 | ok | False | standard_rawdata_report |  |
+| 1307 | 三芳 | 273 | 20260529 | 5 | 20260529 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
+| 1308 | 亞聚 | 273 | 20260529 | 27 | 20260529 | ok | False | standard_rawdata_report |  |
+| 1309 | 台達化 | 273 | 20260529 | 5 | 20260529 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
+| 1310 | 台苯 | 273 | 20260529 | 5 | 20260529 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
+| 1312 | 國喬 | 273 | 20260529 | 5 | 20260529 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
+| 1313 | 聯成 | 273 | 20260529 | 5 | 20260529 | insufficient_tdcc_history | False | standard_rawdata_report | insufficient_tdcc_history |
 
 _Only first 220 rows shown. Use the CSV for the full index._

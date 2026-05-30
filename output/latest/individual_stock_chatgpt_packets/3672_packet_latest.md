@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3672 康聯訊
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:42 Asia/Taipei
+- generated_at: 2026-05-30 23:42:12 Asia/Taipei
 - stock_id: 3672
 - stock_name: 康聯訊
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -78,7 +78,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,12.15,13.1,12.15,13.1,270000,11.55,13.45,11.41,11.61,6.53
-20260505,14.4,14.4,12.4,13.2,866000,11.69,12.97,11.54,11.63,10.27
+20260505,14.4,14.4,12.4,13.2,866000,11.68,12.97,11.54,11.63,10.27
 20260506,11.9,13.15,11.9,11.9,424000,11.7,1.68,11.59,11.62,4.06
 20260507,11.8,12.2,11.8,12,108000,11.73,2.32,11.65,11.62,0.99
 20260508,11.8,11.95,11.5,11.5,29000,11.71,-1.78,11.69,11.61,0.26
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 54.09
 - over_600_ratio: 47.19
 - over_800_ratio: 43.87
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,54.09,-0.13,43.87,-0.12,37.33,-0.12,0,False,False
 20260515,54.09,0,43.87,0,37.33,0,0,False,False
 20260522,54.09,0,43.87,0,37.33,0,0,False,False
+20260529,54.09,0,43.87,0,37.33,0,0,False,False
 ```
 
 ## Candidate Context

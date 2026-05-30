@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3489 森寶
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:35 Asia/Taipei
+- generated_at: 2026-05-30 23:42:04 Asia/Taipei
 - stock_id: 3489
 - stock_name: 森寶
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -84,7 +84,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260508,22,22.25,21.95,22.15,81000,22.45,-1.34,22.78,21.86,0.5
 20260511,22.3,22.55,22.3,22.4,106000,22.45,-0.2,22.71,21.89,0.66
 20260512,22.4,22.4,22.05,22.15,82000,22.42,-1.21,22.6,21.91,0.52
-20260513,23.3,23.3,22.15,22.2,123000,22.4,-0.9,22.52,21.94,0.83
+20260513,23.3,23.3,22.15,22.2,123000,22.4,-0.91,22.52,21.94,0.83
 20260514,22.4,22.4,21.95,21.95,74000,22.36,-1.86,22.42,21.97,0.5
 20260515,22,22.2,21.3,21.55,195000,22.3,-3.35,22.3,21.99,1.28
 20260518,23,23,21.95,22.05,151000,22.28,-1.02,22.22,22.03,0.99
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 74.7
-- over_600_ratio: 71.87
-- over_800_ratio: 70.43
+- as_of_date: 20260529
+- over_400_ratio: 75.28
+- over_600_ratio: 71.88
+- over_800_ratio: 70.44
 - over_1000_ratio: 66.59
-- over_400_change_1w: -0.01
-- over_800_change_1w: -0.01
+- over_400_change_1w: 0.58
+- over_800_change_1w: 0.01
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,74.71,0,70.44,0,66.59,0,0,False,False
 20260515,74.71,0,70.44,0,66.59,0,0,False,False
 20260522,74.7,-0.01,70.43,-0.01,66.59,0,0,False,False
+20260529,75.28,0.58,70.44,0.01,66.59,0,1,False,True
 ```
 
 ## Candidate Context

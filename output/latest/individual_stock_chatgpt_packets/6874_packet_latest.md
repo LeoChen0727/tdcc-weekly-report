@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6874 倍力
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:43 Asia/Taipei
+- generated_at: 2026-05-30 23:43:21 Asia/Taipei
 - stock_id: 6874
 - stock_name: 倍力
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -84,7 +84,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260508,88.3,93.5,88.3,93.4,198000,88.41,5.65,88.97,81.31,2.28
 20260511,90.3,90.3,84.1,85,289000,88.12,-3.54,88.81,81.67,2.95
 20260512,85,88.2,84.5,84.5,64000,87.82,-3.78,88.66,82.05,0.64
-20260513,84.5,84.5,81.1,81.7,89000,87.31,-6.42,88.33,82.38,0.87
+20260513,84.5,84.5,81.1,81.7,89000,87.31,-6.43,88.33,82.38,0.87
 20260514,82,82,80,81.2,53000,86.8,-6.45,87.95,82.67,0.52
 20260515,83.3,83.3,81.3,82.1,31000,86.41,-4.99,87.36,82.99,0.36
 20260518,81.1,82.4,79.1,81.5,35000,86,-5.23,87,83.32,0.45
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 53.57
 - over_600_ratio: 46.81
 - over_800_ratio: 43.84
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,53.62,-0.09,43.84,0,39.58,0,0,False,False
 20260515,53.57,-0.05,43.84,0,39.58,0,0,False,False
 20260522,53.57,0,43.84,0,39.58,0,0,False,False
+20260529,53.57,0,43.84,0,39.58,0,0,False,False
 ```
 
 ## Candidate Context

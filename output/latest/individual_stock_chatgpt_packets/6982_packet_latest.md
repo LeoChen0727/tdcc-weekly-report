@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6982 大井泵浦
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:47 Asia/Taipei
+- generated_at: 2026-05-30 23:43:26 Asia/Taipei
 - stock_id: 6982
 - stock_name: 大井泵浦
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -63,7 +63,7 @@
 - volume: 55000
 - ma5: 55.96
 - ema23_primary: 54.24
-- distance_to_ema23_pct: 2.13
+- distance_to_ema23_pct: 2.14
 - ma20: 53.63
 - ma60: 53.84
 - ma120: 58.29
@@ -90,25 +90,25 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260518,52,52,51.3,51.5,24000,53.38,-3.53,53.54,54.48,0.45
 20260519,51.2,52.3,51.1,51.6,34000,53.23,-3.07,53.24,54.33,0.65
 20260520,52,52.5,51.1,51.5,33000,53.09,-2.99,52.95,54.19,0.64
-20260521,51.5,52.2,51.5,52,28000,53,-1.89,52.73,54.06,0.55
+20260521,51.5,52.2,51.5,52,28000,53,-1.88,52.73,54.06,0.55
 20260522,52.9,57.2,52.3,57.2,56000,53.35,7.22,52.9,54.03,1.16
 20260525,59.1,59.1,56.9,56.9,58000,53.65,6.07,53.02,54.02,1.17
 20260526,56.9,59.8,55.8,57,58000,53.92,5.7,53.3,53.97,1.18
 20260527,57.1,57.1,55.2,55.2,56000,54.03,2.16,53.41,53.92,1.1
 20260528,53.8,57,53.8,55.3,55000,54.14,2.15,53.51,53.87,1.06
-20260529,56,56,55.1,55.4,55000,54.24,2.13,53.63,53.84,1.04
+20260529,56,56,55.1,55.4,55000,54.24,2.14,53.63,53.84,1.04
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 64.94
-- over_600_ratio: 57.07
-- over_800_ratio: 55.36
-- over_1000_ratio: 53.36
-- over_400_change_1w: 0.01
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 64.93
+- over_600_ratio: 57.06
+- over_800_ratio: 55.35
+- over_1000_ratio: 53.35
+- over_400_change_1w: -0.01
+- over_800_change_1w: -0.01
+- over_1000_change_1w: -0.01
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,64.89,0.01,55.33,0.01,53.33,0.01,1,True,True
 20260515,64.93,0.04,55.36,0.03,53.36,0.03,2,True,True
 20260522,64.94,0.01,55.36,0,53.36,0,3,False,False
+20260529,64.93,-0.01,55.35,-0.01,53.35,-0.01,0,False,False
 ```
 
 ## Candidate Context

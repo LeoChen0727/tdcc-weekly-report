@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4907 富宇
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:57 Asia/Taipei
+- generated_at: 2026-05-30 23:42:30 Asia/Taipei
 - stock_id: 4907
 - stock_name: 富宇
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -78,17 +78,17 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,37.25,38.4,37.25,38,14000,39.39,-3.52,39.69,40.46,0.26
-20260505,39,39,37.5,37.75,69000,39.25,-3.83,39.55,40.4,1.23
+20260505,39,39,37.5,37.75,69000,39.25,-3.82,39.55,40.4,1.23
 20260506,37.5,37.8,37,37.8,23000,39.13,-3.4,39.41,40.35,0.41
 20260507,37.5,38,36.8,37.45,37000,38.99,-3.95,39.22,40.31,0.65
 20260508,37.45,37.45,37,37.25,41000,38.85,-4.11,39.04,40.27,0.72
-20260511,38.5,39.5,38.5,39.45,184000,38.9,1.42,38.91,40.25,3.17
+20260511,38.5,39.5,38.5,39.45,184000,38.9,1.43,38.91,40.25,3.17
 20260512,39.45,40,38.85,38.95,81000,38.9,0.13,38.8,40.21,1.35
 20260513,38.25,39.9,38.25,39.1,23000,38.92,0.47,38.72,40.16,0.39
 20260514,39.05,39.3,38.4,39.05,26000,38.93,0.31,38.64,40.1,0.44
 20260515,39.2,39.3,38.6,38.85,22000,38.92,-0.18,38.55,40.05,0.38
 20260518,38.85,38.9,38.25,38.75,34000,38.91,-0.4,38.5,40.01,0.64
-20260519,38.5,38.55,38.25,38.4,19000,38.87,-1.2,38.45,39.96,0.4
+20260519,38.5,38.55,38.25,38.4,19000,38.86,-1.2,38.45,39.96,0.4
 20260520,38.45,38.45,38.15,38.4,18000,38.83,-1.1,38.38,39.91,0.38
 20260521,38.8,38.8,38.3,38.5,15000,38.8,-0.77,38.33,39.84,0.34
 20260522,38.4,38.45,38,38.4,38000,38.77,-0.94,38.33,39.78,0.92
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 84.91
-- over_600_ratio: 84.45
-- over_800_ratio: 84.45
+- as_of_date: 20260529
+- over_400_ratio: 84.92
+- over_600_ratio: 84.46
+- over_800_ratio: 84.46
 - over_1000_ratio: 83.76
-- over_400_change_1w: 0
-- over_800_change_1w: 0
+- over_400_change_1w: 0.01
+- over_800_change_1w: 0.01
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,84.91,0,84.45,0,83.76,0,0,False,False
 20260515,84.91,0,84.45,0,83.76,0,0,False,False
 20260522,84.91,0,84.45,0,83.76,0,0,False,False
+20260529,84.92,0.01,84.46,0.01,83.76,0,1,False,True
 ```
 
 ## Candidate Context

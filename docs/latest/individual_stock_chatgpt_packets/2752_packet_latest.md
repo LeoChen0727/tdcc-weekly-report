@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2752 豆府
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:15 Asia/Taipei
+- generated_at: 2026-05-30 23:41:40 Asia/Taipei
 - stock_id: 2752
 - stock_name: 豆府
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 136
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 272
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -90,7 +90,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260518,182,182,179.5,180,30000,186.88,-3.68,184.88,199.82,1.07
 20260519,180,180,176,176.5,66000,186.01,-5.11,184.2,199.34,2.2
 20260520,177,177,174,174,113000,185.01,-5.95,183.43,198.75,3.4
-20260521,174.5,177,174,177,33000,184.35,-3.98,182.82,198.22,0.98
+20260521,174.5,177,174,177,33000,184.34,-3.98,182.82,198.22,0.98
 20260522,177,177,175.5,177,176000,183.73,-3.66,182.22,197.7,4.28
 20260525,175,175,171.5,172.5,173000,182.8,-5.63,181.38,197.12,3.55
 20260526,172,173,172,173,173000,181.98,-4.93,180.65,196.53,3.07
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 64.44
 - over_600_ratio: 54.48
 - over_800_ratio: 41.45
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,64.51,-0.11,41.45,0,41.45,0,0,False,False
 20260515,64.44,-0.07,41.45,0,41.45,0,0,False,False
 20260522,64.44,0,41.45,0,41.45,0,0,False,False
+20260529,64.44,0,41.45,0,41.45,0,0,False,False
 ```
 
 ## Candidate Context

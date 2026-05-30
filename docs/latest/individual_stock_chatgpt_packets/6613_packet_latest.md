@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6613 朋億*
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:34 Asia/Taipei
+- generated_at: 2026-05-30 23:43:10 Asia/Taipei
 - stock_id: 6613
 - stock_name: 朋億*
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,9 +77,9 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,229.5,234,229.5,230.5,293000,226.16,1.92,229.25,207.63,0.63
-20260505,233,239,231,239,361000,227.23,5.18,230.78,208.33,0.76
-20260506,241,249.5,236.5,247.5,515000,228.92,8.12,233.1,209.16,1.05
+20260504,229.5,234,229.5,230.5,293000,226.17,1.92,229.25,207.63,0.63
+20260505,233,239,231,239,361000,227.24,5.18,230.78,208.33,0.76
+20260506,241,249.5,236.5,247.5,515000,228.92,8.11,233.1,209.16,1.05
 20260507,252.5,252.5,240.5,242,372000,230.01,5.21,234.7,209.87,0.75
 20260508,248,254,245,245.5,885000,231.3,6.14,236.28,210.68,1.69
 20260511,245.5,245.5,235,240.5,526000,232.07,3.63,237.53,211.47,0.98
@@ -91,7 +91,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260519,245.5,249.5,240,248.5,347000,237.88,4.46,239.95,216.56,0.77
 20260520,249,255,245,247.5,189000,238.68,3.69,239.85,217.62,0.44
 20260521,250.5,259,249,258,432000,240.29,7.37,240.68,218.86,1.02
-20260522,256.5,259.5,252.5,257,256000,241.68,6.34,241.53,219.91,0.63
+20260522,256.5,259.5,252.5,257,256000,241.69,6.34,241.53,219.91,0.63
 20260525,264,276,260,272.5,269000,244.25,11.56,243.5,221.13,0.66
 20260526,275.5,283.5,274.5,277.5,278000,247.02,12.34,245.78,222.33,0.68
 20260527,281,285,276,280,281000,249.77,12.1,248.32,223.59,0.68
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 61.35
-- over_600_ratio: 58.21
-- over_800_ratio: 56.6
+- as_of_date: 20260529
+- over_400_ratio: 61.45
+- over_600_ratio: 58.31
+- over_800_ratio: 56.66
 - over_1000_ratio: 55.52
-- over_400_change_1w: -0.28
-- over_800_change_1w: 0.05
+- over_400_change_1w: 0.1
+- over_800_change_1w: 0.06
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 3
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,60.29,0.53,55.52,0,55.52,0,1,False,False
 20260515,61.63,1.34,56.55,1.03,55.52,0,2,False,True
 20260522,61.35,-0.28,56.6,0.05,55.52,0,3,False,True
+20260529,61.45,0.1,56.66,0.06,55.52,0,4,False,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6526 達發
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:30 Asia/Taipei
+- generated_at: 2026-05-30 23:43:06 Asia/Taipei
 - stock_id: 6526
 - stock_name: 達發
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -83,7 +83,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260507,687,720,671,720,6365852,564.16,27.62,552.73,508.78,3.09
 20260508,750,787,734,753,6700896,579.9,29.85,566.48,513.81,2.82
 20260511,775,782,739,750,3602950,594.08,26.25,580.25,519.07,1.42
-20260512,750,753,724,734,2247276,605.74,21.18,593.15,524.23,0.85
+20260512,750,753,724,734,2247276,605.74,21.17,593.15,524.23,0.85
 20260513,726,729,695,703,1748310,613.84,14.52,603.65,528.42,0.65
 20260514,722,724,700,706,1424526,621.52,13.59,614.6,532.49,0.52
 20260515,718,724,687,688,1485581,627.06,9.72,623.85,536.42,0.54
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 77.81
-- over_600_ratio: 76.93
-- over_800_ratio: 76.46
+- as_of_date: 20260529
+- over_400_ratio: 77.98
+- over_600_ratio: 76.86
+- over_800_ratio: 75.98
 - over_1000_ratio: 75.41
-- over_400_change_1w: -0.01
-- over_800_change_1w: -0.02
+- over_400_change_1w: 0.17
+- over_800_change_1w: -0.48
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,78.65,-0.09,76.48,0.58,75.41,0.62,1,False,True
 20260515,77.82,-0.83,76.48,0,75.41,0,0,False,False
 20260522,77.81,-0.01,76.46,-0.02,75.41,0,0,False,False
+20260529,77.98,0.17,75.98,-0.48,75.41,0,1,False,False
 ```
 
 ## Candidate Context

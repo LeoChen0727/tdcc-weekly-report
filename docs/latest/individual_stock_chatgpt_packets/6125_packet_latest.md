@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6125 廣運
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:15 Asia/Taipei
+- generated_at: 2026-05-30 23:42:49 Asia/Taipei
 - stock_id: 6125
 - stock_name: 廣運
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,7 +77,7 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,56.3,59.4,56.2,58.1,3180000,56.11,3.55,55,60.05,2.09
+20260504,56.3,59.4,56.2,58.1,3180000,56.11,3.56,55,60.05,2.09
 20260505,58.4,58.8,57.7,58.8,1473000,56.33,4.38,55.27,59.78,0.95
 20260506,59.8,60.8,58,58.9,2762000,56.54,4.17,55.63,59.54,1.7
 20260507,59.7,60.3,57.6,59.2,2207000,56.77,4.29,55.95,59.27,1.31
@@ -91,7 +91,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260519,58,58.4,56.7,56.7,1680000,57.7,-1.73,57.42,58.14,0.85
 20260520,56.6,57,54.7,54.7,1896000,57.45,-4.78,57.3,57.99,0.95
 20260521,55.5,57.7,54.8,56.5,1606000,57.37,-1.51,57.24,57.88,0.8
-20260522,57,60.2,56.7,59.5,59000,57.55,3.4,57.46,57.83,0.03
+20260522,57,60.2,56.7,59.5,59000,57.54,3.4,57.46,57.83,0.03
 20260525,60.5,65.4,60.1,65.4,64000,58.2,12.37,58.02,57.85,0.03
 20260526,68.5,69,66.5,68.4,68000,59.05,15.83,58.74,57.94,0.04
 20260527,69.5,71.6,65.5,65.8,68000,59.61,10.38,59.3,57.97,0.04
@@ -100,16 +100,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 36.48
-- over_600_ratio: 33.99
-- over_800_ratio: 32.07
-- over_1000_ratio: 30.29
-- over_400_change_1w: -0.2
-- over_800_change_1w: 0.25
-- over_1000_change_1w: -0.48
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 36.69
+- over_600_ratio: 34.41
+- over_800_ratio: 32.49
+- over_1000_ratio: 30.37
+- over_400_change_1w: 0.21
+- over_800_change_1w: 0.42
+- over_1000_change_1w: 0.08
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,36.32,0.11,31.8,0.14,31.14,0.53,1,False,True
 20260515,36.68,0.36,31.82,0.02,30.77,-0.37,2,False,True
 20260522,36.48,-0.2,32.07,0.25,30.29,-0.48,3,False,True
+20260529,36.69,0.21,32.49,0.42,30.37,0.08,4,True,True
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 6125 | 廣運 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 6125 | 廣運 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

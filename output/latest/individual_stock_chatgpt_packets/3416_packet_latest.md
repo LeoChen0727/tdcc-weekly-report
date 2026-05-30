@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3416 融程電
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:34 Asia/Taipei
+- generated_at: 2026-05-30 23:42:02 Asia/Taipei
 - stock_id: 3416
 - stock_name: 融程電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,10 +77,10 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,161.5,162.5,159.5,160.5,605148,154.65,3.78,154.93,149.78,1.46
+20260504,161.5,162.5,159.5,160.5,605148,154.66,3.78,154.93,149.78,1.46
 20260505,159,159,156,157.5,464411,154.89,1.68,155.62,149.85,1.07
 20260506,159,161,156,161,461930,155.4,3.6,156.45,150.03,1.02
-20260507,162,176,160.5,171.5,1957512,156.74,9.42,157.57,150.41,3.61
+20260507,162,176,160.5,171.5,1957512,156.74,9.41,157.57,150.41,3.61
 20260508,171,178.5,168.5,175.5,1538176,158.31,10.86,158.85,150.88,2.52
 20260511,178.5,179,169.5,171.5,861898,159.41,7.59,159.97,151.32,1.34
 20260512,173,174,170,170.5,741754,160.33,6.34,160.68,151.77,1.13
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 56.18
-- over_600_ratio: 55.51
-- over_800_ratio: 53.86
-- over_1000_ratio: 51.6
-- over_400_change_1w: 0.08
-- over_800_change_1w: 0.13
-- over_1000_change_1w: 0.13
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 56.05
+- over_600_ratio: 54.65
+- over_800_ratio: 53.85
+- over_1000_ratio: 51.59
+- over_400_change_1w: -0.13
+- over_800_change_1w: -0.01
+- over_1000_change_1w: -0.01
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,56.34,0.06,54.87,0.98,51.58,-0.05,1,False,True
 20260515,56.1,-0.24,53.73,-1.14,51.47,-0.11,0,False,False
 20260522,56.18,0.08,53.86,0.13,51.6,0.13,1,True,True
+20260529,56.05,-0.13,53.85,-0.01,51.59,-0.01,0,False,False
 ```
 
 ## Candidate Context

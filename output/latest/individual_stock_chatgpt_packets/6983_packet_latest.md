@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6983 華洋精機
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:47 Asia/Taipei
+- generated_at: 2026-05-30 23:43:26 Asia/Taipei
 - stock_id: 6983
 - stock_name: 華洋精機
-- packet_status: partial_rawdata_packet
+- packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 5
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 141
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: price history shorter than 120 rows; K-line context is partial; TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
+- notes: TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
 
 ## Stable Read URLs
 - packet_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_chatgpt_packets/6983_packet_latest.md
@@ -62,40 +62,55 @@
 - close: 381.5
 - volume: 382000
 - ma5: 410.7
-- ema23_primary: 393.44
-- distance_to_ema23_pct: -3.04
-- ma20: 410.7
-- ma60: 410.7
-- ma120: 410.7
-- return_5d: 
-- return_20d: 
-- volume_ratio: 0.94
-- distance_to_ma20_pct_auxiliary: -7.11
+- ema23_primary: 391.18
+- distance_to_ema23_pct: -2.47
+- ma20: 388.8
+- ma60: 383.93
+- ma120: 382.72
+- return_5d: 0
+- return_20d: 0
+- volume_ratio: 1.74
+- distance_to_ma20_pct_auxiliary: -1.88
 - distance_to_high_60_pct: -26.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,349.5,388,326,385,351000,,,,,
-20260526,385.5,520,385.5,472,453000,,,,,
-20260527,497.5,498,428,430,452000,,,,,
-20260528,430,430,380,385,395000,,,,,
-20260529,391,400,372,381.5,382000,393.44,-3.04,410.7,410.7,0.94
+20251007,391,400,372,381.5,157161,381.5,0,381.5,381.5,1
+20251008,391,400,372,381.5,157161,381.5,0,381.5,381.5,1
+20251009,391,400,372,381.5,157161,381.5,0,381.5,381.5,1
+20251013,391,400,372,381.5,157161,381.5,0,381.5,381.5,1
+20251014,391,400,372,381.5,157161,381.5,0,381.5,381.5,1
+20251016,391,400,372,381.5,157161,381.5,0,381.5,381.5,1
+20251020,391,400,372,381.5,157161,381.5,0,381.5,381.5,1
+20251021,391,400,372,381.5,157161,381.5,0,381.5,381.5,1
+20251022,391,400,372,381.5,157161,381.5,0,381.5,381.5,1
+20251023,391,400,372,381.5,157161,381.5,0,381.5,381.5,1
+20251027,391,400,372,381.5,157161,381.5,0,381.5,381.5,1
+20251028,391,400,372,381.5,157161,381.5,0,381.5,381.5,1
+20251029,391,400,372,381.5,157161,381.5,0,381.5,381.5,1
+20251030,391,400,372,381.5,157161,381.5,0,381.5,381.5,1
+20251031,391,400,372,381.5,157161,381.5,0,381.5,381.5,1
+20260525,349.5,388,326,385,351000,381.79,0.84,381.68,381.56,2.1
+20260526,385.5,520,385.5,472,453000,389.31,21.24,386.2,383.07,2.49
+20260527,497.5,498,428,430,452000,392.7,9.5,388.62,383.88,2.3
+20260528,430,430,380,385,395000,392.06,-1.8,388.8,383.93,1.9
+20260529,391,400,372,381.5,382000,391.18,-2.47,388.8,383.93,1.74
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 55.85
-- over_600_ratio: 53.52
-- over_800_ratio: 37.79
-- over_1000_ratio: 27.69
-- over_400_change_1w: 5.89
-- over_800_change_1w: 8.29
-- over_1000_change_1w: 9.64
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 44.17
+- over_600_ratio: 41.84
+- over_800_ratio: 26.11
+- over_1000_ratio: 16.01
+- over_400_change_1w: -11.68
+- over_800_change_1w: -11.68
+- over_1000_change_1w: -11.68
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -105,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,49.96,-0.66,29.5,-5.52,18.05,-5.52,0,False,False
 20260515,49.96,0,29.5,0,18.05,0,0,False,False
 20260522,55.85,5.89,37.79,8.29,27.69,9.64,1,True,True
+20260529,44.17,-11.68,26.11,-11.68,16.01,-11.68,0,False,False
 ```
 
 ## Candidate Context

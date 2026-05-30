@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1466 聚隆
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:40 Asia/Taipei
+- generated_at: 2026-05-30 23:40:59 Asia/Taipei
 - stock_id: 1466
 - stock_name: 聚隆
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 72.77
-- over_600_ratio: 69.06
-- over_800_ratio: 66.05
-- over_1000_ratio: 65.16
-- over_400_change_1w: 0.04
-- over_800_change_1w: 0.06
-- over_1000_change_1w: 0.06
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260529
+- over_400_ratio: 72.82
+- over_600_ratio: 69.07
+- over_800_ratio: 66.06
+- over_1000_ratio: 65.17
+- over_400_change_1w: 0.05
+- over_800_change_1w: 0.01
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,72.78,-0.01,65.99,-0.01,65.1,-0.01,0,False,False
 20260515,72.73,-0.05,65.99,0,65.1,0,0,False,False
 20260522,72.77,0.04,66.05,0.06,65.16,0.06,1,True,True
+20260529,72.82,0.05,66.06,0.01,65.17,0.01,2,True,True
 ```
 
 ## Candidate Context

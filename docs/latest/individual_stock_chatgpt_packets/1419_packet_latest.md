@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1419 新紡
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:38 Asia/Taipei
+- generated_at: 2026-05-30 23:40:56 Asia/Taipei
 - stock_id: 1419
 - stock_name: 新紡
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 90.54
-- over_600_ratio: 89.1
+- as_of_date: 20260529
+- over_400_ratio: 90.69
+- over_600_ratio: 89.11
 - over_800_ratio: 87.28
 - over_1000_ratio: 85.56
-- over_400_change_1w: -0.02
-- over_800_change_1w: -0.03
-- over_1000_change_1w: -0.03
-- tdcc_consecutive_up_weeks: 0
+- over_400_change_1w: 0.15
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,90.58,-0.01,87.31,-0.26,85.59,0.02,1,False,True
 20260515,90.56,-0.02,87.31,0,85.59,0,0,False,False
 20260522,90.54,-0.02,87.28,-0.03,85.56,-0.03,0,False,False
+20260529,90.69,0.15,87.28,0,85.56,0,1,False,False
 ```
 
 ## Candidate Context

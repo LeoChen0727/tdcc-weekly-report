@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6523 達爾膚
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:30 Asia/Taipei
+- generated_at: 2026-05-30 23:43:06 Asia/Taipei
 - stock_id: 6523
 - stock_name: 達爾膚
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -87,7 +87,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260513,98.6,99,98.6,99,35000,103,-3.89,101.14,111.66,0.39
 20260514,99,99,98.8,98.9,23000,102.66,-3.66,100.72,111.35,0.29
 20260515,98.8,98.9,98.6,98.7,29000,102.33,-3.55,100.33,111.03,0.39
-20260518,98.2,99.6,98.2,99.5,11000,102.1,-2.54,100.08,110.76,0.16
+20260518,98.2,99.6,98.2,99.5,11000,102.09,-2.54,100.08,110.76,0.16
 20260519,99.4,99.5,99,99,15000,101.84,-2.79,99.97,110.44,0.27
 20260520,98.8,98.8,98.5,98.8,14000,101.58,-2.74,99.74,110.13,0.27
 20260521,98.8,99.8,98.8,99.8,12000,101.44,-1.61,99.56,109.84,0.25
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 63.08
 - over_600_ratio: 63.08
 - over_800_ratio: 61.69
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,63.08,0,61.69,0,61.69,0,0,False,False
 20260515,63.08,0,61.69,0,61.69,0,0,False,False
 20260522,63.08,0,61.69,0,61.69,0,0,False,False
+20260529,63.08,0,61.69,0,61.69,0,0,False,False
 ```
 
 ## Candidate Context

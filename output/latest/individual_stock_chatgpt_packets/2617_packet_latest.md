@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2617 台航
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:12 Asia/Taipei
+- generated_at: 2026-05-30 23:41:36 Asia/Taipei
 - stock_id: 2617
 - stock_name: 台航
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 61.97
-- over_600_ratio: 59.73
-- over_800_ratio: 58.47
-- over_1000_ratio: 56.73
-- over_400_change_1w: 0.1
-- over_800_change_1w: 0.4
-- over_1000_change_1w: -0.03
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 62.05
+- over_600_ratio: 59.47
+- over_800_ratio: 58.68
+- over_1000_ratio: 57.16
+- over_400_change_1w: 0.08
+- over_800_change_1w: 0.21
+- over_1000_change_1w: 0.43
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,61.97,0,58.6,0.18,57.09,0,1,False,True
 20260515,61.87,-0.1,58.07,-0.53,56.76,-0.33,2,False,False
 20260522,61.97,0.1,58.47,0.4,56.73,-0.03,3,False,True
+20260529,62.05,0.08,58.68,0.21,57.16,0.43,4,False,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6919 康霈*
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:45 Asia/Taipei
+- generated_at: 2026-05-30 23:43:23 Asia/Taipei
 - stock_id: 6919
 - stock_name: 康霈*
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 268
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,7 +77,7 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,106,106.5,103,103.5,4116927,106.49,-2.8,106.26,126.04,0.32
+20260504,106,106.5,103,103.5,4116927,106.49,-2.81,106.26,126.04,0.32
 20260505,105.5,106.5,100,101,4384079,106.03,-4.74,106.52,125.07,0.41
 20260506,102.5,108.5,100.5,101.5,6886846,105.65,-3.93,106.34,124,0.69
 20260507,102.5,104,101,101,5509698,105.26,-4.05,105.62,122.94,0.62
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 73.9
-- over_600_ratio: 70.97
-- over_800_ratio: 68.94
-- over_1000_ratio: 66.88
-- over_400_change_1w: 0.03
-- over_800_change_1w: 0.06
-- over_1000_change_1w: -0.05
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260529
+- over_400_ratio: 73.91
+- over_600_ratio: 71.08
+- over_800_ratio: 68.92
+- over_1000_ratio: 66.97
+- over_400_change_1w: 0.01
+- over_800_change_1w: -0.02
+- over_1000_change_1w: 0.09
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,73.97,-0.3,68.93,-0.4,67.04,-0.12,0,False,False
 20260515,73.87,-0.1,68.88,-0.05,66.93,-0.11,0,False,False
 20260522,73.9,0.03,68.94,0.06,66.88,-0.05,1,False,True
+20260529,73.91,0.01,68.92,-0.02,66.97,0.09,2,False,True
 ```
 
 ## Candidate Context

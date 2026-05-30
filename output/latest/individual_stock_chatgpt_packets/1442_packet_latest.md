@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1442 名軒
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:39 Asia/Taipei
+- generated_at: 2026-05-30 23:40:57 Asia/Taipei
 - stock_id: 1442
 - stock_name: 名軒
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -78,7 +78,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,26.8,26.9,26.25,26.45,398081,27.52,-3.9,27.54,27.87,0.41
-20260505,26.25,26.75,26.2,26.45,281949,27.43,-3.58,27.56,27.82,0.29
+20260505,26.25,26.75,26.2,26.45,281949,27.43,-3.59,27.56,27.82,0.29
 20260506,26.85,26.85,26.2,26.3,449945,27.34,-3.8,27.5,27.78,0.47
 20260507,26.6,26.9,26.2,26.75,420244,27.29,-1.98,27.45,27.74,0.44
 20260508,26.75,27.6,26.3,27.1,663209,27.27,-0.64,27.49,27.7,0.7
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 86.33
-- over_600_ratio: 83.54
-- over_800_ratio: 80.5
-- over_1000_ratio: 77.62
-- over_400_change_1w: 0.02
-- over_800_change_1w: 0
-- over_1000_change_1w: 0.27
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260529
+- over_400_ratio: 86.16
+- over_600_ratio: 83.21
+- over_800_ratio: 80.2
+- over_1000_ratio: 77.02
+- over_400_change_1w: -0.17
+- over_800_change_1w: -0.3
+- over_1000_change_1w: -0.6
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,86.49,-0.39,81.05,-0.02,78.13,-0.05,0,False,False
 20260515,86.31,-0.18,80.5,-0.55,77.35,-0.78,0,False,False
 20260522,86.33,0.02,80.5,0,77.62,0.27,1,False,True
+20260529,86.16,-0.17,80.2,-0.3,77.02,-0.6,0,False,False
 ```
 
 ## Candidate Context

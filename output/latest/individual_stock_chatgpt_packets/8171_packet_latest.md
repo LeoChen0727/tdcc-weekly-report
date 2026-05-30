@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8171 天宇
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:57 Asia/Taipei
+- generated_at: 2026-05-30 23:43:53 Asia/Taipei
 - stock_id: 8171
 - stock_name: 天宇
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -83,7 +83,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260507,22.15,22.15,21.65,21.85,301000,23.5,-7.02,23.36,25.63,2.01
 20260508,21.85,24,21.85,23.7,690000,23.52,0.78,23.34,25.53,3.81
 20260511,24.75,25.6,23.85,24.05,739000,23.56,2.07,23.38,25.45,3.58
-20260512,24.25,24.9,24,24.6,345000,23.65,4.02,23.39,25.39,1.6
+20260512,24.25,24.9,24,24.6,345000,23.65,4.03,23.39,25.39,1.6
 20260513,24.25,24.25,23.65,23.95,173000,23.67,1.17,23.39,25.31,0.79
 20260514,23.75,23.75,23.3,23.3,177000,23.64,-1.45,23.35,25.23,0.8
 20260515,23.6,23.9,22.9,22.9,171000,23.58,-2.89,23.29,25.12,0.77
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 60.87
-- over_600_ratio: 58.07
-- over_800_ratio: 54.42
-- over_1000_ratio: 52.03
-- over_400_change_1w: -0.02
-- over_800_change_1w: 0.01
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260529
+- over_400_ratio: 60.83
+- over_600_ratio: 58.03
+- over_800_ratio: 54.38
+- over_1000_ratio: 51.99
+- over_400_change_1w: -0.04
+- over_800_change_1w: -0.04
+- over_1000_change_1w: -0.04
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,60.96,-0.13,54.43,0.17,52.04,0.17,1,False,True
 20260515,60.89,-0.07,54.41,-0.02,52.02,-0.02,0,False,False
 20260522,60.87,-0.02,54.42,0.01,52.03,0.01,1,False,True
+20260529,60.83,-0.04,54.38,-0.04,51.99,-0.04,0,False,False
 ```
 
 ## Candidate Context

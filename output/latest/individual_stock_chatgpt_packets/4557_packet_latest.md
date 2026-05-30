@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4557 永新-KY
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:53 Asia/Taipei
+- generated_at: 2026-05-30 23:42:24 Asia/Taipei
 - stock_id: 4557
 - stock_name: 永新-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -85,7 +85,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260511,51,51,50.4,50.8,71596,53.31,-4.71,52.22,59.39,0.54
 20260512,50.5,50.8,50.4,50.4,57889,53.07,-5.02,52.04,59.09,0.45
 20260513,50.4,51,50.4,50.8,88639,52.88,-3.93,51.9,58.8,0.69
-20260514,50.8,51,49.75,49.85,152376,52.62,-5.27,51.72,58.49,1.17
+20260514,50.8,51,49.75,49.85,152376,52.63,-5.27,51.72,58.49,1.17
 20260515,49.95,50.4,49.6,49.9,100417,52.4,-4.77,51.47,58.18,0.75
 20260518,49.6,49.6,48.35,48.6,147542,52.08,-6.68,51.22,57.86,1.1
 20260519,48.6,48.95,47.3,47.4,201936,51.69,-8.3,50.95,57.52,1.46
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 41.97
-- over_600_ratio: 40.21
-- over_800_ratio: 32.16
-- over_1000_ratio: 28.57
-- over_400_change_1w: -0.11
-- over_800_change_1w: -1.67
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260529
+- over_400_ratio: 43.68
+- over_600_ratio: 38.82
+- over_800_ratio: 32.15
+- over_1000_ratio: 28.56
+- over_400_change_1w: 1.71
+- over_800_change_1w: -0.01
+- over_1000_change_1w: -0.01
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,42.1,-0.03,33.82,-0.05,28.56,-0.05,0,False,False
 20260515,42.08,-0.02,33.83,0.01,28.57,0.01,1,False,True
 20260522,41.97,-0.11,32.16,-1.67,28.57,0,0,False,False
+20260529,43.68,1.71,32.15,-0.01,28.56,-0.01,1,False,False
 ```
 
 ## Candidate Context

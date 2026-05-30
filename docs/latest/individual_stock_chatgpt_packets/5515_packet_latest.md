@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5515 建國
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:10 Asia/Taipei
+- generated_at: 2026-05-30 23:42:43 Asia/Taipei
 - stock_id: 5515
 - stock_name: 建國
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,7 +77,7 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,40.75,40.75,39.5,39.6,1015393,39.69,-0.22,40.35,36.28,1.1
+20260504,40.75,40.75,39.5,39.6,1015393,39.69,-0.21,40.35,36.28,1.1
 20260505,39.65,40.05,39.5,39.5,477512,39.67,-0.43,40.52,36.38,0.52
 20260506,39.85,40.1,39.3,39.8,343947,39.68,0.3,40.64,36.5,0.38
 20260507,39.25,39.95,39.25,39.6,489236,39.67,-0.19,40.73,36.62,0.54
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 70.13
-- over_600_ratio: 66.08
-- over_800_ratio: 63.46
-- over_1000_ratio: 62.14
-- over_400_change_1w: -0.71
-- over_800_change_1w: 0.25
-- over_1000_change_1w: 1.13
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 70.12
+- over_600_ratio: 66.3
+- over_800_ratio: 63.62
+- over_1000_ratio: 62.3
+- over_400_change_1w: -0.01
+- over_800_change_1w: 0.16
+- over_1000_change_1w: 0.16
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,70.56,0.11,63.47,0.06,62.1,0.03,1,True,True
 20260515,70.84,0.28,63.21,-0.26,61.01,-1.09,2,False,False
 20260522,70.13,-0.71,63.46,0.25,62.14,1.13,3,False,True
+20260529,70.12,-0.01,63.62,0.16,62.3,0.16,4,False,True
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 5515 | 建國 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 5515 | 建國 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

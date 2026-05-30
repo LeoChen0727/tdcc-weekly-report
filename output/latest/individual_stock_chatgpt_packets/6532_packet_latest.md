@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6532 瑞耘
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:30 Asia/Taipei
+- generated_at: 2026-05-30 23:43:07 Asia/Taipei
 - stock_id: 6532
 - stock_name: 瑞耘
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,12 +77,12 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,99.9,104.5,98.3,100,2227000,87.81,13.88,87.47,71.15,0.87
-20260505,99.4,101,98,98.7,1285000,88.72,11.25,88.75,71.82,0.5
+20260504,99.9,104.5,98.3,100,2227000,87.82,13.87,87.47,71.15,0.87
+20260505,99.4,101,98,98.7,1285000,88.72,11.24,88.75,71.82,0.5
 20260506,99.7,99.7,92.5,94.8,1501000,89.23,6.24,89.84,72.42,0.57
 20260507,101.5,104,100,104,1185000,90.46,14.97,91.33,73.17,0.44
 20260508,112,114,109,114,5207000,92.42,23.35,93.12,74.1,1.82
-20260511,116.5,118,107,107.5,3488000,93.68,14.76,94.39,74.93,1.24
+20260511,116.5,118,107,107.5,3488000,93.68,14.75,94.39,74.93,1.24
 20260512,106.5,109,102.5,103.5,1825000,94.5,9.53,95.56,75.72,0.64
 20260513,102.5,104.5,98.4,101.5,1665000,95.08,6.75,96.64,76.46,0.58
 20260514,102.5,111.5,101.5,111.5,2039000,96.45,15.61,98.31,77.35,0.69
@@ -91,7 +91,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260519,108.5,112.5,105.5,107.5,1784000,99.36,8.19,102.35,80.08,0.57
 20260520,107,107,96.8,96.8,3192000,99.15,-2.37,102.53,80.79,1.01
 20260521,98,101,96.9,98.5,1467000,99.09,-0.6,102.33,81.55,0.5
-20260522,99.7,103,99.7,102,102000,99.33,2.68,102.59,82.33,0.04
+20260522,99.7,103,99.7,102,102000,99.34,2.68,102.59,82.33,0.04
 20260525,103,105,101,102.5,103000,99.6,2.91,102.42,83.11,0.04
 20260526,103,103.5,99.5,100.5,100000,99.67,0.83,102.47,83.86,0.05
 20260527,102,103,95,97,98000,99.45,-2.46,102.58,84.52,0.05
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 31.4
-- over_600_ratio: 25.7
+- as_of_date: 20260529
+- over_400_ratio: 30.53
+- over_600_ratio: 26.07
 - over_800_ratio: 18.46
 - over_1000_ratio: 18.46
-- over_400_change_1w: 1.06
+- over_400_change_1w: -0.87
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,31.79,0.77,18.46,-2.56,18.46,0,1,False,False
 20260515,30.34,-1.45,18.46,0,18.46,0,0,False,False
 20260522,31.4,1.06,18.46,0,18.46,0,1,False,False
+20260529,30.53,-0.87,18.46,0,18.46,0,2,False,False
 ```
 
 ## Candidate Context

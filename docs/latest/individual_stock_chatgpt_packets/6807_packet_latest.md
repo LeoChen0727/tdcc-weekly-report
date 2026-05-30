@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6807 峰源-KY
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:41 Asia/Taipei
+- generated_at: 2026-05-30 23:43:19 Asia/Taipei
 - stock_id: 6807
 - stock_name: 峰源-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 131
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 267
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,9 +77,9 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,36.55,36.55,35.3,35.7,20315,38.92,-8.29,38.99,42.76,0.73
+20260504,36.55,36.55,35.3,35.7,20315,38.93,-8.29,38.99,42.76,0.73
 20260505,35.35,36.5,35.2,36.5,5266,38.72,-5.74,38.71,42.61,0.19
-20260506,37.4,37.4,35.45,36.2,27018,38.51,-6,38.43,42.45,0.94
+20260506,37.4,37.4,35.45,36.2,27018,38.51,-6.01,38.43,42.45,0.94
 20260507,35.8,36.2,35.1,36.1,11123,38.31,-5.77,38.13,42.3,0.4
 20260508,35,35.8,34.9,35.4,12784,38.07,-7.01,37.79,42.13,0.46
 20260511,35.1,35.2,34.5,35.05,17000,37.82,-7.32,37.46,41.95,0.65
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 83.54
-- over_600_ratio: 78.02
+- as_of_date: 20260529
+- over_400_ratio: 83.55
+- over_600_ratio: 78.03
 - over_800_ratio: 75.38
 - over_1000_ratio: 73.55
-- over_400_change_1w: 0.02
+- over_400_change_1w: 0.01
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,83.53,0,75.38,0,73.55,0,0,False,False
 20260515,83.52,-0.01,75.38,0,73.55,0,0,False,False
 20260522,83.54,0.02,75.38,0,73.55,0,1,False,False
+20260529,83.55,0.01,75.38,0,73.55,0,2,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2472 立隆電
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:07 Asia/Taipei
+- generated_at: 2026-05-30 23:41:30 Asia/Taipei
 - stock_id: 2472
 - stock_name: 立隆電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -80,7 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260504,179,188,175,184,4717000,164.44,11.89,168.05,133.62,0.9
 20260505,184,193,183.5,188.5,4274133,166.45,13.25,170.9,134.82,0.82
 20260506,192.5,193,181,186.5,4177327,168.12,10.93,173.82,135.97,0.8
-20260507,191,205,188,201.5,9532418,170.9,17.9,176.88,137.41,1.82
+20260507,191,205,188,201.5,9532418,170.9,17.91,176.88,137.41,1.82
 20260508,198.5,221.5,197.5,221.5,10762892,175.12,26.49,180.68,139.24,1.98
 20260511,219,228,203.5,225,16591811,179.27,25.51,184.53,141.19,2.75
 20260512,221.5,234,209.5,223,16652302,182.92,21.91,187.55,143.2,2.48
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 57.45
-- over_600_ratio: 55.06
-- over_800_ratio: 52.96
-- over_1000_ratio: 50.12
-- over_400_change_1w: 0.07
-- over_800_change_1w: 2.34
-- over_1000_change_1w: 2.25
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260529
+- over_400_ratio: 61.53
+- over_600_ratio: 59.05
+- over_800_ratio: 57.03
+- over_1000_ratio: 52.09
+- over_400_change_1w: 4.08
+- over_800_change_1w: 4.07
+- over_1000_change_1w: 1.97
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,58.1,0.46,52.14,-0.41,49.36,0.68,1,False,True
 20260515,57.38,-0.72,50.62,-1.52,47.87,-1.49,0,False,False
 20260522,57.45,0.07,52.96,2.34,50.12,2.25,1,True,True
+20260529,61.53,4.08,57.03,4.07,52.09,1.97,2,True,True
 ```
 
 ## Candidate Context

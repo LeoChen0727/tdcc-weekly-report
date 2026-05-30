@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8437 大地-KY
 
 ## Metadata
-- generated_at: 2026-05-29 19:34:01 Asia/Taipei
+- generated_at: 2026-05-30 23:43:57 Asia/Taipei
 - stock_id: 8437
 - stock_name: 大地-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -82,13 +82,13 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260506,11.8,12,11.7,11.7,39000,12.6,-7.16,12.5,13.7,0.34
 20260507,11.7,12.1,11.7,11.8,29000,12.54,-5.87,12.46,13.62,0.26
 20260508,11.7,12,11.65,11.9,48000,12.48,-4.67,12.43,13.55,0.43
-20260511,11.7,11.7,11.55,11.55,50000,12.41,-6.89,12.39,13.48,0.45
+20260511,11.7,11.7,11.55,11.55,50000,12.4,-6.89,12.39,13.48,0.45
 20260512,11.55,11.6,11.35,11.4,67000,12.32,-7.48,12.36,13.41,0.62
 20260513,11.35,11.8,11.25,11.3,58000,12.24,-7.65,12.31,13.34,0.55
 20260514,11.35,11.35,11.15,11.25,73000,12.15,-7.44,12.26,13.26,0.72
 20260515,11.25,11.25,11,11.2,69000,12.07,-7.24,12.2,13.17,0.68
 20260518,11.55,11.55,11.2,11.4,28000,12.02,-5.14,12.14,13.1,0.28
-20260519,11.3,11.6,11.3,11.5,34000,11.98,-3.97,12.1,13.03,0.34
+20260519,11.3,11.6,11.3,11.5,34000,11.97,-3.97,12.1,13.03,0.34
 20260520,11.4,11.5,11.35,11.35,38000,11.92,-4.81,11.99,12.96,0.47
 20260521,11.35,12.35,11.35,12.05,157000,11.93,0.98,11.94,12.9,2.02
 20260522,11.95,12.9,11.85,12.35,12000,11.97,3.19,11.92,12.85,0.17
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 39.3
-- over_600_ratio: 32.47
-- over_800_ratio: 29.44
-- over_1000_ratio: 25.37
-- over_400_change_1w: 0.06
-- over_800_change_1w: 0.05
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 39.38
+- over_600_ratio: 32.55
+- over_800_ratio: 29.52
+- over_1000_ratio: 25.41
+- over_400_change_1w: 0.08
+- over_800_change_1w: 0.08
+- over_1000_change_1w: 0.04
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,39.17,0.27,29.36,0.2,25.36,0.16,1,True,True
 20260515,39.24,0.07,29.39,0.03,25.36,0,2,False,True
 20260522,39.3,0.06,29.44,0.05,25.37,0.01,3,True,True
+20260529,39.38,0.08,29.52,0.08,25.41,0.04,4,True,True
 ```
 
 ## Candidate Context

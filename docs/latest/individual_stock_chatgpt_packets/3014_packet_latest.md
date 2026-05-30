@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3014 聯陽
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:20 Asia/Taipei
+- generated_at: 2026-05-30 23:41:46 Asia/Taipei
 - stock_id: 3014
 - stock_name: 聯陽
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -80,7 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260504,125.5,128.5,125.5,127,1445227,122.35,3.8,122.08,119.88,1.36
 20260505,127.5,131.5,127,131,2504730,123.07,6.44,122.85,120.03,2.15
 20260506,133,133.5,131,132.5,2001806,123.86,6.98,123.67,120.21,1.62
-20260507,133.5,133.5,131.5,131.5,1627693,124.49,5.63,124.35,120.38,1.27
+20260507,133.5,133.5,131.5,131.5,1627693,124.5,5.63,124.35,120.38,1.27
 20260508,132,140.5,131.5,135.5,9650080,125.41,8.04,125.2,120.64,5.6
 20260511,139,139,136,139,3516248,126.54,9.84,126.22,120.96,1.88
 20260512,144,146.5,137.5,140,7534672,127.67,9.66,127.28,121.34,3.42
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 33.41
-- over_600_ratio: 28.39
-- over_800_ratio: 24.56
-- over_1000_ratio: 21.43
-- over_400_change_1w: 1.55
-- over_800_change_1w: 2.04
-- over_1000_change_1w: 2.09
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260529
+- over_400_ratio: 35.54
+- over_600_ratio: 30.98
+- over_800_ratio: 27.66
+- over_1000_ratio: 22.84
+- over_400_change_1w: 2.13
+- over_800_change_1w: 3.1
+- over_1000_change_1w: 1.41
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,17 +120,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,33.49,0.42,23.92,-0.05,21.3,-0.08,1,False,False
 20260515,31.86,-1.63,22.52,-1.4,19.34,-1.96,0,False,False
 20260522,33.41,1.55,24.56,2.04,21.43,2.09,1,True,True
+20260529,35.54,2.13,27.66,3.1,22.84,1.41,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 3014 | 聯陽 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260530 | 3014 | 聯陽 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 3014 | 聯陽 | 1 | 1 | 3 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260530 | 3014 | 聯陽 | 2 | 2 | 4 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

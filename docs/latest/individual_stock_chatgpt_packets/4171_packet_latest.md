@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4171 瑞基
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:48 Asia/Taipei
+- generated_at: 2026-05-30 23:42:18 Asia/Taipei
 - stock_id: 4171
 - stock_name: 瑞基
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -78,8 +78,8 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,19,19.25,18.8,18.8,162000,19.35,-2.84,19.23,19.75,0.84
-20260505,18.8,18.8,18.45,18.65,173000,19.29,-3.33,19.22,19.72,0.9
-20260506,19.3,19.3,18.5,18.6,63000,19.23,-3.3,19.23,19.65,0.33
+20260505,18.8,18.8,18.45,18.65,173000,19.29,-3.32,19.22,19.72,0.9
+20260506,19.3,19.3,18.5,18.6,63000,19.23,-3.29,19.23,19.65,0.33
 20260507,18.95,18.95,18.45,18.6,130000,19.18,-3.03,19.23,19.58,0.68
 20260508,19,19.1,18.55,18.55,115000,19.13,-3.02,19.23,19.52,0.59
 20260511,18.65,18.8,18.5,18.55,102000,19.08,-2.78,19.23,19.46,0.52
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 32.38
-- over_600_ratio: 31.35
-- over_800_ratio: 30.21
-- over_1000_ratio: 27.44
-- over_400_change_1w: 0.02
-- over_800_change_1w: 0.02
-- over_1000_change_1w: 0.02
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 32.51
+- over_600_ratio: 31.48
+- over_800_ratio: 30.34
+- over_1000_ratio: 27.56
+- over_400_change_1w: 0.13
+- over_800_change_1w: 0.13
+- over_1000_change_1w: 0.12
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,32.21,0.1,28.76,0.06,25.67,0,1,False,True
 20260515,32.36,0.15,30.19,1.43,27.42,1.75,2,True,True
 20260522,32.38,0.02,30.21,0.02,27.44,0.02,3,True,True
+20260529,32.51,0.13,30.34,0.13,27.56,0.12,4,True,True
 ```
 
 ## Candidate Context

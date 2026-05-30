@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3537 堡達
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:38 Asia/Taipei
+- generated_at: 2026-05-30 23:42:06 Asia/Taipei
 - stock_id: 3537
 - stock_name: 堡達
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -78,9 +78,9 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,42.5,43.2,42.5,42.8,156000,44.07,-2.89,44.3,44.91,0.98
-20260505,43.15,43.75,43,43.6,143000,44.03,-0.98,44.39,44.8,0.91
+20260505,43.15,43.75,43,43.6,143000,44.03,-0.99,44.39,44.8,0.91
 20260506,43.65,43.9,42.8,43.4,191000,43.98,-1.32,44.45,44.69,1.16
-20260507,43.7,46.45,43.5,45.35,532000,44.09,2.85,44.53,44.63,2.92
+20260507,43.7,46.45,43.5,45.35,532000,44.1,2.84,44.53,44.63,2.92
 20260508,46.9,48.6,45.95,46.7,1016000,44.31,5.39,44.68,44.6,4.43
 20260511,47.2,48.7,45.8,48.15,790000,44.63,7.88,44.85,44.62,3.07
 20260512,48.15,49.45,47.45,48.45,666000,44.95,7.79,44.96,44.66,2.46
@@ -91,7 +91,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260519,54.8,55.3,52.3,52.6,2046000,47.56,10.6,46.51,45.19,2.09
 20260520,52.6,57.8,52.6,57.8,5739000,48.41,19.39,47.12,45.39,4.55
 20260521,63.5,63.5,63.5,63.5,1285000,49.67,27.84,48.02,45.7,0.97
-20260522,69.8,69.8,69.8,69.8,70000,51.35,35.94,49.31,46.06,0.05
+20260522,69.8,69.8,69.8,69.8,70000,51.35,35.93,49.31,46.06,0.05
 20260525,76.7,76.7,73.5,76.7,76000,53.46,43.47,50.98,46.53,0.06
 20260526,76.1,76.1,69.1,69.1,71000,54.76,26.18,52.29,46.89,0.05
 20260527,69.5,72.9,65.4,67.2,69000,55.8,20.43,53.47,47.22,0.05
@@ -100,16 +100,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 33.83
-- over_600_ratio: 32.1
-- over_800_ratio: 32.1
-- over_1000_ratio: 27.71
-- over_400_change_1w: 3.05
-- over_800_change_1w: 4.06
-- over_1000_change_1w: 4.11
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 37.9
+- over_600_ratio: 34.6
+- over_800_ratio: 32.13
+- over_1000_ratio: 26.22
+- over_400_change_1w: 4.07
+- over_800_change_1w: 0.03
+- over_1000_change_1w: -1.49
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,29.8,-0.02,28.04,0,23.6,0,0,False,False
 20260515,30.78,0.98,28.04,0,23.6,0,1,False,False
 20260522,33.83,3.05,32.1,4.06,27.71,4.11,2,True,True
+20260529,37.9,4.07,32.13,0.03,26.22,-1.49,3,False,True
 ```
 
 ## Candidate Context

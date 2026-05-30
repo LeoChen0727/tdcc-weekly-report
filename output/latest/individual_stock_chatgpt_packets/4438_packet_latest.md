@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4438 廣越
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:50 Asia/Taipei
+- generated_at: 2026-05-30 23:42:21 Asia/Taipei
 - stock_id: 4438
 - stock_name: 廣越
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -78,7 +78,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,55.3,55.7,55.2,55.3,75240,57.4,-3.65,57.02,61.59,0.93
-20260505,55.4,57.5,55.4,57.5,69660,57.41,0.16,57.08,61.38,0.84
+20260505,55.4,57.5,55.4,57.5,69660,57.41,0.17,57.08,61.38,0.84
 20260506,58.8,58.8,56.2,57,105585,57.37,-0.65,57.09,61.15,1.24
 20260507,58.1,61.1,58.1,61,428126,57.67,5.77,57.3,61,4.14
 20260508,61.1,61.1,57,58.3,398553,57.73,0.99,57.42,60.82,3.42
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 66.3
-- over_600_ratio: 60.18
+- as_of_date: 20260529
+- over_400_ratio: 66.31
+- over_600_ratio: 60.19
 - over_800_ratio: 54.57
 - over_1000_ratio: 50.12
-- over_400_change_1w: -0.06
+- over_400_change_1w: 0.01
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,66.37,-0.76,54.57,0,50.12,0,0,False,False
 20260515,66.36,-0.01,54.57,0,50.12,0,0,False,False
 20260522,66.3,-0.06,54.57,0,50.12,0,0,False,False
+20260529,66.31,0.01,54.57,0,50.12,0,1,False,False
 ```
 
 ## Candidate Context

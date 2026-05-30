@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6550 北極星藥業-KY
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:31 Asia/Taipei
+- generated_at: 2026-05-30 23:43:08 Asia/Taipei
 - stock_id: 6550
 - stock_name: 北極星藥業-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -78,7 +78,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,17.5,17.9,17.4,17.55,537175,19.02,-7.73,18.34,24.32,0.41
-20260505,17.5,17.75,17.4,17.75,554991,18.91,-6.16,18.24,24.1,0.48
+20260505,17.5,17.75,17.4,17.75,554991,18.92,-6.16,18.24,24.1,0.48
 20260506,18,18,17.7,17.95,634888,18.83,-4.7,18.18,23.87,0.56
 20260507,17.9,18.2,17.8,18.05,1136716,18.77,-3.83,18.12,23.66,1
 20260508,18.1,18.4,17.5,17.6,949361,18.67,-5.74,18.05,23.43,0.83
@@ -100,16 +100,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 75.41
-- over_600_ratio: 73.69
-- over_800_ratio: 72.82
-- over_1000_ratio: 71.59
-- over_400_change_1w: -0.21
-- over_800_change_1w: 0.05
-- over_1000_change_1w: 0.26
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 75.87
+- over_600_ratio: 74.29
+- over_800_ratio: 73.5
+- over_1000_ratio: 72.48
+- over_400_change_1w: 0.46
+- over_800_change_1w: 0.68
+- over_1000_change_1w: 0.89
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,75.52,0.01,72.79,0.04,71.78,0.35,1,True,True
 20260515,75.62,0.1,72.77,-0.02,71.33,-0.45,2,False,False
 20260522,75.41,-0.21,72.82,0.05,71.59,0.26,3,False,True
+20260529,75.87,0.46,73.5,0.68,72.48,0.89,4,True,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4430 耀億
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:50 Asia/Taipei
+- generated_at: 2026-05-30 23:42:20 Asia/Taipei
 - stock_id: 4430
 - stock_name: 耀億
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -78,7 +78,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,18,18,17.5,17.5,18000,17.74,-1.36,17.67,18.15,0.75
-20260505,17.25,17.45,17,17.05,49000,17.68,-3.59,17.63,18.12,1.87
+20260505,17.25,17.45,17,17.05,49000,17.68,-3.58,17.63,18.12,1.87
 20260506,17.1,17.4,17,17.05,16000,17.63,-3.3,17.58,18.1,0.67
 20260507,17.1,17.3,17.05,17.05,9000,17.58,-3.03,17.54,18.08,0.38
 20260508,17.05,17.3,16.95,17.05,9000,17.54,-2.78,17.5,18.06,0.39
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 63.3
 - over_600_ratio: 60.1
 - over_800_ratio: 57.6
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,63.3,0,57.6,0,53.29,0,0,False,False
 20260515,63.3,0,57.6,0,53.29,0,0,False,False
 20260522,63.3,0,57.6,0,53.29,0,0,False,False
+20260529,63.3,0,57.6,0,53.29,0,0,False,False
 ```
 
 ## Candidate Context

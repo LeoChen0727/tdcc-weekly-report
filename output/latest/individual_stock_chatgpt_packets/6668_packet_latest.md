@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6668 中揚光
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:36 Asia/Taipei
+- generated_at: 2026-05-30 23:43:13 Asia/Taipei
 - stock_id: 6668
 - stock_name: 中揚光
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -78,7 +78,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,35.35,35.55,34.5,34.8,417897,35.14,-0.98,35.18,35.6,0.74
-20260505,34.7,36.5,34.65,36.35,581056,35.24,3.14,35.29,35.55,0.99
+20260505,34.7,36.5,34.65,36.35,581056,35.25,3.13,35.29,35.55,0.99
 20260506,37,39.9,35.95,38.4,1081475,35.51,8.14,35.55,35.54,1.7
 20260507,39.1,39.2,38.1,38.2,848114,35.73,6.91,35.78,35.52,1.27
 20260508,37.75,38,36.6,36.7,503430,35.81,2.48,35.94,35.5,0.74
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 55.86
-- over_600_ratio: 53.3
+- as_of_date: 20260529
+- over_400_ratio: 54.74
+- over_600_ratio: 52.61
 - over_800_ratio: 52.01
 - over_1000_ratio: 52.01
-- over_400_change_1w: 0.17
+- over_400_change_1w: -1.12
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 3
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,55.26,0.86,51.97,0.01,51.97,0.01,1,True,True
 20260515,55.69,0.43,52.01,0.04,52.01,0.04,2,False,True
 20260522,55.86,0.17,52.01,0,52.01,0,3,False,False
+20260529,54.74,-1.12,52.01,0,52.01,0,0,False,False
 ```
 
 ## Candidate Context

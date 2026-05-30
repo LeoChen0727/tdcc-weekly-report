@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8103 瀚荃
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:56 Asia/Taipei
+- generated_at: 2026-05-30 23:43:51 Asia/Taipei
 - stock_id: 8103
 - stock_name: 瀚荃
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 130
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 266
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 51.27
-- over_600_ratio: 45.07
-- over_800_ratio: 36.05
-- over_1000_ratio: 33.81
-- over_400_change_1w: -0.07
-- over_800_change_1w: 0.39
-- over_1000_change_1w: 0.45
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260529
+- over_400_ratio: 49.36
+- over_600_ratio: 43.2
+- over_800_ratio: 32.45
+- over_1000_ratio: 30.25
+- over_400_change_1w: -1.91
+- over_800_change_1w: -3.6
+- over_1000_change_1w: -3.56
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,19 +120,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,53.4,-0.45,40.69,-1,37.45,0.14,1,False,True
 20260515,51.34,-2.06,35.66,-5.03,33.36,-4.09,0,False,False
 20260522,51.27,-0.07,36.05,0.39,33.81,0.45,1,False,True
+20260529,49.36,-1.91,32.45,-3.6,30.25,-3.56,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 8103 | 瀚荃 | pullback_rebound | 回檔後短線轉強 | 67.0 |  |  |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
-| 20260529 | 8103 | 瀚荃 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260529 | 8103 | 瀚荃 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260530 | 8103 | 瀚荃 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260530 | 8103 | 瀚荃 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 8103 | 瀚荃 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260530 | 8103 | 瀚荃 | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

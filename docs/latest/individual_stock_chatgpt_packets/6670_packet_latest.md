@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6670 復盛應用
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:36 Asia/Taipei
+- generated_at: 2026-05-30 23:43:13 Asia/Taipei
 - stock_id: 6670
 - stock_name: 復盛應用
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -95,21 +95,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,262,262,256,256,415862,260.58,-1.76,259.07,264.41,1.15
 20260526,257.5,257.5,254,254.5,233328,260.07,-2.14,259.15,264.23,0.65
 20260527,255,262,252.5,262,713131,260.23,0.68,259.68,264.17,1.86
-20260528,262,262,257,258,788977,260.04,-0.79,259.93,263.94,1.9
+20260528,262,262,257,258,788977,260.05,-0.79,259.93,263.94,1.9
 20260529,257.5,266,257.5,261.5,693883,260.17,0.51,260.45,263.77,1.59
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 77.49
-- over_600_ratio: 71.3
-- over_800_ratio: 65.13
-- over_1000_ratio: 61.78
-- over_400_change_1w: 0.1
-- over_800_change_1w: 0.01
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 77.86
+- over_600_ratio: 71.76
+- over_800_ratio: 65.59
+- over_1000_ratio: 61.6
+- over_400_change_1w: 0.37
+- over_800_change_1w: 0.46
+- over_1000_change_1w: -0.18
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,77.17,0.11,65.67,-0.21,61.73,-0.93,1,False,False
 20260515,77.39,0.22,65.12,-0.55,61.77,0.04,2,False,True
 20260522,77.49,0.1,65.13,0.01,61.78,0.01,3,True,True
+20260529,77.86,0.37,65.59,0.46,61.6,-0.18,4,False,True
 ```
 
 ## Candidate Context

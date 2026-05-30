@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4116 明基醫
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:45 Asia/Taipei
+- generated_at: 2026-05-30 23:42:15 Asia/Taipei
 - stock_id: 4116
 - stock_name: 明基醫
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -87,7 +87,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260513,38.8,38.8,38.3,38.4,57000,39.6,-3.02,39.87,40.3,1.44
 20260514,38.4,38.5,38.3,38.3,21000,39.49,-3.01,39.78,40.23,0.54
 20260515,38.3,38.3,38.25,38.25,25000,39.39,-2.88,39.62,40.15,0.7
-20260518,38,38,37.55,37.7,31000,39.25,-3.94,39.46,40.08,0.85
+20260518,38,38,37.55,37.7,31000,39.24,-3.94,39.46,40.08,0.85
 20260519,37.5,37.85,37,37.35,63000,39.09,-4.44,39.28,39.99,1.69
 20260520,38.45,38.45,37,37.2,56000,38.93,-4.44,39.1,39.91,1.42
 20260521,37.2,37.7,37.2,37.5,49000,38.81,-3.38,38.92,39.83,1.2
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 54.95
 - over_600_ratio: 54.95
 - over_800_ratio: 54.95
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,54.95,0,54.95,0,54.95,0,0,False,False
 20260515,54.95,0,54.95,0,54.95,0,0,False,False
 20260522,54.95,0,54.95,0,54.95,0,0,False,False
+20260529,54.95,0,54.95,0,54.95,0,0,False,False
 ```
 
 ## Candidate Context

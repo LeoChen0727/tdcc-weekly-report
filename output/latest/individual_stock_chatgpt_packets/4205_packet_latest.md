@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4205 中華食
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:48 Asia/Taipei
+- generated_at: 2026-05-30 23:42:19 Asia/Taipei
 - stock_id: 4205
 - stock_name: 中華食
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 136
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 272
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,7 +77,7 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,74.5,74.8,74,74.2,85000,76.15,-2.57,76.37,77.19,2.76
+20260504,74.5,74.8,74,74.2,85000,76.15,-2.56,76.37,77.19,2.76
 20260505,74.1,74.1,73.7,74,42000,75.97,-2.6,76.18,77.09,1.33
 20260506,74,74,73.8,74,42000,75.81,-2.39,75.99,77,1.28
 20260507,74,74,73.5,73.9,51000,75.65,-2.31,75.8,76.91,1.47
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 65.9
 - over_600_ratio: 62.85
 - over_800_ratio: 61.52
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,65.9,0,61.52,0,58.91,0,0,False,False
 20260515,65.9,0,61.52,0,58.91,0,0,False,False
 20260522,65.9,0,61.52,0,58.91,0,0,False,False
+20260529,65.9,0,61.52,0,58.91,0,0,False,False
 ```
 
 ## Candidate Context

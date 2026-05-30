@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8383 千附
 
 ## Metadata
-- generated_at: 2026-05-29 19:34:00 Asia/Taipei
+- generated_at: 2026-05-30 23:43:56 Asia/Taipei
 - stock_id: 8383
 - stock_name: 千附
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -81,8 +81,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260505,65.3,66.3,63.8,64.1,2239000,59.05,8.56,59.66,48.08,0.53
 20260506,65,65.1,61.9,63.5,2155000,59.42,6.87,60.62,48.43,0.5
 20260507,64.5,66.7,63.2,66.7,2408000,60.02,11.12,61.69,48.84,0.54
-20260508,64,64.7,60.1,60.1,5203000,60.03,0.12,62.31,49.15,1.16
-20260511,57.1,57.5,54.8,56,4114000,59.69,-6.19,62.67,49.4,0.91
+20260508,64,64.7,60.1,60.1,5203000,60.03,0.11,62.31,49.15,1.16
+20260511,57.1,57.5,54.8,56,4114000,59.7,-6.19,62.67,49.4,0.91
 20260512,56.1,57.2,55.1,56.7,1738000,59.45,-4.62,62.85,49.67,0.4
 20260513,56,57.4,55.2,56,1343000,59.16,-5.34,62.98,49.93,0.32
 20260514,57,57,54.1,54.6,1628000,58.78,-7.11,63.02,50.15,0.39
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 51.81
-- over_600_ratio: 48.36
-- over_800_ratio: 45.83
-- over_1000_ratio: 45.04
-- over_400_change_1w: -0.16
-- over_800_change_1w: -0.12
-- over_1000_change_1w: -0.12
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 51.89
+- over_600_ratio: 48.57
+- over_800_ratio: 46.67
+- over_1000_ratio: 45.07
+- over_400_change_1w: 0.08
+- over_800_change_1w: 0.84
+- over_1000_change_1w: 0.03
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,53.68,-0.36,47.38,0.28,44.87,-0.71,1,False,True
 20260515,51.97,-1.71,45.95,-1.43,45.16,0.29,2,False,True
 20260522,51.81,-0.16,45.83,-0.12,45.04,-0.12,0,False,False
+20260529,51.89,0.08,46.67,0.84,45.07,0.03,1,True,True
 ```
 
 ## Candidate Context

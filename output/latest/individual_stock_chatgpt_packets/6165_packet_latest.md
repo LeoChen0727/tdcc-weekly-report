@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6165 浪凡
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:17 Asia/Taipei
+- generated_at: 2026-05-30 23:42:52 Asia/Taipei
 - stock_id: 6165
 - stock_name: 浪凡
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 47.92
-- over_600_ratio: 45.54
-- over_800_ratio: 41.79
-- over_1000_ratio: 37.13
-- over_400_change_1w: -0.04
-- over_800_change_1w: 1.08
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 47.31
+- over_600_ratio: 45.46
+- over_800_ratio: 41.75
+- over_1000_ratio: 37.14
+- over_400_change_1w: -0.61
+- over_800_change_1w: -0.04
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,49.04,-1.85,41.06,-1.07,36.39,4.76,1,False,True
 20260515,47.96,-1.08,40.71,-0.35,37.13,0.74,2,False,True
 20260522,47.92,-0.04,41.79,1.08,37.13,0,3,False,True
+20260529,47.31,-0.61,41.75,-0.04,37.14,0.01,4,False,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8110 華東
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:56 Asia/Taipei
+- generated_at: 2026-05-30 23:43:52 Asia/Taipei
 - stock_id: 8110
 - stock_name: 華東
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -87,7 +87,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260513,49.6,49.7,48.7,49.45,6330523,49.58,-0.26,48.49,53.45,0.48
 20260514,50.4,52.7,50.3,51.5,22711957,49.74,3.54,48.61,53.2,1.63
 20260515,52,52,48.85,50,14764030,49.76,0.48,48.63,53.01,1.04
-20260518,48.85,49.6,47.15,49.45,5777010,49.74,-0.58,48.69,52.85,0.41
+20260518,48.85,49.6,47.15,49.45,5777010,49.74,-0.57,48.69,52.85,0.41
 20260519,49.2,49.2,47,47.35,7880544,49.54,-4.42,48.75,52.61,0.56
 20260520,47.5,47.6,45.65,46.25,7135942,49.26,-6.12,48.59,52.41,0.53
 20260521,47.2,47.9,46.9,47.05,4565752,49.08,-4.13,48.44,52.17,0.35
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 53.09
-- over_600_ratio: 51.48
-- over_800_ratio: 51.1
-- over_1000_ratio: 50.1
-- over_400_change_1w: -1.47
-- over_800_change_1w: -1.94
-- over_1000_change_1w: -1.11
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260529
+- over_400_ratio: 53.47
+- over_600_ratio: 52.31
+- over_800_ratio: 51.78
+- over_1000_ratio: 49.71
+- over_400_change_1w: 0.38
+- over_800_change_1w: 0.68
+- over_1000_change_1w: -0.39
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,17 +120,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,54.36,-0.41,52.22,-0.72,51.06,-0.72,0,False,False
 20260515,54.56,0.2,53.04,0.82,51.21,0.15,1,True,True
 20260522,53.09,-1.47,51.1,-1.94,50.1,-1.11,0,False,False
+20260529,53.47,0.38,51.78,0.68,49.71,-0.39,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 8110 | 華東 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260530 | 8110 | 華東 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 8110 | 華東 | 4 | 4 | 4 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260530 | 8110 | 華東 | 5 | 5 | 5 | 5 | 5 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

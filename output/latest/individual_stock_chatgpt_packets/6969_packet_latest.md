@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6969 成信實業*-創
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:47 Asia/Taipei
+- generated_at: 2026-05-30 23:43:25 Asia/Taipei
 - stock_id: 6969
 - stock_name: 成信實業*-創
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 136
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 272
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,14 +100,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 60.83
-- over_600_ratio: 54.8
-- over_800_ratio: 54.8
-- over_1000_ratio: 50.65
+- as_of_date: 20260529
+- over_400_ratio: 60.73
+- over_600_ratio: 54.74
+- over_800_ratio: 54.74
+- over_1000_ratio: 50.59
 - over_400_change_1w: -0.1
-- over_800_change_1w: -0.09
-- over_1000_change_1w: -0.09
+- over_800_change_1w: -0.06
+- over_1000_change_1w: -0.06
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,60.89,-0.32,54.89,-0.33,50.74,-0.11,0,False,False
 20260515,60.93,0.04,54.89,0,50.74,0,1,False,False
 20260522,60.83,-0.1,54.8,-0.09,50.65,-0.09,0,False,False
+20260529,60.73,-0.1,54.74,-0.06,50.59,-0.06,0,False,False
 ```
 
 ## Candidate Context

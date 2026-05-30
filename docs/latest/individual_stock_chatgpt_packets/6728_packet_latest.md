@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6728 上洋
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:38 Asia/Taipei
+- generated_at: 2026-05-30 23:43:15 Asia/Taipei
 - stock_id: 6728
 - stock_name: 上洋
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 136
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 272
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,7 +77,7 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,116.5,117,114,114.5,101000,118.74,-3.57,117.95,126.42,3.59
+20260504,116.5,117,114,114.5,101000,118.73,-3.57,117.95,126.42,3.59
 20260505,114.5,116,114.5,116,22000,118.51,-2.12,117.9,126.07,0.76
 20260506,115,116.5,114,116.5,49000,118.34,-1.55,117.83,125.72,1.57
 20260507,115,117,114,115.5,62000,118.1,-2.2,117.62,125.29,1.86
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 63.45
 - over_600_ratio: 61.47
 - over_800_ratio: 59.01
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,63.45,-0.07,59.01,0,59.01,0,0,False,False
 20260515,63.45,0,59.01,0,59.01,0,0,False,False
 20260522,63.45,0,59.01,0,59.01,0,0,False,False
+20260529,63.45,0,59.01,0,59.01,0,0,False,False
 ```
 
 ## Candidate Context

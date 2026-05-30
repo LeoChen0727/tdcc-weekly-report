@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5489 彩富
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:09 Asia/Taipei
+- generated_at: 2026-05-30 23:42:43 Asia/Taipei
 - stock_id: 5489
 - stock_name: 彩富
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 85.17
-- over_600_ratio: 82.66
-- over_800_ratio: 82.66
-- over_1000_ratio: 82.66
-- over_400_change_1w: 0.12
-- over_800_change_1w: 0.13
-- over_1000_change_1w: 0.13
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 85.21
+- over_600_ratio: 82.7
+- over_800_ratio: 82.7
+- over_1000_ratio: 82.7
+- over_400_change_1w: 0.04
+- over_800_change_1w: 0.04
+- over_1000_change_1w: 0.04
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,84.92,0.17,82.41,0.18,82.41,0.18,1,True,True
 20260515,85.05,0.13,82.53,0.12,82.53,0.12,2,True,True
 20260522,85.17,0.12,82.66,0.13,82.66,0.13,3,True,True
+20260529,85.21,0.04,82.7,0.04,82.7,0.04,4,True,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3441 聯一光
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:34 Asia/Taipei
+- generated_at: 2026-05-30 23:42:02 Asia/Taipei
 - stock_id: 3441
 - stock_name: 聯一光
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -80,9 +80,9 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260504,33.45,34.1,33.3,33.6,129000,32.99,1.84,32.71,33.39,0.39
 20260505,33.6,36.9,33.6,36.9,885000,33.32,10.75,33.07,33.36,2.39
 20260506,39.6,40.55,38.75,39.8,4550000,33.86,17.55,33.56,33.39,7.62
-20260507,39.5,40,38.8,39.1,1088000,34.29,14.01,33.98,33.41,1.68
+20260507,39.5,40,38.8,39.1,1088000,34.3,14.01,33.98,33.41,1.68
 20260508,40,43,38,42.8,2973000,35,22.27,34.61,33.51,3.75
-20260511,42.8,43.7,40,40.55,2631000,35.47,14.34,35.06,33.59,2.92
+20260511,42.8,43.7,40,40.55,2631000,35.47,14.33,35.06,33.59,2.92
 20260512,40.85,40.9,39.1,40.1,1005000,35.85,11.85,35.46,33.68,1.07
 20260513,39.4,40,38.85,39,511000,36.11,7.99,35.77,33.74,0.56
 20260514,39.6,42.9,39.15,42.9,2357000,36.68,16.96,36.29,33.85,2.33
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 25.55
+- as_of_date: 20260529
+- over_400_ratio: 26.74
 - over_600_ratio: 23.04
 - over_800_ratio: 19.39
 - over_1000_ratio: 15.14
-- over_400_change_1w: -2.22
+- over_400_change_1w: 1.19
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,28.93,1.05,19.39,0,15.14,0,1,False,False
 20260515,27.77,-1.16,19.39,0,15.14,0,0,False,False
 20260522,25.55,-2.22,19.39,0,15.14,0,0,False,False
+20260529,26.74,1.19,19.39,0,15.14,0,1,False,False
 ```
 
 ## Candidate Context

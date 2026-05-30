@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7747 昕奇雲端
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:50 Asia/Taipei
+- generated_at: 2026-05-30 23:43:44 Asia/Taipei
 - stock_id: 7747
 - stock_name: 昕奇雲端
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 135
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 271
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 78.87
-- over_600_ratio: 78.87
-- over_800_ratio: 78.87
+- as_of_date: 20260529
+- over_400_ratio: 78.93
+- over_600_ratio: 78.93
+- over_800_ratio: 78.93
 - over_1000_ratio: 71.98
-- over_400_change_1w: 0.02
-- over_800_change_1w: 0.02
+- over_400_change_1w: 0.06
+- over_800_change_1w: 0.06
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 3
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,78.81,0.05,78.81,0.05,71.98,0,1,False,True
 20260515,78.85,0.04,78.85,0.04,71.98,0,2,False,True
 20260522,78.87,0.02,78.87,0.02,71.98,0,3,False,True
+20260529,78.93,0.06,78.93,0.06,71.98,0,4,False,True
 ```
 
 ## Candidate Context

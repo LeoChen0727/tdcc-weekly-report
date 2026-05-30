@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7714 創泓科技
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:48 Asia/Taipei
+- generated_at: 2026-05-30 23:43:43 Asia/Taipei
 - stock_id: 7714
 - stock_name: 創泓科技
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -81,7 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260505,132.5,135,132,134.5,86000,131.55,2.24,130.65,137.01,1.08
 20260506,136,136.5,132,133.5,94000,131.71,1.36,130.9,136.5,1.15
 20260507,132,133.5,129,130,87000,131.57,-1.19,130.85,136.05,1.03
-20260508,129,132,128,131.5,63000,131.57,-0.05,131,135.61,0.73
+20260508,129,132,128,131.5,63000,131.56,-0.05,131,135.61,0.73
 20260511,131.5,131.5,129,129.5,93000,131.39,-1.44,131.1,135.22,1.07
 20260512,129.5,129.5,126.5,127.5,98000,131.07,-2.72,131.12,134.88,1.09
 20260513,127.5,128.5,127,128,52000,130.81,-2.15,131.1,134.54,0.58
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 66.65
 - over_600_ratio: 58.86
 - over_800_ratio: 47.95
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,66.65,0,47.95,0,47.95,0,0,False,False
 20260515,66.65,0,47.95,0,47.95,0,0,False,False
 20260522,66.65,0,47.95,0,47.95,0,0,False,False
+20260529,66.65,0,47.95,0,47.95,0,0,False,False
 ```
 
 ## Candidate Context

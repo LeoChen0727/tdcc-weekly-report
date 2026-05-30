@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8928 鉅明
 
 ## Metadata
-- generated_at: 2026-05-29 19:34:04 Asia/Taipei
+- generated_at: 2026-05-30 23:44:01 Asia/Taipei
 - stock_id: 8928
 - stock_name: 鉅明
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 132
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 268
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -82,7 +82,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260506,21,21,20.6,20.75,38000,22.38,-7.29,22.38,24,1.35
 20260507,20.75,21,20.75,21,71000,22.27,-5.69,22.26,23.9,2.26
 20260508,21.1,21.35,21.05,21.3,18000,22.19,-4,22.18,23.81,0.6
-20260511,21.3,21.4,21.05,21.3,59000,22.11,-3.68,22.1,23.71,1.89
+20260511,21.3,21.4,21.05,21.3,59000,22.11,-3.67,22.1,23.71,1.89
 20260512,21.2,21.2,21.05,21.1,13000,22.03,-4.21,22.03,23.62,0.42
 20260513,21.05,21.05,21,21,10000,21.94,-4.3,21.93,23.53,0.34
 20260514,20.9,20.9,20.85,20.85,11000,21.85,-4.58,21.83,23.44,0.37
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 48.89
-- over_600_ratio: 44.39
-- over_800_ratio: 39
+- as_of_date: 20260529
+- over_400_ratio: 49.08
+- over_600_ratio: 44.54
+- over_800_ratio: 40.59
 - over_1000_ratio: 35.67
-- over_400_change_1w: 0.01
-- over_800_change_1w: 0
+- over_400_change_1w: 0.19
+- over_800_change_1w: 1.59
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 2
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,48.86,0,38.99,0,35.67,0,0,False,False
 20260515,48.88,0.02,39,0.01,35.67,0,1,False,True
 20260522,48.89,0.01,39,0,35.67,0,2,False,False
+20260529,49.08,0.19,40.59,1.59,35.67,0,3,False,True
 ```
 
 ## Candidate Context

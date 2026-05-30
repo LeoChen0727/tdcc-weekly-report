@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1445 大宇
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:39 Asia/Taipei
+- generated_at: 2026-05-30 23:40:58 Asia/Taipei
 - stock_id: 1445
 - stock_name: 大宇
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -80,7 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260504,12.65,12.65,12.55,12.55,34493,12.87,-2.48,12.76,13.51,0.54
 20260505,12.5,12.65,12.5,12.55,37251,12.84,-2.28,12.77,13.48,0.61
 20260506,12.55,13.8,12.55,12.8,143723,12.84,-0.3,12.8,13.45,2.31
-20260507,12.8,12.8,12.6,12.75,81236,12.83,-0.63,12.82,13.43,1.3
+20260507,12.8,12.8,12.6,12.75,81236,12.83,-0.64,12.82,13.43,1.3
 20260508,12.95,12.95,12.55,12.7,13928,12.82,-0.94,12.84,13.4,0.22
 20260511,12.55,12.55,12.3,12.5,101681,12.79,-2.3,12.83,13.37,1.63
 20260512,12.5,12.5,12.1,12.2,109254,12.74,-4.27,12.82,13.33,1.66
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 68.84
-- over_600_ratio: 65.02
+- as_of_date: 20260529
+- over_400_ratio: 68.76
+- over_600_ratio: 64.52
 - over_800_ratio: 61.2
 - over_1000_ratio: 59.67
-- over_400_change_1w: 0.08
-- over_800_change_1w: 0.02
-- over_1000_change_1w: 0.02
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- over_400_change_1w: -0.08
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,68.78,0.05,61.18,-0.03,59.65,-0.03,1,False,False
 20260515,68.76,-0.02,61.18,0,59.65,0,0,False,False
 20260522,68.84,0.08,61.2,0.02,59.67,0.02,1,True,True
+20260529,68.76,-0.08,61.2,0,59.67,0,0,False,False
 ```
 
 ## Candidate Context

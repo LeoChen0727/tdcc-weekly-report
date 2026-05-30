@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8416 實威
 
 ## Metadata
-- generated_at: 2026-05-29 19:34:00 Asia/Taipei
+- generated_at: 2026-05-30 23:43:56 Asia/Taipei
 - stock_id: 8416
 - stock_name: 實威
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 134
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 270
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,7 +88,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260514,174.5,174.5,173.5,173.5,2000,172.01,0.86,172.07,171.14,0.15
 20260515,173.5,174,173.5,173.5,7000,172.14,0.79,172.3,171.07,0.56
 20260518,173,173,172,172.5,8000,172.17,0.19,172.45,170.95,0.64
-20260519,172,172,171,171.5,7000,172.11,-0.35,172.43,170.85,0.59
+20260519,172,172,171,171.5,7000,172.11,-0.36,172.43,170.85,0.59
 20260520,171,173,171,173,2000,172.19,0.47,172.45,170.8,0.18
 20260521,173.5,174,172,174,8000,172.34,0.97,172.4,170.75,0.79
 20260522,175,175,170.5,173,172000,172.39,0.35,172.43,170.69,9.45
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 77.08
-- over_600_ratio: 77.08
-- over_800_ratio: 77.08
-- over_1000_ratio: 77.08
+- as_of_date: 20260529
+- over_400_ratio: 77.09
+- over_600_ratio: 77.09
+- over_800_ratio: 77.09
+- over_1000_ratio: 77.09
 - over_400_change_1w: 0.01
 - over_800_change_1w: 0.01
-- over_1000_change_1w: 3.54
-- tdcc_consecutive_up_weeks: 3
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,77.05,0.01,77.05,0.01,73.54,0,1,False,True
 20260515,77.07,0.02,77.07,0.02,73.54,0,2,False,True
 20260522,77.08,0.01,77.08,0.01,77.08,3.54,3,True,True
+20260529,77.09,0.01,77.09,0.01,77.09,0.01,4,True,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2458 義隆
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:06 Asia/Taipei
+- generated_at: 2026-05-30 23:41:29 Asia/Taipei
 - stock_id: 2458
 - stock_name: 義隆
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 59.31
-- over_600_ratio: 54.58
-- over_800_ratio: 51.8
-- over_1000_ratio: 49.13
-- over_400_change_1w: 1.51
-- over_800_change_1w: 0.07
-- over_1000_change_1w: 0.05
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 59.88
+- over_600_ratio: 55.45
+- over_800_ratio: 52.92
+- over_1000_ratio: 49.38
+- over_400_change_1w: 0.57
+- over_800_change_1w: 1.12
+- over_1000_change_1w: 0.25
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,57.06,0.05,51.87,-0.65,49.79,0.24,1,False,True
 20260515,57.8,0.74,51.73,-0.14,49.08,-0.71,2,False,False
 20260522,59.31,1.51,51.8,0.07,49.13,0.05,3,True,True
+20260529,59.88,0.57,52.92,1.12,49.38,0.25,4,True,True
 ```
 
 ## Candidate Context

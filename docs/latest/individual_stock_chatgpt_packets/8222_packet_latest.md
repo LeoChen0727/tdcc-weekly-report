@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8222 寶一
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:58 Asia/Taipei
+- generated_at: 2026-05-30 23:43:54 Asia/Taipei
 - stock_id: 8222
 - stock_name: 寶一
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -86,7 +86,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260512,35.6,36.25,35.45,35.8,339318,36.51,-1.95,36.67,37.38,0.7
 20260513,35.8,36.7,35.1,35.2,307140,36.4,-3.31,36.7,37.3,0.63
 20260514,35.35,35.95,35.05,35.15,288079,36.3,-3.17,36.63,37.2,0.62
-20260515,35.9,37.85,35.9,36.25,1127785,36.29,-0.12,36.56,37.14,2.51
+20260515,35.9,37.85,35.9,36.25,1127785,36.3,-0.12,36.56,37.14,2.51
 20260518,36.25,36.25,35.35,35.7,319941,36.25,-1.5,36.45,37.09,0.73
 20260519,35.9,36,35.15,35.2,250853,36.16,-2.65,36.32,37.02,0.59
 20260520,35.55,36.05,35.3,35.3,219150,36.09,-2.18,36.21,36.95,0.52
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 38.2
-- over_600_ratio: 35.42
-- over_800_ratio: 33.41
-- over_1000_ratio: 33.41
-- over_400_change_1w: 0.2
-- over_800_change_1w: 0.07
-- over_1000_change_1w: 0.07
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 38.27
+- over_600_ratio: 35.55
+- over_800_ratio: 33.45
+- over_1000_ratio: 33.45
+- over_400_change_1w: 0.07
+- over_800_change_1w: 0.04
+- over_1000_change_1w: 0.04
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,37.98,0.99,33.2,0.01,33.2,0.01,1,True,True
 20260515,38,0.02,33.34,0.14,33.34,0.14,2,True,True
 20260522,38.2,0.2,33.41,0.07,33.41,0.07,3,True,True
+20260529,38.27,0.07,33.45,0.04,33.45,0.04,4,True,True
 ```
 
 ## Candidate Context

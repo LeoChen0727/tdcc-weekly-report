@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6271 同欣電
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:24 Asia/Taipei
+- generated_at: 2026-05-30 23:43:00 Asia/Taipei
 - stock_id: 6271
 - stock_name: 同欣電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,16 +100,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 51.6
-- over_600_ratio: 47.66
-- over_800_ratio: 44.61
-- over_1000_ratio: 41.67
-- over_400_change_1w: 4.36
-- over_800_change_1w: 3.4
-- over_1000_change_1w: 3.51
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 50.64
+- over_600_ratio: 47.88
+- over_800_ratio: 45.86
+- over_1000_ratio: 44.61
+- over_400_change_1w: -0.96
+- over_800_change_1w: 1.25
+- over_1000_change_1w: 2.94
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,46.3,-1.98,40.68,-3.28,38.49,-1.18,0,False,False
 20260515,47.24,0.94,41.21,0.53,38.16,-0.33,1,False,True
 20260522,51.6,4.36,44.61,3.4,41.67,3.51,2,True,True
+20260529,50.64,-0.96,45.86,1.25,44.61,2.94,3,False,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3207 耀勝
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:28 Asia/Taipei
+- generated_at: 2026-05-30 23:41:55 Asia/Taipei
 - stock_id: 3207
 - stock_name: 耀勝
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,16 +100,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 39.94
-- over_600_ratio: 33.28
-- over_800_ratio: 25.85
-- over_1000_ratio: 20.35
-- over_400_change_1w: -1.12
-- over_800_change_1w: 0.3
-- over_1000_change_1w: 0.37
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 41.12
+- over_600_ratio: 34.47
+- over_800_ratio: 25.97
+- over_1000_ratio: 20.51
+- over_400_change_1w: 1.18
+- over_800_change_1w: 0.12
+- over_1000_change_1w: 0.16
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,41.24,-0.96,25.67,1.09,21.59,-0.16,1,False,True
 20260515,41.06,-0.18,25.55,-0.12,19.98,-1.61,0,False,False
 20260522,39.94,-1.12,25.85,0.3,20.35,0.37,1,False,True
+20260529,41.12,1.18,25.97,0.12,20.51,0.16,2,True,True
 ```
 
 ## Candidate Context

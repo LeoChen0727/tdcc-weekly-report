@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7821 神數
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:52 Asia/Taipei
+- generated_at: 2026-05-30 23:43:46 Asia/Taipei
 - stock_id: 7821
 - stock_name: 神數
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260529
 - price_rows: 29
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,14 +100,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 81.58
-- over_600_ratio: 79.38
-- over_800_ratio: 77.55
-- over_1000_ratio: 75.97
-- over_400_change_1w: -0.71
-- over_800_change_1w: -1.2
-- over_1000_change_1w: -0.44
+- as_of_date: 20260529
+- over_400_ratio: 81.05
+- over_600_ratio: 79.33
+- over_800_ratio: 77.5
+- over_1000_ratio: 75.24
+- over_400_change_1w: -0.53
+- over_800_change_1w: -0.05
+- over_1000_change_1w: -0.73
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,82.82,-0.21,78.82,-0.04,76.48,-0.04,0,False,False
 20260515,82.29,-0.53,78.75,-0.07,76.41,-0.07,0,False,False
 20260522,81.58,-0.71,77.55,-1.2,75.97,-0.44,0,False,False
+20260529,81.05,-0.53,77.5,-0.05,75.24,-0.73,0,False,False
 ```
 
 ## Candidate Context

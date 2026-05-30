@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4167 松瑞藥
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:47 Asia/Taipei
+- generated_at: 2026-05-30 23:42:18 Asia/Taipei
 - stock_id: 4167
 - stock_name: 松瑞藥
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -80,7 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260504,19,19,18.7,18.8,927000,19.71,-4.6,19.78,20.14,0.96
 20260505,18.8,18.9,18.75,18.9,695000,19.64,-3.77,19.67,20.11,0.73
 20260506,19.1,19.1,18.6,18.7,841000,19.56,-4.4,19.57,20.05,0.91
-20260507,18.7,18.85,18.55,18.75,794000,19.49,-3.81,19.47,20.02,0.87
+20260507,18.7,18.85,18.55,18.75,794000,19.49,-3.82,19.47,20.02,0.87
 20260508,18.55,18.95,18.55,18.75,1212000,19.43,-3.51,19.39,19.99,1.32
 20260511,19,19.2,18.7,19,1173000,19.4,-2.04,19.31,19.96,1.26
 20260512,18.9,19.1,18.8,19.1,610000,19.37,-1.4,19.27,19.95,0.68
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 39.75
-- over_600_ratio: 36.09
-- over_800_ratio: 33.97
-- over_1000_ratio: 33.11
-- over_400_change_1w: -0.19
-- over_800_change_1w: -0.04
-- over_1000_change_1w: -0.04
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260529
+- over_400_ratio: 40.02
+- over_600_ratio: 36.19
+- over_800_ratio: 34.1
+- over_1000_ratio: 32.93
+- over_400_change_1w: 0.27
+- over_800_change_1w: 0.13
+- over_1000_change_1w: -0.18
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,40.21,-0.22,34.08,-0.43,33.22,-0.43,0,False,False
 20260515,39.94,-0.27,34.01,-0.07,33.15,-0.07,0,False,False
 20260522,39.75,-0.19,33.97,-0.04,33.11,-0.04,0,False,False
+20260529,40.02,0.27,34.1,0.13,32.93,-0.18,1,False,True
 ```
 
 ## Candidate Context

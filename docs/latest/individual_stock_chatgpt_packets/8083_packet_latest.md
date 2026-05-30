@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8083 瑞穎
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:55 Asia/Taipei
+- generated_at: 2026-05-30 23:43:50 Asia/Taipei
 - stock_id: 8083
 - stock_name: 瑞穎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -89,7 +89,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260515,174,174,171,171.5,50000,173.82,-1.33,174.97,172.35,0.7
 20260518,172.5,172.5,169,170,36000,173.5,-2.02,174.8,172.28,0.51
 20260519,169,170,167,169,44000,173.13,-2.38,174.55,172.18,0.62
-20260520,169.5,171,168,168.5,42000,172.74,-2.45,174.28,172.07,0.59
+20260520,169.5,171,168,168.5,42000,172.74,-2.46,174.28,172.07,0.59
 20260521,169,170.5,168,170.5,130000,172.55,-1.19,174.05,171.97,1.86
 20260522,171,171.5,168,168.5,169000,172.22,-2.16,173.7,171.82,2.37
 20260525,168.5,170.5,167,168.5,168000,171.91,-1.98,173.32,171.62,2.25
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 54.98
-- over_600_ratio: 47.05
-- over_800_ratio: 43.45
-- over_1000_ratio: 43.45
-- over_400_change_1w: 0.09
-- over_800_change_1w: 0.04
-- over_1000_change_1w: 0.04
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 55.16
+- over_600_ratio: 47.23
+- over_800_ratio: 43.53
+- over_1000_ratio: 43.53
+- over_400_change_1w: 0.18
+- over_800_change_1w: 0.08
+- over_1000_change_1w: 0.08
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,54.7,0.08,43.32,0.02,43.32,0.02,1,True,True
 20260515,54.89,0.19,43.41,0.09,43.41,0.09,2,True,True
 20260522,54.98,0.09,43.45,0.04,43.45,0.04,3,True,True
+20260529,55.16,0.18,43.53,0.08,43.53,0.08,4,True,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8933 愛地雅
 
 ## Metadata
-- generated_at: 2026-05-29 19:34:04 Asia/Taipei
+- generated_at: 2026-05-30 23:44:01 Asia/Taipei
 - stock_id: 8933
 - stock_name: 愛地雅
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,16 +100,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 52.94
-- over_600_ratio: 50.34
-- over_800_ratio: 48.31
-- over_1000_ratio: 47.52
-- over_400_change_1w: 0.19
-- over_800_change_1w: 0.01
-- over_1000_change_1w: -0.27
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 53.01
+- over_600_ratio: 50.38
+- over_800_ratio: 48.34
+- over_1000_ratio: 47.54
+- over_400_change_1w: 0.07
+- over_800_change_1w: 0.03
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,52.5,0.02,48.31,0,47.8,0.3,1,False,True
 20260515,52.75,0.25,48.3,-0.01,47.79,-0.01,2,False,False
 20260522,52.94,0.19,48.31,0.01,47.52,-0.27,3,False,True
+20260529,53.01,0.07,48.34,0.03,47.54,0.02,4,True,True
 ```
 
 ## Candidate Context

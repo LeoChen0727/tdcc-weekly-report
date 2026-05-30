@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8431 匯鑽科
 
 ## Metadata
-- generated_at: 2026-05-29 19:34:01 Asia/Taipei
+- generated_at: 2026-05-30 23:43:57 Asia/Taipei
 - stock_id: 8431
 - stock_name: 匯鑽科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 24.34
-- over_600_ratio: 20.86
-- over_800_ratio: 17.63
-- over_1000_ratio: 15.79
-- over_400_change_1w: -0.08
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260529
+- over_400_ratio: 24.4
+- over_600_ratio: 20.85
+- over_800_ratio: 17.62
+- over_1000_ratio: 15.78
+- over_400_change_1w: 0.06
+- over_800_change_1w: -0.01
+- over_1000_change_1w: -0.01
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,24.33,-0.1,17.61,0,15.77,0,0,False,False
 20260515,24.42,0.09,17.63,0.02,15.79,0.02,1,True,True
 20260522,24.34,-0.08,17.63,0,15.79,0,0,False,False
+20260529,24.4,0.06,17.62,-0.01,15.78,-0.01,1,False,False
 ```
 
 ## Candidate Context

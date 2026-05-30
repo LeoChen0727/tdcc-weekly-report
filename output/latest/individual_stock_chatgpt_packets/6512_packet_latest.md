@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6512 啟發電
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:29 Asia/Taipei
+- generated_at: 2026-05-30 23:43:06 Asia/Taipei
 - stock_id: 6512
 - stock_name: 啟發電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 126
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 262
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -83,7 +83,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260506,19,19.1,19,19.1,12000,19.37,-1.39,19.39,19.83,1.17
 20260507,19.45,19.45,19.35,19.35,4000,19.37,-0.09,19.38,19.81,0.43
 20260508,19.3,19.3,19.3,19.3,2000,19.36,-0.32,19.33,19.78,0.21
-20260511,19.3,19.3,19.2,19.2,22000,19.35,-0.77,19.3,19.76,2.13
+20260511,19.3,19.3,19.2,19.2,22000,19.35,-0.76,19.3,19.76,2.13
 20260512,19.2,19.2,19.2,19.2,9000,19.34,-0.7,19.29,19.74,0.89
 20260513,19.2,19.2,19.2,19.2,1000,19.32,-0.64,19.27,19.72,0.11
 20260514,19.2,19.2,19.2,19.2,2000,19.31,-0.59,19.26,19.71,0.23
@@ -100,13 +100,13 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 35.97
 - over_600_ratio: 27.63
 - over_800_ratio: 25.21
 - over_1000_ratio: 17.58
-- over_400_change_1w: -0.01
-- over_800_change_1w: -0.01
+- over_400_change_1w: 0
+- over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,35.98,-0.01,25.22,-0.01,17.58,0,0,False,False
 20260515,35.98,0,25.22,0,17.58,0,0,False,False
 20260522,35.97,-0.01,25.21,-0.01,17.58,0,0,False,False
+20260529,35.97,0,25.21,0,17.58,0,0,False,False
 ```
 
 ## Candidate Context

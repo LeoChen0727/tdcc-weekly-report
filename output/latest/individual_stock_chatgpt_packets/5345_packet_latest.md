@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5345 馥鴻
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:06 Asia/Taipei
+- generated_at: 2026-05-30 23:42:39 Asia/Taipei
 - stock_id: 5345
 - stock_name: 馥鴻
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 125
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 261
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -86,7 +86,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260511,21,21.85,21,21.85,3000,22.41,-2.49,22.57,23.01,0.2
 20260512,21.85,21.95,21.85,21.95,23000,22.37,-1.88,22.5,22.97,1.65
 20260513,21.15,21.9,20.95,21.9,6000,22.33,-1.93,22.41,22.94,0.44
-20260514,21.15,21.3,20.95,21.25,29000,22.24,-4.46,22.3,22.9,1.94
+20260514,21.15,21.3,20.95,21.25,29000,22.24,-4.45,22.3,22.9,1.94
 20260515,20.75,20.75,20.7,20.7,4000,22.11,-6.39,22.16,22.85,0.27
 20260518,20.7,20.7,20,20.7,21000,21.99,-5.89,22.02,22.79,1.34
 20260519,21,21,21,21,1000,21.91,-4.16,21.91,22.75,0.07
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 79.56
 - over_600_ratio: 79.56
 - over_800_ratio: 79.56
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,79.56,0,79.56,0,79.56,0,0,False,False
 20260515,79.56,0,79.56,0,79.56,0,0,False,False
 20260522,79.56,0,79.56,0,79.56,0,0,False,False
+20260529,79.56,0,79.56,0,79.56,0,0,False,False
 ```
 
 ## Candidate Context

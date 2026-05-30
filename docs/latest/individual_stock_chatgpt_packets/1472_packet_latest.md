@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1472 三洋實業
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:41 Asia/Taipei
+- generated_at: 2026-05-30 23:41:00 Asia/Taipei
 - stock_id: 1472
 - stock_name: 三洋實業
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 136
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 272
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -84,7 +84,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260507,91,91.4,90.5,91.3,35568,92.68,-1.49,93.38,92.57,1.34
 20260508,91.3,91.3,89.9,91.2,17603,92.56,-1.47,93.11,92.64,0.66
 20260511,90,90.9,89.4,90.9,12186,92.42,-1.65,92.91,92.7,0.46
-20260512,89.1,90.8,88.8,89.2,21145,92.15,-3.21,92.61,92.74,0.82
+20260512,89.1,90.8,88.8,89.2,21145,92.15,-3.2,92.61,92.74,0.82
 20260513,90.4,90.5,89.1,89.1,10002,91.9,-3.05,92.3,92.76,0.42
 20260514,89.2,89.2,89.2,89.2,9162,91.67,-2.7,91.99,92.77,0.4
 20260515,89.6,89.6,89.6,89.6,4079,91.5,-2.08,91.72,92.77,0.18
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 80.47
+- as_of_date: 20260529
+- over_400_ratio: 80.43
 - over_600_ratio: 74.05
 - over_800_ratio: 71.11
 - over_1000_ratio: 69.21
-- over_400_change_1w: 0.02
+- over_400_change_1w: -0.04
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 2
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,80.43,-0.06,71.09,0,69.19,0,0,False,False
 20260515,80.45,0.02,71.11,0.02,69.21,0.02,1,True,True
 20260522,80.47,0.02,71.11,0,69.21,0,2,False,False
+20260529,80.43,-0.04,71.11,0,69.21,0,0,False,False
 ```
 
 ## Candidate Context

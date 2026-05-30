@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6236 中湛
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:23 Asia/Taipei
+- generated_at: 2026-05-30 23:42:58 Asia/Taipei
 - stock_id: 6236
 - stock_name: 中湛
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260521
 - price_rows: 33
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 92.64
 - over_600_ratio: 91.48
 - over_800_ratio: 87.98
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,92.64,0,87.98,0,87.98,0,0,False,False
 20260515,92.64,0,87.98,0,87.98,0,0,False,False
 20260522,92.64,0,87.98,0,87.98,0,0,False,False
+20260529,92.64,0,87.98,0,87.98,0,0,False,False
 ```
 
 ## Candidate Context

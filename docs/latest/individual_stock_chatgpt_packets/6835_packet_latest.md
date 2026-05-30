@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6835 圓裕
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:41 Asia/Taipei
+- generated_at: 2026-05-30 23:43:19 Asia/Taipei
 - stock_id: 6835
 - stock_name: 圓裕
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 77.58
-- over_600_ratio: 72.32
-- over_800_ratio: 67.41
-- over_1000_ratio: 65.91
+- as_of_date: 20260529
+- over_400_ratio: 77.53
+- over_600_ratio: 72.34
+- over_800_ratio: 67.43
+- over_1000_ratio: 65.94
 - over_400_change_1w: -0.05
-- over_800_change_1w: -0.04
-- over_1000_change_1w: -1.54
-- tdcc_consecutive_up_weeks: 0
+- over_800_change_1w: 0.02
+- over_1000_change_1w: 0.03
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,77.64,0.36,67.46,0.06,67.46,1.56,1,True,True
 20260515,77.63,-0.01,67.45,-0.01,67.45,-0.01,0,False,False
 20260522,77.58,-0.05,67.41,-0.04,65.91,-1.54,0,False,False
+20260529,77.53,-0.05,67.43,0.02,65.94,0.03,1,False,True
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 6835 | 圓裕 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 6835 | 圓裕 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

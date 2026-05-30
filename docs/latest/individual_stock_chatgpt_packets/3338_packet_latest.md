@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3338 泰碩
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:32 Asia/Taipei
+- generated_at: 2026-05-30 23:42:00 Asia/Taipei
 - stock_id: 3338
 - stock_name: 泰碩
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -84,7 +84,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260508,73.1,74.1,71.4,72.9,2151382,70.92,2.79,71.53,62.14,0.41
 20260511,72.1,72.4,70.5,72.4,1655070,71.04,1.91,72.2,62.49,0.31
 20260512,73,74.4,71.2,71.5,1335219,71.08,0.59,72.83,62.84,0.25
-20260513,71.5,71.5,70,70,1083053,70.99,-1.39,73.25,63.15,0.2
+20260513,71.5,71.5,70,70,1083053,70.99,-1.4,73.25,63.15,0.2
 20260514,71,71.9,68.6,68.7,1520758,70.8,-2.97,73.43,63.42,0.29
 20260515,70,75.5,69.6,73,4504934,70.98,2.84,73.86,63.76,0.84
 20260518,73.2,78.2,72,77.8,4737578,71.55,8.73,74.47,64.21,0.86
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 30.67
-- over_600_ratio: 26.61
-- over_800_ratio: 22.47
-- over_1000_ratio: 21.46
-- over_400_change_1w: 0.36
-- over_800_change_1w: -2.14
-- over_1000_change_1w: -1.22
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 29.89
+- over_600_ratio: 25.33
+- over_800_ratio: 23.68
+- over_1000_ratio: 22.67
+- over_400_change_1w: -0.78
+- over_800_change_1w: 1.21
+- over_1000_change_1w: 1.21
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,30.06,0.19,24.39,0.08,21.43,0,1,False,True
 20260515,30.31,0.25,24.61,0.22,22.68,1.25,2,True,True
 20260522,30.67,0.36,22.47,-2.14,21.46,-1.22,3,False,False
+20260529,29.89,-0.78,23.68,1.21,22.67,1.21,4,False,True
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 3338 | 泰碩 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 3338 | 泰碩 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

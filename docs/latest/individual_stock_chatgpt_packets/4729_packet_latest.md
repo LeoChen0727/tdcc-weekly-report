@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4729 熒茂
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:55 Asia/Taipei
+- generated_at: 2026-05-30 23:42:27 Asia/Taipei
 - stock_id: 4729
 - stock_name: 熒茂
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -84,7 +84,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260508,19.95,21.65,19.95,20.7,2046000,20.03,3.32,20.01,20.6,5.8
 20260511,20.3,21.45,20.2,21,867000,20.11,4.4,20.08,20.59,2.24
 20260512,21.2,21.2,20.4,20.45,356000,20.14,1.53,20.11,20.57,0.89
-20260513,20.45,20.45,19.95,20.05,303000,20.13,-0.42,20.11,20.55,0.74
+20260513,20.45,20.45,19.95,20.05,303000,20.14,-0.42,20.11,20.55,0.74
 20260514,20.3,20.45,20,20.45,258000,20.16,1.43,20.14,20.53,0.62
 20260515,20.45,21.2,20.45,20.75,304000,20.21,2.67,20.15,20.51,0.75
 20260518,20.95,22.8,20.65,22.8,1878000,20.43,11.62,20.27,20.54,3.86
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 52.14
-- over_600_ratio: 50.31
-- over_800_ratio: 47.59
-- over_1000_ratio: 46.57
-- over_400_change_1w: -0.17
-- over_800_change_1w: -0.12
-- over_1000_change_1w: -0.12
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260529
+- over_400_ratio: 52.23
+- over_600_ratio: 50.37
+- over_800_ratio: 48.63
+- over_1000_ratio: 46.56
+- over_400_change_1w: 0.09
+- over_800_change_1w: 1.04
+- over_1000_change_1w: -0.01
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,52.82,0.09,47.67,-0.1,46.66,-0.1,1,False,False
 20260515,52.31,-0.51,47.71,0.04,46.69,0.03,2,False,True
 20260522,52.14,-0.17,47.59,-0.12,46.57,-0.12,0,False,False
+20260529,52.23,0.09,48.63,1.04,46.56,-0.01,1,False,True
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 4729 | 熒茂 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260530 | 4729 | 熒茂 | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

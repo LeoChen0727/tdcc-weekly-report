@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2451 創見
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:05 Asia/Taipei
+- generated_at: 2026-05-30 23:41:28 Asia/Taipei
 - stock_id: 2451
 - stock_name: 創見
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -79,7 +79,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,258,266,253.5,265.5,9723247,253.09,4.9,251.12,242.13,1.05
 20260505,265.5,287,264,283,12639417,255.59,10.73,253.62,242.64,1.29
-20260506,304,311,293.5,302.5,19504176,259.5,16.57,257.07,243.67,1.83
+20260506,304,311,293.5,302.5,19504176,259.49,16.57,257.07,243.67,1.83
 20260507,312,312,293.5,302.5,11635228,263.08,14.98,259.8,244.53,1.08
 20260508,313,330,301.5,312.5,22628468,267.2,16.95,263.77,245.43,2
 20260511,333,343.5,332.5,343.5,14540723,273.56,25.57,268.93,246.71,1.26
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 77.98
-- over_600_ratio: 76.49
-- over_800_ratio: 75.18
-- over_1000_ratio: 72.16
-- over_400_change_1w: -1.35
-- over_800_change_1w: -0.85
-- over_1000_change_1w: -1.53
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260529
+- over_400_ratio: 78.01
+- over_600_ratio: 76.55
+- over_800_ratio: 74.8
+- over_1000_ratio: 71.8
+- over_400_change_1w: 0.03
+- over_800_change_1w: -0.38
+- over_1000_change_1w: -0.36
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,19 +120,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,78.77,0.26,75.14,-0.19,73.64,-0.38,1,False,False
 20260515,79.33,0.56,76.03,0.89,73.69,0.05,2,True,True
 20260522,77.98,-1.35,75.18,-0.85,72.16,-1.53,0,False,False
+20260529,78.01,0.03,74.8,-0.38,71.8,-0.36,1,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2451 | 創見 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_put_bullish | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
-| 20260529 | 2451 | 創見 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | call_put_bullish | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260530 | 2451 | 創見 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_put_bullish | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260530 | 2451 | 創見 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_put_bullish | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 | 20260521 | 2451 | 創見 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_put_bullish | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2451 | 創見 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 2451 | 創見 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4433 興采
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:50 Asia/Taipei
+- generated_at: 2026-05-30 23:42:21 Asia/Taipei
 - stock_id: 4433
 - stock_name: 興采
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 136
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 272
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 57.06
 - over_600_ratio: 54.78
 - over_800_ratio: 53.64
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,57.03,0,53.64,0,52.24,0,0,False,False
 20260515,57.06,0.03,53.64,0,52.24,0,1,False,False
 20260522,57.06,0,53.64,0,52.24,0,0,False,False
+20260529,57.06,0,53.64,0,52.24,0,0,False,False
 ```
 
 ## Candidate Context

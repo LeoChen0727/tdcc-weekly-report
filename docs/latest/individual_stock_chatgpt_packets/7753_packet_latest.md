@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7753 星亞
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:50 Asia/Taipei
+- generated_at: 2026-05-30 23:43:45 Asia/Taipei
 - stock_id: 7753
 - stock_name: 星亞
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -82,7 +82,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260506,43,43,41.45,42.05,98000,42.36,-0.74,42.12,41.61,1.04
 20260507,42.05,43.35,41.65,42.25,60000,42.36,-0.25,42.2,41.61,0.62
 20260508,43.3,43.3,41.75,42.05,39000,42.33,-0.66,42.3,41.59,0.4
-20260511,43,43,42,42.6,23000,42.35,0.58,42.43,41.59,0.24
+20260511,43,43,42,42.6,23000,42.35,0.59,42.43,41.59,0.24
 20260512,41.95,42.7,41.85,42.2,38000,42.34,-0.33,42.54,41.56,0.39
 20260513,42,42.25,41.65,42.25,45000,42.33,-0.19,42.67,41.54,0.46
 20260514,42.2,42.25,41.95,41.95,30000,42.3,-0.83,42.79,41.53,0.31
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 74.15
 - over_600_ratio: 72.51
 - over_800_ratio: 69.34
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,74.15,0,69.34,0,65.34,0,0,False,False
 20260515,74.15,0,69.34,0,65.34,0,0,False,False
 20260522,74.15,0,69.34,0,65.34,0,0,False,False
+20260529,74.15,0,69.34,0,65.34,0,0,False,False
 ```
 
 ## Candidate Context

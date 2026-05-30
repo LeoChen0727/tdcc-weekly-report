@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1519 華城
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:42 Asia/Taipei
+- generated_at: 2026-05-30 23:41:01 Asia/Taipei
 - stock_id: 1519
 - stock_name: 華城
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,38 +77,38 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,914,944,908,917,5796349,879.06,4.32,861.35,913.27,1.84
+20260504,914,944,908,917,5796349,879.05,4.32,861.35,913.27,1.84
 20260505,920,920,888,895,3808611,880.38,1.66,866.25,911.18,1.18
-20260506,903,905,886,887,2236888,880.94,0.69,871.35,909.05,0.69
+20260506,903,905,886,887,2236888,880.93,0.69,871.35,909.05,0.69
 20260507,900,910,888,891,2256806,881.77,1.05,874.4,906.57,0.69
 20260508,894,939,876,896,5195517,882.96,1.48,878.9,904.58,1.5
 20260511,918,924,893,921,3284442,886.13,3.94,884.25,903.77,0.92
 20260512,921,942,906,914,5651993,888.45,2.88,889.1,903.3,1.49
-20260513,908,924,892,895,3195613,889,0.68,892.35,902.43,0.84
+20260513,908,924,892,895,3195613,888.99,0.68,892.35,902.43,0.84
 20260514,900,901,862,870,4959620,887.41,-1.96,892,900.42,1.3
-20260515,875,877,821,823,4617577,882.05,-6.69,889.55,898.22,1.23
+20260515,875,877,821,823,4617577,882.04,-6.69,889.55,898.22,1.23
 20260518,791,805,773,804,3202247,875.54,-8.17,886.15,896.45,0.86
-20260519,807,814,783,783,2770729,867.83,-9.78,880.75,893.75,0.76
+20260519,807,814,783,783,2770729,867.83,-9.77,880.75,893.75,0.76
 20260520,786,786,770,770,1904925,859.68,-10.43,873.3,890.48,0.54
-20260521,787,804,785,800,1454510,854.71,-6.4,867.55,887.7,0.43
+20260521,787,804,785,800,1454510,854.7,-6.4,867.55,887.7,0.43
 20260522,809,835,802,826,1840162,852.31,-3.09,865,885.37,0.57
 20260525,836,844,822,830,1884487,850.45,-2.4,862.2,883.27,0.6
 20260526,845,885,845,851,3578095,850.5,0.06,860.35,879.95,1.12
 20260527,870,912,867,878,6244413,852.79,2.96,860.5,876.75,1.83
-20260528,889,920,836,846,7369753,852.23,-0.73,859.25,873.68,1.99
+20260528,889,920,836,846,7369753,852.22,-0.73,859.25,873.68,1.99
 20260529,864,874,834,874,3902585,854.04,2.34,858.55,871.83,1.04
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 74.88
-- over_600_ratio: 72.96
-- over_800_ratio: 70.74
-- over_1000_ratio: 68.2
-- over_400_change_1w: -0.42
-- over_800_change_1w: -0.83
-- over_1000_change_1w: -0.34
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260529
+- over_400_ratio: 75
+- over_600_ratio: 72.8
+- over_800_ratio: 70.55
+- over_1000_ratio: 67.43
+- over_400_change_1w: 0.12
+- over_800_change_1w: -0.19
+- over_1000_change_1w: -0.77
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,17 +120,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,75.76,-0.07,71.41,0.07,68.31,-0.5,1,False,True
 20260515,75.3,-0.46,71.57,0.16,68.54,0.23,2,False,True
 20260522,74.88,-0.42,70.74,-0.83,68.2,-0.34,0,False,False
+20260529,75,0.12,70.55,-0.19,67.43,-0.77,1,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 1519 | 華城 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260530 | 1519 | 華城 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 1519 | 華城 | 1 | 1 | 3 | 3 | 3 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260530 | 1519 | 華城 | 2 | 2 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

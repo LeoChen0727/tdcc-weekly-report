@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3044 健鼎
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:23 Asia/Taipei
+- generated_at: 2026-05-30 23:41:49 Asia/Taipei
 - stock_id: 3044
 - stock_name: 健鼎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,7 +77,7 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,460,470,453.5,465.5,3858880,423.2,10,418.57,388.23,0.68
+20260504,460,470,453.5,465.5,3858880,423.19,10,418.57,388.23,0.68
 20260505,465,491,463.5,484.5,4280394,428.3,13.12,425.48,390.15,0.75
 20260506,495,506,477.5,488,8234680,433.28,12.63,432.02,391.88,1.37
 20260507,489,510,488,500,4740094,438.84,13.94,438.52,393.66,0.79
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 80.99
-- over_600_ratio: 76.6
-- over_800_ratio: 73.34
-- over_1000_ratio: 71.04
-- over_400_change_1w: -0.49
-- over_800_change_1w: -0.04
-- over_1000_change_1w: -0.23
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260529
+- over_400_ratio: 80.86
+- over_600_ratio: 76.87
+- over_800_ratio: 73.36
+- over_1000_ratio: 70.53
+- over_400_change_1w: -0.13
+- over_800_change_1w: 0.02
+- over_1000_change_1w: -0.51
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,17 +120,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,81.6,0.42,73.5,-0.4,71.73,-0.07,1,False,False
 20260515,81.48,-0.12,73.38,-0.12,71.27,-0.46,0,False,False
 20260522,80.99,-0.49,73.34,-0.04,71.04,-0.23,0,False,False
+20260529,80.86,-0.13,73.36,0.02,70.53,-0.51,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 3044 | 健鼎 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260530 | 3044 | 健鼎 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 3044 | 健鼎 | 7 | 4 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 3044 | 健鼎 | 8 | 5 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

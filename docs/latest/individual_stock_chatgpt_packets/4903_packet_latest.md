@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4903 聯光通
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:57 Asia/Taipei
+- generated_at: 2026-05-30 23:42:29 Asia/Taipei
 - stock_id: 4903
 - stock_name: 聯光通
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -81,7 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260505,45.65,46.15,45.3,45.5,2154000,46.51,-2.18,47.28,44.35,0.29
 20260506,46.1,46.4,44,44.6,2600000,46.35,-3.78,47.27,44.4,0.36
 20260507,45.05,45.55,43.9,45.4,2377000,46.27,-1.89,47.27,44.44,0.33
-20260508,44.45,46.1,42.1,43,3116000,46,-6.52,47.21,44.44,0.43
+20260508,44.45,46.1,42.1,43,3116000,46,-6.53,47.21,44.44,0.43
 20260511,43.25,43.95,42.4,43.3,1749000,45.78,-5.41,47,44.49,0.26
 20260512,44.2,46.15,44.2,44.4,4653000,45.66,-2.76,46.81,44.6,0.71
 20260513,44.15,47.65,42.9,47.45,7271000,45.81,3.58,46.8,44.76,1.09
@@ -95,20 +95,20 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,48.8,48.8,47,47.05,48000,46.32,1.57,45.73,45.61,0.01
 20260526,47.3,47.6,45.75,46.75,47000,46.36,0.84,45.82,45.7,0.01
 20260527,47.15,47.35,44.7,44.9,46000,46.24,-2.89,45.84,45.71,0.01
-20260528,45.05,45.45,43.6,43.7,45000,46.03,-5.05,45.77,45.71,0.01
+20260528,45.05,45.45,43.6,43.7,45000,46.03,-5.06,45.77,45.71,0.01
 20260529,44.05,45,43.6,44.85,44000,45.93,-2.35,45.75,45.71,0.02
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 45.97
-- over_600_ratio: 43.5
-- over_800_ratio: 42.17
-- over_1000_ratio: 41.4
-- over_400_change_1w: -0.73
-- over_800_change_1w: -0.59
-- over_1000_change_1w: -0.59
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260529
+- over_400_ratio: 45.75
+- over_600_ratio: 41.62
+- over_800_ratio: 41.62
+- over_1000_ratio: 39.03
+- over_400_change_1w: -0.22
+- over_800_change_1w: -0.55
+- over_1000_change_1w: -2.37
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,46.55,-0.61,42.77,-0.91,41.99,0,0,False,False
 20260515,46.7,0.15,42.76,-0.01,41.99,0,1,False,False
 20260522,45.97,-0.73,42.17,-0.59,41.4,-0.59,2,False,False
+20260529,45.75,-0.22,41.62,-0.55,39.03,-2.37,0,False,False
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 4903 | 聯光通 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260530 | 4903 | 聯光通 | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

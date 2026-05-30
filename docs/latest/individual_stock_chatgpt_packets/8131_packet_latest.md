@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8131 福懋科
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:57 Asia/Taipei
+- generated_at: 2026-05-30 23:43:52 Asia/Taipei
 - stock_id: 8131
 - stock_name: 福懋科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,21 +77,21 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,61.5,66.8,61.5,66.8,13899921,62.18,7.42,61.39,65.38,2.72
+20260504,61.5,66.8,61.5,66.8,13899921,62.18,7.43,61.39,65.38,2.72
 20260505,66.8,69.9,66.8,69,17814626,62.75,9.96,61.9,65.11,3.04
 20260506,72.6,75,70.6,72.8,27974638,63.59,14.49,62.58,64.97,3.9
 20260507,73.2,73.8,70.1,70.3,13772666,64.15,9.59,63,64.78,1.8
 20260508,70,70,64.3,65.9,8615904,64.29,2.5,63.2,64.58,1.1
 20260511,67.9,69.6,67.1,67.5,7462002,64.56,4.55,63.53,64.39,0.93
 20260512,68.3,68.3,64.5,67,6375428,64.76,3.45,63.74,64.32,0.79
-20260513,65,65.8,64.5,65.1,2869398,64.79,0.47,63.88,64.29,0.36
+20260513,65,65.8,64.5,65.1,2869398,64.79,0.48,63.88,64.29,0.36
 20260514,66.6,69,65.8,67,6643459,64.98,3.11,64.16,64.25,0.81
 20260515,68,68,64.3,65.2,5123284,64.99,0.32,64.33,64.23,0.62
 20260518,64.1,64.1,61.6,63.3,2878949,64.85,-2.4,64.46,64.21,0.35
 20260519,62.5,62.6,59.7,60.2,4384329,64.47,-6.62,64.5,64.12,0.53
 20260520,60.4,61.9,58.5,60.9,3044437,64.17,-5.09,64.44,64.04,0.37
 20260521,62,62.4,61.5,62.2,2363646,64,-2.82,64.42,63.92,0.29
-20260522,62.6,65.4,62.5,64.7,4310944,64.06,0.99,64.75,63.85,0.53
+20260522,62.6,65.4,62.5,64.7,4310944,64.06,1,64.75,63.85,0.53
 20260525,65.9,66,63.3,65.3,4434587,64.17,1.77,65.12,63.75,0.54
 20260526,65.4,67.5,64.4,66.6,6063979,64.37,3.47,65.37,63.69,0.75
 20260527,70.1,71.7,67.3,68.9,14737339,64.75,6.42,65.68,63.65,1.73
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 70.83
-- over_600_ratio: 70.1
-- over_800_ratio: 68.97
-- over_1000_ratio: 68.75
-- over_400_change_1w: -0.63
-- over_800_change_1w: -0.4
-- over_1000_change_1w: -0.62
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 72.39
+- over_600_ratio: 71.65
+- over_800_ratio: 70.55
+- over_1000_ratio: 70.34
+- over_400_change_1w: 1.56
+- over_800_change_1w: 1.58
+- over_1000_change_1w: 1.59
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,18 +120,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,71.68,-0.5,69.7,-0.62,69.5,0.02,1,False,True
 20260515,71.46,-0.22,69.37,-0.33,69.37,-0.13,0,False,False
 20260522,70.83,-0.63,68.97,-0.4,68.75,-0.62,0,False,False
+20260529,72.39,1.56,70.55,1.58,70.34,1.59,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 8131 | 福懋科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260530 | 8131 | 福懋科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 | 20260521 | 8131 | 福懋科 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 8131 | 福懋科 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260530 | 8131 | 福懋科 | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

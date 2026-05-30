@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3543 州巧
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:38 Asia/Taipei
+- generated_at: 2026-05-30 23:42:07 Asia/Taipei
 - stock_id: 3543
 - stock_name: 州巧
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 48.29
-- over_600_ratio: 42.15
-- over_800_ratio: 39.05
-- over_1000_ratio: 35.21
-- over_400_change_1w: 0.66
-- over_800_change_1w: 0.81
-- over_1000_change_1w: 0.91
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 48.5
+- over_600_ratio: 42.88
+- over_800_ratio: 38.61
+- over_1000_ratio: 32.9
+- over_400_change_1w: 0.21
+- over_800_change_1w: -0.44
+- over_1000_change_1w: -2.31
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,50.21,-0.6,38.29,-1.95,34.27,-1.27,0,False,False
 20260515,47.63,-2.58,38.24,-0.05,34.3,0.03,1,False,True
 20260522,48.29,0.66,39.05,0.81,35.21,0.91,2,True,True
+20260529,48.5,0.21,38.61,-0.44,32.9,-2.31,3,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2375 凱美
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:01 Asia/Taipei
+- generated_at: 2026-05-30 23:41:23 Asia/Taipei
 - stock_id: 2375
 - stock_name: 凱美
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 6
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -85,7 +85,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260511,90,91.8,86.5,91.5,4904848,86.16,6.2,86.79,83.89,0.85
 20260512,91.5,95.9,89.6,94.8,10395859,86.88,9.11,87.25,84.05,1.71
 20260513,93.8,96.4,91.7,96,7092583,87.64,9.54,87.79,84.23,1.19
-20260514,103.5,105.5,98.1,101,18728691,88.76,13.8,88.55,84.48,2.9
+20260514,103.5,105.5,98.1,101,18728691,88.75,13.8,88.55,84.48,2.9
 20260515,100,110.5,99.4,99.4,21501438,89.64,10.89,89.14,84.74,3.03
 20260518,101,104.5,99.4,103,13180403,90.76,13.49,89.89,85.1,1.77
 20260519,100,103,98.7,101.5,8200143,91.65,10.75,90.5,85.41,1.09
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 35.1
-- over_600_ratio: 32.23
-- over_800_ratio: 31.57
-- over_1000_ratio: 29.08
-- over_400_change_1w: 7.79
-- over_800_change_1w: 8.18
-- over_1000_change_1w: 8.27
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 37.65
+- over_600_ratio: 36.24
+- over_800_ratio: 34.99
+- over_1000_ratio: 32.52
+- over_400_change_1w: 2.55
+- over_800_change_1w: 3.42
+- over_1000_change_1w: 3.44
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -122,17 +122,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,26.71,1.33,21.76,-0.53,20.08,-1.44,1,False,False
 20260515,27.31,0.6,23.39,1.63,20.81,0.73,2,True,True
 20260522,35.1,7.79,31.57,8.18,29.08,8.27,3,True,True
+20260529,37.65,2.55,34.99,3.42,32.52,3.44,4,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2375 | 凱美 | true_breakout | 嚴格突破 | 76.0 |  |  | platform_breakout |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260530 | 2375 | 凱美 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2375 | 凱美 | 5 | 3 | 5 | 5 | 5 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260530 | 2375 | 凱美 | 6 | 1 | 5 | 6 | 6 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

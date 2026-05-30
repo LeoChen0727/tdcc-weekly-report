@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6967 汎瑋材料
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:46 Asia/Taipei
+- generated_at: 2026-05-30 23:43:25 Asia/Taipei
 - stock_id: 6967
 - stock_name: 汎瑋材料
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 136
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 272
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -92,7 +92,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260520,72.3,72.4,71,71.2,36000,74.27,-4.13,76.42,70.93,0.13
 20260521,72.5,73.5,71.5,72.5,69000,74.12,-2.19,76.3,71.03,0.27
 20260522,73.4,74.3,72.4,74.1,73000,74.12,-0.02,76.42,71.13,0.29
-20260525,74.9,75.2,73.2,73.5,74000,74.07,-0.76,76.3,71.21,0.34
+20260525,74.9,75.2,73.2,73.5,74000,74.07,-0.77,76.3,71.21,0.34
 20260526,74,74,72.3,72.9,73000,73.97,-1.45,75.9,71.29,0.38
 20260527,72.9,74.5,72.2,72.3,73000,73.83,-2.07,75.61,71.33,0.41
 20260528,72.3,73.6,70.7,71.3,72000,73.62,-3.15,75.3,71.38,0.41
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 75.65
 - over_600_ratio: 62.48
 - over_800_ratio: 54.35
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,75.65,0,54.35,0,47.92,0,0,False,False
 20260515,75.65,0,54.35,0,47.92,0,0,False,False
 20260522,75.65,0,54.35,0,47.92,0,0,False,False
+20260529,75.65,0,54.35,0,47.92,0,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7402 邑錡
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:47 Asia/Taipei
+- generated_at: 2026-05-30 23:43:41 Asia/Taipei
 - stock_id: 7402
 - stock_name: 邑錡
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -82,7 +82,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260506,126.5,126.5,121.5,122.5,368000,122.51,-0.01,122.42,123.67,0.57
 20260507,123,123.5,120.5,122,273000,122.47,-0.38,122.6,123.44,0.42
 20260508,123.5,129.5,122.5,125.5,1159000,122.72,2.26,123.17,123.24,1.69
-20260511,121.5,121.5,113,114.5,1021000,122.04,-6.18,123.15,122.96,1.41
+20260511,121.5,121.5,113,114.5,1021000,122.04,-6.17,123.15,122.96,1.41
 20260512,116,116,112,112.5,470000,121.24,-7.21,122.78,122.8,0.65
 20260513,113,113.5,108,109,544000,120.22,-9.33,122.2,122.56,0.75
 20260514,109.5,109.5,100,101.5,1075000,118.66,-14.46,121.22,122.2,1.43
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 37.77
-- over_600_ratio: 31.35
-- over_800_ratio: 26.95
-- over_1000_ratio: 26.95
-- over_400_change_1w: -0.76
-- over_800_change_1w: -2.38
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 38.31
+- over_600_ratio: 31.82
+- over_800_ratio: 29.61
+- over_1000_ratio: 26.96
+- over_400_change_1w: 0.54
+- over_800_change_1w: 2.66
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,41.23,2.19,29.46,-0.01,26.8,0,1,False,False
 20260515,38.53,-2.7,29.33,-0.13,26.95,0.15,2,False,True
 20260522,37.77,-0.76,26.95,-2.38,26.95,0,0,False,False
+20260529,38.31,0.54,29.61,2.66,26.96,0.01,1,True,True
 ```
 
 ## Candidate Context

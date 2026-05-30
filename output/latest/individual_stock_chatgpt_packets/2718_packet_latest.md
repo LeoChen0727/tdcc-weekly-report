@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2718 全心投控
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:14 Asia/Taipei
+- generated_at: 2026-05-30 23:41:38 Asia/Taipei
 - stock_id: 2718
 - stock_name: 全心投控
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,7 +77,7 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,43.95,43.95,43.1,43.25,74000,45.89,-5.76,46.03,47.79,1.93
+20260504,43.95,43.95,43.1,43.25,74000,45.89,-5.75,46.03,47.79,1.93
 20260505,43.1,43.1,42.65,42.75,84000,45.63,-6.31,45.84,47.65,2.02
 20260506,43,43.1,42.7,43,45000,45.41,-5.31,45.67,47.52,1.04
 20260507,43.1,43.1,42.2,42.4,121000,45.16,-6.11,45.46,47.38,2.49
@@ -93,22 +93,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260521,46.1,46.35,46.1,46.2,59000,45.22,2.16,44.3,46.77,0.73
 20260522,46.2,46.2,45.2,46.1,46000,45.3,1.77,44.3,46.72,0.56
 20260525,46.1,46.1,44.6,45.15,45000,45.29,-0.3,44.29,46.66,0.56
-20260526,45.1,45.25,44.8,45.1,45000,45.27,-0.38,44.36,46.59,0.58
+20260526,45.1,45.25,44.8,45.1,45000,45.27,-0.37,44.36,46.59,0.58
 20260527,44.9,45.05,44.6,44.8,45000,45.23,-0.95,44.44,46.5,0.59
 20260528,44.75,45.6,44.75,45.4,45000,45.24,0.34,44.52,46.42,0.58
 20260529,45.6,46.75,45.4,46.45,46000,45.35,2.44,44.66,46.37,0.59
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 86.92
-- over_600_ratio: 86.92
-- over_800_ratio: 86.92
-- over_1000_ratio: 86.92
-- over_400_change_1w: 0.27
-- over_800_change_1w: 0.27
-- over_1000_change_1w: 0.27
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260529
+- over_400_ratio: 87.08
+- over_600_ratio: 87.08
+- over_800_ratio: 87.08
+- over_1000_ratio: 87.08
+- over_400_change_1w: 0.16
+- over_800_change_1w: 0.16
+- over_1000_change_1w: 0.16
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,86.53,0,86.53,0,86.53,0,0,False,False
 20260515,86.65,0.12,86.65,0.12,86.65,0.12,1,True,True
 20260522,86.92,0.27,86.92,0.27,86.92,0.27,2,True,True
+20260529,87.08,0.16,87.08,0.16,87.08,0.16,3,True,True
 ```
 
 ## Candidate Context

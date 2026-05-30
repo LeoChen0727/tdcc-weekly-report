@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6191 精成科
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:19 Asia/Taipei
+- generated_at: 2026-05-30 23:42:54 Asia/Taipei
 - stock_id: 6191
 - stock_name: 精成科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,7 +77,7 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,99.7,99.9,97.6,98.5,6554717,102.58,-3.97,102.42,101.94,0.56
+20260504,99.7,99.9,97.6,98.5,6554717,102.57,-3.97,102.42,101.94,0.56
 20260505,98.5,101.5,98.4,100,6503262,102.36,-2.31,103,101.64,0.55
 20260506,101.5,103,98,99.5,9275294,102.12,-2.57,103.53,101.39,0.76
 20260507,100.5,101.5,99.1,100,5994714,101.95,-1.91,103.81,101.16,0.49
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 54.69
-- over_600_ratio: 53.72
-- over_800_ratio: 52.07
-- over_1000_ratio: 50.46
-- over_400_change_1w: -0.34
-- over_800_change_1w: -0.47
-- over_1000_change_1w: -0.07
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260529
+- over_400_ratio: 54.49
+- over_600_ratio: 53.4
+- over_800_ratio: 52.15
+- over_1000_ratio: 51.08
+- over_400_change_1w: -0.2
+- over_800_change_1w: 0.08
+- over_1000_change_1w: 0.62
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,57.09,-0.98,54.69,-0.48,53.05,-0.64,0,False,False
 20260515,55.03,-2.06,52.54,-2.15,50.53,-2.52,0,False,False
 20260522,54.69,-0.34,52.07,-0.47,50.46,-0.07,0,False,False
+20260529,54.49,-0.2,52.15,0.08,51.08,0.62,1,False,True
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 6191 | 精成科 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260530 | 6191 | 精成科 | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

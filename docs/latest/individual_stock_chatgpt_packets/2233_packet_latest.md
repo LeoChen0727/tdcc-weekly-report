@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2233 宇隆
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:56 Asia/Taipei
+- generated_at: 2026-05-30 23:41:17 Asia/Taipei
 - stock_id: 2233
 - stock_name: 宇隆
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 61.38
-- over_600_ratio: 55.47
-- over_800_ratio: 46.56
-- over_1000_ratio: 39.63
-- over_400_change_1w: 1.49
-- over_800_change_1w: 3.94
-- over_1000_change_1w: 0.08
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 58.48
+- over_600_ratio: 48.48
+- over_800_ratio: 42.66
+- over_1000_ratio: 39.52
+- over_400_change_1w: -2.9
+- over_800_change_1w: -3.9
+- over_1000_change_1w: -0.11
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,60.82,5.56,42.43,-0.01,39.43,0.05,1,False,True
 20260515,59.89,-0.93,42.62,0.19,39.55,0.12,2,False,True
 20260522,61.38,1.49,46.56,3.94,39.63,0.08,3,True,True
+20260529,58.48,-2.9,42.66,-3.9,39.52,-0.11,0,False,False
 ```
 
 ## Candidate Context

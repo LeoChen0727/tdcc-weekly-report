@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2460 建通
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:06 Asia/Taipei
+- generated_at: 2026-05-30 23:41:29 Asia/Taipei
 - stock_id: 2460
 - stock_name: 建通
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -83,7 +83,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260507,33.7,34.25,33,33.65,1186596,33.94,-0.85,35.71,28.48,0.38
 20260508,33.05,33.35,32,32,1204604,33.78,-5.26,35.86,28.64,0.39
 20260511,32,33.1,31.2,33,897715,33.71,-2.11,35.96,28.81,0.3
-20260512,31.45,32.65,31.45,32.05,959023,33.57,-4.53,35.88,28.99,0.33
+20260512,31.45,32.65,31.45,32.05,959023,33.57,-4.54,35.88,28.99,0.33
 20260513,32.05,35.25,31.4,35.25,2500804,33.71,4.56,35.92,29.22,0.88
 20260514,34.15,35.55,33.5,33.6,2404942,33.7,-0.31,35.83,29.42,0.85
 20260515,33,33.55,31.8,32,1172003,33.56,-4.65,35.57,29.6,0.44
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 59.27
-- over_600_ratio: 57.57
-- over_800_ratio: 55.95
-- over_1000_ratio: 55.46
-- over_400_change_1w: 0.04
-- over_800_change_1w: 0.01
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 59.49
+- over_600_ratio: 57.51
+- over_800_ratio: 55.89
+- over_1000_ratio: 55.4
+- over_400_change_1w: 0.22
+- over_800_change_1w: -0.06
+- over_1000_change_1w: -0.06
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,59.75,-0.37,56.25,-0.66,55.76,-0.66,0,False,False
 20260515,59.23,-0.52,55.94,-0.31,55.45,-0.31,1,False,False
 20260522,59.27,0.04,55.95,0.01,55.46,0.01,2,True,True
+20260529,59.49,0.22,55.89,-0.06,55.4,-0.06,3,False,False
 ```
 
 ## Candidate Context

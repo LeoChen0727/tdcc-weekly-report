@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9940 信義
 
 ## Metadata
-- generated_at: 2026-05-29 19:34:08 Asia/Taipei
+- generated_at: 2026-05-30 23:44:05 Asia/Taipei
 - stock_id: 9940
 - stock_name: 信義
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -83,7 +83,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260507,19.7,19.75,19.6,19.75,494618,19.96,-1.05,19.93,20.52,1.09
 20260508,19.6,19.75,19.55,19.6,741327,19.93,-1.65,19.91,20.48,1.58
 20260511,19.5,19.5,19.15,19.2,1355727,19.87,-3.37,19.88,20.44,2.62
-20260512,19.2,19.2,18.9,18.95,1002853,19.79,-4.25,19.83,20.39,1.88
+20260512,19.2,19.2,18.9,18.95,1002853,19.79,-4.26,19.83,20.39,1.88
 20260513,18.95,19,18.65,19,809249,19.73,-3.68,19.77,20.35,1.46
 20260514,18.9,19.05,18.6,18.6,486160,19.63,-5.26,19.7,20.29,0.87
 20260515,18.6,18.7,18.2,18.25,909344,19.52,-6.49,19.6,20.23,1.57
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 81.38
-- over_600_ratio: 79.13
-- over_800_ratio: 78.52
-- over_1000_ratio: 77.94
-- over_400_change_1w: 0.03
-- over_800_change_1w: 0.05
-- over_1000_change_1w: -0.07
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260529
+- over_400_ratio: 81.56
+- over_600_ratio: 79.11
+- over_800_ratio: 78.49
+- over_1000_ratio: 77.91
+- over_400_change_1w: 0.18
+- over_800_change_1w: -0.03
+- over_1000_change_1w: -0.03
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,81.37,-0.08,78.64,-0.06,78.06,-0.06,0,False,False
 20260515,81.35,-0.02,78.47,-0.17,78.01,-0.05,0,False,False
 20260522,81.38,0.03,78.52,0.05,77.94,-0.07,1,False,True
+20260529,81.56,0.18,78.49,-0.03,77.91,-0.03,2,False,False
 ```
 
 ## Candidate Context

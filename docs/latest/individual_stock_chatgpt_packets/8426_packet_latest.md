@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8426 紅木-KY
 
 ## Metadata
-- generated_at: 2026-05-29 19:34:01 Asia/Taipei
+- generated_at: 2026-05-30 23:43:57 Asia/Taipei
 - stock_id: 8426
 - stock_name: 紅木-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -90,7 +90,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260518,21.1,21.5,20.5,21,73000,23.15,-9.28,23.24,25,1.47
 20260519,21.3,23.1,21.3,23.1,256000,23.14,-0.19,23.15,24.93,4.2
 20260520,22.7,22.8,22,22.15,249000,23.06,-3.95,23.02,24.84,3.47
-20260521,22.45,22.8,22.3,22.4,55000,23.01,-2.64,22.91,24.76,0.75
+20260521,22.45,22.8,22.3,22.4,55000,23.01,-2.63,22.91,24.76,0.75
 20260522,22.45,22.5,22.05,22.15,22000,22.93,-3.42,22.81,24.67,0.31
 20260525,21.7,22.3,21.15,21.65,22000,22.83,-5.16,22.69,24.57,0.32
 20260526,21.65,22.95,21.55,22.55,22000,22.8,-1.12,22.62,24.49,0.32
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 74.39
+- as_of_date: 20260529
+- over_400_ratio: 74.38
 - over_600_ratio: 73.53
 - over_800_ratio: 73.53
 - over_1000_ratio: 70.26
-- over_400_change_1w: 0.01
+- over_400_change_1w: -0.01
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,74.39,0.06,73.53,0,70.26,0,1,False,False
 20260515,74.38,-0.01,73.53,0,70.26,0,0,False,False
 20260522,74.39,0.01,73.53,0,70.26,0,1,False,False
+20260529,74.38,-0.01,73.53,0,70.26,0,0,False,False
 ```
 
 ## Candidate Context

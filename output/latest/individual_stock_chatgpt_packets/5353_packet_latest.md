@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5353 台林
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:06 Asia/Taipei
+- generated_at: 2026-05-30 23:42:39 Asia/Taipei
 - stock_id: 5353
 - stock_name: 台林
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -83,10 +83,10 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260507,26.95,27,26.35,26.55,156000,25.91,2.46,25.85,25.15,0.78
 20260508,26.5,26.5,26.2,26.45,81000,25.96,1.9,25.93,25.14,0.4
 20260511,26.15,26.3,26.15,26.15,103000,25.97,0.68,25.99,25.14,0.51
-20260512,26.15,26.2,25.9,26.1,101000,25.98,0.45,26.04,25.15,0.49
+20260512,26.15,26.2,25.9,26.1,101000,25.98,0.44,26.04,25.15,0.49
 20260513,26,26.1,25.8,26.1,68000,25.99,0.41,26.09,25.16,0.33
 20260514,26.2,26.2,25.75,26,131000,25.99,0.02,26.14,25.17,0.62
-20260515,26,26.25,25.8,26,62000,25.99,0.02,26.19,25.18,0.29
+20260515,26,26.25,25.8,26,62000,26,0.02,26.19,25.18,0.29
 20260518,25.45,25.9,25.45,25.7,41000,25.97,-1.04,26.23,25.19,0.2
 20260519,26,26.25,25.55,25.75,123000,25.95,-0.78,26.25,25.21,0.58
 20260520,25.6,26.1,25.6,25.8,59000,25.94,-0.54,26.29,25.23,0.28
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 54.78
+- as_of_date: 20260529
+- over_400_ratio: 54.79
 - over_600_ratio: 50.24
 - over_800_ratio: 45.97
 - over_1000_ratio: 37.82
 - over_400_change_1w: 0.01
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 3
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,54.62,0.58,44.96,0,37.95,0,1,False,False
 20260515,54.77,0.15,45.97,1.01,37.82,-0.13,2,False,True
 20260522,54.78,0.01,45.97,0,37.82,0,3,False,False
+20260529,54.79,0.01,45.97,0,37.82,0,4,False,False
 ```
 
 ## Candidate Context

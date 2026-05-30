@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6275 元山
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:24 Asia/Taipei
+- generated_at: 2026-05-30 23:43:00 Asia/Taipei
 - stock_id: 6275
 - stock_name: 元山
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -90,7 +90,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260518,46.85,47.65,46.35,47.35,353000,50.47,-6.19,52.23,50.47,0.18
 20260519,47.85,48,46.9,47.05,399000,50.19,-6.25,51.83,50.41,0.22
 20260520,47.45,47.45,46.7,46.7,246000,49.9,-6.41,51.41,50.35,0.17
-20260521,47.5,48.15,47.4,47.6,373000,49.7,-4.23,50.85,50.26,0.32
+20260521,47.5,48.15,47.4,47.6,373000,49.7,-4.24,50.85,50.26,0.32
 20260522,47.7,48.85,47.45,48.6,48000,49.61,-2.04,50.45,50.17,0.06
 20260525,48.8,49,47.75,48.1,48000,49.49,-2.8,50.11,50.08,0.07
 20260526,48.5,48.5,47.5,47.85,48000,49.35,-3.04,49.88,49.97,0.08
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 29.69
-- over_600_ratio: 25.21
+- as_of_date: 20260529
+- over_400_ratio: 29.86
+- over_600_ratio: 25.99
 - over_800_ratio: 23.44
 - over_1000_ratio: 23.44
-- over_400_change_1w: -0.33
-- over_800_change_1w: -1.03
+- over_400_change_1w: 0.17
+- over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,30.84,0.62,24.47,0,23.44,0,1,False,False
 20260515,30.02,-0.82,24.47,0,23.44,0,0,False,False
 20260522,29.69,-0.33,23.44,-1.03,23.44,0,0,False,False
+20260529,29.86,0.17,23.44,0,23.44,0,1,False,False
 ```
 
 ## Candidate Context

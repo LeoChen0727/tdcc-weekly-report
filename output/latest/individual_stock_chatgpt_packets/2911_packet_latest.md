@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2911 麗嬰房
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:18 Asia/Taipei
+- generated_at: 2026-05-30 23:41:44 Asia/Taipei
 - stock_id: 2911
 - stock_name: 麗嬰房
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 136
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 270
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -80,7 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260504,5.1,5.37,4.59,5.1,463463,5.16,-1.1,5.12,5.13,2.13
 20260505,4.9,5.1,4.9,5.02,137546,5.15,-2.44,5.12,5.13,0.62
 20260506,5.1,5.19,5,5.02,58811,5.14,-2.24,5.12,5.12,0.27
-20260507,5.05,5.09,5.01,5.09,79628,5.13,-0.8,5.12,5.12,0.36
+20260507,5.05,5.09,5.01,5.09,79628,5.13,-0.81,5.12,5.12,0.36
 20260508,5.01,5.12,4.95,5.11,88149,5.13,-0.38,5.12,5.13,0.4
 20260511,5,5.11,4.92,4.97,114810,5.12,-2.86,5.11,5.12,0.51
 20260512,4.99,5,4.91,4.92,32889,5.1,-3.53,5.1,5.12,0.15
@@ -100,16 +100,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 46.08
-- over_600_ratio: 42.79
-- over_800_ratio: 42.2
-- over_1000_ratio: 40.56
-- over_400_change_1w: 0.06
-- over_800_change_1w: 0.06
-- over_1000_change_1w: 0.03
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 45.22
+- over_600_ratio: 41.93
+- over_800_ratio: 41.34
+- over_1000_ratio: 40.57
+- over_400_change_1w: -0.86
+- over_800_change_1w: -0.86
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,45.95,-0.29,42.07,0.78,40.52,0,1,False,True
 20260515,46.02,0.07,42.14,0.07,40.53,0.01,2,True,True
 20260522,46.08,0.06,42.2,0.06,40.56,0.03,3,True,True
+20260529,45.22,-0.86,41.34,-0.86,40.57,0.01,4,False,True
 ```
 
 ## Candidate Context

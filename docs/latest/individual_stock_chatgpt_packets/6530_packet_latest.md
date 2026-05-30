@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6530 創威
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:30 Asia/Taipei
+- generated_at: 2026-05-30 23:43:06 Asia/Taipei
 - stock_id: 6530
 - stock_name: 創威
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -84,7 +84,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260508,113,116.5,106,108,1928000,109.21,-1.11,113.33,90.07,0.39
 20260511,109,114,107,110.5,1581000,109.32,1.08,113.78,90.91,0.35
 20260512,115,121.5,114,121.5,4644000,110.33,10.12,114.9,91.89,1.02
-20260513,120,127,118,118,7233000,110.97,6.34,116.05,92.78,1.54
+20260513,120,127,118,118,7233000,110.97,6.33,116.05,92.78,1.54
 20260514,120,122,114,115.5,2690000,111.35,3.73,116.6,93.66,0.61
 20260515,116,116.5,108.5,109,2095000,111.15,-1.94,116.33,94.42,0.5
 20260518,104,107,103,106,1075000,110.72,-4.27,115.35,95.21,0.27
@@ -100,14 +100,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 18.57
-- over_600_ratio: 16.03
-- over_800_ratio: 11.86
+- as_of_date: 20260529
+- over_400_ratio: 18.33
+- over_600_ratio: 15.79
+- over_800_ratio: 11.62
 - over_1000_ratio: 8.93
-- over_400_change_1w: -0.12
-- over_800_change_1w: -0.12
-- over_1000_change_1w: -3.05
+- over_400_change_1w: -0.24
+- over_800_change_1w: -0.24
+- over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,18.35,-3.86,11.64,-0.02,8.93,0,0,False,False
 20260515,18.69,0.34,11.98,0.34,11.98,3.05,1,True,True
 20260522,18.57,-0.12,11.86,-0.12,8.93,-3.05,0,False,False
+20260529,18.33,-0.24,11.62,-0.24,8.93,0,0,False,False
 ```
 
 ## Candidate Context

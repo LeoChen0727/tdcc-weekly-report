@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2947 振宇五金
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:19 Asia/Taipei
+- generated_at: 2026-05-30 23:41:45 Asia/Taipei
 - stock_id: 2947
 - stock_name: 振宇五金
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 128
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 264
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -93,14 +93,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260521,77.5,77.9,77.5,77.9,3000,78.26,-0.46,78.11,78.54,0.22
 20260522,77.8,77.8,77.8,77.8,78000,78.22,-0.54,78.11,78.49,4.6
 20260525,77.8,77.9,77.8,77.8,78000,78.19,-0.49,78.14,78.46,3.84
-20260526,77,77.8,77,77.7,78000,78.15,-0.57,78.14,78.41,3.29
+20260526,77,77.8,77,77.7,78000,78.14,-0.57,78.14,78.41,3.29
 20260527,77.7,77.7,77.7,77.7,78000,78.11,-0.52,78.17,78.37,2.93
 20260528,77.7,77.7,77.7,77.7,78000,78.07,-0.48,78.2,78.32,2.58
 20260529,77.7,77.7,77.4,77.4,78000,78.02,-0.79,78.17,78.27,2.38
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 63.27
 - over_600_ratio: 61.36
 - over_800_ratio: 55.2
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,63.23,-0.02,55.2,0,55.2,0,0,False,False
 20260515,63.27,0.04,55.2,0,55.2,0,1,False,False
 20260522,63.27,0,55.2,0,55.2,0,0,False,False
+20260529,63.27,0,55.2,0,55.2,0,0,False,False
 ```
 
 ## Candidate Context

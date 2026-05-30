@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8410 森田
 
 ## Metadata
-- generated_at: 2026-05-29 19:34:00 Asia/Taipei
+- generated_at: 2026-05-30 23:43:56 Asia/Taipei
 - stock_id: 8410
 - stock_name: 森田
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -79,7 +79,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,36.9,36.9,36.6,36.8,17000,36.86,-0.15,36.72,36.97,0.6
 20260505,36.65,36.75,36.3,36.75,24000,36.85,-0.26,36.76,36.93,0.9
-20260506,36.5,36.9,36.45,36.7,11000,36.83,-0.37,36.81,36.9,0.44
+20260506,36.5,36.9,36.45,36.7,11000,36.83,-0.36,36.81,36.9,0.44
 20260507,36.8,36.8,36.4,36.6,29000,36.81,-0.58,36.86,36.87,1.11
 20260508,36.45,36.9,36.3,36.55,24000,36.79,-0.66,36.89,36.86,0.89
 20260511,36.1,36.65,36.1,36.65,16000,36.78,-0.36,36.91,36.85,0.61
@@ -88,7 +88,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260514,36.7,36.7,35.6,36.05,93000,36.69,-1.74,36.92,36.8,2.73
 20260515,35.75,35.8,35.1,35.5,70000,36.59,-2.98,36.85,36.77,2.03
 20260518,35,35,34.2,34.6,83000,36.42,-5.01,36.73,36.72,2.23
-20260519,34.2,34.7,34,34.65,54000,36.28,-4.49,36.56,36.67,1.47
+20260519,34.2,34.7,34,34.65,54000,36.28,-4.48,36.56,36.67,1.47
 20260520,34.15,34.65,34.15,34.65,8000,36.14,-4.13,36.38,36.62,0.22
 20260521,34.4,35.2,34.4,35.15,17000,36.06,-2.52,36.25,36.58,0.47
 20260522,34.3,34.9,34.3,34.5,34000,35.93,-3.98,36.12,36.53,0.93
@@ -100,12 +100,12 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 59.33
+- as_of_date: 20260529
+- over_400_ratio: 59.26
 - over_600_ratio: 53.78
 - over_800_ratio: 53.78
 - over_1000_ratio: 51.12
-- over_400_change_1w: -0.19
+- over_400_change_1w: -0.07
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,59.69,-0.01,53.78,0,51.12,0,0,False,False
 20260515,59.52,-0.17,53.78,0,51.12,0,0,False,False
 20260522,59.33,-0.19,53.78,0,51.12,0,0,False,False
+20260529,59.26,-0.07,53.78,0,51.12,0,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3002 歐格
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:20 Asia/Taipei
+- generated_at: 2026-05-30 23:41:45 Asia/Taipei
 - stock_id: 3002
 - stock_name: 歐格
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -78,7 +78,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,18.05,18.5,18.05,18.15,145169,18.86,-3.77,18.76,20.15,0.54
-20260505,18.4,18.65,18.4,18.55,116154,18.84,-1.51,18.78,20.07,0.44
+20260505,18.4,18.65,18.4,18.55,116154,18.83,-1.51,18.78,20.07,0.44
 20260506,18.65,18.65,18,18.2,319997,18.78,-3.1,18.78,20,1.15
 20260507,18.45,18.45,18.1,18.1,113184,18.73,-3.34,18.72,19.93,0.43
 20260508,18.15,18.4,17.7,17.8,272258,18.65,-4.55,18.62,19.86,1.2
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 66.26
-- over_600_ratio: 64.33
-- over_800_ratio: 63.07
-- over_1000_ratio: 61.39
-- over_400_change_1w: -0.01
+- as_of_date: 20260529
+- over_400_ratio: 66.2
+- over_600_ratio: 64.89
+- over_800_ratio: 63.04
+- over_1000_ratio: 61.36
+- over_400_change_1w: -0.06
 - over_800_change_1w: -0.03
 - over_1000_change_1w: -0.03
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,66.03,0.04,63.46,0.04,61.78,0.04,1,True,True
 20260515,66.27,0.24,63.1,-0.36,61.42,-0.36,2,False,False
 20260522,66.26,-0.01,63.07,-0.03,61.39,-0.03,0,False,False
+20260529,66.2,-0.06,63.04,-0.03,61.36,-0.03,1,False,False
 ```
 
 ## Candidate Context

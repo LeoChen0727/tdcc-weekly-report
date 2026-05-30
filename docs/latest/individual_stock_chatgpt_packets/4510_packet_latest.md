@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4510 高鋒
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:50 Asia/Taipei
+- generated_at: 2026-05-30 23:42:21 Asia/Taipei
 - stock_id: 4510
 - stock_name: 高鋒
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -86,7 +86,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260512,47.55,48.5,46.5,48.3,2234000,46.47,3.94,46.99,44.99,0.51
 20260513,47.85,48,46.2,46.6,1528000,46.48,0.26,47.04,44.93,0.36
 20260514,46.65,47.35,45.5,45.85,1374000,46.43,-1.25,46.93,44.86,0.38
-20260515,46.85,49,46.5,48.55,7164000,46.6,4.17,47,44.88,1.85
+20260515,46.85,49,46.5,48.55,7164000,46.61,4.17,47,44.88,1.85
 20260518,47.8,50,46.8,49.85,7778000,46.88,6.35,47.14,44.9,1.87
 20260519,48.75,49.55,47.2,47.45,3084000,46.92,1.12,47.16,44.89,0.75
 20260520,47.5,47.75,46.15,46.45,1518000,46.88,-0.93,47.17,44.89,0.37
@@ -100,14 +100,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 39.57
-- over_600_ratio: 35
-- over_800_ratio: 33.18
-- over_1000_ratio: 30.78
-- over_400_change_1w: -0.49
-- over_800_change_1w: -0.88
-- over_1000_change_1w: -0.91
+- as_of_date: 20260529
+- over_400_ratio: 38.83
+- over_600_ratio: 34.17
+- over_800_ratio: 32.26
+- over_1000_ratio: 30.74
+- over_400_change_1w: -0.74
+- over_800_change_1w: -0.92
+- over_1000_change_1w: -0.04
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,40.29,0.78,34.18,1.97,31.89,1.2,1,True,True
 20260515,40.06,-0.23,34.06,-0.12,31.69,-0.2,0,False,False
 20260522,39.57,-0.49,33.18,-0.88,30.78,-0.91,0,False,False
+20260529,38.83,-0.74,32.26,-0.92,30.74,-0.04,0,False,False
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 4510 | 高鋒 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 4510 | 高鋒 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

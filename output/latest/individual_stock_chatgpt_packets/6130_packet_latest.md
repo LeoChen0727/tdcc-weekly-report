@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6130 上亞科技
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:15 Asia/Taipei
+- generated_at: 2026-05-30 23:42:50 Asia/Taipei
 - stock_id: 6130
 - stock_name: 上亞科技
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,7 +77,7 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,25.1,25.1,23.85,24.2,109000,26.45,-8.5,25.64,32.05,0.29
+20260504,25.1,25.1,23.85,24.2,109000,26.45,-8.49,25.64,32.05,0.29
 20260505,24.45,24.45,23.7,24.25,117000,26.26,-7.67,25.49,31.74,0.34
 20260506,24.75,24.75,23.55,23.8,95000,26.06,-8.67,25.45,31.44,0.29
 20260507,24.45,24.45,23.15,23.7,186000,25.86,-8.36,25.38,31.14,0.56
@@ -90,7 +90,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260518,22.85,23.05,22.1,22.45,51000,24.51,-8.4,24.52,29.04,0.26
 20260519,22.85,22.85,20.7,22.1,232000,24.31,-9.08,24.3,28.76,1.24
 20260520,22.45,22.45,21.8,22.15,84000,24.13,-8.2,23.97,28.51,0.54
-20260521,21.1,22.55,21.1,22.15,153000,23.96,-7.57,23.7,28.22,1.14
+20260521,21.1,22.55,21.1,22.15,153000,23.96,-7.56,23.7,28.22,1.14
 20260522,21.95,22.15,21.6,22,22000,23.8,-7.56,23.48,27.93,0.18
 20260525,22,22.6,21.65,22.25,22000,23.67,-6,23.3,27.65,0.19
 20260526,22.75,23.6,21.9,22.95,23000,23.61,-2.8,23.22,27.38,0.22
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 61.35
-- over_600_ratio: 61.35
-- over_800_ratio: 56.99
-- over_1000_ratio: 52.75
-- over_400_change_1w: 0.13
-- over_800_change_1w: 0.14
-- over_1000_change_1w: 2.32
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 61.3
+- over_600_ratio: 61.3
+- over_800_ratio: 56.93
+- over_1000_ratio: 52.69
+- over_400_change_1w: -0.05
+- over_800_change_1w: -0.06
+- over_1000_change_1w: -0.06
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,60.85,0.1,56.57,0,50.49,0,1,False,False
 20260515,61.22,0.37,56.85,0.28,50.43,-0.06,2,False,True
 20260522,61.35,0.13,56.99,0.14,52.75,2.32,3,True,True
+20260529,61.3,-0.05,56.93,-0.06,52.69,-0.06,0,False,False
 ```
 
 ## Candidate Context

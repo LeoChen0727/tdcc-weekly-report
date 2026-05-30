@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5608 四維航
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:11 Asia/Taipei
+- generated_at: 2026-05-30 23:42:46 Asia/Taipei
 - stock_id: 5608
 - stock_name: 四維航
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 28.26
-- over_600_ratio: 25.64
-- over_800_ratio: 24.78
-- over_1000_ratio: 23.43
-- over_400_change_1w: 0.19
-- over_800_change_1w: -0.04
-- over_1000_change_1w: -0.26
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 28.32
+- over_600_ratio: 25.86
+- over_800_ratio: 24.63
+- over_1000_ratio: 23.28
+- over_400_change_1w: 0.06
+- over_800_change_1w: -0.15
+- over_1000_change_1w: -0.15
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,28.06,0.54,24.64,0.31,23.28,0.08,1,True,True
 20260515,28.07,0.01,24.82,0.18,23.69,0.41,2,True,True
 20260522,28.26,0.19,24.78,-0.04,23.43,-0.26,3,False,False
+20260529,28.32,0.06,24.63,-0.15,23.28,-0.15,4,False,False
 ```
 
 ## Candidate Context

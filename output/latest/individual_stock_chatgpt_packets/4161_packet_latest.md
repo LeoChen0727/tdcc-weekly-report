@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4161 聿新科
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:47 Asia/Taipei
+- generated_at: 2026-05-30 23:42:17 Asia/Taipei
 - stock_id: 4161
 - stock_name: 聿新科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -63,7 +63,7 @@
 - volume: 23000
 - ma5: 23.06
 - ema23_primary: 23.36
-- distance_to_ema23_pct: -2.18
+- distance_to_ema23_pct: -2.17
 - ma20: 23.21
 - ma60: 24.11
 - ma120: 25
@@ -96,20 +96,20 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,23.3,23.4,23.05,23.2,23000,23.49,-1.22,23.29,24.3,0.33
 20260527,23.5,23.55,22.9,23.05,23000,23.45,-1.71,23.27,24.24,0.34
 20260528,23.25,23.45,22.85,22.9,23000,23.4,-2.15,23.25,24.17,0.35
-20260529,23,23.1,22.75,22.85,23000,23.36,-2.18,23.21,24.11,0.36
+20260529,23,23.1,22.75,22.85,23000,23.36,-2.17,23.21,24.11,0.36
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 43.87
-- over_600_ratio: 40
-- over_800_ratio: 29.56
-- over_1000_ratio: 25.05
-- over_400_change_1w: 0.8
-- over_800_change_1w: 0.07
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 43.99
+- over_600_ratio: 40.08
+- over_800_ratio: 29.64
+- over_1000_ratio: 26.74
+- over_400_change_1w: 0.12
+- over_800_change_1w: 0.08
+- over_1000_change_1w: 1.69
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,43.72,0.04,29.45,0.02,25.11,0,1,False,True
 20260515,43.07,-0.65,29.49,0.04,25.05,-0.06,2,False,True
 20260522,43.87,0.8,29.56,0.07,25.05,0,3,False,True
+20260529,43.99,0.12,29.64,0.08,26.74,1.69,4,True,True
 ```
 
 ## Candidate Context

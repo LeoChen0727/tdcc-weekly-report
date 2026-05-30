@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6169 昱泉
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:18 Asia/Taipei
+- generated_at: 2026-05-30 23:42:53 Asia/Taipei
 - stock_id: 6169
 - stock_name: 昱泉
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 136
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 272
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -80,11 +80,11 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260430,16.75,16.75,16.7,16.7,2000,16.8,-0.57,16.7,17.25,0.09
 20260504,16.5,16.6,16.5,16.6,2000,16.78,-1.07,16.71,17.21,0.09
 20260505,16.5,16.6,16.5,16.6,8000,16.76,-0.98,16.72,17.17,0.41
-20260506,16.6,16.75,16.55,16.55,6000,16.75,-1.18,16.73,17.12,0.31
+20260506,16.6,16.75,16.55,16.55,6000,16.75,-1.17,16.73,17.12,0.31
 20260507,17,17.1,16.7,16.95,82000,16.76,1.11,16.76,17.09,3.75
 20260508,17.1,17.1,16.5,16.6,18000,16.75,-0.9,16.78,17.05,0.87
 20260511,16.6,16.65,16.3,16.3,116000,16.71,-2.47,16.78,17,4.39
-20260512,16.35,16.7,15.8,15.9,119000,16.64,-4.48,16.71,16.96,3.97
+20260512,16.35,16.7,15.8,15.9,119000,16.64,-4.47,16.71,16.96,3.97
 20260514,15.85,15.85,15,15,55000,16.51,-9.13,16.6,16.9,1.79
 20260515,14.75,14.75,14.35,14.5,60000,16.34,-11.26,16.46,16.82,1.8
 20260518,14.35,15,14.35,14.9,24000,16.22,-8.14,16.36,16.77,0.71
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 30.31
 - over_600_ratio: 26.44
 - over_800_ratio: 26.44
 - over_1000_ratio: 26.44
-- over_400_change_1w: 1.74
+- over_400_change_1w: 0
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,28.57,0,26.44,0,26.44,0,0,False,False
 20260515,28.57,0,26.44,0,26.44,0,0,False,False
 20260522,30.31,1.74,26.44,0,26.44,0,1,False,False
+20260529,30.31,0,26.44,0,26.44,0,0,False,False
 ```
 
 ## Candidate Context

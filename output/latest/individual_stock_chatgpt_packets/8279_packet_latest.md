@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8279 生展
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:59 Asia/Taipei
+- generated_at: 2026-05-30 23:43:55 Asia/Taipei
 - stock_id: 8279
 - stock_name: 生展
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 136
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 272
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -81,7 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260505,96.5,96.5,95.9,96,12000,104.03,-7.72,104.31,113.19,0.45
 20260506,97,97,96.2,96.9,16000,103.44,-6.32,103.7,112.52,0.59
 20260507,96.5,97,96.2,96.7,46000,102.88,-6,103.11,111.9,1.61
-20260508,99.7,103,99.1,99.1,58000,102.56,-3.38,102.67,111.35,1.87
+20260508,99.7,103,99.1,99.1,58000,102.56,-3.37,102.67,111.35,1.87
 20260511,99.5,99.5,98.2,98.2,13000,102.2,-3.91,102.25,110.74,0.45
 20260512,98,98,96.8,96.8,23000,101.75,-4.86,101.74,110.15,0.79
 20260513,96.5,96.7,96.2,96.6,11000,101.32,-4.66,101.19,109.56,0.38
@@ -90,9 +90,9 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260518,96.1,96.2,96.1,96.2,4000,100.4,-4.18,99.81,107.93,0.14
 20260519,97.3,97.3,96.7,96.7,10000,100.09,-3.39,99.34,107.41,0.36
 20260520,96.4,97.5,96.2,97.1,14000,99.84,-2.75,98.89,106.99,0.51
-20260521,97,98.4,97,97.5,20000,99.65,-2.16,98.5,106.6,0.72
+20260521,97,98.4,97,97.5,20000,99.65,-2.15,98.5,106.6,0.72
 20260522,97,98,97,97.5,97000,99.47,-1.98,98.09,106.17,3.08
-20260525,98.1,98.5,98,98,98000,99.35,-1.36,97.8,105.81,2.8
+20260525,98.1,98.5,98,98,98000,99.35,-1.35,97.8,105.81,2.8
 20260526,98,98,96.1,96.3,97000,99.09,-2.82,97.48,105.44,2.49
 20260527,96.8,97,96.1,96.2,96000,98.85,-2.68,97.3,105.04,2.44
 20260528,97.2,97.3,96.1,96.3,96000,98.64,-2.37,97.18,104.66,2.37
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 62.22
 - over_600_ratio: 58.37
 - over_800_ratio: 55.79
 - over_1000_ratio: 52.51
-- over_400_change_1w: 0.01
-- over_800_change_1w: 0.01
+- over_400_change_1w: 0
+- over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,62.21,0,55.78,0,52.51,0,0,False,False
 20260515,62.21,0,55.78,0,52.51,0,0,False,False
 20260522,62.22,0.01,55.79,0.01,52.51,0,1,False,True
+20260529,62.22,0,55.79,0,52.51,0,0,False,False
 ```
 
 ## Candidate Context

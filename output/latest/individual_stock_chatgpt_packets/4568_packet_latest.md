@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4568 科際精密
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:53 Asia/Taipei
+- generated_at: 2026-05-30 23:42:25 Asia/Taipei
 - stock_id: 4568
 - stock_name: 科際精密
-- packet_status: standard_rawdata_packet
+- packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 117
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 253
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: price history shorter than 120 rows; K-line context is partial; TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
+- notes: TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
 
 ## Stable Read URLs
 - packet_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_chatgpt_packets/4568_packet_latest.md
@@ -66,7 +66,7 @@
 - distance_to_ema23_pct: -1.17
 - ma20: 40.45
 - ma60: 41.62
-- ma120: 41.98
+- ma120: 41.93
 - return_5d: -0.37
 - return_20d: -2.9
 - volume_ratio: 1.69
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 68.68
-- over_600_ratio: 62.44
-- over_800_ratio: 62.44
+- as_of_date: 20260529
+- over_400_ratio: 68.69
+- over_600_ratio: 62.45
+- over_800_ratio: 62.45
 - over_1000_ratio: 59.34
-- over_400_change_1w: 0
-- over_800_change_1w: 0
+- over_400_change_1w: 0.01
+- over_800_change_1w: 0.01
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,68.68,0,62.44,0,59.34,0,0,False,False
 20260515,68.68,0,62.44,0,59.34,0,0,False,False
 20260522,68.68,0,62.44,0,59.34,0,0,False,False
+20260529,68.69,0.01,62.45,0.01,59.34,0,1,False,True
 ```
 
 ## Candidate Context

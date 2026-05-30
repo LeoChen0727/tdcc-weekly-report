@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6661 威健生技
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:35 Asia/Taipei
+- generated_at: 2026-05-30 23:43:12 Asia/Taipei
 - stock_id: 6661
 - stock_name: 威健生技
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 132
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 268
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -87,7 +87,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260513,17.25,17.6,17.25,17.6,8000,18.13,-2.9,18.17,18.58,0.88
 20260514,17.6,17.6,17.6,17.6,1000,18.08,-2.67,18.13,18.56,0.11
 20260515,17.35,17.35,17.2,17.2,4000,18.01,-4.49,18.08,18.53,0.45
-20260518,17.65,17.65,17.35,17.35,3000,17.95,-3.37,18.01,18.49,0.35
+20260518,17.65,17.65,17.35,17.35,3000,17.95,-3.36,18.01,18.49,0.35
 20260519,17,17.45,17,17.45,16000,17.91,-2.58,17.96,18.45,1.8
 20260520,17.45,17.9,17.45,17.45,7000,17.87,-2.37,17.91,18.42,0.83
 20260521,17.45,17.5,17.45,17.5,3000,17.84,-1.92,17.85,18.39,0.38
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 65.7
 - over_600_ratio: 61.51
 - over_800_ratio: 61.51
 - over_1000_ratio: 61.51
-- over_400_change_1w: 0.04
-- over_800_change_1w: 0.04
-- over_1000_change_1w: 0.04
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- over_400_change_1w: 0
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,65.66,0,61.47,0,61.47,0,0,False,False
 20260515,65.66,0,61.47,0,61.47,0,0,False,False
 20260522,65.7,0.04,61.51,0.04,61.51,0.04,1,True,True
+20260529,65.7,0,61.51,0,61.51,0,0,False,False
 ```
 
 ## Candidate Context

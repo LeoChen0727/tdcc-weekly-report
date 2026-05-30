@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6294 智基
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:25 Asia/Taipei
+- generated_at: 2026-05-30 23:43:01 Asia/Taipei
 - stock_id: 6294
 - stock_name: 智基
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -90,25 +90,25 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260518,27.5,27.8,27.2,27.3,58000,33.15,-17.64,33.13,38.68,0.74
 20260519,27.75,27.75,26.9,27,92000,32.63,-17.27,32.52,38.39,1.14
 20260520,27.35,27.4,27,27.1,52000,32.17,-15.77,31.96,38.1,0.64
-20260521,27.1,27.25,27,27.2,26000,31.76,-14.36,31.43,37.82,0.33
-20260522,27.2,28.35,27.2,28.3,28000,31.47,-10.08,31.02,37.55,0.37
+20260521,27.1,27.25,27,27.2,26000,31.76,-14.35,31.43,37.82,0.33
+20260522,27.2,28.35,27.2,28.3,28000,31.47,-10.07,31.02,37.55,0.37
 20260525,28.3,28.9,27.4,28.3,28000,31.21,-9.31,30.62,37.3,0.38
 20260526,28,28.4,27.8,28.4,28000,30.97,-8.31,30.29,37.04,0.39
 20260527,28.2,28.2,27.95,27.95,28000,30.72,-9.02,29.94,36.79,0.4
-20260528,27.7,27.7,27,27.5,27000,30.45,-9.7,29.59,36.54,0.39
+20260528,27.7,27.7,27,27.5,27000,30.45,-9.69,29.59,36.54,0.39
 20260529,27.4,27.5,27.1,27.5,27000,30.21,-8.96,29.28,36.3,0.4
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 37.01
+- as_of_date: 20260529
+- over_400_ratio: 37.04
 - over_600_ratio: 33.46
 - over_800_ratio: 33.46
 - over_1000_ratio: 33.46
-- over_400_change_1w: 0.02
+- over_400_change_1w: 0.03
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 3
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,36.95,0.01,33.46,0,33.46,0,1,False,False
 20260515,36.99,0.04,33.46,0,33.46,0,2,False,False
 20260522,37.01,0.02,33.46,0,33.46,0,3,False,False
+20260529,37.04,0.03,33.46,0,33.46,0,4,False,False
 ```
 
 ## Candidate Context

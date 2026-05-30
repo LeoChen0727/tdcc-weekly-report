@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8936 國統
 
 ## Metadata
-- generated_at: 2026-05-29 19:34:04 Asia/Taipei
+- generated_at: 2026-05-30 23:44:01 Asia/Taipei
 - stock_id: 8936
 - stock_name: 國統
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -78,7 +78,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,50.6,52.6,50.5,52.3,4322000,50.85,2.86,50.37,51.68,1.94
-20260505,52.5,52.5,51.7,52.1,2147000,50.95,2.25,50.42,51.67,0.96
+20260505,52.5,52.5,51.7,52.1,2147000,50.95,2.26,50.42,51.67,0.96
 20260506,52.6,52.9,52,52.5,2815000,51.08,2.78,50.54,51.68,1.25
 20260507,52.7,53,52,52.8,2555000,51.22,3.08,50.66,51.7,1.12
 20260508,53,53.7,52,52,3142000,51.29,1.39,50.74,51.7,1.33
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 32.45
-- over_600_ratio: 28.61
-- over_800_ratio: 26.94
-- over_1000_ratio: 24.39
-- over_400_change_1w: -0.48
-- over_800_change_1w: -0.51
-- over_1000_change_1w: -0.16
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 33.6
+- over_600_ratio: 30.23
+- over_800_ratio: 28.29
+- over_1000_ratio: 25.35
+- over_400_change_1w: 1.15
+- over_800_change_1w: 1.35
+- over_1000_change_1w: 0.96
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,33.69,1.54,28.14,1.15,24.59,0.46,1,True,True
 20260515,32.93,-0.76,27.45,-0.69,24.55,-0.04,0,False,False
 20260522,32.45,-0.48,26.94,-0.51,24.39,-0.16,0,False,False
+20260529,33.6,1.15,28.29,1.35,25.35,0.96,1,True,True
 ```
 
 ## Candidate Context

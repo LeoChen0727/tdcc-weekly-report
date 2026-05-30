@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5220 萬達光電
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:03 Asia/Taipei
+- generated_at: 2026-05-30 23:42:35 Asia/Taipei
 - stock_id: 5220
 - stock_name: 萬達光電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -80,7 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260504,20.5,20.6,20.15,20.3,32000,20.08,1.11,20.11,19.45,0.53
 20260505,20.05,20.2,19.9,20.15,72000,20.08,0.33,20.16,19.48,1.13
 20260506,20.55,20.55,20,20.25,64000,20.1,0.76,20.23,19.51,0.97
-20260507,20.5,20.5,20.1,20.25,35000,20.11,0.7,20.27,19.53,0.52
+20260507,20.5,20.5,20.1,20.25,35000,20.11,0.69,20.27,19.53,0.52
 20260508,20.7,20.7,20.05,20.25,47000,20.12,0.64,20.32,19.57,0.69
 20260511,20.4,20.55,20.35,20.45,91000,20.15,1.49,20.36,19.61,1.38
 20260512,20.55,21.2,20.55,20.8,94000,20.2,2.95,20.39,19.65,1.46
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 43.57
 - over_600_ratio: 38.76
 - over_800_ratio: 23.99
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,43.57,0,23.99,0,19.61,0,0,False,False
 20260515,43.57,0,23.99,0,19.61,0,0,False,False
 20260522,43.57,0,23.99,0,19.61,0,0,False,False
+20260529,43.57,0,23.99,0,19.61,0,0,False,False
 ```
 
 ## Candidate Context

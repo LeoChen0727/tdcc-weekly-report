@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4707 磐亞
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:54 Asia/Taipei
+- generated_at: 2026-05-30 23:42:26 Asia/Taipei
 - stock_id: 4707
 - stock_name: 磐亞
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -84,7 +84,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260508,15.9,15.95,15.3,15.4,3419000,14.4,6.95,14.92,11.97,0.66
 20260511,15.55,16.9,15.55,16.5,10260000,14.57,13.21,15.12,12.08,1.88
 20260512,16.55,17.2,16.05,16.2,6297000,14.71,10.13,15.26,12.19,1.18
-20260513,16.3,16.3,14.65,14.9,5560000,14.73,1.19,15.32,12.27,1.02
+20260513,16.3,16.3,14.65,14.9,5560000,14.73,1.18,15.32,12.27,1.02
 20260514,15.1,15.2,14.75,14.85,1772000,14.74,0.77,15.35,12.35,0.34
 20260515,15.05,15.1,14.6,14.75,1202000,14.74,0.09,15.38,12.43,0.24
 20260518,14.7,14.75,14.2,14.45,1462000,14.71,-1.79,15.35,12.5,0.32
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 68.88
-- over_600_ratio: 66.73
-- over_800_ratio: 65.02
-- over_1000_ratio: 63.26
-- over_400_change_1w: 0.4
-- over_800_change_1w: 0.16
-- over_1000_change_1w: 0.35
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 68.96
+- over_600_ratio: 67.02
+- over_800_ratio: 65.14
+- over_1000_ratio: 63.36
+- over_400_change_1w: 0.08
+- over_800_change_1w: 0.12
+- over_1000_change_1w: 0.1
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,68.94,0.33,64.19,0.37,62.89,0.62,1,True,True
 20260515,68.48,-0.46,64.86,0.67,62.91,0.02,2,False,True
 20260522,68.88,0.4,65.02,0.16,63.26,0.35,3,True,True
+20260529,68.96,0.08,65.14,0.12,63.36,0.1,4,True,True
 ```
 
 ## Candidate Context

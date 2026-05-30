@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6789 采鈺
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:40 Asia/Taipei
+- generated_at: 2026-05-30 23:43:18 Asia/Taipei
 - stock_id: 6789
 - stock_name: 采鈺
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -83,7 +83,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260507,561,595,554,581,7876476,494.87,17.4,493,378.8,0.69
 20260508,580,608,566,603,10024190,503.88,19.67,506.2,384.02,0.85
 20260511,603,616,587,600,10383449,511.89,17.21,519.38,389.27,0.86
-20260512,616,642,593,594,10081580,518.73,14.51,530.58,394.44,0.82
+20260512,616,642,593,594,10081580,518.74,14.51,530.58,394.44,0.82
 20260513,582,596,570,583,6080945,524.09,11.24,539.38,399.43,0.52
 20260514,600,600,561,573,6948423,528.17,8.49,547.52,404.12,0.61
 20260515,598,615,580,587,11973280,533.07,10.12,556.17,409.18,1.04
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 73.25
-- over_600_ratio: 72.18
-- over_800_ratio: 70.43
-- over_1000_ratio: 69.89
-- over_400_change_1w: -0.31
-- over_800_change_1w: -0.95
-- over_1000_change_1w: -0.09
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260529
+- over_400_ratio: 73.48
+- over_600_ratio: 72.14
+- over_800_ratio: 70.4
+- over_1000_ratio: 69.58
+- over_400_change_1w: 0.23
+- over_800_change_1w: -0.03
+- over_1000_change_1w: -0.31
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,73.84,-0.86,71.51,-0.83,70.95,0.02,1,False,True
 20260515,73.56,-0.28,71.38,-0.13,69.98,-0.97,0,False,False
 20260522,73.25,-0.31,70.43,-0.95,69.89,-0.09,0,False,False
+20260529,73.48,0.23,70.4,-0.03,69.58,-0.31,1,False,False
 ```
 
 ## Candidate Context

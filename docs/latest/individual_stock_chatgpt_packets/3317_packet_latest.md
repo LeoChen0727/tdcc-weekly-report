@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3317 尼克森
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:31 Asia/Taipei
+- generated_at: 2026-05-30 23:41:59 Asia/Taipei
 - stock_id: 3317
 - stock_name: 尼克森
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -80,14 +80,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260504,56,59,55.8,58.9,4466000,53.34,10.43,53.29,49.81,1.35
 20260505,58.4,63.4,57.9,62.2,10160000,54.08,15.02,53.88,49.98,2.72
 20260506,62.8,65.9,61.5,64.9,12350000,54.98,18.05,54.62,50.2,2.87
-20260507,66.6,70,66,66.9,11615000,55.97,19.53,55.41,50.47,2.43
+20260507,66.6,70,66,66.9,11615000,55.97,19.52,55.41,50.47,2.43
 20260508,66.2,66.5,62,62.2,5247000,56.49,10.11,56,50.68,1.07
 20260511,64,68.4,62.6,68.2,10889000,57.47,18.68,56.88,51,2.01
-20260512,67,69,66.7,67.9,6891000,58.34,16.4,57.7,51.35,1.21
+20260512,67,69,66.7,67.9,6891000,58.34,16.39,57.7,51.35,1.21
 20260513,67,68.6,64.9,68.3,4169000,59.17,15.44,58.56,51.7,0.71
 20260514,69,74.9,69,74,12979000,60.4,22.51,59.73,52.12,2.01
 20260515,75,76.1,71.7,75.3,13703000,61.64,22.15,60.94,52.58,1.93
-20260518,74,77,72.8,75.8,6336000,62.82,20.66,61.99,53.07,0.88
+20260518,74,77,72.8,75.8,6336000,62.82,20.65,61.99,53.07,0.88
 20260519,75.8,77.8,75.3,76,7835000,63.92,18.9,63.09,53.54,1.08
 20260520,76,80.4,72.3,72.5,12331000,64.64,12.17,64.03,53.96,1.58
 20260521,73.2,75.7,73,75.7,4910000,65.56,15.47,65.07,54.42,0.63
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 28.1
-- over_600_ratio: 24.48
-- over_800_ratio: 22.83
-- over_1000_ratio: 22.83
-- over_400_change_1w: -0.96
-- over_800_change_1w: -0.92
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 30.72
+- over_600_ratio: 26.52
+- over_800_ratio: 24.83
+- over_1000_ratio: 23.95
+- over_400_change_1w: 2.62
+- over_800_change_1w: 2
+- over_1000_change_1w: 1.12
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,28.18,1.14,22.82,-0.89,22.82,0,1,False,False
 20260515,29.06,0.88,23.75,0.93,22.83,0.01,2,True,True
 20260522,28.1,-0.96,22.83,-0.92,22.83,0,0,False,False
+20260529,30.72,2.62,24.83,2,23.95,1.12,1,True,True
 ```
 
 ## Candidate Context

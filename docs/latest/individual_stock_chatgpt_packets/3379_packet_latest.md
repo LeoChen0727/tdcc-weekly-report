@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3379 彬台
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:33 Asia/Taipei
+- generated_at: 2026-05-30 23:42:01 Asia/Taipei
 - stock_id: 3379
 - stock_name: 彬台
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -81,9 +81,9 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260505,39,41.65,38.75,40.15,1016000,37.67,6.59,37.04,40.02,1.95
 20260506,40.15,40.15,38.35,38.5,586000,37.74,2.02,37.14,39.81,1.07
 20260507,38.8,39,38.05,38.3,298000,37.78,1.37,37.15,39.57,0.54
-20260508,37.65,38.55,37,37.3,265000,37.74,-1.18,37.14,39.35,0.47
+20260508,37.65,38.55,37,37.3,265000,37.74,-1.17,37.14,39.35,0.47
 20260511,37.3,37.3,36.2,36.6,342000,37.65,-2.78,37.13,39.14,0.61
-20260512,36.6,36.6,35,35.5,398000,37.47,-5.26,37.15,38.98,0.7
+20260512,36.6,36.6,35,35.5,398000,37.47,-5.25,37.15,38.98,0.7
 20260513,35.5,35.5,34.85,34.95,253000,37.26,-6.2,37.06,38.81,0.46
 20260514,34.4,34.95,34.15,34.15,380000,37,-7.7,36.91,38.6,0.69
 20260515,34.15,37.55,34.15,37.55,1001000,37.05,1.36,36.94,38.48,1.68
@@ -95,17 +95,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,43.35,43.5,41.8,42,42000,38.99,7.72,38.52,38.35,0.04
 20260526,42,43.2,40.7,41.25,42000,39.18,5.28,38.94,38.35,0.04
 20260527,41.3,42.15,40.25,40.7,41000,39.31,3.55,39.16,38.34,0.04
-20260528,41,41.75,39.2,39.45,40000,39.32,0.33,39.15,38.31,0.04
+20260528,41,41.75,39.2,39.45,40000,39.32,0.34,39.15,38.31,0.04
 20260529,39.8,41.5,39.75,40.8,41000,39.44,3.44,39.25,38.32,0.05
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 27.4
 - over_600_ratio: 24.78
 - over_800_ratio: 24.78
 - over_1000_ratio: 24.78
-- over_400_change_1w: -1.13
+- over_400_change_1w: 0
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,28.63,-1.02,24.78,-2.25,24.78,0,0,False,False
 20260515,28.53,-0.1,24.78,0,24.78,0,0,False,False
 20260522,27.4,-1.13,24.78,0,24.78,0,0,False,False
+20260529,27.4,0,24.78,0,24.78,0,0,False,False
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 3379 | 彬台 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260530 | 3379 | 彬台 | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

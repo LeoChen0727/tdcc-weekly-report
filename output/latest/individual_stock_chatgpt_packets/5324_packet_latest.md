@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5324 士開
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:06 Asia/Taipei
+- generated_at: 2026-05-30 23:42:39 Asia/Taipei
 - stock_id: 5324
 - stock_name: 士開
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -87,7 +87,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260513,10.95,11.2,10.9,11.2,350000,11.05,1.35,11.13,11.04,1.76
 20260514,11.2,11.5,11.15,11.5,332000,11.09,3.72,11.11,11.05,1.62
 20260515,11.5,11.5,11.4,11.5,285000,11.12,3.4,11.09,11.06,1.44
-20260518,11.5,11.55,11.4,11.55,157000,11.16,3.52,11.06,11.08,0.82
+20260518,11.5,11.55,11.4,11.55,157000,11.16,3.51,11.06,11.08,0.82
 20260519,11.5,11.9,11.5,11.9,165000,11.22,6.06,11.06,11.1,0.9
 20260520,11.9,11.95,11.7,11.95,218000,11.28,5.93,11.06,11.12,1.19
 20260521,11.9,11.95,11.8,11.9,357000,11.33,5.01,11.06,11.14,1.86
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 78.19
-- over_600_ratio: 75.39
-- over_800_ratio: 73.25
-- over_1000_ratio: 72.38
-- over_400_change_1w: 0.42
-- over_800_change_1w: 0.42
-- over_1000_change_1w: 0.42
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 78.52
+- over_600_ratio: 75.86
+- over_800_ratio: 73.72
+- over_1000_ratio: 72.85
+- over_400_change_1w: 0.33
+- over_800_change_1w: 0.47
+- over_1000_change_1w: 0.47
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,77.6,0.21,72.62,0.04,71.75,0.46,1,True,True
 20260515,77.77,0.17,72.83,0.21,71.96,0.21,2,True,True
 20260522,78.19,0.42,73.25,0.42,72.38,0.42,3,True,True
+20260529,78.52,0.33,73.72,0.47,72.85,0.47,4,True,True
 ```
 
 ## Candidate Context

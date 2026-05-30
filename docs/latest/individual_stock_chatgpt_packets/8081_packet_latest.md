@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8081 致新
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:55 Asia/Taipei
+- generated_at: 2026-05-30 23:43:50 Asia/Taipei
 - stock_id: 8081
 - stock_name: 致新
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -80,7 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260504,256.5,259.5,252.5,259,993636,243.95,6.17,241.53,238.91,1.3
 20260505,257.5,272,256.5,266,1627349,245.78,8.22,243.3,239.47,1.96
 20260506,268,271,262.5,265,1185759,247.39,7.12,245.07,239.72,1.34
-20260507,262.5,263,254,257.5,1546871,248.23,3.73,246.2,239.96,1.64
+20260507,262.5,263,254,257.5,1546871,248.23,3.74,246.2,239.96,1.64
 20260508,257.5,262.5,251,253.5,1507275,248.67,1.94,247.38,240.07,1.51
 20260511,254.5,268,252.5,264,1483330,249.95,5.62,249.03,240.42,1.39
 20260512,267,268,259,260,1194863,250.78,3.68,250.45,240.84,1.07
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 39.44
-- over_600_ratio: 34.72
-- over_800_ratio: 29.86
-- over_1000_ratio: 23.92
-- over_400_change_1w: -0.86
-- over_800_change_1w: -1.32
-- over_1000_change_1w: -0.26
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 39.57
+- over_600_ratio: 35.44
+- over_800_ratio: 30.64
+- over_1000_ratio: 24.69
+- over_400_change_1w: 0.13
+- over_800_change_1w: 0.78
+- over_1000_change_1w: 0.77
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,40.29,0.38,31.17,0.01,24.18,0.06,1,True,True
 20260515,40.3,0.01,31.18,0.01,24.18,0,2,False,True
 20260522,39.44,-0.86,29.86,-1.32,23.92,-0.26,0,False,False
+20260529,39.57,0.13,30.64,0.78,24.69,0.77,1,True,True
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 8081 | 致新 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 8081 | 致新 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

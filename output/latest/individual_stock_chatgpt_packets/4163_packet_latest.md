@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4163 鐿鈦
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:47 Asia/Taipei
+- generated_at: 2026-05-30 23:42:18 Asia/Taipei
 - stock_id: 4163
 - stock_name: 鐿鈦
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 135
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 271
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -80,7 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260504,101,101,96.2,96.3,27000,104.16,-7.55,105.72,103.35,0.9
 20260505,96.7,96.7,95.5,96.1,13000,103.49,-7.14,105.34,103.39,0.44
 20260506,96.1,97,95.1,95.1,17000,102.79,-7.48,104.7,103.43,0.6
-20260507,95.2,95.2,94.4,94.7,37000,102.11,-7.26,104.03,103.44,1.31
+20260507,95.2,95.2,94.4,94.7,37000,102.12,-7.26,104.03,103.44,1.31
 20260508,95,96,95,95.5,8000,101.56,-5.97,103.36,103.48,0.32
 20260511,95.5,98.4,95.5,98.4,17000,101.3,-2.86,102.81,103.57,0.71
 20260512,98.7,98.7,96.6,97.9,15000,101.02,-3.09,102.3,103.66,0.63
@@ -100,11 +100,11 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 70.43
-- over_600_ratio: 66.75
-- over_800_ratio: 64.31
-- over_1000_ratio: 62.46
+- as_of_date: 20260529
+- over_400_ratio: 70.42
+- over_600_ratio: 66.74
+- over_800_ratio: 64.3
+- over_1000_ratio: 62.45
 - over_400_change_1w: -0.01
 - over_800_change_1w: -0.01
 - over_1000_change_1w: -0.01
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,70.41,0.26,64.29,-0.6,62.44,-0.6,1,False,False
 20260515,70.44,0.03,64.32,0.03,62.47,0.03,2,True,True
 20260522,70.43,-0.01,64.31,-0.01,62.46,-0.01,0,False,False
+20260529,70.42,-0.01,64.3,-0.01,62.45,-0.01,0,False,False
 ```
 
 ## Candidate Context

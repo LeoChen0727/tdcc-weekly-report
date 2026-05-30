@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3230 錦明
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:29 Asia/Taipei
+- generated_at: 2026-05-30 23:41:56 Asia/Taipei
 - stock_id: 3230
 - stock_name: 錦明
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,14 +100,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 57.18
-- over_600_ratio: 54.96
-- over_800_ratio: 54.24
-- over_1000_ratio: 52.19
-- over_400_change_1w: -0.22
-- over_800_change_1w: -0.22
-- over_1000_change_1w: -0.22
+- as_of_date: 20260529
+- over_400_ratio: 57.01
+- over_600_ratio: 54.39
+- over_800_ratio: 53.67
+- over_1000_ratio: 51.62
+- over_400_change_1w: -0.17
+- over_800_change_1w: -0.57
+- over_1000_change_1w: -0.57
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,57.46,-0.13,54.52,-0.13,52.44,-0.13,0,False,False
 20260515,57.4,-0.06,54.46,-0.06,52.41,-0.03,0,False,False
 20260522,57.18,-0.22,54.24,-0.22,52.19,-0.22,0,False,False
+20260529,57.01,-0.17,53.67,-0.57,51.62,-0.57,0,False,False
 ```
 
 ## Candidate Context

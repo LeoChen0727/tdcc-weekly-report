@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2070 精湛
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:54 Asia/Taipei
+- generated_at: 2026-05-30 23:41:15 Asia/Taipei
 - stock_id: 2070
 - stock_name: 精湛
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,11 +77,11 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,62.5,64.9,61,63,2763000,49.32,27.73,47.59,42.56,2.35
-20260505,63,64.6,62.5,63.5,1117000,50.51,25.73,48.84,42.87,0.91
+20260504,62.5,64.9,61,63,2763000,49.33,27.72,47.59,42.56,2.35
+20260505,63,64.6,62.5,63.5,1117000,50.51,25.72,48.84,42.87,0.91
 20260506,64.2,66,61.4,66,1695000,51.8,27.42,50.23,43.23,1.3
 20260507,68.5,72.6,67.3,72.6,4358000,53.53,35.62,51.94,43.7,2.89
-20260508,72.6,79,70.7,72.2,4708000,55.09,31.07,53.57,44.17,2.71
+20260508,72.6,79,70.7,72.2,4708000,55.09,31.06,53.57,44.17,2.71
 20260511,70.4,72.8,68.9,69.5,1470000,56.29,23.47,55.08,44.63,0.82
 20260512,68,68.5,65.3,68,1734000,57.26,18.75,56.49,45.09,0.92
 20260513,68.5,68.6,66.5,66.5,575000,58.03,14.59,57.81,45.53,0.3
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 58.67
-- over_600_ratio: 53.99
+- as_of_date: 20260529
+- over_400_ratio: 54.37
+- over_600_ratio: 50.68
 - over_800_ratio: 47.35
 - over_1000_ratio: 47.35
-- over_400_change_1w: 1.33
+- over_400_change_1w: -4.3
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 3
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,55.85,-0.72,47.35,0,47.35,0,1,False,False
 20260515,57.34,1.49,47.35,0,47.35,0,2,False,False
 20260522,58.67,1.33,47.35,0,47.35,0,3,False,False
+20260529,54.37,-4.3,47.35,0,47.35,0,0,False,False
 ```
 
 ## Candidate Context

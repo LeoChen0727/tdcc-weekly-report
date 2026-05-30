@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3535 晶彩科
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:38 Asia/Taipei
+- generated_at: 2026-05-30 23:42:06 Asia/Taipei
 - stock_id: 3535
 - stock_name: 晶彩科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,7 +77,7 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,132,141,129,141,14826671,123.93,13.78,123.95,118.83,1.84
+20260504,132,141,129,141,14826671,123.92,13.78,123.95,118.83,1.84
 20260505,140,148.5,133,145.5,29345518,125.72,15.73,126.05,119.54,3.12
 20260506,150.5,151,135,136.5,21426845,126.62,7.8,127.2,120.09,2.06
 20260507,137,138,131,132,6626066,127.07,3.88,127.75,120.55,0.64
@@ -89,7 +89,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260515,125.5,130.5,122,122.5,5113101,126.2,-2.93,126.78,123.12,0.64
 20260518,120,121.5,115.5,120,2344503,125.68,-4.52,126.75,123.34,0.3
 20260519,121.5,132,120.5,132,10977222,126.21,4.59,127.12,123.68,1.39
-20260520,132.5,133,121.5,122,10339658,125.86,-3.07,126.83,124.01,1.29
+20260520,132.5,133,121.5,122,10339658,125.86,-3.06,126.83,124.01,1.29
 20260521,123,126,123,124.5,2476914,125.74,-0.99,126.67,124.36,0.32
 20260522,125,128,124.5,127.5,2535731,125.89,1.28,127.17,124.74,0.34
 20260525,129.5,131,127,130,4128047,126.23,2.98,127.97,125.15,0.55
@@ -100,16 +100,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 25.86
-- over_600_ratio: 25.22
-- over_800_ratio: 21.88
-- over_1000_ratio: 21.88
-- over_400_change_1w: 0.27
-- over_800_change_1w: 0.01
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 25.72
+- over_600_ratio: 21.96
+- over_800_ratio: 21.96
+- over_1000_ratio: 21.96
+- over_400_change_1w: -0.14
+- over_800_change_1w: 0.08
+- over_1000_change_1w: 0.08
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,25.71,-2.72,21.96,-1.38,21.96,-0.21,0,False,False
 20260515,25.59,-0.12,21.87,-0.09,21.87,-0.09,1,False,False
 20260522,25.86,0.27,21.88,0.01,21.88,0.01,2,True,True
+20260529,25.72,-0.14,21.96,0.08,21.96,0.08,3,False,True
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 3535 | 晶彩科 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260530 | 3535 | 晶彩科 | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6246 臺龍
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:23 Asia/Taipei
+- generated_at: 2026-05-30 23:42:59 Asia/Taipei
 - stock_id: 6246
 - stock_name: 臺龍
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 136
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 272
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -85,7 +85,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260511,17.1,17.25,16.9,16.9,90000,16.47,2.63,16.36,15.35,0.48
 20260512,16.95,16.95,16.2,16.2,104000,16.44,-1.49,16.36,15.39,0.55
 20260513,15.8,16.05,15.45,15.9,129000,16.4,-3.04,16.35,15.43,0.66
-20260514,16.1,16.1,15.8,15.95,45000,16.36,-2.51,16.35,15.47,0.23
+20260514,16.1,16.1,15.8,15.95,45000,16.36,-2.52,16.35,15.47,0.23
 20260515,15.9,16,15,15,135000,16.25,-7.68,16.25,15.5,0.69
 20260518,14.25,15.05,14.25,15.05,34000,16.15,-6.8,16.18,15.54,0.17
 20260519,14.55,15.35,14.3,14.65,125000,16.02,-8.57,16.09,15.58,0.63
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 62.99
 - over_600_ratio: 57.96
 - over_800_ratio: 53.99
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,62.99,-0.02,53.99,0,53.99,0,0,False,False
 20260515,62.99,0,53.99,0,53.99,0,0,False,False
 20260522,62.99,0,53.99,0,53.99,0,0,False,False
+20260529,62.99,0,53.99,0,53.99,0,0,False,False
 ```
 
 ## Candidate Context

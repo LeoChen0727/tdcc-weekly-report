@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2754 亞洲藏壽司
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:15 Asia/Taipei
+- generated_at: 2026-05-30 23:41:40 Asia/Taipei
 - stock_id: 2754
 - stock_name: 亞洲藏壽司
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -89,7 +89,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260515,71.2,71.4,69.3,69.5,23000,69.32,0.26,68.64,71.38,0.57
 20260518,68.5,70.2,68,70.1,6000,69.39,1.03,68.67,71.25,0.15
 20260519,72.5,72.5,70,70,61000,69.44,0.81,68.69,71.13,1.48
-20260520,71.6,77,71.6,77,912000,70.07,9.89,69.12,71.12,10.72
+20260520,71.6,77,71.6,77,912000,70.07,9.9,69.12,71.12,10.72
 20260521,77.2,80.8,73.7,74.7,674000,70.45,6.03,69.44,71.07,5.74
 20260522,74.7,74.7,72,72.7,73000,70.64,2.92,69.71,70.98,0.62
 20260525,73.1,76,70.6,72.6,73000,70.8,2.54,69.97,70.91,0.61
@@ -100,13 +100,13 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 73.05
 - over_600_ratio: 69.9
 - over_800_ratio: 68.41
 - over_1000_ratio: 66.51
-- over_400_change_1w: -0.87
-- over_800_change_1w: -0.04
+- over_400_change_1w: 0
+- over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,73.97,0.01,68.5,0,66.51,0,1,False,False
 20260515,73.92,-0.05,68.45,-0.05,66.51,0,0,False,False
 20260522,73.05,-0.87,68.41,-0.04,66.51,0,0,False,False
+20260529,73.05,0,68.41,0,66.51,0,0,False,False
 ```
 
 ## Candidate Context

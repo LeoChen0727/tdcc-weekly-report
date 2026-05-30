@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2204 中華
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:55 Asia/Taipei
+- generated_at: 2026-05-30 23:41:16 Asia/Taipei
 - stock_id: 2204
 - stock_name: 中華
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -84,7 +84,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260508,55.3,55.5,54.4,54.4,951391,54.44,-0.08,54.21,55.59,0.78
 20260511,54.5,54.5,53.9,54.1,1223826,54.41,-0.57,54.2,55.57,1.02
 20260512,54,54.5,53.9,54,1157338,54.38,-0.7,54.16,55.55,0.95
-20260513,53.9,53.9,52.5,52.9,3773584,54.25,-2.5,54.08,55.51,2.78
+20260513,53.9,53.9,52.5,52.9,3773584,54.26,-2.5,54.08,55.51,2.78
 20260514,52.7,53.1,52,52.2,3028807,54.08,-3.48,53.95,55.45,2.07
 20260515,52.5,52.6,51.9,52,1696823,53.91,-3.54,53.8,55.38,1.16
 20260518,52.3,52.3,51.5,51.9,1100851,53.74,-3.43,53.67,55.31,0.75
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 72.99
-- over_600_ratio: 72.05
-- over_800_ratio: 70.67
-- over_1000_ratio: 70
-- over_400_change_1w: 0.15
-- over_800_change_1w: 0.27
-- over_1000_change_1w: 0.44
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 73.46
+- over_600_ratio: 72.49
+- over_800_ratio: 71.38
+- over_1000_ratio: 70.89
+- over_400_change_1w: 0.47
+- over_800_change_1w: 0.71
+- over_1000_change_1w: 0.89
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,17 +120,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,73.11,0.14,70.63,0.14,68.78,-0.22,1,False,True
 20260515,72.84,-0.27,70.4,-0.23,69.56,0.78,2,False,True
 20260522,72.99,0.15,70.67,0.27,70,0.44,3,True,True
+20260529,73.46,0.47,71.38,0.71,70.89,0.89,4,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2204 | 中華 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260530 | 2204 | 中華 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2204 | 中華 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| 20260530 | 2204 | 中華 | 2 | 2 | 3 | 3 | 3 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | status |

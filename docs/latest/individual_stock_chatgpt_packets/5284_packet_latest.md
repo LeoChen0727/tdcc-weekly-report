@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5284 jpp-KY
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:04 Asia/Taipei
+- generated_at: 2026-05-30 23:42:37 Asia/Taipei
 - stock_id: 5284
 - stock_name: jpp-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -80,7 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260504,347,358,336,344.5,1992633,321.5,7.15,323.43,287.21,0.81
 20260505,349.5,368,347.5,365.5,2416955,325.17,12.4,328.02,288.77,0.95
 20260506,365.5,367.5,345.5,356,2465769,327.74,8.62,331.7,290.15,0.94
-20260507,362,384,356,377,2764179,331.85,13.61,335.95,291.82,1.05
+20260507,362,384,356,377,2764179,331.84,13.61,335.95,291.82,1.05
 20260508,377.5,389,356,360,3045507,334.19,7.72,339.4,293.31,1.12
 20260511,368,372,355,367,1716567,336.93,8.93,342.32,295.04,0.66
 20260512,367,389,357,382,2793042,340.68,12.13,345.7,296.93,1.09
@@ -100,16 +100,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 58.11
-- over_600_ratio: 52.3
-- over_800_ratio: 50.98
-- over_1000_ratio: 50.98
-- over_400_change_1w: -0.51
-- over_800_change_1w: 0.42
-- over_1000_change_1w: 0.42
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 59.82
+- over_600_ratio: 53.4
+- over_800_ratio: 52.08
+- over_1000_ratio: 52.08
+- over_400_change_1w: 1.71
+- over_800_change_1w: 1.1
+- over_1000_change_1w: 1.1
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,57.9,0.59,51.26,1.63,47.73,-1.9,1,False,True
 20260515,58.62,0.72,50.56,-0.7,50.56,2.83,2,False,True
 20260522,58.11,-0.51,50.98,0.42,50.98,0.42,3,False,True
+20260529,59.82,1.71,52.08,1.1,52.08,1.1,4,True,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6829 千附精密
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:41 Asia/Taipei
+- generated_at: 2026-05-30 23:43:19 Asia/Taipei
 - stock_id: 6829
 - stock_name: 千附精密
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -78,12 +78,12 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,258,270,250,270,507000,197.44,36.75,192.38,138.1,0.27
-20260505,268,280,262.5,273,404000,203.74,34,200.2,140.74,0.21
-20260506,269.5,269.5,246,265,601000,208.84,26.89,207.55,143.28,0.32
+20260505,268,280,262.5,273,404000,203.74,33.99,200.2,140.74,0.21
+20260506,269.5,269.5,246,265,601000,208.85,26.89,207.55,143.28,0.32
 20260507,265.5,279,257.5,278,486000,214.61,29.54,215.53,146.03,0.26
 20260508,255.5,264,250.5,250.5,3424000,217.6,15.12,221.72,148.32,1.79
 20260511,229,236.5,225.5,225.5,1464000,218.26,3.32,226.2,150.25,0.79
-20260512,215,224,209,215,3372000,217.98,-1.37,230,152.04,1.79
+20260512,215,224,209,215,3372000,217.99,-1.37,230,152.04,1.79
 20260513,213,223.5,211.5,213,2200000,217.57,-2.1,233.2,153.8,1.26
 20260514,214,215,194.5,202.5,2894000,216.31,-6.39,235.15,155.37,1.75
 20260515,205,214,198,198,2099000,214.79,-7.82,236.07,156.88,1.41
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 67.32
 - over_600_ratio: 66.6
 - over_800_ratio: 63
 - over_1000_ratio: 63
-- over_400_change_1w: 0.03
+- over_400_change_1w: 0
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,67.48,-0.62,63,0,63,0,0,False,False
 20260515,67.29,-0.19,63,0,63,0,0,False,False
 20260522,67.32,0.03,63,0,63,0,1,False,False
+20260529,67.32,0,63,0,63,0,0,False,False
 ```
 
 ## Candidate Context

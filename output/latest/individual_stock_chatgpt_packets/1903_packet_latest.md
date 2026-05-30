@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1903 士紙
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:51 Asia/Taipei
+- generated_at: 2026-05-30 23:41:11 Asia/Taipei
 - stock_id: 1903
 - stock_name: 士紙
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 80.75
-- over_600_ratio: 78.55
-- over_800_ratio: 77.72
-- over_1000_ratio: 74.56
-- over_400_change_1w: 0.01
-- over_800_change_1w: 0.01
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 80.61
+- over_600_ratio: 78.57
+- over_800_ratio: 77.74
+- over_1000_ratio: 74.58
+- over_400_change_1w: -0.14
+- over_800_change_1w: 0.02
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,80.87,0.03,77.66,0.29,74.52,-0.01,1,False,True
 20260515,80.74,-0.13,77.71,0.05,74.56,0.04,2,False,True
 20260522,80.75,0.01,77.72,0.01,74.56,0,3,False,True
+20260529,80.61,-0.14,77.74,0.02,74.58,0.02,4,False,True
 ```
 
 ## Candidate Context

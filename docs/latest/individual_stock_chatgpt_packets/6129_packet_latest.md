@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6129 普誠
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:15 Asia/Taipei
+- generated_at: 2026-05-30 23:42:50 Asia/Taipei
 - stock_id: 6129
 - stock_name: 普誠
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -82,7 +82,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260506,18.2,18.2,17.25,17.45,1485000,16.65,4.8,16.7,15.81,1.28
 20260507,17.45,17.45,16.7,16.75,1676000,16.66,0.55,16.74,15.8,1.38
 20260508,16.7,16.7,16.1,16.15,1166000,16.62,-2.81,16.78,15.8,0.96
-20260511,16.15,16.75,16.1,16.4,597000,16.6,-1.19,16.81,15.82,0.49
+20260511,16.15,16.75,16.1,16.4,597000,16.6,-1.2,16.81,15.82,0.49
 20260512,16.5,16.5,16.05,16.1,1041000,16.56,-2.76,16.81,15.83,0.84
 20260513,16,16.2,15.7,15.85,622000,16.5,-3.93,16.79,15.84,0.5
 20260514,16,16.1,15.5,15.6,631000,16.42,-5.01,16.77,15.84,0.51
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 16.71
-- over_600_ratio: 14.74
+- as_of_date: 20260529
+- over_400_ratio: 16.95
+- over_600_ratio: 14.65
 - over_800_ratio: 13.92
 - over_1000_ratio: 13.43
-- over_400_change_1w: -0.6
-- over_800_change_1w: -0.48
+- over_400_change_1w: 0.24
+- over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,16.78,0.33,13.92,0,13.43,0,1,False,False
 20260515,17.31,0.53,14.4,0.48,13.43,0,2,False,True
 20260522,16.71,-0.6,13.92,-0.48,13.43,0,0,False,False
+20260529,16.95,0.24,13.92,0,13.43,0,1,False,False
 ```
 
 ## Candidate Context

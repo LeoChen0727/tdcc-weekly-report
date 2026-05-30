@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5864 致和證
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:12 Asia/Taipei
+- generated_at: 2026-05-30 23:42:46 Asia/Taipei
 - stock_id: 5864
 - stock_name: 致和證
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -79,8 +79,8 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,29.3,30.3,29,30,5397000,25.97,15.51,25.52,24.66,1.64
 20260505,29.95,30.8,29.8,30.4,3300000,26.34,15.41,25.86,24.79,0.97
-20260506,30.85,31.2,30.45,31.2,4081000,26.75,16.66,26.23,24.93,1.16
-20260507,34.25,34.3,33.1,34.3,10137000,27.38,25.3,26.75,25.1,2.68
+20260506,30.85,31.2,30.45,31.2,4081000,26.75,16.65,26.23,24.93,1.16
+20260507,34.25,34.3,33.1,34.3,10137000,27.38,25.29,26.75,25.1,2.68
 20260508,35.75,35.75,34.3,34.9,9314000,28,24.63,27.33,25.29,2.24
 20260511,35.85,37.75,35.7,36.7,8531000,28.73,27.75,27.95,25.5,1.91
 20260512,36.9,36.9,33.7,33.85,10765000,29.15,16.11,28.46,25.68,2.19
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 71.54
-- over_600_ratio: 68.19
-- over_800_ratio: 64.5
-- over_1000_ratio: 62.89
-- over_400_change_1w: -0.84
-- over_800_change_1w: -0.91
-- over_1000_change_1w: -0.92
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 72.2
+- over_600_ratio: 68.79
+- over_800_ratio: 65.76
+- over_1000_ratio: 63.55
+- over_400_change_1w: 0.66
+- over_800_change_1w: 1.26
+- over_1000_change_1w: 0.66
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,73.85,1.32,67.05,0.92,65.25,1.01,1,True,True
 20260515,72.38,-1.47,65.41,-1.64,63.81,-1.44,0,False,False
 20260522,71.54,-0.84,64.5,-0.91,62.89,-0.92,0,False,False
+20260529,72.2,0.66,65.76,1.26,63.55,0.66,1,True,True
 ```
 
 ## Candidate Context

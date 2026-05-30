@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4442 竣邦-KY
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:50 Asia/Taipei
+- generated_at: 2026-05-30 23:42:21 Asia/Taipei
 - stock_id: 4442
 - stock_name: 竣邦-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 135
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 271
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 76.33
-- over_600_ratio: 69.06
-- over_800_ratio: 55.97
+- as_of_date: 20260529
+- over_400_ratio: 77.11
+- over_600_ratio: 69.84
+- over_800_ratio: 59.07
 - over_1000_ratio: 39.27
-- over_400_change_1w: -1.26
-- over_800_change_1w: 0
+- over_400_change_1w: 0.78
+- over_800_change_1w: 3.1
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,77.82,0,55.97,0,39.27,0,0,False,False
 20260515,77.59,-0.23,55.97,0,39.27,0,0,False,False
 20260522,76.33,-1.26,55.97,0,39.27,0,1,False,False
+20260529,77.11,0.78,59.07,3.1,39.27,0,2,False,True
 ```
 
 ## Candidate Context

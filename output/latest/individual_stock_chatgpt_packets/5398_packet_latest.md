@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5398 慕康生醫
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:07 Asia/Taipei
+- generated_at: 2026-05-30 23:42:40 Asia/Taipei
 - stock_id: 5398
 - stock_name: 慕康生醫
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 56.77
-- over_600_ratio: 51.21
-- over_800_ratio: 51.21
-- over_1000_ratio: 43.82
-- over_400_change_1w: -0.14
-- over_800_change_1w: -0.14
-- over_1000_change_1w: -0.14
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260529
+- over_400_ratio: 57.54
+- over_600_ratio: 50.98
+- over_800_ratio: 50.98
+- over_1000_ratio: 43.79
+- over_400_change_1w: 0.77
+- over_800_change_1w: -0.23
+- over_1000_change_1w: -0.03
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,57.8,0.13,51.39,0.21,43.96,-0.01,1,False,True
 20260515,56.91,-0.89,51.35,-0.04,43.96,0,0,False,False
 20260522,56.77,-0.14,51.21,-0.14,43.82,-0.14,0,False,False
+20260529,57.54,0.77,50.98,-0.23,43.79,-0.03,1,False,False
 ```
 
 ## Candidate Context

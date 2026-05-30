@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3218 大學光
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:28 Asia/Taipei
+- generated_at: 2026-05-30 23:41:55 Asia/Taipei
 - stock_id: 3218
 - stock_name: 大學光
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -83,7 +83,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260507,136,136.5,133.5,134,259000,133.07,0.7,131.43,135.93,0.69
 20260508,135,135,131,132.5,411000,133.03,-0.4,131.5,135.69,1.06
 20260511,135,136.5,133,135.5,370000,133.23,1.7,131.78,135.57,0.95
-20260512,137.5,137.5,132,133.5,294000,133.26,0.18,131.97,135.43,0.74
+20260512,137.5,137.5,132,133.5,294000,133.25,0.18,131.97,135.43,0.74
 20260513,133,133,130.5,130.5,290000,133.03,-1.9,131.97,135.26,0.72
 20260514,132,132.5,129,129,208000,132.69,-2.78,131.85,135.06,0.52
 20260515,130.5,130.5,127,127,258000,132.22,-3.94,131.6,134.8,0.64
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 56.08
-- over_600_ratio: 53.07
-- over_800_ratio: 51.41
-- over_1000_ratio: 49.13
-- over_400_change_1w: -0.04
-- over_800_change_1w: -0.04
-- over_1000_change_1w: -0.01
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 56.21
+- over_600_ratio: 53.19
+- over_800_ratio: 51.53
+- over_1000_ratio: 50.35
+- over_400_change_1w: 0.13
+- over_800_change_1w: 0.12
+- over_1000_change_1w: 1.22
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,57.14,0.28,51.49,-0.12,49.14,-0.15,1,False,False
 20260515,56.12,-1.02,51.45,-0.04,49.14,0,0,False,False
 20260522,56.08,-0.04,51.41,-0.04,49.13,-0.01,0,False,False
+20260529,56.21,0.13,51.53,0.12,50.35,1.22,1,True,True
 ```
 
 ## Candidate Context

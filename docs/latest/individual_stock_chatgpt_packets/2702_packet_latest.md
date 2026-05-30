@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2702 華園
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:13 Asia/Taipei
+- generated_at: 2026-05-30 23:41:37 Asia/Taipei
 - stock_id: 2702
 - stock_name: 華園
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 73.69
 - over_600_ratio: 73.43
 - over_800_ratio: 72.53
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,73.53,0.33,72.64,0.33,72.64,0.33,1,True,True
 20260515,73.69,0.16,72.53,-0.11,72.53,-0.11,2,False,False
 20260522,73.69,0,72.53,0,72.53,0,0,False,False
+20260529,73.69,0,72.53,0,72.53,0,0,False,False
 ```
 
 ## Candidate Context

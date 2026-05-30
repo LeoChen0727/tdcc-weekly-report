@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6667 信紘科
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:35 Asia/Taipei
+- generated_at: 2026-05-30 23:43:13 Asia/Taipei
 - stock_id: 6667
 - stock_name: 信紘科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -83,7 +83,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260507,271.5,275,267,268,775000,265.6,0.9,270.15,255.64,0.67
 20260508,267.5,269.5,258,261.5,690000,265.26,-1.42,270.77,255.82,0.58
 20260511,263,265,259,262.5,522000,265.03,-0.95,271.05,256.14,0.45
-20260512,258,258.5,250.5,252,1059000,263.94,-4.52,270.77,256.35,0.9
+20260512,258,258.5,250.5,252,1059000,263.94,-4.53,270.77,256.35,0.9
 20260513,254,257,250,252.5,558000,262.99,-3.99,270.43,256.54,0.47
 20260514,255,255,251,252,407000,262.07,-3.84,269.23,256.68,0.38
 20260515,255,256,248.5,248.5,442000,260.94,-4.77,267.52,256.8,0.47
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 51.52
-- over_600_ratio: 47.67
+- as_of_date: 20260529
+- over_400_ratio: 51.46
+- over_600_ratio: 47.52
 - over_800_ratio: 46.18
 - over_1000_ratio: 42.22
-- over_400_change_1w: 0.07
+- over_400_change_1w: -0.06
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,52.77,-0.55,46.18,0,42.22,0,0,False,False
 20260515,51.45,-1.32,46.18,0,42.22,0,0,False,False
 20260522,51.52,0.07,46.18,0,42.22,0,1,False,False
+20260529,51.46,-0.06,46.18,0,42.22,0,0,False,False
 ```
 
 ## Candidate Context

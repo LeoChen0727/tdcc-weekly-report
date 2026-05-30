@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6244 茂迪
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:23 Asia/Taipei
+- generated_at: 2026-05-30 23:42:59 Asia/Taipei
 - stock_id: 6244
 - stock_name: 茂迪
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -80,8 +80,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260504,27.5,28.25,27,27.7,7003000,27.83,-0.46,27.32,28.44,0.82
 20260505,27.7,28.8,27.7,27.9,7928000,27.83,0.24,27.45,28.52,0.92
 20260506,28.25,28.75,27.3,27.55,5802000,27.81,-0.94,27.56,28.58,0.67
-20260507,27.95,30.3,27.7,30.3,12935000,28.02,8.15,27.75,28.7,1.42
-20260508,31,31.25,28.9,29.7,18966000,28.16,5.48,27.96,28.82,1.94
+20260507,27.95,30.3,27.7,30.3,12935000,28.02,8.14,27.75,28.7,1.42
+20260508,31,31.25,28.9,29.7,18966000,28.16,5.47,27.96,28.82,1.94
 20260511,30.2,30.55,29.2,29.9,8399000,28.3,5.64,28.17,28.93,0.85
 20260512,30,30.75,29.4,29.4,6799000,28.39,3.54,28.34,29.05,0.68
 20260513,29.4,31.1,28.55,29.4,20783000,28.48,3.24,28.46,29.14,1.94
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 33.77
-- over_600_ratio: 31.04
-- over_800_ratio: 29.59
-- over_1000_ratio: 28.47
-- over_400_change_1w: 0.38
-- over_800_change_1w: 0.82
-- over_1000_change_1w: 0.61
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260529
+- over_400_ratio: 35.26
+- over_600_ratio: 32.46
+- over_800_ratio: 30.97
+- over_1000_ratio: 29.86
+- over_400_change_1w: 1.49
+- over_800_change_1w: 1.38
+- over_1000_change_1w: 1.39
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,34.3,2.13,29.98,2.18,29.32,1.96,1,True,True
 20260515,33.39,-0.91,28.77,-1.21,27.86,-1.46,0,False,False
 20260522,33.77,0.38,29.59,0.82,28.47,0.61,1,True,True
+20260529,35.26,1.49,30.97,1.38,29.86,1.39,2,True,True
 ```
 
 ## Candidate Context

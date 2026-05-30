@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6233 旺玖
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:22 Asia/Taipei
+- generated_at: 2026-05-30 23:42:58 Asia/Taipei
 - stock_id: 6233
 - stock_name: 旺玖
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -80,7 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260504,28.5,29.45,28.5,28.8,920000,27.25,5.69,26.87,26.27,1.05
 20260505,28.8,29.5,28.6,29.35,730000,27.43,7.02,27.09,26.34,0.81
 20260506,29.4,29.4,26.6,26.6,2157000,27.36,-2.77,27.18,26.37,2.16
-20260507,26.8,26.8,26.2,26.4,738000,27.28,-3.21,27.23,26.39,0.72
+20260507,26.8,26.8,26.2,26.4,738000,27.28,-3.22,27.23,26.39,0.72
 20260508,26.25,27.95,26.25,26.8,1104000,27.24,-1.61,27.28,26.43,1.04
 20260511,27.2,27.5,26.45,26.5,579000,27.18,-2.49,27.32,26.48,0.54
 20260512,26.85,26.85,26.2,26.5,373000,27.12,-2.28,27.36,26.53,0.34
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 28.96
-- over_600_ratio: 25.72
-- over_800_ratio: 23.83
+- as_of_date: 20260529
+- over_400_ratio: 29.02
+- over_600_ratio: 25.77
+- over_800_ratio: 24.86
 - over_1000_ratio: 19.43
-- over_400_change_1w: -0.01
-- over_800_change_1w: -0.1
-- over_1000_change_1w: -0.07
-- tdcc_consecutive_up_weeks: 0
+- over_400_change_1w: 0.06
+- over_800_change_1w: 1.03
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,28.77,0.17,23.95,-1.38,19.5,-1.37,1,False,False
 20260515,28.97,0.2,23.93,-0.02,19.5,0,2,False,False
 20260522,28.96,-0.01,23.83,-0.1,19.43,-0.07,0,False,False
+20260529,29.02,0.06,24.86,1.03,19.43,0,1,False,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2108 南帝
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:55 Asia/Taipei
+- generated_at: 2026-05-30 23:41:16 Asia/Taipei
 - stock_id: 2108
 - stock_name: 南帝
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,16 +100,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 69.96
-- over_600_ratio: 68.09
-- over_800_ratio: 66.47
-- over_1000_ratio: 64.47
-- over_400_change_1w: 0.22
-- over_800_change_1w: 0.18
-- over_1000_change_1w: 0.15
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 69.67
+- over_600_ratio: 67.91
+- over_800_ratio: 66.62
+- over_1000_ratio: 64.43
+- over_400_change_1w: -0.29
+- over_800_change_1w: 0.15
+- over_1000_change_1w: -0.04
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,69.37,-0.38,65.88,-0.61,63.9,-0.59,0,False,False
 20260515,69.74,0.37,66.29,0.41,64.32,0.42,1,True,True
 20260522,69.96,0.22,66.47,0.18,64.47,0.15,2,True,True
+20260529,69.67,-0.29,66.62,0.15,64.43,-0.04,3,False,True
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2108 | 南帝 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260530 | 2108 | 南帝 | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

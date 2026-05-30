@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7718 友鋮
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:49 Asia/Taipei
+- generated_at: 2026-05-30 23:43:43 Asia/Taipei
 - stock_id: 7718
 - stock_name: 友鋮
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 26
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 27
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -93,22 +93,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260521,49,50.5,49,50,88000,48.43,3.25,48.22,47.53,4.06
 20260522,50.3,50.3,49.6,49.9,50000,48.55,2.78,48.35,47.62,2.16
 20260525,49.9,49.9,48.15,49.65,49000,48.64,2.07,48.48,47.69,1.95
-20260526,49.9,49.9,48.9,48.9,49000,48.66,0.49,48.58,47.76,1.85
+20260526,49.9,49.9,48.9,48.9,49000,48.66,0.48,48.58,47.76,1.85
 20260527,49.9,49.9,48.6,48.6,49000,48.66,-0.12,48.67,47.82,1.72
 20260528,48.35,49.65,48.35,48.5,49000,48.65,-0.3,48.74,47.88,1.61
 20260529,48.6,49,48.6,49,49000,48.67,0.67,48.84,47.94,1.5
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 78.38
-- over_600_ratio: 74.29
-- over_800_ratio: 71.21
-- over_1000_ratio: 67.48
-- over_400_change_1w: 0.04
-- over_800_change_1w: 0.02
-- over_1000_change_1w: 0.02
-- tdcc_consecutive_up_weeks: 15
+- as_of_date: 20260529
+- over_400_ratio: 78.46
+- over_600_ratio: 74.37
+- over_800_ratio: 71.24
+- over_1000_ratio: 67.51
+- over_400_change_1w: 0.08
+- over_800_change_1w: 0.03
+- over_1000_change_1w: 0.03
+- tdcc_consecutive_up_weeks: 16
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -116,7 +116,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260306,77.73,0.09,70.48,0.1,66.74,0.1,4,True,True
 20260313,77.81,0.08,70.63,0.15,66.89,0.15,5,True,True
 20260320,77.8,-0.01,70.73,0.1,67,0.11,6,False,True
 20260327,77.87,0.07,70.88,0.15,67.15,0.15,7,True,True
@@ -128,6 +127,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,78.29,0.13,71.13,0.05,67.4,0.05,13,True,True
 20260515,78.34,0.05,71.19,0.06,67.46,0.06,14,True,True
 20260522,78.38,0.04,71.21,0.02,67.48,0.02,15,True,True
+20260529,78.46,0.08,71.24,0.03,67.51,0.03,16,True,True
 ```
 
 ## Candidate Context

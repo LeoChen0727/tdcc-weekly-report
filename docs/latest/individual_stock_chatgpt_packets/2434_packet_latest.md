@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2434 統懋
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:05 Asia/Taipei
+- generated_at: 2026-05-30 23:41:27 Asia/Taipei
 - stock_id: 2434
 - stock_name: 統懋
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,9 +100,9 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 80.49
-- over_600_ratio: 79.19
+- as_of_date: 20260529
+- over_400_ratio: 80.48
+- over_600_ratio: 79.18
 - over_800_ratio: 77.54
 - over_1000_ratio: 77.54
 - over_400_change_1w: -0.01
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,80.52,0.03,77.56,0.01,77.56,0.01,1,True,True
 20260515,80.5,-0.02,77.54,-0.02,77.54,-0.02,0,False,False
 20260522,80.49,-0.01,77.54,0,77.54,0,0,False,False
+20260529,80.48,-0.01,77.54,0,77.54,0,0,False,False
 ```
 
 ## Candidate Context

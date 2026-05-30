@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4741 泓瀚
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:55 Asia/Taipei
+- generated_at: 2026-05-30 23:42:27 Asia/Taipei
 - stock_id: 4741
 - stock_name: 泓瀚
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -82,10 +82,10 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260506,59,63.2,56.3,63.2,4445000,51.16,23.53,54.76,35.19,3.11
 20260507,63.5,67.8,61.5,62.4,3918000,52.1,19.78,55.59,35.86,2.51
 20260508,62.8,64.6,56.6,61.6,1751000,52.89,16.47,56.33,36.52,1.08
-20260511,62.2,63.9,60.9,61.6,1704000,53.61,14.89,56.83,37.18,1.01
+20260511,62.2,63.9,60.9,61.6,1704000,53.62,14.89,56.83,37.18,1.01
 20260512,61.4,67,59.2,65.2,2604000,54.58,19.46,57.34,37.91,1.46
 20260513,65.4,68.9,63.2,64.4,2813000,55.4,16.25,57.85,38.64,1.48
-20260514,65,66,63.1,64.4,1311000,56.15,14.7,58.47,39.35,0.67
+20260514,65,66,63.1,64.4,1311000,56.15,14.69,58.47,39.35,0.67
 20260515,64.4,65,58.1,58.2,1852000,56.32,3.34,58.52,39.96,0.92
 20260518,58,59,55.5,58.6,762000,56.51,3.7,58.54,40.57,0.37
 20260519,57.7,59.3,54.4,55.1,688000,56.39,-2.29,58.52,41.13,0.33
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 46.18
+- as_of_date: 20260529
+- over_400_ratio: 51.3
 - over_600_ratio: 41.91
 - over_800_ratio: 40.07
 - over_1000_ratio: 40.07
-- over_400_change_1w: 0.02
+- over_400_change_1w: 5.12
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,46.16,-0.18,40.07,0,40.07,0,0,False,False
 20260515,46.16,0,40.07,0,40.07,0,0,False,False
 20260522,46.18,0.02,40.07,0,40.07,0,1,False,False
+20260529,51.3,5.12,40.07,0,40.07,0,2,False,False
 ```
 
 ## Candidate Context

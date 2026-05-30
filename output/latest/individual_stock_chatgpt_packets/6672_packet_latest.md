@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6672 騰輝電子-KY
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:36 Asia/Taipei
+- generated_at: 2026-05-30 23:43:13 Asia/Taipei
 - stock_id: 6672
 - stock_name: 騰輝電子-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 31.48
-- over_600_ratio: 27.06
-- over_800_ratio: 19.48
-- over_1000_ratio: 16.15
-- over_400_change_1w: -0.76
-- over_800_change_1w: -2.55
-- over_1000_change_1w: -1.6
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260529
+- over_400_ratio: 26.33
+- over_600_ratio: 21.58
+- over_800_ratio: 17.32
+- over_1000_ratio: 17.32
+- over_400_change_1w: -5.15
+- over_800_change_1w: -2.16
+- over_1000_change_1w: 1.17
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,17 +120,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,33.68,5.59,21.62,4.14,19.37,1.89,1,True,True
 20260515,32.24,-1.44,22.03,0.41,17.75,-1.62,2,False,True
 20260522,31.48,-0.76,19.48,-2.55,16.15,-1.6,0,False,False
+20260529,26.33,-5.15,17.32,-2.16,17.32,1.17,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 6672 | 騰輝電子-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 60.0 |  |  | neckline_challenge |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260530 | 6672 | 騰輝電子-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 55.0 |  |  | neckline_challenge |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 6672 | 騰輝電子-KY | 2 | 2 | 4 | 6 | 6 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260530 | 6672 | 騰輝電子-KY | 3 | 3 | 4 | 7 | 7 | continued_2_3d | 連續 3 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

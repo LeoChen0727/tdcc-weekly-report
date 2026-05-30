@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3663 鑫科
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:42 Asia/Taipei
+- generated_at: 2026-05-30 23:42:11 Asia/Taipei
 - stock_id: 3663
 - stock_name: 鑫科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -82,15 +82,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260506,76,76,70.1,70.3,3481000,70.4,-0.14,71.16,67.33,0.89
 20260507,71,76.5,70.5,74.4,4295000,70.73,5.19,71.38,67.51,1.07
 20260508,75,76.4,71,72.1,3451000,70.85,1.77,71.39,67.69,0.86
-20260511,70.1,70.2,66.3,67.9,3567000,70.6,-3.82,71.27,67.85,0.92
-20260512,68.4,69.7,66.7,68.2,1904000,70.4,-3.12,70.95,68.05,0.52
+20260511,70.1,70.2,66.3,67.9,3567000,70.6,-3.83,71.27,67.85,0.92
+20260512,68.4,69.7,66.7,68.2,1904000,70.4,-3.13,70.95,68.05,0.52
 20260513,67.4,68.8,66.6,67.8,1275000,70.18,-3.4,70.66,68.24,0.36
 20260514,69,69.5,67.1,67.9,1239000,69.99,-2.99,70.42,68.34,0.36
 20260515,68.8,72.6,67.7,69,3604000,69.91,-1.3,70.32,68.44,1.04
 20260518,68.2,75.9,66.7,75.9,5500000,70.41,7.8,70.6,68.75,1.51
 20260519,76.3,83.4,76.2,83.4,14543000,71.49,16.66,71.11,69.15,3.51
 20260520,85.5,86,78.6,78.6,16000000,72.08,9.04,71.36,69.39,3.31
-20260521,81,85.8,78.9,83.7,11804000,73.05,14.58,71.68,69.65,2.36
+20260521,81,85.8,78.9,83.7,11804000,73.05,14.57,71.68,69.65,2.36
 20260522,84.5,90.9,83.3,86.9,87000,74.21,17.11,72.45,69.99,0.02
 20260525,87.9,93.6,87.9,91.7,91000,75.66,21.19,73.62,70.44,0.02
 20260526,91.4,91.9,87.8,91.4,90000,76.98,18.74,74.86,70.92,0.02
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 64.59
-- over_600_ratio: 62
-- over_800_ratio: 58.65
-- over_1000_ratio: 57.89
-- over_400_change_1w: 3.09
-- over_800_change_1w: -0.38
-- over_1000_change_1w: -1.14
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260529
+- over_400_ratio: 62.43
+- over_600_ratio: 59.74
+- over_800_ratio: 57.84
+- over_1000_ratio: 57.84
+- over_400_change_1w: -2.16
+- over_800_change_1w: -0.81
+- over_1000_change_1w: -0.05
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,63.07,0.97,60.35,0.45,59.51,-0.39,1,False,True
 20260515,61.5,-1.57,59.03,-1.32,59.03,-0.48,0,False,False
 20260522,64.59,3.09,58.65,-0.38,57.89,-1.14,1,False,False
+20260529,62.43,-2.16,57.84,-0.81,57.84,-0.05,0,False,False
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 3663 | 鑫科 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260530 | 3663 | 鑫科 | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

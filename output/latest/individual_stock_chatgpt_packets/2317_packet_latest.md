@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2317 鴻海
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:58 Asia/Taipei
+- generated_at: 2026-05-30 23:41:19 Asia/Taipei
 - stock_id: 2317
 - stock_name: 鴻海
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 272
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -86,7 +86,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260512,254,254,246,250,84325367,228.99,9.17,226.82,217.03,0.9
 20260513,246.5,251,242.5,251,72415109,230.83,8.74,229,217.61,0.76
 20260514,255,255,244,244.5,73360409,231.97,5.4,230.85,218.03,0.77
-20260515,249,260,247,248.5,138413483,233.34,6.49,232.93,218.58,1.39
+20260515,249,260,247,248.5,138413483,233.34,6.5,232.93,218.58,1.39
 20260518,251,251,241,248.5,63512356,234.61,5.92,235.05,219.14,0.63
 20260519,251,254,244,245,70223341,235.47,4.05,236.93,219.58,0.69
 20260520,246.5,246.5,239.5,240,62650287,235.85,1.76,238.38,219.9,0.61
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 69.76
-- over_600_ratio: 68.55
-- over_800_ratio: 67.81
-- over_1000_ratio: 67.07
-- over_400_change_1w: 0.37
-- over_800_change_1w: 0.4
-- over_1000_change_1w: 0.36
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 70.43
+- over_600_ratio: 69.24
+- over_800_ratio: 68.48
+- over_1000_ratio: 67.79
+- over_400_change_1w: 0.67
+- over_800_change_1w: 0.67
+- over_1000_change_1w: 0.72
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,18 +120,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,69.22,1.62,67.22,1.59,66.52,1.61,1,True,True
 20260515,69.39,0.17,67.41,0.19,66.71,0.19,2,True,True
 20260522,69.76,0.37,67.81,0.4,67.07,0.36,3,True,True
+20260529,70.43,0.67,68.48,0.67,67.79,0.72,4,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2317 | 鴻海 | true_breakout | 嚴格突破 | 114.0 |  |  | breakout_confirmed |  | call_put_bullish | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
-| 20260521 | 2317 | 鴻海 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_put_bullish | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260521 | 2317 | 鴻海 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_put_bullish | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2317 | 鴻海 | 7 | 7 | 5 | 7 | 7 | continued_many_days | 連續 7 個交易日上榜，需判斷是持續醞釀或訊號鈍化。 |
+| 20260530 | 2317 | 鴻海 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

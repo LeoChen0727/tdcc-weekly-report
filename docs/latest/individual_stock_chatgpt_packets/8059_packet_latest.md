@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8059 凱碩
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:54 Asia/Taipei
+- generated_at: 2026-05-30 23:43:49 Asia/Taipei
 - stock_id: 8059
 - stock_name: 凱碩
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -93,22 +93,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260521,18.5,18.8,18.3,18.45,237000,19.62,-5.98,20.23,19.12,0.37
 20260522,19,19.4,18.5,19.4,19000,19.61,-1.05,20.04,19.13,0.04
 20260525,20.1,20.5,19.2,20.25,20000,19.66,3,19.98,19.16,0.05
-20260526,20.35,20.35,19.5,19.8,20000,19.67,0.65,19.94,19.17,0.06
+20260526,20.35,20.35,19.5,19.8,20000,19.67,0.66,19.94,19.17,0.06
 20260527,19.9,20,19.2,19.3,20000,19.64,-1.73,19.86,19.18,0.06
 20260528,19.8,19.9,18.95,19.05,19000,19.59,-2.76,19.78,19.18,0.06
 20260529,19.1,19.3,18.95,19.05,19000,19.55,-2.54,19.7,19.19,0.06
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 73.68
-- over_600_ratio: 72
-- over_800_ratio: 70.88
-- over_1000_ratio: 69.93
-- over_400_change_1w: 0.01
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 73.66
+- over_600_ratio: 71.98
+- over_800_ratio: 70.86
+- over_1000_ratio: 69.91
+- over_400_change_1w: -0.02
+- over_800_change_1w: -0.02
+- over_1000_change_1w: -0.02
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,73.33,0.26,70.88,0,69.93,0,1,False,False
 20260515,73.67,0.34,70.88,0,69.93,0,2,False,False
 20260522,73.68,0.01,70.88,0,69.93,0,3,False,False
+20260529,73.66,-0.02,70.86,-0.02,69.91,-0.02,0,False,False
 ```
 
 ## Candidate Context

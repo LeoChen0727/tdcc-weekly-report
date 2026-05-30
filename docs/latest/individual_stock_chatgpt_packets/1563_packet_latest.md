@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1563 巧新
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:44 Asia/Taipei
+- generated_at: 2026-05-30 23:41:03 Asia/Taipei
 - stock_id: 1563
 - stock_name: 巧新
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 26
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 27
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 42.78
-- over_600_ratio: 38.42
-- over_800_ratio: 35.38
-- over_1000_ratio: 31.87
-- over_400_change_1w: 0.14
-- over_800_change_1w: 0.11
-- over_1000_change_1w: 0.53
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260529
+- over_400_ratio: 44.7
+- over_600_ratio: 39.46
+- over_800_ratio: 35.76
+- over_1000_ratio: 32.6
+- over_400_change_1w: 1.92
+- over_800_change_1w: 0.38
+- over_1000_change_1w: 0.73
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -116,7 +116,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260306,41.65,-0.13,33.97,-0.02,31.27,-0.02,14,False,False
 20260313,41.49,-0.16,33.98,0.01,31.28,0.01,15,False,True
 20260320,41.71,0.22,34.01,0.03,31.31,0.03,16,True,True
 20260327,41.82,0.11,34.77,0.76,31.7,0.39,17,True,True
@@ -128,17 +127,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,42.02,0.57,34.44,0.2,30.16,-0.56,2,False,True
 20260515,42.64,0.62,35.27,0.83,31.34,1.18,3,True,True
 20260522,42.78,0.14,35.38,0.11,31.87,0.53,4,True,True
+20260529,44.7,1.92,35.76,0.38,32.6,0.73,5,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 1563 | 巧新 | true_breakout | 嚴格突破 | 86.0 |  |  | breakout_confirmed |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260530 | 1563 | 巧新 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 1563 | 巧新 | 4 | 4 | 4 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260530 | 1563 | 巧新 | 5 | 1 | 5 | 5 | 5 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

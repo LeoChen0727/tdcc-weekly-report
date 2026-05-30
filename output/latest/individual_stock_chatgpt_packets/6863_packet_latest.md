@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6863 永道-KY
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:42 Asia/Taipei
+- generated_at: 2026-05-30 23:43:21 Asia/Taipei
 - stock_id: 6863
 - stock_name: 永道-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 75.43
+- as_of_date: 20260529
+- over_400_ratio: 75.47
 - over_600_ratio: 73.42
 - over_800_ratio: 73.42
 - over_1000_ratio: 72.25
-- over_400_change_1w: 0.02
-- over_800_change_1w: 0.01
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- over_400_change_1w: 0.04
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,75.49,0.02,73.41,0.01,72.24,0.01,1,True,True
 20260515,75.41,-0.08,73.41,0,72.24,0,0,False,False
 20260522,75.43,0.02,73.42,0.01,72.25,0.01,1,True,True
+20260529,75.47,0.04,73.42,0,72.25,0,2,False,False
 ```
 
 ## Candidate Context

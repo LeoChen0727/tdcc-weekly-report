@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1473 台南
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:41 Asia/Taipei
+- generated_at: 2026-05-30 23:41:00 Asia/Taipei
 - stock_id: 1473
 - stock_name: 台南
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,7 +88,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260514,20.5,20.6,20.25,20.25,79099,21.71,-6.74,21.73,23.43,0.51
 20260515,20.3,20.3,20.1,20.2,99369,21.59,-6.43,21.57,23.35,0.66
 20260518,20.15,21.1,20.1,21.05,223248,21.54,-2.29,21.46,23.29,1.42
-20260519,20.85,20.95,20.4,20.6,202942,21.46,-4.02,21.33,23.22,1.25
+20260519,20.85,20.95,20.4,20.6,202942,21.46,-4.03,21.33,23.22,1.25
 20260520,20.5,20.55,20.35,20.4,61369,21.38,-4.56,21.19,23.14,0.41
 20260521,20.45,20.55,20.4,20.4,39244,21.29,-4.2,21.06,23.06,0.27
 20260522,20.45,20.6,20.35,20.45,67400,21.22,-3.65,20.94,22.97,0.48
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 72.3
-- over_600_ratio: 70.9
+- as_of_date: 20260529
+- over_400_ratio: 72.31
+- over_600_ratio: 70.91
 - over_800_ratio: 69.52
 - over_1000_ratio: 68.96
-- over_400_change_1w: 0
+- over_400_change_1w: 0.01
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,72.2,0.04,69.52,0.1,68.96,0.1,1,True,True
 20260515,72.3,0.1,69.52,0,68.96,0,2,False,False
 20260522,72.3,0,69.52,0,68.96,0,0,False,False
+20260529,72.31,0.01,69.52,0,68.96,0,1,False,False
 ```
 
 ## Candidate Context

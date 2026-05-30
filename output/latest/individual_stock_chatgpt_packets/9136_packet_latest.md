@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9136 巨騰-DR
 
 ## Metadata
-- generated_at: 2026-05-29 19:34:05 Asia/Taipei
+- generated_at: 2026-05-30 23:44:02 Asia/Taipei
 - stock_id: 9136
 - stock_name: 巨騰-DR
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 120
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 256
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 67.19
-- over_600_ratio: 61.37
-- over_800_ratio: 59.87
-- over_1000_ratio: 58.01
-- over_400_change_1w: 2.17
-- over_800_change_1w: 2.22
-- over_1000_change_1w: 1.6
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260529
+- over_400_ratio: 68.08
+- over_600_ratio: 62.65
+- over_800_ratio: 61.14
+- over_1000_ratio: 59.91
+- over_400_change_1w: 0.89
+- over_800_change_1w: 1.27
+- over_1000_change_1w: 1.9
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,65.02,-0.15,57.65,0,56.41,0,0,False,False
 20260515,65.02,0,57.65,0,56.41,0,0,False,False
 20260522,67.19,2.17,59.87,2.22,58.01,1.6,1,True,True
+20260529,68.08,0.89,61.14,1.27,59.91,1.9,2,True,True
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 9136 | 巨騰-DR | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260530 | 9136 | 巨騰-DR | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8054 安國
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:53 Asia/Taipei
+- generated_at: 2026-05-30 23:43:49 Asia/Taipei
 - stock_id: 8054
 - stock_name: 安國
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 35.28
-- over_600_ratio: 30.49
-- over_800_ratio: 28.59
-- over_1000_ratio: 27.72
-- over_400_change_1w: 0.82
-- over_800_change_1w: -1.2
-- over_1000_change_1w: -1.28
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260529
+- over_400_ratio: 34.73
+- over_600_ratio: 30.63
+- over_800_ratio: 29.93
+- over_1000_ratio: 29.93
+- over_400_change_1w: -0.55
+- over_800_change_1w: 1.34
+- over_1000_change_1w: 2.21
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,34.77,-0.53,29.33,-0.13,29.33,-0.13,0,False,False
 20260515,34.46,-0.31,29.79,0.46,29,-0.33,1,False,True
 20260522,35.28,0.82,28.59,-1.2,27.72,-1.28,2,False,False
+20260529,34.73,-0.55,29.93,1.34,29.93,2.21,3,False,True
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 8054 | 安國 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260530 | 8054 | 安國 | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

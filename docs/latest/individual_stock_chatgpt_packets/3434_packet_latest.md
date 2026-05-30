@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3434 哲固
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:34 Asia/Taipei
+- generated_at: 2026-05-30 23:42:02 Asia/Taipei
 - stock_id: 3434
 - stock_name: 哲固
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 26
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 27
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -86,7 +86,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260512,28.6,28.9,28.5,28.65,68000,29.34,-2.35,29.85,29.41,0.44
 20260513,28.65,28.65,28.3,28.4,71000,29.26,-2.95,29.8,29.37,0.46
 20260514,28.4,28.65,28.2,28.4,71000,29.19,-2.71,29.62,29.33,0.56
-20260515,28.4,29.05,28.35,28.35,88000,29.12,-2.65,29.49,29.29,0.81
+20260515,28.4,29.05,28.35,28.35,88000,29.12,-2.64,29.49,29.29,0.81
 20260518,28,28.5,27.65,28.15,75000,29.04,-3.06,29.35,29.26,0.68
 20260519,28.9,28.9,28,28,68000,28.95,-3.29,29.2,29.22,0.72
 20260520,27.85,28.25,27.85,28.25,61000,28.89,-2.23,29.04,29.2,0.68
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 44.23
-- over_600_ratio: 40.37
-- over_800_ratio: 32.39
-- over_1000_ratio: 30.13
-- over_400_change_1w: 0.14
-- over_800_change_1w: 0.14
-- over_1000_change_1w: 0.14
-- tdcc_consecutive_up_weeks: 25
+- as_of_date: 20260529
+- over_400_ratio: 44.25
+- over_600_ratio: 40.39
+- over_800_ratio: 32.41
+- over_1000_ratio: 30.15
+- over_400_change_1w: 0.02
+- over_800_change_1w: 0.02
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 26
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -116,7 +116,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260306,42.14,0.28,29.06,0.37,26.8,0.37,14,True,True
 20260313,42.44,0.3,29.42,0.36,27.16,0.36,15,True,True
 20260320,42.61,0.17,29.45,0.03,27.19,0.03,16,True,True
 20260327,43,0.39,29.89,0.44,27.63,0.44,17,True,True
@@ -128,6 +127,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,43.76,-1.11,31.92,0.09,29.66,0.09,23,False,True
 20260515,44.09,0.33,32.25,0.33,29.99,0.33,24,True,True
 20260522,44.23,0.14,32.39,0.14,30.13,0.14,25,True,True
+20260529,44.25,0.02,32.41,0.02,30.15,0.02,26,True,True
 ```
 
 ## Candidate Context

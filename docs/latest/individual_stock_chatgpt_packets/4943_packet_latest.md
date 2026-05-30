@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4943 康控-KY
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:59 Asia/Taipei
+- generated_at: 2026-05-30 23:42:31 Asia/Taipei
 - stock_id: 4943
 - stock_name: 康控-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 136
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 269
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,9 +100,9 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 64.12
-- over_600_ratio: 60.8
+- as_of_date: 20260529
+- over_400_ratio: 64.11
+- over_600_ratio: 60.79
 - over_800_ratio: 56.34
 - over_1000_ratio: 53.35
 - over_400_change_1w: -0.01
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,64.08,-0.01,56.33,0,53.34,0,0,False,False
 20260515,64.13,0.05,56.34,0.01,53.35,0.01,1,True,True
 20260522,64.12,-0.01,56.34,0,53.35,0,0,False,False
+20260529,64.11,-0.01,56.34,0,53.35,0,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6477 安集
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:28 Asia/Taipei
+- generated_at: 2026-05-30 23:43:04 Asia/Taipei
 - stock_id: 6477
 - stock_name: 安集
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -81,9 +81,9 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260505,35,36.25,34.2,35.15,1045655,34.35,2.33,33.97,35.39,1.53
 20260506,35.5,35.65,34.6,34.6,575776,34.37,0.67,34.06,35.35,0.83
 20260507,34.75,37.65,34.55,36.8,2417604,34.57,6.44,34.22,35.37,3.06
-20260508,36.5,36.95,33.9,35.05,1601826,34.61,1.27,34.3,35.37,1.9
+20260508,36.5,36.95,33.9,35.05,1601826,34.61,1.26,34.3,35.37,1.9
 20260511,35,35.25,34.5,34.5,921067,34.6,-0.3,34.36,35.38,1.07
-20260512,34.85,35.15,34.3,34.65,484913,34.61,0.13,34.44,35.39,0.56
+20260512,34.85,35.15,34.3,34.65,484913,34.61,0.12,34.44,35.39,0.56
 20260513,34.2,35.5,33.7,33.7,1128633,34.53,-2.41,34.45,35.37,1.26
 20260514,34,34.35,33.2,33.25,575083,34.42,-3.41,34.39,35.31,0.66
 20260515,34,34.35,33,33.05,748739,34.31,-3.67,34.3,35.25,0.87
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 43.8
-- over_600_ratio: 41.12
-- over_800_ratio: 38.91
-- over_1000_ratio: 38.24
-- over_400_change_1w: 0.05
-- over_800_change_1w: 0.06
-- over_1000_change_1w: 0.05
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260529
+- over_400_ratio: 44.03
+- over_600_ratio: 41.82
+- over_800_ratio: 38.96
+- over_1000_ratio: 38.27
+- over_400_change_1w: 0.23
+- over_800_change_1w: 0.05
+- over_1000_change_1w: 0.03
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,43.93,0.15,39.04,-0.83,38.38,-0.13,1,False,False
 20260515,43.75,-0.18,38.85,-0.19,38.19,-0.19,0,False,False
 20260522,43.8,0.05,38.91,0.06,38.24,0.05,1,True,True
+20260529,44.03,0.23,38.96,0.05,38.27,0.03,2,True,True
 ```
 
 ## Candidate Context

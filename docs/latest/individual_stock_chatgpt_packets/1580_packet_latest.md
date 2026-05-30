@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1580 新麥
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:44 Asia/Taipei
+- generated_at: 2026-05-30 23:41:04 Asia/Taipei
 - stock_id: 1580
 - stock_name: 新麥
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -79,11 +79,11 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,123,123,122,122.5,45000,125.31,-2.25,125.62,128.7,0.58
 20260505,122.5,122.5,122,122.5,41000,125.08,-2.06,125.28,128.54,0.52
-20260506,123,123,121.5,122.5,43000,124.87,-1.89,124.95,128.38,0.54
+20260506,123,123,121.5,122.5,43000,124.86,-1.89,124.95,128.38,0.54
 20260507,122.5,125.5,122,125,107000,124.88,0.1,124.72,128.27,1.28
-20260508,125,125,123,124.5,44000,124.85,-0.28,124.45,128.18,0.52
+20260508,125,125,123,124.5,44000,124.84,-0.28,124.45,128.18,0.52
 20260511,122.5,124.5,122.5,123.5,80000,124.73,-0.99,124.2,128.07,0.97
-20260512,123,123,122.5,123,49000,124.59,-1.28,123.95,127.99,0.59
+20260512,123,123,122.5,123,49000,124.59,-1.27,123.95,127.99,0.59
 20260513,122,123,121.5,123,99000,124.46,-1.17,123.7,127.88,1.15
 20260514,123.5,124,122.5,123,62000,124.33,-1.07,123.47,127.76,0.72
 20260515,123,123,121.5,122,68000,124.14,-1.72,123.2,127.63,0.79
@@ -100,12 +100,12 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 40.79
-- over_600_ratio: 39.6
+- as_of_date: 20260529
+- over_400_ratio: 40.73
+- over_600_ratio: 39.54
 - over_800_ratio: 29.88
 - over_1000_ratio: 29.88
-- over_400_change_1w: -0.84
+- over_400_change_1w: -0.06
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,41.73,0.01,29.88,0,29.88,0,1,False,False
 20260515,41.63,-0.1,29.88,0,29.88,0,0,False,False
 20260522,40.79,-0.84,29.88,0,29.88,0,0,False,False
+20260529,40.73,-0.06,29.88,0,29.88,0,0,False,False
 ```
 
 ## Candidate Context

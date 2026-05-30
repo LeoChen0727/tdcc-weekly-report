@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6166 凌華
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:17 Asia/Taipei
+- generated_at: 2026-05-30 23:42:52 Asia/Taipei
 - stock_id: 6166
 - stock_name: 凌華
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 77.27
-- over_600_ratio: 73.95
-- over_800_ratio: 71.05
-- over_1000_ratio: 68.63
-- over_400_change_1w: 0.09
-- over_800_change_1w: 0.22
-- over_1000_change_1w: -0.54
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260529
+- over_400_ratio: 77.56
+- over_600_ratio: 74.96
+- over_800_ratio: 70.83
+- over_1000_ratio: 68.46
+- over_400_change_1w: 0.29
+- over_800_change_1w: -0.22
+- over_1000_change_1w: -0.17
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,77.43,0.27,72.15,0.5,69.65,0.5,1,True,True
 20260515,77.18,-0.25,70.83,-1.32,69.17,-0.48,0,False,False
 20260522,77.27,0.09,71.05,0.22,68.63,-0.54,1,False,True
+20260529,77.56,0.29,70.83,-0.22,68.46,-0.17,2,False,False
 ```
 
 ## Candidate Context

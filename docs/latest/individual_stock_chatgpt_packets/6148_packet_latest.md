@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6148 驊宏資
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:16 Asia/Taipei
+- generated_at: 2026-05-30 23:42:51 Asia/Taipei
 - stock_id: 6148
 - stock_name: 驊宏資
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -79,7 +79,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,31.95,31.95,31.05,31.15,110000,32.54,-4.26,32.22,34.26,0.49
 20260505,32.4,32.55,31.5,32,327000,32.49,-1.51,32.18,34.16,1.42
-20260506,32.8,33.3,31.5,31.7,241000,32.43,-2.24,32.16,34.05,1.03
+20260506,32.8,33.3,31.5,31.7,241000,32.42,-2.24,32.16,34.05,1.03
 20260507,31.55,33.3,31.55,31.95,625000,32.39,-1.34,32.06,33.94,2.51
 20260508,32,33.25,31.5,31.6,383000,32.32,-2.23,31.99,33.84,1.48
 20260511,31.1,31.1,30.2,30.2,471000,32.14,-6.05,31.88,33.74,1.79
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 38.58
-- over_600_ratio: 36.6
+- as_of_date: 20260529
+- over_400_ratio: 38.6
+- over_600_ratio: 36.52
 - over_800_ratio: 33.68
 - over_1000_ratio: 33.68
-- over_400_change_1w: -0.03
+- over_400_change_1w: 0.02
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,38.99,0.11,33.68,0,33.68,0,1,False,False
 20260515,38.61,-0.38,33.68,0,33.68,0,0,False,False
 20260522,38.58,-0.03,33.68,0,33.68,0,0,False,False
+20260529,38.6,0.02,33.68,0,33.68,0,1,False,False
 ```
 
 ## Candidate Context

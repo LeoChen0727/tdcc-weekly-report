@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3592 瑞鼎
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:40 Asia/Taipei
+- generated_at: 2026-05-30 23:42:09 Asia/Taipei
 - stock_id: 3592
 - stock_name: 瑞鼎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,16 +100,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 40.6
-- over_600_ratio: 32.68
-- over_800_ratio: 28.9
-- over_1000_ratio: 26.45
-- over_400_change_1w: 0.33
-- over_800_change_1w: 0.34
-- over_1000_change_1w: 0.36
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 39.91
+- over_600_ratio: 31.97
+- over_800_ratio: 29.05
+- over_1000_ratio: 26.61
+- over_400_change_1w: -0.69
+- over_800_change_1w: 0.15
+- over_1000_change_1w: 0.16
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,40.45,0.4,27.98,-1.46,24.46,-1.27,1,False,False
 20260515,40.27,-0.18,28.56,0.58,26.09,1.63,2,False,True
 20260522,40.6,0.33,28.9,0.34,26.45,0.36,3,True,True
+20260529,39.91,-0.69,29.05,0.15,26.61,0.16,4,False,True
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 3592 | 瑞鼎 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 3592 | 瑞鼎 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9946 三發地產
 
 ## Metadata
-- generated_at: 2026-05-29 19:34:08 Asia/Taipei
+- generated_at: 2026-05-30 23:44:05 Asia/Taipei
 - stock_id: 9946
 - stock_name: 三發地產
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 26
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 27
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,23 +100,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 81.12
-- over_600_ratio: 78.3
-- over_800_ratio: 78.11
-- over_1000_ratio: 76.98
-- over_400_change_1w: 0.09
-- over_800_change_1w: 0.16
-- over_1000_change_1w: 0.16
-- tdcc_consecutive_up_weeks: 5
-- all_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 81.19
+- over_600_ratio: 78.58
+- over_800_ratio: 78.2
+- over_1000_ratio: 77.07
+- over_400_change_1w: 0.07
+- over_800_change_1w: 0.09
+- over_1000_change_1w: 0.09
+- tdcc_consecutive_up_weeks: 6
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260306,80.98,0.04,77.8,0.26,76.69,0,3,False,True
 20260313,80.92,-0.06,77.55,-0.25,76.69,0,4,False,False
 20260320,81.02,0.1,77.55,0,76.69,0,5,False,False
 20260327,81.04,0.02,77.55,0,76.69,0,6,False,False
@@ -128,6 +127,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,81.23,0.14,77.83,0.01,76.69,0,3,False,True
 20260515,81.03,-0.2,77.95,0.12,76.82,0.13,4,False,True
 20260522,81.12,0.09,78.11,0.16,76.98,0.16,5,False,True
+20260529,81.19,0.07,78.2,0.09,77.07,0.09,6,True,True
 ```
 
 ## Candidate Context

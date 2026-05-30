@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2444 兆勁
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:05 Asia/Taipei
+- generated_at: 2026-05-30 23:41:28 Asia/Taipei
 - stock_id: 2444
 - stock_name: 兆勁
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 26.16
-- over_600_ratio: 21.69
-- over_800_ratio: 19.6
+- as_of_date: 20260529
+- over_400_ratio: 26.39
+- over_600_ratio: 21.62
+- over_800_ratio: 18.76
 - over_1000_ratio: 16.82
-- over_400_change_1w: -0.02
-- over_800_change_1w: -0.02
+- over_400_change_1w: 0.23
+- over_800_change_1w: -0.84
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,26.08,0.07,19.55,0,16.82,0,1,False,False
 20260515,26.18,0.1,19.62,0.07,16.82,0,2,False,True
 20260522,26.16,-0.02,19.6,-0.02,16.82,0,0,False,False
+20260529,26.39,0.23,18.76,-0.84,16.82,0,1,False,False
 ```
 
 ## Candidate Context

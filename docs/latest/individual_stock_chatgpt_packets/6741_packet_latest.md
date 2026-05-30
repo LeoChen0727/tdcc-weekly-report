@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6741 91APP*-KY
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:38 Asia/Taipei
+- generated_at: 2026-05-30 23:43:16 Asia/Taipei
 - stock_id: 6741
 - stock_name: 91APP*-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 136
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 272
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,16 +100,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 68.42
-- over_600_ratio: 64.84
-- over_800_ratio: 62.96
-- over_1000_ratio: 57.1
-- over_400_change_1w: 0.53
-- over_800_change_1w: -0.46
-- over_1000_change_1w: 0.29
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 69.66
+- over_600_ratio: 66.57
+- over_800_ratio: 64.69
+- over_1000_ratio: 58.14
+- over_400_change_1w: 1.24
+- over_800_change_1w: 1.73
+- over_1000_change_1w: 1.04
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,67.49,0.35,63.05,1.68,56.44,0.4,1,True,True
 20260515,67.89,0.4,63.42,0.37,56.81,0.37,2,True,True
 20260522,68.42,0.53,62.96,-0.46,57.1,0.29,3,False,True
+20260529,69.66,1.24,64.69,1.73,58.14,1.04,4,True,True
 ```
 
 ## Candidate Context

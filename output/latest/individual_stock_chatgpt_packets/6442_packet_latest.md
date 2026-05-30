@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6442 光聖
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:27 Asia/Taipei
+- generated_at: 2026-05-30 23:43:03 Asia/Taipei
 - stock_id: 6442
 - stock_name: 光聖
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,7 +77,7 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,2220,2220,2060,2085,1221680,2050.58,1.68,2102.75,1957.5,0.4
+20260504,2220,2220,2060,2085,1221680,2050.57,1.68,2102.75,1957.5,0.4
 20260505,2115,2115,2020,2060,909535,2051.36,0.42,2105.75,1970.17,0.31
 20260506,2070,2070,1860,2060,1611505,2052.08,0.39,2104,1980.67,0.56
 20260507,2075,2125,1950,2095,2671256,2055.66,1.91,2100.5,1989.42,0.94
@@ -87,7 +87,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260513,1870,1930,1725,1805,4460785,2010.04,-10.2,2044.5,1999,1.58
 20260514,1860,1875,1780,1855,2071352,1997.12,-7.12,2032.75,1998.92,0.77
 20260515,1890,1890,1700,1740,3264638,1975.7,-11.93,2016,1998.67,1.21
-20260518,1700,1840,1690,1815,2267870,1962.31,-7.51,1999,2000.67,0.88
+20260518,1700,1840,1690,1815,2267870,1962.3,-7.51,1999,2000.67,0.88
 20260519,1830,1880,1720,1740,2580599,1943.78,-10.48,1967.5,1998.83,1.04
 20260520,1765,1840,1755,1770,1859059,1929.3,-8.26,1939,1995.25,0.81
 20260521,1825,1830,1730,1785,2942792,1917.27,-6.9,1916.25,1992.5,1.24
@@ -95,22 +95,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,1900,2060,1830,2060,5251707,1925.94,6.96,1918,1990.33,2.02
 20260526,2115,2265,1990,2265,7118572,1954.19,15.9,1942.5,1993.42,2.53
 20260527,2280,2305,2040,2040,6267822,1961.34,4.01,1949.25,1991.67,2.06
-20260528,2025,2025,1890,1895,4531486,1955.82,-3.11,1943.75,1984,1.41
+20260528,2025,2025,1890,1895,4531486,1955.81,-3.11,1943.75,1984,1.41
 20260529,1940,1940,1845,1845,3192701,1946.58,-5.22,1930.5,1975.92,0.97
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 57.5
-- over_600_ratio: 50.88
-- over_800_ratio: 41.18
-- over_1000_ratio: 36.72
-- over_400_change_1w: -0.04
-- over_800_change_1w: -0.49
-- over_1000_change_1w: -0.27
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260529
+- over_400_ratio: 57.55
+- over_600_ratio: 51.8
+- over_800_ratio: 43.89
+- over_1000_ratio: 34.83
+- over_400_change_1w: 0.05
+- over_800_change_1w: 2.71
+- over_1000_change_1w: -1.89
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,58.79,0.02,42.95,-0.21,39.57,1.13,1,False,True
 20260515,57.54,-1.25,41.67,-1.28,36.99,-2.58,0,False,False
 20260522,57.5,-0.04,41.18,-0.49,36.72,-0.27,1,False,False
+20260529,57.55,0.05,43.89,2.71,34.83,-1.89,2,False,True
 ```
 
 ## Candidate Context

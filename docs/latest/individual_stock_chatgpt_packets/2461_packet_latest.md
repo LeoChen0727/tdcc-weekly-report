@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2461 光群雷
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:06 Asia/Taipei
+- generated_at: 2026-05-30 23:41:29 Asia/Taipei
 - stock_id: 2461
 - stock_name: 光群雷
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 47.53
-- over_600_ratio: 42.48
-- over_800_ratio: 39.48
-- over_1000_ratio: 38.03
-- over_400_change_1w: 0
-- over_800_change_1w: 0.37
-- over_1000_change_1w: 0.38
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 47.32
+- over_600_ratio: 42.31
+- over_800_ratio: 38.97
+- over_1000_ratio: 37.5
+- over_400_change_1w: -0.21
+- over_800_change_1w: -0.51
+- over_1000_change_1w: -0.53
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,47.39,0.46,39.08,0.71,37.62,0.28,1,True,True
 20260515,47.53,0.14,39.11,0.03,37.65,0.03,2,False,True
 20260522,47.53,0,39.48,0.37,38.03,0.38,3,False,True
+20260529,47.32,-0.21,38.97,-0.51,37.5,-0.53,0,False,False
 ```
 
 ## Candidate Context

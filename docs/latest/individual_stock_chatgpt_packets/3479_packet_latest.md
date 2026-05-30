@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3479 安勤
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:35 Asia/Taipei
+- generated_at: 2026-05-30 23:42:03 Asia/Taipei
 - stock_id: 3479
 - stock_name: 安勤
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -81,11 +81,11 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260505,94,96.4,93.6,96.1,690000,91.23,5.34,91.23,89.66,1.55
 20260506,97.3,97.7,95.5,96.5,706000,91.67,5.27,91.78,89.72,1.49
 20260507,97,97.5,96.6,97,529000,92.11,5.31,92.31,89.79,1.08
-20260508,97,97.2,95.4,96.2,327000,92.45,4.06,92.76,89.87,0.66
+20260508,97,97.2,95.4,96.2,327000,92.45,4.05,92.76,89.87,0.66
 20260511,97,98.9,96,97.1,556000,92.84,4.59,93.12,90,1.13
 20260512,97.1,97.3,95.8,96.3,460000,93.13,3.41,93.42,90.12,0.94
 20260513,96.3,96.3,95,96.3,430000,93.39,3.11,93.67,90.25,0.94
-20260514,101.5,104,100.5,104,1820000,94.28,10.32,94.33,90.48,3.44
+20260514,101.5,104,100.5,104,1820000,94.28,10.31,94.33,90.48,3.44
 20260515,105,105.5,102,102,993000,94.92,7.46,94.83,90.7,1.78
 20260518,101.5,103,100.5,102.5,532000,95.55,7.27,95.34,90.93,0.94
 20260519,102.5,103.5,100.5,100.5,525000,95.96,4.73,95.7,91.13,0.93
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 43.92
+- as_of_date: 20260529
+- over_400_ratio: 45.74
 - over_600_ratio: 39.89
 - over_800_ratio: 36.07
 - over_1000_ratio: 33.72
-- over_400_change_1w: -1.24
+- over_400_change_1w: 1.82
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,44.66,0.63,36.07,0,33.72,0,1,False,False
 20260515,45.16,0.5,36.07,0,33.72,0,2,False,False
 20260522,43.92,-1.24,36.07,0,33.72,0,0,False,False
+20260529,45.74,1.82,36.07,0,33.72,0,1,False,False
 ```
 
 ## Candidate Context

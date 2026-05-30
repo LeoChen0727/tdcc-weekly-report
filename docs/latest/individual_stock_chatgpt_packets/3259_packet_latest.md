@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3259 鑫創
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:29 Asia/Taipei
+- generated_at: 2026-05-30 23:41:57 Asia/Taipei
 - stock_id: 3259
 - stock_name: 鑫創
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -94,22 +94,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,16.6,16.6,16,16.35,16000,16.93,-3.42,16.99,17.25,0.3
 20260525,16.35,16.35,15.2,15.7,16000,16.83,-6.7,16.91,17.23,0.35
 20260526,15.75,16.1,15.45,16,16000,16.76,-4.52,16.84,17.22,0.35
-20260527,16,16,15.6,16,16000,16.7,-4.16,16.79,17.2,0.36
+20260527,16,16,15.6,16,16000,16.69,-4.16,16.79,17.2,0.36
 20260528,16.2,17.25,16.2,16.8,17000,16.7,0.58,16.78,17.2,0.38
 20260529,17.15,17.3,16.75,16.75,17000,16.71,0.25,16.77,17.19,0.4
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 70.38
-- over_600_ratio: 67.23
-- over_800_ratio: 65.31
-- over_1000_ratio: 62.8
-- over_400_change_1w: -0.07
-- over_800_change_1w: -1.12
+- as_of_date: 20260529
+- over_400_ratio: 70.44
+- over_600_ratio: 67.28
+- over_800_ratio: 66.42
+- over_1000_ratio: 62.81
+- over_400_change_1w: 0.06
+- over_800_change_1w: 1.11
 - over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: False
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,70.44,0,66.42,0,62.79,0,0,False,False
 20260515,70.45,0.01,66.43,0.01,62.79,0,1,False,True
 20260522,70.38,-0.07,65.31,-1.12,62.8,0.01,2,False,True
+20260529,70.44,0.06,66.42,1.11,62.81,0.01,3,True,True
 ```
 
 ## Candidate Context

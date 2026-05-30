@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1259 安心
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:35 Asia/Taipei
+- generated_at: 2026-05-30 23:40:53 Asia/Taipei
 - stock_id: 1259
 - stock_name: 安心
-- packet_status: standard_rawdata_packet
+- packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 117
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 253
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: price history shorter than 120 rows; K-line context is partial; TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
+- notes: TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
 
 ## Stable Read URLs
 - packet_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_chatgpt_packets/1259_packet_latest.md
@@ -66,7 +66,7 @@
 - distance_to_ema23_pct: 0.88
 - ma20: 57.62
 - ma60: 59.24
-- ma120: 60.46
+- ma120: 60.41
 - return_5d: 2.82
 - return_20d: 1.57
 - volume_ratio: 2.18
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 75.33
 - over_600_ratio: 73.65
 - over_800_ratio: 71.24
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,75.26,0,71.17,0,71.17,0,0,False,False
 20260515,75.33,0.07,71.24,0.07,71.24,0.07,1,True,True
 20260522,75.33,0,71.24,0,71.24,0,0,False,False
+20260529,75.33,0,71.24,0,71.24,0,0,False,False
 ```
 
 ## Candidate Context

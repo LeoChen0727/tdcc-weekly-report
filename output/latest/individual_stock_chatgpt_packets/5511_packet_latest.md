@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5511 德昌
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:09 Asia/Taipei
+- generated_at: 2026-05-30 23:42:43 Asia/Taipei
 - stock_id: 5511
 - stock_name: 德昌
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 26
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 27
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -89,10 +89,10 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260515,72,72.5,71.9,72.4,171000,71.29,1.56,70.74,70.93,1.06
 20260518,71.2,72.4,71.2,72,116000,71.35,0.91,70.81,71.02,0.77
 20260519,72,72.1,71.8,71.8,86000,71.39,0.58,70.88,71.1,0.62
-20260520,71.9,72.5,71.6,72.1,171000,71.44,0.92,70.95,71.16,1.22
+20260520,71.9,72.5,71.6,72.1,171000,71.45,0.92,70.95,71.16,1.22
 20260521,72.1,72.4,71.9,72,136000,71.49,0.71,71.03,71.25,0.95
 20260522,72,72.3,71.6,71.9,72000,71.53,0.52,71.12,71.33,0.53
-20260525,71.6,71.6,70.3,70.8,71000,71.46,-0.93,71.16,71.39,0.53
+20260525,71.6,71.6,70.3,70.8,71000,71.47,-0.93,71.16,71.39,0.53
 20260526,70.8,71.6,70.8,71.2,71000,71.44,-0.34,71.22,71.45,0.54
 20260527,71.1,72,71.1,72,71000,71.49,0.71,71.31,71.53,0.54
 20260528,71.7,71.8,71.3,71.3,72000,71.47,-0.24,71.34,71.61,0.55
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 63.85
-- over_600_ratio: 59.2
-- over_800_ratio: 56.62
-- over_1000_ratio: 52.09
-- over_400_change_1w: 0.11
-- over_800_change_1w: 0.1
-- over_1000_change_1w: 0.11
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 64.17
+- over_600_ratio: 59.53
+- over_800_ratio: 56.95
+- over_1000_ratio: 52.37
+- over_400_change_1w: 0.32
+- over_800_change_1w: 0.33
+- over_1000_change_1w: 0.28
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -116,7 +116,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260306,62.1,0.03,55.22,0.03,51.23,0.03,1,True,True
 20260313,62.27,0.17,55.36,0.14,51.38,0.15,2,True,True
 20260320,63.77,1.5,55.61,0.25,50.8,-0.58,3,False,True
 20260327,63.95,0.18,55.64,0.03,50.84,0.04,4,True,True
@@ -128,6 +127,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,63.53,0.3,55.68,-0.08,50.96,-0.02,1,False,False
 20260515,63.74,0.21,56.52,0.84,51.98,1.02,2,True,True
 20260522,63.85,0.11,56.62,0.1,52.09,0.11,3,True,True
+20260529,64.17,0.32,56.95,0.33,52.37,0.28,4,True,True
 ```
 
 ## Candidate Context

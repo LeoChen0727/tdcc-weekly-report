@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3563 牧德
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:39 Asia/Taipei
+- generated_at: 2026-05-30 23:42:08 Asia/Taipei
 - stock_id: 3563
 - stock_name: 牧德
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 55.7
-- over_600_ratio: 48.14
-- over_800_ratio: 44.98
-- over_1000_ratio: 41.04
-- over_400_change_1w: 2.1
-- over_800_change_1w: 1.28
-- over_1000_change_1w: 1.59
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 53.11
+- over_600_ratio: 43.93
+- over_800_ratio: 41.63
+- over_1000_ratio: 40.28
+- over_400_change_1w: -2.59
+- over_800_change_1w: -3.35
+- over_1000_change_1w: -0.76
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,54.24,-1.81,43.98,-3.91,39.66,-2.52,0,False,False
 20260515,53.6,-0.64,43.7,-0.28,39.45,-0.21,0,False,False
 20260522,55.7,2.1,44.98,1.28,41.04,1.59,1,True,True
+20260529,53.11,-2.59,41.63,-3.35,40.28,-0.76,0,False,False
 ```
 
 ## Candidate Context

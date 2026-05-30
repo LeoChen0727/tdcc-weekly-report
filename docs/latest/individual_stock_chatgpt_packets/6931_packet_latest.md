@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6931 青松健康
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:45 Asia/Taipei
+- generated_at: 2026-05-30 23:43:24 Asia/Taipei
 - stock_id: 6931
 - stock_name: 青松健康
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,7 +88,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260514,42,42.4,41.35,41.5,144793,46.2,-10.18,46.72,50.23,0.7
 20260515,41.5,41.6,40.6,40.6,219406,45.74,-11.23,46.24,49.99,1.03
 20260518,40,42,39.25,41.9,148062,45.42,-7.74,45.82,49.8,0.68
-20260519,41.9,41.95,40.5,41.2,92701,45.06,-8.58,45.38,49.59,0.43
+20260519,41.9,41.95,40.5,41.2,92701,45.06,-8.57,45.38,49.59,0.43
 20260520,41,41.25,40.15,40.55,168260,44.69,-9.26,44.89,49.37,0.76
 20260521,40.6,42.3,40.1,41.15,176535,44.39,-7.31,44.43,49.15,0.78
 20260522,41.7,41.95,40.95,40.95,119114,44.11,-7.16,43.98,48.92,0.54
@@ -100,14 +100,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 71.07
-- over_600_ratio: 62.63
-- over_800_ratio: 55.73
-- over_1000_ratio: 50.3
-- over_400_change_1w: -0.16
-- over_800_change_1w: -0.04
-- over_1000_change_1w: -0.03
+- as_of_date: 20260529
+- over_400_ratio: 70.93
+- over_600_ratio: 61.66
+- over_800_ratio: 55.68
+- over_1000_ratio: 50.26
+- over_400_change_1w: -0.14
+- over_800_change_1w: -0.05
+- over_1000_change_1w: -0.04
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,72.01,0.24,55.82,0.2,50.38,0.2,1,True,True
 20260515,71.23,-0.78,55.77,-0.05,50.33,-0.05,0,False,False
 20260522,71.07,-0.16,55.73,-0.04,50.3,-0.03,0,False,False
+20260529,70.93,-0.14,55.68,-0.05,50.26,-0.04,0,False,False
 ```
 
 ## Candidate Context

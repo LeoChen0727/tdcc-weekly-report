@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1802 台玻
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:50 Asia/Taipei
+- generated_at: 2026-05-30 23:41:10 Asia/Taipei
 - stock_id: 1802
 - stock_name: 台玻
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 76.26
-- over_600_ratio: 75.56
-- over_800_ratio: 75.12
-- over_1000_ratio: 74.36
-- over_400_change_1w: -1.06
-- over_800_change_1w: -1.01
-- over_1000_change_1w: -1.04
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 78.71
+- over_600_ratio: 78.13
+- over_800_ratio: 77.63
+- over_1000_ratio: 77.05
+- over_400_change_1w: 2.45
+- over_800_change_1w: 2.51
+- over_1000_change_1w: 2.69
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,78.73,0.34,77.53,0.23,76.89,0.26,1,True,True
 20260515,77.32,-1.41,76.13,-1.4,75.4,-1.49,0,False,False
 20260522,76.26,-1.06,75.12,-1.01,74.36,-1.04,0,False,False
+20260529,78.71,2.45,77.63,2.51,77.05,2.69,1,True,True
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 1802 | 台玻 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260530 | 1802 | 台玻 | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

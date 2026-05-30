@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8038 長園科
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:53 Asia/Taipei
+- generated_at: 2026-05-30 23:43:48 Asia/Taipei
 - stock_id: 8038
 - stock_name: 長園科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -78,7 +78,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,42.45,43.9,42.45,43.4,286000,42.91,1.13,42.44,43.63,0.48
-20260505,43.9,44,43,44,382000,43.01,2.31,42.72,43.47,0.64
+20260505,43.9,44,43,44,382000,43,2.31,42.72,43.47,0.64
 20260506,44.2,44.45,42.7,44.3,479000,43.11,2.75,42.98,43.34,0.78
 20260507,44.95,45.85,43.8,45.35,775000,43.3,4.74,43.25,43.23,1.22
 20260508,44.6,45.6,43.6,44.4,519000,43.39,2.33,43.51,43.13,0.8
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 20.04
 - over_600_ratio: 18.72
 - over_800_ratio: 16.48
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,20.04,0,16.48,0,15,0,0,False,False
 20260515,20.04,0,16.48,0,15,0,0,False,False
 20260522,20.04,0,16.48,0,15,0,0,False,False
+20260529,20.04,0,16.48,0,15,0,0,False,False
 ```
 
 ## Candidate Context

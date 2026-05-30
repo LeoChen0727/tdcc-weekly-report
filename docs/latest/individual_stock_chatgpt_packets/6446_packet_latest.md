@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6446 藥華藥
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:27 Asia/Taipei
+- generated_at: 2026-05-30 23:43:03 Asia/Taipei
 - stock_id: 6446
 - stock_name: 藥華藥
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -80,7 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260504,662,662,642,645,1684750,642.12,0.45,641.65,671.8,1.01
 20260505,646,659,642,647,1448833,642.53,0.7,642.4,671.58,0.85
 20260506,661,664,651,655,1728074,643.57,1.78,643.25,670.47,1.03
-20260507,663,668,652,659,1842534,644.85,2.19,643.8,669.78,1.1
+20260507,663,668,652,659,1842534,644.86,2.19,643.8,669.78,1.1
 20260508,668,724,668,724,6129316,651.45,11.14,648.45,669.67,3.27
 20260511,725,729,700,706,3751873,656,7.62,651.45,668.6,1.88
 20260512,708,724,693,711,2276793,660.58,7.63,654.65,667.73,1.11
@@ -100,16 +100,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 56.13
-- over_600_ratio: 50.84
-- over_800_ratio: 46.98
-- over_1000_ratio: 43.73
-- over_400_change_1w: 0.21
-- over_800_change_1w: 0.14
-- over_1000_change_1w: 0.9
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 56.42
+- over_600_ratio: 51.13
+- over_800_ratio: 47.28
+- over_1000_ratio: 43.55
+- over_400_change_1w: 0.29
+- over_800_change_1w: 0.3
+- over_1000_change_1w: -0.18
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,18 +120,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,54.84,0.24,45.4,0.16,41.39,0.37,1,True,True
 20260515,55.92,1.08,46.84,1.44,42.83,1.44,2,True,True
 20260522,56.13,0.21,46.98,0.14,43.73,0.9,3,True,True
+20260529,56.42,0.29,47.28,0.3,43.55,-0.18,4,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 6446 | 藥華藥 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260530 | 6446 | 藥華藥 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 58.0 |  |  | neckline_challenge |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 | 20260521 | 6446 | 藥華藥 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 6446 | 藥華藥 | 7 | 7 | 5 | 7 | 7 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260530 | 6446 | 藥華藥 | 8 | 8 | 5 | 8 | 8 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | status |

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3426 台興
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:34 Asia/Taipei
+- generated_at: 2026-05-30 23:42:02 Asia/Taipei
 - stock_id: 3426
 - stock_name: 台興
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 124
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 260
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -82,7 +82,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260505,47.7,47.7,47.7,47.7,9000,47.55,0.31,47.65,47,0.23
 20260506,47.7,47.7,47.7,47.7,15000,47.56,0.29,47.66,47.08,0.38
 20260507,47.7,47.7,47.7,47.7,35000,47.57,0.26,47.66,47.1,0.86
-20260508,47.7,47.7,47.7,47.7,58000,47.58,0.24,47.66,47.12,1.39
+20260508,47.7,47.7,47.7,47.7,58000,47.59,0.24,47.66,47.12,1.39
 20260511,47.7,47.7,47.7,47.7,47000,47.59,0.22,47.67,47.15,1.1
 20260512,47.75,47.75,47.7,47.7,25000,47.6,0.2,47.67,47.2,0.61
 20260513,47.7,47.7,47.7,47.7,31000,47.61,0.19,47.67,47.28,0.73
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 62.93
-- over_600_ratio: 56.99
+- as_of_date: 20260529
+- over_400_ratio: 63.03
+- over_600_ratio: 57.09
 - over_800_ratio: 52
 - over_1000_ratio: 48.61
-- over_400_change_1w: 0.07
+- over_400_change_1w: 0.1
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 3
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,62.52,0.26,51.84,0.09,48.61,0,1,False,True
 20260515,62.86,0.34,52,0.16,48.61,0,2,False,True
 20260522,62.93,0.07,52,0,48.61,0,3,False,False
+20260529,63.03,0.1,52,0,48.61,0,4,False,False
 ```
 
 ## Candidate Context

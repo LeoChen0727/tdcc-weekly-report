@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2454 聯發科
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:06 Asia/Taipei
+- generated_at: 2026-05-30 23:41:29 Asia/Taipei
 - stock_id: 2454
 - stock_name: 聯發科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -79,7 +79,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,2870,2870,2870,2870,4019865,2135.92,34.37,2032.75,1832.25,0.25
 20260505,3155,3155,3155,3155,10091886,2220.84,42.06,2117.25,1855.33,0.63
-20260506,3470,3470,3155,3430,39638460,2321.6,47.74,2215.25,1882.92,2.26
+20260506,3470,3470,3155,3430,39638460,2321.61,47.74,2215.25,1882.92,2.26
 20260507,3430,3430,3295,3420,8465341,2413.14,41.72,2307.25,1910.25,0.49
 20260508,3320,3670,3320,3630,9525653,2514.54,44.36,2410,1941.08,0.55
 20260511,3575,3985,3565,3880,8690923,2628.33,47.62,2525.25,1976.42,0.5
@@ -91,7 +91,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260519,3475,3495,3100,3155,10055471,2934.05,7.53,3003.5,2139.83,0.65
 20260520,3195,3350,3155,3230,9296108,2958.71,9.17,3060.5,2162.92,0.62
 20260521,3415,3550,3405,3550,5983092,3007.98,18.02,3123.25,2191.17,0.43
-20260522,3765,3880,3675,3860,20839466,3078.98,25.37,3205.5,2225.58,1.53
+20260522,3765,3880,3675,3860,20839466,3078.99,25.37,3205.5,2225.58,1.53
 20260525,4245,4245,4245,4245,4616291,3176.15,33.65,3296,2265.92,0.36
 20260526,4375,4440,4180,4265,19540872,3266.89,30.55,3387.5,2305.83,1.58
 20260527,4475,4690,4450,4640,18260840,3381.32,37.22,3488.75,2350.75,1.51
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 76.39
-- over_600_ratio: 72.13
-- over_800_ratio: 69.35
-- over_1000_ratio: 66.81
-- over_400_change_1w: -0.22
-- over_800_change_1w: -0.38
-- over_1000_change_1w: -0.46
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260529
+- over_400_ratio: 76.45
+- over_600_ratio: 71.92
+- over_800_ratio: 69.05
+- over_1000_ratio: 66.52
+- over_400_change_1w: 0.06
+- over_800_change_1w: -0.3
+- over_1000_change_1w: -0.29
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,17 +120,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,76.82,-0.34,69.8,-0.08,67.25,0.05,1,False,True
 20260515,76.61,-0.21,69.73,-0.07,67.27,0.02,2,False,True
 20260522,76.39,-0.22,69.35,-0.38,66.81,-0.46,0,False,False
+20260529,76.45,0.06,69.05,-0.3,66.52,-0.29,1,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2454 | 聯發科 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | put_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260530 | 2454 | 聯發科 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | put_inflow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2454 | 聯發科 | 1 | 1 | 4 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 2454 | 聯發科 | 2 | 2 | 4 | 7 | 7 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

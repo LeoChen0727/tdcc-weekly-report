@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2353 宏碁
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:59 Asia/Taipei
+- generated_at: 2026-05-30 23:41:21 Asia/Taipei
 - stock_id: 2353
 - stock_name: 宏碁
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: True
 - sell_strategy_summary_exists: True
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 39.99
-- over_600_ratio: 38.22
-- over_800_ratio: 36.89
-- over_1000_ratio: 36.02
-- over_400_change_1w: 0.41
-- over_800_change_1w: 0.41
-- over_1000_change_1w: 0.53
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 40.86
+- over_600_ratio: 39.09
+- over_800_ratio: 37.91
+- over_1000_ratio: 36.93
+- over_400_change_1w: 0.87
+- over_800_change_1w: 1.02
+- over_1000_change_1w: 0.91
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,18 +120,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,39.38,0.49,36.4,0.73,35.38,0.73,1,True,True
 20260515,39.58,0.2,36.48,0.08,35.49,0.11,2,True,True
 20260522,39.99,0.41,36.89,0.41,36.02,0.53,3,True,True
+20260529,40.86,0.87,37.91,1.02,36.93,0.91,4,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2353 | 宏碁 | true_breakout | 嚴格突破 | 104.0 |  |  | breakout_confirmed |  | no_signal | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
-| 20260521 | 2353 | 宏碁 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260521 | 2353 | 宏碁 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2353 | 宏碁 | 7 | 7 | 5 | 7 | 7 | continued_many_days | 連續 7 個交易日上榜，需判斷是持續醞釀或訊號鈍化。 |
+| 20260530 | 2353 | 宏碁 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

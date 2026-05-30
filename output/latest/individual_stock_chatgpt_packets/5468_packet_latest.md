@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5468 凱鈺
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:08 Asia/Taipei
+- generated_at: 2026-05-30 23:42:42 Asia/Taipei
 - stock_id: 5468
 - stock_name: 凱鈺
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 71.17
 - over_600_ratio: 66.57
 - over_800_ratio: 65.32
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,71.16,0,65.31,0,61.97,0,0,False,False
 20260515,71.17,0.01,65.32,0.01,63.66,1.69,1,True,True
 20260522,71.17,0,65.32,0,63.66,0,0,False,False
+20260529,71.17,0,65.32,0,63.66,0,0,False,False
 ```
 
 ## Candidate Context

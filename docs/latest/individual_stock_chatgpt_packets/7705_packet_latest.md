@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7705 三商餐飲
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:48 Asia/Taipei
+- generated_at: 2026-05-30 23:43:42 Asia/Taipei
 - stock_id: 7705
 - stock_name: 三商餐飲
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -95,12 +95,12 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,31.9,31.95,31.25,31.25,76530,32.1,-2.65,31.83,34.33,0.89
 20260526,31.2,31.25,31.2,31.2,25937,32.02,-2.57,31.72,34.21,0.32
 20260527,31.2,31.2,30.35,30.6,94856,31.91,-4.09,31.59,34.07,1.12
-20260528,30.45,30.75,30.4,30.7,34459,31.81,-3.47,31.46,33.94,0.41
+20260528,30.45,30.75,30.4,30.7,34459,31.81,-3.48,31.46,33.94,0.41
 20260529,30.7,30.95,30.7,30.9,33709,31.73,-2.62,31.36,33.82,0.41
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 69.67
 - over_600_ratio: 64.83
 - over_800_ratio: 64.83
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,69.77,-0.03,64.83,0,61.81,0,0,False,False
 20260515,69.67,-0.1,64.83,0,61.81,0,0,False,False
 20260522,69.67,0,64.83,0,61.81,0,0,False,False
+20260529,69.67,0,64.83,0,61.81,0,0,False,False
 ```
 
 ## Candidate Context

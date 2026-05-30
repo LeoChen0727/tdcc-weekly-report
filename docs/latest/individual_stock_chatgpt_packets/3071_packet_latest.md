@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3071 協禧
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:24 Asia/Taipei
+- generated_at: 2026-05-30 23:41:51 Asia/Taipei
 - stock_id: 3071
 - stock_name: 協禧
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,16 +100,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 57.98
-- over_600_ratio: 56.8
-- over_800_ratio: 56.8
-- over_1000_ratio: 55.16
-- over_400_change_1w: 0.04
-- over_800_change_1w: 0.03
-- over_1000_change_1w: -0.05
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 58.42
+- over_600_ratio: 56.84
+- over_800_ratio: 56.84
+- over_1000_ratio: 56.02
+- over_400_change_1w: 0.44
+- over_800_change_1w: 0.04
+- over_1000_change_1w: 0.86
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,57.91,0.12,56.76,0.76,55.2,0.02,1,True,True
 20260515,57.94,0.03,56.77,0.01,55.21,0.01,2,True,True
 20260522,57.98,0.04,56.8,0.03,55.16,-0.05,3,False,True
+20260529,58.42,0.44,56.84,0.04,56.02,0.86,4,True,True
 ```
 
 ## Candidate Context

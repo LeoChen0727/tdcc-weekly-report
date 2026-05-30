@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4905 台聯電
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:57 Asia/Taipei
+- generated_at: 2026-05-30 23:42:29 Asia/Taipei
 - stock_id: 4905
 - stock_name: 台聯電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 127
-- latest_tdcc_date: 20260522
-- tdcc_rows: 26
+- price_rows: 263
+- latest_tdcc_date: 20260529
+- tdcc_rows: 27
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -78,13 +78,13 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,80.4,82.6,79.9,79.9,17000,82.29,-2.9,84.03,73.67,0.17
-20260505,79.3,80.1,77.9,80.1,25000,82.11,-2.44,84.16,73.98,0.25
+20260505,79.3,80.1,77.9,80.1,25000,82.11,-2.45,84.16,73.98,0.25
 20260506,80.2,80.2,77.4,79.5,46000,81.89,-2.92,83.98,74.29,0.45
 20260507,81,81.2,79.2,79.9,31000,81.72,-2.23,83.78,74.59,0.3
-20260508,79.9,82,77.4,79.7,40000,81.56,-2.27,83.56,74.9,0.39
+20260508,79.9,82,77.4,79.7,40000,81.56,-2.28,83.56,74.9,0.39
 20260511,80.2,84,80.2,80.7,38000,81.48,-0.96,83.42,75.22,0.38
 20260512,81.5,81.5,78.1,80.7,28000,81.42,-0.88,83.39,75.54,0.28
-20260513,80.5,80.5,79,79.5,14000,81.26,-2.16,83.51,75.84,0.14
+20260513,80.5,80.5,79,79.5,14000,81.26,-2.17,83.51,75.84,0.14
 20260514,80.8,80.8,78.1,78.6,20000,81.04,-3.01,83.2,76.12,0.21
 20260515,78.3,80,78.2,78.2,20000,80.8,-3.22,82.46,76.39,0.25
 20260518,78.3,80.5,78.3,79.8,11000,80.72,-1.14,81.92,76.67,0.16
@@ -100,23 +100,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 81.61
 - over_600_ratio: 76.45
 - over_800_ratio: 69.95
 - over_1000_ratio: 63.65
-- over_400_change_1w: 0.02
-- over_800_change_1w: 0.02
-- over_1000_change_1w: 0.02
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: True
-- high_thresholds_up: True
+- over_400_change_1w: 0
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260306,81.62,0,69.78,0,63.48,0,0,False,False
 20260313,81.64,0.02,69.8,0.02,63.5,0.02,1,True,True
 20260320,81.64,0,69.8,0,63.5,0,0,False,False
 20260327,81.5,-0.14,69.84,0.04,63.54,0.04,1,False,True
@@ -128,6 +127,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,81.58,0.01,69.92,0.01,63.62,0.01,2,True,True
 20260515,81.59,0.01,69.93,0.01,63.63,0.01,3,True,True
 20260522,81.61,0.02,69.95,0.02,63.65,0.02,4,True,True
+20260529,81.61,0,69.95,0,63.65,0,0,False,False
 ```
 
 ## Candidate Context

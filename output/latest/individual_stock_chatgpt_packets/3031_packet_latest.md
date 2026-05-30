@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3031 佰鴻
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:22 Asia/Taipei
+- generated_at: 2026-05-30 23:41:48 Asia/Taipei
 - stock_id: 3031
 - stock_name: 佰鴻
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 60.01
-- over_600_ratio: 59.18
-- over_800_ratio: 59.18
-- over_1000_ratio: 58.15
-- over_400_change_1w: 0.67
-- over_800_change_1w: 0.51
-- over_1000_change_1w: 0.49
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 59.03
+- over_600_ratio: 58.8
+- over_800_ratio: 58.8
+- over_1000_ratio: 57.75
+- over_400_change_1w: -0.98
+- over_800_change_1w: -0.38
+- over_1000_change_1w: -0.4
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,17 +120,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,58.87,0.04,58.29,-0.02,56.18,-0.01,1,False,False
 20260515,59.34,0.47,58.67,0.38,57.66,1.48,2,True,True
 20260522,60.01,0.67,59.18,0.51,58.15,0.49,3,True,True
+20260529,59.03,-0.98,58.8,-0.38,57.75,-0.4,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 3031 | 佰鴻 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 3031 | 佰鴻 | 4 | 4 | 4 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

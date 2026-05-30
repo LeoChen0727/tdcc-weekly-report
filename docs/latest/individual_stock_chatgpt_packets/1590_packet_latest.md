@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1590 亞德客-KY
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:45 Asia/Taipei
+- generated_at: 2026-05-30 23:41:04 Asia/Taipei
 - stock_id: 1590
 - stock_name: 亞德客-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -93,24 +93,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260521,1395,1450,1390,1420,786821,1398.54,1.53,1452,1207.75,0.51
 20260522,1430,1450,1375,1410,1344880,1399.5,0.75,1453.5,1211.67,0.92
 20260525,1440,1460,1405,1450,875271,1403.71,3.3,1458,1216.08,0.64
-20260526,1450,1490,1430,1465,643290,1408.82,3.99,1460.75,1220.67,0.49
+20260526,1450,1490,1430,1465,643290,1408.81,3.99,1460.75,1220.67,0.49
 20260527,1495,1500,1430,1435,612964,1411,1.7,1462.25,1224.5,0.5
 20260528,1435,1445,1360,1390,1607554,1409.25,-1.37,1457.25,1226.92,1.36
 20260529,1420,1420,1345,1400,1562350,1408.48,-0.6,1454.5,1230.5,1.39
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 73
-- over_600_ratio: 64.27
-- over_800_ratio: 56.02
-- over_1000_ratio: 53.49
-- over_400_change_1w: -0.02
-- over_800_change_1w: -0.77
-- over_1000_change_1w: -0.75
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 73.41
+- over_600_ratio: 64.06
+- over_800_ratio: 56.37
+- over_1000_ratio: 53.32
+- over_400_change_1w: 0.41
+- over_800_change_1w: 0.35
+- over_1000_change_1w: -0.17
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,17 +120,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,72.96,0.26,56.49,-0.85,53.93,0.09,1,False,True
 20260515,73.02,0.06,56.79,0.3,54.24,0.31,2,False,True
 20260522,73,-0.02,56.02,-0.77,53.49,-0.75,3,False,False
+20260529,73.41,0.41,56.37,0.35,53.32,-0.17,4,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 1590 | 亞德客-KY | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260530 | 1590 | 亞德客-KY | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 1590 | 亞德客-KY | 2 | 2 | 3 | 5 | 5 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260530 | 1590 | 亞德客-KY | 3 | 3 | 4 | 6 | 6 | continued_2_3d | 連續 3 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

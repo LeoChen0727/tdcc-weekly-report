@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5364 力麗店
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:06 Asia/Taipei
+- generated_at: 2026-05-30 23:42:40 Asia/Taipei
 - stock_id: 5364
 - stock_name: 力麗店
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -80,10 +80,10 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260504,10,10,9.83,9.92,68000,10.95,-9.38,10.98,12.01,0.23
 20260505,9.82,9.98,9.82,9.92,32000,10.86,-8.67,10.89,11.93,0.11
 20260506,9.87,9.91,9.83,9.87,49000,10.78,-8.43,10.81,11.86,0.2
-20260507,9.87,10,9.87,9.9,61000,10.71,-7.53,10.74,11.79,0.25
-20260508,10.05,10.05,9.75,9.85,72000,10.63,-7.38,10.68,11.73,0.3
+20260507,9.87,10,9.87,9.9,61000,10.71,-7.52,10.74,11.79,0.25
+20260508,10.05,10.05,9.75,9.85,72000,10.63,-7.37,10.68,11.73,0.3
 20260511,9.9,9.9,9.77,9.84,30000,10.57,-6.89,10.62,11.67,0.13
-20260512,9.73,9.75,9.69,9.72,52000,10.5,-7.41,10.5,11.62,0.29
+20260512,9.73,9.75,9.69,9.72,52000,10.5,-7.4,10.5,11.62,0.29
 20260513,9.6,9.68,9.31,9.44,86000,10.41,-9.31,10.38,11.56,0.51
 20260514,9.5,9.56,9.32,9.35,55000,10.32,-9.41,10.29,11.5,0.36
 20260515,9.31,9.4,9.13,9.21,136000,10.23,-9.96,10.18,11.44,0.86
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 69.69
-- over_600_ratio: 63.71
-- over_800_ratio: 61.28
+- as_of_date: 20260529
+- over_400_ratio: 69.41
+- over_600_ratio: 63.45
+- over_800_ratio: 61.3
 - over_1000_ratio: 59.74
-- over_400_change_1w: -0.02
-- over_800_change_1w: 0.01
+- over_400_change_1w: -0.28
+- over_800_change_1w: 0.02
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,69.71,0,61.27,0,59.74,0,0,False,False
 20260515,69.71,0,61.27,0,59.74,0,0,False,False
 20260522,69.69,-0.02,61.28,0.01,59.74,0,1,False,True
+20260529,69.41,-0.28,61.3,0.02,59.74,0,2,False,True
 ```
 
 ## Candidate Context

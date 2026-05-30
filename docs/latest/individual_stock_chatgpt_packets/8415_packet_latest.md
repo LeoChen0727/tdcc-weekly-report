@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8415 大國鋼
 
 ## Metadata
-- generated_at: 2026-05-29 19:34:00 Asia/Taipei
+- generated_at: 2026-05-30 23:43:56 Asia/Taipei
 - stock_id: 8415
 - stock_name: 大國鋼
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 92.73
-- over_600_ratio: 91.1
-- over_800_ratio: 89.79
-- over_1000_ratio: 89.45
-- over_400_change_1w: 0.2
-- over_800_change_1w: 0.09
-- over_1000_change_1w: 0.18
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260529
+- over_400_ratio: 92.55
+- over_600_ratio: 91.2
+- over_800_ratio: 89.78
+- over_1000_ratio: 89.25
+- over_400_change_1w: -0.18
+- over_800_change_1w: -0.01
+- over_1000_change_1w: -0.2
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,92.49,-0.01,89.78,-0.02,89.35,-0.03,0,False,False
 20260515,92.53,0.04,89.7,-0.08,89.27,-0.08,1,False,False
 20260522,92.73,0.2,89.79,0.09,89.45,0.18,2,False,True
+20260529,92.55,-0.18,89.78,-0.01,89.25,-0.2,3,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8087 麗升能源
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:55 Asia/Taipei
+- generated_at: 2026-05-30 23:43:50 Asia/Taipei
 - stock_id: 8087
 - stock_name: 麗升能源
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -78,11 +78,11 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,33.2,33.85,32.9,32.9,43000,34.07,-3.43,34.4,33.11,0.79
-20260505,33,33.8,32.7,33.3,59000,34,-2.07,34.4,33.15,1.05
+20260505,33,33.8,32.7,33.3,59000,34.01,-2.07,34.4,33.15,1.05
 20260506,33,33.6,32.9,33.1,63000,33.93,-2.44,34.38,33.21,1.07
 20260507,33,33.1,32.85,32.85,50000,33.84,-2.92,34.32,33.26,0.84
 20260508,32.85,34.95,32.8,33,52000,33.77,-2.28,34.28,33.32,0.85
-20260511,35.5,36.3,34,34,281000,33.79,0.63,34.33,33.4,3.98
+20260511,35.5,36.3,34,34,281000,33.79,0.62,34.33,33.4,3.98
 20260512,33.7,33.7,31.25,33.2,142000,33.74,-1.6,34.18,33.47,1.91
 20260513,33,33.2,32.85,33,54000,33.68,-2.01,33.96,33.54,0.86
 20260514,33,36.3,33,35.35,417000,33.82,4.53,33.93,33.65,5.27
@@ -100,16 +100,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 58.12
-- over_600_ratio: 49.34
-- over_800_ratio: 43.88
-- over_1000_ratio: 43.88
-- over_400_change_1w: -0.17
-- over_800_change_1w: -2.06
-- over_1000_change_1w: 0.26
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 58.3
+- over_600_ratio: 49.52
+- over_800_ratio: 44.12
+- over_1000_ratio: 44.12
+- over_400_change_1w: 0.18
+- over_800_change_1w: 0.24
+- over_1000_change_1w: 0.24
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,58.3,-0.08,45.97,-0.1,45.97,-0.1,0,False,False
 20260515,58.29,-0.01,45.94,-0.03,43.62,-2.35,0,False,False
 20260522,58.12,-0.17,43.88,-2.06,43.88,0.26,1,False,True
+20260529,58.3,0.18,44.12,0.24,44.12,0.24,2,True,True
 ```
 
 ## Candidate Context

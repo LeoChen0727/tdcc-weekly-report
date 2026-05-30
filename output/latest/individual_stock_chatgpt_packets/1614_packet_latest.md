@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1614 三洋電
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:46 Asia/Taipei
+- generated_at: 2026-05-30 23:41:06 Asia/Taipei
 - stock_id: 1614
 - stock_name: 三洋電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 26
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 27
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 82.64
-- over_600_ratio: 79.51
-- over_800_ratio: 77.21
-- over_1000_ratio: 75.17
-- over_400_change_1w: 0.01
-- over_800_change_1w: 0.01
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 6
+- as_of_date: 20260529
+- over_400_ratio: 82.71
+- over_600_ratio: 79.58
+- over_800_ratio: 77.28
+- over_1000_ratio: 75.57
+- over_400_change_1w: 0.07
+- over_800_change_1w: 0.07
+- over_1000_change_1w: 0.4
+- tdcc_consecutive_up_weeks: 7
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -116,7 +116,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260306,82.83,0.01,76.91,0.02,74.87,0.01,2,True,True
 20260313,82.83,0,76.91,0,74.87,0,0,False,False
 20260320,82.81,-0.02,76.89,-0.02,74.85,-0.02,0,False,False
 20260327,82.55,-0.26,76.98,0.09,74.94,0.09,1,False,True
@@ -128,6 +127,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,82.75,0.01,77.03,0.01,74.99,0.01,4,True,True
 20260515,82.63,-0.12,77.2,0.17,75.16,0.17,5,False,True
 20260522,82.64,0.01,77.21,0.01,75.17,0.01,6,True,True
+20260529,82.71,0.07,77.28,0.07,75.57,0.4,7,True,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5498 凱崴
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:09 Asia/Taipei
+- generated_at: 2026-05-30 23:42:43 Asia/Taipei
 - stock_id: 5498
 - stock_name: 凱崴
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,15 +77,15 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,75.4,75.4,73.9,74,2759000,68.59,7.9,68.47,62.69,0.13
-20260505,75,79,75,79,3247000,69.45,13.75,69.75,62.99,0.16
+20260504,75.4,75.4,73.9,74,2759000,68.59,7.89,68.47,62.69,0.13
+20260505,75,79,75,79,3247000,69.45,13.74,69.75,62.99,0.16
 20260506,82.1,82.1,72,74.9,3796000,69.91,7.14,70.77,63.12,0.18
 20260507,75.6,75.6,73.6,74.6,2025000,70.3,6.12,71.54,63.27,0.1
 20260508,74,74,71,72,2255000,70.44,2.21,72,63.43,0.11
 20260511,72,74.8,68.4,69.1,10983000,70.33,-1.75,72.17,63.58,0.61
 20260512,70.5,74.3,69.2,72.4,16014000,70.5,2.69,72.5,63.85,0.91
 20260513,71,76.5,70.4,72.8,20455000,70.69,2.98,72.95,64.03,1.14
-20260514,73.8,78.3,72.4,74.5,21934000,71.01,4.92,73.53,64.22,1.19
+20260514,73.8,78.3,72.4,74.5,21934000,71.01,4.91,73.53,64.22,1.19
 20260515,75.5,75.9,68.2,70.5,16871000,70.97,-0.66,73.58,64.39,0.94
 20260518,71.4,71.4,66.5,68.7,5930000,70.78,-2.94,73.58,64.61,0.38
 20260519,67.9,69.4,65,65.4,5713000,70.33,-7.01,73.07,64.8,0.39
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 33.43
+- as_of_date: 20260529
+- over_400_ratio: 33.71
 - over_600_ratio: 32.16
 - over_800_ratio: 31.13
 - over_1000_ratio: 30.25
-- over_400_change_1w: -1.63
-- over_800_change_1w: -0.64
-- over_1000_change_1w: -0.64
-- tdcc_consecutive_up_weeks: 0
+- over_400_change_1w: 0.28
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,36.91,-0.33,34.92,0.04,32.25,-1.3,1,False,True
 20260515,35.06,-1.85,31.77,-3.15,30.89,-1.36,0,False,False
 20260522,33.43,-1.63,31.13,-0.64,30.25,-0.64,0,False,False
+20260529,33.71,0.28,31.13,0,30.25,0,1,False,False
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 5498 | 凱崴 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260530 | 5498 | 凱崴 | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

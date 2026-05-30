@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2538 基泰
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:10 Asia/Taipei
+- generated_at: 2026-05-30 23:41:34 Asia/Taipei
 - stock_id: 2538
 - stock_name: 基泰
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -79,7 +79,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,9.76,9.76,9.58,9.6,820120,10,-4.03,10,10.28,2.09
 20260505,9.59,9.8,9.53,9.66,608180,9.97,-3.15,9.98,10.26,1.48
-20260506,9.67,10,9.67,10,504303,9.98,0.24,9.98,10.25,1.21
+20260506,9.67,10,9.67,10,504303,9.98,0.23,9.98,10.25,1.21
 20260507,10.05,10.05,9.8,9.89,795200,9.97,-0.8,9.97,10.23,1.85
 20260508,9.89,10.05,9.89,9.96,299016,9.97,-0.09,9.96,10.22,0.68
 20260511,9.93,9.93,9.8,9.8,647756,9.95,-1.55,9.95,10.2,1.44
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 75.15
-- over_600_ratio: 72.32
-- over_800_ratio: 68.88
-- over_1000_ratio: 66.85
-- over_400_change_1w: 0.04
-- over_800_change_1w: 0.4
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 75.12
+- over_600_ratio: 71.95
+- over_800_ratio: 68.78
+- over_1000_ratio: 66.74
+- over_400_change_1w: -0.03
+- over_800_change_1w: -0.1
+- over_1000_change_1w: -0.11
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,75.1,0.08,68.61,-0.08,66.98,-0.08,1,False,False
 20260515,75.11,0.01,68.48,-0.13,66.85,-0.13,2,False,False
 20260522,75.15,0.04,68.88,0.4,66.85,0,3,False,True
+20260529,75.12,-0.03,68.78,-0.1,66.74,-0.11,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8234 新漢
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:58 Asia/Taipei
+- generated_at: 2026-05-30 23:43:54 Asia/Taipei
 - stock_id: 8234
 - stock_name: 新漢
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,16 +100,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 52.78
-- over_600_ratio: 50.4
-- over_800_ratio: 48.32
-- over_1000_ratio: 46.59
-- over_400_change_1w: -0.63
-- over_800_change_1w: 0.84
-- over_1000_change_1w: 0.87
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 53.28
+- over_600_ratio: 50.96
+- over_800_ratio: 48.45
+- over_1000_ratio: 46.72
+- over_400_change_1w: 0.5
+- over_800_change_1w: 0.13
+- over_1000_change_1w: 0.13
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,53.15,-1.18,47.98,-0.16,45.64,-0.16,0,False,False
 20260515,53.41,0.26,47.48,-0.5,45.72,0.08,1,False,True
 20260522,52.78,-0.63,48.32,0.84,46.59,0.87,2,False,True
+20260529,53.28,0.5,48.45,0.13,46.72,0.13,3,True,True
 ```
 
 ## Candidate Context

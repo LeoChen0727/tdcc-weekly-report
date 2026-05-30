@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8109 博大
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:56 Asia/Taipei
+- generated_at: 2026-05-30 23:43:52 Asia/Taipei
 - stock_id: 8109
 - stock_name: 博大
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 26
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 27
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -79,7 +79,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,118.5,124,118.5,123.5,348000,113.4,8.9,112.92,107.53,1
 20260505,123.5,123.5,119.5,121.5,228000,114.08,6.51,113.72,107.69,0.66
-20260506,123.5,123.5,118,121,378000,114.65,5.54,114.22,107.9,1.12
+20260506,123.5,123.5,118,121,378000,114.65,5.53,114.22,107.9,1.12
 20260507,122,122.5,119,122,212000,115.27,5.84,114.92,108.14,0.65
 20260508,121,122,117.5,119.5,282000,115.62,3.36,115.5,108.31,0.84
 20260511,118,120.5,117,118,173000,115.82,1.88,116.1,108.55,0.51
@@ -100,23 +100,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 54.17
-- over_600_ratio: 47.33
-- over_800_ratio: 42.42
-- over_1000_ratio: 34.89
-- over_400_change_1w: -0.52
-- over_800_change_1w: 0.02
-- over_1000_change_1w: 0.02
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260529
+- over_400_ratio: 54.65
+- over_600_ratio: 47.29
+- over_800_ratio: 42.38
+- over_1000_ratio: 34.82
+- over_400_change_1w: 0.48
+- over_800_change_1w: -0.04
+- over_1000_change_1w: -0.07
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260306,54.53,0.62,41.6,-0.03,34.99,0,1,False,False
 20260313,53.3,-1.23,41.62,0.02,35.01,0.02,2,False,True
 20260320,54.03,0.73,41.16,-0.46,34.55,-0.46,3,False,False
 20260327,53.01,-1.02,41.22,0.06,34.6,0.05,4,False,True
@@ -128,6 +127,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,54.12,-0.44,41.35,-0.88,34.8,0.08,3,False,True
 20260515,54.69,0.57,42.4,1.05,34.87,0.07,4,True,True
 20260522,54.17,-0.52,42.42,0.02,34.89,0.02,5,False,True
+20260529,54.65,0.48,42.38,-0.04,34.82,-0.07,6,False,False
 ```
 
 ## Candidate Context
@@ -138,7 +138,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 8109 | 博大 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 8109 | 博大 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

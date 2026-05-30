@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5452 佶優
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:08 Asia/Taipei
+- generated_at: 2026-05-30 23:42:41 Asia/Taipei
 - stock_id: 5452
 - stock_name: 佶優
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -78,11 +78,11 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,32,33.3,31.55,32.15,1837000,33.03,-2.65,33.08,32.76,0.67
-20260505,32.75,33.5,32.3,33.5,1971000,33.06,1.32,33.18,32.73,0.73
+20260505,32.75,33.5,32.3,33.5,1971000,33.07,1.31,33.18,32.73,0.73
 20260506,33.85,34.5,32.45,33.6,3143000,33.11,1.48,33.25,32.75,1.14
 20260507,34.1,34.1,32.9,32.95,1958000,33.1,-0.44,33.25,32.77,0.7
 20260508,32.95,34.65,31.8,32.15,2946000,33.02,-2.63,33.23,32.79,1.04
-20260511,32.4,34,32.3,33.6,2878000,33.07,1.62,33.28,32.86,0.99
+20260511,32.4,34,32.3,33.6,2878000,33.07,1.61,33.28,32.86,0.99
 20260512,33.75,34,32.7,33.5,1973000,33.1,1.2,33.21,32.93,0.7
 20260513,33.5,33.6,32.6,32.9,1344000,33.09,-0.56,33.16,32.95,0.49
 20260514,33.2,33.7,32.05,32.85,1544000,33.07,-0.65,33.16,32.98,0.56
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 43.39
-- over_600_ratio: 39.22
-- over_800_ratio: 38.82
-- over_1000_ratio: 38.82
-- over_400_change_1w: 0.49
-- over_800_change_1w: 0.21
-- over_1000_change_1w: 0.21
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 43.94
+- over_600_ratio: 40.37
+- over_800_ratio: 40.37
+- over_1000_ratio: 39.75
+- over_400_change_1w: 0.55
+- over_800_change_1w: 1.55
+- over_1000_change_1w: 0.93
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,43.09,0.7,38.74,-0.5,38.74,0.13,1,False,True
 20260515,42.9,-0.19,38.61,-0.13,38.61,-0.13,2,False,False
 20260522,43.39,0.49,38.82,0.21,38.82,0.21,3,True,True
+20260529,43.94,0.55,40.37,1.55,39.75,0.93,4,True,True
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 5452 | 佶優 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 5452 | 佶優 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

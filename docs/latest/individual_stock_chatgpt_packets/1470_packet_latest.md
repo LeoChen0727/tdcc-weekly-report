@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1470 大統新創
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:41 Asia/Taipei
+- generated_at: 2026-05-30 23:40:59 Asia/Taipei
 - stock_id: 1470
 - stock_name: 大統新創
-- packet_status: standard_rawdata_packet
+- packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 100
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 214
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: price history shorter than 120 rows; K-line context is partial; TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
+- notes: TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
 
 ## Stable Read URLs
 - packet_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_chatgpt_packets/1470_packet_latest.md
@@ -66,7 +66,7 @@
 - distance_to_ema23_pct: 1.94
 - ma20: 21.99
 - ma60: 22.36
-- ma120: 22.54
+- ma120: 22.51
 - return_5d: 2.27
 - return_20d: 0
 - volume_ratio: 0.06
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 87.63
-- over_600_ratio: 81.48
-- over_800_ratio: 77.67
-- over_1000_ratio: 71.51
-- over_400_change_1w: 0.2
-- over_800_change_1w: 0.24
-- over_1000_change_1w: 0.24
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260529
+- over_400_ratio: 87.64
+- over_600_ratio: 81.51
+- over_800_ratio: 77.7
+- over_1000_ratio: 71.54
+- over_400_change_1w: 0.01
+- over_800_change_1w: 0.03
+- over_1000_change_1w: 0.03
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,87.48,0,77.43,0.03,71.27,0.03,1,False,True
 20260515,87.43,-0.05,77.43,0,71.27,0,0,False,False
 20260522,87.63,0.2,77.67,0.24,71.51,0.24,1,True,True
+20260529,87.64,0.01,77.7,0.03,71.54,0.03,2,True,True
 ```
 
 ## Candidate Context

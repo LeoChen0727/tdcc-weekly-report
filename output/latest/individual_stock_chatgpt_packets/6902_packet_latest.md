@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6902 GOGOLOOK
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:44 Asia/Taipei
+- generated_at: 2026-05-30 23:43:22 Asia/Taipei
 - stock_id: 6902
 - stock_name: GOGOLOOK
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 271
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -83,7 +83,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260507,105.5,106,101,102.5,164291,97.92,4.67,98.97,84.25,0.3
 20260508,102.5,103.5,100,103,156220,98.35,4.73,100.2,84.64,0.29
 20260511,100.5,102.5,100.5,102.5,113347,98.69,3.86,101.47,85.03,0.21
-20260512,105,105,99.2,101,341365,98.88,2.14,102.66,85.39,0.64
+20260512,105,105,99.2,101,341365,98.89,2.14,102.66,85.39,0.64
 20260513,101.5,101.5,95.4,98,209033,98.81,-0.82,103.67,85.71,0.39
 20260514,98.8,101,96.8,101,117553,98.99,2.03,104.45,86.07,0.22
 20260515,111,111,110.5,111,172737,99.99,11.01,105.31,86.61,0.33
@@ -100,13 +100,13 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 71.77
+- as_of_date: 20260529
+- over_400_ratio: 71.74
 - over_600_ratio: 64.78
 - over_800_ratio: 61.05
 - over_1000_ratio: 58.48
-- over_400_change_1w: -0.13
-- over_800_change_1w: -0.06
+- over_400_change_1w: -0.03
+- over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,71.32,0.03,61.07,0.03,58.48,0,1,False,True
 20260515,71.9,0.58,61.11,0.04,58.48,0,2,False,True
 20260522,71.77,-0.13,61.05,-0.06,58.48,0,0,False,False
+20260529,71.74,-0.03,61.05,0,58.48,0,0,False,False
 ```
 
 ## Candidate Context

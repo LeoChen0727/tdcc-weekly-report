@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2399 映泰
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:02 Asia/Taipei
+- generated_at: 2026-05-30 23:41:25 Asia/Taipei
 - stock_id: 2399
 - stock_name: 映泰
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 28.86
-- over_600_ratio: 26.03
-- over_800_ratio: 24.1
-- over_1000_ratio: 20.65
-- over_400_change_1w: 2.12
-- over_800_change_1w: 1.18
-- over_1000_change_1w: 0.24
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260529
+- over_400_ratio: 33.17
+- over_600_ratio: 30.61
+- over_800_ratio: 28.61
+- over_1000_ratio: 25.6
+- over_400_change_1w: 4.31
+- over_800_change_1w: 4.51
+- over_1000_change_1w: 4.95
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,26.56,-3.69,22.15,-3.26,19.64,-2.34,0,False,False
 20260515,26.74,0.18,22.92,0.77,20.41,0.77,1,False,True
 20260522,28.86,2.12,24.1,1.18,20.65,0.24,2,True,True
+20260529,33.17,4.31,28.61,4.51,25.6,4.95,3,True,True
 ```
 
 ## Candidate Context

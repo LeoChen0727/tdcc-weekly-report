@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6241 鑫永洋
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:23 Asia/Taipei
+- generated_at: 2026-05-30 23:42:58 Asia/Taipei
 - stock_id: 6241
 - stock_name: 鑫永洋
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -79,11 +79,11 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,10.05,10.3,10.05,10.05,25000,10.58,-5.01,10.38,11.53,0.26
 20260505,9.95,10.05,9.72,9.97,192000,10.53,-5.31,10.32,11.49,2.07
-20260506,9.8,9.99,9.79,9.79,73000,10.47,-6.48,10.26,11.44,0.79
+20260506,9.8,9.99,9.79,9.79,73000,10.47,-6.47,10.26,11.44,0.79
 20260507,9.79,9.94,9.71,9.79,141000,10.41,-5.97,10.2,11.39,1.45
 20260508,9.74,9.74,8.82,8.99,562000,10.29,-12.66,10.11,11.33,4.6
 20260511,8.83,8.9,8.55,8.68,252000,10.16,-14.55,10.03,11.28,2.1
-20260512,8.68,8.89,8.56,8.68,123000,10.04,-13.51,9.96,11.22,1.01
+20260512,8.68,8.89,8.56,8.68,123000,10.04,-13.5,9.96,11.22,1.01
 20260513,9.36,9.54,9.36,9.54,164000,9.99,-4.54,9.93,11.16,1.33
 20260514,10.45,10.45,10.45,10.45,200000,10.03,4.17,9.94,11.12,1.54
 20260515,11.45,11.45,10.6,10.8,1137000,10.1,6.97,9.97,11.09,6.16
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 48.89
-- over_600_ratio: 46.96
+- as_of_date: 20260529
+- over_400_ratio: 48.9
+- over_600_ratio: 46.97
 - over_800_ratio: 42.24
 - over_1000_ratio: 38.71
-- over_400_change_1w: -0.01
-- over_800_change_1w: -0.02
+- over_400_change_1w: 0.01
+- over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,49.38,-0.21,42.86,-0.23,41.18,-0.23,0,False,False
 20260515,48.9,-0.48,42.26,-0.6,38.71,-2.47,0,False,False
 20260522,48.89,-0.01,42.24,-0.02,38.71,0,0,False,False
+20260529,48.9,0.01,42.24,0,38.71,0,1,False,False
 ```
 
 ## Candidate Context

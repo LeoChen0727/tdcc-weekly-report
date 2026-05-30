@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1720 生達
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:47 Asia/Taipei
+- generated_at: 2026-05-30 23:41:07 Asia/Taipei
 - stock_id: 1720
 - stock_name: 生達
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,14 +100,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 65.24
-- over_600_ratio: 62.77
-- over_800_ratio: 62.42
-- over_1000_ratio: 59.79
-- over_400_change_1w: -0.02
-- over_800_change_1w: -0.02
-- over_1000_change_1w: -0.02
+- as_of_date: 20260529
+- over_400_ratio: 65.15
+- over_600_ratio: 62.72
+- over_800_ratio: 62.37
+- over_1000_ratio: 59.74
+- over_400_change_1w: -0.09
+- over_800_change_1w: -0.05
+- over_1000_change_1w: -0.05
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,65.34,-0.15,62.51,-0.11,59.88,-0.11,0,False,False
 20260515,65.26,-0.08,62.44,-0.07,59.81,-0.07,0,False,False
 20260522,65.24,-0.02,62.42,-0.02,59.79,-0.02,0,False,False
+20260529,65.15,-0.09,62.37,-0.05,59.74,-0.05,0,False,False
 ```
 
 ## Candidate Context

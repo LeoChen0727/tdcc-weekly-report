@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3704 合勤控
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:43 Asia/Taipei
+- generated_at: 2026-05-30 23:42:13 Asia/Taipei
 - stock_id: 3704
 - stock_name: 合勤控
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 60.11
-- over_600_ratio: 57.45
-- over_800_ratio: 55.49
-- over_1000_ratio: 53.96
-- over_400_change_1w: 2.57
-- over_800_change_1w: 3.16
-- over_1000_change_1w: 2.92
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 62.39
+- over_600_ratio: 60.4
+- over_800_ratio: 57.92
+- over_1000_ratio: 56.84
+- over_400_change_1w: 2.28
+- over_800_change_1w: 2.43
+- over_1000_change_1w: 2.88
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,56.74,0.07,51.83,0.07,50.27,-0.4,1,False,True
 20260515,57.54,0.8,52.33,0.5,51.04,0.77,2,True,True
 20260522,60.11,2.57,55.49,3.16,53.96,2.92,3,True,True
+20260529,62.39,2.28,57.92,2.43,56.84,2.88,4,True,True
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 3704 | 合勤控 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 3704 | 合勤控 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

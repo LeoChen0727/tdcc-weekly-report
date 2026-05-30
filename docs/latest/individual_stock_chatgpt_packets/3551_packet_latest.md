@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3551 世禾
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:38 Asia/Taipei
+- generated_at: 2026-05-30 23:42:07 Asia/Taipei
 - stock_id: 3551
 - stock_name: 世禾
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -80,10 +80,10 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260504,196.5,198.5,195,195.5,724000,193.53,1.02,193.15,184.58,0.36
 20260505,195.5,208.5,194,207.5,2537000,194.69,6.58,195.25,184.82,1.21
 20260506,209.5,212.5,199.5,208.5,3405000,195.84,6.46,197.1,185.12,1.52
-20260507,211.5,215.5,209,215,3733000,197.44,8.9,199.05,185.5,1.55
-20260508,219.5,220,203.5,210,6688000,198.48,5.8,200.57,185.92,2.47
+20260507,211.5,215.5,209,215,3733000,197.44,8.89,199.05,185.5,1.55
+20260508,219.5,220,203.5,210,6688000,198.49,5.8,200.57,185.92,2.47
 20260511,214,224.5,214,218,4081000,200.11,8.94,202.35,186.56,1.41
-20260512,218,219.5,211.5,216,3431000,201.43,7.23,204.43,187.2,1.15
+20260512,218,219.5,211.5,216,3431000,201.44,7.23,204.43,187.2,1.15
 20260513,213.5,215,209.5,210.5,1203000,202.19,4.11,205.4,187.69,0.42
 20260514,212,221.5,211.5,214.5,2051000,203.22,5.55,206.3,188.28,0.75
 20260515,217,217,205,206.5,1519000,203.49,1.48,206.95,188.78,0.56
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 48.7
-- over_600_ratio: 42.84
+- as_of_date: 20260529
+- over_400_ratio: 52.91
+- over_600_ratio: 44.04
 - over_800_ratio: 37.15
 - over_1000_ratio: 34.24
-- over_400_change_1w: -1.68
+- over_400_change_1w: 4.21
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,50.88,1.04,38.47,1.32,34.24,0,1,False,True
 20260515,50.38,-0.5,37.15,-1.32,34.24,0,0,False,False
 20260522,48.7,-1.68,37.15,0,34.24,0,0,False,False
+20260529,52.91,4.21,37.15,0,34.24,0,1,False,False
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 3551 | 世禾 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 3551 | 世禾 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

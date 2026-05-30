@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6282 康舒
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:25 Asia/Taipei
+- generated_at: 2026-05-30 23:43:01 Asia/Taipei
 - stock_id: 6282
 - stock_name: 康舒
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -91,7 +91,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260519,51.1,52.2,50,50.8,26817259,50.14,1.31,50.04,48.57,0.8
 20260520,51.3,51.8,50.3,50.8,15473422,50.2,1.2,50.07,48.63,0.47
 20260521,51.7,54.5,51.7,53.6,44229640,50.48,6.18,50.18,48.72,1.31
-20260522,54.6,58.3,54.4,57.4,78458652,51.06,12.42,50.65,48.83,2.22
+20260522,54.6,58.3,54.4,57.4,78458652,51.06,12.43,50.65,48.83,2.22
 20260525,60.2,63.1,58.6,63.1,83984619,52.06,21.21,51.46,49.01,2.19
 20260526,63.6,63.7,60,62.4,95828980,52.92,17.91,52.25,49.2,2.26
 20260527,64.8,65.1,58.5,59.4,83823820,53.46,11.11,52.84,49.32,1.81
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 47.75
-- over_600_ratio: 46.19
-- over_800_ratio: 44.94
-- over_1000_ratio: 44.4
-- over_400_change_1w: 2.27
-- over_800_change_1w: 2.22
-- over_1000_change_1w: 2.53
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 50.88
+- over_600_ratio: 49.42
+- over_800_ratio: 48.13
+- over_1000_ratio: 47.72
+- over_400_change_1w: 3.13
+- over_800_change_1w: 3.19
+- over_1000_change_1w: 3.32
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,44.07,0.68,41.18,0.6,40.03,0.59,1,True,True
 20260515,45.48,1.41,42.72,1.54,41.87,1.84,2,True,True
 20260522,47.75,2.27,44.94,2.22,44.4,2.53,3,True,True
+20260529,50.88,3.13,48.13,3.19,47.72,3.32,4,True,True
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 6282 | 康舒 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 6282 | 康舒 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

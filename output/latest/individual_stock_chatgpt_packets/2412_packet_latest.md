@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2412 中華電
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:03 Asia/Taipei
+- generated_at: 2026-05-30 23:41:26 Asia/Taipei
 - stock_id: 2412
 - stock_name: 中華電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 26
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 27
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -84,7 +84,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260508,136,136.5,135.5,136.5,9445587,135.87,0.46,136.12,135.21,0.91
 20260511,136.5,136.5,135.5,135.5,6670769,135.84,-0.25,136.12,135.24,0.64
 20260512,135.5,136.5,135.5,135.5,9747882,135.81,-0.23,136.18,135.28,0.92
-20260513,136.5,137.5,135.5,137.5,14252707,135.95,1.14,136.3,135.35,1.34
+20260513,136.5,137.5,135.5,137.5,14252707,135.96,1.14,136.3,135.35,1.34
 20260514,136.5,138,136.5,137.5,17475344,136.08,1.04,136.4,135.43,1.57
 20260515,137.5,138,137,138,8852265,136.24,1.29,136.47,135.52,0.8
 20260518,138,138,137,137,7713190,136.31,0.51,136.45,135.58,0.7
@@ -100,23 +100,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 79.6
-- over_600_ratio: 78.84
-- over_800_ratio: 78.3
-- over_1000_ratio: 77.84
-- over_400_change_1w: 0.24
-- over_800_change_1w: 0.28
-- over_1000_change_1w: 0.27
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 79.48
+- over_600_ratio: 78.7
+- over_800_ratio: 78.16
+- over_1000_ratio: 77.69
+- over_400_change_1w: -0.12
+- over_800_change_1w: -0.14
+- over_1000_change_1w: -0.15
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260306,79.22,0.14,77.85,0.09,77.36,0.13,2,True,True
 20260313,79.24,0.02,77.87,0.02,77.4,0.04,3,True,True
 20260320,79.22,-0.02,77.84,-0.03,77.37,-0.03,0,False,False
 20260327,79.11,-0.11,77.76,-0.08,77.23,-0.14,0,False,False
@@ -128,17 +127,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,79.2,-0.05,77.87,0,77.38,0,0,False,False
 20260515,79.36,0.16,78.02,0.15,77.57,0.19,1,True,True
 20260522,79.6,0.24,78.3,0.28,77.84,0.27,2,True,True
+20260529,79.48,-0.12,78.16,-0.14,77.69,-0.15,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2412 | 中華電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  |  |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260530 | 2412 | 中華電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  |  |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2412 | 中華電 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260530 | 2412 | 中華電 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

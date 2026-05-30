@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8210 勤誠
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:58 Asia/Taipei
+- generated_at: 2026-05-30 23:43:53 Asia/Taipei
 - stock_id: 8210
 - stock_name: 勤誠
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,15 +77,15 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,1150,1170,1130,1150,1496800,1039.05,10.68,1018.1,951.42,0.42
+20260504,1150,1170,1130,1150,1496800,1039.04,10.68,1018.1,951.42,0.42
 20260505,1165,1265,1155,1265,2446851,1057.87,19.58,1039.3,956.32,0.72
-20260506,1275,1350,1215,1325,5188155,1080.14,22.67,1064.05,962.32,1.49
+20260506,1275,1350,1215,1325,5188155,1080.13,22.67,1064.05,962.32,1.49
 20260507,1400,1450,1240,1290,8188471,1097.62,17.53,1083.65,968.02,2.21
 20260508,1345,1415,1335,1415,6155787,1124.07,25.88,1110.4,976.1,1.59
 20260511,1455,1555,1455,1555,3683014,1159.98,34.05,1143.65,986.93,0.93
 20260512,1505,1590,1485,1550,4957094,1192.48,29.98,1176.15,997.77,1.21
-20260513,1500,1530,1415,1520,3620477,1219.78,24.61,1204.1,1007.18,0.9
-20260514,1560,1560,1450,1460,2311235,1239.8,17.76,1227.5,1015.05,0.6
+20260513,1500,1530,1415,1520,3620477,1219.77,24.61,1204.1,1007.18,0.9
+20260514,1560,1560,1450,1460,2311235,1239.79,17.76,1227.5,1015.05,0.6
 20260515,1500,1500,1405,1410,1671106,1253.98,12.44,1247,1020.47,0.45
 20260518,1385,1410,1325,1380,1281141,1264.48,9.14,1265,1027.18,0.35
 20260519,1390,1400,1315,1325,1243580,1269.52,4.37,1280.25,1033.75,0.34
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 73.2
-- over_600_ratio: 68.83
-- over_800_ratio: 65.42
-- over_1000_ratio: 61.93
-- over_400_change_1w: -0.01
-- over_800_change_1w: -0.34
-- over_1000_change_1w: -1.01
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 71.51
+- over_600_ratio: 67.18
+- over_800_ratio: 64.85
+- over_1000_ratio: 62.67
+- over_400_change_1w: -1.69
+- over_800_change_1w: -0.57
+- over_1000_change_1w: 0.74
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,17 +120,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,71.72,0.99,64.94,-0.56,61.32,-1.27,1,False,False
 20260515,73.21,1.49,65.76,0.82,62.94,1.62,2,True,True
 20260522,73.2,-0.01,65.42,-0.34,61.93,-1.01,3,False,False
+20260529,71.51,-1.69,64.85,-0.57,62.67,0.74,4,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 8210 | 勤誠 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260530 | 8210 | 勤誠 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 8210 | 勤誠 | 3 | 3 | 3 | 3 | 3 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260530 | 8210 | 勤誠 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

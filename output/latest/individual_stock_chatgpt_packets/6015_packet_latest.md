@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6015 宏遠證
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:13 Asia/Taipei
+- generated_at: 2026-05-30 23:42:47 Asia/Taipei
 - stock_id: 6015
 - stock_name: 宏遠證
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -87,8 +87,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260513,16.15,16.15,15.4,15.4,5429000,14.68,4.89,14.4,13.84,1.45
 20260514,15.4,15.75,14.95,15,4265000,14.71,1.98,14.47,13.87,1.13
 20260515,15.35,15.5,14.7,14.8,3254000,14.72,0.57,14.56,13.89,0.85
-20260518,14.7,14.95,14.4,14.85,2254000,14.73,0.84,14.65,13.93,0.58
-20260519,14.95,15.1,14.5,14.5,2671000,14.71,-1.41,14.72,13.94,0.67
+20260518,14.7,14.95,14.4,14.85,2254000,14.73,0.83,14.65,13.93,0.58
+20260519,14.95,15.1,14.5,14.5,2671000,14.71,-1.42,14.72,13.94,0.67
 20260520,14.5,14.7,14.4,14.5,1963000,14.69,-1.3,14.78,13.96,0.49
 20260521,14.85,15.45,14.75,15.4,3380000,14.75,4.41,14.89,13.99,0.83
 20260522,15.55,15.65,15.25,15.65,15000,14.82,5.57,15,14.03,0
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 51.29
-- over_600_ratio: 47.44
-- over_800_ratio: 45.87
-- over_1000_ratio: 44.95
-- over_400_change_1w: 0.13
-- over_800_change_1w: -0.28
-- over_1000_change_1w: -0.28
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 53.12
+- over_600_ratio: 48.85
+- over_800_ratio: 47.14
+- over_1000_ratio: 46
+- over_400_change_1w: 1.83
+- over_800_change_1w: 1.27
+- over_1000_change_1w: 1.05
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,51.26,0.82,46.09,1.11,44.92,1.57,1,True,True
 20260515,51.16,-0.1,46.15,0.06,45.23,0.31,2,False,True
 20260522,51.29,0.13,45.87,-0.28,44.95,-0.28,3,False,False
+20260529,53.12,1.83,47.14,1.27,46,1.05,4,True,True
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 6015 | 宏遠證 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 6015 | 宏遠證 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

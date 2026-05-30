@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4529 淳紳
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:51 Asia/Taipei
+- generated_at: 2026-05-30 23:42:22 Asia/Taipei
 - stock_id: 4529
 - stock_name: 淳紳
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,7 +77,7 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,5.05,5.05,4.68,4.68,246000,4.2,11.54,3.94,3.54,1.3
+20260504,5.05,5.05,4.68,4.68,246000,4.2,11.53,3.94,3.54,1.3
 20260505,4.68,5.13,4.68,5.02,191000,4.26,17.71,4.03,3.57,0.98
 20260506,5.01,5.01,4.7,4.9,90000,4.32,13.49,4.12,3.6,0.46
 20260507,4.9,4.9,4.42,4.59,177000,4.34,5.75,4.2,3.62,0.87
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 58.51
 - over_600_ratio: 55.34
 - over_800_ratio: 53.72
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,58.51,0,53.72,0,52.78,0,0,False,False
 20260515,58.51,0,53.72,0,52.78,0,0,False,False
 20260522,58.51,0,53.72,0,52.78,0,0,False,False
+20260529,58.51,0,53.72,0,52.78,0,0,False,False
 ```
 
 ## Candidate Context

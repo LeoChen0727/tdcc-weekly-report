@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4994 傳奇
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:01 Asia/Taipei
+- generated_at: 2026-05-30 23:42:33 Asia/Taipei
 - stock_id: 4994
 - stock_name: 傳奇
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,16 +100,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 85.66
-- over_600_ratio: 83.39
-- over_800_ratio: 81.47
-- over_1000_ratio: 78.92
-- over_400_change_1w: 0.04
-- over_800_change_1w: 1.23
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 85.75
+- over_600_ratio: 83.48
+- over_800_ratio: 81.57
+- over_1000_ratio: 78.95
+- over_400_change_1w: 0.09
+- over_800_change_1w: 0.1
+- over_1000_change_1w: 0.03
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,85.57,0.04,80.24,0,78.92,0,1,False,False
 20260515,85.62,0.05,80.24,0,78.92,0,2,False,False
 20260522,85.66,0.04,81.47,1.23,78.92,0,3,False,True
+20260529,85.75,0.09,81.57,0.1,78.95,0.03,4,True,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2731 雄獅
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:14 Asia/Taipei
+- generated_at: 2026-05-30 23:41:39 Asia/Taipei
 - stock_id: 2731
 - stock_name: 雄獅
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 26
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 27
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,23 +100,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 48.38
-- over_600_ratio: 44.57
-- over_800_ratio: 39.95
-- over_1000_ratio: 37.18
-- over_400_change_1w: 0.93
-- over_800_change_1w: 0.89
-- over_1000_change_1w: 1.86
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 48.07
+- over_600_ratio: 43.7
+- over_800_ratio: 40.05
+- over_1000_ratio: 37.28
+- over_400_change_1w: -0.31
+- over_800_change_1w: 0.1
+- over_1000_change_1w: 0.1
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260306,55.95,-0.44,43.69,-1.83,41.66,-1.02,0,False,False
 20260313,55.59,-0.36,45.33,1.64,40.55,-1.11,1,False,True
 20260320,54.98,-0.61,46.17,0.84,40.37,-0.18,2,False,True
 20260327,54.25,-0.73,45.87,-0.3,39.18,-1.19,0,False,False
@@ -128,17 +127,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,47.63,-0.04,36.95,0.24,35.05,1.15,1,False,True
 20260515,47.45,-0.18,39.06,2.11,35.32,0.27,2,False,True
 20260522,48.38,0.93,39.95,0.89,37.18,1.86,3,True,True
+20260529,48.07,-0.31,40.05,0.1,37.28,0.1,4,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2731 | 雄獅 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260530 | 2731 | 雄獅 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2731 | 雄獅 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| 20260530 | 2731 | 雄獅 | 2 | 2 | 3 | 3 | 3 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

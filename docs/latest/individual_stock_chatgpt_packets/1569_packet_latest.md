@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1569 濱川
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:44 Asia/Taipei
+- generated_at: 2026-05-30 23:41:03 Asia/Taipei
 - stock_id: 1569
 - stock_name: 濱川
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,10 +77,10 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,59.5,63.5,57.3,63.5,3905000,56.39,12.62,55.82,53.36,1.46
+20260504,59.5,63.5,57.3,63.5,3905000,56.38,12.62,55.82,53.36,1.46
 20260505,64.2,67.2,61.5,63.1,7243000,56.94,10.81,56.51,53.45,2.41
 20260506,63.5,63.5,59.5,61.1,2650000,57.29,6.65,57.03,53.54,0.85
-20260507,58.7,60.6,58.1,58.3,2696000,57.38,1.61,57.34,53.59,0.84
+20260507,58.7,60.6,58.1,58.3,2696000,57.37,1.61,57.34,53.59,0.84
 20260508,58.7,58.8,54.5,56.1,1931000,57.27,-2.04,57.59,53.62,0.59
 20260511,56.2,57.8,55.4,55.8,1794000,57.15,-2.36,57.58,53.69,0.56
 20260512,55.1,55.2,53.1,55,2250000,56.97,-3.45,57.55,53.74,0.72
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 52.46
-- over_600_ratio: 47.69
-- over_800_ratio: 46.66
-- over_1000_ratio: 46.02
-- over_400_change_1w: 0.21
-- over_800_change_1w: -0.47
-- over_1000_change_1w: 0.12
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260529
+- over_400_ratio: 52.43
+- over_600_ratio: 48.25
+- over_800_ratio: 46.38
+- over_1000_ratio: 45.74
+- over_400_change_1w: -0.03
+- over_800_change_1w: -0.28
+- over_1000_change_1w: -0.28
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,53.33,-2.57,47.61,-2.13,46.37,-2.06,0,False,False
 20260515,52.25,-1.08,47.13,-0.48,45.9,-0.47,0,False,False
 20260522,52.46,0.21,46.66,-0.47,46.02,0.12,1,False,True
+20260529,52.43,-0.03,46.38,-0.28,45.74,-0.28,2,False,False
 ```
 
 ## Candidate Context

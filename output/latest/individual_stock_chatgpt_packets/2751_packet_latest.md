@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2751 王座
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:15 Asia/Taipei
+- generated_at: 2026-05-30 23:41:39 Asia/Taipei
 - stock_id: 2751
 - stock_name: 王座
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 136
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 272
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -92,7 +92,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260520,51.8,51.8,51.7,51.7,12000,54.62,-5.34,54.41,57.12,0.57
 20260521,51.8,52,51.6,51.8,11000,54.38,-4.75,54.16,57.04,0.53
 20260522,52,52.2,52,52.2,52000,54.2,-3.69,53.97,56.97,2.43
-20260525,51.8,51.8,51.6,51.8,52000,54,-4.08,53.76,56.88,2.24
+20260525,51.8,51.8,51.6,51.8,52000,54,-4.07,53.76,56.88,2.24
 20260526,51.6,51.9,51.1,51.8,52000,53.82,-3.75,53.6,56.8,2.07
 20260527,51,51.7,51,51.5,51000,53.62,-3.96,53.43,56.71,1.98
 20260528,51,52,51,51.8,51000,53.47,-3.13,53.28,56.63,1.81
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 60.56
 - over_600_ratio: 60.56
 - over_800_ratio: 60.56
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,60.56,0,60.56,0,60.56,0,0,False,False
 20260515,60.56,0,60.56,0,60.56,0,0,False,False
 20260522,60.56,0,60.56,0,60.56,0,0,False,False
+20260529,60.56,0,60.56,0,60.56,0,0,False,False
 ```
 
 ## Candidate Context

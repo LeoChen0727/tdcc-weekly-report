@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9910 豐泰
 
 ## Metadata
-- generated_at: 2026-05-29 19:34:06 Asia/Taipei
+- generated_at: 2026-05-30 23:44:03 Asia/Taipei
 - stock_id: 9910
 - stock_name: 豐泰
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,14 +100,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 89.86
-- over_600_ratio: 88.75
-- over_800_ratio: 88.02
-- over_1000_ratio: 87.21
-- over_400_change_1w: -0.07
-- over_800_change_1w: -0.18
-- over_1000_change_1w: -0.08
+- as_of_date: 20260529
+- over_400_ratio: 89.7
+- over_600_ratio: 88.69
+- over_800_ratio: 87.62
+- over_1000_ratio: 86.81
+- over_400_change_1w: -0.16
+- over_800_change_1w: -0.4
+- over_1000_change_1w: -0.4
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -120,17 +120,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,90.03,0,88.19,0.02,87.46,-0.08,1,False,True
 20260515,89.93,-0.1,88.2,0.01,87.29,-0.17,2,False,True
 20260522,89.86,-0.07,88.02,-0.18,87.21,-0.08,0,False,False
+20260529,89.7,-0.16,87.62,-0.4,86.81,-0.4,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 9910 | 豐泰 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 9910 | 豐泰 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

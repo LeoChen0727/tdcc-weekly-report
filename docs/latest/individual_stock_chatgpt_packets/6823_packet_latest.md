@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6823 濾能
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:41 Asia/Taipei
+- generated_at: 2026-05-30 23:43:19 Asia/Taipei
 - stock_id: 6823
 - stock_name: 濾能
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -80,9 +80,9 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260504,99,105,97.2,104,1522000,79.01,31.62,76.78,67.2,2.17
 20260505,103,113.5,102.5,105.5,1678000,81.22,29.89,78.97,67.97,2.15
 20260506,105,105,95.1,96.2,1117000,82.47,16.65,80.68,68.55,1.34
-20260507,97.2,105,97.2,98.5,848000,83.81,17.53,82.49,69.17,0.98
+20260507,97.2,105,97.2,98.5,848000,83.8,17.54,82.49,69.17,0.98
 20260508,91,95.3,88.7,88.7,1585000,84.21,5.33,83.81,69.62,1.69
-20260511,89.1,91,86.1,88.8,650000,84.6,4.97,85.08,70.08,0.68
+20260511,89.1,91,86.1,88.8,650000,84.59,4.97,85.08,70.08,0.68
 20260512,90.8,90.8,88,89,445000,84.96,4.75,86.05,70.51,0.47
 20260513,88.6,88.6,84.6,84.9,434000,84.96,-0.07,86.84,70.89,0.46
 20260514,85.3,85.4,80.2,80.6,605000,84.59,-4.72,87.41,71.2,0.62
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 56.56
-- over_600_ratio: 53.06
-- over_800_ratio: 53.06
-- over_1000_ratio: 53.06
-- over_400_change_1w: 1.84
-- over_800_change_1w: -0.17
-- over_1000_change_1w: -0.17
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260529
+- over_400_ratio: 56.59
+- over_600_ratio: 55.11
+- over_800_ratio: 52.9
+- over_1000_ratio: 52.9
+- over_400_change_1w: 0.03
+- over_800_change_1w: -0.16
+- over_1000_change_1w: -0.16
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,53.32,-1.59,53.32,-0.07,53.32,-0.07,0,False,False
 20260515,54.72,1.4,53.23,-0.09,53.23,-0.09,1,False,False
 20260522,56.56,1.84,53.06,-0.17,53.06,-0.17,2,False,False
+20260529,56.59,0.03,52.9,-0.16,52.9,-0.16,3,False,False
 ```
 
 ## Candidate Context

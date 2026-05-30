@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9110 越南控-DR
 
 ## Metadata
-- generated_at: 2026-05-29 19:34:05 Asia/Taipei
+- generated_at: 2026-05-30 23:44:02 Asia/Taipei
 - stock_id: 9110
 - stock_name: 越南控-DR
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 132
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 248
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -78,7 +78,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,2.9,2.98,2.8,2.98,69000,3.03,-1.74,3.04,3.09,1.54
-20260505,2.97,2.98,2.96,2.96,23000,3.03,-2.2,3.03,3.09,0.56
+20260505,2.97,2.98,2.96,2.96,23000,3.03,-2.21,3.03,3.09,0.56
 20260506,2.98,3.05,2.82,2.98,13000,3.02,-1.42,3.03,3.08,0.32
 20260507,2.95,3,2.81,2.98,84000,3.02,-1.3,3.02,3.08,2.04
 20260508,2.95,2.95,2.81,2.92,154000,3.01,-3.02,3.01,3.08,3.27
@@ -93,22 +93,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260521,2.62,2.67,2.5,2.52,164000,2.84,-11.16,2.85,3.02,2.18
 20260522,2.69,2.69,2.5,2.51,28000,2.81,-10.66,2.82,3.01,0.37
 20260525,2.59,2.67,2.48,2.6,179000,2.79,-6.88,2.8,3,2.25
-20260526,2.61,2.61,2.53,2.58,99000,2.77,-7,2.78,2.99,1.2
+20260526,2.61,2.61,2.53,2.58,99000,2.77,-7.01,2.78,2.99,1.2
 20260527,2.5,2.7,2.5,2.69,47000,2.77,-2.79,2.77,2.98,0.56
 20260528,2.92,2.92,2.7,2.71,112000,2.76,-1.9,2.75,2.97,1.31
 20260529,2.7,2.8,2.7,2.8,13001,2.77,1.24,2.75,2.97,0.15
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 43.76
-- over_600_ratio: 36.86
-- over_800_ratio: 28.97
-- over_1000_ratio: 20.99
-- over_400_change_1w: -0.6
-- over_800_change_1w: 0.31
-- over_1000_change_1w: 0.52
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 43.88
+- over_600_ratio: 37.07
+- over_800_ratio: 27.71
+- over_1000_ratio: 21.28
+- over_400_change_1w: 0.12
+- over_800_change_1w: -1.26
+- over_1000_change_1w: 0.29
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,44.36,0.21,28.2,0.24,21.83,0.28,1,True,True
 20260515,44.36,0,28.66,0.46,20.47,-1.36,2,False,True
 20260522,43.76,-0.6,28.97,0.31,20.99,0.52,3,False,True
+20260529,43.88,0.12,27.71,-1.26,21.28,0.29,4,False,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3171 炎洲流通
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:27 Asia/Taipei
+- generated_at: 2026-05-30 23:41:54 Asia/Taipei
 - stock_id: 3171
 - stock_name: 炎洲流通
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -80,7 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260504,70,70,68.4,68.9,104000,66.98,2.87,68.41,58.88,0.65
 20260505,69,70.2,68.8,68.8,30000,67.13,2.49,68.53,59.22,0.19
 20260506,69,69.8,68.6,69.5,27000,67.33,3.23,68.69,59.59,0.18
-20260507,69.5,69.5,67.2,67.3,53000,67.32,-0.04,68.66,59.91,0.36
+20260507,69.5,69.5,67.2,67.3,53000,67.33,-0.04,68.66,59.91,0.36
 20260508,65.7,66,63.1,64,114000,67.05,-4.55,68.39,60.18,0.78
 20260511,70.4,70.4,66.3,67.6,175000,67.09,0.75,68.26,60.49,1.16
 20260512,66.9,67.9,64.5,67.2,122000,67.1,0.14,68,60.82,0.86
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 76.93
 - over_600_ratio: 76.93
 - over_800_ratio: 74.76
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,76.93,0.42,74.76,0.42,71.98,0.42,1,True,True
 20260515,76.93,0,74.76,0,71.98,0,0,False,False
 20260522,76.93,0,74.76,0,71.98,0,0,False,False
+20260529,76.93,0,74.76,0,71.98,0,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6703 軒郁
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:37 Asia/Taipei
+- generated_at: 2026-05-30 23:43:14 Asia/Taipei
 - stock_id: 6703
 - stock_name: 軒郁
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 51.32
-- over_600_ratio: 43.38
-- over_800_ratio: 41.43
+- as_of_date: 20260529
+- over_400_ratio: 51.17
+- over_600_ratio: 43.35
+- over_800_ratio: 41.4
 - over_1000_ratio: 38.63
-- over_400_change_1w: 0.05
-- over_800_change_1w: -0.01
+- over_400_change_1w: -0.15
+- over_800_change_1w: -0.03
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,51.29,-0.02,41.45,0,38.64,0,0,False,False
 20260515,51.27,-0.02,41.44,-0.01,38.63,-0.01,0,False,False
 20260522,51.32,0.05,41.43,-0.01,38.63,0,1,False,False
+20260529,51.17,-0.15,41.4,-0.03,38.63,0,0,False,False
 ```
 
 ## Candidate Context

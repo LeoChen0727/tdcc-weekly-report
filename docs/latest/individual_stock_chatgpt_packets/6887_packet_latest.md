@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6887 寶綠特-KY
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:43 Asia/Taipei
+- generated_at: 2026-05-30 23:43:22 Asia/Taipei
 - stock_id: 6887
 - stock_name: 寶綠特-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 132
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 268
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -80,7 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260430,38.95,39,37.25,37.95,26465,41.14,-7.76,41.27,46.78,0.44
 20260504,38.1,38.75,37.8,37.8,52076,40.86,-7.5,40.88,46.41,1.15
 20260505,37.8,38.95,37.7,38.7,73175,40.68,-4.87,40.57,46.04,1.67
-20260506,38.7,39.25,38.3,39,41017,40.54,-3.8,40.3,45.67,0.94
+20260506,38.7,39.25,38.3,39,41017,40.54,-3.81,40.3,45.67,0.94
 20260507,40.2,40.2,39,39.95,81000,40.49,-1.34,40.09,45.29,1.77
 20260508,39.95,39.95,39,39.95,12595,40.45,-1.23,39.92,44.91,0.28
 20260511,39.35,41.45,39.35,39.35,32087,40.36,-2.49,39.76,44.56,0.69
@@ -100,12 +100,12 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 91.79
 - over_600_ratio: 88.63
 - over_800_ratio: 84.7
 - over_1000_ratio: 82.14
-- over_400_change_1w: -0.01
+- over_400_change_1w: 0
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,91.78,0.47,84.7,-1.1,82.14,0,1,False,False
 20260515,91.8,0.02,84.7,0,82.14,0,2,False,False
 20260522,91.79,-0.01,84.7,0,82.14,0,0,False,False
+20260529,91.79,0,84.7,0,82.14,0,0,False,False
 ```
 
 ## Candidate Context

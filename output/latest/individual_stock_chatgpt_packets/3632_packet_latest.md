@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3632 研勤
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:41 Asia/Taipei
+- generated_at: 2026-05-30 23:42:11 Asia/Taipei
 - stock_id: 3632
 - stock_name: 研勤
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 131
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 267
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,14 +100,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 17.49
-- over_600_ratio: 17.49
-- over_800_ratio: 15.87
-- over_1000_ratio: 15.87
-- over_400_change_1w: 0
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
+- as_of_date: 20260529
+- over_400_ratio: 17.2
+- over_600_ratio: 17.2
+- over_800_ratio: 15.58
+- over_1000_ratio: 15.58
+- over_400_change_1w: -0.29
+- over_800_change_1w: -0.29
+- over_1000_change_1w: -0.29
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,17.56,-0.55,15.94,-0.55,15.94,-0.55,0,False,False
 20260515,17.49,-0.07,15.87,-0.07,15.87,-0.07,0,False,False
 20260522,17.49,0,15.87,0,15.87,0,0,False,False
+20260529,17.2,-0.29,15.58,-0.29,15.58,-0.29,0,False,False
 ```
 
 ## Candidate Context

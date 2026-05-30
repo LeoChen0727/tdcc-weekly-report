@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8088 品安
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:55 Asia/Taipei
+- generated_at: 2026-05-30 23:43:51 Asia/Taipei
 - stock_id: 8088
 - stock_name: 品安
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,14 +77,14 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,50.9,51.8,50.1,51,1780000,51.74,-1.42,51.09,53.43,0.67
+20260504,50.9,51.8,50.1,51,1780000,51.74,-1.43,51.09,53.43,0.67
 20260505,51.4,53.4,51.4,52.6,2055000,51.81,1.53,51.23,53.24,0.78
 20260506,55.2,56.4,53.8,54.2,6966000,52.01,4.21,51.51,53.12,2.39
 20260507,55,56.5,53.7,55.1,4674000,52.27,5.42,51.71,52.96,1.52
 20260508,54.5,56.2,52.5,54,2966000,52.41,3.03,51.95,52.77,0.94
 20260511,55.3,58,55.2,56.7,6819000,52.77,7.45,52.27,52.6,2
 20260512,54,54,51.5,52,6822000,52.7,-1.34,52.35,52.46,1.85
-20260513,51.5,57.2,51.1,57.2,12210000,53.08,7.77,52.66,52.51,2.91
+20260513,51.5,57.2,51.1,57.2,12210000,53.08,7.76,52.66,52.51,2.91
 20260514,60,60.5,56.1,56.3,14438000,53.35,5.54,52.95,52.53,3.01
 20260515,56.3,56.3,53.8,54,2931000,53.4,1.12,53.13,52.54,0.6
 20260518,53,54,51.8,53.5,1574000,53.41,0.17,53.27,52.56,0.32
@@ -95,20 +95,20 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,57.5,60.7,56.1,59.8,60000,54.06,10.61,53.87,52.75,0.01
 20260526,59.6,61.5,58.2,60.4,60000,54.59,10.64,54.29,52.87,0.02
 20260527,65.9,66.4,60.4,61,64000,55.13,10.66,54.7,53,0.02
-20260528,61.2,62.7,59.4,60.4,61000,55.56,8.7,55.16,53.13,0.02
+20260528,61.2,62.7,59.4,60.4,61000,55.57,8.7,55.16,53.13,0.02
 20260529,61.2,62.2,60.5,60.6,61000,55.98,8.24,55.67,53.33,0.02
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 18.94
-- over_600_ratio: 16.73
-- over_800_ratio: 16.73
-- over_1000_ratio: 15.11
-- over_400_change_1w: 0.45
-- over_800_change_1w: 0.46
-- over_1000_change_1w: 1.87
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260529
+- over_400_ratio: 19.79
+- over_600_ratio: 17.43
+- over_800_ratio: 17.43
+- over_1000_ratio: 16.1
+- over_400_change_1w: 0.85
+- over_800_change_1w: 0.7
+- over_1000_change_1w: 0.99
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,18.89,-0.78,14.93,-0.94,14.93,-0.94,0,False,False
 20260515,18.49,-0.4,16.27,1.34,13.24,-1.69,1,False,True
 20260522,18.94,0.45,16.73,0.46,15.11,1.87,2,True,True
+20260529,19.79,0.85,17.43,0.7,16.1,0.99,3,True,True
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 8088 | 品安 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260530 | 8088 | 品安 | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

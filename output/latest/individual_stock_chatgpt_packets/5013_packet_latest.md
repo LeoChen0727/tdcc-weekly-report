@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5013 強新
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:01 Asia/Taipei
+- generated_at: 2026-05-30 23:42:34 Asia/Taipei
 - stock_id: 5013
 - stock_name: 強新
-- packet_status: standard_rawdata_packet
+- packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 119
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 255
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: price history shorter than 120 rows; K-line context is partial; TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
+- notes: TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
 
 ## Stable Read URLs
 - packet_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_chatgpt_packets/5013_packet_latest.md
@@ -66,7 +66,7 @@
 - distance_to_ema23_pct: -0.93
 - ma20: 27.84
 - ma60: 29.1
-- ma120: 29.18
+- ma120: 29.16
 - return_5d: 2.39
 - return_20d: -4.3
 - volume_ratio: 1.47
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 86.96
 - over_600_ratio: 84.58
 - over_800_ratio: 82.5
 - over_1000_ratio: 80.49
 - over_400_change_1w: 0
-- over_800_change_1w: 0.42
-- over_1000_change_1w: 0.42
-- tdcc_consecutive_up_weeks: 1
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,86.96,0.06,82.08,0,80.07,0,1,False,False
 20260515,86.96,0,82.08,0,80.07,0,0,False,False
 20260522,86.96,0,82.5,0.42,80.49,0.42,1,False,True
+20260529,86.96,0,82.5,0,80.49,0,0,False,False
 ```
 
 ## Candidate Context

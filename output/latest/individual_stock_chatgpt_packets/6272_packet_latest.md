@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6272 驊陞
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:24 Asia/Taipei
+- generated_at: 2026-05-30 23:43:00 Asia/Taipei
 - stock_id: 6272
 - stock_name: 驊陞
 - packet_status: standard_rawdata_packet
 - latest_price_date: 20260529
 - price_rows: 102
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,16 +100,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 51.12
-- over_600_ratio: 46.77
-- over_800_ratio: 41.39
-- over_1000_ratio: 35.18
-- over_400_change_1w: 0.2
-- over_800_change_1w: -0.72
-- over_1000_change_1w: 1.36
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 52.11
+- over_600_ratio: 47.24
+- over_800_ratio: 41.99
+- over_1000_ratio: 35.71
+- over_400_change_1w: 0.99
+- over_800_change_1w: 0.6
+- over_1000_change_1w: 0.53
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,50.86,0.04,41.09,0.04,33.8,0,1,False,True
 20260515,50.92,0.06,42.11,1.02,33.82,0.02,2,True,True
 20260522,51.12,0.2,41.39,-0.72,35.18,1.36,3,False,True
+20260529,52.11,0.99,41.99,0.6,35.71,0.53,4,True,True
 ```
 
 ## Candidate Context

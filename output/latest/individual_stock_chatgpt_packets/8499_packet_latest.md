@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8499 鼎炫-KY
 
 ## Metadata
-- generated_at: 2026-05-29 19:34:03 Asia/Taipei
+- generated_at: 2026-05-30 23:44:00 Asia/Taipei
 - stock_id: 8499
 - stock_name: 鼎炫-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -78,7 +78,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,259.5,261.5,250,257.5,85155,267.73,-3.82,268.88,274.71,0.67
-20260505,257.5,261.5,256,259,41198,267.01,-3,269.12,273.54,0.33
+20260505,257.5,261.5,256,259,41198,267,-3,269.12,273.54,0.33
 20260506,264.5,265,258.5,262,103221,266.59,-1.72,269.35,272.68,0.81
 20260507,260,288,260,288,262531,268.37,7.31,270.23,272.23,1.92
 20260508,285,295,275,282,327978,269.51,4.64,270.88,271.65,2.19
@@ -87,7 +87,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260513,302.5,328,299,311,925382,276.46,12.5,275.45,271.87,4.35
 20260514,307.5,312,288.5,295,351802,278,6.11,275.98,271.87,1.61
 20260515,295.5,299,273,276,244846,277.83,-0.66,276.27,271.97,1.11
-20260518,278,278,268.5,277,160456,277.77,-0.28,276.62,272.06,0.71
+20260518,278,278,268.5,277,160456,277.76,-0.28,276.62,272.06,0.71
 20260519,279,279,264,265.5,100746,276.74,-4.06,276.05,271.96,0.45
 20260520,262,283,262,278.5,129102,276.89,0.58,276.18,271.85,0.57
 20260521,279.5,290.5,279.5,289,118117,277.9,3.99,276.4,272.05,0.53
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 78.79
 - over_600_ratio: 76.28
 - over_800_ratio: 72.65
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,78.79,0,72.65,0,72.65,0,0,False,False
 20260515,78.79,0,72.65,0,72.65,0,0,False,False
 20260522,78.79,0,72.65,0,72.65,0,0,False,False
+20260529,78.79,0,72.65,0,72.65,0,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1586 和勤
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:44 Asia/Taipei
+- generated_at: 2026-05-30 23:41:04 Asia/Taipei
 - stock_id: 1586
 - stock_name: 和勤
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 26
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 27
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,23 +100,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 71.89
-- over_600_ratio: 68.64
-- over_800_ratio: 67.97
-- over_1000_ratio: 64.55
-- over_400_change_1w: 0.11
-- over_800_change_1w: 0.11
-- over_1000_change_1w: 0.11
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 72.26
+- over_600_ratio: 68.46
+- over_800_ratio: 67.73
+- over_1000_ratio: 65.09
+- over_400_change_1w: 0.37
+- over_800_change_1w: -0.24
+- over_1000_change_1w: 0.54
+- tdcc_consecutive_up_weeks: 5
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260306,71.02,0.52,65.26,0.54,60.91,-0.47,1,False,True
 20260313,70.17,-0.85,65.12,-0.14,61.66,0.75,2,False,True
 20260320,70.91,0.74,65.07,-0.05,61.63,-0.03,3,False,False
 20260327,71.22,0.31,65.16,0.09,61.69,0.06,4,True,True
@@ -128,6 +127,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,71.58,0.56,67.2,-0.11,63.71,-0.17,2,False,False
 20260515,71.78,0.2,67.86,0.66,64.44,0.73,3,True,True
 20260522,71.89,0.11,67.97,0.11,64.55,0.11,4,True,True
+20260529,72.26,0.37,67.73,-0.24,65.09,0.54,5,False,True
 ```
 
 ## Candidate Context

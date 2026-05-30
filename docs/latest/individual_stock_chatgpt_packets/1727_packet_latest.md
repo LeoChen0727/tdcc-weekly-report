@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1727 中華化
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:48 Asia/Taipei
+- generated_at: 2026-05-30 23:41:08 Asia/Taipei
 - stock_id: 1727
 - stock_name: 中華化
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 58.73
-- over_600_ratio: 55.29
-- over_800_ratio: 54.25
-- over_1000_ratio: 52.73
-- over_400_change_1w: 3.85
-- over_800_change_1w: 4.18
-- over_1000_change_1w: 3.39
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 55.03
+- over_600_ratio: 51.78
+- over_800_ratio: 51.26
+- over_1000_ratio: 50.51
+- over_400_change_1w: -3.7
+- over_800_change_1w: -2.99
+- over_1000_change_1w: -2.22
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,59.31,-4.32,54.75,-5.16,53.36,-3.73,0,False,False
 20260515,54.88,-4.43,50.07,-4.68,49.34,-4.02,0,False,False
 20260522,58.73,3.85,54.25,4.18,52.73,3.39,1,True,True
+20260529,55.03,-3.7,51.26,-2.99,50.51,-2.22,0,False,False
 ```
 
 ## Candidate Context

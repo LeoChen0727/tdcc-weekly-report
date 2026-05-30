@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4609 唐鋒
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:54 Asia/Taipei
+- generated_at: 2026-05-30 23:42:26 Asia/Taipei
 - stock_id: 4609
 - stock_name: 唐鋒
-- packet_status: standard_rawdata_packet
+- packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 109
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 245
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: price history shorter than 120 rows; K-line context is partial; TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
+- notes: TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
 
 ## Stable Read URLs
 - packet_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_chatgpt_packets/4609_packet_latest.md
@@ -66,7 +66,7 @@
 - distance_to_ema23_pct: 12.92
 - ma20: 5.27
 - ma60: 5.05
-- ma120: 5.5
+- ma120: 5.54
 - return_5d: 15.31
 - return_20d: 29.63
 - volume_ratio: 0.31
@@ -87,7 +87,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260511,5.54,5.54,5.24,5.24,9000,4.88,7.28,4.67,5.06,0.21
 20260512,5.24,5.24,4.88,5,10000,4.89,2.16,4.69,5.05,0.24
 20260513,4.89,5,4.89,5,2000,4.9,1.98,4.7,5.04,0.05
-20260514,5.09,5.16,5.09,5.16,3000,4.92,4.78,4.74,5.03,0.08
+20260514,5.09,5.16,5.09,5.16,3000,4.92,4.79,4.74,5.03,0.08
 20260515,5.67,5.67,5.37,5.63,117000,4.98,12.98,4.82,5.04,3.1
 20260518,5.63,5.99,5.56,5.56,5000,5.03,10.51,4.91,5.04,0.16
 20260520,5.2,5.5,5.2,5.5,17000,5.07,8.47,4.98,5.04,0.55
@@ -100,14 +100,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 76
 - over_600_ratio: 69.71
 - over_800_ratio: 65.21
 - over_1000_ratio: 63.36
-- over_400_change_1w: -0.07
-- over_800_change_1w: -0.07
-- over_1000_change_1w: -0.07
+- over_400_change_1w: 0
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,76.08,-0.01,65.29,-0.01,63.44,-0.01,0,False,False
 20260515,76.07,-0.01,65.28,-0.01,63.43,-0.01,0,False,False
 20260522,76,-0.07,65.21,-0.07,63.36,-0.07,0,False,False
+20260529,76,0,65.21,0,63.36,0,0,False,False
 ```
 
 ## Candidate Context

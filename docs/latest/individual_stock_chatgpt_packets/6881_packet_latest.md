@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6881 潤德
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:43 Asia/Taipei
+- generated_at: 2026-05-30 23:43:21 Asia/Taipei
 - stock_id: 6881
 - stock_name: 潤德
-- packet_status: standard_rawdata_packet
+- packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 119
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 255
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: price history shorter than 120 rows; K-line context is partial; TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
+- notes: TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
 
 ## Stable Read URLs
 - packet_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_chatgpt_packets/6881_packet_latest.md
@@ -66,7 +66,7 @@
 - distance_to_ema23_pct: 1.71
 - ma20: 269.98
 - ma60: 248.83
-- ma120: 238.68
+- ma120: 238.95
 - return_5d: -0.92
 - return_20d: 6.71
 - volume_ratio: 3.05
@@ -77,19 +77,19 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,255,266,255,260,23000,246.72,5.38,246.12,235.39,1.83
+20260429,255,266,255,260,23000,246.73,5.38,246.12,235.39,1.83
 20260430,262,263,262,263,8000,248.08,6.01,247.55,235.96,0.62
-20260504,263.5,268.5,263.5,268.5,12000,249.78,7.49,249.3,236.62,0.92
+20260504,263.5,268.5,263.5,268.5,12000,249.79,7.49,249.3,236.62,0.92
 20260505,284,284,267.5,271,17000,251.55,7.73,251.12,237.32,1.25
 20260506,272,273.5,271.5,273.5,17000,253.38,7.94,253,238.07,1.24
 20260507,278,278,274,275,8000,255.18,7.77,254.85,238.82,0.59
-20260508,272,272,263,270,17000,256.41,5.3,256.38,239.48,1.2
-20260511,270,272.5,270,272.5,4000,257.75,5.72,258,240.18,0.28
+20260508,272,272,263,270,17000,256.42,5.3,256.38,239.48,1.2
+20260511,270,272.5,270,272.5,4000,257.76,5.72,258,240.18,0.28
 20260513,267,271,267,271,2000,258.86,4.69,259.48,240.9,0.15
 20260514,270,270,270,270,3000,259.79,3.93,260.73,241.58,0.24
 20260515,270,271,270,270,13000,260.64,3.59,261.73,242.32,1.11
 20260518,271,272,271,272,5000,261.59,3.98,262.75,243.06,0.44
-20260520,271,271,268.5,269.5,8000,262.24,2.77,263.62,243.77,0.7
+20260520,271,271,268.5,269.5,8000,262.25,2.77,263.62,243.77,0.7
 20260521,270.5,272,270.5,272,14000,263.06,3.4,264.62,244.53,1.22
 20260522,272,273,272,273,273000,263.89,3.45,265.77,245.32,11.42
 20260525,273,273,272,272,272000,264.56,2.81,266.7,246.07,7.44
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 57.92
 - over_600_ratio: 54.86
 - over_800_ratio: 49.96
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,57.92,0,49.96,0,49.96,0,0,False,False
 20260515,57.92,0,49.96,0,49.96,0,0,False,False
 20260522,57.92,0,49.96,0,49.96,0,0,False,False
+20260529,57.92,0,49.96,0,49.96,0,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2753 八方雲集
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:15 Asia/Taipei
+- generated_at: 2026-05-30 23:41:40 Asia/Taipei
 - stock_id: 2753
 - stock_name: 八方雲集
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 55.49
-- over_600_ratio: 51.7
-- over_800_ratio: 46.26
+- as_of_date: 20260529
+- over_400_ratio: 55.55
+- over_600_ratio: 51.78
+- over_800_ratio: 46.28
 - over_1000_ratio: 43.66
-- over_400_change_1w: -1.45
-- over_800_change_1w: 0
+- over_400_change_1w: 0.06
+- over_800_change_1w: 0.02
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,57.84,-0.35,46.48,-1.21,45.17,0,0,False,False
 20260515,56.94,-0.9,46.26,-0.22,43.66,-1.51,0,False,False
 20260522,55.49,-1.45,46.26,0,43.66,0,1,False,False
+20260529,55.55,0.06,46.28,0.02,43.66,0,2,False,True
 ```
 
 ## Candidate Context

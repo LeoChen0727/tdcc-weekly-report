@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1799 易威
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:50 Asia/Taipei
+- generated_at: 2026-05-30 23:41:10 Asia/Taipei
 - stock_id: 1799
 - stock_name: 易威
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 136
-- latest_tdcc_date: 20260522
-- tdcc_rows: 26
+- price_rows: 272
+- latest_tdcc_date: 20260529
+- tdcc_rows: 27
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,7 +88,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260514,39,39,36.75,36.75,121000,37.98,-3.23,38.79,36.54,0.49
 20260515,36.8,37.2,35.75,36.15,131000,37.83,-4.43,38.53,36.6,0.54
 20260518,36.1,36.2,35.35,35.6,57000,37.64,-5.42,38.13,36.65,0.27
-20260519,36,36,35.3,35.35,57000,37.45,-5.61,37.77,36.71,0.3
+20260519,36,36,35.3,35.35,57000,37.45,-5.6,37.77,36.71,0.3
 20260520,35.35,35.45,34.3,34.45,102000,37.2,-7.39,37.46,36.76,0.59
 20260521,34.55,35.2,33.9,34.35,185000,36.96,-7.07,37.01,36.8,1.11
 20260522,35,35.2,34,34.15,35000,36.73,-7.02,36.7,36.82,0.24
@@ -100,23 +100,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 67.79
-- over_600_ratio: 67.08
-- over_800_ratio: 66.52
-- over_1000_ratio: 66.52
-- over_400_change_1w: 0.01
-- over_800_change_1w: 0.01
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 7
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 68.1
+- over_600_ratio: 67.07
+- over_800_ratio: 66.49
+- over_1000_ratio: 66.49
+- over_400_change_1w: 0.31
+- over_800_change_1w: -0.03
+- over_1000_change_1w: -0.03
+- tdcc_consecutive_up_weeks: 8
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260306,67.58,0.03,66.34,0.03,66.34,0.03,5,True,True
 20260313,67.59,0.01,66.35,0.01,66.35,0.01,6,True,True
 20260320,67.61,0.02,66.36,0.01,66.36,0.01,7,True,True
 20260327,67.61,0,66.36,0,66.36,0,0,False,False
@@ -128,6 +127,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,67.76,0.01,66.49,0.01,66.49,0.01,5,True,True
 20260515,67.78,0.02,66.51,0.02,66.51,0.02,6,True,True
 20260522,67.79,0.01,66.52,0.01,66.52,0.01,7,True,True
+20260529,68.1,0.31,66.49,-0.03,66.49,-0.03,8,False,False
 ```
 
 ## Candidate Context

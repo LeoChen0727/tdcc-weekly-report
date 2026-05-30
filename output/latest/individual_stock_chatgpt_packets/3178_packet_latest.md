@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3178 公準
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:27 Asia/Taipei
+- generated_at: 2026-05-30 23:41:54 Asia/Taipei
 - stock_id: 3178
 - stock_name: 公準
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,7 +77,7 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,73.7,77.1,73.1,73.2,364000,68.13,7.43,69.61,60.78,0.81
+20260504,73.7,77.1,73.1,73.2,364000,68.14,7.43,69.61,60.78,0.81
 20260505,73.3,73.9,72.8,73.7,133000,68.6,7.44,70.12,61.01,0.34
 20260506,73.3,75,68.6,70.3,276000,68.74,2.27,70.39,61.2,0.71
 20260507,69.1,69.4,68,69,219000,68.76,0.35,70.61,61.38,0.57
@@ -87,7 +87,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260513,66.2,66.4,65.5,66,71000,68.3,-3.37,70.53,62.09,0.26
 20260514,66.2,68.8,65.4,67.7,95000,68.25,-0.81,70.53,62.23,0.36
 20260515,68,68.6,66,66.3,95000,68.09,-2.63,70.34,62.37,0.38
-20260518,66.1,72.9,65,71.6,393000,68.38,4.71,70.3,62.62,1.65
+20260518,66.1,72.9,65,71.6,393000,68.38,4.7,70.3,62.62,1.65
 20260519,70,72,66.6,67,198000,68.27,-1.86,69.97,62.8,0.9
 20260520,68,68,65.2,65.6,67000,68.05,-3.59,69.66,62.98,0.32
 20260521,66.3,68.5,66.3,67.4,84000,67.99,-0.87,69.36,63.2,0.46
@@ -100,12 +100,12 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 66.01
-- over_600_ratio: 62.97
+- as_of_date: 20260529
+- over_400_ratio: 65.8
+- over_600_ratio: 62.76
 - over_800_ratio: 61.31
 - over_1000_ratio: 61.31
-- over_400_change_1w: 0
+- over_400_change_1w: -0.21
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,66.01,0,61.31,0,61.31,0,0,False,False
 20260515,66.01,0,61.31,0,61.31,0,0,False,False
 20260522,66.01,0,61.31,0,61.31,0,0,False,False
+20260529,65.8,-0.21,61.31,0,61.31,0,0,False,False
 ```
 
 ## Candidate Context

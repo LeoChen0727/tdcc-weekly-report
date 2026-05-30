@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3324 雙鴻
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:32 Asia/Taipei
+- generated_at: 2026-05-30 23:41:59 Asia/Taipei
 - stock_id: 3324
 - stock_name: 雙鴻
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -92,7 +92,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260520,970,972,936,939,2741000,1044.09,-10.06,1089.6,1037.25,0.59
 20260521,964,1015,957,1000,2494000,1040.41,-3.88,1081.85,1036.17,0.58
 20260522,1035,1040,1005,1010,1023000,1037.88,-2.69,1077.1,1036.08,0.27
-20260525,1035,1040,1010,1010,1022000,1035.56,-2.47,1066.85,1035.42,0.3
+20260525,1035,1040,1010,1010,1022000,1035.55,-2.47,1066.85,1035.42,0.3
 20260526,1030,1045,1010,1040,1032000,1035.93,0.39,1059.85,1033.5,0.35
 20260527,1070,1080,1025,1035,1050000,1035.85,-0.08,1054.35,1031.5,0.38
 20260528,1050,1070,1000,1005,1035000,1033.28,-2.74,1046.6,1029.42,0.38
@@ -100,14 +100,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 46.7
-- over_600_ratio: 42.31
-- over_800_ratio: 36.36
-- over_1000_ratio: 29.4
-- over_400_change_1w: -2.15
-- over_800_change_1w: -0.99
-- over_1000_change_1w: -1.87
+- as_of_date: 20260529
+- over_400_ratio: 46.26
+- over_600_ratio: 41.63
+- over_800_ratio: 34.84
+- over_1000_ratio: 27.82
+- over_400_change_1w: -0.44
+- over_800_change_1w: -1.52
+- over_1000_change_1w: -1.58
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,49.63,-2.03,39.21,-0.32,33.17,-2.36,0,False,False
 20260515,48.85,-0.78,37.35,-1.86,31.27,-1.9,1,False,False
 20260522,46.7,-2.15,36.36,-0.99,29.4,-1.87,0,False,False
+20260529,46.26,-0.44,34.84,-1.52,27.82,-1.58,0,False,False
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 3324 | 雙鴻 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260530 | 3324 | 雙鴻 | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2516 新建
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:09 Asia/Taipei
+- generated_at: 2026-05-30 23:41:33 Asia/Taipei
 - stock_id: 2516
 - stock_name: 新建
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,16 +100,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 70.66
-- over_600_ratio: 68.76
-- over_800_ratio: 67.23
-- over_1000_ratio: 62.05
-- over_400_change_1w: -0.1
-- over_800_change_1w: 0.09
-- over_1000_change_1w: 0.48
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 71.24
+- over_600_ratio: 69.08
+- over_800_ratio: 67.54
+- over_1000_ratio: 62.32
+- over_400_change_1w: 0.58
+- over_800_change_1w: 0.31
+- over_1000_change_1w: 0.27
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,70.56,-0.05,67.18,0.79,61.3,0.01,1,False,True
 20260515,70.76,0.2,67.14,-0.04,61.57,0.27,2,False,True
 20260522,70.66,-0.1,67.23,0.09,62.05,0.48,3,False,True
+20260529,71.24,0.58,67.54,0.31,62.32,0.27,4,True,True
 ```
 
 ## Candidate Context

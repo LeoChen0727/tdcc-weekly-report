@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1409 新纖
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:37 Asia/Taipei
+- generated_at: 2026-05-30 23:40:56 Asia/Taipei
 - stock_id: 1409
 - stock_name: 新纖
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 26
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 27
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,23 +100,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 66.22
-- over_600_ratio: 64.78
-- over_800_ratio: 63.74
-- over_1000_ratio: 62.85
-- over_400_change_1w: 0.1
-- over_800_change_1w: 0.02
-- over_1000_change_1w: 0.07
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 68.01
+- over_600_ratio: 66.53
+- over_800_ratio: 65.43
+- over_1000_ratio: 64.53
+- over_400_change_1w: 1.79
+- over_800_change_1w: 1.69
+- over_1000_change_1w: 1.68
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260306,64.97,-0.1,62.54,-0.23,61.47,-0.24,0,False,False
 20260313,65.5,0.53,63.26,0.72,62.19,0.72,1,True,True
 20260320,66.2,0.7,63.8,0.54,62.84,0.65,2,True,True
 20260327,66.1,-0.1,63.55,-0.25,62.58,-0.26,0,False,False
@@ -128,18 +127,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,65.65,-0.35,63.08,-0.32,62.41,-0.21,0,False,False
 20260515,66.12,0.47,63.72,0.64,62.78,0.37,1,True,True
 20260522,66.22,0.1,63.74,0.02,62.85,0.07,2,False,True
+20260529,68.01,1.79,65.43,1.69,64.53,1.68,3,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 1409 | 新纖 | true_breakout | 嚴格突破 | 59.0 |  |  | platform_right_side |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
-| 20260521 | 1409 | 新纖 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260521 | 1409 | 新纖 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 1409 | 新纖 | 7 | 7 | 5 | 7 | 7 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260530 | 1409 | 新纖 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

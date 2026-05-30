@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4123 晟德
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:46 Asia/Taipei
+- generated_at: 2026-05-30 23:42:16 Asia/Taipei
 - stock_id: 4123
 - stock_name: 晟德
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,7 +77,7 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,39,39.2,38.75,38.75,2535000,40.17,-3.52,40.03,41.77,0.97
+20260504,39,39.2,38.75,38.75,2535000,40.17,-3.53,40.03,41.77,0.97
 20260505,39,39.05,38.6,38.65,2258000,40.04,-3.47,39.88,41.71,0.88
 20260506,38.6,38.65,37.9,38,4210000,39.87,-4.69,39.73,41.62,1.57
 20260507,38,38.3,37.6,38.1,2335000,39.72,-4.08,39.58,41.55,0.86
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 57.76
-- over_600_ratio: 55.48
-- over_800_ratio: 52.83
-- over_1000_ratio: 51.08
+- as_of_date: 20260529
+- over_400_ratio: 57.68
+- over_600_ratio: 54.9
+- over_800_ratio: 52.64
+- over_1000_ratio: 50.77
 - over_400_change_1w: -0.08
-- over_800_change_1w: -0.2
-- over_1000_change_1w: -0.19
-- tdcc_consecutive_up_weeks: 3
+- over_800_change_1w: -0.19
+- over_1000_change_1w: -0.31
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,58.29,-0.12,53.17,0.02,51.19,-0.08,1,False,True
 20260515,57.84,-0.45,53.03,-0.14,51.27,0.08,2,False,True
 20260522,57.76,-0.08,52.83,-0.2,51.08,-0.19,3,False,False
+20260529,57.68,-0.08,52.64,-0.19,50.77,-0.31,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8112 至上
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:56 Asia/Taipei
+- generated_at: 2026-05-30 23:43:52 Asia/Taipei
 - stock_id: 8112
 - stock_name: 至上
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -93,21 +93,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260521,85,85.9,84.7,85.5,18031362,84.14,1.62,84.61,81.81,0.78
 20260522,86.5,87.9,86,86.2,20963797,84.31,2.24,84.73,82,0.93
 20260525,86.8,86.8,82.7,83.4,31907659,84.23,-0.99,84.78,82.14,1.36
-20260526,83.8,84.7,83.1,83.3,12085666,84.16,-1.02,84.49,82.3,0.54
+20260526,83.8,84.7,83.1,83.3,12085666,84.15,-1.02,84.49,82.3,0.54
 20260527,85.4,86.7,84.3,86,37232718,84.31,2.01,84.48,82.51,1.65
 20260528,86,89.3,85.1,86,47052789,84.45,1.84,84.55,82.73,1.94
 20260529,87.7,89.3,86.4,88.6,29849104,84.8,4.49,84.89,83.06,1.19
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 39.83
-- over_600_ratio: 38.05
-- over_800_ratio: 37.27
-- over_1000_ratio: 35.41
-- over_400_change_1w: -1.64
-- over_800_change_1w: -1.76
-- over_1000_change_1w: -1.44
+- as_of_date: 20260529
+- over_400_ratio: 38.68
+- over_600_ratio: 36.83
+- over_800_ratio: 35.89
+- over_1000_ratio: 34.06
+- over_400_change_1w: -1.15
+- over_800_change_1w: -1.38
+- over_1000_change_1w: -1.35
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -120,20 +120,21 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,46.33,0.01,43.72,0.05,42.01,-0.33,1,False,True
 20260515,41.47,-4.86,39.03,-4.69,36.85,-5.16,0,False,False
 20260522,39.83,-1.64,37.27,-1.76,35.41,-1.44,0,False,False
+20260529,38.68,-1.15,35.89,-1.38,34.06,-1.35,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 8112 | 至上 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260529 | 8112 | 至上 | revenue_breakout_low_response | 營收爆發低反應股 | 13.0 | 20.0 | D_降級_TDCC轉弱 |  |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260529 | 8112 | 至上 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260530 | 8112 | 至上 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260530 | 8112 | 至上 | revenue_breakout_low_response | 營收爆發低反應股 | 14.0 | 20.0 | D_降級_TDCC轉弱 |  |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260530 | 8112 | 至上 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 | 20260521 | 8112 | 至上 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 8112 | 至上 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260530 | 8112 | 至上 | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

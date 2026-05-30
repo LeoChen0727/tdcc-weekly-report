@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6955 邦睿生技-創
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:46 Asia/Taipei
+- generated_at: 2026-05-30 23:43:25 Asia/Taipei
 - stock_id: 6955
 - stock_name: 邦睿生技-創
-- packet_status: standard_rawdata_packet
+- packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 115
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 237
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: price history shorter than 120 rows; K-line context is partial; TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
+- notes: TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
 
 ## Stable Read URLs
 - packet_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_chatgpt_packets/6955_packet_latest.md
@@ -66,7 +66,7 @@
 - distance_to_ema23_pct: -6.51
 - ma20: 156.32
 - ma60: 163.19
-- ma120: 161.86
+- ma120: 162.13
 - return_5d: -3.96
 - return_20d: -11.28
 - volume_ratio: 1.9
@@ -92,7 +92,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260518,153.5,154,148,151,11563,160.43,-5.88,161.28,165.74,0.63
 20260521,153,153,151.5,152,13489,159.73,-4.84,160.62,165.47,0.74
 20260522,152,152,151.5,151.5,3016,159.04,-4.74,159.95,165.1,0.17
-20260525,152,152,151.5,151.5,5309,158.41,-4.37,159.32,164.75,0.29
+20260525,152,152,151.5,151.5,5309,158.42,-4.37,159.32,164.75,0.29
 20260526,151.5,151.5,151,151.5,3059,157.84,-4.02,158.7,164.32,0.17
 20260527,151.5,151.5,149.5,149.5,15001,157.14,-4.86,157.95,163.97,0.82
 20260528,150,150.5,150,150,7000,156.55,-4.18,157.25,163.61,0.38
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 60.26
 - over_600_ratio: 52.37
 - over_800_ratio: 49.64
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,60.26,-1.66,49.64,0,49.64,0,0,False,False
 20260515,60.26,0,49.64,0,49.64,0,0,False,False
 20260522,60.26,0,49.64,0,49.64,0,0,False,False
+20260529,60.26,0,49.64,0,49.64,0,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3687 歐買尬
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:43 Asia/Taipei
+- generated_at: 2026-05-30 23:42:12 Asia/Taipei
 - stock_id: 3687
 - stock_name: 歐買尬
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -84,7 +84,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260508,66.5,66.8,65.6,65.6,76000,67.28,-2.49,67.35,69.51,0.96
 20260511,64.5,65.3,64.5,64.9,75000,67.08,-3.25,67.19,69.29,0.95
 20260512,64.9,64.9,64.2,64.6,79000,66.87,-3.4,67.03,69.12,0.98
-20260513,64.1,64.1,63.6,63.7,69000,66.61,-4.37,66.76,68.95,0.84
+20260513,64.1,64.1,63.6,63.7,69000,66.61,-4.36,66.76,68.95,0.84
 20260514,63.1,63.7,63,63,102000,66.31,-4.99,66.46,68.76,1.22
 20260515,63.2,64.2,62.5,62.5,88000,65.99,-5.29,66.11,68.55,1.03
 20260518,64.4,64.4,60.7,63.1,99000,65.75,-4.03,65.81,68.39,1.13
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 37.4
 - over_600_ratio: 37.4
 - over_800_ratio: 35.33
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,37.4,0,35.33,0,32.59,0,0,False,False
 20260515,37.4,0,35.33,0,32.59,0,0,False,False
 20260522,37.4,0,35.33,0,32.59,0,0,False,False
+20260529,37.4,0,35.33,0,32.59,0,0,False,False
 ```
 
 ## Candidate Context

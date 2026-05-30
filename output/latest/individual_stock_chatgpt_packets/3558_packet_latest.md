@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3558 神準
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:39 Asia/Taipei
+- generated_at: 2026-05-30 23:42:08 Asia/Taipei
 - stock_id: 3558
 - stock_name: 神準
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,12 +77,12 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,107.5,108.5,106.5,108,148000,112.86,-4.3,110.92,123.38,0.85
-20260505,110,112,109,112,190000,112.78,-0.7,111.1,122.92,1.07
+20260504,107.5,108.5,106.5,108,148000,112.85,-4.3,110.92,123.38,0.85
+20260505,110,112,109,112,190000,112.78,-0.69,111.1,122.92,1.07
 20260506,112,113,109,110,206000,112.55,-2.27,111.15,122.47,1.12
 20260507,111.5,113.5,111,112.5,177000,112.55,-0.04,111.15,121.97,0.97
 20260508,113.5,113.5,110,112,139000,112.5,-0.45,111.35,121.49,0.77
-20260511,111.5,112,110,110.5,189000,112.34,-1.63,111.42,121.08,1.01
+20260511,111.5,112,110,110.5,189000,112.33,-1.63,111.42,121.08,1.01
 20260512,111.5,116,109,114,325000,112.47,1.36,111.75,120.72,1.64
 20260513,114,114,110.5,112,155000,112.43,-0.39,111.72,120.32,0.81
 20260514,112.5,112.5,109.5,110,154000,112.23,-1.99,111.6,119.87,0.81
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 51.01
 - over_600_ratio: 49.59
 - over_800_ratio: 48.56
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,51.01,-0.1,48.56,0,47.07,0,0,False,False
 20260515,51.01,0,48.56,0,47.07,0,0,False,False
 20260522,51.01,0,48.56,0,47.07,0,0,False,False
+20260529,51.01,0,48.56,0,47.07,0,0,False,False
 ```
 
 ## Candidate Context

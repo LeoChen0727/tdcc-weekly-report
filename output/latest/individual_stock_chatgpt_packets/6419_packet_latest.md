@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6419 京晨科
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:26 Asia/Taipei
+- generated_at: 2026-05-30 23:43:02 Asia/Taipei
 - stock_id: 6419
 - stock_name: 京晨科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -78,13 +78,13 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,152,161,152,159,447000,126.19,26,125.98,93.66,0.81
-20260505,148,152,143.5,143.5,1119000,127.63,12.43,128.45,94.85,2.04
+20260505,148,152,143.5,143.5,1119000,127.64,12.43,128.45,94.85,2.04
 20260506,142,142,132,138.5,732000,128.54,7.75,130.88,95.96,1.28
 20260507,138,142,135,135,388000,129.08,4.59,133.03,97.01,0.67
 20260508,134,147,131,144,814000,130.32,10.5,135.65,98.23,1.33
 20260511,145,146,135,137,642000,130.88,4.68,137.47,99.32,1.05
 20260512,150.5,150.5,150.5,150.5,327000,132.51,13.57,139.47,100.7,0.53
-20260513,156,165.5,156,165.5,1928000,135.26,22.36,141.68,102.29,2.72
+20260513,156,165.5,156,165.5,1928000,135.26,22.35,141.68,102.29,2.72
 20260514,177,182,169,177,2623000,138.74,27.58,144.32,104.04,3.51
 20260515,178.5,194.5,177,194.5,967000,143.39,35.65,147.25,106.11,1.31
 20260518,175.5,175.5,175.5,175.5,337000,146.06,20.15,149.62,107.88,0.5
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 35.59
 - over_600_ratio: 32.17
 - over_800_ratio: 32.17
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,35.59,0,32.17,0,32.17,0,0,False,False
 20260515,35.59,0,32.17,0,32.17,0,0,False,False
 20260522,35.59,0,32.17,0,32.17,0,0,False,False
+20260529,35.59,0,32.17,0,32.17,0,0,False,False
 ```
 
 ## Candidate Context

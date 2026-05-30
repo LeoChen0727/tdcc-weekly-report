@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6284 佳邦
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:25 Asia/Taipei
+- generated_at: 2026-05-30 23:43:01 Asia/Taipei
 - stock_id: 6284
 - stock_name: 佳邦
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -83,7 +83,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260507,79,82.4,78,81,2193000,80.91,0.12,82.4,81.79,1.14
 20260508,82,84.2,80.3,81.5,2208000,80.96,0.67,82.23,81.71,1.14
 20260511,82,82.4,79.2,82,1392000,81.04,1.18,82.05,81.67,0.73
-20260512,82,83.5,79.9,83.2,1757000,81.22,2.44,81.94,81.7,0.96
+20260512,82,83.5,79.9,83.2,1757000,81.22,2.43,81.94,81.7,0.96
 20260513,81.5,84.6,80.6,84.1,1328000,81.46,3.24,81.88,81.71,0.74
 20260514,85,87.9,84.2,85.7,3786000,81.82,4.75,81.89,81.74,2
 20260515,86.1,89.8,83.7,84.5,3918000,82.04,3,81.72,81.75,2.08
@@ -91,7 +91,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260519,85.1,87.5,84.2,85.1,1710000,82.53,3.12,81.39,81.83,0.99
 20260520,86,91.6,86,88,7921000,82.98,6.04,81.42,81.93,3.89
 20260521,91.1,94.8,90.3,93.4,7631000,83.85,11.39,81.77,82.13,3.26
-20260522,96.1,102.5,95.5,102.5,100000,85.41,20.02,82.88,82.44,0.04
+20260522,96.1,102.5,95.5,102.5,100000,85.41,20.01,82.88,82.44,0.04
 20260525,112.5,112.5,112.5,112.5,112000,87.66,28.33,84.55,82.9,0.05
 20260526,123,123,111,117.5,117000,90.15,30.34,86.58,83.43,0.06
 20260527,120,120,110,113,115000,92.05,22.75,88.29,83.86,0.06
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 54.34
-- over_600_ratio: 51.66
-- over_800_ratio: 49.5
-- over_1000_ratio: 48.88
-- over_400_change_1w: 3.8
-- over_800_change_1w: 4.04
-- over_1000_change_1w: 3.96
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260529
+- over_400_ratio: 61.31
+- over_600_ratio: 58.99
+- over_800_ratio: 57.59
+- over_1000_ratio: 55.14
+- over_400_change_1w: 6.97
+- over_800_change_1w: 8.09
+- over_1000_change_1w: 6.26
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,48.75,-0.16,43.77,-0.18,43.77,-0.18,0,False,False
 20260515,50.54,1.79,45.46,1.69,44.92,1.15,1,True,True
 20260522,54.34,3.8,49.5,4.04,48.88,3.96,2,True,True
+20260529,61.31,6.97,57.59,8.09,55.14,6.26,3,True,True
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 6284 | 佳邦 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 6284 | 佳邦 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6585 鼎基
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:32 Asia/Taipei
+- generated_at: 2026-05-30 23:43:09 Asia/Taipei
 - stock_id: 6585
 - stock_name: 鼎基
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -87,7 +87,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260513,91.5,91.5,90.1,90.7,93526,89.2,1.69,88.22,89.42,0.59
 20260514,91.2,91.8,89.9,91.1,276740,89.35,1.95,88.19,89.43,1.66
 20260515,93.1,94.1,89.6,91.8,262727,89.56,2.5,88.23,89.43,1.53
-20260518,91,93.5,89.8,93,149092,89.84,3.51,88.44,89.48,0.88
+20260518,91,93.5,89.8,93,149092,89.85,3.51,88.44,89.48,0.88
 20260519,93,94,92.3,94,85366,90.19,4.22,88.64,89.56,0.5
 20260520,94,94,92.5,92.9,63504,90.42,2.75,88.73,89.63,0.37
 20260521,94,96.2,93.6,95,216986,90.8,4.63,88.97,89.75,1.21
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 79.5
-- over_600_ratio: 78.75
-- over_800_ratio: 77.81
-- over_1000_ratio: 74.36
+- over_600_ratio: 78.76
+- over_800_ratio: 77.83
+- over_1000_ratio: 74.35
 - over_400_change_1w: 0
 - over_800_change_1w: 0.02
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 2
+- over_1000_change_1w: -0.01
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,79.94,0,77.05,0,74.75,0,0,False,False
 20260515,79.5,-0.44,77.79,0.74,74.35,-0.4,1,False,True
 20260522,79.5,0,77.81,0.02,74.36,0.01,2,False,True
+20260529,79.5,0,77.83,0.02,74.35,-0.01,3,False,True
 ```
 
 ## Candidate Context

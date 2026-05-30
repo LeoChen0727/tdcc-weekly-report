@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6821 聯寶
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:41 Asia/Taipei
+- generated_at: 2026-05-30 23:43:19 Asia/Taipei
 - stock_id: 6821
 - stock_name: 聯寶
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -83,7 +83,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260507,54.2,57,52.6,52.8,1201000,55.65,-5.12,59.81,47.38,0.79
 20260508,52.8,53.3,50.7,51,657000,55.26,-7.71,59.66,47.59,0.43
 20260511,51.8,51.8,49.1,50,610000,54.82,-8.8,59.2,47.79,0.41
-20260512,51,51.5,49.15,50,331000,54.42,-8.12,58.46,47.99,0.24
+20260512,51,51.5,49.15,50,331000,54.42,-8.13,58.46,47.99,0.24
 20260513,49.8,50.5,48.95,49.2,354000,53.99,-8.87,57.37,48.19,0.26
 20260514,50.4,50.7,49,49.95,496000,53.65,-6.9,56.55,48.38,0.39
 20260515,50,50.4,48.75,48.95,289000,53.26,-8.09,55.93,48.59,0.25
@@ -92,7 +92,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260520,51.5,53.5,50.9,52,917000,52.81,-1.53,53.47,49.28,1.11
 20260521,53.7,57.2,53,57.2,1270000,53.17,7.57,52.79,49.6,1.6
 20260522,59.7,60.8,56.9,57.4,58000,53.53,7.24,52.44,49.94,0.08
-20260525,57.2,63.1,55.1,63.1,60000,54.32,16.16,52.73,50.38,0.09
+20260525,57.2,63.1,55.1,63.1,60000,54.32,16.15,52.73,50.38,0.09
 20260526,62.9,69.4,58.9,69.4,66000,55.58,24.86,53.53,50.92,0.11
 20260527,72.5,76.3,70.4,71.9,74000,56.94,26.27,54.43,51.5,0.13
 20260528,69.7,74.4,69,72,72000,58.2,23.72,55.38,52.08,0.13
@@ -100,14 +100,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 52.08
-- over_600_ratio: 48.86
-- over_800_ratio: 47.03
-- over_1000_ratio: 41.68
-- over_400_change_1w: -0.52
-- over_800_change_1w: -0.4
-- over_1000_change_1w: -0.37
+- as_of_date: 20260529
+- over_400_ratio: 49.24
+- over_600_ratio: 47.64
+- over_800_ratio: 45.85
+- over_1000_ratio: 40.65
+- over_400_change_1w: -2.84
+- over_800_change_1w: -1.18
+- over_1000_change_1w: -1.03
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,52.78,-0.88,47.6,-0.78,42.14,-0.69,0,False,False
 20260515,52.6,-0.18,47.43,-0.17,42.05,-0.09,0,False,False
 20260522,52.08,-0.52,47.03,-0.4,41.68,-0.37,0,False,False
+20260529,49.24,-2.84,45.85,-1.18,40.65,-1.03,0,False,False
 ```
 
 ## Candidate Context

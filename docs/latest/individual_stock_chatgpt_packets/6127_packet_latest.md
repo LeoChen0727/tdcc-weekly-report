@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6127 九豪
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:15 Asia/Taipei
+- generated_at: 2026-05-30 23:42:50 Asia/Taipei
 - stock_id: 6127
 - stock_name: 九豪
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -79,12 +79,12 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,44.7,46.35,43.95,45.35,4321000,45.04,0.7,45.45,40.46,0.24
 20260505,44.85,48.7,44.85,47.5,10382000,45.24,4.99,45.81,40.63,0.57
-20260506,48.3,48.4,45.1,46.6,9353000,45.35,2.75,46.19,40.8,0.51
-20260507,46.1,50,45.5,48,18827000,45.57,5.32,46.6,40.99,1
-20260508,48.15,50.7,47.15,48.05,18220000,45.78,4.96,47.06,41.2,0.94
+20260506,48.3,48.4,45.1,46.6,9353000,45.36,2.74,46.19,40.8,0.51
+20260507,46.1,50,45.5,48,18827000,45.58,5.32,46.6,40.99,1
+20260508,48.15,50.7,47.15,48.05,18220000,45.78,4.95,47.06,41.2,0.94
 20260511,48.3,48.4,45.6,47.5,7301000,45.92,3.43,47.3,41.38,0.38
-20260512,47.55,49,47,48.45,8325000,46.13,5.02,47.52,41.63,0.47
-20260513,47.9,48.45,46.05,47.5,6055000,46.25,2.71,47.49,41.84,0.4
+20260512,47.55,49,47,48.45,8325000,46.14,5.02,47.52,41.63,0.47
+20260513,47.9,48.45,46.05,47.5,6055000,46.25,2.7,47.49,41.84,0.4
 20260514,49.8,51.5,47.4,47.4,15740000,46.34,2.28,47.49,42.01,1.19
 20260515,47.6,50.5,45.25,46.45,13752000,46.35,0.21,47.24,42.2,1.16
 20260518,46,51,45.75,49.2,16082000,46.59,5.6,47.19,42.43,1.42
@@ -94,21 +94,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,54.7,55.4,52.5,52.5,53000,48.01,9.34,47.76,43.59,0
 20260525,53,54.5,51.5,52,53000,48.35,7.56,48.12,43.81,0
 20260526,52.1,57.2,49.2,57.2,53000,49.08,16.54,48.71,44.13,0
-20260527,62.5,62.5,55.8,56.9,58000,49.73,14.41,49.16,44.41,0
+20260527,62.5,62.5,55.8,56.9,58000,49.74,14.41,49.16,44.41,0
 20260528,57.5,62.5,57.5,61.2,61000,50.69,20.73,49.92,44.78,0.01
 20260529,63,67.3,60.4,67.3,64000,52.07,29.24,51.08,45.26,0.01
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 28.69
-- over_600_ratio: 26.47
-- over_800_ratio: 23.95
-- over_1000_ratio: 20.71
-- over_400_change_1w: 7.33
-- over_800_change_1w: 6.53
-- over_1000_change_1w: 4.9
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 40.39
+- over_600_ratio: 38.37
+- over_800_ratio: 35.21
+- over_1000_ratio: 34.38
+- over_400_change_1w: 11.7
+- over_800_change_1w: 11.26
+- over_1000_change_1w: 13.67
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,21.33,-0.13,17.45,0.87,15.82,-0.01,1,False,True
 20260515,21.36,0.03,17.42,-0.03,15.81,-0.01,2,False,False
 20260522,28.69,7.33,23.95,6.53,20.71,4.9,3,True,True
+20260529,40.39,11.7,35.21,11.26,34.38,13.67,4,True,True
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 6127 | 九豪 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260530 | 6127 | 九豪 | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

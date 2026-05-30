@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2424 隴華
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:04 Asia/Taipei
+- generated_at: 2026-05-30 23:41:26 Asia/Taipei
 - stock_id: 2424
 - stock_name: 隴華
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 136
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 271
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -87,10 +87,10 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260513,25.5,25.55,23.95,25.55,1095022,22.62,12.93,22.01,27.27,3.77
 20260514,27.65,27.65,23,23.6,1008212,22.71,3.94,22,27.02,2.98
 20260515,21.25,23.45,21.25,21.25,444095,22.58,-5.91,21.92,26.73,1.3
-20260518,21,22.2,20,22.15,181718,22.55,-1.76,21.91,26.49,0.53
+20260518,21,22.2,20,22.15,181718,22.55,-1.77,21.91,26.49,0.53
 20260519,19.95,19.95,19.95,19.95,250192,22.33,-10.66,21.78,26.23,0.72
 20260520,18,18,18,18,84435,21.97,-18.07,21.53,25.99,0.24
-20260521,16.2,16.2,16.2,16.2,92316,21.49,-24.61,21.09,25.72,0.27
+20260521,16.2,16.2,16.2,16.2,92316,21.49,-24.62,21.09,25.72,0.27
 20260522,14.6,14.6,14.6,14.6,93765,20.92,-30.2,20.59,25.4,0.3
 20260525,13.15,13.15,13.15,13.15,106132,20.27,-35.12,20.1,25.07,0.35
 20260526,12.25,13.75,12.25,12.35,541180,19.61,-37.02,19.62,24.72,1.69
@@ -100,14 +100,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 84.25
-- over_600_ratio: 83.42
-- over_800_ratio: 83.42
-- over_1000_ratio: 81.75
-- over_400_change_1w: -0.24
-- over_800_change_1w: -0.24
-- over_1000_change_1w: -0.24
+- as_of_date: 20260529
+- over_400_ratio: 83.61
+- over_600_ratio: 82.78
+- over_800_ratio: 82.78
+- over_1000_ratio: 79.64
+- over_400_change_1w: -0.64
+- over_800_change_1w: -0.64
+- over_1000_change_1w: -2.11
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,84.49,-1.01,83.66,0,81.99,0,0,False,False
 20260515,84.49,0,83.66,0,81.99,0,0,False,False
 20260522,84.25,-0.24,83.42,-0.24,81.75,-0.24,0,False,False
+20260529,83.61,-0.64,82.78,-0.64,79.64,-2.11,0,False,False
 ```
 
 ## Candidate Context

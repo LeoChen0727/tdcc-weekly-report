@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3583 辛耘
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:39 Asia/Taipei
+- generated_at: 2026-05-30 23:42:08 Asia/Taipei
 - stock_id: 3583
 - stock_name: 辛耘
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 61.03
-- over_600_ratio: 59.76
-- over_800_ratio: 55.58
-- over_1000_ratio: 53.46
-- over_400_change_1w: -0.38
-- over_800_change_1w: 0.14
-- over_1000_change_1w: 1.17
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260529
+- over_400_ratio: 59.71
+- over_600_ratio: 59.08
+- over_800_ratio: 55.87
+- over_1000_ratio: 53.75
+- over_400_change_1w: -1.32
+- over_800_change_1w: 0.29
+- over_1000_change_1w: 0.29
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -120,17 +120,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,59.86,-0.72,52.03,-3.51,49.92,-4.48,0,False,False
 20260515,61.41,1.55,55.44,3.41,52.29,2.37,1,True,True
 20260522,61.03,-0.38,55.58,0.14,53.46,1.17,2,False,True
+20260529,59.71,-1.32,55.87,0.29,53.75,0.29,3,False,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260530 | 3583 | 辛耘 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260530 | 3583 | 辛耘 | 1 | 1 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

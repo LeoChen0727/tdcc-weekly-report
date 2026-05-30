@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2427 三商電
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:04 Asia/Taipei
+- generated_at: 2026-05-30 23:41:27 Asia/Taipei
 - stock_id: 2427
 - stock_name: 三商電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -63,7 +63,7 @@
 - volume: 876421
 - ma5: 20.47
 - ema23_primary: 20.97
-- distance_to_ema23_pct: -1.75
+- distance_to_ema23_pct: -1.76
 - ma20: 20.86
 - ma60: 22.41
 - ma120: 24.6
@@ -96,19 +96,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,20.85,20.85,20.4,20.5,461201,21.13,-3,20.98,22.72,0.77
 20260527,20.55,20.55,20.2,20.3,723235,21.07,-3.63,20.93,22.61,1.18
 20260528,20.4,20.45,20.15,20.3,589611,21,-3.34,20.89,22.51,0.95
-20260529,20.3,20.65,20.3,20.6,876421,20.97,-1.75,20.86,22.41,1.38
+20260529,20.3,20.65,20.3,20.6,876421,20.97,-1.76,20.86,22.41,1.38
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 53.55
-- over_600_ratio: 52.78
-- over_800_ratio: 52.17
-- over_1000_ratio: 49.42
-- over_400_change_1w: 0.01
-- over_800_change_1w: 0.06
-- over_1000_change_1w: -0.01
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260529
+- over_400_ratio: 53.64
+- over_600_ratio: 52.45
+- over_800_ratio: 51.76
+- over_1000_ratio: 49.47
+- over_400_change_1w: 0.09
+- over_800_change_1w: -0.41
+- over_1000_change_1w: 0.05
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,53.91,-0.18,52.31,-0.13,49.58,-0.59,0,False,False
 20260515,53.54,-0.37,52.11,-0.2,49.43,-0.15,0,False,False
 20260522,53.55,0.01,52.17,0.06,49.42,-0.01,1,False,True
+20260529,53.64,0.09,51.76,-0.41,49.47,0.05,2,False,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5321 美而快
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:05 Asia/Taipei
+- generated_at: 2026-05-30 23:42:39 Asia/Taipei
 - stock_id: 5321
 - stock_name: 美而快
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,11 +77,11 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,22.6,22.95,21.9,21.9,408000,23.82,-8.05,23.82,25.66,1.98
+20260504,22.6,22.95,21.9,21.9,408000,23.82,-8.06,23.82,25.66,1.98
 20260505,22.05,22.2,20.8,21.65,408000,23.64,-8.41,23.67,25.49,1.82
 20260506,21.8,23.45,21.45,21.75,288000,23.48,-7.37,23.57,25.34,1.21
 20260507,21.5,21.75,20.95,21.75,201000,23.34,-6.8,23.46,25.16,0.81
-20260508,21.75,23.8,21.75,22.5,467000,23.27,-3.29,23.39,25.02,1.74
+20260508,21.75,23.8,21.75,22.5,467000,23.27,-3.3,23.39,25.02,1.74
 20260511,22.5,23.65,21.9,22.35,236000,23.19,-3.62,23.2,24.88,0.92
 20260512,22.3,22.65,22,22.5,151000,23.13,-2.74,23.12,24.75,0.62
 20260513,22.55,23.1,22.55,23,156000,23.12,-0.53,23.06,24.66,0.63
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 62.62
-- over_600_ratio: 52.34
-- over_800_ratio: 50.85
-- over_1000_ratio: 45.8
-- over_400_change_1w: -0.3
-- over_800_change_1w: 0.11
-- over_1000_change_1w: -3.07
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 62.43
+- over_600_ratio: 52.14
+- over_800_ratio: 49.44
+- over_1000_ratio: 46.04
+- over_400_change_1w: -0.19
+- over_800_change_1w: -1.41
+- over_1000_change_1w: 0.24
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,62.87,0.93,50.73,0,48.86,0,1,False,False
 20260515,62.92,0.05,50.74,0.01,48.87,0.01,2,False,True
 20260522,62.62,-0.3,50.85,0.11,45.8,-3.07,3,False,True
+20260529,62.43,-0.19,49.44,-1.41,46.04,0.24,4,False,True
 ```
 
 ## Candidate Context

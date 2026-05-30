@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8436 大江
 
 ## Metadata
-- generated_at: 2026-05-29 19:34:01 Asia/Taipei
+- generated_at: 2026-05-30 23:43:57 Asia/Taipei
 - stock_id: 8436
 - stock_name: 大江
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 38.5
-- over_600_ratio: 34.19
-- over_800_ratio: 30.65
-- over_1000_ratio: 29.11
-- over_400_change_1w: 0.16
-- over_800_change_1w: 0.8
-- over_1000_change_1w: 0.07
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 38.75
+- over_600_ratio: 33.94
+- over_800_ratio: 30.31
+- over_1000_ratio: 28.65
+- over_400_change_1w: 0.25
+- over_800_change_1w: -0.34
+- over_1000_change_1w: -0.46
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,38.29,-0.78,29.83,0.03,29.02,0.03,1,False,True
 20260515,38.34,0.05,29.85,0.02,29.04,0.02,2,True,True
 20260522,38.5,0.16,30.65,0.8,29.11,0.07,3,True,True
+20260529,38.75,0.25,30.31,-0.34,28.65,-0.46,4,False,False
 ```
 
 ## Candidate Context

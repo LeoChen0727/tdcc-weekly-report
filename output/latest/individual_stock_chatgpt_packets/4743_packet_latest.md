@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4743 合一
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:56 Asia/Taipei
+- generated_at: 2026-05-30 23:42:27 Asia/Taipei
 - stock_id: 4743
 - stock_name: 合一
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,13 +77,13 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,54.9,55.6,54,54.2,2382000,53.15,1.97,53.17,56,1.21
+20260504,54.9,55.6,54,54.2,2382000,53.15,1.98,53.17,56,1.21
 20260505,54.9,56.8,54.8,56.7,4264000,53.45,6.09,53.28,55.8,2.11
 20260506,59,59,54.1,54.1,4037000,53.5,1.12,53.26,55.55,1.89
 20260507,54.5,54.5,52.6,52.9,2002000,53.45,-1.03,53.17,55.3,0.92
 20260508,53.3,53.7,51.5,51.6,2072000,53.3,-3.18,53.1,55.03,0.94
 20260511,52.8,53.1,51.1,51.5,2337000,53.15,-3.1,53.03,54.8,1.04
-20260512,51.7,51.7,50.4,51,2009000,52.97,-3.72,52.92,54.57,0.88
+20260512,51.7,51.7,50.4,51,2009000,52.97,-3.71,52.92,54.57,0.88
 20260513,51,52.2,50.7,50.7,2039000,52.78,-3.94,52.8,54.32,0.87
 20260514,50.8,52.3,50.4,52,2377000,52.71,-1.35,52.67,54.15,1.01
 20260515,52.3,52.3,50.2,50.3,2506000,52.51,-4.21,52.4,53.98,1.06
@@ -91,7 +91,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260519,50.4,51.8,50,50,1430000,52.13,-4.09,52.08,53.7,0.62
 20260520,50.4,51,49,49,2423000,51.87,-5.54,51.94,53.54,1.04
 20260521,53,53.9,53,53.9,2655000,52.04,3.57,51.98,53.47,1.13
-20260522,53,55.2,51.9,53,53000,52.12,1.68,52.06,53.35,0.02
+20260522,53,55.2,51.9,53,53000,52.12,1.69,52.06,53.35,0.02
 20260525,53.7,53.7,51.3,52,52000,52.11,-0.21,52.13,53.21,0.02
 20260526,52.2,52.3,50.4,50.7,51000,51.99,-2.49,52.05,53.06,0.02
 20260527,50.7,51.1,50.1,50.8,51000,51.89,-2.11,51.98,52.91,0.03
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 46.11
-- over_600_ratio: 43.39
-- over_800_ratio: 42.26
-- over_1000_ratio: 41.74
-- over_400_change_1w: 0.05
-- over_800_change_1w: 0.11
-- over_1000_change_1w: -0.06
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 45.53
+- over_600_ratio: 42.85
+- over_800_ratio: 41.57
+- over_1000_ratio: 41.03
+- over_400_change_1w: -0.58
+- over_800_change_1w: -0.69
+- over_1000_change_1w: -0.71
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,46.05,0.03,42.16,0.12,41.61,0.13,1,True,True
 20260515,46.06,0.01,42.15,-0.01,41.8,0.19,2,False,True
 20260522,46.11,0.05,42.26,0.11,41.74,-0.06,3,False,True
+20260529,45.53,-0.58,41.57,-0.69,41.03,-0.71,0,False,False
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 4743 | 合一 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 4743 | 合一 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

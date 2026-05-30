@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5603 陸海
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:11 Asia/Taipei
+- generated_at: 2026-05-30 23:42:45 Asia/Taipei
 - stock_id: 5603
 - stock_name: 陸海
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 56.58
-- over_600_ratio: 54.85
-- over_800_ratio: 54.1
-- over_1000_ratio: 52.48
-- over_400_change_1w: 0.17
-- over_800_change_1w: 0.8
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 56.47
+- over_600_ratio: 54.76
+- over_800_ratio: 53.36
+- over_1000_ratio: 52.49
+- over_400_change_1w: -0.11
+- over_800_change_1w: -0.74
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,56.36,-0.38,53.29,0.79,52.46,-0.04,1,False,True
 20260515,56.41,0.05,53.3,0.01,52.48,0.02,2,True,True
 20260522,56.58,0.17,54.1,0.8,52.48,0,3,False,True
+20260529,56.47,-0.11,53.36,-0.74,52.49,0.01,4,False,True
 ```
 
 ## Candidate Context

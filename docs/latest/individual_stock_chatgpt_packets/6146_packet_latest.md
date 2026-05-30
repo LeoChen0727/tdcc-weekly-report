@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6146 耕興
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:16 Asia/Taipei
+- generated_at: 2026-05-30 23:42:51 Asia/Taipei
 - stock_id: 6146
 - stock_name: 耕興
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -87,7 +87,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260513,213,215,208,215,600000,216.03,-0.48,220.6,202.87,0.88
 20260514,215.5,222,215,220,660000,216.36,1.68,220.97,203.52,1.01
 20260515,223.5,223.5,212,214.5,650000,216.2,-0.79,220.9,204.12,0.99
-20260518,212,217,211,212.5,272000,215.89,-1.57,220.47,204.7,0.43
+20260518,212,217,211,212.5,272000,215.9,-1.57,220.47,204.7,0.43
 20260519,213.5,216,211.5,213,217000,215.65,-1.23,219.95,205.28,0.35
 20260520,213,217.5,212,216.5,379000,215.72,0.36,219.8,205.9,0.67
 20260521,219.5,220.5,216,220.5,452000,216.12,2.03,219.68,206.6,0.8
@@ -100,14 +100,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 58.57
-- over_600_ratio: 55.18
-- over_800_ratio: 49.46
-- over_1000_ratio: 46.75
-- over_400_change_1w: -0.08
-- over_800_change_1w: -0.85
-- over_1000_change_1w: -0.03
+- as_of_date: 20260529
+- over_400_ratio: 57.59
+- over_600_ratio: 53.81
+- over_800_ratio: 48.86
+- over_1000_ratio: 44.3
+- over_400_change_1w: -0.98
+- over_800_change_1w: -0.6
+- over_1000_change_1w: -2.45
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,58.97,-0.53,50.62,0.72,47.06,0.73,1,False,True
 20260515,58.65,-0.32,50.31,-0.31,46.78,-0.28,0,False,False
 20260522,58.57,-0.08,49.46,-0.85,46.75,-0.03,0,False,False
+20260529,57.59,-0.98,48.86,-0.6,44.3,-2.45,0,False,False
 ```
 
 ## Candidate Context

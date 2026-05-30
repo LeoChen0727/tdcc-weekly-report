@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6425 易發
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:26 Asia/Taipei
+- generated_at: 2026-05-30 23:43:02 Asia/Taipei
 - stock_id: 6425
 - stock_name: 易發
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -90,7 +90,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260518,89,89,83.3,84.7,3068000,83.46,1.49,86.19,74.09,0.59
 20260519,84.7,90.5,84.3,88.8,3818000,83.9,5.84,86.08,74.45,0.82
 20260520,87.4,90.5,87.1,87.8,2532000,84.23,4.24,85.81,74.79,0.61
-20260521,88.2,92.8,87.4,90.2,5332000,84.72,6.46,85.89,75.19,1.28
+20260521,88.2,92.8,87.4,90.2,5332000,84.73,6.46,85.89,75.19,1.28
 20260522,91,94.3,89.1,90.4,92000,85.2,6.11,85.92,75.56,0.02
 20260525,91.3,92.7,90.1,92.6,92000,85.81,7.91,86.04,75.97,0.03
 20260526,98.3,101.5,98.3,101.5,101000,87.12,16.5,86.88,76.54,0.03
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 45
-- over_600_ratio: 39.2
-- over_800_ratio: 37.71
-- over_1000_ratio: 34.36
-- over_400_change_1w: 0.64
-- over_800_change_1w: -0.38
-- over_1000_change_1w: -0.22
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260529
+- over_400_ratio: 42.15
+- over_600_ratio: 38.9
+- over_800_ratio: 37.42
+- over_1000_ratio: 34.05
+- over_400_change_1w: -2.85
+- over_800_change_1w: -0.29
+- over_1000_change_1w: -0.31
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,44.57,0.12,38.12,-0.01,34.6,0,1,False,False
 20260515,44.36,-0.21,38.09,-0.03,34.58,-0.02,0,False,False
 20260522,45,0.64,37.71,-0.38,34.36,-0.22,1,False,False
+20260529,42.15,-2.85,37.42,-0.29,34.05,-0.31,0,False,False
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 6425 | 易發 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260530 | 6425 | 易發 | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

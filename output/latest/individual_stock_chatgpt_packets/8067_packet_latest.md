@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8067 志旭
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:54 Asia/Taipei
+- generated_at: 2026-05-30 23:43:49 Asia/Taipei
 - stock_id: 8067
 - stock_name: 志旭
-- packet_status: standard_rawdata_packet
+- packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 118
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 254
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: price history shorter than 120 rows; K-line context is partial; TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
+- notes: TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
 
 ## Stable Read URLs
 - packet_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_chatgpt_packets/8067_packet_latest.md
@@ -66,7 +66,7 @@
 - distance_to_ema23_pct: 0.6
 - ma20: 13.2
 - ma60: 13.98
-- ma120: 14.35
+- ma120: 14.34
 - return_5d: -1.1
 - return_20d: 1.5
 - volume_ratio: 1.24
@@ -77,7 +77,7 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260428,12.6,12.65,12.6,12.65,5000,13.66,-7.42,13.7,14.41,0.72
+20260428,12.6,12.65,12.6,12.65,5000,13.66,-7.41,13.7,14.41,0.72
 20260429,12.65,13.05,12.65,13.05,2000,13.61,-4.13,13.62,14.36,0.35
 20260430,12.9,12.9,12.9,12.9,1000,13.55,-4.82,13.55,14.32,0.18
 20260504,13.35,13.35,13.35,13.35,1000,13.54,-1.37,13.5,14.29,0.19
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 81.35
 - over_600_ratio: 78.76
 - over_800_ratio: 75.32
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,81.35,0,75.32,0,56.73,0,0,False,False
 20260515,81.35,0,75.32,0,56.73,0,0,False,False
 20260522,81.35,0,75.32,0,56.73,0,0,False,False
+20260529,81.35,0,75.32,0,56.73,0,0,False,False
 ```
 
 ## Candidate Context

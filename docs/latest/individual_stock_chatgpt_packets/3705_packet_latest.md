@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3705 永信
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:43 Asia/Taipei
+- generated_at: 2026-05-30 23:42:13 Asia/Taipei
 - stock_id: 3705
 - stock_name: 永信
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 26
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 27
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 67.86
-- over_600_ratio: 66.47
-- over_800_ratio: 63.41
-- over_1000_ratio: 60.83
-- over_400_change_1w: 0.2
+- as_of_date: 20260529
+- over_400_ratio: 67.89
+- over_600_ratio: 66.49
+- over_800_ratio: 63.43
+- over_1000_ratio: 60.85
+- over_400_change_1w: 0.03
 - over_800_change_1w: 0.02
 - over_1000_change_1w: 0.02
-- tdcc_consecutive_up_weeks: 5
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -116,7 +116,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260306,67.82,-0.15,63.01,0.04,60.07,0.04,3,False,True
 20260313,67.89,0.07,63.31,0.3,60.73,0.66,4,True,True
 20260320,67.99,0.1,63.69,0.38,60.78,0.05,5,True,True
 20260327,67.7,-0.29,63.19,-0.5,60.61,-0.17,0,False,False
@@ -128,6 +127,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,67.57,-0.13,63.3,0.01,60.72,0.01,3,False,True
 20260515,67.66,0.09,63.39,0.09,60.81,0.09,4,True,True
 20260522,67.86,0.2,63.41,0.02,60.83,0.02,5,True,True
+20260529,67.89,0.03,63.43,0.02,60.85,0.02,6,True,True
 ```
 
 ## Candidate Context

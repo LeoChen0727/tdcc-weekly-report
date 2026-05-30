@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8047 星雲
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:53 Asia/Taipei
+- generated_at: 2026-05-30 23:43:48 Asia/Taipei
 - stock_id: 8047
 - stock_name: 星雲
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 136
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 272
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -83,7 +83,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260506,56.4,56.4,54,56.1,116000,54.81,2.35,55.16,52.3,0.78
 20260507,55.7,55.7,54,54,91000,54.74,-1.36,55.24,52.38,0.61
 20260508,54.7,54.9,53.9,54,84000,54.68,-1.25,55.27,52.48,0.57
-20260511,54,54,52.5,53.6,57000,54.59,-1.82,55.08,52.58,0.5
+20260511,54,54,52.5,53.6,57000,54.59,-1.81,55.08,52.58,0.5
 20260512,55,55,50.4,53.3,41000,54.48,-2.17,54.87,52.68,0.37
 20260514,58.6,58.6,52.5,54.4,211000,54.48,-0.14,54.71,52.78,1.85
 20260515,53.9,53.9,51.2,51.2,128000,54.2,-5.54,54.4,52.83,1.08
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 79.51
-- over_600_ratio: 78.22
-- over_800_ratio: 74.79
-- over_1000_ratio: 70.41
-- over_400_change_1w: 0.18
-- over_800_change_1w: 0.17
-- over_1000_change_1w: 0.17
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 79.64
+- over_600_ratio: 78.35
+- over_800_ratio: 74.91
+- over_1000_ratio: 70.53
+- over_400_change_1w: 0.13
+- over_800_change_1w: 0.12
+- over_1000_change_1w: 0.12
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,79.26,-0.18,74.54,1.65,70.32,-0.41,1,False,True
 20260515,79.33,0.07,74.62,0.08,70.24,-0.08,2,False,True
 20260522,79.51,0.18,74.79,0.17,70.41,0.17,3,True,True
+20260529,79.64,0.13,74.91,0.12,70.53,0.12,4,True,True
 ```
 
 ## Candidate Context

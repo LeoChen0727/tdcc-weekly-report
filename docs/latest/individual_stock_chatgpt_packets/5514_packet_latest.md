@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5514 三豐
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:10 Asia/Taipei
+- generated_at: 2026-05-30 23:42:43 Asia/Taipei
 - stock_id: 5514
 - stock_name: 三豐
-- packet_status: standard_rawdata_packet
+- packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 111
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 247
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: price history shorter than 120 rows; K-line context is partial; TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
+- notes: TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
 
 ## Stable Read URLs
 - packet_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_chatgpt_packets/5514_packet_latest.md
@@ -66,7 +66,7 @@
 - distance_to_ema23_pct: -8.68
 - ma20: 15.28
 - ma60: 15.7
-- ma120: 16.07
+- ma120: 15.91
 - return_5d: -8.85
 - return_20d: -10.03
 - volume_ratio: 1.78
@@ -77,13 +77,13 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260427,15.5,15.5,15.45,15.5,5000,15.89,-2.43,15.92,15.92,0.41
+20260427,15.5,15.5,15.45,15.5,5000,15.88,-2.42,15.92,15.92,0.41
 20260428,15,15.5,15,15.5,22000,15.85,-2.23,15.89,15.9,1.82
-20260429,15.5,15.5,15.5,15.5,1000,15.82,-2.05,15.86,15.89,0.08
+20260429,15.5,15.5,15.5,15.5,1000,15.82,-2.04,15.86,15.89,0.08
 20260430,15.6,15.7,15.5,15.7,14000,15.81,-0.72,15.85,15.88,1.15
 20260504,15.85,15.9,15.85,15.9,3000,15.82,0.5,15.85,15.87,0.24
 20260505,15.85,15.85,15.85,15.85,1000,15.82,0.17,15.86,15.88,0.08
-20260506,15.95,15.95,15.5,15.5,3000,15.8,-1.88,15.82,15.87,0.25
+20260506,15.95,15.95,15.5,15.5,3000,15.8,-1.87,15.82,15.87,0.25
 20260507,15.5,15.6,15.4,15.6,8000,15.78,-1.14,15.81,15.87,0.7
 20260508,15.55,15.55,15.55,15.55,1000,15.76,-1.34,15.79,15.86,0.09
 20260511,15.4,15.5,15.2,15.2,11000,15.71,-3.27,15.77,15.85,1.05
@@ -94,23 +94,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260520,15.25,15.25,15.25,15.25,1000,15.56,-2.01,15.56,15.8,0.14
 20260522,15.2,16.1,14.7,15.2,16000,15.53,-2.14,15.53,15.79,2.08
 20260526,14.8,15.7,14.8,15,15000,15.49,-3.15,15.48,15.78,1.86
-20260527,15,15.5,14.6,14.7,15000,15.42,-4.69,15.42,15.76,1.78
+20260527,15,15.5,14.6,14.7,15000,15.42,-4.68,15.42,15.76,1.78
 20260528,14.55,15.2,14.2,14.45,15000,15.34,-5.81,15.35,15.73,1.88
 20260529,14.05,14.05,13.7,13.9,14000,15.22,-8.68,15.28,15.7,1.78
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 92.44
-- over_600_ratio: 90.38
-- over_800_ratio: 88.65
-- over_1000_ratio: 87.51
-- over_400_change_1w: 0
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 92.46
+- over_600_ratio: 90.39
+- over_800_ratio: 88.66
+- over_1000_ratio: 87.52
+- over_400_change_1w: 0.02
+- over_800_change_1w: 0.01
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,92.39,0,88.65,0,87.51,0,0,False,False
 20260515,92.44,0.05,88.65,0,87.51,0,1,False,False
 20260522,92.44,0,88.65,0,87.51,0,0,False,False
+20260529,92.46,0.02,88.66,0.01,87.52,0.01,1,True,True
 ```
 
 ## Candidate Context

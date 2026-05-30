@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2736 富野
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:14 Asia/Taipei
+- generated_at: 2026-05-30 23:41:39 Asia/Taipei
 - stock_id: 2736
 - stock_name: 富野
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -86,7 +86,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260512,12.45,12.5,12.3,12.4,59000,12.92,-4.03,13.09,13.16,0.45
 20260513,12.4,12.65,12.4,12.5,42000,12.89,-2.99,13.01,13.14,0.48
 20260514,12.4,12.6,12.3,12.35,43000,12.84,-3.82,12.95,13.11,0.56
-20260515,12.35,12.35,12,12,136000,12.77,-6.04,12.86,13.06,1.82
+20260515,12.35,12.35,12,12,136000,12.77,-6.03,12.86,13.06,1.82
 20260518,11.95,12.35,11.65,11.95,60000,12.7,-5.92,12.77,13.02,0.83
 20260519,12.05,12.05,11.8,11.85,41000,12.63,-6.19,12.7,12.98,0.59
 20260520,11.85,12.15,11.8,11.85,26000,12.57,-5.7,12.61,12.95,0.39
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 55.95
 - over_600_ratio: 54.04
 - over_800_ratio: 53.13
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,55.95,0,53.13,0,46.33,0,0,False,False
 20260515,55.95,0,53.13,0,46.33,0,0,False,False
 20260522,55.95,0,53.13,0,46.33,0,0,False,False
+20260529,55.95,0,53.13,0,46.33,0,0,False,False
 ```
 
 ## Candidate Context

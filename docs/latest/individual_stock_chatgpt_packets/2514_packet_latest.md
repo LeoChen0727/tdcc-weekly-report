@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2514 龍邦
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:09 Asia/Taipei
+- generated_at: 2026-05-30 23:41:33 Asia/Taipei
 - stock_id: 2514
 - stock_name: 龍邦
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -83,7 +83,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260507,13.25,13.35,13.2,13.25,882982,13.41,-1.21,13.38,13.9,3.99
 20260508,13.35,13.35,13.15,13.25,217515,13.4,-1.11,13.37,13.87,0.96
 20260511,13.35,13.35,13.25,13.3,620909,13.39,-0.68,13.36,13.84,2.47
-20260512,13.3,13.3,13.1,13.1,272512,13.37,-1.99,13.34,13.81,1.04
+20260512,13.3,13.3,13.1,13.1,272512,13.37,-2,13.34,13.81,1.04
 20260513,13.1,13.2,13.1,13.15,69436,13.35,-1.49,13.32,13.79,0.27
 20260514,13.1,13.2,13.05,13.05,192864,13.32,-2.05,13.3,13.76,0.76
 20260515,13.1,13.15,13,13.1,702313,13.31,-1.54,13.28,13.73,2.46
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 88.22
-- over_600_ratio: 87.4
-- over_800_ratio: 85.84
-- over_1000_ratio: 84.73
+- as_of_date: 20260529
+- over_400_ratio: 88.23
+- over_600_ratio: 87.43
+- over_800_ratio: 85.87
+- over_1000_ratio: 84.75
 - over_400_change_1w: 0.01
-- over_800_change_1w: -0.15
-- over_1000_change_1w: -0.15
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: False
-- high_thresholds_up: False
+- over_800_change_1w: 0.03
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,88.2,0,86.19,0.18,84.87,0.19,1,False,True
 20260515,88.21,0.01,85.99,-0.2,84.88,0.01,2,False,True
 20260522,88.22,0.01,85.84,-0.15,84.73,-0.15,3,False,False
+20260529,88.23,0.01,85.87,0.03,84.75,0.02,4,True,True
 ```
 
 ## Candidate Context

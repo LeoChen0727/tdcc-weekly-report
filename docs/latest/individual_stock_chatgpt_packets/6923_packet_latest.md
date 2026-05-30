@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6923 中台
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:45 Asia/Taipei
+- generated_at: 2026-05-30 23:43:23 Asia/Taipei
 - stock_id: 6923
 - stock_name: 中台
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 69.5
-- over_600_ratio: 65.49
-- over_800_ratio: 58.65
-- over_1000_ratio: 53.61
-- over_400_change_1w: 0.23
-- over_800_change_1w: 0.21
-- over_1000_change_1w: 1.11
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 69.58
+- over_600_ratio: 65.56
+- over_800_ratio: 58.76
+- over_1000_ratio: 53.72
+- over_400_change_1w: 0.08
+- over_800_change_1w: 0.11
+- over_1000_change_1w: 0.11
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,69.02,1.01,57.62,0,52.58,0,1,False,False
 20260515,69.27,0.25,58.44,0.82,52.5,-0.08,2,False,True
 20260522,69.5,0.23,58.65,0.21,53.61,1.11,3,True,True
+20260529,69.58,0.08,58.76,0.11,53.72,0.11,4,True,True
 ```
 
 ## Candidate Context

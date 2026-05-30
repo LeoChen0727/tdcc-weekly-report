@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1435 中福
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:38 Asia/Taipei
+- generated_at: 2026-05-30 23:40:57 Asia/Taipei
 - stock_id: 1435
 - stock_name: 中福
-- packet_status: standard_rawdata_packet
+- packet_status: standard_180d_window_packet
 - latest_price_date: 20260428
-- price_rows: 105
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 216
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: price history shorter than 120 rows; K-line context is partial; TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
+- notes: TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
 
 ## Stable Read URLs
 - packet_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_chatgpt_packets/1435_packet_latest.md
@@ -66,7 +66,7 @@
 - distance_to_ema23_pct: -18.78
 - ma20: 15.68
 - ma60: 19.3
-- ma120: 21.22
+- ma120: 21.97
 - return_5d: -9.82
 - return_20d: -30.73
 - volume_ratio: 7.4
@@ -79,7 +79,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260323,18.15,18.15,17.5,18.15,10004,20.08,-9.63,20.6,21.35,0.18
 20260324,18.1,18.1,18.1,18.1,1711,19.92,-9.13,20.36,21.24,0.03
-20260325,18.8,18.9,18.75,18.75,11418,19.82,-5.4,20.14,21.15,0.21
+20260325,18.8,18.9,18.75,18.75,11418,19.82,-5.41,20.14,21.15,0.21
 20260326,19.2,19.2,19.2,19.2,1638,19.77,-2.88,19.91,21.11,0.03
 20260330,18.35,18.35,17.75,18.3,11371,19.65,-6.86,19.64,21.05,0.21
 20260331,17.6,17.6,17.5,17.5,15406,19.47,-10.11,19.36,20.97,0.28
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 94.89
 - over_600_ratio: 93.56
 - over_800_ratio: 93.06
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,94.89,0,93.06,0,93.06,0,0,False,False
 20260515,94.89,0,93.06,0,93.06,0,0,False,False
 20260522,94.89,0,93.06,0,93.06,0,0,False,False
+20260529,94.89,0,93.06,0,93.06,0,0,False,False
 ```
 
 ## Candidate Context

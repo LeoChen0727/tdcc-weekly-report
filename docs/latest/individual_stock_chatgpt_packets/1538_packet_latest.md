@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1538 正峰
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:43 Asia/Taipei
+- generated_at: 2026-05-30 23:41:03 Asia/Taipei
 - stock_id: 1538
 - stock_name: 正峰
-- packet_status: standard_rawdata_packet
+- packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 115
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 231
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: price history shorter than 120 rows; K-line context is partial; TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
+- notes: TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
 
 ## Stable Read URLs
 - packet_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_chatgpt_packets/1538_packet_latest.md
@@ -66,7 +66,7 @@
 - distance_to_ema23_pct: -6.09
 - ma20: 12.5
 - ma60: 15.29
-- ma120: 20.43
+- ma120: 20.64
 - return_5d: -1.67
 - return_20d: -8.53
 - volume_ratio: 0.37
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 78.45
 - over_600_ratio: 75.36
 - over_800_ratio: 70.77
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,78.3,0.09,70.77,0,70.77,0,1,False,False
 20260515,78.45,0.15,70.77,0,70.77,0,2,False,False
 20260522,78.45,0,70.77,0,70.77,0,0,False,False
+20260529,78.45,0,70.77,0,70.77,0,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6751 智聯服務
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:39 Asia/Taipei
+- generated_at: 2026-05-30 23:43:16 Asia/Taipei
 - stock_id: 6751
 - stock_name: 智聯服務
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -90,22 +90,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260518,47,47,45.6,45.6,23000,50,-8.8,50.42,52.23,0.56
 20260519,46.9,46.9,46.1,46.65,13000,49.72,-6.18,50.25,52.07,0.36
 20260520,46.65,47.25,46.65,47,21000,49.5,-5.04,50.07,51.92,0.58
-20260521,46.6,47.85,46.6,47.7,44000,49.35,-3.33,49.84,51.79,1.28
+20260521,46.6,47.85,46.6,47.7,44000,49.35,-3.34,49.84,51.79,1.28
 20260522,47.25,48,46.35,47.5,47000,49.19,-3.44,49.62,51.66,1.41
 20260525,46.95,47.8,46.95,47.55,47000,49.06,-3.07,49.38,51.52,1.37
 20260526,47.55,47.85,47.45,47.5,48000,48.93,-2.91,49.15,51.39,1.36
-20260527,47.8,48,47.6,47.65,48000,48.82,-2.39,48.92,51.23,1.3
+20260527,47.8,48,47.6,47.65,48000,48.82,-2.4,48.92,51.23,1.3
 20260528,47.75,48.05,47,47.05,48000,48.67,-3.33,48.68,51.06,1.25
 20260529,47.05,48.15,46.9,46.95,47000,48.53,-3.25,48.44,50.92,1.17
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 64.35
+- as_of_date: 20260529
+- over_400_ratio: 62.55
 - over_600_ratio: 59.87
 - over_800_ratio: 56.93
 - over_1000_ratio: 56.93
-- over_400_change_1w: 0
+- over_400_change_1w: -1.8
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,62.54,0.01,56.93,0,56.93,0,1,False,False
 20260515,64.35,1.81,56.93,0,56.93,0,2,False,False
 20260522,64.35,0,56.93,0,56.93,0,0,False,False
+20260529,62.55,-1.8,56.93,0,56.93,0,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6577 勁豐
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:32 Asia/Taipei
+- generated_at: 2026-05-30 23:43:09 Asia/Taipei
 - stock_id: 6577
 - stock_name: 勁豐
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -78,7 +78,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,80.1,80.2,79.3,79.8,27000,78.32,1.89,78.38,75.52,1.01
-20260505,83.6,83.6,80.7,81.4,48000,78.58,3.6,78.64,75.67,1.7
+20260505,83.6,83.6,80.7,81.4,48000,78.58,3.59,78.64,75.67,1.7
 20260506,81.4,82.1,81.1,81.6,40000,78.83,3.52,78.94,75.82,1.36
 20260507,80,82.7,80,82.1,38000,79.1,3.79,79.25,76,1.22
 20260508,82.5,82.5,81.8,82,17000,79.34,3.35,79.53,76.18,0.54
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 74.85
 - over_600_ratio: 72.34
 - over_800_ratio: 70.03
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,74.85,0,70.03,0,70.03,0,0,False,False
 20260515,74.85,0,70.03,0,70.03,0,0,False,False
 20260522,74.85,0,70.03,0,70.03,0,0,False,False
+20260529,74.85,0,70.03,0,70.03,0,0,False,False
 ```
 
 ## Candidate Context

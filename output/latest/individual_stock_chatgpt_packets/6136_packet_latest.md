@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6136 富爾特
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:16 Asia/Taipei
+- generated_at: 2026-05-30 23:42:50 Asia/Taipei
 - stock_id: 6136
 - stock_name: 富爾特
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 43.54
-- over_600_ratio: 38.58
-- over_800_ratio: 34.11
-- over_1000_ratio: 31.85
-- over_400_change_1w: 0.64
-- over_800_change_1w: 0.61
-- over_1000_change_1w: 0.62
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 44.12
+- over_600_ratio: 39.04
+- over_800_ratio: 34.58
+- over_1000_ratio: 32.31
+- over_400_change_1w: 0.58
+- over_800_change_1w: 0.47
+- over_1000_change_1w: 0.46
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,42.17,0.36,33.17,0.09,30.91,0.07,1,True,True
 20260515,42.9,0.73,33.5,0.33,31.23,0.32,2,True,True
 20260522,43.54,0.64,34.11,0.61,31.85,0.62,3,True,True
+20260529,44.12,0.58,34.58,0.47,32.31,0.46,4,True,True
 ```
 
 ## Candidate Context

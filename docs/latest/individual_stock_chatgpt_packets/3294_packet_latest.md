@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3294 英濟
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:31 Asia/Taipei
+- generated_at: 2026-05-30 23:41:58 Asia/Taipei
 - stock_id: 3294
 - stock_name: 英濟
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 52.03
-- over_600_ratio: 50.14
-- over_800_ratio: 49.04
-- over_1000_ratio: 46.21
-- over_400_change_1w: -1.56
-- over_800_change_1w: -1.6
-- over_1000_change_1w: -0.85
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 52.07
+- over_600_ratio: 50.16
+- over_800_ratio: 49.14
+- over_1000_ratio: 47.03
+- over_400_change_1w: 0.04
+- over_800_change_1w: 0.1
+- over_1000_change_1w: 0.82
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,53.34,0.17,50.74,0.12,47.91,0.75,1,True,True
 20260515,53.59,0.25,50.64,-0.1,47.06,-0.85,2,False,False
 20260522,52.03,-1.56,49.04,-1.6,46.21,-0.85,0,False,False
+20260529,52.07,0.04,49.14,0.1,47.03,0.82,1,True,True
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 3294 | 英濟 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 3294 | 英濟 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

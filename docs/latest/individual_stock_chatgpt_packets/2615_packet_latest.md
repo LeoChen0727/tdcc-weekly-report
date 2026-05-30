@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2615 萬海
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:12 Asia/Taipei
+- generated_at: 2026-05-30 23:41:36 Asia/Taipei
 - stock_id: 2615
 - stock_name: 萬海
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,7 +77,7 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,75.8,77.8,74.9,75.6,8222170,75.81,-0.27,76,76.66,1.08
+20260504,75.8,77.8,74.9,75.6,8222170,75.8,-0.27,76,76.66,1.08
 20260505,76,77.5,75.1,77,6556484,75.9,1.44,75.94,76.69,0.86
 20260506,77.6,77.9,77,77.8,6928494,76.06,2.28,75.86,76.76,0.91
 20260507,78,78.2,77.4,78.2,6669389,76.24,2.57,75.83,76.81,0.89
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 84.45
-- over_600_ratio: 83.36
-- over_800_ratio: 82.82
-- over_1000_ratio: 82.12
-- over_400_change_1w: 0.77
-- over_800_change_1w: 0.73
-- over_1000_change_1w: 0.76
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260529
+- over_400_ratio: 84.83
+- over_600_ratio: 83.65
+- over_800_ratio: 83.09
+- over_1000_ratio: 82.36
+- over_400_change_1w: 0.38
+- over_800_change_1w: 0.27
+- over_1000_change_1w: 0.24
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,18 +120,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,83.96,0.29,82.34,0.36,81.58,0.39,1,True,True
 20260515,83.68,-0.28,82.09,-0.25,81.36,-0.22,0,False,False
 20260522,84.45,0.77,82.82,0.73,82.12,0.76,1,True,True
+20260529,84.83,0.38,83.09,0.27,82.36,0.24,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2615 | 萬海 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260530 | 2615 | 萬海 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 | 20260521 | 2615 | 萬海 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2615 | 萬海 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260530 | 2615 | 萬海 | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

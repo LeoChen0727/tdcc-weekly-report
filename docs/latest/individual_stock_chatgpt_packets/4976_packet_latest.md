@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4976 佳凌
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:00 Asia/Taipei
+- generated_at: 2026-05-30 23:42:33 Asia/Taipei
 - stock_id: 4976
 - stock_name: 佳凌
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -80,7 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260504,29.4,29.4,28.6,28.7,450728,29.25,-1.88,29.13,29.78,0.78
 20260505,28.7,29.55,28.7,29.45,419995,29.27,0.62,29.25,29.68,0.72
 20260506,29.65,29.65,28.45,28.7,560397,29.22,-1.78,29.31,29.62,0.94
-20260507,28.8,29.8,28.7,29.8,719489,29.27,1.82,29.39,29.58,1.19
+20260507,28.8,29.8,28.7,29.8,719489,29.27,1.81,29.39,29.58,1.19
 20260508,29.85,30.6,28.9,28.95,740359,29.24,-1,29.45,29.53,1.18
 20260511,29.05,29.15,28.65,29,465883,29.22,-0.76,29.5,29.5,0.73
 20260512,29.1,29.55,28.75,29.4,476361,29.24,0.56,29.54,29.5,0.75
@@ -100,16 +100,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 33.69
-- over_600_ratio: 31.77
-- over_800_ratio: 29.67
-- over_1000_ratio: 27.22
-- over_400_change_1w: 0.77
-- over_800_change_1w: 0.12
-- over_1000_change_1w: 0.12
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 33
+- over_600_ratio: 31.38
+- over_800_ratio: 30.43
+- over_1000_ratio: 27.38
+- over_400_change_1w: -0.69
+- over_800_change_1w: 0.76
+- over_1000_change_1w: 0.16
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,32.44,0.33,29.42,-0.04,26.97,-0.04,1,False,False
 20260515,32.92,0.48,29.55,0.13,27.1,0.13,2,False,True
 20260522,33.69,0.77,29.67,0.12,27.22,0.12,3,True,True
+20260529,33,-0.69,30.43,0.76,27.38,0.16,4,False,True
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 4976 | 佳凌 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 4976 | 佳凌 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

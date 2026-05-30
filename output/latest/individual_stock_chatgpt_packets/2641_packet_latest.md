@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2641 正德
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:13 Asia/Taipei
+- generated_at: 2026-05-30 23:41:37 Asia/Taipei
 - stock_id: 2641
 - stock_name: 正德
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 29.6
-- over_600_ratio: 26.03
-- over_800_ratio: 25.45
-- over_1000_ratio: 23.77
-- over_400_change_1w: 0.58
-- over_800_change_1w: 0.19
-- over_1000_change_1w: -0.07
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 29.25
+- over_600_ratio: 26.01
+- over_800_ratio: 25.62
+- over_1000_ratio: 24.24
+- over_400_change_1w: -0.35
+- over_800_change_1w: 0.17
+- over_1000_change_1w: 0.47
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,29.08,0.31,24.79,-0.09,23.67,0.16,1,False,True
 20260515,29.02,-0.06,25.26,0.47,23.84,0.17,2,False,True
 20260522,29.6,0.58,25.45,0.19,23.77,-0.07,3,False,True
+20260529,29.25,-0.35,25.62,0.17,24.24,0.47,4,False,True
 ```
 
 ## Candidate Context

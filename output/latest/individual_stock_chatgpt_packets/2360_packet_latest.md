@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2360 致茂
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:00 Asia/Taipei
+- generated_at: 2026-05-30 23:41:22 Asia/Taipei
 - stock_id: 2360
 - stock_name: 致茂
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -62,7 +62,7 @@
 - close: 2520
 - volume: 5371739
 - ma5: 2535
-- ema23_primary: 2286.22
+- ema23_primary: 2286.21
 - distance_to_ema23_pct: 10.23
 - ma20: 2333.5
 - ma60: 1913.08
@@ -77,7 +77,7 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,2265,2330,2145,2310,6653939,1918.4,20.41,1947,1525.53,1.38
+20260504,2265,2330,2145,2310,6653939,1918.39,20.41,1947,1525.53,1.38
 20260505,2310,2315,2150,2235,4076750,1944.78,14.92,1982,1545.87,0.86
 20260506,2350,2450,2270,2345,6415650,1978.13,18.55,2020.75,1567.7,1.31
 20260507,2530,2530,2270,2325,4128219,2007.04,15.84,2050.75,1589.2,0.83
@@ -86,7 +86,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260512,2450,2480,2400,2440,4455057,2085.69,16.99,2127,1656.93,0.92
 20260513,2465,2465,2345,2405,2566243,2112.3,13.86,2155.25,1679.68,0.54
 20260514,2410,2435,2255,2260,4876389,2124.61,6.37,2167.25,1700.18,1
-20260515,2345,2350,2210,2240,3109146,2134.23,4.96,2176.75,1721.28,0.66
+20260515,2345,2350,2210,2240,3109146,2134.22,4.96,2176.75,1721.28,0.66
 20260518,2125,2200,2125,2185,2303570,2138.46,2.18,2173.25,1741.58,0.51
 20260519,2130,2130,1975,2055,4295379,2131.5,-3.59,2173.5,1758.67,1
 20260520,2090,2095,2020,2065,1914996,2125.96,-2.87,2175.5,1775.75,0.47
@@ -96,20 +96,20 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,2550,2590,2450,2500,2805851,2201.98,13.53,2259.75,1856,0.76
 20260527,2550,2680,2495,2625,2643485,2237.23,17.33,2287.75,1876.75,0.73
 20260528,2560,2795,2530,2570,4838102,2264.96,13.47,2313.5,1894.33,1.3
-20260529,2570,2610,2450,2520,5371739,2286.22,10.23,2333.5,1913.08,1.42
+20260529,2570,2610,2450,2520,5371739,2286.21,10.23,2333.5,1913.08,1.42
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 70.75
-- over_600_ratio: 64.16
-- over_800_ratio: 59.68
-- over_1000_ratio: 54.67
-- over_400_change_1w: 0.06
-- over_800_change_1w: 0.2
-- over_1000_change_1w: 0.36
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 71.17
+- over_600_ratio: 64.57
+- over_800_ratio: 59.35
+- over_1000_ratio: 55.17
+- over_400_change_1w: 0.42
+- over_800_change_1w: -0.33
+- over_1000_change_1w: 0.5
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,17 +120,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,70.62,-1.28,59.41,-0.26,53.93,-0.9,0,False,False
 20260515,70.69,0.07,59.48,0.07,54.31,0.38,1,False,True
 20260522,70.75,0.06,59.68,0.2,54.67,0.36,2,True,True
+20260529,71.17,0.42,59.35,-0.33,55.17,0.5,3,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2360 | 致茂 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260530 | 2360 | 致茂 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260530 | 2360 | 致茂 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2360 | 致茂 | 7 | 2 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260530 | 2360 | 致茂 | 8 | 3 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5340 建榮
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:06 Asia/Taipei
+- generated_at: 2026-05-30 23:42:39 Asia/Taipei
 - stock_id: 5340
 - stock_name: 建榮
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -87,7 +87,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260513,107.5,108.5,105,105,2703000,113.44,-7.44,115.83,111.15,0.47
 20260514,106.5,109,105,106.5,2113000,112.86,-5.64,115.45,111.02,0.38
 20260515,108,108.5,102,103,2303000,112.04,-8.07,114.35,110.86,0.44
-20260518,102,104,98.1,102,2622000,111.2,-8.28,112.75,110.86,0.81
+20260518,102,104,98.1,102,2622000,111.21,-8.28,112.75,110.86,0.81
 20260519,103,107,100,101,2312000,110.35,-8.48,111.53,110.9,0.93
 20260520,102,103,99.6,99.7,1852000,109.47,-8.92,110.66,110.98,0.76
 20260521,101,103.5,100,100.5,1746000,108.72,-7.56,109.89,110.99,0.71
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 60.73
-- over_600_ratio: 56.5
-- over_800_ratio: 55.07
-- over_1000_ratio: 53.22
-- over_400_change_1w: -0.44
-- over_800_change_1w: 0.02
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260529
+- over_400_ratio: 60.02
+- over_600_ratio: 57.04
+- over_800_ratio: 55.97
+- over_1000_ratio: 53.64
+- over_400_change_1w: -0.71
+- over_800_change_1w: 0.9
+- over_1000_change_1w: 0.42
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,61.5,-1.46,55.78,-1.31,53.91,-1.8,0,False,False
 20260515,61.17,-0.33,55.05,-0.73,53.21,-0.7,0,False,False
 20260522,60.73,-0.44,55.07,0.02,53.22,0.01,1,False,True
+20260529,60.02,-0.71,55.97,0.9,53.64,0.42,2,False,True
 ```
 
 ## Candidate Context

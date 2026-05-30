@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4588 玖鼎電力
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:54 Asia/Taipei
+- generated_at: 2026-05-30 23:42:26 Asia/Taipei
 - stock_id: 4588
 - stock_name: 玖鼎電力
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -79,7 +79,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,60,62.1,60,60.3,249242,59.87,0.71,59.62,61.81,2.43
 20260505,61.4,61.9,60.7,61,116069,59.97,1.72,59.8,61.68,1.09
-20260506,61.5,61.6,59.1,60.2,130095,59.99,0.35,59.93,61.54,1.16
+20260506,61.5,61.6,59.1,60.2,130095,59.99,0.36,59.93,61.54,1.16
 20260507,60,60.5,60,60.3,57246,60.01,0.48,60.05,61.38,0.54
 20260508,59.7,59.7,58.1,58.7,165779,59.9,-2.01,60.09,61.24,1.47
 20260511,58.6,58.6,58.1,58.3,75010,59.77,-2.46,60.12,61.11,0.67
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 50.68
 - over_600_ratio: 49.48
 - over_800_ratio: 44.4
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,50.68,-0.05,44.4,-0.05,40.17,0,0,False,False
 20260515,50.68,0,44.4,0,40.18,0.01,1,False,True
 20260522,50.68,0,44.4,0,40.18,0,0,False,False
+20260529,50.68,0,44.4,0,40.18,0,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2609 陽明
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:11 Asia/Taipei
+- generated_at: 2026-05-30 23:41:35 Asia/Taipei
 - stock_id: 2609
 - stock_name: 陽明
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 56.77
-- over_600_ratio: 55.63
-- over_800_ratio: 54.87
-- over_1000_ratio: 54.26
-- over_400_change_1w: 0.29
-- over_800_change_1w: 0.36
-- over_1000_change_1w: 0.44
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260529
+- over_400_ratio: 57.56
+- over_600_ratio: 56.37
+- over_800_ratio: 55.69
+- over_1000_ratio: 54.87
+- over_400_change_1w: 0.79
+- over_800_change_1w: 0.82
+- over_1000_change_1w: 0.61
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,57.11,0.21,55.1,0.25,54.48,0.15,1,True,True
 20260515,56.48,-0.63,54.51,-0.59,53.82,-0.66,0,False,False
 20260522,56.77,0.29,54.87,0.36,54.26,0.44,1,True,True
+20260529,57.56,0.79,55.69,0.82,54.87,0.61,2,True,True
 ```
 
 ## Candidate Context

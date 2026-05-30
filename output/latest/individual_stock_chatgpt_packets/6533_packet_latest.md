@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6533 晶心科
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:30 Asia/Taipei
+- generated_at: 2026-05-30 23:43:07 Asia/Taipei
 - stock_id: 6533
 - stock_name: 晶心科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 20.96
-- over_600_ratio: 18.26
-- over_800_ratio: 18.26
-- over_1000_ratio: 16.37
-- over_400_change_1w: -0.37
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260529
+- over_400_ratio: 21.91
+- over_600_ratio: 18.25
+- over_800_ratio: 18.25
+- over_1000_ratio: 16.36
+- over_400_change_1w: 0.95
+- over_800_change_1w: -0.01
+- over_1000_change_1w: -0.01
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,21.72,0.08,18.26,0.08,16.37,-0.02,1,False,True
 20260515,21.33,-0.39,18.26,0,16.37,0,0,False,False
 20260522,20.96,-0.37,18.26,0,16.37,0,0,False,False
+20260529,21.91,0.95,18.25,-0.01,16.36,-0.01,1,False,False
 ```
 
 ## Candidate Context

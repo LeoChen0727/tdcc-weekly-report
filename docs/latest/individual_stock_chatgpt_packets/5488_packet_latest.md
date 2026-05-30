@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5488 松普
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:09 Asia/Taipei
+- generated_at: 2026-05-30 23:42:43 Asia/Taipei
 - stock_id: 5488
 - stock_name: 松普
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -90,7 +90,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260518,10.1,10.35,10.05,10.3,207000,10.15,1.46,10.1,10.05,0.54
 20260519,10.3,11,10.2,10.7,1067000,10.2,4.93,10.11,10.06,2.54
 20260520,10.95,11.75,10.85,11.7,3783000,10.32,13.34,10.18,10.09,6.39
-20260521,11.7,12.1,11.35,11.8,2527000,10.45,12.97,10.26,10.12,3.59
+20260521,11.7,12.1,11.35,11.8,2527000,10.45,12.96,10.26,10.12,3.59
 20260522,11.85,12.4,11.55,11.55,12000,10.54,9.61,10.34,10.15,0.02
 20260525,11.8,12.3,11.75,11.9,12000,10.65,11.72,10.45,10.18,0.02
 20260526,12.1,12.25,11.75,11.85,12000,10.75,10.22,10.56,10.21,0.02
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 44.06
-- over_600_ratio: 38.06
-- over_800_ratio: 35.77
-- over_1000_ratio: 34.88
-- over_400_change_1w: 0.84
-- over_800_change_1w: 0.05
-- over_1000_change_1w: 0.04
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 44.47
+- over_600_ratio: 39.2
+- over_800_ratio: 36.88
+- over_1000_ratio: 35.99
+- over_400_change_1w: 0.41
+- over_800_change_1w: 1.11
+- over_1000_change_1w: 1.11
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,43.04,0.51,35.72,0.02,34.84,0.02,1,True,True
 20260515,43.22,0.18,35.72,0,34.84,0,2,False,False
 20260522,44.06,0.84,35.77,0.05,34.88,0.04,3,True,True
+20260529,44.47,0.41,36.88,1.11,35.99,1.11,4,True,True
 ```
 
 ## Candidate Context

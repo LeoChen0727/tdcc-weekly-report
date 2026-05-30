@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4946 辣椒
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:59 Asia/Taipei
+- generated_at: 2026-05-30 23:42:31 Asia/Taipei
 - stock_id: 4946
 - stock_name: 辣椒
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -79,7 +79,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,112,115.5,112,112.5,22000,114.99,-2.16,111.75,124.3,0.36
 20260505,112,115.5,109,110,66000,114.57,-3.99,111.83,124.14,1.05
-20260506,114,114,110,111,39000,114.28,-2.87,112,123.92,0.62
+20260506,114,114,110,111,39000,114.27,-2.87,112,123.92,0.62
 20260507,111,112.5,102,107,137000,113.67,-5.87,111.85,123.65,2.04
 20260508,105.5,107,105,107,59000,113.11,-5.4,111.7,123.47,0.87
 20260511,105,106.5,105,105.5,62000,112.48,-6.2,111.45,123.31,0.91
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 42.58
 - over_600_ratio: 42.58
 - over_800_ratio: 42.58
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,42.58,0,42.58,0,42.58,0,0,False,False
 20260515,42.58,0,42.58,0,42.58,0,0,False,False
 20260522,42.58,0,42.58,0,42.58,0,0,False,False
+20260529,42.58,0,42.58,0,42.58,0,0,False,False
 ```
 
 ## Candidate Context

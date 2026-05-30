@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5263 智崴
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:04 Asia/Taipei
+- generated_at: 2026-05-30 23:42:37 Asia/Taipei
 - stock_id: 5263
 - stock_name: 智崴
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 136
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 272
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -87,7 +87,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260513,100,101,99.5,100,185000,98.05,1.99,96.89,97.39,0.8
 20260514,100,100.5,99,100,164000,98.22,1.82,97.19,97.33,0.71
 20260515,103,105.5,100,102,282000,98.53,3.52,97.5,97.3,1.19
-20260518,100.5,112,99.8,111.5,744000,99.61,11.94,98.37,97.5,2.78
+20260518,100.5,112,99.8,111.5,744000,99.61,11.93,98.37,97.5,2.78
 20260519,110,112.5,107.5,108.5,485000,100.35,8.12,99.05,97.62,1.7
 20260520,109.5,111,108.5,110.5,246000,101.2,9.19,99.85,97.77,0.88
 20260521,112.5,114,111,112,299000,102.1,9.7,100.72,97.89,1.04
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 56.06
-- over_600_ratio: 48.28
-- over_800_ratio: 45.46
+- as_of_date: 20260529
+- over_400_ratio: 55.67
+- over_600_ratio: 48.36
+- over_800_ratio: 46.58
 - over_1000_ratio: 45.46
-- over_400_change_1w: 1.03
-- over_800_change_1w: -0.09
-- over_1000_change_1w: -0.09
-- tdcc_consecutive_up_weeks: 3
+- over_400_change_1w: -0.39
+- over_800_change_1w: 1.12
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,54.39,-0.04,45.53,-0.04,45.53,-0.04,1,False,False
 20260515,55.03,0.64,45.55,0.02,45.55,0.02,2,True,True
 20260522,56.06,1.03,45.46,-0.09,45.46,-0.09,3,False,False
+20260529,55.67,-0.39,46.58,1.12,45.46,0,4,False,True
 ```
 
 ## Candidate Context

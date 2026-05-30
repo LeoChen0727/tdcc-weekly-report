@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1540 喬福
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:43 Asia/Taipei
+- generated_at: 2026-05-30 23:41:03 Asia/Taipei
 - stock_id: 1540
 - stock_name: 喬福
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -87,28 +87,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260513,20.8,20.8,20.5,20.5,205746,21.26,-3.55,21.2,22.23,0.64
 20260514,20.8,21,20.5,20.5,251255,21.19,-3.27,21.13,22.16,0.8
 20260515,20.6,21.3,20.6,20.65,319935,21.15,-2.35,21.05,22.09,1.01
-20260518,20.6,21.35,20.3,21.25,350134,21.16,0.45,21.01,22.05,1.1
+20260518,20.6,21.35,20.3,21.25,350134,21.16,0.44,21.01,22.05,1.1
 20260519,21.65,21.65,20.65,20.75,277207,21.12,-1.76,20.96,21.99,0.86
 20260520,20.95,20.95,20.55,20.7,150074,21.09,-1.83,20.91,21.93,0.48
 20260521,20.75,21.15,20.75,20.95,113502,21.08,-0.6,20.87,21.89,0.37
 20260522,21.05,21.4,20.85,21.35,417060,21.1,1.19,20.88,21.83,1.43
 20260525,21.35,21.5,20.85,21.1,549359,21.1,0.01,20.91,21.77,1.83
 20260526,21.1,21.35,20.85,21.25,419171,21.11,0.66,20.96,21.73,1.39
-20260527,21.65,21.65,20.8,20.85,444471,21.09,-1.13,20.95,21.68,1.47
+20260527,21.65,21.65,20.8,20.85,444471,21.09,-1.14,20.95,21.68,1.47
 20260528,20.85,21.9,20.85,21.25,558970,21.1,0.7,20.97,21.65,1.75
 20260529,21.45,21.6,21.15,21.2,377133,21.11,0.42,20.98,21.62,1.16
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 33.7
-- over_600_ratio: 27.77
+- as_of_date: 20260529
+- over_400_ratio: 33.81
+- over_600_ratio: 28.52
 - over_800_ratio: 25.36
 - over_1000_ratio: 24.25
-- over_400_change_1w: 0.06
-- over_800_change_1w: -0.01
-- over_1000_change_1w: -0.01
-- tdcc_consecutive_up_weeks: 2
+- over_400_change_1w: 0.11
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,33.46,-0.97,25.17,-0.05,24.06,-0.05,0,False,False
 20260515,33.64,0.18,25.37,0.2,24.26,0.2,1,True,True
 20260522,33.7,0.06,25.36,-0.01,24.25,-0.01,2,False,False
+20260529,33.81,0.11,25.36,0,24.25,0,3,False,False
 ```
 
 ## Candidate Context

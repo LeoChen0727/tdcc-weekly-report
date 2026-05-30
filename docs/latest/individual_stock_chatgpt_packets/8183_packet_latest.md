@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8183 精星
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:57 Asia/Taipei
+- generated_at: 2026-05-30 23:43:53 Asia/Taipei
 - stock_id: 8183
 - stock_name: 精星
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,16 +100,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 48.29
-- over_600_ratio: 45.32
-- over_800_ratio: 43.55
-- over_1000_ratio: 43.55
-- over_400_change_1w: 0.6
-- over_800_change_1w: 0.17
-- over_1000_change_1w: 0.17
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 48.07
+- over_600_ratio: 45.41
+- over_800_ratio: 43.65
+- over_1000_ratio: 43.65
+- over_400_change_1w: -0.22
+- over_800_change_1w: 0.1
+- over_1000_change_1w: 0.1
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,47.7,0.66,43.41,-0.73,43.41,-0.07,1,False,False
 20260515,47.69,-0.01,43.38,-0.03,43.38,-0.03,0,False,False
 20260522,48.29,0.6,43.55,0.17,43.55,0.17,1,True,True
+20260529,48.07,-0.22,43.65,0.1,43.65,0.1,2,False,True
 ```
 
 ## Candidate Context

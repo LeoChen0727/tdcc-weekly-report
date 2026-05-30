@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6589 台康生技
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:33 Asia/Taipei
+- generated_at: 2026-05-30 23:43:09 Asia/Taipei
 - stock_id: 6589
 - stock_name: 台康生技
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 202
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 57.36
-- over_600_ratio: 54.01
-- over_800_ratio: 50.75
-- over_1000_ratio: 49.35
-- over_400_change_1w: -0.62
-- over_800_change_1w: -0.12
-- over_1000_change_1w: -0.38
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260529
+- over_400_ratio: 57.41
+- over_600_ratio: 53.67
+- over_800_ratio: 51.08
+- over_1000_ratio: 49.4
+- over_400_change_1w: 0.05
+- over_800_change_1w: 0.33
+- over_1000_change_1w: 0.05
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,57.46,0.37,50.92,0.05,49.78,0.05,1,False,True
 20260515,57.98,0.52,50.87,-0.05,49.73,-0.05,2,False,False
 20260522,57.36,-0.62,50.75,-0.12,49.35,-0.38,0,False,False
+20260529,57.41,0.05,51.08,0.33,49.4,0.05,1,False,True
 ```
 
 ## Candidate Context

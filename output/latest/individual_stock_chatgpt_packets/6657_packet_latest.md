@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6657 華安
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:35 Asia/Taipei
+- generated_at: 2026-05-30 23:43:12 Asia/Taipei
 - stock_id: 6657
 - stock_name: 華安
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -83,7 +83,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260507,40.7,41.2,40.7,41.1,215797,42.82,-4.02,43.05,45.19,0.6
 20260508,41.1,41.5,40.25,41,252862,42.67,-3.91,43.02,44.95,0.68
 20260511,41,41,38.7,39.9,409893,42.44,-5.98,42.93,44.76,1.07
-20260512,40,40.05,39.3,39.7,228555,42.21,-5.94,42.8,44.61,0.59
+20260512,40,40.05,39.3,39.7,228555,42.21,-5.95,42.8,44.61,0.59
 20260513,39.65,40.15,39.65,40.15,159446,42.04,-4.49,42.65,44.48,0.42
 20260514,40.15,40.2,39.4,39.8,172763,41.85,-4.9,42.38,44.35,0.46
 20260515,40,40,39.05,39.05,193027,41.62,-6.17,41.85,44.21,0.69
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 36.25
-- over_600_ratio: 28.17
+- as_of_date: 20260529
+- over_400_ratio: 36.88
+- over_600_ratio: 28.23
 - over_800_ratio: 24.33
 - over_1000_ratio: 20.99
-- over_400_change_1w: -0.04
+- over_400_change_1w: 0.63
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,36.21,-0.12,24.33,0,20.99,0,1,False,False
 20260515,36.29,0.08,24.33,0,20.99,0,2,False,False
 20260522,36.25,-0.04,24.33,0,20.99,0,0,False,False
+20260529,36.88,0.63,24.33,0,20.99,0,1,False,False
 ```
 
 ## Candidate Context

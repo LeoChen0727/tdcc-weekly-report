@@ -1,15 +1,15 @@
-generated_at=2026-05-30 20:42:56 Asia/Taipei
-main_price_date=20260529
+generated_at=2026-05-30 23:44:58 Asia/Taipei
+main_price_date=20260530
 report_ready=True
-commit_sha=be66d18606e05491cc6e69838dc5751da2b636ae
+commit_sha=53886d9bf43677de3a035b264821cfcf30c11bb0
 latest_readme_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT.txt
 latest_readme_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/READ_ME_FIRST_DAILY_REPORT.txt
 latest_readme_github_api_url=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/READ_ME_FIRST_DAILY_REPORT.txt?ref=main
-date_stamped_readme_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT_20260529.txt
-date_stamped_readme_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/READ_ME_FIRST_DAILY_REPORT_20260529.txt
-date_stamped_readme_github_api_url=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/READ_ME_FIRST_DAILY_REPORT_20260529.txt?ref=main
-history_readme_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/history/reports/20260529_READ_ME_FIRST_DAILY_REPORT.txt
-history_readme_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260529_READ_ME_FIRST_DAILY_REPORT.txt
+date_stamped_readme_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT_20260530.txt
+date_stamped_readme_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/READ_ME_FIRST_DAILY_REPORT_20260530.txt
+date_stamped_readme_github_api_url=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/READ_ME_FIRST_DAILY_REPORT_20260530.txt?ref=main
+history_readme_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/history/reports/20260530_READ_ME_FIRST_DAILY_REPORT.txt
+history_readme_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260530_READ_ME_FIRST_DAILY_REPORT.txt
 astrology_read_protocol_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/astrology_read_protocol_latest.md
 astrology_read_protocol_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/astrology_read_protocol_latest.md
 preferred_chatgpt_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt

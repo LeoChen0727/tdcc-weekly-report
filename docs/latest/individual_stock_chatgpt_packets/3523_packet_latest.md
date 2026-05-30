@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3523 迎輝
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:37 Asia/Taipei
+- generated_at: 2026-05-30 23:42:05 Asia/Taipei
 - stock_id: 3523
 - stock_name: 迎輝
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 127
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 263
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -91,7 +91,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260519,10.1,10.1,9.64,9.91,20000,12.31,-19.48,12.42,14.4,0.85
 20260520,10.1,10.1,9.7,9.99,8000,12.11,-17.54,12.29,14.27,0.35
 20260521,9.7,10,9.7,10,12000,11.94,-16.23,12.1,14.13,0.54
-20260522,9.56,10,9.56,9.99,10000,11.78,-15.17,11.9,13.99,0.45
+20260522,9.56,10,9.56,9.99,10000,11.78,-15.16,11.9,13.99,0.45
 20260525,10,10.95,9.97,10.95,11000,11.71,-6.47,11.77,13.88,0.5
 20260526,12,12,12,12,12000,11.73,2.29,11.71,13.78,0.54
 20260527,13.2,13.2,13.2,13.2,13000,11.85,11.36,11.7,13.7,0.57
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 84.58
+- as_of_date: 20260529
+- over_400_ratio: 84.57
 - over_600_ratio: 81.49
 - over_800_ratio: 78.36
 - over_1000_ratio: 78.36
-- over_400_change_1w: 0.01
+- over_400_change_1w: -0.01
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 2
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,84.1,0,78.36,0,78.36,0,0,False,False
 20260515,84.57,0.47,78.36,0,78.36,0,1,False,False
 20260522,84.58,0.01,78.36,0,78.36,0,2,False,False
+20260529,84.57,-0.01,78.36,0,78.36,0,0,False,False
 ```
 
 ## Candidate Context

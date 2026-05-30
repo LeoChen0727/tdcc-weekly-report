@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5309 系統電
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:05 Asia/Taipei
+- generated_at: 2026-05-30 23:42:38 Asia/Taipei
 - stock_id: 5309
 - stock_name: 系統電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 42.59
-- over_600_ratio: 40.45
-- over_800_ratio: 39.54
-- over_1000_ratio: 38.02
-- over_400_change_1w: 2.62
-- over_800_change_1w: 3.04
-- over_1000_change_1w: 3.55
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 44.06
+- over_600_ratio: 41.65
+- over_800_ratio: 40.69
+- over_1000_ratio: 39.14
+- over_400_change_1w: 1.47
+- over_800_change_1w: 1.15
+- over_1000_change_1w: 1.12
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,39.67,1.28,35.13,0.72,33.6,1.1,1,True,True
 20260515,39.97,0.3,36.5,1.37,34.47,0.87,2,True,True
 20260522,42.59,2.62,39.54,3.04,38.02,3.55,3,True,True
+20260529,44.06,1.47,40.69,1.15,39.14,1.12,4,True,True
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 5309 | 系統電 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 5309 | 系統電 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

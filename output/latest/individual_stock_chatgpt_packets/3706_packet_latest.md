@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3706 神達
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:44 Asia/Taipei
+- generated_at: 2026-05-30 23:42:13 Asia/Taipei
 - stock_id: 3706
 - stock_name: 神達
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,16 +77,16 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,82.2,83,81.5,82.9,6720160,81.65,1.54,81.57,80.33,0.62
+20260504,82.2,83,81.5,82.9,6720160,81.64,1.54,81.57,80.33,0.62
 20260505,83,85.2,82.5,84.1,16895411,81.85,2.75,82.04,80.35,1.49
 20260506,85.3,88.3,83.6,87.8,36666496,82.35,6.62,82.69,80.46,2.84
 20260507,88.4,88.7,86.8,87.4,27974163,82.77,5.6,83.09,80.56,2.06
 20260508,87.2,88.4,85.2,86.2,16332332,83.05,3.79,83.49,80.66,1.16
-20260511,86.9,89.2,85.7,86.8,21367106,83.37,4.12,83.68,80.79,1.55
+20260511,86.9,89.2,85.7,86.8,21367106,83.36,4.12,83.68,80.79,1.55
 20260512,87,87.5,84.7,85.9,12996258,83.58,2.78,83.86,80.94,0.93
 20260513,83.4,83.4,80.9,82.1,29666339,83.45,-1.62,83.84,81,2
 20260514,82.4,82.5,81.2,81.2,12014167,83.27,-2.48,83.8,81.04,0.81
-20260515,81.8,82.5,79.5,79.9,14866755,82.99,-3.72,83.66,81.08,0.99
+20260515,81.8,82.5,79.5,79.9,14866755,82.98,-3.72,83.66,81.08,0.99
 20260518,79.3,80.3,77.8,80.1,8216802,82.74,-3.2,83.45,81.16,0.56
 20260519,80.1,81,79.6,80.7,8211781,82.57,-2.27,83.28,81.22,0.57
 20260520,80.7,80.8,79.9,80.3,7923561,82.38,-2.53,83.05,81.24,0.56
@@ -100,16 +100,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 51.45
-- over_600_ratio: 50.17
-- over_800_ratio: 49.45
-- over_1000_ratio: 48.69
-- over_400_change_1w: 0
-- over_800_change_1w: 0.22
-- over_1000_change_1w: 0.16
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 52.31
+- over_600_ratio: 50.89
+- over_800_ratio: 50.17
+- over_1000_ratio: 49.42
+- over_400_change_1w: 0.86
+- over_800_change_1w: 0.72
+- over_1000_change_1w: 0.73
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,20 +120,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,52.61,0.52,50.46,0.61,49.85,0.62,1,True,True
 20260515,51.45,-1.16,49.23,-1.23,48.53,-1.32,0,False,False
 20260522,51.45,0,49.45,0.22,48.69,0.16,1,False,True
+20260529,52.31,0.86,50.17,0.72,49.42,0.73,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 3706 | 神達 | pullback_rebound | 回檔後短線轉強 | 62.0 |  |  |  |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
-| 20260529 | 3706 | 神達 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260529 | 3706 | 神達 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260530 | 3706 | 神達 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260530 | 3706 | 神達 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 | 20260521 | 3706 | 神達 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 3706 | 神達 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260530 | 3706 | 神達 | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4174 浩鼎
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:48 Asia/Taipei
+- generated_at: 2026-05-30 23:42:18 Asia/Taipei
 - stock_id: 4174
 - stock_name: 浩鼎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 132
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 268
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,7 +77,7 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,32.05,32.5,31.65,31.7,330000,35.14,-9.79,35.73,37.72,0.69
+20260504,32.05,32.5,31.65,31.7,330000,35.14,-9.8,35.73,37.72,0.69
 20260505,31.85,34.85,31.8,34.85,1215000,35.12,-0.76,35.58,37.85,2.29
 20260506,34.4,37.3,34.3,35.25,2014000,35.13,0.34,35.39,38.01,3.26
 20260507,35.35,35.45,34.8,34.8,467000,35.1,-0.86,35.18,38.17,0.75
@@ -100,16 +100,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 42.96
-- over_600_ratio: 40.43
-- over_800_ratio: 38.34
-- over_1000_ratio: 35.54
-- over_400_change_1w: 0.03
-- over_800_change_1w: 0.1
-- over_1000_change_1w: 0.19
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 43.46
+- over_600_ratio: 39.83
+- over_800_ratio: 37.7
+- over_1000_ratio: 35.55
+- over_400_change_1w: 0.5
+- over_800_change_1w: -0.64
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,42.64,-0.05,38.6,0.56,35.1,-0.08,1,False,True
 20260515,42.93,0.29,38.24,-0.36,35.35,0.25,2,False,True
 20260522,42.96,0.03,38.34,0.1,35.54,0.19,3,True,True
+20260529,43.46,0.5,37.7,-0.64,35.55,0.01,4,False,True
 ```
 
 ## Candidate Context

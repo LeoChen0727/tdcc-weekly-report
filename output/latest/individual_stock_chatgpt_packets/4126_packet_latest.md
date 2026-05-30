@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4126 太醫
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:46 Asia/Taipei
+- generated_at: 2026-05-30 23:42:16 Asia/Taipei
 - stock_id: 4126
 - stock_name: 太醫
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -78,7 +78,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,79.5,79.5,79.2,79.3,21000,79.84,-0.68,79.92,80.58,0.41
-20260505,80.4,80.5,79,79.5,38000,79.82,-0.39,79.9,80.53,0.71
+20260505,80.4,80.5,79,79.5,38000,79.81,-0.39,79.9,80.53,0.71
 20260506,80.1,80.1,79.2,79.8,17000,79.81,-0.02,79.86,80.48,0.33
 20260507,80,80,79.7,79.9,31000,79.82,0.1,79.84,80.44,0.65
 20260508,80.7,80.7,79.6,79.8,19000,79.82,-0.02,79.81,80.39,0.42
@@ -87,7 +87,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260513,80.3,80.4,79.7,79.7,44000,79.78,-0.1,79.72,80.32,1.02
 20260514,80.2,80.4,80,80,29000,79.8,0.26,79.7,80.31,0.68
 20260515,80,80.5,79.9,80,24000,79.81,0.23,79.67,80.31,0.56
-20260518,80.8,80.8,79.5,80,18000,79.83,0.21,79.61,80.31,0.43
+20260518,80.8,80.8,79.5,80,18000,79.83,0.22,79.61,80.31,0.43
 20260519,80,80,79.6,79.6,11000,79.81,-0.26,79.58,80.31,0.28
 20260520,79.6,79.9,79.6,79.9,11000,79.82,0.1,79.56,80.3,0.28
 20260521,79.8,79.9,79.7,79.8,18000,79.82,-0.02,79.54,80.28,0.46
@@ -100,14 +100,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 63.2
-- over_600_ratio: 59.57
-- over_800_ratio: 55.79
-- over_1000_ratio: 54.51
-- over_400_change_1w: -0.04
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
+- as_of_date: 20260529
+- over_400_ratio: 62.9
+- over_600_ratio: 59.26
+- over_800_ratio: 55.48
+- over_1000_ratio: 54.2
+- over_400_change_1w: -0.3
+- over_800_change_1w: -0.31
+- over_1000_change_1w: -0.31
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,63.22,0,55.79,0,54.51,0,0,False,False
 20260515,63.24,0.02,55.79,0,54.51,0,1,False,False
 20260522,63.2,-0.04,55.79,0,54.51,0,0,False,False
+20260529,62.9,-0.3,55.48,-0.31,54.2,-0.31,0,False,False
 ```
 
 ## Candidate Context

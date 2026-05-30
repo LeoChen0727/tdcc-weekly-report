@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1402 遠東新
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:37 Asia/Taipei
+- generated_at: 2026-05-30 23:40:56 Asia/Taipei
 - stock_id: 1402
 - stock_name: 遠東新
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 26
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 27
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,23 +100,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 88.24
-- over_600_ratio: 87.13
-- over_800_ratio: 86.4
-- over_1000_ratio: 85.68
-- over_400_change_1w: 0.18
-- over_800_change_1w: 0.1
-- over_1000_change_1w: 0.13
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 86.68
+- over_600_ratio: 85.51
+- over_800_ratio: 84.73
+- over_1000_ratio: 83.98
+- over_400_change_1w: -1.56
+- over_800_change_1w: -1.67
+- over_1000_change_1w: -1.7
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260306,89.54,-0.64,87.9,-0.75,87.39,-0.73,0,False,False
 20260313,89.34,-0.2,87.64,-0.26,87.12,-0.27,0,False,False
 20260320,88.53,-0.81,86.82,-0.82,86.21,-0.91,0,False,False
 20260327,88.08,-0.45,86.34,-0.48,85.67,-0.54,0,False,False
@@ -128,6 +127,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,87.78,-0.04,86.01,0.01,85.3,-0.04,2,False,True
 20260515,88.06,0.28,86.3,0.29,85.55,0.25,3,True,True
 20260522,88.24,0.18,86.4,0.1,85.68,0.13,4,True,True
+20260529,86.68,-1.56,84.73,-1.67,83.98,-1.7,0,False,False
 ```
 
 ## Candidate Context
@@ -138,7 +138,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 1402 | 遠東新 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 1402 | 遠東新 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1203 味王
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:33 Asia/Taipei
+- generated_at: 2026-05-30 23:40:51 Asia/Taipei
 - stock_id: 1203
 - stock_name: 味王
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 272
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 91.01
-- over_600_ratio: 89.52
-- over_800_ratio: 88.12
-- over_1000_ratio: 86.65
-- over_400_change_1w: 0.02
+- as_of_date: 20260529
+- over_400_ratio: 91.04
+- over_600_ratio: 89.55
+- over_800_ratio: 88.15
+- over_1000_ratio: 86.68
+- over_400_change_1w: 0.03
 - over_800_change_1w: 0.03
 - over_1000_change_1w: 0.03
-- tdcc_consecutive_up_weeks: 2
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,90.97,0,88.07,0,86.6,0,0,False,False
 20260515,90.99,0.02,88.09,0.02,86.62,0.02,1,True,True
 20260522,91.01,0.02,88.12,0.03,86.65,0.03,2,True,True
+20260529,91.04,0.03,88.15,0.03,86.68,0.03,3,True,True
 ```
 
 ## Candidate Context

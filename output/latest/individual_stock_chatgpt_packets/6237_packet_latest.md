@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6237 驊訊
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:23 Asia/Taipei
+- generated_at: 2026-05-30 23:42:58 Asia/Taipei
 - stock_id: 6237
 - stock_name: 驊訊
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -92,24 +92,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260520,47.15,50.2,47.1,48.55,4631000,42.69,13.74,42.29,39.09,2.69
 20260521,51,53.4,49.6,53.4,7113000,43.58,22.53,42.91,39.35,3.48
 20260522,54.2,56.1,53.5,54.8,55000,44.51,23.11,43.69,39.61,0.03
-20260525,54.8,58.5,53.2,54.6,56000,45.35,20.38,44.45,39.87,0.03
-20260526,54.5,55,52.2,53.6,53000,46.04,16.42,45.2,40.11,0.03
+20260525,54.8,58.5,53.2,54.6,56000,45.36,20.38,44.45,39.87,0.03
+20260526,54.5,55,52.2,53.6,53000,46.04,16.41,45.2,40.11,0.03
 20260527,53.8,54.4,50.8,51.1,52000,46.46,9.98,45.79,40.3,0.03
-20260528,51.1,53,50.4,52,52000,46.92,10.82,46.46,40.5,0.03
+20260528,51.1,53,50.4,52,52000,46.92,10.81,46.46,40.5,0.03
 20260529,52.1,52.6,50.3,50.3,51000,47.21,6.55,46.99,40.69,0.03
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 22
-- over_600_ratio: 19.04
-- over_800_ratio: 15.43
-- over_1000_ratio: 15.43
-- over_400_change_1w: 0.83
-- over_800_change_1w: 0.13
-- over_1000_change_1w: 0.13
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 21.35
+- over_600_ratio: 18.82
+- over_800_ratio: 16.89
+- over_1000_ratio: 15.81
+- over_400_change_1w: -0.65
+- over_800_change_1w: 1.46
+- over_1000_change_1w: 0.38
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,19.17,0.51,15.24,0.07,13.99,0,1,False,True
 20260515,21.17,2,15.3,0.06,15.3,1.31,2,True,True
 20260522,22,0.83,15.43,0.13,15.43,0.13,3,True,True
+20260529,21.35,-0.65,16.89,1.46,15.81,0.38,4,False,True
 ```
 
 ## Candidate Context

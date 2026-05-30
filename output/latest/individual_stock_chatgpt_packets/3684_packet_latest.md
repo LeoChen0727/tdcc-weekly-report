@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3684 榮昌
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:42 Asia/Taipei
+- generated_at: 2026-05-30 23:42:12 Asia/Taipei
 - stock_id: 3684
 - stock_name: 榮昌
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -79,11 +79,11 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,57.4,61.6,57.4,60.1,152000,58.74,2.31,58.26,59.24,1.59
 20260505,60.6,60.6,59.3,59.7,62000,58.82,1.49,58.34,59.3,0.65
-20260506,59.4,59.9,58.8,59,74000,58.84,0.28,58.34,59.34,0.77
+20260506,59.4,59.9,58.8,59,74000,58.84,0.27,58.34,59.34,0.77
 20260507,58.8,59.4,58.3,58.6,80000,58.82,-0.37,58.26,59.38,0.83
 20260508,58.9,60.4,58.5,59.5,151000,58.88,1.06,58.2,59.45,1.49
 20260511,60,60.8,59,59,173000,58.89,0.19,58.34,59.53,1.95
-20260512,58.7,58.7,57.6,58.4,120000,58.84,-0.76,58.41,59.63,1.35
+20260512,58.7,58.7,57.6,58.4,120000,58.85,-0.76,58.41,59.63,1.35
 20260513,58,58.1,57.5,57.5,42000,58.73,-2.1,58.39,59.7,0.5
 20260514,57.5,59.3,56.2,58.3,128000,58.7,-0.68,58.41,59.76,1.47
 20260515,58.3,60.1,58.3,59.3,180000,58.75,0.94,58.48,59.85,1.91
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 61.44
 - over_600_ratio: 57.9
 - over_800_ratio: 53.11
 - over_1000_ratio: 53.11
-- over_400_change_1w: 0.29
-- over_800_change_1w: 0.29
-- over_1000_change_1w: 0.29
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- over_400_change_1w: 0
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,61.15,-0.01,52.82,-0.01,52.82,-0.01,0,False,False
 20260515,61.15,0,52.82,0,52.82,0,0,False,False
 20260522,61.44,0.29,53.11,0.29,53.11,0.29,1,True,True
+20260529,61.44,0,53.11,0,53.11,0,0,False,False
 ```
 
 ## Candidate Context

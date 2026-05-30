@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6482 弘煜科
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:28 Asia/Taipei
+- generated_at: 2026-05-30 23:43:04 Asia/Taipei
 - stock_id: 6482
 - stock_name: 弘煜科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -87,7 +87,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260513,28.5,28.95,28.5,28.8,14000,30.26,-4.83,30.26,31.94,0.64
 20260514,28.6,28.8,28.4,28.4,32000,30.11,-5.67,30.14,31.82,1.47
 20260515,28.4,29.2,28.4,28.65,27000,29.99,-4.46,30,31.7,1.3
-20260518,29.55,29.55,29.4,29.4,4000,29.94,-1.8,29.89,31.62,0.2
+20260518,29.55,29.55,29.4,29.4,4000,29.94,-1.79,29.89,31.62,0.2
 20260519,28.85,28.85,28.45,28.6,7000,29.83,-4.11,29.75,31.51,0.38
 20260520,29.3,30.25,29,29.05,9000,29.76,-2.39,29.65,31.41,0.48
 20260521,29.9,30.55,29.7,29.7,6000,29.76,-0.19,29.56,31.33,0.39
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 67.6
 - over_600_ratio: 65.78
 - over_800_ratio: 65.78
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,67.6,0,65.78,0,65.78,0,0,False,False
 20260515,67.6,0,65.78,0,65.78,0,0,False,False
 20260522,67.6,0,65.78,0,65.78,0,0,False,False
+20260529,67.6,0,65.78,0,65.78,0,0,False,False
 ```
 
 ## Candidate Context

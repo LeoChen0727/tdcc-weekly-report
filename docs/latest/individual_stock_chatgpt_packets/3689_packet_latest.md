@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3689 湧德
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:43 Asia/Taipei
+- generated_at: 2026-05-30 23:42:12 Asia/Taipei
 - stock_id: 3689
 - stock_name: 湧德
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -83,7 +83,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260507,135,135,128,128,15569000,130.82,-2.15,134.4,119.47,2.33
 20260508,125.5,129,124,126,5456000,130.42,-3.39,134.2,119.72,0.84
 20260511,126.5,126.5,122,124.5,3596000,129.92,-4.17,133.68,119.97,0.59
-20260512,124.5,126.5,122.5,124,2082000,129.43,-4.19,132.93,120.25,0.37
+20260512,124.5,126.5,122.5,124,2082000,129.43,-4.2,132.93,120.25,0.37
 20260513,123.5,124,121,122,1921000,128.81,-5.29,132.1,120.39,0.36
 20260514,123.5,125.5,122,123,2466000,128.33,-4.15,131.45,120.57,0.47
 20260515,124,126,118.5,119,3210000,127.55,-6.7,130.62,120.67,0.64
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 23.12
-- over_600_ratio: 18.94
-- over_800_ratio: 16.67
-- over_1000_ratio: 12.56
-- over_400_change_1w: -1.58
-- over_800_change_1w: -0.91
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 29.33
+- over_600_ratio: 23.95
+- over_800_ratio: 20.24
+- over_1000_ratio: 17.13
+- over_400_change_1w: 6.21
+- over_800_change_1w: 3.57
+- over_1000_change_1w: 4.57
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,25.31,-7.06,16.67,-6.22,12.56,-3.38,0,False,False
 20260515,24.7,-0.61,17.58,0.91,12.56,0,1,False,True
 20260522,23.12,-1.58,16.67,-0.91,12.56,0,0,False,False
+20260529,29.33,6.21,20.24,3.57,17.13,4.57,1,True,True
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 3689 | 湧德 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260530 | 3689 | 湧德 | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

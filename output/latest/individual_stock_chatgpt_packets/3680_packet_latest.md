@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3680 家登
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:42 Asia/Taipei
+- generated_at: 2026-05-30 23:42:12 Asia/Taipei
 - stock_id: 3680
 - stock_name: 家登
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -79,20 +79,20 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,549,582,545,564,7139000,458.03,23.14,447.77,416.73,1.74
 20260505,579,602,572,582,5181000,468.36,24.26,458.12,419.15,1.2
-20260506,587,604,554,581,5352000,477.74,21.61,468.32,421.47,1.18
-20260507,584,608,570,585,4192000,486.68,20.2,477.35,423.62,0.9
-20260508,590,614,557,560,5499000,492.79,13.64,484.48,426.05,1.13
+20260506,587,604,554,581,5352000,477.75,21.61,468.32,421.47,1.18
+20260507,584,608,570,585,4192000,486.69,20.2,477.35,423.62,0.9
+20260508,590,614,557,560,5499000,492.8,13.64,484.48,426.05,1.13
 20260511,580,616,579,616,3908000,503.06,22.45,495.75,429.61,0.8
-20260512,617,623,600,602,3492000,511.3,17.74,506.77,432.89,0.7
+20260512,617,623,600,602,3492000,511.31,17.74,506.77,432.89,0.7
 20260513,592,602,563,588,3151000,517.7,13.58,515.95,435.92,0.65
 20260514,593,603,573,580,3513000,522.89,10.92,524.85,438.69,0.71
 20260515,592,592,557,568,3139000,526.65,7.85,531.5,441.48,0.66
-20260518,552,552,518,544,3486000,528.09,3.01,537.2,444,0.73
+20260518,552,552,518,544,3486000,528.1,3.01,537.2,444,0.73
 20260519,540,540,503,514,3667000,526.92,-2.45,539.25,445.77,0.78
 20260520,513,519,498.5,506,2608000,525.18,-3.65,539.4,447.47,0.59
-20260521,529,555,525,544,2412000,526.74,3.28,541.85,449.99,0.56
+20260521,529,555,525,544,2412000,526.75,3.28,541.85,449.99,0.56
 20260522,550,581,541,568,565000,530.18,7.13,546.83,452.63,0.14
-20260525,590,615,580,595,601000,535.58,11.09,553.62,455.61,0.15
+20260525,590,615,580,595,601000,535.59,11.09,553.62,455.61,0.15
 20260526,603,610,583,589,594000,540.04,9.07,560.62,458.38,0.16
 20260527,600,601,548,557,568000,541.45,2.87,564.05,460.57,0.16
 20260528,562,568,530,535,548000,540.91,-1.09,565.75,462.57,0.16
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 61.34
-- over_600_ratio: 55.83
-- over_800_ratio: 50
-- over_1000_ratio: 48.05
-- over_400_change_1w: 0.27
-- over_800_change_1w: -0.97
-- over_1000_change_1w: -0.25
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 58.55
+- over_600_ratio: 52.81
+- over_800_ratio: 49.9
+- over_1000_ratio: 46.96
+- over_400_change_1w: -2.79
+- over_800_change_1w: -0.1
+- over_1000_change_1w: -1.09
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,60.17,4.9,49.56,3.35,45.76,4.31,1,True,True
 20260515,61.07,0.9,50.97,1.41,48.3,2.54,2,False,True
 20260522,61.34,0.27,50,-0.97,48.05,-0.25,3,False,False
+20260529,58.55,-2.79,49.9,-0.1,46.96,-1.09,0,False,False
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 3680 | 家登 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 3680 | 家登 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7803 雲象科技-創
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:51 Asia/Taipei
+- generated_at: 2026-05-30 23:43:46 Asia/Taipei
 - stock_id: 7803
 - stock_name: 雲象科技-創
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260529
 - price_rows: 8
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,14 +88,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 80.47
-- over_600_ratio: 75.5
-- over_800_ratio: 73.97
-- over_1000_ratio: 71.96
-- over_400_change_1w: -4.66
-- over_800_change_1w: -4.7
-- over_1000_change_1w: -4.58
+- as_of_date: 20260529
+- over_400_ratio: 79.85
+- over_600_ratio: 75.34
+- over_800_ratio: 73.84
+- over_1000_ratio: 71.83
+- over_400_change_1w: -0.62
+- over_800_change_1w: -0.13
+- over_1000_change_1w: -0.13
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -108,6 +108,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,85.31,-0.17,78.8,-0.12,76.67,-0.12,0,False,False
 20260515,85.13,-0.18,78.67,-0.13,76.54,-0.13,0,False,False
 20260522,80.47,-4.66,73.97,-4.7,71.96,-4.58,0,False,False
+20260529,79.85,-0.62,73.84,-0.13,71.83,-0.13,0,False,False
 ```
 
 ## Candidate Context

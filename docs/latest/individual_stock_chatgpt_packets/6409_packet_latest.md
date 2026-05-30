@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6409 旭隼
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:26 Asia/Taipei
+- generated_at: 2026-05-30 23:43:01 Asia/Taipei
 - stock_id: 6409
 - stock_name: 旭隼
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,11 +77,11 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,789,803,778,791,731216,771.42,2.54,759.9,814.63,0.88
+20260504,789,803,778,791,731216,771.41,2.54,759.9,814.63,0.88
 20260505,804,806,777,784,1094929,772.46,1.49,762.15,812.35,1.29
 20260506,797,809,778,798,1275261,774.59,3.02,766,809.78,1.42
-20260507,811,811,784,790,991799,775.88,1.82,768.55,806.92,1.08
-20260508,800,833,799,821,1620725,779.64,5.31,773.6,805.27,1.7
+20260507,811,811,784,790,991799,775.87,1.82,768.55,806.92,1.08
+20260508,800,833,799,821,1620725,779.63,5.31,773.6,805.27,1.7
 20260511,809,809,747,764,2494620,778.33,-1.84,776.1,803.78,2.44
 20260512,767,775,757,764,1092902,777.14,-1.69,778.45,802.17,1.05
 20260513,764,764,752,753,676584,775.13,-2.85,779.65,799.4,0.65
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 57.56
-- over_600_ratio: 49.89
-- over_800_ratio: 44.59
-- over_1000_ratio: 36.12
-- over_400_change_1w: 0.8
-- over_800_change_1w: 1.19
-- over_1000_change_1w: 1.16
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 59
+- over_600_ratio: 51.75
+- over_800_ratio: 46.45
+- over_1000_ratio: 37.02
+- over_400_change_1w: 1.44
+- over_800_change_1w: 1.86
+- over_1000_change_1w: 0.9
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,59.47,-0.36,43.05,0.58,35.71,-0.41,1,False,True
 20260515,56.76,-2.71,43.4,0.35,34.96,-0.75,2,False,True
 20260522,57.56,0.8,44.59,1.19,36.12,1.16,3,True,True
+20260529,59,1.44,46.45,1.86,37.02,0.9,4,True,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2530 華建
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:10 Asia/Taipei
+- generated_at: 2026-05-30 23:41:33 Asia/Taipei
 - stock_id: 2530
 - stock_name: 華建
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,7 +88,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260514,21.25,21.3,20.4,21.05,1791108,21.8,-3.45,21.44,23.93,1.05
 20260515,20.8,21,20.5,21,997733,21.73,-3.38,21.36,23.85,0.58
 20260518,20.9,20.95,20.6,20.9,946304,21.67,-3.53,21.27,23.77,0.55
-20260519,20.65,20.85,20.6,20.7,395774,21.58,-4.1,21.19,23.7,0.24
+20260519,20.65,20.85,20.6,20.7,395774,21.59,-4.1,21.19,23.7,0.24
 20260520,20.8,20.95,20.35,20.9,854896,21.53,-2.92,21.12,23.63,0.51
 20260521,20.9,20.9,20.45,20.85,917355,21.47,-2.89,21.07,23.55,0.55
 20260522,20.65,20.75,20.25,20.45,1353880,21.39,-4.38,21.01,23.46,0.83
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 85.48
-- over_600_ratio: 83.35
-- over_800_ratio: 82.68
-- over_1000_ratio: 81.23
-- over_400_change_1w: 0.05
-- over_800_change_1w: -0.08
-- over_1000_change_1w: 0.24
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 85.25
+- over_600_ratio: 83.32
+- over_800_ratio: 82.74
+- over_1000_ratio: 81.29
+- over_400_change_1w: -0.23
+- over_800_change_1w: 0.06
+- over_1000_change_1w: 0.06
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,85.21,0.27,82.7,0.22,80.95,0.04,1,True,True
 20260515,85.43,0.22,82.76,0.06,80.99,0.04,2,True,True
 20260522,85.48,0.05,82.68,-0.08,81.23,0.24,3,False,True
+20260529,85.25,-0.23,82.74,0.06,81.29,0.06,4,False,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4534 慶騰
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:51 Asia/Taipei
+- generated_at: 2026-05-30 23:42:22 Asia/Taipei
 - stock_id: 4534
 - stock_name: 慶騰
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,10 +88,10 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260514,23.5,23.5,22.2,23.4,611000,24.42,-4.17,24.57,25.69,0.76
 20260515,23.3,24.15,22.2,22.8,611000,24.28,-6.1,24.39,25.7,0.78
 20260518,22.3,22.8,21.7,22.5,484000,24.13,-6.77,24.2,25.71,0.64
-20260519,22.8,22.8,21.85,22,415000,23.96,-8.16,23.96,25.71,0.57
+20260519,22.8,22.8,21.85,22,415000,23.96,-8.17,23.96,25.71,0.57
 20260520,22,22.05,21.7,21.75,304000,23.77,-8.51,23.73,25.72,0.43
 20260521,22.2,22.35,22,22.05,294000,23.63,-6.68,23.54,25.73,0.44
-20260522,22.4,24.25,22.4,24.25,24000,23.68,2.41,23.53,25.73,0.04
+20260522,22.4,24.25,22.4,24.25,24000,23.68,2.4,23.53,25.73,0.04
 20260525,25.6,26.65,24.7,26.65,26000,23.93,11.38,23.64,25.74,0.04
 20260526,27.9,27.9,25.45,26.6,26000,24.15,10.14,23.79,25.7,0.05
 20260527,26.75,27,25.25,25.75,26000,24.28,6.04,23.86,25.64,0.05
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 32.42
-- over_600_ratio: 28.01
+- as_of_date: 20260529
+- over_400_ratio: 33.18
+- over_600_ratio: 28.77
 - over_800_ratio: 27.3
 - over_1000_ratio: 26.35
-- over_400_change_1w: 0
+- over_400_change_1w: 0.76
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,32.42,-0.57,27.3,0,26.35,0,0,False,False
 20260515,32.42,0,27.3,0,26.35,0,0,False,False
 20260522,32.42,0,27.3,0,26.35,0,0,False,False
+20260529,33.18,0.76,27.3,0,26.35,0,1,False,False
 ```
 
 ## Candidate Context

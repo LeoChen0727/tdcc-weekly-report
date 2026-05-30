@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6796 晉弘
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:40 Asia/Taipei
+- generated_at: 2026-05-30 23:43:18 Asia/Taipei
 - stock_id: 6796
 - stock_name: 晉弘
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 272
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -79,12 +79,12 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,70,72.2,69.6,72,70069,72.63,-0.87,72.1,77.96,1.17
 20260505,72,72,70,70.3,66424,72.44,-2.95,72,77.66,1.1
-20260506,70.3,70.7,68.3,68.6,137834,72.12,-4.88,71.88,77.31,2.15
+20260506,70.3,70.7,68.3,68.6,137834,72.12,-4.87,71.88,77.31,2.15
 20260507,70,70,68.3,69.7,107839,71.91,-3.08,71.77,77,1.6
 20260508,69.7,70.9,68.7,69.7,111303,71.73,-2.83,71.69,76.69,1.56
 20260511,69,69,66,66,230002,71.25,-7.37,71.44,76.33,2.92
 20260512,67.9,68,65.7,67.2,96941,70.91,-5.24,71.17,75.97,1.18
-20260513,66.8,67.6,66.4,66.7,110824,70.56,-5.48,70.92,75.61,1.29
+20260513,66.8,67.6,66.4,66.7,110824,70.56,-5.47,70.92,75.61,1.29
 20260514,66.5,66.5,64.5,64.6,111288,70.07,-7.8,70.45,75.22,1.27
 20260515,64.4,64.4,60.8,60.9,278764,69.3,-12.12,69.61,74.78,2.86
 20260518,61,62,60.1,60.4,135192,68.56,-11.9,68.86,74.33,1.34
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 49.4
-- over_600_ratio: 40.92
-- over_800_ratio: 37.49
+- as_of_date: 20260529
+- over_400_ratio: 49.38
+- over_600_ratio: 40.94
+- over_800_ratio: 37.51
 - over_1000_ratio: 35.45
-- over_400_change_1w: 0.01
+- over_400_change_1w: -0.02
 - over_800_change_1w: 0.02
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 2
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,49.37,0,37.46,0,35.45,0,0,False,False
 20260515,49.39,0.02,37.47,0.01,35.45,0,1,False,True
 20260522,49.4,0.01,37.49,0.02,35.45,0,2,False,True
+20260529,49.38,-0.02,37.51,0.02,35.45,0,3,False,True
 ```
 
 ## Candidate Context

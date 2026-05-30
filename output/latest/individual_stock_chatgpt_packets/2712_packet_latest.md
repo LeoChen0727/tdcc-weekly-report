@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2712 遠雄來
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:13 Asia/Taipei
+- generated_at: 2026-05-30 23:41:38 Asia/Taipei
 - stock_id: 2712
 - stock_name: 遠雄來
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 133
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 259
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 90.83
 - over_600_ratio: 90.35
 - over_800_ratio: 87.7
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,90.83,0,87.7,0,86.86,0,0,False,False
 20260515,90.83,0,87.7,0,86.86,0,0,False,False
 20260522,90.83,0,87.7,0,86.86,0,0,False,False
+20260529,90.83,0,87.7,0,86.86,0,0,False,False
 ```
 
 ## Candidate Context

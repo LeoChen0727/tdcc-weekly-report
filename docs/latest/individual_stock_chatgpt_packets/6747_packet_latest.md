@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6747 亨泰光
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:38 Asia/Taipei
+- generated_at: 2026-05-30 23:43:16 Asia/Taipei
 - stock_id: 6747
 - stock_name: 亨泰光
 - packet_status: partial_rawdata_packet

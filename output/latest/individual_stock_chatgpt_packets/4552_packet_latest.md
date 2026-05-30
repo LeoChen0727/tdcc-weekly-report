@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4552 力達-KY
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:52 Asia/Taipei
+- generated_at: 2026-05-30 23:42:23 Asia/Taipei
 - stock_id: 4552
 - stock_name: 力達-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -79,7 +79,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,20,20,19.8,19.9,115867,20.76,-4.16,20.75,22.06,1.03
 20260505,19.85,20,19.8,19.95,165371,20.7,-3.6,20.71,21.99,1.39
-20260506,20,20.2,19.9,20.1,118533,20.65,-2.64,20.67,21.92,0.96
+20260506,20,20.2,19.9,20.1,118533,20.65,-2.65,20.67,21.92,0.96
 20260507,20,20.3,20,20.15,112964,20.6,-2.21,20.62,21.85,0.9
 20260508,20.2,20.2,19.85,20.15,188945,20.57,-2.03,20.57,21.79,1.44
 20260511,19.95,20.05,19.85,20,83346,20.52,-2.53,20.53,21.73,0.65
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 49.23
-- over_600_ratio: 46.75
-- over_800_ratio: 42.64
-- over_1000_ratio: 41.93
-- over_400_change_1w: 0.23
-- over_800_change_1w: 0.72
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 49.6
+- over_600_ratio: 47.12
+- over_800_ratio: 42.98
+- over_1000_ratio: 42.98
+- over_400_change_1w: 0.37
+- over_800_change_1w: 0.34
+- over_1000_change_1w: 1.05
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,48.68,0.47,41.89,0.01,41.89,0.01,1,False,True
 20260515,49,0.32,41.92,0.03,41.92,0.03,2,True,True
 20260522,49.23,0.23,42.64,0.72,41.93,0.01,3,True,True
+20260529,49.6,0.37,42.98,0.34,42.98,1.05,4,True,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1319 東陽
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:36 Asia/Taipei
+- generated_at: 2026-05-30 23:40:54 Asia/Taipei
 - stock_id: 1319
 - stock_name: 東陽
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 26
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 27
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -79,7 +79,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,74.5,75.5,73.9,75,2545396,78.56,-4.54,77.73,89.26,0.92
 20260505,74.5,78.5,74.4,76.4,4326510,78.38,-2.53,77.55,88.72,1.49
-20260506,77.6,77.6,75.1,75.4,4643982,78.14,-3.5,77.31,88.06,1.52
+20260506,77.6,77.6,75.1,75.4,4643982,78.13,-3.5,77.31,88.06,1.52
 20260507,76.1,80.2,75.6,80,6288537,78.29,2.18,77.23,87.51,1.92
 20260508,80,81.2,78.7,80.2,4910456,78.45,2.23,77.24,87.03,1.46
 20260511,81.4,81.4,80,80.8,2985544,78.65,2.74,77.25,86.55,0.87
@@ -100,23 +100,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 82.84
-- over_600_ratio: 80.91
-- over_800_ratio: 80.01
-- over_1000_ratio: 79.71
-- over_400_change_1w: 0.17
-- over_800_change_1w: 0.28
-- over_1000_change_1w: 0.28
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 82.82
+- over_600_ratio: 80.53
+- over_800_ratio: 79.62
+- over_1000_ratio: 79.17
+- over_400_change_1w: -0.02
+- over_800_change_1w: -0.39
+- over_1000_change_1w: -0.54
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260306,85.53,-0.11,82.26,-0.03,81.35,0,0,False,False
 20260313,84.59,-0.94,81.21,-1.05,80.45,-0.9,0,False,False
 20260320,84.24,-0.35,80.86,-0.35,79.94,-0.51,0,False,False
 20260327,84.41,0.17,81.23,0.37,80.3,0.36,1,True,True
@@ -128,17 +127,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,82.66,-0.25,79.31,-0.62,79.01,-0.15,0,False,False
 20260515,82.67,0.01,79.73,0.42,79.43,0.42,1,True,True
 20260522,82.84,0.17,80.01,0.28,79.71,0.28,2,True,True
+20260529,82.82,-0.02,79.62,-0.39,79.17,-0.54,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 1319 | 東陽 | true_breakout | 嚴格突破 | 124.0 |  |  | breakout_confirmed |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 1319 | 東陽 | 2 | 1 | 3 | 3 | 3 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6469 大樹
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:28 Asia/Taipei
+- generated_at: 2026-05-30 23:43:04 Asia/Taipei
 - stock_id: 6469
 - stock_name: 大樹
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,7 +88,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260514,71.9,72.5,70.5,72.3,700000,77.17,-6.32,77.55,81.86,1.1
 20260515,72.3,72.3,70,70.1,835000,76.58,-8.47,76.99,81.48,1.28
 20260518,69.6,72.5,68.8,72.5,861000,76.24,-4.91,76.56,81.16,1.28
-20260519,72.5,72.5,70.2,70.2,464000,75.74,-7.32,76.03,80.81,0.69
+20260519,72.5,72.5,70.2,70.2,464000,75.74,-7.31,76.03,80.81,0.69
 20260520,70.2,71,69.9,71,386000,75.35,-5.77,75.53,80.47,0.57
 20260521,71,71.9,70.7,71.7,365000,75.04,-4.45,75.08,80.16,0.53
 20260522,72,72,70.6,71.5,71000,74.75,-4.34,74.67,79.88,0.11
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 47.62
-- over_600_ratio: 44.99
-- over_800_ratio: 42.87
-- over_1000_ratio: 42.27
-- over_400_change_1w: 0.43
+- as_of_date: 20260529
+- over_400_ratio: 47.41
+- over_600_ratio: 44.69
+- over_800_ratio: 42.57
+- over_1000_ratio: 41.97
+- over_400_change_1w: -0.21
 - over_800_change_1w: -0.3
 - over_1000_change_1w: -0.3
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,47.9,-0.08,43.23,-0.09,42.63,-0.09,0,False,False
 20260515,47.19,-0.71,43.17,-0.06,42.57,-0.06,0,False,False
 20260522,47.62,0.43,42.87,-0.3,42.27,-0.3,1,False,False
+20260529,47.41,-0.21,42.57,-0.3,41.97,-0.3,0,False,False
 ```
 
 ## Candidate Context

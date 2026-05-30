@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1582 信錦
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:44 Asia/Taipei
+- generated_at: 2026-05-30 23:41:04 Asia/Taipei
 - stock_id: 1582
 - stock_name: 信錦
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 26
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 27
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,23 +100,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 42.42
-- over_600_ratio: 38.7
-- over_800_ratio: 36.32
-- over_1000_ratio: 34.3
-- over_400_change_1w: 8.61
-- over_800_change_1w: 7.48
-- over_1000_change_1w: 6.59
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 40.06
+- over_600_ratio: 36.74
+- over_800_ratio: 33.5
+- over_1000_ratio: 33.5
+- over_400_change_1w: -2.36
+- over_800_change_1w: -2.82
+- over_1000_change_1w: -0.8
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260306,32.5,1.3,26.51,0.71,24.08,-0.54,3,False,True
 20260313,35.61,3.11,29.89,3.38,26.15,2.07,4,True,True
 20260320,33.26,-2.35,28.09,-1.8,26.24,0.09,5,False,True
 20260327,36.64,3.38,27.58,-0.51,24.55,-1.69,6,False,False
@@ -128,6 +127,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,32,-0.25,27.53,0.38,25.76,-0.21,1,False,True
 20260515,33.81,1.81,28.84,1.31,27.71,1.95,2,True,True
 20260522,42.42,8.61,36.32,7.48,34.3,6.59,3,True,True
+20260529,40.06,-2.36,33.5,-2.82,33.5,-0.8,0,False,False
 ```
 
 ## Candidate Context

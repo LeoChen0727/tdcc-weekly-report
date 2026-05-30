@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5272 笙科
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:04 Asia/Taipei
+- generated_at: 2026-05-30 23:42:37 Asia/Taipei
 - stock_id: 5272
 - stock_name: 笙科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -80,7 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260504,24.7,25.3,24.5,24.75,416000,23.85,3.78,23.63,22.39,0.59
 20260505,24.75,25.65,24.6,24.9,502000,23.94,4.03,23.77,22.45,0.69
 20260506,25.3,25.3,23.9,24.4,486000,23.97,1.77,23.91,22.49,0.66
-20260507,24.55,25,24.2,24.45,487000,24.01,1.82,24.02,22.53,0.64
+20260507,24.55,25,24.2,24.45,487000,24.01,1.81,24.02,22.53,0.64
 20260508,24.4,25.4,24,24.2,535000,24.03,0.71,24.14,22.58,0.69
 20260511,24.2,24.2,23.1,23.45,524000,23.98,-2.22,24.25,22.63,0.66
 20260512,24.1,24.1,23.05,23.45,279000,23.94,-2.03,24.32,22.68,0.35
@@ -100,12 +100,12 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 23.1
 - over_600_ratio: 18.76
 - over_800_ratio: 14.93
 - over_1000_ratio: 10.26
-- over_400_change_1w: -0.75
+- over_400_change_1w: 0
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,23.09,-0.72,14.92,0,10.26,0,0,False,False
 20260515,23.85,0.76,14.93,0.01,10.26,0,1,False,True
 20260522,23.1,-0.75,14.93,0,10.26,0,0,False,False
+20260529,23.1,0,14.93,0,10.26,0,0,False,False
 ```
 
 ## Candidate Context

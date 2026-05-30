@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4164 承業醫
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:47 Asia/Taipei
+- generated_at: 2026-05-30 23:42:18 Asia/Taipei
 - stock_id: 4164
 - stock_name: 承業醫
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 50.97
-- over_600_ratio: 47
-- over_800_ratio: 43.83
-- over_1000_ratio: 41.51
-- over_400_change_1w: -0.02
-- over_800_change_1w: 0.48
-- over_1000_change_1w: 0.58
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260529
+- over_400_ratio: 50.79
+- over_600_ratio: 47.02
+- over_800_ratio: 43.85
+- over_1000_ratio: 41.94
+- over_400_change_1w: -0.18
+- over_800_change_1w: 0.02
+- over_1000_change_1w: 0.43
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,51.83,-0.37,44.48,-1.04,41.21,-2.01,0,False,False
 20260515,50.99,-0.84,43.35,-1.13,40.93,-0.28,0,False,False
 20260522,50.97,-0.02,43.83,0.48,41.51,0.58,1,False,True
+20260529,50.79,-0.18,43.85,0.02,41.94,0.43,2,False,True
 ```
 
 ## Candidate Context

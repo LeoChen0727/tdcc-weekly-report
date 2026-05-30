@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6242 立康
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:23 Asia/Taipei
+- generated_at: 2026-05-30 23:42:58 Asia/Taipei
 - stock_id: 6242
 - stock_name: 立康
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 127
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 263
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -92,7 +92,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260520,37.75,37.75,37.5,37.5,7000,37.8,-0.79,37.95,37.84,0.69
 20260521,37.5,37.5,37.5,37.5,4000,37.77,-0.72,37.92,37.82,0.39
 20260522,37.5,37.5,37.5,37.5,37000,37.75,-0.66,37.9,37.8,3.23
-20260525,38,38.6,37.6,38.4,38000,37.8,1.57,37.91,37.8,2.93
+20260525,38,38.6,37.6,38.4,38000,37.8,1.58,37.91,37.8,2.93
 20260526,38.4,38.4,37.85,38.1,38000,37.83,0.72,37.89,37.8,2.69
 20260527,38.3,38.3,37.55,38.05,38000,37.85,0.53,37.87,37.8,2.45
 20260528,38.2,38.4,38.15,38.15,38000,37.87,0.73,37.88,37.8,2.2
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 63.83
+- as_of_date: 20260529
+- over_400_ratio: 63.82
 - over_600_ratio: 60.28
 - over_800_ratio: 58.18
 - over_1000_ratio: 55.47
-- over_400_change_1w: 0.01
+- over_400_change_1w: -0.01
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 2
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,63.8,-0.01,58.18,0,55.47,0,0,False,False
 20260515,63.82,0.02,58.18,0,55.47,0,1,False,False
 20260522,63.83,0.01,58.18,0,55.47,0,2,False,False
+20260529,63.82,-0.01,58.18,0,55.47,0,0,False,False
 ```
 
 ## Candidate Context

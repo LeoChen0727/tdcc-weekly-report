@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4807 日成-KY
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:57 Asia/Taipei
+- generated_at: 2026-05-30 23:42:29 Asia/Taipei
 - stock_id: 4807
 - stock_name: 日成-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 135
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 271
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,12 +100,12 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 72.82
-- over_600_ratio: 69.45
-- over_800_ratio: 65.13
-- over_1000_ratio: 63.36
-- over_400_change_1w: -1.01
+- as_of_date: 20260529
+- over_400_ratio: 72.48
+- over_600_ratio: 69.4
+- over_800_ratio: 65.11
+- over_1000_ratio: 63.34
+- over_400_change_1w: -0.34
 - over_800_change_1w: -0.02
 - over_1000_change_1w: -0.02
 - tdcc_consecutive_up_weeks: 0
@@ -120,17 +120,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,73.01,1.17,65.15,0,63.38,0,1,False,False
 20260515,73.83,0.82,65.15,0,63.38,0,2,False,False
 20260522,72.82,-1.01,65.13,-0.02,63.36,-0.02,0,False,False
+20260529,72.48,-0.34,65.11,-0.02,63.34,-0.02,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 4807 | 日成-KY | true_breakout | 嚴格突破 | 89.0 |  |  | breakout_confirmed |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 4807 | 日成-KY | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

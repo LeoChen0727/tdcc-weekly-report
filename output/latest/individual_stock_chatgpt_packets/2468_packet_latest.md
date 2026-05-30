@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2468 華經
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:07 Asia/Taipei
+- generated_at: 2026-05-30 23:41:30 Asia/Taipei
 - stock_id: 2468
 - stock_name: 華經
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -81,7 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260505,33.65,34.5,33.65,34.2,236619,34.59,-1.12,34.23,35.91,0.83
 20260506,34.65,35.1,33.9,34,317695,34.54,-1.56,34.27,35.8,1.11
 20260507,34.5,37,34.5,35.9,1121602,34.65,3.6,34.37,35.72,3.41
-20260508,36,38.1,35.7,35.8,1120561,34.75,3.03,34.48,35.65,3
+20260508,36,38.1,35.7,35.8,1120561,34.75,3.02,34.48,35.65,3
 20260511,35.45,35.45,34.1,34.2,532306,34.7,-1.45,34.5,35.59,1.36
 20260512,34.35,34.35,33.6,33.6,289495,34.61,-2.92,34.48,35.53,0.76
 20260513,33.6,33.6,33.25,33.45,147493,34.51,-3.08,34.4,35.46,0.4
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 51.27
-- over_600_ratio: 50.02
+- as_of_date: 20260529
+- over_400_ratio: 51.5
+- over_600_ratio: 50.9
 - over_800_ratio: 50.02
 - over_1000_ratio: 50.02
-- over_400_change_1w: -0.04
+- over_400_change_1w: 0.23
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,52.04,-0.14,50.02,0,50.02,0,0,False,False
 20260515,51.31,-0.73,50.02,0,50.02,0,0,False,False
 20260522,51.27,-0.04,50.02,0,50.02,0,0,False,False
+20260529,51.5,0.23,50.02,0,50.02,0,1,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2420 新巨
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:04 Asia/Taipei
+- generated_at: 2026-05-30 23:41:26 Asia/Taipei
 - stock_id: 2420
 - stock_name: 新巨
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 50.87
-- over_600_ratio: 46.21
-- over_800_ratio: 42.65
-- over_1000_ratio: 39.81
-- over_400_change_1w: 0.09
-- over_800_change_1w: -0.26
-- over_1000_change_1w: -0.21
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 51.64
+- over_600_ratio: 46.94
+- over_800_ratio: 42.05
+- over_1000_ratio: 39.1
+- over_400_change_1w: 0.77
+- over_800_change_1w: -0.6
+- over_1000_change_1w: -0.71
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,50.71,0.29,43.47,-0.12,40.02,-0.68,1,False,False
 20260515,50.78,0.07,42.91,-0.56,40.02,0,2,False,False
 20260522,50.87,0.09,42.65,-0.26,39.81,-0.21,3,False,False
+20260529,51.64,0.77,42.05,-0.6,39.1,-0.71,4,False,False
 ```
 
 ## Candidate Context

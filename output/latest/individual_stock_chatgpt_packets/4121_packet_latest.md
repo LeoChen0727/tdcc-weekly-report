@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4121 優盛
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:46 Asia/Taipei
+- generated_at: 2026-05-30 23:42:16 Asia/Taipei
 - stock_id: 4121
 - stock_name: 優盛
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,16 +100,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 49.43
-- over_600_ratio: 46.41
-- over_800_ratio: 45.68
-- over_1000_ratio: 43.6
-- over_400_change_1w: -0.01
-- over_800_change_1w: 0.11
-- over_1000_change_1w: 0.11
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 49.82
+- over_600_ratio: 46.8
+- over_800_ratio: 46.06
+- over_1000_ratio: 43.98
+- over_400_change_1w: 0.39
+- over_800_change_1w: 0.38
+- over_1000_change_1w: 0.38
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,49.3,0.1,45.42,0.09,43.35,0.09,1,True,True
 20260515,49.44,0.14,45.57,0.15,43.49,0.14,2,True,True
 20260522,49.43,-0.01,45.68,0.11,43.6,0.11,3,False,True
+20260529,49.82,0.39,46.06,0.38,43.98,0.38,4,True,True
 ```
 
 ## Candidate Context

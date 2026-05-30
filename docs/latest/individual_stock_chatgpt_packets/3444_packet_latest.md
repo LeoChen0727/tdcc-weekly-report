@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3444 利機
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:34 Asia/Taipei
+- generated_at: 2026-05-30 23:42:03 Asia/Taipei
 - stock_id: 3444
 - stock_name: 利機
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -63,7 +63,7 @@
 - volume: 108000
 - ma5: 110.2
 - ema23_primary: 96.84
-- distance_to_ema23_pct: 8.43
+- distance_to_ema23_pct: 8.42
 - ma20: 96.89
 - ma60: 79.41
 - ma120: 71.99
@@ -94,23 +94,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260522,95.1,97.8,95.1,97,97000,89.51,8.36,90.91,75.8,0.15
 20260525,99.9,106.5,99.9,106,105000,90.89,16.63,91.66,76.49,0.18
 20260526,107.5,109.5,104,107,107000,92.23,16.01,92.74,77.11,0.2
-20260527,111,117.5,107.5,117.5,114000,94.34,24.56,94.41,77.93,0.22
+20260527,111,117.5,107.5,117.5,114000,94.34,24.55,94.41,77.93,0.22
 20260528,118,124,114,115.5,118000,96.1,20.19,95.91,78.73,0.24
-20260529,114,117.5,104,105,108000,96.84,8.43,96.89,79.41,0.22
+20260529,114,117.5,104,105,108000,96.84,8.42,96.89,79.41,0.22
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 48.23
-- over_600_ratio: 44.94
-- over_800_ratio: 41.75
-- over_1000_ratio: 37.59
-- over_400_change_1w: -0.88
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 50.56
+- over_600_ratio: 46.33
+- over_800_ratio: 41.8
+- over_1000_ratio: 37.64
+- over_400_change_1w: 2.33
+- over_800_change_1w: 0.05
+- over_1000_change_1w: 0.05
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,48.2,0.07,41.8,0.05,37.64,0.05,1,True,True
 20260515,49.11,0.91,41.75,-0.05,37.59,-0.05,2,False,False
 20260522,48.23,-0.88,41.75,0,37.59,0,0,False,False
+20260529,50.56,2.33,41.8,0.05,37.64,0.05,1,True,True
 ```
 
 ## Candidate Context

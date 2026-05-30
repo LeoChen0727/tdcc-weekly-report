@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4747 強生
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:56 Asia/Taipei
+- generated_at: 2026-05-30 23:42:28 Asia/Taipei
 - stock_id: 4747
 - stock_name: 強生
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 135
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 271
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,16 +100,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 65.85
-- over_600_ratio: 59
-- over_800_ratio: 49.97
-- over_1000_ratio: 49.97
-- over_400_change_1w: 0.25
-- over_800_change_1w: 0.29
-- over_1000_change_1w: 0.29
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 65.94
+- over_600_ratio: 57.77
+- over_800_ratio: 50.09
+- over_1000_ratio: 50.09
+- over_400_change_1w: 0.09
+- over_800_change_1w: 0.12
+- over_1000_change_1w: 0.12
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,65.35,0.22,49.35,0.25,49.35,0.25,1,True,True
 20260515,65.6,0.25,49.68,0.33,49.68,0.33,2,True,True
 20260522,65.85,0.25,49.97,0.29,49.97,0.29,3,True,True
+20260529,65.94,0.09,50.09,0.12,50.09,0.12,4,False,True
 ```
 
 ## Candidate Context

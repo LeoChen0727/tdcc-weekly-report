@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2492 華新科
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:08 Asia/Taipei
+- generated_at: 2026-05-30 23:41:31 Asia/Taipei
 - stock_id: 2492
 - stock_name: 華新科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 70.29
-- over_600_ratio: 68.95
-- over_800_ratio: 67.83
-- over_1000_ratio: 66.91
-- over_400_change_1w: 1.66
-- over_800_change_1w: 2.37
-- over_1000_change_1w: 2.37
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 72.37
+- over_600_ratio: 70.81
+- over_800_ratio: 69.68
+- over_1000_ratio: 68.4
+- over_400_change_1w: 2.08
+- over_800_change_1w: 1.85
+- over_1000_change_1w: 1.49
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,63.2,4.23,60.87,3.93,59.32,3.87,1,True,True
 20260515,68.63,5.43,65.46,4.59,64.54,5.22,2,True,True
 20260522,70.29,1.66,67.83,2.37,66.91,2.37,3,True,True
+20260529,72.37,2.08,69.68,1.85,68.4,1.49,4,True,True
 ```
 
 ## Candidate Context

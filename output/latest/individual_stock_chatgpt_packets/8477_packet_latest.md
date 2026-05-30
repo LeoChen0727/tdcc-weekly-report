@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8477 創業家
 
 ## Metadata
-- generated_at: 2026-05-29 19:34:03 Asia/Taipei
+- generated_at: 2026-05-30 23:43:59 Asia/Taipei
 - stock_id: 8477
 - stock_name: 創業家
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 135
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 271
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -78,10 +78,10 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,14.05,14.4,13.65,14,142000,13.6,2.97,13.59,13.45,3.25
-20260505,14,14,13.55,13.9,59000,13.62,2.05,13.61,13.44,1.29
+20260505,14,14,13.55,13.9,59000,13.62,2.04,13.61,13.44,1.29
 20260506,14.3,14.3,13.9,14.05,54000,13.66,2.88,13.61,13.44,1.17
 20260507,13.65,13.85,13.6,13.6,53000,13.65,-0.38,13.59,13.44,1.14
-20260508,13.6,13.8,13.6,13.65,23000,13.65,-0.01,13.58,13.45,0.49
+20260508,13.6,13.8,13.6,13.65,23000,13.65,-0.02,13.58,13.45,0.49
 20260511,13.95,15,13.95,15,341000,13.76,8.98,13.65,13.48,5.5
 20260512,15.55,16.5,15.55,16.5,325000,13.99,17.92,13.8,13.54,4.28
 20260513,16.5,18.1,16.2,17.6,573000,14.29,23.14,14.02,13.62,5.73
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 78.05
-- over_600_ratio: 78.05
-- over_800_ratio: 75.83
-- over_1000_ratio: 75.83
-- over_400_change_1w: 0
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 78.09
+- over_600_ratio: 78.09
+- over_800_ratio: 75.87
+- over_1000_ratio: 75.87
+- over_400_change_1w: 0.04
+- over_800_change_1w: 0.04
+- over_1000_change_1w: 0.04
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,78.04,0,75.83,0,75.83,0,0,False,False
 20260515,78.05,0.01,75.83,0,75.83,0,1,False,False
 20260522,78.05,0,75.83,0,75.83,0,0,False,False
+20260529,78.09,0.04,75.87,0.04,75.87,0.04,1,True,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3685 元創精密
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:43 Asia/Taipei
+- generated_at: 2026-05-30 23:42:12 Asia/Taipei
 - stock_id: 3685
 - stock_name: 元創精密
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 59.95
-- over_600_ratio: 53.78
-- over_800_ratio: 47.49
-- over_1000_ratio: 45.29
-- over_400_change_1w: -0.49
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260529
+- over_400_ratio: 60.14
+- over_600_ratio: 53.83
+- over_800_ratio: 47.46
+- over_1000_ratio: 45.26
+- over_400_change_1w: 0.19
+- over_800_change_1w: -0.03
+- over_1000_change_1w: -0.03
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,60.19,-0.37,47.66,-1.13,45.46,0,0,False,False
 20260515,60.44,0.25,47.49,-0.17,45.29,-0.17,1,False,False
 20260522,59.95,-0.49,47.49,0,45.29,0,2,False,False
+20260529,60.14,0.19,47.46,-0.03,45.26,-0.03,3,False,False
 ```
 
 ## Candidate Context

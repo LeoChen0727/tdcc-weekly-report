@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6752 叡揚
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:39 Asia/Taipei
+- generated_at: 2026-05-30 23:43:16 Asia/Taipei
 - stock_id: 6752
 - stock_name: 叡揚
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -81,8 +81,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260505,105.5,107.5,104,106.5,78000,106.46,0.04,104.85,112.33,1.4
 20260506,108,108,105,105,59000,106.34,-1.26,104.8,112.04,1.03
 20260507,104,105.5,103,103.5,62000,106.1,-2.45,104.62,111.74,1.06
-20260508,103,105,103,103,70000,105.84,-2.69,104.55,111.46,1.19
-20260511,103.5,103.5,102.5,103,51000,105.61,-2.47,104.45,111.23,0.86
+20260508,103,105,103,103,70000,105.84,-2.68,104.55,111.46,1.19
+20260511,103.5,103.5,102.5,103,51000,105.6,-2.47,104.45,111.23,0.86
 20260512,103,103,102,102.5,70000,105.35,-2.7,104.45,111.03,1.16
 20260513,102.5,102.5,101.5,101.5,38000,105.03,-3.36,104.38,110.78,0.64
 20260514,101.5,101.5,99.5,100,87000,104.61,-4.4,104.2,110.51,1.4
@@ -91,7 +91,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260519,100,101.5,99,100.5,59000,103.53,-2.93,103.45,109.78,0.88
 20260520,100,100,98.6,100,34000,103.24,-3.14,103.2,109.51,0.52
 20260521,102.5,102.5,100,101,35000,103.05,-1.99,102.83,109.28,0.58
-20260522,100,100.5,99.3,100.5,100000,102.84,-2.28,102.61,109.03,1.67
+20260522,100,100.5,99.3,100.5,100000,102.84,-2.27,102.61,109.03,1.67
 20260525,100.5,100.5,98.6,98.7,99000,102.49,-3.7,102.31,108.75,1.56
 20260526,97,99.8,97,99,98000,102.2,-3.13,102.14,108.46,1.49
 20260527,98.3,99.5,98,98,99000,101.85,-3.78,101.79,108.02,1.42
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 47.13
-- over_600_ratio: 40.59
-- over_800_ratio: 25.76
-- over_1000_ratio: 18.22
-- over_400_change_1w: 0.09
-- over_800_change_1w: 0.09
-- over_1000_change_1w: 0.11
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260529
+- over_400_ratio: 47.18
+- over_600_ratio: 40.63
+- over_800_ratio: 25.8
+- over_1000_ratio: 18.26
+- over_400_change_1w: 0.05
+- over_800_change_1w: 0.04
+- over_1000_change_1w: 0.04
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,47.04,-0.09,25.67,0,18.1,0,0,False,False
 20260515,47.04,0,25.67,0,18.11,0.01,1,False,True
 20260522,47.13,0.09,25.76,0.09,18.22,0.11,2,True,True
+20260529,47.18,0.05,25.8,0.04,18.26,0.04,3,True,True
 ```
 
 ## Candidate Context

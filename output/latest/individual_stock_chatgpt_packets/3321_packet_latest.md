@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3321 同泰
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:32 Asia/Taipei
+- generated_at: 2026-05-30 23:41:59 Asia/Taipei
 - stock_id: 3321
 - stock_name: 同泰
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 270
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,29 +88,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260514,16.3,16.5,15.9,15.9,377925,16.35,-2.74,16.36,16.56,0.85
 20260515,16.25,16.25,15.35,15.45,559552,16.27,-5.06,16.34,16.52,1.21
 20260518,15.45,15.45,15.1,15.15,249898,16.18,-6.36,16.3,16.48,0.54
-20260519,15.25,15.6,15.05,15.3,163949,16.11,-5.01,16.27,16.45,0.37
+20260519,15.25,15.6,15.05,15.3,163949,16.11,-5,16.27,16.45,0.37
 20260520,15.35,15.4,15.05,15.3,123892,16.04,-4.61,16.18,16.41,0.31
 20260521,15.45,15.65,15.15,15.3,182301,15.98,-4.24,16.08,16.37,0.51
 20260522,15.45,15.95,15.35,15.95,358394,15.98,-0.16,16.05,16.32,1.01
 20260525,15.95,16.6,15.8,16.55,631153,16.02,3.29,16.07,16.28,1.7
-20260526,16.55,18.2,16.25,18.2,1623857,16.2,12.31,16.18,16.27,3.72
-20260527,18.45,19.3,17.85,19.05,2174519,16.44,15.86,16.32,16.28,4.05
+20260526,16.55,18.2,16.25,18.2,1623857,16.2,12.32,16.18,16.27,3.72
+20260527,18.45,19.3,17.85,19.05,2174519,16.44,15.87,16.32,16.28,4.05
 20260528,19.1,20.5,19.1,19.45,2186802,16.69,16.52,16.5,16.3,3.43
 20260529,20.35,20.6,19.3,19.4,1217376,16.92,14.67,16.67,16.32,1.78
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 47.91
-- over_600_ratio: 41.41
-- over_800_ratio: 38.14
-- over_1000_ratio: 34.91
-- over_400_change_1w: 0.02
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 47.42
+- over_600_ratio: 41.62
+- over_800_ratio: 38.35
+- over_1000_ratio: 36.15
+- over_400_change_1w: -0.49
+- over_800_change_1w: 0.21
+- over_1000_change_1w: 1.24
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,17 +120,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,47.67,0.03,37.09,0.04,34.89,0.04,1,True,True
 20260515,47.89,0.22,38.14,1.05,34.91,0.02,2,True,True
 20260522,47.91,0.02,38.14,0,34.91,0,3,False,False
+20260529,47.42,-0.49,38.35,0.21,36.15,1.24,4,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 3321 | 同泰 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  |  |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260530 | 3321 | 同泰 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 3321 | 同泰 | 4 | 1 | 4 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260530 | 3321 | 同泰 | 5 | 2 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

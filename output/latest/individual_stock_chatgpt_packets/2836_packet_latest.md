@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2836 高雄銀
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:16 Asia/Taipei
+- generated_at: 2026-05-30 23:41:41 Asia/Taipei
 - stock_id: 2836
 - stock_name: 高雄銀
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,16 +100,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 84.79
-- over_600_ratio: 83.19
-- over_800_ratio: 82.28
-- over_1000_ratio: 81.66
-- over_400_change_1w: 0.12
-- over_800_change_1w: 0.04
-- over_1000_change_1w: 0.05
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 84.8
+- over_600_ratio: 83.1
+- over_800_ratio: 82.11
+- over_1000_ratio: 81.67
+- over_400_change_1w: 0.01
+- over_800_change_1w: -0.17
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,84.63,-0.01,82.15,0.07,81.48,0.13,1,False,True
 20260515,84.67,0.04,82.24,0.09,81.61,0.13,2,True,True
 20260522,84.79,0.12,82.28,0.04,81.66,0.05,3,True,True
+20260529,84.8,0.01,82.11,-0.17,81.67,0.01,4,False,True
 ```
 
 ## Candidate Context

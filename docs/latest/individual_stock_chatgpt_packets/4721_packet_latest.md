@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4721 美琪瑪
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:55 Asia/Taipei
+- generated_at: 2026-05-30 23:42:26 Asia/Taipei
 - stock_id: 4721
 - stock_name: 美琪瑪
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,13 +77,13 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,83.1,87,81.5,86.5,1365000,82.28,5.12,83.33,73.09,0.54
+20260504,83.1,87,81.5,86.5,1365000,82.29,5.12,83.33,73.09,0.54
 20260505,86,90.4,84.5,89,3062000,82.84,7.43,84.17,73.4,1.16
 20260506,90,94.9,88.5,93.3,7380000,83.72,11.45,85.27,73.8,2.47
 20260507,92.4,94.8,91.9,93.2,3811000,84.51,10.29,86.23,74.2,1.21
 20260508,94.2,96.5,92,95.5,8244000,85.42,11.8,87.3,74.66,2.34
 20260511,94,97.2,90.2,95.1,6021000,86.23,10.29,88.14,75.15,1.62
-20260512,95.1,98,94,97.8,7353000,87.19,12.17,88.98,75.71,1.9
+20260512,95.1,98,94,97.8,7353000,87.19,12.16,88.98,75.71,1.9
 20260513,95.7,96.5,93.7,94,3194000,87.76,7.11,89.67,76.21,0.81
 20260514,94.7,96,92.1,92.1,2799000,88.12,4.51,90,76.66,0.72
 20260515,94.4,94.4,89.4,89.8,1608000,88.26,1.74,90.02,77.08,0.45
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 32.73
-- over_600_ratio: 28.04
-- over_800_ratio: 28.04
+- as_of_date: 20260529
+- over_400_ratio: 34.38
+- over_600_ratio: 29.14
+- over_800_ratio: 29.14
 - over_1000_ratio: 28.04
-- over_400_change_1w: 0.75
-- over_800_change_1w: 0
+- over_400_change_1w: 1.65
+- over_800_change_1w: 1.1
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 2
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,35.5,-0.29,28.03,-1.18,28.03,0,0,False,False
 20260515,31.98,-3.52,28.04,0.01,28.04,0.01,1,False,True
 20260522,32.73,0.75,28.04,0,28.04,0,2,False,False
+20260529,34.38,1.65,29.14,1.1,28.04,0,3,False,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5301 寶得利
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:05 Asia/Taipei
+- generated_at: 2026-05-30 23:42:38 Asia/Taipei
 - stock_id: 5301
 - stock_name: 寶得利
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 122
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 258
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,16 +100,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 80.63
-- over_600_ratio: 79.14
-- over_800_ratio: 77.12
-- over_1000_ratio: 74.47
-- over_400_change_1w: -0.02
-- over_800_change_1w: 0.06
-- over_1000_change_1w: 0.06
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 80.64
+- over_600_ratio: 79.15
+- over_800_ratio: 77.16
+- over_1000_ratio: 74.51
+- over_400_change_1w: 0.01
+- over_800_change_1w: 0.04
+- over_1000_change_1w: 0.04
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,80.62,0.01,77.03,0.01,74.38,0.01,1,True,True
 20260515,80.65,0.03,77.06,0.03,74.41,0.03,2,True,True
 20260522,80.63,-0.02,77.12,0.06,74.47,0.06,3,False,True
+20260529,80.64,0.01,77.16,0.04,74.51,0.04,4,True,True
 ```
 
 ## Candidate Context

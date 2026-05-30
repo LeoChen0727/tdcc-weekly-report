@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6971 惠民實業
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:47 Asia/Taipei
+- generated_at: 2026-05-30 23:43:26 Asia/Taipei
 - stock_id: 6971
 - stock_name: 惠民實業
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -89,7 +89,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260515,26.5,26.5,26.05,26.1,71000,28.53,-8.5,28.73,29.44,0.94
 20260518,26.1,27.95,26.05,27.6,87000,28.45,-2.98,28.64,29.41,1.12
 20260519,27.65,27.65,27,27.4,13000,28.36,-3.39,28.53,29.37,0.17
-20260520,27.15,27.45,27.1,27.45,6000,28.29,-2.95,28.43,29.32,0.08
+20260520,27.15,27.45,27.1,27.45,6000,28.28,-2.95,28.43,29.32,0.08
 20260521,27.3,27.9,27.3,27.4,21000,28.21,-2.88,28.34,29.28,0.28
 20260522,27.4,28,27.4,27.9,28000,28.19,-1.01,28.25,29.25,0.42
 20260525,27.45,28.05,27.45,27.6,28000,28.14,-1.91,28.16,29.21,0.42
@@ -100,12 +100,12 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 74.9
+- as_of_date: 20260529
+- over_400_ratio: 73.78
 - over_600_ratio: 67.87
 - over_800_ratio: 66.2
 - over_1000_ratio: 61.37
-- over_400_change_1w: -0.09
+- over_400_change_1w: -1.12
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,74.99,-0.04,66.2,0,61.37,0,0,False,False
 20260515,74.99,0,66.2,0,61.37,0,0,False,False
 20260522,74.9,-0.09,66.2,0,61.37,0,0,False,False
+20260529,73.78,-1.12,66.2,0,61.37,0,0,False,False
 ```
 
 ## Candidate Context

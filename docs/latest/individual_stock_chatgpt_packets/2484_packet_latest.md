@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2484 希華
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:07 Asia/Taipei
+- generated_at: 2026-05-30 23:41:31 Asia/Taipei
 - stock_id: 2484
 - stock_name: 希華
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: True
 - sell_strategy_summary_exists: True
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 23.6
-- over_600_ratio: 21.45
-- over_800_ratio: 19.23
-- over_1000_ratio: 17.14
-- over_400_change_1w: 0.15
-- over_800_change_1w: -0.46
-- over_1000_change_1w: -0.38
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 31.22
+- over_600_ratio: 28.78
+- over_800_ratio: 27.88
+- over_1000_ratio: 25.65
+- over_400_change_1w: 7.62
+- over_800_change_1w: 8.65
+- over_1000_change_1w: 8.51
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,29.95,0.03,25.12,-0.14,22.5,-0.1,1,False,False
 20260515,23.45,-6.5,19.69,-5.43,17.52,-4.98,0,False,False
 20260522,23.6,0.15,19.23,-0.46,17.14,-0.38,1,False,False
+20260529,31.22,7.62,27.88,8.65,25.65,8.51,2,True,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3284 太普高
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:30 Asia/Taipei
+- generated_at: 2026-05-30 23:41:57 Asia/Taipei
 - stock_id: 3284
 - stock_name: 太普高
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -80,7 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260504,15.8,16.2,15.7,16.05,243000,17.81,-9.9,18.01,19.32,1.25
 20260505,16.2,16.2,15.85,15.85,223000,17.65,-10.2,17.84,19.24,1.1
 20260506,15.9,16.2,15.85,16.2,187000,17.53,-7.58,17.69,19.16,0.89
-20260507,16.3,16.5,16.05,16.1,103000,17.41,-7.53,17.52,19.08,0.49
+20260507,16.3,16.5,16.05,16.1,103000,17.41,-7.52,17.52,19.08,0.49
 20260508,16.3,17.7,16.3,17.7,545000,17.43,1.52,17.43,19.03,2.3
 20260511,18.4,18.4,17.35,17.45,907000,17.44,0.08,17.34,18.99,3.24
 20260512,17.65,17.65,16.65,16.7,286000,17.37,-3.88,17.23,18.93,0.99
@@ -100,12 +100,12 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 72.49
-- over_600_ratio: 71.18
+- as_of_date: 20260529
+- over_400_ratio: 72.48
+- over_600_ratio: 71.17
 - over_800_ratio: 69.29
 - over_1000_ratio: 69.29
-- over_400_change_1w: 0
+- over_400_change_1w: -0.01
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,72.49,-0.43,69.3,0,69.3,0,0,False,False
 20260515,72.49,0,69.29,-0.01,69.29,-0.01,0,False,False
 20260522,72.49,0,69.29,0,69.29,0,0,False,False
+20260529,72.48,-0.01,69.29,0,69.29,0,0,False,False
 ```
 
 ## Candidate Context

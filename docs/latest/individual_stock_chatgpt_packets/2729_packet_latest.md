@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2729 瓦城
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:14 Asia/Taipei
+- generated_at: 2026-05-30 23:41:39 Asia/Taipei
 - stock_id: 2729
 - stock_name: 瓦城
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -83,7 +83,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260507,163,165,163,165,24000,168.48,-2.07,169.43,169.96,0.9
 20260508,165,168,163.5,166,36000,168.28,-1.35,169.15,169.86,1.29
 20260511,165.5,166,164.5,165,37000,168,-1.79,168.88,169.72,1.26
-20260512,165,165,164.5,164.5,8000,167.71,-1.92,168.43,169.62,0.28
+20260512,165,165,164.5,164.5,8000,167.71,-1.91,168.43,169.62,0.28
 20260513,164.5,165,164,164,26000,167.4,-2.03,167.93,169.52,0.89
 20260514,165.5,167,164,164,32000,167.12,-1.87,167.55,169.38,1.08
 20260515,163.5,165,162.5,164,41000,166.86,-1.71,167.07,169.25,1.32
@@ -100,14 +100,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 65.39
-- over_600_ratio: 60.75
-- over_800_ratio: 59.24
-- over_1000_ratio: 57.12
-- over_400_change_1w: -0.14
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
+- as_of_date: 20260529
+- over_400_ratio: 65.38
+- over_600_ratio: 60.74
+- over_800_ratio: 59.23
+- over_1000_ratio: 57.11
+- over_400_change_1w: -0.01
+- over_800_change_1w: -0.01
+- over_1000_change_1w: -0.01
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,65.63,-0.03,59.24,0,57.12,0,0,False,False
 20260515,65.53,-0.1,59.24,0,57.12,0,0,False,False
 20260522,65.39,-0.14,59.24,0,57.12,0,0,False,False
+20260529,65.38,-0.01,59.23,-0.01,57.11,-0.01,0,False,False
 ```
 
 ## Candidate Context

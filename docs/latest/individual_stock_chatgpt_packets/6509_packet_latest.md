@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6509 聚和
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:29 Asia/Taipei
+- generated_at: 2026-05-30 23:43:06 Asia/Taipei
 - stock_id: 6509
 - stock_name: 聚和
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 34.58
-- over_600_ratio: 31.84
-- over_800_ratio: 29.75
-- over_1000_ratio: 25.23
-- over_400_change_1w: 1.4
-- over_800_change_1w: 3.67
-- over_1000_change_1w: 1.98
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 36.11
+- over_600_ratio: 33.56
+- over_800_ratio: 31.18
+- over_1000_ratio: 27.07
+- over_400_change_1w: 1.53
+- over_800_change_1w: 1.43
+- over_1000_change_1w: 1.84
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,30.99,0.59,24.36,0.06,21.53,0.08,1,False,True
 20260515,33.18,2.19,26.08,1.72,23.25,1.72,2,True,True
 20260522,34.58,1.4,29.75,3.67,25.23,1.98,3,True,True
+20260529,36.11,1.53,31.18,1.43,27.07,1.84,4,True,True
 ```
 
 ## Candidate Context

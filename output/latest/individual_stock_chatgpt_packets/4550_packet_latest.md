@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4550 長佳
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:52 Asia/Taipei
+- generated_at: 2026-05-30 23:42:23 Asia/Taipei
 - stock_id: 4550
 - stock_name: 長佳
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -81,7 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260505,24.2,24.65,24.15,24.65,28000,24.55,0.42,24.48,25.36,1.14
 20260506,24.75,24.75,24.45,24.6,29000,24.55,0.2,24.5,25.32,1.15
 20260507,24.5,24.55,24.45,24.55,22000,24.55,-0,24.5,25.28,0.84
-20260508,24.55,24.55,24.45,24.45,12000,24.54,-0.37,24.49,25.23,0.46
+20260508,24.55,24.55,24.45,24.45,12000,24.54,-0.38,24.49,25.23,0.46
 20260511,24.5,24.9,24.3,24.35,47000,24.53,-0.72,24.48,25.2,1.68
 20260512,24,24.25,24,24.05,40000,24.49,-1.78,24.44,25.16,1.34
 20260513,24.05,24.25,24.05,24.25,6000,24.47,-0.89,24.42,25.13,0.21
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 55.78
 - over_600_ratio: 53.3
 - over_800_ratio: 51.19
 - over_1000_ratio: 49.01
-- over_400_change_1w: 0.04
+- over_400_change_1w: 0
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,55.74,0.05,51.19,0,49.01,0,1,False,False
 20260515,55.74,0,51.19,0,49.01,0,0,False,False
 20260522,55.78,0.04,51.19,0,49.01,0,1,False,False
+20260529,55.78,0,51.19,0,49.01,0,0,False,False
 ```
 
 ## Candidate Context

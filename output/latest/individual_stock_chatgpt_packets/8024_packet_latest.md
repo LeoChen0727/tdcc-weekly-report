@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8024 佑華
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:52 Asia/Taipei
+- generated_at: 2026-05-30 23:43:47 Asia/Taipei
 - stock_id: 8024
 - stock_name: 佑華
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -80,7 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260504,12.8,12.8,12.55,12.7,28000,12.83,-1.01,12.89,13.01,0.44
 20260505,12.5,12.75,12.45,12.75,68000,12.82,-0.57,12.88,13,1.04
 20260506,12.75,12.8,12.5,12.65,71000,12.81,-1.24,12.87,12.98,1.05
-20260507,12.75,12.75,12.4,12.5,102000,12.78,-2.22,12.86,12.96,1.43
+20260507,12.75,12.75,12.4,12.5,102000,12.78,-2.21,12.86,12.96,1.43
 20260508,12.5,12.75,12.3,12.4,70000,12.75,-2.75,12.84,12.93,0.94
 20260511,12.65,12.65,12.2,12.3,103000,12.71,-3.25,12.8,12.92,1.4
 20260512,12.35,12.7,12.25,12.45,85000,12.69,-1.9,12.76,12.89,1.22
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 28.79
 - over_600_ratio: 25.66
 - over_800_ratio: 22.7
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,28.79,0,22.7,0,18.86,0,0,False,False
 20260515,28.79,0,22.7,0,18.86,0,0,False,False
 20260522,28.79,0,22.7,0,18.86,0,0,False,False
+20260529,28.79,0,22.7,0,18.86,0,0,False,False
 ```
 
 ## Candidate Context

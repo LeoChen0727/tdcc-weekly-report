@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9951 皇田
 
 ## Metadata
-- generated_at: 2026-05-29 19:34:08 Asia/Taipei
+- generated_at: 2026-05-30 23:44:06 Asia/Taipei
 - stock_id: 9951
 - stock_name: 皇田
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -95,22 +95,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,53.1,53.1,52.5,52.8,53000,53.54,-1.38,53.51,54,0.54
 20260526,53,53,51.7,52.2,52000,53.43,-2.29,53.44,53.94,0.54
 20260527,52.3,52.3,51.5,51.7,52000,53.28,-2.97,53.34,53.89,0.55
-20260528,52.5,53,52.2,52.6,53000,53.23,-1.17,53.3,53.84,0.56
+20260528,52.5,53,52.2,52.6,53000,53.22,-1.17,53.3,53.84,0.56
 20260529,53,53,52.6,52.8,53000,53.19,-0.73,53.26,53.81,0.55
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 46.81
-- over_600_ratio: 43.07
-- over_800_ratio: 37.26
-- over_1000_ratio: 37.26
-- over_400_change_1w: 0.17
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 47.08
+- over_600_ratio: 43.37
+- over_800_ratio: 38.61
+- over_1000_ratio: 37.4
+- over_400_change_1w: 0.27
+- over_800_change_1w: 1.35
+- over_1000_change_1w: 0.14
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,46.54,0,37.26,0,37.26,0,0,False,False
 20260515,46.64,0.1,37.26,0,37.26,0,1,False,False
 20260522,46.81,0.17,37.26,0,37.26,0,2,False,False
+20260529,47.08,0.27,38.61,1.35,37.4,0.14,3,True,True
 ```
 
 ## Candidate Context

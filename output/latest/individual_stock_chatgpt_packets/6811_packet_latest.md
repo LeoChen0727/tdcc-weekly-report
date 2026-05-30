@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6811 宏碁資訊
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:41 Asia/Taipei
+- generated_at: 2026-05-30 23:43:19 Asia/Taipei
 - stock_id: 6811
 - stock_name: 宏碁資訊
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -78,10 +78,10 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,197,204.5,197,202,203000,193.52,4.38,192.2,196.35,2.45
-20260505,203,204.5,201.5,204.5,76000,194.44,5.17,193.28,196.22,0.89
+20260505,203,204.5,201.5,204.5,76000,194.44,5.18,193.28,196.22,0.89
 20260506,212,216,205,215,419000,196.15,9.61,194.82,196.28,4.05
 20260507,218,218,210.5,212,219000,197.47,7.36,196.03,196.11,2
-20260508,210,216,210,210,148000,198.52,5.78,197.05,196.06,1.34
+20260508,210,216,210,210,148000,198.52,5.79,197.05,196.06,1.34
 20260511,213,216.5,211.5,212.5,173000,199.68,6.42,198.25,196.18,1.51
 20260512,213.5,213.5,209.5,211,169000,200.62,5.17,199.5,196.31,1.43
 20260513,210,211,206.5,210,65000,201.41,4.27,200.45,196.41,0.56
@@ -100,12 +100,12 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 67.29
+- as_of_date: 20260529
+- over_400_ratio: 67.23
 - over_600_ratio: 63.71
 - over_800_ratio: 61.99
 - over_1000_ratio: 61.99
-- over_400_change_1w: -0.33
+- over_400_change_1w: -0.06
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,67.72,0.07,61.99,0,61.99,0,1,False,False
 20260515,67.62,-0.1,61.99,0,61.99,0,0,False,False
 20260522,67.29,-0.33,61.99,0,61.99,0,0,False,False
+20260529,67.23,-0.06,61.99,0,61.99,0,0,False,False
 ```
 
 ## Candidate Context

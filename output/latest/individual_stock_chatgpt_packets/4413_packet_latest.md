@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4413 飛寶企業
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:49 Asia/Taipei
+- generated_at: 2026-05-30 23:42:20 Asia/Taipei
 - stock_id: 4413
 - stock_name: 飛寶企業
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 122
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 258
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -63,7 +63,7 @@
 - volume: 17000
 - ma5: 16.96
 - ema23_primary: 17.87
-- distance_to_ema23_pct: -4.85
+- distance_to_ema23_pct: -4.84
 - ma20: 18.15
 - ma60: 18.08
 - ma120: 18.11
@@ -84,33 +84,33 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260505,19.05,19.05,18.7,19,36000,18.49,2.76,18.36,18.14,1.9
 20260506,18.95,18.95,18.55,18.6,8000,18.5,0.54,18.41,18.15,0.42
 20260507,18.9,19.1,18.7,18.7,8000,18.52,0.99,18.44,18.16,0.41
-20260508,18.2,18.6,17.8,18.6,10000,18.52,0.41,18.5,18.16,0.51
+20260508,18.2,18.6,17.8,18.6,10000,18.52,0.42,18.5,18.16,0.51
 20260511,18.8,19.1,18.6,18.6,10000,18.53,0.38,18.54,18.16,0.51
 20260512,18.7,19.05,18.7,18.7,17000,18.54,0.84,18.61,18.17,0.86
 20260514,18.1,18.2,18.1,18.1,4000,18.51,-2.2,18.63,18.17,0.2
 20260515,18.15,18.4,18.1,18.4,4000,18.5,-0.53,18.64,18.17,0.2
-20260518,18.4,18.4,18.1,18.1,9000,18.46,-1.98,18.66,18.17,0.47
+20260518,18.4,18.4,18.1,18.1,9000,18.46,-1.97,18.66,18.17,0.47
 20260520,17.85,18,17.4,18,11000,18.43,-2.31,18.66,18.16,0.57
 20260522,17.5,17.7,17.35,17.7,18000,18.37,-3.62,18.64,18.16,0.9
 20260525,17.2,17.2,16.3,17.2,17000,18.27,-5.85,18.58,18.15,0.87
 20260526,16.55,17.4,16.4,17,17000,18.16,-6.4,18.46,18.13,0.97
 20260527,17.15,17.15,16.9,16.9,17000,18.06,-6.41,18.37,18.12,1.13
 20260528,17.15,17.15,16.7,16.7,17000,17.94,-6.93,18.26,18.1,1.08
-20260529,17.25,17.25,17,17,17000,17.87,-4.85,18.15,18.08,1.06
+20260529,17.25,17.25,17,17,17000,17.87,-4.84,18.15,18.08,1.06
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 69.25
-- over_600_ratio: 61.01
-- over_800_ratio: 52.55
-- over_1000_ratio: 52.55
-- over_400_change_1w: 0
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 69.27
+- over_600_ratio: 61.03
+- over_800_ratio: 52.57
+- over_1000_ratio: 52.57
+- over_400_change_1w: 0.02
+- over_800_change_1w: 0.02
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,69.25,0,52.55,0,52.55,0,0,False,False
 20260515,69.25,0,52.55,0,52.55,0,0,False,False
 20260522,69.25,0,52.55,0,52.55,0,0,False,False
+20260529,69.27,0.02,52.57,0.02,52.57,0.02,1,True,True
 ```
 
 ## Candidate Context

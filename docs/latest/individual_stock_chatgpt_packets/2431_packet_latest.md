@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2431 聯昌
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:04 Asia/Taipei
+- generated_at: 2026-05-30 23:41:27 Asia/Taipei
 - stock_id: 2431
 - stock_name: 聯昌
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,7 +77,7 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,10.65,11,10.65,10.75,298180,11.44,-6.04,11.31,13.12,0.56
+20260504,10.65,11,10.65,10.75,298180,11.44,-6.05,11.31,13.12,0.56
 20260505,10.75,11,10.75,11,363878,11.4,-3.55,11.28,13.03,0.68
 20260506,11,11.05,10.8,10.8,391575,11.35,-4.88,11.24,12.92,0.72
 20260507,10.8,10.9,10.6,10.85,655393,11.31,-4.09,11.19,12.82,1.18
@@ -100,16 +100,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 41.14
-- over_600_ratio: 38.04
-- over_800_ratio: 36.72
+- as_of_date: 20260529
+- over_400_ratio: 42.04
+- over_600_ratio: 38.55
+- over_800_ratio: 37.41
 - over_1000_ratio: 34.94
-- over_400_change_1w: 0.1
-- over_800_change_1w: 0.02
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
+- over_400_change_1w: 0.9
+- over_800_change_1w: 0.69
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,40.92,0,36.64,-0.72,34.9,0,0,False,False
 20260515,41.04,0.12,36.7,0.06,34.93,0.03,1,True,True
 20260522,41.14,0.1,36.72,0.02,34.94,0.01,2,True,True
+20260529,42.04,0.9,37.41,0.69,34.94,0,3,False,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4767 誠泰科技
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:57 Asia/Taipei
+- generated_at: 2026-05-30 23:42:28 Asia/Taipei
 - stock_id: 4767
 - stock_name: 誠泰科技
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 130
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 266
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -81,7 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260505,26.3,26.5,26.1,26.45,14000,26.43,0.06,26.6,25.68,0.67
 20260506,26.4,27.3,26.3,26.45,13000,26.44,0.05,26.64,25.7,0.61
 20260507,26.3,26.8,26.15,26.5,16000,26.44,0.22,26.71,25.71,0.74
-20260508,26.5,27,26.5,26.85,26000,26.48,1.41,26.79,25.73,1.17
+20260508,26.5,27,26.5,26.85,26000,26.48,1.42,26.79,25.73,1.17
 20260511,26.85,26.95,26.7,26.85,9000,26.51,1.3,26.86,25.76,0.43
 20260512,26.6,26.85,26.5,26.65,4000,26.52,0.5,26.89,25.77,0.21
 20260513,26.6,26.9,26.6,26.9,13000,26.55,1.32,26.89,25.79,0.73
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 64.07
 - over_600_ratio: 62.75
 - over_800_ratio: 57.96
 - over_1000_ratio: 46.86
-- over_400_change_1w: 1.33
-- over_800_change_1w: 0.01
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- over_400_change_1w: 0
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,62.74,0,57.95,0,46.85,0,0,False,False
 20260515,62.74,0,57.95,0,46.85,0,0,False,False
 20260522,64.07,1.33,57.96,0.01,46.86,0.01,1,True,True
+20260529,64.07,0,57.96,0,46.86,0,0,False,False
 ```
 
 ## Candidate Context

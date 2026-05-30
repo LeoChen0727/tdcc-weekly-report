@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1516 川飛
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:42 Asia/Taipei
+- generated_at: 2026-05-30 23:41:01 Asia/Taipei
 - stock_id: 1516
 - stock_name: 川飛
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,16 +100,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 63.08
-- over_600_ratio: 60.87
-- over_800_ratio: 57.09
-- over_1000_ratio: 57.09
-- over_400_change_1w: -0.11
-- over_800_change_1w: 1.02
-- over_1000_change_1w: 3.38
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 64.03
+- over_600_ratio: 61.82
+- over_800_ratio: 58.04
+- over_1000_ratio: 58.04
+- over_400_change_1w: 0.95
+- over_800_change_1w: 0.95
+- over_1000_change_1w: 0.95
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,62.45,1.49,53.74,0,53.74,0,1,False,False
 20260515,63.19,0.74,56.07,2.33,53.71,-0.03,2,False,True
 20260522,63.08,-0.11,57.09,1.02,57.09,3.38,3,False,True
+20260529,64.03,0.95,58.04,0.95,58.04,0.95,4,True,True
 ```
 
 ## Candidate Context

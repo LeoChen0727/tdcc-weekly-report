@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6968 萬達寵物
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:47 Asia/Taipei
+- generated_at: 2026-05-30 23:43:25 Asia/Taipei
 - stock_id: 6968
 - stock_name: 萬達寵物
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,8 +77,8 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,43.3,43.5,42.6,42.9,90000,45.14,-4.97,45.17,47.09,1.36
-20260505,42.9,43.2,42.75,42.8,36000,44.95,-4.78,45.07,46.96,0.56
+20260504,43.3,43.5,42.6,42.9,90000,45.14,-4.96,45.17,47.09,1.36
+20260505,42.9,43.2,42.75,42.8,36000,44.95,-4.77,45.07,46.96,0.56
 20260506,42.8,43.3,42.35,43.05,106000,44.79,-3.88,44.95,46.84,1.64
 20260507,43.1,43.2,42.65,42.8,83000,44.62,-4.08,44.81,46.7,1.23
 20260508,42.6,43.05,42.55,42.7,52000,44.46,-3.96,44.65,46.58,0.77
@@ -100,13 +100,13 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 58.85
-- over_600_ratio: 54.71
-- over_800_ratio: 47.87
+- as_of_date: 20260529
+- over_400_ratio: 58.84
+- over_600_ratio: 54.7
+- over_800_ratio: 47.86
 - over_1000_ratio: 44.32
-- over_400_change_1w: 0
-- over_800_change_1w: 0
+- over_400_change_1w: -0.01
+- over_800_change_1w: -0.01
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,58.84,0.08,47.86,0.08,44.32,0,1,False,True
 20260515,58.85,0.01,47.87,0.01,44.32,0,2,False,True
 20260522,58.85,0,47.87,0,44.32,0,0,False,False
+20260529,58.84,-0.01,47.86,-0.01,44.32,0,0,False,False
 ```
 
 ## Candidate Context

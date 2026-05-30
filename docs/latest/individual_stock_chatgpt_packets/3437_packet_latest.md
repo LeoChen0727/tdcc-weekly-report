@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3437 榮創
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:34 Asia/Taipei
+- generated_at: 2026-05-30 23:42:02 Asia/Taipei
 - stock_id: 3437
 - stock_name: 榮創
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 23.36
-- over_600_ratio: 21.33
-- over_800_ratio: 20.4
+- as_of_date: 20260529
+- over_400_ratio: 24.27
+- over_600_ratio: 21.3
+- over_800_ratio: 19.84
 - over_1000_ratio: 19.15
-- over_400_change_1w: 0.11
-- over_800_change_1w: 0.56
+- over_400_change_1w: 0.91
+- over_800_change_1w: -0.56
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,23.4,-0.3,20.44,0.6,19.15,0,1,False,True
 20260515,23.25,-0.15,19.84,-0.6,19.15,0,0,False,False
 20260522,23.36,0.11,20.4,0.56,19.15,0,1,False,True
+20260529,24.27,0.91,19.84,-0.56,19.15,0,2,False,False
 ```
 
 ## Candidate Context

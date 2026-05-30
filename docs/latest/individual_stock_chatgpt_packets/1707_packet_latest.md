@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1707 葡萄王
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:46 Asia/Taipei
+- generated_at: 2026-05-30 23:41:06 Asia/Taipei
 - stock_id: 1707
 - stock_name: 葡萄王
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -82,7 +82,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260506,112.5,112.5,112,112.5,149323,116.25,-3.22,116.62,119.62,0.68
 20260507,112.5,113,112,112.5,172128,115.93,-2.96,116.15,119.46,0.77
 20260508,112.5,114,112.5,113,142141,115.69,-2.32,115.75,119.3,0.62
-20260511,113,113.5,112.5,113,122936,115.47,-2.13,115.4,119.17,0.56
+20260511,113,113.5,112.5,113,122936,115.47,-2.14,115.4,119.17,0.56
 20260512,111.5,111.5,110,110.5,529611,115.05,-3.96,115.03,118.99,2.43
 20260513,110,110,108.5,109.5,341186,114.59,-4.44,114.55,118.78,1.5
 20260514,108.5,109,108,108.5,282665,114.08,-4.89,114.08,118.58,1.21
@@ -100,14 +100,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 57.42
-- over_600_ratio: 54.49
-- over_800_ratio: 50.92
-- over_1000_ratio: 46.07
-- over_400_change_1w: -0.31
-- over_800_change_1w: -0.09
-- over_1000_change_1w: -1.25
+- as_of_date: 20260529
+- over_400_ratio: 56.47
+- over_600_ratio: 53.44
+- over_800_ratio: 50.27
+- over_1000_ratio: 45.45
+- over_400_change_1w: -0.95
+- over_800_change_1w: -0.65
+- over_1000_change_1w: -0.62
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,57.82,-0.07,51.11,-0.07,47.4,-0.07,0,False,False
 20260515,57.73,-0.09,51.01,-0.1,47.32,-0.08,0,False,False
 20260522,57.42,-0.31,50.92,-0.09,46.07,-1.25,0,False,False
+20260529,56.47,-0.95,50.27,-0.65,45.45,-0.62,0,False,False
 ```
 
 ## Candidate Context

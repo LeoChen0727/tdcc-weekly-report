@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5906 台南-KY
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:13 Asia/Taipei
+- generated_at: 2026-05-30 23:42:47 Asia/Taipei
 - stock_id: 5906
 - stock_name: 台南-KY
-- packet_status: standard_rawdata_packet
+- packet_status: standard_180d_window_packet
 - latest_price_date: 20260528
-- price_rows: 103
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 209
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: price history shorter than 120 rows; K-line context is partial; TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
+- notes: TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
 
 ## Stable Read URLs
 - packet_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_chatgpt_packets/5906_packet_latest.md
@@ -66,7 +66,7 @@
 - distance_to_ema23_pct: -2.96
 - ma20: 48.5
 - ma60: 49.29
-- ma120: 50.19
+- ma120: 50.35
 - return_5d: 0
 - return_20d: -6.06
 - volume_ratio: 0.96
@@ -78,7 +78,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260417,49.3,49.3,49.3,49.3,3098,48.81,1,48.03,50.22,0.43
-20260420,48.8,50.4,48.8,50.4,3472,48.95,2.97,48.09,50.2,0.49
+20260420,48.8,50.4,48.8,50.4,3472,48.94,2.97,48.09,50.2,0.49
 20260421,49.25,49.65,48.05,49.65,4459,49,1.32,48.12,50.17,0.66
 20260423,49.45,49.45,49.45,49.45,1000,49.04,0.83,48.2,50.13,0.18
 20260424,50.8,50.8,50,50,2000,49.12,1.79,48.3,50.1,0.51
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 87.59
 - over_600_ratio: 85.13
 - over_800_ratio: 85.13
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,87.59,-0.02,85.13,-0.02,82.47,-0.02,0,False,False
 20260515,87.59,0,85.13,0,82.47,0,0,False,False
 20260522,87.59,0,85.13,0,82.47,0,0,False,False
+20260529,87.59,0,85.13,0,82.47,0,0,False,False
 ```
 
 ## Candidate Context

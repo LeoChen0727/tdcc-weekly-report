@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6662 樂斯科
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:35 Asia/Taipei
+- generated_at: 2026-05-30 23:43:12 Asia/Taipei
 - stock_id: 6662
 - stock_name: 樂斯科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 133
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 269
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -85,8 +85,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260511,29.45,31,29.45,30.45,13000,29.67,2.62,29.77,29.65,1.1
 20260512,29.8,30.4,29.8,30,7000,29.7,1.01,29.78,29.65,0.61
 20260513,29.9,29.9,29.9,29.9,1000,29.72,0.62,29.78,29.64,0.09
-20260514,29,30.5,29,30.5,20000,29.78,2.41,29.77,29.64,1.69
-20260515,29.85,29.85,29.5,29.5,5000,29.76,-0.87,29.73,29.64,0.42
+20260514,29,30.5,29,30.5,20000,29.78,2.42,29.77,29.64,1.69
+20260515,29.85,29.85,29.5,29.5,5000,29.76,-0.86,29.73,29.64,0.42
 20260518,30,30,30,30,1000,29.78,0.75,29.71,29.64,0.09
 20260519,29.4,29.4,29.4,29.4,1000,29.75,-1.16,29.68,29.63,0.11
 20260520,29.4,29.4,29,29,4000,29.68,-2.3,29.65,29.62,0.43
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 47.53
-- over_600_ratio: 45.78
-- over_800_ratio: 40.04
-- over_1000_ratio: 40.04
-- over_400_change_1w: 0.01
-- over_800_change_1w: 0.01
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 47.57
+- over_600_ratio: 45.82
+- over_800_ratio: 40.08
+- over_1000_ratio: 40.08
+- over_400_change_1w: 0.04
+- over_800_change_1w: 0.04
+- over_1000_change_1w: 0.04
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,47.43,0.05,40.02,0.01,40.02,0.01,1,True,True
 20260515,47.52,0.09,40.03,0.01,40.03,0.01,2,True,True
 20260522,47.53,0.01,40.04,0.01,40.04,0.01,3,True,True
+20260529,47.57,0.04,40.08,0.04,40.08,0.04,4,True,True
 ```
 
 ## Candidate Context

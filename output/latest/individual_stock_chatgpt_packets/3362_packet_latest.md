@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3362 先進光
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:33 Asia/Taipei
+- generated_at: 2026-05-30 23:42:00 Asia/Taipei
 - stock_id: 3362
 - stock_name: 先進光
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,14 +100,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 60.34
-- over_600_ratio: 56.02
-- over_800_ratio: 51.72
-- over_1000_ratio: 49.09
-- over_400_change_1w: -0.22
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
+- as_of_date: 20260529
+- over_400_ratio: 59.74
+- over_600_ratio: 54.94
+- over_800_ratio: 51.07
+- over_1000_ratio: 48.33
+- over_400_change_1w: -0.6
+- over_800_change_1w: -0.65
+- over_1000_change_1w: -0.76
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,60.82,-0.06,51.72,-0.01,49.09,-0.01,0,False,False
 20260515,60.56,-0.26,51.72,0,49.09,0,0,False,False
 20260522,60.34,-0.22,51.72,0,49.09,0,0,False,False
+20260529,59.74,-0.6,51.07,-0.65,48.33,-0.76,0,False,False
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 3362 | 先進光 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260530 | 3362 | 先進光 | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6542 隆中
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:31 Asia/Taipei
+- generated_at: 2026-05-30 23:43:07 Asia/Taipei
 - stock_id: 6542
 - stock_name: 隆中
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 135
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 271
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 84.68
 - over_600_ratio: 83.54
 - over_800_ratio: 79.76
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,84.68,0,79.76,0,77.61,0,0,False,False
 20260515,84.68,0,79.76,0,77.61,0,0,False,False
 20260522,84.68,0,79.76,0,77.61,0,0,False,False
+20260529,84.68,0,79.76,0,77.61,0,0,False,False
 ```
 
 ## Candidate Context

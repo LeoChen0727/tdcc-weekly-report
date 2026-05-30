@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3533 嘉澤
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:37 Asia/Taipei
+- generated_at: 2026-05-30 23:42:06 Asia/Taipei
 - stock_id: 3533
 - stock_name: 嘉澤
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -92,7 +92,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260520,2400,2410,2310,2360,1599122,2486.06,-5.07,2584.5,2183.75,0.81
 20260521,2480,2570,2465,2525,2391771,2489.3,1.43,2578.25,2198.42,1.17
 20260522,2600,2625,2480,2555,1568971,2494.78,2.41,2583,2213.92,0.79
-20260525,2600,2630,2525,2585,1266807,2502.29,3.31,2586.25,2229.75,0.66
+20260525,2600,2630,2525,2585,1266807,2502.3,3.31,2586.25,2229.75,0.66
 20260526,2600,2670,2550,2640,769995,2513.77,5.02,2582.75,2243.83,0.42
 20260527,2660,2740,2610,2625,1311565,2523.04,4.04,2580.5,2258,0.71
 20260528,2630,2685,2455,2485,1190319,2519.87,-1.38,2572.25,2271.08,0.64
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 62.08
-- over_600_ratio: 52.82
-- over_800_ratio: 49.33
-- over_1000_ratio: 44.61
-- over_400_change_1w: -0.1
-- over_800_change_1w: 0.61
-- over_1000_change_1w: 3.11
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 61.34
+- over_600_ratio: 53.38
+- over_800_ratio: 48.82
+- over_1000_ratio: 45.76
+- over_400_change_1w: -0.74
+- over_800_change_1w: -0.51
+- over_1000_change_1w: 1.15
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -120,18 +120,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,60.7,-0.67,46.54,1.24,40.3,-1.78,1,False,True
 20260515,62.18,1.48,48.72,2.18,41.5,1.2,2,True,True
 20260522,62.08,-0.1,49.33,0.61,44.61,3.11,3,False,True
+20260529,61.34,-0.74,48.82,-0.51,45.76,1.15,4,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 3533 | 嘉澤 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
-| 20260521 | 3533 | 嘉澤 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260530 | 3533 | 嘉澤 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260521 | 3533 | 嘉澤 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 3533 | 嘉澤 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 3533 | 嘉澤 | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

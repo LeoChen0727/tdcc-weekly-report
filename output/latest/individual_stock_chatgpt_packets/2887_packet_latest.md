@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2887 台新新光金
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:17 Asia/Taipei
+- generated_at: 2026-05-30 23:41:42 Asia/Taipei
 - stock_id: 2887
 - stock_name: 台新新光金
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 73.07
-- over_600_ratio: 71.08
-- over_800_ratio: 69.71
-- over_1000_ratio: 68.68
-- over_400_change_1w: 0.12
-- over_800_change_1w: 0.15
-- over_1000_change_1w: 0.16
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 72.96
+- over_600_ratio: 70.92
+- over_800_ratio: 69.56
+- over_1000_ratio: 68.52
+- over_400_change_1w: -0.11
+- over_800_change_1w: -0.15
+- over_1000_change_1w: -0.16
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,73.1,-0.02,69.75,-0.03,68.69,-0.07,0,False,False
 20260515,72.95,-0.15,69.56,-0.19,68.52,-0.17,0,False,False
 20260522,73.07,0.12,69.71,0.15,68.68,0.16,1,True,True
+20260529,72.96,-0.11,69.56,-0.15,68.52,-0.16,0,False,False
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2887 | 台新新光金 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260530 | 2887 | 台新新光金 | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

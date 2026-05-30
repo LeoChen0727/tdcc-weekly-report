@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6150 撼訊
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:16 Asia/Taipei
+- generated_at: 2026-05-30 23:42:51 Asia/Taipei
 - stock_id: 6150
 - stock_name: 撼訊
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,7 +77,7 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,55.7,58.8,55.1,57.2,464000,56.33,1.55,55.74,57.8,1.09
+20260504,55.7,58.8,55.1,57.2,464000,56.32,1.55,55.74,57.8,1.09
 20260505,58.3,61.5,58,60,890000,56.63,5.95,55.99,57.73,1.91
 20260506,66,66,65.8,66,934000,57.41,14.96,56.53,57.77,1.83
 20260507,72.6,72.6,72.6,72.6,752000,58.68,23.73,57.3,57.92,1.4
@@ -100,12 +100,12 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 14.16
-- over_600_ratio: 13.1
+- as_of_date: 20260529
+- over_400_ratio: 14.08
+- over_600_ratio: 13.02
 - over_800_ratio: 11.78
 - over_1000_ratio: 11.78
-- over_400_change_1w: -0.02
+- over_400_change_1w: -0.08
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,14.08,-0.01,11.78,0,11.78,0,0,False,False
 20260515,14.18,0.1,11.78,0,11.78,0,1,False,False
 20260522,14.16,-0.02,11.78,0,11.78,0,0,False,False
+20260529,14.08,-0.08,11.78,0,11.78,0,0,False,False
 ```
 
 ## Candidate Context

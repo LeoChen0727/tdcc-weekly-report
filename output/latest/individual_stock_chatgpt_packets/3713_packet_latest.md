@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3713 新晶投控
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:44 Asia/Taipei
+- generated_at: 2026-05-30 23:42:14 Asia/Taipei
 - stock_id: 3713
 - stock_name: 新晶投控
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -79,10 +79,10 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,14.8,14.9,14.5,14.9,68000,15.62,-4.6,15.16,17.41,0.36
 20260505,14.6,14.6,14.3,14.45,102000,15.52,-6.9,15.18,17.3,0.64
-20260506,14.55,14.55,14.2,14.45,58000,15.43,-6.37,15.2,17.2,0.39
+20260506,14.55,14.55,14.2,14.45,58000,15.43,-6.36,15.2,17.2,0.39
 20260507,14.5,14.55,13.9,14.1,187000,15.32,-7.97,15.2,17.09,1.26
 20260508,14.05,14.05,13.5,13.7,320000,15.19,-9.79,15.19,16.98,2
-20260511,13.7,14.2,13.5,14.2,132000,15.1,-5.99,15.2,16.89,0.81
+20260511,13.7,14.2,13.5,14.2,132000,15.1,-5.98,15.2,16.89,0.81
 20260512,14.2,14.35,13.7,14.2,57000,15.03,-5.51,15.18,16.81,0.36
 20260513,14.15,14.15,13.4,13.85,154000,14.93,-7.24,15.07,16.72,1.09
 20260514,13.9,14.15,13.55,13.8,85000,14.84,-6.98,14.91,16.61,0.7
@@ -100,16 +100,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 55.8
-- over_600_ratio: 46.92
-- over_800_ratio: 45.38
-- over_1000_ratio: 42.34
-- over_400_change_1w: 0.04
-- over_800_change_1w: 0.02
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 55.83
+- over_600_ratio: 46.95
+- over_800_ratio: 45.41
+- over_1000_ratio: 42.35
+- over_400_change_1w: 0.03
+- over_800_change_1w: 0.03
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,55.74,0.02,45.34,0.02,42.34,0,1,False,True
 20260515,55.76,0.02,45.36,0.02,42.34,0,2,False,True
 20260522,55.8,0.04,45.38,0.02,42.34,0,3,False,True
+20260529,55.83,0.03,45.41,0.03,42.35,0.01,4,True,True
 ```
 
 ## Candidate Context

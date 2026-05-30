@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3323 加百裕
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:32 Asia/Taipei
+- generated_at: 2026-05-30 23:41:59 Asia/Taipei
 - stock_id: 3323
 - stock_name: 加百裕
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -79,7 +79,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,33.7,34.65,33.7,34.25,603000,34.17,0.23,33.51,35.69,0.45
 20260505,34.7,35.1,34.25,35.05,982000,34.24,2.35,33.67,35.6,0.73
-20260506,35.3,35.3,33.9,34.95,1394000,34.3,1.88,33.8,35.51,1.01
+20260506,35.3,35.3,33.9,34.95,1394000,34.3,1.89,33.8,35.51,1.01
 20260507,35.3,35.35,34.55,34.55,993000,34.32,0.66,33.88,35.4,0.71
 20260508,35,36.65,34.3,34.75,1961000,34.36,1.14,34,35.33,1.33
 20260511,35.05,37.25,34.95,36.3,3595000,34.52,5.15,34.2,35.31,2.21
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 21.92
-- over_600_ratio: 20.52
-- over_800_ratio: 17.24
-- over_1000_ratio: 15.47
-- over_400_change_1w: 0.35
-- over_800_change_1w: 1.81
-- over_1000_change_1w: 0.04
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260529
+- over_400_ratio: 23.5
+- over_600_ratio: 22.56
+- over_800_ratio: 19.33
+- over_1000_ratio: 18.4
+- over_400_change_1w: 1.58
+- over_800_change_1w: 2.09
+- over_1000_change_1w: 2.93
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,21.02,-0.5,16.69,-0.03,16.69,-0.03,0,False,False
 20260515,21.57,0.55,15.43,-1.26,15.43,-1.26,1,False,False
 20260522,21.92,0.35,17.24,1.81,15.47,0.04,2,True,True
+20260529,23.5,1.58,19.33,2.09,18.4,2.93,3,True,True
 ```
 
 ## Candidate Context

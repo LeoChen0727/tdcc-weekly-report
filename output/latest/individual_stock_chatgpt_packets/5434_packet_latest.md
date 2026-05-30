@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5434 崇越
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:07 Asia/Taipei
+- generated_at: 2026-05-30 23:42:41 Asia/Taipei
 - stock_id: 5434
 - stock_name: 崇越
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -80,9 +80,9 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260504,410,418,410,416,365952,393.74,5.65,401.8,351.77,0.32
 20260505,415.5,415.5,408.5,411.5,359108,395.22,4.12,405.8,353.14,0.33
 20260506,416.5,426,415.5,425,749158,397.7,6.86,409.02,354.7,0.74
-20260507,430,430,416.5,418.5,784580,399.44,4.77,411.95,356.11,0.8
+20260507,430,430,416.5,418.5,784580,399.43,4.77,411.95,356.11,0.8
 20260508,428,434,420.5,423,1255271,401.4,5.38,414.82,357.66,1.27
-20260511,429,438,418.5,431,912348,403.87,6.72,416.32,359.46,1.01
+20260511,429,438,418.5,431,912348,403.86,6.72,416.32,359.46,1.01
 20260512,430,430,420,423.5,1077554,405.5,4.44,417.52,361.18,1.24
 20260513,420,420,410,412.5,634284,406.08,1.58,418.1,362.57,0.77
 20260514,415,421.5,412.5,413,469783,406.66,1.56,418.15,363.95,0.59
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 54.19
-- over_600_ratio: 49.73
-- over_800_ratio: 44.43
-- over_1000_ratio: 39.87
-- over_400_change_1w: -0.33
-- over_800_change_1w: -0.53
-- over_1000_change_1w: -1.02
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 54.32
+- over_600_ratio: 49.76
+- over_800_ratio: 44.82
+- over_1000_ratio: 40.27
+- over_400_change_1w: 0.13
+- over_800_change_1w: 0.39
+- over_1000_change_1w: 0.4
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,54.81,-0.22,45.26,0.01,41.74,0.5,1,False,True
 20260515,54.52,-0.29,44.96,-0.3,40.89,-0.85,2,False,False
 20260522,54.19,-0.33,44.43,-0.53,39.87,-1.02,0,False,False
+20260529,54.32,0.13,44.82,0.39,40.27,0.4,1,True,True
 ```
 
 ## Candidate Context

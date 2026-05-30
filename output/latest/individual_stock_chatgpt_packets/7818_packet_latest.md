@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7818 溢泰實業
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:51 Asia/Taipei
+- generated_at: 2026-05-30 23:43:46 Asia/Taipei
 - stock_id: 7818
 - stock_name: 溢泰實業
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260529
 - price_rows: 10
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -90,15 +90,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 88.39
-- over_600_ratio: 87.81
-- over_800_ratio: 87.44
-- over_1000_ratio: 87.44
-- over_400_change_1w: -8.75
-- over_800_change_1w: -9.14
-- over_1000_change_1w: -9.14
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260529
+- over_400_ratio: 88.55
+- over_600_ratio: 87.69
+- over_800_ratio: 87.27
+- over_1000_ratio: 87.27
+- over_400_change_1w: 0.16
+- over_800_change_1w: -0.17
+- over_1000_change_1w: -0.17
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -110,6 +110,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,96.78,0,96.15,0,96.15,0,0,False,False
 20260515,97.14,0.36,96.58,0.43,96.58,0.43,1,True,True
 20260522,88.39,-8.75,87.44,-9.14,87.44,-9.14,0,False,False
+20260529,88.55,0.16,87.27,-0.17,87.27,-0.17,1,False,False
 ```
 
 ## Candidate Context

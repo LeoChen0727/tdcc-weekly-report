@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4549 桓達
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:52 Asia/Taipei
+- generated_at: 2026-05-30 23:42:23 Asia/Taipei
 - stock_id: 4549
 - stock_name: 桓達
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -87,7 +87,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260513,101.5,101.5,98.5,99.3,155000,100.56,-1.25,101.34,98.02,0.66
 20260514,99.4,99.9,97.5,98,194000,100.34,-2.34,101.28,97.91,0.82
 20260515,98.4,99.1,94.1,94.6,248000,99.87,-5.27,101.03,97.77,1.02
-20260518,93,95.1,92.1,94.2,151000,99.39,-5.22,100.77,97.67,0.61
+20260518,93,95.1,92.1,94.2,151000,99.39,-5.23,100.77,97.67,0.61
 20260519,96,96.9,94.3,96.6,172000,99.16,-2.58,100.47,97.61,0.71
 20260520,98.7,102.5,97,100.5,432000,99.27,1.24,100.47,97.62,1.77
 20260521,104,104,101,102,377000,99.5,2.51,100.42,97.63,1.5
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 61.68
+- as_of_date: 20260529
+- over_400_ratio: 61.59
 - over_600_ratio: 59.97
 - over_800_ratio: 58.74
 - over_1000_ratio: 58.74
-- over_400_change_1w: 0.82
+- over_400_change_1w: -0.09
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,60.86,0,58.74,0,58.74,0,0,False,False
 20260515,60.86,0,58.74,0,58.74,0,0,False,False
 20260522,61.68,0.82,58.74,0,58.74,0,1,False,False
+20260529,61.59,-0.09,58.74,0,58.74,0,0,False,False
 ```
 
 ## Candidate Context

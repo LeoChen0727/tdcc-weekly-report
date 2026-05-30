@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8089 康全電訊
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:55 Asia/Taipei
+- generated_at: 2026-05-30 23:43:51 Asia/Taipei
 - stock_id: 8089
 - stock_name: 康全電訊
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -79,7 +79,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,20.2,20.45,19.9,20.15,349000,21.77,-7.43,21.54,24.14,1.31
 20260505,20.15,22.15,20.15,21.15,881000,21.72,-2.61,21.46,24,2.93
-20260506,21.65,21.65,20.35,20.5,336000,21.62,-5.16,21.39,23.86,1.1
+20260506,21.65,21.65,20.35,20.5,336000,21.61,-5.16,21.39,23.86,1.1
 20260507,20.8,21.15,20.45,20.9,292000,21.56,-3.04,21.3,23.72,0.93
 20260508,21.05,22.2,21.05,21.75,585000,21.57,0.83,21.28,23.61,1.73
 20260511,21.9,21.9,20.8,21.1,438000,21.53,-2.01,21.23,23.49,1.29
@@ -95,20 +95,20 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,21,21.2,19.8,20,20000,20.8,-3.84,20.54,22.45,0.07
 20260526,20.15,20.45,19.8,20,20000,20.73,-3.53,20.5,22.34,0.08
 20260527,20,20.15,19.8,19.85,20000,20.66,-3.91,20.45,22.24,0.08
-20260528,20,20.15,19.55,19.75,20000,20.58,-4.05,20.41,22.15,0.08
+20260528,20,20.15,19.55,19.75,20000,20.58,-4.04,20.41,22.15,0.08
 20260529,19.9,20,19.6,19.9,20000,20.53,-3.05,20.41,22.05,0.09
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 42.62
+- as_of_date: 20260529
+- over_400_ratio: 42.15
 - over_600_ratio: 38.94
 - over_800_ratio: 37.81
 - over_1000_ratio: 37.81
-- over_400_change_1w: 0.57
+- over_400_change_1w: -0.47
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,42.2,-1.13,37.81,-1.19,37.81,0.04,1,False,True
 20260515,42.05,-0.15,37.81,0,37.81,0,0,False,False
 20260522,42.62,0.57,37.81,0,37.81,0,1,False,False
+20260529,42.15,-0.47,37.81,0,37.81,0,0,False,False
 ```
 
 ## Candidate Context

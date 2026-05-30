@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5210 寶碩
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:02 Asia/Taipei
+- generated_at: 2026-05-30 23:42:35 Asia/Taipei
 - stock_id: 5210
 - stock_name: 寶碩
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -79,11 +79,11 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,23,25,23,25,684000,22.73,9.99,22.66,21.95,3.83
 20260505,25,27.5,25,27.5,891000,23.13,18.91,22.94,22.05,4.04
-20260506,28.5,29.5,27.4,28.6,1787000,23.58,21.28,23.28,22.16,5.8
+20260506,28.5,29.5,27.4,28.6,1787000,23.58,21.27,23.28,22.16,5.8
 20260507,28.75,28.75,27.5,27.6,608000,23.92,15.4,23.57,22.27,1.81
 20260508,27.6,28.35,26.85,28.05,679000,24.26,15.61,23.88,22.38,1.85
 20260511,28.95,29.45,27.8,27.8,569000,24.56,13.21,24.11,22.5,1.52
-20260512,28.5,28.5,25.05,26.15,648000,24.69,5.92,24.28,22.59,1.65
+20260512,28.5,28.5,25.05,26.15,648000,24.69,5.91,24.28,22.59,1.65
 20260513,25.7,26.2,25.15,25.35,337000,24.74,2.45,24.43,22.65,0.84
 20260514,25.35,25.6,25.25,25.5,131000,24.81,2.79,24.59,22.72,0.33
 20260515,25.6,27.1,25.5,25.9,303000,24.9,4.02,24.78,22.81,0.73
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 41.73
-- over_600_ratio: 37.42
-- over_800_ratio: 36.66
+- as_of_date: 20260529
+- over_400_ratio: 42.3
+- over_600_ratio: 37.5
+- over_800_ratio: 36.75
 - over_1000_ratio: 34.55
-- over_400_change_1w: 0.06
-- over_800_change_1w: 0.05
+- over_400_change_1w: 0.57
+- over_800_change_1w: 0.09
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 2
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,41.43,-0.11,35.56,0,34.55,0,0,False,False
 20260515,41.67,0.24,36.61,1.05,34.55,0,1,False,True
 20260522,41.73,0.06,36.66,0.05,34.55,0,2,False,True
+20260529,42.3,0.57,36.75,0.09,34.55,0,3,False,True
 ```
 
 ## Candidate Context

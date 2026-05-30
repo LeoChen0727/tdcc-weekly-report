@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8086 宏捷科
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:55 Asia/Taipei
+- generated_at: 2026-05-30 23:43:50 Asia/Taipei
 - stock_id: 8086
 - stock_name: 宏捷科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -85,13 +85,13 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260511,163.5,165,153.5,162,14740000,145.84,11.08,145.88,132.51,1.29
 20260512,164.5,167.5,157,158,8776000,146.86,7.59,146.85,133.42,0.76
 20260513,156,161,153,157,6471000,147.7,6.3,147.9,134.23,0.56
-20260514,159.5,160.5,152.5,154,4808000,148.23,3.9,148.9,134.88,0.42
+20260514,159.5,160.5,152.5,154,4808000,148.23,3.89,148.9,134.88,0.42
 20260515,155.5,160,148.5,150,7638000,148.37,1.1,149.35,135.43,0.67
 20260518,147,148,140.5,147.5,3877000,148.3,-0.54,149.3,136.03,0.38
 20260519,145.5,148.5,140.5,141.5,4264000,147.73,-4.22,148.88,136.47,0.45
-20260520,141.5,146,140.5,144.5,3355000,147.46,-2.01,148.8,136.94,0.37
+20260520,141.5,146,140.5,144.5,3355000,147.47,-2.01,148.8,136.94,0.37
 20260521,146,151,145,149,3651000,147.59,0.95,148.78,137.57,0.42
-20260522,151,162,150,159.5,158000,148.58,7.35,149.97,138.32,0.02
+20260522,151,162,150,159.5,158000,148.59,7.35,149.97,138.32,0.02
 20260525,166,171.5,161,163,166000,149.79,8.82,151.22,138.98,0.02
 20260526,166,179,158.5,179,170000,152.22,17.59,153.47,139.96,0.02
 20260527,182.5,183,170.5,173.5,175000,153.99,12.67,154.97,140.8,0.03
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 57.21
-- over_600_ratio: 53.49
-- over_800_ratio: 53.16
-- over_1000_ratio: 50.72
-- over_400_change_1w: -0.95
-- over_800_change_1w: -0.51
-- over_1000_change_1w: -1.12
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 59.89
+- over_600_ratio: 56.46
+- over_800_ratio: 55.08
+- over_1000_ratio: 54.13
+- over_400_change_1w: 2.68
+- over_800_change_1w: 1.92
+- over_1000_change_1w: 3.41
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,58.07,3.12,53.37,2.56,51.99,3.44,1,True,True
 20260515,58.16,0.09,53.67,0.3,51.84,-0.15,2,False,True
 20260522,57.21,-0.95,53.16,-0.51,50.72,-1.12,0,False,False
+20260529,59.89,2.68,55.08,1.92,54.13,3.41,1,True,True
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 8086 | 宏捷科 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 8086 | 宏捷科 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

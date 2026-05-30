@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2330 台積電
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:58 Asia/Taipei
+- generated_at: 2026-05-30 23:41:20 Asia/Taipei
 - stock_id: 2330
 - stock_name: 台積電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: True
 - sell_strategy_summary_exists: False
@@ -77,10 +77,10 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,2200,2285,2195,2275,44458732,2065.98,10.12,2063.75,1922.25,1.03
-20260505,2250,2270,2240,2250,26644983,2081.31,8.1,2085.75,1930.5,0.62
+20260504,2200,2285,2195,2275,44458732,2065.97,10.12,2063.75,1922.25,1.03
+20260505,2250,2270,2240,2250,26644983,2081.31,8.11,2085.75,1930.5,0.62
 20260506,2250,2285,2240,2250,38026963,2095.37,7.38,2105.25,1938.33,0.86
-20260507,2335,2345,2310,2310,41966283,2113.26,9.31,2123.25,1946.5,0.96
+20260507,2335,2345,2310,2310,41966283,2113.25,9.31,2123.25,1946.5,0.96
 20260508,2300,2310,2265,2290,31730352,2127.98,7.61,2140,1954.58,0.73
 20260511,2265,2275,2235,2235,46172626,2136.9,4.59,2151.75,1962.25,1.06
 20260512,2235,2280,2210,2255,54239538,2146.74,5.04,2165,1970.42,1.21
@@ -89,7 +89,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260515,2310,2325,2250,2265,34360513,2171.14,4.32,2191.75,1993.83,0.78
 20260518,2225,2260,2215,2240,32966937,2176.88,2.9,2202.25,2001.5,0.76
 20260519,2220,2230,2205,2205,45585931,2179.22,1.18,2211.25,2008,1.03
-20260520,2205,2210,2185,2185,38332945,2179.71,0.24,2218,2013.08,0.85
+20260520,2205,2210,2185,2185,38332945,2179.7,0.24,2218,2013.08,0.85
 20260521,2240,2255,2230,2230,24929331,2183.9,2.11,2227,2018.33,0.56
 20260522,2245,2260,2225,2255,26823133,2189.82,2.98,2235.75,2024.25,0.62
 20260525,2275,2310,2275,2310,28250944,2199.84,5.01,2242,2030,0.67
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 88.1
-- over_600_ratio: 87.04
-- over_800_ratio: 86.11
-- over_1000_ratio: 85.39
-- over_400_change_1w: -0.08
-- over_800_change_1w: -0.1
-- over_1000_change_1w: -0.08
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 88.12
+- over_600_ratio: 87.06
+- over_800_ratio: 86.14
+- over_1000_ratio: 85.41
+- over_400_change_1w: 0.02
+- over_800_change_1w: 0.03
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,17 +120,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,88.28,-0.04,86.32,-0.03,85.58,0,0,False,False
 20260515,88.18,-0.1,86.21,-0.11,85.47,-0.11,0,False,False
 20260522,88.1,-0.08,86.11,-0.1,85.39,-0.08,0,False,False
+20260529,88.12,0.02,86.14,0.03,85.41,0.02,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2330 | 台積電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | mixed_flow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260530 | 2330 | 台積電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | mixed_flow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2330 | 台積電 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| 20260530 | 2330 | 台積電 | 2 | 2 | 3 | 3 | 3 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

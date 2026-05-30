@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4972 湯石照明
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:00 Asia/Taipei
+- generated_at: 2026-05-30 23:42:33 Asia/Taipei
 - stock_id: 4972
 - stock_name: 湯石照明
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -63,7 +63,7 @@
 - volume: 16000
 - ma5: 16.44
 - ema23_primary: 16.53
-- distance_to_ema23_pct: -0.51
+- distance_to_ema23_pct: -0.5
 - ma20: 16.43
 - ma60: 17.06
 - ma120: 17.59
@@ -96,21 +96,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,16.3,16.45,16.3,16.4,16000,16.55,-0.93,16.43,17.13,0.3
 20260527,16.4,16.45,16.4,16.45,16000,16.54,-0.57,16.43,17.11,0.31
 20260528,16.45,16.5,16.4,16.5,16000,16.54,-0.25,16.43,17.09,0.31
-20260529,16.4,16.45,16.4,16.45,16000,16.53,-0.51,16.43,17.06,0.31
+20260529,16.4,16.45,16.4,16.45,16000,16.53,-0.5,16.43,17.06,0.31
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 48.64
-- over_600_ratio: 43.25
-- over_800_ratio: 40.7
+- as_of_date: 20260529
+- over_400_ratio: 48.95
+- over_600_ratio: 44.44
+- over_800_ratio: 39.23
 - over_1000_ratio: 36.22
-- over_400_change_1w: 0.14
-- over_800_change_1w: 0.02
-- over_1000_change_1w: 0.02
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
-- high_thresholds_up: True
+- over_400_change_1w: 0.31
+- over_800_change_1w: -1.47
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,47.73,-0.41,40.67,-0.41,36.19,-1.88,0,False,False
 20260515,48.5,0.77,40.68,0.01,36.2,0.01,1,True,True
 20260522,48.64,0.14,40.7,0.02,36.22,0.02,2,True,True
+20260529,48.95,0.31,39.23,-1.47,36.22,0,3,False,False
 ```
 
 ## Candidate Context

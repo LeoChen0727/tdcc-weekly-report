@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1213 大飲
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:33 Asia/Taipei
+- generated_at: 2026-05-30 23:40:51 Asia/Taipei
 - stock_id: 1213
 - stock_name: 大飲
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 131
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 258
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -87,7 +87,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260513,8.96,8.96,8.69,8.7,8114,9.05,-3.84,9,9.52,0.29
 20260514,8.5,8.95,8.34,8.95,8658,9.04,-0.99,8.98,9.5,0.31
 20260515,8.99,8.99,8.5,8.9,9151,9.03,-1.42,8.96,9.48,0.34
-20260518,8.23,8.59,8.23,8.54,9102,8.99,-4.97,8.92,9.46,0.35
+20260518,8.23,8.59,8.23,8.54,9102,8.99,-4.98,8.92,9.46,0.35
 20260519,8.38,8.52,8,8.2,57179,8.92,-8.09,8.87,9.43,2.05
 20260520,8.45,8.45,8.21,8.43,15303,8.88,-5.07,8.84,9.4,0.62
 20260521,8.7,8.7,8.31,8.49,4002,8.85,-4.05,8.8,9.38,0.16
@@ -95,20 +95,20 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,8.47,8.47,8.1,8.27,52193,8.77,-5.71,8.73,9.32,1.98
 20260526,8.52,8.52,8,8.23,39371,8.73,-5.68,8.69,9.3,1.41
 20260527,8.22,8.29,8,8.29,12449,8.69,-4.6,8.66,9.27,0.55
-20260528,8.06,8.16,8.05,8.16,15055,8.65,-5.61,8.63,9.24,0.66
+20260528,8.06,8.16,8.05,8.16,15055,8.65,-5.62,8.63,9.24,0.66
 20260529,8.41,8.41,8.17,8.31,16101,8.62,-3.57,8.59,9.22,0.69
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 82.15
-- over_600_ratio: 80.68
-- over_800_ratio: 80.68
+- as_of_date: 20260529
+- over_400_ratio: 82.22
+- over_600_ratio: 80.75
+- over_800_ratio: 80.75
 - over_1000_ratio: 77.46
-- over_400_change_1w: 0.04
-- over_800_change_1w: 0.04
+- over_400_change_1w: 0.07
+- over_800_change_1w: 0.07
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 3
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,82.04,0.01,80.57,0.01,77.46,0,1,False,True
 20260515,82.11,0.07,80.64,0.07,77.46,0,2,False,True
 20260522,82.15,0.04,80.68,0.04,77.46,0,3,False,True
+20260529,82.22,0.07,80.75,0.07,77.46,0,4,False,True
 ```
 
 ## Candidate Context

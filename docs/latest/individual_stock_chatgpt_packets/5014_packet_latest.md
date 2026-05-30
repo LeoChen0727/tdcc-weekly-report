@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5014 建錩
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:02 Asia/Taipei
+- generated_at: 2026-05-30 23:42:34 Asia/Taipei
 - stock_id: 5014
 - stock_name: 建錩
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 36.75
-- over_600_ratio: 33.13
-- over_800_ratio: 30.07
+- as_of_date: 20260529
+- over_400_ratio: 37.25
+- over_600_ratio: 32.82
+- over_800_ratio: 30.53
 - over_1000_ratio: 26.12
-- over_400_change_1w: 0.26
-- over_800_change_1w: 0.04
+- over_400_change_1w: 0.5
+- over_800_change_1w: 0.46
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,36.84,-0.06,30.07,0.01,26.69,0,1,False,True
 20260515,36.49,-0.35,30.03,-0.04,26.12,-0.57,0,False,False
 20260522,36.75,0.26,30.07,0.04,26.12,0,1,False,True
+20260529,37.25,0.5,30.53,0.46,26.12,0,2,False,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6637 醫影
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:34 Asia/Taipei
+- generated_at: 2026-05-30 23:43:11 Asia/Taipei
 - stock_id: 6637
 - stock_name: 醫影
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -81,7 +81,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260505,72.1,72.3,71.9,72.1,28000,72.19,-0.13,71.91,73.71,0.93
 20260506,72.3,72.3,71.8,71.8,30000,72.16,-0.5,71.95,73.59,1
 20260507,71.9,72.7,71.9,72.5,26000,72.19,0.43,71.94,73.5,0.85
-20260508,71.6,72,71,71.3,72000,72.12,-1.13,71.91,73.39,2.22
+20260508,71.6,72,71,71.3,72000,72.11,-1.13,71.91,73.39,2.22
 20260511,71.3,71.3,70.9,70.9,32000,72.01,-1.55,71.89,73.28,1.06
 20260512,70,70,66.6,67.1,374000,71.6,-6.29,71.63,73.13,8.07
 20260513,67,67.3,65.1,66.9,24000,71.21,-6.06,71.38,72.96,0.52
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 61.7
 - over_600_ratio: 61.7
 - over_800_ratio: 53.8
 - over_1000_ratio: 53.8
-- over_400_change_1w: 0.03
+- over_400_change_1w: 0
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,61.67,0,53.8,0,53.8,0,0,False,False
 20260515,61.67,0,53.8,0,53.8,0,0,False,False
 20260522,61.7,0.03,53.8,0,53.8,0,1,False,False
+20260529,61.7,0,53.8,0,53.8,0,0,False,False
 ```
 
 ## Candidate Context

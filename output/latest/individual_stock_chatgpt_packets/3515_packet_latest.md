@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3515 華擎
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:36 Asia/Taipei
+- generated_at: 2026-05-30 23:42:05 Asia/Taipei
 - stock_id: 3515
 - stock_name: 華擎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -80,7 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260504,237,238.5,235,235.5,615208,226.02,4.19,223.97,219.9,0.68
 20260505,236.5,238.5,236,237.5,540976,226.98,4.64,225.8,220.03,0.59
 20260506,240,244.5,236,244,1850124,228.4,6.83,227.72,220.35,1.86
-20260507,253.5,254,246,246.5,2247868,229.91,7.22,229.2,220.72,2.1
+20260507,253.5,254,246,246.5,2247868,229.9,7.22,229.2,220.72,2.1
 20260508,246,250,242.5,245.5,1409465,231.2,6.18,230.95,221.12,1.27
 20260511,234.5,234.5,223.5,232.5,2095944,231.31,0.51,231.82,221.4,1.75
 20260512,234.5,235,229,231.5,787337,231.33,0.07,232.32,221.62,0.67
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 69.27
-- over_600_ratio: 67.02
-- over_800_ratio: 65.91
+- as_of_date: 20260529
+- over_400_ratio: 70.06
+- over_600_ratio: 66.97
+- over_800_ratio: 65.85
 - over_1000_ratio: 62.84
-- over_400_change_1w: -0.17
-- over_800_change_1w: -0.69
-- over_1000_change_1w: -0.01
-- tdcc_consecutive_up_weeks: 0
+- over_400_change_1w: 0.79
+- over_800_change_1w: -0.06
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,18 +120,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,69.63,0.05,66.78,-0.02,64.51,-0.02,1,False,False
 20260515,69.44,-0.19,66.6,-0.18,62.85,-1.66,0,False,False
 20260522,69.27,-0.17,65.91,-0.69,62.84,-0.01,0,False,False
+20260529,70.06,0.79,65.85,-0.06,62.84,0,1,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 3515 | 華擎 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260530 | 3515 | 華擎 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 | 20260521 | 3515 | 華擎 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 3515 | 華擎 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260530 | 3515 | 華擎 | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

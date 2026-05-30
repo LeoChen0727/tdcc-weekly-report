@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9960 邁達康
 
 ## Metadata
-- generated_at: 2026-05-29 19:34:09 Asia/Taipei
+- generated_at: 2026-05-30 23:44:06 Asia/Taipei
 - stock_id: 9960
 - stock_name: 邁達康
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 129
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 265
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -78,12 +78,12 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,36,36,33.2,35.4,3562000,27.86,27.05,27.57,24.55,10.6
-20260505,34.2,35.15,34.2,34.9,723000,28.45,22.68,28.07,24.74,1.97
+20260505,34.2,35.15,34.2,34.9,723000,28.45,22.67,28.07,24.74,1.97
 20260506,34.9,35.15,34.8,34.8,688000,28.98,20.09,28.57,24.94,1.73
 20260507,34.8,34.85,34.5,34.5,220000,29.44,17.19,29.05,25.12,0.55
 20260508,34.5,34.7,34.35,34.5,138000,29.86,15.54,29.51,25.31,0.34
 20260511,34.7,35.1,34.5,34.95,131000,30.28,15.41,29.99,25.5,0.32
-20260512,35.2,35.35,34.9,35.1,161000,30.69,14.39,30.47,25.7,0.39
+20260512,35.2,35.35,34.9,35.1,161000,30.69,14.38,30.47,25.7,0.39
 20260513,35.1,35.25,34.9,35.2,146000,31.06,13.32,30.93,25.89,0.36
 20260514,35.25,35.3,35,35.2,125000,31.41,12.08,31.39,26.09,0.31
 20260515,35.1,35.3,34.6,34.7,171000,31.68,9.53,31.77,26.29,0.42
@@ -100,14 +100,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 75.31
-- over_600_ratio: 72.07
-- over_800_ratio: 61.99
-- over_1000_ratio: 56.8
-- over_400_change_1w: -2
-- over_800_change_1w: -3.3
-- over_1000_change_1w: -3.3
+- as_of_date: 20260529
+- over_400_ratio: 74.68
+- over_600_ratio: 69.66
+- over_800_ratio: 59.58
+- over_1000_ratio: 56.78
+- over_400_change_1w: -0.63
+- over_800_change_1w: -2.41
+- over_1000_change_1w: -0.02
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,75.79,1.5,56.4,-1.1,53.6,-1.1,1,False,False
 20260515,77.31,1.52,65.29,8.89,60.1,6.5,2,True,True
 20260522,75.31,-2,61.99,-3.3,56.8,-3.3,0,False,False
+20260529,74.68,-0.63,59.58,-2.41,56.78,-0.02,0,False,False
 ```
 
 ## Candidate Context

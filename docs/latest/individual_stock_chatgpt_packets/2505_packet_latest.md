@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2505 國揚
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:09 Asia/Taipei
+- generated_at: 2026-05-30 23:41:32 Asia/Taipei
 - stock_id: 2505
 - stock_name: 國揚
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 26
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 27
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,23 +100,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 79.23
-- over_600_ratio: 77.82
-- over_800_ratio: 75.84
-- over_1000_ratio: 75.39
-- over_400_change_1w: 0.12
-- over_800_change_1w: 0.26
-- over_1000_change_1w: 0.26
-- tdcc_consecutive_up_weeks: 5
-- all_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 79.11
+- over_600_ratio: 77.52
+- over_800_ratio: 75.91
+- over_1000_ratio: 75.46
+- over_400_change_1w: -0.12
+- over_800_change_1w: 0.07
+- over_1000_change_1w: 0.07
+- tdcc_consecutive_up_weeks: 6
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260306,79.21,0.05,75.7,0.27,75.04,0.05,6,False,True
 20260313,79.36,0.15,75.75,0.05,75.07,0.03,7,True,True
 20260320,79.45,0.09,75.72,-0.03,75.04,-0.03,8,False,False
 20260327,79.5,0.05,75.76,0.04,75.08,0.04,9,True,True
@@ -128,6 +127,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,79.09,-0.31,75.47,-0.19,75.02,0.06,3,False,True
 20260515,79.11,0.02,75.58,0.11,75.13,0.11,4,True,True
 20260522,79.23,0.12,75.84,0.26,75.39,0.26,5,True,True
+20260529,79.11,-0.12,75.91,0.07,75.46,0.07,6,False,True
 ```
 
 ## Candidate Context

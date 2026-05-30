@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3227 原相
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:29 Asia/Taipei
+- generated_at: 2026-05-30 23:41:56 Asia/Taipei
 - stock_id: 3227
 - stock_name: 原相
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 26
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 27
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,23 +100,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 38.96
-- over_600_ratio: 32.81
-- over_800_ratio: 31.45
-- over_1000_ratio: 27.82
-- over_400_change_1w: 1.09
-- over_800_change_1w: 0.24
-- over_1000_change_1w: 0.23
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 39.83
+- over_600_ratio: 32.61
+- over_800_ratio: 31.74
+- over_1000_ratio: 28.09
+- over_400_change_1w: 0.87
+- over_800_change_1w: 0.29
+- over_1000_change_1w: 0.27
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260306,33.71,0.41,27.31,0.68,24.26,0.1,2,True,True
 20260313,34.07,0.36,27.3,-0.01,24.22,-0.04,3,False,False
 20260320,34.58,0.51,27.3,0,24.22,0,4,False,False
 20260327,34.55,-0.03,27.54,0.24,24.46,0.24,5,False,True
@@ -128,6 +127,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,36.24,0.21,27.86,-0.32,26.08,-0.34,1,False,False
 20260515,37.87,1.63,31.21,3.35,27.59,1.51,2,True,True
 20260522,38.96,1.09,31.45,0.24,27.82,0.23,3,True,True
+20260529,39.83,0.87,31.74,0.29,28.09,0.27,4,False,True
 ```
 
 ## Candidate Context
@@ -138,7 +138,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 3227 | 原相 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 3227 | 原相 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

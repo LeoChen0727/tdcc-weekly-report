@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6411 晶焱
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:26 Asia/Taipei
+- generated_at: 2026-05-30 23:43:02 Asia/Taipei
 - stock_id: 6411
 - stock_name: 晶焱
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -81,14 +81,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260505,77.8,84.7,77.8,81.9,691000,78.33,4.56,78.09,79.34,1.64
 20260506,82,82.5,79.8,80.9,595000,78.54,3,78.41,79.29,1.35
 20260507,81.5,82.2,81.3,81.8,453000,78.81,3.79,78.69,79.27,1.01
-20260508,79.7,80.5,77.1,79.8,944000,78.89,1.15,78.89,79.19,1.95
+20260508,79.7,80.5,77.1,79.8,944000,78.9,1.15,78.89,79.19,1.95
 20260511,79.9,84.3,79,82.4,756000,79.19,4.06,79.08,79.16,1.52
 20260512,83.2,84.5,81.4,84.5,954000,79.63,6.12,79.5,79.23,1.82
 20260513,84.8,85,81,82,642000,79.83,2.72,79.78,79.25,1.18
 20260514,83.8,89,82.5,85.1,2143000,80.27,6.02,80.23,79.31,3.38
 20260515,86.5,86.7,81,82.6,1055000,80.46,2.66,80.49,79.34,1.57
 20260518,81,84.3,80.1,83,580000,80.67,2.88,80.69,79.43,0.85
-20260519,83.4,84.4,81.2,82.5,430000,80.82,2.07,80.83,79.5,0.63
+20260519,83.4,84.4,81.2,82.5,430000,80.83,2.07,80.83,79.5,0.63
 20260520,83,87,81.8,86,1440000,81.26,5.84,81.14,79.62,1.96
 20260521,89,94.6,87.5,94.6,3187000,82.37,14.85,81.71,79.86,3.81
 20260522,95.8,99.8,92.6,94.9,96000,83.41,13.77,82.48,80.02,0.12
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 40.15
-- over_600_ratio: 31.75
-- over_800_ratio: 27.33
-- over_1000_ratio: 22.81
-- over_400_change_1w: 1.61
-- over_800_change_1w: 1.32
-- over_1000_change_1w: 0.4
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 41.48
+- over_600_ratio: 33.61
+- over_800_ratio: 26.5
+- over_1000_ratio: 23.74
+- over_400_change_1w: 1.33
+- over_800_change_1w: -0.83
+- over_1000_change_1w: 0.93
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,37.78,0.21,25.85,0.04,22.35,-0.02,1,False,True
 20260515,38.54,0.76,26.01,0.16,22.41,0.06,2,True,True
 20260522,40.15,1.61,27.33,1.32,22.81,0.4,3,False,True
+20260529,41.48,1.33,26.5,-0.83,23.74,0.93,4,False,True
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 6411 | 晶焱 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260530 | 6411 | 晶焱 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | status |

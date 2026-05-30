@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8045 達運光電
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:53 Asia/Taipei
+- generated_at: 2026-05-30 23:43:48 Asia/Taipei
 - stock_id: 8045
 - stock_name: 達運光電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,7 +88,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260514,73.8,74,71.8,72.2,325179,74.53,-3.12,74.94,76.52,0.82
 20260515,72.2,72.6,68.6,68.7,498585,74.04,-7.21,74.62,76.39,1.22
 20260518,68.8,73.4,67.3,72.5,368285,73.91,-1.91,74.58,76.34,0.89
-20260519,71.5,73.2,70.8,71.9,145156,73.74,-2.5,74.25,76.29,0.39
+20260519,71.5,73.2,70.8,71.9,145156,73.75,-2.5,74.25,76.29,0.39
 20260520,71.5,71.7,70.1,71.4,110041,73.55,-2.92,73.89,76.11,0.31
 20260521,71.7,73.3,71.7,72.2,148792,73.44,-1.68,73.47,75.94,0.44
 20260522,72.1,73.2,71.2,71.8,238863,73.3,-2.05,73.25,75.7,0.78
@@ -100,14 +100,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 69.22
-- over_600_ratio: 62.85
-- over_800_ratio: 59.84
-- over_1000_ratio: 57.13
-- over_400_change_1w: -0.81
-- over_800_change_1w: -0.06
-- over_1000_change_1w: -0.06
+- as_of_date: 20260529
+- over_400_ratio: 68
+- over_600_ratio: 62.12
+- over_800_ratio: 59.83
+- over_1000_ratio: 57.11
+- over_400_change_1w: -1.22
+- over_800_change_1w: -0.01
+- over_1000_change_1w: -0.02
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,70.09,0.05,59.92,-1.05,57.2,-0.04,1,False,False
 20260515,70.03,-0.06,59.9,-0.02,57.19,-0.01,2,False,False
 20260522,69.22,-0.81,59.84,-0.06,57.13,-0.06,0,False,False
+20260529,68,-1.22,59.83,-0.01,57.11,-0.02,0,False,False
 ```
 
 ## Candidate Context

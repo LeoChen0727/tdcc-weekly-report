@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5344 立衛
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:06 Asia/Taipei
+- generated_at: 2026-05-30 23:42:39 Asia/Taipei
 - stock_id: 5344
 - stock_name: 立衛
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -80,7 +80,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260504,17.5,17.5,16.6,16.6,219000,15.82,4.94,15.56,14.65,0.66
 20260505,16.6,16.7,16.3,16.35,127000,15.86,3.07,15.69,14.67,0.38
 20260506,16.45,16.8,16.2,16.25,59000,15.89,2.24,15.82,14.69,0.18
-20260507,16.25,16.25,16.05,16.05,101000,15.91,0.9,15.94,14.71,0.3
+20260507,16.25,16.25,16.05,16.05,101000,15.91,0.89,15.94,14.71,0.3
 20260508,16.2,17.2,16.1,17,255000,16,6.26,16.09,14.75,0.73
 20260511,17,17,16.5,16.65,247000,16.05,3.72,16.23,14.79,0.69
 20260512,16.75,16.75,16,16.05,190000,16.05,-0.02,16.31,14.82,0.52
@@ -100,12 +100,12 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 75.57
 - over_600_ratio: 73.54
 - over_800_ratio: 73.54
 - over_1000_ratio: 73.54
-- over_400_change_1w: -0.01
+- over_400_change_1w: 0
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,75.57,-0.01,73.54,0,73.54,0,0,False,False
 20260515,75.58,0.01,73.54,0,73.54,0,1,False,False
 20260522,75.57,-0.01,73.54,0,73.54,0,0,False,False
+20260529,75.57,0,73.54,0,73.54,0,0,False,False
 ```
 
 ## Candidate Context

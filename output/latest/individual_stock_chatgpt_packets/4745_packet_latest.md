@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4745 合富-KY
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:56 Asia/Taipei
+- generated_at: 2026-05-30 23:42:28 Asia/Taipei
 - stock_id: 4745
 - stock_name: 合富-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,14 +100,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 69.55
-- over_600_ratio: 65.25
-- over_800_ratio: 63.51
-- over_1000_ratio: 58.89
-- over_400_change_1w: -0.3
-- over_800_change_1w: -0.15
-- over_1000_change_1w: -1.27
+- as_of_date: 20260529
+- over_400_ratio: 65.82
+- over_600_ratio: 61.16
+- over_800_ratio: 58.26
+- over_1000_ratio: 54.45
+- over_400_change_1w: -3.73
+- over_800_change_1w: -5.25
+- over_1000_change_1w: -4.44
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,68.86,0.6,62.14,0.29,57.48,0.22,1,False,True
 20260515,69.85,0.99,63.66,1.52,60.16,2.68,2,True,True
 20260522,69.55,-0.3,63.51,-0.15,58.89,-1.27,0,False,False
+20260529,65.82,-3.73,58.26,-5.25,54.45,-4.44,0,False,False
 ```
 
 ## Candidate Context

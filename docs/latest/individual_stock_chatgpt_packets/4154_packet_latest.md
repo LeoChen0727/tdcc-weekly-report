@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4154 樂威科-KY
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:47 Asia/Taipei
+- generated_at: 2026-05-30 23:42:17 Asia/Taipei
 - stock_id: 4154
 - stock_name: 樂威科-KY
-- packet_status: standard_rawdata_packet
+- packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 119
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 255
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: price history shorter than 120 rows; K-line context is partial; TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
+- notes: TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
 
 ## Stable Read URLs
 - packet_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_chatgpt_packets/4154_packet_latest.md
@@ -66,7 +66,7 @@
 - distance_to_ema23_pct: -2.68
 - ma20: 13.22
 - ma60: 13
-- ma120: 14.06
+- ma120: 14.05
 - return_5d: -5.76
 - return_20d: 0.77
 - volume_ratio: 0.38
@@ -78,21 +78,21 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260504,12.95,13.25,12.95,13,18000,13.71,-5.2,14.06,13.2,0.62
-20260505,13.45,13.45,12.65,13,28000,13.65,-4.79,13.99,13.14,0.97
-20260506,12.65,12.95,12,12,53000,13.52,-11.22,13.88,13.08,1.69
-20260507,12.5,12.5,11.05,11.25,49000,13.33,-15.59,13.72,13.02,1.49
+20260505,13.45,13.45,12.65,13,28000,13.65,-4.78,13.99,13.14,0.97
+20260506,12.65,12.95,12,12,53000,13.52,-11.21,13.88,13.08,1.69
+20260507,12.5,12.5,11.05,11.25,49000,13.33,-15.58,13.72,13.02,1.49
 20260508,11.5,12.35,11.5,12.3,36000,13.24,-7.11,13.61,12.99,1.04
-20260511,12.25,12.7,11.2,11.4,84000,13.09,-12.9,13.46,12.93,2.21
+20260511,12.25,12.7,11.2,11.4,84000,13.09,-12.89,13.46,12.93,2.21
 20260512,11.4,12.5,11.4,12.5,41000,13.04,-4.13,13.42,12.89,1.08
 20260513,13.3,13.75,13.3,13.75,78000,13.1,4.98,13.46,12.89,1.9
 20260514,13.75,14.9,13.55,14.75,72000,13.24,11.44,13.51,12.9,1.62
-20260515,14.45,14.45,13.3,13.3,67000,13.24,0.44,13.47,12.9,1.46
+20260515,14.45,14.45,13.3,13.3,67000,13.24,0.45,13.47,12.9,1.46
 20260518,13.2,13.95,13.15,13.75,16000,13.28,3.51,13.46,12.89,0.36
-20260519,13.65,14.1,13.55,14.1,19000,13.35,5.6,13.45,12.9,0.44
+20260519,13.65,14.1,13.55,14.1,19000,13.35,5.61,13.45,12.9,0.44
 20260520,14.3,14.35,13.7,14.35,22000,13.43,6.81,13.41,12.92,0.52
 20260521,14.55,14.55,13.9,14.4,15000,13.52,6.55,13.36,12.94,0.36
 20260522,13.8,13.9,13.7,13.9,14000,13.55,2.6,13.3,12.96,0.34
-20260525,14.1,14.1,13.4,13.65,14000,13.56,0.69,13.27,12.96,0.34
+20260525,14.1,14.1,13.4,13.65,14000,13.56,0.7,13.27,12.96,0.34
 20260526,13.15,13.6,13,13.6,13000,13.56,0.3,13.29,12.97,0.32
 20260527,13.55,13.55,13,13.2,13000,13.53,-2.44,13.22,12.96,0.36
 20260528,13,13.5,12.6,13.1,13000,13.49,-2.92,13.21,12.97,0.37
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 77.35
+- as_of_date: 20260529
+- over_400_ratio: 77.47
 - over_600_ratio: 70.1
 - over_800_ratio: 68.07
 - over_1000_ratio: 65.48
-- over_400_change_1w: 0.01
+- over_400_change_1w: 0.12
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 2
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,76.64,0,68.52,0,65.93,0,0,False,False
 20260515,77.34,0.7,68.07,-0.45,65.48,-0.45,1,False,False
 20260522,77.35,0.01,68.07,0,65.48,0,2,False,False
+20260529,77.47,0.12,68.07,0,65.48,0,3,False,False
 ```
 
 ## Candidate Context

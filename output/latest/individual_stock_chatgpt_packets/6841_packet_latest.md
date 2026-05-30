@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6841 長佳智能
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:42 Asia/Taipei
+- generated_at: 2026-05-30 23:43:20 Asia/Taipei
 - stock_id: 6841
 - stock_name: 長佳智能
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -95,22 +95,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260525,59.2,59.5,57.6,57.9,58000,59.63,-2.9,59.73,60.07,0.29
 20260526,58.2,58.3,57.3,57.5,58000,59.45,-3.28,59.66,59.95,0.3
 20260527,57.3,57.5,56.7,56.8,57000,59.23,-4.1,59.58,59.83,0.31
-20260528,56.5,57.8,55.3,55.6,56000,58.93,-5.65,59.44,59.68,0.31
+20260528,56.5,57.8,55.3,55.6,56000,58.93,-5.64,59.44,59.68,0.31
 20260529,55.9,56,54.8,55.7,56000,58.66,-5.04,59.28,59.56,0.32
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 48.06
-- over_600_ratio: 45.95
-- over_800_ratio: 39.42
-- over_1000_ratio: 38.44
-- over_400_change_1w: -0.61
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260529
+- over_400_ratio: 48.68
+- over_600_ratio: 45.5
+- over_800_ratio: 39.49
+- over_1000_ratio: 38.51
+- over_400_change_1w: 0.62
+- over_800_change_1w: 0.07
+- over_1000_change_1w: 0.07
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,48.03,0.02,39.4,0,38.42,0,1,False,False
 20260515,48.67,0.64,39.42,0.02,38.44,0.02,2,True,True
 20260522,48.06,-0.61,39.42,0,38.44,0,0,False,False
+20260529,48.68,0.62,39.49,0.07,38.51,0.07,1,False,True
 ```
 
 ## Candidate Context

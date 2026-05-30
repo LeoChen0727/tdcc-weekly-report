@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8066 來思達
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:54 Asia/Taipei
+- generated_at: 2026-05-30 23:43:49 Asia/Taipei
 - stock_id: 8066
 - stock_name: 來思達
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -90,7 +90,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260518,16.2,16.2,15.5,15.95,34000,17.36,-8.1,17.43,18.62,0.64
 20260519,15.8,16.3,15.7,16.05,62000,17.25,-6.94,17.31,18.55,1.16
 20260520,16,16.6,16,16.4,101000,17.18,-4.52,17.21,18.49,1.78
-20260521,16.45,18,16.45,17.35,146000,17.19,0.92,17.16,18.45,2.33
+20260521,16.45,18,16.45,17.35,146000,17.19,0.93,17.16,18.45,2.33
 20260522,17.25,17.25,16,16.8,17000,17.16,-2.09,17.09,18.39,0.27
 20260525,16.5,16.5,16.4,16.5,17000,17.1,-3.53,17.01,18.34,0.27
 20260526,16.3,16.3,15.95,16.15,16000,17.02,-5.13,16.91,18.27,0.26
@@ -100,12 +100,12 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 38.64
 - over_600_ratio: 33.07
 - over_800_ratio: 28.84
 - over_1000_ratio: 23.39
-- over_400_change_1w: -0.04
+- over_400_change_1w: 0
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,38.68,-1.2,28.84,0,23.39,0,0,False,False
 20260515,38.68,0,28.84,0,23.39,0,0,False,False
 20260522,38.64,-0.04,28.84,0,23.39,0,0,False,False
+20260529,38.64,0,28.84,0,23.39,0,0,False,False
 ```
 
 ## Candidate Context

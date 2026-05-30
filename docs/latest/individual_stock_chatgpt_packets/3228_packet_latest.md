@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3228 金麗科
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:29 Asia/Taipei
+- generated_at: 2026-05-30 23:41:56 Asia/Taipei
 - stock_id: 3228
 - stock_name: 金麗科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -83,10 +83,10 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260507,244,262,244,257.5,1118000,186.56,38.03,180.12,147.15,0.94
 20260508,249.5,256.5,232,242,1127000,191.18,26.58,185.82,148.66,0.92
 20260511,235,250,232,241.5,873000,195.37,23.61,191.45,150.32,0.69
-20260512,236,248.5,222,226.5,1726000,197.96,14.41,196.05,151.82,1.3
+20260512,236,248.5,222,226.5,1726000,197.97,14.41,196.05,151.82,1.3
 20260513,215,219,204.5,211,1571000,199.05,6,199.9,153.12,1.12
 20260514,213,216,207,207,946000,199.71,3.65,203.68,154.35,0.66
-20260515,210,213.5,195,199,1255000,199.65,-0.33,206.9,155.53,0.86
+20260515,210,213.5,195,199,1255000,199.66,-0.33,206.9,155.53,0.86
 20260518,199,200,190.5,198,725000,199.52,-0.76,209.88,156.79,0.49
 20260519,197.5,198,178.5,180,1644000,197.89,-9.04,211.28,157.74,1.1
 20260520,185,198,185,198,955000,197.9,0.05,212.82,158.93,0.67
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 23.68
-- over_600_ratio: 21.27
-- over_800_ratio: 20.19
-- over_1000_ratio: 19.02
-- over_400_change_1w: 0.22
-- over_800_change_1w: 0.18
-- over_1000_change_1w: 0.18
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260529
+- over_400_ratio: 24.15
+- over_600_ratio: 22.4
+- over_800_ratio: 20.28
+- over_1000_ratio: 19.11
+- over_400_change_1w: 0.47
+- over_800_change_1w: 0.09
+- over_1000_change_1w: 0.09
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,24.54,-0.16,19.98,-0.02,18.81,-0.02,0,False,False
 20260515,23.46,-1.08,20.01,0.03,18.84,0.03,1,False,True
 20260522,23.68,0.22,20.19,0.18,19.02,0.18,2,True,True
+20260529,24.15,0.47,20.28,0.09,19.11,0.09,3,True,True
 ```
 
 ## Candidate Context

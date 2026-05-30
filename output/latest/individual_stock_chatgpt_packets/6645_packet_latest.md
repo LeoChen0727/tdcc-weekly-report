@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6645 金萬林-創
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:35 Asia/Taipei
+- generated_at: 2026-05-30 23:43:12 Asia/Taipei
 - stock_id: 6645
 - stock_name: 金萬林-創
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,7 +77,7 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,12.9,12.9,12.8,12.8,55495,13.36,-4.22,13.16,15.01,1.14
+20260504,12.9,12.9,12.8,12.8,55495,13.36,-4.23,13.16,15.01,1.14
 20260505,12.85,12.85,12.7,12.8,33528,13.32,-3.89,13.13,14.93,0.73
 20260506,12.95,12.95,12.7,12.8,66671,13.27,-3.57,13.11,14.84,1.42
 20260507,12.8,12.9,12.75,12.9,48851,13.24,-2.59,13.09,14.75,1.02
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 44.11
-- over_600_ratio: 36.3
-- over_800_ratio: 30.55
+- as_of_date: 20260529
+- over_400_ratio: 44.21
+- over_600_ratio: 37.38
+- over_800_ratio: 30.6
 - over_1000_ratio: 26.17
-- over_400_change_1w: 0.11
-- over_800_change_1w: 0.1
+- over_400_change_1w: 0.1
+- over_800_change_1w: 0.05
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 3
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,43.9,0.03,29.06,0,26.17,0,1,False,False
 20260515,44,0.1,30.45,1.39,26.17,0,2,False,True
 20260522,44.11,0.11,30.55,0.1,26.17,0,3,False,True
+20260529,44.21,0.1,30.6,0.05,26.17,0,4,False,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1599 宏佳騰
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:45 Asia/Taipei
+- generated_at: 2026-05-30 23:41:05 Asia/Taipei
 - stock_id: 1599
 - stock_name: 宏佳騰
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,14 +100,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 65.46
 - over_600_ratio: 62.92
-- over_800_ratio: 59.98
-- over_1000_ratio: 57.41
-- over_400_change_1w: -0.02
+- over_800_ratio: 59.96
+- over_1000_ratio: 57.39
+- over_400_change_1w: 0
 - over_800_change_1w: -0.02
-- over_1000_change_1w: -0.01
+- over_1000_change_1w: -0.02
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,65.54,0,60.04,0,57.46,0,0,False,False
 20260515,65.48,-0.06,60,-0.04,57.42,-0.04,0,False,False
 20260522,65.46,-0.02,59.98,-0.02,57.41,-0.01,0,False,False
+20260529,65.46,0,59.96,-0.02,57.39,-0.02,0,False,False
 ```
 
 ## Candidate Context

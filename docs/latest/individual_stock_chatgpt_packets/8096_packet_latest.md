@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8096 擎亞
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:55 Asia/Taipei
+- generated_at: 2026-05-30 23:43:51 Asia/Taipei
 - stock_id: 8096
 - stock_name: 擎亞
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,14 +77,14 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,90.2,94.9,88.9,93.3,9881000,90.72,2.85,93.44,80.69,0.6
-20260505,92.4,98.5,92.4,96.2,15142000,91.17,5.51,93.79,81.41,0.92
-20260506,100.5,105.5,96.6,96.8,36802000,91.64,5.63,93.93,82.05,2.14
+20260504,90.2,94.9,88.9,93.3,9881000,90.72,2.84,93.44,80.69,0.6
+20260505,92.4,98.5,92.4,96.2,15142000,91.18,5.51,93.79,81.41,0.92
+20260506,100.5,105.5,96.6,96.8,36802000,91.64,5.62,93.93,82.05,2.14
 20260507,97.2,99,94.6,95.8,14844000,91.99,4.14,93.57,82.57,0.93
 20260508,94.8,96.9,91.2,95.9,9061000,92.32,3.88,93.58,83.01,0.64
-20260511,96.5,104.5,92,98.3,23872000,92.81,5.91,93.72,83.38,1.7
-20260512,98.8,101,95.8,96.9,17277000,93.15,4.02,93.82,83.78,1.2
-20260513,96,98.7,94.3,94.6,8657000,93.27,1.42,93.8,84.12,0.62
+20260511,96.5,104.5,92,98.3,23872000,92.82,5.91,93.72,83.38,1.7
+20260512,98.8,101,95.8,96.9,17277000,93.16,4.02,93.82,83.78,1.2
+20260513,96,98.7,94.3,94.6,8657000,93.28,1.42,93.8,84.12,0.62
 20260514,97.5,101,95.7,97.1,17044000,93.59,3.75,93.88,84.57,1.2
 20260515,97.8,98.1,93.2,95.9,11110000,93.79,2.25,93.93,85.06,0.77
 20260518,94.2,105,92.2,105,34521000,94.72,10.85,94.61,85.79,2.2
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 50.03
-- over_600_ratio: 49.12
-- over_800_ratio: 47.16
-- over_1000_ratio: 45.32
-- over_400_change_1w: 3.8
-- over_800_change_1w: 4.11
-- over_1000_change_1w: 3.45
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260529
+- over_400_ratio: 53.61
+- over_600_ratio: 51.48
+- over_800_ratio: 49.59
+- over_1000_ratio: 47.8
+- over_400_change_1w: 3.58
+- over_800_change_1w: 2.43
+- over_1000_change_1w: 2.48
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,46.84,-0.92,43.6,-0.13,40.47,-2.01,0,False,False
 20260515,46.23,-0.61,43.05,-0.55,41.87,1.4,1,False,True
 20260522,50.03,3.8,47.16,4.11,45.32,3.45,2,True,True
+20260529,53.61,3.58,49.59,2.43,47.8,2.48,3,True,True
 ```
 
 ## Candidate Context
@@ -130,7 +131,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 8096 | 擎亞 | 7 | 7 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260530 | 8096 | 擎亞 | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9927 泰銘
 
 ## Metadata
-- generated_at: 2026-05-29 19:34:07 Asia/Taipei
+- generated_at: 2026-05-30 23:44:04 Asia/Taipei
 - stock_id: 9927
 - stock_name: 泰銘
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 130
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 266
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 58.77
-- over_600_ratio: 56.52
-- over_800_ratio: 54.87
+- as_of_date: 20260529
+- over_400_ratio: 58.85
+- over_600_ratio: 56.53
+- over_800_ratio: 54.88
 - over_1000_ratio: 52.67
-- over_400_change_1w: 0.11
-- over_800_change_1w: 0
+- over_400_change_1w: 0.08
+- over_800_change_1w: 0.01
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 3
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,58.63,0.35,54.87,0,52.67,0,1,False,False
 20260515,58.66,0.03,54.87,0,52.67,0,2,False,False
 20260522,58.77,0.11,54.87,0,52.67,0,3,False,False
+20260529,58.85,0.08,54.88,0.01,52.67,0,4,False,True
 ```
 
 ## Candidate Context

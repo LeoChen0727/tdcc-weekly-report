@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3115 富榮綱
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:26 Asia/Taipei
+- generated_at: 2026-05-30 23:41:52 Asia/Taipei
 - stock_id: 3115
 - stock_name: 富榮綱
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 132
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 268
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -84,8 +84,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260508,9.7,9.7,9.66,9.66,7000,9.87,-2.1,9.89,9.94,0.21
 20260511,9.66,9.89,9.66,9.87,28000,9.87,0.02,9.91,9.93,0.82
 20260512,9.99,9.99,9.33,9.59,19000,9.84,-2.59,9.91,9.92,0.55
-20260513,9.36,9.65,9.36,9.59,4000,9.82,-2.38,9.9,9.9,0.12
-20260514,9.4,9.68,9.4,9.4,9000,9.79,-3.97,9.89,9.88,0.27
+20260513,9.36,9.65,9.36,9.59,4000,9.82,-2.37,9.9,9.9,0.12
+20260514,9.4,9.68,9.4,9.4,9000,9.79,-3.96,9.89,9.88,0.27
 20260515,9.33,9.38,9.25,9.37,30000,9.75,-3.93,9.88,9.86,1.05
 20260518,9.37,9.37,9.37,9.37,2000,9.72,-3.61,9.88,9.85,0.09
 20260519,9.2,9.2,8.5,9.2,125000,9.68,-4.94,9.87,9.83,4.34
@@ -100,7 +100,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
+- as_of_date: 20260529
 - over_400_ratio: 86.25
 - over_600_ratio: 86.25
 - over_800_ratio: 85.38
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,86.25,0,85.38,0,85.38,0,0,False,False
 20260515,86.25,0,85.38,0,85.38,0,0,False,False
 20260522,86.25,0,85.38,0,85.38,0,0,False,False
+20260529,86.25,0,85.38,0,85.38,0,0,False,False
 ```
 
 ## Candidate Context

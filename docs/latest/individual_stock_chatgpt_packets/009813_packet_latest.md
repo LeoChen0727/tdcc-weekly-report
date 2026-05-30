@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009813 貝萊德標普卓越50
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:32 Asia/Taipei
+- generated_at: 2026-05-30 23:40:50 Asia/Taipei
 - stock_id: 009813
 - stock_name: 貝萊德標普卓越50
 - packet_status: partial_rawdata_packet

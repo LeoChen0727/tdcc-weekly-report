@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6733 博晟生醫
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:38 Asia/Taipei
+- generated_at: 2026-05-30 23:43:16 Asia/Taipei
 - stock_id: 6733
 - stock_name: 博晟生醫
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -80,15 +80,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260504,29.85,29.9,28.95,29.25,114000,30.92,-5.4,30.63,34.07,0.52
 20260505,29,29.5,28.95,29.5,118000,30.8,-4.22,30.46,33.93,0.54
 20260506,29.2,29.4,28,28.5,511000,30.61,-6.89,30.27,33.77,2.14
-20260507,28,29.2,27.95,29,261000,30.48,-4.84,30.11,33.64,1.1
+20260507,28,29.2,27.95,29,261000,30.47,-4.84,30.11,33.64,1.1
 20260508,29,29.3,28.25,28.3,147000,30.29,-6.58,29.94,33.49,0.63
 20260511,28.5,28.5,27.8,28,403000,30.1,-6.98,29.76,33.35,1.62
 20260512,28.05,28.3,27.6,28.15,252000,29.94,-5.98,29.61,33.22,1.01
 20260513,27.8,27.95,27.4,27.5,244000,29.74,-7.52,29.45,33.08,0.99
 20260514,27.65,28,27.35,27.75,213000,29.57,-6.16,29.26,32.92,0.85
-20260515,27.75,28.25,27.3,27.3,264000,29.38,-7.09,29.07,32.75,1.03
+20260515,27.75,28.25,27.3,27.3,264000,29.38,-7.08,29.07,32.75,1.03
 20260518,27.6,29.1,27,28.2,210000,29.28,-3.7,28.95,32.61,0.83
-20260519,28.15,28.95,27.85,27.85,280000,29.16,-4.51,28.82,32.47,1.1
+20260519,28.15,28.95,27.85,27.85,280000,29.16,-4.5,28.82,32.47,1.1
 20260520,27.85,28.1,27.55,27.75,147000,29.05,-4.46,28.7,32.32,0.6
 20260521,28.5,28.5,27.75,27.8,151000,28.94,-3.95,28.58,32.17,0.62
 20260522,28,28.05,27.45,27.7,28000,28.84,-3.95,28.43,32.01,0.12
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 48.24
-- over_600_ratio: 44.5
-- over_800_ratio: 40.89
+- as_of_date: 20260529
+- over_400_ratio: 48.3
+- over_600_ratio: 44.54
+- over_800_ratio: 41.49
 - over_1000_ratio: 40.24
-- over_400_change_1w: -0.01
-- over_800_change_1w: 0
+- over_400_change_1w: 0.06
+- over_800_change_1w: 0.6
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,48.12,0.08,40.89,0,40.24,0,1,False,False
 20260515,48.25,0.13,40.89,0,40.24,0,2,False,False
 20260522,48.24,-0.01,40.89,0,40.24,0,0,False,False
+20260529,48.3,0.06,41.49,0.6,40.24,0,1,False,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3332 幸康
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:32 Asia/Taipei
+- generated_at: 2026-05-30 23:42:00 Asia/Taipei
 - stock_id: 3332
 - stock_name: 幸康
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,7 +77,7 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,63.6,64.4,63.5,64,36000,61.36,4.29,61.29,59,1.08
+20260504,63.6,64.4,63.5,64,36000,61.36,4.3,61.29,59,1.08
 20260505,64,65.2,63.8,64.5,23000,61.63,4.66,61.72,59.14,0.67
 20260506,65.3,65.3,63.5,64.9,49000,61.9,4.85,62.17,59.29,1.35
 20260507,64.9,65.8,64.9,65,23000,62.16,4.57,62.61,59.43,0.62
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 86.81
-- over_600_ratio: 85.69
-- over_800_ratio: 79.73
-- over_1000_ratio: 77.87
-- over_400_change_1w: 0.04
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 86.8
+- over_600_ratio: 85.68
+- over_800_ratio: 79.72
+- over_1000_ratio: 77.86
+- over_400_change_1w: -0.01
+- over_800_change_1w: -0.01
+- over_1000_change_1w: -0.01
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,86.74,0.01,79.73,0,77.87,0,1,False,False
 20260515,86.77,0.03,79.73,0,77.87,0,2,False,False
 20260522,86.81,0.04,79.73,0,77.87,0,3,False,False
+20260529,86.8,-0.01,79.72,-0.01,77.86,-0.01,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3048 益登
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:23 Asia/Taipei
+- generated_at: 2026-05-30 23:41:49 Asia/Taipei
 - stock_id: 3048
 - stock_name: 益登
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,17 +100,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 59.18
-- over_600_ratio: 56.18
-- over_800_ratio: 54.85
-- over_1000_ratio: 52.85
-- over_400_change_1w: 4.54
-- over_800_change_1w: 3.57
-- over_1000_change_1w: 3.56
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260529
+- over_400_ratio: 58.09
+- over_600_ratio: 55.47
+- over_800_ratio: 53.71
+- over_1000_ratio: 51.4
+- over_400_change_1w: -1.09
+- over_800_change_1w: -1.14
+- over_1000_change_1w: -1.45
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,47.07,1.18,42.35,0.25,40.99,0.87,1,True,True
 20260515,54.64,7.57,51.28,8.93,49.29,8.3,2,True,True
 20260522,59.18,4.54,54.85,3.57,52.85,3.56,3,True,True
+20260529,58.09,-1.09,53.71,-1.14,51.4,-1.45,0,False,False
 ```
 
 ## Candidate Context

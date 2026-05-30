@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4441 振大環球
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:50 Asia/Taipei
+- generated_at: 2026-05-30 23:42:21 Asia/Taipei
 - stock_id: 4441
 - stock_name: 振大環球
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 167
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -62,7 +62,7 @@
 - close: 203
 - volume: 163243
 - ma5: 203.6
-- ema23_primary: 201.93
+- ema23_primary: 201.92
 - distance_to_ema23_pct: 0.53
 - ma20: 202.47
 - ma60: 202.07
@@ -96,20 +96,20 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260526,201.5,205.5,200.5,203,76583,201.23,0.88,199.85,204.07,0.75
 20260527,204,206,201,206,122334,201.63,2.17,200.7,203.41,1.16
 20260528,206,207.5,203,204,114299,201.83,1.08,201.65,202.77,1.07
-20260529,202.5,204,200,203,163243,201.93,0.53,202.47,202.07,1.45
+20260529,202.5,204,200,203,163243,201.92,0.53,202.47,202.07,1.45
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 72.28
-- over_600_ratio: 67.19
-- over_800_ratio: 60.08
-- over_1000_ratio: 60.08
-- over_400_change_1w: -0.02
-- over_800_change_1w: 0.01
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
+- as_of_date: 20260529
+- over_400_ratio: 72.53
+- over_600_ratio: 67.46
+- over_800_ratio: 60.35
+- over_1000_ratio: 60.35
+- over_400_change_1w: 0.25
+- over_800_change_1w: 0.27
+- over_1000_change_1w: 0.27
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,72.33,0.03,60.08,0,60.08,0,1,False,False
 20260515,72.3,-0.03,60.07,-0.01,60.07,-0.01,0,False,False
 20260522,72.28,-0.02,60.08,0.01,60.08,0.01,1,False,True
+20260529,72.53,0.25,60.35,0.27,60.35,0.27,2,True,True
 ```
 
 ## Candidate Context

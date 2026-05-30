@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00972 野村日本動能高息
 
 ## Metadata
-- generated_at: 2026-05-29 19:31:32 Asia/Taipei
+- generated_at: 2026-05-30 23:40:50 Asia/Taipei
 - stock_id: 00972
 - stock_name: 野村日本動能高息
 - packet_status: partial_rawdata_packet

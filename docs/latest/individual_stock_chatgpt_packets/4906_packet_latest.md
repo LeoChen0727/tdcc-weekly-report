@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4906 正文
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:57 Asia/Taipei
+- generated_at: 2026-05-30 23:42:29 Asia/Taipei
 - stock_id: 4906
 - stock_name: 正文
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -77,7 +77,7 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,34.3,35.25,34.15,34.25,7938180,35.95,-4.72,37.66,32.12,0.17
+20260504,34.3,35.25,34.15,34.25,7938180,35.94,-4.72,37.66,32.12,0.17
 20260505,34.5,35.5,33.95,35.4,9842736,35.9,-1.39,37.47,32.24,0.27
 20260506,36.25,36.25,34.25,35.2,11226870,35.84,-1.79,37.41,32.36,0.34
 20260507,37.95,38.7,37.9,38.7,20084641,36.08,7.26,37.38,32.54,0.63
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 29.82
-- over_600_ratio: 27.67
-- over_800_ratio: 25.71
-- over_1000_ratio: 24.11
-- over_400_change_1w: 1.05
-- over_800_change_1w: 0.74
-- over_1000_change_1w: 0.35
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260529
+- over_400_ratio: 35.09
+- over_600_ratio: 31.89
+- over_800_ratio: 30.65
+- over_1000_ratio: 29.67
+- over_400_change_1w: 5.27
+- over_800_change_1w: 4.94
+- over_1000_change_1w: 5.56
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,18 +120,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,27.07,2.3,22.69,2.21,21.3,2.64,1,True,True
 20260515,28.77,1.7,24.97,2.28,23.76,2.46,2,True,True
 20260522,29.82,1.05,25.71,0.74,24.11,0.35,3,True,True
+20260529,35.09,5.27,30.65,4.94,29.67,5.56,4,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 4906 | 正文 | true_breakout | 嚴格突破 | 67.0 |  |  | platform_breakout |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260530 | 4906 | 正文 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 68.0 |  |  | neckline_challenge |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 | 20260521 | 4906 | 正文 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 4906 | 正文 | 7 | 7 | 5 | 7 | 7 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260530 | 4906 | 正文 | 8 | 8 | 5 | 8 | 8 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |

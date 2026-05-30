@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6909 創控
 
 ## Metadata
-- generated_at: 2026-05-29 19:33:44 Asia/Taipei
+- generated_at: 2026-05-30 23:43:23 Asia/Taipei
 - stock_id: 6909
 - stock_name: 創控
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 243
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 39.4
-- over_600_ratio: 33.53
-- over_800_ratio: 26.81
-- over_1000_ratio: 22.65
-- over_400_change_1w: 0.42
-- over_800_change_1w: -0.27
-- over_1000_change_1w: -0.27
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260529
+- over_400_ratio: 39.34
+- over_600_ratio: 34.16
+- over_800_ratio: 26.55
+- over_1000_ratio: 22.39
+- over_400_change_1w: -0.06
+- over_800_change_1w: -0.26
+- over_1000_change_1w: -0.26
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,38.47,-1.36,26.57,0,23.79,0,0,False,False
 20260515,38.98,0.51,27.08,0.51,22.92,-0.87,1,False,True
 20260522,39.4,0.42,26.81,-0.27,22.65,-0.27,2,False,False
+20260529,39.34,-0.06,26.55,-0.26,22.39,-0.26,3,False,False
 ```
 
 ## Candidate Context

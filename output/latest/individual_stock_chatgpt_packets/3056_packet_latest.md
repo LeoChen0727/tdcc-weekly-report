@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3056 富華新
 
 ## Metadata
-- generated_at: 2026-05-29 19:32:24 Asia/Taipei
+- generated_at: 2026-05-30 23:41:50 Asia/Taipei
 - stock_id: 3056
 - stock_name: 富華新
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260529
-- price_rows: 137
-- latest_tdcc_date: 20260522
-- tdcc_rows: 4
+- price_rows: 273
+- latest_tdcc_date: 20260529
+- tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -83,7 +83,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260507,13.2,13.7,13.2,13.55,1849181,14.24,-4.85,14.26,15.36,1.26
 20260508,13.55,13.55,13.35,13.4,884818,14.17,-5.44,14.19,15.3,0.61
 20260511,13.4,13.8,13.3,13.55,1547161,14.12,-4.03,14.12,15.24,1.05
-20260512,13.75,13.75,13.35,13.35,812388,14.05,-5.02,14.05,15.19,0.55
+20260512,13.75,13.75,13.35,13.35,812388,14.06,-5.02,14.05,15.19,0.55
 20260513,13.5,14.15,13.5,13.85,2069107,14.04,-1.34,14.01,15.15,1.35
 20260514,13.9,13.95,13.7,13.85,1088248,14.02,-1.23,13.96,15.09,0.72
 20260515,13.85,13.85,13.2,13.25,1612366,13.96,-5.07,13.88,15.03,1.04
@@ -100,15 +100,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260522
-- over_400_ratio: 31.62
-- over_600_ratio: 29.11
-- over_800_ratio: 27.81
-- over_1000_ratio: 26.13
-- over_400_change_1w: 0.22
-- over_800_change_1w: 0.2
-- over_1000_change_1w: 0.39
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260529
+- over_400_ratio: 31.89
+- over_600_ratio: 29.51
+- over_800_ratio: 28.07
+- over_1000_ratio: 26.39
+- over_400_change_1w: 0.27
+- over_800_change_1w: 0.26
+- over_1000_change_1w: 0.26
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -120,6 +120,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260508,32.02,0.13,27.78,0.34,25.92,0.36,1,False,True
 20260515,31.4,-0.62,27.61,-0.17,25.74,-0.18,0,False,False
 20260522,31.62,0.22,27.81,0.2,26.13,0.39,1,True,True
+20260529,31.89,0.27,28.07,0.26,26.39,0.26,2,True,True
 ```
 
 ## Candidate Context
