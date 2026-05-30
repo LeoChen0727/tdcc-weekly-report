@@ -1,4 +1,5 @@
 stock_id,stock_name,theme_mainstream_label,primary_theme,secondary_themes,structural_theme_bucket,concept_tags,notes
+1303,南亞,core_mainstream,玻纖布,PCB_CCL_ABF材料,glass_fiber_ccl_theme,玻纖布;PCB_CCL_ABF材料,user_authorized_seed_20260530
 1503,士電,core_mainstream,重電電網,,power_grid_theme,重電電網,user_authorized_seed_20260530
 1513,中興電,core_mainstream,重電電網,,power_grid_theme,重電電網,user_authorized_seed_20260530
 1514,亞力,core_mainstream,重電電網,,power_grid_theme,重電電網,user_authorized_seed_20260530
@@ -12,8 +13,8 @@ stock_id,stock_name,theme_mainstream_label,primary_theme,secondary_themes,struct
 1609,大亞,core_mainstream,重電電網,,power_grid_theme,重電電網,user_authorized_seed_20260530
 1612,宏泰,core_mainstream,重電電網,,power_grid_theme,重電電網,user_authorized_seed_20260530
 1618,合機,core_mainstream,重電電網,,power_grid_theme,重電電網,user_authorized_seed_20260530
-1802,台玻,core_mainstream,PCB_CCL_ABF材料,,glass_fiber_ccl_theme,PCB_CCL_ABF材料;玻纖布,user_authorized_seed_20260530
-1815,富喬,core_mainstream,PCB_CCL_ABF材料,,glass_fiber_ccl_theme,PCB_CCL_ABF材料;玻纖布,user_authorized_seed_20260530
+1802,台玻,core_mainstream,玻纖布,PCB_CCL_ABF材料,glass_fiber_ccl_theme,玻纖布;PCB_CCL_ABF材料,user_authorized_seed_20260530
+1815,富喬,core_mainstream,玻纖布,PCB_CCL_ABF材料,glass_fiber_ccl_theme,玻纖布;PCB_CCL_ABF材料,user_authorized_seed_20260530
 2049,上銀,core_mainstream,機器人自動化,,robotics_precision_motion_theme,機器人自動化;線性滑軌;精密傳動,user_authorized_seed_20260530
 2231,為升,core_mainstream,車用電子,,automotive_electronics_theme,車用電子,user_authorized_seed_20260530
 2233,宇隆,core_mainstream,機器人自動化,,robotics_precision_motion_theme,機器人自動化,user_authorized_seed_20260530
@@ -88,8 +89,10 @@ stock_id,stock_name,theme_mainstream_label,primary_theme,secondary_themes,struct
 4938,和碩,core_mainstream,AI伺服器,,ai_server_ipc_theme,AI伺服器,user_authorized_seed_20260530
 4958,臻鼎-KY,core_mainstream,PCB_CCL_ABF材料,車用電子,pcb_ccl_theme,PCB_CCL_ABF材料;車用電子,user_authorized_seed_20260530
 4979,華星光,core_mainstream,CPO光通訊,,network_optical_datacenter_theme,CPO光通訊,user_authorized_seed_20260530
+5340,建榮,core_mainstream,玻纖布,PCB_CCL_ABF材料,glass_fiber_ccl_theme,玻纖布;PCB_CCL_ABF材料,user_authorized_seed_20260530
 5388,中磊,core_mainstream,網通交換器,,network_optical_datacenter_theme,網通交換器,user_authorized_seed_20260530
 5474,聰泰,core_mainstream,機器人自動化,,robotics_optics_sensor_theme,機器人自動化;機器視覺,user_authorized_seed_20260530
+5475,德宏,core_mainstream,玻纖布,PCB_CCL_ABF材料,glass_fiber_ccl_theme,玻纖布;PCB_CCL_ABF材料,user_authorized_seed_20260530
 6121,新普,core_mainstream,電源_BBU,,power_supply_theme,電源_BBU,user_authorized_seed_20260530
 6166,凌華,core_mainstream,機器人自動化,軍工無人機,robotics_ipc_edge_ai_theme,機器人自動化;軍工無人機,user_authorized_seed_20260530
 6173,信昌電,core_mainstream,被動元件,,passive_component_theme,被動元件,user_authorized_seed_20260530
@@ -108,6 +111,7 @@ stock_id,stock_name,theme_mainstream_label,primary_theme,secondary_themes,struct
 6412,群電,core_mainstream,電源_BBU,,power_supply_theme,電源_BBU,user_authorized_seed_20260530
 6449,鈺邦,core_mainstream,被動元件,,passive_component_theme,被動元件,user_authorized_seed_20260530
 6510,精測,core_mainstream,半導體設備_CoWoS,,semiconductor_equipment_material_theme,半導體設備_CoWoS,user_authorized_seed_20260530
+6531,愛普*,core_mainstream,矽智財_ASIC,,asic_advanced_process_theme,矽智財;ASIC,user_authorized_seed_20260530
 6640,均華,core_mainstream,半導體設備_CoWoS,,semiconductor_equipment_material_theme,半導體設備_CoWoS,user_authorized_seed_20260530
 6669,緯穎,core_mainstream,AI伺服器,,ai_server_ipc_theme,AI伺服器,user_authorized_seed_20260530
 6715,嘉基,core_mainstream,低軌衛星,,low_earth_orbit_satellite_theme,低軌衛星,user_authorized_seed_20260530

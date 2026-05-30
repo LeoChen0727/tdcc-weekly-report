@@ -1,7 +1,7 @@
 # Stock Theme Authorized Seed Preview
 
-- generated_at: 2026-05-30 21:07:43 Asia/Taipei
-- rows: 129
+- generated_at: 2026-05-30 21:16:42 Asia/Taipei
+- rows: 133
 - purpose: user-authorized market theme seed integrated with existing manual/default taxonomy.
 
 |   stock_id | stock_name   | primary_theme    | secondary_themes                        | structural_theme_bucket                | theme_mainstream_label   | taxonomy_source   |
@@ -19,8 +19,6 @@
 |       3450 | 聯鈞         | CPO光通訊        | optical components                      | network_optical_datacenter_theme       | core_mainstream          | authorized_seed   |
 |       4908 | 前鼎         | CPO光通訊        |                                         | network_optical_datacenter_theme       | core_mainstream          | authorized_seed   |
 |       4979 | 華星光       | CPO光通訊        |                                         | network_optical_datacenter_theme       | core_mainstream          | authorized_seed   |
-|       1802 | 台玻         | PCB_CCL_ABF材料  |                                         | glass_fiber_ccl_theme                  | core_mainstream          | authorized_seed   |
-|       1815 | 富喬         | PCB_CCL_ABF材料  |                                         | glass_fiber_ccl_theme                  | core_mainstream          | authorized_seed   |
 |       2313 | 華通         | PCB_CCL_ABF材料  | 低軌衛星;軍工無人機                     | pcb_ccl_theme                          | core_mainstream          | authorized_seed   |
 |       2367 | 燿華         | PCB_CCL_ABF材料  | 低軌衛星                                | pcb_ccl_theme                          | core_mainstream          | authorized_seed   |
 |       2368 | 金像電       | PCB_CCL_ABF材料  | 網通交換器;車用電子                     | pcb_ccl_theme                          | core_mainstream          | authorized_seed   |
@@ -80,6 +78,12 @@
 |       5474 | 聰泰         | 機器人自動化     |                                         | robotics_optics_sensor_theme           | core_mainstream          | authorized_seed   |
 |       6166 | 凌華         | 機器人自動化     | 軍工無人機                              | robotics_ipc_edge_ai_theme             | core_mainstream          | authorized_seed   |
 |       6922 | 宸曜         | 機器人自動化     |                                         | robotics_ipc_edge_ai_theme             | core_mainstream          | authorized_seed   |
+|       1303 | 南亞         | 玻纖布           | PCB_CCL_ABF材料                         | glass_fiber_ccl_theme                  | core_mainstream          | authorized_seed   |
+|       1802 | 台玻         | 玻纖布           | PCB_CCL_ABF材料                         | glass_fiber_ccl_theme                  | core_mainstream          | authorized_seed   |
+|       1815 | 富喬         | 玻纖布           | PCB_CCL_ABF材料                         | glass_fiber_ccl_theme                  | core_mainstream          | authorized_seed   |
+|       5340 | 建榮         | 玻纖布           | PCB_CCL_ABF材料                         | glass_fiber_ccl_theme                  | core_mainstream          | authorized_seed   |
+|       5475 | 德宏         | 玻纖布           | PCB_CCL_ABF材料                         | glass_fiber_ccl_theme                  | core_mainstream          | authorized_seed   |
+|       6531 | 愛普*        | 矽智財_ASIC      |                                         | asic_advanced_process_theme            | core_mainstream          | authorized_seed   |
 |       3704 | 合勤控       | 網通交換器       |                                         | network_optical_datacenter_theme       | core_mainstream          | authorized_seed   |
 |       4906 | 正文         | 網通交換器       | network equipment                       | network_optical_datacenter_theme       | core_mainstream          | authorized_seed   |
 |       5388 | 中磊         | 網通交換器       |                                         | network_optical_datacenter_theme       | core_mainstream          | authorized_seed   |

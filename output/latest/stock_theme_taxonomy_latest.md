@@ -1,16 +1,17 @@
 # Stock Theme Taxonomy
 
-- generated_at: 2026-05-30 21:07:43 Asia/Taipei
+- generated_at: 2026-05-30 21:16:42 Asia/Taipei
 - total_rows: 2369
-- mainstream_count: 141
-- non_mainstream_count: 99
-- unknown_count: 2129
+- mainstream_count: 145
+- non_mainstream_count: 98
+- unknown_count: 2126
 - manual_override_count: 5
-- authorized_seed_count: 124
+- authorized_seed_count: 128
 
 ## Authorized Seed Preview
 |   stock_id | stock_name   | industry                | primary_theme    | secondary_themes                        | structural_theme_bucket                | taxonomy_source   |
 |-----------:|:-------------|:------------------------|:-----------------|:----------------------------------------|:---------------------------------------|:------------------|
+|       1303 | 南亞         | 塑膠工業                | 玻纖布           | PCB_CCL_ABF材料                         | glass_fiber_ccl_theme                  | authorized_seed   |
 |       1503 | 士電         |                         | 重電電網         |                                         | power_grid_theme                       | authorized_seed   |
 |       1513 | 中興電       | 電機機械                | 重電電網         |                                         | power_grid_theme                       | authorized_seed   |
 |       1514 | 亞力         | 電機機械                | 重電電網         |                                         | power_grid_theme                       | authorized_seed   |
@@ -24,8 +25,8 @@
 |       1609 | 大亞         | 電器電纜                | 重電電網         |                                         | power_grid_theme                       | authorized_seed   |
 |       1612 | 宏泰         | 電器電纜                | 重電電網         |                                         | power_grid_theme                       | authorized_seed   |
 |       1618 | 合機         | 電器電纜                | 重電電網         |                                         | power_grid_theme                       | authorized_seed   |
-|       1802 | 台玻         | 玻璃陶瓷                | PCB_CCL_ABF材料  |                                         | glass_fiber_ccl_theme                  | authorized_seed   |
-|       1815 | 富喬         | 電子零組件業            | PCB_CCL_ABF材料  |                                         | glass_fiber_ccl_theme                  | authorized_seed   |
+|       1802 | 台玻         | 玻璃陶瓷                | 玻纖布           | PCB_CCL_ABF材料                         | glass_fiber_ccl_theme                  | authorized_seed   |
+|       1815 | 富喬         | 電子零組件業            | 玻纖布           | PCB_CCL_ABF材料                         | glass_fiber_ccl_theme                  | authorized_seed   |
 |       2049 | 上銀         | 電機機械                | 機器人           | 自動化                                  | robotics_precision_motion_theme        | manual_override   |
 |       2231 | 為升         |                         | 車用電子         |                                         | automotive_electronics_theme           | authorized_seed   |
 |       2233 | 宇隆         |                         | 機器人自動化     |                                         | robotics_precision_motion_theme        | authorized_seed   |
@@ -102,8 +103,10 @@
 |       4938 | 和碩         | 電腦及週邊設備業        | AI伺服器         |                                         | ai_server_ipc_theme                    | authorized_seed   |
 |       4958 | 臻鼎-KY      |                         | PCB_CCL_ABF材料  | 車用電子                                | pcb_ccl_theme                          | authorized_seed   |
 |       4979 | 華星光       |                         | CPO光通訊        |                                         | network_optical_datacenter_theme       | authorized_seed   |
+|       5340 | 建榮         |                         | 玻纖布           | PCB_CCL_ABF材料                         | glass_fiber_ccl_theme                  | authorized_seed   |
 |       5388 | 中磊         | 通信網路業              | 網通交換器       |                                         | network_optical_datacenter_theme       | authorized_seed   |
 |       5474 | 聰泰         |                         | 機器人自動化     |                                         | robotics_optics_sensor_theme           | authorized_seed   |
+|       5475 | 德宏         |                         | 玻纖布           | PCB_CCL_ABF材料                         | glass_fiber_ccl_theme                  | authorized_seed   |
 |       6121 | 新普         |                         | 電源_BBU         |                                         | power_supply_theme                     | authorized_seed   |
 |       6166 | 凌華         |                         | 機器人自動化     | 軍工無人機                              | robotics_ipc_edge_ai_theme             | authorized_seed   |
 |       6173 | 信昌電       | electronic components   | 被動元件         | ceramic powder                          | passive_component_theme                | authorized_seed   |
@@ -122,19 +125,17 @@
 |       6412 | 群電         | 電子零組件業            | 電源_BBU         |                                         | power_supply_theme                     | authorized_seed   |
 |       6449 | 鈺邦         |                         | 被動元件         |                                         | passive_component_theme                | authorized_seed   |
 |       6510 | 精測         |                         | 半導體設備_CoWoS |                                         | semiconductor_equipment_material_theme | authorized_seed   |
+|       6531 | 愛普*        | 半導體業                | 矽智財_ASIC      |                                         | asic_advanced_process_theme            | authorized_seed   |
 |       6640 | 均華         |                         | 半導體設備_CoWoS |                                         | semiconductor_equipment_material_theme | authorized_seed   |
 |       6669 | 緯穎         | 電腦及週邊設備業        | AI伺服器         |                                         | ai_server_ipc_theme                    | authorized_seed   |
 |       6715 | 嘉基         |                         | 低軌衛星         |                                         | low_earth_orbit_satellite_theme        | authorized_seed   |
 |       6805 | 富世達       | 電子零組件業            | 散熱液冷         | 機器人自動化                            | thermal_solution_theme                 | authorized_seed   |
 |       6862 | 三集瑞-KY    | 電子零組件業            | 被動元件         | 電感                                    | passive_component_theme                | manual_override   |
-|       6922 | 宸曜         |                         | 機器人自動化     |                                         | robotics_ipc_edge_ai_theme             | authorized_seed   |
-|       8028 | 昇陽半導體   | semiconductor           | 半導體設備_CoWoS | wafer reclaim                           | semiconductor_equipment_material_theme | authorized_seed   |
-|       8033 | 雷虎         | 其他                    | 軍工無人機       |                                         | defense_drone_theme                    | authorized_seed   |
-|       8039 | 台虹         | 電子零組件業            | PCB_CCL_ABF材料  |                                         | pcb_ccl_theme                          | authorized_seed   |
 
 ## Mainstream Sample
 |   stock_id | stock_name   | industry         | primary_theme    | secondary_themes    |
 |-----------:|:-------------|:-----------------|:-----------------|:--------------------|
+|       1303 | 南亞         | 塑膠工業         | 玻纖布           | PCB_CCL_ABF材料     |
 |       1503 | 士電         |                  | 重電電網         |                     |
 |       1513 | 中興電       | 電機機械         | 重電電網         |                     |
 |       1514 | 亞力         | 電機機械         | 重電電網         |                     |
@@ -148,8 +149,8 @@
 |       1609 | 大亞         | 電器電纜         | 重電電網         |                     |
 |       1612 | 宏泰         | 電器電纜         | 重電電網         |                     |
 |       1618 | 合機         | 電器電纜         | 重電電網         |                     |
-|       1802 | 台玻         | 玻璃陶瓷         | PCB_CCL_ABF材料  |                     |
-|       1815 | 富喬         | 電子零組件業     | PCB_CCL_ABF材料  |                     |
+|       1802 | 台玻         | 玻璃陶瓷         | 玻纖布           | PCB_CCL_ABF材料     |
+|       1815 | 富喬         | 電子零組件業     | 玻纖布           | PCB_CCL_ABF材料     |
 |       2049 | 上銀         | 電機機械         | 機器人           | 自動化              |
 |       2231 | 為升         |                  | 車用電子         |                     |
 |       2233 | 宇隆         |                  | 機器人自動化     |                     |
@@ -164,7 +165,6 @@
 |       2355 | 敬鵬         | PCB              | PCB/CCL          | PCB                 |
 |       2356 | 英業達       | 電腦及週邊設備業 | AI伺服器         |                     |
 |       2359 | 所羅門       | 其他電子業       | 機器人自動化     |                     |
-|       2367 | 燿華         | 電子零組件業     | PCB_CCL_ABF材料  | 低軌衛星            |
 
 ## Non-Mainstream Sample
 |   stock_id | stock_name   | industry   | primary_theme   | secondary_themes   |
@@ -173,7 +173,6 @@
 |       1210 | 大成         | 食品工業   | 食品工業        |                    |
 |       1215 | 卜蜂         | 食品工業   | 食品工業        |                    |
 |       1301 | 台塑         | 塑膠工業   | 塑膠工業        |                    |
-|       1303 | 南亞         | 塑膠工業   | 塑膠工業        |                    |
 |       1304 | 台聚         | 塑膠工業   | 塑膠工業        |                    |
 |       1305 | 華夏         | 塑膠工業   | 塑膠工業        |                    |
 |       1312 | 國喬         | 塑膠工業   | 塑膠工業        |                    |
@@ -199,6 +198,7 @@
 |       1773 | 勝一         | 化學工業   | 化學工業        |                    |
 |       1808 | 潤隆         | 建材營造   | 建材營造        |                    |
 |       1810 | 和成         | 玻璃陶瓷   | 玻璃陶瓷        |                    |
+|       2002 | 中鋼         | 鋼鐵工業   | 鋼鐵工業        |                    |
 
 ## Needs Review
 |   stock_id | stock_name       | industry   | primary_theme   | theme_mainstream_label   | taxonomy_source   |
