@@ -1,7 +1,7 @@
 # ChatGPT Indicator Usage Guide
 
-- generated_at: `2026-05-30 15:40:05 UTC`
-- main_price_date: `20260529`
+- generated_at: `2026-05-31 01:09:44 台北標準時間`
+- main_price_date: `20260530`
 - purpose: Use program-side classifications first. ChatGPT should explain and synthesize, not re-rank from memory.
 - rule: If memory, PDF, or ad-hoc interpretation conflicts with program-side fields, use the structured program-side fields.
 
@@ -29,7 +29,8 @@
 ## Program-Side Classification Coverage
 | layer | file | classification fields | current buckets | ChatGPT use |
 | --- | --- | --- | --- | --- |
-| Independent daily candidate models | output/latest/daily_candidate_model_layer_packet_latest.md | daily_candidate_model_parameters, daily_candidate_model_signals, model_rank, report_bucket, selection_semantics | models=15 / signals=1362 / packet=ready | Main condition met means selected into that model. Score/risk ranks inside the model. Mainstream/non-mainstream is a report split, not a score cap or veto. |
+| Independent daily candidate models | output/latest/daily_candidate_model_layer_packet_latest.md | daily_candidate_model_parameters, daily_candidate_model_signals, daily_candidate_frontpage_unique, model_rank, report_bucket, selection_semantics | models=15 / signals=1107 / frontpage_unique=348 / packet=ready | Main condition met means selected into that model. Score/risk ranks inside the model. Use frontpage_unique for first-page representatives so multi-model hits do not repeat. |
+| Daily candidate front-page unique representatives | output/latest/daily_candidate_frontpage_unique_latest.csv | frontpage_unique_rank, report_bucket, stock_id, primary_model_id, model_hit_count, model_hits | rows=348 / mainstream=227; non_mainstream=121 | First-page PDF table only. A stock can hit multiple models, but the first page should show it once per report bucket and use model_hits to explain overlap. |
 | Group fund rotation | output/latest/daily_candidate_group_rotation_latest.csv | theme, stock_count, volume_expansion_3x_count, volume_expansion_ratio, leader_1/2/3 | rows=1 | Theme-flow section only. It is not an individual stock buy model. |
 | Daily model parameter research | output/latest/daily_model_parameter_research_latest.csv | model_id, parameter_set_id, entry_basis, selected_stock_days, best_horizon_by_avg_return, best_d1_to_d10_close_win_rate_pct, sample_status | rows=74 / details=814 / ok_first_pass=74 | Research/backtest layer only. Entry is next trading day open; D+1-D+10 close/high endpoints are in the horizon detail table. Use to tune future parameters, not as PDF-side veto logic. |
 | Daily model parameter recommendations | output/latest/daily_model_parameter_recommendations_latest.csv | model_id, parameter_set_id, recommended_usage, recommended_close_exit_horizon, best_close_win_rate_pct, model_revision_note | rows=74 / intraday_target_watch=56; research_only=14; promote_to_pdf_core=2; score_component_only=2 | Program-side conversion from backtest to reporting usage. Use this for whether a parameter is core, secondary, intraday-target only, or research-only. |
@@ -58,7 +59,7 @@
 | Next-open +10pct multifactor current candidates | output/latest/weekly_surge_multifactor_candidates_latest.csv | research_priority, stock_id, matched_rules, best_d5_touch_rate_pct, best_d10_touch_rate_pct, research_caveat | D_background_only=91; A_research_watch=30; C_short_term_watch=25; B_research_confirm=21 / rows=167 | Current research watchlist for next-open +10pct touch hypotheses. Use as a separate research section only; do not mix into core candidate ranking. |
 | Next-open +10pct strict parameter search | output/latest/weekly_surge_strict_parameter_search_latest.csv | rule_name, target_window, entry_basis, target_return_pct, selected_stock_days, hit_rate_pct, median_next_open_to_high_return_pct, sample_status | ok_initial_sample=21285; insufficient_sample=5654 / rows=26939 | No latest-theme labels are used. Entry is D+1 open; hit means next-open to D+N high touches +10%. This is not weekly candlestick analysis. Research only. |
 | Next-open +10pct strict parameter current candidates | output/latest/weekly_surge_strict_parameter_candidates_latest.csv | research_priority, stock_id, matched_rules, best_d5_touch_rate_pct, best_d10_touch_rate_pct, best_d10_rule, research_caveat | B_strict_research_confirm=43; A_strict_research_watch=23; D_background_only=13; C_strict_short_term_watch=11 / rows=90 | Current strict research watchlist using no latest-theme label. Keep as a standalone D+5/D+10 research table, not core ranking. |
-| Individual stock raw availability | output/latest/individual_stock_available_raw_data_index_slim.csv | data_quality_status, report_status, price/TDCC row counts | partial=2045; ok=81; insufficient_data=25 | Check before single-stock analysis. |
+| Individual stock raw availability | output/latest/individual_stock_available_raw_data_index_slim.csv | data_quality_status, report_status, price/TDCC row counts | partial=2287; ok=81; insufficient_data=25 | Check before single-stock analysis. |
 | Catalyst layer | output/latest/fundamental_catalyst_layer_latest.md | catalyst_quality, catalyst_tags, price_reaction_level, needs_eps_confirmation | needs_review_rows=4 | Currently source-limited; do not upgrade without confirmed source rows. |
 | Chip-flow positive streak | output/latest/chip_flow_positive_streak_latest.csv | positive_streak_days and category if source data exists | rows=0 | If empty/unavailable, do not mention as active signal. |
 
@@ -66,6 +67,7 @@
 
 ### Daily candidate report
 - Start from `daily_candidate_model_layer_packet_latest.md`, `daily_candidate_model_parameters_latest.md/csv`, and `daily_candidate_model_signals_latest.md/csv` when they exist. These are the program-side independent model source.
+- For the first page of curated PDFs, use `daily_candidate_frontpage_unique_latest.csv/md`; do not repeat the same stock multiple times just because it hit multiple models. Full PDFs should still keep all rows from `daily_candidate_model_signals_latest.csv`.
 - A model main condition being met means the stock enters that model. Do not add a second ChatGPT-side buy/not-buy gate after selection; use risk fields only as score/rank/annotation unless the program-side model marks a hard exclusion.
 - Do not hard-code the number of models. Render the model rows present in `daily_candidate_model_parameters_latest.csv` and the matching candidates in `daily_candidate_model_signals_latest.csv`.
 - Mainstream/non-mainstream is a report split and comparison group only. It must not cap score, veto a signal, or remove a stock from a model list.

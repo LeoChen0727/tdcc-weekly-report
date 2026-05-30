@@ -126,6 +126,7 @@ def build_guide() -> str:
     short_term_specialty_packet = LATEST_DIR / "daily_short_term_specialty_packet_latest.md"
     daily_model_parameters = read_csv(LATEST_DIR / "daily_candidate_model_parameters_latest.csv")
     daily_model_signals = read_csv(LATEST_DIR / "daily_candidate_model_signals_latest.csv")
+    daily_model_frontpage_unique = read_csv(LATEST_DIR / "daily_candidate_frontpage_unique_latest.csv")
     daily_model_packet = LATEST_DIR / "daily_candidate_model_layer_packet_latest.md"
     daily_group_rotation = read_csv(LATEST_DIR / "daily_candidate_group_rotation_latest.csv")
     daily_model_research = read_csv(LATEST_DIR / "daily_model_parameter_research_latest.csv")
@@ -184,9 +185,16 @@ def build_guide() -> str:
         [
             "Independent daily candidate models",
             "output/latest/daily_candidate_model_layer_packet_latest.md",
-            "daily_candidate_model_parameters, daily_candidate_model_signals, model_rank, report_bucket, selection_semantics",
-            f"models={len(daily_model_parameters)} / signals={len(daily_model_signals)} / packet={file_status(daily_model_packet)}",
-            "Main condition met means selected into that model. Score/risk ranks inside the model. Mainstream/non-mainstream is a report split, not a score cap or veto.",
+            "daily_candidate_model_parameters, daily_candidate_model_signals, daily_candidate_frontpage_unique, model_rank, report_bucket, selection_semantics",
+            f"models={len(daily_model_parameters)} / signals={len(daily_model_signals)} / frontpage_unique={len(daily_model_frontpage_unique)} / packet={file_status(daily_model_packet)}",
+            "Main condition met means selected into that model. Score/risk ranks inside the model. Use frontpage_unique for first-page representatives so multi-model hits do not repeat.",
+        ],
+        [
+            "Daily candidate front-page unique representatives",
+            "output/latest/daily_candidate_frontpage_unique_latest.csv",
+            "frontpage_unique_rank, report_bucket, stock_id, primary_model_id, model_hit_count, model_hits",
+            f"rows={len(daily_model_frontpage_unique)} / {count_values(daily_model_frontpage_unique, 'report_bucket')}",
+            "First-page PDF table only. A stock can hit multiple models, but the first page should show it once per report bucket and use model_hits to explain overlap.",
         ],
         [
             "Group fund rotation",
@@ -413,6 +421,7 @@ def build_guide() -> str:
     lines.append("")
     lines.append("### Daily candidate report")
     lines.append("- Start from `daily_candidate_model_layer_packet_latest.md`, `daily_candidate_model_parameters_latest.md/csv`, and `daily_candidate_model_signals_latest.md/csv` when they exist. These are the program-side independent model source.")
+    lines.append("- For the first page of curated PDFs, use `daily_candidate_frontpage_unique_latest.csv/md`; do not repeat the same stock multiple times just because it hit multiple models. Full PDFs should still keep all rows from `daily_candidate_model_signals_latest.csv`.")
     lines.append("- A model main condition being met means the stock enters that model. Do not add a second ChatGPT-side buy/not-buy gate after selection; use risk fields only as score/rank/annotation unless the program-side model marks a hard exclusion.")
     lines.append("- Do not hard-code the number of models. Render the model rows present in `daily_candidate_model_parameters_latest.csv` and the matching candidates in `daily_candidate_model_signals_latest.csv`.")
     lines.append("- Mainstream/non-mainstream is a report split and comparison group only. It must not cap score, veto a signal, or remove a stock from a model list.")

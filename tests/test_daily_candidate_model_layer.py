@@ -10,8 +10,10 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from build_daily_candidate_model_layer import (  # noqa: E402
+    annotate_frontpage_uniqueness,
     attach_model_recommendations,
     build_parameter_table,
+    build_frontpage_unique,
     build_signals,
     build_specs,
     cond_pullback,
@@ -251,6 +253,62 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         out = build_signals(pd.DataFrame(rows), build_specs(), "20260530")
         dup_count = out.duplicated(["model_id", "report_bucket", "stock_id"]).sum()
         self.assertEqual(dup_count, 0)
+
+    def test_frontpage_unique_keeps_one_row_per_stock_but_preserves_model_hits(self) -> None:
+        signals = pd.DataFrame(
+            [
+                {
+                    "signal_date": "20260530",
+                    "report_bucket": "mainstream",
+                    "stock_id": "2374",
+                    "stock_name": "佳能",
+                    "model_id": "range_rebound",
+                    "model_name_zh": "區間內轉強",
+                    "model_group": "pdf_core_model",
+                    "model_score": "82",
+                    "model_rank": "1",
+                    "effective_primary_theme": "機器人",
+                    "risk_penalty_tags": "repeated_but_no_breakout",
+                },
+                {
+                    "signal_date": "20260530",
+                    "report_bucket": "mainstream",
+                    "stock_id": "2374",
+                    "stock_name": "佳能",
+                    "model_id": "revenue_unreacted_range",
+                    "model_name_zh": "營收爆發尚未反應",
+                    "model_group": "pdf_core_model",
+                    "model_score": "70",
+                    "model_rank": "3",
+                    "effective_primary_theme": "機器人",
+                    "risk_penalty_tags": "needs_eps_confirmation",
+                },
+                {
+                    "signal_date": "20260530",
+                    "report_bucket": "mainstream",
+                    "stock_id": "9999",
+                    "stock_name": "測試股",
+                    "model_id": "range_rebound",
+                    "model_name_zh": "區間內轉強",
+                    "model_group": "pdf_core_model",
+                    "model_score": "75",
+                    "model_rank": "2",
+                    "effective_primary_theme": "測試族群",
+                    "risk_penalty_tags": "",
+                },
+            ]
+        )
+        annotated = annotate_frontpage_uniqueness(signals)
+        canons = annotated[annotated["stock_id"] == "2374"]
+        self.assertEqual((canons["frontpage_display_allowed"] == "True").sum(), 1)
+        self.assertEqual((canons["frontpage_duplicate_reason"] == "duplicate_stock_already_shown_on_frontpage").sum(), 1)
+
+        frontpage = build_frontpage_unique(annotated)
+        self.assertEqual((frontpage["stock_id"] == "2374").sum(), 1)
+        row = frontpage[frontpage["stock_id"] == "2374"].iloc[0]
+        self.assertEqual(row["model_hit_count"], 2)
+        self.assertIn("區間內轉強", row["model_hits"])
+        self.assertIn("營收爆發尚未反應", row["model_hits"])
 
     def test_dual_report_membership_expands_without_score_change(self) -> None:
         row = make_row(

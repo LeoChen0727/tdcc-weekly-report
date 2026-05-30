@@ -32,6 +32,8 @@ PARAMETERS_CSV = LATEST_DIR / "daily_candidate_model_parameters_latest.csv"
 PARAMETERS_MD = LATEST_DIR / "daily_candidate_model_parameters_latest.md"
 SIGNALS_CSV = LATEST_DIR / "daily_candidate_model_signals_latest.csv"
 SIGNALS_MD = LATEST_DIR / "daily_candidate_model_signals_latest.md"
+FRONTPAGE_UNIQUE_CSV = LATEST_DIR / "daily_candidate_frontpage_unique_latest.csv"
+FRONTPAGE_UNIQUE_MD = LATEST_DIR / "daily_candidate_frontpage_unique_latest.md"
 ROTATION_CSV = LATEST_DIR / "daily_candidate_group_rotation_latest.csv"
 ROTATION_MD = LATEST_DIR / "daily_candidate_group_rotation_latest.md"
 PACKET_MD = LATEST_DIR / "daily_candidate_model_layer_packet_latest.md"
@@ -753,6 +755,106 @@ def attach_model_recommendations(signals: pd.DataFrame, recommendations: pd.Data
     return out
 
 
+def _join_unique(values: pd.Series) -> str:
+    seen: list[str] = []
+    for value in values:
+        item = safe_str(value)
+        if item and item not in seen:
+            seen.append(item)
+    return " | ".join(seen)
+
+
+def annotate_frontpage_uniqueness(signals: pd.DataFrame) -> pd.DataFrame:
+    """Mark one representative row per stock/bucket for front-page rendering.
+
+    Full model signals intentionally keep one row per stock per model. The front
+    page needs a separate uniqueness contract so a multi-model hit does not look
+    like three different recommendations.
+    """
+
+    if signals.empty:
+        out = signals.copy()
+        out["frontpage_display_allowed"] = ""
+        out["frontpage_duplicate_reason"] = ""
+        return out
+
+    out = signals.copy()
+    out["frontpage_display_allowed"] = "False"
+    out["frontpage_duplicate_reason"] = "not_pdf_core_model"
+    out["_score_num"] = pd.to_numeric(out.get("model_score", ""), errors="coerce").fillna(-999)
+    out["_rank_num"] = pd.to_numeric(out.get("model_rank", ""), errors="coerce").fillna(999999)
+
+    core_mask = out.get("model_group", "").astype(str).eq("pdf_core_model")
+    core = out[core_mask].sort_values(
+        ["report_bucket", "stock_id", "_score_num", "_rank_num", "model_id"],
+        ascending=[True, True, False, True, True],
+    )
+    allowed_idx = core.drop_duplicates(["report_bucket", "stock_id"], keep="first").index
+    duplicate_idx = core.index.difference(allowed_idx)
+
+    out.loc[core.index, "frontpage_duplicate_reason"] = ""
+    out.loc[allowed_idx, "frontpage_display_allowed"] = "True"
+    out.loc[duplicate_idx, "frontpage_duplicate_reason"] = "duplicate_stock_already_shown_on_frontpage"
+    return out.drop(columns=["_score_num", "_rank_num"])
+
+
+def build_frontpage_unique(signals: pd.DataFrame) -> pd.DataFrame:
+    if signals.empty:
+        return pd.DataFrame()
+
+    work = signals[signals.get("model_group", "").astype(str).eq("pdf_core_model")].copy()
+    if work.empty:
+        return pd.DataFrame()
+    work["_score_num"] = pd.to_numeric(work.get("model_score", ""), errors="coerce").fillna(-999)
+    work["_rank_num"] = pd.to_numeric(work.get("model_rank", ""), errors="coerce").fillna(999999)
+    work = work.sort_values(
+        ["report_bucket", "stock_id", "_score_num", "_rank_num", "model_id"],
+        ascending=[True, True, False, True, True],
+    )
+
+    rows: list[dict[str, Any]] = []
+    for (bucket, stock_id), part in work.groupby(["report_bucket", "stock_id"], dropna=False):
+        top = part.iloc[0]
+        rows.append(
+            {
+                "signal_date": text(top, "signal_date"),
+                "report_bucket": bucket,
+                "stock_id": stock_id,
+                "stock_name": text(top, "stock_name"),
+                "industry": text(top, "industry"),
+                "effective_primary_theme": text(top, "effective_primary_theme", "primary_theme"),
+                "effective_structural_theme_bucket": text(top, "effective_structural_theme_bucket"),
+                "effective_mainstream_label": text(top, "effective_mainstream_label"),
+                "primary_model_id": text(top, "model_id"),
+                "primary_model_name_zh": text(top, "model_name_zh"),
+                "primary_model_score": top.get("model_score", ""),
+                "primary_model_rank": top.get("model_rank", ""),
+                "model_hit_count": len(part),
+                "model_hits": _join_unique(part["model_name_zh"]),
+                "model_hit_ids": _join_unique(part["model_id"]),
+                "tdcc_status": text(top, "tdcc_status"),
+                "warrant_flow_signal": text(top, "warrant_flow_signal"),
+                "volume_ratio": top.get("volume_ratio", ""),
+                "risk_penalty_tags": _join_unique(part["risk_penalty_tags"]),
+                "score_components": text(top, "score_components"),
+                "next_confirmation": text(top, "next_confirmation"),
+                "frontpage_usage": "Use this table for first-page representatives; full model hits remain in daily_candidate_model_signals_latest.csv.",
+            }
+        )
+
+    out = pd.DataFrame(rows)
+    if out.empty:
+        return out
+    out["_bucket_order"] = out["report_bucket"].map({"mainstream": 1, "non_mainstream": 2, "unclassified": 3}).fillna(9)
+    out["_score_num"] = pd.to_numeric(out.get("primary_model_score", ""), errors="coerce").fillna(-999)
+    out = out.sort_values(
+        ["_bucket_order", "_score_num", "model_hit_count", "stock_id"],
+        ascending=[True, False, False, True],
+    ).reset_index(drop=True)
+    out["frontpage_unique_rank"] = out.groupby("report_bucket", dropna=False).cumcount() + 1
+    return out.drop(columns=["_bucket_order", "_score_num"])
+
+
 def build_signals(candidates: pd.DataFrame, specs: list[ModelSpec], signal_date: str) -> pd.DataFrame:
     rows: list[dict[str, Any]] = []
     if candidates.empty:
@@ -1102,7 +1204,13 @@ def write_md_table(path: Path, title: str, df: pd.DataFrame, intro: list[str] | 
     path.write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
 
 
-def write_packet(params: pd.DataFrame, signals: pd.DataFrame, rotation: pd.DataFrame, signal_date: str) -> None:
+def write_packet(
+    params: pd.DataFrame,
+    signals: pd.DataFrame,
+    frontpage_unique: pd.DataFrame,
+    rotation: pd.DataFrame,
+    signal_date: str,
+) -> None:
     lines = [
         "# DAILY CANDIDATE MODEL LAYER PACKET",
         "",
@@ -1111,6 +1219,7 @@ def write_packet(params: pd.DataFrame, signals: pd.DataFrame, rotation: pd.DataF
         "- contract: model main condition met means the stock enters that model candidate list.",
         "- scoring: risk, TDCC, warrant, revenue, position, and structure adjust rank inside the model; mainstream/non-mainstream only splits reports.",
         "- PDF rule: do not hard-code model count; render models from `daily_candidate_model_signals_latest.csv` and parameters from `daily_candidate_model_parameters_latest.md`.",
+        "- Front-page rule: use `daily_candidate_frontpage_unique_latest.csv/md` for first-page representatives; do not repeat the same stock three times because it hit multiple models.",
         "",
         "## Model Parameters",
         "",
@@ -1136,6 +1245,25 @@ def write_packet(params: pd.DataFrame, signals: pd.DataFrame, rotation: pd.DataF
     else:
         counts = signals.groupby(["model_id", "model_name_zh", "report_bucket"], dropna=False).size().reset_index(name="count")
         lines.append(counts.to_markdown(index=False))
+    lines.extend(["", "## Front Page Unique Representatives", ""])
+    if frontpage_unique.empty:
+        lines.append("_No front-page rows._")
+    else:
+        cols = [
+            "frontpage_unique_rank",
+            "report_bucket",
+            "stock_id",
+            "stock_name",
+            "effective_primary_theme",
+            "primary_model_name_zh",
+            "primary_model_score",
+            "model_hit_count",
+            "model_hits",
+            "risk_penalty_tags",
+            "next_confirmation",
+        ]
+        available_cols = [col for col in cols if col in frontpage_unique.columns]
+        lines.append(frontpage_unique[available_cols].head(60).to_markdown(index=False))
     lines.extend(["", "## Group Rotation", ""])
     if rotation.empty:
         lines.append("_No group rotation rows._")
@@ -1174,6 +1302,8 @@ def main() -> int:
     signals = append_volume_breakout_signals(signals, candidates, signal_date)
     signals = append_tdcc_short_term(signals, signal_date)
     signals = attach_model_recommendations(signals, recommendations)
+    signals = annotate_frontpage_uniqueness(signals)
+    frontpage_unique = build_frontpage_unique(signals)
     write_csv(signals, SIGNALS_CSV)
     write_md_table(
         SIGNALS_MD,
@@ -1185,6 +1315,18 @@ def main() -> int:
             "- `selection_semantics` explicitly prevents selected rows from being rewritten as contradictory no-buy rows.",
         ],
         limit=300,
+    )
+    write_csv(frontpage_unique, FRONTPAGE_UNIQUE_CSV)
+    write_md_table(
+        FRONTPAGE_UNIQUE_MD,
+        "Daily Candidate Front Page Unique Representatives",
+        frontpage_unique,
+        [
+            "- Use this table for the first page of curated PDFs.",
+            "- A stock can hit multiple models, but the first page should show it once per report bucket.",
+            "- `model_hits` preserves the full multi-model context; complete model lists remain in `daily_candidate_model_signals_latest.csv`.",
+        ],
+        limit=120,
     )
 
     rotation = build_rotation(candidates, signal_date)
@@ -1199,11 +1341,13 @@ def main() -> int:
         ],
         limit=80,
     )
-    write_packet(params, signals, rotation, signal_date)
+    write_packet(params, signals, frontpage_unique, rotation, signal_date)
     print(f"Saved: {PARAMETERS_CSV}")
     print(f"Saved: {PARAMETERS_MD}")
     print(f"Saved: {SIGNALS_CSV} rows={len(signals)}")
     print(f"Saved: {SIGNALS_MD}")
+    print(f"Saved: {FRONTPAGE_UNIQUE_CSV} rows={len(frontpage_unique)}")
+    print(f"Saved: {FRONTPAGE_UNIQUE_MD}")
     print(f"Saved: {ROTATION_CSV} rows={len(rotation)}")
     print(f"Saved: {ROTATION_MD}")
     print(f"Saved: {PACKET_MD}")
