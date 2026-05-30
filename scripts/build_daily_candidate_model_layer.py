@@ -382,6 +382,38 @@ def score_pullback(row: pd.Series) -> tuple[float, list[str], list[str]]:
     return score, comps, risks
 
 
+def score_w_bottom(row: pd.Series) -> tuple[float, list[str], list[str]]:
+    score, comps, risks = model_score_common(row)
+    second_low_gap = num(row, "second_low_gap_pct")
+    neckline_distance = num(row, "distance_to_neckline_pct")
+    vol = num(row, "volume_ratio")
+    if not math.isnan(second_low_gap):
+        if 0 <= second_low_gap <= 4:
+            score += 8
+            comps.append("second low higher and controlled +8")
+        elif -1.5 <= second_low_gap < 0:
+            score += 5
+            comps.append("second low slight undercut +5")
+        elif 4 < second_low_gap <= 8:
+            score += 3
+            comps.append("second low higher but stretched +3")
+    if not math.isnan(neckline_distance):
+        if -3 <= neckline_distance <= 0:
+            score += 8
+            comps.append("near neckline from below +8")
+        elif 0 < neckline_distance <= 0.5:
+            score += 5
+            comps.append("neckline just reclaimed +5")
+        elif -5 <= neckline_distance < -3:
+            score += 3
+            comps.append("approaching neckline +3")
+    if not math.isnan(vol) and vol >= 1.2:
+        add = min(5, (vol - 1.0) * 2)
+        score += add
+        comps.append(f"right-side volume support +{add:.1f}")
+    return score, comps, risks
+
+
 def cond_volume_breakout(row: pd.Series) -> bool:
     vol = num(row, "volume_ratio")
     breakout_type = text(row, "volume_breakout_type", "breakout_type").lower()
@@ -405,8 +437,27 @@ def cond_revenue_unreacted(row: pd.Series) -> bool:
     return strong_revenue(row) and in_recent_range(row, 5)
 
 
+def double_bottom_structure_ok(row: pd.Series) -> bool:
+    """Require actual double-bottom geometry, not only a broad pattern flag."""
+    if text(row, "category", "original_category").lower() != "pattern":
+        return False
+    current_stage = stage(row)
+    if current_stage in {"breakout_confirmed", "platform_breakout", "neckline_breakout"}:
+        return False
+    second_low_gap = num(row, "second_low_gap_pct")
+    neckline_distance = num(row, "distance_to_neckline_pct")
+    if math.isnan(second_low_gap) or math.isnan(neckline_distance):
+        return False
+    # W-bottom right side means the second low is higher and price is still
+    # challenging the neckline from below. Confirmed breakouts belong to other
+    # breakout models, not this early right-side model.
+    second_low_ok = 0.0 <= second_low_gap <= 4.0
+    neckline_ok = -3.0 <= neckline_distance < 0.0
+    return second_low_ok and neckline_ok
+
+
 def cond_w_bottom_right(row: pd.Series) -> bool:
-    return flag(row, "w_bottom_flag") and (flag(row, "w_bottom_right_side_flag") or stage(row) == "w_bottom_right_side")
+    return double_bottom_structure_ok(row)
 
 
 def cond_neckline_challenge(row: pd.Series) -> bool:
@@ -496,7 +547,7 @@ def build_specs() -> list[ModelSpec]:
             "不與嚴格突破混成同一條件。",
             "隔日開盤為進場原點；右側低點不可跌破，接近頸線後需放量確認。",
             cond_w_bottom_right,
-            model_score_common,
+            score_w_bottom,
         ),
         ModelSpec(
             "near_high_neckline_challenge",

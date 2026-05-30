@@ -17,6 +17,7 @@ from build_daily_candidate_model_layer import (  # noqa: E402
     cond_pullback,
     cond_tdcc_stealth,
     cond_volume_breakout,
+    cond_w_bottom_right,
     model_score_common,
     report_bucket,
 )
@@ -92,6 +93,53 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             ema23_slope_pct="0.3",
         )
         self.assertTrue(cond_pullback(row))
+
+    def test_w_bottom_requires_double_bottom_geometry_not_generic_pattern_flag(self) -> None:
+        broad_flag = make_row(
+            category="range_rebound",
+            w_bottom_flag="True",
+            w_bottom_right_side_flag="True",
+            pattern_stage="neckline_challenge",
+            second_low_gap_pct="",
+            distance_to_neckline_pct="",
+        )
+        self.assertFalse(cond_w_bottom_right(broad_flag))
+
+        generic_platform = make_row(
+            category="pattern",
+            w_bottom_flag="True",
+            w_bottom_right_side_flag="True",
+            pattern_stage="platform_right_side",
+            second_low_gap_pct="",
+            distance_to_neckline_pct="",
+        )
+        self.assertFalse(cond_w_bottom_right(generic_platform))
+
+        clean_w = make_row(
+            category="pattern",
+            pattern_stage="near_neckline",
+            w_bottom_flag="",
+            w_bottom_right_side_flag="",
+            second_low_gap_pct="1.5",
+            distance_to_neckline_pct="-2.0",
+        )
+        self.assertTrue(cond_w_bottom_right(clean_w))
+
+        slight_undercut = make_row(
+            category="pattern",
+            pattern_stage="near_neckline",
+            second_low_gap_pct="-0.5",
+            distance_to_neckline_pct="-2.0",
+        )
+        self.assertFalse(cond_w_bottom_right(slight_undercut))
+
+        already_broken = make_row(
+            category="pattern",
+            pattern_stage="breakout_confirmed",
+            second_low_gap_pct="1.5",
+            distance_to_neckline_pct="1.0",
+        )
+        self.assertFalse(cond_w_bottom_right(already_broken))
 
     def test_risk_penalty_does_not_cancel_model_entry(self) -> None:
         row = make_row(
