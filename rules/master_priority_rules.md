@@ -93,6 +93,7 @@ Daily report generation and research/backfill jobs must remain separated.
 - Heavy research, long backtests, parameter grids, raw URL health sweeps, and TDCC historical backfill must not be required for a normal daily run.
 - Research/backtest refreshes belong in `research_backtest_pipeline.yml` or a dedicated manual workflow.
 - Model-parameter evidence tables such as `daily_model_parameter_research_latest.csv/md` and `daily_model_parameter_research_horizon_detail_latest.csv/md` belong to the research/backtest layer. They should use signal-date next trading day open as entry and keep D+1..D+10 close-return and high-return statistics separate.
+- `daily_model_parameter_recommendations_latest.csv/md` is the program-side translation from backtest evidence into reporting usage. It can mark parameters as core, secondary, score-only, intraday-target watch, or research-only, but it still must not silently change core model weights.
 - Research/backtest cadence must not be hidden behind an internal date gate inside the workflow. If the workflow appears to run, it must actually run the requested research steps. Biweekly cadence should be controlled by an external scheduler such as Apps Script, or by an explicit manual dispatch.
 - TDCC history backfill belongs in `tdcc_history_backfill.yml` and must use bounded request and rebuild windows unless explicitly running a full research rebuild.
 - Daily reports may consume the latest available research outputs as specialty sections, but stale or missing research outputs must not block daily report generation.

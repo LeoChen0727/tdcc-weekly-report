@@ -1,6 +1,6 @@
 # ChatGPT Indicator Usage Guide
 
-- generated_at: `2026-05-30 12:05:06 UTC`
+- generated_at: `2026-05-30 20:23:28 台北標準時間`
 - main_price_date: `20260529`
 - purpose: Use program-side classifications first. ChatGPT should explain and synthesize, not re-rank from memory.
 - rule: If memory, PDF, or ad-hoc interpretation conflicts with program-side fields, use the structured program-side fields.
@@ -32,6 +32,7 @@
 | Independent daily candidate models | output/latest/daily_candidate_model_layer_packet_latest.md | daily_candidate_model_parameters, daily_candidate_model_signals, model_rank, report_bucket, selection_semantics | models=15 / signals=1488 / packet=ready | Main condition met means selected into that model. Score/risk ranks inside the model. Mainstream/non-mainstream is a report split, not a score cap or veto. |
 | Group fund rotation | output/latest/daily_candidate_group_rotation_latest.csv | theme, stock_count, volume_expansion_3x_count, volume_expansion_ratio, leader_1/2/3 | rows=1 | Theme-flow section only. It is not an individual stock buy model. |
 | Daily model parameter research | output/latest/daily_model_parameter_research_latest.csv | model_id, parameter_set_id, entry_basis, selected_stock_days, best_horizon_by_avg_return, best_d1_to_d10_close_win_rate_pct, sample_status | rows=74 / details=814 / ok_first_pass=74 | Research/backtest layer only. Entry is next trading day open; D+1-D+10 close/high endpoints are in the horizon detail table. Use to tune future parameters, not as PDF-side veto logic. |
+| Daily model parameter recommendations | output/latest/daily_model_parameter_recommendations_latest.csv | model_id, parameter_set_id, recommended_usage, recommended_close_exit_horizon, best_close_win_rate_pct, model_revision_note | rows=74 / intraday_target_watch=56; research_only=14; promote_to_pdf_core=2; score_component_only=2 | Program-side conversion from backtest to reporting usage. Use this for whether a parameter is core, secondary, intraday-target only, or research-only. |
 | Daily short-term specialty packet | output/latest/daily_short_term_specialty_packet_latest.md | Usage Contract, TDCC Overheated Short-Term Edge, Next-Open +10pct Touch Strict Parameter Research, D+5/D+10 tables | ready | Mandatory daily-report specialty packet. Read it even when the six fixed categories are already available. |
 | Daily candidate decision | output/latest/daily_candidate_decision_latest.csv | decision_priority, decision_score, pattern_mapped_category, downgrade_flags, risk_tags, why_selected, why_downgraded, next_confirmation | C_watch_only=650; B_confirm_needed=84; A_priority_watch=13 | Primary source for daily candidate ranking and downgrade. |
 | Repeat appearance | output/latest/candidate_repeat_appearance_latest.csv | repeat_appear_label, consecutive_appear_days_any_category, appear_count_5d/10d/20d | stale_signal=230; repeated_but_no_breakout=124; continued_overheated=49; first_seen=48; continued_2_3d=21; continued_many_days=10 | Use as persistence/staleness signal, never as a standalone upgrade. |
@@ -70,6 +71,7 @@
 - Mainstream/non-mainstream is a report split and comparison group only. It must not cap score, veto a signal, or remove a stock from a model list.
 - Use `model_score`, `model_rank`, `score_components`, `risk_penalty_tags`, and `report_bucket` for per-model ranking. Curated PDFs should show top rows per model/bucket; full PDFs should keep the complete model list.
 - Use `daily_model_parameter_research_latest.csv` and `daily_model_parameter_research_horizon_detail_latest.csv` only as model-parameter evidence. The backtest entry basis is signal-date next open; close-return and high-return endpoints are separate for D+1 through D+10.
+- Use `daily_model_parameter_recommendations_latest.csv` as the program-side interpretation of the research table: `promote_to_pdf_core`, `pdf_secondary_watch`, `score_component_only`, `intraday_target_watch`, or `research_only`. Do not let the PDF layer invent these statuses.
 - Do not promote research-only rules to a PDF core section until the program-side model parameter file explicitly promotes them.
 - If the model layer is missing, fall back to `daily_candidate_decision_chatgpt_packet_latest.md` or `daily_candidate_decision_latest.csv` and explicitly mark model-layer data unavailable.
 - Also read `daily_short_term_specialty_packet_latest.md`; it is the mandatory source for standalone D+1-D+10 short-term specialty summary plus D+5/D+10 detail sections.
